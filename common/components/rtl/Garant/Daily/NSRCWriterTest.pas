@@ -53,13 +53,13 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , SysUtils
  , l3Chars
  , evTextFormatter
  , evSimpleTextPainter
  , evNSRCPlusWriter
  , evEmptyTableEliminator
+ , TestFrameWork
 ;
 
 procedure TNSRCWriterTest.SomeFormatToNSRC(aReader: Tk2CustomFileReader;

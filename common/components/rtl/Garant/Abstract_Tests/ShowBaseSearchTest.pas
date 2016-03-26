@@ -58,10 +58,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , F1LikeFormWithBS_Form
  {$IfEnd} // NOT Defined(NoVCM)
- , TestFrameWork
  , Types
  , Messages
  , Windows
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

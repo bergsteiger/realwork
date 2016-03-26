@@ -52,10 +52,10 @@ uses
  , Windows
  , Messages
  , vtCheckBox
- , TestFrameWork
  , ddAppConfigUtils
  , ConfigStorageStub
  , ddAppConfig
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , FromWithPanel_Form
  {$IfEnd} // NOT Defined(NoVCM)

@@ -17,11 +17,11 @@ uses
 type
  TArchiStorageTestWithRename = {abstract} class(TArchiStorageTest)
   protected
+   function NeedTestRenaming: Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function NeedTestRenaming: Boolean; override;
  end;//TArchiStorageTestWithRename
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,15 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TArchiStorageTestWithRename.NeedTestRenaming: Boolean;
+//#UC START# *4FBB73390387_4FBB6C0D0366_var*
+//#UC END# *4FBB73390387_4FBB6C0D0366_var*
+begin
+//#UC START# *4FBB73390387_4FBB6C0D0366_impl*
+ Result := true;
+//#UC END# *4FBB73390387_4FBB6C0D0366_impl*
+end;//TArchiStorageTestWithRename.NeedTestRenaming
 
 function TArchiStorageTestWithRename.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -44,15 +53,6 @@ function TArchiStorageTestWithRename.GetModelElementGUID: AnsiString;
 begin
  Result := '4FBB6C0D0366';
 end;//TArchiStorageTestWithRename.GetModelElementGUID
-
-function TArchiStorageTestWithRename.NeedTestRenaming: Boolean;
-//#UC START# *4FBB73390387_4FBB6C0D0366_var*
-//#UC END# *4FBB73390387_4FBB6C0D0366_var*
-begin
-//#UC START# *4FBB73390387_4FBB6C0D0366_impl*
- Result := true;
-//#UC END# *4FBB73390387_4FBB6C0D0366_impl*
-end;//TArchiStorageTestWithRename.NeedTestRenaming
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

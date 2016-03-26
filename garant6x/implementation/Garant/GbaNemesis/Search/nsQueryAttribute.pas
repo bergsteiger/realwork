@@ -1,71 +1,75 @@
 unit nsQueryAttribute;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsQueryAttribute.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Common For Shell And Monitoring::Search::Search::nsQueryAttributes::nsQueryAttribute
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsQueryAttribute" MUID: (54E5C126001D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  BaseTreeSupportUnit,
-  DynamicTreeUnit,
-  SearchUnit,
-  l3Interfaces,
-  l3CacheableBase,
-  l3Types
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nsQueryInterfaces,
-  l3CObjectRefList,
-  Classes,
-  evQueryCardInt
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SearchDomainInterfaces,
-  l3ProtoDataContainer,
-  nsTypes,
-  BaseSearchInterfaces,
-  ContextHistoryInterfaces,
-  l3Memory,
-  l3Core,
-  l3Except,
-  nevBase,
-  nevTools,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , nsQueryInterfaces
+ , evQueryCardInt
+ , l3Interfaces
+ , l3CObjectRefList
+ , DynamicTreeUnit
+ , SearchDomainInterfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+ , nsTypes
+ , nevBase
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchUnit
+ , ContextHistoryInterfaces
+ , nevTools
+ , BaseTreeSupportUnit
+ , afwInterfaces
+ , BaseSearchInterfaces
+;
 
 type
+ TqaReqClass = class of TqaReq;
+
  TqaReq = class(Tl3CacheableBase, IqaReq)
   {* Реквизит. }
- private
- // private fields
-   f_MgrSearch : IqaMgrSearch;
-   f_EditorReq : IevReq;
-    {* Интерфейс реквизита из редактора.}
- protected
- // property methods
+  private
+   f_MgrSearch: IqaMgrSearch;
+   f_EditorReq: IevReq;
+    {* Интерфейс реквизита из редактора. }
+  protected
    function pm_GetMulti: Boolean; virtual;
- protected
- // realized methods
+   function GetCanAdd: Boolean; virtual;
+   function GetCanOpenTree: Boolean; virtual;
+   function DoGetReqAsString(const aSeparator: Il3CString): Il3CString; virtual;
+   procedure DoMakeFieldValue; virtual;
+   procedure DoLoad; virtual;
+   procedure DoOpenSelectWindow; virtual;
+   procedure DoCheckAttr; virtual;
+   procedure DoReqClear; virtual;
+   procedure MakeChangedReq;
+   function IsAttrValid: Boolean;
+   procedure DoOperateChanged; virtual;
+   function BeforeGroupCollapse: Boolean; virtual;
+   procedure SaveReq; virtual; abstract;
+   function IsEditEmpty: Boolean;
+   procedure DeleteEmptyValues;
+   function CheckFromControl(out aExceptionClass: EaqExceptionClass;
+    out aMessage: AnsiString;
+    out aControl: IevEditorControlField): Boolean; virtual;
+   function DoGetReqAsStrings: Il3StringsEx; virtual;
    function Get_EditorReq: IevReq;
    function Get_TagCaption: Il3CString;
    function Get_TagName: Il3CString;
@@ -73,106 +77,59 @@ type
    procedure Set_Modified(aValue: Boolean);
    function Get_Multi: Boolean;
    function CanAdd: Boolean;
-     {* Проверяет можно ли добавить еще одно поле к реквизиту }
+    {* Проверяет можно ли добавить еще одно поле к реквизиту }
    function CanOpenTree: Boolean;
-     {* Проверяет можно ли открыть окно выбора реквизита }
+    {* Проверяет можно ли открыть окно выбора реквизита }
    function GetReqAsString(const aSeparator: Il3CString): Il3CString;
    procedure Save;
-     {* Сигнатура метода Save }
    procedure Load;
-     {* Сигнатура метода Load }
    procedure CheckAttr;
-     {* Сигнатура метода CheckAttr }
    procedure ReqClear;
-     {* Сигнатура метода ReqClear }
    procedure OpenSelectWindow;
-     {* Сигнатура метода OpenSelectWindow }
    function IsSet(aElseDefaultValue: Boolean = False): Boolean;
-     {* Если True, то в компоненте установлено значение }
+    {* Если True, то в компоненте установлено значение }
    procedure MakeFieldValue;
-     {* Сигнатура метода MakeFieldValue }
    function GetReqAsStrings: Il3StringsEx;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function GetCanAdd: Boolean; virtual;
-   function GetCanOpenTree: Boolean; virtual;
-   function DoGetReqAsString(const aSeparator: Il3CString): Il3CString; virtual;
-   procedure DoMakeFieldValue; virtual;
-     {* Сигнатура метода DoMakeFieldValue }
-   procedure DoLoad; virtual;
-     {* Сигнатура метода DoLoad }
-   procedure DoOpenSelectWindow; virtual;
-     {* Сигнатура метода DoOpenSelectWindow }
-   procedure DoCheckAttr; virtual;
-     {* Сигнатура метода DoCheckAttr }
-   procedure DoReqClear; virtual;
-     {* Сигнатура метода DoReqClear }
-   procedure MakeChangedReq;
-     {* Сигнатура метода MakeChangedReq }
-   function IsAttrValid: Boolean;
-   procedure DoOperateChanged; virtual;
-     {* Сигнатура метода DoOperateChanged }
-   function BeforeGroupCollapse: Boolean; virtual;
-   procedure SaveReq; virtual; abstract;
-     {* Сигнатура метода SaveReq }
-   function IsEditEmpty: Boolean;
-   procedure DeleteEmptyValues;
-     {* Сигнатура метода DeleteEmptyValues }
-   function CheckFromControl(out aExceptionClass: EaqExceptionClass;
-     out aMessage: AnsiString;
-     out aControl: IevEditorControlField): Boolean; virtual;
-   function DoGetReqAsStrings: Il3StringsEx; virtual;
- public
- // public methods
+  public
    procedure Clear; virtual;
-     {* Сигнатура метода Clear }
    constructor Create(const aMgrSearch: IqaMgrSearch;
-     const aEditorReq: IevReq); reintroduce; virtual;
+    const aEditorReq: IevReq); reintroduce; virtual;
    class function Make(const aMgrSearch: IqaMgrSearch;
-     const aEditorReq: IevReq): IqaReq;
- public
- // public properties
+    const aEditorReq: IevReq): IqaReq;
+  public
    property Multi: Boolean
-     read pm_GetMulti;
+    read pm_GetMulti;
  end;//TqaReq
 
  TqaAttrInfo = class(Tl3CObjectRefList)
   {* Предназначен для сохранения IDictNode и типа операции. }
- private
- // private fields
-   f_NodeBase : INodeBase;
-    {* Поле для свойства NodeBase}
-   f_Mask : Il3CString;
-    {* Поле для свойства Mask}
-   f_Oper : TLogicOperation;
-    {* Поле для свойства Oper}
- protected
- // overridden protected methods
+  private
+   f_NodeBase: INodeBase;
+    {* Поле для свойства NodeBase }
+   f_Mask: Il3CString;
+    {* Поле для свойства Mask }
+   f_Oper: TLogicOperation;
+    {* Поле для свойства Oper }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(aOper: TLogicOperation = loNone;
-     const aNode: INodeBase = nil;
-     const aMask: Il3CString = nil); reintroduce; virtual;
- public
- // public properties
+  public
+   constructor Create(aOper: TLogicOperation = SearchDomainInterfaces.loNone;
+    const aNode: INodeBase = nil;
+    const aMask: Il3CString = nil); reintroduce; virtual;
+  public
    property NodeBase: INodeBase
-     read f_NodeBase;
+    read f_NodeBase;
    property Mask: Il3CString
-     read f_Mask
-     write f_Mask;
+    read f_Mask
+    write f_Mask;
    property Oper: TLogicOperation
-     read f_Oper
-     write f_Oper;
+    read f_Oper
+    write f_Oper;
  end;//TqaAttrInfo
 
  {$Define l3Items_NoSort}
@@ -187,261 +144,186 @@ type
 
  TqaEventReq = class(TqaReq, IevModelListener)
   {* Класс создан исключительно ради поддержки интерфейса IevModelListner. }
- protected
- // property methods
+  protected
    function pm_GetAdditionalFilter: TnsFilterType; virtual;
- protected
- // realized methods
-   procedure EnterPressed;
-     {* Обработчик нажатия на "Enter". }
-   function GetHint(const aValue: IevEditorControl): Il3CString;
-     {* Возвращает хинт для поля. }
-   function GetImage(Index: Integer;
-    var aImages: InevImageList): Integer;
-     {* Возвращает номер картинки и массив картинок для отображения. }
-   function AnalyzeString(const aValue: Il3CString;
-    out aRslt: Il3CString): Boolean;
-     {* Анализ добавленной строки, если нужно, то убирает лишние символы или разбивает строку на несколько. }
-   function CheckValue(const aField: IevEditorControlField): Boolean;
-     {* Проверка значения поля. }
-   procedure TextChange;
-     {* Обработчик изменения текста в поле. }
-   procedure AfterSetText(const aField: IevEditorControlField);
-     {* Обработчик присвоения полю нового значения - срабатывает после выбора
-          значения в дереве. }
-   procedure HyperLinkClick;
-     {* Обработка щелчка по ссылки. }
- protected
- // protected methods
    function GetHint4Button(const aValue: IevEditorControlButton): Il3CString; virtual;
    function StateIndex2LogicState(aValue: Integer): TLogicOperation;
    procedure DoEnterPressed; virtual;
-     {* Сигнатура метода DoEnterPressed }
    procedure DoTextChange; virtual;
-     {* Сигнатура метода DoTextChange }
    procedure DoAfterSetText(const aField: IevEditorControlField); virtual;
    function DoAnalyzeString(const aValue: Il3CString;
-     out aRslt: Il3CString): Boolean; virtual;
+    out aRslt: Il3CString): Boolean; virtual;
    procedure DoHyperLinkClick; virtual;
-     {* Сигнатура метода DoHyperLinkClick }
- protected
- // protected properties
+   procedure EnterPressed;
+    {* Обработчик нажатия на "Enter". }
+   function GetHint(const aValue: IevEditorControl): Il3CString;
+    {* Возвращает хинт для поля. }
+   function GetImage(Index: Integer;
+    var aImages: InevImageList): Integer;
+    {* Возвращает номер картинки и массив картинок для отображения. }
+   function AnalyzeString(const aValue: Il3CString;
+    out aRslt: Il3CString): Boolean;
+    {* Анализ добавленной строки, если нужно, то убирает лишние символы или разбивает строку на несколько. }
+   function CheckValue(const aField: IevEditorControlField): Boolean;
+    {* Проверка значения поля. }
+   procedure TextChange;
+    {* Обработчик изменения текста в поле. }
+   procedure AfterSetText(const aField: IevEditorControlField);
+    {* Обработчик присвоения полю нового значения - срабатывает после выбора
+          значения в дереве. }
+   procedure HyperLinkClick;
+    {* Обработка щелчка по ссылки. }
+  protected
    property AdditionalFilter: TnsFilterType
-     read pm_GetAdditionalFilter;
+    read pm_GetAdditionalFilter;
  end;//TqaEventReq
 
  TqaReqComboField = class(TqaEventReq)
- protected
- // overridden protected methods
+  protected
    function DoGetReqAsString(const aSeparator: Il3CString): Il3CString; override;
    procedure DoCheckAttr; override;
-     {* Сигнатура метода DoCheckAttr }
    procedure DoReqClear; override;
-     {* Сигнатура метода DoReqClear }
    function CheckFromControl(out aExceptionClass: EaqExceptionClass;
-     out aMessage: AnsiString;
-     out aControl: IevEditorControlField): Boolean; override;
+    out aMessage: AnsiString;
+    out aControl: IevEditorControlField): Boolean; override;
  end;//TqaReqComboField
 
  TqaCustomReqContext = class(TqaReqComboField)
- protected
- // realized methods
+  protected
    procedure SaveReq; override;
-     {* Сигнатура метода SaveReq }
- public
- // realized methods
-   procedure FillReqListAsString(const aList: Il3StringsEx);
- protected
- // overridden protected methods
    function GetCanAdd: Boolean; override;
    procedure DoLoad; override;
-     {* Сигнатура метода DoLoad }
    procedure DoEnterPressed; override;
-     {* Сигнатура метода DoEnterPressed }
    function DoAnalyzeString(const aValue: Il3CString;
-     out aRslt: Il3CString): Boolean; override;
+    out aRslt: Il3CString): Boolean; override;
    function DoGetReqAsStrings: Il3StringsEx; override;
- public
- // overridden public methods
+  public
+   procedure FillReqListAsString(const aList: Il3StringsEx);
    constructor Create(const aMgrSearch: IqaMgrSearch;
-     const aEditorReq: IevReq); override;
+    const aEditorReq: IevReq); override;
  end;//TqaCustomReqContext
 
  TqaReqContext = class(TqaCustomReqContext, IqaMorphoReq)
- protected
- // overridden protected methods
+  protected
    procedure DoCheckAttr; override;
-     {* Сигнатура метода DoCheckAttr }
  end;//TqaReqContext
 
  TqaCommonStrReq = class(TqaCustomReqContext)
- protected
- // overridden protected methods
+  protected
    procedure DoLoad; override;
-     {* Сигнатура метода DoLoad }
    procedure DoReqClear; override;
-     {* Сигнатура метода DoReqClear }
    procedure SaveReq; override;
-     {* Сигнатура метода SaveReq }
    procedure DoTextChange; override;
-     {* Сигнатура метода DoTextChange }
  end;//TqaCommonStrReq
 
  TqaReqMemo = class(TqaCommonStrReq)
  end;//TqaReqMemo
 
  TqaReqStr = class(TqaCommonStrReq)
- protected
- // overridden property methods
+  protected
    function pm_GetMulti: Boolean; override;
- protected
- // overridden protected methods
    procedure DoMakeFieldValue; override;
-     {* Сигнатура метода DoMakeFieldValue }
    procedure DoLoad; override;
-     {* Сигнатура метода DoLoad }
    procedure DoReqClear; override;
-     {* Сигнатура метода DoReqClear }
  end;//TqaReqStr
 
  TqaReqEMail = class(TqaReqStr)
- protected
- // overridden protected methods
+  protected
    procedure DoCheckAttr; override;
-     {* Сигнатура метода DoCheckAttr }
    function CheckFromControl(out aExceptionClass: EaqExceptionClass;
-     out aMessage: AnsiString;
-     out aControl: IevEditorControlField): Boolean; override;
+    out aMessage: AnsiString;
+    out aControl: IevEditorControlField): Boolean; override;
  end;//TqaReqEMail
 
  TqaReqAttribute = class(TqaReqComboField, IqaReqAttribute)
- private
- // private methods
+  private
    function Root: INodeBase;
    procedure SetAttributesToView;
-     {* Сигнатура метода SetAttributesToView }
- protected
- // realized methods
-   procedure GetAttributesFromView(const aRoot: INodeBase);
-     {* Вычитываем флаги операций из дерева (создаёт поля ввода) и устанавливаем фокус в последнее добавленное поле }
-   procedure SaveReq; override;
-     {* Сигнатура метода SaveReq }
- protected
- // overridden protected methods
-   function GetCanAdd: Boolean; override;
-   function GetCanOpenTree: Boolean; override;
-   procedure DoLoad; override;
-     {* Сигнатура метода DoLoad }
-   procedure DoOpenSelectWindow; override;
-     {* Сигнатура метода DoOpenSelectWindow }
-   procedure DoOperateChanged; override;
-     {* Сигнатура метода DoOperateChanged }
-   procedure DoEnterPressed; override;
-     {* Сигнатура метода DoEnterPressed }
-   procedure DoAfterSetText(const aField: IevEditorControlField); override;
-   function DoGetReqAsStrings: Il3StringsEx; override;
- protected
- // protected methods
+  protected
    procedure SaveFieldToQuery(const aValue: IevEditorControlField);
    function FieldLogicOperation(const aValue: IevEditorFieldWithTree): TLogicOperation;
    procedure LoadField(const aValue: IevEditorFieldWithTree;
-     aLogicOper: TLogicOperation;
-     const aNode: INodeBase);
+    aLogicOper: TLogicOperation;
+    const aNode: INodeBase);
+   procedure GetAttributesFromView(const aRoot: INodeBase);
+    {* Вычитываем флаги операций из дерева (создаёт поля ввода) и устанавливаем фокус в последнее добавленное поле }
+   procedure SaveReq; override;
+   function GetCanAdd: Boolean; override;
+   function GetCanOpenTree: Boolean; override;
+   procedure DoLoad; override;
+   procedure DoOpenSelectWindow; override;
+   procedure DoOperateChanged; override;
+   procedure DoEnterPressed; override;
+   procedure DoAfterSetText(const aField: IevEditorControlField); override;
+   function DoGetReqAsStrings: Il3StringsEx; override;
  end;//TqaReqAttribute
 
  TqaReqNum = class(TqaReqAttribute)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
  end;//TqaReqNum
 
  TqaReqDate = class(TqaEventReq, IqaDateReq)
- protected
- // realized methods
+  protected
    function Get_StartDate: TDateTime;
    procedure Set_StartDate(aValue: TDateTime);
    function Get_EndDate: TDateTime;
    procedure Set_EndDate(aValue: TDateTime);
    procedure SaveReq; override;
-     {* Сигнатура метода SaveReq }
- protected
- // overridden property methods
-   function pm_GetMulti: Boolean; override;
- protected
- // overridden protected methods
    procedure InitFields; override;
+   function pm_GetMulti: Boolean; override;
    function GetCanOpenTree: Boolean; override;
    procedure DoLoad; override;
-     {* Сигнатура метода DoLoad }
    procedure DoOpenSelectWindow; override;
-     {* Сигнатура метода DoOpenSelectWindow }
    procedure DoCheckAttr; override;
-     {* Сигнатура метода DoCheckAttr }
    procedure DoReqClear; override;
-     {* Сигнатура метода DoReqClear }
    function BeforeGroupCollapse: Boolean; override;
    function CheckFromControl(out aExceptionClass: EaqExceptionClass;
-     out aMessage: AnsiString;
-     out aControl: IevEditorControlField): Boolean; override;
+    out aMessage: AnsiString;
+    out aControl: IevEditorControlField): Boolean; override;
    function GetHint4Button(const aValue: IevEditorControlButton): Il3CString; override;
    procedure DoEnterPressed; override;
-     {* Сигнатура метода DoEnterPressed }
    procedure DoHyperLinkClick; override;
-     {* Сигнатура метода DoHyperLinkClick }
- public
- // public properties
+  public
    property StartDate: TDateTime
-     read Get_StartDate
-     write Set_StartDate;
+    read Get_StartDate
+    write Set_StartDate;
    property EndDate: TDateTime
-     read Get_EndDate
-     write Set_EndDate;
+    read Get_EndDate
+    write Set_EndDate;
  end;//TqaReqDate
 
  TqaReqPhone = class(TqaEventReq, IqaPhoneReq)
- protected
- // realized methods
+  protected
    function Get_Code: Il3CString;
    procedure Set_Code(const aValue: Il3CString);
    function Get_Number: Il3CString;
    procedure Set_Number(const aValue: Il3CString);
    procedure SaveReq; override;
-     {* Сигнатура метода SaveReq }
- protected
- // overridden property methods
    function pm_GetMulti: Boolean; override;
- protected
- // overridden protected methods
    function GetCanOpenTree: Boolean; override;
    procedure DoLoad; override;
-     {* Сигнатура метода DoLoad }
    procedure DoReqClear; override;
-     {* Сигнатура метода DoReqClear }
- public
- // public properties
+  public
    property Code: Il3CString
-     read Get_Code
-     write Set_Code;
+    read Get_Code
+    write Set_Code;
    property Number: Il3CString
-     read Get_Number
-     write Set_Number;
+    read Get_Number
+    write Set_Number;
  end;//TqaReqPhone
 
- TqaReqClass = class of TqaReq;
-
  TqaDateReqDataHolder = class(TvcmBase, IqaDateReqDataHolder)
- private
- // private fields
-   f_ReqCaption : Il3CString;
-    {* Поле для свойства ReqCaption}
-   f_StartDate : TDateTime;
-    {* Поле для свойства StartDate}
-   f_EndDate : TDateTime;
-    {* Поле для свойства EndDate}
-   f_IsOk : Boolean;
-    {* Поле для свойства IsOk}
- protected
- // realized methods
+  private
+   f_ReqCaption: Il3CString;
+    {* Поле для свойства ReqCaption }
+   f_StartDate: TDateTime;
+    {* Поле для свойства StartDate }
+   f_EndDate: TDateTime;
+    {* Поле для свойства EndDate }
+   f_IsOk: Boolean;
+    {* Поле для свойства IsOk }
+  protected
    function Get_StartDate: TDateTime;
    procedure Set_StartDate(aValue: TDateTime);
    function Get_EndDate: TDateTime;
@@ -451,87 +333,79 @@ type
    function Get_ReqCaption: Il3CString;
    function IsStartDateEmpty: Boolean;
    function IsEndDateEmpty: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aReq: IqaDateReq); reintroduce;
    class function Make(const aReq: IqaDateReq): IqaDateReqDataHolder;
- public
- // public properties
+  public
    property ReqCaption: Il3CString
-     read Get_ReqCaption;
+    read Get_ReqCaption;
    property StartDate: TDateTime
-     read Get_StartDate
-     write Set_StartDate;
+    read Get_StartDate
+    write Set_StartDate;
    property EndDate: TDateTime
-     read Get_EndDate
-     write Set_EndDate;
+    read Get_EndDate
+    write Set_EndDate;
    property IsOk: Boolean
-     read Get_IsOk
-     write Set_IsOk;
+    read Get_IsOk
+    write Set_IsOk;
  end;//TqaDateReqDataHolder
 
+{$If NOT Defined(Monitorings)}
+ InsMisatakesCorrectorForNemesis = InsMistakesCorrector;
+{$IfEnd} // NOT Defined(Monitorings)
 
- {$If not defined(Admin) AND not defined(Monitorings)}
- InsMisatakesCorrectorForNemesis = BaseSearchInterfaces.InsMistakesCorrector;
- {$IfEnd} //not Admin AND not Monitorings
-
- TqaMgrSearch = class(TvcmBase, IqaMgrSearch, IevAdapterModel {$If not defined(Admin) AND not defined(Monitorings)}, InsMisatakesCorrectorForNemesis{$IfEnd} //not Admin AND not Monitorings
+ TqaMgrSearch = class(TvcmBase, IqaMgrSearch, IevAdapterModel{$If NOT Defined(Monitorings)}
+ , InsMisatakesCorrectorForNemesis
+ {$IfEnd} // NOT Defined(Monitorings)
  )
- private
- // private fields
-   f_FormName : Il3CString;
-   f_OnDateQuery : TOnDateQuery;
-   f_OnNeedExecQuery : TNotifyEvent;
-   f_OnModifiedChanged : TNotifyEvent;
-   f_InModifiedChanged : Integer;
-   f_Modified : Integer;
-   f_GettingAttributesFromView : Integer;
-  {$If not defined(Admin) AND not defined(Monitorings)}
-   f_ContextHistory : InsContextSearchHistory;
-  {$IfEnd} //not Admin AND not Monitorings
-   f_FirstErrorContextReq : IevEditorControlField;
-   f_IsQueryNew : Boolean;
-    {* Поле для свойства IsQueryNew}
-   f_QueryType : TlgQueryType;
-    {* Поле для свойства QueryType}
-   f_QueryCard : IevQueryCard;
-    {* Поле для свойства QueryCard}
-   f_FromHistory : Boolean;
-    {* Поле для свойства FromHistory}
-   f_Query : IQuery;
-    {* Поле для свойства Query}
- private
- // private methods
+  private
+   f_FormName: Il3CString;
+   f_OnDateQuery: TOnDateQuery;
+   f_OnNeedExecQuery: TNotifyEvent;
+   f_OnModifiedChanged: TNotifyEvent;
+   f_InModifiedChanged: Integer;
+   f_Modified: Integer;
+   f_GettingAttributesFromView: Integer;
+   {$If NOT Defined(Monitorings)}
+   f_ContextHistory: InsContextSearchHistory;
+   {$IfEnd} // NOT Defined(Monitorings)
+   f_FirstErrorContextReq: IevEditorControlField;
+   f_IsQueryNew: Boolean;
+    {* Поле для свойства IsQueryNew }
+   f_QueryType: TlgQueryType;
+    {* Поле для свойства QueryType }
+   f_QueryCard: IevQueryCard;
+    {* Поле для свойства QueryCard }
+   f_FromHistory: Boolean;
+    {* Поле для свойства FromHistory }
+   f_Query: IQuery;
+    {* Поле для свойства Query }
+  private
    function NeedSettings: Boolean;
    procedure FinishEntering;
-     {* Сигнатура метода FinishEntering }
    function MakeGroupsSettingId: Il3CString;
    function MakeDescriptionsSettingId: Il3CString;
- protected
- // property methods
-   {$If not defined(Admin) AND not defined(Monitorings)}
-
-   {$IfEnd} //not Admin AND not Monitorings
- protected
- // realized methods
+  protected
+   procedure DoFocusStartField; virtual;
+   function GetCurrentEditorReq: IevReq;
+   procedure IterateAttrsF(anAction: Tl3FreeAction);
+   procedure CallModifiedChanged;
+   procedure ClearAttrs;
    function Get_Query: IQuery;
    procedure Set_Query(const aValue: IQuery);
    procedure FocusStartField;
-     {* Устанавливает фокус на первый элемент. }
+    {* Устанавливает фокус на первый элемент. }
    procedure LimitCharsReached(const aControl: IevEditorControl);
    function GetTreeFromAdapter(const aReq: Il3CString): InevSimpleTree;
-     {* Получает дерево с адаптера. }
+    {* Получает дерево с адаптера. }
    procedure EscPressed(const aField: IevEditorFieldWithTree);
-     {* Обработчик закрытия дерева по ESC. }
-   {$If not defined(Admin) AND not defined(Monitorings)}
+    {* Обработчик закрытия дерева по ESC. }
+   {$If NOT Defined(Monitorings)}
    function Get_HistoryList: Il3StringsEx;
-   {$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(Monitorings)
    function ModelListener(const aReq: IevReq): IevModelListener;
    function GetPromptTreeFromAdapter: InevSimpleTree;
    procedure NotifyContextWrong;
@@ -544,159 +418,125 @@ type
    function Get_FromHistory: Boolean;
    procedure Set_FromHistory(aValue: Boolean);
    function Get_QueryCard: IevQueryCard;
-   {$If not defined(Admin) AND not defined(Monitorings)}
+   {$If NOT Defined(Monitorings)}
    function Get_HistoryValues: IvcmStrings;
-   {$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(Monitorings)
    procedure FinishOpenTree(const aRoot: INodeBase;
-     const aReq: IqaReq);
+    const aReq: IqaReq);
    procedure ReadSettings;
-     {* Сигнатура метода ReadSettings }
    procedure WriteSettings;
-     {* Сигнатура метода WriteSettings }
    procedure InitUpdate;
-     {* Сигнатура метода InitUpdate }
    procedure Clear;
-     {* Сигнатура метода Clear }
    procedure ClearContextMistakes;
-     {* Сигнатура метода ClearContextMistakes }
    procedure AddValue(const aView: InevView);
    procedure DeleteValue(const aView: InevView);
    procedure DeleteAll;
-     {* Сигнатура метода DeleteAll }
    procedure OpenSelectWindow;
-     {* Сигнатура метода OpenSelectWindow }
    function ChangableReq: IqaReq;
-     {* Изменяющаеся значение при изменении реквизита }
+    {* Изменяющаеся значение при изменении реквизита }
    function GetName4Query: Il3CString;
-     {* Возвращают имя для запроса }
+    {* Возвращают имя для запроса }
    function GetCurrentReq: IqaReq;
-     {* Возвращает текущий реквизит для контрола }
+    {* Возвращает текущий реквизит для контрола }
    function GetCurrentField: IevEditorControlField;
-     {* Возвращает текущий контрол для реквизита }
+    {* Возвращает текущий контрол для реквизита }
    procedure CreateTree(const aQueryCard: IevQueryCard);
    function Save(aIgnoreError: Boolean = False): Boolean;
    procedure Load;
-     {* Сигнатура метода Load }
    function IsSomeFieldFilled(aElseDefaultValue: Boolean): Boolean;
    procedure ChangeStateAll(aExpand: Boolean);
    procedure Check;
-     {* Сигнатура метода Check }
    procedure DateQuery(const aValue: IqaDateReq);
    procedure ModifiedChanged(aValue: Boolean);
    procedure ExecQuery;
-     {* Сигнатура метода ExecQuery }
    function FindAttr(const aTagName: Il3CString): IqaReq;
-     {* Возвращает атрибут по имени }
+    {* Возвращает атрибут по имени }
    function GettingFromView: Boolean;
    procedure StartGettingFromView;
-     {* Сигнатура метода StartGettingFromView }
    procedure FinishGettingFromView;
-     {* Сигнатура метода FinishGettingFromView }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure DoFocusStartField; virtual;
-     {* Сигнатура метода DoFocusStartField }
-   function GetCurrentEditorReq: IevReq;
-   procedure IterateAttrsF(anAction: Tl3FreeAction);
-   procedure CallModifiedChanged;
-     {* Сигнатура метода CallModifiedChanged }
-   procedure ClearAttrs;
-     {* Сигнатура метода ClearAttrs }
- public
- // public methods
-    {$If not defined(Admin) AND not defined(Monitorings)}
+  public
+   {$If NOT Defined(Monitorings)}
    constructor Create(const aQuery: IQuery;
-     aQueryType: TlgQueryType;
-     const aFormName: Il3CString;
-     OnDateQuery: TOnDateQuery;
-     OnNeedExecQuery: TNotifyEvent;
-     OnModifiedChanged: TNotifyEvent;
-     const aContextHistory: InsContextSearchHistory); reintroduce; overload;  virtual;
-    {$IfEnd} //not Admin AND not Monitorings
-    {$If not defined(Admin) AND not defined(Monitorings)}
+    aQueryType: TlgQueryType;
+    const aFormName: Il3CString;
+    OnDateQuery: TOnDateQuery;
+    OnNeedExecQuery: TNotifyEvent;
+    OnModifiedChanged: TNotifyEvent;
+    const aContextHistory: InsContextSearchHistory); reintroduce; overload; virtual;
+   {$IfEnd} // NOT Defined(Monitorings)
+   {$If NOT Defined(Monitorings)}
    class function Make(const aQuery: IQuery;
-     aQueryType: TlgQueryType;
-     const aFormName: Il3CString;
-     OnDateQuery: TOnDateQuery;
-     OnNeedExecQuery: TNotifyEvent;
-     OnModifiedChanged: TNotifyEvent;
-     const aContextHistory: InsContextSearchHistory): IqaMgrSearch; reintroduce; overload; 
-     {* Сигнатура фабрики TqaMgrSearch.Make }
-    {$IfEnd} //not Admin AND not Monitorings
-    {$If defined(Monitorings) AND not defined(Admin)}
+    aQueryType: TlgQueryType;
+    const aFormName: Il3CString;
+    OnDateQuery: TOnDateQuery;
+    OnNeedExecQuery: TNotifyEvent;
+    OnModifiedChanged: TNotifyEvent;
+    const aContextHistory: InsContextSearchHistory): IqaMgrSearch; reintroduce; overload;
+   {$IfEnd} // NOT Defined(Monitorings)
+   {$If Defined(Monitorings)}
    constructor Create(const aQuery: IQuery;
-     aQueryType: TlgQueryType;
-     const aFormName: Il3CString;
-     OnDateQuery: TOnDateQuery;
-     OnNeedExecQuery: TNotifyEvent;
-     OnModifiedChanged: TNotifyEvent); overload;  virtual;
-    {$IfEnd} //Monitorings AND not Admin
-    {$If defined(Monitorings) AND not defined(Admin)}
+    aQueryType: TlgQueryType;
+    const aFormName: Il3CString;
+    OnDateQuery: TOnDateQuery;
+    OnNeedExecQuery: TNotifyEvent;
+    OnModifiedChanged: TNotifyEvent); reintroduce; overload; virtual;
+   {$IfEnd} // Defined(Monitorings)
+   {$If Defined(Monitorings)}
    class function Make(const aQuery: IQuery;
-     aQueryType: TlgQueryType;
-     const aFormName: Il3CString;
-     OnDateQuery: TOnDateQuery;
-     OnNeedExecQuery: TNotifyEvent;
-     OnModifiedChanged: TNotifyEvent): IqaMgrSearch; reintroduce; overload; 
-     {* Сигнатура фабрики TqaMgrSearch.Make$1 }
-    {$IfEnd} //Monitorings AND not Admin
+    aQueryType: TlgQueryType;
+    const aFormName: Il3CString;
+    OnDateQuery: TOnDateQuery;
+    OnNeedExecQuery: TNotifyEvent;
+    OnModifiedChanged: TNotifyEvent): IqaMgrSearch; reintroduce; overload;
+   {$IfEnd} // Defined(Monitorings)
    procedure CheckAttrs;
-     {* Сигнатура метода CheckAttrs }
-    {$If not defined(Admin) AND not defined(Monitorings)}
+   {$If NOT Defined(Monitorings)}
    procedure CheckMorpho;
-     {* Сигнатура метода CheckMorpho }
-    {$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(Monitorings)
    procedure InitFocus;
-     {* Сигнатура метода InitFocus }
- public
- // public properties
+  public
    property Modified: Boolean
-     read Get_Modified
-     write Set_Modified;
+    read Get_Modified
+    write Set_Modified;
    property IsQueryNew: Boolean
-     read Get_IsQueryNew;
+    read Get_IsQueryNew;
    property QueryType: TlgQueryType
-     read Get_QueryType;
-     {$If not defined(Admin) AND not defined(Monitorings)}
+    read Get_QueryType;
+   {$If NOT Defined(Monitorings)}
    property HistoryValues: IvcmStrings
-     read Get_HistoryValues;
-     {$IfEnd} //not Admin AND not Monitorings
+    read Get_HistoryValues;
+   {$IfEnd} // NOT Defined(Monitorings)
    property QueryCard: IevQueryCard
-     read Get_QueryCard
-     write f_QueryCard;
+    read Get_QueryCard
+    write f_QueryCard;
    property FromHistory: Boolean
-     read Get_FromHistory
-     write Set_FromHistory;
+    read Get_FromHistory
+    write Set_FromHistory;
    property Query: IQuery
-     read Get_Query
-     write Set_Query;
+    read Get_Query
+    write Set_Query;
  end;//TqaMgrSearch
 
  TqaMgrSearchForNewsLine = class(TqaMgrSearch)
- protected
- // overridden protected methods
+  protected
    procedure DoFocusStartField; override;
-     {* Сигнатура метода DoFocusStartField }
  end;//TqaMgrSearchForNewsLine
 
  _afwApplicationDataUpdate_Parent_ = Tl3CacheableBase;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- TqaHistory = class(_afwApplicationDataUpdate_, IqaHistory {$If not defined(NoVCM)}, IvcmBase{$IfEnd} //not NoVCM
+ TqaHistory = class(_afwApplicationDataUpdate_, IqaHistory{$If NOT Defined(NoVCM)}
+ , IvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_Filter : INode;
-   f_Query : IQuery;
-   f_DataReset : Boolean;
-   f_ConsultationSened : Boolean;
- protected
- // realized methods
+  private
+   f_Filter: INode;
+   f_Query: IQuery;
+   f_DataReset: Boolean;
+   f_ConsultationSened: Boolean;
+  protected
    function Get_Query: IQuery;
    procedure Set_Query(const aValue: IQuery);
    function Get_Filter: INode;
@@ -704,100 +544,95 @@ type
    function Get_DataReset: Boolean;
    function Get_ConsultationSended: Boolean;
    procedure Set_ConsultationSended(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
  end;//TqaHistory
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  SearchRes,
-  afwFacade,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  k2Tags,
-  evControlParaTools,
-  evdTypes,
-  DebugStr,
-  nsContextUtils,
-  nsQueryUtils,
-  l3Bits,
-  l3TreeInterfaces,
-  l3ImageList
-  {$If not defined(NoVCM)}
-  ,
-  vcmStringList
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Math,
-  nsVerifyValue,
-  nsAttributeTreeCacheNew,
-  nsLogicOperationToFlags,
-  nsTreeUtils,
-  nsAttributeTreeStruct,
-  nsINodeWrap,
-  nsUtils,
-  SystemStr,
-  l3Date,
-  nsConst,
-  bsUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  bsInterfaces,
-  evTypes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evSearch,
-  evdStyles
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  nsSearchClasses,
-  nsQuery,
-  nsbQueryUtils
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , k2Tags
+ , evControlParaTools
+ , evdTypes
+ , DebugStr
+ , l3Base
+ , nsContextUtils
+ , nsQueryUtils
+ , l3Bits
+ , l3TreeInterfaces
+ , l3ImageList
+ {$If NOT Defined(NoVCM)}
+ , vcmStringList
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Math
+ , nsVerifyValue
+ , nsAttributeTreeCacheNew
+ , nsLogicOperationToFlags
+ , nsTreeUtils
+ , nsAttributeTreeStruct
+ , nsINodeWrap
+ , afwFacade
+ , nsUtils
+ , SystemStr
+ , l3Date
+ , nsConst
+ , bsUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsInterfaces
+ , evTypes
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evSearch
+ , evdStyles
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , nsSearchClasses
+ , nsQuery
+ , nsbQueryUtils
+ , l3MinMax
+ , RTLConsts
+ , SearchRes
+;
 
 type
- T01Range = 0..1;
+ T01Range = 0 .. 1;
 
  T01String = array [T01Range] of AnsiString;
 
 const
-  { nsQA const }
- cSrc : T01String = (AT_ANNO_KIND, AT_ANNO_USER);
+ cSrc: T01String = (AT_ANNO_KIND, AT_ANNO_USER);
 
-// start class TqaReq
+function TqaReq.pm_GetMulti: Boolean;
+//#UC START# *54E5C23D016C_46839C340218get_var*
+var
+ l_EdComboReq: IevComboReq;
+//#UC END# *54E5C23D016C_46839C340218get_var*
+begin
+//#UC START# *54E5C23D016C_46839C340218get_impl*
+ if not Supports(f_EditorReq, IevComboReq, l_EdComboReq) then
+  Assert(False);
+ Result := l_EdComboReq.IsMulti;
+//#UC END# *54E5C23D016C_46839C340218get_impl*
+end;//TqaReq.pm_GetMulti
 
 function TqaReq.GetCanAdd: Boolean;
 //#UC START# *54E5C2970015_46839C340218_var*
@@ -956,7 +791,7 @@ begin
 end;//TqaReq.Clear
 
 constructor TqaReq.Create(const aMgrSearch: IqaMgrSearch;
-  const aEditorReq: IevReq);
+ const aEditorReq: IevReq);
 //#UC START# *54E5D16303C7_46839C340218_var*
 //#UC END# *54E5D16303C7_46839C340218_var*
 begin
@@ -968,7 +803,7 @@ begin
 end;//TqaReq.Create
 
 class function TqaReq.Make(const aMgrSearch: IqaMgrSearch;
-  const aEditorReq: IevReq): IqaReq;
+ const aEditorReq: IevReq): IqaReq;
 //#UC START# *54E5D18A0342_46839C340218_var*
 var
  l_Req: TqaReq;
@@ -1022,8 +857,8 @@ begin
 end;//TqaReq.Make
 
 function TqaReq.CheckFromControl(out aExceptionClass: EaqExceptionClass;
-  out aMessage: AnsiString;
-  out aControl: IevEditorControlField): Boolean;
+ out aMessage: AnsiString;
+ out aControl: IevEditorControlField): Boolean;
 //#UC START# *54E5D1D5002A_46839C340218_var*
 //#UC END# *54E5D1D5002A_46839C340218_var*
 begin
@@ -1043,19 +878,6 @@ begin
  Result := nil;
 //#UC END# *555495740306_46839C340218_impl*
 end;//TqaReq.DoGetReqAsStrings
-
-function TqaReq.pm_GetMulti: Boolean;
-//#UC START# *54E5C23D016C_46839C340218get_var*
-var
- l_EdComboReq: IevComboReq;
-//#UC END# *54E5C23D016C_46839C340218get_var*
-begin
-//#UC START# *54E5C23D016C_46839C340218get_impl*
- if not Supports(f_EditorReq, IevComboReq, l_EdComboReq) then
-  Assert(False);
- Result := l_EdComboReq.IsMulti;
-//#UC END# *54E5C23D016C_46839C340218get_impl*
-end;//TqaReq.pm_GetMulti
 
 function TqaReq.Get_EditorReq: IevReq;
 //#UC START# *46837AD603C1_46839C340218get_var*
@@ -1118,6 +940,7 @@ begin
 end;//TqaReq.Get_Multi
 
 function TqaReq.CanAdd: Boolean;
+ {* Проверяет можно ли добавить еще одно поле к реквизиту }
 //#UC START# *5232E8A0007B_46839C340218_var*
 //#UC END# *5232E8A0007B_46839C340218_var*
 begin
@@ -1127,6 +950,7 @@ begin
 end;//TqaReq.CanAdd
 
 function TqaReq.CanOpenTree: Boolean;
+ {* Проверяет можно ли открыть окно выбора реквизита }
 //#UC START# *5232E8C7000B_46839C340218_var*
 //#UC END# *5232E8C7000B_46839C340218_var*
 begin
@@ -1193,6 +1017,7 @@ begin
 end;//TqaReq.OpenSelectWindow
 
 function TqaReq.IsSet(aElseDefaultValue: Boolean = False): Boolean;
+ {* Если True, то в компоненте установлено значение }
 //#UC START# *5232E98101D5_46839C340218_var*
 //#UC END# *5232E98101D5_46839C340218_var*
 begin
@@ -1220,6 +1045,7 @@ begin
 end;//TqaReq.GetReqAsStrings
 
 procedure TqaReq.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_46839C340218_var*
 //#UC END# *479731C50290_46839C340218_var*
 begin
@@ -1231,21 +1057,15 @@ begin
 end;//TqaReq.Cleanup
 
 procedure TqaReq.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_MgrSearch := nil;
- {$IfEnd} //not Admin
- {$If not defined(Admin)}
  f_EditorReq := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TqaReq.ClearFields
-// start class TqaAttrInfo
 
-constructor TqaAttrInfo.Create(aOper: TLogicOperation = loNone;
-  const aNode: INodeBase = nil;
-  const aMask: Il3CString = nil);
+constructor TqaAttrInfo.Create(aOper: TLogicOperation = SearchDomainInterfaces.loNone;
+ const aNode: INodeBase = nil;
+ const aMask: Il3CString = nil);
 //#UC START# *54EC8AD90376_46839CF3010E_var*
 //#UC END# *54EC8AD90376_46839CF3010E_var*
 begin
@@ -1258,6 +1078,7 @@ begin
 end;//TqaAttrInfo.Create
 
 procedure TqaAttrInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_46839CF3010E_var*
 //#UC END# *479731C50290_46839CF3010E_var*
 begin
@@ -1269,23 +1090,17 @@ begin
 end;//TqaAttrInfo.Cleanup
 
 procedure TqaAttrInfo.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_NodeBase := nil;
- {$IfEnd} //not Admin
- {$If not defined(Admin)}
  Mask := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TqaAttrInfo.ClearFields
-// start class TqaAttrInfoList
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4683A23B009A_var*
 //#UC END# *47B2C42A0163_4683A23B009A_var*
 begin
@@ -1293,9 +1108,10 @@ begin
  Assert(False);
 //#UC END# *47B2C42A0163_4683A23B009A_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4683A23B009A_var*
 //#UC END# *47B99D4503A2_4683A23B009A_var*
 begin
@@ -1309,7 +1125,14 @@ type _Instance_R_ = TqaAttrInfoList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-// start class TqaEventReq
+function TqaEventReq.pm_GetAdditionalFilter: TnsFilterType;
+//#UC START# *54F3492A02D7_4683A2660291get_var*
+//#UC END# *54F3492A02D7_4683A2660291get_var*
+begin
+//#UC START# *54F3492A02D7_4683A2660291get_impl*
+ Result := GetAdditionalFilter(Get_TagName, f_MgrSearch.QueryType);
+//#UC END# *54F3492A02D7_4683A2660291get_impl*
+end;//TqaEventReq.pm_GetAdditionalFilter
 
 function TqaEventReq.GetHint4Button(const aValue: IevEditorControlButton): Il3CString;
 //#UC START# *54F3482A0186_4683A2660291_var*
@@ -1381,7 +1204,7 @@ begin
 end;//TqaEventReq.DoAfterSetText
 
 function TqaEventReq.DoAnalyzeString(const aValue: Il3CString;
-  out aRslt: Il3CString): Boolean;
+ out aRslt: Il3CString): Boolean;
 //#UC START# *54F348BB012A_4683A2660291_var*
 //#UC END# *54F348BB012A_4683A2660291_var*
 begin
@@ -1399,16 +1222,8 @@ begin
 //#UC END# *54F348D700E2_4683A2660291_impl*
 end;//TqaEventReq.DoHyperLinkClick
 
-function TqaEventReq.pm_GetAdditionalFilter: TnsFilterType;
-//#UC START# *54F3492A02D7_4683A2660291get_var*
-//#UC END# *54F3492A02D7_4683A2660291get_var*
-begin
-//#UC START# *54F3492A02D7_4683A2660291get_impl*
- Result := GetAdditionalFilter(Get_TagName, f_MgrSearch.QueryType);
-//#UC END# *54F3492A02D7_4683A2660291get_impl*
-end;//TqaEventReq.pm_GetAdditionalFilter
-
 procedure TqaEventReq.EnterPressed;
+ {* Обработчик нажатия на "Enter". }
 //#UC START# *47CD611402BF_4683A2660291_var*
 //#UC END# *47CD611402BF_4683A2660291_var*
 begin
@@ -1418,6 +1233,7 @@ begin
 end;//TqaEventReq.EnterPressed
 
 function TqaEventReq.GetHint(const aValue: IevEditorControl): Il3CString;
+ {* Возвращает хинт для поля. }
 //#UC START# *47CD61200100_4683A2660291_var*
 var
  l_Button: IevEditorControlButton;
@@ -1436,7 +1252,8 @@ begin
 end;//TqaEventReq.GetHint
 
 function TqaEventReq.GetImage(Index: Integer;
-  var aImages: InevImageList): Integer;
+ var aImages: InevImageList): Integer;
+ {* Возвращает номер картинки и массив картинок для отображения. }
 //#UC START# *47CD617100AE_4683A2660291_var*
 {$IfNDef Admin}
 var
@@ -1471,7 +1288,8 @@ begin
 end;//TqaEventReq.GetImage
 
 function TqaEventReq.AnalyzeString(const aValue: Il3CString;
-  out aRslt: Il3CString): Boolean;
+ out aRslt: Il3CString): Boolean;
+ {* Анализ добавленной строки, если нужно, то убирает лишние символы или разбивает строку на несколько. }
 //#UC START# *47CD61990018_4683A2660291_var*
 //#UC END# *47CD61990018_4683A2660291_var*
 begin
@@ -1481,6 +1299,7 @@ begin
 end;//TqaEventReq.AnalyzeString
 
 function TqaEventReq.CheckValue(const aField: IevEditorControlField): Boolean;
+ {* Проверка значения поля. }
 //#UC START# *47CD659200E3_4683A2660291_var*
 //#UC END# *47CD659200E3_4683A2660291_var*
 begin
@@ -1490,6 +1309,7 @@ begin
 end;//TqaEventReq.CheckValue
 
 procedure TqaEventReq.TextChange;
+ {* Обработчик изменения текста в поле. }
 //#UC START# *47CD659E0297_4683A2660291_var*
 //#UC END# *47CD659E0297_4683A2660291_var*
 begin
@@ -1499,6 +1319,8 @@ begin
 end;//TqaEventReq.TextChange
 
 procedure TqaEventReq.AfterSetText(const aField: IevEditorControlField);
+ {* Обработчик присвоения полю нового значения - срабатывает после выбора
+          значения в дереве. }
 //#UC START# *47CD6608039E_4683A2660291_var*
 //#UC END# *47CD6608039E_4683A2660291_var*
 begin
@@ -1508,6 +1330,7 @@ begin
 end;//TqaEventReq.AfterSetText
 
 procedure TqaEventReq.HyperLinkClick;
+ {* Обработка щелчка по ссылки. }
 //#UC START# *47CD6629039E_4683A2660291_var*
 //#UC END# *47CD6629039E_4683A2660291_var*
 begin
@@ -1515,7 +1338,6 @@ begin
  DoHyperLinkClick;
 //#UC END# *47CD6629039E_4683A2660291_impl*
 end;//TqaEventReq.HyperLinkClick
-// start class TqaReqComboField
 
 function TqaReqComboField.DoGetReqAsString(const aSeparator: Il3CString): Il3CString;
 //#UC START# *54E5C312006A_4683A2A102E6_var*
@@ -1604,8 +1426,8 @@ begin
 end;//TqaReqComboField.DoReqClear
 
 function TqaReqComboField.CheckFromControl(out aExceptionClass: EaqExceptionClass;
-  out aMessage: AnsiString;
-  out aControl: IevEditorControlField): Boolean;
+ out aMessage: AnsiString;
+ out aControl: IevEditorControlField): Boolean;
 //#UC START# *54E5D1D5002A_4683A2A102E6_var*
 var
  l_Index: Integer;
@@ -1646,7 +1468,6 @@ begin
  end;//Result
 //#UC END# *54E5D1D5002A_4683A2A102E6_impl*
 end;//TqaReqComboField.CheckFromControl
-// start class TqaCustomReqContext
 
 procedure TqaCustomReqContext.FillReqListAsString(const aList: Il3StringsEx);
 //#UC START# *5232EAFF0300_54F34A4103A4_var*
@@ -1752,7 +1573,7 @@ begin
 end;//TqaCustomReqContext.DoLoad
 
 constructor TqaCustomReqContext.Create(const aMgrSearch: IqaMgrSearch;
-  const aEditorReq: IevReq);
+ const aEditorReq: IevReq);
 //#UC START# *54E5D16303C7_54F34A4103A4_var*
 var
  I: Integer;
@@ -1781,7 +1602,7 @@ begin
 end;//TqaCustomReqContext.DoEnterPressed
 
 function TqaCustomReqContext.DoAnalyzeString(const aValue: Il3CString;
-  out aRslt: Il3CString): Boolean;
+ out aRslt: Il3CString): Boolean;
 //#UC START# *54F348BB012A_54F34A4103A4_var*
 var
  l_ControlListener: InevControlListener;
@@ -1830,7 +1651,6 @@ begin
  end;//for l_Index
 //#UC END# *555495740306_54F34A4103A4_impl*
 end;//TqaCustomReqContext.DoGetReqAsStrings
-// start class TqaReqContext
 
 procedure TqaReqContext.DoCheckAttr;
 //#UC START# *54E5C744010C_4683A2BA0332_var*
@@ -1867,7 +1687,6 @@ begin
  end;//Supports(Get_EditorReq, IevComboReq, l_Req) and l_Req.IsContext
 //#UC END# *54E5C744010C_4683A2BA0332_impl*
 end;//TqaReqContext.DoCheckAttr
-// start class TqaCommonStrReq
 
 procedure TqaCommonStrReq.DoLoad;
 //#UC START# *54E5C6B2036C_4683A2D201B0_var*
@@ -1914,7 +1733,6 @@ begin
  Set_Modified(True);
 //#UC END# *54F3487402BE_4683A2D201B0_impl*
 end;//TqaCommonStrReq.DoTextChange
-// start class TqaReqStr
 
 function TqaReqStr.pm_GetMulti: Boolean;
 //#UC START# *54E5C23D016C_4683A300002Fget_var*
@@ -2004,7 +1822,6 @@ begin
  inherited;
 //#UC END# *54E5C772012F_4683A300002F_impl*
 end;//TqaReqStr.DoReqClear
-// start class TqaReqEMail
 
 procedure TqaReqEMail.DoCheckAttr;
 //#UC START# *54E5C744010C_4683A3160045_var*
@@ -2022,8 +1839,8 @@ begin
 end;//TqaReqEMail.DoCheckAttr
 
 function TqaReqEMail.CheckFromControl(out aExceptionClass: EaqExceptionClass;
-  out aMessage: AnsiString;
-  out aControl: IevEditorControlField): Boolean;
+ out aMessage: AnsiString;
+ out aControl: IevEditorControlField): Boolean;
 //#UC START# *54E5D1D5002A_4683A3160045_var*
 var
  l_Emails: Tl3CStringArray;
@@ -2050,7 +1867,6 @@ begin
  end;
 //#UC END# *54E5D1D5002A_4683A3160045_impl*
 end;//TqaReqEMail.CheckFromControl
-// start class TqaReqAttribute
 
 function TqaReqAttribute.Root: INodeBase;
 //#UC START# *54F42EA70211_4683A3310076_var*
@@ -2156,8 +1972,8 @@ begin
 end;//TqaReqAttribute.FieldLogicOperation
 
 procedure TqaReqAttribute.LoadField(const aValue: IevEditorFieldWithTree;
-  aLogicOper: TLogicOperation;
-  const aNode: INodeBase);
+ aLogicOper: TLogicOperation;
+ const aNode: INodeBase);
 //#UC START# *54F42FD60076_4683A3310076_var*
 var
  l_State: Integer;
@@ -2177,6 +1993,7 @@ begin
 end;//TqaReqAttribute.LoadField
 
 procedure TqaReqAttribute.GetAttributesFromView(const aRoot: INodeBase);
+ {* Вычитываем флаги операций из дерева (создаёт поля ввода) и устанавливаем фокус в последнее добавленное поле }
 //#UC START# *5232EA510243_4683A3310076_var*
 var
  l_Index: TLogicOperation;
@@ -2507,7 +2324,6 @@ Result := TvcmStringList.Make;
    end;//try..finally
 //#UC END# *555495740306_4683A3310076_impl*
 end;//TqaReqAttribute.DoGetReqAsStrings
-// start class TqaReqNum
 
 procedure TqaReqNum.InitFields;
 //#UC START# *47A042E100E2_4683A373026F_var*
@@ -2526,7 +2342,6 @@ begin
  end;//try..finally
 //#UC END# *47A042E100E2_4683A373026F_impl*
 end;//TqaReqNum.InitFields
-// start class TqaReqDate
 
 function TqaReqDate.Get_StartDate: TDateTime;
 //#UC START# *5232EB600109_4683A39B0078get_var*
@@ -2743,8 +2558,8 @@ begin
 end;//TqaReqDate.BeforeGroupCollapse
 
 function TqaReqDate.CheckFromControl(out aExceptionClass: EaqExceptionClass;
-  out aMessage: AnsiString;
-  out aControl: IevEditorControlField): Boolean;
+ out aMessage: AnsiString;
+ out aControl: IevEditorControlField): Boolean;
 //#UC START# *54E5D1D5002A_4683A39B0078_var*
  procedure CheckDate(const aDateField: IevEditorCalendarField);
  {* - проверяет правильность даты и выводит сообщение. }
@@ -2801,7 +2616,6 @@ begin
  f_MgrSearch.DateQuery(Self);
 //#UC END# *54F348D700E2_4683A39B0078_impl*
 end;//TqaReqDate.DoHyperLinkClick
-// start class TqaReqPhone
 
 function TqaReqPhone.Get_Code: Il3CString;
 //#UC START# *468395A20036_4683A447009Eget_var*
@@ -2928,7 +2742,6 @@ begin
  Number := nil;
 //#UC END# *54E5C772012F_4683A447009E_impl*
 end;//TqaReqPhone.DoReqClear
-// start class TqaDateReqDataHolder
 
 constructor TqaDateReqDataHolder.Create(const aReq: IqaDateReq);
 //#UC START# *54F4619A00B4_4683A3F40329_var*
@@ -3049,6 +2862,7 @@ begin
 end;//TqaDateReqDataHolder.IsEndDateEmpty
 
 procedure TqaDateReqDataHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4683A3F40329_var*
 //#UC END# *479731C50290_4683A3F40329_var*
 begin
@@ -3059,14 +2873,147 @@ begin
 end;//TqaDateReqDataHolder.Cleanup
 
 procedure TqaDateReqDataHolder.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_ReqCaption := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TqaDateReqDataHolder.ClearFields
-// start class TqaMgrSearch
+
+procedure TqaMgrSearch.DoFocusStartField;
+//#UC START# *54F590B7028F_4683A4A90094_var*
+ {$IFNDEF Monitorings}
+ function DoReq(const aReq: IqaReq): Boolean;
+ begin
+  Result := false;
+  // - прекращаем на первом реквизите
+  aReq.EditorReq.FirstField.SetFocus;
+ end;
+ {$EndIF  Monitorings}
+
+{$IFDEF Monitorings}
+var
+ l_Req: IqaReq;
+{$EndIF Monitorings}
+//#UC END# *54F590B7028F_4683A4A90094_var*
+begin
+//#UC START# *54F590B7028F_4683A4A90094_impl*
+ {$IFDEF Monitorings}
+ l_Req := FindAttr(nsCStr(cChangableReqName));
+ if (l_Req <> nil) then
+  l_Req.EditorReq.FirstField.SetFocus;
+ {$ELSE}
+ IterateAttrsF(l3L2FA(@DoReq));
+ {$ENDIF Monitorings}
+//#UC END# *54F590B7028F_4683A4A90094_impl*
+end;//TqaMgrSearch.DoFocusStartField
+
+{$If NOT Defined(Monitorings)}
+constructor TqaMgrSearch.Create(const aQuery: IQuery;
+ aQueryType: TlgQueryType;
+ const aFormName: Il3CString;
+ OnDateQuery: TOnDateQuery;
+ OnNeedExecQuery: TNotifyEvent;
+ OnModifiedChanged: TNotifyEvent;
+ const aContextHistory: InsContextSearchHistory);
+//#UC START# *54F594D4005F_4683A4A90094_var*
+//#UC END# *54F594D4005F_4683A4A90094_var*
+begin
+//#UC START# *54F594D4005F_4683A4A90094_impl*
+ f_FormName := aFormName;
+ f_QueryType := aQueryType;
+ f_IsQueryNew := True;
+ f_OnDateQuery := OnDateQuery;
+ f_OnNeedExecQuery := OnNeedExecQuery;
+ f_OnModifiedChanged := OnModifiedChanged;
+ {$If not Defined(Admin) AND not Defined(Monitorings)}
+ f_ContextHistory := aContextHistory;
+ {$IfEnd}
+ // Загрузим IQuery
+ if (aQuery = nil) then
+  {$If not defined(Admin)}
+  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(aQueryType))
+  {$Else}
+  Assert(false)
+  {$IfEnd}
+ else
+ begin
+  f_Query := aQuery;
+  f_IsQueryNew := False;
+ end;//aQuery = nil
+//#UC END# *54F594D4005F_4683A4A90094_impl*
+end;//TqaMgrSearch.Create
+{$IfEnd} // NOT Defined(Monitorings)
+
+{$If NOT Defined(Monitorings)}
+class function TqaMgrSearch.Make(const aQuery: IQuery;
+ aQueryType: TlgQueryType;
+ const aFormName: Il3CString;
+ OnDateQuery: TOnDateQuery;
+ OnNeedExecQuery: TNotifyEvent;
+ OnModifiedChanged: TNotifyEvent;
+ const aContextHistory: InsContextSearchHistory): IqaMgrSearch;
+var
+ l_Inst : TqaMgrSearch;
+begin
+ l_Inst := Create(aQuery, aQueryType, aFormName, OnDateQuery, OnNeedExecQuery, OnModifiedChanged, aContextHistory);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TqaMgrSearch.Make
+{$IfEnd} // NOT Defined(Monitorings)
+
+{$If Defined(Monitorings)}
+constructor TqaMgrSearch.Create(const aQuery: IQuery;
+ aQueryType: TlgQueryType;
+ const aFormName: Il3CString;
+ OnDateQuery: TOnDateQuery;
+ OnNeedExecQuery: TNotifyEvent;
+ OnModifiedChanged: TNotifyEvent);
+//#UC START# *54F5990601E6_4683A4A90094_var*
+//#UC END# *54F5990601E6_4683A4A90094_var*
+begin
+//#UC START# *54F5990601E6_4683A4A90094_impl*
+ f_FormName := aFormName;
+ f_QueryType := aQueryType;
+ f_IsQueryNew := True;
+ f_OnDateQuery := OnDateQuery;
+ f_OnNeedExecQuery := OnNeedExecQuery;
+ f_OnModifiedChanged := OnModifiedChanged;
+ // Загрузим IQuery
+ if (aQuery = nil) then
+  {$If not defined(Admin)}
+  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(aQueryType))
+  {$Else}
+  Assert(false)
+  {$IfEnd}
+ else
+ begin
+  f_Query := aQuery;
+  f_IsQueryNew := False;
+ end;//aQuery = nil
+//#UC END# *54F5990601E6_4683A4A90094_impl*
+end;//TqaMgrSearch.Create
+{$IfEnd} // Defined(Monitorings)
+
+{$If Defined(Monitorings)}
+class function TqaMgrSearch.Make(const aQuery: IQuery;
+ aQueryType: TlgQueryType;
+ const aFormName: Il3CString;
+ OnDateQuery: TOnDateQuery;
+ OnNeedExecQuery: TNotifyEvent;
+ OnModifiedChanged: TNotifyEvent): IqaMgrSearch;
+var
+ l_Inst : TqaMgrSearch;
+begin
+ l_Inst := Create(aQuery, aQueryType, aFormName, OnDateQuery, OnNeedExecQuery, OnModifiedChanged);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TqaMgrSearch.Make
+{$IfEnd} // Defined(Monitorings)
 
 function TqaMgrSearch.NeedSettings: Boolean;
 //#UC START# *54F59B5200CD_4683A4A90094_var*
@@ -3103,143 +3050,6 @@ begin
  Result := l3Fmt('%s/%s', [pi_CollapsedDescriptions, f_FormName]);
 //#UC END# *54F59B88025A_4683A4A90094_impl*
 end;//TqaMgrSearch.MakeDescriptionsSettingId
-
-procedure TqaMgrSearch.DoFocusStartField;
-//#UC START# *54F590B7028F_4683A4A90094_var*
- {$IFNDEF Monitorings}
- function DoReq(const aReq: IqaReq): Boolean;
- begin
-  Result := false;
-  // - прекращаем на первом реквизите
-  aReq.EditorReq.FirstField.SetFocus;
- end;
- {$EndIF  Monitorings}
-
-{$IFDEF Monitorings}
-var
- l_Req: IqaReq;
-{$EndIF Monitorings}
-//#UC END# *54F590B7028F_4683A4A90094_var*
-begin
-//#UC START# *54F590B7028F_4683A4A90094_impl*
- {$IFDEF Monitorings}
- l_Req := FindAttr(nsCStr(cChangableReqName));
- if (l_Req <> nil) then
-  l_Req.EditorReq.FirstField.SetFocus;
- {$ELSE}
- IterateAttrsF(l3L2FA(@DoReq));
- {$ENDIF Monitorings}
-//#UC END# *54F590B7028F_4683A4A90094_impl*
-end;//TqaMgrSearch.DoFocusStartField
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-constructor TqaMgrSearch.Create(const aQuery: IQuery;
-  aQueryType: TlgQueryType;
-  const aFormName: Il3CString;
-  OnDateQuery: TOnDateQuery;
-  OnNeedExecQuery: TNotifyEvent;
-  OnModifiedChanged: TNotifyEvent;
-  const aContextHistory: InsContextSearchHistory);
-//#UC START# *54F594D4005F_4683A4A90094_var*
-//#UC END# *54F594D4005F_4683A4A90094_var*
-begin
-//#UC START# *54F594D4005F_4683A4A90094_impl*
- f_FormName := aFormName;
- f_QueryType := aQueryType;
- f_IsQueryNew := True;
- f_OnDateQuery := OnDateQuery;
- f_OnNeedExecQuery := OnNeedExecQuery;
- f_OnModifiedChanged := OnModifiedChanged;
- {$If not Defined(Admin) AND not Defined(Monitorings)}
- f_ContextHistory := aContextHistory;
- {$IfEnd}
- // Загрузим IQuery
- if (aQuery = nil) then
-  {$If not defined(Admin)}
-  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(aQueryType))
-  {$Else}
-  Assert(false)
-  {$IfEnd}
- else
- begin
-  f_Query := aQuery;
-  f_IsQueryNew := False;
- end;//aQuery = nil
-//#UC END# *54F594D4005F_4683A4A90094_impl*
-end;//TqaMgrSearch.Create
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-class function TqaMgrSearch.Make(const aQuery: IQuery;
-  aQueryType: TlgQueryType;
-  const aFormName: Il3CString;
-  OnDateQuery: TOnDateQuery;
-  OnNeedExecQuery: TNotifyEvent;
-  OnModifiedChanged: TNotifyEvent;
-  const aContextHistory: InsContextSearchHistory): IqaMgrSearch;
-var
- l_Inst : TqaMgrSearch;
-begin
- l_Inst := Create(aQuery, aQueryType, aFormName, OnDateQuery, OnNeedExecQuery, OnModifiedChanged, aContextHistory);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If defined(Monitorings) AND not defined(Admin)}
-constructor TqaMgrSearch.Create(const aQuery: IQuery;
-  aQueryType: TlgQueryType;
-  const aFormName: Il3CString;
-  OnDateQuery: TOnDateQuery;
-  OnNeedExecQuery: TNotifyEvent;
-  OnModifiedChanged: TNotifyEvent);
-//#UC START# *54F5990601E6_4683A4A90094_var*
-//#UC END# *54F5990601E6_4683A4A90094_var*
-begin
-//#UC START# *54F5990601E6_4683A4A90094_impl*
- f_FormName := aFormName;
- f_QueryType := aQueryType;
- f_IsQueryNew := True;
- f_OnDateQuery := OnDateQuery;
- f_OnNeedExecQuery := OnNeedExecQuery;
- f_OnModifiedChanged := OnModifiedChanged;
- // Загрузим IQuery
- if (aQuery = nil) then
-  {$If not defined(Admin)}
-  nsQuery.CreateQuery(f_Query, BusinessQueryToAdapterQuery(aQueryType))
-  {$Else}
-  Assert(false)
-  {$IfEnd}
- else
- begin
-  f_Query := aQuery;
-  f_IsQueryNew := False;
- end;//aQuery = nil
-//#UC END# *54F5990601E6_4683A4A90094_impl*
-end;//TqaMgrSearch.Create
-{$IfEnd} //Monitorings AND not Admin
-
-{$If defined(Monitorings) AND not defined(Admin)}
-class function TqaMgrSearch.Make(const aQuery: IQuery;
-  aQueryType: TlgQueryType;
-  const aFormName: Il3CString;
-  OnDateQuery: TOnDateQuery;
-  OnNeedExecQuery: TNotifyEvent;
-  OnModifiedChanged: TNotifyEvent): IqaMgrSearch;
-var
- l_Inst : TqaMgrSearch;
-begin
- l_Inst := Create(aQuery, aQueryType, aFormName, OnDateQuery, OnNeedExecQuery, OnModifiedChanged);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-{$IfEnd} //Monitorings AND not Admin
 
 function TqaMgrSearch.GetCurrentEditorReq: IevReq;
 //#UC START# *54F59BA10052_4683A4A90094_var*
@@ -3354,7 +3164,7 @@ begin
 //#UC END# *54F59BF002AF_4683A4A90094_impl*
 end;//TqaMgrSearch.CheckAttrs
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
 procedure TqaMgrSearch.CheckMorpho;
 //#UC START# *54F59BFB00BD_4683A4A90094_var*
 var
@@ -3389,7 +3199,7 @@ begin
  end;
 //#UC END# *54F59BFB00BD_4683A4A90094_impl*
 end;//TqaMgrSearch.CheckMorpho
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Monitorings)
 
 procedure TqaMgrSearch.InitFocus;
 //#UC START# *54F59C0E0149_4683A4A90094_var*
@@ -3450,6 +3260,7 @@ begin
 end;//TqaMgrSearch.Set_Query
 
 procedure TqaMgrSearch.FocusStartField;
+ {* Устанавливает фокус на первый элемент. }
 //#UC START# *47CD5FAF01CE_4683A4A90094_var*
 //#UC END# *47CD5FAF01CE_4683A4A90094_var*
 begin
@@ -3468,6 +3279,7 @@ begin
 end;//TqaMgrSearch.LimitCharsReached
 
 function TqaMgrSearch.GetTreeFromAdapter(const aReq: Il3CString): InevSimpleTree;
+ {* Получает дерево с адаптера. }
 //#UC START# *47CD605F001E_4683A4A90094_var*
 var
  l_Filters: InsAttributeTreeFilters;
@@ -3489,6 +3301,7 @@ begin
 end;//TqaMgrSearch.GetTreeFromAdapter
 
 procedure TqaMgrSearch.EscPressed(const aField: IevEditorFieldWithTree);
+ {* Обработчик закрытия дерева по ESC. }
 //#UC START# *47CD60AF0052_4683A4A90094_var*
 {$IFDEF Monitorings}
 var
@@ -3508,7 +3321,7 @@ begin
 //#UC END# *47CD60AF0052_4683A4A90094_impl*
 end;//TqaMgrSearch.EscPressed
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
 function TqaMgrSearch.Get_HistoryList: Il3StringsEx;
 //#UC START# *47CD60F50164_4683A4A90094get_var*
 //#UC END# *47CD60F50164_4683A4A90094get_var*
@@ -3520,7 +3333,7 @@ begin
 {$IfEnd}
 //#UC END# *47CD60F50164_4683A4A90094get_impl*
 end;//TqaMgrSearch.Get_HistoryList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Monitorings)
 
 function TqaMgrSearch.ModelListener(const aReq: IevReq): IevModelListener;
 //#UC START# *47CD9AB2023F_4683A4A90094_var*
@@ -3557,7 +3370,7 @@ begin
 end;//TqaMgrSearch.NotifyContextWrong
 
 procedure TqaMgrSearch.Correct(const aCorrectedContext: Il3StringsEx;
-  const aMistakesList: Il3StringsEx);
+ const aMistakesList: Il3StringsEx);
 //#UC START# *496B513C0168_4683A4A90094_var*
 var
  l_ContextsIdx: Integer;
@@ -3712,7 +3525,7 @@ begin
 //#UC END# *52330082029F_4683A4A90094get_impl*
 end;//TqaMgrSearch.Get_QueryCard
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
 function TqaMgrSearch.Get_HistoryValues: IvcmStrings;
 //#UC START# *523300DC03BB_4683A4A90094get_var*
 //#UC END# *523300DC03BB_4683A4A90094get_var*
@@ -3721,10 +3534,10 @@ begin
  Result := Get_HistoryList;
 //#UC END# *523300DC03BB_4683A4A90094get_impl*
 end;//TqaMgrSearch.Get_HistoryValues
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Monitorings)
 
 procedure TqaMgrSearch.FinishOpenTree(const aRoot: INodeBase;
-  const aReq: IqaReq);
+ const aReq: IqaReq);
 //#UC START# *523302260240_4683A4A90094_var*
 var
  l_ReqAttr: IqaReqAttribute;
@@ -3958,6 +3771,7 @@ begin
 end;//TqaMgrSearch.OpenSelectWindow
 
 function TqaMgrSearch.ChangableReq: IqaReq;
+ {* Изменяющаеся значение при изменении реквизита }
 //#UC START# *523303A90350_4683A4A90094_var*
 //#UC END# *523303A90350_4683A4A90094_var*
 begin
@@ -3967,6 +3781,7 @@ begin
 end;//TqaMgrSearch.ChangableReq
 
 function TqaMgrSearch.GetName4Query: Il3CString;
+ {* Возвращают имя для запроса }
 //#UC START# *523303F700C1_4683A4A90094_var*
 var
  l_Field: IevEditorControlField;
@@ -3984,6 +3799,7 @@ begin
 end;//TqaMgrSearch.GetName4Query
 
 function TqaMgrSearch.GetCurrentReq: IqaReq;
+ {* Возвращает текущий реквизит для контрола }
 //#UC START# *523304BF01B5_4683A4A90094_var*
 var
  l_CustCtrl: IevCustomEditorControl; 
@@ -4005,6 +3821,7 @@ begin
 end;//TqaMgrSearch.GetCurrentReq
 
 function TqaMgrSearch.GetCurrentField: IevEditorControlField;
+ {* Возвращает текущий контрол для реквизита }
 //#UC START# *523304D6011A_4683A4A90094_var*
 var
  l_CustCtrl: IevCustomEditorControl;
@@ -4257,6 +4074,7 @@ begin
 end;//TqaMgrSearch.ExecQuery
 
 function TqaMgrSearch.FindAttr(const aTagName: Il3CString): IqaReq;
+ {* Возвращает атрибут по имени }
 //#UC START# *5233084202DD_4683A4A90094_var*
  function DoReq(const aReq: IqaReq): Boolean;
  begin
@@ -4302,6 +4120,7 @@ begin
 end;//TqaMgrSearch.FinishGettingFromView
 
 procedure TqaMgrSearch.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4683A4A90094_var*
 //#UC END# *479731C50290_4683A4A90094_var*
 begin
@@ -4320,17 +4139,11 @@ begin
 end;//TqaMgrSearch.Cleanup
 
 procedure TqaMgrSearch.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  QueryCard := nil;
- {$IfEnd} //not Admin
- {$If not defined(Admin)}
  Query := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TqaMgrSearch.ClearFields
-// start class TqaMgrSearchForNewsLine
 
 procedure TqaMgrSearchForNewsLine.DoFocusStartField;
 //#UC START# *54F590B7028F_54F59C4D00FF_var*
@@ -4344,9 +4157,8 @@ begin
   l_Req.EditorReq.FirstField.SetFocus;
 //#UC END# *54F590B7028F_54F59C4D00FF_impl*
 end;//TqaMgrSearchForNewsLine.DoFocusStartField
-{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-// start class TqaHistory
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TqaHistory.Get_Query: IQuery;
 //#UC START# *468396BC0323_4683A6A4010Cget_var*
@@ -4414,6 +4226,7 @@ begin
 end;//TqaHistory.Set_ConsultationSended
 
 procedure TqaHistory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4683A6A4010C_var*
 //#UC END# *479731C50290_4683A6A4010C_var*
 begin
@@ -4435,6 +4248,6 @@ begin
  f_DataReset := True;
 //#UC END# *47EA4E9002C6_4683A6A4010C_impl*
 end;//TqaHistory.FinishDataUpdate
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

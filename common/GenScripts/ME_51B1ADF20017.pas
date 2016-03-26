@@ -38,10 +38,10 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , l3Base
  , l3FileUtils
  , SysUtils
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

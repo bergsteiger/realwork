@@ -35,11 +35,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-    {* Идентификатор элемента модели, который описывает тест }
    {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
    function EtalonNeedsXE: Boolean; override;
    {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK259163541
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -117,12 +117,6 @@ begin
  Result := '7.7';
 end;//TK259163541.GetFolder
 
-function TK259163541.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '4D9AD88E026D';
-end;//TK259163541.GetModelElementGUID
-
 {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
 function TK259163541.EtalonNeedsXE: Boolean;
 //#UC START# *51AF49E5001B_4D9AD88E026D_var*
@@ -133,6 +127,12 @@ begin
 //#UC END# *51AF49E5001B_4D9AD88E026D_impl*
 end;//TK259163541.EtalonNeedsXE
 {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+
+function TK259163541.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4D9AD88E026D';
+end;//TK259163541.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK259163541.Suite);

@@ -54,12 +54,12 @@ uses
  , ddAppConfigConst
  , ddAppConfigStrings
  , ddAppConfigDataAdapters
- , TestFrameWork
  , ddAppConfigUtils
  , Windows
  , ConfigStorageStub
  , SysUtils
  , ddAppConfig
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , FromWithPanel_Form
  {$IfEnd} // NOT Defined(NoVCM)

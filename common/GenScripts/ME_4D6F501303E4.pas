@@ -72,11 +72,11 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , TestFrameWork
  , evOp
  {$If Defined(k2ForEditor)}
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

@@ -22,11 +22,11 @@ type
   protected
    function NSRCCodePage: Integer; override;
     {* Кодировка для выливки в NSRC }
+   function PainterCodePage: Integer; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function PainterCodePage: Integer; override;
  end;//TK585129079_NSRC_EAST_EUROPE
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -49,6 +49,15 @@ begin
 //#UC END# *4BEBCEA00177_5491B03300A0_impl*
 end;//TK585129079_NSRC_EAST_EUROPE.NSRCCodePage
 
+function TK585129079_NSRC_EAST_EUROPE.PainterCodePage: Integer;
+//#UC START# *5491B011031B_5491B03300A0_var*
+//#UC END# *5491B011031B_5491B03300A0_var*
+begin
+//#UC START# *5491B011031B_5491B03300A0_impl*
+ Result := NSRCCodePage;
+//#UC END# *5491B011031B_5491B03300A0_impl*
+end;//TK585129079_NSRC_EAST_EUROPE.PainterCodePage
+
 function TK585129079_NSRC_EAST_EUROPE.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -60,15 +69,6 @@ function TK585129079_NSRC_EAST_EUROPE.GetModelElementGUID: AnsiString;
 begin
  Result := '5491B03300A0';
 end;//TK585129079_NSRC_EAST_EUROPE.GetModelElementGUID
-
-function TK585129079_NSRC_EAST_EUROPE.PainterCodePage: Integer;
-//#UC START# *5491B011031B_5491B03300A0_var*
-//#UC END# *5491B011031B_5491B03300A0_var*
-begin
-//#UC START# *5491B011031B_5491B03300A0_impl*
- Result := NSRCCodePage;
-//#UC END# *5491B011031B_5491B03300A0_impl*
-end;//TK585129079_NSRC_EAST_EUROPE.PainterCodePage
 
 initialization
  TestFramework.RegisterTest(TK585129079_NSRC_EAST_EUROPE.Suite);

@@ -49,9 +49,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , evMsgCode
  , evOp
+ , TestFrameWork
  {$If Defined(k2ForEditor)}
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)

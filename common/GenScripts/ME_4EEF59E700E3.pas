@@ -20,13 +20,13 @@ type
  TK282693895 = class(TFormulaRender)
   {* [RequestLink:282693895] }
   protected
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK282693895
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -46,6 +46,17 @@ uses
  , l3Base
 ;
 
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+function TK282693895.EtalonNeedsXE: Boolean;
+//#UC START# *51AF49E5001B_4EEF59E700E3_var*
+//#UC END# *51AF49E5001B_4EEF59E700E3_var*
+begin
+//#UC START# *51AF49E5001B_4EEF59E700E3_impl*
+ Result := true;
+//#UC END# *51AF49E5001B_4EEF59E700E3_impl*
+end;//TK282693895.EtalonNeedsXE
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+
 function TK282693895.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -57,17 +68,6 @@ function TK282693895.GetModelElementGUID: AnsiString;
 begin
  Result := '4EEF59E700E3';
 end;//TK282693895.GetModelElementGUID
-
-{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-function TK282693895.EtalonNeedsXE: Boolean;
-//#UC START# *51AF49E5001B_4EEF59E700E3_var*
-//#UC END# *51AF49E5001B_4EEF59E700E3_var*
-begin
-//#UC START# *51AF49E5001B_4EEF59E700E3_impl*
- Result := true;
-//#UC END# *51AF49E5001B_4EEF59E700E3_impl*
-end;//TK282693895.EtalonNeedsXE
-{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK282693895.Suite);

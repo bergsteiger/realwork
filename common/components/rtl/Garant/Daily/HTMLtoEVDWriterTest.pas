@@ -33,8 +33,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , SysUtils
+ , TestFrameWork
 ;
 
 procedure THTMLtoEVDWriterTest.HTMLtoEVD(const aFileName: AnsiString);

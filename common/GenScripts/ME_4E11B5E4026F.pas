@@ -20,13 +20,13 @@ type
  TK272662869 = class(THorzMergeCells)
   {* [$272662869] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    procedure GetSelectParam(out aStartRow: Integer;
     out aStartCell: Integer;
     out aFinishRow: Integer;
     out aFinishCell: Integer); override;
     {* Получить "координаты" точек выделения. }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK272662869
@@ -53,12 +53,6 @@ uses
  , l3Base
 ;
 
-function TK272662869.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.7';
-end;//TK272662869.GetFolder
-
 procedure TK272662869.GetSelectParam(out aStartRow: Integer;
  out aStartCell: Integer;
  out aFinishRow: Integer;
@@ -74,6 +68,12 @@ begin
  aFinishCell := 2;
 //#UC END# *4CC81D4101AC_4E11B5E4026F_impl*
 end;//TK272662869.GetSelectParam
+
+function TK272662869.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK272662869.GetFolder
 
 function TK272662869.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

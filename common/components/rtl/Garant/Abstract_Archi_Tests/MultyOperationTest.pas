@@ -35,12 +35,12 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , DataBaseTester
  , SysUtils
  , m3SplittedFileStream
  , m3DBInterfaces
  , m3DB
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

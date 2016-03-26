@@ -1,185 +1,169 @@
 unit nsTextWithCommentsRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsTextWithCommentsRes.pas"
-// Начат: 15.02.2011 15:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Base Operations::View::Base Forms::nsTextWithCommentsRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTextWithCommentsRes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsTextWithCommentsRes" MUID: (4D5A701702B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  afwInterfaces,
-  l3CProtoObject,
-  l3StringIDEx
-  ;
-
-var
-  { Локализуемые строки ShowVersionComments }
- str_svcCollapsed : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svcCollapsed'; rValue : 'В свернутом виде');
-  { 'В свернутом виде' }
- str_svcExpanded : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svcExpanded'; rValue : 'В развернутом виде');
-  { 'В развернутом виде' }
+ l3IntfUses
+ , l3StringIDEx
+ , afwInterfaces
+ , l3Interfaces
+ , l3CProtoObject
+;
 
 const
-  { Карта преобразования локализованных строк ShowVersionComments }
- ShowVersionCommentsMap : array [Boolean] of Pl3StringIDEx = (
-  @str_svcCollapsed
-  , @str_svcExpanded
- );//ShowVersionCommentsMap
+ {* Локализуемые строки ShowVersionComments }
+ str_svcCollapsed: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svcCollapsed'; rValue : 'В свернутом виде');
+  {* 'В свернутом виде' }
+ str_svcExpanded: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svcExpanded'; rValue : 'В развернутом виде');
+  {* 'В развернутом виде' }
+ {* Карта преобразования локализованных строк ShowVersionComments }
+ ShowVersionCommentsMap: array [Boolean] of Pl3StringIDEx = (@str_svcCollapsed
+ , @str_svcExpanded
+ );
+ {* Локализуемые строки Local }
+ str_pi_Document_ShowVersionsComment: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment'; rValue : 'Показывать информацию об изменениях в тексте документа');
+  {* 'Показывать информацию об изменениях в тексте документа' }
+ str_pi_Document_ShowVersionsComment_Hint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment_Hint'; rValue : 'Показывать информацию об изменениях в тексте документа');
+  {* 'Показывать информацию об изменениях в тексте документа' }
+ str_pi_Document_SubPanel_ShowVersionComments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_SubPanel_ShowVersionComments'; rValue : 'Информация об изменениях');
+  {* 'Информация об изменениях' }
+ str_pi_Document_ShowVersionCommentsLinkBehaviour: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionCommentsLinkBehaviour'; rValue : 'По ссылке в информации об изменениях в тексте документа открывать');
+  {* 'По ссылке в информации об изменениях в тексте документа открывать' }
+ {* Локализуемые строки VersionCommentsLinkBegaviour }
+ str_vclbComparison: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vclbComparison'; rValue : 'Сравнение редакций');
+  {* 'Сравнение редакций' }
+ str_vclbText: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vclbText'; rValue : 'Текст редакции');
+  {* 'Текст редакции' }
+ {* Карта преобразования локализованных строк VersionCommentsLinkBegaviour }
+ VersionCommentsLinkBegaviourMap: array [Boolean] of Pl3StringIDEx = (@str_vclbComparison
+ , @str_vclbText
+ );
 
 type
  ShowVersionCommentsMapHelper = {final} class
   {* Утилитный класс для преобразования значений ShowVersionCommentsMap }
- public
- // public methods
+  public
    class procedure FillStrings(const aStrings: IafwStrings);
-     {* Заполнение списка строк значениями }
+    {* Заполнение списка строк значениями }
    class function DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
-     {* Преобразование строкового значения к порядковому }
+    {* Преобразование строкового значения к порядковому }
  end;//ShowVersionCommentsMapHelper
 
  TShowVersionCommentsMapImplPrim = {abstract} class(Tl3CProtoObject, Il3IntegerValueMap)
   {* Класс для реализации мапы для ShowVersionCommentsMap }
- protected
- // realized methods
+  protected
    function pm_GetMapID: Tl3ValueMapID;
    procedure GetDisplayNames(const aList: Il3StringsEx);
-     {* заполняет список значениями "UI-строка" }
+    {* заполняет список значениями "UI-строка" }
    function MapSize: Integer;
-     {* количество элементов в мапе. }
+    {* количество элементов в мапе. }
    function DisplayNameToValue(const aDisplayName: Il3CString): Integer;
    function ValueToDisplayName(aValue: Integer): Il3CString;
- public
- // public methods
+  public
    class function Make: Il3IntegerValueMap; reintroduce;
-     {* Фабричный метод для TShowVersionCommentsMapImplPrim }
+    {* Фабричный метод для TShowVersionCommentsMapImplPrim }
  end;//TShowVersionCommentsMapImplPrim
 
  TShowVersionCommentsMapImpl = {final} class(TShowVersionCommentsMapImplPrim)
   {* Класс для реализации мапы для ShowVersionCommentsMap }
- public
- // public methods
+  public
    class function Make: Il3IntegerValueMap; reintroduce;
-     {* Фабричный метод для TShowVersionCommentsMapImpl }
+    {* Фабричный метод для TShowVersionCommentsMapImpl }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TShowVersionCommentsMapImpl
 
-var
-  { Локализуемые строки Local }
- str_pi_Document_ShowVersionsComment : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment'; rValue : 'Показывать информацию об изменениях в тексте документа');
-  { 'Показывать информацию об изменениях в тексте документа' }
- str_pi_Document_ShowVersionsComment_Hint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment_Hint'; rValue : 'Показывать информацию об изменениях в тексте документа');
-  { 'Показывать информацию об изменениях в тексте документа' }
- str_pi_Document_SubPanel_ShowVersionComments : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_SubPanel_ShowVersionComments'; rValue : 'Информация об изменениях');
-  { 'Информация об изменениях' }
- str_pi_Document_ShowVersionCommentsLinkBehaviour : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionCommentsLinkBehaviour'; rValue : 'По ссылке в информации об изменениях в тексте документа открывать');
-  { 'По ссылке в информации об изменениях в тексте документа открывать' }
-
-var
-  { Локализуемые строки VersionCommentsLinkBegaviour }
- str_vclbComparison : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vclbComparison'; rValue : 'Сравнение редакций');
-  { 'Сравнение редакций' }
- str_vclbText : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vclbText'; rValue : 'Текст редакции');
-  { 'Текст редакции' }
-
-const
-  { Карта преобразования локализованных строк VersionCommentsLinkBegaviour }
- VersionCommentsLinkBegaviourMap : array [Boolean] of Pl3StringIDEx = (
-  @str_vclbComparison
-  , @str_vclbText
- );//VersionCommentsLinkBegaviourMap
-
-type
  VersionCommentsLinkBegaviourMapHelper = {final} class
   {* Утилитный класс для преобразования значений VersionCommentsLinkBegaviourMap }
- public
- // public methods
+  public
    class procedure FillStrings(const aStrings: IafwStrings);
-     {* Заполнение списка строк значениями }
+    {* Заполнение списка строк значениями }
    class function DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
-     {* Преобразование строкового значения к порядковому }
+    {* Преобразование строкового значения к порядковому }
  end;//VersionCommentsLinkBegaviourMapHelper
 
  TVersionCommentsLinkBegaviourMapImplPrim = {abstract} class(Tl3CProtoObject, Il3IntegerValueMap)
   {* Класс для реализации мапы для VersionCommentsLinkBegaviourMap }
- protected
- // realized methods
+  protected
    function pm_GetMapID: Tl3ValueMapID;
    procedure GetDisplayNames(const aList: Il3StringsEx);
-     {* заполняет список значениями "UI-строка" }
+    {* заполняет список значениями "UI-строка" }
    function MapSize: Integer;
-     {* количество элементов в мапе. }
+    {* количество элементов в мапе. }
    function DisplayNameToValue(const aDisplayName: Il3CString): Integer;
    function ValueToDisplayName(aValue: Integer): Il3CString;
- public
- // public methods
+  public
    class function Make: Il3IntegerValueMap; reintroduce;
-     {* Фабричный метод для TVersionCommentsLinkBegaviourMapImplPrim }
+    {* Фабричный метод для TVersionCommentsLinkBegaviourMapImplPrim }
  end;//TVersionCommentsLinkBegaviourMapImplPrim
 
  TVersionCommentsLinkBegaviourMapImpl = {final} class(TVersionCommentsLinkBegaviourMapImplPrim)
   {* Класс для реализации мапы для VersionCommentsLinkBegaviourMap }
- public
- // public methods
+  public
    class function Make: Il3IntegerValueMap; reintroduce;
-     {* Фабричный метод для TVersionCommentsLinkBegaviourMapImpl }
+    {* Фабричный метод для TVersionCommentsLinkBegaviourMapImpl }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TVersionCommentsLinkBegaviourMapImpl
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3MessageID,
-  l3String,
-  SysUtils,
-  l3Base
-  ;
+ l3ImplUses
+ , l3MessageID
+ , l3String
+ , SysUtils
+ , l3Base
+;
 
-// start class ShowVersionCommentsMapHelper
+var g_TShowVersionCommentsMapImpl: Pointer = nil;
+ {* Экземпляр синглетона TShowVersionCommentsMapImpl }
+var g_TVersionCommentsLinkBegaviourMapImpl: Pointer = nil;
+ {* Экземпляр синглетона TVersionCommentsLinkBegaviourMapImpl }
+
+procedure TShowVersionCommentsMapImplFree;
+ {* Метод освобождения экземпляра синглетона TShowVersionCommentsMapImpl }
+begin
+ IUnknown(g_TShowVersionCommentsMapImpl) := nil;
+end;//TShowVersionCommentsMapImplFree
+
+procedure TVersionCommentsLinkBegaviourMapImplFree;
+ {* Метод освобождения экземпляра синглетона TVersionCommentsLinkBegaviourMapImpl }
+begin
+ IUnknown(g_TVersionCommentsLinkBegaviourMapImpl) := nil;
+end;//TVersionCommentsLinkBegaviourMapImplFree
 
 class procedure ShowVersionCommentsMapHelper.FillStrings(const aStrings: IafwStrings);
-var
- l_Index: Boolean;
+ {* Заполнение списка строк значениями }
+//#UC START# *8F841ADC29B1_1F19B60638CF_var*
+//#UC END# *8F841ADC29B1_1F19B60638CF_var*
 begin
- aStrings.Clear;
- for l_Index := Low(l_Index) to High(l_Index) do
-  aStrings.Add(ShowVersionCommentsMap[l_Index].AsCStr);
+//#UC START# *8F841ADC29B1_1F19B60638CF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *8F841ADC29B1_1F19B60638CF_impl*
 end;//ShowVersionCommentsMapHelper.FillStrings
 
 class function ShowVersionCommentsMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
-var
- l_Index: Boolean;
+ {* Преобразование строкового значения к порядковому }
+//#UC START# *5E0573B53350_1F19B60638CF_var*
+//#UC END# *5E0573B53350_1F19B60638CF_var*
 begin
- for l_Index := Low(l_Index) to High(l_Index) do
-  if l3Same(aDisplayName, ShowVersionCommentsMap[l_Index].AsCStr) then
-  begin
-   Result := l_Index;
-   Exit;
-  end;//l3Same..
- raise Exception.CreateFmt('Display name "%s" not found in map "ShowVersionCommentsMap"', [l3Str(aDisplayName)]);
+//#UC START# *5E0573B53350_1F19B60638CF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5E0573B53350_1F19B60638CF_impl*
 end;//ShowVersionCommentsMapHelper.DisplayNameToValue
-// start class TShowVersionCommentsMapImplPrim
 
 class function TShowVersionCommentsMapImplPrim.Make: Il3IntegerValueMap;
+ {* Фабричный метод для TShowVersionCommentsMapImplPrim }
 var
  l_Inst : TShowVersionCommentsMapImplPrim;
 begin
@@ -189,51 +173,57 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TShowVersionCommentsMapImplPrim.Make
 
 function TShowVersionCommentsMapImplPrim.pm_GetMapID: Tl3ValueMapID;
- {-}
+//#UC START# *46A5EFE602DE_E2B3C0235006get_var*
+//#UC END# *46A5EFE602DE_E2B3C0235006get_var*
 begin
- l3FillChar(Result, SizeOf(Result));
- Assert(false);
+//#UC START# *46A5EFE602DE_E2B3C0235006get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5EFE602DE_E2B3C0235006get_impl*
 end;//TShowVersionCommentsMapImplPrim.pm_GetMapID
 
 procedure TShowVersionCommentsMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
- {-}
+ {* заполняет список значениями "UI-строка" }
+//#UC START# *46A5F0130365_E2B3C0235006_var*
+//#UC END# *46A5F0130365_E2B3C0235006_var*
 begin
- ShowVersionCommentsMapHelper.FillStrings(aList);
+//#UC START# *46A5F0130365_E2B3C0235006_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5F0130365_E2B3C0235006_impl*
 end;//TShowVersionCommentsMapImplPrim.GetDisplayNames
 
 function TShowVersionCommentsMapImplPrim.MapSize: Integer;
- {-}
+ {* количество элементов в мапе. }
+//#UC START# *46A5F03800A2_E2B3C0235006_var*
+//#UC END# *46A5F03800A2_E2B3C0235006_var*
 begin
- Result := Ord(High(Boolean)) - Ord(Low(Boolean));
+//#UC START# *46A5F03800A2_E2B3C0235006_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5F03800A2_E2B3C0235006_impl*
 end;//TShowVersionCommentsMapImplPrim.MapSize
 
 function TShowVersionCommentsMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
- {-}
+//#UC START# *46A5FCF900E0_E2B3C0235006_var*
+//#UC END# *46A5FCF900E0_E2B3C0235006_var*
 begin
- Result := Ord(ShowVersionCommentsMapHelper.DisplayNameToValue(aDisplayName));
+//#UC START# *46A5FCF900E0_E2B3C0235006_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5FCF900E0_E2B3C0235006_impl*
 end;//TShowVersionCommentsMapImplPrim.DisplayNameToValue
 
 function TShowVersionCommentsMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
- {-}
+//#UC START# *46A5FD1B000D_E2B3C0235006_var*
+//#UC END# *46A5FD1B000D_E2B3C0235006_var*
 begin
- Assert(aValue >= Ord(Low(Boolean)));
- Assert(aValue <= Ord(High(Boolean)));
- Result := ShowVersionCommentsMap[Boolean(aValue)].AsCStr;
+//#UC START# *46A5FD1B000D_E2B3C0235006_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5FD1B000D_E2B3C0235006_impl*
 end;//TShowVersionCommentsMapImplPrim.ValueToDisplayName
-// start class TShowVersionCommentsMapImpl
-
-var g_TShowVersionCommentsMapImpl : Pointer = nil;
-
-procedure TShowVersionCommentsMapImplFree;
-begin
- IUnknown(g_TShowVersionCommentsMapImpl) := nil;
-end;
-
 
 class function TShowVersionCommentsMapImpl.Make: Il3IntegerValueMap;
+ {* Фабричный метод для TShowVersionCommentsMapImpl }
 begin
  if (g_TShowVersionCommentsMapImpl = nil) then
  begin
@@ -241,39 +231,36 @@ begin
   Il3IntegerValueMap(g_TShowVersionCommentsMapImpl) := inherited Make;
  end;
  Result := Il3IntegerValueMap(g_TShowVersionCommentsMapImpl);
-end;
+end;//TShowVersionCommentsMapImpl.Make
 
 class function TShowVersionCommentsMapImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TShowVersionCommentsMapImpl <> nil;
 end;//TShowVersionCommentsMapImpl.Exists
-// start class VersionCommentsLinkBegaviourMapHelper
 
 class procedure VersionCommentsLinkBegaviourMapHelper.FillStrings(const aStrings: IafwStrings);
-var
- l_Index: Boolean;
+ {* Заполнение списка строк значениями }
+//#UC START# *474F5AA5D378_E8F3B033F09E_var*
+//#UC END# *474F5AA5D378_E8F3B033F09E_var*
 begin
- aStrings.Clear;
- for l_Index := Low(l_Index) to High(l_Index) do
-  aStrings.Add(VersionCommentsLinkBegaviourMap[l_Index].AsCStr);
+//#UC START# *474F5AA5D378_E8F3B033F09E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *474F5AA5D378_E8F3B033F09E_impl*
 end;//VersionCommentsLinkBegaviourMapHelper.FillStrings
 
 class function VersionCommentsLinkBegaviourMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
-var
- l_Index: Boolean;
+ {* Преобразование строкового значения к порядковому }
+//#UC START# *BA5ADD58E319_E8F3B033F09E_var*
+//#UC END# *BA5ADD58E319_E8F3B033F09E_var*
 begin
- for l_Index := Low(l_Index) to High(l_Index) do
-  if l3Same(aDisplayName, VersionCommentsLinkBegaviourMap[l_Index].AsCStr) then
-  begin
-   Result := l_Index;
-   Exit;
-  end;//l3Same..
- raise Exception.CreateFmt('Display name "%s" not found in map "VersionCommentsLinkBegaviourMap"', [l3Str(aDisplayName)]);
+//#UC START# *BA5ADD58E319_E8F3B033F09E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *BA5ADD58E319_E8F3B033F09E_impl*
 end;//VersionCommentsLinkBegaviourMapHelper.DisplayNameToValue
-// start class TVersionCommentsLinkBegaviourMapImplPrim
 
 class function TVersionCommentsLinkBegaviourMapImplPrim.Make: Il3IntegerValueMap;
+ {* Фабричный метод для TVersionCommentsLinkBegaviourMapImplPrim }
 var
  l_Inst : TVersionCommentsLinkBegaviourMapImplPrim;
 begin
@@ -283,51 +270,57 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TVersionCommentsLinkBegaviourMapImplPrim.Make
 
 function TVersionCommentsLinkBegaviourMapImplPrim.pm_GetMapID: Tl3ValueMapID;
- {-}
+//#UC START# *46A5EFE602DE_EEAC7EDDFD54get_var*
+//#UC END# *46A5EFE602DE_EEAC7EDDFD54get_var*
 begin
- l3FillChar(Result, SizeOf(Result));
- Assert(false);
+//#UC START# *46A5EFE602DE_EEAC7EDDFD54get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5EFE602DE_EEAC7EDDFD54get_impl*
 end;//TVersionCommentsLinkBegaviourMapImplPrim.pm_GetMapID
 
 procedure TVersionCommentsLinkBegaviourMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
- {-}
+ {* заполняет список значениями "UI-строка" }
+//#UC START# *46A5F0130365_EEAC7EDDFD54_var*
+//#UC END# *46A5F0130365_EEAC7EDDFD54_var*
 begin
- VersionCommentsLinkBegaviourMapHelper.FillStrings(aList);
+//#UC START# *46A5F0130365_EEAC7EDDFD54_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5F0130365_EEAC7EDDFD54_impl*
 end;//TVersionCommentsLinkBegaviourMapImplPrim.GetDisplayNames
 
 function TVersionCommentsLinkBegaviourMapImplPrim.MapSize: Integer;
- {-}
+ {* количество элементов в мапе. }
+//#UC START# *46A5F03800A2_EEAC7EDDFD54_var*
+//#UC END# *46A5F03800A2_EEAC7EDDFD54_var*
 begin
- Result := Ord(High(Boolean)) - Ord(Low(Boolean));
+//#UC START# *46A5F03800A2_EEAC7EDDFD54_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5F03800A2_EEAC7EDDFD54_impl*
 end;//TVersionCommentsLinkBegaviourMapImplPrim.MapSize
 
 function TVersionCommentsLinkBegaviourMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
- {-}
+//#UC START# *46A5FCF900E0_EEAC7EDDFD54_var*
+//#UC END# *46A5FCF900E0_EEAC7EDDFD54_var*
 begin
- Result := Ord(VersionCommentsLinkBegaviourMapHelper.DisplayNameToValue(aDisplayName));
+//#UC START# *46A5FCF900E0_EEAC7EDDFD54_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5FCF900E0_EEAC7EDDFD54_impl*
 end;//TVersionCommentsLinkBegaviourMapImplPrim.DisplayNameToValue
 
 function TVersionCommentsLinkBegaviourMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
- {-}
+//#UC START# *46A5FD1B000D_EEAC7EDDFD54_var*
+//#UC END# *46A5FD1B000D_EEAC7EDDFD54_var*
 begin
- Assert(aValue >= Ord(Low(Boolean)));
- Assert(aValue <= Ord(High(Boolean)));
- Result := VersionCommentsLinkBegaviourMap[Boolean(aValue)].AsCStr;
+//#UC START# *46A5FD1B000D_EEAC7EDDFD54_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5FD1B000D_EEAC7EDDFD54_impl*
 end;//TVersionCommentsLinkBegaviourMapImplPrim.ValueToDisplayName
-// start class TVersionCommentsLinkBegaviourMapImpl
-
-var g_TVersionCommentsLinkBegaviourMapImpl : Pointer = nil;
-
-procedure TVersionCommentsLinkBegaviourMapImplFree;
-begin
- IUnknown(g_TVersionCommentsLinkBegaviourMapImpl) := nil;
-end;
-
 
 class function TVersionCommentsLinkBegaviourMapImpl.Make: Il3IntegerValueMap;
+ {* Фабричный метод для TVersionCommentsLinkBegaviourMapImpl }
 begin
  if (g_TVersionCommentsLinkBegaviourMapImpl = nil) then
  begin
@@ -335,47 +328,31 @@ begin
   Il3IntegerValueMap(g_TVersionCommentsLinkBegaviourMapImpl) := inherited Make;
  end;
  Result := Il3IntegerValueMap(g_TVersionCommentsLinkBegaviourMapImpl);
-end;
+end;//TVersionCommentsLinkBegaviourMapImpl.Make
 
 class function TVersionCommentsLinkBegaviourMapImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TVersionCommentsLinkBegaviourMapImpl <> nil;
 end;//TVersionCommentsLinkBegaviourMapImpl.Exists
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_svcCollapsed
  str_svcCollapsed.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_svcExpanded
+ {* Инициализация str_svcCollapsed }
  str_svcExpanded.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_pi_Document_ShowVersionsComment
+ {* Инициализация str_svcExpanded }
  str_pi_Document_ShowVersionsComment.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_pi_Document_ShowVersionsComment_Hint
+ {* Инициализация str_pi_Document_ShowVersionsComment }
  str_pi_Document_ShowVersionsComment_Hint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_pi_Document_SubPanel_ShowVersionComments
+ {* Инициализация str_pi_Document_ShowVersionsComment_Hint }
  str_pi_Document_SubPanel_ShowVersionComments.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_pi_Document_ShowVersionCommentsLinkBehaviour
+ {* Инициализация str_pi_Document_SubPanel_ShowVersionComments }
  str_pi_Document_ShowVersionCommentsLinkBehaviour.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_vclbComparison
+ {* Инициализация str_pi_Document_ShowVersionCommentsLinkBehaviour }
  str_vclbComparison.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_vclbText
+ {* Инициализация str_vclbComparison }
  str_vclbText.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_vclbText }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

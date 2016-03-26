@@ -22,9 +22,9 @@ type
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
+   function GetKeys: TShiftState; override;
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function GetKeys: TShiftState; override;
  end;//TColumnResizeWithCtrl
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -50,12 +50,6 @@ begin
  Result := 'EditorTests';
 end;//TColumnResizeWithCtrl.GetFolder
 
-function TColumnResizeWithCtrl.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '4D53D6AA0038';
-end;//TColumnResizeWithCtrl.GetModelElementGUID
-
 function TColumnResizeWithCtrl.GetKeys: TShiftState;
 //#UC START# *4E32CA120170_4D53D6AA0038_var*
 //#UC END# *4E32CA120170_4D53D6AA0038_var*
@@ -64,6 +58,12 @@ begin
  Result := [ssCtrl];
 //#UC END# *4E32CA120170_4D53D6AA0038_impl*
 end;//TColumnResizeWithCtrl.GetKeys
+
+function TColumnResizeWithCtrl.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4D53D6AA0038';
+end;//TColumnResizeWithCtrl.GetModelElementGUID
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

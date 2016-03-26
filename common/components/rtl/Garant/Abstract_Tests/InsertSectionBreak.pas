@@ -53,9 +53,9 @@ implementation
 uses
  l3ImplUses
  , evdTypes
- , TestFrameWork
  , evMsgCode
  , evOp
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

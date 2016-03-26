@@ -22,13 +22,13 @@ type
  TK182157315 = class(TPreviewTestBefore278833302)
   {* [RequestLink:182157315] }
   protected
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK182157315
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -49,6 +49,17 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+function TK182157315.EtalonNeedsXE: Boolean;
+//#UC START# *51AF49E5001B_4D63DDD901EC_var*
+//#UC END# *51AF49E5001B_4D63DDD901EC_var*
+begin
+//#UC START# *51AF49E5001B_4D63DDD901EC_impl*
+ Result := true;
+//#UC END# *51AF49E5001B_4D63DDD901EC_impl*
+end;//TK182157315.EtalonNeedsXE
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+
 function TK182157315.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -60,17 +71,6 @@ function TK182157315.GetModelElementGUID: AnsiString;
 begin
  Result := '4D63DDD901EC';
 end;//TK182157315.GetModelElementGUID
-
-{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-function TK182157315.EtalonNeedsXE: Boolean;
-//#UC START# *51AF49E5001B_4D63DDD901EC_var*
-//#UC END# *51AF49E5001B_4D63DDD901EC_var*
-begin
-//#UC START# *51AF49E5001B_4D63DDD901EC_impl*
- Result := true;
-//#UC END# *51AF49E5001B_4D63DDD901EC_impl*
-end;//TK182157315.EtalonNeedsXE
-{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK182157315.Suite);

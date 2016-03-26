@@ -21,8 +21,6 @@ type
  TK347636412 = class(TMergeCellsTest)
   {* [Requestlink:347636412] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    function GetTablePara(const aDocument: InevParaList): InevParaList; override;
     {* Возвращает параграф с таблицей }
    procedure GetSelectParam(out aStartRow: Integer;
@@ -30,6 +28,8 @@ type
     out aFinishRow: Integer;
     out aFinishCell: Integer); override;
     {* Получить "координаты" точек выделения. }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK347636412
@@ -56,12 +56,6 @@ uses
  , l3Base
 ;
 
-function TK347636412.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.7';
-end;//TK347636412.GetFolder
-
 function TK347636412.GetTablePara(const aDocument: InevParaList): InevParaList;
  {* Возвращает параграф с таблицей }
 //#UC START# *4CC818F4022D_4F6C568000A6_var*
@@ -87,6 +81,12 @@ begin
  aFinishCell := 5;
 //#UC END# *4CC81D4101AC_4F6C568000A6_impl*
 end;//TK347636412.GetSelectParam
+
+function TK347636412.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK347636412.GetFolder
 
 function TK347636412.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

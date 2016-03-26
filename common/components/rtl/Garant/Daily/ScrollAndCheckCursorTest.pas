@@ -26,11 +26,11 @@ type
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
     {* Обработать текст }
    {$IfEnd} // NOT Defined(NoVCM)
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    {$If NOT Defined(NoVCM)}
    function F1Like: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollAndCheckCursorTest
@@ -68,12 +68,6 @@ begin
 //#UC END# *4BE419AF0217_4D6B85E6037B_impl*
 end;//TScrollAndCheckCursorTest.DoVisit
 
-function TScrollAndCheckCursorTest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'EditorTests';
-end;//TScrollAndCheckCursorTest.GetFolder
-
 function TScrollAndCheckCursorTest.F1Like: Boolean;
 //#UC START# *4C9B31F6015E_4D6B85E6037B_var*
 //#UC END# *4C9B31F6015E_4D6B85E6037B_var*
@@ -82,6 +76,12 @@ begin
  Result := True;
 //#UC END# *4C9B31F6015E_4D6B85E6037B_impl*
 end;//TScrollAndCheckCursorTest.F1Like
+
+function TScrollAndCheckCursorTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'EditorTests';
+end;//TScrollAndCheckCursorTest.GetFolder
 
 function TScrollAndCheckCursorTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

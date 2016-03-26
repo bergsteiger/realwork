@@ -47,9 +47,9 @@ uses
  , l3Interfaces
  , evExtFormat
  , l3Base
- , TestFrameWork
  , evMsgCode
  , evOp
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

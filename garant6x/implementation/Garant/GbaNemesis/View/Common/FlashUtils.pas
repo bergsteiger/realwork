@@ -1,63 +1,46 @@
 unit FlashUtils;
+ {* Утилиты для работы с Flash-схемами }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/FlashUtils.pas"
-// Начат: 29.01.2009 15:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Common::View::Common::FlashUtils
-//
-// Утилиты для работы с Flash-схемами
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\FlashUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "FlashUtils" MUID: (4981A3DC007E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoFlash)}
-  ,
-  vtShockwaveFlashEx
-  {$IfEnd} //not NoFlash
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoFlash)}
+ , vtShockwaveFlashEx
+ {$IfEnd} // NOT Defined(NoFlash)
+;
 
-function NsCanMakeFlashActiveX: Boolean;
-   {* Проверяет - возможно ли создать компонент для показа flash-ролика }
-function NsMakeFlashActiveX(aParent: TWinControl;
-  aForSplash: Boolean;
-  out aFlash: TvtShockwaveFlashEx): Boolean;
-   {* Создаёт компонент для показа flash-ролика }
-{$IfEnd} //not Admin AND not Monitorings
+function nsCanMakeFlashActiveX: Boolean;
+ {* Проверяет - возможно ли создать компонент для показа flash-ролика }
+function nsMakeFlashActiveX(aParent: TWinControl;
+ aForSplash: Boolean;
+ out aFlash: TvtShockwaveFlashEx): Boolean;
+ {* Создаёт компонент для показа flash-ролика }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  ComObj,
-  Windows,
-  Registry
-  ;
+ l3ImplUses
+ , SysUtils
+ , ComObj
+ , Windows
+ , Registry
+;
 
-// unit methods
-
-function NsCanMakeFlashActiveX: Boolean;
+function nsCanMakeFlashActiveX: Boolean;
+ {* Проверяет - возможно ли создать компонент для показа flash-ролика }
 //#UC START# *4981A569031D_4981A3DC007E_var*
 var
  l_Flash: TvtShockwaveFlashEx;
@@ -67,11 +50,12 @@ begin
  Result := nsMakeFlashActiveX(nil, false, l_Flash);
  FreeAndNil(l_Flash);
 //#UC END# *4981A569031D_4981A3DC007E_impl*
-end;//NsCanMakeFlashActiveX
+end;//nsCanMakeFlashActiveX
 
-function NsMakeFlashActiveX(aParent: TWinControl;
-  aForSplash: Boolean;
-  out aFlash: TvtShockwaveFlashEx): Boolean;
+function nsMakeFlashActiveX(aParent: TWinControl;
+ aForSplash: Boolean;
+ out aFlash: TvtShockwaveFlashEx): Boolean;
+ {* Создаёт компонент для показа flash-ролика }
 //#UC START# *4981A58A0168_4981A3DC007E_var*
 const
  c_ClassIDKey: string = '\SOFTWARE\Classes\CLSID\{D27CDB6E-AE6D-11cf-96B8-444553540000}';
@@ -144,7 +128,7 @@ AlignMode  Integer value from range 0..15. This is the same as SAlign.
  end;//try..except
  Result := aFlash <> nil;
 //#UC END# *4981A58A0168_4981A3DC007E_impl*
-end;//NsMakeFlashActiveX
-{$IfEnd} //not Admin AND not Monitorings
+end;//nsMakeFlashActiveX
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

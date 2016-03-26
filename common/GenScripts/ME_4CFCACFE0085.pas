@@ -20,10 +20,10 @@ type
  TK245206060 = class(TNSRCtoNSRCTest)
   {* [RequestLink:245206060] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    function IsPlus: Boolean; override;
     {* NSRC+? }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK245206060
@@ -37,12 +37,6 @@ uses
  , TestFrameWork
 ;
 
-function TK245206060.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'NSRC 7.6';
-end;//TK245206060.GetFolder
-
 function TK245206060.IsPlus: Boolean;
  {* NSRC+? }
 //#UC START# *4CE67DED0192_4CFCACFE0085_var*
@@ -52,6 +46,12 @@ begin
  Result := false;
 //#UC END# *4CE67DED0192_4CFCACFE0085_impl*
 end;//TK245206060.IsPlus
+
+function TK245206060.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'NSRC 7.6';
+end;//TK245206060.GetFolder
 
 function TK245206060.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

@@ -31,9 +31,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , evWikiReader
  , SysUtils
+ , TestFrameWork
 ;
 
 procedure TWikiReaderTest.WikiToEVD(const aFileName: AnsiString);

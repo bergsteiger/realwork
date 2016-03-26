@@ -36,9 +36,9 @@ uses
  l3ImplUses
  , l3Diff
  , l3DiffSupport
- , TestFrameWork
  , l3Filer
  , SysUtils
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

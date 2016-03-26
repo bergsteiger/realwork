@@ -36,10 +36,10 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , SysUtils
  , evEvdRd
  , l3Parser
+ , TestFrameWork
 ;
 
 procedure TEVDWriterTest.EVDtoEVD(const aFileName: AnsiString);

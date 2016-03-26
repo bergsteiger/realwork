@@ -34,8 +34,8 @@ implementation
 uses
  l3ImplUses
  , l3IntegerToIntegerMap
- , TestFrameWork
  , SysUtils
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

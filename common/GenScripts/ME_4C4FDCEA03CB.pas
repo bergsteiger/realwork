@@ -43,10 +43,10 @@ uses
  l3ImplUses
  , evMsgCode
  , evOp
- , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , PrimTextLoad_Form
  {$IfEnd} // NOT Defined(NoVCM)
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

@@ -43,13 +43,13 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , evMsgCode
  , evOp
  , l3InternalInterfaces
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , TestFrameWork
  , nevTools
  {$If NOT Defined(NoVCM)}
  , vcmBase

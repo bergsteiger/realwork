@@ -51,10 +51,10 @@ implementation
 uses
  l3ImplUses
  , Types
- , TestFrameWork
  , l3Base
  , evOp
  , l3InternalInterfaces
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

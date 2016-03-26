@@ -19,11 +19,11 @@ uses
 type
  THTMLtoEVDWithURLTest = {abstract} class(THTMLtoEVDTest)
   protected
+   procedure TuningReader(aHTMLReader: TddHTMLReader); override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   procedure TuningReader(aHTMLReader: TddHTMLReader); override;
  end;//THTMLtoEVDWithURLTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -34,6 +34,15 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+procedure THTMLtoEVDWithURLTest.TuningReader(aHTMLReader: TddHTMLReader);
+//#UC START# *56A613A30375_56A613EC02A2_var*
+//#UC END# *56A613A30375_56A613EC02A2_var*
+begin
+//#UC START# *56A613A30375_56A613EC02A2_impl*
+ aHTMLReader.ReadURL := True;
+//#UC END# *56A613A30375_56A613EC02A2_impl*
+end;//THTMLtoEVDWithURLTest.TuningReader
 
 function THTMLtoEVDWithURLTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -46,15 +55,6 @@ function THTMLtoEVDWithURLTest.GetModelElementGUID: AnsiString;
 begin
  Result := '56A613EC02A2';
 end;//THTMLtoEVDWithURLTest.GetModelElementGUID
-
-procedure THTMLtoEVDWithURLTest.TuningReader(aHTMLReader: TddHTMLReader);
-//#UC START# *56A613A30375_56A613EC02A2_var*
-//#UC END# *56A613A30375_56A613EC02A2_var*
-begin
-//#UC START# *56A613A30375_56A613EC02A2_impl*
- aHTMLReader.ReadURL := True;
-//#UC END# *56A613A30375_56A613EC02A2_impl*
-end;//THTMLtoEVDWithURLTest.TuningReader
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

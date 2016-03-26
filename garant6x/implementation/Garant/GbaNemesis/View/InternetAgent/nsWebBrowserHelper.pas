@@ -1,46 +1,34 @@
 unit nsWebBrowserHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/InternetAgent/nsWebBrowserHelper.pas"
-// Начат: 12.10.2011 15:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Встроенные продукты::InternetAgent::View::InternetAgent::nsWebBrowserHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsWebBrowserHelper" MUID: (4E9574DB0120)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+;
 
 function EnumChildWindowProc(hwnd: HWND;
-  lParam: LPARAM): Boolean; stdcall;
-{$IfEnd} //not Admin AND not Monitorings
+ lParam: LPARAM): Boolean; stdcall;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  StrUtils,
-  Messages
-  ;
-
-// unit methods
+ l3ImplUses
+ , StrUtils
+ , Messages
+;
 
 function EnumChildWindowProc(hwnd: HWND;
-  lParam: LPARAM): Boolean;
+ lParam: LPARAM): Boolean;
 //#UC START# *4E957515024B_4E9574DB0120_var*
 var
  clName: array [0..259] of AnsiChar;
@@ -74,6 +62,6 @@ begin
  GetClientRect(hwnd, R);
 //#UC END# *4E957515024B_4E9574DB0120_impl*
 end;//EnumChildWindowProc
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -25,11 +25,11 @@ type
    procedure Navigate(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); override;
     {* Устанавливает курсор или выделение }
+   function CharCount: Integer; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function CharCount: Integer; override;
  end;//TK605362960
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -65,6 +65,15 @@ begin
 //#UC END# *4C4FE56300FB_55E43F0500A2_impl*
 end;//TK605362960.Navigate
 
+function TK605362960.CharCount: Integer;
+//#UC START# *4DF781CB0217_55E43F0500A2_var*
+//#UC END# *4DF781CB0217_55E43F0500A2_var*
+begin
+//#UC START# *4DF781CB0217_55E43F0500A2_impl*
+ Result := 81;
+//#UC END# *4DF781CB0217_55E43F0500A2_impl*
+end;//TK605362960.CharCount
+
 function TK605362960.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -76,15 +85,6 @@ function TK605362960.GetModelElementGUID: AnsiString;
 begin
  Result := '55E43F0500A2';
 end;//TK605362960.GetModelElementGUID
-
-function TK605362960.CharCount: Integer;
-//#UC START# *4DF781CB0217_55E43F0500A2_var*
-//#UC END# *4DF781CB0217_55E43F0500A2_var*
-begin
-//#UC START# *4DF781CB0217_55E43F0500A2_impl*
- Result := 81;
-//#UC END# *4DF781CB0217_55E43F0500A2_impl*
-end;//TK605362960.CharCount
 
 initialization
  TestFramework.RegisterTest(TK605362960.Suite);

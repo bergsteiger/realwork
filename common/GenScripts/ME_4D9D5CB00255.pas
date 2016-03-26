@@ -33,13 +33,13 @@ type
    function FormExtent: TPoint; override;
     {* Размеры формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK259163553
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -111,6 +111,17 @@ begin
 end;//TK259163553.FormExtent
 {$IfEnd} // NOT Defined(NoVCM)
 
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+function TK259163553.EtalonNeedsXE: Boolean;
+//#UC START# *51AF49E5001B_4D9D5CB00255_var*
+//#UC END# *51AF49E5001B_4D9D5CB00255_var*
+begin
+//#UC START# *51AF49E5001B_4D9D5CB00255_impl*
+ Result := True;
+//#UC END# *51AF49E5001B_4D9D5CB00255_impl*
+end;//TK259163553.EtalonNeedsXE
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+
 function TK259163553.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -122,17 +133,6 @@ function TK259163553.GetModelElementGUID: AnsiString;
 begin
  Result := '4D9D5CB00255';
 end;//TK259163553.GetModelElementGUID
-
-{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-function TK259163553.EtalonNeedsXE: Boolean;
-//#UC START# *51AF49E5001B_4D9D5CB00255_var*
-//#UC END# *51AF49E5001B_4D9D5CB00255_var*
-begin
-//#UC START# *51AF49E5001B_4D9D5CB00255_impl*
- Result := True;
-//#UC END# *51AF49E5001B_4D9D5CB00255_impl*
-end;//TK259163553.EtalonNeedsXE
-{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK259163553.Suite);

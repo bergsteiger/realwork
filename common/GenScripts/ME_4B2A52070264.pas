@@ -37,11 +37,11 @@ implementation
 uses
  l3ImplUses
  , TestGlobals
- , TestFrameWork
  , l3Filer
  , l3Stream
  , l3Types
  , SysUtils
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

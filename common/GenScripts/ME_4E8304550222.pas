@@ -20,11 +20,11 @@ type
  TK288010443 = class(TEVDtoNSRCPlusWriterTest)
   {* [RequestLink:288010443] }
   protected
+   function AcceptBadPictureFormat: Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function AcceptBadPictureFormat: Boolean; override;
  end;//TK288010443
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -35,6 +35,15 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK288010443.AcceptBadPictureFormat: Boolean;
+//#UC START# *4E8317EF02C7_4E8304550222_var*
+//#UC END# *4E8317EF02C7_4E8304550222_var*
+begin
+//#UC START# *4E8317EF02C7_4E8304550222_impl*
+ Result := true;
+//#UC END# *4E8317EF02C7_4E8304550222_impl*
+end;//TK288010443.AcceptBadPictureFormat
 
 function TK288010443.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -47,15 +56,6 @@ function TK288010443.GetModelElementGUID: AnsiString;
 begin
  Result := '4E8304550222';
 end;//TK288010443.GetModelElementGUID
-
-function TK288010443.AcceptBadPictureFormat: Boolean;
-//#UC START# *4E8317EF02C7_4E8304550222_var*
-//#UC END# *4E8317EF02C7_4E8304550222_var*
-begin
-//#UC START# *4E8317EF02C7_4E8304550222_impl*
- Result := true;
-//#UC END# *4E8317EF02C7_4E8304550222_impl*
-end;//TK288010443.AcceptBadPictureFormat
 
 initialization
  TestFramework.RegisterTest(TK288010443.Suite);

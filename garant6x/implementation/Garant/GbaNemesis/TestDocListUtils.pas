@@ -1,65 +1,51 @@
 unit TestDocListUtils;
+ {* Утилиты ГК, для работы со списком документов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1Test"
-// Автор: ГК
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/TestDocListUtils.pas"
-// Начат: давно
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::F1Test::TestUtils::TestDocListUtils
-//
-// Утилиты ГК, для работы со списком документов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "TestDocListUtils" MUID: (499C28950272)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(XE)}
+{$If NOT Defined(XE)}
 uses
-  DynamicDocListUnit,
-  DocumentUnit,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscTreeView
-  {$IfEnd} //Nemesis
-  
-  ;
+ l3IntfUses
+ , DynamicDocListUnit
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ , l3TreeInterfaces
+ , DocumentUnit
+;
 
 function GetLEIFromTTV(aTTV: TnscTreeView): IListEntryInfo;
-   {* Коллеги, это что? }
+ {* Коллеги, это что? }
 function GetLEIFromNode(const aNode: Il3SimpleNode): IListEntryInfo;
-   {* Коллеги, это что? }
+ {* Коллеги, это что? }
 function GetSubIDByParaID(const aDocument: IDocument;
-  aParaID: Integer): Integer;
-   {* возвращает номер саба по номеру параграфа }
-{$IfEnd} //not XE
+ aParaID: Integer): Integer;
+ {* возвращает номер саба по номеру параграфа }
+{$IfEnd} // NOT Defined(XE)
 
 implementation
 
-{$If not defined(XE)}
+{$If NOT Defined(XE)}
 uses
-  DynamicTreeUnit,
-  BaseTypesUnit,
-  SysUtils,
-  k2Tags,
-  k2Facade,
-  LeafPara_Const,
-  Sub_Const,
-  Bookmark_Const
-  ;
-
-// unit methods
+ l3ImplUses
+ , DynamicTreeUnit
+ , BaseTypesUnit
+ , SysUtils
+ , k2Tags
+ , k2Facade
+ , LeafPara_Const
+ , Sub_Const
+ , Bookmark_Const
+;
 
 function GetLEIFromTTV(aTTV: TnscTreeView): IListEntryInfo;
+ {* Коллеги, это что? }
 //#UC START# *499C29190244_499C28950272_var*
 var
  l_Node : INodeBase;
@@ -79,6 +65,7 @@ begin
 end;//GetLEIFromTTV
 
 function GetLEIFromNode(const aNode: Il3SimpleNode): IListEntryInfo;
+ {* Коллеги, это что? }
 //#UC START# *499C296703E6_499C28950272_var*
 var
  l_Node : INodeBase;
@@ -98,7 +85,8 @@ begin
 end;//GetLEIFromNode
 
 function GetSubIDByParaID(const aDocument: IDocument;
-  aParaID: Integer): Integer;
+ aParaID: Integer): Integer;
+ {* возвращает номер саба по номеру параграфа }
 //#UC START# *499C3C1E014C_499C28950272_var*
   var
     l_DocTagRoot, l_CurrNode, l_ParaNode, l_SubNode, l_TempNode : INodeBase;
@@ -217,6 +205,6 @@ begin
   end; // if*)
 //#UC END# *499C3C1E014C_499C28950272_impl*
 end;//GetSubIDByParaID
-{$IfEnd} //not XE
+{$IfEnd} // NOT Defined(XE)
 
 end.

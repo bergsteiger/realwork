@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , nevGUIInterfaces
- , TestFrameWork
  , l3Base
  , evOp
  , l3InternalInterfaces
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

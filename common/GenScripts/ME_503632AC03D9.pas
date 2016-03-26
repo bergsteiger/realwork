@@ -38,8 +38,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , SysUtils
+ , TestFrameWork
 ;
 
 procedure TXMLWriterTest.SomeFormatToXML(aReader: Tk2CustomFileReader;

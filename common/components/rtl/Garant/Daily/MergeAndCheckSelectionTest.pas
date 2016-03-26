@@ -27,14 +27,14 @@ type
  TMergeAndCheckSelectionTest = {abstract} class(_SelectOperation_)
   {* Тест проверки выделения после объединения ячеек. }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    {$If NOT Defined(NoVCM)}
    procedure CheckOperation(aForm: TPrimTextLoadForm); override;
     {* Проверка после применения инструмента. }
    {$IfEnd} // NOT Defined(NoVCM)
    function NeedSelection: Boolean; override;
     {* Нужно ли чего-нибудь выделять. }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TMergeAndCheckSelectionTest
@@ -45,11 +45,11 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , l3Base
  , evOp
  , l3InternalInterfaces
  , evTypes
+ , TestFrameWork
  , evMsgCode
  {$If Defined(k2ForEditor)}
  , evCursorTools
@@ -66,12 +66,6 @@ uses
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
-
-function TMergeAndCheckSelectionTest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'EditorTests';
-end;//TMergeAndCheckSelectionTest.GetFolder
 
 {$If NOT Defined(NoVCM)}
 procedure TMergeAndCheckSelectionTest.CheckOperation(aForm: TPrimTextLoadForm);
@@ -95,6 +89,12 @@ begin
  Result := True;
 //#UC END# *4CC8189D02DF_4CE133F801BA_impl*
 end;//TMergeAndCheckSelectionTest.NeedSelection
+
+function TMergeAndCheckSelectionTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'EditorTests';
+end;//TMergeAndCheckSelectionTest.GetFolder
 
 function TMergeAndCheckSelectionTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

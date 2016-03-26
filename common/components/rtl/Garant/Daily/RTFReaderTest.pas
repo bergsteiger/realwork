@@ -33,9 +33,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , SysUtils
  , ddRTFReader
+ , TestFrameWork
 ;
 
 procedure TRTFReaderTest.RTFtoEVD(const aFileName: AnsiString);

@@ -20,9 +20,9 @@ type
  TK255956509 = class(TScrollParamsTest)
   {* [$255956509] }
   protected
+   function GetSubNumber: Integer; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
-   function GetSubNumber: Integer; override;
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK255956509
@@ -44,12 +44,6 @@ uses
  , l3Base
 ;
 
-function TK255956509.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.7';
-end;//TK255956509.GetFolder
-
 function TK255956509.GetSubNumber: Integer;
 //#UC START# *4D7211F7018C_4D720C39027F_var*
 //#UC END# *4D7211F7018C_4D720C39027F_var*
@@ -58,6 +52,12 @@ begin
  Result := 20021;
 //#UC END# *4D7211F7018C_4D720C39027F_impl*
 end;//TK255956509.GetSubNumber
+
+function TK255956509.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK255956509.GetFolder
 
 function TK255956509.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

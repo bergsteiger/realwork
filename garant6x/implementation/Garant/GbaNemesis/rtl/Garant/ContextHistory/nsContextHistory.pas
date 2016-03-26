@@ -1,42 +1,32 @@
 unit nsContextHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ContextHistory"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/rtl/Garant/ContextHistory/nsContextHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Common For Shell And Monitoring::Search::ContextHistory::ContextHistory::nsContextHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistory.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsContextHistory" MUID: (4AD8570C01CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  ContextHistoryInterfaces
-  ;
+ l3IntfUses
+ , ContextHistoryInterfaces
+;
 
-function NsGetContextHistory(aKind: TnsContextHistoryKind): InsContextSearchHistory;
-{$IfEnd} //not Admin
+function nsGetContextHistory(aKind: TnsContextHistoryKind): InsContextSearchHistory;
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nsInpharmContextHistory,
-  nsDocumentContextHistory
-  ;
+ l3ImplUses
+ , nsInpharmContextHistory
+ , nsDocumentContextHistory
+;
 
-// unit methods
-
-function NsGetContextHistory(aKind: TnsContextHistoryKind): InsContextSearchHistory;
+function nsGetContextHistory(aKind: TnsContextHistoryKind): InsContextSearchHistory;
 //#UC START# *4AD85724035A_4AD8570C01CC_var*
 //#UC END# *4AD85724035A_4AD8570C01CC_var*
 begin
@@ -50,7 +40,7 @@ begin
   Result := nil;
  end;
 //#UC END# *4AD85724035A_4AD8570C01CC_impl*
-end;//NsGetContextHistory
-{$IfEnd} //not Admin
+end;//nsGetContextHistory
+{$IfEnd} // NOT Defined(Admin)
 
 end.

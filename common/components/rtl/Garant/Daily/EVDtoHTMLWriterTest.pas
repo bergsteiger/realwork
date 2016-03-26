@@ -36,9 +36,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , evdNativeReader
  , SysUtils
+ , TestFrameWork
 ;
 
 procedure TEVDtoHTMLWriterTest.EVDtoHTML(const aFileName: AnsiString);

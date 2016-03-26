@@ -38,6 +38,15 @@ uses
  , K294595323Suite
 ;
 
+class function TK294595323.Suite: ITestSuite;
+//#UC START# *4EA553E901DB_4EA5382F006A_var*
+//#UC END# *4EA553E901DB_4EA5382F006A_var*
+begin
+//#UC START# *4EA553E901DB_4EA5382F006A_impl*
+ Result := TK294595323Suite.Create(Self);
+//#UC END# *4EA553E901DB_4EA5382F006A_impl*
+end;//TK294595323.Suite
+
 function TK294595323.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -49,15 +58,6 @@ function TK294595323.GetModelElementGUID: AnsiString;
 begin
  Result := '4EA5382F006A';
 end;//TK294595323.GetModelElementGUID
-
-class function TK294595323.Suite: ITestSuite;
-//#UC START# *4EA553E901DB_4EA5382F006A_var*
-//#UC END# *4EA553E901DB_4EA5382F006A_var*
-begin
-//#UC START# *4EA553E901DB_4EA5382F006A_impl*
- Result := TK294595323Suite.Create(Self);
-//#UC END# *4EA553E901DB_4EA5382F006A_impl*
-end;//TK294595323.Suite
 
 initialization
  TestFramework.RegisterTest(TK294595323.Suite);

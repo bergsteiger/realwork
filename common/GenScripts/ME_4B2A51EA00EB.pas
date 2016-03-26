@@ -41,10 +41,10 @@ implementation
 uses
  l3ImplUses
  , TestGlobals
- , TestFrameWork
  , l3Filer
  , SysUtils
  , l3Types
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

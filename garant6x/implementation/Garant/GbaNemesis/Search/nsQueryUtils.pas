@@ -1,189 +1,162 @@
 unit nsQueryUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsQueryUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Common For Shell And Monitoring::Search::Search::nsQueryAttributes::nsQueryUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsQueryUtils" MUID: (4AE864B801C5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  DynamicDocListUnit,
-  FiltersUnit,
-  SearchUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  nsQueryInterfaces,
-  Windows,
-  nsTypes,
-  PrimBaseSearchInterfaces,
-  nsQueryAttribute,
-  ContextHistoryInterfaces
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ContextHistoryInterfaces
+ , SearchUnit
+ , DynamicDocListUnit
+ , Windows
+ , FiltersUnit
+ , PrimBaseSearchInterfaces
+ , l3Interfaces
+ , l3TreeInterfaces
+ , nsQueryAttribute
+ , nsTypes
+ , nsQueryInterfaces
+;
 
 type
- TSysDateTime = System.TDateTime;
- {$If not defined(Admin) AND not defined(Monitorings)}
-function NsGetContextFromQuery(ContextKind: TnsContextHistoryKind;
-  const aQuery: IQuery): IvcmStrings;
-   {* Операция позволяет получить контекст, участвовавший в запросе. Если не было контекста - nil. }
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
-function NsSearchExecute(const aQuery: IQuery;
-  aResult: PInteger = nil;
-  const aFilters: IFiltersFromQuery = nil;
-  const aList: IDynList = nil;
-  const aProcessor: InsBaseSearchResultProcessor = nil): IDynList;
-   {* Операция проводит поиск по текущему запросу (aQuery), на результирующий список, накладывается фильтр (aFilter), список возвращается как результат }
- {$IfEnd} //not Admin AND not Monitorings
-function NsCreateQueryName(const aQuery: IQuery): Il3CString;
-   {* Формирует для запроса имя по умолчанию }
-function NsIsQuerySaved(const aQuery: IQuery): Boolean;
-   {* Проверяет статус isSaved для указанного объекта Query }
+ TSysDateTime = TDateTime;
+
+{$If NOT Defined(Monitorings)}
+function nsGetContextFromQuery(ContextKind: TnsContextHistoryKind;
+ const aQuery: IQuery): IvcmStrings;
+ {* Операция позволяет получить контекст, участвовавший в запросе. Если не было контекста - nil. }
+{$IfEnd} // NOT Defined(Monitorings)
+{$If NOT Defined(Monitorings)}
+function nsSearchExecute(const aQuery: IQuery;
+ aResult: PInteger = nil;
+ const aFilters: IFiltersFromQuery = nil;
+ const aList: IDynList = nil;
+ const aProcessor: InsBaseSearchResultProcessor = nil): IDynList;
+ {* Операция проводит поиск по текущему запросу (aQuery), на результирующий список, накладывается фильтр (aFilter), список возвращается как результат }
+{$IfEnd} // NOT Defined(Monitorings)
+function nsCreateQueryName(const aQuery: IQuery): Il3CString;
+ {* Формирует для запроса имя по умолчанию }
+function nsIsQuerySaved(const aQuery: IQuery): Boolean;
+ {* Проверяет статус isSaved для указанного объекта Query }
 function LoadContextNew(const aQuery: IQuery;
-  const aTagName: Il3CString;
-  out aContext: Il3CString): Boolean;
-   {* загружает контекст из Query }
+ const aTagName: Il3CString;
+ out aContext: Il3CString): Boolean;
+ {* загружает контекст из Query }
 function LoadAttributeCaption(const aQuery: IQuery;
-  const aTagName: Il3CString;
-  out aCaption: Il3CString): Boolean;
-   {* загружает заголовок первого атрибута из Query }
-procedure NsParseContext(const aContext: Il3CString;
-  const aStrings: IvcmStrings);
+ const aTagName: Il3CString;
+ out aCaption: Il3CString): Boolean;
+ {* загружает заголовок первого атрибута из Query }
+procedure nsParseContext(const aContext: Il3CString;
+ const aStrings: IvcmStrings);
 procedure LoadLogicFromQuery(const aQuery: IQuery;
-  const aTag: Il3CString;
-  const aTree: Il3SimpleTree);
+ const aTag: Il3CString;
+ const aTree: Il3SimpleTree);
 function SaveLogicToQuery(const aQuery: IQuery;
-  const aTag: Il3CString;
-  const aTree: Il3SimpleTree): Boolean;
-function NsGetQueryName(const aQuery: IQuery): Il3CString;
+ const aTag: Il3CString;
+ const aTree: Il3SimpleTree): Boolean;
+function nsGetQueryName(const aQuery: IQuery): Il3CString;
 procedure LoadPhone(const aQuery: IQuery;
-  const aTagName: Tl3WString;
-  out aCode: Il3CString;
-  out aNumber: Il3CString);
-   {* Загрузить номер телефона из IQuery }
+ const aTagName: Tl3WString;
+ out aCode: Il3CString;
+ out aNumber: Il3CString);
+ {* Загрузить номер телефона из IQuery }
 procedure LoadDictionaryNew(aList: TqaAttrInfoList;
-  const aQuery: IQuery;
-  const aTagName: Il3CString);
-   {* Загрузить значение реквизита }
+ const aQuery: IQuery;
+ const aTagName: Il3CString);
+ {* Загрузить значение реквизита }
 function GetAdditionalFilter(const aTagName: Il3CString;
-  aQueryType: TlgQueryType): TnsFilterType;
- {$If not defined(Admin) AND not defined(Monitorings)}
-procedure NsSearch(const aQuery: IQuery;
-  const aFilters: IFiltersFromQuery = nil;
-  const aList: IDynList = nil;
-  const aProcessor: IUnknown = nil);
-   {* Операция проводит поиск по текущему запросу (aQuery), на результирующий список, накладывается фильтр (aFilter), список автоматически открывается }
- {$IfEnd} //not Admin AND not Monitorings
+ aQueryType: TlgQueryType): TnsFilterType;
+{$If NOT Defined(Monitorings)}
+procedure nsSearch(const aQuery: IQuery;
+ const aFilters: IFiltersFromQuery = nil;
+ const aList: IDynList = nil;
+ const aProcessor: IUnknown = nil);
+ {* Операция проводит поиск по текущему запросу (aQuery), на результирующий список, накладывается фильтр (aFilter), список автоматически открывается }
+{$IfEnd} // NOT Defined(Monitorings)
 procedure LoadDateNew(const aQuery: IQuery;
-  const aTagName: Il3CString;
-  var aStartDate: TSysDateTime;
-  var aEndDate: TSysDateTime);
-   {* Загрузить диапазон дат из IQuery }
-{$IfEnd} //not Admin
+ const aTagName: Il3CString;
+ var aStartDate: TSysDateTime;
+ var aEndDate: TSysDateTime);
+ {* Загрузить диапазон дат из IQuery }
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmStringList
-  {$IfEnd} //not NoVCM
-  ,
-  IOUnit,
-  DynamicTreeUnit,
-  MonitoringUnit,
-  DebugStr,
-  afwFacade,
-  nsConst,
-  BaseTypesUnit
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsQuery,
-  nsQueryExecuteProgressIndicator
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  bsUtils,
-  nsUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  afwInterfaces,
-  DataAdapter,
-  l3InterfacesMisc,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID,
-  nsManagers,
-  nsQuestionsWithChoices,
-  nsQuestions,
-  bsTypes,
-  nsContextHistory
-  {$If not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmDialogs
-  {$IfEnd} //not NoVCM AND not NoVGScene
-  ,
-  l3Chars,
-  nsAttributeTreeStruct,
-  nsTreeUtils,
-  nsLogicOperationToFlags,
-  SearchDomainInterfaces,
-  l3Date,
-  nsSearchClasses,
-  nsDataExchangeProxy
-  ;
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmStringList
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IOUnit
+ , DynamicTreeUnit
+ , MonitoringUnit
+ , DebugStr
+ , afwFacade
+ , nsConst
+ , BaseTypesUnit
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsQuery
+ , nsQueryExecuteProgressIndicator
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsUtils
+ , nsUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , DataAdapter
+ , l3InterfacesMisc
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3MessageID
+ , nsManagers
+ , nsQuestionsWithChoices
+ , nsQuestions
+ , bsTypes
+ , nsContextHistory
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
+ , vcmDialogs
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
+ , l3Chars
+ , nsAttributeTreeStruct
+ , nsTreeUtils
+ , nsLogicOperationToFlags
+ , SearchDomainInterfaces
+ , l3Date
+ , nsSearchClasses
+ , nsDataExchangeProxy
+;
 
 const
-  { InternalConst }
  cContextValueSeparator = ';';
 
-// unit methods
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-function NsGetContextFromQuery(ContextKind: TnsContextHistoryKind;
-  const aQuery: IQuery): IvcmStrings;
+{$If NOT Defined(Monitorings)}
+function nsGetContextFromQuery(ContextKind: TnsContextHistoryKind;
+ const aQuery: IQuery): IvcmStrings;
+ {* Операция позволяет получить контекст, участвовавший в запросе. Если не было контекста - nil. }
 //#UC START# *54F98EAB038F_4AE864B801C5_var*
  procedure lp_ProcessTag(const aTag: PAnsiChar; const aList: IvcmStrings);
  var
@@ -240,15 +213,16 @@ begin
  else
   Result := nil;
 //#UC END# *54F98EAB038F_4AE864B801C5_impl*
-end;//NsGetContextFromQuery
-{$IfEnd} //not Admin AND not Monitorings
+end;//nsGetContextFromQuery
+{$IfEnd} // NOT Defined(Monitorings)
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-function NsSearchExecute(const aQuery: IQuery;
-  aResult: PInteger = nil;
-  const aFilters: IFiltersFromQuery = nil;
-  const aList: IDynList = nil;
-  const aProcessor: InsBaseSearchResultProcessor = nil): IDynList;
+{$If NOT Defined(Monitorings)}
+function nsSearchExecute(const aQuery: IQuery;
+ aResult: PInteger = nil;
+ const aFilters: IFiltersFromQuery = nil;
+ const aList: IDynList = nil;
+ const aProcessor: InsBaseSearchResultProcessor = nil): IDynList;
+ {* Операция проводит поиск по текущему запросу (aQuery), на результирующий список, накладывается фильтр (aFilter), список возвращается как результат }
 //#UC START# *54F98F0D007F_4AE864B801C5_var*
 var
  l_Query: IQuery;
@@ -616,10 +590,11 @@ begin
   l_Query := nil;
  end;
 //#UC END# *54F98F0D007F_4AE864B801C5_impl*
-end;//NsSearchExecute
-{$IfEnd} //not Admin AND not Monitorings
+end;//nsSearchExecute
+{$IfEnd} // NOT Defined(Monitorings)
 
-function NsCreateQueryName(const aQuery: IQuery): Il3CString;
+function nsCreateQueryName(const aQuery: IQuery): Il3CString;
+ {* Формирует для запроса имя по умолчанию }
 //#UC START# *54F98FF20087_4AE864B801C5_var*
 const
  l_QueryNamePatternsForSave: array[TQueryType] of PvcmStringID = (
@@ -644,9 +619,10 @@ begin
  if l3IsNil(Result) then
   Result := vcmFmt(l_QueryNamePatternsForSave[aQuery.GetType]^, [DateTimeToStr(Now)]);
 //#UC END# *54F98FF20087_4AE864B801C5_impl*
-end;//NsCreateQueryName
+end;//nsCreateQueryName
 
-function NsIsQuerySaved(const aQuery: IQuery): Boolean;
+function nsIsQuerySaved(const aQuery: IQuery): Boolean;
+ {* Проверяет статус isSaved для указанного объекта Query }
 //#UC START# *54F992C20305_4AE864B801C5_var*
 var
  l_CurEntity: IEntityBase;
@@ -662,11 +638,12 @@ begin
  else
   Result := False;
 //#UC END# *54F992C20305_4AE864B801C5_impl*
-end;//NsIsQuerySaved
+end;//nsIsQuerySaved
 
 function LoadContextNew(const aQuery: IQuery;
-  const aTagName: Il3CString;
-  out aContext: Il3CString): Boolean;
+ const aTagName: Il3CString;
+ out aContext: Il3CString): Boolean;
+ {* загружает контекст из Query }
 //#UC START# *54F992EA00FA_4AE864B801C5_var*
 var
  l_ValueList: IQueryAttributeList;
@@ -719,8 +696,9 @@ begin
 end;//LoadContextNew
 
 function LoadAttributeCaption(const aQuery: IQuery;
-  const aTagName: Il3CString;
-  out aCaption: Il3CString): Boolean;
+ const aTagName: Il3CString;
+ out aCaption: Il3CString): Boolean;
+ {* загружает заголовок первого атрибута из Query }
 //#UC START# *54F9934D0399_4AE864B801C5_var*
 var
  l_ValueList: IQueryAttributeList;
@@ -764,8 +742,8 @@ begin
 //#UC END# *54F9934D0399_4AE864B801C5_impl*
 end;//LoadAttributeCaption
 
-procedure NsParseContext(const aContext: Il3CString;
-  const aStrings: IvcmStrings);
+procedure nsParseContext(const aContext: Il3CString;
+ const aStrings: IvcmStrings);
 //#UC START# *54F993CB03AA_4AE864B801C5_var*
  function MissSimbol(var aIndex: Integer; aSimbol: AnsiChar; const aValue: Il3CString): Integer;
  { MissSimbol - пропускаем одинакомые символы идущие один за другим.
@@ -815,11 +793,11 @@ begin
   end;//l3AllCharsInCharSet
  end;//not l3IsNil(aContext)
 //#UC END# *54F993CB03AA_4AE864B801C5_impl*
-end;//NsParseContext
+end;//nsParseContext
 
 procedure LoadLogicFromQuery(const aQuery: IQuery;
-  const aTag: Il3CString;
-  const aTree: Il3SimpleTree);
+ const aTag: Il3CString;
+ const aTree: Il3SimpleTree);
 //#UC START# *54F99436023D_4AE864B801C5_var*
 var
  l_List: TqaAttrInfoList;
@@ -861,8 +839,8 @@ begin
 end;//LoadLogicFromQuery
 
 function SaveLogicToQuery(const aQuery: IQuery;
-  const aTag: Il3CString;
-  const aTree: Il3SimpleTree): Boolean;
+ const aTag: Il3CString;
+ const aTree: Il3SimpleTree): Boolean;
 //#UC START# *54F994590042_4AE864B801C5_var*
 var
  l_Root: INodeBase;
@@ -915,7 +893,7 @@ begin
 //#UC END# *54F994590042_4AE864B801C5_impl*
 end;//SaveLogicToQuery
 
-function NsGetQueryName(const aQuery: IQuery): Il3CString;
+function nsGetQueryName(const aQuery: IQuery): Il3CString;
 //#UC START# *54F9947602D7_4AE864B801C5_var*
 var
  l_String: IString;
@@ -928,12 +906,13 @@ begin
   l_String := nil;
  Result := nsCStr(l_String);
 //#UC END# *54F9947602D7_4AE864B801C5_impl*
-end;//NsGetQueryName
+end;//nsGetQueryName
 
 procedure LoadPhone(const aQuery: IQuery;
-  const aTagName: Tl3WString;
-  out aCode: Il3CString;
-  out aNumber: Il3CString);
+ const aTagName: Tl3WString;
+ out aCode: Il3CString;
+ out aNumber: Il3CString);
+ {* Загрузить номер телефона из IQuery }
 //#UC START# *54F9953503AE_4AE864B801C5_var*
 var
  l_Node: IQueryPhoneNumberAttribute;
@@ -950,8 +929,9 @@ begin
 end;//LoadPhone
 
 procedure LoadDictionaryNew(aList: TqaAttrInfoList;
-  const aQuery: IQuery;
-  const aTagName: Il3CString);
+ const aQuery: IQuery;
+ const aTagName: Il3CString);
+ {* Загрузить значение реквизита }
 //#UC START# *54F9956D01A4_4AE864B801C5_var*
 var
  l_List: IQueryAttributeList;
@@ -1032,7 +1012,7 @@ begin
 end;//LoadDictionaryNew
 
 function GetAdditionalFilter(const aTagName: Il3CString;
-  aQueryType: TlgQueryType): TnsFilterType;
+ aQueryType: TlgQueryType): TnsFilterType;
 //#UC START# *54F99595006E_4AE864B801C5_var*
 //#UC END# *54F99595006E_4AE864B801C5_var*
 begin
@@ -1062,11 +1042,12 @@ begin
 //#UC END# *54F99595006E_4AE864B801C5_impl*
 end;//GetAdditionalFilter
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-procedure NsSearch(const aQuery: IQuery;
-  const aFilters: IFiltersFromQuery = nil;
-  const aList: IDynList = nil;
-  const aProcessor: IUnknown = nil);
+{$If NOT Defined(Monitorings)}
+procedure nsSearch(const aQuery: IQuery;
+ const aFilters: IFiltersFromQuery = nil;
+ const aList: IDynList = nil;
+ const aProcessor: IUnknown = nil);
+ {* Операция проводит поиск по текущему запросу (aQuery), на результирующий список, накладывается фильтр (aFilter), список автоматически открывается }
 //#UC START# *54F98FAF0095_4AE864B801C5_var*
  function lp_GetListOpenFrom: TbsListOpenFrom;
  begin
@@ -1144,13 +1125,14 @@ begin
   end;//try..finally
  end;//not defDataAdapter.Monitoring.IsExist
 //#UC END# *54F98FAF0095_4AE864B801C5_impl*
-end;//NsSearch
-{$IfEnd} //not Admin AND not Monitorings
+end;//nsSearch
+{$IfEnd} // NOT Defined(Monitorings)
 
 procedure LoadDateNew(const aQuery: IQuery;
-  const aTagName: Il3CString;
-  var aStartDate: TSysDateTime;
-  var aEndDate: TSysDateTime);
+ const aTagName: Il3CString;
+ var aStartDate: TSysDateTime;
+ var aEndDate: TSysDateTime);
+ {* Загрузить диапазон дат из IQuery }
 //#UC START# *54F994DE0329_4AE864B801C5_var*
 var
  l_Node: IQueryDateAttribute;
@@ -1191,6 +1173,6 @@ begin
  end;//l_List.GetCount > 0
 //#UC END# *54F994DE0329_4AE864B801C5_impl*
 end;//LoadDateNew
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

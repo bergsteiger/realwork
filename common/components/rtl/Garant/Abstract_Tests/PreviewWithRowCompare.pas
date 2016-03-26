@@ -43,8 +43,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , TestFrameWork
  , PrintRowHeightsSpy
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

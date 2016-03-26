@@ -20,11 +20,11 @@ type
  TK615114722 = {final} class(TRTFtoEVDWriterTest)
   {* [RequestLink:615114722] }
   protected
+   function TreatExceptionAsSuccess: Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function TreatExceptionAsSuccess: Boolean; override;
  end;//TK615114722
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -35,6 +35,15 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK615114722.TreatExceptionAsSuccess: Boolean;
+//#UC START# *51406117007F_56949CAA003C_var*
+//#UC END# *51406117007F_56949CAA003C_var*
+begin
+//#UC START# *51406117007F_56949CAA003C_impl*
+ Result := True;
+//#UC END# *51406117007F_56949CAA003C_impl*
+end;//TK615114722.TreatExceptionAsSuccess
 
 function TK615114722.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -47,15 +56,6 @@ function TK615114722.GetModelElementGUID: AnsiString;
 begin
  Result := '56949CAA003C';
 end;//TK615114722.GetModelElementGUID
-
-function TK615114722.TreatExceptionAsSuccess: Boolean;
-//#UC START# *51406117007F_56949CAA003C_var*
-//#UC END# *51406117007F_56949CAA003C_var*
-begin
-//#UC START# *51406117007F_56949CAA003C_impl*
- Result := True;
-//#UC END# *51406117007F_56949CAA003C_impl*
-end;//TK615114722.TreatExceptionAsSuccess
 
 initialization
  TestFramework.RegisterTest(TK615114722.Suite);

@@ -22,13 +22,13 @@ type
   protected
    procedure DoBase(const aDB: Im3DB); virtual;
    function NeedTestRenaming: Boolean; virtual;
+   {$If NOT Defined(NotTunedDUnit)}
+   function NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean; override;
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   {$If NOT Defined(NotTunedDUnit)}
-   function NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean; override;
-   {$IfEnd} // NOT Defined(NotTunedDUnit)
   published
    procedure DoIt;
  end;//TArchiStorageTest
@@ -235,6 +235,15 @@ begin
 //#UC END# *4FBB73390387_4FA137DD03E4_impl*
 end;//TArchiStorageTest.NeedTestRenaming
 
+function TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean;
+//#UC START# *4FA164500031_4FA137DD03E4_var*
+//#UC END# *4FA164500031_4FA137DD03E4_var*
+begin
+//#UC START# *4FA164500031_4FA137DD03E4_impl*
+ Result := false;
+//#UC END# *4FA164500031_4FA137DD03E4_impl*
+end;//TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput
+
 function TArchiStorageTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -246,15 +255,6 @@ function TArchiStorageTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4FA137DD03E4';
 end;//TArchiStorageTest.GetModelElementGUID
-
-function TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean;
-//#UC START# *4FA164500031_4FA137DD03E4_var*
-//#UC END# *4FA164500031_4FA137DD03E4_var*
-begin
-//#UC START# *4FA164500031_4FA137DD03E4_impl*
- Result := false;
-//#UC END# *4FA164500031_4FA137DD03E4_impl*
-end;//TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput
 {$IfEnd} // NOT Defined(NotTunedDUnit)
 
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)

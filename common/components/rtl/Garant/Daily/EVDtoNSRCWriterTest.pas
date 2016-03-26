@@ -34,8 +34,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , l3Except
+ , TestFrameWork
 ;
 
 procedure TEVDtoNSRCWriterTest.DoIt;

@@ -1,130 +1,100 @@
 unit nsMainMenuNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/Forms/nsMainMenuNew.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Base Operations::View::MainMenu::nsMainMenuNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\nsMainMenuNew.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsMainMenuNew" MUID: (4AC9A3F801F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  SearchUnit,
-  l3Interfaces,
-  l3TreeInterfaces,
-  Messages,
-  l3ControlsTypes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  eeTreeView,
-  MainMenuDomainInterfaces,
-  l3ProtoDataContainer
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  nsLogEvent
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
-  vtLister,
-  vtOutliner,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ , vtLister
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , eeTreeView
+ , l3ProtoDataContainer
+ , MainMenuDomainInterfaces
+ , SearchUnit
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+;
+
+const
+ c_mmTreeColor = clWhite;
+ c_mmSecondItemColor = $00F2F2F2;
 
 type
  TnsLastOpenDocsManager = class(TvcmBase)
   {* менеджер дерева последних открытых документов }
- private
- // private fields
-   f_MainMenuColor : TColor;
-   f_NewSchool : Boolean;
- private
- // private methods
+  private
+   f_MainMenuColor: TColor;
+   f_NewSchool: Boolean;
+  private
    procedure GetItemStyle(Sender: TObject;
-     aItemIndex: Integer;
-     const aFont: Il3Font;
-     var aTextBackColor: TColor;
-     var aItemBackColor: TColor;
-     var aVJustify: TvtVJustify);
-     {* событие для получения визуального "оформления" элемента }
+    aItemIndex: Integer;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify);
    function GetItemCursor(aSender: TObject;
-     aIndex: Integer): TCursor;
-     {* event to get Item Cursor }
+    aIndex: Integer): TCursor;
    procedure ActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    function GetItemTextHint(Sender: TObject;
-     Index: LongInt): Il3CString;
-     {* получение hint-а при задерке курсора над текстом. }
+    Index: LongInt): Il3CString;
    procedure AllowHotTruck(Sender: TObject;
-     anIndex: Integer;
-     var Allow: Boolean);
+    anIndex: Integer;
+    var Allow: Boolean);
    function IsBookmark(const aNode: Il3SimpleNode): Boolean;
    procedure Init(aTree: TnscTreeViewHotTruck);
- public
- // public methods
+  public
    constructor Create(aMainMenuColor: TColor;
-     aTree: TnscTreeViewHotTruck;
-     aNewSchool: Boolean); reintroduce;
+    aTree: TnscTreeViewHotTruck;
+    aNewSchool: Boolean); reintroduce;
  end;//TnsLastOpenDocsManager
 
  TnsTreeStyleManager = class(TvcmBase)
   {* менеджер стилей деревьев для основного меню }
- private
- // private fields
-   f_MainMenuColor : TColor;
-   f_NewSchool : Boolean;
- private
- // private methods
+  private
+   f_MainMenuColor: TColor;
+   f_NewSchool: Boolean;
+  private
    procedure TreeGetItemStyle(Sender: TObject;
-     aItemIndex: Integer;
-     const aFont: Il3Font;
-     var aTextBackColor: TColor;
-     var aItemBackColor: TColor;
-     var aVJustify: TvtVJustify);
-     {* событие для получения визуального "оформления" элемента }
+    aItemIndex: Integer;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify);
    function TreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
- public
- // public methods
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
+  public
    procedure Init(aTree: TeeTreeView);
    constructor Create(aMainMenuColor: TColor;
-     aNewSchool: Boolean); reintroduce;
+    aNewSchool: Boolean); reintroduce;
  end;//TnsTreeStyleManager
 
  _ItemType_ = InsQueryNode;
@@ -133,70 +103,64 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnsQueryHistory = class(_l3InterfaceRefList_)
   {* История запросов }
- private
- // private fields
-   f_MaxCount : Integer;
-   f_QueryType : TQueryType;
- public
- // public methods
+  private
+   f_MaxCount: Integer;
+   f_QueryType: TQueryType;
+  public
    procedure LoadQueries;
-     {* Сигнатура метода LoadQueries }
    constructor Create(aMaxCount: Integer;
-     aQueryType: TQueryType); reintroduce;
+    aQueryType: TQueryType); reintroduce;
  end;//TnsQueryHistory
 
  TQHRec = record
-   rH : TnsQueryHistory;
+  rH: TnsQueryHistory;
  end;//TQHRec
 
-const
-  { nsMainMenuNew const }
- c_mmTreeColor = clWhite;
- c_mmSecondItemColor = $00F2F2F2;
-function NsScrollMainMenu(aWindow: TScrollingWinControl;
-  var Message: TWMMouseWheel): Boolean;
-function NsMakeMainMenuCaption: Il3CString;
-function NsMakeQueryStr(var aBuf: TQHRec;
-  aIndex: Integer;
-  aHint: Boolean = False): Il3CString;
-{$IfEnd} //not Admin AND not Monitorings
+function nsScrollMainMenu(aWindow: TScrollingWinControl;
+ var Message: TWMMouseWheel): Boolean;
+function nsMakeMainMenuCaption: Il3CString;
+function nsMakeQueryStr(var aBuf: TQHRec;
+ aIndex: Integer;
+ aHint: Boolean = False): Il3CString;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  DataAdapter,
-  nsTypes,
-  l3Chars,
-  nsQueryNode,
-  nsUtils,
-  BaseTypesUnit
-  ;
+ l3ImplUses
+ , nsLogEvent
+ , DocumentUnit
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , nsTypes
+ , l3Chars
+ , nsQueryNode
+ , nsUtils
+ , BaseTypesUnit
+ , LoggingUnit
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-// unit methods
+type
+ TnsOpenDocumentFromHistory = {final} class(TnsLogEvent)
+  private
+   class procedure Log(const aDoc: IDocument;
+    aPara: Longword); virtual;
+ end;//TnsOpenDocumentFromHistory
 
-function NsScrollMainMenu(aWindow: TScrollingWinControl;
-  var Message: TWMMouseWheel): Boolean;
+function nsScrollMainMenu(aWindow: TScrollingWinControl;
+ var Message: TWMMouseWheel): Boolean;
 //#UC START# *4AC9A40B038E_4AC9A3F801F3_var*
 const
  c_Delta = 10;
@@ -250,19 +214,68 @@ begin
  if Result then
   lpScroll;
 //#UC END# *4AC9A40B038E_4AC9A3F801F3_impl*
-end;//NsScrollMainMenu
-type
-  TnsOpenDocumentFromHistory = {final} class(TnsLogEvent)
-  private
-  // private methods
-   class procedure Log(const aDoc: IDocument;
-     aPara: Longword); virtual;
-  end;//TnsOpenDocumentFromHistory
+end;//nsScrollMainMenu
 
-// start class TnsOpenDocumentFromHistory
+function nsMakeMainMenuCaption: Il3CString;
+//#UC START# *4AC9F24E031B_4AC9A3F801F3_var*
+ function lp_MakeDate: Il3CString;
+ begin
+  with DefDataAdapter.CurrentBaseDate do
+  try
+   Result := nsCStr(nsDateToStr(EncodeDate(rYear, rMonth, rDay)));
+  except
+   on EConvertError do
+   begin
+    Result := nsCStr('');
+    Assert(False);
+   end;//on EConvertError do
+  end;//try..except
+ end;//lp_MakeDate
+
+ function lp_MakeComplectName: Il3CString;
+ begin
+  Result := l3RTrim(DefDataAdapter.ComplectName, [cc_Dot]);
+   // - отрежем точку в конце названия комплекта, подготовим к использованию в
+   //   str_SimpleMainMenuCaptionF;
+ end;//lp_MakeComplectName
+//#UC END# *4AC9F24E031B_4AC9A3F801F3_var*
+begin
+//#UC START# *4AC9F24E031B_4AC9A3F801F3_impl*
+ Result := vcmFmt(str_SimpleMainMenuCaptionF, [lp_MakeComplectName, lp_MakeDate]);
+//#UC END# *4AC9F24E031B_4AC9A3F801F3_impl*
+end;//nsMakeMainMenuCaption
+
+function nsMakeQueryStr(var aBuf: TQHRec;
+ aIndex: Integer;
+ aHint: Boolean = False): Il3CString;
+//#UC START# *559BDBA00236_4AC9A3F801F3_var*
+//#UC END# *559BDBA00236_4AC9A3F801F3_var*
+begin
+//#UC START# *559BDBA00236_4AC9A3F801F3_impl*
+ Result := nil;
+ if Assigned(aBuf.rH) then
+ begin
+  if (aBuf.rH.Count = 0) then
+  begin
+   // Выводим название элемента, но не показываем hint
+   if not aHint then
+    Result := vcmCStr(str_NotQueries);
+  end
+  else
+   with aBuf.rH.Items[aIndex] do
+    if not aHint then
+     Result := nsCStr(Name)
+       {$IfDef mmQueryHistoryUseColumns}
+       + #9 + IntToStr(DocCount)
+       {$EndIf mmQueryHistoryUseColumns}
+    else
+     Result := vcmFmt(str_QueryHintFrmt, [DocCount]);
+ end;//aBuf.rH
+//#UC END# *559BDBA00236_4AC9A3F801F3_impl*
+end;//nsMakeQueryStr
 
 class procedure TnsOpenDocumentFromHistory.Log(const aDoc: IDocument;
-  aPara: Longword);
+ aPara: Longword);
 //#UC START# *4B0BE97A0326_4B0BE93B0070_var*
 var
  l_Data: InsLogEventData;
@@ -278,11 +291,11 @@ begin
 end;//TnsOpenDocumentFromHistory.Log
 
 procedure TnsLastOpenDocsManager.GetItemStyle(Sender: TObject;
-  aItemIndex: Integer;
-  const aFont: Il3Font;
-  var aTextBackColor: TColor;
-  var aItemBackColor: TColor;
-  var aVJustify: TvtVJustify);
+ aItemIndex: Integer;
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify);
 //#UC START# *559BCCE9036A_4AC9C1F40041_var*
 //#UC END# *559BCCE9036A_4AC9C1F40041_var*
 begin
@@ -306,7 +319,7 @@ begin
 end;//TnsLastOpenDocsManager.GetItemStyle
 
 function TnsLastOpenDocsManager.GetItemCursor(aSender: TObject;
-  aIndex: Integer): TCursor;
+ aIndex: Integer): TCursor;
 //#UC START# *559BDAD602E3_4AC9C1F40041_var*
 //#UC END# *559BDAD602E3_4AC9C1F40041_var*
 begin
@@ -318,7 +331,7 @@ begin
 end;//TnsLastOpenDocsManager.GetItemCursor
 
 procedure TnsLastOpenDocsManager.ActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *559BDAE200EE_4AC9C1F40041_var*
 var
  l_Node: Il3SimpleNode;
@@ -350,7 +363,7 @@ begin
 end;//TnsLastOpenDocsManager.ActionElement
 
 function TnsLastOpenDocsManager.GetItemTextHint(Sender: TObject;
-  Index: LongInt): Il3CString;
+ Index: LongInt): Il3CString;
 //#UC START# *559BDAF3021A_4AC9C1F40041_var*
 var
  l_Node: Il3SimpleNode;
@@ -377,8 +390,8 @@ begin
 end;//TnsLastOpenDocsManager.GetItemTextHint
 
 procedure TnsLastOpenDocsManager.AllowHotTruck(Sender: TObject;
-  anIndex: Integer;
-  var Allow: Boolean);
+ anIndex: Integer;
+ var Allow: Boolean);
 //#UC START# *559BDAFF0396_4AC9C1F40041_var*
 //#UC END# *559BDAFF0396_4AC9C1F40041_var*
 begin
@@ -415,8 +428,8 @@ begin
 end;//TnsLastOpenDocsManager.Init
 
 constructor TnsLastOpenDocsManager.Create(aMainMenuColor: TColor;
-  aTree: TnscTreeViewHotTruck;
-  aNewSchool: Boolean);
+ aTree: TnscTreeViewHotTruck;
+ aNewSchool: Boolean);
 //#UC START# *559BDB4701AD_4AC9C1F40041_var*
 //#UC END# *559BDB4701AD_4AC9C1F40041_var*
 begin
@@ -427,14 +440,13 @@ begin
  Init(aTree);
 //#UC END# *559BDB4701AD_4AC9C1F40041_impl*
 end;//TnsLastOpenDocsManager.Create
-// start class TnsTreeStyleManager
 
 procedure TnsTreeStyleManager.TreeGetItemStyle(Sender: TObject;
-  aItemIndex: Integer;
-  const aFont: Il3Font;
-  var aTextBackColor: TColor;
-  var aItemBackColor: TColor;
-  var aVJustify: TvtVJustify);
+ aItemIndex: Integer;
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify);
 //#UC START# *559BCA25016A_4AC9C91202FA_var*
 var
  l_Node: Il3SimpleNode;
@@ -471,8 +483,8 @@ begin
 end;//TnsTreeStyleManager.TreeGetItemStyle
 
 function TnsTreeStyleManager.TreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *559BCA3300B9_4AC9C91202FA_var*
 //#UC END# *559BCA3300B9_4AC9C91202FA_var*
 begin
@@ -505,7 +517,7 @@ begin
 end;//TnsTreeStyleManager.Init
 
 constructor TnsTreeStyleManager.Create(aMainMenuColor: TColor;
-  aNewSchool: Boolean);
+ aNewSchool: Boolean);
 //#UC START# *559BCA680342_4AC9C91202FA_var*
 //#UC END# *559BCA680342_4AC9C91202FA_var*
 begin
@@ -516,39 +528,9 @@ begin
 //#UC END# *559BCA680342_4AC9C91202FA_impl*
 end;//TnsTreeStyleManager.Create
 
-function NsMakeMainMenuCaption: Il3CString;
-//#UC START# *4AC9F24E031B_4AC9A3F801F3_var*
- function lp_MakeDate: Il3CString;
- begin
-  with DefDataAdapter.CurrentBaseDate do
-  try
-   Result := nsCStr(nsDateToStr(EncodeDate(rYear, rMonth, rDay)));
-  except
-   on EConvertError do
-   begin
-    Result := nsCStr('');
-    Assert(False);
-   end;//on EConvertError do
-  end;//try..except
- end;//lp_MakeDate
-
- function lp_MakeComplectName: Il3CString;
- begin
-  Result := l3RTrim(DefDataAdapter.ComplectName, [cc_Dot]);
-   // - отрежем точку в конце названия комплекта, подготовим к использованию в
-   //   str_SimpleMainMenuCaptionF;
- end;//lp_MakeComplectName
-//#UC END# *4AC9F24E031B_4AC9A3F801F3_var*
-begin
-//#UC START# *4AC9F24E031B_4AC9A3F801F3_impl*
- Result := vcmFmt(str_SimpleMainMenuCaptionF, [lp_MakeComplectName, lp_MakeDate]);
-//#UC END# *4AC9F24E031B_4AC9A3F801F3_impl*
-end;//NsMakeMainMenuCaption
 type _Instance_R_ = TnsQueryHistory;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
-
-// start class TnsQueryHistory
 
 procedure TnsQueryHistory.LoadQueries;
 //#UC START# *559BC7B5001A_559BC4A30149_var*
@@ -576,7 +558,7 @@ begin
 end;//TnsQueryHistory.LoadQueries
 
 constructor TnsQueryHistory.Create(aMaxCount: Integer;
-  aQueryType: TQueryType);
+ aQueryType: TQueryType);
 //#UC START# *559BC7CA015F_559BC4A30149_var*
 //#UC END# *559BC7CA015F_559BC4A30149_var*
 begin
@@ -586,35 +568,6 @@ begin
  f_QueryType := aQueryType;
 //#UC END# *559BC7CA015F_559BC4A30149_impl*
 end;//TnsQueryHistory.Create
-
-function NsMakeQueryStr(var aBuf: TQHRec;
-  aIndex: Integer;
-  aHint: Boolean = False): Il3CString;
-//#UC START# *559BDBA00236_4AC9A3F801F3_var*
-//#UC END# *559BDBA00236_4AC9A3F801F3_var*
-begin
-//#UC START# *559BDBA00236_4AC9A3F801F3_impl*
- Result := nil;
- if Assigned(aBuf.rH) then
- begin
-  if (aBuf.rH.Count = 0) then
-  begin
-   // Выводим название элемента, но не показываем hint
-   if not aHint then
-    Result := vcmCStr(str_NotQueries);
-  end
-  else
-   with aBuf.rH.Items[aIndex] do
-    if not aHint then
-     Result := nsCStr(Name)
-       {$IfDef mmQueryHistoryUseColumns}
-       + #9 + IntToStr(DocCount)
-       {$EndIf mmQueryHistoryUseColumns}
-    else
-     Result := vcmFmt(str_QueryHintFrmt, [DocCount]);
- end;//aBuf.rH
-//#UC END# *559BDBA00236_4AC9A3F801F3_impl*
-end;//NsMakeQueryStr
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

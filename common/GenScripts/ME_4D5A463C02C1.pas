@@ -21,13 +21,13 @@ type
  TK252524299 = class(TTabInTableTest)
   {* [$252524299] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    procedure CheckPoint(const aCellPoint: InevBasePoint); override;
    function GetDownMoveCount: Integer; override;
     {* Количество смещений вниз }
    function GetTabMoveCount: Integer; override;
     {* Количество смещений по табуляциии }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK252524299
@@ -50,12 +50,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
 ;
-
-function TK252524299.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.7';
-end;//TK252524299.GetFolder
 
 procedure TK252524299.CheckPoint(const aCellPoint: InevBasePoint);
 //#UC START# *4D5A4CA602E5_4D5A463C02C1_var*
@@ -85,6 +79,12 @@ begin
  Result := 1;
 //#UC END# *4D5A4CFB029F_4D5A463C02C1_impl*
 end;//TK252524299.GetTabMoveCount
+
+function TK252524299.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK252524299.GetFolder
 
 function TK252524299.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

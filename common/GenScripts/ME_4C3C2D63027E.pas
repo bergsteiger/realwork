@@ -20,10 +20,10 @@ type
  TK226001213 = class(TColumnAlignHorisontallyTest)
   {* [$226001213] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    function SelectColumn(var aColID: Integer): Boolean; override;
     {* Выделить колонку aColID }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK226001213
@@ -50,12 +50,6 @@ uses
  , l3Base
 ;
 
-function TK226001213.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.6';
-end;//TK226001213.GetFolder
-
 function TK226001213.SelectColumn(var aColID: Integer): Boolean;
  {* Выделить колонку aColID }
 //#UC START# *4C9874060367_4C3C2D63027E_var*
@@ -66,6 +60,12 @@ begin
  aColID := 1;
 //#UC END# *4C9874060367_4C3C2D63027E_impl*
 end;//TK226001213.SelectColumn
+
+function TK226001213.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.6';
+end;//TK226001213.GetFolder
 
 function TK226001213.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

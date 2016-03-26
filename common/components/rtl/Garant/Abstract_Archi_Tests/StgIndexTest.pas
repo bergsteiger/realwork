@@ -47,7 +47,6 @@ implementation
 uses
  l3ImplUses
  , m3SplittedFileStream
- , TestFrameWork
  , m3StorageIndexAdapter
  , SysUtils
  , l3FileUtils
@@ -57,6 +56,7 @@ uses
  , m4DB
  , l3Base
  , m3StgMgr
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

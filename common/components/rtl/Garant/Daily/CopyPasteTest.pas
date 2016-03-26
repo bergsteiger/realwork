@@ -52,11 +52,11 @@ uses
  l3ImplUses
  , k2Prim
  , evTypes
- , TestFrameWork
  , evMsgCode
  , evOp
  , l3Base
  , l3InternalInterfaces
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

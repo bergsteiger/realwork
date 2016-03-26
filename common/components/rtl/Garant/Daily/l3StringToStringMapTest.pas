@@ -34,11 +34,11 @@ implementation
 uses
  l3ImplUses
  , l3StringToStringMap
- , TestFrameWork
  , SysUtils
  , l3Base
  , l3Interfaces
  , l3String
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -20,9 +20,9 @@ type
  TK253668417 = class(TRTFtoEVDWriterTest)
   {* [RequestLink:253668417] }
   protected
+   function GetEnablePictures: Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
-   function GetEnablePictures: Boolean; override;
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TK253668417
@@ -36,12 +36,6 @@ uses
  , TestFrameWork
 ;
 
-function TK253668417.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.7';
-end;//TK253668417.GetFolder
-
 function TK253668417.GetEnablePictures: Boolean;
 //#UC START# *4D5BE2F500AD_4D5BE28703A0_var*
 //#UC END# *4D5BE2F500AD_4D5BE28703A0_var*
@@ -50,6 +44,12 @@ begin
  Result := true;
 //#UC END# *4D5BE2F500AD_4D5BE28703A0_impl*
 end;//TK253668417.GetEnablePictures
+
+function TK253668417.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK253668417.GetFolder
 
 function TK253668417.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

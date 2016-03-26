@@ -27,12 +27,12 @@ type
   {* Прокрутить стрелкой до определенной позиции и сравнить "картинку". }
   protected
    function GetScrollCount: Integer; virtual; abstract;
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    {$If NOT Defined(NoVCM)}
    procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); override;
     {* Произвести какие-нибудь операции перед отрисовкой. }
    {$IfEnd} // NOT Defined(NoVCM)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollByArrowAndCheckShapesTest
@@ -43,13 +43,13 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , evMsgCode
  , evOp
  , l3InternalInterfaces
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , TestFrameWork
  , nevTools
  {$If NOT Defined(NoVCM)}
  , vcmBase
@@ -61,12 +61,6 @@ uses
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
-
-function TScrollByArrowAndCheckShapesTest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'EditorTests';
-end;//TScrollByArrowAndCheckShapesTest.GetFolder
 
 {$If NOT Defined(NoVCM)}
 procedure TScrollByArrowAndCheckShapesTest.DoBeforeDrawing(aForm: TPrimTextLoadForm);
@@ -97,6 +91,12 @@ begin
 //#UC END# *4CAC45AE011E_4D80B9060123_impl*
 end;//TScrollByArrowAndCheckShapesTest.DoBeforeDrawing
 {$IfEnd} // NOT Defined(NoVCM)
+
+function TScrollByArrowAndCheckShapesTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'EditorTests';
+end;//TScrollByArrowAndCheckShapesTest.GetFolder
 
 function TScrollByArrowAndCheckShapesTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

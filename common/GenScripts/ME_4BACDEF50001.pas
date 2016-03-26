@@ -39,8 +39,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  , SysUtils
+ , TestFrameWork
 ;
 
 procedure TRTFWriterTest.SomeFormatToRTF(aReader: Tk2CustomFileReader;

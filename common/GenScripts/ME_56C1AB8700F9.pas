@@ -19,11 +19,11 @@ uses
 type
  THTMLtoEVDWithApplyTextCorrections = {abstract} class(THTMLtoEVDWithURLTest)
   protected
+   procedure TuningReader(aHTMLReader: TddHTMLReader); override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   procedure TuningReader(aHTMLReader: TddHTMLReader); override;
  end;//THTMLtoEVDWithApplyTextCorrections
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -34,6 +34,16 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+procedure THTMLtoEVDWithApplyTextCorrections.TuningReader(aHTMLReader: TddHTMLReader);
+//#UC START# *56A613A30375_56C1AB8700F9_var*
+//#UC END# *56A613A30375_56C1AB8700F9_var*
+begin
+//#UC START# *56A613A30375_56C1AB8700F9_impl*
+ inherited TuningReader(aHTMLReader);
+ aHTMLReader.ApplyTextCorrections := True;
+//#UC END# *56A613A30375_56C1AB8700F9_impl*
+end;//THTMLtoEVDWithApplyTextCorrections.TuningReader
 
 function THTMLtoEVDWithApplyTextCorrections.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -46,16 +56,6 @@ function THTMLtoEVDWithApplyTextCorrections.GetModelElementGUID: AnsiString;
 begin
  Result := '56C1AB8700F9';
 end;//THTMLtoEVDWithApplyTextCorrections.GetModelElementGUID
-
-procedure THTMLtoEVDWithApplyTextCorrections.TuningReader(aHTMLReader: TddHTMLReader);
-//#UC START# *56A613A30375_56C1AB8700F9_var*
-//#UC END# *56A613A30375_56C1AB8700F9_var*
-begin
-//#UC START# *56A613A30375_56C1AB8700F9_impl*
- inherited TuningReader(aHTMLReader);
- aHTMLReader.ApplyTextCorrections := True;
-//#UC END# *56A613A30375_56C1AB8700F9_impl*
-end;//THTMLtoEVDWithApplyTextCorrections.TuningReader
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

@@ -48,8 +48,8 @@ implementation
 uses
  l3ImplUses
  , evConst
- , TestFrameWork
  , l3Base
+ , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

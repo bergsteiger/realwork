@@ -24,13 +24,13 @@ type
    function GetNormalFontSize: Integer; override;
     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK249333540
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -63,6 +63,17 @@ begin
 end;//TK249333540.GetNormalFontSize
 {$IfEnd} // NOT Defined(NoVCM)
 
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+function TK249333540.EtalonNeedsXE: Boolean;
+//#UC START# *51AF49E5001B_4D1C43DD0156_var*
+//#UC END# *51AF49E5001B_4D1C43DD0156_var*
+begin
+//#UC START# *51AF49E5001B_4D1C43DD0156_impl*
+ Result := true;
+//#UC END# *51AF49E5001B_4D1C43DD0156_impl*
+end;//TK249333540.EtalonNeedsXE
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+
 function TK249333540.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -74,17 +85,6 @@ function TK249333540.GetModelElementGUID: AnsiString;
 begin
  Result := '4D1C43DD0156';
 end;//TK249333540.GetModelElementGUID
-
-{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-function TK249333540.EtalonNeedsXE: Boolean;
-//#UC START# *51AF49E5001B_4D1C43DD0156_var*
-//#UC END# *51AF49E5001B_4D1C43DD0156_var*
-begin
-//#UC START# *51AF49E5001B_4D1C43DD0156_impl*
- Result := true;
-//#UC END# *51AF49E5001B_4D1C43DD0156_impl*
-end;//TK249333540.EtalonNeedsXE
-{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK249333540.Suite);

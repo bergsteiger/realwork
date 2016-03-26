@@ -20,11 +20,11 @@ type
  TK558957526 = class(TEVDtoRTFRender)
   {* [Requestlink:558957526] }
   protected
+   function TreatExceptionAsSuccess: Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   function TreatExceptionAsSuccess: Boolean; override;
  end;//TK558957526
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -35,6 +35,15 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK558957526.TreatExceptionAsSuccess: Boolean;
+//#UC START# *53DA3E0C019A_53DA29FE019E_var*
+//#UC END# *53DA3E0C019A_53DA29FE019E_var*
+begin
+//#UC START# *53DA3E0C019A_53DA29FE019E_impl*
+ Result := True;
+//#UC END# *53DA3E0C019A_53DA29FE019E_impl*
+end;//TK558957526.TreatExceptionAsSuccess
 
 function TK558957526.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -47,15 +56,6 @@ function TK558957526.GetModelElementGUID: AnsiString;
 begin
  Result := '53DA29FE019E';
 end;//TK558957526.GetModelElementGUID
-
-function TK558957526.TreatExceptionAsSuccess: Boolean;
-//#UC START# *53DA3E0C019A_53DA29FE019E_var*
-//#UC END# *53DA3E0C019A_53DA29FE019E_var*
-begin
-//#UC START# *53DA3E0C019A_53DA29FE019E_impl*
- Result := True;
-//#UC END# *53DA3E0C019A_53DA29FE019E_impl*
-end;//TK558957526.TreatExceptionAsSuccess
 
 initialization
  TestFramework.RegisterTest(TK558957526.Suite);

@@ -20,13 +20,13 @@ type
  TK235050903 = class(TEVDwithFormulasToRTFWriterTest)
   {* [RequestLink:235050903]. }
   protected
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK235050903
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -37,6 +37,17 @@ uses
  l3ImplUses
  , TestFrameWork
 ;
+
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+function TK235050903.EtalonNeedsXE: Boolean;
+//#UC START# *51AF49E5001B_4C92210103D6_var*
+//#UC END# *51AF49E5001B_4C92210103D6_var*
+begin
+//#UC START# *51AF49E5001B_4C92210103D6_impl*
+ Result := true;
+//#UC END# *51AF49E5001B_4C92210103D6_impl*
+end;//TK235050903.EtalonNeedsXE
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 function TK235050903.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -49,17 +60,6 @@ function TK235050903.GetModelElementGUID: AnsiString;
 begin
  Result := '4C92210103D6';
 end;//TK235050903.GetModelElementGUID
-
-{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
-function TK235050903.EtalonNeedsXE: Boolean;
-//#UC START# *51AF49E5001B_4C92210103D6_var*
-//#UC END# *51AF49E5001B_4C92210103D6_var*
-begin
-//#UC START# *51AF49E5001B_4C92210103D6_impl*
- Result := true;
-//#UC END# *51AF49E5001B_4C92210103D6_impl*
-end;//TK235050903.EtalonNeedsXE
-{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK235050903.Suite);

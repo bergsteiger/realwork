@@ -20,14 +20,14 @@ type
  TK321983051 = class(TFormulaRender)
   {* [RequestLink:321983051] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-    {* Идентификатор элемента модели, который описывает тест }
    function GetZoom: Integer; override;
    {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
    function EtalonNeedsXE: Boolean; override;
    {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK321983051
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -46,18 +46,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
 ;
-
-function TK321983051.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.7 Lulin';
-end;//TK321983051.GetFolder
-
-function TK321983051.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '4EF0A00F0280';
-end;//TK321983051.GetModelElementGUID
 
 function TK321983051.GetZoom: Integer;
 //#UC START# *4EF0A04A0286_4EF0A00F0280_var*
@@ -78,6 +66,18 @@ begin
 //#UC END# *51AF49E5001B_4EF0A00F0280_impl*
 end;//TK321983051.EtalonNeedsXE
 {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
+
+function TK321983051.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7 Lulin';
+end;//TK321983051.GetFolder
+
+function TK321983051.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4EF0A00F0280';
+end;//TK321983051.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK321983051.Suite);

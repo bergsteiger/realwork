@@ -20,15 +20,15 @@ type
  TK586353041 = class(TEVDtoRTFRender)
   {* [Requestlink:586353041] }
   protected
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    {$If NOT Defined(NotTunedDUnit)}
    function EtalonNeedsComputerName: Boolean; override;
    {$IfEnd} // NOT Defined(NotTunedDUnit)
-   function GetModelElementGUID: AnsiString; override;
-    {* Идентификатор элемента модели, который описывает тест }
    function GetHiddenStylesLength: Integer; override;
    function GetHiddenStyles: THiddenStylesArray; override;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK586353041
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -40,12 +40,6 @@ uses
  , TestFrameWork
 ;
 
-function TK586353041.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := '7.11';
-end;//TK586353041.GetFolder
-
 {$If NOT Defined(NotTunedDUnit)}
 function TK586353041.EtalonNeedsComputerName: Boolean;
 //#UC START# *4CA45DAA01BA_54BF953201B0_var*
@@ -56,12 +50,6 @@ begin
 //#UC END# *4CA45DAA01BA_54BF953201B0_impl*
 end;//TK586353041.EtalonNeedsComputerName
 {$IfEnd} // NOT Defined(NotTunedDUnit)
-
-function TK586353041.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '54BF953201B0';
-end;//TK586353041.GetModelElementGUID
 
 function TK586353041.GetHiddenStylesLength: Integer;
 //#UC START# *54BF8A5702E9_54BF953201B0_var*
@@ -86,6 +74,18 @@ begin
   Result[i] := cHidden[i];
 //#UC END# *54BF91620371_54BF953201B0_impl*
 end;//TK586353041.GetHiddenStyles
+
+function TK586353041.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.11';
+end;//TK586353041.GetFolder
+
+function TK586353041.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '54BF953201B0';
+end;//TK586353041.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK586353041.Suite);
