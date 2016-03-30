@@ -1,59 +1,43 @@
 unit nevTextParaInevTextParaMapper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTextParaInevTextParaMapper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevTextParaInevTextParaMapper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextParaInevTextParaMapper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTextParaInevTextParaMapper" MUID: (53D78F15032B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2InterfaceMapper,
-  l3IID,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2InterfaceMapper
+ , l3Variant
+ , l3IID
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevTextParaInevTextParaMapper = class(Tk2InterfaceMapper)
- public
- // realized methods
+  public
    class function Make(aTag: Tl3Variant;
-     const IID: Tl3GUID;
-     out Tool;
-     const aProcessor: Ik2Processor): Boolean; override;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TnevTextParaInevTextParaMapper
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevTextParaInevTextParaMapper
+ l3ImplUses
+ , nevTools
+;
 
 class function TnevTextParaInevTextParaMapper.Make(aTag: Tl3Variant;
-  const IID: Tl3GUID;
-  out Tool;
-  const aProcessor: Ik2Processor): Boolean;
+ const IID: Tl3GUID;
+ out Tool;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *53D639B601D7_53D78F15032B_var*
 var
  l_TP : InevTextPara;
@@ -67,7 +51,6 @@ begin
   Result := true; 
 //#UC END# *53D639B601D7_53D78F15032B_impl*
 end;//TnevTextParaInevTextParaMapper.Make
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

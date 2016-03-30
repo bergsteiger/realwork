@@ -1,79 +1,51 @@
 unit vtScrollBar;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Костицын
-// Модуль: "w:/common/components/gui/Garant/VT/vtScrollBar.pas"
-// Начат: 07.08.12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Scrollbar::TvtScrollBar
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtScrollBar.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtScrollBar" MUID: (50220B0E0061)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+;
 
 type
  TvtScrollBarAlign = (
-   sbalNone
- , sbalTop
- , sbalRight
- , sbalBottom
- , sbalLeft
+  sbalNone
+  , sbalTop
+  , sbalRight
+  , sbalBottom
+  , sbalLeft
  );//TvtScrollBarAlign
 
  TvtScrollBar = class(TWinControl)
- private
- // private fields
-   f_SmallChange : TScrollBarInc;
-    {* Поле для свойства SmallChange}
-   f_LargeChange : TScrollBarInc;
-    {* Поле для свойства LargeChange}
-   f_Min : integer;
-    {* Поле для свойства Min}
-   f_Max : integer;
-    {* Поле для свойства Max}
-   f_Position : integer;
-    {* Поле для свойства Position}
-   f_PageSize : integer;
-    {* Поле для свойства PageSize}
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_OnScroll : TScrollEvent;
-    {* Поле для свойства OnScroll}
- private
- // private methods
+  private
+   f_SmallChange: TScrollBarInc;
+   f_LargeChange: TScrollBarInc;
+   f_Min: integer;
+   f_Max: integer;
+   f_Position: integer;
+   f_PageSize: integer;
+   f_OnChange: TNotifyEvent;
+   f_OnScroll: TScrollEvent;
+  private
    procedure WMHScroll(var Msg: TWMHScroll); message WM_HSCROLL;
    procedure WMVScroll(var Msg: TWMVScroll); message WM_VSCROLL;
- protected
- // property methods
+  protected
    function Get_ScrollBarKind: TScrollBarKind;
    procedure Set_ScrollBarKind(aValue: TScrollBarKind);
    function Get_Align: TvtScrollBarAlign;
@@ -82,194 +54,83 @@ type
    procedure Set_Max(aValue: integer);
    procedure Set_Position(aValue: integer);
    procedure Set_PageSize(aValue: integer);
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure SetParent(AParent: TWinControl); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure CreateWnd; override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   procedure SetBounds(ALeft: Integer;
-     ATop: Integer;
-     AWidth: Integer;
-     AHeight: Integer); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   procedure RequestAlign; override;
-     {* Сигнатура метода RequestAlign }
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    procedure DoScroll(ScrollCode: TScrollCode;
-     var ScrollPos: Integer);
+    var ScrollPos: Integer);
    procedure DoChange;
-     {* Сигнатура метода DoChange }
    procedure DoWMScroll(var Msg: TWMScroll);
    function InUpdating: Boolean; virtual;
- public
- // public methods
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure SetParent(AParent: TWinControl); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure CreateWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure SetBounds(ALeft: Integer;
+    ATop: Integer;
+    AWidth: Integer;
+    AHeight: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure RequestAlign; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure SetParams(APosition: Integer;
-     AMin: Integer;
-     AMax: Integer);
- public
- // public properties
+    AMin: Integer;
+    AMax: Integer);
+   constructor Create(AOwner: TComponent); override;
+  public
    property ScrollBarKind: TScrollBarKind
-     read Get_ScrollBarKind
-     write Set_ScrollBarKind;
+    read Get_ScrollBarKind
+    write Set_ScrollBarKind;
    property SmallChange: TScrollBarInc
-     read f_SmallChange
-     write f_SmallChange;
+    read f_SmallChange
+    write f_SmallChange;
    property LargeChange: TScrollBarInc
-     read f_LargeChange
-     write f_LargeChange;
+    read f_LargeChange
+    write f_LargeChange;
    property Align: TvtScrollBarAlign
-     read Get_Align
-     write Set_Align;
+    read Get_Align
+    write Set_Align;
    property Min: integer
-     read f_Min
-     write Set_Min;
+    read f_Min
+    write Set_Min;
    property Max: integer
-     read f_Max
-     write Set_Max;
+    read f_Max
+    write Set_Max;
    property Position: integer
-     read f_Position
-     write Set_Position;
+    read f_Position
+    write Set_Position;
    property PageSize: integer
-     read f_PageSize
-     write Set_PageSize;
+    read f_PageSize
+    write Set_PageSize;
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
    property OnScroll: TScrollEvent
-     read f_OnScroll
-     write f_OnScroll;
+    read f_OnScroll
+    write f_OnScroll;
  end;//TvtScrollBar
 
 implementation
 
 uses
-  Consts,
-  Windows,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , Consts
+ , Windows
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TvtScrollBar
-
-procedure TvtScrollBar.DoScroll(ScrollCode: TScrollCode;
-  var ScrollPos: Integer);
-//#UC START# *502210E20375_50220B0E0061_var*
-//#UC END# *502210E20375_50220B0E0061_var*
-begin
-//#UC START# *502210E20375_50220B0E0061_impl*
- if Assigned(f_OnScroll) then
-  f_OnScroll(Self, ScrollCode, ScrollPos);
-//#UC END# *502210E20375_50220B0E0061_impl*
-end;//TvtScrollBar.DoScroll
-
-procedure TvtScrollBar.DoChange;
-//#UC START# *50221120038F_50220B0E0061_var*
-//#UC END# *50221120038F_50220B0E0061_var*
-begin
-//#UC START# *50221120038F_50220B0E0061_impl*
- if Assigned(f_OnChange) then
-  f_OnChange(Self);
-//#UC END# *50221120038F_50220B0E0061_impl*
-end;//TvtScrollBar.DoChange
-
-procedure TvtScrollBar.SetParams(APosition: Integer;
-  AMin: Integer;
-  AMax: Integer);
-//#UC START# *502211340371_50220B0E0061_var*
-var
- l_ScrollInfo: TScrollInfo;
- l_SB: Integer;
-//#UC END# *502211340371_50220B0E0061_var*
-begin
-//#UC START# *502211340371_50220B0E0061_impl*
- if ScrollBarKind = sbVertical
-  then l_SB := SB_VERT
-  else l_SB := SB_HORZ;
- if (AMax < AMin) or (AMax < f_PageSize) then
-   raise EInvalidOperation.Create(SScrollBarRange);
- if APosition < AMin then
-  APosition := AMin;
- if APosition > AMax then
-  APosition := AMax;
- f_Min := AMin;
- f_Max := AMax;
- if HandleAllocated then
-  SetScrollRange(Handle, l_SB, AMin, AMax, f_Position = APosition);
- f_Position := APosition;
- if HandleAllocated then
-  SetScrollPos(Handle, l_SB, f_Position, True);
- Enabled := True;
- DoChange;
-//#UC END# *502211340371_50220B0E0061_impl*
-end;//TvtScrollBar.SetParams
-
-procedure TvtScrollBar.DoWMScroll(var Msg: TWMScroll);
-//#UC START# *5022115C02AE_50220B0E0061_var*
-var
- l_ScrollInfo: TScrollInfo;
- l_Pos: Integer;
-//#UC END# *5022115C02AE_50220B0E0061_var*
-begin
-//#UC START# *5022115C02AE_50220B0E0061_impl*
- l_Pos := Position;
- case TScrollCode(Msg.ScrollCode) of
-  scLineUp: Dec(l_Pos, f_SmallChange);
-  scLineDown: Inc(l_Pos, f_SmallChange);
-  scPageUp: Dec(l_Pos, f_LargeChange);
-  scPageDown: Inc(l_Pos, f_LargeChange);
-  scPosition, scTrack:
-    with l_ScrollInfo do
-    begin
-      cbSize := SizeOf(TScrollInfo);
-      fMask := SIF_ALL;
-      if ScrollBarKind = sbVertical
-       then GetScrollInfo(Handle, SB_VERT, l_ScrollInfo)
-       else GetScrollInfo(Handle, SB_HORZ, l_ScrollInfo);
-      l_Pos := nTrackPos;
-    end;
-  scTop: l_Pos := f_Min;
-  scBottom: l_Pos := f_Max;
- end;
- if l_Pos < f_Min then
-  l_Pos := f_Min;
- if l_Pos > f_Max then
-  l_Pos := f_Max;
- DoScroll(TScrollCode(Msg.ScrollCode), l_Pos);
- Position := l_Pos;
-//#UC END# *5022115C02AE_50220B0E0061_impl*
-end;//TvtScrollBar.DoWMScroll
-
-function TvtScrollBar.InUpdating: Boolean;
-//#UC START# *505894EC0371_50220B0E0061_var*
-//#UC END# *505894EC0371_50220B0E0061_var*
-begin
-//#UC START# *505894EC0371_50220B0E0061_impl*
- Result := HandleAllocated AND Visible AND afw.IsObjectLocked(Self);
- // без проверки на видимость, WM_PAINT'ы приходят невидимым контролам, в результате
- // имеем прогрузку дерева при ненужной отрисовке, например.
-//#UC END# *505894EC0371_50220B0E0061_impl*
-end;//TvtScrollBar.InUpdating
-
+{$If NOT Defined(NoVCL)}
 function TvtScrollBar.Get_ScrollBarKind: TScrollBarKind;
 //#UC START# *50220C6501B2_50220B0E0061get_var*
 //#UC END# *50220C6501B2_50220B0E0061get_var*
@@ -381,6 +242,105 @@ begin
 //#UC END# *50220DF801D8_50220B0E0061set_impl*
 end;//TvtScrollBar.Set_PageSize
 
+procedure TvtScrollBar.DoScroll(ScrollCode: TScrollCode;
+ var ScrollPos: Integer);
+//#UC START# *502210E20375_50220B0E0061_var*
+//#UC END# *502210E20375_50220B0E0061_var*
+begin
+//#UC START# *502210E20375_50220B0E0061_impl*
+ if Assigned(f_OnScroll) then
+  f_OnScroll(Self, ScrollCode, ScrollPos);
+//#UC END# *502210E20375_50220B0E0061_impl*
+end;//TvtScrollBar.DoScroll
+
+procedure TvtScrollBar.DoChange;
+//#UC START# *50221120038F_50220B0E0061_var*
+//#UC END# *50221120038F_50220B0E0061_var*
+begin
+//#UC START# *50221120038F_50220B0E0061_impl*
+ if Assigned(f_OnChange) then
+  f_OnChange(Self);
+//#UC END# *50221120038F_50220B0E0061_impl*
+end;//TvtScrollBar.DoChange
+
+procedure TvtScrollBar.SetParams(APosition: Integer;
+ AMin: Integer;
+ AMax: Integer);
+//#UC START# *502211340371_50220B0E0061_var*
+var
+ l_ScrollInfo: TScrollInfo;
+ l_SB: Integer;
+//#UC END# *502211340371_50220B0E0061_var*
+begin
+//#UC START# *502211340371_50220B0E0061_impl*
+ if ScrollBarKind = sbVertical
+  then l_SB := SB_VERT
+  else l_SB := SB_HORZ;
+ if (AMax < AMin) or (AMax < f_PageSize) then
+   raise EInvalidOperation.Create(SScrollBarRange);
+ if APosition < AMin then
+  APosition := AMin;
+ if APosition > AMax then
+  APosition := AMax;
+ f_Min := AMin;
+ f_Max := AMax;
+ if HandleAllocated then
+  SetScrollRange(Handle, l_SB, AMin, AMax, f_Position = APosition);
+ f_Position := APosition;
+ if HandleAllocated then
+  SetScrollPos(Handle, l_SB, f_Position, True);
+ Enabled := True;
+ DoChange;
+//#UC END# *502211340371_50220B0E0061_impl*
+end;//TvtScrollBar.SetParams
+
+procedure TvtScrollBar.DoWMScroll(var Msg: TWMScroll);
+//#UC START# *5022115C02AE_50220B0E0061_var*
+var
+ l_ScrollInfo: TScrollInfo;
+ l_Pos: Integer;
+//#UC END# *5022115C02AE_50220B0E0061_var*
+begin
+//#UC START# *5022115C02AE_50220B0E0061_impl*
+ l_Pos := Position;
+ case TScrollCode(Msg.ScrollCode) of
+  scLineUp: Dec(l_Pos, f_SmallChange);
+  scLineDown: Inc(l_Pos, f_SmallChange);
+  scPageUp: Dec(l_Pos, f_LargeChange);
+  scPageDown: Inc(l_Pos, f_LargeChange);
+  scPosition, scTrack:
+    with l_ScrollInfo do
+    begin
+      cbSize := SizeOf(TScrollInfo);
+      fMask := SIF_ALL;
+      if ScrollBarKind = sbVertical
+       then GetScrollInfo(Handle, SB_VERT, l_ScrollInfo)
+       else GetScrollInfo(Handle, SB_HORZ, l_ScrollInfo);
+      l_Pos := nTrackPos;
+    end;
+  scTop: l_Pos := f_Min;
+  scBottom: l_Pos := f_Max;
+ end;
+ if l_Pos < f_Min then
+  l_Pos := f_Min;
+ if l_Pos > f_Max then
+  l_Pos := f_Max;
+ DoScroll(TScrollCode(Msg.ScrollCode), l_Pos);
+ Position := l_Pos;
+//#UC END# *5022115C02AE_50220B0E0061_impl*
+end;//TvtScrollBar.DoWMScroll
+
+function TvtScrollBar.InUpdating: Boolean;
+//#UC START# *505894EC0371_50220B0E0061_var*
+//#UC END# *505894EC0371_50220B0E0061_var*
+begin
+//#UC START# *505894EC0371_50220B0E0061_impl*
+ Result := HandleAllocated AND Visible AND afw.IsObjectLocked(Self);
+ // без проверки на видимость, WM_PAINT'ы приходят невидимым контролам, в результате
+ // имеем прогрузку дерева при ненужной отрисовке, например.
+//#UC END# *505894EC0371_50220B0E0061_impl*
+end;//TvtScrollBar.InUpdating
+
 procedure TvtScrollBar.WMHScroll(var Msg: TWMHScroll);
 //#UC START# *502228CB009D_50220B0E0061_var*
 //#UC END# *502228CB009D_50220B0E0061_var*
@@ -418,7 +378,6 @@ begin
 //#UC END# *47D1602000C6_50220B0E0061_impl*
 end;//TvtScrollBar.Create
 
-{$If not defined(NoVCL)}
 procedure TvtScrollBar.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_50220B0E0061_var*
 var
@@ -457,9 +416,7 @@ begin
  end;//case Message.Msg
 //#UC END# *47E136A80191_50220B0E0061_impl*
 end;//TvtScrollBar.WndProc
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtScrollBar.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_50220B0E0061_var*
 //#UC END# *48C7925A02E5_50220B0E0061_var*
@@ -471,9 +428,7 @@ begin
   else Params.Style := Params.Style or WS_HSCROLL;
 //#UC END# *48C7925A02E5_50220B0E0061_impl*
 end;//TvtScrollBar.CreateParams
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtScrollBar.SetParent(AParent: TWinControl);
 //#UC START# *4A97E78202FC_50220B0E0061_var*
 //#UC END# *4A97E78202FC_50220B0E0061_var*
@@ -483,9 +438,7 @@ begin
  PageSize := f_PageSize;
 //#UC END# *4A97E78202FC_50220B0E0061_impl*
 end;//TvtScrollBar.SetParent
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtScrollBar.CreateWnd;
 //#UC START# *4CC8414403B8_50220B0E0061_var*
 var
@@ -507,13 +460,11 @@ begin
  SetScrollInfo(Handle, l_SB, l_ScrollInfo, False);
 //#UC END# *4CC8414403B8_50220B0E0061_impl*
 end;//TvtScrollBar.CreateWnd
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtScrollBar.SetBounds(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer);
 //#UC START# *4F2A599E0283_50220B0E0061_var*
 //#UC END# *4F2A599E0283_50220B0E0061_var*
 begin
@@ -524,9 +475,7 @@ begin
  inherited SetBounds(aLeft, aTop, aWidth, aHeight);
 //#UC END# *4F2A599E0283_50220B0E0061_impl*
 end;//TvtScrollBar.SetBounds
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtScrollBar.RequestAlign;
 //#UC START# *5022104B03A6_50220B0E0061_var*
 //#UC END# *5022104B03A6_50220B0E0061_var*
@@ -537,12 +486,12 @@ begin
   else inherited;
 //#UC END# *5022104B03A6_50220B0E0061_impl*
 end;//TvtScrollBar.RequestAlign
-{$IfEnd} //not NoVCL
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtScrollBar
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtScrollBar);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtScrollBar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

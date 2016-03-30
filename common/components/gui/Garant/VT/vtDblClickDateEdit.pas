@@ -1,47 +1,32 @@
 unit vtDblClickDateEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtDblClickDateEdit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::DateEdit::TvtDblClickDateEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtDblClickDateEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtDblClickDateEdit" MUID: (4AC5DAE50246)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  vtDateEdit
-  ;
+ l3IntfUses
+ , vtDateEdit
+;
 
 type
  TvtDblClickDateEdit = class(TvtDateEdit)
- protected
- // overridden protected methods
+  protected
    procedure MakeCalendar; override;
-     {* Сигнатура метода MakeCalendar }
  end;//TvtDblClickDateEdit
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TvtDblClickDateEdit
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvtDblClickDateEdit.MakeCalendar;
 //#UC START# *554CA3BF011D_4AC5DAE50246_var*
@@ -55,9 +40,9 @@ begin
 end;//TvtDblClickDateEdit.MakeCalendar
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtDblClickDateEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtDblClickDateEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtDblClickDateEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

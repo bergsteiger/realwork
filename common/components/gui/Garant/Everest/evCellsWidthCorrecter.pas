@@ -1,111 +1,94 @@
 unit evCellsWidthCorrecter;
+ {* Инструмент для выравнивания границ ячеек. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCellsWidthCorrecter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCellsWidthCorrecter
-//
-// Инструмент для выравнивания границ ячеек.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellsWidthCorrecter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsWidthCorrecter" MUID: (4F2B767D015E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  l3LongintList,
-  evEditorInterfaces,
-  evCellsOffsetsPair,
-  evCellsOffsetsPairList,
-  evCellWidthCorrecterSpy,
-  evCellsOffsetsList,
-  evRowAndTableTypeSupport
-  ;
+ l3IntfUses
+ , evRowAndTableTypeSupport
+ , evCellsOffsetsPairList
+ , evCellsOffsetsPair
+ , l3LongintList
+ , evEditorInterfaces
+ , evCellWidthCorrecterSpy
+ , evCellsOffsetsList
+ , nevBase
+ , l3Interfaces
+;
 
 type
  TevFoundSuitebleType = (
-   ev_fstNone
- , ev_fstTemplate
- , ev_fstInList
+  ev_fstNone
+  , ev_fstTemplate
+  , ev_fstInList
  );//TevFoundSuitebleType
 
  TevCellsWidthCorrecter = class(TevRowAndTableTypeSupport)
   {* Инструмент для выравнивания границ ячеек. }
- private
- // private fields
-   f_CellsOffsetPairList : TevCellsOffsetsPairList;
-    {* Список с парами значений выравненных и невыравненных.}
-   f_Index : Integer;
-    {* Индекс для прохода с установкой ширины ячеек.}
-   f_PrevRowWidth : Integer;
-    {* Закешированная ширина предыдущей строки - используется при выравнивании строк.}
-   f_PriorityTemplateRow : TevCellsOffsetsPair;
-    {* Текущий шаблон для выравнивания. Используется если при анализе таблицы был найден загооловок (в начале таблицы закончились объединенные ячеки или была найдена строка с номерами). После этого такой шаблон обновляется ближайшим подходящим.}
-   f_RowsWithSingleCell : Tl3LongintList;
-    {* Список номеров строк с одиночными или "притворящимися" такими ячейками.}
-   f_Row : IedRow;
-    {* Указатель на текущую строку.}
-   f_LogSpy : TevCellWidthCorrecterSpy;
-    {* Сохраняльщик результатов выравнивания для тестов.}
-   f_WasNotEqualRows : Boolean;
-    {* Флаг - были после выранивания неодинаковые строки.}
-   f_HeadAlignment : Boolean;
-    {* Выравнивание заголовка таблицы. Выставляется при повторном выравнивании заголовка на основе выравненных перед этим строк.}
-   f_ForegnTemplates : TevCellsOffsetsList;
-    {* Список для выравнивания "из вне" - применяется при копировании/вставке вершин.}
-   f_NumbericData : TevCellsOffsetsPair;
- private
- // private methods
+  private
+   f_CellsOffsetPairList: TevCellsOffsetsPairList;
+    {* Список с парами значений выравненных и невыравненных. }
+   f_Index: Integer;
+    {* Индекс для прохода с установкой ширины ячеек. }
+   f_PrevRowWidth: Integer;
+    {* Закешированная ширина предыдущей строки - используется при выравнивании строк. }
+   f_PriorityTemplateRow: TevCellsOffsetsPair;
+    {* Текущий шаблон для выравнивания. Используется если при анализе таблицы был найден загооловок (в начале таблицы закончились объединенные ячеки или была найдена строка с номерами). После этого такой шаблон обновляется ближайшим подходящим. }
+   f_RowsWithSingleCell: Tl3LongintList;
+    {* Список номеров строк с одиночными или "притворящимися" такими ячейками. }
+   f_Row: IedRow;
+    {* Указатель на текущую строку. }
+   f_LogSpy: TevCellWidthCorrecterSpy;
+    {* Сохраняльщик результатов выравнивания для тестов. }
+   f_WasNotEqualRows: Boolean;
+    {* Флаг - были после выранивания неодинаковые строки. }
+   f_HeadAlignment: Boolean;
+    {* Выравнивание заголовка таблицы. Выставляется при повторном выравнивании заголовка на основе выравненных перед этим строк. }
+   f_ForegnTemplates: TevCellsOffsetsList;
+    {* Список для выравнивания "из вне" - применяется при копировании/вставке вершин. }
+   f_NumbericData: TevCellsOffsetsPair;
+  private
    procedure ApplyChanges(const anOp: InevOp;
-     const anIterator: IedBackCellsIterator;
-     aCellCount: Integer);
+    const anIterator: IedBackCellsIterator;
+    aCellCount: Integer);
    function TryToCopyFromSuitableList: Boolean;
    function GetTemplate: TevCellsOffsetsPair;
    function GetRowsWithSingleCell: Tl3LongintList;
    function AddevCellsOffsetsPair(const aCellIterator: IedCellsIterator): TevCellsOffsetsPair;
    function GetSuitableList(out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
    procedure CopyFromSuitableList(const aList: TevCellsOffsetsPair;
-     aFoundType: TevFoundSuitebleType);
+    aFoundType: TevFoundSuitebleType);
    function GetIterator: IedCellsIterator;
    function CheckPreparrePriorityTemplate(out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
-     {* Инициализация шаблона строк таблицы с проверокой. Шаблон строк может потребовать дополнительного выравнивани или просто не подходить для выравнивания. }
+    {* Инициализация шаблона строк таблицы с проверокой. Шаблон строк может потребовать дополнительного выравнивани или просто не подходить для выравнивания. }
    function FoundPriorityTemplate: Boolean;
    procedure AlighHeader;
-     {* Повторное выравнивание заголовка. }
+    {* Повторное выравнивание заголовка. }
    function TryToCopyForeignList: Boolean;
    function FindSuitableListInPrevious(const anIterator: IedCellsIterator;
-     out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
+    out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
    procedure SaveCellsTypeList(const aCellIterator: IedCellsIterator;
-     const aCellOffsetPair: TevCellsOffsetsPair);
- protected
- // realized methods
+    const aCellOffsetPair: TevCellsOffsetsPair);
+  protected
    function GetPrevRowType: TedRowType; override;
    function GetCellsCountInPreviousRow: Integer; override;
-     {* Возвращает число ячеек в последней выравненной строке }
- protected
- // overridden protected methods
+    {* Возвращает число ячеек в последней выравненной строке }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aForegnTemplates: TevCellsOffsetsList); reintroduce;
    procedure CheckRowsWithSingleCell;
    procedure CheckLog;
    class function DoCorrection(const aTable: IedTable;
-     const aForegnTemplates: TevCellsOffsetsList;
-     aSeparateOp: Boolean;
-     const aProgress: Il3Progress = nil): Boolean;
+    const aForegnTemplates: TevCellsOffsetsList;
+    aSeparateOp: Boolean;
+    const aProgress: Il3Progress = nil): Boolean;
    procedure CorrectCells(const aRow: IedRow);
    procedure ApplyChanges2Row(const anOp: InevOp;
     const aRow: IedRow;
@@ -115,26 +98,23 @@ type
 implementation
 
 uses
-  edCellTypesList
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Base,
-  l3Types,
-  afwFacade,
-  k2Op,
-  evOp,
-  evMsgCode,
-  evCellsCharOffsets
-  ;
-
-// start class TevCellsWidthCorrecter
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Base
+ , l3Types
+ , afwFacade
+ , k2Op
+ , evOp
+ , evMsgCode
+ , evCellsCharOffsets
+ , edCellTypesList
+;
 
 procedure TevCellsWidthCorrecter.ApplyChanges(const anOp: InevOp;
-  const anIterator: IedBackCellsIterator;
-  aCellCount: Integer);
+ const anIterator: IedBackCellsIterator;
+ aCellCount: Integer);
 //#UC START# *4F2F734203C7_4F2B767D015E_var*
 var
  l_WidthList : TevCellsOffsetsPair;
@@ -209,6 +189,20 @@ begin
 //#UC END# *4F2F734203C7_4F2B767D015E_impl*
 end;//TevCellsWidthCorrecter.ApplyChanges
 
+constructor TevCellsWidthCorrecter.Create(const aForegnTemplates: TevCellsOffsetsList);
+//#UC START# *4F2F73CD01D1_4F2B767D015E_var*
+//#UC END# *4F2F73CD01D1_4F2B767D015E_var*
+begin
+//#UC START# *4F2F73CD01D1_4F2B767D015E_impl*
+ inherited Create;
+ f_CellsOffsetPairList := TevCellsOffsetsPairList.Create;
+ f_PrevRowWidth := 0;
+ f_WasNotEqualRows := False;
+ f_HeadAlignment := False;
+ f_ForegnTemplates := aForegnTemplates;
+//#UC END# *4F2F73CD01D1_4F2B767D015E_impl*
+end;//TevCellsWidthCorrecter.Create
+
 function TevCellsWidthCorrecter.TryToCopyFromSuitableList: Boolean;
 //#UC START# *4FA504FF0217_4F2B767D015E_var*
 var
@@ -281,6 +275,31 @@ begin
 //#UC END# *4FA52C7A027C_4F2B767D015E_impl*
 end;//TevCellsWidthCorrecter.AddevCellsOffsetsPair
 
+procedure TevCellsWidthCorrecter.CheckRowsWithSingleCell;
+//#UC START# *4FA530670256_4F2B767D015E_var*
+
+ function lp_CheckItem(aData: PInteger; anIndex: Integer): Boolean;
+ var
+  l_Index     : Integer;
+  l_PrevWidth : TevCellsOffsetsPair;
+ begin
+  l_Index := aData^;
+  if l_Index > 0 then
+  begin
+   l_PrevWidth := f_CellsOffsetPairList[l_Index - 1];
+   f_CellsOffsetPairList[l_Index].AlignByPrevious(l_PrevWidth);
+  end; // if l_PrevIndex > 0 then
+  Result := True;
+ end;
+
+//#UC END# *4FA530670256_4F2B767D015E_var*
+begin
+//#UC START# *4FA530670256_4F2B767D015E_impl*
+ if f_RowsWithSingleCell <> nil then
+  f_RowsWithSingleCell.IterateAllF(l3L2IA(@lp_CheckItem));
+//#UC END# *4FA530670256_4F2B767D015E_impl*
+end;//TevCellsWidthCorrecter.CheckRowsWithSingleCell
+
 function TevCellsWidthCorrecter.GetSuitableList(out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
 //#UC START# *4FC5D31C000E_4F2B767D015E_var*
 var
@@ -305,7 +324,7 @@ begin
 end;//TevCellsWidthCorrecter.GetSuitableList
 
 procedure TevCellsWidthCorrecter.CopyFromSuitableList(const aList: TevCellsOffsetsPair;
-  aFoundType: TevFoundSuitebleType);
+ aFoundType: TevFoundSuitebleType);
 //#UC START# *4FC5D4D2033A_4F2B767D015E_var*
 var
  l_WidthList   : TevCellsOffsetsPair;
@@ -340,6 +359,7 @@ begin
 end;//TevCellsWidthCorrecter.GetIterator
 
 function TevCellsWidthCorrecter.CheckPreparrePriorityTemplate(out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
+ {* Инициализация шаблона строк таблицы с проверокой. Шаблон строк может потребовать дополнительного выравнивани или просто не подходить для выравнивания. }
 //#UC START# *4FC5FBF401A8_4F2B767D015E_var*
 //#UC END# *4FC5FBF401A8_4F2B767D015E_var*
 begin
@@ -372,6 +392,18 @@ begin
 //#UC END# *4FC5FBF401A8_4F2B767D015E_impl*
 end;//TevCellsWidthCorrecter.CheckPreparrePriorityTemplate
 
+procedure TevCellsWidthCorrecter.CheckLog;
+//#UC START# *4FC72703007E_4F2B767D015E_var*
+//#UC END# *4FC72703007E_4F2B767D015E_var*
+begin
+//#UC START# *4FC72703007E_4F2B767D015E_impl*
+ if TevCellWidthCorrecterSpy.Exists and TevCellWidthCorrecterSpy.Instance.NeedLog then
+  f_LogSpy := TevCellWidthCorrecterSpy.Instance
+ else
+  f_LogSpy := nil;
+//#UC END# *4FC72703007E_4F2B767D015E_impl*
+end;//TevCellsWidthCorrecter.CheckLog
+
 function TevCellsWidthCorrecter.FoundPriorityTemplate: Boolean;
 //#UC START# *4FC8655F01B4_4F2B767D015E_var*
 //#UC END# *4FC8655F01B4_4F2B767D015E_var*
@@ -382,6 +414,7 @@ begin
 end;//TevCellsWidthCorrecter.FoundPriorityTemplate
 
 procedure TevCellsWidthCorrecter.AlighHeader;
+ {* Повторное выравнивание заголовка. }
 //#UC START# *4FC86F1E023D_4F2B767D015E_var*
 var
  l_OldRow    : IedRow;
@@ -446,151 +479,10 @@ begin
 //#UC END# *4FC86F1E023D_4F2B767D015E_impl*
 end;//TevCellsWidthCorrecter.AlighHeader
 
-function TevCellsWidthCorrecter.TryToCopyForeignList: Boolean;
-//#UC START# *5092588F021F_4F2B767D015E_var*
-var
- l_Found        : TevCellsCharOffsets;
- l_WidthList    : TevCellsOffsetsPair;
- l_CellIterator : IedCellsIterator;
-//#UC END# *5092588F021F_4F2B767D015E_var*
-begin
-//#UC START# *5092588F021F_4F2B767D015E_impl*
- Result := False;
- if not f_HeadAlignment and (f_ForegnTemplates <> nil) then
- begin
-  l_Found := nil;
-  l_CellIterator := GetIterator;
-  if f_ForegnTemplates.Count > 0 then
-   l_Found := f_ForegnTemplates.FindList(l_CellIterator, False); //IterateAllF(l3L2IA(@lp_CheckItem));
-  if l_Found <> nil then
-  begin
-   l_WidthList := AddevCellsOffsetsPair(l_CellIterator);
-   try
-    l_WidthList.CopyData(l_Found, l_CellIterator);
-    Result := True;
-   finally
-    l3Free(l_WidthList);
-   end;
-  end; // if l_Found <> nil then
- end; // if f_PriorityTemplateRow = nil then
-//#UC END# *5092588F021F_4F2B767D015E_impl*
-end;//TevCellsWidthCorrecter.TryToCopyForeignList
-
-function TevCellsWidthCorrecter.FindSuitableListInPrevious(const anIterator: IedCellsIterator;
-  out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
-//#UC START# *4F2FA52C00EC_4F2B767D015E_var*
-
- function lp_CheckItem(aData: PObject; anIndex: Integer): Boolean;
- begin
-  Result := not TevCellsOffsetsPair(aData^).EqualCells(anIterator);
-  if not Result then
-   FindSuitableListInPrevious := TevCellsOffsetsPair(aData^);
- end;
-
-var
- l_CellIteraor: IedCellsIterator;
-//#UC END# *4F2FA52C00EC_4F2B767D015E_var*
-begin
-//#UC START# *4F2FA52C00EC_4F2B767D015E_impl*
- Result := nil;
- if FoundPriorityTemplate and f_PriorityTemplateRow.EqualCells(anIterator) then
- begin
-  Result := f_PriorityTemplateRow;
-  aFoundType := ev_fstTemplate;
- end // if FoundPriorityTemplate and f_PriorityTemplateRow.EqualCells(anIterator) then
- else
- begin
-  if not f_HeadAlignment then
-  begin
-   if f_CellsOffsetPairList.Count > 0 then
-    f_CellsOffsetPairList.IterateBackF(f_CellsOffsetPairList.Hi, f_CellsOffsetPairList.Lo, l3L2IA(@lp_CheckItem));
-   if Result <> nil then
-    aFoundType := ev_fstInList;
-  end // if f_PriorityTemplateRow = nil then
- end;
-//#UC END# *4F2FA52C00EC_4F2B767D015E_impl*
-end;//TevCellsWidthCorrecter.FindSuitableListInPrevious
-
-procedure TevCellsWidthCorrecter.SaveCellsTypeList(const aCellIterator: IedCellsIterator;
-  const aCellOffsetPair: TevCellsOffsetsPair);
-//#UC START# *528DDD5B0275_4F2B767D015E_var*
-var
- l_Cell                 : IedCell;
- l_CurrentCellsTypeList : TedCellTypesList;
-//#UC END# *528DDD5B0275_4F2B767D015E_var*
-begin
-//#UC START# *528DDD5B0275_4F2B767D015E_impl*
- l_Cell := aCellIterator.First(False);
- l_CurrentCellsTypeList := TedCellTypesList.Create;
- try
-  while l_Cell <> nil do
-  begin
-   l_CurrentCellsTypeList.Add(l_Cell.GetCellType);
-   l_Cell := aCellIterator.Next;
-  end; // while l_Cell <> nil do
-  aCellIterator.First(False); // Не надо "портить" итератор.
-  aCellOffsetPair.CellsType := l_CurrentCellsTypeList;
- finally
-  l_CurrentCellsTypeList := nil;
- end;
-//#UC END# *528DDD5B0275_4F2B767D015E_impl*
-end;//TevCellsWidthCorrecter.SaveCellsTypeList
-
-constructor TevCellsWidthCorrecter.Create(const aForegnTemplates: TevCellsOffsetsList);
-//#UC START# *4F2F73CD01D1_4F2B767D015E_var*
-//#UC END# *4F2F73CD01D1_4F2B767D015E_var*
-begin
-//#UC START# *4F2F73CD01D1_4F2B767D015E_impl*
- inherited Create;
- f_CellsOffsetPairList := TevCellsOffsetsPairList.Create;
- f_PrevRowWidth := 0;
- f_WasNotEqualRows := False;
- f_HeadAlignment := False;
- f_ForegnTemplates := aForegnTemplates;
-//#UC END# *4F2F73CD01D1_4F2B767D015E_impl*
-end;//TevCellsWidthCorrecter.Create
-
-procedure TevCellsWidthCorrecter.CheckRowsWithSingleCell;
-//#UC START# *4FA530670256_4F2B767D015E_var*
-
- function lp_CheckItem(aData: PInteger; anIndex: Integer): Boolean;
- var
-  l_Index     : Integer;
-  l_PrevWidth : TevCellsOffsetsPair;
- begin
-  l_Index := aData^;
-  if l_Index > 0 then
-  begin
-   l_PrevWidth := f_CellsOffsetPairList[l_Index - 1];
-   f_CellsOffsetPairList[l_Index].AlignByPrevious(l_PrevWidth);
-  end; // if l_PrevIndex > 0 then
-  Result := True;
- end;
-
-//#UC END# *4FA530670256_4F2B767D015E_var*
-begin
-//#UC START# *4FA530670256_4F2B767D015E_impl*
- if f_RowsWithSingleCell <> nil then
-  f_RowsWithSingleCell.IterateAllF(l3L2IA(@lp_CheckItem));
-//#UC END# *4FA530670256_4F2B767D015E_impl*
-end;//TevCellsWidthCorrecter.CheckRowsWithSingleCell
-
-procedure TevCellsWidthCorrecter.CheckLog;
-//#UC START# *4FC72703007E_4F2B767D015E_var*
-//#UC END# *4FC72703007E_4F2B767D015E_var*
-begin
-//#UC START# *4FC72703007E_4F2B767D015E_impl*
- if TevCellWidthCorrecterSpy.Exists and TevCellWidthCorrecterSpy.Instance.NeedLog then
-  f_LogSpy := TevCellWidthCorrecterSpy.Instance
- else
-  f_LogSpy := nil;
-//#UC END# *4FC72703007E_4F2B767D015E_impl*
-end;//TevCellsWidthCorrecter.CheckLog
-
 class function TevCellsWidthCorrecter.DoCorrection(const aTable: IedTable;
-  const aForegnTemplates: TevCellsOffsetsList;
-  aSeparateOp: Boolean;
-  const aProgress: Il3Progress = nil): Boolean;
+ const aForegnTemplates: TevCellsOffsetsList;
+ aSeparateOp: Boolean;
+ const aProgress: Il3Progress = nil): Boolean;
 //#UC START# *50923EED0279_4F2B767D015E_var*
 var
  l_Index    : Integer;
@@ -697,6 +589,96 @@ begin
  end;//aTable <> nil
 //#UC END# *50923EED0279_4F2B767D015E_impl*
 end;//TevCellsWidthCorrecter.DoCorrection
+
+function TevCellsWidthCorrecter.TryToCopyForeignList: Boolean;
+//#UC START# *5092588F021F_4F2B767D015E_var*
+var
+ l_Found        : TevCellsCharOffsets;
+ l_WidthList    : TevCellsOffsetsPair;
+ l_CellIterator : IedCellsIterator;
+//#UC END# *5092588F021F_4F2B767D015E_var*
+begin
+//#UC START# *5092588F021F_4F2B767D015E_impl*
+ Result := False;
+ if not f_HeadAlignment and (f_ForegnTemplates <> nil) then
+ begin
+  l_Found := nil;
+  l_CellIterator := GetIterator;
+  if f_ForegnTemplates.Count > 0 then
+   l_Found := f_ForegnTemplates.FindList(l_CellIterator, False); //IterateAllF(l3L2IA(@lp_CheckItem));
+  if l_Found <> nil then
+  begin
+   l_WidthList := AddevCellsOffsetsPair(l_CellIterator);
+   try
+    l_WidthList.CopyData(l_Found, l_CellIterator);
+    Result := True;
+   finally
+    l3Free(l_WidthList);
+   end;
+  end; // if l_Found <> nil then
+ end; // if f_PriorityTemplateRow = nil then
+//#UC END# *5092588F021F_4F2B767D015E_impl*
+end;//TevCellsWidthCorrecter.TryToCopyForeignList
+
+function TevCellsWidthCorrecter.FindSuitableListInPrevious(const anIterator: IedCellsIterator;
+ out aFoundType: TevFoundSuitebleType): TevCellsOffsetsPair;
+//#UC START# *4F2FA52C00EC_4F2B767D015E_var*
+
+ function lp_CheckItem(aData: PObject; anIndex: Integer): Boolean;
+ begin
+  Result := not TevCellsOffsetsPair(aData^).EqualCells(anIterator);
+  if not Result then
+   FindSuitableListInPrevious := TevCellsOffsetsPair(aData^);
+ end;
+
+var
+ l_CellIteraor: IedCellsIterator;
+//#UC END# *4F2FA52C00EC_4F2B767D015E_var*
+begin
+//#UC START# *4F2FA52C00EC_4F2B767D015E_impl*
+ Result := nil;
+ if FoundPriorityTemplate and f_PriorityTemplateRow.EqualCells(anIterator) then
+ begin
+  Result := f_PriorityTemplateRow;
+  aFoundType := ev_fstTemplate;
+ end // if FoundPriorityTemplate and f_PriorityTemplateRow.EqualCells(anIterator) then
+ else
+ begin
+  if not f_HeadAlignment then
+  begin
+   if f_CellsOffsetPairList.Count > 0 then
+    f_CellsOffsetPairList.IterateBackF(f_CellsOffsetPairList.Hi, f_CellsOffsetPairList.Lo, l3L2IA(@lp_CheckItem));
+   if Result <> nil then
+    aFoundType := ev_fstInList;
+  end // if f_PriorityTemplateRow = nil then
+ end;
+//#UC END# *4F2FA52C00EC_4F2B767D015E_impl*
+end;//TevCellsWidthCorrecter.FindSuitableListInPrevious
+
+procedure TevCellsWidthCorrecter.SaveCellsTypeList(const aCellIterator: IedCellsIterator;
+ const aCellOffsetPair: TevCellsOffsetsPair);
+//#UC START# *528DDD5B0275_4F2B767D015E_var*
+var
+ l_Cell                 : IedCell;
+ l_CurrentCellsTypeList : TedCellTypesList;
+//#UC END# *528DDD5B0275_4F2B767D015E_var*
+begin
+//#UC START# *528DDD5B0275_4F2B767D015E_impl*
+ l_Cell := aCellIterator.First(False);
+ l_CurrentCellsTypeList := TedCellTypesList.Create;
+ try
+  while l_Cell <> nil do
+  begin
+   l_CurrentCellsTypeList.Add(l_Cell.GetCellType);
+   l_Cell := aCellIterator.Next;
+  end; // while l_Cell <> nil do
+  aCellIterator.First(False); // Не надо "портить" итератор.
+  aCellOffsetPair.CellsType := l_CurrentCellsTypeList;
+ finally
+  l_CurrentCellsTypeList := nil;
+ end;
+//#UC END# *528DDD5B0275_4F2B767D015E_impl*
+end;//TevCellsWidthCorrecter.SaveCellsTypeList
 
 procedure TevCellsWidthCorrecter.CorrectCells(const aRow: IedRow);
 //#UC START# *4F2BC62D00FE_4F2B767D015E_var*
@@ -809,8 +791,8 @@ begin
 end;//TevCellsWidthCorrecter.CorrectCells
 
 procedure TevCellsWidthCorrecter.ApplyChanges2Row(const anOp: InevOp;
-  const aRow: IedRow;
-  aFirst: Boolean);
+ const aRow: IedRow;
+ aFirst: Boolean);
 //#UC START# *4F2BC6810005_4F2B767D015E_var*
 var
  l_CellIterator: IedCellsIterator;
@@ -839,6 +821,7 @@ begin
 end;//TevCellsWidthCorrecter.GetPrevRowType
 
 function TevCellsWidthCorrecter.GetCellsCountInPreviousRow: Integer;
+ {* Возвращает число ячеек в последней выравненной строке }
 //#UC START# *5152D812036E_4F2B767D015E_var*
 //#UC END# *5152D812036E_4F2B767D015E_var*
 begin
@@ -851,6 +834,7 @@ begin
 end;//TevCellsWidthCorrecter.GetCellsCountInPreviousRow
 
 procedure TevCellsWidthCorrecter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F2B767D015E_var*
 //#UC END# *479731C50290_4F2B767D015E_var*
 begin

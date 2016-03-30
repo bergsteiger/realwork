@@ -1,70 +1,54 @@
 unit evNodePainter;
+ {* Рисователь узлов-параграфов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evNodePainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::PaintedNode::TevNodePainter
-//
-// Рисователь узлов-параграфов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evNodePainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevNodePainter" MUID: (4E2412DF02EA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  l3InternalInterfaces,
-  nevTools,
-  l3Variant,
-  l3Units
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , l3InternalInterfaces
+ , nevTools
+ , l3Variant
+ , l3Units
+;
 
 type
  TevNodePainter = class(Tl3CacheableBase, Il3NodePainter)
   {* Рисователь узлов-параграфов. }
- private
- // private fields
-   f_Tag : InevObject;
-   f_Document : InevObject;
- private
- // private methods
+  private
+   f_Tag: InevObject;
+   f_Document: InevObject;
+  private
    procedure InternalPaintNode(const aCanvas: Il3Canvas;
-     aWidth: Integer;
-     aSelStart: Integer;
-     aSelEnd: Integer;
-     DoInverse: Boolean = False);
+    aWidth: Integer;
+    aSelStart: Integer;
+    aSelEnd: Integer;
+    DoInverse: Boolean = False);
    function GetDocument(aLimitWidth: Integer;
-     const aCanvas: Il3InfoCanvas): InevObjectList;
- protected
- // realized methods
+    const aCanvas: Il3InfoCanvas): InevObjectList;
+  protected
    procedure PaintNode(const aCanvas: Il3Canvas;
     const aRect: Tl3Rect;
     aSelStart: Integer;
     aSelEnd: Integer;
     DoInverse: Boolean = False);
-     {* Рисует ноду }
+    {* Рисует ноду }
    function CalcHeight(const aCanvas: Il3InfoCanvas;
     aWidth: Integer): Integer;
-     {* Считает высоту по ширине. }
+    {* Считает высоту по ширине. }
    function HintSupported: Boolean;
-     {* Надо выводить хинт }
+    {* Надо выводить хинт }
    function GetItemTextIndent(const aCanvas: Il3InfoCanvas;
     aTextHeight: Integer): Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTag: Tl3Variant); reintroduce;
    class function Make(aTag: Tl3Variant): Il3NodePainter;
  end;//TevNodePainter
@@ -72,23 +56,22 @@ type
 implementation
 
 uses
-  nevRealTools,
-  k2Tags,
-  Document_Const,
-  l3Base,
-  l3VirtualCanvas,
-  nevNodeView,
-  k2Interfaces,
-  evConst
-  ;
-
-// start class TevNodePainter
+ l3ImplUses
+ , k2Tags
+ , Document_Const
+ , l3Base
+ , l3VirtualCanvas
+ , nevNodeView
+ , k2Interfaces
+ , evConst
+ , nevRealTools
+;
 
 procedure TevNodePainter.InternalPaintNode(const aCanvas: Il3Canvas;
-  aWidth: Integer;
-  aSelStart: Integer;
-  aSelEnd: Integer;
-  DoInverse: Boolean = False);
+ aWidth: Integer;
+ aSelStart: Integer;
+ aSelEnd: Integer;
+ DoInverse: Boolean = False);
 //#UC START# *4E2421C5016E_4E2412DF02EA_var*
 var
  l_Map     : TnevShapeInfo;
@@ -145,7 +128,7 @@ begin
 end;//TevNodePainter.InternalPaintNode
 
 function TevNodePainter.GetDocument(aLimitWidth: Integer;
-  const aCanvas: Il3InfoCanvas): InevObjectList;
+ const aCanvas: Il3InfoCanvas): InevObjectList;
 //#UC START# *4E242246000E_4E2412DF02EA_var*
 var
  l_Doc  : Tl3Variant;
@@ -202,10 +185,11 @@ begin
 end;//TevNodePainter.Make
 
 procedure TevNodePainter.PaintNode(const aCanvas: Il3Canvas;
-  const aRect: Tl3Rect;
-  aSelStart: Integer;
-  aSelEnd: Integer;
-  DoInverse: Boolean = False);
+ const aRect: Tl3Rect;
+ aSelStart: Integer;
+ aSelEnd: Integer;
+ DoInverse: Boolean = False);
+ {* Рисует ноду }
 //#UC START# *476BFDCF003A_4E2412DF02EA_var*
 //#UC END# *476BFDCF003A_4E2412DF02EA_var*
 begin
@@ -226,7 +210,8 @@ begin
 end;//TevNodePainter.PaintNode
 
 function TevNodePainter.CalcHeight(const aCanvas: Il3InfoCanvas;
-  aWidth: Integer): Integer;
+ aWidth: Integer): Integer;
+ {* Считает высоту по ширине. }
 //#UC START# *476BFDE5038B_4E2412DF02EA_var*
 var
  l_Canvas : Il3Canvas;
@@ -241,6 +226,7 @@ begin
 end;//TevNodePainter.CalcHeight
 
 function TevNodePainter.HintSupported: Boolean;
+ {* Надо выводить хинт }
 //#UC START# *49C0DC1201F9_4E2412DF02EA_var*
 //#UC END# *49C0DC1201F9_4E2412DF02EA_var*
 begin
@@ -250,7 +236,7 @@ begin
 end;//TevNodePainter.HintSupported
 
 function TevNodePainter.GetItemTextIndent(const aCanvas: Il3InfoCanvas;
-  aTextHeight: Integer): Integer;
+ aTextHeight: Integer): Integer;
 //#UC START# *49C0E568031B_4E2412DF02EA_var*
 //#UC END# *49C0E568031B_4E2412DF02EA_var*
 begin
@@ -260,6 +246,7 @@ begin
 end;//TevNodePainter.GetItemTextIndent
 
 procedure TevNodePainter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E2412DF02EA_var*
 //#UC END# *479731C50290_4E2412DF02EA_var*
 begin

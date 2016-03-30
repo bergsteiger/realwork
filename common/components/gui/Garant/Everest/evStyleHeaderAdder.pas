@@ -1,65 +1,50 @@
 unit evStyleHeaderAdder;
+ {* Фильтр, доклеивающий заголовок стиля перед параграфом
+http://mdp.garant.ru/pages/viewpage.action?pageId=278837126 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleHeaderAdder.pas"
-// Начат: 30.09.2011 15:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevStyleHeaderAdder
-//
-// Фильтр, доклеивающий заголовок стиля перед параграфом
-// http://mdp.garant.ru/pages/viewpage.action?pageId=278837126
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleHeaderAdder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleHeaderAdder" MUID: (4E85A869034E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , k2Base
+ , l3Variant
+;
 
 type
  TevStyleHeaderAdder = class(TevdLeafParaFilter)
   {* Фильтр, доклеивающий заголовок стиля перед параграфом
 http://mdp.garant.ru/pages/viewpage.action?pageId=278837126 }
- protected
- // overridden protected methods
+  protected
    function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
  end;//TevStyleHeaderAdder
 
 implementation
 
 uses
-  evTextStyle_Const,
-  TextPara_Const,
-  k2Tags,
-  l3String,
-  l3Types,
-  nevTools
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TevStyleHeaderAdder
+ l3ImplUses
+ , evTextStyle_Const
+ , TextPara_Const
+ , k2Tags
+ , l3String
+ , l3Types
+ , nevTools
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TevStyleHeaderAdder.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_4E85A869034E_var*
 //#UC END# *49E488070386_4E85A869034E_var*
 begin
@@ -69,6 +54,7 @@ begin
 end;//TevStyleHeaderAdder.ParaTypeForFiltering
 
 procedure TevStyleHeaderAdder.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_4E85A869034E_var*
 var
  l_Style     : Tl3Variant;

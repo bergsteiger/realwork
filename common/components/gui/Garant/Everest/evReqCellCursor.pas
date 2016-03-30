@@ -1,59 +1,43 @@
 unit evReqCellCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evReqCellCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevReqCellCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqCellCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReqCellCursor" MUID: (53D0BFE802C7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evTableCellCursor,
-  nevBase,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evTableCellCursor
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevReqCellCursor = class(TevTableCellCursor)
- protected
- // overridden protected methods
+  protected
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
     aCount: Integer): TnevMoveResult; override;
  end;//TevReqCellCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evOp
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevReqCellCursor
+ l3ImplUses
+ , evOp
+;
 
 function TevReqCellCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_53D0BFE802C7_var*
 //#UC END# *49E31657038E_53D0BFE802C7_var*
 begin
@@ -76,7 +60,6 @@ begin
  end;//Case aCode
 //#UC END# *49E31657038E_53D0BFE802C7_impl*
 end;//TevReqCellCursor.DoMovePrim
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

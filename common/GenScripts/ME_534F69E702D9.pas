@@ -54,9 +54,7 @@ type
    f_CurrentMainMenu: TMainMenu;
    f_BackgroundBitmap: Tl3Bitmap;
    f_ContainerIsClosing: Boolean;
-    {* Поле для свойства ContainerIsClosing }
    f_WindowStateBeforeMinimizing: TWindowState;
-    {* Поле для свойства WindowStateBeforeMinimizing }
   private
    procedure DecoratorBackgroundChanged(aBitmap: TBitmap;
     aNeedDrawBackground: Boolean);

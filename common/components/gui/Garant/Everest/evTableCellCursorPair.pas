@@ -1,63 +1,46 @@
 unit evTableCellCursorPair;
+ {* Выделение для ячейки таблицы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCellCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevTableCellCursorPair
-//
-// Выделение для ячейки таблицы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCellCursorPair.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCellCursorPair" MUID: (52E24FBF0273)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursorPair,
-  nevBase,
-  nevTools,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorPair
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevTableCellCursorPair = class(TevParaListCursorPair)
   {* Выделение для ячейки таблицы }
- protected
- // overridden protected methods
+  protected
    function DoSetAtom(const aView: InevView;
     anIndex: Cardinal;
     pSource: Tl3Variant;
     const anOp: InevOp): Boolean; override;
  end;//TevTableCellCursorPair
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Tags
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableCellCursorPair
+ l3ImplUses
+ , k2Tags
+;
 
 function TevTableCellCursorPair.DoSetAtom(const aView: InevView;
-  anIndex: Cardinal;
-  pSource: Tl3Variant;
-  const anOp: InevOp): Boolean;
+ anIndex: Cardinal;
+ pSource: Tl3Variant;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7A40373_52E24FBF0273_var*
 //#UC END# *4A38F7A40373_52E24FBF0273_var*
 begin
@@ -73,7 +56,6 @@ begin
   Result := inherited DoSetAtom(aView, anIndex, pSource, anOp);
 //#UC END# *4A38F7A40373_52E24FBF0273_impl*
 end;//TevTableCellCursorPair.DoSetAtom
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

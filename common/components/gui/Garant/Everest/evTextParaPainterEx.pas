@@ -1,53 +1,38 @@
 unit evTextParaPainterEx;
+ {* Рисователь текстового параграфа. Для упрощения переноса на модель }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaPainterEx.pas"
-// Начат: 06.04.2009 20:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::LeafPara Painters::TevTextParaPainterEx
-//
-// Рисователь текстового параграфа. Для упрощения переноса на модель
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaPainterEx.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaPainterEx" MUID: (49DA30D901B6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evLinePainter,
-  evAACTextPainter,
-  l3Interfaces,
-  nevBase,
-  l3Variant,
-  nevTools,
-  l3Units
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evAACTextPainter
+ , evLinePainter
+ , l3Variant
+ , l3Interfaces
+ , nevBase
+ , nevTools
+ , l3Units
+;
 
-{$If defined(evNeedPainters)}
 type
  TevTextParaPainterEx = class(TevAACTextPainter)
   {* Рисователь текстового параграфа. Для упрощения переноса на модель }
- private
- // private fields
-   f_FirstIndent : Integer;
-   f_TopLine : Integer;
-   f_LinePainter : TevLinePainter;
- protected
- // overridden protected methods
+  private
+   f_FirstIndent: Integer;
+   f_TopLine: Integer;
+   f_LinePainter: TevLinePainter;
+  protected
+   procedure ValidateParaFont; virtual;
    procedure Release; override;
    procedure DoInitAlignObjects; override;
-     {* Инициализация выравнивания объекта. }
+    {* Инициализация выравнивания объекта. }
    procedure GetFramePartPrim(aFrame: Tl3Variant;
     anIndex: Tl3FramePartIndex;
     var thePart: TnevFramePart); override;
@@ -56,98 +41,75 @@ type
    procedure DoDrawFrameText(aTop: Boolean); override;
    function DrawLeaf: Boolean; override;
    procedure FillUnfilled(const aRect: Tl3Rect); override;
-     {* Заливает область параграфа, которая не была залита }
- protected
- // protected methods
-   procedure ValidateParaFont; virtual;
+    {* Заливает область параграфа, которая не была залита }
  end;//TevTextParaPainterEx
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Const,
-  Graphics,
-  l3String,
-  l3MinMax
-  {$If defined(evUseVisibleCursors)}
-  ,
-  nevAfterEndPoint
-  {$IfEnd} //evUseVisibleCursors
-  ,
-  l3InternalInterfaces,
-  TextPara_Const,
-  k2Tags,
-  evdTypes,
-  l3Chars,
-  nevFacade
-  {$If defined(k2ForEditor)}
-  ,
-  evTextParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evTextParaConst,
-  l3CustomString,
-  evdStyles,
-  l3Types,
-  nevRealTools,
-  l3Base,
-  k2InterfacesEx,
-  evDef,
-  l3LineArray,
-  k2Base,
-  HyperLink_Const
-  {$If defined(evNeedHotSpot)}
-  ,
-  nevActiveHyperlink
-  {$IfEnd} //evNeedHotSpot
-  ,
-  evdTextStyle_Const,
-  nevInterfaces,
-  k2Facade
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  nevFormatInfoFactory,
-  k2Const
-  {$If defined(evNeedHotSpot)}
-  ,
-  nevDecorActiveHyperlink
-  {$IfEnd} //evNeedHotSpot
-  ,
-  l3Region,
-  SysUtils,
-  Windows,
-  Types,
-  l3Drawer
-  {$If defined(k2ForEditor)}
-  ,
-  evAlignBySeparatorUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Math,
-  nevSegmentObject,
-  BitmapPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  evCustomStyleManager
-  {$If defined(k2ForEditor)}
-  ,
-  evAACContentUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevTextParaPainterEx
+ l3ImplUses
+ , l3Const
+ , Graphics
+ , l3String
+ , l3MinMax
+ {$If Defined(evUseVisibleCursors)}
+ , nevAfterEndPoint
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ , l3InternalInterfaces
+ , TextPara_Const
+ , k2Tags
+ , evdTypes
+ , l3Chars
+ , nevFacade
+ {$If Defined(k2ForEditor)}
+ , evTextParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evTextParaConst
+ , l3CustomString
+ , evdStyles
+ , l3Types
+ , nevRealTools
+ , l3Base
+ , k2InterfacesEx
+ , evDef
+ , l3LineArray
+ , k2Base
+ , HyperLink_Const
+ {$If Defined(evNeedHotSpot)}
+ , nevActiveHyperlink
+ {$IfEnd} // Defined(evNeedHotSpot)
+ , evdTextStyle_Const
+ , nevInterfaces
+ , k2Facade
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , nevFormatInfoFactory
+ , k2Const
+ {$If Defined(evNeedHotSpot)}
+ , nevDecorActiveHyperlink
+ {$IfEnd} // Defined(evNeedHotSpot)
+ , l3Region
+ , SysUtils
+ , Windows
+ , Types
+ , l3Drawer
+ {$If Defined(k2ForEditor)}
+ , evAlignBySeparatorUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Math
+ , nevSegmentObject
+ , BitmapPara_Const
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , evCustomStyleManager
+ {$If Defined(k2ForEditor)}
+ , evAACContentUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 procedure TevTextParaPainterEx.ValidateParaFont;
 //#UC START# *4D725A550218_49DA30D901B6_var*
@@ -169,6 +131,7 @@ begin
 end;//TevTextParaPainterEx.Release
 
 procedure TevTextParaPainterEx.DoInitAlignObjects;
+ {* Инициализация выравнивания объекта. }
 //#UC START# *4804B5FC02A3_49DA30D901B6_var*
 //#UC END# *4804B5FC02A3_49DA30D901B6_var*
 begin
@@ -180,8 +143,8 @@ begin
 end;//TevTextParaPainterEx.DoInitAlignObjects
 
 procedure TevTextParaPainterEx.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_49DA30D901B6_var*
 var
  l_Style : Tl3Variant;
@@ -239,7 +202,7 @@ begin
 end;//TevTextParaPainterEx.GetFramePartPrim
 
 procedure TevTextParaPainterEx.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_49DA30D901B6_var*
 var
  l_Pt : TnevPoint;
@@ -1058,6 +1021,7 @@ begin
 end;//TevTextParaPainterEx.DrawLeaf
 
 procedure TevTextParaPainterEx.FillUnfilled(const aRect: Tl3Rect);
+ {* Заливает область параграфа, которая не была залита }
 //#UC START# *4E2702FE01EA_49DA30D901B6_var*
 const
  cRad = 12;
@@ -1160,7 +1124,6 @@ begin
    inherited;
 //#UC END# *4E2702FE01EA_49DA30D901B6_impl*
 end;//TevTextParaPainterEx.FillUnfilled
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

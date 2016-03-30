@@ -1,6 +1,6 @@
-unit evTextParaConst;
+unit NOT_COMPLETED_evTextParaConst;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaConst.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTextParaConst.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "evTextParaConst" MUID: (480F77890296)
 
@@ -10,6 +10,7 @@ interface
 
 uses
  l3IntfUses
+ , l3Const
 ;
 
 const

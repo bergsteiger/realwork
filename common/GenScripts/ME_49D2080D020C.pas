@@ -11,9 +11,10 @@ interface
 
 uses
  l3IntfUses
- , nevTools
+ , l3Types
  , nevBase
  , l3InternalInterfaces
+ , nevTools
  , l3Variant
 ;
 

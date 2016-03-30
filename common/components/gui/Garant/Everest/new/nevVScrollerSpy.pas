@@ -1,89 +1,63 @@
 unit nevVScrollerSpy;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevVScrollerSpy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevVScrollerSpy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevVScrollerSpy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevVScrollerSpy" MUID: (4DAEB03E0034)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Filer,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Filer
+;
 
 type
- InevVScrollerPosLogger = interface(IUnknown)
-   ['{118E1374-07D5-47D3-B4EF-C921BCC2BA51}']
-   function OpenLog: AnsiString;
-   procedure CloseLog(const aLogName: AnsiString);
+ InevVScrollerPosLogger = interface
+  ['{118E1374-07D5-47D3-B4EF-C921BCC2BA51}']
+  function OpenLog: AnsiString;
+  procedure CloseLog(const aLogName: AnsiString);
  end;//InevVScrollerPosLogger
 
  TnevVScrollerSpy = class(Tl3ProtoObject)
- private
- // private fields
-   f_LogName : AnsiString;
-   f_Logger : InevVScrollerPosLogger;
-   f_Filer : Tl3CustomFiler;
- protected
- // overridden protected methods
+  private
+   f_LogName: AnsiString;
+   f_Logger: InevVScrollerPosLogger;
+   f_Filer: Tl3CustomFiler;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure SetLogger(const aLogger: InevVScrollerPosLogger);
    procedure RemoveLogger(const aLogger: InevVScrollerPosLogger);
    procedure LogPos(aPos: Integer);
    function StartLog: Boolean;
    procedure FinishLog;
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: TnevVScrollerSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnevVScrollerSpy }
  end;//TnevVScrollerSpy
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  l3Types
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , l3Base
+;
 
-
-// start class TnevVScrollerSpy
-
-var g_TnevVScrollerSpy : TnevVScrollerSpy = nil;
+var g_TnevVScrollerSpy: TnevVScrollerSpy = nil;
+ {* Экземпляр синглетона TnevVScrollerSpy }
 
 procedure TnevVScrollerSpyFree;
+ {* Метод освобождения экземпляра синглетона TnevVScrollerSpy }
 begin
  l3Free(g_TnevVScrollerSpy);
-end;
-
-class function TnevVScrollerSpy.Instance: TnevVScrollerSpy;
-begin
- if (g_TnevVScrollerSpy = nil) then
- begin
-  l3System.AddExitProc(TnevVScrollerSpyFree);
-  g_TnevVScrollerSpy := Create;
- end;
- Result := g_TnevVScrollerSpy;
-end;
-
+end;//TnevVScrollerSpyFree
 
 procedure TnevVScrollerSpy.SetLogger(const aLogger: InevVScrollerPosLogger);
 //#UC START# *4DAEBD9D0238_4DAEB03E0034_var*
@@ -163,7 +137,19 @@ begin
 //#UC END# *4DAECA8C027C_4DAEB03E0034_impl*
 end;//TnevVScrollerSpy.Exists
 
+class function TnevVScrollerSpy.Instance: TnevVScrollerSpy;
+ {* Метод получения экземпляра синглетона TnevVScrollerSpy }
+begin
+ if (g_TnevVScrollerSpy = nil) then
+ begin
+  l3System.AddExitProc(TnevVScrollerSpyFree);
+  g_TnevVScrollerSpy := Create;
+ end;
+ Result := g_TnevVScrollerSpy;
+end;//TnevVScrollerSpy.Instance
+
 procedure TnevVScrollerSpy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DAEB03E0034_var*
 //#UC END# *479731C50290_4DAEB03E0034_var*
 begin
@@ -174,7 +160,6 @@ begin
 end;//TnevVScrollerSpy.Cleanup
 
 procedure TnevVScrollerSpy.ClearFields;
- {-}
 begin
  f_Logger := nil;
  inherited;

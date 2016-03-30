@@ -1,116 +1,112 @@
 unit evContentsTagNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evContentsTagNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevContentsTagNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsTagNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsTagNode" MUID: (4DFEF1A701F9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  evInternalInterfaces,
-  evContentsNode,
-  l3Variant,
-  l3Interfaces,
-  l3IID
-  ;
+ l3IntfUses
+ , evContentsNode
+ , l3TreeInterfaces
+ , l3Variant
+ , evInternalInterfaces
+ , l3Tree_TLB
+ , l3Interfaces
+ , l3IID
+;
 
 type
  TevContentsTagNode = class(TevContentsNode, Il3HandleNode)
- private
- // private fields
-   f_Filter : InevContentsNodeFilter;
-   f_Tag : Tl3Tag;
-    {* Узел тэга.}
- private
- // private methods
+  private
+   f_Filter: InevContentsNodeFilter;
+   f_Tag: Tl3Tag;
+    {* Узел тэга. }
+  private
    procedure MakeChildNode(aTag: Tl3Variant);
-     {* Создает новую ноду. }
+    {* Создает новую ноду. }
    procedure CheckTable(aTag: Tl3Variant);
-     {* Проверяет таблицу на метки. }
- protected
- // property methods
+    {* Проверяет таблицу на метки. }
+  protected
    function pm_GetDocument: Tl3Variant;
- protected
- // realized methods
+   function GetPara: Tl3Variant;
+    {* Получить параграф, на который ссылается узел. }
+   function MakeAndInsertNode(const aNode: Il3Node;
+    aTag: Tl3Variant;
+    aSub: Tl3Variant): Il3Node;
+    {* Чисто обобщающая функция вставки. }
+   function GetLayerID: Integer;
+   function GetHandle: Integer; virtual;
    function Get_Handle: Integer;
    procedure Set_Handle(aValue: Integer);
    procedure DoTryGetChildren; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure Remove; override;
-     {* Сигнатура метода Remove }
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
- protected
- // protected methods
-   function GetPara: Tl3Variant;
-     {* Получить параграф, на который ссылается узел. }
-   function MakeAndInsertNode(const aNode: Il3Node;
-     aTag: Tl3Variant;
-     aSub: Tl3Variant): Il3Node;
-     {* Чисто обобщающая функция вставки. }
-   function GetLayerID: Integer;
-   function GetHandle: Integer; virtual;
- public
- // public methods
+  public
    constructor Create(aTag: Tl3Variant;
     const aFilter: InevContentsNodeFilter); reintroduce; virtual;
    class function Make(aTag: Tl3Variant;
     const aFilter: InevContentsNodeFilter): Il3Node; virtual;
- public
- // public properties
+  public
    property Document: Tl3Variant
-     read pm_GetDocument;
+    read pm_GetDocument;
  end;//TevContentsTagNode
 
 implementation
 
 uses
-  l3InterfacesMisc,
-  l3Types,
-  SysUtils,
-  Block_Const,
-  Table_Const,
-  evdTypes,
-  Document_Const,
-  Sub_Const,
-  LeafPara_Const,
-  l3Base
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  evContentsNodeFactory,
-  k2Tags,
-  k2NullTagImpl,
-  nevTools
-  ;
+ l3ImplUses
+ , l3InterfacesMisc
+ , l3Types
+ , SysUtils
+ , Block_Const
+ , Table_Const
+ , evdTypes
+ , Document_Const
+ , Sub_Const
+ , LeafPara_Const
+ , l3Base
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , evContentsNodeFactory
+ , k2Tags
+ , k2NullTagImpl
+ , nevTools
+;
 
-// start class TevContentsTagNode
+function TevContentsTagNode.pm_GetDocument: Tl3Variant;
+//#UC START# *4DFF1CB103D3_4DFEF1A701F9get_var*
+var
+ l_Tag : Tl3Variant;
+//#UC END# *4DFF1CB103D3_4DFEF1A701F9get_var*
+begin
+//#UC START# *4DFF1CB103D3_4DFEF1A701F9get_impl*
+ Result := Tk2NullTagImpl.Instance;
+ l_Tag := f_Tag;
+ while l_Tag.IsValid do
+ begin
+  if l_Tag.IsKindOf(k2_typDocument) then
+  begin
+   Result := l_Tag.Box;
+   Exit;
+  end;{k2_idDocument}
+  l_Tag := l_Tag.Owner;
+ end;//while l_Tag.IsValid
+//#UC END# *4DFF1CB103D3_4DFEF1A701F9get_impl*
+end;//TevContentsTagNode.pm_GetDocument
 
 procedure TevContentsTagNode.MakeChildNode(aTag: Tl3Variant);
+ {* Создает новую ноду. }
 //#UC START# *4DFF17350370_4DFEF1A701F9_var*
 
  function FindSub(aSub: Tl3Variant; anIndex: Integer): Boolean;
@@ -168,6 +164,7 @@ begin
 end;//TevContentsTagNode.MakeChildNode
 
 procedure TevContentsTagNode.CheckTable(aTag: Tl3Variant);
+ {* Проверяет таблицу на метки. }
 //#UC START# *4DFF1768028A_4DFEF1A701F9_var*
 
  function lp_CheckRow(aRow: Tl3Variant; anIndex: Long): Boolean;
@@ -198,6 +195,7 @@ begin
 end;//TevContentsTagNode.CheckTable
 
 function TevContentsTagNode.GetPara: Tl3Variant;
+ {* Получить параграф, на который ссылается узел. }
 //#UC START# *4DFF1D6203A6_4DFEF1A701F9_var*
 //#UC END# *4DFF1D6203A6_4DFEF1A701F9_var*
 begin
@@ -207,8 +205,9 @@ begin
 end;//TevContentsTagNode.GetPara
 
 function TevContentsTagNode.MakeAndInsertNode(const aNode: Il3Node;
-  aTag: Tl3Variant;
-  aSub: Tl3Variant): Il3Node;
+ aTag: Tl3Variant;
+ aSub: Tl3Variant): Il3Node;
+ {* Чисто обобщающая функция вставки. }
 //#UC START# *4DFF1DDA0163_4DFEF1A701F9_var*
 var
  l_Node       : Il3Node;
@@ -234,29 +233,8 @@ begin
 //#UC END# *4DFF1DDA0163_4DFEF1A701F9_impl*
 end;//TevContentsTagNode.MakeAndInsertNode
 
-function TevContentsTagNode.pm_GetDocument: Tl3Variant;
-//#UC START# *4DFF1CB103D3_4DFEF1A701F9get_var*
-var
- l_Tag : Tl3Variant;
-//#UC END# *4DFF1CB103D3_4DFEF1A701F9get_var*
-begin
-//#UC START# *4DFF1CB103D3_4DFEF1A701F9get_impl*
- Result := Tk2NullTagImpl.Instance;
- l_Tag := f_Tag;
- while l_Tag.IsValid do
- begin
-  if l_Tag.IsKindOf(k2_typDocument) then
-  begin
-   Result := l_Tag.Box;
-   Exit;
-  end;{k2_idDocument}
-  l_Tag := l_Tag.Owner;
- end;//while l_Tag.IsValid
-//#UC END# *4DFF1CB103D3_4DFEF1A701F9get_impl*
-end;//TevContentsTagNode.pm_GetDocument
-
 constructor TevContentsTagNode.Create(aTag: Tl3Variant;
-  const aFilter: InevContentsNodeFilter);
+ const aFilter: InevContentsNodeFilter);
 //#UC START# *4DFF1D17010D_4DFEF1A701F9_var*
 //#UC END# *4DFF1D17010D_4DFEF1A701F9_var*
 begin
@@ -268,7 +246,7 @@ begin
 end;//TevContentsTagNode.Create
 
 class function TevContentsTagNode.Make(aTag: Tl3Variant;
-  const aFilter: InevContentsNodeFilter): Il3Node;
+ const aFilter: InevContentsNodeFilter): Il3Node;
 //#UC START# *4DFF1D3501C1_4DFEF1A701F9_var*
 var
  l_RCN: TevContentsTagNode;
@@ -340,6 +318,7 @@ begin
 end;//TevContentsTagNode.DoTryGetChildren
 
 procedure TevContentsTagNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEF1A701F9_var*
 //#UC END# *479731C50290_4DFEF1A701F9_var*
 begin
@@ -360,7 +339,8 @@ begin
 end;//TevContentsTagNode.GetAsPCharLen
 
 function TevContentsTagNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4DFEF1A701F9_var*
 var
  l_Tag      : Tl3Variant;

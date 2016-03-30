@@ -1,46 +1,38 @@
 {$IfNDef evDataObjectFromStorable_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evDataObjectFromStorable.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::DataObjects::evDataObjectFromStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evDataObjectFromStorable" MUID: (48F8C3780325)
+// Имя типа: "_evDataObjectFromStorable_"
 
 {$Define evDataObjectFromStorable_imp}
+
+type
  RStorable = class of _StorableClass_;
 
- _evDataObjectFromStorable_ = {mixin} class(TevPersistentDataObjectEx)
- private
- // private fields
-   f_Data : _DataType_;
-    {* Поле для свойства Data}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+ // _StorableClass_
+
+ _evDataObjectFromStorable_ = class(TevPersistentDataObjectEx)
+  private
+   f_Data: _DataType_;
+  protected
    function DataClass: RStorable; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    constructor Create(const aData: _DataType_); reintroduce;
    class function Make(const aData: _DataType_): IDataObject; reintroduce;
-     {* Сигнатура фабрики evDataObjectFromStorable.Make }
- protected
- // protected properties
+  protected
    property Data: _DataType_
-     read f_Data;
+    read f_Data;
  end;//_evDataObjectFromStorable_
 
 {$Else evDataObjectFromStorable_imp}
 
-// start class _evDataObjectFromStorable_
+{$IfNDef evDataObjectFromStorable_imp_impl}
+
+{$Define evDataObjectFromStorable_imp_impl}
 
 constructor _evDataObjectFromStorable_.Create(const aData: _DataType_);
 //#UC START# *4CDD6F4403CD_48F8C3780325_var*
@@ -69,7 +61,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_evDataObjectFromStorable_.Make
 
 function _evDataObjectFromStorable_.DataClass: RStorable;
 //#UC START# *48F8CD5401AD_48F8C3780325_var*
@@ -81,6 +73,7 @@ begin
 end;//_evDataObjectFromStorable_.DataClass
 
 procedure _evDataObjectFromStorable_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F8C3780325_var*
 //#UC END# *479731C50290_48F8C3780325_var*
 begin
@@ -90,4 +83,13 @@ begin
 //#UC END# *479731C50290_48F8C3780325_impl*
 end;//_evDataObjectFromStorable_.Cleanup
 
+procedure _evDataObjectFromStorable_.ClearFields;
+begin
+ Finalize(f_Data);
+ inherited;
+end;//_evDataObjectFromStorable_.ClearFields
+
+{$EndIf evDataObjectFromStorable_imp_impl}
+
 {$EndIf evDataObjectFromStorable_imp}
+

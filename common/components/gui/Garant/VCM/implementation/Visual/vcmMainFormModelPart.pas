@@ -1,55 +1,36 @@
 unit vcmMainFormModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMainFormModelPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmMainFormModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormModelPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMainFormModelPart" MUID: (4F7B0CBE0283)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmContainerForm
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmContainerForm
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmMainFormModelPart = class(TvcmContainerForm)
- protected
- // protected methods
+  protected
    procedure DispatcherCreated; virtual;
    procedure AfterModulesRegistered; virtual;
  end;//TvcmMainFormModelPart
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmMainFormModelPart
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvcmMainFormModelPart.DispatcherCreated;
 //#UC START# *4F7B0CF50022_4F7B0CBE0283_var*
@@ -69,12 +50,11 @@ begin
 //#UC END# *537DB0AD03D8_4F7B0CBE0283_impl*
 end;//TvcmMainFormModelPart.AfterModulesRegistered
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmMainFormModelPart
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmMainFormModelPart);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmMainFormModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

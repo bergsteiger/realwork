@@ -1,67 +1,67 @@
 unit evEditControl;
+ {* Базовый класс поля редактора }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evEditControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevEditControl
-//
-// Базовый класс поля редактора
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evEditControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevEditControl" MUID: (48D2409102B7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  evQueryCardInt,
-  evEditorControlList,
-  evControl,
-  nevTools,
-  nevBase
-  ;
+ l3IntfUses
+ , evControl
+ , evQueryCardInt
+ , evEditorControlList
+ , l3Interfaces
+ , nevTools
+ , nevBase
+;
 
 type
  TevEditControl = class(TevControl, IevEditorControlField)
   {* Базовый класс поля редактора }
- private
- // private fields
-   f_ChildList : TevEditorControlList;
-    {* Список дочерних виджетов}
-   f_ErrorColor : Boolean;
-    {* Цвет ошибочного кода}
-   f_IsOtherFieldInited : Boolean;
- protected
- // realized methods
+  private
+   f_ChildList: TevEditorControlList;
+    {* Список дочерних виджетов }
+   f_ErrorColor: Boolean;
+    {* Цвет ошибочного кода }
+   f_IsOtherFieldInited: Boolean;
+  protected
+   procedure DoSynchronizeSelectedValueWithText; virtual;
+   function GetHasOtherField: Boolean; virtual;
+   procedure AfterSetText(const Value: Il3CString); virtual;
+   function GetSelectAllOnFocus: Boolean; virtual;
+   function GetIsClear: Boolean; virtual;
+   procedure DoInitOtherField(const aValue: IevEditorControl;
+    aIsStart: Boolean); virtual;
+   procedure DoClearText; virtual;
+   procedure DoCheckDataText; virtual;
+   function DoAnalyzeString(const aValue: Il3CString;
+    aPos: Integer;
+    out aRslt: Il3CString): Boolean; virtual;
+   function GetIsFieldEmpty: Boolean; virtual;
    procedure CheckDataText;
-     {* Проверяет введенный текст на корректность. }
+    {* Проверяет введенный текст на корректность. }
    function AnalyzeString(const aValue: Il3CString;
     aPos: Integer;
     out aRslt: Il3CString): Boolean;
-     {* Анализ добавленной строки, если нужно, то убирает лишние символы или разбивает строку на несколько. }
+    {* Анализ добавленной строки, если нужно, то убирает лишние символы или разбивает строку на несколько. }
    function IsClear: Boolean;
-     {* Функция возвращает призна того, что поле пустое (вынесено специально 
+    {* Функция возвращает призна того, что поле пустое (вынесено специально 
           для обновления кнопок!). Для реквизитов дат проверяет оба поля дат! }
    procedure InitOtherField(const aValue: IevEditorControl;
     aIsStart: Boolean = True);
-     {* Для реквизитов с двумя полями. Используется для полей дат. }
+    {* Для реквизитов с двумя полями. Используется для полей дат. }
    function IsFieldEmpty: Boolean;
-     {* Проверяет является ли поле пустым (или содержит значение по умолчанию). }
+    {* Проверяет является ли поле пустым (или содержит значение по умолчанию). }
    function FindButton(aButtonType: TevButtonType): IevEditorControlButton;
-     {* Возвращает кнопку для поля. }
+    {* Возвращает кнопку для поля. }
    procedure ClearText;
-     {* Очищает поле редактора. }
+    {* Очищает поле редактора. }
    function SelectAllOnFocus: Boolean;
-     {* Надо ли выделять поле при фокусировании. }
+    {* Надо ли выделять поле при фокусировании. }
    function Get_Text: Il3CString;
    procedure Set_Text(const aValue: Il3CString);
    function Get_ErrorColor: Boolean;
@@ -82,45 +82,26 @@ type
     const aMap: InevMap): Boolean; override;
    procedure SynchronizeSelectedValueWithText;
    function HasOtherField: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure SetText(const Value: Il3CString); override;
    procedure DoTextChange(const aView: InevView;
     const aPara: InevPara;
     const anOp: InevOp); override;
- public
- // overridden public methods
+  public
    constructor Create(const aPara: InevPara); override;
- protected
- // protected methods
-   procedure DoSynchronizeSelectedValueWithText; virtual;
-   function GetHasOtherField: Boolean; virtual;
-   procedure AfterSetText(const Value: Il3CString); virtual;
-   function GetSelectAllOnFocus: Boolean; virtual;
-   function GetIsClear: Boolean; virtual;
-   procedure DoInitOtherField(const aValue: IevEditorControl;
-    aIsStart: Boolean); virtual;
-   procedure DoClearText; virtual;
-   procedure DoCheckDataText; virtual;
-   function DoAnalyzeString(const aValue: Il3CString;
-    aPos: Integer;
-    out aRslt: Il3CString): Boolean; virtual;
-   function GetIsFieldEmpty: Boolean; virtual;
  end;//TevEditControl
 
 implementation
 
 uses
-  l3Base,
-  l3String,
-  k2Tags,
-  l3Chars,
-  SysUtils
-  ;
-
-// start class TevEditControl
+ l3ImplUses
+ , l3Base
+ , l3String
+ , k2Tags
+ , l3Chars
+ , SysUtils
+;
 
 procedure TevEditControl.DoSynchronizeSelectedValueWithText;
 //#UC START# *4E93093B00C1_48D2409102B7_var*
@@ -168,7 +149,7 @@ begin
 end;//TevEditControl.GetIsClear
 
 procedure TevEditControl.DoInitOtherField(const aValue: IevEditorControl;
-  aIsStart: Boolean);
+ aIsStart: Boolean);
 //#UC START# *48D24AA202D1_48D2409102B7_var*
 //#UC END# *48D24AA202D1_48D2409102B7_var*
 begin
@@ -196,8 +177,8 @@ begin
 end;//TevEditControl.DoCheckDataText
 
 function TevEditControl.DoAnalyzeString(const aValue: Il3CString;
-  aPos: Integer;
-  out aRslt: Il3CString): Boolean;
+ aPos: Integer;
+ out aRslt: Il3CString): Boolean;
 //#UC START# *48D24F5F02BF_48D2409102B7_var*
 //#UC END# *48D24F5F02BF_48D2409102B7_var*
 begin
@@ -216,6 +197,7 @@ begin
 end;//TevEditControl.GetIsFieldEmpty
 
 procedure TevEditControl.CheckDataText;
+ {* Проверяет введенный текст на корректность. }
 //#UC START# *47CD7AC60335_48D2409102B7_var*
 //#UC END# *47CD7AC60335_48D2409102B7_var*
 begin
@@ -225,8 +207,9 @@ begin
 end;//TevEditControl.CheckDataText
 
 function TevEditControl.AnalyzeString(const aValue: Il3CString;
-  aPos: Integer;
-  out aRslt: Il3CString): Boolean;
+ aPos: Integer;
+ out aRslt: Il3CString): Boolean;
+ {* Анализ добавленной строки, если нужно, то убирает лишние символы или разбивает строку на несколько. }
 //#UC START# *47CD7AD60335_48D2409102B7_var*
 //#UC END# *47CD7AD60335_48D2409102B7_var*
 begin
@@ -236,6 +219,8 @@ begin
 end;//TevEditControl.AnalyzeString
 
 function TevEditControl.IsClear: Boolean;
+ {* Функция возвращает призна того, что поле пустое (вынесено специально 
+          для обновления кнопок!). Для реквизитов дат проверяет оба поля дат! }
 //#UC START# *47CD7AFA0334_48D2409102B7_var*
 //#UC END# *47CD7AFA0334_48D2409102B7_var*
 begin
@@ -245,7 +230,8 @@ begin
 end;//TevEditControl.IsClear
 
 procedure TevEditControl.InitOtherField(const aValue: IevEditorControl;
-  aIsStart: Boolean = True);
+ aIsStart: Boolean = True);
+ {* Для реквизитов с двумя полями. Используется для полей дат. }
 //#UC START# *47CD7B0F0260_48D2409102B7_var*
 //#UC END# *47CD7B0F0260_48D2409102B7_var*
 begin
@@ -256,6 +242,7 @@ begin
 end;//TevEditControl.InitOtherField
 
 function TevEditControl.IsFieldEmpty: Boolean;
+ {* Проверяет является ли поле пустым (или содержит значение по умолчанию). }
 //#UC START# *47CD7B23002F_48D2409102B7_var*
 //#UC END# *47CD7B23002F_48D2409102B7_var*
 begin
@@ -265,6 +252,7 @@ begin
 end;//TevEditControl.IsFieldEmpty
 
 function TevEditControl.FindButton(aButtonType: TevButtonType): IevEditorControlButton;
+ {* Возвращает кнопку для поля. }
 //#UC START# *47CD7B3301BA_48D2409102B7_var*
 var
  i         : Integer;
@@ -290,6 +278,7 @@ begin
 end;//TevEditControl.FindButton
 
 procedure TevEditControl.ClearText;
+ {* Очищает поле редактора. }
 //#UC START# *47CD7B46001C_48D2409102B7_var*
 //#UC END# *47CD7B46001C_48D2409102B7_var*
 begin
@@ -299,6 +288,7 @@ begin
 end;//TevEditControl.ClearText
 
 function TevEditControl.SelectAllOnFocus: Boolean;
+ {* Надо ли выделять поле при фокусировании. }
 //#UC START# *47CD7B5401A4_48D2409102B7_var*
 //#UC END# *47CD7B5401A4_48D2409102B7_var*
 begin
@@ -375,10 +365,10 @@ begin
 end;//TevEditControl.Get_ChildList
 
 function TevEditControl.DoLMouseBtnUp(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean): Boolean;
 //#UC START# *48D1461101C6_48D2409102B7_var*
 //#UC END# *48D1461101C6_48D2409102B7_var*
 begin
@@ -388,11 +378,11 @@ begin
 end;//TevEditControl.DoLMouseBtnUp
 
 function TevEditControl.DoLMouseBtnDown(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean;
-  const aMap: InevMap): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean;
+ const aMap: InevMap): Boolean;
 //#UC START# *48D1464501E8_48D2409102B7_var*
 //#UC END# *48D1464501E8_48D2409102B7_var*
 begin
@@ -420,6 +410,7 @@ begin
 end;//TevEditControl.HasOtherField
 
 procedure TevEditControl.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D2409102B7_var*
 //#UC END# *479731C50290_48D2409102B7_var*
 begin
@@ -480,8 +471,8 @@ begin
 end;//TevEditControl.SetText
 
 procedure TevEditControl.DoTextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
 //#UC START# *48D14C0E023E_48D2409102B7_var*
 //#UC END# *48D14C0E023E_48D2409102B7_var*
 begin

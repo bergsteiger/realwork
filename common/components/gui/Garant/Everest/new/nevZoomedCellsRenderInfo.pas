@@ -1,37 +1,24 @@
 unit nevZoomedCellsRenderInfo;
+ {* Информация о форматировании для масштабированных ячее }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevZoomedCellsRenderInfo.pas"
-// Начат: 18.03.2010 18:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevZoomedCellsRenderInfo
-//
-// Информация о форматировании для масштабированных ячее
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevZoomedCellsRenderInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevZoomedCellsRenderInfo" MUID: (4BA24BC5012E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTableRowRenderInfo,
-  nevFormatInfo
-  ;
+ l3IntfUses
+ , nevTableRowRenderInfo
+ , nevFormatInfo
+;
 
 type
  TnevZoomedCellsRenderInfo = class(TnevTableRowRenderInfo)
   {* Информация о форматировании для масштабированных ячее }
- protected
- // overridden protected methods
+  protected
    function ChildWidth(aChild: TnevFormatInfo): Integer; override;
    function GetZoomForChild(aChild: TnevFormatInfo): Integer; override;
  end;//TnevZoomedCellsRenderInfo
@@ -39,11 +26,10 @@ type
 implementation
 
 uses
-  l3Math,
-  k2Tags
-  ;
-
-// start class TnevZoomedCellsRenderInfo
+ l3ImplUses
+ , l3Math
+ , k2Tags
+;
 
 function TnevZoomedCellsRenderInfo.ChildWidth(aChild: TnevFormatInfo): Integer;
 //#UC START# *4820985D0238_4BA24BC5012E_var*

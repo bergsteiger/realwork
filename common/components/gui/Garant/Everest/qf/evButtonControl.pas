@@ -1,44 +1,35 @@
 unit evButtonControl;
+ {* Класс кнопки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evButtonControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevButtonControl
-//
-// Класс кнопки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evButtonControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevButtonControl" MUID: (48D230A600EE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evQueryCardInt,
-  evControl,
-  nevTools,
-  nevBase
-  ;
+ l3IntfUses
+ , evControl
+ , evQueryCardInt
+ , nevTools
+ , nevBase
+;
 
 type
  TevButtonControl = class(TevControl, IevEditorControlButton, IevEditorStateButton)
   {* Класс кнопки }
- protected
- // realized methods
+  protected
+   procedure IncButtonState;
+    {* Изменяет состояние кнопки }
    function GetButtonType: TevButtonType;
    function Get_StateCount: Integer;
    function Get_CurrentIndex: Integer;
    procedure Set_CurrentIndex(aValue: Integer);
    function Get_ImageIndex: Integer;
    function GetStateIndex: Integer;
-     {* Собственно возвращает состояние кнопки от 0 до максимального. }
+    {* Собственно возвращает состояние кнопки от 0 до максимального. }
    function DoLMouseBtnUp(const aView: InevControlView;
     const aTextPara: InevPara;
     const aPt: TnevPoint;
@@ -50,36 +41,29 @@ type
     const Keys: TevMouseState;
     anInPara: Boolean;
     const aMap: InevMap): Boolean; override;
- protected
- // overridden protected methods
    procedure DoUpperChange; override;
- public
- // overridden public methods
+  public
    function DoKeyCommand(const aView: InevControlView;
     aCmd: Word;
     const aTextPara: InevPara): Boolean; override;
- protected
- // protected methods
-   procedure IncButtonState;
-     {* Изменяет состояние кнопки }
  end;//TevButtonControl
 
 implementation
 
 uses
-  k2Tags,
-  evQueryCardDropControlsInt,
-  evQueryCardConst,
-  l3String,
-  OvcConst,
-  SysUtils,
-  l3Units,
-  l3Base
-  ;
-
-// start class TevButtonControl
+ l3ImplUses
+ , k2Tags
+ , evQueryCardDropControlsInt
+ , evQueryCardConst
+ , l3String
+ , OvcConst
+ , SysUtils
+ , l3Units
+ , l3Base
+;
 
 procedure TevButtonControl.IncButtonState;
+ {* Изменяет состояние кнопки }
 //#UC START# *48D2334500E1_48D230A600EE_var*
 var
  l_CurrIndex: Integer;
@@ -170,6 +154,7 @@ begin
 end;//TevButtonControl.Get_ImageIndex
 
 function TevButtonControl.GetStateIndex: Integer;
+ {* Собственно возвращает состояние кнопки от 0 до максимального. }
 //#UC START# *47CDA4CB026C_48D230A600EE_var*
 //#UC END# *47CDA4CB026C_48D230A600EE_var*
 begin
@@ -179,10 +164,10 @@ begin
 end;//TevButtonControl.GetStateIndex
 
 function TevButtonControl.DoLMouseBtnUp(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean): Boolean;
 //#UC START# *48D1461101C6_48D230A600EE_var*
 var
  l_BtnType: TevButtonType;                               
@@ -208,11 +193,11 @@ begin
 end;//TevButtonControl.DoLMouseBtnUp
 
 function TevButtonControl.DoLMouseBtnDown(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean;
-  const aMap: InevMap): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean;
+ const aMap: InevMap): Boolean;
 //#UC START# *48D1464501E8_48D230A600EE_var*
 var
  l_DropContainer: IevDropContainer; 
@@ -232,8 +217,8 @@ begin
 end;//TevButtonControl.DoLMouseBtnDown
 
 function TevButtonControl.DoKeyCommand(const aView: InevControlView;
-  aCmd: Word;
-  const aTextPara: InevPara): Boolean;
+ aCmd: Word;
+ const aTextPara: InevPara): Boolean;
 //#UC START# *48D145B8036A_48D230A600EE_var*
 var
  l_Pt: Tl3Point;

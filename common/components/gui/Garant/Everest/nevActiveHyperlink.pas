@@ -1,89 +1,66 @@
 unit nevActiveHyperlink;
+ {* Активная гиперссылка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevActiveHyperlink.pas"
-// Начат: 04.06.2009 17:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TnevActiveHyperlink
-//
-// Активная гиперссылка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevActiveHyperlink.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevActiveHyperlink" MUID: (4A27C4D20100)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevTools,
-  l3CProtoObject,
-  l3Variant
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , l3CProtoObject
+ , nevTools
+ , l3Variant
+;
 
-{$If defined(evNeedHotSpot)}
 type
  InevActiveHyperlink = interface(InevActiveElement)
-   ['{2FAD6248-B71E-4E2F-8F01-263AE880319D}']
-   function Get_Hyperlink: Tl3Tag;
-   property Hyperlink: Tl3Tag
-     read Get_Hyperlink;
+  ['{2FAD6248-B71E-4E2F-8F01-263AE880319D}']
+  function Get_Hyperlink: Tl3Tag;
+  property Hyperlink: Tl3Tag
+   read Get_Hyperlink;
  end;//InevActiveHyperlink
 
  TnevActiveHyperlink = class(Tl3CProtoObject, InevActiveHyperlink)
   {* Активная гиперссылка }
- private
- // private fields
-   f_Para : InevPara;
-   f_Hyperlink : Tl3Tag;
- protected
- // realized methods
+  private
+   f_Para: InevPara;
+   f_Hyperlink: Tl3Tag;
+  protected
    function IsSame(const anElement: InevActiveElement): Boolean;
    function Get_Hyperlink: Tl3Tag;
    function Get_Para: InevPara;
    procedure Invalidate;
-     {* Перерисовывает область активного элемента }
- protected
- // overridden protected methods
+    {* Перерисовывает область активного элемента }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(const aPara: InevPara;
     aHyperlink: Tl3Variant); reintroduce;
    class function Make(const aPara: InevPara;
     aHyperlink: Tl3Variant): InevActiveHyperlink; reintroduce;
  end;//TnevActiveHyperlink
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  SysUtils,
-  k2Tags
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TnevActiveHyperlink
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+;
 
 constructor TnevActiveHyperlink.Create(const aPara: InevPara;
-  aHyperlink: Tl3Variant);
+ aHyperlink: Tl3Variant);
 //#UC START# *4A27C50D027C_4A27C4D20100_var*
 //#UC END# *4A27C50D027C_4A27C4D20100_var*
 begin
@@ -97,7 +74,7 @@ begin
 end;//TnevActiveHyperlink.Create
 
 class function TnevActiveHyperlink.Make(const aPara: InevPara;
-  aHyperlink: Tl3Variant): InevActiveHyperlink;
+ aHyperlink: Tl3Variant): InevActiveHyperlink;
 var
  l_Inst : TnevActiveHyperlink;
 begin
@@ -107,7 +84,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevActiveHyperlink.Make
 
 function TnevActiveHyperlink.IsSame(const anElement: InevActiveElement): Boolean;
 //#UC START# *4A27C48E017F_4A27C4D20100_var*
@@ -159,6 +136,7 @@ begin
 end;//TnevActiveHyperlink.Get_Para
 
 procedure TnevActiveHyperlink.Invalidate;
+ {* Перерисовывает область активного элемента }
 //#UC START# *4FBF5595010C_4A27C4D20100_var*
 //#UC END# *4FBF5595010C_4A27C4D20100_var*
 begin
@@ -168,6 +146,7 @@ begin
 end;//TnevActiveHyperlink.Invalidate
 
 procedure TnevActiveHyperlink.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A27C4D20100_var*
 //#UC END# *479731C50290_4A27C4D20100_var*
 begin
@@ -178,8 +157,9 @@ begin
 //#UC END# *479731C50290_4A27C4D20100_impl*
 end;//TnevActiveHyperlink.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TnevActiveHyperlink.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4A27C4D20100_var*
 //#UC END# *47A6FEE600FC_4A27C4D20100_var*
 begin
@@ -187,8 +167,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4A27C4D20100_impl*
 end;//TnevActiveHyperlink.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //evNeedHotSpot
-
+{$IfEnd} // Defined(evNeedHotSpot)
 end.

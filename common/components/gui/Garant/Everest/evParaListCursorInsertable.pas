@@ -1,54 +1,41 @@
 unit evParaListCursorInsertable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListCursorInsertable.pas"
-// Начат: 18.06.2009 17:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevParaListCursorInsertable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorInsertable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListCursorInsertable" MUID: (4A3A4398010A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evParaListCursorPrim,
-  nevBase,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorPrim
+ , nevTools
+ , nevBase
+ , l3Variant
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevParaListCursorInsertable = class(TevParaListCursorPrim, IevOpInsertPara)
- protected
- // realized methods
+  protected
    function DoIt(const anOpPack: InevOp;
-     aPara: Tl3Variant;
-     aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
+    aPara: Tl3Variant;
+    aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
  end;//TevParaListCursorInsertable
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevParaListCursorInsertable
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
 
 function TevParaListCursorInsertable.DoIt(const anOpPack: InevOp;
-  aPara: Tl3Variant;
-  aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
+ aPara: Tl3Variant;
+ aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
 //#UC START# *48E4FEB90365_4A3A4398010A_var*
 var
  l_Flags : TevInsertParaFlags;
@@ -67,7 +54,6 @@ begin
  Result := ParaX.Modify.InsertPara(Pred(l_PID), aPara, anOpPack, l_Flags);
 //#UC END# *48E4FEB90365_4A3A4398010A_impl*
 end;//TevParaListCursorInsertable.DoIt
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

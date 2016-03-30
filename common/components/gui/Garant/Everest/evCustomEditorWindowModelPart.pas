@@ -1,167 +1,116 @@
 unit evCustomEditorWindowModelPart;
+ {* Часть TevCustomEditorWindow, перенесённая на модель }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomEditorWindowModelPart.pas"
-// Начат: 03.06.2009 14:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomEditorWindowModelPart
-//
-// Часть TevCustomEditorWindow, перенесённая на модель
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditorWindowModelPart.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEditorWindowModelPart" MUID: (4A26509001EA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  Messages,
-  nevTools,
-  evCustomEditorWindow,
-  l3ProtoObject
-  {$If not defined(NoVCL)}
-  ,
-  l3ControlFontService
-  {$IfEnd} //not NoVCL
-  ,
-  l3Interfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Classes
-  ;
+ l3IntfUses
+ , evCustomEditorWindow
+ , nevTools
+ , Messages
+ , Classes
+ , l3ProtoObject
+ {$If NOT Defined(NoVCL)}
+ , l3ControlFontService
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
- TevCustomEditorWindowModelPartFontInfo = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3ControlFontService{$IfEnd} //not NoVCL
+ TevCustomEditorWindowModelPartFontInfo = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3ControlFontService
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-   {$If not defined(NoVCL)}
+  public
+   {$If NOT Defined(NoVCL)}
    function GetFont(aControl: TControl): Il3FontInfo;
-   {$IfEnd} //not NoVCL
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TevCustomEditorWindowModelPartFontInfo;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevCustomEditorWindowModelPartFontInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevCustomEditorWindowModelPartFontInfo
 
  TevCustomEditorWindowModelPart = class(TevCustomEditorWindow)
   {* Часть TevCustomEditorWindow, перенесённая на модель }
- private
- // private fields
-   f_ActiveElement : InevActiveElement;
-    {* Поле для свойства ActiveElement}
-   f_ForceDrawFocusRect : Boolean;
-    {* Поле для свойства ForceDrawFocusRect}
-   f_PersistentSelection : Boolean;
-    {* Поле для свойства PersistentSelection}
- private
- // private methods
+  private
+   f_ActiveElement: InevActiveElement;
+   f_ForceDrawFocusRect: Boolean;
+    {* Рисовать ли рамку вокруг активного параграфа }
+   f_PersistentSelection: Boolean;
+    {* "Постоянное" выделение }
+  private
    procedure WMNCMouseLeave(var Msg: TMessage); message WM_NCMouseLeave;
    procedure WMNCMouseMove(var Msg: TWMNCMouseMove); message WM_NCMouseMove;
- protected
- // property methods
+  protected
    procedure pm_SetActiveElement(const aValue: InevActiveElement);
    function pm_GetForceDrawFocusRect: Boolean; virtual;
    procedure pm_SetForceDrawFocusRect(aValue: Boolean); virtual;
    function pm_GetPersistentSelection: Boolean;
    procedure pm_SetPersistentSelection(aValue: Boolean);
- protected
- // overridden property methods
-   function pm_GetActiveElementPrim: InevActiveElement; override;
-   function pm_GetForceDrawFocusRectPrim: Boolean; override;
- protected
- // overridden protected methods
+   procedure ClearUpper; virtual;
+    {* Очистить информацию о попадании мыши в HotSpot }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure MakeCursor; override;
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure MouseMove(Shift: TShiftState;
     X: Integer;
     Y: Integer); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
+   function pm_GetActiveElementPrim: InevActiveElement; override;
+   function pm_GetForceDrawFocusRectPrim: Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure ClearUpper; virtual;
-     {* Очистить информацию о попадании мыши в HotSpot }
- public
- // public properties
+  public
    property ActiveElement: InevActiveElement
-     read f_ActiveElement
-     write pm_SetActiveElement;
+    read f_ActiveElement
+    write pm_SetActiveElement;
    property ForceDrawFocusRect: Boolean
-     read pm_GetForceDrawFocusRect
-     write pm_SetForceDrawFocusRect;
-     {* Рисовать ли рамку вокруг активного параграфа }
+    read pm_GetForceDrawFocusRect
+    write pm_SetForceDrawFocusRect;
+    {* Рисовать ли рамку вокруг активного параграфа }
    property PersistentSelection: Boolean
-     read pm_GetPersistentSelection
-     write pm_SetPersistentSelection;
-     {* "Постоянное" выделение }
+    read pm_GetPersistentSelection
+    write pm_SetPersistentSelection;
+    {* "Постоянное" выделение }
  end;//TevCustomEditorWindowModelPart
 
 implementation
 
 uses
-  l3Base {a},
-  nevGUIInterfaces,
-  SysUtils,
-  Windows,
-  l3MinMax
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , nevGUIInterfaces
+ , SysUtils
+ , l3Base
+ , Windows
+ , l3MinMax
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+var g_TevCustomEditorWindowModelPartFontInfo: TevCustomEditorWindowModelPartFontInfo = nil;
+ {* Экземпляр синглетона TevCustomEditorWindowModelPartFontInfo }
 
 const
-   { TrackMouseEventDefs }
-  TME_NONCLIENT = $00000010;
-
-
-// start class TevCustomEditorWindowModelPartFontInfo
-
-var g_TevCustomEditorWindowModelPartFontInfo : TevCustomEditorWindowModelPartFontInfo = nil;
+ TME_NONCLIENT = $00000010;
 
 procedure TevCustomEditorWindowModelPartFontInfoFree;
+ {* Метод освобождения экземпляра синглетона TevCustomEditorWindowModelPartFontInfo }
 begin
  l3Free(g_TevCustomEditorWindowModelPartFontInfo);
-end;
+end;//TevCustomEditorWindowModelPartFontInfoFree
 
-class function TevCustomEditorWindowModelPartFontInfo.Instance: TevCustomEditorWindowModelPartFontInfo;
-begin
- if (g_TevCustomEditorWindowModelPartFontInfo = nil) then
- begin
-  l3System.AddExitProc(TevCustomEditorWindowModelPartFontInfoFree);
-  g_TevCustomEditorWindowModelPartFontInfo := Create;
- end;
- Result := g_TevCustomEditorWindowModelPartFontInfo;
-end;
-
-
-class function TevCustomEditorWindowModelPartFontInfo.Exists: Boolean;
- {-}
-begin
- Result := g_TevCustomEditorWindowModelPartFontInfo <> nil;
-end;//TevCustomEditorWindowModelPartFontInfo.Exists
-
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TevCustomEditorWindowModelPartFontInfo.GetFont(aControl: TControl): Il3FontInfo;
 //#UC START# *B31F486B3A13_556F262E022F_var*
 //#UC END# *B31F486B3A13_556F262E022F_var*
@@ -173,7 +122,24 @@ begin
   Result := nil; 
 //#UC END# *B31F486B3A13_556F262E022F_impl*
 end;//TevCustomEditorWindowModelPartFontInfo.GetFont
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
+
+class function TevCustomEditorWindowModelPartFontInfo.Instance: TevCustomEditorWindowModelPartFontInfo;
+ {* Метод получения экземпляра синглетона TevCustomEditorWindowModelPartFontInfo }
+begin
+ if (g_TevCustomEditorWindowModelPartFontInfo = nil) then
+ begin
+  l3System.AddExitProc(TevCustomEditorWindowModelPartFontInfoFree);
+  g_TevCustomEditorWindowModelPartFontInfo := Create;
+ end;
+ Result := g_TevCustomEditorWindowModelPartFontInfo;
+end;//TevCustomEditorWindowModelPartFontInfo.Instance
+
+class function TevCustomEditorWindowModelPartFontInfo.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevCustomEditorWindowModelPartFontInfo <> nil;
+end;//TevCustomEditorWindowModelPartFontInfo.Exists
 
 procedure TevCustomEditorWindowModelPart.pm_SetActiveElement(const aValue: InevActiveElement);
 //#UC START# *4A27C6400137_4A26509001EAset_var*
@@ -262,6 +228,7 @@ begin
 end;//TevCustomEditorWindowModelPart.pm_SetPersistentSelection
 
 procedure TevCustomEditorWindowModelPart.ClearUpper;
+ {* Очистить информацию о попадании мыши в HotSpot }
 //#UC START# *4A265562032B_4A26509001EA_var*
 //#UC END# *4A265562032B_4A26509001EA_var*
 begin
@@ -337,6 +304,7 @@ begin
 end;//TevCustomEditorWindowModelPart.WMNCMouseMove
 
 procedure TevCustomEditorWindowModelPart.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A26509001EA_var*
 //#UC END# *479731C50290_4A26509001EA_var*
 begin
@@ -357,10 +325,10 @@ begin
 //#UC END# *482BFA9401ED_4A26509001EA_impl*
 end;//TevCustomEditorWindowModelPart.MakeCursor
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TevCustomEditorWindowModelPart.MouseMove(Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ X: Integer;
+ Y: Integer);
 //#UC START# *48E22B250241_4A26509001EA_var*
 var
  l_HotSpot   : IevHotSpot;
@@ -399,7 +367,7 @@ begin
   ClearUpper;
 //#UC END# *48E22B250241_4A26509001EA_impl*
 end;//TevCustomEditorWindowModelPart.MouseMove
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TevCustomEditorWindowModelPart.pm_GetActiveElementPrim: InevActiveElement;
 //#UC START# *4A27CF530106_4A26509001EAget_var*
@@ -420,21 +388,19 @@ begin
 end;//TevCustomEditorWindowModelPart.pm_GetForceDrawFocusRectPrim
 
 procedure TevCustomEditorWindowModelPart.ClearFields;
- {-}
 begin
  ActiveElement := nil;
  inherited;
 end;//TevCustomEditorWindowModelPart.ClearFields
 
 initialization
-// Регистрация TevCustomEditorWindowModelPartFontInfo
- {$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  Tl3ControlFontService.Instance.Alien := TevCustomEditorWindowModelPartFontInfo.Instance;
- {$IfEnd} //not NoVCL
-
-{$If not defined(NoScripts)}
-// Регистрация TevCustomEditorWindowModelPart
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TevCustomEditorWindowModelPartFontInfo }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomEditorWindowModelPart);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomEditorWindowModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

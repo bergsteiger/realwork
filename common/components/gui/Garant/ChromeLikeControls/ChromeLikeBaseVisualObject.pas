@@ -1,63 +1,44 @@
 unit ChromeLikeBaseVisualObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeBaseVisualObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeBaseVisualObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeBaseVisualObject" MUID: (550C09E20148)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  ChromeLikeBaseVisualObjectPrim,
-  ChromeLikeBaseVisualObjectList
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , ChromeLikeBaseVisualObjectPrim
+ , ChromeLikeBaseVisualObjectList
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TChromeLikeBaseVisualObject = class(TChromeLikeBaseVisualObjectPrim)
- private
- // private fields
-   f_Children : TChromeLikeBaseVisualObjectList;
- protected
- // overridden property methods
-   function pm_GetChildren(Index: Integer): TChromeLikeBaseVisualObjectPrim; override;
-   function pm_GetChildrenCount: Integer; override;
- protected
- // overridden protected methods
+  private
+   f_Children: TChromeLikeBaseVisualObjectList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InsertObject(aObject: TChromeLikeBaseVisualObjectPrim); override;
    procedure RemoveChild(aIndex: Integer); override;
- public
- // overridden public methods
+   function pm_GetChildren(Index: Integer): TChromeLikeBaseVisualObjectPrim; override;
+   function pm_GetChildrenCount: Integer; override;
+  public
    constructor Create(aParent: TChromeLikeBaseVisualObjectPrim); override;
  end;//TChromeLikeBaseVisualObject
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeBaseVisualObject
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TChromeLikeBaseVisualObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_550C09E20148_var*
 //#UC END# *479731C50290_550C09E20148_var*
 begin
@@ -115,7 +96,6 @@ begin
  inherited;
 //#UC END# *5506B7960083_550C09E20148_impl*
 end;//TChromeLikeBaseVisualObject.Create
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

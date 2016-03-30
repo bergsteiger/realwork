@@ -1,38 +1,24 @@
 unit vgRemindersLineWithState;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Модуль: "w:/common/components/gui/Garant/VT/vgRemindersLineWithState.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$Rem::NewReminders::TvgRemindersLineWithState
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineWithState.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgRemindersLineWithState" MUID: (533BF7030112)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgRemindersLine
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  afwInterfaces
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgRemindersLine
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+;
 
-{$If not defined(NoVGScene)}
 const
-  { nscReminderConstants }
  csidLeft = 'LeftDelta';
  csidRight = 'RightDelta';
  csidTop = 'TopDelta';
@@ -41,53 +27,43 @@ const
 
 type
  _nsUnknownComponentWithIvcmState_Parent_ = TvgRemindersLine;
- {$Include ..\VT\nsUnknownComponentWithIvcmState.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
  TvgRemindersLineWithState = class(_nsUnknownComponentWithIvcmState_)
- private
- // private fields
-   f_Left : Integer;
-   f_Top : Integer;
-   f_Width : Integer;
-   f_Height : Integer;
- private
- // private methods
+  private
+   f_Left: Integer;
+   f_Top: Integer;
+   f_Width: Integer;
+   f_Height: Integer;
+  private
    procedure CheckName;
-     {* Сигнатура метода CheckName }
    function MakeId(const aId: AnsiString): AnsiString;
- protected
- // overridden protected methods
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure LoadSettings; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure SaveSettings; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure BoundsChanged(aLeft: Integer;
-     aTop: Integer;
-     aWidth: Integer;
-     aHeight: Integer); override;
+    aTop: Integer;
+    aWidth: Integer;
+    aHeight: Integer); override;
  end;//TvgRemindersLineWithState
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  afwConsts,
-  Types
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVGScene
+ l3ImplUses
+ , afwConsts
+ , Types
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(NoVGScene)}
-
-{$Include ..\VT\nsUnknownComponentWithIvcmState.imp.pas}
-
-// start class TvgRemindersLineWithState
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
 
 procedure TvgRemindersLineWithState.CheckName;
 //#UC START# *533BFFBD03B8_533BF7030112_var*
@@ -107,7 +83,7 @@ begin
 //#UC END# *533BFFD20377_533BF7030112_impl*
 end;//TvgRemindersLineWithState.MakeId
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvgRemindersLineWithState.LoadSettings;
 //#UC START# *4F9A5C410274_533BF7030112_var*
 var
@@ -135,9 +111,9 @@ begin
  end;
 //#UC END# *4F9A5C410274_533BF7030112_impl*
 end;//TvgRemindersLineWithState.LoadSettings
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvgRemindersLineWithState.SaveSettings;
 //#UC START# *4F9A5C530398_533BF7030112_var*
 var
@@ -160,12 +136,12 @@ begin
  end;
 //#UC END# *4F9A5C530398_533BF7030112_impl*
 end;//TvgRemindersLineWithState.SaveSettings
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvgRemindersLineWithState.BoundsChanged(aLeft: Integer;
-  aTop: Integer;
-  aWidth: Integer;
-  aHeight: Integer);
+ aTop: Integer;
+ aWidth: Integer;
+ aHeight: Integer);
 //#UC START# *533D31F800DD_533BF7030112_var*
 //#UC END# *533D31F800DD_533BF7030112_var*
 begin
@@ -180,12 +156,11 @@ begin
 //#UC END# *533D31F800DD_533BF7030112_impl*
 end;//TvgRemindersLineWithState.BoundsChanged
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgRemindersLineWithState
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgRemindersLineWithState);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgRemindersLineWithState }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

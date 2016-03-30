@@ -1,67 +1,44 @@
 unit AbsSubTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/AbsSubTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::ComboTree::TAbsSubTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\AbsSubTree.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TAbsSubTree" MUID: (4F8D5535021C)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3TreeInterfaces,
-  Messages,
-  Windows,
-  vtOutlinerWithQuickSearch
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , vtOutlinerWithQuickSearch
+ , afwInterfaces
+ , Messages
+ , Windows
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F8D5535021Cintf_uses*
+ //#UC END# *4F8D5535021Cintf_uses*
+;
 
 type
-//#UC START# *4F8D5535021Cci*
-//#UC END# *4F8D5535021Cci*
-//#UC START# *4F8D5535021Ccit*
-//#UC END# *4F8D5535021Ccit*
+ //#UC START# *4F8D5535021Cci*
+ //#UC END# *4F8D5535021Cci*
+ //#UC START# *4F8D5535021Ccit*
+ //#UC END# *4F8D5535021Ccit*
  TAbsSubTree = class(TvtOutlinerWithQuickSearch, IafwDropDownWindow)
- private
- // private fields
-   f_CustomMinSizeX : Integer;
-    {* Поле для свойства CustomMinSizeX}
- private
- // private methods
+  private
+   f_CustomMinSizeX: Integer;
+    {* Минимально возможная ширина выпадающего списка. Задается вручную. }
+  private
    procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
    procedure WMMouseActivate(var Msg: TMessage); message WM_MOUSEACTIVATE;
    procedure WMNChitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
    procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
    procedure WMSize(var Message: TWMSize); message WM_SIZE;
    procedure WMGetMinMaxInfo(var Message: TMessage); message WM_GETMINMAXINFO;
- protected
- // overridden protected methods
-   procedure InitFields; override;
-   {$If not defined(NoVCL)}
-   procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-    {$If not defined(NoVCL)}
-   function CanFocus: Boolean; override;
-    {$IfEnd} //not NoVCL
- protected
- // protected methods
+  protected
    function IsSizeableTree: Boolean; virtual; abstract;
    function IsShowGripper: Boolean; virtual; abstract;
    function IsList: Boolean; virtual; abstract;
@@ -71,10 +48,12 @@ type
    procedure NCDraw(aDC: hDC); virtual;
    function GetMinVisibleDropCount: Integer; virtual;
    function GetMaxVisibleDropCount: Integer; virtual;
- public
- // public methods
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure RecreateTree;
-     {* Сигнатура метода RecreateTree }
    function GetMinSizeY: Integer;
    function GetMaxSizeY: Integer;
    function GetMinSizeX: Integer;
@@ -82,38 +61,39 @@ type
    function GetTreeY: Integer;
    procedure SetTreeRoot(const aRoot: Il3SimpleNode);
    procedure SetSimpleTree(const aTree: Il3SimpleTree);
- public
- // public properties
+   {$If NOT Defined(NoVCL)}
+   function CanFocus: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property CustomMinSizeX: Integer
-     read f_CustomMinSizeX
-     write f_CustomMinSizeX;
-     {* Минимально возможная ширина выпадающего списка. Задается вручную. }
-//#UC START# *4F8D5535021Cpubl*
+    read f_CustomMinSizeX
+    write f_CustomMinSizeX;
+    {* Минимально возможная ширина выпадающего списка. Задается вручную. }
+ //#UC START# *4F8D5535021Cpubl*
     property IsShowLines;
     property Font;
-//#UC END# *4F8D5535021Cpubl*
+ //#UC END# *4F8D5535021Cpubl*
  end;//TAbsSubTree
 
 implementation
 
 uses
-  ctTypes,
-  SysUtils,
-  l3MinMax,
-  l3ControlsTypes,
-  l3Tree_TLB,
-  Types,
-  Graphics,
-  l3Defaults,
-  ElVclUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TAbsSubTree
+ l3ImplUses
+ , ctTypes
+ , SysUtils
+ , l3MinMax
+ , l3ControlsTypes
+ , l3Tree_TLB
+ , Types
+ , Graphics
+ , l3Defaults
+ , ElVclUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F8D5535021Cimpl_uses*
+ //#UC END# *4F8D5535021Cimpl_uses*
+;
 
 procedure TAbsSubTree.NCDraw(aDC: hDC);
 //#UC START# *5298C02D03B3_4F8D5535021C_var*
@@ -421,7 +401,7 @@ begin
 //#UC END# *47A042E100E2_4F8D5535021C_impl*
 end;//TAbsSubTree.InitFields
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TAbsSubTree.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4F8D5535021C_var*
 //#UC END# *48C7925A02E5_4F8D5535021C_var*
@@ -434,9 +414,9 @@ begin
  Params.WndParent := GetDesktopWindow;
 //#UC END# *48C7925A02E5_4F8D5535021C_impl*
 end;//TAbsSubTree.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TAbsSubTree.CanFocus: Boolean;
 //#UC START# *4E1350DE0094_4F8D5535021C_var*
 //#UC END# *4E1350DE0094_4F8D5535021C_var*
@@ -445,15 +425,15 @@ begin
  Result := False;
 //#UC END# *4E1350DE0094_4F8D5535021C_impl*
 end;//TAbsSubTree.CanFocus
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *4F8D5535021Cimpl*
 //#UC END# *4F8D5535021Cimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TAbsSubTree
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAbsSubTree);
-{$IfEnd} //not NoScripts
+ {* Регистрация TAbsSubTree }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

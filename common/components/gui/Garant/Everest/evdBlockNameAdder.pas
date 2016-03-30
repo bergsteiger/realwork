@@ -1,108 +1,100 @@
 unit evdBlockNameAdder;
+ {* Фильтр, добавляющий имена блоков }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evdBlockNameAdder.pas"
-// Начат: 08.06.2009 16:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdBlockNameAdder
-//
-// Фильтр, добавляющий имена блоков
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdBlockNameAdder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdBlockNameAdder" MUID: (4A2CFFA30282)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  k2Base,
-  l3ProtoDataContainer,
-  evdHeaderHyperlinkAdder,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdHeaderHyperlinkAdder
+ , k2Base
+ , l3Variant
+ , l3Interfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  TevdBlockInfo = record
   {* Информация о блоке }
-   rInContents : Boolean; // Попадает ли блок в оглавление
-   rBlockType : Tk2Type; // Тип блока
-   rBlockID : Integer; // Идентификатор блока
-   rName : Il3CString; // Имя блока
-   rSaved : Boolean; // Информация о блоке уже была сохранена
+  rInContents: Boolean;
+   {* Попадает ли блок в оглавление }
+  rBlockType: Tk2Type;
+   {* Тип блока }
+  rBlockID: Integer;
+   {* Идентификатор блока }
+  rName: Il3CString;
+   {* Имя блока }
+  rSaved: Boolean;
+   {* Информация о блоке уже была сохранена }
  end;//TevdBlockInfo
 
  _ItemType_ = TevdBlockInfo;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TevdBlocks = class(_l3RecordListPrim_)
   {* Накопленные в результате анализа документа блоки }
  end;//TevdBlocks
 
  TevdBlockNameAdder = class(TevdHeaderHyperlinkAdder)
   {* Фильтр, добавляющий имена блоков }
- private
- // private fields
-   f_Blocks : TevdBlocks;
-    {* Накопленные блоки}
-   f_NeedDecorHeader : Boolean;
- protected
- // overridden protected methods
+  private
+   f_Blocks: TevdBlocks;
+    {* Накопленные блоки }
+   f_NeedDecorHeader: Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure DoStartChild(TypeID: Tk2Type); override;
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    procedure OutBlockNames(aLeaf: Tl3Variant); override;
-     {* Выводит имена блоков, в которые вложен данный параграф }
+    {* Выводит имена блоков, в которые вложен данный параграф }
  end;//TevdBlockNameAdder
 
 function TevdBlockInfo_C(const aName: Il3CString): TevdBlockInfo;
 function TevdBlockInfo_E: TevdBlockInfo;
-  {* Создаёт пустую структуру }
+ {* Создаёт пустую структуру }
 function TevdBlockInfo_T(aType: Tk2Type): TevdBlockInfo;
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  Block_Const,
-  k2Tags,
-  TextPara_Const,
-  evTextStyle_Const,
-  l3CustomString,
-  ContentsElement_Const,
-  Document_Const,
-  evdTypes,
-  Table_Const,
-  PageBreak_Const,
-  l3String,
-  k2Facade,
-  SegmentsLayer_Const,
-  HyperLink_Const,
-  Address_Const,
-  evdTextStyle_Const,
-  DecorTextPara_Const
-  ;
+ l3ImplUses
+ , SysUtils
+ , Block_Const
+ , k2Tags
+ , TextPara_Const
+ , evTextStyle_Const
+ , l3CustomString
+ , ContentsElement_Const
+ , Document_Const
+ , evdTypes
+ , Table_Const
+ , PageBreak_Const
+ , l3String
+ , k2Facade
+ , SegmentsLayer_Const
+ , HyperLink_Const
+ , Address_Const
+ , evdTextStyle_Const
+ , DecorTextPara_Const
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
 function TevdBlockInfo_C(const aName: Il3CString): TevdBlockInfo;
 //#UC START# *4A2D14530087_4A2D046A01BE_var*
@@ -113,11 +105,10 @@ begin
 //#UC START# *4A2D14530087_4A2D046A01BE_impl*
  Result.rName := aName;
 //#UC END# *4A2D14530087_4A2D046A01BE_impl*
-end;//TevdBlockInfo.C
-
+end;//TevdBlockInfo_C
 
 function TevdBlockInfo_E: TevdBlockInfo;
-  {* Создаёт пустую структуру }
+ {* Создаёт пустую структуру }
 //#UC START# *4A2D263C02BE_4A2D046A01BE_var*
 //#UC END# *4A2D263C02BE_4A2D046A01BE_var*
 begin
@@ -125,8 +116,7 @@ begin
  System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A2D263C02BE_4A2D046A01BE_impl*
 //#UC END# *4A2D263C02BE_4A2D046A01BE_impl*
-end;//TevdBlockInfo.E
-
+end;//TevdBlockInfo_E
 
 function TevdBlockInfo_T(aType: Tk2Type): TevdBlockInfo;
 //#UC START# *4A2FE6E60214_4A2D046A01BE_var*
@@ -137,21 +127,18 @@ begin
 //#UC START# *4A2FE6E60214_4A2D046A01BE_impl*
  Result.rBlockType := aType;
 //#UC END# *4A2FE6E60214_4A2D046A01BE_impl*
-end;//TevdBlockInfo.T
+end;//TevdBlockInfo_T
 
-// start class TevdBlocks
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4A2D03DC0068_var*
 //#UC END# *47B07CF403D0_4A2D03DC0068_var*
 begin
@@ -159,11 +146,11 @@ begin
  Result := false;
 //#UC END# *47B07CF403D0_4A2D03DC0068_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4A2D03DC0068_var*
 //#UC END# *47B2C42A0163_4A2D03DC0068_var*
 begin
@@ -171,9 +158,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4A2D03DC0068_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4A2D03DC0068_var*
 //#UC END# *47B99D4503A2_4A2D03DC0068_var*
 begin
@@ -187,9 +175,8 @@ type _Instance_R_ = TevdBlocks;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
-// start class TevdBlockNameAdder
-
 procedure TevdBlockNameAdder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A2CFFA30282_var*
 //#UC END# *479731C50290_4A2CFFA30282_var*
 begin
@@ -200,6 +187,7 @@ begin
 end;//TevdBlockNameAdder.Cleanup
 
 procedure TevdBlockNameAdder.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4A2CFFA30282_var*
 //#UC END# *4836D4C20059_4A2CFFA30282_var*
 begin
@@ -228,7 +216,7 @@ begin
 end;//TevdBlockNameAdder.DoStartChild
 
 procedure TevdBlockNameAdder.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_4A2CFFA30282_var*
 
  procedure SaveName;
@@ -323,6 +311,7 @@ begin
 end;//TevdBlockNameAdder.DoAddAtomEx
 
 procedure TevdBlockNameAdder.OutBlockNames(aLeaf: Tl3Variant);
+ {* Выводит имена блоков, в которые вложен данный параграф }
 //#UC START# *4CF513300102_4A2CFFA30282_var*
 var
  l_Item : TevdBlockInfo;

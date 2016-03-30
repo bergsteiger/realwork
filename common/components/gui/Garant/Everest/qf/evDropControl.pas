@@ -1,44 +1,30 @@
 unit evDropControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evDropControl.pas"
-// Начат: 25.01.2005 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevDropControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDropControl" MUID: (48D367B20014)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  l3Units,
-  nevTools,
-  evQueryCardDropControlsInt
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evEditControl,
-  Messages
-  ;
+ l3IntfUses
+ , evEditControl
+ , evQueryCardDropControlsInt
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ , nevTools
+ , l3Units
+ , nevBase
+ , Messages
+;
 
 type
  TevDropControl = class(TevEditControl, IevDropControl)
- private
- // private methods
+  private
    procedure CalcControlPosition(const aView: InevView;
     const aPt0: Tl3Point;
     const aExtend: Tl3Point;
@@ -46,29 +32,41 @@ type
     var aInvert: Boolean;
     var aWidth: Integer);
    function DocumentToScreen(const aPt: Tl3Point): TPoint;
- protected
- // realized methods
+  protected
+   function DropContainer: IevDropContainer;
+    {* Возвращает интерфейс контейнера с обработкой событий дерева }
+   function GetControl: TControl;
+   function DropControlHeigth: Integer;
+   procedure DoDrop(const aPoint: TPoint;
+    AInvert: Boolean;
+    AWidth: Integer;
+    ByUser: Boolean); virtual; abstract;
+    {* Вываливает выпадающий виджет по указанным координатам }
+   function PtInButton(const aPt: TnevPoint;
+    const aMap: InevMap): Boolean;
+    {* Щелчок по кнопке редактора }
+   procedure DoEscPressed; virtual;
+   procedure DoDropDownCurrentChanged(const aNode: InevSimpleNode); virtual;
+   procedure DoAfterHideControl; virtual;
    procedure AfterHideControl;
    procedure EscPressed;
-     {* Обработчик закрытия дерева по ESC. }
+    {* Обработчик закрытия дерева по ESC. }
    procedure HideControl;
-     {* Прячет выпадающий контрол. }
+    {* Прячет выпадающий контрол. }
    function MouseWheel(aDown: Boolean): Boolean;
-     {* Обработчик прокрутки колеса мыши. }
+    {* Обработчик прокрутки колеса мыши. }
    function KeyDown(const aView: InevView;
     var Msg: TWMKeyDown): Boolean;
    procedure CloseTree;
-     {* Прячет дерево как по нажатию Esc - с посылкой сообщения редактору. }
+    {* Прячет дерево как по нажатию Esc - с посылкой сообщения редактору. }
    function Get_Down: Boolean;
    procedure Set_Down(aValue: Boolean);
    function DropDown(const aView: InevView;
     const aTextPara: InevPara;
     ByUser: Boolean): Boolean;
-     {* Реализует выпадение дерева или календаря. }
+    {* Реализует выпадение дерева или календаря. }
    function Get_Para: InevPara;
    procedure DropDownCurrentChanged(const aNode: InevSimpleNode);
- protected
- // overridden protected methods
    function DoLMouseBtnUp(const aView: InevControlView;
     const aTextPara: InevPara;
     const aPt: TnevPoint;
@@ -80,48 +78,28 @@ type
     const Keys: TevMouseState;
     anInPara: Boolean;
     const aMap: InevMap): Boolean; override;
- public
- // overridden public methods
+  public
    function DoKeyCommand(const aView: InevControlView;
     aCmd: Word;
     const aTextPara: InevPara): Boolean; override;
- protected
- // protected methods
-   function DropContainer: IevDropContainer;
-     {* Возвращает интерфейс контейнера с обработкой событий дерева }
-   function GetControl: TControl;
-   function DropControlHeigth: Integer;
-   procedure DoDrop(const aPoint: TPoint;
-    AInvert: Boolean;
-    AWidth: Integer;
-    ByUser: Boolean); virtual; abstract;
-     {* Вываливает выпадающий виджет по указанным координатам }
-   function PtInButton(const aPt: TnevPoint;
-    const aMap: InevMap): Boolean;
-     {* Щелчок по кнопке редактора }
-   procedure DoEscPressed; virtual;
-   procedure DoDropDownCurrentChanged(const aNode: InevSimpleNode); virtual;
-   procedure DoAfterHideControl; virtual;
  end;//TevDropControl
 
 implementation
 
 uses
-  Windows,
-  k2Tags,
-  OvcConst
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nevFacade,
-  SysUtils
-  ;
-
-// start class TevDropControl
+ l3ImplUses
+ , Windows
+ , k2Tags
+ , OvcConst
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevFacade
+ , SysUtils
+;
 
 function TevDropControl.DropContainer: IevDropContainer;
+ {* Возвращает интерфейс контейнера с обработкой событий дерева }
 //#UC START# *48D378F50068_48D367B20014_var*
 //#UC END# *48D378F50068_48D367B20014_var*
 begin
@@ -140,11 +118,11 @@ begin
 end;//TevDropControl.GetControl
 
 procedure TevDropControl.CalcControlPosition(const aView: InevView;
-  const aPt0: Tl3Point;
-  const aExtend: Tl3Point;
-  var aDropPoint: TPoint;
-  var aInvert: Boolean;
-  var aWidth: Integer);
+ const aPt0: Tl3Point;
+ const aExtend: Tl3Point;
+ var aDropPoint: TPoint;
+ var aInvert: Boolean;
+ var aWidth: Integer);
 //#UC START# *48D37B8500D3_48D367B20014_var*
 var
  l_PtS        : Tl3SPoint;  
@@ -205,7 +183,8 @@ begin
 end;//TevDropControl.DropControlHeigth
 
 function TevDropControl.PtInButton(const aPt: TnevPoint;
-  const aMap: InevMap): Boolean;
+ const aMap: InevMap): Boolean;
+ {* Щелчок по кнопке редактора }
 //#UC START# *48D37D94002E_48D367B20014_var*
 //#UC END# *48D37D94002E_48D367B20014_var*
 begin
@@ -249,6 +228,7 @@ begin
 end;//TevDropControl.AfterHideControl
 
 procedure TevDropControl.EscPressed;
+ {* Обработчик закрытия дерева по ESC. }
 //#UC START# *47CE9ED103AA_48D367B20014_var*
 //#UC END# *47CE9ED103AA_48D367B20014_var*
 begin
@@ -258,6 +238,7 @@ begin
 end;//TevDropControl.EscPressed
 
 procedure TevDropControl.HideControl;
+ {* Прячет выпадающий контрол. }
 //#UC START# *47CE9EE302A2_48D367B20014_var*
 //#UC END# *47CE9EE302A2_48D367B20014_var*
 begin
@@ -268,6 +249,7 @@ begin
 end;//TevDropControl.HideControl
 
 function TevDropControl.MouseWheel(aDown: Boolean): Boolean;
+ {* Обработчик прокрутки колеса мыши. }
 //#UC START# *47CE9EF3009B_48D367B20014_var*
 //#UC END# *47CE9EF3009B_48D367B20014_var*
 begin
@@ -281,7 +263,7 @@ begin
 end;//TevDropControl.MouseWheel
 
 function TevDropControl.KeyDown(const aView: InevView;
-  var Msg: TWMKeyDown): Boolean;
+ var Msg: TWMKeyDown): Boolean;
 //#UC START# *47CE9F040044_48D367B20014_var*
 //#UC END# *47CE9F040044_48D367B20014_var*
 begin
@@ -291,6 +273,7 @@ begin
 end;//TevDropControl.KeyDown
 
 procedure TevDropControl.CloseTree;
+ {* Прячет дерево как по нажатию Esc - с посылкой сообщения редактору. }
 //#UC START# *47CE9F4300B1_48D367B20014_var*
 //#UC END# *47CE9F4300B1_48D367B20014_var*
 begin
@@ -318,8 +301,9 @@ begin
 end;//TevDropControl.Set_Down
 
 function TevDropControl.DropDown(const aView: InevView;
-  const aTextPara: InevPara;
-  ByUser: Boolean): Boolean;
+ const aTextPara: InevPara;
+ ByUser: Boolean): Boolean;
+ {* Реализует выпадение дерева или календаря. }
 //#UC START# *47CE9F82032D_48D367B20014_var*
 var
  l_Pt0       : Tl3Point;
@@ -427,8 +411,8 @@ begin
 end;//TevDropControl.DropDownCurrentChanged
 
 function TevDropControl.DoKeyCommand(const aView: InevControlView;
-  aCmd: Word;
-  const aTextPara: InevPara): Boolean;
+ aCmd: Word;
+ const aTextPara: InevPara): Boolean;
 //#UC START# *48D145B8036A_48D367B20014_var*
 //#UC END# *48D145B8036A_48D367B20014_var*
 begin
@@ -450,10 +434,10 @@ begin
 end;//TevDropControl.DoKeyCommand
 
 function TevDropControl.DoLMouseBtnUp(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean): Boolean;
 //#UC START# *48D1461101C6_48D367B20014_var*
 //#UC END# *48D1461101C6_48D367B20014_var*
 begin
@@ -463,11 +447,11 @@ begin
 end;//TevDropControl.DoLMouseBtnUp
 
 function TevDropControl.DoLMouseBtnDown(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean;
-  const aMap: InevMap): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean;
+ const aMap: InevMap): Boolean;
 //#UC START# *48D1464501E8_48D367B20014_var*
 //#UC END# *48D1464501E8_48D367B20014_var*
 begin

@@ -18,6 +18,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F8D5535021Cintf_uses*
+ //#UC END# *4F8D5535021Cintf_uses*
 ;
 
 type
@@ -28,7 +30,7 @@ type
  TAbsSubTree = class(TvtOutlinerWithQuickSearch, IafwDropDownWindow)
   private
    f_CustomMinSizeX: Integer;
-    {* Поле для свойства CustomMinSizeX }
+    {* Минимально возможная ширина выпадающего списка. Задается вручную. }
   private
    procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
    procedure WMMouseActivate(var Msg: TMessage); message WM_MOUSEACTIVATE;
@@ -89,6 +91,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F8D5535021Cimpl_uses*
+ //#UC END# *4F8D5535021Cimpl_uses*
 ;
 
 procedure TAbsSubTree.NCDraw(aDC: hDC);

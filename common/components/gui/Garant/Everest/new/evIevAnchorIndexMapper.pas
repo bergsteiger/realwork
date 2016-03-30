@@ -1,53 +1,42 @@
 unit evIevAnchorIndexMapper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/evIevAnchorIndexMapper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TevIevAnchorIndexMapper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evIevAnchorIndexMapper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevIevAnchorIndexMapper" MUID: (53D8EE9F00BC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2InterfaceMapper,
-  l3IID,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2InterfaceMapper
+ , l3Variant
+ , l3IID
+;
 
-{$If defined(k2ForEditor)}
 type
  TevIevAnchorIndexMapper = class(Tk2InterfaceMapper)
- public
- // realized methods
+  public
    class function Make(aTag: Tl3Variant;
-     const IID: Tl3GUID;
-     out Tool;
-     const aProcessor: Ik2Processor): Boolean; override;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TevIevAnchorIndexMapper
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TevIevAnchorIndexMapper
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 class function TevIevAnchorIndexMapper.Make(aTag: Tl3Variant;
-  const IID: Tl3GUID;
-  out Tool;
-  const aProcessor: Ik2Processor): Boolean;
+ const IID: Tl3GUID;
+ out Tool;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *53D639B601D7_53D8EE9F00BC_var*
 //#UC END# *53D639B601D7_53D8EE9F00BC_var*
 begin
@@ -59,7 +48,6 @@ begin
   Result := true; 
 //#UC END# *53D639B601D7_53D8EE9F00BC_impl*
 end;//TevIevAnchorIndexMapper.Make
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -1,42 +1,29 @@
 unit evControlGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evControlGenerator.pas"
-// Начат: 28.09.1999 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevControlGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlGenerator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlGenerator" MUID: (48DBA80F01C8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3InterfacedString,
-  evDocumentPartGenerator,
-  l3Variant
-  ;
+ l3IntfUses
+ , evDocumentPartGenerator
+ , l3InterfacedString
+ , l3Variant
+;
 
 type
  TevControlGenerator = class(TevDocumentPartGenerator)
- private
- // private fields
-   f_DataString : Tl3InterfacedString;
-   f_Multiline : Boolean;
-   f_FirstPara : Boolean;
- protected
- // overridden protected methods
+  private
+   f_DataString: Tl3InterfacedString;
+   f_Multiline: Boolean;
+   f_FirstPara: Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InsertPara(aChild: Tl3Variant); override;
    procedure StartInsertion; override;
    procedure FinishInsertion; override;
@@ -46,23 +33,21 @@ type
 implementation
 
 uses
-  k2Tags,
-  l3Base,
-  l3Chars
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  TextPara_Const,
-  ControlPara_Const,
-  nevTools
-  ;
-
-// start class TevControlGenerator
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , l3Chars
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdTypes
+ , TextPara_Const
+ , ControlPara_Const
+ , nevTools
+;
 
 procedure TevControlGenerator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48DBA80F01C8_var*
 //#UC END# *479731C50290_48DBA80F01C8_var*
 begin

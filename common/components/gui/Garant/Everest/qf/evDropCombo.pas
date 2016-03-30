@@ -1,79 +1,66 @@
 unit evDropCombo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evDropCombo.pas"
-// Начат: 25.01.2005 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevDropCombo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropCombo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDropCombo" MUID: (48D399A20288)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  l3TreeInterfaces,
-  nevTools,
-  evQueryCardInt,
-  evQueryCardDropControlsInt,
-  evDropControl
-  ;
+ l3IntfUses
+ , evDropControl
+ , evQueryCardInt
+ , evQueryCardDropControlsInt
+ , nevBase
+ , l3Interfaces
+ , l3TreeInterfaces
+ , nevTools
+;
 
 type
  TEditableState = (
-   esNone
- , esSemiCompleted
- , esCompleted
- , esWrong
+  esNone
+  , esSemiCompleted
+  , esCompleted
+  , esWrong
  );//TEditableState
 
  TevDropCombo = class(TevDropControl, IevEditorFieldWithTree, IevDropCombo)
- private
- // private fields
-   f_SelectedValue : InevSimpleNode;
-    {* Выбранное пользователем значение}
-   f_State : TEditableState;
-    {* Состояние редактора}
-   f_IsAsterisk : Boolean;
-    {* Есть ли символ звездочки. Выставляется только для полей с признаком IsNumList!}
-   f_IsAsteriskLastChar : Boolean;
-    {* Символ звездочки - последний символ в тексте}
-   f_ComboStyle : TevComboStyle;
-   f_NeedAdd : Boolean;
-   f_ItemCachedText : Il3CString;
-    {* Текст выбранного значения (чтобы лишний раз не фильтровать дерево)}
-   f_Tree : InevSimpleTree;
-    {* Дерево реквизитов}
-   f_TreeInit : Boolean;
-    {* Дерево было загружено из реквизитов}
-   f_RootNode : InevNode;
-    {* Корневой узел}
-   f_TreeIsFiltered : Boolean;
-    {* Дерево было отфильтровано (чтобы не делать лишний раз Deselect Hidden)}
-   f_Asterisk : AnsiChar;
-    {* Символ звездочки}
-   f_LastGoodContext : Il3CString;
-   f_HistoryRoot : InevNode;
-   f_PromptTree : InevSimpleTree;
-   f_ShowHistoryList : Boolean;
-   f_LockShowPrompts : Integer;
-   f_SavedText : Il3CString;
-   f_LockSaveText : Boolean;
-   f_InputWithTree : Boolean;
-    {* Режим ввода с выпадающим деревом}
- private
- // private methods
+  private
+   f_SelectedValue: InevSimpleNode;
+    {* Выбранное пользователем значение }
+   f_State: TEditableState;
+    {* Состояние редактора }
+   f_IsAsterisk: Boolean;
+    {* Есть ли символ звездочки. Выставляется только для полей с признаком IsNumList! }
+   f_IsAsteriskLastChar: Boolean;
+    {* Символ звездочки - последний символ в тексте }
+   f_ComboStyle: TevComboStyle;
+   f_NeedAdd: Boolean;
+   f_ItemCachedText: Il3CString;
+    {* Текст выбранного значения (чтобы лишний раз не фильтровать дерево) }
+   f_Tree: InevSimpleTree;
+    {* Дерево реквизитов }
+   f_TreeInit: Boolean;
+    {* Дерево было загружено из реквизитов }
+   f_RootNode: InevNode;
+    {* Корневой узел }
+   f_TreeIsFiltered: Boolean;
+    {* Дерево было отфильтровано (чтобы не делать лишний раз Deselect Hidden) }
+   f_Asterisk: AnsiChar;
+    {* Символ звездочки }
+   f_LastGoodContext: Il3CString;
+   f_HistoryRoot: InevNode;
+   f_PromptTree: InevSimpleTree;
+   f_ShowHistoryList: Boolean;
+   f_LockShowPrompts: Integer;
+   f_SavedText: Il3CString;
+   f_LockSaveText: Boolean;
+   f_InputWithTree: Boolean;
+    {* Режим ввода с выпадающим деревом }
+  private
    function GetFullPath(const aNode: InevSimpleNode): Il3CString;
    procedure CheckAsterisk;
    function ComboReq: IevComboReq;
@@ -94,13 +81,12 @@ type
     AutoOpen: Boolean;
     NeedRefilter: Boolean): Il3SimpleTree;
    procedure DoSetContextText(const aText: Il3CString);
- protected
- // realized methods
+  protected
    procedure SetNodeByIndex(aIndex: Integer);
    function GetNodeIndex(const aNode: InevSimpleNode): Integer;
-     {* Возвращает номер узла. }
+    {* Возвращает номер узла. }
    procedure ShowNode(const aNode: InevSimpleNode);
-     {* Отображает узел в поле. }
+    {* Отображает узел в поле. }
    function Get_Value: InevSimpleNode;
    function Get_IsAsterisk: Boolean;
    function Get_DefaultNode: InevSimpleNode;
@@ -114,26 +100,24 @@ type
    function Get_Down: Boolean;
    procedure Set_Down(aValue: Boolean);
    procedure CheckTextVersusValue;
-     {* Заточка на тот случай когда после Undo текст в контроле не совпадает
+    {* Заточка на тот случай когда после Undo текст в контроле не совпадает
         с выбранной нодой - в этом случае очищаем все. }
    function GetNode(anIndex: Integer): InevSimpleNode;
-     {* Возвращает узел. }
+    {* Возвращает узел. }
    procedure ChooseNode(const Value: InevSimpleNode;
     NeedHide: Boolean = True);
-     {* Обработчик выбора узла в дереве при его закрытии. }
+    {* Обработчик выбора узла в дереве при его закрытии. }
    function Get_IsList: Boolean;
    function NeedClearOnEscape: Boolean;
    procedure DoDrop(const aPoint: TPoint;
     AInvert: Boolean;
     AWidth: Integer;
     ByUser: Boolean); override;
-     {* Вываливает выпадающий виджет по указанным координатам }
+    {* Вываливает выпадающий виджет по указанным координатам }
    function Get_IsLogicalStateButtonEnabled: Boolean;
    procedure SetMaskText(const aText: Il3CString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure SetText(const Value: Il3CString); override;
    procedure DoTextChange(const aView: InevView;
     const aPara: InevPara;
@@ -149,40 +133,34 @@ type
    procedure DoDropDownCurrentChanged(const aNode: InevSimpleNode); override;
    procedure DoAfterHideControl; override;
    procedure DoSynchronizeSelectedValueWithText; override;
- public
- // overridden public methods
+  public
    constructor Create(const aPara: InevPara); override;
  end;//TevDropCombo
 
 implementation
 
 uses
-  SysUtils,
-  l3Chars,
-  evControlParaTools,
-  l3String,
-  l3Const,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Tree,
-  l3Base,
-  l3Nodes,
-  evTextStyle_Const,
-  l3Types
-  {$If defined(k2ForEditor)}
-  ,
-  evTextParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTextStyle_Const,
-  l3Tree_TLB
-  ;
-
-// start class TevDropCombo
+ l3ImplUses
+ , SysUtils
+ , l3Chars
+ , evControlParaTools
+ , l3String
+ , l3Const
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Tree
+ , l3Base
+ , l3Nodes
+ , evTextStyle_Const
+ , l3Types
+ {$If Defined(k2ForEditor)}
+ , evTextParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdTextStyle_Const
+ , l3Tree_TLB
+;
 
 function TevDropCombo.GetFullPath(const aNode: InevSimpleNode): Il3CString;
 //#UC START# *48D3A26202FD_48D399A20288_var*
@@ -386,7 +364,7 @@ begin
 end;//TevDropCombo.SetRootNode
 
 procedure TevDropCombo.Change(const aView: InevView;
-  const aPara: InevPara);
+ const aPara: InevPara);
 //#UC START# *48D3A7710129_48D399A20288_var*
 
 (* function FindCurrent(const aTree : InevSimpleTree;
@@ -642,10 +620,10 @@ begin
 end;//TevDropCombo.FilterNewTree
 
 function TevDropCombo.Filter(const aExpTree: Il3FilterableTree;
-  const aContext: Il3CString;
-  out anIndex: Integer;
-  AutoOpen: Boolean;
-  NeedRefilter: Boolean): Il3SimpleTree;
+ const aContext: Il3CString;
+ out anIndex: Integer;
+ AutoOpen: Boolean;
+ NeedRefilter: Boolean): Il3SimpleTree;
 //#UC START# *48D3AF180338_48D399A20288_var*
 //#UC END# *48D3AF180338_48D399A20288_var*
 begin
@@ -681,6 +659,7 @@ begin
 end;//TevDropCombo.SetNodeByIndex
 
 function TevDropCombo.GetNodeIndex(const aNode: InevSimpleNode): Integer;
+ {* Возвращает номер узла. }
 //#UC START# *47CD7C53028D_48D399A20288_var*
 //#UC END# *47CD7C53028D_48D399A20288_var*
 begin
@@ -690,6 +669,7 @@ begin
 end;//TevDropCombo.GetNodeIndex
 
 procedure TevDropCombo.ShowNode(const aNode: InevSimpleNode);
+ {* Отображает узел в поле. }
 //#UC START# *47CD7C6C0211_48D399A20288_var*
 //#UC END# *47CD7C6C0211_48D399A20288_var*
 begin
@@ -849,6 +829,8 @@ begin
 end;//TevDropCombo.Set_Down
 
 procedure TevDropCombo.CheckTextVersusValue;
+ {* Заточка на тот случай когда после Undo текст в контроле не совпадает
+        с выбранной нодой - в этом случае очищаем все. }
 //#UC START# *47CD9A1B00EC_48D399A20288_var*
 var
  l_Node: InevSimpleNode;
@@ -868,6 +850,7 @@ begin
 end;//TevDropCombo.CheckTextVersusValue
 
 function TevDropCombo.GetNode(anIndex: Integer): InevSimpleNode;
+ {* Возвращает узел. }
 //#UC START# *47CEA0C8006E_48D399A20288_var*
 //#UC END# *47CEA0C8006E_48D399A20288_var*
 begin
@@ -880,7 +863,8 @@ begin
 end;//TevDropCombo.GetNode
 
 procedure TevDropCombo.ChooseNode(const Value: InevSimpleNode;
-  NeedHide: Boolean = True);
+ NeedHide: Boolean = True);
+ {* Обработчик выбора узла в дереве при его закрытии. }
 //#UC START# *47CEA0D903B6_48D399A20288_var*
 var
  l_Op : InevOp;
@@ -948,9 +932,10 @@ begin
 end;//TevDropCombo.NeedClearOnEscape
 
 procedure TevDropCombo.DoDrop(const aPoint: TPoint;
-  AInvert: Boolean;
-  AWidth: Integer;
-  ByUser: Boolean);
+ AInvert: Boolean;
+ AWidth: Integer;
+ ByUser: Boolean);
+ {* Вываливает выпадающий виджет по указанным координатам }
 //#UC START# *48D37D66029A_48D399A20288_var*
 
 function FindCurrent(const aTree : InevSimpleTree;
@@ -1037,6 +1022,7 @@ begin
 end;//TevDropCombo.SetMaskText
 
 procedure TevDropCombo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D399A20288_var*
 //#UC END# *479731C50290_48D399A20288_var*
 begin
@@ -1080,8 +1066,8 @@ begin
 end;//TevDropCombo.SetText
 
 procedure TevDropCombo.DoTextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
 //#UC START# *48D14C0E023E_48D399A20288_var*
 var
  l_Cap : Il3CString;
@@ -1176,8 +1162,8 @@ begin
 end;//TevDropCombo.DoClearText
 
 function TevDropCombo.DoAnalyzeString(const aValue: Il3CString;
-  aPos: Integer;
-  out aRslt: Il3CString): Boolean;
+ aPos: Integer;
+ out aRslt: Il3CString): Boolean;
 //#UC START# *48D24F5F02BF_48D399A20288_var*
 
 const

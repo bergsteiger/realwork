@@ -1,37 +1,30 @@
 {$IfNDef nevDocumentContainerDecorationRules_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDocumentContainerDecorationRules.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Aspects::nevDocumentContainerDecorationRules
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevDocumentContainerDecorationRules" MUID: (4F33E5FD009E)
+// Имя типа: "_nevDocumentContainerDecorationRules_"
 
 {$Define nevDocumentContainerDecorationRules_imp}
- _nevDocumentContainerDecorationRules_ = {mixin} class(_nevDocumentContainerDecorationRules_Parent_)
- public
- // realized methods
-   function AllowsThisDecor(aFI: TnevFormatInfoPrim;
-     aType: TnevDecorType): Boolean;
-     {* Разрешает ли контейтер документа применять указанное декорирование }
- protected
- // protected methods
+
+ _nevDocumentContainerDecorationRules_ = class(_nevDocumentContainerDecorationRules_Parent_)
+  protected
    function GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
-     aType: TnevDecorType): Boolean; virtual;
-     {* Разрешает ли контейтер документа применять указанное декорирование }
+    aType: TnevDecorType): Boolean; virtual;
+  public
+   function AllowsThisDecor(aFI: TnevFormatInfoPrim;
+    aType: TnevDecorType): Boolean;
+    {* Разрешает ли контейтер документа применять указанное декорирование }
  end;//_nevDocumentContainerDecorationRules_
 
 {$Else nevDocumentContainerDecorationRules_imp}
 
-// start class _nevDocumentContainerDecorationRules_
+{$IfNDef nevDocumentContainerDecorationRules_imp_impl}
+
+{$Define nevDocumentContainerDecorationRules_imp_impl}
 
 function _nevDocumentContainerDecorationRules_.GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
-  aType: TnevDecorType): Boolean;
+ aType: TnevDecorType): Boolean;
 //#UC START# *4F33E3A20056_4F33E5FD009E_var*
 //#UC END# *4F33E3A20056_4F33E5FD009E_var*
 begin
@@ -41,7 +34,8 @@ begin
 end;//_nevDocumentContainerDecorationRules_.GetAllowsThisDecor
 
 function _nevDocumentContainerDecorationRules_.AllowsThisDecor(aFI: TnevFormatInfoPrim;
-  aType: TnevDecorType): Boolean;
+ aType: TnevDecorType): Boolean;
+ {* Разрешает ли контейтер документа применять указанное декорирование }
 //#UC START# *4F33E2A30116_4F33E5FD009E_var*
 //#UC END# *4F33E2A30116_4F33E5FD009E_var*
 begin
@@ -50,4 +44,7 @@ begin
 //#UC END# *4F33E2A30116_4F33E5FD009E_impl*
 end;//_nevDocumentContainerDecorationRules_.AllowsThisDecor
 
+{$EndIf nevDocumentContainerDecorationRules_imp_impl}
+
 {$EndIf nevDocumentContainerDecorationRules_imp}
+

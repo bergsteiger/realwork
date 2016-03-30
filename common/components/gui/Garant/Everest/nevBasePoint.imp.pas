@@ -1,99 +1,87 @@
 {$IfNDef nevBasePoint_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevBasePoint.imp.pas"
-// Начат: 09.04.2009 21:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevBasePoint
-//
-// "Самая базовая" точка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevBasePoint" MUID: (49DE374402D1)
+// Имя типа: "_nevBasePoint_"
 
 {$Define nevBasePoint_imp}
-{$If defined(evUseVisibleCursors)}
+
+{$If Defined(evUseVisibleCursors)}
  _nevParaTool_Parent_ = Tk2TagPointer;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  _nevParentPointFactory_Parent_ = _nevParaTool_;
- {$Include ..\Everest\nevParentPointFactory.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
  _nevParentPointHolder_Parent_ = _nevParentPointFactory_;
- {$Include ..\Everest\nevParentPointHolder.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
  _nevMostInner_Parent_ = _nevParentPointHolder_;
- {$Include ..\Everest\nevMostInner.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
  _nevViewBounds_Parent_ = _nevMostInner_;
- {$Include ..\Everest\nevViewBounds.imp.pas}
- _nevBasePoint_ = {mixin} class(_nevViewBounds_)
+ {$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
+ _nevBasePoint_ = class(_nevViewBounds_)
   {* "Самая базовая" точка }
- protected
- // realized methods
+  protected
    procedure Set_PositionW(aValue: TnevPosition);
    function Get_Obj: PInevObject;
- public
- // realized methods
+  public
    function DoMove(const aView: InevView;
-     aCode: Integer;
-     const anOp: InevOp;
-     aCount: Integer): TnevMoveResult;
+    aCode: Integer;
+    const anOp: InevOp;
+    aCount: Integer): TnevMoveResult;
    function Move(const aView: InevView;
-     aCode: Cardinal;
-     const anOp: InevOp = nil;
-     aCount: Integer = 1): Boolean;
+    aCode: Cardinal;
+    const anOp: InevOp = nil;
+    aCount: Integer = 1): Boolean;
    procedure Refresh;
    procedure SetEntryPointPrim(Value: Integer;
-     const Context: IevCursorContext = nil);
+    const Context: IevCursorContext = nil);
    procedure SetEntryPoint(Value: Integer;
-     const Context: IevCursorContext = nil); overload; 
+    const Context: IevCursorContext = nil); overload;
    procedure SetEntryPoint(aValue: Integer;
-     const aContext: InevOp); overload; 
+    const aContext: InevOp); overload;
    function ToBottomChild(const aView: InevView): InevBasePoint;
    procedure SetAtEnd(const aView: InevView;
-     aValue: Boolean);
+    aValue: Boolean);
    procedure SetAtStart(const aView: InevView;
-     aValue: Boolean);
+    aValue: Boolean);
  end;//_nevBasePoint_
-{$Else}
 
- _nevParaTool_Parent_ = Tk2TagPointer;
- {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
- _nevParentPointFactory_Parent_ = _nevParaTool_;
- {$Include ..\Everest\nevParentPointFactory.imp.pas}
- _nevParentPointHolder_Parent_ = _nevParentPointFactory_;
- {$Include ..\Everest\nevParentPointHolder.imp.pas}
- _nevMostInner_Parent_ = _nevParentPointHolder_;
- {$Include ..\Everest\nevMostInner.imp.pas}
- _nevViewBounds_Parent_ = _nevMostInner_;
- {$Include ..\Everest\nevViewBounds.imp.pas}
- _nevBasePoint_ = _nevViewBounds_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParaTool_Parent_ = Tk2TagPointer;
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
+_nevParentPointFactory_Parent_ = _nevParaTool_;
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
+_nevParentPointHolder_Parent_ = _nevParentPointFactory_;
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
+_nevMostInner_Parent_ = _nevParentPointHolder_;
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
+_nevViewBounds_Parent_ = _nevMostInner_;
+{$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
+_nevBasePoint_ = _nevViewBounds_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevBasePoint_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevBasePoint_imp_impl}
 
+{$Define nevBasePoint_imp_impl}
+
+{$If Defined(evUseVisibleCursors)}
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
 
-{$Include ..\Everest\nevParentPointFactory.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
 
-{$Include ..\Everest\nevParentPointHolder.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
 
-{$Include ..\Everest\nevMostInner.imp.pas}
-
-{$Include ..\Everest\nevViewBounds.imp.pas}
-
-// start class _nevBasePoint_
+{$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
 
 function _nevBasePoint_.DoMove(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *47C689E90006_49DE374402D1_var*
 //#UC END# *47C689E90006_49DE374402D1_var*
 begin
@@ -104,9 +92,9 @@ begin
 end;//_nevBasePoint_.DoMove
 
 function _nevBasePoint_.Move(const aView: InevView;
-  aCode: Cardinal;
-  const anOp: InevOp = nil;
-  aCount: Integer = 1): Boolean;
+ aCode: Cardinal;
+ const anOp: InevOp = nil;
+ aCount: Integer = 1): Boolean;
 //#UC START# *47C68A010279_49DE374402D1_var*
 //#UC END# *47C68A010279_49DE374402D1_var*
 begin
@@ -126,7 +114,7 @@ begin
 end;//_nevBasePoint_.Refresh
 
 procedure _nevBasePoint_.SetEntryPointPrim(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *47C68A160190_49DE374402D1_var*
 //#UC END# *47C68A160190_49DE374402D1_var*
 begin
@@ -136,7 +124,7 @@ begin
 end;//_nevBasePoint_.SetEntryPointPrim
 
 procedure _nevBasePoint_.SetEntryPoint(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *47C68A220200_49DE374402D1_var*
 //#UC END# *47C68A220200_49DE374402D1_var*
 begin
@@ -146,7 +134,7 @@ begin
 end;//_nevBasePoint_.SetEntryPoint
 
 procedure _nevBasePoint_.SetEntryPoint(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *47C68A2E00EC_49DE374402D1_var*
 //#UC END# *47C68A2E00EC_49DE374402D1_var*
 begin
@@ -175,7 +163,7 @@ begin
 end;//_nevBasePoint_.Set_PositionW
 
 procedure _nevBasePoint_.SetAtEnd(const aView: InevView;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *4803044303DC_49DE374402D1_var*
 //#UC END# *4803044303DC_49DE374402D1_var*
 begin
@@ -185,7 +173,7 @@ begin
 end;//_nevBasePoint_.SetAtEnd
 
 procedure _nevBasePoint_.SetAtStart(const aView: InevView;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *4803045B0109_49DE374402D1_var*
 //#UC END# *4803045B0109_49DE374402D1_var*
 begin
@@ -202,7 +190,9 @@ begin
  Result := @f_ParaX;
 //#UC END# *49DDD02D00E3_49DE374402D1get_impl*
 end;//_nevBasePoint_.Get_Obj
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevBasePoint_imp_impl}
 
 {$EndIf nevBasePoint_imp}
+

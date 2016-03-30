@@ -1,40 +1,27 @@
 unit nevObjectSegmentFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevObjectSegmentFormatInfo.pas"
-// Начат: 01.09.2011 20:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevObjectSegmentFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevObjectSegmentFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevObjectSegmentFormatInfo" MUID: (4E5FB17501E8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevFormatInfo,
-  nevSegmentFormatInfo,
-  nevBase
-  ;
+ l3IntfUses
+ , nevSegmentFormatInfo
+ , nevBase
+ , nevFormatInfo
+;
 
 type
  TnevCachedFontArray = array [Boolean] of TnevCachedFont;
 
  TnevObjectSegmentFormatInfo = class(TnevSegmentFormatInfo)
- private
- // private fields
-   f_Font : TnevCachedFontArray;
- protected
- // overridden protected methods
+  private
+   f_Font: TnevCachedFontArray;
+  protected
    procedure ClearCache; override;
    function GetObjIFont(aCorrectItalic: Boolean): InevFont; override;
    function DoGetFont(aCorrectItalic: Boolean): InevFont; override;
@@ -43,12 +30,11 @@ type
 implementation
 
 uses
-  nevTools,
-  evGlyphFont,
-  BitmapPara_Const
-  ;
-
-// start class TnevObjectSegmentFormatInfo
+ l3ImplUses
+ , nevTools
+ , evGlyphFont
+ , BitmapPara_Const
+;
 
 procedure TnevObjectSegmentFormatInfo.ClearCache;
 //#UC START# *4E5E7D240227_4E5FB17501E8_var*

@@ -1,72 +1,53 @@
 unit evDocumentPartCursorPair;
+ {* Выделение для блока }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPartCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevDocumentPartCursorPair
-//
-// Выделение для блока
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartCursorPair.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartCursorPair" MUID: (4A2D2D8002FF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursorPair,
-  k2Interfaces,
-  nevBase,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorPair
+ , nevTools
+ , k2Interfaces
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevDocumentPartCursorPair = class(TevParaListCursorPair)
   {* Выделение для блока }
- protected
- // overridden protected methods
+  protected
    procedure DoStore(const aView: InevView;
-     const G: Ik2TagGenerator;
-     aFlags: TevStoreFlags); override;
+    const G: Ik2TagGenerator;
+    aFlags: TevStoreFlags); override;
    function IsCollapsed(const aView: InevView): Boolean; override;
  end;//TevDocumentPartCursorPair
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  LeafPara_Const,
-  ContentsElement_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  evdStyles,
-  evdInterfaces,
-  Block_Const
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevDocumentPartCursorPair
+ l3ImplUses
+ , LeafPara_Const
+ , ContentsElement_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+ , evdStyles
+ , evdInterfaces
+ , Block_Const
+;
 
 procedure TevDocumentPartCursorPair.DoStore(const aView: InevView;
-  const G: Ik2TagGenerator;
-  aFlags: TevStoreFlags);
+ const G: Ik2TagGenerator;
+ aFlags: TevStoreFlags);
 //#UC START# *5108D5CB0048_4A2D2D8002FF_var*
  {$IfDef Nemesis}
  var
@@ -167,7 +148,6 @@ begin
      Result := true;
 //#UC END# *52D79FB703C9_4A2D2D8002FF_impl*
 end;//TevDocumentPartCursorPair.IsCollapsed
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

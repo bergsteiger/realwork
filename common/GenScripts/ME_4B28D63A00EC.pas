@@ -30,13 +30,10 @@ type
  TevCustomEditorWindowPrim = class(TnevControl)
   private
    f_Zoom: Integer;
-    {* Поле для свойства Zoom }
    f_ForceRepaint: Boolean;
-    {* Поле для свойства ForceRepaint }
+    {* признак необходимости отрисовки даже при Locked }
    f_OnMakeExportFilters: TevMakeExportFiltersEvent;
-    {* Поле для свойства OnMakeExportFilters }
    f_OnFocusViaMouseSet: TNotifyEvent;
-    {* Поле для свойства OnFocusViaMouseSet }
   protected
    f_LockForceRepaint: Integer;
   private
@@ -81,9 +78,6 @@ uses
  l3ImplUses
  , Windows
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , evSchemaWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
@@ -102,6 +96,9 @@ uses
  , Block_Const
  , Document_Const
  , k2Tags
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TevCustomEditorWindowPrim.pm_SetZoom(aValue: Integer);

@@ -1,99 +1,74 @@
 unit evTablePainter;
+ {* Реализация интерфейса IevPainter для таблицы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTablePainter.pas"
-// Начат: 06.06.2007 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevTablePainter
-//
-// Реализация интерфейса IevPainter для таблицы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTablePainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTablePainter" MUID: (48C9377502A0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evFramedParaListPainter,
-  evCellsOffsets,
-  nevRealTools,
-  nevTools,
-  l3Variant
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evFramedParaListPainter
+ , nevRealTools
+ , evCellsOffsets
+ , l3Variant
+ , nevTools
+;
 
-{$If defined(evNeedPainters)}
 type
  TevTablePainter = class(TevFramedParaListPainter, IevTablePainter)
   {* Реализация интерфейса IevPainter для таблицы }
- private
- // private fields
-   f_CellsOffsets : TevCellsOffsets;
- private
- // private methods
+  private
+   f_CellsOffsets: TevCellsOffsets;
+  private
    function CellsOffsets: TevCellsOffsets;
- protected
- // realized methods
+  protected
    procedure CheckCell(aPara: Tl3Tag;
-     aCheckType: TnevCheckType = nev_None);
+    aCheckType: TnevCheckType = nev_None);
    procedure CalcOffset;
-     {* Пересчитать смещение для следующей ячейки }
+    {* Пересчитать смещение для следующей ячейки }
    function WasPainted(aPara: Tl3Tag;
-     anPID: Integer;
-     aForLines: Boolean): Boolean;
-     {* Проверка была ли отрисована начальная ячейка объединения. }
-   {$If defined(evNeedPainters) AND defined(nsTest)}
+    anPID: Integer;
+    aForLines: Boolean): Boolean;
+    {* Проверка была ли отрисована начальная ячейка объединения. }
+   {$If Defined(nsTest)}
    function NeedLog: Boolean; override;
-     {* Поддерживает ли табличный объект запись в лог для тестов. }
-   {$IfEnd} //evNeedPainters AND nsTest
+    {* Поддерживает ли табличный объект запись в лог для тестов. }
+   {$IfEnd} // Defined(nsTest)
    function HasOwnStyle: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
    procedure InitBottom(var theBottom: InevBasePoint;
     var theCellBottom: InevBasePoint); override;
    function BeforeDrawChild(const ChildPainter: IevPainter): Boolean; override;
-     {* Вызывается перед рисованием каждого дочернего параграфа. }
+    {* Вызывается перед рисованием каждого дочернего параграфа. }
    function GetTablePainter: IevTablePainter; override;
    procedure InitInnerBottom(const aChildInfo: TnevShapeInfo); override;
    function NeedsHackK235870994: Boolean; override;
    procedure AfterDrawChild(const aChild: InevPara;
-     const aChildPainter: IevPainter;
-     const aChildInfo: TnevShapeInfo); override;
+    const aChildPainter: IevPainter;
+    const aChildInfo: TnevShapeInfo); override;
  end;//TevTablePainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  k2Tags,
-  evdTypes,
-  SysUtils
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevTablePainter
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , SysUtils
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TevTablePainter.CellsOffsets: TevCellsOffsets;
 //#UC START# *49CB6F2D03C8_48C9377502A0_var*
@@ -107,11 +82,11 @@ begin
 end;//TevTablePainter.CellsOffsets
 
 procedure TevTablePainter.CheckCell(aPara: Tl3Tag;
-  aCheckType: TnevCheckType = nev_None);
+ aCheckType: TnevCheckType = nev_None);
 //#UC START# *49CB6BE30032_48C9377502A0_var*
 //#UC END# *49CB6BE30032_48C9377502A0_var*
 begin
-//#UC START# *49CB6BE30032_48C9377502A0_impl*     
+//#UC START# *49CB6BE30032_48C9377502A0_impl*
  f_CellsOffsets.SetWidth(aPara.IntA[k2_tiWidth]);
  case TevMergeStatus(aPara.IntA[k2_tiMergeStatus]) of
   ev_msHead: begin
@@ -130,6 +105,7 @@ begin
 end;//TevTablePainter.CheckCell
 
 procedure TevTablePainter.CalcOffset;
+ {* Пересчитать смещение для следующей ячейки }
 //#UC START# *49CB6C1A02DF_48C9377502A0_var*
 //#UC END# *49CB6C1A02DF_48C9377502A0_var*
 begin
@@ -139,8 +115,9 @@ begin
 end;//TevTablePainter.CalcOffset
 
 function TevTablePainter.WasPainted(aPara: Tl3Tag;
-  anPID: Integer;
-  aForLines: Boolean): Boolean;
+ anPID: Integer;
+ aForLines: Boolean): Boolean;
+ {* Проверка была ли отрисована начальная ячейка объединения. }
 //#UC START# *49CB6C2E02E2_48C9377502A0_var*
 //#UC END# *49CB6C2E02E2_48C9377502A0_var*
 begin
@@ -154,8 +131,9 @@ begin
 //#UC END# *49CB6C2E02E2_48C9377502A0_impl*
 end;//TevTablePainter.WasPainted
 
-{$If defined(evNeedPainters) AND defined(nsTest)}
+{$If Defined(nsTest)}
 function TevTablePainter.NeedLog: Boolean;
+ {* Поддерживает ли табличный объект запись в лог для тестов. }
 //#UC START# *4D0203AA016F_48C9377502A0_var*
 //#UC END# *4D0203AA016F_48C9377502A0_var*
 begin
@@ -163,7 +141,7 @@ begin
  Result := True;
 //#UC END# *4D0203AA016F_48C9377502A0_impl*
 end;//TevTablePainter.NeedLog
-{$IfEnd} //evNeedPainters AND nsTest
+{$IfEnd} // Defined(nsTest)
 
 function TevTablePainter.HasOwnStyle: Boolean;
 //#UC START# *52B2EF99032C_48C9377502A0_var*
@@ -175,6 +153,7 @@ begin
 end;//TevTablePainter.HasOwnStyle
 
 procedure TevTablePainter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48C9377502A0_var*
 //#UC END# *479731C50290_48C9377502A0_var*
 begin
@@ -185,6 +164,7 @@ begin
 end;//TevTablePainter.Cleanup
 
 function TevTablePainter.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_48C9377502A0_var*
 //#UC END# *4804BC2401C2_48C9377502A0_var*
 begin
@@ -197,7 +177,7 @@ begin
 end;//TevTablePainter.DoDraw
 
 procedure TevTablePainter.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_48C9377502A0_var*
 var
  l_Inn : InevBasePoint;
@@ -216,6 +196,7 @@ begin
 end;//TevTablePainter.InitBottom
 
 function TevTablePainter.BeforeDrawChild(const ChildPainter: IevPainter): Boolean;
+ {* Вызывается перед рисованием каждого дочернего параграфа. }
 //#UC START# *481D6C56033A_48C9377502A0_var*
 //#UC END# *481D6C56033A_48C9377502A0_var*
 begin
@@ -262,8 +243,8 @@ begin
 end;//TevTablePainter.NeedsHackK235870994
 
 procedure TevTablePainter.AfterDrawChild(const aChild: InevPara;
-  const aChildPainter: IevPainter;
-  const aChildInfo: TnevShapeInfo);
+ const aChildPainter: IevPainter;
+ const aChildInfo: TnevShapeInfo);
 //#UC START# *4D63E3490015_48C9377502A0_var*
 //#UC END# *4D63E3490015_48C9377502A0_var*
 begin
@@ -275,7 +256,6 @@ begin
  end; // if f_WasStyle then *)
 //#UC END# *4D63E3490015_48C9377502A0_impl*
 end;//TevTablePainter.AfterDrawChild
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

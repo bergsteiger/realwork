@@ -1,70 +1,55 @@
 unit evRowAndTableTypeSupport;
+ {* Примесь для классификации таблиц и строк }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evRowAndTableTypeSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevRowAndTableTypeSupport
-//
-// Примесь для классификации таблиц и строк
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevRowAndTableTypeSupport" MUID: (5112379700A6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditorInterfaces,
-  l3ProtoObject,
-  evCellsOffsetsPair
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evEditorInterfaces
+ , evCellsOffsetsPair
+;
 
 type
  TevRowAndTableTypeSupport = class(Tl3ProtoObject)
   {* Примесь для классификации таблиц и строк }
- private
- // private fields
-   f_TableStyle : TedTabelType;
-    {* Поле для свойства TableStyle}
-   f_CurrentRowType : TedRowType;
-    {* Поле для свойства CurrentRowType}
- private
- // private methods
+  private
+   f_TableStyle: TedTabelType;
+    {* Поле для свойства TableStyle }
+   f_CurrentRowType: TedRowType;
+    {* Поле для свойства CurrentRowType }
+  private
    procedure AnalizeTableStyle;
    procedure CheckRowType(const aRow: IedRow);
-     {* Дополнительная проверка получившегося типа строки. }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  protected
    procedure AnalizeRowType(const aRow: IedRow);
    procedure SaveRowType(const aPairList: TevCellsOffsetsPair);
    function GetPrevRowType: TedRowType; virtual; abstract;
    function GetCellsCountInPreviousRow: Integer; virtual; abstract;
-     {* Возвращает число ячеек в последней выравненной строке }
- public
- // public properties
+    {* Возвращает число ячеек в последней выравненной строке }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
    property TableStyle: TedTabelType
-     read f_TableStyle;
-     {* Стиль таблицы. Устанавливается в процессе анализа таблицы. В зависимости от него изменяется алгоритм выравнивания границ. }
+    read f_TableStyle;
+    {* Стиль таблицы. Устанавливается в процессе анализа таблицы. В зависимости от него изменяется алгоритм выравнивания границ. }
    property CurrentRowType: TedRowType
-     read f_CurrentRowType;
-     {* Тип текущей строки. }
+    read f_CurrentRowType;
+    {* Тип текущей строки. }
  end;//TevRowAndTableTypeSupport
 
 implementation
 
-// start class TevRowAndTableTypeSupport
+uses
+ l3ImplUses
+;
 
 procedure TevRowAndTableTypeSupport.AnalizeTableStyle;
 //#UC START# *5076B24B0038_5112379700A6_var*
@@ -78,19 +63,6 @@ begin
  end; // case f_CurrentRowType of
 //#UC END# *5076B24B0038_5112379700A6_impl*
 end;//TevRowAndTableTypeSupport.AnalizeTableStyle
-
-procedure TevRowAndTableTypeSupport.CheckRowType(const aRow: IedRow);
-//#UC START# *5152CEDE0255_5112379700A6_var*
-//#UC END# *5152CEDE0255_5112379700A6_var*
-begin
-//#UC START# *5152CEDE0255_5112379700A6_impl*
- if f_CurrentRowType = ed_NumericCels then
- begin
-  if aRow.CellsIterator.CellsCount <> GetCellsCountInPreviousRow then
-   f_CurrentRowType := ed_SimpleWithoutEmpty;
- end; // if f_CurrentRowType = ed_NumericCels then
-//#UC END# *5152CEDE0255_5112379700A6_impl*
-end;//TevRowAndTableTypeSupport.CheckRowType
 
 procedure TevRowAndTableTypeSupport.AnalizeRowType(const aRow: IedRow);
 //#UC START# *511240880262_5112379700A6_var*
@@ -112,7 +84,21 @@ begin
 //#UC END# *51124284008E_5112379700A6_impl*
 end;//TevRowAndTableTypeSupport.SaveRowType
 
+procedure TevRowAndTableTypeSupport.CheckRowType(const aRow: IedRow);
+//#UC START# *5152CEDE0255_5112379700A6_var*
+//#UC END# *5152CEDE0255_5112379700A6_var*
+begin
+//#UC START# *5152CEDE0255_5112379700A6_impl*
+ if f_CurrentRowType = ed_NumericCels then
+ begin
+  if aRow.CellsIterator.CellsCount <> GetCellsCountInPreviousRow then
+   f_CurrentRowType := ed_SimpleWithoutEmpty;
+ end; // if f_CurrentRowType = ed_NumericCels then
+//#UC END# *5152CEDE0255_5112379700A6_impl*
+end;//TevRowAndTableTypeSupport.CheckRowType
+
 procedure TevRowAndTableTypeSupport.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5112379700A6_var*
 //#UC END# *479731C50290_5112379700A6_var*
 begin

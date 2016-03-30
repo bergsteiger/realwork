@@ -1,96 +1,73 @@
 unit nevTableRowRenderInfo;
+ {* Информация о форматировании строки таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTableRowRenderInfo.pas"
-// Начат: 06.06.2008 11:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevTableRowRenderInfo
-//
-// Информация о форматировании строки таблицы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRowRenderInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRowRenderInfo" MUID: (4848EBFB00B0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3LongintList,
-  nevListFormatInfo,
-  nevFormatInfo,
-  nevTools
-  ;
+ l3IntfUses
+ , nevListFormatInfo
+ , l3LongintList
+ , nevFormatInfo
+ , nevTools
+;
 
 type
  TnevTableRowRenderInfo = class(TnevListFormatInfo)
   {* Информация о форматировании строки таблицы. }
- private
- // private fields
-   f_DeltaHeight : Integer;
-    {* Здесь храним вычисленную поправку к высоте.}
-   f_GreatestObjPID : Integer;
-    {* Индекс продолжения Head-ячейки в последней строке (если она Head-ячейка влияет на высоту - иначе -1).}
-   f_HeightList : Tl3LongintList;
-   f_AllCellsIsMerged : Boolean;
-    {* Все ячейки строки объединены}
-   f_HeadMax : Integer;
- private
- // private methods
+  private
+   f_DeltaHeight: Integer;
+    {* Здесь храним вычисленную поправку к высоте. }
+   f_GreatestObjPID: Integer;
+    {* Индекс продолжения Head-ячейки в последней строке (если она Head-ячейка влияет на высоту - иначе -1). }
+   f_HeightList: Tl3LongintList;
+   f_AllCellsIsMerged: Boolean;
+    {* Все ячейки строки объединены }
+   f_HeadMax: Integer;
+  private
    procedure CheckDeltaHeight;
    function CalcDeltaHeight: Integer;
-     {* Здесь считаем добавку к высоте строки. }
- protected
- // overridden property methods
-   function pm_GetLocDeltaHeight: Integer; override;
- protected
- // overridden protected methods
+    {* Здесь считаем добавку к высоте строки. }
+  protected
+   function IsCellChildSpacingEqual(anIndex: Integer): Boolean; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
+   function pm_GetlocDeltaHeight: Integer; override;
    function DoCompareWithMax(anIndex: Integer): Integer; override;
    procedure DoUpdateHeitghPart(anIndex: Integer;
     aValue: Integer); override;
    function GetMaxLinesCount: Integer; override;
    function GetIsHidden: Boolean; override;
-     {* Объект спрятан }
+    {* Объект спрятан }
    procedure HRecalcChild(const aChild: InevPara;
-     var sPW: Integer;
-     var sPH: Integer); override;
- public
- // overridden public methods
-   procedure WForce(aParts: TnevRenderingInfoParts); override;
+    var sPW: Integer;
+    var sPH: Integer); override;
+  public
+   procedure wForce(aParts: TnevRenderingInfoParts); override;
    function GreatestObjPID(anInLines: Boolean = True): Integer; override;
- protected
- // protected methods
-   function IsCellChildSpacingEqual(anIndex: Integer): Boolean; virtual;
  end;//TnevTableRowRenderInfo
 
 implementation
 
 uses
-  l3MinMax,
-  nevFacade,
-  k2Tags,
-  evdTypes,
-  nevBase,
-  evConst,
-  SysUtils,
-  l3Base
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TnevTableRowRenderInfo
+ l3ImplUses
+ , l3MinMax
+ , nevFacade
+ , k2Tags
+ , evdTypes
+ , nevBase
+ , evConst
+ , SysUtils
+ , l3Base
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 procedure TnevTableRowRenderInfo.CheckDeltaHeight;
 //#UC START# *4B9A319D01D2_4848EBFB00B0_var*
@@ -117,6 +94,7 @@ begin
 end;//TnevTableRowRenderInfo.IsCellChildSpacingEqual
 
 function TnevTableRowRenderInfo.CalcDeltaHeight: Integer;
+ {* Здесь считаем добавку к высоте строки. }
 //#UC START# *4848EECE0287_4848EBFB00B0_var*
 var
  l_Delta        : Integer absolute Result;
@@ -337,6 +315,7 @@ begin
 end;//TnevTableRowRenderInfo.CalcDeltaHeight
 
 procedure TnevTableRowRenderInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4848EBFB00B0_var*
 //#UC END# *479731C50290_4848EBFB00B0_var*
 begin
@@ -347,7 +326,7 @@ begin
 //#UC END# *479731C50290_4848EBFB00B0_impl*
 end;//TnevTableRowRenderInfo.Cleanup
 
-procedure TnevTableRowRenderInfo.WForce(aParts: TnevRenderingInfoParts);
+procedure TnevTableRowRenderInfo.wForce(aParts: TnevRenderingInfoParts);
 //#UC START# *48175C1302A3_4848EBFB00B0_var*
 //#UC END# *48175C1302A3_4848EBFB00B0_var*
 begin
@@ -356,9 +335,9 @@ begin
   Include(aParts, nev_ripDeltaHeight);
  inherited;
 //#UC END# *48175C1302A3_4848EBFB00B0_impl*
-end;//TnevTableRowRenderInfo.WForce
+end;//TnevTableRowRenderInfo.wForce
 
-function TnevTableRowRenderInfo.pm_GetLocDeltaHeight: Integer;
+function TnevTableRowRenderInfo.pm_GetlocDeltaHeight: Integer;
 //#UC START# *4848EB800387_4848EBFB00B0get_var*
 //#UC END# *4848EB800387_4848EBFB00B0get_var*
 begin
@@ -366,7 +345,7 @@ begin
  CheckDeltaHeight;
  Result := f_DeltaHeight;
 //#UC END# *4848EB800387_4848EBFB00B0get_impl*
-end;//TnevTableRowRenderInfo.pm_GetLocDeltaHeight
+end;//TnevTableRowRenderInfo.pm_GetlocDeltaHeight
 
 function TnevTableRowRenderInfo.DoCompareWithMax(anIndex: Integer): Integer;
 //#UC START# *4B9A10070246_4848EBFB00B0_var*
@@ -385,7 +364,7 @@ begin
 end;//TnevTableRowRenderInfo.DoCompareWithMax
 
 procedure TnevTableRowRenderInfo.DoUpdateHeitghPart(anIndex: Integer;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *4B9A1028013D_4848EBFB00B0_var*
 //#UC END# *4B9A1028013D_4848EBFB00B0_var*
 begin
@@ -406,6 +385,7 @@ begin
 end;//TnevTableRowRenderInfo.GetMaxLinesCount
 
 function TnevTableRowRenderInfo.GetIsHidden: Boolean;
+ {* Объект спрятан }
 //#UC START# *4C0D27380357_4848EBFB00B0_var*
 //#UC END# *4C0D27380357_4848EBFB00B0_var*
 begin
@@ -416,8 +396,8 @@ begin
 end;//TnevTableRowRenderInfo.GetIsHidden
 
 procedure TnevTableRowRenderInfo.HRecalcChild(const aChild: InevPara;
-  var sPW: Integer;
-  var sPH: Integer);
+ var sPW: Integer;
+ var sPH: Integer);
 //#UC START# *4E7096D600BD_4848EBFB00B0_var*
 var
  l_PH  : Integer;

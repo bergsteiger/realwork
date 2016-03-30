@@ -1,105 +1,105 @@
 unit vcmFormSetFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Автор: Морозов
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmFormSetFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::FormSets::TvcmFormSetFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetFactory" MUID: (47B97312006D)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Interfaces,
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  vcmUserControls,
-  vcmFormSetFormsCollectionItem,
-  vcmFormSetFormsCollection,
-  vcmFormSetFormsCollectionItemPrim,
-  vcmFormSetFormsCollectionItemModelPart,
-  vcmFormSetFactoryPrim,
-  vcmFormSet,
-  vcmFormSetFormItemList,
-  vcmBaseTypes,
-  vcmFormSetRefreshParamsList
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmFormSetFactoryPrim
+ , vcmInterfaces
+ , l3Interfaces
+ , vcmFormSetRefreshParamsList
+ , vcmFormSetFormsCollection
+ , vcmFormSetFormItemList
+ , vcmFormSetFormsCollectionItem
+ , vcmFormSetFormsCollectionItemPrim
+ , vcmFormSetFormsCollectionItemModelPart
+ , vcmUserControls
+ , vcmBaseTypes
+ , vcmFormSet
+ , vcmExternalInterfaces
+;
 
-{$If not defined(NoVCM)}
 type
- TsfsOnGetMainCaption = procedure (aSender: TObject;
+ RvcmFormSetFactory = class of TvcmFormSetFactory;
+
+ TsfsOnGetMainCaption = procedure(aSender: TObject;
   const aDataSource: IvcmFormSetDataSource;
   var aCaption: Il3CString) of object;
 
- TsfsOnGetMainImageIndex = procedure (aSender: TObject;
+ TsfsOnGetMainImageIndex = procedure(aSender: TObject;
   const aDataSource: IvcmFormSetDataSource;
   var aImageIndex: Integer) of object;
 
- RvcmFormSetFactory = class of TvcmFormSetFactory;
-
  TvcmFormSetFactory = class(TvcmFormSetFactoryPrim, IvcmFormSetFactory)
- private
- // private fields
-   f_FormSetId : TvcmFormSetID;
-   f_DefaultStatusForm : Integer;
-   f_MainCaption : Il3CString;
-   f_MainImageIndex : Integer;
-   f_RefreshStack : TvcmFormSetRefreshParamsList;
-   f_RefreshFromStack : Boolean;
-   f_SaveToHistoryWasStarted : Boolean;
-   f_OwnerForm : Integer;
-    {* Поле для свойства OwnerForm}
-   f_OnGetMainImageIndex : TsfsOnGetMainImageIndex;
-    {* Поле для свойства OnGetMainImageIndex}
-   f_OnGetMainCaption : TsfsOnGetMainCaption;
-    {* Поле для свойства OnGetMainCaption}
-   f_Forms : TvcmFormSetFormsCollection;
-    {* Поле для свойства Forms}
-   f_FormList : TvcmFormSetFormList;
-    {* Поле для свойства FormList}
- private
- // private methods
+  private
+   f_FormSetId: TvcmFormSetID;
+   f_DefaultStatusForm: Integer;
+   f_MainCaption: Il3CString;
+   f_MainImageIndex: Integer;
+   f_RefreshStack: TvcmFormSetRefreshParamsList;
+   f_RefreshFromStack: Boolean;
+   f_SaveToHistoryWasStarted: Boolean;
+   f_OwnerForm: Integer;
+    {* Поле для свойства OwnerForm }
+   f_OnGetMainImageIndex: TsfsOnGetMainImageIndex;
+    {* Поле для свойства OnGetMainImageIndex }
+   f_OnGetMainCaption: TsfsOnGetMainCaption;
+    {* Поле для свойства OnGetMainCaption }
+   f_Forms: TvcmFormSetFormsCollection;
+    {* Поле для свойства Forms }
+   f_FormList: TvcmFormSetFormList;
+    {* Поле для свойства FormList }
+  private
    function FormSetItem(aItem: TvcmFormSetFormsCollectionItemPrim): TvcmFormSetFormsCollectionItem;
    function IsOwnerItem(aItem: TvcmFormSetFormsCollectionItem): Boolean;
-     {* определяет описывать ли элемент форму-собственник сборки }
+    {* определяет описывать ли элемент форму-собственник сборки }
    procedure SaveToHistoryClosedForm(const aHistory: IvcmHistory;
-     aItem: TvcmFormSetFormsCollectionItem;
-     aSubUserType: Integer = vcm_utAny);
-     {* сохранить закрытую форму в историю }
+    aItem: TvcmFormSetFormsCollectionItem;
+    aSubUserType: Integer = vcm_utAny);
+    {* сохранить закрытую форму в историю }
    function IsLikeFormSet(const aDataSource: IvcmFormSetDataSource;
-     const aContainer: IvcmContainer): Boolean;
-     {* определяет являются ли сборка и данные одними и теми же }
- protected
- // property methods
+    const aContainer: IvcmContainer): Boolean;
+    {* определяет являются ли сборка и данные одними и теми же }
+  protected
    procedure pm_SetOwnerForm(aValue: Integer); virtual;
    function pm_GetDefaultStatusForm: Integer; virtual;
    procedure pm_SetDefaultStatusForm(aValue: Integer); virtual;
    function pm_GetFormList: TvcmFormSetFormList; virtual;
- protected
- // realized methods
+   function MakeFormSet(const aDataSource: IvcmFormSetDataSource;
+    const aContainer: IvcmContainer;
+    aSaveToHistory: Boolean;
+    aLockSetFocusToMainObjectForm: Boolean;
+    const aFormSetToClone: IvcmFormSet = nil): IvcmFormSet;
+    {* Создает сборку }
+   function IsFormSetExists(const aContainer: IvcmContainer;
+    out aFormSet: IvcmFormSet): Boolean;
+   function GetFormSetImplementation: RvcmFormSet; virtual;
+    {* Возвращает класс реализации сборки }
+   procedure InitForms(const aParams: IvcmFormSetRefreshParams); virtual;
+    {* Вызывается при создании сборки перед Refresh для инициализации нужных флажков на сборке. }
+   function DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
+   function DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
+   function DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
+   function DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean; virtual;
+   function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; virtual;
    function pm_GetFormSetId: PvcmFormSetID;
    procedure Refresh(const aParams: IvcmFormSetRefreshParams);
-     {* обновляет данные сборки.
+    {* обновляет данные сборки.
             aDataForHistory - данные aDataSource, которые необходимо сохранить
                               в историю }
    procedure SaveHistory(const aContainer: IvcmContainer;
     aNeedSaveUseCaseData: Boolean);
    function IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
-     {* является ли форма главной в сборке }
+    {* является ли форма главной в сборке }
    function IsDefaultStatusForm(const aForm: IvcmEntityForm): Boolean;
-     {* является ли форма отвечающую за вывод статуса }
+    {* является ли форма отвечающую за вывод статуса }
    function MakeMainCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
    function MakeMainImageIndex(const aDataSource: IvcmFormSetDataSource): Integer;
    function MakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
@@ -110,386 +110,68 @@ type
    function GetSimpleFactory: IvcmFormSetSimpleFactory;
    function CanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
    function CanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   function MakeFormSet(const aDataSource: IvcmFormSetDataSource;
-     const aContainer: IvcmContainer;
-     aSaveToHistory: Boolean;
-     aLockSetFocusToMainObjectForm: Boolean;
-     const aFormSetToClone: IvcmFormSet = nil): IvcmFormSet;
-     {* Создает сборку }
-   function IsFormSetExists(const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet): Boolean;
-   function GetFormSetImplementation: RvcmFormSet; virtual;
-     {* Возвращает класс реализации сборки }
-   procedure InitForms(const aParams: IvcmFormSetRefreshParams); virtual;
-     {* Вызывается при создании сборки перед Refresh для инициализации нужных флажков на сборке. }
-   function DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
-   function DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
-   function DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
-   function DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean; virtual;
-   function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; virtual;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Id: TvcmFormSetID;
    class procedure Make(const aDataSource: IvcmFormSetDataSource;
-     const aContainer: IvcmContainer;
-     aSaveToHistory: Boolean = True;
-     aLockSetFocusToMainObjectForm: Boolean = False); overload; 
+    const aContainer: IvcmContainer;
+    aSaveToHistory: Boolean = True;
+    aLockSetFocusToMainObjectForm: Boolean = False); overload;
    function AddZone(const aName: AnsiString;
-     aZoneType: TvcmZoneType;
-     const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart; overload; 
+    aZoneType: TvcmZoneType;
+    const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart; overload;
    function AddZone(const aName: AnsiString;
-     aZoneType: TvcmZoneType;
-     const aFormDescriptor: TvcmFormDescriptor;
-     aUserType: TvcmUserType;
-     aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload; 
+    aZoneType: TvcmZoneType;
+    const aFormDescriptor: TvcmFormDescriptor;
+    aUserType: TvcmUserType;
+    aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload;
    class procedure Make(const aDataSource: IvcmFormSetDataSource;
-     const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet;
-     aSaveToHistory: Boolean = True;
-     aLockSetFocusToMainObjectForm: Boolean = False;
-     const aFormSetToClone: IvcmFormSet = nil); overload; 
- protected
- // protected properties
+    const aContainer: IvcmContainer;
+    out aFormSet: IvcmFormSet;
+    aSaveToHistory: Boolean = True;
+    aLockSetFocusToMainObjectForm: Boolean = False;
+    const aFormSetToClone: IvcmFormSet = nil); overload;
+  protected
    property FormList: TvcmFormSetFormList
-     read pm_GetFormList;
- public
- // public properties
+    read pm_GetFormList;
+  public
    property OwnerForm: Integer
-     read f_OwnerForm
-     write pm_SetOwnerForm;
+    read f_OwnerForm
+    write pm_SetOwnerForm;
    property OnGetMainImageIndex: TsfsOnGetMainImageIndex
-     read f_OnGetMainImageIndex
-     write f_OnGetMainImageIndex;
+    read f_OnGetMainImageIndex
+    write f_OnGetMainImageIndex;
    property OnGetMainCaption: TsfsOnGetMainCaption
-     read f_OnGetMainCaption
-     write f_OnGetMainCaption;
+    read f_OnGetMainCaption
+    write f_OnGetMainCaption;
    property Forms: TvcmFormSetFormsCollection
-     read f_Forms;
+    read f_Forms;
    property DefaultStatusForm: Integer
-     read pm_GetDefaultStatusForm
-     write pm_SetDefaultStatusForm;
+    read pm_GetDefaultStatusForm
+    write pm_SetDefaultStatusForm;
  end;//TvcmFormSetFactory
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmFormSetDataSource,
-  vcmFormSetRefreshParams,
-  l3Base,
-  SysUtils,
-  vcmHistory,
-  Classes,
-  vcmEntityForm,
-  vcmBase,
-  vcmHistoryService,
-  vcmFormSetFactoryFacade,
-  vcmFormDataSourceList,
-  vcmZoneTypeList
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmFormSetFactory
-
-function TvcmFormSetFactory.FormSetItem(aItem: TvcmFormSetFormsCollectionItemPrim): TvcmFormSetFormsCollectionItem;
-//#UC START# *50856A350071_47B97312006D_var*
-//#UC END# *50856A350071_47B97312006D_var*
-begin
-//#UC START# *50856A350071_47B97312006D_impl*
- Result := TvcmFormSetFormsCollectionItem(aItem);
-//#UC END# *50856A350071_47B97312006D_impl*
-end;//TvcmFormSetFactory.FormSetItem
-
-function TvcmFormSetFactory.IsOwnerItem(aItem: TvcmFormSetFormsCollectionItem): Boolean;
-//#UC START# *50856A5800E1_47B97312006D_var*
-//#UC END# *50856A5800E1_47B97312006D_var*
-begin
-//#UC START# *50856A5800E1_47B97312006D_impl*
- Result := aItem = FormSetItem(Forms.Items[OwnerForm]);
-//#UC END# *50856A5800E1_47B97312006D_impl*
-end;//TvcmFormSetFactory.IsOwnerItem
-
-procedure TvcmFormSetFactory.SaveToHistoryClosedForm(const aHistory: IvcmHistory;
-  aItem: TvcmFormSetFormsCollectionItem;
-  aSubUserType: Integer = vcm_utAny);
-//#UC START# *50856AA1034E_47B97312006D_var*
-var
- l_History: IvcmHistory;
-//#UC END# *50856AA1034E_47B97312006D_var*
-begin
-//#UC START# *50856AA1034E_47B97312006D_impl*
- if (aHistory <> nil) then
-  l_History := aHistory
- else
-  l_History := g_Dispatcher.History;
- with aItem do
-  l_History.SaveClose(nil,
-                      FormId,
-                      UserType,
-                      ZoneType,
-                      aSubUserType);
-
-//#UC END# *50856AA1034E_47B97312006D_impl*
-end;//TvcmFormSetFactory.SaveToHistoryClosedForm
-
-function TvcmFormSetFactory.IsLikeFormSet(const aDataSource: IvcmFormSetDataSource;
-  const aContainer: IvcmContainer): Boolean;
-//#UC START# *50856AE501F6_47B97312006D_var*
-var
- l_Form: IvcmEntityForm;
-//#UC END# *50856AE501F6_47B97312006D_var*
-begin
-//#UC START# *50856AE501F6_47B97312006D_impl*
- Result := False;
- if OwnerForm <> -1 then
- begin
-  with FormSetItem(f_Forms.Items[OwnerForm]) do
-   aContainer.HasForm(FormId,
-                      MakeZoneType,
-                      True,
-                      @l_Form,
-                      UserType);
-  try
-   if Assigned(l_Form) and Assigned(l_Form.DataSource) and
-     Assigned(l_Form.DataSource.UseCaseController) and Assigned(l_Form.FormSet) and
-     l_Form.FormSet.Factory.FormSetId.EQ(Self.ID) then
-    Result := l_Form.DataSource.UseCaseController.IsLikeUseCaseController(aDataSource);
-  finally
-   l_Form := nil;
-  end;//try..finally
- end;//if OwnerForm <> -1 then
-//#UC END# *50856AE501F6_47B97312006D_impl*
-end;//TvcmFormSetFactory.IsLikeFormSet
-
-function TvcmFormSetFactory.MakeFormSet(const aDataSource: IvcmFormSetDataSource;
-  const aContainer: IvcmContainer;
-  aSaveToHistory: Boolean;
-  aLockSetFocusToMainObjectForm: Boolean;
-  const aFormSetToClone: IvcmFormSet = nil): IvcmFormSet;
-//#UC START# *508569C001A9_47B97312006D_var*
-var
- l_FormSet    : IvcmFormSet;
- l_DataSource : IvcmFormSetDataSource;
- l_Index: Integer;
- l_Params: IvcmFormSetRefreshDataParams;
-//#UC END# *508569C001A9_47B97312006D_var*
-begin
-//#UC START# *508569C001A9_47B97312006D_impl*
- l_FormSet := GetFormSetImplementation.Make(aContainer, Self);
- try
-  Result := l_FormSet;
-  Assert(aDataSource <> nil);
-  if (aDataSource <> nil) then
-   l_DataSource := aDataSource
-  else
-  begin
-   Assert(false);
-   l_DataSource := TvcmFormSetDataSource.Make;
-  end;//aDataSource <> nil
-  // Если данные не изменились, то ничего не делаем. Например, открываем одну и
-  // ту же закладку, один и тот же документ по номеру и т.д.
-  if aSaveToHistory and not IsLikeFormSet(l_DataSource, aContainer) then
-   SaveHistory(aContainer, true);
-
-  l_DataSource.FormSet := l_FormSet;
-
-  // Сборка создается заново, поэтому нужно загрузить в нее список форм с флажками
-  l_FormSet.AssignFormList(FormList);
-   
-  l_Params := vcmMakeDataRefreshParams(sfsNone, nil, True, aFormSetToClone);
-  try
-   l_Params.LockSetFocusToMainObjectForm := aLockSetFocusToMainObjectForm;
-   Refresh(vcmMakeRefreshParams(l_Params, l_DataSource, l_FormSet, aFormSetToClone));
-  finally
-   l_Params := nil;
-  end;
- finally
-  l_FormSet := nil;
- end;//try..finally
-//#UC END# *508569C001A9_47B97312006D_impl*
-end;//TvcmFormSetFactory.MakeFormSet
-
-function TvcmFormSetFactory.IsFormSetExists(const aContainer: IvcmContainer;
-  out aFormSet: IvcmFormSet): Boolean;
-//#UC START# *50856C290117_47B97312006D_var*
-var
- l_Form: IvcmEntityForm;
-//#UC END# *50856C290117_47B97312006D_var*
-begin
-//#UC START# *50856C290117_47B97312006D_impl*
- Assert(OwnerForm >= 0, 'Не определена форма собственник.');
- with FormSetItem(Forms.Items[OwnerForm]) do
-  Result := aContainer.HasForm(FormId, ZoneType, True, @l_Form, UserType) and
-   l_Form.FormSet.Factory.FormSetId.EQ(Self.ID);
- if (l_Form = nil) then
-  aFormSet := nil
- else 
-  aFormSet := l_Form.FormSet;
-//#UC END# *50856C290117_47B97312006D_impl*
-end;//TvcmFormSetFactory.IsFormSetExists
-
-constructor TvcmFormSetFactory.Create;
-//#UC START# *50856C81008E_47B97312006D_var*
-//#UC END# *50856C81008E_47B97312006D_var*
-begin
-//#UC START# *50856C81008E_47B97312006D_impl*
- inherited;
- f_Forms := TvcmFormSetFormsCollection.Create;
- f_OwnerForm := -1;
- f_DefaultStatusForm := -1;
- f_MainCaption := nil;
- f_MainImageIndex := -1;
- f_Forms.FormList := FormList;
-//#UC END# *50856C81008E_47B97312006D_impl*
-end;//TvcmFormSetFactory.Create
-
-class function TvcmFormSetFactory.Id: TvcmFormSetID;
-//#UC START# *50856C9C00A5_47B97312006D_var*
-//#UC END# *50856C9C00A5_47B97312006D_var*
-begin
-//#UC START# *50856C9C00A5_47B97312006D_impl*
- l3FillChar(Result, SizeOf(Result));
- Result.rName := Copy(ClassName, 2, Length(ClassName) - 1);
-//#UC END# *50856C9C00A5_47B97312006D_impl*
-end;//TvcmFormSetFactory.Id
-
-class procedure TvcmFormSetFactory.Make(const aDataSource: IvcmFormSetDataSource;
-  const aContainer: IvcmContainer;
-  aSaveToHistory: Boolean = True;
-  aLockSetFocusToMainObjectForm: Boolean = False);
-//#UC START# *50856D0401EB_47B97312006D_var*
-var
- l_FormSet: IvcmFormSet;
-//#UC END# *50856D0401EB_47B97312006D_var*
-begin
-//#UC START# *50856D0401EB_47B97312006D_impl*
- Make(aDataSource, aContainer, l_FormSet, aSaveToHistory, aLockSetFocusToMainObjectForm);
-//#UC END# *50856D0401EB_47B97312006D_impl*
-end;//TvcmFormSetFactory.Make
-
-function TvcmFormSetFactory.AddZone(const aName: AnsiString;
-  aZoneType: TvcmZoneType;
-  const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart;
-//#UC START# *50857FD0030B_47B97312006D_var*
-//#UC END# *50857FD0030B_47B97312006D_var*
-begin
-//#UC START# *50857FD0030B_47B97312006D_impl*
- Result := Forms.AddZone(aName, aZoneType, aFormDescriptor);
-//#UC END# *50857FD0030B_47B97312006D_impl*
-end;//TvcmFormSetFactory.AddZone
-
-function TvcmFormSetFactory.AddZone(const aName: AnsiString;
-  aZoneType: TvcmZoneType;
-  const aFormDescriptor: TvcmFormDescriptor;
-  aUserType: TvcmUserType;
-  aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
-//#UC START# *528B43DA0126_47B97312006D_var*
-//#UC END# *528B43DA0126_47B97312006D_var*
-begin
-//#UC START# *528B43DA0126_47B97312006D_impl*
- Result := Forms.AddZone(aName, aZoneType, aFormDescriptor, aUserType, aNeedMakeDS);
-//#UC END# *528B43DA0126_47B97312006D_impl*
-end;//TvcmFormSetFactory.AddZone
-
-function TvcmFormSetFactory.GetFormSetImplementation: RvcmFormSet;
-//#UC START# *52973E60005E_47B97312006D_var*
-//#UC END# *52973E60005E_47B97312006D_var*
-begin
-//#UC START# *52973E60005E_47B97312006D_impl*
- Result := TvcmFormSet;
-//#UC END# *52973E60005E_47B97312006D_impl*
-end;//TvcmFormSetFactory.GetFormSetImplementation
-
-procedure TvcmFormSetFactory.InitForms(const aParams: IvcmFormSetRefreshParams);
-//#UC START# *52EA619F02FA_47B97312006D_var*
-//#UC END# *52EA619F02FA_47B97312006D_var*
-begin
-//#UC START# *52EA619F02FA_47B97312006D_impl*
- // инициализация флажков форм в наследниках
-//#UC END# *52EA619F02FA_47B97312006D_impl*
-end;//TvcmFormSetFactory.InitForms
-
-function TvcmFormSetFactory.DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
-//#UC START# *54B352A903E5_47B97312006D_var*
-//#UC END# *54B352A903E5_47B97312006D_var*
-begin
-//#UC START# *54B352A903E5_47B97312006D_impl*
- Result := nil;
-//#UC END# *54B352A903E5_47B97312006D_impl*
-end;//TvcmFormSetFactory.DoMakeFormSetCaption
-
-function TvcmFormSetFactory.DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
-//#UC START# *54B352D401E5_47B97312006D_var*
-//#UC END# *54B352D401E5_47B97312006D_var*
-begin
-//#UC START# *54B352D401E5_47B97312006D_impl*
- Result := nil;
-//#UC END# *54B352D401E5_47B97312006D_impl*
-end;//TvcmFormSetFactory.DoMakeFormSetTabCaption
-
-function TvcmFormSetFactory.DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString;
-//#UC START# *54B352FB03A1_47B97312006D_var*
-//#UC END# *54B352FB03A1_47B97312006D_var*
-begin
-//#UC START# *54B352FB03A1_47B97312006D_impl*
- Result := nil;
-//#UC END# *54B352FB03A1_47B97312006D_impl*
-end;//TvcmFormSetFactory.DoMakeFormSetTabHint
-
-class procedure TvcmFormSetFactory.Make(const aDataSource: IvcmFormSetDataSource;
-  const aContainer: IvcmContainer;
-  out aFormSet: IvcmFormSet;
-  aSaveToHistory: Boolean = True;
-  aLockSetFocusToMainObjectForm: Boolean = False;
-  const aFormSetToClone: IvcmFormSet = nil);
-//#UC START# *55A4F6E1037D_47B97312006D_var*
-var
- l_Factory : TvcmFormSetFactory;
-//#UC END# *55A4F6E1037D_47B97312006D_var*
-begin
-//#UC START# *55A4F6E1037D_47B97312006D_impl*
- Assert((g_Dispatcher.History = nil) OR
-        not g_Dispatcher.History.InBF, 'Нельзя создавать сборки при навигации по истории');
-// Assert(not g_InMake, 'Нельзя создавать вложенные сборки');
-// g_InMake := true;
- try
-  l_Factory := GetInstance As TvcmFormSetFactory;
-  aFormSet := l_Factory.MakeFormSet(aDataSource, aContainer, aSaveToHistory,
-   aLockSetFocusToMainObjectForm, aFormSetToClone);
- finally
-//  g_InMake := false;
- end;//try..finally
-//#UC END# *55A4F6E1037D_47B97312006D_impl*
-end;//TvcmFormSetFactory.Make
-
-function TvcmFormSetFactory.DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
-//#UC START# *55E00AAB006B_47B97312006D_var*
-//#UC END# *55E00AAB006B_47B97312006D_var*
-begin
-//#UC START# *55E00AAB006B_47B97312006D_impl*
- Result := True;
-//#UC END# *55E00AAB006B_47B97312006D_impl*
-end;//TvcmFormSetFactory.DoGetCanCloneFormSet
-
-function TvcmFormSetFactory.DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
-//#UC START# *55E020470097_47B97312006D_var*
-//#UC END# *55E020470097_47B97312006D_var*
-begin
-//#UC START# *55E020470097_47B97312006D_impl*
- Result := True;
-//#UC END# *55E020470097_47B97312006D_impl*
-end;//TvcmFormSetFactory.DoGetCanSaveFormSetToHistory
+ l3ImplUses
+ , vcmFormSetDataSource
+ , vcmFormSetRefreshParams
+ , l3Base
+ , SysUtils
+ , vcmHistory
+ , Classes
+ , vcmEntityForm
+ , vcmBase
+ , vcmHistoryService
+ , vcmFormSetFactoryFacade
+ , vcmFormDataSourceList
+ , vcmZoneTypeList
+;
 
 procedure TvcmFormSetFactory.pm_SetOwnerForm(aValue: Integer);
 //#UC START# *508566D70343_47B97312006Dset_var*
@@ -541,6 +223,301 @@ begin
 //#UC END# *528B48E401F1_47B97312006Dget_impl*
 end;//TvcmFormSetFactory.pm_GetFormList
 
+function TvcmFormSetFactory.MakeFormSet(const aDataSource: IvcmFormSetDataSource;
+ const aContainer: IvcmContainer;
+ aSaveToHistory: Boolean;
+ aLockSetFocusToMainObjectForm: Boolean;
+ const aFormSetToClone: IvcmFormSet = nil): IvcmFormSet;
+ {* Создает сборку }
+//#UC START# *508569C001A9_47B97312006D_var*
+var
+ l_FormSet    : IvcmFormSet;
+ l_DataSource : IvcmFormSetDataSource;
+ l_Index: Integer;
+ l_Params: IvcmFormSetRefreshDataParams;
+//#UC END# *508569C001A9_47B97312006D_var*
+begin
+//#UC START# *508569C001A9_47B97312006D_impl*
+ l_FormSet := GetFormSetImplementation.Make(aContainer, Self);
+ try
+  Result := l_FormSet;
+  Assert(aDataSource <> nil);
+  if (aDataSource <> nil) then
+   l_DataSource := aDataSource
+  else
+  begin
+   Assert(false);
+   l_DataSource := TvcmFormSetDataSource.Make;
+  end;//aDataSource <> nil
+  // Если данные не изменились, то ничего не делаем. Например, открываем одну и
+  // ту же закладку, один и тот же документ по номеру и т.д.
+  if aSaveToHistory and not IsLikeFormSet(l_DataSource, aContainer) then
+   SaveHistory(aContainer, true);
+
+  l_DataSource.FormSet := l_FormSet;
+
+  // Сборка создается заново, поэтому нужно загрузить в нее список форм с флажками
+  l_FormSet.AssignFormList(FormList);
+   
+  l_Params := vcmMakeDataRefreshParams(sfsNone, nil, True, aFormSetToClone);
+  try
+   l_Params.LockSetFocusToMainObjectForm := aLockSetFocusToMainObjectForm;
+   Refresh(vcmMakeRefreshParams(l_Params, l_DataSource, l_FormSet, aFormSetToClone));
+  finally
+   l_Params := nil;
+  end;
+ finally
+  l_FormSet := nil;
+ end;//try..finally
+//#UC END# *508569C001A9_47B97312006D_impl*
+end;//TvcmFormSetFactory.MakeFormSet
+
+function TvcmFormSetFactory.FormSetItem(aItem: TvcmFormSetFormsCollectionItemPrim): TvcmFormSetFormsCollectionItem;
+//#UC START# *50856A350071_47B97312006D_var*
+//#UC END# *50856A350071_47B97312006D_var*
+begin
+//#UC START# *50856A350071_47B97312006D_impl*
+ Result := TvcmFormSetFormsCollectionItem(aItem);
+//#UC END# *50856A350071_47B97312006D_impl*
+end;//TvcmFormSetFactory.FormSetItem
+
+function TvcmFormSetFactory.IsOwnerItem(aItem: TvcmFormSetFormsCollectionItem): Boolean;
+ {* определяет описывать ли элемент форму-собственник сборки }
+//#UC START# *50856A5800E1_47B97312006D_var*
+//#UC END# *50856A5800E1_47B97312006D_var*
+begin
+//#UC START# *50856A5800E1_47B97312006D_impl*
+ Result := aItem = FormSetItem(Forms.Items[OwnerForm]);
+//#UC END# *50856A5800E1_47B97312006D_impl*
+end;//TvcmFormSetFactory.IsOwnerItem
+
+procedure TvcmFormSetFactory.SaveToHistoryClosedForm(const aHistory: IvcmHistory;
+ aItem: TvcmFormSetFormsCollectionItem;
+ aSubUserType: Integer = vcm_utAny);
+ {* сохранить закрытую форму в историю }
+//#UC START# *50856AA1034E_47B97312006D_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *50856AA1034E_47B97312006D_var*
+begin
+//#UC START# *50856AA1034E_47B97312006D_impl*
+ if (aHistory <> nil) then
+  l_History := aHistory
+ else
+  l_History := g_Dispatcher.History;
+ with aItem do
+  l_History.SaveClose(nil,
+                      FormId,
+                      UserType,
+                      ZoneType,
+                      aSubUserType);
+
+//#UC END# *50856AA1034E_47B97312006D_impl*
+end;//TvcmFormSetFactory.SaveToHistoryClosedForm
+
+function TvcmFormSetFactory.IsLikeFormSet(const aDataSource: IvcmFormSetDataSource;
+ const aContainer: IvcmContainer): Boolean;
+ {* определяет являются ли сборка и данные одними и теми же }
+//#UC START# *50856AE501F6_47B97312006D_var*
+var
+ l_Form: IvcmEntityForm;
+//#UC END# *50856AE501F6_47B97312006D_var*
+begin
+//#UC START# *50856AE501F6_47B97312006D_impl*
+ Result := False;
+ if OwnerForm <> -1 then
+ begin
+  with FormSetItem(f_Forms.Items[OwnerForm]) do
+   aContainer.HasForm(FormId,
+                      MakeZoneType,
+                      True,
+                      @l_Form,
+                      UserType);
+  try
+   if Assigned(l_Form) and Assigned(l_Form.DataSource) and
+     Assigned(l_Form.DataSource.UseCaseController) and Assigned(l_Form.FormSet) and
+     l_Form.FormSet.Factory.FormSetId.EQ(Self.ID) then
+    Result := l_Form.DataSource.UseCaseController.IsLikeUseCaseController(aDataSource);
+  finally
+   l_Form := nil;
+  end;//try..finally
+ end;//if OwnerForm <> -1 then
+//#UC END# *50856AE501F6_47B97312006D_impl*
+end;//TvcmFormSetFactory.IsLikeFormSet
+
+function TvcmFormSetFactory.IsFormSetExists(const aContainer: IvcmContainer;
+ out aFormSet: IvcmFormSet): Boolean;
+//#UC START# *50856C290117_47B97312006D_var*
+var
+ l_Form: IvcmEntityForm;
+//#UC END# *50856C290117_47B97312006D_var*
+begin
+//#UC START# *50856C290117_47B97312006D_impl*
+ Assert(OwnerForm >= 0, 'Не определена форма собственник.');
+ with FormSetItem(Forms.Items[OwnerForm]) do
+  Result := aContainer.HasForm(FormId, ZoneType, True, @l_Form, UserType) and
+   l_Form.FormSet.Factory.FormSetId.EQ(Self.ID);
+ if (l_Form = nil) then
+  aFormSet := nil
+ else 
+  aFormSet := l_Form.FormSet;
+//#UC END# *50856C290117_47B97312006D_impl*
+end;//TvcmFormSetFactory.IsFormSetExists
+
+constructor TvcmFormSetFactory.Create;
+//#UC START# *50856C81008E_47B97312006D_var*
+//#UC END# *50856C81008E_47B97312006D_var*
+begin
+//#UC START# *50856C81008E_47B97312006D_impl*
+ inherited;
+ f_Forms := TvcmFormSetFormsCollection.Create;
+ f_OwnerForm := -1;
+ f_DefaultStatusForm := -1;
+ f_MainCaption := nil;
+ f_MainImageIndex := -1;
+ f_Forms.FormList := FormList;
+//#UC END# *50856C81008E_47B97312006D_impl*
+end;//TvcmFormSetFactory.Create
+
+class function TvcmFormSetFactory.Id: TvcmFormSetID;
+//#UC START# *50856C9C00A5_47B97312006D_var*
+//#UC END# *50856C9C00A5_47B97312006D_var*
+begin
+//#UC START# *50856C9C00A5_47B97312006D_impl*
+ l3FillChar(Result, SizeOf(Result));
+ Result.rName := Copy(ClassName, 2, Length(ClassName) - 1);
+//#UC END# *50856C9C00A5_47B97312006D_impl*
+end;//TvcmFormSetFactory.Id
+
+class procedure TvcmFormSetFactory.Make(const aDataSource: IvcmFormSetDataSource;
+ const aContainer: IvcmContainer;
+ aSaveToHistory: Boolean = True;
+ aLockSetFocusToMainObjectForm: Boolean = False);
+//#UC START# *50856D0401EB_47B97312006D_var*
+var
+ l_FormSet: IvcmFormSet;
+//#UC END# *50856D0401EB_47B97312006D_var*
+begin
+//#UC START# *50856D0401EB_47B97312006D_impl*
+ Make(aDataSource, aContainer, l_FormSet, aSaveToHistory, aLockSetFocusToMainObjectForm);
+//#UC END# *50856D0401EB_47B97312006D_impl*
+end;//TvcmFormSetFactory.Make
+
+function TvcmFormSetFactory.AddZone(const aName: AnsiString;
+ aZoneType: TvcmZoneType;
+ const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart;
+//#UC START# *50857FD0030B_47B97312006D_var*
+//#UC END# *50857FD0030B_47B97312006D_var*
+begin
+//#UC START# *50857FD0030B_47B97312006D_impl*
+ Result := Forms.AddZone(aName, aZoneType, aFormDescriptor);
+//#UC END# *50857FD0030B_47B97312006D_impl*
+end;//TvcmFormSetFactory.AddZone
+
+function TvcmFormSetFactory.AddZone(const aName: AnsiString;
+ aZoneType: TvcmZoneType;
+ const aFormDescriptor: TvcmFormDescriptor;
+ aUserType: TvcmUserType;
+ aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
+//#UC START# *528B43DA0126_47B97312006D_var*
+//#UC END# *528B43DA0126_47B97312006D_var*
+begin
+//#UC START# *528B43DA0126_47B97312006D_impl*
+ Result := Forms.AddZone(aName, aZoneType, aFormDescriptor, aUserType, aNeedMakeDS);
+//#UC END# *528B43DA0126_47B97312006D_impl*
+end;//TvcmFormSetFactory.AddZone
+
+function TvcmFormSetFactory.GetFormSetImplementation: RvcmFormSet;
+ {* Возвращает класс реализации сборки }
+//#UC START# *52973E60005E_47B97312006D_var*
+//#UC END# *52973E60005E_47B97312006D_var*
+begin
+//#UC START# *52973E60005E_47B97312006D_impl*
+ Result := TvcmFormSet;
+//#UC END# *52973E60005E_47B97312006D_impl*
+end;//TvcmFormSetFactory.GetFormSetImplementation
+
+procedure TvcmFormSetFactory.InitForms(const aParams: IvcmFormSetRefreshParams);
+ {* Вызывается при создании сборки перед Refresh для инициализации нужных флажков на сборке. }
+//#UC START# *52EA619F02FA_47B97312006D_var*
+//#UC END# *52EA619F02FA_47B97312006D_var*
+begin
+//#UC START# *52EA619F02FA_47B97312006D_impl*
+ // инициализация флажков форм в наследниках
+//#UC END# *52EA619F02FA_47B97312006D_impl*
+end;//TvcmFormSetFactory.InitForms
+
+function TvcmFormSetFactory.DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
+//#UC START# *54B352A903E5_47B97312006D_var*
+//#UC END# *54B352A903E5_47B97312006D_var*
+begin
+//#UC START# *54B352A903E5_47B97312006D_impl*
+ Result := nil;
+//#UC END# *54B352A903E5_47B97312006D_impl*
+end;//TvcmFormSetFactory.DoMakeFormSetCaption
+
+function TvcmFormSetFactory.DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
+//#UC START# *54B352D401E5_47B97312006D_var*
+//#UC END# *54B352D401E5_47B97312006D_var*
+begin
+//#UC START# *54B352D401E5_47B97312006D_impl*
+ Result := nil;
+//#UC END# *54B352D401E5_47B97312006D_impl*
+end;//TvcmFormSetFactory.DoMakeFormSetTabCaption
+
+function TvcmFormSetFactory.DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString;
+//#UC START# *54B352FB03A1_47B97312006D_var*
+//#UC END# *54B352FB03A1_47B97312006D_var*
+begin
+//#UC START# *54B352FB03A1_47B97312006D_impl*
+ Result := nil;
+//#UC END# *54B352FB03A1_47B97312006D_impl*
+end;//TvcmFormSetFactory.DoMakeFormSetTabHint
+
+class procedure TvcmFormSetFactory.Make(const aDataSource: IvcmFormSetDataSource;
+ const aContainer: IvcmContainer;
+ out aFormSet: IvcmFormSet;
+ aSaveToHistory: Boolean = True;
+ aLockSetFocusToMainObjectForm: Boolean = False;
+ const aFormSetToClone: IvcmFormSet = nil);
+//#UC START# *55A4F6E1037D_47B97312006D_var*
+var
+ l_Factory : TvcmFormSetFactory;
+//#UC END# *55A4F6E1037D_47B97312006D_var*
+begin
+//#UC START# *55A4F6E1037D_47B97312006D_impl*
+ Assert((g_Dispatcher.History = nil) OR
+        not g_Dispatcher.History.InBF, 'Нельзя создавать сборки при навигации по истории');
+// Assert(not g_InMake, 'Нельзя создавать вложенные сборки');
+// g_InMake := true;
+ try
+  l_Factory := GetInstance As TvcmFormSetFactory;
+  aFormSet := l_Factory.MakeFormSet(aDataSource, aContainer, aSaveToHistory,
+   aLockSetFocusToMainObjectForm, aFormSetToClone);
+ finally
+//  g_InMake := false;
+ end;//try..finally
+//#UC END# *55A4F6E1037D_47B97312006D_impl*
+end;//TvcmFormSetFactory.Make
+
+function TvcmFormSetFactory.DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
+//#UC START# *55E00AAB006B_47B97312006D_var*
+//#UC END# *55E00AAB006B_47B97312006D_var*
+begin
+//#UC START# *55E00AAB006B_47B97312006D_impl*
+ Result := True;
+//#UC END# *55E00AAB006B_47B97312006D_impl*
+end;//TvcmFormSetFactory.DoGetCanCloneFormSet
+
+function TvcmFormSetFactory.DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
+//#UC START# *55E020470097_47B97312006D_var*
+//#UC END# *55E020470097_47B97312006D_var*
+begin
+//#UC START# *55E020470097_47B97312006D_impl*
+ Result := True;
+//#UC END# *55E020470097_47B97312006D_impl*
+end;//TvcmFormSetFactory.DoGetCanSaveFormSetToHistory
+
 function TvcmFormSetFactory.pm_GetFormSetId: PvcmFormSetID;
 //#UC START# *499570D3028C_47B97312006Dget_var*
 //#UC END# *499570D3028C_47B97312006Dget_var*
@@ -552,6 +529,9 @@ begin
 end;//TvcmFormSetFactory.pm_GetFormSetId
 
 procedure TvcmFormSetFactory.Refresh(const aParams: IvcmFormSetRefreshParams);
+ {* обновляет данные сборки.
+            aDataForHistory - данные aDataSource, которые необходимо сохранить
+                              в историю }
 //#UC START# *49957114002A_47B97312006D_var*
   procedure lp_SaveIfDataSourceChanged(const aItem        : TvcmFormSetFormsCollectionItem;
                                        const aForm        : IvcmEntityForm = nil;
@@ -1037,7 +1017,7 @@ begin
 end;//TvcmFormSetFactory.Refresh
 
 procedure TvcmFormSetFactory.SaveHistory(const aContainer: IvcmContainer;
-  aNeedSaveUseCaseData: Boolean);
+ aNeedSaveUseCaseData: Boolean);
 //#UC START# *499571240004_47B97312006D_var*
 var
  l_History: IvcmHistory;
@@ -1125,6 +1105,7 @@ begin
 end;//TvcmFormSetFactory.SaveHistory
 
 function TvcmFormSetFactory.IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
+ {* является ли форма главной в сборке }
 //#UC START# *4995712D0357_47B97312006D_var*
 //#UC END# *4995712D0357_47B97312006D_var*
 begin
@@ -1138,6 +1119,7 @@ begin
 end;//TvcmFormSetFactory.IsMainInFormSet
 
 function TvcmFormSetFactory.IsDefaultStatusForm(const aForm: IvcmEntityForm): Boolean;
+ {* является ли форма отвечающую за вывод статуса }
 //#UC START# *4995714803CC_47B97312006D_var*
 //#UC END# *4995714803CC_47B97312006D_var*
 begin
@@ -1213,7 +1195,7 @@ begin
 end;//TvcmFormSetFactory.MakeFormSetTabHint
 
 function TvcmFormSetFactory.CloneFormSet(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer): IvcmFormSet;
+ const aContainer: IvcmContainer): IvcmFormSet;
 //#UC START# *555B2A72000F_47B97312006D_var*
 //#UC END# *555B2A72000F_47B97312006D_var*
 begin
@@ -1250,6 +1232,7 @@ begin
 end;//TvcmFormSetFactory.CanSaveFormSetToHistory
 
 procedure TvcmFormSetFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47B97312006D_var*
 //#UC END# *479731C50290_47B97312006D_var*
 begin
@@ -1260,7 +1243,6 @@ begin
  inherited;
 //#UC END# *479731C50290_47B97312006D_impl*
 end;//TvcmFormSetFactory.Cleanup
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

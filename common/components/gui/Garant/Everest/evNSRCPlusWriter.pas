@@ -1,95 +1,77 @@
 unit evNSRCPlusWriter;
+ {* Писатель формата NSRC+. Для решения задачи [$91848978]. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evNSRCPlusWriter.pas"
-// Начат: 23.05.2008 18:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevNSRCPlusWriter
-//
-// Писатель формата NSRC+. Для решения задачи [$91848978].
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evNSRCPlusWriter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevNSRCPlusWriter" MUID: (4836CFF1028E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  evdTypes,
-  evCustomNSRCWriter,
-  k2Interfaces,
-  l3ProtoIntegerList,
-  l3Variant
-  ;
+ l3IntfUses
+ , evCustomNSRCWriter
+ , evdTypes
+ , l3Variant
+ , k2Interfaces
+ , l3ProtoIntegerList
+ , l3Interfaces
+;
 
 type
  TevFramePartIndexes = set of Tl3FramePartIndex;
 
  _DigitalSeparatorSupport_Parent_ = TevCustomNSRCWriter;
- {$Include ..\Everest\DigitalSeparatorSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
  _CellsCountStack_Parent_ = _DigitalSeparatorSupport_;
- {$Include ..\Everest\CellsCountStack.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\CellsCountStack.imp.pas}
  TevNSRCPlusWriter = class(_CellsCountStack_)
   {* Писатель формата NSRC+. Для решения задачи [$91848978]. }
- private
- // private fields
-   f_Frame : TevFramePartIndexes;
-   f_MergeStatus : TevMergeStatus;
-   f_CellWidth : Integer;
-   f_VerticalAlignment : TevVerticalAligment;
-   f_CellOpened : Boolean;
-    {* Ячейка была начата. Сбрасывается сразу после выливки рамки!}
- protected
- // overridden protected methods
+  private
+   f_Frame: TevFramePartIndexes;
+   f_MergeStatus: TevMergeStatus;
+   f_CellWidth: Integer;
+   f_VerticalAlignment: TevVerticalAligment;
+   f_CellOpened: Boolean;
+    {* Ячейка была начата. Сбрасывается сразу после выливки рамки! }
+  protected
+   procedure OutNewString(const aValue: AnsiString);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure StartChild(TypeID: Tl3Type); override;
    procedure StartTag(TagID: Integer); override;
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    procedure OutEOL; override;
-     {* Выводит конец строки. }
+    {* Выводит конец строки. }
    procedure CheckDigitalSeparatorAlignment; override;
-     {* Корректировка стиля на наличие выравнивания по разделителю. }
- protected
- // protected methods
-   procedure OutNewString(const aValue: AnsiString);
- public
- // public methods
+    {* Корректировка стиля на наличие выравнивания по разделителю. }
+  public
    function GetCellOpened: Boolean;
  end;//TevNSRCPlusWriter
 
 implementation
 
 uses
-  k2Base,
-  k2Tags,
-  SysUtils,
-  SBS_Const,
-  Table_Const,
-  TableRow_Const,
-  TableCell_Const,
-  evdFrame_Const,
-  TabStop_Const,
-  l3String
-  ;
+ l3ImplUses
+ , k2Base
+ , k2Tags
+ , SysUtils
+ , SBS_Const
+ , Table_Const
+ , TableRow_Const
+ , TableCell_Const
+ , evdFrame_Const
+ , TabStop_Const
+ , l3String
+;
 
-{$Include ..\Everest\DigitalSeparatorSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
 
-{$Include ..\Everest\CellsCountStack.imp.pas}
-
-// start class TevNSRCPlusWriter
+{$Include w:\common\components\gui\Garant\Everest\CellsCountStack.imp.pas}
 
 function TevNSRCPlusWriter.GetCellOpened: Boolean;
 //#UC START# *52BC39E70137_4836CFF1028E_var*
@@ -111,6 +93,7 @@ begin
 end;//TevNSRCPlusWriter.OutNewString
 
 procedure TevNSRCPlusWriter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4836CFF1028E_var*
 //#UC END# *479731C50290_4836CFF1028E_var*
 begin
@@ -208,6 +191,7 @@ begin
 end;//TevNSRCPlusWriter.StartTag
 
 procedure TevNSRCPlusWriter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4836CFF1028E_var*
 var
  CT : Tk2Type;
@@ -243,7 +227,7 @@ begin
 end;//TevNSRCPlusWriter.CloseStructure
 
 procedure TevNSRCPlusWriter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_4836CFF1028E_var*
 var
  CT : Tk2Type;
@@ -317,6 +301,7 @@ begin
 end;//TevNSRCPlusWriter.AddAtomEx
 
 procedure TevNSRCPlusWriter.OutEOL;
+ {* Выводит конец строки. }
 //#UC START# *483A6DE30208_4836CFF1028E_var*
 
  procedure OutFramePart(aPart: Tl3FramePartIndex);
@@ -353,6 +338,7 @@ begin
 end;//TevNSRCPlusWriter.OutEOL
 
 procedure TevNSRCPlusWriter.CheckDigitalSeparatorAlignment;
+ {* Корректировка стиля на наличие выравнивания по разделителю. }
 //#UC START# *4E3924CE03A3_4836CFF1028E_var*
 //#UC END# *4E3924CE03A3_4836CFF1028E_var*
 begin

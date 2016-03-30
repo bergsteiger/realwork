@@ -1,42 +1,34 @@
 {$IfNDef vcmChromeLikeTabCaptionProvider_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmChromeLikeTabCaptionProvider.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmChromeLikeTabCaptionProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmChromeLikeTabCaptionProvider" MUID: (53D89F52011D)
+// Имя типа: "_vcmChromeLikeTabCaptionProvider_"
 
 {$Define vcmChromeLikeTabCaptionProvider_imp}
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
- _vcmChromeLikeTabCaptionProvider_ = {mixin} class(_vcmChromeLikeTabCaptionProvider_Parent_, IvcmFormSetCaptionProvider)
- protected
- // realized methods
-   function pm_GetFormSetCaption: IvcmCString;
-   function pm_GetFormSetTabCaption: IvcmCString;
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ _vcmChromeLikeTabCaptionProvider_ = class(_vcmChromeLikeTabCaptionProvider_Parent_, IvcmFormSetCaptionProvider)
+  protected
    procedure UpdateTabCaption(const aCaption: IvcmCString);
    function DoGetFormSetCaption: IvcmCString; virtual;
    function DoGetFormSetTabCaption: IvcmCString; virtual;
+   function pm_GetFormSetCaption: IvcmCString;
+   function pm_GetFormSetTabCaption: IvcmCString;
  end;//_vcmChromeLikeTabCaptionProvider_
-{$Else}
 
- _vcmChromeLikeTabCaptionProvider_ = _vcmChromeLikeTabCaptionProvider_Parent_;
+{$Else NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+_vcmChromeLikeTabCaptionProvider_ = _vcmChromeLikeTabCaptionProvider_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 {$Else vcmChromeLikeTabCaptionProvider_imp}
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$IfNDef vcmChromeLikeTabCaptionProvider_imp_impl}
 
-// start class _vcmChromeLikeTabCaptionProvider_
+{$Define vcmChromeLikeTabCaptionProvider_imp_impl}
 
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 procedure _vcmChromeLikeTabCaptionProvider_.UpdateTabCaption(const aCaption: IvcmCString);
 //#UC START# *53D89F9A03D1_53D89F52011D_var*
 //#UC END# *53D89F9A03D1_53D89F52011D_var*
@@ -82,7 +74,9 @@ begin
  Result := DoGetFormSetTabCaption;
 //#UC END# *540585F303B3_53D89F52011Dget_impl*
 end;//_vcmChromeLikeTabCaptionProvider_.pm_GetFormSetTabCaption
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$EndIf vcmChromeLikeTabCaptionProvider_imp_impl}
 
 {$EndIf vcmChromeLikeTabCaptionProvider_imp}
+

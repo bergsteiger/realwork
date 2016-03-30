@@ -1,69 +1,55 @@
 unit nscSimpleEditor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis$Tails"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscSimpleEditor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Nemesis$Tails::Editors::TnscSimpleEditor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscSimpleEditor.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TnscSimpleEditor" MUID: (4CFF6CF60266)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
 uses
-  evCustomMemo,
-  Classes,
-  Messages,
-  nevBase,
-  evEditorWithOperations
-  ;
+ l3IntfUses
+ , evCustomMemo
+ , evEditorWithOperations
+ , Classes
+ , Messages
+ , nevBase
+ //#UC START# *4CFF6CF60266intf_uses*
+ //#UC END# *4CFF6CF60266intf_uses*
+;
 
 type
- TBreakingParaEvent = procedure (aSender: TObject;
+ TBreakingParaEvent = procedure(aSender: TObject;
   out aHandled: Boolean) of object;
 
-//#UC START# *4CFF6CF60266ci*
-//#UC END# *4CFF6CF60266ci*
-//#UC START# *4CFF6CF60266cit*
-//#UC END# *4CFF6CF60266cit*
+ //#UC START# *4CFF6CF60266ci*
+ //#UC END# *4CFF6CF60266ci*
+ //#UC START# *4CFF6CF60266cit*
+ //#UC END# *4CFF6CF60266cit*
  TnscSimpleEditor = class(TevCustomMemo)
- private
- // private fields
-   f_OnBreakingPara : TBreakingParaEvent;
-   f_DisableMouseWheelProcessing : Boolean;
-    {* Поле для свойства DisableMouseWheelProcessing}
- protected
- // property methods
+  private
+   f_OnBreakingPara: TBreakingParaEvent;
+   f_DisableMouseWheelProcessing: Boolean;
+  protected
    function pm_GetDisableMouseWheelProcessing: Boolean; virtual;
    procedure pm_SetDisableMouseWheelProcessing(aValue: Boolean); virtual;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    function AllowDrawDocumentEdge: Boolean; override;
    function DoBreakPara(aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
+    {* Какие операции публикуются компонентом. }
    function SelectWhenUnfocused: Boolean; override;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
- public
- // public properties
+  public
    property DisableMouseWheelProcessing: Boolean
-     read pm_GetDisableMouseWheelProcessing
-     write pm_SetDisableMouseWheelProcessing;
-//#UC START# *4CFF6CF60266publ*
+    read pm_GetDisableMouseWheelProcessing
+    write pm_SetDisableMouseWheelProcessing;
+ //#UC START# *4CFF6CF60266publ*
  published
   property Align;
   property TabOrder;
@@ -78,36 +64,28 @@ type
   property OnBreakingPara: TBreakingParaEvent read f_OnBreakingPara write f_OnBreakingPara;
   property AutoHideSelection default True;
   property AfterAdjustHeight;
-//#UC END# *4CFF6CF60266publ*
+ //#UC END# *4CFF6CF60266publ*
  end;//TnscSimpleEditor
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TnscSimpleEditor
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CFF6CF60266impl_uses*
+ //#UC END# *4CFF6CF60266impl_uses*
+;
 
 function TnscSimpleEditor.pm_GetDisableMouseWheelProcessing: Boolean;
 //#UC START# *530B25360303_4CFF6CF60266get_var*
@@ -142,7 +120,7 @@ begin
 //#UC END# *47D1602000C6_4CFF6CF60266_impl*
 end;//TnscSimpleEditor.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscSimpleEditor.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_4CFF6CF60266_var*
 
@@ -178,7 +156,7 @@ begin
   inherited;
 //#UC END# *47E136A80191_4CFF6CF60266_impl*
 end;//TnscSimpleEditor.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TnscSimpleEditor.AllowDrawDocumentEdge: Boolean;
 //#UC START# *482BFBEE00D5_4CFF6CF60266_var*
@@ -190,7 +168,7 @@ begin
 end;//TnscSimpleEditor.AllowDrawDocumentEdge
 
 function TnscSimpleEditor.DoBreakPara(aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *482BFCBF01F0_4CFF6CF60266_var*
 //#UC END# *482BFCBF01F0_4CFF6CF60266_var*
 begin
@@ -206,6 +184,7 @@ begin
 end;//TnscSimpleEditor.DoBreakPara
 
 function TnscSimpleEditor.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_4CFF6CF60266_var*
 //#UC END# *48735C4A03C3_4CFF6CF60266_var*
 begin
@@ -227,9 +206,9 @@ end;//TnscSimpleEditor.SelectWhenUnfocused
 //#UC END# *4CFF6CF60266impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TnscSimpleEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscSimpleEditor);
-{$IfEnd} //not NoScripts
+ {* Регистрация TnscSimpleEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

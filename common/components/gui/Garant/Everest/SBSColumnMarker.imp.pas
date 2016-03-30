@@ -1,41 +1,35 @@
 {$IfNDef SBSColumnMarker_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/SBSColumnMarker.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::SBSColumnMarker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "SBSColumnMarker" MUID: (4ED5C8320252)
+// Имя типа: "_SBSColumnMarker_"
 
 {$Define SBSColumnMarker_imp}
-{$If defined(evUseVisibleCursors)}
- _SBSColumnMarker_ = {mixin} class(_SBSColumnMarker_Parent_)
- protected
- // overridden protected methods
+
+{$If Defined(evUseVisibleCursors)}
+ _SBSColumnMarker_ = class(_SBSColumnMarker_Parent_)
+  protected
    procedure SetClientValue(aValue: Integer;
-     const aContext: InevOp); override;
+    const aContext: InevOp); override;
    function DoGetClientValue: Integer; override;
    function DoGetValue: Integer; override;
  end;//_SBSColumnMarker_
-{$Else}
 
- _SBSColumnMarker_ = _SBSColumnMarker_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_SBSColumnMarker_ = _SBSColumnMarker_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else SBSColumnMarker_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef SBSColumnMarker_imp_impl}
 
-// start class _SBSColumnMarker_
+{$Define SBSColumnMarker_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 procedure _SBSColumnMarker_.SetClientValue(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *4E3A3F0D0388_4ED5C8320252_var*
 var
  l_FI : TnevFormatInfoPrim;
@@ -89,7 +83,9 @@ begin
  end;//try..except
 //#UC END# *4ECF8E2C007D_4ED5C8320252_impl*
 end;//_SBSColumnMarker_.DoGetValue
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf SBSColumnMarker_imp_impl}
 
 {$EndIf SBSColumnMarker_imp}
+

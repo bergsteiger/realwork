@@ -1,39 +1,29 @@
 unit evMemo;
+ {* Мемо-поле. (С published свойствами) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMemo.pas"
-// Начат: 23.05.1997 09:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevMemo
-//
-// Мемо-поле. (С published свойствами)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMemo.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevMemo" MUID: (48454EBB0050)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomMemo
-  ;
+ l3IntfUses
+ , evCustomMemo
+ //#UC START# *48454EBB0050intf_uses*
+ //#UC END# *48454EBB0050intf_uses*
+;
 
 type
-//#UC START# *48454EBB0050ci*
-//#UC END# *48454EBB0050ci*
-//#UC START# *48454EBB0050cit*
-//#UC END# *48454EBB0050cit*
+ //#UC START# *48454EBB0050ci*
+ //#UC END# *48454EBB0050ci*
+ //#UC START# *48454EBB0050cit*
+ //#UC END# *48454EBB0050cit*
  TevMemo = class(TevCustomMemo)
   {* Мемо-поле. (С published свойствами) }
-//#UC START# *48454EBB0050publ*
+ //#UC START# *48454EBB0050publ*
     published
       property AutoSelect;
         {-}
@@ -127,28 +117,27 @@ type
       property OnMouseDown;
       property OnMouseMove;
       property OnMouseUp;
-//#UC END# *48454EBB0050publ*
+ //#UC END# *48454EBB0050publ*
  end;//TevMemo
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48454EBB0050impl_uses*
+ //#UC END# *48454EBB0050impl_uses*
+;
 
 //#UC START# *48454EBB0050impl*
 //#UC END# *48454EBB0050impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevMemo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevMemo);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevMemo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

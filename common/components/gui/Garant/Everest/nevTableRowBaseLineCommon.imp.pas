@@ -1,148 +1,39 @@
 {$IfNDef nevTableRowBaseLineCommon_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevTableRowBaseLineCommon.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevTableRowBaseLineCommon
-//
-// Общие методы для базовых линий
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevTableRowBaseLineCommon" MUID: (4DD77B7C0163)
+// Имя типа: "_nevTableRowBaseLineCommon_"
 
 {$Define nevTableRowBaseLineCommon_imp}
-{$If defined(evUseVisibleCursors)}
- {$Include ..\Everest\nevPrimPoint.imp.pas}
- _nevTableRowBaseLineCommon_ = {mixin} class(_nevPrimPoint_, InevPoint, InevBasePoint)
+
+{$If Defined(evUseVisibleCursors)}
+ {$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
+ _nevTableRowBaseLineCommon_ = class(_nevPrimPoint_, InevPoint, InevBasePoint)
   {* Общие методы для базовых линий }
- private
- // private fields
-   f_TopCellsWasInit : Boolean;
-    {* Флаг инициализации массивов точек для объединенных ячеек/}
-   f_HasMergedCell : Boolean;
-   f_Children : TnevBasePointList;
-    {* Массив точек для обычных ячеек.}
-   f_TopCells : TnevBasePointList;
-    {* Кешированные значения начал объединенных ячеек.}
-   f_HeadCells : TnevBasePointList;
-    {* Список точек объединенных ячеек, продолжающихся в текущей строке.}
- private
- // private methods
+  private
+   f_TopCellsWasInit: Boolean;
+    {* Флаг инициализации массивов точек для объединенных ячеек/ }
+   f_HasMergedCell: Boolean;
+   f_Children: TnevBasePointList;
+    {* Массив точек для обычных ячеек. }
+   f_TopCells: TnevBasePointList;
+    {* Кешированные значения начал объединенных ячеек. }
+   f_HeadCells: TnevBasePointList;
+    {* Список точек объединенных ячеек, продолжающихся в текущей строке. }
+  private
    function GetCurrentPostion(const aView: InevView;
-     aTableFI: TnevFormatInfoPrim;
-     const anObject: InevObject): InevBasePoint;
-     {* Инициализация точки для продолжения ячейки в f_HeadCellList }
- protected
- // realized methods
-   function Range: InevRange;
-   function pm_GetFormatting: InevDataFormatting;
-   function VertPosition(const aView: InevView;
-    aMap: TnevFormatInfoPrim): TnevParaIndex;
-   function NeedWindowsCaret: Boolean;
-   function ClonePoint(const aView: InevView): InevBasePoint;
-   function DeltaX(const aView: InevView;
-    const aMap: InevMap): Integer;
-   function pm_GetInner: InevBasePoint;
-   procedure pm_SetInner(const aValue: InevBasePoint);
-   function Get_Position: TnevPosition;
-   function InnerFor(const aChild: InevObject;
-    var aRealTop: InevBasePoint): InevBasePoint;
-   function pm_GetAfterEnd: Boolean;
-   function Get_AsLeaf: InevLeafPoint;
-   function Get_LinkedPoint: InevLinkedPoint;
-   function AtEnd(const aView: InevView): Boolean;
-   function AtStart: Boolean;
-   function pm_GetText: InevText;
-   function Get_HasInner: Boolean;
-   function Get_ShowCollapsed: Boolean;
-   procedure Set_ShowCollapsed(aValue: Boolean);
-   function Compare(const aPoint: InevBasePoint): Integer;
-   procedure CheckPos(const anOp: InevOp);
-     {* Избавляемся от рассинхронизации позиции курсора и дочернего параграфа. Заплатка конечно }
-   function ReadOnly: Boolean;
-   function AsPoint: InevBasePoint;
-   function AsCursor(const aView: InevView): InevPoint;
-   {$If defined(evNeedMarkers)}
-   function Get_MarkersSource: IevMarkersSource;
-   {$IfEnd} //evNeedMarkers
-   function ProcessMessage(const aView: InevControlView;
-    var aMessage: TMessage;
-    aTime: Cardinal): Boolean;
-   function Get_Listener: InevPointListener;
-   function GetBlockLength: Integer;
-   procedure MergeTo(const aView: InevView;
-    const aBaseLine: InevBasePoint);
-     {* Объединяем значения отрисованных частей. }
-   function InnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
-    aForDrawing: TnevInnerType): InevBasePoint;
-     {* Получаем первый параграф, по которому можно получить вложенную точку. }
-   function HasBaseLine: Boolean;
-     {* Проверяет есть ли возможность работы с базовой линией на точке }
-   procedure AddInner(const aView: InevView;
-    const anInner: InevBaseLine4Anchor;
-    anIndex: Integer;
-    var aFirst: Boolean;
-    aMode: TnevAddInnerMode);
-   procedure CompareWithOtherInner(const aView: InevView;
-    anMaxID: Integer = -1);
-     {* После применения AnchorByPoint могут остаться "неинициализированные" (будут указывать на начало ячейки) дочерние точки в базовой линии. }
-   function InnerHead(aPID: Integer): InevBasePoint;
-     {* Аналог InnerFor, но для частей объдеиненных ячеек, попадающих на данную строку (пока используется только для печати). }
-   function HasHeadPart: Boolean;
-     {* Строка содержит продолжение объединенных ячеек. }
-   procedure AddHeadInner(const aHeadInner: InevBasePoint);
-     {* Служит для добавления в базовую линию продолжений объединенных ячеек (используется только для печати). }
-   procedure CopyHeadParts(const aFrom: InevBasePoint);
-     {* Копирует только части продолжений ячеек, если они есть. }
-   procedure InitByCursor(const aView: InevView;
-    const anInnerPoint: InevBasePoint);
-     {* Инициализируем базовую линию по курсору. }
-   procedure InitBaseLineInner(const aView: InevView;
-    const anItem: InevPara);
-   function InnerTop(const aChild: InevObject): InevBasePoint;
-     {* Возвращает указатель на первоначальную позицию для точки. Для обычных точек - всегда nil. }
-   function pm_GetBeforeStart: Boolean;
- public
- // realized methods
-   procedure AssignPoint(const aView: InevView;
-    const aPoint: InevBasePoint);
-   procedure Bottom(const aView: InevView);
-   function IncLine(const aView: InevView;
-    var theLine: Integer;
-    aByLine: Boolean): Integer;
-     {* сдвигает якорь на указанное число строк. Возвращает количество параграфов на которое сдвинулся якорь. }
-   function Diff(const aView: InevView;
-     const aPoint: InevBasePoint;
-     aMap: TnevFormatInfoPrim): Integer;
-     {* сравнивает курсор с "якорем" по вертикали. }
-   procedure DisableListener;
-     {* Отключает нотификацию об изменении }
-   procedure EnableListener;
-     {* Включает нотификацию об изменении }
-   function PartiallyVisible(const aView: InevView;
-     const aPoint: InevBasePoint;
-     const aMap: TnevFormatInfoPrim): Boolean;
-     {* Определяет может ли точка "частично видимой" относительно другой точки (aPoint). Сделано для определения видимости начальной ячейки относительно якоря. }
-   procedure CorrectMoveRight(const aView: InevView;
-     const aPoint: InevBasePoint;
-     const anOp: InevOp);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+    aTableFI: TnevFormatInfoPrim;
+    const anObject: InevObject): InevBasePoint;
+    {* Инициализация точки для продолжения ячейки в f_HeadCellList }
+  protected
    procedure InitHeadCells(const aView: InevView);
-     {* Инициализирует точки с объединенными ячейками для текущей строки. }
+    {* Инициализирует точки с объединенными ячейками для текущей строки. }
    function SimpleMode: Boolean; virtual; abstract;
    function GetInner4SimpleMode: InevBasePoint; virtual; abstract;
    function IsAnchor: Boolean; virtual;
    function InternalClonePoint(const aView: InevView;
-     const aPoint: InevBasePoint): InevBasePoint;
+    const aPoint: InevBasePoint): InevBasePoint;
    procedure DoSetInner(const aValue: InevBasePoint); virtual;
    procedure DoBottom(const aView: InevView); virtual;
    function DoIncLine(const aView: InevView;
@@ -170,71 +61,119 @@
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; virtual; abstract;
    function CheckMaxID(aMaxID: Integer): InevBasePoint; virtual; abstract;
- public
- // public methods
+   function Range: InevRange;
+   function pm_GetFormatting: InevDataFormatting;
+   function VertPosition(const aView: InevView;
+    aMap: TnevFormatInfoPrim): TnevParaIndex;
+   function NeedWindowsCaret: Boolean;
+   function ClonePoint(const aView: InevView): InevBasePoint;
+   function DeltaX(const aView: InevView;
+    const aMap: InevMap): Integer;
+   function pm_GetInner: InevBasePoint;
+   procedure pm_SetInner(const aValue: InevBasePoint);
+   function Get_Position: TnevPosition;
+   function InnerFor(const aChild: InevObject;
+    var aRealTop: InevBasePoint): InevBasePoint;
+   function pm_GetAfterEnd: Boolean;
+   function Get_AsLeaf: InevLeafPoint;
+   function Get_LinkedPoint: InevLinkedPoint;
+   function AtEnd(const aView: InevView): Boolean;
+   function AtStart: Boolean;
+   function pm_GetText: InevText;
+   function Get_HasInner: Boolean;
+   function Get_ShowCollapsed: Boolean;
+   procedure Set_ShowCollapsed(aValue: Boolean);
+   function Compare(const aPoint: InevBasePoint): Integer;
+   procedure CheckPos(const anOp: InevOp);
+    {* Избавляемся от рассинхронизации позиции курсора и дочернего параграфа. Заплатка конечно }
+   function ReadOnly: Boolean;
+   function AsPoint: InevBasePoint;
+   function AsCursor(const aView: InevView): InevPoint;
+   {$If Defined(evNeedMarkers)}
+   function Get_MarkersSource: IevMarkersSource;
+   {$IfEnd} // Defined(evNeedMarkers)
+   function ProcessMessage(const aView: InevControlView;
+    var aMessage: TMessage;
+    aTime: Cardinal): Boolean;
+   function Get_Listener: InevPointListener;
+   function GetBlockLength: Integer;
+   procedure MergeTo(const aView: InevView;
+    const aBaseLine: InevBasePoint);
+    {* Объединяем значения отрисованных частей. }
+   function InnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
+    aForDrawing: TnevInnerType): InevBasePoint;
+    {* Получаем первый параграф, по которому можно получить вложенную точку. }
+   function HasBaseLine: Boolean;
+    {* Проверяет есть ли возможность работы с базовой линией на точке }
+   procedure AddInner(const aView: InevView;
+    const anInner: InevBaseLine4Anchor;
+    anIndex: Integer;
+    var aFirst: Boolean;
+    aMode: TnevAddInnerMode);
+   procedure CompareWithOtherInner(const aView: InevView;
+    anMaxID: Integer = -1);
+    {* После применения AnchorByPoint могут остаться "неинициализированные" (будут указывать на начало ячейки) дочерние точки в базовой линии. }
+   function InnerHead(aPID: Integer): InevBasePoint;
+    {* Аналог InnerFor, но для частей объдеиненных ячеек, попадающих на данную строку (пока используется только для печати). }
+   function HasHeadPart: Boolean;
+    {* Строка содержит продолжение объединенных ячеек. }
+   procedure AddHeadInner(const aHeadInner: InevBasePoint);
+    {* Служит для добавления в базовую линию продолжений объединенных ячеек (используется только для печати). }
+   procedure CopyHeadParts(const aFrom: InevBasePoint);
+    {* Копирует только части продолжений ячеек, если они есть. }
+   procedure InitByCursor(const aView: InevView;
+    const anInnerPoint: InevBasePoint);
+    {* Инициализируем базовую линию по курсору. }
+   procedure InitBaseLineInner(const aView: InevView;
+    const anItem: InevPara);
+   function InnerTop(const aChild: InevObject): InevBasePoint;
+    {* Возвращает указатель на первоначальную позицию для точки. Для обычных точек - всегда nil. }
+   function pm_GetBeforeStart: Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aRow: Tl3Variant); reintroduce; virtual;
+   procedure AssignPoint(const aView: InevView;
+    const aPoint: InevBasePoint);
+   procedure Bottom(const aView: InevView);
+   function IncLine(const aView: InevView;
+    var theLine: Integer;
+    aByLine: Boolean): Integer;
+    {* сдвигает якорь на указанное число строк. Возвращает количество параграфов на которое сдвинулся якорь. }
+   function Diff(const aView: InevView;
+    const aPoint: InevBasePoint;
+    aMap: TnevFormatInfoPrim): Integer;
+    {* сравнивает курсор с "якорем" по вертикали. }
+   procedure DisableListener;
+    {* Отключает нотификацию об изменении }
+   procedure EnableListener;
+    {* Включает нотификацию об изменении }
+   function PartiallyVisible(const aView: InevView;
+    const aPoint: InevBasePoint;
+    const aMap: TnevFormatInfoPrim): Boolean;
+    {* Определяет может ли точка "частично видимой" относительно другой точки (aPoint). Сделано для определения видимости начальной ячейки относительно якоря. }
+   procedure CorrectMoveRight(const aView: InevView;
+    const aPoint: InevBasePoint;
+    const anOp: InevOp);
  end;//_nevTableRowBaseLineCommon_
-{$Else}
 
- {$Include ..\Everest\nevPrimPoint.imp.pas}
- _nevTableRowBaseLineCommon_ = _nevPrimPoint_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+{$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
+_nevTableRowBaseLineCommon_ = _nevPrimPoint_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevTableRowBaseLineCommon_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevTableRowBaseLineCommon_imp_impl}
 
+{$Define nevTableRowBaseLineCommon_imp_impl}
 
-{$Include ..\Everest\nevPrimPoint.imp.pas}
-
-// start class _nevTableRowBaseLineCommon_
-
-function _nevTableRowBaseLineCommon_.GetCurrentPostion(const aView: InevView;
-  aTableFI: TnevFormatInfoPrim;
-  const anObject: InevObject): InevBasePoint;
-//#UC START# *4DDC92F301BC_4DD77B7C0163_var*
-var
- l_Delta     : Integer;
- l_RowPara   : InevParaList;
- l_TableCell : InevTableCell;
-
- procedure lp_GetIncDelta;
- begin
-  l_RowPara := l_TableCell.OwnerObj.AsPara.AsList;
-  l_Delta := aTableFI.InfoForChild(l_RowPara).MaxLinesCount + 1;
- end;
-
-//#UC END# *4DDC92F301BC_4DD77B7C0163_var*
-begin
-//#UC START# *4DDC92F301BC_4DD77B7C0163_impl*
- Result := nil;
- if evCheckSingleContinueCell(ParaX) then Exit;
- if TevMergeStatus(anObject.AsObject.IntA[k2_tiMergeStatus]) = ev_msContinue then
- begin
-  anObject.AsObject.QT(InevTableCell, l_TableCell);
-  l_TableCell := l_TableCell.GetMergeHead;
-  if l_TableCell = nil then Exit;
-  Result := l_TableCell.MakePoint;
-  Result.SetEntryPoint(1);
-  lp_GetIncDelta;
-  while not l_RowPara.AsObject.IsSame(ParaX.AsObject) do
-  begin
-   Result.IncLine(aView, l_Delta, True);
-   if l_Delta > 0 then
-   begin
-    Result := nil;
-    Break; // Не нашли...
-   end; // if l_Delta > 0 then
-   l_TableCell := l_TableCell.GetContinueCell(True, fc_Down);
-   if l_TableCell = nil then Break;
-   lp_GetIncDelta;
-  end; // while not l_RowAnchor.IsSame(Self.Target) do
- end; // if aPoint.AfterEnd and (TevMergeStatus(aPoint.IntA[k2_tiMergeStatus]) = ev_msContinue) then
-//#UC END# *4DDC92F301BC_4DD77B7C0163_impl*
-end;//_nevTableRowBaseLineCommon_.GetCurrentPostion
+{$If Defined(evUseVisibleCursors)}
+{$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
 
 procedure _nevTableRowBaseLineCommon_.InitHeadCells(const aView: InevView);
+ {* Инициализирует точки с объединенными ячейками для текущей строки. }
 //#UC START# *4DDC9289019A_4DD77B7C0163_var*
 var
  i       : Integer;
@@ -278,6 +217,51 @@ begin
 //#UC END# *4DDC9289019A_4DD77B7C0163_impl*
 end;//_nevTableRowBaseLineCommon_.InitHeadCells
 
+function _nevTableRowBaseLineCommon_.GetCurrentPostion(const aView: InevView;
+ aTableFI: TnevFormatInfoPrim;
+ const anObject: InevObject): InevBasePoint;
+ {* Инициализация точки для продолжения ячейки в f_HeadCellList }
+//#UC START# *4DDC92F301BC_4DD77B7C0163_var*
+var
+ l_Delta     : Integer;
+ l_RowPara   : InevParaList;
+ l_TableCell : InevTableCell;
+
+ procedure lp_GetIncDelta;
+ begin
+  l_RowPara := l_TableCell.OwnerObj.AsPara.AsList;
+  l_Delta := aTableFI.InfoForChild(l_RowPara).MaxLinesCount + 1;
+ end;
+
+//#UC END# *4DDC92F301BC_4DD77B7C0163_var*
+begin
+//#UC START# *4DDC92F301BC_4DD77B7C0163_impl*
+ Result := nil;
+ if evCheckSingleContinueCell(ParaX) then Exit;
+ if TevMergeStatus(anObject.AsObject.IntA[k2_tiMergeStatus]) = ev_msContinue then
+ begin
+  anObject.AsObject.QT(InevTableCell, l_TableCell);
+  l_TableCell := l_TableCell.GetMergeHead;
+  if l_TableCell = nil then Exit;
+  Result := l_TableCell.MakePoint;
+  Result.SetEntryPoint(1);
+  lp_GetIncDelta;
+  while not l_RowPara.AsObject.IsSame(ParaX.AsObject) do
+  begin
+   Result.IncLine(aView, l_Delta, True);
+   if l_Delta > 0 then
+   begin
+    Result := nil;
+    Break; // Не нашли...
+   end; // if l_Delta > 0 then
+   l_TableCell := l_TableCell.GetContinueCell(True, fc_Down);
+   if l_TableCell = nil then Break;
+   lp_GetIncDelta;
+  end; // while not l_RowAnchor.IsSame(Self.Target) do
+ end; // if aPoint.AfterEnd and (TevMergeStatus(aPoint.IntA[k2_tiMergeStatus]) = ev_msContinue) then
+//#UC END# *4DDC92F301BC_4DD77B7C0163_impl*
+end;//_nevTableRowBaseLineCommon_.GetCurrentPostion
+
 function _nevTableRowBaseLineCommon_.IsAnchor: Boolean;
 //#UC START# *533BC81B002F_4DD77B7C0163_var*
 //#UC END# *533BC81B002F_4DD77B7C0163_var*
@@ -288,7 +272,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.IsAnchor
 
 function _nevTableRowBaseLineCommon_.InternalClonePoint(const aView: InevView;
-  const aPoint: InevBasePoint): InevBasePoint;
+ const aPoint: InevBasePoint): InevBasePoint;
 //#UC START# *533BC8C20205_4DD77B7C0163_var*
 //#UC END# *533BC8C20205_4DD77B7C0163_var*
 begin
@@ -341,8 +325,8 @@ begin
 end;//_nevTableRowBaseLineCommon_.DoBottom
 
 function _nevTableRowBaseLineCommon_.DoIncLine(const aView: InevView;
-  var theLine: Integer;
-  aByLine: Boolean): Integer;
+ var theLine: Integer;
+ aByLine: Boolean): Integer;
 //#UC START# *4DD7980F03AA_4DD77B7C0163_var*
 //#UC END# *4DD7980F03AA_4DD77B7C0163_var*
 begin
@@ -354,7 +338,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.DoIncLine
 
 procedure _nevTableRowBaseLineCommon_.DoMergeTo(const aView: InevView;
-  const aBaseLine: InevBasePoint);
+ const aBaseLine: InevBasePoint);
 //#UC START# *4DD79C030322_4DD77B7C0163_var*
 //#UC END# *4DD79C030322_4DD77B7C0163_var*
 begin
@@ -373,10 +357,10 @@ begin
 end;//_nevTableRowBaseLineCommon_.DoInnerTop
 
 procedure _nevTableRowBaseLineCommon_.DoAddInner(const aView: InevView;
-  const anInner: InevBaseLine4Anchor;
-  anIndex: Integer;
-  var aFirst: Boolean;
-  aMode: TnevAddInnerMode);
+ const anInner: InevBaseLine4Anchor;
+ anIndex: Integer;
+ var aFirst: Boolean;
+ aMode: TnevAddInnerMode);
 //#UC START# *4DD79CEC0371_4DD77B7C0163_var*
 //#UC END# *4DD79CEC0371_4DD77B7C0163_var*
 begin
@@ -386,7 +370,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.DoAddInner
 
 procedure _nevTableRowBaseLineCommon_.DoCompareWithOtherInner(const aView: InevView;
-  anMaxID: Integer = -1);
+ anMaxID: Integer = -1);
 //#UC START# *4DD79DA50099_4DD77B7C0163_var*
 //#UC END# *4DD79DA50099_4DD77B7C0163_var*
 begin
@@ -396,7 +380,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.DoCompareWithOtherInner
 
 procedure _nevTableRowBaseLineCommon_.DoInitBaseLineInner(const aView: InevView;
-  const anItem: InevPara);
+ const anItem: InevPara);
 //#UC START# *4DD7A0490365_4DD77B7C0163_var*
 //#UC END# *4DD7A0490365_4DD77B7C0163_var*
 begin
@@ -406,7 +390,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.DoInitBaseLineInner
 
 procedure _nevTableRowBaseLineCommon_.DoInitByCursor(const aView: InevView;
-  const anInnerPoint: InevBasePoint);
+ const anInnerPoint: InevBasePoint);
 //#UC START# *4DD7A08200F7_4DD77B7C0163_var*
 //#UC END# *4DD7A08200F7_4DD77B7C0163_var*
 begin
@@ -473,7 +457,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.pm_GetFormatting
 
 function _nevTableRowBaseLineCommon_.VertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *47C5B65D0195_4DD77B7C0163_var*
 //#UC END# *47C5B65D0195_4DD77B7C0163_var*
 begin
@@ -504,7 +488,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.ClonePoint
 
 function _nevTableRowBaseLineCommon_.DeltaX(const aView: InevView;
-  const aMap: InevMap): Integer;
+ const aMap: InevMap): Integer;
 //#UC START# *47C5B6F202A0_4DD77B7C0163_var*
 //#UC END# *47C5B6F202A0_4DD77B7C0163_var*
 begin
@@ -543,7 +527,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.Get_Position
 
 procedure _nevTableRowBaseLineCommon_.AssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *47C5C25C022F_4DD77B7C0163_var*
 var
  i           : Integer;
@@ -596,8 +580,9 @@ begin
 end;//_nevTableRowBaseLineCommon_.Bottom
 
 function _nevTableRowBaseLineCommon_.IncLine(const aView: InevView;
-  var theLine: Integer;
-  aByLine: Boolean): Integer;
+ var theLine: Integer;
+ aByLine: Boolean): Integer;
+ {* сдвигает якорь на указанное число строк. Возвращает количество параграфов на которое сдвинулся якорь. }
 //#UC START# *47C5C2A40309_4DD77B7C0163_var*
 //#UC END# *47C5C2A40309_4DD77B7C0163_var*
 begin
@@ -607,7 +592,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.IncLine
 
 function _nevTableRowBaseLineCommon_.InnerFor(const aChild: InevObject;
-  var aRealTop: InevBasePoint): InevBasePoint;
+ var aRealTop: InevBasePoint): InevBasePoint;
 //#UC START# *47F5FDA303BC_4DD77B7C0163_var*
 var
  l_Index : Integer;
@@ -751,8 +736,9 @@ begin
 end;//_nevTableRowBaseLineCommon_.AtStart
 
 function _nevTableRowBaseLineCommon_.Diff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
+ {* сравнивает курсор с "якорем" по вертикали. }
 //#UC START# *49DF51870234_4DD77B7C0163_var*
 //#UC END# *49DF51870234_4DD77B7C0163_var*
 begin
@@ -772,6 +758,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.pm_GetText
 
 procedure _nevTableRowBaseLineCommon_.DisableListener;
+ {* Отключает нотификацию об изменении }
 //#UC START# *4A4C856300DF_4DD77B7C0163_var*
 //#UC END# *4A4C856300DF_4DD77B7C0163_var*
 begin
@@ -781,6 +768,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.DisableListener
 
 procedure _nevTableRowBaseLineCommon_.EnableListener;
+ {* Включает нотификацию об изменении }
 //#UC START# *4A4C8581014B_4DD77B7C0163_var*
 //#UC END# *4A4C8581014B_4DD77B7C0163_var*
 begin
@@ -827,6 +815,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.Compare
 
 procedure _nevTableRowBaseLineCommon_.CheckPos(const anOp: InevOp);
+ {* Избавляемся от рассинхронизации позиции курсора и дочернего параграфа. Заплатка конечно }
 //#UC START# *4A5B6D370262_4DD77B7C0163_var*
 //#UC END# *4A5B6D370262_4DD77B7C0163_var*
 begin
@@ -863,7 +852,7 @@ begin
 //#UC END# *4A5C750E01F7_4DD77B7C0163_impl*
 end;//_nevTableRowBaseLineCommon_.AsCursor
 
-{$If defined(evNeedMarkers)}
+{$If Defined(evNeedMarkers)}
 function _nevTableRowBaseLineCommon_.Get_MarkersSource: IevMarkersSource;
 //#UC START# *4A5C7D2F0079_4DD77B7C0163get_var*
 //#UC END# *4A5C7D2F0079_4DD77B7C0163get_var*
@@ -873,11 +862,11 @@ begin
  Assert(false);
 //#UC END# *4A5C7D2F0079_4DD77B7C0163get_impl*
 end;//_nevTableRowBaseLineCommon_.Get_MarkersSource
-{$IfEnd} //evNeedMarkers
+{$IfEnd} // Defined(evNeedMarkers)
 
 function _nevTableRowBaseLineCommon_.ProcessMessage(const aView: InevControlView;
-  var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ var aMessage: TMessage;
+ aTime: Cardinal): Boolean;
 //#UC START# *4A5C8A9D0324_4DD77B7C0163_var*
 //#UC END# *4A5C8A9D0324_4DD77B7C0163_var*
 begin
@@ -908,7 +897,8 @@ begin
 end;//_nevTableRowBaseLineCommon_.GetBlockLength
 
 procedure _nevTableRowBaseLineCommon_.MergeTo(const aView: InevView;
-  const aBaseLine: InevBasePoint);
+ const aBaseLine: InevBasePoint);
+ {* Объединяем значения отрисованных частей. }
 //#UC START# *4A810F81018E_4DD77B7C0163_var*
 //#UC END# *4A810F81018E_4DD77B7C0163_var*
 begin
@@ -918,7 +908,8 @@ begin
 end;//_nevTableRowBaseLineCommon_.MergeTo
 
 function _nevTableRowBaseLineCommon_.InnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
-  aForDrawing: TnevInnerType): InevBasePoint;
+ aForDrawing: TnevInnerType): InevBasePoint;
+ {* Получаем первый параграф, по которому можно получить вложенную точку. }
 //#UC START# *4AA76AE00147_4DD77B7C0163_var*
 var
  l_MaxID : Integer;
@@ -953,6 +944,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.InnerForChildThatNotAfterEnd
 
 function _nevTableRowBaseLineCommon_.HasBaseLine: Boolean;
+ {* Проверяет есть ли возможность работы с базовой линией на точке }
 //#UC START# *4AA76AF90174_4DD77B7C0163_var*
 //#UC END# *4AA76AF90174_4DD77B7C0163_var*
 begin
@@ -962,10 +954,10 @@ begin
 end;//_nevTableRowBaseLineCommon_.HasBaseLine
 
 procedure _nevTableRowBaseLineCommon_.AddInner(const aView: InevView;
-  const anInner: InevBaseLine4Anchor;
-  anIndex: Integer;
-  var aFirst: Boolean;
-  aMode: TnevAddInnerMode);
+ const anInner: InevBaseLine4Anchor;
+ anIndex: Integer;
+ var aFirst: Boolean;
+ aMode: TnevAddInnerMode);
 //#UC START# *4B90DA600047_4DD77B7C0163_var*
 //#UC END# *4B90DA600047_4DD77B7C0163_var*
 begin
@@ -975,7 +967,8 @@ begin
 end;//_nevTableRowBaseLineCommon_.AddInner
 
 procedure _nevTableRowBaseLineCommon_.CompareWithOtherInner(const aView: InevView;
-  anMaxID: Integer = -1);
+ anMaxID: Integer = -1);
+ {* После применения AnchorByPoint могут остаться "неинициализированные" (будут указывать на начало ячейки) дочерние точки в базовой линии. }
 //#UC START# *4B9623150178_4DD77B7C0163_var*
 //#UC END# *4B9623150178_4DD77B7C0163_var*
 begin
@@ -985,8 +978,9 @@ begin
 end;//_nevTableRowBaseLineCommon_.CompareWithOtherInner
 
 function _nevTableRowBaseLineCommon_.PartiallyVisible(const aView: InevView;
-  const aPoint: InevBasePoint;
-  const aMap: TnevFormatInfoPrim): Boolean;
+ const aPoint: InevBasePoint;
+ const aMap: TnevFormatInfoPrim): Boolean;
+ {* Определяет может ли точка "частично видимой" относительно другой точки (aPoint). Сделано для определения видимости начальной ячейки относительно якоря. }
 //#UC START# *4BBB0DDD026D_4DD77B7C0163_var*
 //#UC END# *4BBB0DDD026D_4DD77B7C0163_var*
 begin
@@ -997,6 +991,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.PartiallyVisible
 
 function _nevTableRowBaseLineCommon_.InnerHead(aPID: Integer): InevBasePoint;
+ {* Аналог InnerFor, но для частей объдеиненных ячеек, попадающих на данную строку (пока используется только для печати). }
 //#UC START# *4C456C8E027F_4DD77B7C0163_var*
 //#UC END# *4C456C8E027F_4DD77B7C0163_var*
 begin
@@ -1006,6 +1001,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.InnerHead
 
 function _nevTableRowBaseLineCommon_.HasHeadPart: Boolean;
+ {* Строка содержит продолжение объединенных ячеек. }
 //#UC START# *4C456CEA01DE_4DD77B7C0163_var*
 //#UC END# *4C456CEA01DE_4DD77B7C0163_var*
 begin
@@ -1015,6 +1011,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.HasHeadPart
 
 procedure _nevTableRowBaseLineCommon_.AddHeadInner(const aHeadInner: InevBasePoint);
+ {* Служит для добавления в базовую линию продолжений объединенных ячеек (используется только для печати). }
 //#UC START# *4C456D220317_4DD77B7C0163_var*
 //#UC END# *4C456D220317_4DD77B7C0163_var*
 begin
@@ -1024,6 +1021,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.AddHeadInner
 
 procedure _nevTableRowBaseLineCommon_.CopyHeadParts(const aFrom: InevBasePoint);
+ {* Копирует только части продолжений ячеек, если они есть. }
 //#UC START# *4C457D0502E1_4DD77B7C0163_var*
 //#UC END# *4C457D0502E1_4DD77B7C0163_var*
 begin
@@ -1033,7 +1031,8 @@ begin
 end;//_nevTableRowBaseLineCommon_.CopyHeadParts
 
 procedure _nevTableRowBaseLineCommon_.InitByCursor(const aView: InevView;
-  const anInnerPoint: InevBasePoint);
+ const anInnerPoint: InevBasePoint);
+ {* Инициализируем базовую линию по курсору. }
 //#UC START# *4C735E600112_4DD77B7C0163_var*
 //#UC END# *4C735E600112_4DD77B7C0163_var*
 begin
@@ -1043,7 +1042,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.InitByCursor
 
 procedure _nevTableRowBaseLineCommon_.InitBaseLineInner(const aView: InevView;
-  const anItem: InevPara);
+ const anItem: InevPara);
 //#UC START# *4D9C113C0320_4DD77B7C0163_var*
 //#UC END# *4D9C113C0320_4DD77B7C0163_var*
 begin
@@ -1053,6 +1052,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.InitBaseLineInner
 
 function _nevTableRowBaseLineCommon_.InnerTop(const aChild: InevObject): InevBasePoint;
+ {* Возвращает указатель на первоначальную позицию для точки. Для обычных точек - всегда nil. }
 //#UC START# *4DDCD59301D5_4DD77B7C0163_var*
 //#UC END# *4DDCD59301D5_4DD77B7C0163_var*
 begin
@@ -1074,8 +1074,8 @@ begin
 end;//_nevTableRowBaseLineCommon_.pm_GetBeforeStart
 
 procedure _nevTableRowBaseLineCommon_.CorrectMoveRight(const aView: InevView;
-  const aPoint: InevBasePoint;
-  const anOp: InevOp);
+ const aPoint: InevBasePoint;
+ const anOp: InevOp);
 //#UC START# *50DAA7010050_4DD77B7C0163_var*
 //#UC END# *50DAA7010050_4DD77B7C0163_var*
 begin
@@ -1085,6 +1085,7 @@ begin
 end;//_nevTableRowBaseLineCommon_.CorrectMoveRight
 
 procedure _nevTableRowBaseLineCommon_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DD77B7C0163_var*
 //#UC END# *479731C50290_4DD77B7C0163_var*
 begin
@@ -1097,7 +1098,9 @@ begin
  inherited;
 //#UC END# *479731C50290_4DD77B7C0163_impl*
 end;//_nevTableRowBaseLineCommon_.Cleanup
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevTableRowBaseLineCommon_imp_impl}
 
 {$EndIf nevTableRowBaseLineCommon_imp}
+

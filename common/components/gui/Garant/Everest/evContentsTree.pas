@@ -1,90 +1,69 @@
 unit evContentsTree;
+ {* Дерево оглавления. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evContentsTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevContentsTree
-//
-// Дерево оглавления.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsTree" MUID: (4DFEEEA000DA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Tree_TLB,
-  nevTools,
-  evInternalInterfaces,
-  l3Tree,
-  l3Variant,
-  l3PureMixIns,
-  l3IID,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , l3Tree
+ , nevTools
+ , evInternalInterfaces
+ , l3Tree_TLB
+ , l3Variant
+ , l3IID
+ , l3TreeInterfaces
+ , l3PureMixIns
+;
 
 type
  _l3Changing_Parent_ = Tl3Tree;
  {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  TevContentsTree = class(_l3Changing_, InevSubChangeListener)
   {* Дерево оглавления. }
- private
- // private fields
-   f_ContentsNodeFilter : InevContentsNodeFilter;
- private
- // private methods
+  private
+   f_ContentsNodeFilter: InevContentsNodeFilter;
+  private
    procedure CreateRootChild(aDocument: Tl3Variant);
- protected
- // realized methods
+  protected
    procedure SubChanged(aSub: Tl3Variant;
-     aChangeType: TevChangeType);
-     {* Саб добавлен/удален. }
- protected
- // overridden protected methods
+    aChangeType: TevChangeType);
+    {* Саб добавлен/удален. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
- public
- // overridden public methods
-   procedure DoNotify(aOperation: Integer;
-     const aNode: Il3SimpleNode); override;
- public
- // public methods
+  public
    constructor Create(aDocument: Tl3Variant); reintroduce; virtual;
    class function Make(aDocument: Tl3Variant): Il3Tree;
+   procedure DoNotify(aOperation: Integer;
+    const aNode: Il3SimpleNode); override;
  end;//TevContentsTree
 
 implementation
 
 uses
-  evContentsNodeFilter,
-  SysUtils,
-  l3Base,
-  l3Nodes,
-  l3Types,
-  evNode,
-  Block_Const,
-  l3Interfaces,
-  evContentsNodeFactory,
-  k2Prim
-  ;
+ l3ImplUses
+ , evContentsNodeFilter
+ , SysUtils
+ , l3Base
+ , l3Nodes
+ , l3Types
+ , evNode
+ , Block_Const
+ , l3Interfaces
+ , evContentsNodeFactory
+ , k2Prim
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
-
-// start class TevContentsTree
 
 procedure TevContentsTree.CreateRootChild(aDocument: Tl3Variant);
 //#UC START# *4EAE7B0803B7_4DFEEEA000DA_var*
@@ -131,7 +110,8 @@ begin
 end;//TevContentsTree.Make
 
 procedure TevContentsTree.SubChanged(aSub: Tl3Variant;
-  aChangeType: TevChangeType);
+ aChangeType: TevChangeType);
+ {* Саб добавлен/удален. }
 //#UC START# *48EDB20501DD_4DFEEEA000DA_var*
 
   function lp_InParaEX(anAtom  : Tl3Variant;
@@ -217,6 +197,7 @@ begin
 end;//TevContentsTree.SubChanged
 
 procedure TevContentsTree.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEEEA000DA_var*
 //#UC END# *479731C50290_4DFEEEA000DA_var*
 begin
@@ -227,7 +208,8 @@ begin
 end;//TevContentsTree.Cleanup
 
 function TevContentsTree.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4DFEEEA000DA_var*
 //#UC END# *4A60B23E00C3_4DFEEEA000DA_var*
 begin
@@ -243,7 +225,7 @@ begin
 end;//TevContentsTree.COMQueryInterface
 
 procedure TevContentsTree.DoNotify(aOperation: Integer;
-  const aNode: Il3SimpleNode);
+ const aNode: Il3SimpleNode);
 //#UC START# *5329A20B0356_4DFEEEA000DA_var*
 
  function lp_FindMode(const aNode: Il3Node): Boolean;

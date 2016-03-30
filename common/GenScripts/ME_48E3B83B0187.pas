@@ -26,7 +26,7 @@ type
     {* сохраняет выделение в G }
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
@@ -111,7 +111,7 @@ end;//TevMultiSelectionBlock.DoStore
 
 procedure TevMultiSelectionBlock.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48E3B83B0187_var*
 var

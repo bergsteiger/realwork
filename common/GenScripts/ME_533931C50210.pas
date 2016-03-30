@@ -19,6 +19,8 @@ uses
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
  , Classes
+ //#UC START# *533931C50210intf_uses*
+ //#UC END# *533931C50210intf_uses*
 ;
 
 type
@@ -137,6 +139,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533931C50210impl_uses*
+ //#UC END# *533931C50210impl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}

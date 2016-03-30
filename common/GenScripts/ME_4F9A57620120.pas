@@ -15,9 +15,10 @@
   {* Базовые интерфейсы и методы, которыми обладает каждый компонент проекта Немезис. }
   private
    f_Settings: IvcmSettings;
-    {* Поле для свойства Settings }
+    {* базовый идентификатор настройки. Используется как первая часть пути
+           для идентификаторов настроек }
    f_BaseId: AnsiString;
-    {* Поле для свойства BaseId }
+    {* интерфейс для записи/чтения настроек }
   protected
    function CheckSettings: Boolean; virtual;
    procedure LoadSettings; virtual;

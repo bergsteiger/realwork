@@ -1,68 +1,50 @@
 unit evTableRowCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableRowCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevTableRowCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableRowCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableRowCursor" MUID: (4ED4C5640359)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursor,
-  evColumnBorderMarker,
-  nevTools,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursor
+ , evColumnBorderMarker
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevTableRowCursor = class(TevParaListCursor)
- protected
- // overridden protected methods
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+  protected
+   function GetColumnMarkerClass: RevColumnMarkerClass; virtual;
+   {$If Defined(evNeedMarkers)}
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+   {$IfEnd} // Defined(evNeedMarkers)
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; override;
    function DoPartiallyVisible(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Boolean; override;
- protected
- // protected methods
-   function GetColumnMarkerClass: RevColumnMarkerClass; virtual;
  end;//TevTableRowCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevInterfaces,
-  l3Base,
-  evdTypes,
-  k2Tags,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableRowCursor
+ l3ImplUses
+ , nevInterfaces
+ , l3Base
+ , evdTypes
+ , k2Tags
+ , l3Variant
+;
 
 function TevTableRowCursor.GetColumnMarkerClass: RevColumnMarkerClass;
 //#UC START# *4ED4C5C40177_4ED4C5640359_var*
@@ -73,9 +55,9 @@ begin
 //#UC END# *4ED4C5C40177_4ED4C5640359_impl*
 end;//TevTableRowCursor.GetColumnMarkerClass
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevTableRowCursor.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_4ED4C5640359_var*
 
  function AddMarker(aCell: Tl3Variant; Index: Integer): Boolean; far;
@@ -100,11 +82,11 @@ begin
  GetRedirect.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@AddMarker));
 //#UC END# *4A38AA5C019F_4ED4C5640359_impl*
 end;//TevTableRowCursor.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
 function TevTableRowCursor.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4AA785540310_4ED4C5640359_var*
 var
  l_Inn     : InevBasePoint;
@@ -150,8 +132,8 @@ begin
 end;//TevTableRowCursor.DoDiff
 
 function TevTableRowCursor.DoPartiallyVisible(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Boolean;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Boolean;
 //#UC START# *4BBB10FB015B_4ED4C5640359_var*
 var
  l_Cell    : InevTableCell;
@@ -185,7 +167,6 @@ begin
  end; // if aPoint.HasBaseLine and HasInner then
 //#UC END# *4BBB10FB015B_4ED4C5640359_impl*
 end;//TevTableRowCursor.DoPartiallyVisible
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

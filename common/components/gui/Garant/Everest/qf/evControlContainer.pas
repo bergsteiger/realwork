@@ -1,160 +1,52 @@
 unit evControlContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$Extensions"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evControlContainer.pas"
-// Начат: 04.03.2008 22:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest$Extensions::QueryCardControlContainers::TevControlContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlContainer" MUID: (47CFEE9E02E1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  Messages,
-  nevTools,
-  evQueryCardInt,
-  evCustomControlTool,
-  evQueryGroupList,
-  l3CProtoObject,
-  l3Variant,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evCustomControlTool
+ , nevTools
+ , evQueryCardInt
+ , evQueryGroupList
+ , nevBase
+ , l3Variant
+ , Messages
+ , l3Interfaces
+;
 
 type
  TevControlContainer = class(TevCustomControlTool, InevControlListener, IevQueryCard)
- private
- // private fields
-   f_InsertRowMode : Boolean;
-    {* Флаг режима вставки новой строки реквизита.}
-   f_PasteOperation : Boolean;
-    {* Была начата операция вставки.}
-   f_LimitErrorControl : IevEditorControl;
-    {* Была ошибка о превышении количества символов.}
-   f_GroupList : TevQueryGroupList;
-    {* Список групп, входящих в КЗ (IevQueryGroup).}
-   f_QueryContainer : InevQueryDocumentContainer;
-    {* Указатель на контейнер.}
-   f_AdapterModel : Pointer;
+  private
+   f_InsertRowMode: Boolean;
+    {* Флаг режима вставки новой строки реквизита. }
+   f_PasteOperation: Boolean;
+    {* Была начата операция вставки. }
+   f_LimitErrorControl: IevEditorControl;
+    {* Была ошибка о превышении количества символов. }
+   f_GroupList: TevQueryGroupList;
+    {* Список групп, входящих в КЗ (IevQueryGroup). }
+   f_QueryContainer: InevQueryDocumentContainer;
+    {* Указатель на контейнер. }
+   f_AdapterModel: Pointer;
     {* //IevAdapterModel
-Ссылка на внешнюю модель.}
-   f_UpperButtons : IevCustomEditorControl;
-    {* Кнопки с состоянием Flat.}
-   f_StartFocusControl : IevEditorControl;
-    {* Виджет для получения курсора после его создания.}
- protected
- // realized methods
-   function CanInsertPara: Boolean;
-     {* Разрешено ли вставлять параграф. }
-   procedure InsertOnUndo(aPrev: Tl3Variant;
-     aChild: Tl3Variant;
-     anAdd: Boolean);
-     {* Реакция на вставку при откатке. }
-   procedure DeleteOnUndo(aTag: Tl3Variant);
-     {* Реакция удаления при откатке. }
-   procedure HideDroppedControl(CanSetFocus: Boolean);
-     {* Обработчик изменения события состояния редактора (нужно для выпадающего контрола). }
-   function MouseWheel(aDown: Boolean): Boolean;
-     {* Событие прокрутки мыши. }
-   function KeyDown(const aView: InevView;
-     var Msg: TWMKeyDown;
-     aCurPara: Tl3Variant): Boolean;
-     {* Посылка сообщений о нажатии клавиш. }
-   procedure ChangePara(const aCurPara: InevPara);
-     {* Событие смена текуего параграфа. }
-   procedure BeforeRMouseClick;
-     {* Событие, вызываемое перед обработкой мыши. }
-   procedure ClearUpper;
-   function NeedKey(aPara: Tl3Variant;
-     var aKeyCode: Word): Boolean;
-     {* Контрол/Поле перехватывает курсор. }
-   procedure CursorCreate;
-     {* Обновить курсор после создания. }
-   procedure UpdateState;
-   function IsLastField(aPara: Tl3Variant): Boolean;
-     {* Проверяет является ли параграф последним для передачи фокуса. }
-   function IsFirstField(aPara: Tl3Variant): Boolean;
-     {* Проверяет является ли параграф первым для передачи фокуса. }
-   procedure StartPaste;
-     {* Скобки для операции вставки. }
-   procedure FinishPaste;
-     {* Скобки для операции вставки. }
-   function IsPasting: Boolean;
-     {* Внутри скобок для операции вставки. }
-   function GetFirstPara(OnlyFields: Boolean): InevPara;
-     {* Получить первый параграф, в который может получить фокус. }
-   function GetLastPara(OnlyFields: Boolean): InevPara;
-     {* Получить последний параграф, в который может получить фокус. }
-   procedure SetCurrPara(const aCurPara: InevPara);
-   function GetDocumentContainer: InevQueryDocumentContainer;
-     {* Получить контейнер документа. }
-   procedure RememberFocusControl(const aValue: IevEditorControl);
-     {* Запомнить контрол для установки фокуса. }
-   procedure BeforeDelete;
-     {* Вызывается перед удалением поля. }
-   procedure UpperChange(const aButton: IevCustomEditorControl);
-     {* Вызывается после установки Upper у кнопки в True. }
-   function GetNode(anIndex: Integer): InevSimpleNode;
-     {* Возвращает узел по номеру. }
-   procedure CardClear;
-     {* Обработчик очистки КЗ. }
-   procedure StartLongOperation;
-     {* Скобки для блокировки перерисовок в редакторе. }
-   procedure EndLongOperation;
-     {* Скобки для блокировки перерисовок в редакторе. }
-   procedure ChangeStateAll(anExpand: Boolean);
-     {* Выставляет признак развернутости/свернутости всем группам. }
-   procedure AfterCollapsed(const aGroup: IevQueryGroup);
-   procedure LimitCharsReached(const aControl: IevEditorControl);
-     {* Обработчик достижения максимального числа символов в параграфе. }
-   procedure RememberState(const aControl: IevCustomEditorControl);
-     {* Запомнить состояние для контекстного меню. }
-   function GetStateControl: IevCustomEditorControl;
-     {* Возвращает контрол, который был активным при вызове контекстного меню. }
-   function GetFocusedControl(aCurPara: Tl3Variant): IevEditorControl;
-     {* Возвращает контрол, имеющий фокус ввода. }
-   procedure LinkView(const aQueryContainer: InevQueryDocumentContainer);
-     {* Инициализации модели. }
-   procedure LinkListener(const aListener: IevAdapterModel);
-     {* Подключить объект из внешней модели. }
-   function AdapterModel: IevAdapterModel;
-   procedure ReleaseListeners;
-     {* Отключить объект из внешней модели. }
-   function FindDescriptionReq(const aReqName: Tl3WString): IevDescriptionReq;
-     {* Получение реквизита по имени. }
-   procedure StartSetFocus;
-     {* Возвращает первое доступное для редактирования поле в контроле. }
-   function Get_QueryGroup(anIndex: Integer): IevQueryGroup;
-   function Get_GroupCount: Integer;
-   function pm_GetEditor: InevControl;
-   function Get_InsertRowMode: Boolean;
-   procedure Set_InsertRowMode(aValue: Boolean);
-   function pm_GetCardType: TevQueryType;
-   function GetControlIterator(const aCurrentControl: IevCustomEditorControl): IevControlIterator;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_CurrPara : InevPara;
+Ссылка на внешнюю модель. }
+   f_UpperButtons: IevCustomEditorControl;
+    {* Кнопки с состоянием Flat. }
+   f_StartFocusControl: IevEditorControl;
+    {* Виджет для получения курсора после его создания. }
+  protected
+   f_CurrPara: InevPara;
     {* Параграф виджета, который имеет фокус.
-         f_CurrPara используется исключительно для "истории" переходов.}
-   f_StateControl : IevCustomEditorControl;
-    {* Виджет, по которому определяем состояния меню.}
- protected
- // protected methods
+         f_CurrPara используется исключительно для "истории" переходов. }
+   f_StateControl: IevCustomEditorControl;
+    {* Виджет, по которому определяем состояния меню. }
+  protected
    procedure DoHideDroppedControl(CanSetFocus: Boolean); virtual; abstract;
    function DoMouseWheel(aDown: Boolean): Boolean; virtual; abstract;
    function GetFirstVisible(const aGroup: IevQueryGroup;
@@ -170,20 +62,108 @@ type
    function GetNextReq(const aReq: IevReq;
     anExpandedOnly: Boolean;
     out aFirstReq: Boolean): IevReq;
-     {* Возвращает следующий реквизит или nil, если такого нет. }
+    {* Возвращает следующий реквизит или nil, если такого нет. }
    function GetPrevReq(const aReq: IevReq;
     anExpandedOnly: Boolean;
     out aLastReq: Boolean): IevReq;
-     {* Возвращает предыдущий реквизит. }
+    {* Возвращает предыдущий реквизит. }
    function DoGetNode(anIndex: Integer): InevSimpleNode; virtual;
    procedure DoDeleteOnUndo(aTag: Tl3Tag); virtual;
    procedure DoChangePara(const aCurPara: InevPara); virtual;
    function DoKeyDown(const aView: InevView;
     var Msg: TWMKeyDown;
     aCurPara: Tl3Tag): Boolean; virtual;
-     {* Посылка сообщений о нажатии клавиш. }
- public
- // public methods
+    {* Посылка сообщений о нажатии клавиш. }
+   function CanInsertPara: Boolean;
+    {* Разрешено ли вставлять параграф. }
+   procedure InsertOnUndo(aPrev: Tl3Variant;
+    aChild: Tl3Variant;
+    anAdd: Boolean);
+    {* Реакция на вставку при откатке. }
+   procedure DeleteOnUndo(aTag: Tl3Variant);
+    {* Реакция удаления при откатке. }
+   procedure HideDroppedControl(CanSetFocus: Boolean);
+    {* Обработчик изменения события состояния редактора (нужно для выпадающего контрола). }
+   function MouseWheel(aDown: Boolean): Boolean;
+    {* Событие прокрутки мыши. }
+   function KeyDown(const aView: InevView;
+    var Msg: TWMKeyDown;
+    aCurPara: Tl3Variant): Boolean;
+    {* Посылка сообщений о нажатии клавиш. }
+   procedure ChangePara(const aCurPara: InevPara);
+    {* Событие смена текуего параграфа. }
+   procedure BeforeRMouseClick;
+    {* Событие, вызываемое перед обработкой мыши. }
+   procedure ClearUpper;
+   function NeedKey(aPara: Tl3Variant;
+    var aKeyCode: Word): Boolean;
+    {* Контрол/Поле перехватывает курсор. }
+   procedure CursorCreate;
+    {* Обновить курсор после создания. }
+   procedure UpdateState;
+   function IsLastField(aPara: Tl3Variant): Boolean;
+    {* Проверяет является ли параграф последним для передачи фокуса. }
+   function IsFirstField(aPara: Tl3Variant): Boolean;
+    {* Проверяет является ли параграф первым для передачи фокуса. }
+   procedure StartPaste;
+    {* Скобки для операции вставки. }
+   procedure FinishPaste;
+    {* Скобки для операции вставки. }
+   function IsPasting: Boolean;
+    {* Внутри скобок для операции вставки. }
+   function GetFirstPara(OnlyFields: Boolean): InevPara;
+    {* Получить первый параграф, в который может получить фокус. }
+   function GetLastPara(OnlyFields: Boolean): InevPara;
+    {* Получить последний параграф, в который может получить фокус. }
+   procedure SetCurrPara(const aCurPara: InevPara);
+   function GetDocumentContainer: InevQueryDocumentContainer;
+    {* Получить контейнер документа. }
+   procedure RememberFocusControl(const aValue: IevEditorControl);
+    {* Запомнить контрол для установки фокуса. }
+   procedure BeforeDelete;
+    {* Вызывается перед удалением поля. }
+   procedure UpperChange(const aButton: IevCustomEditorControl);
+    {* Вызывается после установки Upper у кнопки в True. }
+   function GetNode(anIndex: Integer): InevSimpleNode;
+    {* Возвращает узел по номеру. }
+   procedure CardClear;
+    {* Обработчик очистки КЗ. }
+   procedure StartLongOperation;
+    {* Скобки для блокировки перерисовок в редакторе. }
+   procedure EndLongOperation;
+    {* Скобки для блокировки перерисовок в редакторе. }
+   procedure ChangeStateAll(anExpand: Boolean);
+    {* Выставляет признак развернутости/свернутости всем группам. }
+   procedure AfterCollapsed(const aGroup: IevQueryGroup);
+   procedure LimitCharsReached(const aControl: IevEditorControl);
+    {* Обработчик достижения максимального числа символов в параграфе. }
+   procedure RememberState(const aControl: IevCustomEditorControl);
+    {* Запомнить состояние для контекстного меню. }
+   function GetStateControl: IevCustomEditorControl;
+    {* Возвращает контрол, который был активным при вызове контекстного меню. }
+   function GetFocusedControl(aCurPara: Tl3Variant): IevEditorControl;
+    {* Возвращает контрол, имеющий фокус ввода. }
+   procedure LinkView(const aQueryContainer: InevQueryDocumentContainer);
+    {* Инициализации модели. }
+   procedure LinkListener(const aListener: IevAdapterModel);
+    {* Подключить объект из внешней модели. }
+   function AdapterModel: IevAdapterModel;
+   procedure ReleaseListeners;
+    {* Отключить объект из внешней модели. }
+   function FindDescriptionReq(const aReqName: Tl3WString): IevDescriptionReq;
+    {* Получение реквизита по имени. }
+   procedure StartSetFocus;
+    {* Возвращает первое доступное для редактирования поле в контроле. }
+   function Get_QueryGroup(anIndex: Integer): IevQueryGroup;
+   function Get_GroupCount: Integer;
+   function pm_GetEditor: InevControl;
+   function Get_InsertRowMode: Boolean;
+   procedure Set_InsertRowMode(aValue: Boolean);
+   function pm_GetCardType: TevQueryType;
+   function GetControlIterator(const aCurrentControl: IevCustomEditorControl): IevControlIterator;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    class function Make: IevQueryCard; reintroduce;
    constructor Create; reintroduce; virtual;
  end;//TevControlContainer
@@ -191,53 +171,48 @@ type
 implementation
 
 uses
-  evControlGroup,
-  k2Tags,
-  evControlParaTools,
-  evControlParaConst,
-  SysUtils,
-  evdTypes,
-  l3Base,
-  Windows,
-  evQueryCardConst,
-  nevFacade,
-  ControlPara_Const,
-  ControlsBlock_Const
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , k2Tags
+ , evControlParaTools
+ , evControlParaConst
+ , SysUtils
+ , evdTypes
+ , l3Base
+ , Windows
+ , evQueryCardConst
+ , nevFacade
+ , ControlPara_Const
+ , ControlsBlock_Const
+ , evControlGroup
+;
 
 type
-  TevControlIterator = class(Tl3CProtoObject, IevControlIterator)
+ TevControlIterator = class(Tl3CProtoObject, IevControlIterator)
   private
-  // private fields
-   f_CurrentControl : IevCustomEditorControl;
-    {* Текущий контрол. Используется при итерации по контролам.}
-   f_QueryCard : TevControlContainer;
+   f_CurrentControl: IevCustomEditorControl;
+    {* Текущий контрол. Используется при итерации по контролам. }
+   f_QueryCard: TevControlContainer;
   protected
-  // realized methods
    function GetNextVisible(OnlyFields: Boolean): IevCustomEditorControl;
-     {* Возвращает следующий видимый контрол или nil, если такого нет. }
+    {* Возвращает следующий видимый контрол или nil, если такого нет. }
    function GetPrevVisible(OnlyFields: Boolean): IevCustomEditorControl;
-     {* Возвращает предыдущий видимый контрол или nil, если такого нет. }
-  protected
-  // overridden protected methods
+    {* Возвращает предыдущий видимый контрол или nil, если такого нет. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
   public
-  // public methods
    class function Make(const aControl: IevCustomEditorControl;
-     aQueryCard: TevControlContainer): IevControlIterator; reintroduce;
+    aQueryCard: TevControlContainer): IevControlIterator; reintroduce;
    constructor Create(const aControl: IevCustomEditorControl;
-     aQueryCard: TevControlContainer); reintroduce;
-  end;//TevControlIterator
-
-// start class TevControlIterator
+    aQueryCard: TevControlContainer); reintroduce;
+ end;//TevControlIterator
 
 class function TevControlIterator.Make(const aControl: IevCustomEditorControl;
-  aQueryCard: TevControlContainer): IevControlIterator;
+ aQueryCard: TevControlContainer): IevControlIterator;
 var
  l_Inst : TevControlIterator;
 begin
@@ -247,10 +222,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevControlIterator.Make
 
 constructor TevControlIterator.Create(const aControl: IevCustomEditorControl;
-  aQueryCard: TevControlContainer);
+ aQueryCard: TevControlContainer);
 //#UC START# *48B7FB0A0266_48B7FA9403B1_var*
 //#UC END# *48B7FB0A0266_48B7FA9403B1_var*
 begin
@@ -262,6 +237,7 @@ begin
 end;//TevControlIterator.Create
 
 function TevControlIterator.GetNextVisible(OnlyFields: Boolean): IevCustomEditorControl;
+ {* Возвращает следующий видимый контрол или nil, если такого нет. }
 //#UC START# *47CD77A200FE_48B7FA9403B1_var*
 var
  l_EditorControl : IevEditorControl;
@@ -286,6 +262,7 @@ begin
 end;//TevControlIterator.GetNextVisible
 
 function TevControlIterator.GetPrevVisible(OnlyFields: Boolean): IevCustomEditorControl;
+ {* Возвращает предыдущий видимый контрол или nil, если такого нет. }
 //#UC START# *47CD77B1038D_48B7FA9403B1_var*
 var
  l_EditorControl : IevEditorControl;
@@ -310,6 +287,7 @@ begin
 end;//TevControlIterator.GetPrevVisible
 
 procedure TevControlIterator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48B7FA9403B1_var*
 //#UC END# *479731C50290_48B7FA9403B1_var*
 begin
@@ -320,8 +298,9 @@ begin
 //#UC END# *479731C50290_48B7FA9403B1_impl*
 end;//TevControlIterator.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TevControlIterator.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_48B7FA9403B1_var*
 //#UC END# *47A6FEE600FC_48B7FA9403B1_var*
 begin
@@ -329,7 +308,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_48B7FA9403B1_impl*
 end;//TevControlIterator.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 class function TevControlContainer.Make: IevQueryCard;
 var
@@ -341,7 +320,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevControlContainer.Make
 
 constructor TevControlContainer.Create;
 //#UC START# *47CFF63F02B6_47CFEE9E02E1_var*
@@ -355,8 +334,8 @@ begin
 end;//TevControlContainer.Create
 
 function TevControlContainer.GetFirstVisible(const aGroup: IevQueryGroup;
-  anOnlyFields: Boolean;
-  anExpanedeOnly: Boolean): IevCustomEditorControl;
+ anOnlyFields: Boolean;
+ anExpanedeOnly: Boolean): IevCustomEditorControl;
 //#UC START# *47D0045001C3_47CFEE9E02E1_var*
 var
  i, k       : Integer;
@@ -392,8 +371,8 @@ begin
 end;//TevControlContainer.GetFirstVisible
 
 function TevControlContainer.GetLastVisible(const aGroup: IevQueryGroup;
-  anOnlyFields: Boolean;
-  anExpanedeOnly: Boolean): IevCustomEditorControl;
+ anOnlyFields: Boolean;
+ anExpanedeOnly: Boolean): IevCustomEditorControl;
 //#UC START# *47D0048E01F2_47CFEE9E02E1_var*
 var
  i, k       : Integer;
@@ -428,7 +407,7 @@ begin
 end;//TevControlContainer.GetLastVisible
 
 function TevControlContainer.GetFirstControl(const aReq: IevReq;
-  anOnlyFields: Boolean): IevCustomEditorControl;
+ anOnlyFields: Boolean): IevCustomEditorControl;
 //#UC START# *47D0074B0107_47CFEE9E02E1_var*
 var
  l_Req  : IevReq;
@@ -460,7 +439,7 @@ begin
 end;//TevControlContainer.GetFirstControl
 
 function TevControlContainer.GetLastControl(const aReq: IevReq;
-  anOnlyFields: Boolean): IevCustomEditorControl;
+ anOnlyFields: Boolean): IevCustomEditorControl;
 //#UC START# *47D0075D03DF_47CFEE9E02E1_var*
 var
  l_Req   : IevReq;
@@ -494,8 +473,9 @@ begin
 end;//TevControlContainer.GetLastControl
 
 function TevControlContainer.GetNextReq(const aReq: IevReq;
-  anExpandedOnly: Boolean;
-  out aFirstReq: Boolean): IevReq;
+ anExpandedOnly: Boolean;
+ out aFirstReq: Boolean): IevReq;
+ {* Возвращает следующий реквизит или nil, если такого нет. }
 //#UC START# *47D009D1009A_47CFEE9E02E1_var*
 //Функция возращает указатель на следующий реквизит. Если он является последним 
 //в группе, то возвращается первый в следующей группе (aFirstReq выставляется 
@@ -547,8 +527,9 @@ begin
 end;//TevControlContainer.GetNextReq
 
 function TevControlContainer.GetPrevReq(const aReq: IevReq;
-  anExpandedOnly: Boolean;
-  out aLastReq: Boolean): IevReq;
+ anExpandedOnly: Boolean;
+ out aLastReq: Boolean): IevReq;
+ {* Возвращает предыдущий реквизит. }
 //#UC START# *47D00A370286_47CFEE9E02E1_var*
 var
  l_Req   : IevReq;
@@ -649,8 +630,9 @@ begin
 end;//TevControlContainer.DoChangePara
 
 function TevControlContainer.DoKeyDown(const aView: InevView;
-  var Msg: TWMKeyDown;
-  aCurPara: Tl3Tag): Boolean;
+ var Msg: TWMKeyDown;
+ aCurPara: Tl3Tag): Boolean;
+ {* Посылка сообщений о нажатии клавиш. }
 //#UC START# *47D0135901AC_47CFEE9E02E1_var*
 //#UC END# *47D0135901AC_47CFEE9E02E1_var*
 begin
@@ -662,6 +644,7 @@ begin
 end;//TevControlContainer.DoKeyDown
 
 function TevControlContainer.CanInsertPara: Boolean;
+ {* Разрешено ли вставлять параграф. }
 //#UC START# *47C6BE3B027A_47CFEE9E02E1_var*
 //#UC END# *47C6BE3B027A_47CFEE9E02E1_var*
 begin
@@ -671,8 +654,9 @@ begin
 end;//TevControlContainer.CanInsertPara
 
 procedure TevControlContainer.InsertOnUndo(aPrev: Tl3Variant;
-  aChild: Tl3Variant;
-  anAdd: Boolean);
+ aChild: Tl3Variant;
+ anAdd: Boolean);
+ {* Реакция на вставку при откатке. }
 //#UC START# *47C7C8EE0193_47CFEE9E02E1_var*
 var
  l_Control : IevEditorControl;
@@ -687,6 +671,7 @@ begin
 end;//TevControlContainer.InsertOnUndo
 
 procedure TevControlContainer.DeleteOnUndo(aTag: Tl3Variant);
+ {* Реакция удаления при откатке. }
 //#UC START# *47C7C9070379_47CFEE9E02E1_var*
 //#UC END# *47C7C9070379_47CFEE9E02E1_var*
 begin
@@ -696,6 +681,7 @@ begin
 end;//TevControlContainer.DeleteOnUndo
 
 procedure TevControlContainer.HideDroppedControl(CanSetFocus: Boolean);
+ {* Обработчик изменения события состояния редактора (нужно для выпадающего контрола). }
 //#UC START# *47C7C91E0277_47CFEE9E02E1_var*
 //#UC END# *47C7C91E0277_47CFEE9E02E1_var*
 begin
@@ -705,6 +691,7 @@ begin
 end;//TevControlContainer.HideDroppedControl
 
 function TevControlContainer.MouseWheel(aDown: Boolean): Boolean;
+ {* Событие прокрутки мыши. }
 //#UC START# *47C7C9A4014C_47CFEE9E02E1_var*
 //#UC END# *47C7C9A4014C_47CFEE9E02E1_var*
 begin
@@ -714,8 +701,9 @@ begin
 end;//TevControlContainer.MouseWheel
 
 function TevControlContainer.KeyDown(const aView: InevView;
-  var Msg: TWMKeyDown;
-  aCurPara: Tl3Variant): Boolean;
+ var Msg: TWMKeyDown;
+ aCurPara: Tl3Variant): Boolean;
+ {* Посылка сообщений о нажатии клавиш. }
 //#UC START# *47C7CA230160_47CFEE9E02E1_var*
 //#UC END# *47C7CA230160_47CFEE9E02E1_var*
 begin
@@ -725,6 +713,7 @@ begin
 end;//TevControlContainer.KeyDown
 
 procedure TevControlContainer.ChangePara(const aCurPara: InevPara);
+ {* Событие смена текуего параграфа. }
 //#UC START# *47C7CA350361_47CFEE9E02E1_var*
 //#UC END# *47C7CA350361_47CFEE9E02E1_var*
 begin
@@ -734,6 +723,7 @@ begin
 end;//TevControlContainer.ChangePara
 
 procedure TevControlContainer.BeforeRMouseClick;
+ {* Событие, вызываемое перед обработкой мыши. }
 //#UC START# *47C7CA4500E7_47CFEE9E02E1_var*
 //#UC END# *47C7CA4500E7_47CFEE9E02E1_var*
 begin
@@ -756,7 +746,8 @@ begin
 end;//TevControlContainer.ClearUpper
 
 function TevControlContainer.NeedKey(aPara: Tl3Variant;
-  var aKeyCode: Word): Boolean;
+ var aKeyCode: Word): Boolean;
+ {* Контрол/Поле перехватывает курсор. }
 //#UC START# *47C7CA670121_47CFEE9E02E1_var*
 var
  l_Field    : IevEditorControlField;
@@ -782,6 +773,7 @@ begin
 end;//TevControlContainer.NeedKey
 
 procedure TevControlContainer.CursorCreate;
+ {* Обновить курсор после создания. }
 //#UC START# *47C7CB490100_47CFEE9E02E1_var*
 //#UC END# *47C7CB490100_47CFEE9E02E1_var*
 begin
@@ -834,6 +826,7 @@ begin
 end;//TevControlContainer.UpdateState
 
 function TevControlContainer.IsLastField(aPara: Tl3Variant): Boolean;
+ {* Проверяет является ли параграф последним для передачи фокуса. }
 //#UC START# *47C7CB5D0311_47CFEE9E02E1_var*
 var
  l_Control : IevCustomEditorControl;
@@ -859,6 +852,7 @@ begin
 end;//TevControlContainer.IsLastField
 
 function TevControlContainer.IsFirstField(aPara: Tl3Variant): Boolean;
+ {* Проверяет является ли параграф первым для передачи фокуса. }
 //#UC START# *47C7CBC903AE_47CFEE9E02E1_var*
 var
  l_Control : IevCustomEditorControl;
@@ -884,6 +878,7 @@ begin
 end;//TevControlContainer.IsFirstField
 
 procedure TevControlContainer.StartPaste;
+ {* Скобки для операции вставки. }
 //#UC START# *47C7CBDE0030_47CFEE9E02E1_var*
 //#UC END# *47C7CBDE0030_47CFEE9E02E1_var*
 begin
@@ -893,6 +888,7 @@ begin
 end;//TevControlContainer.StartPaste
 
 procedure TevControlContainer.FinishPaste;
+ {* Скобки для операции вставки. }
 //#UC START# *47C7CBEA02E3_47CFEE9E02E1_var*
 //#UC END# *47C7CBEA02E3_47CFEE9E02E1_var*
 begin
@@ -905,6 +901,7 @@ begin
 end;//TevControlContainer.FinishPaste
 
 function TevControlContainer.IsPasting: Boolean;
+ {* Внутри скобок для операции вставки. }
 //#UC START# *47C7CBF803D7_47CFEE9E02E1_var*
 //#UC END# *47C7CBF803D7_47CFEE9E02E1_var*
 begin
@@ -914,6 +911,7 @@ begin
 end;//TevControlContainer.IsPasting
 
 function TevControlContainer.GetFirstPara(OnlyFields: Boolean): InevPara;
+ {* Получить первый параграф, в который может получить фокус. }
 //#UC START# *47C7CC09021A_47CFEE9E02E1_var*
 var
  i         : Integer;
@@ -936,6 +934,7 @@ begin
 end;//TevControlContainer.GetFirstPara
 
 function TevControlContainer.GetLastPara(OnlyFields: Boolean): InevPara;
+ {* Получить последний параграф, в который может получить фокус. }
 //#UC START# *47C7CC480009_47CFEE9E02E1_var*
 var
  i         : Integer;
@@ -967,6 +966,7 @@ begin
 end;//TevControlContainer.SetCurrPara
 
 function TevControlContainer.GetDocumentContainer: InevQueryDocumentContainer;
+ {* Получить контейнер документа. }
 //#UC START# *47CD82A70217_47CFEE9E02E1_var*
 //#UC END# *47CD82A70217_47CFEE9E02E1_var*
 begin
@@ -976,6 +976,7 @@ begin
 end;//TevControlContainer.GetDocumentContainer
 
 procedure TevControlContainer.RememberFocusControl(const aValue: IevEditorControl);
+ {* Запомнить контрол для установки фокуса. }
 //#UC START# *47CD82BA01D2_47CFEE9E02E1_var*
 //#UC END# *47CD82BA01D2_47CFEE9E02E1_var*
 begin
@@ -986,6 +987,7 @@ begin
 end;//TevControlContainer.RememberFocusControl
 
 procedure TevControlContainer.BeforeDelete;
+ {* Вызывается перед удалением поля. }
 //#UC START# *47CD82C800FB_47CFEE9E02E1_var*
 //#UC END# *47CD82C800FB_47CFEE9E02E1_var*
 begin
@@ -997,6 +999,7 @@ begin
 end;//TevControlContainer.BeforeDelete
 
 procedure TevControlContainer.UpperChange(const aButton: IevCustomEditorControl);
+ {* Вызывается после установки Upper у кнопки в True. }
 //#UC START# *47CD82DD0015_47CFEE9E02E1_var*
 //#UC END# *47CD82DD0015_47CFEE9E02E1_var*
 begin
@@ -1014,6 +1017,7 @@ begin
 end;//TevControlContainer.UpperChange
 
 function TevControlContainer.GetNode(anIndex: Integer): InevSimpleNode;
+ {* Возвращает узел по номеру. }
 //#UC START# *47CD82ED006B_47CFEE9E02E1_var*
 //#UC END# *47CD82ED006B_47CFEE9E02E1_var*
 begin
@@ -1023,6 +1027,7 @@ begin
 end;//TevControlContainer.GetNode
 
 procedure TevControlContainer.CardClear;
+ {* Обработчик очистки КЗ. }
 //#UC START# *47CD82FE0071_47CFEE9E02E1_var*
 //#UC END# *47CD82FE0071_47CFEE9E02E1_var*
 begin
@@ -1032,6 +1037,7 @@ begin
 end;//TevControlContainer.CardClear
 
 procedure TevControlContainer.StartLongOperation;
+ {* Скобки для блокировки перерисовок в редакторе. }
 //#UC START# *47CD830E0357_47CFEE9E02E1_var*
 //#UC END# *47CD830E0357_47CFEE9E02E1_var*
 begin
@@ -1041,6 +1047,7 @@ begin
 end;//TevControlContainer.StartLongOperation
 
 procedure TevControlContainer.EndLongOperation;
+ {* Скобки для блокировки перерисовок в редакторе. }
 //#UC START# *47CD831A0092_47CFEE9E02E1_var*
 //#UC END# *47CD831A0092_47CFEE9E02E1_var*
 begin
@@ -1050,6 +1057,7 @@ begin
 end;//TevControlContainer.EndLongOperation
 
 procedure TevControlContainer.ChangeStateAll(anExpand: Boolean);
+ {* Выставляет признак развернутости/свернутости всем группам. }
 //#UC START# *47CD83410138_47CFEE9E02E1_var*
 var
  i       : Integer;
@@ -1075,6 +1083,7 @@ begin
 end;//TevControlContainer.AfterCollapsed
 
 procedure TevControlContainer.LimitCharsReached(const aControl: IevEditorControl);
+ {* Обработчик достижения максимального числа символов в параграфе. }
 //#UC START# *47CD83830353_47CFEE9E02E1_var*
 //#UC END# *47CD83830353_47CFEE9E02E1_var*
 begin
@@ -1087,6 +1096,7 @@ begin
 end;//TevControlContainer.LimitCharsReached
 
 procedure TevControlContainer.RememberState(const aControl: IevCustomEditorControl);
+ {* Запомнить состояние для контекстного меню. }
 //#UC START# *47CD839201D4_47CFEE9E02E1_var*
 //#UC END# *47CD839201D4_47CFEE9E02E1_var*
 begin
@@ -1096,6 +1106,7 @@ begin
 end;//TevControlContainer.RememberState
 
 function TevControlContainer.GetStateControl: IevCustomEditorControl;
+ {* Возвращает контрол, который был активным при вызове контекстного меню. }
 //#UC START# *47CD83A1034C_47CFEE9E02E1_var*
 //#UC END# *47CD83A1034C_47CFEE9E02E1_var*
 begin
@@ -1105,6 +1116,7 @@ begin
 end;//TevControlContainer.GetStateControl
 
 function TevControlContainer.GetFocusedControl(aCurPara: Tl3Variant): IevEditorControl;
+ {* Возвращает контрол, имеющий фокус ввода. }
 //#UC START# *47CD83B10329_47CFEE9E02E1_var*
 var
  l_Group: IevQueryGroup;
@@ -1126,6 +1138,7 @@ begin
 end;//TevControlContainer.GetFocusedControl
 
 procedure TevControlContainer.LinkView(const aQueryContainer: InevQueryDocumentContainer);
+ {* Инициализации модели. }
 //#UC START# *47CD83C8037F_47CFEE9E02E1_var*
    
  function GetChildBlock(const aChild : InevPara; 
@@ -1186,6 +1199,7 @@ begin
 end;//TevControlContainer.LinkView
 
 procedure TevControlContainer.LinkListener(const aListener: IevAdapterModel);
+ {* Подключить объект из внешней модели. }
 //#UC START# *47CD83DC0133_47CFEE9E02E1_var*
 //#UC END# *47CD83DC0133_47CFEE9E02E1_var*
 begin
@@ -1204,6 +1218,7 @@ begin
 end;//TevControlContainer.AdapterModel
 
 procedure TevControlContainer.ReleaseListeners;
+ {* Отключить объект из внешней модели. }
 //#UC START# *47CD840002F7_47CFEE9E02E1_var*
 //#UC END# *47CD840002F7_47CFEE9E02E1_var*
 begin
@@ -1213,6 +1228,7 @@ begin
 end;//TevControlContainer.ReleaseListeners
 
 function TevControlContainer.FindDescriptionReq(const aReqName: Tl3WString): IevDescriptionReq;
+ {* Получение реквизита по имени. }
 //#UC START# *47CD842102B4_47CFEE9E02E1_var*
 var
  i       : Integer;
@@ -1237,6 +1253,7 @@ begin
 end;//TevControlContainer.FindDescriptionReq
 
 procedure TevControlContainer.StartSetFocus;
+ {* Возвращает первое доступное для редактирования поле в контроле. }
 //#UC START# *47CD843F005D_47CFEE9E02E1_var*
 var
  l_Control: IevEditorControl;
@@ -1326,6 +1343,7 @@ begin
 end;//TevControlContainer.GetControlIterator
 
 procedure TevControlContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47CFEE9E02E1_var*
 //#UC END# *479731C50290_47CFEE9E02E1_var*
 begin

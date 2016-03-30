@@ -1,103 +1,71 @@
 unit vcmMessageFormPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMessageFormPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual::TvcmMessageFormPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessageFormPrim.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvcmMessageFormPrim" MUID: (4F91452D0004)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vcmEntityForm
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  vg_scene,
-  vgVisualObject
-  ;
-{$IfEnd} //not NoVCM AND not NoVGScene
+ l3IntfUses
+ , vcmEntityForm
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vg_scene
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TvcmMessageFormPrim = class(TvcmEntityForm)
- private
- // private fields
-   f_Scene : TvgScene;
-    {* Поле для свойства Scene}
- private
- // private methods
+  private
+   f_Scene: TvgScene;
+  protected
+   f_HasButtons: Boolean;
+   f_CancelButton: TMsgDlgBtn;
+   f_DefaultButton: TMsgDlgBtn;
+  private
    procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
- public
- // overridden public methods
+  public
    function NeedSaveInSettings: Boolean; override;
- protected
- // protected fields
-   f_HasButtons : Boolean;
-   f_CancelButton : TMsgDlgBtn;
-   f_DefaultButton : TMsgDlgBtn;
- protected
- // protected properties
+  protected
    property Scene: TvgScene
-     read f_Scene
-     write f_Scene;
+    read f_Scene
+    write f_Scene;
  end;//TvcmMessageFormPrim
-{$IfEnd} //not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
 uses
-  Windows,
-  vg_controls,
-  vtDialogsResEx
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM AND not NoVGScene
-
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vgVisualObject
+ , Windows
+ , vg_controls
+ , vtDialogsResEx
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type
-  TCustomCheckBoxHack = class(TCustomCheckBox)
-  end;//TCustomCheckBoxHack
+ TCustomCheckBoxHack = class(TCustomCheckBox)
+ end;//TCustomCheckBoxHack
 
-  TvgVisualObjectHack = class(TvgVisualObject)
-  end;//TvgVisualObjectHack
-
-// start class TvcmMessageFormPrim
+ TvgVisualObjectHack = class(TvgVisualObject)
+ end;//TvgVisualObjectHack
 
 procedure TvcmMessageFormPrim.CMDialogKey(var Message: TCMDialogKey);
 //#UC START# *4F9145B5023E_4F91452D0004_var*
@@ -154,12 +122,11 @@ begin
 //#UC END# *4FC38C4C0119_4F91452D0004_impl*
 end;//TvcmMessageFormPrim.NeedSaveInSettings
 
-{$IfEnd} //not NoVCM AND not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvcmMessageFormPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmMessageFormPrim);
-{$IfEnd} //not NoScripts AND not NoVCM AND not NoVGScene
+ {* Регистрация TvcmMessageFormPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
 
 end.

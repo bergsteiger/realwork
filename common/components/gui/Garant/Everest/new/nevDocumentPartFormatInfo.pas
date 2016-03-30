@@ -1,69 +1,48 @@
 unit nevDocumentPartFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevDocumentPartFormatInfo.pas"
-// Начат: 01.09.2011 11:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevDocumentPartFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentPartFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentPartFormatInfo" MUID: (4E5F3349020F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevListFormatInfo,
-  nevBase,
-  nevFormatInfo
-  ;
+ l3IntfUses
+ , nevListFormatInfo
+ , nevFormatInfo
+ , nevBase
+;
 
 type
  TnevDocumentPartFormatInfo = class(TnevListFormatInfo)
- protected
- // overridden property methods
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
+  protected
+   function pm_GetlocSpacing: TnevRect; override;
    function AllowTotalRecalc: Boolean; override;
- public
- // overridden public methods
+  public
    function GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo; override;
  end;//TnevDocumentPartFormatInfo
 
 implementation
 
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Units,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3String,
-  nevTools
-  ;
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Units
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3String
+ , nevTools
+;
 
 type
-  THackFormatInfo = class(TnevListFormatInfo)
-  end;//THackFormatInfo
-
-// start class TnevDocumentPartFormatInfo
+ THackFormatInfo = class(TnevListFormatInfo)
+ end;//THackFormatInfo
 
 function TnevDocumentPartFormatInfo.GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo;
 //#UC START# *4815C94A027A_4E5F3349020F_var*
@@ -77,7 +56,7 @@ begin
 //#UC END# *4815C94A027A_4E5F3349020F_impl*
 end;//TnevDocumentPartFormatInfo.GetInfoForChild
 
-function TnevDocumentPartFormatInfo.pm_GetLocSpacing: TnevRect;
+function TnevDocumentPartFormatInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_4E5F3349020Fget_var*
 
  function lp_HasBlockStyle(const aPara: InevPara): Boolean;
@@ -137,7 +116,7 @@ begin
   Tl3Rect(Result).BottomRight := Tl3Rect(Result).BottomRight.Add(l3PointY(evDocumentPartMargin));
  end;//aView.ShowDocumentParts
 //#UC END# *4E5F3D1102B8_4E5F3349020Fget_impl*
-end;//TnevDocumentPartFormatInfo.pm_GetLocSpacing
+end;//TnevDocumentPartFormatInfo.pm_GetlocSpacing
 
 function TnevDocumentPartFormatInfo.AllowTotalRecalc: Boolean;
 //#UC START# *4E7095FC023D_4E5F3349020F_var*

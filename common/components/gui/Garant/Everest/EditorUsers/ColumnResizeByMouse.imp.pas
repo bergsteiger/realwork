@@ -1,58 +1,50 @@
 {$IfNDef ColumnResizeByMouse_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/ColumnResizeByMouse.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::ColumnResizeByMouse
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "ColumnResizeByMouse" MUID: (4E32C9540390)
+// Имя типа: "_ColumnResizeByMouse_"
 
 {$Define ColumnResizeByMouse_imp}
-{$If not defined(NoScripts)}
+
+{$If NOT Defined(NoScripts)}
  _Para2Point_Parent_ = _ColumnResizeByMouse_Parent_;
- {$Include ..\EditorUsers\Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include ..\EditorUsers\HotSpotTools.imp.pas}
- _ColumnResizeByMouse_ = {mixin} class(_HotSpotTools_)
- protected
- // overridden protected methods
-   function GetInnerPara(const aView: InevInputView;
-    const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
-   function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
- protected
- // protected methods
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
+ _ColumnResizeByMouse_ = class(_HotSpotTools_)
+  protected
    procedure SelectColumn(aText: TevCustomEditorWindow);
    function GetKeys: TShiftState; virtual;
    procedure GetColumnAndRow(var aCol: Integer;
-     var aRow: Integer); virtual;
+    var aRow: Integer); virtual;
    function GetDelta: Integer; virtual;
+   function GetInnerPara(const aView: InevInputView;
+    const aDocument: InevPara): InevPara; override;
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+   function GetPoint(const aMap: InevMap): Tl3Point; override;
+    {* Возвращает точку, на которую нужно спозиционироваться. }
  end;//_ColumnResizeByMouse_
-{$Else}
 
- _Para2Point_Parent_ = _ColumnResizeByMouse_Parent_;
- {$Include ..\EditorUsers\Para2Point.imp.pas}
- _HotSpotTools_Parent_ = _Para2Point_;
- {$Include ..\EditorUsers\HotSpotTools.imp.pas}
- _ColumnResizeByMouse_ = _HotSpotTools_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_Para2Point_Parent_ = _ColumnResizeByMouse_Parent_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
+_HotSpotTools_Parent_ = _Para2Point_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
+_ColumnResizeByMouse_ = _HotSpotTools_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else ColumnResizeByMouse_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef ColumnResizeByMouse_imp_impl}
 
-{$Include ..\EditorUsers\Para2Point.imp.pas}
+{$Define ColumnResizeByMouse_imp_impl}
 
-{$Include ..\EditorUsers\HotSpotTools.imp.pas}
+{$If NOT Defined(NoScripts)}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-// start class _ColumnResizeByMouse_
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 procedure _ColumnResizeByMouse_.SelectColumn(aText: TevCustomEditorWindow);
 //#UC START# *4E32C9D70275_4E32C9540390_var*
@@ -98,7 +90,7 @@ begin
 end;//_ColumnResizeByMouse_.GetKeys
 
 procedure _ColumnResizeByMouse_.GetColumnAndRow(var aCol: Integer;
-  var aRow: Integer);
+ var aRow: Integer);
 //#UC START# *4E32CA35008A_4E32C9540390_var*
 //#UC END# *4E32CA35008A_4E32C9540390_var*
 begin
@@ -118,7 +110,8 @@ begin
 end;//_ColumnResizeByMouse_.GetDelta
 
 function _ColumnResizeByMouse_.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4E32C9540390_var*
 var
  l_Col : Integer;
@@ -132,6 +125,7 @@ begin
 end;//_ColumnResizeByMouse_.GetInnerPara
 
 function _ColumnResizeByMouse_.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4E32C9540390_var*
 //#UC END# *4C3C927B027E_4E32C9540390_var*
 begin
@@ -139,7 +133,9 @@ begin
  Result := l3Point(aMap.Bounds.Right, aMap.Outer.Bounds.Top + 7 * evEpsilon);
 //#UC END# *4C3C927B027E_4E32C9540390_impl*
 end;//_ColumnResizeByMouse_.GetPoint
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf ColumnResizeByMouse_imp_impl}
 
 {$EndIf ColumnResizeByMouse_imp}
+

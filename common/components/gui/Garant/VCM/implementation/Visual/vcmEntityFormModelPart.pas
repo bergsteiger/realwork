@@ -1,107 +1,100 @@
 unit vcmEntityFormModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmEntityFormModelPart.pas"
-// Начат: 27.01.2012 20:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual::TvcmEntityFormModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmEntityFormModelPart.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvcmEntityFormModelPart" MUID: (4F22CB1E0009)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  Messages,
-  vcmForm,
-  vcmControllers,
-  Controls {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmForm
+ , vcmInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , vcmControllers
+;
 
-{$If not defined(NoVCM)}
 type
  _vcmLayout_Parent_ = TvcmForm;
- {$Include ..\Visual\vcmLayout.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas}
  TvcmEntityFormModelPart = class(_vcmLayout_)
- private
- // private fields
-   f_ZoneType : TvcmZoneType;
-    {* Поле для свойства ZoneType}
- private
- // private methods
+  private
+   f_ZoneType: TvcmZoneType;
+  private
    procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
    procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
- protected
- // property methods
+  protected
    procedure pm_SetZoneType(aValue: TvcmZoneType);
    function pm_GetCaptionForSaving: AnsiString;
- protected
- // overridden protected methods
-   procedure ClearModal; override;
-     {* Сигнатура метода ClearModal }
- protected
- // protected methods
    procedure FormInsertedIntoContainer; virtual;
    procedure FocusIsSetToUs; virtual;
    procedure BecomeVisible; virtual;
    procedure BecomeInvisible; virtual;
-     {* Сигнатура метода BecomeInvisible }
    function DoGetCaptionForSaving: AnsiString; virtual;
- public
- // public methods
+   procedure ClearModal; override;
+  public
    function CanHaveCloseButtonInNavigator: Boolean; virtual;
    function CanHaveOwnCloseButtonInNavigator: Boolean; virtual;
    function IsBaloon: Boolean; virtual;
    function IsMainObjectForm: Boolean;
    function NeedSetMyFocus: Boolean; virtual;
- public
- // public properties
+  public
    property ZoneType: TvcmZoneType
-     read f_ZoneType
-     write pm_SetZoneType;
+    read f_ZoneType
+    write pm_SetZoneType;
    property CaptionForSaving: AnsiString
-     read pm_GetCaptionForSaving;
+    read pm_GetCaptionForSaving;
  end;//TvcmEntityFormModelPart
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmMainForm,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  VCMFormsProcessingPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , VCMFormsProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , vcmMainForm
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type _Instance_R_ = TvcmEntityFormModelPart;
 
-{$Include ..\Visual\vcmLayout.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas}
 
-// start class TvcmEntityFormModelPart
+procedure TvcmEntityFormModelPart.pm_SetZoneType(aValue: TvcmZoneType);
+//#UC START# *501FEC050356_4F22CB1E0009set_var*
+//#UC END# *501FEC050356_4F22CB1E0009set_var*
+begin
+//#UC START# *501FEC050356_4F22CB1E0009set_impl*
+ if (f_ZoneType <> aValue) then
+ begin
+  f_ZoneType := aValue;
+  if (f_ZoneType in [vcm_ztModal, vcm_ztManualModal]) then
+   RecreateWnd;
+ end;//f_ZoneType <> aValue
+//#UC END# *501FEC050356_4F22CB1E0009set_impl*
+end;//TvcmEntityFormModelPart.pm_SetZoneType
+
+function TvcmEntityFormModelPart.pm_GetCaptionForSaving: AnsiString;
+//#UC START# *5409573A01C3_4F22CB1E0009get_var*
+//#UC END# *5409573A01C3_4F22CB1E0009get_var*
+begin
+//#UC START# *5409573A01C3_4F22CB1E0009get_impl*
+ Result := DoGetCaptionForSaving;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=564737453
+//#UC END# *5409573A01C3_4F22CB1E0009get_impl*
+end;//TvcmEntityFormModelPart.pm_GetCaptionForSaving
 
 function TvcmEntityFormModelPart.CanHaveCloseButtonInNavigator: Boolean;
 //#UC START# *4F619BCE008A_4F22CB1E0009_var*
@@ -208,30 +201,6 @@ begin
 //#UC END# *540953180034_4F22CB1E0009_impl*
 end;//TvcmEntityFormModelPart.DoGetCaptionForSaving
 
-procedure TvcmEntityFormModelPart.pm_SetZoneType(aValue: TvcmZoneType);
-//#UC START# *501FEC050356_4F22CB1E0009set_var*
-//#UC END# *501FEC050356_4F22CB1E0009set_var*
-begin
-//#UC START# *501FEC050356_4F22CB1E0009set_impl*
- if (f_ZoneType <> aValue) then
- begin
-  f_ZoneType := aValue;
-  if (f_ZoneType in [vcm_ztModal, vcm_ztManualModal]) then
-   RecreateWnd;
- end;//f_ZoneType <> aValue
-//#UC END# *501FEC050356_4F22CB1E0009set_impl*
-end;//TvcmEntityFormModelPart.pm_SetZoneType
-
-function TvcmEntityFormModelPart.pm_GetCaptionForSaving: AnsiString;
-//#UC START# *5409573A01C3_4F22CB1E0009get_var*
-//#UC END# *5409573A01C3_4F22CB1E0009get_var*
-begin
-//#UC START# *5409573A01C3_4F22CB1E0009get_impl*
- Result := DoGetCaptionForSaving;
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=564737453
-//#UC END# *5409573A01C3_4F22CB1E0009get_impl*
-end;//TvcmEntityFormModelPart.pm_GetCaptionForSaving
-
 procedure TvcmEntityFormModelPart.WMSetFocus(var Message: TMessage);
 //#UC START# *4F7C6D3A0359_4F22CB1E0009_var*
 //#UC END# *4F7C6D3A0359_4F22CB1E0009_var*
@@ -275,12 +244,11 @@ begin
 //#UC END# *501FEC7203A5_4F22CB1E0009_impl*
 end;//TvcmEntityFormModelPart.ClearModal
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmEntityFormModelPart
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmEntityFormModelPart);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmEntityFormModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

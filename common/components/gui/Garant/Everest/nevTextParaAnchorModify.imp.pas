@@ -1,43 +1,35 @@
 {$IfNDef nevTextParaAnchorModify_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevTextParaAnchorModify.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevTextParaAnchorModify
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevTextParaAnchorModify" MUID: (4B1CFD19035B)
+// Имя типа: "_nevTextParaAnchorModify_"
 
 {$Define nevTextParaAnchorModify_imp}
-{$If defined(evUseVisibleCursors)}
- _nevTextParaAnchorModify_ = {mixin} class(_nevTextParaAnchorModify_Parent_)
- protected
- // realized methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevTextParaAnchorModify_ = class(_nevTextParaAnchorModify_Parent_)
+  protected
+   procedure SetLinePrim(aValue: Integer;
+    aMap: TnevFormatInfoPrim); virtual; abstract;
    procedure DoBottom(const aView: InevView); override;
    function DoIncLinePrim(const aView: InevView;
     var theLine: Integer;
     aSmall: Boolean): Integer; override;
- protected
- // protected methods
-   procedure SetLinePrim(aValue: Integer;
-    aMap: TnevFormatInfoPrim); virtual; abstract;
  end;//_nevTextParaAnchorModify_
-{$Else}
 
- _nevTextParaAnchorModify_ = _nevTextParaAnchorModify_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevTextParaAnchorModify_ = _nevTextParaAnchorModify_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevTextParaAnchorModify_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevTextParaAnchorModify_imp_impl}
 
-// start class _nevTextParaAnchorModify_
+{$Define nevTextParaAnchorModify_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 procedure _nevTextParaAnchorModify_.DoBottom(const aView: InevView);
 //#UC START# *4B1CFD7B0332_4B1CFD19035B_var*
 var
@@ -58,8 +50,8 @@ begin
 end;//_nevTextParaAnchorModify_.DoBottom
 
 function _nevTextParaAnchorModify_.DoIncLinePrim(const aView: InevView;
-  var theLine: Integer;
-  aSmall: Boolean): Integer;
+ var theLine: Integer;
+ aSmall: Boolean): Integer;
 //#UC START# *4B1CFD9401A2_4B1CFD19035B_var*
 var
  l_Pos  : Integer;
@@ -102,7 +94,9 @@ begin
  end;//try..finally
 //#UC END# *4B1CFD9401A2_4B1CFD19035B_impl*
 end;//_nevTextParaAnchorModify_.DoIncLinePrim
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevTextParaAnchorModify_imp_impl}
 
 {$EndIf nevTextParaAnchorModify_imp}
+

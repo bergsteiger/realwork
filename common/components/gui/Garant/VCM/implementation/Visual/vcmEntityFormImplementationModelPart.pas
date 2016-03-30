@@ -1,55 +1,36 @@
 unit vcmEntityFormImplementationModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmEntityFormImplementationModelPart.pas"
-// Начат: 27.01.2012 20:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmEntityFormImplementationModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmEntityFormImplementationModelPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityFormImplementationModelPart" MUID: (4F22CFD70209)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmForm
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmForm
+ , vcmInterfaces
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmEntityFormImplementationModelPart = class(TvcmFormImplementation)
- protected
- // realized methods
+  protected
    function Get_VCMClosing: Boolean;
- public
- // realized methods
+  public
    function IsBaloon: Boolean;
  end;//TvcmEntityFormImplementationModelPart
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmEntityFormModelPart
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmEntityFormImplementationModelPart
+ l3ImplUses
+ , vcmEntityFormModelPart
+;
 
 function TvcmEntityFormImplementationModelPart.Get_VCMClosing: Boolean;
 //#UC START# *4F22CB9701DC_4F22CFD70209get_var*
@@ -68,7 +49,6 @@ begin
  Result := TvcmEntityFormModelPart(Self.Control).IsBaloon;
 //#UC END# *4F748C140133_4F22CFD70209_impl*
 end;//TvcmEntityFormImplementationModelPart.IsBaloon
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

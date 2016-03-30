@@ -1,59 +1,45 @@
 unit evHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evHotSpot.pas"
-// Начат: 19.10.2006 15:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevHotSpot" MUID: (4A267FA903BA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  afwInterfaces,
-  k2ProcTagTool,
-  nevTools,
-  nevGUIInterfaces
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , k2ProcTagTool
+ , nevGUIInterfaces
+ , nevTools
+ , afwInterfaces
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevHotSpot = class(Tk2ProcTagTool)
- public
- // realized methods
-   procedure HitTest(const aView: InevControlView;
-    const aState: TafwCursorState;
-    var theInfo: TafwCursorInfo);
- protected
- // protected methods
+  protected
    procedure DoHitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo); virtual;
+  public
+   procedure HitTest(const aView: InevControlView;
+    const aState: TafwCursorState;
+    var theInfo: TafwCursorInfo);
  end;//TevHotSpot
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
-
-// start class TevHotSpot
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
 
 procedure TevHotSpot.DoHitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *4A267FC6016B_4A267FA903BA_var*
 //#UC END# *4A267FC6016B_4A267FA903BA_var*
 begin
@@ -63,8 +49,8 @@ begin
 end;//TevHotSpot.DoHitTest
 
 procedure TevHotSpot.HitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *48E2622A03C4_4A267FA903BA_var*
 //#UC END# *48E2622A03C4_4A267FA903BA_var*
 begin
@@ -72,7 +58,6 @@ begin
  DoHitTest(aView, aState, theInfo);
 //#UC END# *48E2622A03C4_4A267FA903BA_impl*
 end;//TevHotSpot.HitTest
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

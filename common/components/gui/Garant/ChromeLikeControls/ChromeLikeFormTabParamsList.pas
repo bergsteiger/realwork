@@ -1,133 +1,90 @@
 unit ChromeLikeFormTabParamsList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeFormTabParamsList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeFormTabParamsList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormTabParamsList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeFormTabParamsList" MUID: (552609F40060)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  l3TabbedContainersDispatcher,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  _ItemType_ = Il3FormTabParams;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TChromeLikeFormTabParamsList = class(_l3InterfaceRefList_)
- private
- // private methods
+  private
    function FindFormTabParams(aForm: TForm): Il3FormTabParams;
    function MakeParamsItem(aForm: TForm;
-     const aParams: Il3TabParams): Il3FormTabParams;
- public
- // public methods
+    const aParams: Il3TabParams): Il3FormTabParams;
+  public
    procedure SetFormParams(aForm: TForm;
-     const aParams: Il3TabParams);
+    const aParams: Il3TabParams);
    function GetFormParams(aForm: TForm): Il3TabParams;
    procedure DeleteFormParams(aForm: TForm);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TChromeLikeFormTabParamsList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TChromeLikeFormTabParamsList }
  end;//TChromeLikeFormTabParamsList
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3Base {a},
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-
-// start class TChromeLikeFormTabParamsList
-
-var g_TChromeLikeFormTabParamsList : TChromeLikeFormTabParamsList = nil;
-
-procedure TChromeLikeFormTabParamsListFree;
-begin
- l3Free(g_TChromeLikeFormTabParamsList);
-end;
-
-class function TChromeLikeFormTabParamsList.Instance: TChromeLikeFormTabParamsList;
-begin
- if (g_TChromeLikeFormTabParamsList = nil) then
- begin
-  l3System.AddExitProc(TChromeLikeFormTabParamsListFree);
-  g_TChromeLikeFormTabParamsList := Create;
- end;
- Result := g_TChromeLikeFormTabParamsList;
-end;
-
-
-type _Instance_R_ = TChromeLikeFormTabParamsList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
+ l3ImplUses
+ , l3ProtoObject
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type
-  TChromeLikeFormTabParamsItem = class(Tl3ProtoObject, Il3FormTabParams)
+ TChromeLikeFormTabParamsItem = class(Tl3ProtoObject, Il3FormTabParams)
   private
-  // private fields
-   f_Params : Il3TabParams;
-   f_Form : TForm;
+   f_Params: Il3TabParams;
+   f_Form: TForm;
   protected
-  // realized methods
    function pm_GetParams: Il3TabParams;
    function pm_GetForm: TForm;
    procedure Update(const aParams: Il3TabParams);
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
   public
-  // public methods
    constructor Create(aForm: TForm;
-      const aParams: Il3TabParams); reintroduce;
+    const aParams: Il3TabParams); reintroduce;
    class function Make(aForm: TForm;
-      const aParams: Il3TabParams): Il3FormTabParams; reintroduce;
-     {* Сигнатура фабрики TChromeLikeFormTabParamsItem.Make }
-  end;//TChromeLikeFormTabParamsItem
+    const aParams: Il3TabParams): Il3FormTabParams; reintroduce;
+ end;//TChromeLikeFormTabParamsItem
 
-// start class TChromeLikeFormTabParamsItem
+var g_TChromeLikeFormTabParamsList: TChromeLikeFormTabParamsList = nil;
+ {* Экземпляр синглетона TChromeLikeFormTabParamsList }
+
+procedure TChromeLikeFormTabParamsListFree;
+ {* Метод освобождения экземпляра синглетона TChromeLikeFormTabParamsList }
+begin
+ l3Free(g_TChromeLikeFormTabParamsList);
+end;//TChromeLikeFormTabParamsListFree
 
 constructor TChromeLikeFormTabParamsItem.Create(aForm: TForm;
-  const aParams: Il3TabParams);
+ const aParams: Il3TabParams);
 //#UC START# *55260B8B0071_55260AB7022B_var*
 //#UC END# *55260B8B0071_55260AB7022B_var*
 begin
@@ -141,7 +98,7 @@ begin
 end;//TChromeLikeFormTabParamsItem.Create
 
 class function TChromeLikeFormTabParamsItem.Make(aForm: TForm;
-  const aParams: Il3TabParams): Il3FormTabParams;
+ const aParams: Il3TabParams): Il3FormTabParams;
 var
  l_Inst : TChromeLikeFormTabParamsItem;
 begin
@@ -151,7 +108,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TChromeLikeFormTabParamsItem.Make
 
 function TChromeLikeFormTabParamsItem.pm_GetParams: Il3TabParams;
 //#UC START# *55260C7502E1_55260AB7022Bget_var*
@@ -183,6 +140,7 @@ begin
 end;//TChromeLikeFormTabParamsItem.Update
 
 procedure TChromeLikeFormTabParamsItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55260AB7022B_var*
 //#UC END# *479731C50290_55260AB7022B_var*
 begin
@@ -193,49 +151,12 @@ begin
 //#UC END# *479731C50290_55260AB7022B_impl*
 end;//TChromeLikeFormTabParamsItem.Cleanup
 
-function TChromeLikeFormTabParamsList.FindFormTabParams(aForm: TForm): Il3FormTabParams;
-//#UC START# *55260E100131_552609F40060_var*
-var
- l_FormParams: Il3FormTabParams;
+type _Instance_R_ = TChromeLikeFormTabParamsList;
 
- function lp_DoFindFormTab(anItem: Pointer; anIndex: Integer): Boolean;
- var
-  l_Item: Il3FormTabParams;
- begin
-  l_Item := Il3FormTabParams(anItem^);
-  if (l_Item.Form = aForm) then
-  begin
-   l_FormParams := l_Item;
-   Result := False;
-  end
-  else
-   Result := True;
- end;
-
-//#UC END# *55260E100131_552609F40060_var*
-begin
-//#UC START# *55260E100131_552609F40060_impl*
- Assert(aForm <> nil);
- l_FormParams := nil;
- IterateAllF(l3L2IA(@lp_DoFindFormTab));
- Result := l_FormParams;
-//#UC END# *55260E100131_552609F40060_impl*
-end;//TChromeLikeFormTabParamsList.FindFormTabParams
-
-function TChromeLikeFormTabParamsList.MakeParamsItem(aForm: TForm;
-  const aParams: Il3TabParams): Il3FormTabParams;
-//#UC START# *55260E320249_552609F40060_var*
-//#UC END# *55260E320249_552609F40060_var*
-begin
-//#UC START# *55260E320249_552609F40060_impl*
- Assert(aForm <> nil);
- Assert(aParams <> nil);
- Result := TChromeLikeFormTabParamsItem.Make(aForm, aParams);
-//#UC END# *55260E320249_552609F40060_impl*
-end;//TChromeLikeFormTabParamsList.MakeParamsItem
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 procedure TChromeLikeFormTabParamsList.SetFormParams(aForm: TForm;
-  const aParams: Il3TabParams);
+ const aParams: Il3TabParams);
 //#UC START# *55260D5602B1_552609F40060_var*
 var
  l_Params: Il3FormTabParams;
@@ -283,12 +204,63 @@ begin
 //#UC END# *55260DC5010D_552609F40060_impl*
 end;//TChromeLikeFormTabParamsList.DeleteFormParams
 
+function TChromeLikeFormTabParamsList.FindFormTabParams(aForm: TForm): Il3FormTabParams;
+//#UC START# *55260E100131_552609F40060_var*
+var
+ l_FormParams: Il3FormTabParams;
+
+ function lp_DoFindFormTab(anItem: Pointer; anIndex: Integer): Boolean;
+ var
+  l_Item: Il3FormTabParams;
+ begin
+  l_Item := Il3FormTabParams(anItem^);
+  if (l_Item.Form = aForm) then
+  begin
+   l_FormParams := l_Item;
+   Result := False;
+  end
+  else
+   Result := True;
+ end;
+
+//#UC END# *55260E100131_552609F40060_var*
+begin
+//#UC START# *55260E100131_552609F40060_impl*
+ Assert(aForm <> nil);
+ l_FormParams := nil;
+ IterateAllF(l3L2IA(@lp_DoFindFormTab));
+ Result := l_FormParams;
+//#UC END# *55260E100131_552609F40060_impl*
+end;//TChromeLikeFormTabParamsList.FindFormTabParams
+
+function TChromeLikeFormTabParamsList.MakeParamsItem(aForm: TForm;
+ const aParams: Il3TabParams): Il3FormTabParams;
+//#UC START# *55260E320249_552609F40060_var*
+//#UC END# *55260E320249_552609F40060_var*
+begin
+//#UC START# *55260E320249_552609F40060_impl*
+ Assert(aForm <> nil);
+ Assert(aParams <> nil);
+ Result := TChromeLikeFormTabParamsItem.Make(aForm, aParams);
+//#UC END# *55260E320249_552609F40060_impl*
+end;//TChromeLikeFormTabParamsList.MakeParamsItem
+
 class function TChromeLikeFormTabParamsList.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TChromeLikeFormTabParamsList <> nil;
 end;//TChromeLikeFormTabParamsList.Exists
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+class function TChromeLikeFormTabParamsList.Instance: TChromeLikeFormTabParamsList;
+ {* Метод получения экземпляра синглетона TChromeLikeFormTabParamsList }
+begin
+ if (g_TChromeLikeFormTabParamsList = nil) then
+ begin
+  l3System.AddExitProc(TChromeLikeFormTabParamsListFree);
+  g_TChromeLikeFormTabParamsList := Create;
+ end;
+ Result := g_TChromeLikeFormTabParamsList;
+end;//TChromeLikeFormTabParamsList.Instance
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

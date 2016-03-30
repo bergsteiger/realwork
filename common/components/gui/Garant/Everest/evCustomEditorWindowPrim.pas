@@ -1,145 +1,120 @@
 unit evCustomEditorWindowPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomEditorWindowPrim.pas"
-// Начат: 16.12.2009 15:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomEditorWindowPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditorWindowPrim.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEditorWindowPrim" MUID: (4B28D63A00EC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  l3Core,
-  Messages,
-  Classes,
-  nevTools
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evDef,
-  nevControl
-  ;
+ l3IntfUses
+ , nevControl
+ , Classes
+ , evDef
+ , Messages
+ , nevTools
+ , l3Core
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , k2Interfaces
+;
 
 type
- TevMakeExportFiltersEvent = procedure (aSelection: Boolean;
+ TevMakeExportFiltersEvent = procedure(aSelection: Boolean;
   aForExport: Boolean;
   var theGen: Ik2TagGenerator) of object;
 
  TevCustomEditorWindowPrim = class(TnevControl)
- private
- // private fields
-   f_Zoom : Integer;
-    {* Поле для свойства Zoom}
-   f_ForceRepaint : Boolean;
-    {* Поле для свойства ForceRepaint}
-   f_OnMakeExportFilters : TevMakeExportFiltersEvent;
-    {* Поле для свойства OnMakeExportFilters}
-   f_OnFocusViaMouseSet : TNotifyEvent;
-    {* Поле для свойства OnFocusViaMouseSet}
- private
- // private methods
+  private
+   f_Zoom: Integer;
+   f_ForceRepaint: Boolean;
+    {* признак необходимости отрисовки даже при Locked }
+   f_OnMakeExportFilters: TevMakeExportFiltersEvent;
+   f_OnFocusViaMouseSet: TNotifyEvent;
+  protected
+   f_LockForceRepaint: Integer;
+  private
    procedure WMMOUSEACTIVATE(var aMsg: TWMMouseActivate); message WM_MOUSEACTIVATE;
- protected
- // property methods
+  protected
    procedure pm_SetZoom(aValue: Integer);
- protected
- // overridden protected methods
-   procedure InitFields; override;
-   procedure DoForceRepaint; override;
-   procedure DoAfterCreateCanvas; override;
-     {* Вызыввается после создания канвы для установки, например, Zoom'а в наследниках. }
- protected
- // protected fields
-   f_LockForceRepaint : Integer;
- protected
- // protected methods
    function GetDocumentPartByPoint(const aPoint: InevBasePoint): IevDocumentPart; virtual;
    procedure RecalcScreenCursor(const aPoint: TPoint;
-     var theCursor: TCursor); virtual;
+    var theCursor: TCursor); virtual;
    procedure SetFocusViaMouse;
    function WantSoftEnter: Boolean; virtual;
    procedure DoAfterSetZoom; virtual;
- public
- // public methods
+   procedure InitFields; override;
+   procedure DoForceRepaint; override;
+   procedure DoAfterCreateCanvas; override;
+    {* Вызыввается после создания канвы для установки, например, Zoom'а в наследниках. }
+  public
    function GetVScrollerHint(const anAnchor: InevBasePoint): AnsiString;
    function GetDocumentPartHint(const aPart: IevDocumentPart): AnsiString;
    function NeedAlignMarksOnSingleClick: Boolean; virtual;
- protected
- // protected properties
+  protected
    property ForceRepaint: Boolean
-     read f_ForceRepaint
-     write f_ForceRepaint;
-     {* признак необходимости отрисовки даже при Locked }
- public
- // public properties
+    read f_ForceRepaint
+    write f_ForceRepaint;
+    {* признак необходимости отрисовки даже при Locked }
+  public
    property Zoom: Integer
-     read f_Zoom
-     write pm_SetZoom
-     default def_Zoom;
+    read f_Zoom
+    write pm_SetZoom
+    default evDef.def_Zoom;
    property OnMakeExportFilters: TevMakeExportFiltersEvent
-     read f_OnMakeExportFilters
-     write f_OnMakeExportFilters;
+    read f_OnMakeExportFilters
+    write f_OnMakeExportFilters;
    property OnFocusViaMouseSet: TNotifyEvent
-     read f_OnFocusViaMouseSet
-     write f_OnFocusViaMouseSet;
+    read f_OnFocusViaMouseSet
+    write f_OnFocusViaMouseSet;
  end;//TevCustomEditorWindowPrim
 
 implementation
 
 uses
-  l3String
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Block_Const,
-  Document_Const,
-  k2Tags,
-  Windows
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  evSchemaWordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  evParaWordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  EditorFromStackKeyWordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  EditorParaCoordsToScreenPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoScripts)}
+ , evSchemaWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , evParaWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EditorFromStackKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EditorParaCoordsToScreenPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3String
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Block_Const
+ , Document_Const
+ , k2Tags
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TevCustomEditorWindowPrim
+procedure TevCustomEditorWindowPrim.pm_SetZoom(aValue: Integer);
+//#UC START# *4D3973B70186_4B28D63A00ECset_var*
+//#UC END# *4D3973B70186_4B28D63A00ECset_var*
+begin
+//#UC START# *4D3973B70186_4B28D63A00ECset_impl*
+ if f_Zoom <> aValue then
+ begin
+  f_Zoom := aValue;
+  if f_Canvas <> nil then
+   Canvas.Zoom := aValue;
+  DoAfterSetZoom; 
+ end // if f_Zoom <> aValue then
+//#UC END# *4D3973B70186_4B28D63A00ECset_impl*
+end;//TevCustomEditorWindowPrim.pm_SetZoom
 
 function TevCustomEditorWindowPrim.GetVScrollerHint(const anAnchor: InevBasePoint): AnsiString;
 //#UC START# *4C0CA1FC02A8_4B28D63A00EC_var*
@@ -233,7 +208,7 @@ begin
 end;//TevCustomEditorWindowPrim.NeedAlignMarksOnSingleClick
 
 procedure TevCustomEditorWindowPrim.RecalcScreenCursor(const aPoint: TPoint;
-  var theCursor: TCursor);
+ var theCursor: TCursor);
 //#UC START# *4E788DB902F9_4B28D63A00EC_var*
 //#UC END# *4E788DB902F9_4B28D63A00EC_var*
 begin
@@ -256,21 +231,6 @@ begin
  end;//CanFocus
 //#UC END# *4E7B4686012C_4B28D63A00EC_impl*
 end;//TevCustomEditorWindowPrim.SetFocusViaMouse
-
-procedure TevCustomEditorWindowPrim.pm_SetZoom(aValue: Integer);
-//#UC START# *4D3973B70186_4B28D63A00ECset_var*
-//#UC END# *4D3973B70186_4B28D63A00ECset_var*
-begin
-//#UC START# *4D3973B70186_4B28D63A00ECset_impl*
- if f_Zoom <> aValue then
- begin
-  f_Zoom := aValue;
-  if f_Canvas <> nil then
-   Canvas.Zoom := aValue;
-  DoAfterSetZoom; 
- end // if f_Zoom <> aValue then
-//#UC END# *4D3973B70186_4B28D63A00ECset_impl*
-end;//TevCustomEditorWindowPrim.pm_SetZoom
 
 function TevCustomEditorWindowPrim.WantSoftEnter: Boolean;
 //#UC START# *4B28D6780001_4B28D63A00EC_var*
@@ -333,6 +293,7 @@ begin
 end;//TevCustomEditorWindowPrim.DoForceRepaint
 
 procedure TevCustomEditorWindowPrim.DoAfterCreateCanvas;
+ {* Вызыввается после создания канвы для установки, например, Zoom'а в наследниках. }
 //#UC START# *4D3974AB02E5_4B28D63A00EC_var*
 //#UC END# *4D3974AB02E5_4B28D63A00EC_var*
 begin
@@ -342,9 +303,9 @@ begin
 end;//TevCustomEditorWindowPrim.DoAfterCreateCanvas
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomEditorWindowPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomEditorWindowPrim);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomEditorWindowPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

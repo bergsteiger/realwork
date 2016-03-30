@@ -1,148 +1,37 @@
 unit nevAnchor;
+ {* Якорь для абстрактного параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevAnchor.pas"
-// Начат: 12.04.2005 14:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevAnchor
-//
-// Якорь для абстрактного параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevAnchor" MUID: (49DE393900D3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  nevTools,
-  l3Variant,
-  k2TagPointer,
-  k2Base,
-  l3Core
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevTools
+ , nevBase
+ , l3Variant
+ , l3Core
+ , k2TagPointer
+ , k2Base
+;
 
-{$If defined(k2ForEditor)}
 type
- {$Include ..\new\nevAnchor.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevAnchor.imp.pas}
  _nevAnchorModify_Parent_ = _nevAnchor_;
  {$Include w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas}
  TnevAnchor = class(_nevAnchorModify_, InevBasePoint, InevAnchor)
   {* Якорь для абстрактного параграфа }
- private
- // private fields
-   f_View : Pointer;
-   f_LockScroll : Integer;
-   f_NeedSignal : Boolean;
- protected
- // property methods
+  private
+   f_View: Pointer;
+   f_LockScroll: Integer;
+   f_NeedSignal: Boolean;
+  protected
    function pm_GetHasInner: Boolean; virtual;
- protected
- // realized methods
-   function Range: InevRange;
-   function pm_GetFormatting: InevDataFormatting;
-   function VertPosition(const aView: InevView;
-    aMap: TnevFormatInfoPrim): TnevParaIndex;
-   function NeedWindowsCaret: Boolean;
-   function ClonePoint(const aView: InevView): InevBasePoint;
-   function DeltaX(const aView: InevView;
-    const aMap: InevMap): Integer;
-   function pm_GetInner: InevBasePoint;
-   procedure pm_SetInner(const aValue: InevBasePoint);
-   function Get_Position: TnevPosition;
-   function LinkListener(const aView: InevScrollListener): InevScrollListener;
-   procedure UnlinkListener(const aControl: InevScrollListener);
-   function InnerFor(const aChild: InevObject;
-    var aRealTop: InevBasePoint): InevBasePoint;
-   function pm_GetAfterEnd: Boolean;
-   function Get_AsLeaf: InevLeafPoint;
-   function AtEnd(const aView: InevView): Boolean;
-   function AtStart: Boolean;
-   function pm_GetText: InevText;
-   function Get_HasInner: Boolean;
-   function Get_ShowCollapsed: Boolean;
-   procedure Set_ShowCollapsed(aValue: Boolean);
-   function Compare(const aPoint: InevBasePoint): Integer;
-   procedure CheckPos(const anOp: InevOp);
-     {* Избавляемся от рассинхронизации позиции курсора и дочернего параграфа. Заплатка конечно }
-   function ReadOnly: Boolean;
-   function AsPoint: InevBasePoint;
-   function AsCursor(const aView: InevView): InevPoint;
-   {$If defined(evNeedMarkers)}
-   function Get_MarkersSource: IevMarkersSource;
-   {$IfEnd} //evNeedMarkers
-   function ProcessMessage(const aView: InevControlView;
-    var aMessage: TMessage;
-    aTime: Cardinal): Boolean;
-   function Get_Listener: InevPointListener;
-   function GetBlockLength: Integer;
-   procedure MergeTo(const aView: InevView;
-    const aBaseLine: InevBasePoint);
-     {* Объединяем значения отрисованных частей. }
-   function InnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
-    aForDrawing: TnevInnerType): InevBasePoint;
-     {* Получаем первый параграф, по которому можно получить вложенную точку. }
-   function HasBaseLine: Boolean;
-     {* Проверяет есть ли возможность работы с базовой линией на точке }
-   procedure AddInner(const aView: InevView;
-    const anInner: InevBaseLine4Anchor;
-    anIndex: Integer;
-    var aFirst: Boolean;
-    aMode: TnevAddInnerMode);
-   procedure CompareWithOtherInner(const aView: InevView;
-    anMaxID: Integer = -1);
-     {* После применения AnchorByPoint могут остаться "неинициализированные" (будут указывать на начало ячейки) дочерние точки в базовой линии. }
-   function InnerHead(aPID: Integer): InevBasePoint;
-     {* Аналог InnerFor, но для частей объдеиненных ячеек, попадающих на данную строку (пока используется только для печати). }
-   function HasHeadPart: Boolean;
-     {* Строка содержит продолжение объединенных ячеек. }
-   procedure AddHeadInner(const aHeadInner: InevBasePoint);
-     {* Служит для добавления в базовую линию продолжений объединенных ячеек (используется только для печати). }
-   procedure CopyHeadParts(const aFrom: InevBasePoint);
-     {* Копирует только части продолжений ячеек, если они есть. }
-   procedure InitByCursor(const aView: InevView;
-    const anInnerPoint: InevBasePoint);
-     {* Инициализируем базовую линию по курсору. }
-   procedure InitBaseLineInner(const aView: InevView;
-    const anItem: InevPara);
-   function InnerTop(const aChild: InevObject): InevBasePoint;
-     {* Возвращает указатель на первоначальную позицию для точки. Для обычных точек - всегда nil. }
-   function pm_GetBeforeStart: Boolean;
- public
- // realized methods
-   procedure AssignPoint(const aView: InevView;
-    const aPoint: InevBasePoint);
-   procedure DisableListener;
-     {* Отключает нотификацию об изменении }
-   procedure EnableListener;
-     {* Включает нотификацию об изменении }
-   procedure CorrectMoveRight(const aView: InevView;
-     const aPoint: InevBasePoint;
-     const anOp: InevOp);
- protected
- // overridden protected methods
-   {$If defined(evUseVisibleCursors)}
-   procedure DoSignalScroll; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
-   procedure DoLockScroll; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
-   procedure DoUnlockScroll; override;
-   {$IfEnd} //evUseVisibleCursors
- protected
- // protected methods
    function GetAtStart: Boolean; virtual; abstract;
    function GetAtEnd(const aView: InevView): Boolean; virtual; abstract;
    function GetAsLeaf: InevLeafPoint; virtual;
@@ -168,37 +57,117 @@ type
     anMaxID: Integer = -1); virtual;
    procedure DoInitByCursor(const aView: InevView;
     const anInnerPoint: InevBasePoint); virtual;
-     {* Инициализируем базовую линию по курсору. }
- public
- // public methods
+    {* Инициализируем базовую линию по курсору. }
+   function Range: InevRange;
+   function pm_GetFormatting: InevDataFormatting;
+   function VertPosition(const aView: InevView;
+    aMap: TnevFormatInfoPrim): TnevParaIndex;
+   function NeedWindowsCaret: Boolean;
+   function ClonePoint(const aView: InevView): InevBasePoint;
+   function DeltaX(const aView: InevView;
+    const aMap: InevMap): Integer;
+   function pm_GetInner: InevBasePoint;
+   procedure pm_SetInner(const aValue: InevBasePoint);
+   function Get_Position: TnevPosition;
+   function LinkListener(const aView: InevScrollListener): InevScrollListener;
+   procedure UnlinkListener(const aControl: InevScrollListener);
+   function InnerFor(const aChild: InevObject;
+    var aRealTop: InevBasePoint): InevBasePoint;
+   function pm_GetAfterEnd: Boolean;
+   function Get_AsLeaf: InevLeafPoint;
+   function AtEnd(const aView: InevView): Boolean;
+   function AtStart: Boolean;
+   function pm_GetText: InevText;
+   function Get_HasInner: Boolean;
+   function Get_ShowCollapsed: Boolean;
+   procedure Set_ShowCollapsed(aValue: Boolean);
+   function Compare(const aPoint: InevBasePoint): Integer;
+   procedure CheckPos(const anOp: InevOp);
+    {* Избавляемся от рассинхронизации позиции курсора и дочернего параграфа. Заплатка конечно }
+   function ReadOnly: Boolean;
+   function AsPoint: InevBasePoint;
+   function AsCursor(const aView: InevView): InevPoint;
+   {$If Defined(evNeedMarkers)}
+   function Get_MarkersSource: IevMarkersSource;
+   {$IfEnd} // Defined(evNeedMarkers)
+   function ProcessMessage(const aView: InevControlView;
+    var aMessage: TMessage;
+    aTime: Cardinal): Boolean;
+   function Get_Listener: InevPointListener;
+   function GetBlockLength: Integer;
+   procedure MergeTo(const aView: InevView;
+    const aBaseLine: InevBasePoint);
+    {* Объединяем значения отрисованных частей. }
+   function InnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
+    aForDrawing: TnevInnerType): InevBasePoint;
+    {* Получаем первый параграф, по которому можно получить вложенную точку. }
+   function HasBaseLine: Boolean;
+    {* Проверяет есть ли возможность работы с базовой линией на точке }
+   procedure AddInner(const aView: InevView;
+    const anInner: InevBaseLine4Anchor;
+    anIndex: Integer;
+    var aFirst: Boolean;
+    aMode: TnevAddInnerMode);
+   procedure CompareWithOtherInner(const aView: InevView;
+    anMaxID: Integer = -1);
+    {* После применения AnchorByPoint могут остаться "неинициализированные" (будут указывать на начало ячейки) дочерние точки в базовой линии. }
+   function InnerHead(aPID: Integer): InevBasePoint;
+    {* Аналог InnerFor, но для частей объдеиненных ячеек, попадающих на данную строку (пока используется только для печати). }
+   function HasHeadPart: Boolean;
+    {* Строка содержит продолжение объединенных ячеек. }
+   procedure AddHeadInner(const aHeadInner: InevBasePoint);
+    {* Служит для добавления в базовую линию продолжений объединенных ячеек (используется только для печати). }
+   procedure CopyHeadParts(const aFrom: InevBasePoint);
+    {* Копирует только части продолжений ячеек, если они есть. }
+   procedure InitByCursor(const aView: InevView;
+    const anInnerPoint: InevBasePoint);
+    {* Инициализируем базовую линию по курсору. }
+   procedure InitBaseLineInner(const aView: InevView;
+    const anItem: InevPara);
+   function InnerTop(const aChild: InevObject): InevBasePoint;
+    {* Возвращает указатель на первоначальную позицию для точки. Для обычных точек - всегда nil. }
+   function pm_GetBeforeStart: Boolean;
+   {$If Defined(evUseVisibleCursors)}
+   procedure DoSignalScroll; override;
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
+   procedure DoLockScroll; override;
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
+   procedure DoUnlockScroll; override;
+   {$IfEnd} // Defined(evUseVisibleCursors)
+  public
    class function Make(aTag: Tl3Variant): InevAnchor; reintroduce;
- protected
- // protected properties
+   procedure AssignPoint(const aView: InevView;
+    const aPoint: InevBasePoint);
+   procedure DisableListener;
+    {* Отключает нотификацию об изменении }
+   procedure EnableListener;
+    {* Включает нотификацию об изменении }
+   procedure CorrectMoveRight(const aView: InevView;
+    const aPoint: InevBasePoint;
+    const anOp: InevOp);
+  protected
    property HasInner: Boolean
-     read pm_GetHasInner;
+    read pm_GetHasInner;
  end;//TnevAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  afwInterfaces,
-  k2Tags,
-  SysUtils,
-  k2NullTagImpl
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
+ l3ImplUses
+ , afwInterfaces
+ , k2Tags
+ , SysUtils
+;
 
 type _Instance_R_ = TnevAnchor;
 
-{$Include ..\new\nevAnchor.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevAnchor.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas}
-
-// start class TnevAnchor
 
 function TnevAnchor.pm_GetHasInner: Boolean;
 //#UC START# *4A58BA550111_49DE393900D3get_var*
@@ -219,7 +188,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevAnchor.Make
 
 function TnevAnchor.GetAsLeaf: InevLeafPoint;
 //#UC START# *4A3B7E35010E_49DE393900D3_var*
@@ -258,7 +227,7 @@ begin
 end;//TnevAnchor.SetInner
 
 function TnevAnchor.GetInnerFor(const aChild: InevObject;
-  var aRealTop: InevBasePoint): InevBasePoint;
+ var aRealTop: InevBasePoint): InevBasePoint;
 //#UC START# *4A3B848302A5_49DE393900D3_var*
 //#UC END# *4A3B848302A5_49DE393900D3_var*
 begin
@@ -280,7 +249,7 @@ begin
 end;//TnevAnchor.DoHasBaseLine
 
 function TnevAnchor.DoGetInnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
-  aForDrawing: TnevInnerType): InevBasePoint;
+ aForDrawing: TnevInnerType): InevBasePoint;
 //#UC START# *4AA7797701F5_49DE393900D3_var*
 //#UC END# *4AA7797701F5_49DE393900D3_var*
 begin
@@ -299,7 +268,7 @@ begin
 end;//TnevAnchor.GetInnerTop
 
 procedure TnevAnchor.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *4B1D0220010E_49DE393900D3_var*
 //#UC END# *4B1D0220010E_49DE393900D3_var*
 begin
@@ -316,10 +285,10 @@ begin
 end;//TnevAnchor.DoAssignPoint
 
 procedure TnevAnchor.DoAddInner(const aView: InevView;
-  const anInner: InevBaseLine4Anchor;
-  anIndex: Integer;
-  var aFirst: Boolean;
-  aMode: TnevAddInnerMode);
+ const anInner: InevBaseLine4Anchor;
+ anIndex: Integer;
+ var aFirst: Boolean;
+ aMode: TnevAddInnerMode);
 //#UC START# *4B90DBFE00EF_49DE393900D3_var*
 //#UC END# *4B90DBFE00EF_49DE393900D3_var*
 begin
@@ -329,7 +298,7 @@ begin
 end;//TnevAnchor.DoAddInner
 
 procedure TnevAnchor.DoCompareWithOtherInner(const aView: InevView;
-  anMaxID: Integer = -1);
+ anMaxID: Integer = -1);
 //#UC START# *4B9625260325_49DE393900D3_var*
 //#UC END# *4B9625260325_49DE393900D3_var*
 begin
@@ -339,7 +308,8 @@ begin
 end;//TnevAnchor.DoCompareWithOtherInner
 
 procedure TnevAnchor.DoInitByCursor(const aView: InevView;
-  const anInnerPoint: InevBasePoint);
+ const anInnerPoint: InevBasePoint);
+ {* Инициализируем базовую линию по курсору. }
 //#UC START# *4C7361850250_49DE393900D3_var*
 //#UC END# *4C7361850250_49DE393900D3_var*
 begin
@@ -367,7 +337,7 @@ begin
 end;//TnevAnchor.pm_GetFormatting
 
 function TnevAnchor.VertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *47C5B65D0195_49DE393900D3_var*
 //#UC END# *47C5B65D0195_49DE393900D3_var*
 begin
@@ -396,7 +366,7 @@ begin
 end;//TnevAnchor.ClonePoint
 
 function TnevAnchor.DeltaX(const aView: InevView;
-  const aMap: InevMap): Integer;
+ const aMap: InevMap): Integer;
 //#UC START# *47C5B6F202A0_49DE393900D3_var*
 //#UC END# *47C5B6F202A0_49DE393900D3_var*
 begin
@@ -457,7 +427,7 @@ begin
 end;//TnevAnchor.UnlinkListener
 
 procedure TnevAnchor.AssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *47C5C25C022F_49DE393900D3_var*
 //#UC END# *47C5C25C022F_49DE393900D3_var*
 begin
@@ -472,7 +442,7 @@ begin
 end;//TnevAnchor.AssignPoint
 
 function TnevAnchor.InnerFor(const aChild: InevObject;
-  var aRealTop: InevBasePoint): InevBasePoint;
+ var aRealTop: InevBasePoint): InevBasePoint;
 //#UC START# *47F5FDA303BC_49DE393900D3_var*
 //#UC END# *47F5FDA303BC_49DE393900D3_var*
 begin
@@ -549,6 +519,7 @@ begin
 end;//TnevAnchor.pm_GetText
 
 procedure TnevAnchor.DisableListener;
+ {* Отключает нотификацию об изменении }
 //#UC START# *4A4C856300DF_49DE393900D3_var*
 //#UC END# *4A4C856300DF_49DE393900D3_var*
 begin
@@ -557,6 +528,7 @@ begin
 end;//TnevAnchor.DisableListener
 
 procedure TnevAnchor.EnableListener;
+ {* Включает нотификацию об изменении }
 //#UC START# *4A4C8581014B_49DE393900D3_var*
 //#UC END# *4A4C8581014B_49DE393900D3_var*
 begin
@@ -623,6 +595,7 @@ begin
 end;//TnevAnchor.Compare
 
 procedure TnevAnchor.CheckPos(const anOp: InevOp);
+ {* Избавляемся от рассинхронизации позиции курсора и дочернего параграфа. Заплатка конечно }
 //#UC START# *4A5B6D370262_49DE393900D3_var*
 //#UC END# *4A5B6D370262_49DE393900D3_var*
 begin
@@ -659,7 +632,7 @@ begin
 //#UC END# *4A5C750E01F7_49DE393900D3_impl*
 end;//TnevAnchor.AsCursor
 
-{$If defined(evNeedMarkers)}
+{$If Defined(evNeedMarkers)}
 function TnevAnchor.Get_MarkersSource: IevMarkersSource;
 //#UC START# *4A5C7D2F0079_49DE393900D3get_var*
 //#UC END# *4A5C7D2F0079_49DE393900D3get_var*
@@ -669,11 +642,11 @@ begin
  Assert(false);
 //#UC END# *4A5C7D2F0079_49DE393900D3get_impl*
 end;//TnevAnchor.Get_MarkersSource
-{$IfEnd} //evNeedMarkers
+{$IfEnd} // Defined(evNeedMarkers)
 
 function TnevAnchor.ProcessMessage(const aView: InevControlView;
-  var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ var aMessage: TMessage;
+ aTime: Cardinal): Boolean;
 //#UC START# *4A5C8A9D0324_49DE393900D3_var*
 //#UC END# *4A5C8A9D0324_49DE393900D3_var*
 begin
@@ -704,7 +677,8 @@ begin
 end;//TnevAnchor.GetBlockLength
 
 procedure TnevAnchor.MergeTo(const aView: InevView;
-  const aBaseLine: InevBasePoint);
+ const aBaseLine: InevBasePoint);
+ {* Объединяем значения отрисованных частей. }
 //#UC START# *4A810F81018E_49DE393900D3_var*
 //#UC END# *4A810F81018E_49DE393900D3_var*
 begin
@@ -714,7 +688,8 @@ begin
 end;//TnevAnchor.MergeTo
 
 function TnevAnchor.InnerForChildThatNotAfterEnd(aFI: TnevFormatInfoPrim;
-  aForDrawing: TnevInnerType): InevBasePoint;
+ aForDrawing: TnevInnerType): InevBasePoint;
+ {* Получаем первый параграф, по которому можно получить вложенную точку. }
 //#UC START# *4AA76AE00147_49DE393900D3_var*
 //#UC END# *4AA76AE00147_49DE393900D3_var*
 begin
@@ -724,6 +699,7 @@ begin
 end;//TnevAnchor.InnerForChildThatNotAfterEnd
 
 function TnevAnchor.HasBaseLine: Boolean;
+ {* Проверяет есть ли возможность работы с базовой линией на точке }
 //#UC START# *4AA76AF90174_49DE393900D3_var*
 //#UC END# *4AA76AF90174_49DE393900D3_var*
 begin
@@ -733,10 +709,10 @@ begin
 end;//TnevAnchor.HasBaseLine
 
 procedure TnevAnchor.AddInner(const aView: InevView;
-  const anInner: InevBaseLine4Anchor;
-  anIndex: Integer;
-  var aFirst: Boolean;
-  aMode: TnevAddInnerMode);
+ const anInner: InevBaseLine4Anchor;
+ anIndex: Integer;
+ var aFirst: Boolean;
+ aMode: TnevAddInnerMode);
 //#UC START# *4B90DA600047_49DE393900D3_var*
 //#UC END# *4B90DA600047_49DE393900D3_var*
 begin
@@ -746,7 +722,8 @@ begin
 end;//TnevAnchor.AddInner
 
 procedure TnevAnchor.CompareWithOtherInner(const aView: InevView;
-  anMaxID: Integer = -1);
+ anMaxID: Integer = -1);
+ {* После применения AnchorByPoint могут остаться "неинициализированные" (будут указывать на начало ячейки) дочерние точки в базовой линии. }
 //#UC START# *4B9623150178_49DE393900D3_var*
 //#UC END# *4B9623150178_49DE393900D3_var*
 begin
@@ -756,6 +733,7 @@ begin
 end;//TnevAnchor.CompareWithOtherInner
 
 function TnevAnchor.InnerHead(aPID: Integer): InevBasePoint;
+ {* Аналог InnerFor, но для частей объдеиненных ячеек, попадающих на данную строку (пока используется только для печати). }
 //#UC START# *4C456C8E027F_49DE393900D3_var*
 //#UC END# *4C456C8E027F_49DE393900D3_var*
 begin
@@ -765,6 +743,7 @@ begin
 end;//TnevAnchor.InnerHead
 
 function TnevAnchor.HasHeadPart: Boolean;
+ {* Строка содержит продолжение объединенных ячеек. }
 //#UC START# *4C456CEA01DE_49DE393900D3_var*
 //#UC END# *4C456CEA01DE_49DE393900D3_var*
 begin
@@ -774,6 +753,7 @@ begin
 end;//TnevAnchor.HasHeadPart
 
 procedure TnevAnchor.AddHeadInner(const aHeadInner: InevBasePoint);
+ {* Служит для добавления в базовую линию продолжений объединенных ячеек (используется только для печати). }
 //#UC START# *4C456D220317_49DE393900D3_var*
 //#UC END# *4C456D220317_49DE393900D3_var*
 begin
@@ -782,6 +762,7 @@ begin
 end;//TnevAnchor.AddHeadInner
 
 procedure TnevAnchor.CopyHeadParts(const aFrom: InevBasePoint);
+ {* Копирует только части продолжений ячеек, если они есть. }
 //#UC START# *4C457D0502E1_49DE393900D3_var*
 //#UC END# *4C457D0502E1_49DE393900D3_var*
 begin
@@ -790,7 +771,8 @@ begin
 end;//TnevAnchor.CopyHeadParts
 
 procedure TnevAnchor.InitByCursor(const aView: InevView;
-  const anInnerPoint: InevBasePoint);
+ const anInnerPoint: InevBasePoint);
+ {* Инициализируем базовую линию по курсору. }
 //#UC START# *4C735E600112_49DE393900D3_var*
 //#UC END# *4C735E600112_49DE393900D3_var*
 begin
@@ -800,7 +782,7 @@ begin
 end;//TnevAnchor.InitByCursor
 
 procedure TnevAnchor.InitBaseLineInner(const aView: InevView;
-  const anItem: InevPara);
+ const anItem: InevPara);
 //#UC START# *4D9C113C0320_49DE393900D3_var*
 //#UC END# *4D9C113C0320_49DE393900D3_var*
 begin
@@ -810,6 +792,7 @@ begin
 end;//TnevAnchor.InitBaseLineInner
 
 function TnevAnchor.InnerTop(const aChild: InevObject): InevBasePoint;
+ {* Возвращает указатель на первоначальную позицию для точки. Для обычных точек - всегда nil. }
 //#UC START# *4DDCD59301D5_49DE393900D3_var*
 //#UC END# *4DDCD59301D5_49DE393900D3_var*
 begin
@@ -828,8 +811,8 @@ begin
 end;//TnevAnchor.pm_GetBeforeStart
 
 procedure TnevAnchor.CorrectMoveRight(const aView: InevView;
-  const aPoint: InevBasePoint;
-  const anOp: InevOp);
+ const aPoint: InevBasePoint;
+ const anOp: InevOp);
 //#UC START# *50DAA7010050_49DE393900D3_var*
 //#UC END# *50DAA7010050_49DE393900D3_var*
 begin
@@ -838,7 +821,7 @@ begin
 //#UC END# *50DAA7010050_49DE393900D3_impl*
 end;//TnevAnchor.CorrectMoveRight
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 procedure TnevAnchor.DoSignalScroll;
 //#UC START# *4B1D08980098_49DE393900D3_var*
 //#UC END# *4B1D08980098_49DE393900D3_var*
@@ -858,9 +841,9 @@ begin
  end;//f_View <> nil
 //#UC END# *4B1D08980098_49DE393900D3_impl*
 end;//TnevAnchor.DoSignalScroll
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 procedure TnevAnchor.DoLockScroll;
 //#UC START# *4B1D08AA027C_49DE393900D3_var*
 //#UC END# *4B1D08AA027C_49DE393900D3_var*
@@ -869,9 +852,9 @@ begin
  Inc(f_LockScroll);
 //#UC END# *4B1D08AA027C_49DE393900D3_impl*
 end;//TnevAnchor.DoLockScroll
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 procedure TnevAnchor.DoUnlockScroll;
 //#UC START# *4B1D08E001CF_49DE393900D3_var*
 //#UC END# *4B1D08E001CF_49DE393900D3_var*
@@ -882,8 +865,7 @@ begin
   SignalScroll;
 //#UC END# *4B1D08E001CF_49DE393900D3_impl*
 end;//TnevAnchor.DoUnlockScroll
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //k2ForEditor
-
+{$IfEnd} // Defined(k2ForEditor)
 end.

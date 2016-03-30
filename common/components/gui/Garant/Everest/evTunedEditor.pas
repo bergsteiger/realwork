@@ -1,78 +1,57 @@
 unit evTunedEditor;
+ {* Промежуточный класс для реализации полноценного редактора (но без published-свойств). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTunedEditor.pas"
-// Начат: 25.11.2004 10:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevTunedEditor
-//
-// Промежуточный класс для реализации полноценного редактора (но без published-свойств).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTunedEditor.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevTunedEditor" MUID: (4845367E03B1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  Messages,
-  evEditorWithOperations
-  ;
+ l3IntfUses
+ , evEditorWithOperations
+ , Messages
+;
 
 type
  TevTunedEditor = class(TevEditorWithOperations)
   {* Промежуточный класс для реализации полноценного редактора (но без published-свойств). }
- private
- // private methods
+  private
    procedure WMKeyDown(var Msg: TWMKeyDown); message WM_KEYDOWN;
- public
- // overridden public methods
+  public
    function Tabulate: Boolean; override;
-     {* эквивалетно нажатию Tab. }
+    {* эквивалетно нажатию Tab. }
    function Untabulate: Boolean; override;
-     {* эквивалетно нажатию Shift-Tab. }
+    {* эквивалетно нажатию Shift-Tab. }
  end;//TevTunedEditor
 
 implementation
 
 uses
-  nevTools,
-  k2Tags,
-  Windows,
-  l3Base,
-  evMsgCode
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp,
-  l3Chars
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Block_Const,
-  Table_Const,
-  k2Base,
-  evExcept
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevTunedEditor
+ l3ImplUses
+ , nevTools
+ , k2Tags
+ , Windows
+ , l3Base
+ , evMsgCode
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ , l3Chars
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Block_Const
+ , Table_Const
+ , k2Base
+ , evExcept
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TevTunedEditor.WMKeyDown(var Msg: TWMKeyDown);
 //#UC START# *484536B5002C_4845367E03B1_var*
@@ -156,6 +135,7 @@ begin
 end;//TevTunedEditor.WMKeyDown
 
 function TevTunedEditor.Tabulate: Boolean;
+ {* эквивалетно нажатию Tab. }
 //#UC START# *482BFD1802D3_4845367E03B1_var*
 //#UC END# *482BFD1802D3_4845367E03B1_var*
 begin
@@ -185,6 +165,7 @@ begin
 end;//TevTunedEditor.Tabulate
 
 function TevTunedEditor.Untabulate: Boolean;
+ {* эквивалетно нажатию Shift-Tab. }
 //#UC START# *482BFD2C0107_4845367E03B1_var*
 //#UC END# *482BFD2C0107_4845367E03B1_var*
 begin
@@ -203,9 +184,9 @@ begin
 end;//TevTunedEditor.Untabulate
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevTunedEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevTunedEditor);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevTunedEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

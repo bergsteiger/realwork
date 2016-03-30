@@ -1,117 +1,87 @@
 unit vcmChromeLikeTabbedContainerForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmChromeLikeTabbedContainerForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::TvcmChromeLikeTabbedContainerForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerForm.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvcmChromeLikeTabbedContainerForm" MUID: (533A9B6A00D9)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  vcmChromeLikeTabbedContainerFormPrim,
-  FormFrameDecorator,
-  Types,
-  Classes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  ChromeLikeInterfaces,
-  ChromeLikeTabSetControlPrim,
-  ChromeLikeTabSetControl,
-  l3TabbedContainersDispatcher
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , vcmChromeLikeTabbedContainerFormPrim
+ , FormFrameDecorator
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TabbedContainersDispatcher
+ , ChromeLikeTabSetControl
+ , Types
+ , ChromeLikeTabSetControlPrim
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ChromeLikeInterfaces
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  _ChromeLikeTabbedContainerForm_Parent_ = TvcmChromeLikeTabbedContainerFormPrim;
  {$Include w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas}
  TvcmChromeLikeTabbedContainerForm = {abstract} class(_ChromeLikeTabbedContainerForm_)
- private
- // private fields
-   f_Decorator : TFormFrameDecorator;
-    {* Поле для свойства Decorator}
- private
- // private methods
+  private
+   f_Decorator: TFormFrameDecorator;
+  private
    procedure DoOnNeedRecreateButtons(aDecorator: TFormFrameDecorator);
    procedure WMSysCommand(var aMessage: TWMSysCommand); message WM_SYSCOMMAND;
- protected
- // property methods
+  protected
    function pm_GetDecorator: TFormFrameDecorator; virtual;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   procedure MakeControls; override;
- protected
- // protected methods
    procedure RecreateButtons; virtual;
    function GetClientControl: TWinControl; virtual;
- protected
- // protected properties
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
+  protected
    property Decorator: TFormFrameDecorator
-     read pm_GetDecorator;
+    read pm_GetDecorator;
  end;//TvcmChromeLikeTabbedContainerForm
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  SysUtils,
-  ChromeLikeTabSetRes,
-  vcmEntityForm,
-  ChromeLikeFormFramePainter,
-  ChromeLikeBaseWindowCaptionButton
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  ChromeLikeTabSetTypes,
-  afwFacade
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+ l3ImplUses
+ , SysUtils
+ , ChromeLikeTabSetRes
+ , vcmEntityForm
+ , ChromeLikeFormFramePainter
+ , ChromeLikeBaseWindowCaptionButton
+ , Windows
+ , Classes
+ , ChromeLikeTabSetTypes
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 {$Include w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas}
 
-// start class TvcmChromeLikeTabbedContainerForm
-
-procedure TvcmChromeLikeTabbedContainerForm.DoOnNeedRecreateButtons(aDecorator: TFormFrameDecorator);
-//#UC START# *54B4B9E2025C_533A9B6A00D9_var*
-//#UC END# *54B4B9E2025C_533A9B6A00D9_var*
+function TvcmChromeLikeTabbedContainerForm.pm_GetDecorator: TFormFrameDecorator;
+//#UC START# *54B4B8D50155_533A9B6A00D9get_var*
+//#UC END# *54B4B8D50155_533A9B6A00D9get_var*
 begin
-//#UC START# *54B4B9E2025C_533A9B6A00D9_impl*
- RecreateButtons;
-//#UC END# *54B4B9E2025C_533A9B6A00D9_impl*
-end;//TvcmChromeLikeTabbedContainerForm.DoOnNeedRecreateButtons
+//#UC START# *54B4B8D50155_533A9B6A00D9get_impl*
+ Result := f_Decorator;
+//#UC END# *54B4B8D50155_533A9B6A00D9get_impl*
+end;//TvcmChromeLikeTabbedContainerForm.pm_GetDecorator
 
 procedure TvcmChromeLikeTabbedContainerForm.RecreateButtons;
 //#UC START# *54B4B92D0212_533A9B6A00D9_var*
@@ -148,14 +118,14 @@ begin
 //#UC END# *54B4B94903C5_533A9B6A00D9_impl*
 end;//TvcmChromeLikeTabbedContainerForm.GetClientControl
 
-function TvcmChromeLikeTabbedContainerForm.pm_GetDecorator: TFormFrameDecorator;
-//#UC START# *54B4B8D50155_533A9B6A00D9get_var*
-//#UC END# *54B4B8D50155_533A9B6A00D9get_var*
+procedure TvcmChromeLikeTabbedContainerForm.DoOnNeedRecreateButtons(aDecorator: TFormFrameDecorator);
+//#UC START# *54B4B9E2025C_533A9B6A00D9_var*
+//#UC END# *54B4B9E2025C_533A9B6A00D9_var*
 begin
-//#UC START# *54B4B8D50155_533A9B6A00D9get_impl*
- Result := f_Decorator;
-//#UC END# *54B4B8D50155_533A9B6A00D9get_impl*
-end;//TvcmChromeLikeTabbedContainerForm.pm_GetDecorator
+//#UC START# *54B4B9E2025C_533A9B6A00D9_impl*
+ RecreateButtons;
+//#UC END# *54B4B9E2025C_533A9B6A00D9_impl*
+end;//TvcmChromeLikeTabbedContainerForm.DoOnNeedRecreateButtons
 
 procedure TvcmChromeLikeTabbedContainerForm.WMSysCommand(var aMessage: TWMSysCommand);
 //#UC START# *54B4B8FF023D_533A9B6A00D9_var*
@@ -178,6 +148,7 @@ begin
 end;//TvcmChromeLikeTabbedContainerForm.WMSysCommand
 
 procedure TvcmChromeLikeTabbedContainerForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_533A9B6A00D9_var*
 //#UC END# *479731C50290_533A9B6A00D9_var*
 begin
@@ -197,6 +168,7 @@ begin
 end;//TvcmChromeLikeTabbedContainerForm.InitFields
 
 procedure TvcmChromeLikeTabbedContainerForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_533A9B6A00D9_var*
 //#UC END# *4A8E8F2E0195_533A9B6A00D9_var*
 begin
@@ -220,12 +192,11 @@ begin
 //#UC END# *500004A60200_533A9B6A00D9_impl*
 end;//TvcmChromeLikeTabbedContainerForm.MakeControls
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvcmChromeLikeTabbedContainerForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmChromeLikeTabbedContainerForm);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TvcmChromeLikeTabbedContainerForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

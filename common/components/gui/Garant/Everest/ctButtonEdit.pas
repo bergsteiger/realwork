@@ -1,55 +1,39 @@
 unit ctButtonEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/ctButtonEdit.pas"
-// Начат: 14.05.2008 17:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::elClone::TctButtonEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\ctButtonEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TctButtonEdit" MUID: (482AE8CA0176)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  elCustomButtonEdit
-  ;
+ l3IntfUses
+ , elCustomButtonEdit
+ , l3Interfaces
+;
 
 type
  TctButtonEdit = class(TelCustomButtonEdit)
- protected
- // property methods
+  protected
    function pm_GetText: Il3CString;
    procedure pm_SetText(const aValue: Il3CString);
- public
- // public properties
+  public
    property Text: Il3CString
-     read pm_GetText
-     write pm_SetText;
+    read pm_GetText
+    write pm_SetText;
  end;//TctButtonEdit
 
 implementation
 
 uses
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TctButtonEdit
+ l3ImplUses
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TctButtonEdit.pm_GetText: Il3CString;
 //#UC START# *482AE97A02F7_482AE8CA0176get_var*
@@ -78,9 +62,9 @@ begin
 end;//TctButtonEdit.pm_SetText
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TctButtonEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TctButtonEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TctButtonEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

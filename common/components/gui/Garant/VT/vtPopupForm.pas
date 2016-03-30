@@ -1,186 +1,159 @@
 unit vtPopupForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Модуль: "w:/common/components/gui/Garant/VT/vtPopupForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT$Rem::Reminders::TvtPopupForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtPopupForm.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtPopupForm" MUID: (4D90583503C2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Types,
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vtPanel,
-  vg_controls,
-  vg_scene,
-  vg_layouts
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vg_scene
+ , vg_controls
+ , vg_layouts
+ , Classes
+ , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , Types
+;
 
-{$If not defined(NoVGScene)}
 type
  TvtTailPosition = (
-   vtTailTop
- , vtTailLeft
- , vtTailBottom
- , vtTailRight
+  vtTailTop
+  , vtTailLeft
+  , vtTailBottom
+  , vtTailRight
  );//TvtTailPosition
 
  TvtCurrentBounds = array [TvtTailPosition] of TRect;
 
  TvtPopupForm = class(TCustomForm)
- private
- // private fields
-   f_Scene : TvgScene;
-   f_Background : TvgBackground;
-   f_CalloutPanel : TvgCalloutPanel;
-   f_CloseButton : TvgCloseButton;
-   f_NonVGLayout : TvgNonVGLayout;
-   f_CurrentBounds : TvtCurrentBounds;
-   f_AfterBaloonHidden : TNotifyEvent;
-    {* Поле для свойства AfterBaloonHidden}
-   f_TailPosition : TvtTailPosition;
-    {* Поле для свойства TailPosition}
-   f_Panel : TvtPanel;
-    {* Поле для свойства Panel}
- private
- // private methods
+  private
+   f_Scene: TvgScene;
+   f_Background: TvgBackground;
+   f_CalloutPanel: TvgCalloutPanel;
+   f_CloseButton: TvgCloseButton;
+   f_NonVGLayout: TvgNonVGLayout;
+   f_CurrentBounds: TvtCurrentBounds;
+   f_AfterBaloonHidden: TNotifyEvent;
+   f_TailPosition: TvtTailPosition;
+   f_Panel: TvtPanel;
+  private
    procedure PanelGetSiteInfo(Sender: TObject;
-     DockClient: TControl;
-     var InfluenceRect: TRect;
-     MousePos: TPoint;
-     var CanDock: Boolean);
+    DockClient: TControl;
+    var InfluenceRect: TRect;
+    MousePos: TPoint;
+    var CanDock: Boolean);
    procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
- protected
- // property methods
+  protected
    procedure pm_SetTailPosition(aValue: TvtTailPosition);
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure SetBounds(ALeft: Integer;
-     ATop: Integer;
-     AWidth: Integer;
-     AHeight: Integer); override;
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
+    ATop: Integer;
+    AWidth: Integer;
+    AHeight: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   class procedure AdjustBalloonSize(const a_TailPosition: TvtTailPosition;
+    a_FontSize: Integer;
+    a_WidthIn: Integer;
+    a_HeightIn: Integer;
+    out a_WidthOut: Integer;
+    out a_HeightOut: Integer);
+    {* По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона. }
+   {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
     Dummy: Integer = 0); override;
-   {$IfEnd} //not NoVCL
- public
- // public methods
-   class procedure AdjustBalloonSize(const a_TailPosition: TvtTailPosition;
-     a_FontSize: Integer;
-     a_WidthIn: Integer;
-     a_HeightIn: Integer;
-     out a_WidthOut: Integer;
-     out a_HeightOut: Integer);
-     {* По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона. }
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property AfterBaloonHidden: TNotifyEvent
-     read f_AfterBaloonHidden
-     write f_AfterBaloonHidden;
+    read f_AfterBaloonHidden
+    write f_AfterBaloonHidden;
    property TailPosition: TvtTailPosition
-     read f_TailPosition
-     write pm_SetTailPosition;
+    read f_TailPosition
+    write pm_SetTailPosition;
    property Panel: TvtPanel
-     read f_Panel;
+    read f_Panel;
  end;//TvtPopupForm
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3Defaults,
-  vg_objects,
-  Windows,
-  afwFacade,
-  vgTypes,
-  vtVGSceneRes
-  {$If not defined(NoVCM)}
-  ,
-  vcmDockTree
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVGScene
+ l3ImplUses
+ , l3Defaults
+ , vg_objects
+ , Windows
+ , afwFacade
+ , vgTypes
+ , vtVGSceneRes
+ {$If NOT Defined(NoVCM)}
+ , vcmDockTree
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVCL)}
+type
+ THackWinControl = class(TWinControl)
+ end;//THackWinControl
 
 const
-   { TvtPopupForm_Constants }
-  cIndentHMul = 0.2;
-   { отступы от краев по горизонтали }
-  cIndentTopMul = 1.0;
-   { отступ от верхнего края }
-  cIndentBottomMul = 1.0;
-   { отступ от нижнего края }
-  cTailMul = 1.5;
-   { длина хвостика }
-  cBtnWidthMul = 1.4;
-   { ширина-высота кнопки }
-  cBtnIndentMul = 0.5;
-   { отступ кнопки от края }
+ cIndentHMul = 0.2;
+  {* отступы от краев по горизонтали }
+ cIndentTopMul = 1.0;
+  {* отступ от верхнего края }
+ cIndentBottomMul = 1.0;
+  {* отступ от нижнего края }
+ cTailMul = 1.5;
+  {* длина хвостика }
+ cBtnWidthMul = 1.4;
+  {* ширина-высота кнопки }
+ cBtnIndentMul = 0.5;
+  {* отступ кнопки от края }
 
-type
-  THackWinControl = class(TWinControl)
-  end;//THackWinControl
-
-// start class TvtPopupForm
-
-procedure TvtPopupForm.PanelGetSiteInfo(Sender: TObject;
-  DockClient: TControl;
-  var InfluenceRect: TRect;
-  MousePos: TPoint;
-  var CanDock: Boolean);
-//#UC START# *4FC87D8002D6_4D90583503C2_var*
-//#UC END# *4FC87D8002D6_4D90583503C2_var*
+procedure TvtPopupForm.pm_SetTailPosition(aValue: TvtTailPosition);
+//#UC START# *4FC768990140_4D90583503C2set_var*
+//#UC END# *4FC768990140_4D90583503C2set_var*
 begin
-//#UC START# *4FC87D8002D6_4D90583503C2_impl*
- CanDock := false;
-//#UC END# *4FC87D8002D6_4D90583503C2_impl*
-end;//TvtPopupForm.PanelGetSiteInfo
+//#UC START# *4FC768990140_4D90583503C2set_impl*
+ if (f_CalloutPanel <> nil) and (f_TailPosition <> aValue) then
+ begin
+  f_TailPosition := aValue;
+  case f_TailPosition of
+    vtTailTop    : f_CalloutPanel.CalloutPosition := vgCalloutTop;
+    vtTailLeft   : f_CalloutPanel.CalloutPosition := vgCalloutLeft;
+    vtTailBottom : f_CalloutPanel.CalloutPosition := vgCalloutBottom;
+    vtTailRight  : f_CalloutPanel.CalloutPosition := vgCalloutRight;
+  end;
+  with f_CurrentBounds[f_TailPosition] do
+   SetBounds(Left, Top, Right, Bottom);
+ end;
+//#UC END# *4FC768990140_4D90583503C2set_impl*
+end;//TvtPopupForm.pm_SetTailPosition
 
 class procedure TvtPopupForm.AdjustBalloonSize(const a_TailPosition: TvtTailPosition;
-  a_FontSize: Integer;
-  a_WidthIn: Integer;
-  a_HeightIn: Integer;
-  out a_WidthOut: Integer;
-  out a_HeightOut: Integer);
+ a_FontSize: Integer;
+ a_WidthIn: Integer;
+ a_HeightIn: Integer;
+ out a_WidthOut: Integer;
+ out a_HeightOut: Integer);
+ {* По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона. }
 //#UC START# *4FC7711F014B_4D90583503C2_var*
 //#UC END# *4FC7711F014B_4D90583503C2_var*
 begin
@@ -205,25 +178,18 @@ begin
 //#UC END# *4FC7711F014B_4D90583503C2_impl*
 end;//TvtPopupForm.AdjustBalloonSize
 
-procedure TvtPopupForm.pm_SetTailPosition(aValue: TvtTailPosition);
-//#UC START# *4FC768990140_4D90583503C2set_var*
-//#UC END# *4FC768990140_4D90583503C2set_var*
+procedure TvtPopupForm.PanelGetSiteInfo(Sender: TObject;
+ DockClient: TControl;
+ var InfluenceRect: TRect;
+ MousePos: TPoint;
+ var CanDock: Boolean);
+//#UC START# *4FC87D8002D6_4D90583503C2_var*
+//#UC END# *4FC87D8002D6_4D90583503C2_var*
 begin
-//#UC START# *4FC768990140_4D90583503C2set_impl*
- if (f_CalloutPanel <> nil) and (f_TailPosition <> aValue) then
- begin
-  f_TailPosition := aValue;
-  case f_TailPosition of
-    vtTailTop    : f_CalloutPanel.CalloutPosition := vgCalloutTop;
-    vtTailLeft   : f_CalloutPanel.CalloutPosition := vgCalloutLeft;
-    vtTailBottom : f_CalloutPanel.CalloutPosition := vgCalloutBottom;
-    vtTailRight  : f_CalloutPanel.CalloutPosition := vgCalloutRight;
-  end;
-  with f_CurrentBounds[f_TailPosition] do
-   SetBounds(Left, Top, Right, Bottom);
- end;
-//#UC END# *4FC768990140_4D90583503C2set_impl*
-end;//TvtPopupForm.pm_SetTailPosition
+//#UC START# *4FC87D8002D6_4D90583503C2_impl*
+ CanDock := false;
+//#UC END# *4FC87D8002D6_4D90583503C2_impl*
+end;//TvtPopupForm.PanelGetSiteInfo
 
 procedure TvtPopupForm.CMVisibleChanged(var Message: TMessage);
 //#UC START# *4FC7694303B7_4D90583503C2_var*
@@ -241,7 +207,6 @@ begin
 //#UC END# *4FC7694303B7_4D90583503C2_impl*
 end;//TvtPopupForm.CMVisibleChanged
 
-{$If not defined(NoVCL)}
 procedure TvtPopupForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4D90583503C2_var*
 //#UC END# *48C7925A02E5_4D90583503C2_var*
@@ -253,13 +218,11 @@ begin
  {$EndIf vtLayeredFormIsForm}
 //#UC END# *48C7925A02E5_4D90583503C2_impl*
 end;//TvtPopupForm.CreateParams
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtPopupForm.SetBounds(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer);
 //#UC START# *4F2A599E0283_4D90583503C2_var*
 var
  l_FontSize: Integer;
@@ -328,11 +291,9 @@ begin
  end;//try..finally
 //#UC END# *4F2A599E0283_4D90583503C2_impl*
 end;//TvtPopupForm.SetBounds
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 constructor TvtPopupForm.CreateNew(AOwner: TComponent;
-  Dummy: Integer = 0);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_4D90583503C2_var*
 {$IfDef IsVCMProject}
 var
@@ -406,14 +367,13 @@ begin
  end;//with f_NonVGLayout
 //#UC END# *4F9007B20376_4D90583503C2_impl*
 end;//TvtPopupForm.CreateNew
-{$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVGScene
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvtPopupForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtPopupForm);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvtPopupForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene)
 end.

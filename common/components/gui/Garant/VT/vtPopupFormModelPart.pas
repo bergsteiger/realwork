@@ -1,72 +1,48 @@
 unit vtPopupFormModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/vtPopupFormModelPart.pas"
-// Начат: 28.03.2011 13:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT$Rem::Reminders::TvtPopupFormModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtPopupFormModelPart.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtPopupFormModelPart" MUID: (4D9058880214)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  Types,
-  vtPopupForm
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoVCM AND not NoVGScene
+ l3IntfUses
+ , vtPopupForm
+ , vcmExternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+;
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
 type
-
  TTailRects = array [TvtTailPosition] of TRect;
 
-
  TPopupFormBoundsRects = record
-   rInited : Boolean;
-   rV : TTailRects;
+  rInited: Boolean;
+  rV: TTailRects;
  end;//TPopupFormBoundsRects
 
  TvtPopupFormModelPart = class(TvtPopupForm, IvcmDatasourceChangeListener)
- protected
- // realized methods
+  protected
    procedure DataSourceChanged(aControl: TControl);
  end;//TvtPopupFormModelPart
-{$IfEnd} //not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM AND not NoVGScene
-
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TvtPopupFormModelPart
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvtPopupFormModelPart.DataSourceChanged(aControl: TControl);
 //#UC START# *4D905A2A00D6_4D9058880214_var*
@@ -84,12 +60,11 @@ begin
 //#UC END# *4D905A2A00D6_4D9058880214_impl*
 end;//TvtPopupFormModelPart.DataSourceChanged
 
-{$IfEnd} //not NoVCM AND not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvtPopupFormModelPart
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtPopupFormModelPart);
-{$IfEnd} //not NoScripts AND not NoVCM AND not NoVGScene
+ {* Регистрация TvtPopupFormModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 end.

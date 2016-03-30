@@ -1,52 +1,39 @@
 unit evHyperlinkProxy;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evHyperlinkProxy.pas"
-// Начат: 13.07.2011 21:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevHyperlinkProxy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evHyperlinkProxy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevHyperlinkProxy" MUID: (4E1DD7720136)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evdTypes,
-  nevNavigation,
-  l3CProtoObject,
-  nevTools,
-  afwNavigation,
-  l3Types,
-  l3Variant,
-  l3Interfaces
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , l3CProtoObject
+ , nevNavigation
+ , evdTypes
+ , nevTools
+ , afwNavigation
+ , l3Types
+ , l3Variant
+ , l3Interfaces
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevHyperlinkProxy = class(Tl3CProtoObject, IevHyperlink)
- private
- // private fields
-   f_Link : IevHyperlink;
- protected
- // realized methods
+  private
+   f_Link: IevHyperlink;
+  protected
+   function DoFromDocumentExternalHandle: Integer; virtual;
+   function DoGetKind: TevLinkViewKind; virtual;
    function Exists: Boolean;
-     {* Проверяет существует ли данная ссылка }
+    {* Проверяет существует ли данная ссылка }
    procedure Insert;
-     {* Вставляет новую ссылку }
+    {* Вставляет новую ссылку }
    procedure Delete;
-     {* Удаляет гипертекстовую ссылку }
+    {* Удаляет гипертекстовую ссылку }
    function Get_ID: Integer;
    procedure Set_ID(aValue: Integer);
    function pm_GetPara: InevPara;
@@ -63,38 +50,23 @@ type
    function Get_TargetDocumentID: Integer;
    function Get_Name: Tl3PCharLen;
    function GetHyperlink: Tl3Tag;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
- protected
- // protected methods
-   function DoFromDocumentExternalHandle: Integer; virtual;
-   function DoGetKind: TevLinkViewKind; virtual;
- public
- // public methods
+  public
    constructor Create(const aLink: IevHyperlink); reintroduce;
    class function Make(const aLink: IevHyperlink): IevHyperlink; reintroduce;
-     {* Сигнатура фабрики TevHyperlinkProxy.Make }
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//TevHyperlinkProxy
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  l3InterfacesMisc
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TevHyperlinkProxy
+ l3ImplUses
+ , l3InterfacesMisc
+;
 
 constructor TevHyperlinkProxy.Create(const aLink: IevHyperlink);
 //#UC START# *4E1DD7FE016D_4E1DD7720136_var*
@@ -117,7 +89,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevHyperlinkProxy.Make
 
 function TevHyperlinkProxy.DoFromDocumentExternalHandle: Integer;
 //#UC START# *4E1DDB7D0368_4E1DD7720136_var*
@@ -138,6 +110,7 @@ begin
 end;//TevHyperlinkProxy.DoGetKind
 
 function TevHyperlinkProxy.Exists: Boolean;
+ {* Проверяет существует ли данная ссылка }
 //#UC START# *49E5FCF403BB_4E1DD7720136_var*
 //#UC END# *49E5FCF403BB_4E1DD7720136_var*
 begin
@@ -147,6 +120,7 @@ begin
 end;//TevHyperlinkProxy.Exists
 
 procedure TevHyperlinkProxy.Insert;
+ {* Вставляет новую ссылку }
 //#UC START# *49E5FD13001E_4E1DD7720136_var*
 //#UC END# *49E5FD13001E_4E1DD7720136_var*
 begin
@@ -156,6 +130,7 @@ begin
 end;//TevHyperlinkProxy.Insert
 
 procedure TevHyperlinkProxy.Delete;
+ {* Удаляет гипертекстовую ссылку }
 //#UC START# *49E5FD1D0339_4E1DD7720136_var*
 //#UC END# *49E5FD1D0339_4E1DD7720136_var*
 begin
@@ -309,7 +284,8 @@ begin
 end;//TevHyperlinkProxy.GetHyperlink
 
 function TevHyperlinkProxy.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47A0AD3A01F7_4E1DD7720136_var*
 //#UC END# *47A0AD3A01F7_4E1DD7720136_var*
 begin
@@ -321,14 +297,10 @@ begin
 end;//TevHyperlinkProxy.QueryInterface
 
 procedure TevHyperlinkProxy.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_Link := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TevHyperlinkProxy.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

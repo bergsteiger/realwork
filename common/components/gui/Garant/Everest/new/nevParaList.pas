@@ -1,51 +1,35 @@
 unit nevParaList;
+ {* Реализация инструмента InevParaList }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevParaList.pas"
-// Начат: 31.03.2005 15:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevParaList
-//
-// Реализация инструмента InevParaList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevParaList" MUID: (48CE0B85029C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  nevTools,
-  nevPara,
-  l3Variant,
-  l3Interfaces
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevPara
+ , nevTools
+ , nevBase
+ , l3Variant
+ , l3Interfaces
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevParaList = class(TnevPara, InevObjectList, InevParaList, InevParaListModify)
   {* Реализация инструмента InevParaList }
- protected
- // realized methods
-   {iterator} function IteratePara(anAction: InevParaList_IteratePara_Action;
-    aLo: TnevParaIndex = nev_piFirst;
-    aHi: TnevParaIndex = nev_piLast;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateParaF(anAction: InevParaList_IteratePara_Action;
-    aLo: TnevParaIndex = nev_piFirst;
-    aHi: TnevParaIndex = nev_piLast;
-    aLoadedOnly: Boolean = false): Integer;
+  protected
+   function GetParaCount: TnevParaIndex; virtual;
+   function GetPara(anIndex: TnevParaIndex): InevPara; virtual;
+   function GetIndexOfObj(const aPara: InevObject): TnevParaIndex; virtual;
+   function GetModify: InevParaListModify; virtual;
+   procedure CheckPrev(const anOp: InevOp;
+    aPara: Tl3Variant;
+    aPID: Integer); virtual;
    function IndexOfObj(const aPara: InevObject): TnevParaIndex;
    function pm_GetCount: TnevParaIndex;
    function pm_GetLeafShapeCount: Integer;
@@ -53,21 +37,19 @@ type
    function pm_GetAlmostLinear: Boolean;
    function GetParas(aFrom: TnevParaIndex = nev_piFirst;
     aTo: TnevParaIndex = nev_piLast): InevParas;
-     {* возвращает список параграфов. }
+    {* возвращает список параграфов. }
    function Modify: InevParaListModify;
    function pm_GetParaCount: TnevParaIndex;
    function pm_GetPara(anIndex: TnevParaIndex): InevPara;
    function InsertPara(aPID: TnevParaIndex;
-     aPara: Tl3Variant;
-     const anOp: InevOp;
-     aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
-     {* вставляет параграф в указанную позицию. }
+    aPara: Tl3Variant;
+    const anOp: InevOp;
+    aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
+    {* вставляет параграф в указанную позицию. }
    function InsertDefaultPara(aPID: TnevParaIndex;
-     const anOp: InevOp;
-     aNeedFire: Boolean = true): Boolean;
-     {* вставляет параграф с типом по-умолчанию в указанную позицию. }
- protected
- // overridden protected methods
+    const anOp: InevOp;
+    aNeedFire: Boolean = True): Boolean;
+    {* вставляет параграф с типом по-умолчанию в указанную позицию. }
    function GetIsList: Boolean; override;
    function GetToList: InevObjectList; override;
    function GetAsList: InevParaList; override;
@@ -77,47 +59,33 @@ type
     aLoadedOnly: Boolean): Integer; override;
    function GetIsVertical: Boolean; override;
    function GetIsEmpty: Boolean; override;
- protected
- // protected methods
-   function GetParaCount: TnevParaIndex; virtual;
-   function GetPara(anIndex: TnevParaIndex): InevPara; virtual;
-   function GetIndexOfObj(const aPara: InevObject): TnevParaIndex; virtual;
-   function GetModify: InevParaListModify; virtual;
-   procedure CheckPrev(const anOp: InevOp;
-    aPara: Tl3Variant;
-    aPID: Integer); virtual;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): InevParaList; reintroduce;
  end;//TnevParaList
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3InterfacesMisc,
-  k2Tags,
-  l3Math,
-  nevParas,
-  nevFacade,
-  l3Base,
-  l3MinMax,
-  k2Base,
-  k2Const,
-  SysUtils,
-  evCursorTools,
-  evMsgCode,
-  k2Facade,
-  k2OpMisc,
-  Para_Const,
-  k2Interfaces
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevParaList
+ l3ImplUses
+ , l3InterfacesMisc
+ , k2Tags
+ , l3Math
+ , nevParas
+ , nevFacade
+ , l3Base
+ , l3MinMax
+ , k2Base
+ , k2Const
+ , SysUtils
+ , evCursorTools
+ , evMsgCode
+ , k2Facade
+ , k2OpMisc
+ , Para_Const
+ , k2Interfaces
+;
 
 class function TnevParaList.Make(aTag: Tl3Variant): InevParaList;
 var
@@ -129,7 +97,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevParaList.Make
 
 function TnevParaList.GetParaCount: TnevParaIndex;
 //#UC START# *48CFA8770265_48CE0B85029C_var*
@@ -184,8 +152,8 @@ begin
 end;//TnevParaList.GetModify
 
 procedure TnevParaList.CheckPrev(const anOp: InevOp;
-  aPara: Tl3Variant;
-  aPID: Integer);
+ aPara: Tl3Variant;
+ aPID: Integer);
 //#UC START# *4C8DE3B00073_48CE0B85029C_var*
 //#UC END# *4C8DE3B00073_48CE0B85029C_var*
 begin
@@ -252,7 +220,8 @@ begin
 end;//TnevParaList.pm_GetAlmostLinear
 
 function TnevParaList.GetParas(aFrom: TnevParaIndex = nev_piFirst;
-  aTo: TnevParaIndex = nev_piLast): InevParas;
+ aTo: TnevParaIndex = nev_piLast): InevParas;
+ {* возвращает список параграфов. }
 //#UC START# *47C6AC130151_48CE0B85029C_var*
 
 var
@@ -305,9 +274,10 @@ begin
 end;//TnevParaList.pm_GetPara
 
 function TnevParaList.InsertPara(aPID: TnevParaIndex;
-  aPara: Tl3Variant;
-  const anOp: InevOp;
-  aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
+ aPara: Tl3Variant;
+ const anOp: InevOp;
+ aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
+ {* вставляет параграф в указанную позицию. }
 //#UC START# *47C6ACC90087_48CE0B85029C_var*
 
 var
@@ -407,8 +377,9 @@ begin
 end;//TnevParaList.InsertPara
 
 function TnevParaList.InsertDefaultPara(aPID: TnevParaIndex;
-  const anOp: InevOp;
-  aNeedFire: Boolean = true): Boolean;
+ const anOp: InevOp;
+ aNeedFire: Boolean = True): Boolean;
+ {* вставляет параграф с типом по-умолчанию в указанную позицию. }
 //#UC START# *47C6ACE6026E_48CE0B85029C_var*
 var
  l_Para : Tl3Variant;
@@ -455,9 +426,9 @@ begin
 end;//TnevParaList.GetAsList
 
 function TnevParaList.DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index;
-  aHi: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aLo: Tl3Index;
+ aHi: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *48CF96D80241_48CE0B85029C_var*
 
  function DoChild(const aPara: InevPara; anIndex: TnevParaIndex): Boolean;
@@ -493,52 +464,6 @@ begin
  Result := (pm_GetParaCount <= 0);
 //#UC END# *48CF9F4F01D0_48CE0B85029C_impl*
 end;//TnevParaList.GetIsEmpty
-
-{iterator} function TnevParaList.IteratePara(anAction: InevParaList_IteratePara_Action;
-  aLo: TnevParaIndex = nev_piFirst;
-  aHi: TnevParaIndex = nev_piLast;
-  aLoadedOnly: Boolean = false): Integer;
-//#UC START# *4BB0751F00A4_48CE0B85029C_var*
-
- function DoChild(aChild: Tl3Variant; anIndex: Integer): Boolean;
- var
-  l_Para : InevParaInternal;
- begin//DoChild
-  if not aChild.QT(InevParaInternal, l_Para) then
-   if aChild.IsKindOf(k2_typPara) then
-    l_Para := TnevPara.Make(aChild)
-   else
-   begin
-    Result := true;
-    Exit;
-   end;//aChild.IsKindOf(k2_typPara)
-  l_Para.SignalPID(anIndex);
-  l_Para.ParentTool := Self;
-  Result := anAction(l_Para, anIndex);
- end;//DoChild
-
-//#UC END# *4BB0751F00A4_48CE0B85029C_var*
-begin
-//#UC START# *4BB0751F00A4_48CE0B85029C_impl*
- aLo := Max(0, aLo);
- Result := TagInst.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoChild), aLo, aHi, aLoadedOnly);
-//#UC END# *4BB0751F00A4_48CE0B85029C_impl*
-end;//TnevParaList.IteratePara
-
-{iterator} function TnevParaList.IterateParaF(anAction: InevParaList_IteratePara_Action;
-  aLo: TnevParaIndex = nev_piFirst;
-  aHi: TnevParaIndex = nev_piLast;
-  aLoadedOnly: Boolean = false): Integer;
-var
- Hack : Pointer absolute anAction;
-begin
- try
-  Result := IteratePara(anAction, aLo, aHi, aLoadedOnly);
- finally
-  l3FreeLocalStub(Hack);
- end;//try..finally
-end;
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

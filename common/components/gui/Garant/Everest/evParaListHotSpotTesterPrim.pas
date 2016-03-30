@@ -1,101 +1,79 @@
 unit evParaListHotSpotTesterPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListHotSpotTesterPrim.pas"
-// Начат: 12.09.2011 20:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevParaListHotSpotTesterPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListHotSpotTesterPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListHotSpotTesterPrim" MUID: (4E6E373A03A3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevBase,
-  nevTools,
-  nevGUIInterfaces,
-  evHotSpot,
-  l3Variant
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evHotSpot
+ , nevGUIInterfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(evNeedHotSpot)}
 type
  _nevParaListTool_Parent_ = TevHotSpot;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _evDecorHotSpotTester_Parent_ = _nevParaListTool_;
- {$Include ..\Everest\evDecorHotSpotTester.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
  TevParaListHotSpotTesterPrim = class(_evDecorHotSpotTester_, InevHotSpotTester2)
- protected
- // realized methods
+  protected
+   function GetChildHotSpot(const aView: InevControlView;
+    const aState: TevCursorState;
+    const aPt: InevBasePoint;
+    const aMap: InevMap;
+    const aChild: InevObject;
+    out theSpot: IevHotSpot): Boolean; virtual;
+   function DoGetAdvancedHotSpot(const aView: InevControlView;
+    const aState: TevCursorState;
+    const aPt: InevBasePoint;
+    const aMap: InevMap;
+    out theSpot: IevHotSpot): Boolean; virtual;
    function GetAdvancedHotSpot(const aView: InevControlView;
     const aState: TevCursorState;
     const aPt: InevBasePoint;
     const aMap: InevMap;
     out theSpot: IevHotSpot): Boolean;
-     {* Возвращает "горячую точку" }
- protected
- // protected methods
-   function GetChildHotSpot(const aView: InevControlView;
-     const aState: TevCursorState;
-     const aPt: InevBasePoint;
-     const aMap: InevMap;
-     const aChild: InevObject;
-     out theSpot: IevHotSpot): Boolean; virtual;
-   function DoGetAdvancedHotSpot(const aView: InevControlView;
-     const aState: TevCursorState;
-     const aPt: InevBasePoint;
-     const aMap: InevMap;
-     out theSpot: IevHotSpot): Boolean; virtual;
- public
- // public methods
+    {* Возвращает "горячую точку" }
+  public
    constructor Create(aTag: Tl3Variant;
-     const aProcessor: InevProcessor); reintroduce;
+    const aProcessor: InevProcessor); reintroduce;
    class function Make(aTag: Tl3Variant;
-     const aProcessor: InevProcessor): InevHotSpotTester2; reintroduce;
-     {* Сигнатура фабрики TevParaListHotSpotTesterPrim.Make }
+    const aProcessor: InevProcessor): InevHotSpotTester2; reintroduce;
  end;//TevParaListHotSpotTesterPrim
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evDecorHotSpot
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  SysUtils
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3ImplUses
+ , evDecorHotSpot
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , SysUtils
+;
 
-{$If defined(evNeedHotSpot)}
+type _Instance_R_ = TevParaListHotSpotTesterPrim;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include ..\Everest\evDecorHotSpotTester.imp.pas}
-
-// start class TevParaListHotSpotTesterPrim
+{$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
 
 function TevParaListHotSpotTesterPrim.GetChildHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  const aChild: InevObject;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ const aChild: InevObject;
+ out theSpot: IevHotSpot): Boolean;
 //#UC START# *4D6406EE0228_4E6E373A03A3_var*
 var
  l_HotSpotTester : InevHotSpotTester2;
@@ -118,7 +96,7 @@ begin
 end;//TevParaListHotSpotTesterPrim.GetChildHotSpot
 
 constructor TevParaListHotSpotTesterPrim.Create(aTag: Tl3Variant;
-  const aProcessor: InevProcessor);
+ const aProcessor: InevProcessor);
 //#UC START# *4E6E4DA50023_4E6E373A03A3_var*
 //#UC END# *4E6E4DA50023_4E6E373A03A3_var*
 begin
@@ -128,7 +106,7 @@ begin
 end;//TevParaListHotSpotTesterPrim.Create
 
 class function TevParaListHotSpotTesterPrim.Make(aTag: Tl3Variant;
-  const aProcessor: InevProcessor): InevHotSpotTester2;
+ const aProcessor: InevProcessor): InevHotSpotTester2;
 var
  l_Inst : TevParaListHotSpotTesterPrim;
 begin
@@ -138,13 +116,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevParaListHotSpotTesterPrim.Make
 
 function TevParaListHotSpotTesterPrim.DoGetAdvancedHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ out theSpot: IevHotSpot): Boolean;
 //#UC START# *4E6E4F91001A_4E6E373A03A3_var*
 var
  //l_AcceptDrop : Bool;
@@ -166,10 +144,11 @@ begin
 end;//TevParaListHotSpotTesterPrim.DoGetAdvancedHotSpot
 
 function TevParaListHotSpotTesterPrim.GetAdvancedHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ out theSpot: IevHotSpot): Boolean;
+ {* Возвращает "горячую точку" }
 //#UC START# *4A250DD6037C_4E6E373A03A3_var*
 
 var
@@ -241,7 +220,6 @@ begin
  Result := DoGetAdvancedHotSpot(aView, aState, aPt, aMap, theSpot);
 //#UC END# *4A250DD6037C_4E6E373A03A3_impl*
 end;//TevParaListHotSpotTesterPrim.GetAdvancedHotSpot
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

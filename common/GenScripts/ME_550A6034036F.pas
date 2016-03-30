@@ -24,11 +24,8 @@ type
    f_TimerThread: TThread;
    f_NeedAnimateEvent: TEvent;
    f_Interval: Integer;
-    {* Поле для свойства Interval }
    f_Enabled: Boolean;
-    {* Поле для свойства Enabled }
    f_OnTimer: TNotifyEvent;
-    {* Поле для свойства OnTimer }
   private
    procedure StartTimer;
    procedure StopTimer;
@@ -79,10 +76,10 @@ type
    procedure RemoveAnimable(const aAnimable: IChromeLikeTabSetAnimable);
    constructor Create; reintroduce;
    procedure FinishAllImmediately;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TChromeLikeTabSetAnimationManager;
     {* Метод получения экземпляра синглетона TChromeLikeTabSetAnimationManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TChromeLikeTabSetAnimationManager
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
@@ -314,12 +311,6 @@ begin
 //#UC END# *55ACE28F00B0_550A638900A0_impl*
 end;//TChromeLikeTabSetAnimationManager.FinishAllImmediately
 
-class function TChromeLikeTabSetAnimationManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TChromeLikeTabSetAnimationManager <> nil;
-end;//TChromeLikeTabSetAnimationManager.Exists
-
 class function TChromeLikeTabSetAnimationManager.Instance: TChromeLikeTabSetAnimationManager;
  {* Метод получения экземпляра синглетона TChromeLikeTabSetAnimationManager }
 begin
@@ -330,6 +321,12 @@ begin
  end;
  Result := g_TChromeLikeTabSetAnimationManager;
 end;//TChromeLikeTabSetAnimationManager.Instance
+
+class function TChromeLikeTabSetAnimationManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TChromeLikeTabSetAnimationManager <> nil;
+end;//TChromeLikeTabSetAnimationManager.Exists
 
 procedure TChromeLikeTabSetAnimationManager.Cleanup;
  {* Функция очистки полей объекта. }

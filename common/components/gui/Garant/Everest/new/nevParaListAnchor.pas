@@ -1,130 +1,89 @@
 unit nevParaListAnchor;
+ {* Якорь для списков параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevParaListAnchor.pas"
-// Начат: 12.04.2005 15:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevParaListAnchor
-//
-// Якорь для списков параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaListAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevParaListAnchor" MUID: (4A3F457A0129)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevAnchor,
-  l3Variant,
-  nevBase
-  {$If defined(evUseVisibleCursors)}
-  ,
-  nevParaListAnchorModifyTypes
-  {$IfEnd} //evUseVisibleCursors
-  ,
-  k2Interfaces
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevAnchor
+ , nevTools
+ , nevBase
+ , k2Interfaces
+ , l3Variant
+ {$If Defined(evUseVisibleCursors)}
+ , nevParaListAnchorModifyTypes
+ {$IfEnd} // Defined(evUseVisibleCursors)
+;
 
-{$If defined(k2ForEditor)}
 type
  _nevParaListTool_Parent_ = TnevAnchor;
- {$Include ..\new\nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _nevParaListViewBounds_Parent_ = _nevParaListTool_;
  {$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
  _nevParaListAnchorModify_Parent_ = _nevParaListViewBounds_;
  {$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
  TnevParaListAnchor = class(_nevParaListAnchorModify_)
   {* Якорь для списков параграфов }
- private
- // private fields
-   f_PID : Integer;
-   f_Inner : InevBasePoint;
- private
- // private methods
+  private
+   f_PID: Integer;
+   f_Inner: InevBasePoint;
+  private
    procedure ClearInner;
- protected
- // realized methods
+  protected
+   procedure CheckInner; virtual;
+   procedure ClearInnerInFire; virtual;
    function GetAtStart: Boolean; override;
    function GetAtEnd(const aView: InevView): Boolean; override;
    function GetVertPosition(const aView: InevView;
     aMap: TnevFormatInfoPrim): TnevParaIndex; override;
-   {$If defined(evUseVisibleCursors)}
+   {$If Defined(evUseVisibleCursors)}
    procedure SetPID(aValue: Integer); override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
    function GetPID: Integer; override;
-   {$IfEnd} //evUseVisibleCursors
- protected
- // overridden property methods
-   function pm_GetHasInner: Boolean; override;
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(evUseVisibleCursors)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoFire(const anEvent: Tk2Event;
     const anOp: Ik2Op); override;
    function GetPosition: TnevPosition; override;
    function GetInner: InevBasePoint; override;
    procedure SetInner(const aValue: InevBasePoint); override;
    function NeedEvents: Boolean; override;
-     {* Нужно ли подписываться на события тегов }
+    {* Нужно ли подписываться на события тегов }
+   function pm_GetHasInner: Boolean; override;
    procedure DoAssignPoint(const aView: InevView;
     const aPoint: InevBasePoint); override;
- public
- // overridden public methods
+  public
    constructor Create(aTag: Tl3Variant); override;
- protected
- // protected methods
-   procedure CheckInner; virtual;
-   procedure ClearInnerInFire; virtual;
  end;//TnevParaListAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags,
-  SysUtils,
-  l3MinMax,
-  Table_Const
-  ;
-{$IfEnd} //k2ForEditor
+ l3ImplUses
+ , k2Tags
+ , SysUtils
+ , l3MinMax
+ , Table_Const
+;
 
-{$If defined(k2ForEditor)}
+type _Instance_R_ = TnevParaListAnchor;
 
-{$Include ..\new\nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
-
-// start class TnevParaListAnchor
-
-procedure TnevParaListAnchor.ClearInner;
-//#UC START# *55376B0B01DC_4A3F457A0129_var*
-//#UC END# *55376B0B01DC_4A3F457A0129_var*
-begin
-//#UC START# *55376B0B01DC_4A3F457A0129_impl*
- if (f_Inner <> nil) then
- begin
-  f_Inner.Outer := nil;
-  f_Inner := nil;
- end; // if (f_Inner <> nil) then*)
-//#UC END# *55376B0B01DC_4A3F457A0129_impl*
-end;//TnevParaListAnchor.ClearInner
 
 procedure TnevParaListAnchor.CheckInner;
 //#UC START# *4A58C42A029C_4A3F457A0129_var*
@@ -139,6 +98,19 @@ begin
  end;//f_Inner = nil
 //#UC END# *4A58C42A029C_4A3F457A0129_impl*
 end;//TnevParaListAnchor.CheckInner
+
+procedure TnevParaListAnchor.ClearInner;
+//#UC START# *55376B0B01DC_4A3F457A0129_var*
+//#UC END# *55376B0B01DC_4A3F457A0129_var*
+begin
+//#UC START# *55376B0B01DC_4A3F457A0129_impl*
+ if (f_Inner <> nil) then
+ begin
+  f_Inner.Outer := nil;
+  f_Inner := nil;
+ end; // if (f_Inner <> nil) then*)
+//#UC END# *55376B0B01DC_4A3F457A0129_impl*
+end;//TnevParaListAnchor.ClearInner
 
 procedure TnevParaListAnchor.ClearInnerInFire;
 //#UC START# *55376B1B00F8_4A3F457A0129_var*
@@ -171,7 +143,7 @@ begin
 end;//TnevParaListAnchor.GetAtEnd
 
 function TnevParaListAnchor.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *4A3B7F2E01CE_4A3F457A0129_var*
 //#UC END# *4A3B7F2E01CE_4A3F457A0129_var*
 begin
@@ -180,7 +152,7 @@ begin
 //#UC END# *4A3B7F2E01CE_4A3F457A0129_impl*
 end;//TnevParaListAnchor.GetVertPosition
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 procedure TnevParaListAnchor.SetPID(aValue: Integer);
 //#UC START# *4B1D16510174_4A3F457A0129_var*
 //#UC END# *4B1D16510174_4A3F457A0129_var*
@@ -202,9 +174,9 @@ begin
  end;//f_PID <> aValue
 //#UC END# *4B1D16510174_4A3F457A0129_impl*
 end;//TnevParaListAnchor.SetPID
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 function TnevParaListAnchor.GetPID: Integer;
 //#UC START# *4B1D1957015A_4A3F457A0129_var*
 //#UC END# *4B1D1957015A_4A3F457A0129_var*
@@ -213,9 +185,10 @@ begin
  Result := f_PID;
 //#UC END# *4B1D1957015A_4A3F457A0129_impl*
 end;//TnevParaListAnchor.GetPID
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 procedure TnevParaListAnchor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A3F457A0129_var*
 //#UC END# *479731C50290_4A3F457A0129_var*
 begin
@@ -227,7 +200,7 @@ begin
 end;//TnevParaListAnchor.Cleanup
 
 procedure TnevParaListAnchor.DoFire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
 //#UC START# *48CF73CE00B5_4A3F457A0129_var*
 //#UC END# *48CF73CE00B5_4A3F457A0129_var*
 begin
@@ -307,6 +280,7 @@ begin
 end;//TnevParaListAnchor.Create
 
 function TnevParaListAnchor.NeedEvents: Boolean;
+ {* Нужно ли подписываться на события тегов }
 //#UC START# *4A48AFBD001D_4A3F457A0129_var*
 //#UC END# *4A48AFBD001D_4A3F457A0129_var*
 begin
@@ -327,7 +301,7 @@ begin
 end;//TnevParaListAnchor.pm_GetHasInner
 
 procedure TnevParaListAnchor.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *4B1D0220010E_4A3F457A0129_var*
 var
  l_Pos : Integer;  
@@ -358,7 +332,6 @@ begin
  end;//aPoint <> nil
 //#UC END# *4B1D0220010E_4A3F457A0129_impl*
 end;//TnevParaListAnchor.DoAssignPoint
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

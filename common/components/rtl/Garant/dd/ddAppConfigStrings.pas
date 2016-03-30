@@ -26,7 +26,6 @@ type
  TddStringConfigItem = class(TddVisualConfigItem)
   private
    f_PasswordChar: AnsiChar;
-    {* Поле для свойства PasswordChar }
   private
    procedure DoOnChange(Sender: TObject);
   protected
@@ -68,11 +67,8 @@ type
    f_BrowseButton: TButton;
    f_TestButton: TButton;
    f_AllowTest: Boolean;
-    {* Поле для свойства AllowTest }
    f_TestButtonCaption: AnsiString;
-    {* Поле для свойства TestButtonCaption }
    f_PathFill: TddFillType;
-    {* Поле для свойства PathFill }
   protected
    function MakeFullPath(const aValue: AnsiString): AnsiString; virtual;
    function MakeShortPath(const aValue: AnsiString): AnsiString; virtual;
@@ -110,7 +106,6 @@ type
  TddFolderNameConfigItem = class(TddBrowseConfigItem)
   private
    f_AllowProcessDir: Boolean;
-    {* Поле для свойства AllowProcessDir }
   private
    procedure Validate;
   protected
@@ -131,7 +126,6 @@ type
  TddFileNameConfigItem = class(TddBrowseConfigItem)
   private
    f_FilterMask: AnsiString;
-    {* Поле для свойства FilterMask }
   protected
    procedure OnBrowseClick(Sender: TObject); override;
    procedure OnTestClick(Sender: TObject); override;

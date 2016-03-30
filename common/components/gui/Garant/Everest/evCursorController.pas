@@ -1,93 +1,37 @@
 unit evCursorController;
+ {* Курсор на документ. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCursorController.pas"
-// Начат: 09.12.1998 16:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevCursorController
-//
-// Курсор на документ.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursorController.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCursorController" MUID: (487B5D2D004E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3_Base,
-  nevTools,
-  l3Variant,
-  l3IID
-  ;
+ l3IntfUses
+ , l3_Base
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3IID
+;
 
 type
  TevCursorController = class(Tl3_Base, InevSelection, InevPointListener)
   {* Курсор на документ. }
- private
- // private fields
-   f_NeedSetTop : Boolean;
-   f_View : InevInputView;
-    {* Поле для свойства View}
-   f_Cursor : InevLinkedPoint;
-    {* Поле для свойства Cursor}
-   f_LockCaret : Integer;
-    {* Поле для свойства LockCaret}
- protected
- // property methods
+  private
+   f_NeedSetTop: Boolean;
+   f_View: InevInputView;
+    {* Поле для свойства View }
+   f_Cursor: InevLinkedPoint;
+    {* Поле для свойства Cursor }
+   f_LockCaret: Integer;
+    {* Поле для свойства LockCaret }
+  protected
    function pm_GetDocument: Tl3Tag;
    procedure pm_SetDocument(aValue: Tl3Tag);
- protected
- // realized methods
-   function pm_GetPoint: InevLinkedPoint;
-   function pm_GetIsMulti: Boolean;
-   function Select(const aSource: InevRange;
-     AllowAddToMulti: Boolean): Boolean;
-     {* присваивает одно выделение другому. }
-   procedure SelectPt(const Value: TnevPoint;
-     aNeedUpdate: Boolean);
-     {* устанавливает позицию выделения (в мировых координатах). }
-   function SelectPoint(const aPoint: InevBasePoint;
-     aNeedSetTop: Boolean;
-     aNeedShowCaret: Boolean = true;
-     aDiff: Integer = 0): Boolean;
-     {* параметр aNeedSetTop означает подравливать ли верхний край экрана под курсор
-если false, то курсор должен показаться в ЛЮБОМ месте экрана
-а если true - то жёстко сверху }
-   function AddBlock(const aStart: InevBasePoint;
-     const aFinish: InevBasePoint): Boolean;
-     {* добавляет отрезок выделения. }
-   function Unselect: Boolean;
-     {* снять выделение. }
-   function GetBlock: InevRange;
-     {* получить текущий объект выделения. }
-   function Contains(const C: InevBasePoint): Boolean;
-     {* проверяет содержит ли выделение курсор. }
-   procedure CursorChanged(const aCursor: InevBasePoint);
-     {* курсор aCursor изменился. }
-   procedure ParaChanged(const aCursor: InevBasePoint);
-     {* текущий параграф изменился. }
-   function pm_GetView: InevView;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    function DoGetBlock(const aDocument: InevObject): InevRange; virtual;
    function GetIsMulti: Boolean; virtual;
    function DoAddBlock(const aStart: InevBasePoint;
@@ -101,71 +45,91 @@ type
    function DocumentPara: InevObject;
    procedure DoSetDocument(aValue: Tl3Tag); virtual;
    function NeedUnselectOnSelectPoint(const aPoint: InevBasePoint): Boolean; virtual;
-     {* Нужно ли сбрасывать выделение в SelectPoint }
+    {* Нужно ли сбрасывать выделение в SelectPoint }
    function DoUnselect: Boolean; virtual;
-     {* Снять выделение }
-   procedure FreeCursor(var C: InevLinkedPoint); overload; 
-   procedure FreeCursor(var C: InevPoint); overload; 
-   function CheckCursor(var C: InevLinkedPoint): InevLinkedPoint; overload; 
-   function CheckCursor(var C: InevPoint): InevPoint; overload; 
-   function CheckCursor: InevLinkedPoint; overload; 
-   procedure FreeCursor(var C: InevBasePoint); overload; 
- public
- // public methods
+    {* Снять выделение }
+   procedure FreeCursor(var C: InevLinkedPoint); overload;
+   procedure FreeCursor(var C: InevPoint); overload;
+   function CheckCursor(var C: InevLinkedPoint): InevLinkedPoint; overload;
+   function CheckCursor(var C: InevPoint): InevPoint; overload;
+   function CheckCursor: InevLinkedPoint; overload;
+   procedure FreeCursor(var C: InevBasePoint); overload;
+   function pm_GetPoint: InevLinkedPoint;
+   function pm_GetIsMulti: Boolean;
+   function Select(const aSource: InevRange;
+    AllowAddToMulti: Boolean): Boolean;
+    {* присваивает одно выделение другому. }
+   procedure SelectPt(const Value: TnevPoint;
+    aNeedUpdate: Boolean);
+    {* устанавливает позицию выделения (в мировых координатах). }
+   function SelectPoint(const aPoint: InevBasePoint;
+    aNeedSetTop: Boolean;
+    aNeedShowCaret: Boolean = True;
+    aDiff: Integer = 0): Boolean;
+    {* параметр aNeedSetTop означает подравливать ли верхний край экрана под курсор
+если false, то курсор должен показаться в ЛЮБОМ месте экрана
+а если true - то жёстко сверху }
+   function AddBlock(const aStart: InevBasePoint;
+    const aFinish: InevBasePoint): Boolean;
+    {* добавляет отрезок выделения. }
+   function Unselect: Boolean;
+    {* снять выделение. }
+   function GetBlock: InevRange;
+    {* получить текущий объект выделения. }
+   function Contains(const C: InevBasePoint): Boolean;
+    {* проверяет содержит ли выделение курсор. }
+   procedure CursorChanged(const aCursor: InevBasePoint);
+    {* курсор aCursor изменился. }
+   procedure ParaChanged(const aCursor: InevBasePoint);
+    {* текущий параграф изменился. }
+   function pm_GetView: InevView;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+   procedure ClearFields; override;
+  public
    procedure ForceStore; virtual;
    constructor Create(const aView: InevInputView); reintroduce;
    procedure Lock; virtual;
-     {* Запретить нотификацию об изменениях }
+    {* Запретить нотификацию об изменениях }
    procedure Unlock; virtual;
-     {* Разрешить нотификацию об изменениях }
+    {* Разрешить нотификацию об изменениях }
    procedure LinkView(const aView: InevInputView);
- public
- // public properties
+  public
    property View: InevInputView
-     read f_View;
+    read f_View;
    property Cursor: InevLinkedPoint
-     read f_Cursor;
-     {* Текущая позиция в документе }
+    read f_Cursor;
+    {* Текущая позиция в документе }
    property Document: Tl3Tag
-     read pm_GetDocument
-     write pm_SetDocument;
+    read pm_GetDocument
+    write pm_SetDocument;
    property LockCaret: Integer
-     read f_LockCaret;
+    read f_LockCaret;
  end;//TevCursorController
 
 implementation
 
 uses
-  k2Base,
-  evMsgCode,
-  evOp,
-  k2TagGen,
-  l3InternalInterfaces,
-  evDocumentPartGenerator,
-  SysUtils,
-  nevNavigation,
-  l3InterfacesMisc,
-  evdStyles,
-  LeafPara_Const,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TevCursorController
-
-procedure TevCursorController.ForceStore;
-//#UC START# *4D9476CA029F_487B5D2D004E_var*
-//#UC END# *4D9476CA029F_487B5D2D004E_var*
-begin
-//#UC START# *4D9476CA029F_487B5D2D004E_impl*
- if (f_Cursor <> nil) then
-  f_Cursor.AsObject.ForceStore;
-//#UC END# *4D9476CA029F_487B5D2D004E_impl*
-end;//TevCursorController.ForceStore
+ l3ImplUses
+ , k2Base
+ , evMsgCode
+ , evOp
+ , k2TagGen
+ , l3InternalInterfaces
+ , evDocumentPartGenerator
+ , SysUtils
+ , nevNavigation
+ , l3InterfacesMisc
+ , evdStyles
+ , LeafPara_Const
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TevCursorController.pm_GetDocument: Tl3Tag;
 //#UC START# *48E272D70333_487B5D2D004Eget_var*
@@ -197,6 +161,16 @@ begin
 //#UC END# *48E272D70333_487B5D2D004Eset_impl*
 end;//TevCursorController.pm_SetDocument
 
+procedure TevCursorController.ForceStore;
+//#UC START# *4D9476CA029F_487B5D2D004E_var*
+//#UC END# *4D9476CA029F_487B5D2D004E_var*
+begin
+//#UC START# *4D9476CA029F_487B5D2D004E_impl*
+ if (f_Cursor <> nil) then
+  f_Cursor.AsObject.ForceStore;
+//#UC END# *4D9476CA029F_487B5D2D004E_impl*
+end;//TevCursorController.ForceStore
+
 function TevCursorController.DoGetBlock(const aDocument: InevObject): InevRange;
 //#UC START# *48E252D40298_487B5D2D004E_var*
 //#UC END# *48E252D40298_487B5D2D004E_var*
@@ -226,7 +200,7 @@ begin
 end;//TevCursorController.GetIsMulti
 
 function TevCursorController.DoAddBlock(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
+ const aFinish: InevBasePoint): Boolean;
 //#UC START# *48E2719C019C_487B5D2D004E_var*
 //#UC END# *48E2719C019C_487B5D2D004E_var*
 begin
@@ -253,8 +227,8 @@ begin
 end;//TevCursorController.DoCursorChanged
 
 procedure TevCursorController.DoAssignSel(const aView: InevView;
-  const aSource: InevRange;
-  AllowAddToMulti: Boolean);
+ const aSource: InevRange;
+ AllowAddToMulti: Boolean);
 //#UC START# *48E274CF007B_487B5D2D004E_var*
 //#UC END# *48E274CF007B_487B5D2D004E_var*
 begin
@@ -289,6 +263,7 @@ begin
 end;//TevCursorController.DocumentPara
 
 procedure TevCursorController.Lock;
+ {* Запретить нотификацию об изменениях }
 //#UC START# *48E275700381_487B5D2D004E_var*
 //#UC END# *48E275700381_487B5D2D004E_var*
 begin
@@ -297,6 +272,7 @@ begin
 end;//TevCursorController.Lock
 
 procedure TevCursorController.Unlock;
+ {* Разрешить нотификацию об изменениях }
 //#UC START# *48E27580037A_487B5D2D004E_var*
 //#UC END# *48E27580037A_487B5D2D004E_var*
 begin
@@ -334,6 +310,7 @@ begin
 end;//TevCursorController.DoSetDocument
 
 function TevCursorController.NeedUnselectOnSelectPoint(const aPoint: InevBasePoint): Boolean;
+ {* Нужно ли сбрасывать выделение в SelectPoint }
 //#UC START# *48E276D90043_487B5D2D004E_var*
 //#UC END# *48E276D90043_487B5D2D004E_var*
 begin
@@ -343,6 +320,7 @@ begin
 end;//TevCursorController.NeedUnselectOnSelectPoint
 
 function TevCursorController.DoUnselect: Boolean;
+ {* Снять выделение }
 //#UC START# *48E2771B024F_487B5D2D004E_var*
 //#UC END# *48E2771B024F_487B5D2D004E_var*
 begin
@@ -465,7 +443,8 @@ begin
 end;//TevCursorController.pm_GetIsMulti
 
 function TevCursorController.Select(const aSource: InevRange;
-  AllowAddToMulti: Boolean): Boolean;
+ AllowAddToMulti: Boolean): Boolean;
+ {* присваивает одно выделение другому. }
 //#UC START# *47C5BA930025_487B5D2D004E_var*
 //#UC END# *47C5BA930025_487B5D2D004E_var*
 begin
@@ -476,7 +455,8 @@ begin
 end;//TevCursorController.Select
 
 procedure TevCursorController.SelectPt(const Value: TnevPoint;
-  aNeedUpdate: Boolean);
+ aNeedUpdate: Boolean);
+ {* устанавливает позицию выделения (в мировых координатах). }
 //#UC START# *47C5BC1E0201_487B5D2D004E_var*
 var
  l_Pack  : InevOp;
@@ -503,9 +483,12 @@ begin
 end;//TevCursorController.SelectPt
 
 function TevCursorController.SelectPoint(const aPoint: InevBasePoint;
-  aNeedSetTop: Boolean;
-  aNeedShowCaret: Boolean = true;
-  aDiff: Integer = 0): Boolean;
+ aNeedSetTop: Boolean;
+ aNeedShowCaret: Boolean = True;
+ aDiff: Integer = 0): Boolean;
+ {* параметр aNeedSetTop означает подравливать ли верхний край экрана под курсор
+если false, то курсор должен показаться в ЛЮБОМ месте экрана
+а если true - то жёстко сверху }
 //#UC START# *47C5BC32005E_487B5D2D004E_var*
 var
  l_Point : InevBasePoint;
@@ -610,7 +593,8 @@ begin
 end;//TevCursorController.SelectPoint
 
 function TevCursorController.AddBlock(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
+ const aFinish: InevBasePoint): Boolean;
+ {* добавляет отрезок выделения. }
 //#UC START# *47C5BC510038_487B5D2D004E_var*
 //#UC END# *47C5BC510038_487B5D2D004E_var*
 begin
@@ -620,6 +604,7 @@ begin
 end;//TevCursorController.AddBlock
 
 function TevCursorController.Unselect: Boolean;
+ {* снять выделение. }
 //#UC START# *47C5BC640314_487B5D2D004E_var*
 //#UC END# *47C5BC640314_487B5D2D004E_var*
 begin
@@ -629,6 +614,7 @@ begin
 end;//TevCursorController.Unselect
 
 function TevCursorController.GetBlock: InevRange;
+ {* получить текущий объект выделения. }
 //#UC START# *47C5BC78024B_487B5D2D004E_var*
 var
  l_D : InevObject;
@@ -644,6 +630,7 @@ begin
 end;//TevCursorController.GetBlock
 
 function TevCursorController.Contains(const C: InevBasePoint): Boolean;
+ {* проверяет содержит ли выделение курсор. }
 //#UC START# *47C5BC880398_487B5D2D004E_var*
 //#UC END# *47C5BC880398_487B5D2D004E_var*
 begin
@@ -653,6 +640,7 @@ begin
 end;//TevCursorController.Contains
 
 procedure TevCursorController.CursorChanged(const aCursor: InevBasePoint);
+ {* курсор aCursor изменился. }
 //#UC START# *47C67D810122_487B5D2D004E_var*
 //#UC END# *47C67D810122_487B5D2D004E_var*
 begin
@@ -662,6 +650,7 @@ begin
 end;//TevCursorController.CursorChanged
 
 procedure TevCursorController.ParaChanged(const aCursor: InevBasePoint);
+ {* текущий параграф изменился. }
 //#UC START# *47C67D93010E_487B5D2D004E_var*
 //#UC END# *47C67D93010E_487B5D2D004E_var*
 begin
@@ -682,6 +671,7 @@ begin
 end;//TevCursorController.pm_GetView
 
 procedure TevCursorController.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_487B5D2D004E_var*
 //#UC END# *479731C50290_487B5D2D004E_var*
 begin
@@ -693,7 +683,8 @@ begin
 end;//TevCursorController.Cleanup
 
 function TevCursorController.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_487B5D2D004E_var*
 var
  l_Parent : InevBasePoint;
@@ -770,7 +761,6 @@ begin
 end;//TevCursorController.COMQueryInterface
 
 procedure TevCursorController.ClearFields;
- {-}
 begin
  f_View := nil;
  f_Cursor := nil;

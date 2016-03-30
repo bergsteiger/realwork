@@ -33,13 +33,9 @@ type
  TChromeLikeBaseWindowCaptionButton = class(TCustomControl)
   private
    f_State: TChromeLikeWindowCaptionButtonState;
-    {* Поле для свойства State }
    f_Active: Boolean;
-    {* Поле для свойства Active }
    f_ParentForm: TForm;
-    {* Поле для свойства ParentForm }
    f_OnClick: TNotifyEvent;
-    {* Поле для свойства OnClick }
   private
    procedure CMMouseEnter(var aMessage: TMessage); message CM_MOUSEENTER;
    procedure CMMouseLeave(var aMessage: TMessage); message CM_MOUSELEAVE;

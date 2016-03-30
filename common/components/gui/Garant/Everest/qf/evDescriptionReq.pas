@@ -1,66 +1,48 @@
 unit evDescriptionReq;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evDescriptionReq.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevDescriptionReq
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evDescriptionReq.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDescriptionReq" MUID: (48D3C237039F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evQueryCardInt,
-  evCustomControlTool,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evCustomControlTool
+ , evQueryCardInt
+ , nevTools
+ , l3Interfaces
+;
 
 type
  TevDescriptionReq = class(TevCustomControlTool, IevDescriptionReq)
- private
- // private fields
-   f_DescControl : IevCommonControl;
- private
- // private methods
+  private
+   f_DescControl: IevCommonControl;
+  private
    procedure InitModel;
- protected
- // realized methods
+  protected
    function pm_GetReqName: Il3CString;
    function pm_GetCollapsed: Boolean;
    procedure pm_SetCollapsed(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   constructor Create(const aPara: InevPara); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(const aValue: InevPara): IevDescriptionReq; reintroduce;
+   constructor Create(const aPara: InevPara); override;
  end;//TevDescriptionReq
 
 implementation
 
 uses
-  k2Tags,
-  SysUtils,
-  evdTypes,
-  nevFacade,
-  ControlPara_Const
-  ;
-
-// start class TevDescriptionReq
+ l3ImplUses
+ , k2Tags
+ , SysUtils
+ , evdTypes
+ , nevFacade
+ , ControlPara_Const
+;
 
 class function TevDescriptionReq.Make(const aValue: InevPara): IevDescriptionReq;
 var
@@ -72,7 +54,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevDescriptionReq.Make
 
 procedure TevDescriptionReq.InitModel;
 //#UC START# *48D3C2C7018E_48D3C237039F_var*
@@ -128,6 +110,7 @@ begin
 end;//TevDescriptionReq.pm_SetCollapsed
 
 procedure TevDescriptionReq.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D3C237039F_var*
 //#UC END# *479731C50290_48D3C237039F_var*
 begin

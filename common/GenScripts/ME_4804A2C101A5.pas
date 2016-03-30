@@ -15,49 +15,35 @@
    f_Hidden: Boolean;
    f_NeedsHackK235870994: Boolean;
    f_Collapsed: Boolean;
-    {* Поле для свойства Collapsed }
    f_DrawingTopmostChild: Boolean;
-    {* Поле для свойства DrawingTopmostChild }
+    {* Рисуется самый верхний ребенок? }
    f_DrawingLastChild: Boolean;
-    {* Поле для свойства DrawingLastChild }
+    {* Рисуется самый последний ребенок? }
    f_DrawCompleted: Boolean;
-    {* Поле для свойства DrawCompleted }
    f_PrevHeight: Integer;
-    {* Поле для свойства PrevHeight }
+    {* Рассчитанная на предыдущей странице высота }
    f_WasInit: Boolean;
-    {* Поле для свойства WasInit }
+    {* TopAcnhor пришло "сверху". }
    f_RealTopAnchor: InevBasePoint;
-    {* Поле для свойства RealTopAnchor }
    f_Fake: Boolean;
-    {* Поле для свойства Fake }
    f_CheckCaret: InevBasePoint;
-    {* Поле для свойства CheckCaret }
    f_CheckSelRange: InevRange;
-    {* Поле для свойства CheckSelRange }
    f_BottomAnchor: InevBasePoint;
-    {* Поле для свойства BottomAnchor }
    f_ParentPainter: IevPainter;
-    {* Поле для свойства ParentPainter }
+    {* Инструмент для рисования объекта более верхнего уровня. }
    f_ParaMarkStyle: TevParaMarkStyle;
-    {* Поле для свойства ParaMarkStyle }
+    {* Стиль рисования конца параграфа. }
    f_Area: PnevShapeArea;
-    {* Поле для свойства Area }
+    {* Область вывода }
    f_SmartCanvas: Il3SmartCanvas;
-    {* Поле для свойства SmartCanvas }
    f_Caret: InevBasePoint;
-    {* Поле для свойства Caret }
    f_TopAnchor: InevBasePoint;
-    {* Поле для свойства TopAnchor }
    f_SelRange: InevRange;
-    {* Поле для свойства SelRange }
    f_Map: InevMap;
-    {* Поле для свойства Map }
    f_FormatInfo: TInevFormatInfoRet;
-    {* Поле для свойства FormatInfo }
    f_Spaces: TnevRect;
-    {* Поле для свойства Spaces }
+    {* Отступы параграфа }
    f_ViewMetrics: InevViewMetrics;
-    {* Поле для свойства ViewMetrics }
   protected
    f_ForceFocusRect: Boolean;
    f_HeaderHeight: Integer;

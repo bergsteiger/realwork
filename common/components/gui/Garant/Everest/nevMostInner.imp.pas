@@ -1,39 +1,31 @@
 {$IfNDef nevMostInner_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevMostInner.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevMostInner
-//
-// Самая внутренняя точка объекта
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevMostInner" MUID: (49DE14FB022B)
+// Имя типа: "_nevMostInner_"
 
 {$Define nevMostInner_imp}
-{$If defined(evUseVisibleCursors)}
- _nevMostInner_ = {mixin} class(_nevMostInner_Parent_)
+
+{$If Defined(evUseVisibleCursors)}
+ _nevMostInner_ = class(_nevMostInner_Parent_)
   {* Самая внутренняя точка объекта }
- protected
- // realized methods
+  protected
    function pm_GetMostInner: InevBasePoint;
  end;//_nevMostInner_
-{$Else}
 
- _nevMostInner_ = _nevMostInner_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevMostInner_ = _nevMostInner_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevMostInner_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevMostInner_imp_impl}
 
-// start class _nevMostInner_
+{$Define nevMostInner_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevMostInner_.pm_GetMostInner: InevBasePoint;
 //#UC START# *49DE123A031F_49DE14FB022Bget_var*
 //#UC END# *49DE123A031F_49DE14FB022Bget_var*
@@ -44,7 +36,9 @@ begin
   Result := Result.Inner;
 //#UC END# *49DE123A031F_49DE14FB022Bget_impl*
 end;//_nevMostInner_.pm_GetMostInner
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevMostInner_imp_impl}
 
 {$EndIf nevMostInner_imp}
+

@@ -33,13 +33,13 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function Close(aControl: TWinControl): Boolean;
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmCloseFormHelper;
     {* Метод получения экземпляра синглетона TvcmCloseFormHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmCloseFormHelper
 
  _vcmUserInteractiveForm_Parent_ = Tl3Form;
@@ -74,12 +74,6 @@ begin
  l3Free(g_TvcmCloseFormHelper);
 end;//TvcmCloseFormHelperFree
 
-class function TvcmCloseFormHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmCloseFormHelper <> nil;
-end;//TvcmCloseFormHelper.Exists
-
 {$If NOT Defined(NoVCL)}
 function TvcmCloseFormHelper.Close(aControl: TWinControl): Boolean;
 //#UC START# *A1E64DB467E3_55015117004B_var*
@@ -107,6 +101,12 @@ begin
  end;
  Result := g_TvcmCloseFormHelper;
 end;//TvcmCloseFormHelper.Instance
+
+class function TvcmCloseFormHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmCloseFormHelper <> nil;
+end;//TvcmCloseFormHelper.Exists
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.imp.pas}
 

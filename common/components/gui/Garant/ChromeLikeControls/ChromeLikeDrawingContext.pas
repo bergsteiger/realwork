@@ -1,65 +1,44 @@
 unit ChromeLikeDrawingContext;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeDrawingContext.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeDrawingContext
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeDrawingContext.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeDrawingContext" MUID: (5507C7FA00EE)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Graphics,
-  l3ProtoObject,
-  ChromeLikeTabSetTypes,
-  GDIPOBJ
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , l3ProtoObject
+ , ChromeLikeTabSetTypes
+ , GDIPOBJ
+ , Graphics
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TChromeLikeDrawingContext = class(Tl3ProtoObject, IChromeLkeTabSetDrawingContext)
- private
- // private fields
-   f_Graphics : TGPGraphics;
-   f_Canvas : TCanvas;
- protected
- // realized methods
+  private
+   f_Graphics: TGPGraphics;
+   f_Canvas: TCanvas;
+  protected
    function pm_GetCanvas: TCanvas;
    function pm_GetGraphics: TGPGraphics;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aCanvas: TCanvas); reintroduce;
    class function Make(aCanvas: TCanvas): IChromeLkeTabSetDrawingContext; reintroduce;
-     {* Сигнатура фабрики TChromeLikeDrawingContext.Make }
  end;//TChromeLikeDrawingContext
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  ChromeLikeTabSetUtils,
-  SysUtils
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeDrawingContext
+ l3ImplUses
+ , ChromeLikeTabSetUtils
+ , SysUtils
+;
 
 constructor TChromeLikeDrawingContext.Create(aCanvas: TCanvas);
 //#UC START# *5507E6C202EE_5507C7FA00EE_var*
@@ -82,7 +61,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TChromeLikeDrawingContext.Make
 
 function TChromeLikeDrawingContext.pm_GetCanvas: TCanvas;
 //#UC START# *5507DFFF038B_5507C7FA00EEget_var*
@@ -105,6 +84,7 @@ begin
 end;//TChromeLikeDrawingContext.pm_GetGraphics
 
 procedure TChromeLikeDrawingContext.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5507C7FA00EE_var*
 //#UC END# *479731C50290_5507C7FA00EE_var*
 begin
@@ -113,7 +93,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5507C7FA00EE_impl*
 end;//TChromeLikeDrawingContext.Cleanup
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

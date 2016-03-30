@@ -1,61 +1,47 @@
 unit evDocumentPreview;
+ {* Предварительный просмотр печати документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPreview.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TevDocumentPreview
-//
-// Предварительный просмотр печати документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPreview.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPreview" MUID: (49CBD11A02CF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  afwInterfaces,
-  nevTools,
-  evDocumentPreviewPrim,
-  l3Variant,
-  l3Interfaces,
-  afwTypes,
-  l3Core
-  ;
+ l3IntfUses
+ , evDocumentPreviewPrim
+ , afwInterfaces
+ , nevTools
+ , nevBase
+ , l3Variant
+;
 
 type
  TevDocumentPreview = class(TevDocumentPreviewPrim)
   {* Предварительный просмотр печати документа }
- public
- // public methods
+  public
    class function Make(const aText: InevStorable;
-     const aKey: TevPreviewCacheKey;
-     const aHAF: IafwHAFPainter = nil): IafwDocumentPreview; reintroduce; overload; 
-     {* Сигнатура фабрики TevDocumentPreview.Make }
+    const aKey: TevPreviewCacheKey;
+    const aHAF: IafwHAFPainter = nil): IafwDocumentPreview; reintroduce; overload;
    class function Make(const aText: InevDocumentProvider;
-     const aKey: TevPreviewCacheKey;
-     const aHAF: IafwHAFPainter = nil): IafwDocumentPreview; reintroduce; overload; 
-     {* Сигнатура фабрики TevDocumentPreview.Make$1 }
+    const aKey: TevPreviewCacheKey;
+    const aHAF: IafwHAFPainter = nil): IafwDocumentPreview; reintroduce; overload;
    class function Make(aText: Tl3Variant;
-     const aKey: TevPreviewCacheKey;
-     const aHAF: IafwHAFPainter = nil): IafwDocumentPreview; overload; 
+    const aKey: TevPreviewCacheKey;
+    const aHAF: IafwHAFPainter = nil): IafwDocumentPreview; overload;
  end;//TevDocumentPreview
 
 implementation
 
-// start class TevDocumentPreview
+uses
+ l3ImplUses
+;
 
 class function TevDocumentPreview.Make(const aText: InevStorable;
-  const aKey: TevPreviewCacheKey;
-  const aHAF: IafwHAFPainter = nil): IafwDocumentPreview;
+ const aKey: TevPreviewCacheKey;
+ const aHAF: IafwHAFPainter = nil): IafwDocumentPreview;
 var
  l_Inst : TevDocumentPreview;
 begin
@@ -65,11 +51,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevDocumentPreview.Make
 
 class function TevDocumentPreview.Make(const aText: InevDocumentProvider;
-  const aKey: TevPreviewCacheKey;
-  const aHAF: IafwHAFPainter = nil): IafwDocumentPreview;
+ const aKey: TevPreviewCacheKey;
+ const aHAF: IafwHAFPainter = nil): IafwDocumentPreview;
 var
  l_Inst : TevDocumentPreview;
 begin
@@ -79,11 +65,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevDocumentPreview.Make
 
 class function TevDocumentPreview.Make(aText: Tl3Variant;
-  const aKey: TevPreviewCacheKey;
-  const aHAF: IafwHAFPainter = nil): IafwDocumentPreview;
+ const aKey: TevPreviewCacheKey;
+ const aHAF: IafwHAFPainter = nil): IafwDocumentPreview;
 //#UC START# *4CB58335014E_49CBD11A02CF_var*
 var
  l_Data : InevStorable;

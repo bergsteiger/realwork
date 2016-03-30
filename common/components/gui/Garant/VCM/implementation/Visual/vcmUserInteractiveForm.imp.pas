@@ -1,57 +1,49 @@
 {$IfNDef vcmUserInteractiveForm_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmUserInteractiveForm.imp.pas"
-// Начат: 22.06.2011 15:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual::vcmUserInteractiveForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmUserInteractiveForm" MUID: (4E01D5E50001)
+// Имя типа: "_vcmUserInteractiveForm_"
 
 {$Define vcmUserInteractiveForm_imp}
-{$If not defined(NoVCM)}
- _vcmUserInteractiveForm_ = {mixin} class(_vcmUserInteractiveForm_Parent_, IvcmUserInteraction)
- protected
- // realized methods
+
+{$If NOT Defined(NoVCM)}
+ _vcmUserInteractiveForm_ = class(_vcmUserInteractiveForm_Parent_, IvcmUserInteraction)
+  protected
    function MessageDlg(const aMsg: IvcmCString;
     const aKey: AnsiString;
-    aDlgType: TMsgDlgType = mtCustom;
-    aButtons: TMsgDlgButtons = [mbOK]): Integer; overload; 
-   function MessageDlg(const aMsg: TvcmMessageID): Integer; overload; 
-   procedure Say(const aMsg: TvcmMessageID); overload; 
+    aDlgType: TMsgDlgType = Dialogs.mtCustom;
+    aButtons: TMsgDlgButtons = [mbOK]): Integer; overload;
+   function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
+   procedure Say(const aMsg: TvcmMessageID); overload;
    procedure Say(const aMsg: TvcmMessageID;
-    const aData: array of const); overload; 
-   function Ask(const aMsg: TvcmMessageID): Boolean; overload; 
+    const aData: array of const); overload;
+   function Ask(const aMsg: TvcmMessageID): Boolean; overload;
    function Ask(const aMsg: TvcmMessageID;
-    const aData: array of const): Boolean; overload; 
+    const aData: array of const): Boolean; overload;
    function Ask(const aMsg: Tl3MessageID;
-    const aData: array of const): Boolean; overload; 
+    const aData: array of const): Boolean; overload;
    function MessageDlg(const aMsg: Tl3MessageID;
-     const aData: array of const): Integer; overload; 
-   function MessageDlg(const aMsg: Tl3MessageID): Integer; overload; 
+    const aData: array of const): Integer; overload;
+   function MessageDlg(const aMsg: Tl3MessageID): Integer; overload;
  end;//_vcmUserInteractiveForm_
-{$Else}
 
- _vcmUserInteractiveForm_ = _vcmUserInteractiveForm_Parent_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_vcmUserInteractiveForm_ = _vcmUserInteractiveForm_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmUserInteractiveForm_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmUserInteractiveForm_imp_impl}
 
-// start class _vcmUserInteractiveForm_
+{$Define vcmUserInteractiveForm_imp_impl}
 
+{$If NOT Defined(NoVCM)}
 function _vcmUserInteractiveForm_.MessageDlg(const aMsg: IvcmCString;
-  const aKey: AnsiString;
-  aDlgType: TMsgDlgType = mtCustom;
-  aButtons: TMsgDlgButtons = [mbOK]): Integer;
+ const aKey: AnsiString;
+ aDlgType: TMsgDlgType = Dialogs.mtCustom;
+ aButtons: TMsgDlgButtons = [mbOK]): Integer;
 //#UC START# *4993085402D8_4E01D5E50001_var*
 //#UC END# *4993085402D8_4E01D5E50001_var*
 begin
@@ -79,7 +71,7 @@ begin
 end;//_vcmUserInteractiveForm_.Say
 
 procedure _vcmUserInteractiveForm_.Say(const aMsg: TvcmMessageID;
-  const aData: array of const);
+ const aData: array of const);
 //#UC START# *499309240368_4E01D5E50001_var*
 //#UC END# *499309240368_4E01D5E50001_var*
 begin
@@ -98,7 +90,7 @@ begin
 end;//_vcmUserInteractiveForm_.Ask
 
 function _vcmUserInteractiveForm_.Ask(const aMsg: TvcmMessageID;
-  const aData: array of const): Boolean;
+ const aData: array of const): Boolean;
 //#UC START# *49930942035E_4E01D5E50001_var*
 //#UC END# *49930942035E_4E01D5E50001_var*
 begin
@@ -108,7 +100,7 @@ begin
 end;//_vcmUserInteractiveForm_.Ask
 
 function _vcmUserInteractiveForm_.Ask(const aMsg: Tl3MessageID;
-  const aData: array of const): Boolean;
+ const aData: array of const): Boolean;
 //#UC START# *4E7CA605012E_4E01D5E50001_var*
 //#UC END# *4E7CA605012E_4E01D5E50001_var*
 begin
@@ -118,7 +110,7 @@ begin
 end;//_vcmUserInteractiveForm_.Ask
 
 function _vcmUserInteractiveForm_.MessageDlg(const aMsg: Tl3MessageID;
-  const aData: array of const): Integer;
+ const aData: array of const): Integer;
 //#UC START# *4E9E89E9006D_4E01D5E50001_var*
 //#UC END# *4E9E89E9006D_4E01D5E50001_var*
 begin
@@ -135,7 +127,9 @@ begin
  Result := vcmMessageDlg(aMsg, []);
 //#UC END# *4F9AB5AF01F9_4E01D5E50001_impl*
 end;//_vcmUserInteractiveForm_.MessageDlg
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmUserInteractiveForm_imp_impl}
 
 {$EndIf vcmUserInteractiveForm_imp}
+

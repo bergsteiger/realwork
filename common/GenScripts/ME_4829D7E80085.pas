@@ -32,9 +32,7 @@ type
   {* Строка ввода. }
   private
    f_UpperCase: Boolean;
-    {* Поле для свойства UpperCase }
    f_Regionable: Boolean;
-    {* Поле для свойства Regionable }
   private
    function cnvLo2Up(Sender: TObject;
     aStr: PAnsiChar;
@@ -74,12 +72,12 @@ uses
  , evConvertTextTools
  , l3Units
  , Windows
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCL)}
  , Themes
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}

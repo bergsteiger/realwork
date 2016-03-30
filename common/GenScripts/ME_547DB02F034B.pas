@@ -39,6 +39,8 @@ uses
  , l3Interfaces
  , evSubPanelSubArray
  , evdTypes
+ //#UC START# *547DB02F034Bintf_uses*
+ //#UC END# *547DB02F034Bintf_uses*
 ;
 
 const
@@ -94,29 +96,22 @@ type
    f_Handle: Tl3Handle;
    f_Descriptors: TevSubDescriptors;
    f_BitmapIndex: TImageIndex;
-    {* Поле для свойства BitmapIndex }
+    {* индекс иконки для отображения обычной метки }
    f_BlockBitmapIndex: TImageIndex;
-    {* Поле для свойства BlockBitmapIndex }
+    {* индекс иконки для отображения метки блока }
    f_DocumentBitmapIndex: TImageIndex;
-    {* Поле для свойства DocumentBitmapIndex }
+    {* индекс иконки для отображения метки документа }
    f_Font: TevCustomFont;
-    {* Поле для свойства Font }
+    {* шрифт для отображения метки }
    f_DrawType: TevSubDrawType;
-    {* Поле для свойства DrawType }
+    {* тип отображения метки }
    f_NumberOffset: Byte;
-    {* Поле для свойства NumberOffset }
    f_Visible: Boolean;
-    {* Поле для свойства Visible }
    f_Offset: TevPixel;
-    {* Поле для свойства Offset }
    f_Column: Integer;
-    {* Поле для свойства Column }
    f_Cursor: TCursor;
-    {* Поле для свойства Cursor }
    f_OnGetBitmapIndex: TevGetSubBitmapIndexEvent;
-    {* Поле для свойства OnGetBitmapIndex }
    f_Images: TCustomImageList;
-    {* Поле для свойства Images }
   protected
    function pm_GetFont: TevCustomFont;
    procedure pm_SetFont(aValue: TevCustomFont);
@@ -226,11 +221,8 @@ type
    f_InBuild: Boolean;
    f_Controls: Tl3ObjectList;
    f_Images: TCustomImageList;
-    {* Поле для свойства Images }
    f_Cursor: TCursor;
-    {* Поле для свойства Cursor }
    f_OnDefineBlockIndex: TevDefineBlockImageIndex;
-    {* Поле для свойства OnDefineBlockIndex }
   protected
    procedure pm_SetImages(aValue: TCustomImageList);
    function pm_GetSubDescriptor(Index: Integer): TevSubDescriptor;
@@ -361,15 +353,10 @@ type
    f_HintSub: TevSubPanelSub;
    f_Subs: TevSubPanelSubCollection;
    f_Zoom: SmallInt;
-    {* Поле для свойства Zoom }
    f_OnClickSub: TevClickSubEvent;
-    {* Поле для свойства OnClickSub }
    f_OnMenuSub: TevMenuSubEvent;
-    {* Поле для свойства OnMenuSub }
    f_OnMouseOverSub: TevMouseOverSubEvent;
-    {* Поле для свойства OnMouseOverSub }
    f_SubDescriptors: TevSubDescriptors;
-    {* Поле для свойства SubDescriptors }
   private
    procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
    procedure WMLButtonUp(var Msg: TWMLButtonUp); message WM_LBUTTONUP;
@@ -536,6 +523,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , evSubPanelTools
  , Windows
+ //#UC START# *547DB02F034Bimpl_uses*
+ //#UC END# *547DB02F034Bimpl_uses*
 ;
 
 type

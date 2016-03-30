@@ -1,6 +1,6 @@
-unit evControlsBlockConst;
+unit NOT_COMPLETED_evControlsBlockConst;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockConst.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlsBlockConst.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "evControlsBlockConst" MUID: (485808AB001D)
 
@@ -10,6 +10,7 @@ interface
 
 uses
  l3IntfUses
+ , l3Const
 ;
 
 const

@@ -1,54 +1,36 @@
 unit evFormulaPainter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evFormulaPainter.pas"
-// Начат: 15.12.2002 15:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::LeafPara Painters::TevFormulaPainter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evFormulaPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevFormulaPainter" MUID: (4804CC63006C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evTextParaPainterEx,
-  l3InternalInterfaces
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evTextParaPainterEx
+ , l3InternalInterfaces
+;
 
-{$If defined(evNeedPainters)}
 type
  TevFormulaPainter = class(TevTextParaPainterEx)
- protected
- // overridden protected methods
+  protected
    procedure DoFillSelection; override;
    function DrawLeaf: Boolean; override;
    function GetBitmapForPara: Il3Bitmap; override;
  end;//TevFormulaPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  k2Tags
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevFormulaPainter
+ l3ImplUses
+ , k2Tags
+;
 
 procedure TevFormulaPainter.DoFillSelection;
 //#UC START# *4804B86403BE_4804CC63006C_var*
@@ -81,7 +63,6 @@ begin
  Result := inherited GetBitmapForPara;
 //#UC END# *4E53B9A500B4_4804CC63006C_impl*
 end;//TevFormulaPainter.GetBitmapForPara
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

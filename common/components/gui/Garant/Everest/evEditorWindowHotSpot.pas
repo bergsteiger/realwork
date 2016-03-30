@@ -1,116 +1,52 @@
 unit evEditorWindowHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evEditorWindowHotSpot.pas"
-// Начат: 05.12.2005 07:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevEditorWindowHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evEditorWindowHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevEditorWindowHotSpot" MUID: (48E229CC03DF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  l3Base,
-  nevTools,
-  l3Tool,
-  nevGUIInterfaces,
-  l3IID,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , l3Tool
+ , nevGUIInterfaces
+ , nevTools
+ , nevBase
+ , l3Interfaces
+ , l3Base
+ , afwInterfaces
+ , l3IID
+;
 
 type
  TevForeignHotSpotMode = (
-   ev_fhsmNone
- , ev_fhsmDisabled
- , ev_fhsmEnabled
+  ev_fhsmNone
+  , ev_fhsmDisabled
+  , ev_fhsmEnabled
  );//TevForeignHotSpotMode
 
  TevEditorWindowHotSpot = class(Tl3Tool, IevAdvancedHotSpot, IevHotSpot)
- private
- // private fields
-   fl_ForeignHotSpotMove : TevForeignHotSpotMode;
-   f_ForeignHotSpot : IevHotSpot;
-    {* Поле для свойства ForeignHotSpot}
-   f_ClickCursor : InevBasePoint;
-    {* Поле для свойства ClickCursor}
- protected
- // property methods
+  private
+   fl_ForeignHotSpotMove: TevForeignHotSpotMode;
+   f_ForeignHotSpot: IevHotSpot;
+    {* Поле для свойства ForeignHotSpot }
+   f_ClickCursor: InevBasePoint;
+    {* Поле для свойства ClickCursor }
+  protected
    function pm_GetStartMark: InevPoint;
    function pm_GetFinishMark: InevPoint;
    function pm_GetOwner: TObject;
- protected
- // realized methods
-   function MouseAction(const aView: InevControlView;
-    aButton: Tl3MouseButton;
-    anAction: Tl3MouseAction;
-    const Keys: TevMouseState;
-    var Effect: TevMouseEffect): Boolean;
-     {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
-   function MouseMove(const aView: InevControlView;
-    const Keys: TevMouseState): Boolean;
-     {* Обрабатывает перемещение мыши }
-   function LButtonDown(const aView: InevControlView;
-    const Keys: TevMouseState;
-    var Effect: TevMouseEffect): Boolean;
-     {* Обрабатывает нажатие левой кнопки мыши }
-   function LButtonUp(const aView: InevControlView;
-    const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание левой кнопки мыши }
-   function LButtonDoubleClick(const aView: InevControlView;
-    const Keys: TevMouseState;
-    var Effect: TevMouseEffect): Boolean;
-     {* Обрабатывает двойное нажатие левой кнопки мыши }
-   function RButtonDown(const aView: InevControlView;
-    const Keys: TevMouseState): Boolean;
-     {* Обрабатывает нажатие правой кнопки мыши }
-   function RButtonUp(const aView: InevControlView;
-    const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание правой конопки мыши }
-   function MButtonDown(const aView: InevControlView;
-    const Keys: TevMouseState): Boolean;
-     {* Обрабатывает нажатие колеса мыши }
-   function MButtonUp(const aView: InevControlView;
-    const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание колеса мыши }
-   function CanDrag: Boolean;
- public
- // realized methods
-   procedure HitTest(const aView: InevControlView;
-    const aState: TafwCursorState;
-    var theInfo: TafwCursorInfo);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    procedure DoBeforeSelection(const aView: InevControlView); virtual;
-     {* Запоминает точку начала выделения }
+    {* Запоминает точку начала выделения }
    function NeedSelectCursor(const aView: InevControlView;
     const aPt: TnevPoint): Boolean; virtual;
-     {* Проверяет корректность выделения при движении мыши и, если
+    {* Проверяет корректность выделения при движении мыши и, если
              выделение заканчивается за пределами параграфа-виджета, то
              возвращаемся к запомненной в DoBeforeSelection точке }
    function CheckCursorPos(const aView: InevView): Boolean; virtual;
-     {* Вызывается для проверки позиционирования курсора и/или окончания
+    {* Вызывается для проверки позиционирования курсора и/или окончания
              выделения. Срабатывает после отпускания кнопки мыши, если
              управление не было перехвачено самим виджетом }
    function DoLButtonDoubleClick(const aView: InevControlView;
@@ -121,71 +57,109 @@ type
     var Effect: TevMouseEffect): Boolean; virtual;
    function DoMouseMove(const aView: InevControlView;
     const aKeys: TevMouseState): Boolean; virtual;
-     {* Обрабатывает движение мыши, после нажатия левой кнопки }
+    {* Обрабатывает движение мыши, после нажатия левой кнопки }
    function TryDragDrop(const aKeys: TevMouseState): Boolean;
    procedure TranslatePt(const aView: InevControlView;
     const aKeys: TevMouseState);
-     {* транслирует точку aPt в ClickCursor или StartMark.
+    {* транслирует точку aPt в ClickCursor или StartMark.
              Если транслируется в StartMark, то FinishMark = ClickCursor }
    procedure AlignMarks(const aView: InevControlView;
     const aKeys: TevMouseState); virtual;
-     {* "выравнивает" StartMark и FinishMark - например на границу слова }
+    {* "выравнивает" StartMark и FinishMark - например на границу слова }
    procedure ExtendBlock(const aView: InevControlView);
-     {* устанавливает StartMark и FinishMark в выделение }
+    {* устанавливает StartMark и FinishMark в выделение }
    procedure DoExtendBlock(const aView: InevControlView;
     const aSelection: InevSelection); virtual;
-     {* устанавливает StartMark и FinishMark в выделение }
+    {* устанавливает StartMark и FinishMark в выделение }
    function DoLButtonUp(const aView: InevControlView;
     const aKeys: TevMouseState;
     aNeedUnselect: Boolean): Boolean; virtual;
-     {* обрабатывает отпускание левой кнопки мыши }
+    {* обрабатывает отпускание левой кнопки мыши }
    function BeginMouseOp(const aView: InevControlView;
     out theSelection: Tl3Base): InevOp;
-     {* начало операторных скобок. Для закрытия скобки надо освободить OpPack.
+    {* начало операторных скобок. Для закрытия скобки надо освободить OpPack.
              theSelection - объект, содержащий выделение, его надо освобождать
              процедурой l3Free в секции finally }
- public
- // public methods
+   function MouseAction(const aView: InevControlView;
+    aButton: Tl3MouseButton;
+    anAction: Tl3MouseAction;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean;
+    {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
+   function MouseMove(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean;
+    {* Обрабатывает перемещение мыши }
+   function LButtonDown(const aView: InevControlView;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean;
+    {* Обрабатывает нажатие левой кнопки мыши }
+   function LButtonUp(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean;
+    {* Обрабатывает отпускание левой кнопки мыши }
+   function LButtonDoubleClick(const aView: InevControlView;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean;
+    {* Обрабатывает двойное нажатие левой кнопки мыши }
+   function RButtonDown(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean;
+    {* Обрабатывает нажатие правой кнопки мыши }
+   function RButtonUp(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean;
+    {* Обрабатывает отпускание правой конопки мыши }
+   function MButtonDown(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean;
+    {* Обрабатывает нажатие колеса мыши }
+   function MButtonUp(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean;
+    {* Обрабатывает отпускание колеса мыши }
+   function CanDrag: Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+   procedure ClearFields; override;
+  public
    constructor Create(const anOwner: Il3ToolOwner;
     const aForeignHotSpot: IevHotSpot); reintroduce;
    class function Make(const anOwner: Il3ToolOwner;
     const aForeignHotSpot: IevHotSpot = nil): IevHotSpot; reintroduce;
- protected
- // protected properties
+   procedure HitTest(const aView: InevControlView;
+    const aState: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+  protected
    property ForeignHotSpot: IevHotSpot
-     read f_ForeignHotSpot;
-     {* "чужой" HotSpot - вся обработка сначала отдается ему }
+    read f_ForeignHotSpot;
+    {* "чужой" HotSpot - вся обработка сначала отдается ему }
    property ClickCursor: InevBasePoint
-     read f_ClickCursor;
-     {* курсор куда кликнули }
+    read f_ClickCursor;
+    {* курсор куда кликнули }
    property StartMark: InevPoint
-     read pm_GetStartMark;
-     {* курсор где сейчас мышь }
+    read pm_GetStartMark;
+    {* курсор где сейчас мышь }
    property Owner: TObject
-     read pm_GetOwner;
- public
- // public properties
+    read pm_GetOwner;
+  public
    property FinishMark: InevPoint
-     read pm_GetFinishMark;
-     {* курсор куда кликнули - обычно = ClickCursor }
+    read pm_GetFinishMark;
+    {* курсор куда кликнули - обычно = ClickCursor }
  end;//TevEditorWindowHotSpot
 
 implementation
 
 uses
-  evCustomEditorWindow,
-  evTypes,
-  l3InternalInterfaces,
-  evMsgCode,
-  evDataObject,
-  SysUtils,
-  evOp,
-  evExcept,
-  Classes,
-  l3Variant
-  ;
-
-// start class TevEditorWindowHotSpot
+ l3ImplUses
+ , evCustomEditorWindow
+ , evTypes
+ , l3InternalInterfaces
+ , evMsgCode
+ , evDataObject
+ , SysUtils
+ , evOp
+ , evExcept
+ , Classes
+ , l3Variant
+;
 
 function TevEditorWindowHotSpot.pm_GetStartMark: InevPoint;
 //#UC START# *48EF2EB0009F_48E229CC03DFget_var*
@@ -218,6 +192,7 @@ begin
 end;//TevEditorWindowHotSpot.pm_GetOwner
 
 procedure TevEditorWindowHotSpot.DoBeforeSelection(const aView: InevControlView);
+ {* Запоминает точку начала выделения }
 //#UC START# *48E4A900029B_48E229CC03DF_var*
 //#UC END# *48E4A900029B_48E229CC03DF_var*
 begin
@@ -227,7 +202,10 @@ begin
 end;//TevEditorWindowHotSpot.DoBeforeSelection
 
 function TevEditorWindowHotSpot.NeedSelectCursor(const aView: InevControlView;
-  const aPt: TnevPoint): Boolean;
+ const aPt: TnevPoint): Boolean;
+ {* Проверяет корректность выделения при движении мыши и, если
+             выделение заканчивается за пределами параграфа-виджета, то
+             возвращаемся к запомненной в DoBeforeSelection точке }
 //#UC START# *48E4A93300A9_48E229CC03DF_var*
 //#UC END# *48E4A93300A9_48E229CC03DF_var*
 begin
@@ -238,6 +216,9 @@ begin
 end;//TevEditorWindowHotSpot.NeedSelectCursor
 
 function TevEditorWindowHotSpot.CheckCursorPos(const aView: InevView): Boolean;
+ {* Вызывается для проверки позиционирования курсора и/или окончания
+             выделения. Срабатывает после отпускания кнопки мыши, если
+             управление не было перехвачено самим виджетом }
 //#UC START# *48E4A96000D4_48E229CC03DF_var*
 //#UC END# *48E4A96000D4_48E229CC03DF_var*
 begin
@@ -247,8 +228,8 @@ begin
 end;//TevEditorWindowHotSpot.CheckCursorPos
 
 function TevEditorWindowHotSpot.DoLButtonDoubleClick(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *48E4A976007D_48E229CC03DF_var*
 //#UC END# *48E4A976007D_48E229CC03DF_var*
 begin
@@ -263,8 +244,8 @@ begin
 end;//TevEditorWindowHotSpot.DoLButtonDoubleClick
 
 function TevEditorWindowHotSpot.DoLButtonDown(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const aKeys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *48E4A99D02A2_48E229CC03DF_var*
 var
  l_Pack : InevOp;
@@ -295,7 +276,7 @@ begin
 end;//TevEditorWindowHotSpot.DoLButtonDown
 
 constructor TevEditorWindowHotSpot.Create(const anOwner: Il3ToolOwner;
-  const aForeignHotSpot: IevHotSpot);
+ const aForeignHotSpot: IevHotSpot);
 //#UC START# *48EF2DAB031D_48E229CC03DF_var*
 //#UC END# *48EF2DAB031D_48E229CC03DF_var*
 begin
@@ -306,7 +287,7 @@ begin
 end;//TevEditorWindowHotSpot.Create
 
 class function TevEditorWindowHotSpot.Make(const anOwner: Il3ToolOwner;
-  const aForeignHotSpot: IevHotSpot = nil): IevHotSpot;
+ const aForeignHotSpot: IevHotSpot = nil): IevHotSpot;
 var
  l_Inst : TevEditorWindowHotSpot;
 begin
@@ -316,10 +297,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevEditorWindowHotSpot.Make
 
 function TevEditorWindowHotSpot.DoMouseMove(const aView: InevControlView;
-  const aKeys: TevMouseState): Boolean;
+ const aKeys: TevMouseState): Boolean;
+ {* Обрабатывает движение мыши, после нажатия левой кнопки }
 //#UC START# *48EF36A30277_48E229CC03DF_var*
 //#UC END# *48EF36A30277_48E229CC03DF_var*
 begin
@@ -385,7 +367,9 @@ begin
 end;//TevEditorWindowHotSpot.TryDragDrop
 
 procedure TevEditorWindowHotSpot.TranslatePt(const aView: InevControlView;
-  const aKeys: TevMouseState);
+ const aKeys: TevMouseState);
+ {* транслирует точку aPt в ClickCursor или StartMark.
+             Если транслируется в StartMark, то FinishMark = ClickCursor }
 //#UC START# *48EF37DF00C3_48E229CC03DF_var*
 //#UC END# *48EF37DF00C3_48E229CC03DF_var*
 begin
@@ -422,7 +406,8 @@ begin
 end;//TevEditorWindowHotSpot.TranslatePt
 
 procedure TevEditorWindowHotSpot.AlignMarks(const aView: InevControlView;
-  const aKeys: TevMouseState);
+ const aKeys: TevMouseState);
+ {* "выравнивает" StartMark и FinishMark - например на границу слова }
 //#UC START# *48EF380C026E_48E229CC03DF_var*
 var
  l_S, l_F : Integer;  
@@ -464,6 +449,7 @@ begin
 end;//TevEditorWindowHotSpot.AlignMarks
 
 procedure TevEditorWindowHotSpot.ExtendBlock(const aView: InevControlView);
+ {* устанавливает StartMark и FinishMark в выделение }
 //#UC START# *48EF385503A8_48E229CC03DF_var*
 //#UC END# *48EF385503A8_48E229CC03DF_var*
 begin
@@ -473,7 +459,8 @@ begin
 end;//TevEditorWindowHotSpot.ExtendBlock
 
 procedure TevEditorWindowHotSpot.DoExtendBlock(const aView: InevControlView;
-  const aSelection: InevSelection);
+ const aSelection: InevSelection);
+ {* устанавливает StartMark и FinishMark в выделение }
 //#UC START# *48EF3A860139_48E229CC03DF_var*
 //#UC END# *48EF3A860139_48E229CC03DF_var*
 begin
@@ -483,8 +470,9 @@ begin
 end;//TevEditorWindowHotSpot.DoExtendBlock
 
 function TevEditorWindowHotSpot.DoLButtonUp(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  aNeedUnselect: Boolean): Boolean;
+ const aKeys: TevMouseState;
+ aNeedUnselect: Boolean): Boolean;
+ {* обрабатывает отпускание левой кнопки мыши }
 //#UC START# *48EF3C6E0276_48E229CC03DF_var*
 var
  l_Editor : TevCustomEditorWindow;
@@ -506,7 +494,10 @@ begin
 end;//TevEditorWindowHotSpot.DoLButtonUp
 
 function TevEditorWindowHotSpot.BeginMouseOp(const aView: InevControlView;
-  out theSelection: Tl3Base): InevOp;
+ out theSelection: Tl3Base): InevOp;
+ {* начало операторных скобок. Для закрытия скобки надо освободить OpPack.
+             theSelection - объект, содержащий выделение, его надо освобождать
+             процедурой l3Free в секции finally }
 //#UC START# *48EF3D680254_48E229CC03DF_var*
 //#UC END# *48EF3D680254_48E229CC03DF_var*
 begin
@@ -520,8 +511,8 @@ begin
 end;//TevEditorWindowHotSpot.BeginMouseOp
 
 procedure TevEditorWindowHotSpot.HitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *48E2622A03C4_48E229CC03DF_var*
 //#UC END# *48E2622A03C4_48E229CC03DF_var*
 begin
@@ -537,10 +528,11 @@ begin
 end;//TevEditorWindowHotSpot.HitTest
 
 function TevEditorWindowHotSpot.MouseAction(const aView: InevControlView;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
 //#UC START# *48E263CD01BD_48E229CC03DF_var*
 //#UC END# *48E263CD01BD_48E229CC03DF_var*
 begin
@@ -592,7 +584,8 @@ begin
 end;//TevEditorWindowHotSpot.MouseAction
 
 function TevEditorWindowHotSpot.MouseMove(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает перемещение мыши }
 //#UC START# *48E266730188_48E229CC03DF_var*
 //#UC END# *48E266730188_48E229CC03DF_var*
 begin
@@ -608,8 +601,9 @@ begin
 end;//TevEditorWindowHotSpot.MouseMove
 
 function TevEditorWindowHotSpot.LButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* Обрабатывает нажатие левой кнопки мыши }
 //#UC START# *48E266AA00A4_48E229CC03DF_var*
 var
  l_CursorBefore : InevBasePoint;
@@ -656,7 +650,8 @@ begin
 end;//TevEditorWindowHotSpot.LButtonDown
 
 function TevEditorWindowHotSpot.LButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание левой кнопки мыши }
 //#UC START# *48E266C70128_48E229CC03DF_var*
 var
  l_Unselect : Boolean;  
@@ -707,8 +702,9 @@ begin
 end;//TevEditorWindowHotSpot.LButtonUp
 
 function TevEditorWindowHotSpot.LButtonDoubleClick(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* Обрабатывает двойное нажатие левой кнопки мыши }
 //#UC START# *48E266DE026B_48E229CC03DF_var*
 var
  l_HS : IevHotSpot;
@@ -731,7 +727,8 @@ begin
 end;//TevEditorWindowHotSpot.LButtonDoubleClick
 
 function TevEditorWindowHotSpot.RButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает нажатие правой кнопки мыши }
 //#UC START# *48E266FB01FC_48E229CC03DF_var*
 //#UC END# *48E266FB01FC_48E229CC03DF_var*
 begin
@@ -742,7 +739,8 @@ begin
 end;//TevEditorWindowHotSpot.RButtonDown
 
 function TevEditorWindowHotSpot.RButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание правой конопки мыши }
 //#UC START# *48E267150266_48E229CC03DF_var*
 //#UC END# *48E267150266_48E229CC03DF_var*
 begin
@@ -753,7 +751,8 @@ begin
 end;//TevEditorWindowHotSpot.RButtonUp
 
 function TevEditorWindowHotSpot.MButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает нажатие колеса мыши }
 //#UC START# *49DB4675025E_48E229CC03DF_var*
 //#UC END# *49DB4675025E_48E229CC03DF_var*
 begin
@@ -764,7 +763,8 @@ begin
 end;//TevEditorWindowHotSpot.MButtonDown
 
 function TevEditorWindowHotSpot.MButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание колеса мыши }
 //#UC START# *49DB468302A5_48E229CC03DF_var*
 //#UC END# *49DB468302A5_48E229CC03DF_var*
 begin
@@ -784,6 +784,7 @@ begin
 end;//TevEditorWindowHotSpot.CanDrag
 
 procedure TevEditorWindowHotSpot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48E229CC03DF_var*
 //#UC END# *479731C50290_48E229CC03DF_var*
 begin
@@ -796,7 +797,8 @@ begin
 end;//TevEditorWindowHotSpot.Cleanup
 
 function TevEditorWindowHotSpot.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48E229CC03DF_var*
 //#UC END# *4A60B23E00C3_48E229CC03DF_var*
 begin
@@ -811,7 +813,6 @@ begin
 end;//TevEditorWindowHotSpot.COMQueryInterface
 
 procedure TevEditorWindowHotSpot.ClearFields;
- {-}
 begin
  f_ForeignHotSpot := nil;
  f_ClickCursor := nil;

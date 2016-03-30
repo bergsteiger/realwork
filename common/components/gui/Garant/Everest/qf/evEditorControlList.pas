@@ -1,36 +1,25 @@
 unit evEditorControlList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evEditorControlList.pas"
-// Начат: 05.03.2008 18:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevEditorControlList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evEditorControlList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevEditorControlList" MUID: (47CEBD65037B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evQueryCardInt,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , evQueryCardInt
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , l3PureMixIns
+;
 
 type
  _ItemType_ = IevEditorControl;
@@ -46,16 +35,16 @@ type
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TevEditorControlList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
-
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
 

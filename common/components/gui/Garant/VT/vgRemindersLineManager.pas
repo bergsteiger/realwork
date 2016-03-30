@@ -1,62 +1,41 @@
 unit vgRemindersLineManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Модуль: "w:/common/components/gui/Garant/VT/vgRemindersLineManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$Rem::NewReminders::TvgRemindersLineManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgRemindersLineManager" MUID: (533EABAE0351)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3ProtoObject,
-  vgRemindersLine
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , l3ProtoObject
+ , vgRemindersLine
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgRemindersLineManager = class(Tl3ProtoObject)
- public
- // public methods
+  public
    class procedure AddLine(aLine: TvgRemindersLine);
    class procedure RemoveLine(aLine: TvgRemindersLine);
    class procedure ClosePopupForms;
-     {* Сигнатура метода ClosePopupForms }
    class procedure CheckZOrder;
-     {* Сигнатура метода CheckZOrder }
    class procedure LockActivateProcessing;
-     {* Сигнатура метода LockActivateProcessing }
    class procedure UnlockActivateProcessing;
-     {* Сигнатура метода UnlockActivateProcessing }
    class procedure UpdateRemindersActions;
-     {* Сигнатура метода UpdateRemindersActions }
  end;//TvgRemindersLineManager
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgRemindersLineList,
-  NewRemindersInterfaces
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
-
-// start class TvgRemindersLineManager
+ l3ImplUses
+ , vgRemindersLineList
+ , NewRemindersInterfaces
+;
 
 class procedure TvgRemindersLineManager.AddLine(aLine: TvgRemindersLine);
 //#UC START# *533EACEE02DC_533EABAE0351_var*
@@ -141,7 +120,6 @@ begin
    IvgRemindersLine(TvgRemindersLineList.Instance[I]).UpdateActions;
 //#UC END# *54ED7069021A_533EABAE0351_impl*
 end;//TvgRemindersLineManager.UpdateRemindersActions
-
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

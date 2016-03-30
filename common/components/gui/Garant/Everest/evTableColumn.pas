@@ -26,7 +26,7 @@ type
   private
    f_RowIndex: Integer;
    f_Processor: InevProcessor;
-    {* Поле для свойства Processor }
+    {* Процессор операций. }
   protected
    function Get_Width: Integer;
    procedure Set_Width(aValue: Integer);

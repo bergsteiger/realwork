@@ -1,64 +1,55 @@
 unit vtNavigatorFormList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$WithVCM"
-// Модуль: "w:/common/components/gui/Garant/VT/vtNavigatorFormList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$WithVCM::vtNavigator::TvtNavigatorFormList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorFormList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvtNavigatorFormList" MUID: (4F61A51602F4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vtNavigatorFormListPrim
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vtNavigatorFormListPrim
+;
 
-{$If not defined(NoVCM)}
 type
  TvtNavigatorFormList = class(TvtNavigatorFormListPrim)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvtNavigatorFormList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvtNavigatorFormList }
  end;//TvtNavigatorFormList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCM)}
-
-
-// start class TvtNavigatorFormList
-
-var g_TvtNavigatorFormList : TvtNavigatorFormList = nil;
+var g_TvtNavigatorFormList: TvtNavigatorFormList = nil;
+ {* Экземпляр синглетона TvtNavigatorFormList }
 
 procedure TvtNavigatorFormListFree;
+ {* Метод освобождения экземпляра синглетона TvtNavigatorFormList }
 begin
  l3Free(g_TvtNavigatorFormList);
-end;
+end;//TvtNavigatorFormListFree
+
+class function TvtNavigatorFormList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvtNavigatorFormList <> nil;
+end;//TvtNavigatorFormList.Exists
 
 class function TvtNavigatorFormList.Instance: TvtNavigatorFormList;
+ {* Метод получения экземпляра синглетона TvtNavigatorFormList }
 begin
  if (g_TvtNavigatorFormList = nil) then
  begin
@@ -66,15 +57,7 @@ begin
   g_TvtNavigatorFormList := Create;
  end;
  Result := g_TvtNavigatorFormList;
-end;
-
-
-class function TvtNavigatorFormList.Exists: Boolean;
- {-}
-begin
- Result := g_TvtNavigatorFormList <> nil;
-end;//TvtNavigatorFormList.Exists
-
-{$IfEnd} //not NoVCM
+end;//TvtNavigatorFormList.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,35 +1,24 @@
 unit evUnicodeConvertFilter;
+ {* Фильтр, преобразующий Unicode в кодировку по умолчанию. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evUnicodeConvertFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevUnicodeConvertFilter
-//
-// Фильтр, преобразующий Unicode в кодировку по умолчанию.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evUnicodeConvertFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevUnicodeConvertFilter" MUID: (52EB5D3401B7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , l3Variant
+;
 
 type
  TevUnicodeConvertFilter = class(Tk2TagFilter)
   {* Фильтр, преобразующий Unicode в кодировку по умолчанию. }
- protected
- // overridden protected methods
+  protected
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevUnicodeConvertFilter
@@ -37,16 +26,15 @@ type
 implementation
 
 uses
-  k2Tags,
-  l3Base,
-  l3StringEx,
-  l3Interfaces
-  ;
-
-// start class TevUnicodeConvertFilter
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , l3StringEx
+ , l3Interfaces
+;
 
 procedure TevUnicodeConvertFilter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_52EB5D3401B7_var*
 var
  l_OS       : Tl3WString;

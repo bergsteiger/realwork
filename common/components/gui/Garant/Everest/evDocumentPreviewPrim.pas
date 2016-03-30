@@ -1,48 +1,36 @@
 unit evDocumentPreviewPrim;
+ {* Предварительный просмотр печати документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPreviewPrim.pas"
-// Начат: 10.12.2004 17:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TevDocumentPreviewPrim
-//
-// Предварительный просмотр печати документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPreviewPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPreviewPrim" MUID: (47EA97410130)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  afwInterfaces,
-  l3InternalInterfaces,
-  l3Core,
-  l3Units,
-  afwTypes,
-  afwPreviewCanvas,
-  nevTools,
-  l3TimeEstimation,
-  k2DocumentBuffer,
-  k2TagGen,
-  afwPreviewNotifierPtrList,
-  nevObjectHolderPrim,
-  evExcept,
-  Windows,
-  nevRealTools,
-  l3Variant,
-  l3PrinterInterfaces
-  ;
+ l3IntfUses
+ , nevObjectHolderPrim
+ , afwInterfaces
+ , nevTools
+ , l3InternalInterfaces
+ , nevBase
+ , Windows
+ , l3Interfaces
+ , l3TimeEstimation
+ , afwPreviewNotifierPtrList
+ , l3Variant
+ , k2TagGen
+ , nevRealTools
+ , l3PrinterInterfaces
+ , afwTypes
+ , l3Units
+ , evExcept
+ , k2DocumentBuffer
+ , afwPreviewCanvas
+ , l3Core
+;
 
 type
  _afwSettingChanged_Parent_ = TnevObjectHolderPrim;
@@ -53,108 +41,120 @@ type
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas}
  TevDocumentPreviewPrim = class(_afwStatusElement_, IafwDocumentPreview, IafwPreviewNotificationSource, IevDocumentPreviewInfo, Il3AbortChecker)
   {* Предварительный просмотр печати документа }
- private
- // private fields
-   f_MakingCanvas : Boolean;
-   f_Stopped : Boolean;
-   f_InAquareText : Boolean;
-   f_AbortFilter : IafwAbortableProcess;
-   f_PrinterIndex : Integer;
-   f_InPagesCounting : Boolean;
-   f_HAF : IafwHAFPainter;
-   f_CacheKey : TevPreviewCacheKey;
-   f_CurrentPagePara : Integer;
-   f_OriginalCurrentPage : Integer;
-   f_CurrentPageNumber : Integer;
-   f_CalcCurrentPageByPara : Boolean;
-   f_Counter : IafwPreviewCanvas;
-   f_Panel : IafwPreviewPanel;
-   f_MaxPages : Integer;
-   f_PreviewResetting : Boolean;
-   f_WndToClose : THandle;
-   f_Msg : Il3CString;
-   f_Max : Integer;
-   f_Current : Integer;
-   f_InUpdate : Boolean;
-   f_InPrinting : Boolean;
-   f_CurrentPage : IUnknown;
-   f_Time : Tl3TimeEstimation;
-   f_PreviewSubscribers : TafwPreviewNotifierPtrList;
-   f_OriginalText : InevDocumentProvider;
-   f_TextOwner : Tl3Variant;
-    {* Владелец текста, отличный от нас}
-   f_Preview : IafwPreviewCanvas;
-    {* Поле для свойства Preview}
-   f_Text : InevObject;
-    {* Поле для свойства Text}
-   f_Printer : IafwPrinter;
-    {* Поле для свойства Printer}
-   f_Processor : InevProcessor;
-    {* Поле для свойства Processor}
-   f_PagesInfo : TafwPagesInfo;
-    {* Поле для свойства PagesInfo}
- private
- // private methods
+  private
+   f_MakingCanvas: Boolean;
+   f_Stopped: Boolean;
+   f_InAquareText: Boolean;
+   f_AbortFilter: IafwAbortableProcess;
+   f_PrinterIndex: Integer;
+   f_InPagesCounting: Boolean;
+   f_HAF: IafwHAFPainter;
+   f_CacheKey: TevPreviewCacheKey;
+   f_CurrentPagePara: Integer;
+   f_OriginalCurrentPage: Integer;
+   f_CurrentPageNumber: Integer;
+   f_CalcCurrentPageByPara: Boolean;
+   f_Counter: IafwPreviewCanvas;
+   f_Panel: IafwPreviewPanel;
+   f_MaxPages: Integer;
+   f_PreviewResetting: Boolean;
+   f_WndToClose: THandle;
+   f_Msg: Il3CString;
+   f_Max: Integer;
+   f_Current: Integer;
+   f_InUpdate: Boolean;
+   f_InPrinting: Boolean;
+   f_CurrentPage: IUnknown;
+   f_Time: Tl3TimeEstimation;
+   f_PreviewSubscribers: TafwPreviewNotifierPtrList;
+   f_OriginalText: InevDocumentProvider;
+   f_TextOwner: Tl3Variant;
+    {* Владелец текста, отличный от нас }
+   f_Preview: IafwPreviewCanvas;
+    {* Поле для свойства Preview }
+   f_Text: InevObject;
+    {* Поле для свойства Text }
+   f_Printer: IafwPrinter;
+    {* Поле для свойства Printer }
+   f_Processor: InevProcessor;
+    {* Поле для свойства Processor }
+   f_PagesInfo: TafwPagesInfo;
+    {* Поле для свойства PagesInfo }
+  private
    function GetText: InevObject;
-     {* Получаем текст документа для просмотра }
+    {* Получаем текст документа для просмотра }
    function GetPreviewCanvas(const aPagesInfo: TafwPagesInfo;
-     aCounter: Boolean): IafwPreviewCanvas;
-     {* Подготавливает виртуальную канву }
+    aCounter: Boolean): IafwPreviewCanvas;
+    {* Подготавливает виртуальную канву }
    procedure TryClose;
-     {* Пытается прервать печать и закрыть окно }
+    {* Пытается прервать печать и закрыть окно }
    procedure AbortPreviewPrepare;
-     {* Прекратить подготовку и очистить превью - что-то поменялось и надо его переделывать заново }
+    {* Прекратить подготовку и очистить превью - что-то поменялось и надо его переделывать заново }
    function CurrentPageForUpdate: Integer;
    function GetPreviewForCurrentPage: IafwPreviewCanvas;
    procedure NotifyPreviewSubscribers;
    procedure DoSetFilters(var theGenerator: Tk2TagGenerator);
    function HasPreviewBuilder: Boolean;
- protected
- // property methods
+  protected
    function pm_GetPreview: IafwPreviewCanvas;
    function pm_GetText: InevObject;
    function pm_GetPrinter: IafwPrinter;
    procedure pm_SetPrinter(const aValue: IafwPrinter);
    function pm_GetProcessor: InevProcessor;
    function pm_GetPagesInfo: TafwPagesInfo;
- protected
- // realized methods
+   function DoPrint(const aCanvas: InevCanvas;
+    const aPagesArray: TafwPrintPagesArray = nil): Boolean;
+    {* Собственно процесс печати }
+   procedure UnformatView(const aView: InevView);
+    {* Сбрасывает информацию о форматировании для конкретного View }
+   procedure SetFilters(var theGenerator: Tk2TagGenerator); virtual;
+   procedure ClearPreview;
+   function InClose: Boolean;
+   function PrePrint(anIndex: Integer): TafwPagesInfo;
+   procedure ProgressProcEv(aState: Byte;
+    aValue: Integer;
+    const aMsg: AnsiString);
+   procedure CheckAborted(var Aborted: Boolean);
+   function IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean; virtual;
+   procedure AfterPrint; virtual;
+   function NeedAddBlockNames: Boolean; virtual;
+    {* Нужно ли добавлять имена блоков }
    function DocumentName: IafwCString;
-     {* имя документа для preview. }
+    {* имя документа для preview. }
    function InProcess: Boolean;
-     {* идет процесс? }
+    {* идет процесс? }
    function InPagesCounting: Boolean;
-     {* сейчас в процессе подсчета страниц? }
+    {* сейчас в процессе подсчета страниц? }
    function InUpdate: Boolean;
-     {* находимся в процессе построения preview? }
+    {* находимся в процессе построения preview? }
    function InPrinting: Boolean;
-     {* находимся в процессе построения печати? }
+    {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
-     {* установить preview на панель для отображения. }
-   procedure Print(anInterval: TafwPagesInterval = afw_piAll;
+    {* установить preview на панель для отображения. }
+   procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
     aCollate: Boolean = True);
-     {* напечатать на принтер. }
+    {* напечатать на принтер. }
    procedure Stop(aWnd: THandle = 0);
-     {* остановит процесс построение preview/печати. }
+    {* остановит процесс построение preview/печати. }
    function Stopped: Boolean;
-     {* процесс остановлен? }
+    {* процесс остановлен? }
    function CloseRequested: Boolean;
-     {* при остановке процесса был запрос на закрытие превью }
+    {* при остановке процесса был запрос на закрытие превью }
    function PreviewResetting: Boolean;
-     {* канва отсутствует, но будет передалываться }
+    {* канва отсутствует, но будет передалываться }
    procedure SetCurrentPage(const aCursor: IUnknown);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPagePara(aParaID: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPageNumber(aPageNumber: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    function CurrentPage: Integer;
-     {* текущая страница для печати. }
+    {* текущая страница для печати. }
    function HasCurrentPage: Boolean;
-     {* установлена ли текущая страница. }
+    {* установлена ли текущая страница. }
    function pm_GetHasText: Boolean;
    procedure Subscribe(const aNotifier: IafwPreviewNotifier);
    procedure UnSubscribe(const aNotifier: IafwPreviewNotifier);
@@ -167,126 +167,95 @@ type
    function Get_CacheKey: TevPreviewCacheKey;
    procedure DoGetStatusInfo(out theString: IafwCString;
     out theNeedProgress: Boolean); override;
-     {* Собственно процесс получения информации }
+    {* Собственно процесс получения информации }
    function IsAborted: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
-     {* Обработчик изменения указанной настройки }
+    {* Обработчик изменения указанной настройки }
    procedure SettingsReplaceFinish; override;
    function GetObj: InevObject; override;
    procedure UnformatAll; override;
    function NeedUpdateOnUnsubscribe: Boolean; override;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DoPrint(const aCanvas: InevCanvas;
-     const aPagesArray: TafwPrintPagesArray = nil): Boolean; // can raise EevInvalidPrintMargins
-     {* Собственно процесс печати }
-   procedure UnformatView(const aView: InevView);
-     {* Сбрасывает информацию о форматировании для конкретного View }
-   procedure SetFilters(var theGenerator: Tk2TagGenerator); virtual;
-   procedure ClearPreview;
-   function InClose: Boolean;
-   function PrePrint(anIndex: Integer): TafwPagesInfo;
-   procedure ProgressProcEv(aState: Byte;
-    aValue: Integer;
-    const aMsg: AnsiString);
-   procedure CheckAborted(var Aborted: Boolean);
-   function IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean; virtual;
-   procedure AfterPrint; virtual;
-   function NeedAddBlockNames: Boolean; virtual;
-     {* Нужно ли добавлять имена блоков }
- public
- // public methods
+  public
    constructor Create(const aText: InevStorable;
-     const aKey: TevPreviewCacheKey;
-     const aHAF: IafwHAFPainter = nil); reintroduce; overload; 
+    const aKey: TevPreviewCacheKey;
+    const aHAF: IafwHAFPainter = nil); reintroduce; overload;
    constructor Create(const aText: InevDocumentProvider;
-     const aKey: TevPreviewCacheKey;
-     const aHAF: IafwHAFPainter = nil); overload; 
+    const aKey: TevPreviewCacheKey;
+    const aHAF: IafwHAFPainter = nil); reintroduce; overload;
    procedure Print2PDF(const aCanvas: Il3Canvas);
- public
- // public properties
+  public
    property Preview: IafwPreviewCanvas
-     read pm_GetPreview;
+    read pm_GetPreview;
    property Text: InevObject
-     read pm_GetText;
+    read pm_GetText;
    property Printer: IafwPrinter
-     read pm_GetPrinter
-     write pm_SetPrinter;
+    read pm_GetPrinter
+    write pm_SetPrinter;
    property Processor: InevProcessor
-     read pm_GetProcessor;
+    read pm_GetProcessor;
    property PagesInfo: TafwPagesInfo
-     read pm_GetPagesInfo;
+    read pm_GetPagesInfo;
  end;//TevDocumentPreviewPrim
 
 implementation
 
 uses
-  k2Tags,
-  SectionBreak_Const,
-  evSectionPara,
-  PageBreak_Const,
-  Table_Const,
-  k2Except
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  afwCanvasEx,
-  nevPrintView,
-  l3Prg,
-  DecorTextPara_Const,
-  evAbortFilter,
-  SysUtils,
-  l3Except,
-  evMsgCode,
-  Messages,
-  evHiddenFilter,
-  evdPageParamsFilter,
-  afwFacade,
-  l3Printer,
-  evPreviewProcessor,
-  l3Base,
-  l3MinMax,
-  nevInterfaces,
-  l3String,
-  l3Math,
-  l3Defaults,
-  l3Const,
-  evParaDrawTools,
-  Graphics,
-  l3SimpleObject,
-  evdBlockNameAdder,
-  nevDocumentProvider,
-  evPreviewForTestsTuning
-  {$If defined(nsTest)}
-  ,
-  PrintRowHeightsSpy
-  {$IfEnd} //nsTest
-  ,
-  l3FileUtils
-  {$If defined(InsiderTest)}
-  ,
-  evCustomPrintDataSaver
-  {$IfEnd} //InsiderTest
-  
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  ,
-  l3BatchService,
-  afwSettingsChangePublisher
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Printer
+ , evPreviewProcessor
+ , k2Tags
+ , l3Base
+ , l3MinMax
+ , nevInterfaces
+ , l3String
+ , l3Math
+ , l3Defaults
+ , l3Const
+ , evParaDrawTools
+ , Graphics
+ , l3SimpleObject
+ , evdBlockNameAdder
+ , nevDocumentProvider
+ , evPreviewForTestsTuning
+ {$If Defined(nsTest)}
+ , PrintRowHeightsSpy
+ {$IfEnd} // Defined(nsTest)
+ , l3FileUtils
+ {$If Defined(InsiderTest)}
+ , evCustomPrintDataSaver
+ {$IfEnd} // Defined(InsiderTest)
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3BatchService
+ , afwFacade
+ , afwSettingsChangePublisher
+ , k2Except
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwCanvasEx
+ , nevPrintView
+ , l3Prg
+ , DecorTextPara_Const
+ , evAbortFilter
+ , l3Except
+ , evMsgCode
+ , Messages
+ , evHiddenFilter
+ , evdPageParamsFilter
+ , PageBreak_Const
+ , Table_Const
+ , SectionBreak_Const
+ , evSectionPara
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
@@ -294,298 +263,161 @@ uses
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas}
 
-// start class TevDocumentPreviewPrim
-
-function TevDocumentPreviewPrim.GetText: InevObject;
-//#UC START# *49CBC3B1026E_47EA97410130_var*
-//#UC END# *49CBC3B1026E_47EA97410130_var*
+function TevDocumentPreviewPrim.pm_GetPreview: IafwPreviewCanvas;
+//#UC START# *47EB82040062_47EA97410130get_var*
 var
- l_Buffer : Tk2DocumentBuffer; // Буфер документа
- l_Generator : Tk2TagGenerator; // Генератор документа
- l_Pack : InevOp; // Пачка операций
+ l_Count : TafwPagesInfo;
+//#UC END# *47EB82040062_47EA97410130get_var*
 begin
-//#UC START# *49CBC3B1026E_47EA97410130_impl*
- if (f_Text = nil) AND (f_OriginalText <> nil) then
+//#UC START# *47EB82040062_47EA97410130get_impl*
+ if (f_Preview = nil) then
  begin
-  if f_OriginalText.CanProvideOriginalDocument then
-  begin
-   if not f_OriginalText.OriginalDocument.QT(InevObject, f_Text, Processor) then
-    Assert(false);
-   f_TextOwner := f_Text.AsObject.Owner;
-   Assert(f_TextOwner <> nil);
-   // - м.б. тут нужен не Assert, а честная установка себя в качестве Owner'а если такового нету
-  end//f_OriginalText.CanProvideOriginalText
-  else
-  begin
-   f_InAquareText := True;
-   if Assigned(Status) then
-    Status.Update;
-   try
-    l_Buffer := Tk2DocumentBuffer.Create;
+  f_MakingCanvas := True;
+  try
+   l_Count := PagesInfo;
+   if not Stopped then
+   begin
+    DoSubscribe;
     try
-     l_Pack := Processor.StartOp(ev_msgInsertBlock, true);
-     try
-      l_Pack.InIOProcess := true;
-      l_Pack.SaveUndo := false;
-      l_Pack.DeleteMapped := false;
-      if (l_Buffer <> nil) then
-      begin
-       l_Buffer.Context := l_Pack;
-       l_Generator := l_Buffer.Use;
-       try
-        SetFilters(l_Generator);
-        TevAbortFilter.SetTo(l_Generator);
-        Supports(l_Generator, IafwAbortableProcess, f_AbortFilter);
-        try
-         l_Generator.Start;
-         try
-          try
-           f_OriginalText.Store(nil, l_Generator, []);
-          except
-           on El3AbortLoad do
-           begin
-            f_Text := nil;
-            if not f_Stopped then
-             Stop;
-            l_Generator.RollBack;
-            NotifyPreviewSubscribers;
-           end;
-          end;
-         finally
-          if not f_Stopped then
-           l_Generator.Finish;
-         end;//try..finally
-        finally
-         f_AbortFilter := nil;
-        end;//try..finally
-       finally
-        FreeAndNil(l_Generator);
-       end;//try..finally
-       if not f_Stopped then
-       begin
-        if (l_Buffer.Root = nil) then
-        begin
-         f_Text := nil;
-         Stop;
-         // - не удалось получить текст
-        end//l_Buffer.Root = nil
-        else
-        if not l_Buffer.Root.QT(InevObject, f_Text, Processor) then
-         Assert(false);
-        f_Text.AsObject.Owner := Self;
-        //(f_Text.AsObject As _Tl3SimpleObject).Owner := Self;
-       end;//not f_Stopped
-      end;//l_Buffer <> nil
-     finally
-      l_Pack := nil;
-     end;//try..finally
+     f_Preview := GetPreviewCanvas(l_Count, false);
     finally
-     FreeAndNil(l_Buffer);
+     DoUnSubscribe;
     end;//try..finally
-   finally
-    f_InAquareText := False;
-    if Assigned(Status) then
-     Status.Update;
-   end;//try..finally
-  end;//f_OriginalText.CanProvideOriginalText 
- end;//f_Text = nil
- Result := f_Text;
-//#UC END# *49CBC3B1026E_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.GetText
+   end;//not Stopped
+  finally
+   f_MakingCanvas := False;
+  end;
+ end;//f_Preview = nil
+ Result := f_Preview;
+//#UC END# *47EB82040062_47EA97410130get_impl*
+end;//TevDocumentPreviewPrim.pm_GetPreview
 
-function TevDocumentPreviewPrim.GetPreviewCanvas(const aPagesInfo: TafwPagesInfo;
-  aCounter: Boolean): IafwPreviewCanvas;
-//#UC START# *49CBC90C017F_47EA97410130_var*
-//#UC END# *49CBC90C017F_47EA97410130_var*
-var
- l_Max : Integer;
- l_PageHeight : Integer;
- l_PreviewCanvas : TafwPreviewCanvas; // Виртуальная канва
- l_Text : InevObject; // Текст
+function TevDocumentPreviewPrim.pm_GetText: InevObject;
+//#UC START# *47EB8227023D_47EA97410130get_var*
+//#UC END# *47EB8227023D_47EA97410130get_var*
 begin
-//#UC START# *49CBC90C017F_47EA97410130_impl*
- f_PreviewResetting := false;
- l_Text := Text;
- if (l_Text = nil) then
-  Result := nil
- else
+//#UC START# *47EB8227023D_47EA97410130get_impl*
+ Result := GetText;
+//#UC END# *47EB8227023D_47EA97410130get_impl*
+end;//TevDocumentPreviewPrim.pm_GetText
+
+function TevDocumentPreviewPrim.pm_GetPrinter: IafwPrinter;
+//#UC START# *47EB823F010A_47EA97410130get_var*
+//#UC END# *47EB823F010A_47EA97410130get_var*
+begin
+//#UC START# *47EB823F010A_47EA97410130get_impl*
+ if (f_Printer = nil) then
+  f_Printer := Tl3Printer.Make;
+ Result := f_Printer;
+//#UC END# *47EB823F010A_47EA97410130get_impl*
+end;//TevDocumentPreviewPrim.pm_GetPrinter
+
+procedure TevDocumentPreviewPrim.pm_SetPrinter(const aValue: IafwPrinter);
+//#UC START# *47EB823F010A_47EA97410130set_var*
+//#UC END# *47EB823F010A_47EA97410130set_var*
+begin
+//#UC START# *47EB823F010A_47EA97410130set_impl*
+ if (f_Printer <> aValue) then
  begin
-  if not aCounter AND not aPagesInfo.IsValid then
-   Result := nil
-  else
-  begin
-   l_PreviewCanvas := TafwPreviewCanvas.Create(Printer, aCounter, aPagesInfo);
-   try
-    if aCounter then
-     f_Counter := l_PreviewCanvas
-    else
-     f_Preview := l_PreviewCanvas;
-    if (f_Panel <> nil) then
-     f_Panel.PreviewCanvas := l_PreviewCanvas;
-    l_Max := aPagesInfo.rPagesCount;
-    if (l_Max <= 0) then
-     l_Max := High(Integer);
-    if (l_Max = High(Integer)) then
-    begin
-     l_PageHeight := l_PreviewCanvas.PageSetup.PaperHeight;
-     if (l_PageHeight > 0) then
-     begin
-      l_Max := (l_Text.ToList.LeafShapeCount * nev_ParaListFakeParaEx.Y div l_PageHeight) + 3;
-      // - прикидываем хуй к носу
-      if (l_Max > 20) then
-       l_Max := l_Max div 2;
-     end;//l_PageHeight > 0
-    end;//l_Max := High(Integer)
-    f_MaxPages := l_Max;
-    if (f_Time <> nil) then
-     FreeAndNil(f_Time);
-    f_Time := Tl3TimeEstimation.Create(l_Max, 7);
-    try
-     if DoPrint(l_PreviewCanvas) then
-      Result := l_PreviewCanvas
-     else
-      Result := nil;
-    finally
-     FreeAndNil(f_Time);
-    end;//try..finally
-   finally
-    FreeAndNil(l_PreviewCanvas);
-   end;//try..finally
-  end;//not aCounter..
- end;//l_Text = nil
-//#UC END# *49CBC90C017F_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.GetPreviewCanvas
+  f_Printer := aValue;
+  ClearPreview;
+ end;//f_Printer <> aValue
+//#UC END# *47EB823F010A_47EA97410130set_impl*
+end;//TevDocumentPreviewPrim.pm_SetPrinter
 
-procedure TevDocumentPreviewPrim.TryClose;
-//#UC START# *49CBCAB8037B_47EA97410130_var*
-//#UC END# *49CBCAB8037B_47EA97410130_var*
-var
- l_Wnd : THandle; // Окно для закрытия
+function TevDocumentPreviewPrim.pm_GetProcessor: InevProcessor;
+//#UC START# *47EB8280024B_47EA97410130get_var*
+//#UC END# *47EB8280024B_47EA97410130get_var*
 begin
-//#UC START# *49CBCAB8037B_47EA97410130_impl*
- if InClose then
- begin
-  l_Wnd := f_WndToClose;
-  f_WndToClose := 0;
-  PostMessage(l_Wnd, WM_Close, 0, 0);
- end;//f_WndToClose <> 0
-//#UC END# *49CBCAB8037B_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.TryClose
+//#UC START# *47EB8280024B_47EA97410130get_impl*
+ if (f_Processor = nil) then
+  f_Processor := TevPreviewProcessor.Make(Self);
+ Result := f_Processor;
+//#UC END# *47EB8280024B_47EA97410130get_impl*
+end;//TevDocumentPreviewPrim.pm_GetProcessor
 
-procedure TevDocumentPreviewPrim.AbortPreviewPrepare;
-//#UC START# *49CCF80301C7_47EA97410130_var*
-//#UC END# *49CCF80301C7_47EA97410130_var*
-begin
-//#UC START# *49CCF80301C7_47EA97410130_impl*
- {$IfNDef DesignTimeLibrary}
- inherited DoStyleTableChanged;
- // Это чтобы очистить кеш форматирования, иначе падает - http://mdp.garant.ru/pages/viewpage.action?pageId=115802894
- {$EndIf}
- if InProcess then
-  Stop;
- f_Text := nil;
- f_TextOwner := nil;
- f_PreviewResetting := Assigned(f_Preview) and HasPreviewBuilder;
- ClearPreview;
- NotifyPreviewSubscribers;
-//#UC END# *49CCF80301C7_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.AbortPreviewPrepare
-
-function TevDocumentPreviewPrim.CurrentPageForUpdate: Integer;
-//#UC START# *49CCF962005D_47EA97410130_var*
-//#UC END# *49CCF962005D_47EA97410130_var*
-var
- l_Preview : IafwPreviewCanvas;
-begin
-//#UC START# *49CCF962005D_47EA97410130_impl*
- Result := 0;
- if f_OriginalCurrentPage <> 0 then
- begin
-  l_Preview := GetPreviewForCurrentPage;
-  if Assigned(l_Preview) then
-   Result := l_Preview.GetPageByObject(f_OriginalCurrentPage);
- end;
-//#UC END# *49CCF962005D_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.CurrentPageForUpdate
-
-function TevDocumentPreviewPrim.GetPreviewForCurrentPage: IafwPreviewCanvas;
-//#UC START# *49CCFAD0019C_47EA97410130_var*
-//#UC END# *49CCFAD0019C_47EA97410130_var*
+function TevDocumentPreviewPrim.pm_GetPagesInfo: TafwPagesInfo;
+//#UC START# *4CC6A35900D0_47EA97410130get_var*
 var
  l_Index : Integer;
+//#UC END# *4CC6A35900D0_47EA97410130get_var*
 begin
-//#UC START# *49CCFAD0019C_47EA97410130_impl*
- Result := Nil;
+//#UC START# *4CC6A35900D0_47EA97410130get_impl*
  l_Index := Printer.PrinterIndex;
- if (l_Index <> f_PrinterIndex) then
+ if (l_Index <> f_PrinterIndex) or Stopped then
   ClearPreview;
- Result := f_Preview;
- if (Result = nil) then
-  Result := f_Counter;
- if (Result = nil) then
+ if not f_PagesInfo.IsValid then
  begin
-  PrePrint(l_Index);
-  Result := f_Counter;
- end;//l_Preview = nil
-//#UC END# *49CCFAD0019C_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.GetPreviewForCurrentPage
-
-procedure TevDocumentPreviewPrim.NotifyPreviewSubscribers;
-//#UC START# *49CCFC8403A6_47EA97410130_var*
-//#UC END# *49CCFC8403A6_47EA97410130_var*
-var
- l_Idx : Integer;
-begin
-//#UC START# *49CCFC8403A6_47EA97410130_impl*
- if Assigned(f_PreviewSubscribers) then
-  for l_Idx := f_PreviewSubscribers.Hi downto f_PreviewSubscribers.Lo do
-   f_PreviewSubscribers[l_Idx].ContentChanged;
-//#UC END# *49CCFC8403A6_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.NotifyPreviewSubscribers
-
-procedure TevDocumentPreviewPrim.DoSetFilters(var theGenerator: Tk2TagGenerator);
-//#UC START# *49CCFF22004A_47EA97410130_var*
-//#UC END# *49CCFF22004A_47EA97410130_var*
-begin
-//#UC START# *49CCFF22004A_47EA97410130_impl*
- if NeedAddBlockNames then
-  TevdBlockNameAdder.SetTo(theGenerator);
- if (f_OriginalText.PageSetup <> nil) then
-  TevdPageParamsFilter.SetTo(f_OriginalText.PageSetup, Printer, theGenerator)
+  if f_InPagesCounting OR InClose then
+   Result := f_PagesInfo
+  else
+  begin
+   if (f_HAF = nil) OR not f_HAF.NeedPagesCount then
+   begin
+    f_PagesInfo := TafwPagesInfo_H;
+    Result := f_PagesInfo;
+    f_PrinterIndex := l_Index;
+   end//f_HAF = nil..
+   else
+    Result := PrePrint(l_Index);
+  end;//f_InPagesCounting
+ end//f_PagesCount <= 0
  else
- if (afw.Application <> nil) AND
-    (afw.Application.PrintManager <> nil) then
-  TevdPageParamsFilter.SetTo(afw.Application.PrintManager.PageSetup, Printer, theGenerator);
- TevHiddenFilter.SetTo(f_CacheKey.HiddenStyles, false, theGenerator);
-//#UC END# *49CCFF22004A_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.DoSetFilters
-
-function TevDocumentPreviewPrim.HasPreviewBuilder: Boolean;
-//#UC START# *4B7E6CC30112_47EA97410130_var*
-var
- l_IDX: Integer;
-//#UC END# *4B7E6CC30112_47EA97410130_var*
-begin
-//#UC START# *4B7E6CC30112_47EA97410130_impl*
- Result := True;
- if Assigned(f_PreviewSubscribers) then
-  for l_IDX := 0 to f_PreviewSubscribers.Count - 1 do
-   if Supports(f_PreviewSubscribers[l_IDX], IafwPreviewPanel) then
-    Exit;
- Result := False;
-//#UC END# *4B7E6CC30112_47EA97410130_impl*
-end;//TevDocumentPreviewPrim.HasPreviewBuilder
+  Result := f_PagesInfo;
+//#UC END# *4CC6A35900D0_47EA97410130get_impl*
+end;//TevDocumentPreviewPrim.pm_GetPagesInfo
 
 function TevDocumentPreviewPrim.DoPrint(const aCanvas: InevCanvas;
-  const aPagesArray: TafwPrintPagesArray = nil): Boolean; // can raise EevInvalidPrintMargins
+ const aPagesArray: TafwPrintPagesArray = nil): Boolean;
+ {* Собственно процесс печати }
+var l_Width: Integer;
+ {* Запоминаемая ширина документа }
+var l_Area: TnevShapeAreaEx;
+var l_Ind: InevProgress;
+var l_Canvas: InevCanvas;
+var l_Printer: Il3Printer;
+var l_View: InevPrintView;
+var l_Text: InevObject;
 
  procedure DocumentPrint(const anArea: TnevShapeArea;
-   const aDocument: InevObject;
-   const aProgress: Il3Progress);
+  const aDocument: InevObject;
+  const aProgress: Il3Progress);
+  {* Печать документа }
+ var l_Aborted: Boolean;
+  {* Печать прервана }
+ var l_PaperWidth: Integer;
+  {* Ширина бумаги }
+ var l_Info: TnevShapeInfo;
+  {* Информация для отрисовки }
+ var l_Width2Print: Integer;
+  {* Ширина печатаемой секции }
+ var l_PrintableWidth: Integer;
+  {* Ширина печатаемого куска }
+ var l_Top: Tl3Point;
+  {* Смещение текущего куска }
+ var l_NextPage: InevBasePoint;
+  {* Якорь на следующую страницу }
+ var l_Anchor: InevAnchor;
+  {* Якорь на начало документа }
+ var l_PageHeight: Integer;
+  {* Высота страницы }
+ var l_SomethingPrinted: Boolean;
+  {* Напечатали ли чего за итерацию цикла }
+ var l_BottomPoint: InevBasePoint;
+  {* Самая нижняя точка при печати по ширине. }
+ var l_PrevHeight: Integer;
+  {* Высота вычисленная на предыдущей странице }
+ var l_DisableUnformat: Boolean;
+  {* http://mdp.garant.ru/pages/viewpage.action?pageId=210043454&focusedCommentId=210436611#comment-210436611 }
+ var l_WidthExtent: Tl3Point;
+  {* По ширине }
+ var l_HeightExtent: Tl3Point;
+  {* Расширение страницы }
 
   function PrintPara(const aPara: InevObject;
-    const aTop: InevBasePoint;
-    aPrevHeight: Integer): TnevShapeInfo;
+   const aTop: InevBasePoint;
+   aPrevHeight: Integer): TnevShapeInfo;
+   {* Печатает параграф }
   //#UC START# *49CB7CF103B6__var*
   //#UC END# *49CB7CF103B6__var*
   begin
@@ -594,7 +426,9 @@ function TevDocumentPreviewPrim.DoPrint(const aCanvas: InevCanvas;
   //#UC END# *49CB7CF103B6__impl*
   end;//PrintPara
 
+
   function DocumentHeight: Integer;
+   {* Высота документа }
   //#UC START# *49CB8C8B02C7__var*
   //#UC END# *49CB8C8B02C7__var*
   begin
@@ -603,16 +437,13 @@ function TevDocumentPreviewPrim.DoPrint(const aCanvas: InevCanvas;
   //#UC END# *49CB8C8B02C7__impl*
   end;//DocumentHeight
 
- var
-  l_Anchor : InevAnchor; // Якорь на начало документа
 
   procedure CheckSectionBreak;
 
    procedure SkipSectionBreak(const anAnchor: InevAnchor);
+   var l_Line: Integer;
    //#UC START# *49CB8FF602C5__var*
    //#UC END# *49CB8FF602C5__var*
-   var
-    l_Line : Integer;
    begin
    //#UC START# *49CB8FF602C5__impl*
     l_Line := 1;
@@ -674,21 +505,6 @@ function TevDocumentPreviewPrim.DoPrint(const aCanvas: InevCanvas;
   l_Margins   : Tl3_Rect;
   l_MarginsWidth: Integer;
  //#UC END# *49CB801A037F__var*
- var
-  l_Aborted : Boolean; // Печать прервана
-  l_PaperWidth : Integer; // Ширина бумаги
-  l_Info : TnevShapeInfo; // Информация для отрисовки
-  l_Width2Print : Integer; // Ширина печатаемой секции
-  l_PrintableWidth : Integer; // Ширина печатаемого куска
-  l_Top : Tl3Point; // Смещение текущего куска
-  l_NextPage : InevBasePoint; // Якорь на следующую страницу
-  l_PageHeight : Integer; // Высота страницы
-  l_SomethingPrinted : Boolean; // Напечатали ли чего за итерацию цикла
-  l_BottomPoint : InevBasePoint; // Самая нижняя точка при печати по ширине.
-  l_PrevHeight : Integer; // Высота вычисленная на предыдущей странице
-  l_DisableUnformat : Boolean; // http://mdp.garant.ru/pages/viewpage.action?pageId=210043454&focusedCommentId=210436611#comment-210436611
-  l_WidthExtent : Tl3Point; // По ширине
-  l_HeightExtent : Tl3Point; // Расширение страницы
  begin
  //#UC START# *49CB801A037F__impl*
   if (aProgress <> nil) then
@@ -885,14 +701,6 @@ function TevDocumentPreviewPrim.DoPrint(const aCanvas: InevCanvas;
  l_F : Tl3FileStream;
  l_W : TevdNativeWriter;*)
 //#UC END# *49CB4BD701C9_47EA97410130_var*
-var
- l_Width : Integer; // Запоминаемая ширина документа
- l_Area : TnevShapeAreaEx;
- l_Ind : InevProgress;
- l_Canvas : InevCanvas;
- l_Printer : Il3Printer;
- l_View : InevPrintView;
- l_Text : InevObject;
 begin
 //#UC START# *49CB4BD701C9_47EA97410130_impl*
  Result := false;
@@ -978,9 +786,293 @@ begin
 //#UC END# *49CB4BD701C9_47EA97410130_impl*
 end;//TevDocumentPreviewPrim.DoPrint
 
+function TevDocumentPreviewPrim.GetText: InevObject;
+ {* Получаем текст документа для просмотра }
+var l_Buffer: Tk2DocumentBuffer;
+ {* Буфер документа }
+var l_Generator: Tk2TagGenerator;
+ {* Генератор документа }
+var l_Pack: InevOp;
+ {* Пачка операций }
+//#UC START# *49CBC3B1026E_47EA97410130_var*
+//#UC END# *49CBC3B1026E_47EA97410130_var*
+begin
+//#UC START# *49CBC3B1026E_47EA97410130_impl*
+ if (f_Text = nil) AND (f_OriginalText <> nil) then
+ begin
+  if f_OriginalText.CanProvideOriginalDocument then
+  begin
+   if not f_OriginalText.OriginalDocument.QT(InevObject, f_Text, Processor) then
+    Assert(false);
+   f_TextOwner := f_Text.AsObject.Owner;
+   Assert(f_TextOwner <> nil);
+   // - м.б. тут нужен не Assert, а честная установка себя в качестве Owner'а если такового нету
+  end//f_OriginalText.CanProvideOriginalText
+  else
+  begin
+   f_InAquareText := True;
+   if Assigned(Status) then
+    Status.Update;
+   try
+    l_Buffer := Tk2DocumentBuffer.Create;
+    try
+     l_Pack := Processor.StartOp(ev_msgInsertBlock, true);
+     try
+      l_Pack.InIOProcess := true;
+      l_Pack.SaveUndo := false;
+      l_Pack.DeleteMapped := false;
+      if (l_Buffer <> nil) then
+      begin
+       l_Buffer.Context := l_Pack;
+       l_Generator := l_Buffer.Use;
+       try
+        SetFilters(l_Generator);
+        TevAbortFilter.SetTo(l_Generator);
+        Supports(l_Generator, IafwAbortableProcess, f_AbortFilter);
+        try
+         l_Generator.Start;
+         try
+          try
+           f_OriginalText.Store(nil, l_Generator, []);
+          except
+           on El3AbortLoad do
+           begin
+            f_Text := nil;
+            if not f_Stopped then
+             Stop;
+            l_Generator.RollBack;
+            NotifyPreviewSubscribers;
+           end;
+          end;
+         finally
+          if not f_Stopped then
+           l_Generator.Finish;
+         end;//try..finally
+        finally
+         f_AbortFilter := nil;
+        end;//try..finally
+       finally
+        FreeAndNil(l_Generator);
+       end;//try..finally
+       if not f_Stopped then
+       begin
+        if (l_Buffer.Root = nil) then
+        begin
+         f_Text := nil;
+         Stop;
+         // - не удалось получить текст
+        end//l_Buffer.Root = nil
+        else
+        if not l_Buffer.Root.QT(InevObject, f_Text, Processor) then
+         Assert(false);
+        f_Text.AsObject.Owner := Self;
+        //(f_Text.AsObject As _Tl3SimpleObject).Owner := Self;
+       end;//not f_Stopped
+      end;//l_Buffer <> nil
+     finally
+      l_Pack := nil;
+     end;//try..finally
+    finally
+     FreeAndNil(l_Buffer);
+    end;//try..finally
+   finally
+    f_InAquareText := False;
+    if Assigned(Status) then
+     Status.Update;
+   end;//try..finally
+  end;//f_OriginalText.CanProvideOriginalText 
+ end;//f_Text = nil
+ Result := f_Text;
+//#UC END# *49CBC3B1026E_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.GetText
+
+function TevDocumentPreviewPrim.GetPreviewCanvas(const aPagesInfo: TafwPagesInfo;
+ aCounter: Boolean): IafwPreviewCanvas;
+ {* Подготавливает виртуальную канву }
+var l_Max: Integer;
+var l_PageHeight: Integer;
+var l_PreviewCanvas: TafwPreviewCanvas;
+ {* Виртуальная канва }
+var l_Text: InevObject;
+ {* Текст }
+//#UC START# *49CBC90C017F_47EA97410130_var*
+//#UC END# *49CBC90C017F_47EA97410130_var*
+begin
+//#UC START# *49CBC90C017F_47EA97410130_impl*
+ f_PreviewResetting := false;
+ l_Text := Text;
+ if (l_Text = nil) then
+  Result := nil
+ else
+ begin
+  if not aCounter AND not aPagesInfo.IsValid then
+   Result := nil
+  else
+  begin
+   l_PreviewCanvas := TafwPreviewCanvas.Create(Printer, aCounter, aPagesInfo);
+   try
+    if aCounter then
+     f_Counter := l_PreviewCanvas
+    else
+     f_Preview := l_PreviewCanvas;
+    if (f_Panel <> nil) then
+     f_Panel.PreviewCanvas := l_PreviewCanvas;
+    l_Max := aPagesInfo.rPagesCount;
+    if (l_Max <= 0) then
+     l_Max := High(Integer);
+    if (l_Max = High(Integer)) then
+    begin
+     l_PageHeight := l_PreviewCanvas.PageSetup.PaperHeight;
+     if (l_PageHeight > 0) then
+     begin
+      l_Max := (l_Text.ToList.LeafShapeCount * nev_ParaListFakeParaEx.Y div l_PageHeight) + 3;
+      // - прикидываем хуй к носу
+      if (l_Max > 20) then
+       l_Max := l_Max div 2;
+     end;//l_PageHeight > 0
+    end;//l_Max := High(Integer)
+    f_MaxPages := l_Max;
+    if (f_Time <> nil) then
+     FreeAndNil(f_Time);
+    f_Time := Tl3TimeEstimation.Create(l_Max, 7);
+    try
+     if DoPrint(l_PreviewCanvas) then
+      Result := l_PreviewCanvas
+     else
+      Result := nil;
+    finally
+     FreeAndNil(f_Time);
+    end;//try..finally
+   finally
+    FreeAndNil(l_PreviewCanvas);
+   end;//try..finally
+  end;//not aCounter..
+ end;//l_Text = nil
+//#UC END# *49CBC90C017F_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.GetPreviewCanvas
+
+procedure TevDocumentPreviewPrim.TryClose;
+ {* Пытается прервать печать и закрыть окно }
+var l_Wnd: THandle;
+ {* Окно для закрытия }
+//#UC START# *49CBCAB8037B_47EA97410130_var*
+//#UC END# *49CBCAB8037B_47EA97410130_var*
+begin
+//#UC START# *49CBCAB8037B_47EA97410130_impl*
+ if InClose then
+ begin
+  l_Wnd := f_WndToClose;
+  f_WndToClose := 0;
+  PostMessage(l_Wnd, WM_Close, 0, 0);
+ end;//f_WndToClose <> 0
+//#UC END# *49CBCAB8037B_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.TryClose
+
+procedure TevDocumentPreviewPrim.AbortPreviewPrepare;
+ {* Прекратить подготовку и очистить превью - что-то поменялось и надо его переделывать заново }
+//#UC START# *49CCF80301C7_47EA97410130_var*
+//#UC END# *49CCF80301C7_47EA97410130_var*
+begin
+//#UC START# *49CCF80301C7_47EA97410130_impl*
+ {$IfNDef DesignTimeLibrary}
+ inherited DoStyleTableChanged;
+ // Это чтобы очистить кеш форматирования, иначе падает - http://mdp.garant.ru/pages/viewpage.action?pageId=115802894
+ {$EndIf}
+ if InProcess then
+  Stop;
+ f_Text := nil;
+ f_TextOwner := nil;
+ f_PreviewResetting := Assigned(f_Preview) and HasPreviewBuilder;
+ ClearPreview;
+ NotifyPreviewSubscribers;
+//#UC END# *49CCF80301C7_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.AbortPreviewPrepare
+
+function TevDocumentPreviewPrim.CurrentPageForUpdate: Integer;
+var l_Preview: IafwPreviewCanvas;
+//#UC START# *49CCF962005D_47EA97410130_var*
+//#UC END# *49CCF962005D_47EA97410130_var*
+begin
+//#UC START# *49CCF962005D_47EA97410130_impl*
+ Result := 0;
+ if f_OriginalCurrentPage <> 0 then
+ begin
+  l_Preview := GetPreviewForCurrentPage;
+  if Assigned(l_Preview) then
+   Result := l_Preview.GetPageByObject(f_OriginalCurrentPage);
+ end;
+//#UC END# *49CCF962005D_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.CurrentPageForUpdate
+
+function TevDocumentPreviewPrim.GetPreviewForCurrentPage: IafwPreviewCanvas;
+var l_Index: Integer;
+//#UC START# *49CCFAD0019C_47EA97410130_var*
+//#UC END# *49CCFAD0019C_47EA97410130_var*
+begin
+//#UC START# *49CCFAD0019C_47EA97410130_impl*
+ Result := Nil;
+ l_Index := Printer.PrinterIndex;
+ if (l_Index <> f_PrinterIndex) then
+  ClearPreview;
+ Result := f_Preview;
+ if (Result = nil) then
+  Result := f_Counter;
+ if (Result = nil) then
+ begin
+  PrePrint(l_Index);
+  Result := f_Counter;
+ end;//l_Preview = nil
+//#UC END# *49CCFAD0019C_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.GetPreviewForCurrentPage
+
+procedure TevDocumentPreviewPrim.NotifyPreviewSubscribers;
+var l_Idx: Integer;
+//#UC START# *49CCFC8403A6_47EA97410130_var*
+//#UC END# *49CCFC8403A6_47EA97410130_var*
+begin
+//#UC START# *49CCFC8403A6_47EA97410130_impl*
+ if Assigned(f_PreviewSubscribers) then
+  for l_Idx := f_PreviewSubscribers.Hi downto f_PreviewSubscribers.Lo do
+   f_PreviewSubscribers[l_Idx].ContentChanged;
+//#UC END# *49CCFC8403A6_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.NotifyPreviewSubscribers
+
+procedure TevDocumentPreviewPrim.DoSetFilters(var theGenerator: Tk2TagGenerator);
+//#UC START# *49CCFF22004A_47EA97410130_var*
+//#UC END# *49CCFF22004A_47EA97410130_var*
+begin
+//#UC START# *49CCFF22004A_47EA97410130_impl*
+ if NeedAddBlockNames then
+  TevdBlockNameAdder.SetTo(theGenerator);
+ if (f_OriginalText.PageSetup <> nil) then
+  TevdPageParamsFilter.SetTo(f_OriginalText.PageSetup, Printer, theGenerator)
+ else
+ if (afw.Application <> nil) AND
+    (afw.Application.PrintManager <> nil) then
+  TevdPageParamsFilter.SetTo(afw.Application.PrintManager.PageSetup, Printer, theGenerator);
+ TevHiddenFilter.SetTo(f_CacheKey.HiddenStyles, false, theGenerator);
+//#UC END# *49CCFF22004A_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.DoSetFilters
+
+function TevDocumentPreviewPrim.HasPreviewBuilder: Boolean;
+//#UC START# *4B7E6CC30112_47EA97410130_var*
+var
+ l_IDX: Integer;
+//#UC END# *4B7E6CC30112_47EA97410130_var*
+begin
+//#UC START# *4B7E6CC30112_47EA97410130_impl*
+ Result := True;
+ if Assigned(f_PreviewSubscribers) then
+  for l_IDX := 0 to f_PreviewSubscribers.Count - 1 do
+   if Supports(f_PreviewSubscribers[l_IDX], IafwPreviewPanel) then
+    Exit;
+ Result := False;
+//#UC END# *4B7E6CC30112_47EA97410130_impl*
+end;//TevDocumentPreviewPrim.HasPreviewBuilder
+
 constructor TevDocumentPreviewPrim.Create(const aText: InevStorable;
-  const aKey: TevPreviewCacheKey;
-  const aHAF: IafwHAFPainter = nil);
+ const aKey: TevPreviewCacheKey;
+ const aHAF: IafwHAFPainter = nil);
 //#UC START# *4CB57D480244_47EA97410130_var*
 //#UC END# *4CB57D480244_47EA97410130_var*
 begin
@@ -990,8 +1082,8 @@ begin
 end;//TevDocumentPreviewPrim.Create
 
 constructor TevDocumentPreviewPrim.Create(const aText: InevDocumentProvider;
-  const aKey: TevPreviewCacheKey;
-  const aHAF: IafwHAFPainter = nil);
+ const aKey: TevPreviewCacheKey;
+ const aHAF: IafwHAFPainter = nil);
 //#UC START# *4CB57D6601C4_47EA97410130_var*
 //#UC END# *4CB57D6601C4_47EA97410130_var*
 begin
@@ -1010,6 +1102,7 @@ begin
 end;//TevDocumentPreviewPrim.Create
 
 procedure TevDocumentPreviewPrim.UnformatView(const aView: InevView);
+ {* Сбрасывает информацию о форматировании для конкретного View }
 //#UC START# *4CB5E99001D6_47EA97410130_var*
 var
  l_H : InevObjectHolder;
@@ -1044,110 +1137,6 @@ begin
  DoPrint(aCanvas);
 //#UC END# *53FF037803DA_47EA97410130_impl*
 end;//TevDocumentPreviewPrim.Print2PDF
-
-function TevDocumentPreviewPrim.pm_GetPreview: IafwPreviewCanvas;
-//#UC START# *47EB82040062_47EA97410130get_var*
-var
- l_Count : TafwPagesInfo;
-//#UC END# *47EB82040062_47EA97410130get_var*
-begin
-//#UC START# *47EB82040062_47EA97410130get_impl*
- if (f_Preview = nil) then
- begin
-  f_MakingCanvas := True;
-  try
-   l_Count := PagesInfo;
-   if not Stopped then
-   begin
-    DoSubscribe;
-    try
-     f_Preview := GetPreviewCanvas(l_Count, false);
-    finally
-     DoUnSubscribe;
-    end;//try..finally
-   end;//not Stopped
-  finally
-   f_MakingCanvas := False;
-  end;
- end;//f_Preview = nil
- Result := f_Preview;
-//#UC END# *47EB82040062_47EA97410130get_impl*
-end;//TevDocumentPreviewPrim.pm_GetPreview
-
-function TevDocumentPreviewPrim.pm_GetText: InevObject;
-//#UC START# *47EB8227023D_47EA97410130get_var*
-//#UC END# *47EB8227023D_47EA97410130get_var*
-begin
-//#UC START# *47EB8227023D_47EA97410130get_impl*
- Result := GetText;
-//#UC END# *47EB8227023D_47EA97410130get_impl*
-end;//TevDocumentPreviewPrim.pm_GetText
-
-function TevDocumentPreviewPrim.pm_GetPrinter: IafwPrinter;
-//#UC START# *47EB823F010A_47EA97410130get_var*
-//#UC END# *47EB823F010A_47EA97410130get_var*
-begin
-//#UC START# *47EB823F010A_47EA97410130get_impl*
- if (f_Printer = nil) then
-  f_Printer := Tl3Printer.Make;
- Result := f_Printer;
-//#UC END# *47EB823F010A_47EA97410130get_impl*
-end;//TevDocumentPreviewPrim.pm_GetPrinter
-
-procedure TevDocumentPreviewPrim.pm_SetPrinter(const aValue: IafwPrinter);
-//#UC START# *47EB823F010A_47EA97410130set_var*
-//#UC END# *47EB823F010A_47EA97410130set_var*
-begin
-//#UC START# *47EB823F010A_47EA97410130set_impl*
- if (f_Printer <> aValue) then
- begin
-  f_Printer := aValue;
-  ClearPreview;
- end;//f_Printer <> aValue
-//#UC END# *47EB823F010A_47EA97410130set_impl*
-end;//TevDocumentPreviewPrim.pm_SetPrinter
-
-function TevDocumentPreviewPrim.pm_GetProcessor: InevProcessor;
-//#UC START# *47EB8280024B_47EA97410130get_var*
-//#UC END# *47EB8280024B_47EA97410130get_var*
-begin
-//#UC START# *47EB8280024B_47EA97410130get_impl*
- if (f_Processor = nil) then
-  f_Processor := TevPreviewProcessor.Make(Self);
- Result := f_Processor;
-//#UC END# *47EB8280024B_47EA97410130get_impl*
-end;//TevDocumentPreviewPrim.pm_GetProcessor
-
-function TevDocumentPreviewPrim.pm_GetPagesInfo: TafwPagesInfo;
-//#UC START# *4CC6A35900D0_47EA97410130get_var*
-var
- l_Index : Integer;
-//#UC END# *4CC6A35900D0_47EA97410130get_var*
-begin
-//#UC START# *4CC6A35900D0_47EA97410130get_impl*
- l_Index := Printer.PrinterIndex;
- if (l_Index <> f_PrinterIndex) or Stopped then
-  ClearPreview;
- if not f_PagesInfo.IsValid then
- begin
-  if f_InPagesCounting OR InClose then
-   Result := f_PagesInfo
-  else
-  begin
-   if (f_HAF = nil) OR not f_HAF.NeedPagesCount then
-   begin
-    f_PagesInfo := TafwPagesInfo_H;
-    Result := f_PagesInfo;
-    f_PrinterIndex := l_Index;
-   end//f_HAF = nil..
-   else
-    Result := PrePrint(l_Index);
-  end;//f_InPagesCounting
- end//f_PagesCount <= 0
- else
-  Result := f_PagesInfo;
-//#UC END# *4CC6A35900D0_47EA97410130get_impl*
-end;//TevDocumentPreviewPrim.pm_GetPagesInfo
 
 procedure TevDocumentPreviewPrim.SetFilters(var theGenerator: Tk2TagGenerator);
 //#UC START# *47ECAB7602A2_47EA97410130_var*
@@ -1234,8 +1223,8 @@ begin
 end;//TevDocumentPreviewPrim.PrePrint
 
 procedure TevDocumentPreviewPrim.ProgressProcEv(aState: Byte;
-  aValue: Integer;
-  const aMsg: AnsiString);
+ aValue: Integer;
+ const aMsg: AnsiString);
 //#UC START# *47ECDB670389_47EA97410130_var*
 //#UC END# *47ECDB670389_47EA97410130_var*
 begin
@@ -1304,6 +1293,7 @@ begin
 end;//TevDocumentPreviewPrim.AfterPrint
 
 function TevDocumentPreviewPrim.NeedAddBlockNames: Boolean;
+ {* Нужно ли добавлять имена блоков }
 //#UC START# *4A2E97A4021B_47EA97410130_var*
 //#UC END# *4A2E97A4021B_47EA97410130_var*
 begin
@@ -1313,6 +1303,7 @@ begin
 end;//TevDocumentPreviewPrim.NeedAddBlockNames
 
 function TevDocumentPreviewPrim.DocumentName: IafwCString;
+ {* имя документа для preview. }
 //#UC START# *473D8C450198_47EA97410130_var*
 //#UC END# *473D8C450198_47EA97410130_var*
 begin
@@ -1325,6 +1316,7 @@ begin
 end;//TevDocumentPreviewPrim.DocumentName
 
 function TevDocumentPreviewPrim.InProcess: Boolean;
+ {* идет процесс? }
 //#UC START# *473D8C5C0187_47EA97410130_var*
 //#UC END# *473D8C5C0187_47EA97410130_var*
 begin
@@ -1334,6 +1326,7 @@ begin
 end;//TevDocumentPreviewPrim.InProcess
 
 function TevDocumentPreviewPrim.InPagesCounting: Boolean;
+ {* сейчас в процессе подсчета страниц? }
 //#UC START# *473D8C6C0266_47EA97410130_var*
 //#UC END# *473D8C6C0266_47EA97410130_var*
 begin
@@ -1343,6 +1336,7 @@ begin
 end;//TevDocumentPreviewPrim.InPagesCounting
 
 function TevDocumentPreviewPrim.InUpdate: Boolean;
+ {* находимся в процессе построения preview? }
 //#UC START# *473D8C7C01B5_47EA97410130_var*
 //#UC END# *473D8C7C01B5_47EA97410130_var*
 begin
@@ -1352,6 +1346,7 @@ begin
 end;//TevDocumentPreviewPrim.InUpdate
 
 function TevDocumentPreviewPrim.InPrinting: Boolean;
+ {* находимся в процессе построения печати? }
 //#UC START# *473D8C90022C_47EA97410130_var*
 //#UC END# *473D8C90022C_47EA97410130_var*
 begin
@@ -1361,6 +1356,7 @@ begin
 end;//TevDocumentPreviewPrim.InPrinting
 
 procedure TevDocumentPreviewPrim.Update(const aPanel: IafwPreviewPanel);
+ {* установить preview на панель для отображения. }
 //#UC START# *473D8CA002D9_47EA97410130_var*
 var
  l_Panel: IafwPreviewPanel;
@@ -1432,11 +1428,12 @@ begin
 //#UC END# *473D8CA002D9_47EA97410130_impl*
 end;//TevDocumentPreviewPrim.Update
 
-procedure TevDocumentPreviewPrim.Print(anInterval: TafwPagesInterval = afw_piAll;
-  const aRange: Il3RangeManager = nil;
-  aCopies: Integer = 1;
-  const aFileName: AnsiString = '';
-  aCollate: Boolean = True);
+procedure TevDocumentPreviewPrim.Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+ const aRange: Il3RangeManager = nil;
+ aCopies: Integer = 1;
+ const aFileName: AnsiString = '';
+ aCollate: Boolean = True);
+ {* напечатать на принтер. }
 //#UC START# *473D8CAF028B_47EA97410130_var*
 var
  l_PagesCount : TafwPagesInfo;
@@ -1495,6 +1492,7 @@ begin
 end;//TevDocumentPreviewPrim.Print
 
 procedure TevDocumentPreviewPrim.Stop(aWnd: THandle = 0);
+ {* остановит процесс построение preview/печати. }
 //#UC START# *473D8CE9007C_47EA97410130_var*
 //#UC END# *473D8CE9007C_47EA97410130_var*
 begin
@@ -1508,6 +1506,7 @@ begin
 end;//TevDocumentPreviewPrim.Stop
 
 function TevDocumentPreviewPrim.Stopped: Boolean;
+ {* процесс остановлен? }
 //#UC START# *473D8CF80037_47EA97410130_var*
 //#UC END# *473D8CF80037_47EA97410130_var*
 begin
@@ -1524,6 +1523,7 @@ begin
 end;//TevDocumentPreviewPrim.Stopped
 
 function TevDocumentPreviewPrim.CloseRequested: Boolean;
+ {* при остановке процесса был запрос на закрытие превью }
 //#UC START# *473D8D0A01D7_47EA97410130_var*
 //#UC END# *473D8D0A01D7_47EA97410130_var*
 begin
@@ -1533,6 +1533,7 @@ begin
 end;//TevDocumentPreviewPrim.CloseRequested
 
 function TevDocumentPreviewPrim.PreviewResetting: Boolean;
+ {* канва отсутствует, но будет передалываться }
 //#UC START# *473D8D1E01B8_47EA97410130_var*
 //#UC END# *473D8D1E01B8_47EA97410130_var*
 begin
@@ -1542,6 +1543,7 @@ begin
 end;//TevDocumentPreviewPrim.PreviewResetting
 
 procedure TevDocumentPreviewPrim.SetCurrentPage(const aCursor: IUnknown);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D3800B1_47EA97410130_var*
 var
  l_Target    : InevPara;
@@ -1582,6 +1584,7 @@ begin
 end;//TevDocumentPreviewPrim.SetCurrentPage
 
 procedure TevDocumentPreviewPrim.SetCurrentPagePara(aParaID: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D4A019D_47EA97410130_var*
 //#UC END# *473D8D4A019D_47EA97410130_var*
 begin
@@ -1595,6 +1598,7 @@ begin
 end;//TevDocumentPreviewPrim.SetCurrentPagePara
 
 procedure TevDocumentPreviewPrim.SetCurrentPageNumber(aPageNumber: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D5D032B_47EA97410130_var*
 //#UC END# *473D8D5D032B_47EA97410130_var*
 begin
@@ -1607,6 +1611,7 @@ begin
 end;//TevDocumentPreviewPrim.SetCurrentPageNumber
 
 function TevDocumentPreviewPrim.CurrentPage: Integer;
+ {* текущая страница для печати. }
 //#UC START# *473D8D72010F_47EA97410130_var*
 var
  l_Preview : IafwPreviewCanvas;
@@ -1629,6 +1634,7 @@ begin
 end;//TevDocumentPreviewPrim.CurrentPage
 
 function TevDocumentPreviewPrim.HasCurrentPage: Boolean;
+ {* установлена ли текущая страница. }
 //#UC START# *473D8D830163_47EA97410130_var*
 //#UC END# *473D8D830163_47EA97410130_var*
 begin
@@ -1690,7 +1696,7 @@ begin
 end;//TevDocumentPreviewPrim.Get_Preview
 
 procedure TevDocumentPreviewPrim.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4918253C0297_47EA97410130_var*
 //#UC END# *4918253C0297_47EA97410130_var*
 begin
@@ -1729,7 +1735,8 @@ begin
 end;//TevDocumentPreviewPrim.Get_CacheKey
 
 procedure TevDocumentPreviewPrim.DoGetStatusInfo(out theString: IafwCString;
-  out theNeedProgress: Boolean);
+ out theNeedProgress: Boolean);
+ {* Собственно процесс получения информации }
 //#UC START# *49CCA2480360_47EA97410130_var*
 var
  l_Count   : Integer;
@@ -1813,6 +1820,7 @@ begin
 end;//TevDocumentPreviewPrim.IsAborted
 
 procedure TevDocumentPreviewPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47EA97410130_var*
 //#UC END# *479731C50290_47EA97410130_var*
 begin
@@ -1839,6 +1847,7 @@ begin
 end;//TevDocumentPreviewPrim.Cleanup
 
 function TevDocumentPreviewPrim.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* Обработчик изменения указанной настройки }
 //#UC START# *47EA863A035C_47EA97410130_var*
 var
  l_SL: IafwSettingListener;
@@ -1904,7 +1913,7 @@ begin
 //#UC END# *49CCA4C90343_47EA97410130_impl*
 end;//TevDocumentPreviewPrim.NeedUpdateOnUnsubscribe
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TevDocumentPreviewPrim.DoStyleTableChanged;
 //#UC START# *4A485B710126_47EA97410130_var*
 //#UC END# *4A485B710126_47EA97410130_var*
@@ -1915,10 +1924,9 @@ begin
  inherited;
 //#UC END# *4A485B710126_47EA97410130_impl*
 end;//TevDocumentPreviewPrim.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TevDocumentPreviewPrim.ClearFields;
- {-}
 begin
  f_OriginalText := nil;
  f_Preview := nil;

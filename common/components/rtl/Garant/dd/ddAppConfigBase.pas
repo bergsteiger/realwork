@@ -1,38 +1,30 @@
 unit ddAppConfigBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd$AppConfig::AppConfig::TddAppConfigBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAppConfigBase" MUID: (5301EC0E0156)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoPersistent
-  ;
+ l3IntfUses
+ , l3ProtoPersistent
+;
 
 type
  TddAppConfigBase = class(Tl3ProtoPersistent)
- public
- // public methods
+  public
    constructor Create; reintroduce; virtual;
    function Clone: Pointer; virtual;
  end;//TddAppConfigBase
 
 implementation
 
-// start class TddAppConfigBase
+uses
+ l3ImplUses
+;
 
 constructor TddAppConfigBase.Create;
 //#UC START# *5301EC5A006A_5301EC0E0156_var*

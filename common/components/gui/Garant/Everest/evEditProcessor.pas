@@ -1,40 +1,30 @@
 unit evEditProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evEditProcessor.pas"
-// Начат: 13.05.2008 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevEditProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evEditProcessor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevEditProcessor" MUID: (482D8B94020E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evMemoProcessor
-  ;
+ l3IntfUses
+ , evMemoProcessor
+;
 
 type
  TevEditProcessor = class(TevMemoProcessor)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
    procedure BeepOnParaLimit; override;
  end;//TevEditProcessor
 
 implementation
 
-// start class TevEditProcessor
+uses
+ l3ImplUses
+;
 
 procedure TevEditProcessor.InitFields;
 //#UC START# *47A042E100E2_482D8B94020E_var*

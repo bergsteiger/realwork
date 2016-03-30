@@ -1,69 +1,53 @@
 unit nevSBSRowFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevSBSRowFormatInfo.pas"
-// Начат: 14.09.2011 12:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevSBSRowFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevSBSRowFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSBSRowFormatInfo" MUID: (4E70655403BD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevRubberCellsRenderInfo,
-  nevBase
-  ;
+ l3IntfUses
+ , nevRubberCellsRenderInfo
+ , nevBase
+;
 
 type
  TnevSBSRowFormatInfo = class(TnevRubberCellsRenderInfo)
- private
- // private fields
-   f_SecondColWdith : Integer;
-    {* Кешированная ширина второй колонки для проверки изменений.}
- private
- // private methods
+  private
+   f_SecondColWdith: Integer;
+    {* Кешированная ширина второй колонки для проверки изменений. }
+  private
    function CalcNewWidth(aParentWidth: Integer;
-     aValue: Integer): Integer;
+    aValue: Integer): Integer;
    function ParentWidth: Integer;
-     {* Ширина для вычислений. }
- protected
- // overridden protected methods
+    {* Ширина для вычислений. }
+  protected
    function WasChanged: Boolean; override;
    procedure ClearChangedFlag; override;
- public
- // overridden public methods
+  public
    function CalcClientValue4Column(aColumnID: Integer): Integer; override;
    procedure ResizeColumn(aColumnID: Integer;
-     aValue: Integer;
-     const aContext: InevOp); override;
+    aValue: Integer;
+    const aContext: InevOp); override;
  end;//TnevSBSRowFormatInfo
 
 implementation
 
 uses
-  k2Tags,
-  l3Math,
-  l3MinMax,
-  nevTools,
-  evSectionPara,
-  evConst
-  ;
-
-// start class TnevSBSRowFormatInfo
+ l3ImplUses
+ , k2Tags
+ , l3Math
+ , l3MinMax
+ , nevTools
+ , evSectionPara
+ , evConst
+;
 
 function TnevSBSRowFormatInfo.CalcNewWidth(aParentWidth: Integer;
-  aValue: Integer): Integer;
+ aValue: Integer): Integer;
 //#UC START# *4ED4B9B50021_4E70655403BD_var*
 var
  l_NewWidth: Integer;
@@ -82,6 +66,7 @@ begin
 end;//TnevSBSRowFormatInfo.CalcNewWidth
 
 function TnevSBSRowFormatInfo.ParentWidth: Integer;
+ {* Ширина для вычислений. }
 //#UC START# *4ED61E7200D0_4E70655403BD_var*
 var
  l_SB     : InevSectionBreaks;
@@ -136,8 +121,8 @@ begin
 end;//TnevSBSRowFormatInfo.CalcClientValue4Column
 
 procedure TnevSBSRowFormatInfo.ResizeColumn(aColumnID: Integer;
-  aValue: Integer;
-  const aContext: InevOp);
+ aValue: Integer;
+ const aContext: InevOp);
 //#UC START# *4ED4AE2B03D3_4E70655403BD_var*
 var
  l_LW    : Integer;

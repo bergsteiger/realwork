@@ -1,59 +1,45 @@
 unit evTableFilter;
+ {* Удаляет из ячеек-продолжений дочерние параграфы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevTableFilter
-//
-// Удаляет из ячеек-продолжений дочерние параграфы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableFilter" MUID: (4E48B5AE01E3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  evdBufferedFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , evdTypes
+ , k2Base
+ , l3Variant
+;
 
 type
  TevTableFilter = class(TevdCustomChildBufferedFilter)
   {* Удаляет из ячеек-продолжений дочерние параграфы. }
- private
- // private fields
-   f_MergeStatus : TevMergeStatus;
- protected
- // overridden protected methods
+  private
+   f_MergeStatus: TevMergeStatus;
+  protected
    procedure DoStartChild(TypeID: Tk2Type); override;
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    function NeedStartBuffering(aID: Integer): Boolean; override;
    function NeedFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer): Boolean; override;
+    aTagId: Integer): Boolean; override;
    procedure DoCloseStructure(NeedUndo: Boolean); override;
  end;//TevTableFilter
 
 implementation
 
 uses
-  TableCell_Const,
-  TableRow_Const,
-  k2Tags
-  ;
-
-// start class TevTableFilter
+ l3ImplUses
+ , TableCell_Const
+ , TableRow_Const
+ , k2Tags
+;
 
 procedure TevTableFilter.DoStartChild(TypeID: Tk2Type);
 //#UC START# *4A2D1217037A_4E48B5AE01E3_var*
@@ -67,7 +53,7 @@ begin
 end;//TevTableFilter.DoStartChild
 
 procedure TevTableFilter.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_4E48B5AE01E3_var*
 //#UC END# *4A2D1634025B_4E48B5AE01E3_var*
 begin
@@ -90,7 +76,7 @@ begin
 end;//TevTableFilter.NeedStartBuffering
 
 function TevTableFilter.NeedFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer): Boolean;
+ aTagId: Integer): Boolean;
 //#UC START# *4CF7BC520161_4E48B5AE01E3_var*
 //#UC END# *4CF7BC520161_4E48B5AE01E3_var*
 begin

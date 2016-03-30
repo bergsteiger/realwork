@@ -1,28 +1,17 @@
 unit nevDocumentContainerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDocumentContainerPrim.pas"
-// Начат: 24.06.2009 19:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Document::TnevDocumentContainerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentContainerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentContainerPrim" MUID: (4A69D7830067)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevDocumentContainerPrimPrim
-  ;
+ l3IntfUses
+ , nevDocumentContainerPrimPrim
+;
 
 type
  TnevDocumentContainerPrim = class(TnevDocumentContainerPrimPrim)
@@ -31,7 +20,8 @@ type
 implementation
 
 uses
-  k2Facade
-  ;
+ l3ImplUses
+ , k2Facade
+;
 
 end.

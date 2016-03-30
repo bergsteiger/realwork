@@ -20,7 +20,6 @@ type
   {* базовый класс для инструментальных панелей }
   private
    f_Orientation: Tl3Orientation1;
-    {* Поле для свойства Orientation }
   protected
    procedure pm_SetOrientation(aValue: Tl3Orientation1);
    procedure OrientationChanged; virtual;

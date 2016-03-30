@@ -1,81 +1,57 @@
 unit nevDecorActiveHyperlink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDecorActiveHyperlink.pas"
-// Начат: 13.07.2011 16:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TnevDecorActiveHyperlink
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDecorActiveHyperlink.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDecorActiveHyperlink" MUID: (4E1D96B8035A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevBase,
-  nevTools,
-  nevActiveHyperlinkProxy
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , nevActiveHyperlinkProxy
+ , nevBase
+ , nevTools
+;
 
-{$If defined(evNeedHotSpot)}
 type
- InevDecorActiveHyperlink = interface(IUnknown)
-   ['{F090F594-9901-43C4-A1BF-64F448F2ECEA}']
-   function Get_Obj: InevObjectPrim;
-   property Obj: InevObjectPrim
-     read Get_Obj;
- end;//InevDecorActiveHyperlink
-
  RnevDecorActiveHyperlinkClass = class of TnevDecorActiveHyperlink;
 
+ InevDecorActiveHyperlink = interface
+  ['{F090F594-9901-43C4-A1BF-64F448F2ECEA}']
+  function Get_Obj: InevObjectPrim;
+  property Obj: InevObjectPrim
+   read Get_Obj;
+ end;//InevDecorActiveHyperlink
+
  TnevDecorActiveHyperlink = class(TnevActiveHyperlinkProxy, InevDecorActiveHyperlink)
- private
- // private fields
-   f_Para : InevObjectPrim;
- protected
- // realized methods
+  private
+   f_Para: InevObjectPrim;
+  protected
    function Get_Obj: InevObjectPrim;
- protected
- // overridden protected methods
    function DoIsSame(const anElement: InevActiveElement): Boolean; override;
    procedure DoInvalidate; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aPara: InevObjectPrim;
-     const anActive: InevActiveElement); reintroduce;
+    const anActive: InevActiveElement); reintroduce;
    class function Make(const aPara: InevObjectPrim;
-     const anActive: InevActiveElement): InevActiveElement; reintroduce;
-     {* Сигнатура фабрики TnevDecorActiveHyperlink.Make }
+    const anActive: InevActiveElement): InevActiveElement; reintroduce;
  end;//TnevDecorActiveHyperlink
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TnevDecorActiveHyperlink
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TnevDecorActiveHyperlink.Create(const aPara: InevObjectPrim;
-  const anActive: InevActiveElement);
+ const anActive: InevActiveElement);
 //#UC START# *4E1D97080355_4E1D96B8035A_var*
 //#UC END# *4E1D97080355_4E1D96B8035A_var*
 begin
@@ -87,7 +63,7 @@ begin
 end;//TnevDecorActiveHyperlink.Create
 
 class function TnevDecorActiveHyperlink.Make(const aPara: InevObjectPrim;
-  const anActive: InevActiveElement): InevActiveElement;
+ const anActive: InevActiveElement): InevActiveElement;
 var
  l_Inst : TnevDecorActiveHyperlink;
 begin
@@ -97,7 +73,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevDecorActiveHyperlink.Make
 
 function TnevDecorActiveHyperlink.Get_Obj: InevObjectPrim;
 //#UC START# *4E1DB90E005B_4E1D96B8035Aget_var*
@@ -142,14 +118,10 @@ begin
 end;//TnevDecorActiveHyperlink.DoInvalidate
 
 procedure TnevDecorActiveHyperlink.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_Para := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TnevDecorActiveHyperlink.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

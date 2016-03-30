@@ -1,45 +1,32 @@
 unit evCustomEditTextSource;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomEditTextSource.pas"
-// Начат: 13.05.2008 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevCustomEditTextSource
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditTextSource.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomEditTextSource" MUID: (482D988102EC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomMemoTextSource,
-  nevTools
-  ;
+ l3IntfUses
+ , evCustomMemoTextSource
+ , nevTools
+;
 
 type
  TevCustomEditTextSource = class(TevCustomMemoTextSource)
- protected
- // overridden protected methods
+  protected
    function DoMakeDocumentContainer: InevDocumentContainer; override;
  end;//TevCustomEditTextSource
 
 implementation
 
 uses
-  evEditDocumentContainer,
-  evCustomMemo
-  ;
-
-// start class TevCustomEditTextSource
+ l3ImplUses
+ , evEditDocumentContainer
+ , evCustomMemo
+;
 
 function TevCustomEditTextSource.DoMakeDocumentContainer: InevDocumentContainer;
 //#UC START# *482D9A030221_482D988102EC_var*

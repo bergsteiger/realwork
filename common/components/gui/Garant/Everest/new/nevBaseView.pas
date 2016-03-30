@@ -1,52 +1,56 @@
 unit nevBaseView;
+ {* Базовая реализация области вывода. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevBaseView.pas"
-// Начат: 25.10.2005 16:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevBaseView
-//
-// Базовая реализация области вывода.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBaseView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevBaseView" MUID: (4811D544006F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  nevShapesPainted,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , nevTools
+ , nevShapesPainted
+ , nevBase
+;
 
 type
  TnevBaseView = class(Tl3ProtoObject, InevView)
   {* Базовая реализация области вывода. }
- private
- // private fields
-   f_Level : Integer;
-    {* Поле для свойства Level}
-   f_ShapesPainted : TnevShapesPainted;
-    {* Поле для свойства ShapesPainted}
- protected
- // property methods
+  private
+   f_Level: Integer;
+    {* Поле для свойства Level }
+   f_ShapesPainted: TnevShapesPainted;
+    {* Поле для свойства ShapesPainted }
+  protected
+   f_Holder: Pointer;
+  protected
    function pm_GetShape: InevObject; virtual;
    function pm_GetActiveElementPrim: InevActiveElement; virtual;
    function pm_GetForceDrawFocusRectPrim: Boolean; virtual;
    function pm_GetIsObjectCollapsed(const anObject: InevObject): Boolean; virtual;
-   procedure pm_SetIsObjectCollapsed(const anObject: InevObject; aValue: Boolean); virtual;
- protected
- // realized methods
+   procedure pm_SetIsObjectCollapsed(const anObject: InevObject;
+    aValue: Boolean); virtual;
+   {$If Defined(evNeedCollapsedVersionComments)}
+   procedure DoVersionInfoVisabilityChanged(aValue: Boolean); virtual;
+   {$IfEnd} // Defined(evNeedCollapsedVersionComments)
+   procedure DoInvalidateShape(const aShape: InevObject;
+    aParts: TnevShapeParts); virtual;
+   function DoGetMetrics: InevViewMetrics; virtual;
+   function DoGetProcessor: InevProcessor; virtual;
+   procedure ClearShapesPrim; virtual;
+   procedure DoClearShapes(aNeedClearMax: Boolean);
+    {* очищает список отображаемых форм. }
+   procedure DoBeginDrawShape(const aShape: InevObject;
+    const anAnchor: InevBasePoint;
+    const anOrg: TnevPoint;
+    var theMap: InevMap;
+    aFake: Boolean;
+    const aHacker: InevK235870994Hacker); virtual;
+   function GetRootFormatInfo: TnevFormatInfoPrim; virtual;
    function pm_GetMetrics: InevViewMetrics;
    function Data: InevObject;
    function RootMap: InevMap;
@@ -58,9 +62,9 @@ type
     var theMap: InevMap;
     aFake: Boolean;
     const aHacker: InevK235870994Hacker);
-     {* Начинает добавление формы в список. }
+    {* Начинает добавление формы в список. }
    procedure EndDrawShape;
-     {* Заканчивает добавление формы в список. }
+    {* Заканчивает добавление формы в список. }
    function MapByPoint(const aPoint: InevBasePoint;
     aCheckTopVisible: Boolean = False): InevMap;
    function FormatInfoByPoint(const aPoint: InevBasePoint): TnevFormatInfoPrim;
@@ -68,88 +72,48 @@ type
    function Get_ActiveElement: InevActiveElement;
    function Get_ForceDrawFocusRect: Boolean;
    function Get_IsObjectCollapsed(const anObject: InevObject): Boolean;
-   procedure Set_IsObjectCollapsed(const anObject: InevObject; aValue: Boolean);
-   {$If defined(evNeedCollapsedVersionComments)}
+   procedure Set_IsObjectCollapsed(const anObject: InevObject;
+    aValue: Boolean);
+   {$If Defined(evNeedCollapsedVersionComments)}
    procedure VersionInfoVisabilityChanged(aValue: Boolean);
-   {$IfEnd} //evNeedCollapsedVersionComments
-   function FormatInfoByPara(const aPara: InevObject): TnevFormatInfoPrim; overload; 
+   {$IfEnd} // Defined(evNeedCollapsedVersionComments)
+   function FormatInfoByPara(const aPara: InevObject): TnevFormatInfoPrim; overload;
    function FormatInfoByObj(const anObj: InevObjectPrim): TnevFormatInfoPrim;
-   function FormatInfoByPara(aPara: PInevObject): TnevFormatInfoPrim; overload; 
- public
- // realized methods
+   function FormatInfoByPara(aPara: PInevObject): TnevFormatInfoPrim; overload;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
+   constructor Create; reintroduce; virtual;
    procedure InvalidateShape(const aShape: InevObject;
     aParts: TnevShapeParts);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // protected fields
-   f_Holder : Pointer;
- protected
- // protected methods
-    {$If defined(evNeedCollapsedVersionComments)}
-   procedure DoVersionInfoVisabilityChanged(aValue: Boolean); virtual;
-    {$IfEnd} //evNeedCollapsedVersionComments
-   procedure DoInvalidateShape(const aShape: InevObject;
-    aParts: TnevShapeParts); virtual;
-   function DoGetMetrics: InevViewMetrics; virtual;
-   function DoGetProcessor: InevProcessor; virtual;
-   procedure ClearShapesPrim; virtual;
-   procedure DoClearShapes(aNeedClearMax: Boolean);
-     {* очищает список отображаемых форм. }
-   procedure DoBeginDrawShape(const aShape: InevObject;
-    const anAnchor: InevBasePoint;
-    const anOrg: TnevPoint;
-    var theMap: InevMap;
-    aFake: Boolean;
-    const aHacker: InevK235870994Hacker); virtual;
-   function GetRootFormatInfo: TnevFormatInfoPrim; virtual;
- public
- // public methods
-   constructor Create; reintroduce; virtual;
- protected
- // protected properties
+  protected
    property ActiveElementPrim: InevActiveElement
-     read pm_GetActiveElementPrim;
+    read pm_GetActiveElementPrim;
    property ForceDrawFocusRectPrim: Boolean
-     read pm_GetForceDrawFocusRectPrim;
+    read pm_GetForceDrawFocusRectPrim;
    property IsObjectCollapsed[const anObject: InevObject]: Boolean
-     read pm_GetIsObjectCollapsed
-     write pm_SetIsObjectCollapsed;
- public
- // public properties
+    read pm_GetIsObjectCollapsed
+    write pm_SetIsObjectCollapsed;
+  public
    property Level: Integer
-     read f_Level;
+    read f_Level;
    property ShapesPainted: TnevShapesPainted
-     read f_ShapesPainted;
+    read f_ShapesPainted;
    property Shape: InevObject
-     read pm_GetShape;
+    read pm_GetShape;
  end;//TnevBaseView
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags
-  ;
-
-// start class TnevBaseView
-
-{$If defined(evNeedCollapsedVersionComments)}
-procedure TnevBaseView.DoVersionInfoVisabilityChanged(aValue: Boolean);
-//#UC START# *4D5A4707033B_4811D544006F_var*
-//#UC END# *4D5A4707033B_4811D544006F_var*
-begin
-//#UC START# *4D5A4707033B_4811D544006F_impl*
- // - ничего не делаем
-//#UC END# *4D5A4707033B_4811D544006F_impl*
-end;//TnevBaseView.DoVersionInfoVisabilityChanged
-{$IfEnd} //evNeedCollapsedVersionComments
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+;
 
 function TnevBaseView.pm_GetShape: InevObject;
 //#UC START# *4811D60B0043_4811D544006Fget_var*
@@ -187,7 +151,8 @@ begin
 //#UC END# *4D5A46930182_4811D544006Fget_impl*
 end;//TnevBaseView.pm_GetIsObjectCollapsed
 
-procedure TnevBaseView.pm_SetIsObjectCollapsed(const anObject: InevObject; aValue: Boolean);
+procedure TnevBaseView.pm_SetIsObjectCollapsed(const anObject: InevObject;
+ aValue: Boolean);
 //#UC START# *4D5A46930182_4811D544006Fset_var*
 //#UC END# *4D5A46930182_4811D544006Fset_var*
 begin
@@ -200,8 +165,19 @@ begin
 //#UC END# *4D5A46930182_4811D544006Fset_impl*
 end;//TnevBaseView.pm_SetIsObjectCollapsed
 
+{$If Defined(evNeedCollapsedVersionComments)}
+procedure TnevBaseView.DoVersionInfoVisabilityChanged(aValue: Boolean);
+//#UC START# *4D5A4707033B_4811D544006F_var*
+//#UC END# *4D5A4707033B_4811D544006F_var*
+begin
+//#UC START# *4D5A4707033B_4811D544006F_impl*
+ // - ничего не делаем
+//#UC END# *4D5A4707033B_4811D544006F_impl*
+end;//TnevBaseView.DoVersionInfoVisabilityChanged
+{$IfEnd} // Defined(evNeedCollapsedVersionComments)
+
 procedure TnevBaseView.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4811D78A01A1_4811D544006F_var*
 //#UC END# *4811D78A01A1_4811D544006F_var*
 begin
@@ -250,6 +226,7 @@ begin
 end;//TnevBaseView.ClearShapesPrim
 
 procedure TnevBaseView.DoClearShapes(aNeedClearMax: Boolean);
+ {* очищает список отображаемых форм. }
 //#UC START# *4811DAA70258_4811D544006F_var*
 //#UC END# *4811DAA70258_4811D544006F_var*
 begin
@@ -266,11 +243,11 @@ begin
 end;//TnevBaseView.DoClearShapes
 
 procedure TnevBaseView.DoBeginDrawShape(const aShape: InevObject;
-  const anAnchor: InevBasePoint;
-  const anOrg: TnevPoint;
-  var theMap: InevMap;
-  aFake: Boolean;
-  const aHacker: InevK235870994Hacker);
+ const anAnchor: InevBasePoint;
+ const anOrg: TnevPoint;
+ var theMap: InevMap;
+ aFake: Boolean;
+ const aHacker: InevK235870994Hacker);
 //#UC START# *4811DB8A0323_4811D544006F_var*
 //#UC END# *4811DB8A0323_4811D544006F_var*
 begin
@@ -363,11 +340,12 @@ begin
 end;//TnevBaseView.ClearShapes
 
 procedure TnevBaseView.BeginDrawShape(const aShape: InevObject;
-  const anAnchor: InevBasePoint;
-  const anOrg: TnevPoint;
-  var theMap: InevMap;
-  aFake: Boolean;
-  const aHacker: InevK235870994Hacker);
+ const anAnchor: InevBasePoint;
+ const anOrg: TnevPoint;
+ var theMap: InevMap;
+ aFake: Boolean;
+ const aHacker: InevK235870994Hacker);
+ {* Начинает добавление формы в список. }
 //#UC START# *47C5B9DB0136_4811D544006F_var*
 //#UC END# *47C5B9DB0136_4811D544006F_var*
 begin
@@ -383,6 +361,7 @@ begin
 end;//TnevBaseView.BeginDrawShape
 
 procedure TnevBaseView.EndDrawShape;
+ {* Заканчивает добавление формы в список. }
 //#UC START# *47C5B9FB03D1_4811D544006F_var*
 //#UC END# *47C5B9FB03D1_4811D544006F_var*
 begin
@@ -393,7 +372,7 @@ begin
 end;//TnevBaseView.EndDrawShape
 
 function TnevBaseView.MapByPoint(const aPoint: InevBasePoint;
-  aCheckTopVisible: Boolean = False): InevMap;
+ aCheckTopVisible: Boolean = False): InevMap;
 //#UC START# *47C5BA240004_4811D544006F_var*
 //#UC END# *47C5BA240004_4811D544006F_var*
 begin
@@ -460,7 +439,7 @@ begin
 end;//TnevBaseView.RootFormatInfo
 
 procedure TnevBaseView.InvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4816E2B2004E_4811D544006F_var*
 //#UC END# *4816E2B2004E_4811D544006F_var*
 begin
@@ -496,7 +475,8 @@ begin
 //#UC END# *4D5A3DD60219_4811D544006Fget_impl*
 end;//TnevBaseView.Get_IsObjectCollapsed
 
-procedure TnevBaseView.Set_IsObjectCollapsed(const anObject: InevObject; aValue: Boolean);
+procedure TnevBaseView.Set_IsObjectCollapsed(const anObject: InevObject;
+ aValue: Boolean);
 //#UC START# *4D5A3DD60219_4811D544006Fset_var*
 //#UC END# *4D5A3DD60219_4811D544006Fset_var*
 begin
@@ -505,7 +485,7 @@ begin
 //#UC END# *4D5A3DD60219_4811D544006Fset_impl*
 end;//TnevBaseView.Set_IsObjectCollapsed
 
-{$If defined(evNeedCollapsedVersionComments)}
+{$If Defined(evNeedCollapsedVersionComments)}
 procedure TnevBaseView.VersionInfoVisabilityChanged(aValue: Boolean);
 //#UC START# *4D5A3E3E01B7_4811D544006F_var*
 //#UC END# *4D5A3E3E01B7_4811D544006F_var*
@@ -514,7 +494,7 @@ begin
  DoVersionInfoVisabilityChanged(aValue);
 //#UC END# *4D5A3E3E01B7_4811D544006F_impl*
 end;//TnevBaseView.VersionInfoVisabilityChanged
-{$IfEnd} //evNeedCollapsedVersionComments
+{$IfEnd} // Defined(evNeedCollapsedVersionComments)
 
 function TnevBaseView.FormatInfoByPara(const aPara: InevObject): TnevFormatInfoPrim;
 //#UC START# *4E6F8ED402EF_4811D544006F_var*
@@ -548,6 +528,7 @@ begin
 end;//TnevBaseView.FormatInfoByPara
 
 procedure TnevBaseView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4811D544006F_var*
 //#UC END# *479731C50290_4811D544006F_var*
 begin
@@ -558,8 +539,9 @@ begin
 //#UC END# *479731C50290_4811D544006F_impl*
 end;//TnevBaseView.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TnevBaseView.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4811D544006F_var*
 //#UC END# *47A6FEE600FC_4811D544006F_var*
 begin
@@ -567,6 +549,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4811D544006F_impl*
 end;//TnevBaseView.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

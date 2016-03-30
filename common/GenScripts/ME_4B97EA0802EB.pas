@@ -13,6 +13,8 @@ uses
  , vtOutliner
  , Types
  , Classes
+ //#UC START# *4B97EA0802EBintf_uses*
+ //#UC END# *4B97EA0802EBintf_uses*
 ;
 
 type
@@ -52,6 +54,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B97EA0802EBimpl_uses*
+ //#UC END# *4B97EA0802EBimpl_uses*
 ;
 
 procedure TvtOutlinerWithQuickSearch.QuickSearchHandler(Sender: TObject;

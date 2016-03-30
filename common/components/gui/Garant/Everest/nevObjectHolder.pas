@@ -1,63 +1,46 @@
 unit nevObjectHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevObjectHolder.pas"
-// Начат: 30.04.2008 16:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Document::TnevObjectHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevObjectHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevObjectHolder" MUID: (481866FC03E0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevObjectHolderPrim,
-  nevBase
-  ;
+ l3IntfUses
+ , nevObjectHolderPrim
+ , nevTools
+ , nevBase
+;
 
 type
  TnevObjectHolder = class(TnevObjectHolderPrim)
- private
- // private fields
-   f_Obj : InevObject;
- protected
- // realized methods
+  private
+   f_Obj: InevObject;
+  protected
    procedure DoInvalidateShape(const aShape: InevObject;
     aParts: TnevShapeParts); override;
    function GetTagReader: InevTagReader; override;
    function GetTagWriter: InevTagWriter; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function GetObj: InevObject; override;
- public
- // public methods
+  public
    constructor Create(const anObject: InevObject); reintroduce;
  end;//TnevObjectHolder
 
 implementation
 
 uses
-  l3SimpleObject
-  ;
-
-// start class TnevObjectHolder
+ l3ImplUses
+ , l3SimpleObject
+;
 
 constructor TnevObjectHolder.Create(const anObject: InevObject);
 //#UC START# *481867C20088_481866FC03E0_var*
@@ -72,7 +55,7 @@ begin
 end;//TnevObjectHolder.Create
 
 procedure TnevObjectHolder.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4918253C0297_481866FC03E0_var*
 //#UC END# *4918253C0297_481866FC03E0_var*
 begin
@@ -102,6 +85,7 @@ begin
 end;//TnevObjectHolder.GetTagWriter
 
 procedure TnevObjectHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_481866FC03E0_var*
 //#UC END# *479731C50290_481866FC03E0_var*
 begin
@@ -116,8 +100,9 @@ begin
 //#UC END# *479731C50290_481866FC03E0_impl*
 end;//TnevObjectHolder.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TnevObjectHolder.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_481866FC03E0_var*
 //#UC END# *47A6FEE600FC_481866FC03E0_var*
 begin
@@ -125,7 +110,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_481866FC03E0_impl*
 end;//TnevObjectHolder.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TnevObjectHolder.GetObj: InevObject;
 //#UC START# *48185EEB0234_481866FC03E0_var*

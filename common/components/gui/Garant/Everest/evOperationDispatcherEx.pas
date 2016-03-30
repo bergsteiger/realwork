@@ -1,58 +1,52 @@
 unit evOperationDispatcherEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evOperationDispatcherEx.pas"
-// Начат: 19.05.2011 14:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Dispatcher::TevOperationDispatcherEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evOperationDispatcherEx.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevOperationDispatcherEx" MUID: (4DD4F7060070)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evDisp
-  ;
+ l3IntfUses
+ , evDisp
+;
 
 type
  TevOperationDispatcherEx = class(TevOperationDispatcher)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevOperationDispatcherEx;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevOperationDispatcherEx }
  end;//TevOperationDispatcherEx
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TevOperationDispatcherEx
-
-var g_TevOperationDispatcherEx : TevOperationDispatcherEx = nil;
+var g_TevOperationDispatcherEx: TevOperationDispatcherEx = nil;
+ {* Экземпляр синглетона TevOperationDispatcherEx }
 
 procedure TevOperationDispatcherExFree;
+ {* Метод освобождения экземпляра синглетона TevOperationDispatcherEx }
 begin
  l3Free(g_TevOperationDispatcherEx);
-end;
+end;//TevOperationDispatcherExFree
+
+class function TevOperationDispatcherEx.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevOperationDispatcherEx <> nil;
+end;//TevOperationDispatcherEx.Exists
 
 class function TevOperationDispatcherEx.Instance: TevOperationDispatcherEx;
+ {* Метод получения экземпляра синглетона TevOperationDispatcherEx }
 begin
  if (g_TevOperationDispatcherEx = nil) then
  begin
@@ -60,13 +54,6 @@ begin
   g_TevOperationDispatcherEx := Create;
  end;
  Result := g_TevOperationDispatcherEx;
-end;
-
-
-class function TevOperationDispatcherEx.Exists: Boolean;
- {-}
-begin
- Result := g_TevOperationDispatcherEx <> nil;
-end;//TevOperationDispatcherEx.Exists
+end;//TevOperationDispatcherEx.Instance
 
 end.

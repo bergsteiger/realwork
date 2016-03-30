@@ -1,75 +1,51 @@
 unit evParaCollapser;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaCollapser.pas"
-// Начат: 13.07.2011 14:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevParaCollapser
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaCollapser.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaCollapser" MUID: (4E1D776103C6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevTools,
-  evDecorHotSpot,
-  evHotSpotProxy,
-  evDecorHyperlink
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evDecorHotSpot
+ , nevTools
+ , evDecorHyperlink
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevParaCollapser = class(TevDecorHotSpot)
- protected
- // overridden protected methods
-   function DoLButtonUp(const aView: InevControlView;
-     const Keys: TevMouseState): Boolean; override;
-   function DoLButtonDoubleClick(const aView: InevControlView;
-     const Keys: TevMouseState;
-     var Effect: TevMouseEffect): Boolean; override;
-   function DoLButtonDown(const aView: InevControlView;
-     const Keys: TevMouseState;
-     var Effect: TevMouseEffect): Boolean; override;
-   function DoMButtonUp(const aView: InevControlView;
-     const Keys: TevMouseState): Boolean; override;
-   function GetDecorHyperlinkClass: RevDecorHyperlink; override;
- protected
- // protected methods
+  protected
    function DoCollapse(const aView: InevControlView): Boolean; virtual;
+   function DoLButtonUp(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean; override;
+   function DoLButtonDoubleClick(const aView: InevControlView;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean; override;
+   function DoLButtonDown(const aView: InevControlView;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean; override;
+   function DoMButtonUp(const aView: InevControlView;
+    const Keys: TevMouseState): Boolean; override;
+   function GetDecorHyperlinkClass: RevDecorHyperlink; override;
  end;//TevParaCollapser
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  nevBase,
-  evCollapserHyperlink
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TevParaCollapser
+ l3ImplUses
+ , nevBase
+ , evCollapserHyperlink
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+;
 
 function TevParaCollapser.DoCollapse(const aView: InevControlView): Boolean;
 //#UC START# *4E1D87640086_4E1D776103C6_var*
@@ -101,7 +77,7 @@ begin
 end;//TevParaCollapser.DoCollapse
 
 function TevParaCollapser.DoLButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
 //#UC START# *4E1D7BDF01C4_4E1D776103C6_var*
 //#UC END# *4E1D7BDF01C4_4E1D776103C6_var*
 begin
@@ -113,8 +89,8 @@ begin
 end;//TevParaCollapser.DoLButtonUp
 
 function TevParaCollapser.DoLButtonDoubleClick(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *4E1D7C16028B_4E1D776103C6_var*
 //#UC END# *4E1D7C16028B_4E1D776103C6_var*
 begin
@@ -128,8 +104,8 @@ begin
 end;//TevParaCollapser.DoLButtonDoubleClick
 
 function TevParaCollapser.DoLButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *4E1DC2FF02BB_4E1D776103C6_var*
 //#UC END# *4E1DC2FF02BB_4E1D776103C6_var*
 begin
@@ -140,7 +116,7 @@ begin
 end;//TevParaCollapser.DoLButtonDown
 
 function TevParaCollapser.DoMButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
 //#UC START# *548B10B4010F_4E1D776103C6_var*
 //#UC END# *548B10B4010F_4E1D776103C6_var*
 begin
@@ -159,7 +135,6 @@ begin
  Result := TevCollapserHyperlink;
 //#UC END# *55F6D02B0013_4E1D776103C6_impl*
 end;//TevParaCollapser.GetDecorHyperlinkClass
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

@@ -17,6 +17,8 @@ uses
  , Justification_Const
  , k2Handle_Const
  , k2Long_Const
+ //#UC START# *48567D1900F6_484CD009023Dintf_uses*
+ //#UC END# *48567D1900F6_484CD009023Dintf_uses*
 ;
 
  // StyledLeafParaTag
@@ -33,6 +35,8 @@ uses
  , Classes
  , Graphics
  , nevBase
+ //#UC START# *48567D1900F6_484CD009023Dimpl_uses*
+ //#UC END# *48567D1900F6_484CD009023Dimpl_uses*
 ;
 
 end.

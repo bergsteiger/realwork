@@ -34,7 +34,6 @@ type
  TvcmChromeLikeTabbedContainerForm = {abstract} class(_ChromeLikeTabbedContainerForm_)
   private
    f_Decorator: TFormFrameDecorator;
-    {* Поле для свойства Decorator }
   private
    procedure DoOnNeedRecreateButtons(aDecorator: TFormFrameDecorator);
    procedure WMSysCommand(var aMessage: TWMSysCommand); message WM_SYSCOMMAND;
@@ -66,11 +65,11 @@ uses
  , ChromeLikeBaseWindowCaptionButton
  , Windows
  , Classes
+ , ChromeLikeTabSetTypes
+ , afwFacade
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , ChromeLikeTabSetTypes
- , afwFacade
 ;
 
 {$Include w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas}

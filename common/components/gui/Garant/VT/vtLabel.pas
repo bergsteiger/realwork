@@ -1,163 +1,131 @@
 unit vtLabel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtLabel.pas"
-// Начат: 03.02.2012
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Labels::TvtLabel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtLabel.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtLabel" MUID: (4AE8541A01AE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  afwInterfaces,
-  evdTypes,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3GraphicControlCanvas,
-  l3PureMixIns,
-  Classes,
-  Types
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3PureMixIns
+ , afwInterfaces
+ , l3Interfaces
+ , evdTypes
+ , l3GraphicControlCanvas
+ , Messages
+ , Classes
+ , Types
+ //#UC START# *4AE8541A01AEintf_uses*
+ //#UC END# *4AE8541A01AEintf_uses*
+;
 
 type
  TvtDrawDirection = (
-   ddHorizontal
- , ddVertical
+  ddHorizontal
+  , ddVertical
  );//TvtDrawDirection
 
  {$Define _UnknownIsComponent}
 
-//#UC START# *50253C0401F1ci*
-//#UC END# *50253C0401F1ci*
+ //#UC START# *50253C0401F1ci*
+ //#UC END# *50253C0401F1ci*
  _l3Unknown_Parent_ = TCustomLabel;
-{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-//#UC START# *50253C0401F1cit*
-//#UC END# *50253C0401F1cit*
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+ //#UC START# *50253C0401F1cit*
+ //#UC END# *50253C0401F1cit*
  TvtCustomLabelPrim = class(_l3Unknown_)
-//#UC START# *50253C0401F1publ*
+ //#UC START# *50253C0401F1publ*
  protected
    {$I l3DefineCleanup.inc}
-//#UC END# *50253C0401F1publ*
+ //#UC END# *50253C0401F1publ*
  end;//TvtCustomLabelPrim
 
-//#UC START# *4F29240F0204ci*
-//#UC END# *4F29240F0204ci*
-//#UC START# *4F29240F0204cit*
-//#UC END# *4F29240F0204cit*
+ //#UC START# *4F29240F0204ci*
+ //#UC END# *4F29240F0204ci*
+ //#UC START# *4F29240F0204cit*
+ //#UC END# *4F29240F0204cit*
  TvtCustomLabel = class(TvtCustomLabelPrim, IafwTextControl)
- private
- // private fields
-   f_Canvas : Tl3GraphicControlCanvas;
-   f_InAdjustBounds : Boolean;
-   f_EndEllipsis : Boolean;
-    {* Поле для свойства EndEllipsis}
-   f_CCaption : Il3CString;
-    {* Поле для свойства CCaption}
-   f_VerticalAligment : TevVerticalAligment;
-    {* Поле для свойства VerticalAligment}
-   f_DrawDirection : TvtDrawDirection;
-    {* Поле для свойства DrawDirection}
-   f_Caption : Tl3DString;
-    {* Поле для свойства Caption}
- private
- // private methods
+  private
+   f_Canvas: Tl3GraphicControlCanvas;
+   f_InAdjustBounds: Boolean;
+   f_EndEllipsis: Boolean;
+   f_CCaption: Il3CString;
+   f_VerticalAligment: TevVerticalAligment;
+   f_DrawDirection: TvtDrawDirection;
+   f_Caption: Tl3DString;
+  private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
    procedure WMSetText(var Msg: TMessage); message WM_SetText;
- protected
- // property methods
+  protected
    procedure pm_SetEndEllipsis(aValue: Boolean);
    procedure pm_SetDrawDirection(aValue: TvtDrawDirection);
    function pm_GetCaption: Tl3DString; virtual;
    procedure pm_SetCaption(aValue: Tl3DString); virtual;
- protected
- // realized methods
+   {$If Defined(DesignTimeLibrary)}
+   function CheckStamp(const aGUID: TGUID): Boolean;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   function CaptionStored: Boolean;
+    {* "Функция определяющая, что свойство Caption сохраняется" }
    function pm_GetCCaption: IafwCString;
    procedure pm_SetCCaption(const aValue: IafwCString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
    procedure AdjustBounds; override;
-   {$IfEnd} //not NoVCL
-   {$If defined(l3HackedVCL) AND not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
    function GetLabelText: AnsiString; override;
-   {$IfEnd} //l3HackedVCL AND not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure DoDrawText(var Rect: TRect;
     Flags: Integer); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure SetBounds(ALeft: Integer;
     ATop: Integer;
     AWidth: Integer;
     AHeight: Integer); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   {$If defined(DesignTimeLibrary)}
-   function CheckStamp(const aGUID: TGUID): Boolean;
-   {$IfEnd} //DesignTimeLibrary
-   function CaptionStored: Boolean;
-     {* "Функция определяющая, что свойство Caption сохраняется" }
- public
- // public properties
+  public
    property EndEllipsis: Boolean
-     read f_EndEllipsis
-     write pm_SetEndEllipsis
-     default False;
+    read f_EndEllipsis
+    write pm_SetEndEllipsis
+    default False;
    property CCaption: Il3CString
-     read f_CCaption
-     write pm_SetCCaption;
+    read f_CCaption
+    write pm_SetCCaption;
    property VerticalAligment: TevVerticalAligment
-     read f_VerticalAligment
-     write f_VerticalAligment;
+    read f_VerticalAligment
+    write f_VerticalAligment;
    property DrawDirection: TvtDrawDirection
-     read f_DrawDirection
-     write pm_SetDrawDirection;
+    read f_DrawDirection
+    write pm_SetDrawDirection;
    property Caption: Tl3DString
-     read pm_GetCaption
-     write pm_SetCaption
-     stored CaptionStored;
-//#UC START# *4F29240F0204publ*
+    read pm_GetCaption
+    write pm_SetCaption
+    stored CaptionStored;
+ //#UC START# *4F29240F0204publ*
  protected
    property ParentFont default False;
-//#UC END# *4F29240F0204publ*
+ //#UC END# *4F29240F0204publ*
  end;//TvtCustomLabel
 
-//#UC START# *4AE8541A01AEci*
-//#UC END# *4AE8541A01AEci*
-//#UC START# *4AE8541A01AEcit*
-//#UC END# *4AE8541A01AEcit*
+ //#UC START# *4AE8541A01AEci*
+ //#UC END# *4AE8541A01AEci*
+ //#UC START# *4AE8541A01AEcit*
+ //#UC END# *4AE8541A01AEcit*
  TvtLabel = class(TvtCustomLabel)
-//#UC START# *4AE8541A01AEpubl*
+ //#UC START# *4AE8541A01AEpubl*
    published
      property Align;
      property Alignment;
@@ -201,36 +169,39 @@ type
      property OnStartDrag;
      property DrawDirection
       default ddHorizontal;
-//#UC END# *4AE8541A01AEpubl*
+ //#UC END# *4AE8541A01AEpubl*
  end;//TvtLabel
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked,
-  l3String,
-  afwVCL,
-  Graphics,
-  l3Types,
-  l3MinMax
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
+ , l3String
+ , afwVCL
+ , Graphics
+ , l3Types
+ , l3MinMax
+ //#UC START# *4AE8541A01AEimpl_uses*
+ //#UC END# *4AE8541A01AEimpl_uses*
+;
 
 type
-  THackLink = class(TControlActionLink)
-  end;//THackLink
+ THackLink = class(TControlActionLink)
+ end;//THackLink
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-
 
 //#UC START# *50253C0401F1impl*
 type
@@ -240,7 +211,6 @@ begin
  inherited;
 end;
 //#UC END# *50253C0401F1impl*
-// start class TvtCustomLabel
 
 procedure TvtCustomLabel.pm_SetEndEllipsis(aValue: Boolean);
 //#UC START# *4F2A579F0395_4F29240F0204set_var*
@@ -321,7 +291,7 @@ begin
 //#UC END# *4F293E2A012A_4F29240F0204_impl*
 end;//TvtCustomLabel.WMSetText
 
-{$If defined(DesignTimeLibrary)}
+{$If Defined(DesignTimeLibrary)}
 function TvtCustomLabel.CheckStamp(const aGUID: TGUID): Boolean;
 //#UC START# *4F293EBE00D9_4F29240F0204_var*
 //#UC END# *4F293EBE00D9_4F29240F0204_var*
@@ -330,9 +300,10 @@ begin
  Result := false;
 //#UC END# *4F293EBE00D9_4F29240F0204_impl*
 end;//TvtCustomLabel.CheckStamp
-{$IfEnd} //DesignTimeLibrary
+{$IfEnd} // Defined(DesignTimeLibrary)
 
 function TvtCustomLabel.CaptionStored: Boolean;
+ {* "Функция определяющая, что свойство Caption сохраняется" }
 //#UC START# *6B1BE297C357_4F29240F0204_var*
 //#UC END# *6B1BE297C357_4F29240F0204_var*
 begin
@@ -366,6 +337,7 @@ begin
 end;//TvtCustomLabel.pm_SetCCaption
 
 procedure TvtCustomLabel.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F29240F0204_var*
 //#UC END# *479731C50290_4F29240F0204_var*
 begin
@@ -388,7 +360,7 @@ begin
 //#UC END# *47D1602000C6_4F29240F0204_impl*
 end;//TvtCustomLabel.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomLabel.AdjustBounds;
 //#UC START# *4F2A44BC0297_4F29240F0204_var*
 const
@@ -434,9 +406,9 @@ begin
  end;//not (csReading in ComponentState) and AutoSize
 //#UC END# *4F2A44BC0297_4F29240F0204_impl*
 end;//TvtCustomLabel.AdjustBounds
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If defined(l3HackedVCL) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 function TvtCustomLabel.GetLabelText: AnsiString;
 //#UC START# *4F2A45C40091_4F29240F0204_var*
 //#UC END# *4F2A45C40091_4F29240F0204_var*
@@ -445,11 +417,11 @@ begin
  Result := l3Str(CCaption);
 //#UC END# *4F2A45C40091_4F29240F0204_impl*
 end;//TvtCustomLabel.GetLabelText
-{$IfEnd} //l3HackedVCL AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomLabel.DoDrawText(var Rect: TRect;
-  Flags: Integer);
+ Flags: Integer);
 //#UC START# *4F2A461702D8_4F29240F0204_var*
  function GetLogFont(aFont : TFont): TLogFont;
  const
@@ -587,13 +559,13 @@ begin
  end;//try..finally
 //#UC END# *4F2A461702D8_4F29240F0204_impl*
 end;//TvtCustomLabel.DoDrawText
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomLabel.SetBounds(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer);
 //#UC START# *4F2A599E0283_4F29240F0204_var*
 //#UC END# *4F2A599E0283_4F29240F0204_var*
 begin
@@ -603,10 +575,9 @@ begin
   AdjustBounds;
 //#UC END# *4F2A599E0283_4F29240F0204_impl*
 end;//TvtCustomLabel.SetBounds
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvtCustomLabel.ClearFields;
- {-}
 begin
  CCaption := nil;
  inherited;
@@ -619,17 +590,17 @@ end;//TvtCustomLabel.ClearFields
 //#UC END# *4AE8541A01AEimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomLabelPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomLabelPrim);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomLabel
+ {* Регистрация TvtCustomLabelPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomLabel);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtLabel
+ {* Регистрация TvtCustomLabel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtLabel);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtLabel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,65 +1,52 @@
 unit evdEmptyRowFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А
-// Модуль: "w:/common/components/gui/Garant/Everest/evdEmptyRowFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdEmptyRowFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdEmptyRowFilter" MUID: (4C07BD030266)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , l3Variant
+;
 
 type
  TevdEmptyRowFilter = class(TevdBufferedFilter)
- private
- // private fields
-   f_Empty : Boolean;
-    {* Признак, что строка пустаая.}
-   f_MergedFlag : Boolean;
+  private
+   f_Empty: Boolean;
+    {* Признак, что строка пустаая. }
+   f_MergedFlag: Boolean;
     {* Флаг для определения ситуации, что ни одного атрибута MergeStatus
-        не было - это не значит, что строка пустая.}
-   f_NeedCache : Boolean;
-    {* Признак нужно ли начинать кеширование следующей строки.}
-   f_OnlyHead : Boolean;
-    {* Только ячейки начала объединения в строке.}
- protected
- // overridden protected methods
+        не было - это не значит, что строка пустая. }
+   f_NeedCache: Boolean;
+    {* Признак нужно ли начинать кеширование следующей строки. }
+   f_OnlyHead: Boolean;
+    {* Только ячейки начала объединения в строке. }
+  protected
    procedure StartChild(TypeID: Tl3Type); override;
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    function NeedStartBuffering(aID: Integer): Boolean; override;
    function NeedFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer): Boolean; override;
+    aTagId: Integer): Boolean; override;
  end;//TevdEmptyRowFilter
 
 implementation
 
 uses
-  evdTypes,
-  k2Tags,
-  TableRow_Const,
-  Table_Const,
-  TableCell_Const
-  ;
-
-// start class TevdEmptyRowFilter
+ l3ImplUses
+ , evdTypes
+ , k2Tags
+ , TableRow_Const
+ , Table_Const
+ , TableCell_Const
+;
 
 procedure TevdEmptyRowFilter.StartChild(TypeID: Tl3Type);
 //#UC START# *4836D4650177_4C07BD030266_var*
@@ -79,6 +66,7 @@ begin
 end;//TevdEmptyRowFilter.StartChild
 
 procedure TevdEmptyRowFilter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4C07BD030266_var*
 //#UC END# *4836D4C20059_4C07BD030266_var*
 begin
@@ -95,7 +83,7 @@ begin
 end;//TevdEmptyRowFilter.CloseStructure
 
 procedure TevdEmptyRowFilter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_4C07BD030266_var*
 var
  l_MS : TevMergeStatus;
@@ -133,7 +121,7 @@ begin
 end;//TevdEmptyRowFilter.NeedStartBuffering
 
 function TevdEmptyRowFilter.NeedFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer): Boolean;
+ aTagId: Integer): Boolean;
 //#UC START# *4CF7BC520161_4C07BD030266_var*
 //#UC END# *4CF7BC520161_4C07BD030266_var*
 begin

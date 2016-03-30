@@ -1,37 +1,31 @@
 {$IfNDef CursorMover_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/CursorMover.imp.pas"
-// Начат: 28.07.2010 14:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::CursorMover
-//
-// Примесь упрощающая навигацию по редактору при помощи управления курсором
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "CursorMover" MUID: (4C500D6101D8)
+// Имя типа: "_CursorMover_"
 
 {$Define CursorMover_imp}
-{$If not defined(NoScripts)}
- _CursorMover_ = {mixin} class(_CursorMover_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _CursorMover_ = class(_CursorMover_Parent_)
   {* Примесь упрощающая навигацию по редактору при помощи управления курсором }
  end;//_CursorMover_
-{$Else}
 
- _CursorMover_ = _CursorMover_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_CursorMover_ = _CursorMover_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else CursorMover_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef CursorMover_imp_impl}
 
+{$Define CursorMover_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf CursorMover_imp_impl}
 
 {$EndIf CursorMover_imp}
+

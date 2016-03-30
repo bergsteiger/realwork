@@ -12,13 +12,9 @@
   {* Форма с расширяемой неклиентской областью }
   private
    f_GlassFrame: TvcmGlassFrame;
-    {* Поле для свойства GlassFrame }
    f_GlassFramePainting: Boolean;
-    {* Поле для свойства GlassFramePainting }
    f_NCRenderingDisabled: Boolean;
-    {* Поле для свойства NCRenderingDisabled }
    f_Active: Boolean;
-    {* Поле для свойства Active }
   protected
    f_RefreshGlassFrame: Boolean;
   protected

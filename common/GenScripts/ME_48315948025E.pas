@@ -27,6 +27,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *48315948025Eintf_uses*
+ //#UC END# *48315948025Eintf_uses*
 ;
 
 type
@@ -45,19 +47,13 @@ type
   {* логика фильтрации }
   private
    f_OnClear: TNotifyEvent;
-    {* Поле для свойства OnClear }
    f_AutoWidth: TAutoWidthMode;
-    {* Поле для свойства AutoWidth }
    f_ProcessServerTreeNotification: Boolean;
-    {* Поле для свойства ProcessServerTreeNotification }
    {$If NOT Defined(DesignTimeLibrary)}
    f_RootNode: Il3SimpleNode;
-    {* Поле для свойства RootNode }
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    f_AfterCompletion: TNotifyEvent;
-    {* Поле для свойства AfterCompletion }
    f_State: TEditableState;
-    {* Поле для свойства State }
   protected
    {$If NOT Defined(DesignTimeLibrary)}
    f_TempObjectCompleted: Il3SimpleNode;
@@ -117,7 +113,6 @@ type
    procedure TriggerCaretXChangedEvent(var Value: Integer;
     var Allow: Boolean); override;
    procedure AdjustWidth; override;
-   procedure ClearFields; override;
    procedure pm_SetComboStyle(aValue: TComboStyle); override;
    function pm_GetStyle: TComboBoxStyle; override;
    procedure pm_SetStyle(aValue: TComboBoxStyle); override;
@@ -131,6 +126,7 @@ type
    {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
    function HintChanged(const aHint: AnsiString): Boolean; override;
    {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
   public
    function MakeNodesFromItems: Boolean;
    procedure Clear;
@@ -197,6 +193,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48315948025Eimpl_uses*
+ //#UC END# *48315948025Eimpl_uses*
 ;
 
 function TEditableBox.pm_GetFullWidth: Integer;
@@ -825,14 +823,6 @@ begin
 //#UC END# *4F2AA6F20181_48315948025E_impl*
 end;//TEditableBox.AdjustWidth
 
-procedure TEditableBox.ClearFields;
-begin
- {$If NOT Defined(DesignTimeLibrary)}
- RootNode := nil;
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
- inherited;
-end;//TEditableBox.ClearFields
-
 procedure TEditableBox.pm_SetComboStyle(aValue: TComboStyle);
 //#UC START# *53ECCEC9013B_48315948025Eset_var*
 //#UC END# *53ECCEC9013B_48315948025Eset_var*
@@ -1038,6 +1028,14 @@ begin
 //#UC END# *53F34DE200C9_48315948025E_impl*
 end;//TEditableBox.HintChanged
 {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+
+procedure TEditableBox.ClearFields;
+begin
+ {$If NOT Defined(DesignTimeLibrary)}
+ RootNode := nil;
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ inherited;
+end;//TEditableBox.ClearFields
 
 //#UC START# *48315948025Eimpl*
 //#UC END# *48315948025Eimpl*

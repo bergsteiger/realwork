@@ -1,108 +1,83 @@
 unit evWindowCursor;
+ {* Курсор, привязанный к окну, которое имеет Handle }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evWindowCursor.pas"
-// Начат: 09.12.1998 16:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevWindowCursor
-//
-// Курсор, привязанный к окну, которое имеет Handle
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evWindowCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevWindowCursor" MUID: (487B5D7202DC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nevBasePointList,
-  afwCaret,
-  evCursorController,
-  l3Variant
-  ;
+ l3IntfUses
+ , evCursorController
+ , afwCaret
+ , nevBasePointList
+ , nevTools
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Variant
+;
 
 type
  TevWindowCursor = class(TevCursorController)
   {* Курсор, привязанный к окну, которое имеет Handle }
- private
- // private fields
-   f_WasCollapsed : Boolean;
-   f_Updates : TnevBasePointList;
-   f_Caret : TafwCaret;
-    {* Поле для свойства Caret}
-   f_xxxLock : Integer;
-    {* Поле для свойства xxxLock}
- protected
- // property methods
+  private
+   f_WasCollapsed: Boolean;
+   f_Updates: TnevBasePointList;
+   f_Caret: TafwCaret;
+    {* Поле для свойства Caret }
+   f_xxxLock: Integer;
+    {* Поле для свойства xxxLock }
+  protected
    function pm_GetCollapsed: Boolean; virtual;
    function pm_GetLocked: Boolean;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoCursorChanged(const aCursor: InevBasePoint); override;
-   procedure DoSetDocument(aValue: Tl3Tag); override;
- public
- // overridden public methods
-   procedure Lock; override;
-     {* Запретить нотификацию об изменениях }
-   procedure Unlock; override;
-     {* Разрешить нотификацию об изменениях }
- protected
- // protected methods
    procedure Refresh;
-     {* Обновить курсор }
+    {* Обновить курсор }
    function UpdateCursor(const aCursor: InevBasePoint): Boolean; virtual;
    procedure ShowCaret;
    function IsBlockCursor(const aCursor: InevBasePoint): Boolean; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure DoCursorChanged(const aCursor: InevBasePoint); override;
+   procedure DoSetDocument(aValue: Tl3Tag); override;
+  public
    constructor Create(const aView: InevInputView;
     anOwner: TWinControl); reintroduce;
    procedure SetFocus; virtual;
-     {* Окно получило фокус }
+    {* Окно получило фокус }
    procedure KillFocus;
-     {* Окно потеряло фокус }
+    {* Окно потеряло фокус }
    function Show: Boolean;
-     {* Показать курсор }
- public
- // public properties
+    {* Показать курсор }
+   procedure Lock; override;
+    {* Запретить нотификацию об изменениях }
+   procedure Unlock; override;
+    {* Разрешить нотификацию об изменениях }
+  public
    property Caret: TafwCaret
-     read f_Caret;
+    read f_Caret;
    property xxxLock: Integer
-     read f_xxxLock
-     write f_xxxLock;
+    read f_xxxLock
+    write f_xxxLock;
    property Collapsed: Boolean
-     read pm_GetCollapsed;
-     {* Есть ли выделение? }
+    read pm_GetCollapsed;
+    {* Есть ли выделение? }
    property Locked: Boolean
-     read pm_GetLocked;
-     {* Запрещена нотификация об изменениях? }
+    read pm_GetLocked;
+    {* Запрещена нотификация об изменениях? }
  end;//TevWindowCursor
 
 implementation
 
 uses
-  l3Base,
-  l3InterfacesMisc,
-  nevBase
-  ;
-
-// start class TevWindowCursor
+ l3ImplUses
+ , l3Base
+ , l3InterfacesMisc
+ , nevBase
+;
 
 function TevWindowCursor.pm_GetCollapsed: Boolean;
 //#UC START# *48E3723E0107_487B5D7202DCget_var*
@@ -123,7 +98,7 @@ begin
 end;//TevWindowCursor.pm_GetLocked
 
 constructor TevWindowCursor.Create(const aView: InevInputView;
-  anOwner: TWinControl);
+ anOwner: TWinControl);
 //#UC START# *48E37037038C_487B5D7202DC_var*
 //#UC END# *48E37037038C_487B5D7202DC_var*
 begin
@@ -135,6 +110,7 @@ begin
 end;//TevWindowCursor.Create
 
 procedure TevWindowCursor.SetFocus;
+ {* Окно получило фокус }
 //#UC START# *48E370FF0359_487B5D7202DC_var*
 //#UC END# *48E370FF0359_487B5D7202DC_var*
 begin
@@ -150,6 +126,7 @@ begin
 end;//TevWindowCursor.SetFocus
 
 procedure TevWindowCursor.KillFocus;
+ {* Окно потеряло фокус }
 //#UC START# *48E371100137_487B5D7202DC_var*
 //#UC END# *48E371100137_487B5D7202DC_var*
 begin
@@ -160,6 +137,7 @@ begin
 end;//TevWindowCursor.KillFocus
 
 procedure TevWindowCursor.Refresh;
+ {* Обновить курсор }
 //#UC START# *48E371FE00D8_487B5D7202DC_var*
 //#UC END# *48E371FE00D8_487B5D7202DC_var*
 begin
@@ -209,6 +187,7 @@ begin
 end;//TevWindowCursor.IsBlockCursor
 
 function TevWindowCursor.Show: Boolean;
+ {* Показать курсор }
 //#UC START# *48E375C200CF_487B5D7202DC_var*
 //#UC END# *48E375C200CF_487B5D7202DC_var*
 begin
@@ -218,6 +197,7 @@ begin
 end;//TevWindowCursor.Show
 
 procedure TevWindowCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_487B5D7202DC_var*
 //#UC END# *479731C50290_487B5D7202DC_var*
 begin
@@ -249,6 +229,7 @@ begin
 end;//TevWindowCursor.DoCursorChanged
 
 procedure TevWindowCursor.Lock;
+ {* Запретить нотификацию об изменениях }
 //#UC START# *48E275700381_487B5D7202DC_var*
 //#UC END# *48E275700381_487B5D7202DC_var*
 begin
@@ -261,6 +242,7 @@ begin
 end;//TevWindowCursor.Lock
 
 procedure TevWindowCursor.Unlock;
+ {* Разрешить нотификацию об изменениях }
 //#UC START# *48E27580037A_487B5D7202DC_var*
 var
  BU : Boolean;

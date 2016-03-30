@@ -1,70 +1,51 @@
 unit evTreeStorable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTreeStorable.pas"
-// Начат: 16.12.2004 18:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevTreeStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTreeStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTreeStorable" MUID: (48F8A8480224)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  k2Const,
-  nevTools,
-  evStorable,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , evStorable
+ , nevBase
+ , evdInterfaces
+ , nevTools
+ , k2Const
+;
 
 type
  TevTreeStorableData = record
-   rTree : InevSimpleTree;
-   rLevelTag : Integer;
-   rFlag : Word;
+  rTree: InevSimpleTree;
+  rLevelTag: Integer;
+  rFlag: Word;
  end;//TevTreeStorableData
 
  TevTreeStorable = class(TevStorable)
- private
- // private fields
-   f_LevelTag : Integer;
-   f_Flag : Word;
-   f_LevelIndent : Integer;
-    {* Поле для свойства LevelIndent}
-   f_Data : InevSimpleTree;
-    {* Поле для свойства Data}
-   f_SubRoot : InevSimpleNode;
-    {* Поле для свойства SubRoot}
- protected
- // realized methods
-   procedure DoStore(const G: InevTagGenerator;
-    aFlags: TevdStoreFlags); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_LevelTag: Integer;
+   f_Flag: Word;
+   f_LevelIndent: Integer;
+    {* Поле для свойства LevelIndent }
+   f_Data: InevSimpleTree;
+    {* Поле для свойства Data }
+   f_SubRoot: InevSimpleNode;
+    {* Поле для свойства SubRoot }
+  protected
    procedure DoStoreNode(const aNode: InevSimpleNode;
     const G: InevTagGenerator;
     aLevel: Integer);
    procedure DoIterateTree(const G: InevTagGenerator;
     aFlags: TevStoreFlags = evDefaultStoreFlags); virtual;
- public
- // public methods
+   procedure DoStore(const G: InevTagGenerator;
+    aFlags: TevdStoreFlags); override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    constructor Create(const aData: TevTreeStorableData;
     const aReader: InevTagReader;
     aLevelIndent: Integer;
@@ -77,40 +58,39 @@ type
     const aReader: InevTagReader = nil;
     aLevelIndent: Integer = 2;
     const aSubRoot: InevSimpleNode = nil): InevStorable; reintroduce;
- protected
- // protected properties
+  protected
    property Data: InevSimpleTree
-     read f_Data;
+    read f_Data;
    property SubRoot: InevSimpleNode
-     read f_SubRoot;
- public
- // public properties
+    read f_SubRoot;
+  public
    property LevelIndent: Integer
-     read f_LevelIndent
-     write f_LevelIndent;
+    read f_LevelIndent
+    write f_LevelIndent;
  end;//TevTreeStorable
 
 function TevTreeStorableData_C(const aTree: InevSimpleTree;
-    aLevelTag: Integer = k2_tiVoid;
-    aFlag: Word = 0): TevTreeStorableData;
+ aLevelTag: Integer = k2Const.k2_tiVoid;
+ aFlag: Word = 0): TevTreeStorableData;
 
 implementation
 
 uses
-  l3Defaults,
-  l3Base,
-  nevPersistentDocumentContainer,
-  k2Tags,
-  SysUtils,
-  l3TreeInterfaces,
-  l3Nodes,
-  TextPara_Const,
-  Document_Const
-  ;
+ l3ImplUses
+ , l3Defaults
+ , l3Base
+ , nevPersistentDocumentContainer
+ , k2Tags
+ , SysUtils
+ , l3TreeInterfaces
+ , l3Nodes
+ , TextPara_Const
+ , Document_Const
+;
 
 function TevTreeStorableData_C(const aTree: InevSimpleTree;
-       aLevelTag: Integer = k2_tiVoid;
-       aFlag: Word = 0): TevTreeStorableData;
+ aLevelTag: Integer = k2Const.k2_tiVoid;
+ aFlag: Word = 0): TevTreeStorableData;
 //#UC START# *48FC65A403CF_48FC655F025C_var*
 //#UC END# *48FC65A403CF_48FC655F025C_var*
 begin
@@ -121,13 +101,11 @@ begin
  Result.rLevelTag := aLevelTag;
  Result.rFlag := aFlag;
 //#UC END# *48FC65A403CF_48FC655F025C_impl*
-end;//TevTreeStorableData.C
-
-// start class TevTreeStorable
+end;//TevTreeStorableData_C
 
 procedure TevTreeStorable.DoStoreNode(const aNode: InevSimpleNode;
-  const G: InevTagGenerator;
-  aLevel: Integer);
+ const G: InevTagGenerator;
+ aLevel: Integer);
 //#UC START# *48F8A8CD00D9_48F8A8480224_var*
 const
  cIndentUnit = def_FirstIndent div 2;
@@ -168,7 +146,7 @@ begin
 end;//TevTreeStorable.DoStoreNode
 
 procedure TevTreeStorable.DoIterateTree(const G: InevTagGenerator;
-  aFlags: TevStoreFlags = evDefaultStoreFlags);
+ aFlags: TevStoreFlags = evDefaultStoreFlags);
 //#UC START# *48F8A8F501DD_48F8A8480224_var*
 
  function lpIterate(const aIntf : InevSimpleNode) : Boolean;
@@ -195,9 +173,9 @@ begin
 end;//TevTreeStorable.DoIterateTree
 
 constructor TevTreeStorable.Create(const aData: TevTreeStorableData;
-  const aReader: InevTagReader;
-  aLevelIndent: Integer;
-  const aSubRoot: InevSimpleNode);
+ const aReader: InevTagReader;
+ aLevelIndent: Integer;
+ const aSubRoot: InevSimpleNode);
 //#UC START# *48F8A91F004B_48F8A8480224_var*
 var
  l_Reader : InevTagReader;
@@ -220,9 +198,9 @@ begin
 end;//TevTreeStorable.Create
 
 class function TevTreeStorable.Make(const aData: TevTreeStorableData;
-  const aReader: InevTagReader = nil;
-  aLevelIndent: Integer = 2;
-  const aSubRoot: InevSimpleNode = nil): IevdDataObject;
+ const aReader: InevTagReader = nil;
+ aLevelIndent: Integer = 2;
+ const aSubRoot: InevSimpleNode = nil): IevdDataObject;
 var
  l_Inst : TevTreeStorable;
 begin
@@ -232,12 +210,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevTreeStorable.Make
 
 class function TevTreeStorable.MakeStorable(const aData: TevTreeStorableData;
-  const aReader: InevTagReader = nil;
-  aLevelIndent: Integer = 2;
-  const aSubRoot: InevSimpleNode = nil): InevStorable;
+ const aReader: InevTagReader = nil;
+ aLevelIndent: Integer = 2;
+ const aSubRoot: InevSimpleNode = nil): InevStorable;
 var
  l_Inst : TevTreeStorable;
 begin
@@ -247,10 +225,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevTreeStorable.MakeStorable
 
 procedure TevTreeStorable.DoStore(const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ aFlags: TevdStoreFlags);
 //#UC START# *48F48C6E02F4_48F8A8480224_var*
 //#UC END# *48F48C6E02F4_48F8A8480224_var*
 begin
@@ -270,6 +248,7 @@ begin
 end;//TevTreeStorable.DoStore
 
 procedure TevTreeStorable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F8A8480224_var*
 //#UC END# *479731C50290_48F8A8480224_var*
 begin
@@ -281,7 +260,6 @@ begin
 end;//TevTreeStorable.Cleanup
 
 procedure TevTreeStorable.ClearFields;
- {-}
 begin
  f_Data := nil;
  f_SubRoot := nil;

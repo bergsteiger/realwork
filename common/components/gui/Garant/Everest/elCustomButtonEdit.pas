@@ -1,110 +1,76 @@
 unit elCustomButtonEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/elCustomButtonEdit.pas"
-// Начат: 14.05.2008 15:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::elClone::TelCustomButtonEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\elCustomButtonEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TelCustomButtonEdit" MUID: (482ACFA703C2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Core,
-  Messages,
-  Classes,
-  elCustomEdit,
-  CustomElGraphicButton,
-  Controls {a}
-  ;
+ l3IntfUses
+ , elCustomEdit
+ , Classes
+ , CustomElGraphicButton
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , l3Core
+;
 
 type
  TelCustomButtonEdit = class(TelCustomEdit)
- private
- // private fields
-   f_OnButtonClick : TNotifyEvent;
-    {* Поле для свойства OnButtonClick}
-   f_Button : TCustomElGraphicButton;
-    {* Поле для свойства Button}
- private
- // private methods
+  private
+   f_OnButtonClick: TNotifyEvent;
+   f_Button: TCustomElGraphicButton;
+  private
    procedure WMKeyDown(var Message: TWMKey); message WM_KEYDOWN;
    procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;
    procedure ButtonClickTransfer(Sender: TObject);
-     {* TNotifyEvent. }
+    {* TNotifyEvent. }
    procedure WMWindowPosChanged(var Message: TWMWindowPosChanged); message WM_WindowPosChanged;
- protected
- // property methods
+  protected
    function Get_ButtonWidth: Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure SetEditRect; override;
-   {$If not defined(NoVCL)}
-   procedure KeyPress(var Key: Char); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    procedure AdjustWidth; virtual;
- protected
- // protected properties
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure SetEditRect; override;
+   {$If NOT Defined(NoVCL)}
+   procedure KeyPress(var Key: Char); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   constructor Create(AOwner: TComponent); override;
+  protected
    property OnButtonClick: TNotifyEvent
-     read f_OnButtonClick
-     write f_OnButtonClick;
+    read f_OnButtonClick
+    write f_OnButtonClick;
    property ButtonWidth: Integer
-     read Get_ButtonWidth;
+    read Get_ButtonWidth;
    property Button: TCustomElGraphicButton
-     read f_Button;
+    read f_Button;
  end;//TelCustomButtonEdit
 
 implementation
 
 uses
-  SysUtils,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type
-  TElEditBtn = class(TCustomElGraphicButton)
-  end;//TElEditBtn
-
-// start class TelCustomButtonEdit
-
-procedure TelCustomButtonEdit.AdjustWidth;
-//#UC START# *4F2AA6F20181_482ACFA703C2_var*
-//#UC END# *4F2AA6F20181_482ACFA703C2_var*
-begin
-//#UC START# *4F2AA6F20181_482ACFA703C2_impl*
- // - ничего не делаем
-//#UC END# *4F2AA6F20181_482ACFA703C2_impl*
-end;//TelCustomButtonEdit.AdjustWidth
+ TElEditBtn = class(TCustomElGraphicButton)
+ end;//TElEditBtn
 
 function TelCustomButtonEdit.Get_ButtonWidth: Integer;
 //#UC START# *482C46460006_482ACFA703C2get_var*
@@ -115,6 +81,15 @@ begin
   Result := f_Button.Width;
 //#UC END# *482C46460006_482ACFA703C2get_impl*
 end;//TelCustomButtonEdit.Get_ButtonWidth
+
+procedure TelCustomButtonEdit.AdjustWidth;
+//#UC START# *4F2AA6F20181_482ACFA703C2_var*
+//#UC END# *4F2AA6F20181_482ACFA703C2_var*
+begin
+//#UC START# *4F2AA6F20181_482ACFA703C2_impl*
+ // - ничего не делаем
+//#UC END# *4F2AA6F20181_482ACFA703C2_impl*
+end;//TelCustomButtonEdit.AdjustWidth
 
 procedure TelCustomButtonEdit.WMKeyDown(var Message: TWMKey);
 //#UC START# *482C45BB0247_482ACFA703C2_var*
@@ -150,6 +125,7 @@ begin
 end;//TelCustomButtonEdit.CMEnabledChanged
 
 procedure TelCustomButtonEdit.ButtonClickTransfer(Sender: TObject);
+ {* TNotifyEvent. }
 //#UC START# *482C4664002B_482ACFA703C2_var*
 { Transfers f_Button OnClick event to the outside world. }
 //#UC END# *482C4664002B_482ACFA703C2_var*
@@ -174,6 +150,7 @@ begin
 end;//TelCustomButtonEdit.WMWindowPosChanged
 
 procedure TelCustomButtonEdit.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_482ACFA703C2_var*
 //#UC END# *479731C50290_482ACFA703C2_var*
 begin
@@ -248,7 +225,7 @@ begin
 //#UC END# *482BFA6D022D_482ACFA703C2_impl*
 end;//TelCustomButtonEdit.SetEditRect
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TelCustomButtonEdit.KeyPress(var Key: Char);
 //#UC START# *482C4E0E01E4_482ACFA703C2_var*
 //#UC END# *482C4E0E01E4_482ACFA703C2_var*
@@ -269,12 +246,12 @@ begin
   inherited KeyPress(Key);
 //#UC END# *482C4E0E01E4_482ACFA703C2_impl*
 end;//TelCustomButtonEdit.KeyPress
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TelCustomButtonEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TelCustomButtonEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TelCustomButtonEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,74 +1,61 @@
 unit evMultiSelectionDataFormatting;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelectionDataFormatting.pas"
-// Начат: 08.10.2008 20:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMultiSelectionDataFormatting
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionDataFormatting.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionDataFormatting" MUID: (48ECDC5E005D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evMultiSelectionRange,
-  l3Interfaces,
-  nevBase,
-  l3Variant
-  ;
+ l3IntfUses
+ , evMultiSelectionRange
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3Interfaces
+;
 
 type
  TevMultiSelectionDataFormatting = class(TevMultiSelectionRange, InevDataFormatting, InevDataFormattingModify)
- protected
- // realized methods
+  protected
    function GetFont(const aView: InevView;
     aMap: TnevFormatInfoPrim;
     Stop: PInteger = nil): InevFontPrim;
    function GetStyle(Stop: PInteger = nil): Tl3Variant;
    function Modify(const aView: InevView): InevDataFormattingModify;
    function SetAtom(const aView: InevView;
-     anIndex: Cardinal;
-     aValue: Tl3Variant;
-     const anOp: InevOp): Boolean;
+    anIndex: Cardinal;
+    aValue: Tl3Variant;
+    const anOp: InevOp): Boolean;
    function ChangeParam(const aView: InevView;
-     const aMarker: IevMarker;
-     aValue: Integer;
-     const anOp: InevOp = nil): Boolean;
+    const aMarker: IevMarker;
+    aValue: Integer;
+    const anOp: InevOp = nil): Boolean;
    function DeleteHyperlink(const anOp: InevOp = nil): Boolean;
    function DeleteSegments(const anOp: InevOp = nil): Boolean;
-     {* удаляет сегменты. }
+    {* удаляет сегменты. }
    function AddIndentMarker(const aView: InevView;
-     aValue: Integer;
-     const anOpPack: InevOp = nil): Boolean;
+    aValue: Integer;
+    const anOpPack: InevOp = nil): Boolean;
    function DeleteIndentMarker(const aView: InevView;
-     const anOpPack: InevOp = nil): Boolean;
+    const anOpPack: InevOp = nil): Boolean;
    function GetFormatting: InevDataFormatting; override;
  end;//TevMultiSelectionDataFormatting
 
 implementation
 
 uses
-  k2Base,
-  nevFacade,
-  afwFacade
-  ;
-
-// start class TevMultiSelectionDataFormatting
+ l3ImplUses
+ , k2Base
+ , nevFacade
+ , afwFacade
+;
 
 function TevMultiSelectionDataFormatting.GetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger = nil): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger = nil): InevFontPrim;
 //#UC START# *47C68E0C02E2_48ECDC5E005D_var*
 var
  NF1 : InevFontPrim;
@@ -169,9 +156,9 @@ begin
 end;//TevMultiSelectionDataFormatting.Modify
 
 function TevMultiSelectionDataFormatting.SetAtom(const aView: InevView;
-  anIndex: Cardinal;
-  aValue: Tl3Variant;
-  const anOp: InevOp): Boolean;
+ anIndex: Cardinal;
+ aValue: Tl3Variant;
+ const anOp: InevOp): Boolean;
 //#UC START# *47C690130239_48ECDC5E005D_var*
 
  function _DoChild(const aBlock: InevRange; aBlockIndex: Integer): Boolean;
@@ -193,9 +180,9 @@ begin
 end;//TevMultiSelectionDataFormatting.SetAtom
 
 function TevMultiSelectionDataFormatting.ChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp = nil): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C6902A0263_48ECDC5E005D_var*
 
  function _DoChild(const aBlock: InevRange; aBlockIndex: Integer): Boolean;
@@ -238,6 +225,7 @@ begin
 end;//TevMultiSelectionDataFormatting.DeleteHyperlink
 
 function TevMultiSelectionDataFormatting.DeleteSegments(const anOp: InevOp = nil): Boolean;
+ {* удаляет сегменты. }
 //#UC START# *47C6904C01B8_48ECDC5E005D_var*
 
  function _DoChild(const aBlock: InevRange; aBlockIndex: Integer): Boolean;
@@ -259,8 +247,8 @@ begin
 end;//TevMultiSelectionDataFormatting.DeleteSegments
 
 function TevMultiSelectionDataFormatting.AddIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const anOpPack: InevOp = nil): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48DCAFCF0379_48ECDC5E005D_var*
 
  function _DoChild(const aBlock: InevRange; aBlockIndex: Integer): Boolean;
@@ -282,7 +270,7 @@ begin
 end;//TevMultiSelectionDataFormatting.AddIndentMarker
 
 function TevMultiSelectionDataFormatting.DeleteIndentMarker(const aView: InevView;
-  const anOpPack: InevOp = nil): Boolean;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48DCB01401C8_48ECDC5E005D_var*
   
  function _DoChild(const aBlock: InevRange; aBlockIndex: Integer): Boolean;

@@ -1,29 +1,15 @@
 {$IfNDef nevAnchorModify_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevAnchorModify.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevAnchorModify
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevAnchorModify" MUID: (4B1CFB8E0090)
+// Имя типа: "_nevAnchorModify_"
 
 {$Define nevAnchorModify_imp}
-{$If defined(evUseVisibleCursors)}
- _nevAnchorModify_ = {mixin} class(_nevAnchorModify_Parent_)
- public
- // realized methods
-   procedure Bottom(const aView: InevView);
-   function IncLine(const aView: InevView;
-    var theLine: Integer;
-    aByLine: Boolean): Integer;
-     {* сдвигает якорь на указанное число строк. Возвращает количество параграфов на которое сдвинулся якорь. }
- protected
- // protected methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevAnchorModify_ = class(_nevAnchorModify_Parent_)
+  protected
    procedure DoBottom(const aView: InevView); virtual; abstract;
    function DoIncLinePrim(const aView: InevView;
     var theLine: Integer;
@@ -34,19 +20,26 @@
    procedure DoSignalScroll; virtual;
    procedure DoLockScroll; virtual;
    procedure DoUnlockScroll; virtual;
+  public
+   procedure Bottom(const aView: InevView);
+   function IncLine(const aView: InevView;
+    var theLine: Integer;
+    aByLine: Boolean): Integer;
+    {* сдвигает якорь на указанное число строк. Возвращает количество параграфов на которое сдвинулся якорь. }
  end;//_nevAnchorModify_
-{$Else}
 
- _nevAnchorModify_ = _nevAnchorModify_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevAnchorModify_ = _nevAnchorModify_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevAnchorModify_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevAnchorModify_imp_impl}
 
-// start class _nevAnchorModify_
+{$Define nevAnchorModify_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 procedure _nevAnchorModify_.LockScroll;
 //#UC START# *4B1D08300007_4B1CFB8E0090_var*
 //#UC END# *4B1D08300007_4B1CFB8E0090_var*
@@ -108,8 +101,9 @@ begin
 end;//_nevAnchorModify_.Bottom
 
 function _nevAnchorModify_.IncLine(const aView: InevView;
-  var theLine: Integer;
-  aByLine: Boolean): Integer;
+ var theLine: Integer;
+ aByLine: Boolean): Integer;
+ {* сдвигает якорь на указанное число строк. Возвращает количество параграфов на которое сдвинулся якорь. }
 //#UC START# *47C5C2A40309_4B1CFB8E0090_var*
 //#UC END# *47C5C2A40309_4B1CFB8E0090_var*
 begin
@@ -117,7 +111,9 @@ begin
  Result := DoIncLinePrim(aView, theLine, aByLine);
 //#UC END# *47C5C2A40309_4B1CFB8E0090_impl*
 end;//_nevAnchorModify_.IncLine
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevAnchorModify_imp_impl}
 
 {$EndIf nevAnchorModify_imp}
+

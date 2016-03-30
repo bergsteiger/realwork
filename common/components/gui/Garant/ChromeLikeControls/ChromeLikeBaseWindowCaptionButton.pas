@@ -1,170 +1,105 @@
 unit ChromeLikeBaseWindowCaptionButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeBaseWindowCaptionButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeWindowCaptionButtons::TChromeLikeBaseWindowCaptionButton
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TChromeLikeBaseWindowCaptionButton" MUID: (533D01CB01B1)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3Interfaces,
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , Messages
+ , l3Interfaces
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
- TChromeLikeWindowCaptionButtonState = (
-   cbsDisabled
- , cbsHot
- , cbsNormal
- , cbsPushed
- );//TChromeLikeWindowCaptionButtonState
-
  RChromeLikeWindowCaptionbuttonClass = class of TChromeLikeBaseWindowCaptionButton;
 
+ TChromeLikeWindowCaptionButtonState = (
+  cbsDisabled
+  , cbsHot
+  , cbsNormal
+  , cbsPushed
+ );//TChromeLikeWindowCaptionButtonState
+
  TChromeLikeBaseWindowCaptionButton = class(TCustomControl)
- private
- // private fields
-   f_State : TChromeLikeWindowCaptionButtonState;
-    {* Поле для свойства State}
-   f_Active : Boolean;
-    {* Поле для свойства Active}
-   f_ParentForm : TForm;
-    {* Поле для свойства ParentForm}
-   f_OnClick : TNotifyEvent;
-    {* Поле для свойства OnClick}
- private
- // private methods
+  private
+   f_State: TChromeLikeWindowCaptionButtonState;
+   f_Active: Boolean;
+   f_ParentForm: TForm;
+   f_OnClick: TNotifyEvent;
+  private
    procedure CMMouseEnter(var aMessage: TMessage); message CM_MOUSEENTER;
    procedure CMMouseLeave(var aMessage: TMessage); message CM_MOUSELEAVE;
    procedure WMEraseBkgnd(var aMessage: TWMEraseBkgnd); message WM_ERASEBKGND;
    procedure CMEnabledChanged(var aMessage: TMessage); message CM_ENABLEDCHANGED;
- protected
- // property methods
+  protected
    function pm_GetState: TChromeLikeWindowCaptionButtonState; virtual;
    procedure pm_SetState(aValue: TChromeLikeWindowCaptionButtonState); virtual;
    function pm_GetActive: Boolean; virtual;
    procedure pm_SetActive(aValue: Boolean); virtual;
    function pm_GetParentForm: TForm; virtual;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure SetParent(AParent: TWinControl); override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   procedure MouseUp(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   procedure Click; override;
-     {* Сигнатура метода Click }
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   procedure MouseDown(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    function NeedUpdateHint: Boolean; virtual;
    function GetHintText: Il3CString; virtual;
- public
- // public methods
+   {$If NOT Defined(NoVCL)}
+   procedure SetParent(AParent: TWinControl); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure MouseUp(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure Click; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure MouseDown(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure NotifyFormResized;
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property State: TChromeLikeWindowCaptionButtonState
-     read pm_GetState
-     write pm_SetState;
+    read pm_GetState
+    write pm_SetState;
    property ParentForm: TForm
-     read pm_GetParentForm;
- public
- // public properties
+    read pm_GetParentForm;
+  public
    property Active: Boolean
-     read pm_GetActive
-     write pm_SetActive;
+    read pm_GetActive
+    write pm_SetActive;
    property OnClick: TNotifyEvent
-     read f_OnClick
-     write f_OnClick;
+    read f_OnClick
+    write f_OnClick;
  end;//TChromeLikeBaseWindowCaptionButton
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Windows,
-  UxTheme,
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3ImplUses
+ , Windows
+ , UxTheme
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeBaseWindowCaptionButton
-
-procedure TChromeLikeBaseWindowCaptionButton.NotifyFormResized;
-//#UC START# *54744FB502AB_533D01CB01B1_var*
-//#UC END# *54744FB502AB_533D01CB01B1_var*
-begin
-//#UC START# *54744FB502AB_533D01CB01B1_impl*
- if NeedUpdateHint then
-  Hint := l3Str(GetHintText);
-//#UC END# *54744FB502AB_533D01CB01B1_impl*
-end;//TChromeLikeBaseWindowCaptionButton.NotifyFormResized
-
-function TChromeLikeBaseWindowCaptionButton.NeedUpdateHint: Boolean;
-//#UC START# *54744FED0113_533D01CB01B1_var*
-//#UC END# *54744FED0113_533D01CB01B1_var*
-begin
-//#UC START# *54744FED0113_533D01CB01B1_impl*
- Result := (Hint = '');
-//#UC END# *54744FED0113_533D01CB01B1_impl*
-end;//TChromeLikeBaseWindowCaptionButton.NeedUpdateHint
-
-function TChromeLikeBaseWindowCaptionButton.GetHintText: Il3CString;
-//#UC START# *5474500600DA_533D01CB01B1_var*
-//#UC END# *5474500600DA_533D01CB01B1_var*
-begin
-//#UC START# *5474500600DA_533D01CB01B1_impl*
- Result := nil;
-//#UC END# *5474500600DA_533D01CB01B1_impl*
-end;//TChromeLikeBaseWindowCaptionButton.GetHintText
-
+{$If NOT Defined(NoVCL)}
 function TChromeLikeBaseWindowCaptionButton.pm_GetState: TChromeLikeWindowCaptionButtonState;
 //#UC START# *533D0269002B_533D01CB01B1get_var*
 //#UC END# *533D0269002B_533D01CB01B1get_var*
@@ -218,6 +153,34 @@ begin
 //#UC END# *533D035E03BC_533D01CB01B1get_impl*
 end;//TChromeLikeBaseWindowCaptionButton.pm_GetParentForm
 
+procedure TChromeLikeBaseWindowCaptionButton.NotifyFormResized;
+//#UC START# *54744FB502AB_533D01CB01B1_var*
+//#UC END# *54744FB502AB_533D01CB01B1_var*
+begin
+//#UC START# *54744FB502AB_533D01CB01B1_impl*
+ if NeedUpdateHint then
+  Hint := l3Str(GetHintText);
+//#UC END# *54744FB502AB_533D01CB01B1_impl*
+end;//TChromeLikeBaseWindowCaptionButton.NotifyFormResized
+
+function TChromeLikeBaseWindowCaptionButton.NeedUpdateHint: Boolean;
+//#UC START# *54744FED0113_533D01CB01B1_var*
+//#UC END# *54744FED0113_533D01CB01B1_var*
+begin
+//#UC START# *54744FED0113_533D01CB01B1_impl*
+ Result := (Hint = '');
+//#UC END# *54744FED0113_533D01CB01B1_impl*
+end;//TChromeLikeBaseWindowCaptionButton.NeedUpdateHint
+
+function TChromeLikeBaseWindowCaptionButton.GetHintText: Il3CString;
+//#UC START# *5474500600DA_533D01CB01B1_var*
+//#UC END# *5474500600DA_533D01CB01B1_var*
+begin
+//#UC START# *5474500600DA_533D01CB01B1_impl*
+ Result := nil;
+//#UC END# *5474500600DA_533D01CB01B1_impl*
+end;//TChromeLikeBaseWindowCaptionButton.GetHintText
+
 procedure TChromeLikeBaseWindowCaptionButton.CMMouseEnter(var aMessage: TMessage);
 //#UC START# *533D037C00E9_533D01CB01B1_var*
 //#UC END# *533D037C00E9_533D01CB01B1_var*
@@ -264,7 +227,7 @@ procedure TChromeLikeBaseWindowCaptionButton.CMEnabledChanged(var aMessage: TMes
    Result := TForm(l_Control);
  end;//lp_GetParentForm
 
- //#UC END# *533D04A00242_533D01CB01B1_var*
+//#UC END# *533D04A00242_533D01CB01B1_var*
 begin
 //#UC START# *533D04A00242_533D01CB01B1_impl*
  inherited;
@@ -286,7 +249,6 @@ begin
 //#UC END# *47D1602000C6_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.Create
 
-{$If not defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.SetParent(AParent: TWinControl);
 //#UC START# *4A97E78202FC_533D01CB01B1_var*
 
@@ -312,13 +274,11 @@ begin
   f_ParentForm := lp_GetParentForm;
 //#UC END# *4A97E78202FC_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.SetParent
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.MouseUp(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4E7896270076_533D01CB01B1_var*
 var
  l_State: TChromeLikeWindowCaptionButtonState;
@@ -336,9 +296,7 @@ begin
  inherited;
 //#UC END# *4E7896270076_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.MouseUp
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.Click;
 //#UC START# *4F88469E0021_533D01CB01B1_var*
 //#UC END# *4F88469E0021_533D01CB01B1_var*
@@ -348,13 +306,11 @@ begin
   f_OnClick(Self);
 //#UC END# *4F88469E0021_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.Click
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.MouseDown(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4F88473B03CD_533D01CB01B1_var*
 //#UC END# *4F88473B03CD_533D01CB01B1_var*
 begin
@@ -364,14 +320,13 @@ begin
  inherited;
 //#UC END# *4F88473B03CD_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.MouseDown
-{$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeBaseWindowCaptionButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeBaseWindowCaptionButton);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TChromeLikeBaseWindowCaptionButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.

@@ -1,50 +1,38 @@
 unit evSBSColumnHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSBSColumnHotSpot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevSBSColumnHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSBSColumnHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSBSColumnHotSpot" MUID: (4ED4D54502FF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evTableColumnHotSpot,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evTableColumnHotSpot
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _SBSColumnMarker_Parent_ = TevTableColumnHotSpot;
- {$Include ..\Everest\SBSColumnMarker.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas}
  TevSBSColumnHotSpot = class(_SBSColumnMarker_)
  end;//TevSBSColumnHotSpot
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Except
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , k2Except
+;
 
-{$If defined(evUseVisibleCursors)}
+type _Instance_R_ = TevSBSColumnHotSpot;
 
-{$Include ..\Everest\SBSColumnMarker.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas}
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-
-{$IfEnd} //evUseVisibleCursors
 end.

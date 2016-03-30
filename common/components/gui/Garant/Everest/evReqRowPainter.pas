@@ -1,39 +1,30 @@
 unit evReqRowPainter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evReqRowPainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevReqRowPainter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqRowPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReqRowPainter" MUID: (50D3F54E00A8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evTableRowPainter
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evTableRowPainter
+;
 
-{$If defined(evNeedPainters)}
 type
  TevReqRowPainter = class(TevTableRowPainter)
  end;//TevReqRowPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evNeedPainters)
 
-
-{$IfEnd} //evNeedPainters
 end.

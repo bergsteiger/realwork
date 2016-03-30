@@ -1,61 +1,50 @@
 unit evContentsNodeFactory;
+ {* Фабрика для создания нод. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evContentsNodeFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevContentsNodeFactory
-//
-// Фабрика для создания нод.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsNodeFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsNodeFactory" MUID: (4E26CCF0021F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  evInternalInterfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Tree_TLB
+ , l3Variant
+ , evInternalInterfaces
+ , l3TreeInterfaces
+;
 
 type
  TevContentsNodeFactory = class
   {* Фабрика для создания нод. }
- public
- // public methods
+  public
    class function CreateContentsNode(aTag: Tl3Variant;
-     aSub: Tl3Variant;
-     const aFilter: InevContentsNodeFilter): Il3Node;
-     {* Создает узел ноды для документа, блока, саба. }
+    aSub: Tl3Variant;
+    const aFilter: InevContentsNodeFilter): Il3Node;
+    {* Создает узел ноды для документа, блока, саба. }
    class function CreateRoot: Il3SimpleRootNode;
-     {* Создает рутовый узел. }
+    {* Создает рутовый узел. }
  end;//TevContentsNodeFactory
 
 implementation
 
 uses
-  evDocumentNode,
-  evContentsTagNode,
-  evContentsSubNode,
-  Document_Const,
-  evRootContentsNode,
-  l3Nodes
-  ;
-
-// start class TevContentsNodeFactory
+ l3ImplUses
+ , l3Nodes
+ , evDocumentNode
+ , evContentsTagNode
+ , evContentsSubNode
+ , Document_Const
+ , evRootContentsNode
+;
 
 class function TevContentsNodeFactory.CreateContentsNode(aTag: Tl3Variant;
-  aSub: Tl3Variant;
-  const aFilter: InevContentsNodeFilter): Il3Node;
+ aSub: Tl3Variant;
+ const aFilter: InevContentsNodeFilter): Il3Node;
+ {* Создает узел ноды для документа, блока, саба. }
 //#UC START# *4E26CFD1000A_4E26CCF0021F_var*
 //#UC END# *4E26CFD1000A_4E26CCF0021F_var*
 begin
@@ -74,6 +63,7 @@ begin
 end;//TevContentsNodeFactory.CreateContentsNode
 
 class function TevContentsNodeFactory.CreateRoot: Il3SimpleRootNode;
+ {* Создает рутовый узел. }
 //#UC START# *4E26D05D00FA_4E26CCF0021F_var*
 //#UC END# *4E26D05D00FA_4E26CCF0021F_var*
 begin

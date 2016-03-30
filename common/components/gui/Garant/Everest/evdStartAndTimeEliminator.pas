@@ -1,35 +1,24 @@
 unit evdStartAndTimeEliminator;
+ {* Обнуляет Start и Time у документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evdStartAndTimeEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdStartAndTimeEliminator
-//
-// Обнуляет Start и Time у документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdStartAndTimeEliminator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdStartAndTimeEliminator" MUID: (5358C3EA01ED)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , l3Variant
+;
 
 type
  TevdStartAndTimeEliminator = class(Tk2TagFilter)
   {* Обнуляет Start и Time у документа. }
- protected
- // overridden protected methods
+  protected
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevdStartAndTimeEliminator
@@ -37,14 +26,13 @@ type
 implementation
 
 uses
-  Document_Const,
-  k2Tags
-  ;
-
-// start class TevdStartAndTimeEliminator
+ l3ImplUses
+ , Document_Const
+ , k2Tags
+;
 
 procedure TevdStartAndTimeEliminator.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_5358C3EA01ED_var*
 //#UC END# *4A2D1634025B_5358C3EA01ED_var*
 begin

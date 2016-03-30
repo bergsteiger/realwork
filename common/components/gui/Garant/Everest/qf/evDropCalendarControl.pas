@@ -1,72 +1,59 @@
 unit evDropCalendarControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evDropCalendarControl.pas"
-// Начат: 25.01.2005 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevDropCalendarControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropCalendarControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDropCalendarControl" MUID: (48D38BEE00F6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  evQueryCardInt,
-  evQueryCardDropControlsInt,
-  evDropControl,
-  nevTools,
-  nevBase
-  ;
+ l3IntfUses
+ , evDropControl
+ , evQueryCardInt
+ , evQueryCardDropControlsInt
+ , l3Interfaces
+ , nevTools
+ , nevBase
+;
 
 type
  TevDropCalendarControl = class(TevDropControl, IevEditorCalendarField, IevDropCalendar)
- private
- // private fields
-   f_OtherField : Pointer;
-    {* Ссылка на другое поле даты}
-   f_IsStart : Boolean;
-    {* Признак того, что дата задает начало интервала}
-   f_Date : TDateTime;
-    {* Дата в формате TDateTime, чтобы не делать лишние преобразования}
-   f_MaskText : Il3CString;
- protected
- // realized methods
+  private
+   f_OtherField: Pointer;
+    {* Ссылка на другое поле даты }
+   f_IsStart: Boolean;
+    {* Признак того, что дата задает начало интервала }
+   f_Date: TDateTime;
+    {* Дата в формате TDateTime, чтобы не делать лишние преобразования }
+   f_MaskText: Il3CString;
+  protected
+   procedure CheckText(const Value: Il3CString);
+    {* Аналог _TextChange, но для произвольной строки }
    procedure AnalyzeText;
-     {* Расширение даты, если введены только день и месяц. }
+    {* Расширение даты, если введены только день и месяц. }
    function IsBlank: Boolean;
-     {* Поле пустое, т.е. равно шаблону. }
+    {* Поле пустое, т.е. равно шаблону. }
    procedure ClearField;
-     {* Очищает только самое поле. ClearText - очищает оба поля сразу. }
+    {* Очищает только самое поле. ClearText - очищает оба поля сразу. }
    function IsStart: Boolean;
-     {* Контрол хранит начальную дату интервала. }
+    {* Контрол хранит начальную дату интервала. }
    function GetOtherField: IevEditorCalendarField;
-     {* Другой контрол. }
+    {* Другой контрол. }
    procedure ApplyDate(Value: TDateTime);
-     {* Передаёт выбранную дату в календарь. }
+    {* Передаёт выбранную дату в календарь. }
    procedure ChooseDate(Sender: TObject);
    procedure CancelDate(Sender: TObject);
-   function Get_ADate: TDateTime;
-   procedure Set_ADate(aValue: TDateTime);
+   function Get_aDate: TDateTime;
+   procedure Set_aDate(aValue: TDateTime);
    procedure DoDrop(const aPoint: TPoint;
     AInvert: Boolean;
     AWidth: Integer;
     ByUser: Boolean); override;
-     {* Вываливает выпадающий виджет по указанным координатам }
- protected
- // overridden protected methods
+    {* Вываливает выпадающий виджет по указанным координатам }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoTextChange(const aView: InevView;
     const aPara: InevPara;
     const anOp: InevOp); override;
@@ -81,29 +68,24 @@ type
     aPos: Integer;
     out aRslt: Il3CString): Boolean; override;
    function GetIsFieldEmpty: Boolean; override;
- public
- // overridden public methods
+  public
    constructor Create(const aPara: InevPara); override;
- protected
- // protected methods
-   procedure CheckText(const Value: Il3CString);
-     {* Аналог _TextChange, но для произвольной строки }
  end;//TevDropCalendarControl
 
 implementation
 
 uses
-  l3String,
-  l3Date,
-  l3Base,
-  SysUtils,
-  DateUtils,
-  evControlParaTools
-  ;
-
-// start class TevDropCalendarControl
+ l3ImplUses
+ , l3String
+ , l3Date
+ , l3Base
+ , SysUtils
+ , DateUtils
+ , evControlParaTools
+;
 
 procedure TevDropCalendarControl.CheckText(const Value: Il3CString);
+ {* Аналог _TextChange, но для произвольной строки }
 //#UC START# *48D393020203_48D38BEE00F6_var*
 var
  l_Correct: Boolean;
@@ -118,6 +100,7 @@ begin
 end;//TevDropCalendarControl.CheckText
 
 procedure TevDropCalendarControl.AnalyzeText;
+ {* Расширение даты, если введены только день и месяц. }
 //#UC START# *47CD7E9202C3_48D38BEE00F6_var*
 var
  l_Text  : string;
@@ -136,6 +119,7 @@ begin
 end;//TevDropCalendarControl.AnalyzeText
 
 function TevDropCalendarControl.IsBlank: Boolean;
+ {* Поле пустое, т.е. равно шаблону. }
 //#UC START# *47CD7EA10137_48D38BEE00F6_var*
 //#UC END# *47CD7EA10137_48D38BEE00F6_var*
 begin
@@ -145,6 +129,7 @@ begin
 end;//TevDropCalendarControl.IsBlank
 
 procedure TevDropCalendarControl.ClearField;
+ {* Очищает только самое поле. ClearText - очищает оба поля сразу. }
 //#UC START# *47CD7EB10267_48D38BEE00F6_var*
 //#UC END# *47CD7EB10267_48D38BEE00F6_var*
 begin
@@ -155,6 +140,7 @@ begin
 end;//TevDropCalendarControl.ClearField
 
 function TevDropCalendarControl.IsStart: Boolean;
+ {* Контрол хранит начальную дату интервала. }
 //#UC START# *47CD7EBD03AD_48D38BEE00F6_var*
 //#UC END# *47CD7EBD03AD_48D38BEE00F6_var*
 begin
@@ -164,6 +150,7 @@ begin
 end;//TevDropCalendarControl.IsStart
 
 function TevDropCalendarControl.GetOtherField: IevEditorCalendarField;
+ {* Другой контрол. }
 //#UC START# *47CD7ECC0365_48D38BEE00F6_var*
 //#UC END# *47CD7ECC0365_48D38BEE00F6_var*
 begin
@@ -173,6 +160,7 @@ begin
 end;//TevDropCalendarControl.GetOtherField
 
 procedure TevDropCalendarControl.ApplyDate(Value: TDateTime);
+ {* Передаёт выбранную дату в календарь. }
 //#UC START# *47CEA11502B7_48D38BEE00F6_var*
 //#UC END# *47CEA11502B7_48D38BEE00F6_var*
 begin
@@ -199,16 +187,16 @@ begin
 //#UC END# *47CEA19600DE_48D38BEE00F6_impl*
 end;//TevDropCalendarControl.CancelDate
 
-function TevDropCalendarControl.Get_ADate: TDateTime;
+function TevDropCalendarControl.Get_aDate: TDateTime;
 //#UC START# *47CEA19F031D_48D38BEE00F6get_var*
 //#UC END# *47CEA19F031D_48D38BEE00F6get_var*
 begin
 //#UC START# *47CEA19F031D_48D38BEE00F6get_impl*
  Result := f_Date;
 //#UC END# *47CEA19F031D_48D38BEE00F6get_impl*
-end;//TevDropCalendarControl.Get_ADate
+end;//TevDropCalendarControl.Get_aDate
 
-procedure TevDropCalendarControl.Set_ADate(aValue: TDateTime);
+procedure TevDropCalendarControl.Set_aDate(aValue: TDateTime);
 //#UC START# *47CEA19F031D_48D38BEE00F6set_var*
 //#UC END# *47CEA19F031D_48D38BEE00F6set_var*
 begin
@@ -219,12 +207,13 @@ begin
  else 
   SetText(f_MaskText);
 //#UC END# *47CEA19F031D_48D38BEE00F6set_impl*
-end;//TevDropCalendarControl.Set_ADate
+end;//TevDropCalendarControl.Set_aDate
 
 procedure TevDropCalendarControl.DoDrop(const aPoint: TPoint;
-  AInvert: Boolean;
-  AWidth: Integer;
-  ByUser: Boolean);
+ AInvert: Boolean;
+ AWidth: Integer;
+ ByUser: Boolean);
+ {* Вываливает выпадающий виджет по указанным координатам }
 //#UC START# *48D37D66029A_48D38BEE00F6_var*
 //#UC END# *48D37D66029A_48D38BEE00F6_var*
 begin
@@ -234,6 +223,7 @@ begin
 end;//TevDropCalendarControl.DoDrop
 
 procedure TevDropCalendarControl.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D38BEE00F6_var*
 //#UC END# *479731C50290_48D38BEE00F6_var*
 begin
@@ -256,8 +246,8 @@ begin
 end;//TevDropCalendarControl.Create
 
 procedure TevDropCalendarControl.DoTextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
 //#UC START# *48D14C0E023E_48D38BEE00F6_var*
 //#UC END# *48D14C0E023E_48D38BEE00F6_var*
 begin
@@ -298,7 +288,7 @@ begin
 end;//TevDropCalendarControl.GetIsClear
 
 procedure TevDropCalendarControl.DoInitOtherField(const aValue: IevEditorControl;
-  aIsStart: Boolean);
+ aIsStart: Boolean);
 //#UC START# *48D24AA202D1_48D38BEE00F6_var*
 var
  l_Cal: IevEditorCalendarField; 
@@ -344,8 +334,8 @@ begin
 end;//TevDropCalendarControl.DoCheckDataText
 
 function TevDropCalendarControl.DoAnalyzeString(const aValue: Il3CString;
-  aPos: Integer;
-  out aRslt: Il3CString): Boolean;
+ aPos: Integer;
+ out aRslt: Il3CString): Boolean;
 //#UC START# *48D24F5F02BF_48D38BEE00F6_var*
 //#UC END# *48D24F5F02BF_48D38BEE00F6_var*
 begin

@@ -1,54 +1,41 @@
 unit evCommentParaCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCommentParaCursor.pas"
-// Начат: 17.11.2004 14:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevCommentParaCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaCursor" MUID: (4A40EB120375)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evDocumentPartCursor,
-  nevBase,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evDocumentPartCursor
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevCommentParaCursor = class(TevDocumentPartCursor)
- protected
- // overridden protected methods
+  protected
    function DoDeleteChar(const aView: InevView;
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
    function IsShowingDocumentParts(const aView: InevControlView): Boolean; override;
  end;//TevCommentParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevCommentParaCursor
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
 
 function TevCommentParaCursor.DoDeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7F5022C_4A40EB120375_var*
 //#UC END# *4A38F7F5022C_4A40EB120375_var*
 begin
@@ -70,7 +57,6 @@ begin
  {$EndIf Nemesis}
 //#UC END# *4A3FA3FA0033_4A40EB120375_impl*
 end;//TevCommentParaCursor.IsShowingDocumentParts
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

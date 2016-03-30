@@ -1,85 +1,64 @@
 unit evFramedParaListPainter;
+ {* общая функциональность для рисователей таблиц }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evFramedParaListPainter.pas"
-// Начат: 20.02.2008 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevFramedParaListPainter
-//
-// общая функциональность для рисователей таблиц
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evFramedParaListPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevFramedParaListPainter" MUID: (48C9300A02EF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  evParaListPainter,
-  l3LongintList,
-  evSelectedParts,
-  nevRealTools,
-  nevTools
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evParaListPainter
+ , l3Interfaces
+ , l3InternalInterfaces
+ , nevRealTools
+ , evSelectedParts
+ , l3LongintList
+ , nevTools
+;
 
-{$If defined(evNeedPainters)}
 type
  _evDelayedPainters_Parent_ = TevParaListPainter;
- {$Include ..\Everest\evDelayedPainters.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas}
  TevFramedParaListPainter = class(_evDelayedPainters_)
   {* общая функциональность для рисователей таблиц }
- protected
- // overridden protected methods
-   procedure DoInitAlignObjects; override;
-     {* Инициализация выравнивания объекта. }
-   procedure DoFinisAlignObjects; override;
-     {* Окончательное выравнивание рамок. }
-   procedure DoFillSelection; override;
-   function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
-   function GetPaintersHolder: InevPaintersHolder; override;
- protected
- // protected methods
+  protected
    function GetFameObjectBehaviur: Tl3FrameObjectBehaviour; virtual;
    function GetColorArray: Tl3LinesColorArray; virtual;
-   {$If defined(evNeedPainters) AND defined(nsTest)}
+   {$If Defined(nsTest)}
    function NeedLog: Boolean; virtual; abstract;
-     {* Поддерживает ли табличный объект запись в лог для тестов. }
-   {$IfEnd} //evNeedPainters AND nsTest
+    {* Поддерживает ли табличный объект запись в лог для тестов. }
+   {$IfEnd} // Defined(nsTest)
+   procedure DoInitAlignObjects; override;
+    {* Инициализация выравнивания объекта. }
+   procedure DoFinisAlignObjects; override;
+    {* Окончательное выравнивание рамок. }
+   procedure DoFillSelection; override;
+   function DoDraw: Boolean; override;
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+   function GetPaintersHolder: InevPaintersHolder; override;
  end;//TevFramedParaListPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  SysUtils,
-  Graphics,
-  k2Base,
-  k2Tags,
-  l3Units,
-  l3Base,
-  evDelayedPaintersSpy
-  ;
-{$IfEnd} //evNeedPainters
+ l3ImplUses
+ , SysUtils
+ , Graphics
+ , k2Base
+ , k2Tags
+ , l3Units
+ , l3Base
+ , evDelayedPaintersSpy
+;
 
-{$If defined(evNeedPainters)}
-
-{$Include ..\Everest\evDelayedPainters.imp.pas}
-
-// start class TevFramedParaListPainter
+{$Include w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas}
 
 function TevFramedParaListPainter.GetFameObjectBehaviur: Tl3FrameObjectBehaviour;
 //#UC START# *51B96E5A0285_48C9300A02EF_var*
@@ -139,6 +118,7 @@ begin
 end;//TevFramedParaListPainter.GetColorArray
 
 procedure TevFramedParaListPainter.DoInitAlignObjects;
+ {* Инициализация выравнивания объекта. }
 //#UC START# *4804B5FC02A3_48C9300A02EF_var*
 //#UC END# *4804B5FC02A3_48C9300A02EF_var*
 begin
@@ -154,6 +134,7 @@ begin
 end;//TevFramedParaListPainter.DoInitAlignObjects
 
 procedure TevFramedParaListPainter.DoFinisAlignObjects;
+ {* Окончательное выравнивание рамок. }
 //#UC START# *4804B60E033E_48C9300A02EF_var*
 //#UC END# *4804B60E033E_48C9300A02EF_var*
 begin
@@ -178,6 +159,7 @@ begin
 end;//TevFramedParaListPainter.DoFillSelection
 
 function TevFramedParaListPainter.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_48C9300A02EF_var*
 //#UC END# *4804BC2401C2_48C9300A02EF_var*
 begin
@@ -198,7 +180,6 @@ begin
  Result := Self;
 //#UC END# *49DB948303B9_48C9300A02EF_impl*
 end;//TevFramedParaListPainter.GetPaintersHolder
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

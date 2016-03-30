@@ -1,44 +1,34 @@
 {$IfNDef vcmScrollableFormWithWheelSupport_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Автор: Морозов В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmScrollableFormWithWheelSupport.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual::vcmScrollableFormWithWheelSupport
-//
-// Обеспечивает возможность скроллирования колесом мыши как самой формы. так и вложенных контролов,
-// имеющих скроллбары
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmScrollableFormWithWheelSupport" MUID: (528468A00346)
+// Имя типа: "_vcmScrollableFormWithWheelSupport_"
 
 {$Define vcmScrollableFormWithWheelSupport_imp}
-{$If not defined(NoVCM)}
- _vcmScrollableFormWithWheelSupport_ = {mixin} class(_vcmScrollableFormWithWheelSupport_Parent_)
+
+{$If NOT Defined(NoVCM)}
+ _vcmScrollableFormWithWheelSupport_ = class(_vcmScrollableFormWithWheelSupport_Parent_)
   {* Обеспечивает возможность скроллирования колесом мыши как самой формы. так и вложенных контролов, имеющих скроллбары }
- public
- // overridden public methods
-    {$If not defined(NoVCL)}
+  public
+   {$If NOT Defined(NoVCL)}
    procedure MouseWheelHandler(var Message: TMessage); override;
-    {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//_vcmScrollableFormWithWheelSupport_
-{$Else}
 
- _vcmScrollableFormWithWheelSupport_ = _vcmScrollableFormWithWheelSupport_Parent_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_vcmScrollableFormWithWheelSupport_ = _vcmScrollableFormWithWheelSupport_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmScrollableFormWithWheelSupport_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmScrollableFormWithWheelSupport_imp_impl}
 
-// start class _vcmScrollableFormWithWheelSupport_
+{$Define vcmScrollableFormWithWheelSupport_imp_impl}
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCM)}
+{$If NOT Defined(NoVCL)}
 procedure _vcmScrollableFormWithWheelSupport_.MouseWheelHandler(var Message: TMessage);
 //#UC START# *515317860183_528468A00346_var*
 
@@ -102,8 +92,10 @@ begin
   inherited;
 //#UC END# *515317860183_528468A00346_impl*
 end;//_vcmScrollableFormWithWheelSupport_.MouseWheelHandler
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
+{$EndIf vcmScrollableFormWithWheelSupport_imp_impl}
 
 {$EndIf vcmScrollableFormWithWheelSupport_imp}
+

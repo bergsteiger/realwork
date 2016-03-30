@@ -22,7 +22,7 @@
   {* "Совсем базовый" курсор }
   private
    f_Position: TnevPosition;
-    {* Поле для свойства Position }
+    {* Позиция курсора }
   protected
    procedure pm_SetPosition(aValue: TnevPosition);
    function pm_GetAsLeaf: InevLeafPoint; virtual;

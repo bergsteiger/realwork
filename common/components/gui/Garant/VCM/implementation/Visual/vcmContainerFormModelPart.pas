@@ -1,55 +1,36 @@
 unit vcmContainerFormModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmContainerFormModelPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmContainerFormModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmContainerFormModelPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmContainerFormModelPart" MUID: (4F7B1BC201C2)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmEntityForm
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmEntityForm
+ , vcmInterfaces
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmContainerFormModelPart = class(TvcmEntityForm)
- protected
- // protected methods
+  protected
    procedure AfterInsertForm(const aForm: IvcmEntityForm); virtual;
  end;//TvcmContainerFormModelPart
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmContainerFormModelPart
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvcmContainerFormModelPart.AfterInsertForm(const aForm: IvcmEntityForm);
 //#UC START# *4F7C6DFE00DE_4F7B1BC201C2_var*
@@ -60,12 +41,11 @@ begin
 //#UC END# *4F7C6DFE00DE_4F7B1BC201C2_impl*
 end;//TvcmContainerFormModelPart.AfterInsertForm
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmContainerFormModelPart
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmContainerFormModelPart);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmContainerFormModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

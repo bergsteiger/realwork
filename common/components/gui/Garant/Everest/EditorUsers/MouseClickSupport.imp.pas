@@ -1,43 +1,35 @@
 {$IfNDef MouseClickSupport_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/MouseClickSupport.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::MouseClickSupport
-//
-// Поддержка щелканья мышью на компоненте
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickSupport.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "MouseClickSupport" MUID: (4D6E5ECF0236)
+// Имя типа: "_MouseClickSupport_"
 
 {$Define MouseClickSupport_imp}
-{$If not defined(NoScripts)}
- _MouseClickSupport_ = {mixin} class(_MouseClickSupport_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _MouseClickSupport_ = class(_MouseClickSupport_Parent_)
   {* Поддержка щелканья мышью на компоненте }
- protected
- // protected methods
+  protected
    function GetKeyData: Integer; virtual;
    procedure MakeClick(aControl: TWinControl);
    procedure GetDeltaXY(var X: Integer;
     var Y: Integer); virtual;
-     {* Получить кординаты "щелчка" относительно левого верхнего угла контрола. }
+    {* Получить кординаты "щелчка" относительно левого верхнего угла контрола. }
  end;//_MouseClickSupport_
-{$Else}
 
- _MouseClickSupport_ = _MouseClickSupport_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_MouseClickSupport_ = _MouseClickSupport_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else MouseClickSupport_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef MouseClickSupport_imp_impl}
 
-// start class _MouseClickSupport_
+{$Define MouseClickSupport_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 function _MouseClickSupport_.GetKeyData: Integer;
 //#UC START# *4EF42D190011_4D6E5ECF0236_var*
 //#UC END# *4EF42D190011_4D6E5ECF0236_var*
@@ -66,7 +58,8 @@ begin
 end;//_MouseClickSupport_.MakeClick
 
 procedure _MouseClickSupport_.GetDeltaXY(var X: Integer;
-  var Y: Integer);
+ var Y: Integer);
+ {* Получить кординаты "щелчка" относительно левого верхнего угла контрола. }
 //#UC START# *4D6E5F340304_4D6E5ECF0236_var*
 //#UC END# *4D6E5F340304_4D6E5ECF0236_var*
 begin
@@ -75,7 +68,9 @@ begin
  Y := 0;
 //#UC END# *4D6E5F340304_4D6E5ECF0236_impl*
 end;//_MouseClickSupport_.GetDeltaXY
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf MouseClickSupport_imp_impl}
 
 {$EndIf MouseClickSupport_imp}
+

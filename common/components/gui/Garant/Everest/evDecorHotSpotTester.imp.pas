@@ -1,56 +1,47 @@
 {$IfNDef evDecorHotSpotTester_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDecorHotSpotTester.imp.pas"
-// Начат: 13.09.2011 13:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::HotSpots::evDecorHotSpotTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evDecorHotSpotTester" MUID: (4E6F1D860184)
+// Имя типа: "_evDecorHotSpotTester_"
 
 {$Define evDecorHotSpotTester_imp}
-{$If defined(evNeedHotSpot)}
- _evDecorHotSpotTester_ = {mixin} class(_evDecorHotSpotTester_Parent_)
- protected
- // protected methods
+
+{$If Defined(evNeedHotSpot)}
+ _evDecorHotSpotTester_ = class(_evDecorHotSpotTester_Parent_)
+  protected
    function GetDecorHotSpot(aType: TnevDecorType;
-     const aView: InevControlView;
-     const aState: TevCursorState;
-     const aMap: InevMap;
-     out theSpot: IevHotSpot): Boolean;
+    const aView: InevControlView;
+    const aState: TevCursorState;
+    const aMap: InevMap;
+    out theSpot: IevHotSpot): Boolean;
  end;//_evDecorHotSpotTester_
-{$Else}
 
- _evDecorHotSpotTester_ = _evDecorHotSpotTester_Parent_;
+{$Else Defined(evNeedHotSpot)}
 
-{$IfEnd} //evNeedHotSpot
+_evDecorHotSpotTester_ = _evDecorHotSpotTester_Parent_;
 
+{$IfEnd} // Defined(evNeedHotSpot)
 {$Else evDecorHotSpotTester_imp}
 
-{$If defined(evNeedHotSpot)}
+{$IfNDef evDecorHotSpotTester_imp_impl}
 
-// start class _evDecorHotSpotTester_
+{$Define evDecorHotSpotTester_imp_impl}
 
+{$If Defined(evNeedHotSpot)}
 function _evDecorHotSpotTester_.GetDecorHotSpot(aType: TnevDecorType;
-  const aView: InevControlView;
-  const aState: TevCursorState;
-  const aMap: InevMap;
-  out theSpot: IevHotSpot): Boolean;
+ const aView: InevControlView;
+ const aState: TevCursorState;
+ const aMap: InevMap;
+ out theSpot: IevHotSpot): Boolean;
+var l_Decor: Tl3Tag;
+var l_T: InevHotSpotTester2;
+var l_O: InevObject;
+var l_Map: InevMap;
+var l_Pt: InevBasePoint;
+var l_P: InevPara;
 //#UC START# *4E6F1DD701FA_4E6F1D860184_var*
 //#UC END# *4E6F1DD701FA_4E6F1D860184_var*
-var
- l_Decor : Tl3Tag;
- l_T : InevHotSpotTester2;
- l_O : InevObject;
- l_Map : InevMap;
- l_Pt : InevBasePoint;
- l_P : InevPara;
 begin
 //#UC START# *4E6F1DD701FA_4E6F1D860184_impl*
  Result := false;
@@ -73,7 +64,9 @@ begin
   end;//l_Decor.QT(InevHotSpotTester2, l_T)
 //#UC END# *4E6F1DD701FA_4E6F1D860184_impl*
 end;//_evDecorHotSpotTester_.GetDecorHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
-{$IfEnd} //evNeedHotSpot
+{$EndIf evDecorHotSpotTester_imp_impl}
 
 {$EndIf evDecorHotSpotTester_imp}
+

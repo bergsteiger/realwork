@@ -1,62 +1,50 @@
 unit evUnicodeFormulasToUnicodeConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evUnicodeFormulasToUnicodeConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevUnicodeFormulasToUnicodeConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evUnicodeFormulasToUnicodeConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevUnicodeFormulasToUnicodeConverter" MUID: (561E7E4B0034)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , k2Base
+ , l3Variant
+;
 
 type
  TevUnicodeFormulasToUnicodeConverter = class(TevdLeafParaFilter)
- protected
- // overridden protected methods
+  protected
    function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
  end;//TevUnicodeFormulasToUnicodeConverter
 
 implementation
 
 uses
-  TextPara_Const,
-  k2Tags,
-  Formula_Const,
-  evdTypes,
-  l3_String
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Base,
-  l3String,
-  ObjectSegment_Const,
-  SysUtils,
-  StrUtils
-  ;
-
-// start class TevUnicodeFormulasToUnicodeConverter
+ l3ImplUses
+ , TextPara_Const
+ , k2Tags
+ , Formula_Const
+ , evdTypes
+ , l3_String
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Base
+ , l3String
+ , ObjectSegment_Const
+ , SysUtils
+ , StrUtils
+;
 
 function TevUnicodeFormulasToUnicodeConverter.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_561E7E4B0034_var*
 //#UC END# *49E488070386_561E7E4B0034_var*
 begin
@@ -66,6 +54,7 @@ begin
 end;//TevUnicodeFormulasToUnicodeConverter.ParaTypeForFiltering
 
 procedure TevUnicodeFormulasToUnicodeConverter.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_561E7E4B0034_var*
 const
  cSig = 'String(#@';

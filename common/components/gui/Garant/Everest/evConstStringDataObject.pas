@@ -1,42 +1,28 @@
 unit evConstStringDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evConstStringDataObject.pas"
-// Начат: 16.07.2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevConstStringDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evConstStringDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevConstStringDataObject" MUID: (48F48A23007D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evConstStringStorable,
-  evdInterfaces,
-  l3Interfaces,
-  evPersistentDataObjectEx,
-  ActiveX,
-  Windows,
-  nevBase
-  ;
+ l3IntfUses
+ , evConstStringStorable
+ , evdInterfaces
+ , nevBase
+ , l3Interfaces
+ , evPersistentDataObjectEx
+;
 
 type
  _StorableClass_ = TevConstStringStorable;
  _DataType_ = IevdHyperlinkInfo;
- {$Include ..\Everest\evDataObjectFromStorable.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
  TevConstStringDataObject = class(_evDataObjectFromStorable_)
- protected
- // overridden protected methods
+  protected
    function GetIsQuestionNeedBeforeFlush: Boolean; override;
    function DoStore(aFormat: TnevFormat;
     const aPool: IStream;
@@ -47,17 +33,16 @@ type
 implementation
 
 uses
-  l3String,
-  evTypes,
-  evdTextToFirstParaAdder,
-  evFormats,
-  nevTools,
-  l3Base
-  ;
+ l3ImplUses
+ , l3String
+ , evTypes
+ , evdTextToFirstParaAdder
+ , evFormats
+ , nevTools
+ , l3Base
+;
 
-{$Include ..\Everest\evDataObjectFromStorable.imp.pas}
-
-// start class TevConstStringDataObject
+{$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
 
 function TevConstStringDataObject.GetIsQuestionNeedBeforeFlush: Boolean;
 //#UC START# *48F4818300A5_48F48A23007D_var*
@@ -69,9 +54,9 @@ begin
 end;//TevConstStringDataObject.GetIsQuestionNeedBeforeFlush
 
 function TevConstStringDataObject.DoStore(aFormat: TnevFormat;
-  const aPool: IStream;
-  const aFilters: InevTagGenerator;
-  aFlags: TevdStoreFlags): Boolean;
+ const aPool: IStream;
+ const aFilters: InevTagGenerator;
+ aFlags: TevdStoreFlags): Boolean;
 //#UC START# *48F481B6035B_48F48A23007D_var*
 var
  l_Filter : InevTagGenerator;

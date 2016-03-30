@@ -1,71 +1,53 @@
 unit nevFormatPool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormatPool.pas"
-// Начат: 24.04.2008 23:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevFormatPool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatPool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormatPool" MUID: (4810D8F702E0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  nevRootFormatInfoListPrim,
-  nevFormatPoolBase,
-  l3Types
-  ;
+ l3IntfUses
+ , nevFormatPoolBase
+ , nevTools
+ , nevBase
+ , nevRootFormatInfoListPrim
+ , l3Types
+;
 
 type
  TnevRootFormatInfoKey = record
-   rLimitWidth : Integer;
-   rView : InevViewMetrics;
+  rLimitWidth: Integer;
+  rView: InevViewMetrics;
  end;//TnevRootFormatInfoKey
 
  _FindDataType_ = TnevRootFormatInfoKey;
  _l3Searcher_Parent_ = TnevRootFormatInfoListPrim;
-{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TnevRootFormatInfoList = class(_l3Searcher_)
  end;//TnevRootFormatInfoList
 
  _nevChildSpy_Parent_ = TnevFormatPoolBase;
- {$Include ..\new\nevChildSpy.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
  TnevFormatPool = class(_nevChildSpy_, InevFormatPool)
- private
- // private fields
-   f_Roots : TnevRootFormatInfoList;
- protected
- // realized methods
+  private
+   f_Roots: TnevRootFormatInfoList;
+  protected
    function FormatInfoForView(const aView: InevView): TnevFormatInfoPrim;
+   procedure ClearFormatInfoForView(const aView: InevView);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   procedure AfterSectionBreakAdded;
+   procedure Clear;
+   procedure InvalidateShape(const aShape: InevObject;
+    aParts: TnevShapeParts);
    procedure ChildAdded(const aList: InevParaList;
     const aChild: InevPara); override;
    procedure ChildDeleted(const aList: InevParaList;
     const aChild: InevPara); override;
-   procedure ClearFormatInfoForView(const aView: InevView);
- public
- // realized methods
-   procedure InvalidateShape(const aShape: InevObject;
-    aParts: TnevShapeParts);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
-   procedure AfterSectionBreakAdded;
-   procedure Clear;
  end;//TnevFormatPool
 
 function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatInfoKey;
@@ -73,14 +55,46 @@ function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatIn
 implementation
 
 uses
-  nevRootFormatInfo,
-  SysUtils,
-  nevPrintingRootFormatInfo
-  ;
+ l3ImplUses
+ , nevRootFormatInfo
+ , SysUtils
+ , nevPrintingRootFormatInfo
+ , l3Memory
+;
 
-{$Include ..\new\nevChildSpy.imp.pas}
+function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatInfoKey;
+//#UC START# *4815D47402E8_4815D4350242_var*
+//#UC END# *4815D47402E8_4815D4350242_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4815D47402E8_4815D4350242_impl*
+ Result.rLimitWidth := aView.LimitWidth;
+ Result.rView := aView;
+//#UC END# *4815D47402E8_4815D4350242_impl*
+end;//TnevRootFormatInfoKey_C
 
-// start class TnevFormatPool
+function CompareItemWithData(const anItem: _ItemType_;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
+//#UC START# *47B9BAFD01F4_4815D31A015C_var*
+//#UC END# *47B9BAFD01F4_4815D31A015C_var*
+begin
+//#UC START# *47B9BAFD01F4_4815D31A015C_impl*
+ Assert(aSortIndex = l3_siNative);
+ Result := anItem.LimitWidth - aData.rLimitWidth;
+ if (Result = 0) then
+  Result := TnevRootFormatInfoListPrim.CompareViews(anItem.Metrics, aData.rView);
+//#UC END# *47B9BAFD01F4_4815D31A015C_impl*
+end;//CompareItemWithData
+
+type _Instance_R_ = TnevRootFormatInfoList;
+
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
+
+{$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
 
 procedure TnevFormatPool.AfterSectionBreakAdded;
 //#UC START# *4E15BC75016A_4810D8F702E0_var*
@@ -102,40 +116,6 @@ begin
   end; // for l_Index := 0 to f_Roots.Hi do
 //#UC END# *4E15BC75016A_4810D8F702E0_impl*
 end;//TnevFormatPool.AfterSectionBreakAdded
-function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatInfoKey;
-//#UC START# *4815D47402E8_4815D4350242_var*
-//#UC END# *4815D47402E8_4815D4350242_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4815D47402E8_4815D4350242_impl*
- Result.rLimitWidth := aView.LimitWidth;
- Result.rView := aView;
-//#UC END# *4815D47402E8_4815D4350242_impl*
-end;//TnevRootFormatInfoKey.C
-
-// start class TnevRootFormatInfoList
-
-function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
-//#UC START# *47B9BAFD01F4_4815D31A015C_var*
-//#UC END# *47B9BAFD01F4_4815D31A015C_var*
-begin
-//#UC START# *47B9BAFD01F4_4815D31A015C_impl*
- Assert(aSortIndex = l3_siNative);
- Result := anItem.LimitWidth - aData.rLimitWidth;
- if (Result = 0) then
-  Result := TnevRootFormatInfoListPrim.CompareViews(anItem.Metrics, aData.rView);
-//#UC END# *47B9BAFD01F4_4815D31A015C_impl*
-end;//CompareItemWithData
-
-type _Instance_R_ = TnevRootFormatInfoList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
-
-// start class TnevFormatPool
 
 procedure TnevFormatPool.Clear;
 //#UC START# *4817202301B6_4810D8F702E0_var*
@@ -195,7 +175,7 @@ begin
 end;//TnevFormatPool.FormatInfoForView
 
 procedure TnevFormatPool.InvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4816E2B2004E_4810D8F702E0_var*
 var
  l_Index : Integer;
@@ -214,7 +194,7 @@ begin
 end;//TnevFormatPool.InvalidateShape
 
 procedure TnevFormatPool.ChildAdded(const aList: InevParaList;
-  const aChild: InevPara);
+ const aChild: InevPara);
 //#UC START# *481710BB0076_4810D8F702E0_var*
 var
  l_Index : Integer;
@@ -228,7 +208,7 @@ begin
 end;//TnevFormatPool.ChildAdded
 
 procedure TnevFormatPool.ChildDeleted(const aList: InevParaList;
-  const aChild: InevPara);
+ const aChild: InevPara);
 //#UC START# *481710C100FB_4810D8F702E0_var*
 var
  l_Index : Integer;
@@ -255,6 +235,7 @@ begin
 end;//TnevFormatPool.ClearFormatInfoForView
 
 procedure TnevFormatPool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4810D8F702E0_var*
 //#UC END# *479731C50290_4810D8F702E0_var*
 begin

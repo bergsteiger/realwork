@@ -1,38 +1,24 @@
 unit nevControlsBlockFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevControlsBlockFormatInfo.pas"
-// Начат: 01.09.2011 13:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevControlsBlockFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlsBlockFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevControlsBlockFormatInfo" MUID: (4E5F54E500AA)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevDocumentPartFormatInfo,
-  nevBase,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevDocumentPartFormatInfo
+ , nevBase
+ , l3Variant
+;
 
 type
  TnevControlsBlockFormatInfo = class(TnevDocumentPartFormatInfo)
- protected
- // overridden property methods
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
+  protected
+   function pm_GetlocSpacing: TnevRect; override;
    procedure TuneFrameText(aText: Tl3Variant); override;
    function AllowTotalRecalc: Boolean; override;
  end;//TnevControlsBlockFormatInfo
@@ -40,17 +26,16 @@ type
 implementation
 
 uses
-  evdStyles,
-  k2Tags,
-  Graphics,
-  evTextStyle_Const,
-  l3Types,
-  l3String
-  ;
+ l3ImplUses
+ , evdStyles
+ , k2Tags
+ , Graphics
+ , evTextStyle_Const
+ , l3Types
+ , l3String
+;
 
-// start class TnevControlsBlockFormatInfo
-
-function TnevControlsBlockFormatInfo.pm_GetLocSpacing: TnevRect;
+function TnevControlsBlockFormatInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_4E5F54E500AAget_var*
 //#UC END# *4E5F3D1102B8_4E5F54E500AAget_var*
 begin
@@ -59,7 +44,7 @@ begin
  if l3IsNil(Obj.AsObject.PCharLenA[k2_tiShortName]) then
   Result.Top := 0;
 //#UC END# *4E5F3D1102B8_4E5F54E500AAget_impl*
-end;//TnevControlsBlockFormatInfo.pm_GetLocSpacing
+end;//TnevControlsBlockFormatInfo.pm_GetlocSpacing
 
 procedure TnevControlsBlockFormatInfo.TuneFrameText(aText: Tl3Variant);
 //#UC START# *4E5F8B2601DC_4E5F54E500AA_var*

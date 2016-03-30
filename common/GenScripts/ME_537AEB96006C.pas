@@ -77,25 +77,15 @@ type
    f_DisableAskMayExit: Boolean;
    f_LockedContainers: TvcmContainersLockCountList;
    f_ContainerCount: Integer;
-    {* Поле для свойства ContainerCount }
    f_FormToContainerMap: TvcmFormToContainerMap;
-    {* Поле для свойства FormToContainerMap }
    f_MenuImages: TCustomImageList;
-    {* Поле для свойства MenuImages }
    f_ActiveContainer: TvcmTabbedContainerForm;
-    {* Поле для свойства ActiveContainer }
    f_ContainerList: Tl3LongintList;
-    {* Поле для свойства ContainerList }
    f_TabImages: TCustomImageList;
-    {* Поле для свойства TabImages }
    f_Listeners: Tl3LongintList;
-    {* Поле для свойства Listeners }
    f_TabSetParams: TChromeLikeTabSetParams;
-    {* Поле для свойства TabSetParams }
    f_CloningTab: Boolean;
-    {* Поле для свойства CloningTab }
    f_ReopeningTab: Boolean;
-    {* Поле для свойства ReopeningTab }
   private
    procedure ActivateTabByIndex(aContainer: TvcmTabbedContainerForm;
     aTabIndex: Integer);
@@ -128,11 +118,11 @@ type
    function pm_GetReopeningTab: Boolean; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
    function NeedProcessKeyData(aKey: Byte;
     aShift: TShiftState): Boolean; override;
    procedure DoProcessKeyData(aKey: Byte;
     aShift: TShiftState); override;
+   procedure ClearFields; override;
   public
    procedure StartMakingClone(aContainer: TvcmTabbedContainerForm);
    procedure EndMakingClone;
@@ -206,8 +196,6 @@ type
     const aTabHistoryState: IvcmHistoryState);
    function GetFormTabIcon(aForm: TvcmEntityForm;
     out theIconIndex: Integer): Boolean;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabCaption(const aTab: Il3FormTab): AnsiString;
@@ -241,6 +229,8 @@ type
    procedure CloseAll;
    class function Instance: TvcmTabbedContainerFormDispatcher;
     {* Метод получения экземпляра синглетона TvcmTabbedContainerFormDispatcher }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   private
    property FormTabCount: Integer
     read pm_GetFormTabCount;
@@ -366,8 +356,8 @@ var g_TvcmTabbedContainerFormDispatcher: TvcmTabbedContainerFormDispatcher = nil
 const
  cMaxTabCount = 10;
  cMaxContainerCount = 10;
- cTabNumberKeys = .Ord('9')];
- cTabNumpadKeys = .VK_NUMPAD9];
+ cTabNumberKeys = [Ord('0')..Ord('9')];
+ cTabNumpadKeys = [VK_NUMPAD0..VK_NUMPAD9];
 
 function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
  aContainer: TvcmTabbedContainerForm): TvcmContainedFormDescr;
@@ -2035,12 +2025,6 @@ begin
 //#UC END# *5602A5390084_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetFormTabIcon
 
-class function TvcmTabbedContainerFormDispatcher.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmTabbedContainerFormDispatcher <> nil;
-end;//TvcmTabbedContainerFormDispatcher.Exists
-
 function TvcmTabbedContainerFormDispatcher.GetTabIcon(const aTab: Il3FormTab): Integer;
 //#UC START# *02157F96E465_537AEC5E03DD_var*
 //#UC END# *02157F96E465_537AEC5E03DD_var*
@@ -2514,6 +2498,12 @@ begin
  Result := g_TvcmTabbedContainerFormDispatcher;
 end;//TvcmTabbedContainerFormDispatcher.Instance
 
+class function TvcmTabbedContainerFormDispatcher.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTabbedContainerFormDispatcher <> nil;
+end;//TvcmTabbedContainerFormDispatcher.Exists
+
 procedure TvcmTabbedContainerFormDispatcher.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_537AEC5E03DD_var*
@@ -2528,12 +2518,6 @@ begin
  inherited;
 //#UC END# *479731C50290_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.Cleanup
-
-procedure TvcmTabbedContainerFormDispatcher.ClearFields;
-begin
- Finalize(f_TabSetParams);
- inherited;
-end;//TvcmTabbedContainerFormDispatcher.ClearFields
 
 function TvcmTabbedContainerFormDispatcher.NeedProcessKeyData(aKey: Byte;
  aShift: TShiftState): Boolean;
@@ -2630,6 +2614,12 @@ begin
  end;//not IsAnyModalFormShowing
 //#UC END# *53B24F1D034F_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.DoProcessKeyData
+
+procedure TvcmTabbedContainerFormDispatcher.ClearFields;
+begin
+ Finalize(f_TabSetParams);
+ inherited;
+end;//TvcmTabbedContainerFormDispatcher.ClearFields
 
 class function TvcmChromeLikeMainFormProvider.Make: IvcmMainFormProvider;
 var

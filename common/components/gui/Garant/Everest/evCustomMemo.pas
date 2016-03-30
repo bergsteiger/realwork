@@ -1,74 +1,55 @@
 unit evCustomMemo;
+ {* Мемо-поле. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomMemo.pas"
-// Начат: 23.05.1997 09:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomMemo
-//
-// Мемо-поле.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemo.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevCustomMemo" MUID: (4829D81D02E5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Core,
-  Messages,
-  l3Memory
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evDef,
-  evEditorWithOperations,
-  evCustomMemoTextSource,
-  Classes,
-  evCustomTextSource,
-  nevBase,
-  l3InternalInterfaces,
-  evCustomEditorModelPart
-  ;
-
-type
- RevCustomMemoTextSource = class of evCustomMemoTextSource.TevCustomMemoTextSource;
+ l3IntfUses
+ , evEditorWithOperations
+ , l3Interfaces
+ , l3Memory
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Core
+ , Messages
+ , nevBase
+ , evCustomEditorModelPart
+ , Classes
+ , evCustomTextSource
+ , l3InternalInterfaces
+ , evDef
+ , evCustomMemoTextSource
+ //#UC START# *4829D81D02E5intf_uses*
+ //#UC END# *4829D81D02E5intf_uses*
+;
 
 const
-  { Defaults }
  def_MemoLMargin = 8;
  def_MemoScrollStyle = evDef.def_MemoScrollStyle;
 
 type
-//#UC START# *4829D81D02E5ci*
-//#UC END# *4829D81D02E5ci*
-//#UC START# *4829D81D02E5cit*
-//#UC END# *4829D81D02E5cit*
+ RevCustomMemoTextSource = class of TevCustomMemoTextSource;
+
+ //#UC START# *4829D81D02E5ci*
+ //#UC END# *4829D81D02E5ci*
+ //#UC START# *4829D81D02E5cit*
+ //#UC END# *4829D81D02E5cit*
  TevCustomMemo = class(TevEditorWithOperations)
   {* Мемо-поле. }
- private
- // private fields
-   f_Buf : Tl3MemoryPool;
-   f_PlainText : Boolean;
-   f_NeedDefaultPopupMenu : Boolean;
-    {* Поле для свойства NeedDefaultPopupMenu}
-   f_KeepAllFormatting : Boolean;
-    {* Поле для свойства KeepAllFormatting}
-   f_NeedReplaceQuotes : Boolean;
-    {* Поле для свойства NeedReplaceQuotes}
- private
- // private methods
+  private
+   f_Buf: Tl3MemoryPool;
+   f_PlainText: Boolean;
+   f_NeedDefaultPopupMenu: Boolean;
+   f_KeepAllFormatting: Boolean;
+   f_NeedReplaceQuotes: Boolean;
+  private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
    procedure WMSetText(var Msg: TMessage); message WM_SetText;
@@ -76,75 +57,64 @@ type
    procedure WMKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
    procedure CMEnter(var Message: TCMEnter); message CM_ENTER;
    procedure CMExit(var Message: TCMExit); message CM_EXIT;
- protected
- // property methods
+  protected
    procedure pm_SetNeedDefaultPopupMenu(aValue: Boolean);
    function pm_GetTextLen: Integer;
    function pm_GetBuffer: Tl3WString;
    procedure pm_SetBuffer(const aValue: Tl3WString);
    function pm_GetWrap: Boolean;
    procedure pm_SetWrap(aValue: Boolean);
- protected
- // overridden property methods
-   function pm_GetPlainText: Boolean; override;
-   procedure pm_SetPlainText(aValue: Boolean); override;
-   function pm_GetAllowParaType: TevAllowParaTypes; override;
- protected
- // overridden protected methods
+   function TextSourceClass: RevCustomMemoTextSource; virtual;
+   procedure Validate; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure MakeTextSource(out theTextSource: TevCustomTextSource); override;
    function AllowDrawDocumentEdge: Boolean; override;
    function RightIndentMul: Integer; override;
    function WantEnter: Boolean; override;
    function WantTab(aKeyPressed: Boolean = False): Boolean; override;
    procedure TextChange; override;
-     {* вызывается при смене текста. }
+    {* вызывается при смене текста. }
    procedure SetTextColor(const aCanvas: Il3Canvas); override;
+   function pm_GetPlainText: Boolean; override;
+   procedure pm_SetPlainText(aValue: Boolean); override;
    procedure Loaded; override;
    function SelectWhenUnfocused: Boolean; override;
+   function pm_GetAllowParaType: TevAllowParaTypes; override;
    function AllowAutoSelectByMouse: Boolean; override;
- public
- // overridden public methods
+  public
+   function UseMemoFontForParagraphs: Boolean; virtual;
+   function KeepParaFormattingTag(aTag: Integer): Boolean; virtual;
+    {* Сохранять ли элемент оформления }
    constructor Create(AOwner: TComponent); override;
    function MakeExportFilters(aSelection: Boolean;
     aForExport: Boolean): InevTagGenerator; override;
- protected
- // protected methods
-   function TextSourceClass: RevCustomMemoTextSource; virtual;
-   procedure Validate; virtual;
- public
- // public methods
-   function UseMemoFontForParagraphs: Boolean; virtual;
-   function KeepParaFormattingTag(aTag: Integer): Boolean; virtual;
-     {* Сохранять ли элемент оформления }
- public
- // public properties
+  public
    property NeedDefaultPopupMenu: Boolean
-     read f_NeedDefaultPopupMenu
-     write pm_SetNeedDefaultPopupMenu
-     default true;
+    read f_NeedDefaultPopupMenu
+    write pm_SetNeedDefaultPopupMenu
+    default True;
    property KeepAllFormatting: Boolean
-     read f_KeepAllFormatting
-     write f_KeepAllFormatting
-     default false;
+    read f_KeepAllFormatting
+    write f_KeepAllFormatting
+    default False;
    property TextLen: Integer
-     read pm_GetTextLen;
-     {* размер текста. }
+    read pm_GetTextLen;
+    {* размер текста. }
    property Buffer: Tl3WString
-     read pm_GetBuffer
-     write pm_SetBuffer;
-     {* текст мемо-поля. }
+    read pm_GetBuffer
+    write pm_SetBuffer;
+    {* текст мемо-поля. }
    property Wrap: Boolean
-     read pm_GetWrap
-     write pm_SetWrap
-     default true;
-     {* переносить ли слова по размеру мемо-поля. }
+    read pm_GetWrap
+    write pm_SetWrap
+    default True;
+    {* переносить ли слова по размеру мемо-поля. }
    property NeedReplaceQuotes: Boolean
-     read f_NeedReplaceQuotes
-     write f_NeedReplaceQuotes
-     default true;
-//#UC START# *4829D81D02E5publ*
+    read f_NeedReplaceQuotes
+    write f_NeedReplaceQuotes
+    default True;
+ //#UC START# *4829D81D02E5publ*
  public
  // public properties
       property Font;
@@ -158,48 +128,36 @@ type
       property LMargin
         default def_MemoLMargin;
         {-}
-//#UC END# *4829D81D02E5publ*
+ //#UC END# *4829D81D02E5publ*
  end;//TevCustomMemo
 
 implementation
 
 uses
-  l3MinMax,
-  l3Chars,
-  l3String,
-  evdInterfaces,
-  l3Types,
-  evMemoContextMenu,
-  SysUtils,
-  Graphics,
-  nevTools,
-  k2Tags,
-  k2Facade
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  evExcept,
-  Font_Const
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomMemo
-
-function TevCustomMemo.UseMemoFontForParagraphs: Boolean;
-//#UC START# *4D6B97CB00AA_4829D81D02E5_var*
-//#UC END# *4D6B97CB00AA_4829D81D02E5_var*
-begin
-//#UC START# *4D6B97CB00AA_4829D81D02E5_impl*
- Result := PlainText;
-//#UC END# *4D6B97CB00AA_4829D81D02E5_impl*
-end;//TevCustomMemo.UseMemoFontForParagraphs
+ l3ImplUses
+ , l3MinMax
+ , l3Chars
+ , l3String
+ , evdInterfaces
+ , l3Types
+ , evMemoContextMenu
+ , SysUtils
+ , Graphics
+ , nevTools
+ , k2Tags
+ , k2Facade
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , evExcept
+ , Font_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829D81D02E5impl_uses*
+ //#UC END# *4829D81D02E5impl_uses*
+;
 
 procedure TevCustomMemo.pm_SetNeedDefaultPopupMenu(aValue: Boolean);
 //#UC START# *484517360371_4829D81D02E5set_var*
@@ -306,6 +264,15 @@ begin
  WebStyle := aValue;
 //#UC END# *484518050194_4829D81D02E5set_impl*
 end;//TevCustomMemo.pm_SetWrap
+
+function TevCustomMemo.UseMemoFontForParagraphs: Boolean;
+//#UC START# *4D6B97CB00AA_4829D81D02E5_var*
+//#UC END# *4D6B97CB00AA_4829D81D02E5_var*
+begin
+//#UC START# *4D6B97CB00AA_4829D81D02E5_impl*
+ Result := PlainText;
+//#UC END# *4D6B97CB00AA_4829D81D02E5_impl*
+end;//TevCustomMemo.UseMemoFontForParagraphs
 
 function TevCustomMemo.TextSourceClass: RevCustomMemoTextSource;
 //#UC START# *482D9D1701E0_4829D81D02E5_var*
@@ -469,6 +436,7 @@ begin
 end;//TevCustomMemo.Validate
 
 function TevCustomMemo.KeepParaFormattingTag(aTag: Integer): Boolean;
+ {* Сохранять ли элемент оформления }
 //#UC START# *4A8A6D4701CC_4829D81D02E5_var*
 //#UC END# *4A8A6D4701CC_4829D81D02E5_var*
 begin
@@ -519,6 +487,7 @@ begin
 end;//TevCustomMemo.CMExit
 
 procedure TevCustomMemo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4829D81D02E5_var*
 //#UC END# *479731C50290_4829D81D02E5_var*
 begin
@@ -638,7 +607,7 @@ begin
 end;//TevCustomMemo.WantTab
 
 function TevCustomMemo.MakeExportFilters(aSelection: Boolean;
-  aForExport: Boolean): InevTagGenerator;
+ aForExport: Boolean): InevTagGenerator;
 //#UC START# *482BFD8601F3_4829D81D02E5_var*
 //#UC END# *482BFD8601F3_4829D81D02E5_var*
 begin
@@ -648,6 +617,7 @@ begin
 end;//TevCustomMemo.MakeExportFilters
 
 procedure TevCustomMemo.TextChange;
+ {* вызывается при смене текста. }
 //#UC START# *482C26D6006A_4829D81D02E5_var*
 //#UC END# *482C26D6006A_4829D81D02E5_var*
 begin
@@ -741,9 +711,9 @@ end;//TevCustomMemo.AllowAutoSelectByMouse
 //#UC END# *4829D81D02E5impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomMemo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomMemo);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomMemo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

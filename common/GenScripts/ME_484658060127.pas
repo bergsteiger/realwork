@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , evCustomEdit
+ //#UC START# *484658060127intf_uses*
+ //#UC END# *484658060127intf_uses*
 ;
 
 type
@@ -126,6 +128,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *484658060127impl_uses*
+ //#UC END# *484658060127impl_uses*
 ;
 
 //#UC START# *484658060127impl*

@@ -1,50 +1,36 @@
 unit evContentsNodeFilter;
+ {* фильтр оглваления документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evContentsNodeFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevContentsNodeFilter
-//
-// фильтр оглваления документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsNodeFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsNodeFilter" MUID: (4DFEF1DF009F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  nevTools,
-  evInternalInterfaces,
-  k2SimpleTagList,
-  l3Variant,
-  nevBase
-  ;
+ l3IntfUses
+ , l3Base
+ , evInternalInterfaces
+ , l3Variant
+ , k2SimpleTagList
+ , nevTools
+ , nevBase
+;
 
 type
  TevContentsNodeFilter = class(Tl3Base, InevContentsNodeFilter)
   {* фильтр оглваления документа }
- private
- // private fields
-   f_FilteredNodeFlag : Integer;
-   f_Document : Tl3Tag;
-   f_FilterTagList : Tk2SimpleTagList;
-    {* Список удаленных тегов.}
- private
- // private methods
+  private
+   f_FilteredNodeFlag: Integer;
+   f_Document: Tl3Tag;
+   f_FilterTagList: Tk2SimpleTagList;
+    {* Список удаленных тегов. }
+  private
    function NeedColor(const aNode: InevNode): Boolean;
    function GetDocContentLevel: Integer;
- protected
- // realized methods
+  protected
    procedure ColorNode(const aNode: InevNode);
    function pm_GetFilteredNodeFlag: Integer;
    procedure pm_SetFilteredNodeFlag(aValue: Integer);
@@ -52,12 +38,9 @@ type
    procedure AddFilterTag(aTag: Tl3Variant);
    procedure ChangeDocument(aDocument: Tl3Variant);
    function NeedCreate(aTag: Tl3Variant): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aDocument: Tl3Variant); reintroduce; virtual;
    class function Make(aDocument: Tl3Variant): InevContentsNodeFilter;
  end;//TevContentsNodeFilter
@@ -65,17 +48,16 @@ type
 implementation
 
 uses
-  evdTypes,
-  l3TreeInterfaces,
-  SysUtils,
-  l3Bits,
-  l3Types,
-  l3MinMax,
-  k2Tags,
-  evContentsUtils
-  ;
-
-// start class TevContentsNodeFilter
+ l3ImplUses
+ , evdTypes
+ , l3TreeInterfaces
+ , SysUtils
+ , l3Bits
+ , l3Types
+ , l3MinMax
+ , k2Tags
+ , evContentsUtils
+;
 
 function TevContentsNodeFilter.NeedColor(const aNode: InevNode): Boolean;
 //#UC START# *4ECA574B02DB_4DFEF1DF009F_var*
@@ -243,6 +225,7 @@ begin
 end;//TevContentsNodeFilter.NeedCreate
 
 procedure TevContentsNodeFilter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEF1DF009F_var*
 //#UC END# *479731C50290_4DFEF1DF009F_var*
 begin

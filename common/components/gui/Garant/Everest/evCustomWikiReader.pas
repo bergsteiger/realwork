@@ -1,121 +1,103 @@
 unit evCustomWikiReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomWikiReader.pas"
-// Начат: 28.02.2011 17:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Readers::TevCustomWikiReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomWikiReader.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomWikiReader" MUID: (4D6BB1E0012D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomTxtReader,
-  l3ProtoDataContainer,
-  l3ProtoIntegerList,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes,
-  l3Base
-  ;
+ l3IntfUses
+ , evCustomTxtReader
+ , l3ProtoIntegerList
+ , l3Base
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
- TevFormatInfo = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rStart : Integer;
-   rName : AnsiString;
-   rValue : AnsiString;
+ TevFormatInfo = object
+  public
+   rStart: Integer;
+   rName: AnsiString;
+   rValue: AnsiString;
  end;//TevFormatInfo
 
  _ItemType_ = TevFormatInfo;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TevFormatInfoList = class(_l3RecordListPrim_)
  end;//TevFormatInfoList
 
  TevCustomWikiReader = class(TevCustomTxtReader)
- private
- // private fields
-   f_ListLevel : Integer;
-   f_SmallLevel : Integer;
-   f_FontSizes : Tl3ProtoIntegerList;
-   f_CloakLevel : Integer;
-   f_IndentLevel : Integer;
-   f_Justification : Tl3ProtoIntegerList;
-   f_DefaultStyle : Integer;
-    {* Поле для свойства DefaultStyle}
- protected
- // overridden protected methods
+  private
+   f_ListLevel: Integer;
+   f_SmallLevel: Integer;
+   f_FontSizes: Tl3ProtoIntegerList;
+   f_CloakLevel: Integer;
+   f_IndentLevel: Integer;
+   f_Justification: Tl3ProtoIntegerList;
+   f_DefaultStyle: Integer;
+    {* Поле для свойства DefaultStyle }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure DoText(aText: Tl3String); override;
    function NeedOpenDefaultChild(aText: Tl3String): Boolean; override;
- public
- // public properties
+  public
    property DefaultStyle: Integer
-     read f_DefaultStyle
-     write f_DefaultStyle;
-     {* Стиль текста по-умолчанию }
+    read f_DefaultStyle
+    write f_DefaultStyle;
+    {* Стиль текста по-умолчанию }
  end;//TevCustomWikiReader
 
 implementation
 
 uses
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3String,
-  k2Tags,
-  TextSegment_Const,
-  l3Const,
-  evdStyles
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  ControlsBlock_Const,
-  evStyleTableTools,
-  afwFont,
-  StrUtils,
-  Cloak_Const,
-  Graphics,
-  HyperLink_Const,
-  evdTypes,
-  k2Base,
-  TypInfo,
-  k2Attributes
-  ;
+ l3ImplUses
+ , l3String
+ , k2Tags
+ , TextSegment_Const
+ , SysUtils
+ , l3Const
+ , evdStyles
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , ControlsBlock_Const
+ , evStyleTableTools
+ , afwFont
+ , StrUtils
+ , Cloak_Const
+ , Graphics
+ , HyperLink_Const
+ , evdTypes
+ , k2Base
+ , TypInfo
+ , k2Attributes
+ , l3MinMax
+ , RTLConsts
+;
 
-// start class TevFormatInfoList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4D6BD8CF022A_var*
 //#UC END# *47B07CF403D0_4D6BD8CF022A_var*
 begin
@@ -124,11 +106,11 @@ begin
  Assert(false);
 //#UC END# *47B07CF403D0_4D6BD8CF022A_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4D6BD8CF022A_var*
 //#UC END# *47B2C42A0163_4D6BD8CF022A_var*
 begin
@@ -136,9 +118,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4D6BD8CF022A_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4D6BD8CF022A_var*
 //#UC END# *47B99D4503A2_4D6BD8CF022A_var*
 begin
@@ -152,9 +135,8 @@ type _Instance_R_ = TevFormatInfoList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
-// start class TevCustomWikiReader
-
 procedure TevCustomWikiReader.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4D6BB1E0012D_var*
 //#UC END# *479731C50290_4D6BB1E0012D_var*
 begin

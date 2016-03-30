@@ -1,86 +1,59 @@
 unit evDecorHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDecorHotSpot.pas"
-// Начат: 13.07.2011 16:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevDecorHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDecorHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDecorHotSpot" MUID: (4E1D961D02D6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevTools,
-  nevGUIInterfaces,
-  evHotSpotProxy,
-  nevDecorActiveHyperlink,
-  evDecorHyperlink,
-  afwInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evHotSpotProxy
+ , nevTools
+ , nevGUIInterfaces
+ , evDecorHyperlink
+ , nevDecorActiveHyperlink
+ , l3Interfaces
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevDecorHotSpot = class(TevHotSpotProxy)
- protected
- // overridden protected methods
-   function DoTransMouseMove(const aView: InevControlView;
-     const aKeys: TevMouseState;
-     out theActiveElement: InevActiveElement): Boolean; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
- protected
- // protected fields
-   f_Para : InevPara;
- protected
- // protected methods
+  protected
+   f_Para: InevPara;
+  protected
    function NeedProxyHyperlink: Boolean; virtual;
    function GetDecorHyperlinkClass: RevDecorHyperlink; virtual;
- public
- // public methods
+   function DoTransMouseMove(const aView: InevControlView;
+    const aKeys: TevMouseState;
+    out theActiveElement: InevActiveElement): Boolean; override;
+   procedure ClearFields; override;
+  public
    constructor Create(const aPara: InevPara;
-     const aHotSpot: IevHotSpot); reintroduce;
+    const aHotSpot: IevHotSpot); reintroduce;
    class function Make(const aPara: InevPara;
-     const aHotSpot: IevHotSpot): IevHotSpot; reintroduce;
-     {* Сигнатура фабрики TevDecorHotSpot.Make }
+    const aHotSpot: IevHotSpot): IevHotSpot; reintroduce;
    function GetDecorActiveHyperlinkClass: RnevDecorActiveHyperlinkClass; virtual;
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//TevDecorHotSpot
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  l3InterfacesMisc,
-  SysUtils,
-  nevNavigation
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TevDecorHotSpot
+ l3ImplUses
+ , l3InterfacesMisc
+ , SysUtils
+ , nevNavigation
+;
 
 constructor TevDecorHotSpot.Create(const aPara: InevPara;
-  const aHotSpot: IevHotSpot);
+ const aHotSpot: IevHotSpot);
 //#UC START# *4E1D79FC01E9_4E1D961D02D6_var*
 //#UC END# *4E1D79FC01E9_4E1D961D02D6_var*
 begin
@@ -92,7 +65,7 @@ begin
 end;//TevDecorHotSpot.Create
 
 class function TevDecorHotSpot.Make(const aPara: InevPara;
-  const aHotSpot: IevHotSpot): IevHotSpot;
+ const aHotSpot: IevHotSpot): IevHotSpot;
 var
  l_Inst : TevDecorHotSpot;
 begin
@@ -102,7 +75,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevDecorHotSpot.Make
 
 function TevDecorHotSpot.NeedProxyHyperlink: Boolean;
 //#UC START# *552FAB2002BB_4E1D961D02D6_var*
@@ -132,7 +105,8 @@ begin
 end;//TevDecorHotSpot.GetDecorActiveHyperlinkClass
 
 function TevDecorHotSpot.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47A0AD3A01F7_4E1D961D02D6_var*
 //#UC END# *47A0AD3A01F7_4E1D961D02D6_var*
 begin
@@ -145,8 +119,8 @@ begin
 end;//TevDecorHotSpot.QueryInterface
 
 function TevDecorHotSpot.DoTransMouseMove(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  out theActiveElement: InevActiveElement): Boolean;
+ const aKeys: TevMouseState;
+ out theActiveElement: InevActiveElement): Boolean;
 //#UC START# *4E1D94EF002C_4E1D961D02D6_var*
 //#UC END# *4E1D94EF002C_4E1D961D02D6_var*
 begin
@@ -164,14 +138,10 @@ begin
 end;//TevDecorHotSpot.DoTransMouseMove
 
 procedure TevDecorHotSpot.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_Para := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TevDecorHotSpot.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

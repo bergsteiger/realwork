@@ -1,53 +1,38 @@
 unit evCellsOffsets;
+ {* работа со смещениями ячеек }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCellsOffsets.pas"
-// Начат: 2009/03/26 13:34:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCellsOffsets
-//
-// работа со смещениями ячеек
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellsOffsets.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsOffsets" MUID: (49CB6E880188)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEpsilonLongIntList,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evEpsilonLongIntList
+;
 
 type
  TevCellsOffsets = class(Tl3ProtoObject)
   {* работа со смещениями ячеек }
- private
- // private fields
-   f_Offsets : TevEpsilonLongIntList;
-    {* Смещения ячеек}
-   f_Widths : TevEpsilonLongIntList;
-    {* Ширина ячеек по этому смещению}
-   f_Width : Integer;
-    {* Текущая ширина ячейки}
-   f_Offset : Integer;
-    {* Текущее смещение}
-   f_CheckChildren : Boolean;
-    {* Нужно ли проверять дочерние}
- protected
- // overridden protected methods
+  private
+   f_Offsets: TevEpsilonLongIntList;
+    {* Смещения ячеек }
+   f_Widths: TevEpsilonLongIntList;
+    {* Ширина ячеек по этому смещению }
+   f_Width: Integer;
+    {* Текущая ширина ячейки }
+   f_Offset: Integer;
+    {* Текущее смещение }
+   f_CheckChildren: Boolean;
+    {* Нужно ли проверять дочерние }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure Clear;
    procedure AddCellWidth;
    procedure CheckOffset(aCheckWidth: Boolean);
@@ -60,11 +45,10 @@ type
 implementation
 
 uses
-  evConst,
-  SysUtils
-  ;
-
-// start class TevCellsOffsets
+ l3ImplUses
+ , SysUtils
+ , evConst
+;
 
 procedure TevCellsOffsets.Clear;
 //#UC START# *4A562C3A013E_49CB6E880188_var*
@@ -97,10 +81,9 @@ begin
 end;//TevCellsOffsets.AddCellWidth
 
 procedure TevCellsOffsets.CheckOffset(aCheckWidth: Boolean);
+var l_Index: Integer;
 //#UC START# *4A562C6C00A6_49CB6E880188_var*
 //#UC END# *4A562C6C00A6_49CB6E880188_var*
-var
- l_Index : Integer;
 begin
 //#UC START# *4A562C6C00A6_49CB6E880188_impl*
  if (f_Offsets <> nil) and f_Offsets.FindData(f_Offset, l_Index) then
@@ -113,10 +96,9 @@ begin
 end;//TevCellsOffsets.CheckOffset
 
 function TevCellsOffsets.CheckParam: Boolean;
+var l_Index: Integer;
 //#UC START# *4A562C85014A_49CB6E880188_var*
 //#UC END# *4A562C85014A_49CB6E880188_var*
-var
- l_Index : Integer;
 begin
 //#UC START# *4A562C85014A_49CB6E880188_impl*
  Result := f_Offsets = nil; // Result = True - не нашли!
@@ -154,6 +136,7 @@ begin
 end;//TevCellsOffsets.SetWidth
 
 procedure TevCellsOffsets.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49CB6E880188_var*
 //#UC END# *479731C50290_49CB6E880188_var*
 begin

@@ -1,77 +1,58 @@
 unit AbstractDropDown;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/AbstractDropDown.pas"
-// Начат: 15.05.2008 22:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::ComboTree::TAbstractDropDown
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\AbstractDropDown.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TAbstractDropDown" MUID: (482C80EA0131)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  ctAbstractEdit
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  ctTypes,
-  ElUxTheme,
-  Windows
-  ;
+ l3IntfUses
+ , ctAbstractEdit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , ctTypes
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , Windows
+ , ElUxTheme
+ //#UC START# *482C80EA0131intf_uses*
+ //#UC END# *482C80EA0131intf_uses*
+;
 
 const
-  { Const }
  EL_THEMECHANGED = ElUxTheme.EL_THEMECHANGED;
 
 type
-//#UC START# *482C80EA0131ci*
-//#UC END# *482C80EA0131ci*
-//#UC START# *482C80EA0131cit*
-//#UC END# *482C80EA0131cit*
- TAbstractDropDown = class(TctAbstractEdit {$If not defined(NoVCM)}, IvcmPopupIgnoresAction{$IfEnd} //not NoVCM
+ //#UC START# *482C80EA0131ci*
+ //#UC END# *482C80EA0131ci*
+ //#UC START# *482C80EA0131cit*
+ //#UC END# *482C80EA0131cit*
+ TAbstractDropDown = class(TctAbstractEdit{$If NOT Defined(NoVCM)}
+ , IvcmPopupIgnoresAction
+ {$IfEnd} // NOT Defined(NoVCM)
  , Il3WndProcListener, Il3MouseListener)
- private
- // private fields
-   f_ComboStyle : TComboStyle;
-    {* Поле для свойства ComboStyle}
-   f_ExtButton : TComponent;
-    {* Поле для свойства ExtButton}
-   f_CurrentMode : TCurrentMode;
-    {* Поле для свойства CurrentMode}
-   f_Dropped : Boolean;
-    {* Поле для свойства Dropped}
-   f_OnDropDown : TNotifyEvent;
-    {* Поле для свойства OnDropDown}
-   f_OnCloseUp : TNotifyEvent;
-    {* Поле для свойства OnCloseUp}
- private
- // private methods
+  private
+   f_ComboStyle: TComboStyle;
+   f_ExtButton: TComponent;
+   f_CurrentMode: TCurrentMode;
+   f_Dropped: Boolean;
+   f_OnDropDown: TNotifyEvent;
+   f_OnCloseUp: TNotifyEvent;
+  protected
+   f_IgnoreFocus: Boolean;
+   f_IgnoreDrop: Boolean;
+  private
    procedure WMSetFocus(var Message: TWMSetFocus); message WM_SETFOCUS;
    procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
    procedure WMKillFocus(var Message: TWMKillFocus); message WM_KILLFOCUS;
@@ -79,88 +60,66 @@ type
    procedure WMMouseWheel(var Msg: TWMMouseWheel); message WM_MOUSEWHEEL;
    procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;
    procedure ELThemeChanged(var Message: TMessage); message EL_THEMECHANGED;
- protected
- // property methods
+  protected
    procedure pm_SetComboStyle(aValue: TComboStyle); virtual;
    function pm_GetStyle: TComboBoxStyle; virtual;
    procedure pm_SetStyle(aValue: TComboBoxStyle); virtual;
    procedure pm_SetDropped(aValue: Boolean); virtual;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   function pm_GetPopupIgnoresAction: Boolean;
-   {$IfEnd} //not NoVCM
-   procedure MouseListenerNotify(aMouseMessage: WPARAM;
-     aHookStruct: PMouseHookStruct;
-     var theResult: Tl3HookProcResult);
-   procedure WndProcListenerNotify(Msg: PCWPStruct;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure DestroyWnd; override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected fields
-   f_IgnoreFocus : Boolean;
-   f_IgnoreDrop : Boolean;
- protected
- // protected methods
    procedure DropDown; virtual;
-     {* Сигнатура метода DropDown }
    procedure ButtonClick(Sender: TObject); virtual;
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure TriggerDropCloseEvent(aDropped: Boolean); virtual;
    procedure DoWndProc(var Message: TMessage); virtual;
    function TranslateHomeEndToDropDown: Boolean; virtual;
    procedure EscapePressed; virtual;
-     {* Сигнатура метода EscapePressed }
    procedure CloseUp; virtual;
-     {* Сигнатура метода CloseUp }
    function GetActiveSub: TWinControl; virtual; abstract;
    procedure HideDropDown; virtual;
-     {* Сигнатура метода HideDropDown }
- public
- // public methods
+   {$If NOT Defined(NoVCM)}
+   function pm_GetPopupIgnoresAction: Boolean;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure MouseListenerNotify(aMouseMessage: WPARAM;
+    aHookStruct: PMouseHookStruct;
+    var theResult: Tl3HookProcResult);
+   procedure WndProcListenerNotify(Msg: PCWPStruct;
+    var theResult: Tl3HookProcResult);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DestroyWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure DoSelect(aStart: Integer;
-     aEnd: Integer);
+    aEnd: Integer);
    procedure DoMoveCursor(aIndex: Integer);
    procedure DoUnselect;
-     {* Сигнатура метода DoUnselect }
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property ComboStyle: TComboStyle
-     read f_ComboStyle
-     write pm_SetComboStyle;
- public
- // public properties
+    read f_ComboStyle
+    write pm_SetComboStyle;
+  public
    property ExtButton: TComponent
-     read f_ExtButton
-     write f_ExtButton;
+    read f_ExtButton
+    write f_ExtButton;
    property Style: TComboBoxStyle
-     read pm_GetStyle
-     write pm_SetStyle;
+    read pm_GetStyle
+    write pm_SetStyle;
    property CurrentMode: TCurrentMode
-     read f_CurrentMode
-     write f_CurrentMode;
+    read f_CurrentMode
+    write f_CurrentMode;
    property Dropped: Boolean
-     read f_Dropped
-     write pm_SetDropped;
+    read f_Dropped
+    write pm_SetDropped;
    property OnDropDown: TNotifyEvent
-     read f_OnDropDown
-     write f_OnDropDown;
+    read f_OnDropDown
+    write f_OnDropDown;
    property OnCloseUp: TNotifyEvent
-     read f_OnCloseUp
-     write f_OnCloseUp;
-//#UC START# *482C80EA0131publ*
+    read f_OnCloseUp
+    write f_OnCloseUp;
+ //#UC START# *482C80EA0131publ*
     property EmptyHint;
     property EmptyHintColor {default clBackground};
     property BevelEdges;
@@ -191,33 +150,74 @@ type
     property TabStop;
     property Visible;
     property OnDblClick;
-//#UC END# *482C80EA0131publ*
+ //#UC END# *482C80EA0131publ*
  end;//TAbstractDropDown
 
 implementation
 
 uses
-  l3ListenersManager,
-  nevTools,
-  ElPopBtn,
-  l3Bitmap,
-  Graphics,
-  ElVclUtils,
-  l3Base,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  l3GetCaptureHelper
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , l3ListenersManager
+ , nevTools
+ , ElPopBtn
+ , l3Bitmap
+ , Graphics
+ , ElVclUtils
+ , l3Base
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , l3GetCaptureHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482C80EA0131impl_uses*
+ //#UC END# *482C80EA0131impl_uses*
+;
 
-// start class TAbstractDropDown
+procedure TAbstractDropDown.pm_SetComboStyle(aValue: TComboStyle);
+//#UC START# *53ECCEC9013B_482C80EA0131set_var*
+//#UC END# *53ECCEC9013B_482C80EA0131set_var*
+begin
+//#UC START# *53ECCEC9013B_482C80EA0131set_impl*
+ if (aValue <> f_ComboStyle) then
+ begin
+  f_ComboStyle := aValue;
+  Dropped := False;
+ end;//Value <> f_ComboStyle
+//#UC END# *53ECCEC9013B_482C80EA0131set_impl*
+end;//TAbstractDropDown.pm_SetComboStyle
+
+function TAbstractDropDown.pm_GetStyle: TComboBoxStyle;
+//#UC START# *53ECCF9101EF_482C80EA0131get_var*
+//#UC END# *53ECCF9101EF_482C80EA0131get_var*
+begin
+//#UC START# *53ECCF9101EF_482C80EA0131get_impl*
+ Result := csSimple;
+//#UC END# *53ECCF9101EF_482C80EA0131get_impl*
+end;//TAbstractDropDown.pm_GetStyle
+
+procedure TAbstractDropDown.pm_SetStyle(aValue: TComboBoxStyle);
+//#UC START# *53ECCF9101EF_482C80EA0131set_var*
+//#UC END# *53ECCF9101EF_482C80EA0131set_var*
+begin
+//#UC START# *53ECCF9101EF_482C80EA0131set_impl*
+//#UC END# *53ECCF9101EF_482C80EA0131set_impl*
+end;//TAbstractDropDown.pm_SetStyle
+
+procedure TAbstractDropDown.pm_SetDropped(aValue: Boolean);
+//#UC START# *53ECD12B0045_482C80EA0131set_var*
+//#UC END# *53ECD12B0045_482C80EA0131set_var*
+begin
+//#UC START# *53ECD12B0045_482C80EA0131set_impl*
+ if (aValue <> f_Dropped) then
+ begin
+  f_Dropped := aValue;
+  TElGraphicButton(Button).Down := aValue;
+  TriggerDropCloseEvent(aValue);
+ end;//Value <> f_Dropped
+//#UC END# *53ECD12B0045_482C80EA0131set_impl*
+end;//TAbstractDropDown.pm_SetDropped
 
 procedure TAbstractDropDown.DropDown;
 //#UC START# *52A9A9B802B4_482C80EA0131_var*
@@ -277,7 +277,7 @@ begin
 end;//TAbstractDropDown.TranslateHomeEndToDropDown
 
 procedure TAbstractDropDown.DoSelect(aStart: Integer;
-  aEnd: Integer);
+ aEnd: Integer);
 //#UC START# *53ECD42C00FA_482C80EA0131_var*
 //#UC END# *53ECD42C00FA_482C80EA0131_var*
 begin
@@ -333,50 +333,6 @@ begin
  Tl3ListenersManager.RemoveWndProcListener(Self);
 //#UC END# *53EDCFAF00AA_482C80EA0131_impl*
 end;//TAbstractDropDown.HideDropDown
-
-procedure TAbstractDropDown.pm_SetComboStyle(aValue: TComboStyle);
-//#UC START# *53ECCEC9013B_482C80EA0131set_var*
-//#UC END# *53ECCEC9013B_482C80EA0131set_var*
-begin
-//#UC START# *53ECCEC9013B_482C80EA0131set_impl*
- if (aValue <> f_ComboStyle) then
- begin
-  f_ComboStyle := aValue;
-  Dropped := False;
- end;//Value <> f_ComboStyle
-//#UC END# *53ECCEC9013B_482C80EA0131set_impl*
-end;//TAbstractDropDown.pm_SetComboStyle
-
-function TAbstractDropDown.pm_GetStyle: TComboBoxStyle;
-//#UC START# *53ECCF9101EF_482C80EA0131get_var*
-//#UC END# *53ECCF9101EF_482C80EA0131get_var*
-begin
-//#UC START# *53ECCF9101EF_482C80EA0131get_impl*
- Result := csSimple;
-//#UC END# *53ECCF9101EF_482C80EA0131get_impl*
-end;//TAbstractDropDown.pm_GetStyle
-
-procedure TAbstractDropDown.pm_SetStyle(aValue: TComboBoxStyle);
-//#UC START# *53ECCF9101EF_482C80EA0131set_var*
-//#UC END# *53ECCF9101EF_482C80EA0131set_var*
-begin
-//#UC START# *53ECCF9101EF_482C80EA0131set_impl*
-//#UC END# *53ECCF9101EF_482C80EA0131set_impl*
-end;//TAbstractDropDown.pm_SetStyle
-
-procedure TAbstractDropDown.pm_SetDropped(aValue: Boolean);
-//#UC START# *53ECD12B0045_482C80EA0131set_var*
-//#UC END# *53ECD12B0045_482C80EA0131set_var*
-begin
-//#UC START# *53ECD12B0045_482C80EA0131set_impl*
- if (aValue <> f_Dropped) then
- begin
-  f_Dropped := aValue;
-  TElGraphicButton(Button).Down := aValue;
-  TriggerDropCloseEvent(aValue);
- end;//Value <> f_Dropped
-//#UC END# *53ECD12B0045_482C80EA0131set_impl*
-end;//TAbstractDropDown.pm_SetDropped
 
 procedure TAbstractDropDown.WMSetFocus(var Message: TWMSetFocus);
 //#UC START# *53ECD5090329_482C80EA0131_var*
@@ -512,7 +468,7 @@ begin
 //#UC END# *53ECD5FF00FA_482C80EA0131_impl*
 end;//TAbstractDropDown.ELThemeChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TAbstractDropDown.pm_GetPopupIgnoresAction: Boolean;
 //#UC START# *476964B602C3_482C80EA0131get_var*
 //#UC END# *476964B602C3_482C80EA0131get_var*
@@ -521,11 +477,11 @@ begin
  Result := f_ComboStyle = ct_cbEdit;
 //#UC END# *476964B602C3_482C80EA0131get_impl*
 end;//TAbstractDropDown.pm_GetPopupIgnoresAction
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TAbstractDropDown.MouseListenerNotify(aMouseMessage: WPARAM;
-  aHookStruct: PMouseHookStruct;
-  var theResult: Tl3HookProcResult);
+ aHookStruct: PMouseHookStruct;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CEDF005A_482C80EA0131_var*
 var
  l_Pt: TPoint;
@@ -553,7 +509,7 @@ begin
 end;//TAbstractDropDown.MouseListenerNotify
 
 procedure TAbstractDropDown.WndProcListenerNotify(Msg: PCWPStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF3400BB_482C80EA0131_var*
 //#UC END# *4F79CF3400BB_482C80EA0131_var*
 begin
@@ -565,6 +521,7 @@ begin
 end;//TAbstractDropDown.WndProcListenerNotify
 
 procedure TAbstractDropDown.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_482C80EA0131_var*
 //#UC END# *479731C50290_482C80EA0131_var*
 begin
@@ -618,7 +575,7 @@ begin
 //#UC END# *47D1602000C6_482C80EA0131_impl*
 end;//TAbstractDropDown.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TAbstractDropDown.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_482C80EA0131_var*
 //#UC END# *47E136A80191_482C80EA0131_var*
@@ -633,9 +590,9 @@ begin
  end;//try..finally
 //#UC END# *47E136A80191_482C80EA0131_impl*
 end;//TAbstractDropDown.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TAbstractDropDown.DestroyWnd;
 //#UC START# *4CC841540158_482C80EA0131_var*
 //#UC END# *4CC841540158_482C80EA0131_var*
@@ -646,15 +603,15 @@ begin
  inherited;
 //#UC END# *4CC841540158_482C80EA0131_impl*
 end;//TAbstractDropDown.DestroyWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *482C80EA0131impl*
 //#UC END# *482C80EA0131impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TAbstractDropDown
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAbstractDropDown);
-{$IfEnd} //not NoScripts
+ {* Регистрация TAbstractDropDown }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

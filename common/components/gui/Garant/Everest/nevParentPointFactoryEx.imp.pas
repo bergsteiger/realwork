@@ -1,37 +1,31 @@
 {$IfNDef nevParentPointFactoryEx_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevParentPointFactoryEx.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevParentPointFactoryEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevParentPointFactoryEx" MUID: (49D25A310104)
+// Имя типа: "_nevParentPointFactoryEx_"
 
 {$Define nevParentPointFactoryEx_imp}
-{$If defined(evUseVisibleCursors)}
- _nevParentPointFactoryEx_ = {mixin} class(_nevParentPointFactoryEx_Parent_)
- public
- // realized methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevParentPointFactoryEx_ = class(_nevParentPointFactoryEx_Parent_)
+  public
    function PointToParentByLevel(aLevel: Integer = 0): InevBasePoint;
    function PointToTypedParent(aParentType: Tk2Type): InevBasePoint;
  end;//_nevParentPointFactoryEx_
-{$Else}
 
- _nevParentPointFactoryEx_ = _nevParentPointFactoryEx_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParentPointFactoryEx_ = _nevParentPointFactoryEx_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevParentPointFactoryEx_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevParentPointFactoryEx_imp_impl}
 
-// start class _nevParentPointFactoryEx_
+{$Define nevParentPointFactoryEx_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevParentPointFactoryEx_.PointToParentByLevel(aLevel: Integer = 0): InevBasePoint;
 //#UC START# *49D243600057_49D25A310104_var*
 var
@@ -70,7 +64,9 @@ begin
  end;//while l_Tag.IsValid
 //#UC END# *49D2437302B2_49D25A310104_impl*
 end;//_nevParentPointFactoryEx_.PointToTypedParent
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevParentPointFactoryEx_imp_impl}
 
 {$EndIf nevParentPointFactoryEx_imp}
+

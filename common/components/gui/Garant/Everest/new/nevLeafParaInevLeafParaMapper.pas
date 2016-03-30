@@ -1,60 +1,44 @@
 unit nevLeafParaInevLeafParaMapper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevLeafParaInevLeafParaMapper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevLeafParaInevLeafParaMapper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafParaInevLeafParaMapper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafParaInevLeafParaMapper" MUID: (53D7D29E0029)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2InterfaceMapper,
-  l3IID,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2InterfaceMapper
+ , l3Variant
+ , l3IID
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevLeafParaInevLeafParaMapper = class(Tk2InterfaceMapper)
- public
- // realized methods
+  public
    class function Make(aTag: Tl3Variant;
-     const IID: Tl3GUID;
-     out Tool;
-     const aProcessor: Ik2Processor): Boolean; override;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TnevLeafParaInevLeafParaMapper
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  SysUtils
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevLeafParaInevLeafParaMapper
+ l3ImplUses
+ , nevTools
+ , SysUtils
+;
 
 class function TnevLeafParaInevLeafParaMapper.Make(aTag: Tl3Variant;
-  const IID: Tl3GUID;
-  out Tool;
-  const aProcessor: Ik2Processor): Boolean;
+ const IID: Tl3GUID;
+ out Tool;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *53D639B601D7_53D7D29E0029_var*
 var
  l_TP : InevLeafPara;
@@ -68,7 +52,6 @@ begin
   Result := true; 
 //#UC END# *53D639B601D7_53D7D29E0029_impl*
 end;//TnevLeafParaInevLeafParaMapper.Make
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

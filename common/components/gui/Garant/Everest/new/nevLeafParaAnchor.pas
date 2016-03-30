@@ -1,65 +1,46 @@
 unit nevLeafParaAnchor;
+ {* Якорь для листьевых параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevLeafParaAnchor.pas"
-// Начат: 12.04.2005 15:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevLeafParaAnchor
-//
-// Якорь для листьевых параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafParaAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafParaAnchor" MUID: (4A3B9AD60266)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  nevTools,
-  nevAnchor
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevAnchor
+ , nevTools
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevLeafParaAnchor = class(TnevAnchor, InevLeafPoint)
   {* Якорь для листьевых параграфов }
- protected
- // realized methods
-   procedure InitPointByPt(const aView: InevView;
-     const aPoint: TnevPoint;
-     const aMap: InevMap);
- public
- // realized methods
-   function PaintOffsetY(const aView: InevView;
-     aMap: TnevFormatInfoPrim): Integer;
- protected
- // overridden protected methods
-   function GetAsLeaf: InevLeafPoint; override;
-   function GetPosition: TnevPosition; override;
- protected
- // protected methods
+  protected
    function ObjMap(const aView: InevView): TnevFormatInfoPrim;
    function GetPaintOffsetY(const aView: InevView;
     aMap: TnevFormatInfoPrim): Integer; virtual;
+   procedure InitPointByPt(const aView: InevView;
+    const aPoint: TnevPoint;
+    const aMap: InevMap);
+   function GetAsLeaf: InevLeafPoint; override;
+   function GetPosition: TnevPosition; override;
+  public
+   function PaintOffsetY(const aView: InevView;
+    aMap: TnevFormatInfoPrim): Integer;
  end;//TnevLeafParaAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TnevLeafParaAnchor
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 function TnevLeafParaAnchor.ObjMap(const aView: InevView): TnevFormatInfoPrim;
 //#UC START# *4A3B9B3B0161_4A3B9AD60266_var*
@@ -77,7 +58,7 @@ begin
 end;//TnevLeafParaAnchor.ObjMap
 
 function TnevLeafParaAnchor.GetPaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4A3BA80002E5_4A3B9AD60266_var*
 //#UC END# *4A3BA80002E5_4A3B9AD60266_var*
 begin
@@ -87,8 +68,8 @@ begin
 end;//TnevLeafParaAnchor.GetPaintOffsetY
 
 procedure TnevLeafParaAnchor.InitPointByPt(const aView: InevView;
-  const aPoint: TnevPoint;
-  const aMap: InevMap);
+ const aPoint: TnevPoint;
+ const aMap: InevMap);
 //#UC START# *47FB320102A6_4A3B9AD60266_var*
 //#UC END# *47FB320102A6_4A3B9AD60266_var*
 begin
@@ -98,7 +79,7 @@ begin
 end;//TnevLeafParaAnchor.InitPointByPt
 
 function TnevLeafParaAnchor.PaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4A5CDCAC0230_4A3B9AD60266_var*
 //#UC END# *4A5CDCAC0230_4A3B9AD60266_var*
 begin
@@ -124,7 +105,6 @@ begin
  Result := 0;
 //#UC END# *4A3B7E540378_4A3B9AD60266_impl*
 end;//TnevLeafParaAnchor.GetPosition
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

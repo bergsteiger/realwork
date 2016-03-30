@@ -1,53 +1,40 @@
 unit nevRootFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevRootFormatInfo.pas"
-// Начат: 28.04.2008 15:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevRootFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevRootFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevRootFormatInfo" MUID: (4815B8D801D8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  nevFormatPoolBase,
-  nevDocumentFormatInfo,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevDocumentFormatInfo
+ , nevTools
+ , nevBase
+ , nevFormatPoolBase
+ , l3Variant
+;
 
 type
  _nevDocumentContainerDecorationRules_Parent_ = TnevDocumentFormatInfo;
  {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevRootFormatInfo = class(_nevDocumentContainerDecorationRules_, InevViewMetrics)
- private
- // private fields
-   f_IsWebStyle : Boolean;
-   f_ShowDocumentParts : Boolean;
-   f_ShowSpecial : Boolean;
-   f_HiddenStyles : TnevStandardStyles;
-   f_InfoCanvas : InevInfoCanvas;
-   f_Extent : TnevPoint;
-   f_ExcludeSuper : TevNormalSegLayerHandleSet;
-   f_AACLike : TnevAACLikeMode;
-   f_Pool : TnevFormatPoolBase;
-   f_FormatCanvas : InevInfoCanvas;
-   f_AllowRubberTables : TnevRubberTablesMode;
-   f_NeedTotalRecalc : Boolean;
- protected
- // realized methods
+  private
+   f_IsWebStyle: Boolean;
+   f_ShowDocumentParts: Boolean;
+   f_ShowSpecial: Boolean;
+   f_HiddenStyles: TnevStandardStyles;
+   f_InfoCanvas: InevInfoCanvas;
+   f_Extent: TnevPoint;
+   f_ExcludeSuper: TevNormalSegLayerHandleSet;
+   f_AACLike: TnevAACLikeMode;
+   f_Pool: TnevFormatPoolBase;
+   f_FormatCanvas: InevInfoCanvas;
+   f_AllowRubberTables: TnevRubberTablesMode;
+   f_NeedTotalRecalc: Boolean;
+  protected
    function pm_GetLimitWidth: TnevInch;
    function pm_GetInfoCanvas: InevInfoCanvas;
    function pm_GetIsWebStyle: Boolean;
@@ -62,52 +49,39 @@ type
    function Get_Data: InevObjectPrim;
    function Get_AACLike: TnevAACLikeMode;
    function NeedTotalRecalc: Boolean;
- protected
- // overridden property methods
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
+   function pm_GetlocSpacing: TnevRect; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
+  public
+   constructor Create(const aView: InevView;
+    aPool: TnevFormatPoolBase); reintroduce;
    function Metrics: InevViewMetrics; override;
    function ViewArea: InevViewArea; override;
    function Container: InevObjectHolder; override;
- public
- // public methods
-   constructor Create(const aView: InevView;
-    aPool: TnevFormatPoolBase); reintroduce;
  end;//TnevRootFormatInfo
 
 implementation
 
 uses
-  nevFacade,
-  l3PrinterIC,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Units,
-  evTextStyle_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
+ l3ImplUses
+ , nevFacade
+ , l3PrinterIC
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Units
+ , evTextStyle_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
-// start class TnevRootFormatInfo
-
 constructor TnevRootFormatInfo.Create(const aView: InevView;
-  aPool: TnevFormatPoolBase);
+ aPool: TnevFormatPoolBase);
 //#UC START# *4815CF1D0047_4815B8D801D8_var*
 //#UC END# *4815CF1D0047_4815B8D801D8_var*
 begin
@@ -279,6 +253,7 @@ begin
 end;//TnevRootFormatInfo.NeedTotalRecalc
 
 procedure TnevRootFormatInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4815B8D801D8_var*
 //#UC END# *479731C50290_4815B8D801D8_var*
 begin
@@ -316,7 +291,7 @@ begin
 //#UC END# *481742AB0349_4815B8D801D8_impl*
 end;//TnevRootFormatInfo.Container
 
-function TnevRootFormatInfo.pm_GetLocSpacing: TnevRect;
+function TnevRootFormatInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_4815B8D801D8get_var*
 {$IfDef Nemesis}
 (*var
@@ -339,10 +314,9 @@ begin
   Result := l_IC.AdjustMarginsByPrintableArea(Result);*)
  {$EndIf}
 //#UC END# *4E5F3D1102B8_4815B8D801D8get_impl*
-end;//TnevRootFormatInfo.pm_GetLocSpacing
+end;//TnevRootFormatInfo.pm_GetlocSpacing
 
 procedure TnevRootFormatInfo.ClearFields;
- {-}
 begin
  f_InfoCanvas := nil;
  f_FormatCanvas := nil;

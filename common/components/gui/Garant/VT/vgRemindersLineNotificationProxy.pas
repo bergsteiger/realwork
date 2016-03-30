@@ -1,87 +1,56 @@
 unit vgRemindersLineNotificationProxy;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Модуль: "w:/common/components/gui/Garant/VT/vgRemindersLineNotificationProxy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$Rem::NewReminders::TvgRemindersLineNotificationProxy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineNotificationProxy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgRemindersLineNotificationProxy" MUID: (5376118F03C8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3ProtoObject,
-  spHelpNotifyManager
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , l3ProtoObject
+ , spHelpNotifyManager
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgRemindersLineNotificationProxy = class(Tl3ProtoObject, IspHelpNotifyListener)
- protected
- // realized methods
+  protected
    procedure HelpShown;
-     {* Сигнатура метода HelpShown }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvgRemindersLineNotificationProxy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvgRemindersLineNotificationProxy }
  end;//TvgRemindersLineNotificationProxy
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3Base {a},
-  vgRemindersLineManager
-  ;
-{$IfEnd} //not NoVGScene
+ l3ImplUses
+ , vgRemindersLineManager
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVGScene)}
-
-
-// start class TvgRemindersLineNotificationProxy
-
-var g_TvgRemindersLineNotificationProxy : TvgRemindersLineNotificationProxy = nil;
+var g_TvgRemindersLineNotificationProxy: TvgRemindersLineNotificationProxy = nil;
+ {* Экземпляр синглетона TvgRemindersLineNotificationProxy }
 
 procedure TvgRemindersLineNotificationProxyFree;
+ {* Метод освобождения экземпляра синглетона TvgRemindersLineNotificationProxy }
 begin
  l3Free(g_TvgRemindersLineNotificationProxy);
-end;
-
-class function TvgRemindersLineNotificationProxy.Instance: TvgRemindersLineNotificationProxy;
-begin
- if (g_TvgRemindersLineNotificationProxy = nil) then
- begin
-  l3System.AddExitProc(TvgRemindersLineNotificationProxyFree);
-  g_TvgRemindersLineNotificationProxy := Create;
- end;
- Result := g_TvgRemindersLineNotificationProxy;
-end;
-
+end;//TvgRemindersLineNotificationProxyFree
 
 class function TvgRemindersLineNotificationProxy.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvgRemindersLineNotificationProxy <> nil;
 end;//TvgRemindersLineNotificationProxy.Exists
@@ -95,7 +64,19 @@ begin
 //#UC END# *53760DC000EE_5376118F03C8_impl*
 end;//TvgRemindersLineNotificationProxy.HelpShown
 
+class function TvgRemindersLineNotificationProxy.Instance: TvgRemindersLineNotificationProxy;
+ {* Метод получения экземпляра синглетона TvgRemindersLineNotificationProxy }
+begin
+ if (g_TvgRemindersLineNotificationProxy = nil) then
+ begin
+  l3System.AddExitProc(TvgRemindersLineNotificationProxyFree);
+  g_TvgRemindersLineNotificationProxy := Create;
+ end;
+ Result := g_TvgRemindersLineNotificationProxy;
+end;//TvgRemindersLineNotificationProxy.Instance
+
 procedure TvgRemindersLineNotificationProxy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5376118F03C8_var*
 //#UC END# *479731C50290_5376118F03C8_var*
 begin
@@ -115,13 +96,10 @@ begin
 //#UC END# *47A042E100E2_5376118F03C8_impl*
 end;//TvgRemindersLineNotificationProxy.InitFields
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoVGScene)}
 //#UC START# *53763C3A0170*
  TvgRemindersLineNotificationProxy.Instance;
 //#UC END# *53763C3A0170*
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

@@ -1,54 +1,46 @@
 {$IfNDef MouseClickOnPoint_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/MouseClickOnPoint.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::MouseClickOnPoint
-//
-// Щелчок мышью на точке в редакторе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "MouseClickOnPoint" MUID: (4DDF61B503D1)
+// Имя типа: "_MouseClickOnPoint_"
 
 {$Define MouseClickOnPoint_imp}
-{$If not defined(NoScripts)}
+
+{$If NOT Defined(NoScripts)}
  _Para2Point_Parent_ = _MouseClickOnPoint_Parent_;
- {$Include ..\EditorUsers\Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include ..\EditorUsers\HotSpotTools.imp.pas}
- _MouseClickOnPoint_ = {mixin} class(_HotSpotTools_)
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
+ _MouseClickOnPoint_ = class(_HotSpotTools_)
   {* Щелчок мышью на точке в редакторе }
- protected
- // protected methods
+  protected
    procedure ClickOnPoint(aText: TevCustomEditorWindow;
     aNeedMouseUp: Boolean); virtual;
  end;//_MouseClickOnPoint_
-{$Else}
 
- _Para2Point_Parent_ = _MouseClickOnPoint_Parent_;
- {$Include ..\EditorUsers\Para2Point.imp.pas}
- _HotSpotTools_Parent_ = _Para2Point_;
- {$Include ..\EditorUsers\HotSpotTools.imp.pas}
- _MouseClickOnPoint_ = _HotSpotTools_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_Para2Point_Parent_ = _MouseClickOnPoint_Parent_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
+_HotSpotTools_Parent_ = _Para2Point_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
+_MouseClickOnPoint_ = _HotSpotTools_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else MouseClickOnPoint_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef MouseClickOnPoint_imp_impl}
 
-{$Include ..\EditorUsers\Para2Point.imp.pas}
+{$Define MouseClickOnPoint_imp_impl}
 
-{$Include ..\EditorUsers\HotSpotTools.imp.pas}
+{$If NOT Defined(NoScripts)}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-// start class _MouseClickOnPoint_
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 procedure _MouseClickOnPoint_.ClickOnPoint(aText: TevCustomEditorWindow;
-  aNeedMouseUp: Boolean);
+ aNeedMouseUp: Boolean);
 //#UC START# *4DDF64120066_4DDF61B503D1_var*
 var
  l_HotSpot : IevHotSpot;
@@ -72,7 +64,9 @@ begin
  end; //if l_HotSpot <> nil then
 //#UC END# *4DDF64120066_4DDF61B503D1_impl*
 end;//_MouseClickOnPoint_.ClickOnPoint
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf MouseClickOnPoint_imp_impl}
 
 {$EndIf MouseClickOnPoint_imp}
+

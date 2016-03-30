@@ -21,6 +21,8 @@ uses
  , Graphics
  , l3Interfaces
  , l3InternalInterfaces
+ //#UC START# *483158FD0155intf_uses*
+ //#UC END# *483158FD0155intf_uses*
 ;
 
 type
@@ -33,17 +35,12 @@ type
    f_TabEaten: Boolean;
    f_SetDroppedLock: Integer;
    f_SetToBeginOnTreeSelect: Boolean;
-    {* Поле для свойства SetToBeginOnTreeSelect }
    f_OnAfterProcessKeyDown: TNotifyEvent;
-    {* Поле для свойства OnAfterProcessKeyDown }
    f_TextValid: Boolean;
-    {* Поле для свойства TextValid }
+    {* для ComboStyle = cbEdit определяет будет ли текст рисоваться нормальным цветом или ErrorColor. И что будет возвращать IsValid }
    f_ErrorColor: TColor;
-    {* Поле для свойства ErrorColor }
    f_OnSelect: TNotifyEvent;
-    {* Поле для свойства OnSelect }
    f_ShowFullPath: Boolean;
-    {* Поле для свойства ShowFullPath }
   private
    function FindCurrent(const aText: Il3CString): Il3SimpleNode;
    function DrawWithErrorColor: Boolean;
@@ -165,11 +162,13 @@ uses
  , l3String
  , l3Base
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , vtComboBoxWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *483158FD0155impl_uses*
+ //#UC END# *483158FD0155impl_uses*
 ;
 
 type

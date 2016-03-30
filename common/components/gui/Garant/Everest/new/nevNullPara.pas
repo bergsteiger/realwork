@@ -1,45 +1,34 @@
 unit nevNullPara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevNullPara.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevNullPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevNullPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevNullPara" MUID: (48E0BD200269)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevParaPrim
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaPrim
+ , nevTools
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevNullPara = class(TnevParaPrim)
- public
- // public methods
+  public
    class function Make: InevPara; reintroduce;
    constructor Create; reintroduce;
  end;//TnevNullPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TnevNullPara
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 class function TnevNullPara.Make: InevPara;
 var
@@ -51,7 +40,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevNullPara.Make
 
 constructor TnevNullPara.Create;
 //#UC START# *48E0BD4D0277_48E0BD200269_var*
@@ -61,7 +50,6 @@ begin
  inherited Create(nil);
 //#UC END# *48E0BD4D0277_48E0BD200269_impl*
 end;//TnevNullPara.Create
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

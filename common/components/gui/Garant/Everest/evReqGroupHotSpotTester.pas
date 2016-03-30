@@ -1,99 +1,77 @@
 unit evReqGroupHotSpotTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evReqGroupHotSpotTester.pas"
-// Начат: 22.02.2011 21:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevReqGroupHotSpotTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqGroupHotSpotTester.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReqGroupHotSpotTester" MUID: (4D64068D027B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot) AND defined(evReqGroupNeedsRadio)}
+{$If Defined(evNeedHotSpot) AND Defined(evReqGroupNeedsRadio)}
 uses
-  k2Interfaces,
-  nevGUIInterfaces,
-  evHotSpot,
-  k2ProcessorTagTool,
-  evTableHotSpot,
-  l3Variant,
-  nevTools,
-  afwInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //evNeedHotSpot AND evReqGroupNeedsRadio
+ l3IntfUses
+ , evTableHotSpot
+ , nevTools
+ , nevGUIInterfaces
+ , evHotSpot
+ , l3Variant
+ , k2Interfaces
+ , l3Interfaces
+ , afwInterfaces
+;
 
-{$If defined(evNeedHotSpot) AND defined(evReqGroupNeedsRadio)}
 type
  _nevParaListTool_Parent_ = TevHotSpot;
-{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  TevReqGroupHotSpot = class(_nevParaListTool_, IevAdvancedHotSpot)
- protected
- // realized methods
+  protected
    function MouseAction(const aView: InevControlView;
-   aButton: Tl3MouseButton;
-   anAction: Tl3MouseAction;
-   const Keys: TevMouseState;
-   var Effect: TevMouseEffect): Boolean;
-     {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
+    aButton: Tl3MouseButton;
+    anAction: Tl3MouseAction;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean;
+    {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
    function CanDrag: Boolean;
- protected
- // overridden protected methods
    procedure DoHitTest(const aView: InevControlView;
-   const aState: TafwCursorState;
-   var theInfo: TafwCursorInfo); override;
- public
- // public methods
+    const aState: TafwCursorState;
+    var theInfo: TafwCursorInfo); override;
+  public
    class function Make(aTag: Tl3Variant;
-     const aProcessor: Ik2Processor): IevAdvancedHotSpot; reintroduce;
-     {* Сигнатура фабрики TevReqGroupHotSpot.Make }
+    const aProcessor: Ik2Processor): IevAdvancedHotSpot; reintroduce;
  end;//TevReqGroupHotSpot
 
  TevReqGroupHotSpotTester = class(TevTableHotSpotTester)
- protected
- // overridden protected methods
+  protected
    function GetChildHotSpot(const aView: InevControlView;
-     const aState: TevCursorState;
-     const aPt: InevBasePoint;
-     const aMap: InevMap;
-     const aChild: InevObject;
-     out theSpot: IevHotSpot): Boolean; override;
+    const aState: TevCursorState;
+    const aPt: InevBasePoint;
+    const aMap: InevMap;
+    const aChild: InevObject;
+    out theSpot: IevHotSpot): Boolean; override;
  end;//TevReqGroupHotSpotTester
-{$IfEnd} //evNeedHotSpot AND evReqGroupNeedsRadio
+{$IfEnd} // Defined(evNeedHotSpot) AND Defined(evReqGroupNeedsRadio)
 
 implementation
 
-{$If defined(evNeedHotSpot) AND defined(evReqGroupNeedsRadio)}
+{$If Defined(evNeedHotSpot) AND Defined(evReqGroupNeedsRadio)}
 uses
-  ReqGroup_Const,
-  SysUtils,
-  evHotSpotMisc,
-  k2Tags,
-  l3Units,
-  l3Const,
-  l3MinMax
-  ;
-{$IfEnd} //evNeedHotSpot AND evReqGroupNeedsRadio
+ l3ImplUses
+ , evHotSpotMisc
+ , k2Tags
+ , l3Units
+ , l3Const
+ , l3MinMax
+ , ReqGroup_Const
+ , SysUtils
+;
 
-{$If defined(evNeedHotSpot) AND defined(evReqGroupNeedsRadio)}
+type _Instance_R_ = TevReqGroupHotSpot;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-// start class TevReqGroupHotSpot
-
 class function TevReqGroupHotSpot.Make(aTag: Tl3Variant;
-  const aProcessor: Ik2Processor): IevAdvancedHotSpot;
+ const aProcessor: Ik2Processor): IevAdvancedHotSpot;
 var
  l_Inst : TevReqGroupHotSpot;
 begin
@@ -103,13 +81,14 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevReqGroupHotSpot.Make
 
 function TevReqGroupHotSpot.MouseAction(const aView: InevControlView;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
 //#UC START# *48E263CD01BD_4D64077A0131_var*
 var
  l_N : InevPara;
@@ -150,8 +129,8 @@ begin
 end;//TevReqGroupHotSpot.CanDrag
 
 procedure TevReqGroupHotSpot.DoHitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *4A267FC6016B_4D64077A0131_var*
 //#UC END# *4A267FC6016B_4D64077A0131_var*
 begin
@@ -162,11 +141,11 @@ begin
 end;//TevReqGroupHotSpot.DoHitTest
 
 function TevReqGroupHotSpotTester.GetChildHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  const aChild: InevObject;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ const aChild: InevObject;
+ out theSpot: IevHotSpot): Boolean;
 //#UC START# *4D6406EE0228_4D64068D027B_var*
 var
  l_P : Tl3Point;
@@ -193,7 +172,6 @@ begin
   Result := inherited GetChildHotSpot(aView, aState, aPt, aMap, aChild, theSpot);
 //#UC END# *4D6406EE0228_4D64068D027B_impl*
 end;//TevReqGroupHotSpotTester.GetChildHotSpot
-
-{$IfEnd} //evNeedHotSpot AND evReqGroupNeedsRadio
+{$IfEnd} // Defined(evNeedHotSpot) AND Defined(evReqGroupNeedsRadio)
 
 end.

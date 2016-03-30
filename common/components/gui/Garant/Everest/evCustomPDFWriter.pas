@@ -1,65 +1,49 @@
 unit evCustomPDFWriter;
+ {* Писатель PDF-файлов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomPDFWriter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCustomPDFWriter
-//
-// Писатель PDF-файлов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomPDFWriter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomPDFWriter" MUID: (53FED6EF027B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  k2DocumentBuffer,
-  k2CustomFileGenerator,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2CustomFileGenerator
+ , k2DocumentBuffer
+ , nevTools
+ , l3Variant
+;
 
 type
  TevCustomPDFWriter = class(Tk2CustomFileGenerator)
   {* Писатель PDF-файлов. }
- private
- // private fields
-   f_Document : Tk2DocumentBuffer;
- protected
- // overridden protected methods
+  private
+   f_Document: Tk2DocumentBuffer;
+  protected
+   procedure ExportPDF; virtual; abstract;
+   function GetDocument: InevPara;
    procedure StartChild(TypeID: Tl3Type); override;
    procedure StartTag(TagID: Integer); override;
    procedure OpenStream; override;
-     {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
+    {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
    procedure CloseStream(NeedUndo: Boolean); override;
-     {* вызывается один раз в конце генерации. Для перекрытия в потомках. }
+    {* вызывается один раз в конце генерации. Для перекрытия в потомках. }
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure ExportPDF; virtual; abstract;
-   function GetDocument: InevPara;
  end;//TevCustomPDFWriter
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TevCustomPDFWriter
+ l3ImplUses
+ , SysUtils
+;
 
 function TevCustomPDFWriter.GetDocument: InevPara;
 //#UC START# *53FEE8EB02B9_53FED6EF027B_var*
@@ -93,6 +77,7 @@ begin
 end;//TevCustomPDFWriter.StartTag
 
 procedure TevCustomPDFWriter.OpenStream;
+ {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
 //#UC START# *4836D49800CA_53FED6EF027B_var*
 //#UC END# *4836D49800CA_53FED6EF027B_var*
 begin
@@ -104,6 +89,7 @@ begin
 end;//TevCustomPDFWriter.OpenStream
 
 procedure TevCustomPDFWriter.CloseStream(NeedUndo: Boolean);
+ {* вызывается один раз в конце генерации. Для перекрытия в потомках. }
 //#UC START# *4836D4B003DC_53FED6EF027B_var*
 //#UC END# *4836D4B003DC_53FED6EF027B_var*
 begin
@@ -115,6 +101,7 @@ begin
 end;//TevCustomPDFWriter.CloseStream
 
 procedure TevCustomPDFWriter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_53FED6EF027B_var*
 //#UC END# *4836D4C20059_53FED6EF027B_var*
 begin
@@ -125,7 +112,7 @@ begin
 end;//TevCustomPDFWriter.CloseStructure
 
 procedure TevCustomPDFWriter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_53FED6EF027B_var*
 //#UC END# *4836D52400D9_53FED6EF027B_var*
 begin

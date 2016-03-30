@@ -1,81 +1,60 @@
 unit nevMeasureView;
+ {* Область вывода для измерений. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevMeasureView.pas"
-// Начат: 20.02.2006 19:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevMeasureView
-//
-// Область вывода для измерений.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevMeasureView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevMeasureView" MUID: (481201700007)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  nevTools,
-  nevVirtualView,
-  nevBase
-  ;
+ l3IntfUses
+ , nevVirtualView
+ , nevTools
+ , afwInterfaces
+ , nevBase
+;
 
 type
  TnevMeasureView = class(TnevVirtualView, InevMeasureView)
   {* Область вывода для измерений. }
- private
- // private fields
-   f_CaretPoint : InevBasePoint;
-   f_Caret : IafwScrollCaret;
- protected
- // realized methods
+  private
+   f_CaretPoint: InevBasePoint;
+   f_Caret: IafwScrollCaret;
+  protected
+   function IsCaretInited: Boolean;
+   function IsCaretVisible: Boolean;
+   procedure CheckShapes;
    procedure MakePointVisible(const aTop: InevAnchor;
-     const aPoint: InevBasePoint;
-     var thePos: Integer);
-     {* Делает так, чтобы курсор был видим на заданном экране }
- protected
- // overridden protected methods
+    const aPoint: InevBasePoint;
+    var thePos: Integer);
+    {* Делает так, чтобы курсор был видим на заданном экране }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoSignalScroll(aTopDiff: Integer;
     aDeltaY: Integer); override;
    function GetCanvas(const anExtent: TnevPoint): InevCanvas; override;
    function CaretCursor: InevBasePoint; override;
    procedure LinkControl(const aControl: InevControl); override;
    procedure DoUnlinkControl(const aControl: InevControl); override;
- protected
- // protected methods
-   function IsCaretInited: Boolean;
-   function IsCaretVisible: Boolean;
-   procedure CheckShapes;
- public
- // public methods
+  public
    constructor Create(const aControl: InevControl); reintroduce;
    class function Make(const aControl: InevControl): InevMeasureView; reintroduce;
-     {* Сигнатура фабрики TnevMeasureView.Make }
  end;//TnevMeasureView
 
 implementation
 
 uses
-  afwMeasureCanvas,
-  SysUtils,
-  nevFacade,
-  afwVirtualCaret,
-  l3MinMax,
-  l3Units
-  ;
-
-// start class TnevMeasureView
+ l3ImplUses
+ , afwMeasureCanvas
+ , SysUtils
+ , nevFacade
+ , afwVirtualCaret
+ , l3MinMax
+ , l3Units
+;
 
 constructor TnevMeasureView.Create(const aControl: InevControl);
 //#UC START# *4CB5C07B03E3_481201700007_var*
@@ -97,7 +76,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevMeasureView.Make
 
 function TnevMeasureView.IsCaretInited: Boolean;
 //#UC START# *481203AD0062_481201700007_var*
@@ -149,8 +128,9 @@ begin
 end;//TnevMeasureView.CheckShapes
 
 procedure TnevMeasureView.MakePointVisible(const aTop: InevAnchor;
-  const aPoint: InevBasePoint;
-  var thePos: Integer);
+ const aPoint: InevBasePoint;
+ var thePos: Integer);
+ {* Делает так, чтобы курсор был видим на заданном экране }
 //#UC START# *47C7D0950051_481201700007_var*
 const
  l_D = 1;
@@ -264,6 +244,7 @@ begin
 end;//TnevMeasureView.MakePointVisible
 
 procedure TnevMeasureView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_481201700007_var*
 //#UC END# *479731C50290_481201700007_var*
 begin
@@ -275,7 +256,7 @@ begin
 end;//TnevMeasureView.Cleanup
 
 procedure TnevMeasureView.DoSignalScroll(aTopDiff: Integer;
-  aDeltaY: Integer);
+ aDeltaY: Integer);
 //#UC START# *4811EAEB030F_481201700007_var*
 //#UC END# *4811EAEB030F_481201700007_var*
 begin

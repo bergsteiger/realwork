@@ -1,41 +1,30 @@
 unit evParaListHotSpotTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListHotSpotTester.pas"
-// Начат: 2005/06/02 12:33:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevParaListHotSpotTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListHotSpotTester.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListHotSpotTester" MUID: (4A27B7300174)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evParaListHotSpotTesterPrim
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evParaListHotSpotTesterPrim
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevParaListHotSpotTester = class(TevParaListHotSpotTesterPrim)
  end;//TevParaListHotSpotTester
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evNeedHotSpot)
 
-
-{$IfEnd} //evNeedHotSpot
 end.

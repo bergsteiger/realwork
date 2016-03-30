@@ -1,44 +1,32 @@
 unit nevBitmapParaAnchor;
+ {* Якорь параграфа-картики }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevBitmapParaAnchor.pas"
-// Начат: 24.10.2005 09:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevBitmapParaAnchor
-//
-// Якорь параграфа-картики
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBitmapParaAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevBitmapParaAnchor" MUID: (4A3BB0550026)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevSolidParaAnchor
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevSolidParaAnchor
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevBitmapParaAnchor = class(TnevSolidParaAnchor)
   {* Якорь параграфа-картики }
  end;//TnevBitmapParaAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(k2ForEditor)
 
-
-{$IfEnd} //k2ForEditor
 end.

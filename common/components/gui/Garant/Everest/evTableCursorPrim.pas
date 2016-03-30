@@ -1,94 +1,79 @@
 unit evTableCursorPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCursorPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevTableCursorPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCursorPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCursorPrim" MUID: (4EF9B83D010D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evInternalInterfaces,
-  evParaListCursor,
-  nevBase,
-  nevTools,
-  l3IID,
-  l3Interfaces,
-  l3Types
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursor
+ , evInternalInterfaces
+ , nevTools
+ , nevBase
+ , l3Interfaces
+ , l3Types
+ , l3IID
+;
 
-{$If defined(evUseVisibleCursors)}
 type
- TevTableCursorPrim = class(TevParaListCursor {$If defined(evNeedHotSpot)}, IevChangeParamTool{$IfEnd} //evNeedHotSpot
+ TevTableCursorPrim = class(TevParaListCursor{$If Defined(evNeedHotSpot)}
+ , IevChangeParamTool
+ {$IfEnd} // Defined(evNeedHotSpot)
  )
- protected
- // realized methods
-   {$If defined(evNeedHotSpot)}
+  protected
+   {$If Defined(evNeedHotSpot)}
    function ChangeParam(const aMarker: IevMarker;
     aValue: Integer;
     const anOpPack: InevOp;
     SeeByLevel: Boolean = False;
-    aMinIndex: Tl3Index = l3MinIndex;
-    aMaxIndex: Tl3Index = l3MaxIndex): Boolean;
-     {* Изменить значение параметра }
-   {$IfEnd} //evNeedHotSpot
- protected
- // overridden protected methods
+    aMinIndex: Tl3Index = l3Types.l3MinIndex;
+    aMaxIndex: Tl3Index = l3Types.l3MaxIndex): Boolean;
+    {* Изменить значение параметра }
+   {$IfEnd} // Defined(evNeedHotSpot)
    function DoChangeParam(const aView: InevView;
     const aMarker: IevMarker;
     aValue: Integer;
     const anOp: InevOp): Boolean; override;
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+   {$If Defined(evNeedMarkers)}
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+   {$IfEnd} // Defined(evNeedMarkers)
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
  end;//TevTableCursorPrim
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  SysUtils,
-  evdTypes,
-  l3Units,
-  k2Interfaces,
-  l3MinMax,
-  evConst,
-  nevInterfaces,
-  evTableMarker,
-  k2Tags,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , SysUtils
+ , evdTypes
+ , l3Units
+ , k2Interfaces
+ , l3MinMax
+ , evConst
+ , nevInterfaces
+ , evTableMarker
+ , k2Tags
+ , l3Variant
+;
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableCursorPrim
-
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 function TevTableCursorPrim.ChangeParam(const aMarker: IevMarker;
-  aValue: Integer;
-  const anOpPack: InevOp;
-  SeeByLevel: Boolean = False;
-  aMinIndex: Tl3Index = l3MinIndex;
-  aMaxIndex: Tl3Index = l3MaxIndex): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp;
+ SeeByLevel: Boolean = False;
+ aMinIndex: Tl3Index = l3Types.l3MinIndex;
+ aMaxIndex: Tl3Index = l3Types.l3MaxIndex): Boolean;
+ {* Изменить значение параметра }
 //#UC START# *4A26260A00E6_4EF9B83D010D_var*
 var
  l_OriginalValue       : Long;
@@ -251,12 +236,12 @@ begin
   end;//try..finally
 //#UC END# *4A26260A00E6_4EF9B83D010D_impl*
 end;//TevTableCursorPrim.ChangeParam
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 function TevTableCursorPrim.DoChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29465701BC_4EF9B83D010D_var*
 //#UC END# *4A29465701BC_4EF9B83D010D_var*
 begin
@@ -268,9 +253,9 @@ begin
 //#UC END# *4A29465701BC_4EF9B83D010D_impl*
 end;//TevTableCursorPrim.DoChangeParam
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevTableCursorPrim.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_4EF9B83D010D_var*
 //#UC END# *4A38AA5C019F_4EF9B83D010D_var*
 begin
@@ -279,10 +264,11 @@ begin
   str_nevmhTableIndent.AsCStr, TevTableMarker);
 //#UC END# *4A38AA5C019F_4EF9B83D010D_impl*
 end;//TevTableCursorPrim.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
 function TevTableCursorPrim.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4EF9B83D010D_var*
 //#UC END# *4A60B23E00C3_4EF9B83D010D_var*
 begin
@@ -297,7 +283,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_4EF9B83D010D_impl*
 end;//TevTableCursorPrim.COMQueryInterface
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

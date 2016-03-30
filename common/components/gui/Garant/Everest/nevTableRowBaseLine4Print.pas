@@ -1,52 +1,37 @@
 unit nevTableRowBaseLine4Print;
+ {* Базовая линия для печати }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevTableRowBaseLine4Print.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TnevTableRowBaseLine4Print
-//
-// Базовая линия для печати
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLine4Print.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRowBaseLine4Print" MUID: (4DD77A940374)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  l3Variant,
-  nevBase,
-  nevBasePointList,
-  k2TagPointer,
-  k2Base,
-  l3Core
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , nevTools
+ , l3Variant
+ , nevBase
+ , nevBasePointList
+ , l3Core
+ , k2TagPointer
+ , k2Base
+;
 
-{$If defined(evUseVisibleCursors)}
 type
- {$Include ..\Everest\nevTableRowBaseLineCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
  TnevTableRowBaseLine4Print = class(_nevTableRowBaseLineCommon_)
   {* Базовая линия для печати }
- protected
- // realized methods
+  protected
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; override;
    function CheckMaxID(aMaxID: Integer): InevBasePoint; override;
    function SimpleMode: Boolean; override;
    function GetInner4SimpleMode: InevBasePoint; override;
- protected
- // overridden protected methods
    procedure DoSetInner(const aValue: InevBasePoint); override;
    procedure DoMergeTo(const aView: InevView;
     const aBaseLine: InevBasePoint); override;
@@ -56,38 +41,30 @@ type
    procedure DoAddHeadInner(const aHeadInner: InevBasePoint); override;
    function DoHasHeadPart: Boolean; override;
    function DoInnerHead(aPID: Integer): InevBasePoint; override;
- public
- // public methods
+  public
    class function Make(aRow: Tl3Variant): InevPoint; reintroduce;
  end;//TnevTableRowBaseLine4Print
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evdTypes,
-  l3MinMax,
-  nevAfterEndPoint,
-  k2Tags,
-  l3Base
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  SysUtils,
-  k2NullTagImpl
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
+ l3ImplUses
+ , evdTypes
+ , l3MinMax
+ , nevAfterEndPoint
+ , k2Tags
+ , l3Base
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , SysUtils
+;
 
 type _Instance_R_ = TnevTableRowBaseLine4Print;
 
-{$Include ..\Everest\nevTableRowBaseLineCommon.imp.pas}
-
-// start class TnevTableRowBaseLine4Print
+{$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
 
 class function TnevTableRowBaseLine4Print.Make(aRow: Tl3Variant): InevPoint;
 var
@@ -99,11 +76,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTableRowBaseLine4Print.Make
 
 function TnevTableRowBaseLine4Print.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4DDA86730300_4DD77A940374_var*
 var
  l_Child      : InevPara;
@@ -241,7 +218,7 @@ begin
 end;//TnevTableRowBaseLine4Print.DoSetInner
 
 procedure TnevTableRowBaseLine4Print.DoMergeTo(const aView: InevView;
-  const aBaseLine: InevBasePoint);
+ const aBaseLine: InevBasePoint);
 //#UC START# *4DD79C030322_4DD77A940374_var*
 var
  i : Integer;
@@ -283,7 +260,7 @@ begin
 end;//TnevTableRowBaseLine4Print.DoMergeTo
 
 procedure TnevTableRowBaseLine4Print.DoCompareWithOtherInner(const aView: InevView;
-  anMaxID: Integer = -1);
+ anMaxID: Integer = -1);
 //#UC START# *4DD79DA50099_4DD77A940374_var*
 var
  i          : Integer;
@@ -385,7 +362,6 @@ begin
   Result := nil;
 //#UC END# *4DD7A1390112_4DD77A940374_impl*
 end;//TnevTableRowBaseLine4Print.DoInnerHead
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

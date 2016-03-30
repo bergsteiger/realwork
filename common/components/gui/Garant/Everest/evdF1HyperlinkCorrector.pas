@@ -1,31 +1,21 @@
 unit evdF1HyperlinkCorrector;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evdF1HyperlinkCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdF1HyperlinkCorrector
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdF1HyperlinkCorrector.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdF1HyperlinkCorrector" MUID: (52E0A8490387)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdCustomHyperlinkCorrector
-  ;
+ l3IntfUses
+ , evdCustomHyperlinkCorrector
+;
 
 type
  TevdF1HyperlinkCorrector = class(TevdCustomHyperlinkCorrector)
- protected
- // overridden protected methods
+  protected
    function IsNeedCorrection: Boolean; override;
    function DoCorrectDocID(const aDocID: Integer): Integer; override;
    function CheckDocIDBeforeCorrection(const aDocID: Integer): Boolean; override;
@@ -34,15 +24,13 @@ type
 implementation
 
 uses
-  evdVer,
-  SysUtils
-  ;
+ l3ImplUses
+ , evdVer
+ , SysUtils
+;
 
 const
-   { Constants }
-  c_F1DocIDThreshold = 100000;
-
-// start class TevdF1HyperlinkCorrector
+ c_F1DocIDThreshold = 100000;
 
 function TevdF1HyperlinkCorrector.IsNeedCorrection: Boolean;
 //#UC START# *52E0B71902EC_52E0A8490387_var*

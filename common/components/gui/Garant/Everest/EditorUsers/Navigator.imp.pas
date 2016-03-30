@@ -1,37 +1,34 @@
 {$IfNDef Navigator_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/Navigator.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::Navigator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "Navigator" MUID: (4C9210B70244)
+// Имя типа: "_Navigator_"
 
 {$Define Navigator_imp}
-{$If not defined(NoScripts)}
- _Navigator_ = {mixin} class(_Navigator_Parent_)
- protected
- // protected methods
+
+{$If NOT Defined(NoScripts)}
+ _Navigator_ = class(_Navigator_Parent_)
+  protected
    procedure Navigate(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); virtual; abstract;
-     {* Устанавливает курсор или выделение }
+    {* Устанавливает курсор или выделение }
  end;//_Navigator_
-{$Else}
 
- _Navigator_ = _Navigator_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_Navigator_ = _Navigator_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else Navigator_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef Navigator_imp_impl}
 
+{$Define Navigator_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf Navigator_imp_impl}
 
 {$EndIf Navigator_imp}
+

@@ -1,70 +1,51 @@
 unit evStorable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStorable.pas"
-// Начат: 26.12.2006 14:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStorable" MUID: (48F48A7E033C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  nevBase,
-  nevTools,
-  evdInterfaces,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , nevTools
+ , evdInterfaces
+ , nevBase
+ , l3Interfaces
+;
 
 type
  TevStorable = class(Tl3CacheableBase, InevStorable, IevdDataObject, InevDataObjectPrim2)
- private
- // private fields
-   f_Reader : InevTagReader;
- protected
- // realized methods
+  private
+   f_Reader: InevTagReader;
+  protected
+   procedure DoStore(const G: InevTagGenerator;
+    aFlags: TevdStoreFlags); virtual; abstract;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload; 
-     {* сохраняет выделение в G. }
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload; 
-     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
+    {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function pm_GetBorders: TevPair;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure DoStore(const G: InevTagGenerator;
-    aFlags: TevdStoreFlags); virtual; abstract;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aReader: InevTagReader); reintroduce;
  end;//TevStorable
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TevStorable
+ l3ImplUses
+ , l3Base
+;
 
 constructor TevStorable.Create(const aReader: InevTagReader);
 //#UC START# *48F48B0A02D1_48F48A7E033C_var*
@@ -77,8 +58,9 @@ begin
 end;//TevStorable.Create
 
 procedure TevStorable.Store(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48F48A7E033C_var*
 //#UC END# *47C68BFD011C_48F48A7E033C_var*
 begin
@@ -88,9 +70,10 @@ begin
 end;//TevStorable.Store
 
 function TevStorable.Store(aFormat: TevdClipboardFormat;
-  const aPool: IStream;
-  const aFilters: TevdTagGenerator;
-  aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ const aPool: IStream;
+ const aFilters: TevdTagGenerator;
+ aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_48F48A7E033C_var*
 //#UC END# *47C68C6701AF_48F48A7E033C_var*
 begin
@@ -109,6 +92,7 @@ begin
 end;//TevStorable.pm_GetBorders
 
 procedure TevStorable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F48A7E033C_var*
 //#UC END# *479731C50290_48F48A7E033C_var*
 begin

@@ -1,77 +1,58 @@
 {$IfNDef AACSpaceDrawing_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/AACSpaceDrawing.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Drawing Framework::AACSpaceDrawing
-//
-// Для отрисовки хитрых отступов для AAK
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "AACSpaceDrawing" MUID: (5062BFDB025E)
+// Имя типа: "_AACSpaceDrawing_"
 
 {$Define AACSpaceDrawing_imp}
-{$If defined(evNeedPainters)}
- _AACSpaceDrawing_ = {mixin} class(_AACSpaceDrawing_Parent_)
+
+{$If Defined(evNeedPainters)}
+ _AACSpaceDrawing_ = class(_AACSpaceDrawing_Parent_)
   {* Для отрисовки хитрых отступов для AAK }
- private
- // private fields
-   f_TopSpace : Integer;
-   f_NeedCalcSpace : Boolean;
- private
- // private methods
+  private
+   f_TopSpace: Integer;
+   f_NeedCalcSpace: Boolean;
+  private
    procedure DoFillEmptyRect(const aRect: Tl3Rect);
- protected
- // protected methods
+  protected
    function NeedCalcSpace: Boolean; virtual; abstract;
-     {* Проверка для срабатывания примеси. }
+    {* Проверка для срабатывания примеси. }
    function SpecialFill(const aRect: Tl3Rect;
-     aNeedCorrectRight: Boolean): Boolean;
-     {* Специальная заливка для хитрых фонов }
+    aNeedCorrectRight: Boolean): Boolean;
+    {* Специальная заливка для хитрых фонов }
    procedure StartDrawingInitFields;
-     {* Функция инициализации полей при каждой отрисовке объекта. }
+    {* Функция инициализации полей при каждой отрисовке объекта. }
    procedure CorrectByTextHeight(aHeight: Integer); virtual;
-     {* Корректирует отступ отрисованной высотой текста. }
+    {* Корректирует отступ отрисованной высотой текста. }
    procedure CorrectByImageHeight(aHeight: Integer;
-     aY: Integer);
-     {* Корректирует высотой иконки (в пикселях). }
+    aY: Integer);
+    {* Корректирует высотой иконки (в пикселях). }
    procedure InternalDrawFrameText(const aText: Tl3PCharLen;
-     aTop: Boolean;
-     aSpace: Integer;
-     aDecorType: TnevDecorType;
-     aDecorObj: Tl3Variant;
-     aFirstIndent: Integer);
+    aTop: Boolean;
+    aSpace: Integer;
+    aDecorType: TnevDecorType;
+    aDecorObj: Tl3Variant;
+    aFirstIndent: Integer);
    function HeaderOwnSpace: Boolean; virtual; abstract;
    function GetSpaceTop(anInc: Boolean): Integer; virtual; abstract;
  end;//_AACSpaceDrawing_
-{$Else}
 
- _AACSpaceDrawing_ = _AACSpaceDrawing_Parent_;
+{$Else Defined(evNeedPainters)}
 
-{$IfEnd} //evNeedPainters
+_AACSpaceDrawing_ = _AACSpaceDrawing_Parent_;
 
+{$IfEnd} // Defined(evNeedPainters)
 {$Else AACSpaceDrawing_imp}
 
-{$If defined(evNeedPainters)}
+{$IfNDef AACSpaceDrawing_imp_impl}
 
-// start class _AACSpaceDrawing_
+{$Define AACSpaceDrawing_imp_impl}
 
-procedure _AACSpaceDrawing_.DoFillEmptyRect(const aRect: Tl3Rect);
-//#UC START# *54B4E7E3005D_5062BFDB025E_var*
-//#UC END# *54B4E7E3005D_5062BFDB025E_var*
-begin
-//#UC START# *54B4E7E3005D_5062BFDB025E_impl*
- if EvHasAACStyle(ParaX.AsObject) and Area.rCanvas.Printing then
-  Area.rCanvas.EndDrawAAC(aRect);
-//#UC END# *54B4E7E3005D_5062BFDB025E_impl*
-end;//_AACSpaceDrawing_.DoFillEmptyRect
-
+{$If Defined(evNeedPainters)}
 function _AACSpaceDrawing_.SpecialFill(const aRect: Tl3Rect;
-  aNeedCorrectRight: Boolean): Boolean;
+ aNeedCorrectRight: Boolean): Boolean;
+ {* Специальная заливка для хитрых фонов }
 //#UC START# *5062C0F603BF_5062BFDB025E_var*
 var
  l_Top    : Integer;
@@ -113,6 +94,7 @@ begin
 end;//_AACSpaceDrawing_.SpecialFill
 
 procedure _AACSpaceDrawing_.StartDrawingInitFields;
+ {* Функция инициализации полей при каждой отрисовке объекта. }
 //#UC START# *5062C21A02C0_5062BFDB025E_var*
 //#UC END# *5062C21A02C0_5062BFDB025E_var*
 begin
@@ -126,6 +108,7 @@ begin
 end;//_AACSpaceDrawing_.StartDrawingInitFields
 
 procedure _AACSpaceDrawing_.CorrectByTextHeight(aHeight: Integer);
+ {* Корректирует отступ отрисованной высотой текста. }
 //#UC START# *5062C3470289_5062BFDB025E_var*
 //#UC END# *5062C3470289_5062BFDB025E_var*
 begin
@@ -136,7 +119,8 @@ begin
 end;//_AACSpaceDrawing_.CorrectByTextHeight
 
 procedure _AACSpaceDrawing_.CorrectByImageHeight(aHeight: Integer;
-  aY: Integer);
+ aY: Integer);
+ {* Корректирует высотой иконки (в пикселях). }
 //#UC START# *5062C38800CA_5062BFDB025E_var*
 var
  l_Y: Integer;
@@ -154,11 +138,11 @@ begin
 end;//_AACSpaceDrawing_.CorrectByImageHeight
 
 procedure _AACSpaceDrawing_.InternalDrawFrameText(const aText: Tl3PCharLen;
-  aTop: Boolean;
-  aSpace: Integer;
-  aDecorType: TnevDecorType;
-  aDecorObj: Tl3Variant;
-  aFirstIndent: Integer);
+ aTop: Boolean;
+ aSpace: Integer;
+ aDecorType: TnevDecorType;
+ aDecorObj: Tl3Variant;
+ aFirstIndent: Integer);
 //#UC START# *51FF64D702CE_5062BFDB025E_var*
 var
  l_X              : Integer;
@@ -296,6 +280,18 @@ begin
 //#UC END# *51FF64D702CE_5062BFDB025E_impl*
 end;//_AACSpaceDrawing_.InternalDrawFrameText
 
-{$IfEnd} //evNeedPainters
+procedure _AACSpaceDrawing_.DoFillEmptyRect(const aRect: Tl3Rect);
+//#UC START# *54B4E7E3005D_5062BFDB025E_var*
+//#UC END# *54B4E7E3005D_5062BFDB025E_var*
+begin
+//#UC START# *54B4E7E3005D_5062BFDB025E_impl*
+ if EvHasAACStyle(ParaX.AsObject) and Area.rCanvas.Printing then
+  Area.rCanvas.EndDrawAAC(aRect);
+//#UC END# *54B4E7E3005D_5062BFDB025E_impl*
+end;//_AACSpaceDrawing_.DoFillEmptyRect
+{$IfEnd} // Defined(evNeedPainters)
+
+{$EndIf AACSpaceDrawing_imp_impl}
 
 {$EndIf AACSpaceDrawing_imp}
+

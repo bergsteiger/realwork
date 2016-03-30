@@ -1,92 +1,64 @@
 unit evCopyTableCellWidth;
+ {* Интсрумент для копирования ширин колонок из одной таблицы в другую. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCopyTableCellWidth.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCopyTableCellWidth
-//
-// Интсрумент для копирования ширин колонок из одной таблицы в другую.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCopyTableCellWidth" MUID: (4F28F7160399)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  evEditorInterfaces,
-  l3ProtoObject,
-  evCellsOffsetsList,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evCellsOffsetsList
+ , l3Variant
+ , evEditorInterfaces
+ , l3Interfaces
+;
 
 type
  TevCopyTableCellWidth = {final} class(Tl3ProtoObject)
   {* Интсрумент для копирования ширин колонок из одной таблицы в другую. }
- private
- // private fields
-   f_TemplatesArray : TevCellsOffsetsList;
-   f_TableTag : Tl3Tag;
- private
- // private methods
+  private
+   f_TemplatesArray: TevCellsOffsetsList;
+   f_TableTag: Tl3Tag;
+  private
    procedure RememberRowWidth(const anIterator: IedCellsIterator);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure RememberWidths(const aRange: IedRange); virtual;
    procedure ApplyWidths(const aRange: IedRange;
     const aProgress: Il3Progress = nil); virtual;
    function CanApply: Boolean; virtual;
    procedure Clear; virtual;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevCopyTableCellWidth;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevCopyTableCellWidth }
  end;//TevCopyTableCellWidth
 
 implementation
 
 uses
-  l3Base {a},
-  nevBase,
-  evCellsWidthCorrecter,
-  SysUtils
-  ;
+ l3ImplUses
+ , nevBase
+ , evCellsWidthCorrecter
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TevCopyTableCellWidth
-
-var g_TevCopyTableCellWidth : TevCopyTableCellWidth = nil;
+var g_TevCopyTableCellWidth: TevCopyTableCellWidth = nil;
+ {* Экземпляр синглетона TevCopyTableCellWidth }
 
 procedure TevCopyTableCellWidthFree;
+ {* Метод освобождения экземпляра синглетона TevCopyTableCellWidth }
 begin
  l3Free(g_TevCopyTableCellWidth);
-end;
-
-class function TevCopyTableCellWidth.Instance: TevCopyTableCellWidth;
-begin
- if (g_TevCopyTableCellWidth = nil) then
- begin
-  l3System.AddExitProc(TevCopyTableCellWidthFree);
-  g_TevCopyTableCellWidth := Create;
- end;
- Result := g_TevCopyTableCellWidth;
-end;
-
+end;//TevCopyTableCellWidthFree
 
 procedure TevCopyTableCellWidth.RememberRowWidth(const anIterator: IedCellsIterator);
 //#UC START# *4F29052701FB_4F28F7160399_var*
@@ -135,7 +107,7 @@ begin
 end;//TevCopyTableCellWidth.RememberWidths
 
 procedure TevCopyTableCellWidth.ApplyWidths(const aRange: IedRange;
-  const aProgress: Il3Progress = nil);
+ const aProgress: Il3Progress = nil);
 //#UC START# *4F28FC900076_4F28F7160399_var*
 var
  l_Table: IedTable;
@@ -177,12 +149,24 @@ begin
 end;//TevCopyTableCellWidth.Clear
 
 class function TevCopyTableCellWidth.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TevCopyTableCellWidth <> nil;
 end;//TevCopyTableCellWidth.Exists
 
+class function TevCopyTableCellWidth.Instance: TevCopyTableCellWidth;
+ {* Метод получения экземпляра синглетона TevCopyTableCellWidth }
+begin
+ if (g_TevCopyTableCellWidth = nil) then
+ begin
+  l3System.AddExitProc(TevCopyTableCellWidthFree);
+  g_TevCopyTableCellWidth := Create;
+ end;
+ Result := g_TevCopyTableCellWidth;
+end;//TevCopyTableCellWidth.Instance
+
 procedure TevCopyTableCellWidth.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F28F7160399_var*
 //#UC END# *479731C50290_4F28F7160399_var*
 begin

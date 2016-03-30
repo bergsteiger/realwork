@@ -1,49 +1,37 @@
 unit nevBreakParaAnchor;
+ {* Якорь параграфа-разрыва }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevBreakParaAnchor.pas"
-// Начат: 24.11.2006 12:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevBreakParaAnchor
-//
-// Якорь параграфа-разрыва
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBreakParaAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevBreakParaAnchor" MUID: (4A3BB09A0147)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevSolidParaAnchor,
-  nevTools
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevSolidParaAnchor
+ , nevTools
+;
 
-{$If defined(k2ForEditor)}
 type
  _nevBreakParaAnchorModify_Parent_ = TnevSolidParaAnchor;
  {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
  TnevBreakParaAnchor = class(_nevBreakParaAnchorModify_)
   {* Якорь параграфа-разрыва }
  end;//TnevBreakParaAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
+{$IfEnd} // Defined(k2ForEditor)
 
-
-{$IfEnd} //k2ForEditor
 end.

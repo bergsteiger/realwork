@@ -11,9 +11,9 @@ interface
 
 uses
  l3IntfUses
- , nevTools
- , afwInterfaces
  , l3Interfaces
+ , afwInterfaces
+ , nevTools
 ;
 
  (*

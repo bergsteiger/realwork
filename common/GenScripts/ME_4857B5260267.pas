@@ -36,6 +36,8 @@ uses
  , k2Int64_Const
  , k2RawData_Const
  , EditablePart_Const
+ //#UC START# *4857B5260267_484CD009023Dintf_uses*
+ //#UC END# *4857B5260267_484CD009023Dintf_uses*
 ;
 
  // DocumentTag
@@ -45,6 +47,8 @@ implementation
 uses
  l3ImplUses
  , l3Const
+ //#UC START# *4857B5260267_484CD009023Dimpl_uses*
+ //#UC END# *4857B5260267_484CD009023Dimpl_uses*
 ;
 
 end.

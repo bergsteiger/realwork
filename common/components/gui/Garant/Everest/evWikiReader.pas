@@ -1,33 +1,26 @@
 unit evWikiReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evWikiReader.pas"
-// Начат: 28.02.2011 21:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Readers::TevWikiReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evWikiReader.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevWikiReader" MUID: (4D6BE6AF0322)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomWikiReader
-  ;
+ l3IntfUses
+ , evCustomWikiReader
+;
 
 type
  TevWikiReader = class(TevCustomWikiReader)
  end;//TevWikiReader
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

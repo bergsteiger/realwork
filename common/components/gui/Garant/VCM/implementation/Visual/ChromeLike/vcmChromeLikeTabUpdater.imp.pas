@@ -1,56 +1,45 @@
 {$IfNDef vcmChromeLikeTabUpdater_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmChromeLikeTabUpdater.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmChromeLikeTabUpdater
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabUpdater.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmChromeLikeTabUpdater" MUID: (53B6495D0309)
+// Имя типа: "_vcmChromeLikeTabUpdater_"
 
 {$Define vcmChromeLikeTabUpdater_imp}
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
- _vcmChromeLikeTabUpdater_ = {mixin} class(_vcmChromeLikeTabUpdater_Parent_, IvcmFormSetIconProvider)
- private
- // private fields
-   f_LastUpdatedUserType : TvcmUserType;
-   f_WasUpdate : Boolean;
-   f_LastUpdatedCaption : IvcmCString;
- protected
- // realized methods
-   function pm_GetFormSetImageIndex: Integer;
-   function pm_GetCanDefineFormSetIcon: Boolean;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   function InsertForm(const aForm: IvcmEntityForm): Boolean; override;
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ _vcmChromeLikeTabUpdater_ = class(_vcmChromeLikeTabUpdater_Parent_, IvcmFormSetIconProvider)
+  private
+   f_LastUpdatedUserType: TvcmUserType;
+   f_WasUpdate: Boolean;
+   f_LastUpdatedCaption: IvcmCString;
+  protected
    function DoGetFormSetImageIndex: Integer; virtual; abstract;
    procedure UpdateChromeLikeTab;
    function NeedUpdateChromeLikeTab: Boolean; virtual;
    function NeedUpdateChromeLikeTabCaption(const aCaption: IvcmCString): Boolean; virtual;
    procedure UpdateChromeLikeTabCaption(const aCaption: IvcmCString);
+   function pm_GetFormSetImageIndex: Integer;
+   function pm_GetCanDefineFormSetIcon: Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   function InsertForm(const aForm: IvcmEntityForm): Boolean; override;
  end;//_vcmChromeLikeTabUpdater_
-{$Else}
 
- _vcmChromeLikeTabUpdater_ = _vcmChromeLikeTabUpdater_Parent_;
+{$Else NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+_vcmChromeLikeTabUpdater_ = _vcmChromeLikeTabUpdater_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 {$Else vcmChromeLikeTabUpdater_imp}
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$IfNDef vcmChromeLikeTabUpdater_imp_impl}
 
-// start class _vcmChromeLikeTabUpdater_
+{$Define vcmChromeLikeTabUpdater_imp_impl}
 
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 procedure _vcmChromeLikeTabUpdater_.UpdateChromeLikeTab;
 //#UC START# *53B6800D01AC_53B6495D0309_var*
 //#UC END# *53B6800D01AC_53B6495D0309_var*
@@ -131,6 +120,7 @@ begin
 end;//_vcmChromeLikeTabUpdater_.pm_GetCanDefineFormSetIcon
 
 procedure _vcmChromeLikeTabUpdater_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53B6495D0309_var*
 //#UC END# *479731C50290_53B6495D0309_var*
 begin
@@ -141,6 +131,7 @@ begin
 end;//_vcmChromeLikeTabUpdater_.Cleanup
 
 procedure _vcmChromeLikeTabUpdater_.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_53B6495D0309_var*
 //#UC END# *49803F5503AA_53B6495D0309_var*
 begin
@@ -164,7 +155,9 @@ begin
  {$IfEnd}  
 //#UC END# *4AD44CA20001_53B6495D0309_impl*
 end;//_vcmChromeLikeTabUpdater_.InsertForm
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$EndIf vcmChromeLikeTabUpdater_imp_impl}
 
 {$EndIf vcmChromeLikeTabUpdater_imp}
+

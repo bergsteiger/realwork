@@ -1,68 +1,51 @@
 unit nevRubberCellsRenderInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevRubberCellsRenderInfo.pas"
-// Начат: 06.05.2008 21:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevRubberCellsRenderInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevRubberCellsRenderInfo" MUID: (482098D2015E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3LongintList,
-  nevTableRowRenderInfo,
-  nevFormatInfo
-  ;
+ l3IntfUses
+ , nevTableRowRenderInfo
+ , l3LongintList
+ , nevFormatInfo
+;
 
 type
  TnevRubberCellsRenderInfo = class(TnevTableRowRenderInfo)
- private
- // private fields
-   f_LimitWidth : Integer;
-   f_Widthes : Tl3LongintList;
-    {* Поле для свойства Widthes}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function ChildWidth(aChild: TnevFormatInfo): Integer; override;
-   procedure ChildrenChanged; override;
-     {* Нотификация о смене состава детей. }
- protected
- // protected methods
+  private
+   f_LimitWidth: Integer;
+   f_Widthes: Tl3LongintList;
+    {* Поле для свойства Widthes }
+  protected
    function WasChanged: Boolean; virtual;
    procedure ClearChangedFlag; virtual;
    procedure ValidateNewChildWidth(anOldWidth: Integer;
     var theNewWidth: Integer); virtual;
- protected
- // protected properties
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function ChildWidth(aChild: TnevFormatInfo): Integer; override;
+   procedure ChildrenChanged; override;
+    {* Нотификация о смене состава детей. }
+  protected
    property Widthes: Tl3LongintList
-     read f_Widthes;
+    read f_Widthes;
  end;//TnevRubberCellsRenderInfo
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags,
-  l3Math,
-  l3MinMax,
-  evConst
-  ;
-
-// start class TnevRubberCellsRenderInfo
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , l3Math
+ , l3MinMax
+ , evConst
+;
 
 function TnevRubberCellsRenderInfo.WasChanged: Boolean;
 //#UC START# *4ED719EE01C1_482098D2015E_var*
@@ -83,7 +66,7 @@ begin
 end;//TnevRubberCellsRenderInfo.ClearChangedFlag
 
 procedure TnevRubberCellsRenderInfo.ValidateNewChildWidth(anOldWidth: Integer;
-  var theNewWidth: Integer);
+ var theNewWidth: Integer);
 //#UC START# *4BFD6763012A_482098D2015E_var*
 //#UC END# *4BFD6763012A_482098D2015E_var*
 begin
@@ -93,6 +76,7 @@ begin
 end;//TnevRubberCellsRenderInfo.ValidateNewChildWidth
 
 procedure TnevRubberCellsRenderInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_482098D2015E_var*
 //#UC END# *479731C50290_482098D2015E_var*
 begin
@@ -154,6 +138,7 @@ begin
 end;//TnevRubberCellsRenderInfo.ChildWidth
 
 procedure TnevRubberCellsRenderInfo.ChildrenChanged;
+ {* Нотификация о смене состава детей. }
 //#UC START# *482161BE001C_482098D2015E_var*
 //#UC END# *482161BE001C_482098D2015E_var*
 begin

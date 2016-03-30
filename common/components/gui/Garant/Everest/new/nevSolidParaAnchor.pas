@@ -1,87 +1,65 @@
 unit nevSolidParaAnchor;
+ {* Якорь листьевого параграфа не имеющего деления на строки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevSolidParaAnchor.pas"
-// Начат: 24.10.2005 10:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevSolidParaAnchor
-//
-// Якорь листьевого параграфа не имеющего деления на строки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevSolidParaAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSolidParaAnchor" MUID: (4A3BAB21005A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevLeafParaAnchor,
-  nevTools,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevLeafParaAnchor
+ , nevBase
+ , nevTools
+;
 
-{$If defined(k2ForEditor)}
 type
  _nevSolidParaAnchorModify_Parent_ = TnevLeafParaAnchor;
  {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
  TnevSolidParaAnchor = class(_nevSolidParaAnchorModify_)
   {* Якорь листьевого параграфа не имеющего деления на строки }
- private
- // private fields
-   f_Y : Integer;
- protected
- // realized methods
+  private
+   f_Y: Integer;
+  protected
    function GetAtStart: Boolean; override;
    function GetAtEnd(const aView: InevView): Boolean; override;
    function GetVertPosition(const aView: InevView;
     aMap: TnevFormatInfoPrim): TnevParaIndex; override;
-   {$If defined(evUseVisibleCursors)}
+   {$If Defined(evUseVisibleCursors)}
    function GetY: Integer; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
    procedure SetY(aValue: Integer); override;
-   {$IfEnd} //evUseVisibleCursors
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(evUseVisibleCursors)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetPaintOffsetY(const aView: InevView;
     aMap: TnevFormatInfoPrim): Integer; override;
-   {$If defined(evUseVisibleCursors)}
+   {$If Defined(evUseVisibleCursors)}
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; override;
-   {$IfEnd} //evUseVisibleCursors
+   {$IfEnd} // Defined(evUseVisibleCursors)
    procedure DoAssignPoint(const aView: InevView;
     const aPoint: InevBasePoint); override;
  end;//TnevSolidParaAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevFacade,
-  LeafParaDecorationsHolder_Const,
-  l3MinMax
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
+ l3ImplUses
+ , nevFacade
+ , LeafParaDecorationsHolder_Const
+ , l3MinMax
+;
 
 {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
-
-// start class TnevSolidParaAnchor
 
 function TnevSolidParaAnchor.GetAtStart: Boolean;
 //#UC START# *4A3B707700C9_4A3BAB21005A_var*
@@ -108,7 +86,7 @@ begin
 end;//TnevSolidParaAnchor.GetAtEnd
 
 function TnevSolidParaAnchor.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *4A3B7F2E01CE_4A3BAB21005A_var*
 //#UC END# *4A3B7F2E01CE_4A3BAB21005A_var*
 begin
@@ -117,7 +95,7 @@ begin
 //#UC END# *4A3B7F2E01CE_4A3BAB21005A_impl*
 end;//TnevSolidParaAnchor.GetVertPosition
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 function TnevSolidParaAnchor.GetY: Integer;
 //#UC START# *4B1D0E1A0256_4A3BAB21005A_var*
 //#UC END# *4B1D0E1A0256_4A3BAB21005A_var*
@@ -126,9 +104,9 @@ begin
  Result := f_Y;
 //#UC END# *4B1D0E1A0256_4A3BAB21005A_impl*
 end;//TnevSolidParaAnchor.GetY
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 procedure TnevSolidParaAnchor.SetY(aValue: Integer);
 //#UC START# *4B1D0E3A00F7_4A3BAB21005A_var*
 //#UC END# *4B1D0E3A00F7_4A3BAB21005A_var*
@@ -137,9 +115,10 @@ begin
  f_Y := aValue;
 //#UC END# *4B1D0E3A00F7_4A3BAB21005A_impl*
 end;//TnevSolidParaAnchor.SetY
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 procedure TnevSolidParaAnchor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A3BAB21005A_var*
 //#UC END# *479731C50290_4A3BAB21005A_var*
 begin
@@ -150,7 +129,7 @@ begin
 end;//TnevSolidParaAnchor.Cleanup
 
 function TnevSolidParaAnchor.GetPaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4A3BA80002E5_4A3BAB21005A_var*
 //#UC END# *4A3BA80002E5_4A3BAB21005A_var*
 begin
@@ -159,10 +138,10 @@ begin
 //#UC END# *4A3BA80002E5_4A3BAB21005A_impl*
 end;//TnevSolidParaAnchor.GetPaintOffsetY
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 function TnevSolidParaAnchor.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4AA785540310_4A3BAB21005A_var*
 //#UC END# *4AA785540310_4A3BAB21005A_var*
 begin
@@ -172,10 +151,10 @@ begin
   Result := 0;
 //#UC END# *4AA785540310_4A3BAB21005A_impl*
 end;//TnevSolidParaAnchor.DoDiff
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 procedure TnevSolidParaAnchor.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *4B1D0220010E_4A3BAB21005A_var*
 //#UC END# *4B1D0220010E_4A3BAB21005A_var*
 begin
@@ -189,7 +168,6 @@ begin
  end;//aPoint <> nil
 //#UC END# *4B1D0220010E_4A3BAB21005A_impl*
 end;//TnevSolidParaAnchor.DoAssignPoint
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

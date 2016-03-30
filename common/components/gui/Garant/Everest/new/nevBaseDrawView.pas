@@ -1,65 +1,63 @@
 unit nevBaseDrawView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevBaseDrawView.pas"
-// Начат: 17.02.2006 17:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevBaseDrawView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBaseDrawView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevBaseDrawView" MUID: (4811E4BA020A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  nevBaseView,
-  nevObjectList,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevBaseView
+ , nevTools
+ , nevBase
+ , nevObjectList
+ , l3Variant
+;
 
 type
  _nevDocumentContainerDecorationRules_Parent_ = TnevBaseView;
  {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevBaseDrawView = class(_nevDocumentContainerDecorationRules_, InevScrollListener, InevControlView, InevDrawView, InevViewMetrics)
- private
- // private fields
-   f_Control : Pointer;
-  {$If defined(evNeedCollapsedVersionComments)}
-   f_CollapsedObjects : TnevObjectList;
-  {$IfEnd} //evNeedCollapsedVersionComments
-   f_PrevTop : InevBasePoint;
-    {* Поле для свойства PrevTop}
-   f_Top : InevAnchor;
-    {* Поле для свойства Top}
-   f_Canvas : InevCanvas;
-    {* Поле для свойства Canvas}
-   f_ControlLMargin : Integer;
-    {* Поле для свойства ControlLMargin}
- private
- // private methods
+  private
+   f_Control: Pointer;
+   {$If Defined(evNeedCollapsedVersionComments)}
+   f_CollapsedObjects: TnevObjectList;
+   {$IfEnd} // Defined(evNeedCollapsedVersionComments)
+   f_PrevTop: InevBasePoint;
+    {* Поле для свойства PrevTop }
+   f_Top: InevAnchor;
+    {* Поле для свойства Top }
+   f_Canvas: InevCanvas;
+    {* Поле для свойства Canvas }
+   f_ControlLMargin: Integer;
+    {* Поле для свойства ControlLMargin }
+  private
    function CorrectFoundPoint(const aPoint: InevBasePoint;
-     aMode: TnevPointByPtMode): InevBasePoint;
+    aMode: TnevPointByPtMode): InevBasePoint;
    function MoveCursor(const aPoint: InevBasePoint;
-     var aLine: Integer;
-     aMode: TnevPointByPtMode): InevBasePoint;
- protected
- // property methods
+    var aLine: Integer;
+    aMode: TnevPointByPtMode): InevBasePoint;
+  protected
    function pm_GetViewExtent: TnevPoint;
- protected
- // realized methods
+   function NeedScrollShapes: Boolean;
+   procedure DoSignalScroll(aTopDiff: Integer;
+    aDeltaY: Integer); virtual;
+   function PointByPtPrim(const aPt: TnevPoint;
+    aMode: TnevPointByPtMode): InevBasePoint;
+    {* возвращает курсор указывающий на данную точку, в системе координат View. }
+   function DiffToLine(const aPt: TnevPoint): Integer;
+   function GetCanvas(const anExtent: TnevPoint): InevCanvas; virtual;
+   function LMargin: Integer; virtual;
+   function CaretCursor: InevBasePoint; virtual;
+   function DoDraw(const aBlock: InevRange;
+    var theMap: InevMap): Boolean; virtual;
+   procedure LinkControl(const aControl: InevControl); virtual;
+   procedure DoUnlinkControl(const aControl: InevControl); virtual;
    procedure Signal;
-     {* Позиция скроллера изменилась. }
+    {* Позиция скроллера изменилась. }
    function pm_GetLimitWidth: TnevInch;
    function pm_GetInfoCanvas: InevInfoCanvas;
    function pm_GetIsWebStyle: Boolean;
@@ -68,14 +66,14 @@ type
    function pm_GetHiddenStyles: TnevStandardStyles;
    function pm_GetControl: InevControl;
    procedure UnlinkControl(const aControl: InevControl);
-     {* отсоединяет контрол от области вывода. }
+    {* отсоединяет контрол от области вывода. }
    function IsDocumentTailVisible: Boolean;
    function Draw(const aBlock: InevRange;
     var theMap: InevMap): Boolean;
    function pm_GetTopAnchor: InevAnchor;
    function PointByPt(const aPt: TnevPoint;
     aForSetCursor: Boolean = False): InevBasePoint;
-     {* Возвращает курсор указывающий на данную точку, в системе координат View. }
+    {* Возвращает курсор указывающий на данную точку, в системе координат View. }
    function pm_GetExtent: TnevPoint;
    function Get_ExcludeSuper: TevNormalSegLayerHandleSet;
    function Get_FormatCanvas: InevInfoCanvas;
@@ -85,82 +83,69 @@ type
    function BottomAnchor(aSimple: Boolean): InevAnchor;
    function Get_AACLike: TnevAACLikeMode;
    function NeedTotalRecalc: Boolean;
- protected
- // overridden property methods
-   function pm_GetShape: InevObject; override;
-   function pm_GetActiveElementPrim: InevActiveElement; override;
-   function pm_GetForceDrawFocusRectPrim: Boolean; override;
-   function pm_GetIsObjectCollapsed(const anObject: InevObject): Boolean; override;
-   procedure pm_SetIsObjectCollapsed(const anObject: InevObject; aValue: Boolean); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
+   function pm_GetShape: InevObject; override;
    function DoGetMetrics: InevViewMetrics; override;
    function DoGetProcessor: InevProcessor; override;
    function GetRootFormatInfo: TnevFormatInfoPrim; override;
-    {$If defined(evNeedCollapsedVersionComments)}
+   function pm_GetActiveElementPrim: InevActiveElement; override;
+   function pm_GetForceDrawFocusRectPrim: Boolean; override;
+   function pm_GetIsObjectCollapsed(const anObject: InevObject): Boolean; override;
+   procedure pm_SetIsObjectCollapsed(const anObject: InevObject;
+    aValue: Boolean); override;
+   {$If Defined(evNeedCollapsedVersionComments)}
    procedure DoVersionInfoVisabilityChanged(aValue: Boolean); override;
-    {$IfEnd} //evNeedCollapsedVersionComments
+   {$IfEnd} // Defined(evNeedCollapsedVersionComments)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function NeedScrollShapes: Boolean;
-   procedure DoSignalScroll(aTopDiff: Integer;
-    aDeltaY: Integer); virtual;
-   function PointByPtPrim(const aPt: TnevPoint;
-    aMode: TnevPointByPtMode): InevBasePoint;
-     {* возвращает курсор указывающий на данную точку, в системе координат View. }
-   function DiffToLine(const aPt: TnevPoint): Integer;
-   function GetCanvas(const anExtent: TnevPoint): InevCanvas; virtual;
-   function LMargin: Integer; virtual;
-   function CaretCursor: InevBasePoint; virtual;
-   function DoDraw(const aBlock: InevRange;
-    var theMap: InevMap): Boolean; virtual;
-   procedure LinkControl(const aControl: InevControl); virtual;
-   procedure DoUnlinkControl(const aControl: InevControl); virtual;
- protected
- // protected properties
+  protected
    property PrevTop: InevBasePoint
-     read f_PrevTop;
+    read f_PrevTop;
    property Top: InevAnchor
-     read f_Top
-     write f_Top;
+    read f_Top
+    write f_Top;
    property Canvas: InevCanvas
-     read f_Canvas;
+    read f_Canvas;
    property ControlLMargin: Integer
-     read f_ControlLMargin;
- public
- // public properties
+    read f_ControlLMargin;
+  public
    property ViewExtent: TnevPoint
-     read pm_GetViewExtent;
+    read pm_GetViewExtent;
  end;//TnevBaseDrawView
 
 implementation
 
 uses
-  l3Const,
-  nevFacade,
-  SysUtils,
-  l3Units,
-  l3PrinterIC,
-  nevRealTools,
-  k2Tags,
-  evdStyles
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
+ l3ImplUses
+ , l3Const
+ , nevFacade
+ , SysUtils
+ , l3Units
+ , l3PrinterIC
+ , nevRealTools
+ , k2Tags
+ , evdStyles
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
-// start class TnevBaseDrawView
+function TnevBaseDrawView.pm_GetViewExtent: TnevPoint;
+//#UC START# *48C7F58C03E0_4811E4BA020Aget_var*
+//#UC END# *48C7F58C03E0_4811E4BA020Aget_var*
+begin
+//#UC START# *48C7F58C03E0_4811E4BA020Aget_impl*
+ if (f_Control = nil) then
+  Result := nevPt0
+ else
+  Result := InevControl(f_Control).Metrics.Extent;
+//#UC END# *48C7F58C03E0_4811E4BA020Aget_impl*
+end;//TnevBaseDrawView.pm_GetViewExtent
 
 function TnevBaseDrawView.CorrectFoundPoint(const aPoint: InevBasePoint;
-  aMode: TnevPointByPtMode): InevBasePoint;
+ aMode: TnevPointByPtMode): InevBasePoint;
 //#UC START# *5011297D01AA_4811E4BA020A_var*
 
  function lp_MostInner(const aValue: InevBasePoint): InevBasePoint;
@@ -216,8 +201,8 @@ begin
 end;//TnevBaseDrawView.CorrectFoundPoint
 
 function TnevBaseDrawView.MoveCursor(const aPoint: InevBasePoint;
-  var aLine: Integer;
-  aMode: TnevPointByPtMode): InevBasePoint;
+ var aLine: Integer;
+ aMode: TnevPointByPtMode): InevBasePoint;
 //#UC START# *501131010369_4811E4BA020A_var*
 var
  l_Cursor : InevBaseLine4Anchor;
@@ -234,18 +219,6 @@ begin
 //#UC END# *501131010369_4811E4BA020A_impl*
 end;//TnevBaseDrawView.MoveCursor
 
-function TnevBaseDrawView.pm_GetViewExtent: TnevPoint;
-//#UC START# *48C7F58C03E0_4811E4BA020Aget_var*
-//#UC END# *48C7F58C03E0_4811E4BA020Aget_var*
-begin
-//#UC START# *48C7F58C03E0_4811E4BA020Aget_impl*
- if (f_Control = nil) then
-  Result := nevPt0
- else
-  Result := InevControl(f_Control).Metrics.Extent;
-//#UC END# *48C7F58C03E0_4811E4BA020Aget_impl*
-end;//TnevBaseDrawView.pm_GetViewExtent
-
 function TnevBaseDrawView.NeedScrollShapes: Boolean;
 //#UC START# *4811E93C0182_4811E4BA020A_var*
 //#UC END# *4811E93C0182_4811E4BA020A_var*
@@ -259,7 +232,7 @@ begin
 end;//TnevBaseDrawView.NeedScrollShapes
 
 procedure TnevBaseDrawView.DoSignalScroll(aTopDiff: Integer;
-  aDeltaY: Integer);
+ aDeltaY: Integer);
 //#UC START# *4811EAEB030F_4811E4BA020A_var*
 //#UC END# *4811EAEB030F_4811E4BA020A_var*
 begin
@@ -269,7 +242,8 @@ begin
 end;//TnevBaseDrawView.DoSignalScroll
 
 function TnevBaseDrawView.PointByPtPrim(const aPt: TnevPoint;
-  aMode: TnevPointByPtMode): InevBasePoint;
+ aMode: TnevPointByPtMode): InevBasePoint;
+ {* возвращает курсор указывающий на данную точку, в системе координат View. }
 //#UC START# *4811EEA90061_4811E4BA020A_var*
 var
  l_Diff : Integer;
@@ -343,7 +317,7 @@ begin
 end;//TnevBaseDrawView.CaretCursor
 
 function TnevBaseDrawView.DoDraw(const aBlock: InevRange;
-  var theMap: InevMap): Boolean;
+ var theMap: InevMap): Boolean;
 //#UC START# *4811F3980250_4811E4BA020A_var*
 var
  l_DrawShape   : InevDrawingShape;
@@ -452,6 +426,7 @@ begin
 end;//TnevBaseDrawView.DoUnlinkControl
 
 procedure TnevBaseDrawView.Signal;
+ {* Позиция скроллера изменилась. }
 //#UC START# *467FAE0C02F3_4811E4BA020A_var*
 var
  l_Delta   : Integer;
@@ -591,6 +566,7 @@ begin
 end;//TnevBaseDrawView.pm_GetControl
 
 procedure TnevBaseDrawView.UnlinkControl(const aControl: InevControl);
+ {* отсоединяет контрол от области вывода. }
 //#UC START# *47C5C1F300FC_4811E4BA020A_var*
 //#UC END# *47C5C1F300FC_4811E4BA020A_var*
 begin
@@ -620,7 +596,7 @@ begin
 end;//TnevBaseDrawView.IsDocumentTailVisible
 
 function TnevBaseDrawView.Draw(const aBlock: InevRange;
-  var theMap: InevMap): Boolean;
+ var theMap: InevMap): Boolean;
 //#UC START# *47C5C3DC0361_4811E4BA020A_var*
 //#UC END# *47C5C3DC0361_4811E4BA020A_var*
 begin
@@ -658,7 +634,8 @@ begin
 end;//TnevBaseDrawView.pm_GetTopAnchor
 
 function TnevBaseDrawView.PointByPt(const aPt: TnevPoint;
-  aForSetCursor: Boolean = False): InevBasePoint;
+ aForSetCursor: Boolean = False): InevBasePoint;
+ {* Возвращает курсор указывающий на данную точку, в системе координат View. }
 //#UC START# *47F64B1F03AD_4811E4BA020A_var*
 //#UC END# *47F64B1F03AD_4811E4BA020A_var*
 begin
@@ -795,6 +772,7 @@ begin
 end;//TnevBaseDrawView.NeedTotalRecalc
 
 procedure TnevBaseDrawView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4811E4BA020A_var*
 //#UC END# *479731C50290_4811E4BA020A_var*
 begin
@@ -908,7 +886,8 @@ begin
 //#UC END# *4D5A46930182_4811E4BA020Aget_impl*
 end;//TnevBaseDrawView.pm_GetIsObjectCollapsed
 
-procedure TnevBaseDrawView.pm_SetIsObjectCollapsed(const anObject: InevObject; aValue: Boolean);
+procedure TnevBaseDrawView.pm_SetIsObjectCollapsed(const anObject: InevObject;
+ aValue: Boolean);
 //#UC START# *4D5A46930182_4811E4BA020Aset_var*
 {$IfDef evNeedCollapsedVersionComments}
 var
@@ -938,7 +917,7 @@ begin
 //#UC END# *4D5A46930182_4811E4BA020Aset_impl*
 end;//TnevBaseDrawView.pm_SetIsObjectCollapsed
 
-{$If defined(evNeedCollapsedVersionComments)}
+{$If Defined(evNeedCollapsedVersionComments)}
 procedure TnevBaseDrawView.DoVersionInfoVisabilityChanged(aValue: Boolean);
 //#UC START# *4D5A4707033B_4811E4BA020A_var*
 var
@@ -955,10 +934,9 @@ begin
    end;//with f_CollapsedObjects[l_Index]
 //#UC END# *4D5A4707033B_4811E4BA020A_impl*
 end;//TnevBaseDrawView.DoVersionInfoVisabilityChanged
-{$IfEnd} //evNeedCollapsedVersionComments
+{$IfEnd} // Defined(evNeedCollapsedVersionComments)
 
 procedure TnevBaseDrawView.ClearFields;
- {-}
 begin
  f_PrevTop := nil;
  Top := nil;

@@ -1,47 +1,35 @@
 unit evCollapserHyperlink;
+ {* Сворачивающая гиперссылка. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCollapserHyperlink.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevCollapserHyperlink
-//
-// Сворачивающая гиперссылка.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCollapserHyperlink.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCollapserHyperlink" MUID: (55F6C74B033E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evDecorHyperlink,
-  evdTypes
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evDecorHyperlink
+ , evdTypes
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevCollapserHyperlink = class(TevDecorHyperlink)
   {* Сворачивающая гиперссылка. }
- protected
- // overridden protected methods
+  protected
    function DoGetKind: TevLinkViewKind; override;
  end;//TevCollapserHyperlink
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
-
-// start class TevCollapserHyperlink
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
 
 function TevCollapserHyperlink.DoGetKind: TevLinkViewKind;
 //#UC START# *55F6C6DC018B_55F6C74B033E_var*
@@ -51,7 +39,6 @@ begin
  Result := ev_lvkShellInternal;
 //#UC END# *55F6C6DC018B_55F6C74B033E_impl*
 end;//TevCollapserHyperlink.DoGetKind
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

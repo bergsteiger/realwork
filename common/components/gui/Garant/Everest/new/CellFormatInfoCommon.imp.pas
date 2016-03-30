@@ -1,27 +1,22 @@
 {$IfNDef CellFormatInfoCommon_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/CellFormatInfoCommon.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Rendering::CellFormatInfoCommon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "CellFormatInfoCommon" MUID: (5209DFCE0116)
+// Имя типа: "_CellFormatInfoCommon_"
 
 {$Define CellFormatInfoCommon_imp}
- _CellFormatInfoCommon_ = {mixin} class(_CellFormatInfoCommon_Parent_)
- protected
- // protected methods
+
+ _CellFormatInfoCommon_ = class(_CellFormatInfoCommon_Parent_)
+  protected
    function GetVerticalAlignmentMargin: Integer;
  end;//_CellFormatInfoCommon_
 
 {$Else CellFormatInfoCommon_imp}
 
-// start class _CellFormatInfoCommon_
+{$IfNDef CellFormatInfoCommon_imp_impl}
+
+{$Define CellFormatInfoCommon_imp_impl}
 
 function _CellFormatInfoCommon_.GetVerticalAlignmentMargin: Integer;
 //#UC START# *5209E00C0113_5209DFCE0116_var*
@@ -44,4 +39,7 @@ begin
 //#UC END# *5209E00C0113_5209DFCE0116_impl*
 end;//_CellFormatInfoCommon_.GetVerticalAlignmentMargin
 
+{$EndIf CellFormatInfoCommon_imp_impl}
+
 {$EndIf CellFormatInfoCommon_imp}
+

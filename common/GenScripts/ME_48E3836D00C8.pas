@@ -1,7 +1,7 @@
-unit evEditorInterfaces;
+unit NOT_COMPLETED_evEditorInterfaces;
  {* Модуль, описывающий работу с текстом на уровне "окна" редактора }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evEditorInterfaces.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "evEditorInterfaces" MUID: (48E3836D00C8)
 
@@ -12,14 +12,15 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
- , Graphics
- , k2PureMixIns
- , l3Variant
- , evdTypes
- , nevBase
  , k2Interfaces
+ , l3Types
+ , nevBase
+ , evdTypes
  , nevTools
  , nevNavigation
+ , k2PureMixIns
+ , Graphics
+ , l3Variant
  , Windows
 ;
 

@@ -42,10 +42,10 @@ type
  TvtilCreators = class(Tl3ProcedureList)
   public
    class function IsAssigned: Boolean;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvtilCreators;
     {* Метод получения экземпляра синглетона TvtilCreators }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvtilCreators
 
  ImgLibraryManager = class(Tl3ProtoObject)
@@ -56,10 +56,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: ImgLibraryManager;
     {* Метод получения экземпляра синглетона ImgLibraryManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//ImgLibraryManager
 
  TaBPPGlyphs = array [TvtPILBpp] of TIEBitmap;
@@ -361,12 +361,6 @@ begin
 //#UC END# *4FD318100335_4FD31272000C_impl*
 end;//TvtilCreators.IsAssigned
 
-class function TvtilCreators.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvtilCreators <> nil;
-end;//TvtilCreators.Exists
-
 class function TvtilCreators.Instance: TvtilCreators;
  {* Метод получения экземпляра синглетона TvtilCreators }
 begin
@@ -378,11 +372,11 @@ begin
  Result := g_TvtilCreators;
 end;//TvtilCreators.Instance
 
-class function ImgLibraryManager.Exists: Boolean;
+class function TvtilCreators.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_ImgLibraryManager <> nil;
-end;//ImgLibraryManager.Exists
+ Result := g_TvtilCreators <> nil;
+end;//TvtilCreators.Exists
 
 class function ImgLibraryManager.Instance: ImgLibraryManager;
  {* Метод получения экземпляра синглетона ImgLibraryManager }
@@ -394,6 +388,12 @@ begin
  end;
  Result := g_ImgLibraryManager;
 end;//ImgLibraryManager.Instance
+
+class function ImgLibraryManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_ImgLibraryManager <> nil;
+end;//ImgLibraryManager.Exists
 
 procedure ImgLibraryManager.Cleanup;
  {* Функция очистки полей объекта. }

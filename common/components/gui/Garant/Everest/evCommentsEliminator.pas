@@ -1,57 +1,44 @@
 unit evCommentsEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCommentsEliminator.pas"
-// Начат: 2004/11/26 12:04:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCommentsEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentsEliminator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentsEliminator" MUID: (4D6CD66C0391)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  k2TagFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , evdLeafParaFilter
+ , k2Base
+ , l3Variant
+;
 
 type
  TevFullCommentsEliminator = class(TevdLeafParaFilter)
- protected
- // overridden protected methods
+  protected
    function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
-     {* Определяет нужно ли фильтровать переданный абзац }
+    {* Определяет нужно ли фильтровать переданный абзац }
  end;//TevFullCommentsEliminator
 
  TevCommentsEliminator = class(Tk2TagFilter)
- protected
- // overridden protected methods
+  protected
    function NeedTranslateChildToNext: Boolean; override;
  end;//TevCommentsEliminator
 
 implementation
 
 uses
-  CommentPara_Const
-  ;
-
-// start class TevFullCommentsEliminator
+ l3ImplUses
+ , CommentPara_Const
+;
 
 function TevFullCommentsEliminator.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_4D6CD6890200_var*
 //#UC END# *49E488070386_4D6CD6890200_var*
 begin
@@ -61,6 +48,7 @@ begin
 end;//TevFullCommentsEliminator.ParaTypeForFiltering
 
 function TevFullCommentsEliminator.NeedWritePara(aLeaf: Tl3Variant): Boolean;
+ {* Определяет нужно ли фильтровать переданный абзац }
 //#UC START# *49E48829016F_4D6CD6890200_var*
 //#UC END# *49E48829016F_4D6CD6890200_var*
 begin

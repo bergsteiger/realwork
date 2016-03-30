@@ -1,39 +1,33 @@
 {$IfNDef nevParaListViewBounds_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevParaListViewBounds.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevParaListViewBounds
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevParaListViewBounds" MUID: (4A5CD0CB0038)
+// Имя типа: "_nevParaListViewBounds_"
 
 {$Define nevParaListViewBounds_imp}
-{$If defined(evUseVisibleCursors)}
- _nevParaListViewBounds_ = {mixin} class(_nevParaListViewBounds_Parent_)
- protected
- // overridden protected methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevParaListViewBounds_ = class(_nevParaListViewBounds_Parent_)
+  protected
    function GetViewBounds(const aView: InevView;
     const aMap: InevMap): TnevRect; override;
  end;//_nevParaListViewBounds_
-{$Else}
 
- _nevParaListViewBounds_ = _nevParaListViewBounds_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParaListViewBounds_ = _nevParaListViewBounds_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevParaListViewBounds_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevParaListViewBounds_imp_impl}
 
-// start class _nevParaListViewBounds_
+{$Define nevParaListViewBounds_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevParaListViewBounds_.GetViewBounds(const aView: InevView;
-  const aMap: InevMap): TnevRect;
+ const aMap: InevMap): TnevRect;
 //#UC START# *4A5CCD9D028D_4A5CD0CB0038_var*
 //#UC END# *4A5CCD9D028D_4A5CD0CB0038_var*
 begin
@@ -44,7 +38,9 @@ begin
   Result := Self.GetInner.ViewBounds(aView, aMap.ReserveMap(Self.GetInner.Obj^))
 //#UC END# *4A5CCD9D028D_4A5CD0CB0038_impl*
 end;//_nevParaListViewBounds_.GetViewBounds
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevParaListViewBounds_imp_impl}
 
 {$EndIf nevParaListViewBounds_imp}
+

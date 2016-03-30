@@ -28,7 +28,6 @@ type
  TevRange = class(TnevRangePrim, InevRange, InevStorable, IevdDataObject, InevDataObjectPrim2, InevRangeModify, InevRangeFactory, IevRange)
   private
    f_Sharp: Boolean;
-    {* Поле для свойства Sharp }
   protected
    procedure DoStore(const aView: InevView;
     const G: Ik2TagGenerator;
@@ -68,7 +67,7 @@ type
     aNeedProgress: Boolean = True): Boolean; virtual;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
@@ -503,7 +502,7 @@ end;//TevRange.DoSearchReplace
 
 procedure TevRange.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_4A2D2D4300BE_var*
 //#UC END# *47C68BFD011C_4A2D2D4300BE_var*

@@ -15,7 +15,6 @@ type
  _evDataObjectFromStorable_ = class(TevPersistentDataObjectEx)
   private
    f_Data: _DataType_;
-    {* Поле для свойства Data }
   protected
    function DataClass: RStorable; virtual;
    procedure Cleanup; override;

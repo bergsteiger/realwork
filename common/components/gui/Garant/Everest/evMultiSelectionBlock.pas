@@ -1,74 +1,60 @@
 unit evMultiSelectionBlock;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelectionBlock.pas"
-// Начат: 19.01.2004 15:42 
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMultiSelectionBlock
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionBlock.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionBlock" MUID: (48E3B83B0187)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  evMultiSelectionText,
-  evdInterfaces,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evMultiSelectionText
+ , evdInterfaces
+ , nevTools
+ , nevBase
+ , l3Interfaces
+;
 
 type
  TevMultiSelectionBlock = class(TevMultiSelectionText, IevdDataObject, InevDataObjectPrim2)
- protected
- // realized methods
-   procedure Store(const aView: InevView;
-    const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload; 
-     {* сохраняет выделение в G. }
-   function Store(aFormat: TevdClipboardFormat;
-    const aPool: IStream;
-    const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload; 
-     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
-   function GetData: IevdDataObject; override;
-   function GetAsStorable: InevDataObjectPrim2; override;
- protected
- // protected methods
+  protected
    procedure DoStore(const aView: InevView;
     const G: InevTagGenerator;
     aFlags: TevdStoreFlags); virtual;
-     {* сохраняет выделение в G }
+    {* сохраняет выделение в G }
+   procedure Store(const aView: InevView;
+    const G: InevTagGenerator;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    {* сохраняет выделение в G. }
+   function Store(aFormat: TevdClipboardFormat;
+    const aPool: IStream;
+    const aFilters: TevdTagGenerator;
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
+    {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
+   function GetData: IevdDataObject; override;
+   function GetAsStorable: InevDataObjectPrim2; override;
  end;//TevMultiSelectionBlock
 
 implementation
 
 uses
-  l3InterfacedString,
-  k2BaseTypes,
-  l3Base,
-  nevFacade,
-  ContentsElement_Const,
-  Block_Const,
-  Document_Const,
-  k2Tags
-  ;
-
-// start class TevMultiSelectionBlock
+ l3ImplUses
+ , l3InterfacedString
+ , k2BaseTypes
+ , l3Base
+ , nevFacade
+ , ContentsElement_Const
+ , Block_Const
+ , Document_Const
+ , k2Tags
+;
 
 procedure TevMultiSelectionBlock.DoStore(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags);
+ {* сохраняет выделение в G }
 //#UC START# *48ECE4420180_48E3B83B0187_var*
   
   function StoreSel(const aSel: InevRange; anIndex: Integer): Boolean;
@@ -124,8 +110,9 @@ begin
 end;//TevMultiSelectionBlock.DoStore
 
 procedure TevMultiSelectionBlock.Store(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48E3B83B0187_var*
 var
  l_Tag : Tl3Variant;
@@ -160,9 +147,10 @@ begin
 end;//TevMultiSelectionBlock.Store
 
 function TevMultiSelectionBlock.Store(aFormat: TevdClipboardFormat;
-  const aPool: IStream;
-  const aFilters: TevdTagGenerator;
-  aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ const aPool: IStream;
+ const aFilters: TevdTagGenerator;
+ aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_48E3B83B0187_var*
 var
  l_TSR : InevTagReader;

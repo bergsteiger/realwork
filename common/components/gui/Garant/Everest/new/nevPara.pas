@@ -1,53 +1,35 @@
 unit nevPara;
+ {* Базовый предок для реализации инструментов параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevPara.pas"
-// Начат: 31.03.2005 19:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevPara
-//
-// Базовый предок для реализации инструментов параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevPara" MUID: (48CE0B5703B5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Interfaces,
-  nevTools,
-  nevParaPrim,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaPrim
+ , nevTools
+ , l3Variant
+ , k2Interfaces
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevPara = class(TnevParaPrim, InevParaInternal)
   {* Базовый предок для реализации инструментов параграфов }
- private
- // private fields
-   f_OwnerTag : Tl3Variant;
-   f_OwnerPara : InevParaList;
-   f_PID : Tk2Integer;
- protected
- // realized methods
+  private
+   f_OwnerTag: Tl3Variant;
+   f_OwnerPara: InevParaList;
+   f_PID: Tk2Integer;
+  protected
    procedure SignalPID(aPID: TnevParaIndex);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetOwnerPara: InevParaList; override;
    procedure ClearTagCache; override;
    function GetIsEmpty: Boolean; override;
@@ -64,31 +46,26 @@ type
    function DoDelete(anInMerge: Boolean;
     const anOp: InevOp): Boolean; override;
    function GetHolder: InevObjectHolder; override;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): InevParaInternal; reintroduce;
  end;//TnevPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags,
-  k2Const,
-  l3Units,
-  Classes,
-  SysUtils,
-  nevFacade,
-  ParaList_Const,
-  k2Base,
-  k2NullTagImpl
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevPara
+ l3ImplUses
+ , k2Tags
+ , k2Const
+ , l3Units
+ , Classes
+ , SysUtils
+ , nevFacade
+ , ParaList_Const
+ , k2Base
+ , k2NullTagImpl
+;
 
 class function TnevPara.Make(aTag: Tl3Variant): InevParaInternal;
 var
@@ -100,7 +77,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevPara.Make
 
 procedure TnevPara.SignalPID(aPID: TnevParaIndex);
 //#UC START# *47C6A7D400FF_48CE0B5703B5_var*
@@ -112,6 +89,7 @@ begin
 end;//TnevPara.SignalPID
 
 procedure TnevPara.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48CE0B5703B5_var*
 //#UC END# *479731C50290_48CE0B5703B5_var*
 begin
@@ -182,7 +160,7 @@ begin
 end;//TnevPara.GetAppliesToMaxWidth
 
 function TnevPara.GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48CFB1F5024F_48CE0B5703B5_var*
 //#UC END# *48CFB1F5024F_48CE0B5703B5_var*
 begin
@@ -316,7 +294,7 @@ begin
 end;//TnevPara.GetParentTool
 
 function TnevPara.DoDelete(anInMerge: Boolean;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *48D0BFEF01CE_48CE0B5703B5_var*
 var
  l_Flags: TevDeleteParaFlags;
@@ -379,7 +357,6 @@ begin
  Result := OwnerPara.Holder;
 //#UC END# *48D0EC2001E5_48CE0B5703B5_impl*
 end;//TnevPara.GetHolder
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

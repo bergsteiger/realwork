@@ -1,45 +1,31 @@
 unit nevPrintView;
+ {* Область вывода для печати. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevPrintView.pas"
-// Начат: 23.06.2005 14:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevPrintView
-//
-// Область вывода для печати.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevPrintView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevPrintView" MUID: (4812119C00C1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  evdStyles,
-  nevTools,
-  nevBaseDetachedView
-  ;
+ l3IntfUses
+ , nevBaseDetachedView
+ , nevTools
+ , evdStyles
+ , nevBase
+;
 
 type
  _PrintViewDecorationRules_Parent_ = TnevBaseDetachedView;
  {$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}
  TnevPrintView = class(_PrintViewDecorationRules_, InevPrintView)
   {* Область вывода для печати. }
- private
- // private fields
-   f_HiddenStyles : TevStandardStyles;
-   f_HoldedText : InevObject;
- protected
- // overridden protected methods
+  private
+   f_HiddenStyles: TevStandardStyles;
+   f_HoldedText: InevObject;
+  protected
    procedure DoBeginDrawShape(const aShape: InevObject;
     const anAnchor: InevBasePoint;
     const anOrg: TnevPoint;
@@ -50,34 +36,30 @@ type
    function GetLimitWidth: Integer; override;
    function DoGetExcludeSuper: TevNormalSegLayerHandleSet; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aText: InevObject;
-     const aCanvas: InevCanvas;
-     aHiddenStyles: TevStandardStyles); reintroduce;
+    const aCanvas: InevCanvas;
+    aHiddenStyles: TevStandardStyles); reintroduce;
    class function Make(const aText: InevObject;
-     const aCanvas: InevCanvas;
-     aHiddenStyles: TevStandardStyles): InevPrintView; reintroduce;
-     {* Сигнатура фабрики TnevPrintView.Make }
+    const aCanvas: InevCanvas;
+    aHiddenStyles: TevStandardStyles): InevPrintView; reintroduce;
  end;//TnevPrintView
 
 implementation
 
 uses
-  l3MinMax,
-  evdTypes,
-  evTextStyle_Const,
-  k2Tags
-  ;
+ l3ImplUses
+ , l3MinMax
+ , evdTypes
+ , evTextStyle_Const
+ , k2Tags
+;
 
 {$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}
 
-// start class TnevPrintView
-
 constructor TnevPrintView.Create(const aText: InevObject;
-  const aCanvas: InevCanvas;
-  aHiddenStyles: TevStandardStyles);
+ const aCanvas: InevCanvas;
+ aHiddenStyles: TevStandardStyles);
 //#UC START# *4CB5BEE50148_4812119C00C1_var*
 //#UC END# *4CB5BEE50148_4812119C00C1_var*
 begin
@@ -90,8 +72,8 @@ begin
 end;//TnevPrintView.Create
 
 class function TnevPrintView.Make(const aText: InevObject;
-  const aCanvas: InevCanvas;
-  aHiddenStyles: TevStandardStyles): InevPrintView;
+ const aCanvas: InevCanvas;
+ aHiddenStyles: TevStandardStyles): InevPrintView;
 var
  l_Inst : TnevPrintView;
 begin
@@ -101,14 +83,14 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevPrintView.Make
 
 procedure TnevPrintView.DoBeginDrawShape(const aShape: InevObject;
-  const anAnchor: InevBasePoint;
-  const anOrg: TnevPoint;
-  var theMap: InevMap;
-  aFake: Boolean;
-  const aHacker: InevK235870994Hacker);
+ const anAnchor: InevBasePoint;
+ const anOrg: TnevPoint;
+ var theMap: InevMap;
+ aFake: Boolean;
+ const aHacker: InevK235870994Hacker);
 //#UC START# *4811DB8A0323_4812119C00C1_var*
 //#UC END# *4811DB8A0323_4812119C00C1_var*
 begin
@@ -147,7 +129,6 @@ begin
 end;//TnevPrintView.DoGetExcludeSuper
 
 procedure TnevPrintView.ClearFields;
- {-}
 begin
  f_HoldedText := nil;
  inherited;

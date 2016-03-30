@@ -21,6 +21,8 @@ uses
  , Messages
  , Classes
  , Types
+ //#UC START# *4AE8541A01AEintf_uses*
+ //#UC END# *4AE8541A01AEintf_uses*
 ;
 
 type
@@ -53,15 +55,10 @@ type
    f_Canvas: Tl3GraphicControlCanvas;
    f_InAdjustBounds: Boolean;
    f_EndEllipsis: Boolean;
-    {* Поле для свойства EndEllipsis }
    f_CCaption: Il3CString;
-    {* Поле для свойства CCaption }
    f_VerticalAligment: TevVerticalAligment;
-    {* Поле для свойства VerticalAligment }
    f_DrawDirection: TvtDrawDirection;
-    {* Поле для свойства DrawDirection }
    f_Caption: Tl3DString;
-    {* Поле для свойства Caption }
   private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
@@ -196,6 +193,8 @@ uses
  , Graphics
  , l3Types
  , l3MinMax
+ //#UC START# *4AE8541A01AEimpl_uses*
+ //#UC END# *4AE8541A01AEimpl_uses*
 ;
 
 type

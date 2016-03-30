@@ -1,58 +1,56 @@
 unit evContentsNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evContentsNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevContentsNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsNode" MUID: (4DFEF11703D8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Tree_TLB,
-  l3VirtualNode
-  ;
+ l3IntfUses
+ , l3VirtualNode
+ , l3Tree_TLB
+;
 
 type
  TevContentsNodeState = (
   {* Состояние узла дерева оглавления. }
-   ev_cntNotReady // Узел только что создан и не инициализирован.
- , ev_cntNeedUpdate // Нужно пересоздать дочерние
- , ev_cntReady // Узел готов к отображению и не требует обновления.
- , ev_cntInUpdate // Полный перебор.
- , ev_cntFirstFind // Поиск первого тега для узла.
+  ev_cntNotReady
+   {* Узел только что создан и не инициализирован. }
+  , ev_cntNeedUpdate
+   {* Нужно пересоздать дочерние }
+  , ev_cntReady
+   {* Узел готов к отображению и не требует обновления. }
+  , ev_cntInUpdate
+   {* Полный перебор. }
+  , ev_cntFirstFind
+   {* Поиск первого тега для узла. }
  );//TevContentsNodeState
 
  TevContentsNode = class(Tl3VirtualFlagsNode)
- private
- // private fields
-   f_AllChildrenCount : Integer;
-   f_ThisChildrenCount : Integer;
-   f_ParentNode : Pointer;
-   f_PrevNode : Pointer;
-   f_ChildNode : Il3Node;
-   f_NextNode : Il3Node;
-   f_NodeState : TevContentsNodeState;
- private
- // private methods
+  private
+   f_AllChildrenCount: Integer;
+   f_ThisChildrenCount: Integer;
+   f_ParentNode: Pointer;
+   f_PrevNode: Pointer;
+   f_ChildNode: Il3Node;
+   f_NextNode: Il3Node;
+   f_NodeState: TevContentsNodeState;
+  private
    function CheckChildren: Boolean;
-     {* Проверяет есть ли у задания дочерние. }
+    {* Проверяет есть ли у задания дочерние. }
    procedure TryGetChildren;
- protected
- // overridden protected methods
+  protected
+   function NeedCreate: Boolean;
+   function NotReady: Boolean;
+   function NeedUpdate: Boolean;
+   procedure IncThisChildrenCount;
+   procedure DoTryGetChildren; virtual; abstract;
+   function NeedMakeChildren: Boolean; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Set_ChildNode(const aValue: Il3Node); override;
    procedure Set_ParentNode(const aValue: Il3Node); override;
    procedure Set_PrevNode(const aValue: Il3Node); override;
@@ -67,36 +65,45 @@ type
    function IsLastNode: Boolean; override;
    function HasChildNode: Boolean; override;
    function IterateChild(Action: Tl3NodeAction;
-     IterMode: Integer;
-     const aFromNode: Il3Node = nil): Il3Node; override;
+    IterMode: Integer;
+    const aFromNode: Il3Node = nil): Il3Node; override;
    procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
    procedure DoIncAllChildrenCount(aInc: Integer); override;
- protected
- // protected methods
-   function NeedCreate: Boolean;
-   function NotReady: Boolean;
-   function NeedUpdate: Boolean;
-   procedure IncThisChildrenCount;
-   procedure DoTryGetChildren; virtual; abstract;
-   function NeedMakeChildren: Boolean; virtual;
- public
- // public methods
+  public
    constructor Create; reintroduce; virtual;
  end;//TevContentsNode
 
 implementation
 
 uses
-  l3InterfacesMisc,
-  l3Types,
-  l3Bits,
-  l3TreeInterfaces
-  ;
+ l3ImplUses
+ , l3InterfacesMisc
+ , l3Types
+ , l3Bits
+ , l3TreeInterfaces
+;
 
-// start class TevContentsNode
+function TevContentsNode.NeedCreate: Boolean;
+//#UC START# *4E09C3EA0357_4DFEF11703D8_var*
+//#UC END# *4E09C3EA0357_4DFEF11703D8_var*
+begin
+//#UC START# *4E09C3EA0357_4DFEF11703D8_impl*
+ Assert(f_NodeState <> ev_cntNeedUpdate);
+ Result := (f_NodeState = ev_cntInUpdate) or (ChildNode = nil);
+//#UC END# *4E09C3EA0357_4DFEF11703D8_impl*
+end;//TevContentsNode.NeedCreate
+
+function TevContentsNode.NotReady: Boolean;
+//#UC START# *4E09C6110082_4DFEF11703D8_var*
+//#UC END# *4E09C6110082_4DFEF11703D8_var*
+begin
+//#UC START# *4E09C6110082_4DFEF11703D8_impl*
+ Result := f_NodeState = ev_cntFirstFind;
+//#UC END# *4E09C6110082_4DFEF11703D8_impl*
+end;//TevContentsNode.NotReady
 
 function TevContentsNode.CheckChildren: Boolean;
+ {* Проверяет есть ли у задания дочерние. }
 //#UC START# *4DFF17B70111_4DFEF11703D8_var*
 //#UC END# *4DFF17B70111_4DFEF11703D8_var*
 begin
@@ -143,25 +150,6 @@ begin
 //#UC END# *4E09D24E0182_4DFEF11703D8_impl*
 end;//TevContentsNode.TryGetChildren
 
-function TevContentsNode.NeedCreate: Boolean;
-//#UC START# *4E09C3EA0357_4DFEF11703D8_var*
-//#UC END# *4E09C3EA0357_4DFEF11703D8_var*
-begin
-//#UC START# *4E09C3EA0357_4DFEF11703D8_impl*
- Assert(f_NodeState <> ev_cntNeedUpdate);
- Result := (f_NodeState = ev_cntInUpdate) or (ChildNode = nil);
-//#UC END# *4E09C3EA0357_4DFEF11703D8_impl*
-end;//TevContentsNode.NeedCreate
-
-function TevContentsNode.NotReady: Boolean;
-//#UC START# *4E09C6110082_4DFEF11703D8_var*
-//#UC END# *4E09C6110082_4DFEF11703D8_var*
-begin
-//#UC START# *4E09C6110082_4DFEF11703D8_impl*
- Result := f_NodeState = ev_cntFirstFind;
-//#UC END# *4E09C6110082_4DFEF11703D8_impl*
-end;//TevContentsNode.NotReady
-
 function TevContentsNode.NeedUpdate: Boolean;
 //#UC START# *4E09E20A0130_4DFEF11703D8_var*
 //#UC END# *4E09E20A0130_4DFEF11703D8_var*
@@ -203,6 +191,7 @@ begin
 end;//TevContentsNode.NeedMakeChildren
 
 procedure TevContentsNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEF11703D8_var*
 //#UC END# *479731C50290_4DFEF11703D8_var*
 begin
@@ -361,8 +350,8 @@ begin
 end;//TevContentsNode.HasChildNode
 
 function TevContentsNode.IterateChild(Action: Tl3NodeAction;
-  IterMode: Integer;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8DFF102DD_4DFEF11703D8_var*
 //#UC END# *54C8DFF102DD_4DFEF11703D8_var*
 begin

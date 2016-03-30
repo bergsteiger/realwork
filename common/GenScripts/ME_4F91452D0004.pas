@@ -25,7 +25,6 @@ type
  TvcmMessageFormPrim = class(TvcmEntityForm)
   private
    f_Scene: TvgScene;
-    {* Поле для свойства Scene }
   protected
    f_HasButtons: Boolean;
    f_CancelButton: TMsgDlgBtn;

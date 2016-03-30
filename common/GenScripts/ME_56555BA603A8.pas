@@ -60,12 +60,14 @@ type
  end;//IevSCSub
 
 const
- cSCAttrTypeName: array [TevSCAttrType] of AnsiString = ('класс'
+ cSCAttrTypeName: array [TevSCAttrType] of AnsiString = (
+ 'класс'
  , 'тип'
  , 'ссылка'
  , 'ключевое слово'
  );
- cSCSubTypeName: array [TevSCSubType] of AnsiString = ('блок'
+ cSCSubTypeName: array [TevSCSubType] of AnsiString = (
+ 'блок'
  , 'метка'
  );
 

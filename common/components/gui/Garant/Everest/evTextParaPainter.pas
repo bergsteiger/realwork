@@ -1,100 +1,75 @@
 unit evTextParaPainter;
+ {* Рисователь текстового параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaPainter.pas"
-// Начат: 14.03.1997 10:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::LeafPara Painters::TevTextParaPainter
-//
-// Рисователь текстового параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaPainter" MUID: (4804CC1E0349)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Interfaces,
-  nevBase,
-  evTextParaPainterPrim,
-  l3Types,
-  l3Units,
-  l3Variant,
-  l3CustomString
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evTextParaPainterPrim
+ , l3Interfaces
+ , nevBase
+ , l3Units
+ , l3Types
+ , l3Variant
+ , l3CustomString
+;
 
-{$If defined(evNeedPainters)}
 type
  _AACSpaceDrawing_Parent_ = TevTextParaPainterPrim;
- {$Include ..\Everest\AACSpaceDrawing.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
  _evCollapsedStylePainter_Parent_ = _AACSpaceDrawing_;
- {$Include ..\Everest\evCollapsedStylePainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas}
  _nevStringCache_Parent_ = _evCollapsedStylePainter_;
- {$Include ..\Everest\nevStringCache.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
  TevTextParaPainter = class(_nevStringCache_)
   {* Рисователь текстового параграфа }
- protected
- // realized methods
+  protected
+   procedure AssignFontFromStyle(const aFont: Il3Font;
+    const aStyle: Tl3Variant);
    function NeedCalcSpace: Boolean; override;
-     {* Проверка для срабатывания примеси. }
+    {* Проверка для срабатывания примеси. }
    function HeaderOwnSpace: Boolean; override;
    function GetSpaceTop(anInc: Boolean): Integer; override;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // protected methods
-   procedure AssignFontFromStyle(const aFont: Il3Font;
-     const aStyle: Tl3Variant);
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
  end;//TevTextParaPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  l3MinMax,
-  l3String,
-  l3Chars,
-  l3Const,
-  evParaString,
-  SysUtils
-  ;
-{$IfEnd} //evNeedPainters
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+ , l3MinMax
+ , l3String
+ , l3Chars
+ , l3Const
+ , evParaString
+ , SysUtils
+ , nevTools
+;
 
-{$If defined(evNeedPainters)}
+{$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
 
-{$Include ..\Everest\AACSpaceDrawing.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas}
 
-{$Include ..\Everest\evCollapsedStylePainter.imp.pas}
-
-{$Include ..\Everest\nevStringCache.imp.pas}
-
-// start class TevTextParaPainter
+{$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
 
 procedure TevTextParaPainter.AssignFontFromStyle(const aFont: Il3Font;
-  const aStyle: Tl3Variant);
+ const aStyle: Tl3Variant);
 //#UC START# *55CC63800051_4804CC1E0349_var*
 //#UC END# *55CC63800051_4804CC1E0349_var*
 begin
@@ -121,6 +96,7 @@ begin
 end;//TevTextParaPainter.AssignFontFromStyle
 
 function TevTextParaPainter.NeedCalcSpace: Boolean;
+ {* Проверка для срабатывания примеси. }
 //#UC START# *5062C0650076_4804CC1E0349_var*
 //#UC END# *5062C0650076_4804CC1E0349_var*
 begin
@@ -147,8 +123,9 @@ begin
 //#UC END# *5208B63400C1_4804CC1E0349_impl*
 end;//TevTextParaPainter.GetSpaceTop
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TevTextParaPainter.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4804CC1E0349_var*
 //#UC END# *47A6FEE600FC_4804CC1E0349_var*
 begin
@@ -156,8 +133,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4804CC1E0349_impl*
 end;//TevTextParaPainter.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //evNeedPainters
-
+{$IfEnd} // Defined(evNeedPainters)
 end.

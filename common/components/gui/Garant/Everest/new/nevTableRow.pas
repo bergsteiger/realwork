@@ -1,73 +1,52 @@
 unit nevTableRow;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTableRow.pas"
-// Начат: 14.07.2006 15:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevTableRow
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRow.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRow" MUID: (48CE2103031C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevParaList,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaList
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevTableRow = class(TnevParaList, InevTableRow)
- protected
- // realized methods
+  protected
    function FindCell(aStart: Integer;
-     aWidth: Integer;
-     aRight: Boolean = False): TnevParaIndex;
-     {* Пытается найти ячейку по смещению и по ширине. }
- protected
- // overridden protected methods
+    aWidth: Integer;
+    aRight: Boolean = False): TnevParaIndex;
+    {* Пытается найти ячейку по смещению и по ширине. }
    procedure CheckPrev(const anOp: InevOp;
     aPara: Tl3Variant;
     aPID: Integer); override;
    function DoGetBackColor: TnevColor; override;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): InevTableRow; reintroduce;
  end;//TnevTableRow
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags,
-  k2Base,
-  nevFacade,
-  evdTypes,
-  evConst,
-  l3UnitsTools,
-  evTableCellUtils,
-  k2Const
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevTableRow
+ l3ImplUses
+ , k2Tags
+ , k2Base
+ , nevFacade
+ , evdTypes
+ , evConst
+ , l3UnitsTools
+ , evTableCellUtils
+ , k2Const
+;
 
 class function TnevTableRow.Make(aTag: Tl3Variant): InevTableRow;
 var
@@ -79,11 +58,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTableRow.Make
 
 function TnevTableRow.FindCell(aStart: Integer;
-  aWidth: Integer;
-  aRight: Boolean = False): TnevParaIndex;
+ aWidth: Integer;
+ aRight: Boolean = False): TnevParaIndex;
+ {* Пытается найти ячейку по смещению и по ширине. }
 //#UC START# *47C7F168011D_48CE2103031C_var*
 var
  l_OffsetX : Integer;
@@ -127,8 +107,8 @@ begin
 end;//TnevTableRow.FindCell
 
 procedure TnevTableRow.CheckPrev(const anOp: InevOp;
-  aPara: Tl3Variant;
-  aPID: Integer);
+ aPara: Tl3Variant;
+ aPID: Integer);
 //#UC START# *4C8DE3B00073_48CE2103031C_var*
 var
  l_Cell      : InevTableCell;
@@ -192,7 +172,6 @@ begin
  end;//Result = nevDefaultColor  
 //#UC END# *52B29B2E013C_48CE2103031C_impl*
 end;//TnevTableRow.DoGetBackColor
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

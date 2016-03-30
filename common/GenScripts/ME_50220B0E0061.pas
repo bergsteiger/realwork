@@ -35,21 +35,13 @@ type
  TvtScrollBar = class(TWinControl)
   private
    f_SmallChange: TScrollBarInc;
-    {* Поле для свойства SmallChange }
    f_LargeChange: TScrollBarInc;
-    {* Поле для свойства LargeChange }
    f_Min: integer;
-    {* Поле для свойства Min }
    f_Max: integer;
-    {* Поле для свойства Max }
    f_Position: integer;
-    {* Поле для свойства Position }
    f_PageSize: integer;
-    {* Поле для свойства PageSize }
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
    f_OnScroll: TScrollEvent;
-    {* Поле для свойства OnScroll }
   private
    procedure WMHScroll(var Msg: TWMHScroll); message WM_HSCROLL;
    procedure WMVScroll(var Msg: TWMVScroll); message WM_VSCROLL;

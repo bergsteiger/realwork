@@ -1,63 +1,48 @@
 unit evQueryDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evQueryDocumentContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevQueryDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryDocumentContainer" MUID: (48DB9DC1035C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevPrintableDocumentContainer,
-  l3Variant,
-  evOpProc,
-  nevDocumentContainer
-  ;
+ l3IntfUses
+ , nevPrintableDocumentContainer
+ , nevTools
+ , l3Variant
+ , nevDocumentContainer
+ , evOpProc
+;
 
 type
  TevQueryDocumentContainer = class(TnevPrintableDocumentContainer, InevQueryDocumentContainer)
- private
- // private fields
-   f_ModelNotify : Pointer;
-    {* InevControlListener}
- protected
- // realized methods
+  private
+   f_ModelNotify: Pointer;
+    {* InevControlListener }
+  protected
    function GetCurrPara: Tl3Variant;
    procedure SetCursorToPara(const aPara: InevPara;
     bAtEnd: Boolean;
     aNeedClear: Boolean);
-     {* Устанавливает курсор на определенный параграф. }
+    {* Устанавливает курсор на определенный параграф. }
    procedure ClearCard;
-     {* Обработчик очистки КЗ. }
+    {* Обработчик очистки КЗ. }
    procedure AfterCollapsed;
    procedure ReleaseListeners;
    procedure LinkListener(const aListener: InevControlListener);
    procedure UnlinkListener(const aListener: InevControlListener);
    function Get_ModelNotify: InevControlListener;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); override;
    function PartGeneratorClass: RevDocumentPartGenerator; override;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    class function Make(aDocument: Tl3Variant = nil): InevQueryDocumentContainer; reintroduce;
    constructor Create(aDocument: Tl3Variant); reintroduce;
  end;//TevQueryDocumentContainer
@@ -65,14 +50,13 @@ type
 implementation
 
 uses
-  evQueryCardInt,
-  evQueryCardProcessor,
-  evControlGenerator,
-  evDefaultContext,
-  nevBase
-  ;
-
-// start class TevQueryDocumentContainer
+ l3ImplUses
+ , evQueryCardInt
+ , evQueryCardProcessor
+ , evControlGenerator
+ , evDefaultContext
+ , nevBase
+;
 
 class function TevQueryDocumentContainer.Make(aDocument: Tl3Variant = nil): InevQueryDocumentContainer;
 var
@@ -84,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevQueryDocumentContainer.Make
 
 constructor TevQueryDocumentContainer.Create(aDocument: Tl3Variant);
 //#UC START# *48DBA7E101F6_48DB9DC1035C_var*
@@ -111,8 +95,9 @@ begin
 end;//TevQueryDocumentContainer.GetCurrPara
 
 procedure TevQueryDocumentContainer.SetCursorToPara(const aPara: InevPara;
-  bAtEnd: Boolean;
-  aNeedClear: Boolean);
+ bAtEnd: Boolean;
+ aNeedClear: Boolean);
+ {* Устанавливает курсор на определенный параграф. }
 //#UC START# *47C6BA4200E7_48DB9DC1035C_var*
 var
  l_Editor: IevQueryCardEditor; 
@@ -126,6 +111,7 @@ begin
 end;//TevQueryDocumentContainer.SetCursorToPara
 
 procedure TevQueryDocumentContainer.ClearCard;
+ {* Обработчик очистки КЗ. }
 //#UC START# *47C6BA6300ED_48DB9DC1035C_var*
 //#UC END# *47C6BA6300ED_48DB9DC1035C_var*
 begin
@@ -182,6 +168,7 @@ begin
 end;//TevQueryDocumentContainer.Get_ModelNotify
 
 procedure TevQueryDocumentContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48DB9DC1035C_var*
 //#UC END# *479731C50290_48DB9DC1035C_var*
 begin
@@ -209,7 +196,7 @@ begin
 //#UC END# *48033300004D_48DB9DC1035C_impl*
 end;//TevQueryDocumentContainer.PartGeneratorClass
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TevQueryDocumentContainer.DoStyleTableChanged;
 //#UC START# *4A485B710126_48DB9DC1035C_var*
 //#UC END# *4A485B710126_48DB9DC1035C_var*
@@ -222,6 +209,6 @@ begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=119473921&focusedCommentId=119473962#comment-119473962
 //#UC END# *4A485B710126_48DB9DC1035C_impl*
 end;//TevQueryDocumentContainer.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

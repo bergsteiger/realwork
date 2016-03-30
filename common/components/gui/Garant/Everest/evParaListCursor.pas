@@ -1,44 +1,32 @@
 unit evParaListCursor;
+ {* Курсор для списка параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListCursor.pas"
-// Начат: 16.12.2002 17:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevParaListCursor
-//
-// Курсор для списка параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListCursor" MUID: (4A3A444900B3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursorDeletable
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorDeletable
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevParaListCursor = class(TevParaListCursorDeletable)
   {* Курсор для списка параграфов }
  end;//TevParaListCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-
-{$IfEnd} //evUseVisibleCursors
 end.

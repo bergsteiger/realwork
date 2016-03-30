@@ -1,65 +1,99 @@
 {$IfNDef ChromeLikeTabbedContainerForm_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeTabbedContainerForm.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GUIControlMixIn::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::ChromeLikeTabbedContainerForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas"
+// Стереотип: "GUIControlMixIn"
+// Элемент модели: "ChromeLikeTabbedContainerForm" MUID: (550A7D5C01BC)
+// Имя типа: "_ChromeLikeTabbedContainerForm_"
 
 {$Define ChromeLikeTabbedContainerForm_imp}
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
- _ChromeLikeTabbedContainerForm_ = {mixin} class(_ChromeLikeTabbedContainerForm_Parent_, Il3TabbedContainer)
- private
- // private fields
-   f_LastMovingPoint : TPoint;
-   f_ShowingChangedTickCount : Cardinal;
-   f_LastDockOperationTickCount : Cardinal;
-   f_PositionLockCount : Integer;
-   f_TabSet : TChromeLikeTabSetControl;
-    {* Поле для свойства TabSet}
- private
- // private methods
+
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ _ChromeLikeTabbedContainerForm_ = class(_ChromeLikeTabbedContainerForm_Parent_, Il3TabbedContainer)
+  private
+   f_LastMovingPoint: TPoint;
+   f_ShowingChangedTickCount: Cardinal;
+   f_LastDockOperationTickCount: Cardinal;
+   f_PositionLockCount: Integer;
+   f_TabSet: TChromeLikeTabSetControl;
+  private
    procedure InsertFormAfterSelected(aForm: TForm;
-     const aParams: Il3TabParams;
-     aNeedSelect: Boolean);
+    const aParams: Il3TabParams;
+    aNeedSelect: Boolean);
    procedure InsertFormAtPoint(aForm: TForm;
-     const aParams: Il3TabParams;
-     const aPoint: TPoint;
-     aNeedSelect: Boolean);
+    const aParams: Il3TabParams;
+    const aPoint: TPoint;
+    aNeedSelect: Boolean);
    procedure DisableOthers(aSelectedForm: TForm);
    procedure DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
-     aMenuTab: TChromeLikeTab;
-     aOpenLast: Boolean);
+    aMenuTab: TChromeLikeTab;
+    aOpenLast: Boolean);
    procedure InsertFormAfterSpecified(aForm: TForm;
-     const aParams: Il3TabParams;
-     aInsertAfter: TForm;
-     aNeedSelect: Boolean);
+    const aParams: Il3TabParams;
+    aInsertAfter: TForm;
+    aNeedSelect: Boolean);
    procedure WMMove(var aMessage: TMessage); message WM_MOVE;
- protected
- // property methods
+  protected
    function pm_GetTabSetParent: TWinControl;
    function pm_GetFormDockSite: TWinControl;
    function pm_GetPositionLocked: Boolean; virtual;
- protected
- // realized methods
+   procedure DoOnTabSelected(aTabSet: TChromeLikeTabSetControlPrim;
+    aTab: TChromeLikeTab); virtual;
+   procedure DoOnTabDeselected(aTabSet: TChromeLikeTabSetControlPrim;
+    aTab: TChromeLikeTab); virtual;
+   procedure DoOnPaintTabSetBackground(aTabSet: TChromeLikeTabSetControlPrim;
+    const aRect: TRect;
+    aCanvas: TCanvas;
+    var aDefaultPainting: Boolean); virtual;
+   procedure DoOnCanUndockFormEvent(aTabSet: TChromeLikeTabSetControlPrim;
+    aForm: TForm;
+    var aCanUndock: Boolean); virtual;
+   procedure DoOnAfterFormAdded(aTabSet: TChromeLikeTabSetControlPrim;
+    aForm: TForm;
+    aNeedSelect: Boolean); virtual;
+   procedure DoOnCanDockForm(aTabSet: TChromeLikeTabSetControlPrim;
+    aForm: TForm;
+    aNeedSelect: Boolean;
+    var aCanDock: Boolean); virtual;
+   procedure DoOnCloseTabForm(aTabSet: TChromeLikeTabSetControlPrim;
+    aTab: TChromeLikeTab;
+    var aCanClose: Boolean;
+    aNewSelectedTab: TChromeLikeTab); virtual;
+   procedure DoOnTabSetSelectionChanged(aTabSet: TChromeLikeTabSetControlPrim;
+    aPrevSelected: TChromeLikeTab;
+    aNewSelected: TChromeLikeTab); virtual;
+   function DoGetTabSetParent: TWinControl; virtual; abstract;
+   procedure RedrawTabSet;
+   procedure BeforeInsertForm(aForm: TForm); virtual;
+   procedure AfterInsertForm(aForm: TForm;
+    const aParams: Il3TabParams;
+    aNeedSelect: Boolean); virtual;
+   function DoMakeClone: Il3TabbedContainer; virtual; abstract;
+   function GetTabsHeight: Integer; virtual;
+   procedure MakeTabSet; virtual;
+   function CanDockToAnother(const aPoint: TPoint): Boolean; virtual;
+   procedure DockToAnother(const aMousePoint: TPoint;
+    aForm: TForm); virtual; abstract;
+   procedure UpdateContainedFormsActions;
+   procedure ResetMouseControl;
+   function DoGetFormDockSite: TWinControl; virtual;
+   function IsDockOperationPossible: Boolean;
+   function CheckFormTabParams(aForm: TForm;
+    const aParams: Il3TabParams): Il3TabParams; virtual;
+   function MakeTabSetParams: TChromeLikeTabSetParams; virtual;
+   procedure DoOpenNewTab(aOpenLast: Boolean); virtual;
+   function DoGetCanOpenNewTab: Boolean; virtual;
+   procedure DoUpdateCaption; virtual;
+   procedure DoOpenTabAfter(const aTab: Il3FormTab); virtual;
    function DockForm(aForm: TForm;
-      aNeedShow: Boolean): Boolean;
+    aNeedShow: Boolean): Boolean;
    function UndockForm(aForm: TForm): Boolean;
    function MakeFormParams(aForm: TForm): Il3TabParams;
    function MakeClone: Il3TabbedContainer;
    procedure MakeVisible(const aTopLeftPosition: TPoint);
    procedure DockForeignForm(aForm: TForm;
-      const aTabParams: Il3TabParams);
+    const aTabParams: Il3TabParams);
    procedure LockPosition;
-     {* Сигнатура метода LockPosition }
    procedure UnlockPosition;
-     {* Сигнатура метода UnlockPosition }
    function pm_GetAsForm: TForm;
    function GetFormTab(aForm: TForm): Il3FormTab;
    function pm_GetTabs(Index: Integer): Il3FormTab;
@@ -70,209 +104,101 @@
    procedure OpenNewTab(aOpenLast: Boolean = True);
    function pm_GetCanOpenNewTab: Boolean;
    procedure CloseSelectedTab;
-     {* Сигнатура метода CloseSelectedTab }
    procedure CloseTab(const aTab: Il3FormTab);
    procedure UpdateCaption;
-     {* Сигнатура метода UpdateCaption }
    function Get_TabByVisibleIndex(Index: Integer): Il3FormTab;
    function CanUndockFormFromTab(aTabIndex: Integer): Boolean;
    procedure UndockFormFromTab(aTabIndex: Integer);
    procedure OpenTabAfter(const aTab: Il3FormTab);
- protected
- // protected methods
-   procedure DoOnTabSelected(aTabSet: TChromeLikeTabSetControlPrim;
-     aTab: TChromeLikeTab); virtual;
-   procedure DoOnTabDeselected(aTabSet: TChromeLikeTabSetControlPrim;
-     aTab: TChromeLikeTab); virtual;
-   procedure DoOnPaintTabSetBackground(aTabSet: TChromeLikeTabSetControlPrim;
-     const aRect: TRect;
-     aCanvas: TCanvas;
-     var aDefaultPainting: Boolean); virtual;
-   procedure DoOnCanUndockFormEvent(aTabSet: TChromeLikeTabSetControlPrim;
-     aForm: TForm;
-     var aCanUndock: Boolean); virtual;
-   procedure DoOnAfterFormAdded(aTabSet: TChromeLikeTabSetControlPrim;
-     aForm: TForm;
-     aNeedSelect: Boolean); virtual;
-   procedure DoOnCanDockForm(aTabSet: TChromeLikeTabSetControlPrim;
-     aForm: TForm;
-     aNeedSelect: Boolean;
-     var aCanDock: Boolean); virtual;
-   procedure DoOnCloseTabForm(aTabSet: TChromeLikeTabSetControlPrim;
-     aTab: TChromeLikeTab;
-     var aCanClose: Boolean;
-     aNewSelectedTab: TChromeLikeTab); virtual;
-   procedure DoOnTabSetSelectionChanged(aTabSet: TChromeLikeTabSetControlPrim;
-     aPrevSelected: TChromeLikeTab;
-     aNewSelected: TChromeLikeTab); virtual;
-   function DoGetTabSetParent: TWinControl; virtual; abstract;
-   procedure RedrawTabSet;
-     {* Сигнатура метода RedrawTabSet }
-   procedure BeforeInsertForm(aForm: TForm); virtual;
-   procedure AfterInsertForm(aForm: TForm;
-     const aParams: Il3TabParams;
-     aNeedSelect: Boolean); virtual;
-   function DoMakeClone: Il3TabbedContainer; virtual; abstract;
-   function GetTabsHeight: Integer; virtual;
-   procedure MakeTabSet; virtual;
-     {* Сигнатура метода MakeTabSet }
-   function CanDockToAnother(const aPoint: TPoint): Boolean; virtual;
-   procedure DockToAnother(const aMousePoint: TPoint;
-     aForm: TForm); virtual; abstract;
-   procedure UpdateContainedFormsActions;
-     {* Сигнатура метода UpdateContainedFormsActions }
-   procedure ResetMouseControl;
-     {* Сигнатура метода ResetMouseControl }
-   function DoGetFormDockSite: TWinControl; virtual;
-   function IsDockOperationPossible: Boolean;
-   function CheckFormTabParams(aForm: TForm;
-     const aParams: Il3TabParams): Il3TabParams; virtual;
-   function MakeTabSetParams: TChromeLikeTabSetParams; virtual;
-   procedure DoOpenNewTab(aOpenLast: Boolean); virtual;
-   function DoGetCanOpenNewTab: Boolean; virtual;
-   procedure DoUpdateCaption; virtual;
-     {* Сигнатура метода DoUpdateCaption }
-   procedure DoOpenTabAfter(const aTab: Il3FormTab); virtual;
- public
- // public methods
+  public
    procedure ActivateTabByIndex(aIndex: Integer);
    procedure ActivateNextTab; virtual;
-     {* Сигнатура метода ActivateNextTab }
    procedure ActivatePrevTab;
-     {* Сигнатура метода ActivatePrevTab }
    procedure InsertForm(aForm: TForm;
-     const aTabParams: Il3TabParams = nil;
-     aNeedSelect: Boolean = True;
-     aInsertLast: Boolean = False;
-     aInsertAfter: TForm = nil); overload; 
+    const aTabParams: Il3TabParams = nil;
+    aNeedSelect: Boolean = True;
+    aInsertLast: Boolean = False;
+    aInsertAfter: TForm = nil); overload;
    procedure InsertForm(aForm: TForm;
-     const aMousePoint: TPoint;
-     const aTabParams: Il3TabParams = nil;
-     aNeedSelect: Boolean = True); overload; 
+    const aMousePoint: TPoint;
+    const aTabParams: Il3TabParams = nil;
+    aNeedSelect: Boolean = True); overload;
    procedure CloseSelectedForm;
-     {* Сигнатура метода CloseSelectedForm }
    procedure SetSelected(aForm: TForm);
    procedure RemoveForm(aForm: TForm;
-     aNoClose: Boolean = True);
- protected
- // protected properties
+    aNoClose: Boolean = True);
+  protected
    property TabSet: TChromeLikeTabSetControl
-     read f_TabSet;
+    read f_TabSet;
    property TabSetParent: TWinControl
-     read pm_GetTabSetParent;
+    read pm_GetTabSetParent;
    property FormDockSite: TWinControl
-     read pm_GetFormDockSite;
+    read pm_GetFormDockSite;
    property PositionLocked: Boolean
-     read pm_GetPositionLocked;
+    read pm_GetPositionLocked;
  end;//_ChromeLikeTabbedContainerForm_
-{$Else}
 
- _ChromeLikeTabbedContainerForm_ = _ChromeLikeTabbedContainerForm_Parent_;
+{$Else NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+_ChromeLikeTabbedContainerForm_ = _ChromeLikeTabbedContainerForm_Parent_;
 
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 {$Else ChromeLikeTabbedContainerForm_imp}
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$IfNDef ChromeLikeTabbedContainerForm_imp_impl}
+
+{$Define ChromeLikeTabbedContainerForm_imp_impl}
+
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+type
+ THackApplication = class(TComponent)
+  private
+   FHandle: hWnd;
+   FBiDiMode: TBiDiMode;
+   FBiDiKeyboard: AnsiString;
+   FNonBiDiKeyboard: AnsiString;
+   FObjectInstance: Pointer;
+   FMainForm: TForm;
+   FMouseControl: TControl;
+ end;//THackApplication
+
+ THackCustomForm = {final} class(TCustomForm)
+ end;//THackCustomForm
 
 const
-   { Internal }
-  cMinimalIntervalBetweenDockOperations = 300;
-  cDockAfterShowingChangedInterval = 200;
-  cDefaultTabsHeight = 25;
+ cMinimalIntervalBetweenDockOperations = 300;
+ cDockAfterShowingChangedInterval = 200;
+ cDefaultTabsHeight = 25;
 
-type
-  THackApplication = class(TComponent)
-  private
-  // private fields
-   FHandle : hWnd;
-   FBiDiMode : TBiDiMode;
-   FBiDiKeyboard : AnsiString;
-   FNonBiDiKeyboard : AnsiString;
-   FObjectInstance : Pointer;
-   FMainForm : TForm;
-   FMouseControl : TControl;
-  end;//THackApplication
-
-  THackCustomForm = {final} class(TCustomForm)
-  end;//THackCustomForm
-
-// start class _ChromeLikeTabbedContainerForm_
-
-procedure _ChromeLikeTabbedContainerForm_.InsertFormAfterSelected(aForm: TForm;
-  const aParams: Il3TabParams;
-  aNeedSelect: Boolean);
-//#UC START# *550A850801D5_550A7D5C01BC_var*
-//#UC END# *550A850801D5_550A7D5C01BC_var*
+function _ChromeLikeTabbedContainerForm_.pm_GetTabSetParent: TWinControl;
+//#UC START# *550A7FCB0021_550A7D5C01BCget_var*
+//#UC END# *550A7FCB0021_550A7D5C01BCget_var*
 begin
-//#UC START# *550A850801D5_550A7D5C01BC_impl*
- f_TabSet.DockFormAfterSelected(aForm, CheckFormTabParams(aForm, aParams), aNeedSelect);
-//#UC END# *550A850801D5_550A7D5C01BC_impl*
-end;//_ChromeLikeTabbedContainerForm_.InsertFormAfterSelected
+//#UC START# *550A7FCB0021_550A7D5C01BCget_impl*
+ Result := DoGetTabSetParent;
+//#UC END# *550A7FCB0021_550A7D5C01BCget_impl*
+end;//_ChromeLikeTabbedContainerForm_.pm_GetTabSetParent
 
-procedure _ChromeLikeTabbedContainerForm_.InsertFormAtPoint(aForm: TForm;
-  const aParams: Il3TabParams;
-  const aPoint: TPoint;
-  aNeedSelect: Boolean);
-//#UC START# *550A85200145_550A7D5C01BC_var*
-//#UC END# *550A85200145_550A7D5C01BC_var*
+function _ChromeLikeTabbedContainerForm_.pm_GetFormDockSite: TWinControl;
+//#UC START# *550A9811026A_550A7D5C01BCget_var*
+//#UC END# *550A9811026A_550A7D5C01BCget_var*
 begin
-//#UC START# *550A85200145_550A7D5C01BC_impl*
- f_TabSet.DockFormAtPoint(aForm, CheckFormTabParams(aForm, aParams), aPoint, aNeedSelect);
-//#UC END# *550A85200145_550A7D5C01BC_impl*
-end;//_ChromeLikeTabbedContainerForm_.InsertFormAtPoint
+//#UC START# *550A9811026A_550A7D5C01BCget_impl*
+ Result := DoGetFormDockSite;
+//#UC END# *550A9811026A_550A7D5C01BCget_impl*
+end;//_ChromeLikeTabbedContainerForm_.pm_GetFormDockSite
 
-procedure _ChromeLikeTabbedContainerForm_.DisableOthers(aSelectedForm: TForm);
-//#UC START# *5510075F02EA_550A7D5C01BC_var*
-var
- l_Form: TForm;
- l_Index: Integer;
-//#UC END# *5510075F02EA_550A7D5C01BC_var*
+function _ChromeLikeTabbedContainerForm_.pm_GetPositionLocked: Boolean;
+//#UC START# *552CEB4B00B5_550A7D5C01BCget_var*
+//#UC END# *552CEB4B00B5_550A7D5C01BCget_var*
 begin
-//#UC START# *5510075F02EA_550A7D5C01BC_impl*
- for l_Index := 0 to Pred(f_TabSet.TabCount) do
- begin
-  l_Form := f_TabSet.Tabs[l_Index].Form;
-  if (l_Form <> aSelectedForm) then
-  begin
-   l_Form.Visible := False;
-   l_Form.SendToBack;
-   l_Form.Enabled := False;
-  end;
- end;
- aSelectedForm.Enabled := True;
- if (not aSelectedForm.Visible) and Visible and Showing then
-  aSelectedForm.Show;
- aSelectedForm.BringToFront;
-//#UC END# *5510075F02EA_550A7D5C01BC_impl*
-end;//_ChromeLikeTabbedContainerForm_.DisableOthers
-
-procedure _ChromeLikeTabbedContainerForm_.DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
-  aMenuTab: TChromeLikeTab;
-  aOpenLast: Boolean);
-//#UC START# *558119BD02BE_550A7D5C01BC_var*
-//#UC END# *558119BD02BE_550A7D5C01BC_var*
-begin
-//#UC START# *558119BD02BE_550A7D5C01BC_impl*
- OpenTabAfter(aMenuTab);
-// OpenNewTab(aOpenLast);
-//#UC END# *558119BD02BE_550A7D5C01BC_impl*
-end;//_ChromeLikeTabbedContainerForm_.DoOnNewTabRequested
-
-procedure _ChromeLikeTabbedContainerForm_.InsertFormAfterSpecified(aForm: TForm;
-  const aParams: Il3TabParams;
-  aInsertAfter: TForm;
-  aNeedSelect: Boolean);
-//#UC START# *55CB09250081_550A7D5C01BC_var*
-//#UC END# *55CB09250081_550A7D5C01BC_var*
-begin
-//#UC START# *55CB09250081_550A7D5C01BC_impl*
- TabSet.DockFormAfterSpecified(aForm, aParams, aInsertAfter, aNeedSelect);
-//#UC END# *55CB09250081_550A7D5C01BC_impl*
-end;//_ChromeLikeTabbedContainerForm_.InsertFormAfterSpecified
+//#UC START# *552CEB4B00B5_550A7D5C01BCget_impl*
+ Result := f_PositionLockCount > 0;
+//#UC END# *552CEB4B00B5_550A7D5C01BCget_impl*
+end;//_ChromeLikeTabbedContainerForm_.pm_GetPositionLocked
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnTabSelected(aTabSet: TChromeLikeTabSetControlPrim;
-  aTab: TChromeLikeTab);
+ aTab: TChromeLikeTab);
 //#UC START# *550A7E0F01BF_550A7D5C01BC_var*
 //#UC END# *550A7E0F01BF_550A7D5C01BC_var*
 begin
@@ -282,7 +208,7 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnTabSelected
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnTabDeselected(aTabSet: TChromeLikeTabSetControlPrim;
-  aTab: TChromeLikeTab);
+ aTab: TChromeLikeTab);
 //#UC START# *550A7E2502F7_550A7D5C01BC_var*
 //#UC END# *550A7E2502F7_550A7D5C01BC_var*
 begin
@@ -292,9 +218,9 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnTabDeselected
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnPaintTabSetBackground(aTabSet: TChromeLikeTabSetControlPrim;
-  const aRect: TRect;
-  aCanvas: TCanvas;
-  var aDefaultPainting: Boolean);
+ const aRect: TRect;
+ aCanvas: TCanvas;
+ var aDefaultPainting: Boolean);
 //#UC START# *550A7E46032C_550A7D5C01BC_var*
 //#UC END# *550A7E46032C_550A7D5C01BC_var*
 begin
@@ -304,8 +230,8 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnPaintTabSetBackground
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnCanUndockFormEvent(aTabSet: TChromeLikeTabSetControlPrim;
-  aForm: TForm;
-  var aCanUndock: Boolean);
+ aForm: TForm;
+ var aCanUndock: Boolean);
 //#UC START# *550A7E690247_550A7D5C01BC_var*
 //#UC END# *550A7E690247_550A7D5C01BC_var*
 begin
@@ -315,8 +241,8 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnCanUndockFormEvent
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnAfterFormAdded(aTabSet: TChromeLikeTabSetControlPrim;
-  aForm: TForm;
-  aNeedSelect: Boolean);
+ aForm: TForm;
+ aNeedSelect: Boolean);
 //#UC START# *550A7E840108_550A7D5C01BC_var*
 //#UC END# *550A7E840108_550A7D5C01BC_var*
 begin
@@ -327,9 +253,9 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnAfterFormAdded
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnCanDockForm(aTabSet: TChromeLikeTabSetControlPrim;
-  aForm: TForm;
-  aNeedSelect: Boolean;
-  var aCanDock: Boolean);
+ aForm: TForm;
+ aNeedSelect: Boolean;
+ var aCanDock: Boolean);
 //#UC START# *550A7E9701A5_550A7D5C01BC_var*
 //#UC END# *550A7E9701A5_550A7D5C01BC_var*
 begin
@@ -339,9 +265,9 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnCanDockForm
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnCloseTabForm(aTabSet: TChromeLikeTabSetControlPrim;
-  aTab: TChromeLikeTab;
-  var aCanClose: Boolean;
-  aNewSelectedTab: TChromeLikeTab);
+ aTab: TChromeLikeTab;
+ var aCanClose: Boolean;
+ aNewSelectedTab: TChromeLikeTab);
 //#UC START# *550A7EAB00D2_550A7D5C01BC_var*
 //#UC END# *550A7EAB00D2_550A7D5C01BC_var*
 begin
@@ -351,8 +277,8 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOnCloseTabForm
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnTabSetSelectionChanged(aTabSet: TChromeLikeTabSetControlPrim;
-  aPrevSelected: TChromeLikeTab;
-  aNewSelected: TChromeLikeTab);
+ aPrevSelected: TChromeLikeTab;
+ aNewSelected: TChromeLikeTab);
 //#UC START# *550A7EC00274_550A7D5C01BC_var*
 //#UC END# *550A7EC00274_550A7D5C01BC_var*
 begin
@@ -389,10 +315,10 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.ActivatePrevTab
 
 procedure _ChromeLikeTabbedContainerForm_.InsertForm(aForm: TForm;
-  const aTabParams: Il3TabParams = nil;
-  aNeedSelect: Boolean = True;
-  aInsertLast: Boolean = False;
-  aInsertAfter: TForm = nil);
+ const aTabParams: Il3TabParams = nil;
+ aNeedSelect: Boolean = True;
+ aInsertLast: Boolean = False;
+ aInsertAfter: TForm = nil);
 //#UC START# *550A813B0022_550A7D5C01BC_var*
 var
  l_TabParams: Il3TabParams;
@@ -415,9 +341,9 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.InsertForm
 
 procedure _ChromeLikeTabbedContainerForm_.InsertForm(aForm: TForm;
-  const aMousePoint: TPoint;
-  const aTabParams: Il3TabParams = nil;
-  aNeedSelect: Boolean = True);
+ const aMousePoint: TPoint;
+ const aTabParams: Il3TabParams = nil;
+ aNeedSelect: Boolean = True);
 //#UC START# *550A817F01CE_550A7D5C01BC_var*
 var
  l_TabParams: Il3TabParams;
@@ -479,8 +405,8 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.BeforeInsertForm
 
 procedure _ChromeLikeTabbedContainerForm_.AfterInsertForm(aForm: TForm;
-  const aParams: Il3TabParams;
-  aNeedSelect: Boolean);
+ const aParams: Il3TabParams;
+ aNeedSelect: Boolean);
 //#UC START# *550A84C1035F_550A7D5C01BC_var*
 //#UC END# *550A84C1035F_550A7D5C01BC_var*
 begin
@@ -488,6 +414,29 @@ begin
  f_LastDockOperationTickCount := GetTickCount;
 //#UC END# *550A84C1035F_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.AfterInsertForm
+
+procedure _ChromeLikeTabbedContainerForm_.InsertFormAfterSelected(aForm: TForm;
+ const aParams: Il3TabParams;
+ aNeedSelect: Boolean);
+//#UC START# *550A850801D5_550A7D5C01BC_var*
+//#UC END# *550A850801D5_550A7D5C01BC_var*
+begin
+//#UC START# *550A850801D5_550A7D5C01BC_impl*
+ f_TabSet.DockFormAfterSelected(aForm, CheckFormTabParams(aForm, aParams), aNeedSelect);
+//#UC END# *550A850801D5_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.InsertFormAfterSelected
+
+procedure _ChromeLikeTabbedContainerForm_.InsertFormAtPoint(aForm: TForm;
+ const aParams: Il3TabParams;
+ const aPoint: TPoint;
+ aNeedSelect: Boolean);
+//#UC START# *550A85200145_550A7D5C01BC_var*
+//#UC END# *550A85200145_550A7D5C01BC_var*
+begin
+//#UC START# *550A85200145_550A7D5C01BC_impl*
+ f_TabSet.DockFormAtPoint(aForm, CheckFormTabParams(aForm, aParams), aPoint, aNeedSelect);
+//#UC END# *550A85200145_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.InsertFormAtPoint
 
 function _ChromeLikeTabbedContainerForm_.GetTabsHeight: Integer;
 //#UC START# *550A870B008D_550A7D5C01BC_var*
@@ -600,8 +549,33 @@ begin
 //#UC END# *550BBFAA0295_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.IsDockOperationPossible
 
+procedure _ChromeLikeTabbedContainerForm_.DisableOthers(aSelectedForm: TForm);
+//#UC START# *5510075F02EA_550A7D5C01BC_var*
+var
+ l_Form: TForm;
+ l_Index: Integer;
+//#UC END# *5510075F02EA_550A7D5C01BC_var*
+begin
+//#UC START# *5510075F02EA_550A7D5C01BC_impl*
+ for l_Index := 0 to Pred(f_TabSet.TabCount) do
+ begin
+  l_Form := f_TabSet.Tabs[l_Index].Form;
+  if (l_Form <> aSelectedForm) then
+  begin
+   l_Form.Visible := False;
+   l_Form.SendToBack;
+   l_Form.Enabled := False;
+  end;
+ end;
+ aSelectedForm.Enabled := True;
+ if (not aSelectedForm.Visible) and Visible and Showing then
+  aSelectedForm.Show;
+ aSelectedForm.BringToFront;
+//#UC END# *5510075F02EA_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.DisableOthers
+
 procedure _ChromeLikeTabbedContainerForm_.RemoveForm(aForm: TForm;
-  aNoClose: Boolean = True);
+ aNoClose: Boolean = True);
 //#UC START# *551138EC01AA_550A7D5C01BC_var*
 var
  l_Tab: TChromeLikeTab;
@@ -618,7 +592,7 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.RemoveForm
 
 function _ChromeLikeTabbedContainerForm_.CheckFormTabParams(aForm: TForm;
-  const aParams: Il3TabParams): Il3TabParams;
+ const aParams: Il3TabParams): Il3TabParams;
 //#UC START# *55128BE1012F_550A7D5C01BC_var*
 //#UC END# *55128BE1012F_550A7D5C01BC_var*
 begin
@@ -645,6 +619,18 @@ begin
 //#UC END# *5566D7A300E6_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoOpenNewTab
 
+procedure _ChromeLikeTabbedContainerForm_.DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
+ aMenuTab: TChromeLikeTab;
+ aOpenLast: Boolean);
+//#UC START# *558119BD02BE_550A7D5C01BC_var*
+//#UC END# *558119BD02BE_550A7D5C01BC_var*
+begin
+//#UC START# *558119BD02BE_550A7D5C01BC_impl*
+ OpenTabAfter(aMenuTab);
+// OpenNewTab(aOpenLast);
+//#UC END# *558119BD02BE_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.DoOnNewTabRequested
+
 function _ChromeLikeTabbedContainerForm_.DoGetCanOpenNewTab: Boolean;
 //#UC START# *55B5F22B0315_550A7D5C01BC_var*
 //#UC END# *55B5F22B0315_550A7D5C01BC_var*
@@ -653,6 +639,18 @@ begin
  Result := DoGetCanOpenNewTab;
 //#UC END# *55B5F22B0315_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoGetCanOpenNewTab
+
+procedure _ChromeLikeTabbedContainerForm_.InsertFormAfterSpecified(aForm: TForm;
+ const aParams: Il3TabParams;
+ aInsertAfter: TForm;
+ aNeedSelect: Boolean);
+//#UC START# *55CB09250081_550A7D5C01BC_var*
+//#UC END# *55CB09250081_550A7D5C01BC_var*
+begin
+//#UC START# *55CB09250081_550A7D5C01BC_impl*
+ TabSet.DockFormAfterSpecified(aForm, aParams, aInsertAfter, aNeedSelect);
+//#UC END# *55CB09250081_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.InsertFormAfterSpecified
 
 procedure _ChromeLikeTabbedContainerForm_.DoUpdateCaption;
 //#UC START# *55FFECF00390_550A7D5C01BC_var*
@@ -671,33 +669,6 @@ begin
  Assert(False);
 //#UC END# *56CEB59A037B_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoOpenTabAfter
-
-function _ChromeLikeTabbedContainerForm_.pm_GetTabSetParent: TWinControl;
-//#UC START# *550A7FCB0021_550A7D5C01BCget_var*
-//#UC END# *550A7FCB0021_550A7D5C01BCget_var*
-begin
-//#UC START# *550A7FCB0021_550A7D5C01BCget_impl*
- Result := DoGetTabSetParent;
-//#UC END# *550A7FCB0021_550A7D5C01BCget_impl*
-end;//_ChromeLikeTabbedContainerForm_.pm_GetTabSetParent
-
-function _ChromeLikeTabbedContainerForm_.pm_GetFormDockSite: TWinControl;
-//#UC START# *550A9811026A_550A7D5C01BCget_var*
-//#UC END# *550A9811026A_550A7D5C01BCget_var*
-begin
-//#UC START# *550A9811026A_550A7D5C01BCget_impl*
- Result := DoGetFormDockSite;
-//#UC END# *550A9811026A_550A7D5C01BCget_impl*
-end;//_ChromeLikeTabbedContainerForm_.pm_GetFormDockSite
-
-function _ChromeLikeTabbedContainerForm_.pm_GetPositionLocked: Boolean;
-//#UC START# *552CEB4B00B5_550A7D5C01BCget_var*
-//#UC END# *552CEB4B00B5_550A7D5C01BCget_var*
-begin
-//#UC START# *552CEB4B00B5_550A7D5C01BCget_impl*
- Result := f_PositionLockCount > 0;
-//#UC END# *552CEB4B00B5_550A7D5C01BCget_impl*
-end;//_ChromeLikeTabbedContainerForm_.pm_GetPositionLocked
 
 procedure _ChromeLikeTabbedContainerForm_.WMMove(var aMessage: TMessage);
 //#UC START# *550A82B90140_550A7D5C01BC_var*
@@ -722,7 +693,7 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.WMMove
 
 function _ChromeLikeTabbedContainerForm_.DockForm(aForm: TForm;
-  aNeedShow: Boolean): Boolean;
+ aNeedShow: Boolean): Boolean;
 //#UC START# *5500204D0269_550A7D5C01BC_var*
 //#UC END# *5500204D0269_550A7D5C01BC_var*
 begin
@@ -788,7 +759,7 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.MakeVisible
 
 procedure _ChromeLikeTabbedContainerForm_.DockForeignForm(aForm: TForm;
-  const aTabParams: Il3TabParams);
+ const aTabParams: Il3TabParams);
 //#UC START# *550685560112_550A7D5C01BC_var*
 //#UC END# *550685560112_550A7D5C01BC_var*
 begin
@@ -970,7 +941,9 @@ begin
  DoOpenTabAfter(aTab);
 //#UC END# *56CEAAE901F8_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.OpenTabAfter
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$EndIf ChromeLikeTabbedContainerForm_imp_impl}
 
 {$EndIf ChromeLikeTabbedContainerForm_imp}
+

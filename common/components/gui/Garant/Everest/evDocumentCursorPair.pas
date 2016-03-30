@@ -1,69 +1,53 @@
 unit evDocumentCursorPair;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevDocumentCursorPair
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentCursorPair.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentCursorPair" MUID: (4A2D2DA90232)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursorPair,
-  k2Interfaces,
-  nevBase,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorPair
+ , nevTools
+ , k2Interfaces
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevDocumentCursorPair = class(TevParaListCursorPair)
- protected
- // overridden protected methods
+  protected
    procedure DoStore(const aView: InevView;
-     const G: Ik2TagGenerator;
-     aFlags: TevStoreFlags); override;
-    {$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
+    const G: Ik2TagGenerator;
+    aFlags: TevStoreFlags); override;
+   {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
-     const anOpPack: InevOp = nil;
-     aMode: TevClearMode = ev_cmAll;
-     const aPara: InevPara = nil): Boolean; override;
-    {$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
+    const anOpPack: InevOp = nil;
+    aMode: TevClearMode = nevTools.ev_cmAll;
+    const aPara: InevPara = nil): Boolean; override;
+   {$IfEnd} // Defined(evNeedEditableCursors)
  end;//TevDocumentCursorPair
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evdInterfaces,
-  l3UnitsTools,
-  evSectionPara,
-  evdDOM,
-  k2Tags,
-  Para_Const
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevDocumentCursorPair
+ l3ImplUses
+ , evdInterfaces
+ , l3UnitsTools
+ , evSectionPara
+ , evdDOM
+ , k2Tags
+ , Para_Const
+;
 
 procedure TevDocumentCursorPair.DoStore(const aView: InevView;
-  const G: Ik2TagGenerator;
-  aFlags: TevStoreFlags);
+ const G: Ik2TagGenerator;
+ aFlags: TevStoreFlags);
 //#UC START# *5108D5CB0048_4A2D2DA90232_var*
 var
  l_NeedCloseDocument : Boolean;
@@ -186,11 +170,11 @@ begin
 //#UC END# *5108D5CB0048_4A2D2DA90232_impl*
 end;//TevDocumentCursorPair.DoStore
 
-{$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedEditableCursors)}
 function TevDocumentCursorPair.DoDelete(const aView: InevView;
-  const anOpPack: InevOp = nil;
-  aMode: TevClearMode = ev_cmAll;
-  const aPara: InevPara = nil): Boolean;
+ const anOpPack: InevOp = nil;
+ aMode: TevClearMode = nevTools.ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2DA90232_var*
 //#UC END# *5108D66900C9_4A2D2DA90232_var*
 begin
@@ -211,8 +195,7 @@ begin
  Result := inherited DoDelete(aView, anOpPack, aMode, aPara);
 //#UC END# *5108D66900C9_4A2D2DA90232_impl*
 end;//TevDocumentCursorPair.DoDelete
-{$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedEditableCursors)
 
-{$IfEnd} //evUseVisibleCursors
-
+{$IfEnd} // Defined(evUseVisibleCursors)
 end.

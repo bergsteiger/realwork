@@ -1,50 +1,37 @@
 unit nevDocumentContainerPrimPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDocumentContainerPrimPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Document::TnevDocumentContainerPrimPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentContainerPrimPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentContainerPrimPrim" MUID: (53270D0E02E4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Variant
+;
 
 type
  TnevDocumentContainerPrimPrim = class(Tl3Variant, IUnknown)
- protected
- // overridden property methods
-   function pm_GetTagOwner: Tl3Variant; override;
-   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
- protected
- // overridden protected methods
+  protected
    function DoMarkModified: Boolean; override;
    function GetTagType: Tl3VariantDef; override;
+   function pm_GetTagOwner: Tl3Variant; override;
+   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
  end;//TnevDocumentContainerPrimPrim
 
 implementation
 
 uses
-  DocumentContainer_Const,
-  l3InterfacesMisc,
-  k2NullTagImpl,
-  l3String,
-  l3IID
-  ;
-
-// start class TnevDocumentContainerPrimPrim
+ l3ImplUses
+ , DocumentContainer_Const
+ , l3InterfacesMisc
+ , k2NullTagImpl
+ , l3String
+ , l3IID
+;
 
 function TnevDocumentContainerPrimPrim.DoMarkModified: Boolean;
 //#UC START# *4C6D1C29031F_53270D0E02E4_var*

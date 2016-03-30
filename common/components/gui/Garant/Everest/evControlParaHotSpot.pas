@@ -1,157 +1,145 @@
 unit evControlParaHotSpot;
+ {* Реализация "горячей точки" для параграфа, представляющего контрол ввода }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlParaHotSpot.pas"
-// Начат: 12.11.2004 15:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevControlParaHotSpot
-//
-// Реализация "горячей точки" для параграфа, представляющего контрол ввода
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlParaHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlParaHotSpot" MUID: (4A27A7D5019E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  afwInterfaces,
-  k2TagTool,
-  l3Units,
-  nevTools,
-  evQueryCardInt,
-  nevGUIInterfaces,
-  l3Variant
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , k2TagTool
+ , nevGUIInterfaces
+ , nevTools
+ , evQueryCardInt
+ , l3Variant
+ , afwInterfaces
+ , l3Units
+;
 
-{$If defined(evNeedHotSpot)}
 type
  _X_ = InevTextPara;
  _nevParaXTool_Parent_ = Tk2TagTool;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas}
  TevControlParaHotSpot = class(_nevParaXTool_, IevMouseMoveHandler, IevHotSpot)
   {* Реализация "горячей точки" для параграфа, представляющего контрол ввода }
- private
- // private fields
-   thisMap : InevMap;
-   f_OldChecked : Boolean;
-   f_ControlFriend : IevControlFriend;
-    {* Поле для свойства ControlFriend}
- private
- // private methods
+  private
+   thisMap: InevMap;
+   f_OldChecked: Boolean;
+   f_ControlFriend: IevControlFriend;
+    {* Поле для свойства ControlFriend }
+  private
    function PtInButton(const aPt: TafwPoint): Boolean;
-     {* Щелчок по кнопке редактора }
+    {* Щелчок по кнопке редактора }
    function PtInCtrButton(const aPt: Tl3Point): Boolean;
-     {* Щелчок по кнопке-параграфу }
+    {* Щелчок по кнопке-параграфу }
    function PtInPara(const aPt: TafwPoint): Boolean;
    function PtToPara(const aPt: TafwPoint): Tl3Point;
-     {* переводит из глобальных координат в координаты параграфа }
+    {* переводит из глобальных координат в координаты параграфа }
    procedure TrySendToGroup(aTag: Tl3Variant);
- protected
- // property methods
+  protected
    function pm_GetControlFriend: IevControlFriend;
    function pm_GetVisible: Boolean; virtual;
- protected
- // realized methods
+   procedure CheckMapValid(const aView: InevControlView);
    function TransMouseMove(const aView: InevControlView;
-     const aKeys: TevMouseState;
-     out theActiveElement: InevActiveElement): Boolean;
-     {* Собственно реальный MouseMove, передаваемый редактору }
+    const aKeys: TevMouseState;
+    out theActiveElement: InevActiveElement): Boolean;
+    {* Собственно реальный MouseMove, передаваемый редактору }
    function MouseMove(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает перемещение мыши }
+    {* Обрабатывает перемещение мыши }
    function LButtonDown(const aView: InevControlView;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* Обрабатывает нажатие левой кнопки мыши }
+    {* Обрабатывает нажатие левой кнопки мыши }
    function LButtonUp(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание левой кнопки мыши }
+    {* Обрабатывает отпускание левой кнопки мыши }
    function LButtonDoubleClick(const aView: InevControlView;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* Обрабатывает двойное нажатие левой кнопки мыши }
+    {* Обрабатывает двойное нажатие левой кнопки мыши }
    function RButtonDown(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает нажатие правой кнопки мыши }
+    {* Обрабатывает нажатие правой кнопки мыши }
    function RButtonUp(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание правой конопки мыши }
+    {* Обрабатывает отпускание правой конопки мыши }
    function MButtonDown(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает нажатие колеса мыши }
+    {* Обрабатывает нажатие колеса мыши }
    function MButtonUp(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание колеса мыши }
+    {* Обрабатывает отпускание колеса мыши }
    function CanDrag: Boolean;
- public
- // realized methods
-   procedure HitTest(const aView: InevControlView;
-    const aState: TafwCursorState;
-    var theInfo: TafwCursorInfo);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure CheckMapValid(const aView: InevControlView);
- public
- // public methods
+  public
    constructor Create(const aMap: InevMap;
     aTagWrap: Tl3Variant); reintroduce;
    class function Make(const aMap: InevMap;
     aTagWrap: Tl3Variant): IevHotSpot; reintroduce;
-     {* Фабричный метод }
- private
- // private properties
+    {* Фабричный метод }
+   procedure HitTest(const aView: InevControlView;
+    const aState: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+  private
    property Visible: Boolean
-     read pm_GetVisible;
-     {* Видимость контрола }
- protected
- // protected properties
+    read pm_GetVisible;
+    {* Видимость контрола }
+  protected
    property ControlFriend: IevControlFriend
-     read pm_GetControlFriend;
+    read pm_GetControlFriend;
  end;//TevControlParaHotSpot
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  k2Tags,
-  ControlsBlock_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  SysUtils,
-  evControlParaConst,
-  evMsgCode
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3ImplUses
+ , evdTypes
+ , SysUtils
+ , evControlParaConst
+ , evMsgCode
+ , k2Tags
+ , ControlsBlock_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evNeedHotSpot)}
+type _Instance_R_ = TevControlParaHotSpot;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas}
 
-// start class TevControlParaHotSpot
+function TevControlParaHotSpot.pm_GetControlFriend: IevControlFriend;
+//#UC START# *4A27AC32013C_4A27A7D5019Eget_var*
+//#UC END# *4A27AC32013C_4A27A7D5019Eget_var*
+begin
+//#UC START# *4A27AC32013C_4A27A7D5019Eget_impl*
+ if (f_ControlFriend = nil) then
+  Supports(ParaX, IevControlFriend, f_ControlFriend);
+ Result := f_ControlFriend;
+//#UC END# *4A27AC32013C_4A27A7D5019Eget_impl*
+end;//TevControlParaHotSpot.pm_GetControlFriend
+
+function TevControlParaHotSpot.pm_GetVisible: Boolean;
+//#UC START# *4A27AC74011B_4A27A7D5019Eget_var*
+//#UC END# *4A27AC74011B_4A27A7D5019Eget_var*
+begin
+//#UC START# *4A27AC74011B_4A27A7D5019Eget_impl*
+ Result := GetRedirect.BoolA[k2_tiVisible];
+//#UC END# *4A27AC74011B_4A27A7D5019Eget_impl*
+end;//TevControlParaHotSpot.pm_GetVisible
 
 function TevControlParaHotSpot.PtInButton(const aPt: TafwPoint): Boolean;
+ {* Щелчок по кнопке редактора }
 //#UC START# *4A27AD7103E7_4A27A7D5019E_var*
 var
  l_ButtonLeft  : Integer;
@@ -172,6 +160,7 @@ begin
 end;//TevControlParaHotSpot.PtInButton
 
 function TevControlParaHotSpot.PtInCtrButton(const aPt: Tl3Point): Boolean;
+ {* Щелчок по кнопке-параграфу }
 //#UC START# *4A27AD97018A_4A27A7D5019E_var*
 var
  l_ButtonLeft  : Integer;
@@ -200,6 +189,7 @@ begin
 end;//TevControlParaHotSpot.PtInPara
 
 function TevControlParaHotSpot.PtToPara(const aPt: TafwPoint): Tl3Point;
+ {* переводит из глобальных координат в координаты параграфа }
 //#UC START# *4A27ADCF011E_4A27A7D5019E_var*
 //#UC END# *4A27ADCF011E_4A27A7D5019E_var*
 begin
@@ -209,11 +199,10 @@ begin
 end;//TevControlParaHotSpot.PtToPara
 
 procedure TevControlParaHotSpot.TrySendToGroup(aTag: Tl3Variant);
+var l_Tag: Tl3Tag;
+var l_Group: IevQueryGroup;
 //#UC START# *4A27ADED0094_4A27A7D5019E_var*
 //#UC END# *4A27ADED0094_4A27A7D5019E_var*
-var
- l_Tag : Tl3Tag;
- l_Group : IevQueryGroup;
 begin
 //#UC START# *4A27ADED0094_4A27A7D5019E_impl*
  if evInPara(aTag, k2_typControlsBlock, l_Tag) then
@@ -238,28 +227,8 @@ begin
 //#UC END# *52FC8C800193_4A27A7D5019E_impl*
 end;//TevControlParaHotSpot.CheckMapValid
 
-function TevControlParaHotSpot.pm_GetControlFriend: IevControlFriend;
-//#UC START# *4A27AC32013C_4A27A7D5019Eget_var*
-//#UC END# *4A27AC32013C_4A27A7D5019Eget_var*
-begin
-//#UC START# *4A27AC32013C_4A27A7D5019Eget_impl*
- if (f_ControlFriend = nil) then
-  Supports(ParaX, IevControlFriend, f_ControlFriend);
- Result := f_ControlFriend;
-//#UC END# *4A27AC32013C_4A27A7D5019Eget_impl*
-end;//TevControlParaHotSpot.pm_GetControlFriend
-
-function TevControlParaHotSpot.pm_GetVisible: Boolean;
-//#UC START# *4A27AC74011B_4A27A7D5019Eget_var*
-//#UC END# *4A27AC74011B_4A27A7D5019Eget_var*
-begin
-//#UC START# *4A27AC74011B_4A27A7D5019Eget_impl*
- Result := GetRedirect.BoolA[k2_tiVisible];
-//#UC END# *4A27AC74011B_4A27A7D5019Eget_impl*
-end;//TevControlParaHotSpot.pm_GetVisible
-
 constructor TevControlParaHotSpot.Create(const aMap: InevMap;
-  aTagWrap: Tl3Variant);
+ aTagWrap: Tl3Variant);
 //#UC START# *4A27AE0B0219_4A27A7D5019E_var*
 //#UC END# *4A27AE0B0219_4A27A7D5019E_var*
 begin
@@ -270,7 +239,8 @@ begin
 end;//TevControlParaHotSpot.Create
 
 class function TevControlParaHotSpot.Make(const aMap: InevMap;
-  aTagWrap: Tl3Variant): IevHotSpot;
+ aTagWrap: Tl3Variant): IevHotSpot;
+ {* Фабричный метод }
 var
  l_Inst : TevControlParaHotSpot;
 begin
@@ -280,11 +250,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevControlParaHotSpot.Make
 
 procedure TevControlParaHotSpot.HitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *48E2622A03C4_4A27A7D5019E_var*
 var
  l_Control : IevEditorControl;
@@ -325,8 +295,9 @@ begin
 end;//TevControlParaHotSpot.HitTest
 
 function TevControlParaHotSpot.TransMouseMove(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  out theActiveElement: InevActiveElement): Boolean;
+ const aKeys: TevMouseState;
+ out theActiveElement: InevActiveElement): Boolean;
+ {* Собственно реальный MouseMove, передаваемый редактору }
 //#UC START# *48E2638F0358_4A27A7D5019E_var*
 var
  l_Pt      : Tl3Point;
@@ -357,7 +328,8 @@ begin
 end;//TevControlParaHotSpot.TransMouseMove
 
 function TevControlParaHotSpot.MouseMove(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает перемещение мыши }
 //#UC START# *48E266730188_4A27A7D5019E_var*
 //#UC END# *48E266730188_4A27A7D5019E_var*
 begin
@@ -398,8 +370,9 @@ begin
 end;//TevControlParaHotSpot.MouseMove
 
 function TevControlParaHotSpot.LButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* Обрабатывает нажатие левой кнопки мыши }
 //#UC START# *48E266AA00A4_4A27A7D5019E_var*
 var
  l_Pt       : Tl3Point;
@@ -467,7 +440,8 @@ begin
 end;//TevControlParaHotSpot.LButtonDown
 
 function TevControlParaHotSpot.LButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание левой кнопки мыши }
 //#UC START# *48E266C70128_4A27A7D5019E_var*
 var
  l_Pt      : Tl3Point;
@@ -518,8 +492,9 @@ begin
 end;//TevControlParaHotSpot.LButtonUp
 
 function TevControlParaHotSpot.LButtonDoubleClick(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* Обрабатывает двойное нажатие левой кнопки мыши }
 //#UC START# *48E266DE026B_4A27A7D5019E_var*
 //#UC END# *48E266DE026B_4A27A7D5019E_var*
 begin
@@ -531,7 +506,8 @@ begin
 end;//TevControlParaHotSpot.LButtonDoubleClick
 
 function TevControlParaHotSpot.RButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает нажатие правой кнопки мыши }
 //#UC START# *48E266FB01FC_4A27A7D5019E_var*
 var
  l_Control: IevEditorControl;
@@ -568,7 +544,8 @@ begin
 end;//TevControlParaHotSpot.RButtonDown
 
 function TevControlParaHotSpot.RButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание правой конопки мыши }
 //#UC START# *48E267150266_4A27A7D5019E_var*
 //#UC END# *48E267150266_4A27A7D5019E_var*
 begin
@@ -578,7 +555,8 @@ begin
 end;//TevControlParaHotSpot.RButtonUp
 
 function TevControlParaHotSpot.MButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает нажатие колеса мыши }
 //#UC START# *49DB4675025E_4A27A7D5019E_var*
 //#UC END# *49DB4675025E_4A27A7D5019E_var*
 begin
@@ -588,7 +566,8 @@ begin
 end;//TevControlParaHotSpot.MButtonDown
 
 function TevControlParaHotSpot.MButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание колеса мыши }
 //#UC START# *49DB468302A5_4A27A7D5019E_var*
 //#UC END# *49DB468302A5_4A27A7D5019E_var*
 begin
@@ -607,6 +586,7 @@ begin
 end;//TevControlParaHotSpot.CanDrag
 
 procedure TevControlParaHotSpot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A27A7D5019E_var*
 //#UC END# *479731C50290_4A27A7D5019E_var*
 begin
@@ -618,14 +598,10 @@ begin
 end;//TevControlParaHotSpot.Cleanup
 
 procedure TevControlParaHotSpot.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_ControlFriend := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TevControlParaHotSpot.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

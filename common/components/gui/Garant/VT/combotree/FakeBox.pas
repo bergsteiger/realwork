@@ -1,406 +1,179 @@
 unit FakeBox;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/FakeBox.pas"
-// Начат: 19.05.2008 14:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::ComboTree::TFakeBox
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\FakeBox.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TFakeBox" MUID: (483158FD0155)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  Messages,
-  Classes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  EditableBox,
-  l3VCLStrings,
-  l3InternalInterfaces
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , EditableBox
+ , Classes
+ , l3TreeInterfaces
+ , l3VCLStrings
+ , Graphics
+ , l3Interfaces
+ , l3InternalInterfaces
+ //#UC START# *483158FD0155intf_uses*
+ //#UC END# *483158FD0155intf_uses*
+;
 
 type
  TFakeBoxPrim = class(TEditableBox)
- private
- // private fields
-  {$If not defined(DesignTimeLibrary)}
-   f_IsFirstLoad : Boolean;
-    {* для того чтобы при первой закрузке не дергался Execute.}
-  {$IfEnd} //not DesignTimeLibrary
-   f_TabEaten : Boolean;
-   f_SetDroppedLock : Integer;
-   f_SetToBeginOnTreeSelect : Boolean;
-    {* Поле для свойства SetToBeginOnTreeSelect}
-   f_OnAfterProcessKeyDown : TNotifyEvent;
-    {* Поле для свойства OnAfterProcessKeyDown}
-   f_TextValid : Boolean;
-    {* Поле для свойства TextValid}
-   f_ErrorColor : TColor;
-    {* Поле для свойства ErrorColor}
-   f_OnSelect : TNotifyEvent;
-    {* Поле для свойства OnSelect}
-   f_ShowFullPath : Boolean;
-    {* Поле для свойства ShowFullPath}
- private
- // private methods
+  private
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_IsFirstLoad: Boolean;
+    {* для того чтобы при первой закрузке не дергался Execute. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   f_TabEaten: Boolean;
+   f_SetDroppedLock: Integer;
+   f_SetToBeginOnTreeSelect: Boolean;
+   f_OnAfterProcessKeyDown: TNotifyEvent;
+   f_TextValid: Boolean;
+    {* для ComboStyle = cbEdit определяет будет ли текст рисоваться нормальным цветом или ErrorColor. И что будет возвращать IsValid }
+   f_ErrorColor: TColor;
+   f_OnSelect: TNotifyEvent;
+   f_ShowFullPath: Boolean;
+  private
    function FindCurrent(const aText: Il3CString): Il3SimpleNode;
    function DrawWithErrorColor: Boolean;
    function IsNeedGotoNode(const aNode: Il3SimpleNode): Boolean;
- protected
- // property methods
+  protected
    procedure pm_SetTextValid(aValue: Boolean);
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    function pm_GetChoosenValue: Il3SimpleNode;
-   {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function pm_GetItems: Tl3Strings;
    procedure pm_SetItems(aValue: Tl3Strings);
    procedure pm_SetErrorColor(aValue: TColor);
    function pm_GetItemIndex: Integer;
    procedure pm_SetItemIndex(aValue: Integer);
- protected
- // overridden property methods
-   procedure pm_SetDropped(aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure SetTextColor(const aCanvas: Il3Canvas); override;
-   function EstimateTreeHeight(aMinSize: Integer;
-     aMaxSize: Integer): Integer; override;
-   function EstimateTreeWidth(aMaxSizeX: Integer;
-     aSizeY: Integer): Integer; override;
-   procedure ProcessTreeSelect(ChooseFromTree: Boolean;
-     aTriggerSelect: Boolean); override;
-   {$If not defined(NoVCL)}
-   procedure DoEnter; override;
-     {* Сигнатура метода DoEnter }
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    procedure LocalUpdateAction; virtual;
-     {* Сигнатура метода LocalUpdateAction }
    function DoCreateStrings: Tl3Strings; virtual;
-    {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    function IsLockPaint: Boolean;
-    {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure DefilterTree;
-     {* Сигнатура метода DefilterTree }
    procedure ActionExecuteHandler; virtual;
-     {* Сигнатура метода ActionExecuteHandler }
- public
- // public methods
-    {$If not defined(DesignTimeLibrary)}
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure SetTextColor(const aCanvas: Il3Canvas); override;
+   procedure pm_SetDropped(aValue: Boolean); override;
+   function EstimateTreeHeight(aMinSize: Integer;
+    aMaxSize: Integer): Integer; override;
+   function EstimateTreeWidth(aMaxSizeX: Integer;
+    aSizeY: Integer): Integer; override;
+   procedure ProcessTreeSelect(ChooseFromTree: Boolean;
+    aTriggerSelect: Boolean); override;
+   {$If NOT Defined(NoVCL)}
+   procedure DoEnter; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure ShowNode(const aNode: Il3SimpleNode;
-     TriggerSelect: Boolean = False);
-     {* Показать узел с последующим выбором (т.е. дерево после вызова нефильтрованое) для Морозова, он передаёт таким образом ноды из ППР. }
-    {$IfEnd} //not DesignTimeLibrary
-    {$If not defined(DesignTimeLibrary)}
+    TriggerSelect: Boolean = False);
+    {* Показать узел с последующим выбором (т.е. дерево после вызова нефильтрованое) для Морозова, он передаёт таким образом ноды из ППР. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    function FindIndexOf(const aNode: Il3SimpleNode): Integer;
-    {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure SetSimpleTree(const aTree: Il3SimpleTree);
    function IsValid: Boolean;
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property SetToBeginOnTreeSelect: Boolean
-     read f_SetToBeginOnTreeSelect
-     write f_SetToBeginOnTreeSelect;
- public
- // public properties
+    read f_SetToBeginOnTreeSelect
+    write f_SetToBeginOnTreeSelect;
+  public
    property OnAfterProcessKeyDown: TNotifyEvent
-     read f_OnAfterProcessKeyDown
-     write f_OnAfterProcessKeyDown;
+    read f_OnAfterProcessKeyDown
+    write f_OnAfterProcessKeyDown;
    property TextValid: Boolean
-     read f_TextValid
-     write pm_SetTextValid;
-     {* для ComboStyle = cbEdit определяет будет ли текст рисоваться нормальным цветом или ErrorColor. И что будет возвращать IsValid }
-   {$If not defined(DesignTimeLibrary)}
+    read f_TextValid
+    write pm_SetTextValid;
+    {* для ComboStyle = cbEdit определяет будет ли текст рисоваться нормальным цветом или ErrorColor. И что будет возвращать IsValid }
+   {$If NOT Defined(DesignTimeLibrary)}
    property ChoosenValue: Il3SimpleNode
-     read pm_GetChoosenValue;
-   {$IfEnd} //not DesignTimeLibrary
+    read pm_GetChoosenValue;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    property Items: Tl3Strings
-     read pm_GetItems
-     write pm_SetItems;
+    read pm_GetItems
+    write pm_SetItems;
    property ErrorColor: TColor
-     read f_ErrorColor
-     write pm_SetErrorColor;
+    read f_ErrorColor
+    write pm_SetErrorColor;
    property OnSelect: TNotifyEvent
-     read f_OnSelect
-     write f_OnSelect;
+    read f_OnSelect
+    write f_OnSelect;
    property ItemIndex: Integer
-     read pm_GetItemIndex
-     write pm_SetItemIndex;
+    read pm_GetItemIndex
+    write pm_SetItemIndex;
    property ShowFullPath: Boolean
-     read f_ShowFullPath
-     write f_ShowFullPath;
+    read f_ShowFullPath
+    write f_ShowFullPath;
  end;//TFakeBoxPrim
 
-//#UC START# *483158FD0155ci*
-//#UC END# *483158FD0155ci*
-//#UC START# *483158FD0155cit*
-//#UC END# *483158FD0155cit*
+ //#UC START# *483158FD0155ci*
+ //#UC END# *483158FD0155ci*
+ //#UC START# *483158FD0155cit*
+ //#UC END# *483158FD0155cit*
  TFakeBox = {abstract} class(TFakeBoxPrim)
- private
- // private methods
+  private
    procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
    procedure WMChar(var Message: TWMChar); message WM_CHAR;
    procedure WMClear(var Msg: TMessage); message WM_CLEAR;
    procedure WMPaint(var Message: TMessage); message WM_PAINT;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
-   {$IfEnd} //not DesignTimeLibrary
-   {$If not defined(DesignTimeLibrary)}
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure WMSetText(var Msg: TMessage); message WM_SETTEXT;
-   {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure CMParentFontChanged(var Message: TMessage); message CM_PARENTFONTCHANGED;
-//#UC START# *483158FD0155publ*
+ //#UC START# *483158FD0155publ*
   property ErrorColor default clRed;
   property ItemIndex default -1;
-//#UC END# *483158FD0155publ*
+ //#UC END# *483158FD0155publ*
  end;//TFakeBox
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  ctTypes,
-  l3Tree_TLB,
-  afwFacade,
-  ctFakeBoxStrings,
-  l3Nodes,
-  nevBase,
-  Windows,
-  DropDownTree
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3String,
-  l3Base
-  {$If not defined(NoScripts)}
-  ,
-  vtComboBoxWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , ctTypes
+ , l3Tree_TLB
+ , SysUtils
+ , afwFacade
+ , ctFakeBoxStrings
+ , l3Nodes
+ , nevBase
+ , Windows
+ , DropDownTree
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3String
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , vtComboBoxWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *483158FD0155impl_uses*
+ //#UC END# *483158FD0155impl_uses*
+;
 
 type
-  THackWinControl = {final} class(TWinControl)
-  end;//THackWinControl
-
-// start class TFakeBoxPrim
-
-function TFakeBoxPrim.FindCurrent(const aText: Il3CString): Il3SimpleNode;
-//#UC START# *53F47740011A_53FC907B01EC_var*
- function FindCurr(const aIterNode: Il3SimpleNode): boolean;
- begin//FindCurr
-  Result := l3Same(aIterNode.Text, aText, true);
- end;//FindCurr
-//#UC END# *53F47740011A_53FC907B01EC_var*
-begin
-//#UC START# *53F47740011A_53FC907B01EC_impl*
- Result := Tree.TreeStruct.SimpleIterateF(l3L2SNA(@FindCurr), imCheckResult);
-//#UC END# *53F47740011A_53FC907B01EC_impl*
-end;//TFakeBoxPrim.FindCurrent
-
-function TFakeBoxPrim.DrawWithErrorColor: Boolean;
-//#UC START# *53F45F5500CC_53FC907B01EC_var*
-//#UC END# *53F45F5500CC_53FC907B01EC_var*
-begin
-//#UC START# *53F45F5500CC_53FC907B01EC_impl*
- case ComboStyle of
-  ct_cbEdit:
-   Result := not TextValid;
-  else
-   Result := State = esWrong;
- end;//case ComboStyle
-//#UC END# *53F45F5500CC_53FC907B01EC_impl*
-end;//TFakeBoxPrim.DrawWithErrorColor
-
-function TFakeBoxPrim.IsNeedGotoNode(const aNode: Il3SimpleNode): Boolean;
-//#UC START# *53F45F040009_53FC907B01EC_var*
-var
- l_Temp: Il3SimpleNode;
-//#UC END# *53F45F040009_53FC907B01EC_var*
-begin
-//#UC START# *53F45F040009_53FC907B01EC_impl*
- Result := True;
- l_Temp := Tree.GetCurrentNode;
- if Assigned(l_Temp) then
- try
-  if l_Temp.IsSame(aNode) then
-   Result := False;
- finally
-  l_Temp := nil;
- end;
-//#UC END# *53F45F040009_53FC907B01EC_impl*
-end;//TFakeBoxPrim.IsNeedGotoNode
-
-{$If not defined(DesignTimeLibrary)}
-procedure TFakeBoxPrim.ShowNode(const aNode: Il3SimpleNode;
-  TriggerSelect: Boolean = False);
-//#UC START# *53F460C800DF_53FC907B01EC_var*
-//#UC END# *53F460C800DF_53FC907B01EC_var*
-begin
-//#UC START# *53F460C800DF_53FC907B01EC_impl*
- if (aNode <> nil) then
- begin
-  f_TempObjectCompleted := aNode;
-  CurrentMode := CurrentMode + [cmSetCurrent];
-  try
-   ProcessTreeSelect(False, TriggerSelect);
-  finally
-   CurrentMode := CurrentMode - [cmSetCurrent];
-  end;//try..finally
- end//aNode <> nil
- else
-  Clear;
-//#UC END# *53F460C800DF_53FC907B01EC_impl*
-end;//TFakeBoxPrim.ShowNode
-{$IfEnd} //not DesignTimeLibrary
-
-{$If not defined(DesignTimeLibrary)}
-function TFakeBoxPrim.FindIndexOf(const aNode: Il3SimpleNode): Integer;
-//#UC START# *53F46100000A_53FC907B01EC_var*
-var
-  l_Count : Integer;
-
- function FindIndex(const aIterNode: Il3SimpleNode): boolean;
- begin//FindIndex
-  Result := aIterNode.IsSame(aNode);
-  Inc(l_Count);
- end;//FindIndex
-//#UC END# *53F46100000A_53FC907B01EC_var*
-begin
-//#UC START# *53F46100000A_53FC907B01EC_impl*
- l_Count := -1;
- Result := -1;
- if Tree.TreeStruct.SimpleIterateF(l3L2SNA(@FindIndex), imCheckResult) <> nil then
-  Result := l_Count;
-//#UC END# *53F46100000A_53FC907B01EC_impl*
-end;//TFakeBoxPrim.FindIndexOf
-{$IfEnd} //not DesignTimeLibrary
-
-procedure TFakeBoxPrim.SetSimpleTree(const aTree: Il3SimpleTree);
-//#UC START# *53F4613C008E_53FC907B01EC_var*
-//#UC END# *53F4613C008E_53FC907B01EC_var*
-begin
-//#UC START# *53F4613C008E_53FC907B01EC_impl*
- Tree.SetSimpleTree(aTree);
-//#UC END# *53F4613C008E_53FC907B01EC_impl*
-end;//TFakeBoxPrim.SetSimpleTree
-
-procedure TFakeBoxPrim.LocalUpdateAction;
-//#UC START# *52A9AAEA0068_53FC907B01EC_var*
-//#UC END# *52A9AAEA0068_53FC907B01EC_var*
-begin
-//#UC START# *52A9AAEA0068_53FC907B01EC_impl*
-//#UC END# *52A9AAEA0068_53FC907B01EC_impl*
-end;//TFakeBoxPrim.LocalUpdateAction
-
-function TFakeBoxPrim.DoCreateStrings: Tl3Strings;
-//#UC START# *53F45F9F030D_53FC907B01EC_var*
-//#UC END# *53F45F9F030D_53FC907B01EC_var*
-begin
-//#UC START# *53F45F9F030D_53FC907B01EC_impl*
- Assert(Self is TFakeBox);
- Result := TctFakeBoxStrings.Create(Self as TFakeBox);
-//#UC END# *53F45F9F030D_53FC907B01EC_impl*
-end;//TFakeBoxPrim.DoCreateStrings
-
-function TFakeBoxPrim.IsValid: Boolean;
-//#UC START# *53F460A302FE_53FC907B01EC_var*
-//#UC END# *53F460A302FE_53FC907B01EC_var*
-begin
-//#UC START# *53F460A302FE_53FC907B01EC_impl*
- case ComboStyle of
-  ct_cbEdit:
-   Result := TextValid;
-  else
-   Result := True;
- end;//case ComboStyle
-//#UC END# *53F460A302FE_53FC907B01EC_impl*
-end;//TFakeBoxPrim.IsValid
-
-{$If not defined(DesignTimeLibrary)}
-function TFakeBoxPrim.IsLockPaint: Boolean;
-//#UC START# *53F46070029D_53FC907B01EC_var*
-//#UC END# *53F46070029D_53FC907B01EC_var*
-begin
-//#UC START# *53F46070029D_53FC907B01EC_impl*
- Result := afw.IsObjectLocked(Self);
-//#UC END# *53F46070029D_53FC907B01EC_impl*
-end;//TFakeBoxPrim.IsLockPaint
-{$IfEnd} //not DesignTimeLibrary
-
-procedure TFakeBoxPrim.DefilterTree;
-//#UC START# *53F4601A00BD_53FC907B01EC_var*
-{$IfNDef DesignTimeLibrary}
-var
- l_Tree: Il3Tree;
- l_FilterableTree: Il3FilterableTree;
- l_SyncIndex: Integer;
-{$EndIf DesignTimeLibrary}
-//#UC END# *53F4601A00BD_53FC907B01EC_var*
-begin
-//#UC START# *53F4601A00BD_53FC907B01EC_impl*
-{$IfNDef DesignTimeLibrary}
- if f_TreeIsFiltered then
- begin
-  Il3ChangeRecipient(Tree).Changing;
-  try
-   if Supports(Tree.TreeStruct, Il3Tree, l_Tree) then
-    if not Tree.TreeStruct.RootNode.IsSame(RootNode) then
-     Tree.TreeStruct.RootNode := RootNode as Il3SimpleRootNode
-    else
-     l_Tree.SetAllFlag(sbDeselect, nfHidden)
-   else
-    if Supports(Tree.TreeStruct, Il3FilterableTree, l_FilterableTree) then
-     Tree.TreeStruct := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.SetContext(nil),
-                                                      Tree.GetCurrentNode,
-                                                      l_SyncIndex,
-                                                      False);
-  finally
-   Il3ChangeRecipient(Tree).Changed;
-  end;//try..finally
-  f_TreeIsFiltered := False;
- end;//f_TreeIsFiltered
-{$EndIf DesignTimeLibrary}
-//#UC END# *53F4601A00BD_53FC907B01EC_impl*
-end;//TFakeBoxPrim.DefilterTree
-
-procedure TFakeBoxPrim.ActionExecuteHandler;
-//#UC START# *52A9AADF0289_53FC907B01EC_var*
-//#UC END# *52A9AADF0289_53FC907B01EC_var*
-begin
-//#UC START# *52A9AADF0289_53FC907B01EC_impl*
-//#UC END# *52A9AADF0289_53FC907B01EC_impl*
-end;//TFakeBoxPrim.ActionExecuteHandler
+ THackWinControl = {final} class(TWinControl)
+ end;//THackWinControl
 
 procedure TFakeBoxPrim.pm_SetTextValid(aValue: Boolean);
 //#UC START# *53F45B29001D_53FC907B01ECset_var*
@@ -418,7 +191,7 @@ begin
 //#UC END# *53F45B29001D_53FC907B01ECset_impl*
 end;//TFakeBoxPrim.pm_SetTextValid
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 function TFakeBoxPrim.pm_GetChoosenValue: Il3SimpleNode;
 //#UC START# *53F45B880294_53FC907B01ECget_var*
 //#UC END# *53F45B880294_53FC907B01ECget_var*
@@ -430,7 +203,7 @@ begin
   Result := nil;
 //#UC END# *53F45B880294_53FC907B01ECget_impl*
 end;//TFakeBoxPrim.pm_GetChoosenValue
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TFakeBoxPrim.pm_GetItems: Tl3Strings;
 //#UC START# *53F45BE201E1_53FC907B01ECget_var*
@@ -527,7 +300,196 @@ begin
 //#UC END# *53F45C970310_53FC907B01ECset_impl*
 end;//TFakeBoxPrim.pm_SetItemIndex
 
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TFakeBoxPrim.ShowNode(const aNode: Il3SimpleNode;
+ TriggerSelect: Boolean = False);
+ {* Показать узел с последующим выбором (т.е. дерево после вызова нефильтрованое) для Морозова, он передаёт таким образом ноды из ППР. }
+//#UC START# *53F460C800DF_53FC907B01EC_var*
+//#UC END# *53F460C800DF_53FC907B01EC_var*
+begin
+//#UC START# *53F460C800DF_53FC907B01EC_impl*
+ if (aNode <> nil) then
+ begin
+  f_TempObjectCompleted := aNode;
+  CurrentMode := CurrentMode + [cmSetCurrent];
+  try
+   ProcessTreeSelect(False, TriggerSelect);
+  finally
+   CurrentMode := CurrentMode - [cmSetCurrent];
+  end;//try..finally
+ end//aNode <> nil
+ else
+  Clear;
+//#UC END# *53F460C800DF_53FC907B01EC_impl*
+end;//TFakeBoxPrim.ShowNode
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+{$If NOT Defined(DesignTimeLibrary)}
+function TFakeBoxPrim.FindIndexOf(const aNode: Il3SimpleNode): Integer;
+//#UC START# *53F46100000A_53FC907B01EC_var*
+var
+  l_Count : Integer;
+
+ function FindIndex(const aIterNode: Il3SimpleNode): boolean;
+ begin//FindIndex
+  Result := aIterNode.IsSame(aNode);
+  Inc(l_Count);
+ end;//FindIndex
+//#UC END# *53F46100000A_53FC907B01EC_var*
+begin
+//#UC START# *53F46100000A_53FC907B01EC_impl*
+ l_Count := -1;
+ Result := -1;
+ if Tree.TreeStruct.SimpleIterateF(l3L2SNA(@FindIndex), imCheckResult) <> nil then
+  Result := l_Count;
+//#UC END# *53F46100000A_53FC907B01EC_impl*
+end;//TFakeBoxPrim.FindIndexOf
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+function TFakeBoxPrim.FindCurrent(const aText: Il3CString): Il3SimpleNode;
+//#UC START# *53F47740011A_53FC907B01EC_var*
+ function FindCurr(const aIterNode: Il3SimpleNode): boolean;
+ begin//FindCurr
+  Result := l3Same(aIterNode.Text, aText, true);
+ end;//FindCurr
+//#UC END# *53F47740011A_53FC907B01EC_var*
+begin
+//#UC START# *53F47740011A_53FC907B01EC_impl*
+ Result := Tree.TreeStruct.SimpleIterateF(l3L2SNA(@FindCurr), imCheckResult);
+//#UC END# *53F47740011A_53FC907B01EC_impl*
+end;//TFakeBoxPrim.FindCurrent
+
+procedure TFakeBoxPrim.SetSimpleTree(const aTree: Il3SimpleTree);
+//#UC START# *53F4613C008E_53FC907B01EC_var*
+//#UC END# *53F4613C008E_53FC907B01EC_var*
+begin
+//#UC START# *53F4613C008E_53FC907B01EC_impl*
+ Tree.SetSimpleTree(aTree);
+//#UC END# *53F4613C008E_53FC907B01EC_impl*
+end;//TFakeBoxPrim.SetSimpleTree
+
+procedure TFakeBoxPrim.LocalUpdateAction;
+//#UC START# *52A9AAEA0068_53FC907B01EC_var*
+//#UC END# *52A9AAEA0068_53FC907B01EC_var*
+begin
+//#UC START# *52A9AAEA0068_53FC907B01EC_impl*
+//#UC END# *52A9AAEA0068_53FC907B01EC_impl*
+end;//TFakeBoxPrim.LocalUpdateAction
+
+function TFakeBoxPrim.DrawWithErrorColor: Boolean;
+//#UC START# *53F45F5500CC_53FC907B01EC_var*
+//#UC END# *53F45F5500CC_53FC907B01EC_var*
+begin
+//#UC START# *53F45F5500CC_53FC907B01EC_impl*
+ case ComboStyle of
+  ct_cbEdit:
+   Result := not TextValid;
+  else
+   Result := State = esWrong;
+ end;//case ComboStyle
+//#UC END# *53F45F5500CC_53FC907B01EC_impl*
+end;//TFakeBoxPrim.DrawWithErrorColor
+
+function TFakeBoxPrim.DoCreateStrings: Tl3Strings;
+//#UC START# *53F45F9F030D_53FC907B01EC_var*
+//#UC END# *53F45F9F030D_53FC907B01EC_var*
+begin
+//#UC START# *53F45F9F030D_53FC907B01EC_impl*
+ Assert(Self is TFakeBox);
+ Result := TctFakeBoxStrings.Create(Self as TFakeBox);
+//#UC END# *53F45F9F030D_53FC907B01EC_impl*
+end;//TFakeBoxPrim.DoCreateStrings
+
+function TFakeBoxPrim.IsValid: Boolean;
+//#UC START# *53F460A302FE_53FC907B01EC_var*
+//#UC END# *53F460A302FE_53FC907B01EC_var*
+begin
+//#UC START# *53F460A302FE_53FC907B01EC_impl*
+ case ComboStyle of
+  ct_cbEdit:
+   Result := TextValid;
+  else
+   Result := True;
+ end;//case ComboStyle
+//#UC END# *53F460A302FE_53FC907B01EC_impl*
+end;//TFakeBoxPrim.IsValid
+
+function TFakeBoxPrim.IsNeedGotoNode(const aNode: Il3SimpleNode): Boolean;
+//#UC START# *53F45F040009_53FC907B01EC_var*
+var
+ l_Temp: Il3SimpleNode;
+//#UC END# *53F45F040009_53FC907B01EC_var*
+begin
+//#UC START# *53F45F040009_53FC907B01EC_impl*
+ Result := True;
+ l_Temp := Tree.GetCurrentNode;
+ if Assigned(l_Temp) then
+ try
+  if l_Temp.IsSame(aNode) then
+   Result := False;
+ finally
+  l_Temp := nil;
+ end;
+//#UC END# *53F45F040009_53FC907B01EC_impl*
+end;//TFakeBoxPrim.IsNeedGotoNode
+
+{$If NOT Defined(DesignTimeLibrary)}
+function TFakeBoxPrim.IsLockPaint: Boolean;
+//#UC START# *53F46070029D_53FC907B01EC_var*
+//#UC END# *53F46070029D_53FC907B01EC_var*
+begin
+//#UC START# *53F46070029D_53FC907B01EC_impl*
+ Result := afw.IsObjectLocked(Self);
+//#UC END# *53F46070029D_53FC907B01EC_impl*
+end;//TFakeBoxPrim.IsLockPaint
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure TFakeBoxPrim.DefilterTree;
+//#UC START# *53F4601A00BD_53FC907B01EC_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Tree: Il3Tree;
+ l_FilterableTree: Il3FilterableTree;
+ l_SyncIndex: Integer;
+{$EndIf DesignTimeLibrary}
+//#UC END# *53F4601A00BD_53FC907B01EC_var*
+begin
+//#UC START# *53F4601A00BD_53FC907B01EC_impl*
+{$IfNDef DesignTimeLibrary}
+ if f_TreeIsFiltered then
+ begin
+  Il3ChangeRecipient(Tree).Changing;
+  try
+   if Supports(Tree.TreeStruct, Il3Tree, l_Tree) then
+    if not Tree.TreeStruct.RootNode.IsSame(RootNode) then
+     Tree.TreeStruct.RootNode := RootNode as Il3SimpleRootNode
+    else
+     l_Tree.SetAllFlag(sbDeselect, nfHidden)
+   else
+    if Supports(Tree.TreeStruct, Il3FilterableTree, l_FilterableTree) then
+     Tree.TreeStruct := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.SetContext(nil),
+                                                      Tree.GetCurrentNode,
+                                                      l_SyncIndex,
+                                                      False);
+  finally
+   Il3ChangeRecipient(Tree).Changed;
+  end;//try..finally
+  f_TreeIsFiltered := False;
+ end;//f_TreeIsFiltered
+{$EndIf DesignTimeLibrary}
+//#UC END# *53F4601A00BD_53FC907B01EC_impl*
+end;//TFakeBoxPrim.DefilterTree
+
+procedure TFakeBoxPrim.ActionExecuteHandler;
+//#UC START# *52A9AADF0289_53FC907B01EC_var*
+//#UC END# *52A9AADF0289_53FC907B01EC_var*
+begin
+//#UC START# *52A9AADF0289_53FC907B01EC_impl*
+//#UC END# *52A9AADF0289_53FC907B01EC_impl*
+end;//TFakeBoxPrim.ActionExecuteHandler
+
 procedure TFakeBoxPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53FC907B01EC_var*
 //#UC END# *479731C50290_53FC907B01EC_var*
 begin
@@ -643,7 +605,7 @@ begin
 end;//TFakeBoxPrim.pm_SetDropped
 
 function TFakeBoxPrim.EstimateTreeHeight(aMinSize: Integer;
-  aMaxSize: Integer): Integer;
+ aMaxSize: Integer): Integer;
 //#UC START# *53EE09AA0268_53FC907B01EC_var*
 //#UC END# *53EE09AA0268_53FC907B01EC_var*
 begin
@@ -661,7 +623,7 @@ begin
 end;//TFakeBoxPrim.EstimateTreeHeight
 
 function TFakeBoxPrim.EstimateTreeWidth(aMaxSizeX: Integer;
-  aSizeY: Integer): Integer;
+ aSizeY: Integer): Integer;
 //#UC START# *53EE09D70249_53FC907B01EC_var*
 {$IfNDef DesignTimeLibrary}
 var
@@ -694,7 +656,7 @@ begin
 end;//TFakeBoxPrim.EstimateTreeWidth
 
 procedure TFakeBoxPrim.ProcessTreeSelect(ChooseFromTree: Boolean;
-  aTriggerSelect: Boolean);
+ aTriggerSelect: Boolean);
 //#UC START# *53EE0A730393_53FC907B01EC_var*
 {$IfNDef DesignTimeLibrary} //morozov
 var
@@ -786,7 +748,7 @@ begin
 //#UC END# *53EE0A730393_53FC907B01EC_impl*
 end;//TFakeBoxPrim.ProcessTreeSelect
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TFakeBoxPrim.DoEnter;
 //#UC START# *53F45A560187_53FC907B01EC_var*
 //#UC END# *53F45A560187_53FC907B01EC_var*
@@ -801,7 +763,7 @@ begin
  end;//not ReadOnly
 //#UC END# *53F45A560187_53FC907B01EC_impl*
 end;//TFakeBoxPrim.DoEnter
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TFakeBox.CNKeyDown(var Message: TWMKeyDown);
 //#UC START# *53F4619402EA_483158FD0155_var*
@@ -994,7 +956,7 @@ begin
 //#UC END# *53F46277004F_483158FD0155_impl*
 end;//TFakeBox.WMPaint
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TFakeBox.WMNCPaint(var Message: TMessage);
 //#UC START# *53F4628E039C_483158FD0155_var*
 //#UC END# *53F4628E039C_483158FD0155_var*
@@ -1004,9 +966,9 @@ begin
   inherited;
 //#UC END# *53F4628E039C_483158FD0155_impl*
 end;//TFakeBox.WMNCPaint
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TFakeBox.WMSetText(var Msg: TMessage);
 //#UC START# *53F462AF0296_483158FD0155_var*
 var
@@ -1039,7 +1001,7 @@ begin
  CurrentMode := CurrentMode + [cmWMSetText];
 //#UC END# *53F462AF0296_483158FD0155_impl*
 end;//TFakeBox.WMSetText
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TFakeBox.CMParentFontChanged(var Message: TMessage);
 //#UC START# *53F462D00123_483158FD0155_var*
@@ -1056,13 +1018,13 @@ end;//TFakeBox.CMParentFontChanged
 //#UC END# *483158FD0155impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TFakeBoxPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TFakeBoxPrim);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TFakeBox
+ {* Регистрация TFakeBoxPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TFakeBox);
-{$IfEnd} //not NoScripts
+ {* Регистрация TFakeBox }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

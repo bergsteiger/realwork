@@ -21,7 +21,6 @@ type
  TevStyleInterfaceEx = class(TevStyleInterface)
   private
    f_ForExport: Boolean;
-    {* Поле для свойства ForExport }
   protected
    function DoFinishAtom(G: Tk2DocumentGenerator;
     var Atom: Tk2StackAtom): Boolean;

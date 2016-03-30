@@ -1,84 +1,69 @@
 unit evSCCollectFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSCCollectFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubCompare::TevSCCollectFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSCCollectFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSCCollectFilter" MUID: (5656FD810153)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter,
-  l3Variant,
-  evSubCompareInterfaces,
-  evSCSubList,
-  k2TagGen
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , evSCSubList
+ , evSubCompareInterfaces
+ , l3Variant
+ , k2TagGen
+;
 
 type
  TevSCCollectFilter = class(TevdBufferedFilter)
- private
- // private fields
-   f_SubStack : TevSCSubList;
-   f_Labels : TevSCSubList;
-   f_SubList : TevSCSubList;
-    {* Поле для свойства SubList}
- private
- // private methods
+  private
+   f_SubStack: TevSCSubList;
+   f_Labels: TevSCSubList;
+   f_SubList: TevSCSubList;
+    {* Поле для свойства SubList }
+  private
    procedure AddToSub(const aSub: IevSCSub;
-     aAttrType: TevSCAttrType;
-     aTag: Tl3Variant);
- protected
- // overridden protected methods
+    aAttrType: TevSCAttrType;
+    aTag: Tl3Variant);
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure StartChild(TypeID: Tl3Type); override;
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    function NeedStartBuffering(aID: Integer): Boolean; override;
    procedure DoFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer;
-     aNeedCloseBracket: Boolean); override;
- public
- // overridden public methods
+    aTagId: Integer;
+    aNeedCloseBracket: Boolean); override;
+  public
    constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
- public
- // public properties
+  public
    property SubList: TevSCSubList
-     read f_SubList;
+    read f_SubList;
  end;//TevSCCollectFilter
 
 implementation
 
 uses
-  SysUtils,
-  Block_Const,
-  k2Tags,
-  evSCSub,
-  evSCSubAttr,
-  evdTypes,
-  Address_Const,
-  Document_Const
-  ;
-
-// start class TevSCCollectFilter
+ l3ImplUses
+ , SysUtils
+ , Block_Const
+ , k2Tags
+ , evSCSub
+ , evSCSubAttr
+ , evdTypes
+ , Address_Const
+ , Document_Const
+;
 
 procedure TevSCCollectFilter.AddToSub(const aSub: IevSCSub;
-  aAttrType: TevSCAttrType;
-  aTag: Tl3Variant);
+ aAttrType: TevSCAttrType;
+ aTag: Tl3Variant);
 //#UC START# *566548D70278_5656FD810153_var*
 var
  I : Integer;
@@ -95,6 +80,7 @@ begin
 end;//TevSCCollectFilter.AddToSub
 
 procedure TevSCCollectFilter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5656FD810153_var*
 //#UC END# *479731C50290_5656FD810153_var*
 begin
@@ -134,6 +120,7 @@ begin
 end;//TevSCCollectFilter.StartChild
 
 procedure TevSCCollectFilter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_5656FD810153_var*
 var
  I: Integer;
@@ -157,7 +144,7 @@ begin
 end;//TevSCCollectFilter.CloseStructure
 
 procedure TevSCCollectFilter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_5656FD810153_var*
 //#UC END# *4836D52400D9_5656FD810153_var*
 begin
@@ -179,8 +166,8 @@ begin
 end;//TevSCCollectFilter.NeedStartBuffering
 
 procedure TevSCCollectFilter.DoFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer;
-  aNeedCloseBracket: Boolean);
+ aTagId: Integer;
+ aNeedCloseBracket: Boolean);
 //#UC START# *4D53D8BF00D5_5656FD810153_var*
 var
  I,J   : Integer;

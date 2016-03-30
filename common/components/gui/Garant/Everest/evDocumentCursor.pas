@@ -1,97 +1,70 @@
 unit evDocumentCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentCursor.pas"
-// Начат: 16.12.2002 16:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevDocumentCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentCursor" MUID: (4A4C8EC4019F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evParaListCursor,
-  nevBase,
-  l3IID
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursor
+ , nevTools
+ , l3IID
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevDocumentCursor = class(TevParaListCursor, InevLinkedPoint)
- private
- // private fields
-   f_Listener : Pointer;
-   f_ListenerDisabled : Integer;
- protected
- // realized methods
+  private
+   f_Listener: Pointer;
+   f_ListenerDisabled: Integer;
+  protected
+   function CanInsertParaOnMove: Boolean; virtual;
    procedure LinkListener(const aListener: InevPointListener);
    procedure UnlinkListener(const aListener: InevPointListener);
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetLinkedPoint: InevLinkedPoint; override;
    function pm_GetListener: InevPointListener; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
     aCount: Integer): TnevMoveResult; override;
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+   {$If Defined(evNeedMarkers)}
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+   {$IfEnd} // Defined(evNeedMarkers)
    procedure DoDisableListener; override;
    procedure DoEnableListener; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function CheckFirst(aChildPID: Integer): Boolean; override;
- protected
- // protected methods
-   function CanInsertParaOnMove: Boolean; virtual;
  end;//TevDocumentCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evMarker,
-  evDocumentMarkers,
-  nevInterfaces,
-  k2Tags,
-  TextPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp,
-  k2Base,
-  evInternalInterfaces,
-  Block_Const
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevDocumentCursor
+ l3ImplUses
+ , evMarker
+ , evDocumentMarkers
+ , nevInterfaces
+ , k2Tags
+ , TextPara_Const
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ , k2Base
+ , evInternalInterfaces
+ , Block_Const
+;
 
 function TevDocumentCursor.CanInsertParaOnMove: Boolean;
 //#UC START# *4BFFD9C80181_4A4C8EC4019F_var*
@@ -123,6 +96,7 @@ begin
 end;//TevDocumentCursor.UnlinkListener
 
 procedure TevDocumentCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A4C8EC4019F_var*
 //#UC END# *479731C50290_4A4C8EC4019F_var*
 begin
@@ -157,9 +131,9 @@ begin
 end;//TevDocumentCursor.pm_GetListener
 
 function TevDocumentCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_4A4C8EC4019F_var*
 var
  l_Flags     : TevInsertParaFlags;
@@ -205,9 +179,9 @@ begin
 //#UC END# *49E31657038E_4A4C8EC4019F_impl*
 end;//TevDocumentCursor.DoMovePrim
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevDocumentCursor.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_4A4C8EC4019F_var*
 //#UC END# *4A38AA5C019F_4A4C8EC4019F_var*
 begin
@@ -221,7 +195,7 @@ begin
   TevDocumentRightMarginMarker);
 //#UC END# *4A38AA5C019F_4A4C8EC4019F_impl*
 end;//TevDocumentCursor.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
 procedure TevDocumentCursor.DoDisableListener;
 //#UC START# *4A4C86B202B2_4A4C8EC4019F_var*
@@ -242,7 +216,8 @@ begin
 end;//TevDocumentCursor.DoEnableListener
 
 function TevDocumentCursor.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A4C8EC4019F_var*
 var
  l_SubList : InevSubList;
@@ -277,7 +252,6 @@ begin
  Result := (aChildPID = 0) and HasInner and GetInner.AsObject.IsKindOf(k2_typBlock);
 //#UC END# *4FFC353A03C4_4A4C8EC4019F_impl*
 end;//TevDocumentCursor.CheckFirst
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

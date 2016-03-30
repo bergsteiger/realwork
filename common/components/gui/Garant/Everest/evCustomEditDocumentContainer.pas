@@ -1,35 +1,23 @@
 unit evCustomEditDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomEditDocumentContainer.pas"
-// Начат: 13.05.2008 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevCustomEditDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomEditDocumentContainer" MUID: (482D894F00D6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomMemoContainer,
-  evOpProc,
-  k2Base
-  ;
+ l3IntfUses
+ , evCustomMemoContainer
+ , k2Base
+ , evOpProc
+;
 
 type
  TevCustomEditDocumentContainer = class(TevCustomMemoContainer)
- protected
- // overridden protected methods
+  protected
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); override;
    function GetDocumentType: Tk2Type; override;
  end;//TevCustomEditDocumentContainer
@@ -37,12 +25,11 @@ type
 implementation
 
 uses
-  evEditProcessor,
-  k2Tags,
-  TinyDocument_Const
-  ;
-
-// start class TevCustomEditDocumentContainer
+ l3ImplUses
+ , evEditProcessor
+ , k2Tags
+ , TinyDocument_Const
+;
 
 procedure TevCustomEditDocumentContainer.MakeProcessor(out theProcessor: TevCustomUndoProcessor);
 //#UC START# *47F35245009A_482D894F00D6_var*

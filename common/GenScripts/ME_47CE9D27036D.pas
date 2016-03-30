@@ -14,14 +14,14 @@ interface
 
 uses
  l3IntfUses
- , nevTools
- , Messages
- , nevBase
  , l3Interfaces
+ , nevBase
+ , Types
+ , Messages
+ , nevTools
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , Types
 ;
 
 type

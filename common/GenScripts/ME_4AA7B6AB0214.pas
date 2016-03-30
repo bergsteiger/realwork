@@ -274,7 +274,6 @@ type
    f_DataSource: IvcmFormDataSource;
    f_ItemType: TvcmHistoryItemType;
    f_SavingClone: Boolean;
-    {* Поле для свойства SavingClone }
   protected
    function pm_GetSavingClone: Boolean; virtual;
    function DoActivate(const aMainForm: IvcmEntityForm;

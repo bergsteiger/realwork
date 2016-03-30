@@ -1,54 +1,39 @@
 unit evDocumentPartCursor;
+ {* Курсор для блоков документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPartCursor.pas"
-// Начат: 16.12.2002 16:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevDocumentPartCursor
-//
-// Курсор для блоков документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartCursor" MUID: (4A3FA3290296)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Types,
-  nevTools,
-  evParaListCursor,
-  nevBase,
-  l3Core,
-  l3IID
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursor
+ , nevTools
+ , l3Types
+ , l3IID
+ , nevBase
+ , l3Core
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevDocumentPartCursor = class(TevParaListCursor)
   {* Курсор для блоков документа }
- private
- // private fields
-   f_ShowCollapsed : Boolean;
- protected
- // overridden property methods
+  private
+   f_ShowCollapsed: Boolean;
+  protected
+   function ExpandOrCollapse(const aView: InevControlView;
+    aExpandMode: Tl3Bool = l3Types.l3_bUnknown): Boolean; virtual;
+   procedure AfterCollapsed(const aView: InevControlView); virtual;
+   function IsShowingDocumentParts(const aView: InevControlView): Boolean; virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetShowCollapsed: Boolean; override;
    procedure pm_SetShowCollapsed(aValue: Boolean); override;
-   function pm_GetHasInner: Boolean; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
@@ -57,49 +42,38 @@ type
     var aMessage: TMessage;
     aTime: Cardinal): Boolean; override;
    function GetInner: InevBasePoint; override;
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+   {$If Defined(evNeedMarkers)}
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+   {$IfEnd} // Defined(evNeedMarkers)
+   function pm_GetHasInner: Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; override;
- protected
- // protected methods
-   function ExpandOrCollapse(const aView: InevControlView;
-    aExpandMode: Tl3Bool = l3_bUnknown): Boolean; virtual;
-   procedure AfterCollapsed(const aView: InevControlView); virtual;
-   function IsShowingDocumentParts(const aView: InevControlView): Boolean; virtual;
  end;//TevDocumentPartCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Tags,
-  k2OpMisc,
-  evOp,
-  evdTypes,
-  OvcConst,
-  OvcCmd
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevDocumentPartCursor
+ l3ImplUses
+ , k2Tags
+ , k2OpMisc
+ , evOp
+ , evdTypes
+ , OvcConst
+ , OvcCmd
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TevDocumentPartCursor.ExpandOrCollapse(const aView: InevControlView;
-  aExpandMode: Tl3Bool = l3_bUnknown): Boolean;
+ aExpandMode: Tl3Bool = l3Types.l3_bUnknown): Boolean;
 //#UC START# *4A3FA3CC00CC_4A3FA3290296_var*
 var
  l_Value: Boolean;
@@ -152,6 +126,7 @@ begin
 end;//TevDocumentPartCursor.IsShowingDocumentParts
 
 procedure TevDocumentPartCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A3FA3290296_var*
 //#UC END# *479731C50290_4A3FA3290296_var*
 begin
@@ -180,9 +155,9 @@ begin
 end;//TevDocumentPartCursor.pm_SetShowCollapsed
 
 function TevDocumentPartCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_4A3FA3290296_var*
 //#UC END# *49E31657038E_4A3FA3290296_var*
 begin
@@ -211,8 +186,8 @@ begin
 end;//TevDocumentPartCursor.DoMovePrim
 
 function TevDocumentPartCursor.DoProcessMessage(const aView: InevControlView;
-  var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ var aMessage: TMessage;
+ aTime: Cardinal): Boolean;
 //#UC START# *49E343F60057_4A3FA3290296_var*
 var  
  l_Cmd : Word;
@@ -259,16 +234,16 @@ begin
 //#UC END# *49E35A0402DB_4A3FA3290296_impl*
 end;//TevDocumentPartCursor.GetInner
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevDocumentPartCursor.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_4A3FA3290296_var*
 //#UC END# *4A38AA5C019F_4A3FA3290296_var*
 begin
 //#UC START# *4A38AA5C019F_4A3FA3290296_impl*
 //#UC END# *4A38AA5C019F_4A3FA3290296_impl*
 end;//TevDocumentPartCursor.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
 function TevDocumentPartCursor.pm_GetHasInner: Boolean;
 //#UC START# *4A3A2E170304_4A3FA3290296get_var*
@@ -286,7 +261,8 @@ begin
 end;//TevDocumentPartCursor.pm_GetHasInner
 
 function TevDocumentPartCursor.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A3FA3290296_var*
 var
  l_SubList : InevSubList;
@@ -314,8 +290,8 @@ begin
 end;//TevDocumentPartCursor.COMQueryInterface
 
 function TevDocumentPartCursor.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4AA785540310_4A3FA3290296_var*
 var
  l_Inn: InevBasePoint;
@@ -330,7 +306,6 @@ begin
  end; // if (Result <> nev_PlusDiff) and (Result <> 0) and (Result <> nev_MinusDiff) then
 //#UC END# *4AA785540310_4A3FA3290296_impl*
 end;//TevDocumentPartCursor.DoDiff
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

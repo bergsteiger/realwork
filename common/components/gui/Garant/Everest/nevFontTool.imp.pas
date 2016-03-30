@@ -1,65 +1,52 @@
 {$IfNDef nevFontTool_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevFontTool.imp.pas"
-// Начат: 15.09.2011 17:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Garbage::nevFontTool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevFontTool.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevFontTool" MUID: (4E72038F00C3)
+// Имя типа: "_nevFontTool_"
 
 {$Define nevFontTool_imp}
- _nevFontTool_ = {mixin} class(_nevFontTool_Parent_)
- private
- // private fields
-   f_TRF : IevResultFont;
-   f_ZoomPara : Tl3Tag;
-   f_Zoom : Integer;
-   f_SRF : IevResultFont;
-   SRF : IevResultFont;
-   ParaFont : IevResultFont;
- private
- // private methods
+
+ _nevFontTool_ = class(_nevFontTool_Parent_)
+  private
+   f_TRF: IevResultFont;
+   f_ZoomPara: Tl3Tag;
+   f_Zoom: Integer;
+   f_SRF: IevResultFont;
+   SRF: IevResultFont;
+   ParaFont: IevResultFont;
+  private
    function GetObjFont(const aView: InevViewMetrics;
     Para: Tl3Variant;
     IsSegment: Boolean;
     aFI: TnevFormatInfoPrim;
     CorrectItalic: Boolean): IevResultFont;
- public
- // realized methods
+  protected
+   function DocumentUseFixedFontForPrintAndExportSetting: Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Release; override;
+   procedure ClearFields; override;
+  public
    function GetObjRealFont(const aView: InevViewMetrics;
     Para: Tl3Variant;
     IsSegment: Boolean;
     aFI: TnevFormatInfoPrim;
-    CorrectItalic: Boolean = true): InevFont;
-     {* получить шрифт объекта. }
+    CorrectItalic: Boolean = True): InevFont;
+    {* получить шрифт объекта. }
    function GetObjIFont(const aView: InevViewMetrics;
     Para: Tl3Variant;
     IsSegment: Boolean;
     aParentFI: TnevFormatInfoPrim;
-    CorrectItalic: Boolean = true): InevFont;
-     {* получить шрифт объекта. }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Release; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DocumentUseFixedFontForPrintAndExportSetting: Boolean;
+    CorrectItalic: Boolean = True): InevFont;
+    {* получить шрифт объекта. }
  end;//_nevFontTool_
 
 {$Else nevFontTool_imp}
 
-// start class _nevFontTool_
+{$IfNDef nevFontTool_imp_impl}
+
+{$Define nevFontTool_imp_impl}
 
 function _nevFontTool_.DocumentUseFixedFontForPrintAndExportSetting: Boolean;
 //#UC START# *4E568F3C0274_4E72038F00C3_var*
@@ -72,10 +59,10 @@ begin
 end;//_nevFontTool_.DocumentUseFixedFontForPrintAndExportSetting
 
 function _nevFontTool_.GetObjFont(const aView: InevViewMetrics;
-  Para: Tl3Variant;
-  IsSegment: Boolean;
-  aFI: TnevFormatInfoPrim;
-  CorrectItalic: Boolean): IevResultFont;
+ Para: Tl3Variant;
+ IsSegment: Boolean;
+ aFI: TnevFormatInfoPrim;
+ CorrectItalic: Boolean): IevResultFont;
 //#UC START# *4E5690450392_4E72038F00C3_var*
 
  procedure CheckOwnParaFont;
@@ -318,10 +305,11 @@ begin
 end;//_nevFontTool_.GetObjFont
 
 function _nevFontTool_.GetObjRealFont(const aView: InevViewMetrics;
-  Para: Tl3Variant;
-  IsSegment: Boolean;
-  aFI: TnevFormatInfoPrim;
-  CorrectItalic: Boolean = true): InevFont;
+ Para: Tl3Variant;
+ IsSegment: Boolean;
+ aFI: TnevFormatInfoPrim;
+ CorrectItalic: Boolean = True): InevFont;
+ {* получить шрифт объекта. }
 //#UC START# *476BFAA60313_4E72038F00C3_var*
 //#UC END# *476BFAA60313_4E72038F00C3_var*
 begin
@@ -331,10 +319,11 @@ begin
 end;//_nevFontTool_.GetObjRealFont
 
 function _nevFontTool_.GetObjIFont(const aView: InevViewMetrics;
-  Para: Tl3Variant;
-  IsSegment: Boolean;
-  aParentFI: TnevFormatInfoPrim;
-  CorrectItalic: Boolean = true): InevFont;
+ Para: Tl3Variant;
+ IsSegment: Boolean;
+ aParentFI: TnevFormatInfoPrim;
+ CorrectItalic: Boolean = True): InevFont;
+ {* получить шрифт объекта. }
 //#UC START# *486CB85C01FD_4E72038F00C3_var*
 var
  l_Map : TnevFormatInfoPrim;
@@ -358,6 +347,7 @@ begin
 end;//_nevFontTool_.GetObjIFont
 
 procedure _nevFontTool_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E72038F00C3_var*
 //#UC END# *479731C50290_4E72038F00C3_var*
 begin
@@ -394,7 +384,6 @@ begin
 end;//_nevFontTool_.Release
 
 procedure _nevFontTool_.ClearFields;
- {-}
 begin
  f_TRF := nil;
  f_SRF := nil;
@@ -403,4 +392,7 @@ begin
  inherited;
 end;//_nevFontTool_.ClearFields
 
+{$EndIf nevFontTool_imp_impl}
+
 {$EndIf nevFontTool_imp}
+

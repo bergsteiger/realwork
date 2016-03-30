@@ -1,86 +1,67 @@
 unit nevTextParaAnchor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTextParaAnchor.pas"
-// Начат: 12.04.2005 15:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevTextParaAnchor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextParaAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTextParaAnchor" MUID: (4A3F37440382)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevLeafParaAnchor,
-  nevTools,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevLeafParaAnchor
+ , nevBase
+ , nevTools
+ , l3Variant
+;
 
-{$If defined(k2ForEditor)}
 type
  _nevTextParaTool_Parent_ = TnevLeafParaAnchor;
- {$Include ..\new\nevTextParaTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
  _nevTextParaViewBounds_Parent_ = _nevTextParaTool_;
  {$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
  _nevTextParaAnchorModify_Parent_ = _nevTextParaViewBounds_;
  {$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
  TnevTextParaAnchor = class(_nevTextParaAnchorModify_)
- private
- // private fields
-   f_Line : Integer;
- protected
- // realized methods
+  private
+   f_Line: Integer;
+  protected
    function GetAtStart: Boolean; override;
    function GetAtEnd(const aView: InevView): Boolean; override;
    function GetVertPosition(const aView: InevView;
     aMap: TnevFormatInfoPrim): TnevParaIndex; override;
-   {$If defined(evUseVisibleCursors)}
+   {$If Defined(evUseVisibleCursors)}
    procedure SetLinePrim(aValue: Integer;
     aMap: TnevFormatInfoPrim); override;
-   {$IfEnd} //evUseVisibleCursors
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(evUseVisibleCursors)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetPaintOffsetY(const aView: InevView;
     aMap: TnevFormatInfoPrim): Integer; override;
    procedure DoAssignPoint(const aView: InevView;
     const aPoint: InevBasePoint); override;
  end;//TnevTextParaAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3MinMax,
-  evTextParaTools,
-  SysUtils,
-  l3Types
-  ;
-{$IfEnd} //k2ForEditor
+ l3ImplUses
+ , l3MinMax
+ , evTextParaTools
+ , SysUtils
+ , l3Types
+;
 
-{$If defined(k2ForEditor)}
 {$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
 
-// start class TnevTextParaAnchor
-
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 function GetLC(aSelf: _nevTextParaViewBounds_;
-  aMap: TnevFormatInfoPrim): TnevLineCoord;
+ aMap: TnevFormatInfoPrim): TnevLineCoord;
+ {* Возвращает текущую строку }
 //#UC START# *4A5CD65C01D4_4A3F37440382_var*
 //#UC END# *4A5CD65C01D4_4A3F37440382_var*
 begin
@@ -89,15 +70,15 @@ begin
  Result.rOfs := 0;
 //#UC END# *4A5CD65C01D4_4A3F37440382_impl*
 end;//GetLC
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$Include ..\new\nevTextParaTool.imp.pas}
+type _Instance_R_ = TnevTextParaAnchor;
+
+{$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
-
-// start class TnevTextParaAnchor
 
 function TnevTextParaAnchor.GetAtStart: Boolean;
 //#UC START# *4A3B707700C9_4A3F37440382_var*
@@ -118,7 +99,7 @@ begin
 end;//TnevTextParaAnchor.GetAtEnd
 
 function TnevTextParaAnchor.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *4A3B7F2E01CE_4A3F37440382_var*
 //#UC END# *4A3B7F2E01CE_4A3F37440382_var*
 begin
@@ -127,9 +108,9 @@ begin
 //#UC END# *4A3B7F2E01CE_4A3F37440382_impl*
 end;//TnevTextParaAnchor.GetVertPosition
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 procedure TnevTextParaAnchor.SetLinePrim(aValue: Integer;
-  aMap: TnevFormatInfoPrim);
+ aMap: TnevFormatInfoPrim);
 //#UC START# *4B1D11DC00AD_4A3F37440382_var*
 //#UC END# *4B1D11DC00AD_4A3F37440382_var*
 begin
@@ -137,9 +118,10 @@ begin
  f_Line := aValue;
 //#UC END# *4B1D11DC00AD_4A3F37440382_impl*
 end;//TnevTextParaAnchor.SetLinePrim
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 procedure TnevTextParaAnchor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A3F37440382_var*
 //#UC END# *479731C50290_4A3F37440382_var*
 begin
@@ -150,7 +132,7 @@ begin
 end;//TnevTextParaAnchor.Cleanup
 
 function TnevTextParaAnchor.GetPaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4A3BA80002E5_4A3F37440382_var*
 //#UC END# *4A3BA80002E5_4A3F37440382_var*
 begin
@@ -167,7 +149,7 @@ begin
 end;//TnevTextParaAnchor.GetPaintOffsetY
 
 procedure TnevTextParaAnchor.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *4B1D0220010E_4A3F37440382_var*
 //#UC END# *4B1D0220010E_4A3F37440382_var*
 begin
@@ -180,7 +162,6 @@ begin
  end;//aPoint <> nil
 //#UC END# *4B1D0220010E_4A3F37440382_impl*
 end;//TnevTextParaAnchor.DoAssignPoint
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

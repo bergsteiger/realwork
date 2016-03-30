@@ -1,46 +1,34 @@
 unit evExpandedTextFilter;
+ {* Фильтр "дорисовывающий" отступы для вложенных параграфов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evExpandedTextFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevExpandedTextFilter
-//
-// Фильтр "дорисовывающий" отступы для вложенных параграфов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evExpandedTextFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevExpandedTextFilter" MUID: (55B9C9EA0370)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3LongintList,
-  k2TagFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , l3LongintList
+ , l3Variant
+;
 
 type
  TevExpandedTextFilter = {final} class(Tk2TagFilter)
   {* Фильтр "дорисовывающий" отступы для вложенных параграфов. }
- private
- // private fields
-   f_StyledSpace : Integer;
-   f_StyleIDStack : Tl3LongintList;
-   f_WasStyle : Boolean;
- protected
- // overridden protected methods
+  private
+   f_StyledSpace: Integer;
+   f_StyleIDStack: Tl3LongintList;
+   f_WasStyle: Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure StartChild(TypeID: Tl3Type); override;
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevExpandedTextFilter
@@ -48,16 +36,16 @@ type
 implementation
 
 uses
-  Block_Const,
-  evdStyles,
-  k2Tags,
-  Document_Const,
-  SysUtils
-  ;
-
-// start class TevExpandedTextFilter
+ l3ImplUses
+ , Block_Const
+ , evdStyles
+ , k2Tags
+ , Document_Const
+ , SysUtils
+;
 
 procedure TevExpandedTextFilter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55B9C9EA0370_var*
 //#UC END# *479731C50290_55B9C9EA0370_var*
 begin
@@ -82,6 +70,7 @@ begin
 end;//TevExpandedTextFilter.StartChild
 
 procedure TevExpandedTextFilter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_55B9C9EA0370_var*
 //#UC END# *4836D4C20059_55B9C9EA0370_var*
 begin
@@ -91,7 +80,7 @@ begin
 end;//TevExpandedTextFilter.CloseStructure
 
 procedure TevExpandedTextFilter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_55B9C9EA0370_var*
 //#UC END# *4836D52400D9_55B9C9EA0370_var*
 begin

@@ -45,11 +45,8 @@ type
    f_NonVGLayout: TvgNonVGLayout;
    f_CurrentBounds: TvtCurrentBounds;
    f_AfterBaloonHidden: TNotifyEvent;
-    {* Поле для свойства AfterBaloonHidden }
    f_TailPosition: TvtTailPosition;
-    {* Поле для свойства TailPosition }
    f_Panel: TvtPanel;
-    {* Поле для свойства Panel }
   private
    procedure PanelGetSiteInfo(Sender: TObject;
     DockClient: TControl;

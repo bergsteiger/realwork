@@ -1,34 +1,22 @@
 unit nevCommentFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevCommentFormatInfo.pas"
-// Начат: 01.09.2011 11:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevCommentFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevCommentFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevCommentFormatInfo" MUID: (4E5F3389001D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevDocumentPartFormatInfo,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevDocumentPartFormatInfo
+ , l3Variant
+;
 
 type
  TnevCommentFormatInfo = class(TnevDocumentPartFormatInfo)
- protected
- // overridden protected methods
+  protected
    procedure TuneFrameText(aText: Tl3Variant); override;
    function AllowTotalRecalc: Boolean; override;
  end;//TnevCommentFormatInfo
@@ -36,11 +24,10 @@ type
 implementation
 
 uses
-  evdStyles,
-  k2Tags
-  ;
-
-// start class TnevCommentFormatInfo
+ l3ImplUses
+ , evdStyles
+ , k2Tags
+;
 
 procedure TnevCommentFormatInfo.TuneFrameText(aText: Tl3Variant);
 //#UC START# *4E5F8B2601DC_4E5F3389001D_var*

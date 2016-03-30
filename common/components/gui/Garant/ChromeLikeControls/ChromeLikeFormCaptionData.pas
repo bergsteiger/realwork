@@ -1,85 +1,64 @@
 unit ChromeLikeFormCaptionData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeFormCaptionData.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeWindowCaptionButtons::TChromeLikeFormCaptionData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormCaptionData.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeFormCaptionData" MUID: (533D343C02FF)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types,
-  Windows,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-type
- TChromeLikeFormCaptionButtonKind = (
-   cbkMinimize
- , cbkMaximizeRestore
- , cbkClose
- );//TChromeLikeFormCaptionButtonKind
+ l3IntfUses
+ , l3ProtoObject
+ , Types
+ , Windows
+;
 
 const
-  { WindowCaptionConsts }
  cWindowCaptionButtonPadding = 2;
 
 type
+ TChromeLikeFormCaptionButtonKind = (
+  cbkMinimize
+  , cbkMaximizeRestore
+  , cbkClose
+ );//TChromeLikeFormCaptionButtonKind
+
  TChromeLikeFormCaptionData = class(Tl3ProtoObject)
- private
- // private fields
-   f_CloseButtonRect : TRect;
-    {* Прямоугольник кнопки "Закрыть" в координатах от правого верхнего угла окна}
-   f_MaximizeButtonRect : TRect;
-    {* Прямоугольник кнопки "Развернуть" / "Восстановить" в координатах от правого верхнего угла окна}
-   f_MinimizeButtonRect : TRect;
-    {* Прямоугольник кнопки "Свернуть" в координатах от правого верхнего угла окна}
-   f_WasPopulatedThemed : Boolean;
-    {* Признак того, что данные получены с учетом темы Windows}
- private
- // private methods
+  private
+   f_CloseButtonRect: TRect;
+    {* Прямоугольник кнопки "Закрыть" в координатах от правого верхнего угла окна }
+   f_MaximizeButtonRect: TRect;
+    {* Прямоугольник кнопки "Развернуть" / "Восстановить" в координатах от правого верхнего угла окна }
+   f_MinimizeButtonRect: TRect;
+    {* Прямоугольник кнопки "Свернуть" в координатах от правого верхнего угла окна }
+   f_WasPopulatedThemed: Boolean;
+    {* Признак того, что данные получены с учетом темы Windows }
+  private
    function MakeRelativeRect(const aWndRect: TRect;
-     const aButtonRect: TRect): TRect;
+    const aButtonRect: TRect): TRect;
    procedure InitTitleBarInfo;
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure UpdateTitleBarInfo(aHwnd: hWnd);
    function MakeButtonRect(aRight: Integer;
-     aButtonKind: TChromeLikeFormCaptionButtonKind): TRect;
+    aButtonKind: TChromeLikeFormCaptionButtonKind): TRect;
  end;//TChromeLikeFormCaptionData
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  ChromeLikeWinUtils,
-  l3Base,
-  ChromeLikeTypes
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeFormCaptionData
+ l3ImplUses
+ , ChromeLikeWinUtils
+ , l3Base
+ , ChromeLikeTypes
+;
 
 function TChromeLikeFormCaptionData.MakeRelativeRect(const aWndRect: TRect;
-  const aButtonRect: TRect): TRect;
+ const aButtonRect: TRect): TRect;
 //#UC START# *533D3553015B_533D343C02FF_var*
 //#UC END# *533D3553015B_533D343C02FF_var*
 begin
@@ -176,7 +155,7 @@ begin
 end;//TChromeLikeFormCaptionData.UpdateTitleBarInfo
 
 function TChromeLikeFormCaptionData.MakeButtonRect(aRight: Integer;
-  aButtonKind: TChromeLikeFormCaptionButtonKind): TRect;
+ aButtonKind: TChromeLikeFormCaptionButtonKind): TRect;
 //#UC START# *533D3681003B_533D343C02FF_var*
 var
  l_RelativeRect: TRect;
@@ -216,7 +195,6 @@ begin
  InitTitleBarInfo;
 //#UC END# *47A042E100E2_533D343C02FF_impl*
 end;//TChromeLikeFormCaptionData.InitFields
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

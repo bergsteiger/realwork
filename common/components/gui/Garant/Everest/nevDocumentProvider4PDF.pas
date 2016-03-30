@@ -1,39 +1,31 @@
 unit nevDocumentProvider4PDF;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDocumentProvider4PDF.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TnevDocumentProvider4PDF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentProvider4PDF" MUID: (541149B203E1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevDocumentProviderEx,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , nevDocumentProviderEx
+ , afwInterfaces
+;
 
 type
  TnevDocumentProvider4PDF = class(TnevDocumentProviderEx)
- protected
- // overridden property methods
+  protected
    function pm_GetCanProvideOriginalDocument: Boolean; override;
    function pm_GetPageSetup: IafwPageSetup; override;
  end;//TnevDocumentProvider4PDF
 
 implementation
 
-// start class TnevDocumentProvider4PDF
+uses
+ l3ImplUses
+;
 
 function TnevDocumentProvider4PDF.pm_GetCanProvideOriginalDocument: Boolean;
 //#UC START# *4CB589C80045_541149B203E1get_var*

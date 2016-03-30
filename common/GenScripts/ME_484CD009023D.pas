@@ -13,6 +13,8 @@ interface
 uses
  l3IntfUses
  , evdNative_Schema
+ //#UC START# *484CD009023D_48492FC0029Dintf_uses*
+ //#UC END# *484CD009023D_48492FC0029Dintf_uses*
 ;
 
 type
@@ -29,6 +31,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , evNative_AttrValues
+ //#UC START# *484CD009023D_48492FC0029Dimpl_uses*
+ //#UC END# *484CD009023D_48492FC0029Dimpl_uses*
 ;
 
 initialization

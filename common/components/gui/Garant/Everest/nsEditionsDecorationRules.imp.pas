@@ -1,35 +1,27 @@
 {$IfNDef nsEditionsDecorationRules_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nsEditionsDecorationRules.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Aspects::nsEditionsDecorationRules
-//
-// Правила оформления декораций для СР и ОИД
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsEditionsDecorationRules" MUID: (4F33E7CF0393)
+// Имя типа: "_nsEditionsDecorationRules_"
 
 {$Define nsEditionsDecorationRules_imp}
- _nsEditionsDecorationRules_ = {mixin} class(_nsEditionsDecorationRules_Parent_)
+
+ _nsEditionsDecorationRules_ = class(_nsEditionsDecorationRules_Parent_)
   {* Правила оформления декораций для СР и ОИД }
- protected
- // overridden protected methods
+  protected
    function GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
-     aType: TnevDecorType): Boolean; override;
-     {* Разрешает ли контейтер документа применять указанное декорирование }
+    aType: TnevDecorType): Boolean; override;
  end;//_nsEditionsDecorationRules_
 
 {$Else nsEditionsDecorationRules_imp}
 
-// start class _nsEditionsDecorationRules_
+{$IfNDef nsEditionsDecorationRules_imp_impl}
+
+{$Define nsEditionsDecorationRules_imp_impl}
 
 function _nsEditionsDecorationRules_.GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
-  aType: TnevDecorType): Boolean;
+ aType: TnevDecorType): Boolean;
 //#UC START# *4F33E3A20056_4F33E7CF0393_var*
 //#UC END# *4F33E3A20056_4F33E7CF0393_var*
 begin
@@ -45,4 +37,7 @@ begin
 //#UC END# *4F33E3A20056_4F33E7CF0393_impl*
 end;//_nsEditionsDecorationRules_.GetAllowsThisDecor
 
+{$EndIf nsEditionsDecorationRules_imp_impl}
+
 {$EndIf nsEditionsDecorationRules_imp}
+

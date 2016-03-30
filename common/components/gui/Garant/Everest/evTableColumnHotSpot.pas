@@ -1,129 +1,102 @@
 unit evTableColumnHotSpot;
+ {* реализует интерфейс IevHotSpot для колонки таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableColumnHotSpot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevTableColumnHotSpot
-//
-// реализует интерфейс IevHotSpot для колонки таблицы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableColumnHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableColumnHotSpot" MUID: (4ED31E9500E7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  nevBase,
-  nevTools,
-  nevGUIInterfaces,
-  evColumnBorderMarker,
-  l3Variant,
-  afwInterfaces
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evColumnBorderMarker
+ , nevGUIInterfaces
+ , l3Variant
+ , nevBase
+ , nevTools
+ , l3Interfaces
+ , afwInterfaces
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  RevTableColumnHotSpot = class of TevTableColumnHotSpot;
 
  TevTableColumnHotSpot = class(TevColumnBorderMarker, IevAdvancedHotSpot, IevHotSpotDelta)
   {* реализует интерфейс IevHotSpot для колонки таблицы. }
- private
- // private fields
-   f_Delta : Integer;
-   f_CanChangeTable : Boolean;
- protected
- // realized methods
+  private
+   f_Delta: Integer;
+   f_CanChangeTable: Boolean;
+  protected
+   function ProportionalChangeWidth(aTable: Tl3Variant;
+    aDelta: Integer;
+    const anOpPack: InevOp): Boolean;
+   procedure ChangeCellWidth(const aView: InevControlView;
+    const aProcessor: InevProcessor;
+    const anOpPack: InevOp;
+    const Keys: TevMouseState;
+    const aRow: InevParaList;
+    aDelta: Integer);
    function MouseAction(const aView: InevControlView;
     aButton: Tl3MouseButton;
     anAction: Tl3MouseAction;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
+    {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
    function Delta: Integer;
-     {* точность }
+    {* точность }
    function CanDrag: Boolean;
- public
- // realized methods
+  public
+   function CanChangeTable(const aView: InevControlView;
+    aPara: Tl3Variant): Boolean;
+   constructor Create(const aView: InevControlView;
+    aPara: Tl3Variant;
+    aColumnID: Integer;
+    const aHint: Il3CString;
+    aDelta: Integer); reintroduce;
+   class function Make(const aView: InevControlView;
+    aPara: Tl3Variant;
+    aColumnID: Integer;
+    const aHint: Il3CString = nil;
+    aDelta: Integer = 0): IevAdvancedHotSpot;
    procedure HitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo);
- protected
- // protected methods
-   function ProportionalChangeWidth(aTable: Tl3Variant;
-     aDelta: Integer;
-     const anOpPack: InevOp): Boolean;
-   procedure ChangeCellWidth(const aView: InevControlView;
-     const aProcessor: InevProcessor;
-     const anOpPack: InevOp;
-     const Keys: TevMouseState;
-     const aRow: InevParaList;
-     aDelta: Integer);
- public
- // public methods
-   function CanChangeTable(const aView: InevControlView;
-     aPara: Tl3Variant): Boolean;
-   constructor Create(const aView: InevControlView;
-     aPara: Tl3Variant;
-     aColumnID: Integer;
-     const aHint: Il3CString;
-     aDelta: Integer); reintroduce;
-   class function Make(const aView: InevControlView;
-     aPara: Tl3Variant;
-     aColumnID: Integer;
-     const aHint: Il3CString = nil;
-     aDelta: Integer = 0): IevAdvancedHotSpot;
  end;//TevTableColumnHotSpot
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Tags,
-  l3Math,
-  evdTypes,
-  Classes,
-  SysUtils,
-  evInternalInterfaces
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  CommentPara_Const,
-  l3Base,
-  evEditorInterfaces,
-  l3InterfacesMisc,
-  nevInterfaces
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  k2OpMisc,
-  evMsgCode,
-  l3IID
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableColumnHotSpot
+ l3ImplUses
+ , k2Tags
+ , l3Math
+ , evdTypes
+ , Classes
+ , SysUtils
+ , evInternalInterfaces
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , CommentPara_Const
+ , l3Base
+ , evEditorInterfaces
+ , l3InterfacesMisc
+ , nevInterfaces
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2OpMisc
+ , evMsgCode
+ , l3IID
+;
 
 function TevTableColumnHotSpot.ProportionalChangeWidth(aTable: Tl3Variant;
-  aDelta: Integer;
-  const anOpPack: InevOp): Boolean;
+ aDelta: Integer;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4ED321A40385_4ED31E9500E7_var*
 var
  l_Width    : Integer;
@@ -190,11 +163,11 @@ begin
 end;//TevTableColumnHotSpot.ProportionalChangeWidth
 
 procedure TevTableColumnHotSpot.ChangeCellWidth(const aView: InevControlView;
-  const aProcessor: InevProcessor;
-  const anOpPack: InevOp;
-  const Keys: TevMouseState;
-  const aRow: InevParaList;
-  aDelta: Integer);
+ const aProcessor: InevProcessor;
+ const anOpPack: InevOp;
+ const Keys: TevMouseState;
+ const aRow: InevParaList;
+ aDelta: Integer);
 //#UC START# *4ED3220102EE_4ED31E9500E7_var*
 var
  l_Width: Integer;
@@ -293,11 +266,12 @@ begin
   aView.Control.SetFlag(ev_uwfRuler);
  finally
   aProcessor.Unlock;
- end;//#UC END# *4ED3220102EE_4ED31E9500E7_impl*
+ end;
+//#UC END# *4ED3220102EE_4ED31E9500E7_impl*
 end;//TevTableColumnHotSpot.ChangeCellWidth
 
 function TevTableColumnHotSpot.CanChangeTable(const aView: InevControlView;
-  aPara: Tl3Variant): Boolean;
+ aPara: Tl3Variant): Boolean;
 //#UC START# *4ED3227A01E5_4ED31E9500E7_var*
 //#UC END# *4ED3227A01E5_4ED31E9500E7_var*
 begin
@@ -310,10 +284,10 @@ begin
 end;//TevTableColumnHotSpot.CanChangeTable
 
 constructor TevTableColumnHotSpot.Create(const aView: InevControlView;
-  aPara: Tl3Variant;
-  aColumnID: Integer;
-  const aHint: Il3CString;
-  aDelta: Integer);
+ aPara: Tl3Variant;
+ aColumnID: Integer;
+ const aHint: Il3CString;
+ aDelta: Integer);
 //#UC START# *4ED322C700D3_4ED31E9500E7_var*
 //#UC END# *4ED322C700D3_4ED31E9500E7_var*
 begin
@@ -325,10 +299,10 @@ begin
 end;//TevTableColumnHotSpot.Create
 
 class function TevTableColumnHotSpot.Make(const aView: InevControlView;
-  aPara: Tl3Variant;
-  aColumnID: Integer;
-  const aHint: Il3CString = nil;
-  aDelta: Integer = 0): IevAdvancedHotSpot;
+ aPara: Tl3Variant;
+ aColumnID: Integer;
+ const aHint: Il3CString = nil;
+ aDelta: Integer = 0): IevAdvancedHotSpot;
 //#UC START# *4ED3231B03D7_4ED31E9500E7_var*
 var
  l_Spot : TevTableColumnHotSpot;
@@ -345,8 +319,8 @@ begin
 end;//TevTableColumnHotSpot.Make
 
 procedure TevTableColumnHotSpot.HitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *48E2622A03C4_4ED31E9500E7_var*
 //#UC END# *48E2622A03C4_4ED31E9500E7_var*
 begin
@@ -371,10 +345,11 @@ begin
 end;//TevTableColumnHotSpot.HitTest
 
 function TevTableColumnHotSpot.MouseAction(const aView: InevControlView;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
 //#UC START# *48E263CD01BD_4ED31E9500E7_var*
 var
  l_Processor : InevProcessor;
@@ -460,10 +435,12 @@ begin
   Result := false;
  {$Else  evChangeTableByMouse}
  Result := False;
- {$EndIf evChangeTableByMouse}//#UC END# *48E263CD01BD_4ED31E9500E7_impl*
+ {$EndIf evChangeTableByMouse}
+//#UC END# *48E263CD01BD_4ED31E9500E7_impl*
 end;//TevTableColumnHotSpot.MouseAction
 
 function TevTableColumnHotSpot.Delta: Integer;
+ {* точность }
 //#UC START# *4A23A71A02CC_4ED31E9500E7_var*
 //#UC END# *4A23A71A02CC_4ED31E9500E7_var*
 begin
@@ -480,7 +457,6 @@ begin
  Result := False;
 //#UC END# *4ECCD6840014_4ED31E9500E7_impl*
 end;//TevTableColumnHotSpot.CanDrag
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

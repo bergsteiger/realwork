@@ -34,9 +34,7 @@ type
    f_UpButton: TButton;
    f_ListBox: TListBox;
    f_DataAdapter: TddBaseConfigDataAdapter;
-    {* Поле для свойства DataAdapter }
    f_ShowMoveButtons: Boolean;
-    {* Поле для свойства ShowMoveButtons }
   private
    procedure AddButtonCLick(Sender: TObject);
    procedure DeleteButtonClick(Sender: TObject);

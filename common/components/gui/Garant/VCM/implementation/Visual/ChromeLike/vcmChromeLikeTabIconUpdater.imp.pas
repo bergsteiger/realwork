@@ -1,49 +1,39 @@
 {$IfNDef vcmChromeLikeTabIconUpdater_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmChromeLikeTabIconUpdater.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmChromeLikeTabIconUpdater
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmChromeLikeTabIconUpdater" MUID: (543E3A600253)
+// Имя типа: "_vcmChromeLikeTabIconUpdater_"
 
 {$Define vcmChromeLikeTabIconUpdater_imp}
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
- _vcmChromeLikeTabIconUpdater_ = {mixin} class(_vcmChromeLikeTabIconUpdater_Parent_, IvcmFormSetIconProvider)
- protected
- // realized methods
-   function pm_GetFormSetImageIndex: Integer;
-   function pm_GetCanDefineFormSetIcon: Boolean;
- protected
- // overridden protected methods
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   procedure FormInsertedIntoContainer; override;
-   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
-     const aNew: IvcmFormDataSource); override;
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ _vcmChromeLikeTabIconUpdater_ = class(_vcmChromeLikeTabIconUpdater_Parent_, IvcmFormSetIconProvider)
+  protected
    function DoGetTabImageIndex: Integer; virtual;
    procedure UpdateTabIcon;
    function DoGetCanDefineFormSetIcon: Boolean; virtual;
+   function pm_GetFormSetImageIndex: Integer;
+   function pm_GetCanDefineFormSetIcon: Boolean;
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   procedure FormInsertedIntoContainer; override;
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
  end;//_vcmChromeLikeTabIconUpdater_
-{$Else}
 
- _vcmChromeLikeTabIconUpdater_ = _vcmChromeLikeTabIconUpdater_Parent_;
+{$Else NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+_vcmChromeLikeTabIconUpdater_ = _vcmChromeLikeTabIconUpdater_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 {$Else vcmChromeLikeTabIconUpdater_imp}
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$IfNDef vcmChromeLikeTabIconUpdater_imp_impl}
 
-// start class _vcmChromeLikeTabIconUpdater_
+{$Define vcmChromeLikeTabIconUpdater_imp_impl}
 
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function _vcmChromeLikeTabIconUpdater_.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_543E3A600253_var*
 //#UC END# *543E3AA801D0_543E3A600253_var*
@@ -90,6 +80,7 @@ begin
 end;//_vcmChromeLikeTabIconUpdater_.pm_GetCanDefineFormSetIcon
 
 procedure _vcmChromeLikeTabIconUpdater_.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_543E3A600253_var*
 //#UC END# *49803F5503AA_543E3A600253_var*
 begin
@@ -110,7 +101,7 @@ begin
 end;//_vcmChromeLikeTabIconUpdater_.FormInsertedIntoContainer
 
 procedure _vcmChromeLikeTabIconUpdater_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
-  const aNew: IvcmFormDataSource);
+ const aNew: IvcmFormDataSource);
 //#UC START# *5000109C01F9_543E3A600253_var*
 //#UC END# *5000109C01F9_543E3A600253_var*
 begin
@@ -120,7 +111,9 @@ begin
   UpdateTabIcon;
 //#UC END# *5000109C01F9_543E3A600253_impl*
 end;//_vcmChromeLikeTabIconUpdater_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$EndIf vcmChromeLikeTabIconUpdater_imp_impl}
 
 {$EndIf vcmChromeLikeTabIconUpdater_imp}
+

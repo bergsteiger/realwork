@@ -1,57 +1,67 @@
 unit nevObjectHolderPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevObjectHolderPrim.pas"
-// Начат: 30.04.2008 15:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Document::TnevObjectHolderPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevObjectHolderPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevObjectHolderPrim" MUID: (48185C4002DC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  k2Base,
-  nevTools,
-  nevFormatPool,
-  nevSectionBreakList,
-  nevDocumentContainerPrim,
-  l3Variant,
-  l3NotifyPtrList,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , nevDocumentContainerPrim
+ , nevTools
+ , nevFormatPool
+ , nevSectionBreakList
+ , l3Interfaces
+ , nevBase
+ , l3Variant
+ , k2Base
+ , l3NotifyPtrList
+ , afwInterfaces
+;
 
 type
  _l3Notifier_Parent_ = TnevDocumentContainerPrim;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  _evStyleTableListener_Parent_ = _l3Notifier_;
- {$Include ..\Everest\evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  _nevDocumentContainerDecorationRules_Parent_ = _evStyleTableListener_;
- {$Include ..\Everest\nevDocumentContainerDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevObjectHolderPrim = class(_nevDocumentContainerDecorationRules_, InevObjectHolder)
- private
- // private fields
-   f_FormatPool : TnevFormatPool;
-   f_SectionBreaks : TnevSectionBreakList;
-   f_Modified : Boolean;
-    {* Поле для свойства Modified}
- protected
- // property methods
+  private
+   f_FormatPool: TnevFormatPool;
+   f_SectionBreaks: TnevSectionBreakList;
+   f_Modified: Boolean;
+    {* Поле для свойства Modified }
+  protected
    procedure pm_SetModified(aValue: Boolean); virtual;
- protected
- // realized methods
+   function DoGetControlImg(const aControl: TnevControlInfo;
+    var theImageInfo: TnevControlImageInfo): Boolean; virtual;
+   function GetObj: InevObject; virtual;
+   procedure DoInvalidateShape(const aShape: InevObject;
+    aParts: TnevShapeParts); virtual; abstract;
+   function GetTagReader: InevTagReader; virtual; abstract;
+   function GetTagWriter: InevTagWriter; virtual; abstract;
+   function DoFindObjByID(aParaID: Integer;
+    out aPara: InevObject): Boolean; virtual;
+   function GetViewArea: InevViewArea; virtual;
+   procedure DoChildAdded(aList: Tl3Variant;
+    aChild: Tl3Variant;
+    anIndex: Integer;
+    const anOpPack: InevOp); virtual;
+   procedure DoChildDeleted(aList: Tl3Variant;
+    aChild: Tl3Variant;
+    anIndex: Integer;
+    const anOpPack: InevOp); virtual;
+   procedure UnformatAll; virtual;
+   function GetLock: Il3Lock; virtual;
+   procedure DoUpdatePreview; virtual;
+   procedure DoPropChanged(Prop: Tk2Prop;
+    const V: TnevValues;
+    const anOpPack: InevOp); virtual;
+   function GetSubCache: IevSubCache; virtual;
    function TagReader: InevTagReader;
    function TagWriter: InevTagWriter;
    function FindObjByID(aParaID: Integer;
@@ -78,88 +88,44 @@ type
    function Get_SubCache: IevSubCache;
    function Get_SectionBreaks: InevSectionBreaks;
    function pm_GetLock: Il3Lock;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure SectionBreakAdded(const anObject: InevObject);
-     {* Добавился разрыв раздела }
+    {* Добавился разрыв раздела }
    function GetControlImg(const aControl: TnevControlInfo;
     out theImageInfo: TnevControlImageInfo): Boolean;
- public
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    procedure InvalidateShape(const aShape: InevObject;
     aParts: TnevShapeParts);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   function DoGetControlImg(const aControl: TnevControlInfo;
-     var theImageInfo: TnevControlImageInfo): Boolean; virtual;
-   function GetObj: InevObject; virtual;
-   procedure DoInvalidateShape(const aShape: InevObject;
-    aParts: TnevShapeParts); virtual; abstract;
-   function GetTagReader: InevTagReader; virtual; abstract;
-   function GetTagWriter: InevTagWriter; virtual; abstract;
-   function DoFindObjByID(aParaID: Integer;
-    out aPara: InevObject): Boolean; virtual;
-   function GetViewArea: InevViewArea; virtual;
-   procedure DoChildAdded(aList: Tl3Variant;
-    aChild: Tl3Variant;
-    anIndex: Integer;
-    const anOpPack: InevOp); virtual;
-   procedure DoChildDeleted(aList: Tl3Variant;
-    aChild: Tl3Variant;
-    anIndex: Integer;
-    const anOpPack: InevOp); virtual;
-   procedure UnformatAll; virtual;
-   function GetLock: Il3Lock; virtual;
-   procedure DoUpdatePreview; virtual;
-   procedure DoPropChanged(Prop: Tk2Prop;
-    const V: TnevValues;
-    const anOpPack: InevOp); virtual;
-   function GetSubCache: IevSubCache; virtual;
- protected
- // protected properties
+  protected
    property Modified: Boolean
-     read f_Modified
-     write pm_SetModified;
+    read f_Modified
+    write pm_SetModified;
  end;//TnevObjectHolderPrim
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags,
-  Para_Const,
-  ObjectSegment_Const,
-  SectionBreak_Const,
-  l3Base
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , Para_Const
+ , ObjectSegment_Const
+ , SectionBreak_Const
+ , l3Base
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
-{$Include ..\Everest\evStyleTableListener.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
-{$Include ..\Everest\nevDocumentContainerDecorationRules.imp.pas}
-
-// start class TnevObjectHolderPrim
-
-function TnevObjectHolderPrim.DoGetControlImg(const aControl: TnevControlInfo;
-  var theImageInfo: TnevControlImageInfo): Boolean;
-//#UC START# *4E5E386A0119_48185C4002DC_var*
-//#UC END# *4E5E386A0119_48185C4002DC_var*
-begin
-//#UC START# *4E5E386A0119_48185C4002DC_impl*
- Result := false;
-//#UC END# *4E5E386A0119_48185C4002DC_impl*
-end;//TnevObjectHolderPrim.DoGetControlImg
+{$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
 procedure TnevObjectHolderPrim.pm_SetModified(aValue: Boolean);
 //#UC START# *4918285A0247_48185C4002DCset_var*
@@ -169,6 +135,16 @@ begin
  f_Modified := aValue
 //#UC END# *4918285A0247_48185C4002DCset_impl*
 end;//TnevObjectHolderPrim.pm_SetModified
+
+function TnevObjectHolderPrim.DoGetControlImg(const aControl: TnevControlInfo;
+ var theImageInfo: TnevControlImageInfo): Boolean;
+//#UC START# *4E5E386A0119_48185C4002DC_var*
+//#UC END# *4E5E386A0119_48185C4002DC_var*
+begin
+//#UC START# *4E5E386A0119_48185C4002DC_impl*
+ Result := false;
+//#UC END# *4E5E386A0119_48185C4002DC_impl*
+end;//TnevObjectHolderPrim.DoGetControlImg
 
 function TnevObjectHolderPrim.GetObj: InevObject;
 //#UC START# *48185EEB0234_48185C4002DC_var*
@@ -180,7 +156,7 @@ begin
 end;//TnevObjectHolderPrim.GetObj
 
 function TnevObjectHolderPrim.DoFindObjByID(aParaID: Integer;
-  out aPara: InevObject): Boolean;
+ out aPara: InevObject): Boolean;
 //#UC START# *491829B003B9_48185C4002DC_var*
 //#UC END# *491829B003B9_48185C4002DC_var*
 begin
@@ -200,9 +176,9 @@ begin
 end;//TnevObjectHolderPrim.GetViewArea
 
 procedure TnevObjectHolderPrim.DoChildAdded(aList: Tl3Variant;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: InevOp);
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: InevOp);
 //#UC START# *49182BA9012A_48185C4002DC_var*
 //#UC END# *49182BA9012A_48185C4002DC_var*
 begin
@@ -212,9 +188,9 @@ begin
 end;//TnevObjectHolderPrim.DoChildAdded
 
 procedure TnevObjectHolderPrim.DoChildDeleted(aList: Tl3Variant;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: InevOp);
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: InevOp);
 //#UC START# *49182BD6003A_48185C4002DC_var*
 //#UC END# *49182BD6003A_48185C4002DC_var*
 begin
@@ -251,8 +227,8 @@ begin
 end;//TnevObjectHolderPrim.DoUpdatePreview
 
 procedure TnevObjectHolderPrim.DoPropChanged(Prop: Tk2Prop;
-  const V: TnevValues;
-  const anOpPack: InevOp);
+ const V: TnevValues;
+ const anOpPack: InevOp);
 //#UC START# *49184A180301_48185C4002DC_var*
 //#UC END# *49184A180301_48185C4002DC_var*
 begin
@@ -289,7 +265,7 @@ begin
 end;//TnevObjectHolderPrim.TagWriter
 
 function TnevObjectHolderPrim.FindObjByID(aParaID: Integer;
-  out aPara: InevObject): Boolean;
+ out aPara: InevObject): Boolean;
 //#UC START# *47C6B2B903D6_48185C4002DC_var*
 //#UC END# *47C6B2B903D6_48185C4002DC_var*
 begin
@@ -337,7 +313,7 @@ begin
 end;//TnevObjectHolderPrim.Get_FormatPool
 
 procedure TnevObjectHolderPrim.InvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4816E2B2004E_48185C4002DC_var*
 //#UC END# *4816E2B2004E_48185C4002DC_var*
 begin
@@ -359,10 +335,10 @@ begin
 end;//TnevObjectHolderPrim.Get_ViewArea
 
 procedure TnevObjectHolderPrim.ChildAdded(aList: Tl3Variant;
-  aProp: Tk2ArrayProperty;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: InevOp);
+ aProp: Tk2ArrayProperty;
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: InevOp);
 //#UC START# *491815640172_48185C4002DC_var*
 var
  l_List : InevParaList;
@@ -399,10 +375,10 @@ begin
 end;//TnevObjectHolderPrim.ChildAdded
 
 procedure TnevObjectHolderPrim.ChildDeleted(aList: Tl3Variant;
-  aProp: Tk2ArrayProperty;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: InevOp);
+ aProp: Tk2ArrayProperty;
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: InevOp);
 //#UC START# *4918157300FB_48185C4002DC_var*
 var
  l_List : InevParaList;
@@ -456,8 +432,8 @@ begin
 end;//TnevObjectHolderPrim.UpdatePreview
 
 procedure TnevObjectHolderPrim.PropChanged(Prop: Tk2Prop;
-  const V: TnevValues;
-  const anOpPack: InevOp);
+ const V: TnevValues;
+ const anOpPack: InevOp);
 //#UC START# *49184A0B0254_48185C4002DC_var*
 //#UC END# *49184A0B0254_48185C4002DC_var*
 begin
@@ -493,7 +469,7 @@ begin
 //#UC END# *49E705330213_48185C4002DCget_impl*
 end;//TnevObjectHolderPrim.pm_GetLock
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TnevObjectHolderPrim.DoStyleTableChanged;
 //#UC START# *4A485B710126_48185C4002DC_var*
 //#UC END# *4A485B710126_48185C4002DC_var*
@@ -502,9 +478,10 @@ begin
  UnformatAll;
 //#UC END# *4A485B710126_48185C4002DC_impl*
 end;//TnevObjectHolderPrim.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TnevObjectHolderPrim.SectionBreakAdded(const anObject: InevObject);
+ {* Добавился разрыв раздела }
 //#UC START# *4A70398B0307_48185C4002DC_var*
 //#UC END# *4A70398B0307_48185C4002DC_var*
 begin
@@ -520,7 +497,7 @@ begin
 end;//TnevObjectHolderPrim.SectionBreakAdded
 
 function TnevObjectHolderPrim.GetControlImg(const aControl: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo): Boolean;
+ out theImageInfo: TnevControlImageInfo): Boolean;
 //#UC START# *4E5E25700033_48185C4002DC_var*
 //#UC END# *4E5E25700033_48185C4002DC_var*
 begin
@@ -534,6 +511,7 @@ begin
 end;//TnevObjectHolderPrim.GetControlImg
 
 procedure TnevObjectHolderPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48185C4002DC_var*
 //#UC END# *479731C50290_48185C4002DC_var*
 begin

@@ -1,62 +1,46 @@
 unit nevHAFPainterView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevHAFPainterView.pas"
-// Начат: 14.09.2001 17:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevHAFPainterView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevHAFPainterView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevHAFPainterView" MUID: (481DB3AA03CD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  nevVirtualDrawView,
-  nevObjectHolder
-  ;
+ l3IntfUses
+ , nevVirtualDrawView
+ , nevTools
+ , nevObjectHolder
+ , nevBase
+;
 
 type
  TnevHAFPainterView = class(TnevVirtualDrawView)
- private
- // private fields
-   f_DocView : InevView;
-   f_Holder : TnevObjectHolder;
- protected
- // overridden protected methods
+  private
+   f_DocView: InevView;
+   f_Holder: TnevObjectHolder;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aText: InevObjectList;
-     const aCanvas: InevCanvas); reintroduce;
+    const aCanvas: InevCanvas); reintroduce;
    class function Make(const aText: InevObjectList;
-     const aCanvas: InevCanvas): InevView; reintroduce;
-     {* Сигнатура фабрики TnevHAFPainterView.Make }
+    const aCanvas: InevCanvas): InevView; reintroduce;
  end;//TnevHAFPainterView
 
 implementation
 
 uses
-  nevBaseDetachedView,
-  SysUtils
-  ;
-
-// start class TnevHAFPainterView
+ l3ImplUses
+ , nevBaseDetachedView
+ , SysUtils
+;
 
 constructor TnevHAFPainterView.Create(const aText: InevObjectList;
-  const aCanvas: InevCanvas);
+ const aCanvas: InevCanvas);
 //#UC START# *4CB5BF260122_481DB3AA03CD_var*
 //#UC END# *4CB5BF260122_481DB3AA03CD_var*
 begin
@@ -68,7 +52,7 @@ begin
 end;//TnevHAFPainterView.Create
 
 class function TnevHAFPainterView.Make(const aText: InevObjectList;
-  const aCanvas: InevCanvas): InevView;
+ const aCanvas: InevCanvas): InevView;
 var
  l_Inst : TnevHAFPainterView;
 begin
@@ -78,9 +62,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevHAFPainterView.Make
 
 procedure TnevHAFPainterView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_481DB3AA03CD_var*
 //#UC END# *479731C50290_481DB3AA03CD_var*
 begin

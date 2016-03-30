@@ -1,63 +1,42 @@
 unit vcmUserTypesCollectionItemPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmUserTypesCollectionItemPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::UserTypes::TvcmUserTypesCollectionItemPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmUserTypesCollectionItemPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserTypesCollectionItemPrim" MUID: (5006A4A6003D)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmBaseCollectionItem
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmBaseCollectionItem
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmUserTypesCollectionItemPrim = class(TvcmBaseCollectionItem)
- private
- // private fields
-   f_CanHaveToolbars : Boolean;
-    {* Поле для свойства CanHaveToolbars}
- protected
- // overridden protected methods
+  private
+   f_CanHaveToolbars: Boolean;
+    {* Поле для свойства CanHaveToolbars }
+  protected
    procedure InitFields; override;
- public
- // public properties
+  public
    property CanHaveToolbars: Boolean
-     read f_CanHaveToolbars
-     write f_CanHaveToolbars;
+    read f_CanHaveToolbars
+    write f_CanHaveToolbars;
  end;//TvcmUserTypesCollectionItemPrim
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmUserTypesCollectionItemPrim
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvcmUserTypesCollectionItemPrim.InitFields;
 //#UC START# *47A042E100E2_5006A4A6003D_var*
@@ -69,12 +48,11 @@ begin
 //#UC END# *47A042E100E2_5006A4A6003D_impl*
 end;//TvcmUserTypesCollectionItemPrim.InitFields
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmUserTypesCollectionItemPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmUserTypesCollectionItemPrim);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmUserTypesCollectionItemPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

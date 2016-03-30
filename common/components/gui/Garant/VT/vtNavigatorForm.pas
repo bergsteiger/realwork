@@ -1,66 +1,48 @@
 unit vtNavigatorForm;
+ {* Элемент списка  форм навигатора. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$WithVCM"
-// Модуль: "w:/common/components/gui/Garant/VT/vtNavigatorForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$WithVCM::vtNavigator::TvtNavigatorForm
-//
-// Элемент списка  форм навигатора.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorForm.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvtNavigatorForm" MUID: (47CD0E4E001F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoObject
+ , vcmExternalInterfaces
+;
 
-{$If not defined(NoVCM)}
 type
  TvtNavigatorForm = class(Tl3ProtoObject)
   {* Элемент списка  форм навигатора. }
- private
- // private fields
-   f_CloseHandler : IvcmFormHandler;
-    {* Поле для свойства CloseHandler}
- protected
- // property methods
+  private
+   f_CloseHandler: IvcmFormHandler;
+    {* Поле для свойства CloseHandler }
+  protected
    function pm_GetCloseHandler: IvcmFormHandler; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aCloseHandler: IvcmFormHandler); reintroduce;
-     {* Конструктор класса. }
- public
- // public properties
+    {* Конструктор класса. }
+  public
    property CloseHandler: IvcmFormHandler
-     read pm_GetCloseHandler;
-     {* Обработчик закрыть формы. }
+    read pm_GetCloseHandler;
+    {* Обработчик закрыть формы. }
  end;//TvtNavigatorForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-
-// start class TvtNavigatorForm
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 function TvtNavigatorForm.pm_GetCloseHandler: IvcmFormHandler;
 //#UC START# *47D0FB460226_47CD0E4E001Fget_var*
@@ -72,6 +54,7 @@ begin
 end;//TvtNavigatorForm.pm_GetCloseHandler
 
 constructor TvtNavigatorForm.Create(const aCloseHandler: IvcmFormHandler);
+ {* Конструктор класса. }
 //#UC START# *47CE93D9033B_47CD0E4E001F_var*
 //#UC END# *47CE93D9033B_47CD0E4E001F_var*
 begin
@@ -82,6 +65,7 @@ begin
 end;//TvtNavigatorForm.Create
 
 procedure TvtNavigatorForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47CD0E4E001F_var*
 //#UC END# *479731C50290_47CD0E4E001F_var*
 begin
@@ -92,14 +76,10 @@ begin
 end;//TvtNavigatorForm.Cleanup
 
 procedure TvtNavigatorForm.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_CloseHandler := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvtNavigatorForm.ClearFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

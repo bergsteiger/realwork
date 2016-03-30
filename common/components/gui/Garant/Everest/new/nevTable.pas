@@ -1,65 +1,46 @@
 unit nevTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTable" MUID: (52B2A333009E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevParaList,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaList
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevTable = class(TnevParaList, InevTable)
- protected
- // realized methods
+  protected
    procedure AddRow(aColCount: Integer;
-     aColumnWidth: Integer;
-     aFramed: Boolean);
-     {* Добавляет в таблицу строку с колонками одинаковой ширины aColumnWidth. 
+    aColumnWidth: Integer;
+    aFramed: Boolean);
+    {* Добавляет в таблицу строку с колонками одинаковой ширины aColumnWidth. 
          Если aFramed выставлен, то для каждой ячейки добавляются рамки. }
- protected
- // overridden protected methods
    function DoGetBackColor: TnevColor; override;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): InevTable; reintroduce;
  end;//TnevTable
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Base,
-  evdFrame_Const,
-  k2Tags,
-  k2Const
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevTable
+ l3ImplUses
+ , k2Base
+ , evdFrame_Const
+ , k2Tags
+ , k2Const
+;
 
 class function TnevTable.Make(aTag: Tl3Variant): InevTable;
 var
@@ -71,11 +52,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTable.Make
 
 procedure TnevTable.AddRow(aColCount: Integer;
-  aColumnWidth: Integer;
-  aFramed: Boolean);
+ aColumnWidth: Integer;
+ aFramed: Boolean);
+ {* Добавляет в таблицу строку с колонками одинаковой ширины aColumnWidth. 
+         Если aFramed выставлен, то для каждой ячейки добавляются рамки. }
 //#UC START# *47C7E02D0212_52B2A333009E_var*
 var
  i         : Integer;
@@ -131,7 +114,6 @@ begin
   Result := nevDefaultColor;
 //#UC END# *52B29B2E013C_52B2A333009E_impl*
 end;//TnevTable.DoGetBackColor
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

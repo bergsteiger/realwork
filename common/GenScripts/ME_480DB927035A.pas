@@ -23,6 +23,8 @@ uses
  , l3Tree_TLB
  , nevBase
  , k2Tags
+ //#UC START# *480DB927035Aintf_uses*
+ //#UC END# *480DB927035Aintf_uses*
 ;
 
 type
@@ -197,6 +199,8 @@ uses
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *480DB927035Aimpl_uses*
+ //#UC END# *480DB927035Aimpl_uses*
 ;
 
 procedure TevStyleInterface.pm_SetParentName(const aValue: AnsiString);

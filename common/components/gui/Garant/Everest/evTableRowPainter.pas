@@ -1,71 +1,52 @@
 unit evTableRowPainter;
+ {* "рисователь" строк таблиц }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableRowPainter.pas"
-// Начат: 06.06.2007 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevTableRowPainter
-//
-// "рисователь" строк таблиц
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableRowPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableRowPainter" MUID: (48C7E98600AB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  nevTools,
-  nevRealTools,
-  evParaListPainter,
-  l3Interfaces,
-  nevBase,
-  l3Variant,
-  l3InternalInterfaces
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evParaListPainter
+ , nevRealTools
+ , nevTools
+ , nevBase
+ , l3InternalInterfaces
+ , l3Interfaces
+ , l3Variant
+;
 
-{$If defined(evNeedPainters)}
 type
  TevTableRowPainter = class(TevParaListPainter, IevTableRowPainter)
   {* "рисователь" строк таблиц }
- private
- // private fields
-   f_DrawView : Pointer;
- private
- // private methods
+  private
+   f_DrawView: Pointer;
+  private
    procedure CheckHeight(var l_Height: Integer);
    function GetRowPoint(aMaxIndex: Integer;
-     out aRealPoint: InevBasePoint): InevBasePoint;
- protected
- // realized methods
+    out aRealPoint: InevBasePoint): InevBasePoint;
+  protected
    function CheckChildren(const aFI: TnevFormatInfoPrim;
-     const aCanvas: Il3Canvas): Boolean;
-     {* [$219123966] }
+    const aCanvas: Il3Canvas): Boolean;
+    {* [$219123966] }
    procedure CorrectTopDelta(var aDelta: Integer);
    function IsTopAnchorAtStart: Boolean;
    function GetTopAnchor4Row: InevBasePoint;
-     {* Возвращает указатель на строку из View.TopAnchor }
- protected
- // overridden protected methods
+    {* Возвращает указатель на строку из View.TopAnchor }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoFillSelection; override;
    procedure CheckAlignment(var aFrame: Tl3Frame); override;
    procedure GetFramePartPrim(aFrame: Tl3Variant;
     anIndex: Tl3FramePartIndex;
     var thePart: TnevFramePart); override;
    function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
    procedure InitBottom(var theBottom: InevBasePoint;
     var theCellBottom: InevBasePoint); override;
    function ChildInSelection(const aPara: InevPara): Boolean; override;
@@ -75,46 +56,36 @@ type
    function NeedsHackK235870994: Boolean; override;
    function NeedPrintingChild(const aChild: InevPara): Boolean; override;
    procedure CheckNeedLaterFilling(const aPainterHolder: InevPaintersHolder;
-     const aChildMap: InevMap); override;
+    const aChildMap: InevMap); override;
  end;//TevTableRowPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  SysUtils,
-  k2Tags,
-  l3Const,
-  l3MinMax,
-  evdTypes,
-  Table_Const,
-  TableCell_Const,
-  nevFacade,
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  {$If defined(nsTest)}
-  ,
-  PrintRowHeightsSpy
-  {$IfEnd} //nsTest
-  ,
-  Block_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  TableRow_Const
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevTableRowPainter
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , l3Const
+ , l3MinMax
+ , evdTypes
+ , Table_Const
+ , TableCell_Const
+ , nevFacade
+ , Classes
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(nsTest)}
+ , PrintRowHeightsSpy
+ {$IfEnd} // Defined(nsTest)
+ , Block_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , TableRow_Const
+;
 
 procedure TevTableRowPainter.CheckHeight(var l_Height: Integer);
 //#UC START# *4B3B2F3C01B2_48C7E98600AB_var*
@@ -249,7 +220,7 @@ begin
 end;//TevTableRowPainter.CheckHeight
 
 function TevTableRowPainter.GetRowPoint(aMaxIndex: Integer;
-  out aRealPoint: InevBasePoint): InevBasePoint;
+ out aRealPoint: InevBasePoint): InevBasePoint;
 //#UC START# *508FA94102B2_48C7E98600AB_var*
 var
  l_Para : InevPara;
@@ -290,7 +261,8 @@ begin
 end;//TevTableRowPainter.GetRowPoint
 
 function TevTableRowPainter.CheckChildren(const aFI: TnevFormatInfoPrim;
-  const aCanvas: Il3Canvas): Boolean;
+ const aCanvas: Il3Canvas): Boolean;
+ {* [$219123966] }
 //#UC START# *4C774E7D01CD_48C7E98600AB_var*
 var
  l_Check: Boolean absolute Result;
@@ -397,6 +369,7 @@ begin
 end;//TevTableRowPainter.IsTopAnchorAtStart
 
 function TevTableRowPainter.GetTopAnchor4Row: InevBasePoint;
+ {* Возвращает указатель на строку из View.TopAnchor }
 //#UC START# *50A2210D0105_48C7E98600AB_var*
 var
  l_DrawView : InevDrawView;
@@ -431,6 +404,7 @@ begin
 end;//TevTableRowPainter.GetTopAnchor4Row
 
 procedure TevTableRowPainter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48C7E98600AB_var*
 //#UC END# *479731C50290_48C7E98600AB_var*
 begin
@@ -541,8 +515,8 @@ begin
 end;//TevTableRowPainter.CheckAlignment
 
 procedure TevTableRowPainter.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_48C7E98600AB_var*
 //#UC END# *4804B9BB0383_48C7E98600AB_var*
 begin
@@ -552,6 +526,7 @@ begin
 end;//TevTableRowPainter.GetFramePartPrim
 
 function TevTableRowPainter.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_48C7E98600AB_var*
 {$IfDef Nemesis}
 {$IfOpt D+}
@@ -579,7 +554,7 @@ begin
 end;//TevTableRowPainter.DoDraw
 
 procedure TevTableRowPainter.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_48C7E98600AB_var*
 //#UC END# *4804BC800172_48C7E98600AB_var*
 begin
@@ -717,7 +692,7 @@ begin
 end;//TevTableRowPainter.NeedPrintingChild
 
 procedure TevTableRowPainter.CheckNeedLaterFilling(const aPainterHolder: InevPaintersHolder;
-  const aChildMap: InevMap);
+ const aChildMap: InevMap);
 //#UC START# *4FD97F890377_48C7E98600AB_var*
 
   function lp_CheckBlock: Boolean;
@@ -743,7 +718,6 @@ begin
     aPainterHolder.RemeberSelPart(aChildMap, False);
 //#UC END# *4FD97F890377_48C7E98600AB_impl*
 end;//TevTableRowPainter.CheckNeedLaterFilling
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

@@ -12,9 +12,9 @@ interface
 uses
  l3IntfUses
  , l3Types
+ , evdTypes
  , nevTools
  , afwNavigation
- , evdTypes
  , l3Variant
 ;
 

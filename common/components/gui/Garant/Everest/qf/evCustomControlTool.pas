@@ -1,70 +1,48 @@
 unit evCustomControlTool;
+ {* Базовый класс, содержащий ссылку на параграф. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evCustomControlTool.pas"
-// Начат: 28.09.1999 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevCustomControlTool
-//
-// Базовый класс, содержащий ссылку на параграф.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evCustomControlTool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomControlTool" MUID: (47CFDFAB0197)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3_Base,
-  nevTools,
-  evQueryCardInt
-  ;
+ l3IntfUses
+ , l3_Base
+ , evQueryCardInt
+ , nevTools
+;
 
 type
  TevCustomControlTool = class(Tl3_Base, IevCustomParaTool)
   {* Базовый класс, содержащий ссылку на параграф. }
- private
- // private fields
-   f_Para : InevPara;
-    {* Поле для свойства Para}
- protected
- // realized methods
-   function Get_Para: InevPara;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_Para: InevPara;
+    {* Поле для свойства Para }
+  protected
    procedure Set_Para(const Value: InevPara); virtual;
- public
- // public methods
+   function Get_Para: InevPara;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    constructor Create(const aPara: InevPara); reintroduce; virtual;
- public
- // public properties
+  public
    property Para: InevPara
-     read f_Para;
-     {* Параграф, связанный с объектом. }
+    read f_Para;
+    {* Параграф, связанный с объектом. }
  end;//TevCustomControlTool
 
 implementation
 
 uses
-  k2Tags,
-  l3InterfacesMisc
-  ;
-
-// start class TevCustomControlTool
+ l3ImplUses
+ , k2Tags
+ , l3InterfacesMisc
+;
 
 constructor TevCustomControlTool.Create(const aPara: InevPara);
 //#UC START# *47CFE07602FE_47CFDFAB0197_var*
@@ -96,6 +74,7 @@ begin
 end;//TevCustomControlTool.Get_Para
 
 procedure TevCustomControlTool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47CFDFAB0197_var*
 //#UC END# *479731C50290_47CFDFAB0197_var*
 begin
@@ -113,7 +92,6 @@ begin
 end;//TevCustomControlTool.Cleanup
 
 procedure TevCustomControlTool.ClearFields;
- {-}
 begin
  f_Para := nil;
  inherited;

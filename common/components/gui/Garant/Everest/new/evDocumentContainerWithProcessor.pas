@@ -1,79 +1,59 @@
 unit evDocumentContainerWithProcessor;
+ {* Контейнер документа с процессором операций. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/evDocumentContainerWithProcessor.pas"
-// Начат: 28.09.2004 17:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DocumentContainers::TevDocumentContainerWithProcessor
-//
-// Контейнер документа с процессором операций.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evDocumentContainerWithProcessor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentContainerWithProcessor" MUID: (47F3513A017F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevDocumentContainer,
-  evOpProc,
-  nevBase,
-  nevTools,
-  l3IID
-  ;
+ l3IntfUses
+ , nevDocumentContainer
+ , evOpProc
+ , nevBase
+ , nevTools
+ , l3IID
+;
 
 type
  TevDocumentContainerWithProcessor = class(TnevDocumentContainer)
   {* Контейнер документа с процессором операций. }
- private
- // private fields
-   f_Processor : TevCustomUndoProcessor;
-    {* Поле для свойства Processor}
- protected
- // property methods
+  private
+   f_Processor: TevCustomUndoProcessor;
+    {* Поле для свойства Processor }
+  protected
    function pm_GetProcessor: TevCustomUndoProcessor;
    procedure pm_SetProcessor(aValue: TevCustomUndoProcessor);
- protected
- // overridden protected methods
+   procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function StartOp(Op: Integer = 0;
-    DoLock: Boolean = true): InevOp; override;
-     {* открывает пачку операций с кодом Op. }
+    DoLock: Boolean = True): InevOp; override;
+    {* открывает пачку операций с кодом Op. }
    function DoGetProcessor: InevProcessor; override;
    function DoGetDocumentLimits: InevDocumentLimits; override;
    function DoGetDocumentInfo: InevDocumentInfo; override;
    function GetHasProcessor: Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- protected
- // protected methods
-   procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); virtual;
- public
- // public properties
+    {* Реализация запроса интерфейса }
+  public
    property Processor: TevCustomUndoProcessor
-     read pm_GetProcessor
-     write pm_SetProcessor;
-     {* Процессор операций. }
+    read pm_GetProcessor
+    write pm_SetProcessor;
+    {* Процессор операций. }
  end;//TevDocumentContainerWithProcessor
 
 implementation
 
 uses
-  l3Base,
-  evDefaultContext
-  ;
-
-// start class TevDocumentContainerWithProcessor
+ l3ImplUses
+ , l3Base
+ , evDefaultContext
+;
 
 function TevDocumentContainerWithProcessor.pm_GetProcessor: TevCustomUndoProcessor;
 //#UC START# *483D903003C8_47F3513A017Fget_var*
@@ -116,6 +96,7 @@ begin
 end;//TevDocumentContainerWithProcessor.MakeProcessor
 
 procedure TevDocumentContainerWithProcessor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F3513A017F_var*
 //#UC END# *479731C50290_47F3513A017F_var*
 begin
@@ -129,7 +110,8 @@ begin
 end;//TevDocumentContainerWithProcessor.Cleanup
 
 function TevDocumentContainerWithProcessor.StartOp(Op: Integer = 0;
-  DoLock: Boolean = true): InevOp;
+ DoLock: Boolean = True): InevOp;
+ {* открывает пачку операций с кодом Op. }
 //#UC START# *47F10A0502B8_47F3513A017F_var*
 //#UC END# *47F10A0502B8_47F3513A017F_var*
 begin
@@ -175,7 +157,8 @@ begin
 end;//TevDocumentContainerWithProcessor.GetHasProcessor
 
 function TevDocumentContainerWithProcessor.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_47F3513A017F_var*
 //#UC END# *4A60B23E00C3_47F3513A017F_var*
 begin

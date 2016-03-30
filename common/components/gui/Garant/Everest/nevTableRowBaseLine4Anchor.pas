@@ -1,88 +1,71 @@
 unit nevTableRowBaseLine4Anchor;
+ {* Базовая линия для якоря }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevTableRowBaseLine4Anchor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TnevTableRowBaseLine4Anchor
-//
-// Базовая линия для якоря
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLine4Anchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRowBaseLine4Anchor" MUID: (4DD77A73036E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevBase,
-  nevTools,
-  l3Variant,
-  nevBasePointList,
-  k2TagPointer,
-  k2Base,
-  l3Core,
-  k2Interfaces
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , nevTools
+ , l3Variant
+ , nevBase
+ , k2Interfaces
+ , nevBasePointList
+ , l3Core
+ , k2TagPointer
+ , k2Base
+;
 
-{$If defined(evUseVisibleCursors)}
 type
- {$Include ..\Everest\nevTableRowBaseLineCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
  TnevTableRowBaseLine4Anchor = class(_nevTableRowBaseLineCommon_)
   {* Базовая линия для якоря }
- private
- // private fields
-   f_FirstItem : Integer;
-    {* Начальная позиция инициализации}
-   f_LastItem : Integer;
-    {* Конечная позиция инициализации}
- private
- // private methods
+  private
+   f_FirstItem: Integer;
+    {* Начальная позиция инициализации }
+   f_LastItem: Integer;
+    {* Конечная позиция инициализации }
+  private
    function GetBottomIndex(const aView: InevView): Integer;
    function GoToNextRow(const aView: InevView;
-     const aPoint: InevBasePoint;
-     var aDiff: Integer;
-     aMoveUp: Boolean): Boolean;
-     {* Подготовка точки от объединенной ячейки к "перескоку" на следущую строку. }
+    const aPoint: InevBasePoint;
+    var aDiff: Integer;
+    aMoveUp: Boolean): Boolean;
+    {* Подготовка точки от объединенной ячейки к "перескоку" на следущую строку. }
    function GetStartPoint4RemoveDiff(const aView: InevView;
-     aHeadCell: Boolean;
-     anIndex: Integer;
-     var aMoveUp: Boolean): InevBasePoint;
+    aHeadCell: Boolean;
+    anIndex: Integer;
+    var aMoveUp: Boolean): InevBasePoint;
    function CalcDiff4CenterAlign(const aView: InevView;
-     const aPoint: InevBasePoint;
-     aMoveUp: Boolean): Integer;
-     {* Рассчитывает отступ (сверху или снизу) для ячейки с выравниванием по вертикали посердине. }
+    const aPoint: InevBasePoint;
+    aMoveUp: Boolean): Integer;
+    {* Рассчитывает отступ (сверху или снизу) для ячейки с выравниванием по вертикали посердине. }
    procedure RemoveDiff(const aView: InevView;
-     aHeadCell: Boolean;
-     const aTestPoint: InevBasePoint;
-     const aMaxPoint: InevBasePoint;
-     var aMaxFI: TnevFormatInfoPrim;
-     anIndex: Integer;
-     anHeadIndex: Integer = -1);
- protected
- // realized methods
+    aHeadCell: Boolean;
+    const aTestPoint: InevBasePoint;
+    const aMaxPoint: InevBasePoint;
+    var aMaxFI: TnevFormatInfoPrim;
+    anIndex: Integer;
+    anHeadIndex: Integer = -1);
+  protected
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; override;
    function CheckMaxID(aMaxID: Integer): InevBasePoint; override;
    function SimpleMode: Boolean; override;
    function GetInner4SimpleMode: InevBasePoint; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoFire(const anEvent: Tk2Event;
     const anOp: Ik2Op); override;
    function NeedEvents: Boolean; override;
-     {* Нужно ли подписываться на события тегов }
+    {* Нужно ли подписываться на события тегов }
    procedure DoBottom(const aView: InevView); override;
    function DoIncLine(const aView: InevView;
     var theLine: Integer;
@@ -101,49 +84,39 @@ type
     const anInnerPoint: InevBasePoint); override;
    procedure DoAddHeadInner(const aHeadInner: InevBasePoint); override;
    function IsAnchor: Boolean; override;
- public
- // public methods
+  public
    constructor Create(aRow: Tl3Variant); reintroduce;
    class function Make(aRow: Tl3Variant): InevPoint; reintroduce;
  end;//TnevTableRowBaseLine4Anchor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevAfterEndPoint
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  evConst,
-  l3MinMax,
-  nevFacade,
-  evOp,
-  Math,
-  nevBeforeStartPoint
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  k2Tags,
-  l3Base,
-  SysUtils,
-  k2NullTagImpl
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
+ l3ImplUses
+ , nevAfterEndPoint
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , evConst
+ , l3MinMax
+ , nevFacade
+ , evOp
+ , Math
+ , nevBeforeStartPoint
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdTypes
+ , k2Tags
+ , l3Base
+ , SysUtils
+;
 
 type _Instance_R_ = TnevTableRowBaseLine4Anchor;
 
-{$Include ..\Everest\nevTableRowBaseLineCommon.imp.pas}
-
-// start class TnevTableRowBaseLine4Anchor
+{$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
 
 function TnevTableRowBaseLine4Anchor.GetBottomIndex(const aView: InevView): Integer;
 //#UC START# *4DDBDE21011A_4DD77A73036E_var*
@@ -160,9 +133,10 @@ begin
 end;//TnevTableRowBaseLine4Anchor.GetBottomIndex
 
 function TnevTableRowBaseLine4Anchor.GoToNextRow(const aView: InevView;
-  const aPoint: InevBasePoint;
-  var aDiff: Integer;
-  aMoveUp: Boolean): Boolean;
+ const aPoint: InevBasePoint;
+ var aDiff: Integer;
+ aMoveUp: Boolean): Boolean;
+ {* Подготовка точки от объединенной ячейки к "перескоку" на следущую строку. }
 //#UC START# *4DDC9AE00197_4DD77A73036E_var*
 var
  l_Line: Integer;
@@ -187,9 +161,9 @@ begin
 end;//TnevTableRowBaseLine4Anchor.GoToNextRow
 
 function TnevTableRowBaseLine4Anchor.GetStartPoint4RemoveDiff(const aView: InevView;
-  aHeadCell: Boolean;
-  anIndex: Integer;
-  var aMoveUp: Boolean): InevBasePoint;
+ aHeadCell: Boolean;
+ anIndex: Integer;
+ var aMoveUp: Boolean): InevBasePoint;
 //#UC START# *4EC230A70136_4DD77A73036E_var*
 var
  l_Para     : InevPara;
@@ -223,8 +197,9 @@ begin
 end;//TnevTableRowBaseLine4Anchor.GetStartPoint4RemoveDiff
 
 function TnevTableRowBaseLine4Anchor.CalcDiff4CenterAlign(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMoveUp: Boolean): Integer;
+ const aPoint: InevBasePoint;
+ aMoveUp: Boolean): Integer;
+ {* Рассчитывает отступ (сверху или снизу) для ячейки с выравниванием по вертикали посердине. }
 //#UC START# *4EC249D403C8_4DD77A73036E_var*
 var
  l_FI      : TnevFormatInfoPrim;
@@ -247,12 +222,12 @@ begin
 end;//TnevTableRowBaseLine4Anchor.CalcDiff4CenterAlign
 
 procedure TnevTableRowBaseLine4Anchor.RemoveDiff(const aView: InevView;
-  aHeadCell: Boolean;
-  const aTestPoint: InevBasePoint;
-  const aMaxPoint: InevBasePoint;
-  var aMaxFI: TnevFormatInfoPrim;
-  anIndex: Integer;
-  anHeadIndex: Integer = -1);
+ aHeadCell: Boolean;
+ const aTestPoint: InevBasePoint;
+ const aMaxPoint: InevBasePoint;
+ var aMaxFI: TnevFormatInfoPrim;
+ anIndex: Integer;
+ anHeadIndex: Integer = -1);
 //#UC START# *4EC25B770011_4DD77A73036E_var*
 var
  l_MoveUp     : Boolean;
@@ -402,11 +377,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTableRowBaseLine4Anchor.Make
 
 function TnevTableRowBaseLine4Anchor.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4DDA86730300_4DD77A73036E_var*
 var
  l_Child      : InevPara;
@@ -510,6 +485,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.GetInner4SimpleMode
 
 procedure TnevTableRowBaseLine4Anchor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DD77A73036E_var*
 //#UC END# *479731C50290_4DD77A73036E_var*
 begin
@@ -521,7 +497,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.Cleanup
 
 procedure TnevTableRowBaseLine4Anchor.DoFire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
 //#UC START# *48CF73CE00B5_4DD77A73036E_var*
 var
  l_Point: InevBasePoint;
@@ -559,6 +535,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoFire
 
 function TnevTableRowBaseLine4Anchor.NeedEvents: Boolean;
+ {* Нужно ли подписываться на события тегов }
 //#UC START# *4A48AFBD001D_4DD77A73036E_var*
 //#UC END# *4A48AFBD001D_4DD77A73036E_var*
 begin
@@ -682,8 +659,8 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoBottom
 
 function TnevTableRowBaseLine4Anchor.DoIncLine(const aView: InevView;
-  var theLine: Integer;
-  aByLine: Boolean): Integer;
+ var theLine: Integer;
+ aByLine: Boolean): Integer;
 //#UC START# *4DD7980F03AA_4DD77A73036E_var*
 var
  l_RowFI        : TnevFormatInfoPrim;
@@ -1017,10 +994,10 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoInnerTop
 
 procedure TnevTableRowBaseLine4Anchor.DoAddInner(const aView: InevView;
-  const anInner: InevBaseLine4Anchor;
-  anIndex: Integer;
-  var aFirst: Boolean;
-  aMode: TnevAddInnerMode);
+ const anInner: InevBaseLine4Anchor;
+ anIndex: Integer;
+ var aFirst: Boolean;
+ aMode: TnevAddInnerMode);
 //#UC START# *4DD79CEC0371_4DD77A73036E_var*
 
  procedure lp_CheckAfterEnd;
@@ -1081,7 +1058,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoAddInner
 
 procedure TnevTableRowBaseLine4Anchor.DoCompareWithOtherInner(const aView: InevView;
-  anMaxID: Integer = -1);
+ anMaxID: Integer = -1);
 //#UC START# *4DD79DA50099_4DD77A73036E_var*
 var
  i             : Integer;
@@ -1166,7 +1143,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoCompareWithOtherInner
 
 procedure TnevTableRowBaseLine4Anchor.DoInitBaseLineInner(const aView: InevView;
-  const anItem: InevPara);
+ const anItem: InevPara);
 //#UC START# *4DD7A0490365_4DD77A73036E_var*
 var
  l_MS    : TevMergeStatus;
@@ -1200,7 +1177,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoInitBaseLineInner
 
 procedure TnevTableRowBaseLine4Anchor.DoInitByCursor(const aView: InevView;
-  const anInnerPoint: InevBasePoint);
+ const anInnerPoint: InevBasePoint);
 //#UC START# *4DD7A08200F7_4DD77A73036E_var*
 var
  i          : Integer;
@@ -1288,7 +1265,6 @@ begin
  Result := True;
 //#UC END# *533BC81B002F_4DD77A73036E_impl*
 end;//TnevTableRowBaseLine4Anchor.IsAnchor
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

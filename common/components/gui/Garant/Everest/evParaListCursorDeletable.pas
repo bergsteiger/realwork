@@ -1,69 +1,49 @@
 unit evParaListCursorDeletable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListCursorDeletable.pas"
-// Начат: 18.06.2009 17:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevParaListCursorDeletable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorDeletable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListCursorDeletable" MUID: (4A3A43F6003A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evParaListCursorInsertable,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorInsertable
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevParaListCursorDeletable = class(TevParaListCursorInsertable, IevOpDeletePara)
- protected
- // realized methods
+  protected
    function DoIt(const anOpPack: InevOp;
-     aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
+    aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
  end;//TevParaListCursorDeletable
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursorPrim,
-  evOp,
-  evCursorConst
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Base,
-  k2Facade,
-  k2Interfaces,
-  SysUtils,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevParaListCursorDeletable
+ l3ImplUses
+ , evParaListCursorPrim
+ , evOp
+ , evCursorConst
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Base
+ , k2Facade
+ , k2Interfaces
+ , SysUtils
+ , l3Variant
+;
 
 function TevParaListCursorDeletable.DoIt(const anOpPack: InevOp;
-  aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
+ aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
 //#UC START# *48D0C21201B1_4A3A43F6003A_var*
 var
  PID : Integer;
@@ -126,7 +106,6 @@ begin
   evIterateCursorsF(l_Parent.AsObject, l3L2IA(@_ModifyCursor2));
 //#UC END# *48D0C21201B1_4A3A43F6003A_impl*
 end;//TevParaListCursorDeletable.DoIt
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

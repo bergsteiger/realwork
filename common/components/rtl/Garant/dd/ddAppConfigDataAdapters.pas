@@ -22,9 +22,7 @@ type
  TddBaseConfigDataAdapter = class(TddAppConfigBase)
   private
    f_Alias: AnsiString;
-    {* Поле для свойства Alias }
    f_IsChanged: Boolean;
-    {* Поле для свойства IsChanged }
   protected
    procedure pm_SetAlias(const aValue: AnsiString); virtual;
    procedure pm_SetIsChanged(aValue: Boolean);
@@ -64,7 +62,6 @@ type
   private
    f_Items: Tl3ProtoPersistentRefList;
    f_DataConfig: TddAppConfigNode;
-    {* Поле для свойства DataConfig }
   protected
    procedure pm_SetDataConfig(aValue: TddAppConfigNode);
    function pm_GetValues(anIndex: Integer;

@@ -21,7 +21,6 @@ type
  TvtSpeedButtonForVGScene = class(TvtSpeedButton)
   private
    f_ActivateWindowOnClick: Boolean;
-    {* Поле для свойства ActivateWindowOnClick }
   protected
    {$If NOT Defined(NoVCL)}
    procedure MouseDown(Button: TMouseButton;

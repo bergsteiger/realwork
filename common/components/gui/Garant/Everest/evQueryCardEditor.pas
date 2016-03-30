@@ -1,77 +1,62 @@
 unit evQueryCardEditor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evQueryCardEditor.pas"
-// Начат: 30.08.2005 17:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::QueryCard::TevQueryCardEditor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardEditor.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevQueryCardEditor" MUID: (48E22669037D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Messages,
-  nevTools,
-  evQueryCardInt
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwCustomCaretType,
-  evEditor,
-  Classes,
-  evEditorWithOperations,
-  evCustomEditorWindow
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Types,
-  nevBase,
-  l3Core
-  ;
+ l3IntfUses
+ , evEditor
+ , evQueryCardInt
+ , l3Interfaces
+ , afwCustomCaretType
+ , nevTools
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , nevBase
+ , l3Core
+ , evEditorWithOperations
+ , evCustomEditorWindow
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Types
+ //#UC START# *48E22669037Dintf_uses*
+ //#UC END# *48E22669037Dintf_uses*
+;
 
 type
  TTabState = (
-   tsNone
- , tsTab
- , tsShiftTab
+  tsNone
+  , tsTab
+  , tsShiftTab
  );//TTabState
 
-//#UC START# *48E22669037Dci*
-//#UC END# *48E22669037Dci*
-//#UC START# *48E22669037Dcit*
-//#UC END# *48E22669037Dcit*
+ //#UC START# *48E22669037Dci*
+ //#UC END# *48E22669037Dci*
+ //#UC START# *48E22669037Dcit*
+ //#UC END# *48E22669037Dcit*
  TevQueryCardEditor = class(TevEditor, IevQueryCardEditor, Il3GetMessageListener)
- private
- // private fields
-   f_WasTab : Boolean;
-    {* Был переход к новому параграфу по табуляции}
-   f_QueryDocumentContainer : Pointer;
-    {* InevQueryDocumentContainer}
-   f_DroppingData : Boolean;
-   f_DisableUnselectAfterDrop : Boolean;
-   f_WasMouseButtonDown : Boolean;
-  {$If not defined(DesignTimeLibrary)}
-   f_SavedCaretShape : TafwCaretShape;
-  {$IfEnd} //not DesignTimeLibrary
-   f_TabState : TTabState;
- private
- // private methods
+  private
+   f_WasTab: Boolean;
+    {* Был переход к новому параграфу по табуляции }
+   f_QueryDocumentContainer: Pointer;
+    {* InevQueryDocumentContainer }
+   f_DroppingData: Boolean;
+   f_DisableUnselectAfterDrop: Boolean;
+   f_WasMouseButtonDown: Boolean;
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_SavedCaretShape: TafwCaretShape;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   f_TabState: TTabState;
+  private
    procedure WMKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
    procedure WMKillFocus(var Msg: TWMKillFocus); message WM_KILLFOCUS;
    procedure WMChar(var Msg: TWMChar); message WM_CHAR;
@@ -79,28 +64,36 @@ type
    procedure CMCancelMode(var Msg: TCMCancelMode); message CM_CANCELMODE;
    procedure WMLButtonDown(var Msg: TWMLButtonDown); message WM_LBUTTONDOWN;
    procedure WMRButtonDown(var Msg: TWMRButtonDown); message WM_RBUTTONDOWN;
- protected
- // realized methods
+  protected
+   function GetQueryDocumentContainer: InevQueryDocumentContainer;
+   procedure DoEditorChangeState(CanSetFocus: Boolean);
+   function SetCusrot2BoundaryPara(aStart: Boolean): Boolean;
+    {* Установить курсора на самый верхний или самый нижний параграфы }
+   procedure SendMsgChangePara(const aPara: InevPara);
+    {* Послать сообщение о смене параграфа }
+   function GotoNextControl(var aUseFieldOnly: Boolean): Boolean;
+    {* Перейти к следующему контролу }
+   function GotoPrevControl(var aUseFieldOnly: Boolean): Boolean;
+    {* Перейти к предыдущему контролу }
+   function GetLine: Integer;
    procedure SetCursorToPara(const aPara: InevPara;
     bAtEnd: Boolean;
     aNeedClear: Boolean);
-     {* Установить курсор в позицию параграфа }
+    {* Установить курсор в позицию параграфа }
    procedure NotifyEmptySpace;
-     {* Нотификация о попадании в пустое место в редакторе }
+    {* Нотификация о попадании в пустое место в редакторе }
    function GetCurrPara: Tl3Variant;
    procedure ClearCardCache;
    function DroppingData: Boolean;
    procedure SignalDisableUnselectAfterDrop;
    procedure GetMessageListenerNotify(Code: Integer;
-     aWParam: WPARAM;
-     Msg: PMsg;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    aWParam: WPARAM;
+    Msg: PMsg;
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ParaChange; override;
-     {* текущий параграф изменился. }
+    {* текущий параграф изменился. }
    procedure DoScrollEvent; override;
    procedure MakeCursor; override;
    function AllowDrawDocumentEdge: Boolean; override;
@@ -108,7 +101,7 @@ type
    function WantEnter: Boolean; override;
    function WantTab(aKeyPressed: Boolean = False): Boolean; override;
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
+    {* Какие операции публикуются компонентом. }
    function DoDoDrop(aFormat: Tl3ClipboardFormat;
     const aMedium: Tl3StoragePlace;
     var dwEffect: Integer): Boolean; override;
@@ -119,50 +112,34 @@ type
     aForce: Boolean;
     aSubCmd: Cardinal;
     aCount: Integer): Boolean; override;
-     {* process the specified command, return true if processed }
+    {* process the specified command, return true if processed }
    function SelectionClass: RevSelection; override;
-   {$If not defined(NoVCM)}
-   procedure OpSelectAll(const aParams: IvcmExecuteParamsPrim); override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure TestSelectAll(const aParams: IvcmTestParamsPrim); override;
-   {$IfEnd} //not NoVCM
+   {$If NOT Defined(NoVCM)}
+   procedure opSelectAll(const aParams: IvcmExecuteParamsPrim); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure testSelectAll(const aParams: IvcmTestParamsPrim); override;
+   {$IfEnd} // NOT Defined(NoVCM)
    function HotSpotClass: RevEditorWindowHotSpot; override;
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure DoContextPopup(MousePos: TPoint;
     var Handled: Boolean); override;
-     {* OnContextPopup event dispatcher }
-   {$IfEnd} //not NoVCL
+    {* OnContextPopup event dispatcher }
+   {$IfEnd} // NOT Defined(NoVCL)
    function SelectWhenUnfocused: Boolean; override;
    procedure DoUnselectAfterInsertData; override;
    procedure ClearUpper; override;
-     {* Очистить информацию о попадании мыши в HotSpot }
- public
- // overridden public methods
+    {* Очистить информацию о попадании мыши в HotSpot }
+  public
+   function GetControl: IevCustomEditorControl;
    constructor Create(AOwner: TComponent); override;
    function Tabulate: Boolean; override;
-     {* эквивалетно нажатию Tab. }
+    {* эквивалетно нажатию Tab. }
    function Untabulate: Boolean; override;
-     {* эквивалетно нажатию Shift-Tab. }
+    {* эквивалетно нажатию Shift-Tab. }
    function Paste: Boolean; override;
-     {* вставить из буфера обмена. }
- protected
- // protected methods
-   function GetQueryDocumentContainer: InevQueryDocumentContainer;
-   procedure DoEditorChangeState(CanSetFocus: Boolean);
-   function SetCusrot2BoundaryPara(aStart: Boolean): Boolean;
-     {* Установить курсора на самый верхний или самый нижний параграфы }
-   procedure SendMsgChangePara(const aPara: InevPara);
-     {* Послать сообщение о смене параграфа }
-   function GotoNextControl(var aUseFieldOnly: Boolean): Boolean;
-     {* Перейти к следующему контролу }
-   function GotoPrevControl(var aUseFieldOnly: Boolean): Boolean;
-     {* Перейти к предыдущему контролу }
-   function GetLine: Integer;
- public
- // public methods
-   function GetControl: IevCustomEditorControl;
-//#UC START# *48E22669037Dpubl*
+    {* вставить из буфера обмена. }
+ //#UC START# *48E22669037Dpubl*
  published
    // published properties
     property WebStyle
@@ -173,56 +150,47 @@ type
       {-}
     property OnAfterFirstPaint;
       {-}
-//#UC END# *48E22669037Dpubl*
+ //#UC END# *48E22669037Dpubl*
  end;//TevQueryCardEditor
 
 implementation
 
 uses
-  evQueryCardEditorHotSpot,
-  k2Tags,
-  evdTypes,
-  evOp,
-  SysUtils,
-  evMsgCode,
-  l3Base,
-  evQueryCardSelection
-  {$If defined(k2ForEditor)}
-  ,
-  evTextParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evControlParaConst
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  nevNavigation,
-  Windows,
-  evTypes,
-  ControlPara_Const,
-  nevGUIInterfaces,
-  ParaList_Const
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3ListenersManager
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  QueryCardProcessingPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevQueryCardEditor
+ l3ImplUses
+ , evQueryCardEditorHotSpot
+ , k2Tags
+ , evdTypes
+ , evOp
+ , SysUtils
+ , evMsgCode
+ , l3Base
+ , evQueryCardSelection
+ {$If Defined(k2ForEditor)}
+ , evTextParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evControlParaConst
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , nevNavigation
+ , Windows
+ , evTypes
+ , ControlPara_Const
+ , nevGUIInterfaces
+ , ParaList_Const
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ListenersManager
+ {$If NOT Defined(NoScripts)}
+ , QueryCardProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48E22669037Dimpl_uses*
+ //#UC END# *48E22669037Dimpl_uses*
+;
 
 procedure TevQueryCardEditor.WMKeyDown(var Msg: TWMKeyDown);
 //#UC START# *48E2270A01C3_48E22669037D_var*
@@ -366,6 +334,7 @@ begin
 end;//TevQueryCardEditor.DoEditorChangeState
 
 function TevQueryCardEditor.SetCusrot2BoundaryPara(aStart: Boolean): Boolean;
+ {* Установить курсора на самый верхний или самый нижний параграфы }
 //#UC START# *48E244650257_48E22669037D_var*
 var
  l_Para               : InevPara;
@@ -394,6 +363,7 @@ begin
 end;//TevQueryCardEditor.SetCusrot2BoundaryPara
 
 procedure TevQueryCardEditor.SendMsgChangePara(const aPara: InevPara);
+ {* Послать сообщение о смене параграфа }
 //#UC START# *48E2459800D8_48E22669037D_var*
 var
  l_QueryCardContainer: InevQueryDocumentContainer;
@@ -424,6 +394,7 @@ begin
 end;//TevQueryCardEditor.SendMsgChangePara
 
 function TevQueryCardEditor.GotoNextControl(var aUseFieldOnly: Boolean): Boolean;
+ {* Перейти к следующему контролу }
 //#UC START# *48E2460A034D_48E22669037D_var*
 var
  l_CtrlNav   : IevControlIterator;
@@ -480,6 +451,7 @@ begin
 end;//TevQueryCardEditor.GotoNextControl
 
 function TevQueryCardEditor.GotoPrevControl(var aUseFieldOnly: Boolean): Boolean;
+ {* Перейти к предыдущему контролу }
 //#UC START# *48E2461A01E7_48E22669037D_var*
 var
  l_CtrlNav   : IevControlIterator;
@@ -584,8 +556,9 @@ begin
 end;//TevQueryCardEditor.WMRButtonDown
 
 procedure TevQueryCardEditor.SetCursorToPara(const aPara: InevPara;
-  bAtEnd: Boolean;
-  aNeedClear: Boolean);
+ bAtEnd: Boolean;
+ aNeedClear: Boolean);
+ {* Установить курсор в позицию параграфа }
 //#UC START# *48D3B965002C_48E22669037D_var*
 var
  l_Point: InevPoint; 
@@ -612,6 +585,7 @@ begin
 end;//TevQueryCardEditor.SetCursorToPara
 
 procedure TevQueryCardEditor.NotifyEmptySpace;
+ {* Нотификация о попадании в пустое место в редакторе }
 //#UC START# *48D3B97F01A9_48E22669037D_var*
 //#UC END# *48D3B97F01A9_48E22669037D_var*
 begin
@@ -674,9 +648,9 @@ begin
 end;//TevQueryCardEditor.SignalDisableUnselectAfterDrop
 
 procedure TevQueryCardEditor.GetMessageListenerNotify(Code: Integer;
-  aWParam: WPARAM;
-  Msg: PMsg;
-  var theResult: Tl3HookProcResult);
+ aWParam: WPARAM;
+ Msg: PMsg;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F62032D0058_48E22669037D_var*
 //#UC END# *4F62032D0058_48E22669037D_var*
 begin
@@ -692,6 +666,7 @@ begin
 end;//TevQueryCardEditor.GetMessageListenerNotify
 
 procedure TevQueryCardEditor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48E22669037D_var*
 //#UC END# *479731C50290_48E22669037D_var*
 begin
@@ -718,6 +693,7 @@ begin
 end;//TevQueryCardEditor.Create
 
 procedure TevQueryCardEditor.ParaChange;
+ {* текущий параграф изменился. }
 //#UC START# *482BFA340236_48E22669037D_var*
 //#UC END# *482BFA340236_48E22669037D_var*
 begin
@@ -822,6 +798,7 @@ begin
 end;//TevQueryCardEditor.WantTab
 
 function TevQueryCardEditor.Tabulate: Boolean;
+ {* эквивалетно нажатию Tab. }
 //#UC START# *482BFD1802D3_48E22669037D_var*
 var
  l_UseFieldOnly : Boolean;
@@ -844,6 +821,7 @@ begin
 end;//TevQueryCardEditor.Tabulate
 
 function TevQueryCardEditor.Untabulate: Boolean;
+ {* эквивалетно нажатию Shift-Tab. }
 //#UC START# *482BFD2C0107_48E22669037D_var*
 var
  l_UseFieldOnly : Boolean;
@@ -857,6 +835,7 @@ begin
 end;//TevQueryCardEditor.Untabulate
 
 function TevQueryCardEditor.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_48E22669037D_var*
 //#UC END# *48735C4A03C3_48E22669037D_var*
 begin
@@ -866,8 +845,8 @@ begin
 end;//TevQueryCardEditor.DefineProvideOperations
 
 function TevQueryCardEditor.DoDoDrop(aFormat: Tl3ClipboardFormat;
-  const aMedium: Tl3StoragePlace;
-  var dwEffect: Integer): Boolean;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
 //#UC START# *48BFB6D800B3_48E22669037D_var*
 //#UC END# *48BFB6D800B3_48E22669037D_var*
 begin
@@ -882,6 +861,7 @@ begin
 end;//TevQueryCardEditor.DoDoDrop
 
 function TevQueryCardEditor.Paste: Boolean;
+ {* вставить из буфера обмена. }
 //#UC START# *48C7C1A2010C_48E22669037D_var*
 var
  l_ControlListener: InevControlListener;
@@ -934,9 +914,10 @@ begin
 end;//TevQueryCardEditor.GetCanScroll
 
 function TevQueryCardEditor.ProcessCommandEx(Cmd: Integer;
-  aForce: Boolean;
-  aSubCmd: Cardinal;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aSubCmd: Cardinal;
+ aCount: Integer): Boolean;
+ {* process the specified command, return true if processed }
 //#UC START# *48E227FA00E0_48E22669037D_var*
 var
  l_UseFieldOnly: Boolean;
@@ -997,19 +978,19 @@ begin
 //#UC END# *48E22866033A_48E22669037D_impl*
 end;//TevQueryCardEditor.SelectionClass
 
-{$If not defined(NoVCM)}
-procedure TevQueryCardEditor.OpSelectAll(const aParams: IvcmExecuteParamsPrim);
+{$If NOT Defined(NoVCM)}
+procedure TevQueryCardEditor.opSelectAll(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *48E228CC0396_48E22669037D_var*
 //#UC END# *48E228CC0396_48E22669037D_var*
 begin
 //#UC START# *48E228CC0396_48E22669037D_impl*
  Select(ev_stPara);
 //#UC END# *48E228CC0396_48E22669037D_impl*
-end;//TevQueryCardEditor.OpSelectAll
-{$IfEnd} //not NoVCM
+end;//TevQueryCardEditor.opSelectAll
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TevQueryCardEditor.TestSelectAll(const aParams: IvcmTestParamsPrim);
+{$If NOT Defined(NoVCM)}
+procedure TevQueryCardEditor.testSelectAll(const aParams: IvcmTestParamsPrim);
 //#UC START# *48E228DB0194_48E22669037D_var*
 var
  l_Point : InevBasePoint;
@@ -1024,8 +1005,8 @@ begin
                                    evHasText(l_Point.Obj^.AsObject);
  end;//aParams.Op.Flag[vcm_ofEnabled]
 //#UC END# *48E228DB0194_48E22669037D_impl*
-end;//TevQueryCardEditor.TestSelectAll
-{$IfEnd} //not NoVCM
+end;//TevQueryCardEditor.testSelectAll
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TevQueryCardEditor.HotSpotClass: RevEditorWindowHotSpot;
 //#UC START# *48E2297000D3_48E22669037D_var*
@@ -1039,9 +1020,10 @@ begin
 //#UC END# *48E2297000D3_48E22669037D_impl*
 end;//TevQueryCardEditor.HotSpotClass
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TevQueryCardEditor.DoContextPopup(MousePos: TPoint;
-  var Handled: Boolean);
+ var Handled: Boolean);
+ {* OnContextPopup event dispatcher }
 //#UC START# *48E22A6B00BE_48E22669037D_var*
 //#UC END# *48E22A6B00BE_48E22669037D_var*
 begin
@@ -1050,7 +1032,7 @@ begin
  inherited;
 //#UC END# *48E22A6B00BE_48E22669037D_impl*
 end;//TevQueryCardEditor.DoContextPopup
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TevQueryCardEditor.SelectWhenUnfocused: Boolean;
 //#UC START# *48E22AD302CE_48E22669037D_var*
@@ -1073,6 +1055,7 @@ begin
 end;//TevQueryCardEditor.DoUnselectAfterInsertData
 
 procedure TevQueryCardEditor.ClearUpper;
+ {* Очистить информацию о попадании мыши в HotSpot }
 //#UC START# *4A265562032B_48E22669037D_var*
 var
  l_QueryCardContainer : InevQueryDocumentContainer;
@@ -1091,9 +1074,9 @@ end;//TevQueryCardEditor.ClearUpper
 //#UC END# *48E22669037Dimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevQueryCardEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevQueryCardEditor);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevQueryCardEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

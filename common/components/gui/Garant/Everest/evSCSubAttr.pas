@@ -1,58 +1,47 @@
 unit evSCSubAttr;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSCSubAttr.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubCompare::TevSCSubAttr
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSCSubAttr.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSCSubAttr" MUID: (56559282021D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  evSubCompareInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evSubCompareInterfaces
+;
 
 type
  TevSCSubAttr = class(Tl3ProtoObject, IevSCAttrElement)
- private
- // private fields
-   f_AttrType : TevSCAttrType;
-   f_ID : Integer;
-   f_SubID : Integer;
- protected
- // realized methods
+  private
+   f_AttrType: TevSCAttrType;
+   f_ID: Integer;
+   f_SubID: Integer;
+  protected
    function Get_AttrType: TevSCAttrType;
    function Get_ID: Integer;
    function Get_SubID: Integer;
- public
- // public methods
+  public
    constructor Create(aType: TevSCAttrType;
-     aID: Integer;
-     aSubID: Integer = 0); reintroduce;
+    aID: Integer;
+    aSubID: Integer = 0); reintroduce;
    class function Make(aType: TevSCAttrType;
-     aID: Integer;
-     aSubID: Integer = 0): IevSCAttrElement; reintroduce;
-     {* Сигнатура фабрики TevSCSubAttr.Make }
+    aID: Integer;
+    aSubID: Integer = 0): IevSCAttrElement; reintroduce;
  end;//TevSCSubAttr
 
 implementation
 
-// start class TevSCSubAttr
+uses
+ l3ImplUses
+;
 
 constructor TevSCSubAttr.Create(aType: TevSCAttrType;
-  aID: Integer;
-  aSubID: Integer = 0);
+ aID: Integer;
+ aSubID: Integer = 0);
 //#UC START# *56559CFC005F_56559282021D_var*
 //#UC END# *56559CFC005F_56559282021D_var*
 begin
@@ -65,8 +54,8 @@ begin
 end;//TevSCSubAttr.Create
 
 class function TevSCSubAttr.Make(aType: TevSCAttrType;
-  aID: Integer;
-  aSubID: Integer = 0): IevSCAttrElement;
+ aID: Integer;
+ aSubID: Integer = 0): IevSCAttrElement;
 var
  l_Inst : TevSCSubAttr;
 begin
@@ -76,7 +65,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevSCSubAttr.Make
 
 function TevSCSubAttr.Get_AttrType: TevSCAttrType;
 //#UC START# *5655780E0080_56559282021Dget_var*

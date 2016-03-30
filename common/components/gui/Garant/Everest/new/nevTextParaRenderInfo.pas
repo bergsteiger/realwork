@@ -1,110 +1,84 @@
 unit nevTextParaRenderInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTextParaRenderInfo.pas"
-// Начат: 05.05.2008 14:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevTextParaRenderInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextParaRenderInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTextParaRenderInfo" MUID: (481F174D01BF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevFormatInfoList,
-  nevLeafRenderInfo,
-  l3Variant,
-  nevFormatInfo,
-  nevTools
-  ;
+ l3IntfUses
+ , nevLeafRenderInfo
+ , nevBase
+ , l3Variant
+ , nevFormatInfoList
+ , nevFormatInfo
+ , nevTools
+;
 
 type
  TnevTextParaRenderInfo = class(TnevLeafRenderInfo)
- private
- // private fields
-   f_L : InevLines;
-   f_VS : Tl3Variant;
-   f_Children : TnevFormatInfoList;
- private
- // private methods
+  private
+   f_L: InevLines;
+   f_VS: Tl3Variant;
+   f_Children: TnevFormatInfoList;
+  private
    function GetBlockHeaderIndent: Integer;
- protected
- // overridden property methods
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetViewSegmentsPlace: Tl3Variant; override;
    function pm_GetLinesPlace: InevLines; override;
    procedure pm_SetLinesPlace(const aValue: InevLines); override;
-   function Get_FirstIndent: Integer; override;
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    function GetMaxLinesCount: Integer; override;
+   function Get_FirstIndent: Integer; override;
+   function pm_GetlocSpacing: TnevRect; override;
    procedure DoRecalc(const aView: InevViewMetrics); override;
- public
- // overridden public methods
+  public
    function GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo; override;
    procedure DoInvalidateShape(const aShape: InevObject;
     aParts: TnevShapeParts); override;
-   procedure WForce(aParts: TnevRenderingInfoParts); override;
+   procedure wForce(aParts: TnevRenderingInfoParts); override;
  end;//TnevTextParaRenderInfo
 
 implementation
 
 uses
-  k2Tags,
-  evdTypes
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Base,
-  l3String,
-  SysUtils,
-  TextPara_Const,
-  LeafPara_Const,
-  nevFormatInfoFactory,
-  TextSegment_Const,
-  l3LineArray,
-  l3Types,
-  l3Interfaces,
-  TableCell_Const,
-  evTextParaConst,
-  l3Chars,
-  l3Utils,
-  nevSegmentObject,
-  l3MinMax,
-  l3SingleLineInfo
-  {$If defined(k2ForEditor)}
-  ,
-  evTextParaTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If defined(k2ForEditor)}
-  ,
-  evAACContentUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TnevTextParaRenderInfo
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Base
+ , l3String
+ , SysUtils
+ , TextPara_Const
+ , LeafPara_Const
+ , nevFormatInfoFactory
+ , TextSegment_Const
+ , l3LineArray
+ , l3Types
+ , l3Interfaces
+ , TableCell_Const
+ , evTextParaConst
+ , l3Chars
+ , l3Utils
+ , nevSegmentObject
+ , l3MinMax
+ , l3SingleLineInfo
+ {$If Defined(k2ForEditor)}
+ , evTextParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(k2ForEditor)}
+ , evAACContentUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TnevTextParaRenderInfo.GetBlockHeaderIndent: Integer;
 //#UC START# *55C1CF0C00C1_481F174D01BF_var*
@@ -116,6 +90,7 @@ begin
 end;//TnevTextParaRenderInfo.GetBlockHeaderIndent
 
 procedure TnevTextParaRenderInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_481F174D01BF_var*
 //#UC END# *479731C50290_481F174D01BF_var*
 begin
@@ -166,7 +141,7 @@ begin
 end;//TnevTextParaRenderInfo.GetInfoForChild
 
 procedure TnevTextParaRenderInfo.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *48172A690313_481F174D01BF_var*
 //#UC END# *48172A690313_481F174D01BF_var*
 begin
@@ -183,7 +158,7 @@ begin
 //#UC END# *48172A690313_481F174D01BF_impl*
 end;//TnevTextParaRenderInfo.DoInvalidateShape
 
-procedure TnevTextParaRenderInfo.WForce(aParts: TnevRenderingInfoParts);
+procedure TnevTextParaRenderInfo.wForce(aParts: TnevRenderingInfoParts);
 //#UC START# *48175C1302A3_481F174D01BF_var*
 //#UC END# *48175C1302A3_481F174D01BF_var*
 begin
@@ -192,7 +167,7 @@ begin
   FreeAndNil(f_Children);
  inherited;
 //#UC END# *48175C1302A3_481F174D01BF_impl*
-end;//TnevTextParaRenderInfo.WForce
+end;//TnevTextParaRenderInfo.wForce
 
 function TnevTextParaRenderInfo.pm_GetViewSegmentsPlace: Tl3Variant;
 //#UC START# *4821DB2500CB_481F174D01BFget_var*
@@ -341,7 +316,7 @@ begin
 //#UC END# *4E5E57E503E4_481F174D01BFget_impl*
 end;//TnevTextParaRenderInfo.Get_FirstIndent
 
-function TnevTextParaRenderInfo.pm_GetLocSpacing: TnevRect;
+function TnevTextParaRenderInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_481F174D01BFget_var*
 //#UC END# *4E5F3D1102B8_481F174D01BFget_var*
 begin
@@ -363,7 +338,7 @@ begin
     Result.Top := Result.Top + cnAACSeparatorSpace;
  end; // if (Metrics.AACLike = nev_aacLeft) and EvIsParaHyperlink(Obj) then
 //#UC END# *4E5F3D1102B8_481F174D01BFget_impl*
-end;//TnevTextParaRenderInfo.pm_GetLocSpacing
+end;//TnevTextParaRenderInfo.pm_GetlocSpacing
 
 procedure TnevTextParaRenderInfo.DoRecalc(const aView: InevViewMetrics);
 //#UC START# *4E7094780214_481F174D01BF_var*

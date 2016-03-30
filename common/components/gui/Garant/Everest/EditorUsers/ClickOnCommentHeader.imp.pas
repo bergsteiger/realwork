@@ -1,47 +1,41 @@
 {$IfNDef ClickOnCommentHeader_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/ClickOnCommentHeader.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::ClickOnCommentHeader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "ClickOnCommentHeader" MUID: (4DE7451703C8)
+// Имя типа: "_ClickOnCommentHeader_"
 
 {$Define ClickOnCommentHeader_imp}
-{$If not defined(NoScripts)}
+
+{$If NOT Defined(NoScripts)}
  _MouseClickOnPoint_Parent_ = _ClickOnCommentHeader_Parent_;
- {$Include ..\EditorUsers\MouseClickOnPoint.imp.pas}
- _ClickOnCommentHeader_ = {mixin} class(_MouseClickOnPoint_)
- private
- // private methods
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
+ _ClickOnCommentHeader_ = class(_MouseClickOnPoint_)
+  private
    function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; virtual; abstract;
- protected
- // overridden protected methods
+  protected
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
  end;//_ClickOnCommentHeader_
-{$Else}
 
- _MouseClickOnPoint_Parent_ = _ClickOnCommentHeader_Parent_;
- {$Include ..\EditorUsers\MouseClickOnPoint.imp.pas}
- _ClickOnCommentHeader_ = _MouseClickOnPoint_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_MouseClickOnPoint_Parent_ = _ClickOnCommentHeader_Parent_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
+_ClickOnCommentHeader_ = _MouseClickOnPoint_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else ClickOnCommentHeader_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef ClickOnCommentHeader_imp_impl}
 
-{$Include ..\EditorUsers\MouseClickOnPoint.imp.pas}
+{$Define ClickOnCommentHeader_imp_impl}
 
-// start class _ClickOnCommentHeader_
+{$If NOT Defined(NoScripts)}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
 
 function _ClickOnCommentHeader_.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4DE7451703C8_var*
 //#UC END# *4C3C927B027E_4DE7451703C8_var*
 begin
@@ -50,7 +44,9 @@ begin
  Result.Y := aMap.Bounds.Top + 30;
 //#UC END# *4C3C927B027E_4DE7451703C8_impl*
 end;//_ClickOnCommentHeader_.GetPoint
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf ClickOnCommentHeader_imp_impl}
 
 {$EndIf ClickOnCommentHeader_imp}
+

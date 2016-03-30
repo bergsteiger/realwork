@@ -26,13 +26,13 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function Format(anAction: TCustomAction): AnsiString;
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmFormatActionInfoHelper;
     {* Метод получения экземпляра синглетона TvcmFormatActionInfoHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmFormatActionInfoHelper
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -56,12 +56,6 @@ procedure TvcmFormatActionInfoHelperFree;
 begin
  l3Free(g_TvcmFormatActionInfoHelper);
 end;//TvcmFormatActionInfoHelperFree
-
-class function TvcmFormatActionInfoHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmFormatActionInfoHelper <> nil;
-end;//TvcmFormatActionInfoHelper.Exists
 
 {$If NOT Defined(NoVCL)}
 function TvcmFormatActionInfoHelper.Format(anAction: TCustomAction): AnsiString;
@@ -108,6 +102,12 @@ begin
  end;
  Result := g_TvcmFormatActionInfoHelper;
 end;//TvcmFormatActionInfoHelper.Instance
+
+class function TvcmFormatActionInfoHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmFormatActionInfoHelper <> nil;
+end;//TvcmFormatActionInfoHelper.Exists
 
 initialization
 {$If NOT Defined(NoVCL)}

@@ -1,48 +1,41 @@
 {$IfNDef nevPrimPoint_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevPrimPoint.imp.pas"
-// Начат: 31.03.2009 21:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevPrimPoint
-//
-// Примитивная точка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevPrimPoint" MUID: (49D24C980306)
+// Имя типа: "_nevPrimPoint_"
 
 {$Define nevPrimPoint_imp}
-{$If defined(evUseVisibleCursors)}
- {$Include ..\Everest\nevBasePoint.imp.pas}
+
+{$If Defined(evUseVisibleCursors)}
+ {$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
  _nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
- {$Include ..\Everest\nevParentPointFactoryExVOID.imp.pas}
- _nevPrimPoint_ = {mixin} class(_nevParentPointFactoryExVOID_)
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}
+ _nevPrimPoint_ = class(_nevParentPointFactoryExVOID_)
   {* Примитивная точка }
  end;//_nevPrimPoint_
-{$Else}
 
- {$Include ..\Everest\nevBasePoint.imp.pas}
- _nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
- {$Include ..\Everest\nevParentPointFactoryExVOID.imp.pas}
- _nevPrimPoint_ = _nevParentPointFactoryExVOID_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+{$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
+_nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}
+_nevPrimPoint_ = _nevParentPointFactoryExVOID_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevPrimPoint_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevPrimPoint_imp_impl}
 
+{$Define nevPrimPoint_imp_impl}
 
-{$Include ..\Everest\nevBasePoint.imp.pas}
+{$If Defined(evUseVisibleCursors)}
+{$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
 
-{$Include ..\Everest\nevParentPointFactoryExVOID.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevPrimPoint_imp_impl}
 
 {$EndIf nevPrimPoint_imp}
+

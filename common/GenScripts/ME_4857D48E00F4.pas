@@ -17,6 +17,8 @@ uses
  , k2Long_Const
  , evdTextStyle_Const
  , TableRow_Const
+ //#UC START# *4857D48E00F4_484CD009023Dintf_uses*
+ //#UC END# *4857D48E00F4_484CD009023Dintf_uses*
 ;
 
  // TableTag
@@ -25,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4857D48E00F4_484CD009023Dimpl_uses*
+ //#UC END# *4857D48E00F4_484CD009023Dimpl_uses*
 ;
 
 end.

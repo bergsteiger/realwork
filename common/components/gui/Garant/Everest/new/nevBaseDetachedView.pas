@@ -1,44 +1,41 @@
 unit nevBaseDetachedView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevBaseDetachedView.pas"
-// Начат: 22.10.2007 14:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevBaseDetachedView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBaseDetachedView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevBaseDetachedView" MUID: (48120C1C0060)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  evdStyles,
-  nevTools,
-  nevBaseView,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevBaseView
+ , nevTools
+ , evdStyles
+ , nevBase
+ , l3Variant
+;
 
 type
  _nevDocumentContainerDecorationRules_Parent_ = TnevBaseView;
  {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevBaseDetachedView = class(_nevDocumentContainerDecorationRules_, InevViewMetrics)
- private
- // private fields
-   f_Text : Pointer;
-   f_Canvas : InevCanvas;
-    {* Поле для свойства Canvas}
- protected
- // realized methods
+  private
+   f_Text: Pointer;
+   f_Canvas: InevCanvas;
+    {* Поле для свойства Canvas }
+  protected
+   f_LimitWidth: Integer;
+  protected
+   function DoGetExcludeSuper: TevNormalSegLayerHandleSet; virtual;
+   function GetNeedTotalRecalc: Boolean; virtual;
+   function GetIsWebStyle: Boolean; virtual;
+   function GetShowDocumentParts: Boolean; virtual;
+   function GetShowSpecial: Boolean; virtual;
+   function GetHiddenStyles: TevStandardStyles; virtual;
+   function GetLimitWidth: Integer; virtual;
+   function GetAllowRubberTables: TnevRubberTablesMode; virtual;
    function pm_GetLimitWidth: TnevInch;
    function pm_GetInfoCanvas: InevInfoCanvas;
    function pm_GetIsWebStyle: Boolean;
@@ -53,59 +50,38 @@ type
    function Get_Data: InevObjectPrim;
    function Get_AACLike: TnevAACLikeMode;
    function NeedTotalRecalc: Boolean;
- protected
- // overridden property methods
-   function pm_GetShape: InevObject; override;
-   function pm_GetIsObjectCollapsed(const anObject: InevObject): Boolean; override;
-   procedure pm_SetIsObjectCollapsed(const anObject: InevObject; aValue: Boolean); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
+   function pm_GetShape: InevObject; override;
    function DoGetMetrics: InevViewMetrics; override;
+   function pm_GetIsObjectCollapsed(const anObject: InevObject): Boolean; override;
+   procedure pm_SetIsObjectCollapsed(const anObject: InevObject;
+    aValue: Boolean); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_LimitWidth : Integer;
- protected
- // protected methods
-   function DoGetExcludeSuper: TevNormalSegLayerHandleSet; virtual;
-   function GetNeedTotalRecalc: Boolean; virtual;
-   function GetIsWebStyle: Boolean; virtual;
-   function GetShowDocumentParts: Boolean; virtual;
-   function GetShowSpecial: Boolean; virtual;
-   function GetHiddenStyles: TevStandardStyles; virtual;
-   function GetLimitWidth: Integer; virtual;
-   function GetAllowRubberTables: TnevRubberTablesMode; virtual;
- public
- // public methods
+  public
    constructor Create(const aText: InevObject;
-     const aCanvas: InevCanvas); reintroduce;
+    const aCanvas: InevCanvas); reintroduce;
    class function Make(const aText: InevObject;
-     const aCanvas: InevCanvas): InevView; reintroduce;
-     {* Сигнатура фабрики TnevBaseDetachedView.Make }
- protected
- // protected properties
+    const aCanvas: InevCanvas): InevView; reintroduce;
+  protected
    property Canvas: InevCanvas
-     read f_Canvas;
+    read f_Canvas;
  end;//TnevBaseDetachedView
 
 implementation
 
 uses
-  k2Tags,
-  k2Facade,
-  k2Base,
-  TextPara_Const
-  ;
+ l3ImplUses
+ , k2Tags
+ , k2Facade
+ , k2Base
+ , TextPara_Const
+;
 
 {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
-// start class TnevBaseDetachedView
-
 constructor TnevBaseDetachedView.Create(const aText: InevObject;
-  const aCanvas: InevCanvas);
+ const aCanvas: InevCanvas);
 //#UC START# *4CB5BDF6031A_48120C1C0060_var*
 //#UC END# *4CB5BDF6031A_48120C1C0060_var*
 begin
@@ -117,7 +93,7 @@ begin
 end;//TnevBaseDetachedView.Create
 
 class function TnevBaseDetachedView.Make(const aText: InevObject;
-  const aCanvas: InevCanvas): InevView;
+ const aCanvas: InevCanvas): InevView;
 var
  l_Inst : TnevBaseDetachedView;
 begin
@@ -127,7 +103,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevBaseDetachedView.Make
 
 function TnevBaseDetachedView.DoGetExcludeSuper: TevNormalSegLayerHandleSet;
 //#UC START# *4F66FDB60040_48120C1C0060_var*
@@ -339,6 +315,7 @@ begin
 end;//TnevBaseDetachedView.NeedTotalRecalc
 
 procedure TnevBaseDetachedView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48120C1C0060_var*
 //#UC END# *479731C50290_48120C1C0060_var*
 begin
@@ -389,7 +366,8 @@ begin
 //#UC END# *4D5A46930182_48120C1C0060get_impl*
 end;//TnevBaseDetachedView.pm_GetIsObjectCollapsed
 
-procedure TnevBaseDetachedView.pm_SetIsObjectCollapsed(const anObject: InevObject; aValue: Boolean);
+procedure TnevBaseDetachedView.pm_SetIsObjectCollapsed(const anObject: InevObject;
+ aValue: Boolean);
 //#UC START# *4D5A46930182_48120C1C0060set_var*
 //#UC END# *4D5A46930182_48120C1C0060set_var*
 begin
@@ -403,7 +381,6 @@ begin
 end;//TnevBaseDetachedView.pm_SetIsObjectCollapsed
 
 procedure TnevBaseDetachedView.ClearFields;
- {-}
 begin
  f_Canvas := nil;
  inherited;

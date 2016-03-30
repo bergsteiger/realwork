@@ -1,77 +1,55 @@
 unit nevLeafPara;
+ {* Реализация инструмента InevLeafPara }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevLeafPara.pas"
-// Начат: 04.04.2005 14:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevLeafPara
-//
-// Реализация инструмента InevLeafPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafPara" MUID: (48D0F828032E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  nevTools,
-  nevPara,
-  l3Variant,
-  k2Interfaces
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevPara
+ , nevTools
+ , l3Variant
+ , nevBase
+ , k2Interfaces
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevLeafPara = class(TnevPara, InevLeafPara)
   {* Реализация инструмента InevLeafPara }
- protected
- // overridden protected methods
-   function GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
-    aHiddenStyles: TnevStandardStyles): Boolean; override;
-   function GetAnchorID: Integer; override;
-   function GetExcludeEvents: Tk2EventIDs; override;
- protected
- // protected methods
+  protected
    function GetIsHidden(aMap: TnevFormatInfoPrim;
     aHiddenStyles: TnevStandardStyles): Boolean; virtual;
    function TagIsHidden(aTag: Tl3Variant;
     aHiddenStyles: TnevStandardStyles): Boolean;
- public
- // public methods
+   function GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
+    aHiddenStyles: TnevStandardStyles): Boolean; override;
+   function GetAnchorID: Integer; override;
+   function GetExcludeEvents: Tk2EventIDs; override;
+  public
    class function Make(aTag: Tl3Variant): InevLeafPara; reintroduce;
  end;//TnevLeafPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags,
-  evdStyles,
-  l3String,
-  evParaTools,
-  CommentPara_Const,
-  Block_Const,
-  l3MinMax,
-  TableCell_Const
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevLeafPara
+ l3ImplUses
+ , k2Tags
+ , evdStyles
+ , l3String
+ , evParaTools
+ , CommentPara_Const
+ , Block_Const
+ , l3MinMax
+ , TableCell_Const
+;
 
 class function TnevLeafPara.Make(aTag: Tl3Variant): InevLeafPara;
 var
@@ -83,10 +61,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevLeafPara.Make
 
 function TnevLeafPara.GetIsHidden(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48D0F8DF01AF_48D0F828032E_var*
 //#UC END# *48D0F8DF01AF_48D0F828032E_var*
 begin
@@ -96,7 +74,7 @@ begin
 end;//TnevLeafPara.GetIsHidden
 
 function TnevLeafPara.TagIsHidden(aTag: Tl3Variant;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48D0F8F402F3_48D0F828032E_var*
 //#UC END# *48D0F8F402F3_48D0F828032E_var*
 begin
@@ -107,7 +85,7 @@ begin
 end;//TnevLeafPara.TagIsHidden
 
 function TnevLeafPara.GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48CFB1F5024F_48D0F828032E_var*
 //#UC END# *48CFB1F5024F_48D0F828032E_var*
 begin
@@ -138,7 +116,6 @@ begin
            [k2_eidChildrenInserted, k2_eidChildrenAdded, k2_eidChildrenDeleted];
 //#UC END# *48D0F4810330_48D0F828032E_impl*
 end;//TnevLeafPara.GetExcludeEvents
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -1,39 +1,31 @@
 {$IfNDef PrintViewDecorationRules_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/PrintViewDecorationRules.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Aspects::PrintViewDecorationRules
-//
-// Правила вывода декораций на печать
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "PrintViewDecorationRules" MUID: (4F4B4B10001B)
+// Имя типа: "_PrintViewDecorationRules_"
 
 {$Define PrintViewDecorationRules_imp}
+
  _nsEditionsDecorationRules_Parent_ = _PrintViewDecorationRules_Parent_;
- {$Include ..\Everest\nsEditionsDecorationRules.imp.pas}
- _PrintViewDecorationRules_ = {mixin} class(_nsEditionsDecorationRules_)
+ {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
+ _PrintViewDecorationRules_ = class(_nsEditionsDecorationRules_)
   {* Правила вывода декораций на печать }
- protected
- // overridden protected methods
+  protected
    function GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
-     aType: TnevDecorType): Boolean; override;
-     {* Разрешает ли контейтер документа применять указанное декорирование }
+    aType: TnevDecorType): Boolean; override;
  end;//_PrintViewDecorationRules_
 
 {$Else PrintViewDecorationRules_imp}
 
-{$Include ..\Everest\nsEditionsDecorationRules.imp.pas}
+{$IfNDef PrintViewDecorationRules_imp_impl}
 
-// start class _PrintViewDecorationRules_
+{$Define PrintViewDecorationRules_imp_impl}
+
+{$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
 
 function _PrintViewDecorationRules_.GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
-  aType: TnevDecorType): Boolean;
+ aType: TnevDecorType): Boolean;
 //#UC START# *4F33E3A20056_4F4B4B10001B_var*
 //#UC END# *4F33E3A20056_4F4B4B10001B_var*
 begin
@@ -50,4 +42,7 @@ begin
 //#UC END# *4F33E3A20056_4F4B4B10001B_impl*
 end;//_PrintViewDecorationRules_.GetAllowsThisDecor
 
+{$EndIf PrintViewDecorationRules_imp_impl}
+
 {$EndIf PrintViewDecorationRules_imp}
+

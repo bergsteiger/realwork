@@ -1,48 +1,35 @@
 unit evQueryCardEditorHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evQueryCardEditorHotSpot.pas"
-// Начат: 30.09.2008 16:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::QueryCard::TevQueryCardEditorHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardEditorHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardEditorHotSpot" MUID: (48E2366202B9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evEditorWindowHotSpot,
-  nevBase
-  ;
+ l3IntfUses
+ , evEditorWindowHotSpot
+ , nevTools
+ , nevBase
+;
 
 type
  TevQueryCardEditorHotSpot = class(TevEditorWindowHotSpot)
- private
- // private fields
-   f_CursorPoint : InevBasePoint;
-    {* Позиция курсора до начала выделения}
- protected
- // overridden protected methods
+  private
+   f_CursorPoint: InevBasePoint;
+    {* Позиция курсора до начала выделения }
+  protected
    procedure DoBeforeSelection(const aView: InevControlView); override;
-     {* Запоминает точку начала выделения }
+    {* Запоминает точку начала выделения }
    function NeedSelectCursor(const aView: InevControlView;
     const aPt: TnevPoint): Boolean; override;
-     {* Проверяет корректность выделения при движении мыши и, если
+    {* Проверяет корректность выделения при движении мыши и, если
              выделение заканчивается за пределами параграфа-виджета, то
              возвращаемся к запомненной в DoBeforeSelection точке }
    function CheckCursorPos(const aView: InevView): Boolean; override;
-     {* Вызывается для проверки позиционирования курсора и/или окончания
+    {* Вызывается для проверки позиционирования курсора и/или окончания
              выделения. Срабатывает после отпускания кнопки мыши, если
              управление не было перехвачено самим виджетом }
    function DoLButtonDoubleClick(const aView: InevControlView;
@@ -56,18 +43,18 @@ type
 implementation
 
 uses
-  k2Tags,
-  evControlParaConst,
-  SysUtils,
-  evQueryCardInt,
-  evdTypes,
-  evQueryCardEditor,
-  l3Interfaces
-  ;
-
-// start class TevQueryCardEditorHotSpot
+ l3ImplUses
+ , k2Tags
+ , evControlParaConst
+ , SysUtils
+ , evQueryCardInt
+ , evdTypes
+ , evQueryCardEditor
+ , l3Interfaces
+;
 
 procedure TevQueryCardEditorHotSpot.DoBeforeSelection(const aView: InevControlView);
+ {* Запоминает точку начала выделения }
 //#UC START# *48E4A900029B_48E2366202B9_var*
 //#UC END# *48E4A900029B_48E2366202B9_var*
 begin
@@ -77,7 +64,10 @@ begin
 end;//TevQueryCardEditorHotSpot.DoBeforeSelection
 
 function TevQueryCardEditorHotSpot.NeedSelectCursor(const aView: InevControlView;
-  const aPt: TnevPoint): Boolean;
+ const aPt: TnevPoint): Boolean;
+ {* Проверяет корректность выделения при движении мыши и, если
+             выделение заканчивается за пределами параграфа-виджета, то
+             возвращаемся к запомненной в DoBeforeSelection точке }
 //#UC START# *48E4A93300A9_48E2366202B9_var*
 var
  l_Point: InevBasePoint;
@@ -96,6 +86,9 @@ begin
 end;//TevQueryCardEditorHotSpot.NeedSelectCursor
 
 function TevQueryCardEditorHotSpot.CheckCursorPos(const aView: InevView): Boolean;
+ {* Вызывается для проверки позиционирования курсора и/или окончания
+             выделения. Срабатывает после отпускания кнопки мыши, если
+             управление не было перехвачено самим виджетом }
 //#UC START# *48E4A96000D4_48E2366202B9_var*
 var
  l_CursorTag: PInevObject;
@@ -141,8 +134,8 @@ begin
 end;//TevQueryCardEditorHotSpot.CheckCursorPos
 
 function TevQueryCardEditorHotSpot.DoLButtonDoubleClick(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *48E4A976007D_48E2366202B9_var*
 //#UC END# *48E4A976007D_48E2366202B9_var*
 begin
@@ -156,8 +149,8 @@ begin
 end;//TevQueryCardEditorHotSpot.DoLButtonDoubleClick
 
 function TevQueryCardEditorHotSpot.DoLButtonDown(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const aKeys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *48E4A99D02A2_48E2366202B9_var*
 var
  l_QueryEditor: IevQueryCardEditor;

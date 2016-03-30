@@ -1,59 +1,42 @@
 unit evCustomChatMemo;
+ {* Мемо-поле для чатов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomChatMemo.pas"
-// Начат: 18.08.2009 14:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Memos::TevCustomChatMemo
-//
-// Мемо-поле для чатов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomChatMemo.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevCustomChatMemo" MUID: (4A8A6DD700CC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomMemo,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evCustomMemo
+ , l3Interfaces
+;
 
 type
  TevCustomChatMemo = class(TevCustomMemo)
   {* Мемо-поле для чатов }
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
    function WantSoftEnter: Boolean; override;
    function IsCommandPublished(Cmd: Tl3OperationCode): Boolean; override;
- public
- // overridden public methods
+  public
    function KeepParaFormattingTag(aTag: Integer): Boolean; override;
-     {* Сохранять ли элемент оформления }
+    {* Сохранять ли элемент оформления }
  end;//TevCustomChatMemo
 
 implementation
 
 uses
-  k2Tags,
-  evOp
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomChatMemo
+ l3ImplUses
+ , k2Tags
+ , evOp
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TevCustomChatMemo.InitFields;
 //#UC START# *47A042E100E2_4A8A6DD700CC_var*
@@ -68,6 +51,7 @@ begin
 end;//TevCustomChatMemo.InitFields
 
 function TevCustomChatMemo.KeepParaFormattingTag(aTag: Integer): Boolean;
+ {* Сохранять ли элемент оформления }
 //#UC START# *4A8A6D4701CC_4A8A6DD700CC_var*
 //#UC END# *4A8A6D4701CC_4A8A6DD700CC_var*
 begin
@@ -108,9 +92,9 @@ begin
 end;//TevCustomChatMemo.IsCommandPublished
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomChatMemo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomChatMemo);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomChatMemo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

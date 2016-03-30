@@ -1,118 +1,92 @@
 unit evTableCellPainter;
+ {* Реализация интерфейса IevPainter для ячеек }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCellPainter.pas"
-// Начат: 06.06.2007 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevTableCellPainter
-//
-// Реализация интерфейса IevPainter для ячеек
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCellPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCellPainter" MUID: (481D6D3F003F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  nevTools,
-  nevRealTools,
-  l3Interfaces,
-  nevBase,
-  l3InternalInterfaces,
-  l3Units,
-  l3Variant,
-  l3ProtoObject
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , nevTools
+ , nevRealTools
+ , l3Variant
+ , l3Interfaces
+ , nevBase
+ , l3InternalInterfaces
+ , l3Units
+ , l3ProtoObject
+;
 
-{$If defined(evNeedPainters)}
 type
  _X_ = InevTableCell;
- {$Include ..\Everest\evParaListPainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}
  TevTableCellPainter = class(_evParaListPainter_)
   {* Реализация интерфейса IevPainter для ячеек }
- private
- // private methods
+  private
    function GetTablePainter: IevTablePainter;
- protected
- // overridden property methods
+  protected
    function pm_GetVerticalAlignmentMargin: Integer; override;
- protected
- // overridden protected methods
    procedure DoFillSelection; override;
    procedure GetFramePartPrim(aFrame: Tl3Variant;
     anIndex: Tl3FramePartIndex;
     var thePart: TnevFramePart); override;
    function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
    procedure InitBottom(var theBottom: InevBasePoint;
     var theCellBottom: InevBasePoint); override;
    function BeforeDrawChild(const ChildPainter: IevPainter): Boolean; override;
-     {* Вызывается перед рисованием каждого дочернего параграфа. }
+    {* Вызывается перед рисованием каждого дочернего параграфа. }
    function CheckCompleate: Boolean; override;
-     {* [$114950787] }
+    {* [$114950787] }
    procedure DoDrawFramePrim(const aFrame: Tl3Frame); override;
    function UseSelRange(const aSelRange: InevRange): Boolean; override;
    function NeedsHackK235870994: Boolean; override;
    function IsTopAnchorAtStart: Boolean; override;
  end;//TevTableCellPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  k2Tags,
-  evdTypes,
-  SysUtils,
-  l3VirtualCanvas,
-  nevVirtualDrawView,
-  evParaDrawTools
-  {$If defined(evUseVisibleCursors)}
-  ,
-  nevAfterEndPoint
-  {$IfEnd} //evUseVisibleCursors
-  ,
-  l3MinMax,
-  nevFacade,
-  l3Const,
-  Graphics,
-  l3SmartCanvas,
-  l3Base,
-  l3Tree
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  TableCell_Const,
-  DocumentSub_Const,
-  Mark_Const,
-  LeafPara_Const,
-  CommentPara_Const,
-  Block_Const,
-  TextPara_Const,
-  k2Base,
-  Table_Const,
-  Windows
-  ;
-{$IfEnd} //evNeedPainters
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , SysUtils
+ , l3VirtualCanvas
+ , nevVirtualDrawView
+ , evParaDrawTools
+ {$If Defined(evUseVisibleCursors)}
+ , nevAfterEndPoint
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ , l3MinMax
+ , nevFacade
+ , l3Const
+ , Graphics
+ , l3SmartCanvas
+ , l3Base
+ , l3Tree
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , TableCell_Const
+ , DocumentSub_Const
+ , Mark_Const
+ , LeafPara_Const
+ , CommentPara_Const
+ , Block_Const
+ , TextPara_Const
+ , k2Base
+ , Table_Const
+ , Windows
+;
 
-{$If defined(evNeedPainters)}
-
-{$Include ..\Everest\evParaListPainter.imp.pas}
-
-// start class TevTableCellPainter
+{$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}
 
 function TevTableCellPainter.GetTablePainter: IevTablePainter;
 //#UC START# *52B3CE5501D4_481D6D3F003F_var*
@@ -223,8 +197,8 @@ begin
 end;//TevTableCellPainter.DoFillSelection
 
 procedure TevTableCellPainter.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_481D6D3F003F_var*
 //#UC END# *4804B9BB0383_481D6D3F003F_var*
 begin
@@ -244,6 +218,7 @@ begin
 end;//TevTableCellPainter.GetFramePartPrim
 
 function TevTableCellPainter.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_481D6D3F003F_var*
 //#UC END# *4804BC2401C2_481D6D3F003F_var*
 begin
@@ -255,7 +230,7 @@ begin
 end;//TevTableCellPainter.DoDraw
 
 procedure TevTableCellPainter.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_481D6D3F003F_var*
 //#UC END# *4804BC800172_481D6D3F003F_var*
 begin
@@ -282,6 +257,7 @@ begin
 end;//TevTableCellPainter.InitBottom
 
 function TevTableCellPainter.BeforeDrawChild(const ChildPainter: IevPainter): Boolean;
+ {* Вызывается перед рисованием каждого дочернего параграфа. }
 //#UC START# *481D6C56033A_481D6D3F003F_var*
 //#UC END# *481D6C56033A_481D6D3F003F_var*
 begin
@@ -293,6 +269,7 @@ begin
 end;//TevTableCellPainter.BeforeDrawChild
 
 function TevTableCellPainter.CheckCompleate: Boolean;
+ {* [$114950787] }
 //#UC START# *481D6CFA0047_481D6D3F003F_var*
 //#UC END# *481D6CFA0047_481D6D3F003F_var*
 begin
@@ -431,7 +408,6 @@ begin
   Result := ParentPainter.TableRowPainter.IsTopAnchorAtStart;
 //#UC END# *4D9AF3680146_481D6D3F003F_impl*
 end;//TevTableCellPainter.IsTopAnchorAtStart
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

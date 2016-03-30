@@ -30,13 +30,10 @@ type
   private
    f_ActivateProcessingLockCount: Integer;
    f_Scene: TvgCustomScene;
-    {* Поле для свойства Scene }
    f_Background: TvgBackground;
-    {* Поле для свойства Background }
    f_ParentControl: TWinControl;
-    {* Поле для свойства ParentControl }
    f_RemindersLine: Pointer;
-    {* Поле для свойства RemindersLine }
+    {* IvgRemindersLine }
   private
    procedure WMMouseActivate(var Msg: TWMMouseActivate); message WM_MOUSEACTIVATE;
    procedure WMActivate(var Msg: TWMActivate); message WM_ACTIVATE;
@@ -105,12 +102,12 @@ uses
  , vtPopupForm
  , SysUtils
  , NewRemindersInterfaces
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
  , ReminderWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCL)}

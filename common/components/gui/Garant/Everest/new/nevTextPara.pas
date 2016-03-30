@@ -1,108 +1,80 @@
 unit nevTextPara;
+ {* Реализация инструмента InevTextPara }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTextPara.pas"
-// Начат: 01.04.2005 12:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevTextPara
-//
-// Реализация инструмента InevTextPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTextPara" MUID: (48D100920185)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3CacheableBase,
-  nevBase,
-  nevTools,
-  nevLeafPara,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevLeafPara
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevTextPara = class(TnevLeafPara, InevTextPara)
   {* Реализация инструмента InevTextPara }
- protected
- // realized methods
+  protected
+   function SegmentIsHidden(aSegment: Tl3Variant;
+    aHiddenStyles: TnevStandardStyles): Boolean;
    function pm_GetFormatting(aPosition: Integer): InevDataFormatting;
- protected
- // overridden protected methods
    function GetIsEmpty: Boolean; override;
    function GetAppliesToMaxWidth: Boolean; override;
    function GetIsHidden(aMap: TnevFormatInfoPrim;
     aHiddenStyles: TnevStandardStyles): Boolean; override;
    function GetText: TnevStr; override;
- protected
- // protected methods
-   function SegmentIsHidden(aSegment: Tl3Variant;
-     aHiddenStyles: TnevStandardStyles): Boolean;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): InevTextPara; reintroduce;
  end;//TnevTextPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevFontPrim,
-  l3Types,
-  nevSegmentObject,
-  evSegLst,
-  k2Tags,
-  evdTypes,
-  evTabStops,
-  l3String,
-  k2Base
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
+ l3ImplUses
+ , l3CacheableBase
+ , l3Interfaces
+ , k2Tags
+ , evdTypes
+ , evTabStops
+ , l3String
+ , k2Base
+ , evSegLst
+ , nevFontPrim
+ , l3Types
+ , nevSegmentObject
+;
 
 type
-  TnevTextParaFormatting = class(Tl3CacheableBase, InevDataFormatting)
+ TnevTextParaFormatting = class(Tl3CacheableBase, InevDataFormatting)
   private
-  // private fields
-   f_Position : Integer;
-   f_Para : InevTextPara;
+   f_Position: Integer;
+   f_Para: InevTextPara;
   protected
-  // realized methods
    function GetFont(const aView: InevView;
     aMap: TnevFormatInfoPrim;
     Stop: PInteger = nil): InevFontPrim;
    function GetStyle(Stop: PInteger = nil): Tl3Variant;
    function Modify(const aView: InevView): InevDataFormattingModify;
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
   public
-  // public methods
    constructor Create(const aPara: InevTextPara;
-     aPosition: Integer); reintroduce;
+    aPosition: Integer); reintroduce;
    class function Make(const aPara: InevTextPara;
-     aPosition: Integer): InevDataFormatting; reintroduce;
-  end;//TnevTextParaFormatting
-
-// start class TnevTextParaFormatting
+    aPosition: Integer): InevDataFormatting; reintroduce;
+ end;//TnevTextParaFormatting
 
 constructor TnevTextParaFormatting.Create(const aPara: InevTextPara;
-  aPosition: Integer);
+ aPosition: Integer);
 //#UC START# *48D10D19009B_48D103950150_var*
 //#UC END# *48D10D19009B_48D103950150_var*
 begin
@@ -114,7 +86,7 @@ begin
 end;//TnevTextParaFormatting.Create
 
 class function TnevTextParaFormatting.Make(const aPara: InevTextPara;
-  aPosition: Integer): InevDataFormatting;
+ aPosition: Integer): InevDataFormatting;
 var
  l_Inst : TnevTextParaFormatting;
 begin
@@ -124,11 +96,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTextParaFormatting.Make
 
 function TnevTextParaFormatting.GetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger = nil): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger = nil): InevFontPrim;
 //#UC START# *47C68E0C02E2_48D103950150_var*
 var
  l_Segment : Tl3Variant;
@@ -162,6 +134,7 @@ begin
 end;//TnevTextParaFormatting.Modify
 
 procedure TnevTextParaFormatting.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D103950150_var*
 //#UC END# *479731C50290_48D103950150_var*
 begin
@@ -172,12 +145,11 @@ begin
 end;//TnevTextParaFormatting.Cleanup
 
 function TnevTextPara.SegmentIsHidden(aSegment: Tl3Variant;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
+var l_Layer: Tl3Tag;
+var l_Child: Tl3Tag;
 //#UC START# *49E59D7F009F_48D100920185_var*
 //#UC END# *49E59D7F009F_48D100920185_var*
-var
- l_Layer : Tl3Tag;
- l_Child : Tl3Tag;
 begin
 //#UC START# *49E59D7F009F_48D100920185_impl*
  Result := false;
@@ -215,7 +187,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTextPara.Make
 
 function TnevTextPara.pm_GetFormatting(aPosition: Integer): InevDataFormatting;
 //#UC START# *47C6AB76032D_48D100920185get_var*
@@ -245,7 +217,7 @@ begin
 end;//TnevTextPara.GetAppliesToMaxWidth
 
 function TnevTextPara.GetIsHidden(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48D0F8DF01AF_48D100920185_var*
 var
  l_Hidden : Boolean absolute Result;
@@ -284,7 +256,6 @@ begin
  Result := TagInst.PCharLenA[k2_tiText];
 //#UC END# *4D7255870102_48D100920185_impl*
 end;//TnevTextPara.GetText
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

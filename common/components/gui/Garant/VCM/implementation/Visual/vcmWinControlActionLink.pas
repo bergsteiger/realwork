@@ -1,77 +1,58 @@
 unit vcmWinControlActionLink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmWinControlActionLink.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmWinControlActionLink
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmWinControlActionLink.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmWinControlActionLink" MUID: (52A845E50292)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmExternalInterfaces
+ , l3PureMixIns
+;
 
-{$If not defined(NoVCM)}
  {$Define _UnknownNeedsQI}
 
 type
  _l3Unknown_Parent_ = TWinControlActionLink;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmWinControlActionLink = class(_l3Unknown_, IvcmActionLink)
- protected
- // realized methods
-   procedure ParamsChanged(const anAction: IvcmAction);
-   procedure ParamsChanging(const anAction: IvcmAction);
- protected
- // protected methods
+  protected
    procedure DoParamsChanged(const anAction: IvcmAction); virtual;
    procedure DoParamsChanging(const anAction: IvcmAction); virtual;
+   procedure ParamsChanged(const anAction: IvcmAction);
+   procedure ParamsChanging(const anAction: IvcmAction);
  end;//TvcmWinControlActionLink
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Graphics,
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  Classes,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
+ , Graphics
+;
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCL)}
+type
+ THackControl = class(TControl)
+ end;//THackControl
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-
-type
-  THackControl = class(TControl)
-  end;//THackControl
-
-// start class TvcmWinControlActionLink
 
 procedure TvcmWinControlActionLink.DoParamsChanged(const anAction: IvcmAction);
 //#UC START# *52A8469903AF_52A845E50292_var*
@@ -114,7 +95,7 @@ begin
  DoParamsChanging(anAction);
 //#UC END# *476961A40369_52A845E50292_impl*
 end;//TvcmWinControlActionLink.ParamsChanging
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$IfEnd} //not NoVCM
-
+{$IfEnd} // NOT Defined(NoVCM)
 end.

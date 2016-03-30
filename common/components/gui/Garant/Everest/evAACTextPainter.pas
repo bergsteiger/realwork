@@ -1,72 +1,50 @@
 unit evAACTextPainter;
+ {* Все "заточки" для отрисовки текста и содержания AAC. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evAACTextPainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::LeafPara Painters::TevAACTextPainter
-//
-// Все "заточки" для отрисовки текста и содержания AAC.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evAACTextPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevAACTextPainter" MUID: (55CC33ED010B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evTextParaPainter,
-  l3Variant,
-  l3Units,
-  nevBase
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evTextParaPainter
+ , l3Variant
+ , l3Units
+ , nevBase
+;
 
-{$If defined(evNeedPainters)}
 type
  TevAACTextPainter = class(TevTextParaPainter)
   {* Все "заточки" для отрисовки текста и содержания AAC. }
- protected
- // overridden protected methods
-   procedure FillUnfilled(const aRect: Tl3Rect); override;
-     {* Заливает область параграфа, которая не была залита }
-   function GetBackColor: TnevColor; override;
- protected
- // protected methods
+  protected
    procedure CheckDrawFocused;
    procedure ValidateSegFont(aSeg: Tl3Variant); virtual;
    procedure BeforeDrawLeaf;
    procedure AfterDrawLeaf;
+   procedure FillUnfilled(const aRect: Tl3Rect); override;
+    {* Заливает область параграфа, которая не была залита }
+   function GetBackColor: TnevColor; override;
  end;//TevAACTextPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evAACContentUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  Graphics,
-  k2Tags,
-  HyperLink_Const,
-  evdTextStyle_Const
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevAACTextPainter
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evAACContentUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , Graphics
+ , k2Tags
+ , HyperLink_Const
+ , evdTextStyle_Const
+;
 
 procedure TevAACTextPainter.CheckDrawFocused;
 //#UC START# *502268560274_55CC33ED010B_var*
@@ -117,6 +95,7 @@ begin
 end;//TevAACTextPainter.AfterDrawLeaf
 
 procedure TevAACTextPainter.FillUnfilled(const aRect: Tl3Rect);
+ {* Заливает область параграфа, которая не была залита }
 //#UC START# *4E2702FE01EA_55CC33ED010B_var*
 //#UC END# *4E2702FE01EA_55CC33ED010B_var*
 begin
@@ -145,7 +124,6 @@ begin
   Area.rCanvas.BackColor := cnAACLeftBackColor;
 //#UC END# *55CC33A10342_55CC33ED010B_impl*
 end;//TevAACTextPainter.GetBackColor
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

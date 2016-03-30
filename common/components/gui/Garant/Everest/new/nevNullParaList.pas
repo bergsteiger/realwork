@@ -1,47 +1,25 @@
 unit nevNullParaList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevNullParaList.pas"
-// Начат: 03.06.2005 14:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevNullParaList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevNullParaList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevNullParaList" MUID: (48CE5C2E0058)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevNullPara,
-  nevBase,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevNullPara
+ , nevTools
+ , nevBase
+ , l3Variant
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevNullParaList = class(TnevNullPara, InevObjectList, InevParaList, InevParaListModify)
- protected
- // realized methods
-   {iterator} function IteratePara(anAction: InevParaList_IteratePara_Action;
-    aLo: TnevParaIndex = nev_piFirst;
-    aHi: TnevParaIndex = nev_piLast;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateParaF(anAction: InevParaList_IteratePara_Action;
-    aLo: TnevParaIndex = nev_piFirst;
-    aHi: TnevParaIndex = nev_piLast;
-    aLoadedOnly: Boolean = false): Integer;
+  protected
    function IndexOfObj(const aPara: InevObject): TnevParaIndex;
    function pm_GetCount: TnevParaIndex;
    function pm_GetLeafShapeCount: Integer;
@@ -49,43 +27,36 @@ type
    function pm_GetAlmostLinear: Boolean;
    function GetParas(aFrom: TnevParaIndex = nev_piFirst;
     aTo: TnevParaIndex = nev_piLast): InevParas;
-     {* возвращает список параграфов. }
+    {* возвращает список параграфов. }
    function Modify: InevParaListModify;
    function pm_GetParaCount: TnevParaIndex;
    function pm_GetPara(anIndex: TnevParaIndex): InevPara;
    function InsertPara(aPID: TnevParaIndex;
-     aPara: Tl3Variant;
-     const anOp: InevOp;
-     aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
-     {* вставляет параграф в указанную позицию. }
+    aPara: Tl3Variant;
+    const anOp: InevOp;
+    aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
+    {* вставляет параграф в указанную позицию. }
    function InsertDefaultPara(aPID: TnevParaIndex;
-     const anOp: InevOp;
-     aNeedFire: Boolean = true): Boolean;
-     {* вставляет параграф с типом по-умолчанию в указанную позицию. }
- protected
- // overridden protected methods
+    const anOp: InevOp;
+    aNeedFire: Boolean = True): Boolean;
+    {* вставляет параграф с типом по-умолчанию в указанную позицию. }
    function GetOwnerPara: InevParaList; override;
    function GetIsList: Boolean; override;
    function GetToList: InevObjectList; override;
    function GetAsList: InevParaList; override;
- public
- // public methods
+  public
    class function Make: InevParaList; reintroduce;
  end;//TnevNullParaList
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Base,
-  nevFacade
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevNullParaList
+ l3ImplUses
+ , l3Base
+ , nevFacade
+;
 
 class function TnevNullParaList.Make: InevParaList;
 var
@@ -97,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevNullParaList.Make
 
 function TnevNullParaList.IndexOfObj(const aPara: InevObject): TnevParaIndex;
 //#UC START# *47C6A568017D_48CE5C2E0058_var*
@@ -145,7 +116,8 @@ begin
 end;//TnevNullParaList.pm_GetAlmostLinear
 
 function TnevNullParaList.GetParas(aFrom: TnevParaIndex = nev_piFirst;
-  aTo: TnevParaIndex = nev_piLast): InevParas;
+ aTo: TnevParaIndex = nev_piLast): InevParas;
+ {* возвращает список параграфов. }
 //#UC START# *47C6AC130151_48CE5C2E0058_var*
 //#UC END# *47C6AC130151_48CE5C2E0058_var*
 begin
@@ -183,9 +155,10 @@ begin
 end;//TnevNullParaList.pm_GetPara
 
 function TnevNullParaList.InsertPara(aPID: TnevParaIndex;
-  aPara: Tl3Variant;
-  const anOp: InevOp;
-  aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
+ aPara: Tl3Variant;
+ const anOp: InevOp;
+ aFlags: TevInsertParaFlags = [ev_ipfNeedFire]): Boolean;
+ {* вставляет параграф в указанную позицию. }
 //#UC START# *47C6ACC90087_48CE5C2E0058_var*
 //#UC END# *47C6ACC90087_48CE5C2E0058_var*
 begin
@@ -195,8 +168,9 @@ begin
 end;//TnevNullParaList.InsertPara
 
 function TnevNullParaList.InsertDefaultPara(aPID: TnevParaIndex;
-  const anOp: InevOp;
-  aNeedFire: Boolean = true): Boolean;
+ const anOp: InevOp;
+ aNeedFire: Boolean = True): Boolean;
+ {* вставляет параграф с типом по-умолчанию в указанную позицию. }
 //#UC START# *47C6ACE6026E_48CE5C2E0058_var*
 //#UC END# *47C6ACE6026E_48CE5C2E0058_var*
 begin
@@ -240,33 +214,6 @@ begin
  Result := Self;
 //#UC END# *48CE69D3015A_48CE5C2E0058_impl*
 end;//TnevNullParaList.GetAsList
-
-{iterator} function TnevNullParaList.IteratePara(anAction: InevParaList_IteratePara_Action;
-  aLo: TnevParaIndex = nev_piFirst;
-  aHi: TnevParaIndex = nev_piLast;
-  aLoadedOnly: Boolean = false): Integer;
-//#UC START# *4BB0751F00A4_48CE5C2E0058_var*
-//#UC END# *4BB0751F00A4_48CE5C2E0058_var*
-begin
-//#UC START# *4BB0751F00A4_48CE5C2E0058_impl*
- Result := nev_piNull;
-//#UC END# *4BB0751F00A4_48CE5C2E0058_impl*
-end;//TnevNullParaList.IteratePara
-
-{iterator} function TnevNullParaList.IterateParaF(anAction: InevParaList_IteratePara_Action;
-  aLo: TnevParaIndex = nev_piFirst;
-  aHi: TnevParaIndex = nev_piLast;
-  aLoadedOnly: Boolean = false): Integer;
-var
- Hack : Pointer absolute anAction;
-begin
- try
-  Result := IteratePara(anAction, aLo, aHi, aLoadedOnly);
- finally
-  l3FreeLocalStub(Hack);
- end;//try..finally
-end;
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

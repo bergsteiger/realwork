@@ -1,34 +1,25 @@
 unit evCellsOffsetsList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCellsOffsetsList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCellsOffsetsList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellsOffsetsList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsOffsetsList" MUID: (509228200297)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditorInterfaces,
-  l3ProtoDataContainer,
-  evCellsCharOffsets,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , evCellsCharOffsets
+ , evEditorInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = TevCellsCharOffsets;
@@ -36,29 +27,27 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TevCellsOffsetsList = class(_l3UncomparabeObjectRefList_)
- public
- // public methods
+  public
    procedure Try2RemeberWidths(const anIterator: IedCellsIterator);
    function FindList(const anIterator: IedCellsIterator;
-     aForTempate: Boolean): TevCellsCharOffsets;
+    aForTempate: Boolean): TevCellsCharOffsets;
  end;//TevCellsOffsetsList
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
-// start class TevCellsOffsetsList
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_509228200297_var*
 //#UC END# *47B2C42A0163_509228200297_var*
 begin
@@ -66,9 +55,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_509228200297_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_509228200297_var*
 //#UC END# *47B99D4503A2_509228200297_var*
 begin
@@ -81,8 +71,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TevCellsOffsetsList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
-
-// start class TevCellsOffsetsList
 
 procedure TevCellsOffsetsList.Try2RemeberWidths(const anIterator: IedCellsIterator);
 //#UC START# *50922CA3006F_509228200297_var*
@@ -108,7 +96,7 @@ begin
 end;//TevCellsOffsetsList.Try2RemeberWidths
 
 function TevCellsOffsetsList.FindList(const anIterator: IedCellsIterator;
-  aForTempate: Boolean): TevCellsCharOffsets;
+ aForTempate: Boolean): TevCellsCharOffsets;
 //#UC START# *509375AF03C8_509228200297_var*
 
  function lp_CheckItem(aData: PObject; anIndex: Long): Bool;

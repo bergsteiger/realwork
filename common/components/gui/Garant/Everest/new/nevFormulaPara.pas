@@ -1,45 +1,32 @@
 unit nevFormulaPara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormulaPara.pas"
-// Начат: 15.02.2011 18:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevFormulaPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormulaPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormulaPara" MUID: (4D5A9CA80141)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTextPara
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevTextPara
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevFormulaPara = class(TnevTextPara)
- protected
- // overridden protected methods
+  protected
    function TreatCollapsedAsHidden: Boolean; override;
  end;//TnevFormulaPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TnevFormulaPara
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 function TnevFormulaPara.TreatCollapsedAsHidden: Boolean;
 //#UC START# *4D596369028C_4D5A9CA80141_var*
@@ -49,7 +36,6 @@ begin
  Result := false;
 //#UC END# *4D596369028C_4D5A9CA80141_impl*
 end;//TnevFormulaPara.TreatCollapsedAsHidden
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

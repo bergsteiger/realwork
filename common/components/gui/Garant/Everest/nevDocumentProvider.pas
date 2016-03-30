@@ -1,103 +1,58 @@
 unit nevDocumentProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDocumentProvider.pas"
-// Начат: 13.10.2010 13:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TnevDocumentProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentProvider.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentProvider" MUID: (4CB57E560195)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  nevTools,
-  l3ProtoObject,
-  l3Variant,
-  nevBase,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , nevTools
+ , l3Variant
+ , afwInterfaces
+ , nevBase
+ , evdInterfaces
+;
 
 type
  TnevDocumentProvider = class(Tl3ProtoObject, InevDocumentProvider)
- private
- // private fields
-   f_Storable : InevStorable;
- protected
- // property methods
+  private
+   f_Storable: InevStorable;
+  protected
    function pm_GetCanProvideOriginalDocument: Boolean; virtual;
    function pm_GetOriginalDocument: Tl3Variant; virtual;
    function pm_GetPageSetup: IafwPageSetup; virtual;
- protected
- // realized methods
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload; 
-     {* сохраняет выделение в G. }
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    {* сохраняет выделение в G. }
    function Get_CanProvideOriginalDocument: Boolean;
    function Get_PageSetup: IafwPageSetup;
    function Get_OriginalDocument: Tl3Variant;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aStorable: InevStorable); reintroduce;
    class function Make(const aStorable: InevStorable): InevDocumentProvider; reintroduce;
-     {* Сигнатура фабрики TnevDocumentProvider.Make }
- protected
- // protected properties
+  protected
    property CanProvideOriginalDocument: Boolean
-     read pm_GetCanProvideOriginalDocument;
+    read pm_GetCanProvideOriginalDocument;
    property OriginalDocument: Tl3Variant
-     read pm_GetOriginalDocument;
+    read pm_GetOriginalDocument;
    property PageSetup: IafwPageSetup
-     read pm_GetPageSetup;
+    read pm_GetPageSetup;
  end;//TnevDocumentProvider
 
 implementation
 
 uses
-  afwFacade,
-  evPreviewForTestsTuning
-  ;
-
-// start class TnevDocumentProvider
-
-constructor TnevDocumentProvider.Create(const aStorable: InevStorable);
-//#UC START# *4CB57EB40216_4CB57E560195_var*
-//#UC END# *4CB57EB40216_4CB57E560195_var*
-begin
-//#UC START# *4CB57EB40216_4CB57E560195_impl*
- Assert(aStorable <> nil);
- inherited Create;
- f_Storable := aStorable;
-//#UC END# *4CB57EB40216_4CB57E560195_impl*
-end;//TnevDocumentProvider.Create
-
-class function TnevDocumentProvider.Make(const aStorable: InevStorable): InevDocumentProvider;
-var
- l_Inst : TnevDocumentProvider;
-begin
- l_Inst := Create(aStorable);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
+ l3ImplUses
+ , afwFacade
+ , evPreviewForTestsTuning
+;
 
 function TnevDocumentProvider.pm_GetCanProvideOriginalDocument: Boolean;
 //#UC START# *4CB589C80045_4CB57E560195get_var*
@@ -126,9 +81,33 @@ begin
 //#UC END# *4D18832500B4_4CB57E560195get_impl*
 end;//TnevDocumentProvider.pm_GetPageSetup
 
+constructor TnevDocumentProvider.Create(const aStorable: InevStorable);
+//#UC START# *4CB57EB40216_4CB57E560195_var*
+//#UC END# *4CB57EB40216_4CB57E560195_var*
+begin
+//#UC START# *4CB57EB40216_4CB57E560195_impl*
+ Assert(aStorable <> nil);
+ inherited Create;
+ f_Storable := aStorable;
+//#UC END# *4CB57EB40216_4CB57E560195_impl*
+end;//TnevDocumentProvider.Create
+
+class function TnevDocumentProvider.Make(const aStorable: InevStorable): InevDocumentProvider;
+var
+ l_Inst : TnevDocumentProvider;
+begin
+ l_Inst := Create(aStorable);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnevDocumentProvider.Make
+
 procedure TnevDocumentProvider.Store(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_4CB57E560195_var*
 //#UC END# *47C68BFD011C_4CB57E560195_var*
 begin
@@ -169,7 +148,6 @@ begin
 end;//TnevDocumentProvider.Get_OriginalDocument
 
 procedure TnevDocumentProvider.ClearFields;
- {-}
 begin
  f_Storable := nil;
  inherited;

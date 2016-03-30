@@ -1,85 +1,63 @@
 unit nevSelection;
+ {* Курсор с выделением. Для конечного использования. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevSelection.pas"
-// Начат: 09.12.1998 16:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TnevSelection
-//
-// Курсор с выделением. Для конечного использования.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevSelection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSelection" MUID: (487B5DD202DF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evTypes,
-  evBlockCursor,
-  l3Variant
-  ;
+ l3IntfUses
+ , evBlockCursor
+ , nevTools
+ , evTypes
+ , l3Variant
+;
 
 type
  TnevSelection = class(TevBlockCursor)
   {* Курсор с выделением. Для конечного использования. }
- private
- // private fields
-   f_Mouse : InevPoint;
-    {* Поле для свойства Mouse}
-   f_FoundBlock : InevRange;
-    {* Поле для свойства FoundBlock}
- protected
- // property methods
+  private
+   f_Mouse: InevPoint;
+    {* Поле для свойства Mouse }
+   f_FoundBlock: InevRange;
+    {* Поле для свойства FoundBlock }
+  protected
    function pm_GetMouse: InevPoint;
    procedure pm_SetFoundBlock(const aValue: InevRange);
- protected
- // overridden property methods
-   function pm_GetCollapsed: Boolean; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetBlock(const aDocument: InevObject): InevRange; override;
    function GetContains(const C: InevBasePoint): Boolean; override;
    procedure DoSetDocument(aValue: Tl3Tag); override;
+   function pm_GetCollapsed: Boolean; override;
    procedure AfterProcessCommand; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure DeleteFoundBlockBeforeSearch;
    procedure Select(aTarget: TevSelectTarget;
     const aCursor: InevPoint = nil;
-    Start: Boolean = true); virtual;
-     {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
- public
- // public properties
+    Start: Boolean = True); virtual;
+    {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
+  public
    property Mouse: InevPoint
-     read pm_GetMouse;
+    read pm_GetMouse;
    property FoundBlock: InevRange
-     read f_FoundBlock
-     write pm_SetFoundBlock;
+    read f_FoundBlock
+    write pm_SetFoundBlock;
  end;//TnevSelection
 
 implementation
 
 uses
-  l3InterfacesMisc,
-  evMsgCode,
-  evSelectConst
-  ;
-
-// start class TnevSelection
+ l3ImplUses
+ , l3InterfacesMisc
+ , evMsgCode
+ , evSelectConst
+;
 
 function TnevSelection.pm_GetMouse: InevPoint;
 //#UC START# *48E3A5E503CD_487B5DD202DFget_var*
@@ -126,8 +104,9 @@ begin
 end;//TnevSelection.DeleteFoundBlockBeforeSearch
 
 procedure TnevSelection.Select(aTarget: TevSelectTarget;
-  const aCursor: InevPoint = nil;
-  Start: Boolean = true);
+ const aCursor: InevPoint = nil;
+ Start: Boolean = True);
+ {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
 //#UC START# *48E3A6260063_487B5DD202DF_var*
 var
  C1       : InevBasePoint;
@@ -193,6 +172,7 @@ begin
 end;//TnevSelection.Select
 
 procedure TnevSelection.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_487B5DD202DF_var*
 //#UC END# *479731C50290_487B5DD202DF_var*
 begin
@@ -258,7 +238,6 @@ begin
 end;//TnevSelection.AfterProcessCommand
 
 procedure TnevSelection.ClearFields;
- {-}
 begin
  f_Mouse := nil;
  FoundBlock := nil;

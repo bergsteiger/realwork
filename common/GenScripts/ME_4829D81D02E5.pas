@@ -26,6 +26,8 @@ uses
  , l3InternalInterfaces
  , evDef
  , evCustomMemoTextSource
+ //#UC START# *4829D81D02E5intf_uses*
+ //#UC END# *4829D81D02E5intf_uses*
 ;
 
 const
@@ -45,11 +47,8 @@ type
    f_Buf: Tl3MemoryPool;
    f_PlainText: Boolean;
    f_NeedDefaultPopupMenu: Boolean;
-    {* Поле для свойства NeedDefaultPopupMenu }
    f_KeepAllFormatting: Boolean;
-    {* Поле для свойства KeepAllFormatting }
    f_NeedReplaceQuotes: Boolean;
-    {* Поле для свойства NeedReplaceQuotes }
   private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
@@ -156,6 +155,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829D81D02E5impl_uses*
+ //#UC END# *4829D81D02E5impl_uses*
 ;
 
 procedure TevCustomMemo.pm_SetNeedDefaultPopupMenu(aValue: Boolean);

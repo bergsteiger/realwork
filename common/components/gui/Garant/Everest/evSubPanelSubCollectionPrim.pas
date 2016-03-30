@@ -1,40 +1,27 @@
 unit evSubPanelSubCollectionPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPanelSubCollectionPrim.pas"
-// Начат: 26.02.2010 16:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubPanel::TevSubPanelSubCollectionPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPanelSubCollectionPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSubPanelSubCollectionPrim" MUID: (4B87D2A7029B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoDataContainer,
-  evSubPanelSubArray,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , evSubPanelSubArray
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = TevSubPanelSubArray;
@@ -42,35 +29,31 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TevSubPanelSubCollectionPrim = {abstract} class(_l3UncomparabeObjectRefList_)
- private
- // private fields
-   f_Owner : TWinControl;
-    {* Поле для свойства Owner}
- public
- // public methods
+  private
+   f_Owner: TWinControl;
+    {* Поле для свойства Owner }
+  public
    constructor Create(anOwner: TWinControl); reintroduce;
- public
- // public properties
+  public
    property Owner: TWinControl
-     read f_Owner;
+    read f_Owner;
  end;//TevSubPanelSubCollectionPrim
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
-// start class TevSubPanelSubCollectionPrim
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4B87D2A7029B_var*
 //#UC END# *47B2C42A0163_4B87D2A7029B_var*
 begin
@@ -78,9 +61,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4B87D2A7029B_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4B87D2A7029B_var*
 //#UC END# *47B99D4503A2_4B87D2A7029B_var*
 begin
@@ -95,8 +79,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TevSubPanelSubCollectionPrim;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
-
-// start class TevSubPanelSubCollectionPrim
 
 constructor TevSubPanelSubCollectionPrim.Create(anOwner: TWinControl);
 //#UC START# *4B87ECA700CD_4B87D2A7029B_var*

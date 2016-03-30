@@ -1,39 +1,29 @@
 unit nscSimpleEditorForDialogsContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis$Tails"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscSimpleEditorForDialogsContainer.pas"
-// Начат: 28.02.2011 17:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Nemesis$Tails::Editors::TnscSimpleEditorForDialogsContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscSimpleEditorForDialogsContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnscSimpleEditorForDialogsContainer" MUID: (4D6BAF99010E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
 uses
-  evCustomMemoContainer
-  ;
+ l3IntfUses
+ , evCustomMemoContainer
+;
 
 type
  TnscSimpleEditorForDialogsContainer = class(TevCustomMemoContainer)
- protected
- // overridden protected methods
+  protected
    function UseWikiMarkup: Boolean; override;
  end;//TnscSimpleEditorForDialogsContainer
 
 implementation
 
-// start class TnscSimpleEditorForDialogsContainer
+uses
+ l3ImplUses
+;
 
 function TnscSimpleEditorForDialogsContainer.UseWikiMarkup: Boolean;
 //#UC START# *4D6BAFE8013D_4D6BAF99010E_var*

@@ -1,38 +1,27 @@
 unit evSCSub;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSCSub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubCompare::TevSCSub
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSCSub.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSCSub" MUID: (56558EAC00D3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  evSubCompareInterfaces,
-  evSCSubAttrList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evSubCompareInterfaces
+ , evSCSubAttrList
+;
 
 type
  TevSCSub = class(Tl3ProtoObject, IevSCSub)
- private
- // private fields
-   f_AttrList : TevSCSubAttrList;
-   f_ID : Integer;
-   f_SubType : TevSCSubType;
- protected
- // realized methods
+  private
+   f_AttrList: TevSCSubAttrList;
+   f_ID: Integer;
+   f_SubType: TevSCSubType;
+  protected
    function Get_Handle: Integer;
    procedure Set_Handle(aValue: Integer);
    function Get_AttrCount: Integer;
@@ -40,25 +29,20 @@ type
    procedure Add(const aAttr: IevSCAttrElement);
    function Get_SubType: TevSCSubType;
    procedure Set_SubType(aValue: TevSCSubType);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aSubType: TevSCSubType); reintroduce;
    class function Make(aSubType: TevSCSubType): IevSCSub; reintroduce;
-     {* Сигнатура фабрики TevSCSub.Make }
  end;//TevSCSub
 
 implementation
 
 uses
-  SysUtils,
-  l3Types
-  ;
-
-// start class TevSCSub
+ l3ImplUses
+ , SysUtils
+ , l3Types
+;
 
 constructor TevSCSub.Create(aSubType: TevSCSubType);
 //#UC START# *56559EBB00B3_56558EAC00D3_var*
@@ -81,7 +65,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevSCSub.Make
 
 function TevSCSub.Get_Handle: Integer;
 //#UC START# *5655859F00A0_56558EAC00D3get_var*
@@ -147,6 +131,7 @@ begin
 end;//TevSCSub.Set_SubType
 
 procedure TevSCSub.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56558EAC00D3_var*
 //#UC END# *479731C50290_56558EAC00D3_var*
 begin

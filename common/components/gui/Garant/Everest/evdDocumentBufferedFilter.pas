@@ -1,48 +1,35 @@
 unit evdDocumentBufferedFilter;
+ {* Фильтр для фильтрации документа целиком. По умолчанию просто заглатывает документ в буфер и прокидывает его потом дальше. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evdDocumentBufferedFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdDocumentBufferedFilter
-//
-// Фильтр для фильтрации документа целиком. По умолчанию просто заглатывает документ в буфер и
-// прокидывает его потом дальше.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdDocumentBufferedFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdDocumentBufferedFilter" MUID: (56387286026A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagGen,
-  evdBufferedFilter
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , k2TagGen
+;
 
 type
  TevdDocumentBufferedFilter = class(TevdChildBufferedFilter)
   {* Фильтр для фильтрации документа целиком. По умолчанию просто заглатывает документ в буфер и прокидывает его потом дальше. }
- public
- // public methods
+  public
    constructor Create; reintroduce;
-   class function SetTo(var theGenerator: Tk2TagGenerator): Pointer; overload; 
+   class function SetTo(var theGenerator: Tk2TagGenerator): Pointer; overload;
  end;//TevdDocumentBufferedFilter
 
 implementation
 
 uses
-  l3Base,
-  Document_Const
-  ;
-
-// start class TevdDocumentBufferedFilter
+ l3ImplUses
+ , Document_Const
+ , l3Base
+;
 
 constructor TevdDocumentBufferedFilter.Create;
 //#UC START# *5638731901C2_56387286026A_var*

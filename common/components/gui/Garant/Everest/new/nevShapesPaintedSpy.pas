@@ -1,110 +1,80 @@
 unit nevShapesPaintedSpy;
+ {* Следилка за отрисованными объектами. [RequestLink:235864309] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevShapesPaintedSpy.pas"
-// Начат: 01.10.2010 15:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevShapesPaintedSpy
-//
-// Следилка за отрисованными объектами. {RequestLink:235864309}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevShapesPaintedSpy" MUID: (4CA5CC2C03CF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Filer,
-  nevTools,
-  nevShapesPainted,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Filer
+ , nevTools
+ , nevShapesPainted
+;
 
 type
- InevShapesLogger = interface(IUnknown)
+ InevShapesLogger = interface
   {* Лог отрисованных объектов }
-   ['{D33CDAF3-2F4B-422C-879E-56B02F0686F9}']
-   function OpenLog(const aView: InevView): AnsiString;
-   procedure CloseLog(const aLogName: AnsiString);
-   function LogScreen(const aView: InevView): Boolean;
+  ['{D33CDAF3-2F4B-422C-879E-56B02F0686F9}']
+  function OpenLog(const aView: InevView): AnsiString;
+  procedure CloseLog(const aLogName: AnsiString);
+  function LogScreen(const aView: InevView): Boolean;
  end;//InevShapesLogger
 
  TnevShapesPaintedSpy = class(Tl3ProtoObject)
   {* Следилка за отрисованными объектами. [RequestLink:235864309] }
- private
- // private fields
-   f_Logger : InevShapesLogger;
-   f_Filer : Tl3CustomFiler;
- protected
- // overridden protected methods
+  private
+   f_Logger: InevShapesLogger;
+   f_Filer: Tl3CustomFiler;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure LogShapes(const aView: InevView;
-     aShapes: TnevBaseTopShape);
-     {* Логирует отрисованные объекты }
+    aShapes: TnevBaseTopShape);
+    {* Логирует отрисованные объекты }
    procedure SetLogger(const aLogger: InevShapesLogger);
    procedure RemoveLogger(const aLogger: InevShapesLogger);
    class function Exists: Boolean;
    function LogScreen(const aView: InevView): Boolean;
- public
- // singleton factory method
    class function Instance: TnevShapesPaintedSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnevShapesPaintedSpy }
  end;//TnevShapesPaintedSpy
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  l3Types,
-  k2Tags,
-  l3String
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  nevBase,
-  l3MinMax
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , k2Tags
+ , l3String
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , nevBase
+ , l3MinMax
+ , l3Base
+;
 
-
-// start class TnevShapesPaintedSpy
-
-var g_TnevShapesPaintedSpy : TnevShapesPaintedSpy = nil;
+var g_TnevShapesPaintedSpy: TnevShapesPaintedSpy = nil;
+ {* Экземпляр синглетона TnevShapesPaintedSpy }
 
 procedure TnevShapesPaintedSpyFree;
+ {* Метод освобождения экземпляра синглетона TnevShapesPaintedSpy }
 begin
  l3Free(g_TnevShapesPaintedSpy);
-end;
-
-class function TnevShapesPaintedSpy.Instance: TnevShapesPaintedSpy;
-begin
- if (g_TnevShapesPaintedSpy = nil) then
- begin
-  l3System.AddExitProc(TnevShapesPaintedSpyFree);
-  g_TnevShapesPaintedSpy := Create;
- end;
- Result := g_TnevShapesPaintedSpy;
-end;
-
+end;//TnevShapesPaintedSpyFree
 
 procedure TnevShapesPaintedSpy.LogShapes(const aView: InevView;
-  aShapes: TnevBaseTopShape);
+ aShapes: TnevBaseTopShape);
+ {* Логирует отрисованные объекты }
 //#UC START# *4CA5CCF900D5_4CA5CC2C03CF_var*
 
  procedure LogShape(aShape : TnevShape);
@@ -244,7 +214,19 @@ begin
 //#UC END# *4CACAF8A0297_4CA5CC2C03CF_impl*
 end;//TnevShapesPaintedSpy.LogScreen
 
+class function TnevShapesPaintedSpy.Instance: TnevShapesPaintedSpy;
+ {* Метод получения экземпляра синглетона TnevShapesPaintedSpy }
+begin
+ if (g_TnevShapesPaintedSpy = nil) then
+ begin
+  l3System.AddExitProc(TnevShapesPaintedSpyFree);
+  g_TnevShapesPaintedSpy := Create;
+ end;
+ Result := g_TnevShapesPaintedSpy;
+end;//TnevShapesPaintedSpy.Instance
+
 procedure TnevShapesPaintedSpy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CA5CC2C03CF_var*
 //#UC END# *479731C50290_4CA5CC2C03CF_var*
 begin
@@ -255,7 +237,6 @@ begin
 end;//TnevShapesPaintedSpy.Cleanup
 
 procedure TnevShapesPaintedSpy.ClearFields;
- {-}
 begin
  f_Logger := nil;
  inherited;

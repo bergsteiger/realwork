@@ -1,142 +1,119 @@
 unit evTableCursorPair;
+ {* Выделение для таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevTableCursorPair
-//
-// Выделение для таблицы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCursorPair.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCursorPair" MUID: (5108D3850245)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evParaListCursorPair,
-  l3Variant,
-  nevBase,
-  k2Interfaces
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursorPair
+ , nevTools
+ , l3Variant
+ , nevBase
+ , k2Interfaces
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _DeletingRowCorrector_Parent_ = TevParaListCursorPair;
- {$Include ..\Everest\DeletingRowCorrector.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
  _CheckWidthInDeletingColumn_Parent_ = _DeletingRowCorrector_;
- {$Include ..\Everest\CheckWidthInDeletingColumn.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
  TevTableCursorPair = class(_CheckWidthInDeletingColumn_, IevTableRange)
   {* Выделение для таблицы. }
- private
- // private fields
-   f_StartOffset : LongInt;
-   f_FinishOffset : LongInt;
- private
- // private methods
+  private
+   f_StartOffset: LongInt;
+   f_FinishOffset: LongInt;
+  private
    function GetRowBlock(const aView: InevView;
-     aRow: Tl3Variant;
-     aStartOffset: LongInt;
-     aFinishOffset: LongInt;
-     out theBlock: InevRange): Boolean;
-     {* получить блок выделения для строки таблицы. }
- protected
- // realized methods
+    aRow: Tl3Variant;
+    aStartOffset: LongInt;
+    aFinishOffset: LongInt;
+    out theBlock: InevRange): Boolean;
+    {* получить блок выделения для строки таблицы. }
+  protected
    function GetRangeOffsets(out theStartOffset: Integer;
-     out theFinishOffset: Integer): Boolean;
-     {* возвращает горизонтальные границы диапазона выделения. }
+    out theFinishOffset: Integer): Boolean;
+    {* возвращает горизонтальные границы диапазона выделения. }
    function GetRangeBorders(out theStartRow: Integer;
-     out theFinishRow: Integer;
-     out theStartOffset: Integer;
-     out theFinishOffset: Integer): Boolean;
-     {* возвращает границы диапазона выделения. }
+    out theFinishRow: Integer;
+    out theStartOffset: Integer;
+    out theFinishOffset: Integer): Boolean;
+    {* возвращает границы диапазона выделения. }
    function Offset2Cells(aRow: Tl3Variant;
-     aStartOffset: Integer;
-     aFinishOffset: Integer;
-     out theStartCell: Integer;
-     out theFinishCell: Integer): Boolean;
-     {* получить индексы для ячеек aRow для смещений (aStartOffset, aFinishOffset). }
- protected
- // overridden protected methods
+    aStartOffset: Integer;
+    aFinishOffset: Integer;
+    out theStartCell: Integer;
+    out theFinishCell: Integer): Boolean;
+    {* получить индексы для ячеек aRow для смещений (aStartOffset, aFinishOffset). }
    function DoChangeParam(const aView: InevView;
     const aMarker: IevMarker;
     aValue: Integer;
     const anOp: InevOp): Boolean; override;
    function GetParaBlockBordersPrim(const aChildPara: InevPara;
-     aPID: LongInt;
-     out cParaStart: InevBasePoint;
-     out cParaFinish: InevBasePoint): Boolean; override;
-   procedure DoInit(const aStart: InevBasePoint;
-     const aFinish: InevBasePoint;
-     aSharp: Boolean); override;
+    aPID: LongInt;
+    out cParaStart: InevBasePoint;
+    out cParaFinish: InevBasePoint): Boolean; override;
    procedure DoStore(const aView: InevView;
-     const G: Ik2TagGenerator;
-     aFlags: TevStoreFlags); override;
-    {$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
+    const G: Ik2TagGenerator;
+    aFlags: TevStoreFlags); override;
+   {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
-     const anOpPack: InevOp = nil;
-     aMode: TevClearMode = ev_cmAll;
-     const aPara: InevPara = nil): Boolean; override;
-    {$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
-    {$If defined(k2ForEditor)}
+    const anOpPack: InevOp = nil;
+    aMode: TevClearMode = nevTools.ev_cmAll;
+    const aPara: InevPara = nil): Boolean; override;
+   {$IfEnd} // Defined(evNeedEditableCursors)
+   {$If Defined(k2ForEditor)}
    function GetStartOffset: Integer; override;
-    {$IfEnd} //k2ForEditor
+   {$IfEnd} // Defined(k2ForEditor)
+  public
+   procedure DoInit(const aStart: InevBasePoint;
+    const aFinish: InevBasePoint;
+    aSharp: Boolean); override;
  end;//TevTableCursorPair
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evOp,
-  evInternalInterfaces,
-  k2OpMisc,
-  evConst,
-  l3MinMax,
-  l3Base,
-  evdInterfaces,
-  nevFacade,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  l3LongintList,
-  SysUtils,
-  k2Base
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , evOp
+ , evInternalInterfaces
+ , k2OpMisc
+ , evConst
+ , l3MinMax
+ , l3Base
+ , evdInterfaces
+ , nevFacade
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdTypes
+ , l3LongintList
+ , SysUtils
+ , k2Base
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evUseVisibleCursors)}
+{$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
 
-{$Include ..\Everest\DeletingRowCorrector.imp.pas}
-
-{$Include ..\Everest\CheckWidthInDeletingColumn.imp.pas}
-
-// start class TevTableCursorPair
+{$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
 
 function TevTableCursorPair.GetRowBlock(const aView: InevView;
-  aRow: Tl3Variant;
-  aStartOffset: LongInt;
-  aFinishOffset: LongInt;
-  out theBlock: InevRange): Boolean;
+ aRow: Tl3Variant;
+ aStartOffset: LongInt;
+ aFinishOffset: LongInt;
+ out theBlock: InevRange): Boolean;
+ {* получить блок выделения для строки таблицы. }
 //#UC START# *5108DA2B030A_5108D3850245_var*
 var
  l_Start        : InevPoint;
@@ -179,7 +156,8 @@ begin
 end;//TevTableCursorPair.GetRowBlock
 
 function TevTableCursorPair.GetRangeOffsets(out theStartOffset: Integer;
-  out theFinishOffset: Integer): Boolean;
+ out theFinishOffset: Integer): Boolean;
+ {* возвращает горизонтальные границы диапазона выделения. }
 //#UC START# *47C7DB5401D7_5108D3850245_var*
 //#UC END# *47C7DB5401D7_5108D3850245_var*
 begin
@@ -191,9 +169,10 @@ begin
 end;//TevTableCursorPair.GetRangeOffsets
 
 function TevTableCursorPair.GetRangeBorders(out theStartRow: Integer;
-  out theFinishRow: Integer;
-  out theStartOffset: Integer;
-  out theFinishOffset: Integer): Boolean;
+ out theFinishRow: Integer;
+ out theStartOffset: Integer;
+ out theFinishOffset: Integer): Boolean;
+ {* возвращает границы диапазона выделения. }
 //#UC START# *47C7DB7403D1_5108D3850245_var*
 //#UC END# *47C7DB7403D1_5108D3850245_var*
 begin
@@ -207,10 +186,11 @@ begin
 end;//TevTableCursorPair.GetRangeBorders
 
 function TevTableCursorPair.Offset2Cells(aRow: Tl3Variant;
-  aStartOffset: Integer;
-  aFinishOffset: Integer;
-  out theStartCell: Integer;
-  out theFinishCell: Integer): Boolean;
+ aStartOffset: Integer;
+ aFinishOffset: Integer;
+ out theStartCell: Integer;
+ out theFinishCell: Integer): Boolean;
+ {* получить индексы для ячеек aRow для смещений (aStartOffset, aFinishOffset). }
 //#UC START# *47C7DBA00306_5108D3850245_var*
 var
  l_Row : InevParaList;  
@@ -229,9 +209,9 @@ begin
 end;//TevTableCursorPair.Offset2Cells
 
 function TevTableCursorPair.DoChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29465701BC_5108D3850245_var*
 var
  l_ParamTool : IevChangeParamTool;
@@ -253,9 +233,9 @@ begin
 end;//TevTableCursorPair.DoChangeParam
 
 function TevTableCursorPair.GetParaBlockBordersPrim(const aChildPara: InevPara;
-  aPID: LongInt;
-  out cParaStart: InevBasePoint;
-  out cParaFinish: InevBasePoint): Boolean;
+ aPID: LongInt;
+ out cParaStart: InevBasePoint;
+ out cParaFinish: InevBasePoint): Boolean;
 //#UC START# *5108D4820232_5108D3850245_var*
 
  procedure MakeBorder(const aTemplate : InevBasePoint;
@@ -317,8 +297,8 @@ begin
 end;//TevTableCursorPair.GetParaBlockBordersPrim
 
 procedure TevTableCursorPair.DoInit(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint;
-  aSharp: Boolean);
+ const aFinish: InevBasePoint;
+ aSharp: Boolean);
 //#UC START# *5108D53B0312_5108D3850245_var*
 var
  l_Child : InevBasePoint;
@@ -374,8 +354,8 @@ begin
 end;//TevTableCursorPair.DoInit
 
 procedure TevTableCursorPair.DoStore(const aView: InevView;
-  const G: Ik2TagGenerator;
-  aFlags: TevStoreFlags);
+ const G: Ik2TagGenerator;
+ aFlags: TevStoreFlags);
 //#UC START# *5108D5CB0048_5108D3850245_var*
 var
  CellBlock : InevRange;
@@ -420,11 +400,11 @@ begin
 //#UC END# *5108D5CB0048_5108D3850245_impl*
 end;//TevTableCursorPair.DoStore
 
-{$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedEditableCursors)}
 function TevTableCursorPair.DoDelete(const aView: InevView;
-  const anOpPack: InevOp = nil;
-  aMode: TevClearMode = ev_cmAll;
-  const aPara: InevPara = nil): Boolean;
+ const anOpPack: InevOp = nil;
+ aMode: TevClearMode = nevTools.ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_5108D3850245_var*
 var
  l_Rows4Delete  : Tl3LongintList;
@@ -552,9 +532,9 @@ begin
  end;//try..finally 
 //#UC END# *5108D66900C9_5108D3850245_impl*
 end;//TevTableCursorPair.DoDelete
-{$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedEditableCursors)
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 function TevTableCursorPair.GetStartOffset: Integer;
 //#UC START# *52D50EFA0317_5108D3850245_var*
 //#UC END# *52D50EFA0317_5108D3850245_var*
@@ -563,8 +543,7 @@ begin
  Result := f_StartOffset;
 //#UC END# *52D50EFA0317_5108D3850245_impl*
 end;//TevTableCursorPair.GetStartOffset
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
-{$IfEnd} //evUseVisibleCursors
-
+{$IfEnd} // Defined(evUseVisibleCursors)
 end.

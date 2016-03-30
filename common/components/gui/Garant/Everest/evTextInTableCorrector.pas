@@ -1,45 +1,31 @@
 unit evTextInTableCorrector;
+ {* Вычищает всякую "кривизну" из текста в таблицах: стиль "обычный", отрицательные отступы, рамки вокруг текста. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextInTableCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevTextInTableCorrector
-//
-// Вычищает всякую "кривизну" из текста в таблицах: стиль "обычный", отрицательные отступы, рамки
-// вокруг текста.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextInTableCorrector" MUID: (502B789B03CA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , k2Base
+ , l3Variant
+;
 
 type
  TevTextInTableCorrector = class(Tk2TagFilter)
   {* Вычищает всякую "кривизну" из текста в таблицах: стиль "обычный", отрицательные отступы, рамки вокруг текста. }
- private
- // private fields
-   f_WasStyle : Boolean;
- private
- // private methods
+  private
+   f_WasStyle: Boolean;
+  private
    function InCell: Boolean;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure DoStartChild(TypeID: Tk2Type); override;
    procedure DoAddAtomEx(AtomIndex: Integer;
@@ -50,14 +36,13 @@ type
 implementation
 
 uses
-  TableCell_Const,
-  TextPara_Const,
-  k2Tags,
-  evdStyles,
-  Document_Const
-  ;
-
-// start class TevTextInTableCorrector
+ l3ImplUses
+ , TableCell_Const
+ , TextPara_Const
+ , k2Tags
+ , evdStyles
+ , Document_Const
+;
 
 function TevTextInTableCorrector.InCell: Boolean;
 //#UC START# *539003570066_502B789B03CA_var*
@@ -69,6 +54,7 @@ begin
 end;//TevTextInTableCorrector.InCell
 
 procedure TevTextInTableCorrector.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_502B789B03CA_var*
 //#UC END# *479731C50290_502B789B03CA_var*
 begin
@@ -100,7 +86,7 @@ begin
 end;//TevTextInTableCorrector.DoStartChild
 
 procedure TevTextInTableCorrector.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_502B789B03CA_var*
 const cnMaxIndent = 1000;
 //#UC END# *4A2D1634025B_502B789B03CA_var*

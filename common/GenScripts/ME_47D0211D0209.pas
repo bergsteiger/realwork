@@ -14,6 +14,8 @@ uses
  , Classes
  , Messages
  , l3TreeInterfaces
+ //#UC START# *47D0211D0209intf_uses*
+ //#UC END# *47D0211D0209intf_uses*
 ;
 
 type
@@ -33,15 +35,10 @@ type
    f_IsStartResize: Boolean;
    f_Width: Integer;
    f_OnEndResize: TNotifyEvent;
-    {* Поле для свойства OnEndResize }
    f_OnNeedCloseTree: TNotifyEvent;
-    {* Поле для свойства OnNeedCloseTree }
    f_OnStartResize: TNotifyEvent;
-    {* Поле для свойства OnStartResize }
    f_OnOwnerAssigned: TCheckEvent;
-    {* Поле для свойства OnOwnerAssigned }
    f_OnChooseItem: TChooseItem;
-    {* Поле для свойства OnChooseItem }
   private
    procedure WMExitSizeMove(var Message: TMessage); message WM_EXITSIZEMOVE;
    procedure WMEnterSizeMove(var Message: TMessage); message WM_ENTERSIZEMOVE;
@@ -95,6 +92,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47D0211D0209impl_uses*
+ //#UC END# *47D0211D0209impl_uses*
 ;
 
 procedure TevDropTree.Init(anInvert: Boolean;

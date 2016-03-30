@@ -1,74 +1,61 @@
 {$IfNDef nsUnknownComponent_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Модуль: "w:/common/components/gui/Garant/VT/nsUnknownComponent.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VT$Rem::NewReminders::nsUnknownComponent
-//
-// Базовые интерфейсы и методы, которыми обладает каждый компонент проекта Немезис.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsUnknownComponent" MUID: (4F9A57620120)
+// Имя типа: "_nsUnknownComponent_"
 
 {$Define nsUnknownComponent_imp}
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
- _nsUnknownComponent_ = {mixin} class(_nsUnknownComponent_Parent_ {$If not defined(NoVCM)}, IvcmSettingsSource{$IfEnd} //not NoVCM
+
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+ _nsUnknownComponent_ = class(_nsUnknownComponent_Parent_{$If NOT Defined(NoVCM)}
+ , IvcmSettingsSource
+ {$IfEnd} // NOT Defined(NoVCM)
  )
   {* Базовые интерфейсы и методы, которыми обладает каждый компонент проекта Немезис. }
- private
- // private fields
-   f_Settings : IvcmSettings;
-    {* Поле для свойства Settings}
-   f_BaseId : AnsiString;
-    {* Поле для свойства BaseId}
- protected
- // realized methods
-   function pm_GetSettings: IafwSettings;
-   procedure pm_SetSettings(const aValue: IafwSettings);
-   function pm_GetBaseId: AnsiString;
-   procedure pm_SetBaseId(const aValue: AnsiString);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_Settings: IvcmSettings;
+    {* базовый идентификатор настройки. Используется как первая часть пути
+           для идентификаторов настроек }
+   f_BaseId: AnsiString;
+    {* интерфейс для записи/чтения настроек }
+  protected
    function CheckSettings: Boolean; virtual;
-     {* проверяет все ли есть для сохранения в настройки. }
    procedure LoadSettings; virtual;
    procedure SaveSettings; virtual;
    procedure CheckLoadSettings;
    procedure CheckSaveSettings;
- public
- // public properties
+   function pm_GetSettings: IafwSettings;
+   procedure pm_SetSettings(const aValue: IafwSettings);
+   function pm_GetBaseId: AnsiString;
+   procedure pm_SetBaseId(const aValue: AnsiString);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    property Settings: IvcmSettings
-     read pm_GetSettings
-     write pm_SetSettings;
-     {* базовый идентификатор настройки. Используется как первая часть пути
+    read pm_GetSettings
+    write pm_SetSettings;
+    {* базовый идентификатор настройки. Используется как первая часть пути
            для идентификаторов настроек }
    property BaseId: AnsiString
-     read pm_GetBaseId
-     write pm_SetBaseId;
-     {* интерфейс для записи/чтения настроек }
+    read pm_GetBaseId
+    write pm_SetBaseId;
+    {* интерфейс для записи/чтения настроек }
  end;//_nsUnknownComponent_
-{$Else}
 
- _nsUnknownComponent_ = _nsUnknownComponent_Parent_;
+{$Else NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+_nsUnknownComponent_ = _nsUnknownComponent_Parent_;
 
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 {$Else nsUnknownComponent_imp}
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$IfNDef nsUnknownComponent_imp_impl}
 
-// start class _nsUnknownComponent_
+{$Define nsUnknownComponent_imp_impl}
 
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 function _nsUnknownComponent_.CheckSettings: Boolean;
 //#UC START# *4F9A5C0C01F7_4F9A57620120_var*
 //#UC END# *4F9A5C0C01F7_4F9A57620120_var*
@@ -158,6 +145,7 @@ begin
 end;//_nsUnknownComponent_.pm_SetBaseId
 
 procedure _nsUnknownComponent_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F9A57620120_var*
 //#UC END# *479731C50290_4F9A57620120_var*
 begin
@@ -169,14 +157,14 @@ begin
 end;//_nsUnknownComponent_.Cleanup
 
 procedure _nsUnknownComponent_.ClearFields;
- {-}
 begin
- {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
  Settings := nil;
- {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+ BaseId := '';
  inherited;
 end;//_nsUnknownComponent_.ClearFields
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$EndIf nsUnknownComponent_imp_impl}
 
 {$EndIf nsUnknownComponent_imp}
+

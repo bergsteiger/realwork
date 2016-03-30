@@ -1,90 +1,78 @@
 {$IfNDef vcmGlassForm_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmGlassForm.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmGlassForm
-//
-// Форма с расширяемой неклиентской областью
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmGlassForm" MUID: (5339219B0225)
+// Имя типа: "_vcmGlassForm_"
 
 {$Define vcmGlassForm_imp}
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
- _vcmGlassForm_ = {mixin} class(_vcmGlassForm_Parent_)
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ _vcmGlassForm_ = class(_vcmGlassForm_Parent_)
   {* Форма с расширяемой неклиентской областью }
- private
- // private fields
-   f_GlassFrame : TvcmGlassFrame;
-    {* Поле для свойства GlassFrame}
-   f_GlassFramePainting : Boolean;
-    {* Поле для свойства GlassFramePainting}
-   f_NCRenderingDisabled : Boolean;
-    {* Поле для свойства NCRenderingDisabled}
-   f_Active : Boolean;
-    {* Поле для свойства Active}
- protected
- // property methods
+  private
+   f_GlassFrame: TvcmGlassFrame;
+   f_GlassFramePainting: Boolean;
+   f_NCRenderingDisabled: Boolean;
+   f_Active: Boolean;
+  protected
+   f_RefreshGlassFrame: Boolean;
+  protected
    procedure pm_SetGlassFrame(aValue: TvcmGlassFrame); virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
    procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure Loaded; override;
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure PaintWindow(DC: hDC); override;
-     {* Renders the image of a windowed control }
-   {$IfEnd} //not NoVCL
+    {* Renders the image of a windowed control }
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-    {$If not defined(NoVCL)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$If NOT Defined(NoVCL)}
    procedure AlignControls(AControl: TControl;
-     var Rect: TRect); override;
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected fields
-   f_RefreshGlassFrame : Boolean;
- public
- // public methods
+    var Rect: TRect); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure UpdateGlassFrame(aSender: TObject);
    procedure UpdateGlassFrameControls(const aRect: TRect);
    function NeedShowSystemContextMenuOnPoint(const aPoint: TPoint): Boolean; virtual;
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property GlassFramePainting: Boolean
-     read f_GlassFramePainting;
+    read f_GlassFramePainting;
    property NCRenderingDisabled: Boolean
-     read f_NCRenderingDisabled;
- public
- // public properties
+    read f_NCRenderingDisabled;
+  public
    property GlassFrame: TvcmGlassFrame
-     read f_GlassFrame
-     write pm_SetGlassFrame;
+    read f_GlassFrame
+    write pm_SetGlassFrame;
    property Active: Boolean
-     read f_Active;
+    read f_Active;
  end;//_vcmGlassForm_
-{$Else}
 
- _vcmGlassForm_ = _vcmGlassForm_Parent_;
+{$Else NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+_vcmGlassForm_ = _vcmGlassForm_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 {$Else vcmGlassForm_imp}
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$IfNDef vcmGlassForm_imp_impl}
 
-// start class _vcmGlassForm_
+{$Define vcmGlassForm_imp_impl}
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+procedure _vcmGlassForm_.pm_SetGlassFrame(aValue: TvcmGlassFrame);
+//#UC START# *533926AB0375_5339219B0225set_var*
+//#UC END# *533926AB0375_5339219B0225set_var*
+begin
+//#UC START# *533926AB0375_5339219B0225set_impl*
+ f_GlassFrame.Assign(aValue);
+//#UC END# *533926AB0375_5339219B0225set_impl*
+end;//_vcmGlassForm_.pm_SetGlassFrame
 
 procedure _vcmGlassForm_.UpdateGlassFrame(aSender: TObject);
 //#UC START# *53392725015D_5339219B0225_var*
@@ -109,7 +97,7 @@ var
  l_Margins: TElementMargins;
  l_Result: HRESULT;
  l_RenderingPolicy: Integer;
- //#UC END# *53392725015D_5339219B0225_var*
+//#UC END# *53392725015D_5339219B0225_var*
 begin
 //#UC START# *53392725015D_5339219B0225_impl*
  if DwmCompositionEnabled and HandleAllocated and (not f_NCRenderingDisabled) then
@@ -198,16 +186,8 @@ begin
 //#UC END# *53EAF3250169_5339219B0225_impl*
 end;//_vcmGlassForm_.NeedShowSystemContextMenuOnPoint
 
-procedure _vcmGlassForm_.pm_SetGlassFrame(aValue: TvcmGlassFrame);
-//#UC START# *533926AB0375_5339219B0225set_var*
-//#UC END# *533926AB0375_5339219B0225set_var*
-begin
-//#UC START# *533926AB0375_5339219B0225set_impl*
- f_GlassFrame.Assign(aValue);
-//#UC END# *533926AB0375_5339219B0225set_impl*
-end;//_vcmGlassForm_.pm_SetGlassFrame
-
 procedure _vcmGlassForm_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5339219B0225_var*
 //#UC END# *479731C50290_5339219B0225_var*
 begin
@@ -228,7 +208,7 @@ begin
 //#UC END# *47D1602000C6_5339219B0225_impl*
 end;//_vcmGlassForm_.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _vcmGlassForm_.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_5339219B0225_var*
 //#UC END# *47E136A80191_5339219B0225_var*
@@ -246,7 +226,7 @@ begin
  inherited;
 //#UC END# *47E136A80191_5339219B0225_impl*
 end;//_vcmGlassForm_.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure _vcmGlassForm_.Loaded;
 //#UC START# *484516C00214_5339219B0225_var*
@@ -259,8 +239,9 @@ begin
 //#UC END# *484516C00214_5339219B0225_impl*
 end;//_vcmGlassForm_.Loaded
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _vcmGlassForm_.PaintWindow(DC: hDC);
+ {* Renders the image of a windowed control }
 //#UC START# *48C6BFF80313_5339219B0225_var*
 var
  l_ClientRect: TRect;
@@ -299,9 +280,10 @@ begin
  end;
 //#UC END# *48C6BFF80313_5339219B0225_impl*
 end;//_vcmGlassForm_.PaintWindow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure _vcmGlassForm_.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_5339219B0225_var*
 //#UC END# *4A8E8F2E0195_5339219B0225_var*
 begin
@@ -312,9 +294,9 @@ begin
 //#UC END# *4A8E8F2E0195_5339219B0225_impl*
 end;//_vcmGlassForm_.InitControls
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _vcmGlassForm_.AlignControls(AControl: TControl;
-  var Rect: TRect);
+ var Rect: TRect);
 //#UC START# *5028E66702B0_5339219B0225_var*
 var
  l_RectToUpdate: TRect;
@@ -330,8 +312,10 @@ begin
  end;//if (GlassFramePainting...
 //#UC END# *5028E66702B0_5339219B0225_impl*
 end;//_vcmGlassForm_.AlignControls
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$EndIf vcmGlassForm_imp_impl}
 
 {$EndIf vcmGlassForm_imp}
+

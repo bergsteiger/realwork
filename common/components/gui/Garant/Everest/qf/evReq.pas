@@ -1,165 +1,151 @@
 unit evReq;
+ {* Класс реквизита (одельная строка в таблице) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evReq.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevReq
-//
-// Класс реквизита (одельная строка в таблице)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evReq.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReq" MUID: (48D3BD0A02D7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  l3Base,
-  nevTools,
-  evQueryCardInt,
-  evEditorControlList,
-  evEditorControlFieldList,
-  evCustomControlTool,
-  evControl,
-  l3Variant,
-  nevBase,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evCustomControlTool
+ , evQueryCardInt
+ , evEditorControlFieldList
+ , evEditorControlList
+ , l3Base
+ , l3Variant
+ , nevTools
+ , evdTypes
+ , l3Interfaces
+ , nevBase
+ , evControl
+;
 
 type
- RevControlClass = class of evControl.TevControl;
+ RevControlClass = class of TevControl;
 
  TevReq = class(TevCustomControlTool, IevReq, IevComboReq, IevDatesReq, IevPhoneReq)
   {* Класс реквизита (одельная строка в таблице) }
- private
- // private fields
-   f_FieldsList : TevEditorControlFieldList;
-    {* Список полей для каждого реквизита группы (IevEditorControlField)}
-   f_ControlsList : TevEditorControlList;
-    {* Список виджетов для каждого реквизита (IevEditorControl)}
-   f_ReqCaption : Tl3String;
-    {* Текст метки реквизита}
-   f_Group : Tl3Variant;
- private
- // private methods
+  private
+   f_FieldsList: TevEditorControlFieldList;
+    {* Список полей для каждого реквизита группы (IevEditorControlField) }
+   f_ControlsList: TevEditorControlList;
+    {* Список виджетов для каждого реквизита (IevEditorControl) }
+   f_ReqCaption: Tl3String;
+    {* Текст метки реквизита }
+   f_Group: Tl3Variant;
+  private
    function AddValue(const aView: InevView;
     const aControl: IevEditorControl;
     const aPara: InevPara = nil;
     ToModel: Boolean = False;
     anAdd: Boolean = False): Boolean;
-     {* Добавление нового поля в реквизит. aControl - виджет (поле или любой
+    {* Добавление нового поля в реквизит. aControl - виджет (поле или любой
          виджет возле поля), ToModel: только добавляем в модель aPara }
    function DeleteValue(const aView: InevView;
     const aControl: IevEditorControl = nil;
     ToModel: Boolean = False): Integer;
-     {* Удаление поля из реквизита. Возвращает индекс поля вставшего вместо удаленного }
+    {* Удаление поля из реквизита. Возвращает индекс поля вставшего вместо удаленного }
    function GetControlClass(aControlType: TevControlType): RevControlClass;
    function CanVisibleLogicBtn: Boolean;
    function LogicBtnEnabled: Boolean;
- protected
- // realized methods
+  protected
    procedure KeyAction(aCmd: Word);
-     {* "Внешняя" обработка команды. }
+    {* "Внешняя" обработка команды. }
    function AnalyzeString(const aValue: Il3CString;
     out aRslt: Il3CString): Boolean;
    procedure TextChange(const aView: InevView);
-     {* Обработчик события изменения текста. }
+    {* Обработчик события изменения текста. }
    procedure RememberState(const aControl: IevCustomEditorControl);
-     {* Запомнить состояние контрола для всплывающего меню. }
+    {* Запомнить состояние контрола для всплывающего меню. }
    function GetNextVisible(const aControl: IevEditorControl;
     OnlyFields: Boolean;
     out anIsLastField: Boolean): IevEditorControl;
-     {* Возвращает следующий видимый контрол. }
+    {* Возвращает следующий видимый контрол. }
    function GetFirstVisible(OnlyFields: Boolean): IevEditorControl;
-     {* Возвращает первый видимый контрол для реквизита. }
+    {* Возвращает первый видимый контрол для реквизита. }
    function GetPrevVisible(const aControl: IevEditorControl;
     OnlyFields: Boolean;
     out anIsFirstField: Boolean): IevEditorControl;
-     {* Возвращает следующий видимый контрол. }
+    {* Возвращает следующий видимый контрол. }
    function GetLastVisible(OnlyFields: Boolean): IevEditorControl;
-     {* Возвращает последний видимый контрол. }
+    {* Возвращает последний видимый контрол. }
    function GetHint(var aValue: Il3CString;
     const aControl: IevEditorControl): Boolean;
-     {* Получить хинт для контрола. }
+    {* Получить хинт для контрола. }
    function IsRequired: Boolean;
-     {* Обязательное поле (должно обязательно содержать значение). }
+    {* Обязательное поле (должно обязательно содержать значение). }
    function IsEmpty: Boolean;
-     {* Проверяет, является ли реквизит пустым. }
+    {* Проверяет, является ли реквизит пустым. }
    function FieldsCount: Integer;
-     {* Количество контролов (полей редактора) в реквизите. }
+    {* Количество контролов (полей редактора) в реквизите. }
    procedure ButtonPressed(const aView: InevView;
     const aControl: IevEditorControl;
     aBtnType: TevButtonType);
-     {* Обработка реакции на нажатие кнопки по её типу. }
+    {* Обработка реакции на нажатие кнопки по её типу. }
    procedure AfterSetText(const aField: IevEditorControlField);
    function AddField(const aView: InevView;
     NeedSetFocus: Boolean = False): IevEditorControlField;
-     {* Добавление реквизита. }
+    {* Добавление реквизита. }
    function GetItemImage(Index: Integer;
     var aImages: InevImageList): Integer;
-     {* Ручка для получения картинки для выпадающего дерева. }
+    {* Ручка для получения картинки для выпадающего дерева. }
    procedure DeleteField(const aView: InevView;
     const aControl: IevEditorControlField = nil;
     NeedFocus: Boolean = False);
-     {* Удаление реквизита. }
+    {* Удаление реквизита. }
    procedure InsertToModel(const aView: InevView;
     const aControl: IevEditorControl;
     aChild: Tl3Variant;
     NeedFocus: Boolean = False;
     anAdd: Boolean = False);
-     {* Добавление реквизита только в модель. }
+    {* Добавление реквизита только в модель. }
    procedure DeleteFromModel(const aView: InevView;
     const aControl: IevEditorControl;
     NeedFocus: Boolean = False);
-     {* Удаление реквизита только из модели. }
+    {* Удаление реквизита только из модели. }
    procedure InitModel(const aTag: InevPara;
     AddValues: Boolean;
     anIndexField: Integer;
     anIndexCtrl: Integer);
-     {* Инициализация дочерних компонентов. }
+    {* Инициализация дочерних компонентов. }
    function CheckEdit(const aField: IevEditorControlField): Boolean;
-     {* Проверка значения поля. }
+    {* Проверка значения поля. }
    procedure UpdateState(const aField: IevEditorControlField;
     const anOp: InevOp);
-     {* Обновить состояния поля и кнопок, вокруг контрола. }
+    {* Обновить состояния поля и кнопок, вокруг контрола. }
    function Get_ModelListener: IevModelListener;
    function Get_Fields(Index: Integer): IevEditorControlField;
    function Get_ReqName: Il3CString;
    function Get_ReqCaption: Il3CString;
    procedure SetFocus(const aField: IevEditorControlField;
     aAtEnd: Boolean = False);
-     {* Установить фокус. }
+    {* Установить фокус. }
    function FirstField: IevEditorControlField;
-     {* Возвращает первый контрол в списке. }
+    {* Возвращает первый контрол в списке. }
    function LastField: IevEditorControlField;
-     {* Возвращает последний контрол в списке. }
+    {* Возвращает последний контрол в списке. }
    function Get_Group: IevQueryGroup;
    function Get_QueryCard: IevQueryCard;
    procedure ClearLogicValue;
    procedure EscPressed(const aField: IevEditorFieldWithTree);
    function NeedAsterisk: Boolean;
-     {* Нужно ли проверять значение '*' в тексте. }
+    {* Нужно ли проверять значение '*' в тексте. }
    function GetTreeFromAdapter: InevSimpleTree;
-     {* Получает дерево с адаптера. }
+    {* Получает дерево с адаптера. }
    function IsMulti: Boolean;
-     {* Признак реквизита с несколькими значениями. }
+    {* Признак реквизита с несколькими значениями. }
    procedure HyperLinkClick;
-     {* Щелчок по гиперссылке. }
+    {* Щелчок по гиперссылке. }
    function Get_DefStateIndex: Integer;
    procedure Set_DefStateIndex(aValue: Integer);
    function IsContext: Boolean;
-     {* Признак того, что реквизит является конекстом. }
+    {* Признак того, что реквизит является конекстом. }
    function GetNode(anIndex: Integer): InevSimpleNode;
-     {* Получить узел выпадающего дерева по номеру поля. }
+    {* Получить узел выпадающего дерева по номеру поля. }
    function Get_HistoryList: Il3StringsEx;
    function Get_StartDate: TDateTime;
    procedure Set_StartDate(aValue: TDateTime);
@@ -171,56 +157,46 @@ type
    procedure Set_Number(const aValue: Il3CString);
    function GetPromptTreeFromAdapter: InevSimpleTree;
    procedure NotifyContextWrong;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   constructor Create(const aPara: InevPara); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(const aValue: InevPara): IevReq; reintroduce;
+   constructor Create(const aPara: InevPara); override;
  end;//TevReq
 
 implementation
 
 uses
-  OvcConst,
-  evControlParaConst,
-  l3String,
-  k2Tags,
-  evButtonControl,
-  evDropCalendarControl,
-  evDropCombo,
-  evLabel,
-  evSimpleEdit,
-  evMemoEdit,
-  evEmailEdit,
-  evPhoneEdit,
-  SysUtils,
-  nevFacade,
-  evControlParaTools
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3InterfacesMisc,
-  l3Date,
-  l3Bits,
-  Table_Const,
-  ReqRow_Const,
-  ControlPara_Const,
-  ControlsBlock_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evReqRowImplementation
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TevReq
+ l3ImplUses
+ , OvcConst
+ , evControlParaConst
+ , l3String
+ , k2Tags
+ , evButtonControl
+ , evDropCalendarControl
+ , evDropCombo
+ , evLabel
+ , evSimpleEdit
+ , evMemoEdit
+ , evEmailEdit
+ , evPhoneEdit
+ , SysUtils
+ , nevFacade
+ , evControlParaTools
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3InterfacesMisc
+ , l3Date
+ , l3Bits
+ , Table_Const
+ , ReqRow_Const
+ , ControlPara_Const
+ , ControlsBlock_Const
+ {$If Defined(k2ForEditor)}
+ , evReqRowImplementation
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 class function TevReq.Make(const aValue: InevPara): IevReq;
 var
@@ -232,13 +208,15 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevReq.Make
 
 function TevReq.AddValue(const aView: InevView;
-  const aControl: IevEditorControl;
-  const aPara: InevPara = nil;
-  ToModel: Boolean = False;
-  anAdd: Boolean = False): Boolean;
+ const aControl: IevEditorControl;
+ const aPara: InevPara = nil;
+ ToModel: Boolean = False;
+ anAdd: Boolean = False): Boolean;
+ {* Добавление нового поля в реквизит. aControl - виджет (поле или любой
+         виджет возле поля), ToModel: только добавляем в модель aPara }
 //#UC START# *48D3CD560338_48D3BD0A02D7_var*
 var
  i           : Integer;
@@ -327,8 +305,9 @@ begin
 end;//TevReq.AddValue
 
 function TevReq.DeleteValue(const aView: InevView;
-  const aControl: IevEditorControl = nil;
-  ToModel: Boolean = False): Integer;
+ const aControl: IevEditorControl = nil;
+ ToModel: Boolean = False): Integer;
+ {* Удаление поля из реквизита. Возвращает индекс поля вставшего вместо удаленного }
 //#UC START# *48D3CD950327_48D3BD0A02D7_var*
 var
  i          : Integer;
@@ -455,6 +434,7 @@ begin
 end;//TevReq.LogicBtnEnabled
 
 procedure TevReq.KeyAction(aCmd: Word);
+ {* "Внешняя" обработка команды. }
 //#UC START# *47CD666202DD_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -471,7 +451,7 @@ begin
 end;//TevReq.KeyAction
 
 function TevReq.AnalyzeString(const aValue: Il3CString;
-  out aRslt: Il3CString): Boolean;
+ out aRslt: Il3CString): Boolean;
 //#UC START# *47CD666F01DC_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -487,6 +467,7 @@ begin
 end;//TevReq.AnalyzeString
 
 procedure TevReq.TextChange(const aView: InevView);
+ {* Обработчик события изменения текста. }
 //#UC START# *47CD668303E2_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -500,6 +481,7 @@ begin
 end;//TevReq.TextChange
 
 procedure TevReq.RememberState(const aControl: IevCustomEditorControl);
+ {* Запомнить состояние контрола для всплывающего меню. }
 //#UC START# *47CD669103DE_48D3BD0A02D7_var*
 //#UC END# *47CD669103DE_48D3BD0A02D7_var*
 begin
@@ -509,8 +491,9 @@ begin
 end;//TevReq.RememberState
 
 function TevReq.GetNextVisible(const aControl: IevEditorControl;
-  OnlyFields: Boolean;
-  out anIsLastField: Boolean): IevEditorControl;
+ OnlyFields: Boolean;
+ out anIsLastField: Boolean): IevEditorControl;
+ {* Возвращает следующий видимый контрол. }
 //#UC START# *47CD66A6009A_48D3BD0A02D7_var*
 var
  l_Index   : Integer; 
@@ -546,6 +529,7 @@ begin
 end;//TevReq.GetNextVisible
 
 function TevReq.GetFirstVisible(OnlyFields: Boolean): IevEditorControl;
+ {* Возвращает первый видимый контрол для реквизита. }
 //#UC START# *47CD66C1034C_48D3BD0A02D7_var*
 var
  i       : Integer;
@@ -573,8 +557,9 @@ begin
 end;//TevReq.GetFirstVisible
 
 function TevReq.GetPrevVisible(const aControl: IevEditorControl;
-  OnlyFields: Boolean;
-  out anIsFirstField: Boolean): IevEditorControl;
+ OnlyFields: Boolean;
+ out anIsFirstField: Boolean): IevEditorControl;
+ {* Возвращает следующий видимый контрол. }
 //#UC START# *47CD66D00085_48D3BD0A02D7_var*
 var
  l_Index   : Integer; 
@@ -610,6 +595,7 @@ begin
 end;//TevReq.GetPrevVisible
 
 function TevReq.GetLastVisible(OnlyFields: Boolean): IevEditorControl;
+ {* Возвращает последний видимый контрол. }
 //#UC START# *47CD66E90124_48D3BD0A02D7_var*
 var
  i       : Integer;
@@ -637,7 +623,8 @@ begin
 end;//TevReq.GetLastVisible
 
 function TevReq.GetHint(var aValue: Il3CString;
-  const aControl: IevEditorControl): Boolean;
+ const aControl: IevEditorControl): Boolean;
+ {* Получить хинт для контрола. }
 //#UC START# *47CD66F50173_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -674,6 +661,7 @@ begin
 end;//TevReq.GetHint
 
 function TevReq.IsRequired: Boolean;
+ {* Обязательное поле (должно обязательно содержать значение). }
 //#UC START# *47CD670E02FC_48D3BD0A02D7_var*
 //#UC END# *47CD670E02FC_48D3BD0A02D7_var*
 begin
@@ -683,6 +671,7 @@ begin
 end;//TevReq.IsRequired
 
 function TevReq.IsEmpty: Boolean;
+ {* Проверяет, является ли реквизит пустым. }
 //#UC START# *47CD671F01FE_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -698,6 +687,7 @@ begin
 end;//TevReq.IsEmpty
 
 function TevReq.FieldsCount: Integer;
+ {* Количество контролов (полей редактора) в реквизите. }
 //#UC START# *47CD672E02A0_48D3BD0A02D7_var*
 //#UC END# *47CD672E02A0_48D3BD0A02D7_var*
 begin
@@ -707,8 +697,9 @@ begin
 end;//TevReq.FieldsCount
 
 procedure TevReq.ButtonPressed(const aView: InevView;
-  const aControl: IevEditorControl;
-  aBtnType: TevButtonType);
+ const aControl: IevEditorControl;
+ aBtnType: TevButtonType);
+ {* Обработка реакции на нажатие кнопки по её типу. }
 //#UC START# *47CD674100FC_48D3BD0A02D7_var*
 //#UC END# *47CD674100FC_48D3BD0A02D7_var*
 begin
@@ -739,7 +730,8 @@ begin
 end;//TevReq.AfterSetText
 
 function TevReq.AddField(const aView: InevView;
-  NeedSetFocus: Boolean = False): IevEditorControlField;
+ NeedSetFocus: Boolean = False): IevEditorControlField;
+ {* Добавление реквизита. }
 //#UC START# *47CD677302C2_48D3BD0A02D7_var*
 //#UC END# *47CD677302C2_48D3BD0A02D7_var*
 begin
@@ -756,7 +748,8 @@ begin
 end;//TevReq.AddField
 
 function TevReq.GetItemImage(Index: Integer;
-  var aImages: InevImageList): Integer;
+ var aImages: InevImageList): Integer;
+ {* Ручка для получения картинки для выпадающего дерева. }
 //#UC START# *47CD67820275_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -775,8 +768,9 @@ begin
 end;//TevReq.GetItemImage
 
 procedure TevReq.DeleteField(const aView: InevView;
-  const aControl: IevEditorControlField = nil;
-  NeedFocus: Boolean = False);
+ const aControl: IevEditorControlField = nil;
+ NeedFocus: Boolean = False);
+ {* Удаление реквизита. }
 //#UC START# *47CD679F00D4_48D3BD0A02D7_var*
 var
  l_IDX: Integer;
@@ -790,10 +784,11 @@ begin
 end;//TevReq.DeleteField
 
 procedure TevReq.InsertToModel(const aView: InevView;
-  const aControl: IevEditorControl;
-  aChild: Tl3Variant;
-  NeedFocus: Boolean = False;
-  anAdd: Boolean = False);
+ const aControl: IevEditorControl;
+ aChild: Tl3Variant;
+ NeedFocus: Boolean = False;
+ anAdd: Boolean = False);
+ {* Добавление реквизита только в модель. }
 //#UC START# *47CD69A301F3_48D3BD0A02D7_var*
 var
  l_Para: InevPara;  
@@ -810,8 +805,9 @@ begin
 end;//TevReq.InsertToModel
 
 procedure TevReq.DeleteFromModel(const aView: InevView;
-  const aControl: IevEditorControl;
-  NeedFocus: Boolean = False);
+ const aControl: IevEditorControl;
+ NeedFocus: Boolean = False);
+ {* Удаление реквизита только из модели. }
 //#UC START# *47CD69CD0294_48D3BD0A02D7_var*
 var
  l_IDX: Integer;
@@ -825,9 +821,10 @@ begin
 end;//TevReq.DeleteFromModel
 
 procedure TevReq.InitModel(const aTag: InevPara;
-  AddValues: Boolean;
-  anIndexField: Integer;
-  anIndexCtrl: Integer);
+ AddValues: Boolean;
+ anIndexField: Integer;
+ anIndexCtrl: Integer);
+ {* Инициализация дочерних компонентов. }
 //#UC START# *47CD6E090090_48D3BD0A02D7_var*
 var
  l_ComponentList: TevEditorControlList;
@@ -948,6 +945,7 @@ begin
 end;//TevReq.InitModel
 
 function TevReq.CheckEdit(const aField: IevEditorControlField): Boolean;
+ {* Проверка значения поля. }
 //#UC START# *47CD6E2403C9_48D3BD0A02D7_var*
 var
  ML : IevModelListener;
@@ -966,7 +964,8 @@ begin
 end;//TevReq.CheckEdit
 
 procedure TevReq.UpdateState(const aField: IevEditorControlField;
-  const anOp: InevOp);
+ const anOp: InevOp);
+ {* Обновить состояния поля и кнопок, вокруг контрола. }
 //#UC START# *47CD6E3401B9_48D3BD0A02D7_var*
 var
  i            : Integer;
@@ -1085,7 +1084,8 @@ begin
 end;//TevReq.Get_ReqCaption
 
 procedure TevReq.SetFocus(const aField: IevEditorControlField;
-  aAtEnd: Boolean = False);
+ aAtEnd: Boolean = False);
+ {* Установить фокус. }
 //#UC START# *47CD6EE402F8_48D3BD0A02D7_var*
 //#UC END# *47CD6EE402F8_48D3BD0A02D7_var*
 begin
@@ -1100,6 +1100,7 @@ begin
 end;//TevReq.SetFocus
 
 function TevReq.FirstField: IevEditorControlField;
+ {* Возвращает первый контрол в списке. }
 //#UC START# *47CD6EF701E4_48D3BD0A02D7_var*
 //#UC END# *47CD6EF701E4_48D3BD0A02D7_var*
 begin
@@ -1109,6 +1110,7 @@ begin
 end;//TevReq.FirstField
 
 function TevReq.LastField: IevEditorControlField;
+ {* Возвращает последний контрол в списке. }
 //#UC START# *47CD6F0502BD_48D3BD0A02D7_var*
 //#UC END# *47CD6F0502BD_48D3BD0A02D7_var*
 begin
@@ -1185,6 +1187,7 @@ begin
 end;//TevReq.EscPressed
 
 function TevReq.NeedAsterisk: Boolean;
+ {* Нужно ли проверять значение '*' в тексте. }
 //#UC START# *47CD74D802DF_48D3BD0A02D7_var*
 //#UC END# *47CD74D802DF_48D3BD0A02D7_var*
 begin
@@ -1194,6 +1197,7 @@ begin
 end;//TevReq.NeedAsterisk
 
 function TevReq.GetTreeFromAdapter: InevSimpleTree;
+ {* Получает дерево с адаптера. }
 //#UC START# *47CD74ED0166_48D3BD0A02D7_var*
 var
  ML : IevAdapterModel;
@@ -1212,6 +1216,7 @@ begin
 end;//TevReq.GetTreeFromAdapter
 
 function TevReq.IsMulti: Boolean;
+ {* Признак реквизита с несколькими значениями. }
 //#UC START# *47CD750202FD_48D3BD0A02D7_var*
 //#UC END# *47CD750202FD_48D3BD0A02D7_var*
 begin
@@ -1221,6 +1226,7 @@ begin
 end;//TevReq.IsMulti
 
 procedure TevReq.HyperLinkClick;
+ {* Щелчок по гиперссылке. }
 //#UC START# *47CD75160008_48D3BD0A02D7_var*
 //#UC END# *47CD75160008_48D3BD0A02D7_var*
 begin
@@ -1248,6 +1254,7 @@ begin
 end;//TevReq.Set_DefStateIndex
 
 function TevReq.IsContext: Boolean;
+ {* Признак того, что реквизит является конекстом. }
 //#UC START# *47CD759702B8_48D3BD0A02D7_var*
 //#UC END# *47CD759702B8_48D3BD0A02D7_var*
 begin
@@ -1257,6 +1264,7 @@ begin
 end;//TevReq.IsContext
 
 function TevReq.GetNode(anIndex: Integer): InevSimpleNode;
+ {* Получить узел выпадающего дерева по номеру поля. }
 //#UC START# *47CD75A9029C_48D3BD0A02D7_var*
 //#UC END# *47CD75A9029C_48D3BD0A02D7_var*
 begin
@@ -1460,6 +1468,7 @@ begin
 end;//TevReq.NotifyContextWrong
 
 procedure TevReq.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D3BD0A02D7_var*
 var
  l_Index   : Integer;

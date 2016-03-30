@@ -1,74 +1,72 @@
 unit evTextParaStringImpl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/evTextParaStringImpl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TevTextParaStringImpl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evTextParaStringImpl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaStringImpl" MUID: (52F20AED01DF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Interfaces,
-  k2TagTool,
-  l3Core,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2TagTool
+ , l3Interfaces
+ , l3Variant
+ , l3Core
+;
 
-{$If defined(k2ForEditor)}
 type
  TevWordDirection = (
-   ev_wdStart
- , ev_wdFinish
- , ev_wdRight
- , ev_wdLeft
+  ev_wdStart
+  , ev_wdFinish
+  , ev_wdRight
+  , ev_wdLeft
  );//TevWordDirection
 
  TevTextParaStringImpl = class(Tk2TagTool, Il3WordsSeq)
- private
- // private methods
+  private
    function DoMove(aPos: Integer;
-     aMoveType: TevWordDirection): Tl3Position;
- protected
- // realized methods
+    aMoveType: TevWordDirection): Tl3Position;
+  protected
    function WordStart(Pos: Tl3Position): Tl3Position;
    function WordLeft(Pos: Tl3Position): Tl3Position;
    function WordFinish(Pos: Tl3Position): Tl3Position;
    function WordRight(Pos: Tl3Position): Tl3Position;
- public
- // public methods
+  public
    class function Make(aPara: Tl3Variant): Il3WordsSeq;
  end;//TevTextParaStringImpl
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Base,
-  k2Tags,
-  l3String
-  ;
-{$IfEnd} //k2ForEditor
+ l3ImplUses
+ , l3Base
+ , k2Tags
+ , l3String
+;
 
-{$If defined(k2ForEditor)}
-
-// start class TevTextParaStringImpl
+class function TevTextParaStringImpl.Make(aPara: Tl3Variant): Il3WordsSeq;
+//#UC START# *52F20B6C012E_52F20AED01DF_var*
+var
+ l_A : TevTextParaStringImpl;
+//#UC END# *52F20B6C012E_52F20AED01DF_var*
+begin
+//#UC START# *52F20B6C012E_52F20AED01DF_impl*
+ l_A := Create(aPara);
+ try
+  Result := l_A;
+ finally
+  l3Free(l_A);
+ end;//try..finally
+//#UC END# *52F20B6C012E_52F20AED01DF_impl*
+end;//TevTextParaStringImpl.Make
 
 function TevTextParaStringImpl.DoMove(aPos: Integer;
-  aMoveType: TevWordDirection): Tl3Position;
+ aMoveType: TevWordDirection): Tl3Position;
 //#UC START# *52F21CB700B6_52F20AED01DF_var*
 var
  _St       : PAnsiChar;
@@ -117,22 +115,6 @@ begin
 //#UC END# *52F21CB700B6_52F20AED01DF_impl*
 end;//TevTextParaStringImpl.DoMove
 
-class function TevTextParaStringImpl.Make(aPara: Tl3Variant): Il3WordsSeq;
-//#UC START# *52F20B6C012E_52F20AED01DF_var*
-var
- l_A : TevTextParaStringImpl;
-//#UC END# *52F20B6C012E_52F20AED01DF_var*
-begin
-//#UC START# *52F20B6C012E_52F20AED01DF_impl*
- l_A := Create(aPara);
- try
-  Result := l_A;
- finally
-  l3Free(l_A);
- end;//try..finally
-//#UC END# *52F20B6C012E_52F20AED01DF_impl*
-end;//TevTextParaStringImpl.Make
-
 function TevTextParaStringImpl.WordStart(Pos: Tl3Position): Tl3Position;
 //#UC START# *476FC5CB038B_52F20AED01DF_var*
 //#UC END# *476FC5CB038B_52F20AED01DF_var*
@@ -168,7 +150,6 @@ begin
  Result := DoMove(Pos, ev_wdRight);
 //#UC END# *476FC5E102C5_52F20AED01DF_impl*
 end;//TevTextParaStringImpl.WordRight
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -1,74 +1,57 @@
 unit nevTableCellFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTableCellFormatInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevTableCellFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableCellFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableCellFormatInfo" MUID: (48DB9D1A030D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevListFormatInfo,
-  nevFormatInfo,
-  nevBase
-  ;
+ l3IntfUses
+ , nevListFormatInfo
+ , nevTools
+ , nevBase
+ , nevFormatInfo
+;
 
 type
  _CellFormatInfoCommon_Parent_ = TnevListFormatInfo;
- {$Include ..\new\CellFormatInfoCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
  TnevTableCellFormatInfo = class(_CellFormatInfoCommon_)
- private
- // private fields
-   f_CellAtTop : InevPara;
-   f_CellBottom : InevPara;
-   f_HeadCell : InevPara;
- protected
- // overridden property methods
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
+  private
+   f_CellAtTop: InevPara;
+   f_CellBottom: InevPara;
+   f_HeadCell: InevPara;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetIsHidden: Boolean; override;
-     {* Объект спрятан }
+    {* Объект спрятан }
    procedure ClearCache; override;
- public
- // overridden public methods
-   procedure WForce(aParts: TnevRenderingInfoParts); override;
-   function VerticalAlignmentMargin: Integer; override;
-     {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
- public
- // public methods
+   function pm_GetlocSpacing: TnevRect; override;
+  public
    function GetContinueCellAtTheTop: InevPara;
    function GetContinueCellBoottom: InevPara;
    function GetHeadCell: InevPara;
+   procedure wForce(aParts: TnevRenderingInfoParts); override;
+   function VerticalAlignmentMargin: Integer; override;
+    {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
  end;//TnevTableCellFormatInfo
 
 implementation
 
 uses
-  k2Tags,
-  l3MinMax,
-  k2Base,
-  nevFacade,
-  evdTypes
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3MinMax
+ , k2Base
+ , nevFacade
+ , evdTypes
+;
 
-{$Include ..\new\CellFormatInfoCommon.imp.pas}
-
-// start class TnevTableCellFormatInfo
+{$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
 
 function TnevTableCellFormatInfo.GetContinueCellAtTheTop: InevPara;
 //#UC START# *5005119C02DB_48DB9D1A030D_var*
@@ -125,6 +108,7 @@ begin
 end;//TnevTableCellFormatInfo.GetHeadCell
 
 procedure TnevTableCellFormatInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48DB9D1A030D_var*
 //#UC END# *479731C50290_48DB9D1A030D_var*
 begin
@@ -136,7 +120,7 @@ begin
 //#UC END# *479731C50290_48DB9D1A030D_impl*
 end;//TnevTableCellFormatInfo.Cleanup
 
-procedure TnevTableCellFormatInfo.WForce(aParts: TnevRenderingInfoParts);
+procedure TnevTableCellFormatInfo.wForce(aParts: TnevRenderingInfoParts);
 //#UC START# *48175C1302A3_48DB9D1A030D_var*
 const
  nev_ripChildrenCnahged = [nev_ripWidth, nev_ripHeight];
@@ -180,9 +164,10 @@ begin
     l_Cell.Invalidate([nev_spCellExtent]);
   end; // if (Obj.OverlapType = otLower) and (aParts = nev_ripCellParams) then
 //#UC END# *48175C1302A3_48DB9D1A030D_impl*
-end;//TnevTableCellFormatInfo.WForce
+end;//TnevTableCellFormatInfo.wForce
 
 function TnevTableCellFormatInfo.GetIsHidden: Boolean;
+ {* Объект спрятан }
 //#UC START# *4C0D27380357_48DB9D1A030D_var*
 //#UC END# *4C0D27380357_48DB9D1A030D_var*
 begin
@@ -207,7 +192,7 @@ begin
 //#UC END# *4E5E7D240227_48DB9D1A030D_impl*
 end;//TnevTableCellFormatInfo.ClearCache
 
-function TnevTableCellFormatInfo.pm_GetLocSpacing: TnevRect;
+function TnevTableCellFormatInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_48DB9D1A030Dget_var*
 //#UC END# *4E5F3D1102B8_48DB9D1A030Dget_var*
 begin
@@ -218,9 +203,10 @@ begin
  Result.Bottom := Max(Obj.AsObject.IntA[k2_tiSpaceAfter],
                       Tk2Prop(Tk2Type(Obj.AsObject.TagType).Prop[k2_tiSpaceAfter]).DefaultValue);
 //#UC END# *4E5F3D1102B8_48DB9D1A030Dget_impl*
-end;//TnevTableCellFormatInfo.pm_GetLocSpacing
+end;//TnevTableCellFormatInfo.pm_GetlocSpacing
 
 function TnevTableCellFormatInfo.VerticalAlignmentMargin: Integer;
+ {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
 //#UC START# *52021CDE00B2_48DB9D1A030D_var*
 //#UC END# *52021CDE00B2_48DB9D1A030D_var*
 begin

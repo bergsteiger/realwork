@@ -1,86 +1,119 @@
 {$IfNDef evParaPainter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaPainter.imp.pas"
-// Начат: 03.06.1997 17:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Drawing Framework::evParaPainter
-//
-// Базовая реализация инструмента для рисования параграфа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evParaPainter" MUID: (4804A2C101A5)
+// Имя типа: "_evParaPainter_"
 
 {$Define evParaPainter_imp}
-{$If defined(evNeedPainters)}
+
+{$If Defined(evNeedPainters)}
  {$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
- _evParaPainter_ = {mixin} class(_nevTinyParaXTool_, Il3FrameTextPainter, InevDrawingShape, IevPainter, InevK235870994Hacker)
+ _evParaPainter_ = class(_nevTinyParaXTool_, Il3FrameTextPainter, InevDrawingShape, IevPainter, InevK235870994Hacker)
   {* Базовая реализация инструмента для рисования параграфа. }
- private
- // private fields
-   f_Hidden : Boolean;
-   f_NeedsHackK235870994 : Boolean;
-   f_Collapsed : Boolean;
-    {* Поле для свойства Collapsed}
-   f_DrawingTopmostChild : Boolean;
-    {* Поле для свойства DrawingTopmostChild}
-   f_DrawingLastChild : Boolean;
-    {* Поле для свойства DrawingLastChild}
-   f_DrawCompleted : Boolean;
-    {* Поле для свойства DrawCompleted}
-   f_PrevHeight : Integer;
-    {* Поле для свойства PrevHeight}
-   f_WasInit : Boolean;
-    {* Поле для свойства WasInit}
-   f_RealTopAnchor : InevBasePoint;
-    {* Поле для свойства RealTopAnchor}
-   f_Fake : Boolean;
-    {* Поле для свойства Fake}
-   f_CheckCaret : InevBasePoint;
-    {* Поле для свойства CheckCaret}
-   f_CheckSelRange : InevRange;
-    {* Поле для свойства CheckSelRange}
-   f_BottomAnchor : InevBasePoint;
-    {* Поле для свойства BottomAnchor}
-   f_ParentPainter : IevPainter;
-    {* Поле для свойства ParentPainter}
-   f_ParaMarkStyle : TevParaMarkStyle;
-    {* Поле для свойства ParaMarkStyle}
-   f_Area : PnevShapeArea;
-    {* Поле для свойства Area}
-   f_SmartCanvas : Il3SmartCanvas;
-    {* Поле для свойства SmartCanvas}
-   f_Caret : InevBasePoint;
-    {* Поле для свойства Caret}
-   f_TopAnchor : InevBasePoint;
-    {* Поле для свойства TopAnchor}
-   f_SelRange : InevRange;
-    {* Поле для свойства SelRange}
-   f_Map : InevMap;
-    {* Поле для свойства Map}
-   f_FormatInfo : TInevFormatInfoRet;
-    {* Поле для свойства FormatInfo}
-   f_Spaces : TnevRect;
-    {* Поле для свойства Spaces}
-   f_ViewMetrics : InevViewMetrics;
-    {* Поле для свойства ViewMetrics}
- private
- // private methods
+  private
+   f_Hidden: Boolean;
+   f_NeedsHackK235870994: Boolean;
+   f_Collapsed: Boolean;
+   f_DrawingTopmostChild: Boolean;
+    {* Рисуется самый верхний ребенок? }
+   f_DrawingLastChild: Boolean;
+    {* Рисуется самый последний ребенок? }
+   f_DrawCompleted: Boolean;
+   f_PrevHeight: Integer;
+    {* Рассчитанная на предыдущей странице высота }
+   f_WasInit: Boolean;
+    {* TopAcnhor пришло "сверху". }
+   f_RealTopAnchor: InevBasePoint;
+   f_Fake: Boolean;
+   f_CheckCaret: InevBasePoint;
+   f_CheckSelRange: InevRange;
+   f_BottomAnchor: InevBasePoint;
+   f_ParentPainter: IevPainter;
+    {* Инструмент для рисования объекта более верхнего уровня. }
+   f_ParaMarkStyle: TevParaMarkStyle;
+    {* Стиль рисования конца параграфа. }
+   f_Area: PnevShapeArea;
+    {* Область вывода }
+   f_SmartCanvas: Il3SmartCanvas;
+   f_Caret: InevBasePoint;
+   f_TopAnchor: InevBasePoint;
+   f_SelRange: InevRange;
+   f_Map: InevMap;
+   f_FormatInfo: TInevFormatInfoRet;
+   f_Spaces: TnevRect;
+    {* Отступы параграфа }
+   f_ViewMetrics: InevViewMetrics;
+  protected
+   f_ForceFocusRect: Boolean;
+   f_HeaderHeight: Integer;
+  private
    procedure DrawBlockSub;
- protected
- // property methods
+  protected
    function pm_GetVerticalAlignmentMargin: Integer; virtual;
    function pm_GetInvisibleFrameColor: TnevColor; virtual;
    function pm_GetSmartCanvas: Il3SmartCanvas;
- protected
- // realized methods
+   function NeedsHackK235870994: Boolean; virtual;
+   function ControlInfo: TnevControlInfo;
+   procedure FillUnfilled(const aRect: Tl3Rect); virtual;
+    {* Заливает область параграфа, которая не была залита }
+   procedure DrawDecorObject(aDecorObj: Tl3Variant;
+    aCollapsed: Boolean;
+    aDecorType: TnevDecorType); overload;
+    {* Рисует декроативный элемент параграфа }
+   procedure DrawDecorObject(aCollapsed: Boolean;
+    aTop: Boolean); overload;
+   function HackMargin: Integer; virtual;
+    {* Отступ, который не надо заливать цетом родителя }
+   procedure CheckFormatInfo;
+   function GetBackColor: TnevColor; virtual;
+   function BeginDraw: Boolean;
+   procedure EndDraw;
+   procedure Push;
+   procedure Pop;
+   procedure DoInitAlignObjects; virtual;
+    {* Инициализация выравнивания объекта. }
+   procedure DoFinisAlignObjects; virtual;
+    {* Окончательное выравнивание рамок. }
+   procedure PushWO;
+   procedure PopWO;
+   procedure PushFC;
+   procedure PopFC;
+   procedure PushBC;
+   procedure PopBC;
+   function TopBC: TnevColor;
+   procedure DrawFrame; virtual;
+    {* Процедура рисования видимой рамки вокруг параграфа. }
+   procedure DrawFramePrim;
+    {* Нарисовать рамку. }
+   function InfiniteFrame: Boolean; virtual;
+   procedure DoFillSelection; virtual;
+   procedure CheckAlignment(var aFrame: Tl3Frame); virtual;
+   procedure SetDrawnBottom;
+   procedure DoDrawLines; virtual;
+   procedure GetFramePart(aFrame: Tl3Variant;
+    anIndex: Tl3FramePartIndex;
+    var thePart: TnevFramePart);
+   procedure GetFramePartPrim(aFrame: Tl3Variant;
+    anIndex: Tl3FramePartIndex;
+    var thePart: TnevFramePart); virtual;
+   function DoDraw: Boolean; virtual;
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+   procedure DrawSubs;
+   procedure evDrawSub(aLayerID: Integer;
+    aSub: Tl3Variant;
+    const aPara: InevPara);
+   procedure InitBottom(var theBottom: InevBasePoint;
+    var theCellBottom: InevBasePoint); virtual;
+   procedure FocusRect(const aRect: Tl3SRect);
+   procedure DoDrawFrameText(aTop: Boolean); virtual;
+   procedure DoDrawFramePrim(const aFrame: Tl3Frame); virtual;
+   function GetPaintersHolder: InevPaintersHolder; virtual;
+   function GetTablePainter: IevTablePainter; virtual;
+   function GetTableRowPainter: IevTableRowPainter; virtual;
+   function IsTopAnchorAtStart: Boolean; virtual;
    procedure DrawFrameText(aTop: Boolean);
-     {* Рисует текст рамки. }
+    {* Рисует текст рамки. }
    function Draw(const anArea: TnevShapeArea;
     const aPoints: TnevShapePoints;
     out theInfo: TnevShapeInfo): Boolean;
@@ -97,159 +130,146 @@
    function HackK235870994(const aMap: InevMap): Boolean;
    function Get_Obj: InevObjectPrim;
    function IsSelectedOneWholePara(const aPara: InevPara): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_ForceFocusRect : Boolean;
-   f_HeaderHeight : Integer;
- protected
- // protected methods
-   function NeedsHackK235870994: Boolean; virtual;
-   function ControlInfo: TnevControlInfo;
-   procedure FillUnfilled(const aRect: Tl3Rect); virtual;
-     {* Заливает область параграфа, которая не была залита }
-   procedure DrawDecorObject(aDecorObj: Tl3Variant;
-     aCollapsed: Boolean;
-     aDecorType: TnevDecorType); overload; 
-     {* Рисует декроативный элемент параграфа }
-   procedure DrawDecorObject(aCollapsed: Boolean;
-     aTop: Boolean); overload; 
-   function HackMargin: Integer; virtual;
-     {* Отступ, который не надо заливать цетом родителя }
-   procedure CheckFormatInfo;
-   function GetBackColor: TnevColor; virtual;
-   function BeginDraw: Boolean;
-   procedure EndDraw;
-   procedure Push;
-   procedure Pop;
-   procedure DoInitAlignObjects; virtual;
-     {* Инициализация выравнивания объекта. }
-   procedure DoFinisAlignObjects; virtual;
-     {* Окончательное выравнивание рамок. }
-   procedure PushWO;
-   procedure PopWO;
-   procedure PushFC;
-   procedure PopFC;
-   procedure PushBC;
-   procedure PopBC;
-   function TopBC: TnevColor;
-   procedure DrawFrame; virtual;
-     {* Процедура рисования видимой рамки вокруг параграфа. }
-   procedure DrawFramePrim;
-     {* Нарисовать рамку. }
-   function InfiniteFrame: Boolean; virtual;
-   procedure DoFillSelection; virtual;
-   procedure CheckAlignment(var aFrame: Tl3Frame); virtual;
-   procedure SetDrawnBottom;
-   procedure DoDrawLines; virtual;
-   procedure GetFramePart(aFrame: Tl3Variant;
-    anIndex: Tl3FramePartIndex;
-    var thePart: TnevFramePart);
-   procedure GetFramePartPrim(aFrame: Tl3Variant;
-    anIndex: Tl3FramePartIndex;
-    var thePart: TnevFramePart); virtual;
-   function DoDraw: Boolean; virtual;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
-   procedure DrawSubs;
-   procedure EvDrawSub(aLayerID: Integer;
-    aSub: Tl3Variant;
-    const aPara: InevPara);
-   procedure InitBottom(var theBottom: InevBasePoint;
-    var theCellBottom: InevBasePoint); virtual;
-   procedure FocusRect(const aRect: Tl3SRect);
-   procedure DoDrawFrameText(aTop: Boolean); virtual;
-   procedure DoDrawFramePrim(const aFrame: Tl3Frame); virtual;
-   function GetPaintersHolder: InevPaintersHolder; virtual;
-   function GetTablePainter: IevTablePainter; virtual;
-   function GetTableRowPainter: IevTableRowPainter; virtual;
-   function IsTopAnchorAtStart: Boolean; virtual;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): IevPainter; reintroduce;
- protected
- // protected properties
+  protected
    property Collapsed: Boolean
-     read f_Collapsed;
+    read f_Collapsed;
    property DrawingTopmostChild: Boolean
-     read f_DrawingTopmostChild
-     write f_DrawingTopmostChild;
-     {* Рисуется самый верхний ребенок? }
+    read f_DrawingTopmostChild
+    write f_DrawingTopmostChild;
+    {* Рисуется самый верхний ребенок? }
    property DrawingLastChild: Boolean
-     read f_DrawingLastChild
-     write f_DrawingLastChild;
-     {* Рисуется самый последний ребенок? }
+    read f_DrawingLastChild
+    write f_DrawingLastChild;
+    {* Рисуется самый последний ребенок? }
    property DrawCompleted: Boolean
-     read f_DrawCompleted;
+    read f_DrawCompleted;
    property VerticalAlignmentMargin: Integer
-     read pm_GetVerticalAlignmentMargin;
+    read pm_GetVerticalAlignmentMargin;
    property WasInit: Boolean
-     read f_WasInit;
-     {* TopAcnhor пришло "сверху". }
+    read f_WasInit;
+    {* TopAcnhor пришло "сверху". }
    property BottomAnchor: InevBasePoint
-     read f_BottomAnchor;
+    read f_BottomAnchor;
    property ParentPainter: IevPainter
-     read f_ParentPainter;
-     {* Инструмент для рисования объекта более верхнего уровня. }
+    read f_ParentPainter;
+    {* Инструмент для рисования объекта более верхнего уровня. }
    property ParaMarkStyle: TevParaMarkStyle
-     read f_ParaMarkStyle
-     write f_ParaMarkStyle;
-     {* Стиль рисования конца параграфа. }
+    read f_ParaMarkStyle
+    write f_ParaMarkStyle;
+    {* Стиль рисования конца параграфа. }
    property InvisibleFrameColor: TnevColor
-     read pm_GetInvisibleFrameColor;
+    read pm_GetInvisibleFrameColor;
    property Area: PnevShapeArea
-     read f_Area;
-     {* Область вывода }
+    read f_Area;
+    {* Область вывода }
    property SmartCanvas: Il3SmartCanvas
-     read pm_GetSmartCanvas;
+    read pm_GetSmartCanvas;
    property Caret: InevBasePoint
-     read f_Caret;
+    read f_Caret;
    property TopAnchor: InevBasePoint
-     read f_TopAnchor;
+    read f_TopAnchor;
    property SelRange: InevRange
-     read f_SelRange;
+    read f_SelRange;
    property Map: InevMap
-     read f_Map;
+    read f_Map;
    property FormatInfo: TInevFormatInfoRet
-     read f_FormatInfo;
+    read f_FormatInfo;
    property Spaces: TnevRect
-     read f_Spaces;
-     {* Отступы параграфа }
+    read f_Spaces;
+    {* Отступы параграфа }
    property ViewMetrics: InevViewMetrics
-     read f_ViewMetrics;
- public
- // public properties
+    read f_ViewMetrics;
+  public
    property PrevHeight: Integer
-     read f_PrevHeight
-     write f_PrevHeight;
-     {* Рассчитанная на предыдущей странице высота }
+    read f_PrevHeight
+    write f_PrevHeight;
+    {* Рассчитанная на предыдущей странице высота }
    property RealTopAnchor: InevBasePoint
-     read f_RealTopAnchor;
+    read f_RealTopAnchor;
    property Fake: Boolean
-     read f_Fake;
+    read f_Fake;
    property CheckCaret: InevBasePoint
-     read f_CheckCaret;
+    read f_CheckCaret;
    property CheckSelRange: InevRange
-     read f_CheckSelRange;
+    read f_CheckSelRange;
  end;//_evParaPainter_
-{$Else}
 
- {$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
- _evParaPainter_ = _nevTinyParaXTool_;
-
-{$IfEnd} //evNeedPainters
-
-{$Else evParaPainter_imp}
-
-{$If defined(evNeedPainters)}
+{$Else Defined(evNeedPainters)}
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
+_evParaPainter_ = _nevTinyParaXTool_;
 
-// start class _evParaPainter_
+{$IfEnd} // Defined(evNeedPainters)
+{$Else evParaPainter_imp}
+
+{$IfNDef evParaPainter_imp_impl}
+
+{$Define evParaPainter_imp_impl}
+
+{$If Defined(evNeedPainters)}
+{$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
+
+function _evParaPainter_.pm_GetVerticalAlignmentMargin: Integer;
+//#UC START# *4804AA7A003A_4804A2C101A5get_var*
+//#UC END# *4804AA7A003A_4804A2C101A5get_var*
+begin
+//#UC START# *4804AA7A003A_4804A2C101A5get_impl*
+ Result := 0;
+//#UC END# *4804AA7A003A_4804A2C101A5get_impl*
+end;//_evParaPainter_.pm_GetVerticalAlignmentMargin
+
+function _evParaPainter_.pm_GetInvisibleFrameColor: TnevColor;
+//#UC START# *4804A83F030B_4804A2C101A5get_var*
+//#UC END# *4804A83F030B_4804A2C101A5get_var*
+begin
+//#UC START# *4804A83F030B_4804A2C101A5get_impl*
+ Result := clGray;
+//#UC END# *4804A83F030B_4804A2C101A5get_impl*
+end;//_evParaPainter_.pm_GetInvisibleFrameColor
+
+function _evParaPainter_.pm_GetSmartCanvas: Il3SmartCanvas;
+//#UC START# *4804A98600F2_4804A2C101A5get_var*
+//#UC END# *4804A98600F2_4804A2C101A5get_var*
+begin
+//#UC START# *4804A98600F2_4804A2C101A5get_impl*
+ if (f_SmartCanvas = nil) then
+  f_SmartCanvas := Tl3SmartCanvas.Make(Area.rCanvas.As_Il3Canvas);
+ Result := f_SmartCanvas;
+//#UC END# *4804A98600F2_4804A2C101A5get_impl*
+end;//_evParaPainter_.pm_GetSmartCanvas
+
+function _evParaPainter_.NeedsHackK235870994: Boolean;
+//#UC START# *4CAF3D530327_4804A2C101A5_var*
+//#UC END# *4CAF3D530327_4804A2C101A5_var*
+begin
+//#UC START# *4CAF3D530327_4804A2C101A5_impl*
+ Result := false;
+//#UC END# *4CAF3D530327_4804A2C101A5_impl*
+end;//_evParaPainter_.NeedsHackK235870994
+
+function _evParaPainter_.ControlInfo: TnevControlInfo;
+//#UC START# *4E26AF7C0183_4804A2C101A5_var*
+//#UC END# *4E26AF7C0183_4804A2C101A5_var*
+begin
+//#UC START# *4E26AF7C0183_4804A2C101A5_impl*
+ Result := TnevControlInfo_C(ParaX, FormatInfo, Area.rView.Metrics);
+//#UC END# *4E26AF7C0183_4804A2C101A5_impl*
+end;//_evParaPainter_.ControlInfo
+
+procedure _evParaPainter_.FillUnfilled(const aRect: Tl3Rect);
+ {* Заливает область параграфа, которая не была залита }
+//#UC START# *4E2702FE01EA_4804A2C101A5_var*
+//#UC END# *4E2702FE01EA_4804A2C101A5_var*
+begin
+//#UC START# *4E2702FE01EA_4804A2C101A5_impl*
+ Area.rCanvas.FillEmptyRect(aRect);
+//#UC END# *4E2702FE01EA_4804A2C101A5_impl*
+end;//_evParaPainter_.FillUnfilled
 
 procedure _evParaPainter_.DrawBlockSub;
 //#UC START# *4E4E5405011F_4804A2C101A5_var*
@@ -306,36 +326,10 @@ begin
 //#UC END# *4E4E5405011F_4804A2C101A5_impl*
 end;//_evParaPainter_.DrawBlockSub
 
-function _evParaPainter_.NeedsHackK235870994: Boolean;
-//#UC START# *4CAF3D530327_4804A2C101A5_var*
-//#UC END# *4CAF3D530327_4804A2C101A5_var*
-begin
-//#UC START# *4CAF3D530327_4804A2C101A5_impl*
- Result := false;
-//#UC END# *4CAF3D530327_4804A2C101A5_impl*
-end;//_evParaPainter_.NeedsHackK235870994
-
-function _evParaPainter_.ControlInfo: TnevControlInfo;
-//#UC START# *4E26AF7C0183_4804A2C101A5_var*
-//#UC END# *4E26AF7C0183_4804A2C101A5_var*
-begin
-//#UC START# *4E26AF7C0183_4804A2C101A5_impl*
- Result := TnevControlInfo_C(ParaX, FormatInfo, Area.rView.Metrics);
-//#UC END# *4E26AF7C0183_4804A2C101A5_impl*
-end;//_evParaPainter_.ControlInfo
-
-procedure _evParaPainter_.FillUnfilled(const aRect: Tl3Rect);
-//#UC START# *4E2702FE01EA_4804A2C101A5_var*
-//#UC END# *4E2702FE01EA_4804A2C101A5_var*
-begin
-//#UC START# *4E2702FE01EA_4804A2C101A5_impl*
- Area.rCanvas.FillEmptyRect(aRect);
-//#UC END# *4E2702FE01EA_4804A2C101A5_impl*
-end;//_evParaPainter_.FillUnfilled
-
 procedure _evParaPainter_.DrawDecorObject(aDecorObj: Tl3Variant;
-  aCollapsed: Boolean;
-  aDecorType: TnevDecorType);
+ aCollapsed: Boolean;
+ aDecorType: TnevDecorType);
+ {* Рисует декроативный элемент параграфа }
 //#UC START# *4E6DC0D1005C_4804A2C101A5_var*
 var
  //l_Obj    : InevObject;
@@ -423,7 +417,7 @@ begin
 end;//_evParaPainter_.DrawDecorObject
 
 procedure _evParaPainter_.DrawDecorObject(aCollapsed: Boolean;
-  aTop: Boolean);
+ aTop: Boolean);
 //#UC START# *4E6F27EE0065_4804A2C101A5_var*
 var
  l_DT : TnevDecorType;
@@ -439,6 +433,7 @@ begin
 end;//_evParaPainter_.DrawDecorObject
 
 function _evParaPainter_.HackMargin: Integer;
+ {* Отступ, который не надо заливать цетом родителя }
 //#UC START# *4E6F459F0278_4804A2C101A5_var*
 //#UC END# *4E6F459F0278_4804A2C101A5_var*
 begin
@@ -466,35 +461,6 @@ begin
 //#UC END# *55CC33A10342_4804A2C101A5_impl*
 end;//_evParaPainter_.GetBackColor
 
-function _evParaPainter_.pm_GetVerticalAlignmentMargin: Integer;
-//#UC START# *4804AA7A003A_4804A2C101A5get_var*
-//#UC END# *4804AA7A003A_4804A2C101A5get_var*
-begin
-//#UC START# *4804AA7A003A_4804A2C101A5get_impl*
- Result := 0;
-//#UC END# *4804AA7A003A_4804A2C101A5get_impl*
-end;//_evParaPainter_.pm_GetVerticalAlignmentMargin
-
-function _evParaPainter_.pm_GetInvisibleFrameColor: TnevColor;
-//#UC START# *4804A83F030B_4804A2C101A5get_var*
-//#UC END# *4804A83F030B_4804A2C101A5get_var*
-begin
-//#UC START# *4804A83F030B_4804A2C101A5get_impl*
- Result := clGray;
-//#UC END# *4804A83F030B_4804A2C101A5get_impl*
-end;//_evParaPainter_.pm_GetInvisibleFrameColor
-
-function _evParaPainter_.pm_GetSmartCanvas: Il3SmartCanvas;
-//#UC START# *4804A98600F2_4804A2C101A5get_var*
-//#UC END# *4804A98600F2_4804A2C101A5get_var*
-begin
-//#UC START# *4804A98600F2_4804A2C101A5get_impl*
- if (f_SmartCanvas = nil) then
-  f_SmartCanvas := Tl3SmartCanvas.Make(Area.rCanvas.As_Il3Canvas);
- Result := f_SmartCanvas;
-//#UC END# *4804A98600F2_4804A2C101A5get_impl*
-end;//_evParaPainter_.pm_GetSmartCanvas
-
 class function _evParaPainter_.Make(aTag: Tl3Variant): IevPainter;
 var
  l_Inst : _evParaPainter_;
@@ -505,7 +471,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_evParaPainter_.Make
 
 function _evParaPainter_.BeginDraw: Boolean;
 //#UC START# *4804B3D1001F_4804A2C101A5_var*
@@ -678,6 +644,7 @@ begin
 end;//_evParaPainter_.Pop
 
 procedure _evParaPainter_.DoInitAlignObjects;
+ {* Инициализация выравнивания объекта. }
 //#UC START# *4804B5FC02A3_4804A2C101A5_var*
 //#UC END# *4804B5FC02A3_4804A2C101A5_var*
 begin
@@ -687,6 +654,7 @@ begin
 end;//_evParaPainter_.DoInitAlignObjects
 
 procedure _evParaPainter_.DoFinisAlignObjects;
+ {* Окончательное выравнивание рамок. }
 //#UC START# *4804B60E033E_4804A2C101A5_var*
 //#UC END# *4804B60E033E_4804A2C101A5_var*
 begin
@@ -759,6 +727,7 @@ begin
 end;//_evParaPainter_.TopBC
 
 procedure _evParaPainter_.DrawFrame;
+ {* Процедура рисования видимой рамки вокруг параграфа. }
 //#UC START# *4804B76803D5_4804A2C101A5_var*
 //#UC END# *4804B76803D5_4804A2C101A5_var*
 begin
@@ -768,6 +737,7 @@ begin
 end;//_evParaPainter_.DrawFrame
 
 procedure _evParaPainter_.DrawFramePrim;
+ {* Нарисовать рамку. }
 //#UC START# *4804B77A039C_4804A2C101A5_var*
 var
  l_FrameTag : Tl3Variant;
@@ -857,8 +827,8 @@ begin
 end;//_evParaPainter_.DoDrawLines
 
 procedure _evParaPainter_.GetFramePart(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B982007C_4804A2C101A5_var*
 //#UC END# *4804B982007C_4804A2C101A5_var*
 begin
@@ -886,8 +856,8 @@ begin
 end;//_evParaPainter_.GetFramePart
 
 procedure _evParaPainter_.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_4804A2C101A5_var*
 //#UC END# *4804B9BB0383_4804A2C101A5_var*
 begin
@@ -909,6 +879,7 @@ begin
 end;//_evParaPainter_.GetFramePartPrim
 
 function _evParaPainter_.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_4804A2C101A5_var*
 //#UC END# *4804BC2401C2_4804A2C101A5_var*
 begin
@@ -965,9 +936,9 @@ begin
 //#UC END# *4804BC570301_4804A2C101A5_impl*
 end;//_evParaPainter_.DrawSubs
 
-procedure _evParaPainter_.EvDrawSub(aLayerID: Integer;
-  aSub: Tl3Variant;
-  const aPara: InevPara);
+procedure _evParaPainter_.evDrawSub(aLayerID: Integer;
+ aSub: Tl3Variant;
+ const aPara: InevPara);
 //#UC START# *4804BC640021_4804A2C101A5_var*
 var
  l_Rect          : Tl3Rect;
@@ -1072,10 +1043,10 @@ begin
  {$EndIf ParaPainter_IsParaListPainter} 
  Area.rCanvas.DrawSub(aPara.AsObject, l_Rect, aLayerID, aSub);
 //#UC END# *4804BC640021_4804A2C101A5_impl*
-end;//_evParaPainter_.EvDrawSub
+end;//_evParaPainter_.evDrawSub
 
 procedure _evParaPainter_.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_4804A2C101A5_var*
 //#UC END# *4804BC800172_4804A2C101A5_var*
 begin
@@ -1182,6 +1153,7 @@ begin
 end;//_evParaPainter_.IsTopAnchorAtStart
 
 procedure _evParaPainter_.DrawFrameText(aTop: Boolean);
+ {* Рисует текст рамки. }
 //#UC START# *467D21C003C2_4804A2C101A5_var*
 //#UC END# *467D21C003C2_4804A2C101A5_var*
 begin
@@ -1191,8 +1163,8 @@ begin
 end;//_evParaPainter_.DrawFrameText
 
 function _evParaPainter_.Draw(const anArea: TnevShapeArea;
-  const aPoints: TnevShapePoints;
-  out theInfo: TnevShapeInfo): Boolean;
+ const aPoints: TnevShapePoints;
+ out theInfo: TnevShapeInfo): Boolean;
 //#UC START# *47C6972A036C_4804A2C101A5_var*
 var
  l_CellBottom : InevBasePoint;
@@ -1443,6 +1415,7 @@ begin
 end;//_evParaPainter_.IsSelectedOneWholePara
 
 procedure _evParaPainter_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4804A2C101A5_var*
 //#UC END# *479731C50290_4804A2C101A5_var*
 begin
@@ -1462,44 +1435,24 @@ begin
 end;//_evParaPainter_.Cleanup
 
 procedure _evParaPainter_.ClearFields;
- {-}
 begin
- {$If defined(evNeedPainters)}
  f_RealTopAnchor := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_CheckCaret := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_CheckSelRange := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_BottomAnchor := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_ParentPainter := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_SmartCanvas := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_Caret := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_TopAnchor := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_SelRange := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
  f_Map := nil;
- {$IfEnd} //evNeedPainters
- {$If defined(evNeedPainters)}
+ Finalize(f_Spaces);
  f_ViewMetrics := nil;
- {$IfEnd} //evNeedPainters
  inherited;
 end;//_evParaPainter_.ClearFields
+{$IfEnd} // Defined(evNeedPainters)
 
-{$IfEnd} //evNeedPainters
+{$EndIf evParaPainter_imp_impl}
 
 {$EndIf evParaPainter_imp}
+

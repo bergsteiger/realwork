@@ -25,7 +25,6 @@ type
  TChromeLikeBaseThemedWindowCaptionButton = class(TChromeLikeBaseWindowCaptionButton)
   private
    f_Theme: HTHEME;
-    {* Поле для свойства Theme }
   private
    procedure WMThemeChanged(var aMessage: TMessage); message WM_THEMECHANGED;
   protected

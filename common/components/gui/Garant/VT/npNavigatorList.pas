@@ -1,105 +1,74 @@
 unit npNavigatorList;
+ {* список навигаторов созданных в приложении. Список используется для рассылки сообщений }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$WithVCM"
-// Модуль: "w:/common/components/gui/Garant/VT/npNavigatorList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$WithVCM::vtNavigator::TnpNavigatorList
-//
-// список навигаторов созданных в приложении. Список используется для рассылки сообщений
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\npNavigatorList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnpNavigatorList" MUID: (4F61E03003CF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Interfaces,
-  npNavigatorListCBT,
-  l3Core,
-  Windows
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , npNavigatorListCBT
+ , l3Interfaces
+ , l3Core
+ , Windows
+;
 
-{$If not defined(NoVCM)}
 type
  TnpNavigatorList = class(TnpNavigatorListCBT, Il3WndProcListener, Il3GetMessageListener)
   {* список навигаторов созданных в приложении. Список используется для рассылки сообщений }
- protected
- // realized methods
+  protected
    procedure GetMessageListenerNotify(Code: Integer;
-     aWParam: WPARAM;
-     Msg: PMsg;
-     var theResult: Tl3HookProcResult);
+    aWParam: WPARAM;
+    Msg: PMsg;
+    var theResult: Tl3HookProcResult);
    procedure WndProcListenerNotify(Msg: PCWPStruct;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnpNavigatorList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnpNavigatorList }
  end;//TnpNavigatorList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a},
-  l3ListenersManager,
-  Messages
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , l3ListenersManager
+ , Messages
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCM)}
-
-
-// start class TnpNavigatorList
-
-var g_TnpNavigatorList : TnpNavigatorList = nil;
+var g_TnpNavigatorList: TnpNavigatorList = nil;
+ {* Экземпляр синглетона TnpNavigatorList }
 
 procedure TnpNavigatorListFree;
+ {* Метод освобождения экземпляра синглетона TnpNavigatorList }
 begin
  l3Free(g_TnpNavigatorList);
-end;
-
-class function TnpNavigatorList.Instance: TnpNavigatorList;
-begin
- if (g_TnpNavigatorList = nil) then
- begin
-  l3System.AddExitProc(TnpNavigatorListFree);
-  g_TnpNavigatorList := Create;
- end;
- Result := g_TnpNavigatorList;
-end;
-
+end;//TnpNavigatorListFree
 
 class function TnpNavigatorList.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnpNavigatorList <> nil;
 end;//TnpNavigatorList.Exists
 
 procedure TnpNavigatorList.GetMessageListenerNotify(Code: Integer;
-  aWParam: WPARAM;
-  Msg: PMsg;
-  var theResult: Tl3HookProcResult);
+ aWParam: WPARAM;
+ Msg: PMsg;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F62032D0058_4F61E03003CF_var*
 var
  l_Index : Integer;
@@ -115,7 +84,7 @@ begin
 end;//TnpNavigatorList.GetMessageListenerNotify
 
 procedure TnpNavigatorList.WndProcListenerNotify(Msg: PCWPStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF3400BB_4F61E03003CF_var*
 var
  l_Index : Integer;
@@ -133,7 +102,19 @@ begin
 //#UC END# *4F79CF3400BB_4F61E03003CF_impl*
 end;//TnpNavigatorList.WndProcListenerNotify
 
+class function TnpNavigatorList.Instance: TnpNavigatorList;
+ {* Метод получения экземпляра синглетона TnpNavigatorList }
+begin
+ if (g_TnpNavigatorList = nil) then
+ begin
+  l3System.AddExitProc(TnpNavigatorListFree);
+  g_TnpNavigatorList := Create;
+ end;
+ Result := g_TnpNavigatorList;
+end;//TnpNavigatorList.Instance
+
 procedure TnpNavigatorList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F61E03003CF_var*
 //#UC END# *479731C50290_4F61E03003CF_var*
 begin
@@ -154,7 +135,6 @@ begin
  Tl3ListenersManager.AddGetMessageListener(Self)
 //#UC END# *47A042E100E2_4F61E03003CF_impl*
 end;//TnpNavigatorList.InitFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

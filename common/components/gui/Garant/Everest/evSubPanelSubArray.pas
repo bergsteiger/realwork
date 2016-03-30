@@ -1,29 +1,18 @@
 unit evSubPanelSubArray;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPanelSubArray.pas"
-// Начат: 26.02.2010 16:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubPanel::TevSubPanelSubArray
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPanelSubArray.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSubPanelSubArray" MUID: (4B87B6A2008E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evSubPanelSubArrayPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , evSubPanelSubArrayPrim
+ , l3Types
+;
 
 type
  _l3ObjectByHandleSearcher_Parent_ = TevSubPanelSubArrayPrim;
@@ -32,6 +21,12 @@ type
  end;//TevSubPanelSubArray
 
 implementation
+
+uses
+ l3ImplUses
+ , evSubPanelSub
+ , l3Memory
+;
 
 type _Instance_R_ = TevSubPanelSubArray;
 

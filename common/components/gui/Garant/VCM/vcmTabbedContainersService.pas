@@ -1,52 +1,35 @@
 unit vcmTabbedContainersService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/vcmTabbedContainersService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi::VCM$Visual::Services::TvcmTabbedContainersService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\vcmTabbedContainersService.pas"
+// Стереотип: "Service"
+// Элемент модели: "TvcmTabbedContainersService" MUID: (5538940C00DD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoObject,
-  l3TabbedContainersDispatcher
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoObject
+ , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoVCM)}
-(*
- MvcmTabbedContainersService = PureMixIn(Ml3TabbedContainersDispatcher)
-   function GetCurrentMainForm: TWinControl;
+ (*
+ MvcmTabbedContainersService = interface(Ml3TabbedContainersDispatcher)
+  function GetCurrentMainForm: TWinControl;
  end;//MvcmTabbedContainersService
-*)
+ *)
 
 type
  TvcmTabbedContainersDispatcher = {final} class(Tl3ProtoObject, Il3TabbedContainersDispatcher)
- public
- // realized methods
+  public
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabCaption(const aTab: Il3FormTab): AnsiString;
@@ -77,64 +60,56 @@ type
    procedure StartFlashing;
    procedure SaveTabToHistory(const aTab: Il3FormTab);
    procedure CloseAll;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TvcmTabbedContainersDispatcher;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmTabbedContainersDispatcher }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmTabbedContainersDispatcher
 
- IvcmTabbedContainersService = interface(IUnknown)
+ IvcmTabbedContainersService = interface
   {* Интерфейс сервиса TvcmTabbedContainersService }
-   ['{6167A81B-B284-49FD-A747-69B65256A05C}']
-  // MvcmTabbedContainersService
-   function GetCurrentMainForm: TWinControl;
-  // Ml3TabbedContainersDispatcher
-   procedure Subscribe(const aListener: Il3TabbedContainersListener);
-   procedure Unsubscribe(const aListener: Il3TabbedContainersListener);
-   function NeedUseTabs: Boolean;
-   procedure StartFlashing;
-   procedure StopFlashing;
-   procedure CloseAll;
-   procedure CascadeWindows;
-   procedure TileWindowsHorizontal;
-   procedure TileWindowsVertical;
-   function IsFormInContainer(aForm: TForm;
-    aContainer: TForm): Boolean;
-   procedure Lock;
-   procedure Unlock;
-   procedure ActivateForm(aForm: TForm);
-   function CloneTab(const aTab: Il3FormTab): Il3FormTab;
-   function CanCloneTab(const aTab: Il3FormTab): Boolean;
-   procedure ReopenClosedTab(const aContainer: Il3TabbedContainer);
-   function CanReopenClosedTab(const aContainer: Il3TabbedContainer): Boolean;
-   procedure SaveTabToHistory(const aTab: Il3FormTab);
-   procedure LockContainer(const aContainer: Il3TabbedContainer);
-   procedure UnlockContainer(const aContainer: Il3TabbedContainer);
-   function IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
-   procedure CloseTab(const aTab: Il3FormTab);
-   function GetFormTab(aForm: TForm): Il3FormTab;
-   function IsTabEmpty(const aTab: Il3FormTab): Boolean;
-   function GetActiveTabbedContainer: Il3TabbedContainer;
-   function IsInBF(aContainedForm: TForm): Boolean;
-   function GetTabIcon(const aTab: Il3FormTab): Integer;
-   procedure ContainedFormBecomeActive(aForm: TForm);
-   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
+  ['{6167A81B-B284-49FD-A747-69B65256A05C}']
+  function GetCurrentMainForm: TWinControl;
+  procedure Subscribe(const aListener: Il3TabbedContainersListener);
+  procedure Unsubscribe(const aListener: Il3TabbedContainersListener);
+  function NeedUseTabs: Boolean;
+  procedure StartFlashing;
+  procedure StopFlashing;
+  procedure CloseAll;
+  procedure CascadeWindows;
+  procedure TileWindowsHorizontal;
+  procedure TileWindowsVertical;
+  function IsFormInContainer(aForm: TForm;
+   aContainer: TForm): Boolean;
+  procedure Lock;
+  procedure Unlock;
+  procedure ActivateForm(aForm: TForm);
+  function CloneTab(const aTab: Il3FormTab): Il3FormTab;
+  function CanCloneTab(const aTab: Il3FormTab): Boolean;
+  procedure ReopenClosedTab(const aContainer: Il3TabbedContainer);
+  function CanReopenClosedTab(const aContainer: Il3TabbedContainer): Boolean;
+  procedure SaveTabToHistory(const aTab: Il3FormTab);
+  procedure LockContainer(const aContainer: Il3TabbedContainer);
+  procedure UnlockContainer(const aContainer: Il3TabbedContainer);
+  function IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
+  procedure CloseTab(const aTab: Il3FormTab);
+  function GetFormTab(aForm: TForm): Il3FormTab;
+  function IsTabEmpty(const aTab: Il3FormTab): Boolean;
+  function GetActiveTabbedContainer: Il3TabbedContainer;
+  function IsInBF(aContainedForm: TForm): Boolean;
+  function GetTabIcon(const aTab: Il3FormTab): Integer;
+  procedure ContainedFormBecomeActive(aForm: TForm);
+  function GetTabCaption(const aTab: Il3FormTab): AnsiString;
  end;//IvcmTabbedContainersService
 
  TvcmTabbedContainersService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : IvcmTabbedContainersService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: IvcmTabbedContainersService;
+    {* Внешняя реализация сервиса IvcmTabbedContainersService }
+  protected
    procedure pm_SetAlien(const aValue: IvcmTabbedContainersService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabCaption(const aTab: Il3FormTab): AnsiString;
@@ -151,7 +126,7 @@ type
    procedure Unsubscribe(const aListener: Il3TabbedContainersListener);
    function GetCurrentMainForm: TWinControl;
    function IsFormInContainer(aForm: TForm;
-     aContainer: TForm): Boolean;
+    aContainer: TForm): Boolean;
    procedure TileWindowsHorizontal;
    function IsContainerLocked(const aContainer: Il3TabbedContainer): Boolean;
    procedure ActivateForm(aForm: TForm);
@@ -166,90 +141,47 @@ type
    procedure StartFlashing;
    procedure SaveTabToHistory(const aTab: Il3FormTab);
    procedure CloseAll;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: IvcmTabbedContainersService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса IvcmTabbedContainersService }
- public
- // singleton factory method
    class function Instance: TvcmTabbedContainersService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmTabbedContainersService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: IvcmTabbedContainersService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса IvcmTabbedContainersService }
  end;//TvcmTabbedContainersService
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a},
-  vcmExternalInterfaces,
-  SysUtils,
-  vcmBase
-  {$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM)}
-  ,
-  vcmTabsWordsPack
-  {$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM
-  
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , vcmExternalInterfaces
+ , SysUtils
+ , vcmBase
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
+ , vcmTabsWordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoTabs)
+ , l3Base
+;
 
-{$If not defined(NoVCM)}
-
-
-// start class TvcmTabbedContainersService
-
-var g_TvcmTabbedContainersService : TvcmTabbedContainersService = nil;
-
-procedure TvcmTabbedContainersServiceFree;
-begin
- l3Free(g_TvcmTabbedContainersService);
-end;
-
-class function TvcmTabbedContainersService.Instance: TvcmTabbedContainersService;
-begin
- if (g_TvcmTabbedContainersService = nil) then
- begin
-  l3System.AddExitProc(TvcmTabbedContainersServiceFree);
-  g_TvcmTabbedContainersService := Create;
- end;
- Result := g_TvcmTabbedContainersService;
-end;
-
-
-// start class TvcmTabbedContainersDispatcher
-
-var g_TvcmTabbedContainersDispatcher : TvcmTabbedContainersDispatcher = nil;
+var g_TvcmTabbedContainersDispatcher: TvcmTabbedContainersDispatcher = nil;
+ {* Экземпляр синглетона TvcmTabbedContainersDispatcher }
+var g_TvcmTabbedContainersService: TvcmTabbedContainersService = nil;
+ {* Экземпляр синглетона TvcmTabbedContainersService }
 
 procedure TvcmTabbedContainersDispatcherFree;
+ {* Метод освобождения экземпляра синглетона TvcmTabbedContainersDispatcher }
 begin
  l3Free(g_TvcmTabbedContainersDispatcher);
-end;
+end;//TvcmTabbedContainersDispatcherFree
 
-class function TvcmTabbedContainersDispatcher.Instance: TvcmTabbedContainersDispatcher;
+procedure TvcmTabbedContainersServiceFree;
+ {* Метод освобождения экземпляра синглетона TvcmTabbedContainersService }
 begin
- if (g_TvcmTabbedContainersDispatcher = nil) then
- begin
-  l3System.AddExitProc(TvcmTabbedContainersDispatcherFree);
-  g_TvcmTabbedContainersDispatcher := Create;
- end;
- Result := g_TvcmTabbedContainersDispatcher;
-end;
-
-
-class function TvcmTabbedContainersDispatcher.Exists: Boolean;
- {-}
-begin
- Result := g_TvcmTabbedContainersDispatcher <> nil;
-end;//TvcmTabbedContainersDispatcher.Exists
+ l3Free(g_TvcmTabbedContainersService);
+end;//TvcmTabbedContainersServiceFree
 
 function TvcmTabbedContainersDispatcher.GetTabIcon(const aTab: Il3FormTab): Integer;
 //#UC START# *02157F96E465_5539E9010272_var*
@@ -378,7 +310,7 @@ begin
 end;//TvcmTabbedContainersDispatcher.Unsubscribe
 
 function TvcmTabbedContainersDispatcher.IsFormInContainer(aForm: TForm;
-  aContainer: TForm): Boolean;
+ aContainer: TForm): Boolean;
 //#UC START# *5E78F22AF1FF_5539E9010272_var*
 //#UC END# *5E78F22AF1FF_5539E9010272_var*
 begin
@@ -513,18 +445,28 @@ begin
 //#UC END# *F550802110EC_5539E9010272_impl*
 end;//TvcmTabbedContainersDispatcher.CloseAll
 
+class function TvcmTabbedContainersDispatcher.Instance: TvcmTabbedContainersDispatcher;
+ {* Метод получения экземпляра синглетона TvcmTabbedContainersDispatcher }
+begin
+ if (g_TvcmTabbedContainersDispatcher = nil) then
+ begin
+  l3System.AddExitProc(TvcmTabbedContainersDispatcherFree);
+  g_TvcmTabbedContainersDispatcher := Create;
+ end;
+ Result := g_TvcmTabbedContainersDispatcher;
+end;//TvcmTabbedContainersDispatcher.Instance
+
+class function TvcmTabbedContainersDispatcher.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTabbedContainersDispatcher <> nil;
+end;//TvcmTabbedContainersDispatcher.Exists
+
 procedure TvcmTabbedContainersService.pm_SetAlien(const aValue: IvcmTabbedContainersService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//TvcmTabbedContainersService.pm_SetAlien
-
-class function TvcmTabbedContainersService.Exists: Boolean;
- {-}
-begin
- Result := g_TvcmTabbedContainersService <> nil;
-end;//TvcmTabbedContainersService.Exists
 
 function TvcmTabbedContainersService.GetTabIcon(const aTab: Il3FormTab): Integer;
 //#UC START# *02157F96E465_5538940C00DD_var*
@@ -692,7 +634,7 @@ begin
 end;//TvcmTabbedContainersService.GetCurrentMainForm
 
 function TvcmTabbedContainersService.IsFormInContainer(aForm: TForm;
-  aContainer: TForm): Boolean;
+ aContainer: TForm): Boolean;
 //#UC START# *5E78F22AF1FF_5538940C00DD_var*
 //#UC END# *5E78F22AF1FF_5538940C00DD_var*
 begin
@@ -863,21 +805,32 @@ begin
 //#UC END# *F550802110EC_5538940C00DD_impl*
 end;//TvcmTabbedContainersService.CloseAll
 
-procedure TvcmTabbedContainersService.ClearFields;
- {-}
+class function TvcmTabbedContainersService.Instance: TvcmTabbedContainersService;
+ {* Метод получения экземпляра синглетона TvcmTabbedContainersService }
 begin
- {$If not defined(NoVCM)}
+ if (g_TvcmTabbedContainersService = nil) then
+ begin
+  l3System.AddExitProc(TvcmTabbedContainersServiceFree);
+  g_TvcmTabbedContainersService := Create;
+ end;
+ Result := g_TvcmTabbedContainersService;
+end;//TvcmTabbedContainersService.Instance
+
+class function TvcmTabbedContainersService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTabbedContainersService <> nil;
+end;//TvcmTabbedContainersService.Exists
+
+procedure TvcmTabbedContainersService.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvcmTabbedContainersService.ClearFields
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoVCM)}
-// Регистрация TvcmTabbedContainersDispatcher
  Tl3TabbedContainersDispatcher.Instance.Alien := TvcmTabbedContainersDispatcher.Instance;
-{$IfEnd} //not NoVCM
+ {* Регистрация TvcmTabbedContainersDispatcher }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

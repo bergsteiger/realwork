@@ -1,110 +1,42 @@
 {$IfNDef evCursor_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCursor.imp.pas"
-// Начат: 09.04.2009 20:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::evCursor
-//
-// "Совсем базовый" курсор
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursor.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evCursor" MUID: (49DE2726027E)
+// Имя типа: "_evCursor_"
 
 {$Define evCursor_imp}
-{$If defined(evUseVisibleCursors)}
+
+{$If Defined(evUseVisibleCursors)}
  _nevParentPointFactory_Parent_ = TevLocation;
- {$Include ..\Everest\nevParentPointFactory.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
  _nevParentPointFactoryEx_Parent_ = _nevParentPointFactory_;
- {$Include ..\Everest\nevParentPointFactoryEx.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}
  _nevParentPointHolder_Parent_ = _nevParentPointFactoryEx_;
- {$Include ..\Everest\nevParentPointHolder.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
  _nevMostInner_Parent_ = _nevParentPointHolder_;
- {$Include ..\Everest\nevMostInner.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
  _nevDiff_Parent_ = _nevMostInner_;
- {$Include ..\Everest\nevDiff.imp.pas}
- _evCursor_ = {mixin} class(_nevDiff_)
+ {$Include w:\common\components\gui\Garant\Everest\nevDiff.imp.pas}
+ _evCursor_ = class(_nevDiff_)
   {* "Совсем базовый" курсор }
- private
- // private fields
-   f_Position : TnevPosition;
-    {* Поле для свойства Position}
- protected
- // property methods
+  private
+   f_Position: TnevPosition;
+    {* Позиция курсора }
+  protected
    procedure pm_SetPosition(aValue: TnevPosition);
    function pm_GetAsLeaf: InevLeafPoint; virtual;
    function pm_GetShowCollapsed: Boolean; virtual;
    procedure pm_SetShowCollapsed(aValue: Boolean); virtual;
    function pm_GetLinkedPoint: InevLinkedPoint; virtual;
    function pm_GetListener: InevPointListener; virtual;
- protected
- // realized methods
-   procedure Set_PositionW(aValue: TnevPosition);
- public
- // realized methods
-   procedure AssignPoint(const aView: InevView;
-    const aPoint: InevBasePoint);
-   function DoMove(const aView: InevView;
-     aCode: Integer;
-     const anOp: InevOp;
-     aCount: Integer): TnevMoveResult;
-   function Move(const aView: InevView;
-     aCode: Cardinal;
-     const anOp: InevOp = nil;
-     aCount: Integer = 1): Boolean;
-   procedure Refresh;
-   procedure SetEntryPointPrim(Value: Integer;
-     const Context: IevCursorContext = nil);
-   procedure SetEntryPoint(Value: Integer;
-     const Context: IevCursorContext = nil); overload; 
-   procedure SetEntryPoint(aValue: Integer;
-     const aContext: InevOp); overload; 
-   function ToBottomChild(const aView: InevView): InevBasePoint;
-   procedure SetAtEnd(const aView: InevView;
-     aValue: Boolean);
-   procedure SetAtStart(const aView: InevView;
-     aValue: Boolean);
-   procedure DisableListener;
-     {* Отключает нотификацию об изменении }
-   procedure EnableListener;
-     {* Включает нотификацию об изменении }
- protected
- // overridden protected methods
-   procedure SetParentPoint(const aValue: InevBasePoint); override;
-   function DoJoinWith(const aView: InevView;
-    aSecondPara: Tl3Variant;
-    const anOp: InevOp;
-    MoveSubs: Boolean): Integer; override;
-   function DoSplit(const aView: InevView;
-    aFlags: TnevInsertStringFlags;
-    const anOp: InevOp): Il3TagRef; override;
-   function DoJoinWithNext(const aView: InevView;
-    const anOp: InevOp): Boolean; override;
-   function GetRange: InevRange; override;
-   function GetAsPoint: InevBasePoint; override;
-   function GetCanBeDeleted: Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
-   procedure DoForceStore; override;
- public
- // overridden public methods
-   class function StoreToOldCache: Boolean; override;
-   procedure Assign(Source: Tk2ToolPrim); override;
- protected
- // protected methods
    procedure DoAssignPoint(const aView: InevView;
     const aPoint: InevBasePoint); virtual;
    procedure SetInner(const aValue: InevBasePoint); virtual;
    procedure DoSetEntryPoint(aValue: Integer;
     const anOp: IevCursorContext = nil); virtual;
    function IsLeaf: Boolean; virtual;
-     {* Курсор от листьевого параграфа }
+    {* Курсор от листьевого параграфа }
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
@@ -129,60 +61,103 @@
    procedure DoEnableListener; virtual;
    procedure DoAssignPointInt(const aView: InevView;
     const aPoint: InevBasePoint); virtual;
- public
- // public methods
+   procedure Set_PositionW(aValue: TnevPosition);
+   procedure SetParentPoint(const aValue: InevBasePoint); override;
+   function DoJoinWith(const aView: InevView;
+    aSecondPara: Tl3Variant;
+    const anOp: InevOp;
+    MoveSubs: Boolean): Integer; override;
+   function DoSplit(const aView: InevView;
+    aFlags: TnevInsertStringFlags;
+    const anOp: InevOp): Il3TagRef; override;
+   function DoJoinWithNext(const aView: InevView;
+    const anOp: InevOp): Boolean; override;
+   function GetRange: InevRange; override;
+   function GetAsPoint: InevBasePoint; override;
+   function GetCanBeDeleted: Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+   procedure DoForceStore; override;
+  public
    procedure DoSetEntryPointPrim(Value: Integer;
     const Context: IevCursorContext = nil); virtual;
- protected
- // protected properties
+   procedure AssignPoint(const aView: InevView;
+    const aPoint: InevBasePoint);
+   function DoMove(const aView: InevView;
+    aCode: Integer;
+    const anOp: InevOp;
+    aCount: Integer): TnevMoveResult;
+   function Move(const aView: InevView;
+    aCode: Cardinal;
+    const anOp: InevOp = nil;
+    aCount: Integer = 1): Boolean;
+   procedure Refresh;
+   procedure SetEntryPointPrim(Value: Integer;
+    const Context: IevCursorContext = nil);
+   procedure SetEntryPoint(Value: Integer;
+    const Context: IevCursorContext = nil); overload;
+   procedure SetEntryPoint(aValue: Integer;
+    const aContext: InevOp); overload;
+   function ToBottomChild(const aView: InevView): InevBasePoint;
+   procedure SetAtEnd(const aView: InevView;
+    aValue: Boolean);
+   procedure SetAtStart(const aView: InevView;
+    aValue: Boolean);
+   procedure DisableListener;
+    {* Отключает нотификацию об изменении }
+   procedure EnableListener;
+    {* Включает нотификацию об изменении }
+   class function StoreToOldCache: Boolean; override;
+   procedure Assign(Source: Tk2ToolPrim); override;
+  protected
    property AsLeaf: InevLeafPoint
-     read pm_GetAsLeaf;
+    read pm_GetAsLeaf;
    property ShowCollapsed: Boolean
-     read pm_GetShowCollapsed
-     write pm_SetShowCollapsed;
+    read pm_GetShowCollapsed
+    write pm_SetShowCollapsed;
    property LinkedPoint: InevLinkedPoint
-     read pm_GetLinkedPoint;
+    read pm_GetLinkedPoint;
    property Listener: InevPointListener
-     read pm_GetListener;
- public
- // public properties
+    read pm_GetListener;
+  public
    property Position: TnevPosition
-     read f_Position
-     write pm_SetPosition;
-     {* Позиция курсора }
+    read f_Position
+    write pm_SetPosition;
+    {* Позиция курсора }
  end;//_evCursor_
-{$Else}
 
- _nevParentPointFactory_Parent_ = TevLocation;
- {$Include ..\Everest\nevParentPointFactory.imp.pas}
- _nevParentPointFactoryEx_Parent_ = _nevParentPointFactory_;
- {$Include ..\Everest\nevParentPointFactoryEx.imp.pas}
- _nevParentPointHolder_Parent_ = _nevParentPointFactoryEx_;
- {$Include ..\Everest\nevParentPointHolder.imp.pas}
- _nevMostInner_Parent_ = _nevParentPointHolder_;
- {$Include ..\Everest\nevMostInner.imp.pas}
- _nevDiff_Parent_ = _nevMostInner_;
- {$Include ..\Everest\nevDiff.imp.pas}
- _evCursor_ = _nevDiff_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParentPointFactory_Parent_ = TevLocation;
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
+_nevParentPointFactoryEx_Parent_ = _nevParentPointFactory_;
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}
+_nevParentPointHolder_Parent_ = _nevParentPointFactoryEx_;
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
+_nevMostInner_Parent_ = _nevParentPointHolder_;
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
+_nevDiff_Parent_ = _nevMostInner_;
+{$Include w:\common\components\gui\Garant\Everest\nevDiff.imp.pas}
+_evCursor_ = _nevDiff_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else evCursor_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef evCursor_imp_impl}
 
+{$Define evCursor_imp_impl}
 
-{$Include ..\Everest\nevParentPointFactory.imp.pas}
+{$If Defined(evUseVisibleCursors)}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
 
-{$Include ..\Everest\nevParentPointFactoryEx.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}
 
-{$Include ..\Everest\nevParentPointHolder.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
 
-{$Include ..\Everest\nevMostInner.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
 
-{$Include ..\Everest\nevDiff.imp.pas}
-
-// start class _evCursor_
+{$Include w:\common\components\gui\Garant\Everest\nevDiff.imp.pas}
 
 procedure _evCursor_.pm_SetPosition(aValue: TnevPosition);
 //#UC START# *49DEF7060313_49DE2726027Eset_var*
@@ -249,7 +224,7 @@ begin
 end;//_evCursor_.pm_GetListener
 
 procedure _evCursor_.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *49DE3CD8004F_49DE2726027E_var*
 //#UC END# *49DE3CD8004F_49DE2726027E_var*
 begin
@@ -279,7 +254,7 @@ begin
 end;//_evCursor_.SetInner
 
 procedure _evCursor_.DoSetEntryPointPrim(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *49E2F8F80062_49DE2726027E_var*
 //#UC END# *49E2F8F80062_49DE2726027E_var*
 begin
@@ -295,7 +270,7 @@ begin
 end;//_evCursor_.DoSetEntryPointPrim
 
 procedure _evCursor_.DoSetEntryPoint(aValue: Integer;
-  const anOp: IevCursorContext = nil);
+ const anOp: IevCursorContext = nil);
 //#UC START# *49E3126B030A_49DE2726027E_var*
 //#UC END# *49E3126B030A_49DE2726027E_var*
 begin
@@ -311,6 +286,7 @@ begin
 end;//_evCursor_.DoSetEntryPoint
 
 function _evCursor_.IsLeaf: Boolean;
+ {* Курсор от листьевого параграфа }
 //#UC START# *49E3153B017D_49DE2726027E_var*
 //#UC END# *49E3153B017D_49DE2726027E_var*
 begin
@@ -320,9 +296,9 @@ begin
 end;//_evCursor_.IsLeaf
 
 function _evCursor_.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_49DE2726027E_var*
 //#UC END# *49E31657038E_49DE2726027E_var*
 begin
@@ -332,7 +308,7 @@ begin
 end;//_evCursor_.DoMovePrim
 
 procedure _evCursor_.DoSetAtEnd(const aView: InevView;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *49E317B802F3_49DE2726027E_var*
 //#UC END# *49E317B802F3_49DE2726027E_var*
 begin
@@ -343,8 +319,8 @@ begin
 end;//_evCursor_.DoSetAtEnd
 
 function _evCursor_.DoProcessMessage(const aView: InevControlView;
-  var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ var aMessage: TMessage;
+ aTime: Cardinal): Boolean;
 //#UC START# *49E343F60057_49DE2726027E_var*
 //#UC END# *49E343F60057_49DE2726027E_var*
 begin
@@ -390,7 +366,7 @@ begin
 end;//_evCursor_.DoCheckPos
 
 function _evCursor_.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *49E34EDF0207_49DE2726027E_var*
 //#UC END# *49E34EDF0207_49DE2726027E_var*
 begin
@@ -409,7 +385,7 @@ begin
 end;//_evCursor_.GetReadOnly
 
 function _evCursor_.GetDeltaX(const aView: InevView;
-  const aMap: InevMap): Integer;
+ const aMap: InevMap): Integer;
 //#UC START# *49E3568201B9_49DE2726027E_var*
 //#UC END# *49E3568201B9_49DE2726027E_var*
 begin
@@ -459,7 +435,7 @@ begin
 end;//_evCursor_.DoEnableListener
 
 procedure _evCursor_.DoAssignPointInt(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *4BE284D00262_49DE2726027E_var*
 var
  l_CP : InevBasePoint;
@@ -490,7 +466,7 @@ begin
 end;//_evCursor_.DoAssignPointInt
 
 procedure _evCursor_.AssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *47C5C25C022F_49DE2726027E_var*
 //#UC END# *47C5C25C022F_49DE2726027E_var*
 begin
@@ -500,9 +476,9 @@ begin
 end;//_evCursor_.AssignPoint
 
 function _evCursor_.DoMove(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *47C689E90006_49DE2726027E_var*
 //#UC END# *47C689E90006_49DE2726027E_var*
 begin
@@ -515,9 +491,9 @@ begin
 end;//_evCursor_.DoMove
 
 function _evCursor_.Move(const aView: InevView;
-  aCode: Cardinal;
-  const anOp: InevOp = nil;
-  aCount: Integer = 1): Boolean;
+ aCode: Cardinal;
+ const anOp: InevOp = nil;
+ aCount: Integer = 1): Boolean;
 //#UC START# *47C68A010279_49DE2726027E_var*
 //#UC END# *47C68A010279_49DE2726027E_var*
 begin
@@ -540,7 +516,7 @@ begin
 end;//_evCursor_.Refresh
 
 procedure _evCursor_.SetEntryPointPrim(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *47C68A160190_49DE2726027E_var*
 //#UC END# *47C68A160190_49DE2726027E_var*
 begin
@@ -550,7 +526,7 @@ begin
 end;//_evCursor_.SetEntryPointPrim
 
 procedure _evCursor_.SetEntryPoint(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *47C68A220200_49DE2726027E_var*
 //#UC END# *47C68A220200_49DE2726027E_var*
 begin
@@ -560,7 +536,7 @@ begin
 end;//_evCursor_.SetEntryPoint
 
 procedure _evCursor_.SetEntryPoint(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *47C68A2E00EC_49DE2726027E_var*
 var
  l_CursorContext: IevCursorContext;
@@ -597,7 +573,7 @@ begin
 end;//_evCursor_.Set_PositionW
 
 procedure _evCursor_.SetAtEnd(const aView: InevView;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *4803044303DC_49DE2726027E_var*
 //#UC END# *4803044303DC_49DE2726027E_var*
 begin
@@ -608,7 +584,7 @@ begin
 end;//_evCursor_.SetAtEnd
 
 procedure _evCursor_.SetAtStart(const aView: InevView;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *4803045B0109_49DE2726027E_var*
 //#UC END# *4803045B0109_49DE2726027E_var*
 begin
@@ -619,6 +595,7 @@ begin
 end;//_evCursor_.SetAtStart
 
 procedure _evCursor_.DisableListener;
+ {* Отключает нотификацию об изменении }
 //#UC START# *4A4C856300DF_49DE2726027E_var*
 //#UC END# *4A4C856300DF_49DE2726027E_var*
 begin
@@ -628,6 +605,7 @@ begin
 end;//_evCursor_.DisableListener
 
 procedure _evCursor_.EnableListener;
+ {* Включает нотификацию об изменении }
 //#UC START# *4A4C8581014B_49DE2726027E_var*
 //#UC END# *4A4C8581014B_49DE2726027E_var*
 begin
@@ -666,9 +644,9 @@ begin
 end;//_evCursor_.SetParentPoint
 
 function _evCursor_.DoJoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp;
-  MoveSubs: Boolean): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp;
+ MoveSubs: Boolean): Integer;
 //#UC START# *49DEFB410161_49DE2726027E_var*
 //#UC END# *49DEFB410161_49DE2726027E_var*
 begin
@@ -678,8 +656,8 @@ begin
 end;//_evCursor_.DoJoinWith
 
 function _evCursor_.DoSplit(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *49DEFB770015_49DE2726027E_var*
 //#UC END# *49DEFB770015_49DE2726027E_var*
 begin
@@ -689,7 +667,7 @@ begin
 end;//_evCursor_.DoSplit
 
 function _evCursor_.DoJoinWithNext(const aView: InevView;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *49DF4C6E0101_49DE2726027E_var*
 //#UC END# *49DF4C6E0101_49DE2726027E_var*
 begin
@@ -735,7 +713,8 @@ begin
 end;//_evCursor_.GetCanBeDeleted
 
 function _evCursor_.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_49DE2726027E_var*
 var
  l_Parent  : InevBasePoint;
@@ -825,7 +804,9 @@ begin
  inherited;
 //#UC END# *5321B9DF011A_49DE2726027E_impl*
 end;//_evCursor_.DoForceStore
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf evCursor_imp_impl}
 
 {$EndIf evCursor_imp}
+

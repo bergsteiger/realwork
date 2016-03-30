@@ -1,58 +1,50 @@
 unit evParaCursor;
+ {* Базовый класс для реализации курсора параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaCursor.pas"
-// Начат: 16.12.2002 18:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevParaCursor
-//
-// Базовый класс для реализации курсора параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaCursor" MUID: (49DE22650362)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  nevTools,
-  evCursor,
-  evMarker,
-  nevBase,
-  l3Core,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evCursor
+ , nevTools
+ , l3Interfaces
+ , evMarker
+ , l3Variant
+ , nevBase
+ , l3Core
+;
 
-{$If defined(evUseVisibleCursors)}
 type
- TevParaCursor = class(TevCursor {$If defined(evNeedMarkers)}, IevMarkersSource{$IfEnd} //evNeedMarkers
+ TevParaCursor = class(TevCursor{$If Defined(evNeedMarkers)}
+ , IevMarkersSource
+ {$IfEnd} // Defined(evNeedMarkers)
  )
   {* Базовый класс для реализации курсора параграфа }
- protected
- // realized methods
-    {$If defined(evNeedMarkers)}
+  protected
+   {$If Defined(evNeedMarkers)}
+   procedure AddMarker(const aView: InevView;
+    const aList: IevMarkersList;
+    aType: Integer;
+    aStyle: TevParaMarkerStyle;
+    const aHint: Il3CString;
+    aMarkerClass: RevMarker = nil);
+   {$IfEnd} // Defined(evNeedMarkers)
+   {$If Defined(evNeedMarkers)}
+   procedure DoGetMarkers(const aView: InevView;
+    const aList: IevMarkersList); virtual;
+   {$IfEnd} // Defined(evNeedMarkers)
+   {$If Defined(evNeedMarkers)}
    procedure GetMarkers(const aView: InevView;
-     const aList: IevMarkersList);
-     {* получить маркеры из источника в aList. }
-    {$IfEnd} //evNeedMarkers
- protected
- // overridden property methods
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
-   function pm_GetMarkersSource: IevMarkersSource; override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
- protected
- // overridden protected methods
+    const aList: IevMarkersList);
+    {* получить маркеры из источника в aList. }
+   {$IfEnd} // Defined(evNeedMarkers)
    function DoDeleteCharToLeft(const aView: InevView;
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
@@ -64,47 +56,32 @@ type
    function DoGetFont(const aView: InevView;
     aMap: TnevFormatInfoPrim;
     Stop: PInteger): InevFontPrim; override;
- protected
- // protected methods
-    {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
-   procedure AddMarker(const aView: InevView;
-     const aList: IevMarkersList;
-     aType: Integer;
-     aStyle: TevParaMarkerStyle;
-     const aHint: Il3CString;
-     aMarkerClass: RevMarker = nil);
-    {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
-   procedure DoGetMarkers(const aView: InevView;
-    const aList: IevMarkersList); virtual;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+   {$If Defined(evNeedMarkers)}
+   function pm_GetMarkersSource: IevMarkersSource; override;
+   {$IfEnd} // Defined(evNeedMarkers)
  end;//TevParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  SysUtils,
-  k2Tags,
-  evExcept,
-  evOp,
-  nevInterfaces,
-  k2Base
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , evExcept
+ , evOp
+ , nevInterfaces
+ , k2Base
+ , SysUtils
+ , k2Tags
+;
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevParaCursor
-
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevParaCursor.AddMarker(const aView: InevView;
-  const aList: IevMarkersList;
-  aType: Integer;
-  aStyle: TevParaMarkerStyle;
-  const aHint: Il3CString;
-  aMarkerClass: RevMarker = nil);
+ const aList: IevMarkersList;
+ aType: Integer;
+ aStyle: TevParaMarkerStyle;
+ const aHint: Il3CString;
+ aMarkerClass: RevMarker = nil);
 //#UC START# *4A38AA9702EC_49DE22650362_var*
 var
  l_Marker : TevMarker;
@@ -123,11 +100,11 @@ begin
  end;//not GetRedirect.Prop[aType].ReadOnly
 //#UC END# *4A38AA9702EC_49DE22650362_impl*
 end;//TevParaCursor.AddMarker
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevParaCursor.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_49DE22650362_var*
 //#UC END# *4A38AA5C019F_49DE22650362_var*
 begin
@@ -143,11 +120,12 @@ begin
  end;//GetRedirect.TagType
 //#UC END# *4A38AA5C019F_49DE22650362_impl*
 end;//TevParaCursor.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
-{$If defined(evNeedMarkers)}
+{$If Defined(evNeedMarkers)}
 procedure TevParaCursor.GetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
+ {* получить маркеры из источника в aList. }
 //#UC START# *47C689AE016E_49DE22650362_var*
 var
  l_I  : InevBasePoint;
@@ -168,11 +146,11 @@ begin
  end;//aList <> nil
 //#UC END# *47C689AE016E_49DE22650362_impl*
 end;//TevParaCursor.GetMarkers
-{$IfEnd} //evNeedMarkers
+{$IfEnd} // Defined(evNeedMarkers)
 
 function TevParaCursor.DoDeleteCharToLeft(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29419B0319_49DE22650362_var*
 var
  l_DC : InevText;
@@ -219,9 +197,9 @@ begin
 end;//TevParaCursor.DoGetStyle
 
 function TevParaCursor.DoChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29465701BC_49DE22650362_var*
 //#UC END# *4A29465701BC_49DE22650362_var*
 begin
@@ -237,8 +215,8 @@ begin
 end;//TevParaCursor.DoChangeParam
 
 function TevParaCursor.DoGetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger): InevFontPrim;
 //#UC START# *4A29477801BF_49DE22650362_var*
 var
  l_CP  : InevBasePoint;
@@ -261,7 +239,7 @@ begin
 //#UC END# *4A29477801BF_49DE22650362_impl*
 end;//TevParaCursor.DoGetFont
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 function TevParaCursor.pm_GetMarkersSource: IevMarkersSource;
 //#UC START# *4A38BC2D00FB_49DE22650362get_var*
 //#UC END# *4A38BC2D00FB_49DE22650362get_var*
@@ -270,8 +248,7 @@ begin
  Result := Self;
 //#UC END# *4A38BC2D00FB_49DE22650362get_impl*
 end;//TevParaCursor.pm_GetMarkersSource
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
-{$IfEnd} //evUseVisibleCursors
-
+{$IfEnd} // Defined(evUseVisibleCursors)
 end.

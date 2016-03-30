@@ -1,52 +1,34 @@
 unit evMultiSelectionRange;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelectionRange.pas"
-// Начат: 08.10.2008 19:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMultiSelectionRange
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionRange.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionRange" MUID: (48ECD38B0204)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevRangeList,
-  evMultiSelectionLocation,
-  evdInterfaces,
-  l3Variant,
-  l3IID,
-  nevBase,
-  evTypes,
-  l3Interfaces,
-  l3Types
-  ;
+ l3IntfUses
+ , evMultiSelectionLocation
+ , nevTools
+ , nevRangeList
+ , evdInterfaces
+ , l3Variant
+ , nevBase
+ , evTypes
+ , l3Interfaces
+ , l3IID
+;
 
 type
  TevMultiSelectionRange = class(TevMultiSelectionLocation, InevRange, InevRangeModify)
- private
- // private fields
-   f_Blocks : TnevRangeList;
-    {* Поле для свойства Blocks}
- protected
- // realized methods
-   {iterator} function Iterate(anAction: InevRangePrim_Iterate_Action;
-    aStart: Integer = l3MinIndex): Integer; virtual;
-     {* Итератор по вложенным выделенным объектам }
-   {iterator} function IterateF(anAction: InevRangePrim_Iterate_Action;
-    aStart: Integer = l3MinIndex): Integer;
-     {* Итератор по вложенным выделенным объектам }
+  private
+   f_Blocks: TnevRangeList;
+    {* Поле для свойства Blocks }
+  protected
+   function GetData: IevdDataObject; virtual; abstract;
+   function GetAsStorable: InevDataObjectPrim2; virtual; abstract;
    function SolidBottomChildBlock(const aView: InevView): InevRange;
    function GetChildSel(const aView: InevView;
     aChildIndex: Integer;
@@ -56,9 +38,9 @@ type
    function BottomChildBlock(const aView: InevView): InevRange;
    function CloneSel(const aView: InevView): InevRange;
    function Delete(const aView: InevView;
-     const anOp: InevOp = nil;
-     aMode: TevClearMode = ev_cmAll;
-     const aPara: InevPara = nil): Boolean;
+    const anOp: InevOp = nil;
+    aMode: TevClearMode = ev_cmAll;
+    const aPara: InevPara = nil): Boolean;
    function Modify: InevRangeModify;
    function ParentRange(aLevel: Integer = 0): InevRange;
    function Contains(const aView: InevView;
@@ -66,12 +48,12 @@ type
    procedure Select(const aView: InevView;
     const C: InevBasePoint;
     aTarget: TevSelectTarget;
-    const Ctx: InevOp = nil); overload; 
+    const Ctx: InevOp = nil); overload;
    procedure Select(const aView: InevView;
     const C: InevBasePoint;
     aOpen: Integer;
     aClose: Integer;
-    const Ctx: InevOp = nil); overload; 
+    const Ctx: InevOp = nil); overload;
    function pm_GetBorders: TevPair;
    function pm_GetData: IevdDataObject;
    function Solid(const aView: InevView): Boolean;
@@ -80,70 +62,59 @@ type
    function AsStorable: InevDataObjectPrim2;
    function GetRange: InevRange; override;
    procedure RefreshBorders;
-     {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
- public
- // realized methods
-   function SearchReplace(const aSearcher: IevSearcher;
-     const aReplacer: IevReplacer;
-     const aConfirm: InevConfirm;
-     const aCursor: InevBasePoint = nil;
-     const anOpPack: InevOp = nil;
-     aNeedProgress: Boolean = true): Boolean;
-     {* процесс поиска/замены. Возвращает - была ли отмена замены. }
-   function Search(const aView: InevView;
-     const aSearcher: IevSearcher;
-     const Progress: Il3Progress;
-     const aStart: InevBasePoint;
-     out cFStart: InevBasePoint;
-     out cFFinish: InevBasePoint): Boolean;
-     {* ищет в выделении критерий ОnSearch
-             и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
- protected
- // overridden protected methods
+    {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- protected
- // protected methods
-   function GetData: IevdDataObject; virtual; abstract;
-   function GetAsStorable: InevDataObjectPrim2; virtual; abstract;
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(aTagWrap: Tl3Variant;
     aBlocks: TnevRangeList); reintroduce;
    class function Make(aTagWrap: Tl3Variant;
     aBlocks: TnevRangeList): InevRange;
    class function MakePrim(aTagWrap: Tl3Variant;
     aBlocks: TnevRangeList): InevRange; reintroduce;
- protected
- // protected properties
+   function SearchReplace(const aSearcher: IevSearcher;
+    const aReplacer: IevReplacer;
+    const aConfirm: InevConfirm;
+    const aCursor: InevBasePoint = nil;
+    const anOpPack: InevOp = nil;
+    aNeedProgress: Boolean = True): Boolean;
+    {* процесс поиска/замены. Возвращает - была ли отмена замены. }
+   function Search(const aView: InevView;
+    const aSearcher: IevSearcher;
+    const Progress: Il3Progress;
+    const aStart: InevBasePoint;
+    out cFStart: InevBasePoint;
+    out cFFinish: InevBasePoint): Boolean;
+    {* ищет в выделении критерий ОnSearch
+             и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
+  protected
    property Blocks: TnevRangeList
-     read f_Blocks;
-     {* список блоков выделения }
+    read f_Blocks;
+    {* список блоков выделения }
  end;//TevMultiSelectionRange
 
 implementation
 
 uses
-  l3Base,
-  k2Tags,
-  evLeafParaMultiSelectionBlock,
-  evTextParaMultiSelectionBlock,
-  nevNavigation,
-  evExcept,
-  evMultiSelectionBlock,
-  nevFacade,
-  SysUtils,
-  LeafPara_Const,
-  TextPara_Const
-  ;
-
-// start class TevMultiSelectionRange
+ l3ImplUses
+ , l3Base
+ , k2Tags
+ , evLeafParaMultiSelectionBlock
+ , evTextParaMultiSelectionBlock
+ , nevNavigation
+ , evExcept
+ , evMultiSelectionBlock
+ , nevFacade
+ , SysUtils
+ , LeafPara_Const
+ , TextPara_Const
+;
 
 constructor TevMultiSelectionRange.Create(aTagWrap: Tl3Variant;
-  aBlocks: TnevRangeList);
+ aBlocks: TnevRangeList);
 //#UC START# *48ECD4B70275_48ECD38B0204_var*
 //#UC END# *48ECD4B70275_48ECD38B0204_var*
 begin
@@ -154,7 +125,7 @@ begin
 end;//TevMultiSelectionRange.Create
 
 class function TevMultiSelectionRange.Make(aTagWrap: Tl3Variant;
-  aBlocks: TnevRangeList): InevRange;
+ aBlocks: TnevRangeList): InevRange;
 //#UC START# *48ECD60002E0_48ECD38B0204_var*
 //#UC END# *48ECD60002E0_48ECD38B0204_var*
 begin
@@ -176,7 +147,7 @@ begin
 end;//TevMultiSelectionRange.Make
 
 class function TevMultiSelectionRange.MakePrim(aTagWrap: Tl3Variant;
-  aBlocks: TnevRangeList): InevRange;
+ aBlocks: TnevRangeList): InevRange;
 var
  l_Inst : TevMultiSelectionRange;
 begin
@@ -186,7 +157,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevMultiSelectionRange.MakePrim
 
 function TevMultiSelectionRange.SolidBottomChildBlock(const aView: InevView): InevRange;
 //#UC START# *47C690AB02EE_48ECD38B0204_var*
@@ -199,8 +170,8 @@ begin
 end;//TevMultiSelectionRange.SolidBottomChildBlock
 
 function TevMultiSelectionRange.GetChildSel(const aView: InevView;
-  aChildIndex: Integer;
-  aForDrawing: Boolean): InevRange;
+ aChildIndex: Integer;
+ aForDrawing: Boolean): InevRange;
 //#UC START# *47C691F0012A_48ECD38B0204_var*
 
 var
@@ -261,7 +232,7 @@ begin
 end;//TevMultiSelectionRange.GetChildSel
 
 procedure TevMultiSelectionRange.GetBorderPoints(out BS: InevBasePoint;
-  out BF: InevBasePoint);
+ out BF: InevBasePoint);
 //#UC START# *47C691FB0055_48ECD38B0204_var*
 var
  l_Start  : InevBasePoint;
@@ -314,9 +285,9 @@ begin
 end;//TevMultiSelectionRange.CloneSel
 
 function TevMultiSelectionRange.Delete(const aView: InevView;
-  const anOp: InevOp = nil;
-  aMode: TevClearMode = ev_cmAll;
-  const aPara: InevPara = nil): Boolean;
+ const anOp: InevOp = nil;
+ aMode: TevClearMode = ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *47C6928C0243_48ECD38B0204_var*
 
  function lp_Delete(const aRef : PIUnknown; anIndex: Integer): Boolean;
@@ -355,7 +326,7 @@ begin
 end;//TevMultiSelectionRange.ParentRange
 
 function TevMultiSelectionRange.Contains(const aView: InevView;
-  const aPoint: InevBasePoint): Boolean;
+ const aPoint: InevBasePoint): Boolean;
 //#UC START# *47C692CC024C_48ECD38B0204_var*
 
  function _DoChild(aBlock: PIUnknown; anIndex: Long): Boolean;
@@ -375,9 +346,9 @@ begin
 end;//TevMultiSelectionRange.Contains
 
 procedure TevMultiSelectionRange.Select(const aView: InevView;
-  const C: InevBasePoint;
-  aTarget: TevSelectTarget;
-  const Ctx: InevOp = nil);
+ const C: InevBasePoint;
+ aTarget: TevSelectTarget;
+ const Ctx: InevOp = nil);
 //#UC START# *47C6960502ED_48ECD38B0204_var*
 //#UC END# *47C6960502ED_48ECD38B0204_var*
 begin
@@ -388,10 +359,10 @@ begin
 end;//TevMultiSelectionRange.Select
 
 procedure TevMultiSelectionRange.Select(const aView: InevView;
-  const C: InevBasePoint;
-  aOpen: Integer;
-  aClose: Integer;
-  const Ctx: InevOp = nil);
+ const C: InevBasePoint;
+ aOpen: Integer;
+ aClose: Integer;
+ const Ctx: InevOp = nil);
 //#UC START# *47C696160251_48ECD38B0204_var*
 //#UC END# *47C696160251_48ECD38B0204_var*
 begin
@@ -499,11 +470,12 @@ begin
 end;//TevMultiSelectionRange.GetRange
 
 function TevMultiSelectionRange.SearchReplace(const aSearcher: IevSearcher;
-  const aReplacer: IevReplacer;
-  const aConfirm: InevConfirm;
-  const aCursor: InevBasePoint = nil;
-  const anOpPack: InevOp = nil;
-  aNeedProgress: Boolean = true): Boolean;
+ const aReplacer: IevReplacer;
+ const aConfirm: InevConfirm;
+ const aCursor: InevBasePoint = nil;
+ const anOpPack: InevOp = nil;
+ aNeedProgress: Boolean = True): Boolean;
+ {* процесс поиска/замены. Возвращает - была ли отмена замены. }
 //#UC START# *49E83F480351_48ECD38B0204_var*
 var
  i,
@@ -547,11 +519,13 @@ begin
 end;//TevMultiSelectionRange.SearchReplace
 
 function TevMultiSelectionRange.Search(const aView: InevView;
-  const aSearcher: IevSearcher;
-  const Progress: Il3Progress;
-  const aStart: InevBasePoint;
-  out cFStart: InevBasePoint;
-  out cFFinish: InevBasePoint): Boolean;
+ const aSearcher: IevSearcher;
+ const Progress: Il3Progress;
+ const aStart: InevBasePoint;
+ out cFStart: InevBasePoint;
+ out cFFinish: InevBasePoint): Boolean;
+ {* ищет в выделении критерий ОnSearch
+             и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
 //#UC START# *49E843B10236_48ECD38B0204_var*
 //#UC END# *49E843B10236_48ECD38B0204_var*
 begin
@@ -562,6 +536,7 @@ begin
 end;//TevMultiSelectionRange.Search
 
 procedure TevMultiSelectionRange.RefreshBorders;
+ {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
 //#UC START# *50B727F00221_48ECD38B0204_var*
 //#UC END# *50B727F00221_48ECD38B0204_var*
 begin
@@ -571,6 +546,7 @@ begin
 end;//TevMultiSelectionRange.RefreshBorders
 
 procedure TevMultiSelectionRange.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48ECD38B0204_var*
 //#UC END# *479731C50290_48ECD38B0204_var*
 begin
@@ -581,7 +557,8 @@ begin
 end;//TevMultiSelectionRange.Cleanup
 
 function TevMultiSelectionRange.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48ECD38B0204_var*
 var
  l_HyperLink : IevHyperLink;
@@ -623,84 +600,5 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_48ECD38B0204_impl*
 end;//TevMultiSelectionRange.COMQueryInterface
-
-{iterator} function TevMultiSelectionRange.Iterate(anAction: InevRangePrim_Iterate_Action;
-  aStart: Integer = l3MinIndex): Integer;
-//#UC START# *4BA8DE8C03D8_48ECD38B0204_var*
-
- function DoChild(const aChild: InevRange; anIndex: Long): Boolean;
- var
-  l_Sel  : InevRange;
-  l_Para : InevPara;
- begin//DoChild
-  if aChild.Obj.AsObject.QT(InevPara, l_Para) then
-   try
-    l_Sel := GetChildSel(nil, l_Para.PID, False);
-    if (l_Sel = nil) then
-     Result := true
-    else
-     Result := anAction(l_Sel, anIndex);
-   finally
-    l_Para := nil;
-   end//try..finally
-  else
-   Result := true; 
- end;//DoChild
-
-var
- l_Start  : InevBasePoint;
- l_Finish : InevBasePoint;
- l_Fake   : InevBasePoint;
- l_Block  : InevRange;
- l_Para   : InevPara;
-//#UC END# *4BA8DE8C03D8_48ECD38B0204_var*
-begin
-//#UC START# *4BA8DE8C03D8_48ECD38B0204_impl*
- if (f_Blocks = nil) OR f_Blocks.Empty then
- begin
-  l_Start := nil;
-  l_Start := nil;
- end//f_Blocks = nil..
- else
- begin
-  if (f_Blocks.Count = 1) then
-   f_Blocks.First.GetBorderPoints(l_Start, l_Finish)
-  else
-  begin
-   f_Blocks.First.GetBorderPoints(l_Start, l_Fake);
-   f_Blocks.Last.GetBorderPoints(l_Fake, l_Finish);
-  end;//f_Blocks.Count = 1
- end;//f_Blocks = nil..
- if QT(InevPara, l_Para) then
-  try
-   try
-    l_Block := l_Para.Range(l_Start, l_Finish);
-    Result := l_Block.IterateF(evL2TSA(@DoChild), aStart)
-   finally
-    l_Block := nil;
-   end;//try..finally
-  finally
-   l_Para := nil;
-  end//try..finally
- else
- begin
-  Result := -1;
-  Assert(false);
- end;//QT(InevPara, l_Para)
-//#UC END# *4BA8DE8C03D8_48ECD38B0204_impl*
-end;//TevMultiSelectionRange.Iterate
-
-{iterator} function TevMultiSelectionRange.IterateF(anAction: InevRangePrim_Iterate_Action;
-  aStart: Integer = l3MinIndex): Integer;
-var
- Hack : Pointer absolute anAction;
-begin
- try
-  Result := Iterate(anAction, aStart);
- finally
-  l3FreeLocalStub(Hack);
- end;//try..finally
-end;
-
 
 end.

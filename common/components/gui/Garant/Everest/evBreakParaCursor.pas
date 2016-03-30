@@ -1,44 +1,35 @@
 unit evBreakParaCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evBreakParaCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevBreakParaCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evBreakParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevBreakParaCursor" MUID: (4B1D20D500C2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evSolidParaCursor,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evSolidParaCursor
+ , nevTools
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _nevBreakParaAnchorModify_Parent_ = TevSolidParaCursor;
- {$Include ..\Everest\nevBreakParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
  TevBreakParaCursor = class(_nevBreakParaAnchorModify_)
  end;//TevBreakParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
 
-{$Include ..\Everest\nevBreakParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-
-{$IfEnd} //evUseVisibleCursors
 end.

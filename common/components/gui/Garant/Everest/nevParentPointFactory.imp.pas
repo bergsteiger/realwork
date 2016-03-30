@@ -1,42 +1,35 @@
 {$IfNDef nevParentPointFactory_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevParentPointFactory.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevParentPointFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevParentPointFactory" MUID: (49D251E600DA)
+// Имя типа: "_nevParentPointFactory_"
 
 {$Define nevParentPointFactory_imp}
-{$If defined(evUseVisibleCursors)}
- _nevParentPointFactory_ = {mixin} class(_nevParentPointFactory_Parent_)
- protected
- // realized methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevParentPointFactory_ = class(_nevParentPointFactory_Parent_)
+  protected
    function pm_GetTopParentPoint: InevBasePoint;
- public
- // realized methods
+  public
    function PointToParent(const aThisTarget: InevObjectPrim = nil;
-     aNeedShowCollapsed: Boolean = false): InevBasePoint;
+    aNeedShowCollapsed: Boolean = False): InevBasePoint;
  end;//_nevParentPointFactory_
-{$Else}
 
- _nevParentPointFactory_ = _nevParentPointFactory_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParentPointFactory_ = _nevParentPointFactory_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevParentPointFactory_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevParentPointFactory_imp_impl}
 
-// start class _nevParentPointFactory_
+{$Define nevParentPointFactory_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevParentPointFactory_.PointToParent(const aThisTarget: InevObjectPrim = nil;
-  aNeedShowCollapsed: Boolean = false): InevBasePoint;
+ aNeedShowCollapsed: Boolean = False): InevBasePoint;
 //#UC START# *49D218B9032C_49D251E600DA_var*
 var
  l_ParentCursor  : InevBasePoint;
@@ -88,7 +81,9 @@ begin
   Result := Result.ParentPoint;
 //#UC END# *49D24386014E_49D251E600DAget_impl*
 end;//_nevParentPointFactory_.pm_GetTopParentPoint
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevParentPointFactory_imp_impl}
 
 {$EndIf nevParentPointFactory_imp}
+

@@ -1,47 +1,36 @@
 unit nevDocumentPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevDocumentPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevDocumentPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentPart" MUID: (4F87E8B50206)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevParaList,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaList
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevDocumentPart = class(TnevParaList)
- protected
- // overridden protected methods
+  protected
    function GetAppliesToMaxWidth: Boolean; override;
    function GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
     aHiddenStyles: TnevStandardStyles): Boolean; override;
    function TreatCollapsedAsHidden: Boolean; override;
  end;//TnevDocumentPart
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TnevDocumentPart
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 function TnevDocumentPart.GetAppliesToMaxWidth: Boolean;
 //#UC START# *48CFB17F03A2_4F87E8B50206_var*
@@ -53,7 +42,7 @@ begin
 end;//TnevDocumentPart.GetAppliesToMaxWidth
 
 function TnevDocumentPart.GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48CFB1F5024F_4F87E8B50206_var*
 //#UC END# *48CFB1F5024F_4F87E8B50206_var*
 begin
@@ -70,7 +59,6 @@ begin
  Result := False;
 //#UC END# *4D596369028C_4F87E8B50206_impl*
 end;//TnevDocumentPart.TreatCollapsedAsHidden
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

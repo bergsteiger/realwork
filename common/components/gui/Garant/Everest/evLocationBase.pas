@@ -1,111 +1,31 @@
 unit evLocationBase;
+ {* Базовый объект для диапазонов в документе (курсоров и блоков) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evLocationBase.pas"
-// Начат: 01.06.2005 18:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevLocationBase
-//
-// Базовый объект для диапазонов в документе (курсоров и блоков)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evLocationBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevLocationBase" MUID: (47F4D44C01BF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  nevBase,
-  k2TagPointer,
-  l3Core,
-  nevTools,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , k2TagPointer
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3Core
+ , l3Interfaces
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _nevParaTool_Parent_ = Tk2TagPointer;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  TevLocationBase = class(_nevParaTool_, InevTextModify, InevLocation, InevDataFormatting, InevDataFormattingModify, IevDocumentPoint)
   {* Базовый объект для диапазонов в документе (курсоров и блоков) }
- protected
- // realized methods
-   function InsertString(const aView: InevView;
-      const aString: Il3CString;
-      const anOp: InevOp = nil;
-      InsertMode: Boolean = true;
-      aFlags: TnevInsertStringFlags = []): Boolean;
-     {* вставляет строку. }
-   function InsertStream(const aView: InevView;
-      const aStream: IStream;
-      aFormat: TnevFormat;
-      const anOp: InevOp = nil;
-      aFlags: TevLoadFlags = evDefaultLoadFlags;
-      aCodePage: Integer = CP_DefaultValue): Boolean;
-   function DeleteString(const aView: InevView;
-      Count: Integer;
-      const anOp: InevOp = nil;
-      aFlags: TnevInsertStringFlags = []): Boolean;
-     {* удаляет строку. }
-   function DeleteChar(const aView: InevView;
-      aDrawLines: Boolean;
-      const anOp: InevOp): Boolean;
-   function InsertBreak(const aView: InevView;
-      aDrawLines: Boolean = false;
-      const anOp: InevOp = nil): Boolean;
-   function DeleteCharToLeft(const aView: InevView;
-      aDrawLines: Boolean = false;
-      const anOp: InevOp = nil): Boolean;
-   function Split(const aView: InevView;
-      aFlags: TnevInsertStringFlags;
-      const anOp: InevOp): Il3TagRef;
-   function JoinWith(const aView: InevView;
-      aSecondPara: Tl3Variant;
-      const anOp: InevOp = nil;
-      MoveSubs: Boolean = true): Integer;
-   function JoinWithNext(const aView: InevView;
-      const anOp: InevOp = nil): Boolean;
-   function Range: InevRange;
-   function pm_GetFormatting: InevDataFormatting;
-   function GetFont(const aView: InevView;
-    aMap: TnevFormatInfoPrim;
-    Stop: PInteger = nil): InevFontPrim;
-   function GetStyle(Stop: PInteger = nil): Tl3Variant;
-   function Modify(const aView: InevView): InevDataFormattingModify;
-   function SetAtom(const aView: InevView;
-     anIndex: Cardinal;
-     aValue: Tl3Variant;
-     const anOp: InevOp): Boolean;
-   function ChangeParam(const aView: InevView;
-     const aMarker: IevMarker;
-     aValue: Integer;
-     const anOp: InevOp = nil): Boolean;
-   function DeleteHyperlink(const anOp: InevOp = nil): Boolean;
-   function DeleteSegments(const anOp: InevOp = nil): Boolean;
-     {* удаляет сегменты. }
-   function Select(const Selection: InevSelection): Boolean;
-     {* перемещает Selection на данную метку. }
-   function AddIndentMarker(const aView: InevView;
-     aValue: Integer;
-     const anOpPack: InevOp = nil): Boolean;
-   function DeleteIndentMarker(const aView: InevView;
-     const anOpPack: InevOp = nil): Boolean;
-   function Get_Obj: PInevObject;
-   function pm_GetText: InevText;
-   function AsPoint: InevBasePoint;
- protected
- // protected methods
+  protected
    function TagWriter: InevTagWriter;
    function DoJoinWith(const aView: InevView;
     aSecondPara: Tl3Variant;
@@ -165,25 +85,86 @@ type
     aFlags: TevLoadFlags;
     aCodePage: Integer): Boolean; virtual;
    function DoDeleteSegments(const anOpPack: InevOp): Boolean; virtual;
+   function InsertString(const aView: InevView;
+    const aString: Il3CString;
+    const anOp: InevOp = nil;
+    InsertMode: Boolean = True;
+    aFlags: TnevInsertStringFlags = []): Boolean;
+    {* вставляет строку. }
+   function InsertStream(const aView: InevView;
+    const aStream: IStream;
+    aFormat: TnevFormat;
+    const anOp: InevOp = nil;
+    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+    aCodePage: Integer = CP_DefaultValue): Boolean;
+   function DeleteString(const aView: InevView;
+    Count: Integer;
+    const anOp: InevOp = nil;
+    aFlags: TnevInsertStringFlags = []): Boolean;
+    {* удаляет строку. }
+   function DeleteChar(const aView: InevView;
+    aDrawLines: Boolean;
+    const anOp: InevOp): Boolean;
+   function InsertBreak(const aView: InevView;
+    aDrawLines: Boolean = False;
+    const anOp: InevOp = nil): Boolean;
+   function DeleteCharToLeft(const aView: InevView;
+    aDrawLines: Boolean = False;
+    const anOp: InevOp = nil): Boolean;
+   function Split(const aView: InevView;
+    aFlags: TnevInsertStringFlags;
+    const anOp: InevOp): Il3TagRef;
+   function JoinWith(const aView: InevView;
+    aSecondPara: Tl3Variant;
+    const anOp: InevOp = nil;
+    MoveSubs: Boolean = True): Integer;
+   function JoinWithNext(const aView: InevView;
+    const anOp: InevOp = nil): Boolean;
+   function Range: InevRange;
+   function pm_GetFormatting: InevDataFormatting;
+   function GetFont(const aView: InevView;
+    aMap: TnevFormatInfoPrim;
+    Stop: PInteger = nil): InevFontPrim;
+   function GetStyle(Stop: PInteger = nil): Tl3Variant;
+   function Modify(const aView: InevView): InevDataFormattingModify;
+   function SetAtom(const aView: InevView;
+    anIndex: Cardinal;
+    aValue: Tl3Variant;
+    const anOp: InevOp): Boolean;
+   function ChangeParam(const aView: InevView;
+    const aMarker: IevMarker;
+    aValue: Integer;
+    const anOp: InevOp = nil): Boolean;
+   function DeleteHyperlink(const anOp: InevOp = nil): Boolean;
+   function DeleteSegments(const anOp: InevOp = nil): Boolean;
+    {* удаляет сегменты. }
+   function Select(const Selection: InevSelection): Boolean;
+    {* перемещает Selection на данную метку. }
+   function AddIndentMarker(const aView: InevView;
+    aValue: Integer;
+    const anOpPack: InevOp = nil): Boolean;
+   function DeleteIndentMarker(const aView: InevView;
+    const anOpPack: InevOp = nil): Boolean;
+   function Get_Obj: PInevObject;
+   function pm_GetText: InevText;
+   function AsPoint: InevBasePoint;
  end;//TevLocationBase
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evExcept,
-  SysUtils,
-  nevPersistentDocumentContainer,
-  k2NullTagImpl
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , evExcept
+ , SysUtils
+ , nevPersistentDocumentContainer
+ , k2NullTagImpl
+;
 
-{$If defined(evUseVisibleCursors)}
+type _Instance_R_ = TevLocationBase;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
-
-// start class TevLocationBase
 
 function TevLocationBase.TagWriter: InevTagWriter;
 //#UC START# *4A3A61840280_47F4D44C01BF_var*
@@ -201,9 +182,9 @@ begin
 end;//TevLocationBase.TagWriter
 
 function TevLocationBase.DoJoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp;
-  MoveSubs: Boolean): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp;
+ MoveSubs: Boolean): Integer;
 //#UC START# *49DEFB410161_47F4D44C01BF_var*
 //#UC END# *49DEFB410161_47F4D44C01BF_var*
 begin
@@ -214,8 +195,8 @@ begin
 end;//TevLocationBase.DoJoinWith
 
 function TevLocationBase.DoSplit(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *49DEFB770015_47F4D44C01BF_var*
 //#UC END# *49DEFB770015_47F4D44C01BF_var*
 begin
@@ -226,7 +207,7 @@ begin
 end;//TevLocationBase.DoSplit
 
 function TevLocationBase.DoJoinWithNext(const aView: InevView;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *49DF4C6E0101_47F4D44C01BF_var*
 //#UC END# *49DF4C6E0101_47F4D44C01BF_var*
 begin
@@ -275,8 +256,8 @@ begin
 end;//TevLocationBase.DoGetBlockLength
 
 function TevLocationBase.DoDeleteCharToLeft(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29419B0319_47F4D44C01BF_var*
 //#UC END# *4A29419B0319_47F4D44C01BF_var*
 begin
@@ -296,9 +277,9 @@ begin
 end;//TevLocationBase.DoGetStyle
 
 function TevLocationBase.DoChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29465701BC_47F4D44C01BF_var*
 //#UC END# *4A29465701BC_47F4D44C01BF_var*
 begin
@@ -308,8 +289,8 @@ begin
 end;//TevLocationBase.DoChangeParam
 
 function TevLocationBase.DoGetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger): InevFontPrim;
 //#UC START# *4A29477801BF_47F4D44C01BF_var*
 //#UC END# *4A29477801BF_47F4D44C01BF_var*
 begin
@@ -329,8 +310,8 @@ begin
 end;//TevLocationBase.DoDeleteHyperlink
 
 function TevLocationBase.DoInsertBreak(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F59B0234_47F4D44C01BF_var*
 //#UC END# *4A38F59B0234_47F4D44C01BF_var*
 begin
@@ -340,8 +321,8 @@ begin
 end;//TevLocationBase.DoInsertBreak
 
 function TevLocationBase.DoAddIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const anOpPack: InevOp): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F69F0070_47F4D44C01BF_var*
 //#UC END# *4A38F69F0070_47F4D44C01BF_var*
 begin
@@ -351,7 +332,7 @@ begin
 end;//TevLocationBase.DoAddIndentMarker
 
 function TevLocationBase.DoDeleteIndentMarker(const aView: InevView;
-  const anOpPack: InevOp): Boolean;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F6CB003C_47F4D44C01BF_var*
 //#UC END# *4A38F6CB003C_47F4D44C01BF_var*
 begin
@@ -361,10 +342,10 @@ begin
 end;//TevLocationBase.DoDeleteIndentMarker
 
 function TevLocationBase.DoInsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp;
-  InsertMode: Boolean;
-  aFlags: TnevInsertStringFlags): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp;
+ InsertMode: Boolean;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F71601D6_47F4D44C01BF_var*
 //#UC END# *4A38F71601D6_47F4D44C01BF_var*
 begin
@@ -374,9 +355,9 @@ begin
 end;//TevLocationBase.DoInsertString
 
 function TevLocationBase.DoDeleteString(const aView: InevView;
-  aCount: Integer;
-  const anOp: InevOp;
-  aFlags: TnevInsertStringFlags): Boolean;
+ aCount: Integer;
+ const anOp: InevOp;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F748002D_47F4D44C01BF_var*
 //#UC END# *4A38F748002D_47F4D44C01BF_var*
 begin
@@ -386,9 +367,9 @@ begin
 end;//TevLocationBase.DoDeleteString
 
 function TevLocationBase.DoSetAtom(const aView: InevView;
-  anIndex: Cardinal;
-  pSource: Tl3Variant;
-  const anOp: InevOp): Boolean;
+ anIndex: Cardinal;
+ pSource: Tl3Variant;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7A40373_47F4D44C01BF_var*
 //#UC END# *4A38F7A40373_47F4D44C01BF_var*
 begin
@@ -403,8 +384,8 @@ begin
 end;//TevLocationBase.DoSetAtom
 
 function TevLocationBase.DoDeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7F5022C_47F4D44C01BF_var*
 //#UC END# *4A38F7F5022C_47F4D44C01BF_var*
 begin
@@ -432,11 +413,11 @@ begin
 end;//TevLocationBase.GetText
 
 function TevLocationBase.DoInsertStream(const aView: InevView;
-  const aStream: IStream;
-  aFormat: TnevFormat;
-  const anOp: InevOp;
-  aFlags: TevLoadFlags;
-  aCodePage: Integer): Boolean;
+ const aStream: IStream;
+ aFormat: TnevFormat;
+ const anOp: InevOp;
+ aFlags: TevLoadFlags;
+ aCodePage: Integer): Boolean;
 //#UC START# *4A3A8BEE029F_47F4D44C01BF_var*
 var
  l_Writer : InevTagWriter;
@@ -461,10 +442,11 @@ begin
 end;//TevLocationBase.DoDeleteSegments
 
 function TevLocationBase.InsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp = nil;
-  InsertMode: Boolean = true;
-  aFlags: TnevInsertStringFlags = []): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp = nil;
+ InsertMode: Boolean = True;
+ aFlags: TnevInsertStringFlags = []): Boolean;
+ {* вставляет строку. }
 //#UC START# *47C5B31203AD_47F4D44C01BF_var*
 //#UC END# *47C5B31203AD_47F4D44C01BF_var*
 begin
@@ -478,11 +460,11 @@ begin
 end;//TevLocationBase.InsertString
 
 function TevLocationBase.InsertStream(const aView: InevView;
-  const aStream: IStream;
-  aFormat: TnevFormat;
-  const anOp: InevOp = nil;
-  aFlags: TevLoadFlags = evDefaultLoadFlags;
-  aCodePage: Integer = CP_DefaultValue): Boolean;
+ const aStream: IStream;
+ aFormat: TnevFormat;
+ const anOp: InevOp = nil;
+ aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+ aCodePage: Integer = CP_DefaultValue): Boolean;
 //#UC START# *47C5B3410044_47F4D44C01BF_var*
 //#UC END# *47C5B3410044_47F4D44C01BF_var*
 begin
@@ -492,9 +474,10 @@ begin
 end;//TevLocationBase.InsertStream
 
 function TevLocationBase.DeleteString(const aView: InevView;
-  Count: Integer;
-  const anOp: InevOp = nil;
-  aFlags: TnevInsertStringFlags = []): Boolean;
+ Count: Integer;
+ const anOp: InevOp = nil;
+ aFlags: TnevInsertStringFlags = []): Boolean;
+ {* удаляет строку. }
 //#UC START# *47C5B48E01CF_47F4D44C01BF_var*
 //#UC END# *47C5B48E01CF_47F4D44C01BF_var*
 begin
@@ -509,8 +492,8 @@ begin
 end;//TevLocationBase.DeleteString
 
 function TevLocationBase.DeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *47C5B4A30392_47F4D44C01BF_var*
 //#UC END# *47C5B4A30392_47F4D44C01BF_var*
 begin
@@ -523,8 +506,8 @@ begin
 end;//TevLocationBase.DeleteChar
 
 function TevLocationBase.InsertBreak(const aView: InevView;
-  aDrawLines: Boolean = false;
-  const anOp: InevOp = nil): Boolean;
+ aDrawLines: Boolean = False;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C5B4B10123_47F4D44C01BF_var*
 //#UC END# *47C5B4B10123_47F4D44C01BF_var*
 begin
@@ -534,8 +517,8 @@ begin
 end;//TevLocationBase.InsertBreak
 
 function TevLocationBase.DeleteCharToLeft(const aView: InevView;
-  aDrawLines: Boolean = false;
-  const anOp: InevOp = nil): Boolean;
+ aDrawLines: Boolean = False;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C5B4BF021F_47F4D44C01BF_var*
 //#UC END# *47C5B4BF021F_47F4D44C01BF_var*
 begin
@@ -545,8 +528,8 @@ begin
 end;//TevLocationBase.DeleteCharToLeft
 
 function TevLocationBase.Split(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *47C5B4CF00D0_47F4D44C01BF_var*
 //#UC END# *47C5B4CF00D0_47F4D44C01BF_var*
 begin
@@ -556,9 +539,9 @@ begin
 end;//TevLocationBase.Split
 
 function TevLocationBase.JoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp = nil;
-  MoveSubs: Boolean = true): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp = nil;
+ MoveSubs: Boolean = True): Integer;
 //#UC START# *47C5B4E001F9_47F4D44C01BF_var*
 //#UC END# *47C5B4E001F9_47F4D44C01BF_var*
 begin
@@ -568,7 +551,7 @@ begin
 end;//TevLocationBase.JoinWith
 
 function TevLocationBase.JoinWithNext(const aView: InevView;
-  const anOp: InevOp = nil): Boolean;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C5B4FA0219_47F4D44C01BF_var*
 //#UC END# *47C5B4FA0219_47F4D44C01BF_var*
 begin
@@ -596,8 +579,8 @@ begin
 end;//TevLocationBase.pm_GetFormatting
 
 function TevLocationBase.GetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger = nil): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger = nil): InevFontPrim;
 //#UC START# *47C68E0C02E2_47F4D44C01BF_var*
 //#UC END# *47C68E0C02E2_47F4D44C01BF_var*
 begin
@@ -625,9 +608,9 @@ begin
 end;//TevLocationBase.Modify
 
 function TevLocationBase.SetAtom(const aView: InevView;
-  anIndex: Cardinal;
-  aValue: Tl3Variant;
-  const anOp: InevOp): Boolean;
+ anIndex: Cardinal;
+ aValue: Tl3Variant;
+ const anOp: InevOp): Boolean;
 //#UC START# *47C690130239_47F4D44C01BF_var*
 //#UC END# *47C690130239_47F4D44C01BF_var*
 begin
@@ -640,9 +623,9 @@ begin
 end;//TevLocationBase.SetAtom
 
 function TevLocationBase.ChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp = nil): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C6902A0263_47F4D44C01BF_var*
 //#UC END# *47C6902A0263_47F4D44C01BF_var*
 begin
@@ -664,6 +647,7 @@ begin
 end;//TevLocationBase.DeleteHyperlink
 
 function TevLocationBase.DeleteSegments(const anOp: InevOp = nil): Boolean;
+ {* удаляет сегменты. }
 //#UC START# *47C6904C01B8_47F4D44C01BF_var*
 //#UC END# *47C6904C01B8_47F4D44C01BF_var*
 begin
@@ -673,6 +657,7 @@ begin
 end;//TevLocationBase.DeleteSegments
 
 function TevLocationBase.Select(const Selection: InevSelection): Boolean;
+ {* перемещает Selection на данную метку. }
 //#UC START# *47C7DE650012_47F4D44C01BF_var*
 //#UC END# *47C7DE650012_47F4D44C01BF_var*
 begin
@@ -685,8 +670,8 @@ begin
 end;//TevLocationBase.Select
 
 function TevLocationBase.AddIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const anOpPack: InevOp = nil): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48DCAFCF0379_47F4D44C01BF_var*
 //#UC END# *48DCAFCF0379_47F4D44C01BF_var*
 begin
@@ -699,7 +684,7 @@ begin
 end;//TevLocationBase.AddIndentMarker
 
 function TevLocationBase.DeleteIndentMarker(const aView: InevView;
-  const anOpPack: InevOp = nil): Boolean;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48DCB01401C8_47F4D44C01BF_var*
 //#UC END# *48DCB01401C8_47F4D44C01BF_var*
 begin
@@ -737,7 +722,6 @@ begin
  Result := GetAsPoint;
 //#UC END# *4A5C6DB4014D_47F4D44C01BF_impl*
 end;//TevLocationBase.AsPoint
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

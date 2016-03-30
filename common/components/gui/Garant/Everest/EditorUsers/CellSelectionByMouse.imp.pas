@@ -1,51 +1,44 @@
 {$IfNDef CellSelectionByMouse_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/CellSelectionByMouse.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::CellSelectionByMouse
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "CellSelectionByMouse" MUID: (4E97EE2D00D7)
+// Имя типа: "_CellSelectionByMouse_"
 
 {$Define CellSelectionByMouse_imp}
-{$If not defined(NoScripts)}
+
+{$If NOT Defined(NoScripts)}
  _Para2Point_Parent_ = _CellSelectionByMouse_Parent_;
- {$Include ..\EditorUsers\Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include ..\EditorUsers\HotSpotTools.imp.pas}
- _CellSelectionByMouse_ = {mixin} class(_HotSpotTools_)
- protected
- // overridden protected methods
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
+ _CellSelectionByMouse_ = class(_HotSpotTools_)
+  protected
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
- public
- // public methods
+    {* Возвращает точку, на которую нужно спозиционироваться. }
+  public
    function SelectCell(aText: TevCustomEditorWindow): Boolean;
  end;//_CellSelectionByMouse_
-{$Else}
 
- _Para2Point_Parent_ = _CellSelectionByMouse_Parent_;
- {$Include ..\EditorUsers\Para2Point.imp.pas}
- _HotSpotTools_Parent_ = _Para2Point_;
- {$Include ..\EditorUsers\HotSpotTools.imp.pas}
- _CellSelectionByMouse_ = _HotSpotTools_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_Para2Point_Parent_ = _CellSelectionByMouse_Parent_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
+_HotSpotTools_Parent_ = _Para2Point_;
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
+_CellSelectionByMouse_ = _HotSpotTools_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else CellSelectionByMouse_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef CellSelectionByMouse_imp_impl}
 
-{$Include ..\EditorUsers\Para2Point.imp.pas}
+{$Define CellSelectionByMouse_imp_impl}
 
-{$Include ..\EditorUsers\HotSpotTools.imp.pas}
+{$If NOT Defined(NoScripts)}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-// start class _CellSelectionByMouse_
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 function _CellSelectionByMouse_.SelectCell(aText: TevCustomEditorWindow): Boolean;
 //#UC START# *4E97EEAA0320_4E97EE2D00D7_var*
@@ -72,6 +65,7 @@ begin
 end;//_CellSelectionByMouse_.SelectCell
 
 function _CellSelectionByMouse_.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4E97EE2D00D7_var*
 //#UC END# *4C3C927B027E_4E97EE2D00D7_var*
 begin
@@ -79,7 +73,9 @@ begin
  Result := l3Point(aMap.Bounds.Left + 3 * evEpsilon, aMap.Outer.Bounds.Bottom - 2 * evEpsilon);
 //#UC END# *4C3C927B027E_4E97EE2D00D7_impl*
 end;//_CellSelectionByMouse_.GetPoint
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf CellSelectionByMouse_imp_impl}
 
 {$EndIf CellSelectionByMouse_imp}
+

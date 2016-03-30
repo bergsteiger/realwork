@@ -1,32 +1,30 @@
 {$IfNDef ScrollSupport_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/ScrollSupport.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::ScrollSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "ScrollSupport" MUID: (4CE2958803D0)
+// Имя типа: "_ScrollSupport_"
 
 {$Define ScrollSupport_imp}
-{$If not defined(NoScripts)}
- _ScrollSupport_ = {mixin} class(_ScrollSupport_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _ScrollSupport_ = class(_ScrollSupport_Parent_)
  end;//_ScrollSupport_
-{$Else}
 
- _ScrollSupport_ = _ScrollSupport_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_ScrollSupport_ = _ScrollSupport_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else ScrollSupport_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef ScrollSupport_imp_impl}
 
+{$Define ScrollSupport_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf ScrollSupport_imp_impl}
 
 {$EndIf ScrollSupport_imp}
+

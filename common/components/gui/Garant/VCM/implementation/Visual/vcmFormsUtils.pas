@@ -28,10 +28,10 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvcmSlayedEntityFormsList = class(_l3ObjectPtrList_)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvcmSlayedEntityFormsList;
     {* Метод получения экземпляра синглетона TvcmSlayedEntityFormsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmSlayedEntityFormsList
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -59,12 +59,6 @@ type _Instance_R_ = TvcmSlayedEntityFormsList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
-class function TvcmSlayedEntityFormsList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmSlayedEntityFormsList <> nil;
-end;//TvcmSlayedEntityFormsList.Exists
-
 class function TvcmSlayedEntityFormsList.Instance: TvcmSlayedEntityFormsList;
  {* Метод получения экземпляра синглетона TvcmSlayedEntityFormsList }
 begin
@@ -75,6 +69,12 @@ begin
  end;
  Result := g_TvcmSlayedEntityFormsList;
 end;//TvcmSlayedEntityFormsList.Instance
+
+class function TvcmSlayedEntityFormsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmSlayedEntityFormsList <> nil;
+end;//TvcmSlayedEntityFormsList.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

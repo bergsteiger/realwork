@@ -1,62 +1,47 @@
 unit evTextParaMultiSelectionBlock;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaMultiSelectionBlock.pas"
-// Начат: 16.03.2004 18:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevTextParaMultiSelectionBlock
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaMultiSelectionBlock.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaMultiSelectionBlock" MUID: (48ECD68E0010)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evLeafParaMultiSelectionBlock,
-  nevBase,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , evLeafParaMultiSelectionBlock
+ , nevTools
+ , nevBase
+ , evdInterfaces
+;
 
 type
  TevTextParaMultiSelectionBlock = class(TevLeafParaMultiSelectionBlock, IevSelectionPairs)
- protected
- // realized methods
+  protected
    function pm_GetPairsCount: Integer;
    function pm_GetPair(anIndex: Integer): TevPair;
- protected
- // overridden protected methods
    procedure DoStore(const aView: InevView;
     const G: InevTagGenerator;
     aFlags: TevdStoreFlags); override;
-     {* сохраняет выделение в G }
+    {* сохраняет выделение в G }
  end;//TevTextParaMultiSelectionBlock
 
 implementation
 
 uses
-  evdSegmentsLayerJoiner,
-  k2Tags,
-  evTextParaPartFilter,
-  l3Chars,
-  l3String,
-  l3CustomString,
-  l3Types,
-  l3_String,
-  k2BaseTypes,
-  l3Base
-  ;
-
-// start class TevTextParaMultiSelectionBlock
+ l3ImplUses
+ , evdSegmentsLayerJoiner
+ , k2Tags
+ , evTextParaPartFilter
+ , l3Chars
+ , l3String
+ , l3CustomString
+ , l3Types
+ , l3_String
+ , k2BaseTypes
+ , l3Base
+;
 
 function TevTextParaMultiSelectionBlock.pm_GetPairsCount: Integer;
 //#UC START# *48EDB3B60265_48ECD68E0010get_var*
@@ -80,8 +65,9 @@ begin
 end;//TevTextParaMultiSelectionBlock.pm_GetPair
 
 procedure TevTextParaMultiSelectionBlock.DoStore(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags);
+ {* сохраняет выделение в G }
 //#UC START# *48ECE4420180_48ECD68E0010_var*
 
 const

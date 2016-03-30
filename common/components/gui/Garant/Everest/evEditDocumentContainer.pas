@@ -1,33 +1,26 @@
 unit evEditDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evEditDocumentContainer.pas"
-// Начат: 13.05.2008 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevEditDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evEditDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevEditDocumentContainer" MUID: (482D8A0D02E3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomEditDocumentContainer
-  ;
+ l3IntfUses
+ , evCustomEditDocumentContainer
+;
 
 type
  TevEditDocumentContainer = class(TevCustomEditDocumentContainer)
  end;//TevEditDocumentContainer
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

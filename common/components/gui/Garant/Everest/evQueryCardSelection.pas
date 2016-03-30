@@ -1,46 +1,33 @@
 unit evQueryCardSelection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evQueryCardSelection.pas"
-// Начат: 01.11.2005 09:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::QueryCard::TevQueryCardSelection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardSelection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardSelection" MUID: (48E2466300B3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevSelection,
-  nevTools
-  ;
+ l3IntfUses
+ , nevSelection
+ , nevTools
+;
 
 type
  TevQueryCardSelection = class(TnevSelection)
- protected
- // overridden protected methods
+  protected
    function DoGetBlock(const aDocument: InevObject): InevRange; override;
  end;//TevQueryCardSelection
 
 implementation
 
 uses
-  k2Tags,
-  evOp,
-  LeafPara_Const
-  ;
-
-// start class TevQueryCardSelection
+ l3ImplUses
+ , k2Tags
+ , evOp
+ , LeafPara_Const
+;
 
 function TevQueryCardSelection.DoGetBlock(const aDocument: InevObject): InevRange;
 //#UC START# *48E252D40298_48E2466300B3_var*

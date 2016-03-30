@@ -1,43 +1,36 @@
 {$IfNDef SelectOperation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/SelectOperation.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::SelectOperation
-//
-// Поддержка выделения параграфа, документа и т.п.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "SelectOperation" MUID: (4D4137E30326)
+// Имя типа: "_SelectOperation_"
 
 {$Define SelectOperation_imp}
-{$If not defined(NoScripts)}
- _SelectOperation_ = {mixin} class(_SelectOperation_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _SelectOperation_ = class(_SelectOperation_Parent_)
   {* Поддержка выделения параграфа, документа и т.п. }
- public
- // public methods
+  public
    procedure SelectPara(aText: TevCustomEditorWindow);
-     {* Выделить параграф целиком }
+    {* Выделить параграф целиком }
    procedure SelectDocument(aText: TevCustomEditorWindow);
-     {* Выделить документ целиком }
+    {* Выделить документ целиком }
  end;//_SelectOperation_
-{$Else}
 
- _SelectOperation_ = _SelectOperation_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_SelectOperation_ = _SelectOperation_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else SelectOperation_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef SelectOperation_imp_impl}
 
-// start class _SelectOperation_
+{$Define SelectOperation_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _SelectOperation_.SelectPara(aText: TevCustomEditorWindow);
+ {* Выделить параграф целиком }
 //#UC START# *4D41388401C4_4D4137E30326_var*
 //#UC END# *4D41388401C4_4D4137E30326_var*
 begin
@@ -47,6 +40,7 @@ begin
 end;//_SelectOperation_.SelectPara
 
 procedure _SelectOperation_.SelectDocument(aText: TevCustomEditorWindow);
+ {* Выделить документ целиком }
 //#UC START# *4D4138A60088_4D4137E30326_var*
 //#UC END# *4D4138A60088_4D4137E30326_var*
 begin
@@ -54,7 +48,9 @@ begin
  aText.Select(ev_stDocument);
 //#UC END# *4D4138A60088_4D4137E30326_impl*
 end;//_SelectOperation_.SelectDocument
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf SelectOperation_imp_impl}
 
 {$EndIf SelectOperation_imp}
+

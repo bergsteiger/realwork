@@ -1,49 +1,32 @@
 unit ChromeLikeBaseVisualObjectPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeBaseVisualObjectPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeBaseVisualObjectPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeBaseVisualObjectPrim" MUID: (5506A3B0036E)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoObject,
-  ChromeLikeTabSetTypes
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , l3ProtoObject
+ , ChromeLikeTabSetTypes
+ , Types
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TChromeLikeMargins = class(Tl3ProtoObject)
- private
- // private fields
-   f_RectData : TRect;
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
- private
- // private methods
+  private
+   f_RectData: TRect;
+   f_OnChange: TNotifyEvent;
+    {* Поле для свойства OnChange }
+  private
    procedure Changed;
-     {* Сигнатура метода Changed }
- protected
- // property methods
+  protected
    function pm_GetLeft: Integer;
    procedure pm_SetLeft(aValue: Integer);
    function pm_GetTop: Integer;
@@ -52,71 +35,65 @@ type
    procedure pm_SetRight(aValue: Integer);
    function pm_GetBottom: Integer;
    procedure pm_SetBottom(aValue: Integer);
- public
- // public methods
+  public
    constructor Create(aLeft: Integer = 0;
-     aTop: Integer = 0;
-     aRight: Integer = 0;
-     aBottom: Integer = 0); reintroduce;
- public
- // public properties
+    aTop: Integer = 0;
+    aRight: Integer = 0;
+    aBottom: Integer = 0); reintroduce;
+  public
    property Left: Integer
-     read pm_GetLeft
-     write pm_SetLeft;
+    read pm_GetLeft
+    write pm_SetLeft;
    property Top: Integer
-     read pm_GetTop
-     write pm_SetTop;
+    read pm_GetTop
+    write pm_SetTop;
    property Right: Integer
-     read pm_GetRight
-     write pm_SetRight;
+    read pm_GetRight
+    write pm_SetRight;
    property Bottom: Integer
-     read pm_GetBottom
-     write pm_SetBottom;
+    read pm_GetBottom
+    write pm_SetBottom;
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
  end;//TChromeLikeMargins
 
  TChromeLikeBaseVisualObjectPrim = class(Tl3ProtoObject, IChromeLikeTabSetAnimable)
- private
- // private fields
-   f_StartTicks : Cardinal;
-   f_CurrentTickCount : Integer;
-   f_AnimationTime : Integer;
-   f_StartRect : TRect;
-   f_EndRect : TRect;
-   f_EaseType : TChromeLikeTabEaseType;
-   f_PositionInitialised : Boolean;
-   f_PositionRect : TRect;
-    {* Поле для свойства PositionRect}
-   f_Parent : TChromeLikeBaseVisualObjectPrim;
-    {* Поле для свойства Parent}
-   f_Align : TAlign;
-    {* Поле для свойства Align}
-   f_HintText : WideString;
-    {* Поле для свойства HintText}
-   f_State : TChromeLikeVisualObjectState;
-    {* Поле для свойства State}
-   f_OnClick : TNotifyEvent;
-    {* Поле для свойства OnClick}
-   f_Behaviours : TChromeLikeVisualObjectBehaviours;
-    {* Поле для свойства Behaviours}
-   f_InAnimation : Boolean;
-    {* Поле для свойства InAnimation}
-   f_Margins : TChromeLikeMargins;
-    {* Поле для свойства Margins}
-   f_Visible : Boolean;
-    {* Поле для свойства Visible}
- private
- // private methods
+  private
+   f_StartTicks: Cardinal;
+   f_CurrentTickCount: Integer;
+   f_AnimationTime: Integer;
+   f_StartRect: TRect;
+   f_EndRect: TRect;
+   f_EaseType: TChromeLikeTabEaseType;
+   f_PositionInitialised: Boolean;
+   f_PositionRect: TRect;
+    {* Поле для свойства PositionRect }
+   f_Parent: TChromeLikeBaseVisualObjectPrim;
+    {* Поле для свойства Parent }
+   f_Align: TAlign;
+    {* Поле для свойства Align }
+   f_HintText: WideString;
+    {* Поле для свойства HintText }
+   f_State: TChromeLikeVisualObjectState;
+    {* Поле для свойства State }
+   f_OnClick: TNotifyEvent;
+    {* Поле для свойства OnClick }
+   f_Behaviours: TChromeLikeVisualObjectBehaviours;
+    {* Поле для свойства Behaviours }
+   f_InAnimation: Boolean;
+    {* Поле для свойства InAnimation }
+   f_Margins: TChromeLikeMargins;
+    {* Поле для свойства Margins }
+   f_Visible: Boolean;
+    {* Поле для свойства Visible }
+  private
    procedure PaintChildren(const aContext: IChromeLkeTabSetDrawingContext);
    procedure LayoutChildren(const aRect: TRect);
    procedure DoOnMarginsChanged(aSender: TObject);
    procedure AnimationFinished;
-     {* Сигнатура метода AnimationFinished }
    function DoAnimateMovement: Boolean;
- protected
- // property methods
+  protected
    function pm_GetChildren(Index: Integer): TChromeLikeBaseVisualObjectPrim; virtual;
    function pm_GetPositionRect: TRect;
    procedure pm_SetPositionRect(const aValue: TRect);
@@ -131,30 +108,15 @@ type
    function pm_GetVisible: Boolean;
    procedure pm_SetVisible(aValue: Boolean);
    function pm_GetChildrenCount: Integer; virtual;
- protected
- // realized methods
-   function AnimateMovement: Boolean;
-   procedure FinishAnimationImmediately;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    procedure RemoveChild(aIndex: Integer); virtual;
    procedure DeleteChildren;
    procedure InsertObject(aObject: TChromeLikeBaseVisualObjectPrim); virtual;
    procedure Invalidate; virtual;
-     {* Сигнатура метода Invalidate }
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); virtual;
    procedure DoMouseMove(const aPoint: TPoint); virtual;
    procedure DoClick(const aPoint: TPoint); virtual;
    procedure PositionChanged; virtual;
-     {* Сигнатура метода PositionChanged }
    procedure StateChanged; virtual;
-     {* Сигнатура метода StateChanged }
    function IsMovable: Boolean;
    function IsUndockable: Boolean;
    function IsClickable: Boolean;
@@ -163,92 +125,353 @@ type
    function MeasureSize: TSize; virtual;
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; virtual;
    procedure MakeChildControls; virtual;
-     {* Сигнатура метода MakeChildControls }
    function DoGetCanMove(const aPoint: TPoint): Boolean; virtual;
    function Intersects(const aPoint: TPoint): Boolean;
    procedure DoMouseLeave; virtual;
-     {* Сигнатура метода DoMouseLeave }
    procedure DoMiddleButtonClick(const aPoint: TPoint); virtual;
- public
- // public methods
+   function AnimateMovement: Boolean;
+   procedure FinishAnimationImmediately;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    function CanMove(const aPoint: TPoint): Boolean;
    function HitTest(const aPoint: TPoint): TChromeLikeBaseVisualObjectPrim;
    procedure SetPosition(const aRect: TRect;
-     aAnimationTime: Cardinal;
-     aEaseType: TChromeLikeTabEaseType);
+    aAnimationTime: Cardinal;
+    aEaseType: TChromeLikeTabEaseType);
    procedure SetHeight(aValue: Integer;
-     aAnimationTime: Cardinal;
-     aEaseType: TChromeLikeTabEaseType);
+    aAnimationTime: Cardinal;
+    aEaseType: TChromeLikeTabEaseType);
    procedure SetWidth(aValue: Integer;
-     aAnimationTime: Cardinal;
-     aEaseType: TChromeLikeTabEaseType);
+    aAnimationTime: Cardinal;
+    aEaseType: TChromeLikeTabEaseType);
    procedure SetLeft(aValue: Integer;
-     aAnimationTime: Cardinal;
-     aEaseType: TChromeLikeTabEaseType);
+    aAnimationTime: Cardinal;
+    aEaseType: TChromeLikeTabEaseType);
    procedure SetTop(aValue: Integer;
-     aAnimationTime: Cardinal;
-     aEaseType: TChromeLikeTabEaseType);
+    aAnimationTime: Cardinal;
+    aEaseType: TChromeLikeTabEaseType);
    procedure Paint(const aContext: IChromeLkeTabSetDrawingContext);
    procedure MouseMove(const aPoint: TPoint);
    procedure Click(const aPoint: TPoint);
    procedure RequestLayoutChildren;
-     {* Сигнатура метода RequestLayoutChildren }
    constructor Create(aParent: TChromeLikeBaseVisualObjectPrim); reintroduce; virtual;
    procedure MouseLeave;
-     {* Сигнатура метода MouseLeave }
    procedure MiddleButtonClick(const aPoint: TPoint);
- public
- // public properties
+  public
    property Children[Index: Integer]: TChromeLikeBaseVisualObjectPrim
-     read pm_GetChildren;
+    read pm_GetChildren;
    property PositionRect: TRect
-     read pm_GetPositionRect
-     write pm_SetPositionRect;
+    read pm_GetPositionRect
+    write pm_SetPositionRect;
    property Parent: TChromeLikeBaseVisualObjectPrim
-     read pm_GetParent
-     write pm_SetParent;
+    read pm_GetParent
+    write pm_SetParent;
    property Align: TAlign
-     read pm_GetAlign
-     write pm_SetAlign;
+    read pm_GetAlign
+    write pm_SetAlign;
    property HintText: WideString
-     read pm_GetHintText
-     write pm_SetHintText;
+    read pm_GetHintText
+    write pm_SetHintText;
    property State: TChromeLikeVisualObjectState
-     read pm_GetState
-     write pm_SetState;
+    read pm_GetState
+    write pm_SetState;
    property OnClick: TNotifyEvent
-     read f_OnClick
-     write f_OnClick;
+    read f_OnClick
+    write f_OnClick;
    property Behaviours: TChromeLikeVisualObjectBehaviours
-     read f_Behaviours;
+    read f_Behaviours;
    property InAnimation: Boolean
-     read f_InAnimation;
+    read f_InAnimation;
    property Margins: TChromeLikeMargins
-     read f_Margins;
+    read f_Margins;
    property Visible: Boolean
-     read pm_GetVisible
-     write pm_SetVisible;
+    read pm_GetVisible
+    write pm_SetVisible;
    property ChildrenCount: Integer
-     read pm_GetChildrenCount;
+    read pm_GetChildrenCount;
  end;//TChromeLikeBaseVisualObjectPrim
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  ChromeLikeBaseVisualObject,
-  SysUtils,
-  ChromeLikeTabSetAnimationManager,
-  Windows,
-  ChromeLikeTabSetUtils,
-  Math
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3ImplUses
+ , ChromeLikeBaseVisualObject
+ , SysUtils
+ , ChromeLikeTabSetAnimationManager
+ , Windows
+ , ChromeLikeTabSetUtils
+ , Math
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+function TChromeLikeMargins.pm_GetLeft: Integer;
+//#UC START# *5506AC7800C3_5506AC0F0361get_var*
+//#UC END# *5506AC7800C3_5506AC0F0361get_var*
+begin
+//#UC START# *5506AC7800C3_5506AC0F0361get_impl*
+ Result := f_RectData.Left;
+//#UC END# *5506AC7800C3_5506AC0F0361get_impl*
+end;//TChromeLikeMargins.pm_GetLeft
 
-// start class TChromeLikeBaseVisualObjectPrim
+procedure TChromeLikeMargins.pm_SetLeft(aValue: Integer);
+//#UC START# *5506AC7800C3_5506AC0F0361set_var*
+//#UC END# *5506AC7800C3_5506AC0F0361set_var*
+begin
+//#UC START# *5506AC7800C3_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Left) then
+ begin
+  f_RectData.Left := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC7800C3_5506AC0F0361set_impl*
+end;//TChromeLikeMargins.pm_SetLeft
+
+function TChromeLikeMargins.pm_GetTop: Integer;
+//#UC START# *5506AC830083_5506AC0F0361get_var*
+//#UC END# *5506AC830083_5506AC0F0361get_var*
+begin
+//#UC START# *5506AC830083_5506AC0F0361get_impl*
+ Result := f_RectData.Top;
+//#UC END# *5506AC830083_5506AC0F0361get_impl*
+end;//TChromeLikeMargins.pm_GetTop
+
+procedure TChromeLikeMargins.pm_SetTop(aValue: Integer);
+//#UC START# *5506AC830083_5506AC0F0361set_var*
+//#UC END# *5506AC830083_5506AC0F0361set_var*
+begin
+//#UC START# *5506AC830083_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Top) then
+ begin
+  f_RectData.Top := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC830083_5506AC0F0361set_impl*
+end;//TChromeLikeMargins.pm_SetTop
+
+function TChromeLikeMargins.pm_GetRight: Integer;
+//#UC START# *5506AC9101D3_5506AC0F0361get_var*
+//#UC END# *5506AC9101D3_5506AC0F0361get_var*
+begin
+//#UC START# *5506AC9101D3_5506AC0F0361get_impl*
+ Result := f_RectData.Right;
+//#UC END# *5506AC9101D3_5506AC0F0361get_impl*
+end;//TChromeLikeMargins.pm_GetRight
+
+procedure TChromeLikeMargins.pm_SetRight(aValue: Integer);
+//#UC START# *5506AC9101D3_5506AC0F0361set_var*
+//#UC END# *5506AC9101D3_5506AC0F0361set_var*
+begin
+//#UC START# *5506AC9101D3_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Right) then
+ begin
+  f_RectData.Right := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC9101D3_5506AC0F0361set_impl*
+end;//TChromeLikeMargins.pm_SetRight
+
+function TChromeLikeMargins.pm_GetBottom: Integer;
+//#UC START# *5506AC9C0173_5506AC0F0361get_var*
+//#UC END# *5506AC9C0173_5506AC0F0361get_var*
+begin
+//#UC START# *5506AC9C0173_5506AC0F0361get_impl*
+ Result := f_RectData.Bottom;
+//#UC END# *5506AC9C0173_5506AC0F0361get_impl*
+end;//TChromeLikeMargins.pm_GetBottom
+
+procedure TChromeLikeMargins.pm_SetBottom(aValue: Integer);
+//#UC START# *5506AC9C0173_5506AC0F0361set_var*
+//#UC END# *5506AC9C0173_5506AC0F0361set_var*
+begin
+//#UC START# *5506AC9C0173_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Bottom) then
+ begin
+  f_RectData.Bottom := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC9C0173_5506AC0F0361set_impl*
+end;//TChromeLikeMargins.pm_SetBottom
+
+procedure TChromeLikeMargins.Changed;
+//#UC START# *5506ACBA0169_5506AC0F0361_var*
+//#UC END# *5506ACBA0169_5506AC0F0361_var*
+begin
+//#UC START# *5506ACBA0169_5506AC0F0361_impl*
+ if Assigned(f_OnChange) then
+  f_OnChange(Self)
+ else
+  Assert(False);
+//#UC END# *5506ACBA0169_5506AC0F0361_impl*
+end;//TChromeLikeMargins.Changed
+
+constructor TChromeLikeMargins.Create(aLeft: Integer = 0;
+ aTop: Integer = 0;
+ aRight: Integer = 0;
+ aBottom: Integer = 0);
+//#UC START# *5506ACCF00D0_5506AC0F0361_var*
+//#UC END# *5506ACCF00D0_5506AC0F0361_var*
+begin
+//#UC START# *5506ACCF00D0_5506AC0F0361_impl*
+ inherited Create;
+ f_RectData.Top := aTop;
+ f_RectData.Left := aLeft;
+ f_RectData.Right := aRight;
+ f_RectData.Bottom := aBottom;
+//#UC END# *5506ACCF00D0_5506AC0F0361_impl*
+end;//TChromeLikeMargins.Create
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetChildren(Index: Integer): TChromeLikeBaseVisualObjectPrim;
+//#UC START# *5506A4F20013_5506A3B0036Eget_var*
+//#UC END# *5506A4F20013_5506A3B0036Eget_var*
+begin
+//#UC START# *5506A4F20013_5506A3B0036Eget_impl*
+ Assert(False);
+//#UC END# *5506A4F20013_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetChildren
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetPositionRect: TRect;
+//#UC START# *5506A55103DB_5506A3B0036Eget_var*
+//#UC END# *5506A55103DB_5506A3B0036Eget_var*
+begin
+//#UC START# *5506A55103DB_5506A3B0036Eget_impl*
+ Result := f_PositionRect;
+//#UC END# *5506A55103DB_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetPositionRect
+
+procedure TChromeLikeBaseVisualObjectPrim.pm_SetPositionRect(const aValue: TRect);
+//#UC START# *5506A55103DB_5506A3B0036Eset_var*
+//#UC END# *5506A55103DB_5506A3B0036Eset_var*
+begin
+//#UC START# *5506A55103DB_5506A3B0036Eset_impl*
+ if (not SameRect(f_PositionRect, aValue)) then
+ begin
+  f_PositionRect := aValue;
+//  f_PositionInitialized := True;
+  PositionChanged;
+  Invalidate;
+ end;
+//#UC END# *5506A55103DB_5506A3B0036Eset_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_SetPositionRect
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetParent: TChromeLikeBaseVisualObjectPrim;
+//#UC START# *5506A56B01BB_5506A3B0036Eget_var*
+//#UC END# *5506A56B01BB_5506A3B0036Eget_var*
+begin
+//#UC START# *5506A56B01BB_5506A3B0036Eget_impl*
+ Result := f_Parent;
+//#UC END# *5506A56B01BB_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetParent
+
+procedure TChromeLikeBaseVisualObjectPrim.pm_SetParent(aValue: TChromeLikeBaseVisualObjectPrim);
+//#UC START# *5506A56B01BB_5506A3B0036Eset_var*
+//#UC END# *5506A56B01BB_5506A3B0036Eset_var*
+begin
+//#UC START# *5506A56B01BB_5506A3B0036Eset_impl*
+ if (aValue <> f_Parent) then
+ begin
+  f_Parent := aValue;
+  f_Parent.InsertObject(Self);
+ end;
+//#UC END# *5506A56B01BB_5506A3B0036Eset_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_SetParent
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetAlign: TAlign;
+//#UC START# *5506A596034A_5506A3B0036Eget_var*
+//#UC END# *5506A596034A_5506A3B0036Eget_var*
+begin
+//#UC START# *5506A596034A_5506A3B0036Eget_impl*
+ Result := f_Align;
+//#UC END# *5506A596034A_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetAlign
+
+procedure TChromeLikeBaseVisualObjectPrim.pm_SetAlign(aValue: TAlign);
+//#UC START# *5506A596034A_5506A3B0036Eset_var*
+//#UC END# *5506A596034A_5506A3B0036Eset_var*
+begin
+//#UC START# *5506A596034A_5506A3B0036Eset_impl*
+ if (aValue <> f_Align) then
+ begin
+  f_Align := aValue;
+  if (f_Parent <> nil) then
+   f_Parent.RequestLayoutChildren;
+ end;
+//#UC END# *5506A596034A_5506A3B0036Eset_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_SetAlign
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetHintText: WideString;
+//#UC START# *5506A7C900D2_5506A3B0036Eget_var*
+//#UC END# *5506A7C900D2_5506A3B0036Eget_var*
+begin
+//#UC START# *5506A7C900D2_5506A3B0036Eget_impl*
+ Result := f_HintText;
+//#UC END# *5506A7C900D2_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetHintText
+
+procedure TChromeLikeBaseVisualObjectPrim.pm_SetHintText(const aValue: WideString);
+//#UC START# *5506A7C900D2_5506A3B0036Eset_var*
+//#UC END# *5506A7C900D2_5506A3B0036Eset_var*
+begin
+//#UC START# *5506A7C900D2_5506A3B0036Eset_impl*
+ if (aValue <> f_HintText) then
+  f_HintText := aValue;
+//#UC END# *5506A7C900D2_5506A3B0036Eset_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_SetHintText
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetState: TChromeLikeVisualObjectState;
+//#UC START# *5506AA9C0043_5506A3B0036Eget_var*
+//#UC END# *5506AA9C0043_5506A3B0036Eget_var*
+begin
+//#UC START# *5506AA9C0043_5506A3B0036Eget_impl*
+ Result := f_State;
+//#UC END# *5506AA9C0043_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetState
+
+procedure TChromeLikeBaseVisualObjectPrim.pm_SetState(aValue: TChromeLikeVisualObjectState);
+//#UC START# *5506AA9C0043_5506A3B0036Eset_var*
+//#UC END# *5506AA9C0043_5506A3B0036Eset_var*
+begin
+//#UC START# *5506AA9C0043_5506A3B0036Eset_impl*
+ if (aValue <> f_State) then
+ begin
+  f_State := aValue;
+  StateChanged;
+ end;
+//#UC END# *5506AA9C0043_5506A3B0036Eset_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_SetState
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetVisible: Boolean;
+//#UC START# *5506ADD800E4_5506A3B0036Eget_var*
+//#UC END# *5506ADD800E4_5506A3B0036Eget_var*
+begin
+//#UC START# *5506ADD800E4_5506A3B0036Eget_impl*
+ Result := f_Visible;
+//#UC END# *5506ADD800E4_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetVisible
+
+procedure TChromeLikeBaseVisualObjectPrim.pm_SetVisible(aValue: Boolean);
+//#UC START# *5506ADD800E4_5506A3B0036Eset_var*
+//#UC END# *5506ADD800E4_5506A3B0036Eset_var*
+begin
+//#UC START# *5506ADD800E4_5506A3B0036Eset_impl*
+ if (aValue <> f_Visible) then
+ begin
+  f_Visible := aValue;
+  Invalidate;
+ end;
+//#UC END# *5506ADD800E4_5506A3B0036Eset_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_SetVisible
+
+function TChromeLikeBaseVisualObjectPrim.pm_GetChildrenCount: Integer;
+//#UC START# *5506AF4E01FC_5506A3B0036Eget_var*
+//#UC END# *5506AF4E01FC_5506A3B0036Eget_var*
+begin
+//#UC START# *5506AF4E01FC_5506A3B0036Eget_impl*
+ Assert(False);
+//#UC END# *5506AF4E01FC_5506A3B0036Eget_impl*
+end;//TChromeLikeBaseVisualObjectPrim.pm_GetChildrenCount
 
 procedure TChromeLikeBaseVisualObjectPrim.PaintChildren(const aContext: IChromeLkeTabSetDrawingContext);
 //#UC START# *5506A3DF0209_5506A3B0036E_var*
@@ -280,54 +503,6 @@ begin
 //#UC END# *5506A447006A_5506A3B0036E_impl*
 end;//TChromeLikeBaseVisualObjectPrim.LayoutChildren
 
-procedure TChromeLikeBaseVisualObjectPrim.DoOnMarginsChanged(aSender: TObject);
-//#UC START# *5506A46700C1_5506A3B0036E_var*
-//#UC END# *5506A46700C1_5506A3B0036E_var*
-begin
-//#UC START# *5506A46700C1_5506A3B0036E_impl*
- if (f_Parent <> nil) then
-  f_Parent.RequestLayoutChildren;
-//#UC END# *5506A46700C1_5506A3B0036E_impl*
-end;//TChromeLikeBaseVisualObjectPrim.DoOnMarginsChanged
-
-procedure TChromeLikeBaseVisualObjectPrim.AnimationFinished;
-//#UC START# *5506AE1D02F9_5506A3B0036E_var*
-//#UC END# *5506AE1D02F9_5506A3B0036E_var*
-begin
-//#UC START# *5506AE1D02F9_5506A3B0036E_impl*
- TChromeLikeTabSetAnimationManager.Instance.RemoveAnimable(Self);
- f_InAnimation := False;
-//#UC END# *5506AE1D02F9_5506A3B0036E_impl*
-end;//TChromeLikeBaseVisualObjectPrim.AnimationFinished
-
-function TChromeLikeBaseVisualObjectPrim.DoAnimateMovement: Boolean;
-//#UC START# *5506B0F5038D_5506A3B0036E_var*
-var
- l_NewRect: TRect;
-//#UC END# *5506B0F5038D_5506A3B0036E_var*
-begin
-//#UC START# *5506B0F5038D_5506A3B0036E_impl*
- Result := (f_StartTicks > 0) and (f_CurrentTickCount < f_AnimationTime);
-
- if Result then
- begin
-  f_CurrentTickCount := GetTickCount - f_StartTicks;
-  if f_CurrentTickCount > f_AnimationTime then
-   f_CurrentTickCount := f_AnimationTime;
-
-  l_NewRect := TransformRect(f_StartRect,
-                             f_EndRect,
-                             f_CurrentTickCount,
-                             f_AnimationTime,
-                             f_EaseType);
-
-  PositionRect := l_NewRect;
-  if SameRect(l_NewRect, f_EndRect) then
-   AnimationFinished;
- end;
-//#UC END# *5506B0F5038D_5506A3B0036E_impl*
-end;//TChromeLikeBaseVisualObjectPrim.DoAnimateMovement
-
 procedure TChromeLikeBaseVisualObjectPrim.RemoveChild(aIndex: Integer);
 //#UC START# *5506A45102AC_5506A3B0036E_var*
 //#UC END# *5506A45102AC_5506A3B0036E_var*
@@ -354,6 +529,16 @@ begin
 //#UC END# *5506A45B0272_5506A3B0036E_impl*
 end;//TChromeLikeBaseVisualObjectPrim.DeleteChildren
 
+procedure TChromeLikeBaseVisualObjectPrim.DoOnMarginsChanged(aSender: TObject);
+//#UC START# *5506A46700C1_5506A3B0036E_var*
+//#UC END# *5506A46700C1_5506A3B0036E_var*
+begin
+//#UC START# *5506A46700C1_5506A3B0036E_impl*
+ if (f_Parent <> nil) then
+  f_Parent.RequestLayoutChildren;
+//#UC END# *5506A46700C1_5506A3B0036E_impl*
+end;//TChromeLikeBaseVisualObjectPrim.DoOnMarginsChanged
+
 procedure TChromeLikeBaseVisualObjectPrim.InsertObject(aObject: TChromeLikeBaseVisualObjectPrim);
 //#UC START# *5506A438011F_5506A3B0036E_var*
 //#UC END# *5506A438011F_5506A3B0036E_var*
@@ -372,6 +557,16 @@ begin
   f_Parent.Invalidate;
 //#UC END# *5506AE050362_5506A3B0036E_impl*
 end;//TChromeLikeBaseVisualObjectPrim.Invalidate
+
+procedure TChromeLikeBaseVisualObjectPrim.AnimationFinished;
+//#UC START# *5506AE1D02F9_5506A3B0036E_var*
+//#UC END# *5506AE1D02F9_5506A3B0036E_var*
+begin
+//#UC START# *5506AE1D02F9_5506A3B0036E_impl*
+ TChromeLikeTabSetAnimationManager.Instance.RemoveAnimable(Self);
+ f_InAnimation := False;
+//#UC END# *5506AE1D02F9_5506A3B0036E_impl*
+end;//TChromeLikeBaseVisualObjectPrim.AnimationFinished
 
 procedure TChromeLikeBaseVisualObjectPrim.DoPaint(const aContext: IChromeLkeTabSetDrawingContext);
 //#UC START# *5506AE35023A_5506A3B0036E_var*
@@ -606,6 +801,34 @@ begin
 //#UC END# *5506B0C600DB_5506A3B0036E_impl*
 end;//TChromeLikeBaseVisualObjectPrim.CanMove
 
+function TChromeLikeBaseVisualObjectPrim.DoAnimateMovement: Boolean;
+//#UC START# *5506B0F5038D_5506A3B0036E_var*
+var
+ l_NewRect: TRect;
+//#UC END# *5506B0F5038D_5506A3B0036E_var*
+begin
+//#UC START# *5506B0F5038D_5506A3B0036E_impl*
+ Result := (f_StartTicks > 0) and (f_CurrentTickCount < f_AnimationTime);
+
+ if Result then
+ begin
+  f_CurrentTickCount := GetTickCount - f_StartTicks;
+  if f_CurrentTickCount > f_AnimationTime then
+   f_CurrentTickCount := f_AnimationTime;
+
+  l_NewRect := TransformRect(f_StartRect,
+                             f_EndRect,
+                             f_CurrentTickCount,
+                             f_AnimationTime,
+                             f_EaseType);
+
+  PositionRect := l_NewRect;
+  if SameRect(l_NewRect, f_EndRect) then
+   AnimationFinished;
+ end;
+//#UC END# *5506B0F5038D_5506A3B0036E_impl*
+end;//TChromeLikeBaseVisualObjectPrim.DoAnimateMovement
+
 function TChromeLikeBaseVisualObjectPrim.HitTest(const aPoint: TPoint): TChromeLikeBaseVisualObjectPrim;
 //#UC START# *5506B120003B_5506A3B0036E_var*
 var
@@ -630,8 +853,8 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.HitTest
 
 procedure TChromeLikeBaseVisualObjectPrim.SetPosition(const aRect: TRect;
-  aAnimationTime: Cardinal;
-  aEaseType: TChromeLikeTabEaseType);
+ aAnimationTime: Cardinal;
+ aEaseType: TChromeLikeTabEaseType);
 //#UC START# *5506B156039B_5506A3B0036E_var*
 //#UC END# *5506B156039B_5506A3B0036E_var*
 begin
@@ -676,8 +899,8 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.SetPosition
 
 procedure TChromeLikeBaseVisualObjectPrim.SetHeight(aValue: Integer;
-  aAnimationTime: Cardinal;
-  aEaseType: TChromeLikeTabEaseType);
+ aAnimationTime: Cardinal;
+ aEaseType: TChromeLikeTabEaseType);
 //#UC START# *5506B17F0017_5506A3B0036E_var*
 //#UC END# *5506B17F0017_5506A3B0036E_var*
 begin
@@ -692,8 +915,8 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.SetHeight
 
 procedure TChromeLikeBaseVisualObjectPrim.SetWidth(aValue: Integer;
-  aAnimationTime: Cardinal;
-  aEaseType: TChromeLikeTabEaseType);
+ aAnimationTime: Cardinal;
+ aEaseType: TChromeLikeTabEaseType);
 //#UC START# *5506B2660232_5506A3B0036E_var*
 //#UC END# *5506B2660232_5506A3B0036E_var*
 begin
@@ -708,8 +931,8 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.SetWidth
 
 procedure TChromeLikeBaseVisualObjectPrim.SetLeft(aValue: Integer;
-  aAnimationTime: Cardinal;
-  aEaseType: TChromeLikeTabEaseType);
+ aAnimationTime: Cardinal;
+ aEaseType: TChromeLikeTabEaseType);
 //#UC START# *5506B2830242_5506A3B0036E_var*
 //#UC END# *5506B2830242_5506A3B0036E_var*
 begin
@@ -724,8 +947,8 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.SetLeft
 
 procedure TChromeLikeBaseVisualObjectPrim.SetTop(aValue: Integer;
-  aAnimationTime: Cardinal;
-  aEaseType: TChromeLikeTabEaseType);
+ aAnimationTime: Cardinal;
+ aEaseType: TChromeLikeTabEaseType);
 //#UC START# *5506B29C034A_5506A3B0036E_var*
 //#UC END# *5506B29C034A_5506A3B0036E_var*
 begin
@@ -885,273 +1108,6 @@ begin
  // Ничего не делаем
 //#UC END# *5541B8C900EE_5506A3B0036E_impl*
 end;//TChromeLikeBaseVisualObjectPrim.DoMiddleButtonClick
-// start class TChromeLikeMargins
-
-procedure TChromeLikeMargins.Changed;
-//#UC START# *5506ACBA0169_5506AC0F0361_var*
-//#UC END# *5506ACBA0169_5506AC0F0361_var*
-begin
-//#UC START# *5506ACBA0169_5506AC0F0361_impl*
- if Assigned(f_OnChange) then
-  f_OnChange(Self)
- else
-  Assert(False);
-//#UC END# *5506ACBA0169_5506AC0F0361_impl*
-end;//TChromeLikeMargins.Changed
-
-constructor TChromeLikeMargins.Create(aLeft: Integer = 0;
-  aTop: Integer = 0;
-  aRight: Integer = 0;
-  aBottom: Integer = 0);
-//#UC START# *5506ACCF00D0_5506AC0F0361_var*
-//#UC END# *5506ACCF00D0_5506AC0F0361_var*
-begin
-//#UC START# *5506ACCF00D0_5506AC0F0361_impl*
- inherited Create;
- f_RectData.Top := aTop;
- f_RectData.Left := aLeft;
- f_RectData.Right := aRight;
- f_RectData.Bottom := aBottom;
-//#UC END# *5506ACCF00D0_5506AC0F0361_impl*
-end;//TChromeLikeMargins.Create
-
-function TChromeLikeMargins.pm_GetLeft: Integer;
-//#UC START# *5506AC7800C3_5506AC0F0361get_var*
-//#UC END# *5506AC7800C3_5506AC0F0361get_var*
-begin
-//#UC START# *5506AC7800C3_5506AC0F0361get_impl*
- Result := f_RectData.Left;
-//#UC END# *5506AC7800C3_5506AC0F0361get_impl*
-end;//TChromeLikeMargins.pm_GetLeft
-
-procedure TChromeLikeMargins.pm_SetLeft(aValue: Integer);
-//#UC START# *5506AC7800C3_5506AC0F0361set_var*
-//#UC END# *5506AC7800C3_5506AC0F0361set_var*
-begin
-//#UC START# *5506AC7800C3_5506AC0F0361set_impl*
- if (aValue <> f_RectData.Left) then
- begin
-  f_RectData.Left := aValue;
-  Changed;
- end;
-//#UC END# *5506AC7800C3_5506AC0F0361set_impl*
-end;//TChromeLikeMargins.pm_SetLeft
-
-function TChromeLikeMargins.pm_GetTop: Integer;
-//#UC START# *5506AC830083_5506AC0F0361get_var*
-//#UC END# *5506AC830083_5506AC0F0361get_var*
-begin
-//#UC START# *5506AC830083_5506AC0F0361get_impl*
- Result := f_RectData.Top;
-//#UC END# *5506AC830083_5506AC0F0361get_impl*
-end;//TChromeLikeMargins.pm_GetTop
-
-procedure TChromeLikeMargins.pm_SetTop(aValue: Integer);
-//#UC START# *5506AC830083_5506AC0F0361set_var*
-//#UC END# *5506AC830083_5506AC0F0361set_var*
-begin
-//#UC START# *5506AC830083_5506AC0F0361set_impl*
- if (aValue <> f_RectData.Top) then
- begin
-  f_RectData.Top := aValue;
-  Changed;
- end;
-//#UC END# *5506AC830083_5506AC0F0361set_impl*
-end;//TChromeLikeMargins.pm_SetTop
-
-function TChromeLikeMargins.pm_GetRight: Integer;
-//#UC START# *5506AC9101D3_5506AC0F0361get_var*
-//#UC END# *5506AC9101D3_5506AC0F0361get_var*
-begin
-//#UC START# *5506AC9101D3_5506AC0F0361get_impl*
- Result := f_RectData.Right;
-//#UC END# *5506AC9101D3_5506AC0F0361get_impl*
-end;//TChromeLikeMargins.pm_GetRight
-
-procedure TChromeLikeMargins.pm_SetRight(aValue: Integer);
-//#UC START# *5506AC9101D3_5506AC0F0361set_var*
-//#UC END# *5506AC9101D3_5506AC0F0361set_var*
-begin
-//#UC START# *5506AC9101D3_5506AC0F0361set_impl*
- if (aValue <> f_RectData.Right) then
- begin
-  f_RectData.Right := aValue;
-  Changed;
- end;
-//#UC END# *5506AC9101D3_5506AC0F0361set_impl*
-end;//TChromeLikeMargins.pm_SetRight
-
-function TChromeLikeMargins.pm_GetBottom: Integer;
-//#UC START# *5506AC9C0173_5506AC0F0361get_var*
-//#UC END# *5506AC9C0173_5506AC0F0361get_var*
-begin
-//#UC START# *5506AC9C0173_5506AC0F0361get_impl*
- Result := f_RectData.Bottom;
-//#UC END# *5506AC9C0173_5506AC0F0361get_impl*
-end;//TChromeLikeMargins.pm_GetBottom
-
-procedure TChromeLikeMargins.pm_SetBottom(aValue: Integer);
-//#UC START# *5506AC9C0173_5506AC0F0361set_var*
-//#UC END# *5506AC9C0173_5506AC0F0361set_var*
-begin
-//#UC START# *5506AC9C0173_5506AC0F0361set_impl*
- if (aValue <> f_RectData.Bottom) then
- begin
-  f_RectData.Bottom := aValue;
-  Changed;
- end;
-//#UC END# *5506AC9C0173_5506AC0F0361set_impl*
-end;//TChromeLikeMargins.pm_SetBottom
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetChildren(Index: Integer): TChromeLikeBaseVisualObjectPrim;
-//#UC START# *5506A4F20013_5506A3B0036Eget_var*
-//#UC END# *5506A4F20013_5506A3B0036Eget_var*
-begin
-//#UC START# *5506A4F20013_5506A3B0036Eget_impl*
- Assert(False);
-//#UC END# *5506A4F20013_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetChildren
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetPositionRect: TRect;
-//#UC START# *5506A55103DB_5506A3B0036Eget_var*
-//#UC END# *5506A55103DB_5506A3B0036Eget_var*
-begin
-//#UC START# *5506A55103DB_5506A3B0036Eget_impl*
- Result := f_PositionRect;
-//#UC END# *5506A55103DB_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetPositionRect
-
-procedure TChromeLikeBaseVisualObjectPrim.pm_SetPositionRect(const aValue: TRect);
-//#UC START# *5506A55103DB_5506A3B0036Eset_var*
-//#UC END# *5506A55103DB_5506A3B0036Eset_var*
-begin
-//#UC START# *5506A55103DB_5506A3B0036Eset_impl*
- if (not SameRect(f_PositionRect, aValue)) then
- begin
-  f_PositionRect := aValue;
-//  f_PositionInitialized := True;
-  PositionChanged;
-  Invalidate;
- end;
-//#UC END# *5506A55103DB_5506A3B0036Eset_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_SetPositionRect
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetParent: TChromeLikeBaseVisualObjectPrim;
-//#UC START# *5506A56B01BB_5506A3B0036Eget_var*
-//#UC END# *5506A56B01BB_5506A3B0036Eget_var*
-begin
-//#UC START# *5506A56B01BB_5506A3B0036Eget_impl*
- Result := f_Parent;
-//#UC END# *5506A56B01BB_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetParent
-
-procedure TChromeLikeBaseVisualObjectPrim.pm_SetParent(aValue: TChromeLikeBaseVisualObjectPrim);
-//#UC START# *5506A56B01BB_5506A3B0036Eset_var*
-//#UC END# *5506A56B01BB_5506A3B0036Eset_var*
-begin
-//#UC START# *5506A56B01BB_5506A3B0036Eset_impl*
- if (aValue <> f_Parent) then
- begin
-  f_Parent := aValue;
-  f_Parent.InsertObject(Self);
- end;
-//#UC END# *5506A56B01BB_5506A3B0036Eset_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_SetParent
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetAlign: TAlign;
-//#UC START# *5506A596034A_5506A3B0036Eget_var*
-//#UC END# *5506A596034A_5506A3B0036Eget_var*
-begin
-//#UC START# *5506A596034A_5506A3B0036Eget_impl*
- Result := f_Align;
-//#UC END# *5506A596034A_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetAlign
-
-procedure TChromeLikeBaseVisualObjectPrim.pm_SetAlign(aValue: TAlign);
-//#UC START# *5506A596034A_5506A3B0036Eset_var*
-//#UC END# *5506A596034A_5506A3B0036Eset_var*
-begin
-//#UC START# *5506A596034A_5506A3B0036Eset_impl*
- if (aValue <> f_Align) then
- begin
-  f_Align := aValue;
-  if (f_Parent <> nil) then
-   f_Parent.RequestLayoutChildren;
- end;
-//#UC END# *5506A596034A_5506A3B0036Eset_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_SetAlign
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetHintText: WideString;
-//#UC START# *5506A7C900D2_5506A3B0036Eget_var*
-//#UC END# *5506A7C900D2_5506A3B0036Eget_var*
-begin
-//#UC START# *5506A7C900D2_5506A3B0036Eget_impl*
- Result := f_HintText;
-//#UC END# *5506A7C900D2_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetHintText
-
-procedure TChromeLikeBaseVisualObjectPrim.pm_SetHintText(const aValue: WideString);
-//#UC START# *5506A7C900D2_5506A3B0036Eset_var*
-//#UC END# *5506A7C900D2_5506A3B0036Eset_var*
-begin
-//#UC START# *5506A7C900D2_5506A3B0036Eset_impl*
- if (aValue <> f_HintText) then
-  f_HintText := aValue;
-//#UC END# *5506A7C900D2_5506A3B0036Eset_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_SetHintText
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetState: TChromeLikeVisualObjectState;
-//#UC START# *5506AA9C0043_5506A3B0036Eget_var*
-//#UC END# *5506AA9C0043_5506A3B0036Eget_var*
-begin
-//#UC START# *5506AA9C0043_5506A3B0036Eget_impl*
- Result := f_State;
-//#UC END# *5506AA9C0043_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetState
-
-procedure TChromeLikeBaseVisualObjectPrim.pm_SetState(aValue: TChromeLikeVisualObjectState);
-//#UC START# *5506AA9C0043_5506A3B0036Eset_var*
-//#UC END# *5506AA9C0043_5506A3B0036Eset_var*
-begin
-//#UC START# *5506AA9C0043_5506A3B0036Eset_impl*
- if (aValue <> f_State) then
- begin
-  f_State := aValue;
-  StateChanged;
- end;
-//#UC END# *5506AA9C0043_5506A3B0036Eset_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_SetState
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetVisible: Boolean;
-//#UC START# *5506ADD800E4_5506A3B0036Eget_var*
-//#UC END# *5506ADD800E4_5506A3B0036Eget_var*
-begin
-//#UC START# *5506ADD800E4_5506A3B0036Eget_impl*
- Result := f_Visible;
-//#UC END# *5506ADD800E4_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetVisible
-
-procedure TChromeLikeBaseVisualObjectPrim.pm_SetVisible(aValue: Boolean);
-//#UC START# *5506ADD800E4_5506A3B0036Eset_var*
-//#UC END# *5506ADD800E4_5506A3B0036Eset_var*
-begin
-//#UC START# *5506ADD800E4_5506A3B0036Eset_impl*
- if (aValue <> f_Visible) then
- begin
-  f_Visible := aValue;
-  Invalidate;
- end;
-//#UC END# *5506ADD800E4_5506A3B0036Eset_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_SetVisible
-
-function TChromeLikeBaseVisualObjectPrim.pm_GetChildrenCount: Integer;
-//#UC START# *5506AF4E01FC_5506A3B0036Eget_var*
-//#UC END# *5506AF4E01FC_5506A3B0036Eget_var*
-begin
-//#UC START# *5506AF4E01FC_5506A3B0036Eget_impl*
- Assert(False);
-//#UC END# *5506AF4E01FC_5506A3B0036Eget_impl*
-end;//TChromeLikeBaseVisualObjectPrim.pm_GetChildrenCount
 
 function TChromeLikeBaseVisualObjectPrim.AnimateMovement: Boolean;
 //#UC START# *550A65720020_5506A3B0036E_var*
@@ -1173,6 +1129,7 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.FinishAnimationImmediately
 
 procedure TChromeLikeBaseVisualObjectPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5506A3B0036E_var*
 //#UC END# *479731C50290_5506A3B0036E_var*
 begin
@@ -1184,12 +1141,11 @@ begin
 end;//TChromeLikeBaseVisualObjectPrim.Cleanup
 
 procedure TChromeLikeBaseVisualObjectPrim.ClearFields;
- {-}
 begin
  Finalize(f_PositionRect);
+ HintText := '';
  inherited;
 end;//TChromeLikeBaseVisualObjectPrim.ClearFields
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

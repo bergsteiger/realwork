@@ -1,43 +1,30 @@
 unit evDocumentEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentEliminator.pas"
-// Начат: 21.07.2011 18:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevDocumentEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentEliminator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentEliminator" MUID: (4E2836190160)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter
-  ;
+ l3IntfUses
+ , k2TagFilter
+;
 
 type
  TevDocumentEliminator = class(Tk2TagFilter)
- protected
- // overridden protected methods
+  protected
    function NeedTranslateChildToNext: Boolean; override;
  end;//TevDocumentEliminator
 
 implementation
 
 uses
-  Document_Const
-  ;
-
-// start class TevDocumentEliminator
+ l3ImplUses
+ , Document_Const
+;
 
 function TevDocumentEliminator.NeedTranslateChildToNext: Boolean;
 //#UC START# *4CA3006302BC_4E2836190160_var*

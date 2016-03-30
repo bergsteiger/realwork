@@ -1,56 +1,41 @@
 unit evTableCursor;
+ {* Курсор для таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevTableCursor
-//
-// Курсор для таблицы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCursor" MUID: (4EF9B84C0137)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evTableCursorPrim,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evTableCursorPrim
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevTableCursor = class(TevTableCursorPrim)
   {* Курсор для таблицы. }
- private
- // private fields
-   f_Offset : LongInt;
-    {* Запомненное смещение курсора в таблице.}
-   f_Width : LongInt;
-    {* Запомненная ширина ячейки.}
-   f_InnerPID : Integer;
-    {* Закешированный PID дочерней точки для использования после изменения.}
-   f_IgnoreSetX : Boolean;
-    {* Не использовать установку SetX.}
- private
- // private methods
+  private
+   f_Offset: LongInt;
+    {* Запомненное смещение курсора в таблице. }
+   f_Width: LongInt;
+    {* Запомненная ширина ячейки. }
+   f_InnerPID: Integer;
+    {* Закешированный PID дочерней точки для использования после изменения. }
+   f_IgnoreSetX: Boolean;
+    {* Не использовать установку SetX. }
+  private
    function CorrectPosition(const aView: InevView;
-     aStart: Boolean): Boolean;
-     {* Корректируем позицию. http://mdp.garant.ru/pages/viewpage.action?pageId=89096655&focusedCommentId=119474205#comment-119474205 }
- protected
- // overridden protected methods
+    aStart: Boolean): Boolean;
+    {* Корректируем позицию. http://mdp.garant.ru/pages/viewpage.action?pageId=89096655&focusedCommentId=119474205#comment-119474205 }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
@@ -59,34 +44,31 @@ type
    procedure DoAssignPointInt(const aView: InevView;
     const aPoint: InevBasePoint); override;
    function CanRedraw: Boolean; override;
-     {* Можно ли перисовывать, чтобы найти правильную мапу. }
+    {* Можно ли перисовывать, чтобы найти правильную мапу. }
    function NeedGotoHidden(aCode: Integer;
-     const aFI: TnevFormatInfoPrim): Boolean; override;
-     {* Нужно ли переходить на невидимую строку. }
+    const aFI: TnevFormatInfoPrim): Boolean; override;
+    {* Нужно ли переходить на невидимую строку. }
    function CheckFirst(aChildPID: Integer): Boolean; override;
    procedure DoCorrectMoveRight(const aView: InevView;
-     const aPoint: InevBasePoint;
-     const anOp: InevOp); override;
+    const aPoint: InevBasePoint;
+    const anOp: InevOp); override;
  end;//TevTableCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evOp,
-  evdTypes,
-  SysUtils,
-  k2Tags
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableCursor
+ l3ImplUses
+ , evOp
+ , evdTypes
+ , SysUtils
+ , k2Tags
+;
 
 function TevTableCursor.CorrectPosition(const aView: InevView;
-  aStart: Boolean): Boolean;
+ aStart: Boolean): Boolean;
+ {* Корректируем позицию. http://mdp.garant.ru/pages/viewpage.action?pageId=89096655&focusedCommentId=119474205#comment-119474205 }
 //#UC START# *4F50B310020B_4EF9B84C0137_var*
 // Обсуждение: http://mdp.garant.ru/pages/viewpage.action?pageId=89096655&focusedCommentId=119474205#comment-119474205
 var
@@ -142,6 +124,7 @@ begin
 end;//TevTableCursor.CorrectPosition
 
 procedure TevTableCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4EF9B84C0137_var*
 //#UC END# *479731C50290_4EF9B84C0137_var*
 begin
@@ -164,9 +147,9 @@ begin
 end;//TevTableCursor.InitFields
 
 function TevTableCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_4EF9B84C0137_var*
 var
  l_ChildCursor : InevBasePoint;
@@ -291,7 +274,7 @@ begin
 end;//TevTableCursor.DoMovePrim
 
 procedure TevTableCursor.DoAssignPointInt(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *4BE284D00262_4EF9B84C0137_var*
 var
  l_Inner : InevBasePoint;
@@ -324,6 +307,7 @@ begin
 end;//TevTableCursor.DoAssignPointInt
 
 function TevTableCursor.CanRedraw: Boolean;
+ {* Можно ли перисовывать, чтобы найти правильную мапу. }
 //#UC START# *4C495DAA024B_4EF9B84C0137_var*
 //#UC END# *4C495DAA024B_4EF9B84C0137_var*
 begin
@@ -333,7 +317,8 @@ begin
 end;//TevTableCursor.CanRedraw
 
 function TevTableCursor.NeedGotoHidden(aCode: Integer;
-  const aFI: TnevFormatInfoPrim): Boolean;
+ const aFI: TnevFormatInfoPrim): Boolean;
+ {* Нужно ли переходить на невидимую строку. }
 //#UC START# *4F50B34C0260_4EF9B84C0137_var*
 //#UC END# *4F50B34C0260_4EF9B84C0137_var*
 begin
@@ -355,8 +340,8 @@ begin
 end;//TevTableCursor.CheckFirst
 
 procedure TevTableCursor.DoCorrectMoveRight(const aView: InevView;
-  const aPoint: InevBasePoint;
-  const anOp: InevOp);
+ const aPoint: InevBasePoint;
+ const anOp: InevOp);
 //#UC START# *50DAB0190074_4EF9B84C0137_var*
 var
  l_Index: Integer;
@@ -380,7 +365,6 @@ begin
  end; // if f_InnerPID > 0 then
 //#UC END# *50DAB0190074_4EF9B84C0137_impl*
 end;//TevTableCursor.DoCorrectMoveRight
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

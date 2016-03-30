@@ -19,6 +19,8 @@ uses
  , k2Inch_Const
  , k2RawData_Const
  , evBitmapParaBitmapContainer
+ //#UC START# *4858116B0355_484CD009023Dintf_uses*
+ //#UC END# *4858116B0355_484CD009023Dintf_uses*
 ;
 
  // BitmapParaTag
@@ -27,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4858116B0355_484CD009023Dimpl_uses*
+ //#UC END# *4858116B0355_484CD009023Dimpl_uses*
 ;
 
 end.

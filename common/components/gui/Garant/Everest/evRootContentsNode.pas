@@ -1,59 +1,43 @@
 unit evRootContentsNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evRootContentsNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevRootContentsNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evRootContentsNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevRootContentsNode" MUID: (4DFEF8FA00FB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  l3Base,
-  evContentsNode,
-  l3Interfaces,
-  l3Types
-  ;
+ l3IntfUses
+ , evContentsNode
+ , l3Base
+ , l3TreeInterfaces
+ , l3Interfaces
+ , l3Types
+;
 
 type
  TevRootContentsNode = class(TevContentsNode)
- private
- // private fields
-   f_Text : Tl3String;
- protected
- // realized methods
+  private
+   f_Text: Tl3String;
+  protected
    procedure DoTryGetChildren; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function NeedMakeChildren: Boolean; override;
- public
- // public methods
+  public
    class function Make: Il3SimpleRootNode;
  end;//TevRootContentsNode
 
 implementation
 
 uses
-  l3String
-  ;
-
-// start class TevRootContentsNode
+ l3ImplUses
+ , l3String
+;
 
 class function TevRootContentsNode.Make: Il3SimpleRootNode;
 //#UC START# *4DFF29C3012D_4DFEF8FA00FB_var*
@@ -81,6 +65,7 @@ begin
 end;//TevRootContentsNode.DoTryGetChildren
 
 procedure TevRootContentsNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEF8FA00FB_var*
 //#UC END# *479731C50290_4DFEF8FA00FB_var*
 begin

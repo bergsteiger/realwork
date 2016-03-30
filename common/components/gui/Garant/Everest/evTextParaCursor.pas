@@ -1,63 +1,51 @@
 unit evTextParaCursor;
+ {* Реализация курсора для текстового параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaCursor.pas"
-// Начат: 30.03.2001 15:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevTextParaCursor
-//
-// Реализация курсора для текстового параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaCursor" MUID: (49DF7D98029A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevBase,
-  nevTools,
-  evLeafParaCursor,
-  l3Variant,
-  l3Core,
-  l3Interfaces,
-  l3IID
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evLeafParaCursor
+ , nevTools
+ , nevBase
+ , l3Variant
+ , l3IID
+ , l3Core
+ , l3Interfaces
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _nevTextParaTool_Parent_ = TevLeafParaCursor;
  {$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
  _nevTextParaViewBounds_Parent_ = _nevTextParaTool_;
- {$Include ..\Everest\nevTextParaViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
  _nevTextParaAnchorModify_Parent_ = _nevTextParaViewBounds_;
- {$Include ..\Everest\nevTextParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
  TevTextParaCursor = class(_nevTextParaAnchorModify_, IevTagLine)
   {* Реализация курсора для текстового параграфа }
- private
- // private fields
-   f_ParaEnd : Boolean;
- protected
- // realized methods
+  private
+   f_ParaEnd: Boolean;
+  public
+   f_LineEnd: Boolean;
+  protected
+   function DoPrevCharForDelete(const aView: InevView;
+    const anOp: InevOp): Boolean;
+   procedure CheckSegments(aPos: Integer;
+    const anOp: InevOp);
    function GetLine(aMap: TnevFormatInfoPrim): Integer;
    function pm_GetLineEnd: Boolean;
    procedure pm_SetLineEnd(aValue: Boolean);
    procedure SetLinePrim(aValue: Integer;
     aMap: TnevFormatInfoPrim); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoAssignPoint(const aView: InevView;
     const aPoint: InevBasePoint); override;
    function DoJoinWith(const aView: InevView;
@@ -92,10 +80,10 @@ type
    function DoGetFont(const aView: InevView;
     aMap: TnevFormatInfoPrim;
     Stop: PInteger): InevFontPrim; override;
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+   {$If Defined(evNeedMarkers)}
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+   {$IfEnd} // Defined(evNeedMarkers)
    function DoDeleteHyperlink(const anOpPack: InevOp): Boolean; override;
    function DoInsertBreak(const aView: InevView;
     aDrawLines: Boolean;
@@ -123,114 +111,90 @@ type
     const anOp: InevOp): Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // overridden public methods
+    {* Реализация запроса интерфейса }
+  public
    procedure DoSetEntryPointPrim(Value: Integer;
     const Context: IevCursorContext = nil); override;
- public
- // public fields
-   f_LineEnd : Boolean;
- protected
- // protected methods
-   function DoPrevCharForDelete(const aView: InevView;
-     const anOp: InevOp): Boolean;
-   procedure CheckSegments(aPos: Integer;
-     const anOp: InevOp);
  end;//TevTextParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evdStyles,
-  evCursorConst
-  {$If defined(k2ForEditor)}
-  ,
-  evTextParaTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If defined(evNeedHotSpot)}
-  ,
-  evHyperlink
-  {$IfEnd} //evNeedHotSpot
-  ,
-  k2Tags,
-  evDrawLineTool,
-  LeafPara_Const,
-  StyledLeafPara_Const,
-  TableCell_Const,
-  Document_Const,
-  TextPara_Const,
-  Formula_Const,
-  BitmapPara_Const,
-  HyperLink_Const,
-  evdTypes,
-  k2Base,
-  nevNavigation
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Const,
-  l3InterfacedString,
-  l3CustomString,
-  l3String,
-  l3Types,
-  ObjectSegment_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2BaseTypes,
-  evTextParaOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Classes,
-  l3Base,
-  l3LineArray,
-  l3Units,
-  l3MinMax,
-  evOp,
-  l3Const,
-  k2OpMisc,
-  l3Chars,
-  evExcept,
-  evTabIndentMarker,
-  nevInterfaces,
-  evTextParaMarkers,
-  evTextParaOpEx,
-  evTextManipulationInterfaces,
-  k2Facade,
-  l3UnitsTools
-  {$If defined(k2ForEditor)}
-  ,
-  evSegment
-  {$IfEnd} //k2ForEditor
-  ,
-  ContentsElement_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evAlignBySeparatorUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  k2String,
-  SysUtils
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , evCursorConst
+ {$If Defined(k2ForEditor)}
+ , evTextParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(evNeedHotSpot)}
+ , evHyperlink
+ {$IfEnd} // Defined(evNeedHotSpot)
+ , k2Tags
+ , evDrawLineTool
+ , LeafPara_Const
+ , StyledLeafPara_Const
+ , TableCell_Const
+ , Document_Const
+ , TextPara_Const
+ , Formula_Const
+ , BitmapPara_Const
+ , HyperLink_Const
+ , evdTypes
+ , k2Base
+ , nevNavigation
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Const
+ , l3InterfacedString
+ , l3CustomString
+ , l3String
+ , l3Types
+ , ObjectSegment_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2BaseTypes
+ , evTextParaOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Classes
+ , l3Base
+ , l3LineArray
+ , l3Units
+ , l3MinMax
+ , evOp
+ , l3Const
+ , k2OpMisc
+ , l3Chars
+ , evExcept
+ , evTabIndentMarker
+ , nevInterfaces
+ , evTextParaMarkers
+ , evTextParaOpEx
+ , evTextManipulationInterfaces
+ , k2Facade
+ , l3UnitsTools
+ {$If Defined(k2ForEditor)}
+ , evSegment
+ {$IfEnd} // Defined(k2ForEditor)
+ , ContentsElement_Const
+ {$If Defined(k2ForEditor)}
+ , evAlignBySeparatorUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2String
+ , SysUtils
+ , evdStyles
+;
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTextParaCursor
+type
+ PevTextParaCursor = ^TevTextParaCursor;
 
 function GetLC(aSelf: _nevTextParaViewBounds_;
-  aMap: TnevFormatInfoPrim): TnevLineCoord;
+ aMap: TnevFormatInfoPrim): TnevLineCoord;
+ {* Возвращает текущую строку }
 //#UC START# *4A5CD65C01D4_49DF7D98029A_var*
 //#UC END# *4A5CD65C01D4_49DF7D98029A_var*
 begin
@@ -241,19 +205,16 @@ begin
 //#UC END# *4A5CD65C01D4_49DF7D98029A_impl*
 end;//GetLC
 
+type _Instance_R_ = TevTextParaCursor;
+
 {$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
 
-{$Include ..\Everest\nevTextParaViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
 
-{$Include ..\Everest\nevTextParaAnchorModify.imp.pas}
-
-type
-  PevTextParaCursor = ^TevTextParaCursor;
-
-// start class TevTextParaCursor
+{$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
 
 function TevTextParaCursor.DoPrevCharForDelete(const aView: InevView;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A390AAF020D_49DF7D98029A_var*
 var
  l_Parent      : InevBasePoint;
@@ -330,13 +291,12 @@ begin
 end;//TevTextParaCursor.DoPrevCharForDelete
 
 procedure TevTextParaCursor.CheckSegments(aPos: Integer;
-  const anOp: InevOp);
+ const anOp: InevOp);
+var l_Segments: Tl3Variant;
+var l_Seg: Tl3Variant;
+var l_Index: Integer;
 //#UC START# *4A391212035B_49DF7D98029A_var*
 //#UC END# *4A391212035B_49DF7D98029A_var*
-var
- l_Segments : Tl3Variant;
- l_Seg : Tl3Variant;
- l_Index : Integer;
 begin
 //#UC START# *4A391212035B_49DF7D98029A_impl*
  l_Segments := ParaX.AsObject.Attr[k2_tiSegments];
@@ -400,7 +360,7 @@ begin
 end;//TevTextParaCursor.pm_SetLineEnd
 
 procedure TevTextParaCursor.SetLinePrim(aValue: Integer;
-  aMap: TnevFormatInfoPrim);
+ aMap: TnevFormatInfoPrim);
 //#UC START# *4B1D11DC00AD_49DF7D98029A_var*
 var
  l_Line : Integer;
@@ -415,6 +375,7 @@ begin
 end;//TevTextParaCursor.SetLinePrim
 
 procedure TevTextParaCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49DF7D98029A_var*
 //#UC END# *479731C50290_49DF7D98029A_var*
 begin
@@ -426,7 +387,7 @@ begin
 end;//TevTextParaCursor.Cleanup
 
 procedure TevTextParaCursor.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *49DE3CD8004F_49DF7D98029A_var*
 var
  l_TL  : IevTagLine;
@@ -467,9 +428,9 @@ begin
 end;//TevTextParaCursor.DoAssignPoint
 
 function TevTextParaCursor.DoJoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp;
-  MoveSubs: Boolean): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp;
+ MoveSubs: Boolean): Integer;
 //#UC START# *49DEFB410161_49DF7D98029A_var*
 var
  theResult : Integer absolute Result;
@@ -675,8 +636,8 @@ begin
 end;//TevTextParaCursor.DoJoinWith
 
 function TevTextParaCursor.DoSplit(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *49DEFB770015_49DF7D98029A_var*
 var
  l_OldPara     : InevTextPara;
@@ -762,7 +723,7 @@ begin
 end;//TevTextParaCursor.DoSplit
 
 function TevTextParaCursor.DoJoinWithNext(const aView: InevView;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *49DF4C6E0101_49DF7D98029A_var*
 var
  l_SecondPara : Tl3Variant;
@@ -830,7 +791,7 @@ begin
 end;//TevTextParaCursor.DoJoinWithNext
 
 function TevTextParaCursor.GetPaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *49DF6F2F0190_49DF7D98029A_var*
 //#UC END# *49DF6F2F0190_49DF7D98029A_var*
 begin
@@ -840,8 +801,8 @@ begin
 end;//TevTextParaCursor.GetPaintOffsetY
 
 procedure TevTextParaCursor.DoInitPointByPt(const aView: InevView;
-  const aPoint: TnevPoint;
-  const aMap: InevMap);
+ const aPoint: TnevPoint;
+ const aMap: InevMap);
 //#UC START# *49DF703901BA_49DF7D98029A_var*
 
 var
@@ -921,7 +882,7 @@ begin
 end;//TevTextParaCursor.DoInitPointByPt
 
 procedure TevTextParaCursor.DoSetEntryPointPrim(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *49E2F8F80062_49DF7D98029A_var*
 //#UC END# *49E2F8F80062_49DF7D98029A_var*
 begin
@@ -936,9 +897,9 @@ begin
 end;//TevTextParaCursor.DoSetEntryPointPrim
 
 function TevTextParaCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_49DF7D98029A_var*
 var
  l_DeltaX     : Integer;
@@ -1274,7 +1235,7 @@ begin
 end;//TevTextParaCursor.DoMovePrim
 
 procedure TevTextParaCursor.DoSetAtEnd(const aView: InevView;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *49E317B802F3_49DF7D98029A_var*
 //#UC END# *49E317B802F3_49DF7D98029A_var*
 begin
@@ -1305,7 +1266,7 @@ begin
 end;//TevTextParaCursor.GetAtEnd
 
 function TevTextParaCursor.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *49E34EDF0207_49DF7D98029A_var*
 //#UC END# *49E34EDF0207_49DF7D98029A_var*
 begin
@@ -1331,7 +1292,7 @@ begin
 end;//TevTextParaCursor.GetReadOnly
 
 function TevTextParaCursor.GetDeltaX(const aView: InevView;
-  const aMap: InevMap): Integer;
+ const aMap: InevMap): Integer;
 //#UC START# *49E3568201B9_49DF7D98029A_var*
 var
  l_Line : Integer;
@@ -1379,8 +1340,8 @@ begin
 end;//TevTextParaCursor.DoGetStyle
 
 function TevTextParaCursor.DoGetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger): InevFontPrim;
 //#UC START# *4A29477801BF_49DF7D98029A_var*
 //#UC END# *4A29477801BF_49DF7D98029A_var*
 begin
@@ -1389,9 +1350,9 @@ begin
 //#UC END# *4A29477801BF_49DF7D98029A_impl*
 end;//TevTextParaCursor.DoGetFont
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevTextParaCursor.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_49DF7D98029A_var*
 
  procedure TryToAddIndentMarker;
@@ -1427,7 +1388,7 @@ begin
  TryToAddIndentMarker;
 //#UC END# *4A38AA5C019F_49DF7D98029A_impl*
 end;//TevTextParaCursor.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
 function TevTextParaCursor.DoDeleteHyperlink(const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F52201BA_49DF7D98029A_var*
@@ -1453,8 +1414,8 @@ begin
 end;//TevTextParaCursor.DoDeleteHyperlink
 
 function TevTextParaCursor.DoInsertBreak(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F59B0234_49DF7D98029A_var*
 var
  l_Context : IevCursorContext;
@@ -1596,8 +1557,8 @@ begin
 end;//TevTextParaCursor.DoInsertBreak
 
 function TevTextParaCursor.DoAddIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const anOpPack: InevOp): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F69F0070_49DF7D98029A_var*
 //#UC END# *4A38F69F0070_49DF7D98029A_var*
 begin
@@ -1607,7 +1568,7 @@ begin
 end;//TevTextParaCursor.DoAddIndentMarker
 
 function TevTextParaCursor.DoDeleteIndentMarker(const aView: InevView;
-  const anOpPack: InevOp): Boolean;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F6CB003C_49DF7D98029A_var*
 //#UC END# *4A38F6CB003C_49DF7D98029A_var*
 begin
@@ -1617,10 +1578,10 @@ begin
 end;//TevTextParaCursor.DoDeleteIndentMarker
 
 function TevTextParaCursor.DoInsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp;
-  InsertMode: Boolean;
-  aFlags: TnevInsertStringFlags): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp;
+ InsertMode: Boolean;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F71601D6_49DF7D98029A_var*
 var
  l_Pos       : Integer;
@@ -2156,9 +2117,9 @@ begin
 end;//TevTextParaCursor.DoInsertString
 
 function TevTextParaCursor.DoDeleteString(const aView: InevView;
-  aCount: Integer;
-  const anOp: InevOp;
-  aFlags: TnevInsertStringFlags): Boolean;
+ aCount: Integer;
+ const anOp: InevOp;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F748002D_49DF7D98029A_var*
 var
  l_TextPara : InevTextPara;
@@ -2325,9 +2286,9 @@ begin
 end;//TevTextParaCursor.DoDeleteString
 
 function TevTextParaCursor.DoSetAtom(const aView: InevView;
-  anIndex: Cardinal;
-  pSource: Tl3Variant;
-  const anOp: InevOp): Boolean;
+ anIndex: Cardinal;
+ pSource: Tl3Variant;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7A40373_49DF7D98029A_var*
 var
  l_Segments : Tl3Variant;
@@ -2442,8 +2403,8 @@ begin
 end;//TevTextParaCursor.DoSetAtom
 
 function TevTextParaCursor.DoDeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7F5022C_49DF7D98029A_var*
 //#UC END# *4A38F7F5022C_49DF7D98029A_var*
 begin
@@ -2463,7 +2424,8 @@ begin
 end;//TevTextParaCursor.DoDeleteChar
 
 function TevTextParaCursor.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_49DF7D98029A_var*
 var
  ResultHL: TevHyperlink;
@@ -2529,7 +2491,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_49DF7D98029A_impl*
 end;//TevTextParaCursor.COMQueryInterface
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

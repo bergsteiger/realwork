@@ -1,39 +1,27 @@
 unit evCustomEditorModelPart;
+ {* Часть TevCustomEditor перенесённая на модель }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomEditorModelPart.pas"
-// Начат: 26.02.2010 10:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomEditorModelPart
-//
-// Часть TevCustomEditor перенесённая на модель
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditorModelPart.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEditorModelPart" MUID: (4B877C5101C1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evMultiSelectEditorWindow
-  ;
+ l3IntfUses
+ , evMultiSelectEditorWindow
+;
 
 type
  TevAllowParaType = (
   {* Разрешённые типы параграфов }
-   ev_aptTable
- , ev_aptSBS
- , ev_aptPicture
- , ev_aptFormula
- , ev_aptPageBreak
+  ev_aptTable
+  , ev_aptSBS
+  , ev_aptPicture
+  , ev_aptFormula
+  , ev_aptPageBreak
  );//TevAllowParaType
 
  TevAllowParaTypes = set of TevAllowParaType;
@@ -41,27 +29,21 @@ type
 
  TevCustomEditorModelPart = class(TevMultiSelectEditorWindow)
   {* Часть TevCustomEditor перенесённая на модель }
- protected
- // property methods
+  protected
    function pm_GetAllowParaType: TevAllowParaTypes; virtual;
- protected
- // protected properties
+  protected
    property AllowParaType: TevAllowParaTypes
-     read pm_GetAllowParaType;
+    read pm_GetAllowParaType;
  end;//TevCustomEditorModelPart
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomEditorModelPart
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevCustomEditorModelPart.pm_GetAllowParaType: TevAllowParaTypes;
 //#UC START# *4B877E7B0330_4B877C5101C1get_var*
@@ -73,9 +55,9 @@ begin
 end;//TevCustomEditorModelPart.pm_GetAllowParaType
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomEditorModelPart
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomEditorModelPart);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomEditorModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

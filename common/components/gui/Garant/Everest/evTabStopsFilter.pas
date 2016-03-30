@@ -1,63 +1,52 @@
 unit evTabStopsFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTabStopsFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevTabStopsFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTabStopsFilter" MUID: (4E5E1032016E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter,
-  k2Interfaces,
-  l3Variant,
-  k2Base
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , l3Variant
+ , k2Base
+ , k2Interfaces
+;
 
 type
  _DigitalSeparatorSupport_Parent_ = TevdBufferedFilter;
- {$Include ..\Everest\DigitalSeparatorSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
  TevTabStopsFilter = class(_DigitalSeparatorSupport_)
- protected
- // overridden protected methods
+  protected
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    procedure DoStartChild(TypeID: Tk2Type); override;
    function NeedStartBuffering(aID: Integer): Boolean; override;
    function NeedFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer): Boolean; override;
+    aTagId: Integer): Boolean; override;
    procedure DoCloseStructure(NeedUndo: Boolean); override;
  end;//TevTabStopsFilter
 
 implementation
 
 uses
-  TabStop_Const,
-  TextPara_Const,
-  k2Tags,
-  l3Interfaces,
-  TableCell_Const,
-  Table_Const,
-  l3String
-  ;
+ l3ImplUses
+ , TabStop_Const
+ , TextPara_Const
+ , k2Tags
+ , l3Interfaces
+ , TableCell_Const
+ , Table_Const
+ , l3String
+;
 
-{$Include ..\Everest\DigitalSeparatorSupport.imp.pas}
-
-// start class TevTabStopsFilter
+{$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
 
 procedure TevTabStopsFilter.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_4E5E1032016E_var*
 //#UC END# *4836D52400D9_4E5E1032016E_var*
 begin
@@ -91,7 +80,7 @@ begin
 end;//TevTabStopsFilter.NeedStartBuffering
 
 function TevTabStopsFilter.NeedFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer): Boolean;
+ aTagId: Integer): Boolean;
 //#UC START# *4CF7BC520161_4E5E1032016E_var*
 //#UC END# *4CF7BC520161_4E5E1032016E_var*
 begin

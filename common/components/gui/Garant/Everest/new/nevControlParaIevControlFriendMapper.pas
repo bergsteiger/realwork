@@ -1,60 +1,44 @@
 unit nevControlParaIevControlFriendMapper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevControlParaIevControlFriendMapper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevControlParaIevControlFriendMapper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlParaIevControlFriendMapper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevControlParaIevControlFriendMapper" MUID: (53D64CA801F6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2InterfaceMapper,
-  l3IID,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2InterfaceMapper
+ , l3Variant
+ , l3IID
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevControlParaIevControlFriendMapper = class(Tk2InterfaceMapper)
- public
- // realized methods
+  public
    class function Make(aTag: Tl3Variant;
-     const IID: Tl3GUID;
-     out Tool;
-     const aProcessor: Ik2Processor): Boolean; override;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TnevControlParaIevControlFriendMapper
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  evQueryCardInt,
-  SysUtils
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevControlParaIevControlFriendMapper
+ l3ImplUses
+ , evQueryCardInt
+ , SysUtils
+;
 
 class function TnevControlParaIevControlFriendMapper.Make(aTag: Tl3Variant;
-  const IID: Tl3GUID;
-  out Tool;
-  const aProcessor: Ik2Processor): Boolean;
+ const IID: Tl3GUID;
+ out Tool;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *53D639B601D7_53D64CA801F6_var*
 var
  l_CP: IevControlFriend;
@@ -68,7 +52,6 @@ begin
   Result := true; 
 //#UC END# *53D639B601D7_53D64CA801F6_impl*
 end;//TnevControlParaIevControlFriendMapper.Make
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -1,78 +1,57 @@
 unit ChromeLikeTabParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeTabParams.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeTabParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeTabParams" MUID: (53F2D86C02FC)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3Interfaces,
-  l3ProtoObject,
-  l3TabbedContainersDispatcher
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , l3ProtoObject
+ , l3TabbedContainersDispatcher
+ , l3Interfaces
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TChromeLikeTabParams = class(Tl3ProtoObject, Il3TabParams)
- private
- // private fields
-   f_UpdateOptions : Tl3TabUpdateOptions;
-   f_ImageIndex : Integer;
-   f_HintText : Il3CString;
-   f_Text : Il3CString;
- protected
- // realized methods
+  private
+   f_UpdateOptions: Tl3TabUpdateOptions;
+   f_ImageIndex: Integer;
+   f_HintText: Il3CString;
+   f_Text: Il3CString;
+  protected
    function pm_GetHintText: WideString;
    function pm_GetText: WideString;
    function pm_GetImageIndex: Integer;
    function pm_GetUpdateOptions: Tl3TabUpdateOptions;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aText: Il3CString;
-     const aHintText: Il3CString;
-     aImageIndex: Integer;
-     aUpdateOptions: Tl3TabUpdateOptions); reintroduce;
+    const aHintText: Il3CString;
+    aImageIndex: Integer;
+    aUpdateOptions: Tl3TabUpdateOptions); reintroduce;
    class function Make(const aText: Il3CString;
-     const aHintText: Il3CString;
-     aImageIndex: Integer;
-     aUpdateOptions: Tl3TabUpdateOptions): Il3TabParams; reintroduce;
-     {* Сигнатура фабрики TChromeLikeTabParams.Make }
+    const aHintText: Il3CString;
+    aImageIndex: Integer;
+    aUpdateOptions: Tl3TabUpdateOptions): Il3TabParams; reintroduce;
  end;//TChromeLikeTabParams
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3String
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeTabParams
+ l3ImplUses
+ , l3String
+;
 
 constructor TChromeLikeTabParams.Create(const aText: Il3CString;
-  const aHintText: Il3CString;
-  aImageIndex: Integer;
-  aUpdateOptions: Tl3TabUpdateOptions);
+ const aHintText: Il3CString;
+ aImageIndex: Integer;
+ aUpdateOptions: Tl3TabUpdateOptions);
 //#UC START# *53F2DA6F0255_53F2D86C02FC_var*
 //#UC END# *53F2DA6F0255_53F2D86C02FC_var*
 begin
@@ -86,9 +65,9 @@ begin
 end;//TChromeLikeTabParams.Create
 
 class function TChromeLikeTabParams.Make(const aText: Il3CString;
-  const aHintText: Il3CString;
-  aImageIndex: Integer;
-  aUpdateOptions: Tl3TabUpdateOptions): Il3TabParams;
+ const aHintText: Il3CString;
+ aImageIndex: Integer;
+ aUpdateOptions: Tl3TabUpdateOptions): Il3TabParams;
 var
  l_Inst : TChromeLikeTabParams;
 begin
@@ -98,7 +77,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TChromeLikeTabParams.Make
 
 function TChromeLikeTabParams.pm_GetHintText: WideString;
 //#UC START# *53F2D8130105_53F2D86C02FCget_var*
@@ -137,6 +116,7 @@ begin
 end;//TChromeLikeTabParams.pm_GetUpdateOptions
 
 procedure TChromeLikeTabParams.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53F2D86C02FC_var*
 //#UC END# *479731C50290_53F2D86C02FC_var*
 begin
@@ -146,7 +126,6 @@ begin
  inherited;
 //#UC END# *479731C50290_53F2D86C02FC_impl*
 end;//TChromeLikeTabParams.Cleanup
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

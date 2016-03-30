@@ -1,69 +1,48 @@
 unit evReaderDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В
-// Модуль: "w:/common/components/gui/Garant/Everest/evReaderDataObject.pas"
-// Начат: 07.10.2008 17:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevReaderDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReaderDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReaderDataObject" MUID: (48EB6945012D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevTools,
-  k2CustomFileReader,
-  evStreamedDataObject,
-  nevBase,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , evStreamedDataObject
+ , l3Interfaces
+ , nevTools
+ , nevBase
+ , evdInterfaces
+ , k2CustomFileReader
+;
 
 type
- Rk2CustomReader = class of k2CustomFileReader.Tk2CustomFileReader;
+ Rk2CustomReader = class of Tk2CustomFileReader;
 
  TevReaderDataObject = class(TevStreamedDataObject)
- protected
- // realized methods
+  protected
+   f_Stream: IStream;
+  protected
+   function ReaderClass: Rk2CustomReader; virtual; abstract;
    procedure DoStore(const G: InevTagGenerator;
     aFlags: TevdStoreFlags); override;
-     {* сохраняет поток в G }
- protected
- // overridden protected methods
+    {* сохраняет поток в G }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Stream : IStream;
- protected
- // protected methods
-   function ReaderClass: Rk2CustomReader; virtual; abstract;
- public
- // public methods
+  public
    constructor Create(const aStream: IStream); reintroduce;
    class function Make(const aStream: IStream): InevStorable; reintroduce;
-     {* Сигнатура фабрики TevReaderDataObject.Make }
  end;//TevReaderDataObject
 
 implementation
 
 uses
-  l3Base,
-  l3SysUtils,
-  l3Types
-  ;
-
-// start class TevReaderDataObject
+ l3ImplUses
+ , l3Base
+ , l3SysUtils
+ , l3Types
+;
 
 constructor TevReaderDataObject.Create(const aStream: IStream);
 //#UC START# *4D3EDD5301AA_48EB6945012D_var*
@@ -85,10 +64,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevReaderDataObject.Make
 
 procedure TevReaderDataObject.DoStore(const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ aFlags: TevdStoreFlags);
+ {* сохраняет поток в G }
 //#UC START# *48EA34990191_48EB6945012D_var*
 var
  l_Reader : Tk2CustomFileReader;
@@ -116,7 +96,6 @@ begin
 end;//TevReaderDataObject.DoStore
 
 procedure TevReaderDataObject.ClearFields;
- {-}
 begin
  f_Stream := nil;
  inherited;

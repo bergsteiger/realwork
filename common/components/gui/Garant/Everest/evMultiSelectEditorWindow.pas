@@ -1,68 +1,47 @@
 unit evMultiSelectEditorWindow;
+ {* Редактор с возможностью множественного выделения }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelectEditorWindow.pas"
-// Начат: 10.01.2004 17:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevMultiSelectEditorWindow
-//
-// Редактор с возможностью множественного выделения
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindow.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevMultiSelectEditorWindow" MUID: (4829D8C50010)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomEditorWindowModelPart,
-  evCustomEditorWindow
-  ;
+ l3IntfUses
+ , evCustomEditorWindowModelPart
+ , evCustomEditorWindow
+;
 
 type
  TevMultiSelectEditorWindow = class(TevCustomEditorWindowModelPart)
   {* Редактор с возможностью множественного выделения }
- private
- // private fields
-   f_AllowMultiSelect : Boolean;
-    {* Поле для свойства AllowMultiSelect}
- protected
- // property methods
+  private
+   f_AllowMultiSelect: Boolean;
+  protected
    function pm_GetAllowMultiSelect: Boolean;
- protected
- // overridden protected methods
    function GetAllowMultiSelect: Boolean; override;
    function SelectionClass: RevSelection; override;
    function HotSpotClass: RevEditorWindowHotSpot; override;
- public
- // public properties
+  public
    property AllowMultiSelect: Boolean
-     read pm_GetAllowMultiSelect
-     write f_AllowMultiSelect
-     default false;
+    read pm_GetAllowMultiSelect
+    write f_AllowMultiSelect
+    default False;
  end;//TevMultiSelectEditorWindow
 
 implementation
 
 uses
-  evMultiSelection,
-  evMultiSelectEditorWindowHotSpot
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevMultiSelectEditorWindow
+ l3ImplUses
+ , evMultiSelection
+ , evMultiSelectEditorWindowHotSpot
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevMultiSelectEditorWindow.pm_GetAllowMultiSelect: Boolean;
 //#UC START# *48E4972B039C_4829D8C50010get_var*
@@ -104,9 +83,9 @@ begin
 end;//TevMultiSelectEditorWindow.HotSpotClass
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevMultiSelectEditorWindow
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevMultiSelectEditorWindow);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevMultiSelectEditorWindow }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

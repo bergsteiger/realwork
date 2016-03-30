@@ -12,7 +12,6 @@
  _nevTinyParaXTool_ = class(Tl3ProtoObject)
   private
    f_ParaX: _X_;
-    {* Поле для свойства ParaX }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

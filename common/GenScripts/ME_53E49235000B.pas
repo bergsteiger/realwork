@@ -12,6 +12,8 @@ uses
  l3IntfUses
  , Gauges
  , l3PureMixIns
+ //#UC START# *53E49235000Bintf_uses*
+ //#UC END# *53E49235000Bintf_uses*
 ;
 
 type
@@ -45,6 +47,8 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *53E49235000Bimpl_uses*
+ //#UC END# *53E49235000Bimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

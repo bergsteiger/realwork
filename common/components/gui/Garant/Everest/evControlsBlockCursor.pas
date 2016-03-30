@@ -1,65 +1,48 @@
 unit evControlsBlockCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlsBlockCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevControlsBlockCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlsBlockCursor" MUID: (4A40E3070396)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evQueryCardInt,
-  evDocumentPartCursor,
-  l3Core,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evDocumentPartCursor
+ , evQueryCardInt
+ , nevTools
+ , l3Core
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevControlsBlockCursor = class(TevDocumentPartCursor)
- protected
- // overridden protected methods
+  protected
+   function GetControl: IevQueryGroup;
+    {* Получить контрол по ссылке }
    function DoProcessMessage(const aView: InevControlView;
     var aMessage: TMessage;
     aTime: Cardinal): Boolean; override;
    procedure AfterCollapsed(const aView: InevControlView); override;
    function IsShowingDocumentParts(const aView: InevControlView): Boolean; override;
- protected
- // protected methods
-   function GetControl: IevQueryGroup;
-     {* Получить контрол по ссылке }
  end;//TevControlsBlockCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  OvcCmd,
-  OvcConst,
-  k2Tags,
-  Windows
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevControlsBlockCursor
+ l3ImplUses
+ , OvcCmd
+ , OvcConst
+ , k2Tags
+ , Windows
+;
 
 function TevControlsBlockCursor.GetControl: IevQueryGroup;
+ {* Получить контрол по ссылке }
 //#UC START# *4A40E33E0315_4A40E3070396_var*
 //#UC END# *4A40E33E0315_4A40E3070396_var*
 begin
@@ -69,8 +52,8 @@ begin
 end;//TevControlsBlockCursor.GetControl
 
 function TevControlsBlockCursor.DoProcessMessage(const aView: InevControlView;
-  var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ var aMessage: TMessage;
+ aTime: Cardinal): Boolean;
 //#UC START# *49E343F60057_4A40E3070396_var*
 var
  l_Cmd : Word;
@@ -135,7 +118,6 @@ begin
   Result := True;
 //#UC END# *4A3FA3FA0033_4A40E3070396_impl*
 end;//TevControlsBlockCursor.IsShowingDocumentParts
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

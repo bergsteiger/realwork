@@ -15,7 +15,6 @@
    f_LastDockOperationTickCount: Cardinal;
    f_PositionLockCount: Integer;
    f_TabSet: TChromeLikeTabSetControl;
-    {* Поле для свойства TabSet }
   private
    procedure InsertFormAfterSelected(aForm: TForm;
     const aParams: Il3TabParams;

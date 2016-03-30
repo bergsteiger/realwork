@@ -26,7 +26,6 @@ type
  TvcmEntityFormModelPart = class(_vcmLayout_)
   private
    f_ZoneType: TvcmZoneType;
-    {* Поле для свойства ZoneType }
   private
    procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
    procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
@@ -60,13 +59,13 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , VCMFormsProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
  , vcmMainForm
  , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type _Instance_R_ = TvcmEntityFormModelPart;

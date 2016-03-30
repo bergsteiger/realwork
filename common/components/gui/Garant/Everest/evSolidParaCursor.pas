@@ -1,49 +1,32 @@
 unit evSolidParaCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSolidParaCursor.pas"
-// Начат: 16.12.2002 18:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevSolidParaCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSolidParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSolidParaCursor" MUID: (49DF6D3F02F9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evLeafParaCursor,
-  nevTools,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evLeafParaCursor
+ , nevBase
+ , nevTools
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _nevSolidParaAnchorModify_Parent_ = TevLeafParaCursor;
- {$Include ..\Everest\nevSolidParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
  TevSolidParaCursor = class(_nevSolidParaAnchorModify_)
- private
- // private fields
-   f_Y : Integer;
- protected
- // realized methods
+  private
+   f_Y: Integer;
+  protected
    function GetY: Integer; override;
    procedure SetY(aValue: Integer); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoAssignPoint(const aView: InevView;
     const aPoint: InevBasePoint); override;
    function GetPaintOffsetY(const aView: InevView;
@@ -57,28 +40,23 @@ type
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; override;
- public
- // overridden public methods
+  public
    procedure DoSetEntryPointPrim(Value: Integer;
     const Context: IevCursorContext = nil); override;
  end;//TevSolidParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevFacade,
-  evCursorConst,
-  l3MinMax
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , nevFacade
+ , evCursorConst
+ , l3MinMax
+;
 
-{$If defined(evUseVisibleCursors)}
-
-{$Include ..\Everest\nevSolidParaAnchorModify.imp.pas}
-
-// start class TevSolidParaCursor
+{$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
 
 function TevSolidParaCursor.GetY: Integer;
 //#UC START# *4B1D0E1A0256_49DF6D3F02F9_var*
@@ -99,6 +77,7 @@ begin
 end;//TevSolidParaCursor.SetY
 
 procedure TevSolidParaCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49DF6D3F02F9_var*
 //#UC END# *479731C50290_49DF6D3F02F9_var*
 begin
@@ -109,7 +88,7 @@ begin
 end;//TevSolidParaCursor.Cleanup
 
 procedure TevSolidParaCursor.DoAssignPoint(const aView: InevView;
-  const aPoint: InevBasePoint);
+ const aPoint: InevBasePoint);
 //#UC START# *49DE3CD8004F_49DF6D3F02F9_var*
 //#UC END# *49DE3CD8004F_49DF6D3F02F9_var*
 begin
@@ -121,7 +100,7 @@ begin
 end;//TevSolidParaCursor.DoAssignPoint
 
 function TevSolidParaCursor.GetPaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *49DF6F2F0190_49DF6D3F02F9_var*
 //#UC END# *49DF6F2F0190_49DF6D3F02F9_var*
 begin
@@ -131,8 +110,8 @@ begin
 end;//TevSolidParaCursor.GetPaintOffsetY
 
 procedure TevSolidParaCursor.DoInitPointByPt(const aView: InevView;
-  const aPoint: TnevPoint;
-  const aMap: InevMap);
+ const aPoint: TnevPoint;
+ const aMap: InevMap);
 //#UC START# *49DF703901BA_49DF6D3F02F9_var*
 //#UC END# *49DF703901BA_49DF6D3F02F9_var*
 begin
@@ -143,7 +122,7 @@ begin
 end;//TevSolidParaCursor.DoInitPointByPt
 
 procedure TevSolidParaCursor.DoSetEntryPointPrim(Value: Integer;
-  const Context: IevCursorContext = nil);
+ const Context: IevCursorContext = nil);
 //#UC START# *49E2F8F80062_49DF6D3F02F9_var*
 //#UC END# *49E2F8F80062_49DF6D3F02F9_var*
 begin
@@ -172,7 +151,7 @@ begin
 end;//TevSolidParaCursor.GetAtEnd
 
 function TevSolidParaCursor.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *49E34EDF0207_49DF6D3F02F9_var*
 //#UC END# *49E34EDF0207_49DF6D3F02F9_var*
 begin
@@ -182,8 +161,8 @@ begin
 end;//TevSolidParaCursor.GetVertPosition
 
 function TevSolidParaCursor.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4AA785540310_49DF6D3F02F9_var*
 //#UC END# *4AA785540310_49DF6D3F02F9_var*
 begin
@@ -193,7 +172,6 @@ begin
   Result := 0;
 //#UC END# *4AA785540310_49DF6D3F02F9_impl*
 end;//TevSolidParaCursor.DoDiff
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

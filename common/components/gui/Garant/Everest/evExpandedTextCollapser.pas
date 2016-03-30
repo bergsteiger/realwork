@@ -1,61 +1,38 @@
 unit evExpandedTextCollapser;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evExpandedTextCollapser.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevExpandedTextCollapser
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evExpandedTextCollapser.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevExpandedTextCollapser" MUID: (552FAA38015B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evParaCollapser,
-  nevTools,
-  nevDecorActiveHyperlink
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evParaCollapser
+ , nevTools
+ , nevDecorActiveHyperlink
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevExpandedTextCollapser = class(TevParaCollapser)
- protected
- // overridden protected methods
+  protected
    function DoCollapse(const aView: InevControlView): Boolean; override;
- public
- // overridden public methods
+  public
    function GetDecorActiveHyperlinkClass: RnevDecorActiveHyperlinkClass; override;
  end;//TevExpandedTextCollapser
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevBase,
-  evExpandedTextActiveHyperlink
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TevExpandedTextCollapser
+ l3ImplUses
+ , nevBase
+ , evExpandedTextActiveHyperlink
+;
 
 function TevExpandedTextCollapser.DoCollapse(const aView: InevControlView): Boolean;
 //#UC START# *4E1D87640086_552FAA38015B_var*
@@ -74,7 +51,6 @@ begin
  Result := TevExpandedTextActiveHyperlink;
 //#UC END# *55F7C7110022_552FAA38015B_impl*
 end;//TevExpandedTextCollapser.GetDecorActiveHyperlinkClass
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

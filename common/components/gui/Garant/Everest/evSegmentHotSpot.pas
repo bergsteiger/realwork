@@ -1,133 +1,111 @@
 unit evSegmentHotSpot;
+ {* Горячая точка для сегмента оформления текстового параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSegmentHotSpot.pas"
-// Начат: 28.01.2000 20:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevSegmentHotSpot
-//
-// Горячая точка для сегмента оформления текстового параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSegmentHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSegmentHotSpot" MUID: (4A268E590029)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevBase,
-  afwInterfaces,
-  l3Units,
-  nevTools,
-  nevGUIInterfaces,
-  afwNavigation,
-  evHotSpot,
-  l3Variant,
-  l3IID
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evHotSpot
+ , afwNavigation
+ , nevGUIInterfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+ , afwInterfaces
+ , l3Units
+ , l3IID
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevSegmentPlacement = (
   {* Положение курсора относительно сегмента }
-   ev_spNone
- , ev_spLeft
- , ev_spBody
- , ev_spRight
+  ev_spNone
+  , ev_spLeft
+  , ev_spBody
+  , ev_spRight
  );//TevSegmentPlacement
 
  TevSegmentHotSpot = class(TevHotSpot, IevMoniker, IevMouseMoveHandler, IevHotSpot)
   {* Горячая точка для сегмента оформления текстового параграфа }
- private
- // private fields
-   fl_LayerHandle : Integer;
-   f_Cursor : InevPoint;
-   f_DownPoint : InevBasePoint;
- private
- // private methods
+  private
+   fl_LayerHandle: Integer;
+   f_Cursor: InevPoint;
+   f_DownPoint: InevBasePoint;
+  private
    function IsHyperlink: Boolean;
    function GetHyperLink: Tl3Variant;
-     {* Возвращает гиперссылку, от продолжения на данном сегменте }
-    {$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+    {* Возвращает гиперссылку, от продолжения на данном сегменте }
+   {$If Defined(evChangeSegmentByMouse)}
    function GetPlacement: TevSegmentPlacement;
-    {$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
-    {$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+   {$IfEnd} // Defined(evChangeSegmentByMouse)
+   {$If Defined(evChangeSegmentByMouse)}
    procedure ChangeBorder(const aTag: InevObject;
-     aPosition: Integer;
-     const aPack: InevOp);
-    {$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
-    {$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+    aPosition: Integer;
+    const aPack: InevOp);
+   {$IfEnd} // Defined(evChangeSegmentByMouse)
+   {$If Defined(evChangeSegmentByMouse)}
    function CanChangeBorderPrim(aPara: Tl3Variant;
-     aSegments: Tl3Variant;
-     aPosition: Integer;
-     out aPlacement: TevSegmentPlacement): Boolean;
-    {$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
-    {$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+    aSegments: Tl3Variant;
+    aPosition: Integer;
+    out aPlacement: TevSegmentPlacement): Boolean;
+   {$IfEnd} // Defined(evChangeSegmentByMouse)
+   {$If Defined(evChangeSegmentByMouse)}
    function CanChangeBorder(const aView: InevControlView;
-     const aPt: Tl3Point;
-     out aPlacement: TevSegmentPlacement): Boolean;
-    {$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
+    const aPt: Tl3Point;
+    out aPlacement: TevSegmentPlacement): Boolean;
+   {$IfEnd} // Defined(evChangeSegmentByMouse)
    procedure TryToSelectHypelink(const aView: InevControlView);
- protected
- // realized methods
+  protected
+   function TryDoHyperlink(const aView: InevControlView;
+    anEffects: TafwJumpToEffects): Boolean; virtual;
+   function GetDownPointPara: InevPara;
    function TransMouseMove(const aView: InevControlView;
-     const aKeys: TevMouseState;
-     out theActiveElement: InevActiveElement): Boolean;
-     {* Собственно реальный MouseMove, передаваемый редактору }
+    const aKeys: TevMouseState;
+    out theActiveElement: InevActiveElement): Boolean;
+    {* Собственно реальный MouseMove, передаваемый редактору }
    function MouseMove(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает перемещение мыши }
+    {* Обрабатывает перемещение мыши }
    function LButtonDown(const aView: InevControlView;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* Обрабатывает нажатие левой кнопки мыши }
+    {* Обрабатывает нажатие левой кнопки мыши }
    function LButtonUp(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание левой кнопки мыши }
+    {* Обрабатывает отпускание левой кнопки мыши }
    function LButtonDoubleClick(const aView: InevControlView;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* Обрабатывает двойное нажатие левой кнопки мыши }
+    {* Обрабатывает двойное нажатие левой кнопки мыши }
    function RButtonDown(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает нажатие правой кнопки мыши }
+    {* Обрабатывает нажатие правой кнопки мыши }
    function RButtonUp(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание правой конопки мыши }
+    {* Обрабатывает отпускание правой конопки мыши }
    function MButtonDown(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает нажатие колеса мыши }
+    {* Обрабатывает нажатие колеса мыши }
    function MButtonUp(const aView: InevControlView;
     const Keys: TevMouseState): Boolean;
-     {* Обрабатывает отпускание колеса мыши }
+    {* Обрабатывает отпускание колеса мыши }
    function CanDrag: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoHitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- protected
- // protected methods
-   function TryDoHyperlink(const aView: InevControlView;
-     anEffects: TafwJumpToEffects): Boolean; virtual;
-   function GetDownPointPara: InevPara;
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aDownPoint: InevBasePoint;
     aTarget: Tl3Variant;
     aLayerHandle: Integer;
@@ -136,57 +114,66 @@ type
     aTarget: Tl3Variant;
     aLayerHandle: Integer;
     const aProcessor: InevProcessor): IevHotSpot; reintroduce;
-     {* Сознаёт горячую точку для сегмента }
+    {* Сознаёт горячую точку для сегмента }
  end;//TevSegmentHotSpot
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  SysUtils,
-  evdStyles,
-  k2Tags,
-  HyperLink_Const,
-  evdTypes,
-  k2Base,
-  nevNavigation,
-  l3Base,
-  evHotSpotMisc,
-  nevInterfaces,
-  evHyperlink,
-  evInternalInterfaces,
-  Classes,
-  Segment_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Const,
-  nevActiveHyperlink
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If defined(k2ForEditor)}
-  ,
-  evAACContentUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
+ l3ImplUses
+ , nevNavigation
+ , l3Base
+ , evHotSpotMisc
+ , nevInterfaces
+ , evHyperlink
+ , evInternalInterfaces
+ , Classes
+ , Segment_Const
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Const
+ , nevActiveHyperlink
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(k2ForEditor)}
+ , evAACContentUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , SysUtils
+ , evdStyles
+ , k2Tags
+ , k2Base
+ , evdTypes
+ , HyperLink_Const
+;
 
 type
-  TEffectMap = array [Boolean] of TafwJumpToEffects;
-const
-   { Internal Constants }
-  cEffectMap : TEffectMap = ([], [afw_jteRequestNewWindow]);
+ TEffectMap = array [Boolean] of TafwJumpToEffects;
 
-// start class TevSegmentHotSpot
+const
+ cEffectMap: TEffectMap = ([], [afw_jteRequestNewWindow]);
+
+function TevSegmentHotSpot.TryDoHyperlink(const aView: InevControlView;
+ anEffects: TafwJumpToEffects): Boolean;
+var l_MonikerSink: IevMonikerSink;
+//#UC START# *4A269489009C_4A268E590029_var*
+//#UC END# *4A269489009C_4A268E590029_var*
+begin
+//#UC START# *4A269489009C_4A268E590029_impl*
+ if IsHyperlink AND
+    Supports(aView.Control, IevMonikerSink, l_MonikerSink) then
+  try
+   Result := l_MonikerSink.JumpTo(anEffects, Self);
+  finally
+   l_MonikerSink := nil;
+  end//try..finally
+ else
+  Result := false;
+//#UC END# *4A269489009C_4A268E590029_impl*
+end;//TevSegmentHotSpot.TryDoHyperlink
 
 function TevSegmentHotSpot.IsHyperlink: Boolean;
 //#UC START# *4A269501015E_4A268E590029_var*
@@ -206,19 +193,24 @@ begin
 end;//TevSegmentHotSpot.IsHyperlink
 
 function TevSegmentHotSpot.GetHyperLink: Tl3Variant;
-var
- l_Para : InevPara;
- l_Segment : Tl3Tag absolute Result;
+ {* Возвращает гиперссылку, от продолжения на данном сегменте }
+var l_Para: InevPara;
+var l_Segment: Tl3Tag absolute Result;
 
  procedure IterateLayers;
+  {* Перебирает слои сегментов }
 
   function DoIt(anItem: Tl3Variant;
-    anIndex: Integer): Boolean;
+   anIndex: Integer): Boolean;
+   {* Обрабатывает слой сегментов }
+  var l_Handle: Integer;
 
    procedure IterateSegments;
+    {* Перебирает сегменты внутри слоя }
 
     function DoIt(anItem: Tl3Variant;
-      anIndex: Integer): Boolean;
+     anIndex: Integer): Boolean;
+     {* Обрабатывает отдельный сегмент }
     //#UC START# *4BB226CA0326__var*
     //#UC END# *4BB226CA0326__var*
     begin
@@ -239,16 +231,14 @@ var
     //#UC START# *4BB22F6C00B4iter*
     anItem.
     //#UC END# *4BB22F6C00B4iter*
-     IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt)
-      //#UC START# *4BB22F6C00B4iterparam*
-      //#UC END# *4BB22F6C00B4iterparam*
-     );
+    IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt)
+    //#UC START# *4BB22F6C00B4iterparam*
+    //#UC END# *4BB22F6C00B4iterparam*
+    );
    end;//IterateSegments
 
   //#UC START# *4BB22649001E__var*
   //#UC END# *4BB22649001E__var*
-  var
-   l_Handle : Integer;
   begin
   //#UC START# *4BB22649001E__impl*
    l_Handle := anItem.IntA[k2_tiHandle];
@@ -269,10 +259,10 @@ var
   with l_Para.AsObject.Attr[k2_tiSegments] do
    if IsValid then                                 
   //#UC END# *4BB225E103A4iter*
-   IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt)
-    //#UC START# *4BB225E103A4iterparam*
-    //#UC END# *4BB225E103A4iterparam*
-   );
+  IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt)
+  //#UC START# *4BB225E103A4iterparam*
+  //#UC END# *4BB225E103A4iterparam*
+  );
  end;//IterateLayers
 
 //#UC START# *4A269526011E_4A268E590029_var*
@@ -291,12 +281,11 @@ begin
 //#UC END# *4A269526011E_4A268E590029_impl*
 end;//TevSegmentHotSpot.GetHyperLink
 
-{$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+{$If Defined(evChangeSegmentByMouse)}
 function TevSegmentHotSpot.GetPlacement: TevSegmentPlacement;
+var l_CursorPos: Integer;
 //#UC START# *4A26A1E303A6_4A268E590029_var*
 //#UC END# *4A26A1E303A6_4A268E590029_var*
-var
- l_CursorPos : Integer;
 begin
 //#UC START# *4A26A1E303A6_4A268E590029_impl*
  Result := ev_spNone;
@@ -315,17 +304,16 @@ begin
  end;//with GetRedirect^
 //#UC END# *4A26A1E303A6_4A268E590029_impl*
 end;//TevSegmentHotSpot.GetPlacement
-{$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
+{$IfEnd} // Defined(evChangeSegmentByMouse)
 
-{$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+{$If Defined(evChangeSegmentByMouse)}
 procedure TevSegmentHotSpot.ChangeBorder(const aTag: InevObject;
-  aPosition: Integer;
-  const aPack: InevOp);
+ aPosition: Integer;
+ const aPack: InevOp);
+var l_Placement: TevSegmentPlacement;
+var l_Segments: Tl3Tag;
 //#UC START# *4A26A2020328_4A268E590029_var*
 //#UC END# *4A26A2020328_4A268E590029_var*
-var
- l_Placement : TevSegmentPlacement;
- l_Segments : Tl3Tag;
 begin
 //#UC START# *4A26A2020328_4A268E590029_impl*
  l_Segments := aTag.Attr[k2_tiSegments];
@@ -343,19 +331,21 @@ begin
  end;//CanChangeBorder
 //#UC END# *4A26A2020328_4A268E590029_impl*
 end;//TevSegmentHotSpot.ChangeBorder
-{$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
+{$IfEnd} // Defined(evChangeSegmentByMouse)
 
-{$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+{$If Defined(evChangeSegmentByMouse)}
 function TevSegmentHotSpot.CanChangeBorderPrim(aPara: Tl3Variant;
-  aSegments: Tl3Variant;
-  aPosition: Integer;
-  out aPlacement: TevSegmentPlacement): Boolean;
+ aSegments: Tl3Variant;
+ aPosition: Integer;
+ out aPlacement: TevSegmentPlacement): Boolean;
+var l_Start: Integer;
+var l_Finish: Integer;
 
  function HasSegment(aStart: Integer;
-   aFinish: Integer): Boolean;
+  aFinish: Integer): Boolean;
 
-  function ThereIsSegment(S: Tl3Variant;
-    Index: Integer): Boolean;
+  function thereIsSegment(S: Tl3Variant;
+   Index: Integer): Boolean;
   //#UC START# *4A26A3010265__var*
   //#UC END# *4A26A3010265__var*
   begin
@@ -363,7 +353,7 @@ function TevSegmentHotSpot.CanChangeBorderPrim(aPara: Tl3Variant;
    Result := false;
    HasSegment := true;
   //#UC END# *4A26A3010265__impl*
-  end;//ThereIsSegment
+  end;//thereIsSegment
 
  //#UC START# *4A26A2D40030__var*
  //#UC END# *4A26A2D40030__var*
@@ -373,14 +363,11 @@ function TevSegmentHotSpot.CanChangeBorderPrim(aPara: Tl3Variant;
   evSegmentsLayer_IterateSegmentsF(aPara.AsObject,
                                    aSegments.rAtomEx([k2_tiChildren, k2_tiHandle, fl_LayerHandle]),
                                    aStart, aFinish, L2Mk2ChildrenIterateChildrenFAction(@thereIsSegment));
-//#UC END# *4A26A2D40030__impl*
+ //#UC END# *4A26A2D40030__impl*
  end;//HasSegment
 
 //#UC START# *4A26A2600221_4A268E590029_var*
 //#UC END# *4A26A2600221_4A268E590029_var*
-var
- l_Start : Integer;
- l_Finish : Integer;
 begin
 //#UC START# *4A26A2600221_4A268E590029_impl*
  if (fl_LayerHandle = Ord(ev_slHyperlinks)) then
@@ -419,18 +406,17 @@ begin
   Result := false;
 //#UC END# *4A26A2600221_4A268E590029_impl*
 end;//TevSegmentHotSpot.CanChangeBorderPrim
-{$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
+{$IfEnd} // Defined(evChangeSegmentByMouse)
 
-{$If defined(evChangeSegmentByMouse) AND defined(evNeedHotSpot)}
+{$If Defined(evChangeSegmentByMouse)}
 function TevSegmentHotSpot.CanChangeBorder(const aView: InevControlView;
-  const aPt: Tl3Point;
-  out aPlacement: TevSegmentPlacement): Boolean;
+ const aPt: Tl3Point;
+ out aPlacement: TevSegmentPlacement): Boolean;
+var l_Tag: InevObject;
+var l_Map: InevMap;
+var l_Point: InevBasePoint;
 //#UC START# *4A26A32F026B_4A268E590029_var*
 //#UC END# *4A26A32F026B_4A268E590029_var*
-var
- l_Tag : InevObject;
- l_Map : InevMap;
- l_Point : InevBasePoint;
 begin
 //#UC START# *4A26A32F026B_4A268E590029_impl*
  l_Point := aView.PointByPt(aPt);
@@ -452,7 +438,7 @@ begin
  end;//Result
 //#UC END# *4A26A32F026B_4A268E590029_impl*
 end;//TevSegmentHotSpot.CanChangeBorder
-{$IfEnd} //evChangeSegmentByMouse AND evNeedHotSpot
+{$IfEnd} // Defined(evChangeSegmentByMouse)
 
 procedure TevSegmentHotSpot.TryToSelectHypelink(const aView: InevControlView);
 //#UC START# *50580EBC032C_4A268E590029_var*
@@ -464,26 +450,6 @@ begin
 //#UC END# *50580EBC032C_4A268E590029_impl*
 end;//TevSegmentHotSpot.TryToSelectHypelink
 
-function TevSegmentHotSpot.TryDoHyperlink(const aView: InevControlView;
-  anEffects: TafwJumpToEffects): Boolean;
-//#UC START# *4A269489009C_4A268E590029_var*
-//#UC END# *4A269489009C_4A268E590029_var*
-var
- l_MonikerSink : IevMonikerSink;
-begin
-//#UC START# *4A269489009C_4A268E590029_impl*
- if IsHyperlink AND
-    Supports(aView.Control, IevMonikerSink, l_MonikerSink) then
-  try
-   Result := l_MonikerSink.JumpTo(anEffects, Self);
-  finally
-   l_MonikerSink := nil;
-  end//try..finally
- else
-  Result := false;
-//#UC END# *4A269489009C_4A268E590029_impl*
-end;//TevSegmentHotSpot.TryDoHyperlink
-
 function TevSegmentHotSpot.GetDownPointPara: InevPara;
 //#UC START# *5530CAEC03B8_4A268E590029_var*
 //#UC END# *5530CAEC03B8_4A268E590029_var*
@@ -494,9 +460,9 @@ begin
 end;//TevSegmentHotSpot.GetDownPointPara
 
 constructor TevSegmentHotSpot.Create(const aDownPoint: InevBasePoint;
-  aTarget: Tl3Variant;
-  aLayerHandle: Integer;
-  const aProcessor: InevProcessor);
+ aTarget: Tl3Variant;
+ aLayerHandle: Integer;
+ const aProcessor: InevProcessor);
 //#UC START# *4A268F9002C7_4A268E590029_var*
 //#UC END# *4A268F9002C7_4A268E590029_var*
 begin
@@ -508,9 +474,10 @@ begin
 end;//TevSegmentHotSpot.Create
 
 class function TevSegmentHotSpot.Make(const aDownPoint: InevBasePoint;
-  aTarget: Tl3Variant;
-  aLayerHandle: Integer;
-  const aProcessor: InevProcessor): IevHotSpot;
+ aTarget: Tl3Variant;
+ aLayerHandle: Integer;
+ const aProcessor: InevProcessor): IevHotSpot;
+ {* Сознаёт горячую точку для сегмента }
 var
  l_Inst : TevSegmentHotSpot;
 begin
@@ -520,11 +487,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevSegmentHotSpot.Make
 
 function TevSegmentHotSpot.TransMouseMove(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  out theActiveElement: InevActiveElement): Boolean;
+ const aKeys: TevMouseState;
+ out theActiveElement: InevActiveElement): Boolean;
+ {* Собственно реальный MouseMove, передаваемый редактору }
 //#UC START# *48E2638F0358_4A268E590029_var*
 //#UC END# *48E2638F0358_4A268E590029_var*
 begin
@@ -536,7 +504,8 @@ begin
 end;//TevSegmentHotSpot.TransMouseMove
 
 function TevSegmentHotSpot.MouseMove(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает перемещение мыши }
 //#UC START# *48E266730188_4A268E590029_var*
 {$IfDef evChangeSegmentByMouse}
 var
@@ -555,8 +524,9 @@ begin
 end;//TevSegmentHotSpot.MouseMove
 
 function TevSegmentHotSpot.LButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* Обрабатывает нажатие левой кнопки мыши }
 //#UC START# *48E266AA00A4_4A268E590029_var*
 //#UC END# *48E266AA00A4_4A268E590029_var*
 begin
@@ -584,7 +554,8 @@ begin
 end;//TevSegmentHotSpot.LButtonDown
 
 function TevSegmentHotSpot.LButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание левой кнопки мыши }
 //#UC START# *48E266C70128_4A268E590029_var*
 {$IfDef evChangeSegmentByMouse}
 var
@@ -644,8 +615,9 @@ begin
 end;//TevSegmentHotSpot.LButtonUp
 
 function TevSegmentHotSpot.LButtonDoubleClick(const aView: InevControlView;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* Обрабатывает двойное нажатие левой кнопки мыши }
 //#UC START# *48E266DE026B_4A268E590029_var*
 //#UC END# *48E266DE026B_4A268E590029_var*
 begin
@@ -671,7 +643,8 @@ begin
 end;//TevSegmentHotSpot.LButtonDoubleClick
 
 function TevSegmentHotSpot.RButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает нажатие правой кнопки мыши }
 //#UC START# *48E266FB01FC_4A268E590029_var*
 //#UC END# *48E266FB01FC_4A268E590029_var*
 begin
@@ -681,7 +654,8 @@ begin
 end;//TevSegmentHotSpot.RButtonDown
 
 function TevSegmentHotSpot.RButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание правой конопки мыши }
 //#UC START# *48E267150266_4A268E590029_var*
 var
  l_Dummy : TevMouseEffect;
@@ -694,7 +668,8 @@ begin
 end;//TevSegmentHotSpot.RButtonUp
 
 function TevSegmentHotSpot.MButtonDown(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает нажатие колеса мыши }
 //#UC START# *49DB4675025E_4A268E590029_var*
 //#UC END# *49DB4675025E_4A268E590029_var*
 begin
@@ -704,7 +679,8 @@ begin
 end;//TevSegmentHotSpot.MButtonDown
 
 function TevSegmentHotSpot.MButtonUp(const aView: InevControlView;
-  const Keys: TevMouseState): Boolean;
+ const Keys: TevMouseState): Boolean;
+ {* Обрабатывает отпускание колеса мыши }
 //#UC START# *49DB468302A5_4A268E590029_var*
 //#UC END# *49DB468302A5_4A268E590029_var*
 begin
@@ -723,6 +699,7 @@ begin
 end;//TevSegmentHotSpot.CanDrag
 
 procedure TevSegmentHotSpot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A268E590029_var*
 //#UC END# *479731C50290_4A268E590029_var*
 begin
@@ -734,8 +711,8 @@ begin
 end;//TevSegmentHotSpot.Cleanup
 
 procedure TevSegmentHotSpot.DoHitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *4A267FC6016B_4A268E590029_var*
 //#UC END# *4A267FC6016B_4A268E590029_var*
 begin
@@ -801,7 +778,8 @@ begin
 end;//TevSegmentHotSpot.DoHitTest
 
 function TevSegmentHotSpot.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A268E590029_var*
 var
  l_IHyperlink : IevHyperlink;
@@ -846,7 +824,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_4A268E590029_impl*
 end;//TevSegmentHotSpot.COMQueryInterface
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

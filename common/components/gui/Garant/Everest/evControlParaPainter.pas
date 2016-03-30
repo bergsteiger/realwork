@@ -1,90 +1,70 @@
 unit evControlParaPainter;
+ {* Инструмент для рисования параграфов типа Control. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlParaPainter.pas"
-// Начат: 02.11.2004 15:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::LeafPara Painters::TevControlParaPainter
-//
-// Инструмент для рисования параграфов типа Control.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlParaPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlParaPainter" MUID: (4804CDA403CE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  nevBase,
-  evdTypes,
-  l3Units,
-  evTextParaPainterEx,
-  l3Variant
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evTextParaPainterEx
+ , nevBase
+ , l3Units
+ , evdTypes
+ , l3Variant
+;
 
-{$If defined(evNeedPainters)}
 type
  TevControlParaPainter = class(TevTextParaPainterEx)
   {* Инструмент для рисования параграфов типа Control. }
- private
- // private methods
+  private
    procedure DrawImgListComponent(const aEditRect: Tl3SRect;
-     aType: TevControlType;
-     aPartialDraw: Boolean;
-     aBtnWidth: Integer);
-     {* Отрисовывает комопоненты с иконками }
- protected
- // overridden protected methods
+    aType: TevControlType;
+    aPartialDraw: Boolean;
+    aBtnWidth: Integer);
+    {* Отрисовывает комопоненты с иконками }
+  protected
    procedure DrawFrame; override;
-     {* Процедура рисования видимой рамки вокруг параграфа. }
+    {* Процедура рисования видимой рамки вокруг параграфа. }
    function DrawLeaf: Boolean; override;
    procedure ValidateSegFont(aSeg: Tl3Variant); override;
    procedure ValidateParaFont; override;
  end;//TevControlParaPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  k2Tags,
-  l3InternalInterfaces,
-  evControlParaTools,
-  evControlParaConst,
-  nevTools,
-  Graphics,
-  l3Interfaces,
-  l3MinMax,
-  TableCell_Const,
-  HyperLink_Const,
-  l3String,
-  l3Defaults,
-  Types
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevControlParaPainter
+ l3ImplUses
+ , k2Tags
+ , l3InternalInterfaces
+ , evControlParaTools
+ , evControlParaConst
+ , nevTools
+ , Graphics
+ , l3Interfaces
+ , l3MinMax
+ , TableCell_Const
+ , HyperLink_Const
+ , l3String
+ , l3Defaults
+ , Types
+;
 
 procedure TevControlParaPainter.DrawImgListComponent(const aEditRect: Tl3SRect;
-  aType: TevControlType;
-  aPartialDraw: Boolean;
-  aBtnWidth: Integer);
+ aType: TevControlType;
+ aPartialDraw: Boolean;
+ aBtnWidth: Integer);
+ {* Отрисовывает комопоненты с иконками }
+var l_ImageInfo: TnevControlImageInfo;
 //#UC START# *49DB2E950297_4804CDA403CE_var*
 //#UC END# *49DB2E950297_4804CDA403CE_var*
-var
- l_ImageInfo : TnevControlImageInfo;
 begin
 //#UC START# *49DB2E950297_4804CDA403CE_impl*
  evGetCustomImageList(ControlInfo, l_ImageInfo, aType);
@@ -110,6 +90,7 @@ begin
 end;//TevControlParaPainter.DrawImgListComponent
 
 procedure TevControlParaPainter.DrawFrame;
+ {* Процедура рисования видимой рамки вокруг параграфа. }
 //#UC START# *4804B76803D5_4804CDA403CE_var*
 const
  lc_State: array [Boolean] of Tl3CheckBoxState = (l3_cbUnchecked, l3_cbChecked);
@@ -416,7 +397,6 @@ begin
    Area.rCanvas.Font.ForeColor := clSilver;
 //#UC END# *4D725A550218_4804CDA403CE_impl*
 end;//TevControlParaPainter.ValidateParaFont
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

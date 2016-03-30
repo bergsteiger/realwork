@@ -1,79 +1,57 @@
 unit evCommentParaPainter;
+ {* Реализация интерфейса IevPainter для блока с комментариями }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCommentParaPainter.pas"
-// Начат: 10.11.2004 19:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevCommentParaPainter
-//
-// Реализация интерфейса IevPainter для блока с комментариями
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaPainter" MUID: (49DB2E390053)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evDocumentPartPainter,
-  l3Interfaces,
-  nevBase,
-  l3Variant
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evDocumentPartPainter
+ , l3Variant
+ , l3Interfaces
+ , nevBase
+;
 
-{$If defined(evNeedPainters)}
 type
  TevCommentParaPainter = class(TevDocumentPartPainter)
   {* Реализация интерфейса IevPainter для блока с комментариями }
- protected
- // overridden protected methods
+  protected
    function InfiniteFrame: Boolean; override;
    procedure GetFramePartPrim(aFrame: Tl3Variant;
     anIndex: Tl3FramePartIndex;
     var thePart: TnevFramePart); override;
    procedure DoDrawFrameText(aTop: Boolean); override;
    procedure DrawFrameName; override;
-     {* Рисует имя блока в области рамки }
+    {* Рисует имя блока в области рамки }
    function NeedDrawPlus: Boolean; override;
-     {* Нужно ли рисовать плюс/минус для открытия/сворачивания блока }
+    {* Нужно ли рисовать плюс/минус для открытия/сворачивания блока }
  end;//TevCommentParaPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  TextPara_Const,
-  evdStyles,
-  k2Tags,
-  k2Base,
-  Graphics,
-  l3Units,
-  l3MinMax,
-  l3String,
-  nevInterfaces
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevCommentParaPainter
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , TextPara_Const
+ , evdStyles
+ , k2Tags
+ , k2Base
+ , Graphics
+ , l3Units
+ , l3MinMax
+ , l3String
+ , nevInterfaces
+;
 
 function TevCommentParaPainter.InfiniteFrame: Boolean;
 //#UC START# *4804B78B0397_49DB2E390053_var*
@@ -86,8 +64,8 @@ begin
 end;//TevCommentParaPainter.InfiniteFrame
 
 procedure TevCommentParaPainter.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_49DB2E390053_var*
 //#UC END# *4804B9BB0383_49DB2E390053_var*
 begin
@@ -134,6 +112,7 @@ begin
 end;//TevCommentParaPainter.DoDrawFrameText
 
 procedure TevCommentParaPainter.DrawFrameName;
+ {* Рисует имя блока в области рамки }
 //#UC START# *49DB1B9E0191_49DB2E390053_var*
 //#UC END# *49DB1B9E0191_49DB2E390053_var*
 begin
@@ -142,6 +121,7 @@ begin
 end;//TevCommentParaPainter.DrawFrameName
 
 function TevCommentParaPainter.NeedDrawPlus: Boolean;
+ {* Нужно ли рисовать плюс/минус для открытия/сворачивания блока }
 //#UC START# *49DB1BF30312_49DB2E390053_var*
 //#UC END# *49DB1BF30312_49DB2E390053_var*
 begin
@@ -153,7 +133,6 @@ begin
  {$EndIf evCommentParaHasPlus}
 //#UC END# *49DB1BF30312_49DB2E390053_impl*
 end;//TevCommentParaPainter.NeedDrawPlus
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

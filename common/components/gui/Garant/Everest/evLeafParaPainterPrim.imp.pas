@@ -1,53 +1,41 @@
 {$IfNDef evLeafParaPainterPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evLeafParaPainterPrim.imp.pas"
-// Начат: 15.04.2008 19:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Drawing Framework::evLeafParaPainterPrim
-//
-// Базовый рисователь листьевых параграфов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evLeafParaPainterPrim" MUID: (4804C7B60375)
+// Имя типа: "_evLeafParaPainterPrim_"
 
 {$Define evLeafParaPainterPrim_imp}
-{$If defined(evNeedPainters)}
- {$Include ..\Everest\evParaPainter.imp.pas}
- _evLeafParaPainterPrim_ = {mixin} class(_evParaPainter_)
+
+{$If Defined(evNeedPainters)}
+ {$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
+ _evLeafParaPainterPrim_ = class(_evParaPainter_)
   {* Базовый рисователь листьевых параграфов. }
- protected
- // overridden protected methods
-   function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
-   procedure InitBottom(var theBottom: InevBasePoint;
-    var theCellBottom: InevBasePoint); override;
- protected
- // protected methods
+  protected
    function GetBitmapForPara: Il3Bitmap; virtual;
    function DrawPicture: Boolean;
-     {* рисует параграф с картинкой - Para на канве CN со смещения aTop. }
+    {* рисует параграф с картинкой - Para на канве CN со смещения aTop. }
    function DrawLeaf: Boolean; virtual;
+   function DoDraw: Boolean; override;
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+   procedure InitBottom(var theBottom: InevBasePoint;
+    var theCellBottom: InevBasePoint); override;
  end;//_evLeafParaPainterPrim_
-{$Else}
 
- {$Include ..\Everest\evParaPainter.imp.pas}
- _evLeafParaPainterPrim_ = _evParaPainter_;
+{$Else Defined(evNeedPainters)}
 
-{$IfEnd} //evNeedPainters
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
+_evLeafParaPainterPrim_ = _evParaPainter_;
 
+{$IfEnd} // Defined(evNeedPainters)
 {$Else evLeafParaPainterPrim_imp}
 
-{$If defined(evNeedPainters)}
+{$IfNDef evLeafParaPainterPrim_imp_impl}
 
-{$Include ..\Everest\evParaPainter.imp.pas}
+{$Define evLeafParaPainterPrim_imp_impl}
 
-// start class _evLeafParaPainterPrim_
+{$If Defined(evNeedPainters)}
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
 
 function _evLeafParaPainterPrim_.GetBitmapForPara: Il3Bitmap;
 //#UC START# *4E53B9A500B4_4804C7B60375_var*
@@ -59,6 +47,7 @@ begin
 end;//_evLeafParaPainterPrim_.GetBitmapForPara
 
 function _evLeafParaPainterPrim_.DrawPicture: Boolean;
+ {* рисует параграф с картинкой - Para на канве CN со смещения aTop. }
 //#UC START# *4804C7FC02BB_4804C7B60375_var*
 var
  l_BitmapContainer : Il3Bitmap;
@@ -188,6 +177,7 @@ begin
 end;//_evLeafParaPainterPrim_.DrawLeaf
 
 function _evLeafParaPainterPrim_.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_4804C7B60375_var*
 //#UC END# *4804BC2401C2_4804C7B60375_var*
 begin
@@ -198,7 +188,7 @@ begin
 end;//_evLeafParaPainterPrim_.DoDraw
 
 procedure _evLeafParaPainterPrim_.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_4804C7B60375_var*
 var
  l_Pt : TnevPoint;
@@ -219,7 +209,9 @@ begin
   end;//with Map.Bounds
 //#UC END# *4804BC800172_4804C7B60375_impl*
 end;//_evLeafParaPainterPrim_.InitBottom
+{$IfEnd} // Defined(evNeedPainters)
 
-{$IfEnd} //evNeedPainters
+{$EndIf evLeafParaPainterPrim_imp_impl}
 
 {$EndIf evLeafParaPainterPrim_imp}
+

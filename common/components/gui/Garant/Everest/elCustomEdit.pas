@@ -1,74 +1,55 @@
 unit elCustomEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/elCustomEdit.pas"
-// Начат: 14.05.2008 15:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::elClone::TelCustomEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\elCustomEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TelCustomEdit" MUID: (482ACC330173)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Messages,
-  Classes,
-  nevTools,
-  evCustomEdit,
-  l3StringIDEx,
-  evEditorWithOperations,
-  nevBase,
-  l3InternalInterfaces,
-  l3Core
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , evCustomEdit
+ , nevTools
+ , l3Interfaces
+ , Classes
+ , Messages
+ , evEditorWithOperations
+ , nevBase
+ , l3InternalInterfaces
+ , l3Core
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *482ACC330173intf_uses*
+ //#UC END# *482ACC330173intf_uses*
+;
 
 type
-//#UC START# *482ACC330173ci*
-//#UC END# *482ACC330173ci*
-//#UC START# *482ACC330173cit*
-//#UC END# *482ACC330173cit*
+ //#UC START# *482ACC330173ci*
+ //#UC END# *482ACC330173ci*
+ //#UC START# *482ACC330173cit*
+ //#UC END# *482ACC330173cit*
  TelCustomEdit = class(TevCustomEdit, IelEditStrings)
- private
- // private fields
-   f_MaxLengthDelta : Integer;
-   f_HyperlinkStart : Integer;
-   f_HyperlinkFinish : Integer;
-   f_SmartOnResize : Boolean;
-    {* Поле для свойства SmartOnResize}
-   f_PasswordChar : AnsiChar;
-    {* Поле для свойства PasswordChar}
-   f_EmptyHintColor : Tl3Color;
-    {* Поле для свойства EmptyHintColor}
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_CEmptyHint : Il3CString;
-    {* Поле для свойства CEmptyHint}
-   f_CEmptyHintAdding : Il3CString;
-    {* Поле для свойства CEmptyHintAdding}
-   f_OnEmptyAddingClick : TNotifyEvent;
-    {* Поле для свойства OnEmptyAddingClick}
- private
- // private methods
+  private
+   f_MaxLengthDelta: Integer;
+   f_HyperlinkStart: Integer;
+   f_HyperlinkFinish: Integer;
+   f_SmartOnResize: Boolean;
+   f_PasswordChar: AnsiChar;
+   f_EmptyHintColor: Tl3Color;
+   f_OnChange: TNotifyEvent;
+   f_CEmptyHint: Il3CString;
+   f_CEmptyHintAdding: Il3CString;
+   f_OnEmptyAddingClick: TNotifyEvent;
+  protected
+   FArrowsSelect: Boolean;
+   FRestrictOnTextChange: Integer;
+  private
    procedure NotifyPosChange;
    procedure WMNCPaint(var Message: TWMNCPaint); message WM_NCPAINT;
- protected
- // property methods
+  protected
    function pm_GetSelStart: Integer;
    procedure pm_SetSelStart(aValue: Integer);
    function pm_GetSelLength: Integer;
@@ -86,47 +67,6 @@ type
    procedure pm_SetCText(const aValue: Il3CString); virtual;
    function pm_GetParas: IelEditStrings;
    procedure pm_SetCEmptyHintAdding(const aValue: Il3CString);
- protected
- // realized methods
-   procedure Set_ParagraphStrings(anIndex: Integer; const aValue: Il3CString);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure ParaChange; override;
-     {* текущий параграф изменился. }
-   procedure TextChange; override;
-     {* вызывается при смене текста. }
-   function GetHorzDelta: Integer; override;
-     {* зазор, после которого начинается скроллирование вправо. }
-   function GetTopMargin: Integer; override;
-     {* Возвращает отступ до текста сверху. }
-   function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
-   function ProcessHotSpots: Boolean; override;
-     {* Обрабатывать ли "горячие точки" на предмет показа Hint'а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718] }
-   function GetInfoCanvas: InevInfoCanvas; override;
-   procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-   procedure DoCursorChanged; override;
-   function SelectWhenUnfocused: Boolean; override;
-   procedure RecalcScreenCursor(const aPoint: TPoint;
-     var theCursor: TCursor); override;
-    {$If not defined(NoVCL)}
-   procedure MouseUp(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   FArrowsSelect : Boolean;
-   FRestrictOnTextChange : Integer;
- protected
- // protected methods
    procedure Change; virtual;
    procedure DoChange;
    function DeleteSelection(aFakeDelete: Boolean = False): Il3CString;
@@ -138,65 +78,93 @@ type
    procedure CheckDoc;
    procedure TriggerCaretXChangedEvent(var Value: Integer;
     var Allow: Boolean); virtual;
- public
- // public methods
+   procedure Set_ParagraphStrings(anIndex: Integer;
+    const aValue: Il3CString);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure ParaChange; override;
+    {* текущий параграф изменился. }
+   procedure TextChange; override;
+    {* вызывается при смене текста. }
+   function GetHorzDelta: Integer; override;
+    {* зазор, после которого начинается скроллирование вправо. }
+   function GetTopMargin: Integer; override;
+    {* Возвращает отступ до текста сверху. }
+   function DefineProvideOperations: TevEditorProvideOperationTypes; override;
+    {* Какие операции публикуются компонентом. }
+   function ProcessHotSpots: Boolean; override;
+    {* Обрабатывать ли "горячие точки" на предмет показа Hint'а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718] }
+   function GetInfoCanvas: InevInfoCanvas; override;
+   procedure Paint(const CN: Il3Canvas); override;
+    {* процедура рисования внешнего вида управляющего элемента }
+   procedure DoCursorChanged; override;
+   function SelectWhenUnfocused: Boolean; override;
+   procedure RecalcScreenCursor(const aPoint: TPoint;
+    var theCursor: TCursor); override;
+   {$If NOT Defined(NoVCL)}
+   procedure MouseUp(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure ClearFields; override;
+  public
    procedure SelectAll;
    procedure ClearUndoRedoLists;
    procedure PaintMistakes(const aWords: Il3StringsEx);
- protected
- // protected properties
+  protected
    property SelStart: Integer
-     read pm_GetSelStart
-     write pm_SetSelStart;
+    read pm_GetSelStart
+    write pm_SetSelStart;
    property SelLength: Integer
-     read pm_GetSelLength
-     write pm_SetSelLength;
+    read pm_GetSelLength
+    write pm_SetSelLength;
    property CaretX: Integer
-     read pm_GetCaretX
-     write pm_SetCaretX;
+    read pm_GetCaretX
+    write pm_SetCaretX;
    property NoCaret: Boolean
-     write pm_SetNoCaret;
+    write pm_SetNoCaret;
    property SmartOnResize: Boolean
-     read f_SmartOnResize
-     write f_SmartOnResize;
+    read f_SmartOnResize
+    write f_SmartOnResize;
    property UseSystemMenu: Boolean
-     read pm_GetUseSystemMenu
-     write pm_SetUseSystemMenu
-     default true;
+    read pm_GetUseSystemMenu
+    write pm_SetUseSystemMenu
+    default True;
    property PasswordChar: AnsiChar
-     read f_PasswordChar
-     write f_PasswordChar
-     default #0;
+    read f_PasswordChar
+    write f_PasswordChar
+    default #0;
    property MaxLength: Integer
-     read pm_GetMaxLength
-     write pm_SetMaxLength
-     default 0;
+    read pm_GetMaxLength
+    write pm_SetMaxLength
+    default 0;
    property EmptyHint: Tl3DString
-     read pm_GetEmptyHint
-     write pm_SetEmptyHint;
+    read pm_GetEmptyHint
+    write pm_SetEmptyHint;
    property EmptyHintColor: Tl3Color
-     read f_EmptyHintColor
-     write f_EmptyHintColor;
+    read f_EmptyHintColor
+    write f_EmptyHintColor;
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
    property Paras: IelEditStrings
-     read pm_GetParas;
- public
- // public properties
+    read pm_GetParas;
+  public
    property CText: Il3CString
-     read pm_GetCText
-     write pm_SetCText;
+    read pm_GetCText
+    write pm_SetCText;
    property CEmptyHint: Il3CString
-     read f_CEmptyHint
-     write f_CEmptyHint;
+    read f_CEmptyHint
+    write f_CEmptyHint;
    property CEmptyHintAdding: Il3CString
-     read f_CEmptyHintAdding
-     write pm_SetCEmptyHintAdding;
+    read f_CEmptyHintAdding
+    write pm_SetCEmptyHintAdding;
    property OnEmptyAddingClick: TNotifyEvent
-     read f_OnEmptyAddingClick
-     write f_OnEmptyAddingClick;
-//#UC START# *482ACC330173publ*
+    read f_OnEmptyAddingClick
+    write f_OnEmptyAddingClick;
+ //#UC START# *482ACC330173publ*
  protected
    property Wrap
      default false;
@@ -209,42 +177,40 @@ type
 {   property AutoHeightByText
      default true;
      {-}
-//#UC END# *482ACC330173publ*
+ //#UC END# *482ACC330173publ*
  end;//TelCustomEdit
 
 implementation
 
 uses
-  l3String,
-  l3Base
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Const,
-  evSearch,
-  evdStyles,
-  evTypes,
-  evdTypes,
-  k2Tags,
-  l3Units,
-  Graphics,
-  Windows,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , l3StringIDEx
+ , l3String
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Const
+ , evSearch
+ , evdStyles
+ , evTypes
+ , evdTypes
+ , k2Tags
+ , l3Units
+ , Graphics
+ , Windows
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482ACC330173impl_uses*
+ //#UC END# *482ACC330173impl_uses*
+;
 
-var
-   { Локализуемые строки Locall }
-  str_CEmptiHintAddingSeparator : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CEmptiHintAddingSeparator'; rValue : ', например, ');
-   { ', например, ' }
-
-// start class TelCustomEdit
+const
+ {* Локализуемые строки Locall }
+ str_CEmptiHintAddingSeparator: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CEmptiHintAddingSeparator'; rValue : ', например, ');
+  {* ', например, ' }
 
 function TelCustomEdit.pm_GetSelStart: Integer;
 //#UC START# *482AF615038E_482ACC330173get_var*
@@ -447,8 +413,8 @@ begin
 end;//TelCustomEdit.DeleteSelection
 
 procedure TelCustomEdit.TriggerTextChangedEvent(Sender: TObject;
-  var aText: Il3CString;
-  var Allow: Boolean);
+ var aText: Il3CString;
+ var Allow: Boolean);
 //#UC START# *482B0717028A_482ACC330173_var*
 //#UC END# *482B0717028A_482ACC330173_var*
 begin
@@ -506,7 +472,7 @@ begin
 end;//TelCustomEdit.CheckDoc
 
 procedure TelCustomEdit.TriggerCaretXChangedEvent(var Value: Integer;
-  var Allow: Boolean);
+ var Allow: Boolean);
 //#UC START# *482C0BBD01CF_482ACC330173_var*
 //#UC END# *482C0BBD01CF_482ACC330173_var*
 begin
@@ -587,7 +553,8 @@ begin
 //#UC END# *48998C510192_482ACC330173_impl*
 end;//TelCustomEdit.WMNCPaint
 
-procedure TelCustomEdit.Set_ParagraphStrings(anIndex: Integer; const aValue: Il3CString);
+procedure TelCustomEdit.Set_ParagraphStrings(anIndex: Integer;
+ const aValue: Il3CString);
 //#UC START# *482AECDA021C_482ACC330173set_var*
 var
  l_Op : InevOp;
@@ -628,6 +595,7 @@ begin
 end;//TelCustomEdit.Set_ParagraphStrings
 
 procedure TelCustomEdit.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_482ACC330173_var*
 //#UC END# *479731C50290_482ACC330173_var*
 begin
@@ -657,6 +625,7 @@ begin
 end;//TelCustomEdit.InitFields
 
 procedure TelCustomEdit.ParaChange;
+ {* текущий параграф изменился. }
 //#UC START# *482BFA340236_482ACC330173_var*
 //#UC END# *482BFA340236_482ACC330173_var*
 begin
@@ -667,6 +636,7 @@ begin
 end;//TelCustomEdit.ParaChange
 
 procedure TelCustomEdit.TextChange;
+ {* вызывается при смене текста. }
 //#UC START# *482C26D6006A_482ACC330173_var*
 //#UC END# *482C26D6006A_482ACC330173_var*
 begin
@@ -678,6 +648,7 @@ begin
 end;//TelCustomEdit.TextChange
 
 function TelCustomEdit.GetHorzDelta: Integer;
+ {* зазор, после которого начинается скроллирование вправо. }
 //#UC START# *482C706503AF_482ACC330173_var*
 //#UC END# *482C706503AF_482ACC330173_var*
 begin
@@ -687,6 +658,7 @@ begin
 end;//TelCustomEdit.GetHorzDelta
 
 function TelCustomEdit.GetTopMargin: Integer;
+ {* Возвращает отступ до текста сверху. }
 //#UC START# *483D718E0143_482ACC330173_var*
 (*var
  l_DocHeight : Integer;*)
@@ -702,6 +674,7 @@ begin
 end;//TelCustomEdit.GetTopMargin
 
 function TelCustomEdit.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_482ACC330173_var*
 //#UC END# *48735C4A03C3_482ACC330173_var*
 begin
@@ -711,6 +684,7 @@ begin
 end;//TelCustomEdit.DefineProvideOperations
 
 function TelCustomEdit.ProcessHotSpots: Boolean;
+ {* Обрабатывать ли "горячие точки" на предмет показа Hint'а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718] }
 //#UC START# *4875FDAD037A_482ACC330173_var*
 //#UC END# *4875FDAD037A_482ACC330173_var*
 begin
@@ -731,6 +705,7 @@ begin
 end;//TelCustomEdit.GetInfoCanvas
 
 procedure TelCustomEdit.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_482ACC330173_var*
 var
  l_H : Il3CString;
@@ -827,7 +802,7 @@ begin
 end;//TelCustomEdit.SelectWhenUnfocused
 
 procedure TelCustomEdit.RecalcScreenCursor(const aPoint: TPoint;
-  var theCursor: TCursor);
+ var theCursor: TCursor);
 //#UC START# *4E788DB902F9_482ACC330173_var*
 //#UC END# *4E788DB902F9_482ACC330173_var*
 begin
@@ -840,11 +815,11 @@ begin
 //#UC END# *4E788DB902F9_482ACC330173_impl*
 end;//TelCustomEdit.RecalcScreenCursor
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TelCustomEdit.MouseUp(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4E7896270076_482ACC330173_var*
 //#UC END# *4E7896270076_482ACC330173_var*
 begin
@@ -858,10 +833,9 @@ begin
  inherited;
 //#UC END# *4E7896270076_482ACC330173_impl*
 end;//TelCustomEdit.MouseUp
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TelCustomEdit.ClearFields;
- {-}
 begin
  CEmptyHint := nil;
  CEmptyHintAdding := nil;
@@ -872,11 +846,11 @@ end;//TelCustomEdit.ClearFields
 //#UC END# *482ACC330173impl*
 
 initialization
-// Инициализация str_CEmptiHintAddingSeparator
  str_CEmptiHintAddingSeparator.Init;
-{$If not defined(NoScripts)}
-// Регистрация TelCustomEdit
+ {* Инициализация str_CEmptiHintAddingSeparator }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TelCustomEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TelCustomEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,48 +1,37 @@
 unit nevTableAnchor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTableAnchor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Anchors::TnevTableAnchor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableAnchor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableAnchor" MUID: (4F1EC738000E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\new\nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevParaListAnchor,
-  k2Interfaces
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaListAnchor
+ , k2Interfaces
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevTableAnchor = class(TnevParaListAnchor)
- protected
- // overridden protected methods
+  protected
    procedure DoFire(const anEvent: Tk2Event;
     const anOp: Ik2Op); override;
  end;//TnevTableAnchor
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TnevTableAnchor
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 procedure TnevTableAnchor.DoFire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
 //#UC START# *48CF73CE00B5_4F1EC738000E_var*
 //#UC END# *48CF73CE00B5_4F1EC738000E_var*
 begin
@@ -58,7 +47,6 @@ begin
  end;
 //#UC END# *48CF73CE00B5_4F1EC738000E_impl*
 end;//TnevTableAnchor.DoFire
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

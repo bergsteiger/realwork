@@ -1,59 +1,45 @@
 unit evCellWidthCorrecterSpy;
+ {* Собиратель информации для тестов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCellWidthCorrecterSpy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCellWidthCorrecterSpy
-//
-// Собиратель информации для тестов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCellWidthCorrecterSpy" MUID: (4FC701EC00C0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Filer,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Filer
+;
 
 type
- IevCellsWidthCorrecterLogger = interface(IUnknown)
-   ['{D6A90763-2ABA-44CF-9E08-78D3B6C5ACCD}']
-   function OpenLog: AnsiString;
-   procedure CloseLog(const aLogName: AnsiString);
+ IevCellsWidthCorrecterLogger = interface
+  ['{D6A90763-2ABA-44CF-9E08-78D3B6C5ACCD}']
+  function OpenLog: AnsiString;
+  procedure CloseLog(const aLogName: AnsiString);
  end;//IevCellsWidthCorrecterLogger
 
  TevCellLogData = record
-   rCellID : Integer;
-   rCellText : AnsiString;
-   rOldWidth : Integer;
-   rNewWidth : Integer;
+  rCellID: Integer;
+  rCellText: AnsiString;
+  rOldWidth: Integer;
+  rNewWidth: Integer;
  end;//TevCellLogData
 
  TevCellWidthCorrecterSpy = class(Tl3ProtoObject)
   {* Собиратель информации для тестов. }
- private
- // private fields
-   f_Logger : IevCellsWidthCorrecterLogger;
-   f_Filer : Tl3CustomFiler;
-   f_LogName : AnsiString;
- protected
- // overridden protected methods
+  private
+   f_Logger: IevCellsWidthCorrecterLogger;
+   f_Filer: Tl3CustomFiler;
+   f_LogName: AnsiString;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
    procedure SetLogger(const aLogger: IevCellsWidthCorrecterLogger);
    procedure RemoveLogger(const aLogger: IevCellsWidthCorrecterLogger);
@@ -61,46 +47,33 @@ type
    procedure EndSaveData;
    procedure SaveAlignmentData(const aCellLogData: TevCellLogData);
    procedure SaveRowData(anIndex: Integer;
-     aOldRowWidth: Integer;
-     aNewRowWidth: Integer);
+    aOldRowWidth: Integer;
+    aNewRowWidth: Integer);
    function NeedLog: Boolean;
- public
- // singleton factory method
    class function Instance: TevCellWidthCorrecterSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevCellWidthCorrecterSpy }
  end;//TevCellWidthCorrecterSpy
 
 implementation
 
 uses
-  l3Base {a},
-  l3Types,
-  SysUtils,
-  l3Chars,
-  l3String,
-  l3Interfaces
-  ;
+ l3ImplUses
+ , l3Types
+ , SysUtils
+ , l3Chars
+ , l3String
+ , l3Interfaces
+ , l3Base
+;
 
-
-// start class TevCellWidthCorrecterSpy
-
-var g_TevCellWidthCorrecterSpy : TevCellWidthCorrecterSpy = nil;
+var g_TevCellWidthCorrecterSpy: TevCellWidthCorrecterSpy = nil;
+ {* Экземпляр синглетона TevCellWidthCorrecterSpy }
 
 procedure TevCellWidthCorrecterSpyFree;
+ {* Метод освобождения экземпляра синглетона TevCellWidthCorrecterSpy }
 begin
  l3Free(g_TevCellWidthCorrecterSpy);
-end;
-
-class function TevCellWidthCorrecterSpy.Instance: TevCellWidthCorrecterSpy;
-begin
- if (g_TevCellWidthCorrecterSpy = nil) then
- begin
-  l3System.AddExitProc(TevCellWidthCorrecterSpyFree);
-  g_TevCellWidthCorrecterSpy := Create;
- end;
- Result := g_TevCellWidthCorrecterSpy;
-end;
-
+end;//TevCellWidthCorrecterSpyFree
 
 class function TevCellWidthCorrecterSpy.Exists: Boolean;
 //#UC START# *4FC704C00038_4FC701EC00C0_var*
@@ -178,8 +151,8 @@ begin
 end;//TevCellWidthCorrecterSpy.SaveAlignmentData
 
 procedure TevCellWidthCorrecterSpy.SaveRowData(anIndex: Integer;
-  aOldRowWidth: Integer;
-  aNewRowWidth: Integer);
+ aOldRowWidth: Integer;
+ aNewRowWidth: Integer);
 //#UC START# *4FC709AF00B7_4FC701EC00C0_var*
 //#UC END# *4FC709AF00B7_4FC701EC00C0_var*
 begin
@@ -202,7 +175,19 @@ begin
 //#UC END# *4FC723F7027F_4FC701EC00C0_impl*
 end;//TevCellWidthCorrecterSpy.NeedLog
 
+class function TevCellWidthCorrecterSpy.Instance: TevCellWidthCorrecterSpy;
+ {* Метод получения экземпляра синглетона TevCellWidthCorrecterSpy }
+begin
+ if (g_TevCellWidthCorrecterSpy = nil) then
+ begin
+  l3System.AddExitProc(TevCellWidthCorrecterSpyFree);
+  g_TevCellWidthCorrecterSpy := Create;
+ end;
+ Result := g_TevCellWidthCorrecterSpy;
+end;//TevCellWidthCorrecterSpy.Instance
+
 procedure TevCellWidthCorrecterSpy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FC701EC00C0_var*
 //#UC END# *479731C50290_4FC701EC00C0_var*
 begin
@@ -214,7 +199,6 @@ begin
 end;//TevCellWidthCorrecterSpy.Cleanup
 
 procedure TevCellWidthCorrecterSpy.ClearFields;
- {-}
 begin
  f_Logger := nil;
  inherited;

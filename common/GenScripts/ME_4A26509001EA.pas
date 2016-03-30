@@ -31,24 +31,23 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function GetFont(aControl: TControl): Il3FontInfo;
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TevCustomEditorWindowModelPartFontInfo;
     {* Метод получения экземпляра синглетона TevCustomEditorWindowModelPartFontInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevCustomEditorWindowModelPartFontInfo
 
  TevCustomEditorWindowModelPart = class(TevCustomEditorWindow)
   {* Часть TevCustomEditorWindow, перенесённая на модель }
   private
    f_ActiveElement: InevActiveElement;
-    {* Поле для свойства ActiveElement }
    f_ForceDrawFocusRect: Boolean;
-    {* Поле для свойства ForceDrawFocusRect }
+    {* Рисовать ли рамку вокруг активного параграфа }
    f_PersistentSelection: Boolean;
-    {* Поле для свойства PersistentSelection }
+    {* "Постоянное" выделение }
   private
    procedure WMNCMouseLeave(var Msg: TMessage); message WM_NCMouseLeave;
    procedure WMNCMouseMove(var Msg: TWMNCMouseMove); message WM_NCMouseMove;
@@ -111,12 +110,6 @@ begin
  l3Free(g_TevCustomEditorWindowModelPartFontInfo);
 end;//TevCustomEditorWindowModelPartFontInfoFree
 
-class function TevCustomEditorWindowModelPartFontInfo.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevCustomEditorWindowModelPartFontInfo <> nil;
-end;//TevCustomEditorWindowModelPartFontInfo.Exists
-
 {$If NOT Defined(NoVCL)}
 function TevCustomEditorWindowModelPartFontInfo.GetFont(aControl: TControl): Il3FontInfo;
 //#UC START# *B31F486B3A13_556F262E022F_var*
@@ -141,6 +134,12 @@ begin
  end;
  Result := g_TevCustomEditorWindowModelPartFontInfo;
 end;//TevCustomEditorWindowModelPartFontInfo.Instance
+
+class function TevCustomEditorWindowModelPartFontInfo.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevCustomEditorWindowModelPartFontInfo <> nil;
+end;//TevCustomEditorWindowModelPartFontInfo.Exists
 
 procedure TevCustomEditorWindowModelPart.pm_SetActiveElement(const aValue: InevActiveElement);
 //#UC START# *4A27C6400137_4A26509001EAset_var*

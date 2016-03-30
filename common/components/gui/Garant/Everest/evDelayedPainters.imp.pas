@@ -1,57 +1,44 @@
 {$IfNDef evDelayedPainters_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDelayedPainters.imp.pas"
-// Начат: 06.06.2007 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::ParaList Painters::evDelayedPainters
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evDelayedPainters" MUID: (48C928EE0282)
+// Имя типа: "_evDelayedPainters_"
 
 {$Define evDelayedPainters_imp}
-{$If defined(evNeedPainters)}
- _evDelayedPainters_ = {mixin} class(_evDelayedPainters_Parent_, InevPaintersHolder)
- private
- // private fields
-   f_SelectedList : TevSelectedParts;
-    {* Список кусочков выделения}
-   f_RowHeights : Tl3LongintList;
-    {* Массив высот строк}
- private
- // private methods
+
+{$If Defined(evNeedPainters)}
+ _evDelayedPainters_ = class(_evDelayedPainters_Parent_, InevPaintersHolder)
+  private
+   f_SelectedList: TevSelectedParts;
+    {* Список кусочков выделения }
+   f_RowHeights: Tl3LongintList;
+    {* Массив высот строк }
+  private
    function GetRowHeights: Tl3LongintList;
- protected
- // realized methods
-   procedure RemeberSelPart(const aChildMap: InevMap;
-     aSelection: Boolean);
-     {* Запомнить прямоугольник для отрисовки. }
-   procedure SetHeight(aHeight: Integer);
- protected
- // protected methods
+  protected
    procedure Release; override;
    procedure BeforeAddToCache; override;
- public
- // public methods
+   procedure RemeberSelPart(const aChildMap: InevMap;
+    aSelection: Boolean);
+    {* Запомнить прямоугольник для отрисовки. }
+   procedure SetHeight(aHeight: Integer);
+  public
    procedure PaintSelectionParts;
  end;//_evDelayedPainters_
-{$Else}
 
- _evDelayedPainters_ = _evDelayedPainters_Parent_;
+{$Else Defined(evNeedPainters)}
 
-{$IfEnd} //evNeedPainters
+_evDelayedPainters_ = _evDelayedPainters_Parent_;
 
+{$IfEnd} // Defined(evNeedPainters)
 {$Else evDelayedPainters_imp}
 
-{$If defined(evNeedPainters)}
+{$IfNDef evDelayedPainters_imp_impl}
 
-// start class _evDelayedPainters_
+{$Define evDelayedPainters_imp_impl}
 
+{$If Defined(evNeedPainters)}
 function _evDelayedPainters_.GetRowHeights: Tl3LongintList;
 //#UC START# *48C9294D0370_48C928EE0282_var*
 //#UC END# *48C9294D0370_48C928EE0282_var*
@@ -130,7 +117,8 @@ begin
 end;//_evDelayedPainters_.BeforeAddToCache
 
 procedure _evDelayedPainters_.RemeberSelPart(const aChildMap: InevMap;
-  aSelection: Boolean);
+ aSelection: Boolean);
+ {* Запомнить прямоугольник для отрисовки. }
 //#UC START# *47C7DE3200E4_48C928EE0282_var*
 var
  l_SelectItem: TevSelectedPart;
@@ -164,7 +152,9 @@ begin
   GetRowHeights.Add(aHeight);
 //#UC END# *47C7DE42020F_48C928EE0282_impl*
 end;//_evDelayedPainters_.SetHeight
+{$IfEnd} // Defined(evNeedPainters)
 
-{$IfEnd} //evNeedPainters
+{$EndIf evDelayedPainters_imp_impl}
 
 {$EndIf evDelayedPainters_imp}
+

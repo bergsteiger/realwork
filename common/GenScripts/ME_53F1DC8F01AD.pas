@@ -29,6 +29,8 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , AbsSubTree
+ //#UC START# *53F1DC8F01ADintf_uses*
+ //#UC END# *53F1DC8F01ADintf_uses*
 ;
 
 const
@@ -43,25 +45,15 @@ type
    f_CalcDimensions: Boolean;
    f_Tree: TSubTree;
    f_AdjustDropDownPos: Boolean;
-    {* Поле для свойства AdjustDropDownPos }
    f_SizeableTree: Boolean;
-    {* Поле для свойства SizeableTree }
    f_ShowGripper: Boolean;
-    {* Поле для свойства ShowGripper }
    f_OnGetItemImage: Tl3GetItemImage;
-    {* Поле для свойства OnGetItemImage }
    f_MinVisibleDropCount: Integer;
-    {* Поле для свойства MinVisibleDropCount }
    f_MaxVisibleDropCount: Integer;
-    {* Поле для свойства MaxVisibleDropCount }
    f_GrowDropTreeWidthByIcons: Boolean;
-    {* Поле для свойства GrowDropTreeWidthByIcons }
    f_KeepLastDropWidth: Boolean;
-    {* Поле для свойства KeepLastDropWidth }
    f_DropHeight: Integer;
-    {* Поле для свойства DropHeight }
    f_DropWidth: Integer;
-    {* Поле для свойства DropWidth }
   private
    procedure WMLButtonDown(var Message: TWMLButtonDown); message WM_LBUTTONDOWN;
    procedure WMLButtonUp(var Message: TWMLButtonDown); message WM_LBUTTONUP;
@@ -241,6 +233,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3ListenersManager
+ //#UC START# *53F1DC8F01ADimpl_uses*
+ //#UC END# *53F1DC8F01ADimpl_uses*
 ;
 
 procedure TDropDownTreePrim.pm_SetSizeableTree(aValue: Boolean);

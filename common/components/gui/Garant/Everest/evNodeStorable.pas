@@ -1,66 +1,50 @@
 unit evNodeStorable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evNodeStorable.pas"
-// Начат: 26.12.2006 14:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevNodeStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evNodeStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevNodeStorable" MUID: (48F4D8230366)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  evStringStorable,
-  evdInterfaces,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evStringStorable
+ , nevBase
+ , evdInterfaces
+ , nevTools
+ , l3Interfaces
+;
 
 type
  TevNodeStorable = class(TevStringStorable)
- private
- // private fields
-   f_Node : InevSimpleNode;
-    {* Поле для свойства Node}
- protected
- // realized methods
+  private
+   f_Node: InevSimpleNode;
+    {* Поле для свойства Node }
+  protected
    function Text: Tl3WString; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aData: InevSimpleNode;
     const aReader: InevTagReader); reintroduce;
    class function Make(const aData: InevSimpleNode;
     const aReader: InevTagReader): IevdDataObject; reintroduce;
- protected
- // protected properties
+  protected
    property Node: InevSimpleNode
-     read f_Node;
+    read f_Node;
  end;//TevNodeStorable
 
 implementation
 
-// start class TevNodeStorable
+uses
+ l3ImplUses
+;
 
 constructor TevNodeStorable.Create(const aData: InevSimpleNode;
-  const aReader: InevTagReader);
+ const aReader: InevTagReader);
 //#UC START# *48F4D87E0393_48F4D8230366_var*
 //#UC END# *48F4D87E0393_48F4D8230366_var*
 begin
@@ -71,7 +55,7 @@ begin
 end;//TevNodeStorable.Create
 
 class function TevNodeStorable.Make(const aData: InevSimpleNode;
-  const aReader: InevTagReader): IevdDataObject;
+ const aReader: InevTagReader): IevdDataObject;
 var
  l_Inst : TevNodeStorable;
 begin
@@ -81,7 +65,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevNodeStorable.Make
 
 function TevNodeStorable.Text: Tl3WString;
 //#UC START# *48F494FD001D_48F4D8230366_var*
@@ -93,6 +77,7 @@ begin
 end;//TevNodeStorable.Text
 
 procedure TevNodeStorable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F4D8230366_var*
 //#UC END# *479731C50290_48F4D8230366_var*
 begin
@@ -103,7 +88,6 @@ begin
 end;//TevNodeStorable.Cleanup
 
 procedure TevNodeStorable.ClearFields;
- {-}
 begin
  f_Node := nil;
  inherited;

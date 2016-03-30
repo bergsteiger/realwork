@@ -1,27 +1,18 @@
 {$IfNDef CellsCountStack_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/CellsCountStack.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Generators::CellsCountStack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\CellsCountStack.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "CellsCountStack" MUID: (5148407D0202)
+// Имя типа: "_CellsCountStack_"
 
 {$Define CellsCountStack_imp}
- _CellsCountStack_ = {mixin} class(_CellsCountStack_Parent_)
- private
- // private fields
-   f_CellsCountStack : Tl3ProtoIntegerList;
- private
- // private methods
+
+ _CellsCountStack_ = class(_CellsCountStack_Parent_)
+  private
+   f_CellsCountStack: Tl3ProtoIntegerList;
+  private
    function GetCellsCountStack: Tl3ProtoIntegerList;
- protected
- // protected methods
+  protected
    procedure FreeCellsCountStack;
    procedure PopCellsCount;
    procedure PushCellsCount;
@@ -31,7 +22,18 @@
 
 {$Else CellsCountStack_imp}
 
-// start class _CellsCountStack_
+{$IfNDef CellsCountStack_imp_impl}
+
+{$Define CellsCountStack_imp_impl}
+
+procedure _CellsCountStack_.FreeCellsCountStack;
+//#UC START# *51483C6A0347_5148407D0202_var*
+//#UC END# *51483C6A0347_5148407D0202_var*
+begin
+//#UC START# *51483C6A0347_5148407D0202_impl*
+ FreeAndNil(f_CellsCountStack);
+//#UC END# *51483C6A0347_5148407D0202_impl*
+end;//_CellsCountStack_.FreeCellsCountStack
 
 function _CellsCountStack_.GetCellsCountStack: Tl3ProtoIntegerList;
 //#UC START# *51483B7A0158_5148407D0202_var*
@@ -43,15 +45,6 @@ begin
  Result := f_CellsCountStack; 
 //#UC END# *51483B7A0158_5148407D0202_impl*
 end;//_CellsCountStack_.GetCellsCountStack
-
-procedure _CellsCountStack_.FreeCellsCountStack;
-//#UC START# *51483C6A0347_5148407D0202_var*
-//#UC END# *51483C6A0347_5148407D0202_var*
-begin
-//#UC START# *51483C6A0347_5148407D0202_impl*
- FreeAndNil(f_CellsCountStack);
-//#UC END# *51483C6A0347_5148407D0202_impl*
-end;//_CellsCountStack_.FreeCellsCountStack
 
 procedure _CellsCountStack_.PopCellsCount;
 //#UC START# *51483C160353_5148407D0202_var*
@@ -90,4 +83,7 @@ begin
 //#UC END# *5148447D01B1_5148407D0202_impl*
 end;//_CellsCountStack_.IncTopValue
 
+{$EndIf CellsCountStack_imp_impl}
+
 {$EndIf CellsCountStack_imp}
+

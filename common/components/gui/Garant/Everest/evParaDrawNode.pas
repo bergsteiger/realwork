@@ -1,57 +1,44 @@
 unit evParaDrawNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaDrawNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::PaintedNode::TevParaDrawNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaDrawNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaDrawNode" MUID: (4E24151202E1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  nevTools,
-  evParaNode,
-  l3IID,
-  l3Variant,
-  nevBase
-  ;
+ l3IntfUses
+ , evParaNode
+ , k2Interfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3IID
+;
 
 type
  TevParaDrawNode = class(TevParaNode, Ik2TagBoxContainer, IevTreeDataObject)
- protected
- // realized methods
+  protected
    procedure SetTag(aTag: Tl3Variant);
    procedure Store(const G: InevTagGenerator;
     aLevelTag: Integer;
     aIndent: Integer);
-     {* Сохраняет ноду дерева в G }
- protected
- // overridden protected methods
+    {* Сохраняет ноду дерева в G }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
  end;//TevParaDrawNode
 
 implementation
 
 uses
-  evNodePainter,
-  l3InternalInterfaces,
-  k2Const
-  ;
-
-// start class TevParaDrawNode
+ l3ImplUses
+ , evNodePainter
+ , l3InternalInterfaces
+ , k2Const
+;
 
 procedure TevParaDrawNode.SetTag(aTag: Tl3Variant);
 //#UC START# *469F9FD9025D_4E24151202E1_var*
@@ -63,8 +50,9 @@ begin
 end;//TevParaDrawNode.SetTag
 
 procedure TevParaDrawNode.Store(const G: InevTagGenerator;
-  aLevelTag: Integer;
-  aIndent: Integer);
+ aLevelTag: Integer;
+ aIndent: Integer);
+ {* Сохраняет ноду дерева в G }
 //#UC START# *48F8AD980361_4E24151202E1_var*
 //#UC END# *48F8AD980361_4E24151202E1_var*
 begin
@@ -84,7 +72,8 @@ begin
 end;//TevParaDrawNode.Store
 
 function TevParaDrawNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4E24151202E1_var*
 //#UC END# *4A60B23E00C3_4E24151202E1_var*
 begin

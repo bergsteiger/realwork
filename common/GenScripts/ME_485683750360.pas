@@ -23,6 +23,8 @@ uses
  , SegmentsLayer_Const
  , TabStop_Const
  , evdFrame_Const
+ //#UC START# *485683750360_484CD009023Dintf_uses*
+ //#UC END# *485683750360_484CD009023Dintf_uses*
 ;
 
  // TextParaTag
@@ -33,6 +35,8 @@ uses
  l3ImplUses
  , l3Base
  , evdTypes
+ //#UC START# *485683750360_484CD009023Dimpl_uses*
+ //#UC END# *485683750360_484CD009023Dimpl_uses*
 ;
 
 end.

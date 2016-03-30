@@ -1,29 +1,18 @@
 unit evSimpleEdit;
+ {* Поле редактора для конечного исользования }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evSimpleEdit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevSimpleEdit
-//
-// Поле редактора для конечного исользования
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evSimpleEdit.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSimpleEdit" MUID: (48D253650260)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditControl
-  ;
+ l3IntfUses
+ , evEditControl
+;
 
 type
  TevSimpleEdit = class(TevEditControl)
@@ -31,5 +20,9 @@ type
  end;//TevSimpleEdit
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

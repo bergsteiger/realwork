@@ -1,57 +1,40 @@
 unit ctFakeBoxStrings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/ctFakeBoxStrings.pas"
-// Начат: 07.07.2008 23:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::ComboTree::TctFakeBoxStrings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TctFakeBoxStrings" MUID: (487268A90374)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  FakeBox,
-  ComboBoxStrings,
-  Classes
-  ;
+ l3IntfUses
+ , ComboBoxStrings
+ , FakeBox
+ , Classes
+;
 
 type
  TctFakeBoxStrings = class(TComboBoxStrings)
- private
- // private fields
-   f_SubOwner : TFakeBox;
-    {* Поле для свойства SubOwner}
- public
- // overridden public methods
+  private
+   f_SubOwner: TFakeBox;
+    {* Поле для свойства SubOwner }
+  public
+   constructor Create(anOwner: TFakeBox); reintroduce;
    procedure Assign(Source: TPersistent); override;
    procedure Clear; override;
- public
- // public methods
-   constructor Create(anOwner: TFakeBox); reintroduce;
- protected
- // protected properties
+  protected
    property SubOwner: TFakeBox
-     read f_SubOwner;
+    read f_SubOwner;
  end;//TctFakeBoxStrings
 
 implementation
 
 uses
-  l3String
-  ;
-
-// start class TctFakeBoxStrings
+ l3ImplUses
+ , l3String
+;
 
 constructor TctFakeBoxStrings.Create(anOwner: TFakeBox);
 //#UC START# *487268F8027E_487268A90374_var*

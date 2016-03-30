@@ -1,47 +1,32 @@
 unit evPersistentDataObjectEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evPersistentDataObjectEx.pas"
-// Начат: 17.10.2008 18:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevPersistentDataObjectEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evPersistentDataObjectEx.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevPersistentDataObjectEx" MUID: (48F89F4302E3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evPersistentDataObject
-  ;
+ l3IntfUses
+ , evPersistentDataObject
+ , nevTools
+;
 
 type
  TevPersistentDataObjectEx = class(TevPersistentDataObject)
- protected
- // overridden protected methods
-   function Sharp: Boolean; override;
- protected
- // protected methods
+  protected
    function Holder: InevObjectHolder;
+   function Sharp: Boolean; override;
  end;//TevPersistentDataObjectEx
 
 implementation
 
 uses
-  nevPersistentDocumentContainer
-  ;
-
-// start class TevPersistentDataObjectEx
+ l3ImplUses
+ , nevPersistentDocumentContainer
+;
 
 function TevPersistentDataObjectEx.Holder: InevObjectHolder;
 //#UC START# *48F89F810133_48F89F4302E3_var*

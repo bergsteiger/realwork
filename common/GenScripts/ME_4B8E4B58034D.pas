@@ -16,7 +16,8 @@ uses
 ;
 
 const
- sBtnGlyphs: array [0 .. 3] of PAnsiChar = ('VTPREV2'
+ sBtnGlyphs: array [0 .. 3] of PAnsiChar = (
+ 'VTPREV2'
  , 'VTPREV1'
  , 'VTNEXT1'
  , 'VTNEXT2'

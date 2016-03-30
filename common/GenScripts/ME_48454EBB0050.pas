@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , evCustomMemo
+ //#UC START# *48454EBB0050intf_uses*
+ //#UC END# *48454EBB0050intf_uses*
 ;
 
 type
@@ -125,6 +127,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48454EBB0050impl_uses*
+ //#UC END# *48454EBB0050impl_uses*
 ;
 
 //#UC START# *48454EBB0050impl*

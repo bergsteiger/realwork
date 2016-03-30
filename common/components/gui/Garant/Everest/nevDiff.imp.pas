@@ -1,56 +1,47 @@
 {$IfNDef nevDiff_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDiff.imp.pas"
-// Начат: 10.04.2009 18:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevDiff
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDiff.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevDiff" MUID: (49DF54E500B3)
+// Имя типа: "_nevDiff_"
 
 {$Define nevDiff_imp}
-{$If defined(evUseVisibleCursors)}
- _nevDiff_ = {mixin} class(_nevDiff_Parent_)
- public
- // realized methods
-   function Diff(const aView: InevView;
-     const aPoint: InevBasePoint;
-     aMap: TnevFormatInfoPrim): Integer;
-     {* сравнивает курсор с "якорем" по вертикали. }
-   function PartiallyVisible(const aView: InevView;
-     const aPoint: InevBasePoint;
-     const aMap: TnevFormatInfoPrim): Boolean;
-     {* Определяет может ли точка "частично видимой" относительно другой точки (aPoint). Сделано для определения видимости начальной ячейки относительно якоря. }
- protected
- // protected methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevDiff_ = class(_nevDiff_Parent_)
+  protected
    function DoDiff(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Integer; virtual;
    function DoPartiallyVisible(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Boolean; virtual;
+  public
+   function Diff(const aView: InevView;
+    const aPoint: InevBasePoint;
+    aMap: TnevFormatInfoPrim): Integer;
+    {* сравнивает курсор с "якорем" по вертикали. }
+   function PartiallyVisible(const aView: InevView;
+    const aPoint: InevBasePoint;
+    const aMap: TnevFormatInfoPrim): Boolean;
+    {* Определяет может ли точка "частично видимой" относительно другой точки (aPoint). Сделано для определения видимости начальной ячейки относительно якоря. }
  end;//_nevDiff_
-{$Else}
 
- _nevDiff_ = _nevDiff_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevDiff_ = _nevDiff_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevDiff_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevDiff_imp_impl}
 
-// start class _nevDiff_
+{$Define nevDiff_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevDiff_.DoDiff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4AA785540310_49DF54E500B3_var*
 var
  l_Inn   : InevBasePoint;
@@ -97,8 +88,8 @@ begin
 end;//_nevDiff_.DoDiff
 
 function _nevDiff_.DoPartiallyVisible(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Boolean;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Boolean;
 //#UC START# *4BBB10FB015B_49DF54E500B3_var*
 //#UC END# *4BBB10FB015B_49DF54E500B3_var*
 begin
@@ -108,8 +99,9 @@ begin
 end;//_nevDiff_.DoPartiallyVisible
 
 function _nevDiff_.Diff(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Integer;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Integer;
+ {* сравнивает курсор с "якорем" по вертикали. }
 //#UC START# *49DF51870234_49DF54E500B3_var*
 //#UC END# *49DF51870234_49DF54E500B3_var*
 begin
@@ -119,8 +111,9 @@ begin
 end;//_nevDiff_.Diff
 
 function _nevDiff_.PartiallyVisible(const aView: InevView;
-  const aPoint: InevBasePoint;
-  const aMap: TnevFormatInfoPrim): Boolean;
+ const aPoint: InevBasePoint;
+ const aMap: TnevFormatInfoPrim): Boolean;
+ {* Определяет может ли точка "частично видимой" относительно другой точки (aPoint). Сделано для определения видимости начальной ячейки относительно якоря. }
 //#UC START# *4BBB0DDD026D_49DF54E500B3_var*
 //#UC END# *4BBB0DDD026D_49DF54E500B3_var*
 begin
@@ -128,7 +121,9 @@ begin
  Result := DoPartiallyVisible(aView, aPoint, aMap);
 //#UC END# *4BBB0DDD026D_49DF54E500B3_impl*
 end;//_nevDiff_.PartiallyVisible
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevDiff_imp_impl}
 
 {$EndIf nevDiff_imp}
+

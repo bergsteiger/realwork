@@ -36,18 +36,18 @@ type
  TevCustomStyleManager = {final} class(Tl3ProtoObject)
   private
    f_Alien: IevCustomStyleManager;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса IevCustomStyleManager }
   protected
    procedure pm_SetAlien(const aValue: IevCustomStyleManager);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IsAbolishedDocumentLink(aSeg: Tl3Variant;
     const aPara: InevPara): Boolean;
    function IsVisitedDocumentLink(aSeg: Tl3Variant): Boolean;
    class function Instance: TevCustomStyleManager;
     {* Метод получения экземпляра синглетона TevCustomStyleManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: IevCustomStyleManager
     write pm_SetAlien;
@@ -76,12 +76,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//TevCustomStyleManager.pm_SetAlien
-
-class function TevCustomStyleManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevCustomStyleManager <> nil;
-end;//TevCustomStyleManager.Exists
 
 function TevCustomStyleManager.IsAbolishedDocumentLink(aSeg: Tl3Variant;
  const aPara: InevPara): Boolean;
@@ -112,6 +106,12 @@ begin
  end;
  Result := g_TevCustomStyleManager;
 end;//TevCustomStyleManager.Instance
+
+class function TevCustomStyleManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevCustomStyleManager <> nil;
+end;//TevCustomStyleManager.Exists
 
 procedure TevCustomStyleManager.ClearFields;
 begin

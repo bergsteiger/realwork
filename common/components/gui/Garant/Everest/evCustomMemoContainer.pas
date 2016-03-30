@@ -1,46 +1,31 @@
 unit evCustomMemoContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomMemoContainer.pas"
-// Начат: 23.05.1997 09:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevCustomMemoContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemoContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomMemoContainer" MUID: (482D888D039E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  Classes,
-  nevTools,
-  k2DocumentGenerator,
-  nevPrintableDocumentContainer,
-  evOpProc,
-  nevBase,
-  k2TagGen,
-  k2Base
-  ;
+ l3IntfUses
+ , nevPrintableDocumentContainer
+ , Classes
+ , nevTools
+ , k2DocumentGenerator
+ , k2Base
+ , evOpProc
+ , nevBase
+ , k2TagGen
+;
 
 type
  TevCustomMemoContainer = class(TnevPrintableDocumentContainer)
- private
- // private methods
+  private
    procedure UpdateParaParam(const Atom: Tk2StackAtom);
- protected
- // property methods
+  protected
    function pm_GetMemo: TComponent;
- protected
- // overridden protected methods
    function DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
     var anAtom: Tk2StackAtom): Boolean; override;
    function DoBeforeFinishAtom(G: Tk2DocumentGenerator;
@@ -52,34 +37,31 @@ type
     aCodePage: Integer); override;
    function NeedsProgressOnSave: Boolean; override;
    function GetDocumentType: Tk2Type; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: InevDocumentContainer; reintroduce;
- protected
- // protected properties
+  protected
    property Memo: TComponent
-     read pm_GetMemo;
+    read pm_GetMemo;
  end;//TevCustomMemoContainer
 
 implementation
 
 uses
-  k2Tags,
-  evTagsListFilter,
-  evCustomMemo,
-  k2Facade,
-  evdTypes,
-  evMemoProcessor,
-  TextPara_Const,
-  SimpleDocument_Const,
-  l3Types,
-  l3Base,
-  evDef,
-  Font_Const
-  ;
-
-// start class TevCustomMemoContainer
+ l3ImplUses
+ , k2Tags
+ , evTagsListFilter
+ , evCustomMemo
+ , k2Facade
+ , evdTypes
+ , evMemoProcessor
+ , TextPara_Const
+ , SimpleDocument_Const
+ , l3Types
+ , l3Base
+ , evDef
+ , Font_Const
+;
 
 function TevCustomMemoContainer.pm_GetMemo: TComponent;
 //#UC START# *483FA3BF01F2_482D888D039Eget_var*
@@ -192,10 +174,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevCustomMemoContainer.Make
 
 function TevCustomMemoContainer.DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
-  var anAtom: Tk2StackAtom): Boolean;
+ var anAtom: Tk2StackAtom): Boolean;
 //#UC START# *47F226170180_482D888D039E_var*
 //#UC END# *47F226170180_482D888D039E_var*
 begin
@@ -207,7 +189,7 @@ begin
 end;//TevCustomMemoContainer.DoBeforeFinishAtom1
 
 function TevCustomMemoContainer.DoBeforeFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *47F2262B0094_482D888D039E_var*
 //#UC END# *47F2262B0094_482D888D039E_var*
 begin
@@ -228,9 +210,9 @@ begin
 end;//TevCustomMemoContainer.MakeProcessor
 
 procedure TevCustomMemoContainer.DoGetWriter(aFormat: TnevFormat;
-  anInternal: Boolean;
-  var theWriter: Tk2TagGenerator;
-  aCodePage: Integer);
+ anInternal: Boolean;
+ var theWriter: Tk2TagGenerator;
+ aCodePage: Integer);
 //#UC START# *483E6C150277_482D888D039E_var*
 const
  cExcludeAttr : array [0..7] of Integer =

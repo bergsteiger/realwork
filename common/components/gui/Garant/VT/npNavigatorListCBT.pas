@@ -1,63 +1,45 @@
 unit npNavigatorListCBT;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$WithVCM"
-// Модуль: "w:/common/components/gui/Garant/VT/npNavigatorListCBT.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$WithVCM::vtNavigator::TnpNavigatorListCBT
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\npNavigatorListCBT.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnpNavigatorListCBT" MUID: (4F61FEEB00A5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Interfaces,
-  npNavigatorListPrim
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , npNavigatorListPrim
+ , l3Interfaces
+;
 
-{$If not defined(NoVCM)}
 type
  TnpNavigatorListCBT = class(TnpNavigatorListPrim, Il3CBTListener)
- protected
- // realized methods
+  protected
    procedure CBTListenerNotify(Code: Integer;
-     WParam: WPARAM;
-     LParam: LPARAM;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    WParam: WPARAM;
+    LParam: LPARAM;
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
  end;//TnpNavigatorListCBT
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3ListenersManager
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TnpNavigatorListCBT
+ l3ImplUses
+ , l3ListenersManager
+;
 
 procedure TnpNavigatorListCBT.CBTListenerNotify(Code: Integer;
-  WParam: WPARAM;
-  LParam: LPARAM;
-  var theResult: Tl3HookProcResult);
+ WParam: WPARAM;
+ LParam: LPARAM;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF5C01BB_4F61FEEB00A5_var*
 var
  l_Index : Integer;
@@ -70,6 +52,7 @@ begin
 end;//TnpNavigatorListCBT.CBTListenerNotify
 
 procedure TnpNavigatorListCBT.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F61FEEB00A5_var*
 //#UC END# *479731C50290_4F61FEEB00A5_var*
 begin
@@ -88,7 +71,6 @@ begin
  Tl3ListenersManager.AddCBTListener(Self);
 //#UC END# *47A042E100E2_4F61FEEB00A5_impl*
 end;//TnpNavigatorListCBT.InitFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

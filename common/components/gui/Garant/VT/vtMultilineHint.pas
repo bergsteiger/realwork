@@ -1,106 +1,84 @@
 unit vtMultilineHint;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtMultilineHint.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::Hints::TvtMultilineHint
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtMultilineHint.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvtMultilineHint" MUID: (50C61AAC00BF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Types
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3WinControlCanvas,
-  l3FormattedLines,
-  Classes,
-  Windows
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ , l3WinControlCanvas
+ , l3FormattedLines
+ , Types
+ , Classes
+ , Windows
+;
 
 type
  TvtMultilineHint = class(THintWindow)
- private
- // private fields
-   f_Canvas : Tl3WinControlCanvas;
-   f_FL : Tl3FormattedLines;
-   f_NCMousePoint : LongInt;
-   f_LastHint : Il3CString;
-    {* Поле для свойства LastHint}
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+  private
+   f_Canvas: Tl3WinControlCanvas;
+   f_FL: Tl3FormattedLines;
+   f_NCMousePoint: LongInt;
+   f_LastHint: Il3CString;
+    {* Поле для свойства LastHint }
+  protected
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure Paint; override;
-     {* Сигнатура метода Paint }
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   procedure ActivateHintEx(Rect: TRect;
+    const AHint: Il3CString);
+   class procedure vtActivateHint(aWindow: THintWindow;
+    const Rect: TRect;
+    const AHint: Il3CString);
    constructor Create(AOwner: TComponent); override;
    destructor Destroy; override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure ActivateHint(Rect: TRect;
-     const AHint: String); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+    const AHint: String); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    function IsHintMsg(var Msg: TMsg): Boolean; override;
-    {$IfEnd} //not NoVCL
- public
- // public methods
-   procedure ActivateHintEx(Rect: TRect;
-     const AHint: Il3CString);
-   class procedure VtActivateHint(aWindow: THintWindow;
-     const Rect: TRect;
-     const AHint: Il3CString);
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property LastHint: Il3CString
-     read f_LastHint;
+    read f_LastHint;
  end;//TvtMultilineHint
 
 implementation
 
 uses
-  vtHintManager,
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3String,
-  l3Chars,
-  l3ScreenIC,
-  l3Base,
-  l3CustomControlCanvas,
-  Messages
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , vtHintManager
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3String
+ , l3Chars
+ , l3ScreenIC
+ , l3Base
+ , l3CustomControlCanvas
+ , Messages
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TvtMultilineHint
-
+{$If NOT Defined(NoVCL)}
 procedure TvtMultilineHint.ActivateHintEx(Rect: TRect;
-  const AHint: Il3CString);
+ const AHint: Il3CString);
 //#UC START# *50C61C8E015D_50C61AAC00BF_var*
 var
  l_LeftWidth  : Integer;
@@ -166,9 +144,9 @@ begin
 //#UC END# *50C61C8E015D_50C61AAC00BF_impl*
 end;//TvtMultilineHint.ActivateHintEx
 
-class procedure TvtMultilineHint.VtActivateHint(aWindow: THintWindow;
-  const Rect: TRect;
-  const AHint: Il3CString);
+class procedure TvtMultilineHint.vtActivateHint(aWindow: THintWindow;
+ const Rect: TRect;
+ const AHint: Il3CString);
 //#UC START# *50C61F0B0392_50C61AAC00BF_var*
 //#UC END# *50C61F0B0392_50C61AAC00BF_var*
 begin
@@ -178,7 +156,7 @@ begin
  else
   aWindow.ActivateHint(Rect, l3Str(aHint));
 //#UC END# *50C61F0B0392_50C61AAC00BF_impl*
-end;//TvtMultilineHint.VtActivateHint
+end;//TvtMultilineHint.vtActivateHint
 
 constructor TvtMultilineHint.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_50C61AAC00BF_var*
@@ -205,7 +183,6 @@ begin
 //#UC END# *48077504027E_50C61AAC00BF_impl*
 end;//TvtMultilineHint.Destroy
 
-{$If not defined(NoVCL)}
 procedure TvtMultilineHint.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_50C61AAC00BF_var*
 //#UC END# *48C7925A02E5_50C61AAC00BF_var*
@@ -216,9 +193,7 @@ begin
   WindowClass.Style := WindowClass.Style or CS_SAVEBITS;
 //#UC END# *48C7925A02E5_50C61AAC00BF_impl*
 end;//TvtMultilineHint.CreateParams
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtMultilineHint.Paint;
 //#UC START# *5028A60300AD_50C61AAC00BF_var*
 var
@@ -243,11 +218,9 @@ begin
  end;//try..finally
 //#UC END# *5028A60300AD_50C61AAC00BF_impl*
 end;//TvtMultilineHint.Paint
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 procedure TvtMultilineHint.ActivateHint(Rect: TRect;
-  const AHint: String);
+ const AHint: String);
 //#UC START# *50C61BA40123_50C61AAC00BF_var*
 //#UC END# *50C61BA40123_50C61AAC00BF_var*
 begin
@@ -255,9 +228,7 @@ begin
  ActivateHintEx(Rect, l3CStr(aHint));
 //#UC END# *50C61BA40123_50C61AAC00BF_impl*
 end;//TvtMultilineHint.ActivateHint
-{$IfEnd} //not NoVCL
 
-{$If not defined(NoVCL)}
 function TvtMultilineHint.IsHintMsg(var Msg: TMsg): Boolean;
 //#UC START# *50C61BD700BF_50C61AAC00BF_var*
 //#UC END# *50C61BD700BF_50C61AAC00BF_var*
@@ -272,7 +243,6 @@ begin
   Result := inherited IsHintMsg(Msg);
 //#UC END# *50C61BD700BF_50C61AAC00BF_impl*
 end;//TvtMultilineHint.IsHintMsg
-{$IfEnd} //not NoVCL
 
 initialization
 //#UC START# *50C61F7E02BE*
@@ -280,9 +250,10 @@ initialization
  HintWindowClass := TvtMultiLineHint;
 {!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\VT\vtMultilineHint.pas initialization leave'); {$EndIf}
 //#UC END# *50C61F7E02BE*
-{$If not defined(NoScripts)}
-// Регистрация TvtMultilineHint
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtMultilineHint);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtMultilineHint }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

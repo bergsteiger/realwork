@@ -1,44 +1,34 @@
 {$IfNDef vcmTabbedContainersListener_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmTabbedContainersListener.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmTabbedContainersListener
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainersListener.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmTabbedContainersListener" MUID: (53DF40230056)
+// Имя типа: "_vcmTabbedContainersListener_"
 
 {$Define vcmTabbedContainersListener_imp}
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
- _vcmTabbedContainersListener_ = {mixin} class(_vcmTabbedContainersListener_Parent_, Il3TabbedContainersListener)
- protected
- // realized methods
-   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ _vcmTabbedContainersListener_ = class(_vcmTabbedContainersListener_Parent_, Il3TabbedContainersListener)
+  protected
    procedure ContainersChanged(aNotification: Tl3TabbedContainerNotificationType); virtual; abstract;
+   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  end;//_vcmTabbedContainersListener_
-{$Else}
 
- _vcmTabbedContainersListener_ = _vcmTabbedContainersListener_Parent_;
+{$Else NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+_vcmTabbedContainersListener_ = _vcmTabbedContainersListener_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 {$Else vcmTabbedContainersListener_imp}
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$IfNDef vcmTabbedContainersListener_imp_impl}
 
-// start class _vcmTabbedContainersListener_
+{$Define vcmTabbedContainersListener_imp_impl}
 
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 procedure _vcmTabbedContainersListener_.NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
 //#UC START# *55321ADE02E9_53DF40230056_var*
 //#UC END# *55321ADE02E9_53DF40230056_var*
@@ -49,6 +39,7 @@ begin
 end;//_vcmTabbedContainersListener_.NotifyContainersChanged
 
 procedure _vcmTabbedContainersListener_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53DF40230056_var*
 //#UC END# *479731C50290_53DF40230056_var*
 begin
@@ -66,7 +57,9 @@ begin
  TvcmTabbedContainerFormDispatcher.Instance.Subscribe(Self As Il3TabbedContainersListener);
 //#UC END# *47A042E100E2_53DF40230056_impl*
 end;//_vcmTabbedContainersListener_.InitFields
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$EndIf vcmTabbedContainersListener_imp_impl}
 
 {$EndIf vcmTabbedContainersListener_imp}
+

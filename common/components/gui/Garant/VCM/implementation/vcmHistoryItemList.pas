@@ -1,79 +1,59 @@
 unit vcmHistoryItemList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmHistoryItemList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Implementation::TvcmHistoryItemList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmHistoryItemList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmHistoryItemList" MUID: (558947020183)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoDataContainer
+ , vcmInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = IvcmHistoryItem;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmHistoryItemList = class(_l3InterfaceRefList_, IvcmHistoryItems)
- protected
- // realized methods
+  protected
    function Get_HistoryItemCount: Integer;
    function Get_HistoryItems(Index: Integer): IvcmHistoryItem;
    function MakeClone: IvcmHistoryItems;
- public
- // public methods
-   constructor Create(const aOtherList: IvcmHistoryItems); reintroduce; overload; 
-   class function Make(const aOtherList: IvcmHistoryItems): IvcmHistoryItems; reintroduce; overload; 
-     {* Сигнатура фабрики TvcmHistoryItemList.Make }
-   constructor Create; overload; 
-     {* Сигнатура метода Create$1 }
-   class function Make: IvcmHistoryItems; reintroduce; overload; 
-     {* Сигнатура фабрики TvcmHistoryItemList.Make$1 }
+  public
+   constructor Create(const aOtherList: IvcmHistoryItems); reintroduce; overload;
+   class function Make(const aOtherList: IvcmHistoryItems): _l3InterfaceRefList_; reintroduce; overload;
+   constructor Create; reintroduce; overload;
+   class function Make: _l3InterfaceRefList_; reintroduce; overload;
    procedure Assign(const aOtherList: IvcmHistoryItems);
  end;//TvcmHistoryItemList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TvcmHistoryItemList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
-
-// start class TvcmHistoryItemList
 
 constructor TvcmHistoryItemList.Create(const aOtherList: IvcmHistoryItems);
 //#UC START# *558A37400258_558947020183_var*
@@ -85,7 +65,7 @@ begin
 //#UC END# *558A37400258_558947020183_impl*
 end;//TvcmHistoryItemList.Create
 
-class function TvcmHistoryItemList.Make(const aOtherList: IvcmHistoryItems): IvcmHistoryItems;
+class function TvcmHistoryItemList.Make(const aOtherList: IvcmHistoryItems): _l3InterfaceRefList_;
 var
  l_Inst : TvcmHistoryItemList;
 begin
@@ -95,7 +75,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmHistoryItemList.Make
 
 constructor TvcmHistoryItemList.Create;
 //#UC START# *558A3C5601E4_558947020183_var*
@@ -106,7 +86,7 @@ begin
 //#UC END# *558A3C5601E4_558947020183_impl*
 end;//TvcmHistoryItemList.Create
 
-class function TvcmHistoryItemList.Make: IvcmHistoryItems;
+class function TvcmHistoryItemList.Make: _l3InterfaceRefList_;
 var
  l_Inst : TvcmHistoryItemList;
 begin
@@ -116,7 +96,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmHistoryItemList.Make
 
 procedure TvcmHistoryItemList.Assign(const aOtherList: IvcmHistoryItems);
 //#UC START# *558A411B0177_558947020183_var*
@@ -157,7 +137,6 @@ begin
  Result := TvcmHistoryItemList.Make(Self);
 //#UC END# *55894A720144_558947020183_impl*
 end;//TvcmHistoryItemList.MakeClone
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

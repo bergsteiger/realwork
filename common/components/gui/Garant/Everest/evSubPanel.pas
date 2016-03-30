@@ -1,230 +1,197 @@
 unit evSubPanel;
+ {* Панели меток }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::ToolPanel::TevSubPanel
-//
-// Панели меток
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPanel.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevSubPanel" MUID: (547DB02F034B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  afwInterfaces,
-  l3InternalInterfaces,
-  evdTypes,
-  l3Units,
-  l3InterfacedComponent,
-  Messages,
-  l3ObjectList,
-  nevTools,
-  evTypes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evInternalInterfaces,
-  evDef
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  evSubPanelSubArray,
-  evSubPanelSubCollection,
-  evSubPanelSub,
-  l3ProtoObjectWithHandle,
-  l3ProtoPersistentWithHandle,
-  l3ProtoPersistentWithHandleRefList,
-  evVisualInterfaces,
-  evLinkedToolPanel,
-  evCustomFont,
-  Classes,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evDef
+ , l3Types
+ , afwInterfaces
+ , l3Units
+ , nevTools
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ProtoPersistentWithHandle
+ , evCustomFont
+ , evTypes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , l3InterfacedComponent
+ , l3ProtoPersistentWithHandleRefList
+ , l3ObjectList
+ , evSubPanelSub
+ , evLinkedToolPanel
+ , evInternalInterfaces
+ , evVisualInterfaces
+ , evSubPanelSubCollection
+ , Messages
+ , l3InternalInterfaces
+ , l3Interfaces
+ , evSubPanelSubArray
+ , evdTypes
+ //#UC START# *547DB02F034Bintf_uses*
+ //#UC END# *547DB02F034Bintf_uses*
+;
 
 const
-  { evSubPn Public Consts }
  DefColumn = Pred(High(Integer));
  DefSubPanelWidth = 5;
  def_Zoom = evDef.def_Zoom;
 
 type
+ PevSubPanelSub = ^TevSubPanelSub;
+
+ PevSubPanelSubArray = ^TevSubPanelSubArray;
+
  TevSubDrawType = (
   {* Тип отображения метки }
-   ev_sdtNumber
- , ev_sdtChar
- , ev_sdtCharNumber
- , ev_sdtBitmap
- , ev_sdtOwnerDraw
+  ev_sdtNumber
+  , ev_sdtChar
+  , ev_sdtCharNumber
+  , ev_sdtBitmap
+  , ev_sdtOwnerDraw
  );//TevSubDrawType
 
- TevClickSubEvent = procedure (Sender: TObject;
+ TevClickSubEvent = procedure(Sender: TObject;
   SubType: Tl3Handle;
   SubHandle: Tl3Handle;
   aKind: TafwClickKind) of object;
 
- TevMouseOverSubEvent = function (Sender: TObject;
+ TevMouseOverSubEvent = function(Sender: TObject;
   const Pt: Tl3SPoint;
   const R: Tl3SRect;
   const aSub: IevSub;
   aLayer: Integer): Boolean of object;
 
- TevMenuSubEvent = procedure (Sender: TObject;
+ TevMenuSubEvent = procedure(Sender: TObject;
   const Pt: Tl3SPoint;
   const R: Tl3SRect;
   SubType: Tl3Handle;
   SubHandle: Tl3Handle) of object;
 
- TevGetSubBitmapIndexEvent = procedure (Sender: TObject;
+ TevGetSubBitmapIndexEvent = procedure(Sender: TObject;
   aSubType: Integer;
   aSubHandle: Integer;
   var Bitmap: TImageIndex;
   var Images: TCustomImageList) of object;
 
- TevDefineBlockImageIndex = procedure (Sender: TObject;
+ TevDefineBlockImageIndex = procedure(Sender: TObject;
   const aSub: IevDocumentPart;
   var anIndex: TImageIndex) of object;
-
 
  TevSubDescriptors = class;
 
  TevSubDescriptorPrim = class(Tl3ProtoPersistentWithHandle)
- private
- // private fields
-   f_Handle : Tl3Handle;
-   f_Descriptors : TevSubDescriptors;
-   f_BitmapIndex : TImageIndex;
-    {* Поле для свойства BitmapIndex}
-   f_BlockBitmapIndex : TImageIndex;
-    {* Поле для свойства BlockBitmapIndex}
-   f_DocumentBitmapIndex : TImageIndex;
-    {* Поле для свойства DocumentBitmapIndex}
-   f_Font : TevCustomFont;
-    {* Поле для свойства Font}
-   f_DrawType : TevSubDrawType;
-    {* Поле для свойства DrawType}
-   f_NumberOffset : Byte;
-    {* Поле для свойства NumberOffset}
-   f_Visible : Boolean;
-    {* Поле для свойства Visible}
-   f_Offset : TevPixel;
-    {* Поле для свойства Offset}
-   f_Column : Integer;
-    {* Поле для свойства Column}
-   f_Cursor : TCursor;
-    {* Поле для свойства Cursor}
-   f_OnGetBitmapIndex : TevGetSubBitmapIndexEvent;
-    {* Поле для свойства OnGetBitmapIndex}
-   f_Images : TCustomImageList;
-    {* Поле для свойства Images}
- protected
- // property methods
+  private
+   f_Handle: Tl3Handle;
+   f_Descriptors: TevSubDescriptors;
+   f_BitmapIndex: TImageIndex;
+    {* индекс иконки для отображения обычной метки }
+   f_BlockBitmapIndex: TImageIndex;
+    {* индекс иконки для отображения метки блока }
+   f_DocumentBitmapIndex: TImageIndex;
+    {* индекс иконки для отображения метки документа }
+   f_Font: TevCustomFont;
+    {* шрифт для отображения метки }
+   f_DrawType: TevSubDrawType;
+    {* тип отображения метки }
+   f_NumberOffset: Byte;
+   f_Visible: Boolean;
+   f_Offset: TevPixel;
+   f_Column: Integer;
+   f_Cursor: TCursor;
+   f_OnGetBitmapIndex: TevGetSubBitmapIndexEvent;
+   f_Images: TCustomImageList;
+  protected
    function pm_GetFont: TevCustomFont;
    procedure pm_SetFont(aValue: TevCustomFont);
    procedure pm_SetVisible(aValue: Boolean);
    function pm_GetDescriptors: TevSubDescriptors;
- protected
- // realized methods
-   function pm_GetHandle: Tl3Handle; override;
-   procedure pm_SetHandle(aValue: Tl3Handle); override;
-   function CompareWith(anOther: Tl3ProtoPersistentWithHandle): Integer; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetOwner: TPersistent; override;
- public
- // overridden public methods
-   procedure Assign(Source: TPersistent); override;
- protected
- // protected methods
    procedure CheckFont;
-     {* Сигнатура метода CheckFont }
    procedure BuildColumns;
-     {* Сигнатура метода BuildColumns }
    function VisibleDef: Boolean; virtual;
    function FontStored: Boolean;
-     {* "Функция определяющая, что свойство Font сохраняется" }
+    {* "Функция определяющая, что свойство Font сохраняется" }
    function VisibleStored: Boolean;
-     {* "Функция определяющая, что свойство Visible сохраняется" }
+    {* "Функция определяющая, что свойство Visible сохраняется" }
    function CursorStored: Boolean;
-     {* "Функция определяющая, что свойство Cursor сохраняется" }
- public
- // public methods
+    {* "Функция определяющая, что свойство Cursor сохраняется" }
+   function pm_GetHandle: Tl3Handle; override;
+   procedure pm_SetHandle(aValue: Tl3Handle); override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetOwner: TPersistent; override;
+  public
    constructor Create(anOwner: TevSubDescriptors); reintroduce;
- protected
- // protected properties
+   function CompareWith(anOther: Tl3ProtoPersistentWithHandle): Integer; override;
+   procedure Assign(Source: TPersistent); override;
+  protected
    property Descriptors: TevSubDescriptors
-     read pm_GetDescriptors;
- public
- // public properties
+    read pm_GetDescriptors;
+  public
    property BitmapIndex: TImageIndex
-     read f_BitmapIndex
-     write f_BitmapIndex;
-     {* индекс иконки для отображения обычной метки }
+    read f_BitmapIndex
+    write f_BitmapIndex;
+    {* индекс иконки для отображения обычной метки }
    property BlockBitmapIndex: TImageIndex
-     read f_BlockBitmapIndex
-     write f_BlockBitmapIndex;
-     {* индекс иконки для отображения метки блока }
+    read f_BlockBitmapIndex
+    write f_BlockBitmapIndex;
+    {* индекс иконки для отображения метки блока }
    property DocumentBitmapIndex: TImageIndex
-     read f_DocumentBitmapIndex
-     write f_DocumentBitmapIndex;
-     {* индекс иконки для отображения метки документа }
+    read f_DocumentBitmapIndex
+    write f_DocumentBitmapIndex;
+    {* индекс иконки для отображения метки документа }
    property Font: TevCustomFont
-     read pm_GetFont
-     write pm_SetFont
-     stored FontStored;
-     {* шрифт для отображения метки }
+    read pm_GetFont
+    write pm_SetFont
+    stored FontStored;
+    {* шрифт для отображения метки }
    property DrawType: TevSubDrawType
-     read f_DrawType
-     write f_DrawType;
-     {* тип отображения метки }
+    read f_DrawType
+    write f_DrawType;
+    {* тип отображения метки }
    property NumberOffset: Byte
-     read f_NumberOffset
-     write f_NumberOffset;
+    read f_NumberOffset
+    write f_NumberOffset;
    property Visible: Boolean
-     read f_Visible
-     write pm_SetVisible
-     stored VisibleStored;
+    read f_Visible
+    write pm_SetVisible
+    stored VisibleStored;
    property Offset: TevPixel
-     read f_Offset
-     write f_Offset;
+    read f_Offset
+    write f_Offset;
    property Column: Integer
-     read f_Column
-     write f_Column;
+    read f_Column
+    write f_Column;
    property Cursor: TCursor
-     read f_Cursor
-     write f_Cursor
-     stored CursorStored;
+    read f_Cursor
+    write f_Cursor
+    stored CursorStored;
    property OnGetBitmapIndex: TevGetSubBitmapIndexEvent
-     read f_OnGetBitmapIndex
-     write f_OnGetBitmapIndex;
+    read f_OnGetBitmapIndex
+    write f_OnGetBitmapIndex;
    property Images: TCustomImageList
-     read f_Images
-     write f_Images;
+    read f_Images
+    write f_Images;
  end;//TevSubDescriptorPrim
 
-//#UC START# *547DB364031Fci*
-//#UC END# *547DB364031Fci*
-//#UC START# *547DB364031Fcit*
-//#UC END# *547DB364031Fcit*
+ //#UC START# *547DB364031Fci*
+ //#UC END# *547DB364031Fci*
+ //#UC START# *547DB364031Fcit*
+ //#UC END# *547DB364031Fcit*
  TevSubDescriptor = class(TevSubDescriptorPrim)
   {* Описание свойств отображения метки }
-//#UC START# *547DB364031Fpubl*
+ //#UC START# *547DB364031Fpubl*
   published
  // published properties
    property Images;
@@ -241,80 +208,67 @@ type
    property Descriptors;
   published
    property OnGetBitmapIndex;
-//#UC END# *547DB364031Fpubl*
+ //#UC END# *547DB364031Fpubl*
  end;//TevSubDescriptor
-
 
  TevSubLayerDescriptor = class;
 
  TevCustomSubDescriptors = class(Tl3InterfacedComponent)
   {* Набор описаний свойств отображения слоев меток }
- private
- // private fields
-   f_SubDescriptors : Tl3ProtoPersistentWithHandleRefList;
-   f_Width : Integer;
-   f_InBuild : Boolean;
-   f_Controls : Tl3ObjectList;
-   f_Images : TCustomImageList;
-    {* Поле для свойства Images}
-   f_Cursor : TCursor;
-    {* Поле для свойства Cursor}
-   f_OnDefineBlockIndex : TevDefineBlockImageIndex;
-    {* Поле для свойства OnDefineBlockIndex}
- protected
- // property methods
+  private
+   f_SubDescriptors: Tl3ProtoPersistentWithHandleRefList;
+   f_Width: Integer;
+   f_InBuild: Boolean;
+   f_Controls: Tl3ObjectList;
+   f_Images: TCustomImageList;
+   f_Cursor: TCursor;
+   f_OnDefineBlockIndex: TevDefineBlockImageIndex;
+  protected
    procedure pm_SetImages(aValue: TCustomImageList);
    function pm_GetSubDescriptor(Index: Integer): TevSubDescriptor;
-   procedure pm_SetSubDescriptor(Index: Integer; aValue: TevSubDescriptor);
+   procedure pm_SetSubDescriptor(Index: Integer;
+    aValue: TevSubDescriptor);
    function pm_GetSubLayerDescriptor(Index: Integer): TevSubLayerDescriptor; virtual;
-   procedure pm_SetSubLayerDescriptor(Index: Integer; aValue: TevSubLayerDescriptor); virtual;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Loaded; override;
- protected
- // protected methods
+   procedure pm_SetSubLayerDescriptor(Index: Integer;
+    aValue: TevSubLayerDescriptor); virtual;
    procedure PlaceControl(aControl: TControl);
    procedure PlaceControls;
-     {* Сигнатура метода PlaceControls }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Loaded; override;
+  public
    procedure BuildColumns;
-     {* Сигнатура метода BuildColumns }
    procedure LinkControl(aControl: TControl);
    procedure UnlinkControl(aControl: TControl);
    function DefineBitmapIndex(const aSub: IevDocumentPart;
-     out aBitmapIndex: TImageIndex): Boolean;
- protected
- // protected properties
+    out aBitmapIndex: TImageIndex): Boolean;
+  protected
    property SubDescriptor[Index: Integer]: TevSubDescriptor
-     read pm_GetSubDescriptor
-     write pm_SetSubDescriptor;
-     default;
+    read pm_GetSubDescriptor
+    write pm_SetSubDescriptor;
+    default;
    property SubLayerDescriptor[Index: Integer]: TevSubLayerDescriptor
-     read pm_GetSubLayerDescriptor
-     write pm_SetSubLayerDescriptor;
- public
- // public properties
+    read pm_GetSubLayerDescriptor
+    write pm_SetSubLayerDescriptor;
+  public
    property Images: TCustomImageList
-     read f_Images
-     write pm_SetImages;
+    read f_Images
+    write pm_SetImages;
    property Cursor: TCursor
-     read f_Cursor
-     write f_Cursor;
+    read f_Cursor
+    write f_Cursor;
    property OnDefineBlockIndex: TevDefineBlockImageIndex
-     read f_OnDefineBlockIndex
-     write f_OnDefineBlockIndex;
+    read f_OnDefineBlockIndex
+    write f_OnDefineBlockIndex;
  end;//TevCustomSubDescriptors
 
-//#UC START# *547DB8BC03D3ci*
-//#UC END# *547DB8BC03D3ci*
-//#UC START# *547DB8BC03D3cit*
-//#UC END# *547DB8BC03D3cit*
+ //#UC START# *547DB8BC03D3ci*
+ //#UC END# *547DB8BC03D3ci*
+ //#UC START# *547DB8BC03D3cit*
+ //#UC END# *547DB8BC03D3cit*
  TevSubDescriptors = class(TevCustomSubDescriptors)
   {* Набор описаний свойств отображения слоев меток }
-//#UC START# *547DB8BC03D3publ*
+ //#UC START# *547DB8BC03D3publ*
   published
    property SubsLayer: TevSubLayerDescriptor
      index ev_sbtSub
@@ -338,30 +292,25 @@ type
      {* - свойства отображения слоя вспомогательных значков. }
    property Images;
    property Cursor;
-//#UC END# *547DB8BC03D3publ*
+ //#UC END# *547DB8BC03D3publ*
  end;//TevSubDescriptors
 
- PevSubPanelSub = ^TevSubPanelSub;
-
-//#UC START# *547DBA30028Eci*
-//#UC END# *547DBA30028Eci*
-//#UC START# *547DBA30028Ecit*
-//#UC END# *547DBA30028Ecit*
+ //#UC START# *547DBA30028Eci*
+ //#UC END# *547DBA30028Eci*
+ //#UC START# *547DBA30028Ecit*
+ //#UC END# *547DBA30028Ecit*
  TevSubLayerDescriptor = class(TevSubDescriptor)
   {* Описание свойств отображения слоя меток }
- protected
- // property methods
+  protected
    function pm_GetFlags(Index: Integer): TevSubDescriptor;
-   procedure pm_SetFlags(Index: Integer; aValue: TevSubDescriptor);
- protected
- // overridden protected methods
+   procedure pm_SetFlags(Index: Integer;
+    aValue: TevSubDescriptor);
    function VisibleDef: Boolean; override;
- public
- // public properties
+  public
    property Flags[Index: Integer]: TevSubDescriptor
-     read pm_GetFlags
-     write pm_SetFlags;
-//#UC START# *547DBA30028Epubl*
+    read pm_GetFlags
+    write pm_SetFlags;
+ //#UC START# *547DBA30028Epubl*
   published
    property Flag0: TevSubDescriptor
     index 0
@@ -395,134 +344,113 @@ type
     index 7
     read pm_GetFlags
     write pm_SetFlags;
-//#UC END# *547DBA30028Epubl*
+ //#UC END# *547DBA30028Epubl*
  end;//TevSubLayerDescriptor
 
  TevCustomSubPanel = class(TevCustomLinkedToolPanel, IevSubCache, IevSubFlagsSpy, IevZoomedLinkedToolWindow, IevSubPanel)
   {* Панель меток }
- private
- // private fields
-   f_HintSub : TevSubPanelSub;
-   f_Subs : TevSubPanelSubCollection;
-   f_Zoom : SmallInt;
-    {* Поле для свойства Zoom}
-   f_OnClickSub : TevClickSubEvent;
-    {* Поле для свойства OnClickSub}
-   f_OnMenuSub : TevMenuSubEvent;
-    {* Поле для свойства OnMenuSub}
-   f_OnMouseOverSub : TevMouseOverSubEvent;
-    {* Поле для свойства OnMouseOverSub}
-   f_SubDescriptors : TevSubDescriptors;
-    {* Поле для свойства SubDescriptors}
- private
- // private methods
+  private
+   f_HintSub: TevSubPanelSub;
+   f_Subs: TevSubPanelSubCollection;
+   f_Zoom: SmallInt;
+   f_OnClickSub: TevClickSubEvent;
+   f_OnMenuSub: TevMenuSubEvent;
+   f_OnMouseOverSub: TevMouseOverSubEvent;
+   f_SubDescriptors: TevSubDescriptors;
+  private
    procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
    procedure WMLButtonUp(var Msg: TWMLButtonUp); message WM_LBUTTONUP;
    procedure WMRButtonDown(var Msg: TWMRButtonDown); message WM_RBUTTONDOWN;
    procedure WMNCHitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
    procedure WMSetCursor(var Msg: TWMSetCursor); message WM_SETCURSOR;
- protected
- // property methods
+  protected
    function pm_GetSubDescriptors: TevSubDescriptors;
    procedure pm_SetSubDescriptors(aValue: TevSubDescriptors);
- protected
- // realized methods
+   procedure DoOnClickSub(SubType: Tl3Handle;
+    SubHandle: Tl3Handle;
+    aKind: TafwClickKind); virtual;
+   procedure DoOnMenuSub(const Pt: Tl3SPoint;
+    const R: Tl3SRect;
+    SubType: Tl3Handle;
+    SubHandle: Tl3Handle); virtual;
+   function DoOnMouseOverSub(const Pt: Tl3SPoint;
+    const R: Tl3SRect;
+    const aSub: IevSub;
+    aLayer: Integer): Boolean; virtual;
+   procedure DrawSub(const aCanvas: Il3Canvas;
+    aSubDescr: TevSubDescriptor;
+    aSub: TevSubPanelSub;
+    aRealPaint: Boolean);
+   procedure MakeSubRect(var R: Tl3Rect);
+   procedure DrawSubs(const Canvas: Il3Canvas);
+   function ScrollSub(SPS: TevSubPanelSub;
+    const P: Tl3Point): Boolean; virtual;
+   procedure AddSub(const CN: Il3Canvas;
+    const aR: Tl3Rect;
+    aSubType: Tl3Handle;
+    const aSub: IevSub);
+   function DeleteSubPrim(aSubType: Tl3Handle;
+    aSubHandle: Tl3Handle): Boolean;
+   function SubDescriptorsStored: Boolean;
+    {* "Функция определяющая, что свойство SubDescriptors сохраняется" }
    procedure ClearSubs;
    procedure NotifySubDeleted(const aSub: IevSub);
    procedure NotifyFlagsChange(const aSub: IevSub);
-     {* флаги метки изменились }
+    {* флаги метки изменились }
    function pm_GetZoom: SmallInt;
    procedure pm_SetZoom(aValue: SmallInt);
    procedure NeedDrawSub(const aR: Tl3Rect;
     const aSub: IevSub);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
+    {* процедура рисования внешнего вида управляющего элемента }
    procedure OrientationChanged; override;
-     {* Сигнатура метода OrientationChanged }
- public
- // overridden public methods
+  public
+   function SubOnPoint(const Pt: Tl3SPoint;
+    out st: Tl3Handle): TevSubPanelSub;
+   function CheckSubOnPoint(aX: Integer;
+    aY: Integer;
+    out theSub: IevSub;
+    out theFlag: Integer): Boolean; overload;
+   function CheckSubOnPoint(aX: Integer;
+    aY: Integer;
+    out theSub: IevSub): Boolean; overload;
+   procedure DeleteSub(aSubType: Tl3Handle;
+    aSubHandle: Tl3Handle);
+   {$If NOT Defined(NoScripts)}
+   function GetSubPanelSubCollection: TevSubPanelSubCollection;
+   {$IfEnd} // NOT Defined(NoScripts)
    constructor Create(AOwner: TComponent); override;
    procedure DoScroll(iD: Tl3Inch); override;
- protected
- // protected methods
-   procedure DoOnClickSub(SubType: Tl3Handle;
-     SubHandle: Tl3Handle;
-     aKind: TafwClickKind); virtual;
-   procedure DoOnMenuSub(const Pt: Tl3SPoint;
-     const R: Tl3SRect;
-     SubType: Tl3Handle;
-     SubHandle: Tl3Handle); virtual;
-   function DoOnMouseOverSub(const Pt: Tl3SPoint;
-     const R: Tl3SRect;
-     const aSub: IevSub;
-     aLayer: Integer): Boolean; virtual;
-   procedure DrawSub(const aCanvas: Il3Canvas;
-     aSubDescr: TevSubDescriptor;
-     aSub: TevSubPanelSub;
-     aRealPaint: Boolean);
-   procedure MakeSubRect(var R: Tl3Rect);
-   procedure DrawSubs(const Canvas: Il3Canvas);
-   function ScrollSub(SPS: TevSubPanelSub;
-     const P: Tl3Point): Boolean; virtual;
-   procedure AddSub(const CN: Il3Canvas;
-     const aR: Tl3Rect;
-     aSubType: Tl3Handle;
-     const aSub: IevSub);
-   function DeleteSubPrim(aSubType: Tl3Handle;
-     aSubHandle: Tl3Handle): Boolean;
-   function SubDescriptorsStored: Boolean;
-     {* "Функция определяющая, что свойство SubDescriptors сохраняется" }
- public
- // public methods
-   function SubOnPoint(const Pt: Tl3SPoint;
-     out st: Tl3Handle): TevSubPanelSub;
-   function CheckSubOnPoint(aX: Integer;
-     aY: Integer;
-     out theSub: IevSub;
-     out theFlag: Integer): Boolean; overload; 
-   function CheckSubOnPoint(aX: Integer;
-     aY: Integer;
-     out theSub: IevSub): Boolean; overload; 
-   procedure DeleteSub(aSubType: Tl3Handle;
-     aSubHandle: Tl3Handle);
-    {$If not defined(NoScripts)}
-   function GetSubPanelSubCollection: TevSubPanelSubCollection;
-    {$IfEnd} //not NoScripts
- public
- // public properties
+  public
    property Zoom: SmallInt
-     read pm_GetZoom
-     write pm_SetZoom;
+    read pm_GetZoom
+    write pm_SetZoom;
    property OnClickSub: TevClickSubEvent
-     read f_OnClickSub
-     write f_OnClickSub;
+    read f_OnClickSub
+    write f_OnClickSub;
    property OnMenuSub: TevMenuSubEvent
-     read f_OnMenuSub
-     write f_OnMenuSub;
+    read f_OnMenuSub
+    write f_OnMenuSub;
    property OnMouseOverSub: TevMouseOverSubEvent
-     read f_OnMouseOverSub
-     write f_OnMouseOverSub;
+    read f_OnMouseOverSub
+    write f_OnMouseOverSub;
    property SubDescriptors: TevSubDescriptors
-     read pm_GetSubDescriptors
-     write pm_SetSubDescriptors
-     stored SubDescriptorsStored;
+    read pm_GetSubDescriptors
+    write pm_SetSubDescriptors
+    stored SubDescriptorsStored;
  end;//TevCustomSubPanel
-
- PevSubPanelSubArray = ^TevSubPanelSubArray;
 
  TevSubPlace = evdTypes.TevSubPlace;
 
-//#UC START# *547DB02F034Bci*
-//#UC END# *547DB02F034Bci*
-//#UC START# *547DB02F034Bcit*
-//#UC END# *547DB02F034Bcit*
+ //#UC START# *547DB02F034Bci*
+ //#UC END# *547DB02F034Bci*
+ //#UC START# *547DB02F034Bcit*
+ //#UC END# *547DB02F034Bcit*
  TevSubPanel = {final} class(TevCustomSubPanel)
   {* Панели меток }
-//#UC START# *547DB02F034Bpubl*
+ //#UC START# *547DB02F034Bpubl*
   published
    property Align;
    property Alignment;
@@ -566,87 +494,47 @@ type
    property OnClickSub;
    property OnMenuSub;
    property OnMouseOverSub;
-//#UC END# *547DB02F034Bpubl*
+ //#UC END# *547DB02F034Bpubl*
  end;//TevSubPanel
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  SubPanelWordsPack
-  {$IfEnd} //not NoScripts
-  ,
-  evSubPanelTools,
-  Windows,
-  evFont,
-  l3Base,
-  l3MinMax,
-  l3ObjectWithHandleRefListPrim,
-  nevFacade,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Bits,
-  evConst,
-  evSubPn
-  ;
+ l3ImplUses
+ , l3ProtoObjectWithHandle
+ , evFont
+ , l3Base
+ , l3MinMax
+ , l3ObjectWithHandleRefListPrim
+ , nevFacade
+ , l3String
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Bits
+ , evConst
+ , evSubPn
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , SubPanelWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evSubPanelTools
+ , Windows
+ //#UC START# *547DB02F034Bimpl_uses*
+ //#UC END# *547DB02F034Bimpl_uses*
+;
 
-// start class TevSubDescriptorPrim
-
-procedure TevSubDescriptorPrim.CheckFont;
-//#UC START# *547DB95F0282_547DB3E001A5_var*
-//#UC END# *547DB95F0282_547DB3E001A5_var*
-begin
-//#UC START# *547DB95F0282_547DB3E001A5_impl*
- if (f_Font = nil) then
-  f_Font := TevFont.Create;
-//#UC END# *547DB95F0282_547DB3E001A5_impl*
-end;//TevSubDescriptorPrim.CheckFont
-
-procedure TevSubDescriptorPrim.BuildColumns;
-//#UC START# *547DB98F012C_547DB3E001A5_var*
-//#UC END# *547DB98F012C_547DB3E001A5_var*
-begin
-//#UC START# *547DB98F012C_547DB3E001A5_impl*
- if (f_Descriptors <> nil) then
-  f_Descriptors.BuildColumns;
-//#UC END# *547DB98F012C_547DB3E001A5_impl*
-end;//TevSubDescriptorPrim.BuildColumns
-
-function TevSubDescriptorPrim.VisibleDef: Boolean;
-//#UC START# *547DB9B10138_547DB3E001A5_var*
-//#UC END# *547DB9B10138_547DB3E001A5_var*
-begin
-//#UC START# *547DB9B10138_547DB3E001A5_impl*
- Result := False; 
-//#UC END# *547DB9B10138_547DB3E001A5_impl*
-end;//TevSubDescriptorPrim.VisibleDef
-
-constructor TevSubDescriptorPrim.Create(anOwner: TevSubDescriptors);
-//#UC START# *547DB9EC002E_547DB3E001A5_var*
-//#UC END# *547DB9EC002E_547DB3E001A5_var*
-begin
-//#UC START# *547DB9EC002E_547DB3E001A5_impl*
- inherited Create;
- f_Descriptors := anOwner;
- CheckFont;
- f_BitmapIndex := -1;
- f_BlockBitmapIndex := -1;
- f_DocumentBitmapIndex := -1;
- f_Visible := VisibleDef;
- f_Column := DefColumn;
-//#UC END# *547DB9EC002E_547DB3E001A5_impl*
-end;//TevSubDescriptorPrim.Create
+type
+ TevSubData = class(Tl3ProtoObjectWithHandle)
+  private
+   f_S: TevSubDescriptor;
+   f_C: Integer;
+  public
+   function CompareWith(anOther: Tl3ProtoObjectWithHandle): Integer; override;
+ end;//TevSubData
 
 function TevSubDescriptorPrim.pm_GetFont: TevCustomFont;
 //#UC START# *547DB5FE0149_547DB3E001A5get_var*
@@ -695,7 +583,53 @@ begin
 //#UC END# *54806C560320_547DB3E001A5get_impl*
 end;//TevSubDescriptorPrim.pm_GetDescriptors
 
+procedure TevSubDescriptorPrim.CheckFont;
+//#UC START# *547DB95F0282_547DB3E001A5_var*
+//#UC END# *547DB95F0282_547DB3E001A5_var*
+begin
+//#UC START# *547DB95F0282_547DB3E001A5_impl*
+ if (f_Font = nil) then
+  f_Font := TevFont.Create;
+//#UC END# *547DB95F0282_547DB3E001A5_impl*
+end;//TevSubDescriptorPrim.CheckFont
+
+procedure TevSubDescriptorPrim.BuildColumns;
+//#UC START# *547DB98F012C_547DB3E001A5_var*
+//#UC END# *547DB98F012C_547DB3E001A5_var*
+begin
+//#UC START# *547DB98F012C_547DB3E001A5_impl*
+ if (f_Descriptors <> nil) then
+  f_Descriptors.BuildColumns;
+//#UC END# *547DB98F012C_547DB3E001A5_impl*
+end;//TevSubDescriptorPrim.BuildColumns
+
+function TevSubDescriptorPrim.VisibleDef: Boolean;
+//#UC START# *547DB9B10138_547DB3E001A5_var*
+//#UC END# *547DB9B10138_547DB3E001A5_var*
+begin
+//#UC START# *547DB9B10138_547DB3E001A5_impl*
+ Result := False; 
+//#UC END# *547DB9B10138_547DB3E001A5_impl*
+end;//TevSubDescriptorPrim.VisibleDef
+
+constructor TevSubDescriptorPrim.Create(anOwner: TevSubDescriptors);
+//#UC START# *547DB9EC002E_547DB3E001A5_var*
+//#UC END# *547DB9EC002E_547DB3E001A5_var*
+begin
+//#UC START# *547DB9EC002E_547DB3E001A5_impl*
+ inherited Create;
+ f_Descriptors := anOwner;
+ CheckFont;
+ f_BitmapIndex := -1;
+ f_BlockBitmapIndex := -1;
+ f_DocumentBitmapIndex := -1;
+ f_Visible := VisibleDef;
+ f_Column := DefColumn;
+//#UC END# *547DB9EC002E_547DB3E001A5_impl*
+end;//TevSubDescriptorPrim.Create
+
 function TevSubDescriptorPrim.FontStored: Boolean;
+ {* "Функция определяющая, что свойство Font сохраняется" }
 //#UC START# *B2038F885A9E_547DB3E001A5_var*
 //#UC END# *B2038F885A9E_547DB3E001A5_var*
 begin
@@ -705,6 +639,7 @@ begin
 end;//TevSubDescriptorPrim.FontStored
 
 function TevSubDescriptorPrim.VisibleStored: Boolean;
+ {* "Функция определяющая, что свойство Visible сохраняется" }
 //#UC START# *64C973B9A48B_547DB3E001A5_var*
 //#UC END# *64C973B9A48B_547DB3E001A5_var*
 begin
@@ -714,6 +649,7 @@ begin
 end;//TevSubDescriptorPrim.VisibleStored
 
 function TevSubDescriptorPrim.CursorStored: Boolean;
+ {* "Функция определяющая, что свойство Cursor сохраняется" }
 //#UC START# *D35547FF8400_547DB3E001A5_var*
 //#UC END# *D35547FF8400_547DB3E001A5_var*
 begin
@@ -778,6 +714,7 @@ begin
 end;//TevSubDescriptorPrim.Assign
 
 procedure TevSubDescriptorPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_547DB3E001A5_var*
 //#UC END# *479731C50290_547DB3E001A5_var*
 begin
@@ -798,18 +735,6 @@ end;//TevSubDescriptorPrim.GetOwner
 
 //#UC START# *547DB364031Fimpl*
 //#UC END# *547DB364031Fimpl*
-type
-   TevSubData = class(Tl3ProtoObjectWithHandle)
-   private
-   // private fields
-   f_S : TevSubDescriptor;
-   f_C : Integer;
-   protected
-   // realized methods
-   function CompareWith(anOther: Tl3ProtoObjectWithHandle): Integer; override;
-   end;//TevSubData
-
-// start class TevSubData
 
 function TevSubData.CompareWith(anOther: Tl3ProtoObjectWithHandle): Integer;
 //#UC START# *52FCC10F0202_548045A700CD_var*
@@ -825,6 +750,78 @@ begin
  end;
 //#UC END# *52FCC10F0202_548045A700CD_impl*
 end;//TevSubData.CompareWith
+
+procedure TevCustomSubDescriptors.pm_SetImages(aValue: TCustomImageList);
+//#UC START# *547DC10C03D0_547DC15100BCset_var*
+//#UC END# *547DC10C03D0_547DC15100BCset_var*
+begin
+//#UC START# *547DC10C03D0_547DC15100BCset_impl*
+ if (f_Images <> aValue) then
+  f_Images := aValue;
+//#UC END# *547DC10C03D0_547DC15100BCset_impl*
+end;//TevCustomSubDescriptors.pm_SetImages
+
+function TevCustomSubDescriptors.pm_GetSubDescriptor(Index: Integer): TevSubDescriptor;
+//#UC START# *547DC1FA0083_547DC15100BCget_var*
+var
+ I: Integer;
+ SD: TevSubDescriptor;
+//#UC END# *547DC1FA0083_547DC15100BCget_var*
+begin
+//#UC START# *547DC1FA0083_547DC15100BCget_impl*
+ Result := nil;
+ if (f_SubDescriptors <> nil) and f_SubDescriptors.FindData(Index, I) then
+   Result := TevSubDescriptor(f_SubDescriptors.Items[I]);
+  if (Result = nil) then
+  begin
+   if (f_SubDescriptors = nil) then
+    f_SubDescriptors := Tl3ProtoPersistentWithHandleRefList.MakeSorted;
+   if (Index > 0) then
+    SD := TevSubLayerDescriptor.Create(Self as TevSubDescriptors)
+   else
+    SD := TevSubDescriptor.Create(Self as TevSubDescriptors);
+   try
+    SD.Handle := Index;
+    f_SubDescriptors.Add(SD);
+   finally
+    Result := SD.Free;
+   end;//try..finally
+  end; // if (Result = nil) then
+//#UC END# *547DC1FA0083_547DC15100BCget_impl*
+end;//TevCustomSubDescriptors.pm_GetSubDescriptor
+
+procedure TevCustomSubDescriptors.pm_SetSubDescriptor(Index: Integer;
+ aValue: TevSubDescriptor);
+//#UC START# *547DC1FA0083_547DC15100BCset_var*
+//#UC END# *547DC1FA0083_547DC15100BCset_var*
+begin
+//#UC START# *547DC1FA0083_547DC15100BCset_impl*
+ if (aValue <> nil) then
+  SubDescriptor[Index].Assign(aValue);
+//#UC END# *547DC1FA0083_547DC15100BCset_impl*
+end;//TevCustomSubDescriptors.pm_SetSubDescriptor
+
+function TevCustomSubDescriptors.pm_GetSubLayerDescriptor(Index: Integer): TevSubLayerDescriptor;
+//#UC START# *547DC309039E_547DC15100BCget_var*
+//#UC END# *547DC309039E_547DC15100BCget_var*
+begin
+//#UC START# *547DC309039E_547DC15100BCget_impl*
+ if (Index > 0) then
+  Result := TevSubLayerDescriptor(SubDescriptor[Index])
+ else
+  Result := nil;
+//#UC END# *547DC309039E_547DC15100BCget_impl*
+end;//TevCustomSubDescriptors.pm_GetSubLayerDescriptor
+
+procedure TevCustomSubDescriptors.pm_SetSubLayerDescriptor(Index: Integer;
+ aValue: TevSubLayerDescriptor);
+//#UC START# *547DC309039E_547DC15100BCset_var*
+//#UC END# *547DC309039E_547DC15100BCset_var*
+begin
+//#UC START# *547DC309039E_547DC15100BCset_impl*
+ SubDescriptor[Index] := aValue;
+//#UC END# *547DC309039E_547DC15100BCset_impl*
+end;//TevCustomSubDescriptors.pm_SetSubLayerDescriptor
 
 procedure TevCustomSubDescriptors.PlaceControl(aControl: TControl);
 //#UC START# *5480448A0305_547DC15100BC_var*
@@ -1001,7 +998,7 @@ begin
 end;//TevCustomSubDescriptors.UnlinkControl
 
 function TevCustomSubDescriptors.DefineBitmapIndex(const aSub: IevDocumentPart;
-  out aBitmapIndex: TImageIndex): Boolean;
+ out aBitmapIndex: TImageIndex): Boolean;
 //#UC START# *5480450001FA_547DC15100BC_var*
 //#UC END# *5480450001FA_547DC15100BC_var*
 begin
@@ -1011,77 +1008,8 @@ begin
 //#UC END# *5480450001FA_547DC15100BC_impl*
 end;//TevCustomSubDescriptors.DefineBitmapIndex
 
-procedure TevCustomSubDescriptors.pm_SetImages(aValue: TCustomImageList);
-//#UC START# *547DC10C03D0_547DC15100BCset_var*
-//#UC END# *547DC10C03D0_547DC15100BCset_var*
-begin
-//#UC START# *547DC10C03D0_547DC15100BCset_impl*
- if (f_Images <> aValue) then
-  f_Images := aValue;
-//#UC END# *547DC10C03D0_547DC15100BCset_impl*
-end;//TevCustomSubDescriptors.pm_SetImages
-
-function TevCustomSubDescriptors.pm_GetSubDescriptor(Index: Integer): TevSubDescriptor;
-//#UC START# *547DC1FA0083_547DC15100BCget_var*
-var
- I: Integer;
- SD: TevSubDescriptor;
-//#UC END# *547DC1FA0083_547DC15100BCget_var*
-begin
-//#UC START# *547DC1FA0083_547DC15100BCget_impl*
- Result := nil;
- if (f_SubDescriptors <> nil) and f_SubDescriptors.FindData(Index, I) then
-   Result := TevSubDescriptor(f_SubDescriptors.Items[I]);
-  if (Result = nil) then
-  begin
-   if (f_SubDescriptors = nil) then
-    f_SubDescriptors := Tl3ProtoPersistentWithHandleRefList.MakeSorted;
-   if (Index > 0) then
-    SD := TevSubLayerDescriptor.Create(Self as TevSubDescriptors)
-   else
-    SD := TevSubDescriptor.Create(Self as TevSubDescriptors);
-   try
-    SD.Handle := Index;
-    f_SubDescriptors.Add(SD);
-   finally
-    Result := SD.Free;
-   end;//try..finally
-  end; // if (Result = nil) then
-//#UC END# *547DC1FA0083_547DC15100BCget_impl*
-end;//TevCustomSubDescriptors.pm_GetSubDescriptor
-
-procedure TevCustomSubDescriptors.pm_SetSubDescriptor(Index: Integer; aValue: TevSubDescriptor);
-//#UC START# *547DC1FA0083_547DC15100BCset_var*
-//#UC END# *547DC1FA0083_547DC15100BCset_var*
-begin
-//#UC START# *547DC1FA0083_547DC15100BCset_impl*
- if (aValue <> nil) then
-  SubDescriptor[Index].Assign(aValue);
-//#UC END# *547DC1FA0083_547DC15100BCset_impl*
-end;//TevCustomSubDescriptors.pm_SetSubDescriptor
-
-function TevCustomSubDescriptors.pm_GetSubLayerDescriptor(Index: Integer): TevSubLayerDescriptor;
-//#UC START# *547DC309039E_547DC15100BCget_var*
-//#UC END# *547DC309039E_547DC15100BCget_var*
-begin
-//#UC START# *547DC309039E_547DC15100BCget_impl*
- if (Index > 0) then
-  Result := TevSubLayerDescriptor(SubDescriptor[Index])
- else
-  Result := nil;
-//#UC END# *547DC309039E_547DC15100BCget_impl*
-end;//TevCustomSubDescriptors.pm_GetSubLayerDescriptor
-
-procedure TevCustomSubDescriptors.pm_SetSubLayerDescriptor(Index: Integer; aValue: TevSubLayerDescriptor);
-//#UC START# *547DC309039E_547DC15100BCset_var*
-//#UC END# *547DC309039E_547DC15100BCset_var*
-begin
-//#UC START# *547DC309039E_547DC15100BCset_impl*
- SubDescriptor[Index] := aValue;
-//#UC END# *547DC309039E_547DC15100BCset_impl*
-end;//TevCustomSubDescriptors.pm_SetSubLayerDescriptor
-
 procedure TevCustomSubDescriptors.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_547DC15100BC_var*
 //#UC END# *479731C50290_547DC15100BC_var*
 begin
@@ -1104,7 +1032,6 @@ end;//TevCustomSubDescriptors.Loaded
 
 //#UC START# *547DB8BC03D3impl*
 //#UC END# *547DB8BC03D3impl*
-// start class TevSubLayerDescriptor
 
 function TevSubLayerDescriptor.pm_GetFlags(Index: Integer): TevSubDescriptor;
 //#UC START# *547DBA98011B_547DBA30028Eget_var*
@@ -1118,7 +1045,8 @@ begin
 //#UC END# *547DBA98011B_547DBA30028Eget_impl*
 end;//TevSubLayerDescriptor.pm_GetFlags
 
-procedure TevSubLayerDescriptor.pm_SetFlags(Index: Integer; aValue: TevSubDescriptor);
+procedure TevSubLayerDescriptor.pm_SetFlags(Index: Integer;
+ aValue: TevSubDescriptor);
 //#UC START# *547DBA98011B_547DBA30028Eset_var*
 //#UC END# *547DBA98011B_547DBA30028Eset_var*
 begin
@@ -1139,11 +1067,35 @@ end;//TevSubLayerDescriptor.VisibleDef
 
 //#UC START# *547DBA30028Eimpl*
 //#UC END# *547DBA30028Eimpl*
-// start class TevCustomSubPanel
+
+function TevCustomSubPanel.pm_GetSubDescriptors: TevSubDescriptors;
+//#UC START# *54806C0F00C7_547DC47400ECget_var*
+//#UC END# *54806C0F00C7_547DC47400ECget_var*
+begin
+//#UC START# *54806C0F00C7_547DC47400ECget_impl*
+ Result := f_SubDescriptors;
+//#UC END# *54806C0F00C7_547DC47400ECget_impl*
+end;//TevCustomSubPanel.pm_GetSubDescriptors
+
+procedure TevCustomSubPanel.pm_SetSubDescriptors(aValue: TevSubDescriptors);
+//#UC START# *54806C0F00C7_547DC47400ECset_var*
+//#UC END# *54806C0F00C7_547DC47400ECset_var*
+begin
+//#UC START# *54806C0F00C7_547DC47400ECset_impl*
+ if (f_SubDescriptors <> aValue) then
+ begin
+  if (f_SubDescriptors <> nil) then
+   f_SubDescriptors.UnlinkControl(Self);
+  l3Set(f_SubDescriptors, aValue);
+  if (f_SubDescriptors <> nil) then
+   f_SubDescriptors.LinkControl(Self);
+ end;//f_SubDescriptors <> Value
+//#UC END# *54806C0F00C7_547DC47400ECset_impl*
+end;//TevCustomSubPanel.pm_SetSubDescriptors
 
 procedure TevCustomSubPanel.DoOnClickSub(SubType: Tl3Handle;
-  SubHandle: Tl3Handle;
-  aKind: TafwClickKind);
+ SubHandle: Tl3Handle;
+ aKind: TafwClickKind);
 //#UC START# *547DC9DE0050_547DC47400EC_var*
 //#UC END# *547DC9DE0050_547DC47400EC_var*
 begin
@@ -1154,9 +1106,9 @@ begin
 end;//TevCustomSubPanel.DoOnClickSub
 
 procedure TevCustomSubPanel.DoOnMenuSub(const Pt: Tl3SPoint;
-  const R: Tl3SRect;
-  SubType: Tl3Handle;
-  SubHandle: Tl3Handle);
+ const R: Tl3SRect;
+ SubType: Tl3Handle;
+ SubHandle: Tl3Handle);
 //#UC START# *547DCA13008B_547DC47400EC_var*
 //#UC END# *547DCA13008B_547DC47400EC_var*
 begin
@@ -1167,9 +1119,9 @@ begin
 end;//TevCustomSubPanel.DoOnMenuSub
 
 function TevCustomSubPanel.DoOnMouseOverSub(const Pt: Tl3SPoint;
-  const R: Tl3SRect;
-  const aSub: IevSub;
-  aLayer: Integer): Boolean;
+ const R: Tl3SRect;
+ const aSub: IevSub;
+ aLayer: Integer): Boolean;
 //#UC START# *547DCA6C01A9_547DC47400EC_var*
 //#UC END# *547DCA6C01A9_547DC47400EC_var*
 begin
@@ -1189,9 +1141,9 @@ begin
 end;//TevCustomSubPanel.DoOnMouseOverSub
 
 procedure TevCustomSubPanel.DrawSub(const aCanvas: Il3Canvas;
-  aSubDescr: TevSubDescriptor;
-  aSub: TevSubPanelSub;
-  aRealPaint: Boolean);
+ aSubDescr: TevSubDescriptor;
+ aSub: TevSubPanelSub;
+ aRealPaint: Boolean);
 //#UC START# *547DCAF1011A_547DC47400EC_var*
 var
  SDT: TevSubDrawType;
@@ -1376,7 +1328,7 @@ begin
 end;//TevCustomSubPanel.DrawSubs
 
 function TevCustomSubPanel.ScrollSub(SPS: TevSubPanelSub;
-  const P: Tl3Point): Boolean;
+ const P: Tl3Point): Boolean;
 //#UC START# *547DCB3903BF_547DC47400EC_var*
 var
  l_R: Tl3Rect;
@@ -1412,9 +1364,9 @@ begin
 end;//TevCustomSubPanel.ScrollSub
 
 procedure TevCustomSubPanel.AddSub(const CN: Il3Canvas;
-  const aR: Tl3Rect;
-  aSubType: Tl3Handle;
-  const aSub: IevSub);
+ const aR: Tl3Rect;
+ aSubType: Tl3Handle;
+ const aSub: IevSub);
 //#UC START# *547DCC0002F9_547DC47400EC_var*
 var
  SPS: TevSubPanelSub;
@@ -1472,7 +1424,7 @@ begin
 end;//TevCustomSubPanel.AddSub
 
 function TevCustomSubPanel.DeleteSubPrim(aSubType: Tl3Handle;
-  aSubHandle: Tl3Handle): Boolean;
+ aSubHandle: Tl3Handle): Boolean;
 //#UC START# *547DCC2401CC_547DC47400EC_var*
 var
  SL: TevSubPanelSubArray;
@@ -1499,7 +1451,7 @@ begin
 end;//TevCustomSubPanel.DeleteSubPrim
 
 function TevCustomSubPanel.SubOnPoint(const Pt: Tl3SPoint;
-  out st: Tl3Handle): TevSubPanelSub;
+ out st: Tl3Handle): TevSubPanelSub;
 //#UC START# *547DCC9501A5_547DC47400EC_var*
 var
  Res: TevSubPanelSub absolute Result;
@@ -1533,9 +1485,9 @@ begin
 end;//TevCustomSubPanel.SubOnPoint
 
 function TevCustomSubPanel.CheckSubOnPoint(aX: Integer;
-  aY: Integer;
-  out theSub: IevSub;
-  out theFlag: Integer): Boolean;
+ aY: Integer;
+ out theSub: IevSub;
+ out theFlag: Integer): Boolean;
 //#UC START# *547DCCB901E2_547DC47400EC_var*
 var
  l_Sub: TevSubPanelSub;
@@ -1562,8 +1514,8 @@ begin
 end;//TevCustomSubPanel.CheckSubOnPoint
 
 function TevCustomSubPanel.CheckSubOnPoint(aX: Integer;
-  aY: Integer;
-  out theSub: IevSub): Boolean;
+ aY: Integer;
+ out theSub: IevSub): Boolean;
 //#UC START# *547DCCFF02B3_547DC47400EC_var*
 var
  l_Flag: Integer;
@@ -1575,7 +1527,7 @@ begin
 end;//TevCustomSubPanel.CheckSubOnPoint
 
 procedure TevCustomSubPanel.DeleteSub(aSubType: Tl3Handle;
-  aSubHandle: Tl3Handle);
+ aSubHandle: Tl3Handle);
 //#UC START# *547DCD45005F_547DC47400EC_var*
 var
  I: Integer;
@@ -1588,7 +1540,7 @@ begin
 //#UC END# *547DCD45005F_547DC47400EC_impl*
 end;//TevCustomSubPanel.DeleteSub
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 function TevCustomSubPanel.GetSubPanelSubCollection: TevSubPanelSubCollection;
 //#UC START# *547DCD6D028D_547DC47400EC_var*
 //#UC END# *547DCD6D028D_547DC47400EC_var*
@@ -1597,32 +1549,7 @@ begin
  Result := f_Subs;
 //#UC END# *547DCD6D028D_547DC47400EC_impl*
 end;//TevCustomSubPanel.GetSubPanelSubCollection
-{$IfEnd} //not NoScripts
-
-function TevCustomSubPanel.pm_GetSubDescriptors: TevSubDescriptors;
-//#UC START# *54806C0F00C7_547DC47400ECget_var*
-//#UC END# *54806C0F00C7_547DC47400ECget_var*
-begin
-//#UC START# *54806C0F00C7_547DC47400ECget_impl*
- Result := f_SubDescriptors;
-//#UC END# *54806C0F00C7_547DC47400ECget_impl*
-end;//TevCustomSubPanel.pm_GetSubDescriptors
-
-procedure TevCustomSubPanel.pm_SetSubDescriptors(aValue: TevSubDescriptors);
-//#UC START# *54806C0F00C7_547DC47400ECset_var*
-//#UC END# *54806C0F00C7_547DC47400ECset_var*
-begin
-//#UC START# *54806C0F00C7_547DC47400ECset_impl*
- if (f_SubDescriptors <> aValue) then
- begin
-  if (f_SubDescriptors <> nil) then
-   f_SubDescriptors.UnlinkControl(Self);
-  l3Set(f_SubDescriptors, aValue);
-  if (f_SubDescriptors <> nil) then
-   f_SubDescriptors.LinkControl(Self);
- end;//f_SubDescriptors <> Value
-//#UC END# *54806C0F00C7_547DC47400ECset_impl*
-end;//TevCustomSubPanel.pm_SetSubDescriptors
+{$IfEnd} // NOT Defined(NoScripts)
 
 procedure TevCustomSubPanel.WMLButtonDblClk(var Msg: TWMLButtonDblClk);
 //#UC START# *547DC93D03A0_547DC47400EC_var*
@@ -1769,6 +1696,7 @@ begin
 end;//TevCustomSubPanel.WMSetCursor
 
 function TevCustomSubPanel.SubDescriptorsStored: Boolean;
+ {* "Функция определяющая, что свойство SubDescriptors сохраняется" }
 //#UC START# *C5BCC928FE9C_547DC47400EC_var*
 //#UC END# *C5BCC928FE9C_547DC47400EC_var*
 begin
@@ -1802,6 +1730,7 @@ begin
 end;//TevCustomSubPanel.NotifySubDeleted
 
 procedure TevCustomSubPanel.NotifyFlagsChange(const aSub: IevSub);
+ {* флаги метки изменились }
 //#UC START# *4A2627980257_547DC47400EC_var*
 var
  SL: TevSubPanelSubArray;
@@ -1861,7 +1790,7 @@ begin
 end;//TevCustomSubPanel.pm_SetZoom
 
 procedure TevCustomSubPanel.NeedDrawSub(const aR: Tl3Rect;
-  const aSub: IevSub);
+ const aSub: IevSub);
 //#UC START# *547CA1CA0126_547DC47400EC_var*
 var
  F: Integer;
@@ -1902,6 +1831,7 @@ begin
 end;//TevCustomSubPanel.NeedDrawSub
 
 procedure TevCustomSubPanel.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_547DC47400EC_var*
 //#UC END# *479731C50290_547DC47400EC_var*
 begin
@@ -1927,6 +1857,7 @@ begin
 end;//TevCustomSubPanel.Create
 
 procedure TevCustomSubPanel.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_547DC47400EC_var*
 {$IfNDef Nemesis}
 var
@@ -2029,21 +1960,21 @@ end;//TevCustomSubPanel.DoScroll
 //#UC END# *547DB02F034Bimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevSubDescriptor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevSubDescriptor);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TevSubLayerDescriptor
+ {* Регистрация TevSubDescriptor }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevSubLayerDescriptor);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TevCustomSubPanel
+ {* Регистрация TevSubLayerDescriptor }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomSubPanel);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TevSubPanel
+ {* Регистрация TevCustomSubPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevSubPanel);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevSubPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,70 +1,37 @@
 unit evPersistentDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evPersistentDataObject.pas"
-// Начат: 11.10.2001 18:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevPersistentDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evPersistentDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevPersistentDataObject" MUID: (48F4732803C8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  l3Core,
-  l3Memory,
-  nevTools,
-  evDataObject,
-  evdInterfaces,
-  l3IID
-  ;
+ l3IntfUses
+ , l3Memory
+ , l3Interfaces
+ , evdInterfaces
+ , nevTools
+ , nevBase
+ , l3Core
+ , l3IID
+ , evDataObject
+;
 
 type
- RevDataObject = class of evDataObject.TevDataObject;
+ RevDataObject = class of TevDataObject;
 
  TevPersistentDataObject = class(Tl3MemoryStream, Il3DataObjectInfo, IevdDataObject, InevDataObjectPrim2)
- private
- // private fields
-   f_TagStorageR : InevTagReader;
-   f_TagStorageW : InevTagWriter;
-   f_Formats : Tl3ClipboardFormats;
-   f_SameFormat : Boolean;
-   f_Format : Tl3ClipboardFormat;
-    {* Поле для свойства Format}
- protected
- // realized methods
-   function pm_GetIsQuestionNeedBeforeFlush: Boolean;
-   procedure Store(const aView: InevView;
-    const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload; 
-     {* сохраняет выделение в G. }
-   function Store(aFormat: TevdClipboardFormat;
-    const aPool: IStream;
-    const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload; 
-     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
-   function pm_GetBorders: TevPair;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-     {* метод для реализации QueryInterface (Для перекрытия в потомках) }
- protected
- // protected methods
+  private
+   f_TagStorageR: InevTagReader;
+   f_TagStorageW: InevTagWriter;
+   f_Formats: Tl3ClipboardFormats;
+   f_SameFormat: Boolean;
+   f_Format: Tl3ClipboardFormat;
+    {* Поле для свойства Format }
+  protected
    function DataObjectClass: RevDataObject; virtual;
    function Sharp: Boolean; virtual;
    function GetIsQuestionNeedBeforeFlush: Boolean; virtual;
@@ -72,57 +39,70 @@ type
     const aPool: IStream;
     const aFilters: InevTagGenerator;
     aFlags: TevdStoreFlags): Boolean; virtual;
- public
- // public methods
+   function pm_GetIsQuestionNeedBeforeFlush: Boolean;
+   procedure Store(const aView: InevView;
+    const G: InevTagGenerator;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    {* сохраняет выделение в G. }
+   function Store(aFormat: TevdClipboardFormat;
+    const aPool: IStream;
+    const aFilters: TevdTagGenerator;
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
+    {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
+   function pm_GetBorders: TevPair;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* метод для реализации QueryInterface (Для перекрытия в потомках) }
+  public
    constructor Create(const aBlock: IevdDataObject;
     anInternal: Boolean;
     aFormat: Tl3ClipboardFormat;
     const aTagStorageR: InevTagReader;
     const aTagStorageW: InevTagWriter;
     const aFormats: Tl3ClipboardFormats;
-    const aFilters: InevTagGenerator); reintroduce; overload; 
+    const aFilters: InevTagGenerator); reintroduce; overload;
    constructor Create(aData: THandle;
     aFormat: Tl3ClipboardFormat;
     const aTagStorageR: InevTagReader;
     const aTagStorageW: InevTagWriter;
-    const aFormats: Tl3ClipboardFormats); reintroduce; overload; 
+    const aFormats: Tl3ClipboardFormats); reintroduce; overload;
    class function Make(const aBlock: IevdDataObject;
     anInternal: Boolean;
     aFormat: Tl3ClipboardFormat;
     const aTagStorageR: InevTagReader;
     const aTagStorageW: InevTagWriter;
     const aFormats: Tl3ClipboardFormats;
-    const aFilters: InevTagGenerator): InevDataObjectPrim2; reintroduce; overload; 
+    const aFilters: InevTagGenerator): InevDataObjectPrim2; reintroduce; overload;
    class function Make(aData: THandle;
     aFormat: Tl3ClipboardFormat;
     const aTagStorageR: InevTagReader;
     const aTagStorageW: InevTagWriter;
-    const aFormats: Tl3ClipboardFormats): InevDataObjectPrim2; reintroduce; overload; 
- protected
- // protected properties
+    const aFormats: Tl3ClipboardFormats): InevDataObjectPrim2; reintroduce; overload;
+  protected
    property Format: Tl3ClipboardFormat
-     read f_Format;
+    read f_Format;
  end;//TevPersistentDataObject
 
 implementation
 
 uses
-  k2InternalInterfaces,
-  SysUtils,
-  l3Base,
-  l3Stream,
-  Classes
-  ;
-
-// start class TevPersistentDataObject
+ l3ImplUses
+ , k2InternalInterfaces
+ , SysUtils
+ , l3Base
+ , l3Stream
+ , Classes
+;
 
 constructor TevPersistentDataObject.Create(const aBlock: IevdDataObject;
-  anInternal: Boolean;
-  aFormat: Tl3ClipboardFormat;
-  const aTagStorageR: InevTagReader;
-  const aTagStorageW: InevTagWriter;
-  const aFormats: Tl3ClipboardFormats;
-  const aFilters: InevTagGenerator);
+ anInternal: Boolean;
+ aFormat: Tl3ClipboardFormat;
+ const aTagStorageR: InevTagReader;
+ const aTagStorageW: InevTagWriter;
+ const aFormats: Tl3ClipboardFormats;
+ const aFilters: InevTagGenerator);
 //#UC START# *48F475A20016_48F4732803C8_var*
 //#UC END# *48F475A20016_48F4732803C8_var*
 begin
@@ -141,10 +121,10 @@ begin
 end;//TevPersistentDataObject.Create
 
 constructor TevPersistentDataObject.Create(aData: THandle;
-  aFormat: Tl3ClipboardFormat;
-  const aTagStorageR: InevTagReader;
-  const aTagStorageW: InevTagWriter;
-  const aFormats: Tl3ClipboardFormats);
+ aFormat: Tl3ClipboardFormat;
+ const aTagStorageR: InevTagReader;
+ const aTagStorageW: InevTagWriter;
+ const aFormats: Tl3ClipboardFormats);
 //#UC START# *48F4764A01A0_48F4732803C8_var*
 //#UC END# *48F4764A01A0_48F4732803C8_var*
 begin
@@ -159,12 +139,12 @@ begin
 end;//TevPersistentDataObject.Create
 
 class function TevPersistentDataObject.Make(const aBlock: IevdDataObject;
-  anInternal: Boolean;
-  aFormat: Tl3ClipboardFormat;
-  const aTagStorageR: InevTagReader;
-  const aTagStorageW: InevTagWriter;
-  const aFormats: Tl3ClipboardFormats;
-  const aFilters: InevTagGenerator): InevDataObjectPrim2;
+ anInternal: Boolean;
+ aFormat: Tl3ClipboardFormat;
+ const aTagStorageR: InevTagReader;
+ const aTagStorageW: InevTagWriter;
+ const aFormats: Tl3ClipboardFormats;
+ const aFilters: InevTagGenerator): InevDataObjectPrim2;
 var
  l_Inst : TevPersistentDataObject;
 begin
@@ -174,13 +154,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevPersistentDataObject.Make
 
 class function TevPersistentDataObject.Make(aData: THandle;
-  aFormat: Tl3ClipboardFormat;
-  const aTagStorageR: InevTagReader;
-  const aTagStorageW: InevTagWriter;
-  const aFormats: Tl3ClipboardFormats): InevDataObjectPrim2;
+ aFormat: Tl3ClipboardFormat;
+ const aTagStorageR: InevTagReader;
+ const aTagStorageW: InevTagWriter;
+ const aFormats: Tl3ClipboardFormats): InevDataObjectPrim2;
 var
  l_Inst : TevPersistentDataObject;
 begin
@@ -190,7 +170,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevPersistentDataObject.Make
 
 function TevPersistentDataObject.DataObjectClass: RevDataObject;
 //#UC START# *48F4795901B5_48F4732803C8_var*
@@ -220,9 +200,9 @@ begin
 end;//TevPersistentDataObject.GetIsQuestionNeedBeforeFlush
 
 function TevPersistentDataObject.DoStore(aFormat: TnevFormat;
-  const aPool: IStream;
-  const aFilters: InevTagGenerator;
-  aFlags: TevdStoreFlags): Boolean;
+ const aPool: IStream;
+ const aFilters: InevTagGenerator;
+ aFlags: TevdStoreFlags): Boolean;
 //#UC START# *48F481B6035B_48F4732803C8_var*
 //#UC END# *48F481B6035B_48F4732803C8_var*
 begin
@@ -242,8 +222,9 @@ begin
 end;//TevPersistentDataObject.pm_GetIsQuestionNeedBeforeFlush
 
 procedure TevPersistentDataObject.Store(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48F4732803C8_var*
 var
  l_FilerSource : Ik2FilerSource;
@@ -268,9 +249,10 @@ begin
 end;//TevPersistentDataObject.Store
 
 function TevPersistentDataObject.Store(aFormat: TevdClipboardFormat;
-  const aPool: IStream;
-  const aFilters: TevdTagGenerator;
-  aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ const aPool: IStream;
+ const aFilters: TevdTagGenerator;
+ aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_48F4732803C8_var*
 //#UC END# *47C68C6701AF_48F4732803C8_var*
 begin
@@ -290,6 +272,7 @@ begin
 end;//TevPersistentDataObject.pm_GetBorders
 
 procedure TevPersistentDataObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F4732803C8_var*
 //#UC END# *479731C50290_48F4732803C8_var*
 begin
@@ -302,7 +285,8 @@ begin
 end;//TevPersistentDataObject.Cleanup
 
 function TevPersistentDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* метод для реализации QueryInterface (Для перекрытия в потомках) }
 //#UC START# *48F475350256_48F4732803C8_var*
 var
  l_DataObject : TevDataObject;

@@ -1,130 +1,101 @@
 unit evDocumentPartPainter;
+ {* Реализация интерфейса IevPainter для блока параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPartPainter.pas"
-// Начат: 15.12.96 01:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevDocumentPartPainter
-//
-// Реализация интерфейса IevPainter для блока параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartPainter" MUID: (49DB1B70013F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Units,
-  evParaListPainter,
-  l3Types,
-  nevBase,
-  l3Variant,
-  l3Interfaces,
-  nevRealTools
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evParaListPainter
+ , l3Units
+ , l3Variant
+ , l3Interfaces
+ , nevBase
+ , nevRealTools
+ , l3Types
+;
 
-{$If defined(evNeedPainters)}
 type
  _AACSpaceDrawing_Parent_ = TevParaListPainter;
- {$Include ..\Everest\AACSpaceDrawing.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
  TevDocumentPartPainter = class(_AACSpaceDrawing_)
   {* Реализация интерфейса IevPainter для блока параграфов }
- private
- // private methods
+  private
    procedure CorrectFrameBounds;
    function DoWithFrameName(aDrawText: Boolean): Tl3Point;
    function FirstParaAsHeader: Boolean;
    procedure CheckColor4ExpandedText;
- protected
- // realized methods
+  protected
+   procedure DrawFrameName; virtual;
+    {* Рисует имя блока в области рамки }
+   function NeedDrawPlus: Boolean; virtual;
+    {* Нужно ли рисовать плюс/минус для открытия/сворачивания блока }
    function NeedCalcSpace: Boolean; override;
-     {* Проверка для срабатывания примеси. }
+    {* Проверка для срабатывания примеси. }
    function HeaderOwnSpace: Boolean; override;
    function GetSpaceTop(anInc: Boolean): Integer; override;
- protected
- // overridden protected methods
    procedure DoInitAlignObjects; override;
-     {* Инициализация выравнивания объекта. }
+    {* Инициализация выравнивания объекта. }
    procedure DrawFrame; override;
-     {* Процедура рисования видимой рамки вокруг параграфа. }
+    {* Процедура рисования видимой рамки вокруг параграфа. }
    function InfiniteFrame: Boolean; override;
    procedure GetFramePartPrim(aFrame: Tl3Variant;
     anIndex: Tl3FramePartIndex;
     var thePart: TnevFramePart); override;
    procedure DoDrawFrameText(aTop: Boolean); override;
    function BeforeDrawChild(const ChildPainter: IevPainter): Boolean; override;
-     {* Вызывается перед рисованием каждого дочернего параграфа. }
+    {* Вызывается перед рисованием каждого дочернего параграфа. }
    procedure FillUnfilled(const aRect: Tl3Rect); override;
-     {* Заливает область параграфа, которая не была залита }
+    {* Заливает область параграфа, которая не была залита }
    procedure CorrectByTextHeight(aHeight: Integer); override;
-     {* Корректирует отступ отрисованной высотой текста. }
- protected
- // protected methods
-   procedure DrawFrameName; virtual;
-     {* Рисует имя блока в области рамки }
-   function NeedDrawPlus: Boolean; virtual;
-     {* Нужно ли рисовать плюс/минус для открытия/сворачивания блока }
+    {* Корректирует отступ отрисованной высотой текста. }
  end;//TevDocumentPartPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Defaults,
-  Graphics,
-  k2Tags,
-  evDef,
-  l3CustomString,
-  evConst,
-  l3MinMax,
-  l3Const,
-  l3String,
-  l3Chars,
-  l3Math
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3InternalInterfaces,
-  evTextStyle_Const,
-  nevTools
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-{$Include ..\Everest\AACSpaceDrawing.imp.pas}
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Defaults
+ , Graphics
+ , k2Tags
+ , evDef
+ , l3CustomString
+ , evConst
+ , l3MinMax
+ , l3Const
+ , l3String
+ , l3Chars
+ , l3Math
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3InternalInterfaces
+ , evTextStyle_Const
+ , nevTools
+;
 
 const
-   { Константы для рисования плюсика (минусика) в пикселах. }
-  cPlusFrameWidth = 1;
-  cPlusSize = 10;
-  cHalfPlusSize = 5;
-  cDeltaPlus = cHalfPlusSize + cPlusFrameWidth;
-   { Смещение для начала рисования плюса. }
-  cDeltaText = cPlusSize + cPlusFrameWidth;
-   { Смещение текста после него (иначе получается некрасиво). }
+ {* Константы для рисования плюсика (минусика) в пикселах. }
+ cPlusFrameWidth = 1;
+ cPlusSize = 10;
+ cHalfPlusSize = 5;
+ cDeltaPlus = cHalfPlusSize + cPlusFrameWidth;
+  {* Смещение для начала рисования плюса. }
+ cDeltaText = cPlusSize + cPlusFrameWidth;
+  {* Смещение текста после него (иначе получается некрасиво). }
 
-// start class TevDocumentPartPainter
+{$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
 
 procedure TevDocumentPartPainter.CorrectFrameBounds;
 //#UC START# *4EB92D5A0249_49DB1B70013F_var*
@@ -212,6 +183,7 @@ begin
 end;//TevDocumentPartPainter.CheckColor4ExpandedText
 
 procedure TevDocumentPartPainter.DrawFrameName;
+ {* Рисует имя блока в области рамки }
 //#UC START# *49DB1B9E0191_49DB1B70013F_var*
 //#UC END# *49DB1B9E0191_49DB1B70013F_var*
 begin
@@ -222,6 +194,7 @@ begin
 end;//TevDocumentPartPainter.DrawFrameName
 
 function TevDocumentPartPainter.NeedDrawPlus: Boolean;
+ {* Нужно ли рисовать плюс/минус для открытия/сворачивания блока }
 //#UC START# *49DB1BF30312_49DB1B70013F_var*
 //#UC END# *49DB1BF30312_49DB1B70013F_var*
 begin
@@ -235,6 +208,7 @@ begin
 end;//TevDocumentPartPainter.NeedDrawPlus
 
 function TevDocumentPartPainter.NeedCalcSpace: Boolean;
+ {* Проверка для срабатывания примеси. }
 //#UC START# *5062C0650076_49DB1B70013F_var*
 //#UC END# *5062C0650076_49DB1B70013F_var*
 begin
@@ -264,6 +238,7 @@ begin
 end;//TevDocumentPartPainter.GetSpaceTop
 
 procedure TevDocumentPartPainter.DoInitAlignObjects;
+ {* Инициализация выравнивания объекта. }
 //#UC START# *4804B5FC02A3_49DB1B70013F_var*
 //#UC END# *4804B5FC02A3_49DB1B70013F_var*
 begin
@@ -275,6 +250,7 @@ begin
 end;//TevDocumentPartPainter.DoInitAlignObjects
 
 procedure TevDocumentPartPainter.DrawFrame;
+ {* Процедура рисования видимой рамки вокруг параграфа. }
 //#UC START# *4804B76803D5_49DB1B70013F_var*
 //#UC END# *4804B76803D5_49DB1B70013F_var*
 begin
@@ -334,8 +310,8 @@ begin
 end;//TevDocumentPartPainter.InfiniteFrame
 
 procedure TevDocumentPartPainter.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_49DB1B70013F_var*
 //#UC END# *4804B9BB0383_49DB1B70013F_var*
 begin
@@ -409,6 +385,7 @@ begin
 end;//TevDocumentPartPainter.DoDrawFrameText
 
 function TevDocumentPartPainter.BeforeDrawChild(const ChildPainter: IevPainter): Boolean;
+ {* Вызывается перед рисованием каждого дочернего параграфа. }
 //#UC START# *481D6C56033A_49DB1B70013F_var*
 //#UC END# *481D6C56033A_49DB1B70013F_var*
 begin
@@ -427,6 +404,7 @@ begin
 end;//TevDocumentPartPainter.BeforeDrawChild
 
 procedure TevDocumentPartPainter.FillUnfilled(const aRect: Tl3Rect);
+ {* Заливает область параграфа, которая не была залита }
 //#UC START# *4E2702FE01EA_49DB1B70013F_var*
 //#UC END# *4E2702FE01EA_49DB1B70013F_var*
 begin
@@ -446,6 +424,7 @@ begin
 end;//TevDocumentPartPainter.FillUnfilled
 
 procedure TevDocumentPartPainter.CorrectByTextHeight(aHeight: Integer);
+ {* Корректирует отступ отрисованной высотой текста. }
 //#UC START# *5062C3470289_49DB1B70013F_var*
 //#UC END# *5062C3470289_49DB1B70013F_var*
 begin
@@ -455,7 +434,6 @@ begin
  inherited CorrectByTextHeight(aHeight);
 //#UC END# *5062C3470289_49DB1B70013F_impl*
 end;//TevDocumentPartPainter.CorrectByTextHeight
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

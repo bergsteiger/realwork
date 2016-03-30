@@ -73,11 +73,8 @@ type
    f_OldOnContextExecute: TvcmExecuteEvent;
    f_FormID: TvcmFormID;
    f_Operation: TvcmBaseOperationsCollectionItem;
-    {* Поле для свойства Operation }
    f_FormActivate: TvcmFormActivate;
-    {* Поле для свойства FormActivate }
    f_Form: IvcmEntityForm;
-    {* Поле для свойства Form }
   protected
    procedure pm_SetOperation(aValue: TvcmBaseOperationsCollectionItem);
    procedure pm_SetFormActivate(aValue: TvcmFormActivate);
@@ -169,7 +166,6 @@ type
   private
    f_Managers: TvcmOperationManagers;
    f_Operations: TvcmFormActivateOperations;
-    {* Поле для свойства Operations }
   protected
    function pm_GetItems(anIndex: Integer): TvcmOperationManager;
    function pm_GetCount: Integer;
@@ -209,29 +205,21 @@ type
    f_FormActivateManager: TvcmFormActivateManager;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    f_Strings: TvcmStringCollection;
-    {* Поле для свойства Strings }
    f_HistoryZones: TvcmEffectiveZoneTypes;
-    {* Поле для свойства HistoryZones }
+    {* формы зон, которые сохраняются в историю }
    f_SaveFormZones: TvcmEffectiveZoneTypes;
-    {* Поле для свойства SaveFormZones }
+    {* сохранять формы в настройки при изменении родителя если они находятся в перечисленных зонах. }
    f_Modules: TvcmModulesCollection;
-    {* Поле для свойства Modules }
+    {* коллекция модулей }
    f_AppForms: TvcmFormsCollection;
-    {* Поле для свойства AppForms }
    f_Messages: TvcmMessagesCollection;
-    {* Поле для свойства Messages }
    f_SmallImages: TCustomImageList;
-    {* Поле для свойства SmallImages }
    f_LargeImages: TCustomImageList;
-    {* Поле для свойства LargeImages }
    f_ToolbarPopup: TvcmPopupMenuPrim;
-    {* Поле для свойства ToolbarPopup }
    f_OnInitCommands: TvcmInitCommandsEvent;
-    {* Поле для свойства OnInitCommands }
    f_OnOperationExecuteNotify: TvcmOperationExecuteNotify;
-    {* Поле для свойства OnOperationExecuteNotify }
+    {* событие возникает перед выполением операции }
    f_MenuItemClickListeners: TvcmMenuItemClickListenerList;
-    {* Поле для свойства MenuItemClickListeners }
   private
    procedure NotifyMenuItemClickListeners(aMenuItem: TvcmMenuItem);
   protected
@@ -406,8 +394,6 @@ type
   private
    function CheckPopup(const anEntityDef: IvcmEntityDef): IvcmEntity;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function GetPopupMenu(aControl: TComponent;
     const aPoint: TPoint): TMenuItem;
@@ -419,6 +405,8 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmPopupMenuHelper;
     {* Метод получения экземпляра синглетона TvcmPopupMenuHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmPopupMenuHelper
 
  //#UC START# *52A1F4A201F9ci*
@@ -2860,12 +2848,6 @@ begin
 //#UC END# *51ED0195036B_55002183037A_impl*
 end;//TvcmPopupMenuHelper.CheckPopup
 
-class function TvcmPopupMenuHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmPopupMenuHelper <> nil;
-end;//TvcmPopupMenuHelper.Exists
-
 {$If NOT Defined(NoVCL)}
 function TvcmPopupMenuHelper.GetPopupMenu(aControl: TComponent;
  const aPoint: TPoint): TMenuItem;
@@ -2945,6 +2927,12 @@ begin
  end;
  Result := g_TvcmPopupMenuHelper;
 end;//TvcmPopupMenuHelper.Instance
+
+class function TvcmPopupMenuHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmPopupMenuHelper <> nil;
+end;//TvcmPopupMenuHelper.Exists
 
 function TvcmBaseMenuManager.FillPopupMenu(const aPopupPoint: TPoint;
  aPopupComponent: TComponent): TvcmPopupMenuPrim;

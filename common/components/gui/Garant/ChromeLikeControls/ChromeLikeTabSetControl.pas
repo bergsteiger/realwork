@@ -1,229 +1,190 @@
 unit ChromeLikeTabSetControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeTabSetControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeTabSetControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeTabSetControl" MUID: (5507EFFD01FE)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types,
-  Classes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoDataContainer
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  ChromeLikeInterfaces,
-  ChromeLikeBaseVisualObjectPrim,
-  ChromeLikeTabSetTypes,
-  ChromeLikeTabSetControlPrim,
-  GDIPOBJ,
-  ChromeLikeBaseVisualObject,
-  l3TabbedContainersDispatcher,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , ChromeLikeTabSetControlPrim
+ , ChromeLikeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ChromeLikeTabSetTypes
+ , Types
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ChromeLikeBaseVisualObjectPrim
+ , l3TabbedContainersDispatcher
+ , ChromeLikeBaseVisualObject
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , GDIPOBJ
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+const
+ cCloseButtonSize = 8;
+ cDefaultTabHeight = 32;
+ cMinSlotWidth = 30;
+ cDefaultSlotWidth = 180;
+ cMovingAnimationDuration = 220;
+
 type
  TChromeLikeTabCloseButton = class(TChromeLikeBaseVisualObject)
- private
- // private fields
-   f_ShowOnlyHovered : Boolean;
-    {* Поле для свойства ShowOnlyHovered}
-   f_ButtonImages : TCustomImageList;
-    {* Поле для свойства ButtonImages}
-   f_ImageIndex : TImageIndex;
-    {* Поле для свойства ImageIndex}
-   f_HotImageIndex : TImageIndex;
-    {* Поле для свойства HotImageIndex}
-   f_Image : TGPBitmap;
-    {* Поле для свойства Image}
-   f_HotImage : TGPBitmap;
-    {* Поле для свойства HotImage}
- protected
- // property methods
+  private
+   f_ShowOnlyHovered: Boolean;
+    {* Поле для свойства ShowOnlyHovered }
+   f_ButtonImages: TCustomImageList;
+    {* Поле для свойства ButtonImages }
+   f_ImageIndex: TImageIndex;
+    {* Поле для свойства ImageIndex }
+   f_HotImageIndex: TImageIndex;
+    {* Поле для свойства HotImageIndex }
+   f_Image: TGPBitmap;
+    {* Поле для свойства Image }
+   f_HotImage: TGPBitmap;
+    {* Поле для свойства HotImage }
+  protected
    procedure pm_SetShowOnlyHovered(aValue: Boolean);
    procedure pm_SetButtonImages(aValue: TCustomImageList); virtual;
    procedure pm_SetImageIndex(aValue: TImageIndex);
    procedure pm_SetHotImageIndex(aValue: TImageIndex);
    function pm_GetImage: TGPBitmap;
    function pm_GetHotImage: TGPBitmap;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
    function MeasureSize: TSize; override;
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; override;
    procedure DoMouseLeave; override;
-     {* Сигнатура метода DoMouseLeave }
- public
- // overridden public methods
+  public
    constructor Create(aParent: TChromeLikeBaseVisualObjectPrim); override;
- protected
- // protected properties
+  protected
    property Image: TGPBitmap
-     read pm_GetImage;
+    read pm_GetImage;
    property HotImage: TGPBitmap
-     read pm_GetHotImage;
- public
- // public properties
+    read pm_GetHotImage;
+  public
    property ShowOnlyHovered: Boolean
-     read f_ShowOnlyHovered
-     write pm_SetShowOnlyHovered;
+    read f_ShowOnlyHovered
+    write pm_SetShowOnlyHovered;
    property ButtonImages: TCustomImageList
-     read f_ButtonImages
-     write pm_SetButtonImages;
+    read f_ButtonImages
+    write pm_SetButtonImages;
    property ImageIndex: TImageIndex
-     read f_ImageIndex
-     write pm_SetImageIndex;
+    read f_ImageIndex
+    write pm_SetImageIndex;
    property HotImageIndex: TImageIndex
-     read f_HotImageIndex
-     write pm_SetHotImageIndex;
+    read f_HotImageIndex
+    write pm_SetHotImageIndex;
  end;//TChromeLikeTabCloseButton
 
  TChromeLikeTabIcon = class(TChromeLikeBaseVisualObject)
- private
- // private fields
-   f_Image : TGPImage;
-   f_ImageList : TCustomImageList;
-    {* Поле для свойства ImageList}
-   f_ImageIndex : TImageIndex;
-    {* Поле для свойства ImageIndex}
- private
- // private methods
+  private
+   f_Image: TGPImage;
+   f_ImageList: TCustomImageList;
+    {* Поле для свойства ImageList }
+   f_ImageIndex: TImageIndex;
+    {* Поле для свойства ImageIndex }
+  private
    function GetImage: TGPImage;
- protected
- // property methods
+  protected
    procedure pm_SetImageList(aValue: TCustomImageList);
    procedure pm_SetImageIndex(aValue: TImageIndex);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
    function MeasureSize: TSize; override;
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; override;
- public
- // public properties
+  public
    property ImageList: TCustomImageList
-     read f_ImageList
-     write pm_SetImageList;
+    read f_ImageList
+    write pm_SetImageList;
    property ImageIndex: TImageIndex
-     read f_ImageIndex
-     write pm_SetImageIndex;
+    read f_ImageIndex
+    write pm_SetImageIndex;
  end;//TChromeLikeTabIcon
 
  TChromeLikeTabText = class(TChromeLikeBaseVisualObject)
- private
- // private fields
-   f_Text : WideString;
-    {* Поле для свойства Text}
- protected
- // property methods
+  private
+   f_Text: WideString;
+    {* Поле для свойства Text }
+  protected
    procedure pm_SetText(const aValue: WideString);
- protected
- // overridden protected methods
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; override;
- public
- // public properties
+   procedure ClearFields; override;
+  public
    property Text: WideString
-     read f_Text
-     write pm_SetText;
+    read f_Text
+    write pm_SetText;
  end;//TChromeLikeTabText
 
  TChromeLikeTabSide = (
-   cltsLeft
- , cltsRight
+  cltsLeft
+  , cltsRight
  );//TChromeLikeTabSide
 
- TChromeLikeTabNeedCloseEvent = procedure (aTabToClose: TChromeLikeBaseVisualObject) of object;
+ TChromeLikeTabNeedCloseEvent = procedure(aTabToClose: TChromeLikeBaseVisualObject) of object;
 
  TChromeLikeTab = class(TChromeLikeBaseVisualObject, Il3FormTab)
- private
- // private fields
-   f_CloseButton : TChromeLikeTabCloseButton;
-   f_TextControl : TChromeLikeTabText;
-   f_Icon : TChromeLikeTabIcon;
-   f_BodyPath : TGPGraphicsPath;
-   f_LeftTopEdgePath : TGPGraphicsPath;
-   f_RightEdgePath : TGPGraphicsPath;
-   f_BottomEdgePath : TGPGraphicsPath;
-   f_RoundingRadius : Single;
-   f_Text : WideString;
-    {* Поле для свойства Text}
-   f_Selected : Boolean;
-    {* Поле для свойства Selected}
-   f_Form : TForm;
-    {* Поле для свойства Form}
-   f_ImageIndex : TImageIndex;
-    {* Поле для свойства ImageIndex}
-   f_ImageList : TCustomImageList;
-    {* Поле для свойства ImageList}
-   f_SlotIndex : Integer;
-    {* Поле для свойства SlotIndex}
-   f_OnNeedCloseTab : TChromeLikeTabNeedCloseEvent;
-    {* Поле для свойства OnNeedCloseTab}
-   f_TabSet : TChromeLikeTabSetControlPrim;
-    {* Поле для свойства TabSet}
-   f_CloseButtonImages : TCustomImageList;
-    {* Поле для свойства CloseButtonImages}
-   f_CloseButtonImageIndex : TImageIndex;
-    {* Поле для свойства CloseButtonImageIndex}
-   f_CloseButtonHotImageIndex : TImageIndex;
-    {* Поле для свойства CloseButtonHotImageIndex}
- private
- // private methods
+  private
+   f_CloseButton: TChromeLikeTabCloseButton;
+   f_TextControl: TChromeLikeTabText;
+   f_Icon: TChromeLikeTabIcon;
+   f_BodyPath: TGPGraphicsPath;
+   f_LeftTopEdgePath: TGPGraphicsPath;
+   f_RightEdgePath: TGPGraphicsPath;
+   f_BottomEdgePath: TGPGraphicsPath;
+   f_RoundingRadius: Single;
+   f_Text: WideString;
+    {* Поле для свойства Text }
+   f_Selected: Boolean;
+    {* Поле для свойства Selected }
+   f_Form: TForm;
+    {* Поле для свойства Form }
+   f_ImageIndex: TImageIndex;
+    {* Поле для свойства ImageIndex }
+   f_ImageList: TCustomImageList;
+    {* Поле для свойства ImageList }
+   f_SlotIndex: Integer;
+    {* Поле для свойства SlotIndex }
+   f_OnNeedCloseTab: TChromeLikeTabNeedCloseEvent;
+    {* Поле для свойства OnNeedCloseTab }
+   f_TabSet: TChromeLikeTabSetControlPrim;
+    {* Поле для свойства TabSet }
+   f_CloseButtonImages: TCustomImageList;
+    {* Поле для свойства CloseButtonImages }
+   f_CloseButtonImageIndex: TImageIndex;
+    {* Поле для свойства CloseButtonImageIndex }
+   f_CloseButtonHotImageIndex: TImageIndex;
+    {* Поле для свойства CloseButtonHotImageIndex }
+  private
    procedure DoOnCloseButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SelectionChanged;
-     {* Сигнатура метода SelectionChanged }
    procedure MakePaths;
-     {* Сигнатура метода MakePaths }
    procedure CloseTab;
-     {* Сигнатура метода CloseTab }
- protected
- // property methods
+  protected
    function pm_GetText: WideString;
    procedure pm_SetText(const aValue: WideString);
    function pm_GetSelected: Boolean; virtual;
@@ -236,229 +197,198 @@ type
    procedure pm_SetCloseButtonImages(aValue: TCustomImageList);
    procedure pm_SetCloseButtonImageIndex(aValue: TImageIndex);
    procedure pm_SetCloseButtonHotImageIndex(aValue: TImageIndex);
- protected
- // realized methods
    function MakeClone: Il3FormTab;
    function pm_GetTabbedForm: TForm;
    function pm_GetTabbedContainer: Il3TabbedContainer;
    function pm_GetVisibleIndex: Integer;
    procedure AssignParams(const aParams: Il3TabParams);
    function pm_GetCurrentParams: Il3TabParams;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Invalidate; override;
-     {* Сигнатура метода Invalidate }
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
    procedure DoMouseMove(const aPoint: TPoint); override;
    procedure DoClick(const aPoint: TPoint); override;
    procedure PositionChanged; override;
-     {* Сигнатура метода PositionChanged }
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; override;
    procedure MakeChildControls; override;
-     {* Сигнатура метода MakeChildControls }
    function DoGetCanMove(const aPoint: TPoint): Boolean; override;
    procedure DoMiddleButtonClick(const aPoint: TPoint); override;
- public
- // public methods
+   procedure ClearFields; override;
+  public
    function GetTabSide(const aPoint: TPoint): TChromeLikeTabSide;
    function NeedSelectByClickAtPoint(const aPoint: TPoint): Boolean;
    constructor Create(aTabSet: TChromeLikeTabSetControlPrim); reintroduce;
    function CanBeCloned: Boolean;
- public
- // public properties
+  public
    property Text: WideString
-     read pm_GetText
-     write pm_SetText;
+    read pm_GetText
+    write pm_SetText;
    property Selected: Boolean
-     read pm_GetSelected
-     write pm_SetSelected;
+    read pm_GetSelected
+    write pm_SetSelected;
    property Form: TForm
-     read f_Form
-     write pm_SetForm;
+    read f_Form
+    write pm_SetForm;
    property ImageIndex: TImageIndex
-     read pm_GetImageIndex
-     write pm_SetImageIndex;
+    read pm_GetImageIndex
+    write pm_SetImageIndex;
    property ImageList: TCustomImageList
-     read f_ImageList
-     write pm_SetImageList;
+    read f_ImageList
+    write pm_SetImageList;
    property SlotIndex: Integer
-     read f_SlotIndex
-     write pm_SetSlotIndex;
+    read f_SlotIndex
+    write pm_SetSlotIndex;
    property OnNeedCloseTab: TChromeLikeTabNeedCloseEvent
-     read f_OnNeedCloseTab
-     write f_OnNeedCloseTab;
+    read f_OnNeedCloseTab
+    write f_OnNeedCloseTab;
    property TabSet: TChromeLikeTabSetControlPrim
-     read f_TabSet
-     write f_TabSet;
+    read f_TabSet
+    write f_TabSet;
    property CloseButtonImages: TCustomImageList
-     read f_CloseButtonImages
-     write pm_SetCloseButtonImages;
+    read f_CloseButtonImages
+    write pm_SetCloseButtonImages;
    property CloseButtonImageIndex: TImageIndex
-     read f_CloseButtonImageIndex
-     write pm_SetCloseButtonImageIndex;
+    read f_CloseButtonImageIndex
+    write pm_SetCloseButtonImageIndex;
    property CloseButtonHotImageIndex: TImageIndex
-     read f_CloseButtonHotImageIndex
-     write pm_SetCloseButtonHotImageIndex;
+    read f_CloseButtonHotImageIndex
+    write pm_SetCloseButtonHotImageIndex;
  end;//TChromeLikeTab
 
  _ItemType_ = TChromeLikeTab;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TChromeLikeTabList = class(_l3ObjectPtrList_)
  end;//TChromeLikeTabList
 
- TChromeLikeTabSetPaintBackground = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetPaintBackground = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   const aRect: TRect;
   aCanvas: TCanvas;
   var aDefaultPainting: Boolean) of object;
 
- TChromeLikeTabSetSelectionChangedEvent = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetSelectionChangedEvent = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aPrevSelected: TChromeLikeTab;
   aNewSelected: TChromeLikeTab) of object;
 
- TChromeLikeTabSetTabEvent = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetTabEvent = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aTab: TChromeLikeTab) of object;
 
- TChromeLikeTabSetCloseTabFormEvent = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetCloseTabFormEvent = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aTab: TChromeLikeTab;
   var aCanClose: Boolean;
   aNewSelectedTab: TChromeLikeTab) of object;
 
- TChromeLikeTabSetAfterFormAddedEvent = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetAfterFormAddedEvent = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aForm: TForm;
   aNeedSelect: Boolean) of object;
 
- TChromeLikeTabSetCanDockFormEvent = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetCanDockFormEvent = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aForm: TForm;
   aNeedSelect: Boolean;
   var aCanDock: Boolean) of object;
 
- TChromeLikeTabSetCanUndockFormEvent = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetCanUndockFormEvent = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aForm: TForm;
   var aCanUndock: Boolean) of object;
 
-const
-  { ChromeLikeTabSetControl constants }
- cCloseButtonSize = 8;
- cDefaultTabHeight = 32;
- cMinSlotWidth = 30;
- cDefaultSlotWidth = 180;
- cMovingAnimationDuration = 220;
-
-type
  TChromeLikeTabAction = {final} class(TAction)
- private
- // private fields
-   f_Tab : TChromeLikeTab;
-    {* Поле для свойства Tab}
- protected
- // property methods
+  private
+   f_Tab: TChromeLikeTab;
+    {* Поле для свойства Tab }
+  protected
    function pm_GetTab: TChromeLikeTab; virtual;
    procedure pm_SetTab(aValue: TChromeLikeTab); virtual;
- public
- // public properties
+  public
    property Tab: TChromeLikeTab
-     read pm_GetTab
-     write pm_SetTab;
+    read pm_GetTab
+    write pm_SetTab;
  end;//TChromeLikeTabAction
 
  TChromeLikeNewTabButton = class(TChromeLikeBaseVisualObject)
- private
- // private fields
-   f_BackgroundPath : TGPGraphicsPath;
-   f_PlusPath : TGPGraphicsPath;
-   f_RoundingRadius : Single;
-   f_TabSet : TChromeLikeTabSetControlPrim;
-   f_PlusEdgePath : TGPGraphicsPath;
- private
- // private methods
+  private
+   f_BackgroundPath: TGPGraphicsPath;
+   f_PlusPath: TGPGraphicsPath;
+   f_RoundingRadius: Single;
+   f_TabSet: TChromeLikeTabSetControlPrim;
+   f_PlusEdgePath: TGPGraphicsPath;
+  private
    procedure MakePaths;
-     {* Сигнатура метода MakePaths }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Invalidate; override;
-     {* Сигнатура метода Invalidate }
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
    procedure DoClick(const aPoint: TPoint); override;
    procedure PositionChanged; override;
-     {* Сигнатура метода PositionChanged }
    function MeasureSize: TSize; override;
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; override;
    procedure DoMouseLeave; override;
-     {* Сигнатура метода DoMouseLeave }
- public
- // public methods
+  public
    constructor Create(aTabSet: TChromeLikeTabSetControlPrim); reintroduce;
  end;//TChromeLikeNewTabButton
 
- TChromeLikeTabSetNewTabRequested = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+ TChromeLikeTabSetNewTabRequested = procedure(aTabSet: TChromeLikeTabSetControlPrim;
   aMenuTab: TChromeLikeTab;
   aOpenLast: Boolean) of object;
 
  TChromeLikeTabSetControl = class(TChromeLikeTabSetControlPrim, IChromeLikeCaptionControl)
- private
- // private fields
-   f_Container : Pointer;
-   f_Tabs : TChromeLikeTabList;
-   f_WidthPerSlotValid : Boolean;
-   f_SlotCount : Integer;
-   f_WidthPerSlot : Single;
-   f_MovingTab : TChromeLikeTab;
-   f_WasMouseLDown : Boolean;
-   f_HintTab : TChromeLikeTab;
-   f_LastMovingPoint : TPoint;
-   f_BeginMovingPoint : TPoint;
-   f_actNewTab : TChromeLikeTabAction;
-   f_actMakeClone : TChromeLikeTabAction;
-   f_actCloseOtherTabs : TChromeLikeTabAction;
-   f_actCloseRightTabs : TChromeLikeTabAction;
-   f_actReopenClosedTab : TChromeLikeTabAction;
-   f_actCloseTab : TChromeLikeTabAction;
-   f_TabsPopupMenu : TPopupMenu;
-   f_NewTabButton : TChromeLikeNewTabButton;
-   f_LClickedObject : TChromeLikeBaseVisualObjectPrim;
-   f_ProcessingClick : Boolean;
-   f_TabHeight : Integer;
-    {* Поле для свойства TabHeight}
-   f_SelectedTab : TChromeLikeTab;
-    {* Поле для свойства SelectedTab}
-   f_OnPaintBackground : TChromeLikeTabSetPaintBackground;
-    {* Поле для свойства OnPaintBackground}
-   f_OnTabSelected : TChromeLikeTabSetTabEvent;
-    {* Поле для свойства OnTabSelected}
-   f_OnTabDeselected : TChromeLikeTabSetTabEvent;
-    {* Поле для свойства OnTabDeselected}
-   f_OnAfterFormAdded : TChromeLikeTabSetAfterFormAddedEvent;
-    {* Поле для свойства OnAfterFormAdded}
-   f_OnCloseTabForm : TChromeLikeTabSetCloseTabFormEvent;
-    {* Поле для свойства OnCloseTabForm}
-   f_OnCanDockForm : TChromeLikeTabSetCanDockFormEvent;
-    {* Поле для свойства OnCanDockForm}
-   f_OnCanUndockTabForm : TChromeLikeTabSetCanUndockFormEvent;
-    {* Поле для свойства OnCanUndockTabForm}
-   f_OnSelectionChanged : TChromeLikeTabSetSelectionChangedEvent;
-    {* Поле для свойства OnSelectionChanged}
-   f_MovingEaseType : TChromeLikeTabEaseType;
-    {* Поле для свойства MovingEaseType}
-   f_OnTabClosed : TChromeLikeTabSetTabEvent;
-    {* Поле для свойства OnTabClosed}
-   f_CloseButtonImages : TCustomImageList;
-    {* Поле для свойства CloseButtonImages}
-   f_CloseButtonImageIndex : TImageIndex;
-    {* Поле для свойства CloseButtonImageIndex}
-   f_CloseButtonHotImageIndex : TImageIndex;
-    {* Поле для свойства CloseButtonHotImageIndex}
-   f_OnNewTabRequested : TChromeLikeTabSetNewTabRequested;
-    {* Поле для свойства OnNewTabRequested}
- private
- // private methods
+  private
+   f_Container: Pointer;
+   f_Tabs: TChromeLikeTabList;
+   f_WidthPerSlotValid: Boolean;
+   f_SlotCount: Integer;
+   f_WidthPerSlot: Single;
+   f_MovingTab: TChromeLikeTab;
+   f_WasMouseLDown: Boolean;
+   f_HintTab: TChromeLikeTab;
+   f_LastMovingPoint: TPoint;
+   f_BeginMovingPoint: TPoint;
+   f_actNewTab: TChromeLikeTabAction;
+   f_actMakeClone: TChromeLikeTabAction;
+   f_actCloseOtherTabs: TChromeLikeTabAction;
+   f_actCloseRightTabs: TChromeLikeTabAction;
+   f_actReopenClosedTab: TChromeLikeTabAction;
+   f_actCloseTab: TChromeLikeTabAction;
+   f_TabsPopupMenu: TPopupMenu;
+   f_NewTabButton: TChromeLikeNewTabButton;
+   f_LClickedObject: TChromeLikeBaseVisualObjectPrim;
+   f_ProcessingClick: Boolean;
+   f_TabHeight: Integer;
+    {* Поле для свойства TabHeight }
+   f_SelectedTab: TChromeLikeTab;
+    {* Поле для свойства SelectedTab }
+   f_OnPaintBackground: TChromeLikeTabSetPaintBackground;
+    {* Поле для свойства OnPaintBackground }
+   f_OnTabSelected: TChromeLikeTabSetTabEvent;
+    {* Поле для свойства OnTabSelected }
+   f_OnTabDeselected: TChromeLikeTabSetTabEvent;
+    {* Поле для свойства OnTabDeselected }
+   f_OnAfterFormAdded: TChromeLikeTabSetAfterFormAddedEvent;
+    {* Поле для свойства OnAfterFormAdded }
+   f_OnCloseTabForm: TChromeLikeTabSetCloseTabFormEvent;
+    {* Поле для свойства OnCloseTabForm }
+   f_OnCanDockForm: TChromeLikeTabSetCanDockFormEvent;
+    {* Поле для свойства OnCanDockForm }
+   f_OnCanUndockTabForm: TChromeLikeTabSetCanUndockFormEvent;
+    {* Поле для свойства OnCanUndockTabForm }
+   f_OnSelectionChanged: TChromeLikeTabSetSelectionChangedEvent;
+    {* Поле для свойства OnSelectionChanged }
+   f_MovingEaseType: TChromeLikeTabEaseType;
+    {* Поле для свойства MovingEaseType }
+   f_OnTabClosed: TChromeLikeTabSetTabEvent;
+    {* Поле для свойства OnTabClosed }
+   f_CloseButtonImages: TCustomImageList;
+    {* Поле для свойства CloseButtonImages }
+   f_CloseButtonImageIndex: TImageIndex;
+    {* Поле для свойства CloseButtonImageIndex }
+   f_CloseButtonHotImageIndex: TImageIndex;
+    {* Поле для свойства CloseButtonHotImageIndex }
+   f_OnNewTabRequested: TChromeLikeTabSetNewTabRequested;
+    {* Поле для свойства OnNewTabRequested }
+  private
    procedure InvalidateWidthPerSlot;
-     {* Сигнатура метода InvalidateWidthPerSlot }
    function GetWidthPerSlot: Single;
    function GetSlotRect(aSlotIndex: Integer): TRect;
    procedure ResizeTabs(aAnimated: Boolean = False);
@@ -469,9 +399,8 @@ type
    function GetSlotIndexAtPoint(const aPoint: TPoint): Integer;
    function GetSelectedSlotIndex: Integer;
    procedure FinishMoving;
-     {* Сигнатура метода FinishMoving }
    procedure PlaceTab(aTab: TChromeLikeTab;
-     aSlotIndex: Integer);
+    aSlotIndex: Integer);
    procedure SetTabPosition(aTab: TChromeLikeTab);
    procedure SetInitialTabPosition(aTab: TChromeLikeTab);
    function GetTabAtPoint(const aPoint: TPoint): TChromeLikeTab;
@@ -479,48 +408,32 @@ type
    function NeedMoveTab(aTab: TChromeLikeTab): Boolean;
    function CanRemoveTab(aTab: TChromeLikeTab): Boolean;
    function DockFormIntoSlot(aForm: TForm;
-     const aTabParams: Il3TabParams;
-     aSlotIndex: Integer = -1;
-     aNeedSelect: Boolean = True): Boolean;
+    const aTabParams: Il3TabParams;
+    aSlotIndex: Integer = -1;
+    aNeedSelect: Boolean = True): Boolean;
    procedure DoOnNeedCloseTab(aTabToClose: TChromeLikeBaseVisualObject);
    function GetSelectedTabAfterClosing(aTab: TChromeLikeTab): TChromeLikeTab;
    procedure DestroyTabs;
-     {* Сигнатура метода DestroyTabs }
    function FindFormTab(aForm: TForm): TChromeLikeTab;
    procedure PopulatePopupMenu;
-     {* Сигнатура метода PopulatePopupMenu }
-   procedure ActNewTabExecute(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ActMakeCloneExecute(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ActCloseTabExecute(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ActCloseOtherTabsExecute(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ActCloseRightTabsExecute(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ActReopenClosedTabExecute(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure actNewTabExecute(Sender: TObject);
+   procedure actMakeCloneExecute(Sender: TObject);
+   procedure actCloseTabExecute(Sender: TObject);
+   procedure actCloseOtherTabsExecute(Sender: TObject);
+   procedure actCloseRightTabsExecute(Sender: TObject);
+   procedure actReopenClosedTabExecute(Sender: TObject);
    procedure MakeActions;
-     {* Сигнатура метода MakeActions }
    procedure UpdateMenuActions(aMenuTab: TChromeLikeTab);
    procedure UpdateNewTabButtonPosition;
-     {* Сигнатура метода UpdateNewTabButtonPosition }
    function GetTotalTabsRect: TRect;
    procedure StartMoving;
-     {* Сигнатура метода StartMoving }
    procedure HideNewTabButton;
-     {* Сигнатура метода HideNewTabButton }
    procedure ShowNewTabButton;
-     {* Сигнатура метода ShowNewTabButton }
    function IsLastTab(aTab: TChromeLikeTab): Boolean;
    procedure DoOnNewTabButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    function StartProcessClick: Boolean;
    procedure FinishProcessClick;
-     {* Сигнатура метода FinishProcessClick }
- protected
- // property methods
+  protected
    function pm_GetTabHeight: Integer;
    procedure pm_SetTabHeight(aValue: Integer);
    function pm_GetTabCount: Integer;
@@ -537,1427 +450,171 @@ type
    procedure pm_SetCloseButtonImageIndex(aValue: TImageIndex);
    procedure pm_SetCloseButtonHotImageIndex(aValue: TImageIndex);
    function pm_GetContainer: Il3TabbedContainer; virtual;
- protected
- // realized methods
    function IsTransparentPoint(const aPoint: TPoint): Boolean; override;
    function GetHintParams(const aPoint: TPoint): TChromeLikeTabHintParams; override;
    procedure Paint(const aContext: IChromeLkeTabSetDrawingContext); override;
    procedure PaintBackground(aCanvas: TCanvas); override;
    procedure DoOnResize; override;
-     {* Сигнатура метода DoOnResize }
    function GetMenuKindAtPoint(const aPoint: TPoint): TChromeLikeCaptionMenuKind;
    function pm_GetVCLWinControl: TWinControl;
    procedure ShowContextMenu(const aPoint: TPoint);
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure MouseMove(Shift: TShiftState;
     X: Integer;
     Y: Integer); override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure MouseUp(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure MouseDown(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DoOnMouseLeave; override;
-     {* Сигнатура метода DoOnMouseLeave }
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    procedure SelectNext;
-     {* Сделать активной вкладку, предшествующую активной }
+    {* Сделать активной вкладку, предшествующую активной }
    procedure SelectPrev;
-     {* Сделать активной вкладку, следующую за активной }
+    {* Сделать активной вкладку, следующую за активной }
    function CanCloseAllButSelected: Boolean;
    procedure CloseAllExceptOne(aTab: TChromeLikeTab);
-     {* Закрыть все, кроме определенной }
+    {* Закрыть все, кроме определенной }
    function CanCloseAllRightToSelected: Boolean;
    procedure CloseAllRightToTab(aTab: TChromeLikeTab);
-     {* Закрыть все вкладки справа от активной }
-   procedure AddTab(aTab: TChromeLikeTab); overload; 
+    {* Закрыть все вкладки справа от активной }
+   procedure AddTab(aTab: TChromeLikeTab); overload;
    procedure AddTab(aTab: TChromeLikeTab;
-     const aPoint: TPoint); overload; 
+    const aPoint: TPoint); overload;
    procedure AddTab(aTab: TChromeLikeTab;
-     aSlotIndex: Integer); overload; 
+    aSlotIndex: Integer); overload;
    procedure AddTabAfterSelected(aTab: TChromeLikeTab);
    procedure CloseTab(aTab: TChromeLikeTab;
-     aForce: Boolean = False);
+    aForce: Boolean = False);
    function CanCloseTab(aTab: TChromeLikeTab): Boolean;
    procedure RemoveTab(aTab: TChromeLikeTab);
    function DockForm(aForm: TForm;
-     const aTabParams: Il3TabParams;
-     aNeedSelect: Boolean = True): Boolean;
+    const aTabParams: Il3TabParams;
+    aNeedSelect: Boolean = True): Boolean;
    function DockFormAfterSelected(aForm: TForm;
-     const aTabParams: Il3TabParams;
-     aNeedSelect: Boolean = True): Boolean;
+    const aTabParams: Il3TabParams;
+    aNeedSelect: Boolean = True): Boolean;
    function CanDockFormAtPoint(aForm: TForm;
-     const aScreenPoint: TPoint): Boolean;
+    const aScreenPoint: TPoint): Boolean;
    procedure UndockTabbedForm(aTab: TChromeLikeTab);
    function IsDockablePoint(const aPoint: TPoint): Boolean;
    function HitTest(const aPoint: TPoint): TChromeLikeTabSetHitTestResult;
    procedure UpdateFormTab(aForm: TForm;
-     const aParams: Il3TabParams);
+    const aParams: Il3TabParams);
    procedure SetFormTabImageIndex(aForm: TForm;
-     aImageIndex: Integer);
+    aImageIndex: Integer);
    function DockFormAtPoint(aForm: TForm;
-     const aTabParams: Il3TabParams;
-     const aPoint: TPoint;
-     aNeedSelect: Boolean = True): Boolean;
+    const aTabParams: Il3TabParams;
+    const aPoint: TPoint;
+    aNeedSelect: Boolean = True): Boolean;
    function MakeTabParams(aTab: TChromeLikeTab): Il3TabParams;
    procedure SetParams(const aParams: TChromeLikeTabSetParams);
    function GetFormTab(aForm: TForm): Il3FormTab;
    constructor Create(aOwner: TComponent;
-     const aContainer: Il3TabbedContainer); reintroduce;
+    const aContainer: Il3TabbedContainer); reintroduce;
    function DockFormAfterSpecified(aForm: TForm;
-     const aTabParams: Il3TabParams;
-     aInsertAfter: TForm;
-     aNeedSelect: Boolean = True): Boolean;
- public
- // public properties
+    const aTabParams: Il3TabParams;
+    aInsertAfter: TForm;
+    aNeedSelect: Boolean = True): Boolean;
+   destructor Destroy; override;
+  public
    property TabHeight: Integer
-     read pm_GetTabHeight
-     write pm_SetTabHeight;
+    read pm_GetTabHeight
+    write pm_SetTabHeight;
    property TabCount: Integer
-     read pm_GetTabCount;
+    read pm_GetTabCount;
    property Tabs[Index: Integer]: TChromeLikeTab
-     read pm_GetTabs;
+    read pm_GetTabs;
    property FormTabs[Form: TForm]: TChromeLikeTab
-     read pm_GetFormTabs;
+    read pm_GetFormTabs;
    property SelectedTab: TChromeLikeTab
-     read f_SelectedTab
-     write pm_SetSelectedTab;
+    read f_SelectedTab
+    write pm_SetSelectedTab;
    property SelectedForm: TForm
-     read pm_GetSelectedForm
-     write pm_SetSelectedForm;
+    read pm_GetSelectedForm
+    write pm_SetSelectedForm;
    property SelectedSlotIndex: Integer
-     read pm_GetSelectedSlotIndex
-     write pm_SetSelectedSlotIndex;
+    read pm_GetSelectedSlotIndex
+    write pm_SetSelectedSlotIndex;
    property OnPaintBackground: TChromeLikeTabSetPaintBackground
-     read f_OnPaintBackground
-     write f_OnPaintBackground;
+    read f_OnPaintBackground
+    write f_OnPaintBackground;
    property OnTabSelected: TChromeLikeTabSetTabEvent
-     read f_OnTabSelected
-     write f_OnTabSelected;
+    read f_OnTabSelected
+    write f_OnTabSelected;
    property OnTabDeselected: TChromeLikeTabSetTabEvent
-     read f_OnTabDeselected
-     write f_OnTabDeselected;
+    read f_OnTabDeselected
+    write f_OnTabDeselected;
    property OnAfterFormAdded: TChromeLikeTabSetAfterFormAddedEvent
-     read f_OnAfterFormAdded
-     write f_OnAfterFormAdded;
+    read f_OnAfterFormAdded
+    write f_OnAfterFormAdded;
    property OnCloseTabForm: TChromeLikeTabSetCloseTabFormEvent
-     read f_OnCloseTabForm
-     write f_OnCloseTabForm;
+    read f_OnCloseTabForm
+    write f_OnCloseTabForm;
    property OnCanDockForm: TChromeLikeTabSetCanDockFormEvent
-     read f_OnCanDockForm
-     write f_OnCanDockForm;
+    read f_OnCanDockForm
+    write f_OnCanDockForm;
    property OnCanUndockTabForm: TChromeLikeTabSetCanUndockFormEvent
-     read f_OnCanUndockTabForm
-     write f_OnCanUndockTabForm;
+    read f_OnCanUndockTabForm
+    write f_OnCanUndockTabForm;
    property OnSelectionChanged: TChromeLikeTabSetSelectionChangedEvent
-     read f_OnSelectionChanged
-     write f_OnSelectionChanged;
+    read f_OnSelectionChanged
+    write f_OnSelectionChanged;
    property MovingEaseType: TChromeLikeTabEaseType
-     read pm_GetMovingEaseType
-     write pm_SetMovingEaseType;
+    read pm_GetMovingEaseType
+    write pm_SetMovingEaseType;
    property OnTabClosed: TChromeLikeTabSetTabEvent
-     read f_OnTabClosed
-     write f_OnTabClosed;
+    read f_OnTabClosed
+    write f_OnTabClosed;
    property CloseButtonImages: TCustomImageList
-     read f_CloseButtonImages
-     write pm_SetCloseButtonImages;
+    read f_CloseButtonImages
+    write pm_SetCloseButtonImages;
    property CloseButtonImageIndex: TImageIndex
-     read f_CloseButtonImageIndex
-     write pm_SetCloseButtonImageIndex;
+    read f_CloseButtonImageIndex
+    write pm_SetCloseButtonImageIndex;
    property CloseButtonHotImageIndex: TImageIndex
-     read f_CloseButtonHotImageIndex
-     write pm_SetCloseButtonHotImageIndex;
+    read f_CloseButtonHotImageIndex
+    write pm_SetCloseButtonHotImageIndex;
    property OnNewTabRequested: TChromeLikeTabSetNewTabRequested
-     read f_OnNewTabRequested
-     write f_OnNewTabRequested;
+    read f_OnNewTabRequested
+    write f_OnNewTabRequested;
    property Container: Il3TabbedContainer
-     read pm_GetContainer;
+    read pm_GetContainer;
  end;//TChromeLikeTabSetControl
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  ChromeLikeTabSetStyles,
-  ChromeLikeTabSetAnimationManager,
-  Math,
-  ChromeLikeTabSetUtils,
-  GDIPAPI,
-  Windows,
-  ChromeLikeTabParams,
-  l3String,
-  ChromeLikeTabSetControlRes,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeTabSetControl
-
-procedure TChromeLikeTabSetControl.InvalidateWidthPerSlot;
-//#UC START# *5507F039021B_5507EFFD01FE_var*
-//#UC END# *5507F039021B_5507EFFD01FE_var*
-begin
-//#UC START# *5507F039021B_5507EFFD01FE_impl*
- f_WidthPerSlotValid := False;
-//#UC END# *5507F039021B_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.InvalidateWidthPerSlot
-
-function TChromeLikeTabSetControl.GetWidthPerSlot: Single;
-//#UC START# *5507F0460114_5507EFFD01FE_var*
-var
- l_CalculatedSlotWidth: Single;
- l_WidthForSlots: Single;
-//#UC END# *5507F0460114_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0460114_5507EFFD01FE_impl*
- if Visible then
- begin
-  if (not f_WidthPerSlotValid) then
-  begin
-   l_WidthForSlots := Width - f_NewTabButton.MeasureSize.cx;
-   if (f_SlotCount > 0) then
-    l_CalculatedSlotWidth := l_WidthForSlots / f_SlotCount
-   else
-    l_CalculatedSlotWidth := cDefaultSlotWidth;
-   if (l_CalculatedSlotWidth > cDefaultSlotWidth) then
-    f_WidthPerSlot := cDefaultSlotWidth
-   else
-   if (l_CalculatedSlotWidth < cMinSlotWidth) then
-    f_WidthPerSlot := cMinSlotWidth
-   else
-    f_WidthPerSlot := l_CalculatedSlotWidth;
-   f_WidthPerSlotValid := True;
-  end;
-  Result := f_WidthPerSlot;
- end
- else
-  Result := cDefaultSlotWidth;
-//#UC END# *5507F0460114_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetWidthPerSlot
-
-function TChromeLikeTabSetControl.GetSlotRect(aSlotIndex: Integer): TRect;
-//#UC START# *5507F05002F2_5507EFFD01FE_var*
-var
- l_WidthPerSlot: Single;
- l_Left: Single;
- l_Top: Integer;
-//#UC END# *5507F05002F2_5507EFFD01FE_var*
-begin
-//#UC START# *5507F05002F2_5507EFFD01FE_impl*
- l_Top := ClientRect.Bottom - f_TabHeight;
- l_WidthPerSlot := GetWidthPerSlot;
- l_Left := l_WidthPerSlot * aSlotIndex;
- Result := Rect(Trunc(l_Left), l_Top, Trunc(l_Left + l_WidthPerSlot), l_Top + f_TabHeight);
- if (aSlotIndex > 0) then
-  Dec(Result.Left, 1);
-//#UC END# *5507F05002F2_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetSlotRect
-
-procedure TChromeLikeTabSetControl.ResizeTabs(aAnimated: Boolean = False);
-//#UC START# *5507F05C02DC_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_Tab: TChromeLikeTab;
- l_EaseType: TChromeLikeTabEaseType;
-//#UC END# *5507F05C02DC_5507EFFD01FE_var*
-begin
-//#UC START# *5507F05C02DC_5507EFFD01FE_impl*
- for l_Index := 0 to Pred(f_SlotCount) do
- begin
-  l_Tab := GetTabInSlot(l_Index);
-  if (l_Tab <> nil) then
-  begin
-   if aAnimated then
-    l_EaseType := f_MovingEaseType
-   else
-    l_EaseType := ttNone;
-
-   l_Tab.PositionRect := GetSlotRect(l_Tab.SlotIndex);
-  end;
- end;
- UpdateNewTabButtonPosition; 
-//#UC END# *5507F05C02DC_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ResizeTabs
-
-procedure TChromeLikeTabSetControl.ShiftTabsLeft(aStartingWith: Integer);
-//#UC START# *5507F0680074_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_Tab: TChromeLikeTab;
-//#UC END# *5507F0680074_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0680074_5507EFFD01FE_impl*
- InvalidateWidthPerSlot;
- for l_Index := aStartingWith to Pred(f_SlotCount) do
- begin
-  l_Tab := GetTabInSlot(l_Index);
-  if (l_Tab <> nil) then
-  begin
-   l_Tab.SlotIndex := Pred(l_Index);
-   l_Tab.SetPosition(GetSlotRect(l_Tab.SlotIndex),
-                                 cMovingAnimationDuration,
-                                 MovingEaseType);
-  end;
- end;
-//#UC END# *5507F0680074_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ShiftTabsLeft
-
-procedure TChromeLikeTabSetControl.DeleteSlot(aSlotIndex: Integer);
-//#UC START# *5507F0720386_5507EFFD01FE_var*
-var
- l_SlotCount: Integer;
- l_TabInSlot: TChromeLikeTab;
- l_Index: Integer;
- l_NewTabSlotIndex: Integer;
-//#UC END# *5507F0720386_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0720386_5507EFFD01FE_impl*
- if (GetTabInSlot(aSlotIndex) <> nil) then
- begin
-  Assert(False, 'Таб в слоте должен быть уже удален');
- end;
- l_SlotCount := f_SlotCount;
- Dec(f_SlotCount);
- if (aSlotIndex < Pred(l_SlotCount)) then
- begin
-  for l_Index := Succ(aSlotIndex) to Pred(l_SlotCount) do
-  begin
-   l_TabInSlot := GetTabInSlot(l_Index);
-   if (l_TabInSlot <> nil) then
-   begin
-    l_NewTabSlotIndex := Pred(l_Index);
-    l_TabInSlot.SlotIndex := l_NewTabSlotIndex;
-    SetTabPosition(l_TabInSlot);
-   end;
-  end;
- end;
- ResizeTabs(True);
-//#UC END# *5507F0720386_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DeleteSlot
-
-function TChromeLikeTabSetControl.InsertSlot(aInsertAfter: Integer): Integer;
-//#UC START# *5507F07D01E4_5507EFFD01FE_var*
-var
- l_SlotCount: Integer;
- l_TabInSlot: TChromeLikeTab;
- l_Index: Integer;
- l_TabsToShift: TChromeLikeTabList;
-//#UC END# *5507F07D01E4_5507EFFD01FE_var*
-begin
-//#UC START# *5507F07D01E4_5507EFFD01FE_impl*
- if (aInsertAfter = Pred(f_SlotCount)) then
-  Result := AddSlot
- else
- begin
-  l_SlotCount := f_SlotCount;
-  AddSlot;
-  l_TabsToShift := TChromeLikeTabList.Create;
-  try
-   for l_Index := Pred(l_SlotCount) downto Succ(aInsertAfter) do
-   begin
-    l_TabInSlot := GetTabInSlot(l_Index);
-    Assert(l_TabInSlot <> nil);
-    l_TabsToShift.Add(l_TabInSlot);
-   end;//for l_Index := Pred(l_SlotCount...
-   for l_Index := 0 to Pred(l_TabsToShift.Count) do
-   begin
-    l_TabInSlot := l_TabsToShift[l_Index];
-    l_TabInSlot.SlotIndex := Succ(l_TabInSlot.SlotIndex);
-    SetTabPosition(l_TabInSlot);
-   end;//for l_Index := 0...
-  finally
-   FreeAndNil(l_TabsToShift);
-  end;//try..finally
-  Result := Succ(aInsertAfter);
- end;//if (aInsertAfter...
-//#UC END# *5507F07D01E4_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.InsertSlot
-
-function TChromeLikeTabSetControl.AddSlot: Integer;
-//#UC START# *5507F08C031E_5507EFFD01FE_var*
-//#UC END# *5507F08C031E_5507EFFD01FE_var*
-begin
-//#UC START# *5507F08C031E_5507EFFD01FE_impl*
- Inc(f_SlotCount);
- InvalidateWidthPerSlot;
- ResizeTabs(True);
- Result := Pred(f_SlotCount);
-//#UC END# *5507F08C031E_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.AddSlot
-
-function TChromeLikeTabSetControl.GetSlotIndexAtPoint(const aPoint: TPoint): Integer;
-//#UC START# *5507F0AA0325_5507EFFD01FE_var*
-var
- l_WidthPerSlot: Single;
- l_Pos: Integer;
-//#UC END# *5507F0AA0325_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0AA0325_5507EFFD01FE_impl*
- l_WidthPerSlot := GetWidthPerSlot;
- l_Pos := aPoint.X - ClientRect.Left;
- Result := Trunc(l_Pos / l_WidthPerSlot);
- if (Result > Pred(f_Tabs.Count)) then
-  Result := Pred(f_Tabs.Count)
- else
- if (Result < 0) then
-  Result := 0;
-//#UC END# *5507F0AA0325_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetSlotIndexAtPoint
-
-function TChromeLikeTabSetControl.GetSelectedSlotIndex: Integer;
-//#UC START# *5507F0CD0156_5507EFFD01FE_var*
-//#UC END# *5507F0CD0156_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0CD0156_5507EFFD01FE_impl*
- Assert(SelectedTab <> nil);
- Result := SelectedTab.SlotIndex;
-//#UC END# *5507F0CD0156_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetSelectedSlotIndex
-
-procedure TChromeLikeTabSetControl.FinishMoving;
-//#UC START# *5507F0DE02A0_5507EFFD01FE_var*
-var
- l_RectForPositioning: TRect;
-//#UC END# *5507F0DE02A0_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0DE02A0_5507EFFD01FE_impl*
- if (f_MovingTab <> nil) then
- begin
-  f_WasMouseLDown := False;
-  l_RectForPositioning := GetSlotRect(f_MovingTab.SlotIndex);
-  f_MovingTab.SetPosition(l_RectForPositioning, cMovingAnimationDuration, MovingEaseType);
-  f_MovingTab := nil;
-  ResizeTabs;
-  ShowNewTabButton;
-  Invalidate;
- end;
-//#UC END# *5507F0DE02A0_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.FinishMoving
-
-procedure TChromeLikeTabSetControl.PlaceTab(aTab: TChromeLikeTab;
-  aSlotIndex: Integer);
-//#UC START# *5507F1090227_5507EFFD01FE_var*
-var
- l_Rect: TRect;
- l_SlotIndex: Integer;
-//#UC END# *5507F1090227_5507EFFD01FE_var*
-begin
-//#UC START# *5507F1090227_5507EFFD01FE_impl*
- if (aSlotIndex = -1) then
-  l_SlotIndex := Pred(f_SlotCount)
- else
-  l_SlotIndex := aSlotIndex;
-
- l_Rect := GetSlotRect(l_SlotIndex);
- with aTab do
- begin
-  PositionRect := l_Rect;
-  f_Tabs.Add(aTab);
-  SlotIndex := l_SlotIndex;
- end;
- ResizeTabs;
- Invalidate;
-//#UC END# *5507F1090227_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.PlaceTab
-
-procedure TChromeLikeTabSetControl.SetTabPosition(aTab: TChromeLikeTab);
-//#UC START# *5507F11502F1_5507EFFD01FE_var*
-//#UC END# *5507F11502F1_5507EFFD01FE_var*
-begin
-//#UC START# *5507F11502F1_5507EFFD01FE_impl*
- Assert(aTab <> nil);
- aTab.SetPosition(GetSlotRect(aTab.SlotIndex),
-                              cMovingAnimationDuration,
-                              MovingEaseType);
-//#UC END# *5507F11502F1_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.SetTabPosition
-
-procedure TChromeLikeTabSetControl.SetInitialTabPosition(aTab: TChromeLikeTab);
-//#UC START# *5507F14102CE_5507EFFD01FE_var*
-var
- l_SlotIndex: Integer;
- l_Rect: TRect;
-//#UC END# *5507F14102CE_5507EFFD01FE_var*
-begin
-//#UC START# *5507F14102CE_5507EFFD01FE_impl*
- l_SlotIndex := aTab.SlotIndex;
- if (l_SlotIndex > 0) and
-    (TabCount > 0) then
- begin
-  l_Rect := GetSlotRect(Pred(l_SlotIndex));
-  l_Rect.Left := l_Rect.Right + cMinSlotWidth;
- end
- else
- begin
-  l_Rect := GetSlotRect(0);
-  l_Rect.Left := l_Rect.Right + cMinSlotWidth;
- end;
- aTab.PositionRect := l_Rect;
-//#UC END# *5507F14102CE_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.SetInitialTabPosition
-
-function TChromeLikeTabSetControl.GetTabAtPoint(const aPoint: TPoint): TChromeLikeTab;
-//#UC START# *5507F09A0097_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_TabRect: TRect;
-//#UC END# *5507F09A0097_5507EFFD01FE_var*
-begin
-//#UC START# *5507F09A0097_5507EFFD01FE_impl*
- Result := nil;
- for l_Index := 0 to Pred(f_Tabs.Count) do
- begin
-  l_TabRect := f_Tabs[l_Index].PositionRect;
-  if IsPtInRect(aPoint, l_TabRect) then
-  begin
-   Result := f_Tabs[l_Index];
-   Break;
-  end;
- end;
-//#UC END# *5507F09A0097_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetTabAtPoint
-
-function TChromeLikeTabSetControl.GetTabInSlot(aSlotIndex: Integer): TChromeLikeTab;
-//#UC START# *5507F0BA0186_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_Tab: TChromeLikeTab;
-//#UC END# *5507F0BA0186_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0BA0186_5507EFFD01FE_impl*
- Result := nil;
- for l_Index := 0 to Pred(TabCount) do
- begin
-  l_Tab := Tabs[l_Index];
-  if (l_Tab.SlotIndex = aSlotIndex) then
-  begin
-   Result := l_Tab;
-   Break;
-  end;
- end;
-//#UC END# *5507F0BA0186_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetTabInSlot
-
-function TChromeLikeTabSetControl.NeedMoveTab(aTab: TChromeLikeTab): Boolean;
-//#UC START# *5507F0EE007D_5507EFFD01FE_var*
-//#UC END# *5507F0EE007D_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0EE007D_5507EFFD01FE_impl*
- Result := (TabCount > 1);
-//#UC END# *5507F0EE007D_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.NeedMoveTab
-
-function TChromeLikeTabSetControl.CanRemoveTab(aTab: TChromeLikeTab): Boolean;
-//#UC START# *5507F0F90394_5507EFFD01FE_var*
-//#UC END# *5507F0F90394_5507EFFD01FE_var*
-begin
-//#UC START# *5507F0F90394_5507EFFD01FE_impl*
- Result := (TabCount > 1);
- if Assigned(f_OnCanUndockTabForm) then
-  f_OnCanUndockTabForm(Self, aTab.Form, Result);
-//#UC END# *5507F0F90394_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CanRemoveTab
-
-function TChromeLikeTabSetControl.DockFormIntoSlot(aForm: TForm;
-  const aTabParams: Il3TabParams;
-  aSlotIndex: Integer = -1;
-  aNeedSelect: Boolean = True): Boolean;
-//#UC START# *5507F32B02D6_5507EFFD01FE_var*
-var
- l_FormTab: TChromeLikeTab;
- l_CanDockForm: Boolean;
-//#UC END# *5507F32B02D6_5507EFFD01FE_var*
-begin
-//#UC START# *5507F32B02D6_5507EFFD01FE_impl*
- Assert(aForm <> nil);
-
- Result := False;
-
- if Assigned(f_OnCanDockForm) then
-  f_OnCanDockForm(Self, aForm, aNeedSelect, l_CanDockForm)
- else
-  l_CanDockForm := True;
-
- if l_CanDockForm then
- begin
-  l_FormTab := TChromeLikeTab.Create(Self);
-  l_FormTab.CloseButtonImages := CloseButtonImages;
-  l_FormTab.CloseButtonImageIndex := f_CloseButtonImageIndex;
-  l_FormTab.CloseButtonHotImageIndex := f_CloseButtonHotImageIndex;
-  with l_FormTab do
-  begin
-   OnNeedCloseTab := DoOnNeedCloseTab;
-   pm_SetForm(aForm);
-   if (aTabParams <> nil) then
-   begin
-    Text := aTabParams.Text;
-    HintText := aTabParams.HintText;
-    f_Icon.ImageList := Images;
-    f_Icon.ImageIndex := aTabParams.ImageIndex;
-   end;
-  end;
-
-  Container.DockForm(aForm, False);
-
-  AddTab(l_FormTab, aSlotIndex);
-
-
-  if Assigned(f_OnAfterFormAdded) then
-   f_OnAfterFormAdded(Self, aForm, aNeedSelect);
-
-  if aNeedSelect then
-   SelectedTab := l_FormTab;
- end;
-//#UC END# *5507F32B02D6_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DockFormIntoSlot
-
-procedure TChromeLikeTabSetControl.DoOnNeedCloseTab(aTabToClose: TChromeLikeBaseVisualObject);
-//#UC START# *550FEE240297_5507EFFD01FE_var*
-//#UC END# *550FEE240297_5507EFFD01FE_var*
-begin
-//#UC START# *550FEE240297_5507EFFD01FE_impl*
- CloseTab(TChromeLikeTab(aTabToClose));
-//#UC END# *550FEE240297_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DoOnNeedCloseTab
-
-function TChromeLikeTabSetControl.GetSelectedTabAfterClosing(aTab: TChromeLikeTab): TChromeLikeTab;
-//#UC START# *550FFBF00385_5507EFFD01FE_var*
-//#UC END# *550FFBF00385_5507EFFD01FE_var*
-begin
-//#UC START# *550FFBF00385_5507EFFD01FE_impl*
- if (aTab.SlotIndex > 0) then
-  Result := GetTabInSlot(Pred(aTab.SlotIndex))
- else
- if (TabCount > 1) then
-  Result := GetTabInSlot(Succ(aTab.SlotIndex))
- else
-  Result := nil;
-//#UC END# *550FFBF00385_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetSelectedTabAfterClosing
-
-procedure TChromeLikeTabSetControl.DestroyTabs;
-//#UC START# *550FFCD502DA_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_Tab: TChromeLikeTab;
-//#UC END# *550FFCD502DA_5507EFFD01FE_var*
-begin
-//#UC START# *550FFCD502DA_5507EFFD01FE_impl*
- for l_Index := Pred(TabCount) downto 0 do
- begin
-  l_Tab := Tabs[l_Index];
-  f_Tabs.Delete(l_Index);
-  FreeAndNil(l_Tab);
- end;
-//#UC END# *550FFCD502DA_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DestroyTabs
-
-function TChromeLikeTabSetControl.FindFormTab(aForm: TForm): TChromeLikeTab;
-//#UC START# *550FFCE3014B_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_Tab: TChromeLikeTab;
-//#UC END# *550FFCE3014B_5507EFFD01FE_var*
-begin
-//#UC START# *550FFCE3014B_5507EFFD01FE_impl*
- Result := nil;
- for l_Index := 0 to Pred(TabCount) do
- begin
-  l_Tab := Tabs[l_Index];
-  if (l_Tab.Form = aForm) then
-  begin
-   Result := l_Tab;
-   Break;
-  end;
- end;
-//#UC END# *550FFCE3014B_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.FindFormTab
-
-procedure TChromeLikeTabSetControl.PopulatePopupMenu;
-//#UC START# *553F0DAB01F7_5507EFFD01FE_var*
-
- function lp_MakeMenuItem(anAction: TContainedAction): TMenuItem;
- begin
-  Result := TMenuItem.Create(f_TabsPopupMenu.Items);
-  Result.Action := anAction;
- end;//lp_MakeMenuItem
-
-var
- l_Index: Integer;
-//#UC END# *553F0DAB01F7_5507EFFD01FE_var*
-begin
-//#UC START# *553F0DAB01F7_5507EFFD01FE_impl*
- if (f_TabsPopupMenu.Items.Count = 0) then
-  with f_TabsPopupMenu.Items do
-  begin
-   Add(lp_MakeMenuItem(f_actNewTab));
-   Add(lp_MakeMenuItem(f_actMakeClone));
-   Add(lp_MakeMenuItem(f_actCloseTab));
-   Add(lp_MakeMenuItem(f_actCloseOtherTabs));
-   Add(lp_MakeMenuItem(f_actCloseRightTabs));
-   Add(lp_MakeMenuItem(f_actReopenClosedTab));
-  end;
-//#UC END# *553F0DAB01F7_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.PopulatePopupMenu
-
-procedure TChromeLikeTabSetControl.ActNewTabExecute(Sender: TObject);
-//#UC START# *553F1FF80348_5507EFFD01FE_var*
-//#UC END# *553F1FF80348_5507EFFD01FE_var*
-begin
-//#UC START# *553F1FF80348_5507EFFD01FE_impl*
- if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self, (Sender as TChromeLikeTabAction).Tab, False);
-//#UC END# *553F1FF80348_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ActNewTabExecute
-
-procedure TChromeLikeTabSetControl.ActMakeCloneExecute(Sender: TObject);
-//#UC START# *553F20210329_5507EFFD01FE_var*
-var
- l_Tab: Il3FormTab;
-//#UC END# *553F20210329_5507EFFD01FE_var*
-begin
-//#UC START# *553F20210329_5507EFFD01FE_impl*
- Supports(f_actMakeClone.Tab, Il3FormTab, l_Tab);
- Assert(l_Tab <> nil);
- Tl3TabbedContainersDispatcher.Instance.CloneTab(l_Tab);
-//#UC END# *553F20210329_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ActMakeCloneExecute
-
-procedure TChromeLikeTabSetControl.ActCloseTabExecute(Sender: TObject);
-//#UC START# *553F20470333_5507EFFD01FE_var*
-//#UC END# *553F20470333_5507EFFD01FE_var*
-begin
-//#UC START# *553F20470333_5507EFFD01FE_impl*
- CloseTab(f_actCloseTab.Tab);
-//#UC END# *553F20470333_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ActCloseTabExecute
-
-procedure TChromeLikeTabSetControl.ActCloseOtherTabsExecute(Sender: TObject);
-//#UC START# *553F206C017F_5507EFFD01FE_var*
-//#UC END# *553F206C017F_5507EFFD01FE_var*
-begin
-//#UC START# *553F206C017F_5507EFFD01FE_impl*
- CloseAllExceptOne(f_actCloseOtherTabs.Tab);
-//#UC END# *553F206C017F_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ActCloseOtherTabsExecute
-
-procedure TChromeLikeTabSetControl.ActCloseRightTabsExecute(Sender: TObject);
-//#UC START# *553F208C0095_5507EFFD01FE_var*
-//#UC END# *553F208C0095_5507EFFD01FE_var*
-begin
-//#UC START# *553F208C0095_5507EFFD01FE_impl*
- CloseAllRightToTab(f_actCloseRightTabs.Tab);
-//#UC END# *553F208C0095_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ActCloseRightTabsExecute
-
-procedure TChromeLikeTabSetControl.ActReopenClosedTabExecute(Sender: TObject);
-//#UC START# *553F20A603B7_5507EFFD01FE_var*
-//#UC END# *553F20A603B7_5507EFFD01FE_var*
-begin
-//#UC START# *553F20A603B7_5507EFFD01FE_impl*
- Tl3TabbedContainersDispatcher.Instance.ReopenClosedTab(Container);
-//#UC END# *553F20A603B7_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ActReopenClosedTabExecute
-
-procedure TChromeLikeTabSetControl.MakeActions;
-//#UC START# *553F21AF0289_5507EFFD01FE_var*
-
- function lp_MakeAction(const aCaption: Tl3StringIDEx; aOnExecute: TNotifyEvent;
-  const aShortCut: String = ''): TChromeLikeTabAction;
- begin
-  Result := TChromeLikeTabAction.Create(Self);
-  with Result do
-  begin
-   Caption := l3Str(aCaption.AsCStr);
-   OnExecute := aOnExecute;
-   if (Length(aShortCut) > 0) then
-    ShortCut := TextToShortCut(aShortCut);
-  end;//with Result
- end;//lp_AddAction
-
-//#UC END# *553F21AF0289_5507EFFD01FE_var*
-begin
-//#UC START# *553F21AF0289_5507EFFD01FE_impl*
- f_actNewTab := lp_MakeAction(str_NewTab, actNewTabExecute, 'Ctrl+T');
- f_actMakeClone := lp_MakeAction(str_MakeClone, actMakeCloneExecute);
- f_actCloseTab := lp_MakeAction(str_CloseTab, actCloseTabExecute, 'Ctrl+W');
- f_actCloseOtherTabs := lp_MakeAction(str_CloseOtherTabs, actCloseOtherTabsExecute);
- f_actCloseRightTabs := lp_MakeAction(str_CloseRightTabs, actCloseRightTabsExecute);
- f_actReopenClosedTab := lp_MakeAction(str_ReopenClosedTab, actReopenClosedTabExecute, 'Ctrl+Shift+T');
-//#UC END# *553F21AF0289_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.MakeActions
-
-procedure TChromeLikeTabSetControl.UpdateMenuActions(aMenuTab: TChromeLikeTab);
-//#UC START# *553F42BE0387_5507EFFD01FE_var*
-//#UC END# *553F42BE0387_5507EFFD01FE_var*
-begin
-//#UC START# *553F42BE0387_5507EFFD01FE_impl*
- f_actNewTab.Tab := aMenuTab;
- f_actMakeClone.Tab := aMenuTab;
- f_actCloseOtherTabs.Tab := aMenuTab;
- f_actCloseRightTabs.Tab := aMenuTab;
- f_actReopenClosedTab.Tab := aMenuTab;
- f_actCloseTab.Tab := aMenuTab;
-
- f_actCloseOtherTabs.Enabled := (TabCount > 1);
- f_actCloseRightTabs.Enabled := (aMenuTab <> nil) and (aMenuTab.SlotIndex < Pred(f_SlotCount));
- f_actMakeClone.Enabled := (aMenuTab <> nil) and aMenuTab.CanBeCloned;
- f_actReopenClosedTab.Enabled :=  Tl3TabbedContainersDispatcher.Instance.CanReopenClosedTab(Container); 
-//#UC END# *553F42BE0387_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.UpdateMenuActions
-
-procedure TChromeLikeTabSetControl.UpdateNewTabButtonPosition;
-//#UC START# *5541DC5E03A4_5507EFFD01FE_var*
-var
- l_TabRight: Integer;
-//#UC END# *5541DC5E03A4_5507EFFD01FE_var*
-begin
-//#UC START# *5541DC5E03A4_5507EFFD01FE_impl*
- l_TabRight := GetTotalTabsRect.Right;
- f_NewTabButton.PositionRect := Rect(l_TabRight, ClientRect.Bottom - f_TabHeight,
-  l_TabRight + f_NewTabButton.MeasureSize.cx, f_NewTabButton.MeasureSize.cy);
-//#UC END# *5541DC5E03A4_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.UpdateNewTabButtonPosition
-
-function TChromeLikeTabSetControl.GetTotalTabsRect: TRect;
-//#UC START# *5541E0860318_5507EFFD01FE_var*
-var
- l_FirstSlotRect: TRect;
- l_LastSlotRect: TRect;
-//#UC END# *5541E0860318_5507EFFD01FE_var*
-begin
-//#UC START# *5541E0860318_5507EFFD01FE_impl*
- l_FirstSlotRect := GetSlotRect(0);
- l_LastSlotRect := GetSlotRect(Pred(f_SlotCount));
- Result.TopLeft := l_FirstSlotRect.TopLeft;
- Result.BottomRight := l_LastSlotRect.BottomRight;
-//#UC END# *5541E0860318_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetTotalTabsRect
-
-procedure TChromeLikeTabSetControl.StartMoving;
-//#UC START# *556551BB00E1_5507EFFD01FE_var*
-//#UC END# *556551BB00E1_5507EFFD01FE_var*
-begin
-//#UC START# *556551BB00E1_5507EFFD01FE_impl*
-//#UC END# *556551BB00E1_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.StartMoving
-
-procedure TChromeLikeTabSetControl.HideNewTabButton;
-//#UC START# *55656DCA033E_5507EFFD01FE_var*
-//#UC END# *55656DCA033E_5507EFFD01FE_var*
-begin
-//#UC START# *55656DCA033E_5507EFFD01FE_impl*
- f_NewTabButton.Visible := False;
-//#UC END# *55656DCA033E_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.HideNewTabButton
-
-procedure TChromeLikeTabSetControl.ShowNewTabButton;
-//#UC START# *55656DDA01D4_5507EFFD01FE_var*
-//#UC END# *55656DDA01D4_5507EFFD01FE_var*
-begin
-//#UC START# *55656DDA01D4_5507EFFD01FE_impl*
- f_NewTabButton.Visible := True;
- UpdateNewTabButtonPosition; 
-//#UC END# *55656DDA01D4_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.ShowNewTabButton
-
-function TChromeLikeTabSetControl.IsLastTab(aTab: TChromeLikeTab): Boolean;
-//#UC START# *55656DF602DE_5507EFFD01FE_var*
-//#UC END# *55656DF602DE_5507EFFD01FE_var*
-begin
-//#UC START# *55656DF602DE_5507EFFD01FE_impl*
- Result := (aTab.SlotIndex = Pred(f_SlotCount));
-//#UC END# *55656DF602DE_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.IsLastTab
-
-procedure TChromeLikeTabSetControl.DoOnNewTabButtonClick(Sender: TObject);
-//#UC START# *55669D6C03B4_5507EFFD01FE_var*
-var
- l_Tab: TChromeLikeTab;
-//#UC END# *55669D6C03B4_5507EFFD01FE_var*
-begin
-//#UC START# *55669D6C03B4_5507EFFD01FE_impl*
- if Assigned(f_OnNewTabRequested) then
- begin
-  if (Sender is TChromeLikeTabAction) then
-   l_Tab := TChromeLikeTabAction(Sender).Tab
-  else
-   l_Tab := nil;
-  f_OnNewTabRequested(Self, l_Tab, True);
- end;
-//#UC END# *55669D6C03B4_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DoOnNewTabButtonClick
-
-function TChromeLikeTabSetControl.StartProcessClick: Boolean;
-//#UC START# *55BF16950082_5507EFFD01FE_var*
-//#UC END# *55BF16950082_5507EFFD01FE_var*
-begin
-//#UC START# *55BF16950082_5507EFFD01FE_impl*
- Result := (not f_ProcessingClick);
- if Result then
-  f_ProcessingClick := True;
-//#UC END# *55BF16950082_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.StartProcessClick
-
-procedure TChromeLikeTabSetControl.FinishProcessClick;
-//#UC START# *55BF16A200EE_5507EFFD01FE_var*
-//#UC END# *55BF16A200EE_5507EFFD01FE_var*
-begin
-//#UC START# *55BF16A200EE_5507EFFD01FE_impl*
- f_ProcessingClick := False;
-//#UC END# *55BF16A200EE_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.FinishProcessClick
-
-procedure TChromeLikeTabSetControl.SelectNext;
-//#UC START# *5507F39000F4_5507EFFD01FE_var*
-var
- l_SelectedTabSlotIndex: Integer;
-//#UC END# *5507F39000F4_5507EFFD01FE_var*
-begin
-//#UC START# *5507F39000F4_5507EFFD01FE_impl*
- l_SelectedTabSlotIndex := SelectedSlotIndex;
- Inc(l_SelectedTabSlotIndex);
-
- if (l_SelectedTabSlotIndex > Pred(f_SlotCount)) then
-  l_SelectedTabSlotIndex := 0;
-
- SelectedTab := GetTabInSlot(l_SelectedTabSlotIndex);
-//#UC END# *5507F39000F4_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.SelectNext
-
-procedure TChromeLikeTabSetControl.SelectPrev;
-//#UC START# *5507F39C0053_5507EFFD01FE_var*
-var
- l_SelectedTabSlotIndex: Integer;
-//#UC END# *5507F39C0053_5507EFFD01FE_var*
-begin
-//#UC START# *5507F39C0053_5507EFFD01FE_impl*
- l_SelectedTabSlotIndex := SelectedSlotIndex;
- Dec(l_SelectedTabSlotIndex);
-
- if (l_SelectedTabSlotIndex < 0) then
-  l_SelectedTabSlotIndex := Pred(f_SlotCount);
-
- SelectedTab := GetTabInSlot(l_SelectedTabSlotIndex);
-//#UC END# *5507F39C0053_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.SelectPrev
-
-function TChromeLikeTabSetControl.CanCloseAllButSelected: Boolean;
-//#UC START# *5507F3AF0311_5507EFFD01FE_var*
-//#UC END# *5507F3AF0311_5507EFFD01FE_var*
-begin
-//#UC START# *5507F3AF0311_5507EFFD01FE_impl*
- Result := (SelectedTab <> nil) and
-           (TabCount > 1);
-//#UC END# *5507F3AF0311_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CanCloseAllButSelected
-
-procedure TChromeLikeTabSetControl.CloseAllExceptOne(aTab: TChromeLikeTab);
-//#UC START# *5507F3C003B6_5507EFFD01FE_var*
-var
- l_Index: Integer;
- l_TabToClose: TChromeLikeTab;
- l_SlotCount: Integer;
-//#UC END# *5507F3C003B6_5507EFFD01FE_var*
-begin
-//#UC START# *5507F3C003B6_5507EFFD01FE_impl*
- Assert(aTab <> nil);
- for l_Index := Pred(TabCount) downto 0 do
- begin
-  l_TabToClose := Tabs[l_Index];
-  if (l_TabToClose <> aTab) then
-   CloseTab(l_TabToClose);
- end;
-//#UC END# *5507F3C003B6_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CloseAllExceptOne
-
-function TChromeLikeTabSetControl.CanCloseAllRightToSelected: Boolean;
-//#UC START# *5507F3FC0116_5507EFFD01FE_var*
-//#UC END# *5507F3FC0116_5507EFFD01FE_var*
-begin
-//#UC START# *5507F3FC0116_5507EFFD01FE_impl*
- Result := (SelectedTab <> nil) and
-           (SelectedTab.SlotIndex < Pred(f_SlotCount));
-//#UC END# *5507F3FC0116_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CanCloseAllRightToSelected
-
-procedure TChromeLikeTabSetControl.CloseAllRightToTab(aTab: TChromeLikeTab);
-//#UC START# *5507F4170123_5507EFFD01FE_var*
-var
- l_SelectedTabSlot: Integer;
- l_TabToClose: TChromeLikeTab;
- l_Index: Integer;
-//#UC END# *5507F4170123_5507EFFD01FE_var*
-begin
-//#UC START# *5507F4170123_5507EFFD01FE_impl*
- Assert(aTab <> nil);
- l_SelectedTabSlot := aTab.SlotIndex;
- if (l_SelectedTabSlot < Pred(f_SlotCount)) then
- begin
-  for l_Index := Pred(TabCount) downto 0 do
-  begin
-   l_TabToClose := Tabs[l_Index];
-   if (l_TabToClose.SlotIndex > l_SelectedTabSlot) then
-    CloseTab(l_TabToClose);
-  end;
- end;
-//#UC END# *5507F4170123_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CloseAllRightToTab
-
-procedure TChromeLikeTabSetControl.AddTab(aTab: TChromeLikeTab);
-//#UC START# *5507F43A012E_5507EFFD01FE_var*
-//#UC END# *5507F43A012E_5507EFFD01FE_var*
-begin
-//#UC START# *5507F43A012E_5507EFFD01FE_impl*
- AddTab(aTab, -1);
-//#UC END# *5507F43A012E_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.AddTab
-
-procedure TChromeLikeTabSetControl.AddTab(aTab: TChromeLikeTab;
-  const aPoint: TPoint);
-//#UC START# *5507F45D00D2_5507EFFD01FE_var*
-var
- l_SlotIndex: Integer;
-//#UC END# *5507F45D00D2_5507EFFD01FE_var*
-begin
-//#UC START# *5507F45D00D2_5507EFFD01FE_impl*
- l_SlotIndex := GetSlotIndexAtPoint(aPoint);
- AddTab(aTab, l_SlotIndex);
-//#UC END# *5507F45D00D2_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.AddTab
-
-procedure TChromeLikeTabSetControl.AddTab(aTab: TChromeLikeTab;
-  aSlotIndex: Integer);
-//#UC START# *5507F47E0301_5507EFFD01FE_var*
-var
- l_LastSlot: Integer;
- l_SlotIndex: Integer;
-//#UC END# *5507F47E0301_5507EFFD01FE_var*
-begin
-//#UC START# *5507F47E0301_5507EFFD01FE_impl*
- TChromeLikeTabSetAnimationManager.Instance.FinishAllImmediately;
-
- InvalidateWidthPerSlot;
-
- l_LastSlot := Pred(f_SlotCount);
-
- if (aSlotIndex = -1) then
-  l_SlotIndex := l_LastSlot
- else
-  l_SlotIndex := aSlotIndex;
-
- aTab.SlotIndex := InsertSlot(l_SlotIndex);
- SetInitialTabPosition(aTab);
- f_Tabs.Add(aTab);
- ResizeTabs;
- SetTabPosition(aTab);
- Invalidate;
- ShowNewTabButton;
- UpdateNewTabButtonPosition;
-//#UC END# *5507F47E0301_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.AddTab
-
-procedure TChromeLikeTabSetControl.AddTabAfterSelected(aTab: TChromeLikeTab);
-//#UC START# *5507F4AA00B0_5507EFFD01FE_var*
-var
- l_SlotIndex: Integer;
-//#UC END# *5507F4AA00B0_5507EFFD01FE_var*
-begin
-//#UC START# *5507F4AA00B0_5507EFFD01FE_impl*
- if (SelectedTab <> nil) then
-  l_SlotIndex := SelectedTab.SlotIndex
- else
-  l_SlotIndex := Pred(f_SlotCount);
- AddTab(aTab, l_SlotIndex);
-//#UC END# *5507F4AA00B0_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.AddTabAfterSelected
-
-procedure TChromeLikeTabSetControl.CloseTab(aTab: TChromeLikeTab;
-  aForce: Boolean = False);
-//#UC START# *5507F4C7007D_5507EFFD01FE_var*
-var
- l_CanClose: Boolean;
-//#UC END# *5507F4C7007D_5507EFFD01FE_var*
-begin
-//#UC START# *5507F4C7007D_5507EFFD01FE_impl*
- l_CanClose := aForce or CanCloseTab(aTab);
- if l_CanClose and
-    Assigned(f_OnCloseTabForm) then
-   f_OnCloseTabForm(Self, aTab, l_CanClose, GetSelectedTabAfterClosing(aTab));
- if l_CanClose then
- begin
-  if Assigned(f_OnTabClosed) then
-   f_OnTabClosed(Self, aTab);
-  RemoveTab(aTab);
- end;
-//#UC END# *5507F4C7007D_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CloseTab
-
-function TChromeLikeTabSetControl.CanCloseTab(aTab: TChromeLikeTab): Boolean;
-//#UC START# *5507F4F001EF_5507EFFD01FE_var*
-//#UC END# *5507F4F001EF_5507EFFD01FE_var*
-begin
-//#UC START# *5507F4F001EF_5507EFFD01FE_impl*
- Result := True;
-//#UC END# *5507F4F001EF_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CanCloseTab
-
-procedure TChromeLikeTabSetControl.RemoveTab(aTab: TChromeLikeTab);
-//#UC START# *5507F51200EA_5507EFFD01FE_var*
-var
- l_Tab: TChromeLikeTab;
- l_TabSlot: Integer;
- l_NewSelectedTab: TChromeLikeTab;
-//#UC END# *5507F51200EA_5507EFFD01FE_var*
-begin
-//#UC START# *5507F51200EA_5507EFFD01FE_impl*
- if (aTab = f_HintTab) then
-  f_HintTab := nil;
-
- f_WasMouseLDown := False;
-
- l_Tab := aTab;
- l_TabSlot := aTab.SlotIndex;
-
- if (f_SelectedTab = l_Tab) then
- begin
-  l_NewSelectedTab := GetSelectedTabAfterClosing(l_Tab);
-  if (l_NewSelectedTab <> nil) then
-   SelectedTab := l_NewSelectedTab
-  else
-   f_SelectedTab := nil;
- end;
- if (f_MovingTab = l_Tab) then
-  f_MovingTab := nil;
-
- Assert(f_Tabs.IndexOf(l_Tab) <> -1);
- f_Tabs.Remove(l_Tab);
-
- FreeAndNil(aTab);
-
- InvalidateWidthPerSlot;
-
- DeleteSlot(l_TabSlot);
-
- InvalidateWidthPerSlot;
- ResizeTabs;
- UpdateNewTabButtonPosition;
- ShowNewTabButton;
- Invalidate;
-//#UC END# *5507F51200EA_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.RemoveTab
-
-function TChromeLikeTabSetControl.DockForm(aForm: TForm;
-  const aTabParams: Il3TabParams;
-  aNeedSelect: Boolean = True): Boolean;
-//#UC START# *5507F53801F2_5507EFFD01FE_var*
-//#UC END# *5507F53801F2_5507EFFD01FE_var*
-begin
-//#UC START# *5507F53801F2_5507EFFD01FE_impl*
- Result := DockFormIntoSlot(aForm, aTabParams, -1, aNeedSelect);
-//#UC END# *5507F53801F2_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DockForm
-
-function TChromeLikeTabSetControl.DockFormAfterSelected(aForm: TForm;
-  const aTabParams: Il3TabParams;
-  aNeedSelect: Boolean = True): Boolean;
-//#UC START# *5507F546000A_5507EFFD01FE_var*
-var
- l_SlotIndex: Integer;
-//#UC END# *5507F546000A_5507EFFD01FE_var*
-begin
-//#UC START# *5507F546000A_5507EFFD01FE_impl*
- if (SelectedTab <> nil) and
-    (SelectedTab.SlotIndex < Pred(f_SlotCount)) then
-  l_SlotIndex := SelectedTab.SlotIndex
- else
-  l_SlotIndex := -1;
- Result := DockFormIntoSlot(aForm, aTabParams, l_SlotIndex, aNeedSelect);
-//#UC END# *5507F546000A_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DockFormAfterSelected
-
-function TChromeLikeTabSetControl.CanDockFormAtPoint(aForm: TForm;
-  const aScreenPoint: TPoint): Boolean;
-//#UC START# *5507F556002B_5507EFFD01FE_var*
-var
- l_cPt: TPoint;
-//#UC END# *5507F556002B_5507EFFD01FE_var*
-begin
-//#UC START# *5507F556002B_5507EFFD01FE_impl*
- l_cPt := ScreenToClient(aScreenPoint);
- Result := PtInRect(ClientRect, l_cPt);
- if Result then
-  if Assigned(f_OnCanDockForm) then
-   f_OnCanDockForm(Self, aForm, True, Result);
-//#UC END# *5507F556002B_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.CanDockFormAtPoint
-
-procedure TChromeLikeTabSetControl.UndockTabbedForm(aTab: TChromeLikeTab);
-//#UC START# *5507F5620368_5507EFFD01FE_var*
-var
- l_Form: TForm;
- l_Container: Il3TabbedContainer;
- l_ContainerLeftTopPt: TPoint;
- l_TabParams: Il3TabParams;
- l_FocusedControl: TWinControl;
-//#UC END# *5507F5620368_5507EFFD01FE_var*
-begin
-//#UC START# *5507F5620368_5507EFFD01FE_impl*
- Assert(aTab <> nil);
- Assert(aTab.Form <> nil);
-
- aTab.Visible := False;
- l_TabParams := MakeTabParams(aTab);
- try
-  UpdateWindow(Handle);
-
-  l_Form := aTab.Form;
-
-  l_FocusedControl := FindControl(Windows.GetFocus);
-
-  l_ContainerLeftTopPt := ClientToScreen(Point(aTab.PositionRect.Left, ClientHeight));
-
-  Container.LockPosition;
-  // - пока создается другой контейнер, изначальный контейнер не должен
-  // поддаваться на WM_WINDOWPOSCHANGING.
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=595456773
-  try
-   l_Container := Container.MakeClone;
-   Assert(l_Container <> nil);
-
-   if Assigned(f_OnTabClosed) then
-    f_OnTabClosed(Self, aTab);
-
-   RemoveTab(aTab);
-   Invalidate;
-
-   l_Container.DockForeignForm(l_Form, l_TabParams);
-  finally
-   Container.UnlockPosition;
-  end;
-  l_Container.MakeVisible(l_ContainerLeftTopPt);
-  l_Form.Visible := True;
-  if ((l_FocusedControl <> nil) and l_FocusedControl.CanFocus) then
-   l_FocusedControl.SetFocus;
- finally
-  l_TabParams := nil;
- end;
-//#UC END# *5507F5620368_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.UndockTabbedForm
-
-function TChromeLikeTabSetControl.IsDockablePoint(const aPoint: TPoint): Boolean;
-//#UC START# *5507F67A0238_5507EFFD01FE_var*
-var
- l_cPt: TPoint;
- l_InRect: Boolean;
- l_Bounds: TRect;
-//#UC END# *5507F67A0238_5507EFFD01FE_var*
-begin
-//#UC START# *5507F67A0238_5507EFFD01FE_impl*
- Result := False;
- l_Bounds := ClientRect;
- l_cPt := ScreenToClient(aPoint);;
- l_InRect := PtInRect(l_Bounds, l_cPt);
- if l_InRect then
-  Result := l_cPt.Y >= (((l_Bounds.Bottom - l_Bounds.Top) div 2) + l_Bounds.Top);
-//#UC END# *5507F67A0238_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.IsDockablePoint
-
-function TChromeLikeTabSetControl.HitTest(const aPoint: TPoint): TChromeLikeTabSetHitTestResult;
-//#UC START# *5507F69A01CF_5507EFFD01FE_var*
-var
- l_pPt: TPoint;
- l_cPt: TPoint;
-//#UC END# *5507F69A01CF_5507EFFD01FE_var*
-begin
-//#UC START# *5507F69A01CF_5507EFFD01FE_impl*
- l_cPt := ScreenToClient(aPoint);
- l_pPt := Parent.ScreenToClient(aPoint);
- if not PtInRect(BoundsRect, l_pPt) then
- begin
-  Result := htrNowhere;
-  Exit;
- end
- else
- if (GetTabAtPoint(l_cPt) <> nil) then
-  Result := htrInTab
- else
-  Result := htrClient;
-//#UC END# *5507F69A01CF_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.HitTest
-
-procedure TChromeLikeTabSetControl.UpdateFormTab(aForm: TForm;
-  const aParams: Il3TabParams);
-//#UC START# *5507F6D001C1_5507EFFD01FE_var*
-var
- l_FormTab: TChromeLikeTab;
-//#UC END# *5507F6D001C1_5507EFFD01FE_var*
-begin
-//#UC START# *5507F6D001C1_5507EFFD01FE_impl*
- l_FormTab := FindFormTab(aForm);
- if (aParams <> nil) then
- begin
-  if (tuo_UpdateHintText in aParams.UpdateOptions) then
-   l_FormTab.HintText := aParams.HintText;
-  if (tuo_UpdateTabText in aParams.UpdateOptions) then
-   l_FormTab.Text := aParams.Text;
-  if (tuo_UpdateTabImage in aParams.UpdateOptions) then
-   l_FormTab.ImageIndex := aParams.ImageIndex;
-  Invalidate;
- end;
-//#UC END# *5507F6D001C1_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.UpdateFormTab
-
-procedure TChromeLikeTabSetControl.SetFormTabImageIndex(aForm: TForm;
-  aImageIndex: Integer);
-//#UC START# *5507F6FE0373_5507EFFD01FE_var*
-var
- l_FormTab: TChromeLikeTab;
-//#UC END# *5507F6FE0373_5507EFFD01FE_var*
-begin
-//#UC START# *5507F6FE0373_5507EFFD01FE_impl*
- l_FormTab := FindFormTab(aForm);
- if (l_FormTab <> nil) then
-  l_FormTab.ImageIndex := aImageIndex;
-//#UC END# *5507F6FE0373_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.SetFormTabImageIndex
-
-function TChromeLikeTabSetControl.DockFormAtPoint(aForm: TForm;
-  const aTabParams: Il3TabParams;
-  const aPoint: TPoint;
-  aNeedSelect: Boolean = True): Boolean;
-//#UC START# *550806D7020E_5507EFFD01FE_var*
-const
- cSideDelta: array[TChromeLikeTabSide] of Integer = (-1, 0);
-var
- l_cPt: TPoint;
- l_TabAtPoint: TChromeLikeTab;
- l_TabSlotIndex: Integer;
-//#UC END# *550806D7020E_5507EFFD01FE_var*
-begin
-//#UC START# *550806D7020E_5507EFFD01FE_impl*
- l_cPt := ScreenToClient(aPoint);
- l_TabAtPoint := GetTabAtPoint(l_cPt);
- if (l_TabAtPoint <> nil) then
- begin
-  l_TabSlotIndex := l_TabAtPoint.SlotIndex;
-  Inc(l_TabSlotIndex, cSideDelta[l_TabAtPoint.GetTabSide(aPoint)]);
-  Result := DockFormIntoSlot(aForm, aTabParams, Max(0, l_TabSlotIndex), aNeedSelect);
- end
- else
-  Result := DockForm(aForm, aTabParams, aNeedSelect);
-//#UC END# *550806D7020E_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DockFormAtPoint
-
-function TChromeLikeTabSetControl.MakeTabParams(aTab: TChromeLikeTab): Il3TabParams;
-//#UC START# *551285860003_5507EFFD01FE_var*
-var
- l_Text: Il3CString;
- l_HintText: Il3CString;
- l_ImageIndex: Integer;
-//#UC END# *551285860003_5507EFFD01FE_var*
-begin
-//#UC START# *551285860003_5507EFFD01FE_impl*
- Assert(aTab <> nil);
- l_Text := l3CStr(aTab.Text);
- l_HintText := l3CStr(aTab.HintText);
- l_ImageIndex := aTab.ImageIndex;
- Result := TChromeLikeTabParams.Make(l_Text, l_HintText, l_ImageIndex, [tuo_UpdateHintText,
-  tuo_UpdateTabText, tuo_UpdateTabImage]);
-//#UC END# *551285860003_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.MakeTabParams
-
-procedure TChromeLikeTabSetControl.SetParams(const aParams: TChromeLikeTabSetParams);
-//#UC START# *551554BB0334_5507EFFD01FE_var*
-//#UC END# *551554BB0334_5507EFFD01FE_var*
-begin
-//#UC START# *551554BB0334_5507EFFD01FE_impl*
- f_CloseButtonImages := aParams.rCloseButtonImages;
- f_CloseButtonImageIndex := aParams.rCloseButtonImageIndex;
- f_CloseButtonHotImageIndex := aParams.rCloseButtonHotImageIndex;
- Images := aParams.rTabImages;
-//#UC END# *551554BB0334_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.SetParams
-
-function TChromeLikeTabSetControl.GetFormTab(aForm: TForm): Il3FormTab;
-//#UC START# *558BF6CA016C_5507EFFD01FE_var*
-var
- l_Tab: TChromeLikeTab;
-//#UC END# *558BF6CA016C_5507EFFD01FE_var*
-begin
-//#UC START# *558BF6CA016C_5507EFFD01FE_impl*
- l_Tab := FindFormTab(aForm);
- if (l_Tab <> nil) then
-  Result := l_Tab as Il3FormTab
- else
-  Result := nil;
-//#UC END# *558BF6CA016C_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.GetFormTab
-
-constructor TChromeLikeTabSetControl.Create(aOwner: TComponent;
-  const aContainer: Il3TabbedContainer);
-//#UC START# *5593BEF1025E_5507EFFD01FE_var*
-//#UC END# *5593BEF1025E_5507EFFD01FE_var*
-begin
-//#UC START# *5593BEF1025E_5507EFFD01FE_impl*
- inherited Create(aOwner);
- f_MovingEaseType := ttEaseOutQuad;
- f_TabHeight := cDefaultTabHeight;
- f_Tabs := TChromeLikeTabList.Create;
- f_SelectedTab := nil;
- ShowHint := True;
- MakeActions;
- f_TabsPopupMenu := TPopupMenu.Create(Self);
- f_NewTabButton := TChromeLikeNewTabButton.Create(Self);
- f_NewTabButton.OnClick := DoOnNewTabButtonClick;
- f_Container := Pointer(aContainer);
-//#UC END# *5593BEF1025E_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.Create
-
-function TChromeLikeTabSetControl.DockFormAfterSpecified(aForm: TForm;
-  const aTabParams: Il3TabParams;
-  aInsertAfter: TForm;
-  aNeedSelect: Boolean = True): Boolean;
-//#UC START# *55CB0DE70292_5507EFFD01FE_var*
-var
- l_Tab: TChromeLikeTab;
- l_SlotIndex: Integer;
-//#UC END# *55CB0DE70292_5507EFFD01FE_var*
-begin
-//#UC START# *55CB0DE70292_5507EFFD01FE_impl*
- l_Tab := FindFormTab(aInsertAfter);
- Assert(l_Tab <> nil);
- l_SlotIndex := l_Tab.SlotIndex;
- Result := DockFormIntoSlot(aForm, aTabParams, l_SlotIndex, aNeedSelect);
-//#UC END# *55CB0DE70292_5507EFFD01FE_impl*
-end;//TChromeLikeTabSetControl.DockFormAfterSpecified
-// start class TChromeLikeTabCloseButton
+ l3ImplUses
+ , ChromeLikeTabSetStyles
+ , ChromeLikeTabSetAnimationManager
+ , Math
+ , ChromeLikeTabSetUtils
+ , GDIPAPI
+ , Windows
+ , ChromeLikeTabParams
+ , l3String
+ , l3Base
+ , ChromeLikeTabSetControlRes
+ , l3StringIDEx
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 procedure TChromeLikeTabCloseButton.pm_SetShowOnlyHovered(aValue: Boolean);
 //#UC START# *550912BF02BC_5507F2380319set_var*
@@ -2051,6 +708,7 @@ begin
 end;//TChromeLikeTabCloseButton.pm_GetHotImage
 
 procedure TChromeLikeTabCloseButton.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5507F2380319_var*
 //#UC END# *479731C50290_5507F2380319_var*
 begin
@@ -2139,23 +797,6 @@ begin
  State := cltcsNormal;
 //#UC END# *552638BD00A3_5507F2380319_impl*
 end;//TChromeLikeTabCloseButton.DoMouseLeave
-// start class TChromeLikeTabIcon
-
-function TChromeLikeTabIcon.GetImage: TGPImage;
-//#UC START# *5509113E00A2_5507F24D0307_var*
-//#UC END# *5509113E00A2_5507F24D0307_var*
-begin
-//#UC START# *5509113E00A2_5507F24D0307_impl*
- if (f_ImageList <> nil) and (f_ImageIndex <> -1) then
- begin
-  if (f_Image = nil) then
-   f_Image := ImageListToTGPImage(f_ImageList, f_ImageIndex);
-  Result := f_Image;
- end
- else
-  Result := nil;
-//#UC END# *5509113E00A2_5507F24D0307_impl*
-end;//TChromeLikeTabIcon.GetImage
 
 procedure TChromeLikeTabIcon.pm_SetImageList(aValue: TCustomImageList);
 //#UC START# *550910B6003C_5507F24D0307set_var*
@@ -2185,7 +826,24 @@ begin
 //#UC END# *550910DC0394_5507F24D0307set_impl*
 end;//TChromeLikeTabIcon.pm_SetImageIndex
 
+function TChromeLikeTabIcon.GetImage: TGPImage;
+//#UC START# *5509113E00A2_5507F24D0307_var*
+//#UC END# *5509113E00A2_5507F24D0307_var*
+begin
+//#UC START# *5509113E00A2_5507F24D0307_impl*
+ if (f_ImageList <> nil) and (f_ImageIndex <> -1) then
+ begin
+  if (f_Image = nil) then
+   f_Image := ImageListToTGPImage(f_ImageList, f_ImageIndex);
+  Result := f_Image;
+ end
+ else
+  Result := nil;
+//#UC END# *5509113E00A2_5507F24D0307_impl*
+end;//TChromeLikeTabIcon.GetImage
+
 procedure TChromeLikeTabIcon.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5507F24D0307_var*
 //#UC END# *479731C50290_5507F24D0307_var*
 begin
@@ -2228,7 +886,6 @@ begin
  Result := [];
 //#UC END# *5506B0630312_5507F24D0307_impl*
 end;//TChromeLikeTabIcon.MakeBehaviourParams
-// start class TChromeLikeTabText
 
 procedure TChromeLikeTabText.pm_SetText(const aValue: WideString);
 //#UC START# *550911EC016C_5507F2580281set_var*
@@ -2293,195 +950,12 @@ begin
  Result := [];
 //#UC END# *5506B0630312_5507F2580281_impl*
 end;//TChromeLikeTabText.MakeBehaviourParams
-// start class TChromeLikeTab
 
-procedure TChromeLikeTab.DoOnCloseButtonClick(Sender: TObject);
-//#UC START# *550915DC024B_5507F22E0057_var*
-//#UC END# *550915DC024B_5507F22E0057_var*
+procedure TChromeLikeTabText.ClearFields;
 begin
-//#UC START# *550915DC024B_5507F22E0057_impl*
- CloseTab;
-//#UC END# *550915DC024B_5507F22E0057_impl*
-end;//TChromeLikeTab.DoOnCloseButtonClick
-
-procedure TChromeLikeTab.SelectionChanged;
-//#UC START# *550915FA0072_5507F22E0057_var*
-//#UC END# *550915FA0072_5507F22E0057_var*
-begin
-//#UC START# *550915FA0072_5507F22E0057_impl*
- f_CloseButton.ShowOnlyHovered := (not pm_GetSelected);
-//#UC END# *550915FA0072_5507F22E0057_impl*
-end;//TChromeLikeTab.SelectionChanged
-
-procedure TChromeLikeTab.MakePaths;
-//#UC START# *5509160503A9_5507F22E0057_var*
-var
- l_RectF: TGPRectF;
- l_EllipseDiameter: Single;
- l_LeftCornerRect: TGPRectF;
- l_RightCornerRect: TGPRectF;
- l_ArcBottom: Single;
- l_Bottom: Single;
- l_Right: Single;
-//#UC END# *5509160503A9_5507F22E0057_var*
-begin
-//#UC START# *5509160503A9_5507F22E0057_impl*
- FreeAndNil(f_BodyPath);
- FreeAndNil(f_LeftTopEdgePath);
- FreeAndNil(f_RightEdgePath);
- FreeAndNil(f_BottomEdgePath);
-
- f_BodyPath := TGPGraphicsPath.Create;
- f_LeftTopEdgePath := TGPGraphicsPath.Create;
- f_RightEdgePath := TGPGraphicsPath.Create;
- f_BottomEdgePath := TGPGraphicsPath.Create;
-
- l_RectF := RectToGPRectF(PositionRect);
- l_EllipseDiameter := f_RoundingRadius * 2;
-
- with l_LeftCornerRect do
- begin
-  X := l_RectF.X;
-  Y := l_RectF.Y;
-  Width := l_EllipseDiameter;
-  Height := l_EllipseDiameter;
- end;
-
- with l_RightCornerRect do
- begin
-  X := (l_RectF.X + l_RectF.Width) - l_EllipseDiameter;
-  Y := l_RectF.Y;
-  Width := l_EllipseDiameter;
-  Height := l_EllipseDiameter;
- end;
-
- l_ArcBottom := l_RightCornerRect.Y + l_EllipseDiameter;
- l_Bottom := l_RectF.Y + l_RectF.Height;
- l_Right := l_RectF.X + l_RectF.Width;
-
- with f_BodyPath do
- // Заливка
- begin
-  AddLine(l_RectF.X,
-          l_Bottom,
-          l_RectF.X,
-          l_ArcBottom);
-
-  AddArc(l_LeftCornerRect,
-         180,
-         90);
-
-  AddArc(l_RightCornerRect,
-         270,
-         90);
-
-  AddLine(l_Right,
-          l_ArcBottom,
-          l_Right,
-          l_Bottom);
- end;//with f_BodyPath
-
- with f_LeftTopEdgePath do
- // Левая и верхняя окантовка
- begin
-  AddLine(l_RectF.X,
-          l_Bottom,
-          l_RectF.X,
-          l_ArcBottom);
-  // - левая граница
-  AddArc(l_LeftCornerRect,
-         180,
-         90);
-  // - левое закругление
-  AddLine(l_LeftCornerRect.X + l_LeftCornerRect.Width,
-          l_RectF.Y,
-          l_RightCornerRect.X,
-          l_RectF.Y);
-  // - Верхняя граница
-  AddArc(l_RightCornerRect, 270, 45);
-  // - Половина правого закругления
- end;
-
- with f_RightEdgePath do
- // Правая окантовка
- begin
-  AddArc(l_RightCornerRect,
-         315,
-         45);
-  // - Вторая половина правого закругления
-  AddLine(l_Right,
-          l_ArcBottom,
-          l_Right,
-          l_Bottom);
- end;
-
- with f_BottomEdgePath do
- // Нижняя граница
- begin
-  AddLine(l_RectF.X,
-          l_RectF.Y + l_RectF.Height,
-          l_RectF.X + l_RectF.Width,
-          l_RectF.Y + l_RectF.Height);
- end;
-//#UC END# *5509160503A9_5507F22E0057_impl*
-end;//TChromeLikeTab.MakePaths
-
-procedure TChromeLikeTab.CloseTab;
-//#UC START# *5541CFB50145_5507F22E0057_var*
-//#UC END# *5541CFB50145_5507F22E0057_var*
-begin
-//#UC START# *5541CFB50145_5507F22E0057_impl*
- if (not InAnimation) then
-  if Assigned(f_OnNeedCloseTab) then
-   f_OnNeedCloseTab(Self);
-//#UC END# *5541CFB50145_5507F22E0057_impl*
-end;//TChromeLikeTab.CloseTab
-
-function TChromeLikeTab.GetTabSide(const aPoint: TPoint): TChromeLikeTabSide;
-//#UC START# *550919550287_5507F22E0057_var*
-var
- l_CenterPoint: TPoint;
-//#UC END# *550919550287_5507F22E0057_var*
-begin
-//#UC START# *550919550287_5507F22E0057_impl*
- l_CenterPoint := CenterPoint(PositionRect);
- if InRange(aPoint.X, PositionRect.Left, l_CenterPoint.X) then
-  Result := cltsLeft
- else
-  Result := cltsRight;
-//#UC END# *550919550287_5507F22E0057_impl*
-end;//TChromeLikeTab.GetTabSide
-
-function TChromeLikeTab.NeedSelectByClickAtPoint(const aPoint: TPoint): Boolean;
-//#UC START# *5509197902D2_5507F22E0057_var*
-//#UC END# *5509197902D2_5507F22E0057_var*
-begin
-//#UC START# *5509197902D2_5507F22E0057_impl*
- Result := Intersects(aPoint) and
-           (not (f_CloseButton.Visible and f_CloseButton.Intersects(aPoint)));
-//#UC END# *5509197902D2_5507F22E0057_impl*
-end;//TChromeLikeTab.NeedSelectByClickAtPoint
-
-constructor TChromeLikeTab.Create(aTabSet: TChromeLikeTabSetControlPrim);
-//#UC START# *55111E87034D_5507F22E0057_var*
-//#UC END# *55111E87034D_5507F22E0057_var*
-begin
-//#UC START# *55111E87034D_5507F22E0057_impl*
- f_TabSet := aTabSet;
- f_ImageList := aTabSet.Images;
- inherited Create(nil);
- f_RoundingRadius := 3.0;
-//#UC END# *55111E87034D_5507F22E0057_impl*
-end;//TChromeLikeTab.Create
-
-function TChromeLikeTab.CanBeCloned: Boolean;
-//#UC START# *555DB9420006_5507F22E0057_var*
-//#UC END# *555DB9420006_5507F22E0057_var*
-begin
-//#UC START# *555DB9420006_5507F22E0057_impl*
- Result := Tl3TabbedContainersDispatcher.Instance.CanCloneTab(Self);
-//#UC END# *555DB9420006_5507F22E0057_impl*
-end;//TChromeLikeTab.CanBeCloned
+ Text := '';
+ inherited;
+end;//TChromeLikeTabText.ClearFields
 
 function TChromeLikeTab.pm_GetText: WideString;
 //#UC START# *550913480304_5507F22E0057get_var*
@@ -2627,6 +1101,194 @@ begin
 //#UC END# *55154E010152_5507F22E0057set_impl*
 end;//TChromeLikeTab.pm_SetCloseButtonHotImageIndex
 
+procedure TChromeLikeTab.DoOnCloseButtonClick(Sender: TObject);
+//#UC START# *550915DC024B_5507F22E0057_var*
+//#UC END# *550915DC024B_5507F22E0057_var*
+begin
+//#UC START# *550915DC024B_5507F22E0057_impl*
+ CloseTab;
+//#UC END# *550915DC024B_5507F22E0057_impl*
+end;//TChromeLikeTab.DoOnCloseButtonClick
+
+procedure TChromeLikeTab.SelectionChanged;
+//#UC START# *550915FA0072_5507F22E0057_var*
+//#UC END# *550915FA0072_5507F22E0057_var*
+begin
+//#UC START# *550915FA0072_5507F22E0057_impl*
+ f_CloseButton.ShowOnlyHovered := (not pm_GetSelected);
+//#UC END# *550915FA0072_5507F22E0057_impl*
+end;//TChromeLikeTab.SelectionChanged
+
+procedure TChromeLikeTab.MakePaths;
+//#UC START# *5509160503A9_5507F22E0057_var*
+var
+ l_RectF: TGPRectF;
+ l_EllipseDiameter: Single;
+ l_LeftCornerRect: TGPRectF;
+ l_RightCornerRect: TGPRectF;
+ l_ArcBottom: Single;
+ l_Bottom: Single;
+ l_Right: Single;
+//#UC END# *5509160503A9_5507F22E0057_var*
+begin
+//#UC START# *5509160503A9_5507F22E0057_impl*
+ FreeAndNil(f_BodyPath);
+ FreeAndNil(f_LeftTopEdgePath);
+ FreeAndNil(f_RightEdgePath);
+ FreeAndNil(f_BottomEdgePath);
+
+ f_BodyPath := TGPGraphicsPath.Create;
+ f_LeftTopEdgePath := TGPGraphicsPath.Create;
+ f_RightEdgePath := TGPGraphicsPath.Create;
+ f_BottomEdgePath := TGPGraphicsPath.Create;
+
+ l_RectF := RectToGPRectF(PositionRect);
+ l_EllipseDiameter := f_RoundingRadius * 2;
+
+ with l_LeftCornerRect do
+ begin
+  X := l_RectF.X;
+  Y := l_RectF.Y;
+  Width := l_EllipseDiameter;
+  Height := l_EllipseDiameter;
+ end;
+
+ with l_RightCornerRect do
+ begin
+  X := (l_RectF.X + l_RectF.Width) - l_EllipseDiameter;
+  Y := l_RectF.Y;
+  Width := l_EllipseDiameter;
+  Height := l_EllipseDiameter;
+ end;
+
+ l_ArcBottom := l_RightCornerRect.Y + l_EllipseDiameter;
+ l_Bottom := l_RectF.Y + l_RectF.Height;
+ l_Right := l_RectF.X + l_RectF.Width;
+
+ with f_BodyPath do
+ // Заливка
+ begin
+  AddLine(l_RectF.X,
+          l_Bottom,
+          l_RectF.X,
+          l_ArcBottom);
+
+  AddArc(l_LeftCornerRect,
+         180,
+         90);
+
+  AddArc(l_RightCornerRect,
+         270,
+         90);
+
+  AddLine(l_Right,
+          l_ArcBottom,
+          l_Right,
+          l_Bottom);
+ end;//with f_BodyPath
+
+ with f_LeftTopEdgePath do
+ // Левая и верхняя окантовка
+ begin
+  AddLine(l_RectF.X,
+          l_Bottom,
+          l_RectF.X,
+          l_ArcBottom);
+  // - левая граница
+  AddArc(l_LeftCornerRect,
+         180,
+         90);
+  // - левое закругление
+  AddLine(l_LeftCornerRect.X + l_LeftCornerRect.Width,
+          l_RectF.Y,
+          l_RightCornerRect.X,
+          l_RectF.Y);
+  // - Верхняя граница
+  AddArc(l_RightCornerRect, 270, 45);
+  // - Половина правого закругления
+ end;
+
+ with f_RightEdgePath do
+ // Правая окантовка
+ begin
+  AddArc(l_RightCornerRect,
+         315,
+         45);
+  // - Вторая половина правого закругления
+  AddLine(l_Right,
+          l_ArcBottom,
+          l_Right,
+          l_Bottom);
+ end;
+
+ with f_BottomEdgePath do
+ // Нижняя граница
+ begin
+  AddLine(l_RectF.X,
+          l_RectF.Y + l_RectF.Height,
+          l_RectF.X + l_RectF.Width,
+          l_RectF.Y + l_RectF.Height);
+ end;
+//#UC END# *5509160503A9_5507F22E0057_impl*
+end;//TChromeLikeTab.MakePaths
+
+function TChromeLikeTab.GetTabSide(const aPoint: TPoint): TChromeLikeTabSide;
+//#UC START# *550919550287_5507F22E0057_var*
+var
+ l_CenterPoint: TPoint;
+//#UC END# *550919550287_5507F22E0057_var*
+begin
+//#UC START# *550919550287_5507F22E0057_impl*
+ l_CenterPoint := CenterPoint(PositionRect);
+ if InRange(aPoint.X, PositionRect.Left, l_CenterPoint.X) then
+  Result := cltsLeft
+ else
+  Result := cltsRight;
+//#UC END# *550919550287_5507F22E0057_impl*
+end;//TChromeLikeTab.GetTabSide
+
+function TChromeLikeTab.NeedSelectByClickAtPoint(const aPoint: TPoint): Boolean;
+//#UC START# *5509197902D2_5507F22E0057_var*
+//#UC END# *5509197902D2_5507F22E0057_var*
+begin
+//#UC START# *5509197902D2_5507F22E0057_impl*
+ Result := Intersects(aPoint) and
+           (not (f_CloseButton.Visible and f_CloseButton.Intersects(aPoint)));
+//#UC END# *5509197902D2_5507F22E0057_impl*
+end;//TChromeLikeTab.NeedSelectByClickAtPoint
+
+constructor TChromeLikeTab.Create(aTabSet: TChromeLikeTabSetControlPrim);
+//#UC START# *55111E87034D_5507F22E0057_var*
+//#UC END# *55111E87034D_5507F22E0057_var*
+begin
+//#UC START# *55111E87034D_5507F22E0057_impl*
+ f_TabSet := aTabSet;
+ f_ImageList := aTabSet.Images;
+ inherited Create(nil);
+ f_RoundingRadius := 3.0;
+//#UC END# *55111E87034D_5507F22E0057_impl*
+end;//TChromeLikeTab.Create
+
+procedure TChromeLikeTab.CloseTab;
+//#UC START# *5541CFB50145_5507F22E0057_var*
+//#UC END# *5541CFB50145_5507F22E0057_var*
+begin
+//#UC START# *5541CFB50145_5507F22E0057_impl*
+ if (not InAnimation) then
+  if Assigned(f_OnNeedCloseTab) then
+   f_OnNeedCloseTab(Self);
+//#UC END# *5541CFB50145_5507F22E0057_impl*
+end;//TChromeLikeTab.CloseTab
+
+function TChromeLikeTab.CanBeCloned: Boolean;
+//#UC START# *555DB9420006_5507F22E0057_var*
+//#UC END# *555DB9420006_5507F22E0057_var*
+begin
+//#UC START# *555DB9420006_5507F22E0057_impl*
+ Result := Tl3TabbedContainersDispatcher.Instance.CanCloneTab(Self);
+//#UC END# *555DB9420006_5507F22E0057_impl*
+end;//TChromeLikeTab.CanBeCloned
+
 function TChromeLikeTab.MakeClone: Il3FormTab;
 //#UC START# *5555A18701F0_5507F22E0057_var*
 //#UC END# *5555A18701F0_5507F22E0057_var*
@@ -2693,6 +1355,7 @@ begin
 end;//TChromeLikeTab.pm_GetCurrentParams
 
 procedure TChromeLikeTab.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5507F22E0057_var*
 //#UC END# *479731C50290_5507F22E0057_var*
 begin
@@ -2858,11 +1521,16 @@ begin
  CloseTab;
 //#UC END# *5541B8C900EE_5507F22E0057_impl*
 end;//TChromeLikeTab.DoMiddleButtonClick
+
+procedure TChromeLikeTab.ClearFields;
+begin
+ Text := '';
+ inherited;
+end;//TChromeLikeTab.ClearFields
+
 type _Instance_R_ = TChromeLikeTabList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
-
-// start class TChromeLikeTabAction
 
 function TChromeLikeTabAction.pm_GetTab: TChromeLikeTab;
 //#UC START# *553F56960377_553F55FD034Aget_var*
@@ -2881,7 +1549,6 @@ begin
  f_Tab := aValue;
 //#UC END# *553F56960377_553F55FD034Aset_impl*
 end;//TChromeLikeTabAction.pm_SetTab
-// start class TChromeLikeNewTabButton
 
 procedure TChromeLikeNewTabButton.MakePaths;
 //#UC START# *5540B9B602F0_5540B1BC0019_var*
@@ -2978,6 +1645,7 @@ begin
 end;//TChromeLikeNewTabButton.Create
 
 procedure TChromeLikeNewTabButton.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5540B1BC0019_var*
 //#UC END# *479731C50290_5540B1BC0019_var*
 begin
@@ -3289,6 +1957,1249 @@ begin
 //#UC END# *5593BAC40325_5507EFFD01FEget_impl*
 end;//TChromeLikeTabSetControl.pm_GetContainer
 
+procedure TChromeLikeTabSetControl.InvalidateWidthPerSlot;
+//#UC START# *5507F039021B_5507EFFD01FE_var*
+//#UC END# *5507F039021B_5507EFFD01FE_var*
+begin
+//#UC START# *5507F039021B_5507EFFD01FE_impl*
+ f_WidthPerSlotValid := False;
+//#UC END# *5507F039021B_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.InvalidateWidthPerSlot
+
+function TChromeLikeTabSetControl.GetWidthPerSlot: Single;
+//#UC START# *5507F0460114_5507EFFD01FE_var*
+var
+ l_CalculatedSlotWidth: Single;
+ l_WidthForSlots: Single;
+//#UC END# *5507F0460114_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0460114_5507EFFD01FE_impl*
+ if Visible then
+ begin
+  if (not f_WidthPerSlotValid) then
+  begin
+   l_WidthForSlots := Width - f_NewTabButton.MeasureSize.cx;
+   if (f_SlotCount > 0) then
+    l_CalculatedSlotWidth := l_WidthForSlots / f_SlotCount
+   else
+    l_CalculatedSlotWidth := cDefaultSlotWidth;
+   if (l_CalculatedSlotWidth > cDefaultSlotWidth) then
+    f_WidthPerSlot := cDefaultSlotWidth
+   else
+   if (l_CalculatedSlotWidth < cMinSlotWidth) then
+    f_WidthPerSlot := cMinSlotWidth
+   else
+    f_WidthPerSlot := l_CalculatedSlotWidth;
+   f_WidthPerSlotValid := True;
+  end;
+  Result := f_WidthPerSlot;
+ end
+ else
+  Result := cDefaultSlotWidth;
+//#UC END# *5507F0460114_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetWidthPerSlot
+
+function TChromeLikeTabSetControl.GetSlotRect(aSlotIndex: Integer): TRect;
+//#UC START# *5507F05002F2_5507EFFD01FE_var*
+var
+ l_WidthPerSlot: Single;
+ l_Left: Single;
+ l_Top: Integer;
+//#UC END# *5507F05002F2_5507EFFD01FE_var*
+begin
+//#UC START# *5507F05002F2_5507EFFD01FE_impl*
+ l_Top := ClientRect.Bottom - f_TabHeight;
+ l_WidthPerSlot := GetWidthPerSlot;
+ l_Left := l_WidthPerSlot * aSlotIndex;
+ Result := Rect(Trunc(l_Left), l_Top, Trunc(l_Left + l_WidthPerSlot), l_Top + f_TabHeight);
+ if (aSlotIndex > 0) then
+  Dec(Result.Left, 1);
+//#UC END# *5507F05002F2_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetSlotRect
+
+procedure TChromeLikeTabSetControl.ResizeTabs(aAnimated: Boolean = False);
+//#UC START# *5507F05C02DC_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_Tab: TChromeLikeTab;
+ l_EaseType: TChromeLikeTabEaseType;
+//#UC END# *5507F05C02DC_5507EFFD01FE_var*
+begin
+//#UC START# *5507F05C02DC_5507EFFD01FE_impl*
+ for l_Index := 0 to Pred(f_SlotCount) do
+ begin
+  l_Tab := GetTabInSlot(l_Index);
+  if (l_Tab <> nil) then
+  begin
+   if aAnimated then
+    l_EaseType := f_MovingEaseType
+   else
+    l_EaseType := ttNone;
+
+   l_Tab.PositionRect := GetSlotRect(l_Tab.SlotIndex);
+  end;
+ end;
+ UpdateNewTabButtonPosition; 
+//#UC END# *5507F05C02DC_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.ResizeTabs
+
+procedure TChromeLikeTabSetControl.ShiftTabsLeft(aStartingWith: Integer);
+//#UC START# *5507F0680074_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_Tab: TChromeLikeTab;
+//#UC END# *5507F0680074_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0680074_5507EFFD01FE_impl*
+ InvalidateWidthPerSlot;
+ for l_Index := aStartingWith to Pred(f_SlotCount) do
+ begin
+  l_Tab := GetTabInSlot(l_Index);
+  if (l_Tab <> nil) then
+  begin
+   l_Tab.SlotIndex := Pred(l_Index);
+   l_Tab.SetPosition(GetSlotRect(l_Tab.SlotIndex),
+                                 cMovingAnimationDuration,
+                                 MovingEaseType);
+  end;
+ end;
+//#UC END# *5507F0680074_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.ShiftTabsLeft
+
+procedure TChromeLikeTabSetControl.DeleteSlot(aSlotIndex: Integer);
+//#UC START# *5507F0720386_5507EFFD01FE_var*
+var
+ l_SlotCount: Integer;
+ l_TabInSlot: TChromeLikeTab;
+ l_Index: Integer;
+ l_NewTabSlotIndex: Integer;
+//#UC END# *5507F0720386_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0720386_5507EFFD01FE_impl*
+ if (GetTabInSlot(aSlotIndex) <> nil) then
+ begin
+  Assert(False, 'Таб в слоте должен быть уже удален');
+ end;
+ l_SlotCount := f_SlotCount;
+ Dec(f_SlotCount);
+ if (aSlotIndex < Pred(l_SlotCount)) then
+ begin
+  for l_Index := Succ(aSlotIndex) to Pred(l_SlotCount) do
+  begin
+   l_TabInSlot := GetTabInSlot(l_Index);
+   if (l_TabInSlot <> nil) then
+   begin
+    l_NewTabSlotIndex := Pred(l_Index);
+    l_TabInSlot.SlotIndex := l_NewTabSlotIndex;
+    SetTabPosition(l_TabInSlot);
+   end;
+  end;
+ end;
+ ResizeTabs(True);
+//#UC END# *5507F0720386_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DeleteSlot
+
+function TChromeLikeTabSetControl.InsertSlot(aInsertAfter: Integer): Integer;
+//#UC START# *5507F07D01E4_5507EFFD01FE_var*
+var
+ l_SlotCount: Integer;
+ l_TabInSlot: TChromeLikeTab;
+ l_Index: Integer;
+ l_TabsToShift: TChromeLikeTabList;
+//#UC END# *5507F07D01E4_5507EFFD01FE_var*
+begin
+//#UC START# *5507F07D01E4_5507EFFD01FE_impl*
+ if (aInsertAfter = Pred(f_SlotCount)) then
+  Result := AddSlot
+ else
+ begin
+  l_SlotCount := f_SlotCount;
+  AddSlot;
+  l_TabsToShift := TChromeLikeTabList.Create;
+  try
+   for l_Index := Pred(l_SlotCount) downto Succ(aInsertAfter) do
+   begin
+    l_TabInSlot := GetTabInSlot(l_Index);
+    Assert(l_TabInSlot <> nil);
+    l_TabsToShift.Add(l_TabInSlot);
+   end;//for l_Index := Pred(l_SlotCount...
+   for l_Index := 0 to Pred(l_TabsToShift.Count) do
+   begin
+    l_TabInSlot := l_TabsToShift[l_Index];
+    l_TabInSlot.SlotIndex := Succ(l_TabInSlot.SlotIndex);
+    SetTabPosition(l_TabInSlot);
+   end;//for l_Index := 0...
+  finally
+   FreeAndNil(l_TabsToShift);
+  end;//try..finally
+  Result := Succ(aInsertAfter);
+ end;//if (aInsertAfter...
+//#UC END# *5507F07D01E4_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.InsertSlot
+
+function TChromeLikeTabSetControl.AddSlot: Integer;
+//#UC START# *5507F08C031E_5507EFFD01FE_var*
+//#UC END# *5507F08C031E_5507EFFD01FE_var*
+begin
+//#UC START# *5507F08C031E_5507EFFD01FE_impl*
+ Inc(f_SlotCount);
+ InvalidateWidthPerSlot;
+ ResizeTabs(True);
+ Result := Pred(f_SlotCount);
+//#UC END# *5507F08C031E_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.AddSlot
+
+function TChromeLikeTabSetControl.GetSlotIndexAtPoint(const aPoint: TPoint): Integer;
+//#UC START# *5507F0AA0325_5507EFFD01FE_var*
+var
+ l_WidthPerSlot: Single;
+ l_Pos: Integer;
+//#UC END# *5507F0AA0325_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0AA0325_5507EFFD01FE_impl*
+ l_WidthPerSlot := GetWidthPerSlot;
+ l_Pos := aPoint.X - ClientRect.Left;
+ Result := Trunc(l_Pos / l_WidthPerSlot);
+ if (Result > Pred(f_Tabs.Count)) then
+  Result := Pred(f_Tabs.Count)
+ else
+ if (Result < 0) then
+  Result := 0;
+//#UC END# *5507F0AA0325_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetSlotIndexAtPoint
+
+function TChromeLikeTabSetControl.GetSelectedSlotIndex: Integer;
+//#UC START# *5507F0CD0156_5507EFFD01FE_var*
+//#UC END# *5507F0CD0156_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0CD0156_5507EFFD01FE_impl*
+ Assert(SelectedTab <> nil);
+ Result := SelectedTab.SlotIndex;
+//#UC END# *5507F0CD0156_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetSelectedSlotIndex
+
+procedure TChromeLikeTabSetControl.FinishMoving;
+//#UC START# *5507F0DE02A0_5507EFFD01FE_var*
+var
+ l_RectForPositioning: TRect;
+//#UC END# *5507F0DE02A0_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0DE02A0_5507EFFD01FE_impl*
+ if (f_MovingTab <> nil) then
+ begin
+  f_WasMouseLDown := False;
+  l_RectForPositioning := GetSlotRect(f_MovingTab.SlotIndex);
+  f_MovingTab.SetPosition(l_RectForPositioning, cMovingAnimationDuration, MovingEaseType);
+  f_MovingTab := nil;
+  ResizeTabs;
+  ShowNewTabButton;
+  Invalidate;
+ end;
+//#UC END# *5507F0DE02A0_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.FinishMoving
+
+procedure TChromeLikeTabSetControl.PlaceTab(aTab: TChromeLikeTab;
+ aSlotIndex: Integer);
+//#UC START# *5507F1090227_5507EFFD01FE_var*
+var
+ l_Rect: TRect;
+ l_SlotIndex: Integer;
+//#UC END# *5507F1090227_5507EFFD01FE_var*
+begin
+//#UC START# *5507F1090227_5507EFFD01FE_impl*
+ if (aSlotIndex = -1) then
+  l_SlotIndex := Pred(f_SlotCount)
+ else
+  l_SlotIndex := aSlotIndex;
+
+ l_Rect := GetSlotRect(l_SlotIndex);
+ with aTab do
+ begin
+  PositionRect := l_Rect;
+  f_Tabs.Add(aTab);
+  SlotIndex := l_SlotIndex;
+ end;
+ ResizeTabs;
+ Invalidate;
+//#UC END# *5507F1090227_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.PlaceTab
+
+procedure TChromeLikeTabSetControl.SetTabPosition(aTab: TChromeLikeTab);
+//#UC START# *5507F11502F1_5507EFFD01FE_var*
+//#UC END# *5507F11502F1_5507EFFD01FE_var*
+begin
+//#UC START# *5507F11502F1_5507EFFD01FE_impl*
+ Assert(aTab <> nil);
+ aTab.SetPosition(GetSlotRect(aTab.SlotIndex),
+                              cMovingAnimationDuration,
+                              MovingEaseType);
+//#UC END# *5507F11502F1_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.SetTabPosition
+
+procedure TChromeLikeTabSetControl.SetInitialTabPosition(aTab: TChromeLikeTab);
+//#UC START# *5507F14102CE_5507EFFD01FE_var*
+var
+ l_SlotIndex: Integer;
+ l_Rect: TRect;
+//#UC END# *5507F14102CE_5507EFFD01FE_var*
+begin
+//#UC START# *5507F14102CE_5507EFFD01FE_impl*
+ l_SlotIndex := aTab.SlotIndex;
+ if (l_SlotIndex > 0) and
+    (TabCount > 0) then
+ begin
+  l_Rect := GetSlotRect(Pred(l_SlotIndex));
+  l_Rect.Left := l_Rect.Right + cMinSlotWidth;
+ end
+ else
+ begin
+  l_Rect := GetSlotRect(0);
+  l_Rect.Left := l_Rect.Right + cMinSlotWidth;
+ end;
+ aTab.PositionRect := l_Rect;
+//#UC END# *5507F14102CE_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.SetInitialTabPosition
+
+function TChromeLikeTabSetControl.GetTabAtPoint(const aPoint: TPoint): TChromeLikeTab;
+//#UC START# *5507F09A0097_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_TabRect: TRect;
+//#UC END# *5507F09A0097_5507EFFD01FE_var*
+begin
+//#UC START# *5507F09A0097_5507EFFD01FE_impl*
+ Result := nil;
+ for l_Index := 0 to Pred(f_Tabs.Count) do
+ begin
+  l_TabRect := f_Tabs[l_Index].PositionRect;
+  if IsPtInRect(aPoint, l_TabRect) then
+  begin
+   Result := f_Tabs[l_Index];
+   Break;
+  end;
+ end;
+//#UC END# *5507F09A0097_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetTabAtPoint
+
+function TChromeLikeTabSetControl.GetTabInSlot(aSlotIndex: Integer): TChromeLikeTab;
+//#UC START# *5507F0BA0186_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_Tab: TChromeLikeTab;
+//#UC END# *5507F0BA0186_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0BA0186_5507EFFD01FE_impl*
+ Result := nil;
+ for l_Index := 0 to Pred(TabCount) do
+ begin
+  l_Tab := Tabs[l_Index];
+  if (l_Tab.SlotIndex = aSlotIndex) then
+  begin
+   Result := l_Tab;
+   Break;
+  end;
+ end;
+//#UC END# *5507F0BA0186_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetTabInSlot
+
+function TChromeLikeTabSetControl.NeedMoveTab(aTab: TChromeLikeTab): Boolean;
+//#UC START# *5507F0EE007D_5507EFFD01FE_var*
+//#UC END# *5507F0EE007D_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0EE007D_5507EFFD01FE_impl*
+ Result := (TabCount > 1);
+//#UC END# *5507F0EE007D_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.NeedMoveTab
+
+function TChromeLikeTabSetControl.CanRemoveTab(aTab: TChromeLikeTab): Boolean;
+//#UC START# *5507F0F90394_5507EFFD01FE_var*
+//#UC END# *5507F0F90394_5507EFFD01FE_var*
+begin
+//#UC START# *5507F0F90394_5507EFFD01FE_impl*
+ Result := (TabCount > 1);
+ if Assigned(f_OnCanUndockTabForm) then
+  f_OnCanUndockTabForm(Self, aTab.Form, Result);
+//#UC END# *5507F0F90394_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CanRemoveTab
+
+function TChromeLikeTabSetControl.DockFormIntoSlot(aForm: TForm;
+ const aTabParams: Il3TabParams;
+ aSlotIndex: Integer = -1;
+ aNeedSelect: Boolean = True): Boolean;
+//#UC START# *5507F32B02D6_5507EFFD01FE_var*
+var
+ l_FormTab: TChromeLikeTab;
+ l_CanDockForm: Boolean;
+//#UC END# *5507F32B02D6_5507EFFD01FE_var*
+begin
+//#UC START# *5507F32B02D6_5507EFFD01FE_impl*
+ Assert(aForm <> nil);
+
+ Result := False;
+
+ if Assigned(f_OnCanDockForm) then
+  f_OnCanDockForm(Self, aForm, aNeedSelect, l_CanDockForm)
+ else
+  l_CanDockForm := True;
+
+ if l_CanDockForm then
+ begin
+  l_FormTab := TChromeLikeTab.Create(Self);
+  l_FormTab.CloseButtonImages := CloseButtonImages;
+  l_FormTab.CloseButtonImageIndex := f_CloseButtonImageIndex;
+  l_FormTab.CloseButtonHotImageIndex := f_CloseButtonHotImageIndex;
+  with l_FormTab do
+  begin
+   OnNeedCloseTab := DoOnNeedCloseTab;
+   pm_SetForm(aForm);
+   if (aTabParams <> nil) then
+   begin
+    Text := aTabParams.Text;
+    HintText := aTabParams.HintText;
+    f_Icon.ImageList := Images;
+    f_Icon.ImageIndex := aTabParams.ImageIndex;
+   end;
+  end;
+
+  Container.DockForm(aForm, False);
+
+  AddTab(l_FormTab, aSlotIndex);
+
+
+  if Assigned(f_OnAfterFormAdded) then
+   f_OnAfterFormAdded(Self, aForm, aNeedSelect);
+
+  if aNeedSelect then
+   SelectedTab := l_FormTab;
+ end;
+//#UC END# *5507F32B02D6_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DockFormIntoSlot
+
+procedure TChromeLikeTabSetControl.SelectNext;
+ {* Сделать активной вкладку, предшествующую активной }
+//#UC START# *5507F39000F4_5507EFFD01FE_var*
+var
+ l_SelectedTabSlotIndex: Integer;
+//#UC END# *5507F39000F4_5507EFFD01FE_var*
+begin
+//#UC START# *5507F39000F4_5507EFFD01FE_impl*
+ l_SelectedTabSlotIndex := SelectedSlotIndex;
+ Inc(l_SelectedTabSlotIndex);
+
+ if (l_SelectedTabSlotIndex > Pred(f_SlotCount)) then
+  l_SelectedTabSlotIndex := 0;
+
+ SelectedTab := GetTabInSlot(l_SelectedTabSlotIndex);
+//#UC END# *5507F39000F4_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.SelectNext
+
+procedure TChromeLikeTabSetControl.SelectPrev;
+ {* Сделать активной вкладку, следующую за активной }
+//#UC START# *5507F39C0053_5507EFFD01FE_var*
+var
+ l_SelectedTabSlotIndex: Integer;
+//#UC END# *5507F39C0053_5507EFFD01FE_var*
+begin
+//#UC START# *5507F39C0053_5507EFFD01FE_impl*
+ l_SelectedTabSlotIndex := SelectedSlotIndex;
+ Dec(l_SelectedTabSlotIndex);
+
+ if (l_SelectedTabSlotIndex < 0) then
+  l_SelectedTabSlotIndex := Pred(f_SlotCount);
+
+ SelectedTab := GetTabInSlot(l_SelectedTabSlotIndex);
+//#UC END# *5507F39C0053_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.SelectPrev
+
+function TChromeLikeTabSetControl.CanCloseAllButSelected: Boolean;
+//#UC START# *5507F3AF0311_5507EFFD01FE_var*
+//#UC END# *5507F3AF0311_5507EFFD01FE_var*
+begin
+//#UC START# *5507F3AF0311_5507EFFD01FE_impl*
+ Result := (SelectedTab <> nil) and
+           (TabCount > 1);
+//#UC END# *5507F3AF0311_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CanCloseAllButSelected
+
+procedure TChromeLikeTabSetControl.CloseAllExceptOne(aTab: TChromeLikeTab);
+ {* Закрыть все, кроме определенной }
+//#UC START# *5507F3C003B6_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_TabToClose: TChromeLikeTab;
+ l_SlotCount: Integer;
+//#UC END# *5507F3C003B6_5507EFFD01FE_var*
+begin
+//#UC START# *5507F3C003B6_5507EFFD01FE_impl*
+ Assert(aTab <> nil);
+ for l_Index := Pred(TabCount) downto 0 do
+ begin
+  l_TabToClose := Tabs[l_Index];
+  if (l_TabToClose <> aTab) then
+   CloseTab(l_TabToClose);
+ end;
+//#UC END# *5507F3C003B6_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CloseAllExceptOne
+
+function TChromeLikeTabSetControl.CanCloseAllRightToSelected: Boolean;
+//#UC START# *5507F3FC0116_5507EFFD01FE_var*
+//#UC END# *5507F3FC0116_5507EFFD01FE_var*
+begin
+//#UC START# *5507F3FC0116_5507EFFD01FE_impl*
+ Result := (SelectedTab <> nil) and
+           (SelectedTab.SlotIndex < Pred(f_SlotCount));
+//#UC END# *5507F3FC0116_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CanCloseAllRightToSelected
+
+procedure TChromeLikeTabSetControl.CloseAllRightToTab(aTab: TChromeLikeTab);
+ {* Закрыть все вкладки справа от активной }
+//#UC START# *5507F4170123_5507EFFD01FE_var*
+var
+ l_SelectedTabSlot: Integer;
+ l_TabToClose: TChromeLikeTab;
+ l_Index: Integer;
+//#UC END# *5507F4170123_5507EFFD01FE_var*
+begin
+//#UC START# *5507F4170123_5507EFFD01FE_impl*
+ Assert(aTab <> nil);
+ l_SelectedTabSlot := aTab.SlotIndex;
+ if (l_SelectedTabSlot < Pred(f_SlotCount)) then
+ begin
+  for l_Index := Pred(TabCount) downto 0 do
+  begin
+   l_TabToClose := Tabs[l_Index];
+   if (l_TabToClose.SlotIndex > l_SelectedTabSlot) then
+    CloseTab(l_TabToClose);
+  end;
+ end;
+//#UC END# *5507F4170123_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CloseAllRightToTab
+
+procedure TChromeLikeTabSetControl.AddTab(aTab: TChromeLikeTab);
+//#UC START# *5507F43A012E_5507EFFD01FE_var*
+//#UC END# *5507F43A012E_5507EFFD01FE_var*
+begin
+//#UC START# *5507F43A012E_5507EFFD01FE_impl*
+ AddTab(aTab, -1);
+//#UC END# *5507F43A012E_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.AddTab
+
+procedure TChromeLikeTabSetControl.AddTab(aTab: TChromeLikeTab;
+ const aPoint: TPoint);
+//#UC START# *5507F45D00D2_5507EFFD01FE_var*
+var
+ l_SlotIndex: Integer;
+//#UC END# *5507F45D00D2_5507EFFD01FE_var*
+begin
+//#UC START# *5507F45D00D2_5507EFFD01FE_impl*
+ l_SlotIndex := GetSlotIndexAtPoint(aPoint);
+ AddTab(aTab, l_SlotIndex);
+//#UC END# *5507F45D00D2_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.AddTab
+
+procedure TChromeLikeTabSetControl.AddTab(aTab: TChromeLikeTab;
+ aSlotIndex: Integer);
+//#UC START# *5507F47E0301_5507EFFD01FE_var*
+var
+ l_LastSlot: Integer;
+ l_SlotIndex: Integer;
+//#UC END# *5507F47E0301_5507EFFD01FE_var*
+begin
+//#UC START# *5507F47E0301_5507EFFD01FE_impl*
+ TChromeLikeTabSetAnimationManager.Instance.FinishAllImmediately;
+
+ InvalidateWidthPerSlot;
+
+ l_LastSlot := Pred(f_SlotCount);
+
+ if (aSlotIndex = -1) then
+  l_SlotIndex := l_LastSlot
+ else
+  l_SlotIndex := aSlotIndex;
+
+ aTab.SlotIndex := InsertSlot(l_SlotIndex);
+ SetInitialTabPosition(aTab);
+ f_Tabs.Add(aTab);
+ ResizeTabs;
+ SetTabPosition(aTab);
+ Invalidate;
+ ShowNewTabButton;
+ UpdateNewTabButtonPosition;
+//#UC END# *5507F47E0301_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.AddTab
+
+procedure TChromeLikeTabSetControl.AddTabAfterSelected(aTab: TChromeLikeTab);
+//#UC START# *5507F4AA00B0_5507EFFD01FE_var*
+var
+ l_SlotIndex: Integer;
+//#UC END# *5507F4AA00B0_5507EFFD01FE_var*
+begin
+//#UC START# *5507F4AA00B0_5507EFFD01FE_impl*
+ if (SelectedTab <> nil) then
+  l_SlotIndex := SelectedTab.SlotIndex
+ else
+  l_SlotIndex := Pred(f_SlotCount);
+ AddTab(aTab, l_SlotIndex);
+//#UC END# *5507F4AA00B0_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.AddTabAfterSelected
+
+procedure TChromeLikeTabSetControl.CloseTab(aTab: TChromeLikeTab;
+ aForce: Boolean = False);
+//#UC START# *5507F4C7007D_5507EFFD01FE_var*
+var
+ l_CanClose: Boolean;
+//#UC END# *5507F4C7007D_5507EFFD01FE_var*
+begin
+//#UC START# *5507F4C7007D_5507EFFD01FE_impl*
+ l_CanClose := aForce or CanCloseTab(aTab);
+ if l_CanClose and
+    Assigned(f_OnCloseTabForm) then
+   f_OnCloseTabForm(Self, aTab, l_CanClose, GetSelectedTabAfterClosing(aTab));
+ if l_CanClose then
+ begin
+  if Assigned(f_OnTabClosed) then
+   f_OnTabClosed(Self, aTab);
+  RemoveTab(aTab);
+ end;
+//#UC END# *5507F4C7007D_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CloseTab
+
+function TChromeLikeTabSetControl.CanCloseTab(aTab: TChromeLikeTab): Boolean;
+//#UC START# *5507F4F001EF_5507EFFD01FE_var*
+//#UC END# *5507F4F001EF_5507EFFD01FE_var*
+begin
+//#UC START# *5507F4F001EF_5507EFFD01FE_impl*
+ Result := True;
+//#UC END# *5507F4F001EF_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CanCloseTab
+
+procedure TChromeLikeTabSetControl.RemoveTab(aTab: TChromeLikeTab);
+//#UC START# *5507F51200EA_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
+ l_TabSlot: Integer;
+ l_NewSelectedTab: TChromeLikeTab;
+//#UC END# *5507F51200EA_5507EFFD01FE_var*
+begin
+//#UC START# *5507F51200EA_5507EFFD01FE_impl*
+ if (aTab = f_HintTab) then
+  f_HintTab := nil;
+
+ f_WasMouseLDown := False;
+
+ l_Tab := aTab;
+ l_TabSlot := aTab.SlotIndex;
+
+ if (f_SelectedTab = l_Tab) then
+ begin
+  l_NewSelectedTab := GetSelectedTabAfterClosing(l_Tab);
+  if (l_NewSelectedTab <> nil) then
+   SelectedTab := l_NewSelectedTab
+  else
+   f_SelectedTab := nil;
+ end;
+ if (f_MovingTab = l_Tab) then
+  f_MovingTab := nil;
+
+ Assert(f_Tabs.IndexOf(l_Tab) <> -1);
+ f_Tabs.Remove(l_Tab);
+
+ FreeAndNil(aTab);
+
+ InvalidateWidthPerSlot;
+
+ DeleteSlot(l_TabSlot);
+
+ InvalidateWidthPerSlot;
+ ResizeTabs;
+ UpdateNewTabButtonPosition;
+ ShowNewTabButton;
+ Invalidate;
+//#UC END# *5507F51200EA_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.RemoveTab
+
+function TChromeLikeTabSetControl.DockForm(aForm: TForm;
+ const aTabParams: Il3TabParams;
+ aNeedSelect: Boolean = True): Boolean;
+//#UC START# *5507F53801F2_5507EFFD01FE_var*
+//#UC END# *5507F53801F2_5507EFFD01FE_var*
+begin
+//#UC START# *5507F53801F2_5507EFFD01FE_impl*
+ Result := DockFormIntoSlot(aForm, aTabParams, -1, aNeedSelect);
+//#UC END# *5507F53801F2_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DockForm
+
+function TChromeLikeTabSetControl.DockFormAfterSelected(aForm: TForm;
+ const aTabParams: Il3TabParams;
+ aNeedSelect: Boolean = True): Boolean;
+//#UC START# *5507F546000A_5507EFFD01FE_var*
+var
+ l_SlotIndex: Integer;
+//#UC END# *5507F546000A_5507EFFD01FE_var*
+begin
+//#UC START# *5507F546000A_5507EFFD01FE_impl*
+ if (SelectedTab <> nil) and
+    (SelectedTab.SlotIndex < Pred(f_SlotCount)) then
+  l_SlotIndex := SelectedTab.SlotIndex
+ else
+  l_SlotIndex := -1;
+ Result := DockFormIntoSlot(aForm, aTabParams, l_SlotIndex, aNeedSelect);
+//#UC END# *5507F546000A_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DockFormAfterSelected
+
+function TChromeLikeTabSetControl.CanDockFormAtPoint(aForm: TForm;
+ const aScreenPoint: TPoint): Boolean;
+//#UC START# *5507F556002B_5507EFFD01FE_var*
+var
+ l_cPt: TPoint;
+//#UC END# *5507F556002B_5507EFFD01FE_var*
+begin
+//#UC START# *5507F556002B_5507EFFD01FE_impl*
+ l_cPt := ScreenToClient(aScreenPoint);
+ Result := PtInRect(ClientRect, l_cPt);
+ if Result then
+  if Assigned(f_OnCanDockForm) then
+   f_OnCanDockForm(Self, aForm, True, Result);
+//#UC END# *5507F556002B_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.CanDockFormAtPoint
+
+procedure TChromeLikeTabSetControl.UndockTabbedForm(aTab: TChromeLikeTab);
+//#UC START# *5507F5620368_5507EFFD01FE_var*
+var
+ l_Form: TForm;
+ l_Container: Il3TabbedContainer;
+ l_ContainerLeftTopPt: TPoint;
+ l_TabParams: Il3TabParams;
+ l_FocusedControl: TWinControl;
+//#UC END# *5507F5620368_5507EFFD01FE_var*
+begin
+//#UC START# *5507F5620368_5507EFFD01FE_impl*
+ Assert(aTab <> nil);
+ Assert(aTab.Form <> nil);
+
+ aTab.Visible := False;
+ l_TabParams := MakeTabParams(aTab);
+ try
+  UpdateWindow(Handle);
+
+  l_Form := aTab.Form;
+
+  l_FocusedControl := FindControl(Windows.GetFocus);
+
+  l_ContainerLeftTopPt := ClientToScreen(Point(aTab.PositionRect.Left, ClientHeight));
+
+  Container.LockPosition;
+  // - пока создается другой контейнер, изначальный контейнер не должен
+  // поддаваться на WM_WINDOWPOSCHANGING.
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=595456773
+  try
+   l_Container := Container.MakeClone;
+   Assert(l_Container <> nil);
+
+   if Assigned(f_OnTabClosed) then
+    f_OnTabClosed(Self, aTab);
+
+   RemoveTab(aTab);
+   Invalidate;
+
+   l_Container.DockForeignForm(l_Form, l_TabParams);
+  finally
+   Container.UnlockPosition;
+  end;
+  l_Container.MakeVisible(l_ContainerLeftTopPt);
+  l_Form.Visible := True;
+  if ((l_FocusedControl <> nil) and l_FocusedControl.CanFocus) then
+   l_FocusedControl.SetFocus;
+ finally
+  l_TabParams := nil;
+ end;
+//#UC END# *5507F5620368_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.UndockTabbedForm
+
+function TChromeLikeTabSetControl.IsDockablePoint(const aPoint: TPoint): Boolean;
+//#UC START# *5507F67A0238_5507EFFD01FE_var*
+var
+ l_cPt: TPoint;
+ l_InRect: Boolean;
+ l_Bounds: TRect;
+//#UC END# *5507F67A0238_5507EFFD01FE_var*
+begin
+//#UC START# *5507F67A0238_5507EFFD01FE_impl*
+ Result := False;
+ l_Bounds := ClientRect;
+ l_cPt := ScreenToClient(aPoint);;
+ l_InRect := PtInRect(l_Bounds, l_cPt);
+ if l_InRect then
+  Result := l_cPt.Y >= (((l_Bounds.Bottom - l_Bounds.Top) div 2) + l_Bounds.Top);
+//#UC END# *5507F67A0238_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.IsDockablePoint
+
+function TChromeLikeTabSetControl.HitTest(const aPoint: TPoint): TChromeLikeTabSetHitTestResult;
+//#UC START# *5507F69A01CF_5507EFFD01FE_var*
+var
+ l_pPt: TPoint;
+ l_cPt: TPoint;
+//#UC END# *5507F69A01CF_5507EFFD01FE_var*
+begin
+//#UC START# *5507F69A01CF_5507EFFD01FE_impl*
+ l_cPt := ScreenToClient(aPoint);
+ l_pPt := Parent.ScreenToClient(aPoint);
+ if not PtInRect(BoundsRect, l_pPt) then
+ begin
+  Result := htrNowhere;
+  Exit;
+ end
+ else
+ if (GetTabAtPoint(l_cPt) <> nil) then
+  Result := htrInTab
+ else
+  Result := htrClient;
+//#UC END# *5507F69A01CF_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.HitTest
+
+procedure TChromeLikeTabSetControl.UpdateFormTab(aForm: TForm;
+ const aParams: Il3TabParams);
+//#UC START# *5507F6D001C1_5507EFFD01FE_var*
+var
+ l_FormTab: TChromeLikeTab;
+//#UC END# *5507F6D001C1_5507EFFD01FE_var*
+begin
+//#UC START# *5507F6D001C1_5507EFFD01FE_impl*
+ l_FormTab := FindFormTab(aForm);
+ if (aParams <> nil) then
+ begin
+  if (tuo_UpdateHintText in aParams.UpdateOptions) then
+   l_FormTab.HintText := aParams.HintText;
+  if (tuo_UpdateTabText in aParams.UpdateOptions) then
+   l_FormTab.Text := aParams.Text;
+  if (tuo_UpdateTabImage in aParams.UpdateOptions) then
+   l_FormTab.ImageIndex := aParams.ImageIndex;
+  Invalidate;
+ end;
+//#UC END# *5507F6D001C1_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.UpdateFormTab
+
+procedure TChromeLikeTabSetControl.SetFormTabImageIndex(aForm: TForm;
+ aImageIndex: Integer);
+//#UC START# *5507F6FE0373_5507EFFD01FE_var*
+var
+ l_FormTab: TChromeLikeTab;
+//#UC END# *5507F6FE0373_5507EFFD01FE_var*
+begin
+//#UC START# *5507F6FE0373_5507EFFD01FE_impl*
+ l_FormTab := FindFormTab(aForm);
+ if (l_FormTab <> nil) then
+  l_FormTab.ImageIndex := aImageIndex;
+//#UC END# *5507F6FE0373_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.SetFormTabImageIndex
+
+function TChromeLikeTabSetControl.DockFormAtPoint(aForm: TForm;
+ const aTabParams: Il3TabParams;
+ const aPoint: TPoint;
+ aNeedSelect: Boolean = True): Boolean;
+//#UC START# *550806D7020E_5507EFFD01FE_var*
+const
+ cSideDelta: array[TChromeLikeTabSide] of Integer = (-1, 0);
+var
+ l_cPt: TPoint;
+ l_TabAtPoint: TChromeLikeTab;
+ l_TabSlotIndex: Integer;
+//#UC END# *550806D7020E_5507EFFD01FE_var*
+begin
+//#UC START# *550806D7020E_5507EFFD01FE_impl*
+ l_cPt := ScreenToClient(aPoint);
+ l_TabAtPoint := GetTabAtPoint(l_cPt);
+ if (l_TabAtPoint <> nil) then
+ begin
+  l_TabSlotIndex := l_TabAtPoint.SlotIndex;
+  Inc(l_TabSlotIndex, cSideDelta[l_TabAtPoint.GetTabSide(aPoint)]);
+  Result := DockFormIntoSlot(aForm, aTabParams, Max(0, l_TabSlotIndex), aNeedSelect);
+ end
+ else
+  Result := DockForm(aForm, aTabParams, aNeedSelect);
+//#UC END# *550806D7020E_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DockFormAtPoint
+
+procedure TChromeLikeTabSetControl.DoOnNeedCloseTab(aTabToClose: TChromeLikeBaseVisualObject);
+//#UC START# *550FEE240297_5507EFFD01FE_var*
+//#UC END# *550FEE240297_5507EFFD01FE_var*
+begin
+//#UC START# *550FEE240297_5507EFFD01FE_impl*
+ CloseTab(TChromeLikeTab(aTabToClose));
+//#UC END# *550FEE240297_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DoOnNeedCloseTab
+
+function TChromeLikeTabSetControl.GetSelectedTabAfterClosing(aTab: TChromeLikeTab): TChromeLikeTab;
+//#UC START# *550FFBF00385_5507EFFD01FE_var*
+//#UC END# *550FFBF00385_5507EFFD01FE_var*
+begin
+//#UC START# *550FFBF00385_5507EFFD01FE_impl*
+ if (aTab.SlotIndex > 0) then
+  Result := GetTabInSlot(Pred(aTab.SlotIndex))
+ else
+ if (TabCount > 1) then
+  Result := GetTabInSlot(Succ(aTab.SlotIndex))
+ else
+  Result := nil;
+//#UC END# *550FFBF00385_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetSelectedTabAfterClosing
+
+procedure TChromeLikeTabSetControl.DestroyTabs;
+//#UC START# *550FFCD502DA_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_Tab: TChromeLikeTab;
+//#UC END# *550FFCD502DA_5507EFFD01FE_var*
+begin
+//#UC START# *550FFCD502DA_5507EFFD01FE_impl*
+ for l_Index := Pred(TabCount) downto 0 do
+ begin
+  l_Tab := Tabs[l_Index];
+  f_Tabs.Delete(l_Index);
+  FreeAndNil(l_Tab);
+ end;
+//#UC END# *550FFCD502DA_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DestroyTabs
+
+function TChromeLikeTabSetControl.FindFormTab(aForm: TForm): TChromeLikeTab;
+//#UC START# *550FFCE3014B_5507EFFD01FE_var*
+var
+ l_Index: Integer;
+ l_Tab: TChromeLikeTab;
+//#UC END# *550FFCE3014B_5507EFFD01FE_var*
+begin
+//#UC START# *550FFCE3014B_5507EFFD01FE_impl*
+ Result := nil;
+ for l_Index := 0 to Pred(TabCount) do
+ begin
+  l_Tab := Tabs[l_Index];
+  if (l_Tab.Form = aForm) then
+  begin
+   Result := l_Tab;
+   Break;
+  end;
+ end;
+//#UC END# *550FFCE3014B_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.FindFormTab
+
+function TChromeLikeTabSetControl.MakeTabParams(aTab: TChromeLikeTab): Il3TabParams;
+//#UC START# *551285860003_5507EFFD01FE_var*
+var
+ l_Text: Il3CString;
+ l_HintText: Il3CString;
+ l_ImageIndex: Integer;
+//#UC END# *551285860003_5507EFFD01FE_var*
+begin
+//#UC START# *551285860003_5507EFFD01FE_impl*
+ Assert(aTab <> nil);
+ l_Text := l3CStr(aTab.Text);
+ l_HintText := l3CStr(aTab.HintText);
+ l_ImageIndex := aTab.ImageIndex;
+ Result := TChromeLikeTabParams.Make(l_Text, l_HintText, l_ImageIndex, [tuo_UpdateHintText,
+  tuo_UpdateTabText, tuo_UpdateTabImage]);
+//#UC END# *551285860003_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.MakeTabParams
+
+procedure TChromeLikeTabSetControl.SetParams(const aParams: TChromeLikeTabSetParams);
+//#UC START# *551554BB0334_5507EFFD01FE_var*
+//#UC END# *551554BB0334_5507EFFD01FE_var*
+begin
+//#UC START# *551554BB0334_5507EFFD01FE_impl*
+ f_CloseButtonImages := aParams.rCloseButtonImages;
+ f_CloseButtonImageIndex := aParams.rCloseButtonImageIndex;
+ f_CloseButtonHotImageIndex := aParams.rCloseButtonHotImageIndex;
+ Images := aParams.rTabImages;
+//#UC END# *551554BB0334_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.SetParams
+
+procedure TChromeLikeTabSetControl.PopulatePopupMenu;
+//#UC START# *553F0DAB01F7_5507EFFD01FE_var*
+
+ function lp_MakeMenuItem(anAction: TContainedAction): TMenuItem;
+ begin
+  Result := TMenuItem.Create(f_TabsPopupMenu.Items);
+  Result.Action := anAction;
+ end;//lp_MakeMenuItem
+
+var
+ l_Index: Integer;
+//#UC END# *553F0DAB01F7_5507EFFD01FE_var*
+begin
+//#UC START# *553F0DAB01F7_5507EFFD01FE_impl*
+ if (f_TabsPopupMenu.Items.Count = 0) then
+  with f_TabsPopupMenu.Items do
+  begin
+   Add(lp_MakeMenuItem(f_actNewTab));
+   Add(lp_MakeMenuItem(f_actMakeClone));
+   Add(lp_MakeMenuItem(f_actCloseTab));
+   Add(lp_MakeMenuItem(f_actCloseOtherTabs));
+   Add(lp_MakeMenuItem(f_actCloseRightTabs));
+   Add(lp_MakeMenuItem(f_actReopenClosedTab));
+  end;
+//#UC END# *553F0DAB01F7_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.PopulatePopupMenu
+
+procedure TChromeLikeTabSetControl.actNewTabExecute(Sender: TObject);
+//#UC START# *553F1FF80348_5507EFFD01FE_var*
+//#UC END# *553F1FF80348_5507EFFD01FE_var*
+begin
+//#UC START# *553F1FF80348_5507EFFD01FE_impl*
+ if Assigned(f_OnNewTabRequested) then
+  f_OnNewTabRequested(Self, (Sender as TChromeLikeTabAction).Tab, False);
+//#UC END# *553F1FF80348_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.actNewTabExecute
+
+procedure TChromeLikeTabSetControl.actMakeCloneExecute(Sender: TObject);
+//#UC START# *553F20210329_5507EFFD01FE_var*
+var
+ l_Tab: Il3FormTab;
+//#UC END# *553F20210329_5507EFFD01FE_var*
+begin
+//#UC START# *553F20210329_5507EFFD01FE_impl*
+ Supports(f_actMakeClone.Tab, Il3FormTab, l_Tab);
+ Assert(l_Tab <> nil);
+ Tl3TabbedContainersDispatcher.Instance.CloneTab(l_Tab);
+//#UC END# *553F20210329_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.actMakeCloneExecute
+
+procedure TChromeLikeTabSetControl.actCloseTabExecute(Sender: TObject);
+//#UC START# *553F20470333_5507EFFD01FE_var*
+//#UC END# *553F20470333_5507EFFD01FE_var*
+begin
+//#UC START# *553F20470333_5507EFFD01FE_impl*
+ CloseTab(f_actCloseTab.Tab);
+//#UC END# *553F20470333_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.actCloseTabExecute
+
+procedure TChromeLikeTabSetControl.actCloseOtherTabsExecute(Sender: TObject);
+//#UC START# *553F206C017F_5507EFFD01FE_var*
+//#UC END# *553F206C017F_5507EFFD01FE_var*
+begin
+//#UC START# *553F206C017F_5507EFFD01FE_impl*
+ CloseAllExceptOne(f_actCloseOtherTabs.Tab);
+//#UC END# *553F206C017F_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.actCloseOtherTabsExecute
+
+procedure TChromeLikeTabSetControl.actCloseRightTabsExecute(Sender: TObject);
+//#UC START# *553F208C0095_5507EFFD01FE_var*
+//#UC END# *553F208C0095_5507EFFD01FE_var*
+begin
+//#UC START# *553F208C0095_5507EFFD01FE_impl*
+ CloseAllRightToTab(f_actCloseRightTabs.Tab);
+//#UC END# *553F208C0095_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.actCloseRightTabsExecute
+
+procedure TChromeLikeTabSetControl.actReopenClosedTabExecute(Sender: TObject);
+//#UC START# *553F20A603B7_5507EFFD01FE_var*
+//#UC END# *553F20A603B7_5507EFFD01FE_var*
+begin
+//#UC START# *553F20A603B7_5507EFFD01FE_impl*
+ Tl3TabbedContainersDispatcher.Instance.ReopenClosedTab(Container);
+//#UC END# *553F20A603B7_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.actReopenClosedTabExecute
+
+procedure TChromeLikeTabSetControl.MakeActions;
+//#UC START# *553F21AF0289_5507EFFD01FE_var*
+
+ function lp_MakeAction(const aCaption: Tl3StringIDEx; aOnExecute: TNotifyEvent;
+  const aShortCut: String = ''): TChromeLikeTabAction;
+ begin
+  Result := TChromeLikeTabAction.Create(Self);
+  with Result do
+  begin
+   Caption := l3Str(aCaption.AsCStr);
+   OnExecute := aOnExecute;
+   if (Length(aShortCut) > 0) then
+    ShortCut := TextToShortCut(aShortCut);
+  end;//with Result
+ end;//lp_AddAction
+
+//#UC END# *553F21AF0289_5507EFFD01FE_var*
+begin
+//#UC START# *553F21AF0289_5507EFFD01FE_impl*
+ f_actNewTab := lp_MakeAction(str_NewTab, actNewTabExecute, 'Ctrl+T');
+ f_actMakeClone := lp_MakeAction(str_MakeClone, actMakeCloneExecute);
+ f_actCloseTab := lp_MakeAction(str_CloseTab, actCloseTabExecute, 'Ctrl+W');
+ f_actCloseOtherTabs := lp_MakeAction(str_CloseOtherTabs, actCloseOtherTabsExecute);
+ f_actCloseRightTabs := lp_MakeAction(str_CloseRightTabs, actCloseRightTabsExecute);
+ f_actReopenClosedTab := lp_MakeAction(str_ReopenClosedTab, actReopenClosedTabExecute, 'Ctrl+Shift+T');
+//#UC END# *553F21AF0289_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.MakeActions
+
+procedure TChromeLikeTabSetControl.UpdateMenuActions(aMenuTab: TChromeLikeTab);
+//#UC START# *553F42BE0387_5507EFFD01FE_var*
+//#UC END# *553F42BE0387_5507EFFD01FE_var*
+begin
+//#UC START# *553F42BE0387_5507EFFD01FE_impl*
+ f_actNewTab.Tab := aMenuTab;
+ f_actMakeClone.Tab := aMenuTab;
+ f_actCloseOtherTabs.Tab := aMenuTab;
+ f_actCloseRightTabs.Tab := aMenuTab;
+ f_actReopenClosedTab.Tab := aMenuTab;
+ f_actCloseTab.Tab := aMenuTab;
+
+ f_actCloseOtherTabs.Enabled := (TabCount > 1);
+ f_actCloseRightTabs.Enabled := (aMenuTab <> nil) and (aMenuTab.SlotIndex < Pred(f_SlotCount));
+ f_actMakeClone.Enabled := (aMenuTab <> nil) and aMenuTab.CanBeCloned;
+ f_actReopenClosedTab.Enabled :=  Tl3TabbedContainersDispatcher.Instance.CanReopenClosedTab(Container); 
+//#UC END# *553F42BE0387_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.UpdateMenuActions
+
+procedure TChromeLikeTabSetControl.UpdateNewTabButtonPosition;
+//#UC START# *5541DC5E03A4_5507EFFD01FE_var*
+var
+ l_TabRight: Integer;
+//#UC END# *5541DC5E03A4_5507EFFD01FE_var*
+begin
+//#UC START# *5541DC5E03A4_5507EFFD01FE_impl*
+ l_TabRight := GetTotalTabsRect.Right;
+ f_NewTabButton.PositionRect := Rect(l_TabRight, ClientRect.Bottom - f_TabHeight,
+  l_TabRight + f_NewTabButton.MeasureSize.cx, f_NewTabButton.MeasureSize.cy);
+//#UC END# *5541DC5E03A4_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.UpdateNewTabButtonPosition
+
+function TChromeLikeTabSetControl.GetTotalTabsRect: TRect;
+//#UC START# *5541E0860318_5507EFFD01FE_var*
+var
+ l_FirstSlotRect: TRect;
+ l_LastSlotRect: TRect;
+//#UC END# *5541E0860318_5507EFFD01FE_var*
+begin
+//#UC START# *5541E0860318_5507EFFD01FE_impl*
+ l_FirstSlotRect := GetSlotRect(0);
+ l_LastSlotRect := GetSlotRect(Pred(f_SlotCount));
+ Result.TopLeft := l_FirstSlotRect.TopLeft;
+ Result.BottomRight := l_LastSlotRect.BottomRight;
+//#UC END# *5541E0860318_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetTotalTabsRect
+
+procedure TChromeLikeTabSetControl.StartMoving;
+//#UC START# *556551BB00E1_5507EFFD01FE_var*
+//#UC END# *556551BB00E1_5507EFFD01FE_var*
+begin
+//#UC START# *556551BB00E1_5507EFFD01FE_impl*
+//#UC END# *556551BB00E1_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.StartMoving
+
+procedure TChromeLikeTabSetControl.HideNewTabButton;
+//#UC START# *55656DCA033E_5507EFFD01FE_var*
+//#UC END# *55656DCA033E_5507EFFD01FE_var*
+begin
+//#UC START# *55656DCA033E_5507EFFD01FE_impl*
+ f_NewTabButton.Visible := False;
+//#UC END# *55656DCA033E_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.HideNewTabButton
+
+procedure TChromeLikeTabSetControl.ShowNewTabButton;
+//#UC START# *55656DDA01D4_5507EFFD01FE_var*
+//#UC END# *55656DDA01D4_5507EFFD01FE_var*
+begin
+//#UC START# *55656DDA01D4_5507EFFD01FE_impl*
+ f_NewTabButton.Visible := True;
+ UpdateNewTabButtonPosition; 
+//#UC END# *55656DDA01D4_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.ShowNewTabButton
+
+function TChromeLikeTabSetControl.IsLastTab(aTab: TChromeLikeTab): Boolean;
+//#UC START# *55656DF602DE_5507EFFD01FE_var*
+//#UC END# *55656DF602DE_5507EFFD01FE_var*
+begin
+//#UC START# *55656DF602DE_5507EFFD01FE_impl*
+ Result := (aTab.SlotIndex = Pred(f_SlotCount));
+//#UC END# *55656DF602DE_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.IsLastTab
+
+procedure TChromeLikeTabSetControl.DoOnNewTabButtonClick(Sender: TObject);
+//#UC START# *55669D6C03B4_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
+//#UC END# *55669D6C03B4_5507EFFD01FE_var*
+begin
+//#UC START# *55669D6C03B4_5507EFFD01FE_impl*
+ if Assigned(f_OnNewTabRequested) then
+ begin
+  if (Sender is TChromeLikeTabAction) then
+   l_Tab := TChromeLikeTabAction(Sender).Tab
+  else
+   l_Tab := nil;
+  f_OnNewTabRequested(Self, l_Tab, True);
+ end;
+//#UC END# *55669D6C03B4_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DoOnNewTabButtonClick
+
+function TChromeLikeTabSetControl.GetFormTab(aForm: TForm): Il3FormTab;
+//#UC START# *558BF6CA016C_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
+//#UC END# *558BF6CA016C_5507EFFD01FE_var*
+begin
+//#UC START# *558BF6CA016C_5507EFFD01FE_impl*
+ l_Tab := FindFormTab(aForm);
+ if (l_Tab <> nil) then
+  Result := l_Tab as Il3FormTab
+ else
+  Result := nil;
+//#UC END# *558BF6CA016C_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.GetFormTab
+
+constructor TChromeLikeTabSetControl.Create(aOwner: TComponent;
+ const aContainer: Il3TabbedContainer);
+//#UC START# *5593BEF1025E_5507EFFD01FE_var*
+//#UC END# *5593BEF1025E_5507EFFD01FE_var*
+begin
+//#UC START# *5593BEF1025E_5507EFFD01FE_impl*
+ inherited Create(aOwner);
+ f_MovingEaseType := ttEaseOutQuad;
+ f_TabHeight := cDefaultTabHeight;
+ f_Tabs := TChromeLikeTabList.Create;
+ f_SelectedTab := nil;
+ ShowHint := True;
+ MakeActions;
+ f_TabsPopupMenu := TPopupMenu.Create(Self);
+ f_NewTabButton := TChromeLikeNewTabButton.Create(Self);
+ f_NewTabButton.OnClick := DoOnNewTabButtonClick;
+ f_Container := Pointer(aContainer);
+//#UC END# *5593BEF1025E_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.Create
+
+function TChromeLikeTabSetControl.StartProcessClick: Boolean;
+//#UC START# *55BF16950082_5507EFFD01FE_var*
+//#UC END# *55BF16950082_5507EFFD01FE_var*
+begin
+//#UC START# *55BF16950082_5507EFFD01FE_impl*
+ Result := (not f_ProcessingClick);
+ if Result then
+  f_ProcessingClick := True;
+//#UC END# *55BF16950082_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.StartProcessClick
+
+procedure TChromeLikeTabSetControl.FinishProcessClick;
+//#UC START# *55BF16A200EE_5507EFFD01FE_var*
+//#UC END# *55BF16A200EE_5507EFFD01FE_var*
+begin
+//#UC START# *55BF16A200EE_5507EFFD01FE_impl*
+ f_ProcessingClick := False;
+//#UC END# *55BF16A200EE_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.FinishProcessClick
+
+function TChromeLikeTabSetControl.DockFormAfterSpecified(aForm: TForm;
+ const aTabParams: Il3TabParams;
+ aInsertAfter: TForm;
+ aNeedSelect: Boolean = True): Boolean;
+//#UC START# *55CB0DE70292_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
+ l_SlotIndex: Integer;
+//#UC END# *55CB0DE70292_5507EFFD01FE_var*
+begin
+//#UC START# *55CB0DE70292_5507EFFD01FE_impl*
+ l_Tab := FindFormTab(aInsertAfter);
+ Assert(l_Tab <> nil);
+ l_SlotIndex := l_Tab.SlotIndex;
+ Result := DockFormIntoSlot(aForm, aTabParams, l_SlotIndex, aNeedSelect);
+//#UC END# *55CB0DE70292_5507EFFD01FE_impl*
+end;//TChromeLikeTabSetControl.DockFormAfterSpecified
+
 function TChromeLikeTabSetControl.IsTransparentPoint(const aPoint: TPoint): Boolean;
 //#UC START# *5507C5090199_5507EFFD01FE_var*
 var
@@ -3451,10 +3362,10 @@ begin
 //#UC END# *48077504027E_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.Destroy
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TChromeLikeTabSetControl.MouseMove(Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ X: Integer;
+ Y: Integer);
 //#UC START# *48E22B250241_5507EFFD01FE_var*
 
  function lp_MakeMovedRect(const aRect: TRect; const aDelta: TSize): TRect;
@@ -3605,13 +3516,13 @@ begin
   Tabs[l_Index].MouseMove(l_MousePt);
 //#UC END# *48E22B250241_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.MouseMove
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TChromeLikeTabSetControl.MouseUp(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4E7896270076_5507EFFD01FE_var*
 var
  l_Pt: TPoint;
@@ -3642,13 +3553,13 @@ begin
   l_ObjAtPoint.MiddleButtonClick(l_Pt);
 //#UC END# *4E7896270076_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.MouseUp
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TChromeLikeTabSetControl.MouseDown(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4F88473B03CD_5507EFFD01FE_var*
 var
  l_Pt: TPoint;
@@ -3672,7 +3583,7 @@ begin
  end;
 //#UC END# *4F88473B03CD_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.MouseDown
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TChromeLikeTabSetControl.DoOnMouseLeave;
 //#UC START# *5507DE800105_5507EFFD01FE_var*
@@ -3688,12 +3599,11 @@ begin
 //#UC END# *5507DE800105_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.DoOnMouseLeave
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeTabSetControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeTabSetControl);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TChromeLikeTabSetControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

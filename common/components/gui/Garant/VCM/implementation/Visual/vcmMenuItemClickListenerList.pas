@@ -1,37 +1,26 @@
 unit vcmMenuItemClickListenerList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMenuItemClickListenerList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmMenuItemClickListenerList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuItemClickListenerList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMenuItemClickListenerList" MUID: (53E9DCDF0259)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3SimpleDataContainer,
-  vcmMenuManagerTypes,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3SimpleDataContainer
+ , vcmMenuManagerTypes
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = IvcmMenuItemClickListener;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
@@ -39,25 +28,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TvcmMenuItemClickListenerList = class(_l3InterfacePtrList_)
  end;//TvcmMenuItemClickListenerList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TvcmMenuItemClickListenerList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-{$IfEnd} //not NoVCM
 end.

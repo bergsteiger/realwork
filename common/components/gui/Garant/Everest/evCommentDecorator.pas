@@ -1,118 +1,101 @@
 unit evCommentDecorator;
+ {* Поддержка экспорта стилей для ААК. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCommentDecorator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCommentDecorator
-//
-// Поддержка экспорта стилей для ААК.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentDecorator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentDecorator" MUID: (4D88BFEA013A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCommentParaDecorator,
-  l3Variant
-  ;
+ l3IntfUses
+ , evCommentParaDecorator
+ , l3Variant
+;
 
 type
  TevWhatOpen = (
-   ev_wnoNone
- , ev_wnoRow
- , ev_wnoTable
+  ev_wnoNone
+  , ev_wnoRow
+  , ev_wnoTable
  );//TevWhatOpen
 
  TevPrevClosed = (
-   ev_pcNone
- , ev_pcTable
- , ev_pcAACTable
+  ev_pcNone
+  , ev_pcTable
+  , ev_pcAACTable
  );//TevPrevClosed
 
  TevCommentDecorator = class(TevCommentParaDecorator)
   {* Поддержка экспорта стилей для ААК. }
- private
- // private fields
-   f_WhatOpen : TevWhatOpen;
-   f_InTable : Integer;
-   f_AACSample : Integer;
-   f_InAACBlock : Integer;
-   f_WhatClosed : TevPrevClosed;
-   f_CellCount : Integer;
- private
- // private methods
+  private
+   f_WhatOpen: TevWhatOpen;
+   f_InTable: Integer;
+   f_AACSample: Integer;
+   f_InAACBlock: Integer;
+   f_WhatClosed: TevPrevClosed;
+   f_CellCount: Integer;
+  private
    procedure StartAACTable;
-     {* Начало таблицы-обертки. }
+    {* Начало таблицы-обертки. }
    procedure AddHeaderRow; virtual;
-     {* Строка табилцы с картинкой. }
+    {* Строка табилцы с картинкой. }
    procedure AddSpaceRow;
-     {* Добавляем отступ перед стилем. }
+    {* Добавляем отступ перед стилем. }
    procedure StartAACRow;
-     {* Начинаем строку с основным текстом. }
    procedure StartAACRow4Table;
-     {* Начинаем строку для талицы (нет правого отступа) }
+    {* Начинаем строку для талицы (нет правого отступа) }
    procedure StartAACStyle;
-     {* Начинает таблицу и предварительные строки. }
+    {* Начинает таблицу и предварительные строки. }
    procedure EndRow;
-     {* Закрываем строку оберточной таблицы. }
+    {* Закрываем строку оберточной таблицы. }
    procedure EndRowAndTable;
-     {* Закрывает строку и таблицу. }
+    {* Закрывает строку и таблицу. }
    procedure CheckWhatOpen(aForTable: Boolean);
-     {* Открытие обертночной таблицы или строки таблицы с проверкой, что уже было открыто. }
- protected
- // overridden protected methods
+    {* Открытие обертночной таблицы или строки таблицы с проверкой, что уже было открыто. }
+  protected
    procedure StartChild(TypeID: Tl3Type); override;
    procedure OpenStream; override;
-     {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
+    {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
  end;//TevCommentDecorator
 
 implementation
 
 uses
-  SysUtils,
-  evDef,
-  evdFrame_Const,
-  l3Memory,
-  Block_Const,
-  Document_Const,
-  evdStylesRes,
-  BitmapPara_Const,
-  Table_Const,
-  TextPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  evdStyles,
-  TableCell_Const,
-  ContentsElement_Const
-  ;
+ l3ImplUses
+ , SysUtils
+ , evDef
+ , evdFrame_Const
+ , l3Memory
+ , Block_Const
+ , Document_Const
+ , evdStylesRes
+ , BitmapPara_Const
+ , Table_Const
+ , TextPara_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+ , evdStyles
+ , TableCell_Const
+ , ContentsElement_Const
+;
 
 const
-   { CommentDecoratorConsts }
-  cnDefIndentValue = 420;
-   { Цифра взята от настоящего стиля, но её значение вообщем-то фиолетово, т.к. все равно пересчитывается на уровне RTFWriter'а. }
-
-// start class TevCommentDecorator
+ cnDefIndentValue = 420;
+  {* Цифра взята от настоящего стиля, но её значение вообщем-то фиолетово, т.к. все равно пересчитывается на уровне RTFWriter'а. }
 
 procedure TevCommentDecorator.StartAACTable;
+ {* Начало таблицы-обертки. }
 //#UC START# *53B27F3E0397_4D88BFEA013A_var*
 //#UC END# *53B27F3E0397_4D88BFEA013A_var*
 begin
@@ -125,6 +108,7 @@ begin
 end;//TevCommentDecorator.StartAACTable
 
 procedure TevCommentDecorator.AddHeaderRow;
+ {* Строка табилцы с картинкой. }
 //#UC START# *53B27F93031A_4D88BFEA013A_var*
 var
  l_Stream: Tl3MemoryStream;
@@ -159,6 +143,7 @@ begin
 end;//TevCommentDecorator.AddHeaderRow
 
 procedure TevCommentDecorator.AddSpaceRow;
+ {* Добавляем отступ перед стилем. }
 //#UC START# *53B27FD8022F_4D88BFEA013A_var*
 //#UC END# *53B27FD8022F_4D88BFEA013A_var*
 begin
@@ -207,6 +192,7 @@ begin
 end;//TevCommentDecorator.StartAACRow
 
 procedure TevCommentDecorator.StartAACRow4Table;
+ {* Начинаем строку для талицы (нет правого отступа) }
 //#UC START# *53B280490098_4D88BFEA013A_var*
 var
  l_Width: Integer;
@@ -231,6 +217,7 @@ begin
 end;//TevCommentDecorator.StartAACRow4Table
 
 procedure TevCommentDecorator.StartAACStyle;
+ {* Начинает таблицу и предварительные строки. }
 //#UC START# *53B280860287_4D88BFEA013A_var*
 //#UC END# *53B280860287_4D88BFEA013A_var*
 begin
@@ -247,6 +234,7 @@ begin
 end;//TevCommentDecorator.StartAACStyle
 
 procedure TevCommentDecorator.EndRow;
+ {* Закрываем строку оберточной таблицы. }
 //#UC START# *53B282200211_4D88BFEA013A_var*
 //#UC END# *53B282200211_4D88BFEA013A_var*
 begin
@@ -267,6 +255,7 @@ begin
 end;//TevCommentDecorator.EndRow
 
 procedure TevCommentDecorator.EndRowAndTable;
+ {* Закрывает строку и таблицу. }
 //#UC START# *53B2824F0246_4D88BFEA013A_var*
 
  procedure lp_EndTable;
@@ -288,6 +277,7 @@ begin
 end;//TevCommentDecorator.EndRowAndTable
 
 procedure TevCommentDecorator.CheckWhatOpen(aForTable: Boolean);
+ {* Открытие обертночной таблицы или строки таблицы с проверкой, что уже было открыто. }
 //#UC START# *53B282B3010A_4D88BFEA013A_var*
 //#UC END# *53B282B3010A_4D88BFEA013A_var*
 begin
@@ -333,6 +323,7 @@ begin
 end;//TevCommentDecorator.StartChild
 
 procedure TevCommentDecorator.OpenStream;
+ {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
 //#UC START# *4836D49800CA_4D88BFEA013A_var*
 //#UC END# *4836D49800CA_4D88BFEA013A_var*
 begin
@@ -349,6 +340,7 @@ begin
 end;//TevCommentDecorator.OpenStream
 
 procedure TevCommentDecorator.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4D88BFEA013A_var*
 //#UC END# *4836D4C20059_4D88BFEA013A_var*
 begin
@@ -389,7 +381,7 @@ begin
 end;//TevCommentDecorator.CloseStructure
 
 procedure TevCommentDecorator.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_4D88BFEA013A_var*
 //#UC END# *4836D52400D9_4D88BFEA013A_var*
 begin
@@ -408,6 +400,7 @@ begin
 end;//TevCommentDecorator.AddAtomEx
 
 procedure TevCommentDecorator.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_4D88BFEA013A_var*
 const
  cnDefaultStyleLeafPara = ev_saNormalTable;

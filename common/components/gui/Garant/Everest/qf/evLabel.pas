@@ -1,42 +1,31 @@
 unit evLabel;
+ {* Класс для надисей (названий реквизитов) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evLabel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevLabel
-//
-// Класс для надисей (названий реквизитов)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evLabel.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevLabel" MUID: (48D215640290)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evQueryCardInt,
-  evControl,
-  afwNavigation,
-  nevTools,
-  l3IID,
-  l3Interfaces,
-  nevBase
-  ;
+ l3IntfUses
+ , evControl
+ , afwNavigation
+ , evQueryCardInt
+ , l3Interfaces
+ , nevTools
+ , nevBase
+ , l3IID
+;
 
 type
  TevLabel = class(TevControl, IevMoniker, IevEditorControlLabel)
   {* Класс для надисей (названий реквизитов) }
- protected
- // realized methods
+  protected
    procedure RestoreCaption;
-     {* Восстанавливает название метки. }
+    {* Восстанавливает название метки. }
    function Get_Caption: Il3CString;
    procedure Set_Caption(const aValue: Il3CString);
    function DoLMouseBtnUp(const aView: InevControlView;
@@ -50,14 +39,11 @@ type
     const Keys: TevMouseState;
     anInPara: Boolean;
     const aMap: InevMap): Boolean; override;
- protected
- // overridden protected methods
    procedure Set_Para(const Value: InevPara); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // overridden public methods
+    {* Реализация запроса интерфейса }
+  public
    function DoKeyCommand(const aView: InevControlView;
     aCmd: Word;
     const aTextPara: InevPara): Boolean; override;
@@ -66,19 +52,19 @@ type
 implementation
 
 uses
-  l3String,
-  evQueryCardDropControlsInt,
-  nevNavigation,
-  SysUtils,
-  l3Base,
-  l3Chars,
-  OvcConst,
-  k2Tags
-  ;
-
-// start class TevLabel
+ l3ImplUses
+ , l3String
+ , evQueryCardDropControlsInt
+ , nevNavigation
+ , SysUtils
+ , l3Base
+ , l3Chars
+ , OvcConst
+ , k2Tags
+;
 
 procedure TevLabel.RestoreCaption;
+ {* Восстанавливает название метки. }
 //#UC START# *47CD795A0169_48D215640290_var*
 //#UC END# *47CD795A0169_48D215640290_var*
 begin
@@ -107,10 +93,10 @@ begin
 end;//TevLabel.Set_Caption
 
 function TevLabel.DoLMouseBtnUp(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean): Boolean;
 //#UC START# *48D1461101C6_48D215640290_var*
 //#UC END# *48D1461101C6_48D215640290_var*
 begin
@@ -120,11 +106,11 @@ begin
 end;//TevLabel.DoLMouseBtnUp
 
 function TevLabel.DoLMouseBtnDown(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  anInPara: Boolean;
-  const aMap: InevMap): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ anInPara: Boolean;
+ const aMap: InevMap): Boolean;
 //#UC START# *48D1464501E8_48D215640290_var*
 var
  l_DropContainer: IevDropContainer; 
@@ -150,8 +136,8 @@ begin
 end;//TevLabel.Set_Para
 
 function TevLabel.DoKeyCommand(const aView: InevControlView;
-  aCmd: Word;
-  const aTextPara: InevPara): Boolean;
+ aCmd: Word;
+ const aTextPara: InevPara): Boolean;
 //#UC START# *48D145B8036A_48D215640290_var*
 var
  l_MonikerSink : IevMonikerSink;
@@ -179,7 +165,8 @@ begin
 end;//TevLabel.DoKeyCommand
 
 function TevLabel.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48D215640290_var*
 var
  l_Control: InevControl;

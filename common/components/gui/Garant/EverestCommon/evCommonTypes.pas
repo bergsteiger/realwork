@@ -10,11 +10,14 @@ interface
 
 uses
  l3IntfUses
+ , l3Interfaces
+ , k2Interfaces
  , nevBase
+ , nevTools
+ , nevInternalInterfaces
+ , evdInterfaces
  , k2CustomReader
  , l3Variant
- , nevTools
- , evdInterfaces
 ;
 
 type

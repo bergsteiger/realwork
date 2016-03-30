@@ -1,47 +1,34 @@
 unit nevCloakFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevCloakFormatInfo.pas"
-// Начат: 01.09.2011 13:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevCloakFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevCloakFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevCloakFormatInfo" MUID: (4E5F550D0032)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevControlsBlockFormatInfo,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevControlsBlockFormatInfo
+ , l3Variant
+;
 
 type
  TnevCloakFormatInfo = class(TnevControlsBlockFormatInfo)
- protected
- // overridden protected methods
+  protected
    procedure TuneFrameText(aText: Tl3Variant); override;
  end;//TnevCloakFormatInfo
 
 implementation
 
 uses
-  evdStyles,
-  k2Tags,
-  Graphics,
-  evTextStyle_Const
-  ;
-
-// start class TnevCloakFormatInfo
+ l3ImplUses
+ , evdStyles
+ , k2Tags
+ , Graphics
+ , evTextStyle_Const
+;
 
 procedure TnevCloakFormatInfo.TuneFrameText(aText: Tl3Variant);
 //#UC START# *4E5F8B2601DC_4E5F550D0032_var*

@@ -1,61 +1,46 @@
 unit nevStringItemPara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevStringItemPara.pas"
-// Начат: 25.09.2001 17:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevStringItemPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevStringItemPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevStringItemPara" MUID: (48D1184C02B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevTextPara,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevTextPara
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevStringItemPara = class(TnevTextPara)
- private
- // private fields
-   f_StrID : Integer;
-    {* Ссылка на номер строки в списке}
- protected
- // overridden protected methods
+  private
+   f_StrID: Integer;
+    {* Ссылка на номер строки в списке }
+  protected
    function GetPID: TnevParaIndex; override;
- public
- // public methods
+  public
    constructor Create(aTag: Tl3Variant;
     anIndex: Integer); reintroduce;
    class function Make(aTag: Tl3Variant;
     anIndex: Integer): InevTextPara; reintroduce;
  end;//TnevStringItemPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
-
-// start class TnevStringItemPara
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
 
 constructor TnevStringItemPara.Create(aTag: Tl3Variant;
-  anIndex: Integer);
+ anIndex: Integer);
 //#UC START# *48D118B5038A_48D1184C02B9_var*
 //#UC END# *48D118B5038A_48D1184C02B9_var*
 begin
@@ -66,7 +51,7 @@ begin
 end;//TnevStringItemPara.Create
 
 class function TnevStringItemPara.Make(aTag: Tl3Variant;
-  anIndex: Integer): InevTextPara;
+ anIndex: Integer): InevTextPara;
 var
  l_Inst : TnevStringItemPara;
 begin
@@ -76,7 +61,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevStringItemPara.Make
 
 function TnevStringItemPara.GetPID: TnevParaIndex;
 //#UC START# *48CFB61F01FA_48D1184C02B9_var*
@@ -86,7 +71,6 @@ begin
  Result := f_StrID;
 //#UC END# *48CFB61F01FA_48D1184C02B9_impl*
 end;//TnevStringItemPara.GetPID
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

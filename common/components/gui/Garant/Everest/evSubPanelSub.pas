@@ -1,71 +1,64 @@
 unit evSubPanelSub;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPanelSub.pas"
-// Начат: 26.02.2010 17:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubPanel::TevSubPanelSub
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPanelSub.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSubPanelSub" MUID: (4B87DC6C02F7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  l3Units,
-  nevTools,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Units
+ , nevTools
+ , l3Types
+;
 
 type
  TevSubPanelSub = class(Tl3ProtoObject)
- private
- // private fields
-   f_R : Tl3Rect;
-    {* Поле для свойства R}
-   f_DrawRect : Tl3Rect;
-    {* Поле для свойства DrawRect}
-   f_RealSub : IevSub;
-    {* Поле для свойства RealSub}
- protected
- // property methods
+  private
+   f_R: Tl3Rect;
+    {* Поле для свойства R }
+   f_DrawRect: Tl3Rect;
+    {* Поле для свойства DrawRect }
+   f_RealSub: IevSub;
+    {* Поле для свойства RealSub }
+  protected
    function pm_GetHandle: Tl3Handle;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aRealSub: IevSub); reintroduce;
- public
- // public properties
+  public
    property R: Tl3Rect
-     read f_R
-     write f_R;
+    read f_R
+    write f_R;
    property DrawRect: Tl3Rect
-     read f_DrawRect
-     write f_DrawRect;
+    read f_DrawRect
+    write f_DrawRect;
    property RealSub: IevSub
-     read f_RealSub;
+    read f_RealSub;
    property Handle: Tl3Handle
-     read pm_GetHandle;
+    read pm_GetHandle;
  end;//TevSubPanelSub
 
 implementation
 
-// start class TevSubPanelSub
+uses
+ l3ImplUses
+;
+
+function TevSubPanelSub.pm_GetHandle: Tl3Handle;
+//#UC START# *4B87E3ED0100_4B87DC6C02F7get_var*
+//#UC END# *4B87E3ED0100_4B87DC6C02F7get_var*
+begin
+//#UC START# *4B87E3ED0100_4B87DC6C02F7get_impl*
+ Result := RealSub.ID;
+//#UC END# *4B87E3ED0100_4B87DC6C02F7get_impl*
+end;//TevSubPanelSub.pm_GetHandle
 
 constructor TevSubPanelSub.Create(const aRealSub: IevSub);
 //#UC START# *4B87DD060037_4B87DC6C02F7_var*
@@ -77,16 +70,8 @@ begin
 //#UC END# *4B87DD060037_4B87DC6C02F7_impl*
 end;//TevSubPanelSub.Create
 
-function TevSubPanelSub.pm_GetHandle: Tl3Handle;
-//#UC START# *4B87E3ED0100_4B87DC6C02F7get_var*
-//#UC END# *4B87E3ED0100_4B87DC6C02F7get_var*
-begin
-//#UC START# *4B87E3ED0100_4B87DC6C02F7get_impl*
- Result := RealSub.ID;
-//#UC END# *4B87E3ED0100_4B87DC6C02F7get_impl*
-end;//TevSubPanelSub.pm_GetHandle
-
 procedure TevSubPanelSub.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B87DC6C02F7_var*
 //#UC END# *479731C50290_4B87DC6C02F7_var*
 begin
@@ -97,7 +82,6 @@ begin
 end;//TevSubPanelSub.Cleanup
 
 procedure TevSubPanelSub.ClearFields;
- {-}
 begin
  Finalize(f_R);
  Finalize(f_DrawRect);

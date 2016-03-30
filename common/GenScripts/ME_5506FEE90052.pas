@@ -17,11 +17,11 @@ uses
 type
  TevDocumentsCacheService = {final} class(Tl3ProtoObject, Il3DocumentsCacheService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure Clear;
    class function Instance: TevDocumentsCacheService;
     {* Метод получения экземпляра синглетона TevDocumentsCacheService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevDocumentsCacheService
 
  TevDocumentsCachePrim = class
@@ -45,12 +45,6 @@ begin
  l3Free(g_TevDocumentsCacheService);
 end;//TevDocumentsCacheServiceFree
 
-class function TevDocumentsCacheService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevDocumentsCacheService <> nil;
-end;//TevDocumentsCacheService.Exists
-
 procedure TevDocumentsCacheService.Clear;
 //#UC START# *0AC8DEBDD602_5506FF1A0056_var*
 //#UC END# *0AC8DEBDD602_5506FF1A0056_var*
@@ -70,6 +64,12 @@ begin
  end;
  Result := g_TevDocumentsCacheService;
 end;//TevDocumentsCacheService.Instance
+
+class function TevDocumentsCacheService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevDocumentsCacheService <> nil;
+end;//TevDocumentsCacheService.Exists
 
 initialization
  Tl3DocumentsCacheService.Instance.Alien := TevDocumentsCacheService.Instance;

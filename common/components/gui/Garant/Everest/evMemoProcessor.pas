@@ -1,56 +1,39 @@
 unit evMemoProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMemoProcessor.pas"
-// Начат: 27.06.2008 14:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMemoProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMemoProcessor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMemoProcessor" MUID: (4864C01000A7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  Classes,
-  evCustomEditorWindowProcessor
-  ;
+ l3IntfUses
+ , evCustomEditorWindowProcessor
+ , Classes
+;
 
 type
  TevMemoProcessor = class(TevCustomEditorWindowProcessor)
- protected
- // property methods
+  protected
    function pm_GetMemo: TComponent;
- protected
- // overridden protected methods
    function GetNeedReplaceQuotes: Boolean; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
- public
- // public properties
+  public
    property Memo: TComponent
-     read pm_GetMemo;
+    read pm_GetMemo;
  end;//TevMemoProcessor
 
 implementation
 
 uses
-  evCustomMemo,
-  evDefaultContext,
-  nevTools
-  ;
-
-// start class TevMemoProcessor
+ l3ImplUses
+ , evCustomMemo
+ , evDefaultContext
+ , nevTools
+;
 
 function TevMemoProcessor.pm_GetMemo: TComponent;
 //#UC START# *4864C37103E7_4864C01000A7get_var*

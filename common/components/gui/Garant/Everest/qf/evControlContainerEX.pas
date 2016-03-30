@@ -1,78 +1,61 @@
 unit evControlContainerEX;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$Extensions"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evControlContainerEX.pas"
-// Начат: 28.09.1999
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest$Extensions::QueryCardControlContainers::TevControlContainerEX
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlContainerEX.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlContainerEX" MUID: (47D01F9801D8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3Core,
-  evQueryCardDropControlsInt,
-  evControlContainer,
-  evDropTree,
-  evDropCalendar
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3Variant,
-  nevTools,
-  Messages,
-  Types,
-  l3Interfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , evControlContainer
+ , evQueryCardDropControlsInt
+ , evDropCalendar
+ , evDropTree
+ , l3Core
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevBase
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ , nevTools
+ , Types
+ , l3Variant
+ , Messages
+;
 
 type
  TevControlContainerEX = class(TevControlContainer, IevDropContainer)
- private
- // private fields
-   f_DateFormat : AnsiString;
-    {* Формат даты.}
-   f_EditMask : AnsiString;
-    {* Шаблон календаря.}
-   f_StartSize : Boolean;
-   f_DropTree : IevDropControl;
+  private
+   f_DateFormat: AnsiString;
+    {* Формат даты. }
+   f_EditMask: AnsiString;
+    {* Шаблон календаря. }
+   f_StartSize: Boolean;
+   f_DropTree: IevDropControl;
     {* Дерево или календарь - выпадающий контрол, который должен быть только 
-         один.}
-   f_ESCPressed : Boolean;
-    {* Обработка нажатия ESC при видимом выпадающем контроле.}
-   f_Calendar : TevDropCalendar;
-    {* Обработка нажатия ESC при видимом выпадающем контроле.}
-   f_SubTree : TevDropTree;
-    {* Выпадающая панель с деревом.}
- private
- // private methods
+         один. }
+   f_ESCPressed: Boolean;
+    {* Обработка нажатия ESC при видимом выпадающем контроле. }
+   f_Calendar: TevDropCalendar;
+    {* Обработка нажатия ESC при видимом выпадающем контроле. }
+   f_SubTree: TevDropTree;
+    {* Выпадающая панель с деревом. }
+  private
    procedure UpdateMask;
-     {* Обновляет маску. }
+    {* Обновляет маску. }
    function FormatSettingsChange(var Message: TMessage): Boolean;
-     {* Обработчик изменения формата даты. }
+    {* Обработчик изменения формата даты. }
    procedure UpdateFormat;
-     {* Обновляет формат даты. }
+    {* Обновляет формат даты. }
    procedure NeedCloseTree(Sender: TObject);
    procedure CancelDate(Sender: TObject);
-     {* Обработчик отказа от выбора даты. }
+    {* Обработчик отказа от выбора даты. }
    function DoGetItemImage(Sender: TObject;
     Index: Integer;
     var aImages: TCustomImageList): Integer;
@@ -84,40 +67,39 @@ type
    procedure TreeCurrentChanged(Sender: TObject;
     aNewCurrent: Integer;
     aOldCurrent: Integer);
- protected
- // realized methods
+  protected
    function EditMask: AnsiString;
-     {* Шаблон маски. }
+    {* Шаблон маски. }
    function DateFormat: AnsiString;
-     {* Формат даты. }
+    {* Формат даты. }
    procedure SetDropTree(const ATreeDrop: IevDropControl;
     const ATagWrap: InevPara);
-     {* Показывает/закрывает выпадающее дерево. }
+    {* Показывает/закрывает выпадающее дерево. }
    function IsDropTreeVisible: Boolean;
-     {* Проверяет отображается ли окно календаря или дерева. }
+    {* Проверяет отображается ли окно календаря или дерева. }
    procedure ApplyDate(Value: TDateTime);
-     {* Передаёт выбранную дату в календарь. }
+    {* Передаёт выбранную дату в календарь. }
    procedure ChooseDate(Sender: TObject);
-     {* Обработчик выбора текущей даты. }
+    {* Обработчик выбора текущей даты. }
    procedure DoDrop(const aPoint: TPoint;
     AInvert: Boolean;
     AWidth: Integer;
     ByUser: Boolean);
-     {* Вываливает выпадающий контрол по указанным координатам. }
+    {* Вываливает выпадающий контрол по указанным координатам. }
    procedure ShowControl(const aPoint: TPoint;
     AInvert: Boolean;
     AWnd: hWnd;
     AWidth: Integer;
     AHeight: Integer);
-     {* Вывод контрола на экран. }
+    {* Вывод контрола на экран. }
    function DropControlHeigth: Integer;
-     {* Высота выпадающего контрола. }
+    {* Высота выпадающего контрола. }
    procedure HideControl(NeedFocus: Boolean);
-     {* Прячет выпадающий котрол. }
+    {* Прячет выпадающий котрол. }
    function GetDropTreeNode(anIndex: Integer): InevSimpleNode;
    function CheckControl(const aDropControl: IevDropControl): Boolean;
    function GetControl: TControl;
-     {* Возвращает контрол. }
+    {* Возвращает контрол. }
    function Get_Tree: InevSimpleTree;
    procedure Set_Tree(const aValue: InevSimpleTree);
    procedure Set_Current(aValue: Integer);
@@ -134,49 +116,44 @@ type
    procedure Set_DropTextStyle(aValue: Tl3StyleId);
    function Get_AllowEmptyCurrent: Boolean;
    procedure Set_AllowEmptyCurrent(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetNode(anIndex: Integer): InevSimpleNode; override;
    procedure DoDeleteOnUndo(aTag: Tl3Tag); override;
    procedure DoChangePara(const aCurPara: InevPara); override;
    function DoKeyDown(const aView: InevView;
     var Msg: TWMKeyDown;
     aCurPara: Tl3Tag): Boolean; override;
-     {* Посылка сообщений о нажатии клавиш. }
- public
- // overridden public methods
+    {* Посылка сообщений о нажатии клавиш. }
+  public
    constructor Create; override;
  end;//TevControlContainerEX
 
 implementation
 
 uses
-  l3Date
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  l3ImageList,
-  evQueryCardInt,
-  l3Base,
-  l3ControlsTypes,
-  k2Tags,
-  Classes,
-  evdTypes,
-  Windows,
-  l3String,
-  LeafPara_Const,
-  l3Defaults,
-  Graphics
-  ;
-
-// start class TevControlContainerEX
+ l3ImplUses
+ , l3Date
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3ImageList
+ , evQueryCardInt
+ , l3Base
+ , l3ControlsTypes
+ , k2Tags
+ , Classes
+ , evdTypes
+ , Windows
+ , l3String
+ , LeafPara_Const
+ , l3Defaults
+ , Graphics
+;
 
 procedure TevControlContainerEX.UpdateMask;
+ {* Обновляет маску. }
 //#UC START# *47D027090375_47D01F9801D8_var*
 //#UC END# *47D027090375_47D01F9801D8_var*
 begin
@@ -186,6 +163,7 @@ begin
 end;//TevControlContainerEX.UpdateMask
 
 function TevControlContainerEX.FormatSettingsChange(var Message: TMessage): Boolean;
+ {* Обработчик изменения формата даты. }
 //#UC START# *47D027C2002A_47D01F9801D8_var*
 //#UC END# *47D027C2002A_47D01F9801D8_var*
 begin
@@ -202,6 +180,7 @@ begin
 end;//TevControlContainerEX.FormatSettingsChange
 
 procedure TevControlContainerEX.UpdateFormat;
+ {* Обновляет формат даты. }
 //#UC START# *47D028510174_47D01F9801D8_var*
 //#UC END# *47D028510174_47D01F9801D8_var*
 begin
@@ -221,6 +200,7 @@ begin
 end;//TevControlContainerEX.NeedCloseTree
 
 procedure TevControlContainerEX.CancelDate(Sender: TObject);
+ {* Обработчик отказа от выбора даты. }
 //#UC START# *47D02C810118_47D01F9801D8_var*
 //#UC END# *47D02C810118_47D01F9801D8_var*
 begin
@@ -231,8 +211,8 @@ begin
 end;//TevControlContainerEX.CancelDate
 
 function TevControlContainerEX.DoGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *47D02C970149_47D01F9801D8_var*
 var
  l_List : InevImageList;
@@ -257,7 +237,7 @@ begin
 end;//TevControlContainerEX.DoGetItemImage
 
 procedure TevControlContainerEX.ChooseNode(Sender: TObject;
-  const Value: InevSimpleNode);
+ const Value: InevSimpleNode);
 //#UC START# *47D02CC80102_47D01F9801D8_var*
 var
  l_Combo : IevDropCombo;
@@ -302,8 +282,8 @@ begin
 end;//TevControlContainerEX.OwnerAssigned
 
 procedure TevControlContainerEX.TreeCurrentChanged(Sender: TObject;
-  aNewCurrent: Integer;
-  aOldCurrent: Integer);
+ aNewCurrent: Integer;
+ aOldCurrent: Integer);
 //#UC START# *4885BCF00275_47D01F9801D8_var*
 //#UC END# *4885BCF00275_47D01F9801D8_var*
 begin
@@ -319,6 +299,7 @@ begin
 end;//TevControlContainerEX.TreeCurrentChanged
 
 function TevControlContainerEX.EditMask: AnsiString;
+ {* Шаблон маски. }
 //#UC START# *47CEA1CB02E7_47D01F9801D8_var*
 //#UC END# *47CEA1CB02E7_47D01F9801D8_var*
 begin
@@ -330,6 +311,7 @@ begin
 end;//TevControlContainerEX.EditMask
 
 function TevControlContainerEX.DateFormat: AnsiString;
+ {* Формат даты. }
 //#UC START# *47CEA1DF0057_47D01F9801D8_var*
 //#UC END# *47CEA1DF0057_47D01F9801D8_var*
 begin
@@ -341,7 +323,8 @@ begin
 end;//TevControlContainerEX.DateFormat
 
 procedure TevControlContainerEX.SetDropTree(const ATreeDrop: IevDropControl;
-  const ATagWrap: InevPara);
+ const ATagWrap: InevPara);
+ {* Показывает/закрывает выпадающее дерево. }
 //#UC START# *47CEA2040056_47D01F9801D8_var*
 var
  l_DropCal : IevDropCalendar;                                       
@@ -380,6 +363,7 @@ begin
 end;//TevControlContainerEX.SetDropTree
 
 function TevControlContainerEX.IsDropTreeVisible: Boolean;
+ {* Проверяет отображается ли окно календаря или дерева. }
 //#UC START# *47CEA2170217_47D01F9801D8_var*
 //#UC END# *47CEA2170217_47D01F9801D8_var*
 begin
@@ -389,6 +373,7 @@ begin
 end;//TevControlContainerEX.IsDropTreeVisible
 
 procedure TevControlContainerEX.ApplyDate(Value: TDateTime);
+ {* Передаёт выбранную дату в календарь. }
 //#UC START# *47CEA22403D8_47D01F9801D8_var*
 var
  l_DtStr       : string;
@@ -408,6 +393,7 @@ begin
 end;//TevControlContainerEX.ApplyDate
 
 procedure TevControlContainerEX.ChooseDate(Sender: TObject);
+ {* Обработчик выбора текущей даты. }
 //#UC START# *47CEA2330343_47D01F9801D8_var*
 var
  l_DtStr       : string;
@@ -434,9 +420,10 @@ begin
 end;//TevControlContainerEX.ChooseDate
 
 procedure TevControlContainerEX.DoDrop(const aPoint: TPoint;
-  AInvert: Boolean;
-  AWidth: Integer;
-  ByUser: Boolean);
+ AInvert: Boolean;
+ AWidth: Integer;
+ ByUser: Boolean);
+ {* Вываливает выпадающий контрол по указанным координатам. }
 //#UC START# *47CEA244025F_47D01F9801D8_var*
 var                                                                  
  l_Calendar : IevDropCalendar;
@@ -491,10 +478,11 @@ begin
 end;//TevControlContainerEX.DoDrop
 
 procedure TevControlContainerEX.ShowControl(const aPoint: TPoint;
-  AInvert: Boolean;
-  AWnd: hWnd;
-  AWidth: Integer;
-  AHeight: Integer);
+ AInvert: Boolean;
+ AWnd: hWnd;
+ AWidth: Integer;
+ AHeight: Integer);
+ {* Вывод контрола на экран. }
 //#UC START# *47CEA2640232_47D01F9801D8_var*
 const 
  cDropControlFlags : array [Boolean] of Integer = 
@@ -519,6 +507,7 @@ begin
 end;//TevControlContainerEX.ShowControl
 
 function TevControlContainerEX.DropControlHeigth: Integer;
+ {* Высота выпадающего контрола. }
 //#UC START# *47CEA29002BE_47D01F9801D8_var*
 var
  l_Calendar : IevDropCalendar;
@@ -540,6 +529,7 @@ begin
 end;//TevControlContainerEX.DropControlHeigth
 
 procedure TevControlContainerEX.HideControl(NeedFocus: Boolean);
+ {* Прячет выпадающий котрол. }
 //#UC START# *47CEA2A102E2_47D01F9801D8_var*
 var
  l_Calendar : IevDropCalendar;
@@ -598,6 +588,7 @@ begin
 end;//TevControlContainerEX.CheckControl
 
 function TevControlContainerEX.GetControl: TControl;
+ {* Возвращает контрол. }
 //#UC START# *47CEA2D50381_47D01F9801D8_var*
 var
  l_Calendar : IevDropCalendar;
@@ -785,6 +776,7 @@ begin
 end;//TevControlContainerEX.Set_AllowEmptyCurrent
 
 procedure TevControlContainerEX.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47D01F9801D8_var*
 //#UC END# *479731C50290_47D01F9801D8_var*
 begin
@@ -891,8 +883,9 @@ begin
 end;//TevControlContainerEX.DoChangePara
 
 function TevControlContainerEX.DoKeyDown(const aView: InevView;
-  var Msg: TWMKeyDown;
-  aCurPara: Tl3Tag): Boolean;
+ var Msg: TWMKeyDown;
+ aCurPara: Tl3Tag): Boolean;
+ {* Посылка сообщений о нажатии клавиш. }
 //#UC START# *47D0135901AC_47D01F9801D8_var*
 var
  l_Calendar    : IevDropCalendar;

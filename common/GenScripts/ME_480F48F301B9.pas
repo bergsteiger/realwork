@@ -13,9 +13,9 @@
   {* Инструмент для параграфа }
   private
    f_ParaX: _X_;
-    {* Поле для свойства ParaX }
   protected
    procedure ClearTagCache; override;
+   procedure ClearFields; override;
   public
    procedure SetTagQT(aTag: Tl3Variant); override;
   protected
@@ -57,6 +57,12 @@ begin
   Assert(f_ParaX.AsObject.IsSame(aTag));
 //#UC END# *49E75FA4010C_480F48F301B9_impl*
 end;//_nevParaXTool_.SetTagQT
+
+procedure _nevParaXTool_.ClearFields;
+begin
+ Finalize(f_ParaX);
+ inherited;
+end;//_nevParaXTool_.ClearFields
 
 {$EndIf nevParaXTool_imp_impl}
 

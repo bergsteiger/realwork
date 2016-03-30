@@ -1,68 +1,48 @@
 unit ChromeLikeTabSetControlPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeTabSetControlPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeTabSetControlPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlPrim.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TChromeLikeTabSetControlPrim" MUID: (5507C0E2028F)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types,
-  Messages,
-  l3Bitmap,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  ChromeLikeTabSetTypes,
-  Classes
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Bitmap
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , ChromeLikeTabSetTypes
+ , Windows
+ , Types
+ , Graphics
+ , Classes
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TChromeLikeTabHintParams = record
-   rNeedShowHint : Boolean;
-   rHintText : AnsiString;
-   rRect : TRect;
+  rNeedShowHint: Boolean;
+  rHintText: AnsiString;
+  rRect: TRect;
  end;//TChromeLikeTabHintParams
 
  TChromeLikeTabSetControlPrim = class(TWinControl)
- private
- // private fields
-   f_BufferBitmap : Tl3Bitmap;
-    {* Поле для свойства BufferBitmap}
-   f_Images : TCustomImageList;
-    {* Поле для свойства Images}
-   f_BackgroundBitmap : Tl3Bitmap;
-    {* Поле для свойства BackgroundBitmap}
- private
- // private methods
+  private
+   f_BufferBitmap: Tl3Bitmap;
+   f_Images: TCustomImageList;
+   f_BackgroundBitmap: Tl3Bitmap;
+  private
    function GetDrawingContext: IChromeLkeTabSetDrawingContext;
    procedure ResizeBuffer(aNewWidth: Integer;
-     aNewHeight: Integer);
+    aNewHeight: Integer);
    procedure PaintBuffer;
    procedure FlushBuffer(aDC: hDC;
-     const aRect: TRect);
+    const aRect: TRect);
    procedure WMNCHitTest(var aMessage: TWMNCHitTest); message WM_NCHITTEST;
    procedure WMMouseActivate(var aMessage: TWMMouseActivate); message WM_MOUSEACTIVATE;
    procedure WMEraseBkgnd(var aMessage: TWMEraseBkGnd); message WM_ERASEBKGND;
@@ -71,69 +51,104 @@ type
    procedure CMMouseLeave(var aMessage: TMessage); message CM_MOUSELEAVE;
    procedure CMHintShow(var aMessage: TMessage); message CM_HINTSHOW;
    procedure CMMouseEnter(var aMessage: TMessage); message CM_MOUSEENTER;
- protected
- // property methods
+  protected
    function pm_GetBufferBitmap: Tl3Bitmap;
    function pm_GetBackgroundBitmap: Tl3Bitmap;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   destructor Destroy; override;
- protected
- // protected methods
    function IsTransparentPoint(const aPoint: TPoint): Boolean; virtual; abstract;
    procedure Paint(const aContext: IChromeLkeTabSetDrawingContext); virtual; abstract;
    procedure PaintBackground(aCanvas: TCanvas); virtual; abstract;
    procedure DoOnMouseLeave; virtual;
-     {* Сигнатура метода DoOnMouseLeave }
    procedure DoOnMouseEnter; virtual;
-     {* Сигнатура метода DoOnMouseEnter }
    procedure DoOnResize; virtual; abstract;
-     {* Сигнатура метода DoOnResize }
    function GetHintParams(const aPoint: TPoint): TChromeLikeTabHintParams; virtual; abstract;
- protected
- // protected properties
+  public
+   constructor Create(AOwner: TComponent); override;
+   destructor Destroy; override;
+  protected
    property BufferBitmap: Tl3Bitmap
-     read pm_GetBufferBitmap;
+    read pm_GetBufferBitmap;
    property BackgroundBitmap: Tl3Bitmap
-     read pm_GetBackgroundBitmap;
- public
- // public properties
+    read pm_GetBackgroundBitmap;
+  public
    property Images: TCustomImageList
-     read f_Images
-     write f_Images;
+    read f_Images
+    write f_Images;
  end;//TChromeLikeTabSetControlPrim
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 function TChromeLikeTabHintParams_C(aNeedShowHint: Boolean;
-    const aHintText: WideString;
-    const aRect: TRect): TChromeLikeTabHintParams;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ const aHintText: WideString;
+ const aRect: TRect): TChromeLikeTabHintParams;
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  ChromeLikeDrawingContext,
-  ChromeLikeTabSetUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ChromeLikeDrawingContext
+ , SysUtils
+ , ChromeLikeTabSetUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCL)}
+function TChromeLikeTabHintParams_C(aNeedShowHint: Boolean;
+ const aHintText: WideString;
+ const aRect: TRect): TChromeLikeTabHintParams;
+//#UC START# *5522508F018E_5522506003AD_var*
+//#UC END# *5522508F018E_5522506003AD_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *5522508F018E_5522506003AD_impl*
+ with Result do
+ begin
+  rNeedShowHint := aNeedShowHint;
+  rHintText := aHintText;
+  rRect := aRect;
+ end;
+//#UC END# *5522508F018E_5522506003AD_impl*
+end;//TChromeLikeTabHintParams_C
 
-// start class TChromeLikeTabSetControlPrim
+function TChromeLikeTabSetControlPrim.pm_GetBufferBitmap: Tl3Bitmap;
+//#UC START# *5507C19A032F_5507C0E2028Fget_var*
+//#UC END# *5507C19A032F_5507C0E2028Fget_var*
+begin
+//#UC START# *5507C19A032F_5507C0E2028Fget_impl*
+ if (f_BufferBitmap = nil) then
+ begin
+  f_BufferBitmap := Tl3Bitmap.Create;
+  with f_BufferBitmap do
+  begin
+   PixelFormat := pf32Bit;
+   Width := ClientWidth;
+   Height := ClientHeight;
+  end;//with f_BufferBitmap
+  f_BackgroundBitmap := Tl3Bitmap.Create;
+  with f_BackgroundBitmap do
+  begin
+   PixelFormat := pf32Bit;
+   Width := ClientWidth;
+   Height := ClientHeight;
+  end;//with f_BackgroundBitmap
+ end;
+ Result := f_BufferBitmap;
+//#UC END# *5507C19A032F_5507C0E2028Fget_impl*
+end;//TChromeLikeTabSetControlPrim.pm_GetBufferBitmap
+
+function TChromeLikeTabSetControlPrim.pm_GetBackgroundBitmap: Tl3Bitmap;
+//#UC START# *5512A07A01B0_5507C0E2028Fget_var*
+//#UC END# *5512A07A01B0_5507C0E2028Fget_var*
+begin
+//#UC START# *5512A07A01B0_5507C0E2028Fget_impl*
+ Result := f_BackgroundBitmap;
+//#UC END# *5512A07A01B0_5507C0E2028Fget_impl*
+end;//TChromeLikeTabSetControlPrim.pm_GetBackgroundBitmap
 
 function TChromeLikeTabSetControlPrim.GetDrawingContext: IChromeLkeTabSetDrawingContext;
 //#UC START# *5507C214017E_5507C0E2028F_var*
@@ -145,7 +160,7 @@ begin
 end;//TChromeLikeTabSetControlPrim.GetDrawingContext
 
 procedure TChromeLikeTabSetControlPrim.ResizeBuffer(aNewWidth: Integer;
-  aNewHeight: Integer);
+ aNewHeight: Integer);
 //#UC START# *5507C239016D_5507C0E2028F_var*
 //#UC END# *5507C239016D_5507C0E2028F_var*
 begin
@@ -174,7 +189,7 @@ begin
 end;//TChromeLikeTabSetControlPrim.PaintBuffer
 
 procedure TChromeLikeTabSetControlPrim.FlushBuffer(aDC: hDC;
-  const aRect: TRect);
+ const aRect: TRect);
 //#UC START# *5507C24E035D_5507C0E2028F_var*
 var
  l_UpdateSize: TSize;
@@ -216,59 +231,6 @@ begin
  // Ничего не делаем
 //#UC END# *5507DE9302F6_5507C0E2028F_impl*
 end;//TChromeLikeTabSetControlPrim.DoOnMouseEnter
-function TChromeLikeTabHintParams_C(aNeedShowHint: Boolean;
-       const aHintText: WideString;
-       const aRect: TRect): TChromeLikeTabHintParams;
-//#UC START# *5522508F018E_5522506003AD_var*
-//#UC END# *5522508F018E_5522506003AD_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *5522508F018E_5522506003AD_impl*
- with Result do
- begin
-  rNeedShowHint := aNeedShowHint;
-  rHintText := aHintText;
-  rRect := aRect;
- end;
-//#UC END# *5522508F018E_5522506003AD_impl*
-end;//TChromeLikeTabHintParams.C
-
-// start class TChromeLikeTabSetControlPrim
-
-function TChromeLikeTabSetControlPrim.pm_GetBufferBitmap: Tl3Bitmap;
-//#UC START# *5507C19A032F_5507C0E2028Fget_var*
-//#UC END# *5507C19A032F_5507C0E2028Fget_var*
-begin
-//#UC START# *5507C19A032F_5507C0E2028Fget_impl*
- if (f_BufferBitmap = nil) then
- begin
-  f_BufferBitmap := Tl3Bitmap.Create;
-  with f_BufferBitmap do
-  begin
-   PixelFormat := pf32Bit;
-   Width := ClientWidth;
-   Height := ClientHeight;
-  end;//with f_BufferBitmap
-  f_BackgroundBitmap := Tl3Bitmap.Create;
-  with f_BackgroundBitmap do
-  begin
-   PixelFormat := pf32Bit;
-   Width := ClientWidth;
-   Height := ClientHeight;
-  end;//with f_BackgroundBitmap
- end;
- Result := f_BufferBitmap;
-//#UC END# *5507C19A032F_5507C0E2028Fget_impl*
-end;//TChromeLikeTabSetControlPrim.pm_GetBufferBitmap
-
-function TChromeLikeTabSetControlPrim.pm_GetBackgroundBitmap: Tl3Bitmap;
-//#UC START# *5512A07A01B0_5507C0E2028Fget_var*
-//#UC END# *5512A07A01B0_5507C0E2028Fget_var*
-begin
-//#UC START# *5512A07A01B0_5507C0E2028Fget_impl*
- Result := f_BackgroundBitmap;
-//#UC END# *5512A07A01B0_5507C0E2028Fget_impl*
-end;//TChromeLikeTabSetControlPrim.pm_GetBackgroundBitmap
 
 procedure TChromeLikeTabSetControlPrim.WMNCHitTest(var aMessage: TWMNCHitTest);
 //#UC START# *5507C2E301DB_5507C0E2028F_var*
@@ -407,12 +369,12 @@ begin
 //#UC END# *48077504027E_5507C0E2028F_impl*
 end;//TChromeLikeTabSetControlPrim.Destroy
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeTabSetControlPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeTabSetControlPrim);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TChromeLikeTabSetControlPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.

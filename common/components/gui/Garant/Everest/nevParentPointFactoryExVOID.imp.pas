@@ -1,40 +1,32 @@
 {$IfNDef nevParentPointFactoryExVOID_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevParentPointFactoryExVOID.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevParentPointFactoryExVOID
-//
-// Абстрактная реализация MnevParentPointFactoryEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevParentPointFactoryExVOID" MUID: (49D2586502F8)
+// Имя типа: "_nevParentPointFactoryExVOID_"
 
 {$Define nevParentPointFactoryExVOID_imp}
-{$If defined(evUseVisibleCursors)}
- _nevParentPointFactoryExVOID_ = {mixin} class(_nevParentPointFactoryExVOID_Parent_)
+
+{$If Defined(evUseVisibleCursors)}
+ _nevParentPointFactoryExVOID_ = class(_nevParentPointFactoryExVOID_Parent_)
   {* Абстрактная реализация MnevParentPointFactoryEx }
- public
- // realized methods
+  public
    function PointToParentByLevel(aLevel: Integer = 0): InevBasePoint;
    function PointToTypedParent(aParentType: Tk2Type): InevBasePoint;
  end;//_nevParentPointFactoryExVOID_
-{$Else}
 
- _nevParentPointFactoryExVOID_ = _nevParentPointFactoryExVOID_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParentPointFactoryExVOID_ = _nevParentPointFactoryExVOID_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevParentPointFactoryExVOID_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevParentPointFactoryExVOID_imp_impl}
 
-// start class _nevParentPointFactoryExVOID_
+{$Define nevParentPointFactoryExVOID_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevParentPointFactoryExVOID_.PointToParentByLevel(aLevel: Integer = 0): InevBasePoint;
 //#UC START# *49D243600057_49D2586502F8_var*
 //#UC END# *49D243600057_49D2586502F8_var*
@@ -54,7 +46,9 @@ begin
  Assert(false);
 //#UC END# *49D2437302B2_49D2586502F8_impl*
 end;//_nevParentPointFactoryExVOID_.PointToTypedParent
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevParentPointFactoryExVOID_imp_impl}
 
 {$EndIf nevParentPointFactoryExVOID_imp}
+

@@ -1,80 +1,79 @@
 unit vcmFormSetFormsCollectionPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmFormSetFormsCollectionPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::FormSets::TvcmFormSetFormsCollectionPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetFormsCollectionPrim" MUID: (4FFC4CD30122)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmUserControls,
-  vcmFormSetFormsCollectionItemModelPart,
-  vcmFormSetFormsCollectionPrimPrim,
-  vcmFormSetFormItemList,
-  vcmBaseTypes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmFormSetFormsCollectionPrimPrim
+ , vcmFormSetFormItemList
+ , vcmFormSetFormsCollectionItemModelPart
+ , vcmInterfaces
+ , vcmBaseTypes
+ , vcmUserControls
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmFormSetFormsCollectionPrim = class(TvcmFormSetFormsCollectionPrimPrim)
- private
- // private fields
-   f_FormList : TvcmFormSetFormList;
-    {* Поле для свойства FormList}
- protected
- // property methods
+  private
+   f_FormList: TvcmFormSetFormList;
+    {* Поле для свойства FormList }
+  protected
    function pm_GetFormList: TvcmFormSetFormList; virtual;
    procedure pm_SetFormList(aValue: TvcmFormSetFormList); virtual;
- public
- // public methods
+  public
    function AddZone(const aName: AnsiString;
-     aZoneType: TvcmZoneType;
-     const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart; overload; 
+    aZoneType: TvcmZoneType;
+    const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart; overload;
    function AddZone(const aName: AnsiString;
-     aZoneType: TvcmZoneType;
-     const aFormDescriptor: TvcmFormDescriptor;
-     aUserType: TvcmUserType;
-     aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload; 
- public
- // public properties
+    aZoneType: TvcmZoneType;
+    const aFormDescriptor: TvcmFormDescriptor;
+    aUserType: TvcmUserType;
+    aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload;
+  public
    property FormList: TvcmFormSetFormList
-     read pm_GetFormList
-     write pm_SetFormList;
+    read pm_GetFormList
+    write pm_SetFormList;
  end;//TvcmFormSetFormsCollectionPrim
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  vcmControllers,
-  vcmFormSetFormsCollectionItem
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , vcmFormSetFormsCollectionItem
+ , SysUtils
+ , vcmControllers
+;
 
-{$If not defined(NoVCM)}
+function TvcmFormSetFormsCollectionPrim.pm_GetFormList: TvcmFormSetFormList;
+//#UC START# *528DBAA4009A_4FFC4CD30122get_var*
+//#UC END# *528DBAA4009A_4FFC4CD30122get_var*
+begin
+//#UC START# *528DBAA4009A_4FFC4CD30122get_impl*
+ Result := f_FormList;
+//#UC END# *528DBAA4009A_4FFC4CD30122get_impl*
+end;//TvcmFormSetFormsCollectionPrim.pm_GetFormList
 
-// start class TvcmFormSetFormsCollectionPrim
+procedure TvcmFormSetFormsCollectionPrim.pm_SetFormList(aValue: TvcmFormSetFormList);
+//#UC START# *528DBAA4009A_4FFC4CD30122set_var*
+//#UC END# *528DBAA4009A_4FFC4CD30122set_var*
+begin
+//#UC START# *528DBAA4009A_4FFC4CD30122set_impl*
+ f_FormList := aValue;
+//#UC END# *528DBAA4009A_4FFC4CD30122set_impl*
+end;//TvcmFormSetFormsCollectionPrim.pm_SetFormList
 
 function TvcmFormSetFormsCollectionPrim.AddZone(const aName: AnsiString;
-  aZoneType: TvcmZoneType;
-  const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart;
+ aZoneType: TvcmZoneType;
+ const aFormDescriptor: TvcmFormDescriptor): TvcmFormSetFormsCollectionItemModelPart;
 //#UC START# *4FFC4D6E00E1_4FFC4CD30122_var*
 var
  l_Item : TvcmFormSetFormsCollectionItemModelPart;
@@ -97,10 +96,10 @@ begin
 end;//TvcmFormSetFormsCollectionPrim.AddZone
 
 function TvcmFormSetFormsCollectionPrim.AddZone(const aName: AnsiString;
-  aZoneType: TvcmZoneType;
-  const aFormDescriptor: TvcmFormDescriptor;
-  aUserType: TvcmUserType;
-  aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
+ aZoneType: TvcmZoneType;
+ const aFormDescriptor: TvcmFormDescriptor;
+ aUserType: TvcmUserType;
+ aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
 //#UC START# *528B3B1702DF_4FFC4CD30122_var*
 //#UC END# *528B3B1702DF_4FFC4CD30122_var*
 begin
@@ -112,25 +111,6 @@ begin
    aZoneType, aUserType), aNeedMakeDS));
 //#UC END# *528B3B1702DF_4FFC4CD30122_impl*
 end;//TvcmFormSetFormsCollectionPrim.AddZone
-
-function TvcmFormSetFormsCollectionPrim.pm_GetFormList: TvcmFormSetFormList;
-//#UC START# *528DBAA4009A_4FFC4CD30122get_var*
-//#UC END# *528DBAA4009A_4FFC4CD30122get_var*
-begin
-//#UC START# *528DBAA4009A_4FFC4CD30122get_impl*
- Result := f_FormList;
-//#UC END# *528DBAA4009A_4FFC4CD30122get_impl*
-end;//TvcmFormSetFormsCollectionPrim.pm_GetFormList
-
-procedure TvcmFormSetFormsCollectionPrim.pm_SetFormList(aValue: TvcmFormSetFormList);
-//#UC START# *528DBAA4009A_4FFC4CD30122set_var*
-//#UC END# *528DBAA4009A_4FFC4CD30122set_var*
-begin
-//#UC START# *528DBAA4009A_4FFC4CD30122set_impl*
- f_FormList := aValue;
-//#UC END# *528DBAA4009A_4FFC4CD30122set_impl*
-end;//TvcmFormSetFormsCollectionPrim.pm_SetFormList
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

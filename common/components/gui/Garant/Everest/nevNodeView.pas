@@ -1,41 +1,29 @@
 unit nevNodeView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevNodeView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::PaintedNode::TnevNodeView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevNodeView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevNodeView" MUID: (4E24140802B9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevBaseDetachedView,
-  nevObjectHolder
-  ;
+ l3IntfUses
+ , nevBaseDetachedView
+ , nevObjectHolder
+ , nevTools
+;
 
 type
  TnevNodeView = class(TnevBaseDetachedView)
- private
- // private fields
-   f_Holder : TnevObjectHolder;
- protected
- // overridden protected methods
+  private
+   f_Holder: TnevObjectHolder;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetNeedTotalRecalc: Boolean; override;
- public
- // public methods
+  public
    constructor Create(const aNode: InevObject;
     const aCanvas: InevCanvas); reintroduce;
    class function Make(const aNode: InevObject;
@@ -45,13 +33,12 @@ type
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TnevNodeView
+ l3ImplUses
+ , l3Base
+;
 
 constructor TnevNodeView.Create(const aNode: InevObject;
-  const aCanvas: InevCanvas);
+ const aCanvas: InevCanvas);
 //#UC START# *4E241455003A_4E24140802B9_var*
 //#UC END# *4E241455003A_4E24140802B9_var*
 begin
@@ -62,7 +49,7 @@ begin
 end;//TnevNodeView.Create
 
 class function TnevNodeView.Make(const aNode: InevObject;
-  const aCanvas: InevCanvas): InevView;
+ const aCanvas: InevCanvas): InevView;
 //#UC START# *4E241480025C_4E24140802B9_var*
 var
  l_View : TnevNodeView;
@@ -79,6 +66,7 @@ begin
 end;//TnevNodeView.Make
 
 procedure TnevNodeView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E24140802B9_var*
 //#UC END# *479731C50290_4E24140802B9_var*
 begin

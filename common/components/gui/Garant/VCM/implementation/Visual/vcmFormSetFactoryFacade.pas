@@ -1,59 +1,43 @@
 unit vcmFormSetFactoryFacade;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmFormSetFactoryFacade.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::FormSets::TvcmFormSetFactoryFacade
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactoryFacade.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetFactoryFacade" MUID: (55A6448A0302)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmFormSetFactory,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoObject
+ , vcmInterfaces
+ , vcmFormSetFactory
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmFormSetFactoryFacade = class(Tl3ProtoObject, IvcmFormSetSimpleFactory)
- private
- // private fields
-   f_FactoryClass : RvcmFormSetFactory;
- protected
- // realized methods
+  private
+   f_FactoryClass: RvcmFormSetFactory;
+  protected
+   constructor Create(aFactoryClass: RvcmFormSetFactory); reintroduce;
    function MakeFormset(const aDataSource: IvcmFormSetDataSource;
     const aContainer: IvcmContainer;
     aSaveToHistory: Boolean;
     aLockSetFocusToMainObjectForm: Boolean;
     const aFormSetToClone: IvcmFormSet): IvcmFormSet;
- protected
- // protected methods
-   constructor Create(aFactoryClass: RvcmFormSetFactory); reintroduce;
- public
- // public methods
+  public
    class function Make(aFactoryClass: RvcmFormSetFactory): IvcmFormSetSimpleFactory; reintroduce;
-     {* Сигнатура фабрики TvcmFormSetFactoryFacade.Make }
  end;//TvcmFormSetFactoryFacade
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-
-// start class TvcmFormSetFactoryFacade
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 constructor TvcmFormSetFactoryFacade.Create(aFactoryClass: RvcmFormSetFactory);
 //#UC START# *55A6455F016C_55A6448A0302_var*
@@ -75,13 +59,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormSetFactoryFacade.Make
 
 function TvcmFormSetFactoryFacade.MakeFormset(const aDataSource: IvcmFormSetDataSource;
-  const aContainer: IvcmContainer;
-  aSaveToHistory: Boolean;
-  aLockSetFocusToMainObjectForm: Boolean;
-  const aFormSetToClone: IvcmFormSet): IvcmFormSet;
+ const aContainer: IvcmContainer;
+ aSaveToHistory: Boolean;
+ aLockSetFocusToMainObjectForm: Boolean;
+ const aFormSetToClone: IvcmFormSet): IvcmFormSet;
 //#UC START# *55A6442E0050_55A6448A0302_var*
 //#UC END# *55A6442E0050_55A6448A0302_var*
 begin
@@ -90,7 +74,6 @@ begin
   aLockSetFocusToMainObjectForm, aFormSetToClone);
 //#UC END# *55A6442E0050_55A6448A0302_impl*
 end;//TvcmFormSetFactoryFacade.MakeFormset
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,90 +1,64 @@
 unit evTabIndentMarker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTabIndentMarker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevTabIndentMarker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTabIndentMarker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTabIndentMarker" MUID: (4A390E9702B9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  nevTools,
-  evMarker,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evMarker
+ , l3Variant
+ , nevTools
+ , l3Interfaces
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  _RoundMarkerValue_Parent_ = TevMarker;
- {$Include ..\Everest\RoundMarkerValue.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
  TevTabIndentMarker = class(_RoundMarkerValue_)
- private
- // private fields
-   f_FirstTabStop : Tl3Variant;
- private
- // private methods
+  private
+   f_FirstTabStop: Tl3Variant;
+  private
    function CheckDecimapSeparatorType: Boolean;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure SetClientValue(aValue: Integer;
-     const aContext: InevOp); override;
+    const aContext: InevOp); override;
    procedure TagChanged(aNew: Tl3Variant); override;
    function DoGetClientValue: Integer; override;
- public
- // overridden public methods
-   procedure SetTagQT(aTag: Tl3Variant); override;
- public
- // public methods
+  public
    constructor Create(const aView: InevView;
-     aPara: Tl3Variant;
-     aTabStopsHolder: Tl3Variant;
-     const aHint: Il3CString); reintroduce;
+    aPara: Tl3Variant;
+    aTabStopsHolder: Tl3Variant;
+    const aHint: Il3CString); reintroduce;
+   procedure SetTagQT(aTag: Tl3Variant); override;
  end;//TevTabIndentMarker
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Base
-  {$If defined(k2ForEditor)}
-  ,
-  evAlignBySeparatorUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  SysUtils
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , k2Base
+ {$If Defined(k2ForEditor)}
+ , evAlignBySeparatorUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+ , SysUtils
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evUseVisibleCursors)}
-
-{$Include ..\Everest\RoundMarkerValue.imp.pas}
-
-// start class TevTabIndentMarker
+{$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
 
 function TevTabIndentMarker.CheckDecimapSeparatorType: Boolean;
 //#UC START# *4E3A3E3802A5_4A390E9702B9_var*
@@ -96,9 +70,9 @@ begin
 end;//TevTabIndentMarker.CheckDecimapSeparatorType
 
 constructor TevTabIndentMarker.Create(const aView: InevView;
-  aPara: Tl3Variant;
-  aTabStopsHolder: Tl3Variant;
-  const aHint: Il3CString);
+ aPara: Tl3Variant;
+ aTabStopsHolder: Tl3Variant;
+ const aHint: Il3CString);
 //#UC START# *4E3A3E650335_4A390E9702B9_var*
 //#UC END# *4E3A3E650335_4A390E9702B9_var*
 begin
@@ -110,6 +84,7 @@ begin
 end;//TevTabIndentMarker.Create
 
 procedure TevTabIndentMarker.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A390E9702B9_var*
 //#UC END# *479731C50290_4A390E9702B9_var*
 begin
@@ -137,7 +112,7 @@ begin
 end;//TevTabIndentMarker.SetTagQT
 
 procedure TevTabIndentMarker.SetClientValue(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *4E3A3F0D0388_4A390E9702B9_var*
 var
  l_Delta : Integer;
@@ -189,7 +164,6 @@ begin
  Result := f_FirstTabStop.IntA[k2_tiStart]
 //#UC END# *4E3A4C4B03A0_4A390E9702B9_impl*
 end;//TevTabIndentMarker.DoGetClientValue
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

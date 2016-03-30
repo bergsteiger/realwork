@@ -1,77 +1,49 @@
 unit nevActiveHyperlinkProxy;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevActiveHyperlinkProxy.pas"
-// Начат: 13.07.2011 16:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TnevActiveHyperlinkProxy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevActiveHyperlinkProxy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevActiveHyperlinkProxy" MUID: (4E1D95610271)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevTools,
-  l3CProtoObject,
-  l3Interfaces
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , l3CProtoObject
+ , nevTools
+ , l3Interfaces
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TnevActiveHyperlinkProxy = class(Tl3CProtoObject, InevActiveElement)
- protected
- // realized methods
+  public
+   f_Active: InevActiveElement;
+  protected
+   function DoIsSame(const anElement: InevActiveElement): Boolean; virtual;
+   procedure DoInvalidate; virtual;
    function IsSame(const anElement: InevActiveElement): Boolean;
    function Get_Para: InevPara;
    procedure Invalidate;
-     {* Перерисовывает область активного элемента }
- protected
- // overridden protected methods
+    {* Перерисовывает область активного элемента }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
- public
- // public fields
-   f_Active : InevActiveElement;
- protected
- // protected methods
-   function DoIsSame(const anElement: InevActiveElement): Boolean; virtual;
-   procedure DoInvalidate; virtual;
- public
- // public methods
+  public
    constructor Create(const anActive: InevActiveElement); reintroduce;
    class function Make(const anActive: InevActiveElement): InevActiveElement; reintroduce;
-     {* Сигнатура фабрики TnevActiveHyperlinkProxy.Make }
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//TnevActiveHyperlinkProxy
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  l3InterfacesMisc
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TnevActiveHyperlinkProxy
+ l3ImplUses
+ , l3InterfacesMisc
+;
 
 constructor TnevActiveHyperlinkProxy.Create(const anActive: InevActiveElement);
 //#UC START# *4E1D95CA035F_4E1D95610271_var*
@@ -94,7 +66,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevActiveHyperlinkProxy.Make
 
 function TnevActiveHyperlinkProxy.DoIsSame(const anElement: InevActiveElement): Boolean;
 //#UC START# *4E1DB93401C4_4E1D95610271_var*
@@ -133,6 +105,7 @@ begin
 end;//TnevActiveHyperlinkProxy.Get_Para
 
 procedure TnevActiveHyperlinkProxy.Invalidate;
+ {* Перерисовывает область активного элемента }
 //#UC START# *4FBF5595010C_4E1D95610271_var*
 //#UC END# *4FBF5595010C_4E1D95610271_var*
 begin
@@ -142,7 +115,8 @@ begin
 end;//TnevActiveHyperlinkProxy.Invalidate
 
 function TnevActiveHyperlinkProxy.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47A0AD3A01F7_4E1D95610271_var*
 //#UC END# *47A0AD3A01F7_4E1D95610271_var*
 begin
@@ -154,14 +128,10 @@ begin
 end;//TnevActiveHyperlinkProxy.QueryInterface
 
 procedure TnevActiveHyperlinkProxy.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_Active := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TnevActiveHyperlinkProxy.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

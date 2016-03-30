@@ -26,25 +26,27 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , Types
+ , Windows
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3WinControlCanvas
  {$If NOT Defined(NoTB97)}
  , tb97Ctls
  {$IfEnd} // NOT Defined(NoTB97)
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3Forms
  , afwInterfaces
  , l3TabbedContainersDispatcher
- {$If NOT Defined(NoVCL)}
- , ImgList
- {$IfEnd} // NOT Defined(NoVCL)
  , l3ObjectList
- , Windows
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3WinControlCanvas
- , Graphics
- , l3Forms
+ //#UC START# *4C8A252E01C2intf_uses*
+ //#UC END# *4C8A252E01C2intf_uses*
 ;
 
 const
@@ -103,7 +105,6 @@ type
   {* используется для уведомления об изменении состояния навигатора (nsAutoHide, nsNormal, nsMinimized) }
   private
    f_OnStateChanged: TNotifyEvent;
-    {* Поле для свойства OnStateChanged }
   public
    property OnStateChanged: TNotifyEvent
     read f_OnStateChanged
@@ -159,6 +160,261 @@ type
    procedure DoActivePrevPage; override;
  end;//TnpPageControl
 
+ TnpSurface = class;
+
+ TnpContainerSurface = class(TnpCustomControl)
+  private
+   f_Surface: TnpSurface;
+  private
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
+    {* иначе границы toolbar-ов не прорисовываются }
+  protected
+   procedure pm_SetSurface(aValue: TnpSurface);
+  public
+   class function Make(aSurface: TnpSurface): TnpContainerSurface;
+  public
+   property Surface: TnpSurface
+    read f_Surface
+    write pm_SetSurface;
+ end;//TnpContainerSurface
+
+ TnpSplitter = class;
+
+ TnpHeaderPrim = class;
+
+ TnpSurface = class(TnpCustomControl)
+  {* Подложка. На подложке лежат TnpHeader (заголовок ) и PageControl }
+  private
+   f_Link: TnpChangeLink;
+   f_Container: TnpContainerSurface;
+   f_PageControl: TnpPageControl;
+   f_Header: TnpHeaderPrim;
+   f_Navigator: TvtNavigatorPrim;
+  protected
+   f_Splitter: TnpSplitter;
+  private
+   procedure InitAutoHidePosition;
+    {* обновить Left окна }
+   procedure OnStateChanged(Sender: TObject);
+   procedure WMEraseBkgnd(var Message: TMessage); message WM_ERASEBKGND;
+  protected
+   procedure pm_SetPageControl(aValue: TnpPageControl);
+   procedure pm_SetHeader(aValue: TnpHeaderPrim);
+   function pm_GetSize: Integer;
+   procedure pm_SetNavigator(aValue: TvtNavigatorPrim);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure Paint; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   procedure SetSizeMini;
+   procedure DefineSplitterAlign;
+   constructor Create(AOwner: TComponent); override;
+  public
+   property PageControl: TnpPageControl
+    read f_PageControl
+    write pm_SetPageControl;
+   property Header: TnpHeaderPrim
+    read f_Header
+    write pm_SetHeader;
+   property Size: Integer
+    read pm_GetSize;
+   property Navigator: TvtNavigatorPrim
+    read f_Navigator
+    write pm_SetNavigator;
+ end;//TnpSurface
+
+ TnpSplitter = class(TnpCustomControl)
+  {* сплиттер используемый в навигаторе }
+  private
+   f_MouseDownPoint: TPoint;
+   f_IsHideButtonDown: Boolean;
+   f_HideButtonHint: THintWindow;
+    {* подсказка к кнопке "скрыть\развернуть" }
+   f_IsMouseDown: Boolean;
+  protected
+   f_Surface: TnpSurface;
+  private
+   procedure splShowHint(X: Integer;
+    Y: Integer);
+   procedure splHideHint;
+   function CreateButtonHint: THintWindow;
+   procedure UpdateCursor(aButton: Boolean = True);
+   procedure DrawButton(aCanvas: TCanvas = nil);
+   function GetButtonRect: TRect;
+    {* определяет прямоугольник для кнопки }
+   procedure SetSizeCursor;
+    {* устанавливает курсор для изменения размеров }
+   function IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
+   procedure WMKeyDown(var Msg: TWMKeyDown); message WM_KEYDOWN;
+   procedure WMSysKeyDown(var Msg: TWMSysKeyDown); message WM_SYSKEYDOWN;
+   procedure CNKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
+   procedure CNSysKeyDown(var Msg: TWMSysKeyDown); message CN_SYSKEYDOWN;
+   procedure WMMouseLeave(var Msg: TMessage); message WM_MOUSELEAVE;
+  protected
+   procedure pm_SetIsHideButtonDown(aValue: Boolean);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure MouseMove(Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure MouseUp(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure MouseDown(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure Paint; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   constructor Create(AOwner: TComponent); override;
+  protected
+   property IsHideButtonDown: Boolean
+    read f_IsHideButtonDown
+    write pm_SetIsHideButtonDown;
+   property HideButtonHint: THintWindow
+    read f_HideButtonHint
+    write f_HideButtonHint;
+    {* подсказка к кнопке "скрыть\развернуть" }
+   property IsMouseDown: Boolean
+    read f_IsMouseDown
+    write f_IsMouseDown;
+ end;//TnpSplitter
+
+ TnpButton = class;
+
+ TnpHeaderPrim = class(TnpCustomControl)
+  {* панель отображающаяся в навигаторе. Содержит кнопки включения(отключения автоскрытия) и скрытия панели до размеров вкладки. Событие OnMouseDown инициализирует перетаскиваение активного компонента. }
+  private
+   f_Canvas: Tl3WinControlCanvas;
+   f_Link: TnpChangeLink;
+   f_CloseButton: TnpButton;
+   f_HideButton: TnpButton;
+   f_AutoHideButton: TnpButton;
+   f_IsDragBegining: Boolean;
+    {* определяет была ли инициализирована операция Control.IsDragBegining от заголовка. }
+   f_CloseImage: TImageIndex;
+   f_AutoHideOnImage: TImageIndex;
+   f_AutoHideOffImage: TImageIndex;
+   f_HideLeftImage: TImageIndex;
+   f_HideRightImage: TImageIndex;
+   f_HideUpImage: TImageIndex;
+   f_HideDownImage: TImageIndex;
+   f_Size: Integer;
+   f_ButtonsImageList: TCustomImageList;
+   f_Navigator: TvtNavigatorPrim;
+  private
+   procedure HideCloseButton;
+   procedure ShowCloseButton(const aHandler: IvcmFormHandler);
+   procedure CloseButtonVisible(aValue: Boolean);
+    {* изменить видимость кнопки закрыть, установить кнопку видимой без установленного обработчика OnClick нельзя }
+   procedure UpdateImages;
+   procedure UpdateSize;
+   procedure UpdatePositions;
+   procedure UpdateHideImage;
+   procedure UpdateCloseImage;
+   procedure UpdateAutoHideImage;
+   function GetRectLines: TRect;
+   procedure DoStateChanged;
+   procedure OnStateChanged(Sender: TObject);
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
+  protected
+   function pm_GetAlign: TAlign;
+   procedure pm_SetAlign(aValue: TAlign);
+   procedure pm_SetCloseImage(aValue: TImageIndex);
+   procedure pm_SetAutoHideOnImage(aValue: TImageIndex);
+   procedure pm_SetAutoHideOffImage(aValue: TImageIndex);
+   procedure pm_SetHideLeftImage(aValue: TImageIndex);
+   procedure pm_SetHideRightImage(aValue: TImageIndex);
+   procedure pm_SetHideUpImage(aValue: TImageIndex);
+   procedure pm_SetHideDownImage(aValue: TImageIndex);
+   function pm_GetSize: Integer;
+   procedure pm_SetSize(aValue: Integer);
+   function pm_GetOnHide: TNotifyEvent;
+   procedure pm_SetOnHide(aValue: TNotifyEvent);
+   function pm_GetOnAutoHide: TNotifyEvent;
+   procedure pm_SetOnAutoHide(aValue: TNotifyEvent);
+   procedure pm_SetButtonsImageList(aValue: TCustomImageList);
+   procedure pm_SetNavigator(aValue: TvtNavigatorPrim);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure MouseDown(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure Paint; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure AdjustClientRect(var Rect: TRect); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   constructor Create(AOwner: TComponent); override;
+  protected
+   property IsDragBegining: Boolean
+    read f_IsDragBegining
+    write f_IsDragBegining;
+    {* определяет была ли инициализирована операция Control.IsDragBegining от заголовка. }
+  public
+   property CloseButton: TnpButton
+    read f_CloseButton;
+   property HideButton: TnpButton
+    read f_HideButton;
+   property AutoHideButton: TnpButton
+    read f_AutoHideButton;
+   property Align: TAlign
+    read pm_GetAlign
+    write pm_SetAlign;
+   property CloseImage: TImageIndex
+    read f_CloseImage
+    write pm_SetCloseImage;
+   property AutoHideOnImage: TImageIndex
+    read f_AutoHideOnImage
+    write pm_SetAutoHideOnImage;
+   property AutoHideOffImage: TImageIndex
+    read f_AutoHideOffImage
+    write pm_SetAutoHideOffImage;
+   property HideLeftImage: TImageIndex
+    read f_HideLeftImage
+    write pm_SetHideLeftImage;
+   property HideRightImage: TImageIndex
+    read f_HideRightImage
+    write pm_SetHideRightImage;
+   property HideUpImage: TImageIndex
+    read f_HideUpImage
+    write pm_SetHideUpImage;
+   property HideDownImage: TImageIndex
+    read f_HideDownImage
+    write pm_SetHideDownImage;
+   property Size: Integer
+    read pm_GetSize
+    write pm_SetSize;
+   property OnHide: TNotifyEvent
+    read pm_GetOnHide
+    write pm_SetOnHide;
+   property OnAutoHide: TNotifyEvent
+    read pm_GetOnAutoHide
+    write pm_SetOnAutoHide;
+   property ButtonsImageList: TCustomImageList
+    read f_ButtonsImageList
+    write pm_SetButtonsImageList;
+   property Navigator: TvtNavigatorPrim
+    read f_Navigator
+    write pm_SetNavigator;
+ end;//TnpHeaderPrim
+
  TnpButtonType = (
   {* Тип кнопки }
   nbtAutoHide
@@ -181,11 +437,71 @@ type
    function MakeHint: AnsiString;
  end;//TnpButton
 
- TnpSurface = class;
+ TnpFloatingWindow = class(Tl3Form, IafwFloatingWindow)
+  {* плавающая форма содержащая плавающий навигатор. Форма создается если NewTarget отстыкованного компонента = nil. Форму можно перемещать за TnpHeader. При этом вызывается метод IsDragBegining первого компонента активной вкладки f_PageControl.ActivePage.Controls[0], если компонент не был пристыкован, то форма перемещается в место где была отпущена рамка. }
+  private
+   f_SizeNormal: Integer;
+   f_CloseDisabled: Boolean;
+   f_ReactivateDisabled: Boolean;
+   f_Navigator: TvtNavigatorPrim;
+   f_State: TnpFloatWindowState;
+    {* состояние плавающего окна }
+   f_FloatID: Integer;
+  private
+   function GetGripperRect: TRect;
+   function GetGripperHeight: Integer;
+   function CheckGripperCursor: Boolean;
+   {$If Defined(Nemesis)}
+   procedure UpdateFloatWindowsBounds;
+   {$IfEnd} // Defined(Nemesis)
+   procedure OnChangeState(Sender: TObject);
+   procedure OnCloseWindow(Sender: TObject);
+   procedure FormOnResize(Sender: TObject);
+   procedure FormClose(Sender: TObject;
+    var Action: TCloseAction);
+   procedure OnTabSheetClick(Sender: TObject;
+    Page: TElTabSheet);
+   procedure OnDockDrop(Sender: TObject;
+    Source: TDragDockObject;
+    X: Integer;
+    Y: Integer);
+   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
+   procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
+   procedure WMNCHitTest(var Message: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
+  protected
+   procedure pm_SetState(aValue: TnpFloatWindowState); virtual;
+   function GetNavigatorClass: RvtNavigator; virtual;
+   procedure DisableClose;
+   procedure DisableReactivate;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function CloseQuery: Boolean; override;
+    {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
 
- TnpHeaderPrim = class;
-
- TnpFloatingWindow = class;
+As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true. }
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   {$If NOT Defined(NoVCL)}
+   constructor CreateNew(AOwner: TComponent;
+    Dummy: Integer = 0); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   property Navigator: TvtNavigatorPrim
+    read f_Navigator
+    write f_Navigator;
+   property State: TnpFloatWindowState
+    read f_State
+    write pm_SetState;
+    {* состояние плавающего окна }
+   property FloatID: Integer
+    read f_FloatID
+    write f_FloatID;
+ end;//TnpFloatingWindow
 
  TvtNavigatorPrim = class(TnpCustomPanel, IvcmState, IvcmToolbarNotifier, IafwTabSheetControl, IvcmFormHandlersPublisher, Il3SelectedTabDependent)
   private
@@ -240,53 +556,32 @@ type
    f_ParentMainForm: TCustomForm;
    {$IfEnd} // Defined(Nemesis)
    f_SizeMini: Integer;
-    {* Поле для свойства SizeMini }
    f_Swim: Boolean;
-    {* Поле для свойства Swim }
    f_Activate: Boolean;
-    {* Поле для свойства Activate }
+    {* активизирует, деактивизирует навигатор }
    f_PageControl: TnpPageControl;
-    {* Поле для свойства PageControl }
    f_Float: Boolean;
-    {* Поле для свойства Float }
    f_State: TNavigatorState;
-    {* Поле для свойства State }
    f_ShowActivePageInHeader: Boolean;
-    {* Поле для свойства ShowActivePageInHeader }
+    {* выводить иконку и название активной закладки в заголовке навигатора }
    f_AutoHideOffHint: AnsiString;
-    {* Поле для свойства AutoHideOffHint }
    f_AutoHideOnHint: AnsiString;
-    {* Поле для свойства AutoHideOnHint }
    f_MinimizedOnHint: AnsiString;
-    {* Поле для свойства MinimizedOnHint }
    f_MinimizedOffHint: AnsiString;
-    {* Поле для свойства MinimizedOffHint }
    f_CloseHint: AnsiString;
-    {* Поле для свойства CloseHint }
    f_OnSaveSize: TOnSaveSizeNavigator;
-    {* Поле для свойства OnSaveSize }
    f_OnLoadSize: TOnLoadSizeNavigator;
-    {* Поле для свойства OnLoadSize }
    f_AutoHideFloat: Boolean;
-    {* Поле для свойства AutoHideFloat }
    f_DelayIntervalOnShow: Integer;
-    {* Поле для свойства DelayIntervalOnShow }
    f_DelayIntervalOnHide: Integer;
-    {* Поле для свойства DelayIntervalOnHide }
    f_DelayOnAutoHide: Boolean;
-    {* Поле для свойства DelayOnAutoHide }
    f_SingleFloatNavigator: Boolean;
-    {* Поле для свойства SingleFloatNavigator }
    f_SizeEmpty: Integer;
-    {* Поле для свойства SizeEmpty }
    f_SizeNormal: Integer;
-    {* Поле для свойства SizeNormal }
    f_OnStateChange: TNotifyEvent;
-    {* Поле для свойства OnStateChange }
    f_UnDockFromFloat: Boolean;
-    {* Поле для свойства UnDockFromFloat }
    f_NavigatorOnForm: TvtNavigatorPrim;
-    {* Поле для свойства NavigatorOnForm }
+    {* навигатор от которого произошел данный навигатор. Метод нужен для того чтобы методы возвращали все навигаторы которое произошли от навигатора на форме }
   protected
    f_Header: TnpHeaderPrim;
   private
@@ -645,344 +940,6 @@ type
     write pm_SetHideDownImage;
  end;//TvtNavigatorPrim
 
- TnpHeaderPrim = class(TnpCustomControl)
-  {* панель отображающаяся в навигаторе. Содержит кнопки включения(отключения автоскрытия) и скрытия панели до размеров вкладки. Событие OnMouseDown инициализирует перетаскиваение активного компонента. }
-  private
-   f_Canvas: Tl3WinControlCanvas;
-   f_Link: TnpChangeLink;
-   f_CloseButton: TnpButton;
-    {* Поле для свойства CloseButton }
-   f_HideButton: TnpButton;
-    {* Поле для свойства HideButton }
-   f_AutoHideButton: TnpButton;
-    {* Поле для свойства AutoHideButton }
-   f_IsDragBegining: Boolean;
-    {* Поле для свойства IsDragBegining }
-   f_CloseImage: TImageIndex;
-    {* Поле для свойства CloseImage }
-   f_AutoHideOnImage: TImageIndex;
-    {* Поле для свойства AutoHideOnImage }
-   f_AutoHideOffImage: TImageIndex;
-    {* Поле для свойства AutoHideOffImage }
-   f_HideLeftImage: TImageIndex;
-    {* Поле для свойства HideLeftImage }
-   f_HideRightImage: TImageIndex;
-    {* Поле для свойства HideRightImage }
-   f_HideUpImage: TImageIndex;
-    {* Поле для свойства HideUpImage }
-   f_HideDownImage: TImageIndex;
-    {* Поле для свойства HideDownImage }
-   f_Size: Integer;
-    {* Поле для свойства Size }
-   f_ButtonsImageList: TCustomImageList;
-    {* Поле для свойства ButtonsImageList }
-   f_Navigator: TvtNavigatorPrim;
-    {* Поле для свойства Navigator }
-  private
-   procedure HideCloseButton;
-   procedure ShowCloseButton(const aHandler: IvcmFormHandler);
-   procedure CloseButtonVisible(aValue: Boolean);
-    {* изменить видимость кнопки закрыть, установить кнопку видимой без установленного обработчика OnClick нельзя }
-   procedure UpdateImages;
-   procedure UpdateSize;
-   procedure UpdatePositions;
-   procedure UpdateHideImage;
-   procedure UpdateCloseImage;
-   procedure UpdateAutoHideImage;
-   function GetRectLines: TRect;
-   procedure DoStateChanged;
-   procedure OnStateChanged(Sender: TObject);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
-  protected
-   function pm_GetAlign: TAlign;
-   procedure pm_SetAlign(aValue: TAlign);
-   procedure pm_SetCloseImage(aValue: TImageIndex);
-   procedure pm_SetAutoHideOnImage(aValue: TImageIndex);
-   procedure pm_SetAutoHideOffImage(aValue: TImageIndex);
-   procedure pm_SetHideLeftImage(aValue: TImageIndex);
-   procedure pm_SetHideRightImage(aValue: TImageIndex);
-   procedure pm_SetHideUpImage(aValue: TImageIndex);
-   procedure pm_SetHideDownImage(aValue: TImageIndex);
-   function pm_GetSize: Integer;
-   procedure pm_SetSize(aValue: Integer);
-   function pm_GetOnHide: TNotifyEvent;
-   procedure pm_SetOnHide(aValue: TNotifyEvent);
-   function pm_GetOnAutoHide: TNotifyEvent;
-   procedure pm_SetOnAutoHide(aValue: TNotifyEvent);
-   procedure pm_SetButtonsImageList(aValue: TCustomImageList);
-   procedure pm_SetNavigator(aValue: TvtNavigatorPrim);
-   procedure Cleanup; override;
-    {* Функция очистки полей объекта. }
-   {$If NOT Defined(NoVCL)}
-   procedure MouseDown(Button: TMouseButton;
-    Shift: TShiftState;
-    X: Integer;
-    Y: Integer); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   procedure Paint; override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   procedure AdjustClientRect(var Rect: TRect); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-  public
-   constructor Create(AOwner: TComponent); override;
-  protected
-   property IsDragBegining: Boolean
-    read f_IsDragBegining
-    write f_IsDragBegining;
-    {* определяет была ли инициализирована операция Control.IsDragBegining от заголовка. }
-  public
-   property CloseButton: TnpButton
-    read f_CloseButton;
-   property HideButton: TnpButton
-    read f_HideButton;
-   property AutoHideButton: TnpButton
-    read f_AutoHideButton;
-   property Align: TAlign
-    read pm_GetAlign
-    write pm_SetAlign;
-   property CloseImage: TImageIndex
-    read f_CloseImage
-    write pm_SetCloseImage;
-   property AutoHideOnImage: TImageIndex
-    read f_AutoHideOnImage
-    write pm_SetAutoHideOnImage;
-   property AutoHideOffImage: TImageIndex
-    read f_AutoHideOffImage
-    write pm_SetAutoHideOffImage;
-   property HideLeftImage: TImageIndex
-    read f_HideLeftImage
-    write pm_SetHideLeftImage;
-   property HideRightImage: TImageIndex
-    read f_HideRightImage
-    write pm_SetHideRightImage;
-   property HideUpImage: TImageIndex
-    read f_HideUpImage
-    write pm_SetHideUpImage;
-   property HideDownImage: TImageIndex
-    read f_HideDownImage
-    write pm_SetHideDownImage;
-   property Size: Integer
-    read pm_GetSize
-    write pm_SetSize;
-   property OnHide: TNotifyEvent
-    read pm_GetOnHide
-    write pm_SetOnHide;
-   property OnAutoHide: TNotifyEvent
-    read pm_GetOnAutoHide
-    write pm_SetOnAutoHide;
-   property ButtonsImageList: TCustomImageList
-    read f_ButtonsImageList
-    write pm_SetButtonsImageList;
-   property Navigator: TvtNavigatorPrim
-    read f_Navigator
-    write pm_SetNavigator;
- end;//TnpHeaderPrim
-
- TnpContainerSurface = class;
-
- TnpSplitter = class;
-
- TnpSurface = class(TnpCustomControl)
-  {* Подложка. На подложке лежат TnpHeader (заголовок ) и PageControl }
-  private
-   f_Link: TnpChangeLink;
-   f_Container: TnpContainerSurface;
-   f_PageControl: TnpPageControl;
-    {* Поле для свойства PageControl }
-   f_Header: TnpHeaderPrim;
-    {* Поле для свойства Header }
-   f_Navigator: TvtNavigatorPrim;
-    {* Поле для свойства Navigator }
-  protected
-   f_Splitter: TnpSplitter;
-  private
-   procedure InitAutoHidePosition;
-    {* обновить Left окна }
-   procedure OnStateChanged(Sender: TObject);
-   procedure WMEraseBkgnd(var Message: TMessage); message WM_ERASEBKGND;
-  protected
-   procedure pm_SetPageControl(aValue: TnpPageControl);
-   procedure pm_SetHeader(aValue: TnpHeaderPrim);
-   function pm_GetSize: Integer;
-   procedure pm_SetNavigator(aValue: TvtNavigatorPrim);
-   procedure Cleanup; override;
-    {* Функция очистки полей объекта. }
-   {$If NOT Defined(NoVCL)}
-   procedure Paint; override;
-   {$IfEnd} // NOT Defined(NoVCL)
-  public
-   procedure SetSizeMini;
-   procedure DefineSplitterAlign;
-   constructor Create(AOwner: TComponent); override;
-  public
-   property PageControl: TnpPageControl
-    read f_PageControl
-    write pm_SetPageControl;
-   property Header: TnpHeaderPrim
-    read f_Header
-    write pm_SetHeader;
-   property Size: Integer
-    read pm_GetSize;
-   property Navigator: TvtNavigatorPrim
-    read f_Navigator
-    write pm_SetNavigator;
- end;//TnpSurface
-
- TnpContainerSurface = class(TnpCustomControl)
-  private
-   f_Surface: TnpSurface;
-    {* Поле для свойства Surface }
-  private
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
-    {* иначе границы toolbar-ов не прорисовываются }
-  protected
-   procedure pm_SetSurface(aValue: TnpSurface);
-  public
-   class function Make(aSurface: TnpSurface): TnpContainerSurface;
-  public
-   property Surface: TnpSurface
-    read f_Surface
-    write pm_SetSurface;
- end;//TnpContainerSurface
-
- TnpSplitter = class(TnpCustomControl)
-  {* сплиттер используемый в навигаторе }
-  private
-   f_MouseDownPoint: TPoint;
-   f_IsHideButtonDown: Boolean;
-    {* Поле для свойства IsHideButtonDown }
-   f_HideButtonHint: THintWindow;
-    {* Поле для свойства HideButtonHint }
-   f_IsMouseDown: Boolean;
-    {* Поле для свойства IsMouseDown }
-  protected
-   f_Surface: TnpSurface;
-  private
-   procedure splShowHint(X: Integer;
-    Y: Integer);
-   procedure splHideHint;
-   function CreateButtonHint: THintWindow;
-   procedure UpdateCursor(aButton: Boolean = True);
-   procedure DrawButton(aCanvas: TCanvas = nil);
-   function GetButtonRect: TRect;
-    {* определяет прямоугольник для кнопки }
-   procedure SetSizeCursor;
-    {* устанавливает курсор для изменения размеров }
-   function IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
-   procedure WMKeyDown(var Msg: TWMKeyDown); message WM_KEYDOWN;
-   procedure WMSysKeyDown(var Msg: TWMSysKeyDown); message WM_SYSKEYDOWN;
-   procedure CNKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
-   procedure CNSysKeyDown(var Msg: TWMSysKeyDown); message CN_SYSKEYDOWN;
-   procedure WMMouseLeave(var Msg: TMessage); message WM_MOUSELEAVE;
-  protected
-   procedure pm_SetIsHideButtonDown(aValue: Boolean);
-   procedure Cleanup; override;
-    {* Функция очистки полей объекта. }
-   {$If NOT Defined(NoVCL)}
-   procedure MouseMove(Shift: TShiftState;
-    X: Integer;
-    Y: Integer); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   procedure MouseUp(Button: TMouseButton;
-    Shift: TShiftState;
-    X: Integer;
-    Y: Integer); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   procedure MouseDown(Button: TMouseButton;
-    Shift: TShiftState;
-    X: Integer;
-    Y: Integer); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   procedure Paint; override;
-   {$IfEnd} // NOT Defined(NoVCL)
-  public
-   constructor Create(AOwner: TComponent); override;
-  protected
-   property IsHideButtonDown: Boolean
-    read f_IsHideButtonDown
-    write pm_SetIsHideButtonDown;
-   property HideButtonHint: THintWindow
-    read f_HideButtonHint
-    write f_HideButtonHint;
-    {* подсказка к кнопке "скрыть\развернуть" }
-   property IsMouseDown: Boolean
-    read f_IsMouseDown
-    write f_IsMouseDown;
- end;//TnpSplitter
-
- TnpFloatingWindow = class(Tl3Form, IafwFloatingWindow)
-  {* плавающая форма содержащая плавающий навигатор. Форма создается если NewTarget отстыкованного компонента = nil. Форму можно перемещать за TnpHeader. При этом вызывается метод IsDragBegining первого компонента активной вкладки f_PageControl.ActivePage.Controls[0], если компонент не был пристыкован, то форма перемещается в место где была отпущена рамка. }
-  private
-   f_SizeNormal: Integer;
-   f_CloseDisabled: Boolean;
-   f_ReactivateDisabled: Boolean;
-   f_Navigator: TvtNavigatorPrim;
-    {* Поле для свойства Navigator }
-   f_State: TnpFloatWindowState;
-    {* Поле для свойства State }
-   f_FloatID: Integer;
-    {* Поле для свойства FloatID }
-  private
-   function GetGripperRect: TRect;
-   function GetGripperHeight: Integer;
-   function CheckGripperCursor: Boolean;
-   {$If Defined(Nemesis)}
-   procedure UpdateFloatWindowsBounds;
-   {$IfEnd} // Defined(Nemesis)
-   procedure OnChangeState(Sender: TObject);
-   procedure OnCloseWindow(Sender: TObject);
-   procedure FormOnResize(Sender: TObject);
-   procedure FormClose(Sender: TObject;
-    var Action: TCloseAction);
-   procedure OnTabSheetClick(Sender: TObject;
-    Page: TElTabSheet);
-   procedure OnDockDrop(Sender: TObject;
-    Source: TDragDockObject;
-    X: Integer;
-    Y: Integer);
-   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
-   procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
-   procedure WMNCHitTest(var Message: TWMNCHitTest); message WM_NCHITTEST;
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
-  protected
-   procedure pm_SetState(aValue: TnpFloatWindowState); virtual;
-   function GetNavigatorClass: RvtNavigator; virtual;
-   procedure DisableClose;
-   procedure DisableReactivate;
-   procedure Cleanup; override;
-    {* Функция очистки полей объекта. }
-   {$If NOT Defined(NoVCL)}
-   procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   function CloseQuery: Boolean; override;
-    {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
-
-As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true. }
-   {$IfEnd} // NOT Defined(NoVCL)
-  public
-   {$If NOT Defined(NoVCL)}
-   constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-  public
-   property Navigator: TvtNavigatorPrim
-    read f_Navigator
-    write f_Navigator;
-   property State: TnpFloatWindowState
-    read f_State
-    write pm_SetState;
-    {* состояние плавающего окна }
-   property FloatID: Integer
-    read f_FloatID
-    write f_FloatID;
- end;//TnpFloatingWindow
-
  //#UC START# *52BAC7A10261ci*
  //#UC END# *52BAC7A10261ci*
  //#UC START# *52BAC7A10261cit*
@@ -1137,6 +1094,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C8A252E01C2impl_uses*
+ //#UC END# *4C8A252E01C2impl_uses*
 ;
 
 type
@@ -1392,6 +1351,1537 @@ begin
 //#UC END# *52B9A85201C2_52B99259019E_impl*
 end;//TnpPageControl.DoActivePrevPage
 
+procedure TnpContainerSurface.pm_SetSurface(aValue: TnpSurface);
+//#UC START# *52B9AF720263_52B9AED10282set_var*
+//#UC END# *52B9AF720263_52B9AED10282set_var*
+begin
+//#UC START# *52B9AF720263_52B9AED10282set_impl*
+ f_Surface := aValue;
+//#UC END# *52B9AF720263_52B9AED10282set_impl*
+end;//TnpContainerSurface.pm_SetSurface
+
+class function TnpContainerSurface.Make(aSurface: TnpSurface): TnpContainerSurface;
+//#UC START# *52B9AFE90213_52B9AED10282_var*
+//#UC END# *52B9AFE90213_52B9AED10282_var*
+begin
+//#UC START# *52B9AFE90213_52B9AED10282_impl*
+ Result := Create(aSurface);
+ with Result do
+ begin
+  Parent := aSurface;
+  Align := alClient;
+  Surface := aSurface;
+ end;//with Result
+//#UC END# *52B9AFE90213_52B9AED10282_impl*
+end;//TnpContainerSurface.Make
+
+procedure TnpContainerSurface.WMEraseBkgnd(var Message: TWMEraseBkgnd);
+ {* иначе границы toolbar-ов не прорисовываются }
+//#UC START# *52B9B0560033_52B9AED10282_var*
+//#UC END# *52B9B0560033_52B9AED10282_var*
+begin
+//#UC START# *52B9B0560033_52B9AED10282_impl*
+ Message.Result := 1;
+//#UC END# *52B9B0560033_52B9AED10282_impl*
+end;//TnpContainerSurface.WMEraseBkgnd
+
+procedure TnpSurface.pm_SetPageControl(aValue: TnpPageControl);
+//#UC START# *52BABD9C03B7_52B9AF0A027Cset_var*
+//#UC END# *52BABD9C03B7_52B9AF0A027Cset_var*
+begin
+//#UC START# *52BABD9C03B7_52B9AF0A027Cset_impl*
+ if (f_PageControl <> aValue) then
+ begin
+  f_PageControl := aValue;
+  if (f_PageControl <> nil) then
+  begin
+   f_PageControl.Parent := f_Container;
+   f_PageControl.Align := alClient;
+  end;//f_PageControl <> nil
+ end;//f_PageControl <> Value
+//#UC END# *52BABD9C03B7_52B9AF0A027Cset_impl*
+end;//TnpSurface.pm_SetPageControl
+
+procedure TnpSurface.pm_SetHeader(aValue: TnpHeaderPrim);
+//#UC START# *52BABDB6021C_52B9AF0A027Cset_var*
+//#UC END# *52BABDB6021C_52B9AF0A027Cset_var*
+begin
+//#UC START# *52BABDB6021C_52B9AF0A027Cset_impl*
+ if (f_Header <> aValue) then
+ begin
+  f_Header := aValue;
+  if (f_Header <> nil) then
+  begin
+   f_Header.Parent := f_Container.Parent;
+   f_Header.Align := alTop;
+  end;//f_Header <> nil
+ end;//f_Header <> Value
+//#UC END# *52BABDB6021C_52B9AF0A027Cset_impl*
+end;//TnpSurface.pm_SetHeader
+
+function TnpSurface.pm_GetSize: Integer;
+//#UC START# *52BAC0430151_52B9AF0A027Cget_var*
+//#UC END# *52BAC0430151_52B9AF0A027Cget_var*
+begin
+//#UC START# *52BAC0430151_52B9AF0A027Cget_impl*
+ case f_Navigator.Align of
+  alBottom, alTop: Result := Height;
+  alLeft, alRight: Result := Width;
+ else
+  Result := Width;
+ end;//case f_Navigator.Align
+//#UC END# *52BAC0430151_52B9AF0A027Cget_impl*
+end;//TnpSurface.pm_GetSize
+
+procedure TnpSurface.pm_SetNavigator(aValue: TvtNavigatorPrim);
+//#UC START# *52BC48CC01E9_52B9AF0A027Cset_var*
+//#UC END# *52BC48CC01E9_52B9AF0A027Cset_var*
+begin
+//#UC START# *52BC48CC01E9_52B9AF0A027Cset_impl*
+ if f_Navigator <> nil then
+  f_Navigator.UnRegisterStateChanged(f_Link);
+
+ f_Navigator := aValue;
+
+ if f_Navigator <> nil then
+  f_Navigator.RegisterStateChanged(f_Link);
+//#UC END# *52BC48CC01E9_52B9AF0A027Cset_impl*
+end;//TnpSurface.pm_SetNavigator
+
+procedure TnpSurface.InitAutoHidePosition;
+ {* обновить Left окна }
+//#UC START# *52BAC11201BE_52B9AF0A027C_var*
+//#UC END# *52BAC11201BE_52B9AF0A027C_var*
+begin
+//#UC START# *52BAC11201BE_52B9AF0A027C_impl*
+ if (f_Navigator.State = nsAutoHide) then
+ case f_Navigator.Align of
+  alRight: Left := f_Navigator.Parent.ClientWidth - Self.Width;
+  alBottom: Top := f_Navigator.Parent.ClientHeight - Self.Height;
+ end;//case f_Navigator.Align
+//#UC END# *52BAC11201BE_52B9AF0A027C_impl*
+end;//TnpSurface.InitAutoHidePosition
+
+procedure TnpSurface.OnStateChanged(Sender: TObject);
+//#UC START# *52BAC1220315_52B9AF0A027C_var*
+//#UC END# *52BAC1220315_52B9AF0A027C_var*
+begin
+//#UC START# *52BAC1220315_52B9AF0A027C_impl*
+ f_Splitter.Visible := (*(f_Navigator.State <> nsMinimized) and*)
+                      not f_Navigator.Float and
+                      (f_Navigator.PageControl.PageCount > 0);
+//#UC END# *52BAC1220315_52B9AF0A027C_impl*
+end;//TnpSurface.OnStateChanged
+
+procedure TnpSurface.SetSizeMini;
+//#UC START# *52BAC1450146_52B9AF0A027C_var*
+//#UC END# *52BAC1450146_52B9AF0A027C_var*
+begin
+//#UC START# *52BAC1450146_52B9AF0A027C_impl*
+ case f_Navigator.Align of
+  alBottom, alTop: Height := f_Navigator.SizeMini;
+  alLeft, alRight: Width := f_Navigator.SizeMini;
+ end;//case f_Navigator.Align
+//#UC END# *52BAC1450146_52B9AF0A027C_impl*
+end;//TnpSurface.SetSizeMini
+
+procedure TnpSurface.DefineSplitterAlign;
+//#UC START# *52BAC14E0369_52B9AF0A027C_var*
+//#UC END# *52BAC14E0369_52B9AF0A027C_var*
+begin
+//#UC START# *52BAC14E0369_52B9AF0A027C_impl*
+ case f_Navigator.Align of
+  alTop: f_Splitter.Align := alBottom;
+  alLeft: f_Splitter.Align := alRight;
+  alRight: f_Splitter.Align := alLeft;
+  alBottom: f_Splitter.Align := alTop;
+ end;//case f_Navigator.Align
+//#UC END# *52BAC14E0369_52B9AF0A027C_impl*
+end;//TnpSurface.DefineSplitterAlign
+
+procedure TnpSurface.WMEraseBkgnd(var Message: TMessage);
+//#UC START# *52BAC0A1016B_52B9AF0A027C_var*
+//#UC END# *52BAC0A1016B_52B9AF0A027C_var*
+begin
+//#UC START# *52BAC0A1016B_52B9AF0A027C_impl*
+ Message.Result := 1;
+//#UC END# *52BAC0A1016B_52B9AF0A027C_impl*
+end;//TnpSurface.WMEraseBkgnd
+
+procedure TnpSurface.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_52B9AF0A027C_var*
+//#UC END# *479731C50290_52B9AF0A027C_var*
+begin
+//#UC START# *479731C50290_52B9AF0A027C_impl*
+ l3Free(f_Link);
+ inherited;
+//#UC END# *479731C50290_52B9AF0A027C_impl*
+end;//TnpSurface.Cleanup
+
+constructor TnpSurface.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_52B9AF0A027C_var*
+//#UC END# *47D1602000C6_52B9AF0A027C_var*
+begin
+//#UC START# *47D1602000C6_52B9AF0A027C_impl*
+ inherited;
+ f_Container := TnpContainerSurface.Make(Self);
+ //f_Panel := TvtPanel.Create(Self);
+ //f_Panel.Parent := Self;
+ //f_Panel.Align := alClient;
+ f_Splitter := TnpSplitter.Create(Self{, f_Panel});
+ with f_Splitter do
+ begin
+  Parent := Self;
+  Align := alRight;
+  Width := cspSize;
+  f_Surface := Self;
+ end;
+ f_Link := TnpChangeLink.Create;
+ f_Link.OnStateChanged := OnStateChanged;
+//#UC END# *47D1602000C6_52B9AF0A027C_impl*
+end;//TnpSurface.Create
+
+{$If NOT Defined(NoVCL)}
+procedure TnpSurface.Paint;
+//#UC START# *5028A60300AD_52B9AF0A027C_var*
+ procedure npDrawGradient(aRect       : TRect;
+                          aBeginColor : TColor = clBtnHighlight;
+                          aEndColor   : TColor = clBtnShadow);
+ var
+  lI         : Integer;
+  lStartRGB  : array[0..2] of Byte;
+  lEndRGB    : array[0..2] of Byte;
+  lStartC    : TColor;
+  lEndC      : TColor;
+  lColors    : Word;
+  lRDist, lGDist, lBDist : Integer;
+  lRTmp, lGTmp, lBTmp : Integer;
+ begin//npDrawGradient
+  // цвета
+  lStartC := ColorToRGB(aBeginColor);
+  lEndC := ColorToRGB(aEndColor);
+  // массив с исходными цветами (lStartC)
+  lStartRGB[0] := GetRValue(lStartC);
+  lStartRGB[1] := GetGValue(lStartC);
+  lStartRGB[2] := GetBValue(lStartC);
+  // массив с конечными цветами (lEndC)
+  lEndRGB[0] := GetRValue(lEndC);
+  lEndRGB[1] := GetGValue(lEndC);
+  lEndRGB[2] := GetBValue(lEndC);
+  // расстояние между каждым цветом
+  lRDist := Abs(lEndRGB[0] - lStartRGB[0]);
+  lGDist := Abs(lEndRGB[1] - lStartRGB[1]);
+  lBDist := Abs(lEndRGB[2] - lStartRGB[2]);
+  // количество цветов которые будут нарисованы
+  lColors := aRect.Right - aRect.Left;
+  for lI := 0 to Pred(lColors) do
+    with Canvas do
+    begin
+     // красный
+     lRTmp := MulDiv(lI, lRDist, Pred(lColors));
+     if lStartRGB[0] > lEndRGB[0] then
+      lRTmp := - lRTmp;
+     // зеленый
+     lGTmp := MulDiv(lI, lGDist, Pred(lColors));
+     if lStartRGB[1] > lEndRGB[1] then
+      lGTmp := - lGTmp;
+     // синий
+     lBTmp := MulDiv(lI, lBDist, Pred(lColors));
+     if lStartRGB[2] > lEndRGB[2] then
+      lBTmp := - lBTmp;
+     // установим цвет и нарисуем
+     Pen.Color :=  RGB(
+      (lStartRGB[0] + lRTmp),
+      (lStartRGB[1] + lGTmp),
+      (lStartRGB[2] + lBTmp));
+     MoveTo(aRect.Left + lI, aRect.Top);
+     LineTo(aRect.Left + lI, aRect.Bottom);
+    end;//with Canvas
+ end;//npDrawGradient
+var
+ l_R : TRect;
+//#UC END# *5028A60300AD_52B9AF0A027C_var*
+begin
+//#UC START# *5028A60300AD_52B9AF0A027C_impl*
+ if (csDesigning in ComponentState) then
+ begin
+  l_R := ClientRect;
+  with Canvas do
+  begin
+   with Pen do
+   begin
+    Color := clBlack;
+    Width := 1;
+   end;//with Pen
+   Rectangle(l_R);
+  end;//with Canvas
+  InflateRect(l_R, -1, -1);
+  npDrawGradient(l_R, clRed, clMaroon);
+ end//csDesigning in ComponentState
+ else
+ begin
+  (* Заливаем только когда на подложке никого нет, иначе у компонентов слетает
+     то, что нарисовали в WMNCPaint *)
+  if Assigned(f_Navigator) and Assigned(f_Navigator.PageControl) and
+   (f_Navigator.PageControl.PageCount = 0) then
+  with Canvas do
+  begin
+   Brush.Color := clWhite{clBtnFace};
+   FillRect(ClientRect);
+  end;//with Canvas
+ end;//csDesigning in ComponentState
+//#UC END# *5028A60300AD_52B9AF0A027C_impl*
+end;//TnpSurface.Paint
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TnpSplitter.pm_SetIsHideButtonDown(aValue: Boolean);
+//#UC START# *52BAB00903A4_52B9B0AA0105set_var*
+//#UC END# *52BAB00903A4_52B9B0AA0105set_var*
+begin
+//#UC START# *52BAB00903A4_52B9B0AA0105set_impl*
+ if (f_IsHideButtonDown <> aValue) then
+ begin
+  f_IsHideButtonDown := aValue;
+  DrawButton;
+ end;//f_IsHideButtonDown <> Value
+//#UC END# *52BAB00903A4_52B9B0AA0105set_impl*
+end;//TnpSplitter.pm_SetIsHideButtonDown
+
+procedure TnpSplitter.splShowHint(X: Integer;
+ Y: Integer);
+//#UC START# *52BABB100388_52B9B0AA0105_var*
+var
+ l_HintRect : TRect;
+ l_Hint     : String;
+ l_Temp     : TRect;
+ l_Window   : THintWindow;
+ l_Monitor  : TMonitor;
+//#UC END# *52BABB100388_52B9B0AA0105_var*
+begin
+//#UC START# *52BABB100388_52B9B0AA0105_impl*
+ // Опустим будущее окно под курсор
+ Inc(X, 16);
+ // Окно
+ l_Window := CreateButtonHint;
+ // Hint
+ l_Hint := f_Surface.Navigator.MinBtnHint;
+ // Размещение окна
+ l_Monitor := Screen.MonitorFromPoint(Mouse.CursorPos);
+ if not Assigned(l_Monitor) then
+  Exit;
+ l_Temp.TopLeft := ClientToScreen(Point(X, Y));
+ // Посчитаем размер прямоугольника учитывая ограничения текущим монитором
+ l_HintRect := l_Window.CalcHintRect(l_Monitor.WorkareaRect.Right - l_Temp.Left,
+  l_Hint, nil);
+ l_Temp.Right := l_Temp.Left + l_HintRect.Right;
+ l_Temp.Bottom := l_Temp.Top + l_HintRect.Bottom;
+ // Покажем
+ l_Window.ActivateHint(l_Temp, l_Hint);
+//#UC END# *52BABB100388_52B9B0AA0105_impl*
+end;//TnpSplitter.splShowHint
+
+procedure TnpSplitter.splHideHint;
+//#UC START# *52BABB57018D_52B9B0AA0105_var*
+//#UC END# *52BABB57018D_52B9B0AA0105_var*
+begin
+//#UC START# *52BABB57018D_52B9B0AA0105_impl*
+ if HideButtonHint <> nil then
+  HideButtonHint.ReleaseHandle;
+//#UC END# *52BABB57018D_52B9B0AA0105_impl*
+end;//TnpSplitter.splHideHint
+
+function TnpSplitter.CreateButtonHint: THintWindow;
+//#UC START# *52BABB61000E_52B9B0AA0105_var*
+//#UC END# *52BABB61000E_52B9B0AA0105_var*
+begin
+//#UC START# *52BABB61000E_52B9B0AA0105_impl*
+ if HideButtonHint = nil then
+ begin
+  HideButtonHint := THintWindow.Create(Self);
+  with HideButtonHint do
+  begin
+   Color:= GetSysColor(COLOR_INFOBK);
+   Canvas.Brush.Color:= GetSysColor(COLOR_INFOBK);
+   Canvas.Font:= Self.Font;
+   Canvas.Font.Color:= GetSysColor(COLOR_INFOTEXT);
+   Canvas.Pen.Color:= clBlack;
+  end;//with HideButtonHint
+ end;//HideButtonHint = nil
+ Result := HideButtonHint;
+//#UC END# *52BABB61000E_52B9B0AA0105_impl*
+end;//TnpSplitter.CreateButtonHint
+
+procedure TnpSplitter.UpdateCursor(aButton: Boolean = True);
+//#UC START# *52BABB7902B0_52B9B0AA0105_var*
+//#UC END# *52BABB7902B0_52B9B0AA0105_var*
+begin
+//#UC START# *52BABB7902B0_52B9B0AA0105_impl*
+ if aButton then
+  Cursor := crHandPoint
+ else
+  SetSizeCursor;
+ // это нужно, чтобы при смене курсора компонента поменялся курсор на экране
+ Windows.SetCursor(Screen.Cursors[Cursor]);
+//#UC END# *52BABB7902B0_52B9B0AA0105_impl*
+end;//TnpSplitter.UpdateCursor
+
+procedure TnpSplitter.DrawButton(aCanvas: TCanvas = nil);
+//#UC START# *52BABB8900D4_52B9B0AA0105_var*
+const
+ cButtonState : array [Boolean] of Integer = (0, DFCS_PUSHED);
+var
+ l_Rect    : TRect;
+ l_Center  : Integer;
+
+ procedure DrawArrow(aY     : Integer;
+                     aColor : TColor);
+ var
+  l_Delta   : Integer;
+  l_Left    : Boolean;
+    {* - стрелка указывает влево. }
+  l_Index   : Integer;
+ begin//DrawArrow
+  // куда указывает стрелка
+  l_Left := (Align = alRight);
+  if f_Surface.Navigator.IsMinimized then
+   l_Left := not l_Left;
+  // инициализируем дельту
+  if l_Left then
+   l_Delta := 0
+  else
+   l_Delta := Pred(l_Rect.Right) - l_Rect.Left;
+  // первая точка
+  for l_Index := l_Rect.Left to Pred(l_Rect.Right) do
+  begin
+   with aCanvas do
+   begin
+    Pixels[l_Index, aY - l_Delta] := aColor;
+    Pixels[l_Index, aY + l_Delta] := aColor;
+   end;//with aCanvas
+   if l_Left then
+    Inc(l_Delta)
+   else
+    Dec(l_Delta);
+  end;//for l_Index
+ end;//DrawArrow
+//#UC END# *52BABB8900D4_52B9B0AA0105_var*
+begin
+//#UC START# *52BABB8900D4_52B9B0AA0105_impl*
+ if not Assigned(aCanvas) then
+  aCanvas := Canvas;
+ // область расположения
+ l_Rect := GetButtonRect;
+ // кнопка
+ DrawFrameControl(aCanvas.Handle,
+                  l_Rect,
+                  DFC_BUTTON, DFCS_BUTTONPUSH or cButtonState[IsHideButtonDown]);
+ // нужно доделать если появится такое выравнивание
+ //Assert((Align <> alTop) and (Align <> alBottom));
+ // точка стрелочки
+ l_Center := (l_Rect.Top + l_Rect.Bottom) div 2;
+ // рисуем
+ InflateRect(l_Rect, -1, -1);
+ DrawArrow(l_Center, clBlue);
+//#UC END# *52BABB8900D4_52B9B0AA0105_impl*
+end;//TnpSplitter.DrawButton
+
+function TnpSplitter.GetButtonRect: TRect;
+ {* определяет прямоугольник для кнопки }
+//#UC START# *52BABB9A02AB_52B9B0AA0105_var*
+ function lDefineSize(const aSize : Integer) : Integer;
+ begin//lDefineSize
+  if (cspButtonSize > aSize) then
+   Result := aSize div 3
+  else
+   Result := cspButtonSize;
+ end;//lDefineSize
+
+var
+ l_Size : Integer;
+//#UC END# *52BABB9A02AB_52B9B0AA0105_var*
+begin
+//#UC START# *52BABB9A02AB_52B9B0AA0105_impl*
+ SetRectEmpty(Result);
+ // горизонтальный сплиттер
+ if (Width > Height) then
+ begin
+  l_Size := lDefineSize(ClientWidth);
+  Result.Left := (ClientWidth - l_Size) div 2;
+  Result.Right := Result.Left + l_Size;
+  Result.Top := 0;
+  Result.Bottom := ClientHeight;
+ end//Width > Height
+ // вертикальный сплиттер
+ else
+ begin
+  l_Size := lDefineSize(ClientHeight);
+  Result.Top := (ClientHeight - l_Size) div 2;
+  Result.Bottom := Result.Top + l_Size;
+  Result.Left := 0;
+  Result.Right := ClientWidth;
+ end;//Width > Height
+ Inc(Result.Left);
+//#UC END# *52BABB9A02AB_52B9B0AA0105_impl*
+end;//TnpSplitter.GetButtonRect
+
+procedure TnpSplitter.SetSizeCursor;
+ {* устанавливает курсор для изменения размеров }
+//#UC START# *52BABBD102EC_52B9B0AA0105_var*
+//#UC END# *52BABBD102EC_52B9B0AA0105_var*
+begin
+//#UC START# *52BABBD102EC_52B9B0AA0105_impl*
+ case f_Surface.Navigator.Align of
+  alLeft, alRight: Cursor := crHSplit;
+  alTop, alBottom: Cursor := crVSplit;
+ end;//case f_Surface.Navigator.Align of
+//#UC END# *52BABBD102EC_52B9B0AA0105_impl*
+end;//TnpSplitter.SetSizeCursor
+
+function TnpSplitter.IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
+//#UC START# *52BABBE6027E_52B9B0AA0105_var*
+var
+ l_Controller : TOvcController;
+//#UC END# *52BABBE6027E_52B9B0AA0105_var*
+begin
+//#UC START# *52BABBE6027E_52B9B0AA0105_impl*
+ Result := False;
+ l_Controller := GetDefController;
+ if Assigned(l_Controller) then
+  with l_Controller.EntryCommands do
+   if TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut then
+   begin
+    Msg.Result := 0;  {indicate that this message was processed}
+    Result := True;
+   end;//TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut
+//#UC END# *52BABBE6027E_52B9B0AA0105_impl*
+end;//TnpSplitter.IsHandledShortcut
+
+procedure TnpSplitter.WMKeyDown(var Msg: TWMKeyDown);
+//#UC START# *52BAB80A032F_52B9B0AA0105_var*
+//#UC END# *52BAB80A032F_52B9B0AA0105_var*
+begin
+//#UC START# *52BAB80A032F_52B9B0AA0105_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *52BAB80A032F_52B9B0AA0105_impl*
+end;//TnpSplitter.WMKeyDown
+
+procedure TnpSplitter.WMSysKeyDown(var Msg: TWMSysKeyDown);
+//#UC START# *52BAB8250200_52B9B0AA0105_var*
+//#UC END# *52BAB8250200_52B9B0AA0105_var*
+begin
+//#UC START# *52BAB8250200_52B9B0AA0105_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *52BAB8250200_52B9B0AA0105_impl*
+end;//TnpSplitter.WMSysKeyDown
+
+procedure TnpSplitter.CNKeyDown(var Msg: TWMKeyDown);
+//#UC START# *52BAB838013D_52B9B0AA0105_var*
+//#UC END# *52BAB838013D_52B9B0AA0105_var*
+begin
+//#UC START# *52BAB838013D_52B9B0AA0105_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *52BAB838013D_52B9B0AA0105_impl*
+end;//TnpSplitter.CNKeyDown
+
+procedure TnpSplitter.CNSysKeyDown(var Msg: TWMSysKeyDown);
+//#UC START# *52BAB8530216_52B9B0AA0105_var*
+//#UC END# *52BAB8530216_52B9B0AA0105_var*
+begin
+//#UC START# *52BAB8530216_52B9B0AA0105_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *52BAB8530216_52B9B0AA0105_impl*
+end;//TnpSplitter.CNSysKeyDown
+
+procedure TnpSplitter.WMMouseLeave(var Msg: TMessage);
+//#UC START# *5374D62902DC_52B9B0AA0105_var*
+//#UC END# *5374D62902DC_52B9B0AA0105_var*
+begin
+//#UC START# *5374D62902DC_52B9B0AA0105_impl*
+ splHideHint;
+ inherited;
+//#UC END# *5374D62902DC_52B9B0AA0105_impl*
+end;//TnpSplitter.WMMouseLeave
+
+procedure TnpSplitter.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_52B9B0AA0105_var*
+//#UC END# *479731C50290_52B9B0AA0105_var*
+begin
+//#UC START# *479731C50290_52B9B0AA0105_impl*
+ splHideHint;
+ FreeAndNil(f_HideButtonHint);
+ inherited;
+//#UC END# *479731C50290_52B9B0AA0105_impl*
+end;//TnpSplitter.Cleanup
+
+constructor TnpSplitter.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_52B9B0AA0105_var*
+//#UC END# *47D1602000C6_52B9B0AA0105_var*
+begin
+//#UC START# *47D1602000C6_52B9B0AA0105_impl*
+ inherited;
+ // Видимость изменится при добавлении первой закладки
+ ControlStyle := ControlStyle + [csNoDesignVisible];
+ Visible := False;
+ Cursor := crHSplit;
+ f_IsHideButtonDown := False;
+ IsMouseDown := False;
+//#UC END# *47D1602000C6_52B9B0AA0105_impl*
+end;//TnpSplitter.Create
+
+{$If NOT Defined(NoVCL)}
+procedure TnpSplitter.MouseMove(Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
+//#UC START# *48E22B250241_52B9B0AA0105_var*
+var
+ l_Types  : TnpDrawSplitterTypes;
+ l_Button : Boolean;
+ l_TME: TTrackMouseEvent;
+//#UC END# *48E22B250241_52B9B0AA0105_var*
+begin
+//#UC START# *48E22B250241_52B9B0AA0105_impl*
+ l_TME.cbSize := SizeOf(TTrackMouseEvent);
+ l_TME.dwFlags := TME_LEAVE;
+ l_TME.hwndTrack := Handle;
+ TrackMouseEvent(l_TME);
+
+ // Курсор вышел за пределы сплиттера, освободим захват курсора:
+ if not PtInRect(ClientRect, Point(X, Y)) then
+ begin
+  // Если перетаскивают, то ничего делать не нужно:
+  if not IsMouseDown and (GetCapture = Handle) then
+    ReleaseCapture;
+  // Мы перетаскиваем поэтому подсказку надо спрятать:
+  splHideHint;
+ end;//if not PtInRect(ClientRect, Point(X, Y)) then
+ if not (ssLeft in Shift) then
+ begin
+  if not GetParentForm(Self).Active then
+   Exit;
+  l_Button := PtInRect(GetButtonRect, Point(X, Y));
+  // Установим курсор:
+  UpdateCursor(l_Button);
+  // Покажем подсказку:
+  if l_Button then
+   splShowHint(X, Y)
+  else
+   splHideHint;
+ end//not (ssLeft in Shift) 
+ else
+ // Сплиттер перетаскивают:
+ if IsMouseDown then
+ begin
+  l_Types := [dstErase, dstPaint];
+  if IsHideButtonDown then
+  begin
+   // Отожмем кнопку:
+   IsHideButtonDown := False;
+   // изменим курсор
+   UpdateCursor(False);
+   // Первая отрисовка, очищать не надо:
+   l_Types := [dstPaint];
+  end;//IsHideButtonDown
+  // Нарисуем сплиттер:
+  with Mouse.CursorPos do
+   f_Surface.Navigator.PaintSpliter(X, Y, l_Types);
+ end;//if IsMouseDown then
+//#UC END# *48E22B250241_52B9B0AA0105_impl*
+end;//TnpSplitter.MouseMove
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TnpSplitter.MouseUp(Button: TMouseButton;
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
+//#UC START# *4E7896270076_52B9B0AA0105_var*
+//#UC END# *4E7896270076_52B9B0AA0105_var*
+begin
+//#UC START# *4E7896270076_52B9B0AA0105_impl*
+ splHideHint;
+ IsMouseDown := False;
+ if not (Button = mbLeft) then
+  Exit;
+ with f_Surface.Navigator do
+ begin
+  // Изменение размеров навигатора:
+  if not IsHideButtonDown then
+  begin
+   // Удалим нарисованный сплиттер:
+   PaintSpliter(Mouse.CursorPos.X, Mouse.CursorPos.Y, [dstErase]);
+   Perform(CM_npDoActionWithFormControls, Ord(acRedraw), 0);
+   // Изменим размеры навигатора:
+   if not PointsEqual(f_MouseDownPoint, Mouse.CursorPos) then
+   begin
+    DoSplit;
+    AutoHideUpdate;
+   end;//if not PointsEqual(f_MouseDownPoint, Mouse.CursorPos) then
+  end//if not IsHideButtonDown then
+  // развернём/свернём навигатор
+  else
+  begin
+   IsHideButtonDown := False;
+   State := TNavigatorState(IfThen(State = nsMinimized, Ord(nsNormal), Ord(nsMinimized)));
+  end;//if not PointsEqual(f_MouseDownPoint, Mouse.CursorPos) then
+ end;//with f_Surface.Navigator do
+//#UC END# *4E7896270076_52B9B0AA0105_impl*
+end;//TnpSplitter.MouseUp
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TnpSplitter.MouseDown(Button: TMouseButton;
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
+//#UC START# *4F88473B03CD_52B9B0AA0105_var*
+//#UC END# *4F88473B03CD_52B9B0AA0105_var*
+begin
+//#UC START# *4F88473B03CD_52B9B0AA0105_impl*
+ if (Button = mbLeft) then
+ begin
+  IsMouseDown := True;
+  // запомним, чтобы определить в MouseUp, что пользователь двигал мыш
+  f_MouseDownPoint := Mouse.CursorPos;
+  // кнопка нажата
+  if PtInRect(GetButtonRect, Point(X, Y)) then
+   IsHideButtonDown := True
+  else
+  begin
+   // нарисуем сплиттер
+   with Mouse.CursorPos do
+    f_Surface.Navigator.PaintSpliter(X, Y, [dstPaint]);
+  end;//PtInRect(GetButtonRect, Point(X, Y))
+ end;//Button = mbLeft
+//#UC END# *4F88473B03CD_52B9B0AA0105_impl*
+end;//TnpSplitter.MouseDown
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TnpSplitter.Paint;
+//#UC START# *5028A60300AD_52B9B0AA0105_var*
+var
+ l_R : TRect;
+//#UC END# *5028A60300AD_52B9B0AA0105_var*
+begin
+//#UC START# *5028A60300AD_52B9B0AA0105_impl*
+ l_R := ClientRect;
+ with Canvas do
+ begin
+  // заливаем
+  Brush.Color := cGarant2011BackColor{clBtnFace};
+  FillRect(l_R);
+  // рисуем справа, слева линии clShadow
+  Pen.Color := clBtnShadow;
+  if (f_Surface.Navigator.Align <> alLeft) then
+  begin
+   MoveTo(l_R.Left, l_R.Top);
+   LineTo(l_R.Left, l_R.Bottom);
+  end;//Surface.Navigator.Align <> alLeft
+  if (f_Surface.Navigator.Align <> alRight) then
+  begin
+   MoveTo(Pred(l_R.Right), l_R.Top);
+   LineTo(Pred(l_R.Right), l_R.Bottom);
+  end;//Surface.Navigator.Align <> alRight
+ end;//with Canvas
+ // рисуем кнопку сплиттера
+ DrawButton;
+//#UC END# *5028A60300AD_52B9B0AA0105_impl*
+end;//TnpSplitter.Paint
+{$IfEnd} // NOT Defined(NoVCL)
+
+function TnpHeaderPrim.pm_GetAlign: TAlign;
+//#UC START# *52BAC726019F_52BABCB3015Cget_var*
+//#UC END# *52BAC726019F_52BABCB3015Cget_var*
+begin
+//#UC START# *52BAC726019F_52BABCB3015Cget_impl*
+ Result := inherited Align;
+//#UC END# *52BAC726019F_52BABCB3015Cget_impl*
+end;//TnpHeaderPrim.pm_GetAlign
+
+procedure TnpHeaderPrim.pm_SetAlign(aValue: TAlign);
+//#UC START# *52BAC726019F_52BABCB3015Cset_var*
+//#UC END# *52BAC726019F_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC726019F_52BABCB3015Cset_impl*
+ inherited Align := aValue;
+ UpdatePositions;
+//#UC END# *52BAC726019F_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetAlign
+
+procedure TnpHeaderPrim.pm_SetCloseImage(aValue: TImageIndex);
+//#UC START# *52BAC77E0213_52BABCB3015Cset_var*
+//#UC END# *52BAC77E0213_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC77E0213_52BABCB3015Cset_impl*
+ if (f_CloseImage <> aValue) then
+ begin
+  f_CloseImage := aValue;
+  UpdateCloseImage;
+  UpdateHideImage;
+ end;//f_CloseImage <> Value
+//#UC END# *52BAC77E0213_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetCloseImage
+
+procedure TnpHeaderPrim.pm_SetAutoHideOnImage(aValue: TImageIndex);
+//#UC START# *52BAC83B035F_52BABCB3015Cset_var*
+//#UC END# *52BAC83B035F_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC83B035F_52BABCB3015Cset_impl*
+ if (f_AutoHideOnImage <> aValue) then
+ begin
+  f_AutoHideOnImage := aValue;
+  UpdateAutoHideImage;
+ end;//f_AutoHideOnImage <> Value
+//#UC END# *52BAC83B035F_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetAutoHideOnImage
+
+procedure TnpHeaderPrim.pm_SetAutoHideOffImage(aValue: TImageIndex);
+//#UC START# *52BAC84C0124_52BABCB3015Cset_var*
+//#UC END# *52BAC84C0124_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC84C0124_52BABCB3015Cset_impl*
+ if (f_AutoHideOffImage <> aValue) then
+ begin
+  f_AutoHideOffImage := aValue;
+  UpdateAutoHideImage;
+ end;//f_AutoHideOffImage <> Value
+//#UC END# *52BAC84C0124_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetAutoHideOffImage
+
+procedure TnpHeaderPrim.pm_SetHideLeftImage(aValue: TImageIndex);
+//#UC START# *52BAC8920025_52BABCB3015Cset_var*
+//#UC END# *52BAC8920025_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC8920025_52BABCB3015Cset_impl*
+ if (f_HideLeftImage <> aValue) then
+ begin
+  f_HideLeftImage := aValue;
+  DoStateChanged;
+ end;//f_HideLeftImage <> Value
+//#UC END# *52BAC8920025_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetHideLeftImage
+
+procedure TnpHeaderPrim.pm_SetHideRightImage(aValue: TImageIndex);
+//#UC START# *52BAC89D020A_52BABCB3015Cset_var*
+//#UC END# *52BAC89D020A_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC89D020A_52BABCB3015Cset_impl*
+ if (f_HideRightImage <> aValue) then
+ begin
+  f_HideRightImage := aValue;
+  DoStateChanged;
+ end;//f_HideRightImage <> Value
+//#UC END# *52BAC89D020A_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetHideRightImage
+
+procedure TnpHeaderPrim.pm_SetHideUpImage(aValue: TImageIndex);
+//#UC START# *52BAC8A7004C_52BABCB3015Cset_var*
+//#UC END# *52BAC8A7004C_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC8A7004C_52BABCB3015Cset_impl*
+ if (f_HideUpImage <> aValue) then
+ begin
+  f_HideUpImage := aValue;
+  UpdateHideImage;
+ end;//f_HideUpImage <> Value
+//#UC END# *52BAC8A7004C_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetHideUpImage
+
+procedure TnpHeaderPrim.pm_SetHideDownImage(aValue: TImageIndex);
+//#UC START# *52BAC8AF036E_52BABCB3015Cset_var*
+//#UC END# *52BAC8AF036E_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC8AF036E_52BABCB3015Cset_impl*
+ if (f_HideDownImage <> aValue) then
+ begin
+  f_HideDownImage := aValue;
+  UpdateHideImage;
+ end;//f_HideDownImage <> Value
+//#UC END# *52BAC8AF036E_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetHideDownImage
+
+function TnpHeaderPrim.pm_GetSize: Integer;
+//#UC START# *52BAC8FB0112_52BABCB3015Cget_var*
+//#UC END# *52BAC8FB0112_52BABCB3015Cget_var*
+begin
+//#UC START# *52BAC8FB0112_52BABCB3015Cget_impl*
+ Result := f_Size;
+//#UC END# *52BAC8FB0112_52BABCB3015Cget_impl*
+end;//TnpHeaderPrim.pm_GetSize
+
+procedure TnpHeaderPrim.pm_SetSize(aValue: Integer);
+//#UC START# *52BAC8FB0112_52BABCB3015Cset_var*
+//#UC END# *52BAC8FB0112_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC8FB0112_52BABCB3015Cset_impl*
+ if (f_Size <> aValue) then
+ begin
+  f_Size := aValue;
+  UpdateSize;
+ end;//f_Size <> Value
+//#UC END# *52BAC8FB0112_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetSize
+
+function TnpHeaderPrim.pm_GetOnHide: TNotifyEvent;
+//#UC START# *52BAC9740089_52BABCB3015Cget_var*
+//#UC END# *52BAC9740089_52BABCB3015Cget_var*
+begin
+//#UC START# *52BAC9740089_52BABCB3015Cget_impl*
+ Result := HideButton.OnClick;
+//#UC END# *52BAC9740089_52BABCB3015Cget_impl*
+end;//TnpHeaderPrim.pm_GetOnHide
+
+procedure TnpHeaderPrim.pm_SetOnHide(aValue: TNotifyEvent);
+//#UC START# *52BAC9740089_52BABCB3015Cset_var*
+//#UC END# *52BAC9740089_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC9740089_52BABCB3015Cset_impl*
+ HideButton.OnClick := aValue;
+//#UC END# *52BAC9740089_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetOnHide
+
+function TnpHeaderPrim.pm_GetOnAutoHide: TNotifyEvent;
+//#UC START# *52BAC993024A_52BABCB3015Cget_var*
+//#UC END# *52BAC993024A_52BABCB3015Cget_var*
+begin
+//#UC START# *52BAC993024A_52BABCB3015Cget_impl*
+ Result := AutoHideButton.OnClick;
+//#UC END# *52BAC993024A_52BABCB3015Cget_impl*
+end;//TnpHeaderPrim.pm_GetOnAutoHide
+
+procedure TnpHeaderPrim.pm_SetOnAutoHide(aValue: TNotifyEvent);
+//#UC START# *52BAC993024A_52BABCB3015Cset_var*
+//#UC END# *52BAC993024A_52BABCB3015Cset_var*
+begin
+//#UC START# *52BAC993024A_52BABCB3015Cset_impl*
+ AutoHideButton.OnClick := aValue;
+//#UC END# *52BAC993024A_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetOnAutoHide
+
+procedure TnpHeaderPrim.pm_SetButtonsImageList(aValue: TCustomImageList);
+//#UC START# *52BACA3F0292_52BABCB3015Cset_var*
+//#UC END# *52BACA3F0292_52BABCB3015Cset_var*
+begin
+//#UC START# *52BACA3F0292_52BABCB3015Cset_impl*
+ if f_ButtonsImageList <> aValue then
+ begin
+//  {$IfDef NavigatorPanelNeedsTb97}
+  AutoHideButton.Images := aValue;
+  HideButton.Images := aValue;
+  CloseButton.Images := aValue;
+//  {$EndIf NavigatorPanelNeedsTb97}
+  f_ButtonsImageList := aValue;
+ end;
+//#UC END# *52BACA3F0292_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetButtonsImageList
+
+procedure TnpHeaderPrim.pm_SetNavigator(aValue: TvtNavigatorPrim);
+//#UC START# *52BC48D00331_52BABCB3015Cset_var*
+//#UC END# *52BC48D00331_52BABCB3015Cset_var*
+begin
+//#UC START# *52BC48D00331_52BABCB3015Cset_impl*
+ if (f_Navigator <> aValue) then
+ begin
+  if f_Navigator <> nil then
+   f_Navigator.UnRegisterStateChanged(f_Link);
+
+  f_Navigator := aValue;
+
+  if f_Navigator <> nil then
+   f_Navigator.RegisterStateChanged(f_Link);
+ end;//f_Navigator <> Value
+//#UC END# *52BC48D00331_52BABCB3015Cset_impl*
+end;//TnpHeaderPrim.pm_SetNavigator
+
+procedure TnpHeaderPrim.HideCloseButton;
+//#UC START# *52BACD510230_52BABCB3015C_var*
+//#UC END# *52BACD510230_52BABCB3015C_var*
+begin
+//#UC START# *52BACD510230_52BABCB3015C_impl*
+ if (CloseButton <> nil) then
+  with CloseButton do
+  begin
+   OnClick := nil;
+   CloseButtonVisible(False);
+  end;//with CloseButton
+//#UC END# *52BACD510230_52BABCB3015C_impl*
+end;//TnpHeaderPrim.HideCloseButton
+
+procedure TnpHeaderPrim.ShowCloseButton(const aHandler: IvcmFormHandler);
+//#UC START# *52BACD6D0047_52BABCB3015C_var*
+//#UC END# *52BACD6D0047_52BABCB3015C_var*
+begin
+//#UC START# *52BACD6D0047_52BABCB3015C_impl*
+ if Assigned(aHandler.Handler) AND
+    aHandler.CanHaveCloseButtonInNavigator then
+ begin
+  if (f_CloseButton <> nil) then
+   with CloseButton do
+   begin
+    OnClick := aHandler.Handler;
+    Hint := l3Str(aHandler.Hint);
+    CloseButtonVisible(True);
+   end//with CloseButton do
+ end//Assigned(aHandler.Handler)
+ else
+  HideCloseButton;
+//#UC END# *52BACD6D0047_52BABCB3015C_impl*
+end;//TnpHeaderPrim.ShowCloseButton
+
+procedure TnpHeaderPrim.CloseButtonVisible(aValue: Boolean);
+ {* изменить видимость кнопки закрыть, установить кнопку видимой без установленного обработчика OnClick нельзя }
+//#UC START# *52BACD9A0283_52BABCB3015C_var*
+//#UC END# *52BACD9A0283_52BABCB3015C_var*
+begin
+//#UC START# *52BACD9A0283_52BABCB3015C_impl*
+ if Assigned(CloseButton.OnClick) then
+  CloseButton.Visible := aValue
+ else
+ if not aValue then
+  CloseButton.Hide;
+//#UC END# *52BACD9A0283_52BABCB3015C_impl*
+end;//TnpHeaderPrim.CloseButtonVisible
+
+procedure TnpHeaderPrim.UpdateImages;
+//#UC START# *52BACDF902D8_52BABCB3015C_var*
+//#UC END# *52BACDF902D8_52BABCB3015C_var*
+begin
+//#UC START# *52BACDF902D8_52BABCB3015C_impl*
+ UpdateAutoHideImage;
+ UpdateHideImage;
+ UpdateCloseImage;
+//#UC END# *52BACDF902D8_52BABCB3015C_impl*
+end;//TnpHeaderPrim.UpdateImages
+
+procedure TnpHeaderPrim.UpdateSize;
+//#UC START# *52BACE0703DA_52BABCB3015C_var*
+//#UC END# *52BACE0703DA_52BABCB3015C_var*
+begin
+//#UC START# *52BACE0703DA_52BABCB3015C_impl*
+ case Align of
+  alLeft, alRight: Width := f_Size;
+  alTop, alBottom: Height := f_Size;
+ else
+  Height := f_Size;
+ end;//case Align
+//#UC END# *52BACE0703DA_52BABCB3015C_impl*
+end;//TnpHeaderPrim.UpdateSize
+
+procedure TnpHeaderPrim.UpdatePositions;
+//#UC START# *52BACE0F03BF_52BABCB3015C_var*
+  procedure lp_Left;
+  begin//lp_Left
+   AutoHideButton.Align := alLeft;
+   HideButton.Align := alRight;
+   CloseButton.Align := alRight;
+   // Поставим кнопку закрыть перед кнопкой скрыть:
+   if HideButton.Visible and CloseButton.Visible then
+    CloseButton.Left := HideButton.Left - 1;
+  end;//lp_Left
+
+  procedure lp_Right;
+  begin//lp_Right
+   AutoHideButton.Align := alRight;
+   HideButton.Align := alLeft;
+   CloseButton.Align := alLeft;
+   // Поставим кнопку закрыть перед кнопкой скрыть:
+   if HideButton.Visible and CloseButton.Visible then
+    CloseButton.Left := HideButton.BoundsRect.Right + 1;
+  end;//lp_Right
+
+  procedure lp_Top;
+  begin//lp_Top
+   AutoHideButton.Align := alTop;
+   HideButton.Align := alBottom;
+   CloseButton.Align := alBottom;
+   // Поставим кнопку закрыть перед кнопкой скрыть:
+   if HideButton.Visible and CloseButton.Visible then
+    CloseButton.Top := HideButton.Top - 1;
+  end;//lp_Top
+
+  procedure lp_Bottom;
+  begin//lp_Bottom
+   AutoHideButton.Align := alBottom;
+   HideButton.Align := alTop;
+   CloseButton.Align := alTop;
+   // Поставим кнопку закрыть перед кнопкой скрыть:
+   if HideButton.Visible and CloseButton.Visible then
+    CloseButton.Top := HideButton.BoundsRect.Bottom + 1;
+  end;//lp_Bottom
+//#UC END# *52BACE0F03BF_52BABCB3015C_var*
+begin
+//#UC START# *52BACE0F03BF_52BABCB3015C_impl*
+ AutoHideButton.Align := alNone;
+ CloseButton.Align := alNone;
+ HideButton.Align := alNone;
+ if Navigator = nil then
+  Exit;
+ if Navigator.Float then
+  lp_Left
+ else
+ case Navigator.Align of
+  alLeft: lp_Left;
+  alRight: lp_Right;
+  alTop: lp_Top;
+  alBottom: lp_Bottom;
+ end;//case Align of
+//#UC END# *52BACE0F03BF_52BABCB3015C_impl*
+end;//TnpHeaderPrim.UpdatePositions
+
+procedure TnpHeaderPrim.UpdateHideImage;
+//#UC START# *52BACE1A006B_52BABCB3015C_var*
+//#UC END# *52BACE1A006B_52BABCB3015C_var*
+begin
+//#UC START# *52BACE1A006B_52BABCB3015C_impl*
+ if not f_Navigator.f_Float then
+ begin
+  if f_Navigator.State <> nsMinimized then
+   case f_Navigator.Align of
+    alRight:
+     begin
+//      {$IfDef NavigatorPanelNeedsTb97}
+      HideButton.ImageIndex := f_HideRightImage;
+//      {$Else}
+//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideRight);
+//      {$EndIf NavigatorPanelNeedsTb97}
+     end;//alRight
+    alLeft:
+     begin
+//      {$IfDef NavigatorPanelNeedsTb97}
+      HideButton.ImageIndex := f_HideLeftImage;
+//      {$Else}
+//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideLeft);
+//      {$EndIf NavigatorPanelNeedsTb97}
+     end;//alLeft
+   end//f_Navigator.Align
+  else
+   case f_Navigator.Align of
+    alRight:
+     begin
+//      {$IfDef NavigatorPanelNeedsTb97}
+      HideButton.ImageIndex := f_HideLeftImage;
+//      {$Else}
+//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideLeft);
+//      {$EndIf NavigatorPanelNeedsTb97}
+     end;//alRight
+    alLeft:
+     begin
+//      {$IfDef NavigatorPanelNeedsTb97}
+      HideButton.ImageIndex := f_HideRightImage;
+//      {$Else}
+//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideRight);
+//      {$EndIf NavigatorPanelNeedsTb97}
+     end;//alLeft
+   end;//case f_Navigator.Align
+ end//not f_Navigator.f_Float
+ else
+//  {$IfDef NavigatorPanelNeedsTb97}
+  HideButton.ImageIndex := f_AutoHideOnImage;
+//  {$EndIf NavigatorPanelNeedsTb97}
+//#UC END# *52BACE1A006B_52BABCB3015C_impl*
+end;//TnpHeaderPrim.UpdateHideImage
+
+procedure TnpHeaderPrim.UpdateCloseImage;
+//#UC START# *52BACE520121_52BABCB3015C_var*
+//#UC END# *52BACE520121_52BABCB3015C_var*
+begin
+//#UC START# *52BACE520121_52BABCB3015C_impl*
+// {$IfDef NavigatorPanelNeedsTB97}
+ CloseButton.ImageIndex := f_CloseImage;
+// {$Else}
+// CloseButton.Glyph.LoadFromResourceName(HInstance, cBmpClose);
+// {$EndIf NavigatorPanelNeedsTB97}
+//#UC END# *52BACE520121_52BABCB3015C_impl*
+end;//TnpHeaderPrim.UpdateCloseImage
+
+procedure TnpHeaderPrim.UpdateAutoHideImage;
+//#UC START# *52BACE6303BA_52BABCB3015C_var*
+//#UC END# *52BACE6303BA_52BABCB3015C_var*
+begin
+//#UC START# *52BACE6303BA_52BABCB3015C_impl*
+ if not f_Navigator.f_Float then
+ begin
+  case f_Navigator.State of
+   nsAutoHide:
+//    {$IfDef NavigatorPanelNeedsTB97}
+    AutoHideButton.ImageIndex := f_AutoHideOffImage;
+//    {$Else}
+//    AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpAutoHideOn);
+//    {$EndIf NavigatorPanelNeedsTB97}
+   else
+//    {$IfDef NavigatorPanelNeedsTB97}
+    AutoHideButton.ImageIndex := f_AutoHideOnImage;
+//    {$Else}
+//    AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpAutoHideOff);
+//    {$EndIf NavigatorPanelNeedsTB97}
+  end;//case f_Navigator.Stat
+ end//not f_Navigator.f_Float
+ else
+ begin
+  if f_Navigator.f_FloatNavigator.State = fwsMinimized then
+//   {$IfDef NavigatorPanelNeedsTB97}
+   AutoHideButton.ImageIndex := f_HideDownImage
+//   {$Else}
+//   AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideBottom)
+//   {$EndIf NavigatorPanelNeedsTB97}
+  else
+//   {$IfDef NavigatorPanelNeedsTB97}
+   AutoHideButton.ImageIndex := f_HideUpImage;
+//   {$Else}
+//   AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideTop);
+//   {$EndIf NavigatorPanelNeedsTB97}
+ end;//not f_Navigator.f_Float
+//#UC END# *52BACE6303BA_52BABCB3015C_impl*
+end;//TnpHeaderPrim.UpdateAutoHideImage
+
+function TnpHeaderPrim.GetRectLines: TRect;
+//#UC START# *52BACE6F03E3_52BABCB3015C_var*
+ function lp_FreeRect: TRect;
+ var
+  l_Index: Integer;
+ begin
+  Result := BoundsRect;
+  for l_Index := 0 to Pred(ControlCount) do
+   if Controls[l_Index].Visible then
+    case Align of
+     alLeft, alRight:
+      case Controls[l_Index].Align of
+       alTop: Result.Top := Max(Result.Top, Controls[l_Index].BoundsRect.Bottom);
+       alBottom: Result.Bottom := Min(Result.Bottom, Controls[l_Index].BoundsRect.Top);
+      else
+       Assert(False);
+      end;//case Controls[l_Index] of
+     alTop, alBottom:
+      case Controls[l_Index].Align of
+       alLeft: Result.Left := Max(Result.Left, Controls[l_Index].BoundsRect.Right);
+       alRight: Result.Right := Min(Result.Right, Controls[l_Index].BoundsRect.Left);
+      else
+       Assert(False);
+      end;//case Controls[l_Index] of
+    end;//case Navigator.Align of
+ end;//lp_FreeRect
+//#UC END# *52BACE6F03E3_52BABCB3015C_var*
+begin
+//#UC START# *52BACE6F03E3_52BABCB3015C_impl*
+ Result := lp_FreeRect;
+  // - свободная область для вывода линий;
+ with Result do
+  case Align of
+   alLeft, alRight: Windows.InflateRect(Result, - ((Width - cLinesHeight) div 2), 0);
+     // - расположим линии по середине навигатора;
+   alTop, alBottom: Windows.InflateRect(Result, 0, - ((Height - cLinesHeight) div 2));
+     // - расположим линии по середине навигатора;
+  end;//case Navigator.Align of
+//#UC END# *52BACE6F03E3_52BABCB3015C_impl*
+end;//TnpHeaderPrim.GetRectLines
+
+procedure TnpHeaderPrim.DoStateChanged;
+//#UC START# *52BACE8501F5_52BABCB3015C_var*
+//#UC END# *52BACE8501F5_52BABCB3015C_var*
+begin
+//#UC START# *52BACE8501F5_52BABCB3015C_impl*
+ with f_Navigator do
+ begin
+  UpdateHideImage;
+  UpdateAutoHideImage;
+  if f_Navigator.Float then
+   with AutoHideButton do
+   begin
+    GroupIndex := 0;
+    Down := False;
+   end//with AutoHideButton
+  else
+   case State of
+    nsMinimized:
+     begin
+      HideButton.Visible := True;
+      AutoHideButton.Visible := False;
+      CloseButtonVisible(False);
+     end;//nsMinimized
+    nsNormal:
+     begin
+      HideButton.Visible := True;
+      AutoHideButton.Down := True;
+      AutoHideButton.Visible := True;
+      CloseButtonVisible(True);
+     end;//nsNormal
+    nsAutoHide:
+     begin
+      with AutoHideButton do
+      begin
+       Down := False;
+       Visible := True;
+      end;//AutoHideButton
+      HideButton.Visible := f_Navigator.f_HideDirect = hdShow;
+      CloseButtonVisible(HideButton.Visible);
+     end;//nsAutoHide
+   end;//case State
+ end;//with f_Navigator
+//#UC END# *52BACE8501F5_52BABCB3015C_impl*
+end;//TnpHeaderPrim.DoStateChanged
+
+procedure TnpHeaderPrim.OnStateChanged(Sender: TObject);
+//#UC START# *52BACE8C01C7_52BABCB3015C_var*
+//#UC END# *52BACE8C01C7_52BABCB3015C_var*
+begin
+//#UC START# *52BACE8C01C7_52BABCB3015C_impl*
+ DoStateChanged;
+//#UC END# *52BACE8C01C7_52BABCB3015C_impl*
+end;//TnpHeaderPrim.OnStateChanged
+
+procedure TnpHeaderPrim.WMEraseBkgnd(var Message: TWMEraseBkgnd);
+//#UC START# *52BAC39100F8_52BABCB3015C_var*
+//#UC END# *52BAC39100F8_52BABCB3015C_var*
+begin
+//#UC START# *52BAC39100F8_52BABCB3015C_impl*
+ Message.Result := 1;
+//#UC END# *52BAC39100F8_52BABCB3015C_impl*
+end;//TnpHeaderPrim.WMEraseBkgnd
+
+procedure TnpHeaderPrim.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_52BABCB3015C_var*
+//#UC END# *479731C50290_52BABCB3015C_var*
+begin
+//#UC START# *479731C50290_52BABCB3015C_impl*
+ if (f_Navigator <> nil) then
+  f_Navigator.UnRegisterStateChanged(f_Link);
+ f_Navigator := nil;
+
+ FreeAndNil(f_Canvas);
+ FreeAndNil(f_CloseButton);
+ FreeAndNil(f_AutoHideButton);
+ FreeAndNil(f_HideButton);
+ FreeAndNil(f_Link);
+ inherited;
+//#UC END# *479731C50290_52BABCB3015C_impl*
+end;//TnpHeaderPrim.Cleanup
+
+constructor TnpHeaderPrim.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_52BABCB3015C_var*
+  procedure SetBtn(var aBtn : TnpButton;
+                   aBtnType : TnpButtonType;
+                   const aGlyphID : String);
+  begin//SetBtn
+   aBtn := TnpButton.Create(Self, TvtNavigator(aOwner), aBtnType);
+   with aBtn do
+   begin
+    Name := aGlyphID;
+    Parent := Self;
+    Height := cButtonSize;
+    Width := cButtonSize;
+    Left := cIntervalButtonLine;
+    Top := cIntervalButtonLine;
+    Flat := True;
+    Glyph.LoadFromResourceName(HInstance, aGlyphID);
+   end;//with aBtn do
+   if csDesigning in Self.ComponentState  then
+     aBtn.Visible := False;
+  end;//SetBtn
+//#UC END# *47D1602000C6_52BABCB3015C_var*
+begin
+//#UC START# *47D1602000C6_52BABCB3015C_impl*
+ inherited Create(AOwner);
+ ControlStyle := ControlStyle + [csNoDesignVisible];
+ Cursor := crSizeAll;
+ f_Canvas := Tl3CustomControlCanvas.Create(Self);
+ f_AutoHideOnImage := 0;
+ f_AutoHideOffImage := 1;
+ f_HideLeftImage := 2;
+ f_HideRightImage := 3;
+ f_CloseImage := 6;
+ f_HideUpImage := 4;
+ f_HideDownImage := 5;
+ Size := cHeaderSize;
+ f_Link := TnpChangeLink.Create;
+ f_Link.OnStateChanged := OnStateChanged;
+ SetBtn(f_AutoHideButton, nbtAutoHide, cBmpAutoHideOff);
+ with AutoHideButton do
+ begin
+  AllowAllUp := True;
+  GroupIndex := 1;
+  Down := True;
+ end;
+ SetBtn(f_HideButton, nbtMinimize, cBmpHideLeft);
+ SetBtn(f_CloseButton, nbtClose,    cBmpClose);
+ UpdatePositions;
+//#UC END# *47D1602000C6_52BABCB3015C_impl*
+end;//TnpHeaderPrim.Create
+
+{$If NOT Defined(NoVCL)}
+procedure TnpHeaderPrim.MouseDown(Button: TMouseButton;
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
+//#UC START# *4F88473B03CD_52BABCB3015C_var*
+var
+ l_Control : TControl;
+//#UC END# *4F88473B03CD_52BABCB3015C_var*
+begin
+//#UC START# *4F88473B03CD_52BABCB3015C_impl*
+ if Button = mbLeft then
+ begin
+  if not Assigned(f_Navigator.f_PageControl.ActivePage) then
+   Exit
+  else
+  if f_Navigator.f_PageControl.ActivePage.ControlCount = 0 then
+   Exit;
+  l_Control := f_Navigator.f_PageControl.ActivePage.Controls[0];
+  f_Navigator.InitDrag(l_Control);
+  f_IsDragBegining := True;
+  f_Navigator.f_ActiveControl := l_Control;
+  l_Control.BeginDrag(False);
+ end;
+ inherited MouseDown(Button, Shift, X, Y);
+//#UC END# *4F88473B03CD_52BABCB3015C_impl*
+end;//TnpHeaderPrim.MouseDown
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TnpHeaderPrim.Paint;
+//#UC START# *5028A60300AD_52BABCB3015C_var*
+  procedure lp_DrawFrame(aRect : TRect);
+  begin//lp_DrawFrame
+   Frame3D(Canvas, aRect, clBtnHighlight, clBtnShadow, 1);
+   //Frame3D(Canvas, aRect, clBtnShadow, clBtnShadow, 1);
+  end;//lp_DrawFrame
+
+  procedure lp_PaintLine(ABelow: Integer);
+  var
+   lRect: TRect;
+  begin//lp_PaintLine
+   lRect := GetRectLines;
+   { горизонталь }
+   if (Self.Width > Self.Height) then
+   begin
+    lRect.Top := lRect.Top + ABelow;
+    lRect.Bottom := lRect.Top + cBorderWidth;
+   { вертикаль }
+   end//Self.Width > Self.Height
+   else
+   begin
+    lRect.Left := lRect.Left + ABelow;
+    lRect.Right := lRect.Left + cBorderWidth;
+   end;//Self.Width > Self.Height
+
+   if Self.Width > Self.Height then
+    Inc(lRect.Bottom)
+   else
+    Inc(lRect.Right);
+
+   Frame3D(Self.Canvas, lRect, clBtnHighlight, clBtnShadow, 1);
+  end;//lp_PaintLine
+
+  procedure lp_DrawActivePage;
+  var
+   lRect    : TRect;
+   lCaption : String;
+  begin//lp_DrawActivePage
+   if Assigned(f_Navigator.PageControl.ActivePage) then
+   begin
+    with Canvas do
+    begin
+     if f_Navigator.State = nsMinimized then
+      Exit;
+     (* рамка *)
+     lp_DrawFrame(ClientRect);
+     (* выводимая область *)
+     lRect := GetRectLines;
+     lRect.Top := 0;
+     lRect.Bottom := ClientHeight;
+     (* иконка *)
+     with f_Navigator.f_PageControl do
+      if Assigned(Images) and (ActivePage.ImageIndex <> -1) and
+       (ActivePage.ImageIndex < Images.Count) then
+      begin
+       with Images do
+        Draw(Self.Canvas, lRect.Left, (Self.Height - Height) div 2,
+         ActivePage.ImageIndex, True);
+       lRect.Left := lRect.Left + Images.Width + 2;
+      end;//Assigned(Images) and (ActivePage.ImageIndex <> -1)..
+     (* текст *)
+     InflateRect(lRect, -1, -1);
+     lCaption := f_Navigator.PageControl.ActivePage.Caption;
+     f_Canvas.Font.AssignFont(Font);
+     f_Canvas.BeginPaint;
+     try
+      f_Canvas.DrawText(l3PCharLen(lCaption),
+                       lRect,
+                       DT_VCENTER      or
+                       DT_END_ELLIPSIS or
+                       DT_SINGLELINE);
+     finally
+      f_Canvas.EndPaint;
+     end;//try..finally
+    end;//with Canvas
+   end;//Assigned(f_Navigator.PageControl.ActivePage)
+  end;//lp_DrawActivePage
+
+var
+  lRect: TRect;
+//#UC END# *5028A60300AD_52BABCB3015C_var*
+begin
+//#UC START# *5028A60300AD_52BABCB3015C_impl*
+ inherited;
+ lRect := ClientRect;
+ with Canvas do
+ begin
+  Brush.Color := cGarant2011ToolbarsColor{clBtnFace};
+  FillRect(lRect);
+  if f_Navigator.State = nsMinimized then
+   Exit;
+  (* навигатор находится в режиме автоскрытия и сейчас должна быть видна только
+     кнопка AutoHideButton *)
+  HideButton.Visible := not ((f_Navigator.State = nsAutoHide) and
+   (f_Navigator.f_Surface.Size <= f_Navigator.SizeMini));
+  CloseButtonVisible(HideButton.Visible);
+  (* выводим иконку и название закладки *)
+  if f_Navigator.ShowActivePageInHeader then
+  begin
+   if HideButton.Visible then
+    lp_DrawActivePage;
+  end//f_Navigator.ShowActivePageInHeader
+  (* рисуем полосы *)
+  else
+  begin
+   (* видна только кнопка AutoHideButton *)
+   if not HideButton.Visible then
+    Exit;
+   if (f_Navigator.State <> nsMinimized) and
+    (f_Navigator.f_HideDirect <> hdHide) then
+   begin
+    if f_Navigator.f_Float then
+     InflateRect(lRect, -1, -1);
+    lp_DrawFrame(lRect);
+    { Первая линия }
+    lp_PaintLine(0);
+    { Подадим смещения для второй линии }
+    lp_PaintLine(cOffsetSecondLine);
+   end;//f_Navigator.State <> nsMinimized..
+  end;//f_Navigator.ShowActivePageInHeader
+ end;//with Canvas
+//#UC END# *5028A60300AD_52BABCB3015C_impl*
+end;//TnpHeaderPrim.Paint
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TnpHeaderPrim.AdjustClientRect(var Rect: TRect);
+//#UC START# *508F957E0283_52BABCB3015C_var*
+//#UC END# *508F957E0283_52BABCB3015C_var*
+begin
+//#UC START# *508F957E0283_52BABCB3015C_impl*
+ inherited;
+ InflateRect(Rect, - cIntervalHeaderButton, - cIntervalHeaderButton);
+//#UC END# *508F957E0283_52BABCB3015C_impl*
+end;//TnpHeaderPrim.AdjustClientRect
+{$IfEnd} // NOT Defined(NoVCL)
+
 constructor TnpButton.Create(aOwner: TComponent;
  aNavigator: TvtNavigatorPrim;
  aBtnType: TnpButtonType);
@@ -1470,6 +2960,432 @@ begin
  Windows.SetCursor(Screen.Cursors[crDefault]);
 //#UC END# *52BAC31903DB_52BAC22601F8_impl*
 end;//TnpButton.WMMouseMove
+
+procedure TnpFloatingWindow.pm_SetState(aValue: TnpFloatWindowState);
+//#UC START# *52BD71C101CD_52BACEF001CBset_var*
+var
+ lFlag : Integer;
+{$IfDef Nemesis}
+ l_Index : Integer;
+{$EndIf Nemesis}
+
+ function lfnMinimizedSize : Integer;
+ begin//lfnMinimizedSize
+  with f_Navigator do
+   Result := f_Header.Height + PageControl.MaxTabHeight;
+ end;//lfnMinimizedSize
+//#UC END# *52BD71C101CD_52BACEF001CBset_var*
+begin
+//#UC START# *52BD71C101CD_52BACEF001CBset_impl*
+ if aValue = f_State then
+  Exit;
+ f_State := aValue;
+ // текущий стиль окна
+ lFlag := GetWindowLong(Handle, GWL_STYLE);
+ case f_State of
+  // свернём навигатор
+  fwsMinimized:
+  begin
+   Self.Height := lfnMinimizedSize;
+   lFlag := lFlag xor WS_THICKFRAME;
+  end;//fwsMinimized
+  // развернём навигатор
+  fwsNormal:
+  begin
+   // если плавающий был создан минимизированным, то используем высоту навигатора
+   // на форме для его разворачивания
+   if f_SizeNormal <= lfnMinimizedSize then
+    f_SizeNormal := f_Navigator.NavigatorOnForm.Height;
+   Height := f_SizeNormal;
+   lFlag := lFlag  or WS_THICKFRAME;
+  end;//fwsNormal
+ end;//case f_State
+ // изменим стиль окна
+ SetWindowLong(Handle, GWL_STYLE, lFlag);
+ // перерисуем
+ Perform(CM_BORDERCHANGED, 0, 0);
+ f_Navigator.f_Header.UpdateAutoHideImage;
+ {$IfDef Nemesis}
+ // нужно обновить информацию о состоянии плавающей формы
+ with Navigator.PageControl do
+  for l_Index := 0 to Pred(PageCount) do
+   if (Pages[l_Index].ControlCount > 0) and
+    (Pages[l_Index].Controls[0] is TvcmForm) then
+    TvcmForm(Pages[l_Index].Controls[0]).FloatWindowState :=
+     IfThen((f_State = fwsMinimized), cFloatMinimized);
+ {$EndIf Nemesis}
+//#UC END# *52BD71C101CD_52BACEF001CBset_impl*
+end;//TnpFloatingWindow.pm_SetState
+
+function TnpFloatingWindow.GetGripperRect: TRect;
+//#UC START# *52BD73E2039B_52BACEF001CB_var*
+//#UC END# *52BD73E2039B_52BACEF001CB_var*
+begin
+//#UC START# *52BD73E2039B_52BACEF001CB_impl*
+ // положение в пределах Desctop
+ GetWindowRect(Handle, Result);
+ // размеры навигатора
+ OffsetRect(Result, -Result.Left, -Result.Top);
+ // уменьшим чтобы не заслонять рамку
+ InflateRect(Result, -GetSystemMetrics(SM_CXSIZEFRAME), -GetSystemMetrics(SM_CYSIZEFRAME));
+ // область отрисовки gripper
+ Result.Top := Result.Bottom - GetGripperHeight;
+//#UC END# *52BD73E2039B_52BACEF001CB_impl*
+end;//TnpFloatingWindow.GetGripperRect
+
+function TnpFloatingWindow.GetGripperHeight: Integer;
+//#UC START# *52BD73F900BF_52BACEF001CB_var*
+//#UC END# *52BD73F900BF_52BACEF001CB_var*
+begin
+//#UC START# *52BD73F900BF_52BACEF001CB_impl*
+ Result := GetSystemMetrics(SM_CYHSCROLL);
+//#UC END# *52BD73F900BF_52BACEF001CB_impl*
+end;//TnpFloatingWindow.GetGripperHeight
+
+function TnpFloatingWindow.CheckGripperCursor: Boolean;
+//#UC START# *52BD740F023F_52BACEF001CB_var*
+var
+ l_Rect : TRect;
+//#UC END# *52BD740F023F_52BACEF001CB_var*
+begin
+//#UC START# *52BD740F023F_52BACEF001CB_impl*
+ Result := False;
+ // навигатор в свернутом состоянии, гриппер у него отсутствием
+ if (f_State = fwsMinimized) then
+  Exit;
+ // получим позицию окна
+ GetWindowRect(Handle, l_Rect);
+ // вычислим положение gripper-а на экране
+ l_Rect.Left := l_Rect.Right - GetGripperHeight;
+ l_Rect.Top := l_Rect.Bottom - GetGripperHeight;
+ // 
+ if PtInRect(l_Rect, Mouse.CursorPos) then
+  Result := True;
+//#UC END# *52BD740F023F_52BACEF001CB_impl*
+end;//TnpFloatingWindow.CheckGripperCursor
+
+{$If Defined(Nemesis)}
+procedure TnpFloatingWindow.UpdateFloatWindowsBounds;
+//#UC START# *52BD742402DA_52BACEF001CB_var*
+var
+ l_Index : Integer;
+ l_R : TRect;
+//#UC END# *52BD742402DA_52BACEF001CB_var*
+begin
+//#UC START# *52BD742402DA_52BACEF001CB_impl*
+ if Assigned(f_Navigator) and Assigned(f_Navigator.PageControl) then
+  with f_Navigator.PageControl do
+   for l_Index := 0 to Pred(PageCount) do
+    if (Pages[l_Index].ControlCount > 0) and
+       (Pages[l_Index].Controls[0] is TvcmForm) then
+     with TvcmForm(Pages[l_Index].Controls[0]) do
+     begin
+      l_R := Self.BoundsRect;
+      with l_R do
+       Bottom := Top + Self.f_SizeNormal;
+      FloatWindowBounds := l_R;
+     end;//TvcmForm(Pages[l_Index].Controls[0])
+//#UC END# *52BD742402DA_52BACEF001CB_impl*
+end;//TnpFloatingWindow.UpdateFloatWindowsBounds
+{$IfEnd} // Defined(Nemesis)
+
+procedure TnpFloatingWindow.OnChangeState(Sender: TObject);
+//#UC START# *52BD745C0104_52BACEF001CB_var*
+//#UC END# *52BD745C0104_52BACEF001CB_var*
+begin
+//#UC START# *52BD745C0104_52BACEF001CB_impl*
+ if f_State = High(TnpFloatWindowState) then
+  State := Low(TnpFloatWindowState)
+ else
+  State := Succ(f_State);
+//#UC END# *52BD745C0104_52BACEF001CB_impl*
+end;//TnpFloatingWindow.OnChangeState
+
+procedure TnpFloatingWindow.OnCloseWindow(Sender: TObject);
+//#UC START# *52BD74650377_52BACEF001CB_var*
+//#UC END# *52BD74650377_52BACEF001CB_var*
+begin
+//#UC START# *52BD74650377_52BACEF001CB_impl*
+ (* Пристыкуем компоненты к навигаторам на форме *)
+ with f_Navigator.PageControl do
+  while PageCount > 0 do
+   if Pages[0].ControlCount > 0 then
+    TnpControlsList.Instance.DockOnForm(Pages[0].Controls[0]);
+//#UC END# *52BD74650377_52BACEF001CB_impl*
+end;//TnpFloatingWindow.OnCloseWindow
+
+procedure TnpFloatingWindow.FormOnResize(Sender: TObject);
+//#UC START# *52BD74710051_52BACEF001CB_var*
+//#UC END# *52BD74710051_52BACEF001CB_var*
+begin
+//#UC START# *52BD74710051_52BACEF001CB_impl*
+ if (f_State = fwsNormal) then
+  f_SizeNormal := Self.Height;
+ {$IfDef Nemesis}
+ UpdateFloatWindowsBounds;
+ {$EndIf Nemesis}
+//#UC END# *52BD74710051_52BACEF001CB_impl*
+end;//TnpFloatingWindow.FormOnResize
+
+procedure TnpFloatingWindow.FormClose(Sender: TObject;
+ var Action: TCloseAction);
+//#UC START# *52BD748B0337_52BACEF001CB_var*
+//#UC END# *52BD748B0337_52BACEF001CB_var*
+begin
+//#UC START# *52BD748B0337_52BACEF001CB_impl*
+ if f_CloseDisabled then
+  Action := caHide
+ else
+  Action := caFree;
+//#UC END# *52BD748B0337_52BACEF001CB_impl*
+end;//TnpFloatingWindow.FormClose
+
+procedure TnpFloatingWindow.OnTabSheetClick(Sender: TObject;
+ Page: TElTabSheet);
+//#UC START# *52BD74BD0029_52BACEF001CB_var*
+//#UC END# *52BD74BD0029_52BACEF001CB_var*
+begin
+//#UC START# *52BD74BD0029_52BACEF001CB_impl*
+ // развернём окно, если свернуто
+ State := fwsNormal;
+ // начнем перетаскивание
+ f_Navigator.OnTabSheetClick(Sender, Page);
+//#UC END# *52BD74BD0029_52BACEF001CB_impl*
+end;//TnpFloatingWindow.OnTabSheetClick
+
+procedure TnpFloatingWindow.OnDockDrop(Sender: TObject;
+ Source: TDragDockObject;
+ X: Integer;
+ Y: Integer);
+//#UC START# *52BD74D2028D_52BACEF001CB_var*
+//#UC END# *52BD74D2028D_52BACEF001CB_var*
+begin
+//#UC START# *52BD74D2028D_52BACEF001CB_impl*
+ {$IfDef Nemesis}
+ if Source.Control is TvcmForm then
+  TvcmForm(Source.Control).FloatID := f_FloatID;
+ {$EndIf Nemesis}
+//#UC END# *52BD74D2028D_52BACEF001CB_impl*
+end;//TnpFloatingWindow.OnDockDrop
+
+function TnpFloatingWindow.GetNavigatorClass: RvtNavigator;
+//#UC START# *52BD752A00D3_52BACEF001CB_var*
+//#UC END# *52BD752A00D3_52BACEF001CB_var*
+begin
+//#UC START# *52BD752A00D3_52BACEF001CB_impl*
+ Result := TvtNavigator;
+//#UC END# *52BD752A00D3_52BACEF001CB_impl*
+end;//TnpFloatingWindow.GetNavigatorClass
+
+procedure TnpFloatingWindow.WMNCCalcSize(var Message: TWMNCCalcSize);
+//#UC START# *52BD728700B7_52BACEF001CB_var*
+//#UC END# *52BD728700B7_52BACEF001CB_var*
+begin
+//#UC START# *52BD728700B7_52BACEF001CB_impl*
+ inherited;
+ case f_State of
+  fwsNormal:
+   with Message.CalcSize_Params.rgrc[0] do
+    Dec(Bottom, GetSystemMetrics(SM_CYHSCROLL));
+  fwsMinimized:
+   InflateRect(Message.CalcSize_Params.rgrc[0], -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
+ end;//case f_State
+//#UC END# *52BD728700B7_52BACEF001CB_impl*
+end;//TnpFloatingWindow.WMNCCalcSize
+
+procedure TnpFloatingWindow.WMNCPaint(var Message: TMessage);
+//#UC START# *52BD729D02CC_52BACEF001CB_var*
+var
+ l_DC : HDC;
+ l_R  : TRect;
+//#UC END# *52BD729D02CC_52BACEF001CB_var*
+begin
+//#UC START# *52BD729D02CC_52BACEF001CB_impl*
+ l_DC := GetWindowDC(Handle);
+ try
+  case f_State of
+   fwsNormal:
+   begin
+    // Рисуем рамку
+    inherited;
+    // Нарисуем скроллер
+    with Canvas.Brush do
+    begin
+     Color := clBtnFace;
+     Style := bsSolid;
+    end;//with Canvas.Brush
+    l_R := GetGripperRect;
+    // мы вычислили всё честно, DrawFrameControl почему то отрисовывает рамку
+    // на один пиксел меньше, поэтому увеличим
+    InflateRect(l_R, 1, 1);
+    // рисуем
+    DrawFrameControl(l_DC, l_R, DFC_SCROLL, DFCS_SCROLLSIZEGRIP);
+   end;//fwsNormal
+   fwsMinimized:
+   begin
+    Windows.GetWindowRect(Handle, l_R);
+    OffsetRect(l_R, -l_R.Left, -l_R.Top);
+    DrawEdge(l_DC, l_R, EDGE_RAISED, BF_RECT or BF_FLAT);
+   end;//fwsMinimized
+  end;//case f_State
+ finally
+  ReleaseDC(Handle, l_DC);
+ end;//try..finally
+//#UC END# *52BD729D02CC_52BACEF001CB_impl*
+end;//TnpFloatingWindow.WMNCPaint
+
+procedure TnpFloatingWindow.WMNCHitTest(var Message: TWMNCHitTest);
+//#UC START# *52BD72BD00B9_52BACEF001CB_var*
+//#UC END# *52BD72BD00B9_52BACEF001CB_var*
+begin
+//#UC START# *52BD72BD00B9_52BACEF001CB_impl*
+ inherited;
+ if CheckGripperCursor then
+  Message.Result := HTBOTTOMRIGHT;
+//#UC END# *52BD72BD00B9_52BACEF001CB_impl*
+end;//TnpFloatingWindow.WMNCHitTest
+
+procedure TnpFloatingWindow.WMEraseBkgnd(var Message: TWMEraseBkgnd);
+//#UC START# *52BD72DE0167_52BACEF001CB_var*
+//#UC END# *52BD72DE0167_52BACEF001CB_var*
+begin
+//#UC START# *52BD72DE0167_52BACEF001CB_impl*
+ Message.Result := 1;
+//#UC END# *52BD72DE0167_52BACEF001CB_impl*
+end;//TnpFloatingWindow.WMEraseBkgnd
+
+procedure TnpFloatingWindow.DisableClose;
+//#UC START# *4E79FED900C6_52BACEF001CB_var*
+//#UC END# *4E79FED900C6_52BACEF001CB_var*
+begin
+//#UC START# *4E79FED900C6_52BACEF001CB_impl*
+ Assert(FormStyle = fsStayOnTop);
+ f_CloseDisabled := True;
+//#UC END# *4E79FED900C6_52BACEF001CB_impl*
+end;//TnpFloatingWindow.DisableClose
+
+procedure TnpFloatingWindow.DisableReactivate;
+//#UC START# *4E7A0D9401F6_52BACEF001CB_var*
+//#UC END# *4E7A0D9401F6_52BACEF001CB_var*
+begin
+//#UC START# *4E7A0D9401F6_52BACEF001CB_impl*
+ Assert(FormStyle = fsStayOnTop);
+ f_ReactivateDisabled := True;
+//#UC END# *4E7A0D9401F6_52BACEF001CB_impl*
+end;//TnpFloatingWindow.DisableReactivate
+
+procedure TnpFloatingWindow.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_52BACEF001CB_var*
+//#UC END# *479731C50290_52BACEF001CB_var*
+begin
+//#UC START# *479731C50290_52BACEF001CB_impl*
+ f_CloseDisabled := False;
+ f_ReactivateDisabled := False;
+ inherited;
+//#UC END# *479731C50290_52BACEF001CB_impl*
+end;//TnpFloatingWindow.Cleanup
+
+{$If NOT Defined(NoVCL)}
+procedure TnpFloatingWindow.CreateParams(var Params: TCreateParams);
+//#UC START# *48C7925A02E5_52BACEF001CB_var*
+//#UC END# *48C7925A02E5_52BACEF001CB_var*
+begin
+//#UC START# *48C7925A02E5_52BACEF001CB_impl*
+ inherited CreateParams(Params);
+ with Params do
+ begin
+  if (Parent = nil) and (ParentWindow = 0) then
+  begin
+   Style := Style or WS_POPUP;
+   ExStyle := ExStyle and not WS_EX_APPWINDOW or WS_EX_TOOLWINDOW;
+  end;
+  Style := Style and not WS_CAPTION;
+  case f_State of
+   fwsNormal:
+    Style := Style or WS_THICKFRAME;
+   fwsMinimized:
+    Style := Style and not WS_THICKFRAME;
+  end;//case f_State
+ end;//with Params
+//#UC END# *48C7925A02E5_52BACEF001CB_impl*
+end;//TnpFloatingWindow.CreateParams
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+function TnpFloatingWindow.CloseQuery: Boolean;
+ {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
+
+As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true. }
+//#UC START# *4980403E021E_52BACEF001CB_var*
+var
+ l_Index : Integer;
+ lPC    : TnpPageControl;
+//#UC END# *4980403E021E_52BACEF001CB_var*
+begin
+//#UC START# *4980403E021E_52BACEF001CB_impl*
+ Result := inherited CloseQuery;
+ if Result then
+  f_FloatID := 0;
+ l_Index := 0;
+ lPC := f_Navigator.PageControl;
+ while Result and (l_Index <= Pred(lPC.PageCount)) do
+ begin
+  if (lPC.Pages[l_Index].ControlCount > 0) and
+   (lPC.Pages[l_Index].Controls[0] is TCustomForm) then
+   Result := TCustomForm(lPC.Pages[l_Index].Controls[0]).CloseQuery;
+  Inc(l_Index);
+ end;//while Result and (l_Index <= Pred(lPC.PageCount))
+//#UC END# *4980403E021E_52BACEF001CB_impl*
+end;//TnpFloatingWindow.CloseQuery
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+constructor TnpFloatingWindow.CreateNew(AOwner: TComponent;
+ Dummy: Integer = 0);
+//#UC START# *4F9007B20376_52BACEF001CB_var*
+//#UC END# *4F9007B20376_52BACEF001CB_var*
+begin
+//#UC START# *4F9007B20376_52BACEF001CB_impl*
+ inherited CreateNew(AOwner);
+ Caption := 'Плавающий навигатор';
+ BorderIcons := [];
+ FormStyle := fsStayOnTop;
+ OnClose := FormClose;
+ OnResize := FormOnResize;
+ f_FloatID := 0;
+ f_State := fwsNormal;
+ f_Navigator := GetNavigatorClass.Create(Self);
+ f_Navigator.Parent := Self;
+ f_Navigator.f_FloatNavigator := Self;
+ f_Navigator.Float := True;
+ f_Navigator.Align := alClient;
+ with f_Navigator.PageControl do
+ begin
+  Visible := True;
+  //Assert(not Assigned(OnTabSheetClick));
+  // - закомментировал, т.к. падало при отдочивании оглавления
+  OnTabSheetClick := Self.OnTabSheetClick;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=344754050&focusedCommentId=346751217&#comment-346751217
+  Assert(not Assigned(OnDockDrop));
+  OnDockDrop := Self.OnDockDrop;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=344754050&focusedCommentId=346750985#comment-346750985
+  Align := alClient;
+ end;//with f_Navigator.PageControl
+ with f_Navigator.f_Header do
+ begin
+  Visible := True;
+  OnHide := OnCloseWindow;
+  OnAutoHide := OnChangeState;
+ end;//with f_Navigator.Header
+ f_Navigator.DockSite := False;
+ {$IfDef Nemesis}
+ DefaultMonitor := dmDesktop;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=569239659
+ {$EndIf Nemesis}
+//#UC END# *4F9007B20376_52BACEF001CB_impl*
+end;//TnpFloatingWindow.CreateNew
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TvtNavigatorPrim.pm_GetRelativeNavigator: TvtNavigatorPrim;
 //#UC START# *52BC2DA80151_52BAD1C40174get_var*
@@ -4932,1963 +6848,6 @@ begin
  inherited;
 end;//TvtNavigatorPrim.ClearFields
 
-function TnpHeaderPrim.pm_GetAlign: TAlign;
-//#UC START# *52BAC726019F_52BABCB3015Cget_var*
-//#UC END# *52BAC726019F_52BABCB3015Cget_var*
-begin
-//#UC START# *52BAC726019F_52BABCB3015Cget_impl*
- Result := inherited Align;
-//#UC END# *52BAC726019F_52BABCB3015Cget_impl*
-end;//TnpHeaderPrim.pm_GetAlign
-
-procedure TnpHeaderPrim.pm_SetAlign(aValue: TAlign);
-//#UC START# *52BAC726019F_52BABCB3015Cset_var*
-//#UC END# *52BAC726019F_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC726019F_52BABCB3015Cset_impl*
- inherited Align := aValue;
- UpdatePositions;
-//#UC END# *52BAC726019F_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetAlign
-
-procedure TnpHeaderPrim.pm_SetCloseImage(aValue: TImageIndex);
-//#UC START# *52BAC77E0213_52BABCB3015Cset_var*
-//#UC END# *52BAC77E0213_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC77E0213_52BABCB3015Cset_impl*
- if (f_CloseImage <> aValue) then
- begin
-  f_CloseImage := aValue;
-  UpdateCloseImage;
-  UpdateHideImage;
- end;//f_CloseImage <> Value
-//#UC END# *52BAC77E0213_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetCloseImage
-
-procedure TnpHeaderPrim.pm_SetAutoHideOnImage(aValue: TImageIndex);
-//#UC START# *52BAC83B035F_52BABCB3015Cset_var*
-//#UC END# *52BAC83B035F_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC83B035F_52BABCB3015Cset_impl*
- if (f_AutoHideOnImage <> aValue) then
- begin
-  f_AutoHideOnImage := aValue;
-  UpdateAutoHideImage;
- end;//f_AutoHideOnImage <> Value
-//#UC END# *52BAC83B035F_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetAutoHideOnImage
-
-procedure TnpHeaderPrim.pm_SetAutoHideOffImage(aValue: TImageIndex);
-//#UC START# *52BAC84C0124_52BABCB3015Cset_var*
-//#UC END# *52BAC84C0124_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC84C0124_52BABCB3015Cset_impl*
- if (f_AutoHideOffImage <> aValue) then
- begin
-  f_AutoHideOffImage := aValue;
-  UpdateAutoHideImage;
- end;//f_AutoHideOffImage <> Value
-//#UC END# *52BAC84C0124_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetAutoHideOffImage
-
-procedure TnpHeaderPrim.pm_SetHideLeftImage(aValue: TImageIndex);
-//#UC START# *52BAC8920025_52BABCB3015Cset_var*
-//#UC END# *52BAC8920025_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC8920025_52BABCB3015Cset_impl*
- if (f_HideLeftImage <> aValue) then
- begin
-  f_HideLeftImage := aValue;
-  DoStateChanged;
- end;//f_HideLeftImage <> Value
-//#UC END# *52BAC8920025_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetHideLeftImage
-
-procedure TnpHeaderPrim.pm_SetHideRightImage(aValue: TImageIndex);
-//#UC START# *52BAC89D020A_52BABCB3015Cset_var*
-//#UC END# *52BAC89D020A_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC89D020A_52BABCB3015Cset_impl*
- if (f_HideRightImage <> aValue) then
- begin
-  f_HideRightImage := aValue;
-  DoStateChanged;
- end;//f_HideRightImage <> Value
-//#UC END# *52BAC89D020A_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetHideRightImage
-
-procedure TnpHeaderPrim.pm_SetHideUpImage(aValue: TImageIndex);
-//#UC START# *52BAC8A7004C_52BABCB3015Cset_var*
-//#UC END# *52BAC8A7004C_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC8A7004C_52BABCB3015Cset_impl*
- if (f_HideUpImage <> aValue) then
- begin
-  f_HideUpImage := aValue;
-  UpdateHideImage;
- end;//f_HideUpImage <> Value
-//#UC END# *52BAC8A7004C_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetHideUpImage
-
-procedure TnpHeaderPrim.pm_SetHideDownImage(aValue: TImageIndex);
-//#UC START# *52BAC8AF036E_52BABCB3015Cset_var*
-//#UC END# *52BAC8AF036E_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC8AF036E_52BABCB3015Cset_impl*
- if (f_HideDownImage <> aValue) then
- begin
-  f_HideDownImage := aValue;
-  UpdateHideImage;
- end;//f_HideDownImage <> Value
-//#UC END# *52BAC8AF036E_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetHideDownImage
-
-function TnpHeaderPrim.pm_GetSize: Integer;
-//#UC START# *52BAC8FB0112_52BABCB3015Cget_var*
-//#UC END# *52BAC8FB0112_52BABCB3015Cget_var*
-begin
-//#UC START# *52BAC8FB0112_52BABCB3015Cget_impl*
- Result := f_Size;
-//#UC END# *52BAC8FB0112_52BABCB3015Cget_impl*
-end;//TnpHeaderPrim.pm_GetSize
-
-procedure TnpHeaderPrim.pm_SetSize(aValue: Integer);
-//#UC START# *52BAC8FB0112_52BABCB3015Cset_var*
-//#UC END# *52BAC8FB0112_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC8FB0112_52BABCB3015Cset_impl*
- if (f_Size <> aValue) then
- begin
-  f_Size := aValue;
-  UpdateSize;
- end;//f_Size <> Value
-//#UC END# *52BAC8FB0112_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetSize
-
-function TnpHeaderPrim.pm_GetOnHide: TNotifyEvent;
-//#UC START# *52BAC9740089_52BABCB3015Cget_var*
-//#UC END# *52BAC9740089_52BABCB3015Cget_var*
-begin
-//#UC START# *52BAC9740089_52BABCB3015Cget_impl*
- Result := HideButton.OnClick;
-//#UC END# *52BAC9740089_52BABCB3015Cget_impl*
-end;//TnpHeaderPrim.pm_GetOnHide
-
-procedure TnpHeaderPrim.pm_SetOnHide(aValue: TNotifyEvent);
-//#UC START# *52BAC9740089_52BABCB3015Cset_var*
-//#UC END# *52BAC9740089_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC9740089_52BABCB3015Cset_impl*
- HideButton.OnClick := aValue;
-//#UC END# *52BAC9740089_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetOnHide
-
-function TnpHeaderPrim.pm_GetOnAutoHide: TNotifyEvent;
-//#UC START# *52BAC993024A_52BABCB3015Cget_var*
-//#UC END# *52BAC993024A_52BABCB3015Cget_var*
-begin
-//#UC START# *52BAC993024A_52BABCB3015Cget_impl*
- Result := AutoHideButton.OnClick;
-//#UC END# *52BAC993024A_52BABCB3015Cget_impl*
-end;//TnpHeaderPrim.pm_GetOnAutoHide
-
-procedure TnpHeaderPrim.pm_SetOnAutoHide(aValue: TNotifyEvent);
-//#UC START# *52BAC993024A_52BABCB3015Cset_var*
-//#UC END# *52BAC993024A_52BABCB3015Cset_var*
-begin
-//#UC START# *52BAC993024A_52BABCB3015Cset_impl*
- AutoHideButton.OnClick := aValue;
-//#UC END# *52BAC993024A_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetOnAutoHide
-
-procedure TnpHeaderPrim.pm_SetButtonsImageList(aValue: TCustomImageList);
-//#UC START# *52BACA3F0292_52BABCB3015Cset_var*
-//#UC END# *52BACA3F0292_52BABCB3015Cset_var*
-begin
-//#UC START# *52BACA3F0292_52BABCB3015Cset_impl*
- if f_ButtonsImageList <> aValue then
- begin
-//  {$IfDef NavigatorPanelNeedsTb97}
-  AutoHideButton.Images := aValue;
-  HideButton.Images := aValue;
-  CloseButton.Images := aValue;
-//  {$EndIf NavigatorPanelNeedsTb97}
-  f_ButtonsImageList := aValue;
- end;
-//#UC END# *52BACA3F0292_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetButtonsImageList
-
-procedure TnpHeaderPrim.pm_SetNavigator(aValue: TvtNavigatorPrim);
-//#UC START# *52BC48D00331_52BABCB3015Cset_var*
-//#UC END# *52BC48D00331_52BABCB3015Cset_var*
-begin
-//#UC START# *52BC48D00331_52BABCB3015Cset_impl*
- if (f_Navigator <> aValue) then
- begin
-  if f_Navigator <> nil then
-   f_Navigator.UnRegisterStateChanged(f_Link);
-
-  f_Navigator := aValue;
-
-  if f_Navigator <> nil then
-   f_Navigator.RegisterStateChanged(f_Link);
- end;//f_Navigator <> Value
-//#UC END# *52BC48D00331_52BABCB3015Cset_impl*
-end;//TnpHeaderPrim.pm_SetNavigator
-
-procedure TnpHeaderPrim.HideCloseButton;
-//#UC START# *52BACD510230_52BABCB3015C_var*
-//#UC END# *52BACD510230_52BABCB3015C_var*
-begin
-//#UC START# *52BACD510230_52BABCB3015C_impl*
- if (CloseButton <> nil) then
-  with CloseButton do
-  begin
-   OnClick := nil;
-   CloseButtonVisible(False);
-  end;//with CloseButton
-//#UC END# *52BACD510230_52BABCB3015C_impl*
-end;//TnpHeaderPrim.HideCloseButton
-
-procedure TnpHeaderPrim.ShowCloseButton(const aHandler: IvcmFormHandler);
-//#UC START# *52BACD6D0047_52BABCB3015C_var*
-//#UC END# *52BACD6D0047_52BABCB3015C_var*
-begin
-//#UC START# *52BACD6D0047_52BABCB3015C_impl*
- if Assigned(aHandler.Handler) AND
-    aHandler.CanHaveCloseButtonInNavigator then
- begin
-  if (f_CloseButton <> nil) then
-   with CloseButton do
-   begin
-    OnClick := aHandler.Handler;
-    Hint := l3Str(aHandler.Hint);
-    CloseButtonVisible(True);
-   end//with CloseButton do
- end//Assigned(aHandler.Handler)
- else
-  HideCloseButton;
-//#UC END# *52BACD6D0047_52BABCB3015C_impl*
-end;//TnpHeaderPrim.ShowCloseButton
-
-procedure TnpHeaderPrim.CloseButtonVisible(aValue: Boolean);
- {* изменить видимость кнопки закрыть, установить кнопку видимой без установленного обработчика OnClick нельзя }
-//#UC START# *52BACD9A0283_52BABCB3015C_var*
-//#UC END# *52BACD9A0283_52BABCB3015C_var*
-begin
-//#UC START# *52BACD9A0283_52BABCB3015C_impl*
- if Assigned(CloseButton.OnClick) then
-  CloseButton.Visible := aValue
- else
- if not aValue then
-  CloseButton.Hide;
-//#UC END# *52BACD9A0283_52BABCB3015C_impl*
-end;//TnpHeaderPrim.CloseButtonVisible
-
-procedure TnpHeaderPrim.UpdateImages;
-//#UC START# *52BACDF902D8_52BABCB3015C_var*
-//#UC END# *52BACDF902D8_52BABCB3015C_var*
-begin
-//#UC START# *52BACDF902D8_52BABCB3015C_impl*
- UpdateAutoHideImage;
- UpdateHideImage;
- UpdateCloseImage;
-//#UC END# *52BACDF902D8_52BABCB3015C_impl*
-end;//TnpHeaderPrim.UpdateImages
-
-procedure TnpHeaderPrim.UpdateSize;
-//#UC START# *52BACE0703DA_52BABCB3015C_var*
-//#UC END# *52BACE0703DA_52BABCB3015C_var*
-begin
-//#UC START# *52BACE0703DA_52BABCB3015C_impl*
- case Align of
-  alLeft, alRight: Width := f_Size;
-  alTop, alBottom: Height := f_Size;
- else
-  Height := f_Size;
- end;//case Align
-//#UC END# *52BACE0703DA_52BABCB3015C_impl*
-end;//TnpHeaderPrim.UpdateSize
-
-procedure TnpHeaderPrim.UpdatePositions;
-//#UC START# *52BACE0F03BF_52BABCB3015C_var*
-  procedure lp_Left;
-  begin//lp_Left
-   AutoHideButton.Align := alLeft;
-   HideButton.Align := alRight;
-   CloseButton.Align := alRight;
-   // Поставим кнопку закрыть перед кнопкой скрыть:
-   if HideButton.Visible and CloseButton.Visible then
-    CloseButton.Left := HideButton.Left - 1;
-  end;//lp_Left
-
-  procedure lp_Right;
-  begin//lp_Right
-   AutoHideButton.Align := alRight;
-   HideButton.Align := alLeft;
-   CloseButton.Align := alLeft;
-   // Поставим кнопку закрыть перед кнопкой скрыть:
-   if HideButton.Visible and CloseButton.Visible then
-    CloseButton.Left := HideButton.BoundsRect.Right + 1;
-  end;//lp_Right
-
-  procedure lp_Top;
-  begin//lp_Top
-   AutoHideButton.Align := alTop;
-   HideButton.Align := alBottom;
-   CloseButton.Align := alBottom;
-   // Поставим кнопку закрыть перед кнопкой скрыть:
-   if HideButton.Visible and CloseButton.Visible then
-    CloseButton.Top := HideButton.Top - 1;
-  end;//lp_Top
-
-  procedure lp_Bottom;
-  begin//lp_Bottom
-   AutoHideButton.Align := alBottom;
-   HideButton.Align := alTop;
-   CloseButton.Align := alTop;
-   // Поставим кнопку закрыть перед кнопкой скрыть:
-   if HideButton.Visible and CloseButton.Visible then
-    CloseButton.Top := HideButton.BoundsRect.Bottom + 1;
-  end;//lp_Bottom
-//#UC END# *52BACE0F03BF_52BABCB3015C_var*
-begin
-//#UC START# *52BACE0F03BF_52BABCB3015C_impl*
- AutoHideButton.Align := alNone;
- CloseButton.Align := alNone;
- HideButton.Align := alNone;
- if Navigator = nil then
-  Exit;
- if Navigator.Float then
-  lp_Left
- else
- case Navigator.Align of
-  alLeft: lp_Left;
-  alRight: lp_Right;
-  alTop: lp_Top;
-  alBottom: lp_Bottom;
- end;//case Align of
-//#UC END# *52BACE0F03BF_52BABCB3015C_impl*
-end;//TnpHeaderPrim.UpdatePositions
-
-procedure TnpHeaderPrim.UpdateHideImage;
-//#UC START# *52BACE1A006B_52BABCB3015C_var*
-//#UC END# *52BACE1A006B_52BABCB3015C_var*
-begin
-//#UC START# *52BACE1A006B_52BABCB3015C_impl*
- if not f_Navigator.f_Float then
- begin
-  if f_Navigator.State <> nsMinimized then
-   case f_Navigator.Align of
-    alRight:
-     begin
-//      {$IfDef NavigatorPanelNeedsTb97}
-      HideButton.ImageIndex := f_HideRightImage;
-//      {$Else}
-//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideRight);
-//      {$EndIf NavigatorPanelNeedsTb97}
-     end;//alRight
-    alLeft:
-     begin
-//      {$IfDef NavigatorPanelNeedsTb97}
-      HideButton.ImageIndex := f_HideLeftImage;
-//      {$Else}
-//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideLeft);
-//      {$EndIf NavigatorPanelNeedsTb97}
-     end;//alLeft
-   end//f_Navigator.Align
-  else
-   case f_Navigator.Align of
-    alRight:
-     begin
-//      {$IfDef NavigatorPanelNeedsTb97}
-      HideButton.ImageIndex := f_HideLeftImage;
-//      {$Else}
-//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideLeft);
-//      {$EndIf NavigatorPanelNeedsTb97}
-     end;//alRight
-    alLeft:
-     begin
-//      {$IfDef NavigatorPanelNeedsTb97}
-      HideButton.ImageIndex := f_HideRightImage;
-//      {$Else}
-//      HideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideRight);
-//      {$EndIf NavigatorPanelNeedsTb97}
-     end;//alLeft
-   end;//case f_Navigator.Align
- end//not f_Navigator.f_Float
- else
-//  {$IfDef NavigatorPanelNeedsTb97}
-  HideButton.ImageIndex := f_AutoHideOnImage;
-//  {$EndIf NavigatorPanelNeedsTb97}
-//#UC END# *52BACE1A006B_52BABCB3015C_impl*
-end;//TnpHeaderPrim.UpdateHideImage
-
-procedure TnpHeaderPrim.UpdateCloseImage;
-//#UC START# *52BACE520121_52BABCB3015C_var*
-//#UC END# *52BACE520121_52BABCB3015C_var*
-begin
-//#UC START# *52BACE520121_52BABCB3015C_impl*
-// {$IfDef NavigatorPanelNeedsTB97}
- CloseButton.ImageIndex := f_CloseImage;
-// {$Else}
-// CloseButton.Glyph.LoadFromResourceName(HInstance, cBmpClose);
-// {$EndIf NavigatorPanelNeedsTB97}
-//#UC END# *52BACE520121_52BABCB3015C_impl*
-end;//TnpHeaderPrim.UpdateCloseImage
-
-procedure TnpHeaderPrim.UpdateAutoHideImage;
-//#UC START# *52BACE6303BA_52BABCB3015C_var*
-//#UC END# *52BACE6303BA_52BABCB3015C_var*
-begin
-//#UC START# *52BACE6303BA_52BABCB3015C_impl*
- if not f_Navigator.f_Float then
- begin
-  case f_Navigator.State of
-   nsAutoHide:
-//    {$IfDef NavigatorPanelNeedsTB97}
-    AutoHideButton.ImageIndex := f_AutoHideOffImage;
-//    {$Else}
-//    AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpAutoHideOn);
-//    {$EndIf NavigatorPanelNeedsTB97}
-   else
-//    {$IfDef NavigatorPanelNeedsTB97}
-    AutoHideButton.ImageIndex := f_AutoHideOnImage;
-//    {$Else}
-//    AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpAutoHideOff);
-//    {$EndIf NavigatorPanelNeedsTB97}
-  end;//case f_Navigator.Stat
- end//not f_Navigator.f_Float
- else
- begin
-  if f_Navigator.f_FloatNavigator.State = fwsMinimized then
-//   {$IfDef NavigatorPanelNeedsTB97}
-   AutoHideButton.ImageIndex := f_HideDownImage
-//   {$Else}
-//   AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideBottom)
-//   {$EndIf NavigatorPanelNeedsTB97}
-  else
-//   {$IfDef NavigatorPanelNeedsTB97}
-   AutoHideButton.ImageIndex := f_HideUpImage;
-//   {$Else}
-//   AutoHideButton.Glyph.LoadFromResourceName(HInstance, cBmpHideTop);
-//   {$EndIf NavigatorPanelNeedsTB97}
- end;//not f_Navigator.f_Float
-//#UC END# *52BACE6303BA_52BABCB3015C_impl*
-end;//TnpHeaderPrim.UpdateAutoHideImage
-
-function TnpHeaderPrim.GetRectLines: TRect;
-//#UC START# *52BACE6F03E3_52BABCB3015C_var*
- function lp_FreeRect: TRect;
- var
-  l_Index: Integer;
- begin
-  Result := BoundsRect;
-  for l_Index := 0 to Pred(ControlCount) do
-   if Controls[l_Index].Visible then
-    case Align of
-     alLeft, alRight:
-      case Controls[l_Index].Align of
-       alTop: Result.Top := Max(Result.Top, Controls[l_Index].BoundsRect.Bottom);
-       alBottom: Result.Bottom := Min(Result.Bottom, Controls[l_Index].BoundsRect.Top);
-      else
-       Assert(False);
-      end;//case Controls[l_Index] of
-     alTop, alBottom:
-      case Controls[l_Index].Align of
-       alLeft: Result.Left := Max(Result.Left, Controls[l_Index].BoundsRect.Right);
-       alRight: Result.Right := Min(Result.Right, Controls[l_Index].BoundsRect.Left);
-      else
-       Assert(False);
-      end;//case Controls[l_Index] of
-    end;//case Navigator.Align of
- end;//lp_FreeRect
-//#UC END# *52BACE6F03E3_52BABCB3015C_var*
-begin
-//#UC START# *52BACE6F03E3_52BABCB3015C_impl*
- Result := lp_FreeRect;
-  // - свободная область для вывода линий;
- with Result do
-  case Align of
-   alLeft, alRight: Windows.InflateRect(Result, - ((Width - cLinesHeight) div 2), 0);
-     // - расположим линии по середине навигатора;
-   alTop, alBottom: Windows.InflateRect(Result, 0, - ((Height - cLinesHeight) div 2));
-     // - расположим линии по середине навигатора;
-  end;//case Navigator.Align of
-//#UC END# *52BACE6F03E3_52BABCB3015C_impl*
-end;//TnpHeaderPrim.GetRectLines
-
-procedure TnpHeaderPrim.DoStateChanged;
-//#UC START# *52BACE8501F5_52BABCB3015C_var*
-//#UC END# *52BACE8501F5_52BABCB3015C_var*
-begin
-//#UC START# *52BACE8501F5_52BABCB3015C_impl*
- with f_Navigator do
- begin
-  UpdateHideImage;
-  UpdateAutoHideImage;
-  if f_Navigator.Float then
-   with AutoHideButton do
-   begin
-    GroupIndex := 0;
-    Down := False;
-   end//with AutoHideButton
-  else
-   case State of
-    nsMinimized:
-     begin
-      HideButton.Visible := True;
-      AutoHideButton.Visible := False;
-      CloseButtonVisible(False);
-     end;//nsMinimized
-    nsNormal:
-     begin
-      HideButton.Visible := True;
-      AutoHideButton.Down := True;
-      AutoHideButton.Visible := True;
-      CloseButtonVisible(True);
-     end;//nsNormal
-    nsAutoHide:
-     begin
-      with AutoHideButton do
-      begin
-       Down := False;
-       Visible := True;
-      end;//AutoHideButton
-      HideButton.Visible := f_Navigator.f_HideDirect = hdShow;
-      CloseButtonVisible(HideButton.Visible);
-     end;//nsAutoHide
-   end;//case State
- end;//with f_Navigator
-//#UC END# *52BACE8501F5_52BABCB3015C_impl*
-end;//TnpHeaderPrim.DoStateChanged
-
-procedure TnpHeaderPrim.OnStateChanged(Sender: TObject);
-//#UC START# *52BACE8C01C7_52BABCB3015C_var*
-//#UC END# *52BACE8C01C7_52BABCB3015C_var*
-begin
-//#UC START# *52BACE8C01C7_52BABCB3015C_impl*
- DoStateChanged;
-//#UC END# *52BACE8C01C7_52BABCB3015C_impl*
-end;//TnpHeaderPrim.OnStateChanged
-
-procedure TnpHeaderPrim.WMEraseBkgnd(var Message: TWMEraseBkgnd);
-//#UC START# *52BAC39100F8_52BABCB3015C_var*
-//#UC END# *52BAC39100F8_52BABCB3015C_var*
-begin
-//#UC START# *52BAC39100F8_52BABCB3015C_impl*
- Message.Result := 1;
-//#UC END# *52BAC39100F8_52BABCB3015C_impl*
-end;//TnpHeaderPrim.WMEraseBkgnd
-
-procedure TnpHeaderPrim.Cleanup;
- {* Функция очистки полей объекта. }
-//#UC START# *479731C50290_52BABCB3015C_var*
-//#UC END# *479731C50290_52BABCB3015C_var*
-begin
-//#UC START# *479731C50290_52BABCB3015C_impl*
- if (f_Navigator <> nil) then
-  f_Navigator.UnRegisterStateChanged(f_Link);
- f_Navigator := nil;
-
- FreeAndNil(f_Canvas);
- FreeAndNil(f_CloseButton);
- FreeAndNil(f_AutoHideButton);
- FreeAndNil(f_HideButton);
- FreeAndNil(f_Link);
- inherited;
-//#UC END# *479731C50290_52BABCB3015C_impl*
-end;//TnpHeaderPrim.Cleanup
-
-constructor TnpHeaderPrim.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_52BABCB3015C_var*
-  procedure SetBtn(var aBtn : TnpButton;
-                   aBtnType : TnpButtonType;
-                   const aGlyphID : String);
-  begin//SetBtn
-   aBtn := TnpButton.Create(Self, TvtNavigator(aOwner), aBtnType);
-   with aBtn do
-   begin
-    Name := aGlyphID;
-    Parent := Self;
-    Height := cButtonSize;
-    Width := cButtonSize;
-    Left := cIntervalButtonLine;
-    Top := cIntervalButtonLine;
-    Flat := True;
-    Glyph.LoadFromResourceName(HInstance, aGlyphID);
-   end;//with aBtn do
-   if csDesigning in Self.ComponentState  then
-     aBtn.Visible := False;
-  end;//SetBtn
-//#UC END# *47D1602000C6_52BABCB3015C_var*
-begin
-//#UC START# *47D1602000C6_52BABCB3015C_impl*
- inherited Create(AOwner);
- ControlStyle := ControlStyle + [csNoDesignVisible];
- Cursor := crSizeAll;
- f_Canvas := Tl3CustomControlCanvas.Create(Self);
- f_AutoHideOnImage := 0;
- f_AutoHideOffImage := 1;
- f_HideLeftImage := 2;
- f_HideRightImage := 3;
- f_CloseImage := 6;
- f_HideUpImage := 4;
- f_HideDownImage := 5;
- Size := cHeaderSize;
- f_Link := TnpChangeLink.Create;
- f_Link.OnStateChanged := OnStateChanged;
- SetBtn(f_AutoHideButton, nbtAutoHide, cBmpAutoHideOff);
- with AutoHideButton do
- begin
-  AllowAllUp := True;
-  GroupIndex := 1;
-  Down := True;
- end;
- SetBtn(f_HideButton, nbtMinimize, cBmpHideLeft);
- SetBtn(f_CloseButton, nbtClose,    cBmpClose);
- UpdatePositions;
-//#UC END# *47D1602000C6_52BABCB3015C_impl*
-end;//TnpHeaderPrim.Create
-
-{$If NOT Defined(NoVCL)}
-procedure TnpHeaderPrim.MouseDown(Button: TMouseButton;
- Shift: TShiftState;
- X: Integer;
- Y: Integer);
-//#UC START# *4F88473B03CD_52BABCB3015C_var*
-var
- l_Control : TControl;
-//#UC END# *4F88473B03CD_52BABCB3015C_var*
-begin
-//#UC START# *4F88473B03CD_52BABCB3015C_impl*
- if Button = mbLeft then
- begin
-  if not Assigned(f_Navigator.f_PageControl.ActivePage) then
-   Exit
-  else
-  if f_Navigator.f_PageControl.ActivePage.ControlCount = 0 then
-   Exit;
-  l_Control := f_Navigator.f_PageControl.ActivePage.Controls[0];
-  f_Navigator.InitDrag(l_Control);
-  f_IsDragBegining := True;
-  f_Navigator.f_ActiveControl := l_Control;
-  l_Control.BeginDrag(False);
- end;
- inherited MouseDown(Button, Shift, X, Y);
-//#UC END# *4F88473B03CD_52BABCB3015C_impl*
-end;//TnpHeaderPrim.MouseDown
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-procedure TnpHeaderPrim.Paint;
-//#UC START# *5028A60300AD_52BABCB3015C_var*
-  procedure lp_DrawFrame(aRect : TRect);
-  begin//lp_DrawFrame
-   Frame3D(Canvas, aRect, clBtnHighlight, clBtnShadow, 1);
-   //Frame3D(Canvas, aRect, clBtnShadow, clBtnShadow, 1);
-  end;//lp_DrawFrame
-
-  procedure lp_PaintLine(ABelow: Integer);
-  var
-   lRect: TRect;
-  begin//lp_PaintLine
-   lRect := GetRectLines;
-   { горизонталь }
-   if (Self.Width > Self.Height) then
-   begin
-    lRect.Top := lRect.Top + ABelow;
-    lRect.Bottom := lRect.Top + cBorderWidth;
-   { вертикаль }
-   end//Self.Width > Self.Height
-   else
-   begin
-    lRect.Left := lRect.Left + ABelow;
-    lRect.Right := lRect.Left + cBorderWidth;
-   end;//Self.Width > Self.Height
-
-   if Self.Width > Self.Height then
-    Inc(lRect.Bottom)
-   else
-    Inc(lRect.Right);
-
-   Frame3D(Self.Canvas, lRect, clBtnHighlight, clBtnShadow, 1);
-  end;//lp_PaintLine
-
-  procedure lp_DrawActivePage;
-  var
-   lRect    : TRect;
-   lCaption : String;
-  begin//lp_DrawActivePage
-   if Assigned(f_Navigator.PageControl.ActivePage) then
-   begin
-    with Canvas do
-    begin
-     if f_Navigator.State = nsMinimized then
-      Exit;
-     (* рамка *)
-     lp_DrawFrame(ClientRect);
-     (* выводимая область *)
-     lRect := GetRectLines;
-     lRect.Top := 0;
-     lRect.Bottom := ClientHeight;
-     (* иконка *)
-     with f_Navigator.f_PageControl do
-      if Assigned(Images) and (ActivePage.ImageIndex <> -1) and
-       (ActivePage.ImageIndex < Images.Count) then
-      begin
-       with Images do
-        Draw(Self.Canvas, lRect.Left, (Self.Height - Height) div 2,
-         ActivePage.ImageIndex, True);
-       lRect.Left := lRect.Left + Images.Width + 2;
-      end;//Assigned(Images) and (ActivePage.ImageIndex <> -1)..
-     (* текст *)
-     InflateRect(lRect, -1, -1);
-     lCaption := f_Navigator.PageControl.ActivePage.Caption;
-     f_Canvas.Font.AssignFont(Font);
-     f_Canvas.BeginPaint;
-     try
-      f_Canvas.DrawText(l3PCharLen(lCaption),
-                       lRect,
-                       DT_VCENTER      or
-                       DT_END_ELLIPSIS or
-                       DT_SINGLELINE);
-     finally
-      f_Canvas.EndPaint;
-     end;//try..finally
-    end;//with Canvas
-   end;//Assigned(f_Navigator.PageControl.ActivePage)
-  end;//lp_DrawActivePage
-
-var
-  lRect: TRect;
-//#UC END# *5028A60300AD_52BABCB3015C_var*
-begin
-//#UC START# *5028A60300AD_52BABCB3015C_impl*
- inherited;
- lRect := ClientRect;
- with Canvas do
- begin
-  Brush.Color := cGarant2011ToolbarsColor{clBtnFace};
-  FillRect(lRect);
-  if f_Navigator.State = nsMinimized then
-   Exit;
-  (* навигатор находится в режиме автоскрытия и сейчас должна быть видна только
-     кнопка AutoHideButton *)
-  HideButton.Visible := not ((f_Navigator.State = nsAutoHide) and
-   (f_Navigator.f_Surface.Size <= f_Navigator.SizeMini));
-  CloseButtonVisible(HideButton.Visible);
-  (* выводим иконку и название закладки *)
-  if f_Navigator.ShowActivePageInHeader then
-  begin
-   if HideButton.Visible then
-    lp_DrawActivePage;
-  end//f_Navigator.ShowActivePageInHeader
-  (* рисуем полосы *)
-  else
-  begin
-   (* видна только кнопка AutoHideButton *)
-   if not HideButton.Visible then
-    Exit;
-   if (f_Navigator.State <> nsMinimized) and
-    (f_Navigator.f_HideDirect <> hdHide) then
-   begin
-    if f_Navigator.f_Float then
-     InflateRect(lRect, -1, -1);
-    lp_DrawFrame(lRect);
-    { Первая линия }
-    lp_PaintLine(0);
-    { Подадим смещения для второй линии }
-    lp_PaintLine(cOffsetSecondLine);
-   end;//f_Navigator.State <> nsMinimized..
-  end;//f_Navigator.ShowActivePageInHeader
- end;//with Canvas
-//#UC END# *5028A60300AD_52BABCB3015C_impl*
-end;//TnpHeaderPrim.Paint
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-procedure TnpHeaderPrim.AdjustClientRect(var Rect: TRect);
-//#UC START# *508F957E0283_52BABCB3015C_var*
-//#UC END# *508F957E0283_52BABCB3015C_var*
-begin
-//#UC START# *508F957E0283_52BABCB3015C_impl*
- inherited;
- InflateRect(Rect, - cIntervalHeaderButton, - cIntervalHeaderButton);
-//#UC END# *508F957E0283_52BABCB3015C_impl*
-end;//TnpHeaderPrim.AdjustClientRect
-{$IfEnd} // NOT Defined(NoVCL)
-
-procedure TnpSurface.pm_SetPageControl(aValue: TnpPageControl);
-//#UC START# *52BABD9C03B7_52B9AF0A027Cset_var*
-//#UC END# *52BABD9C03B7_52B9AF0A027Cset_var*
-begin
-//#UC START# *52BABD9C03B7_52B9AF0A027Cset_impl*
- if (f_PageControl <> aValue) then
- begin
-  f_PageControl := aValue;
-  if (f_PageControl <> nil) then
-  begin
-   f_PageControl.Parent := f_Container;
-   f_PageControl.Align := alClient;
-  end;//f_PageControl <> nil
- end;//f_PageControl <> Value
-//#UC END# *52BABD9C03B7_52B9AF0A027Cset_impl*
-end;//TnpSurface.pm_SetPageControl
-
-procedure TnpSurface.pm_SetHeader(aValue: TnpHeaderPrim);
-//#UC START# *52BABDB6021C_52B9AF0A027Cset_var*
-//#UC END# *52BABDB6021C_52B9AF0A027Cset_var*
-begin
-//#UC START# *52BABDB6021C_52B9AF0A027Cset_impl*
- if (f_Header <> aValue) then
- begin
-  f_Header := aValue;
-  if (f_Header <> nil) then
-  begin
-   f_Header.Parent := f_Container.Parent;
-   f_Header.Align := alTop;
-  end;//f_Header <> nil
- end;//f_Header <> Value
-//#UC END# *52BABDB6021C_52B9AF0A027Cset_impl*
-end;//TnpSurface.pm_SetHeader
-
-function TnpSurface.pm_GetSize: Integer;
-//#UC START# *52BAC0430151_52B9AF0A027Cget_var*
-//#UC END# *52BAC0430151_52B9AF0A027Cget_var*
-begin
-//#UC START# *52BAC0430151_52B9AF0A027Cget_impl*
- case f_Navigator.Align of
-  alBottom, alTop: Result := Height;
-  alLeft, alRight: Result := Width;
- else
-  Result := Width;
- end;//case f_Navigator.Align
-//#UC END# *52BAC0430151_52B9AF0A027Cget_impl*
-end;//TnpSurface.pm_GetSize
-
-procedure TnpSurface.pm_SetNavigator(aValue: TvtNavigatorPrim);
-//#UC START# *52BC48CC01E9_52B9AF0A027Cset_var*
-//#UC END# *52BC48CC01E9_52B9AF0A027Cset_var*
-begin
-//#UC START# *52BC48CC01E9_52B9AF0A027Cset_impl*
- if f_Navigator <> nil then
-  f_Navigator.UnRegisterStateChanged(f_Link);
-
- f_Navigator := aValue;
-
- if f_Navigator <> nil then
-  f_Navigator.RegisterStateChanged(f_Link);
-//#UC END# *52BC48CC01E9_52B9AF0A027Cset_impl*
-end;//TnpSurface.pm_SetNavigator
-
-procedure TnpSurface.InitAutoHidePosition;
- {* обновить Left окна }
-//#UC START# *52BAC11201BE_52B9AF0A027C_var*
-//#UC END# *52BAC11201BE_52B9AF0A027C_var*
-begin
-//#UC START# *52BAC11201BE_52B9AF0A027C_impl*
- if (f_Navigator.State = nsAutoHide) then
- case f_Navigator.Align of
-  alRight: Left := f_Navigator.Parent.ClientWidth - Self.Width;
-  alBottom: Top := f_Navigator.Parent.ClientHeight - Self.Height;
- end;//case f_Navigator.Align
-//#UC END# *52BAC11201BE_52B9AF0A027C_impl*
-end;//TnpSurface.InitAutoHidePosition
-
-procedure TnpSurface.OnStateChanged(Sender: TObject);
-//#UC START# *52BAC1220315_52B9AF0A027C_var*
-//#UC END# *52BAC1220315_52B9AF0A027C_var*
-begin
-//#UC START# *52BAC1220315_52B9AF0A027C_impl*
- f_Splitter.Visible := (*(f_Navigator.State <> nsMinimized) and*)
-                      not f_Navigator.Float and
-                      (f_Navigator.PageControl.PageCount > 0);
-//#UC END# *52BAC1220315_52B9AF0A027C_impl*
-end;//TnpSurface.OnStateChanged
-
-procedure TnpSurface.SetSizeMini;
-//#UC START# *52BAC1450146_52B9AF0A027C_var*
-//#UC END# *52BAC1450146_52B9AF0A027C_var*
-begin
-//#UC START# *52BAC1450146_52B9AF0A027C_impl*
- case f_Navigator.Align of
-  alBottom, alTop: Height := f_Navigator.SizeMini;
-  alLeft, alRight: Width := f_Navigator.SizeMini;
- end;//case f_Navigator.Align
-//#UC END# *52BAC1450146_52B9AF0A027C_impl*
-end;//TnpSurface.SetSizeMini
-
-procedure TnpSurface.DefineSplitterAlign;
-//#UC START# *52BAC14E0369_52B9AF0A027C_var*
-//#UC END# *52BAC14E0369_52B9AF0A027C_var*
-begin
-//#UC START# *52BAC14E0369_52B9AF0A027C_impl*
- case f_Navigator.Align of
-  alTop: f_Splitter.Align := alBottom;
-  alLeft: f_Splitter.Align := alRight;
-  alRight: f_Splitter.Align := alLeft;
-  alBottom: f_Splitter.Align := alTop;
- end;//case f_Navigator.Align
-//#UC END# *52BAC14E0369_52B9AF0A027C_impl*
-end;//TnpSurface.DefineSplitterAlign
-
-procedure TnpSurface.WMEraseBkgnd(var Message: TMessage);
-//#UC START# *52BAC0A1016B_52B9AF0A027C_var*
-//#UC END# *52BAC0A1016B_52B9AF0A027C_var*
-begin
-//#UC START# *52BAC0A1016B_52B9AF0A027C_impl*
- Message.Result := 1;
-//#UC END# *52BAC0A1016B_52B9AF0A027C_impl*
-end;//TnpSurface.WMEraseBkgnd
-
-procedure TnpSurface.Cleanup;
- {* Функция очистки полей объекта. }
-//#UC START# *479731C50290_52B9AF0A027C_var*
-//#UC END# *479731C50290_52B9AF0A027C_var*
-begin
-//#UC START# *479731C50290_52B9AF0A027C_impl*
- l3Free(f_Link);
- inherited;
-//#UC END# *479731C50290_52B9AF0A027C_impl*
-end;//TnpSurface.Cleanup
-
-constructor TnpSurface.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_52B9AF0A027C_var*
-//#UC END# *47D1602000C6_52B9AF0A027C_var*
-begin
-//#UC START# *47D1602000C6_52B9AF0A027C_impl*
- inherited;
- f_Container := TnpContainerSurface.Make(Self);
- //f_Panel := TvtPanel.Create(Self);
- //f_Panel.Parent := Self;
- //f_Panel.Align := alClient;
- f_Splitter := TnpSplitter.Create(Self{, f_Panel});
- with f_Splitter do
- begin
-  Parent := Self;
-  Align := alRight;
-  Width := cspSize;
-  f_Surface := Self;
- end;
- f_Link := TnpChangeLink.Create;
- f_Link.OnStateChanged := OnStateChanged;
-//#UC END# *47D1602000C6_52B9AF0A027C_impl*
-end;//TnpSurface.Create
-
-{$If NOT Defined(NoVCL)}
-procedure TnpSurface.Paint;
-//#UC START# *5028A60300AD_52B9AF0A027C_var*
- procedure npDrawGradient(aRect       : TRect;
-                          aBeginColor : TColor = clBtnHighlight;
-                          aEndColor   : TColor = clBtnShadow);
- var
-  lI         : Integer;
-  lStartRGB  : array[0..2] of Byte;
-  lEndRGB    : array[0..2] of Byte;
-  lStartC    : TColor;
-  lEndC      : TColor;
-  lColors    : Word;
-  lRDist, lGDist, lBDist : Integer;
-  lRTmp, lGTmp, lBTmp : Integer;
- begin//npDrawGradient
-  // цвета
-  lStartC := ColorToRGB(aBeginColor);
-  lEndC := ColorToRGB(aEndColor);
-  // массив с исходными цветами (lStartC)
-  lStartRGB[0] := GetRValue(lStartC);
-  lStartRGB[1] := GetGValue(lStartC);
-  lStartRGB[2] := GetBValue(lStartC);
-  // массив с конечными цветами (lEndC)
-  lEndRGB[0] := GetRValue(lEndC);
-  lEndRGB[1] := GetGValue(lEndC);
-  lEndRGB[2] := GetBValue(lEndC);
-  // расстояние между каждым цветом
-  lRDist := Abs(lEndRGB[0] - lStartRGB[0]);
-  lGDist := Abs(lEndRGB[1] - lStartRGB[1]);
-  lBDist := Abs(lEndRGB[2] - lStartRGB[2]);
-  // количество цветов которые будут нарисованы
-  lColors := aRect.Right - aRect.Left;
-  for lI := 0 to Pred(lColors) do
-    with Canvas do
-    begin
-     // красный
-     lRTmp := MulDiv(lI, lRDist, Pred(lColors));
-     if lStartRGB[0] > lEndRGB[0] then
-      lRTmp := - lRTmp;
-     // зеленый
-     lGTmp := MulDiv(lI, lGDist, Pred(lColors));
-     if lStartRGB[1] > lEndRGB[1] then
-      lGTmp := - lGTmp;
-     // синий
-     lBTmp := MulDiv(lI, lBDist, Pred(lColors));
-     if lStartRGB[2] > lEndRGB[2] then
-      lBTmp := - lBTmp;
-     // установим цвет и нарисуем
-     Pen.Color :=  RGB(
-      (lStartRGB[0] + lRTmp),
-      (lStartRGB[1] + lGTmp),
-      (lStartRGB[2] + lBTmp));
-     MoveTo(aRect.Left + lI, aRect.Top);
-     LineTo(aRect.Left + lI, aRect.Bottom);
-    end;//with Canvas
- end;//npDrawGradient
-var
- l_R : TRect;
-//#UC END# *5028A60300AD_52B9AF0A027C_var*
-begin
-//#UC START# *5028A60300AD_52B9AF0A027C_impl*
- if (csDesigning in ComponentState) then
- begin
-  l_R := ClientRect;
-  with Canvas do
-  begin
-   with Pen do
-   begin
-    Color := clBlack;
-    Width := 1;
-   end;//with Pen
-   Rectangle(l_R);
-  end;//with Canvas
-  InflateRect(l_R, -1, -1);
-  npDrawGradient(l_R, clRed, clMaroon);
- end//csDesigning in ComponentState
- else
- begin
-  (* Заливаем только когда на подложке никого нет, иначе у компонентов слетает
-     то, что нарисовали в WMNCPaint *)
-  if Assigned(f_Navigator) and Assigned(f_Navigator.PageControl) and
-   (f_Navigator.PageControl.PageCount = 0) then
-  with Canvas do
-  begin
-   Brush.Color := clWhite{clBtnFace};
-   FillRect(ClientRect);
-  end;//with Canvas
- end;//csDesigning in ComponentState
-//#UC END# *5028A60300AD_52B9AF0A027C_impl*
-end;//TnpSurface.Paint
-{$IfEnd} // NOT Defined(NoVCL)
-
-procedure TnpContainerSurface.pm_SetSurface(aValue: TnpSurface);
-//#UC START# *52B9AF720263_52B9AED10282set_var*
-//#UC END# *52B9AF720263_52B9AED10282set_var*
-begin
-//#UC START# *52B9AF720263_52B9AED10282set_impl*
- f_Surface := aValue;
-//#UC END# *52B9AF720263_52B9AED10282set_impl*
-end;//TnpContainerSurface.pm_SetSurface
-
-class function TnpContainerSurface.Make(aSurface: TnpSurface): TnpContainerSurface;
-//#UC START# *52B9AFE90213_52B9AED10282_var*
-//#UC END# *52B9AFE90213_52B9AED10282_var*
-begin
-//#UC START# *52B9AFE90213_52B9AED10282_impl*
- Result := Create(aSurface);
- with Result do
- begin
-  Parent := aSurface;
-  Align := alClient;
-  Surface := aSurface;
- end;//with Result
-//#UC END# *52B9AFE90213_52B9AED10282_impl*
-end;//TnpContainerSurface.Make
-
-procedure TnpContainerSurface.WMEraseBkgnd(var Message: TWMEraseBkgnd);
- {* иначе границы toolbar-ов не прорисовываются }
-//#UC START# *52B9B0560033_52B9AED10282_var*
-//#UC END# *52B9B0560033_52B9AED10282_var*
-begin
-//#UC START# *52B9B0560033_52B9AED10282_impl*
- Message.Result := 1;
-//#UC END# *52B9B0560033_52B9AED10282_impl*
-end;//TnpContainerSurface.WMEraseBkgnd
-
-procedure TnpSplitter.pm_SetIsHideButtonDown(aValue: Boolean);
-//#UC START# *52BAB00903A4_52B9B0AA0105set_var*
-//#UC END# *52BAB00903A4_52B9B0AA0105set_var*
-begin
-//#UC START# *52BAB00903A4_52B9B0AA0105set_impl*
- if (f_IsHideButtonDown <> aValue) then
- begin
-  f_IsHideButtonDown := aValue;
-  DrawButton;
- end;//f_IsHideButtonDown <> Value
-//#UC END# *52BAB00903A4_52B9B0AA0105set_impl*
-end;//TnpSplitter.pm_SetIsHideButtonDown
-
-procedure TnpSplitter.splShowHint(X: Integer;
- Y: Integer);
-//#UC START# *52BABB100388_52B9B0AA0105_var*
-var
- l_HintRect : TRect;
- l_Hint     : String;
- l_Temp     : TRect;
- l_Window   : THintWindow;
- l_Monitor  : TMonitor;
-//#UC END# *52BABB100388_52B9B0AA0105_var*
-begin
-//#UC START# *52BABB100388_52B9B0AA0105_impl*
- // Опустим будущее окно под курсор
- Inc(X, 16);
- // Окно
- l_Window := CreateButtonHint;
- // Hint
- l_Hint := f_Surface.Navigator.MinBtnHint;
- // Размещение окна
- l_Monitor := Screen.MonitorFromPoint(Mouse.CursorPos);
- if not Assigned(l_Monitor) then
-  Exit;
- l_Temp.TopLeft := ClientToScreen(Point(X, Y));
- // Посчитаем размер прямоугольника учитывая ограничения текущим монитором
- l_HintRect := l_Window.CalcHintRect(l_Monitor.WorkareaRect.Right - l_Temp.Left,
-  l_Hint, nil);
- l_Temp.Right := l_Temp.Left + l_HintRect.Right;
- l_Temp.Bottom := l_Temp.Top + l_HintRect.Bottom;
- // Покажем
- l_Window.ActivateHint(l_Temp, l_Hint);
-//#UC END# *52BABB100388_52B9B0AA0105_impl*
-end;//TnpSplitter.splShowHint
-
-procedure TnpSplitter.splHideHint;
-//#UC START# *52BABB57018D_52B9B0AA0105_var*
-//#UC END# *52BABB57018D_52B9B0AA0105_var*
-begin
-//#UC START# *52BABB57018D_52B9B0AA0105_impl*
- if HideButtonHint <> nil then
-  HideButtonHint.ReleaseHandle;
-//#UC END# *52BABB57018D_52B9B0AA0105_impl*
-end;//TnpSplitter.splHideHint
-
-function TnpSplitter.CreateButtonHint: THintWindow;
-//#UC START# *52BABB61000E_52B9B0AA0105_var*
-//#UC END# *52BABB61000E_52B9B0AA0105_var*
-begin
-//#UC START# *52BABB61000E_52B9B0AA0105_impl*
- if HideButtonHint = nil then
- begin
-  HideButtonHint := THintWindow.Create(Self);
-  with HideButtonHint do
-  begin
-   Color:= GetSysColor(COLOR_INFOBK);
-   Canvas.Brush.Color:= GetSysColor(COLOR_INFOBK);
-   Canvas.Font:= Self.Font;
-   Canvas.Font.Color:= GetSysColor(COLOR_INFOTEXT);
-   Canvas.Pen.Color:= clBlack;
-  end;//with HideButtonHint
- end;//HideButtonHint = nil
- Result := HideButtonHint;
-//#UC END# *52BABB61000E_52B9B0AA0105_impl*
-end;//TnpSplitter.CreateButtonHint
-
-procedure TnpSplitter.UpdateCursor(aButton: Boolean = True);
-//#UC START# *52BABB7902B0_52B9B0AA0105_var*
-//#UC END# *52BABB7902B0_52B9B0AA0105_var*
-begin
-//#UC START# *52BABB7902B0_52B9B0AA0105_impl*
- if aButton then
-  Cursor := crHandPoint
- else
-  SetSizeCursor;
- // это нужно, чтобы при смене курсора компонента поменялся курсор на экране
- Windows.SetCursor(Screen.Cursors[Cursor]);
-//#UC END# *52BABB7902B0_52B9B0AA0105_impl*
-end;//TnpSplitter.UpdateCursor
-
-procedure TnpSplitter.DrawButton(aCanvas: TCanvas = nil);
-//#UC START# *52BABB8900D4_52B9B0AA0105_var*
-const
- cButtonState : array [Boolean] of Integer = (0, DFCS_PUSHED);
-var
- l_Rect    : TRect;
- l_Center  : Integer;
-
- procedure DrawArrow(aY     : Integer;
-                     aColor : TColor);
- var
-  l_Delta   : Integer;
-  l_Left    : Boolean;
-    {* - стрелка указывает влево. }
-  l_Index   : Integer;
- begin//DrawArrow
-  // куда указывает стрелка
-  l_Left := (Align = alRight);
-  if f_Surface.Navigator.IsMinimized then
-   l_Left := not l_Left;
-  // инициализируем дельту
-  if l_Left then
-   l_Delta := 0
-  else
-   l_Delta := Pred(l_Rect.Right) - l_Rect.Left;
-  // первая точка
-  for l_Index := l_Rect.Left to Pred(l_Rect.Right) do
-  begin
-   with aCanvas do
-   begin
-    Pixels[l_Index, aY - l_Delta] := aColor;
-    Pixels[l_Index, aY + l_Delta] := aColor;
-   end;//with aCanvas
-   if l_Left then
-    Inc(l_Delta)
-   else
-    Dec(l_Delta);
-  end;//for l_Index
- end;//DrawArrow
-//#UC END# *52BABB8900D4_52B9B0AA0105_var*
-begin
-//#UC START# *52BABB8900D4_52B9B0AA0105_impl*
- if not Assigned(aCanvas) then
-  aCanvas := Canvas;
- // область расположения
- l_Rect := GetButtonRect;
- // кнопка
- DrawFrameControl(aCanvas.Handle,
-                  l_Rect,
-                  DFC_BUTTON, DFCS_BUTTONPUSH or cButtonState[IsHideButtonDown]);
- // нужно доделать если появится такое выравнивание
- //Assert((Align <> alTop) and (Align <> alBottom));
- // точка стрелочки
- l_Center := (l_Rect.Top + l_Rect.Bottom) div 2;
- // рисуем
- InflateRect(l_Rect, -1, -1);
- DrawArrow(l_Center, clBlue);
-//#UC END# *52BABB8900D4_52B9B0AA0105_impl*
-end;//TnpSplitter.DrawButton
-
-function TnpSplitter.GetButtonRect: TRect;
- {* определяет прямоугольник для кнопки }
-//#UC START# *52BABB9A02AB_52B9B0AA0105_var*
- function lDefineSize(const aSize : Integer) : Integer;
- begin//lDefineSize
-  if (cspButtonSize > aSize) then
-   Result := aSize div 3
-  else
-   Result := cspButtonSize;
- end;//lDefineSize
-
-var
- l_Size : Integer;
-//#UC END# *52BABB9A02AB_52B9B0AA0105_var*
-begin
-//#UC START# *52BABB9A02AB_52B9B0AA0105_impl*
- SetRectEmpty(Result);
- // горизонтальный сплиттер
- if (Width > Height) then
- begin
-  l_Size := lDefineSize(ClientWidth);
-  Result.Left := (ClientWidth - l_Size) div 2;
-  Result.Right := Result.Left + l_Size;
-  Result.Top := 0;
-  Result.Bottom := ClientHeight;
- end//Width > Height
- // вертикальный сплиттер
- else
- begin
-  l_Size := lDefineSize(ClientHeight);
-  Result.Top := (ClientHeight - l_Size) div 2;
-  Result.Bottom := Result.Top + l_Size;
-  Result.Left := 0;
-  Result.Right := ClientWidth;
- end;//Width > Height
- Inc(Result.Left);
-//#UC END# *52BABB9A02AB_52B9B0AA0105_impl*
-end;//TnpSplitter.GetButtonRect
-
-procedure TnpSplitter.SetSizeCursor;
- {* устанавливает курсор для изменения размеров }
-//#UC START# *52BABBD102EC_52B9B0AA0105_var*
-//#UC END# *52BABBD102EC_52B9B0AA0105_var*
-begin
-//#UC START# *52BABBD102EC_52B9B0AA0105_impl*
- case f_Surface.Navigator.Align of
-  alLeft, alRight: Cursor := crHSplit;
-  alTop, alBottom: Cursor := crVSplit;
- end;//case f_Surface.Navigator.Align of
-//#UC END# *52BABBD102EC_52B9B0AA0105_impl*
-end;//TnpSplitter.SetSizeCursor
-
-function TnpSplitter.IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
-//#UC START# *52BABBE6027E_52B9B0AA0105_var*
-var
- l_Controller : TOvcController;
-//#UC END# *52BABBE6027E_52B9B0AA0105_var*
-begin
-//#UC START# *52BABBE6027E_52B9B0AA0105_impl*
- Result := False;
- l_Controller := GetDefController;
- if Assigned(l_Controller) then
-  with l_Controller.EntryCommands do
-   if TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut then
-   begin
-    Msg.Result := 0;  {indicate that this message was processed}
-    Result := True;
-   end;//TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut
-//#UC END# *52BABBE6027E_52B9B0AA0105_impl*
-end;//TnpSplitter.IsHandledShortcut
-
-procedure TnpSplitter.WMKeyDown(var Msg: TWMKeyDown);
-//#UC START# *52BAB80A032F_52B9B0AA0105_var*
-//#UC END# *52BAB80A032F_52B9B0AA0105_var*
-begin
-//#UC START# *52BAB80A032F_52B9B0AA0105_impl*
- if not IsHandledShortcut(Msg) then
-  inherited;
-//#UC END# *52BAB80A032F_52B9B0AA0105_impl*
-end;//TnpSplitter.WMKeyDown
-
-procedure TnpSplitter.WMSysKeyDown(var Msg: TWMSysKeyDown);
-//#UC START# *52BAB8250200_52B9B0AA0105_var*
-//#UC END# *52BAB8250200_52B9B0AA0105_var*
-begin
-//#UC START# *52BAB8250200_52B9B0AA0105_impl*
- if not IsHandledShortcut(Msg) then
-  inherited;
-//#UC END# *52BAB8250200_52B9B0AA0105_impl*
-end;//TnpSplitter.WMSysKeyDown
-
-procedure TnpSplitter.CNKeyDown(var Msg: TWMKeyDown);
-//#UC START# *52BAB838013D_52B9B0AA0105_var*
-//#UC END# *52BAB838013D_52B9B0AA0105_var*
-begin
-//#UC START# *52BAB838013D_52B9B0AA0105_impl*
- if not IsHandledShortcut(Msg) then
-  inherited;
-//#UC END# *52BAB838013D_52B9B0AA0105_impl*
-end;//TnpSplitter.CNKeyDown
-
-procedure TnpSplitter.CNSysKeyDown(var Msg: TWMSysKeyDown);
-//#UC START# *52BAB8530216_52B9B0AA0105_var*
-//#UC END# *52BAB8530216_52B9B0AA0105_var*
-begin
-//#UC START# *52BAB8530216_52B9B0AA0105_impl*
- if not IsHandledShortcut(Msg) then
-  inherited;
-//#UC END# *52BAB8530216_52B9B0AA0105_impl*
-end;//TnpSplitter.CNSysKeyDown
-
-procedure TnpSplitter.WMMouseLeave(var Msg: TMessage);
-//#UC START# *5374D62902DC_52B9B0AA0105_var*
-//#UC END# *5374D62902DC_52B9B0AA0105_var*
-begin
-//#UC START# *5374D62902DC_52B9B0AA0105_impl*
- splHideHint;
- inherited;
-//#UC END# *5374D62902DC_52B9B0AA0105_impl*
-end;//TnpSplitter.WMMouseLeave
-
-procedure TnpSplitter.Cleanup;
- {* Функция очистки полей объекта. }
-//#UC START# *479731C50290_52B9B0AA0105_var*
-//#UC END# *479731C50290_52B9B0AA0105_var*
-begin
-//#UC START# *479731C50290_52B9B0AA0105_impl*
- splHideHint;
- FreeAndNil(f_HideButtonHint);
- inherited;
-//#UC END# *479731C50290_52B9B0AA0105_impl*
-end;//TnpSplitter.Cleanup
-
-constructor TnpSplitter.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_52B9B0AA0105_var*
-//#UC END# *47D1602000C6_52B9B0AA0105_var*
-begin
-//#UC START# *47D1602000C6_52B9B0AA0105_impl*
- inherited;
- // Видимость изменится при добавлении первой закладки
- ControlStyle := ControlStyle + [csNoDesignVisible];
- Visible := False;
- Cursor := crHSplit;
- f_IsHideButtonDown := False;
- IsMouseDown := False;
-//#UC END# *47D1602000C6_52B9B0AA0105_impl*
-end;//TnpSplitter.Create
-
-{$If NOT Defined(NoVCL)}
-procedure TnpSplitter.MouseMove(Shift: TShiftState;
- X: Integer;
- Y: Integer);
-//#UC START# *48E22B250241_52B9B0AA0105_var*
-var
- l_Types  : TnpDrawSplitterTypes;
- l_Button : Boolean;
- l_TME: TTrackMouseEvent;
-//#UC END# *48E22B250241_52B9B0AA0105_var*
-begin
-//#UC START# *48E22B250241_52B9B0AA0105_impl*
- l_TME.cbSize := SizeOf(TTrackMouseEvent);
- l_TME.dwFlags := TME_LEAVE;
- l_TME.hwndTrack := Handle;
- TrackMouseEvent(l_TME);
-
- // Курсор вышел за пределы сплиттера, освободим захват курсора:
- if not PtInRect(ClientRect, Point(X, Y)) then
- begin
-  // Если перетаскивают, то ничего делать не нужно:
-  if not IsMouseDown and (GetCapture = Handle) then
-    ReleaseCapture;
-  // Мы перетаскиваем поэтому подсказку надо спрятать:
-  splHideHint;
- end;//if not PtInRect(ClientRect, Point(X, Y)) then
- if not (ssLeft in Shift) then
- begin
-  if not GetParentForm(Self).Active then
-   Exit;
-  l_Button := PtInRect(GetButtonRect, Point(X, Y));
-  // Установим курсор:
-  UpdateCursor(l_Button);
-  // Покажем подсказку:
-  if l_Button then
-   splShowHint(X, Y)
-  else
-   splHideHint;
- end//not (ssLeft in Shift) 
- else
- // Сплиттер перетаскивают:
- if IsMouseDown then
- begin
-  l_Types := [dstErase, dstPaint];
-  if IsHideButtonDown then
-  begin
-   // Отожмем кнопку:
-   IsHideButtonDown := False;
-   // изменим курсор
-   UpdateCursor(False);
-   // Первая отрисовка, очищать не надо:
-   l_Types := [dstPaint];
-  end;//IsHideButtonDown
-  // Нарисуем сплиттер:
-  with Mouse.CursorPos do
-   f_Surface.Navigator.PaintSpliter(X, Y, l_Types);
- end;//if IsMouseDown then
-//#UC END# *48E22B250241_52B9B0AA0105_impl*
-end;//TnpSplitter.MouseMove
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-procedure TnpSplitter.MouseUp(Button: TMouseButton;
- Shift: TShiftState;
- X: Integer;
- Y: Integer);
-//#UC START# *4E7896270076_52B9B0AA0105_var*
-//#UC END# *4E7896270076_52B9B0AA0105_var*
-begin
-//#UC START# *4E7896270076_52B9B0AA0105_impl*
- splHideHint;
- IsMouseDown := False;
- if not (Button = mbLeft) then
-  Exit;
- with f_Surface.Navigator do
- begin
-  // Изменение размеров навигатора:
-  if not IsHideButtonDown then
-  begin
-   // Удалим нарисованный сплиттер:
-   PaintSpliter(Mouse.CursorPos.X, Mouse.CursorPos.Y, [dstErase]);
-   Perform(CM_npDoActionWithFormControls, Ord(acRedraw), 0);
-   // Изменим размеры навигатора:
-   if not PointsEqual(f_MouseDownPoint, Mouse.CursorPos) then
-   begin
-    DoSplit;
-    AutoHideUpdate;
-   end;//if not PointsEqual(f_MouseDownPoint, Mouse.CursorPos) then
-  end//if not IsHideButtonDown then
-  // развернём/свернём навигатор
-  else
-  begin
-   IsHideButtonDown := False;
-   State := TNavigatorState(IfThen(State = nsMinimized, Ord(nsNormal), Ord(nsMinimized)));
-  end;//if not PointsEqual(f_MouseDownPoint, Mouse.CursorPos) then
- end;//with f_Surface.Navigator do
-//#UC END# *4E7896270076_52B9B0AA0105_impl*
-end;//TnpSplitter.MouseUp
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-procedure TnpSplitter.MouseDown(Button: TMouseButton;
- Shift: TShiftState;
- X: Integer;
- Y: Integer);
-//#UC START# *4F88473B03CD_52B9B0AA0105_var*
-//#UC END# *4F88473B03CD_52B9B0AA0105_var*
-begin
-//#UC START# *4F88473B03CD_52B9B0AA0105_impl*
- if (Button = mbLeft) then
- begin
-  IsMouseDown := True;
-  // запомним, чтобы определить в MouseUp, что пользователь двигал мыш
-  f_MouseDownPoint := Mouse.CursorPos;
-  // кнопка нажата
-  if PtInRect(GetButtonRect, Point(X, Y)) then
-   IsHideButtonDown := True
-  else
-  begin
-   // нарисуем сплиттер
-   with Mouse.CursorPos do
-    f_Surface.Navigator.PaintSpliter(X, Y, [dstPaint]);
-  end;//PtInRect(GetButtonRect, Point(X, Y))
- end;//Button = mbLeft
-//#UC END# *4F88473B03CD_52B9B0AA0105_impl*
-end;//TnpSplitter.MouseDown
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-procedure TnpSplitter.Paint;
-//#UC START# *5028A60300AD_52B9B0AA0105_var*
-var
- l_R : TRect;
-//#UC END# *5028A60300AD_52B9B0AA0105_var*
-begin
-//#UC START# *5028A60300AD_52B9B0AA0105_impl*
- l_R := ClientRect;
- with Canvas do
- begin
-  // заливаем
-  Brush.Color := cGarant2011BackColor{clBtnFace};
-  FillRect(l_R);
-  // рисуем справа, слева линии clShadow
-  Pen.Color := clBtnShadow;
-  if (f_Surface.Navigator.Align <> alLeft) then
-  begin
-   MoveTo(l_R.Left, l_R.Top);
-   LineTo(l_R.Left, l_R.Bottom);
-  end;//Surface.Navigator.Align <> alLeft
-  if (f_Surface.Navigator.Align <> alRight) then
-  begin
-   MoveTo(Pred(l_R.Right), l_R.Top);
-   LineTo(Pred(l_R.Right), l_R.Bottom);
-  end;//Surface.Navigator.Align <> alRight
- end;//with Canvas
- // рисуем кнопку сплиттера
- DrawButton;
-//#UC END# *5028A60300AD_52B9B0AA0105_impl*
-end;//TnpSplitter.Paint
-{$IfEnd} // NOT Defined(NoVCL)
-
-procedure TnpFloatingWindow.pm_SetState(aValue: TnpFloatWindowState);
-//#UC START# *52BD71C101CD_52BACEF001CBset_var*
-var
- lFlag : Integer;
-{$IfDef Nemesis}
- l_Index : Integer;
-{$EndIf Nemesis}
-
- function lfnMinimizedSize : Integer;
- begin//lfnMinimizedSize
-  with f_Navigator do
-   Result := f_Header.Height + PageControl.MaxTabHeight;
- end;//lfnMinimizedSize
-//#UC END# *52BD71C101CD_52BACEF001CBset_var*
-begin
-//#UC START# *52BD71C101CD_52BACEF001CBset_impl*
- if aValue = f_State then
-  Exit;
- f_State := aValue;
- // текущий стиль окна
- lFlag := GetWindowLong(Handle, GWL_STYLE);
- case f_State of
-  // свернём навигатор
-  fwsMinimized:
-  begin
-   Self.Height := lfnMinimizedSize;
-   lFlag := lFlag xor WS_THICKFRAME;
-  end;//fwsMinimized
-  // развернём навигатор
-  fwsNormal:
-  begin
-   // если плавающий был создан минимизированным, то используем высоту навигатора
-   // на форме для его разворачивания
-   if f_SizeNormal <= lfnMinimizedSize then
-    f_SizeNormal := f_Navigator.NavigatorOnForm.Height;
-   Height := f_SizeNormal;
-   lFlag := lFlag  or WS_THICKFRAME;
-  end;//fwsNormal
- end;//case f_State
- // изменим стиль окна
- SetWindowLong(Handle, GWL_STYLE, lFlag);
- // перерисуем
- Perform(CM_BORDERCHANGED, 0, 0);
- f_Navigator.f_Header.UpdateAutoHideImage;
- {$IfDef Nemesis}
- // нужно обновить информацию о состоянии плавающей формы
- with Navigator.PageControl do
-  for l_Index := 0 to Pred(PageCount) do
-   if (Pages[l_Index].ControlCount > 0) and
-    (Pages[l_Index].Controls[0] is TvcmForm) then
-    TvcmForm(Pages[l_Index].Controls[0]).FloatWindowState :=
-     IfThen((f_State = fwsMinimized), cFloatMinimized);
- {$EndIf Nemesis}
-//#UC END# *52BD71C101CD_52BACEF001CBset_impl*
-end;//TnpFloatingWindow.pm_SetState
-
-function TnpFloatingWindow.GetGripperRect: TRect;
-//#UC START# *52BD73E2039B_52BACEF001CB_var*
-//#UC END# *52BD73E2039B_52BACEF001CB_var*
-begin
-//#UC START# *52BD73E2039B_52BACEF001CB_impl*
- // положение в пределах Desctop
- GetWindowRect(Handle, Result);
- // размеры навигатора
- OffsetRect(Result, -Result.Left, -Result.Top);
- // уменьшим чтобы не заслонять рамку
- InflateRect(Result, -GetSystemMetrics(SM_CXSIZEFRAME), -GetSystemMetrics(SM_CYSIZEFRAME));
- // область отрисовки gripper
- Result.Top := Result.Bottom - GetGripperHeight;
-//#UC END# *52BD73E2039B_52BACEF001CB_impl*
-end;//TnpFloatingWindow.GetGripperRect
-
-function TnpFloatingWindow.GetGripperHeight: Integer;
-//#UC START# *52BD73F900BF_52BACEF001CB_var*
-//#UC END# *52BD73F900BF_52BACEF001CB_var*
-begin
-//#UC START# *52BD73F900BF_52BACEF001CB_impl*
- Result := GetSystemMetrics(SM_CYHSCROLL);
-//#UC END# *52BD73F900BF_52BACEF001CB_impl*
-end;//TnpFloatingWindow.GetGripperHeight
-
-function TnpFloatingWindow.CheckGripperCursor: Boolean;
-//#UC START# *52BD740F023F_52BACEF001CB_var*
-var
- l_Rect : TRect;
-//#UC END# *52BD740F023F_52BACEF001CB_var*
-begin
-//#UC START# *52BD740F023F_52BACEF001CB_impl*
- Result := False;
- // навигатор в свернутом состоянии, гриппер у него отсутствием
- if (f_State = fwsMinimized) then
-  Exit;
- // получим позицию окна
- GetWindowRect(Handle, l_Rect);
- // вычислим положение gripper-а на экране
- l_Rect.Left := l_Rect.Right - GetGripperHeight;
- l_Rect.Top := l_Rect.Bottom - GetGripperHeight;
- // 
- if PtInRect(l_Rect, Mouse.CursorPos) then
-  Result := True;
-//#UC END# *52BD740F023F_52BACEF001CB_impl*
-end;//TnpFloatingWindow.CheckGripperCursor
-
-{$If Defined(Nemesis)}
-procedure TnpFloatingWindow.UpdateFloatWindowsBounds;
-//#UC START# *52BD742402DA_52BACEF001CB_var*
-var
- l_Index : Integer;
- l_R : TRect;
-//#UC END# *52BD742402DA_52BACEF001CB_var*
-begin
-//#UC START# *52BD742402DA_52BACEF001CB_impl*
- if Assigned(f_Navigator) and Assigned(f_Navigator.PageControl) then
-  with f_Navigator.PageControl do
-   for l_Index := 0 to Pred(PageCount) do
-    if (Pages[l_Index].ControlCount > 0) and
-       (Pages[l_Index].Controls[0] is TvcmForm) then
-     with TvcmForm(Pages[l_Index].Controls[0]) do
-     begin
-      l_R := Self.BoundsRect;
-      with l_R do
-       Bottom := Top + Self.f_SizeNormal;
-      FloatWindowBounds := l_R;
-     end;//TvcmForm(Pages[l_Index].Controls[0])
-//#UC END# *52BD742402DA_52BACEF001CB_impl*
-end;//TnpFloatingWindow.UpdateFloatWindowsBounds
-{$IfEnd} // Defined(Nemesis)
-
-procedure TnpFloatingWindow.OnChangeState(Sender: TObject);
-//#UC START# *52BD745C0104_52BACEF001CB_var*
-//#UC END# *52BD745C0104_52BACEF001CB_var*
-begin
-//#UC START# *52BD745C0104_52BACEF001CB_impl*
- if f_State = High(TnpFloatWindowState) then
-  State := Low(TnpFloatWindowState)
- else
-  State := Succ(f_State);
-//#UC END# *52BD745C0104_52BACEF001CB_impl*
-end;//TnpFloatingWindow.OnChangeState
-
-procedure TnpFloatingWindow.OnCloseWindow(Sender: TObject);
-//#UC START# *52BD74650377_52BACEF001CB_var*
-//#UC END# *52BD74650377_52BACEF001CB_var*
-begin
-//#UC START# *52BD74650377_52BACEF001CB_impl*
- (* Пристыкуем компоненты к навигаторам на форме *)
- with f_Navigator.PageControl do
-  while PageCount > 0 do
-   if Pages[0].ControlCount > 0 then
-    TnpControlsList.Instance.DockOnForm(Pages[0].Controls[0]);
-//#UC END# *52BD74650377_52BACEF001CB_impl*
-end;//TnpFloatingWindow.OnCloseWindow
-
-procedure TnpFloatingWindow.FormOnResize(Sender: TObject);
-//#UC START# *52BD74710051_52BACEF001CB_var*
-//#UC END# *52BD74710051_52BACEF001CB_var*
-begin
-//#UC START# *52BD74710051_52BACEF001CB_impl*
- if (f_State = fwsNormal) then
-  f_SizeNormal := Self.Height;
- {$IfDef Nemesis}
- UpdateFloatWindowsBounds;
- {$EndIf Nemesis}
-//#UC END# *52BD74710051_52BACEF001CB_impl*
-end;//TnpFloatingWindow.FormOnResize
-
-procedure TnpFloatingWindow.FormClose(Sender: TObject;
- var Action: TCloseAction);
-//#UC START# *52BD748B0337_52BACEF001CB_var*
-//#UC END# *52BD748B0337_52BACEF001CB_var*
-begin
-//#UC START# *52BD748B0337_52BACEF001CB_impl*
- if f_CloseDisabled then
-  Action := caHide
- else
-  Action := caFree;
-//#UC END# *52BD748B0337_52BACEF001CB_impl*
-end;//TnpFloatingWindow.FormClose
-
-procedure TnpFloatingWindow.OnTabSheetClick(Sender: TObject;
- Page: TElTabSheet);
-//#UC START# *52BD74BD0029_52BACEF001CB_var*
-//#UC END# *52BD74BD0029_52BACEF001CB_var*
-begin
-//#UC START# *52BD74BD0029_52BACEF001CB_impl*
- // развернём окно, если свернуто
- State := fwsNormal;
- // начнем перетаскивание
- f_Navigator.OnTabSheetClick(Sender, Page);
-//#UC END# *52BD74BD0029_52BACEF001CB_impl*
-end;//TnpFloatingWindow.OnTabSheetClick
-
-procedure TnpFloatingWindow.OnDockDrop(Sender: TObject;
- Source: TDragDockObject;
- X: Integer;
- Y: Integer);
-//#UC START# *52BD74D2028D_52BACEF001CB_var*
-//#UC END# *52BD74D2028D_52BACEF001CB_var*
-begin
-//#UC START# *52BD74D2028D_52BACEF001CB_impl*
- {$IfDef Nemesis}
- if Source.Control is TvcmForm then
-  TvcmForm(Source.Control).FloatID := f_FloatID;
- {$EndIf Nemesis}
-//#UC END# *52BD74D2028D_52BACEF001CB_impl*
-end;//TnpFloatingWindow.OnDockDrop
-
-function TnpFloatingWindow.GetNavigatorClass: RvtNavigator;
-//#UC START# *52BD752A00D3_52BACEF001CB_var*
-//#UC END# *52BD752A00D3_52BACEF001CB_var*
-begin
-//#UC START# *52BD752A00D3_52BACEF001CB_impl*
- Result := TvtNavigator;
-//#UC END# *52BD752A00D3_52BACEF001CB_impl*
-end;//TnpFloatingWindow.GetNavigatorClass
-
-procedure TnpFloatingWindow.WMNCCalcSize(var Message: TWMNCCalcSize);
-//#UC START# *52BD728700B7_52BACEF001CB_var*
-//#UC END# *52BD728700B7_52BACEF001CB_var*
-begin
-//#UC START# *52BD728700B7_52BACEF001CB_impl*
- inherited;
- case f_State of
-  fwsNormal:
-   with Message.CalcSize_Params.rgrc[0] do
-    Dec(Bottom, GetSystemMetrics(SM_CYHSCROLL));
-  fwsMinimized:
-   InflateRect(Message.CalcSize_Params.rgrc[0], -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
- end;//case f_State
-//#UC END# *52BD728700B7_52BACEF001CB_impl*
-end;//TnpFloatingWindow.WMNCCalcSize
-
-procedure TnpFloatingWindow.WMNCPaint(var Message: TMessage);
-//#UC START# *52BD729D02CC_52BACEF001CB_var*
-var
- l_DC : HDC;
- l_R  : TRect;
-//#UC END# *52BD729D02CC_52BACEF001CB_var*
-begin
-//#UC START# *52BD729D02CC_52BACEF001CB_impl*
- l_DC := GetWindowDC(Handle);
- try
-  case f_State of
-   fwsNormal:
-   begin
-    // Рисуем рамку
-    inherited;
-    // Нарисуем скроллер
-    with Canvas.Brush do
-    begin
-     Color := clBtnFace;
-     Style := bsSolid;
-    end;//with Canvas.Brush
-    l_R := GetGripperRect;
-    // мы вычислили всё честно, DrawFrameControl почему то отрисовывает рамку
-    // на один пиксел меньше, поэтому увеличим
-    InflateRect(l_R, 1, 1);
-    // рисуем
-    DrawFrameControl(l_DC, l_R, DFC_SCROLL, DFCS_SCROLLSIZEGRIP);
-   end;//fwsNormal
-   fwsMinimized:
-   begin
-    Windows.GetWindowRect(Handle, l_R);
-    OffsetRect(l_R, -l_R.Left, -l_R.Top);
-    DrawEdge(l_DC, l_R, EDGE_RAISED, BF_RECT or BF_FLAT);
-   end;//fwsMinimized
-  end;//case f_State
- finally
-  ReleaseDC(Handle, l_DC);
- end;//try..finally
-//#UC END# *52BD729D02CC_52BACEF001CB_impl*
-end;//TnpFloatingWindow.WMNCPaint
-
-procedure TnpFloatingWindow.WMNCHitTest(var Message: TWMNCHitTest);
-//#UC START# *52BD72BD00B9_52BACEF001CB_var*
-//#UC END# *52BD72BD00B9_52BACEF001CB_var*
-begin
-//#UC START# *52BD72BD00B9_52BACEF001CB_impl*
- inherited;
- if CheckGripperCursor then
-  Message.Result := HTBOTTOMRIGHT;
-//#UC END# *52BD72BD00B9_52BACEF001CB_impl*
-end;//TnpFloatingWindow.WMNCHitTest
-
-procedure TnpFloatingWindow.WMEraseBkgnd(var Message: TWMEraseBkgnd);
-//#UC START# *52BD72DE0167_52BACEF001CB_var*
-//#UC END# *52BD72DE0167_52BACEF001CB_var*
-begin
-//#UC START# *52BD72DE0167_52BACEF001CB_impl*
- Message.Result := 1;
-//#UC END# *52BD72DE0167_52BACEF001CB_impl*
-end;//TnpFloatingWindow.WMEraseBkgnd
-
-procedure TnpFloatingWindow.DisableClose;
-//#UC START# *4E79FED900C6_52BACEF001CB_var*
-//#UC END# *4E79FED900C6_52BACEF001CB_var*
-begin
-//#UC START# *4E79FED900C6_52BACEF001CB_impl*
- Assert(FormStyle = fsStayOnTop);
- f_CloseDisabled := True;
-//#UC END# *4E79FED900C6_52BACEF001CB_impl*
-end;//TnpFloatingWindow.DisableClose
-
-procedure TnpFloatingWindow.DisableReactivate;
-//#UC START# *4E7A0D9401F6_52BACEF001CB_var*
-//#UC END# *4E7A0D9401F6_52BACEF001CB_var*
-begin
-//#UC START# *4E7A0D9401F6_52BACEF001CB_impl*
- Assert(FormStyle = fsStayOnTop);
- f_ReactivateDisabled := True;
-//#UC END# *4E7A0D9401F6_52BACEF001CB_impl*
-end;//TnpFloatingWindow.DisableReactivate
-
-procedure TnpFloatingWindow.Cleanup;
- {* Функция очистки полей объекта. }
-//#UC START# *479731C50290_52BACEF001CB_var*
-//#UC END# *479731C50290_52BACEF001CB_var*
-begin
-//#UC START# *479731C50290_52BACEF001CB_impl*
- f_CloseDisabled := False;
- f_ReactivateDisabled := False;
- inherited;
-//#UC END# *479731C50290_52BACEF001CB_impl*
-end;//TnpFloatingWindow.Cleanup
-
-{$If NOT Defined(NoVCL)}
-procedure TnpFloatingWindow.CreateParams(var Params: TCreateParams);
-//#UC START# *48C7925A02E5_52BACEF001CB_var*
-//#UC END# *48C7925A02E5_52BACEF001CB_var*
-begin
-//#UC START# *48C7925A02E5_52BACEF001CB_impl*
- inherited CreateParams(Params);
- with Params do
- begin
-  if (Parent = nil) and (ParentWindow = 0) then
-  begin
-   Style := Style or WS_POPUP;
-   ExStyle := ExStyle and not WS_EX_APPWINDOW or WS_EX_TOOLWINDOW;
-  end;
-  Style := Style and not WS_CAPTION;
-  case f_State of
-   fwsNormal:
-    Style := Style or WS_THICKFRAME;
-   fwsMinimized:
-    Style := Style and not WS_THICKFRAME;
-  end;//case f_State
- end;//with Params
-//#UC END# *48C7925A02E5_52BACEF001CB_impl*
-end;//TnpFloatingWindow.CreateParams
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-function TnpFloatingWindow.CloseQuery: Boolean;
- {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
-
-As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true. }
-//#UC START# *4980403E021E_52BACEF001CB_var*
-var
- l_Index : Integer;
- lPC    : TnpPageControl;
-//#UC END# *4980403E021E_52BACEF001CB_var*
-begin
-//#UC START# *4980403E021E_52BACEF001CB_impl*
- Result := inherited CloseQuery;
- if Result then
-  f_FloatID := 0;
- l_Index := 0;
- lPC := f_Navigator.PageControl;
- while Result and (l_Index <= Pred(lPC.PageCount)) do
- begin
-  if (lPC.Pages[l_Index].ControlCount > 0) and
-   (lPC.Pages[l_Index].Controls[0] is TCustomForm) then
-   Result := TCustomForm(lPC.Pages[l_Index].Controls[0]).CloseQuery;
-  Inc(l_Index);
- end;//while Result and (l_Index <= Pred(lPC.PageCount))
-//#UC END# *4980403E021E_52BACEF001CB_impl*
-end;//TnpFloatingWindow.CloseQuery
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-constructor TnpFloatingWindow.CreateNew(AOwner: TComponent;
- Dummy: Integer = 0);
-//#UC START# *4F9007B20376_52BACEF001CB_var*
-//#UC END# *4F9007B20376_52BACEF001CB_var*
-begin
-//#UC START# *4F9007B20376_52BACEF001CB_impl*
- inherited CreateNew(AOwner);
- Caption := 'Плавающий навигатор';
- BorderIcons := [];
- FormStyle := fsStayOnTop;
- OnClose := FormClose;
- OnResize := FormOnResize;
- f_FloatID := 0;
- f_State := fwsNormal;
- f_Navigator := GetNavigatorClass.Create(Self);
- f_Navigator.Parent := Self;
- f_Navigator.f_FloatNavigator := Self;
- f_Navigator.Float := True;
- f_Navigator.Align := alClient;
- with f_Navigator.PageControl do
- begin
-  Visible := True;
-  //Assert(not Assigned(OnTabSheetClick));
-  // - закомментировал, т.к. падало при отдочивании оглавления
-  OnTabSheetClick := Self.OnTabSheetClick;
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=344754050&focusedCommentId=346751217&#comment-346751217
-  Assert(not Assigned(OnDockDrop));
-  OnDockDrop := Self.OnDockDrop;
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=344754050&focusedCommentId=346750985#comment-346750985
-  Align := alClient;
- end;//with f_Navigator.PageControl
- with f_Navigator.f_Header do
- begin
-  Visible := True;
-  OnHide := OnCloseWindow;
-  OnAutoHide := OnChangeState;
- end;//with f_Navigator.Header
- f_Navigator.DockSite := False;
- {$IfDef Nemesis}
- DefaultMonitor := dmDesktop;
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=569239659
- {$EndIf Nemesis}
-//#UC END# *4F9007B20376_52BACEF001CB_impl*
-end;//TnpFloatingWindow.CreateNew
-{$IfEnd} // NOT Defined(NoVCL)
-
 //#UC START# *52BAC7A10261impl*
 //#UC END# *52BAC7A10261impl*
 
@@ -6910,32 +6869,32 @@ initialization
  {* Регистрация TnpPageControl }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TnpButton);
- {* Регистрация TnpButton }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TvtNavigatorPrim);
- {* Регистрация TvtNavigatorPrim }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TnpHeaderPrim);
- {* Регистрация TnpHeaderPrim }
+ TtfwClassRef.Register(TnpContainerSurface);
+ {* Регистрация TnpContainerSurface }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnpSurface);
  {* Регистрация TnpSurface }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TnpContainerSurface);
- {* Регистрация TnpContainerSurface }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnpSplitter);
  {* Регистрация TnpSplitter }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnpHeaderPrim);
+ {* Регистрация TnpHeaderPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnpButton);
+ {* Регистрация TnpButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnpFloatingWindow);
  {* Регистрация TnpFloatingWindow }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtNavigatorPrim);
+ {* Регистрация TvtNavigatorPrim }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnpHeader);

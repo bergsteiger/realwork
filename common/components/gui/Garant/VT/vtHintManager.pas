@@ -1,96 +1,87 @@
 unit vtHintManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtHintManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::Hints::TvtHintManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtHintManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvtHintManager" MUID: (50C6241B0355)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3ObjectList,
-  l3ProtoObject,
-  vtMultilineHint
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3ObjectList
+ , vtMultilineHint
+;
 
 type
  TvtHintManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_Hints : Tl3ObjectList;
- protected
- // property methods
+  private
+   f_Hints: Tl3ObjectList;
+  protected
    function pm_GetItem(anIndex: Integer): TvtMultilineHint; virtual;
    function pm_GetCount: Integer; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure Add(aHint: TvtMultilineHint);
    procedure Remove(aHint: TvtMultilineHint);
    class function Exists: Boolean;
- public
- // public properties
-   property Item[anIndex: Integer]: TvtMultilineHint
-     read pm_GetItem;
-   property Count: Integer
-     read pm_GetCount;
- public
- // singleton factory method
    class function Instance: TvtHintManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvtHintManager }
+  public
+   property Item[anIndex: Integer]: TvtMultilineHint
+    read pm_GetItem;
+   property Count: Integer
+    read pm_GetCount;
  end;//TvtHintManager
 
 implementation
 
 uses
-  l3Base {a}
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  vtHintWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtHintWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TvtHintManager
-
-var g_TvtHintManager : TvtHintManager = nil;
+var g_TvtHintManager: TvtHintManager = nil;
+ {* Экземпляр синглетона TvtHintManager }
 
 procedure TvtHintManagerFree;
+ {* Метод освобождения экземпляра синглетона TvtHintManager }
 begin
  l3Free(g_TvtHintManager);
-end;
+end;//TvtHintManagerFree
 
-class function TvtHintManager.Instance: TvtHintManager;
+function TvtHintManager.pm_GetItem(anIndex: Integer): TvtMultilineHint;
+//#UC START# *50C734B60190_50C6241B0355get_var*
+//#UC END# *50C734B60190_50C6241B0355get_var*
 begin
- if (g_TvtHintManager = nil) then
- begin
-  l3System.AddExitProc(TvtHintManagerFree);
-  g_TvtHintManager := Create;
- end;
- Result := g_TvtHintManager;
-end;
+//#UC START# *50C734B60190_50C6241B0355get_impl*
+ Assert(Assigned(f_Hints));
+ Result := TvtMultilineHint(f_Hints[anIndex]);
+//#UC END# *50C734B60190_50C6241B0355get_impl*
+end;//TvtHintManager.pm_GetItem
 
+function TvtHintManager.pm_GetCount: Integer;
+//#UC START# *50C7352402AD_50C6241B0355get_var*
+//#UC END# *50C7352402AD_50C6241B0355get_var*
+begin
+//#UC START# *50C7352402AD_50C6241B0355get_impl*
+ Assert(Assigned(f_Hints));
+ if Assigned(f_Hints)
+  then Result := f_Hints.Count
+  else Result := 0;           
+//#UC END# *50C7352402AD_50C6241B0355get_impl*
+end;//TvtHintManager.pm_GetCount
 
 procedure TvtHintManager.Add(aHint: TvtMultilineHint);
 //#UC START# *50C624A002CF_50C6241B0355_var*
@@ -119,29 +110,19 @@ begin
 //#UC END# *52F9C53B0374_50C6241B0355_impl*
 end;//TvtHintManager.Exists
 
-function TvtHintManager.pm_GetItem(anIndex: Integer): TvtMultilineHint;
-//#UC START# *50C734B60190_50C6241B0355get_var*
-//#UC END# *50C734B60190_50C6241B0355get_var*
+class function TvtHintManager.Instance: TvtHintManager;
+ {* Метод получения экземпляра синглетона TvtHintManager }
 begin
-//#UC START# *50C734B60190_50C6241B0355get_impl*
- Assert(Assigned(f_Hints));
- Result := TvtMultilineHint(f_Hints[anIndex]);
-//#UC END# *50C734B60190_50C6241B0355get_impl*
-end;//TvtHintManager.pm_GetItem
-
-function TvtHintManager.pm_GetCount: Integer;
-//#UC START# *50C7352402AD_50C6241B0355get_var*
-//#UC END# *50C7352402AD_50C6241B0355get_var*
-begin
-//#UC START# *50C7352402AD_50C6241B0355get_impl*
- Assert(Assigned(f_Hints));
- if Assigned(f_Hints)
-  then Result := f_Hints.Count
-  else Result := 0;           
-//#UC END# *50C7352402AD_50C6241B0355get_impl*
-end;//TvtHintManager.pm_GetCount
+ if (g_TvtHintManager = nil) then
+ begin
+  l3System.AddExitProc(TvtHintManagerFree);
+  g_TvtHintManager := Create;
+ end;
+ Result := g_TvtHintManager;
+end;//TvtHintManager.Instance
 
 procedure TvtHintManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_50C6241B0355_var*
 //#UC END# *479731C50290_50C6241B0355_var*
 begin
@@ -162,9 +143,9 @@ begin
 end;//TvtHintManager.InitFields
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtHintManager
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtHintManager);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtHintManager }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

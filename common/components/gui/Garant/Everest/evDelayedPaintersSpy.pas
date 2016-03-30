@@ -1,98 +1,66 @@
 unit evDelayedPaintersSpy;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDelayedPaintersSpy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevDelayedPaintersSpy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDelayedPaintersSpy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDelayedPaintersSpy" MUID: (4D6F3F42007C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Filer,
-  l3LongintList,
-  evSelectedParts,
-  l3ProtoObject
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , l3ProtoObject
+ , l3Filer
+ , evSelectedParts
+ , l3LongintList
+;
 
-{$If defined(evNeedPainters)}
 type
- IevDelayedPainterLogger = interface(IUnknown)
-   ['{87EBBF2A-E6CC-41AF-A26B-012D8BB879CB}']
-   function OpenSelectionLog: AnsiString;
-   procedure CloseSelectionLog(const aLogName: AnsiString);
+ IevDelayedPainterLogger = interface
+  ['{87EBBF2A-E6CC-41AF-A26B-012D8BB879CB}']
+  function OpenSelectionLog: AnsiString;
+  procedure CloseSelectionLog(const aLogName: AnsiString);
  end;//IevDelayedPainterLogger
 
  TevDelayedPaintersSpy = class(Tl3ProtoObject)
- private
- // private fields
-   f_Logger : IevDelayedPainterLogger;
-   f_Filer : Tl3CustomFiler;
- protected
- // overridden protected methods
+  private
+   f_Logger: IevDelayedPainterLogger;
+   f_Filer: Tl3CustomFiler;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure SetLogger(const aLogger: IevDelayedPainterLogger);
    procedure RemoveLogger(const aLogger: IevDelayedPainterLogger);
    class function Exists: Boolean;
    procedure LogSelections(const aSelParts: TevSelectedParts;
-     const aRowHeights: Tl3LongintList);
- public
- // singleton factory method
+    const aRowHeights: Tl3LongintList);
    class function Instance: TevDelayedPaintersSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevDelayedPaintersSpy }
  end;//TevDelayedPaintersSpy
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Base {a},
-  SysUtils,
-  l3Types
-  ;
-{$IfEnd} //evNeedPainters
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , l3Base
+;
 
-{$If defined(evNeedPainters)}
-
-
-// start class TevDelayedPaintersSpy
-
-var g_TevDelayedPaintersSpy : TevDelayedPaintersSpy = nil;
+var g_TevDelayedPaintersSpy: TevDelayedPaintersSpy = nil;
+ {* Экземпляр синглетона TevDelayedPaintersSpy }
 
 procedure TevDelayedPaintersSpyFree;
+ {* Метод освобождения экземпляра синглетона TevDelayedPaintersSpy }
 begin
  l3Free(g_TevDelayedPaintersSpy);
-end;
-
-class function TevDelayedPaintersSpy.Instance: TevDelayedPaintersSpy;
-begin
- if (g_TevDelayedPaintersSpy = nil) then
- begin
-  l3System.AddExitProc(TevDelayedPaintersSpyFree);
-  g_TevDelayedPaintersSpy := Create;
- end;
- Result := g_TevDelayedPaintersSpy;
-end;
-
+end;//TevDelayedPaintersSpyFree
 
 procedure TevDelayedPaintersSpy.SetLogger(const aLogger: IevDelayedPainterLogger);
 //#UC START# *4D6F41880325_4D6F3F42007C_var*
@@ -124,7 +92,7 @@ begin
 end;//TevDelayedPaintersSpy.Exists
 
 procedure TevDelayedPaintersSpy.LogSelections(const aSelParts: TevSelectedParts;
-  const aRowHeights: Tl3LongintList);
+ const aRowHeights: Tl3LongintList);
 //#UC START# *4D6F4C1700DC_4D6F3F42007C_var*
 
  function LogSelPart(const Data: TevSelectedPart; Index: Integer): Boolean;
@@ -170,7 +138,19 @@ begin
 //#UC END# *4D6F4C1700DC_4D6F3F42007C_impl*
 end;//TevDelayedPaintersSpy.LogSelections
 
+class function TevDelayedPaintersSpy.Instance: TevDelayedPaintersSpy;
+ {* Метод получения экземпляра синглетона TevDelayedPaintersSpy }
+begin
+ if (g_TevDelayedPaintersSpy = nil) then
+ begin
+  l3System.AddExitProc(TevDelayedPaintersSpyFree);
+  g_TevDelayedPaintersSpy := Create;
+ end;
+ Result := g_TevDelayedPaintersSpy;
+end;//TevDelayedPaintersSpy.Instance
+
 procedure TevDelayedPaintersSpy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4D6F3F42007C_var*
 //#UC END# *479731C50290_4D6F3F42007C_var*
 begin
@@ -181,14 +161,10 @@ begin
 end;//TevDelayedPaintersSpy.Cleanup
 
 procedure TevDelayedPaintersSpy.ClearFields;
- {-}
 begin
- {$If defined(evNeedPainters)}
  f_Logger := nil;
- {$IfEnd} //evNeedPainters
  inherited;
 end;//TevDelayedPaintersSpy.ClearFields
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

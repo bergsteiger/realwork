@@ -1,47 +1,37 @@
 unit evCursorPair;
+ {* Базовый класс для реализации выделения }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevCursorPair
-//
-// Базовый класс для реализации выделения
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursorPair.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCursorPair" MUID: (4A2D2D5D0114)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evSelection,
-  nevBase,
-  l3Interfaces,
-  l3IID,
-  k2ToolPrim
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evSelection
+ , nevTools
+ , l3IID
+ , nevBase
+ , l3Interfaces
+ , k2ToolPrim
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevCursorPair = class(TevRange)
   {* Базовый класс для реализации выделения }
- protected
- // realized methods
+  protected
+   f_Start: InevBasePoint;
+   f_Finish: InevBasePoint;
+   f_B: TevPair;
+  protected
+   procedure GetBlockBorders; virtual;
    function IsSolid(const aView: InevView): Boolean; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoDeleteCharToLeft(const aView: InevView;
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
@@ -62,58 +52,43 @@ type
     const anOp: InevOp): Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure DoRefreshBorders; override;
-     {* Сигнатура метода DoRefreshBorders }
    function IsCollapsed(const aView: InevView): Boolean; override;
    function TagReader: InevTagReader; override;
    function DoGetBorders: TevPair; override;
    procedure DoGetBorderPoints(out theStart: InevBasePoint;
-     out theFinish: InevBasePoint); override;
+    out theFinish: InevBasePoint); override;
    function DoSearchReplace(const aSearcher: IevSearcher;
-     const aReplacer: IevReplacer;
-     const aConfirm: InevConfirm;
-     const Cursor: InevBasePoint = nil;
-     const anOpPack: InevOp = nil;
-     aNeedProgress: Boolean = True): Boolean; override;
+    const aReplacer: IevReplacer;
+    const aConfirm: InevConfirm;
+    const Cursor: InevBasePoint = nil;
+    const anOpPack: InevOp = nil;
+    aNeedProgress: Boolean = True): Boolean; override;
    procedure DoForceStore; override;
- public
- // overridden public methods
+  public
    procedure DoInit(const aStart: InevBasePoint;
-     const aFinish: InevBasePoint;
-     aSharp: Boolean); override;
+    const aFinish: InevBasePoint;
+    aSharp: Boolean); override;
    procedure Assign(Source: Tk2ToolPrim); override;
- protected
- // protected fields
-   f_Start : InevBasePoint;
-   f_Finish : InevBasePoint;
-   f_B : TevPair;
- protected
- // protected methods
-   procedure GetBlockBorders; virtual;
-     {* Сигнатура метода GetBlockBorders }
  end;//TevCursorPair
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Const,
-  k2TagGen,
-  l3MinMax,
-  evCursor,
-  nevPersistentDocumentContainer,
-  evTypes,
-  evExcept,
-  nevInterfaces,
-  SysUtils
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevCursorPair
+ l3ImplUses
+ , l3Const
+ , k2TagGen
+ , l3MinMax
+ , evCursor
+ , nevPersistentDocumentContainer
+ , evTypes
+ , evExcept
+ , nevInterfaces
+ , SysUtils
+;
 
 procedure TevCursorPair.GetBlockBorders;
 //#UC START# *52D7FCD700CF_4A2D2D5D0114_var*
@@ -144,6 +119,7 @@ begin
 end;//TevCursorPair.IsSolid
 
 procedure TevCursorPair.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A2D2D5D0114_var*
 //#UC END# *479731C50290_4A2D2D5D0114_var*
 begin
@@ -157,8 +133,8 @@ begin
 end;//TevCursorPair.Cleanup
 
 function TevCursorPair.DoDeleteCharToLeft(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29419B0319_4A2D2D5D0114_var*
 //#UC END# *4A29419B0319_4A2D2D5D0114_var*
 begin
@@ -168,9 +144,9 @@ begin
 end;//TevCursorPair.DoDeleteCharToLeft
 
 function TevCursorPair.DoChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29465701BC_4A2D2D5D0114_var*
 {$IfDef evNeedMarkers}
 var
@@ -201,8 +177,8 @@ begin
 end;//TevCursorPair.DoChangeParam
 
 function TevCursorPair.DoInsertBreak(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F59B0234_4A2D2D5D0114_var*
 //#UC END# *4A38F59B0234_4A2D2D5D0114_var*
 begin
@@ -216,10 +192,10 @@ begin
 end;//TevCursorPair.DoInsertBreak
 
 function TevCursorPair.DoInsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp;
-  InsertMode: Boolean;
-  aFlags: TnevInsertStringFlags): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp;
+ InsertMode: Boolean;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F71601D6_4A2D2D5D0114_var*
 //#UC END# *4A38F71601D6_4A2D2D5D0114_var*
 begin
@@ -235,8 +211,8 @@ begin
 end;//TevCursorPair.DoInsertString
 
 function TevCursorPair.DoDeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7F5022C_4A2D2D5D0114_var*
 //#UC END# *4A38F7F5022C_4A2D2D5D0114_var*
 begin
@@ -247,7 +223,8 @@ begin
 end;//TevCursorPair.DoDeleteChar
 
 function TevCursorPair.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A2D2D5D0114_var*
 //#UC END# *4A60B23E00C3_4A2D2D5D0114_var*
 begin
@@ -267,8 +244,8 @@ begin
 end;//TevCursorPair.COMQueryInterface
 
 procedure TevCursorPair.DoInit(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint;
-  aSharp: Boolean);
+ const aFinish: InevBasePoint;
+ aSharp: Boolean);
 //#UC START# *5108D53B0312_4A2D2D5D0114_var*
 //#UC END# *5108D53B0312_4A2D2D5D0114_var*
 begin
@@ -343,7 +320,7 @@ begin
 end;//TevCursorPair.DoGetBorders
 
 procedure TevCursorPair.DoGetBorderPoints(out theStart: InevBasePoint;
-  out theFinish: InevBasePoint);
+ out theFinish: InevBasePoint);
 //#UC START# *52D7A56B029E_4A2D2D5D0114_var*
 //#UC END# *52D7A56B029E_4A2D2D5D0114_var*
 begin
@@ -354,11 +331,11 @@ begin
 end;//TevCursorPair.DoGetBorderPoints
 
 function TevCursorPair.DoSearchReplace(const aSearcher: IevSearcher;
-  const aReplacer: IevReplacer;
-  const aConfirm: InevConfirm;
-  const Cursor: InevBasePoint = nil;
-  const anOpPack: InevOp = nil;
-  aNeedProgress: Boolean = True): Boolean;
+ const aReplacer: IevReplacer;
+ const aConfirm: InevConfirm;
+ const Cursor: InevBasePoint = nil;
+ const anOpPack: InevOp = nil;
+ aNeedProgress: Boolean = True): Boolean;
 //#UC START# *52D7CCD70340_4A2D2D5D0114_var*
 var
  l_Start          : InevBasePoint;
@@ -496,7 +473,6 @@ begin
   f_Finish.AsObject.ForceStore;
 //#UC END# *5321B9DF011A_4A2D2D5D0114_impl*
 end;//TevCursorPair.DoForceStore
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

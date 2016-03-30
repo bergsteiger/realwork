@@ -1,50 +1,35 @@
 unit evLocation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evLocation.pas"
-// Начат: 01.06.2005 18:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevLocation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evLocation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevLocation" MUID: (4A3A5B9F0064)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  evLocationBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evLocationBase
+ , nevTools
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevLocation = class(TevLocationBase, InevText)
- protected
- // realized methods
+  protected
    function CanBeDeleted: Boolean;
    function Modify: InevTextModify;
- protected
- // overridden protected methods
    function GetText: InevText; override;
  end;//TevLocation
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevLocation
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
 
 function TevLocation.CanBeDeleted: Boolean;
 //#UC START# *47C5B23101DE_4A3A5B9F0064_var*
@@ -72,7 +57,6 @@ begin
  Result := Self;
 //#UC END# *4A3A69AC006F_4A3A5B9F0064_impl*
 end;//TevLocation.GetText
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

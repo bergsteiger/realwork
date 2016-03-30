@@ -1,26 +1,17 @@
 unit vtComboTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/vtComboTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::ComboTree::TvtComboTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\vtComboTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvtComboTree" MUID: (55B780E60398)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  FakeBox
-  ;
+ l3IntfUses
+ , FakeBox
+;
 
 type
  TvtComboTree = class(TFakeBox)
@@ -29,29 +20,22 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  vtComboTreeWordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  vtComboBoxWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtComboTreeWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtComboBoxWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtComboTree
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtComboTree);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtComboTree }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -15,6 +15,8 @@ uses
  , Classes
  , Messages
  , nevBase
+ //#UC START# *4CFF6CF60266intf_uses*
+ //#UC END# *4CFF6CF60266intf_uses*
 ;
 
 type
@@ -29,7 +31,6 @@ type
   private
    f_OnBreakingPara: TBreakingParaEvent;
    f_DisableMouseWheelProcessing: Boolean;
-    {* Поле для свойства DisableMouseWheelProcessing }
   protected
    function pm_GetDisableMouseWheelProcessing: Boolean; virtual;
    procedure pm_SetDisableMouseWheelProcessing(aValue: Boolean); virtual;
@@ -82,6 +83,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CFF6CF60266impl_uses*
+ //#UC END# *4CFF6CF60266impl_uses*
 ;
 
 function TnscSimpleEditor.pm_GetDisableMouseWheelProcessing: Boolean;

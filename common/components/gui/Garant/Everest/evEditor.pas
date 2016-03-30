@@ -1,39 +1,29 @@
 unit evEditor;
+ {* Полноценный компонент-редактор. Для конечного пользователя (программиста). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evEditor.pas"
-// Начат: 21.05.1997 15:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevEditor
-//
-// Полноценный компонент-редактор. Для конечного пользователя (программиста).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evEditor.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevEditor" MUID: (484544370206)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evTunedEditor
-  ;
+ l3IntfUses
+ , evTunedEditor
+ //#UC START# *484544370206intf_uses*
+ //#UC END# *484544370206intf_uses*
+;
 
 type
-//#UC START# *484544370206ci*
-//#UC END# *484544370206ci*
-//#UC START# *484544370206cit*
-//#UC END# *484544370206cit*
+ //#UC START# *484544370206ci*
+ //#UC END# *484544370206ci*
+ //#UC START# *484544370206cit*
+ //#UC END# *484544370206cit*
  TevEditor = class(TevTunedEditor)
   {* Полноценный компонент-редактор. Для конечного пользователя (программиста). }
-//#UC START# *484544370206publ*
+ //#UC START# *484544370206publ*
     published
       property Canvas;
         {-}
@@ -135,28 +125,27 @@ type
       property OnMouseMove;
       property OnMouseUp;
       property OnResize;
-//#UC END# *484544370206publ*
+ //#UC END# *484544370206publ*
  end;//TevEditor
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *484544370206impl_uses*
+ //#UC END# *484544370206impl_uses*
+;
 
 //#UC START# *484544370206impl*
 //#UC END# *484544370206impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevEditor);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

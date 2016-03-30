@@ -12,13 +12,14 @@ uses
  l3IntfUses
  , vtComboTree
  , Classes
+ //#UC START# *4A83EE2702B6intf_uses*
+ //#UC END# *4A83EE2702B6intf_uses*
 ;
 
 type
  TCustomComboTree = class(TvtComboTree)
   private
    f_OnEndTextPrint: TNotifyEvent;
-    {* Поле для свойства OnEndTextPrint }
   private
    procedure EndTextPrint;
   protected
@@ -69,6 +70,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A83EE2702B6impl_uses*
+ //#UC END# *4A83EE2702B6impl_uses*
 ;
 
 procedure TCustomComboTree.EndTextPrint;

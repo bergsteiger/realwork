@@ -1,48 +1,34 @@
 unit evCustomMemoTextSource;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomMemoTextSource.pas"
-// Начат: 23.05.1997 09:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevCustomMemoTextSource
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemoTextSource.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomMemoTextSource" MUID: (482D98A20190)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evTextSource,
-  Classes,
-  nevTools
-  ;
+ l3IntfUses
+ , evTextSource
+ , nevTools
+ , Classes
+;
 
 type
  TevCustomMemoTextSource = class(TevTextSource)
- protected
- // overridden protected methods
+  protected
    function DoMakeDocumentContainer: InevDocumentContainer; override;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
  end;//TevCustomMemoTextSource
 
 implementation
 
 uses
-  evCustomMemoContainer
-  ;
-
-// start class TevCustomMemoTextSource
+ l3ImplUses
+ , evCustomMemoContainer
+;
 
 constructor TevCustomMemoTextSource.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_482D98A20190_var*

@@ -1,66 +1,52 @@
 unit evMergedCellFilter;
+ {* фильтр для преобразования "подвисших" ячеек объединения в нормальный вид. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMergedCellFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevMergedCellFilter
-//
-// фильтр для преобразования "подвисших" ячеек объединения в нормальный вид.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMergedCellFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMergedCellFilter" MUID: (49C21D090093)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  evCellsOffsets,
-  k2TagFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , evCellsOffsets
+ , evdTypes
+ , k2Base
+ , l3Variant
+;
 
 type
  TevNeedAddTextPara = (
-   ev_natNo
- , ev_natYes
- , ev_natWaitMergeStatus
+  ev_natNo
+  , ev_natYes
+  , ev_natWaitMergeStatus
  );//TevNeedAddTextPara
 
  TevMergedCellFilter = class(Tk2TagFilter)
   {* фильтр для преобразования "подвисших" ячеек объединения в нормальный вид. }
- private
- // private fields
-   f_CellsOffsets : TevCellsOffsets;
-    {* Смещения для поиска ячеек.}
-   f_MergeStatus : TevMergeStatus;
-   f_HasChild : Boolean;
-    {* Есть ли у ячейки хоть один дочерний.}
-   f_CorrectedWidth : Boolean;
-    {* Ширина была изменена.}
-   f_NewWidth : Integer;
-    {* Новая ширина ячейки.}
-   f_NeedAddTextPara : TevNeedAddTextPara;
-    {* Нужно ли проверять дочерние.}
- private
- // private methods
+  private
+   f_CellsOffsets: TevCellsOffsets;
+    {* Смещения для поиска ячеек. }
+   f_MergeStatus: TevMergeStatus;
+   f_HasChild: Boolean;
+    {* Есть ли у ячейки хоть один дочерний. }
+   f_CorrectedWidth: Boolean;
+    {* Ширина была изменена. }
+   f_NewWidth: Integer;
+    {* Новая ширина ячейки. }
+   f_NeedAddTextPara: TevNeedAddTextPara;
+    {* Нужно ли проверять дочерние. }
+  private
    function CellsOffsets: TevCellsOffsets;
    function IsTableCell: Boolean;
    procedure CheckCellWidth;
-     {* Проверяет ширину ячейки и, если надо корректирует её. }
- protected
- // overridden protected methods
+    {* Проверяет ширину ячейки и, если надо корректирует её. }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoStartChild(TypeID: Tk2Type); override;
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
@@ -70,16 +56,15 @@ type
 implementation
 
 uses
-  l3Base,
-  Table_Const,
-  TableRow_Const,
-  TableCell_Const,
-  k2Tags,
-  SBSCell_Const,
-  l3UnitsTools
-  ;
-
-// start class TevMergedCellFilter
+ l3ImplUses
+ , l3Base
+ , Table_Const
+ , TableRow_Const
+ , TableCell_Const
+ , k2Tags
+ , SBSCell_Const
+ , l3UnitsTools
+;
 
 function TevMergedCellFilter.CellsOffsets: TevCellsOffsets;
 //#UC START# *4E4517310268_49C21D090093_var*
@@ -102,6 +87,7 @@ begin
 end;//TevMergedCellFilter.IsTableCell
 
 procedure TevMergedCellFilter.CheckCellWidth;
+ {* Проверяет ширину ячейки и, если надо корректирует её. }
 //#UC START# *517E60E501A8_49C21D090093_var*
 //#UC END# *517E60E501A8_49C21D090093_var*
 begin
@@ -121,6 +107,7 @@ begin
 end;//TevMergedCellFilter.CheckCellWidth
 
 procedure TevMergedCellFilter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49C21D090093_var*
 //#UC END# *479731C50290_49C21D090093_var*
 begin
@@ -160,7 +147,7 @@ begin
 end;//TevMergedCellFilter.DoStartChild
 
 procedure TevMergedCellFilter.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_49C21D090093_var*
 
  procedure lp_CheckOffset;

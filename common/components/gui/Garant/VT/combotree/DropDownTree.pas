@@ -1,94 +1,66 @@
 unit DropDownTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/DropDownTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::ComboTree::TDropDownTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TDropDownTree" MUID: (53F1DC8F01AD)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  Types,
-  Messages,
-  l3ControlsTypes,
-  AbstractDropDown,
-  Windows,
-  ctTypes
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  AbsSubTree,
-  Classes,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , AbstractDropDown
+ , l3ControlsTypes
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , ctTypes
+ , Types
+ , Windows
+ , nevTools
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AbsSubTree
+ //#UC START# *53F1DC8F01ADintf_uses*
+ //#UC END# *53F1DC8F01ADintf_uses*
+;
 
 const
-  { Const }
  CM_ARTFULBEHAVIOUR = WM_USER + 12345;
 
 type
-
  TSubTree = class;
 
  TDropDownTreePrim = class(TAbstractDropDown)
- private
- // private fields
-   f_Invert : Boolean;
-   f_CalcDimensions : Boolean;
-   f_Tree : TSubTree;
-   f_AdjustDropDownPos : Boolean;
-    {* Поле для свойства AdjustDropDownPos}
-   f_SizeableTree : Boolean;
-    {* Поле для свойства SizeableTree}
-   f_ShowGripper : Boolean;
-    {* Поле для свойства ShowGripper}
-   f_OnGetItemImage : Tl3GetItemImage;
-    {* Поле для свойства OnGetItemImage}
-   f_MinVisibleDropCount : Integer;
-    {* Поле для свойства MinVisibleDropCount}
-   f_MaxVisibleDropCount : Integer;
-    {* Поле для свойства MaxVisibleDropCount}
-   f_GrowDropTreeWidthByIcons : Boolean;
-    {* Поле для свойства GrowDropTreeWidthByIcons}
-   f_KeepLastDropWidth : Boolean;
-    {* Поле для свойства KeepLastDropWidth}
-   f_DropHeight : Integer;
-    {* Поле для свойства DropHeight}
-   f_DropWidth : Integer;
-    {* Поле для свойства DropWidth}
- private
- // private methods
+  private
+   f_Invert: Boolean;
+   f_CalcDimensions: Boolean;
+   f_Tree: TSubTree;
+   f_AdjustDropDownPos: Boolean;
+   f_SizeableTree: Boolean;
+   f_ShowGripper: Boolean;
+   f_OnGetItemImage: Tl3GetItemImage;
+   f_MinVisibleDropCount: Integer;
+   f_MaxVisibleDropCount: Integer;
+   f_GrowDropTreeWidthByIcons: Boolean;
+   f_KeepLastDropWidth: Boolean;
+   f_DropHeight: Integer;
+   f_DropWidth: Integer;
+  private
    procedure WMLButtonDown(var Message: TWMLButtonDown); message WM_LBUTTONDOWN;
    procedure WMLButtonUp(var Message: TWMLButtonDown); message WM_LBUTTONUP;
    procedure WMKillFocus(var Message: TWMKillFocus); message WM_KILLFOCUS;
    procedure WMSetFocus(var Message: TWMSetFocus); message WM_SETFOCUS;
    procedure CMArtfulBehaviour(var Message: TMessage); message CM_ARTFULBEHAVIOUR;
- protected
- // property methods
+  protected
    procedure pm_SetSizeableTree(aValue: Boolean);
    procedure pm_SetShowGripper(aValue: Boolean);
    procedure pm_SetOnGetItemImage(aValue: Tl3GetItemImage);
@@ -104,157 +76,133 @@ type
    procedure pm_SetTreeStruct(const aValue: Il3SimpleTree);
    function pm_GetIsList: Boolean; virtual;
    function pm_GetTree: TSubTree;
- protected
- // realized methods
-   function GetActiveSub: TWinControl; override;
- protected
- // overridden property methods
-   procedure pm_SetDropped(aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetPaintSelection: InevRange; override;
-   procedure HideDropDown; override;
-     {* Сигнатура метода HideDropDown }
-   {$If not defined(NoVCM)}
-   function IvcmState_LoadState(const aState: IUnknown;
-    aStateType: TvcmStateType): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function IvcmState_SaveState(out aState: IUnknown;
-    aStateType: TvcmStateType): Boolean; override;
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    procedure RecreateTreeIfNeeded(aValue: TComboStyle); virtual;
    function CreateSubTree: TSubTree; virtual;
    function CursorStored: Boolean;
    function EstimateTreeHeight(aMinSize: Integer;
-     aMaxSize: Integer): Integer; virtual;
+    aMaxSize: Integer): Integer; virtual;
    function EstimateTreeWidth(aMaxSizeX: Integer;
-     aSizeY: Integer): Integer; virtual;
+    aSizeY: Integer): Integer; virtual;
    procedure CalcDropDimensions;
-     {* Сигнатура метода CalcDropDimensions }
    procedure DropSessionSettings;
-     {* Сигнатура метода DropSessionSettings }
    function CalcGrowingWidth: Integer;
    procedure TreeChangedNotification; virtual;
-     {* Сигнатура метода TreeChangedNotification }
    procedure ActionElementHandler(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure ProcessTreeSelect(ChooseFromTree: Boolean;
-     aTriggerSelect: Boolean); virtual;
+    aTriggerSelect: Boolean); virtual;
    function GetItemImageHandler(Sender: TObject;
-     anIndex: Integer;
-     var aImages: TCustomImageList): Integer; virtual;
+    anIndex: Integer;
+    var aImages: TCustomImageList): Integer; virtual;
    function TreeImagesStored: Boolean;
-     {* "Функция определяющая, что свойство TreeImages сохраняется" }
- public
- // public methods
+    {* "Функция определяющая, что свойство TreeImages сохраняется" }
+   function GetActiveSub: TWinControl; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetPaintSelection: InevRange; override;
+   procedure pm_SetDropped(aValue: Boolean); override;
+   procedure HideDropDown; override;
+   {$If NOT Defined(NoVCM)}
+   function IvcmState_LoadState(const aState: IUnknown;
+    aStateType: TvcmStateType): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function IvcmState_SaveState(out aState: IUnknown;
+    aStateType: TvcmStateType): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure CustomDoEnter; virtual;
-     {* Сигнатура метода CustomDoEnter }
    function InnerPoint(const aPoint: TPoint): Boolean; virtual;
    function IsInnerControl(aHandle: THandle): Boolean; virtual;
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property SizeableTree: Boolean
-     read f_SizeableTree
-     write pm_SetSizeableTree;
+    read f_SizeableTree
+    write pm_SetSizeableTree;
    property ShowGripper: Boolean
-     read f_ShowGripper
-     write pm_SetShowGripper;
+    read f_ShowGripper
+    write pm_SetShowGripper;
    property ShowIcons: Boolean
-     read pm_GetShowIcons
-     write pm_SetShowIcons;
- public
- // public properties
+    read pm_GetShowIcons
+    write pm_SetShowIcons;
+  public
    property AdjustDropDownPos: Boolean
-     read f_AdjustDropDownPos
-     write f_AdjustDropDownPos;
+    read f_AdjustDropDownPos
+    write f_AdjustDropDownPos;
    property OnGetItemImage: Tl3GetItemImage
-     read f_OnGetItemImage
-     write pm_SetOnGetItemImage;
+    read f_OnGetItemImage
+    write pm_SetOnGetItemImage;
    property MinVisibleDropCount: Integer
-     read f_MinVisibleDropCount
-     write f_MinVisibleDropCount;
+    read f_MinVisibleDropCount
+    write f_MinVisibleDropCount;
    property MaxVisibleDropCount: Integer
-     read f_MaxVisibleDropCount
-     write f_MaxVisibleDropCount;
+    read f_MaxVisibleDropCount
+    write f_MaxVisibleDropCount;
    property GrowDropTreeWidthByIcons: Boolean
-     read f_GrowDropTreeWidthByIcons
-     write f_GrowDropTreeWidthByIcons;
+    read f_GrowDropTreeWidthByIcons
+    write f_GrowDropTreeWidthByIcons;
    property KeepLastDropWidth: Boolean
-     read f_KeepLastDropWidth
-     write f_KeepLastDropWidth;
+    read f_KeepLastDropWidth
+    write f_KeepLastDropWidth;
    property ShowRoot: Boolean
-     read pm_GetShowRoot
-     write pm_SetShowRoot;
+    read pm_GetShowRoot
+    write pm_SetShowRoot;
    property DropHeight: Integer
-     read f_DropHeight
-     write f_DropHeight;
+    read f_DropHeight
+    write f_DropHeight;
    property DropWidth: Integer
-     read f_DropWidth
-     write f_DropWidth;
+    read f_DropWidth
+    write f_DropWidth;
    property TreeImages: TCustomImageList
-     read pm_GetTreeImages
-     write pm_SetTreeImages
-     stored TreeImagesStored;
+    read pm_GetTreeImages
+    write pm_SetTreeImages
+    stored TreeImagesStored;
    property CurrentNode: Il3SimpleNode
-     read pm_GetCurrentNode
-     write pm_SetCurrentNode;
+    read pm_GetCurrentNode
+    write pm_SetCurrentNode;
    property TreeStruct: Il3SimpleTree
-     read pm_GetTreeStruct
-     write pm_SetTreeStruct;
+    read pm_GetTreeStruct
+    write pm_SetTreeStruct;
    property IsList: Boolean
-     read pm_GetIsList;
+    read pm_GetIsList;
    property Tree: TSubTree
-     read pm_GetTree;
+    read pm_GetTree;
  end;//TDropDownTreePrim
 
-//#UC START# *53EDF0B0003Dci*
-//#UC END# *53EDF0B0003Dci*
-//#UC START# *53EDF0B0003Dcit*
-//#UC END# *53EDF0B0003Dcit*
+ //#UC START# *53EDF0B0003Dci*
+ //#UC END# *53EDF0B0003Dci*
+ //#UC START# *53EDF0B0003Dcit*
+ //#UC END# *53EDF0B0003Dcit*
  TSubTree = class(TAbsSubTree)
- private
- // private methods
+  protected
+   f_SubOwner: TDropDownTreePrim;
+  private
    procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
    procedure WMExitSizeMove(var Message: TMessage); message WM_EXITSIZEMOVE;
    procedure WMEnterSizeMove(var Message: TMessage); message WM_ENTERSIZEMOVE;
- protected
- // realized methods
+  protected
    function IsSizeableTree: Boolean; override;
    function IsShowGripper: Boolean; override;
    function IsList: Boolean; override;
    function IsInvert: Boolean; override;
    function IsOwnerAssigned: Boolean; override;
    function GetWidth: Integer; override;
- protected
- // overridden protected methods
    procedure DoChanged; override;
    function GetMinVisibleDropCount: Integer; override;
    function GetMaxVisibleDropCount: Integer; override;
- protected
- // protected fields
-   f_SubOwner : TDropDownTreePrim;
- public
- // public methods
+  public
    constructor Create(aOwner: TDropDownTreePrim); reintroduce;
-//#UC START# *53EDF0B0003Dpubl*
+ //#UC START# *53EDF0B0003Dpubl*
    property AllowWithoutCurrent;
-//#UC END# *53EDF0B0003Dpubl*
+ //#UC END# *53EDF0B0003Dpubl*
  end;//TSubTree
 
-//#UC START# *53F1DC8F01ADci*
-//#UC END# *53F1DC8F01ADci*
-//#UC START# *53F1DC8F01ADcit*
-//#UC END# *53F1DC8F01ADcit*
+ //#UC START# *53F1DC8F01ADci*
+ //#UC END# *53F1DC8F01ADci*
+ //#UC START# *53F1DC8F01ADcit*
+ //#UC END# *53F1DC8F01ADcit*
  TDropDownTree = class(TDropDownTreePrim)
-//#UC START# *53F1DC8F01ADpubl*
+ //#UC START# *53F1DC8F01ADpubl*
  protected
   property SizeableTree default True;
   property ShowGripper default True;
@@ -268,226 +216,26 @@ type
   property Cursor stored CursorStored;
   property OnGetItemImage;
   property OnChange;
-//#UC END# *53F1DC8F01ADpubl*
+ //#UC END# *53F1DC8F01ADpubl*
  end;//TDropDownTree
 
 implementation
 
 uses
-  l3MinMax,
-  afwFacade,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3ListenersManager
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TDropDownTreePrim
-
-procedure TDropDownTreePrim.RecreateTreeIfNeeded(aValue: TComboStyle);
-//#UC START# *53EE012C0211_4831599C0300_var*
-//#UC END# *53EE012C0211_4831599C0300_var*
-begin
-//#UC START# *53EE012C0211_4831599C0300_impl*
- FreeAndNil(f_Tree);
- if aValue <> ct_cbEdit then
-  f_Tree := CreateSubTree;
-//#UC END# *53EE012C0211_4831599C0300_impl*
-end;//TDropDownTreePrim.RecreateTreeIfNeeded
-
-function TDropDownTreePrim.CreateSubTree: TSubTree;
-//#UC START# *53EE01540251_4831599C0300_var*
-//#UC END# *53EE01540251_4831599C0300_var*
-begin
-//#UC START# *53EE01540251_4831599C0300_impl*
- Result := TSubTree.Create(Self);
-//#UC END# *53EE01540251_4831599C0300_impl*
-end;//TDropDownTreePrim.CreateSubTree
-
-function TDropDownTreePrim.CursorStored: Boolean;
-//#UC START# *53EE08DF03BA_4831599C0300_var*
-//#UC END# *53EE08DF03BA_4831599C0300_var*
-begin
-//#UC START# *53EE08DF03BA_4831599C0300_impl*
- Result := (Cursor <> crIBeam);
-//#UC END# *53EE08DF03BA_4831599C0300_impl*
-end;//TDropDownTreePrim.CursorStored
-
-function TDropDownTreePrim.EstimateTreeHeight(aMinSize: Integer;
-  aMaxSize: Integer): Integer;
-//#UC START# *53EE09AA0268_4831599C0300_var*
-//#UC END# *53EE09AA0268_4831599C0300_var*
-begin
-//#UC START# *53EE09AA0268_4831599C0300_impl*
- Result := 100;
-//#UC END# *53EE09AA0268_4831599C0300_impl*
-end;//TDropDownTreePrim.EstimateTreeHeight
-
-function TDropDownTreePrim.EstimateTreeWidth(aMaxSizeX: Integer;
-  aSizeY: Integer): Integer;
-//#UC START# *53EE09D70249_4831599C0300_var*
-//#UC END# *53EE09D70249_4831599C0300_var*
-begin
-//#UC START# *53EE09D70249_4831599C0300_impl*
- Result := Width;
-//#UC END# *53EE09D70249_4831599C0300_impl*
-end;//TDropDownTreePrim.EstimateTreeWidth
-
-procedure TDropDownTreePrim.CalcDropDimensions;
-//#UC START# *53EE0A060099_4831599C0300_var*
-var
- l_Point: TPoint;
- l_MaxWidth: integer;
-//#UC END# *53EE0A060099_4831599C0300_var*
-begin
-//#UC START# *53EE0A060099_4831599C0300_impl*
- l_Point := ClientToScreen(Point(0, 0));
-
- if (Screen.DesktopLeft + Screen.DesktopWidth) > (l_Point.X + Width) then
-  l_MaxWidth := Screen.DesktopLeft + Screen.DesktopWidth - l_Point.X
- else
-  l_MaxWidth := -1;
-
- if f_CalcDimensions then
- begin
-  if (f_DropHeight=0) then begin
-   f_DropHeight := EstimateTreeHeight(Tree.GetMinSizeY, Tree.GetMaxSizeY);
-   Inc(f_DropHeight, Tree.getBorderSize);
-  end;
-  if not f_KeepLastDropWidth then
-   f_DropWidth := EstimateTreeWidth(l_MaxWidth, f_DropHeight);
-  f_KeepLastDropWidth := False;
-  f_CalcDimensions := False;
- end;
-
- if f_DropWidth > l_MaxWidth then
-  f_DropWidth := l_MaxWidth;
-{  if f_DropWidth < Width then
-  f_DropWidth := Width; }
-//#UC END# *53EE0A060099_4831599C0300_impl*
-end;//TDropDownTreePrim.CalcDropDimensions
-
-procedure TDropDownTreePrim.DropSessionSettings;
-//#UC START# *53EE0A11020D_4831599C0300_var*
-//#UC END# *53EE0A11020D_4831599C0300_var*
-begin
-//#UC START# *53EE0A11020D_4831599C0300_impl*
- f_CalcDimensions := True;
-//#UC END# *53EE0A11020D_4831599C0300_impl*
-end;//TDropDownTreePrim.DropSessionSettings
-
-function TDropDownTreePrim.CalcGrowingWidth: Integer;
-//#UC START# *53EE0A28005A_4831599C0300_var*
-var
- DR: TRect;
-//#UC END# *53EE0A28005A_4831599C0300_var*
-begin
-//#UC START# *53EE0A28005A_4831599C0300_impl*
- if Tree.Current > -1 then
- begin
-  DR := Tree.GetDrawRect(Tree.Current);
-  Result := Tree.GetItemTextIndent(Tree.Current, DR.Bottom - DR.Top);
- end
- else
- if Tree.Total > 0 then
- begin
-  DR := Tree.GetDrawRect(Tree.TopIndex);
-  Result := Tree.GetItemTextIndent(Tree.TopIndex, DR.Bottom - DR.Top);
- end
- else
-  Result := 0;
-//#UC END# *53EE0A28005A_4831599C0300_impl*
-end;//TDropDownTreePrim.CalcGrowingWidth
-
-procedure TDropDownTreePrim.TreeChangedNotification;
-//#UC START# *53EE0A3D023F_4831599C0300_var*
-//#UC END# *53EE0A3D023F_4831599C0300_var*
-begin
-//#UC START# *53EE0A3D023F_4831599C0300_impl*
-//#UC END# *53EE0A3D023F_4831599C0300_impl*
-end;//TDropDownTreePrim.TreeChangedNotification
-
-procedure TDropDownTreePrim.ActionElementHandler(Sender: TObject;
-  Index: LongInt);
-//#UC START# *53EE0A5601CD_4831599C0300_var*
-//#UC END# *53EE0A5601CD_4831599C0300_var*
-begin
-//#UC START# *53EE0A5601CD_4831599C0300_impl*
- Dropped := False;
-//     afw.ProcessMessages; нельзя :(
- afw.BeginOp;
- try
-  ProcessTreeSelect(True, True);
- finally
-  afw.EndOp;
- end;
-//#UC END# *53EE0A5601CD_4831599C0300_impl*
-end;//TDropDownTreePrim.ActionElementHandler
-
-procedure TDropDownTreePrim.ProcessTreeSelect(ChooseFromTree: Boolean;
-  aTriggerSelect: Boolean);
-//#UC START# *53EE0A730393_4831599C0300_var*
-//#UC END# *53EE0A730393_4831599C0300_var*
-begin
-//#UC START# *53EE0A730393_4831599C0300_impl*
-//#UC END# *53EE0A730393_4831599C0300_impl*
-end;//TDropDownTreePrim.ProcessTreeSelect
-
-function TDropDownTreePrim.GetItemImageHandler(Sender: TObject;
-  anIndex: Integer;
-  var aImages: TCustomImageList): Integer;
-//#UC START# *53EE0AD700F8_4831599C0300_var*
-//#UC END# *53EE0AD700F8_4831599C0300_var*
-begin
-//#UC START# *53EE0AD700F8_4831599C0300_impl*
- Result := -1;
- if Assigned(f_OnGetItemImage) then
-  Result := f_OnGetItemImage(Self, anIndex, aImages);
-//#UC END# *53EE0AD700F8_4831599C0300_impl*
-end;//TDropDownTreePrim.GetItemImageHandler
-
-procedure TDropDownTreePrim.CustomDoEnter;
-//#UC START# *53F1DB47024C_4831599C0300_var*
-//#UC END# *53F1DB47024C_4831599C0300_var*
-begin
-//#UC START# *53F1DB47024C_4831599C0300_impl*
-//#UC END# *53F1DB47024C_4831599C0300_impl*
-end;//TDropDownTreePrim.CustomDoEnter
-
-function TDropDownTreePrim.InnerPoint(const aPoint: TPoint): Boolean;
-//#UC START# *53F1DB6200C6_4831599C0300_var*
-var
- l_Rect: TRect;
-//#UC END# *53F1DB6200C6_4831599C0300_var*
-begin
-//#UC START# *53F1DB6200C6_4831599C0300_impl*
- Result := True;
- GetWindowRect(Handle, l_Rect);
- if PtInRect(l_Rect, aPoint) then
-  Exit;
- GetWindowRect(Tree.Handle, l_Rect);
- if PtInRect(l_Rect, aPoint) then
-  Exit;
- Result := False;
-//#UC END# *53F1DB6200C6_4831599C0300_impl*
-end;//TDropDownTreePrim.InnerPoint
-
-function TDropDownTreePrim.IsInnerControl(aHandle: THandle): Boolean;
-//#UC START# *53F1DB7F0036_4831599C0300_var*
-//#UC END# *53F1DB7F0036_4831599C0300_var*
-begin
-//#UC START# *53F1DB7F0036_4831599C0300_impl*
- Result := (aHandle = Handle) or (aHandle = Tree.Handle);
-//#UC END# *53F1DB7F0036_4831599C0300_impl*
-end;//TDropDownTreePrim.IsInnerControl
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3MinMax
+ , afwFacade
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ListenersManager
+ //#UC START# *53F1DC8F01ADimpl_uses*
+ //#UC END# *53F1DC8F01ADimpl_uses*
+;
 
 procedure TDropDownTreePrim.pm_SetSizeableTree(aValue: Boolean);
 //#UC START# *53EDFEBC01FA_4831599C0300set_var*
@@ -651,8 +399,206 @@ begin
 //#UC START# *53F2095303D0_4831599C0300get_impl*
  if f_Tree = nil then
   RecreateTreeIfNeeded(ComboStyle);
- Result := f_Tree;//#UC END# *53F2095303D0_4831599C0300get_impl*
+ Result := f_Tree;
+//#UC END# *53F2095303D0_4831599C0300get_impl*
 end;//TDropDownTreePrim.pm_GetTree
+
+procedure TDropDownTreePrim.RecreateTreeIfNeeded(aValue: TComboStyle);
+//#UC START# *53EE012C0211_4831599C0300_var*
+//#UC END# *53EE012C0211_4831599C0300_var*
+begin
+//#UC START# *53EE012C0211_4831599C0300_impl*
+ FreeAndNil(f_Tree);
+ if aValue <> ct_cbEdit then
+  f_Tree := CreateSubTree;
+//#UC END# *53EE012C0211_4831599C0300_impl*
+end;//TDropDownTreePrim.RecreateTreeIfNeeded
+
+function TDropDownTreePrim.CreateSubTree: TSubTree;
+//#UC START# *53EE01540251_4831599C0300_var*
+//#UC END# *53EE01540251_4831599C0300_var*
+begin
+//#UC START# *53EE01540251_4831599C0300_impl*
+ Result := TSubTree.Create(Self);
+//#UC END# *53EE01540251_4831599C0300_impl*
+end;//TDropDownTreePrim.CreateSubTree
+
+function TDropDownTreePrim.CursorStored: Boolean;
+//#UC START# *53EE08DF03BA_4831599C0300_var*
+//#UC END# *53EE08DF03BA_4831599C0300_var*
+begin
+//#UC START# *53EE08DF03BA_4831599C0300_impl*
+ Result := (Cursor <> crIBeam);
+//#UC END# *53EE08DF03BA_4831599C0300_impl*
+end;//TDropDownTreePrim.CursorStored
+
+function TDropDownTreePrim.EstimateTreeHeight(aMinSize: Integer;
+ aMaxSize: Integer): Integer;
+//#UC START# *53EE09AA0268_4831599C0300_var*
+//#UC END# *53EE09AA0268_4831599C0300_var*
+begin
+//#UC START# *53EE09AA0268_4831599C0300_impl*
+ Result := 100;
+//#UC END# *53EE09AA0268_4831599C0300_impl*
+end;//TDropDownTreePrim.EstimateTreeHeight
+
+function TDropDownTreePrim.EstimateTreeWidth(aMaxSizeX: Integer;
+ aSizeY: Integer): Integer;
+//#UC START# *53EE09D70249_4831599C0300_var*
+//#UC END# *53EE09D70249_4831599C0300_var*
+begin
+//#UC START# *53EE09D70249_4831599C0300_impl*
+ Result := Width;
+//#UC END# *53EE09D70249_4831599C0300_impl*
+end;//TDropDownTreePrim.EstimateTreeWidth
+
+procedure TDropDownTreePrim.CalcDropDimensions;
+//#UC START# *53EE0A060099_4831599C0300_var*
+var
+ l_Point: TPoint;
+ l_MaxWidth: integer;
+//#UC END# *53EE0A060099_4831599C0300_var*
+begin
+//#UC START# *53EE0A060099_4831599C0300_impl*
+ l_Point := ClientToScreen(Point(0, 0));
+
+ if (Screen.DesktopLeft + Screen.DesktopWidth) > (l_Point.X + Width) then
+  l_MaxWidth := Screen.DesktopLeft + Screen.DesktopWidth - l_Point.X
+ else
+  l_MaxWidth := -1;
+
+ if f_CalcDimensions then
+ begin
+  if (f_DropHeight=0) then begin
+   f_DropHeight := EstimateTreeHeight(Tree.GetMinSizeY, Tree.GetMaxSizeY);
+   Inc(f_DropHeight, Tree.getBorderSize);
+  end;
+  if not f_KeepLastDropWidth then
+   f_DropWidth := EstimateTreeWidth(l_MaxWidth, f_DropHeight);
+  f_KeepLastDropWidth := False;
+  f_CalcDimensions := False;
+ end;
+
+ if f_DropWidth > l_MaxWidth then
+  f_DropWidth := l_MaxWidth;
+{  if f_DropWidth < Width then
+  f_DropWidth := Width; }
+//#UC END# *53EE0A060099_4831599C0300_impl*
+end;//TDropDownTreePrim.CalcDropDimensions
+
+procedure TDropDownTreePrim.DropSessionSettings;
+//#UC START# *53EE0A11020D_4831599C0300_var*
+//#UC END# *53EE0A11020D_4831599C0300_var*
+begin
+//#UC START# *53EE0A11020D_4831599C0300_impl*
+ f_CalcDimensions := True;
+//#UC END# *53EE0A11020D_4831599C0300_impl*
+end;//TDropDownTreePrim.DropSessionSettings
+
+function TDropDownTreePrim.CalcGrowingWidth: Integer;
+//#UC START# *53EE0A28005A_4831599C0300_var*
+var
+ DR: TRect;
+//#UC END# *53EE0A28005A_4831599C0300_var*
+begin
+//#UC START# *53EE0A28005A_4831599C0300_impl*
+ if Tree.Current > -1 then
+ begin
+  DR := Tree.GetDrawRect(Tree.Current);
+  Result := Tree.GetItemTextIndent(Tree.Current, DR.Bottom - DR.Top);
+ end
+ else
+ if Tree.Total > 0 then
+ begin
+  DR := Tree.GetDrawRect(Tree.TopIndex);
+  Result := Tree.GetItemTextIndent(Tree.TopIndex, DR.Bottom - DR.Top);
+ end
+ else
+  Result := 0;
+//#UC END# *53EE0A28005A_4831599C0300_impl*
+end;//TDropDownTreePrim.CalcGrowingWidth
+
+procedure TDropDownTreePrim.TreeChangedNotification;
+//#UC START# *53EE0A3D023F_4831599C0300_var*
+//#UC END# *53EE0A3D023F_4831599C0300_var*
+begin
+//#UC START# *53EE0A3D023F_4831599C0300_impl*
+//#UC END# *53EE0A3D023F_4831599C0300_impl*
+end;//TDropDownTreePrim.TreeChangedNotification
+
+procedure TDropDownTreePrim.ActionElementHandler(Sender: TObject;
+ Index: LongInt);
+//#UC START# *53EE0A5601CD_4831599C0300_var*
+//#UC END# *53EE0A5601CD_4831599C0300_var*
+begin
+//#UC START# *53EE0A5601CD_4831599C0300_impl*
+ Dropped := False;
+//     afw.ProcessMessages; нельзя :(
+ afw.BeginOp;
+ try
+  ProcessTreeSelect(True, True);
+ finally
+  afw.EndOp;
+ end;
+//#UC END# *53EE0A5601CD_4831599C0300_impl*
+end;//TDropDownTreePrim.ActionElementHandler
+
+procedure TDropDownTreePrim.ProcessTreeSelect(ChooseFromTree: Boolean;
+ aTriggerSelect: Boolean);
+//#UC START# *53EE0A730393_4831599C0300_var*
+//#UC END# *53EE0A730393_4831599C0300_var*
+begin
+//#UC START# *53EE0A730393_4831599C0300_impl*
+//#UC END# *53EE0A730393_4831599C0300_impl*
+end;//TDropDownTreePrim.ProcessTreeSelect
+
+function TDropDownTreePrim.GetItemImageHandler(Sender: TObject;
+ anIndex: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *53EE0AD700F8_4831599C0300_var*
+//#UC END# *53EE0AD700F8_4831599C0300_var*
+begin
+//#UC START# *53EE0AD700F8_4831599C0300_impl*
+ Result := -1;
+ if Assigned(f_OnGetItemImage) then
+  Result := f_OnGetItemImage(Self, anIndex, aImages);
+//#UC END# *53EE0AD700F8_4831599C0300_impl*
+end;//TDropDownTreePrim.GetItemImageHandler
+
+procedure TDropDownTreePrim.CustomDoEnter;
+//#UC START# *53F1DB47024C_4831599C0300_var*
+//#UC END# *53F1DB47024C_4831599C0300_var*
+begin
+//#UC START# *53F1DB47024C_4831599C0300_impl*
+//#UC END# *53F1DB47024C_4831599C0300_impl*
+end;//TDropDownTreePrim.CustomDoEnter
+
+function TDropDownTreePrim.InnerPoint(const aPoint: TPoint): Boolean;
+//#UC START# *53F1DB6200C6_4831599C0300_var*
+var
+ l_Rect: TRect;
+//#UC END# *53F1DB6200C6_4831599C0300_var*
+begin
+//#UC START# *53F1DB6200C6_4831599C0300_impl*
+ Result := True;
+ GetWindowRect(Handle, l_Rect);
+ if PtInRect(l_Rect, aPoint) then
+  Exit;
+ GetWindowRect(Tree.Handle, l_Rect);
+ if PtInRect(l_Rect, aPoint) then
+  Exit;
+ Result := False;
+//#UC END# *53F1DB6200C6_4831599C0300_impl*
+end;//TDropDownTreePrim.InnerPoint
+
+function TDropDownTreePrim.IsInnerControl(aHandle: THandle): Boolean;
+//#UC START# *53F1DB7F0036_4831599C0300_var*
+//#UC END# *53F1DB7F0036_4831599C0300_var*
+begin
+//#UC START# *53F1DB7F0036_4831599C0300_impl*
+ Result := (aHandle = Handle) or (aHandle = Tree.Handle);
+//#UC END# *53F1DB7F0036_4831599C0300_impl*
+end;//TDropDownTreePrim.IsInnerControl
 
 procedure TDropDownTreePrim.WMLButtonDown(var Message: TWMLButtonDown);
 //#UC START# *53EE177B02C6_4831599C0300_var*
@@ -742,6 +688,7 @@ begin
 end;//TDropDownTreePrim.CMArtfulBehaviour
 
 function TDropDownTreePrim.TreeImagesStored: Boolean;
+ {* "Функция определяющая, что свойство TreeImages сохраняется" }
 //#UC START# *83A53CAA19B9_4831599C0300_var*
 //#UC END# *83A53CAA19B9_4831599C0300_var*
 begin
@@ -763,6 +710,7 @@ begin
 end;//TDropDownTreePrim.GetActiveSub
 
 procedure TDropDownTreePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4831599C0300_var*
 //#UC END# *479731C50290_4831599C0300_var*
 begin
@@ -942,9 +890,9 @@ begin
 //#UC END# *53EDCFAF00AA_4831599C0300_impl*
 end;//TDropDownTreePrim.HideDropDown
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TDropDownTreePrim.IvcmState_LoadState(const aState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *54084F6B01FD_4831599C0300_var*
 var
  l_State: IvcmState;
@@ -960,11 +908,11 @@ begin
  //Result := inherited IvcmState_LoadState(aState, aStateType);
 //#UC END# *54084F6B01FD_4831599C0300_impl*
 end;//TDropDownTreePrim.IvcmState_LoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TDropDownTreePrim.IvcmState_SaveState(out aState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *54084FBC0018_4831599C0300_var*
 var
  l_State: IvcmState;
@@ -981,8 +929,7 @@ begin
  // !! Если будешь здесь копаться, то читай и TAbstractDropDown.IvcmState_SaveState
 //#UC END# *54084FBC0018_4831599C0300_impl*
 end;//TDropDownTreePrim.IvcmState_SaveState
-{$IfEnd} //not NoVCM
-// start class TSubTree
+{$IfEnd} // NOT Defined(NoVCM)
 
 constructor TSubTree.Create(aOwner: TDropDownTreePrim);
 //#UC START# *53EDF2910311_53EDF0B0003D_var*
@@ -1144,17 +1091,17 @@ end;//TSubTree.GetMaxVisibleDropCount
 //#UC END# *53F1DC8F01ADimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TDropDownTreePrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDropDownTreePrim);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TSubTree
+ {* Регистрация TDropDownTreePrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TSubTree);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TDropDownTree
+ {* Регистрация TSubTree }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDropDownTree);
-{$IfEnd} //not NoScripts
+ {* Регистрация TDropDownTree }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

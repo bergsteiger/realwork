@@ -42,9 +42,8 @@ type
    f_DrawCache: TBitmap;
    f_AlphaDrawCache: TBitmap;
    f_Count: Integer;
-    {* Поле для свойства Count }
    f_CurBPP: TvtPILBpp;
-    {* Поле для свойства CurBPP }
+    {* default bpp24 }
   private
    procedure CalcCount;
    procedure ResizeAll(aCount: Integer);
@@ -161,13 +160,9 @@ type
    f_NeedPrepareAlphaDrawCache: TvtPILSizeBoolArray;
    f_Rebuilding: Boolean;
    f_AvailableSizes: TvtPILSizes;
-    {* Поле для свойства AvailableSizes }
    f_Count: Integer;
-    {* Поле для свойства Count }
    f_CurBPP: TvtPILBpp;
-    {* Поле для свойства CurBPP }
    f_CurSize: TvtPILSize;
-    {* Поле для свойства CurSize }
   private
    procedure CalcCount(UseNewSizes: Boolean = True);
    procedure ResizeAll(aCount: Integer);
@@ -284,9 +279,7 @@ type
   private
    f_ImageChangeLink: TChangeLink;
    f_FixedSize: TvtPILSize;
-    {* Поле для свойства FixedSize }
    f_OriginalImgList: TvtPngImageListPrim;
-    {* Поле для свойства OriginalImgList }
   private
    procedure ImageListChange(Sender: TObject);
   protected

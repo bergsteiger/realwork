@@ -1,7 +1,7 @@
-unit evStylesPrintAndExportFontSizeSettingRes;
+unit NOT_COMPLETED_evStylesPrintAndExportFontSizeSettingRes;
  {* Ресурсы для настройки "Использовать для экспорта и печати следующий размер шрифта" }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evStylesPrintAndExportFontSizeSettingRes.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "evStylesPrintAndExportFontSizeSettingRes" MUID: (C9ADD4944F97)
 
@@ -95,7 +95,8 @@ type
 
 const
  {* Карта преобразования локализованных строк PrintAndExportFontSizeValues }
- PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (@str_PrintAndExportFontSize_pef8
+ PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (
+ @str_PrintAndExportFontSize_pef8
  , @str_PrintAndExportFontSize_pef9
  , @str_PrintAndExportFontSize_pef10
  , @str_PrintAndExportFontSize_pef11

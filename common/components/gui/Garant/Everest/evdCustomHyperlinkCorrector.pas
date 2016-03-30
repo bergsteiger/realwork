@@ -1,77 +1,58 @@
 unit evdCustomHyperlinkCorrector;
+ {* Фильтр исправляющий адреса ссылок из F1 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evdCustomHyperlinkCorrector.pas"
-// Начат: 18.06.2010 19:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdCustomHyperlinkCorrector
-//
-// Фильтр исправляющий адреса ссылок из F1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdCustomHyperlinkCorrector.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdCustomHyperlinkCorrector" MUID: (4C1B8D2F039F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagGen,
-  evdInterfaces,
-  evdLeafParaFilter,
-  l3Variant,
-  k2Base
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , evdInterfaces
+ , k2TagGen
+ , k2Base
+ , l3Variant
+;
 
 type
  TevdCustomHyperlinkCorrector = class(TevdLeafParaFilter)
   {* Фильтр исправляющий адреса ссылок из F1 }
- private
- // private fields
-   f_Converter : IevdExternalDocNumberToInternal;
-   f_ExternalHandle : Integer;
-    {* Внешний номер передаваемого документа для подставки в ссылку.}
- protected
- // overridden protected methods
-   procedure AddAtomEx(AtomIndex: Integer;
-    const Value: Ik2Variant); override;
-   function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
-   procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_Converter: IevdExternalDocNumberToInternal;
+   f_ExternalHandle: Integer;
+    {* Внешний номер передаваемого документа для подставки в ссылку. }
+  protected
    function IsNeedCorrection: Boolean; virtual;
    function DoCorrectDocID(const aDocID: Integer): Integer; virtual;
    function CheckDocIDBeforeCorrection(const aDocID: Integer): Boolean; virtual;
- public
- // public methods
+   procedure AddAtomEx(AtomIndex: Integer;
+    const Value: Ik2Variant); override;
+   function ParaTypeForFiltering: Tk2Type; override;
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+   procedure DoWritePara(aLeaf: Tl3Variant); override;
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+   procedure ClearFields; override;
+  public
    class function SetTo(var theGenerator: Tk2TagGenerator;
-     const aConverter: IevdExternalDocNumberToInternal): Pointer;
+    const aConverter: IevdExternalDocNumberToInternal): Pointer;
  end;//TevdCustomHyperlinkCorrector
 
 implementation
 
 uses
-  HyperLink_Const,
-  k2Tags,
-  evdTypes,
-  Document_Const
-  ;
-
-// start class TevdCustomHyperlinkCorrector
+ l3ImplUses
+ , HyperLink_Const
+ , k2Tags
+ , evdTypes
+ , Document_Const
+;
 
 class function TevdCustomHyperlinkCorrector.SetTo(var theGenerator: Tk2TagGenerator;
-  const aConverter: IevdExternalDocNumberToInternal): Pointer;
+ const aConverter: IevdExternalDocNumberToInternal): Pointer;
 //#UC START# *4C1B9990015E_4C1B8D2F039F_var*
 //#UC END# *4C1B9990015E_4C1B8D2F039F_var*
 begin
@@ -112,7 +93,7 @@ begin
 end;//TevdCustomHyperlinkCorrector.CheckDocIDBeforeCorrection
 
 procedure TevdCustomHyperlinkCorrector.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_4C1B8D2F039F_var*
 //#UC END# *4836D52400D9_4C1B8D2F039F_var*
 begin
@@ -125,6 +106,7 @@ begin
 end;//TevdCustomHyperlinkCorrector.AddAtomEx
 
 function TevdCustomHyperlinkCorrector.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_4C1B8D2F039F_var*
 //#UC END# *49E488070386_4C1B8D2F039F_var*
 begin
@@ -136,6 +118,7 @@ begin
 end;//TevdCustomHyperlinkCorrector.ParaTypeForFiltering
 
 procedure TevdCustomHyperlinkCorrector.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_4C1B8D2F039F_var*
 var
  l_Index : Integer;
@@ -162,7 +145,6 @@ begin
 end;//TevdCustomHyperlinkCorrector.DoWritePara
 
 procedure TevdCustomHyperlinkCorrector.ClearFields;
- {-}
 begin
  f_Converter := nil;
  inherited;

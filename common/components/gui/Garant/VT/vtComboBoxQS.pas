@@ -1,55 +1,43 @@
 unit vtComboBoxQS;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtComboBoxQS.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Combos::TvtComboBoxQS
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtComboBoxQS.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtComboBoxQS" MUID: (4A83EE2702B6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Classes,
-  vtComboTree
-  ;
+ l3IntfUses
+ , vtComboTree
+ , Classes
+ //#UC START# *4A83EE2702B6intf_uses*
+ //#UC END# *4A83EE2702B6intf_uses*
+;
 
 type
  TCustomComboTree = class(TvtComboTree)
- private
- // private fields
-   f_OnEndTextPrint : TNotifyEvent;
-    {* Поле для свойства OnEndTextPrint}
- private
- // private methods
+  private
+   f_OnEndTextPrint: TNotifyEvent;
+  private
    procedure EndTextPrint;
- protected
- // overridden protected methods
+  protected
    procedure Change; override;
    procedure ProcessTreeSelect(ChooseFromTree: Boolean;
-     aTriggerSelect: Boolean); override;
- public
- // public properties
+    aTriggerSelect: Boolean); override;
+  public
    property OnEndTextPrint: TNotifyEvent
-     read f_OnEndTextPrint
-     write f_OnEndTextPrint;
+    read f_OnEndTextPrint
+    write f_OnEndTextPrint;
  end;//TCustomComboTree
 
-//#UC START# *4A83EE2702B6ci*
-//#UC END# *4A83EE2702B6ci*
-//#UC START# *4A83EE2702B6cit*
-//#UC END# *4A83EE2702B6cit*
+ //#UC START# *4A83EE2702B6ci*
+ //#UC END# *4A83EE2702B6ci*
+ //#UC START# *4A83EE2702B6cit*
+ //#UC END# *4A83EE2702B6cit*
  TvtComboBoxQS = class(TCustomComboTree)
-//#UC START# *4A83EE2702B6publ*
+ //#UC START# *4A83EE2702B6publ*
   published
     property Items;
     property Anchors;
@@ -72,21 +60,19 @@ type
     property UseSystemMenu;
     property OnResize;
     property OnEndTextPrint;
-//#UC END# *4A83EE2702B6publ*
+ //#UC END# *4A83EE2702B6publ*
  end;//TvtComboBoxQS
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TCustomComboTree
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A83EE2702B6impl_uses*
+ //#UC END# *4A83EE2702B6impl_uses*
+;
 
 procedure TCustomComboTree.EndTextPrint;
 //#UC START# *5538D2D2035B_5538D1CB00A7_var*
@@ -110,7 +96,7 @@ begin
 end;//TCustomComboTree.Change
 
 procedure TCustomComboTree.ProcessTreeSelect(ChooseFromTree: Boolean;
-  aTriggerSelect: Boolean);
+ aTriggerSelect: Boolean);
 //#UC START# *53EE0A730393_5538D1CB00A7_var*
 //#UC END# *53EE0A730393_5538D1CB00A7_var*
 begin
@@ -125,13 +111,13 @@ end;//TCustomComboTree.ProcessTreeSelect
 //#UC END# *4A83EE2702B6impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TCustomComboTree
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomComboTree);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtComboBoxQS
+ {* Регистрация TCustomComboTree }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtComboBoxQS);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtComboBoxQS }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

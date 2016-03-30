@@ -1,59 +1,43 @@
 unit evDocumentPartGeneratorPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPartGeneratorPrim.pas"
-// Начат: 19.08.2009 12:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevDocumentPartGeneratorPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartGeneratorPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartGeneratorPrim" MUID: (4A8BBCB90035)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  evHighLevelDocumentGenerator,
-  evGeneratorsInterfaces
-  ;
+ l3IntfUses
+ , evHighLevelDocumentGenerator
+ , evGeneratorsInterfaces
+ , nevBase
+;
 
 type
  TevDocumentPartGeneratorPrim = class(TevHighLevelDocumentGenerator, IevJoinGenerator)
- private
- // private fields
-   f_Flags : TevLoadFlags;
-    {* Поле для свойства Flags}
- protected
- // realized methods
+  private
+   f_Flags: TevLoadFlags;
+    {* Поле для свойства Flags }
+  protected
+   procedure AtEndChanged; virtual; abstract;
    procedure pm_SetNeedJoin(aValue: Boolean);
    procedure pm_SetAtEnd(aValue: Boolean);
    procedure pm_SetNeedSkipSubDocuments(aValue: Boolean);
    procedure Set_LoadFlags(aValue: TevLoadFlags);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure AtEndChanged; virtual; abstract;
- protected
- // protected properties
+    {* Функция очистки полей объекта. }
+  protected
    property Flags: TevLoadFlags
-     read f_Flags;
+    read f_Flags;
  end;//TevDocumentPartGeneratorPrim
 
 implementation
 
-// start class TevDocumentPartGeneratorPrim
+uses
+ l3ImplUses
+;
 
 procedure TevDocumentPartGeneratorPrim.pm_SetNeedJoin(aValue: Boolean);
 //#UC START# *4A253D5102D2_4A8BBCB90035set_var*
@@ -106,6 +90,7 @@ begin
 end;//TevDocumentPartGeneratorPrim.Set_LoadFlags
 
 procedure TevDocumentPartGeneratorPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A8BBCB90035_var*
 //#UC END# *479731C50290_4A8BBCB90035_var*
 begin

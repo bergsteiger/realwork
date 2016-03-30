@@ -1,75 +1,67 @@
 unit ChromeLikeInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeInterfaces.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::ChromeLikeControls::ChromeLikeInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "ChromeLikeInterfaces" MUID: (53F2D7B00186)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , Types
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TChromeLikeTabSetParams = record
-   rCloseButtonImages : TCustomImageList;
-   rTabImages : TCustomImageList;
-   rCloseButtonImageIndex : TImageIndex;
-   rCloseButtonHotImageIndex : TImageIndex;
+  rCloseButtonImages: TCustomImageList;
+  rTabImages: TCustomImageList;
+  rCloseButtonImageIndex: TImageIndex;
+  rCloseButtonHotImageIndex: TImageIndex;
  end;//TChromeLikeTabSetParams
 
-  TChromeLikeCaptionMenuKind = (
-   {* Тип попап-меню в заголовочном контроле }
-    cl_cmkSystem // Показывать системное меню
-  , cl_cmkCustom // Показывать свое меню
-  , cl_cmkNone // Не показывать никакого меню
-  );//TChromeLikeCaptionMenuKind
+ TChromeLikeCaptionMenuKind = (
+  {* Тип попап-меню в заголовочном контроле }
+  cl_cmkSystem
+   {* Показывать системное меню }
+  , cl_cmkCustom
+   {* Показывать свое меню }
+  , cl_cmkNone
+   {* Не показывать никакого меню }
+ );//TChromeLikeCaptionMenuKind
 
- IChromeLikeCaptionControl = interface(IUnknown)
-   ['{A051CA0C-AA42-42C4-B5BE-0A024F9C99BC}']
-   function GetMenuKindAtPoint(const aPoint: TPoint): TChromeLikeCaptionMenuKind;
-   procedure ShowContextMenu(const aPoint: TPoint);
-   function pm_GetVCLWinControl: TWinControl;
-   property VCLWinControl: TWinControl
-     read pm_GetVCLWinControl;
+ IChromeLikeCaptionControl = interface
+  ['{A051CA0C-AA42-42C4-B5BE-0A024F9C99BC}']
+  function pm_GetVCLWinControl: TWinControl;
+  function GetMenuKindAtPoint(const aPoint: TPoint): TChromeLikeCaptionMenuKind;
+  procedure ShowContextMenu(const aPoint: TPoint);
+  property VCLWinControl: TWinControl
+   read pm_GetVCLWinControl;
  end;//IChromeLikeCaptionControl
 
-
 function TChromeLikeTabSetParams_C(aTabImages: TCustomImageList;
-     aCloseButtonImages: TCustomImageList;
-     aCloseButtonImageIndex: TImageIndex;
-     aCloseButtonHotImageIndex: TImageIndex): TChromeLikeTabSetParams;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ aCloseButtonImages: TCustomImageList;
+ aCloseButtonImageIndex: TImageIndex;
+ aCloseButtonHotImageIndex: TImageIndex): TChromeLikeTabSetParams;
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3ImplUses
+;
 
 function TChromeLikeTabSetParams_C(aTabImages: TCustomImageList;
-       aCloseButtonImages: TCustomImageList;
-       aCloseButtonImageIndex: TImageIndex;
-       aCloseButtonHotImageIndex: TImageIndex): TChromeLikeTabSetParams;
+ aCloseButtonImages: TCustomImageList;
+ aCloseButtonImageIndex: TImageIndex;
+ aCloseButtonHotImageIndex: TImageIndex): TChromeLikeTabSetParams;
 //#UC START# *5518DC3B0065_551552FA002B_var*
 //#UC END# *5518DC3B0065_551552FA002B_var*
 begin
@@ -83,8 +75,7 @@ begin
   rCloseButtonHotImageIndex := aCloseButtonHotImageIndex;
  end;
 //#UC END# *5518DC3B0065_551552FA002B_impl*
-end;//TChromeLikeTabSetParams.C
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+end;//TChromeLikeTabSetParams_C
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

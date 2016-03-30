@@ -1,76 +1,57 @@
 unit evTableCellCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCellCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevTableCellCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCellCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCellCursor" MUID: (50DACE1F0334)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evParaListCursor,
-  nevBase,
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaListCursor
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevTableCellCursor = class(TevParaListCursor)
- protected
- // overridden protected methods
+  protected
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
     aCount: Integer): TnevMoveResult; override;
-   {$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+   {$If Defined(evNeedMarkers)}
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
-   {$IfEnd} //evNeedMarkers AND evUseVisibleCursors
- public
- // overridden public methods
+   {$IfEnd} // Defined(evNeedMarkers)
+  public
    procedure ChangePointByPara(const aView: InevView;
     const anOpPack: InevOp;
     const aPara: InevPara); override;
  end;//TevTableCellCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evdTypes,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evTableImplementation
-  {$IfEnd} //k2ForEditor
-  ,
-  evCursorConst,
-  k2Tags
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableCellCursor
+ l3ImplUses
+ , evdTypes
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evTableImplementation
+ {$IfEnd} // Defined(k2ForEditor)
+ , evCursorConst
+ , k2Tags
+;
 
 function TevTableCellCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_50DACE1F0334_var*
 var
  l_Point      : InevBasePoint;
@@ -144,20 +125,20 @@ begin
 //#UC END# *49E31657038E_50DACE1F0334_impl*
 end;//TevTableCellCursor.DoMovePrim
 
-{$If defined(evNeedMarkers) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedMarkers)}
 procedure TevTableCellCursor.DoGetMarkers(const aView: InevView;
-  const aList: IevMarkersList);
+ const aList: IevMarkersList);
 //#UC START# *4A38AA5C019F_50DACE1F0334_var*
 //#UC END# *4A38AA5C019F_50DACE1F0334_var*
 begin
 //#UC START# *4A38AA5C019F_50DACE1F0334_impl*
 //#UC END# *4A38AA5C019F_50DACE1F0334_impl*
 end;//TevTableCellCursor.DoGetMarkers
-{$IfEnd} //evNeedMarkers AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedMarkers)
 
 procedure TevTableCellCursor.ChangePointByPara(const aView: InevView;
-  const anOpPack: InevOp;
-  const aPara: InevPara);
+ const anOpPack: InevOp;
+ const aPara: InevPara);
 //#UC START# *4D5D161A030C_50DACE1F0334_var*
 var
  l_Table : InevBasePoint;
@@ -194,7 +175,6 @@ begin
  end; // if aPara = nil then
 //#UC END# *4D5D161A030C_50DACE1F0334_impl*
 end;//TevTableCellCursor.ChangePointByPara
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

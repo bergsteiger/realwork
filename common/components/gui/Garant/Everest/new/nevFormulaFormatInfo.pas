@@ -1,65 +1,47 @@
 unit nevFormulaFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormulaFormatInfo.pas"
-// Начат: 01.09.2011 11:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevFormulaFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormulaFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormulaFormatInfo" MUID: (4E5F35A9022C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  nevTextParaRenderInfo,
-  evResultFontInterfaces,
-  nevBase
-  ;
+ l3IntfUses
+ , nevTextParaRenderInfo
+ , l3InternalInterfaces
+ , evResultFontInterfaces
+ , nevBase
+;
 
 type
  TnevFormulaFormatInfo = class(TnevTextParaRenderInfo)
- private
- // private fields
-   f_Rendered : Il3Bitmap;
- protected
- // overridden property methods
-   function pm_GetRendered: Il3Bitmap; override;
- protected
- // overridden protected methods
+  private
+   f_Rendered: Il3Bitmap;
+  protected
    procedure ClearCache; override;
+   function pm_GetRendered: Il3Bitmap; override;
    procedure DoRecalc(const aView: InevViewMetrics); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
+  public
    function ParaFont(aCorrectItalic: Boolean): IevResultFont; override;
  end;//TnevFormulaFormatInfo
 
 implementation
 
 uses
-  k2Tags,
-  evFormulaParaBitmapContainer,
-  ExprDraw,
-  SysUtils,
-  TextPara_Const,
-  nevSegmentObject,
-  ExprMake,
-  l3_String
-  ;
-
-// start class TnevFormulaFormatInfo
+ l3ImplUses
+ , k2Tags
+ , evFormulaParaBitmapContainer
+ , ExprDraw
+ , SysUtils
+ , TextPara_Const
+ , nevSegmentObject
+ , ExprMake
+ , l3_String
+;
 
 procedure TnevFormulaFormatInfo.ClearCache;
 //#UC START# *4E5E7D240227_4E5F35A9022C_var*
@@ -147,7 +129,6 @@ begin
 end;//TnevFormulaFormatInfo.DoRecalc
 
 procedure TnevFormulaFormatInfo.ClearFields;
- {-}
 begin
  f_Rendered := nil;
  inherited;

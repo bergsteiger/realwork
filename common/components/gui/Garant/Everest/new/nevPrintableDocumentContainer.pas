@@ -1,77 +1,62 @@
 unit nevPrintableDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevPrintableDocumentContainer.pas"
-// Начат: 21.07.2005 08:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DocumentContainers::TnevPrintableDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevPrintableDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevPrintableDocumentContainer" MUID: (47F34F00021C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  nevTools,
-  nevPersistentDocumentContainer,
-  evDocumentPreview,
-  evHAFPainterEx,
-  nevBase,
-  evOpProc
-  ;
+ l3IntfUses
+ , nevPersistentDocumentContainer
+ , nevTools
+ , afwInterfaces
+ , nevBase
+ , evOpProc
+ , evDocumentPreview
+ , evHAFPainterEx
+;
 
 type
- RevDocumentPreview = class of evDocumentPreview.TevDocumentPreview;
+ RevDocumentPreview = class of TevDocumentPreview;
 
- RevHAFPainter = class of evHAFPainterEx.TevHAFPainterEx;
+ RevHAFPainter = class of TevHAFPainterEx;
 
  TnevPrintableDocumentContainer = class(TnevPersistentDocumentContainer)
- protected
- // overridden protected methods
+  protected
+   function DocumentForPreview: InevDocumentProvider;
+   function MakeHAFPainter(const aMacroReplacer: IafwHAFMacroReplacer): IafwHAFPainter;
+   function HAFPainterClass: RevHAFPainter; virtual;
+   function DocumentPreviewClass: RevDocumentPreview; virtual;
+   function Info: InevStorable; virtual;
    function MakeDocumentPreview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer;
     const aRange: InevRange = nil): IafwDocumentPreview; override;
    function MakeInfoPreview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview; override;
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); override;
- protected
- // protected methods
-   function DocumentForPreview: InevDocumentProvider;
-   function MakeHAFPainter(const aMacroReplacer: IafwHAFMacroReplacer): IafwHAFPainter;
-   function HAFPainterClass: RevHAFPainter; virtual;
-   function DocumentPreviewClass: RevDocumentPreview; virtual;
-   function Info: InevStorable; virtual;
  end;//TnevPrintableDocumentContainer
 
 implementation
 
 uses
-  evEditorWindowProcessor,
-  evDefaultContext,
-  nevInterfaces,
-  l3String,
-  l3Chars,
-  evFormatHAFMacroReplacer,
-  l3Base,
-  evFixedHAFMacroReplacer,
-  k2Tags,
-  nevDocumentProviderEx,
-  nevDocumentProvider,
-  l3Variant,
-  l3StringIDEx
-  ;
-
-// start class TnevPrintableDocumentContainer
+ l3ImplUses
+ , evEditorWindowProcessor
+ , evDefaultContext
+ , nevInterfaces
+ , l3String
+ , l3Chars
+ , evFormatHAFMacroReplacer
+ , l3Base
+ , evFixedHAFMacroReplacer
+ , k2Tags
+ , nevDocumentProviderEx
+ , nevDocumentProvider
+ , l3Variant
+ , l3StringIDEx
+;
 
 function TnevPrintableDocumentContainer.DocumentForPreview: InevDocumentProvider;
 //#UC START# *47F34F7E03A8_47F34F00021C_var*
@@ -131,8 +116,8 @@ begin
 end;//TnevPrintableDocumentContainer.Info
 
 function TnevPrintableDocumentContainer.MakeDocumentPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer;
-  const aRange: InevRange = nil): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer;
+ const aRange: InevRange = nil): IafwDocumentPreview;
 //#UC START# *47F1112A0183_47F34F00021C_var*
 
  function lp_CheckAreaReplacer(const aReplacer: IafwHAFMacroReplacer): IafwHAFMacroReplacer;
@@ -174,7 +159,7 @@ begin
 end;//TnevPrintableDocumentContainer.MakeDocumentPreview
 
 function TnevPrintableDocumentContainer.MakeInfoPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
 //#UC START# *47F111500241_47F34F00021C_var*
 var
  l_Info: InevStorable;

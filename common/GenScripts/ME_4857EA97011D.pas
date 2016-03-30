@@ -20,6 +20,8 @@ uses
  , k2IUnknown_Const
  , ReqCell_Const
  , evdFrame_Const
+ //#UC START# *4857EA97011D_484CD009023Dintf_uses*
+ //#UC END# *4857EA97011D_484CD009023Dintf_uses*
 ;
 
  // ReqRowTag
@@ -28,6 +30,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4857EA97011D_484CD009023Dimpl_uses*
+ //#UC END# *4857EA97011D_484CD009023Dimpl_uses*
 ;
 
 end.

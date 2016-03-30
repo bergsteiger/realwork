@@ -1,66 +1,50 @@
 unit nevSegmentFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevSegmentFormatInfo.pas"
-// Начат: 01.09.2011 19:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevSegmentFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevSegmentFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSegmentFormatInfo" MUID: (4E5FAB3E0333)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevFormatInfo,
-  evResultFontInterfaces,
-  nevBase,
-  nevTools
-  ;
+ l3IntfUses
+ , nevFormatInfo
+ , nevTools
+ , nevBase
+ , evResultFontInterfaces
+;
 
 type
  TnevSegmentFormatInfo = class(TnevFormatInfo)
- protected
- // realized methods
-   procedure DoInvalidateShape(const aShape: InevObject;
-    aParts: TnevShapeParts); override;
- protected
- // overridden protected methods
+  protected
    procedure Release; override;
    function IsSegment: Boolean; override;
    procedure DoFontSuperposition(var theResult: IevResultFont;
-     var theNeedApplyZoom: Boolean;
-     aCorrectItalic: Boolean;
-     aInTable: Boolean;
-     var theOwnFont: Boolean); override;
- public
- // overridden public methods
+    var theNeedApplyZoom: Boolean;
+    aCorrectItalic: Boolean;
+    aInTable: Boolean;
+    var theOwnFont: Boolean); override;
+  public
+   procedure DoInvalidateShape(const aShape: InevObject;
+    aParts: TnevShapeParts); override;
    function ParaFont(aCorrectItalic: Boolean): IevResultFont; override;
  end;//TnevSegmentFormatInfo
 
 implementation
 
 uses
-  l3Base,
-  k2Const,
-  l3Interfaces,
-  k2Tags,
-  evResultFontHolder
-  ;
-
-// start class TnevSegmentFormatInfo
+ l3ImplUses
+ , l3Base
+ , k2Const
+ , l3Interfaces
+ , k2Tags
+ , evResultFontHolder
+;
 
 procedure TnevSegmentFormatInfo.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *48172A690313_4E5FAB3E0333_var*
 //#UC END# *48172A690313_4E5FAB3E0333_var*
 begin
@@ -98,10 +82,10 @@ begin
 end;//TnevSegmentFormatInfo.ParaFont
 
 procedure TnevSegmentFormatInfo.DoFontSuperposition(var theResult: IevResultFont;
-  var theNeedApplyZoom: Boolean;
-  aCorrectItalic: Boolean;
-  aInTable: Boolean;
-  var theOwnFont: Boolean);
+ var theNeedApplyZoom: Boolean;
+ aCorrectItalic: Boolean;
+ aInTable: Boolean;
+ var theOwnFont: Boolean);
 //#UC START# *4E5FC90E03BD_4E5FAB3E0333_var*
 var
  l_SegmentAndParaFontSuperposition : IevResultFont;

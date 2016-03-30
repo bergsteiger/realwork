@@ -1,73 +1,60 @@
 unit nevVirtualDrawView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevVirtualDrawView.pas"
-// Начат: 22.10.2007 14:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevVirtualDrawView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevVirtualDrawView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevVirtualDrawView" MUID: (481213C903A2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  evdStyles,
-  nevTools,
-  nevBaseDetachedView
-  ;
+ l3IntfUses
+ , nevBaseDetachedView
+ , evdStyles
+ , nevBase
+ , nevTools
+;
 
 type
  TnevVirtualDrawView = class(TnevBaseDetachedView)
- private
- // private fields
-   f_IsWebStyle : Boolean;
-   f_ShowDocumentParts : Boolean;
-   f_ShowSpecial : Boolean;
-   f_HiddenStyles : TevStandardStyles;
-   f_ParentFI : TnevFormatInfoPrim;
-   f_AllowRubberTables : TnevRubberTablesMode;
- protected
- // overridden protected methods
+  private
+   f_IsWebStyle: Boolean;
+   f_ShowDocumentParts: Boolean;
+   f_ShowSpecial: Boolean;
+   f_HiddenStyles: TevStandardStyles;
+   f_ParentFI: TnevFormatInfoPrim;
+   f_AllowRubberTables: TnevRubberTablesMode;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetIsWebStyle: Boolean; override;
    function GetShowDocumentParts: Boolean; override;
    function GetShowSpecial: Boolean; override;
    function GetHiddenStyles: TevStandardStyles; override;
    function GetRootFormatInfo: TnevFormatInfoPrim; override;
    function GetAllowRubberTables: TnevRubberTablesMode; override;
- public
- // public methods
+  public
    constructor Create(const aText: InevObject;
-     aParentFI: TnevFormatInfoPrim;
-     const aCanvas: InevCanvas;
-     const aViewMetrics: InevViewMetrics); reintroduce;
+    aParentFI: TnevFormatInfoPrim;
+    const aCanvas: InevCanvas;
+    const aViewMetrics: InevViewMetrics); reintroduce;
    class function Make(const aText: InevObject;
-     aParentFI: TnevFormatInfoPrim;
-     const aCanvas: InevCanvas;
-     const aViewMetrics: InevViewMetrics): InevView; reintroduce;
-     {* Сигнатура фабрики TnevVirtualDrawView.Make }
+    aParentFI: TnevFormatInfoPrim;
+    const aCanvas: InevCanvas;
+    const aViewMetrics: InevViewMetrics): InevView; reintroduce;
  end;//TnevVirtualDrawView
 
 implementation
 
-// start class TnevVirtualDrawView
+uses
+ l3ImplUses
+;
 
 constructor TnevVirtualDrawView.Create(const aText: InevObject;
-  aParentFI: TnevFormatInfoPrim;
-  const aCanvas: InevCanvas;
-  const aViewMetrics: InevViewMetrics);
+ aParentFI: TnevFormatInfoPrim;
+ const aCanvas: InevCanvas;
+ const aViewMetrics: InevViewMetrics);
 //#UC START# *4CB5BE9803DF_481213C903A2_var*
 //#UC END# *4CB5BE9803DF_481213C903A2_var*
 begin
@@ -88,9 +75,9 @@ begin
 end;//TnevVirtualDrawView.Create
 
 class function TnevVirtualDrawView.Make(const aText: InevObject;
-  aParentFI: TnevFormatInfoPrim;
-  const aCanvas: InevCanvas;
-  const aViewMetrics: InevViewMetrics): InevView;
+ aParentFI: TnevFormatInfoPrim;
+ const aCanvas: InevCanvas;
+ const aViewMetrics: InevViewMetrics): InevView;
 var
  l_Inst : TnevVirtualDrawView;
 begin
@@ -100,9 +87,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevVirtualDrawView.Make
 
 procedure TnevVirtualDrawView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_481213C903A2_var*
 //#UC END# *479731C50290_481213C903A2_var*
 begin

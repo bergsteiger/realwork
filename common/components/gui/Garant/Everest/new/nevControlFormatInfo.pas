@@ -1,33 +1,26 @@
 unit nevControlFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevControlFormatInfo.pas"
-// Начат: 01.09.2011 11:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevControlFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevControlFormatInfo" MUID: (4E5F35CF007B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTextParaRenderInfo
-  ;
+ l3IntfUses
+ , nevTextParaRenderInfo
+;
 
 type
  TnevControlFormatInfo = class(TnevTextParaRenderInfo)
  end;//TnevControlFormatInfo
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

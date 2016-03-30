@@ -1,41 +1,35 @@
 {$IfNDef evCollapsedStylePainter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCollapsedStylePainter.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Drawing Framework::evCollapsedStylePainter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evCollapsedStylePainter" MUID: (5514FB530333)
+// Имя типа: "_evCollapsedStylePainter_"
 
 {$Define evCollapsedStylePainter_imp}
-{$If defined(evNeedPainters)}
- _evCollapsedStylePainter_ = {mixin} class(_evCollapsedStylePainter_Parent_)
- protected
- // protected methods
+
+{$If Defined(evNeedPainters)}
+ _evCollapsedStylePainter_ = class(_evCollapsedStylePainter_Parent_)
+  protected
    procedure DoDoDrawFrameText(aTop: Boolean;
-     aSpace: Integer;
-     aFirstIndent: Integer);
+    aSpace: Integer;
+    aFirstIndent: Integer);
  end;//_evCollapsedStylePainter_
-{$Else}
 
- _evCollapsedStylePainter_ = _evCollapsedStylePainter_Parent_;
+{$Else Defined(evNeedPainters)}
 
-{$IfEnd} //evNeedPainters
+_evCollapsedStylePainter_ = _evCollapsedStylePainter_Parent_;
 
+{$IfEnd} // Defined(evNeedPainters)
 {$Else evCollapsedStylePainter_imp}
 
-{$If defined(evNeedPainters)}
+{$IfNDef evCollapsedStylePainter_imp_impl}
 
-// start class _evCollapsedStylePainter_
+{$Define evCollapsedStylePainter_imp_impl}
 
+{$If Defined(evNeedPainters)}
 procedure _evCollapsedStylePainter_.DoDoDrawFrameText(aTop: Boolean;
-  aSpace: Integer;
-  aFirstIndent: Integer);
+ aSpace: Integer;
+ aFirstIndent: Integer);
 //#UC START# *5514FC280243_5514FB530333_var*
 var
  l_Style : Tl3Variant;
@@ -62,7 +56,9 @@ begin
  end;//l_Style.IsValid
 //#UC END# *5514FC280243_5514FB530333_impl*
 end;//_evCollapsedStylePainter_.DoDoDrawFrameText
+{$IfEnd} // Defined(evNeedPainters)
 
-{$IfEnd} //evNeedPainters
+{$EndIf evCollapsedStylePainter_imp_impl}
 
 {$EndIf evCollapsedStylePainter_imp}
+

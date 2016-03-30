@@ -1,102 +1,79 @@
 unit evColumnBorderMarker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evColumnBorderMarker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevColumnBorderMarker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evColumnBorderMarker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevColumnBorderMarker" MUID: (4E3A539401D7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  nevTools,
-  evInternalInterfaces,
-  evMarker,
-  l3Variant,
-  nevBase,
-  k2ToolPrim
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evMarker
+ , evInternalInterfaces
+ , nevTools
+ , l3Variant
+ , l3Interfaces
+ , nevBase
+ , k2ToolPrim
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  RevColumnMarkerClass = class of TevColumnBorderMarker;
 
  _nevParaListTool_Parent_ = TevMarker;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _RoundMarkerValue_Parent_ = _nevParaListTool_;
- {$Include ..\Everest\RoundMarkerValue.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
  TevColumnBorderMarker = class(_RoundMarkerValue_, IevColumnBorderMarker)
- private
- // private fields
-   f_ColumnID : Integer;
-    {* Поле для свойства ColumnID}
- protected
- // realized methods
+  private
+   f_ColumnID: Integer;
+    {* Поле для свойства ColumnID }
+  protected
    function pm_GetColumnID: Integer;
    procedure pm_SetColumnID(aValue: Integer);
- protected
- // overridden protected methods
    procedure SetClientValue(aValue: Integer;
-     const aContext: InevOp); override;
+    const aContext: InevOp); override;
    function DoGetClientValue: Integer; override;
- public
- // overridden public methods
-   procedure Assign(Source: Tk2ToolPrim); override;
- public
- // public methods
+  public
    constructor Create(const aView: InevView;
-     aPara: Tl3Variant;
-     aColumnID: Integer;
-     const aHint: Il3CString = nil); reintroduce;
- public
- // public properties
+    aPara: Tl3Variant;
+    aColumnID: Integer;
+    const aHint: Il3CString = nil); reintroduce;
+   procedure Assign(Source: Tk2ToolPrim); override;
+  public
    property ColumnID: Integer
-     read f_ColumnID
-     write f_ColumnID;
+    read f_ColumnID
+    write f_ColumnID;
  end;//TevColumnBorderMarker
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3MinMax,
-  nevFacade,
-  k2Tags,
-  SysUtils
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , l3MinMax
+ , nevFacade
+ , k2Tags
+ , SysUtils
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evUseVisibleCursors)}
+type _Instance_R_ = TevColumnBorderMarker;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include ..\Everest\RoundMarkerValue.imp.pas}
-
-// start class TevColumnBorderMarker
+{$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
 
 constructor TevColumnBorderMarker.Create(const aView: InevView;
-  aPara: Tl3Variant;
-  aColumnID: Integer;
-  const aHint: Il3CString = nil);
+ aPara: Tl3Variant;
+ aColumnID: Integer;
+ const aHint: Il3CString = nil);
 //#UC START# *4E3A54F80016_4E3A539401D7_var*
 //#UC END# *4E3A54F80016_4E3A539401D7_var*
 begin
@@ -125,7 +102,7 @@ begin
 end;//TevColumnBorderMarker.pm_SetColumnID
 
 procedure TevColumnBorderMarker.SetClientValue(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *4E3A3F0D0388_4E3A539401D7_var*
 var
  l_Delta : Integer;
@@ -177,7 +154,6 @@ begin
   f_ColumnID := TevColumnBorderMarker(Source).f_ColumnID;
 //#UC END# *52BC1DD60298_4E3A539401D7_impl*
 end;//TevColumnBorderMarker.Assign
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

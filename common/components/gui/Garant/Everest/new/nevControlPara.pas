@@ -1,43 +1,28 @@
 unit nevControlPara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevControlPara.pas"
-// Начат: 06.09.2006 18:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevControlPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevControlPara" MUID: (48D11BE0015E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  evQueryCardInt,
-  nevTextPara,
-  l3StringIDEx,
-  l3Variant,
-  nevBase,
-  l3Interfaces,
-  evdTypes
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevTextPara
+ , nevTools
+ , evQueryCardInt
+ , l3Variant
+ , l3Interfaces
+ , evdTypes
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevControlPara = class(TnevTextPara, IevCommonControl, IevControl, IevControlFriend)
- protected
- // realized methods
+  protected
    function Get_Enabled: Boolean;
    function Get_Checked: Boolean;
    procedure Set_Checked(aValue: Boolean);
@@ -50,37 +35,31 @@ type
    function pm_GetCollapsed: Boolean;
    procedure pm_SetCollapsed(aValue: Boolean);
    function GetControl: IevEditorControl;
-     {* Получить контрол по ссылке. }
- protected
- // overridden protected methods
+    {* Получить контрол по ссылке. }
    function TreatCollapsedAsHidden: Boolean; override;
    function GetText: TnevStr; override;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): IevControlFriend; reintroduce;
  end;//TnevControlPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags,
-  l3String,
-  afwFacade,
-  afwInterfaces,
-  l3MessageID
-  ;
-{$IfEnd} //k2ForEditor
+ l3ImplUses
+ , l3StringIDEx
+ , k2Tags
+ , l3String
+ , afwFacade
+ , afwInterfaces
+ , l3MessageID
+;
 
-{$If defined(k2ForEditor)}
-
-var
-   { Локализуемые строки Local }
-  str_MemoHintForConsult : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MemoHintForConsult'; rValue : 'Введите текст запроса');
-   { 'Введите текст запроса' }
-
-// start class TnevControlPara
+const
+ {* Локализуемые строки Local }
+ str_MemoHintForConsult: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MemoHintForConsult'; rValue : 'Введите текст запроса');
+  {* 'Введите текст запроса' }
 
 class function TnevControlPara.Make(aTag: Tl3Variant): IevControlFriend;
 var
@@ -92,7 +71,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevControlPara.Make
 
 function TnevControlPara.Get_Enabled: Boolean;
 //#UC START# *47C7CDC802F0_48D11BE0015Eget_var*
@@ -195,6 +174,7 @@ begin
 end;//TnevControlPara.pm_SetCollapsed
 
 function TnevControlPara.GetControl: IevEditorControl;
+ {* Получить контрол по ссылке. }
 //#UC START# *47CD77350118_48D11BE0015E_var*
 //#UC END# *47CD77350118_48D11BE0015E_var*
 begin
@@ -227,12 +207,9 @@ begin
 //#UC END# *4D7255870102_48D11BE0015E_impl*
 end;//TnevControlPara.GetText
 
-{$IfEnd} //k2ForEditor
-
 initialization
-{$If defined(k2ForEditor)}
-// Инициализация str_MemoHintForConsult
  str_MemoHintForConsult.Init;
-{$IfEnd} //k2ForEditor
+ {* Инициализация str_MemoHintForConsult }
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

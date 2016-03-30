@@ -1,55 +1,40 @@
 unit evTreeDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTreeDataObject.pas"
-// Начат: 27.12.2006 18:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevTreeDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTreeDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTreeDataObject" MUID: (48FC8B3D01BC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evTreeStorable,
-  l3Interfaces,
-  evPersistentDataObjectEx,
-  ActiveX,
-  Windows
-  ;
+ l3IntfUses
+ , evTreeStorable
+ , nevTools
+ , evPersistentDataObjectEx
+ , l3Interfaces
+;
 
 type
  _DataType_ = TevTreeStorableData;
  _StorableClass_ = TevTreeStorable;
- {$Include ..\Everest\evDataObjectFromStorable.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
  TevTreeDataObject = class(_evDataObjectFromStorable_)
- public
- // public methods
+  public
    class function MakeStorable(const aData: TevTreeStorableData): InevDataObjectPrim2; reintroduce;
  end;//TevTreeDataObject
 
 implementation
 
 uses
-  evFormats,
-  evTypes,
-  l3Base
-  ;
+ l3ImplUses
+ , evFormats
+ , evTypes
+ , l3Base
+;
 
-{$Include ..\Everest\evDataObjectFromStorable.imp.pas}
-
-// start class TevTreeDataObject
+{$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
 
 class function TevTreeDataObject.MakeStorable(const aData: TevTreeStorableData): InevDataObjectPrim2;
 var
@@ -61,6 +46,6 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevTreeDataObject.MakeStorable
 
 end.

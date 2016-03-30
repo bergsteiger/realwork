@@ -1,75 +1,63 @@
 {$IfNDef evParaListPainter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListPainter.imp.pas"
-// Начат: 07.04.1997 17:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Drawing Framework::evParaListPainter
-//
-// Рисователь списка параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evParaListPainter" MUID: (481D6C300084)
+// Имя типа: "_evParaListPainter_"
 
 {$Define evParaListPainter_imp}
-{$If defined(evNeedPainters)}
- {$Include ..\Everest\evParaPainter.imp.pas}
- _evParaListPainter_ = {mixin} class(_evParaPainter_)
+
+{$If Defined(evNeedPainters)}
+ {$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
+ _evParaListPainter_ = class(_evParaPainter_)
   {* Рисователь списка параграфов }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
-   function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
-   procedure InitBottom(var theBottom: InevBasePoint;
-    var theCellBottom: InevBasePoint); override;
- protected
- // protected methods
+  protected
    procedure AfterDrawChild(const aChild: InevPara;
-     const aChildPainter: IevPainter;
-     const aChildInfo: TnevShapeInfo); virtual;
+    const aChildPainter: IevPainter;
+    const aChildInfo: TnevShapeInfo); virtual;
    procedure MakeBottomAnchorInnerAfterEnd(const anInner: InevBasePoint);
-     {* Метод сделан, чтобы не тащить связь от Cursors в ParaListPainters }
+    {* Метод сделан, чтобы не тащить связь от Cursors в ParaListPainters }
    procedure CheckNeedLaterFilling(const aPainterHolder: InevPaintersHolder;
-     const aChildMap: InevMap); virtual;
+    const aChildMap: InevMap); virtual;
    function BeforeDrawChild(const ChildPainter: IevPainter): Boolean; virtual;
-     {* Вызывается перед рисованием каждого дочернего параграфа. }
+    {* Вызывается перед рисованием каждого дочернего параграфа. }
    function ChildInSelection(const aPara: InevPara): Boolean; virtual;
    function NeedCheckTopAnchor: Boolean; virtual;
    function CheckCompleate: Boolean; virtual;
-     {* [$114950787] }
+    {* [$114950787] }
    procedure CheckChild(const aPara: InevPara); virtual;
    function Check4Printing(aHeight: Integer): Boolean;
    function UseSelRange(const aSelRange: InevRange): Boolean; virtual;
    procedure InitInnerBottom(const aChildInfo: TnevShapeInfo); virtual;
    function NeedPrintingChild(const aChild: InevPara): Boolean; virtual;
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   function DoDraw: Boolean; override;
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+   procedure InitBottom(var theBottom: InevBasePoint;
+    var theCellBottom: InevBasePoint); override;
  end;//_evParaListPainter_
-{$Else}
 
- {$Include ..\Everest\evParaPainter.imp.pas}
- _evParaListPainter_ = _evParaPainter_;
+{$Else Defined(evNeedPainters)}
 
-{$IfEnd} //evNeedPainters
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
+_evParaListPainter_ = _evParaPainter_;
 
+{$IfEnd} // Defined(evNeedPainters)
 {$Else evParaListPainter_imp}
 
-{$If defined(evNeedPainters)}
+{$IfNDef evParaListPainter_imp_impl}
 
-{$Include ..\Everest\evParaPainter.imp.pas}
+{$Define evParaListPainter_imp_impl}
 
-// start class _evParaListPainter_
+{$If Defined(evNeedPainters)}
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
 
 procedure _evParaListPainter_.AfterDrawChild(const aChild: InevPara;
-  const aChildPainter: IevPainter;
-  const aChildInfo: TnevShapeInfo);
+ const aChildPainter: IevPainter;
+ const aChildInfo: TnevShapeInfo);
 //#UC START# *4D63E3490015_481D6C300084_var*
 //#UC END# *4D63E3490015_481D6C300084_var*
 begin
@@ -79,6 +67,7 @@ begin
 end;//_evParaListPainter_.AfterDrawChild
 
 procedure _evParaListPainter_.MakeBottomAnchorInnerAfterEnd(const anInner: InevBasePoint);
+ {* Метод сделан, чтобы не тащить связь от Cursors в ParaListPainters }
 //#UC START# *4E82C51501A9_481D6C300084_var*
 //#UC END# *4E82C51501A9_481D6C300084_var*
 begin
@@ -88,7 +77,7 @@ begin
 end;//_evParaListPainter_.MakeBottomAnchorInnerAfterEnd
 
 procedure _evParaListPainter_.CheckNeedLaterFilling(const aPainterHolder: InevPaintersHolder;
-  const aChildMap: InevMap);
+ const aChildMap: InevMap);
 //#UC START# *4FD97F890377_481D6C300084_var*
 //#UC END# *4FD97F890377_481D6C300084_var*
 begin
@@ -98,6 +87,7 @@ begin
 end;//_evParaListPainter_.CheckNeedLaterFilling
 
 function _evParaListPainter_.BeforeDrawChild(const ChildPainter: IevPainter): Boolean;
+ {* Вызывается перед рисованием каждого дочернего параграфа. }
 //#UC START# *481D6C56033A_481D6C300084_var*
 //#UC END# *481D6C56033A_481D6C300084_var*
 begin
@@ -125,6 +115,7 @@ begin
 end;//_evParaListPainter_.NeedCheckTopAnchor
 
 function _evParaListPainter_.CheckCompleate: Boolean;
+ {* [$114950787] }
 //#UC START# *481D6CFA0047_481D6C300084_var*
 //#UC END# *481D6CFA0047_481D6C300084_var*
 begin
@@ -253,8 +244,9 @@ begin
 //#UC END# *4CB4024B010A_481D6C300084_impl*
 end;//_evParaListPainter_.NeedPrintingChild
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function _evParaListPainter_.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_481D6C300084_var*
 //#UC END# *47A6FEE600FC_481D6C300084_var*
 begin
@@ -262,9 +254,10 @@ begin
  Result := True;
 //#UC END# *47A6FEE600FC_481D6C300084_impl*
 end;//_evParaListPainter_.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function _evParaListPainter_.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_481D6C300084_var*
 
 var
@@ -618,7 +611,7 @@ begin
 end;//_evParaListPainter_.DoDraw
 
 procedure _evParaListPainter_.InitBottom(var theBottom: InevBasePoint;
-  var theCellBottom: InevBasePoint);
+ var theCellBottom: InevBasePoint);
 //#UC START# *4804BC800172_481D6C300084_var*
 var
  l_Inn : InevBasePoint;
@@ -638,7 +631,9 @@ begin
  end;//l_Inn <> nil
 //#UC END# *4804BC800172_481D6C300084_impl*
 end;//_evParaListPainter_.InitBottom
+{$IfEnd} // Defined(evNeedPainters)
 
-{$IfEnd} //evNeedPainters
+{$EndIf evParaListPainter_imp_impl}
 
 {$EndIf evParaListPainter_imp}
+

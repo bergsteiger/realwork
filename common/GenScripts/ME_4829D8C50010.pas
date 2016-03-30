@@ -20,7 +20,6 @@ type
   {* Редактор с возможностью множественного выделения }
   private
    f_AllowMultiSelect: Boolean;
-    {* Поле для свойства AllowMultiSelect }
   protected
    function pm_GetAllowMultiSelect: Boolean;
    function GetAllowMultiSelect: Boolean; override;

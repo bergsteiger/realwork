@@ -1,38 +1,25 @@
 unit nevReqRowFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevReqRowFormatInfo.pas"
-// Начат: 14.09.2011 13:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevReqRowFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevReqRowFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevReqRowFormatInfo" MUID: (4E7071FD01E9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevSBSRowFormatInfo
-  ;
+ l3IntfUses
+ , nevSBSRowFormatInfo
+;
 
 type
  TnevReqRowFormatInfo = class(TnevSBSRowFormatInfo)
- private
- // private fields
-   f_EditorControlIndex : Integer;
- protected
- // overridden protected methods
+  private
+   f_EditorControlIndex: Integer;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function IsCellChildSpacingEqual(anIndex: Integer): Boolean; override;
  end;//TnevReqRowFormatInfo
@@ -40,15 +27,15 @@ type
 implementation
 
 uses
-  evControlParaConst,
-  k2Tags,
-  evdTypes,
-  l3Variant
-  ;
-
-// start class TnevReqRowFormatInfo
+ l3ImplUses
+ , evControlParaConst
+ , k2Tags
+ , evdTypes
+ , l3Variant
+;
 
 procedure TnevReqRowFormatInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E7071FD01E9_var*
 //#UC END# *479731C50290_4E7071FD01E9_var*
 begin

@@ -183,13 +183,13 @@ type
     const aPool: IStream;
     const aFilters: InevTagGenerator;
     const Block: InevDataObjectPrim2 = nil;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags;
     aCodePage: Integer = CP_DefaultValue): Integer;
     {* считать тег из Storage в aPool. }
    function ReadTagEx(const Writer: InevTagGenerator;
     const aPool: IStream = nil;
     const aBlock: InevDataObjectPrim2 = nil;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags;
     CharCountMul: Integer = 2;
     const FormatName: Il3CString = nil;
     aCodePage: Integer = CP_DefaultValue): Integer;
@@ -1824,7 +1824,7 @@ function TnevDocumentContainer.ReadTag(aFormat: TnevFormat;
  const aPool: IStream;
  const aFilters: InevTagGenerator;
  const Block: InevDataObjectPrim2 = nil;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags;
  aCodePage: Integer = CP_DefaultValue): Integer;
  {* считать тег из Storage в aPool. }
 //#UC START# *47C6AE9F03E2_47F0870E0034_var*
@@ -1893,7 +1893,7 @@ end;//TnevDocumentContainer.ReadTag
 function TnevDocumentContainer.ReadTagEx(const Writer: InevTagGenerator;
  const aPool: IStream = nil;
  const aBlock: InevDataObjectPrim2 = nil;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags;
  CharCountMul: Integer = 2;
  const FormatName: Il3CString = nil;
  aCodePage: Integer = CP_DefaultValue): Integer;

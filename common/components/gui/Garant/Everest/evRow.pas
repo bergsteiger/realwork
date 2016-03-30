@@ -1,84 +1,61 @@
 unit evRow;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evRow.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevRow
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evRow.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevRow" MUID: (4FC493C90289)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedEditableCursors)}
+{$If Defined(evNeedEditableCursors)}
 uses
-  nevBase,
-  nevTools,
-  evEditorInterfaces
-  {$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
-  ,
-  evCustomParaListUtils
-  {$IfEnd} //evNeedEditableCursors AND k2ForEditor
-  ,
-  l3Variant
-  ;
-{$IfEnd} //evNeedEditableCursors
+ l3IntfUses
+ {$If Defined(k2ForEditor)}
+ , evCustomParaListUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , evEditorInterfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(evNeedEditableCursors)}
 type
  TevRow = class(TevTableChild, IedRow)
- protected
- // realized methods
+  protected
    function pm_GetTable: IedTable;
    function pm_GetCellsIterator: IedCellsIterator;
    function AnalizeRowCells: TedRowType;
- public
- // public methods
+  public
    class function Make(const aView: InevView;
-     const aTable: IedTable;
-     aTagWrap: Tl3Variant;
-     const aProcessor: InevProcessor;
-     const aLocation: InevLocation = nil): IedRow;
+    const aTable: IedTable;
+    aTagWrap: Tl3Variant;
+    const aProcessor: InevProcessor;
+    const aLocation: InevLocation = nil): IedRow;
  end;//TevRow
-{$IfEnd} //evNeedEditableCursors
+{$IfEnd} // Defined(evNeedEditableCursors)
 
 implementation
 
-{$If defined(evNeedEditableCursors)}
+{$If Defined(evNeedEditableCursors)}
 uses
-  Classes
-  {$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
-  ,
-  evCellsIterator
-  {$IfEnd} //evNeedEditableCursors AND k2ForEditor
-  ,
-  l3Base,
-  evdTypes
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evNeedEditableCursors
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evCellsIterator
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Base
+ , evdTypes
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evNeedEditableCursors)}
-
-// start class TevRow
-
+{$If Defined(k2ForEditor)}
 class function TevRow.Make(const aView: InevView;
-  const aTable: IedTable;
-  aTagWrap: Tl3Variant;
-  const aProcessor: InevProcessor;
-  const aLocation: InevLocation = nil): IedRow;
+ const aTable: IedTable;
+ aTagWrap: Tl3Variant;
+ const aProcessor: InevProcessor;
+ const aLocation: InevLocation = nil): IedRow;
 //#UC START# *4FC4942400EF_4FC493C90289_var*
 var
  l_Row : TevRow;
@@ -212,7 +189,7 @@ begin
  end; // if l_CellsCount > 1 then
 //#UC END# *4FC49F620379_4FC493C90289_impl*
 end;//TevRow.AnalizeRowCells
+{$IfEnd} // Defined(k2ForEditor)
 
-{$IfEnd} //evNeedEditableCursors
-
+{$IfEnd} // Defined(evNeedEditableCursors)
 end.

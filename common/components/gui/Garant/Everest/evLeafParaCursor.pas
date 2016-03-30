@@ -1,84 +1,58 @@
 unit evLeafParaCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evLeafParaCursor.pas"
-// Начат: 16.10.2003 17:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevLeafParaCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevLeafParaCursor" MUID: (49DF6D540096)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevBase,
-  nevTools,
-  evParaCursor
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaCursor
+ , nevTools
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevLeafParaCursor = class(TevParaCursor, InevLeafPoint)
- private
- // private fields
-   f_Map : TnevFormatInfoPrim;
- protected
- // realized methods
-   procedure InitPointByPt(const aView: InevView;
-     const aPoint: TnevPoint;
-     const aMap: InevMap);
- public
- // realized methods
-   function PaintOffsetY(const aView: InevView;
-     aMap: TnevFormatInfoPrim): Integer;
- protected
- // overridden property methods
-   function pm_GetAsLeaf: InevLeafPoint; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function IsLeaf: Boolean; override;
-     {* Курсор от листьевого параграфа }
-   function DoMovePrim(const aView: InevView;
-    aCode: Integer;
-    const anOp: InevOp;
-    aCount: Integer): TnevMoveResult; override;
- protected
- // protected methods
+  private
+   f_Map: TnevFormatInfoPrim;
+  protected
    function ObjMap(const aView: InevView): TnevFormatInfoPrim;
    function GetPaintOffsetY(const aView: InevView;
     aMap: TnevFormatInfoPrim): Integer; virtual;
    procedure DoInitPointByPt(const aView: InevView;
     const aPoint: TnevPoint;
     const aMap: InevMap); virtual;
+   procedure InitPointByPt(const aView: InevView;
+    const aPoint: TnevPoint;
+    const aMap: InevMap);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function pm_GetAsLeaf: InevLeafPoint; override;
+   function IsLeaf: Boolean; override;
+    {* Курсор от листьевого параграфа }
+   function DoMovePrim(const aView: InevView;
+    aCode: Integer;
+    const anOp: InevOp;
+    aCount: Integer): TnevMoveResult; override;
+  public
+   function PaintOffsetY(const aView: InevView;
+    aMap: TnevFormatInfoPrim): Integer;
  end;//TevLeafParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evOp,
-  SysUtils
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevLeafParaCursor
+ l3ImplUses
+ , evOp
+ , SysUtils
+;
 
 function TevLeafParaCursor.ObjMap(const aView: InevView): TnevFormatInfoPrim;
 //#UC START# *49DF74B0005C_49DF6D540096_var*
@@ -104,7 +78,7 @@ begin
 end;//TevLeafParaCursor.ObjMap
 
 function TevLeafParaCursor.GetPaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *49DF6F2F0190_49DF6D540096_var*
 //#UC END# *49DF6F2F0190_49DF6D540096_var*
 begin
@@ -114,8 +88,8 @@ begin
 end;//TevLeafParaCursor.GetPaintOffsetY
 
 procedure TevLeafParaCursor.DoInitPointByPt(const aView: InevView;
-  const aPoint: TnevPoint;
-  const aMap: InevMap);
+ const aPoint: TnevPoint;
+ const aMap: InevMap);
 //#UC START# *49DF703901BA_49DF6D540096_var*
 //#UC END# *49DF703901BA_49DF6D540096_var*
 begin
@@ -126,8 +100,8 @@ begin
 end;//TevLeafParaCursor.DoInitPointByPt
 
 procedure TevLeafParaCursor.InitPointByPt(const aView: InevView;
-  const aPoint: TnevPoint;
-  const aMap: InevMap);
+ const aPoint: TnevPoint;
+ const aMap: InevMap);
 //#UC START# *47FB320102A6_49DF6D540096_var*
 //#UC END# *47FB320102A6_49DF6D540096_var*
 begin
@@ -137,7 +111,7 @@ begin
 end;//TevLeafParaCursor.InitPointByPt
 
 function TevLeafParaCursor.PaintOffsetY(const aView: InevView;
-  aMap: TnevFormatInfoPrim): Integer;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *4A5CDCAC0230_49DF6D540096_var*
 //#UC END# *4A5CDCAC0230_49DF6D540096_var*
 begin
@@ -147,6 +121,7 @@ begin
 end;//TevLeafParaCursor.PaintOffsetY
 
 procedure TevLeafParaCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49DF6D540096_var*
 //#UC END# *479731C50290_49DF6D540096_var*
 begin
@@ -166,6 +141,7 @@ begin
 end;//TevLeafParaCursor.pm_GetAsLeaf
 
 function TevLeafParaCursor.IsLeaf: Boolean;
+ {* Курсор от листьевого параграфа }
 //#UC START# *49E3153B017D_49DF6D540096_var*
 //#UC END# *49E3153B017D_49DF6D540096_var*
 begin
@@ -175,9 +151,9 @@ begin
 end;//TevLeafParaCursor.IsLeaf
 
 function TevLeafParaCursor.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_49DF6D540096_var*
 //#UC END# *49E31657038E_49DF6D540096_var*
 begin
@@ -197,7 +173,6 @@ begin
   end;//Case aCode
 //#UC END# *49E31657038E_49DF6D540096_impl*
 end;//TevLeafParaCursor.DoMovePrim
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

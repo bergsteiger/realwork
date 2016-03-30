@@ -1,52 +1,40 @@
 unit nevSBSCellFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevSBSCellFormatInfo.pas"
-// Начат: 14.09.2011 12:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevSBSCellFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevSBSCellFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSBSCellFormatInfo" MUID: (4E706504020E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevListFormatInfo
-  ;
+ l3IntfUses
+ , nevListFormatInfo
+;
 
 type
  _CellFormatInfoCommon_Parent_ = TnevListFormatInfo;
- {$Include ..\new\CellFormatInfoCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
  TnevSBSCellFormatInfo = class(_CellFormatInfoCommon_)
- public
- // overridden public methods
+  public
    function VerticalAlignmentMargin: Integer; override;
-     {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
+    {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
  end;//TnevSBSCellFormatInfo
 
 implementation
 
 uses
-  evdTypes,
-  nevBase,
-  k2Tags
-  ;
+ l3ImplUses
+ , evdTypes
+ , nevBase
+ , k2Tags
+;
 
-{$Include ..\new\CellFormatInfoCommon.imp.pas}
-
-// start class TnevSBSCellFormatInfo
+{$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
 
 function TnevSBSCellFormatInfo.VerticalAlignmentMargin: Integer;
+ {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
 //#UC START# *52021CDE00B2_4E706504020E_var*
 //#UC END# *52021CDE00B2_4E706504020E_var*
 begin

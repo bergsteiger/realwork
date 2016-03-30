@@ -1,101 +1,111 @@
 unit EditableBox;
+ {* логика фильтрации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/EditableBox.pas"
-// Начат: 19.05.2008 14:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::ComboTree::TEditableBox
-//
-// логика фильтрации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\EditableBox.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TEditableBox" MUID: (48315948025E)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  Messages,
-  Classes,
-  l3VCLStrings,
-  ctTypes,
-  DropDownTree
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  Controls {a}
-  ;
+ l3IntfUses
+ , DropDownTree
+ , Classes
+ , ctTypes
+ , l3TreeInterfaces
+ , l3VCLStrings
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *48315948025Eintf_uses*
+ //#UC END# *48315948025Eintf_uses*
+;
 
 type
  TEditableState = (
-   esNone
- , esSemiCompleted
- , esCompleted
- , esWrong
+  esNone
+  , esSemiCompleted
+  , esCompleted
+  , esWrong
  );//TEditableState
 
-//#UC START# *48315948025Eci*
-//#UC END# *48315948025Eci*
-//#UC START# *48315948025Ecit*
-//#UC END# *48315948025Ecit*
+ //#UC START# *48315948025Eci*
+ //#UC END# *48315948025Eci*
+ //#UC START# *48315948025Ecit*
+ //#UC END# *48315948025Ecit*
  TEditableBox = class(TDropDownTree)
   {* логика фильтрации }
- private
- // private fields
-   f_OnClear : TNotifyEvent;
-    {* Поле для свойства OnClear}
-   f_AutoWidth : TAutoWidthMode;
-    {* Поле для свойства AutoWidth}
-   f_ProcessServerTreeNotification : Boolean;
-    {* Поле для свойства ProcessServerTreeNotification}
-  {$If not defined(DesignTimeLibrary)}
-   f_RootNode : Il3SimpleNode;
-    {* Поле для свойства RootNode}
-  {$IfEnd} //not DesignTimeLibrary
-   f_AfterCompletion : TNotifyEvent;
-    {* Поле для свойства AfterCompletion}
-   f_State : TEditableState;
-    {* Поле для свойства State}
- private
- // private methods
+  private
+   f_OnClear: TNotifyEvent;
+   f_AutoWidth: TAutoWidthMode;
+   f_ProcessServerTreeNotification: Boolean;
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_RootNode: Il3SimpleNode;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   f_AfterCompletion: TNotifyEvent;
+   f_State: TEditableState;
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_TempObjectCompleted: Il3SimpleNode;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   f_Border: Integer;
+   f_NeedDropFiltering: Boolean;
+   f_NeedGotoNode: Boolean;
+   f_FiltCount: Integer;
+   f_NarrowSearch: Boolean;
+   f_SaveNode: Il3SimpleNode;
+   f_SaveBorder: Integer;
+   f_SaveHint: AnsiString;
+   f_HintSaved: Boolean;
+   f_RestrictHintChanging: Boolean;
+    {* дизейблит HintChanged }
+   f_Items: Tl3Strings;
+   f_ItemIndex: Integer;
+   f_TreeIsFiltered: Boolean;
+    {* дерево было отфильтровано (чтобы не делать лишний раз Deselect Hidden) }
+  private
    procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;
- protected
- // property methods
+  protected
    function pm_GetFullWidth: Integer;
    procedure pm_SetAutoWidth(aValue: TAutoWidthMode);
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure pm_SetRootNode(const aValue: Il3SimpleNode);
-   {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure pm_SetState(aValue: TEditableState);
- protected
- // overridden property methods
-   procedure pm_SetComboStyle(aValue: TComboStyle); override;
-   function pm_GetStyle: TComboBoxStyle; override;
-   procedure pm_SetStyle(aValue: TComboBoxStyle); override;
-   function pm_GetCurrentNode: Il3SimpleNode; override;
-   procedure pm_SetCurrentNode(const aValue: Il3SimpleNode); override;
-   function pm_GetIsList: Boolean; override;
- protected
- // overridden protected methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure SaveState;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure RestoreState;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure TriggerClearEvent;
+   procedure InternalSetText(const aStr: Il3CString;
+    aBorder: Integer = -1);
+   {$If NOT Defined(NoVCM)}
+   function vcmSetRoot(const aRoot: IvcmNodes): Boolean;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure vcmSetCurrent(const aCurrent: Il3SimpleNode);
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure SetRoot(const aRoot: Il3SimpleNode);
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   function IsSimpleTree: Boolean;
+   procedure ChangeUnsimpleTree; virtual;
+   function AutoWidthStored: Boolean;
+    {* "Функция определяющая, что свойство AutoWidth сохраняется" }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; override;
@@ -103,147 +113,176 @@ type
    procedure TriggerCaretXChangedEvent(var Value: Integer;
     var Allow: Boolean); override;
    procedure AdjustWidth; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
+   procedure pm_SetComboStyle(aValue: TComboStyle); override;
+   function pm_GetStyle: TComboBoxStyle; override;
+   procedure pm_SetStyle(aValue: TComboBoxStyle); override;
    procedure EscapePressed; override;
-     {* Сигнатура метода EscapePressed }
    procedure RecreateTreeIfNeeded(aValue: TComboStyle); override;
+   function pm_GetCurrentNode: Il3SimpleNode; override;
+   procedure pm_SetCurrentNode(const aValue: Il3SimpleNode); override;
    procedure TreeChangedNotification; override;
-     {* Сигнатура метода TreeChangedNotification }
+   function pm_GetIsList: Boolean; override;
    function IsReadOnly: Boolean; override;
-    {$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
    function HintChanged(const aHint: AnsiString): Boolean; override;
-    {$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   procedure CustomDoEnter; override;
-     {* Сигнатура метода CustomDoEnter }
- protected
- // protected fields
-  {$If not defined(DesignTimeLibrary)}
-   f_TempObjectCompleted : Il3SimpleNode;
-  {$IfEnd} //not DesignTimeLibrary
-   f_Border : Integer;
-   f_NeedDropFiltering : Boolean;
-   f_NeedGotoNode : Boolean;
-   f_FiltCount : Integer;
-   f_NarrowSearch : Boolean;
-   f_SaveNode : Il3SimpleNode;
-   f_SaveBorder : Integer;
-   f_SaveHint : AnsiString;
-   f_HintSaved : Boolean;
-   f_RestrictHintChanging : Boolean;
-    {* дизейблит HintChanged}
-   f_Items : Tl3Strings;
-   f_ItemIndex : Integer;
-   f_TreeIsFiltered : Boolean;
-    {* дерево было отфильтровано (чтобы не делать лишний раз Deselect Hidden)}
- protected
- // protected methods
-    {$If not defined(DesignTimeLibrary)}
-   procedure SaveState;
-     {* Сигнатура метода SaveState }
-    {$IfEnd} //not DesignTimeLibrary
-    {$If not defined(DesignTimeLibrary)}
-   procedure RestoreState;
-     {* Сигнатура метода RestoreState }
-    {$IfEnd} //not DesignTimeLibrary
-   procedure TriggerClearEvent;
-     {* Сигнатура метода TriggerClearEvent }
-   procedure InternalSetText(const aStr: Il3CString;
-     aBorder: Integer = -1);
-    {$If not defined(NoVCM)}
-   function VcmSetRoot(const aRoot: IvcmNodes): Boolean;
-    {$IfEnd} //not NoVCM
-    {$If not defined(DesignTimeLibrary)}
-   procedure VcmSetCurrent(const aCurrent: Il3SimpleNode);
-    {$IfEnd} //not DesignTimeLibrary
-    {$If not defined(DesignTimeLibrary)}
-   procedure SetRoot(const aRoot: Il3SimpleNode);
-    {$IfEnd} //not DesignTimeLibrary
-   function IsSimpleTree: Boolean;
-   procedure ChangeUnsimpleTree; virtual;
-     {* Сигнатура метода ChangeUnsimpleTree }
-   function AutoWidthStored: Boolean;
-     {* "Функция определяющая, что свойство AutoWidth сохраняется" }
- public
- // public methods
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
+  public
    function MakeNodesFromItems: Boolean;
    procedure Clear;
-     {* Сигнатура метода Clear }
    procedure DropDownCompletion;
-     {* Сигнатура метода DropDownCompletion }
-    {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    function GetFullPath(const aNode: Il3SimpleNode): Il3CString;
-    {$IfEnd} //not DesignTimeLibrary
- protected
- // protected properties
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   constructor Create(AOwner: TComponent); override;
+   procedure CustomDoEnter; override;
+  protected
    property State: TEditableState
-     read f_State
-     write pm_SetState;
- public
- // public properties
+    read f_State
+    write pm_SetState;
+  public
    property OnClear: TNotifyEvent
-     read f_OnClear
-     write f_OnClear;
+    read f_OnClear
+    write f_OnClear;
    property FullWidth: Integer
-     read pm_GetFullWidth;
-     {* ширина необходимая edit-у для отображения всей строки. }
+    read pm_GetFullWidth;
+    {* ширина необходимая edit-у для отображения всей строки. }
    property AutoWidth: TAutoWidthMode
-     read f_AutoWidth
-     write pm_SetAutoWidth
-     stored AutoWidthStored;
+    read f_AutoWidth
+    write pm_SetAutoWidth
+    stored AutoWidthStored;
    property ProcessServerTreeNotification: Boolean
-     read f_ProcessServerTreeNotification
-     write f_ProcessServerTreeNotification;
-   {$If not defined(DesignTimeLibrary)}
+    read f_ProcessServerTreeNotification
+    write f_ProcessServerTreeNotification;
+   {$If NOT Defined(DesignTimeLibrary)}
    property RootNode: Il3SimpleNode
-     read f_RootNode
-     write pm_SetRootNode;
-   {$IfEnd} //not DesignTimeLibrary
+    read f_RootNode
+    write pm_SetRootNode;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    property AfterCompletion: TNotifyEvent
-     read f_AfterCompletion
-     write f_AfterCompletion;
-//#UC START# *48315948025Epubl*
+    read f_AfterCompletion
+    write f_AfterCompletion;
+ //#UC START# *48315948025Epubl*
    property ComboStyle;
    property Style stored false;
    property OnKeyPress;
    property ShowRoot;
-//#UC END# *48315948025Epubl*
+ //#UC END# *48315948025Epubl*
  end;//TEditableBox
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vtOutliner,
-  l3SimpleTree,
-  l3InternalInterfaces,
-  l3ScreenIC,
-  l3Base,
-  l3String,
-  l3Tree_TLB,
-  l3ControlsTypes,
-  l3Nodes,
-  l3MinMax,
-  l3Units,
-  l3InterfacesMisc
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtOutliner
+ , l3SimpleTree
+ , l3InternalInterfaces
+ , l3ScreenIC
+ , l3Base
+ , l3String
+ , l3Tree_TLB
+ , l3ControlsTypes
+ , l3Nodes
+ , l3MinMax
+ , l3Units
+ , l3InterfacesMisc
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48315948025Eimpl_uses*
+ //#UC END# *48315948025Eimpl_uses*
+;
 
-// start class TEditableBox
+function TEditableBox.pm_GetFullWidth: Integer;
+//#UC START# *53F349D30104_48315948025Eget_var*
+var
+ l_BtnWidth: Integer;
+ l_Temp: Integer;
+ l_IC: Il3InfoCanvas;
+//#UC END# *53F349D30104_48315948025Eget_var*
+begin
+//#UC START# *53F349D30104_48315948025Eget_impl*
+ // Шрифт
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=502978335
+ if HandleAllocated then
+ begin
+  Canvas.Canvas.Font := Self.Font;
+  Canvas.Canvas.TextWidth('W');
+ end;
+ // - это ХАК, иначе тулбары почему-то большие :-( // <hack>
+ l_IC := l3CrtIC;
+ l_IC.Font.AssignFont(Self.Font);
+ // Учитываем ширину кнопки
+ if Button.Visible then
+  l_BtnWidth := Button.Width
+ else
+  l_BtnWidth := 0;
+ // Размер
+ with l_IC do
+ begin
+  l_Temp := Max(TextExtent(Buffer).X,
+                TextExtent(l3PCharLen(CEmptyHint)).X);
+  l_Temp := Max(l_Temp, TextExtent(l3PCharLen('W')).X);
+  Result := LP2DP(l3PointX(l_Temp)).X + l_BtnWidth + 12;
+ end;//l_IC
+//#UC END# *53F349D30104_48315948025Eget_impl*
+end;//TEditableBox.pm_GetFullWidth
 
-{$If not defined(DesignTimeLibrary)}
+procedure TEditableBox.pm_SetAutoWidth(aValue: TAutoWidthMode);
+//#UC START# *53F34A490058_48315948025Eset_var*
+//#UC END# *53F34A490058_48315948025Eset_var*
+begin
+//#UC START# *53F34A490058_48315948025Eset_impl*
+ if (aValue <> f_AutoWidth) then
+  f_AutoWidth := aValue;
+//#UC END# *53F34A490058_48315948025Eset_impl*
+end;//TEditableBox.pm_SetAutoWidth
+
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TEditableBox.pm_SetRootNode(const aValue: Il3SimpleNode);
+//#UC START# *53F34AEC0368_48315948025Eset_var*
+var
+ l_Wake: Il3Wake;
+//#UC END# *53F34AEC0368_48315948025Eset_var*
+begin
+//#UC START# *53F34AEC0368_48315948025Eset_impl*
+ if (aValue <> nil) and not aValue.IsSame(f_RootNode) then
+ begin
+  f_RootNode := aValue;
+  SetRoot(aValue);
+
+  DropWidth := Width;
+  Tree.Width := DropWidth;
+  if Supports(f_RootNode, Il3Wake, l_Wake) then
+   l_Wake.Wake;
+  DropHeight := EstimateTreeHeight(Tree.GetMinSizeY, Tree.GetMaxSizeY);
+  Tree.Height := Dropheight;
+  DropHeight := DropHeight + Tree.getBorderSize;
+
+  Dropped := False;
+ end;//aValue <> nil
+//#UC END# *53F34AEC0368_48315948025Eset_impl*
+end;//TEditableBox.pm_SetRootNode
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure TEditableBox.pm_SetState(aValue: TEditableState);
+//#UC START# *53F34F840161_48315948025Eset_var*
+//#UC END# *53F34F840161_48315948025Eset_var*
+begin
+//#UC START# *53F34F840161_48315948025Eset_impl*
+ if (f_State <> aValue) then
+ begin
+  f_State := aValue;
+  Invalidate;
+ end;//f_State <> aValue
+//#UC END# *53F34F840161_48315948025Eset_impl*
+end;//TEditableBox.pm_SetState
+
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TEditableBox.SaveState;
 //#UC START# *53F3517202BB_48315948025E_var*
 //#UC END# *53F3517202BB_48315948025E_var*
@@ -256,9 +295,9 @@ begin
  end;//not (cmAppNotActive in CurrentMode)
 //#UC END# *53F3517202BB_48315948025E_impl*
 end;//TEditableBox.SaveState
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TEditableBox.RestoreState;
 //#UC START# *53F3518A008C_48315948025E_var*
 //#UC END# *53F3518A008C_48315948025E_var*
@@ -284,7 +323,7 @@ begin
  end;//not (cmAppNotActive in CurrentMode)
 //#UC END# *53F3518A008C_48315948025E_impl*
 end;//TEditableBox.RestoreState
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TEditableBox.TriggerClearEvent;
 //#UC START# *53F351A602B4_48315948025E_var*
@@ -307,7 +346,7 @@ begin
 end;//TEditableBox.TriggerClearEvent
 
 procedure TEditableBox.InternalSetText(const aStr: Il3CString;
-  aBorder: Integer = -1);
+ aBorder: Integer = -1);
 //#UC START# *53F351B70032_48315948025E_var*
 var
  l_IC: Il3InfoCanvas;                                       
@@ -366,8 +405,8 @@ begin
 //#UC END# *53F351B70032_48315948025E_impl*
 end;//TEditableBox.InternalSetText
 
-{$If not defined(NoVCM)}
-function TEditableBox.VcmSetRoot(const aRoot: IvcmNodes): Boolean;
+{$If NOT Defined(NoVCM)}
+function TEditableBox.vcmSetRoot(const aRoot: IvcmNodes): Boolean;
 //#UC START# *53F351DE025A_48315948025E_var*
 //#UC END# *53F351DE025A_48315948025E_var*
 begin
@@ -399,11 +438,11 @@ begin
   end;//aRoot.Count = 1
  end;//aRoot <> nil
 //#UC END# *53F351DE025A_48315948025E_impl*
-end;//TEditableBox.VcmSetRoot
-{$IfEnd} //not NoVCM
+end;//TEditableBox.vcmSetRoot
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(DesignTimeLibrary)}
-procedure TEditableBox.VcmSetCurrent(const aCurrent: Il3SimpleNode);
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TEditableBox.vcmSetCurrent(const aCurrent: Il3SimpleNode);
 //#UC START# *53F352370117_48315948025E_var*
  procedure DoSet;
  begin
@@ -435,10 +474,10 @@ begin
    DoSet;
  end;//f_Items.Count = 0
 //#UC END# *53F352370117_48315948025E_impl*
-end;//TEditableBox.VcmSetCurrent
-{$IfEnd} //not DesignTimeLibrary
+end;//TEditableBox.vcmSetCurrent
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TEditableBox.SetRoot(const aRoot: Il3SimpleNode);
 //#UC START# *53F3527902A3_48315948025E_var*
 //#UC END# *53F3527902A3_48315948025E_var*
@@ -453,7 +492,7 @@ begin
  end;//not Tree.TreeStruct.RootNode.IsSame(aRoot)
 //#UC END# *53F3527902A3_48315948025E_impl*
 end;//TEditableBox.SetRoot
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TEditableBox.IsSimpleTree: Boolean;
 //#UC START# *53F352FD0111_48315948025E_var*
@@ -569,7 +608,7 @@ begin
 //#UC END# *53F35386025E_48315948025E_impl*
 end;//TEditableBox.DropDownCompletion
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 function TEditableBox.GetFullPath(const aNode: Il3SimpleNode): Il3CString;
 //#UC START# *53F353B801E4_48315948025E_var*
  function GetPath(const aNode: Il3SimpleNode): Il3CString;
@@ -596,92 +635,7 @@ begin
   Result := GetPath(aNode);
 //#UC END# *53F353B801E4_48315948025E_impl*
 end;//TEditableBox.GetFullPath
-{$IfEnd} //not DesignTimeLibrary
-
-function TEditableBox.pm_GetFullWidth: Integer;
-//#UC START# *53F349D30104_48315948025Eget_var*
-var
- l_BtnWidth: Integer;
- l_Temp: Integer;
- l_IC: Il3InfoCanvas;
-//#UC END# *53F349D30104_48315948025Eget_var*
-begin
-//#UC START# *53F349D30104_48315948025Eget_impl*
- // Шрифт
- // http://mdp.garant.ru/pages/viewpage.action?pageId=502978335
- if HandleAllocated then
- begin
-  Canvas.Canvas.Font := Self.Font;
-  Canvas.Canvas.TextWidth('W');
- end;
- // - это ХАК, иначе тулбары почему-то большие :-( // <hack>
- l_IC := l3CrtIC;
- l_IC.Font.AssignFont(Self.Font);
- // Учитываем ширину кнопки
- if Button.Visible then
-  l_BtnWidth := Button.Width
- else
-  l_BtnWidth := 0;
- // Размер
- with l_IC do
- begin
-  l_Temp := Max(TextExtent(Buffer).X,
-                TextExtent(l3PCharLen(CEmptyHint)).X);
-  l_Temp := Max(l_Temp, TextExtent(l3PCharLen('W')).X);
-  Result := LP2DP(l3PointX(l_Temp)).X + l_BtnWidth + 12;
- end;//l_IC
-//#UC END# *53F349D30104_48315948025Eget_impl*
-end;//TEditableBox.pm_GetFullWidth
-
-procedure TEditableBox.pm_SetAutoWidth(aValue: TAutoWidthMode);
-//#UC START# *53F34A490058_48315948025Eset_var*
-//#UC END# *53F34A490058_48315948025Eset_var*
-begin
-//#UC START# *53F34A490058_48315948025Eset_impl*
- if (aValue <> f_AutoWidth) then
-  f_AutoWidth := aValue;
-//#UC END# *53F34A490058_48315948025Eset_impl*
-end;//TEditableBox.pm_SetAutoWidth
-
-{$If not defined(DesignTimeLibrary)}
-procedure TEditableBox.pm_SetRootNode(const aValue: Il3SimpleNode);
-//#UC START# *53F34AEC0368_48315948025Eset_var*
-var
- l_Wake: Il3Wake;
-//#UC END# *53F34AEC0368_48315948025Eset_var*
-begin
-//#UC START# *53F34AEC0368_48315948025Eset_impl*
- if (aValue <> nil) and not aValue.IsSame(f_RootNode) then
- begin
-  f_RootNode := aValue;
-  SetRoot(aValue);
-
-  DropWidth := Width;
-  Tree.Width := DropWidth;
-  if Supports(f_RootNode, Il3Wake, l_Wake) then
-   l_Wake.Wake;
-  DropHeight := EstimateTreeHeight(Tree.GetMinSizeY, Tree.GetMaxSizeY);
-  Tree.Height := Dropheight;
-  DropHeight := DropHeight + Tree.getBorderSize;
-
-  Dropped := False;
- end;//aValue <> nil
-//#UC END# *53F34AEC0368_48315948025Eset_impl*
-end;//TEditableBox.pm_SetRootNode
-{$IfEnd} //not DesignTimeLibrary
-
-procedure TEditableBox.pm_SetState(aValue: TEditableState);
-//#UC START# *53F34F840161_48315948025Eset_var*
-//#UC END# *53F34F840161_48315948025Eset_var*
-begin
-//#UC START# *53F34F840161_48315948025Eset_impl*
- if (f_State <> aValue) then
- begin
-  f_State := aValue;
-  Invalidate;
- end;//f_State <> aValue
-//#UC END# *53F34F840161_48315948025Eset_impl*
-end;//TEditableBox.pm_SetState
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TEditableBox.CMEnabledChanged(var Msg: TMessage);
 //#UC START# *53F352C803D9_48315948025E_var*
@@ -694,6 +648,7 @@ begin
 end;//TEditableBox.CMEnabledChanged
 
 function TEditableBox.AutoWidthStored: Boolean;
+ {* "Функция определяющая, что свойство AutoWidth сохраняется" }
 //#UC START# *AD4856A82443_48315948025E_var*
 //#UC END# *AD4856A82443_48315948025E_var*
 begin
@@ -703,6 +658,7 @@ begin
 end;//TEditableBox.AutoWidthStored
 
 procedure TEditableBox.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48315948025E_var*
 //#UC END# *479731C50290_48315948025E_var*
 begin
@@ -749,7 +705,7 @@ begin
 end;//TEditableBox.Create
 
 function TEditableBox.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
 //#UC START# *47D160620295_48315948025E_var*
 //#UC END# *47D160620295_48315948025E_var*
 begin
@@ -809,7 +765,7 @@ begin
 end;//TEditableBox.Change
 
 procedure TEditableBox.TriggerCaretXChangedEvent(var Value: Integer;
-  var Allow: Boolean);
+ var Allow: Boolean);
 //#UC START# *482C0BBD01CF_48315948025E_var*
 //#UC END# *482C0BBD01CF_48315948025E_var*
 begin
@@ -866,15 +822,6 @@ begin
 {$EndIf DesignTimeLibrary}
 //#UC END# *4F2AA6F20181_48315948025E_impl*
 end;//TEditableBox.AdjustWidth
-
-procedure TEditableBox.ClearFields;
- {-}
-begin
- {$If not defined(DesignTimeLibrary)}
- RootNode := nil;
- {$IfEnd} //not DesignTimeLibrary
- inherited;
-end;//TEditableBox.ClearFields
 
 procedure TEditableBox.pm_SetComboStyle(aValue: TComboStyle);
 //#UC START# *53ECCEC9013B_48315948025Eset_var*
@@ -1060,7 +1007,7 @@ begin
 //#UC END# *53F34C2A025E_48315948025E_impl*
 end;//TEditableBox.IsReadOnly
 
-{$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
 function TEditableBox.HintChanged(const aHint: AnsiString): Boolean;
 //#UC START# *53F34DE200C9_48315948025E_var*
 //#UC END# *53F34DE200C9_48315948025E_var*
@@ -1080,15 +1027,23 @@ begin
  Result := inherited HintChanged(aHint);
 //#UC END# *53F34DE200C9_48315948025E_impl*
 end;//TEditableBox.HintChanged
-{$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+
+procedure TEditableBox.ClearFields;
+begin
+ {$If NOT Defined(DesignTimeLibrary)}
+ RootNode := nil;
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ inherited;
+end;//TEditableBox.ClearFields
 
 //#UC START# *48315948025Eimpl*
 //#UC END# *48315948025Eimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TEditableBox
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TEditableBox);
-{$IfEnd} //not NoScripts
+ {* Регистрация TEditableBox }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

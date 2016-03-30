@@ -19,8 +19,6 @@ uses
 type
  TvcmTabsHistoryService = {final} class(Tl3ProtoObject, IvcmHistoryService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function Back(const aForm: IvcmEntityForm): Boolean;
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
@@ -28,6 +26,8 @@ type
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
    class function Instance: TvcmTabsHistoryService;
     {* Метод получения экземпляра синглетона TvcmTabsHistoryService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmTabsHistoryService
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
@@ -54,12 +54,6 @@ procedure TvcmTabsHistoryServiceFree;
 begin
  l3Free(g_TvcmTabsHistoryService);
 end;//TvcmTabsHistoryServiceFree
-
-class function TvcmTabsHistoryService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmTabsHistoryService <> nil;
-end;//TvcmTabsHistoryService.Exists
 
 function TvcmTabsHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
 //#UC START# *18FC3BA729CF_559BA3E6014C_var*
@@ -154,6 +148,12 @@ begin
  end;
  Result := g_TvcmTabsHistoryService;
 end;//TvcmTabsHistoryService.Instance
+
+class function TvcmTabsHistoryService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTabsHistoryService <> nil;
+end;//TvcmTabsHistoryService.Exists
 
 initialization
  TvcmHistoryService.Instance.Alien := TvcmTabsHistoryService.Instance;

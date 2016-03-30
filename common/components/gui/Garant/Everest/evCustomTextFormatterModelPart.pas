@@ -1,58 +1,46 @@
 unit evCustomTextFormatterModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomTextFormatterModelPart.pas"
-// Начат: 30.01.2012 13:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCustomTextFormatterModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomTextFormatterModelPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomTextFormatterModelPart" MUID: (4F26660203CB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdDocumentFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdDocumentFilter
+ , l3Variant
+;
 
 type
  TevCustomTextFormatterModelPart = class(TevdDocumentFilter)
- protected
- // protected methods
+  protected
    procedure ValidateStyles(aPara: Tl3Variant);
  end;//TevCustomTextFormatterModelPart
 
 implementation
 
 uses
-  evdTypes,
-  ObjectSegment_Const,
-  evdTextStyle_Const,
-  k2Tags,
-  Formula_Const
-  ;
-
-// start class TevCustomTextFormatterModelPart
+ l3ImplUses
+ , evdTextStyle_Const
+ , k2Tags
+ , Formula_Const
+ , evdTypes
+ , ObjectSegment_Const
+;
 
 procedure TevCustomTextFormatterModelPart.ValidateStyles(aPara: Tl3Variant);
 
  function DoIt(anItem: Tl3Variant;
-   anIndex: Integer): Boolean;
- var
-  l_Layer : Tl3Variant;
+  anIndex: Integer): Boolean;
+  {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из ValidateStyles }
+ var l_Layer: Tl3Variant;
 
   function DoIt(anItem: Tl3Variant;
-    anIndex: Integer): Boolean;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из DoIt }
   //#UC START# *87A18881C23B__var*
   //#UC END# *87A18881C23B__var*
   begin
@@ -73,7 +61,7 @@ procedure TevCustomTextFormatterModelPart.ValidateStyles(aPara: Tl3Variant);
   //if (l_Layer.IntA[k2_tiHandle] <> ev_slObjects) then
    l_Layer.
   //#UC END# *4F26694603B5iter*
-   IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
+  IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
  end;//DoIt
 
 //#UC START# *4F2666AC03A4_4F26660203CB_var*
@@ -85,7 +73,7 @@ begin
    aPara.AttrW[k2_tiStyle, nil] := nil;
  aPara.Attr[k2_tiSegments].
  //#UC END# *4F2666AC03A4iter*
-  IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
+ IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
 end;//TevCustomTextFormatterModelPart.ValidateStyles
 
 end.

@@ -1,54 +1,39 @@
 unit vcmFormSetFormsCollection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmFormSetFormsCollection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::FormSets::TvcmFormSetFormsCollection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetFormsCollection" MUID: (4FFC32B60282)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmFormSetFormsCollectionItemPrim,
-  vcmFormSetFormsCollectionPrim
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmFormSetFormsCollectionPrim
+ , vcmFormSetFormsCollectionItemPrim
+ , vcmInterfaces
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmFormSetFormsCollection = class(TvcmFormSetFormsCollectionPrim)
- public
- // public methods
+  public
    function FindItemByForm(const aForm: IvcmEntityForm): TvcmFormSetFormsCollectionItemPrim;
-     {* ищет элемент коллекции соответствующий форме. }
+    {* ищет элемент коллекции соответствующий форме. }
  end;//TvcmFormSetFormsCollection
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmFormSetFormsCollectionItem
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmFormSetFormsCollection
+ l3ImplUses
+ , vcmFormSetFormsCollectionItem
+;
 
 function TvcmFormSetFormsCollection.FindItemByForm(const aForm: IvcmEntityForm): TvcmFormSetFormsCollectionItemPrim;
+ {* ищет элемент коллекции соответствующий форме. }
 //#UC START# *511CF09301D0_4FFC32B60282_var*
 var
  l_Index : Integer;
@@ -64,7 +49,6 @@ begin
   end;//if TvcmFormSetFormsCollectionItem(Items[
 //#UC END# *511CF09301D0_4FFC32B60282_impl*
 end;//TvcmFormSetFormsCollection.FindItemByForm
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

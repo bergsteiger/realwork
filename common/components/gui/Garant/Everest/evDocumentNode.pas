@@ -1,45 +1,32 @@
 unit evDocumentNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevDocumentNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentNode" MUID: (4DFEF94101DF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  evContentsTagNode,
-  l3Interfaces,
-  l3Tree_TLB,
-  evInternalInterfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , evContentsTagNode
+ , l3Base
+ , l3Interfaces
+ , l3Tree_TLB
+ , l3Variant
+ , evInternalInterfaces
+;
 
 type
  TevDocumentNode = class(TevContentsTagNode)
- private
- // private fields
-   f_Name : Tl3String;
- protected
- // overridden protected methods
+  private
+   f_Name: Tl3String;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
- public
- // overridden public methods
+  public
    class function Make(aTag: Tl3Variant;
     const aFilter: InevContentsNodeFilter): Il3Node; override;
  end;//TevDocumentNode
@@ -47,13 +34,13 @@ type
 implementation
 
 uses
-  l3String,
-  nevInterfaces
-  ;
-
-// start class TevDocumentNode
+ l3ImplUses
+ , l3String
+ , nevInterfaces
+;
 
 procedure TevDocumentNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEF94101DF_var*
 //#UC END# *479731C50290_4DFEF94101DF_var*
 begin
@@ -75,7 +62,7 @@ begin
 end;//TevDocumentNode.GetAsPCharLen
 
 class function TevDocumentNode.Make(aTag: Tl3Variant;
-  const aFilter: InevContentsNodeFilter): Il3Node;
+ const aFilter: InevContentsNodeFilter): Il3Node;
 //#UC START# *4DFF1D3501C1_4DFEF94101DF_var*
 var
  l_DocNode: TevDocumentNode;

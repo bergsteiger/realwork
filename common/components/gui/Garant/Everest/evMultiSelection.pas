@@ -1,57 +1,40 @@
 unit evMultiSelection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelection.pas"
-// Начат: 10.01.2004 17:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMultiSelection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelection" MUID: (48E3B50501DB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevRangeList,
-  nevSelection,
-  l3Variant,
-  evTypes
-  ;
+ l3IntfUses
+ , nevSelection
+ , nevRangeList
+ , nevTools
+ , l3Variant
+ , evTypes
+;
 
 type
  TevMultiSelection = class(TnevSelection)
- private
- // private fields
-   f_Selected : TnevRangeList;
-   f_SelectedCopy : TnevRangeList;
-   f_NeedUnselect : Boolean;
-   f_WasProcess : Boolean;
-   f_HeadPoint : InevBasePoint;
- private
- // private methods
+  private
+   f_Selected: TnevRangeList;
+   f_SelectedCopy: TnevRangeList;
+   f_NeedUnselect: Boolean;
+   f_WasProcess: Boolean;
+   f_HeadPoint: InevBasePoint;
+  private
    procedure DoAssignSelByRecursion(const aView: InevView;
     const aSource: InevRange);
-     {* Рекурсивно разобрать выделение на мультиблоки }
- protected
- // property methods
+    {* Рекурсивно разобрать выделение на мультиблоки }
+  protected
    function pm_GetAllowMultiSelect: Boolean;
- protected
- // overridden property methods
-   function pm_GetCollapsed: Boolean; override;
- protected
- // overridden protected methods
+   function MakeSelectionCopy(aSelection: TnevRangeList): TnevRangeList;
+   procedure CheckSelectedList;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetBlock(const aDocument: InevObject): InevRange; override;
    function GetIsMulti: Boolean; override;
    function DoAddBlock(const aStart: InevBasePoint;
@@ -62,50 +45,40 @@ type
     AllowAddToMulti: Boolean); override;
    procedure DoSetDocument(aValue: Tl3Tag); override;
    function DoUnselect: Boolean; override;
-     {* Снять выделение }
- public
- // overridden public methods
-   procedure Select(aTarget: TevSelectTarget;
-    const aCursor: InevPoint = nil;
-    Start: Boolean = true); override;
-     {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
-   procedure ForceStore; override;
- protected
- // protected methods
-   function MakeSelectionCopy(aSelection: TnevRangeList): TnevRangeList;
-   procedure CheckSelectedList;
- public
- // public methods
+    {* Снять выделение }
+   function pm_GetCollapsed: Boolean; override;
+  public
    procedure SelectionStart(aNeedUnselect: Boolean);
    procedure SelectionProcess(const aStart: InevPoint;
     const aFinish: InevPoint);
    procedure SelectionFinish(const aStart: InevPoint;
     const aFinish: InevPoint;
     var aNeedUnselect: Boolean);
- protected
- // protected properties
+   procedure Select(aTarget: TevSelectTarget;
+    const aCursor: InevPoint = nil;
+    Start: Boolean = True); override;
+    {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
+   procedure ForceStore; override;
+  protected
    property AllowMultiSelect: Boolean
-     read pm_GetAllowMultiSelect;
+    read pm_GetAllowMultiSelect;
  end;//TevMultiSelection
 
 implementation
 
 uses
-  l3Base,
-  evMultiSelectionBlock,
-  l3Types,
-  l3MinMax,
-  evMsgCode,
-  nevRangeListTools,
-  nevFacade
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TevMultiSelection
+ l3ImplUses
+ , l3Base
+ , evMultiSelectionBlock
+ , l3Types
+ , l3MinMax
+ , evMsgCode
+ , nevRangeListTools
+ , nevFacade
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TevMultiSelection.pm_GetAllowMultiSelect: Boolean;
 //#UC START# *48E3B7C70192_48E3B50501DBget_var*
@@ -169,7 +142,7 @@ begin
 end;//TevMultiSelection.SelectionStart
 
 procedure TevMultiSelection.SelectionProcess(const aStart: InevPoint;
-  const aFinish: InevPoint);
+ const aFinish: InevPoint);
 //#UC START# *48E3B5DA031E_48E3B50501DB_var*
 //#UC END# *48E3B5DA031E_48E3B50501DB_var*
 begin
@@ -188,8 +161,8 @@ begin
 end;//TevMultiSelection.SelectionProcess
 
 procedure TevMultiSelection.SelectionFinish(const aStart: InevPoint;
-  const aFinish: InevPoint;
-  var aNeedUnselect: Boolean);
+ const aFinish: InevPoint;
+ var aNeedUnselect: Boolean);
 //#UC START# *48E3B5F4039A_48E3B50501DB_var*
 //#UC END# *48E3B5F4039A_48E3B50501DB_var*
 begin
@@ -210,7 +183,8 @@ begin
 end;//TevMultiSelection.SelectionFinish
 
 procedure TevMultiSelection.DoAssignSelByRecursion(const aView: InevView;
-  const aSource: InevRange);
+ const aSource: InevRange);
+ {* Рекурсивно разобрать выделение на мультиблоки }
 //#UC START# *4A2617E5004E_48E3B50501DB_var*
 
  procedure lp_DoAdd(const aStart, aFinish: InevBasePoint);
@@ -266,6 +240,7 @@ begin
 end;//TevMultiSelection.DoAssignSelByRecursion
 
 procedure TevMultiSelection.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48E3B50501DB_var*
 //#UC END# *479731C50290_48E3B50501DB_var*
 begin
@@ -307,7 +282,7 @@ begin
 end;//TevMultiSelection.GetIsMulti
 
 function TevMultiSelection.DoAddBlock(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
+ const aFinish: InevBasePoint): Boolean;
 //#UC START# *48E2719C019C_48E3B50501DB_var*
 var
  l_Start  : InevBasePoint;
@@ -425,8 +400,8 @@ begin
 end;//TevMultiSelection.GetContains
 
 procedure TevMultiSelection.DoAssignSel(const aView: InevView;
-  const aSource: InevRange;
-  AllowAddToMulti: Boolean);
+ const aSource: InevRange;
+ AllowAddToMulti: Boolean);
 //#UC START# *48E274CF007B_48E3B50501DB_var*
 var
  l_Pack: InevOp;
@@ -482,6 +457,7 @@ begin
 end;//TevMultiSelection.DoSetDocument
 
 function TevMultiSelection.DoUnselect: Boolean;
+ {* Снять выделение }
 //#UC START# *48E2771B024F_48E3B50501DB_var*
 //#UC END# *48E2771B024F_48E3B50501DB_var*
 begin
@@ -525,8 +501,9 @@ begin
 end;//TevMultiSelection.pm_GetCollapsed
 
 procedure TevMultiSelection.Select(aTarget: TevSelectTarget;
-  const aCursor: InevPoint = nil;
-  Start: Boolean = true);
+ const aCursor: InevPoint = nil;
+ Start: Boolean = True);
+ {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
 //#UC START# *48E3A6260063_48E3B50501DB_var*
 var
  l_Pack : InevOp;

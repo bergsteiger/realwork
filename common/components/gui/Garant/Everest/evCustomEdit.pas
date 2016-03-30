@@ -1,39 +1,28 @@
 unit evCustomEdit;
+ {* Строка ввода. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomEdit.pas"
-// Начат: 13.05.2008 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomEdit
-//
-// Строка ввода.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEdit" MUID: (4829D7E80085)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evDef,
-  evCustomMemo,
-  Messages,
-  l3Region,
-  Controls {a},
-  Classes,
-  l3InternalInterfaces
-  ;
+ l3IntfUses
+ , evCustomMemo
+ , Classes
+ , l3InternalInterfaces
+ , l3Region
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , evDef
+;
 
 const
-  { Defaults }
  def_EditScrollStyle = evDef.def_EditScrollStyle;
 
 type
@@ -41,71 +30,57 @@ type
  {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
  TevCustomEdit = class(_RegionableControl_)
   {* Строка ввода. }
- private
- // private fields
-   f_UpperCase : Boolean;
-    {* Поле для свойства UpperCase}
-   f_Regionable : Boolean;
-    {* Поле для свойства Regionable}
- private
- // private methods
-   function CnvLo2Up(Sender: TObject;
+  private
+   f_UpperCase: Boolean;
+   f_Regionable: Boolean;
+  private
+   function cnvLo2Up(Sender: TObject;
     aStr: PAnsiChar;
     aLen: Integer;
     aCodePage: Integer): Boolean;
- protected
- // property methods
+  protected
    procedure pm_SetRegionable(aValue: Boolean);
- protected
- // overridden protected methods
    function TextSourceClass: RevCustomMemoTextSource; override;
    function GetTopMargin: Integer; override;
-     {* Возвращает отступ до текста сверху. }
+    {* Возвращает отступ до текста сверху. }
    procedure Validate; override;
    procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
+    {* процедура рисования внешнего вида управляющего элемента }
    function WantSoftEnter: Boolean; override;
    procedure TuneRegion(aRegion: Tl3Region); override;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
- public
- // public properties
+  public
    property UpperCase: Boolean
-     read f_UpperCase
-     write f_UpperCase
-     default false;
+    read f_UpperCase
+    write f_UpperCase
+    default False;
    property Regionable: Boolean
-     read f_Regionable
-     write pm_SetRegionable;
+    read f_Regionable
+    write pm_SetRegionable;
  end;//TevCustomEdit
 
 implementation
 
 uses
-  evCustomEditTextSource,
-  SysUtils,
-  evSearch,
-  l3String,
-  evTypes,
-  evConvertTextTools,
-  l3Units,
-  Windows
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCL)}
-  ,
-  Themes
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , evCustomEditTextSource
+ , SysUtils
+ , evSearch
+ , l3String
+ , evTypes
+ , evConvertTextTools
+ , l3Units
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Themes
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
-
-// start class TevCustomEdit
 
 procedure TevCustomEdit.pm_SetRegionable(aValue: Boolean);
 //#UC START# *4CFFC1BA00EB_4829D7E80085set_var*
@@ -120,17 +95,17 @@ begin
 //#UC END# *4CFFC1BA00EB_4829D7E80085set_impl*
 end;//TevCustomEdit.pm_SetRegionable
 
-function TevCustomEdit.CnvLo2Up(Sender: TObject;
-  aStr: PAnsiChar;
-  aLen: Integer;
-  aCodePage: Integer): Boolean;
+function TevCustomEdit.cnvLo2Up(Sender: TObject;
+ aStr: PAnsiChar;
+ aLen: Integer;
+ aCodePage: Integer): Boolean;
 //#UC START# *4860F67C0000_4829D7E80085_var*
 //#UC END# *4860F67C0000_4829D7E80085_var*
 begin
 //#UC START# *4860F67C0000_4829D7E80085_impl*
  Result := l3MakeUpperCase(aStr, aLen, aCodePage);
 //#UC END# *4860F67C0000_4829D7E80085_impl*
-end;//TevCustomEdit.CnvLo2Up
+end;//TevCustomEdit.cnvLo2Up
 
 constructor TevCustomEdit.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_4829D7E80085_var*
@@ -157,6 +132,7 @@ begin
 end;//TevCustomEdit.TextSourceClass
 
 function TevCustomEdit.GetTopMargin: Integer;
+ {* Возвращает отступ до текста сверху. }
 //#UC START# *483D718E0143_4829D7E80085_var*
 var
  l_DocHeight : Integer;
@@ -187,6 +163,7 @@ begin
 end;//TevCustomEdit.Validate
 
 procedure TevCustomEdit.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_4829D7E80085_var*
 var
  l_Delta : Integer;
@@ -237,9 +214,9 @@ begin
 end;//TevCustomEdit.TuneRegion
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

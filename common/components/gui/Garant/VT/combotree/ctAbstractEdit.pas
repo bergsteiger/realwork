@@ -1,33 +1,21 @@
 unit ctAbstractEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/ctAbstractEdit.pas"
-// Начат: 13.05.2008 20:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::ComboTree::TctAbstractEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctAbstractEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TctAbstractEdit" MUID: (4829BB0F0179)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  ctButtonEdit
-  ;
+ l3IntfUses
+ , ctButtonEdit
+;
 
 type
  TctAbstractEdit = class(TctButtonEdit)
- public
- // public methods
+  public
    procedure DeleteToClipboard; virtual;
    function CopyAllowed: Boolean; virtual;
    function CutAllowed: Boolean; virtual;
@@ -38,21 +26,15 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Clipbrd
-  {$IfEnd} //not NoVCL
-  ,
-  l3Interfaces
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TctAbstractEdit
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Clipbrd
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TctAbstractEdit.DeleteToClipboard;
 //#UC START# *482C806D02B4_4829BB0F0179_var*
@@ -100,9 +82,9 @@ begin
 end;//TctAbstractEdit.DeleteAllowed
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TctAbstractEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TctAbstractEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TctAbstractEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

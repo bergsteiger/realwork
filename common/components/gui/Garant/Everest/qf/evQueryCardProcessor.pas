@@ -1,69 +1,56 @@
 unit evQueryCardProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evQueryCardProcessor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevQueryCardProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryCardProcessor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardProcessor" MUID: (48DBA722010B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditorWindowProcessor,
-  l3Variant,
-  l3Types,
-  nevBase
-  ;
+ l3IntfUses
+ , evEditorWindowProcessor
+ , l3Variant
+ , l3Types
+ , nevBase
+;
 
 type
  TevQueryCardProcessor = class(TevEditorWindowProcessor)
- private
- // private methods
+  private
    function NeedAdd(Parent: Tl3Variant;
     Child: Tl3Variant;
     var aIndex: Integer): Boolean; virtual;
- protected
- // overridden protected methods
+  protected
    procedure DoCheckParaOp(aParent: Tl3Variant;
     var aChild: Tl3Variant;
     anOp: Tl3Operation;
     anIndex: TnevParaIndex); override;
-     {* проверить операцию с параграфом }
+    {* проверить операцию с параграфом }
    procedure DoAfterUndoRedo; override;
    procedure DoParaOp(Parent: Tl3Variant;
     Child: Tl3Variant;
     Op: Tl3Operation); override;
-     {* завершить операцию с параграфом }
+    {* завершить операцию с параграфом }
  end;//TevQueryCardProcessor
 
 implementation
 
 uses
-  SysUtils,
-  evControlParaConst,
-  k2Except,
-  k2Tags,
-  ReqRow_Const,
-  ReqCell_Const,
-  nevTools
-  ;
-
-// start class TevQueryCardProcessor
+ l3ImplUses
+ , SysUtils
+ , evControlParaConst
+ , k2Except
+ , k2Tags
+ , ReqRow_Const
+ , ReqCell_Const
+ , nevTools
+;
 
 function TevQueryCardProcessor.NeedAdd(Parent: Tl3Variant;
-  Child: Tl3Variant;
-  var aIndex: Integer): Boolean;
+ Child: Tl3Variant;
+ var aIndex: Integer): Boolean;
 //#UC START# *48E4CB1A03B7_48DBA722010B_var*
 //#UC END# *48E4CB1A03B7_48DBA722010B_var*
 begin
@@ -87,9 +74,10 @@ begin
 end;//TevQueryCardProcessor.NeedAdd
 
 procedure TevQueryCardProcessor.DoCheckParaOp(aParent: Tl3Variant;
-  var aChild: Tl3Variant;
-  anOp: Tl3Operation;
-  anIndex: TnevParaIndex);
+ var aChild: Tl3Variant;
+ anOp: Tl3Operation;
+ anIndex: TnevParaIndex);
+ {* проверить операцию с параграфом }
 //#UC START# *48E4CB990000_48DBA722010B_var*
 var
  l_Container: InevQueryDocumentContainer;
@@ -124,8 +112,9 @@ begin
 end;//TevQueryCardProcessor.DoAfterUndoRedo
 
 procedure TevQueryCardProcessor.DoParaOp(Parent: Tl3Variant;
-  Child: Tl3Variant;
-  Op: Tl3Operation);
+ Child: Tl3Variant;
+ Op: Tl3Operation);
+ {* завершить операцию с параграфом }
 //#UC START# *48E4CBE8018B_48DBA722010B_var*
 var
  l_Container : InevQueryDocumentContainer;

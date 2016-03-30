@@ -89,29 +89,17 @@ type
    f_Slaves: Tl3ObjectList;
    f_NotifyList: Tl3ObjectList;
    f_AbsoluteIndex: Integer;
-    {* Поле для свойства AbsoluteIndex }
    f_Alias: AnsiString;
-    {* Поле для свойства Alias }
    f_Caption: AnsiString;
-    {* Поле для свойства Caption }
    f_Changed: Boolean;
-    {* Поле для свойства Changed }
    f_DefaultValue: TddConfigValue;
-    {* Поле для свойства DefaultValue }
    f_Enabled: Boolean;
-    {* Поле для свойства Enabled }
    f_HelpContext: Integer;
-    {* Поле для свойства HelpContext }
    f_MasterItem: TddBaseConfigItem;
-    {* Поле для свойства MasterItem }
    f_Required: Boolean;
-    {* Поле для свойства Required }
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
    f_OnNotify: TddValueChangedEvent;
-    {* Поле для свойства OnNotify }
    f_ReadOnly: Boolean;
-    {* Поле для свойства ReadOnly }
   protected
    f_Value: TddConfigValue;
   private
@@ -265,9 +253,7 @@ type
  TMapValue = class(TddAppConfigBase)
   private
    f_Value: TddConfigValue;
-    {* Поле для свойства Value }
    f_Caption: AnsiString;
-    {* Поле для свойства Caption }
   protected
    procedure pm_SetValue(const aValue: TddConfigValue);
    procedure pm_SetCaption(const aValue: AnsiString);
@@ -288,7 +274,6 @@ type
   private
    f_List: Tl3ProtoPersistentRefList;
    f_MapKind: TddValueKind;
-    {* Поле для свойства MapKind }
   private
    procedure CheckValueType(aKind: TddValueKind);
   protected
@@ -322,15 +307,10 @@ type
    f_Label: TvtLabel;
    f_RequiredLabel: TvtLabel;
    f_Control: TControl;
-    {* Поле для свойства Control }
    f_FirstLabel: TvtLabel;
-    {* Поле для свойства FirstLabel }
    f_Hint: AnsiString;
-    {* Поле для свойства Hint }
    f_Labeled: Boolean;
-    {* Поле для свойства Labeled }
    f_Visible: Boolean;
-    {* Поле для свойства Visible }
   protected
    f_LabelTop: Boolean;
   protected
@@ -420,9 +400,7 @@ type
   private
    f_UpDown: TUpDown;
    f_MaxValue: Integer;
-    {* Поле для свойства MaxValue }
    f_MinValue: Integer;
-    {* Поле для свойства MinValue }
   protected
    procedure pm_SetMaxValue(aValue: Integer);
    procedure pm_SetMinValue(aValue: Integer);
@@ -464,7 +442,6 @@ type
  EddInvalidValue = class(EddConfigError)
   private
    f_Item: TddVisualConfigItem;
-    {* Поле для свойства Item }
   public
    constructor CreateFmt(const aMsg: AnsiString;
     const Args: array of const;
@@ -478,7 +455,6 @@ type
   private
    f_ValueKind: TddValueKind;
    f_ValueMap: Il3ValueMap;
-    {* Поле для свойства ValueMap }
   protected
    f_MapValues: TMapValues;
   private
@@ -519,7 +495,6 @@ type
   private
    f_Items: TStrings;
    f_MaxCount: Integer;
-    {* Поле для свойства MaxCount }
   protected
    procedure pm_SetMaxCount(aValue: Integer);
    procedure Cleanup; override;
@@ -574,9 +549,7 @@ type
  TddGroupConfigItem = class(TddVisualConfigItem)
   private
    f_SubItems: TObjectList;
-    {* Поле для свойства SubItems }
    f_ShowCaption: Boolean;
-    {* Поле для свойства ShowCaption }
   private
    procedure DoOnChange(Sender: TObject);
   protected
@@ -690,19 +663,12 @@ type
  TddCustomConfigNode = class(TddBaseConfigItem, IddConfigNode)
   private
    f_Alias: AnsiString;
-    {* Поле для свойства Alias }
    f_Caption: AnsiString;
-    {* Поле для свойства Caption }
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
    f_HelpContext: Integer;
-    {* Поле для свойства HelpContext }
    f_Parent: TddCustomConfigNode;
-    {* Поле для свойства Parent }
    f_ParentAlias: AnsiString;
-    {* Поле для свойства ParentAlias }
    f_ScrollBars: TScrollStyle;
-    {* Поле для свойства ScrollBars }
   protected
    f_Children: Tl3ProtoPersistentRefList;
   protected
@@ -816,9 +782,7 @@ type
  TddButtonConfigItem = class(TddVisualConfigItem)
   private
    f_OnClick: TNotifyEvent;
-    {* Поле для свойства OnClick }
    f_ButtonPlace: TddButtonPlace;
-    {* Поле для свойства ButtonPlace }
   private
    procedure ButtonSize(aParent: TWinControl;
     out aSize: TSize);
@@ -872,7 +836,6 @@ type
  TddCheckListConfigItem = class(TddRadioGroupConfigItem)
   private
    f_Columns: Integer;
-    {* Поле для свойства Columns }
   protected
    function ConstructControl(var aLeft: Integer;
     var aMaxLeft: Integer;
@@ -918,9 +881,7 @@ type
  TddAppConfigNode = class(TddCustomConfigNode)
   private
    f_Objects: Tl3ProtoPersistentRefList;
-    {* Поле для свойства Objects }
    f_LabelTop: Boolean;
-    {* Поле для свойства LabelTop }
   protected
    procedure pm_SetObjects(aValue: Tl3ProtoPersistentRefList);
    procedure pm_SetLabelTop(aValue: Boolean);
@@ -1047,7 +1008,6 @@ type
    f_MaxLeft: Integer;
    f_LastIndex: Integer;
    f_ForceComboBox: Boolean;
-    {* Поле для свойства ForceComboBox }
   private
    function GetCaseIndex: Integer;
    procedure ConstructSubItems(aLeft: Integer;
@@ -1098,9 +1058,7 @@ type
   private
    f_MasterIndex: Integer;
    f_ComboBoxStyle: TComboBoxStyle;
-    {* Поле для свойства ComboBoxStyle }
    f_DropDownCount: Integer;
-    {* Поле для свойства DropDownCount }
   private
    procedure OnExit(Sender: TObject);
   protected
@@ -3155,12 +3113,6 @@ begin
 //#UC END# *479731C50290_4E302F130143_impl*
 end;//TddMapValueConfigItem.Cleanup
 
-procedure TddMapValueConfigItem.ClearFields;
-begin
- f_ValueMap := nil;
- inherited;
-end;//TddMapValueConfigItem.ClearFields
-
 procedure TddMapValueConfigItem.LoadValue(const aStorage: IddConfigStorage);
 //#UC START# *52172B72014C_4E302F130143_var*
 //#UC END# *52172B72014C_4E302F130143_var*
@@ -3203,6 +3155,12 @@ begin
  TddMapValueConfigItem(Result).Assign(Self);
 //#UC END# *5301EC7500FF_4E302F130143_impl*
 end;//TddMapValueConfigItem.Clone
+
+procedure TddMapValueConfigItem.ClearFields;
+begin
+ f_ValueMap := nil;
+ inherited;
+end;//TddMapValueConfigItem.ClearFields
 
 procedure TddRadioGroupConfigItem.pm_SetMaxCount(aValue: Integer);
 //#UC START# *5226101F0249_52260D9A0238set_var*

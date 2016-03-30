@@ -79,35 +79,20 @@ type
    f_Versions: TddAppConfigVersionManager;
    f_WorkFrame: TWorkFrame;
    f_AutoSize: Boolean;
-    {* Поле для свойства AutoSize }
    f_DialogCaption: AnsiString;
-    {* Поле для свойства DialogCaption }
    f_DialogIndex: Integer;
-    {* Поле для свойства DialogIndex }
    f_FontName: AnsiString;
-    {* Поле для свойства FontName }
    f_Items: TStringList;
-    {* Поле для свойства Items }
    f_SaveChanged: Boolean;
-    {* Поле для свойства SaveChanged }
    f_OnErrorShow: TddErrorShowEvent;
-    {* Поле для свойства OnErrorShow }
    f_OnRequiredEvent: TddAppRequiredEvent;
-    {* Поле для свойства OnRequiredEvent }
    f_AutoSave: Boolean;
-    {* Поле для свойства AutoSave }
    f_ButtonsPanelHeight: Integer;
-    {* Поле для свойства ButtonsPanelHeight }
    f_DialogOptions: TddAppDialogOptions;
-    {* Поле для свойства DialogOptions }
    f_FormMinWidth: Integer;
-    {* Поле для свойства FormMinWidth }
    f_RequiredMessage: AnsiString;
-    {* Поле для свойства RequiredMessage }
    f_UseNodeNames: Boolean;
-    {* Поле для свойства UseNodeNames }
    f_UseScrollbars: Boolean;
-    {* Поле для свойства UseScrollbars }
   private
    function AddChildNode(aNode: TddCustomConfigNode): TddCustomConfigNode;
    procedure AddNode(aNode: TddCustomConfigNode); overload;

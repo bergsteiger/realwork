@@ -1,65 +1,51 @@
 unit evCommentParaDecorator;
+ {* Фильтр, довешивающий комментариям юристов специфическое оформление. [$140285546] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCommentParaDecorator.pas"
-// Начат: 14.04.2009 17:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCommentParaDecorator
-//
-// Фильтр, довешивающий комментариям юристов специфическое оформление. [$140285546]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaDecorator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaDecorator" MUID: (49E48A670254)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , l3Variant
+;
 
 type
  TevCheckStyle = (
-   ev_cstNone
- , ev_cstTxtComment
- , ev_cstVerComment
+  ev_cstNone
+  , ev_cstTxtComment
+  , ev_cstVerComment
  );//TevCheckStyle
 
  TevCommentParaDecorator = class(TevdLeafParaFilter)
   {* Фильтр, довешивающий комментариям юристов специфическое оформление. [$140285546] }
- private
- // private fields
-   f_CheckComment : TevCheckStyle;
- protected
- // overridden protected methods
+  private
+   f_CheckComment: TevCheckStyle;
+  protected
    procedure OpenStream; override;
-     {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
+    {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
  end;//TevCommentParaDecorator
 
 implementation
 
 uses
-  evdStyles,
-  k2Tags,
-  TextPara_Const,
-  Graphics,
-  nevInterfaces
-  ;
-
-// start class TevCommentParaDecorator
+ l3ImplUses
+ , evdStyles
+ , k2Tags
+ , TextPara_Const
+ , Graphics
+ , nevInterfaces
+;
 
 procedure TevCommentParaDecorator.OpenStream;
+ {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
 //#UC START# *4836D49800CA_49E48A670254_var*
 //#UC END# *4836D49800CA_49E48A670254_var*
 begin
@@ -70,6 +56,7 @@ begin
 end;//TevCommentParaDecorator.OpenStream
 
 procedure TevCommentParaDecorator.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_49E48A670254_var*
 
  procedure lp_OutStyleDecor;

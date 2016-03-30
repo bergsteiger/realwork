@@ -1,38 +1,26 @@
 unit evMemoEdit;
+ {* Изначально многострочный редактор с ограничением на количество символов ввода }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evMemoEdit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevMemoEdit
-//
-// Изначально многострочный редактор с ограничением на количество символов ввода
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evMemoEdit.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMemoEdit" MUID: (48D258F502BF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditControl,
-  nevBase,
-  nevTools,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evEditControl
+ , nevTools
+ , nevBase
+ , l3Interfaces
+;
 
 type
  TevMemoEdit = class(TevEditControl)
   {* Изначально многострочный редактор с ограничением на количество символов ввода }
- protected
- // overridden protected methods
+  protected
    function GetIsMultiline: Boolean; override;
    procedure DoTextChange(const aView: InevView;
     const aPara: InevPara;
@@ -43,7 +31,9 @@ type
 
 implementation
 
-// start class TevMemoEdit
+uses
+ l3ImplUses
+;
 
 function TevMemoEdit.GetIsMultiline: Boolean;
 //#UC START# *48D13CED0240_48D258F502BF_var*
@@ -55,8 +45,8 @@ begin
 end;//TevMemoEdit.GetIsMultiline
 
 procedure TevMemoEdit.DoTextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
 //#UC START# *48D14C0E023E_48D258F502BF_var*
 //#UC END# *48D14C0E023E_48D258F502BF_var*
 begin

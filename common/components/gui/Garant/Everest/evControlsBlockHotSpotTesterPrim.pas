@@ -1,88 +1,72 @@
 unit evControlsBlockHotSpotTesterPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlsBlockHotSpotTesterPrim.pas"
-// Начат: 04.06.2009 15:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevControlsBlockHotSpotTesterPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockHotSpotTesterPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlsBlockHotSpotTesterPrim" MUID: (4A27B51303A7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  afwInterfaces,
-  l3Units,
-  nevTools,
-  evQueryCardInt,
-  nevGUIInterfaces,
-  evDocumentPartHotSpotTester
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evDocumentPartHotSpotTester
+ , nevGUIInterfaces
+ , nevTools
+ , evQueryCardInt
+ , l3Units
+ , afwInterfaces
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TContrBlockActFlags = (
-   ev_cbNoAction
- , ev_cbMainSurface
- , ev_cbButton
+  ev_cbNoAction
+  , ev_cbMainSurface
+  , ev_cbButton
  );//TContrBlockActFlags
 
  TevControlsBlockHotSpotTesterPrim = class(TevDocumentPartHotSpotTester, IevMouseMoveHandler)
- private
- // private fields
-   f_CommonControl : IevCommonControl;
-    {* Поле для свойства CommonControl}
- protected
- // property methods
+  private
+   f_CommonControl: IevCommonControl;
+    {* Поле для свойства CommonControl }
+  protected
    function pm_GetCommonControl: IevCommonControl;
- protected
- // realized methods
-   function TransMouseMove(const aView: InevControlView;
-     const aKeys: TevMouseState;
-     out theActiveElement: InevActiveElement): Boolean;
-     {* Собственно реальный MouseMove, передаваемый редактору }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    function GetControl: IevQueryGroup;
    function PtToPara(const aPt: TafwPoint): Tl3Point;
    function MouseInBtn(const aPt: Tl3Point): Boolean;
- protected
- // protected properties
+   function TransMouseMove(const aView: InevControlView;
+    const aKeys: TevMouseState;
+    out theActiveElement: InevActiveElement): Boolean;
+    {* Собственно реальный MouseMove, передаваемый редактору }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  protected
    property CommonControl: IevCommonControl
-     read pm_GetCommonControl;
+    read pm_GetCommonControl;
  end;//TevControlsBlockHotSpotTesterPrim
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evControlsBlockConst,
-  SysUtils
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3ImplUses
+ , SysUtils
+ , evControlsBlockConst
+;
 
-{$If defined(evNeedHotSpot)}
-
-// start class TevControlsBlockHotSpotTesterPrim
+function TevControlsBlockHotSpotTesterPrim.pm_GetCommonControl: IevCommonControl;
+//#UC START# *4A27B7B10328_4A27B51303A7get_var*
+//#UC END# *4A27B7B10328_4A27B51303A7get_var*
+begin
+//#UC START# *4A27B7B10328_4A27B51303A7get_impl*
+ if f_CommonControl = nil then
+  Supports(ParaX, IevCommonControl, f_CommonControl);
+ Result := f_CommonControl;
+//#UC END# *4A27B7B10328_4A27B51303A7get_impl*
+end;//TevControlsBlockHotSpotTesterPrim.pm_GetCommonControl
 
 function TevControlsBlockHotSpotTesterPrim.GetControl: IevQueryGroup;
 //#UC START# *4A27B59E000D_4A27B51303A7_var*
@@ -116,20 +100,10 @@ begin
 //#UC END# *4A27B6890151_4A27B51303A7_impl*
 end;//TevControlsBlockHotSpotTesterPrim.MouseInBtn
 
-function TevControlsBlockHotSpotTesterPrim.pm_GetCommonControl: IevCommonControl;
-//#UC START# *4A27B7B10328_4A27B51303A7get_var*
-//#UC END# *4A27B7B10328_4A27B51303A7get_var*
-begin
-//#UC START# *4A27B7B10328_4A27B51303A7get_impl*
- if f_CommonControl = nil then
-  Supports(ParaX, IevCommonControl, f_CommonControl);
- Result := f_CommonControl;
-//#UC END# *4A27B7B10328_4A27B51303A7get_impl*
-end;//TevControlsBlockHotSpotTesterPrim.pm_GetCommonControl
-
 function TevControlsBlockHotSpotTesterPrim.TransMouseMove(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  out theActiveElement: InevActiveElement): Boolean;
+ const aKeys: TevMouseState;
+ out theActiveElement: InevActiveElement): Boolean;
+ {* Собственно реальный MouseMove, передаваемый редактору }
 //#UC START# *48E2638F0358_4A27B51303A7_var*
 var
  l_Control : IevQueryGroup;                                                     
@@ -153,6 +127,7 @@ begin
 end;//TevControlsBlockHotSpotTesterPrim.TransMouseMove
 
 procedure TevControlsBlockHotSpotTesterPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A27B51303A7_var*
 //#UC END# *479731C50290_4A27B51303A7_var*
 begin
@@ -163,14 +138,10 @@ begin
 end;//TevControlsBlockHotSpotTesterPrim.Cleanup
 
 procedure TevControlsBlockHotSpotTesterPrim.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_CommonControl := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TevControlsBlockHotSpotTesterPrim.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

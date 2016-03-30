@@ -1,63 +1,48 @@
 unit evCellsCharOffsets;
+ {* работа со смещениями ячеек }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCellsCharOffsets.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCellsCharOffsets
-//
-// работа со смещениями ячеек
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellsCharOffsets.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsCharOffsets" MUID: (4F2F6CA40273)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditorInterfaces,
-  l3ProtoObject,
-  evOneCharLongIntList,
-  edCellTypesList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evOneCharLongIntList
+ , evEditorInterfaces
+ , edCellTypesList
+;
 
 type
  TevCellsCharOffsets = class(Tl3ProtoObject)
   {* работа со смещениями ячеек }
- private
- // private fields
-   f_Offsets : TevOneCharLongIntList;
-    {* Смещения ячеек}
-   f_Widths : TevOneCharLongIntList;
-    {* Ширина ячеек по этому смещению}
-   f_Width : Integer;
-    {* Текущая ширина ячейки}
-   f_Offset : Integer;
-    {* Текущее смещение}
-   f_Index : Integer;
-   f_UsingCount : Integer;
- private
- // private methods
+  private
+   f_Offsets: TevOneCharLongIntList;
+    {* Смещения ячеек }
+   f_Widths: TevOneCharLongIntList;
+    {* Ширина ячеек по этому смещению }
+   f_Width: Integer;
+    {* Текущая ширина ячейки }
+   f_Offset: Integer;
+    {* Текущее смещение }
+   f_Index: Integer;
+   f_UsingCount: Integer;
+  private
    procedure CheckList;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddCellWidthAndRecalc;
    procedure Clear;
    function FindOffset(const aOffsetList: TevCellsCharOffsets;
-     var anIndex: Integer): Boolean; overload; 
+    var anIndex: Integer): Boolean; overload;
    function FindOffset(anOffset: Integer;
-     var anIndex: Integer): Boolean; overload; 
+    var anIndex: Integer): Boolean; overload;
    function LastWidth: Integer;
    function PrevWidth: Integer;
    function GetNextOffset: Integer;
@@ -66,49 +51,34 @@ type
    procedure SetWidth(aWidth: Integer);
    function GetWidth: Integer;
    procedure UpdateWidth(anIndex: Integer;
-     aDelta: Integer);
-   function Equals(const anIterator: IedCellsIterator): Boolean; overload; 
+    aDelta: Integer);
+   function Equals(const anIterator: IedCellsIterator): Boolean; overload;
    procedure CopyData(const aData: TevCellsCharOffsets;
-     const anIterator: IedCellsIterator);
+    const anIterator: IedCellsIterator);
    function GetRowWidth: Integer;
    procedure AlignByPrevious(const aData: TevCellsCharOffsets);
    function Equals(const anIterator: IedCellsIterator;
-     aForTempate: Boolean): Boolean; overload; 
+    aForTempate: Boolean): Boolean; overload;
    procedure IncUsingCount;
    function GetWidthByIndex(anIndex: Integer): Integer;
    function GetOffsetByIndex(anIndex: Integer): Integer;
    function GetCount: Integer;
    procedure AlignByOffset(anOffset: Integer;
-     anIndex: Integer;
-     aCellTypeList: TedCellTypesList);
+    anIndex: Integer;
+    aCellTypeList: TedCellTypesList);
  end;//TevCellsCharOffsets
 
 implementation
 
 uses
-  SysUtils,
-  l3UnitsTools
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  evExcept
-  ;
-
-// start class TevCellsCharOffsets
-
-procedure TevCellsCharOffsets.CheckList;
-//#UC START# *4F2FD1E202A4_4F2F6CA40273_var*
-//#UC END# *4F2FD1E202A4_4F2F6CA40273_var*
-begin
-//#UC START# *4F2FD1E202A4_4F2F6CA40273_impl*
- if (f_Offsets = nil) then
-  f_Offsets := TevOneCharLongIntList.Make;
- if (f_Widths = nil) then
-  f_Widths := TevOneCharLongIntList.Make;
-//#UC END# *4F2FD1E202A4_4F2F6CA40273_impl*
-end;//TevCellsCharOffsets.CheckList
+ l3ImplUses
+ , SysUtils
+ , l3UnitsTools
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , evExcept
+;
 
 procedure TevCellsCharOffsets.AddCellWidthAndRecalc;
 //#UC START# *4F2F6D94002E_4F2F6CA40273_var*
@@ -140,7 +110,7 @@ begin
 end;//TevCellsCharOffsets.Clear
 
 function TevCellsCharOffsets.FindOffset(const aOffsetList: TevCellsCharOffsets;
-  var anIndex: Integer): Boolean;
+ var anIndex: Integer): Boolean;
 //#UC START# *4F2F6DC40150_4F2F6CA40273_var*
 //#UC END# *4F2F6DC40150_4F2F6CA40273_var*
 begin
@@ -159,7 +129,7 @@ begin
 end;//TevCellsCharOffsets.FindOffset
 
 function TevCellsCharOffsets.FindOffset(anOffset: Integer;
-  var anIndex: Integer): Boolean;
+ var anIndex: Integer): Boolean;
 //#UC START# *4F2F6DEE0354_4F2F6CA40273_var*
 //#UC END# *4F2F6DEE0354_4F2F6CA40273_var*
 begin
@@ -247,7 +217,7 @@ begin
 end;//TevCellsCharOffsets.GetWidth
 
 procedure TevCellsCharOffsets.UpdateWidth(anIndex: Integer;
-  aDelta: Integer);
+ aDelta: Integer);
 //#UC START# *4F2F6EFA02E7_4F2F6CA40273_var*
 //#UC END# *4F2F6EFA02E7_4F2F6CA40273_var*
 begin
@@ -296,7 +266,7 @@ begin
 end;//TevCellsCharOffsets.Equals
 
 procedure TevCellsCharOffsets.CopyData(const aData: TevCellsCharOffsets;
-  const anIterator: IedCellsIterator);
+ const anIterator: IedCellsIterator);
 //#UC START# *4F2FCECA004D_4F2F6CA40273_var*
 var
  l_Cell   : IedCell;
@@ -326,6 +296,18 @@ begin
  end; // if anIterator = nil then
 //#UC END# *4F2FCECA004D_4F2F6CA40273_impl*
 end;//TevCellsCharOffsets.CopyData
+
+procedure TevCellsCharOffsets.CheckList;
+//#UC START# *4F2FD1E202A4_4F2F6CA40273_var*
+//#UC END# *4F2FD1E202A4_4F2F6CA40273_var*
+begin
+//#UC START# *4F2FD1E202A4_4F2F6CA40273_impl*
+ if (f_Offsets = nil) then
+  f_Offsets := TevOneCharLongIntList.Make;
+ if (f_Widths = nil) then
+  f_Widths := TevOneCharLongIntList.Make;
+//#UC END# *4F2FD1E202A4_4F2F6CA40273_impl*
+end;//TevCellsCharOffsets.CheckList
 
 function TevCellsCharOffsets.GetRowWidth: Integer;
 //#UC START# *4FAB832701E6_4F2F6CA40273_var*
@@ -373,7 +355,7 @@ begin
 end;//TevCellsCharOffsets.AlignByPrevious
 
 function TevCellsCharOffsets.Equals(const anIterator: IedCellsIterator;
-  aForTempate: Boolean): Boolean;
+ aForTempate: Boolean): Boolean;
 //#UC START# *50937BBB01BF_4F2F6CA40273_var*
 var
  i        : Integer;
@@ -443,8 +425,8 @@ begin
 end;//TevCellsCharOffsets.GetCount
 
 procedure TevCellsCharOffsets.AlignByOffset(anOffset: Integer;
-  anIndex: Integer;
-  aCellTypeList: TedCellTypesList);
+ anIndex: Integer;
+ aCellTypeList: TedCellTypesList);
 //#UC START# *52F1ED3803C8_4F2F6CA40273_var*
 var
  i      : Integer;
@@ -464,6 +446,7 @@ begin
 end;//TevCellsCharOffsets.AlignByOffset
 
 procedure TevCellsCharOffsets.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F2F6CA40273_var*
 //#UC END# *479731C50290_4F2F6CA40273_var*
 begin

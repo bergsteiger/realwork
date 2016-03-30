@@ -1,61 +1,48 @@
 unit evControlGroup;
+ {* Группа реквизитов (блок параграфов) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evControlGroup.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevControlGroup
-//
-// Группа реквизитов (блок параграфов)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlGroup.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlGroup" MUID: (48DB819600D8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evQueryCardInt,
-  evReqList,
-  evDescriptionReqList,
-  evCustomControlTool,
-  l3Interfaces,
-  evdTypes,
-  nevBase
-  ;
+ l3IntfUses
+ , evCustomControlTool
+ , evQueryCardInt
+ , evReqList
+ , evDescriptionReqList
+ , nevTools
+ , l3Interfaces
+ , evdTypes
+ , nevBase
+;
 
 type
  TevControlGroup = class(TevCustomControlTool, IevCustomEditorControl, IevQueryGroup)
   {* Группа реквизитов (блок параграфов) }
- private
- // private fields
-   f_ReqList : TevReqList;
-    {* Список реквизитов для каждой группы (IevReq)}
-   f_DescriptionList : TevDescriptionReqList;
-    {* Список описаний для каждой группы (IevDescriptionReq)}
-   f_QueryCard : Pointer;
-    {* Указатель на контейнер всех виджетов, групп и атрибутов. IevQueryCard}
- protected
- // realized methods
+  private
+   f_ReqList: TevReqList;
+    {* Список реквизитов для каждой группы (IevReq) }
+   f_DescriptionList: TevDescriptionReqList;
+    {* Список описаний для каждой группы (IevDescriptionReq) }
+   f_QueryCard: Pointer;
+    {* Указатель на контейнер всех виджетов, групп и атрибутов. IevQueryCard }
+  protected
    function IsMultiline: Boolean;
-     {* Контрол содержит несколько строк и поддерживает перемещение по ним 
+    {* Контрол содержит несколько строк и поддерживает перемещение по ним 
           с помощью стрелок (к меткам это не относится). }
    function GetControlIterator: IevControlIterator;
-     {* Интерфейс "навигатора" по контролам. }
+    {* Интерфейс "навигатора" по контролам. }
    procedure InitBoolProperty(aIdent: Integer;
     aValue: Boolean);
-     {* Для установки начальных значений (не используется передача данных для 
+    {* Для установки начальных значений (не используется передача данных для 
          процессора операций). }
    procedure UpperChange;
-     {* Обработчик изменения состояния кнопок. }
+    {* Обработчик изменения состояния кнопок. }
    function Get_ControlName: Tl3WString;
    procedure Set_ControlName(const aValue: Tl3WString);
    function Get_ControlType: TevControlType;
@@ -65,31 +52,31 @@ type
    procedure Set_Upper(aValue: Boolean);
    procedure ClickOnDisabledLabel;
    procedure AfterCollapsed;
-     {* Обработчик события сворачивания группы. }
+    {* Обработчик события сворачивания группы. }
    function CanCollapsed: Boolean;
-     {* Проверка может ли группа свернуться. }
+    {* Проверка может ли группа свернуться. }
    function LMouseBtnDown(const aView: InevControlView;
     const aTextPara: InevPara;
     const aPt: TnevPoint;
     const Keys: TevMouseState;
     const aMap: InevMap): Boolean;
-     {* Обработка нажания на левую кнопку мыши. }
+    {* Обработка нажания на левую кнопку мыши. }
    function LMouseBtnUp(const aView: InevControlView;
     const aTextPara: InevPara;
     const aPt: TnevPoint;
     const Keys: TevMouseState): Boolean;
    function FindDescriptionReq(const aReqName: Tl3WString): IevDescriptionReq;
-     {* Возвращает реквизит по имени. }
+    {* Возвращает реквизит по имени. }
    procedure InitModel(const aTag: InevPara);
-     {* Инициализация модели. }
+    {* Инициализация модели. }
    function LastReq: IevReq;
-     {* Последний реквизт в группе. }
+    {* Последний реквизт в группе. }
    function FirstReq: IevReq;
-     {* Первый реквизит в группе. }
+    {* Первый реквизит в группе. }
    function GetNextReq(const aReq: IevReq): IevReq;
-     {* Возвращает следующий реквизит. }
+    {* Возвращает следующий реквизит. }
    function GetPrevReq(const aReq: IevReq): IevReq;
-     {* Возвращает предыдущий реквизит. }
+    {* Возвращает предыдущий реквизит. }
    function Get_Req(Index: Integer): IevReq;
    function Get_ReqCount: Integer;
    function Get_DescriptionReq(Index: Integer): IevDescriptionReq;
@@ -98,12 +85,9 @@ type
    function Get_Expanded: Boolean;
    procedure Set_Expanded(aValue: Boolean);
    function Get_QueryCard: IevQueryCard;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(const aValue: InevPara;
     const aQueryAdapter: IevQueryCard): IevQueryGroup; reintroduce;
    constructor Create(const aValue: InevPara;
@@ -113,21 +97,20 @@ type
 implementation
 
 uses
-  k2Tags,
-  l3Types,
-  l3Base,
-  k2OpMisc,
-  l3String,
-  evReq,
-  evDescriptionReq,
-  nevFacade,
-  ReqRow_Const
-  ;
-
-// start class TevControlGroup
+ l3ImplUses
+ , k2Tags
+ , l3Types
+ , l3Base
+ , k2OpMisc
+ , l3String
+ , evReq
+ , evDescriptionReq
+ , nevFacade
+ , ReqRow_Const
+;
 
 class function TevControlGroup.Make(const aValue: InevPara;
-  const aQueryAdapter: IevQueryCard): IevQueryGroup;
+ const aQueryAdapter: IevQueryCard): IevQueryGroup;
 var
  l_Inst : TevControlGroup;
 begin
@@ -137,10 +120,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevControlGroup.Make
 
 constructor TevControlGroup.Create(const aValue: InevPara;
-  const aQueryAdapter: IevQueryCard);
+ const aQueryAdapter: IevQueryCard);
 //#UC START# *48DB8D660301_48DB819600D8_var*
 //#UC END# *48DB8D660301_48DB819600D8_var*
 begin
@@ -154,6 +137,8 @@ begin
 end;//TevControlGroup.Create
 
 function TevControlGroup.IsMultiline: Boolean;
+ {* Контрол содержит несколько строк и поддерживает перемещение по ним 
+          с помощью стрелок (к меткам это не относится). }
 //#UC START# *47CD5E7A027B_48DB819600D8_var*
 //#UC END# *47CD5E7A027B_48DB819600D8_var*
 begin
@@ -163,6 +148,7 @@ begin
 end;//TevControlGroup.IsMultiline
 
 function TevControlGroup.GetControlIterator: IevControlIterator;
+ {* Интерфейс "навигатора" по контролам. }
 //#UC START# *47CD5E9B031F_48DB819600D8_var*
 //#UC END# *47CD5E9B031F_48DB819600D8_var*
 begin
@@ -172,7 +158,9 @@ begin
 end;//TevControlGroup.GetControlIterator
 
 procedure TevControlGroup.InitBoolProperty(aIdent: Integer;
-  aValue: Boolean);
+ aValue: Boolean);
+ {* Для установки начальных значений (не используется передача данных для 
+         процессора операций). }
 //#UC START# *47CD5EB4005D_48DB819600D8_var*
 //#UC END# *47CD5EB4005D_48DB819600D8_var*
 begin
@@ -182,6 +170,7 @@ begin
 end;//TevControlGroup.InitBoolProperty
 
 procedure TevControlGroup.UpperChange;
+ {* Обработчик изменения состояния кнопок. }
 //#UC START# *47CD5EC10294_48DB819600D8_var*
 //#UC END# *47CD5EC10294_48DB819600D8_var*
 begin
@@ -263,6 +252,7 @@ begin
 end;//TevControlGroup.ClickOnDisabledLabel
 
 procedure TevControlGroup.AfterCollapsed;
+ {* Обработчик события сворачивания группы. }
 //#UC START# *47CD7F8D00E8_48DB819600D8_var*
 //#UC END# *47CD7F8D00E8_48DB819600D8_var*
 begin
@@ -272,6 +262,7 @@ begin
 end;//TevControlGroup.AfterCollapsed
 
 function TevControlGroup.CanCollapsed: Boolean;
+ {* Проверка может ли группа свернуться. }
 //#UC START# *47CD7F9F006A_48DB819600D8_var*
 var
  i       : Integer;
@@ -295,10 +286,11 @@ begin
 end;//TevControlGroup.CanCollapsed
 
 function TevControlGroup.LMouseBtnDown(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState;
-  const aMap: InevMap): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState;
+ const aMap: InevMap): Boolean;
+ {* Обработка нажания на левую кнопку мыши. }
 //#UC START# *47CD7FF40330_48DB819600D8_var*
 //#UC END# *47CD7FF40330_48DB819600D8_var*
 begin
@@ -309,9 +301,9 @@ begin
 end;//TevControlGroup.LMouseBtnDown
 
 function TevControlGroup.LMouseBtnUp(const aView: InevControlView;
-  const aTextPara: InevPara;
-  const aPt: TnevPoint;
-  const Keys: TevMouseState): Boolean;
+ const aTextPara: InevPara;
+ const aPt: TnevPoint;
+ const Keys: TevMouseState): Boolean;
 //#UC START# *47CD802F02AE_48DB819600D8_var*
 //#UC END# *47CD802F02AE_48DB819600D8_var*
 begin
@@ -329,6 +321,7 @@ begin
 end;//TevControlGroup.LMouseBtnUp
 
 function TevControlGroup.FindDescriptionReq(const aReqName: Tl3WString): IevDescriptionReq;
+ {* Возвращает реквизит по имени. }
 //#UC START# *47CD806B02F2_48DB819600D8_var*
 var
  i       : Integer;
@@ -356,6 +349,7 @@ begin
 end;//TevControlGroup.FindDescriptionReq
 
 procedure TevControlGroup.InitModel(const aTag: InevPara);
+ {* Инициализация модели. }
 //#UC START# *47CD807D0057_48DB819600D8_var*
 var
  l_OldReqName: array [Boolean] of string;
@@ -421,6 +415,7 @@ begin
 end;//TevControlGroup.InitModel
 
 function TevControlGroup.LastReq: IevReq;
+ {* Последний реквизт в группе. }
 //#UC START# *47CD80890115_48DB819600D8_var*
 //#UC END# *47CD80890115_48DB819600D8_var*
 begin
@@ -430,6 +425,7 @@ begin
 end;//TevControlGroup.LastReq
 
 function TevControlGroup.FirstReq: IevReq;
+ {* Первый реквизит в группе. }
 //#UC START# *47CD8097030D_48DB819600D8_var*
 //#UC END# *47CD8097030D_48DB819600D8_var*
 begin
@@ -439,6 +435,7 @@ begin
 end;//TevControlGroup.FirstReq
 
 function TevControlGroup.GetNextReq(const aReq: IevReq): IevReq;
+ {* Возвращает следующий реквизит. }
 //#UC START# *47CD80A80368_48DB819600D8_var*
 var
  l_Index: Integer;
@@ -456,6 +453,7 @@ begin
 end;//TevControlGroup.GetNextReq
 
 function TevControlGroup.GetPrevReq(const aReq: IevReq): IevReq;
+ {* Возвращает предыдущий реквизит. }
 //#UC START# *47CD80D8028A_48DB819600D8_var*
 var
  l_Index: Integer;
@@ -545,6 +543,7 @@ begin
 end;//TevControlGroup.Get_QueryCard
 
 procedure TevControlGroup.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48DB819600D8_var*
 //#UC END# *479731C50290_48DB819600D8_var*
 begin

@@ -1,160 +1,128 @@
 unit evDocumentPartHotSpotTester;
+ {* Реализует интерфейсы IevHotSpotTester и IevHotSpot для части документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPartHotSpotTester.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevDocumentPartHotSpotTester
-//
-// Реализует интерфейсы IevHotSpotTester и IevHotSpot для части документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartHotSpotTester.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartHotSpotTester" MUID: (4A27B5510171)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  l3Interfaces,
-  afwInterfaces,
-  l3Units,
-  nevTools,
-  evInternalInterfaces,
-  nevGUIInterfaces,
-  evParaListHotSpotTester,
-  l3IID
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evParaListHotSpotTester
+ , nevGUIInterfaces
+ , l3Interfaces
+ , nevTools
+ , afwInterfaces
+ , l3Units
+ , evInternalInterfaces
+ , l3IID
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevDocumentPartHotSpotTester = class(TevParaListHotSpotTester, IevAdvancedHotSpot)
   {* Реализует интерфейсы IevHotSpotTester и IevHotSpot для части документа. }
- private
- // private fields
-   f_DragArea : TevObjectArea;
-   f_Name : Il3CString;
-   f_Sub : IevSub;
-   f_TopEdge : InevBasePoint;
-    {* Верхняя граница блока}
-   f_BottomEdge : InevBasePoint;
-    {* Нижняя граница блока}
-   f_Area : TevObjectArea;
-    {* Поле для свойства Area}
- protected
- // realized methods
+  private
+   f_DragArea: TevObjectArea;
+   f_Name: Il3CString;
+   f_Sub: IevSub;
+   f_TopEdge: InevBasePoint;
+    {* Верхняя граница блока }
+   f_BottomEdge: InevBasePoint;
+    {* Нижняя граница блока }
+   f_Area: TevObjectArea;
+    {* Поле для свойства Area }
+  protected
+   thisMap: InevMap;
+  protected
+   procedure CheckSub;
+   function GetName: Il3CString;
+   function GetHintPrefix(const aState: TafwCursorState): Il3CString; virtual;
+   function DoDrop(const aView: InevControlView;
+    const aPt: Tl3Point): Boolean;
+    {* Обрабатывает перемещение блока на aPt. }
+   function CanChangeBorder(const aView: InevControlView;
+    const aPt: Tl3Point): Boolean;
+    {* Проверяет можно ли изменять границу блока. }
+   procedure ChangeBorder(const aView: InevControlView;
+    const aPt: Tl3Point);
+    {* Изменяет границу блока. }
+   function GetEdge(const aView: InevView;
+    aTop: Boolean): InevBasePoint;
    function MouseAction(const aView: InevControlView;
     aButton: Tl3MouseButton;
     anAction: Tl3MouseAction;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
+    {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
    function CanDrag: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoHitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function DoGetAdvancedHotSpot(const aView: InevControlView;
-     const aState: TevCursorState;
-     const aPt: InevBasePoint;
-     const aMap: InevMap;
-     out theSpot: IevHotSpot): Boolean; override;
- protected
- // protected fields
-   thisMap : InevMap;
- protected
- // protected methods
-   procedure CheckSub;
-   function GetName: Il3CString;
-   function GetHintPrefix(const aState: TafwCursorState): Il3CString; virtual;
-   function DoDrop(const aView: InevControlView;
-     const aPt: Tl3Point): Boolean;
-     {* Обрабатывает перемещение блока на aPt. }
-   function CanChangeBorder(const aView: InevControlView;
-     const aPt: Tl3Point): Boolean;
-     {* Проверяет можно ли изменять границу блока. }
-   procedure ChangeBorder(const aView: InevControlView;
-     const aPt: Tl3Point);
-     {* Изменяет границу блока. }
-   function GetEdge(const aView: InevView;
-     aTop: Boolean): InevBasePoint;
- public
- // public methods
+    const aState: TevCursorState;
+    const aPt: InevBasePoint;
+    const aMap: InevMap;
+    out theSpot: IevHotSpot): Boolean; override;
+  public
    function ShowParts(const aView: InevControlView): Boolean; virtual;
    function DoMouseAction(const aView: InevControlView;
-     aButton: TevMouseButton;
-     anAction: TevMouseAction;
-     const Keys: TevMouseState;
-     var Effect: TevMouseEffect): Boolean; virtual;
- protected
- // protected properties
+    aButton: TevMouseButton;
+    anAction: TevMouseAction;
+    const Keys: TevMouseState;
+    var Effect: TevMouseEffect): Boolean; virtual;
+  protected
    property Area: TevObjectArea
-     read f_Area;
+    read f_Area;
  end;//TevDocumentPartHotSpotTester
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  k2Tags,
-  l3Base
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  nevInterfaces,
-  Classes,
-  l3String,
-  SysUtils,
-  evOp,
-  evHotSpotMisc,
-  l3InterfacesMisc,
-  Block_Const,
-  ParaList_Const,
-  l3Memory,
-  nevBase,
-  k2OpMisc,
-  evMsgCode
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  TextPara_Const,
-  evTypes,
-  evdInterfaces,
-  TableCell_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evParaCollapser
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evParaCollapser
+ , k2Tags
+ , l3Base
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , nevInterfaces
+ , Classes
+ , l3String
+ , SysUtils
+ , evOp
+ , evHotSpotMisc
+ , l3InterfacesMisc
+ , Block_Const
+ , ParaList_Const
+ , l3Memory
+ , nevBase
+ , k2OpMisc
+ , evMsgCode
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , TextPara_Const
+ , evTypes
+ , evdInterfaces
+ , TableCell_Const
+;
 
 const
-   { InternalConst }
-  cnInitOperation : array [Boolean] of Integer = (ev_ocBottomRight, ev_ocTopLeft);
-
-// start class TevDocumentPartHotSpotTester
+ cnInitOperation: array [Boolean] of Integer = (ev_ocBottomRight, ev_ocTopLeft);
 
 procedure TevDocumentPartHotSpotTester.CheckSub;
 //#UC START# *4F9655E60184_4A27B5510171_var*
@@ -232,7 +200,8 @@ begin
 end;//TevDocumentPartHotSpotTester.GetHintPrefix
 
 function TevDocumentPartHotSpotTester.DoDrop(const aView: InevControlView;
-  const aPt: Tl3Point): Boolean;
+ const aPt: Tl3Point): Boolean;
+ {* Обрабатывает перемещение блока на aPt. }
 //#UC START# *4F96565C038E_4A27B5510171_var*
 //#UC END# *4F96565C038E_4A27B5510171_var*
 begin
@@ -242,7 +211,8 @@ begin
 end;//TevDocumentPartHotSpotTester.DoDrop
 
 function TevDocumentPartHotSpotTester.CanChangeBorder(const aView: InevControlView;
-  const aPt: Tl3Point): Boolean;
+ const aPt: Tl3Point): Boolean;
+ {* Проверяет можно ли изменять границу блока. }
 //#UC START# *4F96578503B9_4A27B5510171_var*
 var
  l_Result: Boolean absolute Result;
@@ -274,7 +244,8 @@ begin
 end;//TevDocumentPartHotSpotTester.CanChangeBorder
 
 procedure TevDocumentPartHotSpotTester.ChangeBorder(const aView: InevControlView;
-  const aPt: Tl3Point);
+ const aPt: Tl3Point);
+ {* Изменяет границу блока. }
 //#UC START# *4F9657D00104_4A27B5510171_var*
 var
  l_InsCursor : InevBasePoint; // - Курсор для вставки
@@ -548,10 +519,10 @@ begin
 end;//TevDocumentPartHotSpotTester.ShowParts
 
 function TevDocumentPartHotSpotTester.DoMouseAction(const aView: InevControlView;
-  aButton: TevMouseButton;
-  anAction: TevMouseAction;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ aButton: TevMouseButton;
+ anAction: TevMouseAction;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *4F96584801B7_4A27B5510171_var*
 
  procedure DoDouble;
@@ -672,7 +643,7 @@ begin
 end;//TevDocumentPartHotSpotTester.DoMouseAction
 
 function TevDocumentPartHotSpotTester.GetEdge(const aView: InevView;
-  aTop: Boolean): InevBasePoint;
+ aTop: Boolean): InevBasePoint;
 //#UC START# *4F969E7001AD_4A27B5510171_var*
 //#UC END# *4F969E7001AD_4A27B5510171_var*
 begin
@@ -701,10 +672,11 @@ begin
 end;//TevDocumentPartHotSpotTester.GetEdge
 
 function TevDocumentPartHotSpotTester.MouseAction(const aView: InevControlView;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
 //#UC START# *48E263CD01BD_4A27B5510171_var*
 //#UC END# *48E263CD01BD_4A27B5510171_var*
 begin
@@ -723,6 +695,7 @@ begin
 end;//TevDocumentPartHotSpotTester.CanDrag
 
 procedure TevDocumentPartHotSpotTester.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A27B5510171_var*
 //#UC END# *479731C50290_4A27B5510171_var*
 begin
@@ -739,8 +712,8 @@ begin
 end;//TevDocumentPartHotSpotTester.Cleanup
 
 procedure TevDocumentPartHotSpotTester.DoHitTest(const aView: InevControlView;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *4A267FC6016B_4A27B5510171_var*
 var
  l_Name : Il3CString;
@@ -783,7 +756,8 @@ begin
 end;//TevDocumentPartHotSpotTester.DoHitTest
 
 function TevDocumentPartHotSpotTester.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A27B5510171_var*
 var
  l_Sub : IevSub;
@@ -823,10 +797,10 @@ begin
 end;//TevDocumentPartHotSpotTester.COMQueryInterface
 
 function TevDocumentPartHotSpotTester.DoGetAdvancedHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ out theSpot: IevHotSpot): Boolean;
 //#UC START# *4E6E4F91001A_4A27B5510171_var*
 var
  l_Pt          : TnevPoint;
@@ -900,7 +874,6 @@ begin
  end;//f_Area = ev_oaNone
 //#UC END# *4E6E4F91001A_4A27B5510171_impl*
 end;//TevDocumentPartHotSpotTester.DoGetAdvancedHotSpot
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

@@ -1,51 +1,38 @@
 unit evContentsSubNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evContentsSubNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ContentsTree::TevContentsSubNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsSubNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsSubNode" MUID: (4DFEF18B02C4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Tree_TLB,
-  evInternalInterfaces,
-  evContentsTagNode,
-  l3Variant,
-  l3Interfaces,
-  l3IID
-  ;
+ l3IntfUses
+ , evContentsTagNode
+ , l3Variant
+ , l3Tree_TLB
+ , evInternalInterfaces
+ , l3Interfaces
+ , l3IID
+;
 
 type
  TevContentsSubNode = class(TevContentsTagNode)
- private
- // private fields
-   f_Sub : Tl3Tag;
-    {* Узел cаба.}
- protected
- // overridden protected methods
+  private
+   f_Sub: Tl3Tag;
+    {* Узел cаба. }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function NeedMakeChildren: Boolean; override;
    function GetHandle: Integer; override;
- public
- // public methods
+  public
    constructor Create(aTag: Tl3Variant;
     aSub: Tl3Variant;
     const aFilter: InevContentsNodeFilter); reintroduce; virtual;
@@ -57,23 +44,20 @@ type
 implementation
 
 uses
-  l3Base,
-  nevTools,
-  Sub_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  SysUtils
-  ;
-
-// start class TevContentsSubNode
+ l3ImplUses
+ , l3Base
+ , nevTools
+ , Sub_Const
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+ , SysUtils
+;
 
 constructor TevContentsSubNode.Create(aTag: Tl3Variant;
-  aSub: Tl3Variant;
-  const aFilter: InevContentsNodeFilter);
+ aSub: Tl3Variant;
+ const aFilter: InevContentsNodeFilter);
 //#UC START# *4DFF24020067_4DFEF18B02C4_var*
 //#UC END# *4DFF24020067_4DFEF18B02C4_var*
 begin
@@ -84,8 +68,8 @@ begin
 end;//TevContentsSubNode.Create
 
 class function TevContentsSubNode.Make(aTag: Tl3Variant;
-  aSub: Tl3Variant;
-  const aFilter: InevContentsNodeFilter): Il3Node;
+ aSub: Tl3Variant;
+ const aFilter: InevContentsNodeFilter): Il3Node;
 //#UC START# *4DFF241100E3_4DFEF18B02C4_var*
 var
  l_CN: TevContentsSubNode;
@@ -102,6 +86,7 @@ begin
 end;//TevContentsSubNode.Make
 
 procedure TevContentsSubNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DFEF18B02C4_var*
 //#UC END# *479731C50290_4DFEF18B02C4_var*
 begin
@@ -127,7 +112,8 @@ begin
 end;//TevContentsSubNode.GetAsPCharLen
 
 function TevContentsSubNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4DFEF18B02C4_var*
 var
  l_Document : InevPara;

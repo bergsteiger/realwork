@@ -1,93 +1,69 @@
 unit evTabStops;
+ {* Позиции табуляции }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/evTabStops.pas"
-// Начат: 15.05.2003 19:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TevTabStops
-//
-// Позиции табуляции
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evTabStops.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTabStops" MUID: (48D1055203B8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Interfaces,
-  l3CacheableBase,
-  l3StringList,
-  l3Const,
-  l3LongintList,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , l3CacheableBase
+ , l3Interfaces
+ , l3Variant
+ , l3StringList
+ , l3LongintList
+;
 
-{$If defined(k2ForEditor)}
 type
  TevTabStops = class(Tl3CacheableBase, Il3TabStops)
   {* Позиции табуляции }
- private
- // private fields
-   f_TabStop : Tl3TabStop;
-   f_TabStops : Tl3Variant;
-   f_Index : Integer;
-   f_Fillers : Tl3StringList;
-   f_FillerIndex : Integer;
-   f_Styles : Tl3LongintList;
-   f_StyleIndex : Integer;
- protected
- // realized methods
+  private
+   f_TabStop: Tl3TabStop;
+   f_TabStops: Tl3Variant;
+   f_Index: Integer;
+   f_Fillers: Tl3StringList;
+   f_FillerIndex: Integer;
+   f_Styles: Tl3LongintList;
+   f_StyleIndex: Integer;
+  protected
    function Clone: Il3TabStops;
-     {* клонирует позиции табуляции. }
+    {* клонирует позиции табуляции. }
    function Next: Tl3TabStop;
-     {* следующая позиция табуляции. }
+    {* следующая позиция табуляции. }
    function Filler: Tl3WString;
-     {* следующий символ-заполнитель. }
+    {* следующий символ-заполнитель. }
    function Style: Tl3TabStopStyle;
-     {* следующий стиль. }
+    {* следующий стиль. }
    function NeedCutByTab: Boolean;
    procedure Reset;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTabStops: Tl3Variant); reintroduce;
    class function Make(aTabStopsHolder: Tl3Variant): Il3TabStops;
  end;//TevTabStops
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Base,
-  l3String,
-  k2Tags,
-  k2Base,
-  SysUtils
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
+ l3ImplUses
+ , l3Const
+ , l3Base
+ , l3String
+ , k2Tags
+ , k2Base
+ , SysUtils
+;
 
 const
-   { Constants }
-  cTabWidth = l3Const.l3Inch  div 2;
-
-// start class TevTabStops
+ cTabWidth = l3Const.l3Inch  div 2;
 
 constructor TevTabStops.Create(aTabStops: Tl3Variant);
 //#UC START# *48D10637008F_48D1055203B8_var*
@@ -128,6 +104,7 @@ begin
 end;//TevTabStops.Make
 
 function TevTabStops.Clone: Il3TabStops;
+ {* клонирует позиции табуляции. }
 //#UC START# *4728A3E40136_48D1055203B8_var*
 var
  l_TabStops : TevTabStops;
@@ -152,6 +129,7 @@ begin
 end;//TevTabStops.Clone
 
 function TevTabStops.Next: Tl3TabStop;
+ {* следующая позиция табуляции. }
 //#UC START# *4728A3F5019F_48D1055203B8_var*
 var
  l_TabStop : Tl3Variant;
@@ -195,6 +173,7 @@ begin
 end;//TevTabStops.Next
 
 function TevTabStops.Filler: Tl3WString;
+ {* следующий символ-заполнитель. }
 //#UC START# *4728A43101E1_48D1055203B8_var*
 //#UC END# *4728A43101E1_48D1055203B8_var*
 begin
@@ -212,6 +191,7 @@ begin
 end;//TevTabStops.Filler
 
 function TevTabStops.Style: Tl3TabStopStyle;
+ {* следующий стиль. }
 //#UC START# *4728A44801A8_48D1055203B8_var*
 //#UC END# *4728A44801A8_48D1055203B8_var*
 begin
@@ -247,6 +227,7 @@ begin
 end;//TevTabStops.Reset
 
 procedure TevTabStops.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D1055203B8_var*
 //#UC END# *479731C50290_48D1055203B8_var*
 begin
@@ -257,7 +238,6 @@ begin
  inherited;
 //#UC END# *479731C50290_48D1055203B8_impl*
 end;//TevTabStops.Cleanup
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

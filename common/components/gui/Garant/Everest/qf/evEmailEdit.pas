@@ -1,37 +1,25 @@
 unit evEmailEdit;
+ {* Поле для ввод почтового реквизита - использует проверку правильности ввода }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evEmailEdit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevEmailEdit
-//
-// Поле для ввод почтового реквизита - использует проверку правильности ввода
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evEmailEdit.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevEmailEdit" MUID: (48D25C2B00DC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditControl,
-  nevBase,
-  nevTools
-  ;
+ l3IntfUses
+ , evEditControl
+ , nevTools
+ , nevBase
+;
 
 type
  TevEmailEdit = class(TevEditControl)
   {* Поле для ввод почтового реквизита - использует проверку правильности ввода }
- protected
- // overridden protected methods
+  protected
    procedure DoTextChange(const aView: InevView;
     const aPara: InevPara;
     const anOp: InevOp); override;
@@ -39,11 +27,13 @@ type
 
 implementation
 
-// start class TevEmailEdit
+uses
+ l3ImplUses
+;
 
 procedure TevEmailEdit.DoTextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
 //#UC START# *48D14C0E023E_48D25C2B00DC_var*
 //#UC END# *48D14C0E023E_48D25C2B00DC_var*
 begin

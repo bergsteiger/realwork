@@ -1,103 +1,88 @@
 unit nevFormatInfoFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormatInfoFactory.pas"
-// Начат: 08.07.2011 14:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevFormatInfoFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfoFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormatInfoFactory" MUID: (4E16E263024F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevFormatInfo
-  ;
+ l3IntfUses
+ , nevFormatInfo
+ , nevBase
+;
 
 type
  TnevFormatInfoFactory = class
- public
- // public methods
+  public
    class function CreateFormatInfo(const aChild: InevObjectPrim;
-     aParent: TnevFormatInfo;
-     const aMetrics: InevViewMetrics): TnevFormatInfo;
+    aParent: TnevFormatInfo;
+    const aMetrics: InevViewMetrics): TnevFormatInfo;
  end;//TnevFormatInfoFactory
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags,
-  TextPara_Const,
-  CommentPara_Const,
-  SBS_Const,
-  SBSRow_Const,
-  TableRow_Const,
-  ReqRow_Const,
-  SBSCell_Const,
-  TableCell_Const,
-  nevFacade,
-  nevTableCellFormatInfo
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  l3MinMax,
-  evSectionPara,
-  nevListFormatInfo,
-  nevRubberCellsRenderInfo,
-  nevTableRowRenderInfo,
-  nevTextParaRenderInfo,
-  nevZoomedCellsRenderInfo,
-  nevZoomedRubberCellsRenderInfo,
-  nevLeafRenderInfo,
-  Block_Const,
-  Document_Const,
-  nevDocumentPartFormatInfo,
-  nevCommentFormatInfo,
-  nevBitmapFormatInfo,
-  nevControlFormatInfo,
-  nevFormulaFormatInfo,
-  Formula_Const,
-  ControlPara_Const,
-  BitmapPara_Const,
-  nevControlsBlockFormatInfo,
-  nevCloakFormatInfo,
-  ControlsBlock_Const,
-  Cloak_Const,
-  nevSegmentFormatInfo,
-  TextSegment_Const,
-  nevObjectSegmentFormatInfo,
-  ObjectSegment_Const,
-  nevDocumentFormatInfo,
-  k2Base,
-  nevSBSCellFormatInfo,
-  nevSBSRowFormatInfo,
-  nevTableRowRenderInfoEx,
-  nevReqRowFormatInfo,
-  nevPageBreakFormatInfo,
-  PageBreak_Const,
-  nevNodeGroupFormatInfo,
-  NodeGroup_Const
-  ;
-
-// start class TnevFormatInfoFactory
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , TextPara_Const
+ , CommentPara_Const
+ , SBS_Const
+ , SBSRow_Const
+ , TableRow_Const
+ , ReqRow_Const
+ , SBSCell_Const
+ , TableCell_Const
+ , nevFacade
+ , nevTableCellFormatInfo
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3MinMax
+ , evSectionPara
+ , nevListFormatInfo
+ , nevRubberCellsRenderInfo
+ , nevTableRowRenderInfo
+ , nevTextParaRenderInfo
+ , nevZoomedCellsRenderInfo
+ , nevZoomedRubberCellsRenderInfo
+ , nevLeafRenderInfo
+ , Block_Const
+ , Document_Const
+ , nevDocumentPartFormatInfo
+ , nevCommentFormatInfo
+ , nevBitmapFormatInfo
+ , nevControlFormatInfo
+ , nevFormulaFormatInfo
+ , Formula_Const
+ , ControlPara_Const
+ , BitmapPara_Const
+ , nevControlsBlockFormatInfo
+ , nevCloakFormatInfo
+ , ControlsBlock_Const
+ , Cloak_Const
+ , nevSegmentFormatInfo
+ , TextSegment_Const
+ , nevObjectSegmentFormatInfo
+ , ObjectSegment_Const
+ , nevDocumentFormatInfo
+ , k2Base
+ , nevSBSCellFormatInfo
+ , nevSBSRowFormatInfo
+ , nevTableRowRenderInfoEx
+ , nevReqRowFormatInfo
+ , nevPageBreakFormatInfo
+ , PageBreak_Const
+ , nevNodeGroupFormatInfo
+ , NodeGroup_Const
+;
 
 class function TnevFormatInfoFactory.CreateFormatInfo(const aChild: InevObjectPrim;
-  aParent: TnevFormatInfo;
-  const aMetrics: InevViewMetrics): TnevFormatInfo;
+ aParent: TnevFormatInfo;
+ const aMetrics: InevViewMetrics): TnevFormatInfo;
 //#UC START# *4E16E29D02DF_4E16E263024F_var*
 var
  l_FormatInfoRef : RnevFormatInfo;

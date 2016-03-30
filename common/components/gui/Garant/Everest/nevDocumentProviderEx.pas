@@ -1,76 +1,54 @@
 unit nevDocumentProviderEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevDocumentProviderEx.pas"
-// Начат: 13.10.2010 14:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TnevDocumentProviderEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentProviderEx.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentProviderEx" MUID: (4CB586140150)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  nevTools,
-  nevDocumentProvider,
-  l3Variant,
-  nevBase,
-  evdInterfaces,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , nevDocumentProvider
+ , afwInterfaces
+ , l3Variant
+ , nevTools
+ , l3Interfaces
+;
 
 type
  TnevDocumentProviderEx = class(TnevDocumentProvider, IafwPageSetup)
- private
- // private fields
-   f_Document : Tl3Tag;
- protected
- // realized methods
+  private
+   f_Document: Tl3Tag;
+  protected
    function pm_GetMargins: TafwRect;
    function pm_GetOrientation: Tl3PageOrientation;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetCanProvideOriginalDocument: Boolean; override;
    function pm_GetOriginalDocument: Tl3Variant; override;
    function pm_GetPageSetup: IafwPageSetup; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+  public
    constructor Create(const aStorable: InevStorable;
-     aDocument: Tl3Variant); reintroduce;
+    aDocument: Tl3Variant); reintroduce;
    class function Make(const aStorable: InevStorable;
-     aDocument: Tl3Variant): InevDocumentProvider; reintroduce;
-     {* Сигнатура фабрики TnevDocumentProviderEx.Make }
+    aDocument: Tl3Variant): InevDocumentProvider; reintroduce;
  end;//TnevDocumentProviderEx
 
 implementation
 
 uses
-  k2Tags,
-  l3Units,
-  evPreviewForTestsTuning,
-  afwFacade,
-  SysUtils
-  ;
-
-// start class TnevDocumentProviderEx
+ l3ImplUses
+ , k2Tags
+ , l3Units
+ , evPreviewForTestsTuning
+ , afwFacade
+ , SysUtils
+;
 
 constructor TnevDocumentProviderEx.Create(const aStorable: InevStorable;
-  aDocument: Tl3Variant);
+ aDocument: Tl3Variant);
 //#UC START# *4CB586450301_4CB586140150_var*
 //#UC END# *4CB586450301_4CB586140150_var*
 begin
@@ -81,7 +59,7 @@ begin
 end;//TnevDocumentProviderEx.Create
 
 class function TnevDocumentProviderEx.Make(const aStorable: InevStorable;
-  aDocument: Tl3Variant): InevDocumentProvider;
+ aDocument: Tl3Variant): InevDocumentProvider;
 var
  l_Inst : TnevDocumentProviderEx;
 begin
@@ -91,7 +69,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevDocumentProviderEx.Make
 
 function TnevDocumentProviderEx.pm_GetMargins: TafwRect;
 //#UC START# *473D8F8602AE_4CB586140150get_var*
@@ -126,6 +104,7 @@ begin
 end;//TnevDocumentProviderEx.pm_GetOrientation
 
 procedure TnevDocumentProviderEx.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CB586140150_var*
 //#UC END# *479731C50290_4CB586140150_var*
 begin

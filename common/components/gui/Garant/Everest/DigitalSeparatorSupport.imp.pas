@@ -1,47 +1,44 @@
 {$IfNDef DigitalSeparatorSupport_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/DigitalSeparatorSupport.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Generators::DigitalSeparatorSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "DigitalSeparatorSupport" MUID: (4E5E029D03AD)
+// Имя типа: "_DigitalSeparatorSupport_"
 
 {$Define DigitalSeparatorSupport_imp}
+
+type
  TevCheckPointSeparator = (
-   ev_cpsNone // ничего не делать (не ждать разделителя, не выливать)
- , ev_cpsWait // ждать разделителя.
- , ev_cpsReady // готовность к выливке
+  ev_cpsNone
+   {* ничего не делать (не ждать разделителя, не выливать) }
+  , ev_cpsWait
+   {* ждать разделителя. }
+  , ev_cpsReady
+   {* готовность к выливке }
  );//TevCheckPointSeparator
 
- _DigitalSeparatorSupport_ = {mixin} class(_DigitalSeparatorSupport_Parent_)
- private
- // private fields
-   f_WaitStyleD : TevCheckPointSeparator;
-   f_DecimalOffset : Integer;
- private
- // private methods
+ _DigitalSeparatorSupport_ = class(_DigitalSeparatorSupport_Parent_)
+  private
+   f_WaitStyleD: TevCheckPointSeparator;
+   f_DecimalOffset: Integer;
+  private
    function HasDigitalSeparatorAlignment: Boolean;
- protected
- // protected methods
+  protected
    procedure ContinueCell;
    procedure CellStarted;
-     {* Информируем о начале ячейки. }
+    {* Информируем о начале ячейки. }
    procedure CellFinished;
-     {* Ячейка закончена. }
+    {* Ячейка закончена. }
    procedure SetDigitalSeparatorParams(anAtomIndex: Integer;
-     const aValue: Tk2Variant);
+    const aValue: Tk2Variant);
    function GetDigitalSeparatorOffset: Integer;
  end;//_DigitalSeparatorSupport_
 
 {$Else DigitalSeparatorSupport_imp}
 
-// start class _DigitalSeparatorSupport_
+{$IfNDef DigitalSeparatorSupport_imp_impl}
+
+{$Define DigitalSeparatorSupport_imp_impl}
 
 function _DigitalSeparatorSupport_.HasDigitalSeparatorAlignment: Boolean;
 //#UC START# *4E39244B0106_4E5E029D03AD_var*
@@ -63,6 +60,7 @@ begin
 end;//_DigitalSeparatorSupport_.ContinueCell
 
 procedure _DigitalSeparatorSupport_.CellStarted;
+ {* Информируем о начале ячейки. }
 //#UC START# *4E5E1C8D0090_4E5E029D03AD_var*
 //#UC END# *4E5E1C8D0090_4E5E029D03AD_var*
 begin
@@ -72,6 +70,7 @@ begin
 end;//_DigitalSeparatorSupport_.CellStarted
 
 procedure _DigitalSeparatorSupport_.CellFinished;
+ {* Ячейка закончена. }
 //#UC START# *4E5E1CE40229_4E5E029D03AD_var*
 //#UC END# *4E5E1CE40229_4E5E029D03AD_var*
 begin
@@ -81,7 +80,7 @@ begin
 end;//_DigitalSeparatorSupport_.CellFinished
 
 procedure _DigitalSeparatorSupport_.SetDigitalSeparatorParams(anAtomIndex: Integer;
-  const aValue: Tk2Variant);
+ const aValue: Tk2Variant);
 //#UC START# *4E5E22FB0348_4E5E029D03AD_var*
 //#UC END# *4E5E22FB0348_4E5E029D03AD_var*
 begin
@@ -108,4 +107,7 @@ begin
 //#UC END# *4E5E26150131_4E5E029D03AD_impl*
 end;//_DigitalSeparatorSupport_.GetDigitalSeparatorOffset
 
+{$EndIf DigitalSeparatorSupport_imp_impl}
+
 {$EndIf DigitalSeparatorSupport_imp}
+

@@ -1,45 +1,34 @@
 unit evPDFWriter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evPDFWriter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TevPDFWriter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evPDFWriter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevPDFWriter" MUID: (53FEE940022B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomPDFWriter
-  ;
+ l3IntfUses
+ , evCustomPDFWriter
+;
 
 type
  TevPDFWriter = class(TevCustomPDFWriter)
- protected
- // realized methods
+  protected
    procedure ExportPDF; override;
  end;//TevPDFWriter
 
 implementation
 
 uses
-  evDocumentPreview,
-  nevBase,
-  ddPDFExporter,
-  nevDocumentProvider4PDF,
-  nevTools
-  ;
-
-// start class TevPDFWriter
+ l3ImplUses
+ , evDocumentPreview
+ , nevBase
+ , ddPDFExporter
+ , nevDocumentProvider4PDF
+ , nevTools
+;
 
 procedure TevPDFWriter.ExportPDF;
 //#UC START# *53FEE4FE01CB_53FEE940022B_var*

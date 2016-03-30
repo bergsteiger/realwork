@@ -22,6 +22,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *482ACC330173intf_uses*
+ //#UC END# *482ACC330173intf_uses*
 ;
 
 type
@@ -35,19 +37,12 @@ type
    f_HyperlinkStart: Integer;
    f_HyperlinkFinish: Integer;
    f_SmartOnResize: Boolean;
-    {* Поле для свойства SmartOnResize }
    f_PasswordChar: AnsiChar;
-    {* Поле для свойства PasswordChar }
    f_EmptyHintColor: Tl3Color;
-    {* Поле для свойства EmptyHintColor }
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
    f_CEmptyHint: Il3CString;
-    {* Поле для свойства CEmptyHint }
    f_CEmptyHintAdding: Il3CString;
-    {* Поле для свойства CEmptyHintAdding }
    f_OnEmptyAddingClick: TNotifyEvent;
-    {* Поле для свойства OnEmptyAddingClick }
   protected
    FArrowsSelect: Boolean;
    FRestrictOnTextChange: Integer;
@@ -208,6 +203,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482ACC330173impl_uses*
+ //#UC END# *482ACC330173impl_uses*
 ;
 
 const

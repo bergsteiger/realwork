@@ -1,81 +1,53 @@
 unit evDecorHyperlink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDecorHyperlink.pas"
-// Начат: 13.07.2011 21:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevDecorHyperlink
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDecorHyperlink.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDecorHyperlink" MUID: (4E1DD8400344)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevTools,
-  nevNavigation,
-  evHyperlinkProxy,
-  afwNavigation,
-  l3Types,
-  evdTypes,
-  l3Variant
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evHyperlinkProxy
+ , nevTools
+ , nevNavigation
+;
 
-{$If defined(evNeedHotSpot)}
 type
  RevDecorHyperlink = class of TevDecorHyperlink;
 
  TevDecorHyperlink = class(TevHyperlinkProxy)
- private
- // private fields
-   f_Para : InevPara;
- protected
- // overridden protected methods
+  private
+   f_Para: InevPara;
+  protected
    function DoFromDocumentExternalHandle: Integer; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aPara: InevPara;
-     const aLink: IevHyperlink); reintroduce;
+    const aLink: IevHyperlink); reintroduce;
    class function Make(const aPara: InevPara;
-     const aLink: IevHyperlink): IevHyperlink; reintroduce;
-     {* Сигнатура фабрики TevDecorHyperlink.Make }
+    const aLink: IevHyperlink): IevHyperlink; reintroduce;
  end;//TevDecorHyperlink
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Document_Const,
-  k2Tags
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TevDecorHyperlink
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Document_Const
+ , k2Tags
+ , l3Variant
+;
 
 constructor TevDecorHyperlink.Create(const aPara: InevPara;
-  const aLink: IevHyperlink);
+ const aLink: IevHyperlink);
 //#UC START# *4E1DD88E02EE_4E1DD8400344_var*
 //#UC END# *4E1DD88E02EE_4E1DD8400344_var*
 begin
@@ -87,7 +59,7 @@ begin
 end;//TevDecorHyperlink.Create
 
 class function TevDecorHyperlink.Make(const aPara: InevPara;
-  const aLink: IevHyperlink): IevHyperlink;
+ const aLink: IevHyperlink): IevHyperlink;
 var
  l_Inst : TevDecorHyperlink;
 begin
@@ -97,7 +69,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevDecorHyperlink.Make
 
 function TevDecorHyperlink.DoFromDocumentExternalHandle: Integer;
 //#UC START# *4E1DDB7D0368_4E1DD8400344_var*
@@ -114,14 +86,10 @@ begin
 end;//TevDecorHyperlink.DoFromDocumentExternalHandle
 
 procedure TevDecorHyperlink.ClearFields;
- {-}
 begin
- {$If defined(evNeedHotSpot)}
  f_Para := nil;
- {$IfEnd} //evNeedHotSpot
  inherited;
 end;//TevDecorHyperlink.ClearFields
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

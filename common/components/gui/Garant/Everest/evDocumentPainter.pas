@@ -1,63 +1,44 @@
 unit evDocumentPainter;
+ {* "рисователь" документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPainter.pas"
-// Начат: 10.11.97 12:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevDocumentPainter
-//
-// "рисователь" документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPainter" MUID: (49DA417B010F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evParaListPainter
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evParaListPainter
+;
 
-{$If defined(evNeedPainters)}
 type
  TevDocumentPainter = class(TevParaListPainter)
   {* "рисователь" документа }
- private
- // private fields
-   f_ArrowWasDrawn : Boolean;
- protected
- // overridden protected methods
+  private
+   f_ArrowWasDrawn: Boolean;
+  protected
    function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
    procedure DoDrawFrameText(aTop: Boolean); override;
  end;//TevDocumentPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  nevBase,
-  l3Units,
-  l3Const
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevDocumentPainter
+ l3ImplUses
+ , nevBase
+ , l3Units
+ , l3Const
+;
 
 function TevDocumentPainter.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_49DA417B010F_var*
 //#UC END# *4804BC2401C2_49DA417B010F_var*
 begin
@@ -90,7 +71,6 @@ begin
  end;//IsTopAnchorAtStart
 //#UC END# *4804C35B00B2_49DA417B010F_impl*
 end;//TevDocumentPainter.DoDrawFrameText
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

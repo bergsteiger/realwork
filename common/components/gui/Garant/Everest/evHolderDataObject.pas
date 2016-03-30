@@ -1,56 +1,40 @@
 unit evHolderDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evHolderDataObject.pas"
-// Начат: 25.01.2011 17:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevHolderDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evHolderDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevHolderDataObject" MUID: (4D3EE0C6003E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evStreamedDataObject,
-  nevBase,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , evStreamedDataObject
+ , nevTools
+ , nevBase
+ , evdInterfaces
+;
 
 type
  TevHolderDataObject = class(TevStreamedDataObject)
- protected
- // realized methods
+  protected
+   f_Holder: InevObjectHolder;
+  protected
    procedure DoStore(const G: InevTagGenerator;
     aFlags: TevdStoreFlags); override;
-     {* сохраняет поток в G }
- protected
- // overridden protected methods
+    {* сохраняет поток в G }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Holder : InevObjectHolder;
- public
- // public methods
+  public
    constructor Create(const aHolder: InevObjectHolder); reintroduce;
    class function Make(const aHolder: InevObjectHolder): InevStorable; reintroduce;
-     {* Сигнатура фабрики TevHolderDataObject.Make }
  end;//TevHolderDataObject
 
 implementation
 
-// start class TevHolderDataObject
+uses
+ l3ImplUses
+;
 
 constructor TevHolderDataObject.Create(const aHolder: InevObjectHolder);
 //#UC START# *4D3EE11B022F_4D3EE0C6003E_var*
@@ -72,10 +56,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevHolderDataObject.Make
 
 procedure TevHolderDataObject.DoStore(const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ aFlags: TevdStoreFlags);
+ {* сохраняет поток в G }
 //#UC START# *48EA34990191_4D3EE0C6003E_var*
 var
  l_Obj : InevObject;
@@ -102,7 +87,6 @@ begin
 end;//TevHolderDataObject.DoStore
 
 procedure TevHolderDataObject.ClearFields;
- {-}
 begin
  f_Holder := nil;
  inherited;

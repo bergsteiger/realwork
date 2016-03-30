@@ -1,69 +1,50 @@
 unit vtSpeedButtonForVGScene;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtSpeedButtonForVGScene.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Buttons::TvtSpeedButtonForVGScene
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtSpeedButtonForVGScene.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtSpeedButtonForVGScene" MUID: (55250990030E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  vtSpeedButton,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , vtSpeedButton
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TvtSpeedButtonForVGScene = class(TvtSpeedButton)
- private
- // private fields
-   f_ActivateWindowOnClick : Boolean;
-    {* Поле для свойства ActivateWindowOnClick}
- protected
- // overridden protected methods
-    {$If not defined(NoVCL)}
+  private
+   f_ActivateWindowOnClick: Boolean;
+  protected
+   {$If NOT Defined(NoVCL)}
    procedure MouseDown(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    constructor Create(AOwner: TComponent); override;
- public
- // public properties
+  public
    property ActivateWindowOnClick: Boolean
-     read f_ActivateWindowOnClick
-     write f_ActivateWindowOnClick;
+    read f_ActivateWindowOnClick
+    write f_ActivateWindowOnClick;
  end;//TvtSpeedButtonForVGScene
 
 implementation
 
 uses
-  Windows
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TvtSpeedButtonForVGScene
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor TvtSpeedButtonForVGScene.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_55250990030E_var*
@@ -75,11 +56,11 @@ begin
 //#UC END# *47D1602000C6_55250990030E_impl*
 end;//TvtSpeedButtonForVGScene.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtSpeedButtonForVGScene.MouseDown(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4F88473B03CD_55250990030E_var*
  function lp_TopParentWindow: THandle;
  var
@@ -105,12 +86,12 @@ begin
  inherited;
 //#UC END# *4F88473B03CD_55250990030E_impl*
 end;//TvtSpeedButtonForVGScene.MouseDown
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtSpeedButtonForVGScene
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtSpeedButtonForVGScene);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtSpeedButtonForVGScene }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

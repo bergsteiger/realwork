@@ -1,38 +1,26 @@
 unit evOutTextParaEliminator;
+ {* Фильтр удаляющий мусорные текстовые параграфы за пределами документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evOutTextParaEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevOutTextParaEliminator
-//
-// Фильтр удаляющий мусорные текстовые параграфы за пределами документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evOutTextParaEliminator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevOutTextParaEliminator" MUID: (4F7D3EB4039D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  k2Base
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , k2Base
+;
 
 type
  TevOutTextParaEliminator = class(Tk2TagFilter)
   {* Фильтр удаляющий мусорные текстовые параграфы за пределами документа. }
- private
- // private fields
-   f_InDocument : Integer;
- protected
- // overridden protected methods
+  private
+   f_InDocument: Integer;
+  protected
    procedure InitFields; override;
    procedure DoStartChild(TypeID: Tk2Type); override;
    function NeedTranslateChildToNext: Boolean; override;
@@ -42,10 +30,9 @@ type
 implementation
 
 uses
-  Document_Const
-  ;
-
-// start class TevOutTextParaEliminator
+ l3ImplUses
+ , Document_Const
+;
 
 procedure TevOutTextParaEliminator.InitFields;
 //#UC START# *47A042E100E2_4F7D3EB4039D_var*

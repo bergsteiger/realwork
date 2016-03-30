@@ -11,10 +11,11 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
+ , l3Units
+ , nevTools
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , nevTools
 ;
 
 type

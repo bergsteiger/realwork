@@ -1,55 +1,38 @@
 unit nevBitmapFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevBitmapFormatInfo.pas"
-// Начат: 01.09.2011 11:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevBitmapFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBitmapFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevBitmapFormatInfo" MUID: (4E5F35FF01B4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  nevLeafRenderInfo,
-  nevBase
-  ;
+ l3IntfUses
+ , nevLeafRenderInfo
+ , l3InternalInterfaces
+ , nevBase
+;
 
 type
  TnevBitmapFormatInfo = class(TnevLeafRenderInfo)
- private
- // private fields
-   f_Rendered : Il3Bitmap;
- protected
- // overridden property methods
-   function pm_GetRendered: Il3Bitmap; override;
- protected
- // overridden protected methods
+  private
+   f_Rendered: Il3Bitmap;
+  protected
    procedure ClearCache; override;
+   function pm_GetRendered: Il3Bitmap; override;
    procedure DoRecalc(const aView: InevViewMetrics); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//TnevBitmapFormatInfo
 
 implementation
 
 uses
-  k2Tags,
-  l3Math
-  ;
-
-// start class TnevBitmapFormatInfo
+ l3ImplUses
+ , k2Tags
+ , l3Math
+;
 
 procedure TnevBitmapFormatInfo.ClearCache;
 //#UC START# *4E5E7D240227_4E5F35FF01B4_var*
@@ -140,7 +123,6 @@ begin
 end;//TnevBitmapFormatInfo.DoRecalc
 
 procedure TnevBitmapFormatInfo.ClearFields;
- {-}
 begin
  f_Rendered := nil;
  inherited;

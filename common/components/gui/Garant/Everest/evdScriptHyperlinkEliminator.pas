@@ -1,52 +1,39 @@
 unit evdScriptHyperlinkEliminator;
+ {* Фильтр, отрезающий ссылки на скрипты }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evdScriptHyperlinkEliminator.pas"
-// Начат: 10.06.2012 18:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdScriptHyperlinkEliminator
-//
-// Фильтр, отрезающий ссылки на скрипты
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdScriptHyperlinkEliminator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdScriptHyperlinkEliminator" MUID: (4F352A840264)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdHyperlinkEliminator,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdHyperlinkEliminator
+ , l3Variant
+;
 
 type
  TevdScriptHyperlinkEliminator = class(TevdHyperlinkEliminator)
   {* Фильтр, отрезающий ссылки на скрипты }
- protected
- // overridden protected methods
+  protected
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
-     {* Определяет нужно ли фильтровать переданный абзац }
+    {* Определяет нужно ли фильтровать переданный абзац }
  end;//TevdScriptHyperlinkEliminator
 
 implementation
 
 uses
-  k2Tags,
-  l3String,
-  evdTypes
-  ;
-
-// start class TevdScriptHyperlinkEliminator
+ l3ImplUses
+ , k2Tags
+ , l3String
+ , evdTypes
+;
 
 function TevdScriptHyperlinkEliminator.NeedWritePara(aLeaf: Tl3Variant): Boolean;
+ {* Определяет нужно ли фильтровать переданный абзац }
 //#UC START# *49E48829016F_4F352A840264_var*
 //#UC END# *49E48829016F_4F352A840264_var*
 begin

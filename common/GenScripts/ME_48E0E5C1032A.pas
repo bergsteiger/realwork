@@ -28,13 +28,10 @@ type
  TnevControl = class(_evStyleTableListener_, InevViewMetrics, InevControl)
   private
    f_WebStyle: Boolean;
-    {* Поле для свойства WebStyle }
    f_RMargin: Integer;
-    {* Поле для свойства RMargin }
+    {* правый отступ от окна до текста }
    f_AllowRubberTables: TnevRubberTablesMode;
-    {* Поле для свойства AllowRubberTables }
    f_AACLike: TnevAACLikeMode;
-    {* Поле для свойства AACLike }
   protected
    f_InPaint: Integer;
    f_ShowDocumentParts: Boolean;
@@ -165,12 +162,12 @@ uses
  , TextPara_Const
  , l3Defaults
  , l3InternalInterfaces
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}

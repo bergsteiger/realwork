@@ -1,99 +1,74 @@
 unit evTextParaHotSpotTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaHotSpotTester.pas"
-// Начат: 28.01.2000 20:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevTextParaHotSpotTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaHotSpotTester.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaHotSpotTester" MUID: (4A26AF690296)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  k2TagTool,
-  nevTools,
-  nevGUIInterfaces,
-  evSegmentHotSpot,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , k2TagTool
+ , nevGUIInterfaces
+ , l3Variant
+ , nevTools
+ , nevBase
+ , evSegmentHotSpot
+;
 
-{$If defined(evNeedHotSpot)}
 type
- RevSegmentClass = class of evSegmentHotSpot.TevSegmentHotSpot;
+ RevSegmentClass = class of TevSegmentHotSpot;
 
  _evDecorHotSpotTester_Parent_ = Tk2TagTool;
- {$Include ..\Everest\evDecorHotSpotTester.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
  TevTextParaHotSpotTester = class(_evDecorHotSpotTester_, InevHotSpotTester2)
- protected
- // realized methods
-   function GetAdvancedHotSpot(const aView: InevControlView;
-    const aState: TevCursorState;
-    const aPt: InevBasePoint;
-    const aMap: InevMap;
-    out theSpot: IevHotSpot): Boolean;
-     {* Возвращает "горячую точку" }
- protected
- // protected methods
+  protected
    function GetSegmentClass: RevSegmentClass; virtual;
    function DoGetAdvancedHotSpot(const aView: InevControlView;
     const aState: TevCursorState;
     const aPt: InevBasePoint;
     const aMap: InevMap;
     out theSpot: IevHotSpot): Boolean; virtual;
- public
- // public methods
+   function GetAdvancedHotSpot(const aView: InevControlView;
+    const aState: TevCursorState;
+    const aPt: InevBasePoint;
+    const aMap: InevMap;
+    out theSpot: IevHotSpot): Boolean;
+    {* Возвращает "горячую точку" }
+  public
    class function Make(aTag: Tl3Variant): InevHotSpotTester2; reintroduce;
  end;//TevTextParaHotSpotTester
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  k2Tags,
-  evdTypes,
-  k2Base,
-  l3Units,
-  l3Types,
-  evTextParaHeaderHotSpot,
-  evdStyles,
-  evParaCollapser,
-  evDecorHotSpot,
-  l3String
-  {$If defined(k2ForEditor)}
-  ,
-  evTextParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evExpandedTextCollapser,
-  evArchiCollapser
-  {$If defined(k2ForEditor)}
-  ,
-  evAACContentUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , k2Base
+ , l3Units
+ , l3Types
+ , evTextParaHeaderHotSpot
+ , evdStyles
+ , evParaCollapser
+ , evDecorHotSpot
+ , l3String
+ {$If Defined(k2ForEditor)}
+ , evTextParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evExpandedTextCollapser
+ , evArchiCollapser
+ {$If Defined(k2ForEditor)}
+ , evAACContentUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evNeedHotSpot)}
-
-{$Include ..\Everest\evDecorHotSpotTester.imp.pas}
-
-// start class TevTextParaHotSpotTester
+{$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
 
 function TevTextParaHotSpotTester.GetSegmentClass: RevSegmentClass;
 //#UC START# *4A26B035006A_4A26AF690296_var*
@@ -114,13 +89,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevTextParaHotSpotTester.Make
 
 function TevTextParaHotSpotTester.DoGetAdvancedHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ out theSpot: IevHotSpot): Boolean;
 //#UC START# *4A26B4EB02EB_4A26AF690296_var*
 
 var
@@ -250,10 +225,11 @@ begin
 end;//TevTextParaHotSpotTester.DoGetAdvancedHotSpot
 
 function TevTextParaHotSpotTester.GetAdvancedHotSpot(const aView: InevControlView;
-  const aState: TevCursorState;
-  const aPt: InevBasePoint;
-  const aMap: InevMap;
-  out theSpot: IevHotSpot): Boolean;
+ const aState: TevCursorState;
+ const aPt: InevBasePoint;
+ const aMap: InevMap;
+ out theSpot: IevHotSpot): Boolean;
+ {* Возвращает "горячую точку" }
 //#UC START# *4A250DD6037C_4A26AF690296_var*
 //#UC END# *4A250DD6037C_4A26AF690296_var*
 begin
@@ -261,7 +237,6 @@ begin
  Result := DoGetAdvancedHotSpot(aView, aState, aPt, aMap, theSpot);
 //#UC END# *4A250DD6037C_4A26AF690296_impl*
 end;//TevTextParaHotSpotTester.GetAdvancedHotSpot
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

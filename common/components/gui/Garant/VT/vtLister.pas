@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4CFFE3470249intf_uses*
+ //#UC END# *4CFFE3470249intf_uses*
 ;
 
 const
@@ -1575,6 +1577,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , ListerWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CFFE3470249impl_uses*
+ //#UC END# *4CFFE3470249impl_uses*
 ;
 
 const

@@ -1,71 +1,55 @@
 unit evdHeaderHyperlinkAdder;
+ {* Фильтр, устанавливающий ссылку на заголовок документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evdHeaderHyperlinkAdder.pas"
-// Начат: 30.11.2010 17:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevdHeaderHyperlinkAdder
-//
-// Фильтр, устанавливающий ссылку на заголовок документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evdHeaderHyperlinkAdder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevdHeaderHyperlinkAdder" MUID: (4CF50F7D0203)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , l3Variant
+;
 
 type
  TevdHeaderHyperlinkAdder = class(TevdLeafParaFilter)
   {* Фильтр, устанавливающий ссылку на заголовок документа }
- protected
- // overridden protected methods
+  protected
+   f_DocID: Integer;
+    {* Идентификатор документа }
+   f_WasSomeLink: Boolean;
+    {* Была ли хоть одна автоматическая ссылка }
+  protected
+   procedure OutBlockNames(aLeaf: Tl3Variant); virtual;
+    {* Выводит имена блоков, в которые вложен данный параграф }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
- protected
- // protected fields
-   f_DocID : Integer;
-    {* Идентификатор документа}
-   f_WasSomeLink : Boolean;
-    {* Была ли хоть одна автоматическая ссылка}
- protected
- // protected methods
-   procedure OutBlockNames(aLeaf: Tl3Variant); virtual;
-     {* Выводит имена блоков, в которые вложен данный параграф }
  end;//TevdHeaderHyperlinkAdder
 
 implementation
 
 uses
-  SegmentsLayer_Const,
-  PageBreak_Const,
-  Address_Const,
-  HyperLink_Const,
-  k2Tags,
-  Document_Const,
-  DecorTextPara_Const,
-  evdTypes
-  ;
-
-// start class TevdHeaderHyperlinkAdder
+ l3ImplUses
+ , SegmentsLayer_Const
+ , PageBreak_Const
+ , Address_Const
+ , HyperLink_Const
+ , k2Tags
+ , Document_Const
+ , DecorTextPara_Const
+ , evdTypes
+;
 
 procedure TevdHeaderHyperlinkAdder.OutBlockNames(aLeaf: Tl3Variant);
+ {* Выводит имена блоков, в которые вложен данный параграф }
 //#UC START# *4CF513300102_4CF50F7D0203_var*
 var
  l_HL : Tl3Variant;
@@ -106,6 +90,7 @@ begin
 end;//TevdHeaderHyperlinkAdder.OutBlockNames
 
 procedure TevdHeaderHyperlinkAdder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CF50F7D0203_var*
 //#UC END# *479731C50290_4CF50F7D0203_var*
 begin
@@ -117,6 +102,7 @@ begin
 end;//TevdHeaderHyperlinkAdder.Cleanup
 
 procedure TevdHeaderHyperlinkAdder.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_4CF50F7D0203_var*
 var
  l_Break : Boolean;
@@ -133,7 +119,7 @@ begin
 end;//TevdHeaderHyperlinkAdder.DoWritePara
 
 procedure TevdHeaderHyperlinkAdder.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_4CF50F7D0203_var*
 //#UC END# *4A2D1634025B_4CF50F7D0203_var*
 begin

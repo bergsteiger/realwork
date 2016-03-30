@@ -1,98 +1,84 @@
 unit ComboBoxStrings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/ComboTree/ComboBoxStrings.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::ComboTree::TComboBoxStrings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ComboBoxStrings.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TComboBoxStrings" MUID: (48721FA80370)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  l3VCLStrings,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3VCLStrings
+ , l3TreeInterfaces
+ , l3Interfaces
+;
 
 type
  TComboBoxStrings = class(Tl3Strings, Il3SimpleNode, Il3SimpleRootNode)
- private
- // private fields
-   f_Flags : Integer;
- protected
- // realized methods
+  private
+   f_Flags: Integer;
+  protected
+   function DoMakeChild: Il3SimpleNode; virtual;
+    {* Создать первого ребенка }
    function IsFirst: Boolean;
-     {* это первый узел внутри родителя? }
+    {* это первый узел внутри родителя? }
    function IsLast: Boolean;
-     {* это последний узел внутри родителя? }
+    {* это последний узел внутри родителя? }
    function HasChild: Boolean;
-     {* есть ли дочерние узлы? }
+    {* есть ли дочерние узлы? }
    function MaybeChild: Boolean;
-     {* может ли иметь дочерние узлы? }
+    {* может ли иметь дочерние узлы? }
    function GetLevel: Integer;
    function GetLevelFor(const aNode: Il3SimpleNode): Integer;
    function IsSame(const aNode: Il3SimpleNode): Boolean;
-     {* сравнивает ноды. }
+    {* сравнивает ноды. }
    function IsDisappeared: Boolean;
-     {* True если интерфейс на удаленную ноду,
+    {* True если интерфейс на удаленную ноду,
              применяется в виртуальных нодах - указателях на данные. }
    procedure BeginMove(var aUserParam: Pointer);
-     {* начать перемещение узла. }
+    {* начать перемещение узла. }
    procedure EndMove(aUserParam: Pointer);
-     {* закончить перемещение узла. }
+    {* закончить перемещение узла. }
    procedure Delete;
-     {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
+    {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
    function Get_Text: Tl3PCharLenPrim;
    function Get_Parent: Il3SimpleNode;
    function Get_Child: Il3SimpleNode;
    function Get_Next: Il3SimpleNode;
    function Get_Flag(anIndex: Integer): Boolean;
-   procedure Set_Flag(anIndex: Integer; aValue: Boolean);
+   procedure Set_Flag(anIndex: Integer;
+    aValue: Boolean);
    function Get_Flags: Integer;
    function Get_ThisChildrenCount: Integer;
    function pm_GetIndexInParent: Integer;
    function CanExpandCollapseAll: Boolean;
    procedure ExpandCollapseAll(anExpand: Boolean);
    function CanAcceptData(const aData: Tl3TreeData): Boolean;
-     {* может ли узел принять данные }
+    {* может ли узел принять данные }
    function DropData(const aData: Tl3TreeData): Boolean;
-     {* принять данные }
+    {* принять данные }
    function CanMove: Boolean;
-     {* определяет возможность перемещения узла }
+    {* определяет возможность перемещения узла }
    function Get_Prev: Il3SimpleNode;
- protected
- // protected methods
-   function DoMakeChild: Il3SimpleNode; virtual;
-     {* Создать первого ребенка }
  end;//TComboBoxStrings
 
 implementation
 
 uses
-  l3String,
-  ctComboBoxStringsItemNode,
-  l3InterfacesMisc,
-  l3Bits
-  {$If not defined(NoScripts)}
-  ,
-  l3NodesKeyWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TComboBoxStrings
+ l3ImplUses
+ , l3String
+ , ctComboBoxStringsItemNode
+ , l3InterfacesMisc
+ , l3Bits
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TComboBoxStrings.DoMakeChild: Il3SimpleNode;
+ {* Создать первого ребенка }
 //#UC START# *49BE43ED01CF_48721FA80370_var*
 //#UC END# *49BE43ED01CF_48721FA80370_var*
 begin
@@ -102,6 +88,7 @@ begin
 end;//TComboBoxStrings.DoMakeChild
 
 function TComboBoxStrings.IsFirst: Boolean;
+ {* это первый узел внутри родителя? }
 //#UC START# *47723CDB00A4_48721FA80370_var*
 //#UC END# *47723CDB00A4_48721FA80370_var*
 begin
@@ -111,6 +98,7 @@ begin
 end;//TComboBoxStrings.IsFirst
 
 function TComboBoxStrings.IsLast: Boolean;
+ {* это последний узел внутри родителя? }
 //#UC START# *47723CFF0148_48721FA80370_var*
 //#UC END# *47723CFF0148_48721FA80370_var*
 begin
@@ -120,6 +108,7 @@ begin
 end;//TComboBoxStrings.IsLast
 
 function TComboBoxStrings.HasChild: Boolean;
+ {* есть ли дочерние узлы? }
 //#UC START# *47723D0F0392_48721FA80370_var*
 //#UC END# *47723D0F0392_48721FA80370_var*
 begin
@@ -129,6 +118,7 @@ begin
 end;//TComboBoxStrings.HasChild
 
 function TComboBoxStrings.MaybeChild: Boolean;
+ {* может ли иметь дочерние узлы? }
 //#UC START# *47723D1D03D6_48721FA80370_var*
 //#UC END# *47723D1D03D6_48721FA80370_var*
 begin
@@ -166,6 +156,7 @@ begin
 end;//TComboBoxStrings.GetLevelFor
 
 function TComboBoxStrings.IsSame(const aNode: Il3SimpleNode): Boolean;
+ {* сравнивает ноды. }
 //#UC START# *47723D4C0360_48721FA80370_var*
 //#UC END# *47723D4C0360_48721FA80370_var*
 begin
@@ -175,6 +166,8 @@ begin
 end;//TComboBoxStrings.IsSame
 
 function TComboBoxStrings.IsDisappeared: Boolean;
+ {* True если интерфейс на удаленную ноду,
+             применяется в виртуальных нодах - указателях на данные. }
 //#UC START# *47723DB901CA_48721FA80370_var*
 //#UC END# *47723DB901CA_48721FA80370_var*
 begin
@@ -184,6 +177,7 @@ begin
 end;//TComboBoxStrings.IsDisappeared
 
 procedure TComboBoxStrings.BeginMove(var aUserParam: Pointer);
+ {* начать перемещение узла. }
 //#UC START# *47723DD1008F_48721FA80370_var*
 //#UC END# *47723DD1008F_48721FA80370_var*
 begin
@@ -193,6 +187,7 @@ begin
 end;//TComboBoxStrings.BeginMove
 
 procedure TComboBoxStrings.EndMove(aUserParam: Pointer);
+ {* закончить перемещение узла. }
 //#UC START# *47723DE0009F_48721FA80370_var*
 //#UC END# *47723DE0009F_48721FA80370_var*
 begin
@@ -202,6 +197,7 @@ begin
 end;//TComboBoxStrings.EndMove
 
 procedure TComboBoxStrings.Delete;
+ {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
 //#UC START# *47723DED006A_48721FA80370_var*
 //#UC END# *47723DED006A_48721FA80370_var*
 begin
@@ -258,7 +254,8 @@ begin
 //#UC END# *4772423302AF_48721FA80370get_impl*
 end;//TComboBoxStrings.Get_Flag
 
-procedure TComboBoxStrings.Set_Flag(anIndex: Integer; aValue: Boolean);
+procedure TComboBoxStrings.Set_Flag(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *4772423302AF_48721FA80370set_var*
 //#UC END# *4772423302AF_48721FA80370set_var*
 begin
@@ -316,6 +313,7 @@ begin
 end;//TComboBoxStrings.ExpandCollapseAll
 
 function TComboBoxStrings.CanAcceptData(const aData: Tl3TreeData): Boolean;
+ {* может ли узел принять данные }
 //#UC START# *47A86F070101_48721FA80370_var*
 //#UC END# *47A86F070101_48721FA80370_var*
 begin
@@ -325,6 +323,7 @@ begin
 end;//TComboBoxStrings.CanAcceptData
 
 function TComboBoxStrings.DropData(const aData: Tl3TreeData): Boolean;
+ {* принять данные }
 //#UC START# *47A86F1C016B_48721FA80370_var*
 //#UC END# *47A86F1C016B_48721FA80370_var*
 begin
@@ -334,6 +333,7 @@ begin
 end;//TComboBoxStrings.DropData
 
 function TComboBoxStrings.CanMove: Boolean;
+ {* определяет возможность перемещения узла }
 //#UC START# *47ADA09C019B_48721FA80370_var*
 //#UC END# *47ADA09C019B_48721FA80370_var*
 begin

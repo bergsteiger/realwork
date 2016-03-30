@@ -1,87 +1,72 @@
 unit nevDocumentContainer;
+ {* Контейнер документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevDocumentContainer.pas"
-// Начат: 04.05.2000 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DocumentContainers::TnevDocumentContainer
-//
-// Контейнер документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentContainer" MUID: (47F0870E0034)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  k2Interfaces,
-  nevBase,
-  afwInterfaces,
-  l3Filer,
-  k2Base,
-  l3LongintList,
-  nevTools,
-  k2Op,
-  k2TagGen,
-  evDocumentPreviewInfoList,
-  nevWaiterList,
-  evInternalInterfaces,
-  nevInternalInterfaces,
-  k2InternalInterfaces,
-  k2DocumentGenerator,
-  evDocumentPartGenerator,
-  nevObjectHolderPrim,
-  evGeneratorsInterfaces,
-  l3Variant,
-  l3IID,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , nevObjectHolderPrim
+ , l3Interfaces
+ , k2Interfaces
+ , nevTools
+ , nevInternalInterfaces
+ , evInternalInterfaces
+ , l3Variant
+ , nevWaiterList
+ , evDocumentPreviewInfoList
+ , afwInterfaces
+ , l3LongintList
+ , nevBase
+ , k2TagGen
+ , k2Base
+ , k2DocumentGenerator
+ , k2InternalInterfaces
+ , l3Filer
+ , evGeneratorsInterfaces
+ , evdInterfaces
+ , l3IID
+ , evDocumentPartGenerator
+;
 
 type
- RevDocumentPartGenerator = class of evDocumentPartGenerator.TevDocumentPartGenerator;
+ RevDocumentPartGenerator = class of TevDocumentPartGenerator;
 
  TnevDocumentContainer = class(TnevObjectHolderPrim, Il3Lock, Il3ItemNotifyRecipient, Ik2GeneratorTarget, InevDocumentContainer, InevSubList, InevTagReader, InevTagWriter, InevDocumentContainerInternal, IevSubFlagsSpy, InevCommentTextProvider)
   {* Контейнер документа. }
- private
- // private fields
-   fl_FlagsIteratorCalled : Boolean;
-   f_SubChangeListener : InevSubChangeListener;
-   f_MaxSubID : Integer;
-    {* Максимальное значение ID саба в документе. Используется только при загрузке!}
-   f_Waiters : TnevWaiterList;
-   f_InfoPreviewCache : TevDocumentPreviewInfoList;
-   f_DocumentPreviewCache : TevDocumentPreviewInfoList;
-   f_PreviewFactory : IafwComplexDocumentPreviewFactory;
-   f_NotFoundParas : Tl3LongintList;
-   f_Loading : Boolean;
-    {* Поле для свойства Loading}
-   f_AbortedLoad : Boolean;
-    {* Поле для свойства AbortedLoad}
-   f_NeedProcessMessages : Boolean;
-    {* Поле для свойства NeedProcessMessages}
-   f_Document : Tl3Tag;
-    {* Поле для свойства Document}
-   f_TextSource : InevTextSourcePool;
-    {* Поле для свойства TextSource}
-   f_Next : TnevDocumentContainer;
-    {* Поле для свойства Next}
- private
- // private methods
+  private
+   fl_FlagsIteratorCalled: Boolean;
+   f_SubChangeListener: InevSubChangeListener;
+   f_MaxSubID: Integer;
+    {* Максимальное значение ID саба в документе. Используется только при загрузке! }
+   f_Waiters: TnevWaiterList;
+   f_InfoPreviewCache: TevDocumentPreviewInfoList;
+   f_DocumentPreviewCache: TevDocumentPreviewInfoList;
+   f_PreviewFactory: IafwComplexDocumentPreviewFactory;
+   f_NotFoundParas: Tl3LongintList;
+   f_Loading: Boolean;
+    {* Поле для свойства Loading }
+   f_AbortedLoad: Boolean;
+    {* Поле для свойства AbortedLoad }
+   f_NeedProcessMessages: Boolean;
+    {* Поле для свойства NeedProcessMessages }
+   f_Document: Tl3Tag;
+    {* Поле для свойства Document }
+   f_TextSource: InevTextSourcePool;
+    {* Поле для свойства TextSource }
+   f_Next: TnevDocumentContainer;
+    {* Поле для свойства Next }
+  private
    procedure WriteDataExEx(const aView: InevView;
-     const aReader: Ik2TagReader;
-     const aBlock: IUnknown;
-     aFlags: TevLoadFlags);
-     {* считать документ из памяти в TextSource }
+    const aReader: Ik2TagReader;
+    const aBlock: IUnknown;
+    aFlags: TevLoadFlags);
+    {* считать документ из памяти в TextSource }
    procedure ClearSubs;
    procedure ResetPreviewCaches(ResetInfo: Boolean);
    function FindPreview(aCache: TevDocumentPreviewInfoList;
@@ -90,60 +75,141 @@ type
    function CheckDocumentPreviewCache: TevDocumentPreviewInfoList;
    function CheckInfoPreviewCache: TevDocumentPreviewInfoList;
    procedure SetLoaded;
- protected
- // property methods
+  protected
    function pm_GetDocument: Tl3Tag;
    procedure pm_SetDocument(aValue: Tl3Tag);
    procedure pm_SetNext(aValue: TnevDocumentContainer);
- protected
- // realized methods
-   {iterator} function Iterate(anAction: InevSubList_Iterate_Action;
-    const aBlock: IUnknown = nil;
-    const aMessage: Il3CString = nil): Integer;
-     {* Перебирает список меток }
-   {iterator} function IterateF(anAction: InevSubList_Iterate_Action;
-    const aBlock: IUnknown = nil;
-    const aMessage: Il3CString = nil): Integer;
-     {* Перебирает список меток }
+   procedure NotifySubReallyAdded(aParaID: Integer;
+    aSubID: Integer;
+    aLayerID: Integer;
+    const aSubName: Tl3WString;
+    aFlags: Integer); virtual;
+   procedure NotifySubReallyDeleted(aParaID: Integer;
+    aSubID: Integer;
+    aLayerID: Integer); virtual;
+   procedure SubDeleted(aSubID: Integer); virtual;
+   procedure SendTOCCreatedNotify; virtual;
+   procedure GetWriter(aFormat: TnevFormat;
+    anInternal: Boolean;
+    out theWriter: Tk2TagGenerator;
+    out theCharCountMul: Integer;
+    out theFormatName: Il3CString;
+    const aFilters: InevTagGenerator;
+    aCodePage: Integer); overload; virtual;
+   function ReplaceContainerInOwner(const aDocumentContainer: InevDocumentContainer): Boolean; virtual;
+   procedure Clear; virtual;
+   function StartOp(Op: Integer = 0;
+    DoLock: Boolean = True): InevOp; virtual;
+    {* открывает пачку операций с кодом Op. }
+   procedure DocumentChanged(anOldDocument: Tl3Variant;
+    aNewDocument: Tl3Variant); virtual;
+   procedure AddToDocumentsCache;
+   function CanBePlacedInDocumentsCache: Boolean; virtual;
+   function DocumentPreview(const aKey: TevPreviewCacheKey;
+    const aMacroReplacer: IafwHAFMacroReplacer;
+    const aRange: InevRange = nil): IafwDocumentPreview;
+   function InfoPreview(const aKey: TevPreviewCacheKey;
+    const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
+   function MakeDocumentPreview(const aKey: TevPreviewCacheKey;
+    const aMacroReplacer: IafwHAFMacroReplacer;
+    const aRange: InevRange = nil): IafwDocumentPreview; virtual;
+   function MakeInfoPreview(const aKey: TevPreviewCacheKey;
+    const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview; virtual;
+   procedure CheckWaiters; overload;
+   procedure CheckWaiters(aParent: Tl3Variant;
+    aChild: Tl3Variant); overload;
+   function StartLoading: Boolean;
+   function DoFindParaByID(const aDocument: InevObject;
+    aParaID: Integer;
+    out aPara: InevObject): Boolean; virtual;
+   procedure CheckCloseWindow;
+   function RealizeSub(aLayerHandle: Integer;
+    Atom: Tl3Variant;
+    anObject: Tl3Variant;
+    const anOpPack: InevOp): Tl3Variant; overload;
+   procedure NotifySubDeleted(aSubTag: Tl3Variant;
+    const aSub: IevSub);
+   function GetGeneratorPrim(const aView: InevView;
+    const aGeneratorTarget: IUnknown): Tk2TagGenerator; virtual;
+   function DoStartAtom(G: Tk2DocumentGenerator;
+    var Atom: Tk2StackAtom): Boolean;
+   function DoFinishAtom(G: Tk2DocumentGenerator;
+    var Atom: Tk2StackAtom): Boolean; virtual;
+   function DoFinishAtom1(G: Tk2DocumentGenerator;
+    var Atom: Tk2StackAtom): Boolean;
+   procedure DoAddAtom(G: Tk2TagGenerator;
+    const Atom: Tk2StackAtom;
+    Prop: Integer;
+    aSource: Tl3Variant);
+   function DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
+    var anAtom: Tk2StackAtom): Boolean; virtual;
+   function DoBeforeFinishAtom(G: Tk2DocumentGenerator;
+    var Atom: Tk2StackAtom): Boolean; virtual;
+   function StartIOOp(DoLock: Boolean = True): InevOp;
+    {* открывает пачку операций ввода/вывода. }
+   procedure MakeNext;
+   procedure RealizeSubs(Parent: Tl3Variant;
+    Atom: Tl3Variant;
+    G: Tk2TagGenerator);
+   procedure DoGetReader(aFormat: TnevFormat;
+    const aPool: IStream;
+    out theReader: Tk2CustomReader;
+    anInternal: Boolean;
+    aCodePage: Integer;
+    const aBlock: IUnknown); virtual;
+   function DoGetProcessor: InevProcessor; virtual;
+   function DoGetDocumentLimits: InevDocumentLimits; virtual;
+   function DoGetDocumentInfo: InevDocumentInfo; virtual;
+   function GetHasProcessor: Boolean; virtual;
+   function DoGetSubEx(anID: Integer;
+    aLayerID: Integer): IevSub; virtual;
+   function GetIsSame(const aContainer: InevDocumentContainer): Boolean; virtual;
+   function GetIsSameText(const aContainer: InevDocumentContainer): Boolean; overload; virtual;
+   function GetIsSameText(const aTextSource: IUnknown): Boolean; overload; virtual;
+   function GetDocument: Tl3Tag; virtual;
+   function GetContentsTree: InevSimpleTree; virtual;
+   function PartGeneratorClass: RevDocumentPartGenerator; virtual;
+   function NeedsProgressOnSave: Boolean; virtual;
+   function GetDocumentType: Tk2Type; virtual;
    procedure Lock(const aLocker: IUnknown);
-     {* закрыть. }
+    {* закрыть. }
    procedure Unlock(const aLocker: IUnknown);
-     {* открыть. }
+    {* открыть. }
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    function ReadTag(aFormat: TnevFormat;
-     const aPool: IStream;
-     const aFilters: InevTagGenerator;
-     const Block: InevDataObjectPrim2 = nil;
-     aFlags: TevdStoreFlags = evDefaultStoreFlags;
-     aCodePage: Integer = CP_DefaultValue): Integer;
-     {* считать тег из Storage в aPool. }
+    const aPool: IStream;
+    const aFilters: InevTagGenerator;
+    const Block: InevDataObjectPrim2 = nil;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags;
+    aCodePage: Integer = CP_DefaultValue): Integer;
+    {* считать тег из Storage в aPool. }
    function ReadTagEx(const Writer: InevTagGenerator;
-     const aPool: IStream = nil;
-     const aBlock: InevDataObjectPrim2 = nil;
-     aFlags: TevdStoreFlags = evDefaultStoreFlags;
-     CharCountMul: Integer = 2;
-     const FormatName: Il3CString = nil;
-     aCodePage: Integer = CP_DefaultValue): Integer;
-     {* записать документ в память (Pool) из TextSource. }
+    const aPool: IStream = nil;
+    const aBlock: InevDataObjectPrim2 = nil;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags;
+    CharCountMul: Integer = 2;
+    const FormatName: Il3CString = nil;
+    aCodePage: Integer = CP_DefaultValue): Integer;
+    {* записать документ в память (Pool) из TextSource. }
    function WriteTag(const aView: InevView;
-     aFormat: TnevFormat;
-     const aPool: IStream;
-     const aBlock: IUnknown = nil;
-     aFlags: TevLoadFlags = evDefaultLoadFlags;
-     aCodePage: Integer = CP_DefaultValue): Boolean;
-     {* записать тэг из Pool в Storage. }
+    aFormat: TnevFormat;
+    const aPool: IStream;
+    const aBlock: IUnknown = nil;
+    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+    aCodePage: Integer = CP_DefaultValue): Boolean;
+    {* записать тэг из Pool в Storage. }
    procedure WriteTagEx(const aView: InevView;
-     const aReader: InevReader;
-     const aBlock: IUnknown = nil;
-     aFlags: TevLoadFlags = evDefaultLoadFlags);
-     {* записать тэг из Pool в Storage. }
+    const aReader: InevReader;
+    const aBlock: IUnknown = nil;
+    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags);
+    {* записать тэг из Pool в Storage. }
    function HasDocument: Boolean;
    function IsSame(const aContainer: InevDocumentContainer): Boolean;
-   function IsSameText(const aTextSource: IUnknown): Boolean; overload; 
-   function IsSameText(const aContainer: InevDocumentContainer): Boolean; overload; 
+   function IsSameText(const aTextSource: IUnknown): Boolean; overload;
+   function IsSameText(const aContainer: InevDocumentContainer): Boolean; overload;
    function ReadFrom(const aStream: IStream): Boolean;
    procedure WriteTo(const aGenerator: InevTagGenerator);
    procedure LinkTextSource(const aTextSource: InevTextSource);
@@ -151,17 +217,17 @@ type
    function HasProcessor: Boolean;
    procedure RemoveFromDocumentsCache;
    function Internal: IUnknown;
-     {* //InevDocumentContainerInternal }
-   {$If not defined(Nemesis)}
+    {* //InevDocumentContainerInternal }
+   {$If NOT Defined(Nemesis)}
    procedure GetSubFlagsIterator(aLayer: Integer);
-   {$IfEnd} //not Nemesis
+   {$IfEnd} // NOT Defined(Nemesis)
    function Preview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer;
     const aRange: InevRange = nil;
     TreatRangeAsSelection: Boolean = True): InevComplexDocumentPreview;
    function RealizeSub(aLayerHandle: Integer;
     Atom: Tl3Variant;
-    anObject: Tl3Variant): Tl3Variant; overload; 
+    anObject: Tl3Variant): Tl3Variant; overload;
    function LinkWaiter(const aWaiter: InevWaiter): Boolean;
    function GetGenerator(const aView: InevView;
     const aGeneratorTarget: IUnknown): InevTagGenerator;
@@ -178,23 +244,25 @@ type
    function pm_GetContentsTree: InevSimpleTree;
    function pm_GetExistingDocument: Tl3Variant;
    function pm_GetSub(anID: Integer): IevSub;
-   function pm_GetSubEx(anID: Integer; aLayerID: Integer): IevSub;
+   function pm_GetSubEx(anID: Integer;
+    aLayerID: Integer): IevSub;
    function pm_GetNewSub: IevSub;
    function pm_GetNewSubEx(aLayerID: Integer): IevSub;
    function pm_GetBlock(anID: Integer): IevDocumentPart;
-   function pm_GetBlockEx(anID: Integer; aLayerID: Integer): IevDocumentPart;
+   function pm_GetBlockEx(anID: Integer;
+    aLayerID: Integer): IevDocumentPart;
    function Get_InternalDocument: Tl3Tag;
    procedure GetReader(aFormat: TnevFormat;
     const aPool: IStream;
     out theReader: Tk2CustomReader;
-    anInternal: Boolean = true;
+    anInternal: Boolean = True;
     aCodePage: Integer = CP_DefaultValue;
     const aBlock: IUnknown = nil);
    procedure GetWriter(aFormat: TnevFormat;
     anInternal: Boolean;
     out theWriter: Tk2TagGenerator;
     const aFilters: InevTagGenerator;
-    aCodePage: Integer = CP_DefaultValue); overload; 
+    aCodePage: Integer = CP_DefaultValue); overload;
    function pm_GetLoading: Boolean;
    procedure LinkSubChangeListener(const aSubChangeListener: InevSubChangeListener);
    procedure DoInvalidateShape(const aShape: InevObject;
@@ -202,26 +270,22 @@ type
    function GetTagReader: InevTagReader; override;
    function GetTagWriter: InevTagWriter; override;
    procedure NotifyFlagsChange(const aSub: IevSub);
-     {* флаги метки изменились }
+    {* флаги метки изменились }
    function DefaultDocumentType: Tk2Type;
-     {* Тип документа по-умолчанию }
+    {* Тип документа по-умолчанию }
    procedure NotifySubAdded(aParaID: Integer;
     aSubID: Integer;
     aLayerID: Integer;
     const aSubName: Tl3WString;
     aFlags: Integer);
-     {* Нотификация о добавлении Sub'а в другом "похожем" документе }
+    {* Нотификация о добавлении Sub'а в другом "похожем" документе }
    function GetCommentTextByParaID(aParaID: Integer): Il3CString;
    procedure DeleteCommentByParaID(aParaID: Integer);
- protected
- // overridden property methods
-   procedure pm_SetModified(aValue: Boolean); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function GetObj: InevObject; override;
+   procedure pm_SetModified(aValue: Boolean); override;
    function DoFindObjByID(aParaID: Integer;
     out aPara: InevObject): Boolean; override;
    function GetViewArea: InevViewArea; override;
@@ -242,219 +306,118 @@ type
    function GetSubCache: IevSubCache; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function DoGetControlImg(const aControl: TnevControlInfo;
-     var theImageInfo: TnevControlImageInfo): Boolean; override;
+    var theImageInfo: TnevControlImageInfo): Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure NotifySubReallyAdded(aParaID: Integer;
-     aSubID: Integer;
-     aLayerID: Integer;
-     const aSubName: Tl3WString;
-     aFlags: Integer); virtual;
-   procedure NotifySubReallyDeleted(aParaID: Integer;
-     aSubID: Integer;
-     aLayerID: Integer); virtual;
-   procedure SubDeleted(aSubID: Integer); virtual;
-   procedure SendTOCCreatedNotify; virtual;
-   procedure GetWriter(aFormat: TnevFormat;
-    anInternal: Boolean;
-    out theWriter: Tk2TagGenerator;
-    out theCharCountMul: Integer;
-    out theFormatName: Il3CString;
-    const aFilters: InevTagGenerator;
-    aCodePage: Integer); overload;  virtual;
-   function ReplaceContainerInOwner(const aDocumentContainer: InevDocumentContainer): Boolean; virtual;
-   procedure Clear; virtual;
-   function StartOp(Op: Integer = 0;
-    DoLock: Boolean = true): InevOp; virtual;
-     {* открывает пачку операций с кодом Op. }
-   procedure DocumentChanged(anOldDocument: Tl3Variant;
-    aNewDocument: Tl3Variant); virtual;
-   procedure AddToDocumentsCache;
-   function CanBePlacedInDocumentsCache: Boolean; virtual;
-   function DocumentPreview(const aKey: TevPreviewCacheKey;
-    const aMacroReplacer: IafwHAFMacroReplacer;
-    const aRange: InevRange = nil): IafwDocumentPreview;
-   function InfoPreview(const aKey: TevPreviewCacheKey;
-    const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
-   function MakeDocumentPreview(const aKey: TevPreviewCacheKey;
-    const aMacroReplacer: IafwHAFMacroReplacer;
-    const aRange: InevRange = nil): IafwDocumentPreview; virtual;
-   function MakeInfoPreview(const aKey: TevPreviewCacheKey;
-    const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview; virtual;
-   procedure CheckWaiters; overload; 
-   procedure CheckWaiters(aParent: Tl3Variant;
-    aChild: Tl3Variant); overload; 
-   function StartLoading: Boolean;
-   function DoFindParaByID(const aDocument: InevObject;
-    aParaID: Integer;
-    out aPara: InevObject): Boolean; virtual;
-   procedure CheckCloseWindow;
-   function RealizeSub(aLayerHandle: Integer;
-    Atom: Tl3Variant;
-    anObject: Tl3Variant;
-    const anOpPack: InevOp): Tl3Variant; overload; 
-   procedure NotifySubDeleted(aSubTag: Tl3Variant;
-    const aSub: IevSub);
-   function GetGeneratorPrim(const aView: InevView;
-    const aGeneratorTarget: IUnknown): Tk2TagGenerator; virtual;
-   function DoStartAtom(G: Tk2DocumentGenerator;
-    var Atom: Tk2StackAtom): Boolean;
-   function DoFinishAtom(G: Tk2DocumentGenerator;
-    var Atom: Tk2StackAtom): Boolean; virtual;
-   function DoFinishAtom1(G: Tk2DocumentGenerator;
-    var Atom: Tk2StackAtom): Boolean;
-   procedure DoAddAtom(G: Tk2TagGenerator;
-    const Atom: Tk2StackAtom;
-    Prop: Integer;
-    aSource: Tl3Variant);
-   function DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
-    var anAtom: Tk2StackAtom): Boolean; virtual;
-   function DoBeforeFinishAtom(G: Tk2DocumentGenerator;
-    var Atom: Tk2StackAtom): Boolean; virtual;
-   function StartIOOp(DoLock: Boolean = true): InevOp;
-     {* открывает пачку операций ввода/вывода. }
-   procedure MakeNext;
-   procedure RealizeSubs(Parent: Tl3Variant;
-    Atom: Tl3Variant;
-    G: Tk2TagGenerator);
-   procedure DoGetReader(aFormat: TnevFormat;
-    const aPool: IStream;
-    out theReader: Tk2CustomReader;
-    anInternal: Boolean;
-    aCodePage: Integer;
-    const aBlock: IUnknown); virtual;
-   function DoGetProcessor: InevProcessor; virtual;
-   function DoGetDocumentLimits: InevDocumentLimits; virtual;
-   function DoGetDocumentInfo: InevDocumentInfo; virtual;
-   function GetHasProcessor: Boolean; virtual;
-   function DoGetSubEx(anID: Integer;
-    aLayerID: Integer): IevSub; virtual;
-   function GetIsSame(const aContainer: InevDocumentContainer): Boolean; virtual;
-   function GetIsSameText(const aContainer: InevDocumentContainer): Boolean; overload;  virtual;
-   function GetIsSameText(const aTextSource: IUnknown): Boolean; overload;  virtual;
-   function GetDocument: Tl3Tag; virtual;
-   function GetContentsTree: InevSimpleTree; virtual;
-   function PartGeneratorClass: RevDocumentPartGenerator; virtual;
-   function NeedsProgressOnSave: Boolean; virtual;
-   function GetDocumentType: Tk2Type; virtual;
- public
- // public methods
+  public
    class function Make: InevDocumentContainer; reintroduce;
- protected
- // protected properties
+  protected
    property Loading: Boolean
-     read f_Loading;
-     {* находимся в процессе загрузки документа. }
+    read f_Loading;
+    {* находимся в процессе загрузки документа. }
    property AbortedLoad: Boolean
-     read f_AbortedLoad
-     write f_AbortedLoad;
-     {* загрузка документа прервана. }
+    read f_AbortedLoad
+    write f_AbortedLoad;
+    {* загрузка документа прервана. }
    property NeedProcessMessages: Boolean
-     read f_NeedProcessMessages
-     write f_NeedProcessMessages
-     default false;
-     {* надо ли отдавать ProcessMessages в процессе загрузки. }
+    read f_NeedProcessMessages
+    write f_NeedProcessMessages
+    default False;
+    {* надо ли отдавать ProcessMessages в процессе загрузки. }
    property Document: Tl3Tag
-     read pm_GetDocument
-     write pm_SetDocument;
+    read pm_GetDocument
+    write pm_SetDocument;
    property TextSource: InevTextSourcePool
-     read f_TextSource;
+    read f_TextSource;
    property Next: TnevDocumentContainer
-     read f_Next
-     write pm_SetNext;
+    read f_Next
+    write pm_SetNext;
  end;//TnevDocumentContainer
 
 implementation
 
 uses
-  k2NilOp,
-  l3Types,
-  Classes,
-  l3Stream,
-  l3Chars,
-  nevInterfaces,
-  l3String,
-  evDocumentsCache,
-  l3InterfacesMisc,
-  Messages,
-  l3Base,
-  l3Math,
-  l3Except,
-  nevFacade
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evSearch,
-  nevTextSourcePool,
-  k2Tags,
-  afwComplexDocumentPreviewFactory,
-  evHighLevelDocumentGenerator,
-  afwFacade,
-  evDef
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  l3MinMax,
-  evMsgCode,
-  evSubImplementation,
-  l3Nodes,
-  evSubNode,
-  evNode,
-  l3Bits,
-  SysUtils,
-  k2BaseTypes,
-  Mark_Const,
-  CommentPara_Const,
-  Document_Const,
-  LeafPara_Const,
-  SubLayer_Const,
-  DocSubLayer_Const,
-  Block_Const,
-  Para_Const,
-  StyledLeafPara_Const,
-  TableCell_Const,
-  Bookmark_Const,
-  TextSegment_Const,
-  ParaList_Const,
-  Sub_Const,
-  DocumentSub_Const,
-  HyperLink_Const,
-  TextPara_Const,
-  evdTextStyle_Const,
-  k2Facade,
-  evTypes,
-  evdStyles,
-  LeafParaDecorationsHolder_Const,
-  l3BaseStream,
-  k2NullTagImpl
-  ;
+ l3ImplUses
+ , k2Op
+ , k2Prim
+ , l3Types
+ , Classes
+ , l3Stream
+ , l3Chars
+ , nevInterfaces
+ , l3String
+ , evDocumentsCache
+ , l3InterfacesMisc
+ , Messages
+ , l3Base
+ , l3Math
+ , l3Except
+ , nevFacade
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evSearch
+ , nevTextSourcePool
+ , k2Tags
+ , afwComplexDocumentPreviewFactory
+ , evHighLevelDocumentGenerator
+ , afwFacade
+ , evDef
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdTypes
+ , l3MinMax
+ , evMsgCode
+ , evSubImplementation
+ , l3Nodes
+ , evSubNode
+ , evNode
+ , l3Bits
+ , SysUtils
+ , k2BaseTypes
+ , Mark_Const
+ , CommentPara_Const
+ , Document_Const
+ , LeafPara_Const
+ , SubLayer_Const
+ , DocSubLayer_Const
+ , Block_Const
+ , Para_Const
+ , StyledLeafPara_Const
+ , TableCell_Const
+ , Bookmark_Const
+ , TextSegment_Const
+ , ParaList_Const
+ , Sub_Const
+ , DocumentSub_Const
+ , HyperLink_Const
+ , TextPara_Const
+ , evdTextStyle_Const
+ , k2Facade
+ , evTypes
+ , evdStyles
+ , LeafParaDecorationsHolder_Const
+ , l3BaseStream
+ , k2NullTagImpl
+ , k2NilOp
+;
 
 type
-  OevModified = class(Tk2Op)
+ OevModified = class(Tk2Op)
   protected
-  // overridden protected methods
    function CanJoinWith(anOperation: Tk2Op): Boolean; override;
    function DoJoin(anOperation: Tk2Op): Tk2Op; override;
-     {* соединяет две операции и возвращает:
+    {* соединяет две операции и возвращает:
           nil  - соединение неудачно
           Self - соединение удачно и все поместилось в старую запись
           New  - распределена новая операция }
    procedure DoUndo(const Container: Ik2Op); override;
-     {* отменить операцию }
+    {* отменить операцию }
    procedure DoRedo(const Container: Ik2Op); override;
-     {* вернуть операцию }
-  end;//OevModified
-
-// start class OevModified
+    {* вернуть операцию }
+ end;//OevModified
 
 function OevModified.CanJoinWith(anOperation: Tk2Op): Boolean;
 //#UC START# *47F107C80149_47F1078100C8_var*
@@ -466,6 +429,10 @@ begin
 end;//OevModified.CanJoinWith
 
 function OevModified.DoJoin(anOperation: Tk2Op): Tk2Op;
+ {* соединяет две операции и возвращает:
+          nil  - соединение неудачно
+          Self - соединение удачно и все поместилось в старую запись
+          New  - распределена новая операция }
 //#UC START# *47F107DF00E6_47F1078100C8_var*
 //#UC END# *47F107DF00E6_47F1078100C8_var*
 begin
@@ -478,6 +445,7 @@ begin
 end;//OevModified.DoJoin
 
 procedure OevModified.DoUndo(const Container: Ik2Op);
+ {* отменить операцию }
 //#UC START# *47F1080F00E8_47F1078100C8_var*
 //#UC END# *47F1080F00E8_47F1078100C8_var*
 begin
@@ -487,6 +455,7 @@ begin
 end;//OevModified.DoUndo
 
 procedure OevModified.DoRedo(const Container: Ik2Op);
+ {* вернуть операцию }
 //#UC START# *47F1082B00D0_47F1078100C8_var*
 //#UC END# *47F1082B00D0_47F1078100C8_var*
 begin
@@ -494,129 +463,6 @@ begin
  Container.InvertModified;
 //#UC END# *47F1082B00D0_47F1078100C8_impl*
 end;//OevModified.DoRedo
-
-procedure TnevDocumentContainer.WriteDataExEx(const aView: InevView;
-  const aReader: Ik2TagReader;
-  const aBlock: IUnknown;
-  aFlags: TevLoadFlags);
-
- procedure WriteBlock;
- //#UC START# *4A2541A601D3__var*
- //#UC END# *4A2541A601D3__var*
- var
-  l_JoinGenerator : IevJoinGenerator;
-  l_Gen : InevTagGenerator;
- begin
- //#UC START# *4A2541A601D3__impl*
-  l_Gen := GetGenerator(aView, aBlock);
-  try
-   if Supports(l_Gen, IevJoinGenerator, l_JoinGenerator) then
-    try
-     l_JoinGenerator.LoadFlags := aFlags;
-    finally
-     l_JoinGenerator := nil;
-    end;//try..finally
-   aReader.Link(l_Gen);
-   try
-    try
-     aReader.Execute;
-    except
-     on El3AbortLoad do
-      if not TextSource.HandleAbortLoad then
-       raise;
-    end;{try..except}
-   finally
-    aReader.UnLink(l_Gen);
-   end;//try..finally
-  finally
-   l_Gen := nil;
-  end;//try..finally
- //#UC END# *4A2541A601D3__impl*
- end;//WriteBlock
-
-//#UC START# *4A25405F0203_47F0870E0034_var*
-//#UC END# *4A25405F0203_47F0870E0034_var*
-var
- l_FS : Ik2FilerSource2;
- l_Events : TnevFilerEvents;
- l_F : Tl3CustomFiler;
-begin
-//#UC START# *4A25405F0203_47F0870E0034_impl*
- if (aReader <> nil) then
- begin
-  if StartLoading then
-   try
-    Use;
-    try
-     try
-      if (TextSource <> nil) AND Supports(aReader, Ik2FilerSource2, l_FS) then
-      begin
-       try
-        l_F := l_FS.Filer;
-        TextSource.Events2Filer(l_F, l_Events);
-        try
-         try
-          WriteBlock;
-         finally
-          aReader.Rollback(true);
-          // - вставлено специально, чтобы "градусник" не повисал при чтении битых файлов
-         end;//try..finally
-        finally
-         TextSource.RestoreEvents(l_F, l_Events);
-        end;//try..finally
-       finally
-        l_FS := nil;
-       end//try..finally
-      end//TextSource <> nil
-      else
-       WriteBlock;
-     except
-      on El3AbortLoad do
-       if not TextSource.HandleAbortLoad then
-        raise;
-     end;//try..except
-    finally
-     Free;
-    end;//try..finally
-   finally
-    SetLoaded;
-   end;//try..finally
- end;//aReader <> nil
-//#UC END# *4A25405F0203_47F0870E0034_impl*
-end;//TnevDocumentContainer.WriteDataExEx
-
-procedure TnevDocumentContainer.NotifySubReallyAdded(aParaID: Integer;
-  aSubID: Integer;
-  aLayerID: Integer;
-  const aSubName: Tl3WString;
-  aFlags: Integer);
-//#UC START# *4D2F0B29034E_47F0870E0034_var*
-//#UC END# *4D2F0B29034E_47F0870E0034_var*
-begin
-//#UC START# *4D2F0B29034E_47F0870E0034_impl*
- // - ничего не делаем, это для потомков
-//#UC END# *4D2F0B29034E_47F0870E0034_impl*
-end;//TnevDocumentContainer.NotifySubReallyAdded
-
-procedure TnevDocumentContainer.NotifySubReallyDeleted(aParaID: Integer;
-  aSubID: Integer;
-  aLayerID: Integer);
-//#UC START# *4D3071570355_47F0870E0034_var*
-//#UC END# *4D3071570355_47F0870E0034_var*
-begin
-//#UC START# *4D3071570355_47F0870E0034_impl*
- // - ничего не делаем, это для потомков
-//#UC END# *4D3071570355_47F0870E0034_impl*
-end;//TnevDocumentContainer.NotifySubReallyDeleted
-
-procedure TnevDocumentContainer.SubDeleted(aSubID: Integer);
-//#UC START# *527384840253_47F0870E0034_var*
-//#UC END# *527384840253_47F0870E0034_var*
-begin
-//#UC START# *527384840253_47F0870E0034_impl*
- // - ничего не делаем, это для потомков
-//#UC END# *527384840253_47F0870E0034_impl*
-end;//TnevDocumentContainer.SubDeleted
 
 function TnevDocumentContainer.pm_GetDocument: Tl3Tag;
 //#UC START# *47F0FCE302F8_47F0870E0034get_var*
@@ -669,6 +515,128 @@ begin
 //#UC END# *47F2358001B5_47F0870E0034set_impl*
 end;//TnevDocumentContainer.pm_SetNext
 
+procedure TnevDocumentContainer.WriteDataExEx(const aView: InevView;
+ const aReader: Ik2TagReader;
+ const aBlock: IUnknown;
+ aFlags: TevLoadFlags);
+ {* считать документ из памяти в TextSource }
+var l_FS: Ik2FilerSource2;
+var l_Events: TnevFilerEvents;
+var l_F: Tl3CustomFiler;
+
+ procedure WriteBlock;
+ var l_JoinGenerator: IevJoinGenerator;
+ var l_Gen: InevTagGenerator;
+ //#UC START# *4A2541A601D3__var*
+ //#UC END# *4A2541A601D3__var*
+ begin
+ //#UC START# *4A2541A601D3__impl*
+  l_Gen := GetGenerator(aView, aBlock);
+  try
+   if Supports(l_Gen, IevJoinGenerator, l_JoinGenerator) then
+    try
+     l_JoinGenerator.LoadFlags := aFlags;
+    finally
+     l_JoinGenerator := nil;
+    end;//try..finally
+   aReader.Link(l_Gen);
+   try
+    try
+     aReader.Execute;
+    except
+     on El3AbortLoad do
+      if not TextSource.HandleAbortLoad then
+       raise;
+    end;{try..except}
+   finally
+    aReader.UnLink(l_Gen);
+   end;//try..finally
+  finally
+   l_Gen := nil;
+  end;//try..finally
+ //#UC END# *4A2541A601D3__impl*
+ end;//WriteBlock
+
+//#UC START# *4A25405F0203_47F0870E0034_var*
+//#UC END# *4A25405F0203_47F0870E0034_var*
+begin
+//#UC START# *4A25405F0203_47F0870E0034_impl*
+ if (aReader <> nil) then
+ begin
+  if StartLoading then
+   try
+    Use;
+    try
+     try
+      if (TextSource <> nil) AND Supports(aReader, Ik2FilerSource2, l_FS) then
+      begin
+       try
+        l_F := l_FS.Filer;
+        TextSource.Events2Filer(l_F, l_Events);
+        try
+         try
+          WriteBlock;
+         finally
+          aReader.Rollback(true);
+          // - вставлено специально, чтобы "градусник" не повисал при чтении битых файлов
+         end;//try..finally
+        finally
+         TextSource.RestoreEvents(l_F, l_Events);
+        end;//try..finally
+       finally
+        l_FS := nil;
+       end//try..finally
+      end//TextSource <> nil
+      else
+       WriteBlock;
+     except
+      on El3AbortLoad do
+       if not TextSource.HandleAbortLoad then
+        raise;
+     end;//try..except
+    finally
+     Free;
+    end;//try..finally
+   finally
+    SetLoaded;
+   end;//try..finally
+ end;//aReader <> nil
+//#UC END# *4A25405F0203_47F0870E0034_impl*
+end;//TnevDocumentContainer.WriteDataExEx
+
+procedure TnevDocumentContainer.NotifySubReallyAdded(aParaID: Integer;
+ aSubID: Integer;
+ aLayerID: Integer;
+ const aSubName: Tl3WString;
+ aFlags: Integer);
+//#UC START# *4D2F0B29034E_47F0870E0034_var*
+//#UC END# *4D2F0B29034E_47F0870E0034_var*
+begin
+//#UC START# *4D2F0B29034E_47F0870E0034_impl*
+ // - ничего не делаем, это для потомков
+//#UC END# *4D2F0B29034E_47F0870E0034_impl*
+end;//TnevDocumentContainer.NotifySubReallyAdded
+
+procedure TnevDocumentContainer.NotifySubReallyDeleted(aParaID: Integer;
+ aSubID: Integer;
+ aLayerID: Integer);
+//#UC START# *4D3071570355_47F0870E0034_var*
+//#UC END# *4D3071570355_47F0870E0034_var*
+begin
+//#UC START# *4D3071570355_47F0870E0034_impl*
+ // - ничего не делаем, это для потомков
+//#UC END# *4D3071570355_47F0870E0034_impl*
+end;//TnevDocumentContainer.NotifySubReallyDeleted
+
+procedure TnevDocumentContainer.SubDeleted(aSubID: Integer);
+//#UC START# *527384840253_47F0870E0034_var*
+//#UC END# *527384840253_47F0870E0034_var*
+begin
+//#UC START# *527384840253_47F0870E0034_impl*
+ // - ничего не делаем, это для потомков
+//#UC END# *527384840253_47F0870E0034_impl*
+end;//TnevDocumentContainer.SubDeleted
+
 procedure TnevDocumentContainer.ClearSubs;
 //#UC START# *47F0A574000F_47F0870E0034_var*
 //#UC END# *47F0A574000F_47F0870E0034_var*
@@ -688,12 +656,12 @@ begin
 end;//TnevDocumentContainer.SendTOCCreatedNotify
 
 procedure TnevDocumentContainer.GetWriter(aFormat: TnevFormat;
-  anInternal: Boolean;
-  out theWriter: Tk2TagGenerator;
-  out theCharCountMul: Integer;
-  out theFormatName: Il3CString;
-  const aFilters: InevTagGenerator;
-  aCodePage: Integer);
+ anInternal: Boolean;
+ out theWriter: Tk2TagGenerator;
+ out theCharCountMul: Integer;
+ out theFormatName: Il3CString;
+ const aFilters: InevTagGenerator;
+ aCodePage: Integer);
 //#UC START# *47F0BE5A00C9_47F0870E0034_var*
 //#UC END# *47F0BE5A00C9_47F0870E0034_var*
 begin
@@ -785,7 +753,8 @@ begin
 end;//TnevDocumentContainer.ResetPreviewCaches
 
 function TnevDocumentContainer.StartOp(Op: Integer = 0;
-  DoLock: Boolean = true): InevOp;
+ DoLock: Boolean = True): InevOp;
+ {* открывает пачку операций с кодом Op. }
 //#UC START# *47F10A0502B8_47F0870E0034_var*
 //#UC END# *47F10A0502B8_47F0870E0034_var*
 begin
@@ -795,7 +764,7 @@ begin
 end;//TnevDocumentContainer.StartOp
 
 procedure TnevDocumentContainer.DocumentChanged(anOldDocument: Tl3Variant;
-  aNewDocument: Tl3Variant);
+ aNewDocument: Tl3Variant);
 //#UC START# *47F10BAA00E2_47F0870E0034_var*
 //#UC END# *47F10BAA00E2_47F0870E0034_var*
 begin
@@ -836,8 +805,8 @@ begin
 end;//TnevDocumentContainer.CanBePlacedInDocumentsCache
 
 function TnevDocumentContainer.DocumentPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer;
-  const aRange: InevRange = nil): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer;
+ const aRange: InevRange = nil): IafwDocumentPreview;
 //#UC START# *47F10F4402F9_47F0870E0034_var*
 var
  l_I : IevDocumentPreviewInfo;
@@ -858,7 +827,7 @@ begin
 end;//TnevDocumentContainer.DocumentPreview
 
 function TnevDocumentContainer.FindPreview(aCache: TevDocumentPreviewInfoList;
-  const aKey: TevPreviewCacheKey): IafwDocumentPreview;
+ const aKey: TevPreviewCacheKey): IafwDocumentPreview;
 //#UC START# *47F110AF01E7_47F0870E0034_var*
 var
  l_IDX: Integer;
@@ -879,7 +848,7 @@ begin
 end;//TnevDocumentContainer.FindPreview
 
 function TnevDocumentContainer.InfoPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
 //#UC START# *47F110E70123_47F0870E0034_var*
 var
  l_I : IevDocumentPreviewInfo;
@@ -897,8 +866,8 @@ begin
 end;//TnevDocumentContainer.InfoPreview
 
 function TnevDocumentContainer.MakeDocumentPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer;
-  const aRange: InevRange = nil): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer;
+ const aRange: InevRange = nil): IafwDocumentPreview;
 //#UC START# *47F1112A0183_47F0870E0034_var*
 //#UC END# *47F1112A0183_47F0870E0034_var*
 begin
@@ -908,7 +877,7 @@ begin
 end;//TnevDocumentContainer.MakeDocumentPreview
 
 function TnevDocumentContainer.MakeInfoPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
 //#UC START# *47F111500241_47F0870E0034_var*
 //#UC END# *47F111500241_47F0870E0034_var*
 begin
@@ -949,7 +918,7 @@ begin
 end;//TnevDocumentContainer.CheckWaiters
 
 procedure TnevDocumentContainer.CheckWaiters(aParent: Tl3Variant;
-  aChild: Tl3Variant);
+ aChild: Tl3Variant);
 //#UC START# *47F112AA01FA_47F0870E0034_var*
 
  function DoWaiter(pWaiter: PIUnknown; anIndex: Integer): Boolean;
@@ -1015,8 +984,8 @@ begin
 end;//TnevDocumentContainer.SetLoaded
 
 function TnevDocumentContainer.DoFindParaByID(const aDocument: InevObject;
-  aParaID: Integer;
-  out aPara: InevObject): Boolean;
+ aParaID: Integer;
+ out aPara: InevObject): Boolean;
 //#UC START# *47F11C2103DC_47F0870E0034_var*
 //#UC END# *47F11C2103DC_47F0870E0034_var*
 begin
@@ -1036,9 +1005,9 @@ begin
 end;//TnevDocumentContainer.CheckCloseWindow
 
 function TnevDocumentContainer.RealizeSub(aLayerHandle: Integer;
-  Atom: Tl3Variant;
-  anObject: Tl3Variant;
-  const anOpPack: InevOp): Tl3Variant;
+ Atom: Tl3Variant;
+ anObject: Tl3Variant;
+ const anOpPack: InevOp): Tl3Variant;
 //#UC START# *47F20BE701DC_47F0870E0034_var*
 var
  l_Handle : Integer;
@@ -1135,7 +1104,7 @@ begin
 end;//TnevDocumentContainer.RealizeSub
 
 procedure TnevDocumentContainer.NotifySubDeleted(aSubTag: Tl3Variant;
-  const aSub: IevSub);
+ const aSub: IevSub);
 //#UC START# *47F210D6027D_47F0870E0034_var*
 //#UC END# *47F210D6027D_47F0870E0034_var*
 begin
@@ -1152,7 +1121,7 @@ begin
 end;//TnevDocumentContainer.NotifySubDeleted
 
 function TnevDocumentContainer.GetGeneratorPrim(const aView: InevView;
-  const aGeneratorTarget: IUnknown): Tk2TagGenerator;
+ const aGeneratorTarget: IUnknown): Tk2TagGenerator;
 //#UC START# *47F217080359_47F0870E0034_var*
 var
  l_NeedWrap      : Boolean;
@@ -1226,7 +1195,7 @@ begin
 end;//TnevDocumentContainer.GetGeneratorPrim
 
 function TnevDocumentContainer.DoStartAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *47F2259801DB_47F0870E0034_var*
 //#UC END# *47F2259801DB_47F0870E0034_var*
 begin
@@ -1270,7 +1239,7 @@ begin
 end;//TnevDocumentContainer.DoStartAtom
 
 function TnevDocumentContainer.DoFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *47F225AC0397_47F0870E0034_var*
 var
  l_ParaCount : Integer;  
@@ -1326,7 +1295,7 @@ begin
 end;//TnevDocumentContainer.DoFinishAtom
 
 function TnevDocumentContainer.DoFinishAtom1(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *47F225C3005F_47F0870E0034_var*
 
  {$IfNDef Nemesis}
@@ -1382,9 +1351,9 @@ begin
 end;//TnevDocumentContainer.DoFinishAtom1
 
 procedure TnevDocumentContainer.DoAddAtom(G: Tk2TagGenerator;
-  const Atom: Tk2StackAtom;
-  Prop: Integer;
-  aSource: Tl3Variant);
+ const Atom: Tk2StackAtom;
+ Prop: Integer;
+ aSource: Tl3Variant);
 //#UC START# *47F225DF02CC_47F0870E0034_var*
 
  procedure lp_CheckMaxSubID;
@@ -1413,7 +1382,7 @@ begin
 end;//TnevDocumentContainer.DoAddAtom
 
 function TnevDocumentContainer.DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
-  var anAtom: Tk2StackAtom): Boolean;
+ var anAtom: Tk2StackAtom): Boolean;
 //#UC START# *47F226170180_47F0870E0034_var*
 var
  pParent        : PevStackAtom;
@@ -1545,7 +1514,7 @@ begin
 end;//TnevDocumentContainer.DoBeforeFinishAtom1
 
 function TnevDocumentContainer.DoBeforeFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *47F2262B0094_47F0870E0034_var*
 var
  l_Doc : Tl3Variant;
@@ -1583,7 +1552,8 @@ begin
 //#UC END# *47F2262B0094_47F0870E0034_impl*
 end;//TnevDocumentContainer.DoBeforeFinishAtom
 
-function TnevDocumentContainer.StartIOOp(DoLock: Boolean = true): InevOp;
+function TnevDocumentContainer.StartIOOp(DoLock: Boolean = True): InevOp;
+ {* открывает пачку операций ввода/вывода. }
 //#UC START# *47F2307B0113_47F0870E0034_var*
 //#UC END# *47F2307B0113_47F0870E0034_var*
 begin
@@ -1620,8 +1590,8 @@ begin
 end;//TnevDocumentContainer.MakeNext
 
 procedure TnevDocumentContainer.RealizeSubs(Parent: Tl3Variant;
-  Atom: Tl3Variant;
-  G: Tk2TagGenerator);
+ Atom: Tl3Variant;
+ G: Tk2TagGenerator);
 //#UC START# *47F242870034_47F0870E0034_var*
 var
  LayerHandle : Integer;
@@ -1644,11 +1614,11 @@ begin
 end;//TnevDocumentContainer.RealizeSubs
 
 procedure TnevDocumentContainer.DoGetReader(aFormat: TnevFormat;
-  const aPool: IStream;
-  out theReader: Tk2CustomReader;
-  anInternal: Boolean;
-  aCodePage: Integer;
-  const aBlock: IUnknown);
+ const aPool: IStream;
+ out theReader: Tk2CustomReader;
+ anInternal: Boolean;
+ aCodePage: Integer;
+ const aBlock: IUnknown);
 //#UC START# *47F25391018B_47F0870E0034_var*
 //#UC END# *47F25391018B_47F0870E0034_var*
 begin
@@ -1667,7 +1637,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevDocumentContainer.Make
 
 function TnevDocumentContainer.DoGetProcessor: InevProcessor;
 //#UC START# *47F2714A0216_47F0870E0034_var*
@@ -1706,7 +1676,7 @@ begin
 end;//TnevDocumentContainer.GetHasProcessor
 
 function TnevDocumentContainer.DoGetSubEx(anID: Integer;
-  aLayerID: Integer): IevSub;
+ aLayerID: Integer): IevSub;
 //#UC START# *47F27721012A_47F0870E0034_var*
 //#UC END# *47F27721012A_47F0870E0034_var*
 begin
@@ -1816,6 +1786,7 @@ begin
 end;//TnevDocumentContainer.GetDocumentType
 
 procedure TnevDocumentContainer.Lock(const aLocker: IUnknown);
+ {* закрыть. }
 //#UC START# *467C0F680174_47F0870E0034_var*
 //#UC END# *467C0F680174_47F0870E0034_var*
 begin
@@ -1826,6 +1797,7 @@ begin
 end;//TnevDocumentContainer.Lock
 
 procedure TnevDocumentContainer.Unlock(const aLocker: IUnknown);
+ {* открыть. }
 //#UC START# *467C0F76026E_47F0870E0034_var*
 //#UC END# *467C0F76026E_47F0870E0034_var*
 begin
@@ -1836,8 +1808,9 @@ begin
 end;//TnevDocumentContainer.Unlock
 
 procedure TnevDocumentContainer.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_47F0870E0034_var*
 //#UC END# *46A4504B03C4_47F0870E0034_var*
 begin
@@ -1848,11 +1821,12 @@ begin
 end;//TnevDocumentContainer.Notify
 
 function TnevDocumentContainer.ReadTag(aFormat: TnevFormat;
-  const aPool: IStream;
-  const aFilters: InevTagGenerator;
-  const Block: InevDataObjectPrim2 = nil;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags;
-  aCodePage: Integer = CP_DefaultValue): Integer;
+ const aPool: IStream;
+ const aFilters: InevTagGenerator;
+ const Block: InevDataObjectPrim2 = nil;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags;
+ aCodePage: Integer = CP_DefaultValue): Integer;
+ {* считать тег из Storage в aPool. }
 //#UC START# *47C6AE9F03E2_47F0870E0034_var*
 var
  Writer         : Tk2TagGenerator;
@@ -1917,12 +1891,13 @@ begin
 end;//TnevDocumentContainer.ReadTag
 
 function TnevDocumentContainer.ReadTagEx(const Writer: InevTagGenerator;
-  const aPool: IStream = nil;
-  const aBlock: InevDataObjectPrim2 = nil;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags;
-  CharCountMul: Integer = 2;
-  const FormatName: Il3CString = nil;
-  aCodePage: Integer = CP_DefaultValue): Integer;
+ const aPool: IStream = nil;
+ const aBlock: InevDataObjectPrim2 = nil;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags;
+ CharCountMul: Integer = 2;
+ const FormatName: Il3CString = nil;
+ aCodePage: Integer = CP_DefaultValue): Integer;
+ {* записать документ в память (Pool) из TextSource. }
 //#UC START# *47C6AECD03E4_47F0870E0034_var*
   
 var
@@ -2159,11 +2134,12 @@ begin
 end;//TnevDocumentContainer.ReadTagEx
 
 function TnevDocumentContainer.WriteTag(const aView: InevView;
-  aFormat: TnevFormat;
-  const aPool: IStream;
-  const aBlock: IUnknown = nil;
-  aFlags: TevLoadFlags = evDefaultLoadFlags;
-  aCodePage: Integer = CP_DefaultValue): Boolean;
+ aFormat: TnevFormat;
+ const aPool: IStream;
+ const aBlock: IUnknown = nil;
+ aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+ aCodePage: Integer = CP_DefaultValue): Boolean;
+ {* записать тэг из Pool в Storage. }
 //#UC START# *47C6AF76020D_47F0870E0034_var*
 var
  l_Reader           : Tk2CustomReader;
@@ -2241,9 +2217,10 @@ begin
 end;//TnevDocumentContainer.WriteTag
 
 procedure TnevDocumentContainer.WriteTagEx(const aView: InevView;
-  const aReader: InevReader;
-  const aBlock: IUnknown = nil;
-  aFlags: TevLoadFlags = evDefaultLoadFlags);
+ const aReader: InevReader;
+ const aBlock: IUnknown = nil;
+ aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags);
+ {* записать тэг из Pool в Storage. }
 //#UC START# *47C6AF9302EC_47F0870E0034_var*
 //#UC END# *47C6AF9302EC_47F0870E0034_var*
 begin
@@ -2365,6 +2342,7 @@ begin
 end;//TnevDocumentContainer.RemoveFromDocumentsCache
 
 function TnevDocumentContainer.Internal: IUnknown;
+ {* //InevDocumentContainerInternal }
 //#UC START# *47C6B4F7003F_47F0870E0034_var*
 //#UC END# *47C6B4F7003F_47F0870E0034_var*
 begin
@@ -2373,7 +2351,7 @@ begin
 //#UC END# *47C6B4F7003F_47F0870E0034_impl*
 end;//TnevDocumentContainer.Internal
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TnevDocumentContainer.GetSubFlagsIterator(aLayer: Integer);
 //#UC START# *47C6B50A0326_47F0870E0034_var*
 //#UC END# *47C6B50A0326_47F0870E0034_var*
@@ -2383,12 +2361,12 @@ begin
   TextSource.GetSubFlags(aLayer, Self);
 //#UC END# *47C6B50A0326_47F0870E0034_impl*
 end;//TnevDocumentContainer.GetSubFlagsIterator
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 function TnevDocumentContainer.Preview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer;
-  const aRange: InevRange = nil;
-  TreatRangeAsSelection: Boolean = True): InevComplexDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer;
+ const aRange: InevRange = nil;
+ TreatRangeAsSelection: Boolean = True): InevComplexDocumentPreview;
 //#UC START# *47C6B6EB019E_47F0870E0034_var*
 //#UC END# *47C6B6EB019E_47F0870E0034_var*
 begin
@@ -2413,8 +2391,8 @@ begin
 end;//TnevDocumentContainer.Preview
 
 function TnevDocumentContainer.RealizeSub(aLayerHandle: Integer;
-  Atom: Tl3Variant;
-  anObject: Tl3Variant): Tl3Variant;
+ Atom: Tl3Variant;
+ anObject: Tl3Variant): Tl3Variant;
 //#UC START# *47C6B731004F_47F0870E0034_var*
 //#UC END# *47C6B731004F_47F0870E0034_var*
 begin
@@ -2444,7 +2422,7 @@ begin
 end;//TnevDocumentContainer.LinkWaiter
 
 function TnevDocumentContainer.GetGenerator(const aView: InevView;
-  const aGeneratorTarget: IUnknown): InevTagGenerator;
+ const aGeneratorTarget: IUnknown): InevTagGenerator;
 //#UC START# *47C6B74E0271_47F0870E0034_var*
 var
  l_Gen : Tk2TagGenerator;
@@ -2577,7 +2555,8 @@ begin
 //#UC END# *47C6C87C0275_47F0870E0034get_impl*
 end;//TnevDocumentContainer.pm_GetSub
 
-function TnevDocumentContainer.pm_GetSubEx(anID: Integer; aLayerID: Integer): IevSub;
+function TnevDocumentContainer.pm_GetSubEx(anID: Integer;
+ aLayerID: Integer): IevSub;
 //#UC START# *47C6C8A7009C_47F0870E0034get_var*
 //#UC END# *47C6C8A7009C_47F0870E0034get_var*
 begin
@@ -2620,7 +2599,8 @@ begin
 //#UC END# *47C6C95F01A8_47F0870E0034get_impl*
 end;//TnevDocumentContainer.pm_GetBlock
 
-function TnevDocumentContainer.pm_GetBlockEx(anID: Integer; aLayerID: Integer): IevDocumentPart;
+function TnevDocumentContainer.pm_GetBlockEx(anID: Integer;
+ aLayerID: Integer): IevDocumentPart;
 //#UC START# *47C6C98400A2_47F0870E0034get_var*
 var
  l_Sub : IevSub;
@@ -2649,11 +2629,11 @@ begin
 end;//TnevDocumentContainer.Get_InternalDocument
 
 procedure TnevDocumentContainer.GetReader(aFormat: TnevFormat;
-  const aPool: IStream;
-  out theReader: Tk2CustomReader;
-  anInternal: Boolean = true;
-  aCodePage: Integer = CP_DefaultValue;
-  const aBlock: IUnknown = nil);
+ const aPool: IStream;
+ out theReader: Tk2CustomReader;
+ anInternal: Boolean = True;
+ aCodePage: Integer = CP_DefaultValue;
+ const aBlock: IUnknown = nil);
 //#UC START# *47F0963802F4_47F0870E0034_var*
 var
  l_FS : Ik2FilerSource2;
@@ -2677,10 +2657,10 @@ begin
 end;//TnevDocumentContainer.GetReader
 
 procedure TnevDocumentContainer.GetWriter(aFormat: TnevFormat;
-  anInternal: Boolean;
-  out theWriter: Tk2TagGenerator;
-  const aFilters: InevTagGenerator;
-  aCodePage: Integer = CP_DefaultValue);
+ anInternal: Boolean;
+ out theWriter: Tk2TagGenerator;
+ const aFilters: InevTagGenerator;
+ aCodePage: Integer = CP_DefaultValue);
 //#UC START# *47F096A00083_47F0870E0034_var*
 var
  l_DummyCharMul    : Integer;
@@ -2711,7 +2691,7 @@ begin
 end;//TnevDocumentContainer.LinkSubChangeListener
 
 procedure TnevDocumentContainer.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4918253C0297_47F0870E0034_var*
 //#UC END# *4918253C0297_47F0870E0034_var*
 begin
@@ -2742,6 +2722,7 @@ begin
 end;//TnevDocumentContainer.GetTagWriter
 
 procedure TnevDocumentContainer.NotifyFlagsChange(const aSub: IevSub);
+ {* флаги метки изменились }
 //#UC START# *4A2627980257_47F0870E0034_var*
 var
  l_Spy : IevSubFlagsSpy;
@@ -2758,6 +2739,7 @@ begin
 end;//TnevDocumentContainer.NotifyFlagsChange
 
 function TnevDocumentContainer.DefaultDocumentType: Tk2Type;
+ {* Тип документа по-умолчанию }
 //#UC START# *4A8D229200AF_47F0870E0034_var*
 //#UC END# *4A8D229200AF_47F0870E0034_var*
 begin
@@ -2767,10 +2749,11 @@ begin
 end;//TnevDocumentContainer.DefaultDocumentType
 
 procedure TnevDocumentContainer.NotifySubAdded(aParaID: Integer;
-  aSubID: Integer;
-  aLayerID: Integer;
-  const aSubName: Tl3WString;
-  aFlags: Integer);
+ aSubID: Integer;
+ aLayerID: Integer;
+ const aSubName: Tl3WString;
+ aFlags: Integer);
+ {* Нотификация о добавлении Sub'а в другом "похожем" документе }
 //#UC START# *4D2EFD950259_47F0870E0034_var*
 var
  l_Document : InevParaList;
@@ -2873,6 +2856,7 @@ begin
 end;//TnevDocumentContainer.DeleteCommentByParaID
 
 procedure TnevDocumentContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F0870E0034_var*
 //#UC END# *479731C50290_47F0870E0034_var*
 begin
@@ -2926,7 +2910,7 @@ begin
 end;//TnevDocumentContainer.pm_SetModified
 
 function TnevDocumentContainer.DoFindObjByID(aParaID: Integer;
-  out aPara: InevObject): Boolean;
+ out aPara: InevObject): Boolean;
 //#UC START# *491829B003B9_47F0870E0034_var*
 var
  l_Index : Integer;
@@ -2978,9 +2962,9 @@ begin
 end;//TnevDocumentContainer.GetViewArea
 
 procedure TnevDocumentContainer.DoChildAdded(aList: Tl3Variant;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: InevOp);
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: InevOp);
 //#UC START# *49182BA9012A_47F0870E0034_var*
 
 var
@@ -3057,9 +3041,9 @@ begin
 end;//TnevDocumentContainer.DoChildAdded
 
 procedure TnevDocumentContainer.DoChildDeleted(aList: Tl3Variant;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: InevOp);
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: InevOp);
 //#UC START# *49182BD6003A_47F0870E0034_var*
 
  procedure DoRemoveSub(aSub   : Tl3Variant;
@@ -3207,8 +3191,8 @@ begin
 end;//TnevDocumentContainer.DoUpdatePreview
 
 procedure TnevDocumentContainer.DoPropChanged(Prop: Tk2Prop;
-  const V: TnevValues;
-  const anOpPack: InevOp);
+ const V: TnevValues;
+ const anOpPack: InevOp);
 //#UC START# *49184A180301_47F0870E0034_var*
 //#UC END# *49184A180301_47F0870E0034_var*
 begin
@@ -3231,7 +3215,8 @@ begin
 end;//TnevDocumentContainer.GetSubCache
 
 function TnevDocumentContainer.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_47F0870E0034_var*
 //#UC END# *4A60B23E00C3_47F0870E0034_var*
 begin
@@ -3257,7 +3242,7 @@ begin
 end;//TnevDocumentContainer.COMQueryInterface
 
 function TnevDocumentContainer.DoGetControlImg(const aControl: TnevControlInfo;
-  var theImageInfo: TnevControlImageInfo): Boolean;
+ var theImageInfo: TnevControlImageInfo): Boolean;
 //#UC START# *4E5E386A0119_47F0870E0034_var*
 //#UC END# *4E5E386A0119_47F0870E0034_var*
 begin
@@ -3270,164 +3255,9 @@ begin
 end;//TnevDocumentContainer.DoGetControlImg
 
 procedure TnevDocumentContainer.ClearFields;
- {-}
 begin
  f_TextSource := nil;
  inherited;
 end;//TnevDocumentContainer.ClearFields
-
-{iterator} function TnevDocumentContainer.Iterate(anAction: InevSubList_Iterate_Action;
-  const aBlock: IUnknown = nil;
-  const aMessage: Il3CString = nil): Integer;
-//#UC START# *4BB07BFC00F8_47F0870E0034_var*
-var
- l_First    : Integer;
- l_Progress : Il3Progress;
-
- function _DoSub(aSub: Tl3Variant; anIndex: Integer): Boolean;
- var
-  l_Sub    : IevSub;
-  l_Exists : Boolean;
- begin//_DoSub
-  if (l_Progress <> nil) then
-   l_Progress.Progress(anIndex);
-  l_First := -1;
-  with aSub.Attr[k2_tiHandle] do
-   if IsValid then begin
-    l_Sub := pm_GetSub(AsLong);
-    try
-     l_Exists := l_Sub.Exists;
-     Result := anAction(l_Sub, 0);
-     if Result AND (l_Exists AND not l_Sub.Exists) then begin
-      l_First := anIndex;
-      Result := false;
-     end;//Result..
-    finally
-     l_Sub := nil;
-    end;//try..finally
-   end else
-    Result := true;
- end;//_DoSub
-
-var
- l_Break  : Boolean;
- l_Action : InevRangePrim_Iterate_Action;
-
- function _DoBlock(const aBlock: InevRange; aBlockIndex: Integer): Boolean;
-
-  function _DoSub(aSub: Tl3Variant; aSubIndex: Integer): Boolean;
-  begin//_DoSub
-   Result := anAction(pm_GetSub(aSub.IntA[k2_tiHandle]), aSubIndex);
-   if not Result then
-    l_Break := true;
-  end;//_DoSub
-
- var
-  l_Tag    : Tl3Tag;
-  l_Start  : InevBasePoint;
-  l_Finish : InevBasePoint;
- begin//_DoBlock
-  if l_Break then
-   Result := false
-  else
-  begin
-   Result := true;
-   l_Tag := aBlock.Obj^.AsObject;
-   if l_Tag.IsKindOf(k2_typBlock) then
-   begin
-    // обрабатываем сам блок
-    aBlock.GetBorderPoints(l_Start, l_Finish);
-    if (l_Start = nil) OR (l_Start.Position <= 1) then
-     Result := anAction(pm_GetSub(l_Tag.IntA[k2_tiHandle]), 0);
-   end;//l_Tag.IsKindOf(k2_typBlock)
-   if Result then
-   begin
-    if l_Tag.IsKindOf(k2_typParaList) then
-     aBlock.Iterate(l_Action)
-    else
-     with l_Tag.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub)]) do
-      if IsValid then
-       IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@_DoSub));
-   end;//Result
-   if l_Break then
-    Result := false;
-   if not Result then
-    l_Break := true;
-  end;//l_Break
- end;//_DoBlock
-
-var
- l_Range  : IevRange;
- l_Block  : InevRange;
- l_Start  : InevBasePoint;
- l_Finish : InevBasePoint;
-//#UC END# *4BB07BFC00F8_47F0870E0034_var*
-begin
-//#UC START# *4BB07BFC00F8_47F0870E0034_impl*
- if (TextSource = nil) then
-  l_Progress := nil
- else
-  l_Progress := TextSource.Progress;
- if (aBlock = nil) then
- begin
-  l_First := 0;
-  with Document.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub)]) do
-  begin
-   if (l_Progress <> nil) then
-    l_Progress.Start(ChildrenCount, aMessage);
-   try
-    while (l_First >= 0) do
-    begin
-     if IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@_DoSub), l_First) < 0 then
-      break;
-    end;//while (l_First >= 0)
-   finally
-    if (l_Progress <> nil) then
-     l_Progress.Finish;
-   end;//try..finally
-  end;//Document.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, ev_sbtSub])
- end//aBlock = nil
- else
- begin
-  if Supports(aBlock, IevRange, l_Range) then
-   try
-    l_Block := l_Range.GetBlock;
-    try
-     if l_Block.Obj.AsObject.IsKindOf(k2_typDocument) then
-     begin
-      l_Block.GetBorderPoints(l_Start, l_Finish);
-      if (l_Start = nil) OR l_Start.AtStart then
-       if not anAction(pm_GetSub(0), 0) then
-        Exit;
-     end;//l_Block.Target.IsKindOf(k2_typDocument)
-     l_Break := false;
-     l_Action := evL2TSA(@_DoBlock);
-     try
-      l_Block.Iterate(l_Action{, l_Progress, aMessage});
-    finally
-      evFreeTSA(l_Action);
-     end;//try..finally
-    finally
-     l_Block := nil;
-    end;//try..finally
-   finally
-    l_Range := nil;
-   end;//try..finally
- end;//aBlock = nil
-//#UC END# *4BB07BFC00F8_47F0870E0034_impl*
-end;//TnevDocumentContainer.Iterate
-
-{iterator} function TnevDocumentContainer.IterateF(anAction: InevSubList_Iterate_Action;
-  const aBlock: IUnknown = nil;
-  const aMessage: Il3CString = nil): Integer;
-var
- Hack : Pointer absolute anAction;
-begin
- try
-  Result := Iterate(anAction, aBlock, aMessage);
- finally
-  l3FreeLocalStub(Hack);
- end;//try..finally
-end;
 
 end.

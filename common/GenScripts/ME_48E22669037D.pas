@@ -28,6 +28,8 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , Types
+ //#UC START# *48E22669037Dintf_uses*
+ //#UC END# *48E22669037Dintf_uses*
 ;
 
 type
@@ -181,11 +183,13 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3ListenersManager
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , QueryCardProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48E22669037Dimpl_uses*
+ //#UC END# *48E22669037Dimpl_uses*
 ;
 
 procedure TevQueryCardEditor.WMKeyDown(var Msg: TWMKeyDown);

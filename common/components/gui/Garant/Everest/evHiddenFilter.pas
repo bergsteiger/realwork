@@ -1,87 +1,68 @@
 unit evHiddenFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evHiddenFilter.pas"
-// Начат: 10.12.2004 17:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevHiddenFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evHiddenFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevHiddenFilter" MUID: (47ECBAA30322)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdStyles,
-  k2TagGen,
-  evdLeafParaFilter,
-  l3Variant,
-  l3Interfaces,
-  Classes,
-  k2Base
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , evdStyles
+ , k2TagGen
+ , l3Variant
+ , k2Base
+;
 
 type
  TevHiddenFilter = class(TevdLeafParaFilter)
- private
- // private fields
-   f_TreatCollapsedAsHidden : Boolean;
-   f_HiddenStyles : TevStandardStyles;
-    {* Поле для свойства HiddenStyles}
- protected
- // overridden protected methods
+  private
+   f_TreatCollapsedAsHidden: Boolean;
+   f_HiddenStyles: TevStandardStyles;
+    {* Поле для свойства HiddenStyles }
+  protected
    function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
-     {* Определяет нужно ли фильтровать переданный абзац }
- public
- // public methods
+    {* Определяет нужно ли фильтровать переданный абзац }
+  public
    class function SetTo(aHiddenStyles: TevStandardStyles;
-     aTreatCollapsedAsHidden: Boolean;
-     var theGenerator: Tk2TagGenerator): Tk2TagGenerator;
+    aTreatCollapsedAsHidden: Boolean;
+    var theGenerator: Tk2TagGenerator): Tk2TagGenerator;
    constructor Create(aHiddenStyles: TevStandardStyles;
-     aTreatCollapsedAsHidden: Boolean); reintroduce;
+    aTreatCollapsedAsHidden: Boolean); reintroduce;
    class function MakePrim(aHiddenStyles: TevStandardStyles;
-     aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator; reintroduce;
-     {* Сигнатура фабрики TevHiddenFilter.MakePrim }
+    aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator; reintroduce;
    class function Make(aHiddenStyles: TevStandardStyles;
-     aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
- public
- // public properties
+    aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
+  public
    property HiddenStyles: TevStandardStyles
-     read f_HiddenStyles
-     write f_HiddenStyles;
+    read f_HiddenStyles
+    write f_HiddenStyles;
  end;//TevHiddenFilter
 
 implementation
 
 uses
-  StyledLeafPara_Const,
-  TextPara_Const,
-  nevTextParaRenderInfo,
-  nevLeafRenderInfo,
-  nevTools,
-  SysUtils,
-  evCommentsEliminator,
-  nevFormatInfo,
-  nevFormatInfoFactory,
-  k2Tags
-  ;
-
-// start class TevHiddenFilter
+ l3ImplUses
+ , StyledLeafPara_Const
+ , TextPara_Const
+ , nevTextParaRenderInfo
+ , nevLeafRenderInfo
+ , nevTools
+ , SysUtils
+ , evCommentsEliminator
+ , nevFormatInfo
+ , nevFormatInfoFactory
+ , k2Tags
+;
 
 class function TevHiddenFilter.SetTo(aHiddenStyles: TevStandardStyles;
-  aTreatCollapsedAsHidden: Boolean;
-  var theGenerator: Tk2TagGenerator): Tk2TagGenerator;
+ aTreatCollapsedAsHidden: Boolean;
+ var theGenerator: Tk2TagGenerator): Tk2TagGenerator;
 //#UC START# *4D6CD4C70259_47ECBAA30322_var*
 //#UC END# *4D6CD4C70259_47ECBAA30322_var*
 begin
@@ -103,7 +84,7 @@ begin
 end;//TevHiddenFilter.SetTo
 
 constructor TevHiddenFilter.Create(aHiddenStyles: TevStandardStyles;
-  aTreatCollapsedAsHidden: Boolean);
+ aTreatCollapsedAsHidden: Boolean);
 //#UC START# *4D6CD5270101_47ECBAA30322_var*
 //#UC END# *4D6CD5270101_47ECBAA30322_var*
 begin
@@ -115,7 +96,7 @@ begin
 end;//TevHiddenFilter.Create
 
 class function TevHiddenFilter.MakePrim(aHiddenStyles: TevStandardStyles;
-  aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
+ aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
 var
  l_Inst : TevHiddenFilter;
 begin
@@ -125,10 +106,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevHiddenFilter.MakePrim
 
 class function TevHiddenFilter.Make(aHiddenStyles: TevStandardStyles;
-  aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
+ aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
 //#UC START# *4D6CDD9601FB_47ECBAA30322_var*
 //#UC END# *4D6CDD9601FB_47ECBAA30322_var*
 begin
@@ -140,6 +121,7 @@ begin
 end;//TevHiddenFilter.Make
 
 function TevHiddenFilter.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_47ECBAA30322_var*
 //#UC END# *49E488070386_47ECBAA30322_var*
 begin
@@ -149,6 +131,7 @@ begin
 end;//TevHiddenFilter.ParaTypeForFiltering
 
 function TevHiddenFilter.NeedWritePara(aLeaf: Tl3Variant): Boolean;
+ {* Определяет нужно ли фильтровать переданный абзац }
 //#UC START# *49E48829016F_47ECBAA30322_var*
 var
  l_Para : InevPara;

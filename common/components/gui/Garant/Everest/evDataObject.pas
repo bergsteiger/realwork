@@ -1,75 +1,58 @@
 unit evDataObject;
+ {* Реализация интерфейса IDataObject для выделения текста редактора }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDataObject.pas"
-// Начат: 06.04.2001 14:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevDataObject
-//
-// Реализация интерфейса IDataObject для выделения текста редактора
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDataObject" MUID: (48EF3978008D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  l3StorableDataObject,
-  evdInterfaces,
-  l3IID
-  ;
+ l3IntfUses
+ , l3StorableDataObject
+ , evdInterfaces
+ , nevBase
+ , l3Interfaces
+ , l3IID
+;
 
 type
  TevDataObject = class(Tl3StorableDataObject)
   {* Реализация интерфейса IDataObject для выделения текста редактора }
- private
- // private fields
-   f_Filters : InevTagGenerator;
-   f_Block : IevdDataObject;
-    {* Поле для свойства Block}
- protected
- // realized methods
+  private
+   f_Filters: InevTagGenerator;
+   f_Block: IevdDataObject;
+    {* Поле для свойства Block }
+  protected
    function Store(aFormat: Tl3ClipboardFormat;
     const aPool: IStream): Boolean; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoQueryGetData(const aFormatEtc: TFormatEtc): HResult; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aBlock: IevdDataObject;
     const aFormats: Tl3ClipboardFormats;
     const aFilters: InevTagGenerator); reintroduce;
- public
- // public properties
+  public
    property Block: IevdDataObject
-     read f_Block;
+    read f_Block;
  end;//TevDataObject
 
 implementation
 
-// start class TevDataObject
+uses
+ l3ImplUses
+;
 
 constructor TevDataObject.Create(const aBlock: IevdDataObject;
-  const aFormats: Tl3ClipboardFormats;
-  const aFilters: InevTagGenerator);
+ const aFormats: Tl3ClipboardFormats;
+ const aFilters: InevTagGenerator);
 //#UC START# *48F4687B02D0_48EF3978008D_var*
 //#UC END# *48F4687B02D0_48EF3978008D_var*
 begin
@@ -81,7 +64,7 @@ begin
 end;//TevDataObject.Create
 
 function TevDataObject.Store(aFormat: Tl3ClipboardFormat;
-  const aPool: IStream): Boolean;
+ const aPool: IStream): Boolean;
 //#UC START# *48F37AC50290_48EF3978008D_var*
 //#UC END# *48F37AC50290_48EF3978008D_var*
 begin
@@ -91,6 +74,7 @@ begin
 end;//TevDataObject.Store
 
 procedure TevDataObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48EF3978008D_var*
 //#UC END# *479731C50290_48EF3978008D_var*
 begin
@@ -114,7 +98,8 @@ begin
 end;//TevDataObject.DoQueryGetData
 
 function TevDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48EF3978008D_var*
 //#UC END# *4A60B23E00C3_48EF3978008D_var*
 begin
@@ -134,7 +119,6 @@ begin
 end;//TevDataObject.COMQueryInterface
 
 procedure TevDataObject.ClearFields;
- {-}
 begin
  f_Block := nil;
  inherited;

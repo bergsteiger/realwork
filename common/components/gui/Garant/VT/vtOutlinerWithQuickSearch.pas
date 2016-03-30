@@ -1,81 +1,65 @@
 unit vtOutlinerWithQuickSearch;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtOutlinerWithQuickSearch.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Outliner::TvtOutlinerWithQuickSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtOutlinerWithQuickSearch.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtOutlinerWithQuickSearch" MUID: (4B97EA0802EB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Types,
-  vtOutliner,
-  Classes
-  ;
+ l3IntfUses
+ , vtOutliner
+ , Types
+ , Classes
+ //#UC START# *4B97EA0802EBintf_uses*
+ //#UC END# *4B97EA0802EBintf_uses*
+;
 
 type
-//#UC START# *4B97EA0802EBci*
-//#UC END# *4B97EA0802EBci*
-//#UC START# *4B97EA0802EBcit*
-//#UC END# *4B97EA0802EBcit*
+ //#UC START# *4B97EA0802EBci*
+ //#UC END# *4B97EA0802EBci*
+ //#UC START# *4B97EA0802EBcit*
+ //#UC END# *4B97EA0802EBcit*
  TvtOutlinerWithQuickSearch = class(TvtCustomOutliner)
- private
- // private fields
-   f_MousePos : TPoint;
- private
- // private methods
+  private
+   f_MousePos: TPoint;
+  private
    procedure QuickSearchHandler(Sender: TObject;
-     const aString: AnsiString);
+    const aString: AnsiString);
    procedure QuickSearchHintTimerEvent(Sender: TObject);
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
-//#UC START# *4B97EA0802EBpubl*
+ //#UC START# *4B97EA0802EBpubl*
  published
  // published properties
    property Color;
    property OnIsCommandProcessed;
    property OnGetItemHeight;
-//#UC END# *4B97EA0802EBpubl*
+ //#UC END# *4B97EA0802EBpubl*
  end;//TvtOutlinerWithQuickSearch
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TvtOutlinerWithQuickSearch
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B97EA0802EBimpl_uses*
+ //#UC END# *4B97EA0802EBimpl_uses*
+;
 
 procedure TvtOutlinerWithQuickSearch.QuickSearchHandler(Sender: TObject;
-  const aString: AnsiString);
+ const aString: AnsiString);
 //#UC START# *5166DD350150_4B97EA0802EB_var*
 var
   l_HintWindow: THintWindow;
@@ -167,9 +151,9 @@ end;//TvtOutlinerWithQuickSearch.Create
 //#UC END# *4B97EA0802EBimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtOutlinerWithQuickSearch
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtOutlinerWithQuickSearch);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtOutlinerWithQuickSearch }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

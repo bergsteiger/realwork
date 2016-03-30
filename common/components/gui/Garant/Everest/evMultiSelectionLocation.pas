@@ -1,58 +1,45 @@
 unit evMultiSelectionLocation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelectionLocation.pas"
-// Начат: 08.10.2008 19:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMultiSelectionLocation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionLocation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionLocation" MUID: (48ECCE2903AD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagTool,
-  nevTools,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagTool
+ , nevTools
+ , l3Variant
+;
 
 type
  _nevParaTool_Parent_ = Tk2TagTool;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  TevMultiSelectionLocation = class(_nevParaTool_, InevLocation)
- protected
- // realized methods
+  protected
+   function GetRange: InevRange; virtual; abstract;
+   function GetFormatting: InevDataFormatting; virtual; abstract;
+   function GetText: InevText; virtual; abstract;
    function Range: InevRange;
    function pm_GetFormatting: InevDataFormatting;
    function Get_Obj: PInevObject;
    function pm_GetText: InevText;
    function AsPoint: InevBasePoint;
- protected
- // protected methods
-   function GetRange: InevRange; virtual; abstract;
-   function GetFormatting: InevDataFormatting; virtual; abstract;
-   function GetText: InevText; virtual; abstract;
  end;//TevMultiSelectionLocation
 
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+;
+
+type _Instance_R_ = TevMultiSelectionLocation;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
-
-// start class TevMultiSelectionLocation
 
 function TevMultiSelectionLocation.Range: InevRange;
 //#UC START# *47C5B55D00B4_48ECCE2903AD_var*

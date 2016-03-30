@@ -1,48 +1,36 @@
 {$IfNDef evLeafParaPainter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evLeafParaPainter.imp.pas"
-// Начат: 13.05.2005 13:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Drawing Framework::evLeafParaPainter
-//
-// Рисователь листьевых параграфов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaPainter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evLeafParaPainter" MUID: (4804CB1B0328)
+// Имя типа: "_evLeafParaPainter_"
 
 {$Define evLeafParaPainter_imp}
-{$If defined(evNeedPainters)}
- {$Include ..\Everest\evLeafParaPainterPrim.imp.pas}
- _evLeafParaPainter_ = {mixin} class(_evLeafParaPainterPrim_)
+
+{$If Defined(evNeedPainters)}
+ {$Include w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas}
+ _evLeafParaPainter_ = class(_evLeafParaPainterPrim_)
   {* Рисователь листьевых параграфов. }
- protected
- // overridden protected methods
-   function HackMargin: Integer; override;
-     {* Отступ, который не надо заливать цетом родителя }
- protected
- // protected methods
+  protected
    function DoDraw: Boolean;
+   function HackMargin: Integer; override;
+    {* Отступ, который не надо заливать цетом родителя }
  end;//_evLeafParaPainter_
-{$Else}
 
- {$Include ..\Everest\evLeafParaPainterPrim.imp.pas}
- _evLeafParaPainter_ = _evLeafParaPainterPrim_;
+{$Else Defined(evNeedPainters)}
 
-{$IfEnd} //evNeedPainters
+{$Include w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas}
+_evLeafParaPainter_ = _evLeafParaPainterPrim_;
 
+{$IfEnd} // Defined(evNeedPainters)
 {$Else evLeafParaPainter_imp}
 
-{$If defined(evNeedPainters)}
+{$IfNDef evLeafParaPainter_imp_impl}
 
-{$Include ..\Everest\evLeafParaPainterPrim.imp.pas}
+{$Define evLeafParaPainter_imp_impl}
 
-// start class _evLeafParaPainter_
+{$If Defined(evNeedPainters)}
+{$Include w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas}
 
 function _evLeafParaPainter_.DoDraw: Boolean;
 //#UC START# *4804CB4B00B2_4804CB1B0328_var*
@@ -55,6 +43,7 @@ begin
 end;//_evLeafParaPainter_.DoDraw
 
 function _evLeafParaPainter_.HackMargin: Integer;
+ {* Отступ, который не надо заливать цетом родителя }
 //#UC START# *4E6F459F0278_4804CB1B0328_var*
 //#UC END# *4E6F459F0278_4804CB1B0328_var*
 begin
@@ -62,7 +51,9 @@ begin
  Result := nevInch div 6;
 //#UC END# *4E6F459F0278_4804CB1B0328_impl*
 end;//_evLeafParaPainter_.HackMargin
+{$IfEnd} // Defined(evNeedPainters)
 
-{$IfEnd} //evNeedPainters
+{$EndIf evLeafParaPainter_imp_impl}
 
 {$EndIf evLeafParaPainter_imp}
+

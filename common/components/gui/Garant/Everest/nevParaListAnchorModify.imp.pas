@@ -1,28 +1,15 @@
 {$IfNDef nevParaListAnchorModify_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevParaListAnchorModify.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::Cursors::nevParaListAnchorModify
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevParaListAnchorModify" MUID: (4B1CFCBA0170)
+// Имя типа: "_nevParaListAnchorModify_"
 
 {$Define nevParaListAnchorModify_imp}
-{$If defined(evUseVisibleCursors)}
- _nevParaListAnchorModify_ = {mixin} class(_nevParaListAnchorModify_Parent_)
- protected
- // realized methods
-   procedure DoBottom(const aView: InevView); override;
-   function DoIncLinePrim(const aView: InevView;
-    var theLine: Integer;
-    aSmall: Boolean): Integer; override;
- protected
- // protected methods
+
+{$If Defined(evUseVisibleCursors)}
+ _nevParaListAnchorModify_ = class(_nevParaListAnchorModify_Parent_)
+  protected
    procedure SetPID(aValue: Integer); virtual; abstract;
    function Limit: Integer;
    function DoIncLine(const aView: InevView;
@@ -30,19 +17,24 @@
     aSmall: Boolean;
     const aChildrenInfo: TnevChildrenInfo): Integer; virtual;
    function GetPID: Integer; virtual; abstract;
+   procedure DoBottom(const aView: InevView); override;
+   function DoIncLinePrim(const aView: InevView;
+    var theLine: Integer;
+    aSmall: Boolean): Integer; override;
  end;//_nevParaListAnchorModify_
-{$Else}
 
- _nevParaListAnchorModify_ = _nevParaListAnchorModify_Parent_;
+{$Else Defined(evUseVisibleCursors)}
 
-{$IfEnd} //evUseVisibleCursors
+_nevParaListAnchorModify_ = _nevParaListAnchorModify_Parent_;
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 {$Else nevParaListAnchorModify_imp}
 
-{$If defined(evUseVisibleCursors)}
+{$IfNDef nevParaListAnchorModify_imp_impl}
 
-// start class _nevParaListAnchorModify_
+{$Define nevParaListAnchorModify_imp_impl}
 
+{$If Defined(evUseVisibleCursors)}
 function _nevParaListAnchorModify_.Limit: Integer;
 //#UC START# *4B1D167302CD_4B1CFCBA0170_var*
 //#UC END# *4B1D167302CD_4B1CFCBA0170_var*
@@ -53,9 +45,9 @@ begin
 end;//_nevParaListAnchorModify_.Limit
 
 function _nevParaListAnchorModify_.DoIncLine(const aView: InevView;
-  var theLine: Integer;
-  aSmall: Boolean;
-  const aChildrenInfo: TnevChildrenInfo): Integer;
+ var theLine: Integer;
+ aSmall: Boolean;
+ const aChildrenInfo: TnevChildrenInfo): Integer;
 //#UC START# *4B1D18650208_4B1CFCBA0170_var*
 var
  l_ChildPoint : InevBasePoint;
@@ -93,8 +85,8 @@ begin
 end;//_nevParaListAnchorModify_.DoBottom
 
 function _nevParaListAnchorModify_.DoIncLinePrim(const aView: InevView;
-  var theLine: Integer;
-  aSmall: Boolean): Integer;
+ var theLine: Integer;
+ aSmall: Boolean): Integer;
 //#UC START# *4B1CFD9401A2_4B1CFCBA0170_var*
 
  function Sign(aValue: Integer): Integer;
@@ -351,7 +343,9 @@ begin
  end;//try..finally
 //#UC END# *4B1CFD9401A2_4B1CFCBA0170_impl*
 end;//_nevParaListAnchorModify_.DoIncLinePrim
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$IfEnd} //evUseVisibleCursors
+{$EndIf nevParaListAnchorModify_imp_impl}
 
 {$EndIf nevParaListAnchorModify_imp}
+

@@ -1,67 +1,54 @@
 unit evMultiSelectEditorWindowHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evMultiSelectEditorWindowHotSpot.pas"
-// Начат: 19.01.2004 18:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevMultiSelectEditorWindowHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindowHotSpot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectEditorWindowHotSpot" MUID: (48E497E40042)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditorWindowHotSpot,
-  evMultiSelection,
-  nevTools
-  ;
+ l3IntfUses
+ , evEditorWindowHotSpot
+ , evMultiSelection
+ , nevTools
+;
 
 type
  TevMultiSelectEditorWindowHotSpot = class(TevEditorWindowHotSpot)
- private
- // private fields
-   f_MultiSelection : TevMultiSelection;
-    {* если иннициализировано, то находимся в процессе множественного выделения}
- protected
- // overridden protected methods
+  private
+   f_MultiSelection: TevMultiSelection;
+    {* если иннициализировано, то находимся в процессе множественного выделения }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoLButtonDown(const aView: InevControlView;
     const aKeys: TevMouseState;
     var Effect: TevMouseEffect): Boolean; override;
    procedure AlignMarks(const aView: InevControlView;
     const aKeys: TevMouseState); override;
-     {* "выравнивает" StartMark и FinishMark - например на границу слова }
+    {* "выравнивает" StartMark и FinishMark - например на границу слова }
    procedure DoExtendBlock(const aView: InevControlView;
     const aSelection: InevSelection); override;
-     {* устанавливает StartMark и FinishMark в выделение }
+    {* устанавливает StartMark и FinishMark в выделение }
    function DoLButtonUp(const aView: InevControlView;
     const aKeys: TevMouseState;
     aNeedUnselect: Boolean): Boolean; override;
-     {* обрабатывает отпускание левой кнопки мыши }
+    {* обрабатывает отпускание левой кнопки мыши }
  end;//TevMultiSelectEditorWindowHotSpot
 
 implementation
 
 uses
-  l3Base,
-  afwInterfaces,
-  Classes
-  ;
-
-// start class TevMultiSelectEditorWindowHotSpot
+ l3ImplUses
+ , l3Base
+ , afwInterfaces
+ , Classes
+;
 
 procedure TevMultiSelectEditorWindowHotSpot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48E497E40042_var*
 //#UC END# *479731C50290_48E497E40042_var*
 begin
@@ -72,8 +59,8 @@ begin
 end;//TevMultiSelectEditorWindowHotSpot.Cleanup
 
 function TevMultiSelectEditorWindowHotSpot.DoLButtonDown(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ const aKeys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
 //#UC START# *48E4A99D02A2_48E497E40042_var*
 var
  l_Op              : InevOp;
@@ -121,7 +108,8 @@ begin
 end;//TevMultiSelectEditorWindowHotSpot.DoLButtonDown
 
 procedure TevMultiSelectEditorWindowHotSpot.AlignMarks(const aView: InevControlView;
-  const aKeys: TevMouseState);
+ const aKeys: TevMouseState);
+ {* "выравнивает" StartMark и FinishMark - например на границу слова }
 //#UC START# *48EF380C026E_48E497E40042_var*
 //#UC END# *48EF380C026E_48E497E40042_var*
 begin
@@ -132,7 +120,8 @@ begin
 end;//TevMultiSelectEditorWindowHotSpot.AlignMarks
 
 procedure TevMultiSelectEditorWindowHotSpot.DoExtendBlock(const aView: InevControlView;
-  const aSelection: InevSelection);
+ const aSelection: InevSelection);
+ {* устанавливает StartMark и FinishMark в выделение }
 //#UC START# *48EF3A860139_48E497E40042_var*
 var
  l_Op  : InevOp;
@@ -158,8 +147,9 @@ begin
 end;//TevMultiSelectEditorWindowHotSpot.DoExtendBlock
 
 function TevMultiSelectEditorWindowHotSpot.DoLButtonUp(const aView: InevControlView;
-  const aKeys: TevMouseState;
-  aNeedUnselect: Boolean): Boolean;
+ const aKeys: TevMouseState;
+ aNeedUnselect: Boolean): Boolean;
+ {* обрабатывает отпускание левой кнопки мыши }
 //#UC START# *48EF3C6E0276_48E497E40042_var*
 //#UC END# *48EF3C6E0276_48E497E40042_var*
 begin

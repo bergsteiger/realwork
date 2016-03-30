@@ -23,11 +23,11 @@ type
   {* Объект для сохранения курсора. }
   private
    f_Cursor: InevBasePoint;
-    {* Поле для свойства Cursor }
+    {* курсор, который изменялся. }
    f_Old: IevSavedCursor;
-    {* Поле для свойства Old }
+    {* старое значение курсора. }
    f_New: IevSavedCursor;
-    {* Поле для свойства New }
+    {* новое значение курсора. }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

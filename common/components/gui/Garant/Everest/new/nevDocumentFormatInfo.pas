@@ -1,67 +1,48 @@
 unit nevDocumentFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevDocumentFormatInfo.pas"
-// Начат: 09.09.2011 19:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevDocumentFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentFormatInfo" MUID: (4E6A302701CF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevListFormatInfo,
-  nevFormatInfoList,
-  nevBase,
-  nevFormatInfo
-  ;
+ l3IntfUses
+ , nevListFormatInfo
+ , nevFormatInfoList
+ , nevFormatInfo
+ , nevBase
+;
 
 type
  TnevDocumentFormatInfo = class(TnevListFormatInfo)
- private
- // private fields
-   f_DecorFIs : TnevFormatInfoList;
- protected
- // overridden property methods
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
+  private
+   f_DecorFIs: TnevFormatInfoList;
+  protected
    procedure ClearCache; override;
-   function LocDecorHeight(const aView: InevViewMetrics;
-     aFI: TnevFormatInfo;
-     aType: TnevDecorType): Integer; override;
-   function LocLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo; override;
+   function pm_GetlocSpacing: TnevRect; override;
+   function locDecorHeight(const aView: InevViewMetrics;
+    aFI: TnevFormatInfo;
+    aType: TnevDecorType): Integer; override;
+   function locLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo; override;
    function AllowTotalRecalc: Boolean; override;
- public
- // overridden public methods
+  public
    function GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo; override;
  end;//TnevDocumentFormatInfo
 
 implementation
 
 uses
-  nevFormatInfoFactory,
-  SysUtils,
-  LeafPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evAACContentUtils
-  {$IfEnd} //k2ForEditor
-  
-  ;
-
-// start class TnevDocumentFormatInfo
+ l3ImplUses
+ , nevFormatInfoFactory
+ , SysUtils
+ , LeafPara_Const
+ {$If Defined(k2ForEditor)}
+ , evAACContentUtils
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TnevDocumentFormatInfo.GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo;
 //#UC START# *4815C94A027A_4E6A302701CF_var*
@@ -87,7 +68,7 @@ begin
 //#UC END# *4E5E7D240227_4E6A302701CF_impl*
 end;//TnevDocumentFormatInfo.ClearCache
 
-function TnevDocumentFormatInfo.pm_GetLocSpacing: TnevRect;
+function TnevDocumentFormatInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_4E6A302701CFget_var*
 //#UC END# *4E5F3D1102B8_4E6A302701CFget_var*
 begin
@@ -103,11 +84,11 @@ begin
   Result.Bottom := cnAACRightBottomSpace;
  Result.Top := Result.Top + Self.DecorHeight(nev_dtHeader);
 //#UC END# *4E5F3D1102B8_4E6A302701CFget_impl*
-end;//TnevDocumentFormatInfo.pm_GetLocSpacing
+end;//TnevDocumentFormatInfo.pm_GetlocSpacing
 
-function TnevDocumentFormatInfo.LocDecorHeight(const aView: InevViewMetrics;
-  aFI: TnevFormatInfo;
-  aType: TnevDecorType): Integer;
+function TnevDocumentFormatInfo.locDecorHeight(const aView: InevViewMetrics;
+ aFI: TnevFormatInfo;
+ aType: TnevDecorType): Integer;
 //#UC START# *4E6DE6D800F4_4E6A302701CF_var*
 var
  l_FI : TnevFormatInfo;
@@ -123,9 +104,9 @@ begin
  else
   Result := l_FI.Height;
 //#UC END# *4E6DE6D800F4_4E6A302701CF_impl*
-end;//TnevDocumentFormatInfo.LocDecorHeight
+end;//TnevDocumentFormatInfo.locDecorHeight
 
-function TnevDocumentFormatInfo.LocLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo;
+function TnevDocumentFormatInfo.locLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo;
 //#UC START# *4E6DF94C00F1_4E6A302701CF_var*
 var
  l_Index : Integer;
@@ -179,7 +160,7 @@ begin
  else
   Result := nil;*)
 //#UC END# *4E6DF94C00F1_4E6A302701CF_impl*
-end;//TnevDocumentFormatInfo.LocLocDecorFormatInfo
+end;//TnevDocumentFormatInfo.locLocDecorFormatInfo
 
 function TnevDocumentFormatInfo.AllowTotalRecalc: Boolean;
 //#UC START# *4E7095FC023D_4E6A302701CF_var*

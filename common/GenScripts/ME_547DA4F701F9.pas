@@ -23,7 +23,6 @@ type
   {* базовый класс для инструментальных панелей, привязанных к Control'ам }
   private
    f_Control: TWinControl;
-    {* Поле для свойства Control }
   protected
    function pm_GetControl: TWinControl;
    procedure pm_SetControl(aValue: TWinControl);

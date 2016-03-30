@@ -1,62 +1,46 @@
 unit evStringStorable;
+ {* Объекты реализующие возможность укладки в клипборд константной строки ([CQ 25894|$96482711]) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStringStorable.pas"
-// Начат: 16.07.2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DataObjects::TevStringStorable
-//
-// Объекты реализующие возможность укладки в клипборд константной строки ([CQ 25894|$96482711])
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStringStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStringStorable" MUID: (48F4945A02FF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  evStorable,
-  afwNavigation,
-  nevBase,
-  evdInterfaces
-  ;
+ l3IntfUses
+ , evStorable
+ , l3Interfaces
+ , afwNavigation
+ , nevBase
+ , evdInterfaces
+;
 
 type
  TevStringStorable = class(TevStorable)
   {* Объекты реализующие возможность укладки в клипборд константной строки ([CQ 25894|$96482711]) }
- protected
- // realized methods
-   procedure DoStore(const G: InevTagGenerator;
-    aFlags: TevdStoreFlags); override;
- protected
- // protected methods
+  protected
    procedure GetAddress(var Addr: TevAddress); virtual;
    function Text: Tl3WString; virtual; abstract;
    function Address: TevAddress;
+   procedure DoStore(const G: InevTagGenerator;
+    aFlags: TevdStoreFlags); override;
  end;//TevStringStorable
 
 implementation
 
 uses
-  k2Tags,
-  evdTypes,
-  l3Base,
-  Document_Const,
-  TextPara_Const,
-  HyperLink_Const,
-  Address_Const
-  ;
-
-// start class TevStringStorable
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , l3Base
+ , Document_Const
+ , TextPara_Const
+ , HyperLink_Const
+ , Address_Const
+;
 
 procedure TevStringStorable.GetAddress(var Addr: TevAddress);
 //#UC START# *48F494F102DD_48F4945A02FF_var*
@@ -78,7 +62,7 @@ begin
 end;//TevStringStorable.Address
 
 procedure TevStringStorable.DoStore(const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ aFlags: TevdStoreFlags);
 //#UC START# *48F48C6E02F4_48F4945A02FF_var*
 var
  l_Text : Tl3WString;

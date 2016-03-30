@@ -1,102 +1,30 @@
 unit evControl;
+ {* Базовый класс для всех контролов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::qf::TevControl
-//
-// Базовый класс для всех контролов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControl" MUID: (48D13B8D03A3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  nevTools,
-  evQueryCardInt,
-  evCustomControlTool,
-  evdTypes
-  ;
+ l3IntfUses
+ , evCustomControlTool
+ , evQueryCardInt
+ , nevTools
+ , nevBase
+ , l3Interfaces
+ , evdTypes
+;
 
 type
  TevControl = class(TevCustomControlTool, IevCustomEditorControl, IevEditorControl)
   {* Базовый класс для всех контролов }
- private
- // private fields
-   f_Field : Pointer;
- protected
- // realized methods
-   function IsMultiline: Boolean;
-     {* Контрол содержит несколько строк и поддерживает перемещение по ним 
-          с помощью стрелок (к меткам это не относится). }
-   function GetControlIterator: IevControlIterator;
-     {* Интерфейс "навигатора" по контролам. }
-   procedure InitBoolProperty(aIdent: Integer;
-    aValue: Boolean);
-     {* Для установки начальных значений (не используется передача данных для 
-         процессора операций). }
-   procedure UpperChange;
-     {* Обработчик изменения состояния кнопок. }
-   function Get_ControlName: Tl3WString;
-   procedure Set_ControlName(const aValue: Tl3WString);
-   function Get_ControlType: TevControlType;
-   function Get_Visible: Boolean;
-   procedure Set_Visible(aValue: Boolean);
-   function Get_Upper: Boolean;
-   procedure Set_Upper(aValue: Boolean);
-   function LMouseBtnUp(const aView: InevControlView;
-    const aPara: InevPara;
-    const aPt: TnevPoint;
-    const aKeys: TevMouseState;
-    anInPara: Boolean): Boolean;
-     {* Обработчик нажатия на левую кнопку мыши. }
-   function LMouseBtnDown(const aView: InevControlView;
-    const aPara: InevPara;
-    const aPt: TnevPoint;
-    const aKeys: TevMouseState;
-    anInPara: Boolean;
-    const aMap: InevMap): Boolean;
-     {* Обработчик отпускания левой кнопки мыши. }
-   function KeyCommand(const aView: InevControlView;
-    aCmd: Word;
-    const aPara: InevPara): Boolean;
-     {* Обработчик комманд от редактора. }
-   procedure RememberState;
-     {* Запоминание состояния для всплывающего меню. }
-   procedure TextChange(const aView: InevView;
-    const aPara: InevPara;
-    const anOp: InevOp);
-     {* Событие изменения текста в параграфе (внешний вызов). }
-   function GetHint(var aValue: Il3CString): Boolean;
-     {* Вывод хинта на экран. Если данных нет, то возвращается False. }
-   procedure InsertRow(const aView: InevView);
-     {* Событие добавления строки к таблице по 'Enter'. }
-   procedure SetFocus(aChangePara: Boolean = False);
-     {* Передать фокус контролу (выделить с помощью фокусной рамки. }
-   function Get_Field: IevEditorControlField;
-   procedure Set_Field(const aValue: IevEditorControlField);
-   function Get_Req: IevReq;
-   function Get_Enabled: Boolean;
-   procedure Set_Enabled(aValue: Boolean);
-   function Get_MaxLength: Integer;
-   function Get_Caption: Il3CString;
- public
- // overridden public methods
-   constructor Create(const aPara: InevPara); override;
- protected
- // protected methods
+  private
+   f_Field: Pointer;
+  protected
    function GetIsMultiline: Boolean; virtual;
    procedure SetChecked(aValue: Boolean);
    function DoLMouseBtnUp(const aView: InevControlView;
@@ -117,34 +45,85 @@ type
     const aPara: InevPara;
     const anOp: InevOp); virtual;
    procedure DoInsertRow(const aView: InevView); virtual;
- public
- // public methods
+   function IsMultiline: Boolean;
+    {* Контрол содержит несколько строк и поддерживает перемещение по ним 
+          с помощью стрелок (к меткам это не относится). }
+   function GetControlIterator: IevControlIterator;
+    {* Интерфейс "навигатора" по контролам. }
+   procedure InitBoolProperty(aIdent: Integer;
+    aValue: Boolean);
+    {* Для установки начальных значений (не используется передача данных для 
+         процессора операций). }
+   procedure UpperChange;
+    {* Обработчик изменения состояния кнопок. }
+   function Get_ControlName: Tl3WString;
+   procedure Set_ControlName(const aValue: Tl3WString);
+   function Get_ControlType: TevControlType;
+   function Get_Visible: Boolean;
+   procedure Set_Visible(aValue: Boolean);
+   function Get_Upper: Boolean;
+   procedure Set_Upper(aValue: Boolean);
+   function LMouseBtnUp(const aView: InevControlView;
+    const aPara: InevPara;
+    const aPt: TnevPoint;
+    const aKeys: TevMouseState;
+    anInPara: Boolean): Boolean;
+    {* Обработчик нажатия на левую кнопку мыши. }
+   function LMouseBtnDown(const aView: InevControlView;
+    const aPara: InevPara;
+    const aPt: TnevPoint;
+    const aKeys: TevMouseState;
+    anInPara: Boolean;
+    const aMap: InevMap): Boolean;
+    {* Обработчик отпускания левой кнопки мыши. }
+   function KeyCommand(const aView: InevControlView;
+    aCmd: Word;
+    const aPara: InevPara): Boolean;
+    {* Обработчик комманд от редактора. }
+   procedure RememberState;
+    {* Запоминание состояния для всплывающего меню. }
+   procedure TextChange(const aView: InevView;
+    const aPara: InevPara;
+    const anOp: InevOp);
+    {* Событие изменения текста в параграфе (внешний вызов). }
+   function GetHint(var aValue: Il3CString): Boolean;
+    {* Вывод хинта на экран. Если данных нет, то возвращается False. }
+   procedure InsertRow(const aView: InevView);
+    {* Событие добавления строки к таблице по 'Enter'. }
+   procedure SetFocus(aChangePara: Boolean = False);
+    {* Передать фокус контролу (выделить с помощью фокусной рамки. }
+   function Get_Field: IevEditorControlField;
+   procedure Set_Field(const aValue: IevEditorControlField);
+   function Get_Req: IevReq;
+   function Get_Enabled: Boolean;
+   procedure Set_Enabled(aValue: Boolean);
+   function Get_MaxLength: Integer;
+   function Get_Caption: Il3CString;
+  public
    class function Make(const aValue: InevPara): IevEditorControl; reintroduce;
    function DoKeyCommand(const aView: InevControlView;
     aCmd: Word;
     const aTextPara: InevPara): Boolean; virtual;
+   constructor Create(const aPara: InevPara); override;
  end;//TevControl
 
 implementation
 
 uses
-  k2Tags,
-  l3Base,
-  l3Types
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  SysUtils,
-  l3InterfacedString,
-  l3String,
-  ReqRow_Const,
-  l3CEmptyStringPrim,
-  l3CEmptyString
-  ;
-
-// start class TevControl
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , l3Types
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , SysUtils
+ , l3InterfacedString
+ , l3String
+ , ReqRow_Const
+ , l3CEmptyStringPrim
+ , l3CEmptyString
+;
 
 function TevControl.GetIsMultiline: Boolean;
 //#UC START# *48D13CED0240_48D13B8D03A3_var*
@@ -165,7 +144,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevControl.Make
 
 procedure TevControl.SetChecked(aValue: Boolean);
 //#UC START# *48D14220033C_48D13B8D03A3_var*
@@ -177,8 +156,8 @@ begin
 end;//TevControl.SetChecked
 
 function TevControl.DoKeyCommand(const aView: InevControlView;
-  aCmd: Word;
-  const aTextPara: InevPara): Boolean;
+ aCmd: Word;
+ const aTextPara: InevPara): Boolean;
 //#UC START# *48D145B8036A_48D13B8D03A3_var*
 //#UC END# *48D145B8036A_48D13B8D03A3_var*
 begin
@@ -226,8 +205,8 @@ begin
 end;//TevControl.GetChecked
 
 procedure TevControl.DoTextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
 //#UC START# *48D14C0E023E_48D13B8D03A3_var*
 //#UC END# *48D14C0E023E_48D13B8D03A3_var*
 begin
@@ -244,6 +223,8 @@ begin
 end;//TevControl.DoInsertRow
 
 function TevControl.IsMultiline: Boolean;
+ {* Контрол содержит несколько строк и поддерживает перемещение по ним 
+          с помощью стрелок (к меткам это не относится). }
 //#UC START# *47CD5E7A027B_48D13B8D03A3_var*
 //#UC END# *47CD5E7A027B_48D13B8D03A3_var*
 begin
@@ -253,6 +234,7 @@ begin
 end;//TevControl.IsMultiline
 
 function TevControl.GetControlIterator: IevControlIterator;
+ {* Интерфейс "навигатора" по контролам. }
 //#UC START# *47CD5E9B031F_48D13B8D03A3_var*
 //#UC END# *47CD5E9B031F_48D13B8D03A3_var*
 begin
@@ -262,7 +244,9 @@ begin
 end;//TevControl.GetControlIterator
 
 procedure TevControl.InitBoolProperty(aIdent: Integer;
-  aValue: Boolean);
+ aValue: Boolean);
+ {* Для установки начальных значений (не используется передача данных для 
+         процессора операций). }
 //#UC START# *47CD5EB4005D_48D13B8D03A3_var*
 //#UC END# *47CD5EB4005D_48D13B8D03A3_var*
 begin
@@ -272,6 +256,7 @@ begin
 end;//TevControl.InitBoolProperty
 
 procedure TevControl.UpperChange;
+ {* Обработчик изменения состояния кнопок. }
 //#UC START# *47CD5EC10294_48D13B8D03A3_var*
 //#UC END# *47CD5EC10294_48D13B8D03A3_var*
 begin
@@ -353,10 +338,11 @@ begin
 end;//TevControl.Set_Upper
 
 function TevControl.LMouseBtnUp(const aView: InevControlView;
-  const aPara: InevPara;
-  const aPt: TnevPoint;
-  const aKeys: TevMouseState;
-  anInPara: Boolean): Boolean;
+ const aPara: InevPara;
+ const aPt: TnevPoint;
+ const aKeys: TevMouseState;
+ anInPara: Boolean): Boolean;
+ {* Обработчик нажатия на левую кнопку мыши. }
 //#UC START# *47CD77D60195_48D13B8D03A3_var*
 //#UC END# *47CD77D60195_48D13B8D03A3_var*
 begin
@@ -366,11 +352,12 @@ begin
 end;//TevControl.LMouseBtnUp
 
 function TevControl.LMouseBtnDown(const aView: InevControlView;
-  const aPara: InevPara;
-  const aPt: TnevPoint;
-  const aKeys: TevMouseState;
-  anInPara: Boolean;
-  const aMap: InevMap): Boolean;
+ const aPara: InevPara;
+ const aPt: TnevPoint;
+ const aKeys: TevMouseState;
+ anInPara: Boolean;
+ const aMap: InevMap): Boolean;
+ {* Обработчик отпускания левой кнопки мыши. }
 //#UC START# *47CD78150291_48D13B8D03A3_var*
 //#UC END# *47CD78150291_48D13B8D03A3_var*
 begin
@@ -380,8 +367,9 @@ begin
 end;//TevControl.LMouseBtnDown
 
 function TevControl.KeyCommand(const aView: InevControlView;
-  aCmd: Word;
-  const aPara: InevPara): Boolean;
+ aCmd: Word;
+ const aPara: InevPara): Boolean;
+ {* Обработчик комманд от редактора. }
 //#UC START# *47CD784A00E0_48D13B8D03A3_var*
 //#UC END# *47CD784A00E0_48D13B8D03A3_var*
 begin
@@ -391,6 +379,7 @@ begin
 end;//TevControl.KeyCommand
 
 procedure TevControl.RememberState;
+ {* Запоминание состояния для всплывающего меню. }
 //#UC START# *47CD785F0300_48D13B8D03A3_var*
 //#UC END# *47CD785F0300_48D13B8D03A3_var*
 begin
@@ -400,8 +389,9 @@ begin
 end;//TevControl.RememberState
 
 procedure TevControl.TextChange(const aView: InevView;
-  const aPara: InevPara;
-  const anOp: InevOp);
+ const aPara: InevPara;
+ const anOp: InevOp);
+ {* Событие изменения текста в параграфе (внешний вызов). }
 //#UC START# *47CD786D0183_48D13B8D03A3_var*
 //#UC END# *47CD786D0183_48D13B8D03A3_var*
 begin
@@ -411,6 +401,7 @@ begin
 end;//TevControl.TextChange
 
 function TevControl.GetHint(var aValue: Il3CString): Boolean;
+ {* Вывод хинта на экран. Если данных нет, то возвращается False. }
 //#UC START# *47CD788D010B_48D13B8D03A3_var*
 var
  l_Req: IevReq;
@@ -426,6 +417,7 @@ begin
 end;//TevControl.GetHint
 
 procedure TevControl.InsertRow(const aView: InevView);
+ {* Событие добавления строки к таблице по 'Enter'. }
 //#UC START# *47CD78A001D0_48D13B8D03A3_var*
 //#UC END# *47CD78A001D0_48D13B8D03A3_var*
 begin
@@ -435,6 +427,7 @@ begin
 end;//TevControl.InsertRow
 
 procedure TevControl.SetFocus(aChangePara: Boolean = False);
+ {* Передать фокус контролу (выделить с помощью фокусной рамки. }
 //#UC START# *47CD78AD0097_48D13B8D03A3_var*
 var
  l_Control: InevControl;

@@ -1,54 +1,38 @@
 unit vcmFormHandler;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmFormHandler.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmFormHandler
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormHandler.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormHandler" MUID: (47D0E1C9021A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  Classes,
-  vcmEntityForm,
-  l3ProtoObject
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoObject
+ , vcmExternalInterfaces
+ , vcmEntityForm
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmFormHandler = class(Tl3ProtoObject, IvcmFormHandler)
- private
- // private fields
-   f_Hint : IvcmCString;
-   f_Form : TvcmEntityForm;
-   f_Handler : TNotifyEvent;
- protected
- // realized methods
+  private
+   f_Hint: IvcmCString;
+   f_Form: TvcmEntityForm;
+   f_Handler: TNotifyEvent;
+  protected
    function Get_Handler: TNotifyEvent;
    function Get_Hint: IvcmCString;
    function Get_Form: TCustomForm;
    function CanHaveCloseButtonInNavigator: Boolean;
    function CanHaveOwnCloseButtonInNavigator: Boolean;
- public
- // public methods
+  public
    constructor Create(aForm: TvcmEntityForm;
     aHandler: TNotifyEvent;
     const aHint: IvcmCString); reintroduce;
@@ -56,17 +40,18 @@ type
     aHandler: TNotifyEvent;
     const aHint: IvcmCString): IvcmFormHandler; reintroduce; virtual;
  end;//TvcmFormHandler
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-
-// start class TvcmFormHandler
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 constructor TvcmFormHandler.Create(aForm: TvcmEntityForm;
-  aHandler: TNotifyEvent;
-  const aHint: IvcmCString);
+ aHandler: TNotifyEvent;
+ const aHint: IvcmCString);
 //#UC START# *47D0E6DC0152_47D0E1C9021A_var*
 //#UC END# *47D0E6DC0152_47D0E1C9021A_var*
 begin
@@ -81,8 +66,8 @@ begin
 end;//TvcmFormHandler.Create
 
 class function TvcmFormHandler.Make(aForm: TvcmEntityForm;
-  aHandler: TNotifyEvent;
-  const aHint: IvcmCString): IvcmFormHandler;
+ aHandler: TNotifyEvent;
+ const aHint: IvcmCString): IvcmFormHandler;
 var
  l_Inst : TvcmFormHandler;
 begin
@@ -92,7 +77,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormHandler.Make
 
 function TvcmFormHandler.Get_Handler: TNotifyEvent;
 //#UC START# *47D0DE680250_47D0E1C9021Aget_var*
@@ -138,7 +123,6 @@ begin
  Result := f_Form.CanHaveOwnCloseButtonInNavigator;
 //#UC END# *4F6A0EA503A9_47D0E1C9021A_impl*
 end;//TvcmFormHandler.CanHaveOwnCloseButtonInNavigator
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

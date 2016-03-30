@@ -1,104 +1,65 @@
 unit ChromeLikeBaseThemedWindowCaptionButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeBaseThemedWindowCaptionButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeWindowCaptionButtons::TChromeLikeBaseThemedWindowCaptionButton
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseThemedWindowCaptionButton.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TChromeLikeBaseThemedWindowCaptionButton" MUID: (533D07A201C1)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Messages,
-  UxTheme,
-  ChromeLikeBaseWindowCaptionButton,
-  Classes
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , ChromeLikeBaseWindowCaptionButton
+ , UxTheme
+ , Messages
+ , Classes
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TChromeLikeThemedWindowCaptionButtonPaintParams = record
   {* параметры отрисовки кнопок }
-   rPartID : Integer;
-   rStateID : Integer;
+  rPartID: Integer;
+  rStateID: Integer;
  end;//TChromeLikeThemedWindowCaptionButtonPaintParams
 
  TChromeLikeBaseThemedWindowCaptionButton = class(TChromeLikeBaseWindowCaptionButton)
- private
- // private fields
-   f_Theme : HTHEME;
-    {* Поле для свойства Theme}
- private
- // private methods
+  private
+   f_Theme: HTHEME;
+  private
    procedure WMThemeChanged(var aMessage: TMessage); message WM_THEMECHANGED;
- protected
- // property methods
+  protected
    function pm_GetTheme: HTHEME;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure DestroyWnd; override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   procedure Paint; override;
-     {* Сигнатура метода Paint }
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    function GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams; virtual;
- protected
- // protected properties
+   {$If NOT Defined(NoVCL)}
+   procedure DestroyWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure Paint; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   constructor Create(AOwner: TComponent); override;
+  protected
    property Theme: HTHEME
-     read pm_GetTheme;
+    read pm_GetTheme;
  end;//TChromeLikeBaseThemedWindowCaptionButton
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Windows,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  l3Base
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-// start class TChromeLikeBaseThemedWindowCaptionButton
-
-function TChromeLikeBaseThemedWindowCaptionButton.GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;
-//#UC START# *533D091902B8_533D07A201C1_var*
-//#UC END# *533D091902B8_533D07A201C1_var*
-begin
-//#UC START# *533D091902B8_533D07A201C1_impl*
- l3FillChar(Result, SizeOf(Result), 0);
-//#UC END# *533D091902B8_533D07A201C1_impl*
-end;//TChromeLikeBaseThemedWindowCaptionButton.GetPaintParams
+ l3ImplUses
+ , Windows
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TChromeLikeBaseThemedWindowCaptionButton.pm_GetTheme: HTHEME;
 //#UC START# *533D09010204_533D07A201C1get_var*
@@ -112,6 +73,15 @@ begin
  Result := f_Theme;
 //#UC END# *533D09010204_533D07A201C1get_impl*
 end;//TChromeLikeBaseThemedWindowCaptionButton.pm_GetTheme
+
+function TChromeLikeBaseThemedWindowCaptionButton.GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;
+//#UC START# *533D091902B8_533D07A201C1_var*
+//#UC END# *533D091902B8_533D07A201C1_var*
+begin
+//#UC START# *533D091902B8_533D07A201C1_impl*
+ l3FillChar(Result, SizeOf(Result), 0);
+//#UC END# *533D091902B8_533D07A201C1_impl*
+end;//TChromeLikeBaseThemedWindowCaptionButton.GetPaintParams
 
 procedure TChromeLikeBaseThemedWindowCaptionButton.WMThemeChanged(var aMessage: TMessage);
 //#UC START# *533D08600262_533D07A201C1_var*
@@ -142,7 +112,7 @@ begin
 //#UC END# *47D1602000C6_533D07A201C1_impl*
 end;//TChromeLikeBaseThemedWindowCaptionButton.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TChromeLikeBaseThemedWindowCaptionButton.DestroyWnd;
 //#UC START# *4CC841540158_533D07A201C1_var*
 //#UC END# *4CC841540158_533D07A201C1_var*
@@ -153,9 +123,9 @@ begin
  inherited;
 //#UC END# *4CC841540158_533D07A201C1_impl*
 end;//TChromeLikeBaseThemedWindowCaptionButton.DestroyWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TChromeLikeBaseThemedWindowCaptionButton.Paint;
 //#UC START# *5028A60300AD_533D07A201C1_var*
 const
@@ -182,14 +152,13 @@ begin
   l_Rect, nil);
 //#UC END# *5028A60300AD_533D07A201C1_impl*
 end;//TChromeLikeBaseThemedWindowCaptionButton.Paint
-{$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeBaseThemedWindowCaptionButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeBaseThemedWindowCaptionButton);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TChromeLikeBaseThemedWindowCaptionButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

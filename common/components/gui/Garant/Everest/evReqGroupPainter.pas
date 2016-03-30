@@ -1,62 +1,45 @@
 unit evReqGroupPainter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evReqGroupPainter.pas"
-// Начат: 22.02.2011 21:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevReqGroupPainter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqGroupPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReqGroupPainter" MUID: (4D63C57601A4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters) AND defined(evReqGroupNeedsRadio)}
+{$If Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)}
 uses
-  evTablePainter,
-  nevTools,
-  nevRealTools
-  ;
-{$IfEnd} //evNeedPainters AND evReqGroupNeedsRadio
+ l3IntfUses
+ , evTablePainter
+ , nevTools
+ , nevRealTools
+;
 
-{$If defined(evNeedPainters) AND defined(evReqGroupNeedsRadio)}
 type
  TevReqGroupPainter = class(TevTablePainter)
- protected
- // overridden protected methods
+  protected
    function DoDraw: Boolean; override;
-     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+    {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
    procedure AfterDrawChild(const aChild: InevPara;
-     const aChildPainter: IevPainter;
-     const aChildInfo: TnevShapeInfo); override;
+    const aChildPainter: IevPainter;
+    const aChildInfo: TnevShapeInfo); override;
  end;//TevReqGroupPainter
-{$IfEnd} //evNeedPainters AND evReqGroupNeedsRadio
+{$IfEnd} // Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)
 
 implementation
 
-{$If defined(evNeedPainters) AND defined(evReqGroupNeedsRadio)}
+{$If Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)}
 uses
-  l3Units,
-  l3Interfaces,
-  k2Tags,
-  l3MinMax
-  ;
-{$IfEnd} //evNeedPainters AND evReqGroupNeedsRadio
-
-{$If defined(evNeedPainters) AND defined(evReqGroupNeedsRadio)}
-
-// start class TevReqGroupPainter
+ l3ImplUses
+ , l3Units
+ , l3Interfaces
+ , k2Tags
+ , l3MinMax
+;
 
 function TevReqGroupPainter.DoDraw: Boolean;
+ {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
 //#UC START# *4804BC2401C2_4D63C57601A4_var*
 //#UC END# *4804BC2401C2_4D63C57601A4_var*
 begin
@@ -66,8 +49,8 @@ begin
 end;//TevReqGroupPainter.DoDraw
 
 procedure TevReqGroupPainter.AfterDrawChild(const aChild: InevPara;
-  const aChildPainter: IevPainter;
-  const aChildInfo: TnevShapeInfo);
+ const aChildPainter: IevPainter;
+ const aChildInfo: TnevShapeInfo);
 //#UC START# *4D63E3490015_4D63C57601A4_var*
 const
  cDim = 10;
@@ -110,7 +93,6 @@ begin
  end;//not ParaX.BoolA[k2_tiChecked]
 //#UC END# *4D63E3490015_4D63C57601A4_impl*
 end;//TevReqGroupPainter.AfterDrawChild
-
-{$IfEnd} //evNeedPainters AND evReqGroupNeedsRadio
+{$IfEnd} // Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)
 
 end.

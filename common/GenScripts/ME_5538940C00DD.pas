@@ -30,8 +30,6 @@ uses
 type
  TvcmTabbedContainersDispatcher = {final} class(Tl3ProtoObject, Il3TabbedContainersDispatcher)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabCaption(const aTab: Il3FormTab): AnsiString;
@@ -64,6 +62,8 @@ type
    procedure CloseAll;
    class function Instance: TvcmTabbedContainersDispatcher;
     {* Метод получения экземпляра синглетона TvcmTabbedContainersDispatcher }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmTabbedContainersDispatcher
 
  IvcmTabbedContainersService = interface
@@ -105,13 +105,11 @@ type
  TvcmTabbedContainersService = {final} class(Tl3ProtoObject)
   private
    f_Alien: IvcmTabbedContainersService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса IvcmTabbedContainersService }
   protected
    procedure pm_SetAlien(const aValue: IvcmTabbedContainersService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabCaption(const aTab: Il3FormTab): AnsiString;
@@ -145,6 +143,8 @@ type
    procedure CloseAll;
    class function Instance: TvcmTabbedContainersService;
     {* Метод получения экземпляра синглетона TvcmTabbedContainersService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: IvcmTabbedContainersService
     write pm_SetAlien;
@@ -182,12 +182,6 @@ procedure TvcmTabbedContainersServiceFree;
 begin
  l3Free(g_TvcmTabbedContainersService);
 end;//TvcmTabbedContainersServiceFree
-
-class function TvcmTabbedContainersDispatcher.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmTabbedContainersDispatcher <> nil;
-end;//TvcmTabbedContainersDispatcher.Exists
 
 function TvcmTabbedContainersDispatcher.GetTabIcon(const aTab: Il3FormTab): Integer;
 //#UC START# *02157F96E465_5539E9010272_var*
@@ -462,17 +456,17 @@ begin
  Result := g_TvcmTabbedContainersDispatcher;
 end;//TvcmTabbedContainersDispatcher.Instance
 
+class function TvcmTabbedContainersDispatcher.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTabbedContainersDispatcher <> nil;
+end;//TvcmTabbedContainersDispatcher.Exists
+
 procedure TvcmTabbedContainersService.pm_SetAlien(const aValue: IvcmTabbedContainersService);
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//TvcmTabbedContainersService.pm_SetAlien
-
-class function TvcmTabbedContainersService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmTabbedContainersService <> nil;
-end;//TvcmTabbedContainersService.Exists
 
 function TvcmTabbedContainersService.GetTabIcon(const aTab: Il3FormTab): Integer;
 //#UC START# *02157F96E465_5538940C00DD_var*
@@ -821,6 +815,12 @@ begin
  end;
  Result := g_TvcmTabbedContainersService;
 end;//TvcmTabbedContainersService.Instance
+
+class function TvcmTabbedContainersService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmTabbedContainersService <> nil;
+end;//TvcmTabbedContainersService.Exists
 
 procedure TvcmTabbedContainersService.ClearFields;
 begin

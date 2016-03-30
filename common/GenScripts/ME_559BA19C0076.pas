@@ -40,13 +40,11 @@ type
  TvcmHistoryService = {final} class(Tl3ProtoObject)
   private
    f_Alien: IvcmHistoryService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса IvcmHistoryService }
   protected
    procedure pm_SetAlien(const aValue: IvcmHistoryService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function Back(const aForm: IvcmEntityForm): Boolean;
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
@@ -54,6 +52,8 @@ type
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
    class function Instance: TvcmHistoryService;
     {* Метод получения экземпляра синглетона TvcmHistoryService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: IvcmHistoryService
     write pm_SetAlien;
@@ -86,12 +86,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//TvcmHistoryService.pm_SetAlien
-
-class function TvcmHistoryService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmHistoryService <> nil;
-end;//TvcmHistoryService.Exists
 
 function TvcmHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
 //#UC START# *18FC3BA729CF_559BA19C0076_var*
@@ -174,6 +168,12 @@ begin
  end;
  Result := g_TvcmHistoryService;
 end;//TvcmHistoryService.Instance
+
+class function TvcmHistoryService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmHistoryService <> nil;
+end;//TvcmHistoryService.Exists
 
 procedure TvcmHistoryService.ClearFields;
 begin

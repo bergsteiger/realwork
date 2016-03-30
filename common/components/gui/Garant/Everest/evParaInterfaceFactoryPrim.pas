@@ -1,65 +1,50 @@
 unit evParaInterfaceFactoryPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaInterfaceFactoryPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Standard::TevParaInterfaceFactoryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaInterfaceFactoryPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaInterfaceFactoryPrim" MUID: (53D8DFA400E2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2InterfaceFactory,
-  l3IID,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2InterfaceFactory
+ , l3Variant
+ , l3IID
+;
 
 type
  TevParaInterfaceFactoryPrim = class(Tk2InterfaceFactory)
- protected
- // overridden protected methods
+  protected
    function PreCOMQueryTool(aTag: Tl3Tag;
-     const aIID: Tl3GUID;
-     out theTool;
-     const aProcessor: Ik2Processor): Boolean; override;
+    const aIID: Tl3GUID;
+    out theTool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TevParaInterfaceFactoryPrim
 
 implementation
 
 uses
-  k2ToolPrim,
-  nevTools,
-  evdInterfaces,
-  SysUtils,
-  l3InterfacesMisc
-  {$If defined(evUseVisibleCursors)}
-  ,
-  evSelection
-  {$IfEnd} //evUseVisibleCursors
-  
-  {$If defined(evUseVisibleCursors)}
-  ,
-  evCursor
-  {$IfEnd} //evUseVisibleCursors
-  
-  ;
-
-// start class TevParaInterfaceFactoryPrim
+ l3ImplUses
+ , k2ToolPrim
+ , nevTools
+ , evdInterfaces
+ , SysUtils
+ , l3InterfacesMisc
+ {$If Defined(evUseVisibleCursors)}
+ , evSelection
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ {$If Defined(evUseVisibleCursors)}
+ , evCursor
+ {$IfEnd} // Defined(evUseVisibleCursors)
+;
 
 function TevParaInterfaceFactoryPrim.PreCOMQueryTool(aTag: Tl3Tag;
-  const aIID: Tl3GUID;
-  out theTool;
-  const aProcessor: Ik2Processor): Boolean;
+ const aIID: Tl3GUID;
+ out theTool;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *53D8E1970262_53D8DFA400E2_var*
 {$IfDef evUseVisibleCursors}
 var

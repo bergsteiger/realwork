@@ -1,84 +1,61 @@
 unit vcmLayoutImplementation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmLayoutImplementation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmLayoutImplementation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayoutImplementation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmLayoutImplementation" MUID: (4F82714B0271)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoObjectWithCOMQI
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoObjectWithCOMQI
+ , vcmInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoVCM)}
 type
- IvcmLayoutInternal = interface(IUnknown)
-   ['{3C78DB5C-C875-4768-AC34-75F697D2514D}']
-   procedure ClearLinkToControl;
+ IvcmLayoutInternal = interface
+  ['{3C78DB5C-C875-4768-AC34-75F697D2514D}']
+  procedure ClearLinkToControl;
  end;//IvcmLayoutInternal
 
  TvcmLayoutImplementation = class(Tl3ProtoObjectWithCOMQI, IvcmLayout, IvcmLayoutInternal)
- private
- // private fields
-   f_Control : TWinControl;
-    {* Поле для свойства Control}
- protected
- // realized methods
+  private
+   f_Control: TWinControl;
+    {* Поле для свойства Control }
+  protected
+   function GetIsAcceptable(aDataUpdate: Boolean): Boolean; virtual;
+    {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    procedure ClearLinkToControl;
    function Get_VCLWinControl: TWinControl;
- public
- // realized methods
-   function IsAcceptable(aDataUpdate: Boolean): Boolean;
-     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // protected methods
-   function GetIsAcceptable(aDataUpdate: Boolean): Boolean; virtual;
-     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(aControl: TWinControl); reintroduce;
    class function Make(aControl: TWinControl): IvcmLayout; reintroduce;
-     {* Сигнатура фабрики TvcmLayoutImplementation.Make }
- protected
- // protected properties
+   function IsAcceptable(aDataUpdate: Boolean): Boolean;
+    {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
+  protected
    property Control: TWinControl
-     read f_Control;
+    read f_Control;
  end;//TvcmLayoutImplementation
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-
-// start class TvcmLayoutImplementation
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 constructor TvcmLayoutImplementation.Create(aControl: TWinControl);
 //#UC START# *4F827263026A_4F82714B0271_var*
@@ -100,9 +77,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmLayoutImplementation.Make
 
 function TvcmLayoutImplementation.GetIsAcceptable(aDataUpdate: Boolean): Boolean;
+ {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *55127C030325_4F82714B0271_var*
 //#UC END# *55127C030325_4F82714B0271_var*
 begin
@@ -130,6 +108,7 @@ begin
 end;//TvcmLayoutImplementation.Get_VCLWinControl
 
 function TvcmLayoutImplementation.IsAcceptable(aDataUpdate: Boolean): Boolean;
+ {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *5511680A003B_4F82714B0271_var*
 //#UC END# *5511680A003B_4F82714B0271_var*
 begin
@@ -139,6 +118,7 @@ begin
 end;//TvcmLayoutImplementation.IsAcceptable
 
 procedure TvcmLayoutImplementation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F82714B0271_var*
 //#UC END# *479731C50290_4F82714B0271_var*
 begin
@@ -148,8 +128,9 @@ begin
 //#UC END# *479731C50290_4F82714B0271_impl*
 end;//TvcmLayoutImplementation.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TvcmLayoutImplementation.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4F82714B0271_var*
 //#UC END# *47A6FEE600FC_4F82714B0271_var*
 begin
@@ -157,8 +138,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4F82714B0271_impl*
 end;//TvcmLayoutImplementation.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not NoVCM
-
+{$IfEnd} // NOT Defined(NoVCM)
 end.

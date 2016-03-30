@@ -1,45 +1,32 @@
 unit evBitmapParaCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evBitmapParaCursor.pas"
-// Начат: 13.11.2004 18:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevBitmapParaCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapParaCursor" MUID: (49DF6D240199)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evSolidParaCursor
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evSolidParaCursor
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevBitmapParaCursor = class(TevSolidParaCursor)
- protected
- // overridden protected methods
+  protected
    function GetNeedWindowsCaret: Boolean; override;
  end;//TevBitmapParaCursor
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-
-// start class TevBitmapParaCursor
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
 
 function TevBitmapParaCursor.GetNeedWindowsCaret: Boolean;
 //#UC START# *49E34A6301AC_49DF6D240199_var*
@@ -49,7 +36,6 @@ begin
  Result := false;
 //#UC END# *49E34A6301AC_49DF6D240199_impl*
 end;//TevBitmapParaCursor.GetNeedWindowsCaret
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

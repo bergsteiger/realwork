@@ -1,116 +1,99 @@
 unit evBlockCursor;
+ {* Курсор с выделением. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evBlockCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Editors::TevBlockCursor
-//
-// Курсор с выделением.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evBlockCursor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevBlockCursor" MUID: (487B5D8D00ED)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  evWindowCursor,
-  l3Variant,
-  l3IID,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , evWindowCursor
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3Interfaces
+ , l3IID
+;
 
 type
  TevBlockCursor = class(TevWindowCursor, InevTextModify, InevText, IevRange)
   {* Курсор с выделением. }
- private
- // private fields
-   f_LockCursorChange : Integer;
-   f_NoCaret : Boolean;
-    {* Поле для свойства NoCaret}
-   f_Persistent : Boolean;
-    {* Поле для свойства Persistent}
-   f_Start : InevLinkedPoint;
-    {* Поле для свойства Start}
-   f_Finish : InevLinkedPoint;
-    {* Поле для свойства Finish}
-   f_DrawLines : Boolean;
-    {* Поле для свойства DrawLines}
-   f_StartMark : InevPoint;
-    {* Поле для свойства StartMark}
-   f_FinishMark : InevPoint;
-    {* Поле для свойства FinishMark}
-   f_StartMarkForCtrlKBCtrlKK : InevPoint;
-    {* Поле для свойства StartMarkForCtrlKBCtrlKK}
- protected
- // property methods
+  private
+   f_LockCursorChange: Integer;
+   f_NoCaret: Boolean;
+    {* Поле для свойства NoCaret }
+   f_Persistent: Boolean;
+    {* Поле для свойства Persistent }
+   f_Start: InevLinkedPoint;
+    {* Поле для свойства Start }
+   f_Finish: InevLinkedPoint;
+    {* Поле для свойства Finish }
+   f_DrawLines: Boolean;
+    {* Поле для свойства DrawLines }
+   f_StartMark: InevPoint;
+    {* Поле для свойства StartMark }
+   f_FinishMark: InevPoint;
+    {* Поле для свойства FinishMark }
+   f_StartMarkForCtrlKBCtrlKK: InevPoint;
+    {* Поле для свойства StartMarkForCtrlKBCtrlKK }
+  protected
    function pm_GetStartMark: InevPoint;
    function pm_GetFinishMark: InevPoint;
    function pm_GetText: InevText;
    function pm_GetStartMarkForCtrlKBCtrlKK: InevPoint;
- protected
- // realized methods
+   procedure UpdateBlock;
+   procedure AfterProcessCommand; virtual;
    function CanBeDeleted: Boolean;
    function Modify: InevTextModify;
    function InsertString(const aView: InevView;
-      const aString: Il3CString;
-      const anOp: InevOp = nil;
-      InsertMode: Boolean = true;
-      aFlags: TnevInsertStringFlags = []): Boolean;
-     {* вставляет строку. }
+    const aString: Il3CString;
+    const anOp: InevOp = nil;
+    InsertMode: Boolean = True;
+    aFlags: TnevInsertStringFlags = []): Boolean;
+    {* вставляет строку. }
    function InsertStream(const aView: InevView;
-      const aStream: IStream;
-      aFormat: TnevFormat;
-      const anOp: InevOp = nil;
-      aFlags: TevLoadFlags = evDefaultLoadFlags;
-      aCodePage: Integer = CP_DefaultValue): Boolean;
+    const aStream: IStream;
+    aFormat: TnevFormat;
+    const anOp: InevOp = nil;
+    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+    aCodePage: Integer = CP_DefaultValue): Boolean;
    function DeleteString(const aView: InevView;
-      Count: Integer;
-      const anOp: InevOp = nil;
-      aFlags: TnevInsertStringFlags = []): Boolean;
-     {* удаляет строку. }
+    Count: Integer;
+    const anOp: InevOp = nil;
+    aFlags: TnevInsertStringFlags = []): Boolean;
+    {* удаляет строку. }
    function DeleteChar(const aView: InevView;
-      aDrawLines: Boolean;
-      const anOp: InevOp): Boolean;
+    aDrawLines: Boolean;
+    const anOp: InevOp): Boolean;
    function InsertBreak(const aView: InevView;
-      aDrawLines: Boolean = false;
-      const anOp: InevOp = nil): Boolean;
+    aDrawLines: Boolean = False;
+    const anOp: InevOp = nil): Boolean;
    function DeleteCharToLeft(const aView: InevView;
-      aDrawLines: Boolean = false;
-      const anOp: InevOp = nil): Boolean;
+    aDrawLines: Boolean = False;
+    const anOp: InevOp = nil): Boolean;
    function Split(const aView: InevView;
-      aFlags: TnevInsertStringFlags;
-      const anOp: InevOp): Il3TagRef;
+    aFlags: TnevInsertStringFlags;
+    const anOp: InevOp): Il3TagRef;
    function JoinWith(const aView: InevView;
-      aSecondPara: Tl3Variant;
-      const anOp: InevOp = nil;
-      MoveSubs: Boolean = true): Integer;
+    aSecondPara: Tl3Variant;
+    const anOp: InevOp = nil;
+    MoveSubs: Boolean = True): Integer;
    function JoinWithNext(const aView: InevView;
-      const anOp: InevOp = nil): Boolean;
+    const anOp: InevOp = nil): Boolean;
    procedure AssignSel(const aView: InevView;
     const aSource: InevRange);
-     {* присваивает одно выделение другому }
+    {* присваивает одно выделение другому }
    function GetBlock: InevRange;
-     {* получить текущий объект выделения }
+    {* получить текущий объект выделения }
    procedure SetToStart;
-     {* установить выделение в начало }
+    {* установить выделение в начало }
    function Unselect(const aView: InevView): Boolean;
-     {* снять выделение }
+    {* снять выделение }
    procedure SetToFinish(aMoveUpInLines: Integer);
- protected
- // overridden property methods
-   function pm_GetCollapsed: Boolean; override;
- protected
- // overridden protected methods
    function DoGetBlock(const aDocument: InevObject): InevRange; override;
    function DoAddBlock(const aStart: InevBasePoint;
     const aFinish: InevBasePoint): Boolean; override;
@@ -121,27 +104,17 @@ type
     AllowAddToMulti: Boolean); override;
    procedure DoSetDocument(aValue: Tl3Tag); override;
    function NeedUnselectOnSelectPoint(const aPoint: InevBasePoint): Boolean; override;
-     {* Нужно ли сбрасывать выделение в SelectPoint }
+    {* Нужно ли сбрасывать выделение в SelectPoint }
    function DoUnselect: Boolean; override;
-     {* Снять выделение }
+    {* Снять выделение }
    function UpdateCursor(const aCursor: InevBasePoint): Boolean; override;
+   function pm_GetCollapsed: Boolean; override;
    function IsBlockCursor(const aCursor: InevBasePoint): Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   procedure SetFocus; override;
-     {* Окно получило фокус }
-   procedure ForceStore; override;
- protected
- // protected methods
-   procedure UpdateBlock;
-   procedure AfterProcessCommand; virtual;
- public
- // public methods
+  public
    function SetAtom(anIndex: Cardinal;
     pSource: Tl3Variant;
     const anOpPack: InevOp = nil): Boolean;
@@ -154,59 +127,60 @@ type
     aValue: Integer;
     const anOpPack: InevOp = nil): Boolean;
    function SaveBlock(const aCheckCursor: InevBasePoint = nil): InevLocation;
-     {* получить копию текущего объекта выделения }
+    {* получить копию текущего объекта выделения }
    function AddIndentMarker(aValue: Integer;
     const anOpPack: InevOp = nil): Boolean;
- public
- // public properties
+   procedure SetFocus; override;
+    {* Окно получило фокус }
+   procedure ForceStore; override;
+  public
    property NoCaret: Boolean
-     read f_NoCaret
-     write f_NoCaret;
+    read f_NoCaret
+    write f_NoCaret;
    property Persistent: Boolean
-     read f_Persistent
-     write f_Persistent
-     default false;
-     {* Persistent-выделение? }
+    read f_Persistent
+    write f_Persistent
+    default False;
+    {* Persistent-выделение? }
    property Start: InevLinkedPoint
-     read f_Start;
-     {* начало выделения }
+    read f_Start;
+    {* начало выделения }
    property Finish: InevLinkedPoint
-     read f_Finish;
-     {* конец выделения }
+    read f_Finish;
+    {* конец выделения }
    property DrawLines: Boolean
-     read f_DrawLines
-     write f_DrawLines;
-     {* режим рисования линий? }
+    read f_DrawLines
+    write f_DrawLines;
+    {* режим рисования линий? }
    property StartMark: InevPoint
-     read pm_GetStartMark;
+    read pm_GetStartMark;
    property FinishMark: InevPoint
-     read pm_GetFinishMark;
+    read pm_GetFinishMark;
    property Text: InevText
-     read pm_GetText;
+    read pm_GetText;
    property StartMarkForCtrlKBCtrlKK: InevPoint
-     read pm_GetStartMarkForCtrlKBCtrlKK;
-     {* [$296097324] }
+    read pm_GetStartMarkForCtrlKBCtrlKK;
+    {* [$296097324] }
  end;//TevBlockCursor
 
 implementation
 
 uses
-  k2Base,
-  l3InterfacesMisc,
-  SysUtils,
-  evEditorInterfaces,
-  evExcept,
-  evRange,
-  k2TagGen,
-  l3Base,
-  evDocumentPartGenerator,
-  evMsgCode,
-  nevNavigation,
-  k2Tags,
-  evOp
-  ;
-
-// start class TevBlockCursor
+ l3ImplUses
+ , k2Base
+ , l3InterfacesMisc
+ , SysUtils
+ , evEditorInterfaces
+ , evExcept
+ , evRange
+ , k2TagGen
+ , l3Base
+ , evDocumentPartGenerator
+ , evMsgCode
+ , nevNavigation
+ , k2Tags
+ , evOp
+;
 
 function TevBlockCursor.pm_GetStartMark: InevPoint;
 //#UC START# *48E3824C0136_487B5D8D00EDget_var*
@@ -264,8 +238,8 @@ begin
 end;//TevBlockCursor.AfterProcessCommand
 
 function TevBlockCursor.SetAtom(anIndex: Cardinal;
-  pSource: Tl3Variant;
-  const anOpPack: InevOp = nil): Boolean;
+ pSource: Tl3Variant;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48E391A7001E_487B5D8D00ED_var*
 var
  l_Cursor : InevBasePoint;
@@ -303,9 +277,9 @@ begin
 end;//TevBlockCursor.SetAtom
 
 function TevBlockCursor.ProcessCommand(aMsg: Integer;
-  aCode: Cardinal;
-  const anOp: InevOp;
-  aCount: Integer): Boolean;
+ aCode: Cardinal;
+ const anOp: InevOp;
+ aCount: Integer): Boolean;
 //#UC START# *48E3967B03AF_487B5D8D00ED_var*
 
  function ExtendingOp2Op(var Op          : Cardinal;
@@ -529,8 +503,8 @@ begin
 end;//TevBlockCursor.DeleteHyperlink
 
 function TevBlockCursor.ChangeParam(const aMarker: IevMarker;
-  aValue: Integer;
-  const anOpPack: InevOp = nil): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48E39E220023_487B5D8D00ED_var*
 var
  l_Cursor : InevBasePoint;
@@ -558,6 +532,7 @@ begin
 end;//TevBlockCursor.ChangeParam
 
 function TevBlockCursor.SaveBlock(const aCheckCursor: InevBasePoint = nil): InevLocation;
+ {* получить копию текущего объекта выделения }
 //#UC START# *48E39F8403B6_487B5D8D00ED_var*
 var
  l_CC : InevBasePoint;
@@ -576,7 +551,7 @@ begin
 end;//TevBlockCursor.SaveBlock
 
 function TevBlockCursor.AddIndentMarker(aValue: Integer;
-  const anOpPack: InevOp = nil): Boolean;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *48E3A0BC0108_487B5D8D00ED_var*
 var
  l_Cursor : InevBasePoint;
@@ -628,10 +603,11 @@ begin
 end;//TevBlockCursor.Modify
 
 function TevBlockCursor.InsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp = nil;
-  InsertMode: Boolean = true;
-  aFlags: TnevInsertStringFlags = []): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp = nil;
+ InsertMode: Boolean = True;
+ aFlags: TnevInsertStringFlags = []): Boolean;
+ {* вставляет строку. }
 //#UC START# *47C5B31203AD_487B5D8D00ED_var*
 var
  l_Text : InevText;  
@@ -666,11 +642,11 @@ begin
 end;//TevBlockCursor.InsertString
 
 function TevBlockCursor.InsertStream(const aView: InevView;
-  const aStream: IStream;
-  aFormat: TnevFormat;
-  const anOp: InevOp = nil;
-  aFlags: TevLoadFlags = evDefaultLoadFlags;
-  aCodePage: Integer = CP_DefaultValue): Boolean;
+ const aStream: IStream;
+ aFormat: TnevFormat;
+ const anOp: InevOp = nil;
+ aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+ aCodePage: Integer = CP_DefaultValue): Boolean;
 //#UC START# *47C5B3410044_487B5D8D00ED_var*
 var
  l_Text : InevText;
@@ -703,9 +679,10 @@ begin
 end;//TevBlockCursor.InsertStream
 
 function TevBlockCursor.DeleteString(const aView: InevView;
-  Count: Integer;
-  const anOp: InevOp = nil;
-  aFlags: TnevInsertStringFlags = []): Boolean;
+ Count: Integer;
+ const anOp: InevOp = nil;
+ aFlags: TnevInsertStringFlags = []): Boolean;
+ {* удаляет строку. }
 //#UC START# *47C5B48E01CF_487B5D8D00ED_var*
 //#UC END# *47C5B48E01CF_487B5D8D00ED_var*
 begin
@@ -723,8 +700,8 @@ begin
 end;//TevBlockCursor.DeleteString
 
 function TevBlockCursor.DeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *47C5B4A30392_487B5D8D00ED_var*
 //#UC END# *47C5B4A30392_487B5D8D00ED_var*
 begin
@@ -745,8 +722,8 @@ begin
 end;//TevBlockCursor.DeleteChar
 
 function TevBlockCursor.InsertBreak(const aView: InevView;
-  aDrawLines: Boolean = false;
-  const anOp: InevOp = nil): Boolean;
+ aDrawLines: Boolean = False;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C5B4B10123_487B5D8D00ED_var*
 var
  l_Text : InevText;
@@ -770,8 +747,8 @@ begin
 end;//TevBlockCursor.InsertBreak
 
 function TevBlockCursor.DeleteCharToLeft(const aView: InevView;
-  aDrawLines: Boolean = false;
-  const anOp: InevOp = nil): Boolean;
+ aDrawLines: Boolean = False;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C5B4BF021F_487B5D8D00ED_var*
 //#UC END# *47C5B4BF021F_487B5D8D00ED_var*
 begin
@@ -789,8 +766,8 @@ begin
 end;//TevBlockCursor.DeleteCharToLeft
 
 function TevBlockCursor.Split(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *47C5B4CF00D0_487B5D8D00ED_var*
 //#UC END# *47C5B4CF00D0_487B5D8D00ED_var*
 begin
@@ -803,9 +780,9 @@ begin
 end;//TevBlockCursor.Split
 
 function TevBlockCursor.JoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp = nil;
-  MoveSubs: Boolean = true): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp = nil;
+ MoveSubs: Boolean = True): Integer;
 //#UC START# *47C5B4E001F9_487B5D8D00ED_var*
 //#UC END# *47C5B4E001F9_487B5D8D00ED_var*
 begin
@@ -818,7 +795,7 @@ begin
 end;//TevBlockCursor.JoinWith
 
 function TevBlockCursor.JoinWithNext(const aView: InevView;
-  const anOp: InevOp = nil): Boolean;
+ const anOp: InevOp = nil): Boolean;
 //#UC START# *47C5B4FA0219_487B5D8D00ED_var*
 //#UC END# *47C5B4FA0219_487B5D8D00ED_var*
 begin
@@ -831,7 +808,8 @@ begin
 end;//TevBlockCursor.JoinWithNext
 
 procedure TevBlockCursor.AssignSel(const aView: InevView;
-  const aSource: InevRange);
+ const aSource: InevRange);
+ {* присваивает одно выделение другому }
 //#UC START# *48E25C7E0366_487B5D8D00ED_var*
 //#UC END# *48E25C7E0366_487B5D8D00ED_var*
 begin
@@ -841,6 +819,7 @@ begin
 end;//TevBlockCursor.AssignSel
 
 function TevBlockCursor.GetBlock: InevRange;
+ {* получить текущий объект выделения }
 //#UC START# *48E25C980073_487B5D8D00ED_var*
 //#UC END# *48E25C980073_487B5D8D00ED_var*
 begin
@@ -850,6 +829,7 @@ begin
 end;//TevBlockCursor.GetBlock
 
 procedure TevBlockCursor.SetToStart;
+ {* установить выделение в начало }
 //#UC START# *48E25CA5027C_487B5D8D00ED_var*
 //#UC END# *48E25CA5027C_487B5D8D00ED_var*
 begin
@@ -859,6 +839,7 @@ begin
 end;//TevBlockCursor.SetToStart
 
 function TevBlockCursor.Unselect(const aView: InevView): Boolean;
+ {* снять выделение }
 //#UC START# *48E25CB3032B_487B5D8D00ED_var*
 //#UC END# *48E25CB3032B_487B5D8D00ED_var*
 begin
@@ -889,7 +870,7 @@ begin
 end;//TevBlockCursor.DoGetBlock
 
 function TevBlockCursor.DoAddBlock(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
+ const aFinish: InevBasePoint): Boolean;
 //#UC START# *48E2719C019C_487B5D8D00ED_var*
 var
  l_Pack    : InevOp;
@@ -943,8 +924,8 @@ begin
 end;//TevBlockCursor.DoCursorChanged
 
 procedure TevBlockCursor.DoAssignSel(const aView: InevView;
-  const aSource: InevRange;
-  AllowAddToMulti: Boolean);
+ const aSource: InevRange;
+ AllowAddToMulti: Boolean);
 //#UC START# *48E274CF007B_487B5D8D00ED_var*
 var
  BS   : InevBasePoint;
@@ -1029,6 +1010,7 @@ begin
 end;//TevBlockCursor.DoSetDocument
 
 function TevBlockCursor.NeedUnselectOnSelectPoint(const aPoint: InevBasePoint): Boolean;
+ {* Нужно ли сбрасывать выделение в SelectPoint }
 //#UC START# *48E276D90043_487B5D8D00ED_var*
 //#UC END# *48E276D90043_487B5D8D00ED_var*
 begin
@@ -1038,6 +1020,7 @@ begin
 end;//TevBlockCursor.NeedUnselectOnSelectPoint
 
 function TevBlockCursor.DoUnselect: Boolean;
+ {* Снять выделение }
 //#UC START# *48E2771B024F_487B5D8D00ED_var*
 var
  l_Pack    : InevOp;
@@ -1089,6 +1072,7 @@ begin
 end;//TevBlockCursor.DoUnselect
 
 procedure TevBlockCursor.SetFocus;
+ {* Окно получило фокус }
 //#UC START# *48E370FF0359_487B5D8D00ED_var*
 //#UC END# *48E370FF0359_487B5D8D00ED_var*
 begin
@@ -1161,7 +1145,8 @@ begin
 end;//TevBlockCursor.IsBlockCursor
 
 function TevBlockCursor.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_487B5D8D00ED_var*
 var
  l_Cursor      : InevBasePoint;
@@ -1249,7 +1234,6 @@ begin
 end;//TevBlockCursor.ForceStore
 
 procedure TevBlockCursor.ClearFields;
- {-}
 begin
  f_Start := nil;
  f_Finish := nil;

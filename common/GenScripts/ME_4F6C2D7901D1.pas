@@ -23,7 +23,6 @@ type
   {* Ѕазовый класс дл€ инструментов дл€ тегов, с использованием _TevLocation. }
   private
    f_View: InevView;
-    {* ѕоле дл€ свойства View }
   protected
    f_Location: InevLocation;
   protected

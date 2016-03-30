@@ -1,124 +1,104 @@
 unit evDropTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$Extensions"
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evDropTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest$Extensions::QueryCardControlContainers$View::TevDropTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropTree.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TevDropTree" MUID: (47D0211D0209)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  Messages,
-  Classes,
-  AbsSubTree
-  ;
+ l3IntfUses
+ , AbsSubTree
+ , Classes
+ , Messages
+ , l3TreeInterfaces
+ //#UC START# *47D0211D0209intf_uses*
+ //#UC END# *47D0211D0209intf_uses*
+;
 
 type
- TChooseItem = procedure (Sender: TObject;
+ TChooseItem = procedure(Sender: TObject;
   const Value: Il3SimpleNode) of object;
 
- TCheckEvent = function : Boolean of object;
+ TCheckEvent = function: Boolean of object;
 
-//#UC START# *47D0211D0209ci*
-//#UC END# *47D0211D0209ci*
-//#UC START# *47D0211D0209cit*
-//#UC END# *47D0211D0209cit*
+ //#UC START# *47D0211D0209ci*
+ //#UC END# *47D0211D0209ci*
+ //#UC START# *47D0211D0209cit*
+ //#UC END# *47D0211D0209cit*
  TevDropTree = class(TAbsSubTree)
- private
- // private fields
-   f_IsList : Boolean;
-   f_IsInvert : Boolean;
-   f_IsStartResize : Boolean;
-   f_Width : Integer;
-   f_OnEndResize : TNotifyEvent;
-    {* Поле для свойства OnEndResize}
-   f_OnNeedCloseTree : TNotifyEvent;
-    {* Поле для свойства OnNeedCloseTree}
-   f_OnStartResize : TNotifyEvent;
-    {* Поле для свойства OnStartResize}
-   f_OnOwnerAssigned : TCheckEvent;
-    {* Поле для свойства OnOwnerAssigned}
-   f_OnChooseItem : TChooseItem;
-    {* Поле для свойства OnChooseItem}
- private
- // private methods
+  private
+   f_IsList: Boolean;
+   f_IsInvert: Boolean;
+   f_IsStartResize: Boolean;
+   f_Width: Integer;
+   f_OnEndResize: TNotifyEvent;
+   f_OnNeedCloseTree: TNotifyEvent;
+   f_OnStartResize: TNotifyEvent;
+   f_OnOwnerAssigned: TCheckEvent;
+   f_OnChooseItem: TChooseItem;
+  private
    procedure WMExitSizeMove(var Message: TMessage); message WM_EXITSIZEMOVE;
    procedure WMEnterSizeMove(var Message: TMessage); message WM_ENTERSIZEMOVE;
    procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
    procedure WMLButtonDown(var Msg: TWMLButtonDown); message WM_LBUTTONDOWN;
- protected
- // realized methods
+  protected
    function IsSizeableTree: Boolean; override;
    function IsShowGripper: Boolean; override;
    function IsList: Boolean; override;
    function IsInvert: Boolean; override;
    function IsOwnerAssigned: Boolean; override;
    function GetWidth: Integer; override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DoOnSelect(Index: LongInt;
-      aValue: Integer); override;
- public
- // public methods
+    aValue: Integer); override;
+  public
    procedure Init(anInvert: Boolean;
-     anIsList: Boolean;
-     aWidth: Integer);
- public
- // public properties
+    anIsList: Boolean;
+    aWidth: Integer);
+  public
    property OnEndResize: TNotifyEvent
-     read f_OnEndResize
-     write f_OnEndResize;
+    read f_OnEndResize
+    write f_OnEndResize;
    property OnNeedCloseTree: TNotifyEvent
-     read f_OnNeedCloseTree
-     write f_OnNeedCloseTree;
+    read f_OnNeedCloseTree
+    write f_OnNeedCloseTree;
    property OnStartResize: TNotifyEvent
-     read f_OnStartResize
-     write f_OnStartResize;
+    read f_OnStartResize
+    write f_OnStartResize;
    property OnOwnerAssigned: TCheckEvent
-     read f_OnOwnerAssigned
-     write f_OnOwnerAssigned;
+    read f_OnOwnerAssigned
+    write f_OnOwnerAssigned;
    property OnChooseItem: TChooseItem
-     read f_OnChooseItem
-     write f_OnChooseItem;
-//#UC START# *47D0211D0209publ*
+    read f_OnChooseItem
+    write f_OnChooseItem;
+ //#UC START# *47D0211D0209publ*
   property AllowWithoutCurrent;
   property IsShowLines;
   property Font;
-//#UC END# *47D0211D0209publ*
+ //#UC END# *47D0211D0209publ*
  end;//TevDropTree
 
 implementation
 
 uses
-  Windows,
-  l3ControlsTypes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevDropTree
+ l3ImplUses
+ , Windows
+ , l3ControlsTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47D0211D0209impl_uses*
+ //#UC END# *47D0211D0209impl_uses*
+;
 
 procedure TevDropTree.Init(anInvert: Boolean;
-  anIsList: Boolean;
-  aWidth: Integer);
+ anIsList: Boolean;
+ aWidth: Integer);
 //#UC START# *5299A3A90164_47D0211D0209_var*
 //#UC END# *5299A3A90164_47D0211D0209_var*
 begin
@@ -240,7 +220,7 @@ begin
 //#UC END# *5298BFFA014B_47D0211D0209_impl*
 end;//TevDropTree.GetWidth
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TevDropTree.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_47D0211D0209_var*
 //#UC END# *47E136A80191_47D0211D0209_var*
@@ -252,10 +232,10 @@ begin
  inherited;
 //#UC END# *47E136A80191_47D0211D0209_impl*
 end;//TevDropTree.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TevDropTree.DoOnSelect(Index: LongInt;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *5152C85403DA_47D0211D0209_var*
 //#UC END# *5152C85403DA_47D0211D0209_var*
 begin
@@ -272,9 +252,9 @@ end;//TevDropTree.DoOnSelect
 //#UC END# *47D0211D0209impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevDropTree
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevDropTree);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevDropTree }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

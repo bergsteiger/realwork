@@ -1,52 +1,40 @@
 unit evSubPanelSubCollection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPanelSubCollection.pas"
-// Начат: 26.02.2010 16:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::SubPanel::TevSubPanelSubCollection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPanelSubCollection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSubPanelSubCollection" MUID: (4B87D32A0023)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  evSubPanelSubArray,
-  evSubPanelSubCollectionPrim
-  ;
+ l3IntfUses
+ , evSubPanelSubCollectionPrim
+ , evSubPanelSubArray
+ , l3Types
+;
 
 type
  _l3ObjectByHandleSearcher_Parent_ = TevSubPanelSubCollectionPrim;
  {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
  TevSubPanelSubCollection = class(_l3ObjectByHandleSearcher_)
- public
- // public methods
+  public
    function CheckLayer(aHandle: Tl3Handle): TevSubPanelSubArray;
  end;//TevSubPanelSubCollection
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , l3Memory
+;
 
 type _Instance_R_ = TevSubPanelSubCollection;
 
 {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
-
-// start class TevSubPanelSubCollection
 
 function TevSubPanelSubCollection.CheckLayer(aHandle: Tl3Handle): TevSubPanelSubArray;
 //#UC START# *4B87D6CD02BD_4B87D32A0023_var*

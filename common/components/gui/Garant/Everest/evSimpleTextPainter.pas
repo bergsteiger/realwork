@@ -1,55 +1,40 @@
 unit evSimpleTextPainter;
+ {* Класс для раскраски строк текста. Без нарезки на строки. И без форматирования таблиц в псевдографику. Для решения задачи [$91848978]. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSimpleTextPainter.pas"
-// Начат: 23.05.2008 17:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevSimpleTextPainter
-//
-// Класс для раскраски строк текста. Без нарезки на строки. И без форматирования таблиц в
-// псевдографику. Для решения задачи [$91848978].
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSimpleTextPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSimpleTextPainter" MUID: (4836C450038D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2Base,
-  k2DocumentGenerator,
-  evCustomTextFormatter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evCustomTextFormatter
+ , k2Base
+ , k2DocumentGenerator
+ , l3Variant
+;
 
 type
  TevSimpleTextPainter = class(TevCustomTextFormatter)
   {* Класс для раскраски строк текста. Без нарезки на строки. И без форматирования таблиц в псевдографику. Для решения задачи [$91848978]. }
- private
- // private fields
-   f_InCell : Integer;
-   f_OldNSRC : Integer;
-    {* Пишем таблицы в старом формате NSRC}
-   f_TableType : Tk2Type;
-    {* Тип таблицы}
-   f_Zoom : Integer;
-    {* Масштаб}
-   f_WasSoftEnter : Boolean;
- private
- // private methods
+  private
+   f_InCell: Integer;
+   f_OldNSRC: Integer;
+    {* Пишем таблицы в старом формате NSRC }
+   f_TableType: Tk2Type;
+    {* Тип таблицы }
+   f_Zoom: Integer;
+    {* Масштаб }
+   f_WasSoftEnter: Boolean;
+  private
    function NeedTranslateToNext(const anAtom: Tk2StackAtom): Boolean;
- protected
- // overridden protected methods
+  protected
+   function OpenTableIfNeeded: Boolean;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoStartAtom(var Atom: Tk2StackAtom); override;
    procedure DoFinishAtom(var anAtom: Tk2StackAtom); override;
    function DoBeforeFinishAtom(var Atom: Tk2StackAtom): Boolean; override;
@@ -61,37 +46,31 @@ type
    procedure StartChild(TypeID: Tl3Type); override;
    procedure StartTag(TagID: Integer); override;
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    function NeedAddSpaces: Boolean; override;
- protected
- // protected methods
-   function OpenTableIfNeeded: Boolean;
  end;//TevSimpleTextPainter
 
 implementation
 
 uses
-  k2Tags,
-  TextPara_Const,
-  Document_Const,
-  ObjectSegment_Const,
-  TableCell_Const,
-  Table_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Facade,
-  l3CustomString,
-  evNSRCConst,
-  l3String,
-  l3Chars,
-  SBS_Const,
-  k2Interfaces
-  ;
-
-// start class TevSimpleTextPainter
+ l3ImplUses
+ , k2Tags
+ , TextPara_Const
+ , Document_Const
+ , ObjectSegment_Const
+ , TableCell_Const
+ , Table_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Facade
+ , l3CustomString
+ , evNSRCConst
+ , l3String
+ , l3Chars
+ , SBS_Const
+ , k2Interfaces
+;
 
 function TevSimpleTextPainter.OpenTableIfNeeded: Boolean;
 //#UC START# *4AFAD5860039_4836C450038D_var*
@@ -134,6 +113,7 @@ begin
 end;//TevSimpleTextPainter.NeedTranslateToNext
 
 procedure TevSimpleTextPainter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4836C450038D_var*
 //#UC END# *479731C50290_4836C450038D_var*
 begin
@@ -215,8 +195,8 @@ begin
 end;//TevSimpleTextPainter.DoBeforeFinishAtom
 
 procedure TevSimpleTextPainter.DoAddAtom(const Atom: Tk2StackAtom;
-  Prop: Integer;
-  aSource: Tl3Variant);
+ Prop: Integer;
+ aSource: Tl3Variant);
 //#UC START# *4836B3DB01C9_4836C450038D_var*
 //#UC END# *4836B3DB01C9_4836C450038D_var*
 begin
@@ -230,7 +210,7 @@ begin
 end;//TevSimpleTextPainter.DoAddAtom
 
 procedure TevSimpleTextPainter.AddAtom(AtomIndex: Integer;
-  aValue: Tl3Variant);
+ aValue: Tl3Variant);
 //#UC START# *4836D26F0055_4836C450038D_var*
 var
  l_Text : Tl3CustomString;
@@ -346,6 +326,7 @@ begin
 end;//TevSimpleTextPainter.StartTag
 
 procedure TevSimpleTextPainter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4836C450038D_var*
 var
  l_C : PevStackAtom;

@@ -1,87 +1,65 @@
 unit nevTableCell;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTableCell.pas"
-// Начат: 14.07.2006 15:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevTableCell
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableCell.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableCell" MUID: (48CE0CA20003)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevTools,
-  nevParaList,
-  l3Variant,
-  nevBase
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , nevParaList
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevTableCell = class(TnevParaList, InevTableCell)
- private
- // private methods
+  private
    function FindCell(const aRow: InevPara): InevPara;
- protected
- // realized methods
+  protected
    function GetMergeHead(anIgnoreMergeStatus: Boolean = False): InevTableCell;
-     {* Возвращает первую ячейку в объединении. }
+    {* Возвращает первую ячейку в объединении. }
    function GetContinueCell(aNeedValidate: Boolean;
-     aWhereFind: TnevFindCell): InevTableCell;
-     {* Возвращает нижнюю ячейку объединения, если такая существует. }
+    aWhereFind: TnevFindCell): InevTableCell;
+    {* Возвращает нижнюю ячейку объединения, если такая существует. }
    function GetContinueCellInRow(const aRow: InevPara;
-     aWhereFind: TnevFindCell): InevTableCell;
+    aWhereFind: TnevFindCell): InevTableCell;
    function GetHeadCellPara(anIgnoreMergeStatus: Boolean = False): InevPara;
    function GetContinueCellPara(aNeedValidate: Boolean;
-     aWhereFind: TnevFindCell): InevPara;
+    aWhereFind: TnevFindCell): InevPara;
    function CheckCellWidth(aValue: Integer;
-     aOuterWidth: Integer): Integer;
+    aOuterWidth: Integer): Integer;
    function IsEmptyCell: Boolean;
    function GetUpperCell: InevPara;
-     {* Возвращает ячейку сверху. }
- protected
- // overridden protected methods
+    {* Возвращает ячейку сверху. }
    function GetNeedIncludeHeight(aCheckType: Boolean): Boolean; override;
    function GetOffsetX: Integer; override;
    function GetOverlapType: TOverlapType; override;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant): InevTableCell; reintroduce;
  end;//TnevTableCell
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3UnitsTools,
-  k2Tags,
-  evdTypes,
-  nevFacade,
-  k2Base,
-  evDef,
-  l3MinMax,
-  evConst,
-  evTableCellUtils
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevTableCell
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , nevFacade
+ , k2Base
+ , evDef
+ , l3MinMax
+ , evConst
+ , evTableCellUtils
+ , l3UnitsTools
+;
 
 function TnevTableCell.FindCell(const aRow: InevPara): InevPara;
 //#UC START# *5006717503DA_48CE0CA20003_var*
@@ -128,9 +106,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevTableCell.Make
 
 function TnevTableCell.GetMergeHead(anIgnoreMergeStatus: Boolean = False): InevTableCell;
+ {* Возвращает первую ячейку в объединении. }
 //#UC START# *47C7F0F50102_48CE0CA20003_var*
 var
  l_MergeCell: InevPara;
@@ -145,7 +124,8 @@ begin
 end;//TnevTableCell.GetMergeHead
 
 function TnevTableCell.GetContinueCell(aNeedValidate: Boolean;
-  aWhereFind: TnevFindCell): InevTableCell;
+ aWhereFind: TnevFindCell): InevTableCell;
+ {* Возвращает нижнюю ячейку объединения, если такая существует. }
 //#UC START# *47C7F10600AE_48CE0CA20003_var*
 var
  l_MergeCell : InevPara;
@@ -160,7 +140,7 @@ begin
 end;//TnevTableCell.GetContinueCell
 
 function TnevTableCell.GetContinueCellInRow(const aRow: InevPara;
-  aWhereFind: TnevFindCell): InevTableCell;
+ aWhereFind: TnevFindCell): InevTableCell;
 //#UC START# *4E785D93010B_48CE0CA20003_var*
 //#UC END# *4E785D93010B_48CE0CA20003_var*
 begin
@@ -218,7 +198,7 @@ begin
 end;//TnevTableCell.GetHeadCellPara
 
 function TnevTableCell.GetContinueCellPara(aNeedValidate: Boolean;
-  aWhereFind: TnevFindCell): InevPara;
+ aWhereFind: TnevFindCell): InevPara;
 //#UC START# *5006706B005B_48CE0CA20003_var*
 var
  l_MergeCell   : InevPara;
@@ -257,7 +237,7 @@ begin
 end;//TnevTableCell.GetContinueCellPara
 
 function TnevTableCell.CheckCellWidth(aValue: Integer;
-  aOuterWidth: Integer): Integer;
+ aOuterWidth: Integer): Integer;
 //#UC START# *502CE0A10224_48CE0CA20003_var*
 //#UC END# *502CE0A10224_48CE0CA20003_var*
 begin
@@ -276,6 +256,7 @@ begin
 end;//TnevTableCell.IsEmptyCell
 
 function TnevTableCell.GetUpperCell: InevPara;
+ {* Возвращает ячейку сверху. }
 //#UC START# *53DF6EDF02B3_48CE0CA20003_var*
 var
  l_PrevRow : InevPara;
@@ -338,7 +319,6 @@ begin
  Result := TOverlapType(IntA[k2_tiMergeStatus]);
 //#UC END# *48CE1B22020E_48CE0CA20003_impl*
 end;//TnevTableCell.GetOverlapType
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

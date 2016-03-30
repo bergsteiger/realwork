@@ -1,132 +1,53 @@
 unit nevControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevControl.pas"
-// Начат: 29.09.2008 17:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::CoreControls::TnevControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevControl.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TnevControl" MUID: (48E0E5C1032A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  afwControl,
-  l3Units,
-  Types,
-  evdStyles,
-  nevTools,
-  afwInterfaces,
-  l3Core,
-  l3Interfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , afwControl
+ , nevBase
+ , nevTools
+ , evdStyles
+ , l3Units
+ , Types
+ , l3Core
+ , l3Interfaces
+ , l3Variant
+ , afwInterfaces
+;
 
 type
  _evStyleTableListener_Parent_ = TafwControl;
- {$Include ..\Everest\evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  TnevControl = class(_evStyleTableListener_, InevViewMetrics, InevControl)
- private
- // private fields
-   f_WebStyle : Boolean;
-    {* Поле для свойства WebStyle}
-   f_RMargin : Integer;
-    {* Поле для свойства RMargin}
-   f_AllowRubberTables : TnevRubberTablesMode;
-    {* Поле для свойства AllowRubberTables}
-   f_AACLike : TnevAACLikeMode;
-    {* Поле для свойства AACLike}
- protected
- // property methods
+  private
+   f_WebStyle: Boolean;
+   f_RMargin: Integer;
+    {* правый отступ от окна до текста }
+   f_AllowRubberTables: TnevRubberTablesMode;
+   f_AACLike: TnevAACLikeMode;
+  protected
+   f_InPaint: Integer;
+   f_ShowDocumentParts: Boolean;
+   f_HiddenStyles: TevStandardStyles;
+   f_ExcludeSuper: TevNormalSegLayerHandleSet;
+  protected
    procedure pm_SetWebStyle(aValue: Boolean);
    procedure pm_SetRMargin(aValue: Integer);
    procedure pm_SetAllowRubberTables(aValue: TnevRubberTablesMode);
    procedure pm_SetAACLike(aValue: TnevAACLikeMode);
    function pm_GetActiveElementPrim: InevActiveElement; virtual;
    function pm_GetForceDrawFocusRectPrim: Boolean; virtual;
- protected
- // realized methods
-   function pm_GetLimitWidth: TnevInch;
-   function pm_GetInfoCanvas: InevInfoCanvas;
-   function pm_GetIsWebStyle: Boolean;
-   function pm_GetShowDocumentParts: Boolean;
-   function pm_GetShowSpecial: Boolean;
-   function pm_GetHiddenStyles: TnevStandardStyles;
-   procedure InvalidateRect(const aRect: TnevRect);
-     {* сообщает контролу о необходимости перерисовки указанного прямоугольника, когда-нибудь в будущем. }
-   procedure SignalScroll(aDeltaY: Integer;
-    aNeedVert: Boolean);
-     {* сообщает контролу, о том, что изменилась позиция скроллера. }
-   function GetDelphiControl: TComponent;
-   function CloseQuery: Boolean;
-     {* спрашивает контрол, о возможности закрытия окна, которому он принадлежит. }
-   function LP2DP(const aPoint: TnevPoint;
-    toScreen: Boolean = false): TPoint;
-   procedure CursorChanged;
-   function CanScroll: Boolean;
-   procedure SetFlag(aFlag: TevUpdateWindowFlag);
-     {* установить флаг aFlag. }
-   procedure UpdateCaretAndInvalidate;
-     {* Проверить и переставить каретку + перерисоваться }
-   function pm_GetData: InevObject;
-   function Get_Processor: InevProcessor;
-   function pm_GetWindowExtent: TnevSPoint;
-   function pm_GetMetrics: InevViewMetrics;
-   function pm_GetDrawCanvas: InevCanvas;
-   function pm_GetMousePos: TnevPoint;
-   function pm_GetSelection: InevSelection;
-   function pm_GetCommandProcessor: InevCommandProcessor;
-   function pm_GetLMargin: Integer;
-   function pm_GetAllowMultiSelect: Boolean;
-   function pm_GetViewArea: InevViewArea;
-   function pm_GetView: InevInputView;
-   function pm_GetExtent: TnevPoint;
-   procedure ParaChanged;
-     {* Нотификация о смене текущего параграфа. }
-   function Get_ActiveElement: InevActiveElement;
-   {$If not defined(DesignTimeLibrary)}
-   procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
-   function Get_ExcludeSuper: TevNormalSegLayerHandleSet;
-   function Get_ForceDrawFocusRect: Boolean;
-   function Get_FormatCanvas: InevInfoCanvas;
-   procedure ForceRepaint;
-     {* По жёсткому перерисовать сожержимое контрола (прямо внутри операции редактирования). Нужно для http://mdp.garant.ru/pages/viewpage.action?pageId=204113269 }
-   function Get_AllowRubberTables: TnevRubberTablesMode;
-   function IsTagCollapsed(aTag: Tl3Variant): Boolean;
-   function Get_Data: InevObjectPrim;
-   function InClose: Boolean;
-     {* Редактор в процессе закрытия. }
-   function Get_AACLike: TnevAACLikeMode;
-   function NeedTotalRecalc: Boolean;
- public
- // realized methods
-   function AllowsThisDecor(aFI: TnevFormatInfoPrim;
-     aType: TnevDecorType): Boolean;
-     {* Разрешает ли контейтер документа применять указанное декорирование }
- protected
- // protected fields
-   f_InPaint : Integer;
-   f_ShowDocumentParts : Boolean;
-   f_HiddenStyles : TevStandardStyles;
-   f_ExcludeSuper : TevNormalSegLayerHandleSet;
- protected
- // protected methods
    function GetInfoCanvas: InevInfoCanvas; virtual;
    function GetLimitWidth: Integer; virtual; abstract;
    procedure DoChanged(aPlace: TnevChangePlace); virtual;
-     {* Данные для отображения изменились }
+    {* Данные для отображения изменились }
    procedure DoSignalScroll(aDeltaY: Integer;
     aNeedVert: Boolean); virtual;
    function DoCloseQuery: Boolean; virtual;
@@ -142,64 +63,114 @@ type
    function GetCanScroll: Boolean; virtual;
    function GetMousePos(var aPt: Tl3SPoint): Tl3Point;
    function DP2LP(const aPoint: TPoint;
-    fromScreen: Boolean = false): Tl3Point;
+    fromScreen: Boolean = False): Tl3Point;
    procedure WebStyleChanged; virtual;
    procedure DoParaChange; virtual;
-     {* Нотификация о смене параграфа. }
+    {* Нотификация о смене параграфа. }
    procedure DoForceRepaint; virtual;
    function GetInClose: Boolean; virtual;
- protected
- // protected properties
+   function pm_GetLimitWidth: TnevInch;
+   function pm_GetInfoCanvas: InevInfoCanvas;
+   function pm_GetIsWebStyle: Boolean;
+   function pm_GetShowDocumentParts: Boolean;
+   function pm_GetShowSpecial: Boolean;
+   function pm_GetHiddenStyles: TnevStandardStyles;
+   procedure InvalidateRect(const aRect: TnevRect);
+    {* сообщает контролу о необходимости перерисовки указанного прямоугольника, когда-нибудь в будущем. }
+   procedure SignalScroll(aDeltaY: Integer;
+    aNeedVert: Boolean);
+    {* сообщает контролу, о том, что изменилась позиция скроллера. }
+   function GetDelphiControl: TComponent;
+   function CloseQuery: Boolean;
+    {* спрашивает контрол, о возможности закрытия окна, которому он принадлежит. }
+   function LP2DP(const aPoint: TnevPoint;
+    toScreen: Boolean = False): TPoint;
+   procedure CursorChanged;
+   function CanScroll: Boolean;
+   procedure SetFlag(aFlag: TevUpdateWindowFlag);
+    {* установить флаг aFlag. }
+   procedure UpdateCaretAndInvalidate;
+    {* Проверить и переставить каретку + перерисоваться }
+   function pm_GetData: InevObject;
+   function Get_Processor: InevProcessor;
+   function pm_GetWindowExtent: TnevSPoint;
+   function pm_GetMetrics: InevViewMetrics;
+   function pm_GetDrawCanvas: InevCanvas;
+   function pm_GetMousePos: TnevPoint;
+   function pm_GetSelection: InevSelection;
+   function pm_GetCommandProcessor: InevCommandProcessor;
+   function pm_GetLMargin: Integer;
+   function pm_GetAllowMultiSelect: Boolean;
+   function pm_GetViewArea: InevViewArea;
+   function pm_GetView: InevInputView;
+   function pm_GetExtent: TnevPoint;
+   procedure ParaChanged;
+    {* Нотификация о смене текущего параграфа. }
+   function Get_ActiveElement: InevActiveElement;
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure DoStyleTableChanged; override;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   function Get_ExcludeSuper: TevNormalSegLayerHandleSet;
+   function Get_ForceDrawFocusRect: Boolean;
+   function Get_FormatCanvas: InevInfoCanvas;
+   procedure ForceRepaint;
+    {* По жёсткому перерисовать сожержимое контрола (прямо внутри операции редактирования). Нужно для http://mdp.garant.ru/pages/viewpage.action?pageId=204113269 }
+   function Get_AllowRubberTables: TnevRubberTablesMode;
+   function IsTagCollapsed(aTag: Tl3Variant): Boolean;
+   function Get_Data: InevObjectPrim;
+   function InClose: Boolean;
+    {* Редактор в процессе закрытия. }
+   function Get_AACLike: TnevAACLikeMode;
+   function NeedTotalRecalc: Boolean;
+  public
+   function AllowsThisDecor(aFI: TnevFormatInfoPrim;
+    aType: TnevDecorType): Boolean;
+    {* Разрешает ли контейтер документа применять указанное декорирование }
+  protected
    property ActiveElementPrim: InevActiveElement
-     read pm_GetActiveElementPrim;
+    read pm_GetActiveElementPrim;
    property ForceDrawFocusRectPrim: Boolean
-     read pm_GetForceDrawFocusRectPrim;
- public
- // public properties
+    read pm_GetForceDrawFocusRectPrim;
+  public
    property WebStyle: Boolean
-     read f_WebStyle
-     write pm_SetWebStyle
-     default false;
+    read f_WebStyle
+    write pm_SetWebStyle
+    default False;
    property RMargin: Integer
-     read f_RMargin
-     write pm_SetRMargin
-     default 0;
-     {* правый отступ от окна до текста }
+    read f_RMargin
+    write pm_SetRMargin
+    default 0;
+    {* правый отступ от окна до текста }
    property AllowRubberTables: TnevRubberTablesMode
-     read f_AllowRubberTables
-     write pm_SetAllowRubberTables
-     default nevBase.nev_rtmNone;
+    read f_AllowRubberTables
+    write pm_SetAllowRubberTables
+    default nevBase.nev_rtmNone;
    property AACLike: TnevAACLikeMode
-     read f_AACLike
-     write pm_SetAACLike;
+    read f_AACLike
+    write pm_SetAACLike;
  end;//TnevControl
 
 implementation
 
 uses
-  nevFacade,
-  k2Tags,
-  k2Base,
-  l3MinMax,
-  Messages,
-  TextPara_Const,
-  l3Defaults,
-  l3InternalInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
+ l3ImplUses
+ , nevFacade
+ , k2Tags
+ , k2Base
+ , l3MinMax
+ , Messages
+ , TextPara_Const
+ , l3Defaults
+ , l3InternalInterfaces
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$Include ..\Everest\evStyleTableListener.imp.pas}
-
-// start class TnevControl
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
 procedure TnevControl.pm_SetWebStyle(aValue: Boolean);
 //#UC START# *48E0EDB700C0_48E0E5C1032Aset_var*
@@ -287,6 +258,7 @@ begin
 end;//TnevControl.GetInfoCanvas
 
 procedure TnevControl.DoChanged(aPlace: TnevChangePlace);
+ {* Данные для отображения изменились }
 //#UC START# *48E1F0CB0136_48E0E5C1032A_var*
 //#UC END# *48E1F0CB0136_48E0E5C1032A_var*
 begin
@@ -295,7 +267,7 @@ begin
 end;//TnevControl.DoChanged
 
 procedure TnevControl.DoSignalScroll(aDeltaY: Integer;
-  aNeedVert: Boolean);
+ aNeedVert: Boolean);
 //#UC START# *48E1F13202FB_48E0E5C1032A_var*
 //#UC END# *48E1F13202FB_48E0E5C1032A_var*
 begin
@@ -412,7 +384,7 @@ begin
 end;//TnevControl.GetMousePos
 
 function TnevControl.DP2LP(const aPoint: TPoint;
-  fromScreen: Boolean = false): Tl3Point;
+ fromScreen: Boolean = False): Tl3Point;
 //#UC START# *48E1F7A9003B_48E0E5C1032A_var*
 var
  l_Pt: TPoint;
@@ -440,6 +412,7 @@ begin
 end;//TnevControl.WebStyleChanged
 
 procedure TnevControl.DoParaChange;
+ {* Нотификация о смене параграфа. }
 //#UC START# *48E3674B0230_48E0E5C1032A_var*
 //#UC END# *48E3674B0230_48E0E5C1032A_var*
 begin
@@ -521,6 +494,7 @@ begin
 end;//TnevControl.pm_GetHiddenStyles
 
 procedure TnevControl.InvalidateRect(const aRect: TnevRect);
+ {* сообщает контролу о необходимости перерисовки указанного прямоугольника, когда-нибудь в будущем. }
 //#UC START# *47C5BD960201_48E0E5C1032A_var*
 var
  WE   : TafwPoint;
@@ -547,7 +521,8 @@ begin
 end;//TnevControl.InvalidateRect
 
 procedure TnevControl.SignalScroll(aDeltaY: Integer;
-  aNeedVert: Boolean);
+ aNeedVert: Boolean);
+ {* сообщает контролу, о том, что изменилась позиция скроллера. }
 //#UC START# *47C5BDB9011B_48E0E5C1032A_var*
 //#UC END# *47C5BDB9011B_48E0E5C1032A_var*
 begin
@@ -566,6 +541,7 @@ begin
 end;//TnevControl.GetDelphiControl
 
 function TnevControl.CloseQuery: Boolean;
+ {* спрашивает контрол, о возможности закрытия окна, которому он принадлежит. }
 //#UC START# *47C5BDD701CB_48E0E5C1032A_var*
 //#UC END# *47C5BDD701CB_48E0E5C1032A_var*
 begin
@@ -575,7 +551,7 @@ begin
 end;//TnevControl.CloseQuery
 
 function TnevControl.LP2DP(const aPoint: TnevPoint;
-  toScreen: Boolean = false): TPoint;
+ toScreen: Boolean = False): TPoint;
 //#UC START# *47C5BFFB02EC_48E0E5C1032A_var*
 var
  l_l3P: Tl3Point;
@@ -614,6 +590,7 @@ begin
 end;//TnevControl.CanScroll
 
 procedure TnevControl.SetFlag(aFlag: TevUpdateWindowFlag);
+ {* установить флаг aFlag. }
 //#UC START# *47C5C0260203_48E0E5C1032A_var*
 //#UC END# *47C5C0260203_48E0E5C1032A_var*
 begin
@@ -623,6 +600,7 @@ begin
 end;//TnevControl.SetFlag
 
 procedure TnevControl.UpdateCaretAndInvalidate;
+ {* Проверить и переставить каретку + перерисоваться }
 //#UC START# *47C5C0380010_48E0E5C1032A_var*
 //#UC END# *47C5C0380010_48E0E5C1032A_var*
 begin
@@ -780,6 +758,7 @@ begin
 end;//TnevControl.pm_GetExtent
 
 procedure TnevControl.ParaChanged;
+ {* Нотификация о смене текущего параграфа. }
 //#UC START# *48E3672A03B2_48E0E5C1032A_var*
 //#UC END# *48E3672A03B2_48E0E5C1032A_var*
 begin
@@ -797,7 +776,7 @@ begin
 //#UC END# *4A27CEB10364_48E0E5C1032Aget_impl*
 end;//TnevControl.Get_ActiveElement
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TnevControl.DoStyleTableChanged;
 //#UC START# *4A485B710126_48E0E5C1032A_var*
 //#UC END# *4A485B710126_48E0E5C1032A_var*
@@ -805,7 +784,7 @@ begin
 //#UC START# *4A485B710126_48E0E5C1032A_impl*
 //#UC END# *4A485B710126_48E0E5C1032A_impl*
 end;//TnevControl.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TnevControl.Get_ExcludeSuper: TevNormalSegLayerHandleSet;
 //#UC START# *4AEAE49B024D_48E0E5C1032Aget_var*
@@ -836,6 +815,7 @@ begin
 end;//TnevControl.Get_FormatCanvas
 
 procedure TnevControl.ForceRepaint;
+ {* По жёсткому перерисовать сожержимое контрола (прямо внутри операции редактирования). Нужно для http://mdp.garant.ru/pages/viewpage.action?pageId=204113269 }
 //#UC START# *4BCC30EC0284_48E0E5C1032A_var*
 //#UC END# *4BCC30EC0284_48E0E5C1032A_var*
 begin
@@ -875,7 +855,8 @@ begin
 end;//TnevControl.Get_Data
 
 function TnevControl.AllowsThisDecor(aFI: TnevFormatInfoPrim;
-  aType: TnevDecorType): Boolean;
+ aType: TnevDecorType): Boolean;
+ {* Разрешает ли контейтер документа применять указанное декорирование }
 //#UC START# *4F33E2A30116_48E0E5C1032A_var*
 //#UC END# *4F33E2A30116_48E0E5C1032A_var*
 begin
@@ -885,6 +866,7 @@ begin
 end;//TnevControl.AllowsThisDecor
 
 function TnevControl.InClose: Boolean;
+ {* Редактор в процессе закрытия. }
 //#UC START# *4F3CE6140329_48E0E5C1032A_var*
 //#UC END# *4F3CE6140329_48E0E5C1032A_var*
 begin
@@ -912,9 +894,9 @@ begin
 end;//TnevControl.NeedTotalRecalc
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TnevControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnevControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TnevControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

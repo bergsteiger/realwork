@@ -26,6 +26,8 @@ uses
  , Messages
  , Windows
  , ElUxTheme
+ //#UC START# *482C80EA0131intf_uses*
+ //#UC END# *482C80EA0131intf_uses*
 ;
 
 const
@@ -42,17 +44,11 @@ type
  , Il3WndProcListener, Il3MouseListener)
   private
    f_ComboStyle: TComboStyle;
-    {* Поле для свойства ComboStyle }
    f_ExtButton: TComponent;
-    {* Поле для свойства ExtButton }
    f_CurrentMode: TCurrentMode;
-    {* Поле для свойства CurrentMode }
    f_Dropped: Boolean;
-    {* Поле для свойства Dropped }
    f_OnDropDown: TNotifyEvent;
-    {* Поле для свойства OnDropDown }
    f_OnCloseUp: TNotifyEvent;
-    {* Поле для свойства OnCloseUp }
   protected
    f_IgnoreFocus: Boolean;
    f_IgnoreDrop: Boolean;
@@ -175,6 +171,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482C80EA0131impl_uses*
+ //#UC END# *482C80EA0131impl_uses*
 ;
 
 procedure TAbstractDropDown.pm_SetComboStyle(aValue: TComboStyle);

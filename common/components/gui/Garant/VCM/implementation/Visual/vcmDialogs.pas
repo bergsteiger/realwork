@@ -38,7 +38,8 @@ const
  cCustomButtonName = 'Custom';
  cCheckName = 'Check';
  cChoicesName = 'Choices';
- cMsgDlgBtnOrder: array [TMsgDlgBtn] of TMsgDlgBtn = (mbYes
+ cMsgDlgBtnOrder: array [TMsgDlgBtn] of TMsgDlgBtn = (
+ mbYes
  , mbAll
  , mbYesToAll
  , mbNo
@@ -49,7 +50,9 @@ const
  , mbRetry
  , mbIgnore
  , mbHelp
+ {$If Defined(XE)}
  , mbClose
+ {$IfEnd} // Defined(XE)
  );
 
 type
@@ -76,7 +79,6 @@ type
    f_AutoCloseCaption: WideString;
    f_CloseInterval: integer;
    f_NeedShowInTaskBar: Boolean;
-    {* Поле для свойства NeedShowInTaskBar }
   private
    procedure HelpButtonClick(Sender: TObject);
    procedure evntOnCloseTimer(Sender: TObject);

@@ -1,54 +1,40 @@
 unit nevSectionBreakList;
+ {* Список разрывов разделов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevSectionBreakList.pas"
-// Начат: 10.11.2008 13:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Document::TnevSectionBreakList
-//
-// Список разрывов разделов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevSectionBreakList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSectionBreakList" MUID: (49180FCE035B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevSectionBreakListPrim
-  ;
+ l3IntfUses
+ , nevSectionBreakListPrim
+ , nevTools
+;
 
 type
  TnevSectionBreakList = class(TnevSectionBreakListPrim, InevSectionBreaks)
   {* Список разрывов разделов }
- protected
- // realized methods
+  protected
    function GetSectionWidth(const aChild: InevObject;
-     out theWidth: Integer): Boolean;
+    out theWidth: Integer): Boolean;
    function GetSectionBreak(const aChild: InevObject;
-     out theBreak: InevObject): Boolean;
-     {* Возвращает разрыв раздела для указанного дочернего элемента }
+    out theBreak: InevObject): Boolean;
+    {* Возвращает разрыв раздела для указанного дочернего элемента }
  end;//TnevSectionBreakList
 
 implementation
 
 uses
-  evSectionPara
-  ;
-
-// start class TnevSectionBreakList
+ l3ImplUses
+ , evSectionPara
+;
 
 function TnevSectionBreakList.GetSectionWidth(const aChild: InevObject;
-  out theWidth: Integer): Boolean;
+ out theWidth: Integer): Boolean;
 //#UC START# *491933680169_49180FCE035B_var*
 var
  l_Break : InevObject;
@@ -62,7 +48,8 @@ begin
 end;//TnevSectionBreakList.GetSectionWidth
 
 function TnevSectionBreakList.GetSectionBreak(const aChild: InevObject;
-  out theBreak: InevObject): Boolean;
+ out theBreak: InevObject): Boolean;
+ {* Возвращает разрыв раздела для указанного дочернего элемента }
 //#UC START# *4C0CF53A01A4_49180FCE035B_var*
 var
  l_Index : Integer;

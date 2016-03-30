@@ -1,31 +1,19 @@
 unit vtSpeedButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtSpeedButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Buttons::TvtSpeedButton
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtSpeedButton.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtSpeedButton" MUID: (4C43D65C0204)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoTB97)}
-  ,
-  tb97Ctls
-  {$IfEnd} //not NoTB97
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoTB97)}
+ , tb97Ctls
+ {$IfEnd} // NOT Defined(NoTB97)
+;
 
 type
  TvtSpeedButton = class(TToolbarButton97)
@@ -34,19 +22,18 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-
+{$If NOT Defined(NoTB97)}
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtSpeedButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtSpeedButton);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtSpeedButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

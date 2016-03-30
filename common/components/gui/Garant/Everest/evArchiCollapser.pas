@@ -1,72 +1,50 @@
 unit evArchiCollapser;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evArchiCollapser.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevArchiCollapser
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evArchiCollapser.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevArchiCollapser" MUID: (5530B9E90041)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evSegmentHotSpot,
-  afwInterfaces,
-  nevTools,
-  afwNavigation
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evSegmentHotSpot
+ , afwNavigation
+ , nevTools
+ , afwInterfaces
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevArchiCollapser = class(TevSegmentHotSpot)
- protected
- // overridden protected methods
+  protected
    function TryDoHyperlink(const aView: InevControlView;
-     anEffects: TafwJumpToEffects): Boolean; override;
+    anEffects: TafwJumpToEffects): Boolean; override;
  end;//TevArchiCollapser
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  SysUtils
-  ;
-{$IfEnd} //evNeedHotSpot
-
-{$If defined(evNeedHotSpot)}
-
-// start class TevArchiCollapser
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TevArchiCollapser.TryDoHyperlink(const aView: InevControlView;
-  anEffects: TafwJumpToEffects): Boolean;
+ anEffects: TafwJumpToEffects): Boolean;
+var l_MonikerSink: IevMonikerSink;
 //#UC START# *4A269489009C_5530B9E90041_var*
 //#UC END# *4A269489009C_5530B9E90041_var*
-var
- l_MonikerSink : IevMonikerSink;
 begin
 //#UC START# *4A269489009C_5530B9E90041_impl*
  Result := EvExpandOrCollapse(aView, GetDownPointPara);
 //#UC END# *4A269489009C_5530B9E90041_impl*
 end;//TevArchiCollapser.TryDoHyperlink
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

@@ -24,7 +24,7 @@ type
     {* сохраняет поток в G }
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
  end;//TevStreamedDataObject
 
@@ -36,7 +36,7 @@ uses
 
 procedure TevStreamedDataObject.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48EA32DB03E6_var*
 //#UC END# *47C68BFD011C_48EA32DB03E6_var*

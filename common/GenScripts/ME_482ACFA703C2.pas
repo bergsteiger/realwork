@@ -24,9 +24,7 @@ type
  TelCustomButtonEdit = class(TelCustomEdit)
   private
    f_OnButtonClick: TNotifyEvent;
-    {* Поле для свойства OnButtonClick }
    f_Button: TCustomElGraphicButton;
-    {* Поле для свойства Button }
   private
    procedure WMKeyDown(var Message: TWMKey); message WM_KEYDOWN;
    procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;

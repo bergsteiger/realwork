@@ -1,59 +1,43 @@
 unit evInevBaseLine4PrintMapper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evInevBaseLine4PrintMapper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevInevBaseLine4PrintMapper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evInevBaseLine4PrintMapper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevInevBaseLine4PrintMapper" MUID: (53D8ED8D007F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2InterfaceMapper,
-  l3IID,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , k2InterfaceMapper
+ , l3Variant
+ , l3IID
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevInevBaseLine4PrintMapper = class(Tk2InterfaceMapper)
- public
- // realized methods
+  public
    class function Make(aTag: Tl3Variant;
-     const IID: Tl3GUID;
-     out Tool;
-     const aProcessor: Ik2Processor): Boolean; override;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TevInevBaseLine4PrintMapper
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevInevBaseLine4PrintMapper
+ l3ImplUses
+ , nevTools
+;
 
 class function TevInevBaseLine4PrintMapper.Make(aTag: Tl3Variant;
-  const IID: Tl3GUID;
-  out Tool;
-  const aProcessor: Ik2Processor): Boolean;
+ const IID: Tl3GUID;
+ out Tool;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *53D639B601D7_53D8ED8D007F_var*
 //#UC END# *53D639B601D7_53D8ED8D007F_var*
 begin
@@ -64,7 +48,6 @@ begin
   Result := true; 
 //#UC END# *53D639B601D7_53D8ED8D007F_impl*
 end;//TevInevBaseLine4PrintMapper.Make
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

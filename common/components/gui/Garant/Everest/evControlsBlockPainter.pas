@@ -1,40 +1,27 @@
 unit evControlsBlockPainter;
+ {* Рисователь группы контролов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlsBlockPainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevControlsBlockPainter
-//
-// Рисователь группы контролов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevControlsBlockPainter" MUID: (49DB469F01B8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  evDocumentPartPainter,
-  l3Interfaces,
-  nevBase,
-  l3Variant
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evDocumentPartPainter
+ , l3Variant
+ , l3Interfaces
+ , nevBase
+;
 
-{$If defined(evNeedPainters)}
 type
  TevControlsBlockPainter = class(TevDocumentPartPainter)
   {* Рисователь группы контролов }
- protected
- // overridden protected methods
+  protected
    function InfiniteFrame: Boolean; override;
    procedure GetFramePartPrim(aFrame: Tl3Variant;
     anIndex: Tl3FramePartIndex;
@@ -42,45 +29,39 @@ type
    procedure DoDrawFrameText(aTop: Boolean); override;
    function NeedCheckTopAnchor: Boolean; override;
    procedure DrawFrameName; override;
-     {* Рисует имя блока в области рамки }
+    {* Рисует имя блока в области рамки }
    function IsTopAnchorAtStart: Boolean; override;
  end;//TevControlsBlockPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3CustomString,
-  l3InternalInterfaces,
-  l3Units
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  TextPara_Const,
-  evdStyles,
-  k2Tags,
-  k2Base,
-  evControlsBlockConst,
-  evControlParaTools,
-  evdTypes,
-  l3Defaults,
-  Graphics,
-  Cloak_Const,
-  l3Math,
-  l3Const,
-  l3Types,
-  l3String,
-  NodeGroup_Const,
-  ControlsBlock_Const
-  ;
-{$IfEnd} //evNeedPainters
-
-{$If defined(evNeedPainters)}
-
-// start class TevControlsBlockPainter
+ l3ImplUses
+ , l3CustomString
+ , l3InternalInterfaces
+ , l3Units
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , TextPara_Const
+ , evdStyles
+ , k2Tags
+ , k2Base
+ , evControlsBlockConst
+ , evControlParaTools
+ , evdTypes
+ , l3Defaults
+ , Graphics
+ , Cloak_Const
+ , l3Math
+ , l3Const
+ , l3Types
+ , l3String
+ , NodeGroup_Const
+ , ControlsBlock_Const
+;
 
 function TevControlsBlockPainter.InfiniteFrame: Boolean;
 //#UC START# *4804B78B0397_49DB469F01B8_var*
@@ -92,8 +73,8 @@ begin
 end;//TevControlsBlockPainter.InfiniteFrame
 
 procedure TevControlsBlockPainter.GetFramePartPrim(aFrame: Tl3Variant;
-  anIndex: Tl3FramePartIndex;
-  var thePart: TnevFramePart);
+ anIndex: Tl3FramePartIndex;
+ var thePart: TnevFramePart);
 //#UC START# *4804B9BB0383_49DB469F01B8_var*
 //#UC END# *4804B9BB0383_49DB469F01B8_var*
 begin
@@ -325,6 +306,7 @@ begin
 end;//TevControlsBlockPainter.NeedCheckTopAnchor
 
 procedure TevControlsBlockPainter.DrawFrameName;
+ {* Рисует имя блока в области рамки }
 //#UC START# *49DB1B9E0191_49DB469F01B8_var*
 //#UC END# *49DB1B9E0191_49DB469F01B8_var*
 begin
@@ -340,7 +322,6 @@ begin
  Result := True;
 //#UC END# *4D9AF3680146_49DB469F01B8_impl*
 end;//TevControlsBlockPainter.IsTopAnchorAtStart
-
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

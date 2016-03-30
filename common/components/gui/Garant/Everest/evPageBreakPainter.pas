@@ -1,78 +1,58 @@
 unit evPageBreakPainter;
+ {* Реализация инструмента рисования для разрыва страниц. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evPageBreakPainter.pas"
-// Начат: 03.10.2000 16:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::LeafPara Painters::TevPageBreakPainter
-//
-// Реализация инструмента рисования для разрыва страниц.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evPageBreakPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevPageBreakPainter" MUID: (480C9D5E01EE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  l3Interfaces,
-  l3Units,
-  evLeafParaPainter,
-  l3StringIDEx
-  ;
-{$IfEnd} //evNeedPainters
+ l3IntfUses
+ , evLeafParaPainter
+ , l3Interfaces
+ , l3Units
+;
 
-{$If defined(evNeedPainters)}
 type
  TevPageBreakPainter = class(TevLeafParaPainter)
   {* Реализация инструмента рисования для разрыва страниц. }
- protected
- // overridden protected methods
-   function DrawLeaf: Boolean; override;
- protected
- // protected methods
+  protected
    function GetString: Il3CString; virtual;
-     {* вернуть строчку для отображения. }
+    {* вернуть строчку для отображения. }
    procedure NewPage; virtual;
-     {* вызывается перед началом новой страницы. }
+    {* вызывается перед началом новой страницы. }
    procedure DrawLine(const A: Tl3Point;
     const B: Tl3Point); virtual;
-     {* нарисовать линию разрыва. }
+    {* нарисовать линию разрыва. }
+   function DrawLeaf: Boolean; override;
  end;//TevPageBreakPainter
-{$IfEnd} //evNeedPainters
+{$IfEnd} // Defined(evNeedPainters)
 
 implementation
 
-{$If defined(evNeedPainters)}
+{$If Defined(evNeedPainters)}
 uses
-  k2Tags,
-  l3Const,
-  nevBase,
-  Graphics,
-  l3String,
-  l3MessageID
-  ;
-{$IfEnd} //evNeedPainters
+ l3ImplUses
+ , l3StringIDEx
+ , k2Tags
+ , l3Const
+ , nevBase
+ , Graphics
+ , l3String
+ , l3MessageID
+;
 
-{$If defined(evNeedPainters)}
-
-var
-   { Локализуемые строки Local }
-  str_nevmmPageBegin : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nevmmPageBegin'; rValue : ' Начало страницы. ');
-   { ' Начало страницы. ' }
-
-// start class TevPageBreakPainter
+const
+ {* Локализуемые строки Local }
+ str_nevmmPageBegin: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nevmmPageBegin'; rValue : ' Начало страницы. ');
+  {* ' Начало страницы. ' }
 
 function TevPageBreakPainter.GetString: Il3CString;
+ {* вернуть строчку для отображения. }
 //#UC START# *480C9DC4032F_480C9D5E01EE_var*
 //#UC END# *480C9DC4032F_480C9D5E01EE_var*
 begin
@@ -82,6 +62,7 @@ begin
 end;//TevPageBreakPainter.GetString
 
 procedure TevPageBreakPainter.NewPage;
+ {* вызывается перед началом новой страницы. }
 //#UC START# *480C9DDD01B0_480C9D5E01EE_var*
 //#UC END# *480C9DDD01B0_480C9D5E01EE_var*
 begin
@@ -90,7 +71,8 @@ begin
 end;//TevPageBreakPainter.NewPage
 
 procedure TevPageBreakPainter.DrawLine(const A: Tl3Point;
-  const B: Tl3Point);
+ const B: Tl3Point);
+ {* нарисовать линию разрыва. }
 //#UC START# *480C9DEF0099_480C9D5E01EE_var*
 //#UC END# *480C9DEF0099_480C9D5E01EE_var*
 begin
@@ -163,12 +145,9 @@ begin
 //#UC END# *4804C81000B9_480C9D5E01EE_impl*
 end;//TevPageBreakPainter.DrawLeaf
 
-{$IfEnd} //evNeedPainters
-
 initialization
-{$If defined(evNeedPainters)}
-// Инициализация str_nevmmPageBegin
  str_nevmmPageBegin.Init;
-{$IfEnd} //evNeedPainters
+ {* Инициализация str_nevmmPageBegin }
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

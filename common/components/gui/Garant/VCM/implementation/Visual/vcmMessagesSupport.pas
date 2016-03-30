@@ -51,8 +51,6 @@ type
     anEffects: TafwJumpToEffects;
     const aMoniker: IevMoniker): Boolean;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    procedure Say(const aText: AnsiString;
     aClickCallback: Tl3WikiLinkClicked);
@@ -70,6 +68,8 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmHugeMessageDlgWithWikiImpl;
     {* Метод получения экземпляра синглетона TvcmHugeMessageDlgWithWikiImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmHugeMessageDlgWithWikiImpl
 
 procedure vcmSay(const aMsg: Tl3StringIDEx;
@@ -677,12 +677,6 @@ begin
 //#UC END# *5515515F0098_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.OnJumpTo
 
-class function TvcmHugeMessageDlgWithWikiImpl.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmHugeMessageDlgWithWikiImpl <> nil;
-end;//TvcmHugeMessageDlgWithWikiImpl.Exists
-
 {$If NOT Defined(NoVCL)}
 procedure TvcmHugeMessageDlgWithWikiImpl.Say(const aText: AnsiString;
  aClickCallback: Tl3WikiLinkClicked);
@@ -741,6 +735,12 @@ begin
  end;
  Result := g_TvcmHugeMessageDlgWithWikiImpl;
 end;//TvcmHugeMessageDlgWithWikiImpl.Instance
+
+class function TvcmHugeMessageDlgWithWikiImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmHugeMessageDlgWithWikiImpl <> nil;
+end;//TvcmHugeMessageDlgWithWikiImpl.Exists
 
 initialization
 {$If NOT Defined(NoVCL)}

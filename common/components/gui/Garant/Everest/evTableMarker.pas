@@ -1,56 +1,39 @@
 unit evTableMarker;
+ {* маркер отступа таблиц }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableMarker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevTableMarker
-//
-// маркер отступа таблиц
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableMarker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableMarker" MUID: (4ED31E52002F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evMarker,
-  nevBase
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evMarker
+ , nevBase
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevTableMarker = class(TevMarker)
   {* маркер отступа таблиц }
- protected
- // overridden protected methods
+  protected
    function DoGetValue: Integer; override;
    procedure DoSetValue(aValue: Integer;
-     const Context: InevOp); override;
+    const Context: InevOp); override;
  end;//TevTableMarker
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Except,
-  l3Units
-  ;
-{$IfEnd} //evUseVisibleCursors
-
-{$If defined(evUseVisibleCursors)}
-
-// start class TevTableMarker
+ l3ImplUses
+ , k2Except
+ , l3Units
+;
 
 function TevTableMarker.DoGetValue: Integer;
 //#UC START# *4ECF8E2C007D_4ED31E52002F_var*
@@ -73,7 +56,7 @@ begin
 end;//TevTableMarker.DoGetValue
 
 procedure TevTableMarker.DoSetValue(aValue: Integer;
-  const Context: InevOp);
+ const Context: InevOp);
 //#UC START# *4ED31DEA0077_4ED31E52002F_var*
 var
  l_FI: TnevFormatInfoPrim;
@@ -91,7 +74,6 @@ begin
  end;//Self.Value <> Value
 //#UC END# *4ED31DEA0077_4ED31E52002F_impl*
 end;//TevTableMarker.DoSetValue
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

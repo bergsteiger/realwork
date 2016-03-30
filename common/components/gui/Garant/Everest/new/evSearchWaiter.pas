@@ -1,75 +1,58 @@
 unit evSearchWaiter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/evSearchWaiter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DocumentContainers::TevSearchWaiter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evSearchWaiter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevSearchWaiter" MUID: (4EA6A47C0260)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  l3Tool,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Tool
+ , nevTools
+ , l3Variant
+;
 
 type
  TevSearchWaiter = class(Tl3Tool, InevWaiter)
- private
- // private fields
-   f_Searcher : IevSearcher;
-   f_FoundBlock : InevDataObjectPrim2;
-   f_Point : IevDocumentPoint;
-   f_WasFound : Boolean;
- protected
- // realized methods
+  private
+   f_Searcher: IevSearcher;
+   f_FoundBlock: InevDataObjectPrim2;
+   f_Point: IevDocumentPoint;
+   f_WasFound: Boolean;
+  protected
    function TrySelect(const aContainer: InevDocumentContainer): Boolean;
    function TrySelectObj(const aContainer: InevDocumentContainer;
-     aParent: Tl3Variant;
-     aChild: Tl3Variant): Boolean;
- protected
- // overridden protected methods
+    aParent: Tl3Variant;
+    aChild: Tl3Variant): Boolean;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aControl: InevControl;
-     const aSearcher: IevSearcher); reintroduce;
+    const aSearcher: IevSearcher); reintroduce;
    class function Make(const aControl: InevControl;
-     const aSearcher: IevSearcher): InevWaiter;
+    const aSearcher: IevSearcher): InevWaiter;
  end;//TevSearchWaiter
 
 implementation
 
 uses
-  l3Interfaces,
-  l3Base,
-  SysUtils,
-  LeafPara_Const,
-  evdInterfaces
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags
-  ;
-
-// start class TevSearchWaiter
+ l3ImplUses
+ , l3Interfaces
+ , l3Base
+ , SysUtils
+ , LeafPara_Const
+ , evdInterfaces
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+;
 
 constructor TevSearchWaiter.Create(const aControl: InevControl;
-  const aSearcher: IevSearcher);
+ const aSearcher: IevSearcher);
 //#UC START# *4EA6A573010B_4EA6A47C0260_var*
 //#UC END# *4EA6A573010B_4EA6A47C0260_var*
 begin
@@ -83,7 +66,7 @@ begin
 end;//TevSearchWaiter.Create
 
 class function TevSearchWaiter.Make(const aControl: InevControl;
-  const aSearcher: IevSearcher): InevWaiter;
+ const aSearcher: IevSearcher): InevWaiter;
 //#UC START# *4EA6A5C500A2_4EA6A47C0260_var*
 var
  l_Waiter : TevSearchWaiter;
@@ -151,8 +134,8 @@ begin
 end;//TevSearchWaiter.TrySelect
 
 function TevSearchWaiter.TrySelectObj(const aContainer: InevDocumentContainer;
-  aParent: Tl3Variant;
-  aChild: Tl3Variant): Boolean;
+ aParent: Tl3Variant;
+ aChild: Tl3Variant): Boolean;
 //#UC START# *47C6B30F0277_4EA6A47C0260_var*
 var
  l_Sel        : InevSelection;
@@ -188,6 +171,7 @@ begin
 end;//TevSearchWaiter.TrySelectObj
 
 procedure TevSearchWaiter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4EA6A47C0260_var*
 //#UC END# *479731C50290_4EA6A47C0260_var*
 begin

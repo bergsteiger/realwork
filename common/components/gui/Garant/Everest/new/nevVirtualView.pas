@@ -1,47 +1,33 @@
 unit nevVirtualView;
+ {* Виртуальная область вывода. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevVirtualView.pas"
-// Начат: 17.02.2006 21:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevVirtualView
-//
-// Виртуальная область вывода.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevVirtualView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevVirtualView" MUID: (4811FD87039D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBaseDrawView,
-  nevBase
-  ;
+ l3IntfUses
+ , nevBaseDrawView
+ , nevBase
+;
 
 type
  TnevVirtualView = class(TnevBaseDrawView)
   {* Виртуальная область вывода. }
- protected
- // overridden protected methods
+  protected
    function GetCanvas(const anExtent: TnevPoint): InevCanvas; override;
  end;//TnevVirtualView
 
 implementation
 
 uses
-  l3VirtualCanvas
-  ;
-
-// start class TnevVirtualView
+ l3ImplUses
+ , l3VirtualCanvas
+;
 
 function TnevVirtualView.GetCanvas(const anExtent: TnevPoint): InevCanvas;
 //#UC START# *4811F0AC0140_4811FD87039D_var*

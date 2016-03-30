@@ -34,11 +34,8 @@ type
  TChromeLikeTabSetControlPrim = class(TWinControl)
   private
    f_BufferBitmap: Tl3Bitmap;
-    {* Поле для свойства BufferBitmap }
    f_Images: TCustomImageList;
-    {* Поле для свойства Images }
    f_BackgroundBitmap: Tl3Bitmap;
-    {* Поле для свойства BackgroundBitmap }
   private
    function GetDrawingContext: IChromeLkeTabSetDrawingContext;
    procedure ResizeBuffer(aNewWidth: Integer;

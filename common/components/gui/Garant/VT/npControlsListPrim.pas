@@ -1,45 +1,31 @@
 unit npControlsListPrim;
+ {* список навигаторов на форме, от которых были отстыкованы компоненты. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Ѕиблиотека "VT$WithVCM"
-// ћодуль: "w:/common/components/gui/Garant/VT/npControlsListPrim.pas"
-// –одные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$WithVCM::vtNavigator::TnpControlsListPrim
-//
-// список навигаторов на форме, от которых были отстыкованы компоненты.
-//
-//
-// ¬се права принадлежат ќќќ Ќѕѕ "√арант-—ервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ћодуль: "w:\common\components\gui\Garant\VT\npControlsListPrim.pas"
+// —тереотип: "SimpleClass"
+// Ёлемент модели: "TnpControlsListPrim" MUID: (4F61DE50034C)
 
-// ! ѕолностью генерируетс€ с модели. ѕравить руками - нельз€. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoDataContainer,
-  vtNavigator,
-  npControls,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoDataContainer
+ , npControls
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtNavigator
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = TnpControls;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
@@ -47,42 +33,37 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TnpControlsListPrim = class(_l3UncomparabeObjectRefList_)
   {* список навигаторов на форме, от которых были отстыкованы компоненты. }
- public
- // public methods
-   function Find(aControl: TControl): TnpControls; overload; 
-     {* найти навигатор с которым св€зан компонент }
-   function Find(aNavigator: TvtNavigatorPrim): TnpControls; overload; 
-     {* найти Link }
+  public
+   function Find(aControl: TControl): TnpControls; overload;
+    {* найти навигатор с которым св€зан компонент }
+   function Find(aNavigator: TvtNavigatorPrim): TnpControls; overload;
+    {* найти Link }
    procedure AddControl(aNavigator: TvtNavigatorPrim;
-     aControl: TControl);
-     {* анализирует кто €вл€етс€ его родителем, если навигатор на форме, то ищет его в списке и добавл€ет к нему компонент. }
+    aControl: TControl);
+    {* анализирует кто €вл€етс€ его родителем, если навигатор на форме, то ищет его в списке и добавл€ет к нему компонент. }
    procedure DeleteControl(aControl: TControl);
-     {* удалить компонент из списка (происходит при пристыковки) }
+    {* удалить компонент из списка (происходит при пристыковки) }
    procedure DockOnForm(aControl: TControl);
-     {* пристыковать компонент к навигатору на форме, от которого от был отстыкован }
+    {* пристыковать компонент к навигатору на форме, от которого от был отстыкован }
  end;//TnpControlsListPrim
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TnpControlsListPrim
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4F61DE50034C_var*
 //#UC END# *47B2C42A0163_4F61DE50034C_var*
 begin
@@ -90,9 +71,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4F61DE50034C_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* —равнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4F61DE50034C_var*
 //#UC END# *47B99D4503A2_4F61DE50034C_var*
 begin
@@ -106,9 +88,8 @@ type _Instance_R_ = TnpControlsListPrim;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-// start class TnpControlsListPrim
-
 function TnpControlsListPrim.Find(aControl: TControl): TnpControls;
+ {* найти навигатор с которым св€зан компонент }
 //#UC START# *4F61DEF6012B_4F61DE50034C_var*
 var
  l_Index, I : Integer;
@@ -129,6 +110,7 @@ begin
 end;//TnpControlsListPrim.Find
 
 function TnpControlsListPrim.Find(aNavigator: TvtNavigatorPrim): TnpControls;
+ {* найти Link }
 //#UC START# *4F61DF1D01E2_4F61DE50034C_var*
 var
  l_Index : Integer;
@@ -146,7 +128,8 @@ begin
 end;//TnpControlsListPrim.Find
 
 procedure TnpControlsListPrim.AddControl(aNavigator: TvtNavigatorPrim;
-  aControl: TControl);
+ aControl: TControl);
+ {* анализирует кто €вл€етс€ его родителем, если навигатор на форме, то ищет его в списке и добавл€ет к нему компонент. }
 //#UC START# *4F61DF43019D_4F61DE50034C_var*
 var
  l_Navigator : TnpControls;
@@ -175,6 +158,7 @@ begin
 end;//TnpControlsListPrim.AddControl
 
 procedure TnpControlsListPrim.DeleteControl(aControl: TControl);
+ {* удалить компонент из списка (происходит при пристыковки) }
 //#UC START# *4F61DF7A0326_4F61DE50034C_var*
 var
  l_Index : Integer;
@@ -188,6 +172,7 @@ begin
 end;//TnpControlsListPrim.DeleteControl
 
 procedure TnpControlsListPrim.DockOnForm(aControl: TControl);
+ {* пристыковать компонент к навигатору на форме, от которого от был отстыкован }
 //#UC START# *4F61DF950395_4F61DE50034C_var*
 var
  lN : TnpControls;
@@ -205,7 +190,6 @@ begin
  end;//Assigned(lN)
 //#UC END# *4F61DF950395_4F61DE50034C_impl*
 end;//TnpControlsListPrim.DockOnForm
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

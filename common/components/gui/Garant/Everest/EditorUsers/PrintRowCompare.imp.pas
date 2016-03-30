@@ -1,32 +1,30 @@
 {$IfNDef PrintRowCompare_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$EditorUsers"
-// Модуль: "w:/common/components/gui/Garant/Everest/EditorUsers/PrintRowCompare.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest$EditorUsers::MixIns::PrintRowCompare
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "PrintRowCompare" MUID: (4DF1E0DC0289)
+// Имя типа: "_PrintRowCompare_"
 
 {$Define PrintRowCompare_imp}
-{$If not defined(NoScripts)}
- _PrintRowCompare_ = {mixin} class(_PrintRowCompare_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _PrintRowCompare_ = class(_PrintRowCompare_Parent_)
  end;//_PrintRowCompare_
-{$Else}
 
- _PrintRowCompare_ = _PrintRowCompare_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_PrintRowCompare_ = _PrintRowCompare_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else PrintRowCompare_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef PrintRowCompare_imp_impl}
 
+{$Define PrintRowCompare_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf PrintRowCompare_imp_impl}
 
 {$EndIf PrintRowCompare_imp}
+

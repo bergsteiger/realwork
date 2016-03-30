@@ -1,49 +1,36 @@
 unit vtOutlinerControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtOutlinerControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Outliner::TvtOutlinerControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtOutlinerControl.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtOutlinerControl" MUID: (4D46A125003A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  vtOutliner
-  ;
+ l3IntfUses
+ , vtOutliner
+;
 
 type
  TvtOutlinerControl = class(TvtCustomOutliner)
- protected
- // realized methods
+  protected
    procedure Invalidate;
-     {* Запрос на перерисовку. }
+    {* Запрос на перерисовку. }
  end;//TvtOutlinerControl
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TvtOutlinerControl
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvtOutlinerControl.Invalidate;
+ {* Запрос на перерисовку. }
 //#UC START# *46A5AA4B003C_4D46A125003A_var*
 //#UC END# *46A5AA4B003C_4D46A125003A_var*
 begin
@@ -53,9 +40,9 @@ begin
 end;//TvtOutlinerControl.Invalidate
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtOutlinerControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtOutlinerControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtOutlinerControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

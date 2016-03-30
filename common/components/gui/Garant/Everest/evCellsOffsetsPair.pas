@@ -1,66 +1,52 @@
 unit evCellsOffsetsPair;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCellsOffsetsPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::CellUtils::TevCellsOffsetsPair
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellsOffsetsPair.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsOffsetsPair" MUID: (4F2F6F750263)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evEditorInterfaces,
-  l3ProtoObject,
-  evCellsCharOffsets,
-  edCellTypesList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evCellsCharOffsets
+ , edCellTypesList
+ , evEditorInterfaces
+;
 
 type
  TedCellPosType = (
-   ed_cpNone
- , ed_cpLast
- , ed_cpIgnoreLast
+  ed_cpNone
+  , ed_cpLast
+  , ed_cpIgnoreLast
  );//TedCellPosType
 
  TevCellsOffsetsPair = class(Tl3ProtoObject)
- private
- // private fields
-   f_FoundUpper : Boolean;
-   f_OldOffset : TevCellsCharOffsets;
-   f_NewOffset : TevCellsCharOffsets;
-   f_CellsType : TedCellTypesList;
-    {* Поле для свойства CellsType}
-   f_RowType : TedRowType;
-    {* Поле для свойства RowType}
- private
- // private methods
+  private
+   f_FoundUpper: Boolean;
+   f_OldOffset: TevCellsCharOffsets;
+   f_NewOffset: TevCellsCharOffsets;
+   f_CellsType: TedCellTypesList;
+    {* Поле для свойства CellsType }
+   f_RowType: TedRowType;
+    {* Поле для свойства RowType }
+  private
    function CompareWidth(const aOffsetList: TevCellsOffsetsPair;
-     var l_Delta: Integer): Integer;
+    var l_Delta: Integer): Integer;
    function FindUpper(const aOffsetList: TevCellsOffsetsPair;
-     var l_Delta: Integer): Boolean;
+    var l_Delta: Integer): Boolean;
    function FindLower(const aOffsetList: TevCellsOffsetsPair;
-     var anIndex: Integer;
-     var aDelta: Integer): Boolean;
+    var anIndex: Integer;
+    var aDelta: Integer): Boolean;
    procedure UpdateNewWidth(anIndex: Integer;
-     aDelta: Integer);
+    aDelta: Integer);
    function FindOffset(const aOffsetList: TevCellsOffsetsPair): Boolean;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
    procedure Clear;
    procedure AddCellWidthAndRecalc;
@@ -69,117 +55,39 @@ type
    function LastNewWidth: Integer;
    function PrevNewWidth: Integer;
    procedure SetWidthPair(aNewWidth: Integer;
-     aOldWidth: Integer);
+    aOldWidth: Integer);
    function GetNextOffset(aNew: Boolean): Integer;
    function EqualCells(const anIterator: IedCellsIterator): Boolean;
    function GetRowWidth(aNew: Boolean): Integer;
    procedure CheckCurrentRow(aList: TevCellsOffsetsPair;
-     aNewWidth: Integer;
-     anOldCellWidth: Integer;
-     aPrevRowWidth: Integer;
-     aCelPosl: TedCellPosType;
-     out aNeedBreak: Boolean);
+    aNewWidth: Integer;
+    anOldCellWidth: Integer;
+    aPrevRowWidth: Integer;
+    aCelPosl: TedCellPosType;
+    out aNeedBreak: Boolean);
    procedure AlignByPrevious(const aData: TevCellsOffsetsPair);
-     {* Выравнять ширину ячеек по переданному списку. }
    procedure CopyData(aData: TevCellsCharOffsets;
-     const anIterator: IedCellsIterator); overload; 
+    const anIterator: IedCellsIterator); overload;
    procedure CopyData(const aData: TevCellsOffsetsPair;
-     const anIterator: IedCellsIterator); overload; 
+    const anIterator: IedCellsIterator); overload;
    procedure CheckPrevAlignment(const aPrev: TevCellsOffsetsPair);
- public
- // public properties
+  public
    property CellsType: TedCellTypesList
-     read f_CellsType
-     write f_CellsType;
-     {* Массив с типами содержимого ячеек. }
+    read f_CellsType
+    write f_CellsType;
+    {* Массив с типами содержимого ячеек. }
    property RowType: TedRowType
-     read f_RowType
-     write f_RowType;
+    read f_RowType
+    write f_RowType;
  end;//TevCellsOffsetsPair
 
 implementation
 
 uses
-  l3UnitsTools,
-  SysUtils
-  ;
-
-// start class TevCellsOffsetsPair
-
-function TevCellsOffsetsPair.CompareWidth(const aOffsetList: TevCellsOffsetsPair;
-  var l_Delta: Integer): Integer;
-//#UC START# *4F2F719C01AF_4F2F6F750263_var*
-//#UC END# *4F2F719C01AF_4F2F6F750263_var*
-begin
-//#UC START# *4F2F719C01AF_4F2F6F750263_impl*
- Result := f_OldOffset.GetWidth - aOffsetList.f_OldOffset.GetWidth;
- l_Delta := f_NewOffset.GetWidth - aOffsetList.f_NewOffset.GetWidth;
- if Abs(Result) < evCellWidthEpsilon then
-  Result := 0;
- f_FoundUpper := Result > 0; 
-//#UC END# *4F2F719C01AF_4F2F6F750263_impl*
-end;//TevCellsOffsetsPair.CompareWidth
-
-function TevCellsOffsetsPair.FindUpper(const aOffsetList: TevCellsOffsetsPair;
-  var l_Delta: Integer): Boolean;
-//#UC START# *4F2F71C0015D_4F2F6F750263_var*
-//#UC END# *4F2F71C0015D_4F2F6F750263_var*
-begin
-//#UC START# *4F2F71C0015D_4F2F6F750263_impl*
- l_Delta := GetNextOffset(True) - aOffsetList.GetOffset(True);
- Result := f_FoundUpper and
-           (Abs((aOffsetList.GetNextOffset(False) - GetOffset(False)) - GetWidth(False)) < evCellWidthEpsilon);
-//#UC END# *4F2F71C0015D_4F2F6F750263_impl*
-end;//TevCellsOffsetsPair.FindUpper
-
-function TevCellsOffsetsPair.FindLower(const aOffsetList: TevCellsOffsetsPair;
-  var anIndex: Integer;
-  var aDelta: Integer): Boolean;
-//#UC START# *4F2F71EF028D_4F2F6F750263_var*
-var
- l_Offset : Integer; 
-//#UC END# *4F2F71EF028D_4F2F6F750263_var*
-begin
-//#UC START# *4F2F71EF028D_4F2F6F750263_impl*
- l_Offset := aOffsetList.f_OldOffset.GetNextOffset;
- Result := f_OldOffset.FindOffset(l_Offset, anIndex);
- if Result then
- begin
-  Dec(anIndex);
-  f_NewOffset.SetCurrent(anIndex);
-  l_Offset := aOffsetList.GetNextOffset(True);
-  aDelta := l_Offset - GetNextOffset(True);
-  //Result := Abs(aDelta) >= evCellWidthEpsilon;
- end; // if Result then
-//#UC END# *4F2F71EF028D_4F2F6F750263_impl*
-end;//TevCellsOffsetsPair.FindLower
-
-procedure TevCellsOffsetsPair.UpdateNewWidth(anIndex: Integer;
-  aDelta: Integer);
-//#UC START# *4F2F7226039B_4F2F6F750263_var*
-//#UC END# *4F2F7226039B_4F2F6F750263_var*
-begin
-//#UC START# *4F2F7226039B_4F2F6F750263_impl*
- f_NewOffset.UpdateWidth(anIndex, aDelta);
-//#UC END# *4F2F7226039B_4F2F6F750263_impl*
-end;//TevCellsOffsetsPair.UpdateNewWidth
-
-function TevCellsOffsetsPair.FindOffset(const aOffsetList: TevCellsOffsetsPair): Boolean;
-//#UC START# *4F2F716F0249_4F2F6F750263_var*
-var
- l_Index: Integer;
-//#UC END# *4F2F716F0249_4F2F6F750263_var*
-begin
-//#UC START# *4F2F716F0249_4F2F6F750263_impl*
- Result := f_OldOffset <> nil;
- if Result then
- begin
-  Result := f_OldOffset.FindOffset(aOffsetList.f_OldOffset, l_Index);
-  if Result then
-   f_NewOffset.SetCurrent(l_Index);
- end; // if Result then
-//#UC END# *4F2F716F0249_4F2F6F750263_impl*
-end;//TevCellsOffsetsPair.FindOffset
+ l3ImplUses
+ , l3UnitsTools
+ , SysUtils
+;
 
 constructor TevCellsOffsetsPair.Create;
 //#UC START# *4F2F7030001E_4F2F6F750263_var*
@@ -259,7 +167,7 @@ begin
 end;//TevCellsOffsetsPair.PrevNewWidth
 
 procedure TevCellsOffsetsPair.SetWidthPair(aNewWidth: Integer;
-  aOldWidth: Integer);
+ aOldWidth: Integer);
 //#UC START# *4F2F712F0179_4F2F6F750263_var*
 //#UC END# *4F2F712F0179_4F2F6F750263_var*
 begin
@@ -268,6 +176,64 @@ begin
  f_NewOffset.SetWidth(aNewWidth);
 //#UC END# *4F2F712F0179_4F2F6F750263_impl*
 end;//TevCellsOffsetsPair.SetWidthPair
+
+function TevCellsOffsetsPair.CompareWidth(const aOffsetList: TevCellsOffsetsPair;
+ var l_Delta: Integer): Integer;
+//#UC START# *4F2F719C01AF_4F2F6F750263_var*
+//#UC END# *4F2F719C01AF_4F2F6F750263_var*
+begin
+//#UC START# *4F2F719C01AF_4F2F6F750263_impl*
+ Result := f_OldOffset.GetWidth - aOffsetList.f_OldOffset.GetWidth;
+ l_Delta := f_NewOffset.GetWidth - aOffsetList.f_NewOffset.GetWidth;
+ if Abs(Result) < evCellWidthEpsilon then
+  Result := 0;
+ f_FoundUpper := Result > 0; 
+//#UC END# *4F2F719C01AF_4F2F6F750263_impl*
+end;//TevCellsOffsetsPair.CompareWidth
+
+function TevCellsOffsetsPair.FindUpper(const aOffsetList: TevCellsOffsetsPair;
+ var l_Delta: Integer): Boolean;
+//#UC START# *4F2F71C0015D_4F2F6F750263_var*
+//#UC END# *4F2F71C0015D_4F2F6F750263_var*
+begin
+//#UC START# *4F2F71C0015D_4F2F6F750263_impl*
+ l_Delta := GetNextOffset(True) - aOffsetList.GetOffset(True);
+ Result := f_FoundUpper and
+           (Abs((aOffsetList.GetNextOffset(False) - GetOffset(False)) - GetWidth(False)) < evCellWidthEpsilon);
+//#UC END# *4F2F71C0015D_4F2F6F750263_impl*
+end;//TevCellsOffsetsPair.FindUpper
+
+function TevCellsOffsetsPair.FindLower(const aOffsetList: TevCellsOffsetsPair;
+ var anIndex: Integer;
+ var aDelta: Integer): Boolean;
+//#UC START# *4F2F71EF028D_4F2F6F750263_var*
+var
+ l_Offset : Integer; 
+//#UC END# *4F2F71EF028D_4F2F6F750263_var*
+begin
+//#UC START# *4F2F71EF028D_4F2F6F750263_impl*
+ l_Offset := aOffsetList.f_OldOffset.GetNextOffset;
+ Result := f_OldOffset.FindOffset(l_Offset, anIndex);
+ if Result then
+ begin
+  Dec(anIndex);
+  f_NewOffset.SetCurrent(anIndex);
+  l_Offset := aOffsetList.GetNextOffset(True);
+  aDelta := l_Offset - GetNextOffset(True);
+  //Result := Abs(aDelta) >= evCellWidthEpsilon;
+ end; // if Result then
+//#UC END# *4F2F71EF028D_4F2F6F750263_impl*
+end;//TevCellsOffsetsPair.FindLower
+
+procedure TevCellsOffsetsPair.UpdateNewWidth(anIndex: Integer;
+ aDelta: Integer);
+//#UC START# *4F2F7226039B_4F2F6F750263_var*
+//#UC END# *4F2F7226039B_4F2F6F750263_var*
+begin
+//#UC START# *4F2F7226039B_4F2F6F750263_impl*
+ f_NewOffset.UpdateWidth(anIndex, aDelta);
+//#UC END# *4F2F7226039B_4F2F6F750263_impl*
+end;//TevCellsOffsetsPair.UpdateNewWidth
 
 function TevCellsOffsetsPair.GetNextOffset(aNew: Boolean): Integer;
 //#UC START# *4F2F7268015A_4F2F6F750263_var*
@@ -303,11 +269,11 @@ begin
 end;//TevCellsOffsetsPair.GetRowWidth
 
 procedure TevCellsOffsetsPair.CheckCurrentRow(aList: TevCellsOffsetsPair;
-  aNewWidth: Integer;
-  anOldCellWidth: Integer;
-  aPrevRowWidth: Integer;
-  aCelPosl: TedCellPosType;
-  out aNeedBreak: Boolean);
+ aNewWidth: Integer;
+ anOldCellWidth: Integer;
+ aPrevRowWidth: Integer;
+ aCelPosl: TedCellPosType;
+ out aNeedBreak: Boolean);
 //#UC START# *4FC5F3CF0017_4F2F6F750263_var*
 var
  l_Delta: Integer;
@@ -359,6 +325,23 @@ begin
 //#UC END# *4FC5F3CF0017_4F2F6F750263_impl*
 end;//TevCellsOffsetsPair.CheckCurrentRow
 
+function TevCellsOffsetsPair.FindOffset(const aOffsetList: TevCellsOffsetsPair): Boolean;
+//#UC START# *4F2F716F0249_4F2F6F750263_var*
+var
+ l_Index: Integer;
+//#UC END# *4F2F716F0249_4F2F6F750263_var*
+begin
+//#UC START# *4F2F716F0249_4F2F6F750263_impl*
+ Result := f_OldOffset <> nil;
+ if Result then
+ begin
+  Result := f_OldOffset.FindOffset(aOffsetList.f_OldOffset, l_Index);
+  if Result then
+   f_NewOffset.SetCurrent(l_Index);
+ end; // if Result then
+//#UC END# *4F2F716F0249_4F2F6F750263_impl*
+end;//TevCellsOffsetsPair.FindOffset
+
 procedure TevCellsOffsetsPair.AlignByPrevious(const aData: TevCellsOffsetsPair);
 //#UC START# *4FC76FA7005D_4F2F6F750263_var*
 //#UC END# *4FC76FA7005D_4F2F6F750263_var*
@@ -369,7 +352,7 @@ begin
 end;//TevCellsOffsetsPair.AlignByPrevious
 
 procedure TevCellsOffsetsPair.CopyData(aData: TevCellsCharOffsets;
-  const anIterator: IedCellsIterator);
+ const anIterator: IedCellsIterator);
 //#UC START# *50925F0800F6_4F2F6F750263_var*
 //#UC END# *50925F0800F6_4F2F6F750263_var*
 begin
@@ -380,7 +363,7 @@ begin
 end;//TevCellsOffsetsPair.CopyData
 
 procedure TevCellsOffsetsPair.CopyData(const aData: TevCellsOffsetsPair;
-  const anIterator: IedCellsIterator);
+ const anIterator: IedCellsIterator);
 //#UC START# *528DED3F007E_4F2F6F750263_var*
 //#UC END# *528DED3F007E_4F2F6F750263_var*
 begin
@@ -426,6 +409,7 @@ begin
 end;//TevCellsOffsetsPair.CheckPrevAlignment
 
 procedure TevCellsOffsetsPair.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F2F6F750263_var*
 //#UC END# *479731C50290_4F2F6F750263_var*
 begin

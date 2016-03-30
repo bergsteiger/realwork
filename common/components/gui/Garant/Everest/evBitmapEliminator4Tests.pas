@@ -1,32 +1,22 @@
 unit evBitmapEliminator4Tests;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evBitmapEliminator4Tests.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevBitmapEliminator4Tests
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evBitmapEliminator4Tests.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapEliminator4Tests" MUID: (53731FC4015A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , l3Variant
+;
 
 type
  TevBitmapEliminator4Tests = class(Tk2TagFilter)
- protected
- // overridden protected methods
+  protected
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevBitmapEliminator4Tests
@@ -34,24 +24,21 @@ type
 implementation
 
 uses
-  k2Tags,
-  BitmapPara_Const,
-  Classes
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  l3Stream,
-  l3Types,
-  ddPicturePathListner,
-  SysUtils
-  ;
-
-// start class TevBitmapEliminator4Tests
+ l3ImplUses
+ , k2Tags
+ , BitmapPara_Const
+ , Classes
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , l3Stream
+ , l3Types
+ , ddPicturePathListner
+ , SysUtils
+;
 
 procedure TevBitmapEliminator4Tests.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_53731FC4015A_var*
 var
  l_Stream : TStream;

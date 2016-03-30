@@ -1,105 +1,27 @@
 unit nevParaPrim;
+ {* Пустой параграф }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevParaPrim.pas"
-// Начат: 03.06.2005 14:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParagraphsImplementation::TnevParaPrim
-//
-// Пустой параграф
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevParaPrim" MUID: (48CE0A490377)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  k2TagTool,
-  nevTools,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2TagTool
+ , nevTools
+ , nevBase
+ , l3Variant
+;
 
-{$If defined(k2ForEditor)}
 type
  TnevParaPrim = class(Tk2TagTool, InevPara, InevObject, InevObjectModify)
   {* Пустой параграф }
- protected
- // realized methods
-   function Range(const aStart: InevBasePoint = nil;
-    const aFinish: InevBasePoint = nil;
-    aSharp: Boolean = false): InevRange;
-     {* выделение на данном объекте. }
-   function SubRange(const aView: InevView;
-    aStart: Integer;
-    aFinish: Integer): InevRange;
-     {* возвращает выделение на данном объекте от aStart до aFinish. }
-   function MakePoint(const aParent: InevBasePoint = nil): InevPoint;
-     {* точка в объекте. }
-   function CloneObj: InevObject;
-   function OwnerObj: InevObjectList;
-     {* родительский объект данного объекта. }
-   function IsPara: Boolean;
-   function AsPara: InevPara;
-     {* преобразует объект к параграфу, если это возможно, иначе - исключение. }
-   function ToList: InevObjectList;
-   function MakeAnchor: InevAnchor;
-   function Delete(anInMerge: Boolean;
-     const anOp: InevOp = nil): Boolean;
-     {* удаляет параграф aPara. }
-   function Edit: InevObjectModify;
-   function pm_GetHolder: InevObjectHolder;
-   function pm_GetIsEmpty: Boolean;
-   function pm_GetAnchorID: Integer;
-   function OwnerTag: Tl3Variant;
-     {* родительский тег данного параграфа. }
-   function OwnerPara: InevParaList;
-     {* родительский параграф данного параграфа. }
-   function AsList: InevParaList;
-   function IsComment: Boolean;
-   function pm_GetDocumentContainer: InevDocumentContainer;
-   function pm_GetPrev: InevPara;
-   function pm_GetNext: InevPara;
-   function pm_GetMainSubList: InevSubList;
-   function pm_GetText: TnevStr;
-   function pm_GetTabStops: InevTabStops;
-   function pm_GetBackColor: TnevColor;
-   function pm_GetOffsetX: Integer;
-   function pm_GetPID: TnevParaIndex;
-   function pm_GetIsVertical: Boolean;
-   function Get_OverlapType: TOverlapType;
-   function IsLegalComment: Boolean;
-     {* Юридический комментарий? }
-   function IsCollapsed(const aView: InevView): Boolean;
-   function BaseLine4Anchor: InevBaseLine4Anchor;
-   function BaseLine4Print: InevBaseLine4Print;
-   function IsDecorationElement: Boolean;
-   function DecorObj(aType: TnevDecorType): Tl3Variant;
-   function Get_HolderPrim: InevObjectHolderPrim;
-   function Get_TreatCollapsedAsHidden: Boolean;
- public
- // realized methods
-   function AppliesToMaxWidth: Boolean;
-   function IsHiddenPrim(aMap: TnevFormatInfoPrim;
-    aHiddenStyles: TnevStandardStyles): Boolean;
-   procedure Invalidate(aParts: TnevShapeParts);
-     {* Сообщает о необходимости перерисовать форму, если она отображается в каком-нибудь View. }
-   function IsList: Boolean;
-   function NeedIncludeHeight(aCheckType: Boolean = True): Boolean;
-     {* Нужно ли учитывать высоту объекта при подсчете высоты родительского. }
- protected
- // protected methods
+  protected
    function TreatCollapsedAsHidden: Boolean; virtual;
    function GetText: TnevStr; virtual;
    function DoGetBackColor: TnevColor; virtual;
@@ -124,36 +46,88 @@ type
     const anOp: InevOp): Boolean; virtual;
    function GetAnchorID: Integer; virtual;
    function GetHolder: InevObjectHolder; virtual;
- public
- // public methods
+   function Range(const aStart: InevBasePoint = nil;
+    const aFinish: InevBasePoint = nil;
+    aSharp: Boolean = False): InevRange;
+    {* выделение на данном объекте. }
+   function SubRange(const aView: InevView;
+    aStart: Integer;
+    aFinish: Integer): InevRange;
+    {* возвращает выделение на данном объекте от aStart до aFinish. }
+   function MakePoint(const aParent: InevBasePoint = nil): InevPoint;
+    {* точка в объекте. }
+   function CloneObj: InevObject;
+   function OwnerObj: InevObjectList;
+    {* родительский объект данного объекта. }
+   function IsPara: Boolean;
+   function AsPara: InevPara;
+    {* преобразует объект к параграфу, если это возможно, иначе - исключение. }
+   function ToList: InevObjectList;
+   function MakeAnchor: InevAnchor;
+   function Delete(anInMerge: Boolean;
+    const anOp: InevOp = nil): Boolean;
+    {* удаляет параграф aPara. }
+   function Edit: InevObjectModify;
+   function pm_GetHolder: InevObjectHolder;
+   function pm_GetIsEmpty: Boolean;
+   function pm_GetAnchorID: Integer;
+   function OwnerTag: Tl3Variant;
+    {* родительский тег данного параграфа. }
+   function OwnerPara: InevParaList;
+    {* родительский параграф данного параграфа. }
+   function AsList: InevParaList;
+   function IsComment: Boolean;
+   function pm_GetDocumentContainer: InevDocumentContainer;
+   function pm_GetPrev: InevPara;
+   function pm_GetNext: InevPara;
+   function pm_GetMainSubList: InevSubList;
+   function pm_GetText: TnevStr;
+   function pm_GetTabStops: InevTabStops;
+   function pm_GetBackColor: TnevColor;
+   function pm_GetOffsetX: Integer;
+   function pm_GetPID: TnevParaIndex;
+   function pm_GetIsVertical: Boolean;
+   function Get_OverlapType: TOverlapType;
+   function IsLegalComment: Boolean;
+    {* Юридический комментарий? }
+   function IsCollapsed(const aView: InevView): Boolean;
+   function BaseLine4Anchor: InevBaseLine4Anchor;
+   function BaseLine4Print: InevBaseLine4Print;
+   function IsDecorationElement: Boolean;
+   function DecorObj(aType: TnevDecorType): Tl3Variant;
+   function Get_HolderPrim: InevObjectHolderPrim;
+   function Get_TreatCollapsedAsHidden: Boolean;
+  public
    constructor Create(aTag: Tl3Variant); reintroduce;
+   function AppliesToMaxWidth: Boolean;
+   function IsHiddenPrim(aMap: TnevFormatInfoPrim;
+    aHiddenStyles: TnevStandardStyles): Boolean;
+   procedure Invalidate(aParts: TnevShapeParts);
+    {* Сообщает о необходимости перерисовать форму, если она отображается в каком-нибудь View. }
+   function IsList: Boolean;
+   function NeedIncludeHeight(aCheckType: Boolean = True): Boolean;
+    {* Нужно ли учитывать высоту объекта при подсчете высоты родительского. }
  end;//TnevParaPrim
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevFacade,
-  k2Base,
-  k2Tags,
-  evdStyles,
-  k2Const,
-  evdTextStyle_Const,
-  l3String,
-  evTabStops,
-  k2NullTagImpl
-  {$If not defined(NoScripts)}
-  ,
-  evParaWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TnevParaPrim
+ l3ImplUses
+ , nevFacade
+ , k2Base
+ , k2Tags
+ , evdStyles
+ , k2Const
+ , evdTextStyle_Const
+ , l3String
+ , evTabStops
+ , k2NullTagImpl
+ {$If NOT Defined(NoScripts)}
+ , evParaWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TnevParaPrim.TreatCollapsedAsHidden: Boolean;
 //#UC START# *4D596369028C_48CE0A490377_var*
@@ -288,7 +262,7 @@ begin
 end;//TnevParaPrim.GetAppliesToMaxWidth
 
 function TnevParaPrim.GetIsHiddenPrim(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *48CFB1F5024F_48CE0A490377_var*
 //#UC END# *48CFB1F5024F_48CE0A490377_var*
 begin
@@ -343,7 +317,7 @@ begin
 end;//TnevParaPrim.GetOwnerTag
 
 function TnevParaPrim.DoDelete(anInMerge: Boolean;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *48D0BFEF01CE_48CE0A490377_var*
 //#UC END# *48D0BFEF01CE_48CE0A490377_var*
 begin
@@ -380,8 +354,9 @@ begin
 end;//TnevParaPrim.Create
 
 function TnevParaPrim.Range(const aStart: InevBasePoint = nil;
-  const aFinish: InevBasePoint = nil;
-  aSharp: Boolean = false): InevRange;
+ const aFinish: InevBasePoint = nil;
+ aSharp: Boolean = False): InevRange;
+ {* выделение на данном объекте. }
 //#UC START# *47C698710396_48CE0A490377_var*
 var
  l_Sel : InevRangeFactory;
@@ -413,8 +388,9 @@ begin
 end;//TnevParaPrim.Range
 
 function TnevParaPrim.SubRange(const aView: InevView;
-  aStart: Integer;
-  aFinish: Integer): InevRange;
+ aStart: Integer;
+ aFinish: Integer): InevRange;
+ {* возвращает выделение на данном объекте от aStart до aFinish. }
 //#UC START# *47C698A301FE_48CE0A490377_var*
 var
  l_Start  : InevPoint;
@@ -443,6 +419,7 @@ begin
 end;//TnevParaPrim.SubRange
 
 function TnevParaPrim.MakePoint(const aParent: InevBasePoint = nil): InevPoint;
+ {* точка в объекте. }
 //#UC START# *47C698BA017B_48CE0A490377_var*
 //#UC END# *47C698BA017B_48CE0A490377_var*
 begin
@@ -465,6 +442,7 @@ begin
 end;//TnevParaPrim.CloneObj
 
 function TnevParaPrim.OwnerObj: InevObjectList;
+ {* родительский объект данного объекта. }
 //#UC START# *47C698D801BE_48CE0A490377_var*
 //#UC END# *47C698D801BE_48CE0A490377_var*
 begin
@@ -483,6 +461,7 @@ begin
 end;//TnevParaPrim.IsPara
 
 function TnevParaPrim.AsPara: InevPara;
+ {* преобразует объект к параграфу, если это возможно, иначе - исключение. }
 //#UC START# *47C698F503AE_48CE0A490377_var*
 //#UC END# *47C698F503AE_48CE0A490377_var*
 begin
@@ -513,7 +492,8 @@ begin
 end;//TnevParaPrim.MakeAnchor
 
 function TnevParaPrim.Delete(anInMerge: Boolean;
-  const anOp: InevOp = nil): Boolean;
+ const anOp: InevOp = nil): Boolean;
+ {* удаляет параграф aPara. }
 //#UC START# *47C6996603B1_48CE0A490377_var*
 //#UC END# *47C6996603B1_48CE0A490377_var*
 begin
@@ -559,6 +539,7 @@ begin
 end;//TnevParaPrim.pm_GetAnchorID
 
 function TnevParaPrim.OwnerTag: Tl3Variant;
+ {* родительский тег данного параграфа. }
 //#UC START# *47C6A62A0257_48CE0A490377_var*
 //#UC END# *47C6A62A0257_48CE0A490377_var*
 begin
@@ -568,6 +549,7 @@ begin
 end;//TnevParaPrim.OwnerTag
 
 function TnevParaPrim.OwnerPara: InevParaList;
+ {* родительский параграф данного параграфа. }
 //#UC START# *47C6A66F0255_48CE0A490377_var*
 //#UC END# *47C6A66F0255_48CE0A490377_var*
 begin
@@ -674,7 +656,7 @@ begin
 end;//TnevParaPrim.AppliesToMaxWidth
 
 function TnevParaPrim.IsHiddenPrim(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *49D0BBEE0383_48CE0A490377_var*
 //#UC END# *49D0BBEE0383_48CE0A490377_var*
 begin
@@ -693,6 +675,7 @@ begin
 end;//TnevParaPrim.pm_GetOffsetX
 
 procedure TnevParaPrim.Invalidate(aParts: TnevShapeParts);
+ {* Сообщает о необходимости перерисовать форму, если она отображается в каком-нибудь View. }
 //#UC START# *49D0CBFC02D9_48CE0A490377_var*
 var
  l_Container : InevDocumentContainer;
@@ -742,6 +725,7 @@ begin
 end;//TnevParaPrim.Get_OverlapType
 
 function TnevParaPrim.NeedIncludeHeight(aCheckType: Boolean = True): Boolean;
+ {* Нужно ли учитывать высоту объекта при подсчете высоты родительского. }
 //#UC START# *49D105D10274_48CE0A490377_var*
 //#UC END# *49D105D10274_48CE0A490377_var*
 begin
@@ -751,6 +735,7 @@ begin
 end;//TnevParaPrim.NeedIncludeHeight
 
 function TnevParaPrim.IsLegalComment: Boolean;
+ {* Юридический комментарий? }
 //#UC START# *4B7BDCA502F7_48CE0A490377_var*
 //#UC END# *4B7BDCA502F7_48CE0A490377_var*
 begin
@@ -839,7 +824,6 @@ begin
  Result := TreatCollapsedAsHidden;
 //#UC END# *4E6F7B7902C4_48CE0A490377get_impl*
 end;//TnevParaPrim.Get_TreatCollapsedAsHidden
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -19,11 +19,11 @@ uses
 type
  TvcmPopupControlWindowService = {final} class(Tl3ProtoObject, Il3PopupControlService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IsPopupControlWindow(aControlWnd: HWND): Boolean;
    class function Instance: TvcmPopupControlWindowService;
     {* Метод получения экземпляра синглетона TvcmPopupControlWindowService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmPopupControlWindowService
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
@@ -48,12 +48,6 @@ procedure TvcmPopupControlWindowServiceFree;
 begin
  l3Free(g_TvcmPopupControlWindowService);
 end;//TvcmPopupControlWindowServiceFree
-
-class function TvcmPopupControlWindowService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmPopupControlWindowService <> nil;
-end;//TvcmPopupControlWindowService.Exists
 
 function TvcmPopupControlWindowService.IsPopupControlWindow(aControlWnd: HWND): Boolean;
 //#UC START# *D2E4642CC7BC_5587AB210223_var*
@@ -88,6 +82,12 @@ begin
  end;
  Result := g_TvcmPopupControlWindowService;
 end;//TvcmPopupControlWindowService.Instance
+
+class function TvcmPopupControlWindowService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmPopupControlWindowService <> nil;
+end;//TvcmPopupControlWindowService.Exists
 
 initialization
  Tl3PopupControlService.Instance.Alien := TvcmPopupControlWindowService.Instance;

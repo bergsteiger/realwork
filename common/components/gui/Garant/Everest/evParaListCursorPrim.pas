@@ -1,65 +1,53 @@
 unit evParaListCursorPrim;
+ {* Курсор для списка параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaListCursorPrim.pas"
-// Начат: 16.12.2002 17:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Cursors::TevParaListCursorPrim
-//
-// Курсор для списка параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListCursorPrim" MUID: (4A3A237A01C0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevBase,
-  nevTools,
-  evParaCursor,
-  l3Variant,
-  nevParaListAnchorModifyTypes,
-  k2Interfaces,
-  l3Core,
-  l3Interfaces,
-  l3IID
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evParaCursor
+ , nevTools
+ , nevBase
+ , l3Variant
+ , l3IID
+ , k2Interfaces
+ , l3Core
+ , l3Interfaces
+ , nevParaListAnchorModifyTypes
+;
 
-{$If defined(evUseVisibleCursors)}
 type
+ PevParaListCursor = ^TevParaListCursorPrim;
+
  _nevParaListTool_Parent_ = TevParaCursor;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _nevParaListViewBounds_Parent_ = _nevParaListTool_;
- {$Include ..\Everest\nevParaListViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
  _nevParaListAnchorModify_Parent_ = _nevParaListViewBounds_;
- {$Include ..\Everest\nevParaListAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
  TevParaListCursorPrim = class(_nevParaListAnchorModify_)
   {* Курсор для списка параграфов }
- private
- // private fields
-   f_Child : InevBasePoint;
- protected
- // realized methods
+  private
+   f_Child: InevBasePoint;
+  protected
+   procedure ParaChanged;
+   function NeedGotoHidden(aCode: Integer;
+    const aFI: TnevFormatInfoPrim): Boolean; virtual;
+    {* Нужно ли переходить на невидимую строку. }
+   function CheckFirst(aChildPID: Integer): Boolean; virtual;
+   function CanRedraw: Boolean; virtual;
+    {* Можно ли перисовывать, чтобы найти правильную мапу. }
    procedure SetPID(aValue: Integer); override;
    function GetPID: Integer; override;
- protected
- // overridden property methods
-   function pm_GetHasInner: Boolean; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoFire(const anEvent: Tk2Event;
     const anOp: Ik2Op); override;
    procedure SetInner(const aValue: InevBasePoint); override;
@@ -121,72 +109,57 @@ type
    function DoDeleteChar(const aView: InevView;
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
+   function pm_GetHasInner: Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function DoPartiallyVisible(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Boolean; override;
- protected
- // protected methods
-   procedure ParaChanged;
-   function NeedGotoHidden(aCode: Integer;
-     const aFI: TnevFormatInfoPrim): Boolean; virtual;
-     {* Нужно ли переходить на невидимую строку. }
-   function CheckFirst(aChildPID: Integer): Boolean; virtual;
-   function CanRedraw: Boolean; virtual;
-     {* Можно ли перисовывать, чтобы найти правильную мапу. }
- public
- // public methods
+  public
    procedure OffsetPID(Delta: Integer;
-     const Context: InevOp);
+    const Context: InevOp);
    procedure ChangePointByPara(const aView: InevView;
     const anOpPack: InevOp;
     const aPara: InevPara); virtual;
  end;//TevParaListCursorPrim
- PevParaListCursor = ^TevParaListCursorPrim;
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2TagGen,
-  nevNavigation,
-  evOp,
-  nevFacade,
-  Block_Const,
-  Para_Const,
-  ParaList_Const,
-  evCursorConst,
-  k2Base,
-  k2Tags,
-  l3Units
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  ControlPara_Const,
-  SysUtils,
-  l3MinMax,
-  Table_Const
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , k2TagGen
+ , nevNavigation
+ , evOp
+ , nevFacade
+ , Block_Const
+ , Para_Const
+ , ParaList_Const
+ , evCursorConst
+ , k2Base
+ , k2Tags
+ , l3Units
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , ControlPara_Const
+ , SysUtils
+ , l3MinMax
+ , Table_Const
+;
 
-{$If defined(evUseVisibleCursors)}
+type _Instance_R_ = TevParaListCursorPrim;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include ..\Everest\nevParaListViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
 
-{$Include ..\Everest\nevParaListAnchorModify.imp.pas}
-
-// start class TevParaListCursorPrim
+{$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
 
 procedure TevParaListCursorPrim.OffsetPID(Delta: Integer;
-  const Context: InevOp);
+ const Context: InevOp);
 //#UC START# *4A3A37E003BB_4A3A237A01C0_var*
 var
  l_CursorContext: IevCursorContext;
@@ -237,10 +210,9 @@ begin
 end;//TevParaListCursorPrim.OffsetPID
 
 procedure TevParaListCursorPrim.ParaChanged;
+var l_Listener: InevPointListener;
 //#UC START# *4A3A39CA022C_4A3A237A01C0_var*
 //#UC END# *4A3A39CA022C_4A3A237A01C0_var*
-var
- l_Listener : InevPointListener;
 begin
 //#UC START# *4A3A39CA022C_4A3A237A01C0_impl*
  l_Listener := pm_GetListener;
@@ -254,7 +226,8 @@ begin
 end;//TevParaListCursorPrim.ParaChanged
 
 function TevParaListCursorPrim.NeedGotoHidden(aCode: Integer;
-  const aFI: TnevFormatInfoPrim): Boolean;
+ const aFI: TnevFormatInfoPrim): Boolean;
+ {* Нужно ли переходить на невидимую строку. }
 //#UC START# *4F50B34C0260_4A3A237A01C0_var*
 //#UC END# *4F50B34C0260_4A3A237A01C0_var*
 begin
@@ -273,6 +246,7 @@ begin
 end;//TevParaListCursorPrim.CheckFirst
 
 function TevParaListCursorPrim.CanRedraw: Boolean;
+ {* Можно ли перисовывать, чтобы найти правильную мапу. }
 //#UC START# *4C495DAA024B_4A3A237A01C0_var*
 //#UC END# *4C495DAA024B_4A3A237A01C0_var*
 begin
@@ -282,8 +256,8 @@ begin
 end;//TevParaListCursorPrim.CanRedraw
 
 procedure TevParaListCursorPrim.ChangePointByPara(const aView: InevView;
-  const anOpPack: InevOp;
-  const aPara: InevPara);
+ const anOpPack: InevOp;
+ const aPara: InevPara);
 //#UC START# *4D5D161A030C_4A3A237A01C0_var*
 //#UC END# *4D5D161A030C_4A3A237A01C0_var*
 begin
@@ -310,6 +284,7 @@ begin
 end;//TevParaListCursorPrim.GetPID
 
 procedure TevParaListCursorPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A3A237A01C0_var*
 //#UC END# *479731C50290_4A3A237A01C0_var*
 begin
@@ -322,7 +297,7 @@ begin
 end;//TevParaListCursorPrim.Cleanup
 
 procedure TevParaListCursorPrim.DoFire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
 //#UC START# *48CF73CE00B5_4A3A237A01C0_var*
 var
  l_PID : Integer;
@@ -473,9 +448,9 @@ begin
 end;//TevParaListCursorPrim.SetInner
 
 function TevParaListCursorPrim.DoJoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp;
-  MoveSubs: Boolean): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp;
+ MoveSubs: Boolean): Integer;
 //#UC START# *49DEFB410161_4A3A237A01C0_var*
 //#UC END# *49DEFB410161_4A3A237A01C0_var*
 begin
@@ -488,8 +463,8 @@ begin
 end;//TevParaListCursorPrim.DoJoinWith
 
 function TevParaListCursorPrim.DoSplit(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *49DEFB770015_4A3A237A01C0_var*
 //#UC END# *49DEFB770015_4A3A237A01C0_var*
 begin
@@ -502,7 +477,7 @@ begin
 end;//TevParaListCursorPrim.DoSplit
 
 function TevParaListCursorPrim.DoJoinWithNext(const aView: InevView;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *49DF4C6E0101_4A3A237A01C0_var*
 //#UC END# *49DF4C6E0101_4A3A237A01C0_var*
 begin
@@ -515,7 +490,7 @@ begin
 end;//TevParaListCursorPrim.DoJoinWithNext
 
 procedure TevParaListCursorPrim.DoSetEntryPoint(aValue: Integer;
-  const anOp: IevCursorContext = nil);
+ const anOp: IevCursorContext = nil);
 //#UC START# *49E3126B030A_4A3A237A01C0_var*
 var
  l_PC : Integer;
@@ -545,9 +520,9 @@ begin
 end;//TevParaListCursorPrim.DoSetEntryPoint
 
 function TevParaListCursorPrim.DoMovePrim(const aView: InevView;
-  aCode: Integer;
-  const anOp: InevOp;
-  aCount: Integer): TnevMoveResult;
+ aCode: Integer;
+ const anOp: InevOp;
+ aCount: Integer): TnevMoveResult;
 //#UC START# *49E31657038E_4A3A237A01C0_var*
   
 var
@@ -822,8 +797,8 @@ begin
 end;//TevParaListCursorPrim.DoMovePrim
 
 function TevParaListCursorPrim.DoProcessMessage(const aView: InevControlView;
-  var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ var aMessage: TMessage;
+ aTime: Cardinal): Boolean;
 //#UC START# *49E343F60057_4A3A237A01C0_var*
 //#UC END# *49E343F60057_4A3A237A01C0_var*
 begin
@@ -891,7 +866,7 @@ begin
 end;//TevParaListCursorPrim.DoCheckPos
 
 function TevParaListCursorPrim.GetVertPosition(const aView: InevView;
-  aMap: TnevFormatInfoPrim): TnevParaIndex;
+ aMap: TnevFormatInfoPrim): TnevParaIndex;
 //#UC START# *49E34EDF0207_4A3A237A01C0_var*
 //#UC END# *49E34EDF0207_4A3A237A01C0_var*
 begin
@@ -901,7 +876,7 @@ begin
 end;//TevParaListCursorPrim.GetVertPosition
 
 function TevParaListCursorPrim.GetDeltaX(const aView: InevView;
-  const aMap: InevMap): Integer;
+ const aMap: InevMap): Integer;
 //#UC START# *49E3568201B9_4A3A237A01C0_var*
 var
  l_Ow    : Tl3Variant;
@@ -984,9 +959,9 @@ begin
 end;//TevParaListCursorPrim.DoGetBlockLength
 
 function TevParaListCursorPrim.DoChangeParam(const aView: InevView;
-  const aMarker: IevMarker;
-  aValue: Integer;
-  const anOp: InevOp): Boolean;
+ const aMarker: IevMarker;
+ aValue: Integer;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A29465701BC_4A3A237A01C0_var*
 //#UC END# *4A29465701BC_4A3A237A01C0_var*
 begin
@@ -1010,8 +985,8 @@ begin
 end;//TevParaListCursorPrim.DoDeleteHyperlink
 
 function TevParaListCursorPrim.DoInsertBreak(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F59B0234_4A3A237A01C0_var*
 var
  l_Index : Integer;
@@ -1040,8 +1015,8 @@ begin
 end;//TevParaListCursorPrim.DoInsertBreak
 
 function TevParaListCursorPrim.DoAddIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const anOpPack: InevOp): Boolean;
+ aValue: Integer;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F69F0070_4A3A237A01C0_var*
 //#UC END# *4A38F69F0070_4A3A237A01C0_var*
 begin
@@ -1053,7 +1028,7 @@ begin
 end;//TevParaListCursorPrim.DoAddIndentMarker
 
 function TevParaListCursorPrim.DoDeleteIndentMarker(const aView: InevView;
-  const anOpPack: InevOp): Boolean;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4A38F6CB003C_4A3A237A01C0_var*
 //#UC END# *4A38F6CB003C_4A3A237A01C0_var*
 begin
@@ -1065,10 +1040,10 @@ begin
 end;//TevParaListCursorPrim.DoDeleteIndentMarker
 
 function TevParaListCursorPrim.DoInsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp;
-  InsertMode: Boolean;
-  aFlags: TnevInsertStringFlags): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp;
+ InsertMode: Boolean;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F71601D6_4A3A237A01C0_var*
 //#UC END# *4A38F71601D6_4A3A237A01C0_var*
 begin
@@ -1081,9 +1056,9 @@ begin
 end;//TevParaListCursorPrim.DoInsertString
 
 function TevParaListCursorPrim.DoDeleteString(const aView: InevView;
-  aCount: Integer;
-  const anOp: InevOp;
-  aFlags: TnevInsertStringFlags): Boolean;
+ aCount: Integer;
+ const anOp: InevOp;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F748002D_4A3A237A01C0_var*
 //#UC END# *4A38F748002D_4A3A237A01C0_var*
 begin
@@ -1096,9 +1071,9 @@ begin
 end;//TevParaListCursorPrim.DoDeleteString
 
 function TevParaListCursorPrim.DoSetAtom(const aView: InevView;
-  anIndex: Cardinal;
-  pSource: Tl3Variant;
-  const anOp: InevOp): Boolean;
+ anIndex: Cardinal;
+ pSource: Tl3Variant;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7A40373_4A3A237A01C0_var*
 var
  l_Modify: InevDataFormattingModify;
@@ -1123,8 +1098,8 @@ begin
 end;//TevParaListCursorPrim.DoSetAtom
 
 function TevParaListCursorPrim.DoDeleteChar(const aView: InevView;
-  aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *4A38F7F5022C_4A3A237A01C0_var*
 //#UC END# *4A38F7F5022C_4A3A237A01C0_var*
 begin
@@ -1153,7 +1128,8 @@ begin
 end;//TevParaListCursorPrim.pm_GetHasInner
 
 function TevParaListCursorPrim.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A3A237A01C0_var*
 //#UC END# *4A60B23E00C3_4A3A237A01C0_var*
 begin
@@ -1174,8 +1150,8 @@ begin
 end;//TevParaListCursorPrim.COMQueryInterface
 
 function TevParaListCursorPrim.DoPartiallyVisible(const aView: InevView;
-  const aPoint: InevBasePoint;
-  aMap: TnevFormatInfoPrim): Boolean;
+ const aPoint: InevBasePoint;
+ aMap: TnevFormatInfoPrim): Boolean;
 //#UC START# *4BBB10FB015B_4A3A237A01C0_var*
 var
  l_Inner : InevBasePoint;
@@ -1190,7 +1166,6 @@ begin
  end; // if HasInner and aPoint.HasInner then
 //#UC END# *4BBB10FB015B_4A3A237A01C0_impl*
 end;//TevParaListCursorPrim.DoPartiallyVisible
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

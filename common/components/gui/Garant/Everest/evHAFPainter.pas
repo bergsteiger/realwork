@@ -1,103 +1,88 @@
 unit evHAFPainter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evHAFPainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TevHAFPainter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evHAFPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevHAFPainter" MUID: (4C22178C0102)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3ProtoObject,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3InternalInterfaces
+ , l3Interfaces
+ , l3Variant
+;
 
 type
  TevHAFPainter = class(Tl3ProtoObject, Il3HAFPainter)
- private
- // private fields
-   f_PagesCount : Integer;
-    {* Поле для свойства PagesCount}
-   f_MacroReplacer : Il3HAFMacroReplacer;
-    {* Поле для свойства MacroReplacer}
- protected
- // property methods
+  private
+   f_PagesCount: Integer;
+    {* Поле для свойства PagesCount }
+   f_MacroReplacer: Il3HAFMacroReplacer;
+    {* Поле для свойства MacroReplacer }
+  protected
    function pm_GetMacroReplacer: Il3HAFMacroReplacer;
- protected
- // realized methods
+   function MacroDocCurrentPage(const aCanvas: Il3Canvas): Il3CString;
+   function MacroDocPagesCount: Il3CString;
+   function DoNeedPagesCount: Boolean; virtual;
    function DocumentName: Il3CString;
    function NeedPagesCount: Boolean;
    procedure SetPagesCount(aValue: Integer);
    procedure StartPage(const CN: Il3Canvas;
     aTop: Boolean);
    function Get_MacroReplacer: Il3HAFMacroReplacer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function MacroDocCurrentPage(const aCanvas: Il3Canvas): Il3CString;
-   function MacroDocPagesCount: Il3CString;
-   function DoNeedPagesCount: Boolean; virtual;
- public
- // public methods
+  public
    constructor Create(const aMacroReplacer: Il3HAFMacroReplacer); reintroduce; virtual;
    class function Make(const aMacroReplacer: Il3HAFMacroReplacer): Il3HAFPainter; reintroduce;
-     {* Сигнатура фабрики TevHAFPainter.Make }
    procedure TuneHeader(const aCanvas: Il3Canvas;
-     aHeader: Tl3Variant;
-     aTop: Boolean); virtual; abstract;
- public
- // public properties
+    aHeader: Tl3Variant;
+    aTop: Boolean); virtual; abstract;
+  public
    property PagesCount: Integer
-     read f_PagesCount
-     write f_PagesCount;
+    read f_PagesCount
+    write f_PagesCount;
    property MacroReplacer: Il3HAFMacroReplacer
-     read pm_GetMacroReplacer;
+    read pm_GetMacroReplacer;
  end;//TevHAFPainter
 
 implementation
 
 uses
-  l3String,
-  evHAFPainterMacros,
-  nevRealTools,
-  l3Units,
-  nevTools,
-  Graphics,
-  Windows,
-  evConst,
-  evDef,
-  Document_Const,
-  SBS_Const,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evSBSPar
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  nevHAFPainterView,
-  l3Base
-  ;
+ l3ImplUses
+ , l3String
+ , evHAFPainterMacros
+ , nevRealTools
+ , l3Units
+ , nevTools
+ , Graphics
+ , Windows
+ , evConst
+ , evDef
+ , Document_Const
+ , SBS_Const
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evSBSPar
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdTypes
+ , nevHAFPainterView
+ , l3Base
+;
 
-// start class TevHAFPainter
+function TevHAFPainter.pm_GetMacroReplacer: Il3HAFMacroReplacer;
+//#UC START# *5243CB3A0332_4C22178C0102get_var*
+//#UC END# *5243CB3A0332_4C22178C0102get_var*
+begin
+//#UC START# *5243CB3A0332_4C22178C0102get_impl*
+ Result := f_MacroReplacer;
+//#UC END# *5243CB3A0332_4C22178C0102get_impl*
+end;//TevHAFPainter.pm_GetMacroReplacer
 
 function TevHAFPainter.MacroDocCurrentPage(const aCanvas: Il3Canvas): Il3CString;
 //#UC START# *5243CC9F00C7_4C22178C0102_var*
@@ -141,7 +126,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevHAFPainter.Make
 
 function TevHAFPainter.DoNeedPagesCount: Boolean;
 //#UC START# *5243DA2102ED_4C22178C0102_var*
@@ -151,15 +136,6 @@ begin
  Result := False;
 //#UC END# *5243DA2102ED_4C22178C0102_impl*
 end;//TevHAFPainter.DoNeedPagesCount
-
-function TevHAFPainter.pm_GetMacroReplacer: Il3HAFMacroReplacer;
-//#UC START# *5243CB3A0332_4C22178C0102get_var*
-//#UC END# *5243CB3A0332_4C22178C0102get_var*
-begin
-//#UC START# *5243CB3A0332_4C22178C0102get_impl*
- Result := f_MacroReplacer;
-//#UC END# *5243CB3A0332_4C22178C0102get_impl*
-end;//TevHAFPainter.pm_GetMacroReplacer
 
 function TevHAFPainter.DocumentName: Il3CString;
 //#UC START# *4728C10B0096_4C22178C0102_var*
@@ -192,7 +168,7 @@ begin
 end;//TevHAFPainter.SetPagesCount
 
 procedure TevHAFPainter.StartPage(const CN: Il3Canvas;
-  aTop: Boolean);
+ aTop: Boolean);
 //#UC START# *4728C1490398_4C22178C0102_var*
 var
  l_Header: Tl3Variant;
@@ -317,6 +293,7 @@ begin
 end;//TevHAFPainter.Get_MacroReplacer
 
 procedure TevHAFPainter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C22178C0102_var*
 //#UC END# *479731C50290_4C22178C0102_var*
 begin
@@ -327,7 +304,6 @@ begin
 end;//TevHAFPainter.Cleanup
 
 procedure TevHAFPainter.ClearFields;
- {-}
 begin
  f_MacroReplacer := nil;
  inherited;
