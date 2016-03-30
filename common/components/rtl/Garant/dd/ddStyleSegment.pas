@@ -1,71 +1,57 @@
 unit ddStyleSegment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddStyleSegment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddStyleSegment
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddStyleSegment.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddStyleSegment" MUID: (54D9B8E801EA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddTextSegment,
-  k2Interfaces,
-  ddCharacterProperty,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddTextSegment
+ , k2Interfaces
+ , ddCharacterProperty
+ , ddTypes
+;
 
 type
  TddStyleSegment = class(TddTextSegment)
- protected
- // realized methods
+  protected
+   procedure DoWriteSegmentProps(const Generator: Ik2TagGenerator;
+    aCHP: TddCharacterProperty;
+    aParentCHP: TddCharacterProperty;
+    aLiteVersion: TddLiteVersion); override;
+  public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aCHP: TddCharacterProperty;
-     aParentCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion); override;
+    aCHP: TddCharacterProperty;
+    aParentCHP: TddCharacterProperty;
+    aLiteVersion: TddLiteVersion); override;
    function Clone: TddTextSegment; override;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion): Boolean; override;
- protected
- // overridden protected methods
-   procedure DoWriteSegmentProps(const Generator: Ik2TagGenerator;
-     aCHP: TddCharacterProperty;
-     aParentCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion); override;
+    aLiteVersion: TddLiteVersion): Boolean; override;
  end;//TddStyleSegment
 
 implementation
 
 uses
-  ddRTFConst,
-  l3String,
-  l3Types,
-  l3LogFont,
-  l3FontManager,
-  Windows,
-  RTFtypes,
-  l3Interfaces,
-  evdStyles,
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddStyleSegment
+ l3ImplUses
+ , ddRTFConst
+ , l3String
+ , l3Types
+ , l3LogFont
+ , l3FontManager
+ , Windows
+ , RTFtypes
+ , l3Interfaces
+ , evdStyles
+;
 
 procedure TddStyleSegment.Write2Generator(const Generator: Ik2TagGenerator;
-  aCHP: TddCharacterProperty;
-  aParentCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion);
+ aCHP: TddCharacterProperty;
+ aParentCHP: TddCharacterProperty;
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D888450259_54D9B8E801EA_var*
 //#UC END# *54D888450259_54D9B8E801EA_var*
 begin
@@ -90,7 +76,7 @@ begin
 end;//TddStyleSegment.Clone
 
 function TddStyleSegment.SkipSegment(aDiffCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion): Boolean;
+ aLiteVersion: TddLiteVersion): Boolean;
 //#UC START# *54E4325C00BE_54D9B8E801EA_var*
 
  procedure lp_ConvertkBold2Style;
@@ -112,9 +98,9 @@ begin
 end;//TddStyleSegment.SkipSegment
 
 procedure TddStyleSegment.DoWriteSegmentProps(const Generator: Ik2TagGenerator;
-  aCHP: TddCharacterProperty;
-  aParentCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion);
+ aCHP: TddCharacterProperty;
+ aParentCHP: TddCharacterProperty;
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D9B0300325_54D9B8E801EA_var*
 var
  l_CharSet: LongInt;

@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , BaseTypesUnit
+ , BaseTreeSupportUnit
 ;
 
 const
@@ -36,29 +37,15 @@ type
  IExternalOperation = interface
   {* —сылки на операции }
   ['{71ECDD4A-0455-4800-BD55-7ECB739949A7}']
-  function Get_id: TObjectId;
-  property id: TObjectId
-   read Get_id;
+  function GetId: TObjectId; stdcall;
+  property Id: TObjectId
+   read GetId;
  end;//IExternalOperation
-
-class function make(id: TObjectId): BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make(id: TObjectId): BadFactoryType;
-var
- l_Inst : IExternalOperation;
-begin
- l_Inst := Create(id);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

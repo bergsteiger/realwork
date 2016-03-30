@@ -10,11 +10,12 @@ interface
 
 uses
  l3IntfUses
+ , IOUnit
  , BaseTypesUnit
  , DocumentUnit
  , DynamicTreeUnit
  , FiltersUnit
- , IOUnit
+ , DynamicTreeDefinesUnit
  , SearchProgressIndicatorUnit
 ;
 
@@ -40,24 +41,24 @@ type
 
  IListEntryInfo = interface(IEntityBase)
   ['{5B3CE8D5-3CB9-4EA6-B3AC-37EADA8FDF9C}']
-  function Get_type: TPositionType;
-  function Get_position: Cardinal;
-  function Get_relevance: short;
-  function Get_pid: TPId;
-  function Get_doc: IDocument;
-  procedure get_entry_list;
-  procedure get_relevance_words_list;
-  property type: TPositionType
-   read Get_type;
-  property position: Cardinal
-   read Get_position;
-  property relevance: short
-   read Get_relevance;
+  function GetType: TPositionType; stdcall;
+  function GetPosition: Cardinal; stdcall;
+  function GetRelevance: short; stdcall;
+  function GetPid: TPId; stdcall;
+  function GetDoc: IDocument; stdcall;
+  procedure GetEntryList; stdcall;
+  procedure GetRelevanceWordsList; stdcall;
+  property Type: TPositionType
+   read GetType;
+  property Position: Cardinal
+   read GetPosition;
+  property Relevance: short
+   read GetRelevance;
    {* Релевантность. Для списков без релевантности всегда 0. }
-  property pid: TPId
-   read Get_pid;
-  property doc: IDocument
-   read Get_doc;
+  property Pid: TPId
+   read GetPid;
+  property Doc: IDocument
+   read GetDoc;
  end;//IListEntryInfo
 
  TSpecialListKey = (
@@ -67,53 +68,51 @@ type
 
  IDynList = interface(IEntityBase)
   ['{00B91ACF-6CDD-437F-935A-07287C0E2DF0}']
-  function Get_history: IString;
-  function Get_is_filtered: Boolean;
-  function Get_content_type: TDynListContent;
-  function Get_is_short: Boolean;
-  function Get_is_snippet: Boolean;
-  function Get_current_sort_params: TSortParams;
-  function Get_available_sort_types: ISortTypes;
-  procedure sort(const params: TSortParams);
-  procedure set_context_filter(var context: IContextFilter);
-  procedure save_to_file(path: PAnsiChar;
-   const nodes: INodesClipboard);
+  function GetHistory: IString; stdcall;
+  function GetIsFiltered: ByteBool; stdcall;
+  function GetContentType: TDynListContent; stdcall;
+  function GetIsShort: ByteBool; stdcall;
+  function GetIsSnippet: ByteBool; stdcall;
+  function GetCurrentSortParams: TSortParams; stdcall;
+  function GetAvailableSortTypes: ISortTypes; stdcall;
+  procedure Sort(const params: TSortParams); stdcall;
+  procedure SetContextFilter(var context: IContextFilter); stdcall;
+  procedure SaveToFile(path: PAnsiChar;
+   const nodes: INodesClipboard); stdcall;
    {* Сохранить список или его выделенные элементы в файл. }
-  function as_evd(style: TEVDGeneratorStyle): IStream;
-  function get_short_name: IString;
+  function AsEvd(style: TEVDGeneratorStyle): IStream; stdcall;
+  function GetShortName: IString; stdcall;
    {* получить "короткое" имя списка, используется при выводе на печать }
-  procedure set_list_storage(const saved_list);
-  procedure get_full_list(var progress: IProgressIndicatorForSearch;
-   out cancel_process: ICancelSearch); { can raise CanNotFindData }
+  procedure SetListStorage(const saved_list); stdcall;
+  procedure GetFullList(var progress: IProgressIndicatorForSearch;
+   out cancel_process: ICancelSearch); stdcall; { can raise CanNotFindData }
    {* Получить полный список }
-  function get_analysis_tree: INodeBase; { can raise CanNotFindData }
+  function GetAnalysisTree: INodeBase; stdcall; { can raise CanNotFindData }
    {* получить дерево анализа для списка }
-  function get_full_list_size: Cardinal;
+  function GetFullListSize: Cardinal; stdcall;
    {* Получить длину полного для базового списка }
-  function As_ICatalogBase: ICatalogBase;
-   {* Метод приведения нашего интерфейса к ICatalogBase }
-  property history: IString
-   read Get_history;
-  property is_filtered: Boolean
-   read Get_is_filtered;
-  property content_type: TDynListContent
-   read Get_content_type;
-  property is_short: Boolean
-   read Get_is_short;
+  property History: IString
+   read GetHistory;
+  property IsFiltered: ByteBool
+   read GetIsFiltered;
+  property ContentType: TDynListContent
+   read GetContentType;
+  property IsShort: ByteBool
+   read GetIsShort;
    {* Это короткий список (сниппеты) }
-  property is_snippet: Boolean
-   read Get_is_snippet;
+  property IsSnippet: ByteBool
+   read GetIsSnippet;
    {* Признак, является ли список сниппетом }
-  property current_sort_params: TSortParams
-   read Get_current_sort_params;
-  property available_sort_types: ISortTypes
-   read Get_available_sort_types;
+  property CurrentSortParams: TSortParams
+   read GetCurrentSortParams;
+  property AvailableSortTypes: ISortTypes
+   read GetAvailableSortTypes;
  end;//IDynList
 
  ISearchDynList = interface(ISearchEntity)
   {* Список - результат поиска }
   ['{DB91FE90-832B-4753-9222-4313AB5CA667}']
-  function get_dyn_list: IDynList;
+  function GetDynList: IDynList; stdcall;
  end;//ISearchDynList
 
  TDynListFlags = (
@@ -125,8 +124,8 @@ type
  IDocListFactory = interface
   {* фабрика для создания списков }
   ['{C894D5B5-37CF-4463-A426-E30550F408F8}']
-  function make_list(file_name: PAnsiChar;
-   inner_numbers: Boolean): IDynList; { can raise AccessDenied, InvalidType }
+  function MakeList(file_name: PAnsiChar;
+   inner_numbers: Boolean): IDynList; stdcall; { can raise AccessDenied, InvalidType }
    {* построить список по данным из файла file_name.
  inner_numbers - флаг указывающий какие номера документов используются (если inner_numbers=true - внутренние)
 
@@ -143,128 +142,15 @@ InvalidType - в файле некорректные данные }
 
  IDynListNode = interface
   ['{FAE957F6-A5EA-4AB6-9EC2-8514B696A1C1}']
-  function get_document_id: TObjectId;
+  function GetDocumentId: TObjectId; stdcall;
    {* Получить идентифкатор документа из ноды списка }
-  function get_snippet_text: IString;
+  function GetSnippetText: IString; stdcall;
  end;//IDynListNode
-
-class function make(const info;
- const root: INodeBase): BadFactoryType; overload;
-class function make(const info): BadFactoryType; overload;
-class function make(const server_list): ICatalogBase; overload;
-class function make(const legal_document;
- const query;
- type: TDynListType): ICatalogBase; overload;
-class function make(key: TSpecialListKey): ICatalogBase; overload;
-class function make(const search_doc_list): BadFactoryType;
-class function make: BadFactoryType;
-class function make(var owner_tree: IFakeFacetForFactory;
- const snode): BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make(const info;
- const root: INodeBase): BadFactoryType;
-var
- l_Inst : IListEntryInfo;
-begin
- l_Inst := Create(info, root);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const info): BadFactoryType;
-var
- l_Inst : IListEntryInfo;
-begin
- l_Inst := Create(info);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const server_list): ICatalogBase;
-var
- l_Inst : IDynList;
-begin
- l_Inst := Create(server_list);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const legal_document;
- const query;
- type: TDynListType): ICatalogBase;
-var
- l_Inst : IDynList;
-begin
- l_Inst := Create(legal_document, query, type);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(key: TSpecialListKey): ICatalogBase;
-var
- l_Inst : IDynList;
-begin
- l_Inst := Create(key);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const search_doc_list): BadFactoryType;
-var
- l_Inst : ISearchDynList;
-begin
- l_Inst := Create(search_doc_list);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IDocListFactory;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(var owner_tree: IFakeFacetForFactory;
- const snode): BadFactoryType;
-var
- l_Inst : IDynListNode;
-begin
- l_Inst := Create(owner_tree, snode);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

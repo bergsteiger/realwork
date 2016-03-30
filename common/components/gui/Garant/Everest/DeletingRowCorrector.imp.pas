@@ -1,39 +1,33 @@
 {$IfNDef DeletingRowCorrector_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/DeletingRowCorrector.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::ParaUtils::DeletingRowCorrector
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "DeletingRowCorrector" MUID: (5108E8A403B9)
+// Имя типа: "_DeletingRowCorrector_"
 
 {$Define DeletingRowCorrector_imp}
-{$If defined(k2ForEditor)}
- _DeletingRowCorrector_ = {mixin} class(_DeletingRowCorrector_Parent_)
- protected
- // protected methods
+
+{$If Defined(k2ForEditor)}
+ _DeletingRowCorrector_ = class(_DeletingRowCorrector_Parent_)
+  protected
    procedure CheckRow(const aCheckingRow: InevPara;
-     const anOpPack: InevOp);
+    const anOpPack: InevOp);
  end;//_DeletingRowCorrector_
-{$Else}
 
- _DeletingRowCorrector_ = _DeletingRowCorrector_Parent_;
+{$Else Defined(k2ForEditor)}
 
-{$IfEnd} //k2ForEditor
+_DeletingRowCorrector_ = _DeletingRowCorrector_Parent_;
 
+{$IfEnd} // Defined(k2ForEditor)
 {$Else DeletingRowCorrector_imp}
 
-{$If defined(k2ForEditor)}
+{$IfNDef DeletingRowCorrector_imp_impl}
 
-// start class _DeletingRowCorrector_
+{$Define DeletingRowCorrector_imp_impl}
 
+{$If Defined(k2ForEditor)}
 procedure _DeletingRowCorrector_.CheckRow(const aCheckingRow: InevPara;
-  const anOpPack: InevOp);
+ const anOpPack: InevOp);
 //#UC START# *5108E8D80063_5108E8A403B9_var*
 
   function lp_CheckCell(aCell: Tl3Variant; Index: LongInt): Boolean;
@@ -59,7 +53,9 @@ begin
  aCheckingRow.Invalidate([nev_spExtent]);
 //#UC END# *5108E8D80063_5108E8A403B9_impl*
 end;//_DeletingRowCorrector_.CheckRow
+{$IfEnd} // Defined(k2ForEditor)
 
-{$IfEnd} //k2ForEditor
+{$EndIf DeletingRowCorrector_imp_impl}
 
 {$EndIf DeletingRowCorrector_imp}
+

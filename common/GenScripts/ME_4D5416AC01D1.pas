@@ -15,6 +15,8 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , l3PureMixIns
+ //#UC START# *4D5416AC01D1intf_uses*
+ //#UC END# *4D5416AC01D1intf_uses*
 ;
 
  {$Define _UnknownIsComponent}
@@ -54,6 +56,8 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *4D5416AC01D1impl_uses*
+ //#UC END# *4D5416AC01D1impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

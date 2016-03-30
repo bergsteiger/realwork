@@ -1,33 +1,24 @@
 unit ddTextSegmentsList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTextSegmentsList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTextSegmentsList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTextSegmentsList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTextSegmentsList" MUID: (525D40F1024C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoDataContainer,
-  ddTextSegment,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , ddTextSegment
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = TddTextSegment;
@@ -35,50 +26,45 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddTextSegmentsList = class(_l3UncomparabeObjectRefList_)
- private
- // private fields
-   f_HasHyperlink : Boolean;
-    {* Поле для свойства HasHyperlink}
-   f_HasSegment : Boolean;
-    {* Поле для свойства HasSegment}
- protected
- // overridden protected methods
+  private
+   f_HasHyperlink: Boolean;
+    {* Поле для свойства HasHyperlink }
+   f_HasSegment: Boolean;
+    {* Поле для свойства HasSegment }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoDelete(Index: Integer); override;
-     {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
+    {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
    procedure DirectInsert(anIndex: Integer;
     const aData: _ItemType_); override;
-     {* Непосредственное удаление элемента. Без проверки валидности индекса. }
- public
- // overridden public methods
+    {* Непосредственное удаление элемента. Без проверки валидности индекса. }
+  public
    function Add(const anItem: _ItemType_): Integer; override;
-     {* Добавляет элемент списка. }
+    {* Добавляет элемент списка. }
    procedure Clear; override;
- public
- // public properties
+  public
    property HasHyperlink: Boolean
-     read f_HasHyperlink;
+    read f_HasHyperlink;
    property HasSegment: Boolean
-     read f_HasSegment;
+    read f_HasSegment;
  end;//TddTextSegmentsList
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
-// start class TddTextSegmentsList
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_525D40F1024C_var*
 //#UC END# *47B2C42A0163_525D40F1024C_var*
 begin
@@ -86,9 +72,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_525D40F1024C_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_525D40F1024C_var*
 //#UC END# *47B99D4503A2_525D40F1024C_var*
 begin
@@ -105,9 +92,8 @@ type _Instance_R_ = TddTextSegmentsList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-// start class TddTextSegmentsList
-
 procedure TddTextSegmentsList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_525D40F1024C_var*
 //#UC END# *479731C50290_525D40F1024C_var*
 begin
@@ -119,6 +105,7 @@ begin
 end;//TddTextSegmentsList.Cleanup
 
 function TddTextSegmentsList.Add(const anItem: _ItemType_): Integer;
+ {* Добавляет элемент списка. }
 //#UC START# *47A750E70096_525D40F1024C_var*
 //#UC END# *47A750E70096_525D40F1024C_var*
 begin
@@ -143,6 +130,7 @@ begin
 end;//TddTextSegmentsList.Clear
 
 procedure TddTextSegmentsList.DoDelete(Index: Integer);
+ {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
 //#UC START# *47B4895F01BE_525D40F1024C_var*
 var
  i: Integer;
@@ -162,7 +150,8 @@ begin
 end;//TddTextSegmentsList.DoDelete
 
 procedure TddTextSegmentsList.DirectInsert(anIndex: Integer;
-  const aData: _ItemType_);
+ const aData: _ItemType_);
+ {* Непосредственное удаление элемента. Без проверки валидности индекса. }
 //#UC START# *47B49EC50034_525D40F1024C_var*
 //#UC END# *47B49EC50034_525D40F1024C_var*
 begin
@@ -172,7 +161,8 @@ begin
  else
   f_HasSegment := True;
  inherited 
-///#UC END# *47B49EC50034_525D40F1024C_impl*
+/
+//#UC END# *47B49EC50034_525D40F1024C_impl*
 end;//TddTextSegmentsList.DirectInsert
 
 end.

@@ -1,61 +1,44 @@
 unit evReqRowImplementation;
+ {* Специализированная обработка добавления строк в КЗ. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evReqRowImplementation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaUtils::TevReqRowImplementation
-//
-// Специализированная обработка добавления строк в КЗ.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqRowImplementation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevReqRowImplementation" MUID: (56123C590233)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  evTableImplementation,
-  nevBase,
-  nevTools
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , evTableImplementation
+ , nevBase
+ , nevTools
+;
 
-{$If defined(k2ForEditor)}
 type
  TevReqRowImplementation = {final} class(TevTableImplementation)
   {* Специализированная обработка добавления строк в КЗ. }
- protected
- // overridden protected methods
+  protected
    procedure DoCloneSegments(const aOldRow: Tl3Variant;
-     const aNewRow: Tl3Variant;
-     const anOp: InevOp); override;
+    const aNewRow: Tl3Variant;
+    const anOp: InevOp); override;
    function GetClearMode4Clone: TevClearMode; override;
  end;//TevReqRowImplementation
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TevReqRowImplementation
+ l3ImplUses
+ , k2Tags
+;
 
 procedure TevReqRowImplementation.DoCloneSegments(const aOldRow: Tl3Variant;
-  const aNewRow: Tl3Variant;
-  const anOp: InevOp);
+ const aNewRow: Tl3Variant;
+ const anOp: InevOp);
 //#UC START# *5612461701A2_56123C590233_var*
 const
  cnLabelCellID = 0;
@@ -99,7 +82,6 @@ begin
  Result := ev_cmLeaveSegments;
 //#UC END# *5612464E01AC_56123C590233_impl*
 end;//TevReqRowImplementation.GetClearMode4Clone
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

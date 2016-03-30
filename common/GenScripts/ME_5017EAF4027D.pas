@@ -19,7 +19,7 @@
    f_DisplayName: IvcmCString;
     {* Вычисленный заголовок контроллера области ввода }
    f_UseCaseController: _UseCaseControllerType_;
-    {* Поле для свойства UseCaseController }
+    {* Контроллер прецедента, в котором находится наша область ввода }
   protected
    function GetIsDataAvailable: Boolean; virtual;
     {* существуют ли данные }

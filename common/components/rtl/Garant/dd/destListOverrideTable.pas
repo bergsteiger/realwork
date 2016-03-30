@@ -1,69 +1,54 @@
 unit destListOverrideTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destListOverrideTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestListOverrideTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destListOverrideTable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestListOverrideTable" MUID: (51DD4D00025B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRTFdestination,
-  rtfListTable,
-  destListTable,
-  destListoverride,
-  ddCustomRTFReader,
-  ddRTFState,
-  l3Base,
-  RTFtypes
-  ;
+ l3IntfUses
+ , ddRTFdestination
+ , rtfListTable
+ , destListTable
+ , destListoverride
+ , ddCustomRTFReader
+ , ddRTFState
+ , RTFtypes
+ , l3Base
+;
 
 type
  TdestListOverrideTable = class(TddRTFDestination)
- private
- // private fields
-   f_ListOverrideTable : TrtfListOverrideTable;
-   f_DestListTable : TdestListTable;
-   f_WasRestart : Boolean;
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
+  private
+   f_ListOverrideTable: TrtfListOverrideTable;
+   f_DestListTable: TdestListTable;
+   f_WasRestart: Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddListOverride(aListOverride: TdestListoverride);
    function LS2List(aLS: Integer;
-     out aWasRestart: Boolean): TrtfList;
+    out aWasRestart: Boolean): TrtfList;
    constructor Create(aRTFReader: TddCustomRTFReader;
-     const aDestListTable: TdestListTable); reintroduce;
+    const aDestListTable: TdestListTable); reintroduce;
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
  end;//TdestListOverrideTable
 
 implementation
 
 uses
-  SysUtils,
-  ddTypes
-  ;
-
-// start class TdestListOverrideTable
+ l3ImplUses
+ , SysUtils
+ , ddTypes
+;
 
 procedure TdestListOverrideTable.AddListOverride(aListOverride: TdestListoverride);
 //#UC START# *51DD5870005A_51DD4D00025B_var*
@@ -83,7 +68,7 @@ begin
 end;//TdestListOverrideTable.AddListOverride
 
 function TdestListOverrideTable.LS2List(aLS: Integer;
-  out aWasRestart: Boolean): TrtfList;
+ out aWasRestart: Boolean): TrtfList;
 //#UC START# *51DD58890154_51DD4D00025B_var*
 var
  i             : Integer;
@@ -112,7 +97,7 @@ begin
 end;//TdestListOverrideTable.LS2List
 
 constructor TdestListOverrideTable.Create(aRTFReader: TddCustomRTFReader;
-  const aDestListTable: TdestListTable);
+ const aDestListTable: TdestListTable);
 //#UC START# *55829A62037B_51DD4D00025B_var*
 //#UC END# *55829A62037B_51DD4D00025B_var*
 begin
@@ -125,7 +110,7 @@ begin
 end;//TdestListOverrideTable.Create
 
 procedure TdestListOverrideTable.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_51DD4D00025B_var*
 //#UC END# *5461BEC2017D_51DD4D00025B_var*
 begin
@@ -135,8 +120,8 @@ begin
 end;//TdestListOverrideTable.Close
 
 procedure TdestListOverrideTable.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_51DD4D00025B_var*
 //#UC END# *54E1F08400F9_51DD4D00025B_var*
 begin
@@ -146,6 +131,7 @@ begin
 end;//TdestListOverrideTable.WriteText
 
 procedure TdestListOverrideTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51DD4D00025B_var*
 //#UC END# *479731C50290_51DD4D00025B_var*
 begin

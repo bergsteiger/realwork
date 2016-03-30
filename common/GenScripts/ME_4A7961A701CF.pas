@@ -24,6 +24,8 @@ uses
  , l3InternalInterfaces
  , Types
  , OvcController
+ //#UC START# *4A7961A701CFintf_uses*
+ //#UC END# *4A7961A701CFintf_uses*
 ;
 
 type
@@ -40,17 +42,17 @@ type
  TvtCustomPanelPrim = class(TafwTextControl)
   private
    f_BevelInner: TPanelBevel;
-    {* Поле для свойства BevelInner }
+    {* default bvNone; }
    f_BevelOuter: TPanelBevel;
-    {* Поле для свойства BevelOuter }
+    {* default bvRaised; }
    f_Alignment: TAlignment;
-    {* Поле для свойства Alignment }
+    {* default taCenter; }
    f_BevelWidth: TBevelWidth;
-    {* Поле для свойства BevelWidth }
+    {* default 1; }
    f_BorderWidth: TBorderWidth;
-    {* Поле для свойства BorderWidth }
+    {* default 0; }
    f_FullRepaint: Boolean;
-    {* Поле для свойства FullRepaint }
+    {* default True; }
   protected
    procedure pm_SetBevelInner(aValue: TPanelBevel); virtual;
    procedure pm_SetBevelOuter(aValue: TPanelBevel); virtual;
@@ -104,10 +106,8 @@ type
    fakefakefakefakefake: TFontStyle;
    {$If NOT Defined(Delphi7)}
    f_OnResize: TNotifyEvent;
-    {* Поле для свойства OnResize }
    {$IfEnd} // NOT Defined(Delphi7)
    f_FixW2kWMSize: Boolean;
-    {* Поле для свойства FixW2kWMSize }
   private
    procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
    procedure WMSize(var Message: TWMSize); message WM_SIZE;
@@ -246,6 +246,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , OvcConst
+ //#UC START# *4A7961A701CFimpl_uses*
+ //#UC END# *4A7961A701CFimpl_uses*
 ;
 
 procedure TvtCustomPanelPrim.pm_SetBevelInner(aValue: TPanelBevel);

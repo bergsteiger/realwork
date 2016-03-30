@@ -30,6 +30,8 @@ uses
  {$If Defined(XE)}
  , Actions
  {$IfEnd} // Defined(XE)
+ //#UC START# *4D7A109601C2intf_uses*
+ //#UC END# *4D7A109601C2intf_uses*
 ;
 
 const
@@ -359,6 +361,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D7A109601C2impl_uses*
+ //#UC END# *4D7A109601C2impl_uses*
 ;
 
 function TvcmBaseOperationsCollectionItemPrim.pm_GetOperationType: TvcmOperationType;

@@ -10,6 +10,8 @@ interface
 
 uses
  l3IntfUses
+ //#UC START# *4614E05A0222intf_uses*
+ //#UC END# *4614E05A0222intf_uses*
 ;
 
 type
@@ -26,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4614E05A0222impl_uses*
+ //#UC END# *4614E05A0222impl_uses*
 ;
 
 //#UC START# *4614E05A0222impl*

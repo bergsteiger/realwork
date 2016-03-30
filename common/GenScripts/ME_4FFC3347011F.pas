@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , vcmPrimCollectionItem
  , Classes
+ //#UC START# *4FFC3347011Fintf_uses*
+ //#UC END# *4FFC3347011Fintf_uses*
 ;
 
 type
@@ -79,6 +81,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4FFC3347011Fimpl_uses*
+ //#UC END# *4FFC3347011Fimpl_uses*
 ;
 
 function TvcmBaseCollectionItemPrim.pm_GetName: AnsiString;

@@ -1,105 +1,87 @@
 unit ddRTFExpandedTextWriter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddRTFExpandedTextWriter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Writers::TddRTFExpandedTextWriter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddRTFExpandedTextWriter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFExpandedTextWriter" MUID: (55BB1F310213)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoDataContainer,
-  ddRTFSegmentWriter,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes,
-  l3Variant,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddRTFSegmentWriter
+ , l3Variant
+ , k2Interfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
+ TddCollapsed = (
+  dd_cbExpand
+  , dd_cbCollapsed
+  , dd_cbParentCollapsed
+ );//TddCollapsed
+
  TddBlockInfo = class(Tl3ProtoDataContainer)
   {* Свойства блока, нужные для выливки. }
- private
- // private fields
-   f_StyleID : Integer;
-    {* Поле для свойства StyleID}
-   f_Collapsed : Boolean;
-    {* Поле для свойства Collapsed}
-   f_ParaID : Integer;
-    {* Поле для свойства ParaID}
- protected
- // overridden protected methods
+  private
+   f_StyleID: Integer;
+    {* Поле для свойства StyleID }
+   f_Collapsed: TddCollapsed;
+    {* Поле для свойства Collapsed }
+   f_ParaID: Integer;
+    {* Поле для свойства ParaID }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public properties
+  public
    property StyleID: Integer
-     read f_StyleID
-     write f_StyleID;
-   property Collapsed: Boolean
-     read f_Collapsed
-     write f_Collapsed;
+    read f_StyleID
+    write f_StyleID;
+   property Collapsed: TddCollapsed
+    read f_Collapsed
+    write f_Collapsed;
    property ParaID: Integer
-     read f_ParaID
-     write f_ParaID;
+    read f_ParaID
+    write f_ParaID;
  end;//TddBlockInfo
 
  _ItemType_ = TddBlockInfo;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddBlockInfoStack = {final} class(_l3UncomparabeObjectRefList_)
  end;//TddBlockInfoStack
 
- TddSyleEnum = (
-   dd_wsNone
- , dd_wsCheckCollapsed
- , dd_wsOtherStyle
- , dd_wsExpandedText
- );//TddSyleEnum
-
  TddRTFExpandedTextWriter = class(TddRTFSegmentWriter)
- private
- // private fields
-   f_BlockStack : TddBlockInfoStack;
-   f_StyledSpace : LongInt;
-   f_FindStyle : TddSyleEnum;
-   f_AddBlockStyle : Boolean;
- private
- // private methods
+  private
+   f_BlockStack: TddBlockInfoStack;
+   f_StyledSpace: LongInt;
+   f_AddBlockStyle: Boolean;
+  private
    function NeedCheckCollapsed(aStyle: Integer): Boolean;
-   function NeedCorrectIndent(aStyle: Integer): Boolean;
    function GetStyleLeftIndent(aStyleID: Integer): Integer;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure StartChild(TypeID: Tl3Type); override;
    procedure DoStartBlock; override;
    procedure DoCloseBlock; override;
    procedure Apply2Sub(AtomIndex: LongInt;
-     const Value: Tk2Variant); override;
+    const Value: Tk2Variant); override;
    procedure DoStartDocument; override;
    function BlockIndent: Integer; override;
-     {* Ручки "наружу" для Writer'а. Отступ для дочернего параграфа. }
+    {* Ручки "наружу" для Writer'а. Отступ для дочернего параграфа. }
    function NeedWritePara: Boolean; override;
-     {* Ручки "наружу" для Writer'а. Писать или не писать параграф в зависимости от стиля. }
+    {* Ручки "наружу" для Writer'а. Писать или не писать параграф в зависимости от стиля. }
    function IgnoreLeftIndent: Boolean; override;
    procedure CheckFilterPara(aFromFilter: Boolean); override;
  end;//TddRTFExpandedTextWriter
@@ -107,60 +89,20 @@ type
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  k2Tags,
-  k2VariantImpl,
-  evdStyles,
-  ddTypes,
-  ddRTFProperties
-  ;
-
-// start class TddRTFExpandedTextWriter
-
-function TddRTFExpandedTextWriter.NeedCheckCollapsed(aStyle: Integer): Boolean;
-//#UC START# *55BB652A0311_55BB1F310213_var*
-//#UC END# *55BB652A0311_55BB1F310213_var*
-begin
-//#UC START# *55BB652A0311_55BB1F310213_impl*
- Result := aStyle = ev_saExpandedText;
-//#UC END# *55BB652A0311_55BB1F310213_impl*
-end;//TddRTFExpandedTextWriter.NeedCheckCollapsed
-
-function TddRTFExpandedTextWriter.NeedCorrectIndent(aStyle: Integer): Boolean;
-//#UC START# *55BB65F40177_55BB1F310213_var*
-//#UC END# *55BB65F40177_55BB1F310213_var*
-begin
-//#UC START# *55BB65F40177_55BB1F310213_impl*
- Result := aStyle = ev_saExpandedText;
-//#UC END# *55BB65F40177_55BB1F310213_impl*
-end;//TddRTFExpandedTextWriter.NeedCorrectIndent
-
-function TddRTFExpandedTextWriter.GetStyleLeftIndent(aStyleID: Integer): Integer;
-//#UC START# *55BF76DD00EB_55BB1F310213_var*
-var
- l_Style : TddStyleEntry;
-//#UC END# *55BF76DD00EB_55BB1F310213_var*
-begin
-//#UC START# *55BF76DD00EB_55BB1F310213_impl*
- l_Style := Document.StyleTable[f_BlockStack.Last.StyleID];
- if l_Style = nil then
- begin
-  f_AddBlockStyle := True;
-  try
-   l_Style := AddEvStyle(f_BlockStack.Last.StyleID);
-  finally
-   f_AddBlockStyle := False;
-  end;
- end; // if l_Style = nil then
- Result := l_Style.PAP.xaLeft;
-//#UC END# *55BF76DD00EB_55BB1F310213_impl*
-end;//TddRTFExpandedTextWriter.GetStyleLeftIndent
-// start class TddBlockInfo
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , k2VariantImpl
+ , evdStyles
+ , ddTypes
+ , ddRTFProperties
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
 procedure TddBlockInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55BB29ED03B6_var*
 //#UC END# *479731C50290_55BB29ED03B6_var*
 begin
@@ -182,13 +124,12 @@ begin
  f_ParaID := 0;
 //#UC END# *47A042E100E2_55BB29ED03B6_impl*
 end;//TddBlockInfo.InitFields
-// start class TddBlockInfoStack
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_55BB2AA70029_var*
 //#UC END# *47B2C42A0163_55BB2AA70029_var*
 begin
@@ -196,9 +137,10 @@ begin
  Assert(False);
 //#UC END# *47B2C42A0163_55BB2AA70029_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_55BB2AA70029_var*
 //#UC END# *47B99D4503A2_55BB2AA70029_var*
 begin
@@ -212,9 +154,38 @@ type _Instance_R_ = TddBlockInfoStack;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-// start class TddRTFExpandedTextWriter
+function TddRTFExpandedTextWriter.NeedCheckCollapsed(aStyle: Integer): Boolean;
+//#UC START# *55BB652A0311_55BB1F310213_var*
+//#UC END# *55BB652A0311_55BB1F310213_var*
+begin
+//#UC START# *55BB652A0311_55BB1F310213_impl*
+ Result := aStyle = ev_saExpandedText;
+//#UC END# *55BB652A0311_55BB1F310213_impl*
+end;//TddRTFExpandedTextWriter.NeedCheckCollapsed
+
+function TddRTFExpandedTextWriter.GetStyleLeftIndent(aStyleID: Integer): Integer;
+//#UC START# *55BF76DD00EB_55BB1F310213_var*
+var
+ l_Style : TddStyleEntry;
+//#UC END# *55BF76DD00EB_55BB1F310213_var*
+begin
+//#UC START# *55BF76DD00EB_55BB1F310213_impl*
+ l_Style := Document.StyleTable[f_BlockStack.Last.StyleID];
+ if l_Style = nil then
+ begin
+  f_AddBlockStyle := True;
+  try
+   l_Style := AddEvStyle(f_BlockStack.Last.StyleID);
+  finally
+   f_AddBlockStyle := False;
+  end;
+ end; // if l_Style = nil then
+ Result := l_Style.PAP.xaLeft;
+//#UC END# *55BF76DD00EB_55BB1F310213_impl*
+end;//TddRTFExpandedTextWriter.GetStyleLeftIndent
 
 procedure TddRTFExpandedTextWriter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55BB1F310213_var*
 //#UC END# *479731C50290_55BB1F310213_var*
 begin
@@ -270,7 +241,7 @@ begin
 end;//TddRTFExpandedTextWriter.DoCloseBlock
 
 procedure TddRTFExpandedTextWriter.Apply2Sub(AtomIndex: LongInt;
-  const Value: Tk2Variant);
+ const Value: Tk2Variant);
 //#UC START# *55BB2C2E01BD_55BB1F310213_var*
 //#UC END# *55BB2C2E01BD_55BB1F310213_var*
 begin
@@ -314,6 +285,7 @@ begin
 end;//TddRTFExpandedTextWriter.DoStartDocument
 
 function TddRTFExpandedTextWriter.BlockIndent: Integer;
+ {* Ручки "наружу" для Writer'а. Отступ для дочернего параграфа. }
 //#UC START# *55BB58F60134_55BB1F310213_var*
 //#UC END# *55BB58F60134_55BB1F310213_var*
 begin
@@ -328,6 +300,7 @@ begin
 end;//TddRTFExpandedTextWriter.BlockIndent
 
 function TddRTFExpandedTextWriter.NeedWritePara: Boolean;
+ {* Ручки "наружу" для Writer'а. Писать или не писать параграф в зависимости от стиля. }
 //#UC START# *55BB59B0034D_55BB1F310213_var*
 
  function lp_Visible: Boolean;

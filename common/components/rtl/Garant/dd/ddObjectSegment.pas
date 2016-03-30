@@ -1,58 +1,43 @@
 unit ddObjectSegment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddObjectSegment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddObjectSegment
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddObjectSegment.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddObjectSegment" MUID: (54D9B0A2024C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddTextSegment,
-  k2Interfaces,
-  ddCharacterProperty,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddTextSegment
+ , k2Interfaces
+ , ddCharacterProperty
+ , ddTypes
+;
 
 type
  TddObjectSegment = class(TddTextSegment)
- protected
- // realized methods
+  public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aCHP: TddCharacterProperty;
-     aParentCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion); override;
+    aCHP: TddCharacterProperty;
+    aParentCHP: TddCharacterProperty;
+    aLiteVersion: TddLiteVersion); override;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion): Boolean; override;
- public
- // overridden public methods
+    aLiteVersion: TddLiteVersion): Boolean; override;
    function IsObjectSegment: Boolean; override;
  end;//TddObjectSegment
 
 implementation
 
 uses
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddObjectSegment
+ l3ImplUses
+;
 
 procedure TddObjectSegment.Write2Generator(const Generator: Ik2TagGenerator;
-  aCHP: TddCharacterProperty;
-  aParentCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion);
+ aCHP: TddCharacterProperty;
+ aParentCHP: TddCharacterProperty;
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D888450259_54D9B0A2024C_var*
 //#UC END# *54D888450259_54D9B0A2024C_var*
 begin
@@ -69,7 +54,7 @@ begin
 end;//TddObjectSegment.Write2Generator
 
 function TddObjectSegment.SkipSegment(aDiffCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion): Boolean;
+ aLiteVersion: TddLiteVersion): Boolean;
 //#UC START# *54E4325C00BE_54D9B0A2024C_var*
 //#UC END# *54E4325C00BE_54D9B0A2024C_var*
 begin

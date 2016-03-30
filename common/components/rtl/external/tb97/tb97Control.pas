@@ -1,57 +1,39 @@
 unit tb97Control;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "tb97"
-// Модуль: "w:/common/components/rtl/external/tb97/tb97Control.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::tb97::tb97utils::Ttb97Control
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\tb97\tb97Control.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Ttb97Control" MUID: (50288ABF02F4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\tb97\TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  afwCustomCommonControl
-  ;
-{$IfEnd} //not NoTB97
+ l3IntfUses
+ , afwCustomCommonControl
+;
 
-{$If not defined(NoTB97)}
 type
  Ttb97Control = class(TafwCustomCommonControl)
  end;//Ttb97Control
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 implementation
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoTB97
-
-{$If not defined(NoTB97)}
-
-
-{$IfEnd} //not NoTB97
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация Ttb97Control
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ttb97Control);
-{$IfEnd} //not NoScripts AND not NoTB97
+ {* Регистрация Ttb97Control }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

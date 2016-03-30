@@ -1,97 +1,64 @@
 unit ddBorderPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddBorderPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddBorderPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddBorderPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddBorderPart" MUID: (525E2AE802B2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  RTFtypes,
-  ddBaseObject,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddBaseObject
+ , RTFtypes
+ , k2Interfaces
+ , ddTypes
+;
 
 type
  TddBorderPart = class(TddBaseObject)
- private
- // private fields
-   f_Width : Integer;
-    {* Поле для свойства Width}
-   f_Space : Integer;
-    {* Поле для свойства Space}
-   f_Color : Integer;
-    {* Поле для свойства Color}
-   f_FrameType : TddBorderType;
-    {* Поле для свойства FrameType}
- protected
- // property methods
+  private
+   f_Width: Integer;
+    {* Поле для свойства Width }
+   f_Space: Integer;
+    {* Поле для свойства Space }
+   f_Color: Integer;
+    {* Поле для свойства Color }
+   f_FrameType: TddBorderType;
+    {* Поле для свойства FrameType }
+  protected
    function pm_GetEnable: Boolean;
    procedure pm_SetEnable(aValue: Boolean);
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: TddLiteVersion); override;
- public
- // overridden public methods
-   procedure Assign(anObject: TddBaseObject); override;
- public
- // public methods
+  public
    procedure Clear;
- public
- // public properties
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aLiteVersion: TddLiteVersion); override;
+   procedure Assign(anObject: TddBaseObject); override;
+  public
    property Width: Integer
-     read f_Width
-     write f_Width;
+    read f_Width
+    write f_Width;
    property Space: Integer
-     read f_Space
-     write f_Space;
+    read f_Space
+    write f_Space;
    property Color: Integer
-     read f_Color
-     write f_Color;
+    read f_Color
+    write f_Color;
    property FrameType: TddBorderType
-     read f_FrameType
-     write f_FrameType;
+    read f_FrameType
+    write f_FrameType;
    property Enable: Boolean
-     read pm_GetEnable
-     write pm_SetEnable;
+    read pm_GetEnable
+    write pm_SetEnable;
  end;//TddBorderPart
 
 implementation
 
 uses
-  Graphics,
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddBorderPart
-
-procedure TddBorderPart.Clear;
-//#UC START# *525E2CA7024F_525E2AE802B2_var*
-//#UC END# *525E2CA7024F_525E2AE802B2_var*
-begin
-//#UC START# *525E2CA7024F_525E2AE802B2_impl*
- f_FrameType := btNone;
- f_Color := 0;
- f_Width := 0;
- f_Space := 20;
- inherited;
-//#UC END# *525E2CA7024F_525E2AE802B2_impl*
-end;//TddBorderPart.Clear
+ l3ImplUses
+ , Graphics
+;
 
 function TddBorderPart.pm_GetEnable: Boolean;
 //#UC START# *525E2E760175_525E2AE802B2get_var*
@@ -121,8 +88,21 @@ begin
 //#UC END# *525E2E760175_525E2AE802B2set_impl*
 end;//TddBorderPart.pm_SetEnable
 
+procedure TddBorderPart.Clear;
+//#UC START# *525E2CA7024F_525E2AE802B2_var*
+//#UC END# *525E2CA7024F_525E2AE802B2_var*
+begin
+//#UC START# *525E2CA7024F_525E2AE802B2_impl*
+ f_FrameType := btNone;
+ f_Color := 0;
+ f_Width := 0;
+ f_Space := 20;
+ inherited;
+//#UC END# *525E2CA7024F_525E2AE802B2_impl*
+end;//TddBorderPart.Clear
+
 procedure TddBorderPart.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: TddLiteVersion);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_525E2AE802B2_var*
 //#UC END# *54DC9795018B_525E2AE802B2_var*
 begin

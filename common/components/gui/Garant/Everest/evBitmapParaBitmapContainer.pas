@@ -1,37 +1,26 @@
 unit evBitmapParaBitmapContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evBitmapParaBitmapContainer.pas"
-// Начат: 25.02.2000 10:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Standard::TevBitmapParaBitmapContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaBitmapContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapParaBitmapContainer" MUID: (4858153B023B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2Base,
-  l3IEBitmapContainer,
-  k2TagList,
-  k2Prim,
-  k2BaseStruct,
-  l3Variant,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , l3IEBitmapContainer
+ , k2Base
+ , k2BaseStruct
+ , l3Variant
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
+;
 
  {$Define k2TagNoAssign}
 
@@ -41,56 +30,51 @@ type
  _k2Tag_Parent_ = Tl3IEBitmapContainer;
  {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  TevBitmapParaBitmapContainer = class(_k2Tag_)
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    function GetIsOrd: Boolean; override;
    function GetTagType: Tl3VariantDef; override;
- public
- // public methods
+  public
    constructor Create(aType: Tk2Type); reintroduce;
  end;//TevBitmapParaBitmapContainer
 
 implementation
 
 uses
-  BitmapPara_Const,
-  k2Tags,
-  l3Dict,
-  k2Const,
-  l3Const,
-  SysUtils,
-  l3String,
-  k2Except,
-  k2Strings,
-  TypInfo,
-  l3Stream,
-  l3Base,
-  k2Facade,
-  Classes,
-  k2OList_Const,
-  k2Dictionary,
-  k2NonOptimizeContext,
-  k2VariantImpl,
-  k2Bool_Const,
-  k2String,
-  k2List,
-  k2NullTagImpl,
-  k2Interfaces,
-  k2DictionaryPrim,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , BitmapPara_Const
+ , k2Tags
+ , l3Dict
+ , k2Const
+ , l3Const
+ , SysUtils
+ , l3String
+ , k2Except
+ , k2Strings
+ , TypInfo
+ , l3Stream
+ , l3Base
+ , k2Facade
+ , Classes
+ , k2OList_Const
+ , k2Dictionary
+ , k2NonOptimizeContext
+ , k2VariantImpl
+ , k2Bool_Const
+ , k2String
+ , k2NullTagImpl
+ , k2Interfaces
+ , k2DictionaryPrim
+ , k2InterfaceFactory
+ , k2List
+;
 
 type _Instance_R_ = TevBitmapParaBitmapContainer;
 
 {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
-
-// start class TevBitmapParaBitmapContainer
 
 constructor TevBitmapParaBitmapContainer.Create(aType: Tk2Type);
 //#UC START# *53075BB9030D_4858153B023B_var*
@@ -102,9 +86,9 @@ begin
 //#UC END# *53075BB9030D_4858153B023B_impl*
 end;//TevBitmapParaBitmapContainer.Create
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function TevBitmapParaBitmapContainer.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_4858153B023B_var*
 //#UC END# *49A545580241_4858153B023B_var*
 begin
@@ -113,7 +97,7 @@ begin
  Result := false;
 //#UC END# *49A545580241_4858153B023B_impl*
 end;//TevBitmapParaBitmapContainer.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 function TevBitmapParaBitmapContainer.GetIsOrd: Boolean;
 //#UC START# *532AE8F2009A_4858153B023B_var*

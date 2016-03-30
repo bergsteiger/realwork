@@ -1,47 +1,33 @@
 unit evStyleTreeSearcher;
+ {* Ищет любой стиль, наследующийся от заданного }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleTreeSearcher.pas"
-// Начат: 19.10.2009 19:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Searchers::TevStyleTreeSearcher
-//
-// Ищет любой стиль, наследующийся от заданного
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleTreeSearcher.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleTreeSearcher" MUID: (4ADC82E80050)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evSearch,
-  l3Variant
-  ;
+ l3IntfUses
+ , evSearch
+ , l3Variant
+;
 
 type
  TevStyleTreeSearcher = class(TevStyleSearcher)
   {* Ищет любой стиль, наследующийся от заданного }
- protected
- // overridden protected methods
+  protected
    function IsStyleFound(aStyle: Tl3Tag): Boolean; override;
  end;//TevStyleTreeSearcher
 
 implementation
 
 uses
-  k2Tags
-  ;
-
-// start class TevStyleTreeSearcher
+ l3ImplUses
+ , k2Tags
+;
 
 function TevStyleTreeSearcher.IsStyleFound(aStyle: Tl3Tag): Boolean;
 //#UC START# *4ADC80DC013E_4ADC82E80050_var*

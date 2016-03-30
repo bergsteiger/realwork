@@ -22,12 +22,12 @@ type
    external_folders_change_notifier: IExternalFoldersChangeNotifier;
    done_notifier: IDoneNotifier;
   public
-   constructor make; reintroduce; virtual;
-   procedure send_notify(status: TNotifyStatus;
-    folder_id: Cardinal); virtual;
-   function ready: Boolean; virtual;
+   constructor Make; reintroduce; virtual; stdcall;
+   procedure SendNotify(status: TNotifyStatus;
+    folder_id: Cardinal); virtual; stdcall;
+   function Ready: ByteBool; virtual; stdcall;
     {* Возвращает true, если нотифаер готов обрабатывать нотификацию от сервера. }
-   procedure set_external_folders_change_notifier(var notifier: IExternalFoldersChangeNotifier); virtual;
+   procedure SetExternalFoldersChangeNotifier(var notifier: IExternalFoldersChangeNotifier); virtual; stdcall;
     {* Установить оболочечный нотифайер }
  end;//FolderNotifier_i
 
@@ -39,16 +39,16 @@ uses
  , DoneNotifier_i
 ;
 
-constructor FolderNotifier_i.make;
+constructor FolderNotifier_i.Make;
 //#UC START# *45FFD1B40251_45FFCCC9000F_var*
 //#UC END# *45FFD1B40251_45FFCCC9000F_var*
 begin
 //#UC START# *45FFD1B40251_45FFCCC9000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFD1B40251_45FFCCC9000F_impl*
-end;//FolderNotifier_i.make
+end;//FolderNotifier_i.Make
 
-procedure FolderNotifier_i.send_notify(status: TNotifyStatus;
+procedure FolderNotifier_i.SendNotify(status: TNotifyStatus;
  folder_id: Cardinal);
 //#UC START# *45FFD2C10203_45FFCCC9000F_var*
 //#UC END# *45FFD2C10203_45FFCCC9000F_var*
@@ -56,9 +56,9 @@ begin
 //#UC START# *45FFD2C10203_45FFCCC9000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFD2C10203_45FFCCC9000F_impl*
-end;//FolderNotifier_i.send_notify
+end;//FolderNotifier_i.SendNotify
 
-function FolderNotifier_i.ready: Boolean;
+function FolderNotifier_i.Ready: ByteBool;
  {* Возвращает true, если нотифаер готов обрабатывать нотификацию от сервера. }
 //#UC START# *49DEFD89010A_45FFCCC9000F_var*
 //#UC END# *49DEFD89010A_45FFCCC9000F_var*
@@ -66,9 +66,9 @@ begin
 //#UC START# *49DEFD89010A_45FFCCC9000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49DEFD89010A_45FFCCC9000F_impl*
-end;//FolderNotifier_i.ready
+end;//FolderNotifier_i.Ready
 
-procedure FolderNotifier_i.set_external_folders_change_notifier(var notifier: IExternalFoldersChangeNotifier);
+procedure FolderNotifier_i.SetExternalFoldersChangeNotifier(var notifier: IExternalFoldersChangeNotifier);
  {* Установить оболочечный нотифайер }
 //#UC START# *49DEFDAF0082_45FFCCC9000F_var*
 //#UC END# *49DEFDAF0082_45FFCCC9000F_var*
@@ -76,6 +76,6 @@ begin
 //#UC START# *49DEFDAF0082_45FFCCC9000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49DEFDAF0082_45FFCCC9000F_impl*
-end;//FolderNotifier_i.set_external_folders_change_notifier
+end;//FolderNotifier_i.SetExternalFoldersChangeNotifier
 
 end.

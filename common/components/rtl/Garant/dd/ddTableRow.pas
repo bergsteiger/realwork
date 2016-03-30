@@ -1,93 +1,67 @@
 unit ddTableRow;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTableRow.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTableRow
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTableRow.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTableRow" MUID: (4FACE1370377)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocumentAtom,
-  ddTableCell,
-  ddCellProperty,
-  ddCellList,
-  ddCellsPropertyList,
-  ddRowProperty,
-  ddTypes,
-  ddCustomDestination,
-  l3ProtoObject,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , ddCellList
+ , ddCellsPropertyList
+ , ddRowProperty
+ , ddTableCell
+ , ddCellProperty
+ , ddTypes
+ , k2Interfaces
+ , ddCustomDestination
+ , l3ProtoObject
+;
 
 type
  TddTableRow = class(TddDocumentAtom)
- private
- // private fields
-   f_CellList : TddCellList;
-   f_CellProps : TddCellsPropertyList;
-   f_TAP : TddRowProperty;
-    {* Поле для свойства TAP}
-   f_RTFLikeWidth : Boolean;
-    {* Поле для свойства RTFLikeWidth}
-   f_CellPropsCompleate : Boolean;
-    {* Поле для свойства CellPropsCompleate}
-   f_HasMerged : Boolean;
-    {* Поле для свойства HasMerged}
- private
- // private methods
+  private
+   f_CellList: TddCellList;
+   f_CellProps: TddCellsPropertyList;
+   f_TAP: TddRowProperty;
+    {* Поле для свойства TAP }
+   f_RTFLikeWidth: Boolean;
+    {* Поле для свойства RTFLikeWidth }
+   f_CellPropsCompleate: Boolean;
+    {* Поле для свойства CellPropsCompleate }
+   f_HasMerged: Boolean;
+    {* Поле для свойства HasMerged }
+  private
    procedure DoApplyCellProps(aCellProps: TddCellsPropertyList);
- protected
- // property methods
+  protected
    procedure pm_SetTAP(aValue: TddRowProperty);
    function pm_GetLastCell: TddTableCell;
    function pm_GetLastCellProperty: TddCellProperty; virtual;
    function pm_GetCellWidthBySpan(anIndex: Integer): Integer;
    function pm_GetCellCountBySpan: Integer;
    function pm_GetCellWidth(anIndex: Integer): Integer;
-   procedure pm_SetCellWidth(anIndex: Integer; aValue: Integer);
+   procedure pm_SetCellWidth(anIndex: Integer;
+    aValue: Integer);
    function pm_GetCellSpan(anIndex: Integer): Integer;
    function pm_GetCellCount: Integer;
    function pm_GetCells(anIndex: Integer): TddTableCell;
    function pm_GetCellPropBySpan(anIndex: Integer): TddCellProperty;
    function pm_GetCellPropByPos(aPos: Integer): TddCellProperty;
    function pm_GetCellByPos(aPos: Integer): TddTableCell; virtual;
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetEmpty: Boolean; override;
    procedure DoClose; override;
- public
- // overridden public methods
-   procedure Clear; override;
-   constructor Create(aDetination: TddCustomDestination); override;
-   function IsRow: Boolean; override;
-   function GetLastPara: TddDocumentAtom; override;
-   procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
- public
- // public methods
+  public
    procedure AddCell(aCell: TddTableCell);
    procedure AddCellAndPara(const OnlyCell: Boolean = False);
    procedure AddEmptyCell;
    procedure AddCellProp(aCellProps: TddCellProperty;
-     aClearBorder: TddClearBoder);
+    aClearBorder: TddClearBoder);
    procedure ApplyCellProps;
    function CellIndexBySpan(anIndex: Integer): Integer;
    procedure ClearCellProps;
@@ -95,97 +69,266 @@ type
    function GetLastNonClosedCell: TddTableCell;
    procedure CloneCell(aCellProp: TddCellProperty);
    function GetLastNonClosedCellOrAddNew: TddTableCell;
-     {* Проверяет не закрыта ли предыдущая ячейка, а если закрыта открывает новую. }
+    {* Проверяет не закрыта ли предыдущая ячейка, а если закрыта открывает новую. }
    function IsCellPropsInit: Boolean;
    procedure ApplyExternalCellPropsDef(aRow: TddTableRow);
    procedure ApplyCellProperty(aCEP: TddCellProperty);
    procedure SetVMerged2LastCell(aFirst: Boolean);
    function InsertCell(anIndex: Integer): TddTableCell;
    function CellIndex(aCell: TddTableCell): Integer;
- public
- // public properties
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
+   procedure Clear; override;
+   constructor Create(aDetination: TddCustomDestination); override;
+   function IsRow: Boolean; override;
+   function GetLastPara: TddDocumentAtom; override;
+   procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
+  public
    property TAP: TddRowProperty
-     read f_TAP
-     write pm_SetTAP;
+    read f_TAP
+    write pm_SetTAP;
    property RTFLikeWidth: Boolean
-     read f_RTFLikeWidth
-     write f_RTFLikeWidth;
+    read f_RTFLikeWidth
+    write f_RTFLikeWidth;
    property LastCell: TddTableCell
-     read pm_GetLastCell;
+    read pm_GetLastCell;
    property LastCellProperty: TddCellProperty
-     read pm_GetLastCellProperty;
+    read pm_GetLastCellProperty;
    property CellWidthBySpan[anIndex: Integer]: Integer
-     read pm_GetCellWidthBySpan;
+    read pm_GetCellWidthBySpan;
    property CellCountBySpan: Integer
-     read pm_GetCellCountBySpan;
+    read pm_GetCellCountBySpan;
    property CellWidth[anIndex: Integer]: Integer
-     read pm_GetCellWidth
-     write pm_SetCellWidth;
+    read pm_GetCellWidth
+    write pm_SetCellWidth;
    property CellSpan[anIndex: Integer]: Integer
-     read pm_GetCellSpan;
+    read pm_GetCellSpan;
    property CellCount: Integer
-     read pm_GetCellCount;
+    read pm_GetCellCount;
    property Cells[anIndex: Integer]: TddTableCell
-     read pm_GetCells;
-     default;
+    read pm_GetCells;
+    default;
    property CellPropBySpan[anIndex: Integer]: TddCellProperty
-     read pm_GetCellPropBySpan;
+    read pm_GetCellPropBySpan;
    property CellPropByPos[aPos: Integer]: TddCellProperty
-     read pm_GetCellPropByPos;
+    read pm_GetCellPropByPos;
    property CellByPos[aPos: Integer]: TddTableCell
-     read pm_GetCellByPos;
+    read pm_GetCellByPos;
    property CellPropsCompleate: Boolean
-     read f_CellPropsCompleate
-     write f_CellPropsCompleate;
+    read f_CellPropsCompleate
+    write f_CellPropsCompleate;
    property HasMerged: Boolean
-     read f_HasMerged;
+    read f_HasMerged;
  end;//TddTableRow
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags,
-  l3Math,
-  RTFtypes,
-  evdFrame_Const,
-  ddTable,
-  l3Const,
-  ddTextParagraph,
-  Math,
-  ddBase,
-  ddEVDTypesSupport
-  ;
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , l3Math
+ , RTFtypes
+ , evdFrame_Const
+ , ddTable
+ , l3Const
+ , ddTextParagraph
+ , Math
+ , ddBase
+ , ddEVDTypesSupport
+;
 
-// start class TddTableRow
-
-procedure TddTableRow.DoApplyCellProps(aCellProps: TddCellsPropertyList);
-//#UC START# *51E657D90184_4FACE1370377_var*
-var
- i           : Integer;
- l_Cell      : TddTableCell;
- l_Count     : Integer;
- l_CellCount : Integer;
-//#UC END# *51E657D90184_4FACE1370377_var*
+procedure TddTableRow.pm_SetTAP(aValue: TddRowProperty);
+//#UC START# *518A479603CD_4FACE1370377set_var*
+//#UC END# *518A479603CD_4FACE1370377set_var*
 begin
-//#UC START# *51E657D90184_4FACE1370377_impl*
- l_Count := aCellProps.Count - 1;
- l_CellCount := f_CellList.Count - 1;
+//#UC START# *518A479603CD_4FACE1370377set_impl*
+ f_TAP.AssignFrom(aValue);
+//#UC END# *518A479603CD_4FACE1370377set_impl*
+end;//TddTableRow.pm_SetTAP
+
+function TddTableRow.pm_GetLastCell: TddTableCell;
+//#UC START# *518A4B370328_4FACE1370377get_var*
+//#UC END# *518A4B370328_4FACE1370377get_var*
+begin
+//#UC START# *518A4B370328_4FACE1370377get_impl*
+ if f_CellList.Count = 0 then
+  Result := nil //AddCellAndPara;
+ else
+  Result := f_CellList.Last;
+//#UC END# *518A4B370328_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetLastCell
+
+function TddTableRow.pm_GetLastCellProperty: TddCellProperty;
+//#UC START# *518A4B72006B_4FACE1370377get_var*
+//#UC END# *518A4B72006B_4FACE1370377get_var*
+begin
+//#UC START# *518A4B72006B_4FACE1370377get_impl*
+ if LastCell = nil then
+  AddCellAndPara;
+ Result:= LastCell.Props;
+//#UC END# *518A4B72006B_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetLastCellProperty
+
+function TddTableRow.pm_GetCellWidthBySpan(anIndex: Integer): Integer;
+//#UC START# *518A4BB402CE_4FACE1370377get_var*
+var
+ l_CellIndex: Integer;
+//#UC END# *518A4BB402CE_4FACE1370377get_var*
+begin
+//#UC START# *518A4BB402CE_4FACE1370377get_impl*
+ Result := 0;
+ l_CellIndex := CellIndexBySpan(anIndex);
+ if l_CellIndex > -1 then
+  Result := CellWidth[l_CellIndex] div CellSpan[l_CellIndex];
+//#UC END# *518A4BB402CE_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellWidthBySpan
+
+function TddTableRow.pm_GetCellCountBySpan: Integer;
+//#UC START# *518A4C320198_4FACE1370377get_var*
+var
+ i: Integer;
+//#UC END# *518A4C320198_4FACE1370377get_var*
+begin
+//#UC START# *518A4C320198_4FACE1370377get_impl*
+ Result := 0;
+ for i := 0 to CellCount - 1 do
+  Inc(Result, CellSpan[i]);
+//#UC END# *518A4C320198_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellCountBySpan
+
+function TddTableRow.pm_GetCellWidth(anIndex: Integer): Integer;
+//#UC START# *518A4C67024C_4FACE1370377get_var*
+//#UC END# *518A4C67024C_4FACE1370377get_var*
+begin
+//#UC START# *518A4C67024C_4FACE1370377get_impl*
+ Result := Cells[anIndex].Props.CellOffset;
+//#UC END# *518A4C67024C_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellWidth
+
+procedure TddTableRow.pm_SetCellWidth(anIndex: Integer;
+ aValue: Integer);
+//#UC START# *518A4C67024C_4FACE1370377set_var*
+//#UC END# *518A4C67024C_4FACE1370377set_var*
+begin
+//#UC START# *518A4C67024C_4FACE1370377set_impl*
+ Cells[anIndex].Props.CellOffset:= aValue;
+//#UC END# *518A4C67024C_4FACE1370377set_impl*
+end;//TddTableRow.pm_SetCellWidth
+
+function TddTableRow.pm_GetCellSpan(anIndex: Integer): Integer;
+//#UC START# *518A4CA40030_4FACE1370377get_var*
+//#UC END# *518A4CA40030_4FACE1370377get_var*
+begin
+//#UC START# *518A4CA40030_4FACE1370377get_impl*
+ Result := Cells[anIndex].Props.CellSpan;
+//#UC END# *518A4CA40030_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellSpan
+
+function TddTableRow.pm_GetCellCount: Integer;
+//#UC START# *518A4CFA00C4_4FACE1370377get_var*
+//#UC END# *518A4CFA00C4_4FACE1370377get_var*
+begin
+//#UC START# *518A4CFA00C4_4FACE1370377get_impl*
+ if (Self <> nil) AND (f_CellList <> nil) then
+  Result := f_CellList.Count
+ else
+  Result := 0;
+//#UC END# *518A4CFA00C4_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellCount
+
+function TddTableRow.pm_GetCells(anIndex: Integer): TddTableCell;
+//#UC START# *518A4D6A039D_4FACE1370377get_var*
+//#UC END# *518A4D6A039D_4FACE1370377get_var*
+begin
+//#UC START# *518A4D6A039D_4FACE1370377get_impl*
+ if (anIndex >= 0) and (anIndex < f_CellList.Count) then
+  Result := f_CellList.Items[anIndex]
+ else 
+  Result := nil;
+//#UC END# *518A4D6A039D_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCells
+
+function TddTableRow.pm_GetCellPropBySpan(anIndex: Integer): TddCellProperty;
+//#UC START# *518A4DE0032A_4FACE1370377get_var*
+var
+ l_CellIndex: Integer;
+//#UC END# *518A4DE0032A_4FACE1370377get_var*
+begin
+//#UC START# *518A4DE0032A_4FACE1370377get_impl*
+ Result := nil;
+ l_CellIndex := CellIndexBySpan(anIndex);
+ if l_CellIndex > -1 then
+  Result := Cells[l_CellIndex].Props;
+//#UC END# *518A4DE0032A_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellPropBySpan
+
+function TddTableRow.pm_GetCellPropByPos(aPos: Integer): TddCellProperty;
+//#UC START# *518A4E390255_4FACE1370377get_var*
+var
+ i       : Integer;
+ l_Prev  : Integer;
+ l_Count : Integer;
+ l_Width : Integer;
+ l_Delta : Integer;
+//#UC END# *518A4E390255_4FACE1370377get_var*
+begin
+//#UC START# *518A4E390255_4FACE1370377get_impl*
+ l_Width := 0;
+ l_Prev := -1;
+ Result := nil;
+ l_Count := f_CellList.Count - 1;
  for i := 0 to l_Count do
  begin
-  l_Cell := Cells[i];
-  if l_Cell = nil then Break;
-  l_Cell.Props := aCellProps[i];
- end; // for i := 0 to aCellProps.Hi do
- if l_Count < l_CellCount then
-  for i := l_Count + 1 to l_CellCount do
+  if (i > 0) and RTFLikeWidth then
+   l_Delta := Cells[i].Props.CellOffset - Cells[Pred(i)].Props.CellOffset
+  else
+   l_Delta := Cells[i].Props.CellOffset;
+  if (l_Prev > - 1) then
+   if aPos = (l_Delta + l_Width) then
+   begin
+    l_Prev := i;
+    Break;
+   end // if (aPos = l_Width) then
+   else
+    Break
+  else
+   if (aPos > l_Width) and (aPos <= (l_Width + l3MulDiv(l_Delta, 105, 100))) then
+    l_Prev := i;
+   Inc(l_Width, l_Delta);
+ end; // for i := 0 to f_CellList.Hi do
+ if (l_Prev > - 1) then
+ begin
+  Result := Cells[l_Prev].Props;
+  Result.Index := l_Prev;
+ end; // if (l_Prev > - 1) then
+//#UC END# *518A4E390255_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellPropByPos
+
+function TddTableRow.pm_GetCellByPos(aPos: Integer): TddTableCell;
+//#UC START# *5190964701FB_4FACE1370377get_var*
+var
+ i: Integer;
+ Delta: LongInt;
+//#UC END# *5190964701FB_4FACE1370377get_var*
+begin
+//#UC START# *5190964701FB_4FACE1370377get_impl*
+ Result := nil;
+ for i := 0 to f_CellList.Hi do
+ begin
+  if i > 0 then
+   Delta := Cells[Pred(i)].Props.CellOffset
+  else
+   Delta := 0;
+  if InRange(aPos, Delta, Cells[i].Props.CellOffset) then
   begin
-   l_Cell := Cells[i];
-   if i > 0 then
-    l_Cell.Props.CellOffset := l_Cell.Props.CellOffset + Cells[i - 1].Props.CellOffset;
-  end; // for i := 0 to aCellProps.Hi do
-//#UC END# *51E657D90184_4FACE1370377_impl*
-end;//TddTableRow.DoApplyCellProps
+   Result := Cells[i];
+   Break;
+  end; // InRange
+ end; // for i
+//#UC END# *5190964701FB_4FACE1370377get_impl*
+end;//TddTableRow.pm_GetCellByPos
 
 procedure TddTableRow.AddCell(aCell: TddTableCell);
 //#UC START# *518A4EF70329_4FACE1370377_var*
@@ -241,7 +384,7 @@ begin
 end;//TddTableRow.AddEmptyCell
 
 procedure TddTableRow.AddCellProp(aCellProps: TddCellProperty;
-  aClearBorder: TddClearBoder);
+ aClearBorder: TddClearBoder);
 //#UC START# *518A4F870014_4FACE1370377_var*
 var
  l_CellProp: TddCellProperty;
@@ -371,6 +514,7 @@ begin
 end;//TddTableRow.CloneCell
 
 function TddTableRow.GetLastNonClosedCellOrAddNew: TddTableCell;
+ {* Проверяет не закрыта ли предыдущая ячейка, а если закрыта открывает новую. }
 //#UC START# *519C95060331_4FACE1370377_var*
 //#UC END# *519C95060331_4FACE1370377_var*
 begin
@@ -402,6 +546,34 @@ begin
   DoApplyCellProps(aRow.f_CellProps);
 //#UC END# *51E64F4B039E_4FACE1370377_impl*
 end;//TddTableRow.ApplyExternalCellPropsDef
+
+procedure TddTableRow.DoApplyCellProps(aCellProps: TddCellsPropertyList);
+//#UC START# *51E657D90184_4FACE1370377_var*
+var
+ i           : Integer;
+ l_Cell      : TddTableCell;
+ l_Count     : Integer;
+ l_CellCount : Integer;
+//#UC END# *51E657D90184_4FACE1370377_var*
+begin
+//#UC START# *51E657D90184_4FACE1370377_impl*
+ l_Count := aCellProps.Count - 1;
+ l_CellCount := f_CellList.Count - 1;
+ for i := 0 to l_Count do
+ begin
+  l_Cell := Cells[i];
+  if l_Cell = nil then Break;
+  l_Cell.Props := aCellProps[i];
+ end; // for i := 0 to aCellProps.Hi do
+ if l_Count < l_CellCount then
+  for i := l_Count + 1 to l_CellCount do
+  begin
+   l_Cell := Cells[i];
+   if i > 0 then
+    l_Cell.Props.CellOffset := l_Cell.Props.CellOffset + Cells[i - 1].Props.CellOffset;
+  end; // for i := 0 to aCellProps.Hi do
+//#UC END# *51E657D90184_4FACE1370377_impl*
+end;//TddTableRow.DoApplyCellProps
 
 procedure TddTableRow.ApplyCellProperty(aCEP: TddCellProperty);
 //#UC START# *5236E3050196_4FACE1370377_var*
@@ -458,199 +630,9 @@ begin
 //#UC END# *56C56DDB01F7_4FACE1370377_impl*
 end;//TddTableRow.CellIndex
 
-procedure TddTableRow.pm_SetTAP(aValue: TddRowProperty);
-//#UC START# *518A479603CD_4FACE1370377set_var*
-//#UC END# *518A479603CD_4FACE1370377set_var*
-begin
-//#UC START# *518A479603CD_4FACE1370377set_impl*
- f_TAP.AssignFrom(aValue);
-//#UC END# *518A479603CD_4FACE1370377set_impl*
-end;//TddTableRow.pm_SetTAP
-
-function TddTableRow.pm_GetLastCell: TddTableCell;
-//#UC START# *518A4B370328_4FACE1370377get_var*
-//#UC END# *518A4B370328_4FACE1370377get_var*
-begin
-//#UC START# *518A4B370328_4FACE1370377get_impl*
- if f_CellList.Count = 0 then
-  Result := nil //AddCellAndPara;
- else
-  Result := f_CellList.Last;
-//#UC END# *518A4B370328_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetLastCell
-
-function TddTableRow.pm_GetLastCellProperty: TddCellProperty;
-//#UC START# *518A4B72006B_4FACE1370377get_var*
-//#UC END# *518A4B72006B_4FACE1370377get_var*
-begin
-//#UC START# *518A4B72006B_4FACE1370377get_impl*
- if LastCell = nil then
-  AddCellAndPara;
- Result:= LastCell.Props;
-//#UC END# *518A4B72006B_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetLastCellProperty
-
-function TddTableRow.pm_GetCellWidthBySpan(anIndex: Integer): Integer;
-//#UC START# *518A4BB402CE_4FACE1370377get_var*
-var
- l_CellIndex: Integer;
-//#UC END# *518A4BB402CE_4FACE1370377get_var*
-begin
-//#UC START# *518A4BB402CE_4FACE1370377get_impl*
- Result := 0;
- l_CellIndex := CellIndexBySpan(anIndex);
- if l_CellIndex > -1 then
-  Result := CellWidth[l_CellIndex] div CellSpan[l_CellIndex];
-//#UC END# *518A4BB402CE_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellWidthBySpan
-
-function TddTableRow.pm_GetCellCountBySpan: Integer;
-//#UC START# *518A4C320198_4FACE1370377get_var*
-var
- i: Integer;
-//#UC END# *518A4C320198_4FACE1370377get_var*
-begin
-//#UC START# *518A4C320198_4FACE1370377get_impl*
- Result := 0;
- for i := 0 to CellCount - 1 do
-  Inc(Result, CellSpan[i]);
-//#UC END# *518A4C320198_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellCountBySpan
-
-function TddTableRow.pm_GetCellWidth(anIndex: Integer): Integer;
-//#UC START# *518A4C67024C_4FACE1370377get_var*
-//#UC END# *518A4C67024C_4FACE1370377get_var*
-begin
-//#UC START# *518A4C67024C_4FACE1370377get_impl*
- Result := Cells[anIndex].Props.CellOffset;
-//#UC END# *518A4C67024C_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellWidth
-
-procedure TddTableRow.pm_SetCellWidth(anIndex: Integer; aValue: Integer);
-//#UC START# *518A4C67024C_4FACE1370377set_var*
-//#UC END# *518A4C67024C_4FACE1370377set_var*
-begin
-//#UC START# *518A4C67024C_4FACE1370377set_impl*
- Cells[anIndex].Props.CellOffset:= aValue;
-//#UC END# *518A4C67024C_4FACE1370377set_impl*
-end;//TddTableRow.pm_SetCellWidth
-
-function TddTableRow.pm_GetCellSpan(anIndex: Integer): Integer;
-//#UC START# *518A4CA40030_4FACE1370377get_var*
-//#UC END# *518A4CA40030_4FACE1370377get_var*
-begin
-//#UC START# *518A4CA40030_4FACE1370377get_impl*
- Result := Cells[anIndex].Props.CellSpan;
-//#UC END# *518A4CA40030_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellSpan
-
-function TddTableRow.pm_GetCellCount: Integer;
-//#UC START# *518A4CFA00C4_4FACE1370377get_var*
-//#UC END# *518A4CFA00C4_4FACE1370377get_var*
-begin
-//#UC START# *518A4CFA00C4_4FACE1370377get_impl*
- if (Self <> nil) AND (f_CellList <> nil) then
-  Result := f_CellList.Count
- else
-  Result := 0;
-//#UC END# *518A4CFA00C4_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellCount
-
-function TddTableRow.pm_GetCells(anIndex: Integer): TddTableCell;
-//#UC START# *518A4D6A039D_4FACE1370377get_var*
-//#UC END# *518A4D6A039D_4FACE1370377get_var*
-begin
-//#UC START# *518A4D6A039D_4FACE1370377get_impl*
- if (anIndex >= 0) and (anIndex < f_CellList.Count) then
-  Result := f_CellList.Items[anIndex]
- else 
-  Result := nil;
-//#UC END# *518A4D6A039D_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCells
-
-function TddTableRow.pm_GetCellPropBySpan(anIndex: Integer): TddCellProperty;
-//#UC START# *518A4DE0032A_4FACE1370377get_var*
-var
- l_CellIndex: Integer;
-//#UC END# *518A4DE0032A_4FACE1370377get_var*
-begin
-//#UC START# *518A4DE0032A_4FACE1370377get_impl*
- Result := nil;
- l_CellIndex := CellIndexBySpan(anIndex);
- if l_CellIndex > -1 then
-  Result := Cells[l_CellIndex].Props;
-//#UC END# *518A4DE0032A_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellPropBySpan
-
-function TddTableRow.pm_GetCellPropByPos(aPos: Integer): TddCellProperty;
-//#UC START# *518A4E390255_4FACE1370377get_var*
-var
- i       : Integer;
- l_Prev  : Integer;
- l_Count : Integer;
- l_Width : Integer;
- l_Delta : Integer;
-//#UC END# *518A4E390255_4FACE1370377get_var*
-begin
-//#UC START# *518A4E390255_4FACE1370377get_impl*
- l_Width := 0;
- l_Prev := -1;
- Result := nil;
- l_Count := f_CellList.Count - 1;
- for i := 0 to l_Count do
- begin
-  if (i > 0) and RTFLikeWidth then
-   l_Delta := Cells[i].Props.CellOffset - Cells[Pred(i)].Props.CellOffset
-  else
-   l_Delta := Cells[i].Props.CellOffset;
-  if (l_Prev > - 1) then
-   if aPos = (l_Delta + l_Width) then
-   begin
-    l_Prev := i;
-    Break;
-   end // if (aPos = l_Width) then
-   else
-    Break
-  else
-   if (aPos > l_Width) and (aPos <= (l_Width + l3MulDiv(l_Delta, 105, 100))) then
-    l_Prev := i;
-   Inc(l_Width, l_Delta);
- end; // for i := 0 to f_CellList.Hi do
- if (l_Prev > - 1) then
- begin
-  Result := Cells[l_Prev].Props;
-  Result.Index := l_Prev;
- end; // if (l_Prev > - 1) then
-//#UC END# *518A4E390255_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellPropByPos
-
-function TddTableRow.pm_GetCellByPos(aPos: Integer): TddTableCell;
-//#UC START# *5190964701FB_4FACE1370377get_var*
-var
- i: Integer;
- Delta: LongInt;
-//#UC END# *5190964701FB_4FACE1370377get_var*
-begin
-//#UC START# *5190964701FB_4FACE1370377get_impl*
- Result := nil;
- for i := 0 to f_CellList.Hi do
- begin
-  if i > 0 then
-   Delta := Cells[Pred(i)].Props.CellOffset
-  else
-   Delta := 0;
-  if InRange(aPos, Delta, Cells[i].Props.CellOffset) then
-  begin
-   Result := Cells[i];
-   Break;
-  end; // InRange
- end; // for i
-//#UC END# *5190964701FB_4FACE1370377get_impl*
-end;//TddTableRow.pm_GetCellByPos
-
 procedure TddTableRow.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE1370377_var*
 var
  i     : Integer;
@@ -797,6 +779,7 @@ begin
 end;//TddTableRow.Write2Generator
 
 procedure TddTableRow.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FACE1370377_var*
 //#UC END# *479731C50290_4FACE1370377_var*
 begin

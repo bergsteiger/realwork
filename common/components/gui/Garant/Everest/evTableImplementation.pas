@@ -1,114 +1,88 @@
 unit evTableImplementation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableImplementation.pas"
-// Начат: 01.07.1999 13:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaUtils::TevTableImplementation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableImplementation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevTableImplementation" MUID: (48D3D038036A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  k2ProcTagTool,
-  nevTools
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2ProcTagTool
+ , nevBase
+ , nevTools
+;
 
-{$If defined(k2ForEditor)}
 type
  _DeletingRowCorrector_Parent_ = Tk2ProcTagTool;
- {$Include ..\Everest\DeletingRowCorrector.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
  _CheckWidthInDeletingColumn_Parent_ = _DeletingRowCorrector_;
- {$Include ..\Everest\CheckWidthInDeletingColumn.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
  TevTableImplementation = class(_CheckWidthInDeletingColumn_, IevTable)
- private
- // private fields
-   f_Loc : InevBasePoint;
-   f_View : InevView;
-    {* Поле для свойства View}
- protected
- // realized methods
+  private
+   f_Loc: InevBasePoint;
+   f_View: InevView;
+    {* Поле для свойства View }
+  protected
+   procedure DoCloneSegments(const aOldRow: Tl3Variant;
+    const aNewRow: Tl3Variant;
+    const anOp: InevOp); virtual;
+   function GetClearMode4Clone: TevClearMode; virtual;
    procedure InsertRows(NumRows: Integer;
     aAtEnd: Boolean);
-     {* вставляет NumRows строк в текущее место таблицы. }
+    {* вставляет NumRows строк в текущее место таблицы. }
    procedure InsertColumns(NumColumns: Integer);
-     {* вставляет NumColumns столбцов в текущее место таблицы. }
+    {* вставляет NumColumns столбцов в текущее место таблицы. }
    procedure DeleteRow;
-     {* удалить текущую строку таблицы. }
+    {* удалить текущую строку таблицы. }
    procedure DeleteColumn;
-     {* удалить столбец таблицы. }
- protected
- // overridden protected methods
+    {* удалить столбец таблицы. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure DoCloneSegments(const aOldRow: Tl3Variant;
-     const aNewRow: Tl3Variant;
-     const anOp: InevOp); virtual;
-   function GetClearMode4Clone: TevClearMode; virtual;
- public
- // public methods
+  public
    constructor Create(const aView: InevView;
     const aLoc: InevBasePoint;
     const aProcessor: InevProcessor); reintroduce;
    class function Make(const aView: InevView;
     const aLoc: InevBasePoint;
     const aProcessor: InevProcessor): IevTable;
- protected
- // protected properties
+  protected
    property View: InevView
-     read f_View;
+    read f_View;
  end;//TevTableImplementation
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  evOp,
-  evParaTools,
-  evCursorTools,
-  l3MinMax,
-  l3Base,
-  Table_Const,
-  TableRow_Const,
-  TableCell_Const,
-  k2Tags,
-  k2Base,
-  evdTypes,
-  l3Variant,
-  evTableCellUtils
-  ;
-{$IfEnd} //k2ForEditor
+ l3ImplUses
+ , evOp
+ , evParaTools
+ , evCursorTools
+ , l3MinMax
+ , l3Base
+ , Table_Const
+ , TableRow_Const
+ , TableCell_Const
+ , k2Tags
+ , k2Base
+ , evdTypes
+ , l3Variant
+ , evTableCellUtils
+;
 
-{$If defined(k2ForEditor)}
+{$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
 
-{$Include ..\Everest\DeletingRowCorrector.imp.pas}
-
-{$Include ..\Everest\CheckWidthInDeletingColumn.imp.pas}
-
-// start class TevTableImplementation
+{$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
 
 procedure TevTableImplementation.DoCloneSegments(const aOldRow: Tl3Variant;
-  const aNewRow: Tl3Variant;
-  const anOp: InevOp);
+ const aNewRow: Tl3Variant;
+ const anOp: InevOp);
 //#UC START# *5612461701A2_48D3D038036A_var*
 //#UC END# *5612461701A2_48D3D038036A_var*
 begin
@@ -127,8 +101,8 @@ begin
 end;//TevTableImplementation.GetClearMode4Clone
 
 constructor TevTableImplementation.Create(const aView: InevView;
-  const aLoc: InevBasePoint;
-  const aProcessor: InevProcessor);
+ const aLoc: InevBasePoint;
+ const aProcessor: InevProcessor);
 //#UC START# *48D3D6CA01F0_48D3D038036A_var*
 //#UC END# *48D3D6CA01F0_48D3D038036A_var*
 begin
@@ -140,8 +114,8 @@ begin
 end;//TevTableImplementation.Create
 
 class function TevTableImplementation.Make(const aView: InevView;
-  const aLoc: InevBasePoint;
-  const aProcessor: InevProcessor): IevTable;
+ const aLoc: InevBasePoint;
+ const aProcessor: InevProcessor): IevTable;
 //#UC START# *48D3D6E60111_48D3D038036A_var*
 var
  l_Range : TevTableImplementation;
@@ -172,7 +146,8 @@ begin
 end;//TevTableImplementation.Make
 
 procedure TevTableImplementation.InsertRows(NumRows: Integer;
-  aAtEnd: Boolean);
+ aAtEnd: Boolean);
+ {* вставляет NumRows строк в текущее место таблицы. }
 //#UC START# *4770E4A40232_48D3D038036A_var*
 var
  l_Row  : InevObject;
@@ -216,6 +191,7 @@ begin
 end;//TevTableImplementation.InsertRows
 
 procedure TevTableImplementation.InsertColumns(NumColumns: Integer);
+ {* вставляет NumColumns столбцов в текущее место таблицы. }
 //#UC START# *4770E4B9039F_48D3D038036A_var*
 var
  l_Pack    : InevOp;        {-пачка операций     }
@@ -271,6 +247,7 @@ begin
 end;//TevTableImplementation.InsertColumns
 
 procedure TevTableImplementation.DeleteRow;
+ {* удалить текущую строку таблицы. }
 //#UC START# *4770E4C80145_48D3D038036A_var*
 var
  l_Pack     : InevOp;
@@ -328,6 +305,7 @@ begin
 end;//TevTableImplementation.DeleteRow
 
 procedure TevTableImplementation.DeleteColumn;
+ {* удалить столбец таблицы. }
 //#UC START# *4770E4EB0338_48D3D038036A_var*
 
  function lp_DeleteTable: Boolean;
@@ -398,6 +376,7 @@ begin
 end;//TevTableImplementation.DeleteColumn
 
 procedure TevTableImplementation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48D3D038036A_var*
 //#UC END# *479731C50290_48D3D038036A_var*
 begin
@@ -409,14 +388,10 @@ begin
 end;//TevTableImplementation.Cleanup
 
 procedure TevTableImplementation.ClearFields;
- {-}
 begin
- {$If defined(k2ForEditor)}
  f_View := nil;
- {$IfEnd} //k2ForEditor
  inherited;
 end;//TevTableImplementation.ClearFields
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -33,37 +33,21 @@ type
  IIntegration = interface
   {* интерфейс для работы с проектом интеграции }
   ['{7D2AE9F6-BB67-44E2-B9AC-705E2293178D}']
-  function Get_integration_enabled: Boolean;
-  function get_integration_complect_id: IString; { can raise CanNotFindData }
+  function GetIntegrationEnabled: ByteBool; stdcall;
+  function GetIntegrationComplectId: IString; stdcall; { can raise CanNotFindData }
    {* возвращает идентификатор комлекта. }
-  function get_object_by_xml(xml: PAnsiChar;
-   out result: IUnknown): TIntegrationType; { can raise CanNotFindData, InvalidXMLType, CantCreateObject }
+  function GetObjectByXml(xml: PAnsiChar;
+   out result: IUnknown): TIntegrationType; stdcall; { can raise CanNotFindData, InvalidXMLType, CantCreateObject }
    {* метод возвращает объект по поданному xml-у }
-  property integration_enabled: Boolean
-   read Get_integration_enabled;
+  property IntegrationEnabled: ByteBool
+   read GetIntegrationEnabled;
    {* доступны ли в версии возможности для внешних интеграторов }
  end;//IIntegration
-
-class function make: BadFactoryType;
- {* фабрика }
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : IIntegration;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

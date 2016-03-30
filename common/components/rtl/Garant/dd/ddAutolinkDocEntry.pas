@@ -1,97 +1,81 @@
 unit ddAutolinkDocEntry;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAutolinkDocEntry.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Autolink::TddAutolinkDocEntry
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkDocEntry.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAutolinkDocEntry" MUID: (4E8EB01701A5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Types,
-  l3LongintList,
-  l3Date,
-  l3ProtoObject,
-  ddAutolinkInterfaces,
-  ddBaseAutoLinkDataSource
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , ddAutolinkInterfaces
+ , l3LongintList
+ , l3Date
+ , l3Interfaces
+ , ddBaseAutoLinkDataSource
+ , l3Types
+;
 
 type
  TddAutolinkDocEntry = class(Tl3ProtoObject, IddAutolinkDocEntry)
- private
- // private fields
-   f_DocType : Integer;
-   f_Sources : Tl3LongintList;
-   f_Date : TStDate;
-   f_Num : Il3CString;
-   f_DocID : TddALDocRec;
- protected
- // realized methods
+  private
+   f_DocType: Integer;
+   f_Sources: Tl3LongintList;
+   f_Date: TStDate;
+   f_Num: Il3CString;
+   f_DocID: TddALDocRec;
+  protected
    function Get_Sources(anIndex: Integer): Integer;
    function Get_DocType: Integer;
    procedure Set_DocType(aValue: Integer);
    function Get_Num: Il3CString;
    procedure Set_Num(const aValue: Il3CString);
    function Get_Date: TStDate;
-   procedure Set_Date(aValue: TStDate);
+   procedure Set_Date(const aValue: TStDate);
    procedure AddSource(aSource: Integer);
    procedure DelSource(anIndex: Integer);
    procedure Clear;
-     {* очищает все данные }
+    {* очищает все данные }
    function Get_SourceCount: Integer;
    function IsEmpty: Boolean;
-     {* Если нет никаких данных... }
+    {* Если нет никаких данных... }
    function IsSame(const anEntry: IddAutolinkDocEntry): Boolean;
    function SourcesIdenticalTo(const anEntry: IddAutolinkDocEntry): Boolean;
    function Clone: IddAutolinkDocEntry;
    function Get_DocID: TddALDocRec;
    procedure Set_DocID(const aValue: TddALDocRec);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aDocType: Integer;
-     aDate: TStDate;
-     const aNum: Tl3PCharLen;
-     aSources: Tl3LongintList;
-     const aDocID: TddALDocRec); reintroduce;
+    const aDate: TStDate;
+    const aNum: Tl3PCharLen;
+    aSources: Tl3LongintList;
+    const aDocID: TddALDocRec); reintroduce;
    class function Make(aDocType: Integer;
-     aDate: TStDate;
-     const aNum: Tl3PCharLen;
-     aSources: Tl3LongintList;
-     const aDocID: TddALDocRec): IddAutolinkDocEntry; reintroduce;
-     {* Сигнатура фабрики TddAutolinkDocEntry.Make }
+    const aDate: TStDate;
+    const aNum: Tl3PCharLen;
+    aSources: Tl3LongintList;
+    const aDocID: TddALDocRec): IddAutolinkDocEntry; reintroduce;
  end;//TddAutolinkDocEntry
 
 implementation
 
 uses
-  SysUtils,
-  l3String,
-  l3Base
-  ;
-
-// start class TddAutolinkDocEntry
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Base
+;
 
 constructor TddAutolinkDocEntry.Create(aDocType: Integer;
-  aDate: TStDate;
-  const aNum: Tl3PCharLen;
-  aSources: Tl3LongintList;
-  const aDocID: TddALDocRec);
+ const aDate: TStDate;
+ const aNum: Tl3PCharLen;
+ aSources: Tl3LongintList;
+ const aDocID: TddALDocRec);
 //#UC START# *4E8ECFF20106_4E8EB01701A5_var*
 //#UC END# *4E8ECFF20106_4E8EB01701A5_var*
 begin
@@ -107,10 +91,10 @@ begin
 end;//TddAutolinkDocEntry.Create
 
 class function TddAutolinkDocEntry.Make(aDocType: Integer;
-  aDate: TStDate;
-  const aNum: Tl3PCharLen;
-  aSources: Tl3LongintList;
-  const aDocID: TddALDocRec): IddAutolinkDocEntry;
+ const aDate: TStDate;
+ const aNum: Tl3PCharLen;
+ aSources: Tl3LongintList;
+ const aDocID: TddALDocRec): IddAutolinkDocEntry;
 var
  l_Inst : TddAutolinkDocEntry;
 begin
@@ -120,7 +104,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TddAutolinkDocEntry.Make
 
 function TddAutolinkDocEntry.Get_Sources(anIndex: Integer): Integer;
 //#UC START# *4E8EB87300FE_4E8EB01701A5get_var*
@@ -176,7 +160,7 @@ begin
 //#UC END# *4E8EE02D0168_4E8EB01701A5get_impl*
 end;//TddAutolinkDocEntry.Get_Date
 
-procedure TddAutolinkDocEntry.Set_Date(aValue: TStDate);
+procedure TddAutolinkDocEntry.Set_Date(const aValue: TStDate);
 //#UC START# *4E8EE02D0168_4E8EB01701A5set_var*
 //#UC END# *4E8EE02D0168_4E8EB01701A5set_var*
 begin
@@ -204,6 +188,7 @@ begin
 end;//TddAutolinkDocEntry.DelSource
 
 procedure TddAutolinkDocEntry.Clear;
+ {* очищает все данные }
 //#UC START# *4E8EE4900220_4E8EB01701A5_var*
 //#UC END# *4E8EE4900220_4E8EB01701A5_var*
 begin
@@ -227,6 +212,7 @@ begin
 end;//TddAutolinkDocEntry.Get_SourceCount
 
 function TddAutolinkDocEntry.IsEmpty: Boolean;
+ {* Если нет никаких данных... }
 //#UC START# *4E8EF11E0095_4E8EB01701A5_var*
 //#UC END# *4E8EF11E0095_4E8EB01701A5_var*
 begin
@@ -293,6 +279,7 @@ begin
 end;//TddAutolinkDocEntry.Set_DocID
 
 procedure TddAutolinkDocEntry.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E8EB01701A5_var*
 //#UC END# *479731C50290_4E8EB01701A5_var*
 begin

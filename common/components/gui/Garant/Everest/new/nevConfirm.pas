@@ -1,58 +1,41 @@
 unit nevConfirm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevConfirm.pas"
-// Начат: 10.04.2008 20:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::nevUtils::TnevConfirm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevConfirm.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevConfirm" MUID: (47FE40A503CD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , nevTools
+;
 
 type
  TnevConfirm = class(Tl3ProtoObject, InevConfirm)
- protected
- // realized methods
+  protected
    function ReplaceConfirm(const aBlock: InevRange;
-     AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt;
-     {* запрос на замену. Возвращаемое значение см. TevReplaceConfirmEvent. }
+    AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt;
+    {* запрос на замену. Возвращаемое значение см. TevReplaceConfirmEvent. }
    function DeleteFoundRgn: Boolean;
    procedure Update;
    function Get_Progress: InevProgress;
    function Get_View: InevView;
- public
- // public methods
+  public
    class function Make: InevConfirm; reintroduce;
  end;//TnevConfirm
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-
-// start class TnevConfirm
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 class function TnevConfirm.Make: InevConfirm;
 var
@@ -64,10 +47,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevConfirm.Make
 
 function TnevConfirm.ReplaceConfirm(const aBlock: InevRange;
-  AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt;
+ AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt;
+ {* запрос на замену. Возвращаемое значение см. TevReplaceConfirmEvent. }
 //#UC START# *47C6CA4103BA_47FE40A503CD_var*
 //#UC END# *47C6CA4103BA_47FE40A503CD_var*
 begin

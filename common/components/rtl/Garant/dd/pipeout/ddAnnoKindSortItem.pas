@@ -1,68 +1,52 @@
 unit ddAnnoKindSortItem;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/PipeOut/ddAnnoKindSortItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::PipeOut::TddAnnoKindSortItem
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddAnnoKindSortItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAnnoKindSortItem" MUID: (564C627A03D0)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3LongintList,
-  l3ProtoObject,
-  ddPipeOutInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , ddPipeOutInterfaces
+ , l3Interfaces
+ , l3LongintList
+;
 
 type
  TddAnnoKindSortItem = class(Tl3ProtoObject, IddAnnoKindSortItem)
- private
- // private fields
-   f_Name : Il3CString;
-   f_TopicList : Tl3LongintList;
-   f_ID : Integer;
- protected
- // realized methods
+  private
+   f_Name: Il3CString;
+   f_TopicList: Tl3LongintList;
+   f_ID: Integer;
+  protected
    function Get_Name: Il3CString;
    procedure Add(aTopic: Integer);
    function Get_Count: Integer;
    function Get_Topics(aIdx: Integer): Integer;
    function Get_ID: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aName: AnsiString;
-     aID: Integer); reintroduce;
+    aID: Integer); reintroduce;
    class function Make(const aName: AnsiString;
-     aID: Integer): IddAnnoKindSortItem; reintroduce;
-     {* Сигнатура фабрики TddAnnoKindSortItem.Make }
+    aID: Integer): IddAnnoKindSortItem; reintroduce;
  end;//TddAnnoKindSortItem
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
-
-// start class TddAnnoKindSortItem
+ l3ImplUses
+ , l3Base
+ , SysUtils
+;
 
 constructor TddAnnoKindSortItem.Create(const aName: AnsiString;
-  aID: Integer);
+ aID: Integer);
 //#UC START# *564C630F00A3_564C627A03D0_var*
 //#UC END# *564C630F00A3_564C627A03D0_var*
 begin
@@ -75,7 +59,7 @@ begin
 end;//TddAnnoKindSortItem.Create
 
 class function TddAnnoKindSortItem.Make(const aName: AnsiString;
-  aID: Integer): IddAnnoKindSortItem;
+ aID: Integer): IddAnnoKindSortItem;
 var
  l_Inst : TddAnnoKindSortItem;
 begin
@@ -85,7 +69,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TddAnnoKindSortItem.Make
 
 function TddAnnoKindSortItem.Get_Name: Il3CString;
 //#UC START# *564C606E003D_564C627A03D0get_var*
@@ -133,6 +117,7 @@ begin
 end;//TddAnnoKindSortItem.Get_ID
 
 procedure TddAnnoKindSortItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_564C627A03D0_var*
 //#UC END# *479731C50290_564C627A03D0_var*
 begin

@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , IOUnit
+ //#UC START# *456EA56002BFintf_uses*
+ //#UC END# *456EA56002BFintf_uses*
 ;
 
 const
@@ -98,17 +100,17 @@ type
  INamedElement = interface
   {* Именованный элемент. }
   ['{E6AAFF18-FAD7-4E46-A586-CEEC45905094}']
-  function Get_name: IString;
-  procedure Set_name(const aValue: IString);
-  function Get_comment: IString;
-  procedure Set_comment(const aValue: IString);
-  property name: IString
-   read Get_name
-   write Set_name;
+  function GetName: IString; stdcall;
+  procedure SetName(const aValue: IString); stdcall;
+  function GetComment: IString; stdcall;
+  procedure SetComment(const aValue: IString); stdcall;
+  property Name: IString
+   read GetName
+   write SetName;
    {* имя }
-  property comment: IString
-   read Get_comment
-   write Set_comment;
+  property Comment: IString
+   read GetComment
+   write SetComment;
    {* комментарий }
  end;//INamedElement
 
@@ -172,31 +174,31 @@ type
  IEntityStorage = interface
   {* Хранилище сущностей }
   ['{D4613491-81A1-4AD8-B51E-95923E4DA97A}']
-  procedure get_content_type;
+  procedure GetContentType; stdcall;
    {* получить тип содержимого }
-  procedure get_cached_content;
+  procedure GetCachedContent; stdcall;
    {* получить содежимое }
  end;//IEntityStorage
 
  IEntityBase = interface
   {* Базовый абстрактный интерфейс для сущностей. Данный интерфейс должен заменить устаревыший BaseTreeSupport::BaseEntity . }
   ['{AC2E64E2-18A5-4F4A-B16F-A186B4F6BB37}']
-  function Get_is_saved: Boolean;
-  function Get_is_changed: Boolean;
-  function Get_eid: Cardinal; { can raise Unsupported }
-  function save_to(var storage: IEntityStorage): IEntityStorage; { can raise AccessDenied, Unsupported, NotSaved, DuplicateNode, CanNotSave }
+  function GetIsSaved: ByteBool; stdcall;
+  function GetIsChanged: ByteBool; stdcall;
+  function GetEid: Cardinal; stdcall; { can raise Unsupported }
+  function SaveTo(var storage: IEntityStorage): IEntityStorage; stdcall; { can raise AccessDenied, Unsupported, NotSaved, DuplicateNode, CanNotSave }
    {* Перезаписать сущность текущей сущностью. }
-  function append_to(var storage: IEntityStorage): IEntityStorage; { can raise ConstantModify, AccessDenied, Unsupported, CanNotSave }
+  function AppendTo(var storage: IEntityStorage): IEntityStorage; stdcall; { can raise ConstantModify, AccessDenied, Unsupported, CanNotSave }
    {* Сохраняет в базе  измененное состояние объекта.
 Объеденяя с с ранее сохраненными данными }
-  property is_saved: Boolean
-   read Get_is_saved;
+  property IsSaved: ByteBool
+   read GetIsSaved;
    {* Признак того что данный объект уже сохранен в базе данных. Для не сохраненный объекта сначало необходимо указать место хранения (чаще всего папки). Для не сохраненных объектов операция save вернет исключение. }
-  property is_changed: Boolean
-   read Get_is_changed;
+  property IsChanged: ByteBool
+   read GetIsChanged;
    {* свойство изменённости }
-  property eid: Cardinal
-   read Get_eid;
+  property Eid: Cardinal
+   read GetEid;
    {* идентификатор }
  end;//IEntityBase
 
@@ -323,21 +325,21 @@ type
  ISearchEntity = interface
   {* Сущность, передаваемая в метод finish_process на прогресс индикаторе, как результат поиска }
   ['{8299FB1B-C061-4407-84D9-AF61A0E35754}']
-  function Get_result_type: TSearchResultType;
-  function Get_document_count: size;
-  function Get_entry_count: size;
-  function Get_edition_count: size;
-  property result_type: TSearchResultType
-   read Get_result_type;
+  function GetResultType: TSearchResultType; stdcall;
+  function GetDocumentCount: size; stdcall;
+  function GetEntryCount: size; stdcall;
+  function GetEditionCount: size; stdcall;
+  property ResultType: TSearchResultType
+   read GetResultType;
    {* Тип результата поиска (список, автореферат, консультация) }
-  property document_count: size
-   read Get_document_count;
+  property DocumentCount: size
+   read GetDocumentCount;
    {* Количество найденных документов }
-  property entry_count: size
-   read Get_entry_count;
+  property EntryCount: size
+   read GetEntryCount;
    {* Количество вхождений }
-  property edition_count: size
-   read Get_edition_count;
+  property EditionCount: size
+   read GetEditionCount;
    {* количество редакций }
  end;//ISearchEntity
 
@@ -386,13 +388,13 @@ type
  IVariant = interface
   {* тип данных для нотификации }
   ['{0B872568-888B-4CC1-B7ED-D0E555EDA7B7}']
-  function get_long: Integer; { can raise InvalidType }
+  function GetLong: Integer; stdcall; { can raise InvalidType }
    {* вернуть целое }
-  function get_bool: Boolean; { can raise InvalidType }
+  function GetBool: ByteBool; stdcall; { can raise InvalidType }
    {* вернуть булево значение }
-  function get_string: IString; { can raise InvalidType }
+  function GetString: IString; stdcall; { can raise InvalidType }
    {* вернуть строку }
-  function get_object: IUnknown; { can raise InvalidType }
+  function GetObject: IUnknown; stdcall; { can raise InvalidType }
    {* вернуть объект }
  end;//IVariant
 
@@ -470,37 +472,22 @@ type
  TBaseTypesObjectId = TObjectId;
   {* Это создал Шура, т.к. были коллизии с модулем ActiveX и его ObjectId в модуле Document }
 
-function TDate_make: TDate; overload;
+function Make; overload; stdcall;
  {* создать нулевую дату }
-function TDate_make(y: unsigned short;
+function Make(y: unsigned short;
  m: unsigned short;
- d: unsigned short): TDate; overload;
+ d: unsigned short); overload; stdcall;
  {* создать заданную дату }
-class function make(result_type: TSearchResultType;
- document_count: size;
- entry_count: size;
- edition_count: size): BadFactoryType; overload;
- {* фабрика }
-class function make(const search_entity): BadFactoryType; overload;
- {* фабрика }
-class function make: BadFactoryType;
- {* фабрика }
-class function make_long(value: Integer): BadFactoryType;
- {* создать обёртку вокруг лонг }
-class function make_bool(value: Boolean): BadFactoryType;
- {* создать обёртку вокруг bool }
-class function make_string(var value: IString): BadFactoryType;
- {* создать обёртку вокруг IString }
-class function make_object(var value: IUnknown): BadFactoryType;
- {* создать обёртку вокруг объекта }
 
 implementation
 
 uses
  l3ImplUses
+ //#UC START# *456EA56002BFimpl_uses*
+ //#UC END# *456EA56002BFimpl_uses*
 ;
 
-function TDate_make: TDate;
+function Make;
  {* создать нулевую дату }
 //#UC START# *462C9BE5030D_456EA6F00109_var*
 //#UC END# *462C9BE5030D_456EA6F00109_var*
@@ -509,11 +496,11 @@ begin
 //#UC START# *462C9BE5030D_456EA6F00109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *462C9BE5030D_456EA6F00109_impl*
-end;//TDate_make
+end;//Make
 
-function TDate_make(y: unsigned short;
+function Make(y: unsigned short;
  m: unsigned short;
- d: unsigned short): TDate;
+ d: unsigned short);
  {* создать заданную дату }
 //#UC START# *462C9BF10128_456EA6F00109_var*
 //#UC END# *462C9BF10128_456EA6F00109_var*
@@ -522,100 +509,6 @@ begin
 //#UC START# *462C9BF10128_456EA6F00109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *462C9BF10128_456EA6F00109_impl*
-end;//TDate_make
-
-class function make(result_type: TSearchResultType;
- document_count: size;
- entry_count: size;
- edition_count: size): BadFactoryType;
- {* фабрика }
-var
- l_Inst : ISearchEntity;
-begin
- l_Inst := Create(result_type, document_count, entry_count, edition_count);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const search_entity): BadFactoryType;
- {* фабрика }
-var
- l_Inst : ISearchEntity;
-begin
- l_Inst := Create(search_entity);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : IVariant;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make_long(value: Integer): BadFactoryType;
- {* создать обёртку вокруг лонг }
-var
- l_Inst : IVariant;
-begin
- l_Inst := Create(value);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make_long
-
-class function make_bool(value: Boolean): BadFactoryType;
- {* создать обёртку вокруг bool }
-var
- l_Inst : IVariant;
-begin
- l_Inst := Create(value);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make_bool
-
-class function make_string(var value: IString): BadFactoryType;
- {* создать обёртку вокруг IString }
-var
- l_Inst : IVariant;
-begin
- l_Inst := Create(value);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make_string
-
-class function make_object(var value: IUnknown): BadFactoryType;
- {* создать обёртку вокруг объекта }
-var
- l_Inst : IVariant;
-begin
- l_Inst := Create(value);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make_object
+end;//Make
 
 end.

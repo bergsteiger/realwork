@@ -22,8 +22,8 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   public
-   constructor make(const tree); reintroduce;
-   procedure register_listener(var profile: IUserProfile); virtual;
+   constructor Make(const tree); reintroduce; stdcall;
+   procedure RegisterListener(var profile: IUserProfile); virtual; stdcall;
  end;//UsersTree
 
 implementation
@@ -32,22 +32,22 @@ uses
  l3ImplUses
 ;
 
-constructor UsersTree.make(const tree);
+constructor UsersTree.Make(const tree);
 //#UC START# *49DF1C4A00F4_49DF198B015D_var*
 //#UC END# *49DF1C4A00F4_49DF198B015D_var*
 begin
 //#UC START# *49DF1C4A00F4_49DF198B015D_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49DF1C4A00F4_49DF198B015D_impl*
-end;//UsersTree.make
+end;//UsersTree.Make
 
-procedure UsersTree.register_listener(var profile: IUserProfile);
+procedure UsersTree.RegisterListener(var profile: IUserProfile);
 //#UC START# *49DF1C6501D3_49DF198B015D_var*
 //#UC END# *49DF1C6501D3_49DF198B015D_var*
 begin
 //#UC START# *49DF1C6501D3_49DF198B015D_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49DF1C6501D3_49DF198B015D_impl*
-end;//UsersTree.register_listener
+end;//UsersTree.RegisterListener
 
 end.

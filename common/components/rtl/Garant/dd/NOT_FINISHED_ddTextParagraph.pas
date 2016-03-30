@@ -30,23 +30,14 @@ type
    f_ItemText: Tl3String;
    f_Offset: Integer;
    f_CHP: TddCharacterProperty;
-    {* Поле для свойства CHP }
    f_CharacterStyle: LongInt;
-    {* Поле для свойства CharacterStyle }
    f_ID: LongInt;
-    {* Поле для свойства ID }
    f_PAP: TddParagraphProperty;
-    {* Поле для свойства PAP }
    f_SegmentList: TddTextSegmentsList;
-    {* Поле для свойства SegmentList }
    f_SubList: TddSubsList;
-    {* Поле для свойства SubList }
    f_Text: Tl3String;
-    {* Поле для свойства Text }
    f_Width: Integer;
-    {* Поле для свойства Width }
    f_Unicode: Boolean;
-    {* Поле для свойства Unicode }
   private
    procedure Process;
    procedure CheckListItem;

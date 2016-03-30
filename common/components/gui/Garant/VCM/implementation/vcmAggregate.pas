@@ -1,79 +1,57 @@
 unit vcmAggregate;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmAggregate.pas"
-// Начат: 02.04.2003 15:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmAggregate
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmAggregate.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmAggregate" MUID: (528609ED0325)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmBase,
-  vcmIEntityList,
-  vcmExternalInterfaces
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmBase
+ , vcmInterfaces
+ , vcmIEntityList
+ , vcmExternalInterfaces
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmAggregate = class(TvcmCacheableBase, IvcmAggregate)
- private
- // private fields
-   f_List : TvcmIEntityList;
-   f_GUID : TGUID;
- protected
- // realized methods
+  private
+   f_List: TvcmIEntityList;
+   f_GUID: TGUID;
+  protected
    procedure AddEntity(const anEntity: IvcmEntity);
-     {* Добавляет сущность в агрегацию }
+    {* Добавляет сущность в агрегацию }
    procedure RemoveEntity(const anEntity: IvcmEntity);
-     {* удаляет сущность из агрегации }
+    {* удаляет сущность из агрегации }
    function Operation(const anOp: TvcmOPID;
-    const aParams: IvcmExecuteParams): IvcmExecuteParams; overload; 
-   function Operation(const anOp: TvcmOPID): IvcmExecuteParams; overload; 
+    const aParams: IvcmExecuteParams): IvcmExecuteParams; overload;
+   function Operation(const anOp: TvcmOPID): IvcmExecuteParams; overload;
    function HasForm(const aName: TvcmFormID;
     theForm: PIvcmEntityForm = nil): Boolean;
-     {* Проверяет, присутствует ли указанная форма в агрегации }
+    {* Проверяет, присутствует ли указанная форма в агрегации }
    function Get_GUID: TGUID;
    function Get_Entity(anIndex: Integer): IvcmEntity;
    function Get_EntitiesCount: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aGUID: PGUID = nil); reintroduce;
    class function Make(aGUID: PGUID = nil): IvcmAggregate;
  end;//TvcmAggregate
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  vcmUserControls
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmAggregate
+ l3ImplUses
+ , SysUtils
+ , vcmUserControls
+;
 
 constructor TvcmAggregate.Create(aGUID: PGUID = nil);
 //#UC START# *52860CA00075_528609ED0325_var*
@@ -111,6 +89,7 @@ begin
 end;//TvcmAggregate.Make
 
 procedure TvcmAggregate.AddEntity(const anEntity: IvcmEntity);
+ {* Добавляет сущность в агрегацию }
 //#UC START# *499564DB007D_528609ED0325_var*
 //#UC END# *499564DB007D_528609ED0325_var*
 begin
@@ -123,6 +102,7 @@ begin
 end;//TvcmAggregate.AddEntity
 
 procedure TvcmAggregate.RemoveEntity(const anEntity: IvcmEntity);
+ {* удаляет сущность из агрегации }
 //#UC START# *499564F80314_528609ED0325_var*
 //#UC END# *499564F80314_528609ED0325_var*
 begin
@@ -133,7 +113,7 @@ begin
 end;//TvcmAggregate.RemoveEntity
 
 function TvcmAggregate.Operation(const anOp: TvcmOPID;
-  const aParams: IvcmExecuteParams): IvcmExecuteParams;
+ const aParams: IvcmExecuteParams): IvcmExecuteParams;
 //#UC START# *499565380247_528609ED0325_var*
 var
  l_Done       : TvcmDoneStatus;
@@ -207,7 +187,8 @@ begin
 end;//TvcmAggregate.Operation
 
 function TvcmAggregate.HasForm(const aName: TvcmFormID;
-  theForm: PIvcmEntityForm = nil): Boolean;
+ theForm: PIvcmEntityForm = nil): Boolean;
+ {* Проверяет, присутствует ли указанная форма в агрегации }
 //#UC START# *499565DF0254_528609ED0325_var*
 var
  l_Index : Integer;
@@ -263,6 +244,7 @@ begin
 end;//TvcmAggregate.Get_EntitiesCount
 
 procedure TvcmAggregate.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_528609ED0325_var*
 //#UC END# *479731C50290_528609ED0325_var*
 begin
@@ -273,7 +255,6 @@ begin
  inherited;
 //#UC END# *479731C50290_528609ED0325_impl*
 end;//TvcmAggregate.Cleanup
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

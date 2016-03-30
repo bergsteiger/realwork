@@ -11,13 +11,14 @@ interface
 uses
  l3IntfUses
  , IOUnit
- , SecurityUnit
  , BaseTypesUnit
+ , FoldersUnit
+ , DocumentUnit
  , ExternalObjectUnit
  , SettingsUnit
+ , SearchUnit
+ , SecurityUnit
  , BannerUnit
- , DocumentUnit
- , FoldersUnit
 ;
 
 const
@@ -137,49 +138,49 @@ type
  IAuthorization = interface
   {* Интерфейс обеспечивает начальную авторизацию в системе, открытие выбранного комплекта данных, получение информации о комплекте. }
   ['{A49B3BF6-B27F-4D79-A67E-C51AF7F67855}']
-  function Get_protection_error: Integer;
-  function Get_rest_trial_days_count: Integer;
-  function Get_autoregistration_status: Boolean;
-  procedure Set_autoregistration_status(aValue: Boolean); { can raise AccessDenied }
-  function Get_administrator_email: IString;
-  procedure Set_administrator_email(const aValue: IString);
-  function Get_administrator_phone: IString;
-  procedure Set_administrator_phone(const aValue: IString);
-  procedure login(login: PAnsiChar;
-   password: PAnsiChar); { can raise WrongAuthentication, NoMoreProfiles, XMLImportRunning, ShutdownInited, TrialPeriodExpired, AlreadyLogged, AccountDisabled, NoMoreConnections }
+  function GetProtectionError: Integer; stdcall;
+  function GetRestTrialDaysCount: Integer; stdcall;
+  function GetAutoregistrationStatus: ByteBool; stdcall;
+  procedure SetAutoregistrationStatus(const aValue: ByteBool); stdcall; { can raise AccessDenied }
+  function GetAdministratorEmail: IString; stdcall;
+  procedure SetAdministratorEmail(const aValue: IString); stdcall;
+  function GetAdministratorPhone: IString; stdcall;
+  procedure SetAdministratorPhone(const aValue: IString); stdcall;
+  procedure Login(login: PAnsiChar;
+   password: PAnsiChar); stdcall; { can raise WrongAuthentication, NoMoreProfiles, XMLImportRunning, ShutdownInited, TrialPeriodExpired, AlreadyLogged, AccountDisabled, NoMoreConnections }
    {* Начало работы с системой. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon. }
-  procedure guest_login; { can raise NoMoreProfiles, LicenceViolation, XMLImportRunning, ShutdownInited, TrialPeriodExpired, NoMoreConnections }
+  procedure GuestLogin; stdcall; { can raise NoMoreProfiles, LicenceViolation, XMLImportRunning, ShutdownInited, TrialPeriodExpired, NoMoreConnections }
    {* Начало работы с системой пользователя-гостя. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon. }
-  procedure logout;
+  procedure Logout; stdcall;
    {* Окончание работы с системой. }
-  procedure autoregistration(name: PAnsiChar;
+  procedure Autoregistration(name: PAnsiChar;
    login: PAnsiChar;
    password: PAnsiChar;
-   email: PAnsiChar); { can raise WrongAuthentication, NoMoreProfiles, LicenceViolation, XMLImportRunning, ShutdownInited, TrialPeriodExpired, NoMoreConnections, AutoregistrationDisabled }
+   email: PAnsiChar); stdcall; { can raise WrongAuthentication, NoMoreProfiles, LicenceViolation, XMLImportRunning, ShutdownInited, TrialPeriodExpired, NoMoreConnections, AutoregistrationDisabled }
    {* Аналогично login но с регистрацией нового пользователя. email - адрес, на который в последствии может быть выслана информация о пользователе (логин, пароль) }
-  procedure send_user_info_by_email(email: PAnsiChar); { can raise SMTPServerAddressNotDefined, SMTPServerNotFound, UserNotFound, BadSMTPReply, SMTPAuthorizationFailed }
+  procedure SendUserInfoByEmail(email: PAnsiChar); stdcall; { can raise SMTPServerAddressNotDefined, SMTPServerNotFound, UserNotFound, BadSMTPReply, SMTPAuthorizationFailed }
    {* Проверяет наличие указанного адреса в базе. Если адрес найден,  высылает на него информацию о пользователе. }
-  function is_server_alive: Boolean;
+  function IsServerAlive: ByteBool; stdcall;
    {* возвращает true если сервер доступен, false иначе }
-  procedure logout_without_xml_backup;
+  procedure LogoutWithoutXmlBackup; stdcall;
    {* K274827650 }
-  property protection_error: Integer
-   read Get_protection_error;
+  property ProtectionError: Integer
+   read GetProtectionError;
    {* Ошибка защиты. }
-  property rest_trial_days_count: Integer
-   read Get_rest_trial_days_count;
+  property RestTrialDaysCount: Integer
+   read GetRestTrialDaysCount;
    {* Колличество оставшихся триальных дней. Если `== 0` - триальный период истек; если `< 0` триальный период не установлен. }
-  property autoregistration_status: Boolean
-   read Get_autoregistration_status
-   write Set_autoregistration_status;
+  property AutoregistrationStatus: ByteBool
+   read GetAutoregistrationStatus
+   write SetAutoregistrationStatus;
    {* статус авторегистрации }
-  property administrator_email: IString
-   read Get_administrator_email
-   write Set_administrator_email;
+  property AdministratorEmail: IString
+   read GetAdministratorEmail
+   write SetAdministratorEmail;
    {* Почта администратора }
-  property administrator_phone: IString
-   read Get_administrator_phone
-   write Set_administrator_phone;
+  property AdministratorPhone: IString
+   read GetAdministratorPhone
+   write SetAdministratorPhone;
    {* Телефон администратора }
  end;//IAuthorization
 
@@ -198,143 +199,90 @@ type
  ICommon = interface
   {* Интерфейс обеспечивает доступ к основной функциональности системы, доступной из "Основного меню" или навигатора. }
   ['{E07B0F92-C20B-4AB2-84A3-33BC2AF4659C}']
-  function Get_base_date: TDate;
-  function Get_license_restrictions: TLicenseRestrictions;
-  function get_document_on_number(number: Integer;
+  function GetBaseDate: TDate; stdcall;
+  function GetLicenseRestrictions: TLicenseRestrictions; stdcall;
+  function GetDocumentOnNumber(number: Integer;
    out document: IDocument;
-   out missing_info: IMissingInfo): Boolean;
+   out missing_info: IMissingInfo): ByteBool; stdcall;
    {* Возвращает документ (Document) по заданному внутреннему ("гарантовскому") номеру. }
-  procedure start_processing_folder_notification(var notifier: IExternalFoldersChangeNotifier);
+  procedure StartProcessingFolderNotification(var notifier: IExternalFoldersChangeNotifier); stdcall;
    {* Установить нотификацию изменения папок. }
-  function is_explanatory_dictionary_exist: Boolean;
+  function IsExplanatoryDictionaryExist: ByteBool; stdcall;
    {* Проверяет существует (доступен) ли в системе Толковый словарь.
 Возвращает true в случае, если толковый словарь существует. }
-  function is_pharm_exist: Boolean;
-  function check_internal: Boolean;
+  function IsPharmExist: ByteBool; stdcall;
+  function CheckInternal: ByteBool; stdcall;
    {* проверка является ли база с лицензионными настройками - "для внутреннего использования" }
-  procedure show_pictures_on_number(number: Integer); { can raise WorkingParamsNotFound, ExternalApplicationError }
+  procedure ShowPicturesOnNumber(number: Integer); stdcall; { can raise WorkingParamsNotFound, ExternalApplicationError }
    {* показывает рисунки для заданного топика (функциональность внутренней версии) }
-  function get_complect_name: IString;
-  function auto_show_help: Boolean;
+  function GetComplectName: IString; stdcall;
+  function AutoShowHelp: ByteBool; stdcall;
    {* показывать ли помощь при первом запуске после инсталяции. }
-  function get_product_type: TProductType;
+  function GetProductType: TProductType; stdcall;
    {* получить тип установленного продукта }
-  function get_splash_screen(is_start: Boolean;
+  function GetSplashScreen(is_start: Boolean;
    x: short;
    y: short;
-   flash_available: Boolean): ISplashScreen;
+   flash_available: Boolean): ISplashScreen; stdcall;
    {* Получить сплеш }
-  function get_settings_manager: ISettingsManager;
+  function GetSettingsManager: ISettingsManager; stdcall;
    {* Получить менеджер настроек }
-  function is_eo_enabled: Boolean;
+  function IsEoEnabled: ByteBool; stdcall;
    {* доступен ли модуль ЭО. }
-  function get_base_type: TBaseType;
+  function GetBaseType: TBaseType; stdcall;
    {* Тип базы }
-  procedure create_folder_notification_queue;
+  procedure CreateFolderNotificationQueue; stdcall;
    {* Создать очередь обработки папочных нотификаций }
-  function get_banner: IBanner; { can raise CanNotFindData }
+  function GetBanner: IBanner; stdcall; { can raise CanNotFindData }
    {* Получить баннер }
-  function is_trimmed_publish_source_exists: Boolean;
+  function IsTrimmedPublishSourceExists: ByteBool; stdcall;
    {* Есть ли усеченный индекс Источник опубликования }
-  function get_scripts_system_dictionary: IStream;
+  function GetScriptsSystemDictionary: IStream; stdcall;
    {* словарь для скриптов (К271754146) }
-  function get_picture(id: Integer): IExternalObject; { can raise CanNotFindData }
-  function is_erase_of_inactive_users_enabled: Boolean;
+  function GetPicture(id: Integer): IExternalObject; stdcall; { can raise CanNotFindData }
+  function IsEraseOfInactiveUsersEnabled: ByteBool; stdcall;
    {* включена ли поддержка удаления пользователей, которые давно не пользовались системой }
-  function get_encrypted_complect_id: IString;
+  function GetEncryptedComplectId: IString; stdcall;
    {* получить зашифрованный идентификатор комплекта }
-  property base_date: TDate
-   read Get_base_date;
-  property license_restrictions: TLicenseRestrictions
-   read Get_license_restrictions;
+  property BaseDate: TDate
+   read GetBaseDate;
+  property LicenseRestrictions: TLicenseRestrictions
+   read GetLicenseRestrictions;
    {* Лицензионные ограничения на количество пользователей }
  end;//ICommon
 
  IComponentManager = interface
   ['{C92D07EF-D91F-4CDD-BD8E-FC8DF18CC42C}']
-  procedure start; { can raise StorageLocked, LicenceViolation, ConfigurationsNotDefined, IPAddressNotFound, InvalidBase, NoServer, BadNetworkConfig, ServerVersionNotValid, WorkingParamsNotFound, NoMoreConnections, MorphoNotExists, InternalApplicationError, InvalidUserDatastore, ServerIsStarting }
-  procedure stop;
+  procedure Start; stdcall; { can raise StorageLocked, LicenceViolation, ConfigurationsNotDefined, IPAddressNotFound, InvalidBase, NoServer, BadNetworkConfig, ServerVersionNotValid, WorkingParamsNotFound, NoMoreConnections, MorphoNotExists, InternalApplicationError, InvalidUserDatastore, ServerIsStarting }
+  procedure Stop; stdcall;
  end;//IComponentManager
 
  IAssemblyInfo = interface
   ['{D5DBA4D0-D3CD-43ED-9E01-CC854B442DA1}']
-  function Get_is_debug: Boolean;
-  function Get_is_desktop: Boolean;
-  function Get_is_commerce: Boolean;
-  function Get_first_start: Boolean;
-  procedure Set_first_start(aValue: Boolean);
-  function Get_server_capacity: TCapacity;
-  property is_debug: Boolean
-   read Get_is_debug;
-  property is_desktop: Boolean
-   read Get_is_desktop;
-  property is_commerce: Boolean
-   read Get_is_commerce;
-  property first_start: Boolean
-   read Get_first_start
-   write Set_first_start;
-  property server_capacity: TCapacity
-   read Get_server_capacity;
+  function GetIsDebug: ByteBool; stdcall;
+  function GetIsDesktop: ByteBool; stdcall;
+  function GetIsCommerce: ByteBool; stdcall;
+  function GetFirstStart: ByteBool; stdcall;
+  procedure SetFirstStart(const aValue: ByteBool); stdcall;
+  function GetServerCapacity: TCapacity; stdcall;
+  property IsDebug: ByteBool
+   read GetIsDebug;
+  property IsDesktop: ByteBool
+   read GetIsDesktop;
+  property IsCommerce: ByteBool
+   read GetIsCommerce;
+  property FirstStart: ByteBool
+   read GetFirstStart
+   write SetFirstStart;
+  property ServerCapacity: TCapacity
+   read GetServerCapacity;
    {* Разрядность сервера }
  end;//IAssemblyInfo
-
-class function make: BadFactoryType; { can raise XMLImportRunning }
-class function make: BadFactoryType;
-class function make: BadFactoryType;
-class function make: BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType; { can raise XMLImportRunning }
-var
- l_Inst : IAuthorization;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : ICommon;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IComponentManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IAssemblyInfo;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

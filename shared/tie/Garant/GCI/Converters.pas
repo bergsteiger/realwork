@@ -11,9 +11,9 @@ uses
  l3IntfUses
 ;
 
-function cp_to_utf16(const in: AnsiString): a-wstring;
+function CpToUtf16(const in: AnsiString): a-wstring; stdcall;
  {* переводит строку в UTF-16, использу€ текущую локаль }
-function utf16_to_cp(const in: a-wstring): AnsiString;
+function Utf16ToCp(const in: a-wstring): AnsiString; stdcall;
  {* переводит строку в однобайтовую кодировку, использу€ текущую локаль }
 
 implementation
@@ -22,7 +22,7 @@ uses
  l3ImplUses
 ;
 
-function cp_to_utf16(const in: AnsiString): a-wstring;
+function CpToUtf16(const in: AnsiString): a-wstring;
  {* переводит строку в UTF-16, использу€ текущую локаль }
 //#UC START# *4869FCA503BC_4869FC3401AE_var*
 //#UC END# *4869FCA503BC_4869FC3401AE_var*
@@ -30,9 +30,9 @@ begin
 //#UC START# *4869FCA503BC_4869FC3401AE_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4869FCA503BC_4869FC3401AE_impl*
-end;//cp_to_utf16
+end;//CpToUtf16
 
-function utf16_to_cp(const in: a-wstring): AnsiString;
+function Utf16ToCp(const in: a-wstring): AnsiString;
  {* переводит строку в однобайтовую кодировку, использу€ текущую локаль }
 //#UC START# *4869FCAA0279_4869FC3401AE_var*
 //#UC END# *4869FCAA0279_4869FC3401AE_var*
@@ -40,6 +40,6 @@ begin
 //#UC START# *4869FCAA0279_4869FC3401AE_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4869FCAA0279_4869FC3401AE_impl*
-end;//utf16_to_cp
+end;//Utf16ToCp
 
 end.

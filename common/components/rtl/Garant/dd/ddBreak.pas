@@ -1,78 +1,60 @@
 unit ddBreak;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddBreak.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddBreak
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddBreak.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddBreak" MUID: (51E8EFD50162)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocumentAtom,
-  RTFtypes,
-  ddSectionProperty,
-  ddCustomDestination,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , RTFtypes
+ , ddSectionProperty
+ , k2Interfaces
+ , ddTypes
+ , ddCustomDestination
+;
 
 type
  TddBreak = class(TddDocumentAtom)
- private
- // private fields
-   f_BreakType : TddBreakType;
-    {* Поле для свойства BreakType}
-   f_SEP : TddSectionProperty;
-    {* Поле для свойства SEP}
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
+  private
+   f_BreakType: TddBreakType;
+    {* Поле для свойства BreakType }
+   f_SEP: TddSectionProperty;
+    {* Поле для свойства SEP }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   function HasDefaultParams: Boolean;
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsBreak: Boolean; override;
- public
- // public methods
-   function HasDefaultParams: Boolean;
- public
- // public properties
+  public
    property BreakType: TddBreakType
-     read f_BreakType
-     write f_BreakType;
+    read f_BreakType
+    write f_BreakType;
    property SEP: TddSectionProperty
-     read f_SEP;
+    read f_SEP;
  end;//TddBreak
 
 implementation
 
 uses
-  PageBreak_Const,
-  SectionBreak_Const,
-  k2Tags,
-  l3Interfaces,
-  l3MinMax,
-  SysUtils,
-  ddDocumentProperty
-  ;
-
-// start class TddBreak
+ l3ImplUses
+ , PageBreak_Const
+ , SectionBreak_Const
+ , k2Tags
+ , l3Interfaces
+ , l3MinMax
+ , SysUtils
+ , ddDocumentProperty
+;
 
 function TddBreak.HasDefaultParams: Boolean;
 //#UC START# *53883BAC01A0_51E8EFD50162_var*
@@ -84,8 +66,8 @@ begin
 end;//TddBreak.HasDefaultParams
 
 procedure TddBreak.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_51E8EFD50162_var*
 //#UC END# *518A504F00F5_51E8EFD50162_var*
 begin
@@ -126,6 +108,7 @@ begin
 end;//TddBreak.Write2Generator
 
 procedure TddBreak.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51E8EFD50162_var*
 //#UC END# *479731C50290_51E8EFD50162_var*
 begin

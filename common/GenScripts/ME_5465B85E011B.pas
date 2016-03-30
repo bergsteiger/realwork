@@ -19,9 +19,9 @@ type
   public
    NodeDelegateType_: ;
   protected
-   function alloc_new_view: ViewBase; override;
+   function AllocNewView: ViewBase; override;
   public
-   constructor make; reintroduce;
+   constructor Make; reintroduce; stdcall;
  end;//ListTreeView
 
 implementation
@@ -30,22 +30,22 @@ uses
  l3ImplUses
 ;
 
-constructor ListTreeView.make;
+constructor ListTreeView.Make;
 //#UC START# *5465C2970213_5465B85E011B_var*
 //#UC END# *5465C2970213_5465B85E011B_var*
 begin
 //#UC START# *5465C2970213_5465B85E011B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5465C2970213_5465B85E011B_impl*
-end;//ListTreeView.make
+end;//ListTreeView.Make
 
-function ListTreeView.alloc_new_view: ViewBase;
+function ListTreeView.AllocNewView: ViewBase;
 //#UC START# *460127E400EA_5465B85E011B_var*
 //#UC END# *460127E400EA_5465B85E011B_var*
 begin
 //#UC START# *460127E400EA_5465B85E011B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460127E400EA_5465B85E011B_impl*
-end;//ListTreeView.alloc_new_view
+end;//ListTreeView.AllocNewView
 
 end.

@@ -15,7 +15,7 @@ uses
 type
  DocWithPid = {abstract} class
   public
-   procedure get_document_pid; virtual; abstract;
+   procedure GetDocumentPid; virtual; abstract; stdcall;
  end;//DocWithPid
 
 implementation

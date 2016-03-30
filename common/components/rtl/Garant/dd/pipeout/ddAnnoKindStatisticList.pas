@@ -1,27 +1,18 @@
 unit ddAnnoKindStatisticList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/PipeOut/ddAnnoKindStatisticList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::PipeOut::TddAnnoKindStatisticList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddAnnoKindStatisticList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAnnoKindStatisticList" MUID: (564C6BCB02EF)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddAnnoKindStatisticListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , ddAnnoKindStatisticListPrim
+ , l3Types
+;
 
 type
  _FindDataType_ = Integer;
@@ -33,15 +24,18 @@ type
 implementation
 
 uses
-  l3String
-  ;
+ l3ImplUses
+ , l3String
+ , ddPipeOutInterfaces
+;
 
-// start class TddAnnoKindStatisticList
+{$If not Declared(_ItemType_)}type _ItemType_ = IddAnnoKindSortItem;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_564C6BCB02EF_var*
 //#UC END# *47B9BAFD01F4_564C6BCB02EF_var*
 begin

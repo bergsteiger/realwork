@@ -11,8 +11,8 @@ interface
 
 uses
  l3IntfUses
- , l3PureMixIns
  , nevTools
+ , l3PureMixIns
 ;
 
 type

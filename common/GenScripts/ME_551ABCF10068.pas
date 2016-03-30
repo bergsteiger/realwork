@@ -41,8 +41,6 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    procedure GetComponent(const aPoint: TPoint;
     out aComponent: TComponent;
@@ -51,6 +49,8 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgGetComponentFromPointImpl;
     {* Метод получения экземпляра синглетона TvgGetComponentFromPointImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgGetComponentFromPointImpl
 
  TvgFormatObjectInfoImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
@@ -58,8 +58,6 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function Format(anObject: TObject;
     aShortInfo: Boolean;
@@ -67,6 +65,8 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgFormatObjectInfoImpl;
     {* Метод получения экземпляра синглетона TvgFormatObjectInfoImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgFormatObjectInfoImpl
 
  TvgIterateComponentsImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
@@ -74,14 +74,14 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
     aComponent: TComponent);
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgIterateComponentsImpl;
     {* Метод получения экземпляра синглетона TvgIterateComponentsImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgIterateComponentsImpl
 
  TvgGetCaptureImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
@@ -89,13 +89,13 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function GetCapture: TComponent;
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgGetCaptureImpl;
     {* Метод получения экземпляра синглетона TvgGetCaptureImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgGetCaptureImpl
 
  TvgGetComponentBoundsImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
@@ -103,13 +103,13 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
    function GetBounds(aComponent: TComponent): TRect;
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgGetComponentBoundsImpl;
     {* Метод получения экземпляра синглетона TvgGetComponentBoundsImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgGetComponentBoundsImpl
 {$IfEnd} // NOT Defined(NoVGScene)
 
@@ -171,12 +171,6 @@ begin
  l3Free(g_TvgGetComponentBoundsImpl);
 end;//TvgGetComponentBoundsImplFree
 
-class function TvgGetComponentFromPointImpl.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvgGetComponentFromPointImpl <> nil;
-end;//TvgGetComponentFromPointImpl.Exists
-
 {$If NOT Defined(NoVCL)}
 procedure TvgGetComponentFromPointImpl.GetComponent(const aPoint: TPoint;
  out aComponent: TComponent;
@@ -211,11 +205,11 @@ begin
  Result := g_TvgGetComponentFromPointImpl;
 end;//TvgGetComponentFromPointImpl.Instance
 
-class function TvgFormatObjectInfoImpl.Exists: Boolean;
+class function TvgGetComponentFromPointImpl.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TvgFormatObjectInfoImpl <> nil;
-end;//TvgFormatObjectInfoImpl.Exists
+ Result := g_TvgGetComponentFromPointImpl <> nil;
+end;//TvgGetComponentFromPointImpl.Exists
 
 {$If NOT Defined(NoVCL)}
 function TvgFormatObjectInfoImpl.Format(anObject: TObject;
@@ -283,11 +277,11 @@ begin
  Result := g_TvgFormatObjectInfoImpl;
 end;//TvgFormatObjectInfoImpl.Instance
 
-class function TvgIterateComponentsImpl.Exists: Boolean;
+class function TvgFormatObjectInfoImpl.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TvgIterateComponentsImpl <> nil;
-end;//TvgIterateComponentsImpl.Exists
+ Result := g_TvgFormatObjectInfoImpl <> nil;
+end;//TvgFormatObjectInfoImpl.Exists
 
 {$If NOT Defined(NoVCL)}
 procedure TvgIterateComponentsImpl.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
@@ -342,11 +336,11 @@ begin
  Result := g_TvgIterateComponentsImpl;
 end;//TvgIterateComponentsImpl.Instance
 
-class function TvgGetCaptureImpl.Exists: Boolean;
+class function TvgIterateComponentsImpl.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TvgGetCaptureImpl <> nil;
-end;//TvgGetCaptureImpl.Exists
+ Result := g_TvgIterateComponentsImpl <> nil;
+end;//TvgIterateComponentsImpl.Exists
 
 {$If NOT Defined(NoVCL)}
 function TvgGetCaptureImpl.GetCapture: TComponent;
@@ -382,11 +376,11 @@ begin
  Result := g_TvgGetCaptureImpl;
 end;//TvgGetCaptureImpl.Instance
 
-class function TvgGetComponentBoundsImpl.Exists: Boolean;
+class function TvgGetCaptureImpl.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TvgGetComponentBoundsImpl <> nil;
-end;//TvgGetComponentBoundsImpl.Exists
+ Result := g_TvgGetCaptureImpl <> nil;
+end;//TvgGetCaptureImpl.Exists
 
 {$If NOT Defined(NoVCL)}
 function TvgGetComponentBoundsImpl.GetBounds(aComponent: TComponent): TRect;
@@ -421,6 +415,12 @@ begin
  end;
  Result := g_TvgGetComponentBoundsImpl;
 end;//TvgGetComponentBoundsImpl.Instance
+
+class function TvgGetComponentBoundsImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvgGetComponentBoundsImpl <> nil;
+end;//TvgGetComponentBoundsImpl.Exists
 
 initialization
 {$If NOT Defined(NoVCL)}

@@ -1,31 +1,22 @@
 unit ddExportFilerDispatcher;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/PipeOut/ddExportFilerDispatcher.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::PipeOut::TddExportFilerDispatcher
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcher.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddExportFilerDispatcher" MUID: (5603F0890069)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Filer,
-  dt_Types,
-  l3ProtoObject,
-  ddPipeOutInterfaces,
-  ddExportFilerMap
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , ddExportFilerMap
+ , ddPipeOutInterfaces
+ , l3Filer
+ , dt_Types
+;
 
 type
  TddFileMaskArray = array [TddExportDocPart] of Il3CString;
@@ -35,119 +26,138 @@ type
  TddCurrentFilesArray = array [TddExportDocPart] of IUnknown;
 
  TddExportFilerDispatcher = class(Tl3ProtoObject)
- private
- // private fields
-   f_FileMask : TddFileMaskArray;
-   f_Map : TddExportFilerMap;
-   f_DivideBy : TddExportDivideByArray;
-   f_SingleFiler : Tl3CustomFiler;
-   f_CurrentFiles : TddCurrentFilesArray;
-   f_CurrentTopic : TDocID;
-   f_CodePage : LongInt;
-    {* Поле для свойства CodePage}
-   f_ExportDate : TDateTime;
-    {* Поле для свойства ExportDate}
-   f_FilePartSize : Integer;
-    {* Поле для свойства FilePartSize}
-   f_TargetFolder : AnsiString;
-    {* Поле для свойства TargetFolder}
-   f_FileExt : AnsiString;
-    {* Поле для свойства FileExt}
-   f_LowcaseFilenames : Boolean;
-    {* Поле для свойства LowcaseFilenames}
-   f_IsDirByMain : Boolean;
-    {* Поле для свойства IsDirByMain}
-   f_UpdateFiles : Boolean;
-    {* Поле для свойства UpdateFiles}
- private
- // private methods
+  private
+   f_FileMask: TddFileMaskArray;
+   f_Map: TddExportFilerMap;
+   f_DivideBy: TddExportDivideByArray;
+   f_SingleFiler: Tl3CustomFiler;
+   f_CurrentFiles: TddCurrentFilesArray;
+   f_CurrentTopic: TDocID;
+   f_CodePage: LongInt;
+    {* Поле для свойства CodePage }
+   f_ExportDate: TDateTime;
+    {* Поле для свойства ExportDate }
+   f_FilePartSize: Integer;
+    {* Поле для свойства FilePartSize }
+   f_TargetFolder: AnsiString;
+    {* Поле для свойства TargetFolder }
+   f_FileExt: AnsiString;
+    {* Поле для свойства FileExt }
+   f_LowcaseFilenames: Boolean;
+    {* Поле для свойства LowcaseFilenames }
+   f_IsDirByMain: Boolean;
+    {* Поле для свойства IsDirByMain }
+   f_UpdateFiles: Boolean;
+    {* Поле для свойства UpdateFiles }
+  private
    procedure DropCurrentFilesData;
-     {* Сигнатура метода DropCurrentFilesData }
- protected
- // property methods
+  protected
    function pm_GetFileMask(aPart: TddExportDocPart): Il3CString; virtual;
-   procedure pm_SetFileMask(aPart: TddExportDocPart; const aValue: Il3CString); virtual;
+   procedure pm_SetFileMask(aPart: TddExportDocPart;
+    const aValue: Il3CString); virtual;
    function pm_GetDivideBy(aPart: TddExportDocPart): TddExportDivideBySet; virtual;
-   procedure pm_SetDivideBy(aPart: TddExportDocPart; aValue: TddExportDivideBySet); virtual;
- protected
- // overridden protected methods
+   procedure pm_SetDivideBy(aPart: TddExportDocPart;
+    aValue: TddExportDivideBySet); virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    function GetFiler(aTopic: TDocID;
-     aPart: TddExportDocPart;
-     const aAccGroup: Il3CString): Tl3CustomFiler;
+    aPart: TddExportDocPart;
+    const aAccGroup: Il3CString): Tl3CustomFiler;
    procedure Start;
-     {* Корректирует маски файлов и DivideBy, обнуляет файлеры }
+    {* Корректирует маски файлов и DivideBy, обнуляет файлеры }
    procedure Finish;
-     {* Закрывает все открытые файлеры }
+    {* Закрывает все открытые файлеры }
    procedure RollBack;
-     {* Удаляет уже вылитые данные текущего топика (случай аварийного отката) }
+    {* Удаляет уже вылитые данные текущего топика (случай аварийного отката) }
    function GetActualDir(const aMain: AnsiString): AnsiString;
- public
- // public properties
+  public
    property CodePage: LongInt
-     read f_CodePage
-     write f_CodePage;
+    read f_CodePage
+    write f_CodePage;
    property FileMask[aPart: TddExportDocPart]: Il3CString
-     read pm_GetFileMask
-     write pm_SetFileMask;
+    read pm_GetFileMask
+    write pm_SetFileMask;
    property DivideBy[aPart: TddExportDocPart]: TddExportDivideBySet
-     read pm_GetDivideBy
-     write pm_SetDivideBy;
+    read pm_GetDivideBy
+    write pm_SetDivideBy;
    property ExportDate: TDateTime
-     read f_ExportDate
-     write f_ExportDate;
+    read f_ExportDate
+    write f_ExportDate;
    property FilePartSize: Integer
-     read f_FilePartSize
-     write f_FilePartSize;
+    read f_FilePartSize
+    write f_FilePartSize;
    property TargetFolder: AnsiString
-     read f_TargetFolder
-     write f_TargetFolder;
+    read f_TargetFolder
+    write f_TargetFolder;
    property FileExt: AnsiString
-     read f_FileExt
-     write f_FileExt;
+    read f_FileExt
+    write f_FileExt;
    property LowcaseFilenames: Boolean
-     read f_LowcaseFilenames
-     write f_LowcaseFilenames;
+    read f_LowcaseFilenames
+    write f_LowcaseFilenames;
    property IsDirByMain: Boolean
-     read f_IsDirByMain;
+    read f_IsDirByMain;
    property UpdateFiles: Boolean
-     read f_UpdateFiles
-     write f_UpdateFiles;
+    read f_UpdateFiles
+    write f_UpdateFiles;
  end;//TddExportFilerDispatcher
 
 implementation
 
 uses
-  ddExportFilerDispatcherElem,
-  l3FileUtils,
-  l3Types,
-  ddUtils,
-  l3String,
-  l3Const,
-  l3Base,
-  Classes,
-  SysUtils,
-  l3Chars
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Chars
+ , ddExportFilerDispatcherElem
+ , l3FileUtils
+ , l3Types
+ , ddUtils
+ , l3String
+ , l3Const
+ , l3Base
+ , Classes
+;
 
-// start class TddExportFilerDispatcher
-
-procedure TddExportFilerDispatcher.DropCurrentFilesData;
-//#UC START# *5617897D0210_5603F0890069_var*
-var
- l_Part: TddExportDocPart;
-//#UC END# *5617897D0210_5603F0890069_var*
+function TddExportFilerDispatcher.pm_GetFileMask(aPart: TddExportDocPart): Il3CString;
+//#UC START# *5603FBF902CB_5603F0890069get_var*
+//#UC END# *5603FBF902CB_5603F0890069get_var*
 begin
-//#UC START# *5617897D0210_5603F0890069_impl*
- for l_Part := edpDocument to edpAnnotation do
-  f_CurrentFiles[l_Part] := nil;
-//#UC END# *5617897D0210_5603F0890069_impl*
-end;//TddExportFilerDispatcher.DropCurrentFilesData
+//#UC START# *5603FBF902CB_5603F0890069get_impl*
+ Result := f_FileMask[aPart];
+//#UC END# *5603FBF902CB_5603F0890069get_impl*
+end;//TddExportFilerDispatcher.pm_GetFileMask
+
+procedure TddExportFilerDispatcher.pm_SetFileMask(aPart: TddExportDocPart;
+ const aValue: Il3CString);
+//#UC START# *5603FBF902CB_5603F0890069set_var*
+//#UC END# *5603FBF902CB_5603F0890069set_var*
+begin
+//#UC START# *5603FBF902CB_5603F0890069set_impl*
+ f_FileMask[aPart] := aValue;
+//#UC END# *5603FBF902CB_5603F0890069set_impl*
+end;//TddExportFilerDispatcher.pm_SetFileMask
+
+function TddExportFilerDispatcher.pm_GetDivideBy(aPart: TddExportDocPart): TddExportDivideBySet;
+//#UC START# *560A4EE9011B_5603F0890069get_var*
+//#UC END# *560A4EE9011B_5603F0890069get_var*
+begin
+//#UC START# *560A4EE9011B_5603F0890069get_impl*
+ Result := f_DivideBy[aPart];
+//#UC END# *560A4EE9011B_5603F0890069get_impl*
+end;//TddExportFilerDispatcher.pm_GetDivideBy
+
+procedure TddExportFilerDispatcher.pm_SetDivideBy(aPart: TddExportDocPart;
+ aValue: TddExportDivideBySet);
+//#UC START# *560A4EE9011B_5603F0890069set_var*
+//#UC END# *560A4EE9011B_5603F0890069set_var*
+begin
+//#UC START# *560A4EE9011B_5603F0890069set_impl*
+ f_DivideBy[aPart] := aValue;
+//#UC END# *560A4EE9011B_5603F0890069set_impl*
+end;//TddExportFilerDispatcher.pm_SetDivideBy
 
 constructor TddExportFilerDispatcher.Create;
 //#UC START# *560A4BA903C9_5603F0890069_var*
@@ -161,8 +171,8 @@ begin
 end;//TddExportFilerDispatcher.Create
 
 function TddExportFilerDispatcher.GetFiler(aTopic: TDocID;
-  aPart: TddExportDocPart;
-  const aAccGroup: Il3CString): Tl3CustomFiler;
+ aPart: TddExportDocPart;
+ const aAccGroup: Il3CString): Tl3CustomFiler;
 //#UC START# *560A4C0F00CA_5603F0890069_var*
 var
  l_FileName: AnsiString;
@@ -235,6 +245,7 @@ begin
 end;//TddExportFilerDispatcher.GetFiler
 
 procedure TddExportFilerDispatcher.Start;
+ {* Корректирует маски файлов и DivideBy, обнуляет файлеры }
 //#UC START# *560A5979037E_5603F0890069_var*
 var
  l_DocPart: TddExportDocPart;
@@ -286,6 +297,7 @@ begin
 end;//TddExportFilerDispatcher.Start
 
 procedure TddExportFilerDispatcher.Finish;
+ {* Закрывает все открытые файлеры }
 //#UC START# *560BA6EA03BC_5603F0890069_var*
 //#UC END# *560BA6EA03BC_5603F0890069_var*
 begin
@@ -297,6 +309,7 @@ begin
 end;//TddExportFilerDispatcher.Finish
 
 procedure TddExportFilerDispatcher.RollBack;
+ {* Удаляет уже вылитые данные текущего топика (случай аварийного отката) }
 //#UC START# *5617725803A8_5603F0890069_var*
 var
  l_Part: TddExportDocPart;
@@ -324,6 +337,18 @@ begin
 //#UC END# *5617725803A8_5603F0890069_impl*
 end;//TddExportFilerDispatcher.RollBack
 
+procedure TddExportFilerDispatcher.DropCurrentFilesData;
+//#UC START# *5617897D0210_5603F0890069_var*
+var
+ l_Part: TddExportDocPart;
+//#UC END# *5617897D0210_5603F0890069_var*
+begin
+//#UC START# *5617897D0210_5603F0890069_impl*
+ for l_Part := edpDocument to edpAnnotation do
+  f_CurrentFiles[l_Part] := nil;
+//#UC END# *5617897D0210_5603F0890069_impl*
+end;//TddExportFilerDispatcher.DropCurrentFilesData
+
 function TddExportFilerDispatcher.GetActualDir(const aMain: AnsiString): AnsiString;
 //#UC START# *561BA41E0388_5603F0890069_var*
 //#UC END# *561BA41E0388_5603F0890069_var*
@@ -337,43 +362,8 @@ begin
 //#UC END# *561BA41E0388_5603F0890069_impl*
 end;//TddExportFilerDispatcher.GetActualDir
 
-function TddExportFilerDispatcher.pm_GetFileMask(aPart: TddExportDocPart): Il3CString;
-//#UC START# *5603FBF902CB_5603F0890069get_var*
-//#UC END# *5603FBF902CB_5603F0890069get_var*
-begin
-//#UC START# *5603FBF902CB_5603F0890069get_impl*
- Result := f_FileMask[aPart];
-//#UC END# *5603FBF902CB_5603F0890069get_impl*
-end;//TddExportFilerDispatcher.pm_GetFileMask
-
-procedure TddExportFilerDispatcher.pm_SetFileMask(aPart: TddExportDocPart; const aValue: Il3CString);
-//#UC START# *5603FBF902CB_5603F0890069set_var*
-//#UC END# *5603FBF902CB_5603F0890069set_var*
-begin
-//#UC START# *5603FBF902CB_5603F0890069set_impl*
- f_FileMask[aPart] := aValue;
-//#UC END# *5603FBF902CB_5603F0890069set_impl*
-end;//TddExportFilerDispatcher.pm_SetFileMask
-
-function TddExportFilerDispatcher.pm_GetDivideBy(aPart: TddExportDocPart): TddExportDivideBySet;
-//#UC START# *560A4EE9011B_5603F0890069get_var*
-//#UC END# *560A4EE9011B_5603F0890069get_var*
-begin
-//#UC START# *560A4EE9011B_5603F0890069get_impl*
- Result := f_DivideBy[aPart];
-//#UC END# *560A4EE9011B_5603F0890069get_impl*
-end;//TddExportFilerDispatcher.pm_GetDivideBy
-
-procedure TddExportFilerDispatcher.pm_SetDivideBy(aPart: TddExportDocPart; aValue: TddExportDivideBySet);
-//#UC START# *560A4EE9011B_5603F0890069set_var*
-//#UC END# *560A4EE9011B_5603F0890069set_var*
-begin
-//#UC START# *560A4EE9011B_5603F0890069set_impl*
- f_DivideBy[aPart] := aValue;
-//#UC END# *560A4EE9011B_5603F0890069set_impl*
-end;//TddExportFilerDispatcher.pm_SetDivideBy
-
 procedure TddExportFilerDispatcher.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5603F0890069_var*
 //#UC END# *479731C50290_5603F0890069_var*
 begin
@@ -382,5 +372,12 @@ begin
  inherited;
 //#UC END# *479731C50290_5603F0890069_impl*
 end;//TddExportFilerDispatcher.Cleanup
+
+procedure TddExportFilerDispatcher.ClearFields;
+begin
+ TargetFolder := '';
+ FileExt := '';
+ inherited;
+end;//TddExportFilerDispatcher.ClearFields
 
 end.

@@ -1,33 +1,24 @@
 unit ddExportFilerMap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/PipeOut/ddExportFilerMap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::PipeOut::TddExportFilerMap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerMap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddExportFilerMap" MUID: (560A38A50349)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddPipeOutInterfaces,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , ddPipeOutInterfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _KeyType_ = TddFilerDispatcherMapKeyRecord;
@@ -39,17 +30,16 @@ type
 implementation
 
 uses
-  l3String,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
-// start class TddExportFilerMap
+ l3ImplUses
+ , l3String
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function CompareKeys(const aA: _KeyType_;
-  const aB: _KeyType_): Integer;
+ const aB: _KeyType_): Integer;
 //#UC START# *5609091B00C0_560A38A50349_var*
 //#UC END# *5609091B00C0_560A38A50349_var*
 begin

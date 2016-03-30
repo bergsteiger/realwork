@@ -27,11 +27,11 @@ type
 
  TPropertyDefinition = record
   {* Интерфейс доступа к аттрибутам настройки. }
-  is_unique: Boolean;
+  is_unique: ByteBool;
    {* Определяет "уникальность" своства. Уникальные свойства имеют одинаковое значение во всех конфигурациях, другими словами, уникальное свойство всегда присутствует как бы в одном экземпляре.
 Уникальные своства должны использоваться для настроек не зависящих от конфигурации.
 Значение по умолчанию: false }
-  is_constant: Boolean;
+  is_constant: ByteBool;
    {* Определяет возможность изменения значения настройки.
 Значение по умолчанию: false }
   type: TPropertyType;
@@ -68,62 +68,62 @@ type
 
  IBaseSettingsManager = interface
   ['{6BC8FA39-42F0-45D2-8211-D14043AD16DD}']
-  function get_bool(id: TPropertyStringID;
-   out value: Boolean): Boolean; { can raise InvalidValueType }
+  function GetBool(id: TPropertyStringID;
+   out value: Boolean): ByteBool; stdcall; { can raise InvalidValueType }
    {* Чтение свойства типа Boolean.
 При успехе возвращает true.
 Если свойство не существует возвращает false.
 Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType }
-  function get_int64(id: TPropertyStringID;
-   out value: Int64): Boolean; { can raise InvalidValueType }
+  function GetInt64(id: TPropertyStringID;
+   out value: Int64): ByteBool; stdcall; { can raise InvalidValueType }
    {* Чтение свойства типа int64.
 При успехе возвращает true.
 Если свойство не существует возвращает false.
 Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType }
-  function get_long(id: TPropertyStringID;
-   out value: Integer): Boolean; { can raise InvalidValueType }
+  function GetLong(id: TPropertyStringID;
+   out value: Integer): ByteBool; stdcall; { can raise InvalidValueType }
    {* Чтение свойства типа long.
 При успехе возвращает true.
 Если свойство не существует возвращает false.
 Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType }
-  function get_string(id: TPropertyStringID;
-   out value: IString): Boolean; { can raise InvalidValueType }
+  function GetString(id: TPropertyStringID;
+   out value: IString): ByteBool; stdcall; { can raise InvalidValueType }
    {* Чтение свойства типа String.
 При успехе возвращает true.
 Если свойство не существует возвращает false.
 Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType }
-  function get_ulong(id: TPropertyStringID;
-   out value: Cardinal): Boolean; { can raise InvalidValueType }
+  function GetUlong(id: TPropertyStringID;
+   out value: Cardinal): ByteBool; stdcall; { can raise InvalidValueType }
    {* Чтение свойства типа unsigned long.
 При успехе возвращает true.
 Если свойство не существует возвращает false.
 Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType }
-  procedure set_bool(id: TPropertyStringID;
-   value: Boolean); { can raise InvalidValueType }
+  procedure SetBool(id: TPropertyStringID;
+   value: Boolean); stdcall; { can raise InvalidValueType }
    {* Запись свойства типа Boolean.
 Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
 Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType }
-  procedure set_int64(id: TPropertyStringID;
-   value: Int64); { can raise InvalidValueType }
+  procedure SetInt64(id: TPropertyStringID;
+   value: Int64); stdcall; { can raise InvalidValueType }
    {* Запись свойства типа int64.
 Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
 Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType }
-  procedure set_long(id: TPropertyStringID;
-   value: Integer); { can raise InvalidValueType }
+  procedure SetLong(id: TPropertyStringID;
+   value: Integer); stdcall; { can raise InvalidValueType }
    {* Запись свойства типа long.
 Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
 Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType }
-  procedure set_string(id: TPropertyStringID;
-   value: PAnsiChar); { can raise InvalidValueType }
+  procedure SetString(id: TPropertyStringID;
+   value: PAnsiChar); stdcall; { can raise InvalidValueType }
    {* Запись свойства типа String.
 Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
 Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType }
-  procedure set_ulong(id: TPropertyStringID;
-   value: Cardinal); { can raise InvalidValueType }
+  procedure SetUlong(id: TPropertyStringID;
+   value: Cardinal); stdcall; { can raise InvalidValueType }
    {* Запись свойства типа unsigned long.
 Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
 Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType }
-  function is_exist(id: TPropertyStringID): Boolean;
+  function IsExist(id: TPropertyStringID): ByteBool; stdcall;
    {* возвращает true, если параметр с таким именем существует }
  end;//IBaseSettingsManager
 
@@ -133,16 +133,16 @@ type
 1. Из интерфейса Common, в этом случае он обеспечивает доступ к свойствам активной конфигурации.
 2. Из интерфейса Configuration, в этом случае обеспечивается работа со свойствами конкретной конфигурации. }
   ['{C2012FB8-DEC6-408A-8937-3D7E13CBC830}']
-  procedure restore_default(id: TPropertyStringID); { can raise CanNotFindData }
+  procedure RestoreDefault(id: TPropertyStringID); stdcall; { can raise CanNotFindData }
    {* Устанавливает указанному свойству текущее значение равными значению по умолчанию }
-  procedure save_as_default(id: TPropertyStringID); { can raise CanNotFindData }
+  procedure SaveAsDefault(id: TPropertyStringID); stdcall; { can raise CanNotFindData }
    {* записывает текущее значение свойства в качестве  его значения по умолчанию }
-  function get_definition(id: TPropertyStringID;
-   var definition: TPropertyDefinition): Boolean;
+  function GetDefinition(id: TPropertyStringID;
+   var definition: TPropertyDefinition): ByteBool; stdcall;
    {* возвращает структуру с атрибутами настройки }
-  function is_changed(id: TPropertyStringID): Boolean;
+  function IsChanged(id: TPropertyStringID): ByteBool; stdcall;
    {* возвращает true, если текущее значение НЕ равно значению по умолчанию, в противном случае возвращает false }
-  function is_changed_set(const id_list: IPropertyStringIDList): Boolean;
+  function IsChangedSet(const id_list: IPropertyStringIDList): ByteBool; stdcall;
  end;//ISettingsManager
 
  ConfigurationIsActiveNow = class
@@ -151,35 +151,35 @@ type
  IConfiguration = interface
   {* Интерфейс обеспечивающий работу с конкретной конфигурацией, является элементом списка конфигураций. }
   ['{CB09ACB5-D582-477A-8D4F-98FC3766A1F9}']
-  function Get_name: IString;
-  procedure Set_name(const aValue: IString);
-  function Get_hint: IString;
-  procedure Set_hint(const aValue: IString);
-  function Get_type: TConfigurationType;
-  function Get_is_readonly: Boolean;
-  function Get_id: Cardinal;
-  procedure restore_default_values;
+  function GetName: IString; stdcall;
+  procedure SetName(const aValue: IString); stdcall;
+  function GetHint: IString; stdcall;
+  procedure SetHint(const aValue: IString); stdcall;
+  function GetType: TConfigurationType; stdcall;
+  function GetIsReadonly: ByteBool; stdcall;
+  function GetId: Cardinal; stdcall;
+  procedure RestoreDefaultValues; stdcall;
    {* устанавливает для всех свойств конфигурации начальные значения }
-  procedure save_values_as_default;
+  procedure SaveValuesAsDefault; stdcall;
    {* записывает текущие значения для всех свойств в качестве значений по умолчанию }
-  function copy: IConfiguration;
+  function Copy: IConfiguration; stdcall;
    {* возвращает копию конфигурации }
-  function get_settings: ISettingsManager;
-  property name: IString
-   read Get_name
-   write Set_name;
+  function GetSettings: ISettingsManager; stdcall;
+  property Name: IString
+   read GetName
+   write SetName;
    {* Имя конфигурации }
-  property hint: IString
-   read Get_hint
-   write Set_hint;
+  property Hint: IString
+   read GetHint
+   write SetHint;
    {* Комментарий или пояснение к конфигурации }
-  property type: TConfigurationType
-   read Get_type;
-  property is_readonly: Boolean
-   read Get_is_readonly;
+  property Type: TConfigurationType
+   read GetType;
+  property IsReadonly: ByteBool
+   read GetIsReadonly;
    {* определяет возможность изменения значений по умолчанию для конфигурации }
-  property id: Cardinal
-   read Get_id;
+  property Id: Cardinal
+   read GetId;
  end;//IConfiguration
 
  ConfigurationsNotDefined = class
@@ -192,12 +192,12 @@ type
 
 если state == UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION, то configuration содержит предустановленную, на которую переключили пользователя }
   ['{168D579E-071E-4626-93BD-7566FCAB780E}']
-  function Get_state: TDefaultValuesChangesState;
-  function Get_configuration: IConfiguration;
-  property state: TDefaultValuesChangesState
-   read Get_state;
-  property configuration: IConfiguration
-   read Get_configuration;
+  function GetState: TDefaultValuesChangesState; stdcall;
+  function GetConfiguration: IConfiguration; stdcall;
+  property State: TDefaultValuesChangesState
+   read GetState;
+  property Configuration: IConfiguration
+   read GetConfiguration;
  end;//IDefaultValuesChangesIndicator
 
  IConfigurations = array of IConfiguration;
@@ -205,20 +205,20 @@ type
  IConfigurationManager = interface
   {* Интерфейс обеспечивающий работу со списком конфигураций. Доступен через интерфейс Common. }
   ['{C0C7A25C-7378-40EA-9593-32B590CC6D8E}']
-  function Get_configurations: IConfigurations;
-  procedure set_active(const configuration: IConfiguration);
+  function GetConfigurations: IConfigurations; stdcall;
+  procedure SetActive(const configuration: IConfiguration); stdcall;
    {* Устанавливает заданную конфигурацией активной (текущей для интерфейса Settings, полученного через Common) }
-  procedure remove(const configuration: IConfiguration); { can raise ConstantModify, ConfigurationIsActiveNow }
+  procedure Remove(const configuration: IConfiguration); stdcall; { can raise ConstantModify, ConfigurationIsActiveNow }
    {* Удаляет заданную конфигурацию. В случае попытки удалить активную конфигурацию возбуждает исключение ConfigurationIsActiveNow }
-  function get_active: IConfiguration;
+  function GetActive: IConfiguration; stdcall;
    {* возвращает активную конфигурацию }
-  function default_values_update_check: IDefaultValuesChangesIndicator;
-  function get_active_id: Integer;
+  function DefaultValuesUpdateCheck: IDefaultValuesChangesIndicator; stdcall;
+  function GetActiveId: Integer; stdcall;
    {* возвращает идентификатор активной конфигурации }
-  procedure logout;
+  procedure Logout; stdcall;
    {* метод дёргается при выходе из системы }
-  property configurations: IConfigurations
-   read Get_configurations;
+  property Configurations: IConfigurations
+   read GetConfigurations;
  end;//IConfigurationManager
 
  IPermanentSettingsManager = interface(IBaseSettingsManager)
@@ -226,84 +226,10 @@ type
   ['{4983A1B9-5021-4CE1-8C13-912831395FB8}']
  end;//IPermanentSettingsManager
 
-class function make: BadFactoryType; { can raise NoSession }
-class function make(id: Integer;
- const name: IString;
- const hint: IString;
- readonly: Boolean): BadFactoryType;
-class function make(state: TDefaultValuesChangesState;
- const configuration: IConfiguration): BadFactoryType;
-class function make: BadFactoryType;
-class function make: BadFactoryType;
-
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType; { can raise NoSession }
-var
- l_Inst : ISettingsManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(id: Integer;
- const name: IString;
- const hint: IString;
- readonly: Boolean): BadFactoryType;
-var
- l_Inst : IConfiguration;
-begin
- l_Inst := Create(id, name, hint, readonly);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(state: TDefaultValuesChangesState;
- const configuration: IConfiguration): BadFactoryType;
-var
- l_Inst : IDefaultValuesChangesIndicator;
-begin
- l_Inst := Create(state, configuration);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IConfigurationManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IPermanentSettingsManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

@@ -1,65 +1,51 @@
 unit evCell;
+ {* –еализаци€ интерфейса IedCell дл€ обычной €чейки таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Ѕиблиотека "Everest"
-// ћодуль: "w:/common/components/gui/Garant/Everest/evCell.pas"
-// –одные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaUtils::TevCell
-//
-// –еализаци€ интерфейса IedCell дл€ обычной €чейки таблицы.
-//
-//
-// ¬се права принадлежат ќќќ Ќѕѕ "√арант-—ервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ћодуль: "w:\common\components\gui\Garant\Everest\evCell.pas"
+// —тереотип: "SimpleClass"
+// Ёлемент модели: "TevCell" MUID: (502CC6560261)
 
-// ! ѕолностью генерируетс€ с модели. ѕравить руками - нельз€. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
-  nevBase,
-  nevTools,
-  evEditorInterfaces,
-  evCustomParaListUtils,
-  l3Variant,
-  l3Interfaces,
-  evdTypes
-  ;
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+ l3IntfUses
+ , evCustomParaListUtils
+ , evEditorInterfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+ , evdTypes
+ , l3Interfaces
+;
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
 type
  TevCell = class(TevTableChild, IedCell)
   {* –еализаци€ интерфейса IedCell дл€ обычной €чейки таблицы. }
- private
- // private fields
-   f_Neighbours : TevCellNeighbours;
- protected
- // realized methods
+  private
+   f_Neighbours: TevCellNeighbours;
+  protected
    function Get_Frame: IedFrame;
    procedure UpdateWidthAndCheckHead(aNewWidth: Integer);
-     {* измен€ет ширину €чейки, в том числе и объединенных }
+    {* измен€ет ширину €чейки, в том числе и объединенных }
    function Merge(aNeighbour: TedNeighbourIndex = ed_fpiRight): Boolean;
-     {* объедин€ет €чейку с соседом }
+    {* объедин€ет €чейку с соседом }
    function Split(aColNum: Integer = 2;
-    aRowNum: Integer = 1): Boolean; overload; 
-     {* разбивает €чейку }
-   function Split(anOrientation: Tl3Orientation1): Boolean; overload; 
-     {* разбивает €чейку }
+    aRowNum: Integer = 1): Boolean; overload;
+    {* разбивает €чейку }
+   function Split(anOrientation: Tl3Orientation1): Boolean; overload;
+    {* разбивает €чейку }
    function IsFirst: Boolean;
-     {* возвращает - перва€ ли это €чейка }
+    {* возвращает - перва€ ли это €чейка }
    function IsLast: Boolean;
-     {* возвращает - последн€€ ли это €чейка }
+    {* возвращает - последн€€ ли это €чейка }
    function IsBottom: Boolean;
-     {* возвращает - сама€ ли €чейка нижн€€ }
+    {* возвращает - сама€ ли €чейка нижн€€ }
    function Delete(const anOp: InevOp;
     anInMerge: Boolean = False): Boolean;
-     {* удал€ет €чейку }
+    {* удал€ет €чейку }
    function pm_GetTable: IedTable;
    function pm_GetNeighbour(aNeighbour: TedNeighbourIndex): IedCell;
    function pm_GetWidth: Integer;
@@ -68,70 +54,63 @@ type
    procedure pm_SetVerticalAligment(aValue: TevVerticalAligment);
    function pm_GetMergeStatus: TevMergeStatus;
    function TextAsInteger: Integer;
-     {* ѕытаетс€ преобразовать текст в €чейке к целому числу. }
+    {* ѕытаетс€ преобразовать текст в €чейке к целому числу. }
    function GetFirstLineText: AnsiString;
-     {* ¬озвращает первую строку €чейки. »спользыетс€ дл€ тестов. }
+    {* ¬озвращает первую строку €чейки. »спользыетс€ дл€ тестов. }
    function IsEmptyCell: Boolean;
    function IsFrameEmpty: Boolean;
    function GetCellType: TedCellType;
-     {* ¬озвращает тип содержимого €чейки. }
+    {* ¬озвращает тип содержимого €чейки. }
    procedure MakeCellContinue(const anOp: InevOp);
-     {* ¬ыставить тип €чейке (ev_msContinue) и очистить еЄ содержимое. }
+    {* ¬ыставить тип €чейке (ev_msContinue) и очистить еЄ содержимое. }
    function CalcHeadCellHeghtInRow: Integer;
-     {* ѕосчитать сколько занимает строк объедиенна€ €чейка. }
+    {* ѕосчитать сколько занимает строк объедиенна€ €чейка. }
    procedure UpdateWidth(aNewWidth: Integer);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* ‘ункци€ очистки полей объекта. }
- public
- // public methods
+    {* ‘ункци€ очистки полей объекта. }
+  public
    constructor Create(const aView: InevView;
-     const aTable: IedTable;
-     aTagWrap: Tl3Variant;
-     const aProcessor: InevProcessor;
-     const aNeighbours: TevCellNeighbours;
-     const aLocation: InevLocation = nil); reintroduce;
+    const aTable: IedTable;
+    aTagWrap: Tl3Variant;
+    const aProcessor: InevProcessor;
+    const aNeighbours: TevCellNeighbours;
+    const aLocation: InevLocation = nil); reintroduce;
    class function Make(const aView: InevView;
-     const aTable: IedTable;
-     aTagWrap: Tl3Variant;
-     const aProcessor: InevProcessor;
-     const aNeighbours: TevCellNeighbours;
-     const aLocation: InevLocation = nil): IedCell;
+    const aTable: IedTable;
+    aTagWrap: Tl3Variant;
+    const aProcessor: InevProcessor;
+    const aNeighbours: TevCellNeighbours;
+    const aLocation: InevLocation = nil): IedCell;
  end;//TevCell
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
 
 implementation
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
-  l3Base,
-  SysUtils,
-  evParaFrame,
-  k2Tags,
-  k2Base,
-  evParaTools,
-  evMsgCode,
-  l3IID,
-  k2OpMisc,
-  TextPara_Const,
-  evCursorTools,
-  l3UnitsTools,
-  l3String,
-  l3Chars
-  ;
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
-
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
-
-// start class TevCell
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , evParaFrame
+ , k2Tags
+ , k2Base
+ , evParaTools
+ , evMsgCode
+ , l3IID
+ , k2OpMisc
+ , TextPara_Const
+ , evCursorTools
+ , l3UnitsTools
+ , l3String
+ , l3Chars
+;
 
 constructor TevCell.Create(const aView: InevView;
-  const aTable: IedTable;
-  aTagWrap: Tl3Variant;
-  const aProcessor: InevProcessor;
-  const aNeighbours: TevCellNeighbours;
-  const aLocation: InevLocation = nil);
+ const aTable: IedTable;
+ aTagWrap: Tl3Variant;
+ const aProcessor: InevProcessor;
+ const aNeighbours: TevCellNeighbours;
+ const aLocation: InevLocation = nil);
 //#UC START# *502CCB6101BA_502CC6560261_var*
 //#UC END# *502CCB6101BA_502CC6560261_var*
 begin
@@ -142,11 +121,11 @@ begin
 end;//TevCell.Create
 
 class function TevCell.Make(const aView: InevView;
-  const aTable: IedTable;
-  aTagWrap: Tl3Variant;
-  const aProcessor: InevProcessor;
-  const aNeighbours: TevCellNeighbours;
-  const aLocation: InevLocation = nil): IedCell;
+ const aTable: IedTable;
+ aTagWrap: Tl3Variant;
+ const aProcessor: InevProcessor;
+ const aNeighbours: TevCellNeighbours;
+ const aLocation: InevLocation = nil): IedCell;
 //#UC START# *502CCBA80063_502CC6560261_var*
 var
  l_Cell : TevCell;
@@ -209,6 +188,7 @@ begin
 end;//TevCell.Get_Frame
 
 procedure TevCell.UpdateWidthAndCheckHead(aNewWidth: Integer);
+ {* измен€ет ширину €чейки, в том числе и объединенных }
 //#UC START# *4BBC90300154_502CC6560261_var*
 var
  l_MS      : TevMergeStatus;
@@ -248,6 +228,7 @@ begin
 end;//TevCell.UpdateWidthAndCheckHead
 
 function TevCell.Merge(aNeighbour: TedNeighbourIndex = ed_fpiRight): Boolean;
+ {* объедин€ет €чейку с соседом }
 //#UC START# *4BBC906D00E8_502CC6560261_var*
 
  procedure DoMerge(const aCell: IedCell; aAtEnd: Boolean);
@@ -303,7 +284,8 @@ begin
 end;//TevCell.Merge
 
 function TevCell.Split(aColNum: Integer = 2;
-  aRowNum: Integer = 1): Boolean;
+ aRowNum: Integer = 1): Boolean;
+ {* разбивает €чейку }
 //#UC START# *4BBC908A0312_502CC6560261_var*
 var
  l_OpPack: InevOp;
@@ -564,6 +546,7 @@ begin
 end;//TevCell.Split
 
 function TevCell.Split(anOrientation: Tl3Orientation1): Boolean;
+ {* разбивает €чейку }
 //#UC START# *4BBC90A5006F_502CC6560261_var*
 var
  l_OpPack : InevOp;
@@ -617,6 +600,7 @@ begin
 end;//TevCell.Split
 
 function TevCell.IsFirst: Boolean;
+ {* возвращает - перва€ ли это €чейка }
 //#UC START# *4BBC90B601A3_502CC6560261_var*
 //#UC END# *4BBC90B601A3_502CC6560261_var*
 begin
@@ -626,6 +610,7 @@ begin
 end;//TevCell.IsFirst
 
 function TevCell.IsLast: Boolean;
+ {* возвращает - последн€€ ли это €чейка }
 //#UC START# *4BBC90CB0396_502CC6560261_var*
 //#UC END# *4BBC90CB0396_502CC6560261_var*
 begin
@@ -635,6 +620,7 @@ begin
 end;//TevCell.IsLast
 
 function TevCell.IsBottom: Boolean;
+ {* возвращает - сама€ ли €чейка нижн€€ }
 //#UC START# *4BBC90DE010C_502CC6560261_var*
 //#UC END# *4BBC90DE010C_502CC6560261_var*
 begin
@@ -644,7 +630,8 @@ begin
 end;//TevCell.IsBottom
 
 function TevCell.Delete(const anOp: InevOp;
-  anInMerge: Boolean = False): Boolean;
+ anInMerge: Boolean = False): Boolean;
+ {* удал€ет €чейку }
 //#UC START# *4BBC90F1002D_502CC6560261_var*
 var
  l_Op   : InevOp;
@@ -764,6 +751,7 @@ begin
 end;//TevCell.pm_GetMergeStatus
 
 function TevCell.TextAsInteger: Integer;
+ {* ѕытаетс€ преобразовать текст в €чейке к целому числу. }
 //#UC START# *4FA4EEDF0370_502CC6560261_var*
 var
  l_Value: Integer;
@@ -782,6 +770,7 @@ begin
 end;//TevCell.TextAsInteger
 
 function TevCell.GetFirstLineText: AnsiString;
+ {* ¬озвращает первую строку €чейки. »спользыетс€ дл€ тестов. }
 //#UC START# *4FC728DF02A2_502CC6560261_var*
 //#UC END# *4FC728DF02A2_502CC6560261_var*
 begin
@@ -829,6 +818,7 @@ begin
 end;//TevCell.IsFrameEmpty
 
 function TevCell.GetCellType: TedCellType;
+ {* ¬озвращает тип содержимого €чейки. }
 //#UC START# *5112045801FF_502CC6560261_var*
 var
  i          : Integer;
@@ -917,6 +907,7 @@ begin
 end;//TevCell.GetCellType
 
 procedure TevCell.MakeCellContinue(const anOp: InevOp);
+ {* ¬ыставить тип €чейке (ev_msContinue) и очистить еЄ содержимое. }
 //#UC START# *511B2BEC02F0_502CC6560261_var*
 var
  l_Para: InevPara;
@@ -932,6 +923,7 @@ begin
 end;//TevCell.MakeCellContinue
 
 function TevCell.CalcHeadCellHeghtInRow: Integer;
+ {* ѕосчитать сколько занимает строк объедиенна€ €чейка. }
 //#UC START# *511B2C39034C_502CC6560261_var*
 var
  l_Cell: InevTableCell;
@@ -963,6 +955,7 @@ begin
 end;//TevCell.UpdateWidth
 
 procedure TevCell.Cleanup;
+ {* ‘ункци€ очистки полей объекта. }
 //#UC START# *479731C50290_502CC6560261_var*
 var
  i : TedFramePartIndex;
@@ -974,7 +967,6 @@ begin
  inherited;
 //#UC END# *479731C50290_502CC6560261_impl*
 end;//TevCell.Cleanup
-
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
 
 end.

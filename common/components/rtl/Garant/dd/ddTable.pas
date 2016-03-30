@@ -1,55 +1,42 @@
 unit ddTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTable" MUID: (519B719F0019)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddTablePrim,
-  ddCustomDestination
-  ;
+ l3IntfUses
+ , ddTablePrim
+ , ddCustomDestination
+;
 
 type
  TddTable = class(TddTablePrim)
- private
- // private fields
-   f_StartRow : Integer;
-    {* Поле для свойства StartRow}
- protected
- // overridden protected methods
+  private
+   f_StartRow: Integer;
+    {* Поле для свойства StartRow }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   procedure ClearRows;
    procedure Clear; override;
    constructor Create(aDetination: TddCustomDestination); override;
- public
- // public methods
-   procedure ClearRows;
- public
- // public properties
+  public
    property StartRow: Integer
-     read f_StartRow
-     write f_StartRow;
+    read f_StartRow
+    write f_StartRow;
  end;//TddTable
 
 implementation
 
-// start class TddTable
+uses
+ l3ImplUses
+;
 
 procedure TddTable.ClearRows;
 //#UC START# *54EC750000EB_519B719F0019_var*
@@ -61,6 +48,7 @@ begin
 end;//TddTable.ClearRows
 
 procedure TddTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_519B719F0019_var*
 //#UC END# *479731C50290_519B719F0019_var*
 begin

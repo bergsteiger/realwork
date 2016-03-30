@@ -1,38 +1,30 @@
 unit ddPictureSegment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddPictureSegment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddPictureSegment
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddPictureSegment.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddPictureSegment" MUID: (54D9ACA500F5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddObjectSegment,
-  ddTextSegment
-  ;
+ l3IntfUses
+ , ddObjectSegment
+ , ddTextSegment
+;
 
 type
  TddPictureSegment = class(TddObjectSegment)
- protected
- // realized methods
+  public
    function Clone: TddTextSegment; override;
  end;//TddPictureSegment
 
 implementation
 
-// start class TddPictureSegment
+uses
+ l3ImplUses
+;
 
 function TddPictureSegment.Clone: TddTextSegment;
 //#UC START# *54DC46B50110_54D9ACA500F5_var*

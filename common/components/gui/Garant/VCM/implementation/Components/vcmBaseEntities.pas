@@ -1,104 +1,92 @@
 unit vcmBaseEntities;
+ {* Компонент для определения списка сущностей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmBaseEntities.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmBaseEntities
-//
-// Компонент для определения списка сущностей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntities.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseEntities" MUID: (52A1EA2A0184)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  Classes,
-  vcmBaseOperationsCollectionItem,
-  vcmBaseEntitiesCollectionItem,
-  vcmBaseCollection,
-  vcmComponent,
-  vcmBaseEntitiesCollection,
-  vcmEntitiesDefList
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmComponent
+ , vcmBaseEntitiesCollection
+ , vcmBaseCollection
+ , vcmBaseEntitiesCollectionItem
+ , vcmEntitiesDefList
+ , vcmBaseOperationsCollectionItem
+ , vcmExternalInterfaces
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmBaseEntities = class(TvcmComponent)
   {* Компонент для определения списка сущностей }
- private
- // private fields
-   f_Linked : Boolean;
-   f_Entities : TvcmBaseEntitiesCollection;
-    {* Поле для свойства Entities}
- protected
- // property methods
+  private
+   f_Linked: Boolean;
+   f_Entities: TvcmBaseEntitiesCollection;
+    {* Поле для свойства Entities }
+  protected
    function pm_GetEntities: TvcmBaseEntitiesCollection;
    procedure pm_SetEntities(aValue: TvcmBaseEntitiesCollection);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Notification(AComponent: TComponent;
-     Operation: TOperation); override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    function EntitiesStored: Boolean;
-     {* "Функция определяющая, что свойство Entities сохраняется" }
- public
- // public methods
+    {* "Функция определяющая, что свойство Entities сохраняется" }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Notification(AComponent: TComponent;
+    Operation: TOperation); override;
+  public
    class function GetEntitiesCollectionClass: RvcmBaseCollection; virtual;
    function GetItemByName(const aName: AnsiString): TvcmBaseEntitiesCollectionItem;
    procedure LinkControls;
-     {* Сигнатура метода LinkControls }
    procedure UnlinkControls;
-     {* Сигнатура метода UnlinkControls }
    procedure GetEntitiesDef(aList: TvcmEntitiesDefList);
    function GetOperationByName(const anEntity: TvcmString;
-     const anOperation: TvcmString): TvcmBaseOperationsCollectionItem;
+    const anOperation: TvcmString): TvcmBaseOperationsCollectionItem;
    procedure SetTargetGetter(const anEntity: TvcmString;
-     anEvent: TvcmGetTargetEvent);
+    anEvent: TvcmGetTargetEvent);
    procedure MakeSupportedByControl(const anEntity: TvcmString;
-     aControl: TComponent);
- public
- // public properties
+    aControl: TComponent);
+   constructor Create(AOwner: TComponent); override;
+  public
    property Entities: TvcmBaseEntitiesCollection
-     read pm_GetEntities
-     write pm_SetEntities
-     stored EntitiesStored;
+    read pm_GetEntities
+    write pm_SetEntities
+    stored EntitiesStored;
  end;//TvcmBaseEntities
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+;
 
-{$If not defined(NoVCM)}
+function TvcmBaseEntities.pm_GetEntities: TvcmBaseEntitiesCollection;
+//#UC START# *560815340395_52A1EA2A0184get_var*
+//#UC END# *560815340395_52A1EA2A0184get_var*
+begin
+//#UC START# *560815340395_52A1EA2A0184get_impl*
+ Result := f_Entities;
+//#UC END# *560815340395_52A1EA2A0184get_impl*
+end;//TvcmBaseEntities.pm_GetEntities
 
-// start class TvcmBaseEntities
+procedure TvcmBaseEntities.pm_SetEntities(aValue: TvcmBaseEntitiesCollection);
+//#UC START# *560815340395_52A1EA2A0184set_var*
+//#UC END# *560815340395_52A1EA2A0184set_var*
+begin
+//#UC START# *560815340395_52A1EA2A0184set_impl*
+ f_Entities.Assign(aValue);
+//#UC END# *560815340395_52A1EA2A0184set_impl*
+end;//TvcmBaseEntities.pm_SetEntities
 
 class function TvcmBaseEntities.GetEntitiesCollectionClass: RvcmBaseCollection;
 //#UC START# *52A1ED12039D_52A1EA2A0184_var*
@@ -169,7 +157,7 @@ begin
 end;//TvcmBaseEntities.GetEntitiesDef
 
 function TvcmBaseEntities.GetOperationByName(const anEntity: TvcmString;
-  const anOperation: TvcmString): TvcmBaseOperationsCollectionItem;
+ const anOperation: TvcmString): TvcmBaseOperationsCollectionItem;
 //#UC START# *560815DA00A6_52A1EA2A0184_var*
 //#UC END# *560815DA00A6_52A1EA2A0184_var*
 begin
@@ -179,7 +167,7 @@ begin
 end;//TvcmBaseEntities.GetOperationByName
 
 procedure TvcmBaseEntities.SetTargetGetter(const anEntity: TvcmString;
-  anEvent: TvcmGetTargetEvent);
+ anEvent: TvcmGetTargetEvent);
 //#UC START# *560815F40305_52A1EA2A0184_var*
 //#UC END# *560815F40305_52A1EA2A0184_var*
 begin
@@ -189,7 +177,7 @@ begin
 end;//TvcmBaseEntities.SetTargetGetter
 
 procedure TvcmBaseEntities.MakeSupportedByControl(const anEntity: TvcmString;
-  aControl: TComponent);
+ aControl: TComponent);
 //#UC START# *5608160F00E1_52A1EA2A0184_var*
 //#UC END# *5608160F00E1_52A1EA2A0184_var*
 begin
@@ -198,25 +186,8 @@ begin
 //#UC END# *5608160F00E1_52A1EA2A0184_impl*
 end;//TvcmBaseEntities.MakeSupportedByControl
 
-function TvcmBaseEntities.pm_GetEntities: TvcmBaseEntitiesCollection;
-//#UC START# *560815340395_52A1EA2A0184get_var*
-//#UC END# *560815340395_52A1EA2A0184get_var*
-begin
-//#UC START# *560815340395_52A1EA2A0184get_impl*
- Result := f_Entities;
-//#UC END# *560815340395_52A1EA2A0184get_impl*
-end;//TvcmBaseEntities.pm_GetEntities
-
-procedure TvcmBaseEntities.pm_SetEntities(aValue: TvcmBaseEntitiesCollection);
-//#UC START# *560815340395_52A1EA2A0184set_var*
-//#UC END# *560815340395_52A1EA2A0184set_var*
-begin
-//#UC START# *560815340395_52A1EA2A0184set_impl*
- f_Entities.Assign(aValue);
-//#UC END# *560815340395_52A1EA2A0184set_impl*
-end;//TvcmBaseEntities.pm_SetEntities
-
 function TvcmBaseEntities.EntitiesStored: Boolean;
+ {* "Функция определяющая, что свойство Entities сохраняется" }
 //#UC START# *56A6B7F8E5B9_52A1EA2A0184_var*
 //#UC END# *56A6B7F8E5B9_52A1EA2A0184_var*
 begin
@@ -226,6 +197,7 @@ begin
 end;//TvcmBaseEntities.EntitiesStored
 
 procedure TvcmBaseEntities.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A1EA2A0184_var*
 //#UC END# *479731C50290_52A1EA2A0184_var*
 begin
@@ -247,7 +219,7 @@ begin
 end;//TvcmBaseEntities.Create
 
 procedure TvcmBaseEntities.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4F884378016A_52A1EA2A0184_var*
 //#UC END# *4F884378016A_52A1EA2A0184_var*
 begin
@@ -266,7 +238,6 @@ begin
  inherited;
 //#UC END# *4F884378016A_52A1EA2A0184_impl*
 end;//TvcmBaseEntities.Notification
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

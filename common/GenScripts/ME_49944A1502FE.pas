@@ -13,6 +13,7 @@ interface
 uses
  l3IntfUses
  , vcmExternalInterfaces
+ , vcmInterfaces
  , vcmUserControls
  , vcmBaseTypes
 ;

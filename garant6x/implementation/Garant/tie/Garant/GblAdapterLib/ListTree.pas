@@ -1,53 +1,42 @@
 unit ListTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ListTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DynamicDocList_i::ListTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ListTree" MUID: (4603A0B8004B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  ree,
-  ViewBase
-  ;
+ l3IntfUses
+ , ree
+ , ViewBase
+;
 
 type
  ListTree = class(Tree)
- private
- // private fields
-   node_pointer_2_block_position : NodePointerMap;
- protected
- // overridden protected methods
+  private
+   node_pointer_2_block_position: NodePointerMap;
+  public
+   NodeDelegateType_: ;
+  protected
    function AllocNewView: ViewBase; override;
- public
- // public methods
-   constructor Make(active_changeable: Boolean); virtual;
-   procedure AddBlockPosition(pointer;
-    position: Cardinal);
-   function GetBlockPosition(pointer): Cardinal;
-   procedure ClearBlockPositions;
+  public
+   constructor Make(active_changeable: Boolean); reintroduce; virtual; stdcall;
+   procedure AddBlockPosition(const pointer;
+    position: Cardinal); stdcall;
+   function GetBlockPosition(const pointer): Cardinal; stdcall;
+   procedure ClearBlockPositions; stdcall;
  end;//ListTree
 
 implementation
 
 uses
-  ApplicationHelper,
-  ListTreeView
-  ;
-
-// start class ListTree
+ l3ImplUses
+ , ApplicationHelper
+ , ListTreeView
+;
 
 constructor ListTree.Make(active_changeable: Boolean);
 //#UC START# *4603AC6A0320_4603A0B8004B_var*
@@ -58,8 +47,8 @@ begin
 //#UC END# *4603AC6A0320_4603A0B8004B_impl*
 end;//ListTree.Make
 
-procedure ListTree.AddBlockPosition(pointer;
-  position: Cardinal);
+procedure ListTree.AddBlockPosition(const pointer;
+ position: Cardinal);
 //#UC START# *4603C5FF036D_4603A0B8004B_var*
 //#UC END# *4603C5FF036D_4603A0B8004B_var*
 begin
@@ -68,7 +57,7 @@ begin
 //#UC END# *4603C5FF036D_4603A0B8004B_impl*
 end;//ListTree.AddBlockPosition
 
-function ListTree.GetBlockPosition(pointer): Cardinal;
+function ListTree.GetBlockPosition(const pointer): Cardinal;
 //#UC START# *4603C55B00DE_4603A0B8004B_var*
 //#UC END# *4603C55B00DE_4603A0B8004B_var*
 begin

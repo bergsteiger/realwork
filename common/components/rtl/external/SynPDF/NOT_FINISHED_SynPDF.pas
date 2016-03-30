@@ -16,7 +16,6 @@ type
  TPdfDocument = class
   private
    f_ForEtalon: Boolean;
-    {* Поле для свойства ForEtalon }
   protected
    function pm_GetForEtalon: Boolean; virtual;
    procedure pm_SetForEtalon(aValue: Boolean); virtual;

@@ -1,50 +1,39 @@
 {$IfNDef evStyleTableListenerPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleTableListenerPrim.imp.pas"
-// Начат: 29.06.2009 10:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::StyleTable::evStyleTableListenerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evStyleTableListenerPrim" MUID: (4A485B0D0223)
+// Имя типа: "_evStyleTableListenerPrim_"
 
 {$Define evStyleTableListenerPrim_imp}
-{$If not defined(DesignTimeLibrary)}
- _evStyleTableListenerPrim_ = {mixin} class(_evStyleTableListenerPrim_Parent_, IafwStyleTableSpy)
- protected
- // realized methods
-   procedure StyleTableChanged;
-     {* таблица стилей изменилась. }
- protected
- // overridden protected methods
-   procedure InitFields; override;
- protected
- // protected methods
+
+{$If NOT Defined(DesignTimeLibrary)}
+ _evStyleTableListenerPrim_ = class(_evStyleTableListenerPrim_Parent_, IafwStyleTableSpy)
+  protected
    procedure DoStyleTableChanged; virtual; abstract;
    function NeedListen: Boolean; virtual;
-     {* Нужно ли подписываться к таблице стилей (может мы уже подписались) }
+    {* Нужно ли подписываться к таблице стилей (может мы уже подписались) }
    function AtEnd: Boolean; virtual;
-     {* Подписываться в конец списка подписчиков }
+    {* Подписываться в конец списка подписчиков }
+   procedure StyleTableChanged;
+    {* таблица стилей изменилась. }
+   procedure InitFields; override;
  end;//_evStyleTableListenerPrim_
-{$Else}
 
- _evStyleTableListenerPrim_ = _evStyleTableListenerPrim_Parent_;
+{$Else NOT Defined(DesignTimeLibrary)}
 
-{$IfEnd} //not DesignTimeLibrary
+_evStyleTableListenerPrim_ = _evStyleTableListenerPrim_Parent_;
 
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 {$Else evStyleTableListenerPrim_imp}
 
-{$If not defined(DesignTimeLibrary)}
+{$IfNDef evStyleTableListenerPrim_imp_impl}
 
-// start class _evStyleTableListenerPrim_
+{$Define evStyleTableListenerPrim_imp_impl}
 
+{$If NOT Defined(DesignTimeLibrary)}
 function _evStyleTableListenerPrim_.NeedListen: Boolean;
+ {* Нужно ли подписываться к таблице стилей (может мы уже подписались) }
 //#UC START# *4A485DBE0293_4A485B0D0223_var*
 //#UC END# *4A485DBE0293_4A485B0D0223_var*
 begin
@@ -54,6 +43,7 @@ begin
 end;//_evStyleTableListenerPrim_.NeedListen
 
 function _evStyleTableListenerPrim_.AtEnd: Boolean;
+ {* Подписываться в конец списка подписчиков }
 //#UC START# *4A4867A20049_4A485B0D0223_var*
 //#UC END# *4A4867A20049_4A485B0D0223_var*
 begin
@@ -63,6 +53,7 @@ begin
 end;//_evStyleTableListenerPrim_.AtEnd
 
 procedure _evStyleTableListenerPrim_.StyleTableChanged;
+ {* таблица стилей изменилась. }
 //#UC START# *467D2CB10135_4A485B0D0223_var*
 //#UC END# *467D2CB10135_4A485B0D0223_var*
 begin
@@ -81,7 +72,9 @@ begin
   evAddStyleTableSpy(Self, false, AtEnd);
 //#UC END# *47A042E100E2_4A485B0D0223_impl*
 end;//_evStyleTableListenerPrim_.InitFields
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not DesignTimeLibrary
+{$EndIf evStyleTableListenerPrim_imp_impl}
 
 {$EndIf evStyleTableListenerPrim_imp}
+

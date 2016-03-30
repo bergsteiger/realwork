@@ -1,127 +1,121 @@
 unit evStandardStyles;
+ {* Стандартные стили }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStandardStyles.pas"
-// Начат: 24.08.2011 14:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::StyleTable::TevStandardStyles
-//
-// Стандартные стили
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStandardStyles.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStandardStyles" MUID: (4E54CF7E0143)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  evdStyles,
-  l3ProtoObject,
-  evStandardStylesListPrim,
-  evStandardStylesList,
-  evResultFontInterfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+ , evStandardStylesList
+ , l3Variant
+ , evResultFontInterfaces
+ , evdStyles
+ , evStandardStylesListPrim
+;
 
 type
  TevStandardStylesCacheByID = array [TevStandardCachedStyle] of TevStandardStylesCacheByJustification;
 
  _evStyleTableListener_Parent_ = Tl3ProtoObject;
- {$Include ..\Everest\evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  TevStandardStyles = class(_evStyleTableListener_, IafwFontCache)
   {* Стандартные стили }
- private
- // private fields
-   f_StandardFont : TevStandardStylesCacheByID;
-   f_StylesList : TevStandardStylesList;
- private
- // private methods
+  private
+   f_StandardFont: TevStandardStylesCacheByID;
+   f_StylesList: TevStandardStylesList;
+  private
    procedure FreeFonts;
    procedure CheckFontInCache(anObj: Tl3Variant;
-     anID: Integer;
-     aJust: Boolean;
-     aVis: Boolean;
-     aFixedFont: Boolean;
-     out theFont: IevResultFont);
- protected
- // realized methods
-   {$If not defined(DesignTimeLibrary)}
+    anID: Integer;
+    aJust: Boolean;
+    aVis: Boolean;
+    aFixedFont: Boolean;
+    out theFont: IevResultFont);
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    function AtEnd: Boolean; override;
-     {* Подписываться в конец списка подписчиков }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* Подписываться в конец списка подписчиков }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    function GetStandardStyleFont(aPara: Tl3Variant;
-     aFixedFont: Boolean;
-     out theFont: IevResultFont): Boolean;
+    aFixedFont: Boolean;
+    out theFont: IevResultFont): Boolean;
    function GetStyleFont(aStyle: Tl3Variant;
-     aPrinting: Boolean): IevResultFont;
+    aPrinting: Boolean): IevResultFont;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevStandardStyles;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevStandardStyles }
  end;//TevStandardStyles
 
 implementation
 
 uses
-  l3Base {a},
-  k2Tags,
-  evdTypes,
-  evDefaultStylesFontSizes,
-  SysUtils,
-  evStyleInterface,
-  k2Const,
-  evResultFontHolder
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , l3Base
+ , evDefaultStylesFontSizes
+ , SysUtils
+ , evStyleInterface
+ , k2Const
+ , evResultFontHolder
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+;
 
-
-// start class TevStandardStyles
-
-var g_TevStandardStyles : TevStandardStyles = nil;
+{$If NOT Defined(DesignTimeLibrary)}
+var g_TevStandardStyles: TevStandardStyles = nil;
+ {* Экземпляр синглетона TevStandardStyles }
 
 procedure TevStandardStylesFree;
+ {* Метод освобождения экземпляра синглетона TevStandardStyles }
 begin
  l3Free(g_TevStandardStyles);
-end;
+end;//TevStandardStylesFree
 
-class function TevStandardStyles.Instance: TevStandardStyles;
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
+
+function TevStandardStyles.GetStandardStyleFont(aPara: Tl3Variant;
+ aFixedFont: Boolean;
+ out theFont: IevResultFont): Boolean;
+//#UC START# *4E54D081006C_4E54CF7E0143_var*
+var
+ l_St        : Tl3Variant;
+ l_StH       : Integer;
+ l_StyleVis  : Boolean;
+ l_ParaVis   : Boolean;
+ l_ParaJust  : TevIndentType;
+ l_StyleJust : TevIndentType;
+//#UC END# *4E54D081006C_4E54CF7E0143_var*
 begin
- if (g_TevStandardStyles = nil) then
- begin
-  l3System.AddExitProc(TevStandardStylesFree);
-  g_TevStandardStyles := Create;
- end;
- Result := g_TevStandardStyles;
-end;
-
-
-{$Include ..\Everest\evStyleTableListener.imp.pas}
-
-// start class TevStandardStyles
+//#UC START# *4E54D081006C_4E54CF7E0143_impl*
+ Result := true;
+ l_St := aPara.Attr[k2_tiStyle];
+ l_StH := l_St.IntA[k2_tiHandle];
+ l_StyleJust := TevIndentType(l_St.rLong(k2_tiJustification, Ord(ev_itNone)));
+ l_ParaJust := TevIndentType(aPara.rLong(k2_tiJustification, Ord(ev_itNone)));
+ l_StyleVis := l_St.BoolA[k2_tiVisible];
+ l_ParaVis := aPara.BoolA[k2_tiVisible];
+ if (l_ParaJust <> l_StyleJust) OR (l_StyleVis <> l_ParaVis) then
+  CheckFontInCache(aPara, l_StH, l_ParaJust = ev_itPreformatted, l_ParaVis, aFixedFont, theFont)
+ else
+  CheckFontInCache(l_St, l_StH, l_StyleJust = ev_itPreformatted, l_StyleVis, aFixedFont, theFont);
+//#UC END# *4E54D081006C_4E54CF7E0143_impl*
+end;//TevStandardStyles.GetStandardStyleFont
 
 procedure TevStandardStyles.FreeFonts;
 //#UC START# *4E54D0F101B3_4E54CF7E0143_var*
@@ -136,12 +130,27 @@ begin
 //#UC END# *4E54D0F101B3_4E54CF7E0143_impl*
 end;//TevStandardStyles.FreeFonts
 
+function TevStandardStyles.GetStyleFont(aStyle: Tl3Variant;
+ aPrinting: Boolean): IevResultFont;
+//#UC START# *4E5F9A5E02A3_4E54CF7E0143_var*
+//#UC END# *4E5F9A5E02A3_4E54CF7E0143_var*
+begin
+//#UC START# *4E5F9A5E02A3_4E54CF7E0143_impl*
+ CheckFontInCache(aStyle,
+                  aStyle.IntA[k2_tiHandle],
+                  TevIndentType(aStyle.rLong(k2_tiJustification, Ord(ev_itNone))) = ev_itPreformatted,
+                  aStyle.BoolA[k2_tiVisible],
+                  aPrinting AND (TevStyleInterface.PrintAndExportFontSize > 0){DocumentUseFixedFontForPrintAndExportSetting},
+                  Result);
+//#UC END# *4E5F9A5E02A3_4E54CF7E0143_impl*
+end;//TevStandardStyles.GetStyleFont
+
 procedure TevStandardStyles.CheckFontInCache(anObj: Tl3Variant;
-  anID: Integer;
-  aJust: Boolean;
-  aVis: Boolean;
-  aFixedFont: Boolean;
-  out theFont: IevResultFont);
+ anID: Integer;
+ aJust: Boolean;
+ aVis: Boolean;
+ aFixedFont: Boolean;
+ out theFont: IevResultFont);
 //#UC START# *4E5F9ADA02CE_4E54CF7E0143_var*
 
  procedure GetStandard;
@@ -188,56 +197,12 @@ begin
 //#UC END# *4E5F9ADA02CE_4E54CF7E0143_impl*
 end;//TevStandardStyles.CheckFontInCache
 
-function TevStandardStyles.GetStandardStyleFont(aPara: Tl3Variant;
-  aFixedFont: Boolean;
-  out theFont: IevResultFont): Boolean;
-//#UC START# *4E54D081006C_4E54CF7E0143_var*
-var
- l_St        : Tl3Variant;
- l_StH       : Integer;
- l_StyleVis  : Boolean;
- l_ParaVis   : Boolean;
- l_ParaJust  : TevIndentType;
- l_StyleJust : TevIndentType;
-//#UC END# *4E54D081006C_4E54CF7E0143_var*
-begin
-//#UC START# *4E54D081006C_4E54CF7E0143_impl*
- Result := true;
- l_St := aPara.Attr[k2_tiStyle];
- l_StH := l_St.IntA[k2_tiHandle];
- l_StyleJust := TevIndentType(l_St.rLong(k2_tiJustification, Ord(ev_itNone)));
- l_ParaJust := TevIndentType(aPara.rLong(k2_tiJustification, Ord(ev_itNone)));
- l_StyleVis := l_St.BoolA[k2_tiVisible];
- l_ParaVis := aPara.BoolA[k2_tiVisible];
- if (l_ParaJust <> l_StyleJust) OR (l_StyleVis <> l_ParaVis) then
-  CheckFontInCache(aPara, l_StH, l_ParaJust = ev_itPreformatted, l_ParaVis, aFixedFont, theFont)
- else
-  CheckFontInCache(l_St, l_StH, l_StyleJust = ev_itPreformatted, l_StyleVis, aFixedFont, theFont);
-//#UC END# *4E54D081006C_4E54CF7E0143_impl*
-end;//TevStandardStyles.GetStandardStyleFont
-
-function TevStandardStyles.GetStyleFont(aStyle: Tl3Variant;
-  aPrinting: Boolean): IevResultFont;
-//#UC START# *4E5F9A5E02A3_4E54CF7E0143_var*
-//#UC END# *4E5F9A5E02A3_4E54CF7E0143_var*
-begin
-//#UC START# *4E5F9A5E02A3_4E54CF7E0143_impl*
- CheckFontInCache(aStyle,
-                  aStyle.IntA[k2_tiHandle],
-                  TevIndentType(aStyle.rLong(k2_tiJustification, Ord(ev_itNone))) = ev_itPreformatted,
-                  aStyle.BoolA[k2_tiVisible],
-                  aPrinting AND (TevStyleInterface.PrintAndExportFontSize > 0){DocumentUseFixedFontForPrintAndExportSetting},
-                  Result);
-//#UC END# *4E5F9A5E02A3_4E54CF7E0143_impl*
-end;//TevStandardStyles.GetStyleFont
-
 class function TevStandardStyles.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TevStandardStyles <> nil;
 end;//TevStandardStyles.Exists
 
-{$If not defined(DesignTimeLibrary)}
 procedure TevStandardStyles.DoStyleTableChanged;
 //#UC START# *4A485B710126_4E54CF7E0143_var*
 //#UC END# *4A485B710126_4E54CF7E0143_var*
@@ -246,9 +211,20 @@ begin
  FreeFonts;
 //#UC END# *4A485B710126_4E54CF7E0143_impl*
 end;//TevStandardStyles.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+
+class function TevStandardStyles.Instance: TevStandardStyles;
+ {* Метод получения экземпляра синглетона TevStandardStyles }
+begin
+ if (g_TevStandardStyles = nil) then
+ begin
+  l3System.AddExitProc(TevStandardStylesFree);
+  g_TevStandardStyles := Create;
+ end;
+ Result := g_TevStandardStyles;
+end;//TevStandardStyles.Instance
 
 procedure TevStandardStyles.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E54CF7E0143_var*
 //#UC END# *479731C50290_4E54CF7E0143_var*
 begin
@@ -258,8 +234,8 @@ begin
 //#UC END# *479731C50290_4E54CF7E0143_impl*
 end;//TevStandardStyles.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
 function TevStandardStyles.AtEnd: Boolean;
+ {* Подписываться в конец списка подписчиков }
 //#UC START# *4A4867A20049_4E54CF7E0143_var*
 //#UC END# *4A4867A20049_4E54CF7E0143_var*
 begin
@@ -267,6 +243,6 @@ begin
  Result := false;
 //#UC END# *4A4867A20049_4E54CF7E0143_impl*
 end;//TevStandardStyles.AtEnd
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

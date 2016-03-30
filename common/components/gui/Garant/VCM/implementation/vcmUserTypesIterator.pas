@@ -1,53 +1,41 @@
 unit vcmUserTypesIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmUserTypesIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmUserTypesIterator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmUserTypesIterator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserTypesIterator" MUID: (5582C3AD0167)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmUserTypeDefList,
-  vcmBase
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmInterfaces
+ , vcmUserTypeDefList
+ , vcmBase
+;
 
-{$If not defined(NoVCM)}
 type
  _ListType_ = TvcmUserTypeDefList;
  _ItemType_ = IvcmUserTypeDef;
- {$Include ..\implementation\vcmIterator.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
  TvcmUserTypesIterator = class(_vcmIterator_, IvcmUserTypesIterator)
- protected
- // realized methods
+  protected
    function Next: IvcmUserTypeDef;
- public
- // public methods
+  public
    class function Make(aList: TvcmUserTypeDefList): IvcmUserTypesIterator; reintroduce;
  end;//TvcmUserTypesIterator
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
-{$Include ..\implementation\vcmIterator.imp.pas}
-
-// start class TvcmUserTypesIterator
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
 
 class function TvcmUserTypesIterator.Make(aList: TvcmUserTypeDefList): IvcmUserTypesIterator;
 var
@@ -59,7 +47,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmUserTypesIterator.Make
 
 function TvcmUserTypesIterator.Next: IvcmUserTypeDef;
 //#UC START# *499560C601FD_5582C3AD0167_var*
@@ -69,7 +57,6 @@ begin
  Result := GetNext;
 //#UC END# *499560C601FD_5582C3AD0167_impl*
 end;//TvcmUserTypesIterator.Next
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

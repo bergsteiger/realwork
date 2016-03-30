@@ -25,23 +25,15 @@ type
  TddRTFState = class(Tl3ProtoObject)
   private
    f_BOP: TddBorder;
-    {* Поле для свойства BOP }
    f_CEP: TddCellProperty;
-    {* Поле для свойства CEP }
    f_CHP: TddCharacterProperty;
-    {* Поле для свойства CHP }
    f_PAP: TddParagraphProperty;
-    {* Поле для свойства PAP }
    f_RDS: TRDS;
-    {* Поле для свойства RDS }
    f_SEP: TddSectionProperty;
-    {* Поле для свойства SEP }
    f_TAP: TddRowProperty;
-    {* Поле для свойства TAP }
    f_SkipGroup: Boolean;
-    {* Поле для свойства SkipGroup }
    f_UC: Integer;
-    {* Поле для свойства UC }
+    {* UC для текущего состояния. }
   protected
    procedure pm_SetBOP(aValue: TddBorder);
    procedure pm_SetCHP(aValue: TddCharacterProperty);

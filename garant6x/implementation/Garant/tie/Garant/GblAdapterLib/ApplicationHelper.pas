@@ -1,175 +1,151 @@
 unit ApplicationHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ApplicationHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::ApplicationHelper::ApplicationHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ApplicationHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ApplicationHelper" MUID: (460A6EF8024B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  ServerFacade
-  ;
+ l3IntfUses
+ , ServerFacade
+ //#UC START# *460A6EF8024Bintf_uses*
+ //#UC END# *460A6EF8024Bintf_uses*
+;
 
 type
  BaseId = record
-   stamp : Cardinal;
-//#UC START# *460A80090380publ*
-//#UC END# *460A80090380publ*
+  stamp: Cardinal;
+ //#UC START# *460A80090380publ*
+ //#UC END# *460A80090380publ*
  end;//BaseId
 
-//#UC START# *460A6EF8024Bci*
-//#UC END# *460A6EF8024Bci*
-//#UC START# *460A6EF8024Bcit*
-//#UC END# *460A6EF8024Bcit*
+ //#UC START# *460A6EF8024Bci*
+ //#UC END# *460A6EF8024Bci*
+ //#UC START# *460A6EF8024Bcit*
+ //#UC END# *460A6EF8024Bcit*
  ApplicationHelper = class
- private
- // private fields
-   base_id : BaseId;
-   function_manager : ;
-   contract_form : ;
-   search_manager : ;
-   user_manager : ;
-   folders : ;
-   under_control_manager : ;
-   settings : ;
-   settings_manager : ;
-   life_cycle_manager : ;
-   consultation_manager : ;
-   logging_manager : ;
-   integration : ;
-   xml_save : ;
-   prime : ;
-   prime_xml_save : ;
-   server_facade : ServerFacade;
-   user_journal : ;
-    {* Журнал работы}
-   tree_factory : ;
-   property_manager : ;
-   banner_manager : ;
-   group_manager : ;
-   remote_support : ;
-   filters_manager : ;
-   context_filter : ;
-   main_menu : ;
-   decisions_archive_support : ;
-   document_type_resolver : ;
-   link_manager : ;
-   f_uid : ;
-    {* Поле для свойства uid}
- private
- // private methods
-   function ServerFacade: ServerFacade; overload;  virtual;
- protected
- // property methods
-   function pm_GetUid: ;
- protected
- // protected methods
-   procedure ThrMgr; virtual;
- public
- // public methods
-   procedure ClearCacheAndRegenerateBaseId; virtual;
-   function CompareAndUpdateBaseId(var base_id: BaseId): Boolean; virtual;
-   procedure GetCachedFunctionManager; virtual;
-   procedure GetCachedContextFilter; virtual;
-   procedure GetCachedContractForm; virtual;
-   procedure GetCachedUserManager; virtual;
-   procedure GetCachedFolders; virtual;
-   procedure GetCachedUnderControlManager; virtual;
-   procedure GetCachedSettings; virtual;
-   procedure GetCachedSettingsManager; virtual;
-   procedure GetCachedLifeCycleManager; virtual;
-   procedure GetCachedXmlSave; virtual;
-   function IsConfigurationsExist: Boolean; virtual;
-   procedure GetCachedSearchManager; virtual;
-   procedure GetCachedConsultationManager; virtual;
-   procedure GetCachedLoggingManager; virtual;
-   procedure GetCachedIntegration; virtual;
-   procedure GetCachedPrime; virtual;
-   procedure GetCachedPrimeXmlSave; virtual;
-   procedure StartListenForMe; virtual;
-     {* Заставляем NotifyManager слушать нотификации только для меня }
-   procedure StopListenForMe; virtual;
-     {* Прекратить слушать нотификации для меня }
-   procedure ClearCache; virtual;
-     {* Очистка кешированных серверных объектов }
-   procedure Init(server_facade: ServerFacade); virtual;
-   constructor Make; virtual;
-   procedure GetCachedUserJournal; virtual;
-   procedure GetCachedTreeFactory; virtual;
-   procedure GetCachedPropertyManager; virtual;
-   procedure GetCachedBannerManager; virtual;
-     {* Получить баннер с сервера }
-   procedure GetCachedCurrentUserId; virtual;
-     {* возвращает идентификатор текущего пользователя }
-   procedure GetCachedGroupManager; virtual;
-   procedure GetCachedRemoteDocumentSupport; virtual;
-   procedure GetCachedFiltersManager; virtual;
-   procedure GetCachedMainMenu; virtual;
-   procedure GetCachedDecisionsArchiveSupport; virtual;
-   procedure GetCachedDocumentTypeResolver; virtual;
-   procedure GetCachedLinkManager; virtual;
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- private
- // private properties
-   property uid: 
-     read pm_GetUid;
-     {* uid текущего пользователя }
-//#UC START# *460A6EF8024Bpubl*
-//#UC END# *460A6EF8024Bpubl*
- public
- // singleton factory method
+  private
+   base_id: BaseId;
+   function_manager: ;
+   contract_form: ;
+   search_manager: ;
+   user_manager: ;
+   folders: ;
+   under_control_manager: ;
+   settings: ;
+   settings_manager: ;
+   life_cycle_manager: ;
+   consultation_manager: ;
+   logging_manager: ;
+   integration: ;
+   xml_save: ;
+   prime: ;
+   prime_xml_save: ;
+   server_facade: ServerFacade;
+   user_journal: ;
+    {* Журнал работы }
+   tree_factory: ;
+   property_manager: ;
+   banner_manager: ;
+   group_manager: ;
+   remote_support: ;
+   filters_manager: ;
+   context_filter: ;
+   main_menu: ;
+   decisions_archive_support: ;
+   document_type_resolver: ;
+   link_manager: ;
+   f_uid: ;
+    {* Поле для свойства uid }
+  private
+   function ServerFacade: ServerFacade; virtual; stdcall;
+  protected
+   procedure GetUid; stdcall;
+   procedure ThrMgr; virtual; stdcall;
+  public
+   procedure ClearCacheAndRegenerateBaseId; virtual; stdcall;
+   function CompareAndUpdateBaseId(var base_id: BaseId): ByteBool; virtual; stdcall;
+   procedure GetCachedFunctionManager; virtual; stdcall;
+   procedure GetCachedContextFilter; virtual; stdcall;
+   procedure GetCachedContractForm; virtual; stdcall;
+   procedure GetCachedUserManager; virtual; stdcall;
+   procedure GetCachedFolders; virtual; stdcall;
+   procedure GetCachedUnderControlManager; virtual; stdcall;
+   procedure GetCachedSettings; virtual; stdcall;
+   procedure GetCachedSettingsManager; virtual; stdcall;
+   procedure GetCachedLifeCycleManager; virtual; stdcall;
+   procedure GetCachedXmlSave; virtual; stdcall;
+   function IsConfigurationsExist: ByteBool; virtual; stdcall;
+   procedure GetCachedSearchManager; virtual; stdcall;
+   procedure GetCachedConsultationManager; virtual; stdcall;
+   procedure GetCachedLoggingManager; virtual; stdcall;
+   procedure GetCachedIntegration; virtual; stdcall;
+   procedure GetCachedPrime; virtual; stdcall;
+   procedure GetCachedPrimeXmlSave; virtual; stdcall;
+   procedure StartListenForMe; virtual; stdcall;
+    {* Заставляем NotifyManager слушать нотификации только для меня }
+   procedure StopListenForMe; virtual; stdcall;
+    {* Прекратить слушать нотификации для меня }
+   procedure ClearCache; virtual; stdcall;
+    {* Очистка кешированных серверных объектов }
+   procedure Init(server_facade: ServerFacade); virtual; stdcall;
+   constructor Make; reintroduce; virtual; stdcall;
+   procedure GetCachedUserJournal; virtual; stdcall;
+   procedure GetCachedTreeFactory; virtual; stdcall;
+   procedure GetCachedPropertyManager; virtual; stdcall;
+   procedure GetCachedBannerManager; virtual; stdcall;
+    {* Получить баннер с сервера }
+   procedure GetCachedCurrentUserId; virtual; stdcall;
+    {* возвращает идентификатор текущего пользователя }
+   procedure GetCachedGroupManager; virtual; stdcall;
+   procedure GetCachedRemoteDocumentSupport; virtual; stdcall;
+   procedure GetCachedFiltersManager; virtual; stdcall;
+   procedure GetCachedMainMenu; virtual; stdcall;
+   procedure GetCachedDecisionsArchiveSupport; virtual; stdcall;
+   procedure GetCachedDocumentTypeResolver; virtual; stdcall;
+   procedure GetCachedLinkManager; virtual; stdcall;
+   class function Exists: ByteBool; stdcall;
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: ApplicationHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона ApplicationHelper }
+  private
+   property Uid: 
+    read GetUid;
+    {* uid текущего пользователя }
+ //#UC START# *460A6EF8024Bpubl*
+ //#UC END# *460A6EF8024Bpubl*
  end;//ApplicationHelper
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ //#UC START# *460A6EF8024Bimpl_uses*
+ //#UC END# *460A6EF8024Bimpl_uses*
+;
 
-
-// start class ApplicationHelper
-
-var g_ApplicationHelper : ApplicationHelper = nil;
+var g_ApplicationHelper: ApplicationHelper = nil;
+ {* Экземпляр синглетона ApplicationHelper }
 
 procedure ApplicationHelperFree;
+ {* Метод освобождения экземпляра синглетона ApplicationHelper }
 begin
  l3Free(g_ApplicationHelper);
-end;
+end;//ApplicationHelperFree
 
-class function ApplicationHelper.Instance: ApplicationHelper;
-begin
- if (g_ApplicationHelper = nil) then
- begin
-  l3System.AddExitProc(ApplicationHelperFree);
-  g_ApplicationHelper := Create;
- end;
- Result := g_ApplicationHelper;
-end;
-
-
-function ApplicationHelper.pm_GetUid: ;
+procedure ApplicationHelper.GetUid;
 //#UC START# *4AEE9F4A02BF_460A6EF8024Bget_var*
 //#UC END# *4AEE9F4A02BF_460A6EF8024Bget_var*
 begin
 //#UC START# *4AEE9F4A02BF_460A6EF8024Bget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AEE9F4A02BF_460A6EF8024Bget_impl*
-end;//ApplicationHelper.pm_GetUid
+end;//ApplicationHelper.GetUid
 
 procedure ApplicationHelper.ClearCacheAndRegenerateBaseId;
 //#UC START# *460A806C0214_460A6EF8024B_var*
@@ -180,7 +156,7 @@ begin
 //#UC END# *460A806C0214_460A6EF8024B_impl*
 end;//ApplicationHelper.ClearCacheAndRegenerateBaseId
 
-function ApplicationHelper.CompareAndUpdateBaseId(var base_id: BaseId): Boolean;
+function ApplicationHelper.CompareAndUpdateBaseId(var base_id: BaseId): ByteBool;
 //#UC START# *460A80AB0254_460A6EF8024B_var*
 //#UC END# *460A80AB0254_460A6EF8024B_var*
 begin
@@ -288,7 +264,7 @@ begin
 //#UC END# *460BA6F801D4_460A6EF8024B_impl*
 end;//ApplicationHelper.ThrMgr
 
-function ApplicationHelper.IsConfigurationsExist: Boolean;
+function ApplicationHelper.IsConfigurationsExist: ByteBool;
 //#UC START# *460BA70A0157_460A6EF8024B_var*
 //#UC END# *460BA70A0157_460A6EF8024B_var*
 begin
@@ -352,6 +328,7 @@ begin
 end;//ApplicationHelper.GetCachedPrimeXmlSave
 
 procedure ApplicationHelper.StartListenForMe;
+ {* Заставляем NotifyManager слушать нотификации только для меня }
 //#UC START# *460CD7A6038A_460A6EF8024B_var*
 //#UC END# *460CD7A6038A_460A6EF8024B_var*
 begin
@@ -361,6 +338,7 @@ begin
 end;//ApplicationHelper.StartListenForMe
 
 procedure ApplicationHelper.StopListenForMe;
+ {* Прекратить слушать нотификации для меня }
 //#UC START# *460CD7D402FD_460A6EF8024B_var*
 //#UC END# *460CD7D402FD_460A6EF8024B_var*
 begin
@@ -370,6 +348,7 @@ begin
 end;//ApplicationHelper.StopListenForMe
 
 procedure ApplicationHelper.ClearCache;
+ {* Очистка кешированных серверных объектов }
 //#UC START# *460CDD6C0399_460A6EF8024B_var*
 //#UC END# *460CDD6C0399_460A6EF8024B_var*
 begin
@@ -433,6 +412,7 @@ begin
 end;//ApplicationHelper.GetCachedPropertyManager
 
 procedure ApplicationHelper.GetCachedBannerManager;
+ {* Получить баннер с сервера }
 //#UC START# *4ACF446803B9_460A6EF8024B_var*
 //#UC END# *4ACF446803B9_460A6EF8024B_var*
 begin
@@ -442,6 +422,7 @@ begin
 end;//ApplicationHelper.GetCachedBannerManager
 
 procedure ApplicationHelper.GetCachedCurrentUserId;
+ {* возвращает идентификатор текущего пользователя }
 //#UC START# *4AEE9E0E01D3_460A6EF8024B_var*
 //#UC END# *4AEE9E0E01D3_460A6EF8024B_var*
 begin
@@ -513,11 +494,22 @@ begin
 //#UC END# *55952CE501E5_460A6EF8024B_impl*
 end;//ApplicationHelper.GetCachedLinkManager
 
-class function ApplicationHelper.Exists: Boolean;
- {-}
+class function ApplicationHelper.Exists: ByteBool;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_ApplicationHelper <> nil;
 end;//ApplicationHelper.Exists
+
+class function ApplicationHelper.Instance: ApplicationHelper;
+ {* Метод получения экземпляра синглетона ApplicationHelper }
+begin
+ if (g_ApplicationHelper = nil) then
+ begin
+  l3System.AddExitProc(ApplicationHelperFree);
+  g_ApplicationHelper := Create;
+ end;
+ Result := g_ApplicationHelper;
+end;//ApplicationHelper.Instance
 
 //#UC START# *460A6EF8024Bimpl*
 //#UC END# *460A6EF8024Bimpl*

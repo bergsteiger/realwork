@@ -1,70 +1,59 @@
 unit ddHTMLTag;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddHTMLTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::HTMLSupport::TddHTMLTag
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddHTMLTag.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddHTMLTag" MUID: (524159C700FE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  l3Base,
-  l3SimpleObject,
-  l3RegEx,
-  l3ProtoDataContainer,
-  ddHTMLTags,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , l3Base
+ , l3RegEx
+ , ddHTMLTags
+ , l3Types
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = TddHTMLParam;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TddParamsList = class(_l3RecordListPrim_)
  end;//TddParamsList
 
  TddParseParamAction = (
-   dd_ppaAddNewValue
- , dd_ppaExtendString
+  dd_ppaAddNewValue
+  , dd_ppaExtendString
  );//TddParseParamAction
 
  TddHTMLTag = class(Tl3SimpleObject)
- private
- // private fields
-   f_ParamsString : Tl3String;
-   f_ParamsList : TddParamsList;
-   f_ParamCount : Integer;
-   f_Start : Integer;
-   f_ParserAction : TddParseParamAction;
-   f_WasQuoter : Boolean;
-   f_TagID : Integer;
-    {* Поле для свойства TagID}
- private
- // private methods
+  private
+   f_ParamsString: Tl3String;
+   f_ParamsList: TddParamsList;
+   f_ParamCount: Integer;
+   f_Start: Integer;
+   f_ParserAction: TddParseParamAction;
+   f_WasQuoter: Boolean;
+   f_TagID: Integer;
+    {* Поле для свойства TagID }
+  private
    function GetKeyID: TddHTMLParamID;
    procedure AddKeyValue(aValue: TddHTMLParamID);
    procedure AddIntValue(aHRefSeacher: Tl3RegularSearch);
    procedure AddStringValue(aHRefSeacher: Tl3RegularSearch);
    function GetPrevParamType: TddHTMLParamID;
    procedure TryAddValue(aKeyValue: Boolean;
-     aHRefSeacher: Tl3RegularSearch);
+    aHRefSeacher: Tl3RegularSearch);
    function CanAddNewValue: Boolean;
    procedure AnalyseCharSet;
    procedure AddVAlignValue;
@@ -73,54 +62,232 @@ type
    procedure AnalyseStyle;
    procedure AddAlignValue(const aStr: Tl3String = nil);
    function CheckServiceDocID(aDocID: Integer): Boolean;
-     {* Исключаем ссылки на служебные топики с www-ссылками }
+    {* Исключаем ссылки на служебные топики с www-ссылками }
    procedure AddWidthValue;
    procedure AnalyseBorder;
    procedure AnalyseTextTransform;
- protected
- // property methods
+  protected
    function pm_GetTagID: Integer; virtual;
    function pm_GetIsClosed: Boolean; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddChar(aChar: AnsiChar;
-     aHRefSeacher: Tl3RegularSearch);
+    aHRefSeacher: Tl3RegularSearch);
    constructor Create(aTagID: Integer); reintroduce;
    procedure AddString(const aString: Tl3String;
-     aHRefSeacher: Tl3RegularSearch);
+    aHRefSeacher: Tl3RegularSearch);
    function IsNil: Boolean;
-     {* Проверяет есть ли данные в теге. }
+    {* Проверяет есть ли данные в теге. }
    function HasKey(anKeyID: TddHTMLParamID;
-     var aParam: TddHTMLParam): Boolean;
+    var aParam: TddHTMLParam): Boolean;
    procedure AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
-     aClosed: Boolean);
+    aClosed: Boolean);
    function Param2PCharLen(const aParam: TddHTMLParam): Tl3PCharLen;
    procedure Assign(aTag: TddHTMLTag);
- public
- // public properties
+  public
    property TagID: Integer
-     read pm_GetTagID;
+    read pm_GetTagID;
    property IsClosed: Boolean
-     read pm_GetIsClosed;
+    read pm_GetIsClosed;
  end;//TddHTMLTag
 
 implementation
 
 uses
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3UnitsTools,
-  l3Chars,
-  l3String,
-  ddTypes
-  ;
+ l3ImplUses
+ , l3Chars
+ , l3String
+ , ddTypes
+ , l3UnitsTools
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-// start class TddHTMLTag
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If NOT Defined(l3Items_IsAtomic)}
+function IsSameItems(const A: _ItemType_;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
+//#UC START# *47B07CF403D0_5242B1A4025D_var*
+//#UC END# *47B07CF403D0_5242B1A4025D_var*
+begin
+//#UC START# *47B07CF403D0_5242B1A4025D_impl*
+ Result := A.rType = B.rType;
+//#UC END# *47B07CF403D0_5242B1A4025D_impl*
+end;//IsSameItems
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_5242B1A4025D_var*
+//#UC END# *47B2C42A0163_5242B1A4025D_var*
+begin
+//#UC START# *47B2C42A0163_5242B1A4025D_impl*
+ Assert(False);
+//#UC END# *47B2C42A0163_5242B1A4025D_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_5242B1A4025D_var*
+//#UC END# *47B99D4503A2_5242B1A4025D_var*
+begin
+//#UC START# *47B99D4503A2_5242B1A4025D_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_5242B1A4025D_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = TddParamsList;
+
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+
+function TddHTMLTag.pm_GetTagID: Integer;
+//#UC START# *52415A3602DA_524159C700FEget_var*
+//#UC END# *52415A3602DA_524159C700FEget_var*
+begin
+//#UC START# *52415A3602DA_524159C700FEget_impl*
+ Result := Abs(f_TagID);
+//#UC END# *52415A3602DA_524159C700FEget_impl*
+end;//TddHTMLTag.pm_GetTagID
+
+function TddHTMLTag.pm_GetIsClosed: Boolean;
+//#UC START# *52415A87021F_524159C700FEget_var*
+//#UC END# *52415A87021F_524159C700FEget_var*
+begin
+//#UC START# *52415A87021F_524159C700FEget_impl*
+ Result := f_TagID < 0;
+//#UC END# *52415A87021F_524159C700FEget_impl*
+end;//TddHTMLTag.pm_GetIsClosed
+
+procedure TddHTMLTag.AddChar(aChar: AnsiChar;
+ aHRefSeacher: Tl3RegularSearch);
+//#UC START# *52415AC40279_524159C700FE_var*
+const
+ csIgnoreChars = cc_WhiteSpaceExt + [cc_HardEnter, cc_SoftEnter] + cc_Quotes;
+var
+ l_Closed: Boolean;
+//#UC END# *52415AC40279_524159C700FE_var*
+begin
+//#UC START# *52415AC40279_524159C700FE_impl*
+ if aChar in csIgnoreChars then
+ begin
+  l_Closed := False;
+  if (aChar in cc_Quotes) then
+    if f_WasQuoter then
+    begin
+     f_WasQuoter := False;
+     if (f_ParserAction  = dd_ppaAddNewValue) then
+      f_Start := f_ParamsString.Len;
+     TryAddValue(False, aHRefSeacher);
+     l_Closed := True;
+    end // if f_WasQuoter then
+    else
+    begin
+     f_WasQuoter := True;
+     if f_Start = -1 then
+      f_Start := f_ParamsString.Len;
+    end; // if (f_ParserAction  = dd_ppaAddNewValue) then
+  AlnalyseValue(aHRefSeacher, l_Closed);
+  f_ParserAction := dd_ppaAddNewValue;
+ end // if aChar in csIgnoreChars then
+ else
+ begin
+  if GetPrevParamType = dd_paridHREF then
+   f_ParserAction := dd_ppaExtendString
+  else 
+   if aChar in [cc_Equal, cc_SemiColon] then
+    TryAddValue(aChar = cc_Equal, aHRefSeacher)
+   else
+    if aChar = cc_PercentSign then
+     TryAddPercent
+    else
+     f_ParserAction := dd_ppaExtendString;
+  f_ParamsString.Append(aChar);
+ end; // if not (aChar in csIgnoreChars) then
+//#UC END# *52415AC40279_524159C700FE_impl*
+end;//TddHTMLTag.AddChar
+
+constructor TddHTMLTag.Create(aTagID: Integer);
+//#UC START# *52415BC2014B_524159C700FE_var*
+//#UC END# *52415BC2014B_524159C700FE_var*
+begin
+//#UC START# *52415BC2014B_524159C700FE_impl*
+ inherited Create;
+ f_TagID := aTagID;
+ f_Start := -1;
+ f_ParamCount := 0;
+ f_ParamsList := TddParamsList.Create; 
+ f_ParamsString := Tl3String.Create;
+ f_WasQuoter := False;
+//#UC END# *52415BC2014B_524159C700FE_impl*
+end;//TddHTMLTag.Create
+
+procedure TddHTMLTag.AddString(const aString: Tl3String;
+ aHRefSeacher: Tl3RegularSearch);
+//#UC START# *5241705E00DB_524159C700FE_var*
+//#UC END# *5241705E00DB_524159C700FE_var*
+begin
+//#UC START# *5241705E00DB_524159C700FE_impl*
+ aString.TrimAll;
+ if f_ParserAction = dd_ppaAddNewValue then
+  f_Start := f_ParamsString.Len;
+ f_ParamsString.Append(aString.AsWStr);
+ TryAddValue(False, aHRefSeacher);
+//#UC END# *5241705E00DB_524159C700FE_impl*
+end;//TddHTMLTag.AddString
+
+function TddHTMLTag.IsNil: Boolean;
+ {* Проверяет есть ли данные в теге. }
+//#UC START# *5241781E030B_524159C700FE_var*
+//#UC END# *5241781E030B_524159C700FE_var*
+begin
+//#UC START# *5241781E030B_524159C700FE_impl*
+ Result := f_ParamsList.Count = 0;
+//#UC END# *5241781E030B_524159C700FE_impl*
+end;//TddHTMLTag.IsNil
+
+function TddHTMLTag.HasKey(anKeyID: TddHTMLParamID;
+ var aParam: TddHTMLParam): Boolean;
+//#UC START# *52417862037A_524159C700FE_var*
+var
+ i       : Integer;
+ l_Param : TddHTMLParam;
+ l_Count : Integer;
+//#UC END# *52417862037A_524159C700FE_var*
+begin
+//#UC START# *52417862037A_524159C700FE_impl*
+ Result := not IsNil;
+ if Result then
+ begin
+  l_Count := f_ParamsList.Count - 1;
+  Result := False;
+  for i := 0 to l_Count do
+  begin
+   l_Param := f_ParamsList[i];
+   if (l_Param.rType = dd_parKey) and (l_Param.rKeyValue = anKeyID) then
+   begin
+    Result := i < l_Count;
+    if Result then
+    begin
+     aParam := f_ParamsList[i + 1];
+     Result := aParam.rType > dd_parKey;
+     Break;
+    end; // if Result then
+   end; // if (l_Param.rType = l_Param) and (l_Param.rKeyValue = anKeyID) then
+  end; // for i := 0 to l_Count do
+ end; // if Result then
+//#UC END# *52417862037A_524159C700FE_impl*
+end;//TddHTMLTag.HasKey
 
 function TddHTMLTag.GetKeyID: TddHTMLParamID;
 //#UC START# *5241837B0215_524159C700FE_var*
@@ -226,7 +393,7 @@ begin
 end;//TddHTMLTag.GetPrevParamType
 
 procedure TddHTMLTag.TryAddValue(aKeyValue: Boolean;
-  aHRefSeacher: Tl3RegularSearch);
+ aHRefSeacher: Tl3RegularSearch);
 //#UC START# *5242CC830209_524159C700FE_var*
 var
  l_ParamType: TddHTMLParamID;
@@ -274,6 +441,45 @@ begin
  Result := f_ParamsList.Last.rType = dd_parKey;
 //#UC END# *5243BCE0031D_524159C700FE_impl*
 end;//TddHTMLTag.CanAddNewValue
+
+procedure TddHTMLTag.AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
+ aClosed: Boolean);
+//#UC START# *5243D88E026F_524159C700FE_var*
+var
+ l_ParamType: TddHTMLParamID;
+//#UC END# *5243D88E026F_524159C700FE_var*
+begin
+//#UC START# *5243D88E026F_524159C700FE_impl*
+ if not IsNil and (f_ParamsList.Last.rType = dd_parString) then
+ begin
+  l_ParamType := GetPrevParamType;
+  if l_ParamType = dd_paridUnknown then Exit;
+  case l_ParamType of
+   dd_paridCHARSET: AnalyseCharSet;
+   dd_paridHREF: AnalyseHREF(aHRefSeacher);
+   dd_paridSTYLE: AnalyseStyle;
+   dd_paridBorderBottom: AnalyseBorder;
+   dd_paridBorderTop: AnalyseBorder;
+   dd_paridBorderLeft: AnalyseBorder;
+   dd_paridBorderRight: AnalyseBorder;
+   dd_paridTextTransform: AnalyseTextTransform;
+   dd_paridCLASS: begin
+                   if aClosed then
+                    AddKeyValue(dd_paridFindNext)
+                   else
+                    AddStringValue(aHRefSeacher);
+                  end;
+   dd_paridID: begin
+                if aClosed then
+                 AddKeyValue(dd_paridFindNext)
+                else
+                 AddStringValue(aHRefSeacher);
+               end;
+  end;
+ end; // if not IsNil
+ f_ParserAction := dd_ppaAddNewValue;
+//#UC END# *5243D88E026F_524159C700FE_impl*
+end;//TddHTMLTag.AlnalyseValue
 
 procedure TddHTMLTag.AnalyseCharSet;
 //#UC START# *5243DC4B004C_524159C700FE_var*
@@ -468,6 +674,18 @@ begin
 //#UC END# *525BAB8C0005_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseStyle
 
+function TddHTMLTag.Param2PCharLen(const aParam: TddHTMLParam): Tl3PCharLen;
+//#UC START# *525CD0F20229_524159C700FE_var*
+//#UC END# *525CD0F20229_524159C700FE_var*
+begin
+//#UC START# *525CD0F20229_524159C700FE_impl*
+ if aParam.rType = dd_parHREFURL then
+  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStartURL, aParam.rFinishURL, f_ParamsString.CodePage)
+ else
+  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStart, aParam.rFinish, f_ParamsString.CodePage);
+//#UC END# *525CD0F20229_524159C700FE_impl*
+end;//TddHTMLTag.Param2PCharLen
+
 procedure TddHTMLTag.AddAlignValue(const aStr: Tl3String = nil);
 //#UC START# *525CE52200D1_524159C700FE_var*
 var
@@ -497,6 +715,7 @@ begin
 end;//TddHTMLTag.AddAlignValue
 
 function TddHTMLTag.CheckServiceDocID(aDocID: Integer): Boolean;
+ {* Исключаем ссылки на служебные топики с www-ссылками }
 //#UC START# *534FC1FC01C3_524159C700FE_var*
 const
  cnServiceTopics: array [0..1] of Integer = (5273641, 890941);
@@ -640,6 +859,19 @@ begin
 //#UC END# *56A071C8034A_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseBorder
 
+procedure TddHTMLTag.Assign(aTag: TddHTMLTag);
+//#UC START# *56BC693D00CE_524159C700FE_var*
+//#UC END# *56BC693D00CE_524159C700FE_var*
+begin
+//#UC START# *56BC693D00CE_524159C700FE_impl*
+ f_TagID := aTag.f_TagID;
+ f_ParamsString.Assign(aTag.f_ParamsString);
+ f_ParamsList.Assign(aTag.f_ParamsList);
+ f_ParamCount := aTag.f_ParamCount;
+ f_Start := aTag.f_Start;
+//#UC END# *56BC693D00CE_524159C700FE_impl*
+end;//TddHTMLTag.Assign
+
 procedure TddHTMLTag.AnalyseTextTransform;
 //#UC START# *56E7C2C2036E_524159C700FE_var*
 var
@@ -676,257 +908,8 @@ begin
 //#UC END# *56E7C2C2036E_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseTextTransform
 
-procedure TddHTMLTag.AddChar(aChar: AnsiChar;
-  aHRefSeacher: Tl3RegularSearch);
-//#UC START# *52415AC40279_524159C700FE_var*
-const
- csIgnoreChars = cc_WhiteSpaceExt + [cc_HardEnter, cc_SoftEnter] + cc_Quotes;
-var
- l_Closed: Boolean;
-//#UC END# *52415AC40279_524159C700FE_var*
-begin
-//#UC START# *52415AC40279_524159C700FE_impl*
- if aChar in csIgnoreChars then
- begin
-  l_Closed := False;
-  if (aChar in cc_Quotes) then
-    if f_WasQuoter then
-    begin
-     f_WasQuoter := False;
-     if (f_ParserAction  = dd_ppaAddNewValue) then
-      f_Start := f_ParamsString.Len;
-     TryAddValue(False, aHRefSeacher);
-     l_Closed := True;
-    end // if f_WasQuoter then
-    else
-    begin
-     f_WasQuoter := True;
-     if f_Start = -1 then
-      f_Start := f_ParamsString.Len;
-    end; // if (f_ParserAction  = dd_ppaAddNewValue) then
-  AlnalyseValue(aHRefSeacher, l_Closed);
-  f_ParserAction := dd_ppaAddNewValue;
- end // if aChar in csIgnoreChars then
- else
- begin
-  if GetPrevParamType = dd_paridHREF then
-   f_ParserAction := dd_ppaExtendString
-  else 
-   if aChar in [cc_Equal, cc_SemiColon] then
-    TryAddValue(aChar = cc_Equal, aHRefSeacher)
-   else
-    if aChar = cc_PercentSign then
-     TryAddPercent
-    else
-     f_ParserAction := dd_ppaExtendString;
-  f_ParamsString.Append(aChar);
- end; // if not (aChar in csIgnoreChars) then
-//#UC END# *52415AC40279_524159C700FE_impl*
-end;//TddHTMLTag.AddChar
-
-constructor TddHTMLTag.Create(aTagID: Integer);
-//#UC START# *52415BC2014B_524159C700FE_var*
-//#UC END# *52415BC2014B_524159C700FE_var*
-begin
-//#UC START# *52415BC2014B_524159C700FE_impl*
- inherited Create;
- f_TagID := aTagID;
- f_Start := -1;
- f_ParamCount := 0;
- f_ParamsList := TddParamsList.Create; 
- f_ParamsString := Tl3String.Create;
- f_WasQuoter := False;
-//#UC END# *52415BC2014B_524159C700FE_impl*
-end;//TddHTMLTag.Create
-
-procedure TddHTMLTag.AddString(const aString: Tl3String;
-  aHRefSeacher: Tl3RegularSearch);
-//#UC START# *5241705E00DB_524159C700FE_var*
-//#UC END# *5241705E00DB_524159C700FE_var*
-begin
-//#UC START# *5241705E00DB_524159C700FE_impl*
- aString.TrimAll;
- if f_ParserAction = dd_ppaAddNewValue then
-  f_Start := f_ParamsString.Len;
- f_ParamsString.Append(aString.AsWStr);
- TryAddValue(False, aHRefSeacher);
-//#UC END# *5241705E00DB_524159C700FE_impl*
-end;//TddHTMLTag.AddString
-
-function TddHTMLTag.IsNil: Boolean;
-//#UC START# *5241781E030B_524159C700FE_var*
-//#UC END# *5241781E030B_524159C700FE_var*
-begin
-//#UC START# *5241781E030B_524159C700FE_impl*
- Result := f_ParamsList.Count = 0;
-//#UC END# *5241781E030B_524159C700FE_impl*
-end;//TddHTMLTag.IsNil
-
-function TddHTMLTag.HasKey(anKeyID: TddHTMLParamID;
-  var aParam: TddHTMLParam): Boolean;
-//#UC START# *52417862037A_524159C700FE_var*
-var
- i       : Integer;
- l_Param : TddHTMLParam;
- l_Count : Integer;
-//#UC END# *52417862037A_524159C700FE_var*
-begin
-//#UC START# *52417862037A_524159C700FE_impl*
- Result := not IsNil;
- if Result then
- begin
-  l_Count := f_ParamsList.Count - 1;
-  Result := False;
-  for i := 0 to l_Count do
-  begin
-   l_Param := f_ParamsList[i];
-   if (l_Param.rType = dd_parKey) and (l_Param.rKeyValue = anKeyID) then
-   begin
-    Result := i < l_Count;
-    if Result then
-    begin
-     aParam := f_ParamsList[i + 1];
-     Result := aParam.rType > dd_parKey;
-     Break;
-    end; // if Result then
-   end; // if (l_Param.rType = l_Param) and (l_Param.rKeyValue = anKeyID) then
-  end; // for i := 0 to l_Count do
- end; // if Result then
-//#UC END# *52417862037A_524159C700FE_impl*
-end;//TddHTMLTag.HasKey
-
-procedure TddHTMLTag.AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
-  aClosed: Boolean);
-//#UC START# *5243D88E026F_524159C700FE_var*
-var
- l_ParamType: TddHTMLParamID;
-//#UC END# *5243D88E026F_524159C700FE_var*
-begin
-//#UC START# *5243D88E026F_524159C700FE_impl*
- if not IsNil and (f_ParamsList.Last.rType = dd_parString) then
- begin
-  l_ParamType := GetPrevParamType;
-  if l_ParamType = dd_paridUnknown then Exit;
-  case l_ParamType of
-   dd_paridCHARSET: AnalyseCharSet;
-   dd_paridHREF: AnalyseHREF(aHRefSeacher);
-   dd_paridSTYLE: AnalyseStyle;
-   dd_paridBorderBottom: AnalyseBorder;
-   dd_paridBorderTop: AnalyseBorder;
-   dd_paridBorderLeft: AnalyseBorder;
-   dd_paridBorderRight: AnalyseBorder;
-   dd_paridTextTransform: AnalyseTextTransform;
-   dd_paridCLASS: begin
-                   if aClosed then
-                    AddKeyValue(dd_paridFindNext)
-                   else
-                    AddStringValue(aHRefSeacher);
-                  end;
-   dd_paridID: begin
-                if aClosed then
-                 AddKeyValue(dd_paridFindNext)
-                else
-                 AddStringValue(aHRefSeacher);
-               end;
-  end;
- end; // if not IsNil
- f_ParserAction := dd_ppaAddNewValue;
-//#UC END# *5243D88E026F_524159C700FE_impl*
-end;//TddHTMLTag.AlnalyseValue
-
-function TddHTMLTag.Param2PCharLen(const aParam: TddHTMLParam): Tl3PCharLen;
-//#UC START# *525CD0F20229_524159C700FE_var*
-//#UC END# *525CD0F20229_524159C700FE_var*
-begin
-//#UC START# *525CD0F20229_524159C700FE_impl*
- if aParam.rType = dd_parHREFURL then
-  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStartURL, aParam.rFinishURL, f_ParamsString.CodePage)
- else
-  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStart, aParam.rFinish, f_ParamsString.CodePage);
-//#UC END# *525CD0F20229_524159C700FE_impl*
-end;//TddHTMLTag.Param2PCharLen
-
-procedure TddHTMLTag.Assign(aTag: TddHTMLTag);
-//#UC START# *56BC693D00CE_524159C700FE_var*
-//#UC END# *56BC693D00CE_524159C700FE_var*
-begin
-//#UC START# *56BC693D00CE_524159C700FE_impl*
- f_TagID := aTag.f_TagID;
- f_ParamsString.Assign(aTag.f_ParamsString);
- f_ParamsList.Assign(aTag.f_ParamsList);
- f_ParamCount := aTag.f_ParamCount;
- f_Start := aTag.f_Start;
-//#UC END# *56BC693D00CE_524159C700FE_impl*
-end;//TddHTMLTag.Assign
-// start class TddParamsList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
-
-{$If not defined(l3Items_IsAtomic)}
-function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
-//#UC START# *47B07CF403D0_5242B1A4025D_var*
-//#UC END# *47B07CF403D0_5242B1A4025D_var*
-begin
-//#UC START# *47B07CF403D0_5242B1A4025D_impl*
- Result := A.rType = B.rType;
-//#UC END# *47B07CF403D0_5242B1A4025D_impl*
-end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
-//#UC START# *47B2C42A0163_5242B1A4025D_var*
-//#UC END# *47B2C42A0163_5242B1A4025D_var*
-begin
-//#UC START# *47B2C42A0163_5242B1A4025D_impl*
- Assert(False);
-//#UC END# *47B2C42A0163_5242B1A4025D_impl*
-end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer;
-//#UC START# *47B99D4503A2_5242B1A4025D_var*
-//#UC END# *47B99D4503A2_5242B1A4025D_var*
-begin
-//#UC START# *47B99D4503A2_5242B1A4025D_impl*
- Result := -1;
- Assert(false);
-//#UC END# *47B99D4503A2_5242B1A4025D_impl*
-end;//CompareExistingItems
-
-type _Instance_R_ = TddParamsList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
-
-// start class TddHTMLTag
-
-function TddHTMLTag.pm_GetTagID: Integer;
-//#UC START# *52415A3602DA_524159C700FEget_var*
-//#UC END# *52415A3602DA_524159C700FEget_var*
-begin
-//#UC START# *52415A3602DA_524159C700FEget_impl*
- Result := Abs(f_TagID);
-//#UC END# *52415A3602DA_524159C700FEget_impl*
-end;//TddHTMLTag.pm_GetTagID
-
-function TddHTMLTag.pm_GetIsClosed: Boolean;
-//#UC START# *52415A87021F_524159C700FEget_var*
-//#UC END# *52415A87021F_524159C700FEget_var*
-begin
-//#UC START# *52415A87021F_524159C700FEget_impl*
- Result := f_TagID < 0;
-//#UC END# *52415A87021F_524159C700FEget_impl*
-end;//TddHTMLTag.pm_GetIsClosed
-
 procedure TddHTMLTag.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_524159C700FE_var*
 //#UC END# *479731C50290_524159C700FE_var*
 begin

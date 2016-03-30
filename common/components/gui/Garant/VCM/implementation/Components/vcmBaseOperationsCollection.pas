@@ -1,105 +1,80 @@
 unit vcmBaseOperationsCollection;
+ {* Коллекция операций }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmBaseOperationsCollection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmBaseOperationsCollection
-//
-// Коллекция операций
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationsCollection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseOperationsCollection" MUID: (55D30E6601A8)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  Classes,
-  vcmBase,
-  vcmUserControls,
-  vcmBaseCollection,
-  vcmOperationDefList
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmBaseCollection
+ , Classes
+ , vcmExternalInterfaces
+ , vcmUserControls
+ , vcmInterfaces
+ , vcmOperationDefList
+ , vcmBase
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmBaseOperationsCollection = class(TvcmBaseCollection)
   {* Коллекция операций }
- protected
- // overridden protected methods
+  protected
    function GetAttrCount: Integer; override;
    function GetAttr(Index: Integer): AnsiString; override;
    function GetItemAttr(Index: Integer;
-     ItemIndex: Integer): AnsiString; override;
- public
- // overridden public methods
-   class function GetItemClass: TCollectionItemClass; override;
- public
- // public methods
+    ItemIndex: Integer): AnsiString; override;
+  public
    function NeedToBeStored: Boolean;
    procedure Operation(aControl: TComponent;
-     const aTarget: IUnknown;
-     anOperationID: TvcmControlID;
-     aMode: TvcmOperationMode;
-     const aParams: IvcmParams);
-     {* выполняет операцию сущности }
+    const aTarget: IUnknown;
+    anOperationID: TvcmControlID;
+    aMode: TvcmOperationMode;
+    const aParams: IvcmParams);
+    {* выполняет операцию сущности }
    procedure GetOperations(anOperations: TvcmOperationDefList);
-     {* возвращает список описателей операций }
+    {* возвращает список описателей операций }
    procedure RegisterInRep;
-     {* Сигнатура метода RegisterInRep }
    procedure PublishOp(aControl: TComponent;
-     const anOperation: TvcmString;
-     anExecute: TvcmControlExecuteEvent;
-     aTest: TvcmControlTestEvent;
-     aGetState: TvcmControlGetStateEvent);
-     {* опубликовать операцию }
+    const anOperation: TvcmString;
+    anExecute: TvcmControlExecuteEvent;
+    aTest: TvcmControlTestEvent;
+    aGetState: TvcmControlGetStateEvent);
+    {* опубликовать операцию }
    procedure PublishOpWithResult(aControl: TComponent;
-     const anOperation: TvcmString;
-     anExecute: TvcmExecuteEvent;
-     aTest: TvcmControlTestEvent;
-     aGetState: TvcmControlGetStateEvent);
-     {* опубликовать операцию }
+    const anOperation: TvcmString;
+    anExecute: TvcmExecuteEvent;
+    aTest: TvcmControlTestEvent;
+    aGetState: TvcmControlGetStateEvent);
+    {* опубликовать операцию }
    procedure UnlinkControl(aControl: TComponent);
-     {* отвязать контрол }
+    {* отвязать контрол }
+   class function GetItemClass: TCollectionItemClass; override;
  end;//TvcmBaseOperationsCollection
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  TypInfo,
-  SysUtils,
-  vcmBaseOperationsCollectionItem,
-  vcmOperationsCollectionItem,
-  vcmModule
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmBaseOperationsCollection
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , vcmBaseOperationsCollectionItem
+ , vcmOperationsCollectionItem
+ , vcmModule
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TvcmBaseOperationsCollection.NeedToBeStored: Boolean;
 //#UC START# *56116D4D02C6_55D30E6601A8_var*
@@ -120,10 +95,11 @@ begin
 end;//TvcmBaseOperationsCollection.NeedToBeStored
 
 procedure TvcmBaseOperationsCollection.Operation(aControl: TComponent;
-  const aTarget: IUnknown;
-  anOperationID: TvcmControlID;
-  aMode: TvcmOperationMode;
-  const aParams: IvcmParams);
+ const aTarget: IUnknown;
+ anOperationID: TvcmControlID;
+ aMode: TvcmOperationMode;
+ const aParams: IvcmParams);
+ {* выполняет операцию сущности }
 //#UC START# *56116D7B0216_55D30E6601A8_var*
 var
  l_Item: TvcmBaseOperationsCollectionItem;
@@ -137,6 +113,7 @@ begin
 end;//TvcmBaseOperationsCollection.Operation
 
 procedure TvcmBaseOperationsCollection.GetOperations(anOperations: TvcmOperationDefList);
+ {* возвращает список описателей операций }
 //#UC START# *56116DA502E0_55D30E6601A8_var*
 var
  l_Index: Integer;
@@ -169,10 +146,11 @@ begin
 end;//TvcmBaseOperationsCollection.RegisterInRep
 
 procedure TvcmBaseOperationsCollection.PublishOp(aControl: TComponent;
-  const anOperation: TvcmString;
-  anExecute: TvcmControlExecuteEvent;
-  aTest: TvcmControlTestEvent;
-  aGetState: TvcmControlGetStateEvent);
+ const anOperation: TvcmString;
+ anExecute: TvcmControlExecuteEvent;
+ aTest: TvcmControlTestEvent;
+ aGetState: TvcmControlGetStateEvent);
+ {* опубликовать операцию }
 //#UC START# *56116DD0036F_55D30E6601A8_var*
 var
  l_Item: TvcmBaseOperationsCollectionItem;
@@ -194,10 +172,11 @@ begin
 end;//TvcmBaseOperationsCollection.PublishOp
 
 procedure TvcmBaseOperationsCollection.PublishOpWithResult(aControl: TComponent;
-  const anOperation: TvcmString;
-  anExecute: TvcmExecuteEvent;
-  aTest: TvcmControlTestEvent;
-  aGetState: TvcmControlGetStateEvent);
+ const anOperation: TvcmString;
+ anExecute: TvcmExecuteEvent;
+ aTest: TvcmControlTestEvent;
+ aGetState: TvcmControlGetStateEvent);
+ {* опубликовать операцию }
 //#UC START# *56116E0A026F_55D30E6601A8_var*
 var
  l_Item: TvcmBaseOperationsCollectionItem;
@@ -217,6 +196,7 @@ begin
 end;//TvcmBaseOperationsCollection.PublishOpWithResult
 
 procedure TvcmBaseOperationsCollection.UnlinkControl(aControl: TComponent);
+ {* отвязать контрол }
 //#UC START# *56116E2E0246_55D30E6601A8_var*
 var
  l_Index: Integer;
@@ -269,7 +249,7 @@ begin
 end;//TvcmBaseOperationsCollection.GetAttr
 
 function TvcmBaseOperationsCollection.GetItemAttr(Index: Integer;
-  ItemIndex: Integer): AnsiString;
+ ItemIndex: Integer): AnsiString;
 //#UC START# *560A9DEB0155_55D30E6601A8_var*
 var
  l_C: Integer;
@@ -290,12 +270,11 @@ begin
 //#UC END# *560A9DEB0155_55D30E6601A8_impl*
 end;//TvcmBaseOperationsCollection.GetItemAttr
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmBaseOperationsCollection
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmBaseOperationsCollection);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmBaseOperationsCollection }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

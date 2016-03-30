@@ -1,69 +1,65 @@
 unit ddVirtualTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddVirtualTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Convertors::TddVirtualTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddVirtualTable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddVirtualTable" MUID: (4F683CE400D6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddTableConvTypes,
-  ddTable,
-  ddCustomDestination
-  ;
+ l3IntfUses
+ , ddTable
+ , ddTableConvTypes
+ , ddCustomDestination
+;
 
 type
  TddVirtualTable = class(TddTable)
- private
- // private fields
-   f_CellAdjust : TddAutoFitBehavior;
-    {* Поле для свойства CellAdjust}
-   f_MaxWidth : Integer;
-    {* Поле для свойства MaxWidth}
- protected
- // property methods
+  private
+   f_CellAdjust: TddAutoFitBehavior;
+    {* Поле для свойства CellAdjust }
+   f_MaxWidth: Integer;
+    {* Поле для свойства MaxWidth }
+  protected
    function pm_GetTotalCellCount: Integer;
- public
- // overridden public methods
-   constructor Create(aDetination: TddCustomDestination); override;
- public
- // public methods
+  public
    procedure Restructure(NewCellCount: Integer);
- public
- // public properties
+   constructor Create(aDetination: TddCustomDestination); override;
+  public
    property CellAdjust: TddAutoFitBehavior
-     read f_CellAdjust
-     write f_CellAdjust;
+    read f_CellAdjust
+    write f_CellAdjust;
    property MaxWidth: Integer
-     read f_MaxWidth
-     write f_MaxWidth;
+    read f_MaxWidth
+    write f_MaxWidth;
    property TotalCellCount: Integer
-     read pm_GetTotalCellCount;
+    read pm_GetTotalCellCount;
  end;//TddVirtualTable
 
 implementation
 
 uses
-  l3UnitsTools,
-  l3MinMax,
-  l3Base,
-  ddTableRow,
-  ddTextParagraph
-  ;
+ l3ImplUses
+ , l3UnitsTools
+ , l3MinMax
+ , l3Base
+ , ddTableRow
+ , ddTextParagraph
+;
 
-// start class TddVirtualTable
+function TddVirtualTable.pm_GetTotalCellCount: Integer;
+//#UC START# *4FACE27702C7_4F683CE400D6get_var*
+//#UC END# *4FACE27702C7_4F683CE400D6get_var*
+begin
+//#UC START# *4FACE27702C7_4F683CE400D6get_impl*
+ if LastRow <> nil then
+  Result:= RowList.Count*LastRow.CellCount
+ else
+  Result:= 0;
+//#UC END# *4FACE27702C7_4F683CE400D6get_impl*
+end;//TddVirtualTable.pm_GetTotalCellCount
 
 procedure TddVirtualTable.Restructure(NewCellCount: Integer);
 //#UC START# *4FACE2C8026A_4F683CE400D6_var*
@@ -144,18 +140,6 @@ begin
  end; // l_NewTable
 //#UC END# *4FACE2C8026A_4F683CE400D6_impl*
 end;//TddVirtualTable.Restructure
-
-function TddVirtualTable.pm_GetTotalCellCount: Integer;
-//#UC START# *4FACE27702C7_4F683CE400D6get_var*
-//#UC END# *4FACE27702C7_4F683CE400D6get_var*
-begin
-//#UC START# *4FACE27702C7_4F683CE400D6get_impl*
- if LastRow <> nil then
-  Result:= RowList.Count*LastRow.CellCount
- else
-  Result:= 0;
-//#UC END# *4FACE27702C7_4F683CE400D6get_impl*
-end;//TddVirtualTable.pm_GetTotalCellCount
 
 constructor TddVirtualTable.Create(aDetination: TddCustomDestination);
 //#UC START# *51E91BA80051_4F683CE400D6_var*

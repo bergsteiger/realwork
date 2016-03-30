@@ -1,50 +1,39 @@
 unit vcmOperationsDefIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmOperationsDefIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmOperationsDefIterator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmOperationsDefIterator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmOperationsDefIterator" MUID: (5582C4210160)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmUserControls,
-  vcmOperationDefList,
-  vcmBase
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmUserControls
+ , vcmOperationDefList
+ , vcmBase
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = IvcmOperationDef;
  _ListType_ = TvcmOperationDefList;
- {$Include ..\implementation\vcmIterator.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
  TvcmOperationsDefIterator = class(_vcmIterator_, IvcmOperationsDefIterator)
- protected
- // realized methods
+  protected
    function Get_Next: IvcmOperationDef;
  end;//TvcmOperationsDefIterator
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
-{$Include ..\implementation\vcmIterator.imp.pas}
-
-// start class TvcmOperationsDefIterator
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
 
 function TvcmOperationsDefIterator.Get_Next: IvcmOperationDef;
 //#UC START# *4995645B02C7_5582C4210160get_var*
@@ -54,7 +43,6 @@ begin
  Result := GetNext;
 //#UC END# *4995645B02C7_5582C4210160get_impl*
 end;//TvcmOperationsDefIterator.Get_Next
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

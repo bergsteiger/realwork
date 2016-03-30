@@ -1,48 +1,36 @@
 unit ddBaseObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddBaseObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddBaseObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddBaseObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddBaseObject" MUID: (52BACF040379)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  l3ProtoObject,
-  ddTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , k2Interfaces
+ , ddTypes
+;
 
 type
  TddBaseObject = class(Tl3ProtoObject)
- public
- // public methods
+  public
    procedure Assign(anObject: TddBaseObject); virtual;
    constructor Create; reintroduce; virtual;
-     {* Сигнатура метода Create }
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: TddLiteVersion); virtual; abstract;
+    aLiteVersion: TddLiteVersion); virtual; abstract;
  end;//TddBaseObject
 
 implementation
 
 uses
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddBaseObject
+ l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
+;
 
 procedure TddBaseObject.Assign(anObject: TddBaseObject);
 //#UC START# *52BACF8A01A9_52BACF040379_var*

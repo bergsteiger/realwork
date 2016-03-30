@@ -22,7 +22,6 @@ type
  TddRTFDestination = class(TddCustomDestination)
   private
    f_RDS: TRDS;
-    {* Поле для свойства RDS }
   protected
    f_CustomRTFReader: TddCustomRTFReader;
   protected

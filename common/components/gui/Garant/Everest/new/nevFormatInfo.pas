@@ -1,119 +1,124 @@
 unit nevFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormatInfo.pas"
-// Начат: 24.04.2008 23:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormatInfo" MUID: (4810DFE100B4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3InternalInterfaces,
-  nevTools,
-  evResultFontInterfaces,
-  l3Variant,
-  k2Base
-  ;
+ l3IntfUses
+ , nevBase
+ , nevTools
+ , l3Variant
+ , evResultFontInterfaces
+ , l3InternalInterfaces
+ , k2Base
+;
 
 type
+ RnevFormatInfo = class of TnevFormatInfo;
+
  TnevFormatInfoRec = record
-   rHeight : Integer;
-   rWidth : Integer;
+  rHeight: Integer;
+  rWidth: Integer;
  end;//TnevFormatInfoRec
 
  TnevRenderingInfoPart = (
   {* Часть информации о форматировании. }
-   nev_ripHeight
- , nev_ripLines
- , nev_ripWidth
- , nev_ripDeltaHeight
- , nev_ripCellParams
+  nev_ripHeight
+  , nev_ripLines
+  , nev_ripWidth
+  , nev_ripDeltaHeight
+  , nev_ripCellParams
  );//TnevRenderingInfoPart
 
  TnevRenderingInfoParts = set of TnevRenderingInfoPart;
   {* Информация о форматировании. }
 
-const
- nev_ripAll = [Low(TnevRenderingInfoPart)..High(TnevRenderingInfoPart)];
-
-type
  TnevCachedControlImageInfo = record
-   rInfo : TnevControlImageInfo;
-   rIsCached : Boolean;
+  rInfo: TnevControlImageInfo;
+  rIsCached: Boolean;
  end;//TnevCachedControlImageInfo
 
  TnevCachedInteger = record
-   rValue : Integer;
-   rIsCached : Boolean;
+  rValue: Integer;
+  rIsCached: Boolean;
  end;//TnevCachedInteger
 
  TnevCachedFont = record
-   rValue : InevFont;
-   rIsCached : Boolean;
+  rValue: InevFont;
+  rIsCached: Boolean;
  end;//TnevCachedFont
 
  TnevCachedDecorHeight = array [TnevDecorType] of TnevCachedInteger;
 
  TnevCahcedSpacing = record
-   rValue : TnevRect;
-   rIsCached : Boolean;
+  rValue: TnevRect;
+  rIsCached: Boolean;
  end;//TnevCahcedSpacing
 
- RnevFormatInfo = class of TnevFormatInfo;
-
  TnevFormatInfo = class(TnevFormatInfoPrim)
- private
- // private fields
-   f_ImageInfo : TnevCachedControlImageInfo;
-   f_FirstIndent : TnevCachedInteger;
-   f_FrameFont : TnevCachedFont;
-   f_DecorHeight : TnevCachedDecorHeight;
-   f_Spacing : TnevCahcedSpacing;
-   f_FrameTextFormatInfo : TnevFormatInfo;
-   f_Prepared : TnevRenderingInfoParts;
-    {* Поле для свойства Prepared}
-   f_LimitWidth : Integer;
-    {* Поле для свойства LimitWidth}
-   f_Obj : InevObjectPrim;
-    {* Поле для свойства Obj}
-   f_Parent : TnevFormatInfo;
-    {* Поле для свойства Parent}
- private
- // private methods
+  private
+   f_ImageInfo: TnevCachedControlImageInfo;
+   f_FirstIndent: TnevCachedInteger;
+   f_FrameFont: TnevCachedFont;
+   f_DecorHeight: TnevCachedDecorHeight;
+   f_Spacing: TnevCahcedSpacing;
+   f_FrameTextFormatInfo: TnevFormatInfo;
+   f_Prepared: TnevRenderingInfoParts;
+    {* Поле для свойства Prepared }
+   f_LimitWidth: Integer;
+    {* Поле для свойства LimitWidth }
+   f_Obj: InevObjectPrim;
+    {* Поле для свойства Obj }
+   f_Parent: TnevFormatInfo;
+    {* Поле для свойства Parent }
+  protected
+   f_FI: TnevFormatInfoRec;
+   f_ParaFont: IevResultFont;
+  public
+   SectionBreak: InevObject;
+  private
    procedure DoPrepare;
- protected
- // property methods
-   function pm_GetLocDeltaHeight: Integer; virtual;
+  protected
+   function pm_GetlocDeltaHeight: Integer; virtual;
    function pm_GetViewSegmentsPlace: Tl3Variant; virtual;
    procedure pm_SetLimitWidth(aValue: Integer);
    function pm_GetLinesPlace: InevLines; virtual;
    procedure pm_SetLinesPlace(const aValue: InevLines); virtual;
-   function pm_GetLocSpacing: TnevRect; virtual;
+   function pm_GetlocSpacing: TnevRect; virtual;
    function pm_GetRendered: Il3Bitmap; virtual;
- protected
- // realized methods
+   procedure ClearCache; virtual;
+   function RootFormatInfo: TnevFormatInfo;
+   procedure TuneFrameText(aText: Tl3Variant); virtual;
+   function IsSegment: Boolean; virtual;
+   procedure DoFontSuperposition(var theResult: IevResultFont;
+    var theNeedApplyZoom: Boolean;
+    aCorrectItalic: Boolean;
+    aInTable: Boolean;
+    var theOwnFont: Boolean); virtual;
+   function GetObjIFont(aCorrectItalic: Boolean): InevFont; virtual;
+   function DoGetFont(aCorrectItalic: Boolean): InevFont; virtual;
+   function locDecorHeight(const aView: InevViewMetrics;
+    aFI: TnevFormatInfo;
+    aType: TnevDecorType): Integer; virtual;
+   function locLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo; virtual;
+   procedure DoRecalc(const aView: InevViewMetrics); virtual;
+   procedure ClearParentRef;
+   function DoCompareWithMax(anIndex: Integer): Integer; virtual;
+   procedure DoUpdateHeitghPart(anIndex: Integer;
+    aValue: Integer); virtual;
+   function GetMaxLinesCount: Integer; virtual;
+   function GetZoomForChild(aChild: TnevFormatInfo): Integer; virtual;
+   function GetIsHidden: Boolean; virtual;
+    {* Объект спрятан }
    function Get_ParentInfo: TnevFormatInfoPrim; override;
-   function InfoForChild(const aChild: InevObjectPrim): TnevFormatInfoPrim; override;
- public
- // realized methods
-   procedure InvalidateShape(const aShape: InevObject;
-    aParts: TnevShapeParts);
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Release; override;
    function Get_DeltaHeight: Integer; override;
    function Get_MaxLinesCount: Integer; override;
    function Get_Zoom: Integer; override;
@@ -127,80 +132,13 @@ type
    function Get_Metrics: InevViewMetrics; override;
    function Get_Spacing: TnevRect; override;
    function Get_Obj: InevObjectPrim; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Release; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   function ViewSegments: Tl3Variant; override;
-   function RLimitWidth: Integer; override;
-   function Width: Integer; override;
-   function Height: Integer; override;
-   function Lines: InevLines; override;
-   function CompareWithMax(anIndex: Integer): Integer; override;
-     {* Сравнить точку с индексом anIndex с максимальной }
-   procedure UpdateHeitghPart(anIndex: Integer;
-     aValue: Integer); override;
-   function DecorFormatInfo(aType: TnevDecorType): TnevFormatInfoPrim; override;
-   function DecorObj(aType: TnevDecorType): Tl3Variant; override;
-   function DecorHeight(aType: TnevDecorType): Integer; override;
-   function ClientToParent(anX: Integer;
-     aParentLevel: TnevParaLevel = nev_plTopmost): Integer; override;
-   function ParentToClient(const aPt: TnevPoint;
-     aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint; override;
-   function GetObjFont(aCorrectItalic: Boolean): IevResultFont; override;
-   function IsHidden(aRecursive: Boolean;
-     aNeedCheckCollapsed: Boolean): Boolean; override;
-   function IsHiddenPrim: Boolean; override;
-   function InPara(aTypeID: Tk2Type): Boolean; override;
-     {* Находится ли объект в родителе указанного типа или сам является таковым }
-   function VerticalAlignmentMargin: Integer; override;
-     {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
-   function GreatestObjPID(anInLines: Boolean = True): Integer; override;
- protected
- // protected fields
-   f_FI : TnevFormatInfoRec;
-   f_ParaFont : IevResultFont;
- public
- // public fields
-   SectionBreak : InevObject;
- protected
- // protected methods
-   procedure ClearCache; virtual;
-   function RootFormatInfo: TnevFormatInfo;
-   procedure TuneFrameText(aText: Tl3Variant); virtual;
-   function IsSegment: Boolean; virtual;
-   procedure DoFontSuperposition(var theResult: IevResultFont;
-     var theNeedApplyZoom: Boolean;
-     aCorrectItalic: Boolean;
-     aInTable: Boolean;
-     var theOwnFont: Boolean); virtual;
-   function GetObjIFont(aCorrectItalic: Boolean): InevFont; virtual;
-   function DoGetFont(aCorrectItalic: Boolean): InevFont; virtual;
-   function LocDecorHeight(const aView: InevViewMetrics;
-     aFI: TnevFormatInfo;
-     aType: TnevDecorType): Integer; virtual;
-   function LocLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo; virtual;
-   procedure DoRecalc(const aView: InevViewMetrics); virtual;
-   procedure ClearParentRef;
-   function DoCompareWithMax(anIndex: Integer): Integer; virtual;
-   procedure DoUpdateHeitghPart(anIndex: Integer;
-    aValue: Integer); virtual;
-   function GetMaxLinesCount: Integer; virtual;
-   function GetZoomForChild(aChild: TnevFormatInfo): Integer; virtual;
-   function GetIsHidden: Boolean; virtual;
-     {* Объект спрятан }
- public
- // public methods
+  public
    function ParaFont(aCorrectItalic: Boolean): IevResultFont; virtual;
    class function CreateInst(const aChild: InevObjectPrim;
-     aParent: TnevFormatInfo;
-     const aMetrics: InevViewMetrics): TnevFormatInfo; virtual;
-   function LocDecorFormatInfo(aType: TnevDecorType): TnevFormatInfo;
+    aParent: TnevFormatInfo;
+    const aMetrics: InevViewMetrics): TnevFormatInfo; virtual;
+   function locDecorFormatInfo(aType: TnevDecorType): TnevFormatInfo;
    function GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo; virtual;
    constructor Create(aParent: TnevFormatInfo;
     const anObject: InevObjectPrim); reintroduce;
@@ -210,103 +148,182 @@ type
    function ViewArea: InevViewArea; virtual;
    function Container: InevObjectHolder; virtual;
    procedure ForceParent;
-   procedure WForce(aParts: TnevRenderingInfoParts); virtual;
+   procedure wForce(aParts: TnevRenderingInfoParts); virtual;
    function Prepare(aParts: TnevRenderingInfoParts): Boolean;
-   procedure WHeight(aValue: Integer);
-   procedure WWidth(aValue: Integer);
-   procedure WMap(const aValue: InevLines);
- protected
- // protected properties
+   procedure wHeight(aValue: Integer);
+   procedure wWidth(aValue: Integer);
+   procedure wMap(const aValue: InevLines);
+   procedure InvalidateShape(const aShape: InevObject;
+    aParts: TnevShapeParts);
+   function InfoForChild(const aChild: InevObjectPrim): TnevFormatInfoPrim; override;
+   function ViewSegments: Tl3Variant; override;
+   function rLimitWidth: Integer; override;
+   function Width: Integer; override;
+   function Height: Integer; override;
+   function Lines: InevLines; override;
+   function CompareWithMax(anIndex: Integer): Integer; override;
+    {* Сравнить точку с индексом anIndex с максимальной }
+   procedure UpdateHeitghPart(anIndex: Integer;
+    aValue: Integer); override;
+   function DecorFormatInfo(aType: TnevDecorType): TnevFormatInfoPrim; override;
+   function DecorObj(aType: TnevDecorType): Tl3Variant; override;
+   function DecorHeight(aType: TnevDecorType): Integer; override;
+   function ClientToParent(anX: Integer;
+    aParentLevel: TnevParaLevel = nev_plTopmost): Integer; override;
+   function ParentToClient(const aPt: TnevPoint;
+    aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint; override;
+   function GetObjFont(aCorrectItalic: Boolean): IevResultFont; override;
+   function IsHidden(aRecursive: Boolean;
+    aNeedCheckCollapsed: Boolean): Boolean; override;
+   function IsHiddenPrim: Boolean; override;
+   function InPara(aTypeID: Tk2Type): Boolean; override;
+    {* Находится ли объект в родителе указанного типа или сам является таковым }
+   function VerticalAlignmentMargin: Integer; override;
+    {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
+   function GreatestObjPID(anInLines: Boolean = True): Integer; override;
+  protected
    property locDeltaHeight: Integer
-     read pm_GetLocDeltaHeight;
-     {* Поправка к высоте - учитывающая объединение по вертикали. }
+    read pm_GetlocDeltaHeight;
+    {* Поправка к высоте - учитывающая объединение по вертикали. }
    property Prepared: TnevRenderingInfoParts
-     read f_Prepared
-     write f_Prepared;
+    read f_Prepared
+    write f_Prepared;
    property ViewSegmentsPlace: Tl3Variant
-     read pm_GetViewSegmentsPlace;
+    read pm_GetViewSegmentsPlace;
    property LinesPlace: InevLines
-     read pm_GetLinesPlace
-     write pm_SetLinesPlace;
+    read pm_GetLinesPlace
+    write pm_SetLinesPlace;
    property Parent: TnevFormatInfo
-     read f_Parent;
+    read f_Parent;
    property locSpacing: TnevRect
-     read pm_GetLocSpacing;
+    read pm_GetlocSpacing;
    property Rendered: Il3Bitmap
-     read pm_GetRendered;
- public
- // public properties
+    read pm_GetRendered;
+  public
    property LimitWidth: Integer
-     read f_LimitWidth
-     write pm_SetLimitWidth;
+    read f_LimitWidth
+    write pm_SetLimitWidth;
    property Obj: InevObjectPrim
-     read f_Obj;
+    read f_Obj;
  end;//TnevFormatInfo
+
+const
+ nev_ripAll = [Low(TnevRenderingInfoPart) .. High(TnevRenderingInfoPart)];
 
 implementation
 
 uses
-  k2Tags,
-  SysUtils,
-  nevFormatInfoFactory,
-  k2Const,
-  l3Base,
-  TextPara_Const,
-  evdStyles,
-  Graphics,
-  l3MinMax,
-  l3Types,
-  l3String,
-  l3Units,
-  evStandardStyles
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evStyleInterface,
-  evDefaultStylesFontSizes,
-  l3Math,
-  evdTypes,
-  Table_Const,
-  evDef,
-  evGlyphFont,
-  evResultFontHolder,
-  l3Chars,
-  evdStylesRes,
-  l3ImageList,
-  evdTextStyle_Const,
-  evTextStyle_Const
-  ;
+ l3ImplUses
+ , k2Tags
+ , SysUtils
+ , nevFormatInfoFactory
+ , k2Const
+ , l3Base
+ , TextPara_Const
+ , evdStyles
+ , Graphics
+ , l3MinMax
+ , l3Types
+ , l3String
+ , l3Units
+ , evStandardStyles
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evStyleInterface
+ , evDefaultStylesFontSizes
+ , l3Math
+ , evdTypes
+ , Table_Const
+ , evDef
+ , evGlyphFont
+ , evResultFontHolder
+ , l3Chars
+ , evdStylesRes
+ , l3ImageList
+ , evdTextStyle_Const
+ , evTextStyle_Const
+;
 
-// start class TnevFormatInfo
-
-procedure TnevFormatInfo.DoPrepare;
-//#UC START# *4E709452014A_4810DFE100B4_var*
-var
- l_LS : Integer;
- l_V  : InevViewMetrics;
-//#UC END# *4E709452014A_4810DFE100B4_var*
+function TnevFormatInfo.pm_GetlocDeltaHeight: Integer;
+//#UC START# *4848EB800387_4810DFE100B4get_var*
+//#UC END# *4848EB800387_4810DFE100B4get_var*
 begin
-//#UC START# *4E709452014A_4810DFE100B4_impl*
- l_LS := Get_LineSpacing;
- l_V := Metrics;
- l_V.InfoCanvas.PushLineSpacing;
- try
-  l_V.FormatCanvas.PushLineSpacing;
-  try
-   l_V.InfoCanvas.LineSpacing := l_LS;
-   l_V.FormatCanvas.LineSpacing := l_LS;
-  (* if not Para.IsHiddenPrim(Map, f_View.HiddenStyles) then*)
-    DoRecalc(l_V);
-  finally
-   l_V.FormatCanvas.PopLineSpacing;
-  end;//try..finally
- finally
-  l_V.InfoCanvas.PopLineSpacing;
- end;//try..finally
-//#UC END# *4E709452014A_4810DFE100B4_impl*
-end;//TnevFormatInfo.DoPrepare
+//#UC START# *4848EB800387_4810DFE100B4get_impl*
+ Result := 0;
+//#UC END# *4848EB800387_4810DFE100B4get_impl*
+end;//TnevFormatInfo.pm_GetlocDeltaHeight
+
+function TnevFormatInfo.pm_GetViewSegmentsPlace: Tl3Variant;
+//#UC START# *4821DB2500CB_4810DFE100B4get_var*
+//#UC END# *4821DB2500CB_4810DFE100B4get_var*
+begin
+//#UC START# *4821DB2500CB_4810DFE100B4get_impl*
+ Result := nil;
+//#UC END# *4821DB2500CB_4810DFE100B4get_impl*
+end;//TnevFormatInfo.pm_GetViewSegmentsPlace
+
+procedure TnevFormatInfo.pm_SetLimitWidth(aValue: Integer);
+//#UC START# *4821DDF603AB_4810DFE100B4set_var*
+//#UC END# *4821DDF603AB_4810DFE100B4set_var*
+begin
+//#UC START# *4821DDF603AB_4810DFE100B4set_impl*
+ if (f_LimitWidth <> aValue) then
+ begin
+  f_LimitWidth := aValue;
+  wForce(nev_ripAll);
+ end;//f_LimitWidth <> aValue
+//#UC END# *4821DDF603AB_4810DFE100B4set_impl*
+end;//TnevFormatInfo.pm_SetLimitWidth
+
+function TnevFormatInfo.pm_GetLinesPlace: InevLines;
+//#UC START# *4821DE24003D_4810DFE100B4get_var*
+//#UC END# *4821DE24003D_4810DFE100B4get_var*
+begin
+//#UC START# *4821DE24003D_4810DFE100B4get_impl*
+ Result := nil;
+//#UC END# *4821DE24003D_4810DFE100B4get_impl*
+end;//TnevFormatInfo.pm_GetLinesPlace
+
+procedure TnevFormatInfo.pm_SetLinesPlace(const aValue: InevLines);
+//#UC START# *4821DE24003D_4810DFE100B4set_var*
+//#UC END# *4821DE24003D_4810DFE100B4set_var*
+begin
+//#UC START# *4821DE24003D_4810DFE100B4set_impl*
+ Assert(aValue = nil);
+//#UC END# *4821DE24003D_4810DFE100B4set_impl*
+end;//TnevFormatInfo.pm_SetLinesPlace
+
+function TnevFormatInfo.pm_GetlocSpacing: TnevRect;
+//#UC START# *4E5F3D1102B8_4810DFE100B4get_var*
+//#UC END# *4E5F3D1102B8_4810DFE100B4get_var*
+begin
+//#UC START# *4E5F3D1102B8_4810DFE100B4get_impl*
+ Result.Left := Obj.AsObject.IntA[k2_tiLeftIndent];
+ Result.Right := Obj.AsObject.IntA[k2_tiRightIndent];
+ Result.Top := Obj.AsObject.IntA[k2_tiSpaceBefore];
+ Result.Bottom := Obj.AsObject.IntA[k2_tiSpaceAfter];
+ with Obj.AsObject.Attr[k2_tiFrame] do
+  if IsValid then
+  begin
+   with Attr[k2_tiFrameUp] do
+    if IsValid then
+     Result.Top := Result.Top + IntA[k2_tiSpaceAfter] + IntA[k2_tiWidth] + IntA[k2_tiSpaceBefore];
+   with Attr[k2_tiFrameDown] do
+    if IsValid then
+     Result.Bottom := Result.Bottom + IntA[k2_tiSpaceAfter] + IntA[k2_tiWidth] + IntA[k2_tiSpaceBefore];
+  end;//IsValid
+//#UC END# *4E5F3D1102B8_4810DFE100B4get_impl*
+end;//TnevFormatInfo.pm_GetlocSpacing
+
+function TnevFormatInfo.pm_GetRendered: Il3Bitmap;
+//#UC START# *4E60F48503E6_4810DFE100B4get_var*
+//#UC END# *4E60F48503E6_4810DFE100B4get_var*
+begin
+//#UC START# *4E60F48503E6_4810DFE100B4get_impl*
+ Result := nil;
+//#UC END# *4E60F48503E6_4810DFE100B4get_impl*
+end;//TnevFormatInfo.pm_GetRendered
 
 procedure TnevFormatInfo.ClearCache;
 //#UC START# *4E5E7D240227_4810DFE100B4_var*
@@ -415,10 +432,10 @@ begin
 end;//TnevFormatInfo.ParaFont
 
 procedure TnevFormatInfo.DoFontSuperposition(var theResult: IevResultFont;
-  var theNeedApplyZoom: Boolean;
-  aCorrectItalic: Boolean;
-  aInTable: Boolean;
-  var theOwnFont: Boolean);
+ var theNeedApplyZoom: Boolean;
+ aCorrectItalic: Boolean;
+ aInTable: Boolean;
+ var theOwnFont: Boolean);
 //#UC START# *4E5FC90E03BD_4810DFE100B4_var*
 //#UC END# *4E5FC90E03BD_4810DFE100B4_var*
 begin
@@ -445,9 +462,9 @@ begin
 //#UC END# *4E60CEB700BD_4810DFE100B4_impl*
 end;//TnevFormatInfo.DoGetFont
 
-function TnevFormatInfo.LocDecorHeight(const aView: InevViewMetrics;
-  aFI: TnevFormatInfo;
-  aType: TnevDecorType): Integer;
+function TnevFormatInfo.locDecorHeight(const aView: InevViewMetrics;
+ aFI: TnevFormatInfo;
+ aType: TnevDecorType): Integer;
 //#UC START# *4E6DE6D800F4_4810DFE100B4_var*
 var
  l_FI : TnevFormatInfo;
@@ -516,20 +533,20 @@ begin
   if (not l_Collapsed OR (aType = nev_dtHeader)) AND l_Allow then
    Inc(Result, l_FI.Height);
 //#UC END# *4E6DE6D800F4_4810DFE100B4_impl*
-end;//TnevFormatInfo.LocDecorHeight
+end;//TnevFormatInfo.locDecorHeight
 
-function TnevFormatInfo.LocLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo;
+function TnevFormatInfo.locLocDecorFormatInfo(const aDecorObj: InevObjectPrim): TnevFormatInfo;
 //#UC START# *4E6DF94C00F1_4810DFE100B4_var*
 //#UC END# *4E6DF94C00F1_4810DFE100B4_var*
 begin
 //#UC START# *4E6DF94C00F1_4810DFE100B4_impl*
  Result := GetInfoForChild(aDecorObj);
 //#UC END# *4E6DF94C00F1_4810DFE100B4_impl*
-end;//TnevFormatInfo.LocLocDecorFormatInfo
+end;//TnevFormatInfo.locLocDecorFormatInfo
 
 class function TnevFormatInfo.CreateInst(const aChild: InevObjectPrim;
-  aParent: TnevFormatInfo;
-  const aMetrics: InevViewMetrics): TnevFormatInfo;
+ aParent: TnevFormatInfo;
+ const aMetrics: InevViewMetrics): TnevFormatInfo;
 //#UC START# *4E706B7C00A6_4810DFE100B4_var*
 //#UC END# *4E706B7C00A6_4810DFE100B4_var*
 begin
@@ -537,6 +554,33 @@ begin
  Result := Create(aParent, aChild);
 //#UC END# *4E706B7C00A6_4810DFE100B4_impl*
 end;//TnevFormatInfo.CreateInst
+
+procedure TnevFormatInfo.DoPrepare;
+//#UC START# *4E709452014A_4810DFE100B4_var*
+var
+ l_LS : Integer;
+ l_V  : InevViewMetrics;
+//#UC END# *4E709452014A_4810DFE100B4_var*
+begin
+//#UC START# *4E709452014A_4810DFE100B4_impl*
+ l_LS := Get_LineSpacing;
+ l_V := Metrics;
+ l_V.InfoCanvas.PushLineSpacing;
+ try
+  l_V.FormatCanvas.PushLineSpacing;
+  try
+   l_V.InfoCanvas.LineSpacing := l_LS;
+   l_V.FormatCanvas.LineSpacing := l_LS;
+  (* if not Para.IsHiddenPrim(Map, f_View.HiddenStyles) then*)
+    DoRecalc(l_V);
+  finally
+   l_V.FormatCanvas.PopLineSpacing;
+  end;//try..finally
+ finally
+  l_V.InfoCanvas.PopLineSpacing;
+ end;//try..finally
+//#UC END# *4E709452014A_4810DFE100B4_impl*
+end;//TnevFormatInfo.DoPrepare
 
 procedure TnevFormatInfo.DoRecalc(const aView: InevViewMetrics);
 //#UC START# *4E7094780214_4810DFE100B4_var*
@@ -548,7 +592,7 @@ begin
 //#UC END# *4E7094780214_4810DFE100B4_impl*
 end;//TnevFormatInfo.DoRecalc
 
-function TnevFormatInfo.LocDecorFormatInfo(aType: TnevDecorType): TnevFormatInfo;
+function TnevFormatInfo.locDecorFormatInfo(aType: TnevDecorType): TnevFormatInfo;
 //#UC START# *4E70C2570279_4810DFE100B4_var*
 var
  l_H : Tl3Variant;
@@ -567,7 +611,7 @@ begin
  else
   Result := nil;
 //#UC END# *4E70C2570279_4810DFE100B4_impl*
-end;//TnevFormatInfo.LocDecorFormatInfo
+end;//TnevFormatInfo.locDecorFormatInfo
 
 procedure TnevFormatInfo.ClearParentRef;
 //#UC START# *4EA573D600DB_4810DFE100B4_var*
@@ -577,86 +621,6 @@ begin
  f_Parent := nil;
 //#UC END# *4EA573D600DB_4810DFE100B4_impl*
 end;//TnevFormatInfo.ClearParentRef
-
-function TnevFormatInfo.pm_GetLocDeltaHeight: Integer;
-//#UC START# *4848EB800387_4810DFE100B4get_var*
-//#UC END# *4848EB800387_4810DFE100B4get_var*
-begin
-//#UC START# *4848EB800387_4810DFE100B4get_impl*
- Result := 0;
-//#UC END# *4848EB800387_4810DFE100B4get_impl*
-end;//TnevFormatInfo.pm_GetLocDeltaHeight
-
-function TnevFormatInfo.pm_GetViewSegmentsPlace: Tl3Variant;
-//#UC START# *4821DB2500CB_4810DFE100B4get_var*
-//#UC END# *4821DB2500CB_4810DFE100B4get_var*
-begin
-//#UC START# *4821DB2500CB_4810DFE100B4get_impl*
- Result := nil;
-//#UC END# *4821DB2500CB_4810DFE100B4get_impl*
-end;//TnevFormatInfo.pm_GetViewSegmentsPlace
-
-procedure TnevFormatInfo.pm_SetLimitWidth(aValue: Integer);
-//#UC START# *4821DDF603AB_4810DFE100B4set_var*
-//#UC END# *4821DDF603AB_4810DFE100B4set_var*
-begin
-//#UC START# *4821DDF603AB_4810DFE100B4set_impl*
- if (f_LimitWidth <> aValue) then
- begin
-  f_LimitWidth := aValue;
-  wForce(nev_ripAll);
- end;//f_LimitWidth <> aValue
-//#UC END# *4821DDF603AB_4810DFE100B4set_impl*
-end;//TnevFormatInfo.pm_SetLimitWidth
-
-function TnevFormatInfo.pm_GetLinesPlace: InevLines;
-//#UC START# *4821DE24003D_4810DFE100B4get_var*
-//#UC END# *4821DE24003D_4810DFE100B4get_var*
-begin
-//#UC START# *4821DE24003D_4810DFE100B4get_impl*
- Result := nil;
-//#UC END# *4821DE24003D_4810DFE100B4get_impl*
-end;//TnevFormatInfo.pm_GetLinesPlace
-
-procedure TnevFormatInfo.pm_SetLinesPlace(const aValue: InevLines);
-//#UC START# *4821DE24003D_4810DFE100B4set_var*
-//#UC END# *4821DE24003D_4810DFE100B4set_var*
-begin
-//#UC START# *4821DE24003D_4810DFE100B4set_impl*
- Assert(aValue = nil);
-//#UC END# *4821DE24003D_4810DFE100B4set_impl*
-end;//TnevFormatInfo.pm_SetLinesPlace
-
-function TnevFormatInfo.pm_GetLocSpacing: TnevRect;
-//#UC START# *4E5F3D1102B8_4810DFE100B4get_var*
-//#UC END# *4E5F3D1102B8_4810DFE100B4get_var*
-begin
-//#UC START# *4E5F3D1102B8_4810DFE100B4get_impl*
- Result.Left := Obj.AsObject.IntA[k2_tiLeftIndent];
- Result.Right := Obj.AsObject.IntA[k2_tiRightIndent];
- Result.Top := Obj.AsObject.IntA[k2_tiSpaceBefore];
- Result.Bottom := Obj.AsObject.IntA[k2_tiSpaceAfter];
- with Obj.AsObject.Attr[k2_tiFrame] do
-  if IsValid then
-  begin
-   with Attr[k2_tiFrameUp] do
-    if IsValid then
-     Result.Top := Result.Top + IntA[k2_tiSpaceAfter] + IntA[k2_tiWidth] + IntA[k2_tiSpaceBefore];
-   with Attr[k2_tiFrameDown] do
-    if IsValid then
-     Result.Bottom := Result.Bottom + IntA[k2_tiSpaceAfter] + IntA[k2_tiWidth] + IntA[k2_tiSpaceBefore];
-  end;//IsValid
-//#UC END# *4E5F3D1102B8_4810DFE100B4get_impl*
-end;//TnevFormatInfo.pm_GetLocSpacing
-
-function TnevFormatInfo.pm_GetRendered: Il3Bitmap;
-//#UC START# *4E60F48503E6_4810DFE100B4get_var*
-//#UC END# *4E60F48503E6_4810DFE100B4get_var*
-begin
-//#UC START# *4E60F48503E6_4810DFE100B4get_impl*
- Result := nil;
-//#UC END# *4E60F48503E6_4810DFE100B4get_impl*
-end;//TnevFormatInfo.pm_GetRendered
 
 function TnevFormatInfo.GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo;
 //#UC START# *4815C94A027A_4810DFE100B4_var*
@@ -669,7 +633,7 @@ begin
 end;//TnevFormatInfo.GetInfoForChild
 
 constructor TnevFormatInfo.Create(aParent: TnevFormatInfo;
-  const anObject: InevObjectPrim);
+ const anObject: InevObjectPrim);
 //#UC START# *4815CE050234_4810DFE100B4_var*
 //#UC END# *4815CE050234_4810DFE100B4_var*
 begin
@@ -731,7 +695,7 @@ begin
 //#UC END# *4817487000B5_4810DFE100B4_impl*
 end;//TnevFormatInfo.ForceParent
 
-procedure TnevFormatInfo.WForce(aParts: TnevRenderingInfoParts);
+procedure TnevFormatInfo.wForce(aParts: TnevRenderingInfoParts);
 //#UC START# *48175C1302A3_4810DFE100B4_var*
 //#UC END# *48175C1302A3_4810DFE100B4_var*
 begin
@@ -740,7 +704,7 @@ begin
   ClearCache;
  f_Prepared := f_Prepared - aParts;
 //#UC END# *48175C1302A3_4810DFE100B4_impl*
-end;//TnevFormatInfo.WForce
+end;//TnevFormatInfo.wForce
 
 function TnevFormatInfo.Prepare(aParts: TnevRenderingInfoParts): Boolean;
 //#UC START# *481DDAAE014B_4810DFE100B4_var*
@@ -770,7 +734,7 @@ begin
 end;//TnevFormatInfo.DoCompareWithMax
 
 procedure TnevFormatInfo.DoUpdateHeitghPart(anIndex: Integer;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *4B9A1028013D_4810DFE100B4_var*
 //#UC END# *4B9A1028013D_4810DFE100B4_var*
 begin
@@ -801,6 +765,7 @@ begin
 end;//TnevFormatInfo.GetZoomForChild
 
 function TnevFormatInfo.GetIsHidden: Boolean;
+ {* Объект спрятан }
 //#UC START# *4C0D27380357_4810DFE100B4_var*
 //#UC END# *4C0D27380357_4810DFE100B4_var*
 begin
@@ -809,7 +774,7 @@ begin
 //#UC END# *4C0D27380357_4810DFE100B4_impl*
 end;//TnevFormatInfo.GetIsHidden
 
-procedure TnevFormatInfo.WHeight(aValue: Integer);
+procedure TnevFormatInfo.wHeight(aValue: Integer);
 //#UC START# *481DEC1D0261_4810DFE100B4_var*
 //#UC END# *481DEC1D0261_4810DFE100B4_var*
 begin
@@ -817,9 +782,9 @@ begin
  f_FI.rHeight := aValue;
  Include(f_Prepared, nev_ripHeight);
 //#UC END# *481DEC1D0261_4810DFE100B4_impl*
-end;//TnevFormatInfo.WHeight
+end;//TnevFormatInfo.wHeight
 
-procedure TnevFormatInfo.WWidth(aValue: Integer);
+procedure TnevFormatInfo.wWidth(aValue: Integer);
 //#UC START# *481DEC1701E4_4810DFE100B4_var*
 //#UC END# *481DEC1701E4_4810DFE100B4_var*
 begin
@@ -827,9 +792,9 @@ begin
  f_FI.rWidth := aValue;
  Include(f_Prepared, nev_ripWidth);
 //#UC END# *481DEC1701E4_4810DFE100B4_impl*
-end;//TnevFormatInfo.WWidth
+end;//TnevFormatInfo.wWidth
 
-procedure TnevFormatInfo.WMap(const aValue: InevLines);
+procedure TnevFormatInfo.wMap(const aValue: InevLines);
 //#UC START# *481DF043036F_4810DFE100B4_var*
 //#UC END# *481DF043036F_4810DFE100B4_var*
 begin
@@ -837,10 +802,10 @@ begin
  LinesPlace := aValue;
  Include(f_Prepared, nev_ripLines);
 //#UC END# *481DF043036F_4810DFE100B4_impl*
-end;//TnevFormatInfo.WMap
+end;//TnevFormatInfo.wMap
 
 procedure TnevFormatInfo.InvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *4816E2B2004E_4810DFE100B4_var*
 //#UC END# *4816E2B2004E_4810DFE100B4_var*
 begin
@@ -883,6 +848,7 @@ begin
 end;//TnevFormatInfo.InfoForChild
 
 procedure TnevFormatInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4810DFE100B4_var*
 //#UC END# *479731C50290_4810DFE100B4_var*
 begin
@@ -911,14 +877,14 @@ begin
 //#UC END# *480F39C1037C_4810DFE100B4_impl*
 end;//TnevFormatInfo.ViewSegments
 
-function TnevFormatInfo.RLimitWidth: Integer;
+function TnevFormatInfo.rLimitWidth: Integer;
 //#UC START# *481060DE0339_4810DFE100B4_var*
 //#UC END# *481060DE0339_4810DFE100B4_var*
 begin
 //#UC START# *481060DE0339_4810DFE100B4_impl*
  Result := LimitWidth;
 //#UC END# *481060DE0339_4810DFE100B4_impl*
-end;//TnevFormatInfo.RLimitWidth
+end;//TnevFormatInfo.rLimitWidth
 
 function TnevFormatInfo.Width: Integer;
 //#UC START# *4810665E02DC_4810DFE100B4_var*
@@ -970,6 +936,7 @@ begin
 end;//TnevFormatInfo.Get_DeltaHeight
 
 function TnevFormatInfo.CompareWithMax(anIndex: Integer): Integer;
+ {* Сравнить точку с индексом anIndex с максимальной }
 //#UC START# *4B9A0467010C_4810DFE100B4_var*
 //#UC END# *4B9A0467010C_4810DFE100B4_var*
 begin
@@ -979,7 +946,7 @@ begin
 end;//TnevFormatInfo.CompareWithMax
 
 procedure TnevFormatInfo.UpdateHeitghPart(anIndex: Integer;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *4B9A04B4035A_4810DFE100B4_var*
 //#UC END# *4B9A04B4035A_4810DFE100B4_var*
 begin
@@ -1146,7 +1113,7 @@ begin
 end;//TnevFormatInfo.DecorHeight
 
 function TnevFormatInfo.ClientToParent(anX: Integer;
-  aParentLevel: TnevParaLevel = nev_plTopmost): Integer;
+ aParentLevel: TnevParaLevel = nev_plTopmost): Integer;
 //#UC START# *4E5F6E480332_4810DFE100B4_var*
 var
  l_Para : TnevFormatInfo;
@@ -1166,7 +1133,7 @@ begin
 end;//TnevFormatInfo.ClientToParent
 
 function TnevFormatInfo.ParentToClient(const aPt: TnevPoint;
-  aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint;
+ aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint;
 //#UC START# *4E5F6E6D0264_4810DFE100B4_var*
 var
  l_Para : TnevFormatInfo;
@@ -1448,7 +1415,7 @@ begin
 end;//TnevFormatInfo.Get_LineSpacing
 
 function TnevFormatInfo.IsHidden(aRecursive: Boolean;
-  aNeedCheckCollapsed: Boolean): Boolean;
+ aNeedCheckCollapsed: Boolean): Boolean;
 //#UC START# *4E6F79C702EC_4810DFE100B4_var*
 //#UC END# *4E6F79C702EC_4810DFE100B4_var*
 begin
@@ -1476,6 +1443,7 @@ begin
 end;//TnevFormatInfo.IsHiddenPrim
 
 function TnevFormatInfo.InPara(aTypeID: Tk2Type): Boolean;
+ {* Находится ли объект в родителе указанного типа или сам является таковым }
 //#UC START# *4E70759C00AC_4810DFE100B4_var*
 var
  l_F : TnevFormatInfo;
@@ -1584,7 +1552,6 @@ begin
 end;//TnevFormatInfo.Get_Obj
 
 procedure TnevFormatInfo.ClearFields;
- {-}
 begin
  SectionBreak := nil;
  f_Obj := nil;
@@ -1592,6 +1559,7 @@ begin
 end;//TnevFormatInfo.ClearFields
 
 function TnevFormatInfo.VerticalAlignmentMargin: Integer;
+ {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
 //#UC START# *52021CDE00B2_4810DFE100B4_var*
 //#UC END# *52021CDE00B2_4810DFE100B4_var*
 begin

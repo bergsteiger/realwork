@@ -1,52 +1,38 @@
 unit nevStringCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevStringCache.pas"
-// Начат: 15.09.2011 17:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::StringCache::TnevStringCache
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevStringCache.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevStringCache" MUID: (4E71FC4D02BF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3CProtoObject,
-  l3CustomString
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , nevBase
+ , l3CustomString
+;
 
 type
  _nevStringCache_Parent_ = Tl3CProtoObject;
- {$Include ..\Everest\nevStringCache.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
  TnevStringCache = class(_nevStringCache_, InevStringCache)
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: InevStringCache; reintroduce;
-     {* Сигнатура фабрики TnevStringCache.Make }
  end;//TnevStringCache
 
 implementation
 
 uses
-  evParaString,
-  SysUtils
-  ;
+ l3ImplUses
+ , evParaString
+ , SysUtils
+;
 
-{$Include ..\Everest\nevStringCache.imp.pas}
-
-// start class TnevStringCache
+{$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
 
 constructor TnevStringCache.Create;
 //#UC START# *4E71FCAE00EE_4E71FC4D02BF_var*
@@ -67,6 +53,6 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevStringCache.Make
 
 end.

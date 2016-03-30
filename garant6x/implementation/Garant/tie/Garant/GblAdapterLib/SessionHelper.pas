@@ -1,91 +1,69 @@
 unit SessionHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/SessionHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::ApplicationHelper::SessionHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SessionHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "SessionHelper" MUID: (47711DA00052)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  SessionHelper = class
- private
- // private methods
-   constructor Make; virtual;
- protected
- // property methods
-   function pm_GetIsSessionActive: Boolean; virtual;
-   procedure pm_SetIsSessionActive(aValue: Boolean); virtual;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property is_session_active: Boolean
-     read pm_GetIsSessionActive
-     write pm_SetIsSessionActive;
- public
- // singleton factory method
+  private
+   constructor Make; reintroduce; virtual; stdcall;
+  protected
+   function GetIsSessionActive: ByteBool; virtual; stdcall;
+   procedure SetIsSessionActive(const aValue: ByteBool); virtual; stdcall;
+  public
+   class function Exists: ByteBool; stdcall;
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: SessionHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона SessionHelper }
+  public
+   property IsSessionActive: ByteBool
+    read GetIsSessionActive
+    write SetIsSessionActive;
  end;//SessionHelper
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class SessionHelper
-
-var g_SessionHelper : SessionHelper = nil;
+var g_SessionHelper: SessionHelper = nil;
+ {* Экземпляр синглетона SessionHelper }
 
 procedure SessionHelperFree;
+ {* Метод освобождения экземпляра синглетона SessionHelper }
 begin
  l3Free(g_SessionHelper);
-end;
+end;//SessionHelperFree
 
-class function SessionHelper.Instance: SessionHelper;
-begin
- if (g_SessionHelper = nil) then
- begin
-  l3System.AddExitProc(SessionHelperFree);
-  g_SessionHelper := Create;
- end;
- Result := g_SessionHelper;
-end;
-
-
-function SessionHelper.pm_GetIsSessionActive: Boolean;
+function SessionHelper.GetIsSessionActive: ByteBool;
 //#UC START# *47711DCF03A0_47711DA00052get_var*
 //#UC END# *47711DCF03A0_47711DA00052get_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052get_impl*
-end;//SessionHelper.pm_GetIsSessionActive
+end;//SessionHelper.GetIsSessionActive
 
-procedure SessionHelper.pm_SetIsSessionActive(aValue: Boolean);
+procedure SessionHelper.SetIsSessionActive(const aValue: ByteBool);
 //#UC START# *47711DCF03A0_47711DA00052set_var*
 //#UC END# *47711DCF03A0_47711DA00052set_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052set_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052set_impl*
-end;//SessionHelper.pm_SetIsSessionActive
+end;//SessionHelper.SetIsSessionActive
 
 constructor SessionHelper.Make;
 //#UC START# *477129B00039_47711DA00052_var*
@@ -96,10 +74,21 @@ begin
 //#UC END# *477129B00039_47711DA00052_impl*
 end;//SessionHelper.Make
 
-class function SessionHelper.Exists: Boolean;
- {-}
+class function SessionHelper.Exists: ByteBool;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_SessionHelper <> nil;
 end;//SessionHelper.Exists
+
+class function SessionHelper.Instance: SessionHelper;
+ {* Метод получения экземпляра синглетона SessionHelper }
+begin
+ if (g_SessionHelper = nil) then
+ begin
+  l3System.AddExitProc(SessionHelperFree);
+  g_SessionHelper := Create;
+ end;
+ Result := g_SessionHelper;
+end;//SessionHelper.Instance
 
 end.

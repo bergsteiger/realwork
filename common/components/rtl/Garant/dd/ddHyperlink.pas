@@ -1,60 +1,45 @@
 unit ddHyperlink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddHyperlink.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddHyperlink
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlink.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddHyperlink" MUID: (54D9AC570374)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddTextSegment,
-  k2Interfaces,
-  ddCharacterProperty,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddTextSegment
+ , k2Interfaces
+ , ddCharacterProperty
+ , ddTypes
+;
 
 type
  TddHyperlink = class(TddTextSegment)
- protected
- // realized methods
+  public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aCHP: TddCharacterProperty;
-     aParentCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion); override;
+    aCHP: TddCharacterProperty;
+    aParentCHP: TddCharacterProperty;
+    aLiteVersion: TddLiteVersion); override;
    function Clone: TddTextSegment; override;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-     aLiteVersion: TddLiteVersion): Boolean; override;
- public
- // overridden public methods
+    aLiteVersion: TddLiteVersion): Boolean; override;
    function IsHyperlink: Boolean; override;
  end;//TddHyperlink
 
 implementation
 
 uses
-  ddHyperlinkTarget,
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddHyperlink
+ l3ImplUses
+ , ddHyperlinkTarget
+;
 
 procedure TddHyperlink.Write2Generator(const Generator: Ik2TagGenerator;
-  aCHP: TddCharacterProperty;
-  aParentCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion);
+ aCHP: TddCharacterProperty;
+ aParentCHP: TddCharacterProperty;
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D888450259_54D9AC570374_var*
 var
  j       : Integer;
@@ -94,7 +79,7 @@ begin
 end;//TddHyperlink.Clone
 
 function TddHyperlink.SkipSegment(aDiffCHP: TddCharacterProperty;
-  aLiteVersion: TddLiteVersion): Boolean;
+ aLiteVersion: TddLiteVersion): Boolean;
 //#UC START# *54E4325C00BE_54D9AC570374_var*
 //#UC END# *54E4325C00BE_54D9AC570374_var*
 begin

@@ -1,79 +1,61 @@
 unit ddTab;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTab.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTab
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTab.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTab" MUID: (51E8CE5402CC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddBaseObject,
-  ddTypes,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddBaseObject
+ , ddTypes
+ , k2Interfaces
+;
 
 type
  TddTab = class(TddBaseObject)
- private
- // private fields
-   f_Kind : TTabKind;
-    {* Поле для свойства Kind}
-   f_TabLead : TTabLead;
-    {* Поле для свойства TabLead}
-   f_TabBar : LongInt;
-    {* Поле для свойства TabBar}
-   f_TabPos : LongInt;
-    {* Поле для свойства TabPos}
- protected
- // realized methods
+  private
+   f_Kind: TTabKind;
+    {* Поле для свойства Kind }
+   f_TabLead: TTabLead;
+    {* Поле для свойства TabLead }
+   f_TabBar: LongInt;
+    {* Поле для свойства TabBar }
+   f_TabPos: LongInt;
+    {* Поле для свойства TabPos }
+  public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: TddLiteVersion); override;
- public
- // overridden public methods
+    aLiteVersion: TddLiteVersion); override;
    procedure Assign(anObject: TddBaseObject); override;
    constructor Create; override;
-     {* Сигнатура метода Create }
- public
- // public properties
+  public
    property Kind: TTabKind
-     read f_Kind
-     write f_Kind;
+    read f_Kind
+    write f_Kind;
    property TabLead: TTabLead
-     read f_TabLead
-     write f_TabLead;
+    read f_TabLead
+    write f_TabLead;
    property TabBar: LongInt
-     read f_TabBar
-     write f_TabBar;
+    read f_TabBar
+    write f_TabBar;
    property TabPos: LongInt
-     read f_TabPos
-     write f_TabPos;
+    read f_TabPos
+    write f_TabPos;
  end;//TddTab
 
 implementation
 
 uses
-  l3Interfaces,
-  l3Chars,
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddTab
+ l3ImplUses
+ , l3Interfaces
+ , l3Chars
+;
 
 procedure TddTab.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: TddLiteVersion);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_51E8CE5402CC_var*
 //#UC END# *54DC9795018B_51E8CE5402CC_var*
 begin

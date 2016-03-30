@@ -1,47 +1,38 @@
 unit ContentsTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ContentsTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DocTree_i::ContentsTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ContentsTree" MUID: (4C778A2900FB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  ree,
-  ViewBase
-  ;
+ l3IntfUses
+ , ree
+ , ViewBase
+;
 
 type
  ContentsTree = class
- protected
- // overridden protected methods
+  public
+   NodeType_: ;
+   NodeDelegateType_: ;
+  protected
    function AllocNewView: ViewBase; override;
- public
- // public methods
-   constructor Make(tree);
+  public
+   constructor Make(const tree); reintroduce; stdcall;
  end;//ContentsTree
 
 implementation
 
 uses
-  ContentsView
-  ;
+ l3ImplUses
+ , ContentsView
+;
 
-// start class ContentsTree
-
-constructor ContentsTree.Make(tree);
+constructor ContentsTree.Make(const tree);
 //#UC START# *4C778AE80242_4C778A2900FB_var*
 //#UC END# *4C778AE80242_4C778A2900FB_var*
 begin

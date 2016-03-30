@@ -1,50 +1,39 @@
 unit vcmEntitiesDefIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmEntitiesDefIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmEntitiesDefIterator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmEntitiesDefIterator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntitiesDefIterator" MUID: (5582C49B01E9)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmEntitiesDefList,
-  vcmBase
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmInterfaces
+ , vcmEntitiesDefList
+ , vcmBase
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = IvcmEntityDef;
  _ListType_ = TvcmEntitiesDefList;
- {$Include ..\implementation\vcmIterator.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
  TvcmEntitiesDefIterator = class(_vcmIterator_, IvcmEntitiesDefIterator)
- protected
- // realized methods
+  protected
    function Get_Next: IvcmEntityDef;
  end;//TvcmEntitiesDefIterator
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
-{$Include ..\implementation\vcmIterator.imp.pas}
-
-// start class TvcmEntitiesDefIterator
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
 
 function TvcmEntitiesDefIterator.Get_Next: IvcmEntityDef;
 //#UC START# *49956DB300D6_5582C49B01E9get_var*
@@ -54,7 +43,6 @@ begin
  Result := GetNext;
 //#UC END# *49956DB300D6_5582C49B01E9get_impl*
 end;//TvcmEntitiesDefIterator.Get_Next
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

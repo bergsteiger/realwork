@@ -10,10 +10,11 @@ interface
 
 uses
  l3IntfUses
- , BaseTreeSupportUnit
- , UnderControlUnit
- , BaseTypesUnit
  , IOUnit
+ , BaseTypesUnit
+ , BaseTreeSupportUnit
+ , FiltersUnit
+ , UnderControlUnit
  , ContextSearchSupportUnit
 ;
 
@@ -79,29 +80,29 @@ type
 Атрибуты Caption и Hint унаследованные от Node представляю собой Имя элемента и Пользовательский Комментарий соответственно.
 В качестве BaseEntity нода может содержать Закладку на Документ, Список, Запрос или собственно узел (Folder). Имена и хинты всех элементов (кроме узла) копируются при создании в ноду, однако потом могут изменятся независимо (т.е. изменения имени ноды не влечет за собой изменения имени сущности содержащейся в ней). }
   ['{6B1E4393-7BE4-4201-A8F9-D3C817C440B5}']
-  function Get_id: TFolderId;
-  function Get_creation_date: TDate;
-  procedure save_consultation_to_xml(xml_file_path: PAnsiChar);
+  function GetId: TFolderId; stdcall;
+  function GetCreationDate: TDate; stdcall;
+  procedure SaveConsultationToXml(xml_file_path: PAnsiChar); stdcall;
    {* Сохраняет информацию о сущности, представляемой папочной нодой консультации в xml. }
-  procedure save_to_xml(xml_file_path: PAnsiChar); { can raise AccessDenied, InvalidEntityType }
-  procedure load_from_xml(xml_file_path: PAnsiChar); { can raise AccessDenied, InvalidEntityType }
+  procedure SaveToXml(xml_file_path: PAnsiChar); stdcall; { can raise AccessDenied, InvalidEntityType }
+  procedure LoadFromXml(xml_file_path: PAnsiChar); stdcall; { can raise AccessDenied, InvalidEntityType }
    {* загружает информацию из xml в папку (пустую, нерасшаренную). }
-  function save_to_integration_xml: IString; { can raise InvalidEntityType }
+  function SaveToIntegrationXml: IString; stdcall; { can raise InvalidEntityType }
    {* сохранить ноду для библиотеки интеграции }
-  function can_save_consultation_to_xml: Boolean;
+  function CanSaveConsultationToXml: ByteBool; stdcall;
    {* Указывает может ли консультация быть сохранена в xml. }
-  function can_save_to_xml: Boolean;
+  function CanSaveToXml: ByteBool; stdcall;
    {* указывает может ли нода быть сохранена в xml. }
-  function can_load_from_xml: Boolean;
+  function CanLoadFromXml: ByteBool; stdcall;
    {* указывает можно ли в ноду загрузить данные из xml. }
-  function can_save_to_integration_xml: Boolean;
+  function CanSaveToIntegrationXml: ByteBool; stdcall;
    {* может ли нода быть сохранена для библиотеки интеграции }
-  procedure get_pid;
-  property id: TFolderId
-   read Get_id;
+  procedure GetPid; stdcall;
+  property Id: TFolderId
+   read GetId;
    {* Сонтент айди }
-  property creation_date: TDate
-   read Get_creation_date;
+  property CreationDate: TDate
+   read GetCreationDate;
    {* Дата создания }
  end;//IFoldersNode
 
@@ -110,10 +111,10 @@ type
  IFolders = interface(IBaseCatalog)
   {* Интерфейс (менеджер) обеспечивающий работу с деревом папок. Сложит фабрикой для узлов (Folder). }
   ['{085870DB-A1B6-48E7-ADDD-3C9F3911FEF5}']
-  function create_folder: IFolder;
+  function CreateFolder: IFolder; stdcall;
    {* Фабрика узлов, возвращает новый созданный экземпляр BaseEntity типа Folder. }
-  function find_folder_node(id: TFolderId
-   {* Идентификатор узла папки. }): IFoldersNode;
+  function FindFolderNode(id: TFolderId
+   {* Идентификатор узла папки. }): IFoldersNode; stdcall;
    {* Найти узел папки по его идентификатору. Если не найден то CanNotFindData. }
  end;//IFolders
 
@@ -127,27 +128,25 @@ type
 
  IDoneNotifier = interface
   ['{B9089580-C0F0-43C8-B449-B2AA3A0D4FFF}']
-  function done: Boolean;
+  function Done: ByteBool; stdcall;
  end;//IDoneNotifier
 
  IFolder = interface(IEntityBase)
   {* Реализация BaseEntity воплощающая узловой элемент дерва Папок. }
   ['{4B736A91-FDC7-4F00-B445-9C91CE120AB9}']
-  function Get_shared: Boolean;
-  procedure Set_shared(aValue: Boolean);
-  function Get_external: Boolean;
-  function can_share: Boolean;
+  function GetShared: ByteBool; stdcall;
+  procedure SetShared(const aValue: ByteBool); stdcall;
+  function GetExternal: ByteBool; stdcall;
+  function CanShare: ByteBool; stdcall;
    {* можно ли расшарить папку }
-  function As_INamedElement: INamedElement;
-   {* Метод приведения нашего интерфейса к INamedElement }
-  property shared: Boolean
-   read Get_shared
-   write Set_shared;
+  property Shared: ByteBool
+   read GetShared
+   write SetShared;
    {* Для сетевой версии. Признак того что папка является общедоступной, т.е видимой другим пользователям.
 Прим. внешние папки вегда являются общедоступными.
 При попытки изменить данный признак у внешней папки генерируется исключение ConstantModify. }
-  property external: Boolean
-   read Get_external;
+  property External: ByteBool
+   read GetExternal;
    {* Для сетевой версии. 
 Признак того что папка является внешней (т.е. не собственной а принадлежащей другому пользователю). }
  end;//IFolder
@@ -183,59 +182,15 @@ type
  IExternalFoldersChangeNotifier = interface
   {* Интерфейс нотификации изменения структуры папок. }
   ['{9AFA9214-42F7-439F-97DB-EB7827289CE0}']
-  procedure fire(const data: TNotifyData
-   {* Данные нотификации. });
+  procedure Fire(const data: TNotifyData
+   {* Данные нотификации. }); stdcall;
    {* Произошло изменение папки. При этом необходимо перечитать только непосредственное содержимое папки, исключая рекурсивную прогрузку дочерних папок. }
  end;//IExternalFoldersChangeNotifier
-
-class function make(const content;
- var folders: IFolders): BadFactoryType;
-class function make: BadFactoryType;
-class function make(const folder_content;
- var folders_node: IFoldersNode): INamedElement;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make(const content;
- var folders: IFolders): BadFactoryType;
-var
- l_Inst : IFoldersNode;
-begin
- l_Inst := Create(content, folders);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IFolders;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const folder_content;
- var folders_node: IFoldersNode): INamedElement;
-var
- l_Inst : IFolder;
-begin
- l_Inst := Create(folder_content, folders_node);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

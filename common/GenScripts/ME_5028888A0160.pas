@@ -21,7 +21,6 @@ type
   private
    f_Bounds: TRect;
    f_ResizeLockedCount: Integer;
-    {* Поле для свойства ResizeLockedCount }
   protected
    procedure ExecuteHandler(Sender: TObject); virtual;
    procedure ExecuteDefered; virtual;

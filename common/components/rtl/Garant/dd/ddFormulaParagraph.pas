@@ -1,54 +1,41 @@
 unit ddFormulaParagraph;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddFormulaParagraph.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddFormulaParagraph
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddFormulaParagraph.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddFormulaParagraph" MUID: (54F834440140)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  ddTextParagraph,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddTextParagraph
+ , l3Base
+ , k2Interfaces
+ , ddTypes
+;
 
 type
  TddFormulaParagraph = class(TddTextParagraph)
- protected
- // property methods
+  protected
    function pm_GetFormulaText: Tl3String;
- public
- // overridden public methods
+  public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- public
- // public properties
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
+  public
    property FormulaText: Tl3String
-     read pm_GetFormulaText;
+    read pm_GetFormulaText;
  end;//TddFormulaParagraph
 
 implementation
 
 uses
-  k2Tags,
-  ddEVDTypesSupport
-  ;
-
-// start class TddFormulaParagraph
+ l3ImplUses
+ , k2Tags
+ , ddEVDTypesSupport
+;
 
 function TddFormulaParagraph.pm_GetFormulaText: Tl3String;
 //#UC START# *54F835210066_54F834440140get_var*
@@ -60,8 +47,8 @@ begin
 end;//TddFormulaParagraph.pm_GetFormulaText
 
 procedure TddFormulaParagraph.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_54F834440140_var*
 //#UC END# *518A504F00F5_54F834440140_var*
 begin

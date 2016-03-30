@@ -1,89 +1,66 @@
 unit vcmEntitiesDefIteratorForContextMenu;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmEntitiesDefIteratorForContextMenu.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmEntitiesDefIteratorForContextMenu
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmEntitiesDefIteratorForContextMenu.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntitiesDefIteratorForContextMenu" MUID: (51D128930090)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoDataContainer
+ , vcmInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = IvcmEntityDef;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TvcmEntitiesDefIteratorForContextMenu = class(_l3InterfaceRefListPrim_, IvcmEntitiesDefIterator)
- private
- // private fields
-   f_Iter : IvcmEntitiesDefIterator;
-   f_Index : Integer;
- protected
- // realized methods
+  private
+   f_Iter: IvcmEntitiesDefIterator;
+   f_Index: Integer;
+  protected
    function Get_Next: IvcmEntityDef;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const anIter: IvcmEntitiesDefIterator); reintroduce;
    class function Make(const anIter: IvcmEntitiesDefIterator): IvcmEntitiesDefIterator; reintroduce;
-     {* Сигнатура фабрики TvcmEntitiesDefIteratorForContextMenu.Make }
  end;//TvcmEntitiesDefIteratorForContextMenu
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmEntityDefForContextMenu,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , vcmEntityDefForContextMenu
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-{$If not defined(NoVCM)}
-
-// start class TvcmEntitiesDefIteratorForContextMenu
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_51D128930090_var*
 //#UC END# *47B07CF403D0_51D128930090_var*
 begin
@@ -91,11 +68,11 @@ begin
  Result := (A = B);
 //#UC END# *47B07CF403D0_51D128930090_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_51D128930090_var*
 //#UC END# *47B2C42A0163_51D128930090_var*
 begin
@@ -103,9 +80,10 @@ begin
  assert(false);
 //#UC END# *47B2C42A0163_51D128930090_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_51D128930090_var*
 //#UC END# *47B99D4503A2_51D128930090_var*
 begin
@@ -117,8 +95,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TvcmEntitiesDefIteratorForContextMenu;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
-
-// start class TvcmEntitiesDefIteratorForContextMenu
 
 constructor TvcmEntitiesDefIteratorForContextMenu.Create(const anIter: IvcmEntitiesDefIterator);
 //#UC START# *51D12A5F02EE_51D128930090_var*
@@ -150,18 +126,13 @@ class function TvcmEntitiesDefIteratorForContextMenu.Make(const anIter: IvcmEnti
 var
  l_Inst : TvcmEntitiesDefIteratorForContextMenu;
 begin
- if (anIter = nil) then
- begin
-  Result := nil;
-  Exit;
- end;//anIter = nil
  l_Inst := Create(anIter);
  try
   Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmEntitiesDefIteratorForContextMenu.Make
 
 function TvcmEntitiesDefIteratorForContextMenu.Get_Next: IvcmEntityDef;
 //#UC START# *49956DB300D6_51D128930090get_var*
@@ -179,14 +150,10 @@ begin
 end;//TvcmEntitiesDefIteratorForContextMenu.Get_Next
 
 procedure TvcmEntitiesDefIteratorForContextMenu.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_Iter := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvcmEntitiesDefIteratorForContextMenu.ClearFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

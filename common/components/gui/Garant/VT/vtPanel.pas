@@ -1,179 +1,149 @@
 unit vtPanel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Panels"
-// Модуль: "w:/common/components/gui/Garant/VT/vtPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT$Panels:: Panels::TvtPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtPanel.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtPanel" MUID: (4A7961A701CF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  Types,
-  Messages,
-  Classes,
-  l3Defaults,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwTextControl
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  OvcController
-  ;
+ l3IntfUses
+ , afwTextControl
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Defaults
+ , Graphics
+ , Messages
+ , l3InternalInterfaces
+ , Types
+ , OvcController
+ //#UC START# *4A7961A701CFintf_uses*
+ //#UC END# *4A7961A701CFintf_uses*
+;
 
 type
-//#UC START# *50FD3A9003A4ci*
+ //#UC START# *50FD3A9003A4ci*
  TDummy = 0..0;
 
 const
  cDefBack = {$IfDef Nemesis}cGarant2011BackColor{$Else}clBtnFace{$EndIf};
 
 type
-//#UC END# *50FD3A9003A4ci*
-//#UC START# *50FD3A9003A4cit*
-//#UC END# *50FD3A9003A4cit*
+ //#UC END# *50FD3A9003A4ci*
+ //#UC START# *50FD3A9003A4cit*
+ //#UC END# *50FD3A9003A4cit*
  TvtCustomPanelPrim = class(TafwTextControl)
- private
- // private fields
-   f_BevelInner : TPanelBevel;
-    {* Поле для свойства BevelInner}
-   f_BevelOuter : TPanelBevel;
-    {* Поле для свойства BevelOuter}
-   f_Alignment : TAlignment;
-    {* Поле для свойства Alignment}
-   f_BevelWidth : TBevelWidth;
-    {* Поле для свойства BevelWidth}
-   f_BorderWidth : TBorderWidth;
-    {* Поле для свойства BorderWidth}
-   f_FullRepaint : Boolean;
-    {* Поле для свойства FullRepaint}
- protected
- // property methods
+  private
+   f_BevelInner: TPanelBevel;
+    {* default bvNone; }
+   f_BevelOuter: TPanelBevel;
+    {* default bvRaised; }
+   f_Alignment: TAlignment;
+    {* default taCenter; }
+   f_BevelWidth: TBevelWidth;
+    {* default 1; }
+   f_BorderWidth: TBorderWidth;
+    {* default 0; }
+   f_FullRepaint: Boolean;
+    {* default True; }
+  protected
    procedure pm_SetBevelInner(aValue: TPanelBevel); virtual;
    procedure pm_SetBevelOuter(aValue: TPanelBevel); virtual;
    procedure pm_SetAlignment(aValue: TAlignment);
    procedure pm_SetBevelWidth(aValue: TBevelWidth); virtual;
    procedure pm_SetBorderWidth(aValue: TBorderWidth);
- protected
- // protected properties
+  protected
    property BevelInner: TPanelBevel
-     read f_BevelInner
-     write pm_SetBevelInner;
-     {* default bvNone; }
+    read f_BevelInner
+    write pm_SetBevelInner;
+    {* default bvNone; }
    property BevelOuter: TPanelBevel
-     read f_BevelOuter
-     write pm_SetBevelOuter;
-     {* default bvRaised; }
+    read f_BevelOuter
+    write pm_SetBevelOuter;
+    {* default bvRaised; }
    property Alignment: TAlignment
-     read f_Alignment
-     write pm_SetAlignment;
-     {* default taCenter; }
+    read f_Alignment
+    write pm_SetAlignment;
+    {* default taCenter; }
    property BevelWidth: TBevelWidth
-     read f_BevelWidth
-     write pm_SetBevelWidth;
-     {* default 1; }
+    read f_BevelWidth
+    write pm_SetBevelWidth;
+    {* default 1; }
    property BorderWidth: TBorderWidth
-     read f_BorderWidth
-     write pm_SetBorderWidth;
-     {* default 0; }
+    read f_BorderWidth
+    write pm_SetBorderWidth;
+    {* default 0; }
    property FullRepaint: Boolean
-     read f_FullRepaint
-     write f_FullRepaint;
-     {* default True; }
-//#UC START# *50FD3A9003A4publ*
-//#UC END# *50FD3A9003A4publ*
+    read f_FullRepaint
+    write f_FullRepaint;
+    {* default True; }
+ //#UC START# *50FD3A9003A4publ*
+ //#UC END# *50FD3A9003A4publ*
  end;//TvtCustomPanelPrim
 
-//#UC START# *50FD1AE5027Aci*
-//#UC END# *50FD1AE5027Aci*
+ //#UC START# *50FD1AE5027Aci*
+ //#UC END# *50FD1AE5027Aci*
  _afwShortcutsHandler_Parent_ = TvtCustomPanelPrim;
-{$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
-//#UC START# *50FD1AE5027Acit*
-//#UC END# *50FD1AE5027Acit*
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
+ //#UC START# *50FD1AE5027Acit*
+ //#UC END# *50FD1AE5027Acit*
  TvtCustomPanel = class(_afwShortcutsHandler_)
- private
- // private fields
-  {$If defined(Delphi7)}
-   f_ParentBackgroundSet : Boolean;
-  {$IfEnd} //Delphi7
-   f_In64Hack : Boolean;
-  {$If defined(fakefake)}
-   fakefakefake : Tl3DefaultsFakeType;
-  {$IfEnd} //fakefake
-   fakefakefakefakefake : TFontStyle;
-  {$If not defined(Delphi7)}
-   f_OnResize : TNotifyEvent;
-    {* Поле для свойства OnResize}
-  {$IfEnd} //not Delphi7
-   f_FixW2kWMSize : Boolean;
-    {* Поле для свойства FixW2kWMSize}
- private
- // private methods
+  private
+   {$If Defined(Delphi7)}
+   f_ParentBackgroundSet: Boolean;
+   {$IfEnd} // Defined(Delphi7)
+   f_In64Hack: Boolean;
+   {$If Defined(fakefake)}
+   fakefakefake: Tl3DefaultsFakeType;
+   {$IfEnd} // Defined(fakefake)
+   fakefakefakefakefake: TFontStyle;
+   {$If NOT Defined(Delphi7)}
+   f_OnResize: TNotifyEvent;
+   {$IfEnd} // NOT Defined(Delphi7)
+   f_FixW2kWMSize: Boolean;
+  private
    procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
    procedure WMSize(var Message: TWMSize); message WM_SIZE;
    procedure WMWindowPosChanged(var Message: TWMWindowPosChanged); message WM_WINDOWPOSCHANGED;
    procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
- protected
- // property methods
-   {$If not defined(Delphi7)}
-
-   {$IfEnd} //not Delphi7
- protected
- // overridden protected methods
+  protected
+   {$If NOT Defined(Delphi7)}
+   procedure Resize; virtual;
+   {$IfEnd} // NOT Defined(Delphi7)
+   procedure DrawFrame(const CN: Il3Canvas;
+    var Rect: TRect);
    procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-  {$If not defined(NoVCL)}
+    {* процедура рисования внешнего вида управляющего элемента }
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-  {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure AlignControls(AControl: TControl;
     var Rect: TRect); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure SetParentBackground(Value: Boolean); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-    {$If not defined(Delphi7)}
-   procedure Resize; virtual;
-     {* Сигнатура метода Resize }
-    {$IfEnd} //not Delphi7
-   procedure DrawFrame(const CN: Il3Canvas;
-     var Rect: TRect);
- protected
- // protected properties
-   {$If not defined(Delphi7)}
+  protected
+   {$If NOT Defined(Delphi7)}
    property OnResize: TNotifyEvent
-     read f_OnResize
-     write f_OnResize;
-   {$IfEnd} //not Delphi7
- public
- // public properties
+    read f_OnResize
+    write f_OnResize;
+   {$IfEnd} // NOT Defined(Delphi7)
+  public
    property FixW2kWMSize: Boolean
-     read f_FixW2kWMSize
-     write f_FixW2kWMSize;
-//#UC START# *50FD1AE5027Apubl*
+    read f_FixW2kWMSize
+    write f_FixW2kWMSize;
+ //#UC START# *50FD1AE5027Apubl*
  public
    {$IfDef Delphi7}
    property ParentBackground stored f_ParentBackgroundSet;
@@ -187,15 +157,15 @@ type
    property BevelWidth default 1;
    property BorderWidth default 0;
    property FullRepaint default True;
-//#UC END# *50FD1AE5027Apubl*
+ //#UC END# *50FD1AE5027Apubl*
  end;//TvtCustomPanel
 
-//#UC START# *4A7961A701CFci*
-//#UC END# *4A7961A701CFci*
-//#UC START# *4A7961A701CFcit*
-//#UC END# *4A7961A701CFcit*
+ //#UC START# *4A7961A701CFci*
+ //#UC END# *4A7961A701CFci*
+ //#UC START# *4A7961A701CFcit*
+ //#UC END# *4A7961A701CFcit*
  TvtPanel = class(TvtCustomPanel)
-//#UC START# *4A7961A701CFpubl*
+ //#UC START# *4A7961A701CFpubl*
  public
   property DockManager;
  published
@@ -256,35 +226,29 @@ type
   property OnStartDock;
   property OnStartDrag;
   property OnUnDock;
-//#UC END# *4A7961A701CFpubl*
+ //#UC END# *4A7961A701CFpubl*
  end;//TvtPanel
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3String,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Themes
-  {$IfEnd} //not NoVCL
-  ,
-  OvcConst,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-
-// start class TvtCustomPanelPrim
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3String
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , Themes
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , OvcConst
+ //#UC START# *4A7961A701CFimpl_uses*
+ //#UC END# *4A7961A701CFimpl_uses*
+;
 
 procedure TvtCustomPanelPrim.pm_SetBevelInner(aValue: TPanelBevel);
 //#UC START# *50FD17EC01F0_50FD3A9003A4set_var*
@@ -342,11 +306,10 @@ end;//TvtCustomPanelPrim.pm_SetBorderWidth
 
 //#UC START# *50FD3A9003A4impl*
 //#UC END# *50FD3A9003A4impl*
+
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
-// start class TvtCustomPanel
-
-{$If not defined(Delphi7)}
+{$If NOT Defined(Delphi7)}
 procedure TvtCustomPanel.Resize;
 //#UC START# *50FD3279019E_50FD1AE5027A_var*
 //#UC END# *50FD3279019E_50FD1AE5027A_var*
@@ -356,10 +319,10 @@ begin
   f_OnResize(Self);
 //#UC END# *50FD3279019E_50FD1AE5027A_impl*
 end;//TvtCustomPanel.Resize
-{$IfEnd} //not Delphi7
+{$IfEnd} // NOT Defined(Delphi7)
 
 procedure TvtCustomPanel.DrawFrame(const CN: Il3Canvas;
-  var Rect: TRect);
+ var Rect: TRect);
 //#UC START# *50FD336F020B_50FD1AE5027A_var*
 var
  TopColor,
@@ -554,6 +517,7 @@ begin
 end;//TvtCustomPanel.Create
 
 procedure TvtCustomPanel.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_50FD1AE5027A_var*
 var
   l_Rect: TRect;
@@ -605,7 +569,7 @@ begin
 //#UC END# *48C6C044025E_50FD1AE5027A_impl*
 end;//TvtCustomPanel.Paint
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomPanel.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_50FD1AE5027A_var*
 //#UC END# *48C7925A02E5_50FD1AE5027A_var*
@@ -616,11 +580,11 @@ begin
   WindowClass.Style := WindowClass.Style or CS_HREDRAW or CS_VREDRAW;
 //#UC END# *48C7925A02E5_50FD1AE5027A_impl*
 end;//TvtCustomPanel.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomPanel.AlignControls(AControl: TControl;
-  var Rect: TRect);
+ var Rect: TRect);
 //#UC START# *5028E66702B0_50FD1AE5027A_var*
 var
   BevelSize: Integer;
@@ -634,9 +598,9 @@ begin
   inherited AlignControls(AControl, Rect);
 //#UC END# *5028E66702B0_50FD1AE5027A_impl*
 end;//TvtCustomPanel.AlignControls
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomPanel.SetParentBackground(Value: Boolean);
 //#UC START# *50FD31EE009B_50FD1AE5027A_var*
 //#UC END# *50FD31EE009B_50FD1AE5027A_var*
@@ -654,7 +618,7 @@ begin
   inherited;
 //#UC END# *50FD31EE009B_50FD1AE5027A_impl*
 end;//TvtCustomPanel.SetParentBackground
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *50FD1AE5027Aimpl*
 //#UC END# *50FD1AE5027Aimpl*
@@ -663,17 +627,17 @@ end;//TvtCustomPanel.SetParentBackground
 //#UC END# *4A7961A701CFimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomPanelPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomPanelPrim);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomPanel
+ {* Регистрация TvtCustomPanelPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomPanel);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtPanel
+ {* Регистрация TvtCustomPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtPanel);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

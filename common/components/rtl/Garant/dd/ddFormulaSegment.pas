@@ -1,38 +1,30 @@
 unit ddFormulaSegment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddFormulaSegment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddFormulaSegment
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddFormulaSegment.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddFormulaSegment" MUID: (54D9ACC002E1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddObjectSegment,
-  ddTextSegment
-  ;
+ l3IntfUses
+ , ddObjectSegment
+ , ddTextSegment
+;
 
 type
  TddFormulaSegment = class(TddObjectSegment)
- protected
- // realized methods
+  public
    function Clone: TddTextSegment; override;
  end;//TddFormulaSegment
 
 implementation
 
-// start class TddFormulaSegment
+uses
+ l3ImplUses
+;
 
 function TddFormulaSegment.Clone: TddTextSegment;
 //#UC START# *54DC46B50110_54D9ACC002E1_var*

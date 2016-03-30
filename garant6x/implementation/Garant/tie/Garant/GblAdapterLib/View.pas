@@ -1,53 +1,48 @@
 unit View;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/View.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DynamicTree_i::View
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\View.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "View" MUID: (45F6583E001F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  ViewBase,
-  RealNodeBase,
-  DefaultNodeBase
-  ;
+ l3IntfUses
+ , ViewBase
+ , RealNodeBase
+ , DefaultNodeBase
+ //#UC START# *45F6583E001Fintf_uses*
+ //#UC END# *45F6583E001Fintf_uses*
+;
 
 type
-//#UC START# *45F6583E001Fci*
-//#UC END# *45F6583E001Fci*
-//#UC START# *45F6583E001Fcit*
-//#UC END# *45F6583E001Fcit*
+ //#UC START# *45F6583E001Fci*
+ //#UC END# *45F6583E001Fci*
+ //#UC START# *45F6583E001Fcit*
+ //#UC END# *45F6583E001Fcit*
  View = {abstract} class(ViewBase)
- protected
- // realized methods
-   function ApplyCreatedNode(data): RealNodeBase; override;
+  protected
+   function AllocNewNode(const snode): DefaultNodeBase; override;
+   function AllocNewView: ViewBase; override;
+  public
+   constructor Make; reintroduce; virtual; stdcall;
+   function ApplyCreatedNode(const data): RealNodeBase; override;
    procedure FindCreatedUid(var node: RealNodeBase); override;
    procedure AssociateNodeWithUid(var node: RealNodeBase); override;
    procedure DisassociateNodeWithUid(var node: RealNodeBase); override;
-   function AllocNewNode(snode): DefaultNodeBase; override;
-   function AllocNewView: ViewBase; override;
- public
- // public methods
-   constructor Make; virtual;
-//#UC START# *45F6583E001Fpubl*
-//#UC END# *45F6583E001Fpubl*
+ //#UC START# *45F6583E001Fpubl*
+ //#UC END# *45F6583E001Fpubl*
  end;//View
 
 implementation
 
-// start class View
+uses
+ l3ImplUses
+ //#UC START# *45F6583E001Fimpl_uses*
+ //#UC END# *45F6583E001Fimpl_uses*
+;
 
 constructor View.Make;
 //#UC START# *45F65B2F01B5_45F6583E001F_var*
@@ -58,7 +53,7 @@ begin
 //#UC END# *45F65B2F01B5_45F6583E001F_impl*
 end;//View.Make
 
-function View.ApplyCreatedNode(data): RealNodeBase;
+function View.ApplyCreatedNode(const data): RealNodeBase;
 //#UC START# *460125E60203_45F6583E001F_var*
 //#UC END# *460125E60203_45F6583E001F_var*
 begin
@@ -94,7 +89,7 @@ begin
 //#UC END# *4601267E0177_45F6583E001F_impl*
 end;//View.DisassociateNodeWithUid
 
-function View.AllocNewNode(snode): DefaultNodeBase;
+function View.AllocNewNode(const snode): DefaultNodeBase;
 //#UC START# *460127AC0157_45F6583E001F_var*
 //#UC END# *460127AC0157_45F6583E001F_var*
 begin

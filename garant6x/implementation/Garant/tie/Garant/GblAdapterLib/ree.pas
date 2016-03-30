@@ -1,97 +1,89 @@
 unit ree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DynamicTree_i::Tree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tree" MUID: (45F585F802AF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  reeBase,
-  RealNodeBase,
-  DefaultNodeBase,
-  ViewBase
-  ;
+ l3IntfUses
+ , reeBase
+ , RealNodeBase
+ , DefaultNodeBase
+ , ViewBase
+ //#UC START# *45F585F802AFintf_uses*
+ //#UC END# *45F585F802AFintf_uses*
+;
 
 type
-//#UC START# *45F585F802AFci*
-//#UC END# *45F585F802AFci*
-//#UC START# *45F585F802AFcit*
-//#UC END# *45F585F802AFcit*
+ // NewNodeMap
+
+ // NewNodeBackMap
+
+ // ApplyedNodeMap
+
+ //#UC START# *45F585F802AFci*
+ //#UC END# *45F585F802AFci*
+ //#UC START# *45F585F802AFcit*
+ //#UC END# *45F585F802AFcit*
  Tree = {abstract} class(TreeBase)
- private
- // private fields
-   change_mutex : mutex;
- protected
- // property methods
-   function pm_GetTreeName: AnsiString; virtual;
-   procedure pm_SetTreeName(const aValue: AnsiString); virtual;
- protected
- // realized methods
-   function ApplyCreatedNode(data): RealNodeBase; override;
+  private
+   change_mutex: mutex;
+   f_tree_name: AnsiString;
+  protected
+   new_node_map: NewNodeMap;
+   new_node_back_map: NewNodeBackMap;
+  protected
+   function GetTreeName: AnsiString; virtual; stdcall;
+   procedure SetTreeName(const aValue: AnsiString); virtual; stdcall;
+   class procedure CreateUid(new_node: RealNodeBase); virtual; stdcall;
+   function AllocNewNode(const snode): DefaultNodeBase; override;
+   function AllocNewView: ViewBase; override;
+   function GetTreeName: AnsiString; override;
+  public
+   constructor Make(is_active_changeable: Boolean); reintroduce; virtual; stdcall;
+   function ApplyCreatedNode(const data): RealNodeBase; override;
    procedure FindCreatedUid(var node: RealNodeBase); override;
    procedure AssociateNodeWithUid(var node: RealNodeBase); override;
    procedure DisassociateNodeWithUid(var node: RealNodeBase); override;
-   function AllocNewNode(snode): DefaultNodeBase; override;
-   function AllocNewView: ViewBase; override;
    function GetChangeMutex: mutex; override;
-   function pm_GetTreeName: AnsiString; override;
- protected
- // protected fields
-   new_node_map : NewNodeMap;
-   new_node_back_map : NewNodeBackMap;
- protected
- // protected methods
-   class procedure CreateUid(new_node: RealNodeBase); virtual;
- public
- // public methods
-   constructor Make(is_active_changeable: Boolean); virtual;
- protected
- // protected properties
-   property tree_name: AnsiString
-     read pm_GetTreeName
-     write pm_SetTreeName;
-//#UC START# *45F585F802AFpubl*
-//#UC END# *45F585F802AFpubl*
+  protected
+   property TreeName: AnsiString
+    read GetTreeName
+    write SetTreeName;
+ //#UC START# *45F585F802AFpubl*
+ //#UC END# *45F585F802AFpubl*
  end;//Tree
 
 implementation
 
 uses
-  View
-  ;
+ l3ImplUses
+ , View
+ //#UC START# *45F585F802AFimpl_uses*
+ //#UC END# *45F585F802AFimpl_uses*
+;
 
-// start class Tree
-
-function Tree.pm_GetTreeName: AnsiString;
+function Tree.GetTreeName: AnsiString;
 //#UC START# *460259A6032C_45F585F802AFget_var*
 //#UC END# *460259A6032C_45F585F802AFget_var*
 begin
 //#UC START# *460259A6032C_45F585F802AFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460259A6032C_45F585F802AFget_impl*
-end;//Tree.pm_GetTreeName
+end;//Tree.GetTreeName
 
-procedure Tree.pm_SetTreeName(const aValue: AnsiString);
+procedure Tree.SetTreeName(const aValue: AnsiString);
 //#UC START# *460259A6032C_45F585F802AFset_var*
 //#UC END# *460259A6032C_45F585F802AFset_var*
 begin
 //#UC START# *460259A6032C_45F585F802AFset_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460259A6032C_45F585F802AFset_impl*
-end;//Tree.pm_SetTreeName
+end;//Tree.SetTreeName
 
 constructor Tree.Make(is_active_changeable: Boolean);
 //#UC START# *45F589A9009C_45F585F802AF_var*
@@ -111,7 +103,7 @@ begin
 //#UC END# *4602552E0157_45F585F802AF_impl*
 end;//Tree.CreateUid
 
-function Tree.ApplyCreatedNode(data): RealNodeBase;
+function Tree.ApplyCreatedNode(const data): RealNodeBase;
 //#UC START# *460125E60203_45F585F802AF_var*
 //#UC END# *460125E60203_45F585F802AF_var*
 begin
@@ -147,7 +139,7 @@ begin
 //#UC END# *4601267E0177_45F585F802AF_impl*
 end;//Tree.DisassociateNodeWithUid
 
-function Tree.AllocNewNode(snode): DefaultNodeBase;
+function Tree.AllocNewNode(const snode): DefaultNodeBase;
 //#UC START# *460127AC0157_45F585F802AF_var*
 //#UC END# *460127AC0157_45F585F802AF_var*
 begin
@@ -174,14 +166,14 @@ begin
 //#UC END# *460139CE02BF_45F585F802AF_impl*
 end;//Tree.GetChangeMutex
 
-function Tree.pm_GetTreeName: AnsiString;
+function Tree.GetTreeName: AnsiString;
 //#UC START# *4948E2B2038D_45F585F802AFget_var*
 //#UC END# *4948E2B2038D_45F585F802AFget_var*
 begin
 //#UC START# *4948E2B2038D_45F585F802AFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4948E2B2038D_45F585F802AFget_impl*
-end;//Tree.pm_GetTreeName
+end;//Tree.GetTreeName
 
 //#UC START# *45F585F802AFimpl*
 //#UC END# *45F585F802AFimpl*

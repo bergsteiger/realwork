@@ -17,11 +17,11 @@ uses
 type
  TddExceptionHandler = {final} class(Tl3ProtoObject, Il3ExceptionHandler)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure HandleException(Sender: TObject);
    class function Instance: TddExceptionHandler;
     {* Метод получения экземпляра синглетона TddExceptionHandler }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TddExceptionHandler
 
 implementation
@@ -44,12 +44,6 @@ begin
  l3Free(g_TddExceptionHandler);
 end;//TddExceptionHandlerFree
 
-class function TddExceptionHandler.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TddExceptionHandler <> nil;
-end;//TddExceptionHandler.Exists
-
 procedure TddExceptionHandler.HandleException(Sender: TObject);
 //#UC START# *9B9F43B530B0_55893A8B0110_var*
 //#UC END# *9B9F43B530B0_55893A8B0110_var*
@@ -69,6 +63,12 @@ begin
  end;
  Result := g_TddExceptionHandler;
 end;//TddExceptionHandler.Instance
+
+class function TddExceptionHandler.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TddExceptionHandler <> nil;
+end;//TddExceptionHandler.Exists
 
 initialization
  Tl3ExceptionHandler.Instance.Alien := TddExceptionHandler.Instance;

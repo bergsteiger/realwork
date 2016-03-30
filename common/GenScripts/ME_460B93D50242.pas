@@ -14,7 +14,7 @@ uses
  , BaseTypesUnit
 ;
 
-function to_string(const date: TDate): AnsiString;
+function ToString(const date: TDate): AnsiString; stdcall;
  {* перевод даты в символьное представление }
 
 implementation
@@ -23,7 +23,7 @@ uses
  l3ImplUses
 ;
 
-function to_string(const date: TDate): AnsiString;
+function ToString(const date: TDate): AnsiString;
  {* перевод даты в символьное представление }
 //#UC START# *460B93EB0290_460B93D50242_var*
 //#UC END# *460B93EB0290_460B93D50242_var*
@@ -31,6 +31,6 @@ begin
 //#UC START# *460B93EB0290_460B93D50242_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B93EB0290_460B93D50242_impl*
-end;//to_string
+end;//ToString
 
 end.

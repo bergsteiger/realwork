@@ -1,44 +1,34 @@
 {$IfNDef nevParaXTool_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevParaXTool.imp.pas"
-// Начат: 04.04.2005 15:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::nevUtils::nevParaXTool
-//
-// Инструмент для параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevParaXTool" MUID: (480F48F301B9)
+// Имя типа: "_nevParaXTool_"
 
 {$Define nevParaXTool_imp}
- _nevParaXTool_ = {mixin} class(_nevParaXTool_Parent_)
+
+ // _X_
+
+ _nevParaXTool_ = class(_nevParaXTool_Parent_)
   {* Инструмент для параграфа }
- private
- // private fields
-   f_ParaX : _X_;
-    {* Поле для свойства ParaX}
- protected
- // overridden protected methods
+  private
+   f_ParaX: _X_;
+  protected
    procedure ClearTagCache; override;
- public
- // overridden public methods
+   procedure ClearFields; override;
+  public
    procedure SetTagQT(aTag: Tl3Variant); override;
- protected
- // protected properties
+  protected
    property ParaX: _X_
-     read f_ParaX
-     write f_ParaX;
+    read f_ParaX
+    write f_ParaX;
  end;//_nevParaXTool_
 
 {$Else nevParaXTool_imp}
 
-// start class _nevParaXTool_
+{$IfNDef nevParaXTool_imp_impl}
+
+{$Define nevParaXTool_imp_impl}
 
 procedure _nevParaXTool_.ClearTagCache;
 //#UC START# *48CE74A10014_480F48F301B9_var*
@@ -68,4 +58,13 @@ begin
 //#UC END# *49E75FA4010C_480F48F301B9_impl*
 end;//_nevParaXTool_.SetTagQT
 
+procedure _nevParaXTool_.ClearFields;
+begin
+ Finalize(f_ParaX);
+ inherited;
+end;//_nevParaXTool_.ClearFields
+
+{$EndIf nevParaXTool_imp_impl}
+
 {$EndIf nevParaXTool_imp}
+

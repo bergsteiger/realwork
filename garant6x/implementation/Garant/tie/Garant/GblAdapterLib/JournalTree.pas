@@ -1,45 +1,37 @@
 unit JournalTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/JournalTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::UserJournal_i::JournalTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "JournalTree" MUID: (4A92A8F2022D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  ree
-  ;
+ l3IntfUses
+ , ree
+;
 
 type
  JournalTree = class
- public
- // public methods
-   constructor Make(tree);
-   procedure Clear; virtual;
-     {* Очистить дерево }
+  public
+   NodeDelegateType_: ;
+   NodeType_: ;
+  public
+   constructor Make(const tree); reintroduce; stdcall;
+   procedure Clear; virtual; stdcall;
+    {* Очистить дерево }
  end;//JournalTree
 
 implementation
 
 uses
-  ApplicationHelper
-  ;
+ l3ImplUses
+ , ApplicationHelper
+;
 
-// start class JournalTree
-
-constructor JournalTree.Make(tree);
+constructor JournalTree.Make(const tree);
 //#UC START# *4A92A941032E_4A92A8F2022D_var*
 //#UC END# *4A92A941032E_4A92A8F2022D_var*
 begin
@@ -49,6 +41,7 @@ begin
 end;//JournalTree.Make
 
 procedure JournalTree.Clear;
+ {* Очистить дерево }
 //#UC START# *4AF42B76023D_4A92A8F2022D_var*
 //#UC END# *4AF42B76023D_4A92A8F2022D_var*
 begin

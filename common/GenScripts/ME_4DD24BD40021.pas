@@ -39,11 +39,11 @@ type
  ISectionItem = interface
   {* Элемент раздела ОМ }
   ['{257ACC4A-9B2A-4AD1-B238-0CDCE6A5406E}']
-  function Get_caption: IString;
-  function open: IUnknown;
+  function GetCaption: IString; stdcall;
+  function Open: IUnknown; stdcall;
    {* Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString) }
-  property caption: IString
-   read Get_caption;
+  property Caption: IString
+   read GetCaption;
    {* Имя }
  end;//ISectionItem
 
@@ -51,55 +51,28 @@ type
 
  ISection = interface
   ['{BBB2D3C6-226C-4A9F-AAC6-32775E30B7C7}']
-  function Get_caption: IString;
-  class function make: BadFactoryType;
-  function get_items: ISectionItemList;
+  function GetCaption: IString; stdcall;
+  class function Make: BadFactoryType; stdcall;
+  function GetItems: ISectionItemList; stdcall;
    {* Получить элементы раздела ОМ }
-  property caption: IString
-   read Get_caption;
+  property Caption: IString
+   read GetCaption;
    {* имя }
  end;//ISection
 
  IMainMenu = interface
   {* Основное меню }
   ['{7EAB7EE0-39FB-42FD-BE38-AF667AE0466E}']
-  function get_base_search_panes: INodeBase;
+  function GetBaseSearchPanes: INodeBase; stdcall;
    {* Получить дерево вкладок Бзового поиска }
-  function get_section(type: TSectionType): ISection;
+  function GetSection(type: TSectionType): ISection; stdcall;
    {* Получить дерево секции ОМ по типу }
  end;//IMainMenu
-
-class function make(const section_item): BadFactoryType;
-class function make: BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make(const section_item): BadFactoryType;
-var
- l_Inst : ISectionItem;
-begin
- l_Inst := Create(section_item);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IMainMenu;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

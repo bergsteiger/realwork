@@ -1,80 +1,48 @@
 unit ddExceptionHandler;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddExceptionHandler.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ServiceImplementation::Class>> Shared Delphi::dd::Misc::TddExceptionHandler
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddExceptionHandler.pas"
+// Стереотип: "ServiceImplementation"
+// Элемент модели: "TddExceptionHandler" MUID: (55893A8B0110)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  l3ExceptionHandler
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3ExceptionHandler
+;
 
 type
  TddExceptionHandler = {final} class(Tl3ProtoObject, Il3ExceptionHandler)
- public
- // realized methods
+  public
    procedure HandleException(Sender: TObject);
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TddExceptionHandler;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TddExceptionHandler }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TddExceptionHandler
 
 implementation
 
 uses
-  l3Base {a}
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TddExceptionHandler
-
-var g_TddExceptionHandler : TddExceptionHandler = nil;
+var g_TddExceptionHandler: TddExceptionHandler = nil;
+ {* Экземпляр синглетона TddExceptionHandler }
 
 procedure TddExceptionHandlerFree;
+ {* Метод освобождения экземпляра синглетона TddExceptionHandler }
 begin
  l3Free(g_TddExceptionHandler);
-end;
-
-class function TddExceptionHandler.Instance: TddExceptionHandler;
-begin
- if (g_TddExceptionHandler = nil) then
- begin
-  l3System.AddExitProc(TddExceptionHandlerFree);
-  g_TddExceptionHandler := Create;
- end;
- Result := g_TddExceptionHandler;
-end;
-
-
-class function TddExceptionHandler.Exists: Boolean;
- {-}
-begin
- Result := g_TddExceptionHandler <> nil;
-end;//TddExceptionHandler.Exists
+end;//TddExceptionHandlerFree
 
 procedure TddExceptionHandler.HandleException(Sender: TObject);
 //#UC START# *9B9F43B530B0_55893A8B0110_var*
@@ -85,8 +53,25 @@ begin
 //#UC END# *9B9F43B530B0_55893A8B0110_impl*
 end;//TddExceptionHandler.HandleException
 
+class function TddExceptionHandler.Instance: TddExceptionHandler;
+ {* Метод получения экземпляра синглетона TddExceptionHandler }
+begin
+ if (g_TddExceptionHandler = nil) then
+ begin
+  l3System.AddExitProc(TddExceptionHandlerFree);
+  g_TddExceptionHandler := Create;
+ end;
+ Result := g_TddExceptionHandler;
+end;//TddExceptionHandler.Instance
+
+class function TddExceptionHandler.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TddExceptionHandler <> nil;
+end;//TddExceptionHandler.Exists
+
 initialization
-// Регистрация TddExceptionHandler
  Tl3ExceptionHandler.Instance.Alien := TddExceptionHandler.Instance;
+ {* Регистрация TddExceptionHandler }
 
 end.

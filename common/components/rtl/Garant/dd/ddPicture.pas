@@ -1,225 +1,294 @@
 unit ddPicture;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddPicture.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddPicture
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddPicture.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddPicture" MUID: (51E8DC3E0361)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  Classes,
-  l3Filer,
-  ddParagraphProperty,
-  ddTextParagraph,
-  l3MetafileHeader,
-  k2Interfaces,
-  ddTypes,
-  ddCustomDestination,
-  ddDocumentAtom,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , ddTextParagraph
+ , Classes
+ , l3Base
+ , l3MetafileHeader
+ , l3Filer
+ , ddParagraphProperty
+ , ddCustomDestination
+ , k2Interfaces
+ , ddTypes
+ , ddDocumentAtom
+ , l3ProtoObject
+;
 
 type
  TddPicture = class(TddTextParagraph)
- private
- // private fields
-   f_NeedWMFHeader : Boolean;
-   f_WMFHeader : Tl3MetafileHeader;
-   f_IsBinary : Boolean;
-    {* Поле для свойства IsBinary}
-   f_BPP : Integer;
-    {* Поле для свойства BPP}
-   f_CropL : Integer;
-    {* Поле для свойства CropL}
-   f_CropR : Integer;
-    {* Поле для свойства CropR}
-   f_CropB : Integer;
-    {* Поле для свойства CropB}
-   f_CropT : Integer;
-    {* Поле для свойства CropT}
-   f_ExternalHandle : Integer;
-    {* Поле для свойства ExternalHandle}
-   f_ExternalPath : AnsiString;
-    {* Поле для свойства ExternalPath}
-   f_Format : Integer;
-    {* Поле для свойства Format}
-   f_GoalX : Integer;
-    {* Поле для свойства GoalX}
-   f_GoalY : Integer;
-    {* Поле для свойства GoalY}
-   f_Height : Integer;
-    {* Поле для свойства Height}
-   f_ScaleX : Integer;
-    {* Поле для свойства ScaleX}
-   f_ScaleY : Integer;
-    {* Поле для свойства ScaleY}
-   f_Width : Integer;
-    {* Поле для свойства Width}
-   f_Stream : TStream;
-    {* Поле для свойства Stream}
-   f_Picture : Tl3String;
-    {* Поле для свойства Picture}
-   f_WidthInPixels : Integer;
-    {* Поле для свойства WidthInPixels}
-   f_HeightInPixels : Integer;
-    {* Поле для свойства HeightInPixels}
- private
- // private methods
+  private
+   f_NeedWMFHeader: Boolean;
+   f_WMFHeader: Tl3MetafileHeader;
+   f_IsBinary: Boolean;
+    {* Поле для свойства IsBinary }
+   f_BPP: Integer;
+    {* Поле для свойства BPP }
+   f_CropL: Integer;
+    {* Поле для свойства CropL }
+   f_CropR: Integer;
+    {* Поле для свойства CropR }
+   f_CropB: Integer;
+    {* Поле для свойства CropB }
+   f_CropT: Integer;
+    {* Поле для свойства CropT }
+   f_ExternalHandle: Integer;
+    {* Поле для свойства ExternalHandle }
+   f_ExternalPath: AnsiString;
+    {* Поле для свойства ExternalPath }
+   f_Format: Integer;
+    {* Поле для свойства Format }
+   f_GoalX: Integer;
+    {* Поле для свойства GoalX }
+   f_GoalY: Integer;
+    {* Поле для свойства GoalY }
+   f_Height: Integer;
+    {* Поле для свойства Height }
+   f_ScaleX: Integer;
+    {* Поле для свойства ScaleX }
+   f_ScaleY: Integer;
+    {* Поле для свойства ScaleY }
+   f_Width: Integer;
+    {* Поле для свойства Width }
+   f_Stream: TStream;
+    {* Поле для свойства Stream }
+   f_Picture: Tl3String;
+    {* Поле для свойства Picture }
+   f_WidthInPixels: Integer;
+    {* Поле для свойства WidthInPixels }
+   f_HeightInPixels: Integer;
+    {* Поле для свойства HeightInPixels }
+  private
    procedure CropPicture;
    function HexToBinEx(aText: Tl3String;
-     Buffer: PAnsiChar;
-     BufSize: Integer): Integer;
-     {* Преобразование из 16-ричной текстовй строки в бинарные данные с пропуском символов переноса стоки и поддержки заглавных букв. }
+    Buffer: PAnsiChar;
+    BufSize: Integer): Integer;
+    {* Преобразование из 16-ричной текстовй строки в бинарные данные с пропуском символов переноса стоки и поддержки заглавных букв. }
    function Try2ReadEMF(const aFiler: Tl3CustomFiler): Tl3String;
-     {* Чтение текстового 16-ричного потока EMF. }
-    {$If defined(InsiderTest)}
+    {* Чтение текстового 16-ричного потока EMF. }
+   {$If Defined(InsiderTest)}
    procedure SavePicture2File(aSize: Integer);
-    {$IfEnd} //InsiderTest
+   {$IfEnd} // Defined(InsiderTest)
    function Try2ReadWMF(const aFiler: Tl3CustomFiler): Tl3String;
-     {* Чтение текстового 16-ричного потока WMF. }
+    {* Чтение текстового 16-ричного потока WMF. }
    procedure Try2RecalcPictureProps;
- protected
- // property methods
+  protected
    procedure pm_SetIsBinary(aValue: Boolean);
    function pm_GetFormat: Integer;
    function pm_GetStream: TStream;
    procedure pm_SetStream(aValue: TStream);
    procedure pm_SetWidthInPixels(aValue: Integer);
    procedure pm_SetHeightInPixels(aValue: Integer);
- protected
- // overridden protected methods
+   procedure ConvertToBin;
+   procedure ConvertToHex;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetEmpty: Boolean; override;
- public
- // overridden public methods
+   procedure ClearFields; override;
+  public
+   procedure AddHexData(aHexStream: Tl3String);
+    {* Добавляем строку с 16-ричными символами. }
+   function Try2ReadKnownPicture(const aFiler: Tl3CustomFiler): Tl3String;
+    {* Пытаемся передать обработку "знающим" объектам. }
+   function Clone(aPAP: TddParagraphProperty): TddPicture;
+   class function CreateFromFile(const aPath: AnsiString): TddPicture;
+   procedure Try2ReadBinaryData(const aFiler: Tl3CustomFiler;
+    aSize: Integer);
    procedure Clear; override;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsTextPara: Boolean; override;
    function IsPicture: Boolean; override;
    function GetLastPara: TddDocumentAtom; override;
    procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
    function CanWrite: Boolean; override;
-     {* Проверяет возможность записи объекта. Например, если у картинки нет размеров ширины и высоты, то она не записывается. }
- protected
- // protected methods
-   procedure ConvertToBin;
-   procedure ConvertToHex;
- public
- // public methods
-   procedure AddHexData(aHexStream: Tl3String);
-     {* Добавляем строку с 16-ричными символами. }
-   function Try2ReadKnownPicture(const aFiler: Tl3CustomFiler): Tl3String;
-     {* Пытаемся передать обработку "знающим" объектам. }
-   function Clone(aPAP: TddParagraphProperty): TddPicture;
-   class function CreateFromFile(const aPath: AnsiString): TddPicture;
-   procedure Try2ReadBinaryData(const aFiler: Tl3CustomFiler;
-     aSize: Integer);
- public
- // public properties
+    {* Проверяет возможность записи объекта. Например, если у картинки нет размеров ширины и высоты, то она не записывается. }
+  public
    property IsBinary: Boolean
-     read f_IsBinary
-     write pm_SetIsBinary;
+    read f_IsBinary
+    write pm_SetIsBinary;
    property BPP: Integer
-     read f_BPP
-     write f_BPP;
+    read f_BPP
+    write f_BPP;
    property CropL: Integer
-     read f_CropL
-     write f_CropL;
+    read f_CropL
+    write f_CropL;
    property CropR: Integer
-     read f_CropR
-     write f_CropR;
+    read f_CropR
+    write f_CropR;
    property CropB: Integer
-     read f_CropB
-     write f_CropB;
+    read f_CropB
+    write f_CropB;
    property CropT: Integer
-     read f_CropT
-     write f_CropT;
+    read f_CropT
+    write f_CropT;
    property ExternalHandle: Integer
-     read f_ExternalHandle
-     write f_ExternalHandle;
+    read f_ExternalHandle
+    write f_ExternalHandle;
    property ExternalPath: AnsiString
-     read f_ExternalPath
-     write f_ExternalPath;
+    read f_ExternalPath
+    write f_ExternalPath;
    property Format: Integer
-     read pm_GetFormat
-     write f_Format;
+    read pm_GetFormat
+    write f_Format;
    property GoalX: Integer
-     read f_GoalX
-     write f_GoalX;
+    read f_GoalX
+    write f_GoalX;
    property GoalY: Integer
-     read f_GoalY
-     write f_GoalY;
+    read f_GoalY
+    write f_GoalY;
    property Height: Integer
-     read f_Height
-     write f_Height;
+    read f_Height
+    write f_Height;
    property ScaleX: Integer
-     read f_ScaleX
-     write f_ScaleX;
+    read f_ScaleX
+    write f_ScaleX;
    property ScaleY: Integer
-     read f_ScaleY
-     write f_ScaleY;
+    read f_ScaleY
+    write f_ScaleY;
    property Width: Integer
-     read f_Width
-     write f_Width;
+    read f_Width
+    write f_Width;
    property Stream: TStream
-     read pm_GetStream
-     write pm_SetStream;
+    read pm_GetStream
+    write pm_SetStream;
    property Picture: Tl3String
-     read f_Picture;
+    read f_Picture;
    property WidthInPixels: Integer
-     write pm_SetWidthInPixels;
+    write pm_SetWidthInPixels;
    property HeightInPixels: Integer
-     write pm_SetHeightInPixels;
+    write pm_SetHeightInPixels;
  end;//TddPicture
 
 implementation
 
 uses
-  Windows,
-  ddPicturePathListner
-  {$If not defined(NoImageEn)}
-  ,
-  imageenview
-  {$IfEnd} //not NoImageEn
-  ,
-  l3Chars,
-  l3Memory,
-  SysUtils,
-  ddRTFUnits
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  k2Tags,
-  l3Math,
-  evdTypes,
-  ddEVDTypesSupport,
-  ddConst,
-  l3ImageUtils,
-  l3Metafile,
-  Graphics,
-  ddHexCharReader
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoImageEn)}
+ , imageenview
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , l3Chars
+ , l3Memory
+ , SysUtils
+ , ddRTFUnits
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , k2Tags
+ , l3Math
+ , evdTypes
+ , ddEVDTypesSupport
+ , ddConst
+ , l3ImageUtils
+ , l3Metafile
+ , Graphics
+ , ddHexCharReader
+ , Windows
+ , ddPicturePathListner
+;
 
-// start class TddPicture
+procedure TddPicture.pm_SetIsBinary(aValue: Boolean);
+//#UC START# *521AE2E301F2_51E8DC3E0361set_var*
+//#UC END# *521AE2E301F2_51E8DC3E0361set_var*
+begin
+//#UC START# *521AE2E301F2_51E8DC3E0361set_impl*
+ if aValue <> f_IsBinary then
+ begin
+  f_IsBinary:= aValue;
+  if f_IsBinary then
+   ConvertToBin
+  else
+   ConvertToHex;
+ end;
+//#UC END# *521AE2E301F2_51E8DC3E0361set_impl*
+end;//TddPicture.pm_SetIsBinary
+
+function TddPicture.pm_GetFormat: Integer;
+//#UC START# *521AE90802CC_51E8DC3E0361get_var*
+var
+ l_Format: Integer;
+ l_Detector: TImageEnIO;
+//#UC END# *521AE90802CC_51E8DC3E0361get_var*
+begin
+//#UC START# *521AE90802CC_51E8DC3E0361get_impl*
+ if f_Format = -1 then
+ begin
+  if f_Stream.Size > 1 then
+  begin
+   f_Stream.Seek(0, 0);
+   l_Detector:= TImageEnIO.Create(nil);
+   try
+    l_Detector.LoadFromStream(Stream);
+    f_Format:= l_Detector.Params.FileType;
+    if f_Format <> ioUnknown then
+    begin
+     { нужно выставить значения ширины, высоты, цветности и т.д. }
+     if f_Height = 0 then
+      f_Height := l_Detector.Params.Height;
+     if f_Width = 0 then
+      f_Width := l_Detector.Params.Width;
+     f_BPP := l_Detector.Params.BitsPerSample;
+    end; // l_Format <> ioUnknown
+   finally
+    FreeAndNil(l_Detector);
+   end;
+  end; // f_Stream.Size > 1
+  f_Stream.Seek(0, 0);
+ end;
+ Result := f_Format;
+//#UC END# *521AE90802CC_51E8DC3E0361get_impl*
+end;//TddPicture.pm_GetFormat
+
+function TddPicture.pm_GetStream: TStream;
+//#UC START# *521AEA490067_51E8DC3E0361get_var*
+//#UC END# *521AEA490067_51E8DC3E0361get_var*
+begin
+//#UC START# *521AEA490067_51E8DC3E0361get_impl*
+ if not f_IsBinary then
+  ConvertToBin;
+ Result:= f_Stream;
+//#UC END# *521AEA490067_51E8DC3E0361get_impl*
+end;//TddPicture.pm_GetStream
+
+procedure TddPicture.pm_SetStream(aValue: TStream);
+//#UC START# *521AEA490067_51E8DC3E0361set_var*
+//#UC END# *521AEA490067_51E8DC3E0361set_var*
+begin
+//#UC START# *521AEA490067_51E8DC3E0361set_impl*
+ f_IsBinary:= True;
+ aValue.Seek(0, 0);
+ f_Stream.CopyFrom(aValue, aValue.Size);
+ f_Stream.Position := 0;
+//#UC END# *521AEA490067_51E8DC3E0361set_impl*
+end;//TddPicture.pm_SetStream
+
+procedure TddPicture.pm_SetWidthInPixels(aValue: Integer);
+//#UC START# *55EE870702AD_51E8DC3E0361set_var*
+//#UC END# *55EE870702AD_51E8DC3E0361set_var*
+begin
+//#UC START# *55EE870702AD_51E8DC3E0361set_impl*
+ f_WidthInPixels := aValue;
+//#UC END# *55EE870702AD_51E8DC3E0361set_impl*
+end;//TddPicture.pm_SetWidthInPixels
+
+procedure TddPicture.pm_SetHeightInPixels(aValue: Integer);
+//#UC START# *55EE872A0092_51E8DC3E0361set_var*
+//#UC END# *55EE872A0092_51E8DC3E0361set_var*
+begin
+//#UC START# *55EE872A0092_51E8DC3E0361set_impl*
+ f_HeightInPixels := aValue;
+//#UC END# *55EE872A0092_51E8DC3E0361set_impl*
+end;//TddPicture.pm_SetHeightInPixels
 
 procedure TddPicture.CropPicture;
 //#UC START# *521AEAB901C0_51E8DC3E0361_var*
@@ -263,9 +332,124 @@ begin
 //#UC END# *521AEAB901C0_51E8DC3E0361_impl*
 end;//TddPicture.CropPicture
 
+procedure TddPicture.ConvertToBin;
+//#UC START# *521AEACF0234_51E8DC3E0361_var*
+var
+ l_Buf : PAnsiChar;
+ l_Size: Integer;
+//#UC END# *521AEACF0234_51E8DC3E0361_var*
+begin
+//#UC START# *521AEACF0234_51E8DC3E0361_impl*
+ if not f_Picture.Empty then
+ begin
+  l_Size := f_Picture.Len * 2 + 1;
+  l3System.GetLocalMem(l_Buf, l_Size);
+  try
+   l3FillChar(l_Buf^, l_Size, 0);
+   HexToBinEx(f_Picture, l_Buf, l_Size);
+   f_Stream.Write(l_Buf^, l_Size);
+   f_Stream.Seek(0, soBeginning);
+  finally
+   l3System.FreeLocalMem(l_Buf);
+  end;
+  f_Picture.Clear;
+ end;
+ f_IsBinary:= True;
+//#UC END# *521AEACF0234_51E8DC3E0361_impl*
+end;//TddPicture.ConvertToBin
+
+procedure TddPicture.ConvertToHex;
+//#UC START# *521AEAE60288_51E8DC3E0361_var*
+const
+ l_EOL : PAnsiChar = cc_EOL;
+var
+ l_Bin       : array [0..8 * 1024 - 1] of AnsiChar;
+ l_Hex       : array [0..8 * 1024 * 2 - 1] of AnsiChar;
+ l_Count     : Longint;
+ l_BinStream : TStream;
+ l_HexStream : Tl3StringStream;
+//#UC END# *521AEAE60288_51E8DC3E0361_var*
+begin
+//#UC START# *521AEAE60288_51E8DC3E0361_impl*
+ if f_Stream.Size > 0 then
+ begin
+  l_HexStream := Tl3StringStream.Create(f_Picture);
+  try
+   f_Stream.Seek(0, 0);
+   l_BinStream := f_Stream;
+   while true do begin
+    l_Count := l_BinStream.Read(l_Bin, SizeOf(l_Bin));
+    if (l_Count = 0) then break;
+    BinToHex(l_Bin, l_Hex, l_Count);
+    l_HexStream.Write(l_Hex, l_Count * 2);
+   end;//while true
+  finally
+   FreeAndNil(l_HexStream);
+  end;//try..finally
+ end;
+ f_IsBinary:= False;
+//#UC END# *521AEAE60288_51E8DC3E0361_impl*
+end;//TddPicture.ConvertToHex
+
+procedure TddPicture.AddHexData(aHexStream: Tl3String);
+ {* Добавляем строку с 16-ричными символами. }
+//#UC START# *5343AC66009C_51E8DC3E0361_var*
+var 
+ l_WMF    : Tl3Metafile;
+ l_Size   : Int64;
+ l_BinBuf : PAnsiChar;
+//#UC END# *5343AC66009C_51E8DC3E0361_var*
+begin
+//#UC START# *5343AC66009C_51E8DC3E0361_impl*
+ if (aHexStream = nil) or (aHexStream.Len = 0) then Exit;
+ l_Size := aHexStream.Len div 2;
+ try
+  l3System.GetLocalMem(l_BinBuf, l_Size);
+  try
+   l_Size := HexToBinEx(aHexStream, l_BinBuf, l_Size); // Буфер может стать меньше...
+   if f_NeedWMFHeader then
+    f_Stream.Write(f_WMFHeader, SizeOf(f_WMFHeader));
+   f_Stream.Write(l_BinBuf^, l_Size);
+  finally
+   l3System.FreeLocalMem(l_BinBuf);
+  end;
+  if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
+  begin
+   l_WMF := Tl3Metafile.Create;
+   try
+    f_Stream.Seek(0, soBeginning);
+    if f_NeedWMFHeader then
+    begin
+     l_WMF.LoadWMFFromStream(Stream);
+     f_NeedWMFHeader := False;
+    end // if f_NeedWMFHeader then
+    else
+     l_WMF.LoadFromStream(f_Stream);
+    l_WMF.Enhanced := True;
+    f_Stream.Seek(0, soBeginning);
+    f_Stream.Size := 0;
+    l_WMF.SaveToStream(f_Stream);
+    l_Size := f_Stream.Size;
+   finally
+    l3Free(l_WMF);
+   end;
+  end; // if f_NeedWMFHeader then
+  f_IsBinary := True;
+  {$IFDEF InsiderTest}
+  if f_Format > pictNONE then
+   SavePicture2File(l_Size);
+  {$ENDIF InsiderTest}
+ except
+  on EInvalidGraphic do
+   f_Format := pictNONE;
+ end;
+//#UC END# *5343AC66009C_51E8DC3E0361_impl*
+end;//TddPicture.AddHexData
+
 function TddPicture.HexToBinEx(aText: Tl3String;
-  Buffer: PAnsiChar;
-  BufSize: Integer): Integer;
+ Buffer: PAnsiChar;
+ BufSize: Integer): Integer;
+ {* Преобразование из 16-ричной текстовй строки в бинарные данные с пропуском символов переноса стоки и поддержки заглавных букв. }
 //#UC START# *5343AD9A009A_51E8DC3E0361_var*
 const
  Convert: array['0'..'f'] of SmallInt =
@@ -303,7 +487,24 @@ begin
 //#UC END# *5343AD9A009A_51E8DC3E0361_impl*
 end;//TddPicture.HexToBinEx
 
+function TddPicture.Try2ReadKnownPicture(const aFiler: Tl3CustomFiler): Tl3String;
+ {* Пытаемся передать обработку "знающим" объектам. }
+//#UC START# *5346587A0043_51E8DC3E0361_var*
+//#UC END# *5346587A0043_51E8DC3E0361_var*
+begin
+//#UC START# *5346587A0043_51E8DC3E0361_impl*
+ if f_Format = pictEMF then
+  Result := Try2ReadEMF(aFiler)
+ else
+ if f_Format = pictWMF then
+   Result := Try2ReadWMF(aFiler)
+ else
+  Result := nil;
+//#UC END# *5346587A0043_51E8DC3E0361_impl*
+end;//TddPicture.Try2ReadKnownPicture
+
 function TddPicture.Try2ReadEMF(const aFiler: Tl3CustomFiler): Tl3String;
+ {* Чтение текстового 16-ричного потока EMF. }
 //#UC START# *534658AC032F_51E8DC3E0361_var*
 var
  l_BufSize   : Integer;
@@ -335,7 +536,7 @@ begin
 //#UC END# *534658AC032F_51E8DC3E0361_impl*
 end;//TddPicture.Try2ReadEMF
 
-{$If defined(InsiderTest)}
+{$If Defined(InsiderTest)}
 procedure TddPicture.SavePicture2File(aSize: Integer);
 //#UC START# *534BBC6B006F_51E8DC3E0361_var*
 var
@@ -358,9 +559,10 @@ begin
  end; // if TddPicturePathListner.Instance.EnableSave then
 //#UC END# *534BBC6B006F_51E8DC3E0361_impl*
 end;//TddPicture.SavePicture2File
-{$IfEnd} //InsiderTest
+{$IfEnd} // Defined(InsiderTest)
 
 function TddPicture.Try2ReadWMF(const aFiler: Tl3CustomFiler): Tl3String;
+ {* Чтение текстового 16-ричного потока WMF. }
 //#UC START# *54B77D750163_51E8DC3E0361_var*
 var
  l_WMFHeader  : Tl3MetafileHeader;
@@ -456,6 +658,59 @@ begin
 //#UC END# *54B77D750163_51E8DC3E0361_impl*
 end;//TddPicture.Try2ReadWMF
 
+function TddPicture.Clone(aPAP: TddParagraphProperty): TddPicture;
+//#UC START# *54F71A0201D3_51E8DC3E0361_var*
+//#UC END# *54F71A0201D3_51E8DC3E0361_var*
+begin
+//#UC START# *54F71A0201D3_51E8DC3E0361_impl*
+ Result := TddPicture.Create(f_Destination);
+ Result.Assign(Self);
+ if aPAP <> nil then
+  Result.PAP := aPAP; 
+//#UC END# *54F71A0201D3_51E8DC3E0361_impl*
+end;//TddPicture.Clone
+
+class function TddPicture.CreateFromFile(const aPath: AnsiString): TddPicture;
+//#UC START# *554C7AD301AD_51E8DC3E0361_var*
+var
+ l_Picture   : TddPicture;
+ l_FileStream: TFileStream;
+//#UC END# *554C7AD301AD_51E8DC3E0361_var*
+begin
+//#UC START# *554C7AD301AD_51E8DC3E0361_impl*
+ Result := nil;
+ if not FileExists(aPath) then Exit;
+ l_FileStream := TFileStream.Create(aPath, fmOpenRead);
+ try
+  l_Picture := TddPicture.Create(nil);
+  l_Picture.Stream.CopyFrom(l_FileStream, l_FileStream.Size);
+  Result := l_Picture;
+ finally
+  l3Free(l_FileStream);
+ end;
+//#UC END# *554C7AD301AD_51E8DC3E0361_impl*
+end;//TddPicture.CreateFromFile
+
+procedure TddPicture.Try2ReadBinaryData(const aFiler: Tl3CustomFiler;
+ aSize: Integer);
+//#UC START# *55D6FFCC03AA_51E8DC3E0361_var*
+var
+ l_Size  : Integer;
+ l_Buffer: PAnsiChar;
+//#UC END# *55D6FFCC03AA_51E8DC3E0361_var*
+begin
+//#UC START# *55D6FFCC03AA_51E8DC3E0361_impl*
+ l3System.GetLocalMem(l_Buffer, aSize);
+ try
+  aFiler.Read(l_Buffer, aSize);
+  Stream.WriteBuffer(l_Buffer^, aSize);
+ finally
+  l3System.FreeLocalMem(l_Buffer);
+ end;
+ f_IsBinary := True;
+//#UC END# *55D6FFCC03AA_51E8DC3E0361_impl*
+end;//TddPicture.Try2ReadBinaryData
+
 procedure TddPicture.Try2RecalcPictureProps;
 //#UC START# *55EE87A90390_51E8DC3E0361_var*
 var
@@ -500,281 +755,8 @@ begin
 //#UC END# *55EE87A90390_51E8DC3E0361_impl*
 end;//TddPicture.Try2RecalcPictureProps
 
-procedure TddPicture.ConvertToBin;
-//#UC START# *521AEACF0234_51E8DC3E0361_var*
-var
- l_Buf : PAnsiChar;
- l_Size: Integer;
-//#UC END# *521AEACF0234_51E8DC3E0361_var*
-begin
-//#UC START# *521AEACF0234_51E8DC3E0361_impl*
- if not f_Picture.Empty then
- begin
-  l_Size := f_Picture.Len * 2 + 1;
-  l3System.GetLocalMem(l_Buf, l_Size);
-  try
-   l3FillChar(l_Buf^, l_Size, 0);
-   HexToBinEx(f_Picture, l_Buf, l_Size);
-   f_Stream.Write(l_Buf^, l_Size);
-   f_Stream.Seek(0, soBeginning);
-  finally
-   l3System.FreeLocalMem(l_Buf);
-  end;
-  f_Picture.Clear;
- end;
- f_IsBinary:= True;
-//#UC END# *521AEACF0234_51E8DC3E0361_impl*
-end;//TddPicture.ConvertToBin
-
-procedure TddPicture.ConvertToHex;
-//#UC START# *521AEAE60288_51E8DC3E0361_var*
-const
- l_EOL : PAnsiChar = cc_EOL;
-var
- l_Bin       : array [0..8 * 1024 - 1] of AnsiChar;
- l_Hex       : array [0..8 * 1024 * 2 - 1] of AnsiChar;
- l_Count     : Longint;
- l_BinStream : TStream;
- l_HexStream : Tl3StringStream;
-//#UC END# *521AEAE60288_51E8DC3E0361_var*
-begin
-//#UC START# *521AEAE60288_51E8DC3E0361_impl*
- if f_Stream.Size > 0 then
- begin
-  l_HexStream := Tl3StringStream.Create(f_Picture);
-  try
-   f_Stream.Seek(0, 0);
-   l_BinStream := f_Stream;
-   while true do begin
-    l_Count := l_BinStream.Read(l_Bin, SizeOf(l_Bin));
-    if (l_Count = 0) then break;
-    BinToHex(l_Bin, l_Hex, l_Count);
-    l_HexStream.Write(l_Hex, l_Count * 2);
-   end;//while true
-  finally
-   FreeAndNil(l_HexStream);
-  end;//try..finally
- end;
- f_IsBinary:= False;
-//#UC END# *521AEAE60288_51E8DC3E0361_impl*
-end;//TddPicture.ConvertToHex
-
-procedure TddPicture.AddHexData(aHexStream: Tl3String);
-//#UC START# *5343AC66009C_51E8DC3E0361_var*
-var 
- l_WMF    : Tl3Metafile;
- l_Size   : Int64;
- l_BinBuf : PAnsiChar;
-//#UC END# *5343AC66009C_51E8DC3E0361_var*
-begin
-//#UC START# *5343AC66009C_51E8DC3E0361_impl*
- if (aHexStream = nil) or (aHexStream.Len = 0) then Exit;
- l_Size := aHexStream.Len div 2;
- try
-  l3System.GetLocalMem(l_BinBuf, l_Size);
-  try
-   l_Size := HexToBinEx(aHexStream, l_BinBuf, l_Size); // Буфер может стать меньше...
-   if f_NeedWMFHeader then
-    f_Stream.Write(f_WMFHeader, SizeOf(f_WMFHeader));
-   f_Stream.Write(l_BinBuf^, l_Size);
-  finally
-   l3System.FreeLocalMem(l_BinBuf);
-  end;
-  if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
-  begin
-   l_WMF := Tl3Metafile.Create;
-   try
-    f_Stream.Seek(0, soBeginning);
-    if f_NeedWMFHeader then
-    begin
-     l_WMF.LoadWMFFromStream(Stream);
-     f_NeedWMFHeader := False;
-    end // if f_NeedWMFHeader then
-    else
-     l_WMF.LoadFromStream(f_Stream);
-    l_WMF.Enhanced := True;
-    f_Stream.Seek(0, soBeginning);
-    f_Stream.Size := 0;
-    l_WMF.SaveToStream(f_Stream);
-    l_Size := f_Stream.Size;
-   finally
-    l3Free(l_WMF);
-   end;
-  end; // if f_NeedWMFHeader then
-  f_IsBinary := True;
-  {$IFDEF InsiderTest}
-  if f_Format > pictNONE then
-   SavePicture2File(l_Size);
-  {$ENDIF InsiderTest}
- except
-  on EInvalidGraphic do
-   f_Format := pictNONE;
- end;
-//#UC END# *5343AC66009C_51E8DC3E0361_impl*
-end;//TddPicture.AddHexData
-
-function TddPicture.Try2ReadKnownPicture(const aFiler: Tl3CustomFiler): Tl3String;
-//#UC START# *5346587A0043_51E8DC3E0361_var*
-//#UC END# *5346587A0043_51E8DC3E0361_var*
-begin
-//#UC START# *5346587A0043_51E8DC3E0361_impl*
- if f_Format = pictEMF then
-  Result := Try2ReadEMF(aFiler)
- else
- if f_Format = pictWMF then
-   Result := Try2ReadWMF(aFiler)
- else
-  Result := nil;
-//#UC END# *5346587A0043_51E8DC3E0361_impl*
-end;//TddPicture.Try2ReadKnownPicture
-
-function TddPicture.Clone(aPAP: TddParagraphProperty): TddPicture;
-//#UC START# *54F71A0201D3_51E8DC3E0361_var*
-//#UC END# *54F71A0201D3_51E8DC3E0361_var*
-begin
-//#UC START# *54F71A0201D3_51E8DC3E0361_impl*
- Result := TddPicture.Create(f_Destination);
- Result.Assign(Self);
- if aPAP <> nil then
-  Result.PAP := aPAP; 
-//#UC END# *54F71A0201D3_51E8DC3E0361_impl*
-end;//TddPicture.Clone
-
-class function TddPicture.CreateFromFile(const aPath: AnsiString): TddPicture;
-//#UC START# *554C7AD301AD_51E8DC3E0361_var*
-var
- l_Picture   : TddPicture;
- l_FileStream: TFileStream;
-//#UC END# *554C7AD301AD_51E8DC3E0361_var*
-begin
-//#UC START# *554C7AD301AD_51E8DC3E0361_impl*
- Result := nil;
- if not FileExists(aPath) then Exit;
- l_FileStream := TFileStream.Create(aPath, fmOpenRead);
- try
-  l_Picture := TddPicture.Create(nil);
-  l_Picture.Stream.CopyFrom(l_FileStream, l_FileStream.Size);
-  Result := l_Picture;
- finally
-  l3Free(l_FileStream);
- end;
-//#UC END# *554C7AD301AD_51E8DC3E0361_impl*
-end;//TddPicture.CreateFromFile
-
-procedure TddPicture.Try2ReadBinaryData(const aFiler: Tl3CustomFiler;
-  aSize: Integer);
-//#UC START# *55D6FFCC03AA_51E8DC3E0361_var*
-var
- l_Size  : Integer;
- l_Buffer: PAnsiChar;
-//#UC END# *55D6FFCC03AA_51E8DC3E0361_var*
-begin
-//#UC START# *55D6FFCC03AA_51E8DC3E0361_impl*
- l3System.GetLocalMem(l_Buffer, aSize);
- try
-  aFiler.Read(l_Buffer, aSize);
-  Stream.WriteBuffer(l_Buffer^, aSize);
- finally
-  l3System.FreeLocalMem(l_Buffer);
- end;
- f_IsBinary := True;
-//#UC END# *55D6FFCC03AA_51E8DC3E0361_impl*
-end;//TddPicture.Try2ReadBinaryData
-
-procedure TddPicture.pm_SetIsBinary(aValue: Boolean);
-//#UC START# *521AE2E301F2_51E8DC3E0361set_var*
-//#UC END# *521AE2E301F2_51E8DC3E0361set_var*
-begin
-//#UC START# *521AE2E301F2_51E8DC3E0361set_impl*
- if aValue <> f_IsBinary then
- begin
-  f_IsBinary:= aValue;
-  if f_IsBinary then
-   ConvertToBin
-  else
-   ConvertToHex;
- end;
-//#UC END# *521AE2E301F2_51E8DC3E0361set_impl*
-end;//TddPicture.pm_SetIsBinary
-
-function TddPicture.pm_GetFormat: Integer;
-//#UC START# *521AE90802CC_51E8DC3E0361get_var*
-var
- l_Format: Integer;
- l_Detector: TImageEnIO;
-//#UC END# *521AE90802CC_51E8DC3E0361get_var*
-begin
-//#UC START# *521AE90802CC_51E8DC3E0361get_impl*
- if f_Format = -1 then
- begin
-  if f_Stream.Size > 1 then
-  begin
-   f_Stream.Seek(0, 0);
-   l_Detector:= TImageEnIO.Create(nil);
-   try
-    l_Detector.LoadFromStream(Stream);
-    f_Format:= l_Detector.Params.FileType;
-    if f_Format <> ioUnknown then
-    begin
-     { нужно выставить значения ширины, высоты, цветности и т.д. }
-     if f_Height = 0 then
-      f_Height := l_Detector.Params.Height;
-     if f_Width = 0 then
-      f_Width := l_Detector.Params.Width;
-     f_BPP := l_Detector.Params.BitsPerSample;
-    end; // l_Format <> ioUnknown
-   finally
-    FreeAndNil(l_Detector);
-   end;
-  end; // f_Stream.Size > 1
-  f_Stream.Seek(0, 0);
- end;
- Result := f_Format;
-//#UC END# *521AE90802CC_51E8DC3E0361get_impl*
-end;//TddPicture.pm_GetFormat
-
-function TddPicture.pm_GetStream: TStream;
-//#UC START# *521AEA490067_51E8DC3E0361get_var*
-//#UC END# *521AEA490067_51E8DC3E0361get_var*
-begin
-//#UC START# *521AEA490067_51E8DC3E0361get_impl*
- if not f_IsBinary then
-  ConvertToBin;
- Result:= f_Stream;
-//#UC END# *521AEA490067_51E8DC3E0361get_impl*
-end;//TddPicture.pm_GetStream
-
-procedure TddPicture.pm_SetStream(aValue: TStream);
-//#UC START# *521AEA490067_51E8DC3E0361set_var*
-//#UC END# *521AEA490067_51E8DC3E0361set_var*
-begin
-//#UC START# *521AEA490067_51E8DC3E0361set_impl*
- f_IsBinary:= True;
- aValue.Seek(0, 0);
- f_Stream.CopyFrom(aValue, aValue.Size);
- f_Stream.Position := 0;
-//#UC END# *521AEA490067_51E8DC3E0361set_impl*
-end;//TddPicture.pm_SetStream
-
-procedure TddPicture.pm_SetWidthInPixels(aValue: Integer);
-//#UC START# *55EE870702AD_51E8DC3E0361set_var*
-//#UC END# *55EE870702AD_51E8DC3E0361set_var*
-begin
-//#UC START# *55EE870702AD_51E8DC3E0361set_impl*
- f_WidthInPixels := aValue;
-//#UC END# *55EE870702AD_51E8DC3E0361set_impl*
-end;//TddPicture.pm_SetWidthInPixels
-
-procedure TddPicture.pm_SetHeightInPixels(aValue: Integer);
-//#UC START# *55EE872A0092_51E8DC3E0361set_var*
-//#UC END# *55EE872A0092_51E8DC3E0361set_var*
-begin
-//#UC START# *55EE872A0092_51E8DC3E0361set_impl*
- f_HeightInPixels := aValue;
-//#UC END# *55EE872A0092_51E8DC3E0361set_impl*
-end;//TddPicture.pm_SetHeightInPixels
-
 procedure TddPicture.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51E8DC3E0361_var*
 //#UC END# *479731C50290_51E8DC3E0361_var*
 begin
@@ -820,8 +802,8 @@ begin
 end;//TddPicture.Clear
 
 procedure TddPicture.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_51E8DC3E0361_var*
 var
  l_Width  : Integer;
@@ -960,6 +942,7 @@ begin
 end;//TddPicture.Assign
 
 function TddPicture.CanWrite: Boolean;
+ {* Проверяет возможность записи объекта. Например, если у картинки нет размеров ширины и высоты, то она не записывается. }
 //#UC START# *55D71C0C0164_51E8DC3E0361_var*
 //#UC END# *55D71C0C0164_51E8DC3E0361_var*
 begin
@@ -967,5 +950,11 @@ begin
  Result := (Width <> 0) and (Height <> 0)
 //#UC END# *55D71C0C0164_51E8DC3E0361_impl*
 end;//TddPicture.CanWrite
+
+procedure TddPicture.ClearFields;
+begin
+ ExternalPath := '';
+ inherited;
+end;//TddPicture.ClearFields
 
 end.

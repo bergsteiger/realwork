@@ -1,54 +1,35 @@
 unit vcmMakeParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmMakeParams.pas"
-// Начат: 16.10.2009 20:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmMakeParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMakeParams" MUID: (4AD89C12030A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  Classes,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoObject
+ , vcmInterfaces
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmMakeParams = class(Tl3ProtoObject, IvcmMakeParams)
- private
- // private fields
-   f_Container : IvcmContainer;
-   f_Aggregate : IvcmAggregate;
-   f_Owner : TComponent;
- protected
- // realized methods
+  private
+   f_Container: IvcmContainer;
+   f_Aggregate: IvcmAggregate;
+   f_Owner: TComponent;
+  protected
    function Get_Owner: TComponent;
    function Get_Aggregate: IvcmAggregate;
    function Get_Container: IvcmContainer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const anAggregate: IvcmAggregate;
     const aContainer: IvcmContainer;
     anOwner: TComponent); reintroduce;
@@ -56,17 +37,18 @@ type
     const aContainer: IvcmContainer;
     anOwner: TComponent): IvcmMakeParams; reintroduce;
  end;//TvcmMakeParams
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-
-// start class TvcmMakeParams
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 constructor TvcmMakeParams.Create(const anAggregate: IvcmAggregate;
-  const aContainer: IvcmContainer;
-  anOwner: TComponent);
+ const aContainer: IvcmContainer;
+ anOwner: TComponent);
 //#UC START# *4AD89CFA01E7_4AD89C12030A_var*
 //#UC END# *4AD89CFA01E7_4AD89C12030A_var*
 begin
@@ -79,8 +61,8 @@ begin
 end;//TvcmMakeParams.Create
 
 class function TvcmMakeParams.Make(const anAggregate: IvcmAggregate;
-  const aContainer: IvcmContainer;
-  anOwner: TComponent): IvcmMakeParams;
+ const aContainer: IvcmContainer;
+ anOwner: TComponent): IvcmMakeParams;
 var
  l_Inst : TvcmMakeParams;
 begin
@@ -90,7 +72,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmMakeParams.Make
 
 function TvcmMakeParams.Get_Owner: TComponent;
 //#UC START# *49930FC002C3_4AD89C12030Aget_var*
@@ -120,6 +102,7 @@ begin
 end;//TvcmMakeParams.Get_Container
 
 procedure TvcmMakeParams.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AD89C12030A_var*
 //#UC END# *479731C50290_4AD89C12030A_var*
 begin
@@ -130,17 +113,11 @@ begin
 end;//TvcmMakeParams.Cleanup
 
 procedure TvcmMakeParams.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_Container := nil;
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
  f_Aggregate := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvcmMakeParams.ClearFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,65 +1,48 @@
 unit ddDocumentAtom;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddDocumentAtom.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddDocumentAtom
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddDocumentAtom.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddDocumentAtom" MUID: (4FACE0E4032F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  l3ProtoDataContainer,
-  ddCustomDestination,
-  ddTypes,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , ddCustomDestination
+ , k2Interfaces
+ , ddTypes
+ , l3ProtoObject
+;
 
 type
  _ddDocAtomWithAssign_Parent_ = Tl3ProtoDataContainer;
- {$Include ..\dd\ddDocAtomWithAssign.imp.pas}
+ {$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}
  TddDocumentAtom = class(_ddDocAtomWithAssign_)
- private
- // private fields
-   f_Closed : Boolean;
-    {* Поле для свойства Closed}
-   f_Stored : Boolean;
-    {* Поле для свойства Stored}
- protected
- // property methods
+  private
+   f_Closed: Boolean;
+    {* Поле для свойства Closed }
+   f_Stored: Boolean;
+    {* Поле для свойства Stored }
+  protected
+   f_Destination: TddCustomDestination;
+  protected
    procedure pm_SetClosed(aValue: Boolean);
    function pm_GetEmpty: Boolean;
    procedure pm_SetStored(aValue: Boolean); virtual;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetEmpty: Boolean; override;
- protected
- // protected fields
-   f_Destination : TddCustomDestination;
- protected
- // protected methods
    procedure DoClose; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetEmpty: Boolean; override;
+  public
    procedure Clear; virtual;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); virtual; abstract;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); virtual; abstract;
    function JoinWith(P: TObject;
-     aCorrectSegment: Boolean = False): Integer; virtual;
+    aCorrectSegment: Boolean = False): Integer; virtual;
    function HasSoftEnter: Boolean; virtual;
    function IsTable: Boolean; virtual;
    function IsTextPara: Boolean; virtual;
@@ -68,25 +51,55 @@ type
    function IsRow: Boolean; virtual;
    function GetLastPara: TddDocumentAtom; virtual;
    function CanWrite: Boolean; virtual;
-     {* Проверяет возможность записи объекта. Например, если у картинки нет размеров ширины и высоты, то она не записывается. }
+    {* Проверяет возможность записи объекта. Например, если у картинки нет размеров ширины и высоты, то она не записывается. }
    constructor Create(aDetination: TddCustomDestination); reintroduce; virtual;
- public
- // public properties
+  public
    property Closed: Boolean
-     read f_Closed
-     write pm_SetClosed;
+    read f_Closed
+    write pm_SetClosed;
    property Empty: Boolean
-     read pm_GetEmpty;
+    read pm_GetEmpty;
    property Stored: Boolean
-     read f_Stored
-     write pm_SetStored;
+    read f_Stored
+    write pm_SetStored;
  end;//TddDocumentAtom
 
 implementation
 
-{$Include ..\dd\ddDocAtomWithAssign.imp.pas}
+uses
+ l3ImplUses
+;
 
-// start class TddDocumentAtom
+{$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}
+
+procedure TddDocumentAtom.pm_SetClosed(aValue: Boolean);
+//#UC START# *5192108D0091_4FACE0E4032Fset_var*
+//#UC END# *5192108D0091_4FACE0E4032Fset_var*
+begin
+//#UC START# *5192108D0091_4FACE0E4032Fset_impl*
+ f_Closed := aValue;
+ if f_Closed then
+  DoClose;
+//#UC END# *5192108D0091_4FACE0E4032Fset_impl*
+end;//TddDocumentAtom.pm_SetClosed
+
+function TddDocumentAtom.pm_GetEmpty: Boolean;
+//#UC START# *525D1B9B0218_4FACE0E4032Fget_var*
+//#UC END# *525D1B9B0218_4FACE0E4032Fget_var*
+begin
+//#UC START# *525D1B9B0218_4FACE0E4032Fget_impl*
+ Result := GetEmpty;
+//#UC END# *525D1B9B0218_4FACE0E4032Fget_impl*
+end;//TddDocumentAtom.pm_GetEmpty
+
+procedure TddDocumentAtom.pm_SetStored(aValue: Boolean);
+//#UC START# *55BB6C6903D5_4FACE0E4032Fset_var*
+//#UC END# *55BB6C6903D5_4FACE0E4032Fset_var*
+begin
+//#UC START# *55BB6C6903D5_4FACE0E4032Fset_impl*
+ f_Stored := aValue;
+//#UC END# *55BB6C6903D5_4FACE0E4032Fset_impl*
+end;//TddDocumentAtom.pm_SetStored
 
 procedure TddDocumentAtom.Clear;
 //#UC START# *518A48F500CF_4FACE0E4032F_var*
@@ -106,7 +119,7 @@ begin
 end;//TddDocumentAtom.DoClose
 
 function TddDocumentAtom.JoinWith(P: TObject;
-  aCorrectSegment: Boolean = False): Integer;
+ aCorrectSegment: Boolean = False): Integer;
 //#UC START# *51921142034B_4FACE0E4032F_var*
 //#UC END# *51921142034B_4FACE0E4032F_var*
 begin
@@ -179,6 +192,7 @@ begin
 end;//TddDocumentAtom.GetLastPara
 
 function TddDocumentAtom.CanWrite: Boolean;
+ {* Проверяет возможность записи объекта. Например, если у картинки нет размеров ширины и высоты, то она не записывается. }
 //#UC START# *55D71C0C0164_4FACE0E4032F_var*
 //#UC END# *55D71C0C0164_4FACE0E4032F_var*
 begin
@@ -186,35 +200,6 @@ begin
  Result := True;
 //#UC END# *55D71C0C0164_4FACE0E4032F_impl*
 end;//TddDocumentAtom.CanWrite
-
-procedure TddDocumentAtom.pm_SetClosed(aValue: Boolean);
-//#UC START# *5192108D0091_4FACE0E4032Fset_var*
-//#UC END# *5192108D0091_4FACE0E4032Fset_var*
-begin
-//#UC START# *5192108D0091_4FACE0E4032Fset_impl*
- f_Closed := aValue;
- if f_Closed then
-  DoClose;
-//#UC END# *5192108D0091_4FACE0E4032Fset_impl*
-end;//TddDocumentAtom.pm_SetClosed
-
-function TddDocumentAtom.pm_GetEmpty: Boolean;
-//#UC START# *525D1B9B0218_4FACE0E4032Fget_var*
-//#UC END# *525D1B9B0218_4FACE0E4032Fget_var*
-begin
-//#UC START# *525D1B9B0218_4FACE0E4032Fget_impl*
- Result := GetEmpty;
-//#UC END# *525D1B9B0218_4FACE0E4032Fget_impl*
-end;//TddDocumentAtom.pm_GetEmpty
-
-procedure TddDocumentAtom.pm_SetStored(aValue: Boolean);
-//#UC START# *55BB6C6903D5_4FACE0E4032Fset_var*
-//#UC END# *55BB6C6903D5_4FACE0E4032Fset_var*
-begin
-//#UC START# *55BB6C6903D5_4FACE0E4032Fset_impl*
- f_Stored := aValue;
-//#UC END# *55BB6C6903D5_4FACE0E4032Fset_impl*
-end;//TddDocumentAtom.pm_SetStored
 
 constructor TddDocumentAtom.Create(aDetination: TddCustomDestination);
 //#UC START# *51E91BA80051_4FACE0E4032F_var*
@@ -228,6 +213,7 @@ begin
 end;//TddDocumentAtom.Create
 
 procedure TddDocumentAtom.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FACE0E4032F_var*
 //#UC END# *479731C50290_4FACE0E4032F_var*
 begin

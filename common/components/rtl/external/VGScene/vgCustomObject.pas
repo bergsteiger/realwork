@@ -1,48 +1,35 @@
 unit vgCustomObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/VGScene/vgCustomObject.pas"
-// Начат: 10.02.2011 20:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Core::TvgCustomObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgCustomObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomObject" MUID: (4D542078016E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgComponent
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgComponent
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgCustomObject = {abstract} class(TvgComponent)
- protected
- // property methods
+  protected
    function pm_GetIsVisual: Boolean; virtual; abstract;
- public
- // public properties
+  public
    property IsVisual: Boolean
-     read pm_GetIsVisual;
+    read pm_GetIsVisual;
  end;//TvgCustomObject
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
 
-
-{$IfEnd} //not NoVGScene
 end.

@@ -1,50 +1,40 @@
 unit DoneNotifier_i;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/DoneNotifier_i.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::Folders_i::DoneNotifier_i
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DoneNotifier_i.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "DoneNotifier_i" MUID: (45FFCBD60196)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  FoldersUnit,
-  FolderNotifier_i
-  ;
+ l3IntfUses
+ , FoldersUnit
+ , FolderNotifier_i
+;
 
 type
- DoneNotifier_i = {abstract} class(, IDoneNotifier)
- private
- // private fields
-   notify_data_list : NotifyDataList;
-   fire_done : Boolean;
-   notifier : FolderNotifier_i;
-   done_mutex : mutex;
- protected
- // realized methods
+ DoneNotifier_i = {abstract} class(IDoneNotifier)
+  private
+   notify_data_list: NotifyDataList;
+   fire_done: ByteBool;
+   notifier: FolderNotifier_i;
+   done_mutex: mutex;
+  protected
    function Done: ByteBool; stdcall;
- public
- // public methods
-   constructor Make(var servant: FolderNotifier_i); virtual;
+  public
+   constructor Make(var servant: FolderNotifier_i); reintroduce; virtual; stdcall;
    procedure AddNotifyData(status: TNotifyStatus;
-    folder_id: Cardinal); virtual;
-   procedure ClearCache; virtual;
+    folder_id: Cardinal); virtual; stdcall;
+   procedure ClearCache; virtual; stdcall;
  end;//DoneNotifier_i
 
 implementation
 
-// start class DoneNotifier_i
+uses
+ l3ImplUses
+;
 
 constructor DoneNotifier_i.Make(var servant: FolderNotifier_i);
 //#UC START# *45FFCC7F0157_45FFCBD60196_var*
@@ -56,7 +46,7 @@ begin
 end;//DoneNotifier_i.Make
 
 procedure DoneNotifier_i.AddNotifyData(status: TNotifyStatus;
-  folder_id: Cardinal);
+ folder_id: Cardinal);
 //#UC START# *45FFDBD202DE_45FFCBD60196_var*
 //#UC END# *45FFDBD202DE_45FFCBD60196_var*
 begin

@@ -1,90 +1,72 @@
 unit destShp;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destShp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestShp
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destShp.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestShp" MUID: (5461CBCB01F3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRTFdestination,
-  destNorm,
-  destShapeInst,
-  destShapeTxt,
-  destShapeRslt,
-  ddRTFState,
-  l3Base,
-  RTFtypes
-  ;
+ l3IntfUses
+ , ddRTFdestination
+ , destShapeTxt
+ , destShapeInst
+ , destNorm
+ , destShapeRslt
+ , ddRTFState
+ , RTFtypes
+ , l3Base
+;
 
 type
  TdestShp = class(TddRTFDestination)
- private
- // private fields
-   f_ShapeTxt : TdestShapeTxt;
-    {* Поле для свойства ShapeTxt}
-   f_ShapeInst : TdestShapeInst;
-    {* Поле для свойства ShapeInst}
-   f_Norm : TdestNorm;
-    {* Поле для свойства Norm}
-   f_ShapeRslt : TdestShapeRslt;
-    {* Поле для свойства ShapeRslt}
- protected
- // property methods
+  private
+   f_ShapeTxt: TdestShapeTxt;
+    {* Поле для свойства ShapeTxt }
+   f_ShapeInst: TdestShapeInst;
+    {* Поле для свойства ShapeInst }
+   f_Norm: TdestNorm;
+    {* Поле для свойства Norm }
+   f_ShapeRslt: TdestShapeRslt;
+    {* Поле для свойства ShapeRslt }
+  protected
    procedure pm_SetShapeTxt(aValue: TdestShapeTxt);
    procedure pm_SetShapeInst(aValue: TdestShapeInst);
    procedure pm_SetShapeRslt(aValue: TdestShapeRslt);
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
    procedure Clear; override;
- public
- // public properties
+  public
    property ShapeTxt: TdestShapeTxt
-     read f_ShapeTxt
-     write pm_SetShapeTxt;
+    read f_ShapeTxt
+    write pm_SetShapeTxt;
    property ShapeInst: TdestShapeInst
-     read f_ShapeInst
-     write pm_SetShapeInst;
+    read f_ShapeInst
+    write pm_SetShapeInst;
    property Norm: TdestNorm
-     read f_Norm
-     write f_Norm;
+    read f_Norm
+    write f_Norm;
    property ShapeRslt: TdestShapeRslt
-     read f_ShapeRslt
-     write pm_SetShapeRslt;
+    read f_ShapeRslt
+    write pm_SetShapeRslt;
  end;//TdestShp
 
 implementation
 
 uses
-  ddRTFShape,
-  ddPicture,
-  SysUtils
-  ;
-
-// start class TdestShp
+ l3ImplUses
+ , ddRTFShape
+ , ddPicture
+ , SysUtils
+;
 
 procedure TdestShp.pm_SetShapeTxt(aValue: TdestShapeTxt);
 //#UC START# *5461CC6202E0_5461CBCB01F3set_var*
@@ -114,7 +96,7 @@ begin
 end;//TdestShp.pm_SetShapeRslt
 
 procedure TdestShp.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_5461CBCB01F3_var*
 var
  l_Shape: TddRTFShape;
@@ -153,8 +135,8 @@ begin
 end;//TdestShp.Close
 
 procedure TdestShp.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_5461CBCB01F3_var*
 //#UC END# *54E1F08400F9_5461CBCB01F3_var*
 begin
@@ -164,6 +146,7 @@ begin
 end;//TdestShp.WriteText
 
 procedure TdestShp.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5461CBCB01F3_var*
 //#UC END# *479731C50290_5461CBCB01F3_var*
 begin

@@ -1,121 +1,102 @@
 unit ViewBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ViewBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DynamicTree_i::ViewBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ViewBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ViewBase" MUID: (45F57B6C0128)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  FlagNodeBase,
-  reeBase,
-  DynamicTreeDefinesUnit,
-  DefaultNodeBase
-  ;
+ l3IntfUses
+ , reeBase
+ , DynamicTreeDefinesUnit
+ , DefaultNodeBase
+ , FlagNodeBase
+;
 
 type
  ViewBase = {abstract} class(TreeBase)
- protected
- // property methods
-   function pm_GetMode: TFlagMask; virtual;
-   function pm_GetParentTreeRoot: DefaultNodeBase; virtual;
-   function pm_GetMaximumLevelsRestriction: unsigned integer; virtual;
-   function pm_GetAutoOpen: Boolean; virtual;
- protected
- // realized methods
-   function GetChangeMutex: mutex; override;
-   function pm_GetTreeName: AnsiString; override;
- protected
- // overridden protected methods
+  protected
+   function GetMode: TFlagMask; virtual; stdcall;
+   function GetParentTreeRoot: DefaultNodeBase; virtual; stdcall;
+   function GetMaximumLevelsRestriction: unsigned integer; virtual; stdcall;
+   function GetAutoOpen: ByteBool; virtual; stdcall;
+   function GetTreeName: AnsiString; override;
    function MasterTree: TreeBase; override;
- public
- // overridden public methods
-   function IsMode(shared_flags: TFlagMask): Boolean; override;
-   procedure LoadNodesFromServer(parent_point;
-    child_point;
-    from: Integer;
-    in_block_position: Cardinal;
-    var current_stub); override; // can raise InvalidOwnerTree
-   function GetSharedMode: TFlagMask; override;
-   procedure ExpandAll(expand: Boolean); override;
- public
- // public methods
-   constructor Make; virtual;
-   procedure BuildNode(snode;
-    var current_stub: FlagNodeBase); virtual;
+  public
+   constructor Make; reintroduce; virtual; stdcall;
+   procedure BuildNode(const snode;
+    var current_stub: FlagNodeBase); virtual; stdcall;
    procedure Init(mode: TFlagMask;
     levels: unsigned integer;
     auto_open: Boolean;
     parent_tree: TreeBase;
-    server_tree); virtual;
- protected
- // protected properties
-   property mode: TFlagMask
-     read pm_GetMode;
-   property parent_tree_root: DefaultNodeBase
-     read pm_GetParentTreeRoot;
-   property maximum_levels_restriction: unsigned integer
-     read pm_GetMaximumLevelsRestriction;
-   property auto_open: Boolean
-     read pm_GetAutoOpen;
+    const server_tree); virtual; stdcall;
+   function GetChangeMutex: mutex; override;
+   function IsMode(shared_flags: TFlagMask): ByteBool; override;
+   procedure LoadNodesFromServer(const parent_point;
+    const child_point;
+    from: Integer;
+    in_block_position: Cardinal;
+    var current_stub); override; { can raise InvalidOwnerTree }
+   function GetSharedMode: TFlagMask; override;
+   procedure ExpandAll(expand: Boolean); override;
+  protected
+   property Mode: TFlagMask
+    read GetMode;
+   property ParentTreeRoot: DefaultNodeBase
+    read GetParentTreeRoot;
+   property MaximumLevelsRestriction: unsigned integer
+    read GetMaximumLevelsRestriction;
+   property AutoOpen: ByteBool
+    read GetAutoOpen;
  end;//ViewBase
 
 implementation
 
 uses
-  RealNodeBase,
-  ApplicationHelper
-  ;
+ l3ImplUses
+ , RealNodeBase
+ , ApplicationHelper
+;
 
-// start class ViewBase
-
-function ViewBase.pm_GetMode: TFlagMask;
+function ViewBase.GetMode: TFlagMask;
 //#UC START# *46025C6602BF_45F57B6C0128get_var*
 //#UC END# *46025C6602BF_45F57B6C0128get_var*
 begin
 //#UC START# *46025C6602BF_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025C6602BF_45F57B6C0128get_impl*
-end;//ViewBase.pm_GetMode
+end;//ViewBase.GetMode
 
-function ViewBase.pm_GetParentTreeRoot: DefaultNodeBase;
+function ViewBase.GetParentTreeRoot: DefaultNodeBase;
 //#UC START# *46025C860251_45F57B6C0128get_var*
 //#UC END# *46025C860251_45F57B6C0128get_var*
 begin
 //#UC START# *46025C860251_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025C860251_45F57B6C0128get_impl*
-end;//ViewBase.pm_GetParentTreeRoot
+end;//ViewBase.GetParentTreeRoot
 
-function ViewBase.pm_GetMaximumLevelsRestriction: unsigned integer;
+function ViewBase.GetMaximumLevelsRestriction: unsigned integer;
 //#UC START# *46025C9E01D4_45F57B6C0128get_var*
 //#UC END# *46025C9E01D4_45F57B6C0128get_var*
 begin
 //#UC START# *46025C9E01D4_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025C9E01D4_45F57B6C0128get_impl*
-end;//ViewBase.pm_GetMaximumLevelsRestriction
+end;//ViewBase.GetMaximumLevelsRestriction
 
-function ViewBase.pm_GetAutoOpen: Boolean;
+function ViewBase.GetAutoOpen: ByteBool;
 //#UC START# *46025CBB01B5_45F57B6C0128get_var*
 //#UC END# *46025CBB01B5_45F57B6C0128get_var*
 begin
 //#UC START# *46025CBB01B5_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025CBB01B5_45F57B6C0128get_impl*
-end;//ViewBase.pm_GetAutoOpen
+end;//ViewBase.GetAutoOpen
 
 constructor ViewBase.Make;
 //#UC START# *46025BAC02FD_45F57B6C0128_var*
@@ -126,8 +107,8 @@ begin
 //#UC END# *46025BAC02FD_45F57B6C0128_impl*
 end;//ViewBase.Make
 
-procedure ViewBase.BuildNode(snode;
-  var current_stub: FlagNodeBase);
+procedure ViewBase.BuildNode(const snode;
+ var current_stub: FlagNodeBase);
 //#UC START# *46272A80037A_45F57B6C0128_var*
 //#UC END# *46272A80037A_45F57B6C0128_var*
 begin
@@ -137,10 +118,10 @@ begin
 end;//ViewBase.BuildNode
 
 procedure ViewBase.Init(mode: TFlagMask;
-  levels: unsigned integer;
-  auto_open: Boolean;
-  parent_tree: TreeBase;
-  server_tree);
+ levels: unsigned integer;
+ auto_open: Boolean;
+ parent_tree: TreeBase;
+ const server_tree);
 //#UC START# *46025D6F0000_45F57B6C0128_var*
 //#UC END# *46025D6F0000_45F57B6C0128_var*
 begin
@@ -158,16 +139,16 @@ begin
 //#UC END# *460139CE02BF_45F57B6C0128_impl*
 end;//ViewBase.GetChangeMutex
 
-function ViewBase.pm_GetTreeName: AnsiString;
+function ViewBase.GetTreeName: AnsiString;
 //#UC START# *4948E2B2038D_45F57B6C0128get_var*
 //#UC END# *4948E2B2038D_45F57B6C0128get_var*
 begin
 //#UC START# *4948E2B2038D_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4948E2B2038D_45F57B6C0128get_impl*
-end;//ViewBase.pm_GetTreeName
+end;//ViewBase.GetTreeName
 
-function ViewBase.IsMode(shared_flags: TFlagMask): Boolean;
+function ViewBase.IsMode(shared_flags: TFlagMask): ByteBool;
 //#UC START# *4601221600DA_45F57B6C0128_var*
 //#UC END# *4601221600DA_45F57B6C0128_var*
 begin
@@ -176,11 +157,11 @@ begin
 //#UC END# *4601221600DA_45F57B6C0128_impl*
 end;//ViewBase.IsMode
 
-procedure ViewBase.LoadNodesFromServer(parent_point;
-  child_point;
-  from: Integer;
-  in_block_position: Cardinal;
-  var current_stub); // can raise InvalidOwnerTree
+procedure ViewBase.LoadNodesFromServer(const parent_point;
+ const child_point;
+ from: Integer;
+ in_block_position: Cardinal;
+ var current_stub); { can raise InvalidOwnerTree }
 //#UC START# *46012392006D_45F57B6C0128_var*
 //#UC END# *46012392006D_45F57B6C0128_var*
 begin

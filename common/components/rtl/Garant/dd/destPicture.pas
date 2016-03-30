@@ -1,85 +1,78 @@
 unit destPicture;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destPicture.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestPicture
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destPicture.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestPicture" MUID: (51E8E771003A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  l3Filer,
-  l3Parser,
-  RTFtypes,
-  destNorm,
-  ddPicture,
-  ddRTFState,
-  ddCustomRTFReader,
-  ddRTFdestination
-  ;
+ l3IntfUses
+ , destNorm
+ , ddPicture
+ , RTFtypes
+ , l3Base
+ , l3Filer
+ , l3Parser
+ , ddCustomRTFReader
+ , ddRTFState
+ , ddRTFdestination
+;
 
 type
  TdestPicture = class(TdestNorm)
- private
- // private methods
+  private
    procedure ApplyToPicture(aWhat: TIProp;
-     aValue: LongInt);
+    aValue: LongInt);
    function Try2ReadKnownPicture(const aFiler: Tl3CustomFiler): Tl3String;
-     {* Пытаемся передать обработку "знающим" объектам. }
+    {* Пытаемся передать обработку "знающим" объектам. }
    procedure TryToClearText(aParser: Tl3CustomParser);
    procedure AddHexData(const aHexStream: Tl3String);
- protected
- // property methods
+  protected
    function pm_GetPicture: TddPicture; virtual;
- protected
- // overridden protected methods
    function CanAddTable: Boolean; override;
- public
- // overridden public methods
+  public
    procedure Clear; override;
    procedure AddString(aText: Tl3String;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); override;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); override;
    constructor Create(aRTFReader: TddCustomRTFReader); override;
    procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
+    aNewDest: TddRTFDestination); override;
    procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
+    aText: Tl3String;
+    aState: TddRTFState); override;
    function ReadData: Boolean; override;
- public
- // public properties
+  public
    property Picture: TddPicture
-     read pm_GetPicture;
+    read pm_GetPicture;
  end;//TdestPicture
 
 implementation
 
 uses
-  SysUtils,
-  ddConst,
-  l3Interfaces
-  ;
+ l3ImplUses
+ , SysUtils
+ , ddConst
+ , l3Interfaces
+;
 
-// start class TdestPicture
+function TdestPicture.pm_GetPicture: TddPicture;
+//#UC START# *51E8E7DC003B_51E8E771003Aget_var*
+//#UC END# *51E8E7DC003B_51E8E771003Aget_var*
+begin
+//#UC START# *51E8E7DC003B_51E8E771003Aget_impl*
+ Result := TddPicture(LastAtom);
+//#UC END# *51E8E7DC003B_51E8E771003Aget_impl*
+end;//TdestPicture.pm_GetPicture
 
 procedure TdestPicture.ApplyToPicture(aWhat: TIProp;
-  aValue: LongInt);
+ aValue: LongInt);
 //#UC START# *51E8E82F0299_51E8E771003A_var*
 //#UC END# *51E8E82F0299_51E8E771003A_var*
 begin
@@ -105,6 +98,7 @@ begin
 end;//TdestPicture.ApplyToPicture
 
 function TdestPicture.Try2ReadKnownPicture(const aFiler: Tl3CustomFiler): Tl3String;
+ {* Пытаемся передать обработку "знающим" объектам. }
 //#UC START# *534658E901B6_51E8E771003A_var*
 //#UC END# *534658E901B6_51E8E771003A_var*
 begin
@@ -141,15 +135,6 @@ begin
 //#UC END# *54E46DAF037C_51E8E771003A_impl*
 end;//TdestPicture.AddHexData
 
-function TdestPicture.pm_GetPicture: TddPicture;
-//#UC START# *51E8E7DC003B_51E8E771003Aget_var*
-//#UC END# *51E8E7DC003B_51E8E771003Aget_var*
-begin
-//#UC START# *51E8E7DC003B_51E8E771003Aget_impl*
- Result := TddPicture(LastAtom);
-//#UC END# *51E8E7DC003B_51E8E771003Aget_impl*
-end;//TdestPicture.pm_GetPicture
-
 procedure TdestPicture.Clear;
 //#UC START# *51D27A48038E_51E8E771003A_var*
 //#UC END# *51D27A48038E_51E8E771003A_var*
@@ -161,7 +146,7 @@ begin
 end;//TdestPicture.Clear
 
 procedure TdestPicture.AddString(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C3302EC_51E8E771003A_var*
 //#UC END# *51D27C3302EC_51E8E771003A_var*
 begin
@@ -171,9 +156,9 @@ begin
 end;//TdestPicture.AddString
 
 procedure TdestPicture.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_51E8E771003A_var*
 //#UC END# *51D27EC50388_51E8E771003A_var*
 begin
@@ -203,7 +188,7 @@ begin
 end;//TdestPicture.Create
 
 procedure TdestPicture.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_51E8E771003A_var*
 var
  l_NeedSkip: TRTFPictureSkip;
@@ -219,8 +204,8 @@ begin
 end;//TdestPicture.Close
 
 procedure TdestPicture.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_51E8E771003A_var*
 //#UC END# *54E1F08400F9_51E8E771003A_var*
 begin

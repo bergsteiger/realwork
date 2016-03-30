@@ -1,89 +1,82 @@
 {$IfNDef vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormDataSourcePrimWithFlexUseCaseControllerType
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormDataSourcePrimWithFlexUseCaseControllerType" MUID: (5017EAF4027D)
+// Имя типа: "_vcmFormDataSourcePrimWithFlexUseCaseControllerType_"
 
 {$Define vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp}
-{$If not defined(NoVCM)}
+
+{$If NOT Defined(NoVCM)}
+ // _UseCaseControllerType_
+
+ // _FormDataSourceType_
+
  _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- _vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = {mixin} class(_l3Notifier_, IvcmFormDataSource, IvcmFormSetDataSourceListener)
- private
- // private fields
-   f_DisplayName : IvcmCString;
-    {* Вычисленный заголовок контроллера области ввода}
-   f_UseCaseController : _UseCaseControllerType_;
-    {* Поле для свойства UseCaseController}
- protected
- // realized methods
-   procedure DataChanged;
-     {* данные изменились }
-   function IsSame(const aValue: IvcmFormDataSource): Boolean;
-     {* проверка на равенство }
-   function IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
-     {* является ли форма главной в сборке }
-   function IsLikeViewAreaController(const aDataSource: IvcmFormDataSource): Boolean;
-     {* определим нужно ли менять позицию на данные }
-   function pm_GetUseCaseController: IvcmFormSetDataSource;
-   function CastUCC(const aGUID: TGUID;
-    out theObj;
-    NeedsException: Boolean = false): Boolean;
-     {* Приводит контроллер прецедента к заданному интерфейсу. Это нужно, чтобы избавится от явного знания о контроллере прецедента. [$122674504] }
-   function Get_DisplayName: IvcmCString;
-   function IsDataAvailable: Boolean;
-     {* существуют ли данные в текущих условиях. Например, на текущей базе. }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+ _vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = class(_l3Notifier_, IvcmFormDataSource, IvcmFormSetDataSourceListener)
+  private
+   f_DisplayName: IvcmCString;
+    {* Вычисленный заголовок контроллера области ввода }
+   f_UseCaseController: _UseCaseControllerType_;
+    {* Контроллер прецедента, в котором находится наша область ввода }
+  protected
    function GetIsDataAvailable: Boolean; virtual;
-     {* существуют ли данные }
+    {* существуют ли данные }
    procedure ClearRefs; virtual;
-     {* Очищает ссылки на различные представления прецедента }
+    {* Очищает ссылки на различные представления прецедента }
    procedure FormSetDataChanged; virtual;
    function GetIsNeedChangePosition(const aDataSource: _FormDataSourceType_): Boolean; virtual;
    function GetIsSame(const aValue: _FormDataSourceType_): Boolean; virtual;
    procedure InitRefs(const aDS: IvcmFormSetDataSource); virtual;
-     {* Инициализирует ссылки на различные представления прецедента }
+    {* Инициализирует ссылки на различные представления прецедента }
    function MakeDisplayName: IvcmCString; virtual;
- public
- // public methods
+   procedure DataChanged;
+    {* данные изменились }
+   function IsSame(const aValue: IvcmFormDataSource): Boolean;
+    {* проверка на равенство }
+   function IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
+    {* является ли форма главной в сборке }
+   function IsLikeViewAreaController(const aDataSource: IvcmFormDataSource): Boolean;
+    {* определим нужно ли менять позицию на данные }
+   function pm_GetUseCaseController: IvcmFormSetDataSource;
+   function CastUCC(const aGUID: TGUID;
+    out theObj;
+    NeedsException: Boolean = False): Boolean;
+    {* Приводит контроллер прецедента к заданному интерфейсу. Это нужно, чтобы избавится от явного знания о контроллере прецедента. [$122674504] }
+   function Get_DisplayName: IvcmCString;
+   function IsDataAvailable: Boolean;
+    {* существуют ли данные в текущих условиях. Например, на текущей базе. }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    constructor Create(const aDataSource: _UseCaseControllerType_); reintroduce;
    class function Make(const aDataSource: _UseCaseControllerType_): _FormDataSourceType_; reintroduce;
- protected
- // protected properties
+  protected
    property UseCaseController: _UseCaseControllerType_
-     read f_UseCaseController;
-     {* Контроллер прецедента, в котором находится наша область ввода }
+    read f_UseCaseController;
+    {* Контроллер прецедента, в котором находится наша область ввода }
  end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_
-{$Else}
 
- _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
- {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- _vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = _l3Notifier_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
+_vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = _l3Notifier_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp_impl}
 
+{$Define vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp_impl}
+
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
-// start class _vcmFormDataSourcePrimWithFlexUseCaseControllerType_
-
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.GetIsDataAvailable: Boolean;
+ {* существуют ли данные }
 //#UC START# *55097FF5008E_5017EAF4027D_var*
 //#UC END# *55097FF5008E_5017EAF4027D_var*
 begin
@@ -117,9 +110,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.Make
 
 procedure _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.ClearRefs;
+ {* Очищает ссылки на различные представления прецедента }
 //#UC START# *49786D6A01E3_5017EAF4027D_var*
 //#UC END# *49786D6A01E3_5017EAF4027D_var*
 begin
@@ -156,6 +150,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.GetIsSame
 
 procedure _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.InitRefs(const aDS: IvcmFormSetDataSource);
+ {* Инициализирует ссылки на различные представления прецедента }
 //#UC START# *49786D4E034D_5017EAF4027D_var*
 //#UC END# *49786D4E034D_5017EAF4027D_var*
 begin
@@ -174,6 +169,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.MakeDisplayName
 
 procedure _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.DataChanged;
+ {* данные изменились }
 //#UC START# *491471F80112_5017EAF4027D_var*
 //#UC END# *491471F80112_5017EAF4027D_var*
 begin
@@ -183,6 +179,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.DataChanged
 
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsSame(const aValue: IvcmFormDataSource): Boolean;
+ {* проверка на равенство }
 //#UC START# *4914723502E0_5017EAF4027D_var*
 var
  l_V : _FormDataSourceType_;
@@ -201,6 +198,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsSame
 
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
+ {* является ли форма главной в сборке }
 //#UC START# *4914724900B9_5017EAF4027D_var*
 //#UC END# *4914724900B9_5017EAF4027D_var*
 begin
@@ -213,6 +211,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsMainInFormSet
 
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsLikeViewAreaController(const aDataSource: IvcmFormDataSource): Boolean;
+ {* определим нужно ли менять позицию на данные }
 //#UC START# *491472720367_5017EAF4027D_var*
 var
  l_DS : _FormDataSourceType_;
@@ -240,8 +239,9 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.pm_GetUseCaseController
 
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.CastUCC(const aGUID: TGUID;
-  out theObj;
-  NeedsException: Boolean = false): Boolean;
+ out theObj;
+ NeedsException: Boolean = False): Boolean;
+ {* Приводит контроллер прецедента к заданному интерфейсу. Это нужно, чтобы избавится от явного знания о контроллере прецедента. [$122674504] }
 //#UC START# *4992BD300123_5017EAF4027D_var*
 //#UC END# *4992BD300123_5017EAF4027D_var*
 begin
@@ -272,6 +272,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.Get_DisplayName
 
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsDataAvailable: Boolean;
+ {* существуют ли данные в текущих условиях. Например, на текущей базе. }
 //#UC START# *55097FA90148_5017EAF4027D_var*
 //#UC END# *55097FA90148_5017EAF4027D_var*
 begin
@@ -281,6 +282,7 @@ begin
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.IsDataAvailable
 
 procedure _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5017EAF4027D_var*
 //#UC END# *479731C50290_5017EAF4027D_var*
 begin
@@ -297,6 +299,14 @@ begin
 //#UC END# *479731C50290_5017EAF4027D_impl*
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.Cleanup
 
-{$IfEnd} //not NoVCM
+procedure _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.ClearFields;
+begin
+ Finalize(f_UseCaseController);
+ inherited;
+end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.ClearFields
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$EndIf vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp_impl}
 
 {$EndIf vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp}
+

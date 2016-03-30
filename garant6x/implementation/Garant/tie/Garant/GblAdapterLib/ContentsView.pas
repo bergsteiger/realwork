@@ -1,46 +1,37 @@
 unit ContentsView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ContentsView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DocTree_i::ContentsView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ContentsView" MUID: (4CA06D4A0272)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  View,
-  DynamicTreeUnit,
-  ViewBase
-  ;
+ l3IntfUses
+ , View
+ , ViewBase
+ , DynamicTreeUnit
+;
 
 type
  ContentsView = class
- protected
- // overridden protected methods
+  public
+   NodeDelegateType_: ;
+  protected
    function AllocNewView: ViewBase; override;
- public
- // overridden public methods
+  public
+   constructor Make; reintroduce; stdcall;
    procedure AddNotifier(var root;
     var notifier: INodeNotifier); override;
- public
- // public methods
-   constructor Make;
  end;//ContentsView
 
 implementation
 
-// start class ContentsView
+uses
+ l3ImplUses
+;
 
 constructor ContentsView.Make;
 //#UC START# *4CA06E69018C_4CA06D4A0272_var*
@@ -52,7 +43,7 @@ begin
 end;//ContentsView.Make
 
 procedure ContentsView.AddNotifier(var root;
-  var notifier: INodeNotifier);
+ var notifier: INodeNotifier);
 //#UC START# *46011F130203_4CA06D4A0272_var*
 //#UC END# *46011F130203_4CA06D4A0272_var*
 begin

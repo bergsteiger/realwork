@@ -21,13 +21,13 @@ type
   public
    NodeDelegateType_: ;
   protected
-   function alloc_new_view: ViewBase; override;
+   function AllocNewView: ViewBase; override;
   public
-   constructor make(active_changeable: Boolean); reintroduce; virtual;
-   procedure add_block_position(const pointer;
-    position: Cardinal);
-   function get_block_position(const pointer): Cardinal;
-   procedure clear_block_positions;
+   constructor Make(active_changeable: Boolean); reintroduce; virtual; stdcall;
+   procedure AddBlockPosition(const pointer;
+    position: Cardinal); stdcall;
+   function GetBlockPosition(const pointer): Cardinal; stdcall;
+   procedure ClearBlockPositions; stdcall;
  end;//ListTree
 
 implementation
@@ -38,16 +38,16 @@ uses
  , ListTreeView
 ;
 
-constructor ListTree.make(active_changeable: Boolean);
+constructor ListTree.Make(active_changeable: Boolean);
 //#UC START# *4603AC6A0320_4603A0B8004B_var*
 //#UC END# *4603AC6A0320_4603A0B8004B_var*
 begin
 //#UC START# *4603AC6A0320_4603A0B8004B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4603AC6A0320_4603A0B8004B_impl*
-end;//ListTree.make
+end;//ListTree.Make
 
-procedure ListTree.add_block_position(const pointer;
+procedure ListTree.AddBlockPosition(const pointer;
  position: Cardinal);
 //#UC START# *4603C5FF036D_4603A0B8004B_var*
 //#UC END# *4603C5FF036D_4603A0B8004B_var*
@@ -55,33 +55,33 @@ begin
 //#UC START# *4603C5FF036D_4603A0B8004B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4603C5FF036D_4603A0B8004B_impl*
-end;//ListTree.add_block_position
+end;//ListTree.AddBlockPosition
 
-function ListTree.get_block_position(const pointer): Cardinal;
+function ListTree.GetBlockPosition(const pointer): Cardinal;
 //#UC START# *4603C55B00DE_4603A0B8004B_var*
 //#UC END# *4603C55B00DE_4603A0B8004B_var*
 begin
 //#UC START# *4603C55B00DE_4603A0B8004B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4603C55B00DE_4603A0B8004B_impl*
-end;//ListTree.get_block_position
+end;//ListTree.GetBlockPosition
 
-procedure ListTree.clear_block_positions;
+procedure ListTree.ClearBlockPositions;
 //#UC START# *4603C5490003_4603A0B8004B_var*
 //#UC END# *4603C5490003_4603A0B8004B_var*
 begin
 //#UC START# *4603C5490003_4603A0B8004B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4603C5490003_4603A0B8004B_impl*
-end;//ListTree.clear_block_positions
+end;//ListTree.ClearBlockPositions
 
-function ListTree.alloc_new_view: ViewBase;
+function ListTree.AllocNewView: ViewBase;
 //#UC START# *460127E400EA_4603A0B8004B_var*
 //#UC END# *460127E400EA_4603A0B8004B_var*
 begin
 //#UC START# *460127E400EA_4603A0B8004B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460127E400EA_4603A0B8004B_impl*
-end;//ListTree.alloc_new_view
+end;//ListTree.AllocNewView
 
 end.

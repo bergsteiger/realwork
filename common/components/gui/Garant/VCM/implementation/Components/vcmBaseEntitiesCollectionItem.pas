@@ -1,208 +1,246 @@
 unit vcmBaseEntitiesCollectionItem;
+ {* Не дорисовал из-за ссылки на vcmForm
+Потом надо как-то разрулить цикл }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmBaseEntitiesCollectionItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmBaseEntitiesCollectionItem
-//
-// Не дорисовал из-за ссылки на vcmForm
-// Потом надо как-то разрулить цикл
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntitiesCollectionItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseEntitiesCollectionItem" MUID: (4DDBBD1103C3)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  Classes,
-  vcmBase,
-  vcmUserControls,
-  vcmBaseCollectionItem,
-  vcmBaseCollection,
-  vcmBaseOperationsCollection,
-  vcmTargetedControlsCollection,
-  vcmRepositoryEx
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , Classes
+ , vcmBaseCollectionItem
+ , vcmBaseOperationsCollection
+ , vcmUserControls
+ , vcmTargetedControlsCollection
+ , vcmInterfaces
+ , vcmRepositoryEx
+ , vcmBaseCollection
+ , vcmExternalInterfaces
+ , vcmBase
+ //#UC START# *4DDBBD1103C3intf_uses*
+ //#UC END# *4DDBBD1103C3intf_uses*
+;
 
-{$If not defined(NoVCM)}
 type
- TvcmGetTargetEvent = function (aControl: TComponent;
+ TvcmGetTargetEvent = function(aControl: TComponent;
   aX: Integer;
   aY: Integer;
   out theTarget: IUnknown): Boolean of object;
 
  TvcmBaseEntitiesCollectionItemPrim = class(TvcmBaseCollectionItem)
- private
- // private fields
-   f_Operations : TvcmBaseOperationsCollection;
-    {* Поле для свойства Operations}
-   f_ToolbarPos : TvcmToolBarPos;
-    {* Поле для свойства ToolbarPos}
-   f_Controls : TvcmTargetedControlsCollection;
-    {* Поле для свойства Controls}
-   f_OnGetTarget : TvcmGetTargetEvent;
-    {* Поле для свойства OnGetTarget}
-   f_EntityDef : IvcmEntityDef;
-    {* Поле для свойства EntityDef}
-   f_Options : TvcmEntityOperationsOptions;
-    {* Поле для свойства Options}
-   f_ContextMenuWeight : Integer;
-    {* Поле для свойства ContextMenuWeight}
-   f_EntityID : Integer;
-    {* Поле для свойства EntityID}
- protected
- // property methods
+  private
+   f_Operations: TvcmBaseOperationsCollection;
+    {* Поле для свойства Operations }
+   f_ToolbarPos: TvcmToolBarPos;
+    {* Поле для свойства ToolbarPos }
+   f_Controls: TvcmTargetedControlsCollection;
+    {* Поле для свойства Controls }
+   f_OnGetTarget: TvcmGetTargetEvent;
+    {* Поле для свойства OnGetTarget }
+   f_EntityDef: IvcmEntityDef;
+    {* Поле для свойства EntityDef }
+   f_Options: TvcmEntityOperationsOptions;
+    {* Поле для свойства Options }
+   f_ContextMenuWeight: Integer;
+    {* Поле для свойства ContextMenuWeight }
+   f_EntityID: Integer;
+    {* Поле для свойства EntityID }
+  protected
    procedure pm_SetOperations(aValue: TvcmBaseOperationsCollection);
    procedure pm_SetControls(aValue: TvcmTargetedControlsCollection);
    function pm_GetEntityDef: IvcmEntityDef; virtual;
    function pm_GetSupportedBy(aControl: TComponent): Boolean;
-   procedure pm_SetSupportedBy(aControl: TComponent; aValue: Boolean);
- protected
- // overridden protected methods
+   procedure pm_SetSupportedBy(aControl: TComponent;
+    aValue: Boolean);
+   function GetOperationsStored: Boolean; virtual;
+   function IDRep: TvcmRep; virtual;
+   class function GetOperationsCollectionClass: RvcmBaseCollection; virtual;
+   function OperationsStored: Boolean;
+    {* "Функция определяющая, что свойство Operations сохраняется" }
+   function ControlsStored: Boolean;
+    {* "Функция определяющая, что свойство Controls сохраняется" }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure BeforeAddToCache; override;
-     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
+    {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    procedure ChangeName(const anOld: AnsiString;
-     const aNew: AnsiString); override;
+    const aNew: AnsiString); override;
    procedure ChangeCaption(const anOld: AnsiString;
-     const aNew: AnsiString); override;
- public
- // overridden public methods
+    const aNew: AnsiString); override;
+  public
+   function GetEntityForControl(aControl: TComponent;
+    aX: Integer;
+    aY: Integer): IvcmEntity;
+   procedure Operation(aControl: TComponent;
+    const aTarget: IUnknown;
+    anOperationID: TvcmControlID;
+    aMode: TvcmOperationMode;
+    const aParams: IvcmParams);
+   function IsFormItem: Boolean;
+   function SupportedExBy(aControl: TComponent): Integer;
+   {$If Defined(DesignTimeLibrary)}
+   function HasInternalOperations: Boolean;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   {$If Defined(DesignTimeLibrary)}
+   function HasOnlyInternalOperations: Boolean;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   procedure RegisterInRep;
+   procedure PublishEntity(aControl: TComponent;
+    aGetTarget: TvcmControlGetTargetEvent);
+   procedure PublishFormEntity(aGetTarget: TvcmGetTargetEvent);
+   procedure PublishOp(aControl: TComponent;
+    const anOperation: TvcmString;
+    anExecute: TvcmControlExecuteEvent;
+    aTest: TvcmControlTestEvent;
+    aGetState: TvcmControlGetStateEvent); overload;
+   procedure PublishOp(aControl: TComponent;
+    const anOperation: TvcmString;
+    anExecute: TvcmExecuteEvent;
+    aTest: TvcmControlTestEvent;
+    aGetState: TvcmControlGetStateEvent); overload;
+   function IsItemCaptionUnique(aItem: TvcmBaseCollectionItem): Boolean;
    procedure Assign(Source: TPersistent); override;
    constructor Create(aCollection: TCollection); override;
    function MakeID(const aName: AnsiString): Integer; override;
    function GetID: Integer; override;
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; override;
- protected
- // protected methods
-   function GetOperationsStored: Boolean; virtual;
-   function IDRep: TvcmRep; virtual;
-   class function GetOperationsCollectionClass: RvcmBaseCollection; virtual;
-   function OperationsStored: Boolean;
-     {* "Функция определяющая, что свойство Operations сохраняется" }
-   function ControlsStored: Boolean;
-     {* "Функция определяющая, что свойство Controls сохраняется" }
- public
- // public methods
-   function GetEntityForControl(aControl: TComponent;
-     aX: Integer;
-     aY: Integer): IvcmEntity;
-   procedure Operation(aControl: TComponent;
-     const aTarget: IUnknown;
-     anOperationID: TvcmControlID;
-     aMode: TvcmOperationMode;
-     const aParams: IvcmParams);
-   function IsFormItem: Boolean;
-   function SupportedExBy(aControl: TComponent): Integer;
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function HasInternalOperations: Boolean;
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function HasOnlyInternalOperations: Boolean;
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
-   procedure RegisterInRep;
-     {* Сигнатура метода RegisterInRep }
-   procedure PublishEntity(aControl: TComponent;
-     aGetTarget: TvcmControlGetTargetEvent);
-   procedure PublishFormEntity(aGetTarget: TvcmGetTargetEvent);
-   procedure PublishOp(aControl: TComponent;
-     const anOperation: TvcmString;
-     anExecute: TvcmControlExecuteEvent;
-     aTest: TvcmControlTestEvent;
-     aGetState: TvcmControlGetStateEvent); overload; 
-   procedure PublishOp(aControl: TComponent;
-     const anOperation: TvcmString;
-     anExecute: TvcmExecuteEvent;
-     aTest: TvcmControlTestEvent;
-     aGetState: TvcmControlGetStateEvent); overload; 
-   function IsItemCaptionUnique(aItem: TvcmBaseCollectionItem): Boolean;
- public
- // public properties
+  public
    property Operations: TvcmBaseOperationsCollection
-     read f_Operations
-     write pm_SetOperations
-     stored OperationsStored;
+    read f_Operations
+    write pm_SetOperations
+    stored OperationsStored;
    property ToolbarPos: TvcmToolBarPos
-     read f_ToolbarPos
-     write f_ToolbarPos;
+    read f_ToolbarPos
+    write f_ToolbarPos;
    property Controls: TvcmTargetedControlsCollection
-     read f_Controls
-     write pm_SetControls
-     stored ControlsStored;
+    read f_Controls
+    write pm_SetControls
+    stored ControlsStored;
    property OnGetTarget: TvcmGetTargetEvent
-     read f_OnGetTarget
-     write f_OnGetTarget;
+    read f_OnGetTarget
+    write f_OnGetTarget;
    property EntityDef: IvcmEntityDef
-     read pm_GetEntityDef;
+    read pm_GetEntityDef;
    property Options: TvcmEntityOperationsOptions
-     read f_Options
-     write f_Options;
+    read f_Options
+    write f_Options;
    property ContextMenuWeight: Integer
-     read f_ContextMenuWeight
-     write f_ContextMenuWeight;
+    read f_ContextMenuWeight
+    write f_ContextMenuWeight;
    property EntityID: Integer
-     read f_EntityID;
+    read f_EntityID;
    property SupportedBy[aControl: TComponent]: Boolean
-     read pm_GetSupportedBy
-     write pm_SetSupportedBy;
+    read pm_GetSupportedBy
+    write pm_SetSupportedBy;
  end;//TvcmBaseEntitiesCollectionItemPrim
 
-//#UC START# *4DDBBD1103C3ci*
-//#UC END# *4DDBBD1103C3ci*
-//#UC START# *4DDBBD1103C3cit*
-//#UC END# *4DDBBD1103C3cit*
+ //#UC START# *4DDBBD1103C3ci*
+ //#UC END# *4DDBBD1103C3ci*
+ //#UC START# *4DDBBD1103C3cit*
+ //#UC END# *4DDBBD1103C3cit*
  TvcmBaseEntitiesCollectionItem = class(TvcmBaseEntitiesCollectionItemPrim)
   {* Не дорисовал из-за ссылки на vcmForm
 Потом надо как-то разрулить цикл }
-//#UC START# *4DDBBD1103C3publ*
+ //#UC START# *4DDBBD1103C3publ*
   published
    property Operations;
    property ToolbarPos default vcm_tbpTop;
-//#UC END# *4DDBBD1103C3publ*
+ //#UC END# *4DDBBD1103C3publ*
  end;//TvcmBaseEntitiesCollectionItem
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmEntitiesCollectionItemEntity,
-  vcmControlsCollectionItem
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBaseEntityDef,
-  vcmOperationableIdentifiedUserFriendly
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , vcmEntitiesCollectionItemEntity
+ , vcmControlsCollectionItem
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmBaseEntityDef
+ , vcmOperationableIdentifiedUserFriendly
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4DDBBD1103C3impl_uses*
+ //#UC END# *4DDBBD1103C3impl_uses*
+;
 
-{$If not defined(NoVCM)}
+procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetOperations(aValue: TvcmBaseOperationsCollection);
+//#UC START# *55D30E8A0376_55D30D410267set_var*
+//#UC END# *55D30E8A0376_55D30D410267set_var*
+begin
+//#UC START# *55D30E8A0376_55D30D410267set_impl*
+ f_Operations.Assign(aValue);
+//#UC END# *55D30E8A0376_55D30D410267set_impl*
+end;//TvcmBaseEntitiesCollectionItemPrim.pm_SetOperations
 
-// start class TvcmBaseEntitiesCollectionItemPrim
+procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetControls(aValue: TvcmTargetedControlsCollection);
+//#UC START# *55D30FB2030A_55D30D410267set_var*
+//#UC END# *55D30FB2030A_55D30D410267set_var*
+begin
+//#UC START# *55D30FB2030A_55D30D410267set_impl*
+ f_Controls.Assign(aValue);
+//#UC END# *55D30FB2030A_55D30D410267set_impl*
+end;//TvcmBaseEntitiesCollectionItemPrim.pm_SetControls
+
+function TvcmBaseEntitiesCollectionItemPrim.pm_GetEntityDef: IvcmEntityDef;
+//#UC START# *55D3104B0336_55D30D410267get_var*
+//#UC END# *55D3104B0336_55D30D410267get_var*
+begin
+//#UC START# *55D3104B0336_55D30D410267get_impl*
+ if (f_EntityDef = nil) then
+  f_EntityDef := TvcmBaseEntityDef.Make(Self);
+ Result := f_EntityDef;
+//#UC END# *55D3104B0336_55D30D410267get_impl*
+end;//TvcmBaseEntitiesCollectionItemPrim.pm_GetEntityDef
+
+function TvcmBaseEntitiesCollectionItemPrim.pm_GetSupportedBy(aControl: TComponent): Boolean;
+//#UC START# *55D3127F038A_55D30D410267get_var*
+//#UC END# *55D3127F038A_55D30D410267get_var*
+begin
+//#UC START# *55D3127F038A_55D30D410267get_impl*
+ with Controls do //зачем тут with?
+  if (Controls.Count = 0) and (aControl = nil) then
+   Result := True
+  else
+   Result := (SupportedExBy(aControl) >= 0);
+//#UC END# *55D3127F038A_55D30D410267get_impl*
+end;//TvcmBaseEntitiesCollectionItemPrim.pm_GetSupportedBy
+
+procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetSupportedBy(aControl: TComponent;
+ aValue: Boolean);
+//#UC START# *55D3127F038A_55D30D410267set_var*
+var
+ l_Index: Integer;
+//#UC END# *55D3127F038A_55D30D410267set_var*
+begin
+//#UC START# *55D3127F038A_55D30D410267set_impl*
+ l_Index := SupportedExBy(aControl);
+ if (aValue) then
+ begin
+  if (l_Index < 0) then
+   TvcmControlsCollectionItem(Controls.Add).Control := aControl;
+ end//aValue
+ else
+ begin
+  if (Operations <> nil) then
+   Operations.UnlinkControl(aControl);
+  if (l_Index >= 0) then
+   Controls.Delete(l_Index);
+ end;//aValue
+//#UC END# *55D3127F038A_55D30D410267set_impl*
+end;//TvcmBaseEntitiesCollectionItemPrim.pm_SetSupportedBy
 
 function TvcmBaseEntitiesCollectionItemPrim.GetOperationsStored: Boolean;
 //#UC START# *55D30ECE00AD_55D30D410267_var*
@@ -232,8 +270,8 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.GetOperationsCollectionClass
 
 function TvcmBaseEntitiesCollectionItemPrim.GetEntityForControl(aControl: TComponent;
-  aX: Integer;
-  aY: Integer): IvcmEntity;
+ aX: Integer;
+ aY: Integer): IvcmEntity;
 //#UC START# *55D315AF00FF_55D30D410267_var*
 var
  l_Target: IUnknown;
@@ -282,10 +320,10 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.GetEntityForControl
 
 procedure TvcmBaseEntitiesCollectionItemPrim.Operation(aControl: TComponent;
-  const aTarget: IUnknown;
-  anOperationID: TvcmControlID;
-  aMode: TvcmOperationMode;
-  const aParams: IvcmParams);
+ const aTarget: IUnknown;
+ anOperationID: TvcmControlID;
+ aMode: TvcmOperationMode;
+ const aParams: IvcmParams);
 //#UC START# *55D315DD021A_55D30D410267_var*
 //#UC END# *55D315DD021A_55D30D410267_var*
 begin
@@ -323,7 +361,7 @@ begin
 //#UC END# *55D3166700B9_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.SupportedExBy
 
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If Defined(DesignTimeLibrary)}
 function TvcmBaseEntitiesCollectionItemPrim.HasInternalOperations: Boolean;
 //#UC START# *55D31692032D_55D30D410267_var*
 var
@@ -341,9 +379,9 @@ begin
    end;//..vcm_InternalOperations..
 //#UC END# *55D31692032D_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.HasInternalOperations
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
+{$IfEnd} // Defined(DesignTimeLibrary)
 
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If Defined(DesignTimeLibrary)}
 function TvcmBaseEntitiesCollectionItemPrim.HasOnlyInternalOperations: Boolean;
 //#UC START# *55D316B201E7_55D30D410267_var*
 var
@@ -361,7 +399,7 @@ begin
    end;//..vcm_InternalOperations..
 //#UC END# *55D316B201E7_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.HasOnlyInternalOperations
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
+{$IfEnd} // Defined(DesignTimeLibrary)
 
 procedure TvcmBaseEntitiesCollectionItemPrim.RegisterInRep;
 //#UC START# *55D316CE0191_55D30D410267_var*
@@ -374,7 +412,7 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.RegisterInRep
 
 procedure TvcmBaseEntitiesCollectionItemPrim.PublishEntity(aControl: TComponent;
-  aGetTarget: TvcmControlGetTargetEvent);
+ aGetTarget: TvcmControlGetTargetEvent);
 //#UC START# *55D316E10142_55D30D410267_var*
 //#UC END# *55D316E10142_55D30D410267_var*
 begin
@@ -394,10 +432,10 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.PublishFormEntity
 
 procedure TvcmBaseEntitiesCollectionItemPrim.PublishOp(aControl: TComponent;
-  const anOperation: TvcmString;
-  anExecute: TvcmControlExecuteEvent;
-  aTest: TvcmControlTestEvent;
-  aGetState: TvcmControlGetStateEvent);
+ const anOperation: TvcmString;
+ anExecute: TvcmControlExecuteEvent;
+ aTest: TvcmControlTestEvent;
+ aGetState: TvcmControlGetStateEvent);
 //#UC START# *55D317480019_55D30D410267_var*
 //#UC END# *55D317480019_55D30D410267_var*
 begin
@@ -410,10 +448,10 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.PublishOp
 
 procedure TvcmBaseEntitiesCollectionItemPrim.PublishOp(aControl: TComponent;
-  const anOperation: TvcmString;
-  anExecute: TvcmExecuteEvent;
-  aTest: TvcmControlTestEvent;
-  aGetState: TvcmControlGetStateEvent);
+ const anOperation: TvcmString;
+ anExecute: TvcmExecuteEvent;
+ aTest: TvcmControlTestEvent;
+ aGetState: TvcmControlGetStateEvent);
 //#UC START# *55D317760220_55D30D410267_var*
 //#UC END# *55D317760220_55D30D410267_var*
 begin
@@ -441,72 +479,8 @@ begin
 //#UC END# *55D317B50256_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.IsItemCaptionUnique
 
-procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetOperations(aValue: TvcmBaseOperationsCollection);
-//#UC START# *55D30E8A0376_55D30D410267set_var*
-//#UC END# *55D30E8A0376_55D30D410267set_var*
-begin
-//#UC START# *55D30E8A0376_55D30D410267set_impl*
- f_Operations.Assign(aValue);
-//#UC END# *55D30E8A0376_55D30D410267set_impl*
-end;//TvcmBaseEntitiesCollectionItemPrim.pm_SetOperations
-
-procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetControls(aValue: TvcmTargetedControlsCollection);
-//#UC START# *55D30FB2030A_55D30D410267set_var*
-//#UC END# *55D30FB2030A_55D30D410267set_var*
-begin
-//#UC START# *55D30FB2030A_55D30D410267set_impl*
- f_Controls.Assign(aValue);
-//#UC END# *55D30FB2030A_55D30D410267set_impl*
-end;//TvcmBaseEntitiesCollectionItemPrim.pm_SetControls
-
-function TvcmBaseEntitiesCollectionItemPrim.pm_GetEntityDef: IvcmEntityDef;
-//#UC START# *55D3104B0336_55D30D410267get_var*
-//#UC END# *55D3104B0336_55D30D410267get_var*
-begin
-//#UC START# *55D3104B0336_55D30D410267get_impl*
- if (f_EntityDef = nil) then
-  f_EntityDef := TvcmBaseEntityDef.Make(Self);
- Result := f_EntityDef;
-//#UC END# *55D3104B0336_55D30D410267get_impl*
-end;//TvcmBaseEntitiesCollectionItemPrim.pm_GetEntityDef
-
-function TvcmBaseEntitiesCollectionItemPrim.pm_GetSupportedBy(aControl: TComponent): Boolean;
-//#UC START# *55D3127F038A_55D30D410267get_var*
-//#UC END# *55D3127F038A_55D30D410267get_var*
-begin
-//#UC START# *55D3127F038A_55D30D410267get_impl*
- with Controls do //зачем тут with?
-  if (Controls.Count = 0) and (aControl = nil) then
-   Result := True
-  else
-   Result := (SupportedExBy(aControl) >= 0);
-//#UC END# *55D3127F038A_55D30D410267get_impl*
-end;//TvcmBaseEntitiesCollectionItemPrim.pm_GetSupportedBy
-
-procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetSupportedBy(aControl: TComponent; aValue: Boolean);
-//#UC START# *55D3127F038A_55D30D410267set_var*
-var
- l_Index: Integer;
-//#UC END# *55D3127F038A_55D30D410267set_var*
-begin
-//#UC START# *55D3127F038A_55D30D410267set_impl*
- l_Index := SupportedExBy(aControl);
- if (aValue) then
- begin
-  if (l_Index < 0) then
-   TvcmControlsCollectionItem(Controls.Add).Control := aControl;
- end//aValue
- else
- begin
-  if (Operations <> nil) then
-   Operations.UnlinkControl(aControl);
-  if (l_Index >= 0) then
-   Controls.Delete(l_Index);
- end;//aValue
-//#UC END# *55D3127F038A_55D30D410267set_impl*
-end;//TvcmBaseEntitiesCollectionItemPrim.pm_SetSupportedBy
-
 function TvcmBaseEntitiesCollectionItemPrim.OperationsStored: Boolean;
+ {* "Функция определяющая, что свойство Operations сохраняется" }
 //#UC START# *78B8116FEB76_55D30D410267_var*
 //#UC END# *78B8116FEB76_55D30D410267_var*
 begin
@@ -516,6 +490,7 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.OperationsStored
 
 function TvcmBaseEntitiesCollectionItemPrim.ControlsStored: Boolean;
+ {* "Функция определяющая, что свойство Controls сохраняется" }
 //#UC START# *EC3EC97ADA92_55D30D410267_var*
 //#UC END# *EC3EC97ADA92_55D30D410267_var*
 begin
@@ -539,6 +514,7 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.Assign
 
 procedure TvcmBaseEntitiesCollectionItemPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55D30D410267_var*
 var
  l_OpHolder: IvcmOperationsHolder;
@@ -561,6 +537,7 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.Cleanup
 
 procedure TvcmBaseEntitiesCollectionItemPrim.BeforeAddToCache;
+ {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 //#UC START# *479F2B3302C1_55D30D410267_var*
 //#UC END# *479F2B3302C1_55D30D410267_var*
 begin
@@ -585,16 +562,13 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.Create
 
 procedure TvcmBaseEntitiesCollectionItemPrim.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_EntityDef := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvcmBaseEntitiesCollectionItemPrim.ClearFields
 
 procedure TvcmBaseEntitiesCollectionItemPrim.ChangeName(const anOld: AnsiString;
-  const aNew: AnsiString);
+ const aNew: AnsiString);
 //#UC START# *55CCBA3C0190_55D30D410267_var*
 //#UC END# *55CCBA3C0190_55D30D410267_var*
 begin
@@ -605,7 +579,7 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.ChangeName
 
 procedure TvcmBaseEntitiesCollectionItemPrim.ChangeCaption(const anOld: AnsiString;
-  const aNew: AnsiString);
+ const aNew: AnsiString);
 //#UC START# *55CCBA8003C7_55D30D410267_var*
 //#UC END# *55CCBA8003C7_55D30D410267_var*
 begin
@@ -636,7 +610,7 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.GetID
 
 function TvcmBaseEntitiesCollectionItemPrim.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
 //#UC START# *561145D802BB_55D30D410267_var*
 //#UC END# *561145D802BB_55D30D410267_var*
 begin
@@ -666,16 +640,15 @@ end;//TvcmBaseEntitiesCollectionItemPrim.QueryInterface
 //#UC START# *4DDBBD1103C3impl*
 //#UC END# *4DDBBD1103C3impl*
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmBaseEntitiesCollectionItemPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmBaseEntitiesCollectionItemPrim);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmBaseEntitiesCollectionItem
+ {* Регистрация TvcmBaseEntitiesCollectionItemPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmBaseEntitiesCollectionItem);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmBaseEntitiesCollectionItem }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

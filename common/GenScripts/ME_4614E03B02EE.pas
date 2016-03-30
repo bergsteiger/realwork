@@ -10,6 +10,8 @@ interface
 
 uses
  l3IntfUses
+ //#UC START# *4614E03B02EEintf_uses*
+ //#UC END# *4614E03B02EEintf_uses*
 ;
 
 type
@@ -21,6 +23,8 @@ type
   public
    class function Instance: TimeStampObjectManager;
     {* Метод получения экземпляра синглетона TimeStampObjectManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  //#UC START# *4614E03B02EEpubl*
  //#UC END# *4614E03B02EEpubl*
  end;//TimeStampObjectManager
@@ -31,6 +35,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4614E03B02EEimpl_uses*
+ //#UC END# *4614E03B02EEimpl_uses*
 ;
 
 var g_TimeStampObjectManager: TimeStampObjectManager = nil;
@@ -52,6 +58,12 @@ begin
  end;
  Result := g_TimeStampObjectManager;
 end;//TimeStampObjectManager.Instance
+
+class function TimeStampObjectManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TimeStampObjectManager <> nil;
+end;//TimeStampObjectManager.Exists
 
 //#UC START# *4614E03B02EEimpl*
 //#UC END# *4614E03B02EEimpl*

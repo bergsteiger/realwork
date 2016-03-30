@@ -1,56 +1,43 @@
 {$IfNDef RegionableControl_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SkinnedControls"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/SkinnedControls/RegionableControl.imp.pas"
-// Начат: 27.10.2010 16:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GUIControlMixIn::Class>> Shared Delphi::SkinnedControls::Core::RegionableControl
-//
-// Контрол с поддержкой регионов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas"
+// Стереотип: "GUIControlMixIn"
+// Элемент модели: "RegionableControl" MUID: (4CC81FB7008B)
+// Имя типа: "_RegionableControl_"
 
 {$Define RegionableControl_imp}
- _RegionableControl_ = {mixin} class(_RegionableControl_Parent_)
+
+ _RegionableControl_ = class(_RegionableControl_Parent_)
   {* Контрол с поддержкой регионов }
- private
- // private fields
-   f_Reg : Tl3Region;
- private
- // private methods
+  private
+   f_Reg: Tl3Region;
+  private
    procedure UpdateRegion;
    procedure ClearRegion;
    procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
-   procedure CreateWnd; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure DestroyWnd; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure Resize; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure VisibleChanging; override;
-   {$IfEnd} //not NoVCL
- protected
- // protected methods
+  protected
    procedure TuneRegion(aRegion: Tl3Region); virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure CreateWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DestroyWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure Resize; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure VisibleChanging; override;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//_RegionableControl_
 
 {$Else RegionableControl_imp}
 
-// start class _RegionableControl_
+{$IfNDef RegionableControl_imp_impl}
+
+{$Define RegionableControl_imp_impl}
 
 procedure _RegionableControl_.UpdateRegion;
 //#UC START# *4CC8471A035A_4CC81FB7008B_var*
@@ -104,6 +91,7 @@ begin
 end;//_RegionableControl_.CMVisibleChanged
 
 procedure _RegionableControl_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CC81FB7008B_var*
 //#UC END# *479731C50290_4CC81FB7008B_var*
 begin
@@ -114,7 +102,7 @@ begin
 //#UC END# *479731C50290_4CC81FB7008B_impl*
 end;//_RegionableControl_.Cleanup
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _RegionableControl_.CreateWnd;
 //#UC START# *4CC8414403B8_4CC81FB7008B_var*
 //#UC END# *4CC8414403B8_4CC81FB7008B_var*
@@ -124,9 +112,9 @@ begin
  UpdateRegion;
 //#UC END# *4CC8414403B8_4CC81FB7008B_impl*
 end;//_RegionableControl_.CreateWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _RegionableControl_.DestroyWnd;
 //#UC START# *4CC841540158_4CC81FB7008B_var*
 //#UC END# *4CC841540158_4CC81FB7008B_var*
@@ -136,9 +124,9 @@ begin
  inherited;
 //#UC END# *4CC841540158_4CC81FB7008B_impl*
 end;//_RegionableControl_.DestroyWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _RegionableControl_.Resize;
 //#UC START# *4CC8417A0288_4CC81FB7008B_var*
 //#UC END# *4CC8417A0288_4CC81FB7008B_var*
@@ -148,9 +136,9 @@ begin
  UpdateRegion;
 //#UC END# *4CC8417A0288_4CC81FB7008B_impl*
 end;//_RegionableControl_.Resize
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure _RegionableControl_.VisibleChanging;
 //#UC START# *4CC8658C017B_4CC81FB7008B_var*
 //#UC END# *4CC8658C017B_4CC81FB7008B_var*
@@ -160,6 +148,9 @@ begin
  //UpdateRegion;
 //#UC END# *4CC8658C017B_4CC81FB7008B_impl*
 end;//_RegionableControl_.VisibleChanging
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$EndIf RegionableControl_imp_impl}
 
 {$EndIf RegionableControl_imp}
+

@@ -1,127 +1,109 @@
 unit ddRowProperty;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddRowProperty.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddRowProperty
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddRowProperty.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddRowProperty" MUID: (518A10050368)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddBorder,
-  ddPropertyObject,
-  ddTypes,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddPropertyObject
+ , ddBorder
+ , ddTypes
+ , k2Interfaces
+;
 
 type
  TddRowProperty = class(TddPropertyObject)
- private
- // private fields
-   f_Gaph : LongInt;
-    {* Поле для свойства Gaph}
-   f_Left : LongInt;
-    {* Поле для свойства Left}
-   f_Width : LongInt;
-    {* Поле для свойства Width}
-   f_AutoFit : Boolean;
-    {* Поле для свойства AutoFit}
-   f_Border : TddBorder;
-    {* Поле для свойства Border}
-   f_IsLastRow : Boolean;
-    {* Поле для свойства IsLastRow}
-   f_RowIndex : LongInt;
-    {* Поле для свойства RowIndex}
-   f_trwWidthB : LongInt;
-    {* Поле для свойства trwWidthB}
-   f_trftsWidthA : TddRTFWidthUnits;
-    {* Поле для свойства trftsWidthA}
-   f_trftsWidthB : TddRTFWidthUnits;
-    {* Поле для свойства trftsWidthB}
-   f_trwWidthA : LongInt;
-    {* Поле для свойства trwWidthA}
- protected
- // property methods
+  private
+   f_Gaph: LongInt;
+    {* Поле для свойства Gaph }
+   f_Left: LongInt;
+    {* Поле для свойства Left }
+   f_Width: LongInt;
+    {* Поле для свойства Width }
+   f_AutoFit: Boolean;
+    {* Поле для свойства AutoFit }
+   f_Border: TddBorder;
+    {* Поле для свойства Border }
+   f_IsLastRow: Boolean;
+    {* Поле для свойства IsLastRow }
+   f_RowIndex: LongInt;
+    {* Поле для свойства RowIndex }
+   f_trwWidthB: LongInt;
+    {* Поле для свойства trwWidthB }
+   f_trftsWidthA: TddRTFWidthUnits;
+    {* Поле для свойства trftsWidthA }
+   f_trftsWidthB: TddRTFWidthUnits;
+    {* Поле для свойства trftsWidthB }
+   f_trwWidthA: LongInt;
+    {* Поле для свойства trwWidthA }
+  protected
    procedure pm_SetAutoFit(aValue: Boolean);
-   function pm_GetTrwWidthB: LongInt;
-   procedure pm_SetTrwWidthB(aValue: LongInt);
-   procedure pm_SetTrftsWidthA(aValue: TddRTFWidthUnits);
-   procedure pm_SetTrftsWidthB(aValue: TddRTFWidthUnits);
-   function pm_GetTrwWidthA: LongInt;
-   procedure pm_SetTrwWidthA(aValue: LongInt);
- protected
- // realized methods
+   function pm_GettrwWidthB: LongInt;
+   procedure pm_SettrwWidthB(aValue: LongInt);
+   procedure pm_SettrftsWidthA(aValue: TddRTFWidthUnits);
+   procedure pm_SettrftsWidthB(aValue: TddRTFWidthUnits);
+   function pm_GettrwWidthA: LongInt;
+   procedure pm_SettrwWidthA(aValue: LongInt);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure Reset; override;
    function Diff(P: TddPropertyObject;
-     aForReader: Boolean): TddPropertyObject; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    aForReader: Boolean): TddPropertyObject; override;
    constructor Create; override;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
    procedure Clear; override;
    procedure AssignFrom(anOther: TddPropertyObject); override;
- public
- // public properties
+  public
    property Gaph: LongInt
-     read f_Gaph
-     write f_Gaph;
+    read f_Gaph
+    write f_Gaph;
    property Left: LongInt
-     read f_Left
-     write f_Left;
+    read f_Left
+    write f_Left;
    property Width: LongInt
-     read f_Width
-     write f_Width;
+    read f_Width
+    write f_Width;
    property AutoFit: Boolean
-     read f_AutoFit
-     write pm_SetAutoFit;
+    read f_AutoFit
+    write pm_SetAutoFit;
    property Border: TddBorder
-     read f_Border;
+    read f_Border;
    property IsLastRow: Boolean
-     read f_IsLastRow
-     write f_IsLastRow;
+    read f_IsLastRow
+    write f_IsLastRow;
    property RowIndex: LongInt
-     read f_RowIndex
-     write f_RowIndex;
+    read f_RowIndex
+    write f_RowIndex;
    property trwWidthB: LongInt
-     read pm_GetTrwWidthB
-     write pm_SetTrwWidthB;
+    read pm_GettrwWidthB
+    write pm_SettrwWidthB;
    property trftsWidthA: TddRTFWidthUnits
-     read f_trftsWidthA
-     write pm_SetTrftsWidthA;
+    read f_trftsWidthA
+    write pm_SettrftsWidthA;
    property trftsWidthB: TddRTFWidthUnits
-     read f_trftsWidthB
-     write pm_SetTrftsWidthB;
+    read f_trftsWidthB
+    write pm_SettrftsWidthB;
    property trwWidthA: LongInt
-     read pm_GetTrwWidthA
-     write pm_SetTrwWidthA;
+    read pm_GettrwWidthA
+    write pm_SettrwWidthA;
  end;//TddRowProperty
 
 implementation
 
 uses
-  l3Base,
-  ddCellProperty
-  ;
-
-// start class TddRowProperty
+ l3ImplUses
+ , l3Base
+ , ddCellProperty
+;
 
 procedure TddRowProperty.pm_SetAutoFit(aValue: Boolean);
 //#UC START# *518A11380166_518A10050368set_var*
@@ -132,59 +114,59 @@ begin
 //#UC END# *518A11380166_518A10050368set_impl*
 end;//TddRowProperty.pm_SetAutoFit
 
-function TddRowProperty.pm_GetTrwWidthB: LongInt;
+function TddRowProperty.pm_GettrwWidthB: LongInt;
 //#UC START# *5390359B0041_518A10050368get_var*
 //#UC END# *5390359B0041_518A10050368get_var*
 begin
 //#UC START# *5390359B0041_518A10050368get_impl*
  Result := f_trwWidthB;
 //#UC END# *5390359B0041_518A10050368get_impl*
-end;//TddRowProperty.pm_GetTrwWidthB
+end;//TddRowProperty.pm_GettrwWidthB
 
-procedure TddRowProperty.pm_SetTrwWidthB(aValue: LongInt);
+procedure TddRowProperty.pm_SettrwWidthB(aValue: LongInt);
 //#UC START# *5390359B0041_518A10050368set_var*
 //#UC END# *5390359B0041_518A10050368set_var*
 begin
 //#UC START# *5390359B0041_518A10050368set_impl*
  f_trwWidthB := aValue;
 //#UC END# *5390359B0041_518A10050368set_impl*
-end;//TddRowProperty.pm_SetTrwWidthB
+end;//TddRowProperty.pm_SettrwWidthB
 
-procedure TddRowProperty.pm_SetTrftsWidthA(aValue: TddRTFWidthUnits);
+procedure TddRowProperty.pm_SettrftsWidthA(aValue: TddRTFWidthUnits);
 //#UC START# *561618B20192_518A10050368set_var*
 //#UC END# *561618B20192_518A10050368set_var*
 begin
 //#UC START# *561618B20192_518A10050368set_impl*
  f_TrftsWidthA := aValue;
 //#UC END# *561618B20192_518A10050368set_impl*
-end;//TddRowProperty.pm_SetTrftsWidthA
+end;//TddRowProperty.pm_SettrftsWidthA
 
-procedure TddRowProperty.pm_SetTrftsWidthB(aValue: TddRTFWidthUnits);
+procedure TddRowProperty.pm_SettrftsWidthB(aValue: TddRTFWidthUnits);
 //#UC START# *561618E6019B_518A10050368set_var*
 //#UC END# *561618E6019B_518A10050368set_var*
 begin
 //#UC START# *561618E6019B_518A10050368set_impl*
  f_TrftsWidthB := aValue;
 //#UC END# *561618E6019B_518A10050368set_impl*
-end;//TddRowProperty.pm_SetTrftsWidthB
+end;//TddRowProperty.pm_SettrftsWidthB
 
-function TddRowProperty.pm_GetTrwWidthA: LongInt;
+function TddRowProperty.pm_GettrwWidthA: LongInt;
 //#UC START# *56161936018E_518A10050368get_var*
 //#UC END# *56161936018E_518A10050368get_var*
 begin
 //#UC START# *56161936018E_518A10050368get_impl*
  Result := f_TrwWidthA;
 //#UC END# *56161936018E_518A10050368get_impl*
-end;//TddRowProperty.pm_GetTrwWidthA
+end;//TddRowProperty.pm_GettrwWidthA
 
-procedure TddRowProperty.pm_SetTrwWidthA(aValue: LongInt);
+procedure TddRowProperty.pm_SettrwWidthA(aValue: LongInt);
 //#UC START# *56161936018E_518A10050368set_var*
 //#UC END# *56161936018E_518A10050368set_var*
 begin
 //#UC START# *56161936018E_518A10050368set_impl*
  f_TrwWidthA := aValue;
 //#UC END# *56161936018E_518A10050368set_impl*
-end;//TddRowProperty.pm_SetTrwWidthA
+end;//TddRowProperty.pm_SettrwWidthA
 
 procedure TddRowProperty.MergeWith(P: TddPropertyObject);
 //#UC START# *525E369F0158_518A10050368_var*
@@ -223,7 +205,7 @@ begin
 end;//TddRowProperty.Reset
 
 function TddRowProperty.Diff(P: TddPropertyObject;
-  aForReader: Boolean): TddPropertyObject;
+ aForReader: Boolean): TddPropertyObject;
 //#UC START# *525E47E10065_518A10050368_var*
 //#UC END# *525E47E10065_518A10050368_var*
 begin
@@ -234,6 +216,7 @@ begin
 end;//TddRowProperty.Diff
 
 constructor TddRowProperty.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_518A10050368_var*
 //#UC END# *47914F960008_518A10050368_var*
 begin
@@ -255,6 +238,7 @@ begin
 end;//TddRowProperty.Create
 
 procedure TddRowProperty.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_518A10050368_var*
 //#UC END# *479731C50290_518A10050368_var*
 begin

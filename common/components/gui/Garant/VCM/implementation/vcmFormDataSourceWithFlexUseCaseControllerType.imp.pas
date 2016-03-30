@@ -1,43 +1,40 @@
 {$IfNDef vcmFormDataSourceWithFlexUseCaseControllerType_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormDataSourceWithFlexUseCaseControllerType
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormDataSourceWithFlexUseCaseControllerType" MUID: (50180358024F)
+// Имя типа: "_vcmFormDataSourceWithFlexUseCaseControllerType_"
 
 {$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp}
-{$If not defined(NoVCM)}
- {$Include ..\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+
+{$If NOT Defined(NoVCM)}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
  _vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
- {$Include ..\implementation\vcmFormDataSourceWithData.imp.pas}
- _vcmFormDataSourceWithFlexUseCaseControllerType_ = {mixin} class(_vcmFormDataSourceWithData_)
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}
+ _vcmFormDataSourceWithFlexUseCaseControllerType_ = class(_vcmFormDataSourceWithData_)
  end;//_vcmFormDataSourceWithFlexUseCaseControllerType_
-{$Else}
 
- {$Include ..\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
- _vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
- {$Include ..\implementation\vcmFormDataSourceWithData.imp.pas}
- _vcmFormDataSourceWithFlexUseCaseControllerType_ = _vcmFormDataSourceWithData_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+_vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}
+_vcmFormDataSourceWithFlexUseCaseControllerType_ = _vcmFormDataSourceWithData_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormDataSourceWithFlexUseCaseControllerType_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
 
+{$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
 
-{$Include ..\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$If NOT Defined(NoVCM)}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 
-{$Include ..\implementation\vcmFormDataSourceWithData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-{$IfEnd} //not NoVCM
+{$EndIf vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
 
 {$EndIf vcmFormDataSourceWithFlexUseCaseControllerType_imp}
+

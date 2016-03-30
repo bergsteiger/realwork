@@ -1,60 +1,51 @@
 {$IfNDef vcmFormDataSourceWithData_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormDataSourceWithData.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormDataSourceWithData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormDataSourceWithData" MUID: (501802270075)
+// Имя типа: "_vcmFormDataSourceWithData_"
 
 {$Define vcmFormDataSourceWithData_imp}
-{$If not defined(NoVCM)}
- _vcmFormDataSourceWithData_ = {mixin} class(_vcmFormDataSourceWithData_Parent_)
- private
- // private fields
-   f_PartData : _InitDataType_;
-    {* Поле для свойства PartData}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM)}
+ // _InitDataType_
+
+ _vcmFormDataSourceWithData_ = class(_vcmFormDataSourceWithData_Parent_)
+  private
+   f_PartData: _InitDataType_;
+  protected
    procedure DoInit; virtual;
    procedure GotData; virtual;
-     {* - данные изменились. }
- public
- // public methods
+    {* - данные изменились. }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
    constructor Create(const aDataSource: _UseCaseControllerType_;
     const aData: _InitDataType_); reintroduce;
-     {* Конструктор }
+    {* Конструктор }
    class function Make(const aDataSource: _UseCaseControllerType_;
     const aData: _InitDataType_): _FormDataSourceType_; reintroduce;
- protected
- // protected properties
+  protected
    property PartData: _InitDataType_
-     read f_PartData;
+    read f_PartData;
  end;//_vcmFormDataSourceWithData_
-{$Else}
 
- _vcmFormDataSourceWithData_ = _vcmFormDataSourceWithData_Parent_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_vcmFormDataSourceWithData_ = _vcmFormDataSourceWithData_Parent_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormDataSourceWithData_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormDataSourceWithData_imp_impl}
 
-// start class _vcmFormDataSourceWithData_
+{$Define vcmFormDataSourceWithData_imp_impl}
 
+{$If NOT Defined(NoVCM)}
 constructor _vcmFormDataSourceWithData_.Create(const aDataSource: _UseCaseControllerType_;
-  const aData: _InitDataType_);
+ const aData: _InitDataType_);
+ {* Конструктор }
 //#UC START# *492ACF1E01C2_501802270075_var*
 //#UC END# *492ACF1E01C2_501802270075_var*
 begin
@@ -66,7 +57,7 @@ begin
 end;//_vcmFormDataSourceWithData_.Create
 
 class function _vcmFormDataSourceWithData_.Make(const aDataSource: _UseCaseControllerType_;
-  const aData: _InitDataType_): _FormDataSourceType_;
+ const aData: _InitDataType_): _FormDataSourceType_;
 var
  l_Inst : _vcmFormDataSourceWithData_;
 begin
@@ -76,7 +67,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_vcmFormDataSourceWithData_.Make
 
 procedure _vcmFormDataSourceWithData_.DoInit;
 //#UC START# *492BF7900310_501802270075_var*
@@ -88,6 +79,7 @@ begin
 end;//_vcmFormDataSourceWithData_.DoInit
 
 procedure _vcmFormDataSourceWithData_.GotData;
+ {* - данные изменились. }
 //#UC START# *492ACF630072_501802270075_var*
 //#UC END# *492ACF630072_501802270075_var*
 begin
@@ -97,6 +89,7 @@ begin
 end;//_vcmFormDataSourceWithData_.GotData
 
 procedure _vcmFormDataSourceWithData_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_501802270075_var*
 //#UC END# *479731C50290_501802270075_var*
 begin
@@ -116,7 +109,9 @@ begin
   GotData
 //#UC END# *47A042E100E2_501802270075_impl*
 end;//_vcmFormDataSourceWithData_.InitFields
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmFormDataSourceWithData_imp_impl}
 
 {$EndIf vcmFormDataSourceWithData_imp}
+

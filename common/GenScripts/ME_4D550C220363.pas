@@ -11,16 +11,16 @@ interface
 {$If NOT Defined(NoVGScene)}
 uses
  l3IntfUses
+ , Messages
+ , vgTypes
  , vgCustomObject
  , vgCustomCanvas
  , Classes
  , vgCustomResources
- , vgTypes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , vgCustomBitmap
- , Messages
 ;
 
 type

@@ -1,61 +1,68 @@
 {$IfNDef vcmFormSetDataSource_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormSetDataSource.imp.pas"
-// Начат: 29.07.2005 11.37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormSetDataSource
-//
-// Бизнес объект сборки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormSetDataSource" MUID: (47F37723017A)
+// Имя типа: "_vcmFormSetDataSource_"
 
 {$Define vcmFormSetDataSource_imp}
-{$If not defined(NoVCM)}
+
+{$If NOT Defined(NoVCM)}
+ // _SetDataType_
+
+ // _SetType_
+
+ // _InitDataType_
+
  _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- _vcmFormSetDataSource_ = {mixin} class(_l3Notifier_, IvcmFormSetDataSource)
+ _vcmFormSetDataSource_ = class(_l3Notifier_, IvcmFormSetDataSource)
   {* Бизнес объект сборки }
- private
- // private fields
-   f_RefreshCount : Integer;
-   f_ForbidRefresh : Boolean;
-   f_FormSet : IvcmFormSet;
-    {* Поле для свойства FormSet}
-   f_InInit : Boolean;
-    {* Поле для свойства InInit}
-   f_SetData : _SetDataType_;
-    {* Поле для свойства SetData}
-   f_InitialUseCaseData : _InitDataType_;
-    {* Поле для свойства InitialUseCaseData}
- private
- // private methods
+  private
+   f_RefreshCount: Integer;
+   f_ForbidRefresh: Boolean;
+   f_FormSet: IvcmFormSet;
+   f_InInit: Boolean;
+    {* вызывается при первом обновлении сборки }
+   f_SetData: _SetDataType_;
+   f_InitialUseCaseData: _InitDataType_;
+    {* Данные инициализирующие контроллер прецедента }
+  private
    class function MakeWithSetData(const aSetData: _SetDataType_): IvcmFormSetDataSource;
- protected
- // property methods
+  protected
    function pm_GetSetData: _SetDataType_;
- protected
- // realized methods
+   function DoGetFormSetImageIndex: Integer; virtual;
+   function DoGetTabCaption: IvcmCString; virtual;
+   function DoGetTabHint: IvcmCString; virtual;
+   function DoMakeClone: IvcmFormSetDataSource; virtual;
+   function GetDataForClone: _InitDataType_; virtual;
+   function MakeData: _SetDataType_; virtual; abstract;
+    {* Данные сборки. }
+   procedure DataExchange; virtual;
+    {* - вызывается после получения данных инициализации. }
+   function GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean; virtual;
+   procedure DoPushFromHistory; virtual;
+    {* сборка была выгружена из истории }
+   procedure ClearRefs; virtual;
+    {* Очищает ссылки на источники данных }
+   procedure ClearAreas; virtual;
+    {* Очищает ссылки на области ввода }
+   function As_Il3ChangeNotifier: Il3ChangeNotifier;
+    {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
    procedure BeginRefresh;
-     {* вызывается перед началом обновления }
+    {* вызывается перед началом обновления }
    procedure EndRefresh;
-     {* вызывается в конце обновления }
+    {* вызывается в конце обновления }
    function IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
-     {* является ли форма главной в сборке }
+    {* является ли форма главной в сборке }
    function IsLikeUseCaseController(const aDataSource: IvcmFormSetDataSource): Boolean;
-     {* определим нужно ли пересоздавать сборку или все отличие в позиции на данных }
+    {* определим нужно ли пересоздавать сборку или все отличие в позиции на данных }
    function IsRefreshing: Boolean;
-     {* сборка находится в состоянии обновления }
+    {* сборка находится в состоянии обновления }
    procedure PushFromHistory;
-     {* сборка была выгружена из истории }
+    {* сборка была выгружена из истории }
    procedure Refresh(const aParams: IvcmFormSetRefreshDataParams = nil);
-     {* обновить представление сборки }
+    {* обновить представление сборки }
    function pm_GetFormSet: IvcmFormSet;
    procedure pm_SetFormSet(const aValue: IvcmFormSet);
    function pm_GetMainCaption: IvcmCString;
@@ -68,81 +75,53 @@
    function pm_GetTabHint: IvcmCString;
    function MakeClone: IvcmFormSetDataSource;
    procedure PopToHistory;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DoGetFormSetImageIndex: Integer; virtual;
-   function DoGetTabCaption: IvcmCString; virtual;
-   function DoGetTabHint: IvcmCString; virtual;
-   function DoMakeClone: IvcmFormSetDataSource; virtual;
-   function GetDataForClone: _InitDataType_; virtual;
-   function MakeData: _SetDataType_; virtual; abstract;
-     {* Данные сборки. }
-   procedure DataExchange; virtual;
-     {* - вызывается после получения данных инициализации. }
-   function GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean; virtual;
-   procedure DoPushFromHistory; virtual;
-     {* сборка была выгружена из истории }
-   procedure ClearRefs; virtual;
-     {* Очищает ссылки на источники данных }
-   procedure ClearAreas; virtual;
-     {* Очищает ссылки на области ввода }
- public
- // public methods
+  public
    constructor Create(const aData: _InitDataType_); reintroduce;
    class function Make(const aData: _InitDataType_): _SetType_; reintroduce;
- protected
- // protected properties
+  protected
    property InInit: Boolean
-     read f_InInit;
-     {* вызывается при первом обновлении сборки }
+    read f_InInit;
+    {* вызывается при первом обновлении сборки }
    property SetData: _SetDataType_
-     read pm_GetSetData;
+    read pm_GetSetData;
    property InitialUseCaseData: _InitDataType_
-     read f_InitialUseCaseData;
-     {* Данные инициализирующие контроллер прецедента }
- public
- // public properties
+    read f_InitialUseCaseData;
+    {* Данные инициализирующие контроллер прецедента }
+  public
    property FormSet: IvcmFormSet
-     read f_FormSet;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_Il3ChangeNotifier: Il3ChangeNotifier;
+    read f_FormSet;
  end;//_vcmFormSetDataSource_
-{$Else}
 
- _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
- {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- _vcmFormSetDataSource_ = _l3Notifier_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
+_vcmFormSetDataSource_ = _l3Notifier_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormSetDataSource_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormSetDataSource_imp_impl}
 
+{$Define vcmFormSetDataSource_imp_impl}
+
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
-// start class _vcmFormSetDataSource_
-
-class function _vcmFormSetDataSource_.MakeWithSetData(const aSetData: _SetDataType_): IvcmFormSetDataSource;
-//#UC START# *555B165501A4_47F37723017A_var*
-var
- l_Inst: _vcmFormSetDataSource_;
-//#UC END# *555B165501A4_47F37723017A_var*
+function _vcmFormSetDataSource_.pm_GetSetData: _SetDataType_;
+//#UC START# *494163340251_47F37723017Aget_var*
+//#UC END# *494163340251_47F37723017Aget_var*
 begin
-//#UC START# *555B165501A4_47F37723017A_impl*
- l_Inst := Create(nil);
- l_Inst.f_SetData := aSetData;
- Result := l_Inst;
-//#UC END# *555B165501A4_47F37723017A_impl*
-end;//_vcmFormSetDataSource_.MakeWithSetData
+//#UC START# *494163340251_47F37723017Aget_impl*
+ if not Assigned(f_SetData) then
+  f_SetData := MakeData;
+ Result := f_SetData;
+//#UC END# *494163340251_47F37723017Aget_impl*
+end;//_vcmFormSetDataSource_.pm_GetSetData
 
 function _vcmFormSetDataSource_.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_47F37723017A_var*
@@ -180,6 +159,19 @@ begin
 //#UC END# *555B0E0B0084_47F37723017A_impl*
 end;//_vcmFormSetDataSource_.DoMakeClone
 
+class function _vcmFormSetDataSource_.MakeWithSetData(const aSetData: _SetDataType_): IvcmFormSetDataSource;
+//#UC START# *555B165501A4_47F37723017A_var*
+var
+ l_Inst: _vcmFormSetDataSource_;
+//#UC END# *555B165501A4_47F37723017A_var*
+begin
+//#UC START# *555B165501A4_47F37723017A_impl*
+ l_Inst := Create(nil);
+ l_Inst.f_SetData := aSetData;
+ Result := l_Inst;
+//#UC END# *555B165501A4_47F37723017A_impl*
+end;//_vcmFormSetDataSource_.MakeWithSetData
+
 function _vcmFormSetDataSource_.GetDataForClone: _InitDataType_;
 //#UC START# *55C1DD070354_47F37723017A_var*
 //#UC END# *55C1DD070354_47F37723017A_var*
@@ -189,18 +181,8 @@ begin
 //#UC END# *55C1DD070354_47F37723017A_impl*
 end;//_vcmFormSetDataSource_.GetDataForClone
 
-function _vcmFormSetDataSource_.pm_GetSetData: _SetDataType_;
-//#UC START# *494163340251_47F37723017Aget_var*
-//#UC END# *494163340251_47F37723017Aget_var*
-begin
-//#UC START# *494163340251_47F37723017Aget_impl*
- if not Assigned(f_SetData) then
-  f_SetData := MakeData;
- Result := f_SetData;
-//#UC END# *494163340251_47F37723017Aget_impl*
-end;//_vcmFormSetDataSource_.pm_GetSetData
-
 procedure _vcmFormSetDataSource_.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_47F37723017A_var*
 //#UC END# *47F37DF001FE_47F37723017A_var*
 begin
@@ -231,7 +213,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_vcmFormSetDataSource_.Make
 
 function _vcmFormSetDataSource_.GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean;
 //#UC START# *491B02D80112_47F37723017A_var*
@@ -243,6 +225,7 @@ begin
 end;//_vcmFormSetDataSource_.GetIsNeedChangePosition
 
 procedure _vcmFormSetDataSource_.DoPushFromHistory;
+ {* сборка была выгружена из истории }
 //#UC START# *491B06F000BB_47F37723017A_var*
 //#UC END# *491B06F000BB_47F37723017A_var*
 begin
@@ -252,6 +235,7 @@ begin
 end;//_vcmFormSetDataSource_.DoPushFromHistory
 
 procedure _vcmFormSetDataSource_.ClearRefs;
+ {* Очищает ссылки на источники данных }
 //#UC START# *492EEC270358_47F37723017A_var*
 //#UC END# *492EEC270358_47F37723017A_var*
 begin
@@ -261,6 +245,7 @@ begin
 end;//_vcmFormSetDataSource_.ClearRefs
 
 procedure _vcmFormSetDataSource_.ClearAreas;
+ {* Очищает ссылки на области ввода }
 //#UC START# *4938F7E702B7_47F37723017A_var*
 //#UC END# *4938F7E702B7_47F37723017A_var*
 begin
@@ -269,7 +254,14 @@ begin
 //#UC END# *4938F7E702B7_47F37723017A_impl*
 end;//_vcmFormSetDataSource_.ClearAreas
 
+function _vcmFormSetDataSource_.As_Il3ChangeNotifier: Il3ChangeNotifier;
+ {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
+begin
+ Result := Self;
+end;//_vcmFormSetDataSource_.As_Il3ChangeNotifier
+
 procedure _vcmFormSetDataSource_.BeginRefresh;
+ {* вызывается перед началом обновления }
 //#UC START# *491AF7CD01EB_47F37723017A_var*
 //#UC END# *491AF7CD01EB_47F37723017A_var*
 begin
@@ -279,6 +271,7 @@ begin
 end;//_vcmFormSetDataSource_.BeginRefresh
 
 procedure _vcmFormSetDataSource_.EndRefresh;
+ {* вызывается в конце обновления }
 //#UC START# *491AF7D00370_47F37723017A_var*
 //#UC END# *491AF7D00370_47F37723017A_var*
 begin
@@ -290,6 +283,7 @@ begin
 end;//_vcmFormSetDataSource_.EndRefresh
 
 function _vcmFormSetDataSource_.IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
+ {* является ли форма главной в сборке }
 //#UC START# *491AF7E40336_47F37723017A_var*
 //#UC END# *491AF7E40336_47F37723017A_var*
 begin
@@ -301,6 +295,7 @@ begin
 end;//_vcmFormSetDataSource_.IsMainInFormSet
 
 function _vcmFormSetDataSource_.IsLikeUseCaseController(const aDataSource: IvcmFormSetDataSource): Boolean;
+ {* определим нужно ли пересоздавать сборку или все отличие в позиции на данных }
 //#UC START# *491AF7E80082_47F37723017A_var*
 var
  l_DS : _SetType_;
@@ -319,6 +314,7 @@ begin
 end;//_vcmFormSetDataSource_.IsLikeUseCaseController
 
 function _vcmFormSetDataSource_.IsRefreshing: Boolean;
+ {* сборка находится в состоянии обновления }
 //#UC START# *491AF8430279_47F37723017A_var*
 //#UC END# *491AF8430279_47F37723017A_var*
 begin
@@ -328,6 +324,7 @@ begin
 end;//_vcmFormSetDataSource_.IsRefreshing
 
 procedure _vcmFormSetDataSource_.PushFromHistory;
+ {* сборка была выгружена из истории }
 //#UC START# *491AF84E032A_47F37723017A_var*
 //#UC END# *491AF84E032A_47F37723017A_var*
 begin
@@ -338,6 +335,7 @@ begin
 end;//_vcmFormSetDataSource_.PushFromHistory
 
 procedure _vcmFormSetDataSource_.Refresh(const aParams: IvcmFormSetRefreshDataParams = nil);
+ {* обновить представление сборки }
 //#UC START# *491AF8610174_47F37723017A_var*
 //#UC END# *491AF8610174_47F37723017A_var*
 begin
@@ -485,6 +483,7 @@ begin
 end;//_vcmFormSetDataSource_.PopToHistory
 
 procedure _vcmFormSetDataSource_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F37723017A_var*
 //#UC END# *479731C50290_47F37723017A_var*
 begin
@@ -509,21 +508,15 @@ begin
 end;//_vcmFormSetDataSource_.InitFields
 
 procedure _vcmFormSetDataSource_.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_FormSet := nil;
- {$IfEnd} //not NoVCM
+ Finalize(f_SetData);
+ Finalize(f_InitialUseCaseData);
  inherited;
 end;//_vcmFormSetDataSource_.ClearFields
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _vcmFormSetDataSource_.As_Il3ChangeNotifier: Il3ChangeNotifier;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not NoVCM
+{$EndIf vcmFormSetDataSource_imp_impl}
 
 {$EndIf vcmFormSetDataSource_imp}
+

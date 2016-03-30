@@ -1,37 +1,30 @@
 unit vgCustomCanvas;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/VGScene/vgCustomCanvas.pas"
-// Начат: 10.02.2011 21:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Core::TvgCustomCanvas
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgCustomCanvas.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomCanvas" MUID: (4D5435820356)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgPersistent
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgPersistent
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgCustomCanvas = {abstract} class(TvgPersistent)
  end;//TvgCustomCanvas
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
+
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

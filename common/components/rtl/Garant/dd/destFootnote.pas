@@ -1,82 +1,66 @@
 unit destFootnote;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destFootnote.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestFootnote
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destFootnote.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestFootnote" MUID: (51E8E8770374)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  destNorm,
-  ddRTFState,
-  RTFtypes,
-  k2Interfaces,
-  ddRTFdestination,
-  ddDocumentAtom
-  ;
+ l3IntfUses
+ , destNorm
+ , ddRTFState
+ , RTFtypes
+ , k2Interfaces
+ , ddRTFdestination
+ , ddDocumentAtom
+;
 
 type
  TdestFootnote = class(TdestNorm)
- private
- // private fields
-   f_PrevNumber : Integer;
-   f_ParaID : Integer;
-   f_InitSymbol : Boolean;
-   f_ExternalSymbol : Boolean;
- private
- // private methods
+  private
+   f_PrevNumber: Integer;
+   f_ParaID: Integer;
+   f_InitSymbol: Boolean;
+   f_ExternalSymbol: Boolean;
+  private
    procedure Try2AddFootNote(anInClose: Boolean);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure AddPageBreak(aSymbol: Integer); override;
    function FindFootnoteSymbol(aState: TddRTFState;
-     aSymbol: Integer): Boolean; override;
+    aSymbol: Integer): Boolean; override;
    procedure AfterAddPara(const anAtom: TddDocumentAtom); override;
- public
- // overridden public methods
+  public
+   procedure FootNoteSymbol;
    procedure Clear; override;
    procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    procedure ParseSymbol(Symbol: Integer;
-     propType: TPropType;
-     aState: TddRTFState); override;
+    propType: TPropType;
+    aState: TddRTFState); override;
    procedure Write(const aGenerator: Ik2TagGenerator); override;
    procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
+    aNewDest: TddRTFDestination); override;
    procedure FlushBuffer(aState: TddRTFState); override;
- public
- // public methods
-   procedure FootNoteSymbol;
  end;//TdestFootnote
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags,
-  l3Chars,
-  evdStyles,
-  l3String,
-  ddTextParagraph,
-  ddTypes
-  ;
-
-// start class TdestFootnote
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , l3Chars
+ , evdStyles
+ , l3String
+ , ddTextParagraph
+ , ddTypes
+;
 
 procedure TdestFootnote.Try2AddFootNote(anInClose: Boolean);
 //#UC START# *5526883F0018_51E8E8770374_var*
@@ -127,6 +111,7 @@ begin
 end;//TdestFootnote.FootNoteSymbol
 
 procedure TdestFootnote.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51E8E8770374_var*
 //#UC END# *479731C50290_51E8E8770374_var*
 begin
@@ -166,7 +151,7 @@ begin
 end;//TdestFootnote.Clear
 
 procedure TdestFootnote.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_51E8E8770374_var*
 //#UC END# *51D27C0402E9_51E8E8770374_var*
 begin
@@ -176,8 +161,8 @@ begin
 end;//TdestFootnote.AddAnsiChar
 
 procedure TdestFootnote.ParseSymbol(Symbol: Integer;
-  propType: TPropType;
-  aState: TddRTFState);
+ propType: TPropType;
+ aState: TddRTFState);
 //#UC START# *51E8CFEF027A_51E8E8770374_var*
 //#UC END# *51E8CFEF027A_51E8E8770374_var*
 begin
@@ -221,7 +206,7 @@ begin
 end;//TdestFootnote.AddPageBreak
 
 procedure TdestFootnote.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_51E8E8770374_var*
 //#UC END# *5461BEC2017D_51E8E8770374_var*
 begin
@@ -257,7 +242,7 @@ begin
 end;//TdestFootnote.FlushBuffer
 
 function TdestFootnote.FindFootnoteSymbol(aState: TddRTFState;
-  aSymbol: Integer): Boolean;
+ aSymbol: Integer): Boolean;
 //#UC START# *5620DCA40213_51E8E8770374_var*
 //#UC END# *5620DCA40213_51E8E8770374_var*
 begin

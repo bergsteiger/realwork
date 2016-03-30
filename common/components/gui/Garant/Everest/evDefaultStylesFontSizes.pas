@@ -1,86 +1,59 @@
 unit evDefaultStylesFontSizes;
+ {* Размеры шрифтов для стилей по-умолчанию }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDefaultStylesFontSizes.pas"
-// Начат: 28.07.2011 18:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::StyleTable::TevDefaultStylesFontSizes
-//
-// Размеры шрифтов для стилей по-умолчанию
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizes.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDefaultStylesFontSizes" MUID: (4E31743D01F8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evDefaultStylesFontSizesPrim1,
-  l3Variant
-  ;
+ l3IntfUses
+ , evDefaultStylesFontSizesPrim1
+ , l3Variant
+;
 
 type
  TevDefaultStylesFontSizes = class(TevDefaultStylesFontSizesPrim1)
   {* Размеры шрифтов для стилей по-умолчанию }
- private
- // private fields
-   f_Saved : Boolean;
- public
- // public methods
+  private
+   f_Saved: Boolean;
+  public
    function FontSizeForTag(aTag: Tl3Variant): Integer;
    procedure SaveStylesFontSizes;
    function FontSizeForStyle(aStyle: Integer): Integer;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevDefaultStylesFontSizes;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevDefaultStylesFontSizes }
  end;//TevDefaultStylesFontSizes
 
 implementation
 
 uses
-  l3Base {a},
-  k2Tags,
-  evDef,
-  evStyleInterface,
-  evDefaultStylesFontSizesPrim,
-  l3Types,
-  SysUtils,
-  l3Math,
-  evdStyles,
-  l3MinMax
-  ;
+ l3ImplUses
+ , l3Math
+ , evdStyles
+ , l3MinMax
+ , k2Tags
+ , evDef
+ , evStyleInterface
+ , evDefaultStylesFontSizesPrim
+ , l3Types
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TevDefaultStylesFontSizes
-
-var g_TevDefaultStylesFontSizes : TevDefaultStylesFontSizes = nil;
+var g_TevDefaultStylesFontSizes: TevDefaultStylesFontSizes = nil;
+ {* Экземпляр синглетона TevDefaultStylesFontSizes }
 
 procedure TevDefaultStylesFontSizesFree;
+ {* Метод освобождения экземпляра синглетона TevDefaultStylesFontSizes }
 begin
  l3Free(g_TevDefaultStylesFontSizes);
-end;
-
-class function TevDefaultStylesFontSizes.Instance: TevDefaultStylesFontSizes;
-begin
- if (g_TevDefaultStylesFontSizes = nil) then
- begin
-  l3System.AddExitProc(TevDefaultStylesFontSizesFree);
-  g_TevDefaultStylesFontSizes := Create;
- end;
- Result := g_TevDefaultStylesFontSizes;
-end;
-
+end;//TevDefaultStylesFontSizesFree
 
 function TevDefaultStylesFontSizes.FontSizeForTag(aTag: Tl3Variant): Integer;
 //#UC START# *4E317625032D_4E31743D01F8_var*
@@ -142,9 +115,20 @@ begin
 end;//TevDefaultStylesFontSizes.FontSizeForStyle
 
 class function TevDefaultStylesFontSizes.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TevDefaultStylesFontSizes <> nil;
 end;//TevDefaultStylesFontSizes.Exists
+
+class function TevDefaultStylesFontSizes.Instance: TevDefaultStylesFontSizes;
+ {* Метод получения экземпляра синглетона TevDefaultStylesFontSizes }
+begin
+ if (g_TevDefaultStylesFontSizes = nil) then
+ begin
+  l3System.AddExitProc(TevDefaultStylesFontSizesFree);
+  g_TevDefaultStylesFontSizes := Create;
+ end;
+ Result := g_TevDefaultStylesFontSizes;
+end;//TevDefaultStylesFontSizes.Instance
 
 end.

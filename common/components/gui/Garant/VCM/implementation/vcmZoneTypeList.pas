@@ -1,37 +1,26 @@
 unit vcmZoneTypeList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmZoneTypeList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::vcmCore::TvcmZoneTypeList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmZoneTypeList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmZoneTypeList" MUID: (55F5644A029F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3ProtoDataContainer,
-  vcmBaseTypes,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoDataContainer
+ , vcmBaseTypes
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = TvcmZoneType;
  _l3EnumList_Parent_ = Tl3ProtoDataContainer;
@@ -39,25 +28,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
  TvcmZoneTypeList = class(_l3EnumList_)
  end;//TvcmZoneTypeList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TvcmZoneTypeList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-{$IfEnd} //not NoVCM
 end.

@@ -19,13 +19,13 @@ uses
 type
  TvcmStringIDExHelper = {final} class(Tl3ProtoObject, Il3StringIDExHelper)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure Init(var theStr: Tl3StringIDEx);
    function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
    function AsStr(const aStr: Tl3StringIDEx): AnsiString;
    class function Instance: TvcmStringIDExHelper;
     {* Метод получения экземпляра синглетона TvcmStringIDExHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmStringIDExHelper
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -47,12 +47,6 @@ procedure TvcmStringIDExHelperFree;
 begin
  l3Free(g_TvcmStringIDExHelper);
 end;//TvcmStringIDExHelperFree
-
-class function TvcmStringIDExHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmStringIDExHelper <> nil;
-end;//TvcmStringIDExHelper.Exists
 
 procedure TvcmStringIDExHelper.Init(var theStr: Tl3StringIDEx);
 //#UC START# *071573E75439_4B98D9FD038B_var*
@@ -111,6 +105,12 @@ begin
  end;
  Result := g_TvcmStringIDExHelper;
 end;//TvcmStringIDExHelper.Instance
+
+class function TvcmStringIDExHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmStringIDExHelper <> nil;
+end;//TvcmStringIDExHelper.Exists
 
 initialization
  Tl3StringIDExHelper.Instance.Alien := TvcmStringIDExHelper.Instance;

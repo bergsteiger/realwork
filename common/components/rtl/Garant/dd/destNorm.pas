@@ -1,237 +1,263 @@
 unit destNorm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destNorm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestNorm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destNorm.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestNorm" MUID: (51D278280093)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Base,
-  l3Memory,
-  Graphics,
-  ddDocumentAtom,
-  ddCellProperty,
-  ddDocumentAtomList,
-  RTFtypes,
-  ddRTFdestination,
-  ddTable,
-  ddRTFState,
-  ddCharacterProperty,
-  ddParagraphProperty,
-  ddRTFProperties,
-  ddTab,
-  ddTextParagraph,
-  ddPicture,
-  ddTypes,
-  ddCustomRTFReader,
-  k2Interfaces,
-  rtfListTable
-  ;
+ l3IntfUses
+ , ddRTFdestination
+ , ddTypes
+ , RTFtypes
+ , ddTab
+ , l3Base
+ , l3Memory
+ , ddDocumentAtom
+ , ddTextParagraph
+ , ddDocumentAtomList
+ , ddTable
+ , ddCellProperty
+ , ddCharacterProperty
+ , ddRTFState
+ , ddParagraphProperty
+ , ddRTFProperties
+ , Graphics
+ , ddPicture
+ , l3Interfaces
+ , ddCustomRTFReader
+ , k2Interfaces
+ , rtfListTable
+;
 
 type
  RdestNorm = class of TdestNorm;
 
  TdestNorm = class(TddRTFDestination)
- private
- // private fields
-   f_BorderOwner : TddBorderOwner;
-   f_CurBorderPart : TddBorderParts;
-   f_TabEntry : TddTab;
-   f_UnicodeBuffer : Tl3MemoryStream;
-   f_LastShape : TddDocumentAtom;
-   f_FirstShape : Integer;
-   f_Paragraphs : TddDocumentAtomList;
-   f_TextBuffer : Tl3String;
-    {* Поле для свойства TextBuffer}
- private
- // private methods
+  private
+   f_BorderOwner: TddBorderOwner;
+   f_CurBorderPart: TddBorderParts;
+   f_TabEntry: TddTab;
+   f_UnicodeBuffer: Tl3MemoryStream;
+   f_LastShape: TddDocumentAtom;
+   f_FirstShape: Integer;
+   f_Paragraphs: TddDocumentAtomList;
+   f_TextBuffer: Tl3String;
+    {* Поле для свойства TextBuffer }
+  private
    procedure AddTable(aLevel: Integer);
    function FindNestedLastTable: TddTable;
    procedure ApplyToCell(aWhat: TIProp;
-     aValue: LongInt;
-     aCEP: TddCellProperty);
+    aValue: LongInt;
+    aCEP: TddCellProperty);
    procedure ApplyToCHP(aWhat: TIProp;
-     aValue: Integer;
-     aCHP: TddCharacterProperty);
+    aValue: Integer;
+    aCHP: TddCharacterProperty);
    procedure ApplyToFrame(aWhat: TIProp;
-     aValue: LongInt;
-     aState: TddRTFState);
+    aValue: LongInt;
+    aState: TddRTFState);
    procedure ApplyToRow(aWhat: TIProp;
-     aValue: LongInt;
-     aState: TddRTFState);
+    aValue: LongInt;
+    aState: TddRTFState);
    procedure ApplyToStyle(aWhat: TIProp;
-     aValue: LongInt;
-     aState: TddRTFState);
+    aValue: LongInt;
+    aState: TddRTFState);
    procedure ApplyToTAB(aWhat: TIProp;
-     aValue: LongInt;
-     aPAP: TddParagraphProperty);
+    aValue: LongInt;
+    aPAP: TddParagraphProperty);
    procedure CorrectCharset(aCHP: TddCharacterProperty;
-     aText: Tl3String);
+    aText: Tl3String);
    procedure FlushTextBuffer(aState: TddRTFState;
-     aCheckCodePage: Boolean);
+    aCheckCodePage: Boolean);
    procedure FlushUnicodeBuffer(aState: TddRTFState);
    procedure Unicode2Text;
    function GetLastTextParaOrCreateNew(aPAP: TddParagraphProperty;
-     out aNewPara: Boolean): TddTextParagraph;
+    out aNewPara: Boolean): TddTextParagraph;
    procedure JoinPAPWithLastParaPAP(aPAP: TddParagraphProperty;
-     aNeedClose: Boolean);
+    aNeedClose: Boolean);
    function GetFirstTableWidth: Integer;
    function CheckAnsiChar(aText: AnsiChar;
-     aState: TddRTFState): Boolean;
+    aState: TddRTFState): Boolean;
    procedure SimpleAddShape(aShape: TddDocumentAtom);
    function Try2CloseNestedTable(anItap: Integer): Boolean;
- protected
- // property methods
+  protected
    function pm_GetLastAtom: TddDocumentAtom;
    function pm_GetLastParagraph: TddTextParagraph; virtual;
    function pm_GetParagraph(anIndex: Integer): TddDocumentAtom;
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure Clear; override;
-   procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); override;
-   procedure AddString(aText: Tl3String;
-     aState: TddRTFState); override;
-   procedure AddUnicodeChar(aText: Word;
-     aState: TddRTFState); override;
-   procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); override;
-   constructor Create(aRTFReader: TddCustomRTFReader); override;
-   procedure ParseSymbol(Symbol: Integer;
-     propType: TPropType;
-     aState: TddRTFState); override;
-   procedure Write(const aGenerator: Ik2TagGenerator); override;
-   procedure WriteText(aText: Tl3String;
-     aState: TddRTFState); override;
-   function GetList(aListID: Integer;
-     out aWasRestart: Boolean): TrtfList; override;
-   function GetStyle(aStyleID: Integer): TddStyleEntry; override;
-   procedure BeforeCloseParagraph(const aDocAtom: TObject;
-     var aNewStyle: Integer); override;
-   procedure FlushBuffer(aState: TddRTFState); override;
-   function NextTextPara(const anCurrent: TObject): TObject; override;
- protected
- // protected methods
    procedure Try2AddTable(aLevel: Integer);
    procedure ApplyToPAP(What: TIProp;
-     aValue: Integer;
-     aPAP: TddParagraphProperty); virtual;
+    aValue: Integer;
+    aPAP: TddParagraphProperty); virtual;
    procedure ApplyToSep(aWhat: TIProp;
-     aValue: LongInt); virtual;
+    aValue: LongInt); virtual;
    function GetFontEvent(aFontID: Integer): TddFontEntry;
    function GetColor(aColorIndex: Integer): TColor;
    function InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph; virtual;
    procedure Try2ApplyParaProperty(aState: TddRTFState;
-     aPara: TddTextParagraph;
-     aWasPara: Boolean); virtual;
+    aPara: TddTextParagraph;
+    aWasPara: Boolean); virtual;
    procedure AddPageBreak(aSymbol: Integer); virtual;
    procedure AddFormula(const aTextPara: TddTextParagraph;
-     const aFormulaText: Tl3WString);
+    const aFormulaText: Tl3WString);
    function CanAddTable: Boolean; virtual;
    function AddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
    function FindFootnoteSymbol(aState: TddRTFState;
-     aSymbol: Integer): Boolean; virtual;
+    aSymbol: Integer): Boolean; virtual;
    procedure ParagraphsClear;
    procedure ClearTextBuffer;
    procedure AfterAddPara(const anAtom: TddDocumentAtom); virtual;
    procedure CloseTextPara(aPAP: TddParagraphProperty;
-     aPara: TddTextParagraph); virtual;
+    aPara: TddTextParagraph); virtual;
    function InTable(aPAP: TddParagraphProperty): Boolean; virtual;
-     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+    {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure DeleteLastAtom(aPrev: Boolean);
    function Itap(aPAP: TddParagraphProperty): Integer; virtual;
-     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+    {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure DoAddTabStop(aPAP: TddParagraphProperty); virtual;
    function AddTextPara2Document: TddTextParagraph;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    procedure AddPicture(aPicture: TddPicture;
-     aState: TddRTFState;
-     anAssign2Last: Boolean);
+    aState: TddRTFState;
+    anAssign2Last: Boolean);
    procedure Append(aState: TddRTFState;
-     aDest: TdestNorm;
-     aInSamePara: Boolean = False);
+    aDest: TdestNorm;
+    aInSamePara: Boolean = False);
    function BufferEmpty: Boolean;
    function LastTable(aCheckNested: Boolean): TddTable;
    procedure CheckBeforeWrite(aState: TddRTFState);
    procedure WriteOldStyleItemText(aState: TddRTFState;
-     const aItemText: AnsiString);
-     {* Поддержка добавления номера стиля из Word 6.0/95. Создает текстовый параграф, если нужно. }
+    const aItemText: AnsiString);
+    {* Поддержка добавления номера стиля из Word 6.0/95. Создает текстовый параграф, если нужно. }
    function GetTextBuffer(aState: TddRTFState): Tl3String;
-     {* Получение TextBuffer буфера с проверкой UnicodeBuffer }
+    {* Получение TextBuffer буфера с проверкой UnicodeBuffer }
    procedure AfterClose(aNewDest: TddRTFDestination;
-     aState: TddRTFState;
-     aCHP: TddCharacterProperty);
+    aState: TddRTFState;
+    aCHP: TddCharacterProperty);
    procedure AddShape(aState: TddRTFState;
-     aShape: TddDocumentAtom);
+    aShape: TddDocumentAtom);
    procedure AddFooterHyperlink(aState: TddRTFState);
    function AddParagraph(const anAtom: TddDocumentAtom): Integer;
    function GetParagraphsCount: Integer;
    procedure AddSub(aState: TddRTFState;
-     const aText: Tl3String);
- protected
- // protected properties
+    const aText: Tl3String);
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
+   procedure Clear; override;
+   procedure AddAnsiChar(aText: AnsiChar;
+    aState: TddRTFState); override;
+   procedure AddString(aText: Tl3String;
+    aState: TddRTFState); override;
+   procedure AddUnicodeChar(aText: Word;
+    aState: TddRTFState); override;
+   procedure ApplyProperty(propType: TPropType;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); override;
+   constructor Create(aRTFReader: TddCustomRTFReader); override;
+   procedure ParseSymbol(Symbol: Integer;
+    propType: TPropType;
+    aState: TddRTFState); override;
+   procedure Write(const aGenerator: Ik2TagGenerator); override;
+   procedure WriteText(aText: Tl3String;
+    aState: TddRTFState); override;
+   function GetList(aListID: Integer;
+    out aWasRestart: Boolean): TrtfList; override;
+   function GetStyle(aStyleID: Integer): TddStyleEntry; override;
+   procedure BeforeCloseParagraph(const aDocAtom: TObject;
+    var aNewStyle: Integer); override;
+   procedure FlushBuffer(aState: TddRTFState); override;
+   function NextTextPara(const anCurrent: TObject): TObject; override;
+  protected
    property TextBuffer: Tl3String
-     read f_TextBuffer;
- public
- // public properties
+    read f_TextBuffer;
+  public
    property LastAtom: TddDocumentAtom
-     read pm_GetLastAtom;
+    read pm_GetLastAtom;
    property LastParagraph: TddTextParagraph
-     read pm_GetLastParagraph;
+    read pm_GetLastParagraph;
    property Paragraph[anIndex: Integer]: TddDocumentAtom
-     read pm_GetParagraph;
+    read pm_GetParagraph;
  end;//TdestNorm
 
 implementation
 
 uses
-  SysUtils,
-  ddTableCell,
-  ddTableRow,
-  ddTextSegment,
-  l3Chars,
-  ddBreak,
-  l3String,
-  l3StringEx,
-  l3Types,
-  Windows,
-  ddBorder,
-  ddRTFConst,
-  ddFormulaParagraph,
-  ddFormulaSegment,
-  ddRTFShape,
-  Classes
-  ;
+ l3ImplUses
+ , SysUtils
+ , ddTableCell
+ , ddTableRow
+ , ddTextSegment
+ , l3Chars
+ , ddBreak
+ , l3String
+ , l3StringEx
+ , l3Types
+ , Windows
+ , ddBorder
+ , ddRTFConst
+ , ddFormulaParagraph
+ , ddFormulaSegment
+ , ddRTFShape
+ , Classes
+;
 
-// start class TdestNorm
+function TdestNorm.pm_GetLastAtom: TddDocumentAtom;
+//#UC START# *51E8D657026C_51D278280093get_var*
+//#UC END# *51E8D657026C_51D278280093get_var*
+begin
+//#UC START# *51E8D657026C_51D278280093get_impl*
+ if f_Paragraphs.Empty then
+  Result := nil
+ else
+  Result := f_Paragraphs.Last;
+//#UC END# *51E8D657026C_51D278280093get_impl*
+end;//TdestNorm.pm_GetLastAtom
+
+function TdestNorm.pm_GetLastParagraph: TddTextParagraph;
+//#UC START# *51E8D68F0379_51D278280093get_var*
+var
+ l_Cell  : TddTableCell;
+ l_Table : TddTable;
+//#UC END# *51E8D68F0379_51D278280093get_var*
+begin
+//#UC START# *51E8D68F0379_51D278280093get_impl*
+ Result := nil;
+ if LastAtom <> nil then
+ begin
+  if LastAtom.IsTextPara then
+   Result := TddTextParagraph(LastAtom)
+  else
+   if LastAtom.IsTable then
+   begin
+    l_Table := LastTable(True);
+    if l_Table <> nil then
+     Result := l_Table.LastParagraph;
+   end;
+  if (Result <> nil) and Result.Closed then
+   Result := nil;
+ end; // LastAtom <> nil
+//#UC END# *51E8D68F0379_51D278280093get_impl*
+end;//TdestNorm.pm_GetLastParagraph
+
+function TdestNorm.pm_GetParagraph(anIndex: Integer): TddDocumentAtom;
+//#UC START# *5624D6E90334_51D278280093get_var*
+//#UC END# *5624D6E90334_51D278280093get_var*
+begin
+//#UC START# *5624D6E90334_51D278280093get_impl*
+ if (f_Paragraphs.Count = 0) or (f_Paragraphs.Count <= anIndex) then
+  Result := nil
+ else
+  Result := f_Paragraphs[anIndex];
+//#UC END# *5624D6E90334_51D278280093get_impl*
+end;//TdestNorm.pm_GetParagraph
 
 procedure TdestNorm.AddTable(aLevel: Integer);
 //#UC START# *51E8D1CA0328_51D278280093_var*
@@ -271,6 +297,28 @@ begin
 //#UC END# *51E8D1CA0328_51D278280093_impl*
 end;//TdestNorm.AddTable
 
+procedure TdestNorm.Try2AddTable(aLevel: Integer);
+//#UC START# *51E8D1F10328_51D278280093_var*
+var
+ l_LastTable : TddTable;
+//#UC END# *51E8D1F10328_51D278280093_var*
+begin
+//#UC START# *51E8D1F10328_51D278280093_impl*
+ if not CanAddTable then Exit;
+ if (LastAtom = nil) or not LastAtom.IsTable then
+  AddTable(aLevel);
+ if aLevel > 1 then
+ begin
+  l_LastTable := FindNestedLastTable;
+  if (l_LastTable = nil) or (l_LastTable.Level < aLevel) then
+   AddTable(aLevel);
+ end // if aLevel > 1 then
+ else
+  if LastAtom.Closed then
+   AddTable(aLevel);
+//#UC END# *51E8D1F10328_51D278280093_impl*
+end;//TdestNorm.Try2AddTable
+
 function TdestNorm.FindNestedLastTable: TddTable;
 //#UC START# *51E8D21A020C_51D278280093_var*
 var
@@ -303,8 +351,8 @@ begin
 end;//TdestNorm.FindNestedLastTable
 
 procedure TdestNorm.ApplyToCell(aWhat: TIProp;
-  aValue: LongInt;
-  aCEP: TddCellProperty);
+ aValue: LongInt;
+ aCEP: TddCellProperty);
 //#UC START# *51E8D23B01F6_51D278280093_var*
 var
  l_CellClosed: Boolean;
@@ -362,8 +410,8 @@ begin
 end;//TdestNorm.ApplyToCell
 
 procedure TdestNorm.ApplyToCHP(aWhat: TIProp;
-  aValue: Integer;
-  aCHP: TddCharacterProperty);
+ aValue: Integer;
+ aCHP: TddCharacterProperty);
 //#UC START# *51E8D26202B2_51D278280093_var*
 var
  l_Font: TddFontEntry;
@@ -409,8 +457,8 @@ begin
 end;//TdestNorm.ApplyToCHP
 
 procedure TdestNorm.ApplyToFrame(aWhat: TIProp;
-  aValue: LongInt;
-  aState: TddRTFState);
+ aValue: LongInt;
+ aState: TddRTFState);
 //#UC START# *51E8D2B103DB_51D278280093_var*
 var
  tmpBorder: TddBorder;
@@ -436,9 +484,83 @@ begin
 //#UC END# *51E8D2B103DB_51D278280093_impl*
 end;//TdestNorm.ApplyToFrame
 
+procedure TdestNorm.ApplyToPAP(What: TIProp;
+ aValue: Integer;
+ aPAP: TddParagraphProperty);
+//#UC START# *51E8D2F90025_51D278280093_var*
+var
+ i         : Integer;
+ l_LastAtom: TddDocumentAtom;
+//#UC END# *51E8D2F90025_51D278280093_var*
+begin
+//#UC START# *51E8D2F90025_51D278280093_impl*
+ with aPAP do
+ begin
+   case What of
+     ipropLeft   : XaLeft := aValue;
+     ipropFirst  : XaFirst := aValue;
+     ipropRight  : XaRight := aValue;
+     ipropBottom : After := aValue;
+     ipropTop    : Before := aValue;
+     ipropJust   : Just := TJust(aValue);
+     ipropInTable: begin
+                    InTable := True;
+                    itap := 1; // Значения может не быть
+                   end; 
+     ipropBorderWhere:
+       begin
+         f_BorderOwner := boPara;   
+         case TddBorderWhere(aValue) of
+          bwTop: begin
+                  f_CurBorderPart := bpTop;
+                  Border.Frames[bpTop].Enable := True;
+                 end;
+          bwRight: begin
+                    Border.Frames[bpRight].Enable := True;
+                    f_CurBorderPart := bpRight;
+                   end;
+          bwBottom: begin
+                     Border.Frames[bpBottom].Enable := True;
+                     f_CurBorderPart := bpBottom;
+                    end;
+          bwLeft: begin
+                   Border.Frames[bpLeft].Enable := True;
+                   f_CurBorderPart := bpLeft;
+                  end;
+          bwHorizontal: Border.Frames[bpHorizontal].Enable := True;
+          bwVertical: Border.Frames[bpVertical].Enable := True;
+          bwBox:
+            for i := ord(bpTop) to ord(bpRight) do
+            begin
+             Border.Frames[TddBorderParts(i)].Enable := True;
+             Border.FrameWidth[TddBorderParts(i)] := 10;
+             Border.FrameType[TddBorderParts(i)] := btSingleThick;
+            end;
+         end;    
+       end;
+     ipropDefault: Clear;
+     ipropLs: ListItem := aValue;
+     ipropilvl: ilvl := aValue;
+     ipropitap: itap := aValue;
+     ipropposx: begin
+                 PosX := aValue;
+                 if (f_LastShape <> nil) then
+                 begin
+                  f_LastShape.Closed := True;
+                  f_LastShape := nil;
+                 end; // if (f_LastShape <> nil) then
+                end;
+     ipropposy: PosY := aValue;
+     ipropabsw: AbsW := aValue;
+     ipropabsh: AbsH := -aValue;
+   end; { case}
+ end;
+//#UC END# *51E8D2F90025_51D278280093_impl*
+end;//TdestNorm.ApplyToPAP
+
 procedure TdestNorm.ApplyToRow(aWhat: TIProp;
-  aValue: LongInt;
-  aState: TddRTFState);
+ aValue: LongInt;
+ aState: TddRTFState);
 //#UC START# *51E8D343020F_51D278280093_var*
 var
  l_LastTable: TddTable;   
@@ -467,9 +589,34 @@ begin
 //#UC END# *51E8D343020F_51D278280093_impl*
 end;//TdestNorm.ApplyToRow
 
+procedure TdestNorm.ApplyToSep(aWhat: TIProp;
+ aValue: LongInt);
+//#UC START# *51E8D3A20193_51D278280093_var*
+var
+ l_A: TddDocumentAtom;
+//#UC END# *51E8D3A20193_51D278280093_var*
+begin
+//#UC START# *51E8D3A20193_51D278280093_impl*
+ l_A := LastAtom;
+ if (l_A <> nil) and (l_A.IsBreak) then
+ begin
+  with TddBreak(l_A).SEP do
+   case aWhat of
+    ipropLandscape: Landscape := True;
+    ipropWidth: xaPage := aValue;
+    ipropHeight: YaPage := aValue;
+    ipropLeft: xaLeft := aValue;
+    ipropRight: xaRight := aValue;
+    ipropTop: yaTop := aValue;
+    ipropBottom: yaBottom := aValue;
+   end;
+ end;
+//#UC END# *51E8D3A20193_51D278280093_impl*
+end;//TdestNorm.ApplyToSep
+
 procedure TdestNorm.ApplyToStyle(aWhat: TIProp;
-  aValue: LongInt;
-  aState: TddRTFState);
+ aValue: LongInt;
+ aState: TddRTFState);
 //#UC START# *51E8D3D10291_51D278280093_var*
 //#UC END# *51E8D3D10291_51D278280093_var*
 begin
@@ -483,8 +630,8 @@ begin
 end;//TdestNorm.ApplyToStyle
 
 procedure TdestNorm.ApplyToTAB(aWhat: TIProp;
-  aValue: LongInt;
-  aPAP: TddParagraphProperty);
+ aValue: LongInt;
+ aPAP: TddParagraphProperty);
 //#UC START# *51E8D4200232_51D278280093_var*
 //#UC END# *51E8D4200232_51D278280093_var*
 begin
@@ -515,8 +662,231 @@ begin
 //#UC END# *51E8D4200232_51D278280093_impl*
 end;//TdestNorm.ApplyToTAB
 
+function TdestNorm.GetFontEvent(aFontID: Integer): TddFontEntry;
+//#UC START# *51E8D7880381_51D278280093_var*
+//#UC END# *51E8D7880381_51D278280093_var*
+begin
+//#UC START# *51E8D7880381_51D278280093_impl*
+ Result := f_CustomRTFReader.GetFonts(aFontID);
+//#UC END# *51E8D7880381_51D278280093_impl*
+end;//TdestNorm.GetFontEvent
+
+function TdestNorm.GetColor(aColorIndex: Integer): TColor;
+//#UC START# *51E8D7A401F0_51D278280093_var*
+//#UC END# *51E8D7A401F0_51D278280093_var*
+begin
+//#UC START# *51E8D7A401F0_51D278280093_impl*
+ Result := f_CustomRTFReader.ColorByIndex(aColorIndex);
+//#UC END# *51E8D7A401F0_51D278280093_impl*
+end;//TdestNorm.GetColor
+
+function TdestNorm.InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
+//#UC START# *51E8D7E60235_51D278280093_var*
+var
+ l_Table: TddTable;
+//#UC END# *51E8D7E60235_51D278280093_var*
+begin
+//#UC START# *51E8D7E60235_51D278280093_impl*
+ // Абзац может добавляться в документ или таблицу. Причем таблицы может и не быть
+ if aPAP.InTable and CanAddTable then
+ begin
+  if not Try2CloseNestedTable(aPAP.itap) then
+   if f_Paragraphs.Empty then
+    AddTable(aPAP.itap)
+   else
+    Try2AddTable(aPAP.itap);
+  l_Table := LastTable(True);
+  Result := l_Table.AddParaWithCheckingRow(nil, False) as TddTextParagraph;
+ end // aInTable
+ else
+  Result := AddTextPara2Document;
+//#UC END# *51E8D7E60235_51D278280093_impl*
+end;//TdestNorm.InternalAddTextPara
+
+procedure TdestNorm.AddPicture(aPicture: TddPicture;
+ aState: TddRTFState;
+ anAssign2Last: Boolean);
+//#UC START# *51E8D80401F5_51D278280093_var*
+var
+ l_Prop: TddParagraphProperty;
+
+ function lp_GetPicture: TddPicture;
+ begin
+  Result := aPicture.Clone(l_Prop);
+ end;
+
+ procedure lp_CopyOrMovePicture;
+ var
+  l_Picture: TddPicture;
+ begin
+  if anAssign2Last then
+  begin
+   l_Picture := (f_Paragraphs.Last as TddPicture);
+   l_Picture.PAP.AssignFrom(aState.PAP);
+   l_Picture.Assign(aPicture);
+  end // if aMove then
+  else
+  begin
+   l_Picture := lp_GetPicture;
+   try
+    AddParagraph(l_Picture);
+   finally
+    FreeAndNil(l_Picture);
+   end;
+  end;
+ end;
+
+var
+ l_P       : TddPicture;
+ l_Cell    : TddTableCell;
+ l_Table   : TddTable;
+ l_TextPara: TddTextParagraph;
+//#UC END# *51E8D80401F5_51D278280093_var*
+begin
+//#UC START# *51E8D80401F5_51D278280093_impl*
+ l_P := nil;
+ if aState = nil then
+  l_Prop := nil
+ else
+  l_Prop := aState.PAP;
+ try
+  if LastAtom <> nil then
+  begin
+   if LastAtom.IsTextPara then
+   begin
+    if LastAtom.Closed then
+     lp_CopyOrMovePicture
+    else
+    begin
+     l_P := lp_GetPicture;
+     LastParagraph.AddPicture(l_P, anAssign2Last);
+    end
+   end // if LastAtom.IsTextPara then
+   else
+   if LastAtom.IsTable then
+   begin
+    Try2AddTable(aState.PAP.itap);
+    LastTable(True).AddPicture(aPicture, l_Prop, anAssign2Last);
+   end // if LastAtom.IsTable then
+   else
+    if LastAtom is TddRTFShape then
+     if LastAtom.Closed then
+      lp_CopyOrMovePicture
+     else
+      (LastAtom as TddRTFShape).AddPicture(aPicture, aState)
+    else
+     if LastAtom.IsPicture and anAssign2Last then
+      lp_CopyOrMovePicture;
+  end // LastAtom <> nil
+  else
+   lp_CopyOrMovePicture;
+ finally
+  FreeAndNil(l_P);
+ end;
+//#UC END# *51E8D80401F5_51D278280093_impl*
+end;//TdestNorm.AddPicture
+
+procedure TdestNorm.Append(aState: TddRTFState;
+ aDest: TdestNorm;
+ aInSamePara: Boolean = False);
+//#UC START# *51E8D8250134_51D278280093_var*
+
+ procedure lp_AddTextPara(const aPara: TddTextParagraph);
+
+  procedure lp_Try2AddSegmentWithURL;
+  var
+   l_Start       : Integer;
+   l_AddHyperlink: Boolean;
+  begin
+   l_AddHyperlink := (aPara.SegmentCount = 1) and aPara.Segments[0].IsHyperlink and not aPara.Segments[0].URL.Empty;
+   if l_AddHyperlink then
+    l_Start := LastParagraph.Text.Len + 1;
+   LastParagraph.AddText(aPara.Text);
+   if l_AddHyperlink then
+    LastParagraph.AddHyperlinkWithURL(l_Start, aPara.Segments[0].URL.AsString);
+  end;
+
+ var
+  l_NewPara : TddTextParagraph;
+ begin
+  if aPara <> nil then
+  begin
+   if aInSamePara then
+   begin
+    if LastParagraph = nil then
+    begin
+     InternalAddTextPara(aState.PAP);
+     LastParagraph.PAP := aState.PAP;
+    end // LastParagraph = nil
+    else
+     FlushTextBuffer(aState, True);
+    if (aPara.SegmentCount = 1) and (aPara.Segments[0] is TddFormulaSegment) then // Копирование формулы {Requestlink:591142760} из символа.
+     AddFormula(LastParagraph, TddFormulaParagraph(aPara.Segments[0].Data).FormulaText.AsWStr)
+    else
+    begin
+     LastParagraph.AddSegment(aPara.CHP, nil, False);
+     lp_Try2AddSegmentWithURL;
+     if aPara.Closed then
+      CloseTextPara(aState.PAP, LastParagraph);
+    end;
+   end // aInSamePara
+   else
+   begin
+    l_NewPara := TddTextParagraph.Create(Self);
+    try
+     l_NewPara.Assign(aPara);
+     AddParagraph(l_NewPara);
+     if aPara.Closed then
+      CloseTextPara(aState.PAP, l_NewPara);
+    finally
+     FreeAndNil(l_NewPara);
+    end;
+   end; // not aInSamePara
+  end; // aPara <> nil
+ end;
+
+ procedure lp_AppendRowPara(const aTable: TddTable);
+ var
+  k: Integer;
+ begin
+  for k := 0 to aTable.RowCount - 1 do
+   lp_AddTextPara(aTable.Rows[k].LastCell.LastTextPara);
+ end;
+
+var
+ i      : Integer;
+ l_Para : TddTextParagraph;
+//#UC END# *51E8D8250134_51D278280093_var*
+begin
+//#UC START# *51E8D8250134_51D278280093_impl*
+ if aDest <> nil then
+ begin
+  for i:= 0 to aDest.f_Paragraphs.Hi do
+  begin
+   l_Para := nil;
+   // Может приехать что угодно
+   if aDest.Paragraph[i] is TddTextParagraph then
+    l_Para := aDest.Paragraph[i] as TddTextParagraph
+   else
+   if (aDest.Paragraph[i] is TddTable) then
+    lp_AppendRowPara(aDest.Paragraph[i] as TddTable);
+   lp_AddTextPara(l_Para);
+  end; // for i
+ end; // aDest <> nil
+//#UC END# *51E8D8250134_51D278280093_impl*
+end;//TdestNorm.Append
+
+function TdestNorm.BufferEmpty: Boolean;
+//#UC START# *51E8D84900D6_51D278280093_var*
+//#UC END# *51E8D84900D6_51D278280093_var*
+begin
+//#UC START# *51E8D84900D6_51D278280093_impl*
+ Result:= f_TextBuffer.Empty and (f_UnicodeBuffer.Position = 0);
+//#UC END# *51E8D84900D6_51D278280093_impl*
+end;//TdestNorm.BufferEmpty
+
 procedure TdestNorm.CorrectCharset(aCHP: TddCharacterProperty;
-  aText: Tl3String);
+ aText: Tl3String);
 //#UC START# *51E8D8870140_51D278280093_var*
 type
   TCharsetEntry = record
@@ -641,7 +1011,7 @@ begin
 end;//TdestNorm.CorrectCharset
 
 procedure TdestNorm.FlushTextBuffer(aState: TddRTFState;
-  aCheckCodePage: Boolean);
+ aCheckCodePage: Boolean);
 //#UC START# *51E8D8AA00D4_51D278280093_var*
 //#UC END# *51E8D8AA00D4_51D278280093_var*
 begin
@@ -666,6 +1036,25 @@ begin
  ClearTextBuffer;
 //#UC END# *51E8D8CD0019_51D278280093_impl*
 end;//TdestNorm.FlushUnicodeBuffer
+
+function TdestNorm.LastTable(aCheckNested: Boolean): TddTable;
+//#UC START# *51E8D8F10076_51D278280093_var*
+var
+ l_NestedTable : TddTable;
+//#UC END# *51E8D8F10076_51D278280093_var*
+begin
+//#UC START# *51E8D8F10076_51D278280093_impl*
+ Result := nil;
+ if (LastAtom <> nil) and LastAtom.IsTable and not LastAtom.Closed then
+  Result := TddTable(LastAtom);
+ if aCheckNested and (Result <> nil) then
+ begin
+  l_NestedTable := FindNestedLastTable;
+  if l_NestedTable <> nil then
+   Result := l_NestedTable;
+ end; // if aNested and (Result <> nil) then
+//#UC END# *51E8D8F10076_51D278280093_impl*
+end;//TdestNorm.LastTable
 
 procedure TdestNorm.Unicode2Text;
 //#UC START# *51E8D9130134_51D278280093_var*
@@ -718,7 +1107,7 @@ begin
 end;//TdestNorm.Unicode2Text
 
 function TdestNorm.GetLastTextParaOrCreateNew(aPAP: TddParagraphProperty;
-  out aNewPara: Boolean): TddTextParagraph;
+ out aNewPara: Boolean): TddTextParagraph;
 //#UC START# *51E93A240331_51D278280093_var*
 //#UC END# *51E93A240331_51D278280093_var*
 begin
@@ -734,7 +1123,7 @@ begin
 end;//TdestNorm.GetLastTextParaOrCreateNew
 
 procedure TdestNorm.JoinPAPWithLastParaPAP(aPAP: TddParagraphProperty;
-  aNeedClose: Boolean);
+ aNeedClose: Boolean);
 //#UC START# *51E93F26033C_51D278280093_var*
 var
  l_Para   : TddTextParagraph;
@@ -750,477 +1139,9 @@ begin
 //#UC END# *51E93F26033C_51D278280093_impl*
 end;//TdestNorm.JoinPAPWithLastParaPAP
 
-function TdestNorm.GetFirstTableWidth: Integer;
-//#UC START# *5236EAA9015B_51D278280093_var*
-var
- i       : Integer;
- l_Atom  : TddDocumentAtom;
- l_Count : Integer;
-//#UC END# *5236EAA9015B_51D278280093_var*
-begin
-//#UC START# *5236EAA9015B_51D278280093_impl*
- Result := 0;
- l_Count := f_Paragraphs.Count - 1;
- for i := 0 to l_Count do
- begin
-  l_Atom := f_Paragraphs[i];
-  if l_Atom is TddTable then
-  begin
-   Result := (l_Atom as TddTable).GetFirstRowWidth;
-   Break;
-  end; // if l_Atom is TddTable then
- end; // for i := 0 to l_Count - 1 do
-//#UC END# *5236EAA9015B_51D278280093_impl*
-end;//TdestNorm.GetFirstTableWidth
-
-function TdestNorm.CheckAnsiChar(aText: AnsiChar;
-  aState: TddRTFState): Boolean;
-//#UC START# *54F83A430171_51D278280093_var*
-var
- l_TextPara: TddTextParagraph;
-//#UC END# *54F83A430171_51D278280093_var*
-begin
-//#UC START# *54F83A430171_51D278280093_impl*
- Result := False;
- if aText = cc_PlusMinus then
- begin
-  l_TextPara := LastParagraph;
-  if (l_TextPara <> nil) and not l_TextPara.Closed then
-  begin
-   FlushTextBuffer(aState, False);
-   AddFormula(l_TextPara, csFormulaRepresent[carCharID2FormualRepresent[cc_PlusMinus]]);
-   Result := True;
-  end; // if (l_TextPara <> nil) and not l_TextPara.Closed then
- end; // if aText = cc_PlusMinus then
-//#UC END# *54F83A430171_51D278280093_impl*
-end;//TdestNorm.CheckAnsiChar
-
-procedure TdestNorm.SimpleAddShape(aShape: TddDocumentAtom);
-//#UC START# *55C4750C02BF_51D278280093_var*
-
- function lp_CheckPos: Integer;
- var
-  l_Atom    : TddDocumentAtom;
-  l_Index   : Integer;
-  l_NewShape: TddRTFShape;
- begin
-  Result := -1;
-  if f_FirstShape = -1 then Exit;
-  l_Index := f_Paragraphs.Count - 1;
-  l_NewShape := aShape as TddRTFShape;
-  while l_Index >= f_FirstShape do
-  begin
-   l_Atom := f_Paragraphs[l_Index];
-   if not (l_Atom is TddRTFShape) then Break;
-   if (l_Atom as TddRTFShape).BottomAndRight(l_NewShape) then
-    Result := l_Index
-   else
-    Break;
-   Dec(l_Index);
-  end; // while l_Index >= 0 do
- end;
-
-var
- l_Pos       : Integer;
- l_ShapeIndex: Integer;
-//#UC END# *55C4750C02BF_51D278280093_var*
-begin
-//#UC START# *55C4750C02BF_51D278280093_impl*
- l_Pos := lp_CheckPos;
- if l_Pos = -1 then
- begin
-  l_ShapeIndex := AddParagraph(aShape);
-  if f_FirstShape = -1 then
-   f_FirstShape := l_ShapeIndex;
- end // if l_Pos = -1 then
- else
-  f_Paragraphs.Insert(l_Pos, aShape)
-//#UC END# *55C4750C02BF_51D278280093_impl*
-end;//TdestNorm.SimpleAddShape
-
-function TdestNorm.Try2CloseNestedTable(anItap: Integer): Boolean;
-//#UC START# *560A489E0398_51D278280093_var*
-var
- l_Table: TddTable;
-//#UC END# *560A489E0398_51D278280093_var*
-begin
-//#UC START# *560A489E0398_51D278280093_impl*
- Result := False;
- l_Table := LastTable(True);
- if (l_Table <> nil) and (l_Table.Level > anItap) then
- begin
-  l_Table.Closed := True;
-  Result := True;
- end; // if l_Table.Level > aState.PAP.itap then
-//#UC END# *560A489E0398_51D278280093_impl*
-end;//TdestNorm.Try2CloseNestedTable
-
-procedure TdestNorm.Try2AddTable(aLevel: Integer);
-//#UC START# *51E8D1F10328_51D278280093_var*
-var
- l_LastTable : TddTable;
-//#UC END# *51E8D1F10328_51D278280093_var*
-begin
-//#UC START# *51E8D1F10328_51D278280093_impl*
- if not CanAddTable then Exit;
- if (LastAtom = nil) or not LastAtom.IsTable then
-  AddTable(aLevel);
- if aLevel > 1 then
- begin
-  l_LastTable := FindNestedLastTable;
-  if (l_LastTable = nil) or (l_LastTable.Level < aLevel) then
-   AddTable(aLevel);
- end // if aLevel > 1 then
- else
-  if LastAtom.Closed then
-   AddTable(aLevel);
-//#UC END# *51E8D1F10328_51D278280093_impl*
-end;//TdestNorm.Try2AddTable
-
-procedure TdestNorm.ApplyToPAP(What: TIProp;
-  aValue: Integer;
-  aPAP: TddParagraphProperty);
-//#UC START# *51E8D2F90025_51D278280093_var*
-var
- i         : Integer;
- l_LastAtom: TddDocumentAtom;
-//#UC END# *51E8D2F90025_51D278280093_var*
-begin
-//#UC START# *51E8D2F90025_51D278280093_impl*
- with aPAP do
- begin
-   case What of
-     ipropLeft   : XaLeft := aValue;
-     ipropFirst  : XaFirst := aValue;
-     ipropRight  : XaRight := aValue;
-     ipropBottom : After := aValue;
-     ipropTop    : Before := aValue;
-     ipropJust   : Just := TJust(aValue);
-     ipropInTable: begin
-                    InTable := True;
-                    itap := 1; // Значения может не быть
-                   end; 
-     ipropBorderWhere:
-       begin
-         f_BorderOwner := boPara;   
-         case TddBorderWhere(aValue) of
-          bwTop: begin
-                  f_CurBorderPart := bpTop;
-                  Border.Frames[bpTop].Enable := True;
-                 end;
-          bwRight: begin
-                    Border.Frames[bpRight].Enable := True;
-                    f_CurBorderPart := bpRight;
-                   end;
-          bwBottom: begin
-                     Border.Frames[bpBottom].Enable := True;
-                     f_CurBorderPart := bpBottom;
-                    end;
-          bwLeft: begin
-                   Border.Frames[bpLeft].Enable := True;
-                   f_CurBorderPart := bpLeft;
-                  end;
-          bwHorizontal: Border.Frames[bpHorizontal].Enable := True;
-          bwVertical: Border.Frames[bpVertical].Enable := True;
-          bwBox:
-            for i := ord(bpTop) to ord(bpRight) do
-            begin
-             Border.Frames[TddBorderParts(i)].Enable := True;
-             Border.FrameWidth[TddBorderParts(i)] := 10;
-             Border.FrameType[TddBorderParts(i)] := btSingleThick;
-            end;
-         end;    
-       end;
-     ipropDefault: Clear;
-     ipropLs: ListItem := aValue;
-     ipropilvl: ilvl := aValue;
-     ipropitap: itap := aValue;
-     ipropposx: begin
-                 PosX := aValue;
-                 if (f_LastShape <> nil) then
-                 begin
-                  f_LastShape.Closed := True;
-                  f_LastShape := nil;
-                 end; // if (f_LastShape <> nil) then
-                end;
-     ipropposy: PosY := aValue;
-     ipropabsw: AbsW := aValue;
-     ipropabsh: AbsH := -aValue;
-   end; { case}
- end;
-//#UC END# *51E8D2F90025_51D278280093_impl*
-end;//TdestNorm.ApplyToPAP
-
-procedure TdestNorm.ApplyToSep(aWhat: TIProp;
-  aValue: LongInt);
-//#UC START# *51E8D3A20193_51D278280093_var*
-var
- l_A: TddDocumentAtom;
-//#UC END# *51E8D3A20193_51D278280093_var*
-begin
-//#UC START# *51E8D3A20193_51D278280093_impl*
- l_A := LastAtom;
- if (l_A <> nil) and (l_A.IsBreak) then
- begin
-  with TddBreak(l_A).SEP do
-   case aWhat of
-    ipropLandscape: Landscape := True;
-    ipropWidth: xaPage := aValue;
-    ipropHeight: YaPage := aValue;
-    ipropLeft: xaLeft := aValue;
-    ipropRight: xaRight := aValue;
-    ipropTop: yaTop := aValue;
-    ipropBottom: yaBottom := aValue;
-   end;
- end;
-//#UC END# *51E8D3A20193_51D278280093_impl*
-end;//TdestNorm.ApplyToSep
-
-function TdestNorm.GetFontEvent(aFontID: Integer): TddFontEntry;
-//#UC START# *51E8D7880381_51D278280093_var*
-//#UC END# *51E8D7880381_51D278280093_var*
-begin
-//#UC START# *51E8D7880381_51D278280093_impl*
- Result := f_CustomRTFReader.GetFonts(aFontID);
-//#UC END# *51E8D7880381_51D278280093_impl*
-end;//TdestNorm.GetFontEvent
-
-function TdestNorm.GetColor(aColorIndex: Integer): TColor;
-//#UC START# *51E8D7A401F0_51D278280093_var*
-//#UC END# *51E8D7A401F0_51D278280093_var*
-begin
-//#UC START# *51E8D7A401F0_51D278280093_impl*
- Result := f_CustomRTFReader.ColorByIndex(aColorIndex);
-//#UC END# *51E8D7A401F0_51D278280093_impl*
-end;//TdestNorm.GetColor
-
-function TdestNorm.InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
-//#UC START# *51E8D7E60235_51D278280093_var*
-var
- l_Table: TddTable;
-//#UC END# *51E8D7E60235_51D278280093_var*
-begin
-//#UC START# *51E8D7E60235_51D278280093_impl*
- // Абзац может добавляться в документ или таблицу. Причем таблицы может и не быть
- if aPAP.InTable and CanAddTable then
- begin
-  if not Try2CloseNestedTable(aPAP.itap) then
-   if f_Paragraphs.Empty then
-    AddTable(aPAP.itap)
-   else
-    Try2AddTable(aPAP.itap);
-  l_Table := LastTable(True);
-  Result := l_Table.AddParaWithCheckingRow(nil, False) as TddTextParagraph;
- end // aInTable
- else
-  Result := AddTextPara2Document;
-//#UC END# *51E8D7E60235_51D278280093_impl*
-end;//TdestNorm.InternalAddTextPara
-
-procedure TdestNorm.AddPicture(aPicture: TddPicture;
-  aState: TddRTFState;
-  anAssign2Last: Boolean);
-//#UC START# *51E8D80401F5_51D278280093_var*
-var
- l_Prop: TddParagraphProperty;
-
- function lp_GetPicture: TddPicture;
- begin
-  Result := aPicture.Clone(l_Prop);
- end;
-
- procedure lp_CopyOrMovePicture;
- var
-  l_Picture: TddPicture;
- begin
-  if anAssign2Last then
-  begin
-   l_Picture := (f_Paragraphs.Last as TddPicture);
-   l_Picture.PAP.AssignFrom(aState.PAP);
-   l_Picture.Assign(aPicture);
-  end // if aMove then
-  else
-  begin
-   l_Picture := lp_GetPicture;
-   try
-    AddParagraph(l_Picture);
-   finally
-    FreeAndNil(l_Picture);
-   end;
-  end;
- end;
-
-var
- l_P       : TddPicture;
- l_Cell    : TddTableCell;
- l_Table   : TddTable;
- l_TextPara: TddTextParagraph;
-//#UC END# *51E8D80401F5_51D278280093_var*
-begin
-//#UC START# *51E8D80401F5_51D278280093_impl*
- l_P := nil;
- if aState = nil then
-  l_Prop := nil
- else
-  l_Prop := aState.PAP;
- try
-  if LastAtom <> nil then
-  begin
-   if LastAtom.IsTextPara then
-   begin
-    if LastAtom.Closed then
-     lp_CopyOrMovePicture
-    else
-    begin
-     l_P := lp_GetPicture;
-     LastParagraph.AddPicture(l_P, anAssign2Last);
-    end
-   end // if LastAtom.IsTextPara then
-   else
-   if LastAtom.IsTable then
-   begin
-    Try2AddTable(aState.PAP.itap);
-    LastTable(True).AddPicture(aPicture, l_Prop, anAssign2Last);
-   end // if LastAtom.IsTable then
-   else
-    if LastAtom is TddRTFShape then
-     if LastAtom.Closed then
-      lp_CopyOrMovePicture
-     else
-      (LastAtom as TddRTFShape).AddPicture(aPicture, aState)
-    else
-     if LastAtom.IsPicture and anAssign2Last then
-      lp_CopyOrMovePicture;
-  end // LastAtom <> nil
-  else
-   lp_CopyOrMovePicture;
- finally
-  FreeAndNil(l_P);
- end;
-//#UC END# *51E8D80401F5_51D278280093_impl*
-end;//TdestNorm.AddPicture
-
-procedure TdestNorm.Append(aState: TddRTFState;
-  aDest: TdestNorm;
-  aInSamePara: Boolean = False);
-//#UC START# *51E8D8250134_51D278280093_var*
-
- procedure lp_AddTextPara(const aPara: TddTextParagraph);
-
-  procedure lp_Try2AddSegmentWithURL;
-  var
-   l_Start       : Integer;
-   l_AddHyperlink: Boolean;
-  begin
-   l_AddHyperlink := (aPara.SegmentCount = 1) and aPara.Segments[0].IsHyperlink and not aPara.Segments[0].URL.Empty;
-   if l_AddHyperlink then
-    l_Start := LastParagraph.Text.Len + 1;
-   LastParagraph.AddText(aPara.Text);
-   if l_AddHyperlink then
-    LastParagraph.AddHyperlinkWithURL(l_Start, aPara.Segments[0].URL.AsString);
-  end;
-
- var
-  l_NewPara : TddTextParagraph;
- begin
-  if aPara <> nil then
-  begin
-   if aInSamePara then
-   begin
-    if LastParagraph = nil then
-    begin
-     InternalAddTextPara(aState.PAP);
-     LastParagraph.PAP := aState.PAP;
-    end // LastParagraph = nil
-    else
-     FlushTextBuffer(aState, True);
-    if (aPara.SegmentCount = 1) and (aPara.Segments[0] is TddFormulaSegment) then // Копирование формулы {Requestlink:591142760} из символа.
-     AddFormula(LastParagraph, TddFormulaParagraph(aPara.Segments[0].Data).FormulaText.AsWStr)
-    else
-    begin
-     LastParagraph.AddSegment(aPara.CHP, nil, False);
-     lp_Try2AddSegmentWithURL;
-     if aPara.Closed then
-      CloseTextPara(aState.PAP, LastParagraph);
-    end;
-   end // aInSamePara
-   else
-   begin
-    l_NewPara := TddTextParagraph.Create(Self);
-    try
-     l_NewPara.Assign(aPara);
-     AddParagraph(l_NewPara);
-     if aPara.Closed then
-      CloseTextPara(aState.PAP, l_NewPara);
-    finally
-     FreeAndNil(l_NewPara);
-    end;
-   end; // not aInSamePara
-  end; // aPara <> nil
- end;
-
- procedure lp_AppendRowPara(const aTable: TddTable);
- var
-  k: Integer;
- begin
-  for k := 0 to aTable.RowCount - 1 do
-   lp_AddTextPara(aTable.Rows[k].LastCell.LastTextPara);
- end;
-
-var
- i      : Integer;
- l_Para : TddTextParagraph;
-//#UC END# *51E8D8250134_51D278280093_var*
-begin
-//#UC START# *51E8D8250134_51D278280093_impl*
- if aDest <> nil then
- begin
-  for i:= 0 to aDest.f_Paragraphs.Hi do
-  begin
-   l_Para := nil;
-   // Может приехать что угодно
-   if aDest.Paragraph[i] is TddTextParagraph then
-    l_Para := aDest.Paragraph[i] as TddTextParagraph
-   else
-   if (aDest.Paragraph[i] is TddTable) then
-    lp_AppendRowPara(aDest.Paragraph[i] as TddTable);
-   lp_AddTextPara(l_Para);
-  end; // for i
- end; // aDest <> nil
-//#UC END# *51E8D8250134_51D278280093_impl*
-end;//TdestNorm.Append
-
-function TdestNorm.BufferEmpty: Boolean;
-//#UC START# *51E8D84900D6_51D278280093_var*
-//#UC END# *51E8D84900D6_51D278280093_var*
-begin
-//#UC START# *51E8D84900D6_51D278280093_impl*
- Result:= f_TextBuffer.Empty and (f_UnicodeBuffer.Position = 0);
-//#UC END# *51E8D84900D6_51D278280093_impl*
-end;//TdestNorm.BufferEmpty
-
-function TdestNorm.LastTable(aCheckNested: Boolean): TddTable;
-//#UC START# *51E8D8F10076_51D278280093_var*
-var
- l_NestedTable : TddTable;
-//#UC END# *51E8D8F10076_51D278280093_var*
-begin
-//#UC START# *51E8D8F10076_51D278280093_impl*
- Result := nil;
- if (LastAtom <> nil) and LastAtom.IsTable and not LastAtom.Closed then
-  Result := TddTable(LastAtom);
- if aCheckNested and (Result <> nil) then
- begin
-  l_NestedTable := FindNestedLastTable;
-  if l_NestedTable <> nil then
-   Result := l_NestedTable;
- end; // if aNested and (Result <> nil) then
-//#UC END# *51E8D8F10076_51D278280093_impl*
-end;//TdestNorm.LastTable
-
 procedure TdestNorm.Try2ApplyParaProperty(aState: TddRTFState;
-  aPara: TddTextParagraph;
-  aWasPara: Boolean);
+ aPara: TddTextParagraph;
+ aWasPara: Boolean);
 //#UC START# *521B22240197_51D278280093_var*
 //#UC END# *521B22240197_51D278280093_var*
 begin
@@ -1256,8 +1177,32 @@ begin
 //#UC END# *52369DF0015C_51D278280093_impl*
 end;//TdestNorm.CheckBeforeWrite
 
+function TdestNorm.GetFirstTableWidth: Integer;
+//#UC START# *5236EAA9015B_51D278280093_var*
+var
+ i       : Integer;
+ l_Atom  : TddDocumentAtom;
+ l_Count : Integer;
+//#UC END# *5236EAA9015B_51D278280093_var*
+begin
+//#UC START# *5236EAA9015B_51D278280093_impl*
+ Result := 0;
+ l_Count := f_Paragraphs.Count - 1;
+ for i := 0 to l_Count do
+ begin
+  l_Atom := f_Paragraphs[i];
+  if l_Atom is TddTable then
+  begin
+   Result := (l_Atom as TddTable).GetFirstRowWidth;
+   Break;
+  end; // if l_Atom is TddTable then
+ end; // for i := 0 to l_Count - 1 do
+//#UC END# *5236EAA9015B_51D278280093_impl*
+end;//TdestNorm.GetFirstTableWidth
+
 procedure TdestNorm.WriteOldStyleItemText(aState: TddRTFState;
-  const aItemText: AnsiString);
+ const aItemText: AnsiString);
+ {* Поддержка добавления номера стиля из Word 6.0/95. Создает текстовый параграф, если нужно. }
 //#UC START# *53857DBD01C4_51D278280093_var*
 var
  l_NewPara: Boolean;
@@ -1308,6 +1253,7 @@ begin
 end;//TdestNorm.AddPageBreak
 
 function TdestNorm.GetTextBuffer(aState: TddRTFState): Tl3String;
+ {* Получение TextBuffer буфера с проверкой UnicodeBuffer }
 //#UC START# *54E3108D02E5_51D278280093_var*
 //#UC END# *54E3108D02E5_51D278280093_var*
 begin
@@ -1321,8 +1267,8 @@ begin
 end;//TdestNorm.GetTextBuffer
 
 procedure TdestNorm.AfterClose(aNewDest: TddRTFDestination;
-  aState: TddRTFState;
-  aCHP: TddCharacterProperty);
+ aState: TddRTFState;
+ aCHP: TddCharacterProperty);
 //#UC START# *54E468E502A2_51D278280093_var*
 //#UC END# *54E468E502A2_51D278280093_var*
 begin
@@ -1343,8 +1289,30 @@ begin
 //#UC END# *54E468E502A2_51D278280093_impl*
 end;//TdestNorm.AfterClose
 
+function TdestNorm.CheckAnsiChar(aText: AnsiChar;
+ aState: TddRTFState): Boolean;
+//#UC START# *54F83A430171_51D278280093_var*
+var
+ l_TextPara: TddTextParagraph;
+//#UC END# *54F83A430171_51D278280093_var*
+begin
+//#UC START# *54F83A430171_51D278280093_impl*
+ Result := False;
+ if aText = cc_PlusMinus then
+ begin
+  l_TextPara := LastParagraph;
+  if (l_TextPara <> nil) and not l_TextPara.Closed then
+  begin
+   FlushTextBuffer(aState, False);
+   AddFormula(l_TextPara, csFormulaRepresent[carCharID2FormualRepresent[cc_PlusMinus]]);
+   Result := True;
+  end; // if (l_TextPara <> nil) and not l_TextPara.Closed then
+ end; // if aText = cc_PlusMinus then
+//#UC END# *54F83A430171_51D278280093_impl*
+end;//TdestNorm.CheckAnsiChar
+
 procedure TdestNorm.AddFormula(const aTextPara: TddTextParagraph;
-  const aFormulaText: Tl3WString);
+ const aFormulaText: Tl3WString);
 //#UC START# *550BDE5C0161_51D278280093_var*
 var
  l_Formula : TddFormulaParagraph;
@@ -1371,7 +1339,7 @@ begin
 end;//TdestNorm.CanAddTable
 
 procedure TdestNorm.AddShape(aState: TddRTFState;
-  aShape: TddDocumentAtom);
+ aShape: TddDocumentAtom);
 //#UC START# *559652250144_51D278280093_var*
 //#UC END# *559652250144_51D278280093_var*
 begin
@@ -1388,6 +1356,49 @@ begin
   SimpleAddShape(aShape);
 //#UC END# *559652250144_51D278280093_impl*
 end;//TdestNorm.AddShape
+
+procedure TdestNorm.SimpleAddShape(aShape: TddDocumentAtom);
+//#UC START# *55C4750C02BF_51D278280093_var*
+
+ function lp_CheckPos: Integer;
+ var
+  l_Atom    : TddDocumentAtom;
+  l_Index   : Integer;
+  l_NewShape: TddRTFShape;
+ begin
+  Result := -1;
+  if f_FirstShape = -1 then Exit;
+  l_Index := f_Paragraphs.Count - 1;
+  l_NewShape := aShape as TddRTFShape;
+  while l_Index >= f_FirstShape do
+  begin
+   l_Atom := f_Paragraphs[l_Index];
+   if not (l_Atom is TddRTFShape) then Break;
+   if (l_Atom as TddRTFShape).BottomAndRight(l_NewShape) then
+    Result := l_Index
+   else
+    Break;
+   Dec(l_Index);
+  end; // while l_Index >= 0 do
+ end;
+
+var
+ l_Pos       : Integer;
+ l_ShapeIndex: Integer;
+//#UC END# *55C4750C02BF_51D278280093_var*
+begin
+//#UC START# *55C4750C02BF_51D278280093_impl*
+ l_Pos := lp_CheckPos;
+ if l_Pos = -1 then
+ begin
+  l_ShapeIndex := AddParagraph(aShape);
+  if f_FirstShape = -1 then
+   f_FirstShape := l_ShapeIndex;
+ end // if l_Pos = -1 then
+ else
+  f_Paragraphs.Insert(l_Pos, aShape)
+//#UC END# *55C4750C02BF_51D278280093_impl*
+end;//TdestNorm.SimpleAddShape
 
 function TdestNorm.AddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
 //#UC START# *55C4754B00B7_51D278280093_var*
@@ -1448,8 +1459,25 @@ begin
 //#UC END# *55C4754B00B7_51D278280093_impl*
 end;//TdestNorm.AddTextPara
 
+function TdestNorm.Try2CloseNestedTable(anItap: Integer): Boolean;
+//#UC START# *560A489E0398_51D278280093_var*
+var
+ l_Table: TddTable;
+//#UC END# *560A489E0398_51D278280093_var*
+begin
+//#UC START# *560A489E0398_51D278280093_impl*
+ Result := False;
+ l_Table := LastTable(True);
+ if (l_Table <> nil) and (l_Table.Level > anItap) then
+ begin
+  l_Table.Closed := True;
+  Result := True;
+ end; // if l_Table.Level > aState.PAP.itap then
+//#UC END# *560A489E0398_51D278280093_impl*
+end;//TdestNorm.Try2CloseNestedTable
+
 function TdestNorm.FindFootnoteSymbol(aState: TddRTFState;
-  aSymbol: Integer): Boolean;
+ aSymbol: Integer): Boolean;
 //#UC START# *5620DCA40213_51D278280093_var*
 //#UC END# *5620DCA40213_51D278280093_var*
 begin
@@ -1527,7 +1555,7 @@ begin
 end;//TdestNorm.AfterAddPara
 
 procedure TdestNorm.AddSub(aState: TddRTFState;
-  const aText: Tl3String);
+ const aText: Tl3String);
 //#UC START# *56A9F2670380_51D278280093_var*
 var
  l_New     : Boolean;
@@ -1542,7 +1570,7 @@ begin
 end;//TdestNorm.AddSub
 
 procedure TdestNorm.CloseTextPara(aPAP: TddParagraphProperty;
-  aPara: TddTextParagraph);
+ aPara: TddTextParagraph);
 //#UC START# *56BC3011019B_51D278280093_var*
 //#UC END# *56BC3011019B_51D278280093_var*
 begin
@@ -1552,6 +1580,7 @@ begin
 end;//TdestNorm.CloseTextPara
 
 function TdestNorm.InTable(aPAP: TddParagraphProperty): Boolean;
+ {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
 //#UC START# *56BC304D02E0_51D278280093_var*
 //#UC END# *56BC304D02E0_51D278280093_var*
 begin
@@ -1573,6 +1602,7 @@ begin
 end;//TdestNorm.DeleteLastAtom
 
 function TdestNorm.Itap(aPAP: TddParagraphProperty): Integer;
+ {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
 //#UC START# *56BDB2CD037F_51D278280093_var*
 //#UC END# *56BDB2CD037F_51D278280093_var*
 begin
@@ -1607,58 +1637,8 @@ begin
 //#UC END# *56C5946F0006_51D278280093_impl*
 end;//TdestNorm.AddTextPara2Document
 
-function TdestNorm.pm_GetLastAtom: TddDocumentAtom;
-//#UC START# *51E8D657026C_51D278280093get_var*
-//#UC END# *51E8D657026C_51D278280093get_var*
-begin
-//#UC START# *51E8D657026C_51D278280093get_impl*
- if f_Paragraphs.Empty then
-  Result := nil
- else
-  Result := f_Paragraphs.Last;
-//#UC END# *51E8D657026C_51D278280093get_impl*
-end;//TdestNorm.pm_GetLastAtom
-
-function TdestNorm.pm_GetLastParagraph: TddTextParagraph;
-//#UC START# *51E8D68F0379_51D278280093get_var*
-var
- l_Cell  : TddTableCell;
- l_Table : TddTable;
-//#UC END# *51E8D68F0379_51D278280093get_var*
-begin
-//#UC START# *51E8D68F0379_51D278280093get_impl*
- Result := nil;
- if LastAtom <> nil then
- begin
-  if LastAtom.IsTextPara then
-   Result := TddTextParagraph(LastAtom)
-  else
-   if LastAtom.IsTable then
-   begin
-    l_Table := LastTable(True);
-    if l_Table <> nil then
-     Result := l_Table.LastParagraph;
-   end;
-  if (Result <> nil) and Result.Closed then
-   Result := nil;
- end; // LastAtom <> nil
-//#UC END# *51E8D68F0379_51D278280093get_impl*
-end;//TdestNorm.pm_GetLastParagraph
-
-function TdestNorm.pm_GetParagraph(anIndex: Integer): TddDocumentAtom;
-//#UC START# *5624D6E90334_51D278280093get_var*
-//#UC END# *5624D6E90334_51D278280093get_var*
-begin
-//#UC START# *5624D6E90334_51D278280093get_impl*
- if (f_Paragraphs.Count = 0) or (f_Paragraphs.Count <= anIndex) then
-  Result := nil
- else
-  Result := f_Paragraphs[anIndex];
-//#UC END# *5624D6E90334_51D278280093get_impl*
-end;//TdestNorm.pm_GetParagraph
-
 procedure TdestNorm.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_51D278280093_var*
 //#UC END# *5461BEC2017D_51D278280093_var*
 begin
@@ -1668,8 +1648,8 @@ begin
 end;//TdestNorm.Close
 
 procedure TdestNorm.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_51D278280093_var*
 //#UC END# *54E1F08400F9_51D278280093_var*
 begin
@@ -1683,6 +1663,7 @@ begin
 end;//TdestNorm.WriteText
 
 procedure TdestNorm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51D278280093_var*
 //#UC END# *479731C50290_51D278280093_var*
 begin
@@ -1709,7 +1690,7 @@ begin
 end;//TdestNorm.Clear
 
 procedure TdestNorm.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_51D278280093_var*
 //#UC END# *51D27C0402E9_51D278280093_var*
 begin
@@ -1722,7 +1703,7 @@ begin
 end;//TdestNorm.AddAnsiChar
 
 procedure TdestNorm.AddString(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C3302EC_51D278280093_var*
 
  function lp_CheckQL: Boolean;
@@ -1744,7 +1725,7 @@ begin
 end;//TdestNorm.AddString
 
 procedure TdestNorm.AddUnicodeChar(aText: Word;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27DFA0308_51D278280093_var*
 
  function lp_CheckBREVE: Boolean;
@@ -1815,9 +1796,9 @@ begin
 end;//TdestNorm.AddUnicodeChar
 
 procedure TdestNorm.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_51D278280093_var*
 //#UC END# *51D27EC50388_51D278280093_var*
 begin
@@ -1850,8 +1831,8 @@ begin
 end;//TdestNorm.Create
 
 procedure TdestNorm.ParseSymbol(Symbol: Integer;
-  propType: TPropType;
-  aState: TddRTFState);
+ propType: TPropType;
+ aState: TddRTFState);
 //#UC START# *51E8CFEF027A_51D278280093_var*
 var
  l_Para   : TddTextParagraph;
@@ -2021,7 +2002,7 @@ begin
 end;//TdestNorm.Write
 
 procedure TdestNorm.WriteText(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51E8D0710060_51D278280093_var*
 var
  l_PictureIndex: Integer;
@@ -2114,7 +2095,7 @@ begin
 end;//TdestNorm.WriteText
 
 function TdestNorm.GetList(aListID: Integer;
-  out aWasRestart: Boolean): TrtfList;
+ out aWasRestart: Boolean): TrtfList;
 //#UC START# *51E8D6CF03A1_51D278280093_var*
 //#UC END# *51E8D6CF03A1_51D278280093_var*
 begin
@@ -2133,7 +2114,7 @@ begin
 end;//TdestNorm.GetStyle
 
 procedure TdestNorm.BeforeCloseParagraph(const aDocAtom: TObject;
-  var aNewStyle: Integer);
+ var aNewStyle: Integer);
 //#UC START# *534F9B57003E_51D278280093_var*
 //#UC END# *534F9B57003E_51D278280093_var*
 begin

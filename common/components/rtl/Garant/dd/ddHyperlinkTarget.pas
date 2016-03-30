@@ -1,74 +1,55 @@
 unit ddHyperlinkTarget;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddHyperlinkTarget.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddHyperlinkTarget
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlinkTarget.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddHyperlinkTarget" MUID: (525D26AF0039)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddBaseObject,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddBaseObject
+ , k2Interfaces
+ , ddTypes
+;
 
 type
  TddHyperlinkTarget = class(TddBaseObject)
- private
- // private fields
-   f_DocID : LongInt;
-    {* Поле для свойства DocID}
-   f_SubID : LongInt;
-    {* Поле для свойства SubID}
-   f_TypeID : LongInt;
-    {* Поле для свойства TypeID}
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: TddLiteVersion); override;
- public
- // overridden public methods
-   procedure Assign(anObject: TddBaseObject); override;
- public
- // public methods
+  private
+   f_DocID: LongInt;
+    {* Поле для свойства DocID }
+   f_SubID: LongInt;
+    {* Поле для свойства SubID }
+   f_TypeID: LongInt;
+    {* Поле для свойства TypeID }
+  public
    constructor Create(aTypeID: Integer;
-     aDocID: Integer;
-     aSubID: Integer); reintroduce;
- public
- // public properties
+    aDocID: Integer;
+    aSubID: Integer); reintroduce;
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aLiteVersion: TddLiteVersion); override;
+   procedure Assign(anObject: TddBaseObject); override;
+  public
    property DocID: LongInt
-     read f_DocID
-     write f_DocID;
+    read f_DocID
+    write f_DocID;
    property SubID: LongInt
-     read f_SubID;
+    read f_SubID;
    property TypeID: LongInt
-     read f_TypeID;
+    read f_TypeID;
  end;//TddHyperlinkTarget
 
 implementation
 
 uses
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddHyperlinkTarget
+ l3ImplUses
+;
 
 constructor TddHyperlinkTarget.Create(aTypeID: Integer;
-  aDocID: Integer;
-  aSubID: Integer);
+ aDocID: Integer;
+ aSubID: Integer);
 //#UC START# *542540630026_525D26AF0039_var*
 //#UC END# *542540630026_525D26AF0039_var*
 begin
@@ -81,7 +62,7 @@ begin
 end;//TddHyperlinkTarget.Create
 
 procedure TddHyperlinkTarget.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: TddLiteVersion);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_525D26AF0039_var*
 //#UC END# *54DC9795018B_525D26AF0039_var*
 begin

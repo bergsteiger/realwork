@@ -1,108 +1,123 @@
 unit ddRTFShape;
+ {* Объект для работы с Shape и извлечением из них нужной информации. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddRTFShape.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TddRTFShape
-//
-// Объект для работы с Shape и извлечением из них нужной информации.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddRTFShape.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFShape" MUID: (5596481703C3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocumentAtom,
-  ddDocumentAtomList,
-  destNorm,
-  ddRTFState,
-  ddTextParagraph,
-  ddPicture,
-  ddCustomDestination,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , ddDocumentAtomList
+ , ddRTFState
+ , destNorm
+ , ddPicture
+ , ddTextParagraph
+ , k2Interfaces
+ , ddTypes
+ , ddCustomDestination
+;
 
 type
  TddRTFShape = class(TddDocumentAtom)
   {* Объект для работы с Shape и извлечением из них нужной информации. }
- private
- // private fields
-   f_Children : TddDocumentAtomList;
-   f_Top : Integer;
-    {* Поле для свойства Top}
-   f_Left : Integer;
-    {* Поле для свойства Left}
-   f_Bottom : Integer;
-    {* Поле для свойства Bottom}
-   f_Right : Integer;
-    {* Поле для свойства Right}
- protected
- // property methods
+  private
+   f_Children: TddDocumentAtomList;
+   f_Top: Integer;
+    {* Поле для свойства Top }
+   f_Left: Integer;
+    {* Поле для свойства Left }
+   f_Bottom: Integer;
+    {* Поле для свойства Bottom }
+   f_Right: Integer;
+    {* Поле для свойства Right }
+  protected
    procedure pm_SetTop(aValue: Integer);
    procedure pm_SetLeft(aValue: Integer);
    procedure pm_SetBottom(aValue: Integer);
    procedure pm_SetRight(aValue: Integer);
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure Clear; override;
-   constructor Create(aDetination: TddCustomDestination); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure Append(aState: TddRTFState;
-     aDest: TdestNorm);
+    aDest: TdestNorm);
    procedure AddPicture(aPicture: TddPicture;
-     aState: TddRTFState);
+    aState: TddRTFState);
    function BottomAndRight(aShape: TddRTFShape): Boolean;
    function AddTextPara: TddTextParagraph;
    function LastPara: TddTextParagraph;
- public
- // public properties
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
+   procedure Clear; override;
+   constructor Create(aDetination: TddCustomDestination); override;
+  public
    property Top: Integer
-     read f_Top
-     write pm_SetTop;
+    read f_Top
+    write pm_SetTop;
    property Left: Integer
-     read f_Left
-     write pm_SetLeft;
+    read f_Left
+    write pm_SetLeft;
    property Bottom: Integer
-     read f_Bottom
-     write pm_SetBottom;
+    read f_Bottom
+    write pm_SetBottom;
    property Right: Integer
-     read f_Right
-     write pm_SetRight;
+    read f_Right
+    write pm_SetRight;
  end;//TddRTFShape
 
 implementation
 
 uses
-  SysUtils,
-  ddParagraphProperty,
-  l3MinMax,
-  ddTable
-  ;
+ l3ImplUses
+ , SysUtils
+ , ddParagraphProperty
+ , l3MinMax
+ , ddTable
+;
 
-// start class TddRTFShape
+procedure TddRTFShape.pm_SetTop(aValue: Integer);
+//#UC START# *55964C48010D_5596481703C3set_var*
+//#UC END# *55964C48010D_5596481703C3set_var*
+begin
+//#UC START# *55964C48010D_5596481703C3set_impl*
+ f_Top := aValue;
+//#UC END# *55964C48010D_5596481703C3set_impl*
+end;//TddRTFShape.pm_SetTop
+
+procedure TddRTFShape.pm_SetLeft(aValue: Integer);
+//#UC START# *55964C5C0042_5596481703C3set_var*
+//#UC END# *55964C5C0042_5596481703C3set_var*
+begin
+//#UC START# *55964C5C0042_5596481703C3set_impl*
+ f_Left := aValue;
+//#UC END# *55964C5C0042_5596481703C3set_impl*
+end;//TddRTFShape.pm_SetLeft
+
+procedure TddRTFShape.pm_SetBottom(aValue: Integer);
+//#UC START# *55964C6E0015_5596481703C3set_var*
+//#UC END# *55964C6E0015_5596481703C3set_var*
+begin
+//#UC START# *55964C6E0015_5596481703C3set_impl*
+ f_Bottom := aValue;
+//#UC END# *55964C6E0015_5596481703C3set_impl*
+end;//TddRTFShape.pm_SetBottom
+
+procedure TddRTFShape.pm_SetRight(aValue: Integer);
+//#UC START# *55964C9D0290_5596481703C3set_var*
+//#UC END# *55964C9D0290_5596481703C3set_var*
+begin
+//#UC START# *55964C9D0290_5596481703C3set_impl*
+ f_Right := aValue;
+//#UC END# *55964C9D0290_5596481703C3set_impl*
+end;//TddRTFShape.pm_SetRight
 
 procedure TddRTFShape.Append(aState: TddRTFState;
-  aDest: TdestNorm);
+ aDest: TdestNorm);
 //#UC START# *55966CB60326_5596481703C3_var*
 
  procedure lp_AddTable(const aPara: TddDocumentAtom);
@@ -153,7 +168,7 @@ begin
 end;//TddRTFShape.Append
 
 procedure TddRTFShape.AddPicture(aPicture: TddPicture;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *559B95E00118_5596481703C3_var*
 var
  l_Prop   : TddParagraphProperty;
@@ -234,45 +249,9 @@ begin
 //#UC END# *55C4746C0398_5596481703C3_impl*
 end;//TddRTFShape.LastPara
 
-procedure TddRTFShape.pm_SetTop(aValue: Integer);
-//#UC START# *55964C48010D_5596481703C3set_var*
-//#UC END# *55964C48010D_5596481703C3set_var*
-begin
-//#UC START# *55964C48010D_5596481703C3set_impl*
- f_Top := aValue;
-//#UC END# *55964C48010D_5596481703C3set_impl*
-end;//TddRTFShape.pm_SetTop
-
-procedure TddRTFShape.pm_SetLeft(aValue: Integer);
-//#UC START# *55964C5C0042_5596481703C3set_var*
-//#UC END# *55964C5C0042_5596481703C3set_var*
-begin
-//#UC START# *55964C5C0042_5596481703C3set_impl*
- f_Left := aValue;
-//#UC END# *55964C5C0042_5596481703C3set_impl*
-end;//TddRTFShape.pm_SetLeft
-
-procedure TddRTFShape.pm_SetBottom(aValue: Integer);
-//#UC START# *55964C6E0015_5596481703C3set_var*
-//#UC END# *55964C6E0015_5596481703C3set_var*
-begin
-//#UC START# *55964C6E0015_5596481703C3set_impl*
- f_Bottom := aValue;
-//#UC END# *55964C6E0015_5596481703C3set_impl*
-end;//TddRTFShape.pm_SetBottom
-
-procedure TddRTFShape.pm_SetRight(aValue: Integer);
-//#UC START# *55964C9D0290_5596481703C3set_var*
-//#UC END# *55964C9D0290_5596481703C3set_var*
-begin
-//#UC START# *55964C9D0290_5596481703C3set_impl*
- f_Right := aValue;
-//#UC END# *55964C9D0290_5596481703C3set_impl*
-end;//TddRTFShape.pm_SetRight
-
 procedure TddRTFShape.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_5596481703C3_var*
 var
  i: Integer;
@@ -285,6 +264,7 @@ begin
 end;//TddRTFShape.Write2Generator
 
 procedure TddRTFShape.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5596481703C3_var*
 //#UC END# *479731C50290_5596481703C3_var*
 begin

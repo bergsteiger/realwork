@@ -31,21 +31,13 @@ type
    f_RowList: TddRowList;
    f_Row: TddTableRow;
    f_Lines: Tl3StringList;
-    {* Поле для свойства Lines }
    f_AutoFit: TddAutoFitBehavior;
-    {* Поле для свойства AutoFit }
    f_CellCount: Integer;
-    {* Поле для свойства CellCount }
    f_ComplexTable: Boolean;
-    {* Поле для свойства ComplexTable }
    f_FormatBuffer: TddDocument;
-    {* Поле для свойства FormatBuffer }
    f_RowCount: Integer;
-    {* Поле для свойства RowCount }
    f_GlueLines: Boolean;
-    {* Поле для свойства GlueLines }
    f_TableWidth: Integer;
-    {* Поле для свойства TableWidth }
   protected
    procedure pm_SetLines(aValue: Tl3StringList);
    procedure pm_SetAutoFit(aValue: TddAutoFitBehavior);
@@ -131,7 +123,6 @@ type
  TddSeparatorTable = class(TddAbstractTable)
   private
    f_Separator: AnsiChar;
-    {* Поле для свойства Separator }
   protected
    procedure pm_SetSeparator(aValue: AnsiChar); virtual;
    procedure RecalcRows; override;

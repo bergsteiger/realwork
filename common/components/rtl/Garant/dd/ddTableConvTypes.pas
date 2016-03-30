@@ -1,38 +1,36 @@
 unit ddTableConvTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTableConvTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::dd::ddTableConvTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTableConvTypes.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "ddTableConvTypes" MUID: (4E0D98F50163)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TddCellSeparator = (
-   csGraphic
- , csParagraph
- , csTab
- , csSemicolon
- , csSpace
- , csOther
+  csGraphic
+  , csParagraph
+  , csTab
+  , csSemicolon
+  , csSpace
+  , csOther
  );//TddCellSeparator
 
  TddAutoFitBehavior = (
-   afEqual
- , afContent
+  afEqual
+  , afContent
  );//TddAutoFitBehavior
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

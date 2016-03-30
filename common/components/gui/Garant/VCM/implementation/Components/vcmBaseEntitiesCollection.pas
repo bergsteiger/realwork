@@ -1,100 +1,84 @@
 unit vcmBaseEntitiesCollection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmBaseEntitiesCollection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmBaseEntitiesCollection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntitiesCollection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseEntitiesCollection" MUID: (52A72E6B00B1)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  Classes,
-  vcmBase,
-  vcmBaseOperationsCollectionItem,
-  vcmBaseEntitiesCollectionItem,
-  vcmBaseCollectionItem,
-  vcmBaseCollection,
-  vcmEntitiesDefList
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmBaseCollection
+ , vcmExternalInterfaces
+ , vcmBaseEntitiesCollectionItem
+ , vcmBase
+ , vcmBaseOperationsCollectionItem
+ , vcmEntitiesDefList
+ , Classes
+ , vcmBaseCollectionItem
+ //#UC START# *52A72E6B00B1intf_uses*
+ //#UC END# *52A72E6B00B1intf_uses*
+;
 
-{$If not defined(NoVCM)}
 type
-//#UC START# *52A72E6B00B1ci*
-//#UC END# *52A72E6B00B1ci*
-//#UC START# *52A72E6B00B1cit*
-//#UC END# *52A72E6B00B1cit*
+ //#UC START# *52A72E6B00B1ci*
+ //#UC END# *52A72E6B00B1ci*
+ //#UC START# *52A72E6B00B1cit*
+ //#UC END# *52A72E6B00B1cit*
  TvcmBaseEntitiesCollection = class(TvcmBaseCollection, IvcmOperationsPublisher)
- protected
- // realized methods
+  protected
    procedure PublishEntity(const anEntity: TvcmString;
     aGetTarget: TvcmControlGetTargetEvent);
-     {* опубликовать сущность. }
- protected
- // overridden protected methods
+    {* опубликовать сущность. }
    function GetAttrCount: Integer; override;
    function GetAttr(Index: Integer): AnsiString; override;
    function GetItemAttr(Index: Integer;
-     ItemIndex: Integer): AnsiString; override;
- public
- // overridden public methods
-   class function GetItemClass: TCollectionItemClass; override;
- public
- // public methods
+    ItemIndex: Integer): AnsiString; override;
+  public
    function PublishFormEntity(const anEntity: TvcmString;
-     aGetTarget: TvcmGetTargetEvent): TvcmBaseEntitiesCollectionItem;
-     {* опубликовать сущность }
+    aGetTarget: TvcmGetTargetEvent): TvcmBaseEntitiesCollectionItem;
+    {* опубликовать сущность }
    procedure GroupItemsInContextMenu(const anEntity: TvcmString);
    procedure ToolbarAtBottom(const anEntity: TvcmString);
    procedure ContextMenuWeight(const anEntity: TvcmString;
-     aWeight: Integer); overload; 
-     {* установить вес сущности в контекстном меню }
+    aWeight: Integer); overload;
+    {* установить вес сущности в контекстном меню }
    procedure ContextMenuWeight(const anEntity: TvcmString;
-     const anOperation: TvcmString;
-     aWeight: Integer;
-     aNoPrefix: Boolean = False); overload; 
-     {* установить вес операции в контекстном меню }
+    const anOperation: TvcmString;
+    aWeight: Integer;
+    aNoPrefix: Boolean = False); overload;
+    {* установить вес операции в контекстном меню }
    procedure PublishOpWithResult(const anEntity: TvcmString;
-     const anOperation: TvcmString;
-     anExecute: TvcmExecuteEvent;
-     aTest: TvcmControlTestEvent;
-     aGetState: TvcmControlGetStateEvent;
-     aNoPrefix: Boolean = False);
-     {* опубликовать операцию }
+    const anOperation: TvcmString;
+    anExecute: TvcmExecuteEvent;
+    aTest: TvcmControlTestEvent;
+    aGetState: TvcmControlGetStateEvent;
+    aNoPrefix: Boolean = False);
+    {* опубликовать операцию }
    function GetOperationByName(const anEntity: TvcmString;
-     const anOperation: TvcmString;
-     aNoPrefix: Boolean = False): TvcmBaseOperationsCollectionItem;
+    const anOperation: TvcmString;
+    aNoPrefix: Boolean = False): TvcmBaseOperationsCollectionItem;
    procedure ShowInContextMenu(const anEntity: TvcmString;
-     const anOperation: TvcmString;
-     aValue: Boolean;
-     aNoPrefix: Boolean = False);
+    const anOperation: TvcmString;
+    aValue: Boolean;
+    aNoPrefix: Boolean = False);
    procedure ShowInToolbar(const anEntity: TvcmString;
-     const anOperation: TvcmString;
-     aValue: Boolean;
-     aNoPrefix: Boolean = False);
+    const anOperation: TvcmString;
+    aValue: Boolean;
+    aNoPrefix: Boolean = False);
    function CheckEntityForControl(const anEntity: TvcmString): TvcmBaseEntitiesCollectionItem;
    procedure GetEntitiesDef(aList: TvcmEntitiesDefList);
-     {* возвращает список описателей сущностей }
+    {* возвращает список описателей сущностей }
    procedure LinkControl(aControl: TComponent);
    procedure UnlinkControl(aControl: TComponent);
    procedure RegisterInRep;
-     {* Сигнатура метода RegisterInRep }
    function IsItemCaptionUnique(aItem: TvcmBaseCollectionItem): Boolean;
-     {* поиск операции по названию }
-//#UC START# *52A72E6B00B1publ*
+    {* поиск операции по названию }
+   class function GetItemClass: TCollectionItemClass; override;
+ //#UC START# *52A72E6B00B1publ*
   public
    procedure PublishOp(const anEntity: TvcmString;
     const anOperation: TvcmString;
@@ -103,32 +87,29 @@ type
     aGetState: TvcmControlGetStateEvent = nil;
     aNoPrefix: Boolean = false);
      {* Опубликовать операцию. aNoPrefix - костыль для [$133891300] }
-//#UC END# *52A72E6B00B1publ*
+ //#UC END# *52A72E6B00B1publ*
  end;//TvcmBaseEntitiesCollection
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmUserControls,
-  vcmEntities,
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmBaseEntitiesCollection
+ l3ImplUses
+ , vcmInterfaces
+ , vcmUserControls
+ , vcmEntities
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *52A72E6B00B1impl_uses*
+ //#UC END# *52A72E6B00B1impl_uses*
+;
 
 function TvcmBaseEntitiesCollection.PublishFormEntity(const anEntity: TvcmString;
-  aGetTarget: TvcmGetTargetEvent): TvcmBaseEntitiesCollectionItem;
+ aGetTarget: TvcmGetTargetEvent): TvcmBaseEntitiesCollectionItem;
+ {* опубликовать сущность }
 //#UC START# *560A9E3700DF_52A72E6B00B1_var*
 //#UC END# *560A9E3700DF_52A72E6B00B1_var*
 begin
@@ -159,7 +140,8 @@ begin
 end;//TvcmBaseEntitiesCollection.ToolbarAtBottom
 
 procedure TvcmBaseEntitiesCollection.ContextMenuWeight(const anEntity: TvcmString;
-  aWeight: Integer);
+ aWeight: Integer);
+ {* установить вес сущности в контекстном меню }
 //#UC START# *560A9E9E005D_52A72E6B00B1_var*
 var
  l_EntitiesCollectionItem: TvcmBaseEntitiesCollectionItem;
@@ -173,9 +155,10 @@ begin
 end;//TvcmBaseEntitiesCollection.ContextMenuWeight
 
 procedure TvcmBaseEntitiesCollection.ContextMenuWeight(const anEntity: TvcmString;
-  const anOperation: TvcmString;
-  aWeight: Integer;
-  aNoPrefix: Boolean = False);
+ const anOperation: TvcmString;
+ aWeight: Integer;
+ aNoPrefix: Boolean = False);
+ {* установить вес операции в контекстном меню }
 //#UC START# *560A9EC5026F_52A72E6B00B1_var*
 var
  l_EntitiesCollectionItem: TvcmBaseEntitiesCollectionItem;
@@ -194,11 +177,12 @@ begin
 end;//TvcmBaseEntitiesCollection.ContextMenuWeight
 
 procedure TvcmBaseEntitiesCollection.PublishOpWithResult(const anEntity: TvcmString;
-  const anOperation: TvcmString;
-  anExecute: TvcmExecuteEvent;
-  aTest: TvcmControlTestEvent;
-  aGetState: TvcmControlGetStateEvent;
-  aNoPrefix: Boolean = False);
+ const anOperation: TvcmString;
+ anExecute: TvcmExecuteEvent;
+ aTest: TvcmControlTestEvent;
+ aGetState: TvcmControlGetStateEvent;
+ aNoPrefix: Boolean = False);
+ {* опубликовать операцию }
 //#UC START# *560A9F53006F_52A72E6B00B1_var*
 var
  l_Execute: TMethod absolute anExecute;
@@ -225,8 +209,8 @@ begin
 end;//TvcmBaseEntitiesCollection.PublishOpWithResult
 
 function TvcmBaseEntitiesCollection.GetOperationByName(const anEntity: TvcmString;
-  const anOperation: TvcmString;
-  aNoPrefix: Boolean = False): TvcmBaseOperationsCollectionItem;
+ const anOperation: TvcmString;
+ aNoPrefix: Boolean = False): TvcmBaseOperationsCollectionItem;
 //#UC START# *560A9F87021C_52A72E6B00B1_var*
 var
  l_Op: AnsiString;
@@ -242,9 +226,9 @@ begin
 end;//TvcmBaseEntitiesCollection.GetOperationByName
 
 procedure TvcmBaseEntitiesCollection.ShowInContextMenu(const anEntity: TvcmString;
-  const anOperation: TvcmString;
-  aValue: Boolean;
-  aNoPrefix: Boolean = False);
+ const anOperation: TvcmString;
+ aValue: Boolean;
+ aNoPrefix: Boolean = False);
 //#UC START# *560A9FD5004C_52A72E6B00B1_var*
 var
  l_Op : TvcmOperationOptions;  
@@ -268,9 +252,9 @@ begin
 end;//TvcmBaseEntitiesCollection.ShowInContextMenu
 
 procedure TvcmBaseEntitiesCollection.ShowInToolbar(const anEntity: TvcmString;
-  const anOperation: TvcmString;
-  aValue: Boolean;
-  aNoPrefix: Boolean = False);
+ const anOperation: TvcmString;
+ aValue: Boolean;
+ aNoPrefix: Boolean = False);
 //#UC START# *560AA00103A8_52A72E6B00B1_var*
 var
  l_Op : TvcmOperationOptions;  
@@ -311,6 +295,7 @@ begin
 end;//TvcmBaseEntitiesCollection.CheckEntityForControl
 
 procedure TvcmBaseEntitiesCollection.GetEntitiesDef(aList: TvcmEntitiesDefList);
+ {* возвращает список описателей сущностей }
 //#UC START# *560AA05F01E7_52A72E6B00B1_var*
 var
  l_Index: Integer;
@@ -374,6 +359,7 @@ begin
 end;//TvcmBaseEntitiesCollection.RegisterInRep
 
 function TvcmBaseEntitiesCollection.IsItemCaptionUnique(aItem: TvcmBaseCollectionItem): Boolean;
+ {* поиск операции по названию }
 //#UC START# *560AA0E20102_52A72E6B00B1_var*
 var
  l_Index: Integer;
@@ -394,7 +380,8 @@ begin
 end;//TvcmBaseEntitiesCollection.IsItemCaptionUnique
 
 procedure TvcmBaseEntitiesCollection.PublishEntity(const anEntity: TvcmString;
-  aGetTarget: TvcmControlGetTargetEvent);
+ aGetTarget: TvcmControlGetTargetEvent);
+ {* опубликовать сущность. }
 //#UC START# *476954790060_52A72E6B00B1_var*
 var
  l_M: TMethod absolute aGetTarget;
@@ -449,7 +436,7 @@ begin
 end;//TvcmBaseEntitiesCollection.GetAttr
 
 function TvcmBaseEntitiesCollection.GetItemAttr(Index: Integer;
-  ItemIndex: Integer): AnsiString;
+ ItemIndex: Integer): AnsiString;
 //#UC START# *560A9DEB0155_52A72E6B00B1_var*
 var
  l_C: Integer;
@@ -497,12 +484,11 @@ begin
 end;//TvcmBaseEntitiesCollection.PublishOp
 //#UC END# *52A72E6B00B1impl*
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmBaseEntitiesCollection
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmBaseEntitiesCollection);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmBaseEntitiesCollection }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

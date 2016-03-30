@@ -10,8 +10,8 @@ interface
 
 uses
  l3IntfUses
- , evdDTTypes
  , l3Types
+ , evdDTTypes
 ;
 
 const

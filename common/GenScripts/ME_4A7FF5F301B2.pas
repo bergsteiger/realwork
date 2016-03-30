@@ -10,10 +10,11 @@ interface
 
 uses
  l3IntfUses
- , DynamicTreeUnit
- , DocumentUnit
- , SearchUnit
+ , IOUnit
  , BaseTypesUnit
+ , DocumentUnit
+ , DynamicTreeUnit
+ , SearchUnit
 ;
 
 type
@@ -37,41 +38,27 @@ type
  IUserJournal = interface
   {* Интерфейс журанла работы }
   ['{30769E5F-13F7-406E-8E2A-2D35B8BE5192}']
-  procedure save(const obj: IUnknown;
-   object_type: TJournalObjectType);
+  procedure Save(const obj: IUnknown;
+   object_type: TJournalObjectType); stdcall;
    {* Сохранить объект в журнал работы }
-  procedure remove(const obj: INodeBase);
+  procedure Remove(const obj: INodeBase); stdcall;
    {* Удалить объект из журнала работы }
-  procedure clear;
+  procedure Clear; stdcall;
    {* Очистить Журнал работы (аналогичен вызову remove (рут дерева журнала работы) }
-  function get_user_jornal_tree: INodeBase;
+  function GetUserJornalTree: INodeBase; stdcall;
    {* Получить дерево Журнала работы }
-  function get_bookmark_history(type: TBookmarkJournalType;
-   max_count: Integer): IJournalBookmarkList; { can raise CanNotFindData }
+  function GetBookmarkHistory(type: TBookmarkJournalType;
+   max_count: Integer): IJournalBookmarkList; stdcall; { can raise CanNotFindData }
    {* список закладок заданного типа }
-  function get_query_history(query_type: TQueryType;
-   max_count: Integer): IQueryList; { can raise CanNotFindData }
+  function GetQueryHistory(query_type: TQueryType;
+   max_count: Integer): IQueryList; stdcall; { can raise CanNotFindData }
    {* Получит список запросов заданного типа из Журнала }
  end;//IUserJournal
-
-class function make: BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
-var
- l_Inst : IUserJournal;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

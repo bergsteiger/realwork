@@ -26,19 +26,12 @@ type
  TddFontEntry = class(Tl3NCString)
   private
    f_FontType: TFontType;
-    {* Поле для свойства FontType }
    f_Family: TFontFamily;
-    {* Поле для свойства Family }
    f_Alternate: Tl3String;
-    {* Поле для свойства Alternate }
    f_Panose: Tl3String;
-    {* Поле для свойства Panose }
    f_Pitch: Byte;
-    {* Поле для свойства Pitch }
    f_Number: Integer;
-    {* Поле для свойства Number }
    f_CharSet: Integer;
-    {* Поле для свойства CharSet }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

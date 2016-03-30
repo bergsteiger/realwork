@@ -1,89 +1,70 @@
 unit ddParaList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddParaList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddParaList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddParaList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddParaList" MUID: (5268FE7A0253)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocumentAtom,
-  ddDocumentAtomList,
-  ddTypes,
-  ddCustomDestination,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , ddDocumentAtomList
+ , ddTypes
+ , k2Interfaces
+ , ddCustomDestination
+;
 
 type
  TddParaList = class(TddDocumentAtom)
- private
- // private fields
-   f_ListType : TddListType;
-    {* Поле для свойства ListType}
-   f_OrderType : TddOrderType;
-    {* Поле для свойства OrderType}
-   f_OrderStart : Integer;
-    {* Поле для свойства OrderStart}
-   f_Multilevel : Boolean;
-    {* Поле для свойства Multilevel}
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
+  private
+   f_ListType: TddListType;
+    {* Поле для свойства ListType }
+   f_OrderType: TddOrderType;
+    {* Поле для свойства OrderType }
+   f_OrderStart: Integer;
+    {* Поле для свойства OrderStart }
+   f_Multilevel: Boolean;
+    {* Поле для свойства Multilevel }
+  public
+   f_List: TddDocumentAtomList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   constructor Create(aDetination: TddCustomDestination); override;
-   function GetLastPara: TddDocumentAtom; override;
- public
- // public fields
-   f_List : TddDocumentAtomList;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddList(aList: TddParaList);
    procedure AddPara;
    procedure CloseLevel;
- public
- // public properties
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
+   constructor Create(aDetination: TddCustomDestination); override;
+   function GetLastPara: TddDocumentAtom; override;
+  public
    property ListType: TddListType
-     read f_ListType
-     write f_ListType;
+    read f_ListType
+    write f_ListType;
    property OrderType: TddOrderType
-     read f_OrderType
-     write f_OrderType;
+    read f_OrderType
+    write f_OrderType;
    property OrderStart: Integer
-     read f_OrderStart
-     write f_OrderStart;
+    read f_OrderStart
+    write f_OrderStart;
    property Multilevel: Boolean
-     read f_Multilevel;
+    read f_Multilevel;
  end;//TddParaList
 
 implementation
 
 uses
-  ddTextParagraph,
-  l3Base,
-  SysUtils,
-  l3String
-  ;
-
-// start class TddParaList
+ l3ImplUses
+ , ddTextParagraph
+ , l3Base
+ , SysUtils
+ , l3String
+;
 
 procedure TddParaList.AddList(aList: TddParaList);
 //#UC START# *526907090237_5268FE7A0253_var*
@@ -125,8 +106,8 @@ begin
 end;//TddParaList.CloseLevel
 
 procedure TddParaList.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_5268FE7A0253_var*
 var
   l_A: TddDocumentAtom;
@@ -160,6 +141,7 @@ begin
 end;//TddParaList.Write2Generator
 
 procedure TddParaList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5268FE7A0253_var*
 //#UC END# *479731C50290_5268FE7A0253_var*
 begin

@@ -19,39 +19,39 @@ uses
 type
  ViewBase = {abstract} class(TreeBase)
   protected
-   function pm_Getmode: TFlagMask; virtual;
-   function pm_Getparent_tree_root: DefaultNodeBase; virtual;
-   function pm_Getmaximum_levels_restriction: unsigned integer; virtual;
-   function pm_Getauto_open: Boolean; virtual;
-   function pm_Gettree_name: AnsiString; override;
-   function master_tree: TreeBase; override;
+   function GetMode: TFlagMask; virtual; stdcall;
+   function GetParentTreeRoot: DefaultNodeBase; virtual; stdcall;
+   function GetMaximumLevelsRestriction: unsigned integer; virtual; stdcall;
+   function GetAutoOpen: ByteBool; virtual; stdcall;
+   function GetTreeName: AnsiString; override;
+   function MasterTree: TreeBase; override;
   public
-   constructor make; reintroduce; virtual;
-   procedure build_node(const snode;
-    var current_stub: FlagNodeBase); virtual;
-   procedure init(mode: TFlagMask;
+   constructor Make; reintroduce; virtual; stdcall;
+   procedure BuildNode(const snode;
+    var current_stub: FlagNodeBase); virtual; stdcall;
+   procedure Init(mode: TFlagMask;
     levels: unsigned integer;
     auto_open: Boolean;
     parent_tree: TreeBase;
-    const server_tree); virtual;
-   function get_change_mutex: mutex; override;
-   function is_mode(shared_flags: TFlagMask): Boolean; override;
-   procedure load_nodes_from_server(const parent_point;
+    const server_tree); virtual; stdcall;
+   function GetChangeMutex: mutex; override;
+   function IsMode(shared_flags: TFlagMask): ByteBool; override;
+   procedure LoadNodesFromServer(const parent_point;
     const child_point;
     from: Integer;
     in_block_position: Cardinal;
     var current_stub); override; { can raise InvalidOwnerTree }
-   function get_shared_mode: TFlagMask; override;
-   procedure expand_all(expand: Boolean); override;
+   function GetSharedMode: TFlagMask; override;
+   procedure ExpandAll(expand: Boolean); override;
   protected
-   property mode: TFlagMask
-    read pm_Getmode;
-   property parent_tree_root: DefaultNodeBase
-    read pm_Getparent_tree_root;
-   property maximum_levels_restriction: unsigned integer
-    read pm_Getmaximum_levels_restriction;
-   property auto_open: Boolean
-    read pm_Getauto_open;
+   property Mode: TFlagMask
+    read GetMode;
+   property ParentTreeRoot: DefaultNodeBase
+    read GetParentTreeRoot;
+   property MaximumLevelsRestriction: unsigned integer
+    read GetMaximumLevelsRestriction;
+   property AutoOpen: ByteBool
+    read GetAutoOpen;
  end;//ViewBase
 
 implementation
@@ -62,52 +62,52 @@ uses
  , ApplicationHelper
 ;
 
-function ViewBase.pm_Getmode: TFlagMask;
+function ViewBase.GetMode: TFlagMask;
 //#UC START# *46025C6602BF_45F57B6C0128get_var*
 //#UC END# *46025C6602BF_45F57B6C0128get_var*
 begin
 //#UC START# *46025C6602BF_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025C6602BF_45F57B6C0128get_impl*
-end;//ViewBase.pm_Getmode
+end;//ViewBase.GetMode
 
-function ViewBase.pm_Getparent_tree_root: DefaultNodeBase;
+function ViewBase.GetParentTreeRoot: DefaultNodeBase;
 //#UC START# *46025C860251_45F57B6C0128get_var*
 //#UC END# *46025C860251_45F57B6C0128get_var*
 begin
 //#UC START# *46025C860251_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025C860251_45F57B6C0128get_impl*
-end;//ViewBase.pm_Getparent_tree_root
+end;//ViewBase.GetParentTreeRoot
 
-function ViewBase.pm_Getmaximum_levels_restriction: unsigned integer;
+function ViewBase.GetMaximumLevelsRestriction: unsigned integer;
 //#UC START# *46025C9E01D4_45F57B6C0128get_var*
 //#UC END# *46025C9E01D4_45F57B6C0128get_var*
 begin
 //#UC START# *46025C9E01D4_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025C9E01D4_45F57B6C0128get_impl*
-end;//ViewBase.pm_Getmaximum_levels_restriction
+end;//ViewBase.GetMaximumLevelsRestriction
 
-function ViewBase.pm_Getauto_open: Boolean;
+function ViewBase.GetAutoOpen: ByteBool;
 //#UC START# *46025CBB01B5_45F57B6C0128get_var*
 //#UC END# *46025CBB01B5_45F57B6C0128get_var*
 begin
 //#UC START# *46025CBB01B5_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025CBB01B5_45F57B6C0128get_impl*
-end;//ViewBase.pm_Getauto_open
+end;//ViewBase.GetAutoOpen
 
-constructor ViewBase.make;
+constructor ViewBase.Make;
 //#UC START# *46025BAC02FD_45F57B6C0128_var*
 //#UC END# *46025BAC02FD_45F57B6C0128_var*
 begin
 //#UC START# *46025BAC02FD_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025BAC02FD_45F57B6C0128_impl*
-end;//ViewBase.make
+end;//ViewBase.Make
 
-procedure ViewBase.build_node(const snode;
+procedure ViewBase.BuildNode(const snode;
  var current_stub: FlagNodeBase);
 //#UC START# *46272A80037A_45F57B6C0128_var*
 //#UC END# *46272A80037A_45F57B6C0128_var*
@@ -115,9 +115,9 @@ begin
 //#UC START# *46272A80037A_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46272A80037A_45F57B6C0128_impl*
-end;//ViewBase.build_node
+end;//ViewBase.BuildNode
 
-procedure ViewBase.init(mode: TFlagMask;
+procedure ViewBase.Init(mode: TFlagMask;
  levels: unsigned integer;
  auto_open: Boolean;
  parent_tree: TreeBase;
@@ -128,36 +128,36 @@ begin
 //#UC START# *46025D6F0000_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46025D6F0000_45F57B6C0128_impl*
-end;//ViewBase.init
+end;//ViewBase.Init
 
-function ViewBase.get_change_mutex: mutex;
+function ViewBase.GetChangeMutex: mutex;
 //#UC START# *460139CE02BF_45F57B6C0128_var*
 //#UC END# *460139CE02BF_45F57B6C0128_var*
 begin
 //#UC START# *460139CE02BF_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460139CE02BF_45F57B6C0128_impl*
-end;//ViewBase.get_change_mutex
+end;//ViewBase.GetChangeMutex
 
-function ViewBase.pm_Gettree_name: AnsiString;
+function ViewBase.GetTreeName: AnsiString;
 //#UC START# *4948E2B2038D_45F57B6C0128get_var*
 //#UC END# *4948E2B2038D_45F57B6C0128get_var*
 begin
 //#UC START# *4948E2B2038D_45F57B6C0128get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4948E2B2038D_45F57B6C0128get_impl*
-end;//ViewBase.pm_Gettree_name
+end;//ViewBase.GetTreeName
 
-function ViewBase.is_mode(shared_flags: TFlagMask): Boolean;
+function ViewBase.IsMode(shared_flags: TFlagMask): ByteBool;
 //#UC START# *4601221600DA_45F57B6C0128_var*
 //#UC END# *4601221600DA_45F57B6C0128_var*
 begin
 //#UC START# *4601221600DA_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4601221600DA_45F57B6C0128_impl*
-end;//ViewBase.is_mode
+end;//ViewBase.IsMode
 
-procedure ViewBase.load_nodes_from_server(const parent_point;
+procedure ViewBase.LoadNodesFromServer(const parent_point;
  const child_point;
  from: Integer;
  in_block_position: Cardinal;
@@ -168,33 +168,33 @@ begin
 //#UC START# *46012392006D_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46012392006D_45F57B6C0128_impl*
-end;//ViewBase.load_nodes_from_server
+end;//ViewBase.LoadNodesFromServer
 
-function ViewBase.get_shared_mode: TFlagMask;
+function ViewBase.GetSharedMode: TFlagMask;
 //#UC START# *4601240A033C_45F57B6C0128_var*
 //#UC END# *4601240A033C_45F57B6C0128_var*
 begin
 //#UC START# *4601240A033C_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4601240A033C_45F57B6C0128_impl*
-end;//ViewBase.get_shared_mode
+end;//ViewBase.GetSharedMode
 
-procedure ViewBase.expand_all(expand: Boolean);
+procedure ViewBase.ExpandAll(expand: Boolean);
 //#UC START# *460127560261_45F57B6C0128_var*
 //#UC END# *460127560261_45F57B6C0128_var*
 begin
 //#UC START# *460127560261_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460127560261_45F57B6C0128_impl*
-end;//ViewBase.expand_all
+end;//ViewBase.ExpandAll
 
-function ViewBase.master_tree: TreeBase;
+function ViewBase.MasterTree: TreeBase;
 //#UC START# *46012787038A_45F57B6C0128_var*
 //#UC END# *46012787038A_45F57B6C0128_var*
 begin
 //#UC START# *46012787038A_45F57B6C0128_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46012787038A_45F57B6C0128_impl*
-end;//ViewBase.master_tree
+end;//ViewBase.MasterTree
 
 end.

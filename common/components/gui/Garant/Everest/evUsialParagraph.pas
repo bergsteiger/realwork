@@ -1,65 +1,44 @@
 unit evUsialParagraph;
+ {* Реализация IedParagraph для обычного параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evUsialParagraph.pas"
-// Начат: 09.04.2010 18:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaUtils::TevUsialParagraph
-//
-// Реализация IedParagraph для обычного параграфа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evUsialParagraph.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevUsialParagraph" MUID: (4BBF3E28035E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Interfaces,
-  evEditorInterfaces,
-  k2ProcessorTagTool,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , k2ProcessorTagTool
+ , evEditorInterfaces
+ , l3Variant
+ , k2Interfaces
+;
 
-{$If defined(k2ForEditor)}
 type
  TevUsialParagraph = class(Tk2ProcessorTagTool, IedParagraph)
   {* Реализация IedParagraph для обычного параграфа }
- protected
- // realized methods
+  protected
    function Get_Frame: IedFrame;
- public
- // public methods
+  public
    class function Make(aTag: Tl3Variant;
-     const aProcessor: Ik2Processor): IedParagraph; reintroduce;
-     {* Сигнатура фабрики TevUsialParagraph.Make }
+    const aProcessor: Ik2Processor): IedParagraph; reintroduce;
  end;//TevUsialParagraph
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  evParaFrame
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class TevUsialParagraph
+ l3ImplUses
+ , evParaFrame
+;
 
 class function TevUsialParagraph.Make(aTag: Tl3Variant;
-  const aProcessor: Ik2Processor): IedParagraph;
+ const aProcessor: Ik2Processor): IedParagraph;
 var
  l_Inst : TevUsialParagraph;
 begin
@@ -69,7 +48,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevUsialParagraph.Make
 
 function TevUsialParagraph.Get_Frame: IedFrame;
 //#UC START# *4BBC89F8009C_4BBF3E28035Eget_var*
@@ -79,7 +58,6 @@ begin
  Pointer(Result) := Pointer(IedFrame(TevUsialParaFrame.Create(TagInst, Processor)));
 //#UC END# *4BBC89F8009C_4BBF3E28035Eget_impl*
 end;//TevUsialParagraph.Get_Frame
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

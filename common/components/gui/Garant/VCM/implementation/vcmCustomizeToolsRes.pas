@@ -26,7 +26,8 @@ const
  str_vcmetbpRight: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpRight'; rValue : 'Правая');
   {* 'Правая' }
  {* Карта преобразования локализованных строк ToolbarPos }
- ToolbarPosMap: array [TvcmEffectiveToolBarPos] of Pl3StringIDEx = (@str_vcmetbpTop
+ ToolbarPosMap: array [TvcmEffectiveToolBarPos] of Pl3StringIDEx = (
+ @str_vcmetbpTop
  , @str_vcmetbpBottom
  , @str_vcmetbpLeft
  , @str_vcmetbpRight

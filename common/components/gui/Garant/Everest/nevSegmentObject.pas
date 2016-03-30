@@ -1,37 +1,23 @@
 unit nevSegmentObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevSegmentObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Segments::TnevSegmentObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevSegmentObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevSegmentObject" MUID: (4E5FAE1700D5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  k2TagTool,
-  l3Variant,
-  l3Types,
-  l3Interfaces,
-  k2Interfaces,
-  k2Prim
-  ;
+ l3IntfUses
+ , k2TagTool
+ , nevBase
+ , l3Variant
+;
 
 type
  TnevSegmentObject = class(Tk2TagTool, InevObjectPrim)
- protected
- // realized methods
+  protected
    function pm_GetText: TnevStr;
    function pm_GetTabStops: InevTabStops;
    function pm_GetOffsetX: Integer;
@@ -39,42 +25,34 @@ type
    function pm_GetIsVertical: Boolean;
    function Get_OverlapType: TOverlapType;
    function IsLegalComment: Boolean;
-     {* Юридический комментарий? }
+    {* Юридический комментарий? }
    function IsDecorationElement: Boolean;
    function DecorObj(aType: TnevDecorType): Tl3Variant;
    function Get_HolderPrim: InevObjectHolderPrim;
    function Get_TreatCollapsedAsHidden: Boolean;
- public
- // realized methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   function NeedEvents: Boolean; override;
+    {* Нужно ли подписываться на события тегов }
+  public
+   constructor Create(aTag: Tl3Variant); reintroduce;
+   class function Make(aTag: Tl3Variant): InevObjectPrim; reintroduce;
    function IsHiddenPrim(aMap: TnevFormatInfoPrim;
     aHiddenStyles: TnevStandardStyles): Boolean;
    function IsList: Boolean;
    function NeedIncludeHeight(aCheckType: Boolean = True): Boolean;
-     {* Нужно ли учитывать высоту объекта при подсчете высоты родительского. }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
-   function NeedEvents: Boolean; override;
-     {* Нужно ли подписываться на события тегов }
- public
- // public methods
-   constructor Create(aTag: Tl3Variant); reintroduce;
-   class function Make(aTag: Tl3Variant): InevObjectPrim; reintroduce;
-     {* Сигнатура фабрики TnevSegmentObject.Make }
+    {* Нужно ли учитывать высоту объекта при подсчете высоты родительского. }
  end;//TnevSegmentObject
 
 implementation
 
 uses
-  l3Base,
-  l3String,
-  TextSegment_Const
-  ;
-
-// start class TnevSegmentObject
+ l3ImplUses
+ , l3String
+ , TextSegment_Const
+;
 
 constructor TnevSegmentObject.Create(aTag: Tl3Variant);
 //#UC START# *4E5FB49D0253_4E5FAE1700D5_var*
@@ -96,7 +74,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnevSegmentObject.Make
 
 function TnevSegmentObject.pm_GetText: TnevStr;
 //#UC START# *47C6AB1D02C0_4E5FAE1700D5get_var*
@@ -119,7 +97,7 @@ begin
 end;//TnevSegmentObject.pm_GetTabStops
 
 function TnevSegmentObject.IsHiddenPrim(aMap: TnevFormatInfoPrim;
-  aHiddenStyles: TnevStandardStyles): Boolean;
+ aHiddenStyles: TnevStandardStyles): Boolean;
 //#UC START# *49D0BBEE0383_4E5FAE1700D5_var*
 //#UC END# *49D0BBEE0383_4E5FAE1700D5_var*
 begin
@@ -179,6 +157,7 @@ begin
 end;//TnevSegmentObject.Get_OverlapType
 
 function TnevSegmentObject.NeedIncludeHeight(aCheckType: Boolean = True): Boolean;
+ {* Нужно ли учитывать высоту объекта при подсчете высоты родительского. }
 //#UC START# *49D105D10274_4E5FAE1700D5_var*
 //#UC END# *49D105D10274_4E5FAE1700D5_var*
 begin
@@ -189,6 +168,7 @@ begin
 end;//TnevSegmentObject.NeedIncludeHeight
 
 function TnevSegmentObject.IsLegalComment: Boolean;
+ {* Юридический комментарий? }
 //#UC START# *4B7BDCA502F7_4E5FAE1700D5_var*
 //#UC END# *4B7BDCA502F7_4E5FAE1700D5_var*
 begin
@@ -238,8 +218,9 @@ begin
 //#UC END# *4E6F7B7902C4_4E5FAE1700D5get_impl*
 end;//TnevSegmentObject.Get_TreatCollapsedAsHidden
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TnevSegmentObject.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4E5FAE1700D5_var*
 //#UC END# *47A6FEE600FC_4E5FAE1700D5_var*
 begin
@@ -247,9 +228,10 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4E5FAE1700D5_impl*
 end;//TnevSegmentObject.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TnevSegmentObject.NeedEvents: Boolean;
+ {* Нужно ли подписываться на события тегов }
 //#UC START# *4A48AFBD001D_4E5FAE1700D5_var*
 //#UC END# *4A48AFBD001D_4E5FAE1700D5_var*
 begin

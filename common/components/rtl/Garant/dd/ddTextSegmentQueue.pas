@@ -1,48 +1,32 @@
 unit ddTextSegmentQueue;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTextSegmentQueue.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Writers::TddTextSegmentQueue
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTextSegmentQueue.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTextSegmentQueue" MUID: (52DCDDEE0371)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddTextSegment,
-  ddTextSegmentsList
-  ;
+ l3IntfUses
+ , ddTextSegmentsList
+ , ddTextSegment
+;
 
 type
  TddTextSegmentQueue = class(TddTextSegmentsList)
- private
- // private fields
-   f_HyperlinkIndex : Integer;
-   f_BraceCount : Integer;
-    {* Поле для свойства BraceCount}
- private
- // private methods
+  private
+   f_HyperlinkIndex: Integer;
+   f_BraceCount: Integer;
+    {* Поле для свойства BraceCount }
+  private
    procedure ClearHyperlinkID(const aSeg: TddTextSegment);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // overridden public methods
-   procedure Clear; override;
- public
- // public methods
+  public
    function Pop: TddTextSegment;
    procedure Push(const aTextSegment: TddTextSegment);
    procedure IncBraceCount(aValue: Integer);
@@ -50,30 +34,19 @@ type
    function PopLast: TddTextSegment;
    function GetHyperlink: TddTextSegment;
    procedure MoveHyperlinkToBottom;
-     {* Переместить гиперссылку в конец очереди. }
- public
- // public properties
+    {* Переместить гиперссылку в конец очереди. }
+   procedure Clear; override;
+  public
    property BraceCount: Integer
-     read f_BraceCount;
+    read f_BraceCount;
  end;//TddTextSegmentQueue
 
 implementation
 
 uses
-  ddHyperlink
-  ;
-
-// start class TddTextSegmentQueue
-
-procedure TddTextSegmentQueue.ClearHyperlinkID(const aSeg: TddTextSegment);
-//#UC START# *52DE1ECE0311_52DCDDEE0371_var*
-//#UC END# *52DE1ECE0311_52DCDDEE0371_var*
-begin
-//#UC START# *52DE1ECE0311_52DCDDEE0371_impl*
- if (aSeg <> nil) and aSeg.IsHyperlink then
-  f_HyperlinkIndex := -1;
-//#UC END# *52DE1ECE0311_52DCDDEE0371_impl*
-end;//TddTextSegmentQueue.ClearHyperlinkID
+ l3ImplUses
+ , ddHyperlink
+;
 
 function TddTextSegmentQueue.Pop: TddTextSegment;
 //#UC START# *52DCDE4E003E_52DCDDEE0371_var*
@@ -145,7 +118,18 @@ begin
 //#UC END# *52DE04E903A9_52DCDDEE0371_impl*
 end;//TddTextSegmentQueue.GetHyperlink
 
+procedure TddTextSegmentQueue.ClearHyperlinkID(const aSeg: TddTextSegment);
+//#UC START# *52DE1ECE0311_52DCDDEE0371_var*
+//#UC END# *52DE1ECE0311_52DCDDEE0371_var*
+begin
+//#UC START# *52DE1ECE0311_52DCDDEE0371_impl*
+ if (aSeg <> nil) and aSeg.IsHyperlink then
+  f_HyperlinkIndex := -1;
+//#UC END# *52DE1ECE0311_52DCDDEE0371_impl*
+end;//TddTextSegmentQueue.ClearHyperlinkID
+
 procedure TddTextSegmentQueue.MoveHyperlinkToBottom;
+ {* Переместить гиперссылку в конец очереди. }
 //#UC START# *52DE217B02CB_52DCDDEE0371_var*
 //#UC END# *52DE217B02CB_52DCDDEE0371_var*
 begin
@@ -159,6 +143,7 @@ begin
 end;//TddTextSegmentQueue.MoveHyperlinkToBottom
 
 procedure TddTextSegmentQueue.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52DCDDEE0371_var*
 //#UC END# *479731C50290_52DCDDEE0371_var*
 begin

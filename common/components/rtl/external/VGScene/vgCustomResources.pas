@@ -1,37 +1,30 @@
 unit vgCustomResources;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/VGScene/vgCustomResources.pas"
-// Начат: 10.02.2011 21:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Core::TvgCustomResources
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgCustomResources.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomResources" MUID: (4D54299F035D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgComponent
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgComponent
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgCustomResources = {abstract} class(TvgComponent)
  end;//TvgCustomResources
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
+
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

@@ -1,65 +1,47 @@
 unit nevLeafRenderInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevLeafRenderInfo.pas"
-// Начат: 28.04.2008 15:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevLeafRenderInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafRenderInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafRenderInfo" MUID: (481F0442026B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevParaFormatInfo,
-  nevBase,
-  nevTools
-  ;
+ l3IntfUses
+ , nevParaFormatInfo
+ , nevTools
+ , nevBase
+;
 
 type
  TnevLeafRenderInfo = class(TnevParaFormatInfo)
- protected
- // realized methods
+  protected
+   function GetMaxLinesCount: Integer; override;
+   function pm_GetlocSpacing: TnevRect; override;
+  public
    procedure DoInvalidateShape(const aShape: InevObject;
     aParts: TnevShapeParts); override;
- protected
- // overridden property methods
-   function pm_GetLocSpacing: TnevRect; override;
- protected
- // overridden protected methods
-   function GetMaxLinesCount: Integer; override;
  end;//TnevLeafRenderInfo
 
 implementation
 
 uses
-  nevFacade,
-  l3String
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2Tags,
-  TableCell_Const,
-  Block_Const,
-  nevFormatInfo
-  ;
-
-// start class TnevLeafRenderInfo
+ l3ImplUses
+ , nevFacade
+ , l3String
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
+ , TableCell_Const
+ , Block_Const
+ , nevFormatInfo
+;
 
 procedure TnevLeafRenderInfo.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *48172A690313_481F0442026B_var*
 const
  cForce = [nev_ripHeight, nev_ripLines];
@@ -122,7 +104,7 @@ begin
 //#UC END# *4BC45843011E_481F0442026B_impl*
 end;//TnevLeafRenderInfo.GetMaxLinesCount
 
-function TnevLeafRenderInfo.pm_GetLocSpacing: TnevRect;
+function TnevLeafRenderInfo.pm_GetlocSpacing: TnevRect;
 //#UC START# *4E5F3D1102B8_481F0442026Bget_var*
 
  procedure CheckCells(const aPara : InevPara; var aRes: InevPara);
@@ -267,6 +249,6 @@ begin
      Result.Bottom := 0;
   end;//Result.Bottom > 0
 //#UC END# *4E5F3D1102B8_481F0442026Bget_impl*
-end;//TnevLeafRenderInfo.pm_GetLocSpacing
+end;//TnevLeafRenderInfo.pm_GetlocSpacing
 
 end.

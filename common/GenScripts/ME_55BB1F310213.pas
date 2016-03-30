@@ -23,12 +23,18 @@ uses
 ;
 
 type
+ TddCollapsed = (
+  dd_cbExpand
+  , dd_cbCollapsed
+  , dd_cbParentCollapsed
+ );//TddCollapsed
+
  TddBlockInfo = class(Tl3ProtoDataContainer)
   {* Свойства блока, нужные для выливки. }
   private
    f_StyleID: Integer;
     {* Поле для свойства StyleID }
-   f_Collapsed: Boolean;
+   f_Collapsed: TddCollapsed;
     {* Поле для свойства Collapsed }
    f_ParaID: Integer;
     {* Поле для свойства ParaID }
@@ -40,7 +46,7 @@ type
    property StyleID: Integer
     read f_StyleID
     write f_StyleID;
-   property Collapsed: Boolean
+   property Collapsed: TddCollapsed
     read f_Collapsed
     write f_Collapsed;
    property ParaID: Integer

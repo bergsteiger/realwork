@@ -155,52 +155,25 @@ type
  ILogEventData = interface
   {* Данные события логирования }
   ['{4B1A4AE4-7B43-471C-8FC0-94167B5706BC}']
-  procedure add_object(const data: IUnknown);
-  procedure add_string(data: PAnsiChar);
-  procedure add_ulong(data: Cardinal);
-  procedure add_date(const data: TDate);
-  procedure write_to_log(log_event: TLogEvent);
+  procedure AddObject(const data: IUnknown); stdcall;
+  procedure AddString(data: PAnsiChar); stdcall;
+  procedure AddUlong(data: Cardinal); stdcall;
+  procedure AddDate(const data: TDate); stdcall;
+  procedure WriteToLog(log_event: TLogEvent); stdcall;
    {* Записать в лог }
  end;//ILogEventData
 
  ILogManager = interface
   {* Менеджер записи в лог }
   ['{23621F05-BC03-409D-8EBB-53D5BB3E1D95}']
-  procedure add_event(log_event: TLogEvent;
-   var data: ILogEventData);
+  procedure AddEvent(log_event: TLogEvent;
+   var data: ILogEventData); stdcall;
  end;//ILogManager
-
-class function make: BadFactoryType;
-class function make: BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
-var
- l_Inst : ILogEventData;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : ILogManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

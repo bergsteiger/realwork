@@ -10,10 +10,11 @@ interface
 
 uses
  l3IntfUses
+ , l3Interfaces
+ , k2Interfaces
+ , nevBase
  , nevTools
  , l3Variant
- , l3Interfaces
- , nevBase
  , k2Base
 ;
 

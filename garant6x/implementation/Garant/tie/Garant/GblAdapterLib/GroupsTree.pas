@@ -1,39 +1,34 @@
 unit GroupsTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/GroupsTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::Security_i::GroupsTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\GroupsTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "GroupsTree" MUID: (49DF2E21014A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  ree
-  ;
+ l3IntfUses
+ , ree
+;
 
 type
  GroupsTree = class
- public
- // public methods
-   constructor Make(stree);
+  public
+   NodeType_: ;
+   NodeDelegateType_: ;
+  public
+   constructor Make(const stree); reintroduce; stdcall;
  end;//GroupsTree
 
 implementation
 
-// start class GroupsTree
+uses
+ l3ImplUses
+;
 
-constructor GroupsTree.Make(stree);
+constructor GroupsTree.Make(const stree);
 //#UC START# *49DF2E710165_49DF2E21014A_var*
 //#UC END# *49DF2E710165_49DF2E21014A_var*
 begin

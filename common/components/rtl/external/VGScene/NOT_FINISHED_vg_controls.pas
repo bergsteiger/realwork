@@ -35,7 +35,6 @@ type
  TvgCustomButton = class(TvgTextControl)
   private
    f_ModalResult: TModalResult;
-    {* Поле для свойства ModalResult }
   protected
    procedure pm_SetModalResult(aValue: TModalResult); virtual;
   public
@@ -47,9 +46,7 @@ type
  TvgButton = class(TvgCustomButton)
   private
    f_Default: Boolean;
-    {* Поле для свойства Default }
    f_Cancel: Boolean;
-    {* Поле для свойства Cancel }
   protected
    procedure pm_SetDefault(aValue: Boolean); virtual;
    procedure pm_SetCancel(aValue: Boolean); virtual;

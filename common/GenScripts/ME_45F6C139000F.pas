@@ -19,37 +19,37 @@ uses
 type
  DelegateNodeBase = {abstract} class(DefaultNodeBase)
   protected
-   function pm_Gethas_filtered_children: Boolean; virtual;
-   procedure pm_Sethas_filtered_children(aValue: Boolean); virtual;
-   procedure pm_Setmaster_node(aValue: RealNodeBase); virtual;
-   function cached_master_node: RealNodeBase; overload; virtual;
-   function cached_master_node: RealNodeBase; overload; virtual;
-   function apply_change_delta(var delta): Boolean; override;
-   function has_parent_flag(flag: TFlagMask): Boolean; override;
-   function get_flag_count(flag: TFlagMask): Cardinal; override;
-   function has_children_flag(flag: TFlagMask): Boolean; override;
-   function get_first_level_children_flag_count(flag: TFlagMask): Cardinal; override;
+   function GetHasFilteredChildren: ByteBool; virtual; stdcall;
+   procedure SetHasFilteredChildren(const aValue: ByteBool); virtual; stdcall;
+   procedure SetMasterNode(aValue: RealNodeBase); virtual; stdcall;
+   function CachedMasterNode: RealNodeBase; overload; virtual; stdcall;
+   function CachedMasterNode: RealNodeBase; overload; virtual; stdcall;
+   function ApplyChangeDelta(var delta): ByteBool; override;
+   function HasParentFlag(flag: TFlagMask): ByteBool; override;
+   function GetFlagCount(flag: TFlagMask): Cardinal; override;
+   function HasChildrenFlag(flag: TFlagMask): ByteBool; override;
+   function GetFirstLevelChildrenFlagCount(flag: TFlagMask): Cardinal; override;
   public
-   constructor make(var owner_tree: TreeBase); reintroduce; virtual;
-   procedure draw_node(level: unsigned integer;
-    index: unsigned integer); virtual;
-   procedure get_server_pointer; override;
-   function node_name: PAnsiChar; override;
-   procedure set_all_flag(flag: TFlagMask;
+   constructor Make(var owner_tree: TreeBase); reintroduce; virtual; stdcall;
+   procedure DrawNode(level: unsigned integer;
+    index: unsigned integer); virtual; stdcall;
+   procedure GetServerPointer; override;
+   function NodeName: PAnsiChar; override;
+   procedure SetAllFlag(flag: TFlagMask;
     value: Boolean;
     with_notify: Boolean); override;
-   function set_flag(flag: TFlagMask;
+   function SetFlag(flag: TFlagMask;
     value: Boolean;
-    with_notify: Boolean): Boolean; override;
-   function get_flags: TFlagMask; override;
-   function has_flag(flag: TFlagMask): Boolean; override;
+    with_notify: Boolean): ByteBool; override;
+   function GetFlags: TFlagMask; override;
+   function HasFlag(flag: TFlagMask): ByteBool; override;
   protected
-   property has_filtered_children: Boolean
-    read pm_Gethas_filtered_children
-    write pm_Sethas_filtered_children;
+   property HasFilteredChildren: ByteBool
+    read GetHasFilteredChildren
+    write SetHasFilteredChildren;
   public
-   property master_node: RealNodeBase
-    write pm_Setmaster_node;
+   property MasterNode: RealNodeBase
+    write SetMasterNode;
  end;//DelegateNodeBase
 
 implementation
@@ -58,43 +58,43 @@ uses
  l3ImplUses
 ;
 
-function DelegateNodeBase.pm_Gethas_filtered_children: Boolean;
+function DelegateNodeBase.GetHasFilteredChildren: ByteBool;
 //#UC START# *45FAC21A0148_45F6C139000Fget_var*
 //#UC END# *45FAC21A0148_45F6C139000Fget_var*
 begin
 //#UC START# *45FAC21A0148_45F6C139000Fget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FAC21A0148_45F6C139000Fget_impl*
-end;//DelegateNodeBase.pm_Gethas_filtered_children
+end;//DelegateNodeBase.GetHasFilteredChildren
 
-procedure DelegateNodeBase.pm_Sethas_filtered_children(aValue: Boolean);
+procedure DelegateNodeBase.SetHasFilteredChildren(const aValue: ByteBool);
 //#UC START# *45FAC21A0148_45F6C139000Fset_var*
 //#UC END# *45FAC21A0148_45F6C139000Fset_var*
 begin
 //#UC START# *45FAC21A0148_45F6C139000Fset_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FAC21A0148_45F6C139000Fset_impl*
-end;//DelegateNodeBase.pm_Sethas_filtered_children
+end;//DelegateNodeBase.SetHasFilteredChildren
 
-procedure DelegateNodeBase.pm_Setmaster_node(aValue: RealNodeBase);
+procedure DelegateNodeBase.SetMasterNode(aValue: RealNodeBase);
 //#UC START# *47D6BA2603CF_45F6C139000Fset_var*
 //#UC END# *47D6BA2603CF_45F6C139000Fset_var*
 begin
 //#UC START# *47D6BA2603CF_45F6C139000Fset_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47D6BA2603CF_45F6C139000Fset_impl*
-end;//DelegateNodeBase.pm_Setmaster_node
+end;//DelegateNodeBase.SetMasterNode
 
-constructor DelegateNodeBase.make(var owner_tree: TreeBase);
+constructor DelegateNodeBase.Make(var owner_tree: TreeBase);
 //#UC START# *45FA90EF02AF_45F6C139000F_var*
 //#UC END# *45FA90EF02AF_45F6C139000F_var*
 begin
 //#UC START# *45FA90EF02AF_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FA90EF02AF_45F6C139000F_impl*
-end;//DelegateNodeBase.make
+end;//DelegateNodeBase.Make
 
-procedure DelegateNodeBase.draw_node(level: unsigned integer;
+procedure DelegateNodeBase.DrawNode(level: unsigned integer;
  index: unsigned integer);
 //#UC START# *45FAC1A40222_45F6C139000F_var*
 //#UC END# *45FAC1A40222_45F6C139000F_var*
@@ -102,54 +102,54 @@ begin
 //#UC START# *45FAC1A40222_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FAC1A40222_45F6C139000F_impl*
-end;//DelegateNodeBase.draw_node
+end;//DelegateNodeBase.DrawNode
 
-function DelegateNodeBase.cached_master_node: RealNodeBase;
+function DelegateNodeBase.CachedMasterNode: RealNodeBase;
 //#UC START# *47D6B83A00BD_45F6C139000F_var*
 //#UC END# *47D6B83A00BD_45F6C139000F_var*
 begin
 //#UC START# *47D6B83A00BD_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47D6B83A00BD_45F6C139000F_impl*
-end;//DelegateNodeBase.cached_master_node
+end;//DelegateNodeBase.CachedMasterNode
 
-function DelegateNodeBase.cached_master_node: RealNodeBase;
+function DelegateNodeBase.CachedMasterNode: RealNodeBase;
 //#UC START# *47D6BE690392_45F6C139000F_var*
 //#UC END# *47D6BE690392_45F6C139000F_var*
 begin
 //#UC START# *47D6BE690392_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47D6BE690392_45F6C139000F_impl*
-end;//DelegateNodeBase.cached_master_node
+end;//DelegateNodeBase.CachedMasterNode
 
-procedure DelegateNodeBase.get_server_pointer;
+procedure DelegateNodeBase.GetServerPointer;
 //#UC START# *45F94B820290_45F6C139000F_var*
 //#UC END# *45F94B820290_45F6C139000F_var*
 begin
 //#UC START# *45F94B820290_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F94B820290_45F6C139000F_impl*
-end;//DelegateNodeBase.get_server_pointer
+end;//DelegateNodeBase.GetServerPointer
 
-function DelegateNodeBase.node_name: PAnsiChar;
+function DelegateNodeBase.NodeName: PAnsiChar;
 //#UC START# *45F94D570138_45F6C139000F_var*
 //#UC END# *45F94D570138_45F6C139000F_var*
 begin
 //#UC START# *45F94D570138_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F94D570138_45F6C139000F_impl*
-end;//DelegateNodeBase.node_name
+end;//DelegateNodeBase.NodeName
 
-function DelegateNodeBase.apply_change_delta(var delta): Boolean;
+function DelegateNodeBase.ApplyChangeDelta(var delta): ByteBool;
 //#UC START# *45F95B9A0000_45F6C139000F_var*
 //#UC END# *45F95B9A0000_45F6C139000F_var*
 begin
 //#UC START# *45F95B9A0000_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F95B9A0000_45F6C139000F_impl*
-end;//DelegateNodeBase.apply_change_delta
+end;//DelegateNodeBase.ApplyChangeDelta
 
-procedure DelegateNodeBase.set_all_flag(flag: TFlagMask;
+procedure DelegateNodeBase.SetAllFlag(flag: TFlagMask;
  value: Boolean;
  with_notify: Boolean);
 //#UC START# *45F80922032C_45F6C139000F_var*
@@ -158,71 +158,71 @@ begin
 //#UC START# *45F80922032C_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F80922032C_45F6C139000F_impl*
-end;//DelegateNodeBase.set_all_flag
+end;//DelegateNodeBase.SetAllFlag
 
-function DelegateNodeBase.set_flag(flag: TFlagMask;
+function DelegateNodeBase.SetFlag(flag: TFlagMask;
  value: Boolean;
- with_notify: Boolean): Boolean;
+ with_notify: Boolean): ByteBool;
 //#UC START# *45F8123602DE_45F6C139000F_var*
 //#UC END# *45F8123602DE_45F6C139000F_var*
 begin
 //#UC START# *45F8123602DE_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8123602DE_45F6C139000F_impl*
-end;//DelegateNodeBase.set_flag
+end;//DelegateNodeBase.SetFlag
 
-function DelegateNodeBase.get_flags: TFlagMask;
+function DelegateNodeBase.GetFlags: TFlagMask;
 //#UC START# *45F8124B0138_45F6C139000F_var*
 //#UC END# *45F8124B0138_45F6C139000F_var*
 begin
 //#UC START# *45F8124B0138_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8124B0138_45F6C139000F_impl*
-end;//DelegateNodeBase.get_flags
+end;//DelegateNodeBase.GetFlags
 
-function DelegateNodeBase.has_flag(flag: TFlagMask): Boolean;
+function DelegateNodeBase.HasFlag(flag: TFlagMask): ByteBool;
 //#UC START# *45F9305601F4_45F6C139000F_var*
 //#UC END# *45F9305601F4_45F6C139000F_var*
 begin
 //#UC START# *45F9305601F4_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9305601F4_45F6C139000F_impl*
-end;//DelegateNodeBase.has_flag
+end;//DelegateNodeBase.HasFlag
 
-function DelegateNodeBase.has_parent_flag(flag: TFlagMask): Boolean;
+function DelegateNodeBase.HasParentFlag(flag: TFlagMask): ByteBool;
 //#UC START# *45F951DC0242_45F6C139000F_var*
 //#UC END# *45F951DC0242_45F6C139000F_var*
 begin
 //#UC START# *45F951DC0242_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F951DC0242_45F6C139000F_impl*
-end;//DelegateNodeBase.has_parent_flag
+end;//DelegateNodeBase.HasParentFlag
 
-function DelegateNodeBase.get_flag_count(flag: TFlagMask): Cardinal;
+function DelegateNodeBase.GetFlagCount(flag: TFlagMask): Cardinal;
 //#UC START# *45F9522101A5_45F6C139000F_var*
 //#UC END# *45F9522101A5_45F6C139000F_var*
 begin
 //#UC START# *45F9522101A5_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9522101A5_45F6C139000F_impl*
-end;//DelegateNodeBase.get_flag_count
+end;//DelegateNodeBase.GetFlagCount
 
-function DelegateNodeBase.has_children_flag(flag: TFlagMask): Boolean;
+function DelegateNodeBase.HasChildrenFlag(flag: TFlagMask): ByteBool;
 //#UC START# *45FA5936035B_45F6C139000F_var*
 //#UC END# *45FA5936035B_45F6C139000F_var*
 begin
 //#UC START# *45FA5936035B_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FA5936035B_45F6C139000F_impl*
-end;//DelegateNodeBase.has_children_flag
+end;//DelegateNodeBase.HasChildrenFlag
 
-function DelegateNodeBase.get_first_level_children_flag_count(flag: TFlagMask): Cardinal;
+function DelegateNodeBase.GetFirstLevelChildrenFlagCount(flag: TFlagMask): Cardinal;
 //#UC START# *4677A98A0290_45F6C139000F_var*
 //#UC END# *4677A98A0290_45F6C139000F_var*
 begin
 //#UC START# *4677A98A0290_45F6C139000F_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4677A98A0290_45F6C139000F_impl*
-end;//DelegateNodeBase.get_first_level_children_flag_count
+end;//DelegateNodeBase.GetFirstLevelChildrenFlagCount
 
 end.

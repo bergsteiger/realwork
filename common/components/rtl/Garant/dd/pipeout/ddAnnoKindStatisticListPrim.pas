@@ -1,39 +1,29 @@
 unit ddAnnoKindStatisticListPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/PipeOut/ddAnnoKindStatisticListPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::PipeOut::TddAnnoKindStatisticListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddAnnoKindStatisticListPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAnnoKindStatisticListPrim" MUID: (564C65EC0136)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoDataContainer,
-  ddPipeOutInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-
- {$Define l3Items_HasCustomSort}
+ l3IntfUses
+ , l3ProtoDataContainer
+ , ddPipeOutInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 const
-  { Constants }
  dd_siByName = 1;
+
+ {$Define l3Items_HasCustomSort}
 
 type
  _ItemType_ = IddAnnoKindSortItem;
@@ -46,26 +36,24 @@ type
 implementation
 
 uses
-  l3String,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3String
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-// start class TddAnnoKindStatisticListPrim
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_564C65EC0136_var*
 //#UC END# *47B07CF403D0_564C65EC0136_var*
 begin
@@ -73,11 +61,11 @@ begin
  Result := (A.ID = B.ID);
 //#UC END# *47B07CF403D0_564C65EC0136_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_564C65EC0136_var*
 //#UC END# *47B2C42A0163_564C65EC0136_var*
 begin
@@ -85,9 +73,10 @@ begin
  Assert(False, 'TddAnnoKindStatisticListPrim.AssignItem');
 //#UC END# *47B2C42A0163_564C65EC0136_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_564C65EC0136_var*
 //#UC END# *47B99D4503A2_564C65EC0136_var*
 begin

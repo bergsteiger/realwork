@@ -1,50 +1,38 @@
 unit vcmEntityFormsIterable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmEntityFormsIterable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Containers::TvcmEntityFormsIterable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmEntityFormsIterable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityFormsIterable" MUID: (53D1DC9C03E7)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmIEntityFormPtrList,
-  vcmBaseTypes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmIEntityFormPtrList
+ , vcmInterfaces
+ , vcmBaseTypes
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmEntityFormsIterable = class(TvcmIEntityFormPtrList, IvcmEntityFormsIterable)
- protected
- // realized methods
+  protected
    function pm_GetFormsCount: Integer;
    procedure IterateFormsF(anAction: TvcmIteratorAction);
    procedure AddForm(const aForm: IvcmEntityForm);
- public
- // public methods
+  public
    class function Make: IvcmEntityFormsIterable; reintroduce;
  end;//TvcmEntityFormsIterable
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-
-// start class TvcmEntityFormsIterable
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 class function TvcmEntityFormsIterable.Make: IvcmEntityFormsIterable;
 var
@@ -56,7 +44,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmEntityFormsIterable.Make
 
 function TvcmEntityFormsIterable.pm_GetFormsCount: Integer;
 //#UC START# *53D1DB0203E2_53D1DC9C03E7get_var*
@@ -84,7 +72,6 @@ begin
  Add(aForm);
 //#UC END# *53D1EB8703D2_53D1DC9C03E7_impl*
 end;//TvcmEntityFormsIterable.AddForm
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

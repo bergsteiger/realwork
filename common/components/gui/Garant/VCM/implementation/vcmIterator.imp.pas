@@ -1,47 +1,37 @@
 {$IfNDef vcmIterator_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmIterator.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmIterator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmIterator" MUID: (5582BCBE00C3)
+// Имя типа: "_vcmIterator_"
 
 {$Define vcmIterator_imp}
-{$If not defined(NoVCM)}
- _vcmIterator_ = {mixin} class(TvcmCacheableBase)
- private
- // private fields
-   f_List : _ListType_;
-   f_Index : Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM)}
+ _vcmIterator_ = class(TvcmCacheableBase)
+  private
+   f_List: _ListType_;
+   f_Index: Integer;
+  protected
    function GetNext: _ItemType_;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aList: _ListType_); reintroduce;
  end;//_vcmIterator_
-{$Else}
 
- _vcmIterator_ = TvcmCacheableBase;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_vcmIterator_ = TvcmCacheableBase;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmIterator_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmIterator_imp_impl}
 
-// start class _vcmIterator_
+{$Define vcmIterator_imp_impl}
 
+{$If NOT Defined(NoVCM)}
 function _vcmIterator_.GetNext: _ItemType_;
 //#UC START# *5582BF2101BD_5582BCBE00C3_var*
 //#UC END# *5582BF2101BD_5582BCBE00C3_var*
@@ -68,6 +58,7 @@ begin
 end;//_vcmIterator_.Create
 
 procedure _vcmIterator_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5582BCBE00C3_var*
 //#UC END# *479731C50290_5582BCBE00C3_var*
 begin
@@ -77,7 +68,9 @@ begin
  inherited;
 //#UC END# *479731C50290_5582BCBE00C3_impl*
 end;//_vcmIterator_.Cleanup
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmIterator_imp_impl}
 
 {$EndIf vcmIterator_imp}
+

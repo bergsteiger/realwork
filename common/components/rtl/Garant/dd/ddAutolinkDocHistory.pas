@@ -1,71 +1,64 @@
 unit ddAutolinkDocHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAutolinkDocHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Autolink::TddAutolinkDocHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkDocHistory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAutolinkDocHistory" MUID: (4E955BA0010F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dt_Types,
-  l3ProtoObject,
-  ddAutolinkInterfaces,
-  ddAutolinkDocEntryList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , ddAutolinkDocEntryList
+ , ddAutolinkInterfaces
+ , dt_Types
+;
 
 type
  TddAutolinkDocHistory = class(Tl3ProtoObject)
- private
- // private fields
-   f_List : TddAutolinkDocEntryList;
-   f_FZType : TDictID;
-    {* тип документа "федеральный закон"}
-   f_ZType : TDictID;
-    {* тип документа "закон"}
- protected
- // property methods
+  private
+   f_List: TddAutolinkDocEntryList;
+   f_FZType: TDictID;
+    {* тип документа "федеральный закон" }
+   f_ZType: TDictID;
+    {* тип документа "закон" }
+  protected
    function pm_GetEntry(aIndex: Integer): IddAutolinkDocEntry;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aFZType: TDictID;
-     aZType: TDictID); reintroduce;
+    aZType: TDictID); reintroduce;
    procedure AddEntry(const anEntry: IddAutolinkDocEntry);
    procedure Clear;
    function FindBySubEntry(const aSubEntry: IddAutolinkDocEntry): Integer;
    procedure MoveToTop(aIndex: Integer);
- public
- // public properties
+  public
    property Entry[aIndex: Integer]: IddAutolinkDocEntry
-     read pm_GetEntry;
+    read pm_GetEntry;
  end;//TddAutolinkDocHistory
 
 implementation
 
 uses
-  SysUtils,
-  l3String
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3String
+;
 
-// start class TddAutolinkDocHistory
+function TddAutolinkDocHistory.pm_GetEntry(aIndex: Integer): IddAutolinkDocEntry;
+//#UC START# *4E95799B002F_4E955BA0010Fget_var*
+//#UC END# *4E95799B002F_4E955BA0010Fget_var*
+begin
+//#UC START# *4E95799B002F_4E955BA0010Fget_impl*
+ Result := f_List.Items[aIndex];
+//#UC END# *4E95799B002F_4E955BA0010Fget_impl*
+end;//TddAutolinkDocHistory.pm_GetEntry
 
 constructor TddAutolinkDocHistory.Create(aFZType: TDictID;
-  aZType: TDictID);
+ aZType: TDictID);
 //#UC START# *4E95651B016A_4E955BA0010F_var*
 //#UC END# *4E95651B016A_4E955BA0010F_var*
 begin
@@ -135,16 +128,8 @@ begin
 //#UC END# *4E95832702CC_4E955BA0010F_impl*
 end;//TddAutolinkDocHistory.MoveToTop
 
-function TddAutolinkDocHistory.pm_GetEntry(aIndex: Integer): IddAutolinkDocEntry;
-//#UC START# *4E95799B002F_4E955BA0010Fget_var*
-//#UC END# *4E95799B002F_4E955BA0010Fget_var*
-begin
-//#UC START# *4E95799B002F_4E955BA0010Fget_impl*
- Result := f_List.Items[aIndex];
-//#UC END# *4E95799B002F_4E955BA0010Fget_impl*
-end;//TddAutolinkDocHistory.pm_GetEntry
-
 procedure TddAutolinkDocHistory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E955BA0010F_var*
 //#UC END# *479731C50290_4E955BA0010F_var*
 begin

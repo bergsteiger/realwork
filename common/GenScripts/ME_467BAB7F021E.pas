@@ -12,11 +12,11 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , l3TreeInterfaces
  , afwInterfaces
- , l3Interfaces
- , l3PureMixIns
+ , l3TreeInterfaces
  , l3Core
+ , l3PureMixIns
+ , l3Interfaces
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)

@@ -1,125 +1,144 @@
 unit ddCustomRTFReader;
+ {* Попытка разделить TddRTFReader на две части, чтобы используемые в нем классы могли знать об нем. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddCustomRTFReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TddCustomRTFReader
-//
-// Попытка разделить TddRTFReader на две части, чтобы используемые в нем классы могли знать об нем.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddCustomRTFReader.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddCustomRTFReader" MUID: (51E7BF4200C0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  Graphics,
-  ddDocumentAtom,
-  RTFtypes,
-  rtfListTable,
-  ddLowLevelRTF,
-  ddRTFProperties,
-  ddPicture
-  ;
+ l3IntfUses
+ , ddLowLevelRTF
+ , rtfListTable
+ , Graphics
+ , ddRTFProperties
+ , ddDocumentAtom
+ , RTFtypes
+ , ddPicture
+;
 
 type
  TddCustomRTFReader = {final} class(TddRTFParser)
   {* Попытка разделить TddRTFReader на две части, чтобы используемые в нем классы могли знать об нем. }
- private
- // private fields
-   f_SkipPicture : Boolean;
-    {* Поле для свойства SkipPicture}
-   f_EnablePictures : Boolean;
-    {* Поле для свойства EnablePictures}
-   f_ReadWMFIfExists : Boolean;
-    {* Поле для свойства ReadWMFIfExists}
-   f_NextFootnoteNumber : Integer;
-    {* Поле для свойства NextFootnoteNumber}
-   f_MinPicWidth : Integer;
-    {* Поле для свойства MinPicWidth}
-   f_MinPicHeight : Integer;
-    {* Поле для свойства MinPicHeight}
-   f_IdenticalRowWidths : Boolean;
-    {* Поле для свойства IdenticalRowWidths}
-   f_ReadURL : Boolean;
-    {* Поле для свойства ReadURL}
- protected
- // property methods
+  private
+   f_SkipPicture: Boolean;
+    {* Поле для свойства SkipPicture }
+   f_EnablePictures: Boolean;
+    {* Поле для свойства EnablePictures }
+   f_ReadWMFIfExists: Boolean;
+    {* Поле для свойства ReadWMFIfExists }
+   f_NextFootnoteNumber: Integer;
+    {* Поле для свойства NextFootnoteNumber }
+   f_MinPicWidth: Integer;
+    {* Поле для свойства MinPicWidth }
+   f_MinPicHeight: Integer;
+    {* Поле для свойства MinPicHeight }
+   f_IdenticalRowWidths: Boolean;
+    {* Поле для свойства IdenticalRowWidths }
+   f_ReadURL: Boolean;
+    {* Поле для свойства ReadURL }
+  protected
    procedure pm_SetMinPicWidth(aValue: Integer); virtual;
    procedure pm_SetMinPicHeight(aValue: Integer);
    procedure pm_SetIdenticalRowWidths(aValue: Boolean);
    procedure pm_SetReadURL(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    function ListByID(aID: Integer;
-     out aWasRestart: Boolean): TrtfList; virtual;
+    out aWasRestart: Boolean): TrtfList; virtual;
    function ColorByIndex(anIndex: Integer): TColor; virtual;
    function StyleByNumber(aNumber: Integer): TddStyleEntry; virtual;
    function GetFonts(anID: Integer): TddFontEntry; virtual;
    procedure BeforeClosePara(const aPara: TddDocumentAtom;
-     var aNewStyle: Integer); virtual; abstract;
+    var aNewStyle: Integer); virtual; abstract;
    function NeedSkip(aPicture: TddPicture): TRTFPictureSkip;
    procedure IncNextFootnoteNumber;
    procedure AddFooterHyperlink; virtual; abstract;
    procedure FootNoteSymbol; virtual; abstract;
- public
- // public properties
+  public
    property SkipPicture: Boolean
-     read f_SkipPicture
-     write f_SkipPicture;
-     {* Флаг для пропуска картинки в процессе чтения. }
+    read f_SkipPicture
+    write f_SkipPicture;
+    {* Флаг для пропуска картинки в процессе чтения. }
    property EnablePictures: Boolean
-     read f_EnablePictures
-     write f_EnablePictures;
-     {* Читать картинки. }
+    read f_EnablePictures
+    write f_EnablePictures;
+    {* Читать картинки. }
    property ReadWMFIfExists: Boolean
-     read f_ReadWMFIfExists
-     write f_ReadWMFIfExists;
-     {* Читать WMF-файлы, вместо растровых картинок (если такое возможно) }
+    read f_ReadWMFIfExists
+    write f_ReadWMFIfExists;
+    {* Читать WMF-файлы, вместо растровых картинок (если такое возможно) }
    property NextFootnoteNumber: Integer
-     read f_NextFootnoteNumber
-     write f_NextFootnoteNumber;
+    read f_NextFootnoteNumber
+    write f_NextFootnoteNumber;
    property MinPicWidth: Integer
-     read f_MinPicWidth
-     write pm_SetMinPicWidth;
-     {* Если у картники меньше ширина, то такая картинка не добавляется в документ. }
+    read f_MinPicWidth
+    write pm_SetMinPicWidth;
+    {* Если у картники меньше ширина, то такая картинка не добавляется в документ. }
    property MinPicHeight: Integer
-     read f_MinPicHeight
-     write pm_SetMinPicHeight;
-     {* Если у картники меньше высота, то такая картинка не добавляется в документ. }
+    read f_MinPicHeight
+    write pm_SetMinPicHeight;
+    {* Если у картники меньше высота, то такая картинка не добавляется в документ. }
    property IdenticalRowWidths: Boolean
-     read f_IdenticalRowWidths
-     write pm_SetIdenticalRowWidths;
-     {* Делать ширину ячеек одинаковой (дополняя справа ячейками без границ). Для вставки в комментарии. }
+    read f_IdenticalRowWidths
+    write pm_SetIdenticalRowWidths;
+    {* Делать ширину ячеек одинаковой (дополняя справа ячейками без границ). Для вставки в комментарии. }
    property ReadURL: Boolean
-     read f_ReadURL
-     write pm_SetReadURL;
-     {* Читать гиперссылки. Ссылка добавляется в поле URL. }
+    read f_ReadURL
+    write pm_SetReadURL;
+    {* Читать гиперссылки. Ссылка добавляется в поле URL. }
  end;//TddCustomRTFReader
 
 implementation
 
 uses
-  ddConst
-  ;
+ l3ImplUses
+ , ddConst
+;
 
-// start class TddCustomRTFReader
+procedure TddCustomRTFReader.pm_SetMinPicWidth(aValue: Integer);
+//#UC START# *56023F490306_51E7BF4200C0set_var*
+//#UC END# *56023F490306_51E7BF4200C0set_var*
+begin
+//#UC START# *56023F490306_51E7BF4200C0set_impl*
+ f_MinPicWidth := aValue;
+//#UC END# *56023F490306_51E7BF4200C0set_impl*
+end;//TddCustomRTFReader.pm_SetMinPicWidth
+
+procedure TddCustomRTFReader.pm_SetMinPicHeight(aValue: Integer);
+//#UC START# *56023F7A0028_51E7BF4200C0set_var*
+//#UC END# *56023F7A0028_51E7BF4200C0set_var*
+begin
+//#UC START# *56023F7A0028_51E7BF4200C0set_impl*
+ f_MinPicHeight := aValue;
+//#UC END# *56023F7A0028_51E7BF4200C0set_impl*
+end;//TddCustomRTFReader.pm_SetMinPicHeight
+
+procedure TddCustomRTFReader.pm_SetIdenticalRowWidths(aValue: Boolean);
+//#UC START# *56162C9F01E8_51E7BF4200C0set_var*
+//#UC END# *56162C9F01E8_51E7BF4200C0set_var*
+begin
+//#UC START# *56162C9F01E8_51E7BF4200C0set_impl*
+ f_IdenticalRowWidths := aValue;
+//#UC END# *56162C9F01E8_51E7BF4200C0set_impl*
+end;//TddCustomRTFReader.pm_SetIdenticalRowWidths
+
+procedure TddCustomRTFReader.pm_SetReadURL(aValue: Boolean);
+//#UC START# *56A86CFB0055_51E7BF4200C0set_var*
+//#UC END# *56A86CFB0055_51E7BF4200C0set_var*
+begin
+//#UC START# *56A86CFB0055_51E7BF4200C0set_impl*
+ f_ReadURL := aValue;
+//#UC END# *56A86CFB0055_51E7BF4200C0set_impl*
+end;//TddCustomRTFReader.pm_SetReadURL
 
 function TddCustomRTFReader.ListByID(aID: Integer;
-  out aWasRestart: Boolean): TrtfList;
+ out aWasRestart: Boolean): TrtfList;
 //#UC START# *51E7C1E90092_51E7BF4200C0_var*
 //#UC END# *51E7C1E90092_51E7BF4200C0_var*
 begin
@@ -186,43 +205,8 @@ begin
 //#UC END# *55012D100317_51E7BF4200C0_impl*
 end;//TddCustomRTFReader.IncNextFootnoteNumber
 
-procedure TddCustomRTFReader.pm_SetMinPicWidth(aValue: Integer);
-//#UC START# *56023F490306_51E7BF4200C0set_var*
-//#UC END# *56023F490306_51E7BF4200C0set_var*
-begin
-//#UC START# *56023F490306_51E7BF4200C0set_impl*
- f_MinPicWidth := aValue;
-//#UC END# *56023F490306_51E7BF4200C0set_impl*
-end;//TddCustomRTFReader.pm_SetMinPicWidth
-
-procedure TddCustomRTFReader.pm_SetMinPicHeight(aValue: Integer);
-//#UC START# *56023F7A0028_51E7BF4200C0set_var*
-//#UC END# *56023F7A0028_51E7BF4200C0set_var*
-begin
-//#UC START# *56023F7A0028_51E7BF4200C0set_impl*
- f_MinPicHeight := aValue;
-//#UC END# *56023F7A0028_51E7BF4200C0set_impl*
-end;//TddCustomRTFReader.pm_SetMinPicHeight
-
-procedure TddCustomRTFReader.pm_SetIdenticalRowWidths(aValue: Boolean);
-//#UC START# *56162C9F01E8_51E7BF4200C0set_var*
-//#UC END# *56162C9F01E8_51E7BF4200C0set_var*
-begin
-//#UC START# *56162C9F01E8_51E7BF4200C0set_impl*
- f_IdenticalRowWidths := aValue;
-//#UC END# *56162C9F01E8_51E7BF4200C0set_impl*
-end;//TddCustomRTFReader.pm_SetIdenticalRowWidths
-
-procedure TddCustomRTFReader.pm_SetReadURL(aValue: Boolean);
-//#UC START# *56A86CFB0055_51E7BF4200C0set_var*
-//#UC END# *56A86CFB0055_51E7BF4200C0set_var*
-begin
-//#UC START# *56A86CFB0055_51E7BF4200C0set_impl*
- f_ReadURL := aValue;
-//#UC END# *56A86CFB0055_51E7BF4200C0set_impl*
-end;//TddCustomRTFReader.pm_SetReadURL
-
 procedure TddCustomRTFReader.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51E7BF4200C0_var*
 //#UC END# *479731C50290_51E7BF4200C0_var*
 begin

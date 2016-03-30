@@ -1,66 +1,55 @@
 unit vcmCommandIDsList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmCommandIDsList.pas"
-// Начат: 20.08.2009 20:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Containers::TvcmCommandIDsList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmCommandIDsList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmCommandIDsList" MUID: (4A8D76720025)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmCommandIDsListPrim
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmCommandIDsListPrim
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmCommandIDsList = {final} class(TvcmCommandIDsListPrim)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvcmCommandIDsList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmCommandIDsList }
  end;//TvcmCommandIDsList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCM)}
-
-
-// start class TvcmCommandIDsList
-
-var g_TvcmCommandIDsList : TvcmCommandIDsList = nil;
+var g_TvcmCommandIDsList: TvcmCommandIDsList = nil;
+ {* Экземпляр синглетона TvcmCommandIDsList }
 
 procedure TvcmCommandIDsListFree;
+ {* Метод освобождения экземпляра синглетона TvcmCommandIDsList }
 begin
  l3Free(g_TvcmCommandIDsList);
-end;
+end;//TvcmCommandIDsListFree
+
+class function TvcmCommandIDsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmCommandIDsList <> nil;
+end;//TvcmCommandIDsList.Exists
 
 class function TvcmCommandIDsList.Instance: TvcmCommandIDsList;
+ {* Метод получения экземпляра синглетона TvcmCommandIDsList }
 begin
  if (g_TvcmCommandIDsList = nil) then
  begin
@@ -68,15 +57,7 @@ begin
   g_TvcmCommandIDsList := Create;
  end;
  Result := g_TvcmCommandIDsList;
-end;
-
-
-class function TvcmCommandIDsList.Exists: Boolean;
- {-}
-begin
- Result := g_TvcmCommandIDsList <> nil;
-end;//TvcmCommandIDsList.Exists
-
-{$IfEnd} //not NoVCM
+end;//TvcmCommandIDsList.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

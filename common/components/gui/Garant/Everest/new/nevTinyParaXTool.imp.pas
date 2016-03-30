@@ -1,45 +1,37 @@
 {$IfNDef nevTinyParaXTool_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevTinyParaXTool.imp.pas"
-// Начат: 16.04.2009 20:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::nevUtils::nevTinyParaXTool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevTinyParaXTool" MUID: (49E7612601CC)
+// Имя типа: "_nevTinyParaXTool_"
 
 {$Define nevTinyParaXTool_imp}
- _nevTinyParaXTool_ = {mixin} class(Tl3ProtoObject)
- private
- // private fields
-   f_ParaX : _X_;
-    {* Поле для свойства ParaX}
- protected
- // overridden protected methods
+
+ // _X_
+
+ _nevTinyParaXTool_ = class(Tl3ProtoObject)
+  private
+   f_ParaX: _X_;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
+  public
    constructor Create(aTag: Tl3Variant); reintroduce;
- protected
- // protected properties
+  protected
    property ParaX: _X_
-     read f_ParaX;
+    read f_ParaX;
  end;//_nevTinyParaXTool_
 
 {$Else nevTinyParaXTool_imp}
 
-// start class _nevTinyParaXTool_
+{$IfNDef nevTinyParaXTool_imp_impl}
+
+{$Define nevTinyParaXTool_imp_impl}
 
 constructor _nevTinyParaXTool_.Create(aTag: Tl3Variant);
 //#UC START# *49E7692B0058_49E7612601CC_var*
@@ -56,6 +48,7 @@ begin
 end;//_nevTinyParaXTool_.Create
 
 procedure _nevTinyParaXTool_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49E7612601CC_var*
 //#UC END# *479731C50290_49E7612601CC_var*
 begin
@@ -65,8 +58,9 @@ begin
 //#UC END# *479731C50290_49E7612601CC_impl*
 end;//_nevTinyParaXTool_.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function _nevTinyParaXTool_.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_49E7612601CC_var*
 //#UC END# *47A6FEE600FC_49E7612601CC_var*
 begin
@@ -74,6 +68,15 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_49E7612601CC_impl*
 end;//_nevTinyParaXTool_.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure _nevTinyParaXTool_.ClearFields;
+begin
+ Finalize(f_ParaX);
+ inherited;
+end;//_nevTinyParaXTool_.ClearFields
+
+{$EndIf nevTinyParaXTool_imp_impl}
 
 {$EndIf nevTinyParaXTool_imp}
+

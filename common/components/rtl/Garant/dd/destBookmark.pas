@@ -1,68 +1,53 @@
 unit destBookmark;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destBookmark.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestBookmark
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destBookmark.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestBookmark" MUID: (56A9F17B003C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  ddRTFdestination,
-  ddRTFState,
-  ddCustomRTFReader,
-  RTFtypes
-  ;
+ l3IntfUses
+ , ddRTFdestination
+ , l3Base
+ , ddRTFState
+ , RTFtypes
+ , ddCustomRTFReader
+;
 
 type
  TdestBookmark = class(TddRTFDestination)
- private
- // private fields
-   f_Text : Tl3String;
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
+  private
+   f_Text: Tl3String;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
    procedure Clear; override;
    procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    procedure AddString(aText: Tl3String;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    constructor Create(aRTFReader: TddCustomRTFReader); override;
  end;//TdestBookmark
 
 implementation
 
 uses
-  destNorm,
-  SysUtils
-  ;
-
-// start class TdestBookmark
+ l3ImplUses
+ , destNorm
+ , SysUtils
+;
 
 procedure TdestBookmark.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_56A9F17B003C_var*
 //#UC END# *5461BEC2017D_56A9F17B003C_var*
 begin
@@ -76,8 +61,8 @@ begin
 end;//TdestBookmark.Close
 
 procedure TdestBookmark.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_56A9F17B003C_var*
 //#UC END# *54E1F08400F9_56A9F17B003C_var*
 begin
@@ -86,6 +71,7 @@ begin
 end;//TdestBookmark.WriteText
 
 procedure TdestBookmark.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56A9F17B003C_var*
 //#UC END# *479731C50290_56A9F17B003C_var*
 begin
@@ -106,7 +92,7 @@ begin
 end;//TdestBookmark.Clear
 
 procedure TdestBookmark.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_56A9F17B003C_var*
 //#UC END# *51D27C0402E9_56A9F17B003C_var*
 begin
@@ -116,7 +102,7 @@ begin
 end;//TdestBookmark.AddAnsiChar
 
 procedure TdestBookmark.AddString(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C3302EC_56A9F17B003C_var*
 //#UC END# *51D27C3302EC_56A9F17B003C_var*
 begin

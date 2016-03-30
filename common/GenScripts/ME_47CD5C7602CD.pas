@@ -11,10 +11,10 @@ interface
 
 uses
  l3IntfUses
- , nevTools
  , l3Interfaces
- , evdTypes
  , nevBase
+ , evdTypes
+ , nevTools
  , l3PureMixIns
  , l3Variant
  , l3Types

@@ -1,41 +1,31 @@
 unit ddHexCharReader;
+ {* Читает только шестнадцатиричные символы из потока. Если они представлены в верхнем регистре - переводит в нижний. Всякий мусор пропускает. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddHexCharReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddHexCharReader
-//
-// Читает только шестнадцатиричные символы из потока. Если они представлены в верхнем регистре -
-// переводит в нижний. Всякий мусор пропускает.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddHexCharReader.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddHexCharReader" MUID: (5604FA0C031A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3CharSkipper
-  ;
+ l3IntfUses
+ , l3CharSkipper
+;
 
 type
  TddHexCharReader = class(Tl3CharSkipper)
   {* Читает только шестнадцатиричные символы из потока. Если они представлены в верхнем регистре - переводит в нижний. Всякий мусор пропускает. }
- public
- // overridden public methods
+  public
    function GetChar: AnsiChar; override;
  end;//TddHexCharReader
 
 implementation
 
-// start class TddHexCharReader
+uses
+ l3ImplUses
+;
 
 function TddHexCharReader.GetChar: AnsiChar;
 //#UC START# *5604FBB600CF_5604FA0C031A_var*

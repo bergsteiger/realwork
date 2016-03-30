@@ -1,69 +1,58 @@
 unit vcmFormSet;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormSet.pas"
-// Начат: 29.07.2005 11.37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmFormSet
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSet.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSet" MUID: (5087BD37023E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  vcmAggregate,
-  vcmFormSetFormItemList,
-  vcmFormSetRefreshDataParamsList,
-  vcmBaseTypes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmAggregate
+ , vcmInterfaces
+ , vcmFormSetRefreshDataParamsList
+ , vcmFormSetFormItemList
+ , vcmExternalInterfaces
+ , vcmBaseTypes
+;
 
-{$If not defined(NoVCM)}
 type
  RvcmFormSet = class of TvcmFormSet;
 
  TvcmFormSet = class(TvcmAggregate, IvcmFormSet)
- private
- // private fields
-   f_Factory : IvcmFormSetFactory;
-   f_Container : Pointer;
-   f_CanRefresh : Boolean;
-   f_DataSource : Integer;
-   f_RefreshStack : TvcmFormSetRefreshDataParamsList;
-    {* Поле для свойства RefreshStack}
-   f_Forms : TvcmFormSetFormList;
-    {* Поле для свойства Forms}
- protected
- // property methods
+  private
+   f_Factory: IvcmFormSetFactory;
+   f_Container: Pointer;
+   f_CanRefresh: Boolean;
+   f_DataSource: Integer;
+   f_RefreshStack: TvcmFormSetRefreshDataParamsList;
+    {* Поле для свойства RefreshStack }
+   f_Forms: TvcmFormSetFormList;
+    {* Поле для свойства Forms }
+  protected
    function pm_GetRefreshStack: TvcmFormSetRefreshDataParamsList;
    function pm_GetForms: TvcmFormSetFormList;
- protected
- // realized methods
+   procedure FormListAssigned; virtual;
+   function DoGetFormSetCaption: IvcmCString; virtual;
+   function DoGetFormSetTabCaption: IvcmCString; virtual;
+   function DoGetFormSetTabHint: IvcmCString; virtual;
+   function DoGetCanBeCloned: Boolean; virtual;
+   function DoGetCanBeSavedToHistory: Boolean; virtual;
    procedure Refresh(const aParams: IvcmFormSetRefreshDataParams);
-     {* обновляет представление сборки }
+    {* обновляет представление сборки }
    procedure SaveHistory;
-     {* сохраняет сборку в историю }
+    {* сохраняет сборку в историю }
    function IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
-     {* является ли форма главной в сборке }
+    {* является ли форма главной в сборке }
    function FindStatusInfoForm: IvcmEntityForm;
-     {* найти форму отвечающую за вывод статуса }
+    {* найти форму отвечающую за вывод статуса }
    procedure PopToHistory;
-     {* сборка помещена в историю }
+    {* сборка помещена в историю }
    procedure PushFromHistory;
-     {* сборка выгружена из истории }
+    {* сборка выгружена из истории }
    function pm_GetContainer: IvcmContainer;
    procedure pm_SetContainer(const aValue: IvcmContainer);
    function pm_GetFactory: IvcmFormSetFactory;
@@ -72,14 +61,14 @@ type
    function pm_GetDataSource: IvcmFormSetDataSource;
    procedure pm_SetDataSource(const aValue: IvcmFormSetDataSource);
    procedure AssignFormList(aFormList: TvcmFormSetFormList);
-     {* Заполнить мапу форм / флажков в сборке }
+    {* Заполнить мапу форм / флажков в сборке }
    function GetFormNeedMakeDS(const aFormDescr: TvcmFormSetFormItemDescr): TvcmNeedMakeDS;
    procedure SetFormNeedMakeDS(const aFormDescr: TvcmFormSetFormItemDescr;
     aNeedMakeDS: TvcmNeedMakeDS);
    function CastFS(const aGUID: TGUID;
     out theObj): Boolean;
    procedure SetFormClosed(const aForm: IvcmEntityForm);
-     {* Установить признак того, что форма была закрыта }
+    {* Установить признак того, что форма была закрыта }
    procedure SetIfNeedMakeNo(const aFormDescr: TvcmFormSetFormItemDescr;
     aNeedMake: TvcmNeedMakeDS);
    procedure SaveFormList(aFormList: TvcmFormSetFormList);
@@ -90,49 +79,55 @@ type
    function MakeClone(const aContainer: IvcmContainer): IvcmFormSet;
    function pm_GetCanBeCloned: Boolean;
    function pm_GetCanBeSavedToHistory: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure FormListAssigned; virtual;
-   function DoGetFormSetCaption: IvcmCString; virtual;
-   function DoGetFormSetTabCaption: IvcmCString; virtual;
-   function DoGetFormSetTabHint: IvcmCString; virtual;
-   function DoGetCanBeCloned: Boolean; virtual;
-   function DoGetCanBeSavedToHistory: Boolean; virtual;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(const aContainer: IvcmContainer;
-     const aFactory: IvcmFormSetFactory): IvcmFormSet;
+    const aFactory: IvcmFormSetFactory): IvcmFormSet;
    constructor Create(const aContainer: IvcmContainer;
-     const aFactory: IvcmFormSetFactory); reintroduce; virtual;
- protected
- // protected properties
+    const aFactory: IvcmFormSetFactory); reintroduce; virtual;
+  protected
    property RefreshStack: TvcmFormSetRefreshDataParamsList
-     read pm_GetRefreshStack;
+    read pm_GetRefreshStack;
    property Forms: TvcmFormSetFormList
-     read pm_GetForms;
+    read pm_GetForms;
  end;//TvcmFormSet
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  vcmFormSetRefreshParams,
-  vcmFormSetContainerRegistry
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , SysUtils
+ , vcmFormSetRefreshParams
+ , vcmFormSetContainerRegistry
+;
 
-{$If not defined(NoVCM)}
+function TvcmFormSet.pm_GetRefreshStack: TvcmFormSetRefreshDataParamsList;
+//#UC START# *5286081A00D0_5087BD37023Eget_var*
+//#UC END# *5286081A00D0_5087BD37023Eget_var*
+begin
+//#UC START# *5286081A00D0_5087BD37023Eget_impl*
+ if f_RefreshStack = nil then
+  f_RefreshStack := TvcmFormSetRefreshDataParamsList.Make;
+ Result := f_RefreshStack;
+//#UC END# *5286081A00D0_5087BD37023Eget_impl*
+end;//TvcmFormSet.pm_GetRefreshStack
 
-// start class TvcmFormSet
+function TvcmFormSet.pm_GetForms: TvcmFormSetFormList;
+//#UC START# *528B259002B0_5087BD37023Eget_var*
+//#UC END# *528B259002B0_5087BD37023Eget_var*
+begin
+//#UC START# *528B259002B0_5087BD37023Eget_impl*
+ if (f_Forms = nil) then
+  f_Forms := TvcmFormSetFormList.Create;
+ Result := f_Forms;
+//#UC END# *528B259002B0_5087BD37023Eget_impl*
+end;//TvcmFormSet.pm_GetForms
 
 class function TvcmFormSet.Make(const aContainer: IvcmContainer;
-  const aFactory: IvcmFormSetFactory): IvcmFormSet;
+ const aFactory: IvcmFormSetFactory): IvcmFormSet;
 //#UC START# *5286089601AD_5087BD37023E_var*
 var
  l_Class : TvcmFormSet;
@@ -149,7 +144,7 @@ begin
 end;//TvcmFormSet.Make
 
 constructor TvcmFormSet.Create(const aContainer: IvcmContainer;
-  const aFactory: IvcmFormSetFactory);
+ const aFactory: IvcmFormSetFactory);
 //#UC START# *528609A20025_5087BD37023E_var*
 //#UC END# *528609A20025_5087BD37023E_var*
 begin
@@ -222,29 +217,8 @@ begin
 //#UC END# *55E019130227_5087BD37023E_impl*
 end;//TvcmFormSet.DoGetCanBeSavedToHistory
 
-function TvcmFormSet.pm_GetRefreshStack: TvcmFormSetRefreshDataParamsList;
-//#UC START# *5286081A00D0_5087BD37023Eget_var*
-//#UC END# *5286081A00D0_5087BD37023Eget_var*
-begin
-//#UC START# *5286081A00D0_5087BD37023Eget_impl*
- if f_RefreshStack = nil then
-  f_RefreshStack := TvcmFormSetRefreshDataParamsList.Make;
- Result := f_RefreshStack;
-//#UC END# *5286081A00D0_5087BD37023Eget_impl*
-end;//TvcmFormSet.pm_GetRefreshStack
-
-function TvcmFormSet.pm_GetForms: TvcmFormSetFormList;
-//#UC START# *528B259002B0_5087BD37023Eget_var*
-//#UC END# *528B259002B0_5087BD37023Eget_var*
-begin
-//#UC START# *528B259002B0_5087BD37023Eget_impl*
- if (f_Forms = nil) then
-  f_Forms := TvcmFormSetFormList.Create;
- Result := f_Forms;
-//#UC END# *528B259002B0_5087BD37023Eget_impl*
-end;//TvcmFormSet.pm_GetForms
-
 procedure TvcmFormSet.Refresh(const aParams: IvcmFormSetRefreshDataParams);
+ {* обновляет представление сборки }
 //#UC START# *4995750900DB_5087BD37023E_var*
 //#UC END# *4995750900DB_5087BD37023E_var*
 begin
@@ -259,6 +233,7 @@ begin
 end;//TvcmFormSet.Refresh
 
 procedure TvcmFormSet.SaveHistory;
+ {* сохраняет сборку в историю }
 //#UC START# *4995752D00BE_5087BD37023E_var*
 //#UC END# *4995752D00BE_5087BD37023E_var*
 begin
@@ -269,6 +244,7 @@ begin
 end;//TvcmFormSet.SaveHistory
 
 function TvcmFormSet.IsMainInFormSet(const aForm: IvcmEntityForm): Boolean;
+ {* является ли форма главной в сборке }
 //#UC START# *499575D60157_5087BD37023E_var*
 //#UC END# *499575D60157_5087BD37023E_var*
 begin
@@ -278,6 +254,7 @@ begin
 end;//TvcmFormSet.IsMainInFormSet
 
 function TvcmFormSet.FindStatusInfoForm: IvcmEntityForm;
+ {* найти форму отвечающую за вывод статуса }
 //#UC START# *499575E601E5_5087BD37023E_var*
 var
  l_Index : Integer;
@@ -297,6 +274,7 @@ begin
 end;//TvcmFormSet.FindStatusInfoForm
 
 procedure TvcmFormSet.PopToHistory;
+ {* сборка помещена в историю }
 //#UC START# *499575F40009_5087BD37023E_var*
 //#UC END# *499575F40009_5087BD37023E_var*
 begin
@@ -307,6 +285,7 @@ begin
 end;//TvcmFormSet.PopToHistory
 
 procedure TvcmFormSet.PushFromHistory;
+ {* сборка выгружена из истории }
 //#UC START# *499575FF0015_5087BD37023E_var*
 //#UC END# *499575FF0015_5087BD37023E_var*
 begin
@@ -383,6 +362,7 @@ begin
 end;//TvcmFormSet.pm_SetDataSource
 
 procedure TvcmFormSet.AssignFormList(aFormList: TvcmFormSetFormList);
+ {* Заполнить мапу форм / флажков в сборке }
 //#UC START# *528DA6D00396_5087BD37023E_var*
 //#UC END# *528DA6D00396_5087BD37023E_var*
 begin
@@ -403,7 +383,7 @@ begin
 end;//TvcmFormSet.GetFormNeedMakeDS
 
 procedure TvcmFormSet.SetFormNeedMakeDS(const aFormDescr: TvcmFormSetFormItemDescr;
-  aNeedMakeDS: TvcmNeedMakeDS);
+ aNeedMakeDS: TvcmNeedMakeDS);
 //#UC START# *528DB1F80281_5087BD37023E_var*
 //#UC END# *528DB1F80281_5087BD37023E_var*
 begin
@@ -413,7 +393,7 @@ begin
 end;//TvcmFormSet.SetFormNeedMakeDS
 
 function TvcmFormSet.CastFS(const aGUID: TGUID;
-  out theObj): Boolean;
+ out theObj): Boolean;
 //#UC START# *529D991A02D3_5087BD37023E_var*
 //#UC END# *529D991A02D3_5087BD37023E_var*
 begin
@@ -423,6 +403,7 @@ begin
 end;//TvcmFormSet.CastFS
 
 procedure TvcmFormSet.SetFormClosed(const aForm: IvcmEntityForm);
+ {* Установить признак того, что форма была закрыта }
 //#UC START# *52A56B30012F_5087BD37023E_var*
 //#UC END# *52A56B30012F_5087BD37023E_var*
 begin
@@ -432,7 +413,7 @@ begin
 end;//TvcmFormSet.SetFormClosed
 
 procedure TvcmFormSet.SetIfNeedMakeNo(const aFormDescr: TvcmFormSetFormItemDescr;
-  aNeedMake: TvcmNeedMakeDS);
+ aNeedMake: TvcmNeedMakeDS);
 //#UC START# *52E8E6420272_5087BD37023E_var*
 //#UC END# *52E8E6420272_5087BD37023E_var*
 begin
@@ -518,6 +499,7 @@ begin
 end;//TvcmFormSet.pm_GetCanBeSavedToHistory
 
 procedure TvcmFormSet.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5087BD37023E_var*
 //#UC END# *479731C50290_5087BD37023E_var*
 begin
@@ -531,7 +513,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5087BD37023E_impl*
 end;//TvcmFormSet.Cleanup
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

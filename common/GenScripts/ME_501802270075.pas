@@ -13,7 +13,6 @@
  _vcmFormDataSourceWithData_ = class(_vcmFormDataSourceWithData_Parent_)
   private
    f_PartData: _InitDataType_;
-    {* Поле для свойства PartData }
   protected
    procedure DoInit; virtual;
    procedure GotData; virtual;

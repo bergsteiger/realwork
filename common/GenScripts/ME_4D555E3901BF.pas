@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , vgCustomGradientPoint
+ //#UC START# *4D555E3901BFintf_uses*
+ //#UC END# *4D555E3901BFintf_uses*
 ;
 
 type
@@ -36,6 +38,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D555E3901BFimpl_uses*
+ //#UC END# *4D555E3901BFimpl_uses*
 ;
 
 //#UC START# *4D555E3901BFimpl*

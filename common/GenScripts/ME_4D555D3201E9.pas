@@ -14,6 +14,8 @@ uses
  , Classes
  , vgTypes
  , l3PureMixIns
+ //#UC START# *4D555D3201E9intf_uses*
+ //#UC END# *4D555D3201E9intf_uses*
 ;
 
  {$Define _UnknownForDesign}
@@ -75,6 +77,8 @@ uses
  , Windows
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *4D555D3201E9impl_uses*
+ //#UC END# *4D555D3201E9impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

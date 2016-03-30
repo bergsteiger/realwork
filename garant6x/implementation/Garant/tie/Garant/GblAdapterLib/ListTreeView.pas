@@ -1,41 +1,34 @@
 unit ListTreeView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ListTreeView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DynamicDocList_i::ListTreeView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListTreeView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ListTreeView" MUID: (5465B85E011B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  View,
-  ViewBase
-  ;
+ l3IntfUses
+ , View
+ , ViewBase
+;
 
 type
  ListTreeView = class
- protected
- // overridden protected methods
+  public
+   NodeDelegateType_: ;
+  protected
    function AllocNewView: ViewBase; override;
- public
- // public methods
-   constructor Make;
+  public
+   constructor Make; reintroduce; stdcall;
  end;//ListTreeView
 
 implementation
 
-// start class ListTreeView
+uses
+ l3ImplUses
+;
 
 constructor ListTreeView.Make;
 //#UC START# *5465C2970213_5465B85E011B_var*

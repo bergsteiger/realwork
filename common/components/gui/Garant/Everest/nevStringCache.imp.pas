@@ -1,41 +1,35 @@
 {$IfNDef nevStringCache_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/nevStringCache.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::StringCache::nevStringCache
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nevStringCache" MUID: (4E71FB8302C6)
+// Имя типа: "_nevStringCache_"
 
 {$Define nevStringCache_imp}
- TevParaStringsRange = 1..3;
+
+type
+ TevParaStringsRange = 1 .. 3;
 
  TevParaStrings = array [TevParaStringsRange] of Tl3CustomString;
 
  _nevStringCacheHackBecauseMl3Uknown_Parent_ = _nevStringCache_Parent_;
- {$Include ..\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas}
- _nevStringCache_ = {mixin} class(_nevStringCacheHackBecauseMl3Uknown_)
- private
- // private fields
-   f_S : TevParaStrings;
- public
- // realized methods
-   function CheckS(i: Integer): Tl3CustomString;
- protected
- // overridden protected methods
+ {$Include w:\common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas}
+ _nevStringCache_ = class(_nevStringCacheHackBecauseMl3Uknown_)
+  private
+   f_S: TevParaStrings;
+  protected
    procedure Release; override;
+  public
+   function CheckS(i: Integer): Tl3CustomString;
  end;//_nevStringCache_
 
 {$Else nevStringCache_imp}
 
-{$Include ..\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas}
+{$IfNDef nevStringCache_imp_impl}
 
-// start class _nevStringCache_
+{$Define nevStringCache_imp_impl}
+
+{$Include w:\common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas}
 
 function _nevStringCache_.CheckS(i: Integer): Tl3CustomString;
 //#UC START# *4E5690220216_4E71FB8302C6_var*
@@ -60,4 +54,7 @@ begin
 //#UC END# *479F2AFB0397_4E71FB8302C6_impl*
 end;//_nevStringCache_.Release
 
+{$EndIf nevStringCache_imp_impl}
+
 {$EndIf nevStringCache_imp}
+

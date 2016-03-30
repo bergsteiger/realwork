@@ -1,69 +1,52 @@
 unit GarantPDFDocument;
+ {* Заточенный под наши задачи PDF-класс. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SynPDF"
-// Модуль: "w:/common/components/rtl/external/SynPDF/GarantPDFDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::SynPDF::SynPDF::TGarantPDFDocument
-//
-// Заточенный под наши задачи PDF-класс.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\SynPDF\GarantPDFDocument.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TGarantPDFDocument" MUID: (54632B090390)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\SynPDF\Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
 
 uses
-  Graphics,
-  SynPDF
-  ;
+ l3IntfUses
+ , SynPDF
+ , Graphics
+;
 
 const
-  { PDFConsts }
  cnDefaultPDFDPI = 72;
 
 type
  TGarantPDFDocument = class(TPdfDocument)
   {* Заточенный под наши задачи PDF-класс. }
- private
- // private fields
-   f_Scale : Single;
-   f_DevFactor : Single;
-    {* Задублированная переменная из TpdfCanvas, т.к. "оригинальная" считается внутри RenderMetaFile, когда нужны другие расчеты.}
- protected
- // overridden protected methods
-   procedure DoSet4Etalon(aValue: Boolean); override;
- protected
- // protected methods
+  private
+   f_Scale: Single;
+   f_DevFactor: Single;
+    {* Задублированная переменная из TpdfCanvas, т.к. "оригинальная" считается внутри RenderMetaFile, когда нужны другие расчеты. }
+  protected
    procedure InitPrinterPxPerInch(anPPIX: Integer;
-     anPPIY: Integer);
- public
- // public methods
+    anPPIY: Integer);
+   procedure DoSet4Etalon(aValue: Boolean); override;
+  public
    constructor Create(aPPX: Integer;
-     aPPY: Integer;
-     aForEtalon: Boolean); reintroduce;
+    aPPY: Integer;
+    aForEtalon: Boolean); reintroduce;
    procedure RenderNewPage(aMetaFile: TMetafile;
-     anOrientation: Boolean);
-     {* Специализированная отрисовка для наших нужд. }
+    anOrientation: Boolean);
+    {* Специализированная отрисовка для наших нужд. }
  end;//TGarantPDFDocument
 
 implementation
 
 uses
-  Windows
-  ;
-
-// start class TGarantPDFDocument
+ l3ImplUses
+ , Windows
+;
 
 procedure TGarantPDFDocument.InitPrinterPxPerInch(anPPIX: Integer;
-  anPPIY: Integer);
+ anPPIY: Integer);
 //#UC START# *54632B750318_54632B090390_var*
 //#UC END# *54632B750318_54632B090390_var*
 begin
@@ -74,8 +57,8 @@ begin
 end;//TGarantPDFDocument.InitPrinterPxPerInch
 
 constructor TGarantPDFDocument.Create(aPPX: Integer;
-  aPPY: Integer;
-  aForEtalon: Boolean);
+ aPPY: Integer;
+ aForEtalon: Boolean);
 //#UC START# *54632D530392_54632B090390_var*
 //#UC END# *54632D530392_54632B090390_var*
 begin
@@ -91,7 +74,8 @@ begin
 end;//TGarantPDFDocument.Create
 
 procedure TGarantPDFDocument.RenderNewPage(aMetaFile: TMetafile;
-  anOrientation: Boolean);
+ anOrientation: Boolean);
+ {* Специализированная отрисовка для наших нужд. }
 //#UC START# *54632E0400DF_54632B090390_var*
 var
  l_Top        : Single;

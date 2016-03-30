@@ -1,45 +1,35 @@
 unit vcmBaseCollection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmBaseCollection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Collections::TvcmBaseCollection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseCollection" MUID: (4FFC4C800030)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  Classes,
-  vcmBaseCollectionItem,
-  vcmPrimCollectionItem,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
- {$Define _UnknownNeedsQI}
+ l3IntfUses
+ , Classes
+ , vcmBaseCollectionItem
+ , vcmPrimCollectionItem
+ , vcmExternalInterfaces
+ , l3PureMixIns
+ //#UC START# *4FFC4C800030intf_uses*
+ //#UC END# *4FFC4C800030intf_uses*
+;
 
 type
-
-{$If not defined(NoVCM) AND not defined(vcmNeedL3)}
- {$Define _UnknownNotNeedL3}
-{$IfEnd} //not NoVCM AND not vcmNeedL3
-
  RvcmBaseCollection = class of TvcmBaseCollection;
 
-//#UC START# *4FFC4C800030ci*
+ {$Define _UnknownNeedsQI}
+
+{$If NOT Defined(vcmNeedL3)}
+ {$Define _UnknownNotNeedL3}
+{$IfEnd} // NOT Defined(vcmNeedL3)
+
+ //#UC START# *4FFC4C800030ci*
  THackCollection = class(TPersistent)
  private
    FItemClass: TCollectionItemClass;
@@ -50,42 +40,34 @@ type
  private
    FOwner: TPersistent;
  end;//THackOwnedCollection
-//#UC END# *4FFC4C800030ci*
+ //#UC END# *4FFC4C800030ci*
  _l3Unknown_Parent_ = TOwnedCollection;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-//#UC START# *4FFC4C800030cit*
-//#UC END# *4FFC4C800030cit*
+ //#UC START# *4FFC4C800030cit*
+ //#UC END# *4FFC4C800030cit*
  TvcmBaseCollection = class(_l3Unknown_)
- private
- // private fields
-   f_Sorted : Boolean;
-    {* Поле для свойства Sorted}
- protected
- // property methods
+  private
+   f_Sorted: Boolean;
+    {* Поле для свойства Sorted }
+  protected
+   f_FoundItem: TvcmPrimCollectionItem;
+  protected
    procedure pm_SetSorted(aValue: Boolean);
    function pm_GetItems(anIndex: Integer): TvcmBaseCollectionItem;
-   procedure pm_SetItems(anIndex: Integer; aValue: TvcmBaseCollectionItem);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure BeforeAddToCache; override;
-     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
-   procedure Notify(Item: TCollectionItem;
-     Action: TCollectionNotification); override;
- protected
- // protected fields
-   f_FoundItem : TvcmPrimCollectionItem;
- protected
- // protected methods
+   procedure pm_SetItems(anIndex: Integer;
+    aValue: TvcmBaseCollectionItem);
    procedure Sort;
-     {* Сигнатура метода Sort }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure BeforeAddToCache; override;
+    {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure Notify(Item: TCollectionItem;
+    Action: TCollectionNotification); override;
+  public
    function FindItemByName(const aName: AnsiString): TvcmBaseCollectionItem;
    constructor Create(anOwner: TPersistent); reintroduce; virtual;
    class function GetItemClass: TCollectionItemClass; virtual;
@@ -93,43 +75,71 @@ type
    function FindItemByCaption(const aName: AnsiString): TvcmBaseCollectionItem;
    function FindItemByID(anID: TvcmControlID): TvcmBaseCollectionItem;
    procedure CaptionChanged(aItem: TvcmBaseCollectionItemPrim);
- public
- // public properties
+  public
    property Sorted: Boolean
-     read f_Sorted
-     write pm_SetSorted;
+    read f_Sorted
+    write pm_SetSorted;
    property Items[anIndex: Integer]: TvcmBaseCollectionItem
-     read pm_GetItems
-     write pm_SetItems;
-//#UC START# *4FFC4C800030publ*
-//#UC END# *4FFC4C800030publ*
+    read pm_GetItems
+    write pm_SetItems;
+ //#UC START# *4FFC4C800030publ*
+ //#UC END# *4FFC4C800030publ*
  end;//TvcmBaseCollection
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
+ //#UC START# *4FFC4C800030impl_uses*
+ //#UC END# *4FFC4C800030impl_uses*
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
-// start class TvcmBaseCollection
+procedure TvcmBaseCollection.pm_SetSorted(aValue: Boolean);
+//#UC START# *5607EB150143_4FFC4C800030set_var*
+//#UC END# *5607EB150143_4FFC4C800030set_var*
+begin
+//#UC START# *5607EB150143_4FFC4C800030set_impl*
+ if aValue <> f_Sorted then
+ begin
+  f_Sorted := aValue;
+  if f_Sorted then
+   Sort;
+ end;
+//#UC END# *5607EB150143_4FFC4C800030set_impl*
+end;//TvcmBaseCollection.pm_SetSorted
+
+function TvcmBaseCollection.pm_GetItems(anIndex: Integer): TvcmBaseCollectionItem;
+//#UC START# *5607EB680196_4FFC4C800030get_var*
+//#UC END# *5607EB680196_4FFC4C800030get_var*
+begin
+//#UC START# *5607EB680196_4FFC4C800030get_impl*
+ Result := TvcmBaseCollectionItem(inherited GetItem(anIndex));
+//#UC END# *5607EB680196_4FFC4C800030get_impl*
+end;//TvcmBaseCollection.pm_GetItems
+
+procedure TvcmBaseCollection.pm_SetItems(anIndex: Integer;
+ aValue: TvcmBaseCollectionItem);
+//#UC START# *5607EB680196_4FFC4C800030set_var*
+//#UC END# *5607EB680196_4FFC4C800030set_var*
+begin
+//#UC START# *5607EB680196_4FFC4C800030set_impl*
+ inherited SetItem(anIndex, aValue);
+//#UC END# *5607EB680196_4FFC4C800030set_impl*
+end;//TvcmBaseCollection.pm_SetItems
 
 function TvcmBaseCollection.FindItemByName(const aName: AnsiString): TvcmBaseCollectionItem;
 //#UC START# *5607EE8B03CD_4FFC4C800030_var*
@@ -283,39 +293,8 @@ begin
 //#UC END# *5607EEDB0193_4FFC4C800030_impl*
 end;//TvcmBaseCollection.CaptionChanged
 
-procedure TvcmBaseCollection.pm_SetSorted(aValue: Boolean);
-//#UC START# *5607EB150143_4FFC4C800030set_var*
-//#UC END# *5607EB150143_4FFC4C800030set_var*
-begin
-//#UC START# *5607EB150143_4FFC4C800030set_impl*
- if aValue <> f_Sorted then
- begin
-  f_Sorted := aValue;
-  if f_Sorted then
-   Sort;
- end;
-//#UC END# *5607EB150143_4FFC4C800030set_impl*
-end;//TvcmBaseCollection.pm_SetSorted
-
-function TvcmBaseCollection.pm_GetItems(anIndex: Integer): TvcmBaseCollectionItem;
-//#UC START# *5607EB680196_4FFC4C800030get_var*
-//#UC END# *5607EB680196_4FFC4C800030get_var*
-begin
-//#UC START# *5607EB680196_4FFC4C800030get_impl*
- Result := TvcmBaseCollectionItem(inherited GetItem(anIndex));
-//#UC END# *5607EB680196_4FFC4C800030get_impl*
-end;//TvcmBaseCollection.pm_GetItems
-
-procedure TvcmBaseCollection.pm_SetItems(anIndex: Integer; aValue: TvcmBaseCollectionItem);
-//#UC START# *5607EB680196_4FFC4C800030set_var*
-//#UC END# *5607EB680196_4FFC4C800030set_var*
-begin
-//#UC START# *5607EB680196_4FFC4C800030set_impl*
- inherited SetItem(anIndex, aValue);
-//#UC END# *5607EB680196_4FFC4C800030set_impl*
-end;//TvcmBaseCollection.pm_SetItems
-
 procedure TvcmBaseCollection.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FFC4C800030_var*
 //#UC END# *479731C50290_4FFC4C800030_var*
 begin
@@ -327,6 +306,7 @@ begin
 end;//TvcmBaseCollection.Cleanup
 
 procedure TvcmBaseCollection.BeforeAddToCache;
+ {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 //#UC START# *479F2B3302C1_4FFC4C800030_var*
 //#UC END# *479F2B3302C1_4FFC4C800030_var*
 begin
@@ -337,8 +317,9 @@ begin
 //#UC END# *479F2B3302C1_4FFC4C800030_impl*
 end;//TvcmBaseCollection.BeforeAddToCache
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TvcmBaseCollection.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4FFC4C800030_var*
 //#UC END# *47A6FEE600FC_4FFC4C800030_var*
 begin
@@ -350,10 +331,10 @@ begin
  {$EndIf XE}
 //#UC END# *47A6FEE600FC_4FFC4C800030_impl*
 end;//TvcmBaseCollection.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvcmBaseCollection.Notify(Item: TCollectionItem;
-  Action: TCollectionNotification);
+ Action: TCollectionNotification);
 //#UC START# *4F8E7A900279_4FFC4C800030_var*
 //#UC END# *4F8E7A900279_4FFC4C800030_var*
 begin
@@ -367,12 +348,11 @@ end;//TvcmBaseCollection.Notify
 //#UC START# *4FFC4C800030impl*
 //#UC END# *4FFC4C800030impl*
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmBaseCollection
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmBaseCollection);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmBaseCollection }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

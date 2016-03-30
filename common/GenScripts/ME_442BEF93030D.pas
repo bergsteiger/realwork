@@ -39,9 +39,9 @@ type
  IConsultingData = interface
   {* Интерфейс для получения и подтверждения факта получения запроса. }
   ['{E92828ED-9B9A-4302-8D42-37E413C6F434}']
-  function get_data: IStream;
+  function GetData: IStream; stdcall;
    {* Получение данных запроса. Возвращается запрос (оценка) в XML формате (описание см в реквизите). }
-  procedure data_received;
+  procedure DataReceived; stdcall;
    {* Подтверждение получения данных текущего запроса. При вызове этого метода запрос помечается как переданный на обработку (при получении оценки, как полностью обработанный). }
  end;//IConsultingData
 
@@ -72,33 +72,33 @@ type
  IOnlineData = interface(IConsultingData)
   {* Консультации, проходящие через СК. Имеют уникальный идентификатор. }
   ['{43387100-5C41-4CCB-83EB-4EE5BB99C443}']
-  class function make(var xml_stream: IStream;
-   const consultation_id): BadFactoryType;
+  class function Make(var xml_stream: IStream;
+   const consultation_id): BadFactoryType; stdcall;
    {* фабрика для получения интерфейса }
  end;//IOnlineData
 
  IBusinessLogicLifeCycle = interface
   {* Интерфейс для управления жизненным циклом бизнес-объектов адаптера }
   ['{AC92D75F-442C-4FFE-897D-23499B1BBC34}']
-  procedure start;
+  procedure Start; stdcall;
    {* метод должен быть вызван первым после загрузки dll библиотеки }
-  procedure stop;
+  procedure Stop; stdcall;
    {* метод должен быть вызван перед завершением работы библиотеки }
-  procedure get_consultation_manager70;
+  procedure GetConsultationManager70; stdcall;
    {* получить интерфейс к СК  версии 7 }
  end;//IBusinessLogicLifeCycle
 
  IConsultingRequests = interface
   {* Интерфейс для получения запросов от пользователей и их оценок. }
   ['{EB5AE11E-74DA-4DFE-950B-CE68586C28F1}']
-  function get_query_by_id(query_id: TQueryID;
-   out data: IConsultingData): TResultValue;
+  function GetQueryById(query_id: TQueryID;
+   out data: IConsultingData): TResultValue; stdcall;
    {* получить следующий запрос для обработки }
-  function get_next_mark(out data: IConsultingData): TResultValue;
+  function GetNextMark(out data: IConsultingData): TResultValue; stdcall;
    {* Получение очередной оценки на запрос.
 При вызове этой операции происходит передача объекта "Оценка" для получения данных. До тех пор пока не будет проведен вызов DataRecieved, эта операция будет возвращать этот запрос.
 Если нет ни одного нового запроса, получившего оценку пользователя, возвращается нулевой объект. }
-  function set_answer(var answer: IStream): TResultValue;
+  function SetAnswer(var answer: IStream): TResultValue; stdcall;
    {* Ответ на запрос или предварительное уведомление о сроках обработки запроса.
 Ответ оформлен в XML формате (описание cм. в реквизите).
 Варианты возвращаемых значений:
@@ -106,54 +106,23 @@ type
 [1] - если запрос в базе уже помечен, как отвеченный.
 [-1] - если серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа.
 [-2] - если формат ответа не соответствует "ожиданиям" сервера. }
-  function get_status_statistic(var query: IStream;
-   out result: IStream): TResultValue;
+  function GetStatusStatistic(var query: IStream;
+   out result: IStream): TResultValue; stdcall;
    {* функция выдаёт статусы консультаций и даты их последней модификации по их идентификаторам. }
-  function erase_queries_by_id(var query: IStream;
-   out result: IStream): TResultValue;
+  function EraseQueriesById(var query: IStream;
+   out result: IStream): TResultValue; stdcall;
    {* удалить запросы из базы СК }
-  function sign_query(var query: IStream;
-   out signed_query: IStream): TResultValue;
+  function SignQuery(var query: IStream;
+   out signed_query: IStream): TResultValue; stdcall;
    {* добавить в xml контрольную сумму }
-  function get_list_of_new_queries(out result: IStream): TResultValue;
+  function GetListOfNewQueries(out result: IStream): TResultValue; stdcall;
    {* получить список идентификаторов консультаций, которые нужно забрать на обработку в ППО }
  end;//IConsultingRequests
-
-class function make: BadFactoryType;
- {* кешированная фабрика объекта }
-class function make: BadFactoryType;
- {* получить интерфейс работы  с запросами консультационной услуги }
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
- {* кешированная фабрика объекта }
-var
- l_Inst : IBusinessLogicLifeCycle;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
- {* получить интерфейс работы  с запросами консультационной услуги }
-var
- l_Inst : IConsultingRequests;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

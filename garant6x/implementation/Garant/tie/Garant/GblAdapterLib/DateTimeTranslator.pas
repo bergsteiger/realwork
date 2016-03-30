@@ -13,10 +13,10 @@ uses
  , BaseTypesUnit
 ;
 
-procedure translate(const value;
- var ret: TDateTime); overload;
-procedure translate(const value;
- var ret: TDateTime); overload;
+procedure Translate(const value;
+ var ret: TDateTime); overload; stdcall;
+procedure Translate(const value;
+ var ret: TDateTime); overload; stdcall;
 
 implementation
 
@@ -24,7 +24,7 @@ uses
  l3ImplUses
 ;
 
-procedure translate(const value;
+procedure Translate(const value;
  var ret: TDateTime);
 //#UC START# *460BC98400AB_460BC94B02EE_var*
 //#UC END# *460BC98400AB_460BC94B02EE_var*
@@ -32,9 +32,9 @@ begin
 //#UC START# *460BC98400AB_460BC94B02EE_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BC98400AB_460BC94B02EE_impl*
-end;//translate
+end;//Translate
 
-procedure translate(const value;
+procedure Translate(const value;
  var ret: TDateTime);
 //#UC START# *4E0A0654030F_460BC94B02EE_var*
 //#UC END# *4E0A0654030F_460BC94B02EE_var*
@@ -42,6 +42,6 @@ begin
 //#UC START# *4E0A0654030F_460BC94B02EE_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E0A0654030F_460BC94B02EE_impl*
-end;//translate
+end;//Translate
 
 end.

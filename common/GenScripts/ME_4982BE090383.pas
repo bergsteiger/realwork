@@ -12,8 +12,8 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , vcmBaseTypes
  , vcmInterfaces
+ , vcmBaseTypes
 ;
 
 const

@@ -12,9 +12,9 @@ uses
  l3IntfUses
 ;
 
-function check_content(const content): Boolean;
+function CheckContent(const content): ByteBool; stdcall;
  {* ѕроверка контента на существование }
-function check_server_content(const content): Boolean;
+function CheckServerContent(const content): ByteBool; stdcall;
  {* ѕроверка существует ли контент (лезем на сервер) }
 
 implementation
@@ -24,7 +24,7 @@ uses
  , ApplicationHelper
 ;
 
-function check_content(const content): Boolean;
+function CheckContent(const content): ByteBool;
  {* ѕроверка контента на существование }
 //#UC START# *45F8045C03D2_461CD65E0280_var*
 //#UC END# *45F8045C03D2_461CD65E0280_var*
@@ -32,9 +32,9 @@ begin
 //#UC START# *45F8045C03D2_461CD65E0280_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8045C03D2_461CD65E0280_impl*
-end;//check_content
+end;//CheckContent
 
-function check_server_content(const content): Boolean;
+function CheckServerContent(const content): ByteBool;
  {* ѕроверка существует ли контент (лезем на сервер) }
 //#UC START# *45F804B50161_461CD65E0280_var*
 //#UC END# *45F804B50161_461CD65E0280_var*
@@ -42,6 +42,6 @@ begin
 //#UC START# *45F804B50161_461CD65E0280_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F804B50161_461CD65E0280_impl*
-end;//check_server_content
+end;//CheckServerContent
 
 end.

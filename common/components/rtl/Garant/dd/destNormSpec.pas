@@ -1,86 +1,74 @@
 unit destNormSpec;
+ {* Специализированная dest, для колонок, например. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destNormSpec.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestNormSpec
-//
-// Специализированная dest, для колонок, например.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destNormSpec.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestNormSpec" MUID: (56BB14F503A0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3LongintList,
-  ddTableCell,
-  ddTableRow,
-  RTFtypes,
-  ddTable,
-  destNorm,
-  ddRTFState,
-  ddParagraphProperty,
-  ddSectionProperty,
-  ddTextParagraph,
-  ddCustomRTFReader
-  ;
+ l3IntfUses
+ , destNorm
+ , l3LongintList
+ , ddSectionProperty
+ , ddTableCell
+ , ddTableRow
+ , ddTable
+ , ddRTFState
+ , RTFtypes
+ , ddParagraphProperty
+ , ddTextParagraph
+ , ddCustomRTFReader
+;
 
 type
  TddSplitPara = (
-   dd_spNone
- , dd_spNumber
- , dd_spHypen
+  dd_spNone
+  , dd_spNumber
+  , dd_spHypen
  );//TddSplitPara
 
  TdestNormSpec = class(TdestNorm)
   {* Специализированная dest, для колонок, например. }
- private
- // private fields
-   f_PrevColsWidth : Integer;
-    {* Предыдущая ширина строки.}
-   f_ColIndex : Integer;
-    {* Номер колонки (из атрибутов RTF).}
-   f_ColCount : Integer;
-    {* Число колонок (из атрибутов RTF).}
-   f_ColWidths : Tl3LongintList;
-    {* Ширины колонок (из атрибутов RTF).}
-   f_SectProp : TddSectionProperty;
-   f_CurColumn : Integer;
-    {* Номер текущей колонки (в которую будет добавляться текст).}
-   f_StartRow : Integer;
-    {* Номер строки, с которой начинается колонка.}
-   f_LastCell : TddTableCell;
-    {* Ячейка для добавления текста.}
-   f_LastRow : TddTableRow;
-    {* Строка для добавления текста.}
-   f_SaveInColumns : Boolean;
-    {* Сохраняем в колонки.}
-   f_TabIndex : Integer;
-    {* Текущий индекс табуляции параграфа.}
-   f_Table : TddTable;
-    {* Таблица, в которую пишем, даже если колонки кончились...}
-   f_SplitPara : TddSplitPara;
-    {* Как разбивать оставшуюся часть параграфа.}
- private
- // private methods
+  private
+   f_PrevColsWidth: Integer;
+    {* Предыдущая ширина строки. }
+   f_ColIndex: Integer;
+    {* Номер колонки (из атрибутов RTF). }
+   f_ColCount: Integer;
+    {* Число колонок (из атрибутов RTF). }
+   f_ColWidths: Tl3LongintList;
+    {* Ширины колонок (из атрибутов RTF). }
+   f_SectProp: TddSectionProperty;
+   f_CurColumn: Integer;
+    {* Номер текущей колонки (в которую будет добавляться текст). }
+   f_StartRow: Integer;
+    {* Номер строки, с которой начинается колонка. }
+   f_LastCell: TddTableCell;
+    {* Ячейка для добавления текста. }
+   f_LastRow: TddTableRow;
+    {* Строка для добавления текста. }
+   f_SaveInColumns: Boolean;
+    {* Сохраняем в колонки. }
+   f_TabIndex: Integer;
+    {* Текущий индекс табуляции параграфа. }
+   f_Table: TddTable;
+    {* Таблица, в которую пишем, даже если колонки кончились... }
+   f_SplitPara: TddSplitPara;
+    {* Как разбивать оставшуюся часть параграфа. }
+  private
    procedure AddColumn4Table(aRowIndex: Integer);
    procedure FinishColumn(aState: TddRTFState);
    procedure CheckColumnRow;
    procedure CheckColumnTable;
    procedure AppyToColumn(aWhat: TIProp;
-     aValue: LongInt;
-     aState: TddRTFState);
+    aValue: LongInt;
+    aState: TddRTFState);
    procedure SetCellProp(aCell: TddTableCell;
-     anIndex: Integer);
+    anIndex: Integer);
    procedure AddNewRowWithColumn;
    procedure CheckLeftIndent(aPAP: TddParagraphProperty);
    function ColumnOffset(anIndex: Integer): Integer;
@@ -89,56 +77,51 @@ type
    procedure AddNewCell(aState: TddRTFState);
    procedure ClearTextPara4Table(aPara: TddTextParagraph);
    procedure AddNewRow(aPAP: TddParagraphProperty);
- protected
- // overridden property methods
-   function pm_GetLastParagraph: TddTextParagraph; override;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ApplyToPAP(What: TIProp;
-     aValue: Integer;
-     aPAP: TddParagraphProperty); override;
+    aValue: Integer;
+    aPAP: TddParagraphProperty); override;
    procedure ApplyToSep(aWhat: TIProp;
-     aValue: LongInt); override;
+    aValue: LongInt); override;
+   function pm_GetLastParagraph: TddTextParagraph; override;
    function InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph; override;
    procedure Try2ApplyParaProperty(aState: TddRTFState;
-     aPara: TddTextParagraph;
-     aWasPara: Boolean); override;
+    aPara: TddTextParagraph;
+    aWasPara: Boolean); override;
    procedure AddPageBreak(aSymbol: Integer); override;
    procedure CloseTextPara(aPAP: TddParagraphProperty;
-     aPara: TddTextParagraph); override;
+    aPara: TddTextParagraph); override;
    function InTable(aPAP: TddParagraphProperty): Boolean; override;
-     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+    {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    function Itap(aPAP: TddParagraphProperty): Integer; override;
-     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+    {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure DoAddTabStop(aPAP: TddParagraphProperty); override;
- public
- // overridden public methods
+  public
    procedure Clear; override;
    procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); override;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); override;
    constructor Create(aRTFReader: TddCustomRTFReader); override;
    procedure ParseSymbol(Symbol: Integer;
-     propType: TPropType;
-     aState: TddRTFState); override;
+    propType: TPropType;
+    aState: TddRTFState); override;
  end;//TdestNormSpec
 
 implementation
 
 uses
-  ddTab,
-  SysUtils,
-  l3String,
-  ddDocumentAtom,
-  l3Chars,
-  ddTypes,
-  l3Base
-  ;
-
-// start class TdestNormSpec
+ l3ImplUses
+ , ddTab
+ , SysUtils
+ , l3String
+ , ddDocumentAtom
+ , l3Chars
+ , ddTypes
+ , l3Base
+;
 
 procedure TdestNormSpec.AddColumn4Table(aRowIndex: Integer);
 //#UC START# *56BB3E570128_56BB14F503A0_var*
@@ -215,8 +198,8 @@ begin
 end;//TdestNormSpec.CheckColumnTable
 
 procedure TdestNormSpec.AppyToColumn(aWhat: TIProp;
-  aValue: LongInt;
-  aState: TddRTFState);
+ aValue: LongInt;
+ aState: TddRTFState);
 //#UC START# *56BD6FDC025E_56BB14F503A0_var*
 
  procedure lp_Try2AddNewTable;
@@ -301,7 +284,7 @@ begin
 end;//TdestNormSpec.AppyToColumn
 
 procedure TdestNormSpec.SetCellProp(aCell: TddTableCell;
-  anIndex: Integer);
+ anIndex: Integer);
 //#UC START# *56BD93A10343_56BB14F503A0_var*
 //#UC END# *56BD93A10343_56BB14F503A0_var*
 begin
@@ -505,6 +488,7 @@ begin
 end;//TdestNormSpec.AddNewRow
 
 procedure TdestNormSpec.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56BB14F503A0_var*
 //#UC END# *479731C50290_56BB14F503A0_var*
 begin
@@ -538,9 +522,9 @@ begin
 end;//TdestNormSpec.Clear
 
 procedure TdestNormSpec.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_56BB14F503A0_var*
 //#UC END# *51D27EC50388_56BB14F503A0_var*
 begin
@@ -573,8 +557,8 @@ begin
 end;//TdestNormSpec.Create
 
 procedure TdestNormSpec.ParseSymbol(Symbol: Integer;
-  propType: TPropType;
-  aState: TddRTFState);
+ propType: TPropType;
+ aState: TddRTFState);
 //#UC START# *51E8CFEF027A_56BB14F503A0_var*
 //#UC END# *51E8CFEF027A_56BB14F503A0_var*
 begin
@@ -600,8 +584,8 @@ begin
 end;//TdestNormSpec.ParseSymbol
 
 procedure TdestNormSpec.ApplyToPAP(What: TIProp;
-  aValue: Integer;
-  aPAP: TddParagraphProperty);
+ aValue: Integer;
+ aPAP: TddParagraphProperty);
 //#UC START# *51E8D2F90025_56BB14F503A0_var*
 //#UC END# *51E8D2F90025_56BB14F503A0_var*
 begin
@@ -617,7 +601,7 @@ begin
 end;//TdestNormSpec.ApplyToPAP
 
 procedure TdestNormSpec.ApplyToSep(aWhat: TIProp;
-  aValue: LongInt);
+ aValue: LongInt);
 //#UC START# *51E8D3A20193_56BB14F503A0_var*
 
  procedure lp_Appy2Sep(aSep: TddSectionProperty);
@@ -669,8 +653,8 @@ begin
 end;//TdestNormSpec.InternalAddTextPara
 
 procedure TdestNormSpec.Try2ApplyParaProperty(aState: TddRTFState;
-  aPara: TddTextParagraph;
-  aWasPara: Boolean);
+ aPara: TddTextParagraph;
+ aWasPara: Boolean);
 //#UC START# *521B22240197_56BB14F503A0_var*
 //#UC END# *521B22240197_56BB14F503A0_var*
 begin
@@ -690,7 +674,7 @@ begin
 end;//TdestNormSpec.AddPageBreak
 
 procedure TdestNormSpec.CloseTextPara(aPAP: TddParagraphProperty;
-  aPara: TddTextParagraph);
+ aPara: TddTextParagraph);
 //#UC START# *56BC3011019B_56BB14F503A0_var*
 
  procedure lp_MoveLastPart;
@@ -787,6 +771,7 @@ begin
 end;//TdestNormSpec.CloseTextPara
 
 function TdestNormSpec.InTable(aPAP: TddParagraphProperty): Boolean;
+ {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
 //#UC START# *56BC304D02E0_56BB14F503A0_var*
 //#UC END# *56BC304D02E0_56BB14F503A0_var*
 begin
@@ -798,6 +783,7 @@ begin
 end;//TdestNormSpec.InTable
 
 function TdestNormSpec.Itap(aPAP: TddParagraphProperty): Integer;
+ {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
 //#UC START# *56BDB2CD037F_56BB14F503A0_var*
 //#UC END# *56BDB2CD037F_56BB14F503A0_var*
 begin

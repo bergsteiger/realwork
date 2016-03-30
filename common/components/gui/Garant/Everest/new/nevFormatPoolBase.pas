@@ -1,57 +1,42 @@
 unit nevFormatPoolBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormatPoolBase.pas"
-// Начат: 29.04.2008 19:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevFormatPoolBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatPoolBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormatPoolBase" MUID: (48173AD801FF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , nevTools
+;
 
 type
  TnevFormatPoolBase = class(Tl3CProtoObject)
- private
- // private fields
-   f_Container : Pointer;
- protected
- // property methods
+  private
+   f_Container: Pointer;
+  protected
    function pm_GetObj: InevObject;
    function pm_GetContainer: InevObjectHolder;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDocument: InevObjectHolder); reintroduce;
- public
- // public properties
+  public
    property Obj: InevObject
-     read pm_GetObj;
+    read pm_GetObj;
    property Container: InevObjectHolder
-     read pm_GetContainer;
+    read pm_GetContainer;
  end;//TnevFormatPoolBase
 
 implementation
 
-// start class TnevFormatPoolBase
+uses
+ l3ImplUses
+;
 
 function TnevFormatPoolBase.pm_GetObj: InevObject;
 //#UC START# *4810DE6F0396_48173AD801FFget_var*
@@ -82,6 +67,7 @@ begin
 end;//TnevFormatPoolBase.Create
 
 procedure TnevFormatPoolBase.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48173AD801FF_var*
 //#UC END# *479731C50290_48173AD801FF_var*
 begin

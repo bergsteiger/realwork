@@ -37,7 +37,6 @@ type
  TdestFormFieldItem = class(TddRTFDestination)
   private
    f_Item: AnsiString;
-    {* Поле для свойства Item }
   protected
    procedure ClearFields; override;
   public
@@ -62,15 +61,10 @@ type
   private
    f_Items: Tl3StringList;
    f_DefaultResult: Integer;
-    {* Поле для свойства DefaultResult }
    f_FormResult: Integer;
-    {* Поле для свойства FormResult }
    f_FormSize: Integer;
-    {* Поле для свойства FormSize }
    f_FormType: Integer;
-    {* Поле для свойства FormType }
    f_TextType: Integer;
-    {* Поле для свойства TextType }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -122,7 +116,6 @@ type
    f_FontName: Tl3String;
    f_RepeatSymbol: Boolean;
    f_FieldType: TddFieldType;
-    {* Поле для свойства FieldType }
   private
    function CheckFieldType(aText: Tl3String): Boolean;
    function DoAddAnsiChar(aText: AnsiChar): Boolean;
@@ -175,11 +168,8 @@ type
   private
    f_Private: Boolean;
    f_FielsInsruction: TdestFieldInstruction;
-    {* Поле для свойства FielsInsruction }
    f_FormField: TdestFormField;
-    {* Поле для свойства FormField }
    f_FieldResult: TdestFieldResult;
-    {* Поле для свойства FieldResult }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

@@ -16,6 +16,8 @@ uses
  , vcmPrimCollectionItem
  , vcmExternalInterfaces
  , l3PureMixIns
+ //#UC START# *4FFC4C800030intf_uses*
+ //#UC END# *4FFC4C800030intf_uses*
 ;
 
 type
@@ -100,6 +102,8 @@ uses
  , Windows
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *4FFC4C800030impl_uses*
+ //#UC END# *4FFC4C800030impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

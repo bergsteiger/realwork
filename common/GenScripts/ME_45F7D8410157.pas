@@ -13,6 +13,8 @@ uses
  , DefaultNodeBase
  , IOUnit
  , reeBase
+ //#UC START# *45F7D8410157intf_uses*
+ //#UC END# *45F7D8410157intf_uses*
 ;
 
 type
@@ -22,20 +24,20 @@ type
    nested_count: Cardinal;
    node: RealNodeBase;
   public
-   constructor make(var node: RealNodeBase); reintroduce; virtual;
-   procedure open; virtual;
-   procedure close; virtual;
-   procedure set_name(name: PAnsiChar); virtual;
-   procedure set_value; virtual;
-   procedure set_entity(const entity); virtual;
-   procedure transaction_data; virtual;
+   constructor Make(var node: RealNodeBase); reintroduce; virtual; stdcall;
+   procedure Open; virtual; stdcall;
+   procedure Close; virtual; stdcall;
+   procedure SetName(name: PAnsiChar); virtual; stdcall;
+   procedure SetValue; virtual; stdcall;
+   procedure SetEntity(const entity); virtual; stdcall;
+   procedure TransactionData; virtual; stdcall;
  end;//NodeChangeTransaction
 
  NodeChangeTransactionHolder = class
   private
    transaction: NodeChangeTransaction;
   public
-   constructor make(var node: RealNodeBase); reintroduce; virtual;
+   constructor Make(var node: RealNodeBase); reintroduce; virtual; stdcall;
  end;//NodeChangeTransactionHolder
 
  //#UC START# *45F7D8410157ci*
@@ -47,38 +49,38 @@ type
    server_point: ;
    current_transaction: NodeChangeTransaction;
   protected
-   function pm_Getname: IString; virtual;
-   procedure pm_Setname(const aValue: IString); virtual;
-   constructor make; reintroduce; overload; virtual;
-   function apply_change_delta(var delta): Boolean; override;
+   function GetName: IString; virtual; stdcall;
+   procedure SetName(const aValue: IString); virtual; stdcall;
+   constructor Make; reintroduce; overload; virtual; stdcall;
+   function ApplyChangeDelta(var delta): ByteBool; override;
   public
-   procedure fill_value(var value); virtual;
-   procedure fill_entity(const entity); virtual;
-   procedure init(var owner_tree: TreeBase); virtual;
-   procedure reset(owner_tree: TreeBase); virtual;
-   procedure init_inserted(var owner: TreeBase;
-    const data); virtual;
-   procedure draw_node(level: unsigned integer;
-    index: unsigned integer); virtual;
-   function is_equal(const e): Boolean; virtual;
-   function get_current_transaction: NodeChangeTransaction; virtual;
-   procedure delete_current_transaction; virtual;
-   procedure commit_and_remove_transaction; virtual;
-   procedure paste_node(const ptype;
-    var node: DefaultNodeBase); virtual;
-   procedure paste_nodes(const ptype;
-    const holder); virtual;
-   procedure apply_transaction; virtual;
-   procedure change_node_value(const value); virtual;
-   procedure change_node_entity(const entity); virtual;
-   constructor make(var owner_tree: TreeBase;
-    const snode); reintroduce; overload; virtual;
-   procedure get_server_pointer; override;
-   function node_name: PAnsiChar; override;
+   procedure FillValue(var value); virtual; stdcall;
+   procedure FillEntity(const entity); virtual; stdcall;
+   procedure Init(var owner_tree: TreeBase); virtual; stdcall;
+   procedure Reset(owner_tree: TreeBase); virtual; stdcall;
+   procedure InitInserted(var owner: TreeBase;
+    const data); virtual; stdcall;
+   procedure DrawNode(level: unsigned integer;
+    index: unsigned integer); virtual; stdcall;
+   function IsEqual(const e): ByteBool; virtual; stdcall;
+   function GetCurrentTransaction: NodeChangeTransaction; virtual; stdcall;
+   procedure DeleteCurrentTransaction; virtual; stdcall;
+   procedure CommitAndRemoveTransaction; virtual; stdcall;
+   procedure PasteNode(const ptype;
+    var node: DefaultNodeBase); virtual; stdcall;
+   procedure PasteNodes(const ptype;
+    const holder); virtual; stdcall;
+   procedure ApplyTransaction; virtual; stdcall;
+   procedure ChangeNodeValue(const value); virtual; stdcall;
+   procedure ChangeNodeEntity(const entity); virtual; stdcall;
+   constructor Make(var owner_tree: TreeBase;
+    const snode); reintroduce; overload; virtual; stdcall;
+   procedure GetServerPointer; override;
+   function NodeName: PAnsiChar; override;
   protected
-   property name: IString
-    read pm_Getname
-    write pm_Setname;
+   property Name: IString
+    read GetName
+    write SetName;
  //#UC START# *45F7D8410157publ*
  //#UC END# *45F7D8410157publ*
  end;//RealNodeBase
@@ -87,135 +89,137 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *45F7D8410157impl_uses*
+ //#UC END# *45F7D8410157impl_uses*
 ;
 
-constructor NodeChangeTransaction.make(var node: RealNodeBase);
+constructor NodeChangeTransaction.Make(var node: RealNodeBase);
 //#UC START# *45FF97C502FD_45FF97A70109_var*
 //#UC END# *45FF97C502FD_45FF97A70109_var*
 begin
 //#UC START# *45FF97C502FD_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF97C502FD_45FF97A70109_impl*
-end;//NodeChangeTransaction.make
+end;//NodeChangeTransaction.Make
 
-procedure NodeChangeTransaction.open;
+procedure NodeChangeTransaction.Open;
 //#UC START# *45FF97E20251_45FF97A70109_var*
 //#UC END# *45FF97E20251_45FF97A70109_var*
 begin
 //#UC START# *45FF97E20251_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF97E20251_45FF97A70109_impl*
-end;//NodeChangeTransaction.open
+end;//NodeChangeTransaction.Open
 
-procedure NodeChangeTransaction.close;
+procedure NodeChangeTransaction.Close;
 //#UC START# *45FF97EA030D_45FF97A70109_var*
 //#UC END# *45FF97EA030D_45FF97A70109_var*
 begin
 //#UC START# *45FF97EA030D_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF97EA030D_45FF97A70109_impl*
-end;//NodeChangeTransaction.close
+end;//NodeChangeTransaction.Close
 
-procedure NodeChangeTransaction.set_name(name: PAnsiChar);
+procedure NodeChangeTransaction.SetName(name: PAnsiChar);
 //#UC START# *45FF97F2031C_45FF97A70109_var*
 //#UC END# *45FF97F2031C_45FF97A70109_var*
 begin
 //#UC START# *45FF97F2031C_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF97F2031C_45FF97A70109_impl*
-end;//NodeChangeTransaction.set_name
+end;//NodeChangeTransaction.SetName
 
-procedure NodeChangeTransaction.set_value;
+procedure NodeChangeTransaction.SetValue;
 //#UC START# *45FF9837030D_45FF97A70109_var*
 //#UC END# *45FF9837030D_45FF97A70109_var*
 begin
 //#UC START# *45FF9837030D_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF9837030D_45FF97A70109_impl*
-end;//NodeChangeTransaction.set_value
+end;//NodeChangeTransaction.SetValue
 
-procedure NodeChangeTransaction.set_entity(const entity);
+procedure NodeChangeTransaction.SetEntity(const entity);
 //#UC START# *45FF990800AB_45FF97A70109_var*
 //#UC END# *45FF990800AB_45FF97A70109_var*
 begin
 //#UC START# *45FF990800AB_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF990800AB_45FF97A70109_impl*
-end;//NodeChangeTransaction.set_entity
+end;//NodeChangeTransaction.SetEntity
 
-procedure NodeChangeTransaction.transaction_data;
+procedure NodeChangeTransaction.TransactionData;
 //#UC START# *45FF991B038A_45FF97A70109_var*
 //#UC END# *45FF991B038A_45FF97A70109_var*
 begin
 //#UC START# *45FF991B038A_45FF97A70109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF991B038A_45FF97A70109_impl*
-end;//NodeChangeTransaction.transaction_data
+end;//NodeChangeTransaction.TransactionData
 
-constructor NodeChangeTransactionHolder.make(var node: RealNodeBase);
+constructor NodeChangeTransactionHolder.Make(var node: RealNodeBase);
 //#UC START# *45FF99D90203_45FF99BC0399_var*
 //#UC END# *45FF99D90203_45FF99BC0399_var*
 begin
 //#UC START# *45FF99D90203_45FF99BC0399_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FF99D90203_45FF99BC0399_impl*
-end;//NodeChangeTransactionHolder.make
+end;//NodeChangeTransactionHolder.Make
 
-function RealNodeBase.pm_Getname: IString;
+function RealNodeBase.GetName: IString;
 //#UC START# *45FFE327036B_45F7D8410157get_var*
 //#UC END# *45FFE327036B_45F7D8410157get_var*
 begin
 //#UC START# *45FFE327036B_45F7D8410157get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE327036B_45F7D8410157get_impl*
-end;//RealNodeBase.pm_Getname
+end;//RealNodeBase.GetName
 
-procedure RealNodeBase.pm_Setname(const aValue: IString);
+procedure RealNodeBase.SetName(const aValue: IString);
 //#UC START# *45FFE327036B_45F7D8410157set_var*
 //#UC END# *45FFE327036B_45F7D8410157set_var*
 begin
 //#UC START# *45FFE327036B_45F7D8410157set_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE327036B_45F7D8410157set_impl*
-end;//RealNodeBase.pm_Setname
+end;//RealNodeBase.SetName
 
-procedure RealNodeBase.fill_value(var value);
+procedure RealNodeBase.FillValue(var value);
 //#UC START# *45FFDF2B03B9_45F7D8410157_var*
 //#UC END# *45FFDF2B03B9_45F7D8410157_var*
 begin
 //#UC START# *45FFDF2B03B9_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFDF2B03B9_45F7D8410157_impl*
-end;//RealNodeBase.fill_value
+end;//RealNodeBase.FillValue
 
-procedure RealNodeBase.fill_entity(const entity);
+procedure RealNodeBase.FillEntity(const entity);
 //#UC START# *45FFDF540213_45F7D8410157_var*
 //#UC END# *45FFDF540213_45F7D8410157_var*
 begin
 //#UC START# *45FFDF540213_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFDF540213_45F7D8410157_impl*
-end;//RealNodeBase.fill_entity
+end;//RealNodeBase.FillEntity
 
-procedure RealNodeBase.init(var owner_tree: TreeBase);
+procedure RealNodeBase.Init(var owner_tree: TreeBase);
 //#UC START# *45FFDF6E005D_45F7D8410157_var*
 //#UC END# *45FFDF6E005D_45F7D8410157_var*
 begin
 //#UC START# *45FFDF6E005D_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFDF6E005D_45F7D8410157_impl*
-end;//RealNodeBase.init
+end;//RealNodeBase.Init
 
-procedure RealNodeBase.reset(owner_tree: TreeBase);
+procedure RealNodeBase.Reset(owner_tree: TreeBase);
 //#UC START# *45FFDFAF0232_45F7D8410157_var*
 //#UC END# *45FFDFAF0232_45F7D8410157_var*
 begin
 //#UC START# *45FFDFAF0232_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFDFAF0232_45F7D8410157_impl*
-end;//RealNodeBase.reset
+end;//RealNodeBase.Reset
 
-procedure RealNodeBase.init_inserted(var owner: TreeBase;
+procedure RealNodeBase.InitInserted(var owner: TreeBase;
  const data);
 //#UC START# *45FFDFBA003E_45F7D8410157_var*
 //#UC END# *45FFDFBA003E_45F7D8410157_var*
@@ -223,9 +227,9 @@ begin
 //#UC START# *45FFDFBA003E_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFDFBA003E_45F7D8410157_impl*
-end;//RealNodeBase.init_inserted
+end;//RealNodeBase.InitInserted
 
-procedure RealNodeBase.draw_node(level: unsigned integer;
+procedure RealNodeBase.DrawNode(level: unsigned integer;
  index: unsigned integer);
 //#UC START# *45FFE07E034B_45F7D8410157_var*
 //#UC END# *45FFE07E034B_45F7D8410157_var*
@@ -233,45 +237,45 @@ begin
 //#UC START# *45FFE07E034B_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE07E034B_45F7D8410157_impl*
-end;//RealNodeBase.draw_node
+end;//RealNodeBase.DrawNode
 
-function RealNodeBase.is_equal(const e): Boolean;
+function RealNodeBase.IsEqual(const e): ByteBool;
 //#UC START# *45FFE0D503D8_45F7D8410157_var*
 //#UC END# *45FFE0D503D8_45F7D8410157_var*
 begin
 //#UC START# *45FFE0D503D8_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE0D503D8_45F7D8410157_impl*
-end;//RealNodeBase.is_equal
+end;//RealNodeBase.IsEqual
 
-function RealNodeBase.get_current_transaction: NodeChangeTransaction;
+function RealNodeBase.GetCurrentTransaction: NodeChangeTransaction;
 //#UC START# *45FFE0FD030D_45F7D8410157_var*
 //#UC END# *45FFE0FD030D_45F7D8410157_var*
 begin
 //#UC START# *45FFE0FD030D_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE0FD030D_45F7D8410157_impl*
-end;//RealNodeBase.get_current_transaction
+end;//RealNodeBase.GetCurrentTransaction
 
-procedure RealNodeBase.delete_current_transaction;
+procedure RealNodeBase.DeleteCurrentTransaction;
 //#UC START# *45FFE11C0261_45F7D8410157_var*
 //#UC END# *45FFE11C0261_45F7D8410157_var*
 begin
 //#UC START# *45FFE11C0261_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE11C0261_45F7D8410157_impl*
-end;//RealNodeBase.delete_current_transaction
+end;//RealNodeBase.DeleteCurrentTransaction
 
-procedure RealNodeBase.commit_and_remove_transaction;
+procedure RealNodeBase.CommitAndRemoveTransaction;
 //#UC START# *45FFE12C031C_45F7D8410157_var*
 //#UC END# *45FFE12C031C_45F7D8410157_var*
 begin
 //#UC START# *45FFE12C031C_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE12C031C_45F7D8410157_impl*
-end;//RealNodeBase.commit_and_remove_transaction
+end;//RealNodeBase.CommitAndRemoveTransaction
 
-procedure RealNodeBase.paste_node(const ptype;
+procedure RealNodeBase.PasteNode(const ptype;
  var node: DefaultNodeBase);
 //#UC START# *45FFE20201C5_45F7D8410157_var*
 //#UC END# *45FFE20201C5_45F7D8410157_var*
@@ -279,9 +283,9 @@ begin
 //#UC START# *45FFE20201C5_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE20201C5_45F7D8410157_impl*
-end;//RealNodeBase.paste_node
+end;//RealNodeBase.PasteNode
 
-procedure RealNodeBase.paste_nodes(const ptype;
+procedure RealNodeBase.PasteNodes(const ptype;
  const holder);
 //#UC START# *45FFE26E001F_45F7D8410157_var*
 //#UC END# *45FFE26E001F_45F7D8410157_var*
@@ -289,45 +293,45 @@ begin
 //#UC START# *45FFE26E001F_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE26E001F_45F7D8410157_impl*
-end;//RealNodeBase.paste_nodes
+end;//RealNodeBase.PasteNodes
 
-procedure RealNodeBase.apply_transaction;
+procedure RealNodeBase.ApplyTransaction;
 //#UC START# *45FFE2AF035B_45F7D8410157_var*
 //#UC END# *45FFE2AF035B_45F7D8410157_var*
 begin
 //#UC START# *45FFE2AF035B_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE2AF035B_45F7D8410157_impl*
-end;//RealNodeBase.apply_transaction
+end;//RealNodeBase.ApplyTransaction
 
-procedure RealNodeBase.change_node_value(const value);
+procedure RealNodeBase.ChangeNodeValue(const value);
 //#UC START# *45FFE2BC03A9_45F7D8410157_var*
 //#UC END# *45FFE2BC03A9_45F7D8410157_var*
 begin
 //#UC START# *45FFE2BC03A9_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE2BC03A9_45F7D8410157_impl*
-end;//RealNodeBase.change_node_value
+end;//RealNodeBase.ChangeNodeValue
 
-procedure RealNodeBase.change_node_entity(const entity);
+procedure RealNodeBase.ChangeNodeEntity(const entity);
 //#UC START# *45FFE2FB038A_45F7D8410157_var*
 //#UC END# *45FFE2FB038A_45F7D8410157_var*
 begin
 //#UC START# *45FFE2FB038A_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFE2FB038A_45F7D8410157_impl*
-end;//RealNodeBase.change_node_entity
+end;//RealNodeBase.ChangeNodeEntity
 
-constructor RealNodeBase.make;
+constructor RealNodeBase.Make;
 //#UC START# *45FFF0060399_45F7D8410157_var*
 //#UC END# *45FFF0060399_45F7D8410157_var*
 begin
 //#UC START# *45FFF0060399_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFF0060399_45F7D8410157_impl*
-end;//RealNodeBase.make
+end;//RealNodeBase.Make
 
-constructor RealNodeBase.make(var owner_tree: TreeBase;
+constructor RealNodeBase.Make(var owner_tree: TreeBase;
  const snode);
 //#UC START# *45FFF06B0157_45F7D8410157_var*
 //#UC END# *45FFF06B0157_45F7D8410157_var*
@@ -335,34 +339,34 @@ begin
 //#UC START# *45FFF06B0157_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45FFF06B0157_45F7D8410157_impl*
-end;//RealNodeBase.make
+end;//RealNodeBase.Make
 
-procedure RealNodeBase.get_server_pointer;
+procedure RealNodeBase.GetServerPointer;
 //#UC START# *45F94B820290_45F7D8410157_var*
 //#UC END# *45F94B820290_45F7D8410157_var*
 begin
 //#UC START# *45F94B820290_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F94B820290_45F7D8410157_impl*
-end;//RealNodeBase.get_server_pointer
+end;//RealNodeBase.GetServerPointer
 
-function RealNodeBase.node_name: PAnsiChar;
+function RealNodeBase.NodeName: PAnsiChar;
 //#UC START# *45F94D570138_45F7D8410157_var*
 //#UC END# *45F94D570138_45F7D8410157_var*
 begin
 //#UC START# *45F94D570138_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F94D570138_45F7D8410157_impl*
-end;//RealNodeBase.node_name
+end;//RealNodeBase.NodeName
 
-function RealNodeBase.apply_change_delta(var delta): Boolean;
+function RealNodeBase.ApplyChangeDelta(var delta): ByteBool;
 //#UC START# *45F95B9A0000_45F7D8410157_var*
 //#UC END# *45F95B9A0000_45F7D8410157_var*
 begin
 //#UC START# *45F95B9A0000_45F7D8410157_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F95B9A0000_45F7D8410157_impl*
-end;//RealNodeBase.apply_change_delta
+end;//RealNodeBase.ApplyChangeDelta
 
 //#UC START# *45F7D8410157impl*
 //#UC END# *45F7D8410157impl*

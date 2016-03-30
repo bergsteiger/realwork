@@ -19,7 +19,6 @@ type
  TvcmToolbarDockListManager = class(Tl3ProtoObject)
   private
    f_DockList: TvcmObjectList;
-    {* Поле для свойства DockList }
   protected
    function pm_GetDockList: TvcmObjectList; virtual;
    procedure Cleanup; override;

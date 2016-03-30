@@ -1,45 +1,36 @@
 {$IfNDef vcmTinyUseCaseController_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmTinyUseCaseController.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmTinyUseCaseController
-//
-// Контролер прецедента без всяких данных
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmTinyUseCaseController" MUID: (494778CD004F)
+// Имя типа: "_vcmTinyUseCaseController_"
 
 {$Define vcmTinyUseCaseController_imp}
-{$If not defined(NoVCM)}
+
+{$If NOT Defined(NoVCM)}
  _InitDataType_ = IUnknown;
- {$Include ..\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
- _vcmTinyUseCaseController_ = {mixin} class(_vcmFormSetDataSourceWithoutData_)
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
+ _vcmTinyUseCaseController_ = class(_vcmFormSetDataSourceWithoutData_)
   {* Контролер прецедента без всяких данных }
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: _SetType_; reintroduce;
  end;//_vcmTinyUseCaseController_
-{$Else}
 
- {$Include ..\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
- _vcmTinyUseCaseController_ = _vcmFormSetDataSourceWithoutData_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
+_vcmTinyUseCaseController_ = _vcmFormSetDataSourceWithoutData_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmTinyUseCaseController_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmTinyUseCaseController_imp_impl}
 
+{$Define vcmTinyUseCaseController_imp_impl}
 
-{$Include ..\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
-
-// start class _vcmTinyUseCaseController_
+{$If NOT Defined(NoVCM)}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 constructor _vcmTinyUseCaseController_.Create;
 //#UC START# *4947799403BE_494778CD004F_var*
@@ -60,8 +51,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_vcmTinyUseCaseController_.Make
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmTinyUseCaseController_imp_impl}
 
 {$EndIf vcmTinyUseCaseController_imp}
+

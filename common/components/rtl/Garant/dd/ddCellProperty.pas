@@ -1,183 +1,181 @@
 unit ddCellProperty;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddCellProperty.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddCellProperty
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddCellProperty.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddCellProperty" MUID: (5111FEC00247)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddBorder,
-  ddPropertyObject,
-  ddTypes,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddPropertyObject
+ , ddBorder
+ , ddTypes
+ , k2Interfaces
+;
 
 type
  TddCellProperty = class(TddPropertyObject)
- private
- // private fields
-   f_ClearBorder : TddClearBoder;
-   f_Border : TddBorder;
-    {* Поле для свойства Border}
-   f_BottomPad : LongInt;
-    {* Поле для свойства BottomPad}
-   f_CellSpan : LongInt;
-    {* Поле для свойства CellSpan}
-   f_Index : LongInt;
-    {* Поле для свойства Index}
-   f_LeftPad : LongInt;
-    {* Поле для свойства LeftPad}
-   f_PatternBackColor : LongInt;
-    {* Поле для свойства PatternBackColor}
-   f_PatternBackColorIndex : LongInt;
-    {* Поле для свойства PatternBackColorIndex}
-   f_PatternForeColor : LongInt;
-    {* Поле для свойства PatternForeColor}
-   f_PatternForeColorIndex : LongInt;
-    {* Поле для свойства PatternForeColorIndex}
-   f_RightPad : LongInt;
-    {* Поле для свойства RightPad}
-   f_CellOffset : LongInt;
-    {* Поле для свойства CellOffset}
-   f_CellJust : TddCellJust;
-    {* Поле для свойства CellJust}
-   f_IsPercent : Boolean;
-    {* Поле для свойства IsPercent}
-   f_Merged : Boolean;
-    {* Поле для свойства Merged}
-   f_MergeFirst : Boolean;
-    {* Поле для свойства MergeFirst}
-   f_VMerged : Boolean;
-    {* Поле для свойства VMerged}
-   f_VMergeFirst : Boolean;
-    {* Поле для свойства VMergeFirst}
-   f_RowSpan : LongInt;
-    {* Поле для свойства RowSpan}
-   f_TopPad : LongInt;
-    {* Поле для свойства TopPad}
-   f_AlignCell : Boolean;
-    {* Поле для свойства AlignCell}
-   f_CellWidth : LongInt;
-    {* Поле для свойства CellWidth}
- protected
- // property methods
+  private
+   f_ClearBorder: TddClearBoder;
+   f_Border: TddBorder;
+    {* Поле для свойства Border }
+   f_BottomPad: LongInt;
+    {* Поле для свойства BottomPad }
+   f_CellSpan: LongInt;
+    {* Поле для свойства CellSpan }
+   f_Index: LongInt;
+    {* Поле для свойства Index }
+   f_LeftPad: LongInt;
+    {* Поле для свойства LeftPad }
+   f_PatternBackColor: LongInt;
+    {* Поле для свойства PatternBackColor }
+   f_PatternBackColorIndex: LongInt;
+    {* Поле для свойства PatternBackColorIndex }
+   f_PatternForeColor: LongInt;
+    {* Поле для свойства PatternForeColor }
+   f_PatternForeColorIndex: LongInt;
+    {* Поле для свойства PatternForeColorIndex }
+   f_RightPad: LongInt;
+    {* Поле для свойства RightPad }
+   f_CellOffset: LongInt;
+    {* Поле для свойства CellOffset }
+   f_CellJust: TddCellJust;
+    {* Поле для свойства CellJust }
+   f_IsPercent: Boolean;
+    {* Поле для свойства IsPercent }
+   f_Merged: Boolean;
+    {* Поле для свойства Merged }
+   f_MergeFirst: Boolean;
+    {* Поле для свойства MergeFirst }
+   f_VMerged: Boolean;
+    {* Поле для свойства VMerged }
+   f_VMergeFirst: Boolean;
+    {* Поле для свойства VMergeFirst }
+   f_RowSpan: LongInt;
+    {* Поле для свойства RowSpan }
+   f_TopPad: LongInt;
+    {* Поле для свойства TopPad }
+   f_AlignCell: Boolean;
+    {* Поле для свойства AlignCell }
+   f_CellWidth: LongInt;
+    {* Поле для свойства CellWidth }
+  protected
    function pm_GetIsBorder: Boolean;
    procedure pm_SetIsBorder(aValue: Boolean);
- protected
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(aClearBorder: TddClearBoder); reintroduce;
+   procedure Assign(aCellProperty: TddCellProperty);
+   function IsCellOffseDefault: Boolean;
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure Reset; override;
    function Diff(P: TddPropertyObject;
-     aForReader: Boolean): TddPropertyObject; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    aForReader: Boolean): TddPropertyObject; override;
    procedure Clear; override;
- public
- // public methods
-   constructor Create(aClearBorder: TddClearBoder); reintroduce;
-   procedure Assign(aCellProperty: TddCellProperty);
-   function IsCellOffseDefault: Boolean;
- public
- // public properties
+  public
    property Border: TddBorder
-     read f_Border;
+    read f_Border;
    property BottomPad: LongInt
-     read f_BottomPad
-     write f_BottomPad;
+    read f_BottomPad
+    write f_BottomPad;
    property CellSpan: LongInt
-     read f_CellSpan
-     write f_CellSpan;
+    read f_CellSpan
+    write f_CellSpan;
    property Index: LongInt
-     read f_Index
-     write f_Index;
+    read f_Index
+    write f_Index;
    property LeftPad: LongInt
-     read f_LeftPad
-     write f_LeftPad;
+    read f_LeftPad
+    write f_LeftPad;
    property PatternBackColor: LongInt
-     read f_PatternBackColor
-     write f_PatternBackColor;
+    read f_PatternBackColor
+    write f_PatternBackColor;
    property PatternBackColorIndex: LongInt
-     read f_PatternBackColorIndex
-     write f_PatternBackColorIndex;
+    read f_PatternBackColorIndex
+    write f_PatternBackColorIndex;
    property PatternForeColor: LongInt
-     read f_PatternForeColor
-     write f_PatternForeColor;
+    read f_PatternForeColor
+    write f_PatternForeColor;
    property PatternForeColorIndex: LongInt
-     read f_PatternForeColorIndex
-     write f_PatternForeColorIndex;
+    read f_PatternForeColorIndex
+    write f_PatternForeColorIndex;
    property RightPad: LongInt
-     read f_RightPad
-     write f_RightPad;
+    read f_RightPad
+    write f_RightPad;
    property CellOffset: LongInt
-     read f_CellOffset
-     write f_CellOffset;
-     {* На самом деле это не ширина, а смещение (по крайней мере у преобразования из текста в табилцу). }
+    read f_CellOffset
+    write f_CellOffset;
+    {* На самом деле это не ширина, а смещение (по крайней мере у преобразования из текста в табилцу). }
    property CellJust: TddCellJust
-     read f_CellJust
-     write f_CellJust;
+    read f_CellJust
+    write f_CellJust;
    property IsPercent: Boolean
-     read f_IsPercent
-     write f_IsPercent;
+    read f_IsPercent
+    write f_IsPercent;
    property Merged: Boolean
-     read f_Merged
-     write f_Merged;
+    read f_Merged
+    write f_Merged;
    property MergeFirst: Boolean
-     read f_MergeFirst
-     write f_MergeFirst;
+    read f_MergeFirst
+    write f_MergeFirst;
    property VMerged: Boolean
-     read f_VMerged
-     write f_VMerged;
-     {* Ячейки принадлежит к объедененым по вертикали. }
+    read f_VMerged
+    write f_VMerged;
+    {* Ячейки принадлежит к объедененым по вертикали. }
    property VMergeFirst: Boolean
-     read f_VMergeFirst
-     write f_VMergeFirst;
-     {* Флаг устанавливается, чтобы можно было определить вертикальное выравнивание:
+    read f_VMergeFirst
+    write f_VMergeFirst;
+    {* Флаг устанавливается, чтобы можно было определить вертикальное выравнивание:
           если попадается еще одна ячейка с таким флагом в колонке, то ей устанавливают
           флаг VMerged. Начало объединения VMergeFirst = False. }
    property IsBorder: Boolean
-     read pm_GetIsBorder
-     write pm_SetIsBorder;
+    read pm_GetIsBorder
+    write pm_SetIsBorder;
    property RowSpan: LongInt
-     read f_RowSpan
-     write f_RowSpan;
+    read f_RowSpan
+    write f_RowSpan;
    property TopPad: LongInt
-     read f_TopPad
-     write f_TopPad;
+    read f_TopPad
+    write f_TopPad;
    property AlignCell: Boolean
-     read f_AlignCell
-     write f_AlignCell;
+    read f_AlignCell
+    write f_AlignCell;
    property CellWidth: LongInt
-     read f_CellWidth
-     write f_CellWidth;
+    read f_CellWidth
+    write f_CellWidth;
  end;//TddCellProperty
 
 implementation
 
 uses
-  l3Base,
-  ddBase
-  ;
+ l3ImplUses
+ , l3Base
+ , ddBase
+;
 
-// start class TddCellProperty
+function TddCellProperty.pm_GetIsBorder: Boolean;
+//#UC START# *52CF9F5201BD_5111FEC00247get_var*
+//#UC END# *52CF9F5201BD_5111FEC00247get_var*
+begin
+//#UC START# *52CF9F5201BD_5111FEC00247get_impl*
+ Result := f_Border.IsFramed;
+//#UC END# *52CF9F5201BD_5111FEC00247get_impl*
+end;//TddCellProperty.pm_GetIsBorder
+
+procedure TddCellProperty.pm_SetIsBorder(aValue: Boolean);
+//#UC START# *52CF9F5201BD_5111FEC00247set_var*
+//#UC END# *52CF9F5201BD_5111FEC00247set_var*
+begin
+//#UC START# *52CF9F5201BD_5111FEC00247set_impl*
+ f_Border.IsFramed := aValue;
+//#UC END# *52CF9F5201BD_5111FEC00247set_impl*
+end;//TddCellProperty.pm_SetIsBorder
 
 constructor TddCellProperty.Create(aClearBorder: TddClearBoder);
 //#UC START# *52CF9FF4019B_5111FEC00247_var*
@@ -225,24 +223,6 @@ begin
 //#UC END# *5614C68F0041_5111FEC00247_impl*
 end;//TddCellProperty.IsCellOffseDefault
 
-function TddCellProperty.pm_GetIsBorder: Boolean;
-//#UC START# *52CF9F5201BD_5111FEC00247get_var*
-//#UC END# *52CF9F5201BD_5111FEC00247get_var*
-begin
-//#UC START# *52CF9F5201BD_5111FEC00247get_impl*
- Result := f_Border.IsFramed;
-//#UC END# *52CF9F5201BD_5111FEC00247get_impl*
-end;//TddCellProperty.pm_GetIsBorder
-
-procedure TddCellProperty.pm_SetIsBorder(aValue: Boolean);
-//#UC START# *52CF9F5201BD_5111FEC00247set_var*
-//#UC END# *52CF9F5201BD_5111FEC00247set_var*
-begin
-//#UC START# *52CF9F5201BD_5111FEC00247set_impl*
- f_Border.IsFramed := aValue;
-//#UC END# *52CF9F5201BD_5111FEC00247set_impl*
-end;//TddCellProperty.pm_SetIsBorder
-
 procedure TddCellProperty.MergeWith(P: TddPropertyObject);
 //#UC START# *525E369F0158_5111FEC00247_var*
 //#UC END# *525E369F0158_5111FEC00247_var*
@@ -280,7 +260,7 @@ begin
 end;//TddCellProperty.Reset
 
 function TddCellProperty.Diff(P: TddPropertyObject;
-  aForReader: Boolean): TddPropertyObject;
+ aForReader: Boolean): TddPropertyObject;
 //#UC START# *525E47E10065_5111FEC00247_var*
 //#UC END# *525E47E10065_5111FEC00247_var*
 begin
@@ -291,6 +271,7 @@ begin
 end;//TddCellProperty.Diff
 
 procedure TddCellProperty.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5111FEC00247_var*
 //#UC END# *479731C50290_5111FEC00247_var*
 begin

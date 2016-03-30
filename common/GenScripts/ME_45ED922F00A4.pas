@@ -12,6 +12,7 @@ uses
  l3IntfUses
  , IOUnit
  , BaseTypesUnit
+ , BaseTreeSupportUnit
 ;
 
 type
@@ -44,117 +45,52 @@ type
 
  IExternalLink = interface
   ['{533104AC-5A1B-41B9-8ACC-C929C2B96678}']
-  function Get_url: IString;
-  property url: IString
-   read Get_url;
+  function GetUrl: IString; stdcall;
+  property Url: IString
+   read GetUrl;
    {* —сылка на внешние ресурсы в стандарте URL. }
  end;//IExternalLink
 
  IExternalObject = interface
   ['{A57F5CFD-DA48-4769-97D6-B63FEF94B81C}']
-  function Get_data_size: Cardinal;
-  function Get_data_pointer: pointer;
-  function Get_name: IString;
-  function Get_extension: IString;
-  function Get_data_type: TExternalObjectType;
-  property data_size: Cardinal
-   read Get_data_size;
+  function GetDataSize: Cardinal; stdcall;
+  function GetDataPointer: pointer; stdcall;
+  function GetName: IString; stdcall;
+  function GetExtension: IString; stdcall;
+  function GetDataType: TExternalObjectType; stdcall;
+  property DataSize: Cardinal
+   read GetDataSize;
    {* ќбщий размер возвращаемых данных. }
-  property data_pointer: pointer
-   read Get_data_pointer;
+  property DataPointer: pointer
+   read GetDataPointer;
    {* ”казатель на буфер с данными. }
-  property name: IString
-   read Get_name;
+  property Name: IString
+   read GetName;
    {* »м€ внешнего объекта. }
-  property extension: IString
-   read Get_extension;
+  property Extension: IString
+   read GetExtension;
    {* расширение дл€ файла (вместе с лидирующей точкой) на диске }
-  property data_type: TExternalObjectType
-   read Get_data_type;
+  property DataType: TExternalObjectType
+   read GetDataType;
  end;//IExternalObject
 
  ISplashScreen = interface(IExternalObject)
   ['{6F8DC97E-13B6-446A-A55D-B24A5232F52E}']
-  function Get_show_time: short;
-  function Get_owner_caption: IString;
-  function Get_owner: IString;
-  property show_time: short
-   read Get_show_time;
-  property owner_caption: IString
-   read Get_owner_caption;
-  property owner: IString
-   read Get_owner;
+  function GetShowTime: short; stdcall;
+  function GetOwnerCaption: IString; stdcall;
+  function GetOwner: IString; stdcall;
+  property ShowTime: short
+   read GetShowTime;
+  property OwnerCaption: IString
+   read GetOwnerCaption;
+  property Owner: IString
+   read GetOwner;
  end;//ISplashScreen
-
-class function make(url: PAnsiChar): BadFactoryType;
-class function make: BadFactoryType; overload;
-class function make(const obj): BadFactoryType; overload;
-class function make(is_start: Boolean;
- x: short;
- y: short;
- flash_available: Boolean): BadFactoryType; { can raise CanNotFindData }
- {* is_start - заставка при логине
-x,y - разрешение экрана
-flash_available -доступен ли показ флеш роликов }
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make(url: PAnsiChar): BadFactoryType;
-var
- l_Inst : IExternalLink;
-begin
- l_Inst := Create(url);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IExternalObject;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const obj): BadFactoryType;
-var
- l_Inst : IExternalObject;
-begin
- l_Inst := Create(obj);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(is_start: Boolean;
- x: short;
- y: short;
- flash_available: Boolean): BadFactoryType; { can raise CanNotFindData }
- {* is_start - заставка при логине
-x,y - разрешение экрана
-flash_available -доступен ли показ флеш роликов }
-var
- l_Inst : ISplashScreen;
-begin
- l_Inst := Create(is_start, x, y, flash_available);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

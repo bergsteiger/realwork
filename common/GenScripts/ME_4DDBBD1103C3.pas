@@ -23,6 +23,8 @@ uses
  , vcmBaseCollection
  , vcmExternalInterfaces
  , vcmBase
+ //#UC START# *4DDBBD1103C3intf_uses*
+ //#UC END# *4DDBBD1103C3intf_uses*
 ;
 
 type
@@ -170,6 +172,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4DDBBD1103C3impl_uses*
+ //#UC END# *4DDBBD1103C3impl_uses*
 ;
 
 procedure TvcmBaseEntitiesCollectionItemPrim.pm_SetOperations(aValue: TvcmBaseOperationsCollection);

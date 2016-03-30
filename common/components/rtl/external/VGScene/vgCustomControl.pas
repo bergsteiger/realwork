@@ -1,86 +1,69 @@
 unit vgCustomControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/VGScene/vgCustomControl.pas"
-// Начат: 10.02.2011 19:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::lulin::TvgCustomControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgCustomControl.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomControl" MUID: (4D5416AC01D1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3PureMixIns
+ //#UC START# *4D5416AC01D1intf_uses*
+ //#UC END# *4D5416AC01D1intf_uses*
+;
 
-{$If not defined(NoVGScene)}
  {$Define _UnknownIsComponent}
 
  {$Define l3Unknown_NoIUnknown}
 
 type
-//#UC START# *4D5416AC01D1ci*
-//#UC END# *4D5416AC01D1ci*
+ //#UC START# *4D5416AC01D1ci*
+ //#UC END# *4D5416AC01D1ci*
  _l3Unknown_Parent_ = TCustomControl;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-//#UC START# *4D5416AC01D1cit*
-//#UC END# *4D5416AC01D1cit*
+ //#UC START# *4D5416AC01D1cit*
+ //#UC END# *4D5416AC01D1cit*
  TvgCustomControl = class(_l3Unknown_)
- public
- // public methods
+  public
    procedure Free(var Dummy: Integer);
-     {* Для ловли Free }
-//#UC START# *4D5416AC01D1publ*
+    {* Для ловли Free }
+ //#UC START# *4D5416AC01D1publ*
  protected
    {$I l3DefineCleanup.inc}
-//#UC END# *4D5416AC01D1publ*
+ //#UC END# *4D5416AC01D1publ*
  end;//TvgCustomControl
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
+ //#UC START# *4D5416AC01D1impl_uses*
+ //#UC END# *4D5416AC01D1impl_uses*
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
-// start class TvgCustomControl
-
 procedure TvgCustomControl.Free(var Dummy: Integer);
+ {* Для ловли Free }
 //#UC START# *4D54173D03B8_4D5416AC01D1_var*
 //#UC END# *4D54173D03B8_4D5416AC01D1_var*
 begin
@@ -97,12 +80,11 @@ begin
 end;
 //#UC END# *4D5416AC01D1impl*
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgCustomControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgCustomControl);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgCustomControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

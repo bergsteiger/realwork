@@ -1,76 +1,45 @@
 unit DefaultNodeBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/DefaultNodeBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::DynamicTree_i::DefaultNodeBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DefaultNodeBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "DefaultNodeBase" MUID: (45F7ECA8034B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  BaseTypesUnit,
-  DynamicTreeUnit,
-  FlagNodeBase,
-  reeBase,
-  DynamicTreeDefinesUnit,
-  FlagNodeStub
-  ;
+ l3IntfUses
+ , FlagNodeBase
+ , DynamicTreeDefinesUnit
+ , reeBase
+ , DynamicTreeUnit
+ , FlagNodeStub
+ , BaseTypesUnit
+ //#UC START# *45F7ECA8034Bintf_uses*
+ //#UC END# *45F7ECA8034Bintf_uses*
+;
 
 type
-//#UC START# *45F7ECA8034Bci*
-//#UC END# *45F7ECA8034Bci*
-//#UC START# *45F7ECA8034Bcit*
-//#UC END# *45F7ECA8034Bcit*
+ //#UC START# *45F7ECA8034Bci*
+ //#UC END# *45F7ECA8034Bci*
+ //#UC START# *45F7ECA8034Bcit*
+ //#UC END# *45F7ECA8034Bcit*
  DefaultNodeBase = {abstract} class(FlagNodeBase)
- private
- // private methods
+  private
    class procedure IndexPathToNodePath(const path: INodeIndexPath;
     var node_path;
-    l: Integer); virtual;
+    l: Integer); virtual; stdcall;
    class procedure PrintPath(node_to_find: DefaultNodeBase;
-    const path: INodeIndexPath); virtual;
-   class procedure ServerLayersIdListToAdapter(srv;
-    var adap: ILayerIdList); virtual;
- protected
- // property methods
-   function pm_GetChildrenFlags: TFlagMask; virtual;
-   procedure pm_SetOwnerTree(aValue: TreeBase); overload;  virtual;
- protected
- // realized methods
-   procedure SetAllFlag(flag: TFlagMask;
-    value: Boolean;
-    with_notify: Boolean); override;
-   function InternalSetAllFlag(flag: TFlagMask;
-    value: Boolean;
-    children_only: Boolean): size; override;
-     {* возвращает количество взведённых (изменённых?) флагов. }
-   procedure SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
-    value: Boolean;
-    with_notify: Boolean); override;
-   function InternalSetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
-    value: Boolean;
-    children_only: Boolean): size; override;
- public
- // overridden public methods
-   function SetFlag(flag: TFlagMask;
-    value: Boolean;
-    with_notify: Boolean): Boolean; override;
- protected
- // protected methods
-   class function GetRealInterface(node_): DefaultNodeBase; virtual;
-   constructor Make; overload;  virtual;
-   procedure InvalidateChildrenCount; virtual;
+    const path: INodeIndexPath); virtual; stdcall;
+   class procedure ServerLayersIdListToAdapter(const srv;
+    var adap: ILayerIdList); virtual; stdcall;
+  protected
+   function GetChildrenFlags: TFlagMask; virtual; stdcall;
+   procedure SetOwnerTree(aValue: TreeBase); overload; virtual; stdcall;
+   class function GetRealInterface(const node_): DefaultNodeBase; virtual; stdcall;
+   constructor Make; reintroduce; overload; virtual; stdcall;
+   procedure InvalidateChildrenCount; virtual; stdcall;
    procedure CreateViewEx(const filter: IFilterList;
     shared_flags: TFlagMask;
     sync_node: DefaultNodeBase;
@@ -78,115 +47,130 @@ type
     levels: Cardinal;
     unfiltered: Boolean;
     auto_open: Boolean;
-    truncate_this_view: Boolean); virtual;
+    truncate_this_view: Boolean); virtual; stdcall;
    function SetRangeFlag(from: TVisibleIndex;
     to: TVisibleIndex;
     flag: TFlagMask;
     value: Boolean;
     clean_other: Boolean;
-    with_notify: Boolean): Boolean; virtual;
-   function HasParentFlag(flag: TFlagMask): Boolean; virtual;
-   function HasChildrenFlag(flag: TFlagMask): Boolean; virtual;
-   function GetFlagCount(flag: TFlagMask): Cardinal; virtual;
-   function GetFirstLevelChildrenFlagCount(flag: TFlagMask): Cardinal; virtual;
+    with_notify: Boolean): ByteBool; virtual; stdcall;
+   function HasParentFlag(flag: TFlagMask): ByteBool; virtual; stdcall;
+   function HasChildrenFlag(flag: TFlagMask): ByteBool; virtual; stdcall;
+   function GetFlagCount(flag: TFlagMask): Cardinal; virtual; stdcall;
+   function GetFirstLevelChildrenFlagCount(flag: TFlagMask): Cardinal; virtual; stdcall;
    procedure SetChildrenFlag(flag: TFlagMask;
-    value: Boolean); virtual;
-   function FindNodeByInterface(const node_to_find: INodeBase): DefaultNodeBase; virtual;
-   function FindNode(node_to_find): DefaultNodeBase; virtual;
-   function FindNodePath(var node_to_find: INodeBase): INodeIndexPath; virtual;
-   function GetVisibleDelta(var node: DefaultNodeBase): TVisibleIndex; overload;  virtual;
-   function GetVisibleDelta(node_path): TVisibleIndex; overload;  virtual;
-   function GetVisibleDelta(const entity: IEntityBase): TVisibleIndex; overload;  virtual;
-   function GetIndexFromParent: TVisibleIndex; virtual;
-     {* TODO: упростить, выкинув этот метод
+    value: Boolean); virtual; stdcall;
+   function FindNodeByInterface(const node_to_find: INodeBase): DefaultNodeBase; virtual; stdcall;
+   function FindNode(const node_to_find): DefaultNodeBase; virtual; stdcall;
+   function FindNodePath(var node_to_find: INodeBase): INodeIndexPath; virtual; stdcall;
+   function GetVisibleDelta(var node: DefaultNodeBase): TVisibleIndex; overload; virtual; stdcall;
+   function GetVisibleDelta(const node_path): TVisibleIndex; overload; virtual; stdcall;
+   function GetVisibleDelta(const entity: IEntityBase): TVisibleIndex; overload; virtual; stdcall;
+   function GetIndexFromParent: TVisibleIndex; virtual; stdcall;
+    {* TODO: упростить, выкинув этот метод
 ходить только к StaticNode-е }
-   function GetAbsIndex: TVisibleIndex; virtual; // can raise CanNotFindData
-   function GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; virtual; // can raise CanNotFindData
-   procedure AddNotifier(var notifier: INodeNotifier); virtual;
-   procedure RemoveNotifier(var notifier: INodeNotifier); virtual;
-   function FindStubForIndex(out index: Integer): FlagNodeStub; virtual;
-   procedure GetAvailableLayers(var layers: ILayerIdList); virtual;
-   function GetFirstFit(const filter: IFilterList): INodeIndexPath; virtual;
+   function GetAbsIndex: TVisibleIndex; virtual; stdcall; { can raise CanNotFindData }
+   function GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; virtual; stdcall; { can raise CanNotFindData }
+   procedure AddNotifier(var notifier: INodeNotifier); virtual; stdcall;
+   procedure RemoveNotifier(var notifier: INodeNotifier); virtual; stdcall;
+   function FindStubForIndex(out index: Integer): FlagNodeStub; virtual; stdcall;
+   procedure GetAvailableLayers(var layers: ILayerIdList); virtual; stdcall;
+   function GetFirstFit(const filter: IFilterList): INodeIndexPath; virtual; stdcall;
    function Find(const filter: IFilterList;
-    const find_from: TNodePosition): IFindIterator; virtual;
-   function IsRelevanceSearchSupported: Boolean; virtual;
-   function GetNodeByPath(const path: INodeIndexPath): INodeBase; virtual;
-     {* Дублирует с CatalogBase }
-   procedure NodePathToIndexPath(path); virtual;
-   procedure Entity; virtual; // can raise NoEntity
-   function ApplyResetDelta(var delta): Boolean; virtual;
-   function ApplyChangeDelta(var delta): Boolean; virtual; abstract;
-   function ApplyInsertDelta(var delta): Boolean; virtual;
-   function ApplyDeleteDelta(var delta): Boolean; virtual;
-   procedure RemoveMeAndSiblings(out count: Cardinal); virtual;
-   procedure Clean; virtual;
-   function IsAllExpanded: Boolean; virtual;
-   procedure ExpandAllNodes(expand: Boolean); virtual;
- public
- // public methods
-   class procedure SrvPathToAdapter(index_path;
-    var adap_path: INodeIndexPath); virtual;
-   class procedure AdapterPathToSrv(const adapter_index_path: INodeIndexPath); virtual;
-   constructor Make(var owner_tree: TreeBase); overload;  virtual;
-   procedure GetServerPointer; virtual; abstract;
-   function FindNodeByPath(node_path): DefaultNodeBase; overload;  virtual;
-   function FindNodeByPath(node_index_path): DefaultNodeBase; overload;  virtual;
-   function FindLoadedNodeByPath(node_index_path): DefaultNodeBase; virtual;
-   function GetTreeName: PAnsiChar; virtual;
-   function GetSettingsRootId: AnsiString; virtual;
-   function NodeName: PAnsiChar; virtual; abstract;
-   procedure ServerDataVersion; virtual;
-   procedure GetServerPath(path_type = PT_POINTER); virtual;
-   function GetTreeOwner: TreeBase; virtual;
-   function GetVisibleIndex: TVisibleIndex; virtual;
-   function OwnerTree: TreeBase; overload;  virtual;
-   function OwnerTree: TreeBase; overload;  virtual;
+    const find_from: TNodePosition): IFindIterator; virtual; stdcall;
+   function IsRelevanceSearchSupported: ByteBool; virtual; stdcall;
+   function GetNodeByPath(const path: INodeIndexPath): INodeBase; virtual; stdcall;
+    {* Дублирует с CatalogBase }
+   procedure NodePathToIndexPath(const path); virtual; stdcall;
+   procedure Entity; virtual; stdcall; { can raise NoEntity }
+   function ApplyResetDelta(var delta): ByteBool; virtual; stdcall;
+   function ApplyChangeDelta(var delta): ByteBool; virtual; abstract; stdcall;
+   function ApplyInsertDelta(var delta): ByteBool; virtual; stdcall;
+   function ApplyDeleteDelta(var delta): ByteBool; virtual; stdcall;
+   procedure RemoveMeAndSiblings(out count: Cardinal); virtual; stdcall;
+   procedure Clean; virtual; stdcall;
+   function IsAllExpanded: ByteBool; virtual; stdcall;
+   procedure ExpandAllNodes(expand: Boolean); virtual; stdcall;
+  public
+   class procedure SrvPathToAdapter(const index_path;
+    var adap_path: INodeIndexPath); virtual; stdcall;
+   class procedure AdapterPathToSrv(const adapter_index_path: INodeIndexPath); virtual; stdcall;
+   constructor Make(var owner_tree: TreeBase); reintroduce; overload; virtual; stdcall;
+   procedure GetServerPointer; virtual; abstract; stdcall;
+   function FindNodeByPath(const node_path): DefaultNodeBase; overload; virtual; stdcall;
+   function FindNodeByPath(const node_index_path): DefaultNodeBase; overload; virtual; stdcall;
+   function FindLoadedNodeByPath(const node_index_path): DefaultNodeBase; virtual; stdcall;
+   function GetTreeName: PAnsiChar; virtual; stdcall;
+   function GetSettingsRootId: AnsiString; virtual; stdcall;
+   function NodeName: PAnsiChar; virtual; abstract; stdcall;
+   procedure ServerDataVersion; virtual; stdcall;
+   procedure GetServerPath(const path_type = PT_POINTER); virtual; stdcall;
+   function GetTreeOwner: TreeBase; virtual; stdcall;
+   function GetVisibleIndex: TVisibleIndex; virtual; stdcall;
+   function OwnerTree: TreeBase; overload; virtual; stdcall;
+   function OwnerTree: TreeBase; overload; virtual; stdcall;
    function SetRangeFlagExceptFirstChildrenOfRootChildren(from: TVisibleIndex;
     to: TVisibleIndex;
     flag: TFlagMask;
     value: Boolean;
     clean_other: Boolean;
-    with_notify: Boolean): Boolean; virtual;
- protected
- // protected properties
-   property children_flags: TFlagMask
-     read pm_GetChildrenFlags;
-   property owner_tree: TreeBase
-     write pm_SetOwnerTree;
-//#UC START# *45F7ECA8034Bpubl*
-//#UC END# *45F7ECA8034Bpubl*
+    with_notify: Boolean): ByteBool; virtual; stdcall;
+   procedure SetAllFlag(flag: TFlagMask;
+    value: Boolean;
+    with_notify: Boolean); override;
+   function InternalSetAllFlag(flag: TFlagMask;
+    value: Boolean;
+    children_only: Boolean): size; override;
+    {* возвращает количество взведённых (изменённых?) флагов. }
+   procedure SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
+    value: Boolean;
+    with_notify: Boolean); override;
+   function InternalSetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
+    value: Boolean;
+    children_only: Boolean): size; override;
+   function SetFlag(flag: TFlagMask;
+    value: Boolean;
+    with_notify: Boolean): ByteBool; override;
+  protected
+   property ChildrenFlags: TFlagMask
+    read GetChildrenFlags;
+   property OwnerTree: TreeBase
+    write SetOwnerTree;
+ //#UC START# *45F7ECA8034Bpubl*
+ //#UC END# *45F7ECA8034Bpubl*
  end;//DefaultNodeBase
 
 implementation
 
 uses
-  RealNodeBase,
-  ServerAdapterConverters,
-  ViewBase
-  ;
+ l3ImplUses
+ , RealNodeBase
+ , ServerAdapterConverters
+ , ViewBase
+ //#UC START# *45F7ECA8034Bimpl_uses*
+ //#UC END# *45F7ECA8034Bimpl_uses*
+;
 
-// start class DefaultNodeBase
-
-function DefaultNodeBase.pm_GetChildrenFlags: TFlagMask;
+function DefaultNodeBase.GetChildrenFlags: TFlagMask;
 //#UC START# *45F95D2600AB_45F7ECA8034Bget_var*
 //#UC END# *45F95D2600AB_45F7ECA8034Bget_var*
 begin
 //#UC START# *45F95D2600AB_45F7ECA8034Bget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F95D2600AB_45F7ECA8034Bget_impl*
-end;//DefaultNodeBase.pm_GetChildrenFlags
+end;//DefaultNodeBase.GetChildrenFlags
 
-procedure DefaultNodeBase.pm_SetOwnerTree(aValue: TreeBase);
+procedure DefaultNodeBase.SetOwnerTree(aValue: TreeBase);
 //#UC START# *45F9675A000F_45F7ECA8034Bset_var*
 //#UC END# *45F9675A000F_45F7ECA8034Bset_var*
 begin
 //#UC START# *45F9675A000F_45F7ECA8034Bset_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9675A000F_45F7ECA8034Bset_impl*
-end;//DefaultNodeBase.pm_SetOwnerTree
+end;//DefaultNodeBase.SetOwnerTree
 
-class procedure DefaultNodeBase.SrvPathToAdapter(index_path;
-  var adap_path: INodeIndexPath);
+class procedure DefaultNodeBase.SrvPathToAdapter(const index_path;
+ var adap_path: INodeIndexPath);
 //#UC START# *45F945FC02DE_45F7ECA8034B_var*
 //#UC END# *45F945FC02DE_45F7ECA8034B_var*
 begin
@@ -205,8 +189,8 @@ begin
 end;//DefaultNodeBase.AdapterPathToSrv
 
 class procedure DefaultNodeBase.IndexPathToNodePath(const path: INodeIndexPath;
-  var node_path;
-  l: Integer);
+ var node_path;
+ l: Integer);
 //#UC START# *45FA6B180148_45F7ECA8034B_var*
 //#UC END# *45FA6B180148_45F7ECA8034B_var*
 begin
@@ -216,7 +200,7 @@ begin
 end;//DefaultNodeBase.IndexPathToNodePath
 
 class procedure DefaultNodeBase.PrintPath(node_to_find: DefaultNodeBase;
-  const path: INodeIndexPath);
+ const path: INodeIndexPath);
 //#UC START# *45FA6BAB0109_45F7ECA8034B_var*
 //#UC END# *45FA6BAB0109_45F7ECA8034B_var*
 begin
@@ -225,8 +209,8 @@ begin
 //#UC END# *45FA6BAB0109_45F7ECA8034B_impl*
 end;//DefaultNodeBase.PrintPath
 
-class procedure DefaultNodeBase.ServerLayersIdListToAdapter(srv;
-  var adap: ILayerIdList);
+class procedure DefaultNodeBase.ServerLayersIdListToAdapter(const srv;
+ var adap: ILayerIdList);
 //#UC START# *45FA84E40213_45F7ECA8034B_var*
 //#UC END# *45FA84E40213_45F7ECA8034B_var*
 begin
@@ -235,7 +219,7 @@ begin
 //#UC END# *45FA84E40213_45F7ECA8034B_impl*
 end;//DefaultNodeBase.ServerLayersIdListToAdapter
 
-class function DefaultNodeBase.GetRealInterface(node_): DefaultNodeBase;
+class function DefaultNodeBase.GetRealInterface(const node_): DefaultNodeBase;
 //#UC START# *45F94AF8031C_45F7ECA8034B_var*
 //#UC END# *45F94AF8031C_45F7ECA8034B_var*
 begin
@@ -262,7 +246,7 @@ begin
 //#UC END# *45F94B5D0399_45F7ECA8034B_impl*
 end;//DefaultNodeBase.Make
 
-function DefaultNodeBase.FindNodeByPath(node_path): DefaultNodeBase;
+function DefaultNodeBase.FindNodeByPath(const node_path): DefaultNodeBase;
 //#UC START# *45F94BE501E4_45F7ECA8034B_var*
 //#UC END# *45F94BE501E4_45F7ECA8034B_var*
 begin
@@ -271,7 +255,7 @@ begin
 //#UC END# *45F94BE501E4_45F7ECA8034B_impl*
 end;//DefaultNodeBase.FindNodeByPath
 
-function DefaultNodeBase.FindNodeByPath(node_index_path): DefaultNodeBase;
+function DefaultNodeBase.FindNodeByPath(const node_index_path): DefaultNodeBase;
 //#UC START# *45F94C8E0109_45F7ECA8034B_var*
 //#UC END# *45F94C8E0109_45F7ECA8034B_var*
 begin
@@ -280,7 +264,7 @@ begin
 //#UC END# *45F94C8E0109_45F7ECA8034B_impl*
 end;//DefaultNodeBase.FindNodeByPath
 
-function DefaultNodeBase.FindLoadedNodeByPath(node_index_path): DefaultNodeBase;
+function DefaultNodeBase.FindLoadedNodeByPath(const node_index_path): DefaultNodeBase;
 //#UC START# *45F94CBE030D_45F7ECA8034B_var*
 //#UC END# *45F94CBE030D_45F7ECA8034B_var*
 begin
@@ -316,7 +300,7 @@ begin
 //#UC END# *45F94D760203_45F7ECA8034B_impl*
 end;//DefaultNodeBase.ServerDataVersion
 
-procedure DefaultNodeBase.GetServerPath(path_type = PT_POINTER);
+procedure DefaultNodeBase.GetServerPath(const path_type = PT_POINTER);
 //#UC START# *45F94DB201C5_45F7ECA8034B_var*
 //#UC END# *45F94DB201C5_45F7ECA8034B_var*
 begin
@@ -353,13 +337,13 @@ begin
 end;//DefaultNodeBase.InvalidateChildrenCount
 
 procedure DefaultNodeBase.CreateViewEx(const filter: IFilterList;
-  shared_flags: TFlagMask;
-  sync_node: DefaultNodeBase;
-  out sync_index: TVisibleIndex;
-  levels: Cardinal;
-  unfiltered: Boolean;
-  auto_open: Boolean;
-  truncate_this_view: Boolean);
+ shared_flags: TFlagMask;
+ sync_node: DefaultNodeBase;
+ out sync_index: TVisibleIndex;
+ levels: Cardinal;
+ unfiltered: Boolean;
+ auto_open: Boolean;
+ truncate_this_view: Boolean);
 //#UC START# *45F94E980186_45F7ECA8034B_var*
 //#UC END# *45F94E980186_45F7ECA8034B_var*
 begin
@@ -369,11 +353,11 @@ begin
 end;//DefaultNodeBase.CreateViewEx
 
 function DefaultNodeBase.SetRangeFlag(from: TVisibleIndex;
-  to: TVisibleIndex;
-  flag: TFlagMask;
-  value: Boolean;
-  clean_other: Boolean;
-  with_notify: Boolean): Boolean;
+ to: TVisibleIndex;
+ flag: TFlagMask;
+ value: Boolean;
+ clean_other: Boolean;
+ with_notify: Boolean): ByteBool;
 //#UC START# *45F94FF401C5_45F7ECA8034B_var*
 //#UC END# *45F94FF401C5_45F7ECA8034B_var*
 begin
@@ -382,7 +366,7 @@ begin
 //#UC END# *45F94FF401C5_45F7ECA8034B_impl*
 end;//DefaultNodeBase.SetRangeFlag
 
-function DefaultNodeBase.HasParentFlag(flag: TFlagMask): Boolean;
+function DefaultNodeBase.HasParentFlag(flag: TFlagMask): ByteBool;
 //#UC START# *45F951DC0242_45F7ECA8034B_var*
 //#UC END# *45F951DC0242_45F7ECA8034B_var*
 begin
@@ -391,7 +375,7 @@ begin
 //#UC END# *45F951DC0242_45F7ECA8034B_impl*
 end;//DefaultNodeBase.HasParentFlag
 
-function DefaultNodeBase.HasChildrenFlag(flag: TFlagMask): Boolean;
+function DefaultNodeBase.HasChildrenFlag(flag: TFlagMask): ByteBool;
 //#UC START# *45FA5936035B_45F7ECA8034B_var*
 //#UC END# *45FA5936035B_45F7ECA8034B_var*
 begin
@@ -419,7 +403,7 @@ begin
 end;//DefaultNodeBase.GetFirstLevelChildrenFlagCount
 
 procedure DefaultNodeBase.SetChildrenFlag(flag: TFlagMask;
-  value: Boolean);
+ value: Boolean);
 //#UC START# *45F9524B006D_45F7ECA8034B_var*
 //#UC END# *45F9524B006D_45F7ECA8034B_var*
 begin
@@ -437,7 +421,7 @@ begin
 //#UC END# *45F952A602DE_45F7ECA8034B_impl*
 end;//DefaultNodeBase.FindNodeByInterface
 
-function DefaultNodeBase.FindNode(node_to_find): DefaultNodeBase;
+function DefaultNodeBase.FindNode(const node_to_find): DefaultNodeBase;
 //#UC START# *45F9533D02AF_45F7ECA8034B_var*
 //#UC END# *45F9533D02AF_45F7ECA8034B_var*
 begin
@@ -464,7 +448,7 @@ begin
 //#UC END# *45F953BF005D_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetVisibleDelta
 
-function DefaultNodeBase.GetVisibleDelta(node_path): TVisibleIndex;
+function DefaultNodeBase.GetVisibleDelta(const node_path): TVisibleIndex;
 //#UC START# *45F95412037A_45F7ECA8034B_var*
 //#UC END# *45F95412037A_45F7ECA8034B_var*
 begin
@@ -483,6 +467,8 @@ begin
 end;//DefaultNodeBase.GetVisibleDelta
 
 function DefaultNodeBase.GetIndexFromParent: TVisibleIndex;
+ {* TODO: упростить, выкинув этот метод
+ходить только к StaticNode-е }
 //#UC START# *45F9547101F4_45F7ECA8034B_var*
 //#UC END# *45F9547101F4_45F7ECA8034B_var*
 begin
@@ -491,7 +477,7 @@ begin
 //#UC END# *45F9547101F4_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetIndexFromParent
 
-function DefaultNodeBase.GetAbsIndex: TVisibleIndex; // can raise CanNotFindData
+function DefaultNodeBase.GetAbsIndex: TVisibleIndex; { can raise CanNotFindData }
 //#UC START# *45F954900138_45F7ECA8034B_var*
 //#UC END# *45F954900138_45F7ECA8034B_var*
 begin
@@ -500,7 +486,7 @@ begin
 //#UC END# *45F954900138_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetAbsIndex
 
-function DefaultNodeBase.GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; // can raise CanNotFindData
+function DefaultNodeBase.GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; { can raise CanNotFindData }
 //#UC START# *45F954CB0128_45F7ECA8034B_var*
 //#UC END# *45F954CB0128_45F7ECA8034B_var*
 begin
@@ -555,7 +541,7 @@ begin
 end;//DefaultNodeBase.GetFirstFit
 
 function DefaultNodeBase.Find(const filter: IFilterList;
-  const find_from: TNodePosition): IFindIterator;
+ const find_from: TNodePosition): IFindIterator;
 //#UC START# *45F95672034B_45F7ECA8034B_var*
 //#UC END# *45F95672034B_45F7ECA8034B_var*
 begin
@@ -564,7 +550,7 @@ begin
 //#UC END# *45F95672034B_45F7ECA8034B_impl*
 end;//DefaultNodeBase.Find
 
-function DefaultNodeBase.IsRelevanceSearchSupported: Boolean;
+function DefaultNodeBase.IsRelevanceSearchSupported: ByteBool;
 //#UC START# *45F957E701D4_45F7ECA8034B_var*
 //#UC END# *45F957E701D4_45F7ECA8034B_var*
 begin
@@ -574,6 +560,7 @@ begin
 end;//DefaultNodeBase.IsRelevanceSearchSupported
 
 function DefaultNodeBase.GetNodeByPath(const path: INodeIndexPath): INodeBase;
+ {* Дублирует с CatalogBase }
 //#UC START# *45F958030280_45F7ECA8034B_var*
 //#UC END# *45F958030280_45F7ECA8034B_var*
 begin
@@ -582,7 +569,7 @@ begin
 //#UC END# *45F958030280_45F7ECA8034B_impl*
 end;//DefaultNodeBase.GetNodeByPath
 
-procedure DefaultNodeBase.NodePathToIndexPath(path);
+procedure DefaultNodeBase.NodePathToIndexPath(const path);
 //#UC START# *45F958740203_45F7ECA8034B_var*
 //#UC END# *45F958740203_45F7ECA8034B_var*
 begin
@@ -591,7 +578,7 @@ begin
 //#UC END# *45F958740203_45F7ECA8034B_impl*
 end;//DefaultNodeBase.NodePathToIndexPath
 
-procedure DefaultNodeBase.Entity; // can raise NoEntity
+procedure DefaultNodeBase.Entity; { can raise NoEntity }
 //#UC START# *45F95AAD0232_45F7ECA8034B_var*
 //#UC END# *45F95AAD0232_45F7ECA8034B_var*
 begin
@@ -600,7 +587,7 @@ begin
 //#UC END# *45F95AAD0232_45F7ECA8034B_impl*
 end;//DefaultNodeBase.Entity
 
-function DefaultNodeBase.ApplyResetDelta(var delta): Boolean;
+function DefaultNodeBase.ApplyResetDelta(var delta): ByteBool;
 //#UC START# *45F95B680232_45F7ECA8034B_var*
 //#UC END# *45F95B680232_45F7ECA8034B_var*
 begin
@@ -609,7 +596,7 @@ begin
 //#UC END# *45F95B680232_45F7ECA8034B_impl*
 end;//DefaultNodeBase.ApplyResetDelta
 
-function DefaultNodeBase.ApplyInsertDelta(var delta): Boolean;
+function DefaultNodeBase.ApplyInsertDelta(var delta): ByteBool;
 //#UC START# *45F95BAF02CE_45F7ECA8034B_var*
 //#UC END# *45F95BAF02CE_45F7ECA8034B_var*
 begin
@@ -618,7 +605,7 @@ begin
 //#UC END# *45F95BAF02CE_45F7ECA8034B_impl*
 end;//DefaultNodeBase.ApplyInsertDelta
 
-function DefaultNodeBase.ApplyDeleteDelta(var delta): Boolean;
+function DefaultNodeBase.ApplyDeleteDelta(var delta): ByteBool;
 //#UC START# *45F95BBD0271_45F7ECA8034B_var*
 //#UC END# *45F95BBD0271_45F7ECA8034B_var*
 begin
@@ -645,7 +632,7 @@ begin
 //#UC END# *45F95C64003E_45F7ECA8034B_impl*
 end;//DefaultNodeBase.Clean
 
-function DefaultNodeBase.IsAllExpanded: Boolean;
+function DefaultNodeBase.IsAllExpanded: ByteBool;
 //#UC START# *45F95CBF002E_45F7ECA8034B_var*
 //#UC END# *45F95CBF002E_45F7ECA8034B_var*
 begin
@@ -682,11 +669,11 @@ begin
 end;//DefaultNodeBase.OwnerTree
 
 function DefaultNodeBase.SetRangeFlagExceptFirstChildrenOfRootChildren(from: TVisibleIndex;
-  to: TVisibleIndex;
-  flag: TFlagMask;
-  value: Boolean;
-  clean_other: Boolean;
-  with_notify: Boolean): Boolean;
+ to: TVisibleIndex;
+ flag: TFlagMask;
+ value: Boolean;
+ clean_other: Boolean;
+ with_notify: Boolean): ByteBool;
 //#UC START# *51EFD62F03D7_45F7ECA8034B_var*
 //#UC END# *51EFD62F03D7_45F7ECA8034B_var*
 begin
@@ -696,8 +683,8 @@ begin
 end;//DefaultNodeBase.SetRangeFlagExceptFirstChildrenOfRootChildren
 
 procedure DefaultNodeBase.SetAllFlag(flag: TFlagMask;
-  value: Boolean;
-  with_notify: Boolean);
+ value: Boolean;
+ with_notify: Boolean);
 //#UC START# *45F80922032C_45F7ECA8034B_var*
 //#UC END# *45F80922032C_45F7ECA8034B_var*
 begin
@@ -707,8 +694,9 @@ begin
 end;//DefaultNodeBase.SetAllFlag
 
 function DefaultNodeBase.InternalSetAllFlag(flag: TFlagMask;
-  value: Boolean;
-  children_only: Boolean): size;
+ value: Boolean;
+ children_only: Boolean): size;
+ {* возвращает количество взведённых (изменённых?) флагов. }
 //#UC START# *45F810730290_45F7ECA8034B_var*
 //#UC END# *45F810730290_45F7ECA8034B_var*
 begin
@@ -718,8 +706,8 @@ begin
 end;//DefaultNodeBase.InternalSetAllFlag
 
 procedure DefaultNodeBase.SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
-  value: Boolean;
-  with_notify: Boolean);
+ value: Boolean;
+ with_notify: Boolean);
 //#UC START# *51EFC6D0015B_45F7ECA8034B_var*
 //#UC END# *51EFC6D0015B_45F7ECA8034B_var*
 begin
@@ -729,8 +717,8 @@ begin
 end;//DefaultNodeBase.SetAllFlagExceptFirstChildrenOfRootChildren
 
 function DefaultNodeBase.InternalSetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
-  value: Boolean;
-  children_only: Boolean): size;
+ value: Boolean;
+ children_only: Boolean): size;
 //#UC START# *51EFC7130001_45F7ECA8034B_var*
 //#UC END# *51EFC7130001_45F7ECA8034B_var*
 begin
@@ -740,8 +728,8 @@ begin
 end;//DefaultNodeBase.InternalSetAllFlagExceptFirstChildrenOfRootChildren
 
 function DefaultNodeBase.SetFlag(flag: TFlagMask;
-  value: Boolean;
-  with_notify: Boolean): Boolean;
+ value: Boolean;
+ with_notify: Boolean): ByteBool;
 //#UC START# *45F8123602DE_45F7ECA8034B_var*
 //#UC END# *45F8123602DE_45F7ECA8034B_var*
 begin

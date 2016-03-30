@@ -1,36 +1,23 @@
 unit l3StringMap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/Implementation/l3StringMap.pas"
-// Начат: 01.03.2010 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::L3 for VCM::Tl3StringMap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\Implementation\l3StringMap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StringMap" MUID: (4B8BC059018C)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3StringMapPrim,
-  l3KeyWrd,
-  l3IDIndex,
-  l3Interfaces,
-  l3Types
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3StringMapPrim
+ , l3KeyWrd
+ , l3IDIndex
+ , l3Interfaces
+ , l3Types
+;
 
-{$If not defined(NoVCM)}
  {$Define l3Items_NeedsBeforeFreeItem}
 
  {$Undef l3Items_NoSort}
@@ -39,39 +26,35 @@ type
  _l3Dictionary_Parent_ = Tl3StringMapPrim;
  {$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
  Tl3StringMap = class(_l3Dictionary_)
- private
- // private fields
-   f_Hi : Integer;
- public
- // public methods
+  private
+   f_Hi: Integer;
+  public
    function ResolveString(const aString: AnsiString): Integer;
-     {* Возвращает идентификатор строки }
+    {* Возвращает идентификатор строки }
  end;//Tl3StringMap
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  SysUtils,
-  l3String
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , l3String
+ , l3Variant
+ , l3Memory
+;
 
 type _Instance_R_ = Tl3StringMap;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
 
-// start class Tl3StringMap
-
 function Tl3StringMap.ResolveString(const aString: AnsiString): Integer;
+ {* Возвращает идентификатор строки }
+var l_Item: Tl3KeyWord;
 //#UC START# *4B8BC0D40179_4B8BC059018C_var*
 //#UC END# *4B8BC0D40179_4B8BC059018C_var*
-var
- l_Item : Tl3KeyWord;
 begin
 //#UC START# *4B8BC0D40179_4B8BC059018C_impl*
  l_Item := Tl3KeyWord(DRByName[aString]);
@@ -89,7 +72,6 @@ begin
   Result := l_Item.StringID;
 //#UC END# *4B8BC0D40179_4B8BC059018C_impl*
 end;//Tl3StringMap.ResolveString
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

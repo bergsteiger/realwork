@@ -1,42 +1,39 @@
 unit ConsultingUnit;
+ {* Интерфейсы для работы со службой ПП }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ConsultingUnit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> garant6x::GblAdapterLib::Consulting
-//
-// Интерфейсы для работы со службой ПП
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ConsultingUnit.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "Consulting" MUID: (457007DB002E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  IOUnit,
-  BaseTypesUnit,
-  StartUnit,
-  DynamicDocListUnit,
-  FoldersUnit,
-  DocumentUnit
-  ;
+ l3IntfUses
+ , IOUnit
+ , BaseTypesUnit
+ , StartUnit
+ , DynamicDocListUnit
+ , FoldersUnit
+ , DocumentUnit
+ //#UC START# *457007DB002Eintf_uses*
+ //#UC END# *457007DB002Eintf_uses*
+;
 
 type
  TEstimationValue = (
   {* Возможные оценки }
-   EV_UNDEFINED // оценка не выставлена
- , EV_VERY_GOOD // супер!!!
- , EV_GOOD // хорошо
- , EV_NORMAL // сойдёт
- , EV_BAD // полная фигня...
+  EV_UNDEFINED
+   {* оценка не выставлена }
+  , EV_VERY_GOOD
+   {* супер!!! }
+  , EV_GOOD
+   {* хорошо }
+  , EV_NORMAL
+   {* сойдёт }
+  , EV_BAD
+   {* полная фигня... }
  );//TEstimationValue
 
  NoDocumentList = class
@@ -63,21 +60,21 @@ type
   {* Консультация удалена - все операции запрещены }
  end;//Deleted
 
- IEstimation = interface(IUnknown)
+ IEstimation = interface
   {* Оценка }
-   ['{DD01B380-09FE-4476-8789-20B2291FE41B}']
-   function GetValue: TEstimationValue; stdcall;
-   procedure SetValue(aValue: TEstimationValue); stdcall;
-   function GetText: IString; stdcall;
-   procedure SetText(const aValue: IString); stdcall;
-   property value: TEstimationValue
-     read GetValue
-     write SetValue;
-     {* оценка }
-   property text: IString
-     read GetText
-     write SetText;
-     {* комментарий к оценке }
+  ['{DD01B380-09FE-4476-8789-20B2291FE41B}']
+  function GetValue: TEstimationValue; stdcall;
+  procedure SetValue(aValue: TEstimationValue); stdcall;
+  function GetText: IString; stdcall;
+  procedure SetText(const aValue: IString); stdcall;
+  property Value: TEstimationValue
+   read GetValue
+   write SetValue;
+   {* оценка }
+  property Text: IString
+   read GetText
+   write SetText;
+   {* комментарий к оценке }
  end;//IEstimation
 
  OldFormatConsultation = class
@@ -88,132 +85,137 @@ type
 
  IParasList = array of IString;
 
-const
-  { Статусы консультаций }
- CS_SENT : TConsultationStatus = 1024;
-  { Отправлена }
- CS_PAYMENT_REQUEST : TConsultationStatus = 1;
-  { Запрос на оплату }
- CS_ANSWER_RECEIVED : TConsultationStatus = 2;
-  { Получен ответ }
- CS_READ : TConsultationStatus = 4;
- CS_ESTIMATION_SENT : TConsultationStatus = 8;
-  { Отправлена оценка }
- CS_DRAFTS : TConsultationStatus = 16;
-  { Создана, но не отправлена }
- CS_PAYMENT_REFUSAL : TConsultationStatus = 32;
-  { Оплата отклонена }
- CS_PAYMENT_CONFIRM : TConsultationStatus = 64;
- CS_VALIDATION_FAILED : TConsultationStatus = 128;
- CS_ANSWER_NOT_CONFIRM : TConsultationStatus = 256;
- CS_READ_NOT_CONFIRM : TConsultationStatus = 512;
-
-type
  IConsultation = interface(IEntityBase)
   {* Консультация }
-   ['{69D87373-CAC1-4228-9F26-4E46D2A8CBE9}']
-   function GetStatus: TConsultationStatus; stdcall;
-   function GetId: IString; stdcall;
-   function GetCreationDate: TDateTime; stdcall;
-   function GetModificationDate: TDateTime; stdcall;
-   function GetName: IString; stdcall;
-   function GetQueryData: IString; stdcall;
-   function GetUserName: IString; stdcall;
-   function GetExpertInfo: IParasList; stdcall;
-   function GetExpertName: IString; stdcall;
-   function GetReplyDate: TDate; stdcall;
-   function GetType: ; stdcall;
-   procedure GetAnswer(out aRet {: IDocument}); stdcall; // can raise Deleted, OldFormatConsultation
-     {* Получить уведомление или ответ на запрос }
-   procedure GetQuery(out aRet {: IDocument}); stdcall; // can raise Deleted, OldFormatConsultation
-     {* Получить запрос }
-   procedure GetDocumentList(out aRet {: IDynList}); stdcall; // can raise NoDocumentList, Deleted, OldFormatConsultation
-     {* Получить список документов ответа }
-   procedure SendEstimation(const aValue: IEstimation); stdcall; // can raise NoConnection, NoSubscription, Deleted
-     {* Отправить оценку }
-   procedure CreateEstimation(out aRet {: IEstimation}); stdcall;
-     {* создать оценку }
-   procedure PaymentConfirm(aAnswer: Boolean); stdcall; // can raise NoConnection, PaymentForbidden
-     {* Подвердить (answer = true)/отказаться (false) от оплаты }
-   procedure Read; stdcall; // can raise Deleted
-     {* Помечают консультацию как прочитанную }
-   function HasList: ByteBool; stdcall; // can raise Deleted
-   function HasEstimation: ByteBool; stdcall; // can raise Deleted
-   function HasPaymentInformation: ByteBool; stdcall; // can raise Deleted
-   procedure GetQueryByParas(out aRet {: IParasList}); stdcall;
-     {* получить запрос в виде списка параграфов }
-   procedure GetAnswerData(out aIsEvd: Boolean; out aRet {: IParasList}); stdcall;
-   property status: TConsultationStatus
-     read GetStatus;
-     {* Статус консультации }
-   property id: IString
-     read GetId;
-     {* Идентификатор консультации }
-   property creation_date: TDateTime
-     read GetCreationDate;
-     {* Дата создания }
-   property modification_date: TDateTime
-     read GetModificationDate;
-     {* Дата последнего изменения статуса }
-   property name: IString
-     read GetName;
-     {* Имя консультации (текст запроса) }
-   property query_data: IString
-     read GetQueryData;
-   property user_name: IString
-     read GetUserName;
-   property expert_info: IParasList
-     read GetExpertInfo;
-   property expert_name: IString
-     read GetExpertName;
-   property reply_date: TDate
-     read GetReplyDate;
-   property type: 
-     read GetType;
+  ['{69D87373-CAC1-4228-9F26-4E46D2A8CBE9}']
+  function GetStatus: TConsultationStatus; stdcall; { can raise Deleted }
+  function GetId: IString; stdcall; { can raise Deleted }
+  function GetCreationDate: TDateTime; stdcall; { can raise Deleted }
+  function GetModificationDate: TDateTime; stdcall; { can raise Deleted }
+  function GetName: IString; stdcall; { can raise Deleted }
+  function GetQueryData: IString; stdcall; { can raise Deleted }
+  function GetUserName: IString; stdcall; { can raise Deleted }
+  function GetExpertInfo: IParasList; stdcall; { can raise Deleted }
+  function GetExpertName: IString; stdcall; { can raise Deleted }
+  function GetReplyDate: TDate; stdcall; { can raise Deleted }
+  procedure GetType; stdcall; { can raise Deleted }
+  function GetAnswer: IDocument; stdcall; { can raise Deleted, OldFormatConsultation }
+   {* Получить уведомление или ответ на запрос }
+  function GetQuery: IDocument; stdcall; { can raise Deleted, OldFormatConsultation }
+   {* Получить запрос }
+  function GetDocumentList: IDynList; stdcall; { can raise NoDocumentList, Deleted, OldFormatConsultation }
+   {* Получить список документов ответа }
+  procedure SendEstimation(const value: IEstimation); stdcall; { can raise NoConnection, NoSubscription, Deleted }
+   {* Отправить оценку }
+  function CreateEstimation: IEstimation; stdcall;
+   {* создать оценку }
+  procedure PaymentConfirm(answer: Boolean); stdcall; { can raise NoConnection, PaymentForbidden }
+   {* Подвердить (answer = true)/отказаться (false) от оплаты }
+  procedure Read; stdcall; { can raise Deleted }
+   {* Помечают консультацию как прочитанную }
+  function HasList: ByteBool; stdcall; { can raise Deleted }
+  function HasEstimation: ByteBool; stdcall; { can raise Deleted }
+  function HasPaymentInformation: ByteBool; stdcall; { can raise Deleted }
+  function GetQueryByParas: IParasList; stdcall;
+   {* получить запрос в виде списка параграфов }
+  function GetAnswerData(out is_evd: Boolean): IParasList; stdcall;
+  property Status: TConsultationStatus
+   read GetStatus;
+   {* Статус консультации }
+  property Id: IString
+   read GetId;
+   {* Идентификатор консультации }
+  property CreationDate: TDateTime
+   read GetCreationDate;
+   {* Дата создания }
+  property ModificationDate: TDateTime
+   read GetModificationDate;
+   {* Дата последнего изменения статуса }
+  property Name: IString
+   read GetName;
+   {* Имя консультации (текст запроса) }
+  property QueryData: IString
+   read GetQueryData;
+  property UserName: IString
+   read GetUserName;
+  property ExpertInfo: IParasList
+   read GetExpertInfo;
+  property ExpertName: IString
+   read GetExpertName;
+  property ReplyDate: TDate
+   read GetReplyDate;
+  property Type: 
+   read GetType;
  end;//IConsultation
 
  TTemplateType = (
   {* тип шаблона }
-   PREANSWER_TEMPLATE // шаблон запроса об оплате
- , ANSWER_TEMPLATE // шаблон ответа
- , QUERY_TEMPLATE // шаблон запроса
+  PREANSWER_TEMPLATE
+   {* шаблон запроса об оплате }
+  , ANSWER_TEMPLATE
+   {* шаблон ответа }
+  , QUERY_TEMPLATE
+   {* шаблон запроса }
  );//TTemplateType
 
- IConsultationManager = interface(IUnknown)
+ IConsultationManager = interface
   {* Менеджер консультаций }
-   ['{713794D3-0F90-4EE5-AF5D-644D9091DA0C}']
-   function CheckInternetChannel: ByteBool; stdcall;
-     {* Проверка интернет канала }
-   function CheckConsultingAvailable: ByteBool; stdcall;
-     {* Проверка досутпности консультационных услуг }
-   procedure DeleteConsultation(var aForDelete: IConsultation); stdcall; // can raise NotDeleted, Deleted
-     {* Удалить консультацию }
-   function UpdateNotReadedConsultations: Cardinal; stdcall;
-     {* Возвращает количество непрочитанных консультаций }
-   procedure LoadFromXml(aFileName: PAnsiChar); stdcall; // can raise AccessDenied, InvalidXMLType
-     {* загрузить консультацию из файла }
-   function CantReceiveAnswer: ByteBool; stdcall;
-     {* Сообщает о невозможности получать ответы (true - когда лампочку надо включать) }
-   procedure CreateQueryWithNoticeUser; stdcall;
-     {* Создание уведомления пользователя о консалтинге }
+  ['{713794D3-0F90-4EE5-AF5D-644D9091DA0C}']
+  function CheckInternetChannel: ByteBool; stdcall;
+   {* Проверка интернет канала }
+  function CheckConsultingAvailable: ByteBool; stdcall;
+   {* Проверка досутпности консультационных услуг }
+  procedure DeleteConsultation(var for_delete: IConsultation); stdcall; { can raise NotDeleted, Deleted }
+   {* Удалить консультацию }
+  function UpdateNotReadedConsultations: Cardinal; stdcall;
+   {* Возвращает количество непрочитанных консультаций }
+  procedure LoadFromXml(file_name: PAnsiChar); stdcall; { can raise AccessDenied, InvalidXMLType }
+   {* загрузить консультацию из файла }
+  function CantReceiveAnswer: ByteBool; stdcall;
+   {* Сообщает о невозможности получать ответы (true - когда лампочку надо включать) }
+  procedure CreateQueryWithNoticeUser; stdcall;
+   {* Создание уведомления пользователя о консалтинге }
  end;//IConsultationManager
 
- IConsultingTemplateInfo = interface(IUnknown)
+ IConsultingTemplateInfo = interface
   {* Информация для шаблонов консалтинга. Сейчас в базе есть 2 шаблона (preanswer и answer). Какой шаблон нужен для консультации спрашиваем у get_template_type }
-   ['{3613E72E-8CD0-4D45-B517-BD45F9764A82}']
-   procedure GetPreanswerTemplate(out aRet {: IStream}); stdcall;
-   procedure GetAnswerTemplate(out aRet {: IStream}); stdcall;
-   procedure GetDealerInfo(out aRet {: IString}); stdcall;
-     {* информация о комплекте, которая может быть нужна для шаблона. См. [$100008775] }
-   function GetTemplateType(const aConsultation: IConsultation): TTemplateType; stdcall; // can raise Deleted
-     {* определяет какой шаблон нужен для отображения консультации }
-   procedure GetQueryTemplate(out aRet {: IStream}); stdcall;
-     {* получить шаблон для запроса }
+  ['{3613E72E-8CD0-4D45-B517-BD45F9764A82}']
+  function GetPreanswerTemplate: IStream; stdcall;
+  function GetAnswerTemplate: IStream; stdcall;
+  function GetDealerInfo: IString; stdcall;
+   {* информация о комплекте, которая может быть нужна для шаблона. См. [$100008775] }
+  function GetTemplateType(const consultation: IConsultation): TTemplateType; stdcall; { can raise Deleted }
+   {* определяет какой шаблон нужен для отображения консультации }
+  function GetQueryTemplate: IStream; stdcall;
+   {* получить шаблон для запроса }
  end;//IConsultingTemplateInfo
 
-//#UC START# *457007DB002Eunit_intf*
-//#UC END# *457007DB002Eunit_intf*
+const
+ {* Статусы консультаций }
+ CS_SENT: TConsultationStatus = 1024;
+  {* Отправлена }
+ CS_PAYMENT_REQUEST: TConsultationStatus = 1;
+  {* Запрос на оплату }
+ CS_ANSWER_RECEIVED: TConsultationStatus = 2;
+  {* Получен ответ }
+ CS_READ: TConsultationStatus = 4;
+ CS_ESTIMATION_SENT: TConsultationStatus = 8;
+  {* Отправлена оценка }
+ CS_DRAFTS: TConsultationStatus = 16;
+  {* Создана, но не отправлена }
+ CS_PAYMENT_REFUSAL: TConsultationStatus = 32;
+  {* Оплата отклонена }
+ CS_PAYMENT_CONFIRM: TConsultationStatus = 64;
+ CS_VALIDATION_FAILED: TConsultationStatus = 128;
+ CS_ANSWER_NOT_CONFIRM: TConsultationStatus = 256;
+ CS_READ_NOT_CONFIRM: TConsultationStatus = 512;
 
 implementation
+
+uses
+ l3ImplUses
+ //#UC START# *457007DB002Eimpl_uses*
+ //#UC END# *457007DB002Eimpl_uses*
+;
 
 end.

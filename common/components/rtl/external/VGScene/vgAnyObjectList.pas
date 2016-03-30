@@ -1,40 +1,32 @@
 unit vgAnyObjectList;
+ {* Списсок указателей на объект. НИЧЕГО не освобождает }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/VGScene/vgAnyObjectList.pas"
-// Начат: 09.02.2011 21:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::lulin::TvgAnyObjectList
-//
-// Списсок указателей на объект. НИЧЕГО не освобождает
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgAnyObjectList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgAnyObjectList" MUID: (4D52D82E0312)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3ObjectList
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , l3ObjectList
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgAnyObjectList = class(Tl3ObjectList)
   {* Списсок указателей на объект. НИЧЕГО не освобождает }
  end;//TvgAnyObjectList
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
+
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

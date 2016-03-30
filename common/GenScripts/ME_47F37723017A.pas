@@ -22,13 +22,11 @@
    f_RefreshCount: Integer;
    f_ForbidRefresh: Boolean;
    f_FormSet: IvcmFormSet;
-    {* Поле для свойства FormSet }
    f_InInit: Boolean;
-    {* Поле для свойства InInit }
+    {* вызывается при первом обновлении сборки }
    f_SetData: _SetDataType_;
-    {* Поле для свойства SetData }
    f_InitialUseCaseData: _InitDataType_;
-    {* Поле для свойства InitialUseCaseData }
+    {* Данные инициализирующие контроллер прецедента }
   private
    class function MakeWithSetData(const aSetData: _SetDataType_): IvcmFormSetDataSource;
   protected

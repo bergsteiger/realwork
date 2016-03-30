@@ -1,45 +1,37 @@
 unit exprTokensList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Expr"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/Expr/exprTokensList.pas"
-// Начат: 31.03.2010 17:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Expr::ExprMake::TexprTokensList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\Expr\exprTokensList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TexprTokensList" MUID: (4BB3497F03CC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Expr\l3Define.inc}
+{$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
- TexprTokenInfo = {$IfDef XE4}record{$Else}object{$EndIf}
+ TexprTokenInfo = object
   {* Информация о токене }
- public
-   rChar : Integer; // "Символ"
-   rPos : Integer; // Эффективная позиция символа (в исходной строке)
-   rString : Il3CString; // Дополнительная строка (если существует)
- public
-    function IsA(aChar: AnsiChar): Boolean; overload; 
-    function IsA(anInt: Integer): Boolean; overload; 
+  public
+   rChar: Integer;
+    {* "Символ" }
+   rPos: Integer;
+    {* Эффективная позиция символа (в исходной строке) }
+   rString: Il3CString;
+    {* Дополнительная строка (если существует) }
+  public
+   function IsA(aChar: AnsiChar): Boolean; overload;
+   function IsA(anInt: Integer): Boolean; overload;
  end;//TexprTokenInfo
 
  {$Define l3Items_NoSort}
@@ -52,73 +44,24 @@ type
  end;//TexprTokensList
 
 function TexprTokenInfo_C(aChar: Integer;
-     aPos: Integer;
-     const aString: Il3CString = nil): TexprTokenInfo;
-  {* Создаёт информацию о токене }
+ aPos: Integer;
+ const aString: Il3CString = nil): TexprTokenInfo;
+ {* Создаёт информацию о токене }
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
-// start class TexprTokensList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
-
-{$If not defined(l3Items_IsAtomic)}
-function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
-//#UC START# *47B07CF403D0_4BB3497F03CC_var*
-//#UC END# *47B07CF403D0_4BB3497F03CC_var*
-begin
-//#UC START# *47B07CF403D0_4BB3497F03CC_impl*
- Result := false;
- Assert(false);
-//#UC END# *47B07CF403D0_4BB3497F03CC_impl*
-end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
-//#UC START# *47B2C42A0163_4BB3497F03CC_var*
-//#UC END# *47B2C42A0163_4BB3497F03CC_var*
-begin
-//#UC START# *47B2C42A0163_4BB3497F03CC_impl*
- Assert(false);
-//#UC END# *47B2C42A0163_4BB3497F03CC_impl*
-end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer;
-//#UC START# *47B99D4503A2_4BB3497F03CC_var*
-//#UC END# *47B99D4503A2_4BB3497F03CC_var*
-begin
-//#UC START# *47B99D4503A2_4BB3497F03CC_impl*
- Result := -1;
- Assert(false);
-//#UC END# *47B99D4503A2_4BB3497F03CC_impl*
-end;//CompareExistingItems
-
-type _Instance_R_ = TexprTokensList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
-
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function TexprTokenInfo_C(aChar: Integer;
-        aPos: Integer;
-        const aString: Il3CString = nil): TexprTokenInfo;
-  {* Создаёт информацию о токене }
+ aPos: Integer;
+ const aString: Il3CString = nil): TexprTokenInfo;
+ {* Создаёт информацию о токене }
 //#UC START# *4BB34BE200EB_4BB34A130179_var*
 //#UC END# *4BB34BE200EB_4BB34A130179_var*
 begin
@@ -129,9 +72,7 @@ begin
  Result.rPos := aPos;
  Result.rString := aString;
 //#UC END# *4BB34BE200EB_4BB34A130179_impl*
-end;//TexprTokenInfo.C
-
-// start class TexprTokenInfo
+end;//TexprTokenInfo_C
 
 function TexprTokenInfo.IsA(aChar: AnsiChar): Boolean;
 //#UC START# *4BB34F6602CC_4BB34A130179_var*
@@ -150,5 +91,52 @@ begin
  Result := (rChar = anInt);
 //#UC END# *4BB34F8B0303_4BB34A130179_impl*
 end;//TexprTokenInfo.IsA
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If NOT Defined(l3Items_IsAtomic)}
+function IsSameItems(const A: _ItemType_;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
+//#UC START# *47B07CF403D0_4BB3497F03CC_var*
+//#UC END# *47B07CF403D0_4BB3497F03CC_var*
+begin
+//#UC START# *47B07CF403D0_4BB3497F03CC_impl*
+ Result := false;
+ Assert(false);
+//#UC END# *47B07CF403D0_4BB3497F03CC_impl*
+end;//IsSameItems
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_4BB3497F03CC_var*
+//#UC END# *47B2C42A0163_4BB3497F03CC_var*
+begin
+//#UC START# *47B2C42A0163_4BB3497F03CC_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_4BB3497F03CC_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_4BB3497F03CC_var*
+//#UC END# *47B99D4503A2_4BB3497F03CC_var*
+begin
+//#UC START# *47B99D4503A2_4BB3497F03CC_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_4BB3497F03CC_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = TexprTokensList;
+
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 end.

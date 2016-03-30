@@ -1,30 +1,27 @@
 unit DocWithPid;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/DocWithPid.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::Document_i::DocWithPid
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocWithPid.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "DocWithPid" MUID: (4D9D92AF02B8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  DocWithPid = {abstract} class
- public
- // public methods
-   procedure GetDocumentPid; virtual; abstract;
+  public
+   procedure GetDocumentPid; virtual; abstract; stdcall;
  end;//DocWithPid
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

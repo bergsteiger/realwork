@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , DynamicTreeDefinesUnit
  , DynamicTreeUnit
+ //#UC START# *45F52C0602BFintf_uses*
+ //#UC END# *45F52C0602BFintf_uses*
 ;
 
 type
@@ -23,58 +25,58 @@ type
  FlagNodeBase = {abstract} class
   {* нода с флагами }
   protected
-   procedure pm_Setflags(aValue: TFlagMask); virtual;
-   constructor make; reintroduce; virtual;
+   procedure SetFlags(aValue: TFlagMask); virtual; stdcall;
+   constructor Make; reintroduce; virtual; stdcall;
   public
-   procedure set_my_parent(var parent); virtual;
-   procedure get_my_parent; virtual;
-   procedure set_all_flag(flag: TFlagMask;
+   procedure SetMyParent(var parent); virtual; stdcall;
+   procedure GetMyParent; virtual; stdcall;
+   procedure SetAllFlag(flag: TFlagMask;
     value: Boolean;
-    with_notify: Boolean); virtual; abstract;
-   function internal_set_all_flag(flag: TFlagMask;
+    with_notify: Boolean); virtual; abstract; stdcall;
+   function InternalSetAllFlag(flag: TFlagMask;
     value: Boolean;
-    children_only: Boolean): size; virtual; abstract;
+    children_only: Boolean): size; virtual; abstract; stdcall;
     {* возвращает количество взведённых (изменённых?) флагов. }
-   function set_flag(flag: TFlagMask;
+   function SetFlag(flag: TFlagMask;
     value: Boolean;
-    with_notify: Boolean): Boolean; virtual;
-   function has_flag(flag: TFlagMask): Boolean; virtual;
-   function get_flags: TFlagMask; virtual;
-   procedure make_visible; virtual;
-   function is_visible: Boolean; virtual;
-   function get_node_by_visible_index(index: TVisibleIndex): FlagNodeBase; virtual;
-   function next_with_flag(flag: TFlagMask;
-    skip_stub: Boolean = False): FlagNodeBase; virtual;
-   function next_visible(out shift_counter: Integer;
+    with_notify: Boolean): ByteBool; virtual; stdcall;
+   function HasFlag(flag: TFlagMask): ByteBool; virtual; stdcall;
+   function GetFlags: TFlagMask; virtual; stdcall;
+   procedure MakeVisible; virtual; stdcall;
+   function IsVisible: ByteBool; virtual; stdcall;
+   function GetNodeByVisibleIndex(index: TVisibleIndex): FlagNodeBase; virtual; stdcall;
+   function NextWithFlag(flag: TFlagMask;
+    skip_stub: Boolean = False): FlagNodeBase; virtual; stdcall;
+   function NextVisible(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; virtual;
-   function plane_next(out shift_counter: Integer;
+    skip_stub: Boolean = False): FlagNodeBase; virtual; stdcall;
+   function PlaneNext(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; virtual;
-   function plane_next_back(out shift_counter: Integer;
+    skip_stub: Boolean = False): FlagNodeBase; virtual; stdcall;
+   function PlaneNextBack(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; virtual;
-   function prev_visible(out shift_counter: Integer;
+    skip_stub: Boolean = False): FlagNodeBase; virtual; stdcall;
+   function PrevVisible(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; virtual;
-   function prev_visible_stop(out shift_counter: Integer;
+    skip_stub: Boolean = False): FlagNodeBase; virtual; stdcall;
+   function PrevVisibleStop(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; virtual;
-   function next_one_level(out shift_counter: Integer;
-    out for_constructed: TGCL::StaticNode_var): FlagNodeBase; virtual;
-   function prev_one_level(out shift_counter: Integer;
-    out for_constructed: TGCL::StaticNode_var): FlagNodeBase; virtual;
-   function all_visible_children_count: size; virtual;
+    skip_stub: Boolean = False): FlagNodeBase; virtual; stdcall;
+   function NextOneLevel(out shift_counter: Integer;
+    out for_constructed: TGCL::StaticNode_var): FlagNodeBase; virtual; stdcall;
+   function PrevOneLevel(out shift_counter: Integer;
+    out for_constructed: TGCL::StaticNode_var): FlagNodeBase; virtual; stdcall;
+   function AllVisibleChildrenCount: size; virtual; stdcall;
     {* // TODO: hide in cache }
-   procedure set_all_flag_except_first_children_of_root_children(flag: TFlagMask;
+   procedure SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
     value: Boolean;
-    with_notify: Boolean); virtual; abstract;
-   function internal_set_all_flag_except_first_children_of_root_children(flag: TFlagMask;
+    with_notify: Boolean); virtual; abstract; stdcall;
+   function InternalSetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
     value: Boolean;
-    children_only: Boolean): size; virtual; abstract;
+    children_only: Boolean): size; virtual; abstract; stdcall;
   public
-   property flags: TFlagMask
-    write pm_Setflags;
+   property Flags: TFlagMask
+    write SetFlags;
  //#UC START# *45F52C0602BFpubl*
  //#UC END# *45F52C0602BFpubl*
  end;//FlagNodeBase
@@ -83,101 +85,103 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *45F52C0602BFimpl_uses*
+ //#UC END# *45F52C0602BFimpl_uses*
 ;
 
-procedure FlagNodeBase.pm_Setflags(aValue: TFlagMask);
+procedure FlagNodeBase.SetFlags(aValue: TFlagMask);
 //#UC START# *45F80BA20280_45F52C0602BFset_var*
 //#UC END# *45F80BA20280_45F52C0602BFset_var*
 begin
 //#UC START# *45F80BA20280_45F52C0602BFset_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F80BA20280_45F52C0602BFset_impl*
-end;//FlagNodeBase.pm_Setflags
+end;//FlagNodeBase.SetFlags
 
-constructor FlagNodeBase.make;
+constructor FlagNodeBase.Make;
 //#UC START# *45F803B0000F_45F52C0602BF_var*
 //#UC END# *45F803B0000F_45F52C0602BF_var*
 begin
 //#UC START# *45F803B0000F_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F803B0000F_45F52C0602BF_impl*
-end;//FlagNodeBase.make
+end;//FlagNodeBase.Make
 
-procedure FlagNodeBase.set_my_parent(var parent);
+procedure FlagNodeBase.SetMyParent(var parent);
 //#UC START# *45F8046500FA_45F52C0602BF_var*
 //#UC END# *45F8046500FA_45F52C0602BF_var*
 begin
 //#UC START# *45F8046500FA_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8046500FA_45F52C0602BF_impl*
-end;//FlagNodeBase.set_my_parent
+end;//FlagNodeBase.SetMyParent
 
-procedure FlagNodeBase.get_my_parent;
+procedure FlagNodeBase.GetMyParent;
 //#UC START# *45F8049F0128_45F52C0602BF_var*
 //#UC END# *45F8049F0128_45F52C0602BF_var*
 begin
 //#UC START# *45F8049F0128_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8049F0128_45F52C0602BF_impl*
-end;//FlagNodeBase.get_my_parent
+end;//FlagNodeBase.GetMyParent
 
-function FlagNodeBase.set_flag(flag: TFlagMask;
+function FlagNodeBase.SetFlag(flag: TFlagMask;
  value: Boolean;
- with_notify: Boolean): Boolean;
+ with_notify: Boolean): ByteBool;
 //#UC START# *45F8123602DE_45F52C0602BF_var*
 //#UC END# *45F8123602DE_45F52C0602BF_var*
 begin
 //#UC START# *45F8123602DE_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8123602DE_45F52C0602BF_impl*
-end;//FlagNodeBase.set_flag
+end;//FlagNodeBase.SetFlag
 
-function FlagNodeBase.has_flag(flag: TFlagMask): Boolean;
+function FlagNodeBase.HasFlag(flag: TFlagMask): ByteBool;
 //#UC START# *45F9305601F4_45F52C0602BF_var*
 //#UC END# *45F9305601F4_45F52C0602BF_var*
 begin
 //#UC START# *45F9305601F4_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9305601F4_45F52C0602BF_impl*
-end;//FlagNodeBase.has_flag
+end;//FlagNodeBase.HasFlag
 
-function FlagNodeBase.get_flags: TFlagMask;
+function FlagNodeBase.GetFlags: TFlagMask;
 //#UC START# *45F8124B0138_45F52C0602BF_var*
 //#UC END# *45F8124B0138_45F52C0602BF_var*
 begin
 //#UC START# *45F8124B0138_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8124B0138_45F52C0602BF_impl*
-end;//FlagNodeBase.get_flags
+end;//FlagNodeBase.GetFlags
 
-procedure FlagNodeBase.make_visible;
+procedure FlagNodeBase.MakeVisible;
 //#UC START# *45F812D20290_45F52C0602BF_var*
 //#UC END# *45F812D20290_45F52C0602BF_var*
 begin
 //#UC START# *45F812D20290_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F812D20290_45F52C0602BF_impl*
-end;//FlagNodeBase.make_visible
+end;//FlagNodeBase.MakeVisible
 
-function FlagNodeBase.is_visible: Boolean;
+function FlagNodeBase.IsVisible: ByteBool;
 //#UC START# *45F8145B0203_45F52C0602BF_var*
 //#UC END# *45F8145B0203_45F52C0602BF_var*
 begin
 //#UC START# *45F8145B0203_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8145B0203_45F52C0602BF_impl*
-end;//FlagNodeBase.is_visible
+end;//FlagNodeBase.IsVisible
 
-function FlagNodeBase.get_node_by_visible_index(index: TVisibleIndex): FlagNodeBase;
+function FlagNodeBase.GetNodeByVisibleIndex(index: TVisibleIndex): FlagNodeBase;
 //#UC START# *45F8151D02CE_45F52C0602BF_var*
 //#UC END# *45F8151D02CE_45F52C0602BF_var*
 begin
 //#UC START# *45F8151D02CE_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8151D02CE_45F52C0602BF_impl*
-end;//FlagNodeBase.get_node_by_visible_index
+end;//FlagNodeBase.GetNodeByVisibleIndex
 
-function FlagNodeBase.next_with_flag(flag: TFlagMask;
+function FlagNodeBase.NextWithFlag(flag: TFlagMask;
  skip_stub: Boolean = False): FlagNodeBase;
 //#UC START# *45F815330251_45F52C0602BF_var*
 //#UC END# *45F815330251_45F52C0602BF_var*
@@ -185,9 +189,9 @@ begin
 //#UC START# *45F815330251_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F815330251_45F52C0602BF_impl*
-end;//FlagNodeBase.next_with_flag
+end;//FlagNodeBase.NextWithFlag
 
-function FlagNodeBase.next_visible(out shift_counter: Integer;
+function FlagNodeBase.NextVisible(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
  skip_stub: Boolean = False): FlagNodeBase;
 //#UC START# *45F81F0B02BF_45F52C0602BF_var*
@@ -196,9 +200,9 @@ begin
 //#UC START# *45F81F0B02BF_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F81F0B02BF_45F52C0602BF_impl*
-end;//FlagNodeBase.next_visible
+end;//FlagNodeBase.NextVisible
 
-function FlagNodeBase.plane_next(out shift_counter: Integer;
+function FlagNodeBase.PlaneNext(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
  skip_stub: Boolean = False): FlagNodeBase;
 //#UC START# *45F81F6B01C5_45F52C0602BF_var*
@@ -207,9 +211,9 @@ begin
 //#UC START# *45F81F6B01C5_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F81F6B01C5_45F52C0602BF_impl*
-end;//FlagNodeBase.plane_next
+end;//FlagNodeBase.PlaneNext
 
-function FlagNodeBase.plane_next_back(out shift_counter: Integer;
+function FlagNodeBase.PlaneNextBack(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
  skip_stub: Boolean = False): FlagNodeBase;
 //#UC START# *45F9071F035B_45F52C0602BF_var*
@@ -218,9 +222,9 @@ begin
 //#UC START# *45F9071F035B_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9071F035B_45F52C0602BF_impl*
-end;//FlagNodeBase.plane_next_back
+end;//FlagNodeBase.PlaneNextBack
 
-function FlagNodeBase.prev_visible(out shift_counter: Integer;
+function FlagNodeBase.PrevVisible(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
  skip_stub: Boolean = False): FlagNodeBase;
 //#UC START# *45F9074B034B_45F52C0602BF_var*
@@ -229,9 +233,9 @@ begin
 //#UC START# *45F9074B034B_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9074B034B_45F52C0602BF_impl*
-end;//FlagNodeBase.prev_visible
+end;//FlagNodeBase.PrevVisible
 
-function FlagNodeBase.prev_visible_stop(out shift_counter: Integer;
+function FlagNodeBase.PrevVisibleStop(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
  skip_stub: Boolean = False): FlagNodeBase;
 //#UC START# *45F9077A003E_45F52C0602BF_var*
@@ -240,9 +244,9 @@ begin
 //#UC START# *45F9077A003E_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F9077A003E_45F52C0602BF_impl*
-end;//FlagNodeBase.prev_visible_stop
+end;//FlagNodeBase.PrevVisibleStop
 
-function FlagNodeBase.next_one_level(out shift_counter: Integer;
+function FlagNodeBase.NextOneLevel(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var): FlagNodeBase;
 //#UC START# *45F90792004E_45F52C0602BF_var*
 //#UC END# *45F90792004E_45F52C0602BF_var*
@@ -250,9 +254,9 @@ begin
 //#UC START# *45F90792004E_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F90792004E_45F52C0602BF_impl*
-end;//FlagNodeBase.next_one_level
+end;//FlagNodeBase.NextOneLevel
 
-function FlagNodeBase.prev_one_level(out shift_counter: Integer;
+function FlagNodeBase.PrevOneLevel(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var): FlagNodeBase;
 //#UC START# *45F907B000EA_45F52C0602BF_var*
 //#UC END# *45F907B000EA_45F52C0602BF_var*
@@ -260,9 +264,9 @@ begin
 //#UC START# *45F907B000EA_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F907B000EA_45F52C0602BF_impl*
-end;//FlagNodeBase.prev_one_level
+end;//FlagNodeBase.PrevOneLevel
 
-function FlagNodeBase.all_visible_children_count: size;
+function FlagNodeBase.AllVisibleChildrenCount: size;
  {* // TODO: hide in cache }
 //#UC START# *45F907DE033C_45F52C0602BF_var*
 //#UC END# *45F907DE033C_45F52C0602BF_var*
@@ -270,7 +274,7 @@ begin
 //#UC START# *45F907DE033C_45F52C0602BF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F907DE033C_45F52C0602BF_impl*
-end;//FlagNodeBase.all_visible_children_count
+end;//FlagNodeBase.AllVisibleChildrenCount
 
 //#UC START# *45F52C0602BFimpl*
 //#UC END# *45F52C0602BFimpl*

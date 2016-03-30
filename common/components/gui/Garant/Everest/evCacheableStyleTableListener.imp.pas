@@ -1,47 +1,36 @@
 {$IfNDef evCacheableStyleTableListener_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCacheableStyleTableListener.imp.pas"
-// Начат: 29.06.2009 10:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::StyleTable::evCacheableStyleTableListener
-//
-// Подписчик на изменение таблицы стилей, который держит какие-то параметры зависящие от с тилей в
-// то время, когда находится в кеше
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCacheableStyleTableListener.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evCacheableStyleTableListener" MUID: (4A485B9801E0)
+// Имя типа: "_evCacheableStyleTableListener_"
 
 {$Define evCacheableStyleTableListener_imp}
-{$If not defined(DesignTimeLibrary)}
+
+{$If NOT Defined(DesignTimeLibrary)}
  _evStyleTableListenerPrim_Parent_ = _evCacheableStyleTableListener_Parent_;
- {$Include ..\Everest\evStyleTableListenerPrim.imp.pas}
- _evCacheableStyleTableListener_ = {mixin} class(_evStyleTableListenerPrim_)
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
+ _evCacheableStyleTableListener_ = class(_evStyleTableListenerPrim_)
   {* Подписчик на изменение таблицы стилей, который держит какие-то параметры зависящие от с тилей в то время, когда находится в кеше }
- protected
- // overridden protected methods
+  protected
    procedure Release; override;
  end;//_evCacheableStyleTableListener_
-{$Else}
 
- _evStyleTableListenerPrim_Parent_ = _evCacheableStyleTableListener_Parent_;
- {$Include ..\Everest\evStyleTableListenerPrim.imp.pas}
- _evCacheableStyleTableListener_ = _evStyleTableListenerPrim_;
+{$Else NOT Defined(DesignTimeLibrary)}
 
-{$IfEnd} //not DesignTimeLibrary
+_evStyleTableListenerPrim_Parent_ = _evCacheableStyleTableListener_Parent_;
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
+_evCacheableStyleTableListener_ = _evStyleTableListenerPrim_;
 
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 {$Else evCacheableStyleTableListener_imp}
 
-{$If not defined(DesignTimeLibrary)}
+{$IfNDef evCacheableStyleTableListener_imp_impl}
 
-{$Include ..\Everest\evStyleTableListenerPrim.imp.pas}
+{$Define evCacheableStyleTableListener_imp_impl}
 
-// start class _evCacheableStyleTableListener_
+{$If NOT Defined(DesignTimeLibrary)}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
 
 procedure _evCacheableStyleTableListener_.Release;
 //#UC START# *479F2AFB0397_4A485B9801E0_var*
@@ -52,7 +41,9 @@ begin
  inherited;
 //#UC END# *479F2AFB0397_4A485B9801E0_impl*
 end;//_evCacheableStyleTableListener_.Release
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not DesignTimeLibrary
+{$EndIf evCacheableStyleTableListener_imp_impl}
 
 {$EndIf evCacheableStyleTableListener_imp}
+

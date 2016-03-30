@@ -10,9 +10,9 @@ interface
 
 uses
  l3IntfUses
- , DynamicTreeUnit
- , BaseTypesUnit
  , IOUnit
+ , BaseTypesUnit
+ , DynamicTreeUnit
  , DynamicTreeDefinesUnit
 ;
 
@@ -77,41 +77,41 @@ type
  IUserProfile = interface(IEntityBase)
   {* Информация о пользователе }
   ['{600B24EC-1FB9-40F2-A6FC-E89397679F80}']
-  function Get_group_id: TUid; { can raise AccessDenied }
-  function get_login: IString;
-  function has_password: Boolean;
-  function get_name: IString;
-  function get_mail: IString;
-  function get_uid: Integer;
-  function is_system: Boolean;
-  function can_buy_consulting: Boolean;
-  function is_privileged: Boolean;
+  function GetGroupId: TUid; stdcall; { can raise AccessDenied }
+  function GetLogin: IString; stdcall;
+  function HasPassword: ByteBool; stdcall;
+  function GetName: IString; stdcall;
+  function GetMail: IString; stdcall;
+  function GetUid: Integer; stdcall;
+  function IsSystem: ByteBool; stdcall;
+  function CanBuyConsulting: ByteBool; stdcall;
+  function IsPrivileged: ByteBool; stdcall;
    {* привилегированный пользователь }
-  property group_id: TUid
-   read Get_group_id;
+  property GroupId: TUid
+   read GetGroupId;
    {* идентификатор группы, к которой принадлежит пользователь. }
  end;//IUserProfile
 
  IUserFilter = interface(IFilterForTree)
   {* Фильтр для дерева пользователей }
   ['{A3970144-43FB-4E18-BBBB-7B246074873E}']
-  function Get_flags: Cardinal;
-  procedure Set_flags(aValue: Cardinal);
-  function Get_group_uid: TUid;
-  procedure Set_group_uid(aValue: TUid);
-  property flags: Cardinal
-   read Get_flags
-   write Set_flags;
-  property group_uid: TUid
-   read Get_group_uid
-   write Set_group_uid;
+  function GetFlags: Cardinal; stdcall;
+  procedure SetFlags(aValue: Cardinal); stdcall;
+  function GetGroupUid: TUid; stdcall;
+  procedure SetGroupUid(aValue: TUid); stdcall;
+  property Flags: Cardinal
+   read GetFlags
+   write SetFlags;
+  property GroupUid: TUid
+   read GetGroupUid
+   write SetGroupUid;
    {* идентификатор группы по которой необходимо осуществить фильтрацию }
  end;//IUserFilter
 
  IProfileNode = interface(INodeBase)
   {* Узел в дереве пользователей }
   ['{A5ED9F82-E286-4359-839E-021E436CA65E}']
-  function get_uid: TUid;
+  function GetUid: TUid; stdcall;
  end;//IProfileNode
 
  TrialPeriodExpired = class
@@ -132,175 +132,93 @@ type
  IUserManager = interface
   {* Класс для работы с пользователями. Содержит метод для получения дерева пользователей. }
   ['{F9017C5B-D7D9-4DD0-8E29-BD24E6BA051E}']
-  procedure create_user_with_rights(name: PAnsiChar;
+  procedure CreateUserWithRights(name: PAnsiChar;
    login: PAnsiChar;
    password: PAnsiChar;
    mail: PAnsiChar;
    can_buy_consulting: Boolean;
    is_privileged: Boolean;
-   group_id: TUid); { can raise WrongAuthentication, NoMoreProfiles, XMLImportRunning, LoginDuplicate, TrialPeriodExpired, NoMorePrivilegedProfiles }
-  procedure delete_user(uid: TUid); { can raise AccessDenied, CanNotFindData, UserActive }
-  procedure change_user_info(uid: TUid;
+   group_id: TUid); stdcall; { can raise WrongAuthentication, NoMoreProfiles, XMLImportRunning, LoginDuplicate, TrialPeriodExpired, NoMorePrivilegedProfiles }
+  procedure DeleteUser(uid: TUid); stdcall; { can raise AccessDenied, CanNotFindData, UserActive }
+  procedure ChangeUserInfo(uid: TUid;
    name: PAnsiChar;
-   mail: PAnsiChar); { can raise AccessDenied, CanNotFindData, LicenceViolation, XMLImportRunning }
+   mail: PAnsiChar); stdcall; { can raise AccessDenied, CanNotFindData, LicenceViolation, XMLImportRunning }
    {* Изменение параметров пользователя за исключением
 пароля. Пользователь идентифицируется по uid. }
-  procedure change_user_password(uid: TUid;
-   password: PAnsiChar); { can raise AccessDenied, CanNotFindData, WrongAuthentication, LicenceViolation, XMLImportRunning }
+  procedure ChangeUserPassword(uid: TUid;
+   password: PAnsiChar); stdcall; { can raise AccessDenied, CanNotFindData, WrongAuthentication, LicenceViolation, XMLImportRunning }
    {* Изменение пароля пользователя. Пользователь идентифицируется по uid. }
-  procedure change_user_group(user_id: TUid;
-   group_id: TUid); { can raise AccessDenied, CanNotFindData }
-  procedure change_users_group(const id_list: IUidList;
-   group_id: TUid); { can raise AccessDenied, CanNotFindData }
-  procedure user_can_buy_consulting(uid: TUid;
-   is_allowed: Boolean); { can raise AccessDenied, CanNotFindData, LicenceViolation, XMLImportRunning }
+  procedure ChangeUserGroup(user_id: TUid;
+   group_id: TUid); stdcall; { can raise AccessDenied, CanNotFindData }
+  procedure ChangeUsersGroup(const id_list: IUidList;
+   group_id: TUid); stdcall; { can raise AccessDenied, CanNotFindData }
+  procedure UserCanBuyConsulting(uid: TUid;
+   is_allowed: Boolean); stdcall; { can raise AccessDenied, CanNotFindData, LicenceViolation, XMLImportRunning }
    {* Установка свойства - может ли данный пользователь платить за консультации }
-  procedure user_is_privileged(uid: TUid;
-   is_privileged: Boolean); { can raise AccessDenied, XMLImportRunning, NoMorePrivilegedProfiles }
+  procedure UserIsPrivileged(uid: TUid;
+   is_privileged: Boolean); stdcall; { can raise AccessDenied, XMLImportRunning, NoMorePrivilegedProfiles }
    {* установить свойство привилегированности для пользователя }
-  procedure logout_user(uid: TUid); { can raise AccessDenied, CanNotFindData }
-  function get_self_profile: IUserProfile; { can raise CanNotFindData }
-  procedure set_consulting_payment_for_all(is_allowed: Boolean); { can raise AccessDenied }
+  procedure LogoutUser(uid: TUid); stdcall; { can raise AccessDenied, CanNotFindData }
+  function GetSelfProfile: IUserProfile; stdcall; { can raise CanNotFindData }
+  procedure SetConsultingPaymentForAll(is_allowed: Boolean); stdcall; { can raise AccessDenied }
    {* установка политики оплаты консультаций для всех пользователей }
-  procedure set_consulting_payment_for_newbies(is_allowed: Boolean); { can raise AccessDenied }
+  procedure SetConsultingPaymentForNewbies(is_allowed: Boolean); stdcall; { can raise AccessDenied }
    {* установка политики оплаты консультаций для новых пользователей }
-  function get_consulting_payment_for_newbies: Boolean;
+  function GetConsultingPaymentForNewbies: ByteBool; stdcall;
    {* возвращает текущее значение политики оплаты консультаций для новых пользователей (true - оплата разрешена) }
-  function delete_users(const list: IUidList): IUidList; { can raise AccessDenied }
+  function DeleteUsers(const list: IUidList): IUidList; stdcall; { can raise AccessDenied }
    {* удалить список пользователей. Возвращает список пользователей, которых удалить не удалось. }
-  procedure logout_users(const list: IUidList); { can raise AccessDenied }
+  procedure LogoutUsers(const list: IUidList); stdcall; { can raise AccessDenied }
    {* завершить работу в системе указанного списка пользователей. }
-  procedure set_consulting_rights(const list: IUidList;
-   is_payment_allowed: Boolean); { can raise AccessDenied, InternalDatabaseError }
+  procedure SetConsultingRights(const list: IUidList;
+   is_payment_allowed: Boolean); stdcall; { can raise AccessDenied, InternalDatabaseError }
    {* задать права на оплату консультаций для заданного списка пользователей. }
-  procedure set_privileged_rights(const list: IUidList;
-   is_privileged: Boolean); { can raise AccessDenied, XMLImportRunning, NoMorePrivilegedProfiles }
+  procedure SetPrivilegedRights(const list: IUidList;
+   is_privileged: Boolean); stdcall; { can raise AccessDenied, XMLImportRunning, NoMorePrivilegedProfiles }
    {* установить права привилегированности }
-  function can_create_privileged_user: Boolean; { can raise AccessDenied }
+  function CanCreatePrivilegedUser: ByteBool; stdcall; { can raise AccessDenied }
    {* можно ли зоздавать привилегированных пользователей }
-  function get_active_users_list_for_net_one_user_version: IStringList; { can raise CanNotFindData }
+  function GetActiveUsersListForNetOneUserVersion: IStringList; stdcall; { can raise CanNotFindData }
    {* Получение списка юзеров, захвативших сетевую версию }
-  function get_groups_tree: INodeBase;
+  function GetGroupsTree: INodeBase; stdcall;
    {* получить дерево групп }
-  function get_users_tree: INodeBase;
+  function GetUsersTree: INodeBase; stdcall;
    {* получить дерево пользователей для группы с заданным идентификатором }
-  procedure create_group(name: PAnsiChar); { can raise AccessDenied, WrongAuthentication, XMLImportRunning, LoginDuplicate }
+  procedure CreateGroup(name: PAnsiChar); stdcall; { can raise AccessDenied, WrongAuthentication, XMLImportRunning, LoginDuplicate }
    {* создать группу с заданным именем }
-  procedure delete_group(uid: TUid); { can raise AccessDenied, CanNotFindData }
+  procedure DeleteGroup(uid: TUid); stdcall; { can raise AccessDenied, CanNotFindData }
    {* удалить группу с заданным идентификатором }
-  procedure set_nonsearchable_blocks_for_group(uid: TUid;
-   const blocks_ids: INodeIdList); { can raise AccessDenied, CanNotFindData }
+  procedure SetNonsearchableBlocksForGroup(uid: TUid;
+   const blocks_ids: INodeIdList); stdcall; { can raise AccessDenied, CanNotFindData }
    {* установить список блоков базы по которым запрещён поиск группе пользователей }
-  function get_nonsearchable_blocks_for_group(uid: TUid): INodeIdList; { can raise AccessDenied, InternalDatabaseError }
+  function GetNonsearchableBlocksForGroup(uid: TUid): INodeIdList; stdcall; { can raise AccessDenied, InternalDatabaseError }
    {* получить список блоков базы по которым запрещён поиск группе пользователей }
-  procedure change_group_name(uid: TUid;
-   name: PAnsiChar); { can raise AccessDenied, CanNotFindData, LoginDuplicate }
+  procedure ChangeGroupName(uid: TUid;
+   name: PAnsiChar); stdcall; { can raise AccessDenied, CanNotFindData, LoginDuplicate }
    {* сменить имя группы }
-  function has_shared_filters(uid: TUid): Boolean;
+  function HasSharedFilters(uid: TUid): ByteBool; stdcall;
    {* общие ли фильтры пользователя }
-  procedure set_shared_filters_state(uid: TUid;
-   state: Boolean);
+  procedure SetSharedFiltersState(uid: TUid;
+   state: Boolean); stdcall;
    {* устанавливает флажок являются ли фильтры пользователя uid общими в соответствии со значением state }
-  function is_erasable(uid: TUid): Boolean;
+  function IsErasable(uid: TUid): ByteBool; stdcall;
    {* может ли пользователь быть удалён }
-  procedure set_erasable_state(uid: TUid;
-   state: Boolean);
+  procedure SetErasableState(uid: TUid;
+   state: Boolean); stdcall;
    {* установка свойства - можно ли удалить пользователя }
  end;//IUserManager
 
  IGroupNode = interface(IProfileNode)
   {* узел дерева групп }
   ['{1EA308E6-3D7C-4A5C-A1DB-3CA087F94096}']
-  function has_users: Boolean; { can raise AccessDenied, CanNotFindData }
+  function HasUsers: ByteBool; stdcall; { can raise AccessDenied, CanNotFindData }
    {* есть ли в группе пользователи }
  end;//IGroupNode
-
-class function make(uid: TUid;
- login: PAnsiChar;
- name: PAnsiChar;
- mail: PAnsiChar;
- is_system: Boolean;
- has_password: Boolean;
- can_buy_consulting: Boolean;
- is_permanent: Boolean): BadFactoryType; overload;
-class function make: BadFactoryType; overload;
-class function make: BadFactoryType;
-class function make: BadFactoryType;
-class function make: BadFactoryType;
- {* фабрика }
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make(uid: TUid;
- login: PAnsiChar;
- name: PAnsiChar;
- mail: PAnsiChar;
- is_system: Boolean;
- has_password: Boolean;
- can_buy_consulting: Boolean;
- is_permanent: Boolean): BadFactoryType;
-var
- l_Inst : IUserProfile;
-begin
- l_Inst := Create(uid, login, name, mail, is_system, has_password, can_buy_consulting, is_permanent);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IUserProfile;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IProfileNode;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IUserManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : IGroupNode;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

@@ -19,6 +19,8 @@ uses
  , vcmEntitiesDefList
  , Classes
  , vcmBaseCollectionItem
+ //#UC START# *52A72E6B00B1intf_uses*
+ //#UC END# *52A72E6B00B1intf_uses*
 ;
 
 type
@@ -101,6 +103,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *52A72E6B00B1impl_uses*
+ //#UC END# *52A72E6B00B1impl_uses*
 ;
 
 function TvcmBaseEntitiesCollection.PublishFormEntity(const anEntity: TvcmString;

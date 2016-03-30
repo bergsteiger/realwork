@@ -1,45 +1,33 @@
 unit ddRTFReaderSpec;
+ {* Читалка со специальынми заточками. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddRTFReaderSpec.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Readers::TddRTFReaderSpec
-//
-// Читалка со специальынми заточками.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddRTFReaderSpec.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFReaderSpec" MUID: (56BB14B90213)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRTFReader,
-  destNorm
-  ;
+ l3IntfUses
+ , ddRTFReader
+ , destNorm
+;
 
 type
  TddRTFReaderSpec = class(TddRTFReader)
   {* Читалка со специальынми заточками. }
- protected
- // overridden protected methods
+  protected
    function GetdestNormClass: RdestNorm; override;
  end;//TddRTFReaderSpec
 
 implementation
 
 uses
-  destNormSpec
-  ;
-
-// start class TddRTFReaderSpec
+ l3ImplUses
+ , destNormSpec
+;
 
 function TddRTFReaderSpec.GetdestNormClass: RdestNorm;
 //#UC START# *56BB204702E6_56BB14B90213_var*

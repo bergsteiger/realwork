@@ -72,11 +72,13 @@ type
  end;//IddAnnoKindSortItem
 
 const
- cExportFileMaskPatterns: array [TddExportFileMaskPatternType] of Tl3WString = ((S: '%NUMBER%'; SLen: 8; SCodePage: 0)
+ cExportFileMaskPatterns: array [TddExportFileMaskPatternType] of Tl3WString = (
+ (S: '%NUMBER%'; SLen: 8; SCodePage: 0)
  , (S: '%MAIN%'; SLen: 6; SCodePage: 0)
  , (S: '%DATE%'; SLen: 6; SCodePage: 0)
  );
- cDefaultFileMask: array [TddExportDocPart] of AnsiString = ('document'
+ cDefaultFileMask: array [TddExportDocPart] of AnsiString = (
+ 'document'
  , 'related'
  , 'annotation'
  );

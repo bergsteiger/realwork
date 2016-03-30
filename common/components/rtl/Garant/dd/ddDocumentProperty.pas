@@ -1,31 +1,21 @@
 unit ddDocumentProperty;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddDocumentProperty.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddDocumentProperty
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddDocumentProperty.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddDocumentProperty" MUID: (51DBBE8A026A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddPropertyObject,
-  RTFtypes,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddPropertyObject
+ , RTFtypes
+ , k2Interfaces
+;
 
 const
-  { DefaultConst }
  defPageWidth = 11906;
  defPageHeight = 16838;
  defHorisMargin = 1800;
@@ -37,114 +27,108 @@ const
 
 type
  TddDocumentProperty = class(TddPropertyObject)
- private
- // private fields
-   f_CharSet : TrtfCharacterSet;
-    {* Поле для свойства CharSet}
-   f_CodePage : Integer;
-    {* Поле для свойства CodePage}
-   f_yaBottom : Integer;
-    {* Поле для свойства yaBottom}
-   f_DefLang : Integer;
-    {* Поле для свойства DefLang}
-   f_DefTab : Integer;
-    {* Поле для свойства DefTab}
-   f_pgnStart : Integer;
-    {* Поле для свойства pgnStart}
-   f_xaLeft : Integer;
-    {* Поле для свойства xaLeft}
-   f_xaPage : Integer;
-    {* Поле для свойства xaPage}
-   f_xaRight : Integer;
-    {* Поле для свойства xaRight}
-   f_xGutter : Integer;
-    {* Поле для свойства xGutter}
-   f_yaPage : Integer;
-    {* Поле для свойства yaPage}
-   f_yaTop : Integer;
-    {* Поле для свойства yaTop}
-   f_Facingp : Boolean;
-    {* Поле для свойства Facingp}
-   f_FirstSpec : Boolean;
-    {* Поле для свойства FirstSpec}
-   f_Landscape : Boolean;
-    {* Поле для свойства Landscape}
-   f_DefFont : Integer;
-    {* Поле для свойства DefFont}
- protected
- // realized methods
+  private
+   f_CharSet: TrtfCharacterSet;
+    {* Поле для свойства CharSet }
+   f_CodePage: Integer;
+    {* Поле для свойства CodePage }
+   f_yaBottom: Integer;
+    {* Поле для свойства yaBottom }
+   f_DefLang: Integer;
+    {* Поле для свойства DefLang }
+   f_DefTab: Integer;
+    {* Поле для свойства DefTab }
+   f_pgnStart: Integer;
+    {* Поле для свойства pgnStart }
+   f_xaLeft: Integer;
+    {* Поле для свойства xaLeft }
+   f_xaPage: Integer;
+    {* Поле для свойства xaPage }
+   f_xaRight: Integer;
+    {* Поле для свойства xaRight }
+   f_xGutter: Integer;
+    {* Поле для свойства xGutter }
+   f_yaPage: Integer;
+    {* Поле для свойства yaPage }
+   f_yaTop: Integer;
+    {* Поле для свойства yaTop }
+   f_Facingp: Boolean;
+    {* Поле для свойства Facingp }
+   f_FirstSpec: Boolean;
+    {* Поле для свойства FirstSpec }
+   f_Landscape: Boolean;
+    {* Поле для свойства Landscape }
+   f_DefFont: Integer;
+    {* Поле для свойства DefFont }
+  public
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure Reset; override;
    function Diff(P: TddPropertyObject;
-     aForReader: Boolean): TddPropertyObject; override;
- public
- // overridden public methods
+    aForReader: Boolean): TddPropertyObject; override;
    constructor Create; override;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
    procedure Clear; override;
    procedure AssignFrom(anOther: TddPropertyObject); override;
- public
- // public properties
+  public
    property CharSet: TrtfCharacterSet
-     read f_CharSet
-     write f_CharSet;
+    read f_CharSet
+    write f_CharSet;
    property CodePage: Integer
-     read f_CodePage
-     write f_CodePage;
+    read f_CodePage
+    write f_CodePage;
    property yaBottom: Integer
-     read f_yaBottom
-     write f_yaBottom;
+    read f_yaBottom
+    write f_yaBottom;
    property DefLang: Integer
-     read f_DefLang
-     write f_DefLang;
+    read f_DefLang
+    write f_DefLang;
    property DefTab: Integer
-     read f_DefTab
-     write f_DefTab;
+    read f_DefTab
+    write f_DefTab;
    property pgnStart: Integer
-     read f_pgnStart
-     write f_pgnStart;
+    read f_pgnStart
+    write f_pgnStart;
    property xaLeft: Integer
-     read f_xaLeft
-     write f_xaLeft;
+    read f_xaLeft
+    write f_xaLeft;
    property xaPage: Integer
-     read f_xaPage
-     write f_xaPage;
+    read f_xaPage
+    write f_xaPage;
    property xaRight: Integer
-     read f_xaRight
-     write f_xaRight;
+    read f_xaRight
+    write f_xaRight;
    property xGutter: Integer
-     read f_xGutter
-     write f_xGutter;
+    read f_xGutter
+    write f_xGutter;
    property yaPage: Integer
-     read f_yaPage
-     write f_yaPage;
+    read f_yaPage
+    write f_yaPage;
    property yaTop: Integer
-     read f_yaTop
-     write f_yaTop;
+    read f_yaTop
+    write f_yaTop;
    property Facingp: Boolean
-     read f_Facingp
-     write f_Facingp;
+    read f_Facingp
+    write f_Facingp;
    property FirstSpec: Boolean
-     read f_FirstSpec
-     write f_FirstSpec;
+    read f_FirstSpec
+    write f_FirstSpec;
    property Landscape: Boolean
-     read f_Landscape
-     write f_Landscape;
+    read f_Landscape
+    write f_Landscape;
    property DefFont: Integer
-     read f_DefFont
-     write f_DefFont;
+    read f_DefFont
+    write f_DefFont;
  end;//TddDocumentProperty
 
 implementation
 
 uses
-  ddRTFConst,
-  l3Defaults
-  ;
-
-// start class TddDocumentProperty
+ l3ImplUses
+ , ddRTFConst
+ , l3Defaults
+;
 
 procedure TddDocumentProperty.MergeWith(P: TddPropertyObject);
 //#UC START# *525E369F0158_51DBBE8A026A_var*
@@ -183,7 +167,7 @@ begin
 end;//TddDocumentProperty.Reset
 
 function TddDocumentProperty.Diff(P: TddPropertyObject;
-  aForReader: Boolean): TddPropertyObject;
+ aForReader: Boolean): TddPropertyObject;
 //#UC START# *525E47E10065_51DBBE8A026A_var*
 //#UC END# *525E47E10065_51DBBE8A026A_var*
 begin
@@ -194,6 +178,7 @@ begin
 end;//TddDocumentProperty.Diff
 
 constructor TddDocumentProperty.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_51DBBE8A026A_var*
 //#UC END# *47914F960008_51DBBE8A026A_var*
 begin

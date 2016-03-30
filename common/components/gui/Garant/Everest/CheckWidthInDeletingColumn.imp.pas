@@ -1,47 +1,40 @@
 {$IfNDef CheckWidthInDeletingColumn_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/CheckWidthInDeletingColumn.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::ParaUtils::CheckWidthInDeletingColumn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "CheckWidthInDeletingColumn" MUID: (52B3FBE60105)
+// Имя типа: "_CheckWidthInDeletingColumn_"
 
 {$Define CheckWidthInDeletingColumn_imp}
-{$If defined(k2ForEditor)}
- _CheckWidthInDeletingColumn_ = {mixin} class(_CheckWidthInDeletingColumn_Parent_)
- private
- // private fields
-   f_Width : Integer;
-   f_CheckWidth : Integer;
- protected
- // protected methods
+
+{$If Defined(k2ForEditor)}
+ _CheckWidthInDeletingColumn_ = class(_CheckWidthInDeletingColumn_Parent_)
+  private
+   f_Width: Integer;
+   f_CheckWidth: Integer;
+  protected
    function Try2CorrectWidth(const anOpPack: InevOp;
-     const aStart: InevBasePoint;
-     const aFinish: InevBasePoint): Boolean;
+    const aStart: InevBasePoint;
+    const aFinish: InevBasePoint): Boolean;
    procedure SetWidth(aValue: Integer);
    function GetStartOffset: Integer; virtual;
  end;//_CheckWidthInDeletingColumn_
-{$Else}
 
- _CheckWidthInDeletingColumn_ = _CheckWidthInDeletingColumn_Parent_;
+{$Else Defined(k2ForEditor)}
 
-{$IfEnd} //k2ForEditor
+_CheckWidthInDeletingColumn_ = _CheckWidthInDeletingColumn_Parent_;
 
+{$IfEnd} // Defined(k2ForEditor)
 {$Else CheckWidthInDeletingColumn_imp}
 
-{$If defined(k2ForEditor)}
+{$IfNDef CheckWidthInDeletingColumn_imp_impl}
 
-// start class _CheckWidthInDeletingColumn_
+{$Define CheckWidthInDeletingColumn_imp_impl}
 
+{$If Defined(k2ForEditor)}
 function _CheckWidthInDeletingColumn_.Try2CorrectWidth(const anOpPack: InevOp;
-  const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
+ const aStart: InevBasePoint;
+ const aFinish: InevBasePoint): Boolean;
 //#UC START# *52B3FF0601C9_52B3FBE60105_var*
 var
  l_CellWidth  : Integer;
@@ -107,7 +100,9 @@ begin
  Result := 0;
 //#UC END# *52D50EFA0317_52B3FBE60105_impl*
 end;//_CheckWidthInDeletingColumn_.GetStartOffset
+{$IfEnd} // Defined(k2ForEditor)
 
-{$IfEnd} //k2ForEditor
+{$EndIf CheckWidthInDeletingColumn_imp_impl}
 
 {$EndIf CheckWidthInDeletingColumn_imp}
+

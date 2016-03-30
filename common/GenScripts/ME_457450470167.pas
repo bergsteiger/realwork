@@ -10,9 +10,10 @@ interface
 
 uses
  l3IntfUses
- , DynamicTreeDefinesUnit
- , BaseTypesUnit
  , IOUnit
+ , BaseTypesUnit
+ , SearchDefinesUnit
+ , DynamicTreeDefinesUnit
 ;
 
 const
@@ -138,57 +139,57 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
 
  ISortFilter = interface(IFilterForTree)
   ['{D0268B80-08CD-419D-BDF5-D3DA7A12199D}']
-  function Get_type: TSortType;
-  procedure Set_type(aValue: TSortType);
-  function Get_order: TSortOrder;
-  procedure Set_order(aValue: TSortOrder);
-  function Get_sub_filter: ISortFilter;
-  procedure Set_sub_filter(const aValue: ISortFilter);
-  property type: TSortType
-   read Get_type
-   write Set_type;
-  property order: TSortOrder
-   read Get_order
-   write Set_order;
-  property sub_filter: ISortFilter
-   read Get_sub_filter
-   write Set_sub_filter;
+  function GetType: TSortType; stdcall;
+  procedure SetType(aValue: TSortType); stdcall;
+  function GetOrder: TSortOrder; stdcall;
+  procedure SetOrder(aValue: TSortOrder); stdcall;
+  function GetSubFilter: ISortFilter; stdcall;
+  procedure SetSubFilter(const aValue: ISortFilter); stdcall;
+  property Type: TSortType
+   read GetType
+   write SetType;
+  property Order: TSortOrder
+   read GetOrder
+   write SetOrder;
+  property SubFilter: ISortFilter
+   read GetSubFilter
+   write SetSubFilter;
  end;//ISortFilter
 
  ITrimFilter = interface(IFilterForTree)
   ['{31549898-CEF0-46C3-94D9-1D6FA71A2C65}']
-  function Get_is_trimmed: Boolean;
-  procedure Set_is_trimmed(aValue: Boolean);
-  property is_trimmed: Boolean
-   read Get_is_trimmed
-   write Set_is_trimmed;
+  function GetIsTrimmed: ByteBool; stdcall;
+  procedure SetIsTrimmed(const aValue: ByteBool); stdcall;
+  property IsTrimmed: ByteBool
+   read GetIsTrimmed
+   write SetIsTrimmed;
  end;//ITrimFilter
 
  ILayerFilter = interface(IFilterForTree)
   {* Класс фильтров для переключения визуального уровня (языка) }
   ['{217D0932-BA42-439D-8CCC-77ABAB9F12D6}']
-  function Get_layer: TLayerId;
-  procedure Set_layer(aValue: TLayerId);
-  property layer: TLayerId
-   read Get_layer
-   write Set_layer;
+  function GetLayer: TLayerId; stdcall;
+  procedure SetLayer(aValue: TLayerId); stdcall;
+  property Layer: TLayerId
+   read GetLayer
+   write SetLayer;
  end;//ILayerFilter
 
  IFindIterator = interface
   {* Итератор поиска. }
   ['{7C8B08E1-3BA1-4122-9E2F-4FDCC7935360}']
-  function Get_count: Cardinal;
-  procedure next;
+  function GetCount: Cardinal; stdcall;
+  procedure Next; stdcall;
    {* Перемещенеи итератора на следующий элемент. }
-  procedure prev;
+  procedure Prev; stdcall;
    {* Перемещенеи итератора на предыдущий элемент. }
-  function get_position: IFindPositionList;
-  function is_good: Boolean;
+  function GetPosition: IFindPositionList; stdcall;
+  function IsGood: ByteBool; stdcall;
    {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-  function is_first: Boolean;
+  function IsFirst: ByteBool; stdcall;
    {* возвращает true, если нельзя перейти на предыдущий фрагмент }
-  property count: Cardinal
-   read Get_count;
+  property Count: Cardinal
+   read GetCount;
    {* количество найденных фрагментов }
  end;//IFindIterator
 
@@ -217,19 +218,19 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
  ISettingEntity = interface
   {* абстрактный интерфейс, наследники которого умеют "сохранять" себя в настройках }
   ['{3790FA3D-D4C9-4A31-9864-F3D1CE9E97B1}']
-  procedure save_in_setting(id: TPropertyID);
+  procedure SaveInSetting(id: TPropertyID); stdcall;
    {* Сохраняет "ссылку" на данный экземпляр в настройках, связывая ее с переданным строковым ключем. Тип ссылки зависит зависит от конкретного класса реализующего джанный интерфейс. }
-  function load_from_setting(id: TPropertyID): ISettingEntity;
+  function LoadFromSetting(id: TPropertyID): ISettingEntity; stdcall;
    {* Восстанавливает "ссылку" из настроек свзанную с данным ключем и данным типом (классом, группой) объеков. }
  end;//ISettingEntity
 
  INodesClipboard = interface
   {* контейнер для скопированных нод }
   ['{B990C46B-9FF3-4C7C-8C61-2DD226FE644E}']
-  function Get_count: Cardinal;
-  function as_evd(style: TEVDGeneratorStyle): IStream;
-  property count: Cardinal
-   read Get_count;
+  function GetCount: Cardinal; stdcall;
+  function AsEvd(style: TEVDGeneratorStyle): IStream; stdcall;
+  property Count: Cardinal
+   read GetCount;
  end;//INodesClipboard
 
  IFakeFacetForFactory = interface
@@ -240,37 +241,37 @@ SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указы
  INodeNotifier = interface
   {* callback интерфейс для оповещения визуального дерева об изменениях на ноде }
   ['{D368CD98-23ED-4EA2-B1A8-E72679D98593}']
-  procedure change_children_count(node_index: TVisibleIndex;
+  procedure ChangeChildrenCount(node_index: TVisibleIndex;
    delta: Integer;
    const index_path: INodeIndexPath;
-   child_index: TIndexInParent);
+   child_index: TIndexInParent); stdcall;
    {* нотификация об изменении кол-ва видимых детей на ноде с указвнным индексом. В случае если изменение нод внутри рута не последовательное и не от начала, индекс должен быть задан как -1. 
 parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удаление, если delta > 0 - вставка)
     left_child_index - индекс ребенка в узле: если удаление, то начиная с которого (включительно) мы удаляем delta элементорв; если вставка, то сразу после которого вы вставляем delta элементов.
     left_child_index, может принять "специальное" значение IIP_BEFORE_LEFT_CHILD (-1) - означающее элемент "до первого" - например для вставки в начало детей. }
-  procedure reset_children_count;
+  procedure ResetChildrenCount; stdcall;
    {* устанавливает кол-во детей = 0 }
-  function is_root_visible: Boolean;
+  function IsRootVisible: ByteBool; stdcall;
    {* признак аутлайнера что он с видимым рутом }
-  function is_one_level: Boolean;
+  function IsOneLevel: ByteBool; stdcall;
    {* признак аутлайнера что он одноуровневый }
-  procedure invalidate(const index_path: INodeIndexPath);
+  procedure Invalidate(const index_path: INodeIndexPath); stdcall;
    {* нотификация о необходимости перерисовки. Должна вызываться после change_children_count (которые можно группирвать) или самостоятельно при изменении дерева не связанном с кол-вом детей.
     parent_path - путь к НОДЕ в которой произашли изменения }
-  procedure changing;
+  procedure Changing; stdcall;
    {* Начало итерации изменения дерева }
-  procedure changed;
+  procedure Changed; stdcall;
    {* Конец итерации изменения дерева }
-  function get_id: TNotifierID;
+  function GetId: TNotifierID; stdcall;
    {* Возвращает уникальный идентификатор объекта }
  end;//INodeNotifier
 
  IListForFiltering = interface
   ['{89EBBAAC-B4DA-4DAB-9FEE-FE7F4A1BD86A}']
-  function Get_count: Cardinal;
-  function item(index: Cardinal): IString;
-  property count: Cardinal
-   read Get_count;
+  function GetCount: Cardinal; stdcall;
+  function Item(index: Cardinal): IString; stdcall;
+  property Count: Cardinal
+   read GetCount;
  end;//IListForFiltering
 
  INodeIterator = interface;
@@ -278,166 +279,166 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
  INodeBase = interface(ISettingEntity)
   {* Базовый интерфейс ноды "новых" деревьев }
   ['{954590CB-D1B3-44B3-8492-650D28A0CD8F}']
-  function Get_caption: IString;
-  function Get_level: Integer;
-  function Get_type: TNodeType;
-  procedure Set_type(aValue: TNodeType); { can raise ConstantModify }
-  function Get_child_count: Integer;
-  function Get_is_expanded: Boolean;
-  function Get_entity: IEntityBase; { can raise NoEntity }
-  procedure Set_entity(const aValue: IEntityBase);
-  function Get_first_child: INodeBase;
-  function Get_prev: INodeBase;
-  function Get_next: INodeBase;
-  function Get_parent: INodeBase;
-  procedure add_notifier(var notifier: INodeNotifier);
-  function create_view_ex(const filter: IFilterList;
+  function GetCaption: IString; stdcall;
+  function GetLevel: Integer; stdcall;
+  function GetType: TNodeType; stdcall;
+  procedure SetType(aValue: TNodeType); stdcall; { can raise ConstantModify }
+  function GetChildCount: Integer; stdcall;
+  function GetIsExpanded: ByteBool; stdcall;
+  function GetEntity: IEntityBase; stdcall; { can raise NoEntity }
+  procedure SetEntity(const aValue: IEntityBase); stdcall;
+  function GetFirstChild: INodeBase; stdcall;
+  function GetPrev: INodeBase; stdcall;
+  function GetNext: INodeBase; stdcall;
+  function GetParent: INodeBase; stdcall;
+  procedure AddNotifier(var notifier: INodeNotifier); stdcall;
+  function CreateViewEx(const filter: IFilterList;
    shared_flags: TFlagMask;
    const sync_node: INodeBase;
    out sync_index: TVisibleIndex;
    levels: Cardinal;
    unfiltered: Boolean;
    auto_open: Boolean;
-   truncate_this_view: Boolean): INodeBase;
+   truncate_this_view: Boolean): INodeBase; stdcall;
    {* Расширенная версия метода create_view. (покачто вью всегда создается от рута) }
-  function find_node(const node_to_find: INodeBase): INodeBase;
+  function FindNode(const node_to_find: INodeBase): INodeBase; stdcall;
    {* ищет в текущем дереву ноду равную переданной }
-  function find_node_path(var node_to_find: INodeBase): INodeIndexPath;
+  function FindNodePath(var node_to_find: INodeBase): INodeIndexPath; stdcall;
    {* Получение индексного пути ноды. Первый индекс в пути сам узел node_to_find }
-  function get_by_sibbling_index(ind: TVisibleIndex): INodeBase;
+  function GetBySibblingIndex(ind: TVisibleIndex): INodeBase; stdcall;
    {* возвращает ноду-соседа (т.е. "брата" текущей) по индексу }
-  function get_by_visible_index(ind: TVisibleIndex): INodeBase;
+  function GetByVisibleIndex(ind: TVisibleIndex): INodeBase; stdcall;
    {* возвращает ноду по видемому индексу относительно текущей }
-  function get_first_fit(const filter: IFilterList): INodeIndexPath;
-  function get_flag_count(flag: TFlagMask): Cardinal;
+  function GetFirstFit(const filter: IFilterList): INodeIndexPath; stdcall;
+  function GetFlagCount(flag: TFlagMask): Cardinal; stdcall;
    {* возвращает кол-во зхаданных флагов в текущем поддереве }
-  function get_first_level_children_flag_count(flag: TFlagMask): Cardinal;
-  function get_node_id: TNodeId;
+  function GetFirstLevelChildrenFlagCount(flag: TFlagMask): Cardinal; stdcall;
+  function GetNodeId: TNodeId; stdcall;
    {* Получение идентификатора ноды. Обычно возвращает пойнтер, но для документа value->id (), т.е. не уникален. }
-  procedure set_node_id(id: TNodeId);
+  procedure SetNodeId(id: TNodeId); stdcall;
    {* Изменить идентификатор ноды. Обычно ничего не делает, но для документа изменяет value->id (). }
-  function get_available_layers: ILayerIdList;
-  function get_visible_delta(const node: INodeBase): TVisibleIndex; { can raise NotFound }
+  function GetAvailableLayers: ILayerIdList; stdcall;
+  function GetVisibleDelta(const node: INodeBase): TVisibleIndex; stdcall; { can raise NotFound }
    {* возвращает разницу видимых индексов двух нод (может автоматически развернуть необходимые уровни) }
-  function get_visible_delta_by_entity(const entity: IEntityBase): TVisibleIndex; { can raise NotFound }
-  function get_index_from_parent: TVisibleIndex;
+  function GetVisibleDeltaByEntity(const entity: IEntityBase): TVisibleIndex; stdcall; { can raise NotFound }
+  function GetIndexFromParent: TVisibleIndex; stdcall;
    {* Возвращает порядковый номер узла относительно родителя (начиная с 1) }
-  function get_abs_index: TVisibleIndex; { can raise CanNotFindData }
+  function GetAbsIndex: TVisibleIndex; stdcall; { can raise CanNotFindData }
    {* Возвращает абс. индекс для ноды }
-  function get_child_path_by_abs_index(index: TVisibleIndex): INodeIndexPath; { can raise CanNotFindData }
+  function GetChildPathByAbsIndex(index: TVisibleIndex): INodeIndexPath; stdcall; { can raise CanNotFindData }
    {* Возвращает путь к ноде по её абс. индексу }
-  function get_frozen_node: INodeBase;
-  function get_unfiltered_node: INodeBase;
-  function has_children: Boolean;
+  function GetFrozenNode: INodeBase; stdcall;
+  function GetUnfilteredNode: INodeBase; stdcall;
+  function HasChildren: ByteBool; stdcall;
    {* признакк есть ли дети }
-  function has_children_flag(flag: TFlagMask): Boolean;
+  function HasChildrenFlag(flag: TFlagMask): ByteBool; stdcall;
    {* признак взведен ли у детей указанный флаг }
-  function has_filtered_children: Boolean;
+  function HasFilteredChildren: ByteBool; stdcall;
    {* признак того что нода соджержит отфильтрованных детей }
-  function has_flag(flag: TFlagMask): Boolean;
+  function HasFlag(flag: TFlagMask): ByteBool; stdcall;
    {* признак взведен ли указанный флаг }
-  function has_parent_flag(flag: TFlagMask): Boolean;
+  function HasParentFlag(flag: TFlagMask): ByteBool; stdcall;
    {* признак взведен ли у родителей указанный флаг }
-  function is_first: Boolean;
+  function IsFirst: ByteBool; stdcall;
    {* признак первый ли это ребенок }
-  function is_it_higher(var it: INodeBase): Boolean;
+  function IsItHigher(var it: INodeBase): ByteBool; stdcall;
    {* возвращает true если переданная нода (it) выше текущей }
-  function is_last: Boolean;
+  function IsLast: ByteBool; stdcall;
    {* признак последний ли это ребенок }
-  function is_same_node(var node: INodeBase): Boolean;
+  function IsSameNode(var node: INodeBase): ByteBool; stdcall;
    {* проверяет на равенство две ноды }
-  function iterate_nodes(with_flag: TFlagMask): INodeIterator;
+  function IterateNodes(with_flag: TFlagMask): INodeIterator; stdcall;
    {* возвращает сквозной итератор по нодам с указанным флагом }
-  procedure make_visible;
-  procedure remove_notifier(var notifier: INodeNotifier);
-  procedure set_all_flag(flag: TFlagMask;
-   value: Boolean);
+  procedure MakeVisible; stdcall;
+  procedure RemoveNotifier(var notifier: INodeNotifier); stdcall;
+  procedure SetAllFlag(flag: TFlagMask;
+   value: Boolean); stdcall;
    {* устанавливает у всего поддерева (КРОМЕ самой ноды на который была вызвана операция) указанный флаг (сейчас работает всегда от рута, и иногда глючит именно установка, сброс работает корректно) }
-  procedure set_flag(flag: TFlagMask;
-   value: Boolean);
+  procedure SetFlag(flag: TFlagMask;
+   value: Boolean); stdcall;
    {* взводит указанный флаг }
-  procedure set_range_flag(offset_from: TVisibleIndex;
+  procedure SetRangeFlag(offset_from: TVisibleIndex;
    offset_to: TVisibleIndex;
    flag: TFlagMask;
    value: Boolean;
-   clean_other: Boolean);
+   clean_other: Boolean); stdcall;
    {* взводит указанный флаг на промежутке }
-  procedure delete_nodes(mask: TFlagMask); { can raise ConstantModify }
+  procedure DeleteNodes(mask: TFlagMask); stdcall; { can raise ConstantModify }
    {* удаляет все ноды по заданному флагу. ВРЕМЕННО перенесен с каталога на ноду!!! }
-  procedure delete_node;
+  procedure DeleteNode; stdcall;
    {* удаляет текущую ноду }
-  function copy_nodes(mask: TFlagMask): INodesClipboard;
+  function CopyNodes(mask: TFlagMask): INodesClipboard; stdcall;
    {* копирует ноды по заданному флагу и возвращает их в виде контейнера для последующей вставки в любое другое дерево.ВРЕМЕННО перенесен с каталога на ноду!!! }
-  procedure add_last_childs(var nodes: INodesClipboard);
+  procedure AddLastChilds(var nodes: INodesClipboard); stdcall;
    {* вставляет ноды из контейнера в конец списка детей - на самом деле если есть сортировка то позиции вставки могут стать другими, но ОБЯЗАТЕЛЬНО в указанном паранте }
-  procedure add_last_child(var node: INodeBase); { can raise ConstantModify }
+  procedure AddLastChild(var node: INodeBase); stdcall; { can raise ConstantModify }
    {* аналогично add_last_childs но для одной ноды (как-либо полученной например, через create_new_node или напрямую из дерева, если это нода из дерева то будет сделана копия) }
-  procedure add_prev_siblings(var nodes: INodesClipboard); { can raise ConstantModify }
+  procedure AddPrevSiblings(var nodes: INodesClipboard); stdcall; { can raise ConstantModify }
    {* аналогично add_last_childs, но ноды вставляется перед указанной как соседи, соответственно КОНСТАНТНЫМ будет парент текущей ноды }
-  procedure add_prev_sibling(var node: INodeBase); { can raise ConstantModify }
+  procedure AddPrevSibling(var node: INodeBase); stdcall; { can raise ConstantModify }
    {* аналогично add_prev_siblings но для одной ноды }
-  procedure start_change_transaction;
+  procedure StartChangeTransaction; stdcall;
    {* указывает на начало транзакции изменения данных ноды. Транзакции могут быть вложенными }
-  procedure rollback_change_transaction;
+  procedure RollbackChangeTransaction; stdcall;
    {* сбрасывает текущщую транзакцию (вместе со всеми вложенными),  сбрасывает все изменения (перечитывает с сервера или внутреннего буффера) }
-  procedure commit_change_transaction;
+  procedure CommitChangeTransaction; stdcall;
    {* закрывает транзакцию, и если это больше нет "верхних" открытых транзакций - сохраняет все изменения сделанные на ноде (отправляет данные на сервер) }
-  function get_node_by_path(const path: INodeIndexPath): INodeBase; { can raise NotFound }
+  function GetNodeByPath(const path: INodeIndexPath): INodeBase; stdcall; { can raise NotFound }
    {* Дублирует с CatalogBase }
-  function find(const filter: IFilterList
+  function Find(const filter: IFilterList
    {* Условие поиска. };
    const find_from: TNodePosition
-   {* Искать от позиции. }): IFindIterator;
+   {* Искать от позиции. }): IFindIterator; stdcall;
    {* Поиск в дереве по условию, заданному в фильтре. В случае успеха возвращает итератор первого вхождения, иначе пустой итератор (is_good!=true). }
-  function is_relevance_search_supported: Boolean;
-  procedure expand_all(expand: Boolean);
+  function IsRelevanceSearchSupported: ByteBool; stdcall;
+  procedure ExpandAll(expand: Boolean); stdcall;
    {* устанавливает и снимает флаг раскрытия всех нод в дереве }
-  class function make: BadFactoryType; overload; { can raise CanNotFindData }
-  class function make(var owner_tree: IFakeFacetForFactory;
-   const snode): BadFactoryType; overload;
-  function iterate_all_nodes(with_flag: TFlagMask): INodeIterator;
-  procedure set_all_flag_except_first_children_of_root_children(flag: TFlagMask;
-   value: Boolean);
-  procedure set_range_flag_except_first_children_of_root_children(offset_from: TVisibleIndex;
+  class function Make: BadFactoryType; overload; stdcall; { can raise CanNotFindData }
+  class function Make(var owner_tree: IFakeFacetForFactory;
+   const snode): BadFactoryType; overload; stdcall;
+  function IterateAllNodes(with_flag: TFlagMask): INodeIterator; stdcall;
+  procedure SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
+   value: Boolean); stdcall;
+  procedure SetRangeFlagExceptFirstChildrenOfRootChildren(offset_from: TVisibleIndex;
    offset_to: TVisibleIndex;
    flag: TFlagMask;
    value: Boolean;
-   clean_other: Boolean);
-  property caption: IString
-   read Get_caption;
+   clean_other: Boolean); stdcall;
+  property Caption: IString
+   read GetCaption;
    {* Пользовательское название ноды }
-  property level: Integer
-   read Get_level;
+  property Level: Integer
+   read GetLevel;
    {* уровень ноды в дереве }
-  property type: TNodeType
-   read Get_type
-   write Set_type;
+  property Type: TNodeType
+   read GetType
+   write SetType;
    {* Пользовательский тип ноды. Может определять тип связанной сущности, или просто использоваться для диффиренцации отображения }
-  property child_count: Integer
-   read Get_child_count;
-  property is_expanded: Boolean
-   read Get_is_expanded;
+  property ChildCount: Integer
+   read GetChildCount;
+  property IsExpanded: ByteBool
+   read GetIsExpanded;
    {* возвращает true, если установлен флаг раскрытия всех нод }
-  property entity: IEntityBase
-   read Get_entity
-   write Set_entity;
-  property first_child: INodeBase
-   read Get_first_child;
-  property prev: INodeBase
-   read Get_prev;
-  property next: INodeBase
-   read Get_next;
-  property parent: INodeBase
-   read Get_parent;
+  property Entity: IEntityBase
+   read GetEntity
+   write SetEntity;
+  property FirstChild: INodeBase
+   read GetFirstChild;
+  property Prev: INodeBase
+   read GetPrev;
+  property Next: INodeBase
+   read GetNext;
+  property Parent: INodeBase
+   read GetParent;
  end;//INodeBase
 
  INodeIterator = interface
   {* Интерфейс для получения линейного списка элементов дерева.
 Должен поддерживаться пользователем для реализации операций с произвольным набором элементов дерева (например, со списком выделенных элементов). }
   ['{1F4887B9-4FA9-4B90-BB5C-0D3EAB6D0792}']
-  function Get_next: INodeBase;
-  property next: INodeBase
-   read Get_next;
+  function GetNext: INodeBase; stdcall;
+  property Next: INodeBase
+   read GetNext;
  end;//INodeIterator
 
  TNodePosition = record
@@ -450,20 +451,20 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
  ICatalogBase = interface
   {* Менеджер деревьев постренных на основе NodeBase и поддерживающие хранение сущностей (EntityBase). Заменяет устаревший BaseTreeSupport::BaseCatalog }
   ['{59A590F8-FB2D-49E6-A954-1B0CC9CCAD04}']
-  function Get_name: IString;
-  procedure Set_name(const aValue: IString);
-  function Get_root: INodeBase;
-  function clone: ICatalogBase;
-  function get_node_by_path(const path: INodeIndexPath): INodeBase; { can raise NotFound }
-  procedure intersect_tree(const tree: ICatalogBase);
-  procedure merge_tree(const tree: ICatalogBase);
-  procedure minus_tree(const tree: ICatalogBase);
-  function create(var nodes: INodesClipboard): ICatalogBase;
-  property name: IString
-   read Get_name
-   write Set_name;
-  property root: INodeBase
-   read Get_root;
+  function GetName: IString; stdcall;
+  procedure SetName(const aValue: IString); stdcall;
+  function GetRoot: INodeBase; stdcall;
+  function Clone: ICatalogBase; stdcall;
+  function GetNodeByPath(const path: INodeIndexPath): INodeBase; stdcall; { can raise NotFound }
+  procedure IntersectTree(const tree: ICatalogBase); stdcall;
+  procedure MergeTree(const tree: ICatalogBase); stdcall;
+  procedure MinusTree(const tree: ICatalogBase); stdcall;
+  function Create(var nodes: INodesClipboard): ICatalogBase; stdcall;
+  property Name: IString
+   read GetName
+   write SetName;
+  property Root: INodeBase
+   read GetRoot;
  end;//ICatalogBase
 
  ITrimLeafFilter = interface(IFilterForTree)
@@ -472,21 +473,21 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
 
  ICountryFilter = interface(IFilterForTree)
   ['{88574AB6-4C05-455B-8E61-ACC170D68E31}']
-  function Get_country: INodeBase;
-  procedure Set_country(const aValue: INodeBase);
-  property country: INodeBase
-   read Get_country
-   write Set_country;
+  function GetCountry: INodeBase; stdcall;
+  procedure SetCountry(const aValue: INodeBase); stdcall;
+  property Country: INodeBase
+   read GetCountry
+   write SetCountry;
  end;//ICountryFilter
 
  ICutToLeafCountFilter = interface(IFilterForTree)
   {* оставляет в дереве количество детей, не большее заданного }
   ['{080EAE7F-D346-4600-AA65-6CD21B8C7370}']
-  function Get_leaf_count: Cardinal;
-  procedure Set_leaf_count(aValue: Cardinal);
-  property leaf_count: Cardinal
-   read Get_leaf_count
-   write Set_leaf_count;
+  function GetLeafCount: Cardinal; stdcall;
+  procedure SetLeafCount(aValue: Cardinal); stdcall;
+  property LeafCount: Cardinal
+   read GetLeafCount
+   write SetLeafCount;
    {* получить число листьев для фильтра }
  end;//ICutToLeafCountFilter
 
@@ -506,9 +507,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
  IVariantsForDocFilter = interface(IFilterForTree)
   {* получить подсказки для заданного документа }
   ['{7E6C4CC8-5E83-4074-BC63-93286053A532}']
-  function Get_doc_id: Cardinal;
-  property doc_id: Cardinal
-   read Get_doc_id;
+  function GetDocId: Cardinal; stdcall;
+  property DocId: Cardinal
+   read GetDocId;
    {* идентификатор документа }
  end;//IVariantsForDocFilter
 
@@ -517,28 +518,28 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
  IContextFilter = interface(IFilterForTree)
   {* Класс контекстных фильтров }
   ['{FCB4593F-FD35-46E5-87BB-7112D61FEC5A}']
-  function Get_place: TContextPlace;
-  procedure Set_place(aValue: TContextPlace);
-  function Get_order: TFindOrder;
-  procedure Set_order(aValue: TFindOrder);
-  function Get_area: TSearchArea;
-  procedure Set_area(aValue: TSearchArea);
-  function Get_context: IString;
-  procedure Set_context(const aValue: IString);
-  function clone: IContextFilter;
-  function filtrate(const list: IListForFiltering): IFiltered;
-  property place: TContextPlace
-   read Get_place
-   write Set_place;
-  property order: TFindOrder
-   read Get_order
-   write Set_order;
-  property area: TSearchArea
-   read Get_area
-   write Set_area;
-  property context: IString
-   read Get_context
-   write Set_context;
+  function GetPlace: TContextPlace; stdcall;
+  procedure SetPlace(aValue: TContextPlace); stdcall;
+  function GetOrder: TFindOrder; stdcall;
+  procedure SetOrder(aValue: TFindOrder); stdcall;
+  function GetArea: TSearchArea; stdcall;
+  procedure SetArea(aValue: TSearchArea); stdcall;
+  function GetContext: IString; stdcall;
+  procedure SetContext(const aValue: IString); stdcall;
+  function Clone: IContextFilter; stdcall;
+  function Filtrate(const list: IListForFiltering): IFiltered; stdcall;
+  property Place: TContextPlace
+   read GetPlace
+   write SetPlace;
+  property Order: TFindOrder
+   read GetOrder
+   write SetOrder;
+  property Area: TSearchArea
+   read GetArea
+   write SetArea;
+  property Context: IString
+   read GetContext
+   write SetContext;
  end;//IContextFilter
 
 const
@@ -555,117 +556,10 @@ const
  {* константы типов ноды }
  NT_UNKNOWN: TNodeType = 0;
 
-class function make: BadFactoryType;
-class function make(const iterator): BadFactoryType;
-class function make: BadFactoryType; overload;
-class function make(const node_holder): BadFactoryType; overload;
-class function make: BadFactoryType;
-class function make(const country: INodeBase): BadFactoryType;
-class function make(leaf_count: Cardinal): BadFactoryType;
- {* создает фильтр, оставляющий в дереве не более leaf_count листьев }
-class function make(doc_id: Cardinal): BadFactoryType;
-
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
-var
- l_Inst : IFilterForTree;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const iterator): BadFactoryType;
-var
- l_Inst : IFindIterator;
-begin
- l_Inst := Create(iterator);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : INodesClipboard;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const node_holder): BadFactoryType;
-var
- l_Inst : INodesClipboard;
-begin
- l_Inst := Create(node_holder);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : INodeIterator;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const country: INodeBase): BadFactoryType;
-var
- l_Inst : ICountryFilter;
-begin
- l_Inst := Create(country);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(leaf_count: Cardinal): BadFactoryType;
- {* создает фильтр, оставляющий в дереве не более leaf_count листьев }
-var
- l_Inst : ICutToLeafCountFilter;
-begin
- l_Inst := Create(leaf_count);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(doc_id: Cardinal): BadFactoryType;
-var
- l_Inst : IVariantsForDocFilter;
-begin
- l_Inst := Create(doc_id);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

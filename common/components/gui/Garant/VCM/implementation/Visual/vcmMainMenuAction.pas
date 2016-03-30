@@ -1,76 +1,53 @@
 unit vcmMainMenuAction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMainMenuAction.pas"
-// Начат: 24.03.2008 11:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Actions::TvcmMainMenuAction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainMenuAction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMainMenuAction" MUID: (47E7652402FF)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  Classes,
-  vcmAction
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmAction
+ , vcmInterfaces
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmMainMenuAction = class(TvcmAction)
- private
- // private fields
-   f_OnTest : TvcmTestEvent;
-    {* Поле для свойства OnTest}
- protected
- // overridden protected methods
+  private
+   f_OnTest: TvcmTestEvent;
+    {* Поле для свойства OnTest }
+  protected
    procedure DoUpdate; override;
- public
- // public methods
+  public
    constructor Create(anOwner: TComponent;
     aTest: TvcmTestEvent); reintroduce;
    class function MakeForMenu(anItem: TMenuItem;
     aTest: TvcmTestEvent): TvcmMainMenuAction;
- public
- // public properties
+  public
    property OnTest: TvcmTestEvent
-     read f_OnTest
-     write f_OnTest;
+    read f_OnTest
+    write f_OnTest;
  end;//TvcmMainMenuAction
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmMainMenuAction
+ l3ImplUses
+ , l3Base
+;
 
 constructor TvcmMainMenuAction.Create(anOwner: TComponent;
-  aTest: TvcmTestEvent);
+ aTest: TvcmTestEvent);
 //#UC START# *47E7670B000F_47E7652402FF_var*
 //#UC END# *47E7670B000F_47E7652402FF_var*
 begin
@@ -82,7 +59,7 @@ begin
 end;//TvcmMainMenuAction.Create
 
 class function TvcmMainMenuAction.MakeForMenu(anItem: TMenuItem;
-  aTest: TvcmTestEvent): TvcmMainMenuAction;
+ aTest: TvcmTestEvent): TvcmMainMenuAction;
 //#UC START# *47E7AC17020C_47E7652402FF_var*
 //#UC END# *47E7AC17020C_47E7652402FF_var*
 begin
@@ -113,7 +90,6 @@ begin
  SetParams(l_Params);
 //#UC END# *47E766E10053_47E7652402FF_impl*
 end;//TvcmMainMenuAction.DoUpdate
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,63 +1,47 @@
 unit ddAutolinkArbitraryDocEntry;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAutolinkArbitraryDocEntry.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Autolink::TddAutolinkArbitraryDocEntry
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkArbitraryDocEntry.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddAutolinkArbitraryDocEntry" MUID: (51F258B701B2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3LongintList,
-  dt_Types,
-  l3ProtoObject,
-  ddAutolinkInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , ddAutolinkInterfaces
+ , dt_Types
+ , l3LongintList
+;
 
 type
  TddAutolinkArbitraryDocEntry = class(Tl3ProtoObject, IddAutolinkArbitraryDocEntry)
- private
- // private fields
-   f_DocID : TDocID;
-   f_TypesList : Tl3LongintList;
- protected
- // realized methods
+  private
+   f_DocID: TDocID;
+   f_TypesList: Tl3LongintList;
+  protected
    function Get_DocID: TDocID;
    function Get_TypesList: Tl3LongintList;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aDocID: TDocID;
-     aTypesList: Tl3LongintList); reintroduce;
+    aTypesList: Tl3LongintList); reintroduce;
    class function Make(aDocID: TDocID;
-     aTypesList: Tl3LongintList): IddAutolinkArbitraryDocEntry; reintroduce;
-     {* Сигнатура фабрики TddAutolinkArbitraryDocEntry.Make }
+    aTypesList: Tl3LongintList): IddAutolinkArbitraryDocEntry; reintroduce;
  end;//TddAutolinkArbitraryDocEntry
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TddAutolinkArbitraryDocEntry
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TddAutolinkArbitraryDocEntry.Create(aDocID: TDocID;
-  aTypesList: Tl3LongintList);
+ aTypesList: Tl3LongintList);
 //#UC START# *51F269D40190_51F258B701B2_var*
 //#UC END# *51F269D40190_51F258B701B2_var*
 begin
@@ -70,7 +54,7 @@ begin
 end;//TddAutolinkArbitraryDocEntry.Create
 
 class function TddAutolinkArbitraryDocEntry.Make(aDocID: TDocID;
-  aTypesList: Tl3LongintList): IddAutolinkArbitraryDocEntry;
+ aTypesList: Tl3LongintList): IddAutolinkArbitraryDocEntry;
 var
  l_Inst : TddAutolinkArbitraryDocEntry;
 begin
@@ -80,7 +64,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TddAutolinkArbitraryDocEntry.Make
 
 function TddAutolinkArbitraryDocEntry.Get_DocID: TDocID;
 //#UC START# *51F2529E003F_51F258B701B2get_var*
@@ -101,6 +85,7 @@ begin
 end;//TddAutolinkArbitraryDocEntry.Get_TypesList
 
 procedure TddAutolinkArbitraryDocEntry.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51F258B701B2_var*
 //#UC END# *479731C50290_51F258B701B2_var*
 begin

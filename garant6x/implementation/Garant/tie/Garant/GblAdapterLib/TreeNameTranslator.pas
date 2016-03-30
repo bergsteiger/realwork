@@ -14,7 +14,7 @@ uses
  , SearchDefinesUnit
 ;
 
-function shell_to_adapter(shell_name: PAnsiChar): TAttributeTag;
+function ShellToAdapter(shell_name: PAnsiChar): TAttributeTag; stdcall;
 
 implementation
 
@@ -23,13 +23,13 @@ uses
  , SearchUnit
 ;
 
-function shell_to_adapter(shell_name: PAnsiChar): TAttributeTag;
+function ShellToAdapter(shell_name: PAnsiChar): TAttributeTag;
 //#UC START# *475012FB000C_47500DB5025A_var*
 //#UC END# *475012FB000C_47500DB5025A_var*
 begin
 //#UC START# *475012FB000C_47500DB5025A_impl*
  !!! Needs to be implemented !!!
 //#UC END# *475012FB000C_47500DB5025A_impl*
-end;//shell_to_adapter
+end;//ShellToAdapter
 
 end.

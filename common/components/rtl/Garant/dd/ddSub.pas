@@ -1,76 +1,57 @@
 unit ddSub;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddSub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddSub
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddSub.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddSub" MUID: (5268E523030D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  ddBaseObject,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddBaseObject
+ , l3Base
+ , k2Interfaces
+ , ddTypes
+;
 
 type
  TddSub = class(TddBaseObject)
- private
- // private fields
-   f_IsRealName : Boolean;
-    {* Поле для свойства IsRealName}
-   f_ID : Integer;
-    {* Поле для свойства ID}
-   f_Name : Tl3String;
-    {* Поле для свойства Name}
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
+  private
+   f_IsRealName: Boolean;
+    {* Поле для свойства IsRealName }
+   f_ID: Integer;
+    {* Поле для свойства ID }
+   f_Name: Tl3String;
+    {* Поле для свойства Name }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aLiteVersion: TddLiteVersion); override;
    procedure Assign(anObject: TddBaseObject); override;
    constructor Create; override;
-     {* Сигнатура метода Create }
- public
- // public properties
+  public
    property IsRealName: Boolean
-     read f_IsRealName
-     write f_IsRealName;
+    read f_IsRealName
+    write f_IsRealName;
    property ID: Integer
-     read f_ID
-     write f_ID;
+    read f_ID
+    write f_ID;
    property Name: Tl3String
-     read f_Name;
+    read f_Name;
  end;//TddSub
 
 implementation
 
 uses
-  ddEVDTypesSupport,
-  k2Tags
-  ;
-
-// start class TddSub
+ l3ImplUses
+;
 
 procedure TddSub.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: TddLiteVersion);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_5268E523030D_var*
 //#UC END# *54DC9795018B_5268E523030D_var*
 begin
@@ -92,6 +73,7 @@ begin
 end;//TddSub.Write2Generator
 
 procedure TddSub.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5268E523030D_var*
 //#UC END# *479731C50290_5268E523030D_var*
 begin

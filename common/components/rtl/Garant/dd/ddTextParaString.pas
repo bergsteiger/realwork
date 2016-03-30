@@ -1,53 +1,38 @@
 unit ddTextParaString;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTextParaString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTextParaString
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTextParaString.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTextParaString" MUID: (4FB10AA701B8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  ddTextParagraph
-  ;
+ l3IntfUses
+ , l3Base
+ , ddTextParagraph
+;
 
 type
  TddTextParaString = class(Tl3String)
- private
- // private fields
-   f_TextPara : TddTextParagraph;
- protected
- // overridden protected methods
+  private
+   f_TextPara: TddTextParagraph;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure NotifyDeletion(aPos: Integer;
-     aLen: Integer); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTextPara: TddTextParagraph); reintroduce;
+   procedure NotifyDeletion(aPos: Integer;
+    aLen: Integer); override;
  end;//TddTextParaString
 
 implementation
 
 uses
-  ddTextSegment
-  ;
-
-// start class TddTextParaString
+ l3ImplUses
+ , ddTextSegment
+;
 
 constructor TddTextParaString.Create(const aTextPara: TddTextParagraph);
 //#UC START# *4FB10BB001E3_4FB10AA701B8_var*
@@ -60,6 +45,7 @@ begin
 end;//TddTextParaString.Create
 
 procedure TddTextParaString.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FB10AA701B8_var*
 //#UC END# *479731C50290_4FB10AA701B8_var*
 begin
@@ -70,7 +56,7 @@ begin
 end;//TddTextParaString.Cleanup
 
 procedure TddTextParaString.NotifyDeletion(aPos: Integer;
-  aLen: Integer);
+ aLen: Integer);
 //#UC START# *4FB10B1D016B_4FB10AA701B8_var*
 var
  i         : Integer;

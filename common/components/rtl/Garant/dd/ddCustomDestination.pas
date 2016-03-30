@@ -1,58 +1,66 @@
 unit ddCustomDestination;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddCustomDestination.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddCustomDestination
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddCustomDestination.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddCustomDestination" MUID: (51E9189F024D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  rtfListTable,
-  ddRTFProperties,
-  ddTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , ddRTFProperties
+ , rtfListTable
+ , ddTypes
+;
 
 type
  TddCustomDestination = class(Tl3ProtoObject)
- protected
- // property methods
+  protected
    function pm_GetLiteVersion: Boolean; virtual;
    function pm_GetIdenticalRowWidths: Boolean; virtual;
- public
- // public methods
+  public
    function GetStyle(aStyleID: Integer): TddStyleEntry; virtual;
    function GetList(aListID: Integer;
-     out aWasRestart: Boolean): TrtfList; virtual;
+    out aWasRestart: Boolean): TrtfList; virtual;
    function GetClearBorderType: TddClearBoder;
    procedure BeforeCloseParagraph(const aDocAtom: TObject;
-     var aNewStyle: Integer); virtual; abstract;
+    var aNewStyle: Integer); virtual; abstract;
    function GetMinPictureWidth: Integer; virtual;
    function GetMinPictureHeight: Integer; virtual;
    function NextTextPara(const anCurrent: TObject): TObject; virtual;
- public
- // public properties
+  public
    property LiteVersion: Boolean
-     read pm_GetLiteVersion;
+    read pm_GetLiteVersion;
    property IdenticalRowWidths: Boolean
-     read pm_GetIdenticalRowWidths;
+    read pm_GetIdenticalRowWidths;
  end;//TddCustomDestination
 
 implementation
 
-// start class TddCustomDestination
+uses
+ l3ImplUses
+;
+
+function TddCustomDestination.pm_GetLiteVersion: Boolean;
+//#UC START# *51E929770128_51E9189F024Dget_var*
+//#UC END# *51E929770128_51E9189F024Dget_var*
+begin
+//#UC START# *51E929770128_51E9189F024Dget_impl*
+ Result := False;
+//#UC END# *51E929770128_51E9189F024Dget_impl*
+end;//TddCustomDestination.pm_GetLiteVersion
+
+function TddCustomDestination.pm_GetIdenticalRowWidths: Boolean;
+//#UC START# *56163B3F02FE_51E9189F024Dget_var*
+//#UC END# *56163B3F02FE_51E9189F024Dget_var*
+begin
+//#UC START# *56163B3F02FE_51E9189F024Dget_impl*
+ Result := False;
+//#UC END# *56163B3F02FE_51E9189F024Dget_impl*
+end;//TddCustomDestination.pm_GetIdenticalRowWidths
 
 function TddCustomDestination.GetStyle(aStyleID: Integer): TddStyleEntry;
 //#UC START# *51E8D73F0187_51E9189F024D_var*
@@ -64,7 +72,7 @@ begin
 end;//TddCustomDestination.GetStyle
 
 function TddCustomDestination.GetList(aListID: Integer;
-  out aWasRestart: Boolean): TrtfList;
+ out aWasRestart: Boolean): TrtfList;
 //#UC START# *51E8D6CF03A1_51E9189F024D_var*
 //#UC END# *51E8D6CF03A1_51E9189F024D_var*
 begin
@@ -109,23 +117,5 @@ begin
  Result := nil;
 //#UC END# *5658453300F6_51E9189F024D_impl*
 end;//TddCustomDestination.NextTextPara
-
-function TddCustomDestination.pm_GetLiteVersion: Boolean;
-//#UC START# *51E929770128_51E9189F024Dget_var*
-//#UC END# *51E929770128_51E9189F024Dget_var*
-begin
-//#UC START# *51E929770128_51E9189F024Dget_impl*
- Result := False;
-//#UC END# *51E929770128_51E9189F024Dget_impl*
-end;//TddCustomDestination.pm_GetLiteVersion
-
-function TddCustomDestination.pm_GetIdenticalRowWidths: Boolean;
-//#UC START# *56163B3F02FE_51E9189F024Dget_var*
-//#UC END# *56163B3F02FE_51E9189F024Dget_var*
-begin
-//#UC START# *56163B3F02FE_51E9189F024Dget_impl*
- Result := False;
-//#UC END# *56163B3F02FE_51E9189F024Dget_impl*
-end;//TddCustomDestination.pm_GetIdenticalRowWidths
 
 end.

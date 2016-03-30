@@ -1,68 +1,53 @@
 unit dd_lcHiddenTextExtractor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/dd_lcHiddenTextExtractor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcHiddenTextExtractor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\dd_lcHiddenTextExtractor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcHiddenTextExtractor" MUID: (538C1D82017A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  l3Variant,
-  k2TagGen
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , l3Variant
+ , k2TagGen
+;
 
 type
  Tdd_lcHiddenTextExtractor = class(TevdLeafParaFilter)
- private
- // private fields
-   f_ClearFont : Boolean;
-    {* Поле для свойства ClearFont}
- private
- // private methods
+  private
+   f_ClearFont: Boolean;
+    {* Поле для свойства ClearFont }
+  private
    procedure WriteToLog(const aText: AnsiString;
-     IsSeg: Boolean);
- protected
- // overridden protected methods
+    IsSeg: Boolean);
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
-     {* Определяет нужно ли фильтровать переданный абзац }
- public
- // overridden public methods
+    {* Определяет нужно ли фильтровать переданный абзац }
+  public
    constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
- public
- // public properties
+  public
    property ClearFont: Boolean
-     read f_ClearFont
-     write f_ClearFont;
+    read f_ClearFont
+    write f_ClearFont;
  end;//Tdd_lcHiddenTextExtractor
 
 implementation
 
 uses
-  k2Tags,
-  l3Base,
-  evdTypes,
-  PageBreak_Const
-  ;
-
-// start class Tdd_lcHiddenTextExtractor
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , evdTypes
+ , PageBreak_Const
+;
 
 procedure Tdd_lcHiddenTextExtractor.WriteToLog(const aText: AnsiString;
-  IsSeg: Boolean);
+ IsSeg: Boolean);
 //#UC START# *538C220C033A_538C1D82017A_var*
 //#UC END# *538C220C033A_538C1D82017A_var*
 begin
@@ -73,6 +58,7 @@ begin
 end;//Tdd_lcHiddenTextExtractor.WriteToLog
 
 procedure Tdd_lcHiddenTextExtractor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_538C1D82017A_var*
 //#UC END# *479731C50290_538C1D82017A_var*
 begin
@@ -83,6 +69,7 @@ begin
 end;//Tdd_lcHiddenTextExtractor.Cleanup
 
 function Tdd_lcHiddenTextExtractor.NeedWritePara(aLeaf: Tl3Variant): Boolean;
+ {* Определяет нужно ли фильтровать переданный абзац }
 //#UC START# *49E48829016F_538C1D82017A_var*
 var
  l_Len   : Integer;

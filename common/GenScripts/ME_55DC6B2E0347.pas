@@ -20,7 +20,6 @@ type
  TsegSegment = class(Tl3ProtoObject)
   private
    f_Start: Integer;
-    {* Поле для свойства Start }
   public
    property Start: Integer
     read f_Start
@@ -30,7 +29,6 @@ type
  TsegTextSegment = class(TsegSegment)
   private
    f_Finish: Integer;
-    {* Поле для свойства Finish }
   public
    property Finish: Integer
     read f_Finish
@@ -40,7 +38,6 @@ type
  TsegDecorSegment = class(TsegTextSegment)
   private
    f_Decor: AnsiString;
-    {* Поле для свойства Decor }
   protected
    procedure ClearFields; override;
   public
@@ -52,23 +49,14 @@ type
  TddNSRCStackItem = class(Tl3ProtoObject)
   private
    f_ColorSelection: Boolean;
-    {* Поле для свойства ColorSelection }
    f_HLContinue: Boolean;
-    {* Поле для свойства HLContinue }
    f_Comment: Boolean;
-    {* Поле для свойства Comment }
    f_Hidden: Boolean;
-    {* Поле для свойства Hidden }
    f_OutOfDate: Boolean;
-    {* Поле для свойства OutOfDate }
    f_NotApplied: Boolean;
-    {* Поле для свойства NotApplied }
    f_WithText: Boolean;
-    {* Поле для свойства WithText }
    f_Start: Integer;
-    {* Поле для свойства Start }
    f_Decor: AnsiString;
-    {* Поле для свойства Decor }
   protected
    procedure ClearFields; override;
   public
@@ -107,17 +95,11 @@ type
  TsegSeg = class(TsegDecorSegment)
   private
    f_ColorSelection: Boolean;
-    {* Поле для свойства ColorSelection }
    f_HLContinue: Boolean;
-    {* Поле для свойства HLContinue }
    f_Comment: Boolean;
-    {* Поле для свойства Comment }
    f_Hidden: Boolean;
-    {* Поле для свойства Hidden }
    f_OutOfDate: Boolean;
-    {* Поле для свойства OutOfDate }
    f_NotApplied: Boolean;
-    {* Поле для свойства NotApplied }
   private
    procedure GetFromStackItem(StackItem: TddNSRCStackItem);
   public
@@ -150,7 +132,6 @@ type
  TsegHyperLink = class(TsegTextSegment)
   private
    f_Targets: TsegTargetList;
-    {* Поле для свойства Targets }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -169,17 +150,11 @@ type
  TsegPicture = class(TsegObject)
   private
    f_BaseLineOffset: Integer;
-    {* Поле для свойства BaseLineOffset }
    f_DocID: Integer;
-    {* Поле для свойства DocID }
    f_DPI: Integer;
-    {* Поле для свойства DPI }
    f_Height: Integer;
-    {* Поле для свойства Height }
    f_Width: Integer;
-    {* Поле для свойства Width }
    f_FileName: AnsiString;
-    {* Поле для свойства FileName }
   protected
    procedure ClearFields; override;
   public
@@ -206,7 +181,6 @@ type
  TsegFormula = class(TsegObject)
   private
    f_Text: AnsiString;
-    {* Поле для свойства Text }
   protected
    procedure ClearFields; override;
   public

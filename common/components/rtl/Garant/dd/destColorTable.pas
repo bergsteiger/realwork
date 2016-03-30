@@ -30,11 +30,8 @@ type
  TddColorEntry = class(Tl3ProtoObject)
   private
    f_Blue: Byte;
-    {* Поле для свойства Blue }
    f_Green: Byte;
-    {* Поле для свойства Green }
    f_Red: Byte;
-    {* Поле для свойства Red }
   protected
    function pm_GetColor: LongInt;
   public

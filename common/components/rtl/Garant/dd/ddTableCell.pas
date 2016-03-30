@@ -1,191 +1,83 @@
 unit ddTableCell;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTableCell.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTableCell
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTableCell.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTableCell" MUID: (4FACE127032F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocumentAtom,
-  ddCellProperty,
-  ddDocumentAtomList,
-  ddTextParagraph,
-  ddCustomDestination,
-  l3ProtoObject,
-  k2Interfaces,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , ddCellProperty
+ , ddTextParagraph
+ , ddDocumentAtomList
+ , k2Interfaces
+ , ddTypes
+ , ddCustomDestination
+ , l3ProtoObject
+;
 
 type
  TddTableCell = class(TddDocumentAtom)
- private
- // private fields
-   f_ParaList : TddDocumentAtomList;
-   f_anIndex : Integer;
-    {* Поле для свойства anIndex}
-   f_Props : TddCellProperty;
-    {* Поле для свойства Props}
- protected
- // property methods
+  private
+   f_ParaList: TddDocumentAtomList;
+   f_anIndex: Integer;
+    {* Поле для свойства anIndex }
+   f_Props: TddCellProperty;
+    {* Поле для свойства Props }
+  protected
    function pm_GetHi: Integer;
    function pm_GetCount: Integer;
    procedure pm_SetProps(aValue: TddCellProperty);
    function pm_GetLastTextPara: TddTextParagraph;
    function pm_GetItems(anIndex: Integer): TddDocumentAtom;
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   procedure Delete(anIndex: Integer);
+   procedure Add(aPara: TddDocumentAtom;
+    anAssign2Last: Boolean = False);
+   function AddParagraph: TddTextParagraph;
+   function LastTableAtom: TddDocumentAtom;
+    {* Возвращает последнюю открытую вложенную таблицу. }
+   function IsCellEmpty: Boolean;
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
    procedure Clear; override;
    constructor Create(aDetination: TddCustomDestination); override;
    procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
- public
- // public methods
-   procedure Delete(anIndex: Integer);
-   procedure Add(aPara: TddDocumentAtom;
-     anAssign2Last: Boolean = False);
-   function AddParagraph: TddTextParagraph;
-   function LastTableAtom: TddDocumentAtom;
-     {* Возвращает последнюю открытую вложенную таблицу. }
-   function IsCellEmpty: Boolean;
-     {* Проверяет является ли ячейка пустой. }
- public
- // public properties
+  public
    property anIndex: Integer
-     read f_anIndex
-     write f_anIndex;
+    read f_anIndex
+    write f_anIndex;
    property Hi: Integer
-     read pm_GetHi;
+    read pm_GetHi;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property Props: TddCellProperty
-     read f_Props
-     write pm_SetProps;
+    read f_Props
+    write pm_SetProps;
    property LastTextPara: TddTextParagraph
-     read pm_GetLastTextPara;
+    read pm_GetLastTextPara;
    property Items[anIndex: Integer]: TddDocumentAtom
-     read pm_GetItems;
+    read pm_GetItems;
  end;//TddTableCell
 
 implementation
 
 uses
-  ddTableRow,
-  SysUtils,
-  ddTable,
-  k2Tags,
-  evdTypes,
-  ddBase
-  ;
-
-// start class TddTableCell
-
-procedure TddTableCell.Delete(anIndex: Integer);
-//#UC START# *518A3340021D_4FACE127032F_var*
-//#UC END# *518A3340021D_4FACE127032F_var*
-begin
-//#UC START# *518A3340021D_4FACE127032F_impl*
- f_ParaList.Delete(anIndex);
-//#UC END# *518A3340021D_4FACE127032F_impl*
-end;//TddTableCell.Delete
-
-procedure TddTableCell.Add(aPara: TddDocumentAtom;
-  anAssign2Last: Boolean = False);
-//#UC START# *518A338F0065_4FACE127032F_var*
-//#UC END# *518A338F0065_4FACE127032F_var*
-begin
-//#UC START# *518A338F0065_4FACE127032F_impl*
- if aPara.IsTextPara then
-  TddTextparagraph(aPara).PAP.InTable := True
- else
-  if aPara.IsPicture then
-  begin
-   if anAssign2Last and not f_ParaList.Empty and f_ParaList.Last.IsPicture then
-   begin
-    f_ParaList.Last.Assign(aPara);
-    Exit;
-   end; // if aMove and not f_ParaList.Empty and f_ParaList.Last.IsPicture then
-   TddTextparagraph(aPara).PAP.InTable := True;
-  end; // if aPara.IsPicture then
- f_ParaList.Add(aPara);
-//#UC END# *518A338F0065_4FACE127032F_impl*
-end;//TddTableCell.Add
-
-function TddTableCell.AddParagraph: TddTextParagraph;
-//#UC START# *518A33AE0245_4FACE127032F_var*
-var
- l_P: TddTextParagraph;
-//#UC END# *518A33AE0245_4FACE127032F_var*
-begin
-//#UC START# *518A33AE0245_4FACE127032F_impl*
- l_P := TddTextParagraph.Create(f_Destination);
- try
-  l_P.PAP.InTable := True;
-  Add(l_P);
-  Result := TddTextParagraph(f_ParaList.Last);
- finally
-  FreeAndNil(l_P);
- end;
-//#UC END# *518A33AE0245_4FACE127032F_impl*
-end;//TddTableCell.AddParagraph
-
-function TddTableCell.LastTableAtom: TddDocumentAtom;
-//#UC START# *519333B6005A_4FACE127032F_var*
-var
- i: Integer;
-//#UC END# *519333B6005A_4FACE127032F_var*
-begin
-//#UC START# *519333B6005A_4FACE127032F_impl*
- Result := nil;
- i := Hi;
- while (Result = nil) and (i <> -1) do
- begin
-  if Items[i] is TddTable then
-   Result := Items[i]
-  else
-   Dec(i);
- end; // while (Result = nil) and (i <> -1) do
-//#UC END# *519333B6005A_4FACE127032F_impl*
-end;//TddTableCell.LastTableAtom
-
-function TddTableCell.IsCellEmpty: Boolean;
-//#UC START# *525D141900DD_4FACE127032F_var*
-var
- i        : Integer;
- l_DocAtom: TddDocumentAtom;
-//#UC END# *525D141900DD_4FACE127032F_var*
-begin
-//#UC START# *525D141900DD_4FACE127032F_impl*
- Result := f_ParaList.Count = 0;
- if not Result then
-  for i := 0 to f_ParaList.Count - 1 do
-  begin
-   l_DocAtom := f_ParaList[i];
-   Result := l_DocAtom.Empty;
-   if not Result then Break;
-  end; // for i := 0 to f_ParaList.Count - 1 do
-//#UC END# *525D141900DD_4FACE127032F_impl*
-end;//TddTableCell.IsCellEmpty
+ l3ImplUses
+ , ddTableRow
+ , SysUtils
+ , ddTable
+ , k2Tags
+ , evdTypes
+ , ddBase
+;
 
 function TddTableCell.pm_GetHi: Integer;
 //#UC START# *518A2E3702C4_4FACE127032Fget_var*
@@ -249,9 +141,97 @@ begin
 //#UC END# *518A328E02CF_4FACE127032Fget_impl*
 end;//TddTableCell.pm_GetItems
 
+procedure TddTableCell.Delete(anIndex: Integer);
+//#UC START# *518A3340021D_4FACE127032F_var*
+//#UC END# *518A3340021D_4FACE127032F_var*
+begin
+//#UC START# *518A3340021D_4FACE127032F_impl*
+ f_ParaList.Delete(anIndex);
+//#UC END# *518A3340021D_4FACE127032F_impl*
+end;//TddTableCell.Delete
+
+procedure TddTableCell.Add(aPara: TddDocumentAtom;
+ anAssign2Last: Boolean = False);
+//#UC START# *518A338F0065_4FACE127032F_var*
+//#UC END# *518A338F0065_4FACE127032F_var*
+begin
+//#UC START# *518A338F0065_4FACE127032F_impl*
+ if aPara.IsTextPara then
+  TddTextparagraph(aPara).PAP.InTable := True
+ else
+  if aPara.IsPicture then
+  begin
+   if anAssign2Last and not f_ParaList.Empty and f_ParaList.Last.IsPicture then
+   begin
+    f_ParaList.Last.Assign(aPara);
+    Exit;
+   end; // if aMove and not f_ParaList.Empty and f_ParaList.Last.IsPicture then
+   TddTextparagraph(aPara).PAP.InTable := True;
+  end; // if aPara.IsPicture then
+ f_ParaList.Add(aPara);
+//#UC END# *518A338F0065_4FACE127032F_impl*
+end;//TddTableCell.Add
+
+function TddTableCell.AddParagraph: TddTextParagraph;
+//#UC START# *518A33AE0245_4FACE127032F_var*
+var
+ l_P: TddTextParagraph;
+//#UC END# *518A33AE0245_4FACE127032F_var*
+begin
+//#UC START# *518A33AE0245_4FACE127032F_impl*
+ l_P := TddTextParagraph.Create(f_Destination);
+ try
+  l_P.PAP.InTable := True;
+  Add(l_P);
+  Result := TddTextParagraph(f_ParaList.Last);
+ finally
+  FreeAndNil(l_P);
+ end;
+//#UC END# *518A33AE0245_4FACE127032F_impl*
+end;//TddTableCell.AddParagraph
+
+function TddTableCell.LastTableAtom: TddDocumentAtom;
+ {* Возвращает последнюю открытую вложенную таблицу. }
+//#UC START# *519333B6005A_4FACE127032F_var*
+var
+ i: Integer;
+//#UC END# *519333B6005A_4FACE127032F_var*
+begin
+//#UC START# *519333B6005A_4FACE127032F_impl*
+ Result := nil;
+ i := Hi;
+ while (Result = nil) and (i <> -1) do
+ begin
+  if Items[i] is TddTable then
+   Result := Items[i]
+  else
+   Dec(i);
+ end; // while (Result = nil) and (i <> -1) do
+//#UC END# *519333B6005A_4FACE127032F_impl*
+end;//TddTableCell.LastTableAtom
+
+function TddTableCell.IsCellEmpty: Boolean;
+//#UC START# *525D141900DD_4FACE127032F_var*
+var
+ i        : Integer;
+ l_DocAtom: TddDocumentAtom;
+//#UC END# *525D141900DD_4FACE127032F_var*
+begin
+//#UC START# *525D141900DD_4FACE127032F_impl*
+ Result := f_ParaList.Count = 0;
+ if not Result then
+  for i := 0 to f_ParaList.Count - 1 do
+  begin
+   l_DocAtom := f_ParaList[i];
+   Result := l_DocAtom.Empty;
+   if not Result then Break;
+  end; // for i := 0 to f_ParaList.Count - 1 do
+//#UC END# *525D141900DD_4FACE127032F_impl*
+end;//TddTableCell.IsCellEmpty
+
 procedure TddTableCell.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE127032F_var*
 const
  cnMaxDiff = 40;
@@ -310,6 +290,7 @@ begin
 end;//TddTableCell.Write2Generator
 
 procedure TddTableCell.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FACE127032F_var*
 //#UC END# *479731C50290_4FACE127032F_var*
 begin

@@ -61,7 +61,6 @@ type
    f_PDFEngine: TGarantPDFDocument;
    f_Orientation: TPrinterOrientation;
    f_Canvas: TddPDFCanvas;
-    {* Поле для свойства Canvas }
   private
    procedure CheckMetaFile;
    procedure ClearMetaFile;

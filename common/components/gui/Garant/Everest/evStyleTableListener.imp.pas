@@ -1,48 +1,40 @@
 {$IfNDef evStyleTableListener_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleTableListener.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::Everest::StyleTable::evStyleTableListener
-//
-// Объект, слушающий изменения таблицы стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "evStyleTableListener" MUID: (480DA68701CE)
+// Имя типа: "_evStyleTableListener_"
 
 {$Define evStyleTableListener_imp}
-{$If not defined(DesignTimeLibrary)}
+
+{$If NOT Defined(DesignTimeLibrary)}
  _evStyleTableListenerPrim_Parent_ = _evStyleTableListener_Parent_;
- {$Include ..\Everest\evStyleTableListenerPrim.imp.pas}
- _evStyleTableListener_ = {mixin} class(_evStyleTableListenerPrim_)
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
+ _evStyleTableListener_ = class(_evStyleTableListenerPrim_)
   {* Объект, слушающий изменения таблицы стилей }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
  end;//_evStyleTableListener_
-{$Else}
 
- _evStyleTableListenerPrim_Parent_ = _evStyleTableListener_Parent_;
- {$Include ..\Everest\evStyleTableListenerPrim.imp.pas}
- _evStyleTableListener_ = _evStyleTableListenerPrim_;
+{$Else NOT Defined(DesignTimeLibrary)}
 
-{$IfEnd} //not DesignTimeLibrary
+_evStyleTableListenerPrim_Parent_ = _evStyleTableListener_Parent_;
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
+_evStyleTableListener_ = _evStyleTableListenerPrim_;
 
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 {$Else evStyleTableListener_imp}
 
-{$If not defined(DesignTimeLibrary)}
+{$IfNDef evStyleTableListener_imp_impl}
 
-{$Include ..\Everest\evStyleTableListenerPrim.imp.pas}
+{$Define evStyleTableListener_imp_impl}
 
-// start class _evStyleTableListener_
+{$If NOT Defined(DesignTimeLibrary)}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
 
 procedure _evStyleTableListener_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_480DA68701CE_var*
 //#UC END# *479731C50290_480DA68701CE_var*
 begin
@@ -51,7 +43,9 @@ begin
  inherited;
 //#UC END# *479731C50290_480DA68701CE_impl*
 end;//_evStyleTableListener_.Cleanup
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not DesignTimeLibrary
+{$EndIf evStyleTableListener_imp_impl}
 
 {$EndIf evStyleTableListener_imp}
+

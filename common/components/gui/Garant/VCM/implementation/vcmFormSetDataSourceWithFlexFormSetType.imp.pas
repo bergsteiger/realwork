@@ -1,47 +1,39 @@
 {$IfNDef vcmFormSetDataSourceWithFlexFormSetType_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormSetDataSourceWithFlexFormSetType.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormSetDataSourceWithFlexFormSetType
-//
-// Бизнес-объект сборки, параметризуемый типом сборки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithFlexFormSetType.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormSetDataSourceWithFlexFormSetType" MUID: (52F8A8330237)
+// Имя типа: "_vcmFormSetDataSourceWithFlexFormSetType_"
 
 {$Define vcmFormSetDataSourceWithFlexFormSetType_imp}
-{$If not defined(NoVCM)}
- {$Include ..\implementation\vcmFormSetDataSource.imp.pas}
- _vcmFormSetDataSourceWithFlexFormSetType_ = {mixin} class(_vcmFormSetDataSource_)
+
+{$If NOT Defined(NoVCM)}
+ // _FormSetType_
+
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
+ _vcmFormSetDataSourceWithFlexFormSetType_ = class(_vcmFormSetDataSource_)
   {* Бизнес-объект сборки, параметризуемый типом сборки }
- protected
- // property methods
+  protected
    function pm_GetUCFormSet: _FormSetType_; virtual;
- protected
- // protected properties
+  protected
    property UCFormSet: _FormSetType_
-     read pm_GetUCFormSet;
+    read pm_GetUCFormSet;
  end;//_vcmFormSetDataSourceWithFlexFormSetType_
-{$Else}
 
- {$Include ..\implementation\vcmFormSetDataSource.imp.pas}
- _vcmFormSetDataSourceWithFlexFormSetType_ = _vcmFormSetDataSource_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
+_vcmFormSetDataSourceWithFlexFormSetType_ = _vcmFormSetDataSource_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormSetDataSourceWithFlexFormSetType_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormSetDataSourceWithFlexFormSetType_imp_impl}
 
+{$Define vcmFormSetDataSourceWithFlexFormSetType_imp_impl}
 
-{$Include ..\implementation\vcmFormSetDataSource.imp.pas}
-
-// start class _vcmFormSetDataSourceWithFlexFormSetType_
+{$If NOT Defined(NoVCM)}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
 function _vcmFormSetDataSourceWithFlexFormSetType_.pm_GetUCFormSet: _FormSetType_;
 //#UC START# *52F8A952021E_52F8A8330237get_var*
@@ -59,7 +51,9 @@ begin
  end;
 //#UC END# *52F8A952021E_52F8A8330237get_impl*
 end;//_vcmFormSetDataSourceWithFlexFormSetType_.pm_GetUCFormSet
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmFormSetDataSourceWithFlexFormSetType_imp_impl}
 
 {$EndIf vcmFormSetDataSourceWithFlexFormSetType_imp}
+

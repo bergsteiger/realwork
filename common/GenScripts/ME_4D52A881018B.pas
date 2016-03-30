@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , Classes
  , l3PureMixIns
+ //#UC START# *4D52A881018Bintf_uses*
+ //#UC END# *4D52A881018Bintf_uses*
 ;
 
  {$Define _UnknownIsComponent}
@@ -48,6 +50,8 @@ uses
  , Windows
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *4D52A881018Bimpl_uses*
+ //#UC END# *4D52A881018Bimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

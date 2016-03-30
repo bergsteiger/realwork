@@ -11,6 +11,8 @@ interface
 uses
  l3IntfUses
  , ServerFacade
+ //#UC START# *460A6EF8024Bintf_uses*
+ //#UC END# *460A6EF8024Bintf_uses*
 ;
 
 type
@@ -59,59 +61,59 @@ type
    f_uid: ;
     {* Поле для свойства uid }
   private
-   function server_facade: ServerFacade; virtual;
+   function ServerFacade: ServerFacade; virtual; stdcall;
   protected
-   procedure pm_Getuid;
-   procedure thr_mgr; virtual;
+   procedure GetUid; stdcall;
+   procedure ThrMgr; virtual; stdcall;
   public
-   procedure clear_cache_and_regenerate_base_id; virtual;
-   function compare_and_update_base_id(var base_id: BaseId): Boolean; virtual;
-   procedure get_cached_function_manager; virtual;
-   procedure get_cached_context_filter; virtual;
-   procedure get_cached_contract_form; virtual;
-   procedure get_cached_user_manager; virtual;
-   procedure get_cached_folders; virtual;
-   procedure get_cached_under_control_manager; virtual;
-   procedure get_cached_settings; virtual;
-   procedure get_cached_settings_manager; virtual;
-   procedure get_cached_life_cycle_manager; virtual;
-   procedure get_cached_xml_save; virtual;
-   function is_configurations_exist: Boolean; virtual;
-   procedure get_cached_search_manager; virtual;
-   procedure get_cached_consultation_manager; virtual;
-   procedure get_cached_logging_manager; virtual;
-   procedure get_cached_integration; virtual;
-   procedure get_cached_prime; virtual;
-   procedure get_cached_prime_xml_save; virtual;
-   procedure start_listen_for_me; virtual;
+   procedure ClearCacheAndRegenerateBaseId; virtual; stdcall;
+   function CompareAndUpdateBaseId(var base_id: BaseId): ByteBool; virtual; stdcall;
+   procedure GetCachedFunctionManager; virtual; stdcall;
+   procedure GetCachedContextFilter; virtual; stdcall;
+   procedure GetCachedContractForm; virtual; stdcall;
+   procedure GetCachedUserManager; virtual; stdcall;
+   procedure GetCachedFolders; virtual; stdcall;
+   procedure GetCachedUnderControlManager; virtual; stdcall;
+   procedure GetCachedSettings; virtual; stdcall;
+   procedure GetCachedSettingsManager; virtual; stdcall;
+   procedure GetCachedLifeCycleManager; virtual; stdcall;
+   procedure GetCachedXmlSave; virtual; stdcall;
+   function IsConfigurationsExist: ByteBool; virtual; stdcall;
+   procedure GetCachedSearchManager; virtual; stdcall;
+   procedure GetCachedConsultationManager; virtual; stdcall;
+   procedure GetCachedLoggingManager; virtual; stdcall;
+   procedure GetCachedIntegration; virtual; stdcall;
+   procedure GetCachedPrime; virtual; stdcall;
+   procedure GetCachedPrimeXmlSave; virtual; stdcall;
+   procedure StartListenForMe; virtual; stdcall;
     {* Заставляем NotifyManager слушать нотификации только для меня }
-   procedure stop_listen_for_me; virtual;
+   procedure StopListenForMe; virtual; stdcall;
     {* Прекратить слушать нотификации для меня }
-   procedure clear_cache; virtual;
+   procedure ClearCache; virtual; stdcall;
     {* Очистка кешированных серверных объектов }
-   procedure init(server_facade: ServerFacade); virtual;
-   constructor make; reintroduce; virtual;
-   procedure get_cached_user_journal; virtual;
-   procedure get_cached_tree_factory; virtual;
-   procedure get_cached_property_manager; virtual;
-   procedure get_cached_banner_manager; virtual;
+   procedure Init(server_facade: ServerFacade); virtual; stdcall;
+   constructor Make; reintroduce; virtual; stdcall;
+   procedure GetCachedUserJournal; virtual; stdcall;
+   procedure GetCachedTreeFactory; virtual; stdcall;
+   procedure GetCachedPropertyManager; virtual; stdcall;
+   procedure GetCachedBannerManager; virtual; stdcall;
     {* Получить баннер с сервера }
-   procedure get_cached_current_user_id; virtual;
+   procedure GetCachedCurrentUserId; virtual; stdcall;
     {* возвращает идентификатор текущего пользователя }
-   procedure get_cached_group_manager; virtual;
-   procedure get_cached_remote_document_support; virtual;
-   procedure get_cached_filters_manager; virtual;
-   procedure get_cached_main_menu; virtual;
-   procedure get_cached_decisions_archive_support; virtual;
-   procedure get_cached_document_type_resolver; virtual;
-   procedure get_cached_link_manager; virtual;
-   class function Exists: Boolean;
+   procedure GetCachedGroupManager; virtual; stdcall;
+   procedure GetCachedRemoteDocumentSupport; virtual; stdcall;
+   procedure GetCachedFiltersManager; virtual; stdcall;
+   procedure GetCachedMainMenu; virtual; stdcall;
+   procedure GetCachedDecisionsArchiveSupport; virtual; stdcall;
+   procedure GetCachedDocumentTypeResolver; virtual; stdcall;
+   procedure GetCachedLinkManager; virtual; stdcall;
+   class function Exists: ByteBool; stdcall;
     {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: ApplicationHelper;
     {* Метод получения экземпляра синглетона ApplicationHelper }
   private
-   property uid: 
-    read pm_Getuid;
+   property Uid: 
+    read GetUid;
     {* uid текущего пользователя }
  //#UC START# *460A6EF8024Bpubl*
  //#UC END# *460A6EF8024Bpubl*
@@ -123,6 +125,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *460A6EF8024Bimpl_uses*
+ //#UC END# *460A6EF8024Bimpl_uses*
 ;
 
 var g_ApplicationHelper: ApplicationHelper = nil;
@@ -134,196 +138,196 @@ begin
  l3Free(g_ApplicationHelper);
 end;//ApplicationHelperFree
 
-procedure ApplicationHelper.pm_Getuid;
+procedure ApplicationHelper.GetUid;
 //#UC START# *4AEE9F4A02BF_460A6EF8024Bget_var*
 //#UC END# *4AEE9F4A02BF_460A6EF8024Bget_var*
 begin
 //#UC START# *4AEE9F4A02BF_460A6EF8024Bget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AEE9F4A02BF_460A6EF8024Bget_impl*
-end;//ApplicationHelper.pm_Getuid
+end;//ApplicationHelper.GetUid
 
-procedure ApplicationHelper.clear_cache_and_regenerate_base_id;
+procedure ApplicationHelper.ClearCacheAndRegenerateBaseId;
 //#UC START# *460A806C0214_460A6EF8024B_var*
 //#UC END# *460A806C0214_460A6EF8024B_var*
 begin
 //#UC START# *460A806C0214_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460A806C0214_460A6EF8024B_impl*
-end;//ApplicationHelper.clear_cache_and_regenerate_base_id
+end;//ApplicationHelper.ClearCacheAndRegenerateBaseId
 
-function ApplicationHelper.compare_and_update_base_id(var base_id: BaseId): Boolean;
+function ApplicationHelper.CompareAndUpdateBaseId(var base_id: BaseId): ByteBool;
 //#UC START# *460A80AB0254_460A6EF8024B_var*
 //#UC END# *460A80AB0254_460A6EF8024B_var*
 begin
 //#UC START# *460A80AB0254_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460A80AB0254_460A6EF8024B_impl*
-end;//ApplicationHelper.compare_and_update_base_id
+end;//ApplicationHelper.CompareAndUpdateBaseId
 
-procedure ApplicationHelper.get_cached_function_manager;
+procedure ApplicationHelper.GetCachedFunctionManager;
 //#UC START# *460A80C603C1_460A6EF8024B_var*
 //#UC END# *460A80C603C1_460A6EF8024B_var*
 begin
 //#UC START# *460A80C603C1_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460A80C603C1_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_function_manager
+end;//ApplicationHelper.GetCachedFunctionManager
 
-procedure ApplicationHelper.get_cached_context_filter;
+procedure ApplicationHelper.GetCachedContextFilter;
 //#UC START# *4D3EE8C701C0_460A6EF8024B_var*
 //#UC END# *4D3EE8C701C0_460A6EF8024B_var*
 begin
 //#UC START# *4D3EE8C701C0_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D3EE8C701C0_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_context_filter
+end;//ApplicationHelper.GetCachedContextFilter
 
-procedure ApplicationHelper.get_cached_contract_form;
+procedure ApplicationHelper.GetCachedContractForm;
 //#UC START# *460A819B01DA_460A6EF8024B_var*
 //#UC END# *460A819B01DA_460A6EF8024B_var*
 begin
 //#UC START# *460A819B01DA_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460A819B01DA_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_contract_form
+end;//ApplicationHelper.GetCachedContractForm
 
-procedure ApplicationHelper.get_cached_user_manager;
+procedure ApplicationHelper.GetCachedUserManager;
 //#UC START# *460B91AE00DA_460A6EF8024B_var*
 //#UC END# *460B91AE00DA_460A6EF8024B_var*
 begin
 //#UC START# *460B91AE00DA_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B91AE00DA_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_user_manager
+end;//ApplicationHelper.GetCachedUserManager
 
-procedure ApplicationHelper.get_cached_folders;
+procedure ApplicationHelper.GetCachedFolders;
 //#UC START# *460B91FC0157_460A6EF8024B_var*
 //#UC END# *460B91FC0157_460A6EF8024B_var*
 begin
 //#UC START# *460B91FC0157_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B91FC0157_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_folders
+end;//ApplicationHelper.GetCachedFolders
 
-procedure ApplicationHelper.get_cached_under_control_manager;
+procedure ApplicationHelper.GetCachedUnderControlManager;
 //#UC START# *460B92A701F4_460A6EF8024B_var*
 //#UC END# *460B92A701F4_460A6EF8024B_var*
 begin
 //#UC START# *460B92A701F4_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B92A701F4_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_under_control_manager
+end;//ApplicationHelper.GetCachedUnderControlManager
 
-procedure ApplicationHelper.get_cached_settings;
+procedure ApplicationHelper.GetCachedSettings;
 //#UC START# *460B94F80232_460A6EF8024B_var*
 //#UC END# *460B94F80232_460A6EF8024B_var*
 begin
 //#UC START# *460B94F80232_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B94F80232_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_settings
+end;//ApplicationHelper.GetCachedSettings
 
-procedure ApplicationHelper.get_cached_settings_manager;
+procedure ApplicationHelper.GetCachedSettingsManager;
 //#UC START# *460B95AC03D8_460A6EF8024B_var*
 //#UC END# *460B95AC03D8_460A6EF8024B_var*
 begin
 //#UC START# *460B95AC03D8_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B95AC03D8_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_settings_manager
+end;//ApplicationHelper.GetCachedSettingsManager
 
-procedure ApplicationHelper.get_cached_life_cycle_manager;
+procedure ApplicationHelper.GetCachedLifeCycleManager;
 //#UC START# *460B95D9004E_460A6EF8024B_var*
 //#UC END# *460B95D9004E_460A6EF8024B_var*
 begin
 //#UC START# *460B95D9004E_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B95D9004E_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_life_cycle_manager
+end;//ApplicationHelper.GetCachedLifeCycleManager
 
-procedure ApplicationHelper.get_cached_xml_save;
+procedure ApplicationHelper.GetCachedXmlSave;
 //#UC START# *4682713102DE_460A6EF8024B_var*
 //#UC END# *4682713102DE_460A6EF8024B_var*
 begin
 //#UC START# *4682713102DE_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4682713102DE_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_xml_save
+end;//ApplicationHelper.GetCachedXmlSave
 
-procedure ApplicationHelper.thr_mgr;
+procedure ApplicationHelper.ThrMgr;
 //#UC START# *460BA6F801D4_460A6EF8024B_var*
 //#UC END# *460BA6F801D4_460A6EF8024B_var*
 begin
 //#UC START# *460BA6F801D4_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BA6F801D4_460A6EF8024B_impl*
-end;//ApplicationHelper.thr_mgr
+end;//ApplicationHelper.ThrMgr
 
-function ApplicationHelper.is_configurations_exist: Boolean;
+function ApplicationHelper.IsConfigurationsExist: ByteBool;
 //#UC START# *460BA70A0157_460A6EF8024B_var*
 //#UC END# *460BA70A0157_460A6EF8024B_var*
 begin
 //#UC START# *460BA70A0157_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BA70A0157_460A6EF8024B_impl*
-end;//ApplicationHelper.is_configurations_exist
+end;//ApplicationHelper.IsConfigurationsExist
 
-procedure ApplicationHelper.get_cached_search_manager;
+procedure ApplicationHelper.GetCachedSearchManager;
 //#UC START# *460BA7220280_460A6EF8024B_var*
 //#UC END# *460BA7220280_460A6EF8024B_var*
 begin
 //#UC START# *460BA7220280_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BA7220280_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_search_manager
+end;//ApplicationHelper.GetCachedSearchManager
 
-procedure ApplicationHelper.get_cached_consultation_manager;
+procedure ApplicationHelper.GetCachedConsultationManager;
 //#UC START# *460BA73401D4_460A6EF8024B_var*
 //#UC END# *460BA73401D4_460A6EF8024B_var*
 begin
 //#UC START# *460BA73401D4_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BA73401D4_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_consultation_manager
+end;//ApplicationHelper.GetCachedConsultationManager
 
-procedure ApplicationHelper.get_cached_logging_manager;
+procedure ApplicationHelper.GetCachedLoggingManager;
 //#UC START# *460BA77D007D_460A6EF8024B_var*
 //#UC END# *460BA77D007D_460A6EF8024B_var*
 begin
 //#UC START# *460BA77D007D_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BA77D007D_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_logging_manager
+end;//ApplicationHelper.GetCachedLoggingManager
 
-procedure ApplicationHelper.get_cached_integration;
+procedure ApplicationHelper.GetCachedIntegration;
 //#UC START# *463F5B37009C_460A6EF8024B_var*
 //#UC END# *463F5B37009C_460A6EF8024B_var*
 begin
 //#UC START# *463F5B37009C_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *463F5B37009C_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_integration
+end;//ApplicationHelper.GetCachedIntegration
 
-procedure ApplicationHelper.get_cached_prime;
+procedure ApplicationHelper.GetCachedPrime;
 //#UC START# *47C2A4670007_460A6EF8024B_var*
 //#UC END# *47C2A4670007_460A6EF8024B_var*
 begin
 //#UC START# *47C2A4670007_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47C2A4670007_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_prime
+end;//ApplicationHelper.GetCachedPrime
 
-procedure ApplicationHelper.get_cached_prime_xml_save;
+procedure ApplicationHelper.GetCachedPrimeXmlSave;
 //#UC START# *47C695540167_460A6EF8024B_var*
 //#UC END# *47C695540167_460A6EF8024B_var*
 begin
 //#UC START# *47C695540167_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47C695540167_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_prime_xml_save
+end;//ApplicationHelper.GetCachedPrimeXmlSave
 
-procedure ApplicationHelper.start_listen_for_me;
+procedure ApplicationHelper.StartListenForMe;
  {* Заставляем NotifyManager слушать нотификации только для меня }
 //#UC START# *460CD7A6038A_460A6EF8024B_var*
 //#UC END# *460CD7A6038A_460A6EF8024B_var*
@@ -331,9 +335,9 @@ begin
 //#UC START# *460CD7A6038A_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460CD7A6038A_460A6EF8024B_impl*
-end;//ApplicationHelper.start_listen_for_me
+end;//ApplicationHelper.StartListenForMe
 
-procedure ApplicationHelper.stop_listen_for_me;
+procedure ApplicationHelper.StopListenForMe;
  {* Прекратить слушать нотификации для меня }
 //#UC START# *460CD7D402FD_460A6EF8024B_var*
 //#UC END# *460CD7D402FD_460A6EF8024B_var*
@@ -341,9 +345,9 @@ begin
 //#UC START# *460CD7D402FD_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460CD7D402FD_460A6EF8024B_impl*
-end;//ApplicationHelper.stop_listen_for_me
+end;//ApplicationHelper.StopListenForMe
 
-procedure ApplicationHelper.clear_cache;
+procedure ApplicationHelper.ClearCache;
  {* Очистка кешированных серверных объектов }
 //#UC START# *460CDD6C0399_460A6EF8024B_var*
 //#UC END# *460CDD6C0399_460A6EF8024B_var*
@@ -351,63 +355,63 @@ begin
 //#UC START# *460CDD6C0399_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460CDD6C0399_460A6EF8024B_impl*
-end;//ApplicationHelper.clear_cache
+end;//ApplicationHelper.ClearCache
 
-procedure ApplicationHelper.init(server_facade: ServerFacade);
+procedure ApplicationHelper.Init(server_facade: ServerFacade);
 //#UC START# *4746FE3B0046_460A6EF8024B_var*
 //#UC END# *4746FE3B0046_460A6EF8024B_var*
 begin
 //#UC START# *4746FE3B0046_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4746FE3B0046_460A6EF8024B_impl*
-end;//ApplicationHelper.init
+end;//ApplicationHelper.Init
 
-constructor ApplicationHelper.make;
+constructor ApplicationHelper.Make;
 //#UC START# *474704110312_460A6EF8024B_var*
 //#UC END# *474704110312_460A6EF8024B_var*
 begin
 //#UC START# *474704110312_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *474704110312_460A6EF8024B_impl*
-end;//ApplicationHelper.make
+end;//ApplicationHelper.Make
 
-function ApplicationHelper.server_facade: ServerFacade;
+function ApplicationHelper.ServerFacade: ServerFacade;
 //#UC START# *474705300058_460A6EF8024B_var*
 //#UC END# *474705300058_460A6EF8024B_var*
 begin
 //#UC START# *474705300058_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *474705300058_460A6EF8024B_impl*
-end;//ApplicationHelper.server_facade
+end;//ApplicationHelper.ServerFacade
 
-procedure ApplicationHelper.get_cached_user_journal;
+procedure ApplicationHelper.GetCachedUserJournal;
 //#UC START# *4A80371200CE_460A6EF8024B_var*
 //#UC END# *4A80371200CE_460A6EF8024B_var*
 begin
 //#UC START# *4A80371200CE_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4A80371200CE_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_user_journal
+end;//ApplicationHelper.GetCachedUserJournal
 
-procedure ApplicationHelper.get_cached_tree_factory;
+procedure ApplicationHelper.GetCachedTreeFactory;
 //#UC START# *4ABB429C0210_460A6EF8024B_var*
 //#UC END# *4ABB429C0210_460A6EF8024B_var*
 begin
 //#UC START# *4ABB429C0210_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABB429C0210_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_tree_factory
+end;//ApplicationHelper.GetCachedTreeFactory
 
-procedure ApplicationHelper.get_cached_property_manager;
+procedure ApplicationHelper.GetCachedPropertyManager;
 //#UC START# *4AC4AB0C01BC_460A6EF8024B_var*
 //#UC END# *4AC4AB0C01BC_460A6EF8024B_var*
 begin
 //#UC START# *4AC4AB0C01BC_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AC4AB0C01BC_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_property_manager
+end;//ApplicationHelper.GetCachedPropertyManager
 
-procedure ApplicationHelper.get_cached_banner_manager;
+procedure ApplicationHelper.GetCachedBannerManager;
  {* Получить баннер с сервера }
 //#UC START# *4ACF446803B9_460A6EF8024B_var*
 //#UC END# *4ACF446803B9_460A6EF8024B_var*
@@ -415,9 +419,9 @@ begin
 //#UC START# *4ACF446803B9_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ACF446803B9_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_banner_manager
+end;//ApplicationHelper.GetCachedBannerManager
 
-procedure ApplicationHelper.get_cached_current_user_id;
+procedure ApplicationHelper.GetCachedCurrentUserId;
  {* возвращает идентификатор текущего пользователя }
 //#UC START# *4AEE9E0E01D3_460A6EF8024B_var*
 //#UC END# *4AEE9E0E01D3_460A6EF8024B_var*
@@ -425,72 +429,72 @@ begin
 //#UC START# *4AEE9E0E01D3_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AEE9E0E01D3_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_current_user_id
+end;//ApplicationHelper.GetCachedCurrentUserId
 
-procedure ApplicationHelper.get_cached_group_manager;
+procedure ApplicationHelper.GetCachedGroupManager;
 //#UC START# *4AF00C4B02A1_460A6EF8024B_var*
 //#UC END# *4AF00C4B02A1_460A6EF8024B_var*
 begin
 //#UC START# *4AF00C4B02A1_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AF00C4B02A1_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_group_manager
+end;//ApplicationHelper.GetCachedGroupManager
 
-procedure ApplicationHelper.get_cached_remote_document_support;
+procedure ApplicationHelper.GetCachedRemoteDocumentSupport;
 //#UC START# *4BD5566102F9_460A6EF8024B_var*
 //#UC END# *4BD5566102F9_460A6EF8024B_var*
 begin
 //#UC START# *4BD5566102F9_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4BD5566102F9_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_remote_document_support
+end;//ApplicationHelper.GetCachedRemoteDocumentSupport
 
-procedure ApplicationHelper.get_cached_filters_manager;
+procedure ApplicationHelper.GetCachedFiltersManager;
 //#UC START# *4CA5C3E1000C_460A6EF8024B_var*
 //#UC END# *4CA5C3E1000C_460A6EF8024B_var*
 begin
 //#UC START# *4CA5C3E1000C_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4CA5C3E1000C_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_filters_manager
+end;//ApplicationHelper.GetCachedFiltersManager
 
-procedure ApplicationHelper.get_cached_main_menu;
+procedure ApplicationHelper.GetCachedMainMenu;
 //#UC START# *4DD4FCEF01B0_460A6EF8024B_var*
 //#UC END# *4DD4FCEF01B0_460A6EF8024B_var*
 begin
 //#UC START# *4DD4FCEF01B0_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DD4FCEF01B0_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_main_menu
+end;//ApplicationHelper.GetCachedMainMenu
 
-procedure ApplicationHelper.get_cached_decisions_archive_support;
+procedure ApplicationHelper.GetCachedDecisionsArchiveSupport;
 //#UC START# *4F71D2D20136_460A6EF8024B_var*
 //#UC END# *4F71D2D20136_460A6EF8024B_var*
 begin
 //#UC START# *4F71D2D20136_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4F71D2D20136_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_decisions_archive_support
+end;//ApplicationHelper.GetCachedDecisionsArchiveSupport
 
-procedure ApplicationHelper.get_cached_document_type_resolver;
+procedure ApplicationHelper.GetCachedDocumentTypeResolver;
 //#UC START# *4FE86FAD00A3_460A6EF8024B_var*
 //#UC END# *4FE86FAD00A3_460A6EF8024B_var*
 begin
 //#UC START# *4FE86FAD00A3_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4FE86FAD00A3_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_document_type_resolver
+end;//ApplicationHelper.GetCachedDocumentTypeResolver
 
-procedure ApplicationHelper.get_cached_link_manager;
+procedure ApplicationHelper.GetCachedLinkManager;
 //#UC START# *55952CE501E5_460A6EF8024B_var*
 //#UC END# *55952CE501E5_460A6EF8024B_var*
 begin
 //#UC START# *55952CE501E5_460A6EF8024B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *55952CE501E5_460A6EF8024B_impl*
-end;//ApplicationHelper.get_cached_link_manager
+end;//ApplicationHelper.GetCachedLinkManager
 
-class function ApplicationHelper.Exists: Boolean;
+class function ApplicationHelper.Exists: ByteBool;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_ApplicationHelper <> nil;

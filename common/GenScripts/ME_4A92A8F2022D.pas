@@ -19,8 +19,8 @@ type
    NodeDelegateType_: ;
    NodeType_: ;
   public
-   constructor make(const tree); reintroduce;
-   procedure clear; virtual;
+   constructor Make(const tree); reintroduce; stdcall;
+   procedure Clear; virtual; stdcall;
     {* Очистить дерево }
  end;//JournalTree
 
@@ -31,16 +31,16 @@ uses
  , ApplicationHelper
 ;
 
-constructor JournalTree.make(const tree);
+constructor JournalTree.Make(const tree);
 //#UC START# *4A92A941032E_4A92A8F2022D_var*
 //#UC END# *4A92A941032E_4A92A8F2022D_var*
 begin
 //#UC START# *4A92A941032E_4A92A8F2022D_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4A92A941032E_4A92A8F2022D_impl*
-end;//JournalTree.make
+end;//JournalTree.Make
 
-procedure JournalTree.clear;
+procedure JournalTree.Clear;
  {* Очистить дерево }
 //#UC START# *4AF42B76023D_4A92A8F2022D_var*
 //#UC END# *4AF42B76023D_4A92A8F2022D_var*
@@ -48,6 +48,6 @@ begin
 //#UC START# *4AF42B76023D_4A92A8F2022D_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AF42B76023D_4A92A8F2022D_impl*
-end;//JournalTree.clear
+end;//JournalTree.Clear
 
 end.

@@ -1,268 +1,199 @@
 unit ddTablePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTablePrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddTablePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTablePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTablePrim" MUID: (4FACE16602E1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  ddDocumentAtom,
-  ddTableCell,
-  ddTableRow,
-  ddCellProperty,
-  ddRowList,
-  ddRowProperty,
-  ddParagraphProperty,
-  ddTextParagraph,
-  ddPicture,
-  ddTypes,
-  ddCustomDestination,
-  l3ProtoObject,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , ddRowList
+ , ddTableRow
+ , ddTextParagraph
+ , ddCellProperty
+ , ddTypes
+ , ddTableCell
+ , l3Base
+ , ddRowProperty
+ , ddParagraphProperty
+ , ddPicture
+ , k2Interfaces
+ , ddCustomDestination
+ , l3ProtoObject
+;
 
 type
  TddTablePrim = class(TddDocumentAtom)
- private
- // private fields
-   f_EtalonRow : TddTableRow;
-   f_RowList : TddRowList;
-    {* Поле для свойства RowList}
-   f_Level : Integer;
-    {* Поле для свойства Level}
-   f_Scale : Integer;
-    {* Поле для свойства Scale}
-   f_Width : Integer;
-    {* Поле для свойства Width}
-   f_LeftIndent : Integer;
-    {* Поле для свойства LeftIndent}
-   f_Nested : Boolean;
-    {* Поле для свойства Nested}
-   f_IsPercent : Boolean;
-    {* Поле для свойства IsPercent}
-   f_IsSBS : Boolean;
-    {* Поле для свойства IsSBS}
-   f_Style : Integer;
-    {* Поле для свойства Style}
- private
- // private methods
+  private
+   f_EtalonRow: TddTableRow;
+   f_RowList: TddRowList;
+    {* Поле для свойства RowList }
+   f_Level: Integer;
+    {* Поле для свойства Level }
+   f_Scale: Integer;
+    {* Поле для свойства Scale }
+   f_Width: Integer;
+    {* Поле для свойства Width }
+   f_LeftIndent: Integer;
+    {* Поле для свойства LeftIndent }
+   f_Nested: Boolean;
+    {* Поле для свойства Nested }
+   f_IsPercent: Boolean;
+    {* Поле для свойства IsPercent }
+   f_IsSBS: Boolean;
+    {* Поле для свойства IsSBS }
+   f_Style: Integer;
+    {* Поле для свойства Style }
+  private
    function GetLineLen(const aText: Tl3String): Integer;
    function FindPrevRowWithCellProps(aStartIndex: Integer): TddTableRow;
    procedure CorrectParaLevelAfterCloseTable(aParaProp: TddParagraphProperty);
-     {* Уменьшает уровень текущего параграфа на 1, чтобы следующие даннные добавлялись на уровень выше. }
+    {* Уменьшает уровень текущего параграфа на 1, чтобы следующие даннные добавлялись на уровень выше. }
    procedure Try2AlignRowWidth(aRow: TddTableRow);
- protected
- // property methods
+  protected
    function pm_GetLastRow: TddTableRow;
    function pm_GetRows(anRowID: Integer): TddTableRow;
    function pm_GetRowCount: Integer;
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: TddLiteVersion); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetEmpty: Boolean; override;
- public
- // overridden public methods
-   procedure Clear; override;
-   constructor Create(aDetination: TddCustomDestination); override;
-   function IsTable: Boolean; override;
-   function GetLastPara: TddDocumentAtom; override;
-   procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
- protected
- // protected methods
    procedure ProcessTableRow(aRow: TddTableRow;
-     aPrevRow: TddTableRow;
-     anIndex: Integer);
- public
- // public methods
-   procedure AddRow(aRow: TddTableRow); overload; 
-   procedure AddRow(anEmpty: Boolean); overload; 
+    aPrevRow: TddTableRow;
+    anIndex: Integer);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetEmpty: Boolean; override;
+  public
+   procedure AddRow(aRow: TddTableRow); overload;
+   procedure AddRow(anEmpty: Boolean); overload;
    procedure ClearLastRow;
    procedure CloneRow;
    procedure CloseCell;
    procedure AdjustWidth(aNewWidth: Integer);
    function LastParagraph: TddTextParagraph;
    function AddParaWithCheckingRow(const aPara: TddDocumentAtom;
-     anAssign2Last: Boolean): TddDocumentAtom;
+    anAssign2Last: Boolean): TddDocumentAtom;
    procedure ApplyCellProperty(const aCellProp: TddCellProperty;
-     aClearBorder: TddClearBoder);
+    aClearBorder: TddClearBoder);
    function GetLastNotClosedRow: TddTableRow;
    function Cells(aRowID: Integer;
-     aCellID: Integer): TddTableCell;
+    aCellID: Integer): TddTableCell;
    function CellsProps(aRowID: Integer;
-     aCellID: Integer): TddCellProperty;
+    aCellID: Integer): TddCellProperty;
    procedure CheckLastRow(aNeedClone: Boolean);
    procedure CalculateCellsWidth;
    procedure CheckPercentCells(aRow: TddTableRow);
    procedure CheckSpanCells(aScaleCellWidth: Boolean;
-     aDocTextWidth: Integer);
+    aDocTextWidth: Integer);
    procedure NormalizeCells;
    procedure CloseRow;
    procedure CloseTable(aScaleCellWidth: Boolean;
-     aDocTextWidth: Integer);
+    aDocTextWidth: Integer);
    function BeforeParseCell: TddTableRow;
    procedure CloseLastRow(aRowProp: TddRowProperty;
-     aParaProp: TddParagraphProperty;
-     out aLastRow: Boolean);
+    aParaProp: TddParagraphProperty;
+    out aLastRow: Boolean);
    procedure Try2CloseNotClosedRow(aWidth: Integer);
-     {* Закрывает все незакрытые строки, если есть. }
    function GetFirstRowWidth: Integer;
    function IsTableCorrect: Boolean;
-     {* Проверяет таблицу на корректность. }
+    {* Проверяет таблицу на корректность. }
    procedure AddPicture(aPicture: TddPicture;
-     aPAP: TddParagraphProperty;
-     anAssign2Last: Boolean);
+    aPAP: TddParagraphProperty;
+    anAssign2Last: Boolean);
    function RowIndex(aRow: TddTableRow): Integer;
- protected
- // protected properties
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
+   procedure Clear; override;
+   constructor Create(aDetination: TddCustomDestination); override;
+   function IsTable: Boolean; override;
+   function GetLastPara: TddDocumentAtom; override;
+   procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
+  protected
    property RowList: TddRowList
-     read f_RowList;
- public
- // public properties
+    read f_RowList;
+  public
    property Level: Integer
-     read f_Level
-     write f_Level;
+    read f_Level
+    write f_Level;
    property Scale: Integer
-     read f_Scale
-     write f_Scale;
+    read f_Scale
+    write f_Scale;
    property Width: Integer
-     read f_Width
-     write f_Width;
+    read f_Width
+    write f_Width;
    property LeftIndent: Integer
-     read f_LeftIndent
-     write f_LeftIndent;
+    read f_LeftIndent
+    write f_LeftIndent;
    property Nested: Boolean
-     read f_Nested
-     write f_Nested;
+    read f_Nested
+    write f_Nested;
    property IsPercent: Boolean
-     read f_IsPercent
-     write f_IsPercent;
+    read f_IsPercent
+    write f_IsPercent;
    property IsSBS: Boolean
-     read f_IsSBS
-     write f_IsSBS;
+    read f_IsSBS
+    write f_IsSBS;
    property LastRow: TddTableRow
-     read pm_GetLastRow;
+    read pm_GetLastRow;
    property Rows[anRowID: Integer]: TddTableRow
-     read pm_GetRows;
-     default;
+    read pm_GetRows;
+    default;
    property RowCount: Integer
-     read pm_GetRowCount;
+    read pm_GetRowCount;
    property Style: Integer
-     read f_Style
-     write f_Style;
+    read f_Style
+    write f_Style;
  end;//TddTablePrim
 
 implementation
 
 uses
-  SysUtils,
-  l3Math,
-  l3Defaults,
-  l3MinMax,
-  l3UnitsTools,
-  StrUtils,
-  RTFtypes,
-  ddEVDTypesSupport,
-  l3Const,
-  ddBase,
-  ddBorder,
-  ddConst
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Math
+ , l3Defaults
+ , l3MinMax
+ , l3UnitsTools
+ , StrUtils
+ , RTFtypes
+ , ddEVDTypesSupport
+ , l3Const
+ , ddBase
+ , ddBorder
+ , ddConst
+;
 
-// start class TddTablePrim
-
-function TddTablePrim.GetLineLen(const aText: Tl3String): Integer;
-//#UC START# *519C6F6A0171_4FACE16602E1_var*
-var
- l_Pos, l_PrevPos: Integer;
-//#UC END# *519C6F6A0171_4FACE16602E1_var*
+function TddTablePrim.pm_GetLastRow: TddTableRow;
+//#UC START# *519B7458025F_4FACE16602E1get_var*
+//#UC END# *519B7458025F_4FACE16602E1get_var*
 begin
-//#UC START# *519C6F6A0171_4FACE16602E1_impl*
- l_PrevPos := 1;
- Result := 0;
- repeat
-  l_Pos := PosEx(#10, aText.AsString, l_PrevPos);
-  if l_Pos = 0 then
-   l_Pos := aText.Len;
-  Result := Max(Result, l_Pos - l_PrevPos + 1);
-  l_PrevPos := Succ(l_Pos);
- until l_Pos = aText.Len;
-//#UC END# *519C6F6A0171_4FACE16602E1_impl*
-end;//TddTablePrim.GetLineLen
+//#UC START# *519B7458025F_4FACE16602E1get_impl*
+ if (f_RowList <> nil) and (f_RowList.Count > 0) then
+  Result := f_RowList.Last
+ else
+  Result := nil;
+//#UC END# *519B7458025F_4FACE16602E1get_impl*
+end;//TddTablePrim.pm_GetLastRow
 
-function TddTablePrim.FindPrevRowWithCellProps(aStartIndex: Integer): TddTableRow;
-//#UC START# *51E64EC500BE_4FACE16602E1_var*
-var
- i     : Integer;
- l_Row : TddTableRow;
-//#UC END# *51E64EC500BE_4FACE16602E1_var*
+function TddTablePrim.pm_GetRows(anRowID: Integer): TddTableRow;
+//#UC START# *519B7CC3008E_4FACE16602E1get_var*
+//#UC END# *519B7CC3008E_4FACE16602E1get_var*
 begin
-//#UC START# *51E64EC500BE_4FACE16602E1_impl*
- Result := nil;
- for i := aStartIndex downto 0 do
- begin
-  l_Row := f_RowList[i];
-  if l_Row.IsCellPropsInit then
-  begin
-   Result := l_Row;
-   Break;
-  end; // if l_Row.IsCellPropsInit then
- end; // for i := f_RowList.Count - 1 downto 0 do
-//#UC END# *51E64EC500BE_4FACE16602E1_impl*
-end;//TddTablePrim.FindPrevRowWithCellProps
+//#UC START# *519B7CC3008E_4FACE16602E1get_impl*
+ Result := f_RowList.Items[anRowID];
+//#UC END# *519B7CC3008E_4FACE16602E1get_impl*
+end;//TddTablePrim.pm_GetRows
 
-procedure TddTablePrim.CorrectParaLevelAfterCloseTable(aParaProp: TddParagraphProperty);
-//#UC START# *51E6661502F3_4FACE16602E1_var*
-//#UC END# *51E6661502F3_4FACE16602E1_var*
+function TddTablePrim.pm_GetRowCount: Integer;
+//#UC START# *519B805901DF_4FACE16602E1get_var*
+//#UC END# *519B805901DF_4FACE16602E1get_var*
 begin
-//#UC START# *51E6661502F3_4FACE16602E1_impl*
- if aParaProp.itap > 1 then // Чтобы не начинать новую таблицу по приходу обычного параграфа...
-  aParaProp.itap := aParaProp.itap - 1;
-//#UC END# *51E6661502F3_4FACE16602E1_impl*
-end;//TddTablePrim.CorrectParaLevelAfterCloseTable
-
-procedure TddTablePrim.Try2AlignRowWidth(aRow: TddTableRow);
-//#UC START# *5616479402CF_4FACE16602E1_var*
-var
- l_NewCell  : TddTableCell;
- l_LastCell : TddTableCell;
- l_HasDelta : Boolean;
-//#UC END# *5616479402CF_4FACE16602E1_var*
-begin
-//#UC START# *5616479402CF_4FACE16602E1_impl*
- if f_Destination.IdenticalRowWidths then
- begin
-  l_HasDelta := (aRow.TAP.trwWidthA > 0) and (aRow.TAP.trftsWidthA = dd_wuTwips);
-  if l_HasDelta then
-  begin
-   l_LastCell := aRow.LastCell;
-   aRow.AddCellAndPara;
-   l_NewCell := aRow.LastCell;
-   l_NewCell.Props.CellOffset := l_LastCell.Props.CellOffset + aRow.TAP.trwWidthA;
-   l_NewCell.Props.Border.IsFramed := False;
-  end; // if (aPrevRow <> nil) and (aRow.CellCount < aPrevRow.CellCount) then
- end; // if f_Destination.IdenticalRowWidths then
-//#UC END# *5616479402CF_4FACE16602E1_impl*
-end;//TddTablePrim.Try2AlignRowWidth
+//#UC START# *519B805901DF_4FACE16602E1get_impl*
+ Result := f_RowList.Count;
+//#UC END# *519B805901DF_4FACE16602E1get_impl*
+end;//TddTablePrim.pm_GetRowCount
 
 procedure TddTablePrim.AddRow(aRow: TddTableRow);
 //#UC START# *5193529401A7_4FACE16602E1_var*
@@ -306,8 +237,8 @@ begin
 end;//TddTablePrim.ClearLastRow
 
 procedure TddTablePrim.ProcessTableRow(aRow: TddTableRow;
-  aPrevRow: TddTableRow;
-  anIndex: Integer);
+ aPrevRow: TddTableRow;
+ anIndex: Integer);
 //#UC START# *519353210123_4FACE16602E1_var*
 var
  l_CellProp: TddCellProperty;
@@ -536,7 +467,7 @@ begin
 end;//TddTablePrim.LastParagraph
 
 function TddTablePrim.AddParaWithCheckingRow(const aPara: TddDocumentAtom;
-  anAssign2Last: Boolean): TddDocumentAtom;
+ anAssign2Last: Boolean): TddDocumentAtom;
 //#UC START# *51935B02008F_4FACE16602E1_var*
 var
  l_LastRow : TddTableRow;
@@ -568,7 +499,7 @@ begin
 end;//TddTablePrim.AddParaWithCheckingRow
 
 procedure TddTablePrim.ApplyCellProperty(const aCellProp: TddCellProperty;
-  aClearBorder: TddClearBoder);
+ aClearBorder: TddClearBoder);
 //#UC START# *51935B27022C_4FACE16602E1_var*
 var
  l_LastRow : TddTableRow;
@@ -594,7 +525,7 @@ begin
 end;//TddTablePrim.GetLastNotClosedRow
 
 function TddTablePrim.Cells(aRowID: Integer;
-  aCellID: Integer): TddTableCell;
+ aCellID: Integer): TddTableCell;
 //#UC START# *519B6E6E0351_4FACE16602E1_var*
 //#UC END# *519B6E6E0351_4FACE16602E1_var*
 begin
@@ -608,7 +539,7 @@ begin
 end;//TddTablePrim.Cells
 
 function TddTablePrim.CellsProps(aRowID: Integer;
-  aCellID: Integer): TddCellProperty;
+ aCellID: Integer): TddCellProperty;
 //#UC START# *519B6EBD031F_4FACE16602E1_var*
 //#UC END# *519B6EBD031F_4FACE16602E1_var*
 begin
@@ -759,7 +690,7 @@ begin
 end;//TddTablePrim.CheckPercentCells
 
 procedure TddTablePrim.CheckSpanCells(aScaleCellWidth: Boolean;
-  aDocTextWidth: Integer);
+ aDocTextWidth: Integer);
 //#UC START# *519C65FC03D1_4FACE16602E1_var*
 var
  i: Integer;
@@ -801,6 +732,25 @@ begin
  end; // for RowIndex;
 //#UC END# *519C65FC03D1_4FACE16602E1_impl*
 end;//TddTablePrim.CheckSpanCells
+
+function TddTablePrim.GetLineLen(const aText: Tl3String): Integer;
+//#UC START# *519C6F6A0171_4FACE16602E1_var*
+var
+ l_Pos, l_PrevPos: Integer;
+//#UC END# *519C6F6A0171_4FACE16602E1_var*
+begin
+//#UC START# *519C6F6A0171_4FACE16602E1_impl*
+ l_PrevPos := 1;
+ Result := 0;
+ repeat
+  l_Pos := PosEx(#10, aText.AsString, l_PrevPos);
+  if l_Pos = 0 then
+   l_Pos := aText.Len;
+  Result := Max(Result, l_Pos - l_PrevPos + 1);
+  l_PrevPos := Succ(l_Pos);
+ until l_Pos = aText.Len;
+//#UC END# *519C6F6A0171_4FACE16602E1_impl*
+end;//TddTablePrim.GetLineLen
 
 procedure TddTablePrim.NormalizeCells;
 //#UC START# *519C7ACE00A5_4FACE16602E1_var*
@@ -849,7 +799,7 @@ begin
 end;//TddTablePrim.CloseRow
 
 procedure TddTablePrim.CloseTable(aScaleCellWidth: Boolean;
-  aDocTextWidth: Integer);
+ aDocTextWidth: Integer);
 //#UC START# *519C7EE102E3_4FACE16602E1_var*
 //#UC END# *519C7EE102E3_4FACE16602E1_var*
 begin
@@ -903,9 +853,30 @@ begin
 //#UC END# *519C7F2303A2_4FACE16602E1_impl*
 end;//TddTablePrim.BeforeParseCell
 
+function TddTablePrim.FindPrevRowWithCellProps(aStartIndex: Integer): TddTableRow;
+//#UC START# *51E64EC500BE_4FACE16602E1_var*
+var
+ i     : Integer;
+ l_Row : TddTableRow;
+//#UC END# *51E64EC500BE_4FACE16602E1_var*
+begin
+//#UC START# *51E64EC500BE_4FACE16602E1_impl*
+ Result := nil;
+ for i := aStartIndex downto 0 do
+ begin
+  l_Row := f_RowList[i];
+  if l_Row.IsCellPropsInit then
+  begin
+   Result := l_Row;
+   Break;
+  end; // if l_Row.IsCellPropsInit then
+ end; // for i := f_RowList.Count - 1 downto 0 do
+//#UC END# *51E64EC500BE_4FACE16602E1_impl*
+end;//TddTablePrim.FindPrevRowWithCellProps
+
 procedure TddTablePrim.CloseLastRow(aRowProp: TddRowProperty;
-  aParaProp: TddParagraphProperty;
-  out aLastRow: Boolean);
+ aParaProp: TddParagraphProperty;
+ out aLastRow: Boolean);
 //#UC START# *51E65C1C0375_4FACE16602E1_var*
 var
  l_Row: TddTableRow;
@@ -929,6 +900,17 @@ begin
  end; // if LastRow.TAP.LastRow then
 //#UC END# *51E65C1C0375_4FACE16602E1_impl*
 end;//TddTablePrim.CloseLastRow
+
+procedure TddTablePrim.CorrectParaLevelAfterCloseTable(aParaProp: TddParagraphProperty);
+ {* Уменьшает уровень текущего параграфа на 1, чтобы следующие даннные добавлялись на уровень выше. }
+//#UC START# *51E6661502F3_4FACE16602E1_var*
+//#UC END# *51E6661502F3_4FACE16602E1_var*
+begin
+//#UC START# *51E6661502F3_4FACE16602E1_impl*
+ if aParaProp.itap > 1 then // Чтобы не начинать новую таблицу по приходу обычного параграфа...
+  aParaProp.itap := aParaProp.itap - 1;
+//#UC END# *51E6661502F3_4FACE16602E1_impl*
+end;//TddTablePrim.CorrectParaLevelAfterCloseTable
 
 procedure TddTablePrim.Try2CloseNotClosedRow(aWidth: Integer);
 //#UC START# *5236AD200270_4FACE16602E1_var*
@@ -988,6 +970,7 @@ begin
 end;//TddTablePrim.GetFirstRowWidth
 
 function TddTablePrim.IsTableCorrect: Boolean;
+ {* Проверяет таблицу на корректность. }
 //#UC START# *5385C5770229_4FACE16602E1_var*
 const
  cnMaxLeftIndent = 15000;
@@ -1013,8 +996,8 @@ begin
 end;//TddTablePrim.IsTableCorrect
 
 procedure TddTablePrim.AddPicture(aPicture: TddPicture;
-  aPAP: TddParagraphProperty;
-  anAssign2Last: Boolean);
+ aPAP: TddParagraphProperty;
+ anAssign2Last: Boolean);
 //#UC START# *54F711F202AF_4FACE16602E1_var*
 var
  l_Picture : TddPicture;
@@ -1045,6 +1028,30 @@ begin
 //#UC END# *54F711F202AF_4FACE16602E1_impl*
 end;//TddTablePrim.AddPicture
 
+procedure TddTablePrim.Try2AlignRowWidth(aRow: TddTableRow);
+//#UC START# *5616479402CF_4FACE16602E1_var*
+var
+ l_NewCell  : TddTableCell;
+ l_LastCell : TddTableCell;
+ l_HasDelta : Boolean;
+//#UC END# *5616479402CF_4FACE16602E1_var*
+begin
+//#UC START# *5616479402CF_4FACE16602E1_impl*
+ if f_Destination.IdenticalRowWidths then
+ begin
+  l_HasDelta := (aRow.TAP.trwWidthA > 0) and (aRow.TAP.trftsWidthA = dd_wuTwips);
+  if l_HasDelta then
+  begin
+   l_LastCell := aRow.LastCell;
+   aRow.AddCellAndPara;
+   l_NewCell := aRow.LastCell;
+   l_NewCell.Props.CellOffset := l_LastCell.Props.CellOffset + aRow.TAP.trwWidthA;
+   l_NewCell.Props.Border.IsFramed := False;
+  end; // if (aPrevRow <> nil) and (aRow.CellCount < aPrevRow.CellCount) then
+ end; // if f_Destination.IdenticalRowWidths then
+//#UC END# *5616479402CF_4FACE16602E1_impl*
+end;//TddTablePrim.Try2AlignRowWidth
+
 function TddTablePrim.RowIndex(aRow: TddTableRow): Integer;
 //#UC START# *56C56E1C0271_4FACE16602E1_var*
 //#UC END# *56C56E1C0271_4FACE16602E1_var*
@@ -1054,39 +1061,9 @@ begin
 //#UC END# *56C56E1C0271_4FACE16602E1_impl*
 end;//TddTablePrim.RowIndex
 
-function TddTablePrim.pm_GetLastRow: TddTableRow;
-//#UC START# *519B7458025F_4FACE16602E1get_var*
-//#UC END# *519B7458025F_4FACE16602E1get_var*
-begin
-//#UC START# *519B7458025F_4FACE16602E1get_impl*
- if (f_RowList <> nil) and (f_RowList.Count > 0) then
-  Result := f_RowList.Last
- else
-  Result := nil;
-//#UC END# *519B7458025F_4FACE16602E1get_impl*
-end;//TddTablePrim.pm_GetLastRow
-
-function TddTablePrim.pm_GetRows(anRowID: Integer): TddTableRow;
-//#UC START# *519B7CC3008E_4FACE16602E1get_var*
-//#UC END# *519B7CC3008E_4FACE16602E1get_var*
-begin
-//#UC START# *519B7CC3008E_4FACE16602E1get_impl*
- Result := f_RowList.Items[anRowID];
-//#UC END# *519B7CC3008E_4FACE16602E1get_impl*
-end;//TddTablePrim.pm_GetRows
-
-function TddTablePrim.pm_GetRowCount: Integer;
-//#UC START# *519B805901DF_4FACE16602E1get_var*
-//#UC END# *519B805901DF_4FACE16602E1get_var*
-begin
-//#UC START# *519B805901DF_4FACE16602E1get_impl*
- Result := f_RowList.Count;
-//#UC END# *519B805901DF_4FACE16602E1get_impl*
-end;//TddTablePrim.pm_GetRowCount
-
 procedure TddTablePrim.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: TddLiteVersion);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE16602E1_var*
 var
  i         : Integer;
@@ -1122,6 +1099,7 @@ begin
 end;//TddTablePrim.Write2Generator
 
 procedure TddTablePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FACE16602E1_var*
 //#UC END# *479731C50290_4FACE16602E1_var*
 begin

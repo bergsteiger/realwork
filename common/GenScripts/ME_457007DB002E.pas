@@ -13,9 +13,12 @@ uses
  l3IntfUses
  , IOUnit
  , BaseTypesUnit
- , DocumentUnit
+ , StartUnit
  , DynamicDocListUnit
  , FoldersUnit
+ , DocumentUnit
+ //#UC START# *457007DB002Eintf_uses*
+ //#UC END# *457007DB002Eintf_uses*
 ;
 
 type
@@ -60,17 +63,17 @@ type
  IEstimation = interface
   {* Оценка }
   ['{DD01B380-09FE-4476-8789-20B2291FE41B}']
-  function Get_value: TEstimationValue;
-  procedure Set_value(aValue: TEstimationValue);
-  function Get_text: IString;
-  procedure Set_text(const aValue: IString);
-  property value: TEstimationValue
-   read Get_value
-   write Set_value;
+  function GetValue: TEstimationValue; stdcall;
+  procedure SetValue(aValue: TEstimationValue); stdcall;
+  function GetText: IString; stdcall;
+  procedure SetText(const aValue: IString); stdcall;
+  property Value: TEstimationValue
+   read GetValue
+   write SetValue;
    {* оценка }
-  property text: IString
-   read Get_text
-   write Set_text;
+  property Text: IString
+   read GetText
+   write SetText;
    {* комментарий к оценке }
  end;//IEstimation
 
@@ -85,64 +88,64 @@ type
  IConsultation = interface(IEntityBase)
   {* Консультация }
   ['{69D87373-CAC1-4228-9F26-4E46D2A8CBE9}']
-  function Get_status: TConsultationStatus; { can raise Deleted }
-  function Get_id: IString; { can raise Deleted }
-  function Get_creation_date: TDateTime; { can raise Deleted }
-  function Get_modification_date: TDateTime; { can raise Deleted }
-  function Get_name: IString; { can raise Deleted }
-  function Get_query_data: IString; { can raise Deleted }
-  function Get_user_name: IString; { can raise Deleted }
-  function Get_expert_info: IParasList; { can raise Deleted }
-  function Get_expert_name: IString; { can raise Deleted }
-  function Get_reply_date: TDate; { can raise Deleted }
-  procedure Get_type; { can raise Deleted }
-  function get_answer: IDocument; { can raise Deleted, OldFormatConsultation }
+  function GetStatus: TConsultationStatus; stdcall; { can raise Deleted }
+  function GetId: IString; stdcall; { can raise Deleted }
+  function GetCreationDate: TDateTime; stdcall; { can raise Deleted }
+  function GetModificationDate: TDateTime; stdcall; { can raise Deleted }
+  function GetName: IString; stdcall; { can raise Deleted }
+  function GetQueryData: IString; stdcall; { can raise Deleted }
+  function GetUserName: IString; stdcall; { can raise Deleted }
+  function GetExpertInfo: IParasList; stdcall; { can raise Deleted }
+  function GetExpertName: IString; stdcall; { can raise Deleted }
+  function GetReplyDate: TDate; stdcall; { can raise Deleted }
+  procedure GetType; stdcall; { can raise Deleted }
+  function GetAnswer: IDocument; stdcall; { can raise Deleted, OldFormatConsultation }
    {* Получить уведомление или ответ на запрос }
-  function get_query: IDocument; { can raise Deleted, OldFormatConsultation }
+  function GetQuery: IDocument; stdcall; { can raise Deleted, OldFormatConsultation }
    {* Получить запрос }
-  function get_document_list: IDynList; { can raise NoDocumentList, Deleted, OldFormatConsultation }
+  function GetDocumentList: IDynList; stdcall; { can raise NoDocumentList, Deleted, OldFormatConsultation }
    {* Получить список документов ответа }
-  procedure send_estimation(const value: IEstimation); { can raise NoConnection, NoSubscription, Deleted }
+  procedure SendEstimation(const value: IEstimation); stdcall; { can raise NoConnection, NoSubscription, Deleted }
    {* Отправить оценку }
-  function create_estimation: IEstimation;
+  function CreateEstimation: IEstimation; stdcall;
    {* создать оценку }
-  procedure payment_confirm(answer: Boolean); { can raise NoConnection, PaymentForbidden }
+  procedure PaymentConfirm(answer: Boolean); stdcall; { can raise NoConnection, PaymentForbidden }
    {* Подвердить (answer = true)/отказаться (false) от оплаты }
-  procedure read; { can raise Deleted }
+  procedure Read; stdcall; { can raise Deleted }
    {* Помечают консультацию как прочитанную }
-  function has_list: Boolean; { can raise Deleted }
-  function has_estimation: Boolean; { can raise Deleted }
-  function has_payment_information: Boolean; { can raise Deleted }
-  function get_query_by_paras: IParasList;
+  function HasList: ByteBool; stdcall; { can raise Deleted }
+  function HasEstimation: ByteBool; stdcall; { can raise Deleted }
+  function HasPaymentInformation: ByteBool; stdcall; { can raise Deleted }
+  function GetQueryByParas: IParasList; stdcall;
    {* получить запрос в виде списка параграфов }
-  function get_answer_data(out is_evd: Boolean): IParasList;
-  property status: TConsultationStatus
-   read Get_status;
+  function GetAnswerData(out is_evd: Boolean): IParasList; stdcall;
+  property Status: TConsultationStatus
+   read GetStatus;
    {* Статус консультации }
-  property id: IString
-   read Get_id;
+  property Id: IString
+   read GetId;
    {* Идентификатор консультации }
-  property creation_date: TDateTime
-   read Get_creation_date;
+  property CreationDate: TDateTime
+   read GetCreationDate;
    {* Дата создания }
-  property modification_date: TDateTime
-   read Get_modification_date;
+  property ModificationDate: TDateTime
+   read GetModificationDate;
    {* Дата последнего изменения статуса }
-  property name: IString
-   read Get_name;
+  property Name: IString
+   read GetName;
    {* Имя консультации (текст запроса) }
-  property query_data: IString
-   read Get_query_data;
-  property user_name: IString
-   read Get_user_name;
-  property expert_info: IParasList
-   read Get_expert_info;
-  property expert_name: IString
-   read Get_expert_name;
-  property reply_date: TDate
-   read Get_reply_date;
-  property type: 
-   read Get_type;
+  property QueryData: IString
+   read GetQueryData;
+  property UserName: IString
+   read GetUserName;
+  property ExpertInfo: IParasList
+   read GetExpertInfo;
+  property ExpertName: IString
+   read GetExpertName;
+  property ReplyDate: TDate
+   read GetReplyDate;
+  property Type: 
+   read GetType;
  end;//IConsultation
 
  TTemplateType = (
@@ -158,32 +161,32 @@ type
  IConsultationManager = interface
   {* Менеджер консультаций }
   ['{713794D3-0F90-4EE5-AF5D-644D9091DA0C}']
-  function check_internet_channel: Boolean;
+  function CheckInternetChannel: ByteBool; stdcall;
    {* Проверка интернет канала }
-  function check_consulting_available: Boolean;
+  function CheckConsultingAvailable: ByteBool; stdcall;
    {* Проверка досутпности консультационных услуг }
-  procedure delete_consultation(var for_delete: IConsultation); { can raise NotDeleted, Deleted }
+  procedure DeleteConsultation(var for_delete: IConsultation); stdcall; { can raise NotDeleted, Deleted }
    {* Удалить консультацию }
-  function update_not_readed_consultations: Cardinal;
+  function UpdateNotReadedConsultations: Cardinal; stdcall;
    {* Возвращает количество непрочитанных консультаций }
-  procedure load_from_xml(file_name: PAnsiChar); { can raise AccessDenied, InvalidXMLType }
+  procedure LoadFromXml(file_name: PAnsiChar); stdcall; { can raise AccessDenied, InvalidXMLType }
    {* загрузить консультацию из файла }
-  function cant_receive_answer: Boolean;
+  function CantReceiveAnswer: ByteBool; stdcall;
    {* Сообщает о невозможности получать ответы (true - когда лампочку надо включать) }
-  procedure create_query_with_notice_user;
+  procedure CreateQueryWithNoticeUser; stdcall;
    {* Создание уведомления пользователя о консалтинге }
  end;//IConsultationManager
 
  IConsultingTemplateInfo = interface
   {* Информация для шаблонов консалтинга. Сейчас в базе есть 2 шаблона (preanswer и answer). Какой шаблон нужен для консультации спрашиваем у get_template_type }
   ['{3613E72E-8CD0-4D45-B517-BD45F9764A82}']
-  function get_preanswer_template: IStream;
-  function get_answer_template: IStream;
-  function get_dealer_info: IString;
+  function GetPreanswerTemplate: IStream; stdcall;
+  function GetAnswerTemplate: IStream; stdcall;
+  function GetDealerInfo: IString; stdcall;
    {* информация о комплекте, которая может быть нужна для шаблона. См. [$100008775] }
-  function get_template_type(const consultation: IConsultation): TTemplateType; { can raise Deleted }
+  function GetTemplateType(const consultation: IConsultation): TTemplateType; stdcall; { can raise Deleted }
    {* определяет какой шаблон нужен для отображения консультации }
-  function get_query_template: IStream;
+  function GetQueryTemplate: IStream; stdcall;
    {* получить шаблон для запроса }
  end;//IConsultingTemplateInfo
 
@@ -207,71 +210,12 @@ const
  CS_ANSWER_NOT_CONFIRM: TConsultationStatus = 256;
  CS_READ_NOT_CONFIRM: TConsultationStatus = 512;
 
-class function make: BadFactoryType;
- {* фабрика }
-class function make(const server_consultation;
- var folders_node: IFoldersNode): BadFactoryType;
- {* фабрика }
-class function make: BadFactoryType;
- {* фабрика }
-class function make: BadFactoryType;
-
 implementation
 
 uses
  l3ImplUses
+ //#UC START# *457007DB002Eimpl_uses*
+ //#UC END# *457007DB002Eimpl_uses*
 ;
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : IEstimation;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make(const server_consultation;
- var folders_node: IFoldersNode): BadFactoryType;
- {* фабрика }
-var
- l_Inst : IConsultation;
-begin
- l_Inst := Create(server_consultation, folders_node);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : IConsultationManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IConsultingTemplateInfo;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

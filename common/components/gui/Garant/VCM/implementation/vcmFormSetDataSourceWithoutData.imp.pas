@@ -1,47 +1,39 @@
 {$IfNDef vcmFormSetDataSourceWithoutData_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormSetDataSourceWithoutData.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormSetDataSourceWithoutData
-//
-// Бизнес объект сборки. Без "данных сборки"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormSetDataSourceWithoutData" MUID: (49415C640079)
+// Имя типа: "_vcmFormSetDataSourceWithoutData_"
 
 {$Define vcmFormSetDataSourceWithoutData_imp}
-{$If not defined(NoVCM)}
+
+{$If NOT Defined(NoVCM)}
  _SetDataType_ = IvcmData;
- {$Include ..\implementation\vcmFormSetDataSource.imp.pas}
- _vcmFormSetDataSourceWithoutData_ = {mixin} class(_vcmFormSetDataSource_)
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
+ _vcmFormSetDataSourceWithoutData_ = class(_vcmFormSetDataSource_)
   {* Бизнес объект сборки. Без "данных сборки" }
- protected
- // realized methods
+  protected
    function MakeData: _SetDataType_; override;
-     {* Данные сборки. }
+    {* Данные сборки. }
  end;//_vcmFormSetDataSourceWithoutData_
-{$Else}
 
- {$Include ..\implementation\vcmFormSetDataSource.imp.pas}
- _vcmFormSetDataSourceWithoutData_ = _vcmFormSetDataSource_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
+_vcmFormSetDataSourceWithoutData_ = _vcmFormSetDataSource_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormSetDataSourceWithoutData_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormSetDataSourceWithoutData_imp_impl}
 
+{$Define vcmFormSetDataSourceWithoutData_imp_impl}
 
-{$Include ..\implementation\vcmFormSetDataSource.imp.pas}
-
-// start class _vcmFormSetDataSourceWithoutData_
+{$If NOT Defined(NoVCM)}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
 function _vcmFormSetDataSourceWithoutData_.MakeData: _SetDataType_;
+ {* Данные сборки. }
 //#UC START# *47F3778403D9_49415C640079_var*
 //#UC END# *47F3778403D9_49415C640079_var*
 begin
@@ -50,7 +42,9 @@ begin
  // - механизм "данных сборки" не используется
 //#UC END# *47F3778403D9_49415C640079_impl*
 end;//_vcmFormSetDataSourceWithoutData_.MakeData
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmFormSetDataSourceWithoutData_imp_impl}
 
 {$EndIf vcmFormSetDataSourceWithoutData_imp}
+

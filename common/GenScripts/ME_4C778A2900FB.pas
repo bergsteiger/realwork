@@ -20,9 +20,9 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   protected
-   function alloc_new_view: ViewBase; override;
+   function AllocNewView: ViewBase; override;
   public
-   constructor make(const tree); reintroduce;
+   constructor Make(const tree); reintroduce; stdcall;
  end;//ContentsTree
 
 implementation
@@ -32,22 +32,22 @@ uses
  , ContentsView
 ;
 
-constructor ContentsTree.make(const tree);
+constructor ContentsTree.Make(const tree);
 //#UC START# *4C778AE80242_4C778A2900FB_var*
 //#UC END# *4C778AE80242_4C778A2900FB_var*
 begin
 //#UC START# *4C778AE80242_4C778A2900FB_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C778AE80242_4C778A2900FB_impl*
-end;//ContentsTree.make
+end;//ContentsTree.Make
 
-function ContentsTree.alloc_new_view: ViewBase;
+function ContentsTree.AllocNewView: ViewBase;
 //#UC START# *460127E400EA_4C778A2900FB_var*
 //#UC END# *460127E400EA_4C778A2900FB_var*
 begin
 //#UC START# *460127E400EA_4C778A2900FB_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460127E400EA_4C778A2900FB_impl*
-end;//ContentsTree.alloc_new_view
+end;//ContentsTree.AllocNewView
 
 end.

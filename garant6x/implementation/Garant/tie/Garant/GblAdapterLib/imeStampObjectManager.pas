@@ -1,54 +1,55 @@
 unit imeStampObjectManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/imeStampObjectManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::TimeStampSync::TimeStampObjectManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\imeStampObjectManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TimeStampObjectManager" MUID: (4614E03B02EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+ //#UC START# *4614E03B02EEintf_uses*
+ //#UC END# *4614E03B02EEintf_uses*
+;
+
 type
-//#UC START# *4614E03B02EEci*
-//#UC END# *4614E03B02EEci*
-//#UC START# *4614E03B02EEcit*
-//#UC END# *4614E03B02EEcit*
+ //#UC START# *4614E03B02EEci*
+ //#UC END# *4614E03B02EEci*
+ //#UC START# *4614E03B02EEcit*
+ //#UC END# *4614E03B02EEcit*
  TimeStampObjectManager = class
-//#UC START# *4614E03B02EEpubl*
-//#UC END# *4614E03B02EEpubl*
- public
- // singleton factory method
+  public
    class function Instance: TimeStampObjectManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TimeStampObjectManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ //#UC START# *4614E03B02EEpubl*
+ //#UC END# *4614E03B02EEpubl*
  end;//TimeStampObjectManager
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ //#UC START# *4614E03B02EEimpl_uses*
+ //#UC END# *4614E03B02EEimpl_uses*
+;
 
-
-// start class TimeStampObjectManager
-
-var g_TimeStampObjectManager : TimeStampObjectManager = nil;
+var g_TimeStampObjectManager: TimeStampObjectManager = nil;
+ {* Экземпляр синглетона TimeStampObjectManager }
 
 procedure TimeStampObjectManagerFree;
+ {* Метод освобождения экземпляра синглетона TimeStampObjectManager }
 begin
  l3Free(g_TimeStampObjectManager);
-end;
+end;//TimeStampObjectManagerFree
 
 class function TimeStampObjectManager.Instance: TimeStampObjectManager;
+ {* Метод получения экземпляра синглетона TimeStampObjectManager }
 begin
  if (g_TimeStampObjectManager = nil) then
  begin
@@ -56,8 +57,13 @@ begin
   g_TimeStampObjectManager := Create;
  end;
  Result := g_TimeStampObjectManager;
-end;
+end;//TimeStampObjectManager.Instance
 
+class function TimeStampObjectManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TimeStampObjectManager <> nil;
+end;//TimeStampObjectManager.Exists
 
 //#UC START# *4614E03B02EEimpl*
 //#UC END# *4614E03B02EEimpl*

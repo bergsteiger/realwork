@@ -1,80 +1,52 @@
 unit vtVGButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Core"
-// Модуль: "w:/common/components/gui/Garant/VT/vtVGButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$Core::Dialogs::TvtVGButton
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtVGButton.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvtVGButton" MUID: (4D494D3601A8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vg_controls
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vg_controls
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+;
 
-{$If not defined(NoVGScene)}
 type
  TvtVGButton = class(TvgButton)
- private
- // private fields
-   f_DuplicateButton : TButton;
- private
- // private methods
+  private
+   f_DuplicateButton: TButton;
+  private
    procedure UpdateDuplicateButton;
- protected
- // overridden property methods
+  protected
+   procedure SetText(const Value: WideString); override;
    procedure pm_SetModalResult(aValue: TModalResult); override;
    procedure pm_SetOnClick(aValue: TNotifyEvent); override;
    procedure pm_SetDefault(aValue: Boolean); override;
    procedure pm_SetCancel(aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure SetText(const Value: WideString); override;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
  end;//TvtVGButton
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
-
-// start class TvtVGButton
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvtVGButton.UpdateDuplicateButton;
 //#UC START# *4D5E5A63025B_4D494D3601A8_var*
@@ -164,12 +136,11 @@ begin
 //#UC END# *4D5E5C27000E_4D494D3601A8set_impl*
 end;//TvtVGButton.pm_SetCancel
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvtVGButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtVGButton);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvtVGButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

@@ -22,14 +22,14 @@ const
 type
  TddPicturePathService = {final} class(Tl3ProtoObject, Il3PicturePathService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure SetTestName(const aName: AnsiString);
    procedure AddPicturePath(const aPath: AnsiString);
    procedure SetEnableSave(aValue: Boolean);
    procedure SetPDF4Etalon(aValue: Boolean);
    class function Instance: TddPicturePathService;
     {* Метод получения экземпляра синглетона TddPicturePathService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TddPicturePathService
 
  TddPicturePathListner = class(Tl3SimpleObject)
@@ -103,12 +103,6 @@ begin
  l3Free(g_TddPicturePathListner);
 end;//TddPicturePathListnerFree
 
-class function TddPicturePathService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TddPicturePathService <> nil;
-end;//TddPicturePathService.Exists
-
 procedure TddPicturePathService.SetTestName(const aName: AnsiString);
 //#UC START# *2DCD42915D2E_5524073901EA_var*
 //#UC END# *2DCD42915D2E_5524073901EA_var*
@@ -155,6 +149,12 @@ begin
  end;
  Result := g_TddPicturePathService;
 end;//TddPicturePathService.Instance
+
+class function TddPicturePathService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TddPicturePathService <> nil;
+end;//TddPicturePathService.Exists
 
 function TddPicturePathListner.pm_GetTestName: AnsiString;
 //#UC START# *53354774005B_52F8B15003A7get_var*

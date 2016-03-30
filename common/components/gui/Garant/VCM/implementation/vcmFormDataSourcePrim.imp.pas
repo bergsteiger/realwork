@@ -1,43 +1,36 @@
 {$IfNDef vcmFormDataSourcePrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormDataSourcePrim.imp.pas"
-// Начат: 2005/07/29 10:44:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmFormDataSourcePrim
-//
-// Бизнес объект формы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmFormDataSourcePrim" MUID: (47ECE94D03D4)
+// Имя типа: "_vcmFormDataSourcePrim_"
 
 {$Define vcmFormDataSourcePrim_imp}
-{$If not defined(NoVCM)}
+
+{$If NOT Defined(NoVCM)}
  _UseCaseControllerType_ = IvcmFormSetDataSource;
- {$Include ..\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
- _vcmFormDataSourcePrim_ = {mixin} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_)
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+ _vcmFormDataSourcePrim_ = class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_)
   {* Бизнес объект формы }
  end;//_vcmFormDataSourcePrim_
-{$Else}
 
- {$Include ..\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
- _vcmFormDataSourcePrim_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+_vcmFormDataSourcePrim_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmFormDataSourcePrim_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmFormDataSourcePrim_imp_impl}
 
+{$Define vcmFormDataSourcePrim_imp_impl}
 
-{$Include ..\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$If NOT Defined(NoVCM)}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-{$IfEnd} //not NoVCM
+{$EndIf vcmFormDataSourcePrim_imp_impl}
 
 {$EndIf vcmFormDataSourcePrim_imp}
+

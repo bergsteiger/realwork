@@ -14,34 +14,36 @@ uses
  , BaseTypesUnit
  , DocumentUnit
  , DynamicTreeUnit
+ //#UC START# *460B956502AFintf_uses*
+ //#UC END# *460B956502AFintf_uses*
 ;
 
-procedure adapter_to_server(const adap: TPId); overload;
-procedure server_to_adapter(const serv;
- var adap: TPosition); overload; { can raise Unsupported }
-procedure adapter_to_server(const adap: TPosition;
- var serv); overload; { can raise Unsupported }
-procedure server_to_adapter(const serv;
- out adap: IPositionList); overload; { can raise Unsupported }
-procedure adapter_to_server(const adap: IPositionList;
- var serv); overload; { can raise Unsupported }
-procedure server_to_adapter(const serv;
- var adap: ILanguagesList); overload;
-procedure category_to_query(const category: INodeBase;
- var query);
-procedure convert(const adapter_from: TNodePosition;
- var srv_from);
-procedure adapter_to_server(const adapter_index_path: INodeIndexPath); overload;
-procedure server_to_adapter(const index_path;
- var adap_path: INodeIndexPath); overload;
-procedure adapter_to_server(adapter_status: TConsultationStatus); overload;
-function server_to_adapter(const server_status): TConsultationStatus; overload;
-function consultation_status_to_folders_flag(const server_status): Cardinal;
-procedure adapter_to_server(adapter_order: TFindOrder); overload;
-procedure adapter_to_server(adapter_area: TSearchArea); overload;
-procedure adapter_to_server(adapter_place: TContextPlace); overload;
-procedure server_to_adapter(const serv;
- var adap: IDocPointList); overload;
+procedure AdapterToServer(const adap: TPId); overload; stdcall;
+procedure ServerToAdapter(const serv;
+ var adap: TPosition); overload; stdcall; { can raise Unsupported }
+procedure AdapterToServer(const adap: TPosition;
+ var serv); overload; stdcall; { can raise Unsupported }
+procedure ServerToAdapter(const serv;
+ out adap: IPositionList); overload; stdcall; { can raise Unsupported }
+procedure AdapterToServer(const adap: IPositionList;
+ var serv); overload; stdcall; { can raise Unsupported }
+procedure ServerToAdapter(const serv;
+ var adap: ILanguagesList); overload; stdcall;
+procedure CategoryToQuery(const category: INodeBase;
+ var query); stdcall;
+procedure Convert(const adapter_from: TNodePosition;
+ var srv_from); stdcall;
+procedure AdapterToServer(const adapter_index_path: INodeIndexPath); overload; stdcall;
+procedure ServerToAdapter(const index_path;
+ var adap_path: INodeIndexPath); overload; stdcall;
+procedure AdapterToServer(adapter_status: TConsultationStatus); overload; stdcall;
+function ServerToAdapter(const server_status): TConsultationStatus; overload; stdcall;
+function ConsultationStatusToFoldersFlag(const server_status): Cardinal; stdcall;
+procedure AdapterToServer(adapter_order: TFindOrder); overload; stdcall;
+procedure AdapterToServer(adapter_area: TSearchArea); overload; stdcall;
+procedure AdapterToServer(adapter_place: TContextPlace); overload; stdcall;
+procedure ServerToAdapter(const serv;
+ var adap: IDocPointList); overload; stdcall;
  {* Преобразование серверного списка вида Документ, Саб в адаптерный }
 
 implementation
@@ -49,18 +51,20 @@ implementation
 uses
  l3ImplUses
  , SearchUnit
+ //#UC START# *460B956502AFimpl_uses*
+ //#UC END# *460B956502AFimpl_uses*
 ;
 
-procedure adapter_to_server(const adap: TPId);
+procedure AdapterToServer(const adap: TPId);
 //#UC START# *460B95A600CB_460B956502AF_var*
 //#UC END# *460B95A600CB_460B956502AF_var*
 begin
 //#UC START# *460B95A600CB_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460B95A600CB_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure server_to_adapter(const serv;
+procedure ServerToAdapter(const serv;
  var adap: TPosition); { can raise Unsupported }
 //#UC START# *460BAC17029F_460B956502AF_var*
 //#UC END# *460BAC17029F_460B956502AF_var*
@@ -68,9 +72,9 @@ begin
 //#UC START# *460BAC17029F_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BAC17029F_460B956502AF_impl*
-end;//server_to_adapter
+end;//ServerToAdapter
 
-procedure adapter_to_server(const adap: TPosition;
+procedure AdapterToServer(const adap: TPosition;
  var serv); { can raise Unsupported }
 //#UC START# *460CCAA201E4_460B956502AF_var*
 //#UC END# *460CCAA201E4_460B956502AF_var*
@@ -78,9 +82,9 @@ begin
 //#UC START# *460CCAA201E4_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460CCAA201E4_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure server_to_adapter(const serv;
+procedure ServerToAdapter(const serv;
  out adap: IPositionList); { can raise Unsupported }
 //#UC START# *460BADAA00EA_460B956502AF_var*
 //#UC END# *460BADAA00EA_460B956502AF_var*
@@ -88,9 +92,9 @@ begin
 //#UC START# *460BADAA00EA_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BADAA00EA_460B956502AF_impl*
-end;//server_to_adapter
+end;//ServerToAdapter
 
-procedure adapter_to_server(const adap: IPositionList;
+procedure AdapterToServer(const adap: IPositionList;
  var serv); { can raise Unsupported }
 //#UC START# *460BAE0903B9_460B956502AF_var*
 //#UC END# *460BAE0903B9_460B956502AF_var*
@@ -98,9 +102,9 @@ begin
 //#UC START# *460BAE0903B9_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BAE0903B9_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure server_to_adapter(const serv;
+procedure ServerToAdapter(const serv;
  var adap: ILanguagesList);
 //#UC START# *460BB2AF01C5_460B956502AF_var*
 //#UC END# *460BB2AF01C5_460B956502AF_var*
@@ -108,9 +112,9 @@ begin
 //#UC START# *460BB2AF01C5_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BB2AF01C5_460B956502AF_impl*
-end;//server_to_adapter
+end;//ServerToAdapter
 
-procedure category_to_query(const category: INodeBase;
+procedure CategoryToQuery(const category: INodeBase;
  var query);
 //#UC START# *460BB2E5036B_460B956502AF_var*
 //#UC END# *460BB2E5036B_460B956502AF_var*
@@ -118,9 +122,9 @@ begin
 //#UC START# *460BB2E5036B_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *460BB2E5036B_460B956502AF_impl*
-end;//category_to_query
+end;//CategoryToQuery
 
-procedure convert(const adapter_from: TNodePosition;
+procedure Convert(const adapter_from: TNodePosition;
  var srv_from);
 //#UC START# *46151F7E0399_460B956502AF_var*
 //#UC END# *46151F7E0399_460B956502AF_var*
@@ -128,18 +132,18 @@ begin
 //#UC START# *46151F7E0399_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46151F7E0399_460B956502AF_impl*
-end;//convert
+end;//Convert
 
-procedure adapter_to_server(const adapter_index_path: INodeIndexPath);
+procedure AdapterToServer(const adapter_index_path: INodeIndexPath);
 //#UC START# *47B6D48902FA_460B956502AF_var*
 //#UC END# *47B6D48902FA_460B956502AF_var*
 begin
 //#UC START# *47B6D48902FA_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47B6D48902FA_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure server_to_adapter(const index_path;
+procedure ServerToAdapter(const index_path;
  var adap_path: INodeIndexPath);
 //#UC START# *47B6D5B502D3_460B956502AF_var*
 //#UC END# *47B6D5B502D3_460B956502AF_var*
@@ -147,63 +151,63 @@ begin
 //#UC START# *47B6D5B502D3_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47B6D5B502D3_460B956502AF_impl*
-end;//server_to_adapter
+end;//ServerToAdapter
 
-procedure adapter_to_server(adapter_status: TConsultationStatus);
+procedure AdapterToServer(adapter_status: TConsultationStatus);
 //#UC START# *486B36420166_460B956502AF_var*
 //#UC END# *486B36420166_460B956502AF_var*
 begin
 //#UC START# *486B36420166_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *486B36420166_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-function server_to_adapter(const server_status): TConsultationStatus;
+function ServerToAdapter(const server_status): TConsultationStatus;
 //#UC START# *486B3685024C_460B956502AF_var*
 //#UC END# *486B3685024C_460B956502AF_var*
 begin
 //#UC START# *486B3685024C_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *486B3685024C_460B956502AF_impl*
-end;//server_to_adapter
+end;//ServerToAdapter
 
-function consultation_status_to_folders_flag(const server_status): Cardinal;
+function ConsultationStatusToFoldersFlag(const server_status): Cardinal;
 //#UC START# *486B4C8900FE_460B956502AF_var*
 //#UC END# *486B4C8900FE_460B956502AF_var*
 begin
 //#UC START# *486B4C8900FE_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *486B4C8900FE_460B956502AF_impl*
-end;//consultation_status_to_folders_flag
+end;//ConsultationStatusToFoldersFlag
 
-procedure adapter_to_server(adapter_order: TFindOrder);
+procedure AdapterToServer(adapter_order: TFindOrder);
 //#UC START# *4D3EABF5008B_460B956502AF_var*
 //#UC END# *4D3EABF5008B_460B956502AF_var*
 begin
 //#UC START# *4D3EABF5008B_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D3EABF5008B_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure adapter_to_server(adapter_area: TSearchArea);
+procedure AdapterToServer(adapter_area: TSearchArea);
 //#UC START# *4D3EACE502A5_460B956502AF_var*
 //#UC END# *4D3EACE502A5_460B956502AF_var*
 begin
 //#UC START# *4D3EACE502A5_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D3EACE502A5_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure adapter_to_server(adapter_place: TContextPlace);
+procedure AdapterToServer(adapter_place: TContextPlace);
 //#UC START# *4D3EAD0C00A5_460B956502AF_var*
 //#UC END# *4D3EAD0C00A5_460B956502AF_var*
 begin
 //#UC START# *4D3EAD0C00A5_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D3EAD0C00A5_460B956502AF_impl*
-end;//adapter_to_server
+end;//AdapterToServer
 
-procedure server_to_adapter(const serv;
+procedure ServerToAdapter(const serv;
  var adap: IDocPointList);
  {* Преобразование серверного списка вида Документ, Саб в адаптерный }
 //#UC START# *4DCCD8970014_460B956502AF_var*
@@ -212,6 +216,6 @@ begin
 //#UC START# *4DCCD8970014_460B956502AF_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DCCD8970014_460B956502AF_impl*
-end;//server_to_adapter
+end;//ServerToAdapter
 
 end.

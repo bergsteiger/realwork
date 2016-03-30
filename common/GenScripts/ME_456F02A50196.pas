@@ -11,8 +11,8 @@ interface
 
 uses
  l3IntfUses
- , BaseTypesUnit
  , IOUnit
+ , BaseTypesUnit
  , ContextSearchSupportUnit
 ;
 
@@ -47,95 +47,95 @@ type
  INode = interface(IEntityStorage)
   {* Интерфейс для чтения данных об элементе древовидной структуры. }
   ['{A050343E-CA33-4D63-8385-2FFBD9B012DA}']
-  function Get_level: Integer;
-  function Get_child_count: Integer;
-  function Get_all_child_count: Integer;
-  function Get_flags: Integer;
-  function Get_index: Integer;
-  function Get_through_index: Integer;
-  function Get_parent: INode;
-  function Get_previous_node: INode;
-  function Get_next_node: INode;
-  function Get_caption: IString;
-  procedure Set_caption(const aValue: IString); { can raise ConstantModify, AccessDenied }
-  function Get_hint: IString;
-  procedure Set_hint(const aValue: IString); { can raise ConstantModify, AccessDenied }
-  function Get_object_type: TEntityType; { can raise Unsupported }
-  function get_child(index: Integer): INode; { can raise InvalidIndex }
+  function GetLevel: Integer; stdcall;
+  function GetChildCount: Integer; stdcall;
+  function GetAllChildCount: Integer; stdcall;
+  function GetFlags: Integer; stdcall;
+  function GetIndex: Integer; stdcall;
+  function GetThroughIndex: Integer; stdcall;
+  function GetParent: INode; stdcall;
+  function GetPreviousNode: INode; stdcall;
+  function GetNextNode: INode; stdcall;
+  function GetCaption: IString; stdcall;
+  procedure SetCaption(const aValue: IString); stdcall; { can raise ConstantModify, AccessDenied }
+  function GetHint: IString; stdcall;
+  procedure SetHint(const aValue: IString); stdcall; { can raise ConstantModify, AccessDenied }
+  function GetObjectType: TEntityType; stdcall; { can raise Unsupported }
+  function GetChild(index: Integer): INode; stdcall; { can raise InvalidIndex }
    {* Получить интерфейс на один из вложенных элементов.
 Параметр должен принимать значения из диапазона: 0<=index<=(child_coun-1) }
-  function is_same_node(const node: INode): Boolean;
+  function IsSameNode(const node: INode): ByteBool; stdcall;
    {* Сравнивает текущий элемент с элементом, поданным в параметре node.
 Возвращает true в случае совпадения. }
-  function open: IUnknown; { can raise CanNotFindData, NotEntityElement }
+  function Open: IUnknown; stdcall; { can raise CanNotFindData, NotEntityElement }
    {* Возвращает интерфейс для работы с конкретным элементом (сущностью) системы. }
-  procedure delete_node; { can raise ConstantModify, AccessDenied, EmptyResult }
+  procedure DeleteNode; stdcall; { can raise ConstantModify, AccessDenied, EmptyResult }
    {* Удаляет указанные узел из списка/дерева.
 Если указан элемент, имеющий вложенные элементы, то они тоже удаляются. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify }
-  function add_child_node(const entity: IUnknown): INode; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
+  function AddChildNode(const entity: IUnknown): INode; stdcall; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
    {* Добавляет сущность как ребенка к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify. Если нода не может содержать детей возвращается исключение InvalidContainer }
-  function add_sibling_node(const entity: IUnknown): INode; { can raise ConstantModify, Unsupported, DuplicateNode }
+  function AddSiblingNode(const entity: IUnknown): INode; stdcall; { can raise ConstantModify, Unsupported, DuplicateNode }
    {* Добавляет сущность как "соседа" справа к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify }
-  procedure move_to_location(var destination: INode); { can raise InvalidContainer, MoveDisabled }
+  procedure MoveToLocation(var destination: INode); stdcall; { can raise InvalidContainer, MoveDisabled }
    {* Переносит текущую ноду в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция перемещения узлов не доступна, генерируется исключение MoveDisabled }
-  procedure copy_to_location(var destination: INode); { can raise CopyDisabled, InvalidContainer }
+  procedure CopyToLocation(var destination: INode); stdcall; { can raise CopyDisabled, InvalidContainer }
    {* Сопирует текущую ноду и оекурсивно все ее содержимое, в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция копирования узлов не доступна, генерируется исключение CopyDisabled }
-  function can_move: Boolean;
+  function CanMove: ByteBool; stdcall;
    {* можно ли переместить ноду }
-  function can_copy: Boolean;
+  function CanCopy: ByteBool; stdcall;
    {* можно ли скопировать ноду }
-  function can_insert(var source: INode): Boolean;
+  function CanInsert(var source: INode): ByteBool; stdcall;
    {* можно ли вставить ноду }
-  function is_last: Boolean;
+  function IsLast: ByteBool; stdcall;
    {* Последнией элемент. }
-  function is_first: Boolean;
+  function IsFirst: ByteBool; stdcall;
    {* Первый элемент. }
-  function has_child: Boolean;
+  function HasChild: ByteBool; stdcall;
    {* Есть ли дочерние элементы. }
-  function override_child_node(const entity: IUnknown): INode; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
+  function OverrideChildNode(const entity: IUnknown): INode; stdcall; { can raise ConstantModify, AccessDenied, Unsupported, DuplicateNode, InvalidEntityType }
    {* перезаписать дочернюю ноду }
-  function can_modify: Boolean;
+  function CanModify: ByteBool; stdcall;
    {* можно ли модифицировать ноду }
-  property level: Integer
-   read Get_level;
+  property Level: Integer
+   read GetLevel;
    {* Уровень вложенности элемента в древовидной структуре.
 У root_node=0. }
-  property child_count: Integer
-   read Get_child_count;
+  property ChildCount: Integer
+   read GetChildCount;
    {* Количество вложенных элементов для текущего (один уровень).
 У листьевых элементов =0. }
-  property all_child_count: Integer
-   read Get_all_child_count;
+  property AllChildCount: Integer
+   read GetAllChildCount;
    {* Количество вложенных элементов для текущего с учетом всех уровней вложенности.
 У листьевых элементов =0. }
-  property flags: Integer
-   read Get_flags;
+  property Flags: Integer
+   read GetFlags;
    {* Поле для передачи дополнительной винарной информации о статусе элемента. }
-  property index: Integer
-   read Get_index;
+  property Index: Integer
+   read GetIndex;
    {* Позиция текущего элемента в предке (parent). }
-  property through_index: Integer
-   read Get_through_index;
+  property ThroughIndex: Integer
+   read GetThroughIndex;
    {* Сквозная позиция элемента. }
-  property parent: INode
-   read Get_parent;
+  property Parent: INode
+   read GetParent;
    {* родитель }
-  property previous_node: INode
-   read Get_previous_node;
+  property PreviousNode: INode
+   read GetPreviousNode;
    {* предыдущая нода в дереве }
-  property next_node: INode
-   read Get_next_node;
+  property NextNode: INode
+   read GetNextNode;
    {* следующая нода в дереве }
-  property caption: IString
-   read Get_caption
-   write Set_caption;
+  property Caption: IString
+   read GetCaption
+   write SetCaption;
    {* название }
-  property hint: IString
-   read Get_hint
-   write Set_hint;
+  property Hint: IString
+   read GetHint
+   write SetHint;
    {* информация о ноде }
-  property object_type: TEntityType
-   read Get_object_type;
+  property ObjectType: TEntityType
+   read GetObjectType;
    {* тип сущности, представляемой нодой }
  end;//INode
 
@@ -143,52 +143,36 @@ type
   {* Базовый интерфейс для работы с древовидными и/или линейными списками различных сущностей системы. Навигация по структуре (дерево или линейный список) осуществляется через экземпляры интерфейса Node. При этом каждый екземпляр Node может быть приведен к интерфейсу необходимой сущности через метод open интерфейса BaseCatalog. Для того что бы сущность можно было привести таким образом, ее экземпляр должен реализовывать интерфейс BaseEntity.
 В случае если конкретное дерево не поддерживает тех или иных операция определенных на BaseCatalog, то при их вызове должно генерироваться исключение }
   ['{B41C62C4-F733-4465-9B22-3D4C52162F8A}']
-  function Get_root: INode;
-  function Get_filter: TEntityType;
-  procedure Set_filter(aValue: TEntityType);
-  function find(const entity: IUnknown
-   {* Искомый элемент. }): INode;
+  function GetRoot: INode; stdcall;
+  function GetFilter: TEntityType; stdcall;
+  procedure SetFilter(aValue: TEntityType); stdcall;
+  function Find(const entity: IUnknown
+   {* Искомый элемент. }): INode; stdcall;
    {* Найти узел по его элементу. }
-  function find_context(mask: PAnsiChar;
+  function FindContext(mask: PAnsiChar;
    const mode: TSearchMode;
    const cur_item: INode;
    out result: TContextSearchResult
-   {* Результат поиска. При этом возвращается сквозной индекс. }): INode;
+   {* Результат поиска. При этом возвращается сквозной индекс. }): INode; stdcall;
    {* Поиск контекста среди элементов списка. }
-  procedure reset_type_filter;
+  procedure ResetTypeFilter; stdcall;
    {* сбрасывает все установленные фильтры по типам }
-  property root: INode
-   read Get_root;
+  property Root: INode
+   read GetRoot;
    {* корень дерева }
-  property filter: TEntityType
-   read Get_filter
-   write Set_filter;
+  property Filter: TEntityType
+   read GetFilter
+   write SetFilter;
    {* наложенный фильтр }
  end;//IBaseCatalog
 
  TBaseTreeNodeMask = Cardinal;
   {* флаги на старой ноде }
 
-class function make: BadFactoryType;
- {* фабрика }
-
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : INode;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

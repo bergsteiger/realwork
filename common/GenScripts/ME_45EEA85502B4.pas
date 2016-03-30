@@ -43,65 +43,38 @@ type
 
  INotification = interface
   ['{30BDF2EC-FBC4-4477-AC3B-5BB8CBFC8A4D}']
-  function Get_id: TNotifyType;
-  function Get_data: IVariant;
-  procedure set_type(type: TNotifyType);
-  procedure set_data(var data: IVariant);
-  property id: TNotifyType
-   read Get_id;
-  property data: IVariant
-   read Get_data;
+  function GetId: TNotifyType; stdcall;
+  function GetData: IVariant; stdcall;
+  procedure SetType(type: TNotifyType); stdcall;
+  procedure SetData(var data: IVariant); stdcall;
+  property Id: TNotifyType
+   read GetId;
+  property Data: IVariant
+   read GetData;
  end;//INotification
 
  IListener = interface
   {* Callback на облочке для получения сообщений с адаптера }
   ['{DFAC9F0B-95D4-4E9B-8525-1A10739E41A9}']
-  procedure fire(const notify: INotification);
+  procedure Fire(const notify: INotification); stdcall;
  end;//IListener
 
  INotifyManager = interface
   {* Менеджер, обеспечивающий обмен сообщениями между адаптером и оболочкой }
   ['{4E4282C5-1F27-4A9E-8F8D-3CC8B00FDA97}']
-  procedure register_listener_for_notify(notify_id: TNotifyType;
-   var listener: IListener);
-  procedure register_transformer(type: TNotifyType;
-   var transformer);
-  procedure listen_for_all;
-  procedure listen_only_for_me;
-  procedure stop_listen_me;
+  procedure RegisterListenerForNotify(notify_id: TNotifyType;
+   var listener: IListener); stdcall;
+  procedure RegisterTransformer(type: TNotifyType;
+   var transformer); stdcall;
+  procedure ListenForAll; stdcall;
+  procedure ListenOnlyForMe; stdcall;
+  procedure StopListenMe; stdcall;
  end;//INotifyManager
-
-class function make: BadFactoryType;
-class function make: BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
-var
- l_Inst : INotification;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : INotifyManager;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

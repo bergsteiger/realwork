@@ -18,61 +18,35 @@ type
  IInternetSupport = interface
   {* поддержка работы пользователей через internet }
   ['{7DF56131-CBD6-47F5-B8B1-495409AFE6E4}']
-  function revision_check_enabled: Boolean;
+  function RevisionCheckEnabled: ByteBool; stdcall;
    {* –азрешена ли онлайн проверка ревизий документов (дл€ супермобильной версии) }
-  function get_url_for_document(doc_id: Cardinal;
-   para_id: Cardinal): IString;
+  function GetUrlForDocument(doc_id: Cardinal;
+   para_id: Cardinal): IString; stdcall;
    {* получить URL дл€ заданного документа }
-  function is_internet_agent_enabled: Boolean;
+  function IsInternetAgentEnabled: ByteBool; stdcall;
    {* –азрешен ли »нтернет-јгент. }
-  function get_url_for_internet_version: IString;
+  function GetUrlForInternetVersion: IString; stdcall;
    {* получить URL дл€ интранет версии }
-  function show_warning: Boolean;
+  function ShowWarning: ByteBool; stdcall;
    {* Ќужно ли показывать бл€мбу об отключении онлайн проверки }
  end;//IInternetSupport
 
  IDecisionsArchiveSupport = interface
   {* »нтерфейс доступа к архивам судебных решений }
   ['{CD81011E-549D-406A-964C-9FE291552EB4}']
-  function get_archive_url: IString;
+  function GetArchiveUrl: IString; stdcall;
    {* получить ссылку дл€ перехода на архив судебных решений }
-  function archive_available: Boolean;
+  function ArchiveAvailable: ByteBool; stdcall;
    {* архив судебных решений доступен }
+  function SearchServerAvailable: ByteBool; stdcall;
+   {* проверка доступности сервера поиска в архивах }
+  function GetSearchServerUrl(const query: IString): IString; stdcall;
  end;//IDecisionsArchiveSupport
-
-class function make: BadFactoryType;
- {* фабрика }
-class function make: BadFactoryType;
 
 implementation
 
 uses
  l3ImplUses
 ;
-
-class function make: BadFactoryType;
- {* фабрика }
-var
- l_Inst : IInternetSupport;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
-
-class function make: BadFactoryType;
-var
- l_Inst : IDecisionsArchiveSupport;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//make
 
 end.

@@ -1,148 +1,122 @@
 unit evStyleInterface;
+ {* Инструмент для работы с таблицей стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleInterface.pas"
-// Начат: 20.05.2005 18:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::StyleTable::TevStyleInterface
-//
-// Инструмент для работы с таблицей стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleInterface.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleInterface" MUID: (480DB927035A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Types,
-  evdStyles,
-  l3Tree_TLB,
-  Classes,
-  k2Base,
-  k2Tags,
-  k2Dictionary,
-  evStyles_SH,
-  evFontInterface,
-  l3Variant,
-  nevBase
-  ;
+ l3IntfUses
+ , evStyles_SH
+ , l3Interfaces
+ , evFontInterface
+ , l3Variant
+ , Classes
+ , k2Base
+ , evdStyles
+ , k2Dictionary
+ , l3Types
+ , l3Tree_TLB
+ , nevBase
+ , k2Tags
+ //#UC START# *480DB927035Aintf_uses*
+ //#UC END# *480DB927035Aintf_uses*
+;
 
 type
  RevStyleInterface = class of TevStyleInterface;
 
  Tk2TagID = k2Tags.Tk2TagID;
 
-//#UC START# *480DB927035Aci*
-//#UC END# *480DB927035Aci*
-//#UC START# *480DB927035Acit*
-//#UC END# *480DB927035Acit*
+ //#UC START# *480DB927035Aci*
+ //#UC END# *480DB927035Aci*
+ //#UC START# *480DB927035Acit*
+ //#UC END# *480DB927035Acit*
  TevStyleInterface = class(SHevStyles, Il3Strings)
   {* Инструмент для работы с таблицей стилей }
- private
- // private fields
-   f_Styles : TStrings;
-   f_ForBlock : Boolean;
-   f_Font : TevFontInterface;
-    {* Поле для свойства Font}
-   f_ParentInterface : TevStyleInterface;
-    {* Поле для свойства ParentInterface}
- protected
- // property methods
+  private
+   f_Styles: TStrings;
+   f_ForBlock: Boolean;
+   f_Font: TevFontInterface;
+    {* Поле для свойства Font }
+   f_ParentInterface: TevStyleInterface;
+    {* Поле для свойства ParentInterface }
+  protected
    procedure pm_SetParentName(const aValue: AnsiString);
    function pm_GetCaption: AnsiString;
    procedure pm_SetCaption(const aValue: AnsiString);
    function pm_GetStyle: Tl3Variant;
    procedure pm_SetStyle(aValue: Tl3Variant);
    function pm_GetParentInterface: TevStyleInterface;
- protected
- // realized methods
    function Get_Items: TStrings;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Changing; override;
+   procedure ChangedEx(aCancel: Boolean); override;
+   function IsDefault: Boolean; override;
    function pm_GetTag: Tl3Variant; override;
    procedure pm_SetTag(aValue: Tl3Variant); override;
    procedure pm_SetContext(const aValue: InevOp); override;
    function pm_GetIsOwn(anIndex: Integer): Boolean; override;
-   procedure pm_SetIsOwn(anIndex: Integer; aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Changing; override;
-     {* Сигнатура метода Changing }
-   procedure ChangedEx(aCancel: Boolean); override;
-   function IsDefault: Boolean; override;
- public
- // overridden public methods
-   constructor Create; override;
- public
- // public methods
+   procedure pm_SetIsOwn(anIndex: Integer;
+    aValue: Boolean); override;
+  public
    class function MakeList(aType: Tk2Type): Il3Strings;
    constructor Make(aType: Tk2Type = nil;
-     aStyle: Integer = ev_saTxtNormalANSI);
+    aStyle: Integer = evdStyles.ev_saTxtNormalANSI); reintroduce;
    class function MakeListForBlock(aType: Tk2Type): Il3Strings;
    function GetVT: Tk2Dictionary;
-     {* возвращает список стилей }
+    {* возвращает список стилей }
    procedure Add(const S: AnsiString;
-     ID: Integer = 0);
-     {* добавляет новый стиль и устанавливает курсор на него }
+    ID: Integer = 0);
+    {* добавляет новый стиль и устанавливает курсор на него }
    procedure Delete;
-     {* удаляет текущий выбранный стиль }
+    {* удаляет текущий выбранный стиль }
    procedure SelectStyledObjectType(aType: Tk2Type);
-     {* настраивает инструмент на работу со стилями для заданного типа объектов }
+    {* настраивает инструмент на работу со стилями для заданного типа объектов }
    procedure SelectStyledObject(anObject: Tl3Variant);
-     {* настраивает инструмент на работу со стилями для заданного типа объектов }
-   function SelectStyle(const S: AnsiString): Tl3Variant; overload; 
-     {* устанавливает курсор на стиль по имени }
-   function SelectStyle(ID: Integer): Tl3Variant; overload; 
-     {* устанавливает курсор на стиль по идентификатору }
+    {* настраивает инструмент на работу со стилями для заданного типа объектов }
+   function SelectStyle(const S: AnsiString): Tl3Variant; overload;
+    {* устанавливает курсор на стиль по имени }
+   function SelectStyle(ID: Integer): Tl3Variant; overload;
+    {* устанавливает курсор на стиль по идентификатору }
    procedure IncFontSize;
-     {* Сигнатура метода IncFontSize }
    procedure DecFontSize;
-     {* Сигнатура метода DecFontSize }
    procedure IncAllFontSize;
-     {* Сигнатура метода IncAllFontSize }
    procedure DecAllFontSize;
-     {* Сигнатура метода DecAllFontSize }
    function Iterate(Action: Tl3IteratorAction): Integer;
-     {* перебирает все элементы хранилища с aLo по aHi и освобождает заглушку для Action }
+    {* перебирает все элементы хранилища с aLo по aHi и освобождает заглушку для Action }
    function IterateF(Action: Tl3IteratorAction): Integer;
-     {* перебирает все элементы хранилища с aLo по aHi и освобождает заглушку для Action }
+    {* перебирает все элементы хранилища с aLo по aHi и освобождает заглушку для Action }
    function MakeStylesTreeRoot(const aIncludeIdArray: array of Integer): Il3Node;
-     {* создает дерево стилей и возвращает интерфейс на корневую ноду }
- public
- // public properties
+    {* создает дерево стилей и возвращает интерфейс на корневую ноду }
+   constructor Create; override;
+  public
    property Font: TevFontInterface
-     read f_Font;
-     {* шрифт текущего стиля }
+    read f_Font;
+    {* шрифт текущего стиля }
    property ParentName: AnsiString
-     write pm_SetParentName;
-     {* имя родительского шрифта текущего стиля }
+    write pm_SetParentName;
+    {* имя родительского шрифта текущего стиля }
    property Caption: AnsiString
-     read pm_GetCaption
-     write pm_SetCaption;
-     {* заголовок стиля }
+    read pm_GetCaption
+    write pm_SetCaption;
+    {* заголовок стиля }
    property Style: Tl3Variant
-     read pm_GetStyle
-     write pm_SetStyle;
-     {* текущий стиль }
+    read pm_GetStyle
+    write pm_SetStyle;
+    {* текущий стиль }
    property Items: TStrings
-     read Get_Items;
-     {* список стилей }
+    read Get_Items;
+    {* список стилей }
    property ParentInterface: TevStyleInterface
-     read pm_GetParentInterface;
-     {* родительский стиль текущего стиля }
-//#UC START# *480DB927035Apubl*
+    read pm_GetParentInterface;
+    {* родительский стиль текущего стиля }
+ //#UC START# *480DB927035Apubl*
   public
    property Scalable: Boolean
      index k2_tiIsChangeableFont
@@ -209,26 +183,86 @@ type
      read pm_GetLongParam
      write pm_SetLongParam;
      {* - отступ снизу. }
-//#UC END# *480DB927035Apubl*
+ //#UC END# *480DB927035Apubl*
  end;//TevStyleInterface
 
 implementation
 
 uses
-  l3Base,
-  TextPara_Const,
-  l3Nodes,
-  l3TreeInterfaces,
-  k2SimpleTagList,
-  l3Chars
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
+ l3ImplUses
+ , l3Base
+ , TextPara_Const
+ , l3Nodes
+ , l3TreeInterfaces
+ , k2SimpleTagList
+ , l3Chars
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *480DB927035Aimpl_uses*
+ //#UC END# *480DB927035Aimpl_uses*
+;
 
-// start class TevStyleInterface
+procedure TevStyleInterface.pm_SetParentName(const aValue: AnsiString);
+//#UC START# *554CE4780115_480DB927035Aset_var*
+//#UC END# *554CE4780115_480DB927035Aset_var*
+begin
+//#UC START# *554CE4780115_480DB927035Aset_impl*
+ Tag.StrW[k2_tiStyle, Context] := aValue;
+ f_Font.Style := Self;
+//#UC END# *554CE4780115_480DB927035Aset_impl*
+end;//TevStyleInterface.pm_SetParentName
+
+function TevStyleInterface.pm_GetCaption: AnsiString;
+//#UC START# *554CE4A00368_480DB927035Aget_var*
+//#UC END# *554CE4A00368_480DB927035Aget_var*
+begin
+//#UC START# *554CE4A00368_480DB927035Aget_impl*
+ Result := Tag.Attr[k2_tiShortName].AsString;
+//#UC END# *554CE4A00368_480DB927035Aget_impl*
+end;//TevStyleInterface.pm_GetCaption
+
+procedure TevStyleInterface.pm_SetCaption(const aValue: AnsiString);
+//#UC START# *554CE4A00368_480DB927035Aset_var*
+//#UC END# *554CE4A00368_480DB927035Aset_var*
+begin
+//#UC START# *554CE4A00368_480DB927035Aset_impl*
+ Tag.StrW[k2_tiShortName, Context] := aValue;
+//#UC END# *554CE4A00368_480DB927035Aset_impl*
+end;//TevStyleInterface.pm_SetCaption
+
+function TevStyleInterface.pm_GetStyle: Tl3Variant;
+//#UC START# *554CE4F2005A_480DB927035Aget_var*
+//#UC END# *554CE4F2005A_480DB927035Aget_var*
+begin
+//#UC START# *554CE4F2005A_480DB927035Aget_impl*
+ Result := pm_GetTag;
+//#UC END# *554CE4F2005A_480DB927035Aget_impl*
+end;//TevStyleInterface.pm_GetStyle
+
+procedure TevStyleInterface.pm_SetStyle(aValue: Tl3Variant);
+//#UC START# *554CE4F2005A_480DB927035Aset_var*
+//#UC END# *554CE4F2005A_480DB927035Aset_var*
+begin
+//#UC START# *554CE4F2005A_480DB927035Aset_impl*
+ pm_SetTag(aValue);
+//#UC END# *554CE4F2005A_480DB927035Aset_impl*
+end;//TevStyleInterface.pm_SetStyle
+
+function TevStyleInterface.pm_GetParentInterface: TevStyleInterface;
+//#UC START# *554CE6060046_480DB927035Aget_var*
+var
+ P: Tl3Variant;
+//#UC END# *554CE6060046_480DB927035Aget_var*
+begin
+//#UC START# *554CE6060046_480DB927035Aget_impl*
+ if (f_ParentInterface = nil) then
+  f_ParentInterface := RevStyleInterface(ClassType).Create;
+ P := Tag.Attr[k2_tiStyle];
+ f_ParentInterface.Style := P;
+ Result := f_ParentInterface;
+//#UC END# *554CE6060046_480DB927035Aget_impl*
+end;//TevStyleInterface.pm_GetParentInterface
 
 class function TevStyleInterface.MakeList(aType: Tk2Type): Il3Strings;
 //#UC START# *554CEC2A0191_480DB927035A_var*
@@ -248,7 +282,7 @@ begin
 end;//TevStyleInterface.MakeList
 
 constructor TevStyleInterface.Make(aType: Tk2Type = nil;
-  aStyle: Integer = ev_saTxtNormalANSI);
+ aStyle: Integer = evdStyles.ev_saTxtNormalANSI);
 //#UC START# *554CEC000039_480DB927035A_var*
 //#UC END# *554CEC000039_480DB927035A_var*
 begin
@@ -281,6 +315,7 @@ begin
 end;//TevStyleInterface.MakeListForBlock
 
 function TevStyleInterface.GetVT: Tk2Dictionary;
+ {* возвращает список стилей }
 //#UC START# *554CEC770101_480DB927035A_var*
 //#UC END# *554CEC770101_480DB927035A_var*
 begin
@@ -297,7 +332,8 @@ begin
 end;//TevStyleInterface.GetVT
 
 procedure TevStyleInterface.Add(const S: AnsiString;
-  ID: Integer = 0);
+ ID: Integer = 0);
+ {* добавляет новый стиль и устанавливает курсор на него }
 //#UC START# *554CECCB0076_480DB927035A_var*
 var
  A: Tl3Variant;
@@ -320,6 +356,7 @@ begin
 end;//TevStyleInterface.Add
 
 procedure TevStyleInterface.Delete;
+ {* удаляет текущий выбранный стиль }
 //#UC START# *554CECE7001A_480DB927035A_var*
 var
  VT: Tk2Dictionary;
@@ -336,6 +373,7 @@ begin
 end;//TevStyleInterface.Delete
 
 procedure TevStyleInterface.SelectStyledObjectType(aType: Tk2Type);
+ {* настраивает инструмент на работу со стилями для заданного типа объектов }
 //#UC START# *554CED1F006A_480DB927035A_var*
 //#UC END# *554CED1F006A_480DB927035A_var*
 begin
@@ -347,6 +385,7 @@ begin
 end;//TevStyleInterface.SelectStyledObjectType
 
 procedure TevStyleInterface.SelectStyledObject(anObject: Tl3Variant);
+ {* настраивает инструмент на работу со стилями для заданного типа объектов }
 //#UC START# *554CED4F0071_480DB927035A_var*
 //#UC END# *554CED4F0071_480DB927035A_var*
 begin
@@ -357,6 +396,7 @@ begin
 end;//TevStyleInterface.SelectStyledObject
 
 function TevStyleInterface.SelectStyle(const S: AnsiString): Tl3Variant;
+ {* устанавливает курсор на стиль по имени }
 //#UC START# *554CED730123_480DB927035A_var*
 var
  VT: Tk2Dictionary;
@@ -371,6 +411,7 @@ begin
 end;//TevStyleInterface.SelectStyle
 
 function TevStyleInterface.SelectStyle(ID: Integer): Tl3Variant;
+ {* устанавливает курсор на стиль по идентификатору }
 //#UC START# *554CED8F018A_480DB927035A_var*
 var
  VT: Tk2Dictionary;
@@ -478,6 +519,7 @@ begin
 end;//TevStyleInterface.DecAllFontSize
 
 function TevStyleInterface.Iterate(Action: Tl3IteratorAction): Integer;
+ {* перебирает все элементы хранилища с aLo по aHi и освобождает заглушку для Action }
 //#UC START# *554CEE0500C0_480DB927035A_var*
  function ChangeStyle(aStyle: Pl3Variant; Index: Integer): Boolean;
  begin//ChangeStyle
@@ -496,6 +538,7 @@ begin
 end;//TevStyleInterface.Iterate
 
 function TevStyleInterface.IterateF(Action: Tl3IteratorAction): Integer;
+ {* перебирает все элементы хранилища с aLo по aHi и освобождает заглушку для Action }
 //#UC START# *554CEE2302D6_480DB927035A_var*
 //#UC END# *554CEE2302D6_480DB927035A_var*
 begin
@@ -509,6 +552,7 @@ begin
 end;//TevStyleInterface.IterateF
 
 function TevStyleInterface.MakeStylesTreeRoot(const aIncludeIdArray: array of Integer): Il3Node;
+ {* создает дерево стилей и возвращает интерфейс на корневую ноду }
 //#UC START# *554CEE6C02E7_480DB927035A_var*
  var
   l_RootNode: Il3Node absolute Result;
@@ -610,67 +654,6 @@ begin
 //#UC END# *554CEE6C02E7_480DB927035A_impl*
 end;//TevStyleInterface.MakeStylesTreeRoot
 
-procedure TevStyleInterface.pm_SetParentName(const aValue: AnsiString);
-//#UC START# *554CE4780115_480DB927035Aset_var*
-//#UC END# *554CE4780115_480DB927035Aset_var*
-begin
-//#UC START# *554CE4780115_480DB927035Aset_impl*
- Tag.StrW[k2_tiStyle, Context] := aValue;
- f_Font.Style := Self;
-//#UC END# *554CE4780115_480DB927035Aset_impl*
-end;//TevStyleInterface.pm_SetParentName
-
-function TevStyleInterface.pm_GetCaption: AnsiString;
-//#UC START# *554CE4A00368_480DB927035Aget_var*
-//#UC END# *554CE4A00368_480DB927035Aget_var*
-begin
-//#UC START# *554CE4A00368_480DB927035Aget_impl*
- Result := Tag.Attr[k2_tiShortName].AsString;
-//#UC END# *554CE4A00368_480DB927035Aget_impl*
-end;//TevStyleInterface.pm_GetCaption
-
-procedure TevStyleInterface.pm_SetCaption(const aValue: AnsiString);
-//#UC START# *554CE4A00368_480DB927035Aset_var*
-//#UC END# *554CE4A00368_480DB927035Aset_var*
-begin
-//#UC START# *554CE4A00368_480DB927035Aset_impl*
- Tag.StrW[k2_tiShortName, Context] := aValue;
-//#UC END# *554CE4A00368_480DB927035Aset_impl*
-end;//TevStyleInterface.pm_SetCaption
-
-function TevStyleInterface.pm_GetStyle: Tl3Variant;
-//#UC START# *554CE4F2005A_480DB927035Aget_var*
-//#UC END# *554CE4F2005A_480DB927035Aget_var*
-begin
-//#UC START# *554CE4F2005A_480DB927035Aget_impl*
- Result := pm_GetTag;
-//#UC END# *554CE4F2005A_480DB927035Aget_impl*
-end;//TevStyleInterface.pm_GetStyle
-
-procedure TevStyleInterface.pm_SetStyle(aValue: Tl3Variant);
-//#UC START# *554CE4F2005A_480DB927035Aset_var*
-//#UC END# *554CE4F2005A_480DB927035Aset_var*
-begin
-//#UC START# *554CE4F2005A_480DB927035Aset_impl*
- pm_SetTag(aValue);
-//#UC END# *554CE4F2005A_480DB927035Aset_impl*
-end;//TevStyleInterface.pm_SetStyle
-
-function TevStyleInterface.pm_GetParentInterface: TevStyleInterface;
-//#UC START# *554CE6060046_480DB927035Aget_var*
-var
- P: Tl3Variant;
-//#UC END# *554CE6060046_480DB927035Aget_var*
-begin
-//#UC START# *554CE6060046_480DB927035Aget_impl*
- if (f_ParentInterface = nil) then
-  f_ParentInterface := RevStyleInterface(ClassType).Create;
- P := Tag.Attr[k2_tiStyle];
- f_ParentInterface.Style := P;
- Result := f_ParentInterface;
-//#UC END# *554CE6060046_480DB927035Aget_impl*
-end;//TevStyleInterface.pm_GetParentInterface
-
 function TevStyleInterface.Get_Items: TStrings;
 //#UC START# *46A4746A03AF_480DB927035Aget_var*
 var
@@ -698,6 +681,7 @@ begin
 end;//TevStyleInterface.Get_Items
 
 procedure TevStyleInterface.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_480DB927035A_var*
 //#UC END# *479731C50290_480DB927035A_var*
 begin
@@ -797,7 +781,8 @@ begin
 //#UC END# *554CEA2D01A9_480DB927035Aget_impl*
 end;//TevStyleInterface.pm_GetIsOwn
 
-procedure TevStyleInterface.pm_SetIsOwn(anIndex: Integer; aValue: Boolean);
+procedure TevStyleInterface.pm_SetIsOwn(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *554CEA2D01A9_480DB927035Aset_var*
 //#UC END# *554CEA2D01A9_480DB927035Aset_var*
 begin

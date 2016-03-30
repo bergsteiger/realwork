@@ -1,88 +1,71 @@
 unit vgGradientPoints;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/vgGradientPoints.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Impl::TvgGradientPoints
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgGradientPoints.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvgGradientPoints" MUID: (4D55623200CE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes,
-  vgGradientPoint,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , Classes
+ , vgGradientPoint
+ , l3PureMixIns
+ //#UC START# *4D55623200CEintf_uses*
+ //#UC END# *4D55623200CEintf_uses*
+;
 
-{$If not defined(NoVGScene)}
  {$Define _UnknownForDesign}
 
  {$Define l3Unknown_NoIUnknown}
 
 type
-//#UC START# *4D55623200CEci*
-//#UC END# *4D55623200CEci*
+ //#UC START# *4D55623200CEci*
+ //#UC END# *4D55623200CEci*
  _l3Unknown_Parent_ = TCollection;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-//#UC START# *4D55623200CEcit*
-//#UC END# *4D55623200CEcit*
+ //#UC START# *4D55623200CEcit*
+ //#UC END# *4D55623200CEcit*
  TvgGradientPoints = class(_l3Unknown_)
- protected
- // property methods
+  protected
    function pm_GetPoints(anIndex: Integer): TvgGradientPoint;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public properties
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    property Points[anIndex: Integer]: TvgGradientPoint
-     read pm_GetPoints;
-     default;
-//#UC START# *4D55623200CEpubl*
+    read pm_GetPoints;
+    default;
+ //#UC START# *4D55623200CEpubl*
  protected
    {$I l3DefineCleanup.inc}
-//#UC END# *4D55623200CEpubl*
+ //#UC END# *4D55623200CEpubl*
  end;//TvgGradientPoints
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
+ //#UC START# *4D55623200CEimpl_uses*
+ //#UC END# *4D55623200CEimpl_uses*
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-
-// start class TvgGradientPoints
 
 function TvgGradientPoints.pm_GetPoints(anIndex: Integer): TvgGradientPoint;
 //#UC START# *4D55624903C3_4D55623200CEget_var*
@@ -93,8 +76,9 @@ begin
 //#UC END# *4D55624903C3_4D55623200CEget_impl*
 end;//TvgGradientPoints.pm_GetPoints
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TvgGradientPoints.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4D55623200CE_var*
 //#UC END# *47A6FEE600FC_4D55623200CE_var*
 begin
@@ -102,7 +86,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4D55623200CE_impl*
 end;//TvgGradientPoints.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 //#UC START# *4D55623200CEimpl*
 type
@@ -112,12 +96,11 @@ begin
 end;
 //#UC END# *4D55623200CEimpl*
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgGradientPoints
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgGradientPoints);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgGradientPoints }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

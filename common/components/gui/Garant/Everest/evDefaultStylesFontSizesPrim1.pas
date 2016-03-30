@@ -1,29 +1,18 @@
 unit evDefaultStylesFontSizesPrim1;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDefaultStylesFontSizesPrim1.pas"
-// Начат: 28.07.2011 19:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::StyleTable::TevDefaultStylesFontSizesPrim1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim1.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevDefaultStylesFontSizesPrim1" MUID: (4E317AC802F4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evDefaultStylesFontSizesPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , evDefaultStylesFontSizesPrim
+ , l3Types
+;
 
 type
  _FindDataType_ = Integer;
@@ -34,12 +23,16 @@ type
 
 implementation
 
-// start class TevDefaultStylesFontSizesPrim1
+uses
+ l3ImplUses
+ , l3Memory
+;
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_4E317AC802F4_var*
 //#UC END# *47B9BAFD01F4_4E317AC802F4_var*
 begin

@@ -1,40 +1,27 @@
 unit vcmEntityDefForContextMenu;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmEntityDefForContextMenu.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmEntityDefForContextMenu
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmEntityDefForContextMenu.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityDefForContextMenu" MUID: (51D148890323)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  l3CProtoObject,
-  vcmExternalInterfaces,
-  vcmUserControls
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3CProtoObject
+ , vcmInterfaces
+ , vcmExternalInterfaces
+ , vcmUserControls
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmEntityDefForContextMenu = class(Tl3CProtoObject, IvcmEntityDef)
- private
- // private fields
-   f_En : IvcmEntityDef;
- protected
- // realized methods
+  private
+   f_En: IvcmEntityDef;
+  protected
    function Get_Hint: IvcmCString;
    function Get_LongHint: IvcmCString;
    function Get_ImageIndex: Integer;
@@ -45,29 +32,20 @@ type
    function Get_Caption: IvcmCString;
    function Get_Name: TvcmString;
    function Get_ContextMenuWeight: Integer;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const anEn: IvcmEntityDef); reintroduce;
    class function Make(const anEn: IvcmEntityDef): IvcmEntityDef; reintroduce;
-     {* Сигнатура фабрики TvcmEntityDefForContextMenu.Make }
  end;//TvcmEntityDefForContextMenu
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmOperationsDefIteratorForContextMenu
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmEntityDefForContextMenu
+ l3ImplUses
+ , vcmOperationsDefIteratorForContextMenu
+;
 
 constructor TvcmEntityDefForContextMenu.Create(const anEn: IvcmEntityDef);
 //#UC START# *51D148D100C2_51D148890323_var*
@@ -89,7 +67,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmEntityDefForContextMenu.Make
 
 function TvcmEntityDefForContextMenu.Get_Hint: IvcmCString;
 //#UC START# *4995616701BB_51D148890323get_var*
@@ -182,14 +160,10 @@ begin
 end;//TvcmEntityDefForContextMenu.Get_ContextMenuWeight
 
 procedure TvcmEntityDefForContextMenu.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_En := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvcmEntityDefForContextMenu.ClearFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

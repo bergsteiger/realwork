@@ -12,16 +12,16 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
+ , l3Interfaces
+ , afwInterfaces
+ , vcmExternalInterfaces
  , vcmInterfaces
  {$If NOT Defined(NoVCL)}
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
- , l3Interfaces
- , vcmExternalInterfaces
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , afwInterfaces
 ;
 
 type

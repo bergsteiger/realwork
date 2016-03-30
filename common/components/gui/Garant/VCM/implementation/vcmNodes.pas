@@ -1,41 +1,27 @@
 unit vcmNodes;
+ {* Список нод. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmNodes.pas"
-// Начат: 15.01.2007 21:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::vcmCore::TvcmNodes
-//
-// Список нод.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmNodes.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmNodes" MUID: (47DF707B01E2)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3ProtoDataContainer
+ , vcmExternalInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
  _ItemType_ = IvcmNode;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
@@ -43,14 +29,12 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmNodes = class(_l3InterfaceRefList_, IvcmNodes)
   {* Список нод. }
- private
- // private fields
-   f_PlainLevel : Integer;
-   f_ShowRoot : Boolean;
-   f_Tree : IvcmTree;
-   f_Current : IvcmNode;
- protected
- // realized methods
+  private
+   f_PlainLevel: Integer;
+   f_ShowRoot: Boolean;
+   f_Tree: IvcmTree;
+   f_Current: IvcmNode;
+  protected
    function Get_Current: IvcmNode;
    procedure Set_Current(const aValue: IvcmNode);
    function Get_PlainLevel: Integer;
@@ -60,35 +44,28 @@ type
    function Get_Tree: IvcmTree;
    procedure Set_Tree(const aValue: IvcmTree);
    function pm_GetCount: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function MakeI: IvcmNodes; reintroduce;
  end;//TvcmNodes
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TvcmNodes;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
-
-// start class TvcmNodes
 
 class function TvcmNodes.MakeI: IvcmNodes;
 var
@@ -100,7 +77,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmNodes.MakeI
 
 function TvcmNodes.Get_Current: IvcmNode;
 //#UC START# *4683D67D025B_47DF707B01E2get_var*
@@ -184,6 +161,7 @@ begin
 end;//TvcmNodes.pm_GetCount
 
 procedure TvcmNodes.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47DF707B01E2_var*
 //#UC END# *479731C50290_47DF707B01E2_var*
 begin
@@ -204,7 +182,6 @@ begin
  f_ShowRoot := false;
 //#UC END# *47A042E100E2_47DF707B01E2_impl*
 end;//TvcmNodes.InitFields
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

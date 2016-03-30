@@ -11,13 +11,13 @@ interface
 
 uses
  l3IntfUses
- , evdInterfaces
- , nevTools
  , l3Interfaces
- , nevBase
- , l3Variant
  , l3Types
+ , nevBase
  , l3Core
+ , nevTools
+ , evdInterfaces
+ , l3Variant
 ;
 
 const

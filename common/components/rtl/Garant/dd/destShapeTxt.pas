@@ -1,49 +1,38 @@
 unit destShapeTxt;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destShapeTxt.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestShapeTxt
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destShapeTxt.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestShapeTxt" MUID: (5461C20002DF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  destNorm,
-  ddRTFState,
-  ddRTFShape
-  ;
+ l3IntfUses
+ , destNorm
+ , ddRTFState
+ , ddRTFShape
+;
 
 type
  TdestShapeTxt = class(TdestNorm)
- protected
- // overridden protected methods
+  protected
    function CanAddTable: Boolean; override;
- public
- // overridden public methods
-   procedure Clear; override;
- public
- // public methods
+  public
    procedure Apply2Shape(aState: TddRTFState;
-     aShape: TddRTFShape);
+    aShape: TddRTFShape);
+   procedure Clear; override;
  end;//TdestShapeTxt
 
 implementation
 
-// start class TdestShapeTxt
+uses
+ l3ImplUses
+;
 
 procedure TdestShapeTxt.Apply2Shape(aState: TddRTFState;
-  aShape: TddRTFShape);
+ aShape: TddRTFShape);
 //#UC START# *559CC89A011D_5461C20002DF_var*
 //#UC END# *559CC89A011D_5461C20002DF_var*
 begin

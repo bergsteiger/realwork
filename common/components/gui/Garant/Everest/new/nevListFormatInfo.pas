@@ -1,123 +1,112 @@
 unit nevListFormatInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevListFormatInfo.pas"
-// Начат: 28.04.2008 15:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Rendering::TnevListFormatInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevListFormatInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevListFormatInfo" MUID: (4815B8510359)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  nevFormatInfo,
-  nevFormatInfoArray,
-  nevParaFormatInfo
-  ;
+ l3IntfUses
+ , nevParaFormatInfo
+ , nevFormatInfoArray
+ , nevTools
+ , nevFormatInfo
+ , nevBase
+;
 
 type
  _nevChildSpy_Parent_ = TnevParaFormatInfo;
- {$Include ..\new\nevChildSpy.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
  TnevListFormatInfo = class(_nevChildSpy_)
- private
- // private fields
-   f_Children : TnevFormatInfoArray;
- private
- // private methods
+  private
+   f_Children: TnevFormatInfoArray;
+  private
    procedure RecalcImpl(const aView: InevViewMetrics);
    procedure CellChanged;
    function NearestInfoForChild(const aChild: InevObject): TnevListFormatInfo;
- protected
- // realized methods
+  protected
+   function AllowTotalRecalc: Boolean; virtual;
+   procedure FormatChild(const anAtom: InevPara;
+    var theMap: TnevFormatInfo);
+   procedure HRecalcChild(const aChild: InevPara;
+    var sPW: Integer;
+    var sPH: Integer); virtual;
+   function ChildWidth(aChild: TnevFormatInfo): Integer; virtual;
+   procedure ChildrenChanged; virtual;
+    {* Нотификация о смене состава детей. }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetMaxLinesCount: Integer; override;
+   procedure DoRecalc(const aView: InevViewMetrics); override;
+  public
    procedure ChildAdded(const aList: InevParaList;
     const aChild: InevPara); override;
    procedure ChildDeleted(const aList: InevParaList;
     const aChild: InevPara); override;
    procedure DoInvalidateShape(const aShape: InevObject;
     aParts: TnevShapeParts); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetMaxLinesCount: Integer; override;
-   procedure DoRecalc(const aView: InevViewMetrics); override;
- public
- // overridden public methods
    function GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo; override;
- protected
- // protected methods
-   function AllowTotalRecalc: Boolean; virtual;
-   procedure FormatChild(const anAtom: InevPara;
-     var theMap: TnevFormatInfo);
-   procedure HRecalcChild(const aChild: InevPara;
-     var sPW: Integer;
-     var sPH: Integer); virtual;
-   function ChildWidth(aChild: TnevFormatInfo): Integer; virtual;
-   procedure ChildrenChanged; virtual;
-     {* Нотификация о смене состава детей. }
  end;//TnevListFormatInfo
 
 implementation
 
 uses
-  Table_Const,
-  SysUtils,
-  nevLeafRenderInfo,
-  nevTextParaRenderInfo,
-  nevRubberCellsRenderInfo,
-  nevTableRowRenderInfo,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  nevTableCellFormatInfo,
-  l3MinMax,
-  TableRow_Const,
-  CommentPara_Const,
-  SBS_Const,
-  SBSRow_Const,
-  ReqRow_Const,
-  TableCell_Const,
-  SBSCell_Const,
-  TextPara_Const,
-  nevZoomedCellsRenderInfo,
-  nevFacade,
-  nevZoomedRubberCellsRenderInfo,
-  evSectionPara,
-  nevFormatInfoFactory,
-  k2Base
-  ;
+ l3ImplUses
+ , SysUtils
+ , nevLeafRenderInfo
+ , nevTextParaRenderInfo
+ , nevRubberCellsRenderInfo
+ , nevTableRowRenderInfo
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , nevTableCellFormatInfo
+ , l3MinMax
+ , TableRow_Const
+ , CommentPara_Const
+ , SBS_Const
+ , SBSRow_Const
+ , ReqRow_Const
+ , TableCell_Const
+ , SBSCell_Const
+ , TextPara_Const
+ , nevZoomedCellsRenderInfo
+ , nevFacade
+ , nevZoomedRubberCellsRenderInfo
+ , evSectionPara
+ , nevFormatInfoFactory
+ , k2Base
+ , Table_Const
+;
 
-{$Include ..\new\nevChildSpy.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
 
-// start class TnevListFormatInfo
+function TnevListFormatInfo.AllowTotalRecalc: Boolean;
+//#UC START# *4E7095FC023D_4815B8510359_var*
+//#UC END# *4E7095FC023D_4815B8510359_var*
+begin
+//#UC START# *4E7095FC023D_4815B8510359_impl*
+ Result := true;
+//#UC END# *4E7095FC023D_4815B8510359_impl*
+end;//TnevListFormatInfo.AllowTotalRecalc
 
 procedure TnevListFormatInfo.RecalcImpl(const aView: InevViewMetrics);
-var
- l_sPH : Integer;
- l_sPW : Integer;
- l_FixedWidth : Boolean;
- l_Delta : TnevPoint;
+var l_sPH: Integer;
+var l_sPW: Integer;
+var l_FixedWidth: Boolean;
+var l_Delta: TnevPoint;
+var l_Space: TnevRect;
+var l_Vert: Boolean;
 
  procedure RecalcVert;
 
   function DoIt(const anItem: InevPara;
-    anIndex: Integer): Boolean;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2InevParaListIterateParaAction из RecalcVert }
   //#UC START# *9598BBF73723__var*
   var
    PW    : Integer;
@@ -143,16 +132,18 @@ var
   //#UC START# *4E70A26D0302iter*
   (Obj As InevObject).AsPara.AsList.
   //#UC END# *4E70A26D0302iter*
-   IterateParaF(L2InevParaListIterateParaAction(@DoIt)
-    //#UC START# *4E70A26D0302iterparam*
-    //#UC END# *4E70A26D0302iterparam*
-   );
+  IterateParaF(L2InevParaListIterateParaAction(@DoIt)
+  //#UC START# *4E70A26D0302iterparam*
+  //#UC END# *4E70A26D0302iterparam*
+  );
  end;//RecalcVert
+
 
  procedure RecalcHorz;
 
   function DoIt(const anItem: InevPara;
-    anIndex: Integer): Boolean;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2InevParaListIterateParaAction из RecalcHorz }
   //#UC START# *998D2E0A65D4__var*
   //#UC END# *998D2E0A65D4__var*
   begin
@@ -168,17 +159,14 @@ var
   //#UC START# *4E70A28A00B3iter*
   (Obj As InevObject).AsPara.AsList.
   //#UC END# *4E70A28A00B3iter*
-   IterateParaF(L2InevParaListIterateParaAction(@DoIt)
-    //#UC START# *4E70A28A00B3iterparam*
-    //#UC END# *4E70A28A00B3iterparam*
-   );
+  IterateParaF(L2InevParaListIterateParaAction(@DoIt)
+  //#UC START# *4E70A28A00B3iterparam*
+  //#UC END# *4E70A28A00B3iterparam*
+  );
  end;//RecalcHorz
 
 //#UC START# *4E709676009E_4815B8510359_var*
 //#UC END# *4E709676009E_4815B8510359_var*
-var
- l_Space : TnevRect;
- l_Vert : Boolean;
 begin
 //#UC START# *4E709676009E_4815B8510359_impl*
  l_FixedWidth := Obj.AsObject.BoolA[k2_tiFixedWidth];
@@ -219,27 +207,8 @@ begin
 //#UC END# *4E709676009E_4815B8510359_impl*
 end;//TnevListFormatInfo.RecalcImpl
 
-procedure TnevListFormatInfo.CellChanged;
-//#UC START# *5108C0320162_4815B8510359_var*
-//#UC END# *5108C0320162_4815B8510359_var*
-begin
-//#UC START# *5108C0320162_4815B8510359_impl*
- wForce([nev_ripHeight, nev_ripWidth, nev_ripCellParams]);
- ForceParent;
-//#UC END# *5108C0320162_4815B8510359_impl*
-end;//TnevListFormatInfo.CellChanged
-
-function TnevListFormatInfo.AllowTotalRecalc: Boolean;
-//#UC START# *4E7095FC023D_4815B8510359_var*
-//#UC END# *4E7095FC023D_4815B8510359_var*
-begin
-//#UC START# *4E7095FC023D_4815B8510359_impl*
- Result := true;
-//#UC END# *4E7095FC023D_4815B8510359_impl*
-end;//TnevListFormatInfo.AllowTotalRecalc
-
 procedure TnevListFormatInfo.FormatChild(const anAtom: InevPara;
-  var theMap: TnevFormatInfo);
+ var theMap: TnevFormatInfo);
 //#UC START# *4E70969C03A0_4815B8510359_var*
 //#UC END# *4E70969C03A0_4815B8510359_var*
 begin
@@ -251,8 +220,8 @@ begin
 end;//TnevListFormatInfo.FormatChild
 
 procedure TnevListFormatInfo.HRecalcChild(const aChild: InevPara;
-  var sPW: Integer;
-  var sPH: Integer);
+ var sPW: Integer;
+ var sPH: Integer);
 //#UC START# *4E7096D600BD_4815B8510359_var*
 var
  l_PH  : Integer;
@@ -267,6 +236,16 @@ begin
   sPH := l_PH;
 //#UC END# *4E7096D600BD_4815B8510359_impl*
 end;//TnevListFormatInfo.HRecalcChild
+
+procedure TnevListFormatInfo.CellChanged;
+//#UC START# *5108C0320162_4815B8510359_var*
+//#UC END# *5108C0320162_4815B8510359_var*
+begin
+//#UC START# *5108C0320162_4815B8510359_impl*
+ wForce([nev_ripHeight, nev_ripWidth, nev_ripCellParams]);
+ ForceParent;
+//#UC END# *5108C0320162_4815B8510359_impl*
+end;//TnevListFormatInfo.CellChanged
 
 function TnevListFormatInfo.NearestInfoForChild(const aChild: InevObject): TnevListFormatInfo;
 //#UC START# *4817250302EF_4815B8510359_var*
@@ -398,6 +377,7 @@ begin
 end;//TnevListFormatInfo.ChildWidth
 
 procedure TnevListFormatInfo.ChildrenChanged;
+ {* Нотификация о смене состава детей. }
 //#UC START# *482161BE001C_4815B8510359_var*
 //#UC END# *482161BE001C_4815B8510359_var*
 begin
@@ -409,7 +389,7 @@ begin
 end;//TnevListFormatInfo.ChildrenChanged
 
 procedure TnevListFormatInfo.ChildAdded(const aList: InevParaList;
-  const aChild: InevPara);
+ const aChild: InevPara);
 //#UC START# *481710BB0076_4815B8510359_var*
 var
  l_FI : TnevListFormatInfo;
@@ -435,7 +415,7 @@ begin
 end;//TnevListFormatInfo.ChildAdded
 
 procedure TnevListFormatInfo.ChildDeleted(const aList: InevParaList;
-  const aChild: InevPara);
+ const aChild: InevPara);
 //#UC START# *481710C100FB_4815B8510359_var*
 var
  l_FI : TnevListFormatInfo;
@@ -461,7 +441,7 @@ begin
 end;//TnevListFormatInfo.ChildDeleted
 
 procedure TnevListFormatInfo.DoInvalidateShape(const aShape: InevObject;
-  aParts: TnevShapeParts);
+ aParts: TnevShapeParts);
 //#UC START# *48172A690313_4815B8510359_var*
 var
  l_FI : TnevFormatInfo;
@@ -491,6 +471,7 @@ begin
 end;//TnevListFormatInfo.DoInvalidateShape
 
 procedure TnevListFormatInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4815B8510359_var*
 //#UC END# *479731C50290_4815B8510359_var*
 begin

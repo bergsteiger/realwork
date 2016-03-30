@@ -1,83 +1,61 @@
 unit vcmPrimCollectionItem;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/vcmPrimCollectionItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Collections::TvcmPrimCollectionItem
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmPrimCollectionItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmPrimCollectionItem" MUID: (4FFC335A011F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  Classes,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , Classes
+ , vcmInterfaces
+ , l3PureMixIns
+;
 
-{$If not defined(NoVCM)}
  {$Define _UnknownNeedsQI}
 
-type
-
-{$If not defined(NoVCM) AND not defined(vcmNeedL3)}
+{$If NOT Defined(vcmNeedL3)}
  {$Define _UnknownNotNeedL3}
-{$IfEnd} //not NoVCM AND not vcmNeedL3
+{$IfEnd} // NOT Defined(vcmNeedL3)
 
+type
  _l3Unknown_Parent_ = TCollectionItem;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmPrimCollectionItem = class(_l3Unknown_)
- protected
- // property methods
+  protected
    function pm_GetDispatcher: IvcmDispatcher;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public properties
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    property Dispatcher: IvcmDispatcher
-     read pm_GetDispatcher;
+    read pm_GetDispatcher;
  end;//TvcmPrimCollectionItem
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmBase
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , vcmBase
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-
-// start class TvcmPrimCollectionItem
 
 function TvcmPrimCollectionItem.pm_GetDispatcher: IvcmDispatcher;
 //#UC START# *55CCAB2C0353_4FFC335A011Fget_var*
@@ -92,8 +70,9 @@ begin
 //#UC END# *55CCAB2C0353_4FFC335A011Fget_impl*
 end;//TvcmPrimCollectionItem.pm_GetDispatcher
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TvcmPrimCollectionItem.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4FFC335A011F_var*
 //#UC END# *47A6FEE600FC_4FFC335A011F_var*
 begin
@@ -101,14 +80,13 @@ begin
  Result := True;
 //#UC END# *47A6FEE600FC_4FFC335A011F_impl*
 end;//TvcmPrimCollectionItem.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmPrimCollectionItem
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmPrimCollectionItem);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmPrimCollectionItem }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

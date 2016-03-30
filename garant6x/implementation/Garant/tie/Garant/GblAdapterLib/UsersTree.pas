@@ -1,44 +1,38 @@
 unit UsersTree;
+ {* Дерево  пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/UsersTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x::GblAdapterLib::Security_i::UsersTree
-//
-// Дерево  пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UsersTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "UsersTree" MUID: (49DF198B015D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SecurityUnit,
-  ree
-  ;
+ l3IntfUses
+ , ree
+ , SecurityUnit
+;
 
 type
  UsersTree = class
   {* Дерево  пользователей }
- public
- // public methods
-   constructor Make(tree);
-   procedure RegisterListener(var profile: IUserProfile); virtual;
+  public
+   NodeType_: ;
+   NodeDelegateType_: ;
+  public
+   constructor Make(const tree); reintroduce; stdcall;
+   procedure RegisterListener(var profile: IUserProfile); virtual; stdcall;
  end;//UsersTree
 
 implementation
 
-// start class UsersTree
+uses
+ l3ImplUses
+;
 
-constructor UsersTree.Make(tree);
+constructor UsersTree.Make(const tree);
 //#UC START# *49DF1C4A00F4_49DF198B015D_var*
 //#UC END# *49DF1C4A00F4_49DF198B015D_var*
 begin

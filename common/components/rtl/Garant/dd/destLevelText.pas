@@ -1,96 +1,81 @@
 unit destLevelText;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destLevelText.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestLevelText
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destLevelText.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestLevelText" MUID: (51DD039F01CF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Memory,
-  ddRTFdestination,
-  ddRTFState,
-  ddCustomRTFReader,
-  l3Base,
-  RTFtypes
-  ;
+ l3IntfUses
+ , ddRTFdestination
+ , l3Memory
+ , ddRTFState
+ , RTFtypes
+ , l3Base
+ , ddCustomRTFReader
+;
 
 type
  TdestLevelText = class(TddRTFDestination)
- private
- // private fields
-   f_Length : Integer;
-    {* Поле для свойства Length}
-   f_Numbers : AnsiString;
-    {* Поле для свойства Numbers}
-   f_Text : AnsiString;
-    {* Поле для свойства Text}
-   f_UnicodeSymbol : Word;
-    {* Поле для свойства UnicodeSymbol}
-   f_UnicodeBuffer : Tl3MemoryStream;
-    {* Поле для свойства UnicodeBuffer}
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
+  private
+   f_Length: Integer;
+    {* Поле для свойства Length }
+   f_Numbers: AnsiString;
+    {* Поле для свойства Numbers }
+   f_Text: AnsiString;
+    {* Поле для свойства Text }
+   f_UnicodeSymbol: Word;
+    {* Поле для свойства UnicodeSymbol }
+   f_UnicodeBuffer: Tl3MemoryStream;
+    {* Поле для свойства UnicodeBuffer }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
    procedure Clear; override;
    procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    procedure AddUnicodeChar(aText: Word;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    constructor Create(aRTFReader: TddCustomRTFReader); override;
- public
- // public properties
+  public
    property Length: Integer
-     read f_Length
-     write f_Length;
+    read f_Length
+    write f_Length;
    property Numbers: AnsiString
-     read f_Numbers
-     write f_Numbers;
+    read f_Numbers
+    write f_Numbers;
    property Text: AnsiString
-     read f_Text
-     write f_Text;
+    read f_Text
+    write f_Text;
    property UnicodeSymbol: Word
-     read f_UnicodeSymbol
-     write f_UnicodeSymbol;
+    read f_UnicodeSymbol
+    write f_UnicodeSymbol;
    property UnicodeBuffer: Tl3MemoryStream
-     read f_UnicodeBuffer;
+    read f_UnicodeBuffer;
  end;//TdestLevelText
 
 implementation
 
 uses
-  destListLevel,
-  SysUtils,
-  l3Types,
-  l3String
-  ;
-
-// start class TdestLevelText
+ l3ImplUses
+ , destListLevel
+ , SysUtils
+ , l3Types
+ , l3String
+;
 
 procedure TdestLevelText.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_51DD039F01CF_var*
 var
  l_Str: Tl3PCharLen;
@@ -109,8 +94,8 @@ begin
 end;//TdestLevelText.Close
 
 procedure TdestLevelText.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_51DD039F01CF_var*
 //#UC END# *54E1F08400F9_51DD039F01CF_var*
 begin
@@ -120,6 +105,7 @@ begin
 end;//TdestLevelText.WriteText
 
 procedure TdestLevelText.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51DD039F01CF_var*
 //#UC END# *479731C50290_51DD039F01CF_var*
 begin
@@ -143,7 +129,7 @@ begin
 end;//TdestLevelText.Clear
 
 procedure TdestLevelText.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_51DD039F01CF_var*
 //#UC END# *51D27C0402E9_51DD039F01CF_var*
 begin
@@ -164,7 +150,7 @@ begin
 end;//TdestLevelText.AddAnsiChar
 
 procedure TdestLevelText.AddUnicodeChar(aText: Word;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27DFA0308_51DD039F01CF_var*
 
  function lp_NeedSymbol: Boolean;
@@ -194,5 +180,12 @@ begin
  f_UnicodeBuffer := Tl3MemoryStream.Create;
 //#UC END# *51E7C9DB0213_51DD039F01CF_impl*
 end;//TdestLevelText.Create
+
+procedure TdestLevelText.ClearFields;
+begin
+ Numbers := '';
+ Text := '';
+ inherited;
+end;//TdestLevelText.ClearFields
 
 end.

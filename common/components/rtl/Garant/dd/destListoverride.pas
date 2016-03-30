@@ -1,75 +1,59 @@
 unit destListoverride;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destListoverride.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestListoverride
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destListoverride.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestListoverride" MUID: (51DD4D0E00D8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRTFdestination,
-  rtfListTable,
-  RTFtypes,
-  ddRTFState,
-  ddCustomRTFReader,
-  l3Base
-  ;
+ l3IntfUses
+ , ddRTFdestination
+ , rtfListTable
+ , ddRTFState
+ , RTFtypes
+ , l3Base
+ , ddCustomRTFReader
+;
 
 type
  TdestListoverride = class(TddRTFDestination)
- private
- // private fields
-   f_ListOverride : TrtfListOverride;
-    {* Поле для свойства ListOverride}
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
+  private
+   f_ListOverride: TrtfListOverride;
+    {* Поле для свойства ListOverride }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
    procedure Clear; override;
    procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); override;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); override;
    constructor Create(aRTFReader: TddCustomRTFReader); override;
- public
- // public properties
+  public
    property ListOverride: TrtfListOverride
-     read f_ListOverride
-     write f_ListOverride;
+    read f_ListOverride
+    write f_ListOverride;
  end;//TdestListoverride
 
 implementation
 
 uses
-  SysUtils,
-  destListOverrideTable
-  ;
-
-// start class TdestListoverride
+ l3ImplUses
+ , SysUtils
+ , destListOverrideTable
+;
 
 procedure TdestListoverride.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_51DD4D0E00D8_var*
 //#UC END# *5461BEC2017D_51DD4D0E00D8_var*
 begin
@@ -82,8 +66,8 @@ begin
 end;//TdestListoverride.Close
 
 procedure TdestListoverride.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_51DD4D0E00D8_var*
 //#UC END# *54E1F08400F9_51DD4D0E00D8_var*
 begin
@@ -93,6 +77,7 @@ begin
 end;//TdestListoverride.WriteText
 
 procedure TdestListoverride.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51DD4D0E00D8_var*
 //#UC END# *479731C50290_51DD4D0E00D8_var*
 begin
@@ -112,9 +97,9 @@ begin
 end;//TdestListoverride.Clear
 
 procedure TdestListoverride.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_51DD4D0E00D8_var*
 //#UC END# *51D27EC50388_51DD4D0E00D8_var*
 begin

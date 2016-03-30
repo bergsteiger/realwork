@@ -1,122 +1,96 @@
 unit ddBorder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddBorder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddBorder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddBorder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddBorder" MUID: (4F6843EE00B1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddPropertyObject,
-  RTFtypes,
-  ddBorderPart,
-  ddTypes,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , ddPropertyObject
+ , ddTypes
+ , ddBorderPart
+ , RTFtypes
+ , k2Interfaces
+;
 
 type
  TddBorderPartArray = array [TddBorderParts] of TddBorderPart;
 
  TddBorder = class(TddPropertyObject)
- private
- // private fields
-   f_BorderParts : TddBorderPartArray;
-   f_BorderOwner : TddBorderOwner;
-    {* Поле для свойства BorderOwner}
- private
- // private methods
+  private
+   f_BorderParts: TddBorderPartArray;
+   f_BorderOwner: TddBorderOwner;
+    {* Поле для свойства BorderOwner }
+  private
    function HasAllFramePart: Boolean;
- protected
- // property methods
+  protected
    function pm_GetFrameColor(anIndex: TddBorderParts): LongInt;
-   procedure pm_SetFrameColor(anIndex: TddBorderParts; aValue: LongInt);
+   procedure pm_SetFrameColor(anIndex: TddBorderParts;
+    aValue: LongInt);
    function pm_GetFrameSpace(anIndex: TddBorderParts): LongInt;
-   procedure pm_SetFrameSpace(anIndex: TddBorderParts; aValue: LongInt);
+   procedure pm_SetFrameSpace(anIndex: TddBorderParts;
+    aValue: LongInt);
    function pm_GetFrameWidth(anIndex: TddBorderParts): LongInt;
-   procedure pm_SetFrameWidth(anIndex: TddBorderParts; aValue: LongInt);
+   procedure pm_SetFrameWidth(anIndex: TddBorderParts;
+    aValue: LongInt);
    function pm_GetFrames(anIndex: TddBorderParts): TddBorderPart;
-   procedure pm_SetFrames(anIndex: TddBorderParts; aValue: TddBorderPart);
+   procedure pm_SetFrames(anIndex: TddBorderParts;
+    aValue: TddBorderPart);
    function pm_GetIsFramed: Boolean;
    procedure pm_SetIsFramed(aValue: Boolean);
    function pm_GetFrameType(anIndex: TddBorderParts): TddBorderType;
-   procedure pm_SetFrameType(anIndex: TddBorderParts; aValue: TddBorderType);
- protected
- // realized methods
+   procedure pm_SetFrameType(anIndex: TddBorderParts;
+    aValue: TddBorderType);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure Reset; override;
    function Diff(P: TddPropertyObject;
-     aForReader: Boolean): TddPropertyObject; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    aForReader: Boolean): TddPropertyObject; override;
    constructor Create; override;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
    procedure Clear; override;
    function JoinWith(P: TObject): LongInt; override;
    procedure AssignFrom(anOther: TddPropertyObject); override;
- public
- // public properties
+  public
    property BorderOwner: TddBorderOwner
-     read f_BorderOwner
-     write f_BorderOwner;
+    read f_BorderOwner
+    write f_BorderOwner;
    property FrameColor[anIndex: TddBorderParts]: LongInt
-     read pm_GetFrameColor
-     write pm_SetFrameColor;
+    read pm_GetFrameColor
+    write pm_SetFrameColor;
    property FrameSpace[anIndex: TddBorderParts]: LongInt
-     read pm_GetFrameSpace
-     write pm_SetFrameSpace;
+    read pm_GetFrameSpace
+    write pm_SetFrameSpace;
    property FrameWidth[anIndex: TddBorderParts]: LongInt
-     read pm_GetFrameWidth
-     write pm_SetFrameWidth;
+    read pm_GetFrameWidth
+    write pm_SetFrameWidth;
    property Frames[anIndex: TddBorderParts]: TddBorderPart
-     read pm_GetFrames
-     write pm_SetFrames;
+    read pm_GetFrames
+    write pm_SetFrames;
    property IsFramed: Boolean
-     read pm_GetIsFramed
-     write pm_SetIsFramed;
+    read pm_GetIsFramed
+    write pm_SetIsFramed;
    property FrameType[anIndex: TddBorderParts]: TddBorderType
-     read pm_GetFrameType
-     write pm_SetFrameType;
+    read pm_GetFrameType
+    write pm_SetFrameType;
  end;//TddBorder
 
 implementation
 
 uses
-  k2Tags,
-  l3Base,
-  evdFrame_Const
-  ;
-
-// start class TddBorder
-
-function TddBorder.HasAllFramePart: Boolean;
-//#UC START# *525E37C80295_4F6843EE00B1_var*
-//#UC END# *525E37C80295_4F6843EE00B1_var*
-begin
-//#UC START# *525E37C80295_4F6843EE00B1_impl*
- Result := (Frames[bpTop].Enable) and
-           (Frames[bpLeft].Enable) and
-           (Frames[bpBottom].Enable) and
-           (Frames[bpRight].Enable);
-//#UC END# *525E37C80295_4F6843EE00B1_impl*
-end;//TddBorder.HasAllFramePart
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , evdFrame_Const
+;
 
 function TddBorder.pm_GetFrameColor(anIndex: TddBorderParts): LongInt;
 //#UC START# *525E3AC602FD_4F6843EE00B1get_var*
@@ -130,7 +104,8 @@ begin
 //#UC END# *525E3AC602FD_4F6843EE00B1get_impl*
 end;//TddBorder.pm_GetFrameColor
 
-procedure TddBorder.pm_SetFrameColor(anIndex: TddBorderParts; aValue: LongInt);
+procedure TddBorder.pm_SetFrameColor(anIndex: TddBorderParts;
+ aValue: LongInt);
 //#UC START# *525E3AC602FD_4F6843EE00B1set_var*
 //#UC END# *525E3AC602FD_4F6843EE00B1set_var*
 begin
@@ -157,7 +132,8 @@ begin
 //#UC END# *525E3B770074_4F6843EE00B1get_impl*
 end;//TddBorder.pm_GetFrameSpace
 
-procedure TddBorder.pm_SetFrameSpace(anIndex: TddBorderParts; aValue: LongInt);
+procedure TddBorder.pm_SetFrameSpace(anIndex: TddBorderParts;
+ aValue: LongInt);
 //#UC START# *525E3B770074_4F6843EE00B1set_var*
 //#UC END# *525E3B770074_4F6843EE00B1set_var*
 begin
@@ -178,7 +154,8 @@ begin
 //#UC END# *525E3BE60384_4F6843EE00B1get_impl*
 end;//TddBorder.pm_GetFrameWidth
 
-procedure TddBorder.pm_SetFrameWidth(anIndex: TddBorderParts; aValue: LongInt);
+procedure TddBorder.pm_SetFrameWidth(anIndex: TddBorderParts;
+ aValue: LongInt);
 //#UC START# *525E3BE60384_4F6843EE00B1set_var*
 //#UC END# *525E3BE60384_4F6843EE00B1set_var*
 begin
@@ -206,7 +183,8 @@ begin
 //#UC END# *525E3C2200C4_4F6843EE00B1get_impl*
 end;//TddBorder.pm_GetFrames
 
-procedure TddBorder.pm_SetFrames(anIndex: TddBorderParts; aValue: TddBorderPart);
+procedure TddBorder.pm_SetFrames(anIndex: TddBorderParts;
+ aValue: TddBorderPart);
 //#UC START# *525E3C2200C4_4F6843EE00B1set_var*
 //#UC END# *525E3C2200C4_4F6843EE00B1set_var*
 begin
@@ -251,7 +229,8 @@ begin
 //#UC END# *525E3CE90105_4F6843EE00B1get_impl*
 end;//TddBorder.pm_GetFrameType
 
-procedure TddBorder.pm_SetFrameType(anIndex: TddBorderParts; aValue: TddBorderType);
+procedure TddBorder.pm_SetFrameType(anIndex: TddBorderParts;
+ aValue: TddBorderType);
 //#UC START# *525E3CE90105_4F6843EE00B1set_var*
 //#UC END# *525E3CE90105_4F6843EE00B1set_var*
 begin
@@ -275,6 +254,18 @@ begin
  end;
 //#UC END# *525E3CE90105_4F6843EE00B1set_impl*
 end;//TddBorder.pm_SetFrameType
+
+function TddBorder.HasAllFramePart: Boolean;
+//#UC START# *525E37C80295_4F6843EE00B1_var*
+//#UC END# *525E37C80295_4F6843EE00B1_var*
+begin
+//#UC START# *525E37C80295_4F6843EE00B1_impl*
+ Result := (Frames[bpTop].Enable) and
+           (Frames[bpLeft].Enable) and
+           (Frames[bpBottom].Enable) and
+           (Frames[bpRight].Enable);
+//#UC END# *525E37C80295_4F6843EE00B1_impl*
+end;//TddBorder.HasAllFramePart
 
 procedure TddBorder.MergeWith(P: TddPropertyObject);
 //#UC START# *525E369F0158_4F6843EE00B1_var*
@@ -360,7 +351,7 @@ begin
 end;//TddBorder.Reset
 
 function TddBorder.Diff(P: TddPropertyObject;
-  aForReader: Boolean): TddPropertyObject;
+ aForReader: Boolean): TddPropertyObject;
 //#UC START# *525E47E10065_4F6843EE00B1_var*
 //#UC END# *525E47E10065_4F6843EE00B1_var*
 begin
@@ -370,6 +361,7 @@ begin
 end;//TddBorder.Diff
 
 constructor TddBorder.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_4F6843EE00B1_var*
 var
  i: TddBorderParts;
@@ -384,6 +376,7 @@ begin
 end;//TddBorder.Create
 
 procedure TddBorder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F6843EE00B1_var*
 var
  i: TddBorderParts;

@@ -1,63 +1,50 @@
 unit destWrite2Parent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destWrite2Parent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::RTFSupport::TdestWrite2Parent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destWrite2Parent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdestWrite2Parent" MUID: (54E3046A00AE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRTFdestination,
-  ddCustomRTFReader,
-  destSkip,
-  l3Base,
-  RTFtypes,
-  ddRTFState
-  ;
+ l3IntfUses
+ , destSkip
+ , ddRTFdestination
+ , ddCustomRTFReader
+ , RTFtypes
+ , l3Base
+ , ddRTFState
+;
 
 type
  TdestWrite2Parent = class(TdestSkip)
- private
- // private fields
-   f_ParentDestination : TddRTFDestination;
-    {* Поле для свойства ParentDestination}
- protected
- // overridden protected methods
+  private
+   f_ParentDestination: TddRTFDestination;
+    {* Поле для свойства ParentDestination }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aRTFReader: TddCustomRTFReader;
-     aParent: TddRTFDestination); reintroduce;
- public
- // public properties
+    aParent: TddRTFDestination); reintroduce;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
+  public
    property ParentDestination: TddRTFDestination
-     read f_ParentDestination;
+    read f_ParentDestination;
  end;//TdestWrite2Parent
 
 implementation
 
-// start class TdestWrite2Parent
+uses
+ l3ImplUses
+;
 
 constructor TdestWrite2Parent.Create(aRTFReader: TddCustomRTFReader;
-  aParent: TddRTFDestination);
+ aParent: TddRTFDestination);
 //#UC START# *54E3055F033C_54E3046A00AE_var*
 //#UC END# *54E3055F033C_54E3046A00AE_var*
 begin
@@ -68,6 +55,7 @@ begin
 end;//TdestWrite2Parent.Create
 
 procedure TdestWrite2Parent.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54E3046A00AE_var*
 //#UC END# *479731C50290_54E3046A00AE_var*
 begin
@@ -78,8 +66,8 @@ begin
 end;//TdestWrite2Parent.Cleanup
 
 procedure TdestWrite2Parent.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_54E3046A00AE_var*
 //#UC END# *54E1F08400F9_54E3046A00AE_var*
 begin

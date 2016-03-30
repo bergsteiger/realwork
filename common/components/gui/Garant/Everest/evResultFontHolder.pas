@@ -1,41 +1,28 @@
 unit evResultFontHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evResultFontHolder.pas"
-// Начат: 08.09.2011 19:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::evResultFont::TevResultFontHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evResultFontHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevResultFontHolder" MUID: (4E68E533026D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evResultFont,
-  l3CProtoObject,
-  evResultFontInterfaces,
-  l3Interfaces,
-  l3Variant,
-  l3Core
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , evResultFontInterfaces
+ , evResultFont
+ , l3Interfaces
+ , l3Core
+ , l3Variant
+;
 
 type
  TevResultFontHolder = class(Tl3CProtoObject, IevResultFont)
- private
- // private fields
-   f_Font : TevResultFontEx;
- protected
- // realized methods
+  private
+   f_Font: TevResultFontEx;
+  protected
    function Get_Font: PevResultFontEx;
    procedure Clear;
    function AsFont(aCorrectItalic: Boolean;
@@ -47,25 +34,20 @@ type
    function IsTransparent(anIndex: Integer): Boolean;
    procedure AddTag(aTag: Tl3Variant);
    procedure AddFont(const aFont: IevResultFont);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: IevResultFont; reintroduce;
-     {* Сигнатура фабрики TevResultFontHolder.Make }
  end;//TevResultFontHolder
 
 implementation
 
 uses
-  k2Const
-  ;
-
-// start class TevResultFontHolder
+ l3ImplUses
+ , k2Const
+;
 
 constructor TevResultFontHolder.Create;
 //#UC START# *4E68E5AB0093_4E68E533026D_var*
@@ -86,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevResultFontHolder.Make
 
 function TevResultFontHolder.Get_Font: PevResultFontEx;
 //#UC START# *4E68E52102C7_4E68E533026Dget_var*
@@ -107,7 +89,7 @@ begin
 end;//TevResultFontHolder.Clear
 
 function TevResultFontHolder.AsFont(aCorrectItalic: Boolean;
-  aCheckNew: Boolean): Il3Font;
+ aCheckNew: Boolean): Il3Font;
 //#UC START# *4E68E62D01A6_4E68E533026D_var*
 //#UC END# *4E68E62D01A6_4E68E533026D_var*
 begin
@@ -135,7 +117,7 @@ begin
 end;//TevResultFontHolder.GetItem
 
 procedure TevResultFontHolder.SetItem(anIndex: Integer;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *4E68F1250350_4E68E533026D_var*
 //#UC END# *4E68F1250350_4E68E533026D_var*
 begin
@@ -175,6 +157,7 @@ begin
 end;//TevResultFontHolder.AddFont
 
 procedure TevResultFontHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E68E533026D_var*
 //#UC END# *479731C50290_4E68E533026D_var*
 begin

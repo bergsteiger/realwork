@@ -1,79 +1,62 @@
 unit ddExportFilerDispatcherElem;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/PipeOut/ddExportFilerDispatcherElem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::PipeOut::TddExportFilerDispatcherElem
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcherElem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddExportFilerDispatcherElem" MUID: (560A5BC502D5)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Filer,
-  l3ProtoObject,
-  ddPipeOutInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , ddPipeOutInterfaces
+ , l3Interfaces
+ , l3Filer
+;
 
 type
  TddExportFilerDispatcherElem = class(Tl3ProtoObject, IddExportFilerDispatcherElem)
- private
- // private fields
-   f_FileMask : Il3CString;
-   f_PartSize : Integer;
-   f_PartNum : Integer;
-   f_CodePage : LongInt;
-   f_RollBackPos : Int64;
-   f_UpdateFiles : Boolean;
-   f_Filer : Tl3DOSFiler;
- protected
- // realized methods
+  private
+   f_FileMask: Il3CString;
+   f_PartSize: Integer;
+   f_PartNum: Integer;
+   f_CodePage: LongInt;
+   f_RollBackPos: Int64;
+   f_UpdateFiles: Boolean;
+   f_Filer: Tl3DOSFiler;
+  protected
    function Get_Filer: Tl3CustomFiler;
    procedure RollBack;
-     {* Сигнатура метода RollBack }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFileMask: Il3CString;
-     aCodePage: Integer;
-     aPartSize: Integer;
-     aUpdateFiles: Boolean); reintroduce;
+    aCodePage: Integer;
+    aPartSize: Integer;
+    aUpdateFiles: Boolean); reintroduce;
    class function Make(const aFileMask: Il3CString;
-     aCodePage: Integer;
-     aPartSize: Integer;
-     aUpdateFiles: Boolean): IddExportFilerDispatcherElem; reintroduce;
-     {* Сигнатура фабрики TddExportFilerDispatcherElem.Make }
+    aCodePage: Integer;
+    aPartSize: Integer;
+    aUpdateFiles: Boolean): IddExportFilerDispatcherElem; reintroduce;
  end;//TddExportFilerDispatcherElem
 
 implementation
 
 uses
-  SysUtils,
-  l3String,
-  l3Types,
-  Classes,
-  l3Base
-  ;
-
-// start class TddExportFilerDispatcherElem
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Types
+ , Classes
+ , l3Base
+;
 
 constructor TddExportFilerDispatcherElem.Create(const aFileMask: Il3CString;
-  aCodePage: Integer;
-  aPartSize: Integer;
-  aUpdateFiles: Boolean);
+ aCodePage: Integer;
+ aPartSize: Integer;
+ aUpdateFiles: Boolean);
 //#UC START# *560A5C2D0282_560A5BC502D5_var*
 //#UC END# *560A5C2D0282_560A5BC502D5_var*
 begin
@@ -87,9 +70,9 @@ begin
 end;//TddExportFilerDispatcherElem.Create
 
 class function TddExportFilerDispatcherElem.Make(const aFileMask: Il3CString;
-  aCodePage: Integer;
-  aPartSize: Integer;
-  aUpdateFiles: Boolean): IddExportFilerDispatcherElem;
+ aCodePage: Integer;
+ aPartSize: Integer;
+ aUpdateFiles: Boolean): IddExportFilerDispatcherElem;
 var
  l_Inst : TddExportFilerDispatcherElem;
 begin
@@ -99,7 +82,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TddExportFilerDispatcherElem.Make
 
 function TddExportFilerDispatcherElem.Get_Filer: Tl3CustomFiler;
 //#UC START# *5603F0260334_560A5BC502D5get_var*
@@ -152,6 +135,7 @@ begin
 end;//TddExportFilerDispatcherElem.RollBack
 
 procedure TddExportFilerDispatcherElem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_560A5BC502D5_var*
 //#UC END# *479731C50290_560A5BC502D5_var*
 begin

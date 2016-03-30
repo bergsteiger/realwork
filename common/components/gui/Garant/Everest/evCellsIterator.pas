@@ -1,83 +1,65 @@
 unit evCellsIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Ѕиблиотека "Everest"
-// ћодуль: "w:/common/components/gui/Garant/Everest/evCellsIterator.pas"
-// –одные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaUtils::TevCellsIterator
-//
-//
-// ¬се права принадлежат ќќќ Ќѕѕ "√арант-—ервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ћодуль: "w:\common\components\gui\Garant\Everest\evCellsIterator.pas"
+// —тереотип: "SimpleClass"
+// Ёлемент модели: "TevCellsIterator" MUID: (4FC48D1B02AC)
 
-// ! ѕолностью генерируетс€ с модели. ѕравить руками - нельз€. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
-  nevBase,
-  nevTools,
-  evEditorInterfaces,
-  evCustomParaListUtils,
-  l3Variant
-  ;
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+ l3IntfUses
+ , evCustomParaListUtils
+ , evEditorInterfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+;
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
 type
  TevCellsIterator = class(TevRowChild, IedBackCellsIterator, IedCellsIterator)
- private
- // private fields
-   f_NeedNeighbours : Boolean;
-   f_StartCell : Integer;
-   f_First : Integer;
- protected
- // realized methods
+  private
+   f_NeedNeighbours: Boolean;
+   f_StartCell: Integer;
+   f_First: Integer;
+  protected
    function Last(aNeedNeighbours: Boolean): IedCell;
-     {* возвращает последнюю €чейку и начинает перебор }
+    {* возвращает последнюю €чейку и начинает перебор }
    function Prev: IedCell;
-     {* возвращает предыдущую €чейку или nil, если перебор закончен }
+    {* возвращает предыдущую €чейку или nil, если перебор закончен }
    function pm_GetBackIterator: IedBackCellsIterator;
    function First(aNeedNeighbours: Boolean): IedCell;
-     {* возвращает первую €чейку и начинает перебор }
+    {* возвращает первую €чейку и начинает перебор }
    function Next: IedCell;
-     {* возвращает следующую €чейку или nil, если перебор закончен }
+    {* возвращает следующую €чейку или nil, если перебор закончен }
    function CellsCount: Integer;
-     {*  оличество €чеек }
- public
- // public methods
+    {*  оличество €чеек }
+  public
    class function Make(const aView: InevView;
-     const aRow: IedRow;
-     aTagWrap: Tl3Variant;
-     const aProcessor: InevProcessor;
-     const aLocation: InevLocation = nil): IedCellsIterator;
+    const aRow: IedRow;
+    aTagWrap: Tl3Variant;
+    const aProcessor: InevProcessor;
+    const aLocation: InevLocation = nil): IedCellsIterator;
  end;//TevCellsIterator
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
 
 implementation
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
-  l3Base,
-  SysUtils,
-  nevFacade
-  ;
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
-
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
-
-// start class TevCellsIterator
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , nevFacade
+;
 
 class function TevCellsIterator.Make(const aView: InevView;
-  const aRow: IedRow;
-  aTagWrap: Tl3Variant;
-  const aProcessor: InevProcessor;
-  const aLocation: InevLocation = nil): IedCellsIterator;
+ const aRow: IedRow;
+ aTagWrap: Tl3Variant;
+ const aProcessor: InevProcessor;
+ const aLocation: InevLocation = nil): IedCellsIterator;
 //#UC START# *4FC48DC101EB_4FC48D1B02AC_var*
 var
  l_CellsIterator : TevCellsIterator;
@@ -94,6 +76,7 @@ begin
 end;//TevCellsIterator.Make
 
 function TevCellsIterator.Last(aNeedNeighbours: Boolean): IedCell;
+ {* возвращает последнюю €чейку и начинает перебор }
 //#UC START# *4BBC922302CA_4FC48D1B02AC_var*
 //#UC END# *4BBC922302CA_4FC48D1B02AC_var*
 begin
@@ -105,6 +88,7 @@ begin
 end;//TevCellsIterator.Last
 
 function TevCellsIterator.Prev: IedCell;
+ {* возвращает предыдущую €чейку или nil, если перебор закончен }
 //#UC START# *4BBC92390009_4FC48D1B02AC_var*
 var
  l_Result : IedCell absolute Result;
@@ -142,6 +126,7 @@ begin
 end;//TevCellsIterator.pm_GetBackIterator
 
 function TevCellsIterator.First(aNeedNeighbours: Boolean): IedCell;
+ {* возвращает первую €чейку и начинает перебор }
 //#UC START# *4BBC944C0195_4FC48D1B02AC_var*
 //#UC END# *4BBC944C0195_4FC48D1B02AC_var*
 begin
@@ -153,6 +138,7 @@ begin
 end;//TevCellsIterator.First
 
 function TevCellsIterator.Next: IedCell;
+ {* возвращает следующую €чейку или nil, если перебор закончен }
 //#UC START# *4BBC94640082_4FC48D1B02AC_var*
 var
  l_Result : IedCell absolute Result;
@@ -180,6 +166,7 @@ begin
 end;//TevCellsIterator.Next
 
 function TevCellsIterator.CellsCount: Integer;
+ {*  оличество €чеек }
 //#UC START# *4BBC947B0399_4FC48D1B02AC_var*
 //#UC END# *4BBC947B0399_4FC48D1B02AC_var*
 begin
@@ -187,7 +174,6 @@ begin
  Result := TagInst.ChildrenCount;
 //#UC END# *4BBC947B0399_4FC48D1B02AC_impl*
 end;//TevCellsIterator.CellsCount
-
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
 
 end.

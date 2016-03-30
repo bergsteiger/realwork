@@ -19,7 +19,7 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   public
-   constructor make(const stree); reintroduce;
+   constructor Make(const stree); reintroduce; stdcall;
  end;//GroupsTree
 
 implementation
@@ -28,13 +28,13 @@ uses
  l3ImplUses
 ;
 
-constructor GroupsTree.make(const stree);
+constructor GroupsTree.Make(const stree);
 //#UC START# *49DF2E710165_49DF2E21014A_var*
 //#UC END# *49DF2E710165_49DF2E21014A_var*
 begin
 //#UC START# *49DF2E710165_49DF2E21014A_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49DF2E710165_49DF2E21014A_impl*
-end;//GroupsTree.make
+end;//GroupsTree.Make
 
 end.

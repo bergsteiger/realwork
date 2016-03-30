@@ -15,19 +15,19 @@ uses
 type
  SessionHelper = class
   private
-   constructor make; reintroduce; virtual;
+   constructor Make; reintroduce; virtual; stdcall;
   protected
-   function pm_Getis_session_active: Boolean; virtual;
-   procedure pm_Setis_session_active(aValue: Boolean); virtual;
+   function GetIsSessionActive: ByteBool; virtual; stdcall;
+   procedure SetIsSessionActive(const aValue: ByteBool); virtual; stdcall;
   public
-   class function Exists: Boolean;
+   class function Exists: ByteBool; stdcall;
     {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: SessionHelper;
     {* Метод получения экземпляра синглетона SessionHelper }
   public
-   property is_session_active: Boolean
-    read pm_Getis_session_active
-    write pm_Setis_session_active;
+   property IsSessionActive: ByteBool
+    read GetIsSessionActive
+    write SetIsSessionActive;
  end;//SessionHelper
 
 implementation
@@ -47,34 +47,34 @@ begin
  l3Free(g_SessionHelper);
 end;//SessionHelperFree
 
-function SessionHelper.pm_Getis_session_active: Boolean;
+function SessionHelper.GetIsSessionActive: ByteBool;
 //#UC START# *47711DCF03A0_47711DA00052get_var*
 //#UC END# *47711DCF03A0_47711DA00052get_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052get_impl*
-end;//SessionHelper.pm_Getis_session_active
+end;//SessionHelper.GetIsSessionActive
 
-procedure SessionHelper.pm_Setis_session_active(aValue: Boolean);
+procedure SessionHelper.SetIsSessionActive(const aValue: ByteBool);
 //#UC START# *47711DCF03A0_47711DA00052set_var*
 //#UC END# *47711DCF03A0_47711DA00052set_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052set_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052set_impl*
-end;//SessionHelper.pm_Setis_session_active
+end;//SessionHelper.SetIsSessionActive
 
-constructor SessionHelper.make;
+constructor SessionHelper.Make;
 //#UC START# *477129B00039_47711DA00052_var*
 //#UC END# *477129B00039_47711DA00052_var*
 begin
 //#UC START# *477129B00039_47711DA00052_impl*
  !!! Needs to be implemented !!!
 //#UC END# *477129B00039_47711DA00052_impl*
-end;//SessionHelper.make
+end;//SessionHelper.Make
 
-class function SessionHelper.Exists: Boolean;
+class function SessionHelper.Exists: ByteBool;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_SessionHelper <> nil;

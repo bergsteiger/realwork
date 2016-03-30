@@ -1,88 +1,61 @@
 unit nevDocumentContainerList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevDocumentContainerList.pas"
-// Начат: 17.2011 15:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::nevUtils::TnevDocumentContainerList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentContainerList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentContainerList" MUID: (4DD25B17012A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  nevDocumentContainerListPrim,
-  afwInterfaces,
-  k2Prim
-  ;
+ l3IntfUses
+ , nevDocumentContainerListPrim
+ , k2Interfaces
+ , k2Prim
+ , afwInterfaces
+;
 
 type
  _afwApplicationDataUpdate_Parent_ = TnevDocumentContainerListPrim;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnevDocumentContainerList = class(_afwApplicationDataUpdate_, Ik2Listener)
- protected
- // realized methods
+  protected
    procedure Fire(const anEvent: Tk2Event;
     const anOp: Ik2Op);
-     {* сообщение о том, что что-то произошло. }
- protected
- // overridden protected methods
+    {* сообщение о том, что что-то произошло. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure FinishDataUpdate; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: TnevDocumentContainerList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnevDocumentContainerList }
  end;//TnevDocumentContainerList
 
 implementation
 
 uses
-  l3Base {a},
-  k2Facade,
-  afwFacade
-  ;
+ l3ImplUses
+ , k2Facade
+ , afwFacade
+ , nevTools
+ , l3Memory
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TnevDocumentContainerList
-
-var g_TnevDocumentContainerList : TnevDocumentContainerList = nil;
+var g_TnevDocumentContainerList: TnevDocumentContainerList = nil;
+ {* Экземпляр синглетона TnevDocumentContainerList }
 
 procedure TnevDocumentContainerListFree;
+ {* Метод освобождения экземпляра синглетона TnevDocumentContainerList }
 begin
  l3Free(g_TnevDocumentContainerList);
-end;
-
-class function TnevDocumentContainerList.Instance: TnevDocumentContainerList;
-begin
- if (g_TnevDocumentContainerList = nil) then
- begin
-  l3System.AddExitProc(TnevDocumentContainerListFree);
-  g_TnevDocumentContainerList := Create;
- end;
- Result := g_TnevDocumentContainerList;
-end;
-
+end;//TnevDocumentContainerListFree
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-// start class TnevDocumentContainerList
 
 class function TnevDocumentContainerList.Exists: Boolean;
 //#UC START# *4DD26253028D_4DD25B17012A_var*
@@ -94,7 +67,8 @@ begin
 end;//TnevDocumentContainerList.Exists
 
 procedure TnevDocumentContainerList.Fire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
+ {* сообщение о том, что что-то произошло. }
 //#UC START# *476144F90102_4DD25B17012A_var*
 //#UC END# *476144F90102_4DD25B17012A_var*
 begin
@@ -104,7 +78,19 @@ begin
 //#UC END# *476144F90102_4DD25B17012A_impl*
 end;//TnevDocumentContainerList.Fire
 
+class function TnevDocumentContainerList.Instance: TnevDocumentContainerList;
+ {* Метод получения экземпляра синглетона TnevDocumentContainerList }
+begin
+ if (g_TnevDocumentContainerList = nil) then
+ begin
+  l3System.AddExitProc(TnevDocumentContainerListFree);
+  g_TnevDocumentContainerList := Create;
+ end;
+ Result := g_TnevDocumentContainerList;
+end;//TnevDocumentContainerList.Instance
+
 procedure TnevDocumentContainerList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DD25B17012A_var*
 //#UC END# *479731C50290_4DD25B17012A_var*
 begin
