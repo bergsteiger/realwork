@@ -140,134 +140,6 @@ ref; // ME_50FD19BE011A BorderWidth
 
 ref; // ME_50FD1A480027 FullRepaint
 
-: ME_EC4C10C44C7C
- CONST UID 'EC4C10C44C7C'
- CONST Name 'f_BevelInner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BevelInner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_50FD17B50177' '4799D29F033F.pas.ms.script' // TPanelBevel
- ;
- CONST extprop:clearViaProperty 'BevelInner'
-
-ref; // ME_EC4C10C44C7C f_BevelInner
-
-: ME_F51416D363A3
- CONST UID 'F51416D363A3'
- CONST Name 'f_BevelOuter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BevelOuter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_50FD17B50177' '4799D29F033F.pas.ms.script' // TPanelBevel
- ;
- CONST extprop:clearViaProperty 'BevelOuter'
-
-ref; // ME_F51416D363A3 f_BevelOuter
-
-: ME_D8625D7F0E1B
- CONST UID 'D8625D7F0E1B'
- CONST Name 'f_Alignment'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alignment' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_4A840F5703AC' '4AB0997B00A2.pas.ms.script' // TAlignment
- ;
- CONST extprop:clearViaProperty 'Alignment'
-
-ref; // ME_D8625D7F0E1B f_Alignment
-
-: ME_878336BEB415
- CONST UID '878336BEB415'
- CONST Name 'f_BevelWidth'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BevelWidth' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_50FD194A022A' '4799D29F033F.pas.ms.script' // TBevelWidth
- ;
- CONST extprop:clearViaProperty 'BevelWidth'
-
-ref; // ME_878336BEB415 f_BevelWidth
-
-: ME_93C40A4B3830
- CONST UID '93C40A4B3830'
- CONST Name 'f_BorderWidth'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BorderWidth' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_50FD196E008A' '4799D29F033F.pas.ms.script' // TBorderWidth
- ;
- CONST extprop:clearViaProperty 'BorderWidth'
-
-ref; // ME_93C40A4B3830 f_BorderWidth
-
-: ME_729A0FF633D9
- CONST UID '729A0FF633D9'
- CONST Name 'f_FullRepaint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FullRepaint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FullRepaint'
-
-ref; // ME_729A0FF633D9 f_FullRepaint
-
-: ME_CDFDE6F852B8
- CONST UID 'CDFDE6F852B8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomPanelPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CDFDE6F852B8 Ini_Reg_Class
-
-: ME_3F098AE8CB8C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3F098AE8CB8C 
-
 : ME_50FD3A9003A4
  CONST UID '50FD3A9003A4'
  CONST Name 'TvtCustomPanelPrim'
@@ -289,22 +161,8 @@ ref; // ME_3F098AE8CB8C
  ME_50FD19A80171 // BevelWidth
  ME_50FD19BE011A // BorderWidth
  ME_50FD1A480027 // FullRepaint
- ME_EC4C10C44C7C // f_BevelInner
- ME_F51416D363A3 // f_BevelOuter
- ME_D8625D7F0E1B // f_Alignment
- ME_878336BEB415 // f_BevelWidth
- ME_93C40A4B3830 // f_BorderWidth
- ME_729A0FF633D9 // f_FullRepaint
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_CDFDE6F852B8 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_3F098AE8CB8C // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -412,41 +270,6 @@ ref; // ME_5100C07B03BD fakefakefake
  ;
 
 ref; // ME_5100C0AA02AC fakefakefakefakefake
-
-: ME_407D4ED104B0
- CONST UID '407D4ED104B0'
- CONST Name 'f_OnResize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnResize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD1AE5027A // TvtCustomPanel
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "ifndef" 'Delphi7'
- CONST extprop:clearViaProperty 'OnResize'
-
-ref; // ME_407D4ED104B0 f_OnResize
-
-: ME_66FE139639E6
- CONST UID '66FE139639E6'
- CONST Name 'f_FixW2kWMSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FixW2kWMSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50FD1AE5027A // TvtCustomPanel
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FixW2kWMSize'
-
-ref; // ME_66FE139639E6 f_FixW2kWMSize
 
 FORWARD ME_50FD3279019E
 
@@ -638,21 +461,6 @@ ref; // ME_50FD359C02E9 Message
 
 ref; // ME_50FD3594029E WMEraseBkgnd
 
-: ME_71D63B464597
- CONST UID '71D63B464597'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50FD1AE5027A // TvtCustomPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_71D63B464597 Ini_Reg_Class
-
 : ME_50FE994E0078
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -702,17 +510,6 @@ ref; // ME_50FE9EB402C7
  ;
 
 ref; // ME_50FE9EFE0042 
-
-: ME_1B0577E51991
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50FD1AE5027A // TvtCustomPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1B0577E51991 
 
 : ME_47D1602000C6_ME_50FD1AE5027A
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
@@ -766,8 +563,6 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  ME_50FD3423013B // f_In64Hack
  ME_5100C07B03BD // fakefakefake
  ME_5100C0AA02AC // fakefakefakefakefake
- ME_407D4ED104B0 // f_OnResize
- ME_66FE139639E6 // f_FixW2kWMSize
  )
  ; // Attributes
  : Operations
@@ -777,7 +572,6 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  ME_50FD356F0225 // WMSize
  ME_50FD3584018B // WMWindowPosChanged
  ME_50FD3594029E // WMEraseBkgnd
- ME_71D63B464597 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -794,7 +588,6 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  ME_50FE9E44021F // 
  ME_50FE9EB402C7 // 
  ME_50FE9EFE0042 // 
- ME_1B0577E51991 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -807,32 +600,6 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50FD1AE5027A TvtCustomPanel
-
-: ME_F6B746148AA5
- CONST UID 'F6B746148AA5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A7961A701CF // TvtPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F6B746148AA5 Ini_Reg_Class
-
-: ME_89E2FBBDF8E0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A7961A701CF // TvtPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_89E2FBBDF8E0 
 
 : ME_4A7961A701CF
  CONST UID '4A7961A701CF'
@@ -848,19 +615,11 @@ ref; // ME_89E2FBBDF8E0
    Seq: ( ME_50FD1AE5027A // TvtCustomPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F6B746148AA5 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_50FD3A9003A4 // TvtCustomPanelPrim
  ME_50FD1AE5027A // TvtCustomPanel
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_89E2FBBDF8E0 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -1040,7 +799,6 @@ ref; // ME_52B99162037C TvtCustomCommonPanel
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

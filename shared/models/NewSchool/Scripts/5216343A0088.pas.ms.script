@@ -1708,23 +1708,6 @@ FORWARD ME_3AF2317C2AA8
 
 ref; // ME_E92C1DD3DA16 Make
 
-: ME_C1EA031563DF
- CONST UID 'C1EA031563DF'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_3AF2317C2AA8 // TPrintAndExportFontSizeValuesMapImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_C1EA031563DF Exists
-
 : ME_3AF2317C2AA8
  CONST UID '3AF2317C2AA8'
  CONST Name 'TPrintAndExportFontSizeValuesMapImpl'
@@ -1743,7 +1726,6 @@ ref; // ME_C1EA031563DF Exists
  ; // Inherits
  : Operations
    Seq: ( ME_E92C1DD3DA16 // Make
- ME_C1EA031563DF // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

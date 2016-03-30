@@ -70,23 +70,6 @@ ref; // ME_51DC189502B6 TdltGetNodeTypeEvent
 
 ref; // ME_51DC195E0142 OnGetNodeType
 
-: ME_D1DE6DC1EE9E
- CONST UID 'D1DE6DC1EE9E'
- CONST Name 'f_OnGetNodeType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetNodeType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_51D56E9F004B // TnscDocumentListTreeView
- ;
- : Target ME_51DC189502B6 // TdltGetNodeTypeEvent
- ;
- CONST extprop:clearViaProperty 'OnGetNodeType'
-
-ref; // ME_D1DE6DC1EE9E f_OnGetNodeType
-
 FORWARD ME_51E01CC7023D
 
 : ME_51E01CDC0243
@@ -170,21 +153,6 @@ ref; // ME_51E00DC1006F Msg
  CONST "Message ID" 'WM_GETTEXTLENGTH'
 
 ref; // ME_51E00DAD024C WMGetTextLength
-
-: ME_0AA787083C95
- CONST UID '0AA787083C95'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscDocumentListTreeView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D56E9F004B // TnscDocumentListTreeView
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0AA787083C95 Ini_Reg_Class
 
 : ME_51D6DA1300D6
  CONST Class class_Dependency
@@ -306,17 +274,6 @@ ref; // ME_51EEBD820221
 
 ref; // ME_531DAD1F00A9 
 
-: ME_E2450C633764
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51D56E9F004B // TnscDocumentListTreeView
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E2450C633764 
-
 : ME_55E6CC91033A_ME_51D56E9F004B
  : Original WL 'ME_55E6CC91033A' '53D227F702DF.pas.ms.script' // NewDocumentInHistory
  ;
@@ -397,14 +354,12 @@ ref; // ME_5604EC1403A8_ME_51D56E9F004B NeedAssignTreeStructFromHistory
  ; // Implements
  : Attributes
    Seq: ( ME_51DC195E0142 // OnGetNodeType
- ME_D1DE6DC1EE9E // f_OnGetNodeType
  )
  ; // Attributes
  : Operations
    Seq: ( ME_51E01CC7023D // GetCurrentText
  ME_51E00D2000A7 // WMGetText
  ME_51E00DAD024C // WMGetTextLength
- ME_0AA787083C95 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -440,7 +395,6 @@ ref; // ME_5604EC1403A8_ME_51D56E9F004B NeedAssignTreeStructFromHistory
  ME_51E5423000C7 // 
  ME_51EEBD820221 // 
  ME_531DAD1F00A9 // 
- ME_E2450C633764 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -487,7 +441,6 @@ ref; // ME_51D56E9F004B TnscDocumentListTreeView
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_53D227F702DF' '53D227F702DF.pas.ms.script' // DocumentHistory
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

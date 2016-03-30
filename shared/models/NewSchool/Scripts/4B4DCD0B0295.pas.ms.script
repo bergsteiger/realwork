@@ -6,21 +6,6 @@ FORWARD ME_4B4DCD0B0295
 
 FORWARD ME_4B4DCD220000
 
-FORWARD ME_4B4DCDA1023B
-
-: ME_4609FBFEBBA2
- CONST UID '4609FBFEBBA2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CPUID' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B4DCDA1023B // CPUID
- ;
-
-ref; // ME_4609FBFEBBA2 DoIt
-
 : ME_4B4DCDA1023B
  CONST UID '4B4DCDA1023B'
  CONST Name 'CPUID'
@@ -31,10 +16,6 @@ ref; // ME_4609FBFEBBA2 DoIt
  CONST Abstraction at_final
  : Parent ME_4B4DCD220000 // JclSysInfo
  ;
- : Operations
-   Seq: ( ME_4609FBFEBBA2 // DoIt
- )
- ; // Operations
 
 ref; // ME_4B4DCDA1023B CPUID
 

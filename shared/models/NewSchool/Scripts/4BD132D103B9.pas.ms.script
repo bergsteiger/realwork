@@ -184,6 +184,46 @@ ref; // ME_4F71D47D0086 get_archive_url
 
 ref; // ME_4F71DD6B03AA archive_available
 
+: ME_56F26D0E026E
+ CONST UID '56F26D0E026E'
+ CONST Name 'search_server_available'
+ CONST Class class_Operation
+ %SUMMARY 'проверка доступности сервера поиска в архивах' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_56F26D0E026E search_server_available
+
+: ME_56F26D7D0117
+ CONST Name 'query'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_56F26D7D0117 query
+
+: ME_56F26D590288
+ CONST UID '56F26D590288'
+ CONST Name 'get_search_server_url'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F71CF610077 // DecisionsArchiveSupport
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_56F26D7D0117 // query
+ )
+ ; // Parameters
+
+ref; // ME_56F26D590288 get_search_server_url
+
 : ME_4F71CF610077
  CONST UID '4F71CF610077'
  CONST GUID 'CD81011E-549D-406A-964C-9FE291552EB4'
@@ -200,6 +240,8 @@ ref; // ME_4F71DD6B03AA archive_available
    Seq: ( ME_4F71D0930146 // make
  ME_4F71D47D0086 // get_archive_url
  ME_4F71DD6B03AA // archive_available
+ ME_56F26D0E026E // search_server_available
+ ME_56F26D590288 // get_search_server_url
  )
  ; // Operations
  CONST "single impl" false

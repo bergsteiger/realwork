@@ -2275,21 +2275,6 @@ ref; // ME_559BC74302BF f_MaxCount
 
 ref; // ME_559BC755039B f_QueryType
 
-FORWARD ME_559BC7B5001A
-
-: ME_873EA004669E
- CONST UID '873EA004669E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadQueries' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_559BC7B5001A // LoadQueries
- ;
-
-ref; // ME_873EA004669E DoIt
-
 : ME_559BC7B5001A
  CONST UID '559BC7B5001A'
  CONST Name 'LoadQueries'
@@ -2300,10 +2285,6 @@ ref; // ME_873EA004669E DoIt
  CONST Abstraction at_final
  : Parent ME_559BC4A30149 // TnsQueryHistory
  ;
- : Operations
-   Seq: ( ME_873EA004669E // DoIt
- )
- ; // Operations
 
 ref; // ME_559BC7B5001A LoadQueries
 

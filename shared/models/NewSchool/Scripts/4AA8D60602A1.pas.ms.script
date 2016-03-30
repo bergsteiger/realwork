@@ -20,23 +20,6 @@ FORWARD ME_4F7951BC01DF
 
 ref; // ME_4F79540E0255 init
 
-: ME_527EE3E8561A
- CONST UID '527EE3E8561A'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F7951BC01DF // TnsHooks
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_527EE3E8561A Exists
-
 : ME_4F7953360033
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -152,7 +135,6 @@ ref; // ME_47A042E100E2_ME_4F7951BC01DF InitFields
  ; // Implements
  : Operations
    Seq: ( ME_4F79540E0255 // init
- ME_527EE3E8561A // Exists
  )
  ; // Operations
  : Implemented

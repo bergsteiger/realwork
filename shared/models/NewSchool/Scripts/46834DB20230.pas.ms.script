@@ -184,46 +184,6 @@ ref; // ME_54940BE80143 DoIt
 
 ref; // ME_54940BE30056 Create
 
-FORWARD ME_54940BF401C3
-
-: ME_12CB69EB924C
- CONST Name 'aDescriptors'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5481DE6C03AA // TeeSubDescriptors
- ;
-
-ref; // ME_12CB69EB924C aDescriptors
-
-: ME_8C54CCFDFBB0
- CONST Name 'aLayerID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8C54CCFDFBB0 aLayerID
-
-: ME_F3246C33BE59
- CONST UID 'F3246C33BE59'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TeeSubDescriptor.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54940BF401C3 // Make
- ;
- : Parameters
-   Seq: ( ME_12CB69EB924C // aDescriptors
- ME_8C54CCFDFBB0 // aLayerID
- )
- ; // Parameters
-
-ref; // ME_F3246C33BE59 DoIt
-
 : ME_54940BF401C3
  CONST UID '54940BF401C3'
  CONST Name 'Make'
@@ -238,10 +198,6 @@ ref; // ME_F3246C33BE59 DoIt
    Seq: ( ME_54940BE30056 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F3246C33BE59 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

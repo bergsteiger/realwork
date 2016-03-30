@@ -2627,23 +2627,6 @@ ref; // ME_5551C8D40161 f_UseSplitted
 
 ref; // ME_944CA7C746EB Alien
 
-: ME_62BF3149DFEF
- CONST UID '62BF3149DFEF'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5551C8670144 // Tm3StorageService
- ;
- : Target ME_0E139AD7F468 // Im3StorageService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_62BF3149DFEF f_Alien
-
 : ME_5551C89E0016
  CONST UID '5551C89E0016'
  CONST Name 'UseSplitted'
@@ -2685,23 +2668,6 @@ ref; // ME_5551C8B50249 aValue
 
 ref; // ME_5551C8A7027D SetUseSplitted
 
-: ME_524FFD696B12
- CONST UID '524FFD696B12'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5551C8670144 // Tm3StorageService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_524FFD696B12 Exists
-
 : ME_AA9D589FDBFC_ME_5551C8670144
  : Original ME_AA9D589FDBFC // UseSplitted
  ;
@@ -2719,12 +2685,6 @@ ref; // ME_FEF2A1107807_ME_5551C8670144 SetUseSplitted
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_5551C8670144 InitFields
-
-: ME_5000565C019C_ME_5551C8670144
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5551C8670144 ClearFields
 
 : ME_5551C8670144
  CONST UID '5551C8670144'
@@ -2748,13 +2708,11 @@ ref; // ME_5000565C019C_ME_5551C8670144 ClearFields
  : Attributes
    Seq: ( ME_5551C8D40161 // f_UseSplitted
  ME_944CA7C746EB // Alien
- ME_62BF3149DFEF // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_5551C89E0016 // UseSplitted
  ME_5551C8A7027D // SetUseSplitted
- ME_524FFD696B12 // Exists
  )
  ; // Operations
  : Implemented
@@ -2764,7 +2722,6 @@ ref; // ME_5000565C019C_ME_5551C8670144 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A042E100E2_ME_5551C8670144 // InitFields
- ME_5000565C019C_ME_5551C8670144 // ClearFields
  )
  ; // Overridden
  : Children

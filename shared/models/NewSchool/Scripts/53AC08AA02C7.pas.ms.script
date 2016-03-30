@@ -140,37 +140,6 @@ ref; // ME_5542336C020D DoIt
 
 ref; // ME_5542334A00E6 GetLinkAddress
 
-: ME_68A25D92EBB9
- CONST UID '68A25D92EBB9'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnsCustomStyleProcessor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53AC08C900D0 // TnsCustomStyleProcessor
- ;
-
-ref; // ME_68A25D92EBB9 bind
-
-: ME_84B6F91D3E9E
- CONST UID '84B6F91D3E9E'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53AC08C900D0 // TnsCustomStyleProcessor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_84B6F91D3E9E Exists
-
 : ME_53AC09D30037
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -358,8 +327,6 @@ ref; // ME_DC1A5D24B383_ME_53AC08C900D0 IsVisitedDocumentLink
  : Operations
    Seq: ( ME_53AC3FF3021A // ReadLinkInfo
  ME_5542334A00E6 // GetLinkAddress
- ME_68A25D92EBB9 // bind
- ME_84B6F91D3E9E // Exists
  )
  ; // Operations
  : Implemented

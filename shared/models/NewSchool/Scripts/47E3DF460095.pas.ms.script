@@ -68,57 +68,6 @@ ref; // ME_47E3E116003F Old
 
 ref; // ME_47E3E1260258 New
 
-: ME_431B767F8885
- CONST UID '431B767F8885'
- CONST Name 'f_Cursor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Cursor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47E3DFD00379 // TevSavedCursor
- ;
- : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
- ;
- CONST extprop:clearViaProperty 'Cursor'
-
-ref; // ME_431B767F8885 f_Cursor
-
-: ME_9529B7B1F201
- CONST UID '9529B7B1F201'
- CONST Name 'f_Old'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Old' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47E3DFD00379 // TevSavedCursor
- ;
- : Target WL 'ME_47E3DF8500DC' '47C5207602D1.pas.ms.script' // IevSavedCursor
- ;
- CONST extprop:clearViaProperty 'Old'
-
-ref; // ME_9529B7B1F201 f_Old
-
-: ME_FE73C2534CC9
- CONST UID 'FE73C2534CC9'
- CONST Name 'f_New'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства New' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47E3DFD00379 // TevSavedCursor
- ;
- : Target WL 'ME_47E3DF8500DC' '47C5207602D1.pas.ms.script' // IevSavedCursor
- ;
- CONST extprop:clearViaProperty 'New'
-
-ref; // ME_FE73C2534CC9 f_New
-
 : ME_47E3E48302D0
  CONST Name 'aCursor'
  CONST Class class_Parameter
@@ -170,12 +119,6 @@ ref; // ME_47E3E1DE01E5 Create
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47E3DFD00379 Cleanup
 
-: ME_5000565C019C_ME_47E3DFD00379
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47E3DFD00379 ClearFields
-
 : ME_47E3DFD00379
  CONST UID '47E3DFD00379'
  CONST Name 'TevSavedCursor'
@@ -195,9 +138,6 @@ ref; // ME_5000565C019C_ME_47E3DFD00379 ClearFields
    Seq: ( ME_47E3E0FC0098 // Cursor
  ME_47E3E116003F // Old
  ME_47E3E1260258 // New
- ME_431B767F8885 // f_Cursor
- ME_9529B7B1F201 // f_Old
- ME_FE73C2534CC9 // f_New
  )
  ; // Attributes
  : Operations
@@ -206,7 +146,6 @@ ref; // ME_5000565C019C_ME_47E3DFD00379 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_47E3DFD00379 // Cleanup
- ME_5000565C019C_ME_47E3DFD00379 // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -2351,23 +2290,6 @@ ref; // ME_49E2F6CE0055 LinkedPoint
 
 ref; // ME_49E3136001F0 Listener
 
-: ME_58C02CD985E6
- CONST UID '58C02CD985E6'
- CONST Name 'f_Position'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Position' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49DE2726027E // evCursor
- ;
- : Target WL 'ME_476BDF5003CB' '4678209200A6.pas.ms.script' // TnevPosition
- ;
- CONST extprop:clearViaProperty 'Position'
-
-ref; // ME_58C02CD985E6 f_Position
-
 : ME_49DE3CD80069
  CONST Name 'aView'
  CONST Class class_Parameter
@@ -3204,7 +3126,6 @@ ref; // ME_5321B9DF011A_ME_49DE2726027E DoForceStore
  ME_49E2F3E6036F // ShowCollapsed
  ME_49E2F6CE0055 // LinkedPoint
  ME_49E3136001F0 // Listener
- ME_58C02CD985E6 // f_Position
  )
  ; // Attributes
  : Operations
@@ -5074,23 +4995,6 @@ ref; // ME_50B730F30193 Sharp
 
 ref; // ME_52D79D590074 Borders
 
-: ME_EA9B5317269E
- CONST UID 'EA9B5317269E'
- CONST Name 'f_Sharp'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Sharp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A2D2D4300BE // TevRange
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Sharp'
-
-ref; // ME_EA9B5317269E f_Sharp
-
 FORWARD ME_5108D53B0312
 
 : ME_52D7A37E0130
@@ -6637,7 +6541,6 @@ ref; // ME_52BC1DD60298_ME_4A2D2D4300BE Assign
  : Attributes
    Seq: ( ME_50B730F30193 // Sharp
  ME_52D79D590074 // Borders
- ME_EA9B5317269E // f_Sharp
  )
  ; // Attributes
  : Operations
@@ -14297,23 +14200,6 @@ ref; // ME_4F4C6F720006 f_RowIndex
 
 ref; // ME_4F4C6F8902DF Width
 
-: ME_CBB06BE2A078
- CONST UID 'CBB06BE2A078'
- CONST Name 'f_Processor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Processor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F4C6B940246 // TevColumn
- ;
- : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
- ;
- CONST extprop:clearViaProperty 'Processor'
-
-ref; // ME_CBB06BE2A078 f_Processor
-
 FORWARD ME_4F4C72360323
 
 : ME_5342BA1C02BA
@@ -14592,12 +14478,6 @@ ref; // ME_4BBF42BF004D_ME_4F4C6B940246 Processor
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F4C6B940246 Cleanup
 
-: ME_5000565C019C_ME_4F4C6B940246
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4F4C6B940246 ClearFields
-
 : ME_4F4C6B940246
  CONST UID '4F4C6B940246'
  CONST Name 'TevColumn'
@@ -14622,7 +14502,6 @@ ref; // ME_5000565C019C_ME_4F4C6B940246 ClearFields
    Seq: ( ME_4F4C6D7D0041 // Processor
  ME_4F4C6F720006 // f_RowIndex
  ME_4F4C6F8902DF // Width
- ME_CBB06BE2A078 // f_Processor
  )
  ; // Attributes
  : Operations
@@ -14643,7 +14522,6 @@ ref; // ME_5000565C019C_ME_4F4C6B940246 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4F4C6B940246 // Cleanup
- ME_5000565C019C_ME_4F4C6B940246 // ClearFields
  )
  ; // Overridden
  : Dependencies

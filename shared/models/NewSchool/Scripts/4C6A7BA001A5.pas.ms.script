@@ -306,37 +306,6 @@ ref; // ME_4B1FBFC00122 DoIt
 
 ref; // ME_4B1FBFB301BF Create
 
-FORWARD ME_4B1FBFCC0152
-
-: ME_00F65515A7AA
- CONST Name 'aDocInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_00F65515A7AA aDocInfo
-
-: ME_A0922637E2C8
- CONST UID 'A0922637E2C8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики nsDocumentContainer.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B1FBFCC0152 // Make
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_00F65515A7AA // aDocInfo
- )
- ; // Parameters
-
-ref; // ME_A0922637E2C8 DoIt
-
 : ME_4B1FBFCC0152
  CONST UID '4B1FBFCC0152'
  CONST Name 'Make'
@@ -355,10 +324,6 @@ ref; // ME_A0922637E2C8 DoIt
    Seq: ( WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A0922637E2C8 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -653,12 +618,6 @@ ref; // ME_4D2F0B29034E_ME_4C6A955F00D6 NotifySubReallyAdded
  CONST OpKind opkind_Overridden
 ref; // ME_4D3071570355_ME_4C6A955F00D6 NotifySubReallyDeleted
 
-: ME_5000565C019C_ME_4C6A955F00D6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C6A955F00D6 ClearFields
-
 : ME_4C6A955F00D6
  CONST UID '4C6A955F00D6'
  CONST Name 'nsDocumentContainer'
@@ -713,7 +672,6 @@ ref; // ME_5000565C019C_ME_4C6A955F00D6 ClearFields
  ME_4A60B23E00C3_ME_4C6A955F00D6 // COMQueryInterface
  ME_4D2F0B29034E_ME_4C6A955F00D6 // NotifySubReallyAdded
  ME_4D3071570355_ME_4C6A955F00D6 // NotifySubReallyDeleted
- ME_5000565C019C_ME_4C6A955F00D6 // ClearFields
  )
  ; // Overridden
  : Dependencies

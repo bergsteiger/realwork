@@ -6917,123 +6917,6 @@ ref; // ME_54E193920386 Number
 
 ref; // ME_54E193BD0206 CharSet
 
-: ME_F5608C7092AB
- CONST UID 'F5608C7092AB'
- CONST Name 'f_FontType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target ME_54E1921C028C // TFontType
- ;
- CONST extprop:clearViaProperty 'FontType'
-
-ref; // ME_F5608C7092AB f_FontType
-
-: ME_7528890BD286
- CONST UID '7528890BD286'
- CONST Name 'f_Family'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Family' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target ME_54E191970286 // TFontFamily
- ;
- CONST extprop:clearViaProperty 'Family'
-
-ref; // ME_7528890BD286 f_Family
-
-: ME_2BB84B943561
- CONST UID '2BB84B943561'
- CONST Name 'f_Alternate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alternate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target WL 'ME_4773DF5703C9' '47913B47006E.pas.ms.script' // Tl3String
- ;
-
-ref; // ME_2BB84B943561 f_Alternate
-
-: ME_C8CDBD7276AC
- CONST UID 'C8CDBD7276AC'
- CONST Name 'f_Panose'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Panose' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target WL 'ME_4773DF5703C9' '47913B47006E.pas.ms.script' // Tl3String
- ;
-
-ref; // ME_C8CDBD7276AC f_Panose
-
-: ME_AC1B2F1FCC88
- CONST UID 'AC1B2F1FCC88'
- CONST Name 'f_Pitch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Pitch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
- ;
- CONST extprop:clearViaProperty 'Pitch'
-
-ref; // ME_AC1B2F1FCC88 f_Pitch
-
-: ME_8E43ED9479C1
- CONST UID '8E43ED9479C1'
- CONST Name 'f_Number'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Number' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Number'
-
-ref; // ME_8E43ED9479C1 f_Number
-
-: ME_7C6C50030940
- CONST UID '7C6C50030940'
- CONST Name 'f_CharSet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CharSet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E19074022B // TddFontEntry
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'CharSet'
-
-ref; // ME_7C6C50030940 f_CharSet
-
 : ME_478CF34E02CE_ME_54E19074022B
  : Original WL 'ME_478CF34E02CE' '4AB0997B00A2.pas.ms.script' // Assign
  ;
@@ -7080,13 +6963,6 @@ ref; // ME_47A042E100E2_ME_54E19074022B InitFields
  ME_54E1937103CC // Pitch
  ME_54E193920386 // Number
  ME_54E193BD0206 // CharSet
- ME_F5608C7092AB // f_FontType
- ME_7528890BD286 // f_Family
- ME_2BB84B943561 // f_Alternate
- ME_C8CDBD7276AC // f_Panose
- ME_AC1B2F1FCC88 // f_Pitch
- ME_8E43ED9479C1 // f_Number
- ME_7C6C50030940 // f_CharSet
  )
  ; // Attributes
  : Overridden
@@ -7262,21 +7138,6 @@ ref; // ME_51F0DBD202B0 TddJustList
 
 FORWARD ME_5214B1470139
 
-FORWARD ME_534CD3ED02E9
-
-: ME_CB3582B8DA41
- CONST UID 'CB3582B8DA41'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода GetOutputDirName4Test' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_534CD3ED02E9 // GetOutputDirName4Test
- ;
-
-ref; // ME_CB3582B8DA41 DoIt
-
 : ME_534CD3ED02E9
  CONST UID '534CD3ED02E9'
  CONST Name 'GetOutputDirName4Test'
@@ -7287,27 +7148,8 @@ ref; // ME_CB3582B8DA41 DoIt
  CONST Abstraction at_final
  : Parent ME_5214B1470139 // ddUtils
  ;
- : Operations
-   Seq: ( ME_CB3582B8DA41 // DoIt
- )
- ; // Operations
 
 ref; // ME_534CD3ED02E9 GetOutputDirName4Test
-
-FORWARD ME_5511287702D5
-
-: ME_A0B76AE706C8
- CONST UID 'A0B76AE706C8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода GetWindowsTempFolder' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5511287702D5 // GetWindowsTempFolder
- ;
-
-ref; // ME_A0B76AE706C8 DoIt
 
 : ME_5511287702D5
  CONST UID '5511287702D5'
@@ -7319,10 +7161,6 @@ ref; // ME_A0B76AE706C8 DoIt
  CONST Abstraction at_final
  : Parent ME_5214B1470139 // ddUtils
  ;
- : Operations
-   Seq: ( ME_A0B76AE706C8 // DoIt
- )
- ; // Operations
  CONST "finished" false
 
 ref; // ME_5511287702D5 GetWindowsTempFolder
@@ -8579,21 +8417,6 @@ ref; // ME_54D88E4B01CE DoIt
 
 ref; // ME_54D88E3D0139 StartTextSegment
 
-FORWARD ME_54F847840086
-
-: ME_6763B60B21C8
- CONST UID '6763B60B21C8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StartFormulaPara' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F847840086 // StartFormulaPara
- ;
-
-ref; // ME_6763B60B21C8 DoIt
-
 : ME_54F847840086
  CONST UID '54F847840086'
  CONST Name 'StartFormulaPara'
@@ -8604,10 +8427,6 @@ ref; // ME_6763B60B21C8 DoIt
  CONST Abstraction at_final
  : Parent ME_521B05D60264 // ddEVDTypesSupport
  ;
- : Operations
-   Seq: ( ME_6763B60B21C8 // DoIt
- )
- ; // Operations
 
 ref; // ME_54F847840086 StartFormulaPara
 
@@ -17295,158 +17114,6 @@ ref; // ME_534FB2A5039C anIndex
 
 ref; // ME_534FB2940195 Segments
 
-: ME_408B7672B36C
- CONST UID '408B7672B36C'
- CONST Name 'f_CHP'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CHP' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target ME_51DBBD99020C // TddCharacterProperty
- ;
- CONST extprop:clearViaProperty 'CHP'
-
-ref; // ME_408B7672B36C f_CHP
-
-: ME_2954E24837CC
- CONST UID '2954E24837CC'
- CONST Name 'f_CharacterStyle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CharacterStyle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
- CONST extprop:clearViaProperty 'CharacterStyle'
-
-ref; // ME_2954E24837CC f_CharacterStyle
-
-: ME_1624029DE1A7
- CONST UID '1624029DE1A7'
- CONST Name 'f_ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
- CONST extprop:clearViaProperty 'ID'
-
-ref; // ME_1624029DE1A7 f_ID
-
-: ME_36A6C2FF3DBC
- CONST UID '36A6C2FF3DBC'
- CONST Name 'f_PAP'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PAP' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target ME_51DBBDD6011E // TddParagraphProperty
- ;
- CONST extprop:clearViaProperty 'PAP'
-
-ref; // ME_36A6C2FF3DBC f_PAP
-
-: ME_075F9794155B
- CONST UID '075F9794155B'
- CONST Name 'f_SegmentList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SegmentList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target ME_525D40F1024C // TddTextSegmentsList
- ;
-
-ref; // ME_075F9794155B f_SegmentList
-
-: ME_755957C35132
- CONST UID '755957C35132'
- CONST Name 'f_SubList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SubList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target ME_5268E607002C // TddSubsList
- ;
- CONST extprop:clearViaProperty 'SubList'
-
-ref; // ME_755957C35132 f_SubList
-
-: ME_2C7EC890C100
- CONST UID '2C7EC890C100'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target WL 'ME_4773DF5703C9' '47913B47006E.pas.ms.script' // Tl3String
- ;
- CONST extprop:clearViaProperty 'Text'
-
-ref; // ME_2C7EC890C100 f_Text
-
-: ME_5857D1CF8C68
- CONST UID '5857D1CF8C68'
- CONST Name 'f_Width'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Width' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Width'
-
-ref; // ME_5857D1CF8C68 f_Width
-
-: ME_C5BB878D1CB8
- CONST UID 'C5BB878D1CB8'
- CONST Name 'f_Unicode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Unicode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FACE14F0231 // TddTextParagraph
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Unicode'
-
-ref; // ME_C5BB878D1CB8 f_Unicode
-
 FORWARD ME_534FB2F6005C
 
 : ME_534FB3050209
@@ -18913,15 +18580,6 @@ ref; // ME_528C8C2F02D9_ME_4FACE14F0231 Assign
  ME_534FB22101FE // f_Inc
  ME_534FB2500281 // Unicode
  ME_534FB2940195 // Segments
- ME_408B7672B36C // f_CHP
- ME_2954E24837CC // f_CharacterStyle
- ME_1624029DE1A7 // f_ID
- ME_36A6C2FF3DBC // f_PAP
- ME_075F9794155B // f_SegmentList
- ME_755957C35132 // f_SubList
- ME_2C7EC890C100 // f_Text
- ME_5857D1CF8C68 // f_Width
- ME_C5BB878D1CB8 // f_Unicode
  )
  ; // Attributes
  : Operations
@@ -19957,37 +19615,6 @@ ref; // ME_537DC78A0360 PathConstants
 
 FORWARD ME_5524073901EA
 
-: ME_2118CD1F6AB6
- CONST UID '2118CD1F6AB6'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TddPicturePathService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5524073901EA // TddPicturePathService
- ;
-
-ref; // ME_2118CD1F6AB6 bind
-
-: ME_D45A5752EF6B
- CONST UID 'D45A5752EF6B'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5524073901EA // TddPicturePathService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_D45A5752EF6B Exists
-
 : ME_55240748011C
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -20040,11 +19667,6 @@ ref; // ME_86EACEE128F2_ME_5524073901EA SetPDF4Etalon
    Seq: ( WL 'ME_08CD0EC72A0A' '552405FA0066.pas.ms.script' // Il3PicturePathService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_2118CD1F6AB6 // bind
- ME_D45A5752EF6B // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_2DCD42915D2E_ME_5524073901EA // SetTestName
  ME_3FB12D269858_ME_5524073901EA // AddPicturePath

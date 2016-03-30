@@ -59,48 +59,6 @@ ref; // ME_4CDD4F5401D4 DoIt
 
 ref; // ME_4CDD4F46039D Create
 
-FORWARD ME_4CDD4F24009A
-
-: ME_9CDC186C8797
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48F8C8C201F0' '4680F5600033.pas.ms.script' // DataType
- ;
-
-ref; // ME_9CDC186C8797 aData
-
-: ME_7BB0669E6CD5
- CONST Name 'aBitmap'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476F70910097' '467C0CAA02AB.pas.ms.script' // Il3Bitmap
- ;
-
-ref; // ME_7BB0669E6CD5 aBitmap
-
-: ME_2E775C3702AF
- CONST UID '2E775C3702AF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики ddTreeDataObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CDD4F24009A // Make
- ;
- : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
- ;
- : Parameters
-   Seq: ( ME_9CDC186C8797 // aData
- ME_7BB0669E6CD5 // aBitmap
- )
- ; // Parameters
-
-ref; // ME_2E775C3702AF DoIt
-
 : ME_4CDD4F24009A
  CONST UID '4CDD4F24009A'
  CONST Name 'Make'
@@ -119,10 +77,6 @@ ref; // ME_2E775C3702AF DoIt
    Seq: ( WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
  )
  ; // Implements
- : Operations
-   Seq: ( ME_2E775C3702AF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -481,48 +435,6 @@ ref; // ME_4CDD4DAE018E Create
 
 ref; // ME_4CDD4D9D0014 Create
 
-FORWARD ME_4CDD4D79022C
-
-: ME_AD2F89AD33EE
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48F8C8C201F0' '4680F5600033.pas.ms.script' // DataType
- ;
-
-ref; // ME_AD2F89AD33EE aData
-
-: ME_4FC7456AB510
- CONST Name 'aBitmap'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476F70910097' '467C0CAA02AB.pas.ms.script' // Il3Bitmap
- ;
-
-ref; // ME_4FC7456AB510 aBitmap
-
-: ME_0A318F9D7EBA
- CONST UID '0A318F9D7EBA'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики evTreeData.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CDD4D79022C // Make
- ;
- : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
- ;
- : Parameters
-   Seq: ( ME_AD2F89AD33EE // aData
- ME_4FC7456AB510 // aBitmap
- )
- ; // Parameters
-
-ref; // ME_0A318F9D7EBA Create
-
 : ME_4CDD4D79022C
  CONST UID '4CDD4D79022C'
  CONST Name 'Make'
@@ -541,10 +453,6 @@ ref; // ME_0A318F9D7EBA Create
    Seq: ( WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0A318F9D7EBA // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

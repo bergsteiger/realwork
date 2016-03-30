@@ -146,87 +146,6 @@ ref; // ME_54101008038D f_ActivateProcessingLockCount
 
 ref; // ME_5410102B01CD IsActivateProcessingLocked
 
-: ME_48C8F7AD89C0
- CONST UID '48C8F7AD89C0'
- CONST Name 'f_Scene'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Scene' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53319C7502F4 // TvgRemindersLineForm
- ;
- : Target WL 'ME_4D54170F00D8' '4CFCE51A00B0.pas.ms.script' // TvgCustomScene
- ;
-
-ref; // ME_48C8F7AD89C0 f_Scene
-
-: ME_BE9C7D8B59FC
- CONST UID 'BE9C7D8B59FC'
- CONST Name 'f_Background'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Background' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53319C7502F4 // TvgRemindersLineForm
- ;
- : Target WL 'ME_4FC762770058' '4CFCE51A00B0.pas.ms.script' // TvgBackground
- ;
-
-ref; // ME_BE9C7D8B59FC f_Background
-
-: ME_CB6007588A4E
- CONST UID 'CB6007588A4E'
- CONST Name 'f_ParentControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParentControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53319C7502F4 // TvgRemindersLineForm
- ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
- CONST extprop:clearViaProperty 'ParentControl'
-
-ref; // ME_CB6007588A4E f_ParentControl
-
-: ME_921DB11D1B42
- CONST UID '921DB11D1B42'
- CONST Name 'f_RemindersLine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RemindersLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53319C7502F4 // TvgRemindersLineForm
- ;
- : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
- ;
- CONST extprop:clearViaProperty 'RemindersLine'
-
-ref; // ME_921DB11D1B42 f_RemindersLine
-
-FORWARD ME_54100FBD0074
-
-: ME_A049DB00BB25
- CONST UID 'A049DB00BB25'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LockActivateProcessing' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54100FBD0074 // LockActivateProcessing
- ;
-
-ref; // ME_A049DB00BB25 DoIt
-
 : ME_54100FBD0074
  CONST UID '54100FBD0074'
  CONST Name 'LockActivateProcessing'
@@ -237,27 +156,8 @@ ref; // ME_A049DB00BB25 DoIt
  CONST Abstraction at_final
  : Parent ME_53319C7502F4 // TvgRemindersLineForm
  ;
- : Operations
-   Seq: ( ME_A049DB00BB25 // DoIt
- )
- ; // Operations
 
 ref; // ME_54100FBD0074 LockActivateProcessing
-
-FORWARD ME_54100FD20042
-
-: ME_1508B9615667
- CONST UID '1508B9615667'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnlockActivateProcessing' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54100FD20042 // UnlockActivateProcessing
- ;
-
-ref; // ME_1508B9615667 DoIt
 
 : ME_54100FD20042
  CONST UID '54100FD20042'
@@ -269,10 +169,6 @@ ref; // ME_1508B9615667 DoIt
  CONST Abstraction at_final
  : Parent ME_53319C7502F4 // TvgRemindersLineForm
  ;
- : Operations
-   Seq: ( ME_1508B9615667 // DoIt
- )
- ; // Operations
 
 ref; // ME_54100FD20042 UnlockActivateProcessing
 
@@ -406,21 +302,6 @@ ref; // ME_54477AE0006F Msg
 
 ref; // ME_54477AC100E5 CMShowingChanged
 
-: ME_4A7CF6CBFE82
- CONST UID '4A7CF6CBFE82'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgRemindersLineForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53319C7502F4 // TvgRemindersLineForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4A7CF6CBFE82 Ini_Reg_Class
-
 : ME_5331A46E02DA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -480,17 +361,6 @@ ref; // ME_53887F70004C
  ;
 
 ref; // ME_538F116D0226 
-
-: ME_5CE32526BB7F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53319C7502F4 // TvgRemindersLineForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5CE32526BB7F 
 
 : ME_48077504027E_ME_53319C7502F4
  : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
@@ -555,10 +425,6 @@ ref; // ME_533AA4B4006B_ME_53319C7502F4 UpdateActions
  ME_5332C1B300F2 // RemindersLine
  ME_54101008038D // f_ActivateProcessingLockCount
  ME_5410102B01CD // IsActivateProcessingLocked
- ME_48C8F7AD89C0 // f_Scene
- ME_BE9C7D8B59FC // f_Background
- ME_CB6007588A4E // f_ParentControl
- ME_921DB11D1B42 // f_RemindersLine
  )
  ; // Attributes
  : Operations
@@ -569,7 +435,6 @@ ref; // ME_533AA4B4006B_ME_53319C7502F4 UpdateActions
  ME_535E4AF101D7 // WMContextMenu
  ME_535E4B38022D // WMSyncPos
  ME_54477AC100E5 // CMShowingChanged
- ME_4A7CF6CBFE82 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -593,7 +458,6 @@ ref; // ME_533AA4B4006B_ME_53319C7502F4 UpdateActions
  ME_535FB0F5034D // 
  ME_53887F70004C // 
  ME_538F116D0226 // 
- ME_5CE32526BB7F // 
  )
  ; // Dependencies
  : Injected
@@ -5199,40 +5063,6 @@ ref; // ME_4F9A5FDD0025 Settings
 
 ref; // ME_4F9A5FF100FD BaseId
 
-: ME_CF6D75E24547
- CONST UID 'CF6D75E24547'
- CONST Name 'f_Settings'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Settings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F9A57620120 // nsUnknownComponent
- ;
- : Target WL 'ME_476963BB00EF' '467BAB7F021E.pas.ms.script' // IvcmSettings
- ;
- CONST extprop:clearViaProperty 'Settings'
-
-ref; // ME_CF6D75E24547 f_Settings
-
-: ME_BECF4C5AF3DF
- CONST UID 'BECF4C5AF3DF'
- CONST Name 'f_BaseId'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BaseId' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F9A57620120 // nsUnknownComponent
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'BaseId'
-
-ref; // ME_BECF4C5AF3DF f_BaseId
-
 FORWARD ME_4F9A5C0C01F7
 
 : ME_4F9A5C1D0195
@@ -5406,12 +5236,6 @@ ref; // ME_473DA15800E2_ME_4F9A57620120 BaseId
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F9A57620120 Cleanup
 
-: ME_5000565C019C_ME_4F9A57620120
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4F9A57620120 ClearFields
-
 : ME_4F9A57620120
  CONST UID '4F9A57620120'
  CONST Name 'nsUnknownComponent'
@@ -5431,8 +5255,6 @@ ref; // ME_5000565C019C_ME_4F9A57620120 ClearFields
  : Attributes
    Seq: ( ME_4F9A5FDD0025 // Settings
  ME_4F9A5FF100FD // BaseId
- ME_CF6D75E24547 // f_Settings
- ME_BECF4C5AF3DF // f_BaseId
  )
  ; // Attributes
  : Operations
@@ -5450,7 +5272,6 @@ ref; // ME_5000565C019C_ME_4F9A57620120 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4F9A57620120 // Cleanup
- ME_5000565C019C_ME_4F9A57620120 // ClearFields
  )
  ; // Overridden
  CONST "ifndef" 'DesignTimeLibrary'

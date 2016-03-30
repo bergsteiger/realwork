@@ -1931,48 +1931,6 @@ ref; // ME_4D6624C90242
 
 ref; // ME_4D66245B02FA Create
 
-FORWARD ME_4D662494003E
-
-: ME_645B583166F9
- CONST Name 'aHotSpot'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
- ;
-
-ref; // ME_645B583166F9 aHotSpot
-
-: ME_BC82C93B279C
- CONST Name 'aView'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C5C1AC02CA' '47C5207602D1.pas.ms.script' // InevControlView
- ;
-
-ref; // ME_BC82C93B279C aView
-
-: ME_79A6268D5BFF
- CONST UID '79A6268D5BFF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevHotSpotWrap.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D662494003E // Make
- ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
- : Parameters
-   Seq: ( ME_645B583166F9 // aHotSpot
- ME_BC82C93B279C // aView
- )
- ; // Parameters
-
-ref; // ME_79A6268D5BFF DoIt
-
 : ME_4D662494003E
  CONST UID '4D662494003E'
  CONST Name 'Make'
@@ -1991,10 +1949,6 @@ ref; // ME_79A6268D5BFF DoIt
    Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  )
  ; // Implements
- : Operations
-   Seq: ( ME_79A6268D5BFF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

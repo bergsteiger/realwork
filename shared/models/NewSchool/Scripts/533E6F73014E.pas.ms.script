@@ -4242,55 +4242,6 @@ ref; // ME_5507C6F50210 Images
 
 ref; // ME_5512A07A01B0 BackgroundBitmap
 
-: ME_DB3DA967F0C6
- CONST UID 'DB3DA967F0C6'
- CONST Name 'f_BufferBitmap'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BufferBitmap' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
- : Target WL 'ME_47D15062022A' '473C3BEE0334.pas.ms.script' // Tl3Bitmap
- ;
-
-ref; // ME_DB3DA967F0C6 f_BufferBitmap
-
-: ME_813BA09133E5
- CONST UID '813BA09133E5'
- CONST Name 'f_Images'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Images' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'Images'
-
-ref; // ME_813BA09133E5 f_Images
-
-: ME_7BA07FFD7BFD
- CONST UID '7BA07FFD7BFD'
- CONST Name 'f_BackgroundBitmap'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundBitmap' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
- : Target WL 'ME_47D15062022A' '473C3BEE0334.pas.ms.script' // Tl3Bitmap
- ;
-
-ref; // ME_7BA07FFD7BFD f_BackgroundBitmap
-
 FORWARD ME_5507C214017E
 
 : ME_5507C2250257
@@ -4939,21 +4890,6 @@ ref; // ME_5507DECC01F7 aMessage
 
 ref; // ME_5507DEAF02CE CMMouseEnter
 
-: ME_2FF95117FA31
- CONST UID '2FF95117FA31'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TChromeLikeTabSetControlPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2FF95117FA31 Ini_Reg_Class
-
 : ME_5507C1DE01B7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5126,17 +5062,6 @@ ref; // ME_550FA25A03A5
 
 ref; // ME_550FA6B2006D 
 
-: ME_4D216246D304
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4D216246D304 
-
 : ME_47D1602000C6_ME_5507C0E2028F
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -5167,9 +5092,6 @@ ref; // ME_48077504027E_ME_5507C0E2028F Destroy
    Seq: ( ME_5507C19A032F // BufferBitmap
  ME_5507C6F50210 // Images
  ME_5512A07A01B0 // BackgroundBitmap
- ME_DB3DA967F0C6 // f_BufferBitmap
- ME_813BA09133E5 // f_Images
- ME_7BA07FFD7BFD // f_BackgroundBitmap
  )
  ; // Attributes
  : Operations
@@ -5192,7 +5114,6 @@ ref; // ME_48077504027E_ME_5507C0E2028F Destroy
  ME_5507C47E00FD // CMMouseLeave
  ME_5507C49701E2 // CMHintShow
  ME_5507DEAF02CE // CMMouseEnter
- ME_2FF95117FA31 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -5222,7 +5143,6 @@ ref; // ME_48077504027E_ME_5507C0E2028F Destroy
  ME_5507DB2A0217 // 
  ME_550FA25A03A5 // 
  ME_550FA6B2006D // 
- ME_4D216246D304 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -5766,72 +5686,6 @@ ref; // ME_550A62B002C0 OnTimer
 
 ref; // ME_551BA5850151 f_NeedAnimateEvent
 
-: ME_24F77B7BD012
- CONST UID '24F77B7BD012'
- CONST Name 'f_Interval'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Interval' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550A606F030D // TChromeLikeThreadTimer
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Interval'
-
-ref; // ME_24F77B7BD012 f_Interval
-
-: ME_6157E58BC88C
- CONST UID '6157E58BC88C'
- CONST Name 'f_Enabled'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Enabled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550A606F030D // TChromeLikeThreadTimer
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Enabled'
-
-ref; // ME_6157E58BC88C f_Enabled
-
-: ME_6CEE129ACB85
- CONST UID '6CEE129ACB85'
- CONST Name 'f_OnTimer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTimer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550A606F030D // TChromeLikeThreadTimer
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnTimer'
-
-ref; // ME_6CEE129ACB85 f_OnTimer
-
-FORWARD ME_550A630D0016
-
-: ME_6D0BC8C2EFDE
- CONST UID '6D0BC8C2EFDE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StartTimer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A630D0016 // StartTimer
- ;
-
-ref; // ME_6D0BC8C2EFDE DoIt
-
 : ME_550A630D0016
  CONST UID '550A630D0016'
  CONST Name 'StartTimer'
@@ -5842,27 +5696,8 @@ ref; // ME_6D0BC8C2EFDE DoIt
  CONST Abstraction at_final
  : Parent ME_550A606F030D // TChromeLikeThreadTimer
  ;
- : Operations
-   Seq: ( ME_6D0BC8C2EFDE // DoIt
- )
- ; // Operations
 
 ref; // ME_550A630D0016 StartTimer
-
-FORWARD ME_550A631A0106
-
-: ME_758D009F782E
- CONST UID '758D009F782E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StopTimer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A631A0106 // StopTimer
- ;
-
-ref; // ME_758D009F782E DoIt
 
 : ME_550A631A0106
  CONST UID '550A631A0106'
@@ -5874,10 +5709,6 @@ ref; // ME_758D009F782E DoIt
  CONST Abstraction at_final
  : Parent ME_550A606F030D // TChromeLikeThreadTimer
  ;
- : Operations
-   Seq: ( ME_758D009F782E // DoIt
- )
- ; // Operations
 
 ref; // ME_550A631A0106 StopTimer
 
@@ -5952,9 +5783,6 @@ ref; // ME_479731C50290_ME_550A606F030D Cleanup
  ME_550A62A70099 // f_TimerThread
  ME_550A62B002C0 // OnTimer
  ME_551BA5850151 // f_NeedAnimateEvent
- ME_24F77B7BD012 // f_Interval
- ME_6157E58BC88C // f_Enabled
- ME_6CEE129ACB85 // f_OnTimer
  )
  ; // Attributes
  : Operations
@@ -6006,21 +5834,6 @@ ref; // ME_550A60E90019 f_Timer
 
 ref; // ME_551BA5B40291 f_NeedAnimateEvent
 
-FORWARD ME_550A6158014E
-
-: ME_02DC8D9B8AAB
- CONST UID '02DC8D9B8AAB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoExecute' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A6158014E // DoExecute
- ;
-
-ref; // ME_02DC8D9B8AAB DoIt
-
 : ME_550A6158014E
  CONST UID '550A6158014E'
  CONST Name 'DoExecute'
@@ -6031,10 +5844,6 @@ ref; // ME_02DC8D9B8AAB DoIt
  CONST Abstraction at_final
  : Parent ME_550A606001EE // TChromeLikeTimerThread
  ;
- : Operations
-   Seq: ( ME_02DC8D9B8AAB // DoIt
- )
- ; // Operations
 
 ref; // ME_550A6158014E DoExecute
 
@@ -6314,21 +6123,6 @@ ref; // ME_550A65AC011B DoIt
 
 ref; // ME_550A64790157 RemoveAnimable
 
-FORWARD ME_55111F0A00F9
-
-: ME_267D83B1C6CF
- CONST UID '267D83B1C6CF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55111F0A00F9 // Create
- ;
-
-ref; // ME_267D83B1C6CF DoIt
-
 : ME_55111F0A00F9
  CONST UID '55111F0A00F9'
  CONST Name 'Create'
@@ -6339,27 +6133,8 @@ ref; // ME_267D83B1C6CF DoIt
  CONST Abstraction at_final
  : Parent ME_550A638900A0 // TChromeLikeTabSetAnimationManager
  ;
- : Operations
-   Seq: ( ME_267D83B1C6CF // DoIt
- )
- ; // Operations
 
 ref; // ME_55111F0A00F9 Create
-
-FORWARD ME_551BA1000265
-
-: ME_C762BAF47BB9
- CONST UID 'C762BAF47BB9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckNeedAnimate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551BA1000265 // CheckNeedAnimate
- ;
-
-ref; // ME_C762BAF47BB9 DoIt
 
 : ME_551BA1000265
  CONST UID '551BA1000265'
@@ -6371,27 +6146,8 @@ ref; // ME_C762BAF47BB9 DoIt
  CONST Abstraction at_final
  : Parent ME_550A638900A0 // TChromeLikeTabSetAnimationManager
  ;
- : Operations
-   Seq: ( ME_C762BAF47BB9 // DoIt
- )
- ; // Operations
 
 ref; // ME_551BA1000265 CheckNeedAnimate
-
-FORWARD ME_55ACE28F00B0
-
-: ME_80ED4E2FAA84
- CONST UID '80ED4E2FAA84'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FinishAllImmediately' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55ACE28F00B0 // FinishAllImmediately
- ;
-
-ref; // ME_80ED4E2FAA84 DoIt
 
 : ME_55ACE28F00B0
  CONST UID '55ACE28F00B0'
@@ -6403,29 +6159,8 @@ ref; // ME_80ED4E2FAA84 DoIt
  CONST Abstraction at_final
  : Parent ME_550A638900A0 // TChromeLikeTabSetAnimationManager
  ;
- : Operations
-   Seq: ( ME_80ED4E2FAA84 // DoIt
- )
- ; // Operations
 
 ref; // ME_55ACE28F00B0 FinishAllImmediately
-
-: ME_79E94ED96326
- CONST UID '79E94ED96326'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A638900A0 // TChromeLikeTabSetAnimationManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_79E94ED96326 Exists
 
 : ME_550A63A301E9
  CONST Class class_Dependency
@@ -6470,7 +6205,6 @@ ref; // ME_479731C50290_ME_550A638900A0 Cleanup
  ME_55111F0A00F9 // Create
  ME_551BA1000265 // CheckNeedAnimate
  ME_55ACE28F00B0 // FinishAllImmediately
- ME_79E94ED96326 // Exists
  )
  ; // Operations
  : Overridden
@@ -14319,22 +14053,6 @@ ref; // ME_552CEB4B00B5 PositionLocked
 
 ref; // ME_552CEB76001C f_PositionLockCount
 
-: ME_16548B8C6BBD
- CONST UID '16548B8C6BBD'
- CONST Name 'f_TabSet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TabSet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
- ;
- : Target ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
-
-ref; // ME_16548B8C6BBD f_TabSet
-
 FORWARD ME_550A7E0F01BF
 
 : ME_90E371BBDD2F
@@ -15021,21 +14739,6 @@ ref; // ME_56CB9FE49C23 DoIt
 
 ref; // ME_550A810F0262 ActivateNextTab
 
-FORWARD ME_550A8122032A
-
-: ME_1437A90CD94C
- CONST UID '1437A90CD94C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ActivatePrevTab' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A8122032A // ActivatePrevTab
- ;
-
-ref; // ME_1437A90CD94C DoIt
-
 : ME_550A8122032A
  CONST UID '550A8122032A'
  CONST Name 'ActivatePrevTab'
@@ -15046,10 +14749,6 @@ ref; // ME_1437A90CD94C DoIt
  CONST Abstraction at_final
  : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_1437A90CD94C // DoIt
- )
- ; // Operations
 
 ref; // ME_550A8122032A ActivatePrevTab
 
@@ -15233,21 +14932,6 @@ ref; // ME_550A81990216 DoIt
 
 ref; // ME_550A817F01CE InsertForm$1
 
-FORWARD ME_550A81B40201
-
-: ME_366F19AA443D
- CONST UID '366F19AA443D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CloseSelectedForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A81B40201 // CloseSelectedForm
- ;
-
-ref; // ME_366F19AA443D DoIt
-
 : ME_550A81B40201
  CONST UID '550A81B40201'
  CONST Name 'CloseSelectedForm'
@@ -15258,10 +14942,6 @@ ref; // ME_366F19AA443D DoIt
  CONST Abstraction at_final
  : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_366F19AA443D // DoIt
- )
- ; // Operations
 
 ref; // ME_550A81B40201 CloseSelectedForm
 
@@ -15308,21 +14988,6 @@ ref; // ME_550A81DC0308 DoIt
 
 ref; // ME_550A81D3028A SetSelected
 
-FORWARD ME_550A849402AD
-
-: ME_FFA0EEC1D9FC
- CONST UID 'FFA0EEC1D9FC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RedrawTabSet' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A849402AD // RedrawTabSet
- ;
-
-ref; // ME_FFA0EEC1D9FC DoIt
-
 : ME_550A849402AD
  CONST UID '550A849402AD'
  CONST Name 'RedrawTabSet'
@@ -15333,10 +14998,6 @@ ref; // ME_FFA0EEC1D9FC DoIt
  CONST Abstraction at_final
  : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_FFA0EEC1D9FC // DoIt
- )
- ; // Operations
 
 ref; // ME_550A849402AD RedrawTabSet
 
@@ -15776,21 +15437,6 @@ ref; // ME_550A87AA0172 DoIt
 
 ref; // ME_550A879C02C9 DockToAnother
 
-FORWARD ME_550A98F20312
-
-: ME_9A6E6F333860
- CONST UID '9A6E6F333860'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateContainedFormsActions' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A98F20312 // UpdateContainedFormsActions
- ;
-
-ref; // ME_9A6E6F333860 DoIt
-
 : ME_550A98F20312
  CONST UID '550A98F20312'
  CONST Name 'UpdateContainedFormsActions'
@@ -15801,27 +15447,10 @@ ref; // ME_9A6E6F333860 DoIt
  CONST Abstraction at_final
  : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_9A6E6F333860 // DoIt
- )
- ; // Operations
 
 ref; // ME_550A98F20312 UpdateContainedFormsActions
 
 FORWARD ME_550A98FD01E9
-
-: ME_78ED8867813E
- CONST UID '78ED8867813E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ResetMouseControl' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550A98FD01E9 // ResetMouseControl
- ;
-
-ref; // ME_78ED8867813E DoIt
 
 : ME_550A9F7300D2
  CONST Class class_Dependency
@@ -15843,10 +15472,6 @@ ref; // ME_550A9F7300D2
  CONST Abstraction at_final
  : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_78ED8867813E // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_550A9F7300D2 // 
  )
@@ -16683,7 +16308,6 @@ ref; // ME_56CEAAE901F8_ME_550A7D5C01BC OpenTabAfter
  ME_550A9811026A // FormDockSite
  ME_552CEB4B00B5 // PositionLocked
  ME_552CEB76001C // f_PositionLockCount
- ME_16548B8C6BBD // f_TabSet
  )
  ; // Attributes
  : Operations

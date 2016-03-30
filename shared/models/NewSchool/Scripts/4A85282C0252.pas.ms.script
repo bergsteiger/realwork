@@ -8548,21 +8548,6 @@ ref; // ME_4AF4111F0184 nsTreeAttributeNodesNew
 
 ref; // ME_4AE8A0440254 InsSearchTypeState
 
-FORWARD ME_4CF3BA7902C0
-
-: ME_D6885DD18F90
- CONST UID 'D6885DD18F90'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода GblAdapterDateToDateTime' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CF3BA7902C0 // GblAdapterDateToDateTime
- ;
-
-ref; // ME_D6885DD18F90 DoIt
-
 : ME_4CF3BA7902C0
  CONST UID '4CF3BA7902C0'
  CONST Name 'GblAdapterDateToDateTime'
@@ -8573,27 +8558,8 @@ ref; // ME_D6885DD18F90 DoIt
  CONST Abstraction at_final
  : Parent ME_4AE8A02C03E7 // nsQuery
  ;
- : Operations
-   Seq: ( ME_D6885DD18F90 // DoIt
- )
- ; // Operations
 
 ref; // ME_4CF3BA7902C0 GblAdapterDateToDateTime
-
-FORWARD ME_4CFCD294024F
-
-: ME_9E5C4E095D4F
- CONST UID '9E5C4E095D4F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckContext6x' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CFCD294024F // CheckContext6x
- ;
-
-ref; // ME_9E5C4E095D4F DoIt
 
 : ME_4CFCD294024F
  CONST UID '4CFCD294024F'
@@ -8605,10 +8571,6 @@ ref; // ME_9E5C4E095D4F DoIt
  CONST Abstraction at_final
  : Parent ME_4AE8A02C03E7 // nsQuery
  ;
- : Operations
-   Seq: ( ME_9E5C4E095D4F // DoIt
- )
- ; // Operations
 
 ref; // ME_4CFCD294024F CheckContext6x
 
@@ -12805,23 +12767,6 @@ FORWARD ME_54F8360D0043
 
 ref; // ME_54F83673012A Processor
 
-: ME_D4678DB471D6
- CONST UID 'D4678DB471D6'
- CONST Name 'f_Processor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Processor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F8360D0043 // TtasSaveLoadProxy
- ;
- : Target ME_54F836540343 // ItasSaveLoadProcessor
- ;
- CONST extprop:clearViaProperty 'Processor'
-
-ref; // ME_D4678DB471D6 f_Processor
-
 FORWARD ME_54F836C10315
 
 : ME_54F836D002C4
@@ -12995,34 +12940,11 @@ ref; // ME_54F85E7E019E DoIt
 
 ref; // ME_54F85E7203A1 IsQuerySaved
 
-: ME_187F7D55EEB4
- CONST UID '187F7D55EEB4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F8360D0043 // TtasSaveLoadProxy
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_187F7D55EEB4 Exists
-
 : ME_479731C50290_ME_54F8360D0043
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F8360D0043 Cleanup
-
-: ME_5000565C019C_ME_54F8360D0043
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_54F8360D0043 ClearFields
 
 : ME_54F8360D0043
  CONST UID '54F8360D0043'
@@ -13040,19 +12962,16 @@ ref; // ME_5000565C019C_ME_54F8360D0043 ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_54F83673012A // Processor
- ME_D4678DB471D6 // f_Processor
  )
  ; // Attributes
  : Operations
    Seq: ( ME_54F836C10315 // LoadFromQuery
  ME_54F8399003BA // SaveToQuery
  ME_54F85E7203A1 // IsQuerySaved
- ME_187F7D55EEB4 // Exists
  )
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_54F8360D0043 // Cleanup
- ME_5000565C019C_ME_54F8360D0043 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'

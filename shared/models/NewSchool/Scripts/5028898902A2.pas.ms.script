@@ -244,21 +244,6 @@ ref; // ME_EE072599FA78 DoIt
 
 ref; // ME_552E10010067 ActivateMainForm
 
-: ME_1843EB8E78EA
- CONST UID '1843EB8E78EA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TCustomToolWindow97' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50288A3D023C // TCustomToolWindow97
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1843EB8E78EA Ini_Reg_Class
-
 : ME_552E106A02E8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -268,17 +253,6 @@ ref; // ME_1843EB8E78EA Ini_Reg_Class
  ;
 
 ref; // ME_552E106A02E8 
-
-: ME_ACEEB45EA9C4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50288A3D023C // TCustomToolWindow97
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_ACEEB45EA9C4 
 
 : ME_50288A3D023C
  CONST UID '50288A3D023C'
@@ -300,12 +274,10 @@ ref; // ME_ACEEB45EA9C4
  ME_5028A78B015A // EndUpdate
  ME_552E0FD5016D // NeedActivateMainForm
  ME_552E10010067 // ActivateMainForm
- ME_1843EB8E78EA // Ini_Reg_Class
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_552E106A02E8 // 
- ME_ACEEB45EA9C4 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -351,32 +323,6 @@ ref; // ME_5028DD4800CC DoIt
 
 ref; // ME_5028DD25024B SizeGripWidth
 
-: ME_B41AB14DF939
- CONST UID 'B41AB14DF939'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TDock97' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5028DD12007F // TDock97
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B41AB14DF939 Ini_Reg_Class
-
-: ME_54A2600909E1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5028DD12007F // TDock97
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_54A2600909E1 
-
 : ME_5028DD12007F
  CONST UID '5028DD12007F'
  CONST Name 'TDock97'
@@ -393,13 +339,8 @@ ref; // ME_54A2600909E1
  ; // Inherits
  : Operations
    Seq: ( ME_5028DD25024B // SizeGripWidth
- ME_B41AB14DF939 // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_54A2600909E1 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

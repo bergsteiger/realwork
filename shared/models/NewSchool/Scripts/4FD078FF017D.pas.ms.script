@@ -238,23 +238,6 @@ ref; // ME_4FD3185E022F Do
 
 ref; // ME_4FD318100335 IsAssigned
 
-: ME_02386B48CCD2
- CONST UID '02386B48CCD2'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4FD31272000C // TvtilCreators
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_02386B48CCD2 Exists
-
 : ME_4FD31272000C
  CONST UID '4FD31272000C'
  CONST Name 'TvtilCreators'
@@ -271,7 +254,6 @@ ref; // ME_02386B48CCD2 Exists
  ; // Inherits
  : Operations
    Seq: ( ME_4FD318100335 // IsAssigned
- ME_02386B48CCD2 // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -299,23 +281,6 @@ FORWARD ME_502518C60255
  ;
 
 ref; // ME_502518FC0040 f_ImgDLL
-
-: ME_CBF39F4EB492
- CONST UID 'CBF39F4EB492'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_502518C60255 // ImgLibraryManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CBF39F4EB492 Exists
 
 : ME_479731C50290_ME_502518C60255
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -347,10 +312,6 @@ ref; // ME_47A042E100E2_ME_502518C60255 InitFields
    Seq: ( ME_502518FC0040 // f_ImgDLL
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_CBF39F4EB492 // Exists
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_502518C60255 // Cleanup
  ME_47A042E100E2_ME_502518C60255 // InitFields
@@ -1554,39 +1515,6 @@ ref; // ME_4FD226770108 f_DrawCache
 
 ref; // ME_4FD22685016F f_AlphaDrawCache
 
-: ME_A8A10D6BF8F9
- CONST UID 'A8A10D6BF8F9'
- CONST Name 'f_Count'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_A8A10D6BF8F9 f_Count
-
-: ME_C3953E20E2A0
- CONST UID 'C3953E20E2A0'
- CONST Name 'f_CurBPP'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurBPP' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
- ;
- : Target WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
- ;
- CONST extprop:clearViaProperty 'CurBPP'
-
-ref; // ME_C3953E20E2A0 f_CurBPP
-
 FORWARD ME_4FD08DA20340
 
 : ME_4FD08DAC0278
@@ -2460,8 +2388,6 @@ ref; // ME_4FD095D20217_ME_4ACB4A5201FC IsSmart
  ME_4FD08B2D0172 // f_Rebuilding
  ME_4FD226770108 // f_DrawCache
  ME_4FD22685016F // f_AlphaDrawCache
- ME_A8A10D6BF8F9 // f_Count
- ME_C3953E20E2A0 // f_CurBPP
  )
  ; // Attributes
  : Operations
@@ -2815,73 +2741,6 @@ ref; // ME_4FD0AEF3005E f_NeedPrepareAlphaDrawCache
  ;
 
 ref; // ME_4FD0AF1B035C f_Rebuilding
-
-: ME_C8282939AE8E
- CONST UID 'C8282939AE8E'
- CONST Name 'f_AvailableSizes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AvailableSizes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
- ;
- : Target WL 'ME_4FD06FF6027F' '4F8BEB580354.pas.ms.script' // TvtPILSizes
- ;
- CONST extprop:clearViaProperty 'AvailableSizes'
-
-ref; // ME_C8282939AE8E f_AvailableSizes
-
-: ME_48D2C51A5913
- CONST UID '48D2C51A5913'
- CONST Name 'f_Count'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_48D2C51A5913 f_Count
-
-: ME_95E415AAB9A7
- CONST UID '95E415AAB9A7'
- CONST Name 'f_CurBPP'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurBPP' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
- ;
- : Target WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
- ;
- CONST extprop:clearViaProperty 'CurBPP'
-
-ref; // ME_95E415AAB9A7 f_CurBPP
-
-: ME_8B47C9A1D240
- CONST UID '8B47C9A1D240'
- CONST Name 'f_CurSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
- ;
- : Target WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ;
- CONST extprop:clearViaProperty 'CurSize'
-
-ref; // ME_8B47C9A1D240 f_CurSize
 
 FORWARD ME_4FD0B13F0065
 
@@ -3844,10 +3703,6 @@ ref; // ME_4FD095D20217_ME_4FD0A98C01BD IsSmart
  ME_4FD0AEB10321 // f_AlphaDrawCache
  ME_4FD0AEF3005E // f_NeedPrepareAlphaDrawCache
  ME_4FD0AF1B035C // f_Rebuilding
- ME_C8282939AE8E // f_AvailableSizes
- ME_48D2C51A5913 // f_Count
- ME_95E415AAB9A7 // f_CurBPP
- ME_8B47C9A1D240 // f_CurSize
  )
  ; // Attributes
  : Operations
@@ -3963,40 +3818,6 @@ ref; // ME_4FD0C16101F3 f_ImageChangeLink
 
 ref; // ME_4FD0C1BF0313 Count
 
-: ME_46300F4F7DC7
- CONST UID '46300F4F7DC7'
- CONST Name 'f_FixedSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FixedSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
- ;
- : Target WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ;
- CONST extprop:clearViaProperty 'FixedSize'
-
-ref; // ME_46300F4F7DC7 f_FixedSize
-
-: ME_731B7FD51CF8
- CONST UID '731B7FD51CF8'
- CONST Name 'f_OriginalImgList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OriginalImgList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
- ;
- : Target ME_4FD0A98C01BD // TvtPngImageListPrim
- ;
- CONST extprop:clearViaProperty 'OriginalImgList'
-
-ref; // ME_731B7FD51CF8 f_OriginalImgList
-
 FORWARD ME_4FD0C2760204
 
 : ME_4FD0C287009E
@@ -4100,8 +3921,6 @@ ref; // ME_4FD095D20217_ME_4FD0BFBC00F9 IsSmart
  ME_4FD0C0CB027B // OriginalImgList
  ME_4FD0C16101F3 // f_ImageChangeLink
  ME_4FD0C1BF0313 // Count
- ME_46300F4F7DC7 // f_FixedSize
- ME_731B7FD51CF8 // f_OriginalImgList
  )
  ; // Attributes
  : Operations

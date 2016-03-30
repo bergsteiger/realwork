@@ -40,37 +40,6 @@ ref; // ME_505C064A02A4 ddAutoLinkFilter
 
 FORWARD ME_552BF7B201EE
 
-: ME_E57BE08F2819
- CONST UID 'E57BE08F2819'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TddAutolinkService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BF7B201EE // TddAutolinkService
- ;
-
-ref; // ME_E57BE08F2819 bind
-
-: ME_885869F50F6C
- CONST UID '885869F50F6C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552BF7B201EE // TddAutolinkService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_885869F50F6C Exists
-
 : ME_552BF7BB011A
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -121,11 +90,6 @@ ref; // ME_A18BB0B1A222_ME_552BF7B201EE CleanAutolinkFilter
    Seq: ( WL 'ME_DA0E680BD126' '552BF68E0188.pas.ms.script' // Il3AutolinkService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E57BE08F2819 // bind
- ME_885869F50F6C // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_27BE83734EFD_ME_552BF7B201EE // GetAutolinkFilter
  ME_A18BB0B1A222_ME_552BF7B201EE // CleanAutolinkFilter
@@ -195,7 +159,6 @@ ref; // ME_552BF78902EE ddAutoLinkServices
  ; // Children
  : Depends
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_552BF68E0188' '552BF68E0188.pas.ms.script' // AutoLink
  )
  ; // Depends

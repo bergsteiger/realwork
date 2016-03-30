@@ -23,23 +23,6 @@ FORWARD ME_54073B760302
 
 ref; // ME_540F06CE030B Logger
 
-: ME_68CFECEAECA8
- CONST UID '68CFECEAECA8'
- CONST Name 'f_Logger'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Logger' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54073B760302 // m3RootStream
- ;
- : Target WL 'ME_540EE3000176' '47913B47006E.pas.ms.script' // Tl3Logger
- ;
- CONST extprop:clearViaProperty 'Logger'
-
-ref; // ME_68CFECEAECA8 f_Logger
-
 FORWARD ME_540F06F60288
 
 : ME_540F070D0103
@@ -149,7 +132,6 @@ ref; // ME_540F072F02B4_ME_54073B760302 DoUnlockHeader
  ; // Inherits
  : Attributes
    Seq: ( ME_540F06CE030B // Logger
- ME_68CFECEAECA8 // f_Logger
  )
  ; // Attributes
  : Operations
@@ -4642,54 +4624,6 @@ ref; // ME_5448EBF902BB NextPosition
 
 ref; // ME_544F7C9A020E rHeaderCompare
 
-: ME_EE764C81E77F
- CONST UID 'EE764C81E77F'
- CONST Name 'f_Position'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Position' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5411C58501E2 // Tm3StorageBlock
- ;
- : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
- ;
-
-ref; // ME_EE764C81E77F f_Position
-
-: ME_E1538E9D87A5
- CONST UID 'E1538E9D87A5'
- CONST Name 'f_Name'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5411C58501E2 // Tm3StorageBlock
- ;
- : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ;
-
-ref; // ME_E1538E9D87A5 f_Name
-
-: ME_08A48BD63132
- CONST UID '08A48BD63132'
- CONST Name 'f_Index'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Index' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5411C58501E2 // Tm3StorageBlock
- ;
- : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
- ;
-
-ref; // ME_08A48BD63132 f_Index
-
 FORWARD ME_5413163101BA
 
 : ME_54451DB60016
@@ -5482,9 +5416,6 @@ ref; // ME_479731C50290_ME_5411C58501E2 Cleanup
  ME_54476EC30198 // f_Offset
  ME_5448EBF902BB // NextPosition
  ME_544F7C9A020E // rHeaderCompare
- ME_EE764C81E77F // f_Position
- ME_E1538E9D87A5 // f_Name
- ME_08A48BD63132 // f_Index
  )
  ; // Attributes
  : Operations

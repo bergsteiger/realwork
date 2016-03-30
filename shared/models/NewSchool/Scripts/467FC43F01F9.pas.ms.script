@@ -4033,37 +4033,6 @@ ref; // ME_530F2A4000C7 DoIt
 
 ref; // ME_530F2A36024A Create
 
-FORWARD ME_530F2A4C0182
-
-: ME_1A3A8C17303F
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_1A3A8C17303F aTag
-
-: ME_7CE9DD2E25AF
- CONST UID '7CE9DD2E25AF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tk2VariantImpl.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530F2A4C0182 // Make
- ;
- : Target WL 'ME_533BFA8E0340' '4678137501EA.pas.ms.script' // Ik2Variant
- ;
- : Parameters
-   Seq: ( ME_1A3A8C17303F // aTag
- )
- ; // Parameters
-
-ref; // ME_7CE9DD2E25AF DoIt
-
 : ME_530F2A4C0182
  CONST UID '530F2A4C0182'
  CONST Name 'Make'
@@ -4082,10 +4051,6 @@ ref; // ME_7CE9DD2E25AF DoIt
    Seq: ( WL 'ME_533BFA8E0340' '4678137501EA.pas.ms.script' // Ik2Variant
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7CE9DD2E25AF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4874,37 +4839,6 @@ ref; // ME_531F2C1F0390 DoIt
 
 ref; // ME_531F2C14010E Create
 
-FORWARD ME_531F32F7025D
-
-: ME_EA7984D7502E
- CONST Name 'anInterface'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
- ;
-
-ref; // ME_EA7984D7502E anInterface
-
-: ME_CB09CA71B044
- CONST UID 'CB09CA71B044'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tk2IUnknownTag.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_531F32F7025D // Make
- ;
- : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
- ;
- : Parameters
-   Seq: ( ME_EA7984D7502E // anInterface
- )
- ; // Parameters
-
-ref; // ME_CB09CA71B044 DoIt
-
 : ME_531F32F7025D
  CONST UID '531F32F7025D'
  CONST Name 'Make'
@@ -4923,10 +4857,6 @@ ref; // ME_CB09CA71B044 DoIt
    Seq: ( WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
  )
  ; // Implements
- : Operations
-   Seq: ( ME_CB09CA71B044 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

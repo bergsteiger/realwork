@@ -155,23 +155,6 @@ ref; // ME_D8B97AFBE40F IevCustomStyleManager
 
 ref; // ME_43E2805BD14B Alien
 
-: ME_2F40C409CBFF
- CONST UID '2F40C409CBFF'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
- ;
- : Target ME_D8B97AFBE40F // IevCustomStyleManager
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_2F40C409CBFF f_Alien
-
 : ME_5549E18D025A
  CONST Name 'aSeg'
  CONST Class class_Parameter
@@ -236,23 +219,6 @@ ref; // ME_5549E1F800FA aSeg
 
 ref; // ME_5549E1DA0063 IsVisitedDocumentLink
 
-: ME_25686A6ABE17
- CONST UID '25686A6ABE17'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_25686A6ABE17 Exists
-
 : ME_391A810FF759_ME_53AABE1F0383
  : Original ME_391A810FF759 // IsAbolishedDocumentLink
  ;
@@ -264,12 +230,6 @@ ref; // ME_391A810FF759_ME_53AABE1F0383 IsAbolishedDocumentLink
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
-
-: ME_5000565C019C_ME_53AABE1F0383
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_53AABE1F0383 ClearFields
 
 : ME_53AABE1F0383
  CONST UID '53AABE1F0383'
@@ -291,13 +251,11 @@ ref; // ME_5000565C019C_ME_53AABE1F0383 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_43E2805BD14B // Alien
- ME_2F40C409CBFF // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_5549E17B01C5 // IsAbolishedDocumentLink
  ME_5549E1DA0063 // IsVisitedDocumentLink
- ME_25686A6ABE17 // Exists
  )
  ; // Operations
  : Implemented
@@ -305,10 +263,6 @@ ref; // ME_5000565C019C_ME_53AABE1F0383 ClearFields
  ME_DC1A5D24B383_ME_53AABE1F0383 // IsVisitedDocumentLink
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_53AABE1F0383 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_BA57CFD34717 // MevCustomStyleManager
  ME_D8B97AFBE40F // IevCustomStyleManager

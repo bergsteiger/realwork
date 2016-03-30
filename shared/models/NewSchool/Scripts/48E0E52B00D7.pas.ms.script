@@ -181,74 +181,6 @@ ref; // ME_4A27CF530106 ActiveElementPrim
 
 ref; // ME_4B59AA4700E5 ForceDrawFocusRectPrim
 
-: ME_4352C7324706
- CONST UID '4352C7324706'
- CONST Name 'f_WebStyle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WebStyle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48E0E5C1032A // TnevControl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'WebStyle'
-
-ref; // ME_4352C7324706 f_WebStyle
-
-: ME_6129FA3DA1F9
- CONST UID '6129FA3DA1F9'
- CONST Name 'f_RMargin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RMargin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48E0E5C1032A // TnevControl
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'RMargin'
-
-ref; // ME_6129FA3DA1F9 f_RMargin
-
-: ME_83752601740B
- CONST UID '83752601740B'
- CONST Name 'f_AllowRubberTables'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AllowRubberTables' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48E0E5C1032A // TnevControl
- ;
- : Target WL 'ME_4DFF70B60031' '4678209200A6.pas.ms.script' // TnevRubberTablesMode
- ;
- CONST extprop:clearViaProperty 'AllowRubberTables'
-
-ref; // ME_83752601740B f_AllowRubberTables
-
-: ME_15DDDB58DDD6
- CONST UID '15DDDB58DDD6'
- CONST Name 'f_AACLike'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AACLike' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48E0E5C1032A // TnevControl
- ;
- : Target WL 'ME_50222A54016C' '4678209200A6.pas.ms.script' // TnevAACLikeMode
- ;
- CONST extprop:clearViaProperty 'AACLike'
-
-ref; // ME_15DDDB58DDD6 f_AACLike
-
 : ME_48E0EC2C0286
  CONST UID '48E0EC2C0286'
  CONST Name 'GetInfoCanvas'
@@ -599,21 +531,6 @@ ref; // ME_4BCC315901D3 DoForceRepaint
 
 ref; // ME_4F3CE6EF01D8 GetInClose
 
-: ME_BFE06025F368
- CONST UID 'BFE06025F368'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnevControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_48E0E5C1032A // TnevControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BFE06025F368 Ini_Reg_Class
-
 : ME_48E0EA05033C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -713,17 +630,6 @@ ref; // ME_4E57B4E602E3
  ;
 
 ref; // ME_4EF080CC003C 
-
-: ME_D4BC1D30CC53
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48E0E5C1032A // TnevControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D4BC1D30CC53 
 
 : ME_476BFB3C007A_ME_48E0E5C1032A
  : Original WL 'ME_476BFB3C007A' '4678209200A6.pas.ms.script' // LimitWidth
@@ -1034,10 +940,6 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_501F9F66008F // AACLike
  ME_4A27CF530106 // ActiveElementPrim
  ME_4B59AA4700E5 // ForceDrawFocusRectPrim
- ME_4352C7324706 // f_WebStyle
- ME_6129FA3DA1F9 // f_RMargin
- ME_83752601740B // f_AllowRubberTables
- ME_15DDDB58DDD6 // f_AACLike
  )
  ; // Attributes
  : Operations
@@ -1062,7 +964,6 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_48E3674B0230 // DoParaChange
  ME_4BCC315901D3 // DoForceRepaint
  ME_4F3CE6EF01D8 // GetInClose
- ME_BFE06025F368 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1121,7 +1022,6 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_49AD81810270 // 
  ME_4E57B4E602E3 // 
  ME_4EF080CC003C // 
- ME_D4BC1D30CC53 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -1172,7 +1072,6 @@ ref; // ME_48E0E5C1032A TnevControl
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

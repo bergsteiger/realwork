@@ -6,21 +6,6 @@ FORWARD ME_5279FD600133
 
 FORWARD ME_5279FD7E02F7
 
-FORWARD ME_5279FD970204
-
-: ME_B559DFE28427
- CONST UID 'B559DFE28427'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ZipFiles' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5279FD970204 // ZipFiles
- ;
-
-ref; // ME_B559DFE28427 DoIt
-
 : ME_5279FD970204
  CONST UID '5279FD970204'
  CONST Name 'ZipFiles'
@@ -31,27 +16,8 @@ ref; // ME_B559DFE28427 DoIt
  CONST Abstraction at_final
  : Parent ME_5279FD7E02F7 // ddZipUtils
  ;
- : Operations
-   Seq: ( ME_B559DFE28427 // DoIt
- )
- ; // Operations
 
 ref; // ME_5279FD970204 ZipFiles
-
-FORWARD ME_5279FD9F01B9
-
-: ME_13C49677173E
- CONST UID '13C49677173E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnZipFiles' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5279FD9F01B9 // UnZipFiles
- ;
-
-ref; // ME_13C49677173E DoIt
 
 : ME_5279FD9F01B9
  CONST UID '5279FD9F01B9'
@@ -63,10 +29,6 @@ ref; // ME_13C49677173E DoIt
  CONST Abstraction at_final
  : Parent ME_5279FD7E02F7 // ddZipUtils
  ;
- : Operations
-   Seq: ( ME_13C49677173E // DoIt
- )
- ; // Operations
 
 ref; // ME_5279FD9F01B9 UnZipFiles
 
@@ -134,37 +96,6 @@ ref; // ME_546C731802D0 ddFileIterator
 
 FORWARD ME_55893A8B0110
 
-: ME_18DBD1A1415F
- CONST UID '18DBD1A1415F'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TddExceptionHandler' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55893A8B0110 // TddExceptionHandler
- ;
-
-ref; // ME_18DBD1A1415F bind
-
-: ME_05D24F251AA8
- CONST UID '05D24F251AA8'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55893A8B0110 // TddExceptionHandler
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_05D24F251AA8 Exists
-
 : ME_55893A9D02C7
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -209,11 +140,6 @@ ref; // ME_9B9F43B530B0_ME_55893A8B0110 HandleException
    Seq: ( WL 'ME_5422B5BB63D5' '47EA946A0315.pas.ms.script' // Il3ExceptionHandler
  )
  ; // Implements
- : Operations
-   Seq: ( ME_18DBD1A1415F // bind
- ME_05D24F251AA8 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_9B9F43B530B0_ME_55893A8B0110 // HandleException
  )
@@ -254,7 +180,6 @@ ref; // ME_55893A8B0110 TddExceptionHandler
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47EA946A0315' '47EA946A0315.pas.ms.script' // l3Misc
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
 

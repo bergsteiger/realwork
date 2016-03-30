@@ -68,34 +68,6 @@ ref; // ME_517C0F4B027C RoundedControl
 
 ref; // ME_517C0F9C03C3 TRoundedButton
 
-FORWARD ME_517C102F03B5
-
-: ME_5F5599376D75
- CONST UID '5F5599376D75'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TRoundedEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_517C102F03B5 // TRoundedEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5F5599376D75 Ini_Reg_Class
-
-: ME_43A716C3A09A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_517C102F03B5 // TRoundedEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_43A716C3A09A 
-
 : ME_517C102F03B5
  CONST UID '517C102F03B5'
  CONST Name 'TRoundedEdit'
@@ -112,14 +84,6 @@ ref; // ME_43A716C3A09A
  WL 'ME_517C0FF50380' '4799D29F033F.pas.ms.script' // TEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5F5599376D75 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_43A716C3A09A // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -151,7 +115,6 @@ ref; // ME_517C102F03B5 TRoundedEdit
    Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.pas.ms.script' // Core
  WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

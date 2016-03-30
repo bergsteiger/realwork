@@ -99,57 +99,6 @@ ref; // ME_54BF89C2031E DoIt
 
 ref; // ME_54BF89AF0252 Create
 
-FORWARD ME_54BF89CB0008
-
-: ME_9B40C0453B86
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
- ;
-
-ref; // ME_9B40C0453B86 aDocument
-
-: ME_F6E9E7FC725A
- CONST Name 'anID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_F6E9E7FC725A anID
-
-: ME_952941F90B9F
- CONST Name 'aLayerID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_952941F90B9F aLayerID
-
-: ME_9B0E3F5184F7
- CONST UID '9B0E3F5184F7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TeeBlock.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54BF89CB0008 // Make
- ;
- : Parameters
-   Seq: ( ME_9B40C0453B86 // aDocument
- ME_F6E9E7FC725A // anID
- ME_952941F90B9F // aLayerID
- )
- ; // Parameters
-
-ref; // ME_9B0E3F5184F7 DoIt
-
 : ME_54BF89CB0008
  CONST UID '54BF89CB0008'
  CONST Name 'Make'
@@ -164,10 +113,6 @@ ref; // ME_9B0E3F5184F7 DoIt
    Seq: ( ME_54BF89AF0252 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9B0E3F5184F7 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1453,21 +1398,6 @@ ref; // ME_54C10AA20075 DoIt
 
 ref; // ME_54C10A9901CD GetBlockByCursor
 
-FORWARD ME_54C10B750137
-
-: ME_7DEA3EFB9412
- CONST UID '7DEA3EFB9412'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InsertUserComment' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54C10B750137 // InsertUserComment
- ;
-
-ref; // ME_7DEA3EFB9412 DoIt
-
 : ME_54C10B750137
  CONST UID '54C10B750137'
  CONST Name 'InsertUserComment'
@@ -1478,10 +1408,6 @@ ref; // ME_7DEA3EFB9412 DoIt
  CONST Abstraction at_final
  : Parent ME_4952693000EA // TeeEditorExport
  ;
- : Operations
-   Seq: ( ME_7DEA3EFB9412 // DoIt
- )
- ; // Operations
 
 ref; // ME_54C10B750137 InsertUserComment
 
@@ -1579,21 +1505,6 @@ ref; // ME_54C10BA60129 DoIt
 
 ref; // ME_54C10B9F01AE GetNearestBlockByCursor
 
-FORWARD ME_54C10C4B034D
-
-: ME_ADEDB3DB98D2
- CONST UID 'ADEDB3DB98D2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RaiseUserCommentsHidden' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54C10C4B034D // RaiseUserCommentsHidden
- ;
-
-ref; // ME_ADEDB3DB98D2 DoIt
-
 : ME_54C10C4B034D
  CONST UID '54C10C4B034D'
  CONST Name 'RaiseUserCommentsHidden'
@@ -1604,10 +1515,6 @@ ref; // ME_ADEDB3DB98D2 DoIt
  CONST Abstraction at_final
  : Parent ME_4952693000EA // TeeEditorExport
  ;
- : Operations
-   Seq: ( ME_ADEDB3DB98D2 // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_54C10C4B034D RaiseUserCommentsHidden

@@ -2679,37 +2679,6 @@ ref; // ME_556F25D801C0 DoIt
 
 ref; // ME_556F25D20367 Create
 
-FORWARD ME_556F25ED00C2
-
-: ME_AF36E77E7476
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ;
-
-ref; // ME_AF36E77E7476 aControl
-
-: ME_DBEF40918C62
- CONST UID 'DBEF40918C62'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tl3ControlFontInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_556F25ED00C2 // Make
- ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
- : Parameters
-   Seq: ( ME_AF36E77E7476 // aControl
- )
- ; // Parameters
-
-ref; // ME_DBEF40918C62 DoIt
-
 : ME_556F25ED00C2
  CONST UID '556F25ED00C2'
  CONST Name 'Make'
@@ -2728,10 +2697,6 @@ ref; // ME_DBEF40918C62 DoIt
    Seq: ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DBEF40918C62 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

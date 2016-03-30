@@ -690,37 +690,6 @@ ref; // ME_5576CE0000AA DoIt
 
 ref; // ME_5576CDF900F7 Create
 
-FORWARD ME_5576CE18038D
-
-: ME_34DF8671BEFD
- CONST Name 'aFiler'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_52F4E6AA02BB // TtfwStreamFactory
- ;
-
-ref; // ME_34DF8671BEFD aFiler
-
-: ME_5A7DA3F42A47
- CONST UID '5A7DA3F42A47'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwDecoratorParser.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5576CE18038D // Make
- ;
- : Target WL 'ME_5576DB30036A' '52EF72190220.pas.ms.script' // ItfwParserEx
- ;
- : Parameters
-   Seq: ( ME_34DF8671BEFD // aFiler
- )
- ; // Parameters
-
-ref; // ME_5A7DA3F42A47 DoIt
-
 : ME_5576CE18038D
  CONST UID '5576CE18038D'
  CONST Name 'Make'
@@ -739,10 +708,6 @@ ref; // ME_5A7DA3F42A47 DoIt
    Seq: ( WL 'ME_5576DB30036A' '52EF72190220.pas.ms.script' // ItfwParserEx
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5A7DA3F42A47 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1151,37 +1116,6 @@ ref; // ME_52EF7303036F DoIt
 
 ref; // ME_52EF72FE00AB Create
 
-FORWARD ME_52F397C1027F
-
-: ME_8050A9852CEC
- CONST Name 'aFiler'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_52F4E6AA02BB // TtfwStreamFactory
- ;
-
-ref; // ME_8050A9852CEC aFiler
-
-: ME_EF75368AED2B
- CONST UID 'EF75368AED2B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwParser.MakePrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52F397C1027F // MakePrim
- ;
- : Target WL 'ME_52EF723E02D9' '52EF72190220.pas.ms.script' // ItfwParser
- ;
- : Parameters
-   Seq: ( ME_8050A9852CEC // aFiler
- )
- ; // Parameters
-
-ref; // ME_EF75368AED2B DoIt
-
 : ME_52F397C1027F
  CONST UID '52F397C1027F'
  CONST Name 'MakePrim'
@@ -1200,10 +1134,6 @@ ref; // ME_EF75368AED2B DoIt
    Seq: ( WL 'ME_52EF723E02D9' '52EF72190220.pas.ms.script' // ItfwParser
  )
  ; // Implements
- : Operations
-   Seq: ( ME_EF75368AED2B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

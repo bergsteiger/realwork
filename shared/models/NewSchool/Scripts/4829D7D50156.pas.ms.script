@@ -4551,74 +4551,6 @@ ref; // ME_4DCD55BC0103 OnMakeExportFilters
 
 ref; // ME_4E7B472E017E OnFocusViaMouseSet
 
-: ME_C315CE5462E3
- CONST UID 'C315CE5462E3'
- CONST Name 'f_Zoom'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Zoom' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B28D63A00EC // TevCustomEditorWindowPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Zoom'
-
-ref; // ME_C315CE5462E3 f_Zoom
-
-: ME_4C9FA65732C8
- CONST UID '4C9FA65732C8'
- CONST Name 'f_ForceRepaint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ForceRepaint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B28D63A00EC // TevCustomEditorWindowPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ForceRepaint'
-
-ref; // ME_4C9FA65732C8 f_ForceRepaint
-
-: ME_2F72D6260232
- CONST UID '2F72D6260232'
- CONST Name 'f_OnMakeExportFilters'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnMakeExportFilters' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B28D63A00EC // TevCustomEditorWindowPrim
- ;
- : Target ME_4DCD55580188 // TevMakeExportFiltersEvent
- ;
- CONST extprop:clearViaProperty 'OnMakeExportFilters'
-
-ref; // ME_2F72D6260232 f_OnMakeExportFilters
-
-: ME_B31FBE718E0E
- CONST UID 'B31FBE718E0E'
- CONST Name 'f_OnFocusViaMouseSet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnFocusViaMouseSet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B28D63A00EC // TevCustomEditorWindowPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnFocusViaMouseSet'
-
-ref; // ME_B31FBE718E0E f_OnFocusViaMouseSet
-
 FORWARD ME_4C0CA1FC02A8
 
 : ME_4C0CA21B039E
@@ -4993,21 +4925,6 @@ ref; // ME_4E7B4F5202BA aMsg
 
 ref; // ME_4E7B4F3A00E5 WMMOUSEACTIVATE
 
-: ME_59B562219C4D
- CONST UID '59B562219C4D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomEditorWindowPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B28D63A00EC // TevCustomEditorWindowPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_59B562219C4D Ini_Reg_Class
-
 : ME_4E7B513C019C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5017,17 +4934,6 @@ ref; // ME_59B562219C4D Ini_Reg_Class
  ;
 
 ref; // ME_4E7B513C019C 
-
-: ME_2AE8CD1C0096
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B28D63A00EC // TevCustomEditorWindowPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2AE8CD1C0096 
 
 : ME_47A042E100E2_ME_4B28D63A00EC
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
@@ -5072,10 +4978,6 @@ ref; // ME_4D3974AB02E5_ME_4B28D63A00EC DoAfterCreateCanvas
  ME_4DA805F302D6 // f_LockForceRepaint
  ME_4DCD55BC0103 // OnMakeExportFilters
  ME_4E7B472E017E // OnFocusViaMouseSet
- ME_C315CE5462E3 // f_Zoom
- ME_4C9FA65732C8 // f_ForceRepaint
- ME_2F72D6260232 // f_OnMakeExportFilters
- ME_B31FBE718E0E // f_OnFocusViaMouseSet
  )
  ; // Attributes
  : Operations
@@ -5088,7 +4990,6 @@ ref; // ME_4D3974AB02E5_ME_4B28D63A00EC DoAfterCreateCanvas
  ME_4B28D6780001 // WantSoftEnter
  ME_4D3998FE03C1 // DoAfterSetZoom
  ME_4E7B4F3A00E5 // WMMOUSEACTIVATE
- ME_59B562219C4D // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -5103,7 +5004,6 @@ ref; // ME_4D3974AB02E5_ME_4B28D63A00EC DoAfterCreateCanvas
  ; // Children
  : Dependencies
    Seq: ( ME_4E7B513C019C // 
- ME_2AE8CD1C0096 // 
  )
  ; // Dependencies
  : Injected
@@ -6948,37 +6848,6 @@ ref; // ME_4C0CBE390243 TrackMouseEventDefs
 
 FORWARD ME_556F262E022F
 
-: ME_C9F51CAAF1CB
- CONST UID 'C9F51CAAF1CB'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomEditorWindowModelPartFontInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_556F262E022F // TevCustomEditorWindowModelPartFontInfo
- ;
-
-ref; // ME_C9F51CAAF1CB bind
-
-: ME_E606B1CA5793
- CONST UID 'E606B1CA5793'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_556F262E022F // TevCustomEditorWindowModelPartFontInfo
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_E606B1CA5793 Exists
-
 : ME_556F263801BB
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -7013,11 +6882,6 @@ ref; // ME_B31F486B3A13_ME_556F262E022F GetFont
    Seq: ( WL 'ME_5B1EBFCEA918' '55001317029B.pas.ms.script' // Il3ControlFontService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C9F51CAAF1CB // bind
- ME_E606B1CA5793 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_B31F486B3A13_ME_556F262E022F // GetFont
  )
@@ -7090,57 +6954,6 @@ ref; // ME_4B59AB0F0338 ForceDrawFocusRect
 
 ref; // ME_4BDAAF0A0285 PersistentSelection
 
-: ME_A51414B7D738
- CONST UID 'A51414B7D738'
- CONST Name 'f_ActiveElement'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ActiveElement' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A26509001EA // TevCustomEditorWindowModelPart
- ;
- : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ;
- CONST extprop:clearViaProperty 'ActiveElement'
-
-ref; // ME_A51414B7D738 f_ActiveElement
-
-: ME_FE3759E96F79
- CONST UID 'FE3759E96F79'
- CONST Name 'f_ForceDrawFocusRect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ForceDrawFocusRect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A26509001EA // TevCustomEditorWindowModelPart
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ForceDrawFocusRect'
-
-ref; // ME_FE3759E96F79 f_ForceDrawFocusRect
-
-: ME_B40D7CA66949
- CONST UID 'B40D7CA66949'
- CONST Name 'f_PersistentSelection'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PersistentSelection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A26509001EA // TevCustomEditorWindowModelPart
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'PersistentSelection'
-
-ref; // ME_B40D7CA66949 f_PersistentSelection
-
 : ME_4A265562032B
  CONST UID '4A265562032B'
  CONST Name 'ClearUpper'
@@ -7204,21 +7017,6 @@ ref; // ME_4C0CC30D0302 Msg
  CONST "Message ID" 'WM_NCMouseMove'
 
 ref; // ME_4C0CC2FC0272 WMNCMouseMove
-
-: ME_05257EF9A478
- CONST UID '05257EF9A478'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomEditorWindowModelPart' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A26509001EA // TevCustomEditorWindowModelPart
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_05257EF9A478 Ini_Reg_Class
 
 : ME_4A26510F0387
  CONST Class class_Dependency
@@ -7290,17 +7088,6 @@ ref; // ME_4C0CC01603BB
 
 ref; // ME_4C0CC9B3005B 
 
-: ME_1BAC55EBD101
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A26509001EA // TevCustomEditorWindowModelPart
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1BAC55EBD101 
-
 : ME_479731C50290_ME_4A26509001EA
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -7335,12 +7122,6 @@ ref; // ME_4A27CF530106_ME_4A26509001EA ActiveElementPrim
  CONST "pm" true
 ref; // ME_4B59AA4700E5_ME_4A26509001EA ForceDrawFocusRectPrim
 
-: ME_5000565C019C_ME_4A26509001EA
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4A26509001EA ClearFields
-
 : ME_4A26509001EA
  CONST UID '4A26509001EA'
  CONST Name 'TevCustomEditorWindowModelPart'
@@ -7360,16 +7141,12 @@ ref; // ME_5000565C019C_ME_4A26509001EA ClearFields
    Seq: ( ME_4A27C6400137 // ActiveElement
  ME_4B59AB0F0338 // ForceDrawFocusRect
  ME_4BDAAF0A0285 // PersistentSelection
- ME_A51414B7D738 // f_ActiveElement
- ME_FE3759E96F79 // f_ForceDrawFocusRect
- ME_B40D7CA66949 // f_PersistentSelection
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4A265562032B // ClearUpper
  ME_4C0CBB3B028A // WMNCMouseLeave
  ME_4C0CC2FC0272 // WMNCMouseMove
- ME_05257EF9A478 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -7378,7 +7155,6 @@ ref; // ME_5000565C019C_ME_4A26509001EA ClearFields
  ME_48E22B250241_ME_4A26509001EA // MouseMove
  ME_4A27CF530106_ME_4A26509001EA // ActiveElementPrim
  ME_4B59AA4700E5_ME_4A26509001EA // ForceDrawFocusRectPrim
- ME_5000565C019C_ME_4A26509001EA // ClearFields
  )
  ; // Overridden
  : Children
@@ -7397,7 +7173,6 @@ ref; // ME_5000565C019C_ME_4A26509001EA ClearFields
  ME_4A26589F037B // 
  ME_4C0CC01603BB // 
  ME_4C0CC9B3005B // 
- ME_1BAC55EBD101 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -7438,38 +7213,6 @@ FORWARD ME_4829D8C50010
 
 ref; // ME_48E4972B039C AllowMultiSelect
 
-: ME_AF3EE03C738E
- CONST UID 'AF3EE03C738E'
- CONST Name 'f_AllowMultiSelect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AllowMultiSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4829D8C50010 // TevMultiSelectEditorWindow
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AllowMultiSelect'
-
-ref; // ME_AF3EE03C738E f_AllowMultiSelect
-
-: ME_49132409C854
- CONST UID '49132409C854'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevMultiSelectEditorWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4829D8C50010 // TevMultiSelectEditorWindow
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_49132409C854 Ini_Reg_Class
-
 FORWARD ME_48E3B50501DB
 
 : ME_48E497B9015D
@@ -7493,17 +7236,6 @@ FORWARD ME_48E497E40042
  ;
 
 ref; // ME_48E49816018D 
-
-: ME_9AFA65A453C1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4829D8C50010 // TevMultiSelectEditorWindow
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9AFA65A453C1 
 
 : ME_48E1F321030C_ME_4829D8C50010
  : Original WL 'ME_48E1F321030C' '48E0E52B00D7.pas.ms.script' // GetAllowMultiSelect
@@ -7540,13 +7272,8 @@ ref; // ME_48E2297000D3_ME_4829D8C50010 HotSpotClass
  ; // Inherits
  : Attributes
    Seq: ( ME_48E4972B039C // AllowMultiSelect
- ME_AF3EE03C738E // f_AllowMultiSelect
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_49132409C854 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_48E1F321030C_ME_4829D8C50010 // GetAllowMultiSelect
  ME_48E22866033A_ME_4829D8C50010 // SelectionClass
@@ -7556,7 +7283,6 @@ ref; // ME_48E2297000D3_ME_4829D8C50010 HotSpotClass
  : Dependencies
    Seq: ( ME_48E497B9015D // 
  ME_48E49816018D // 
- ME_9AFA65A453C1 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -7699,32 +7425,6 @@ ref; // ME_4B8787B400F8 TevAllowParaTypes
 
 ref; // ME_4B877E7B0330 AllowParaType
 
-: ME_79401241B86E
- CONST UID '79401241B86E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomEditorModelPart' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B877C5101C1 // TevCustomEditorModelPart
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_79401241B86E Ini_Reg_Class
-
-: ME_334A161CC9BE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B877C5101C1 // TevCustomEditorModelPart
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_334A161CC9BE 
-
 : ME_4B877C5101C1
  CONST UID '4B877C5101C1'
  CONST Name 'TevCustomEditorModelPart'
@@ -7744,19 +7444,11 @@ ref; // ME_334A161CC9BE
    Seq: ( ME_4B877E7B0330 // AllowParaType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_79401241B86E // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4B877F3C0242 // TevAllowParaType
  ME_4B8787B400F8 // TevAllowParaTypes
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_334A161CC9BE // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
@@ -8752,57 +8444,6 @@ ref; // ME_48451D580379 f_Buf
 
 ref; // ME_48451DC000CE f_PlainText
 
-: ME_134FC0257687
- CONST UID '134FC0257687'
- CONST Name 'f_NeedDefaultPopupMenu'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NeedDefaultPopupMenu' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4829D81D02E5 // TevCustomMemo
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NeedDefaultPopupMenu'
-
-ref; // ME_134FC0257687 f_NeedDefaultPopupMenu
-
-: ME_A65D8B165E37
- CONST UID 'A65D8B165E37'
- CONST Name 'f_KeepAllFormatting'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства KeepAllFormatting' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4829D81D02E5 // TevCustomMemo
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'KeepAllFormatting'
-
-ref; // ME_A65D8B165E37 f_KeepAllFormatting
-
-: ME_A8E1AB7FBDD3
- CONST UID 'A8E1AB7FBDD3'
- CONST Name 'f_NeedReplaceQuotes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NeedReplaceQuotes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4829D81D02E5 // TevCustomMemo
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NeedReplaceQuotes'
-
-ref; // ME_A8E1AB7FBDD3 f_NeedReplaceQuotes
-
 FORWARD ME_4D6B97CB00AA
 
 : ME_4D6B97E602BD
@@ -9068,21 +8709,6 @@ ref; // ME_4C35C19E0140 Message
 
 ref; // ME_4C35C19200EC CMExit
 
-: ME_5EC8B0DCE623
- CONST UID '5EC8B0DCE623'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomMemo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4829D81D02E5 // TevCustomMemo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5EC8B0DCE623 Ini_Reg_Class
-
 : ME_482DA0BE027B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -9273,17 +8899,6 @@ ref; // ME_4C35C0B803B5
 
 ref; // ME_530777E703E0 
 
-: ME_A2C06A2D5906
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4829D81D02E5 // TevCustomMemo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A2C06A2D5906 
-
 : ME_479731C50290_ME_4829D81D02E5
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -9402,9 +9017,6 @@ ref; // ME_4C346719001A_ME_4829D81D02E5 AllowAutoSelectByMouse
  ME_4864C60D01F5 // NeedReplaceQuotes
  ME_48451D580379 // f_Buf
  ME_48451DC000CE // f_PlainText
- ME_134FC0257687 // f_NeedDefaultPopupMenu
- ME_A65D8B165E37 // f_KeepAllFormatting
- ME_A8E1AB7FBDD3 // f_NeedReplaceQuotes
  )
  ; // Attributes
  : Operations
@@ -9419,7 +9031,6 @@ ref; // ME_4C346719001A_ME_4829D81D02E5 AllowAutoSelectByMouse
  ME_4A8A6D4701CC // KeepParaFormattingTag
  ME_4C35BF1F02D2 // CMEnter
  ME_4C35C19200EC // CMExit
- ME_5EC8B0DCE623 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -9468,7 +9079,6 @@ ref; // ME_4C346719001A_ME_4829D81D02E5 AllowAutoSelectByMouse
  ME_48F4EC08032C // 
  ME_4C35C0B803B5 // 
  ME_530777E703E0 // 
- ME_A2C06A2D5906 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -9568,40 +9178,6 @@ ref; // ME_482D9D9302ED UpperCase
 
 ref; // ME_4CFFC1BA00EB Regionable
 
-: ME_CF25DCB34FF5
- CONST UID 'CF25DCB34FF5'
- CONST Name 'f_UpperCase'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UpperCase' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4829D7E80085 // TevCustomEdit
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'UpperCase'
-
-ref; // ME_CF25DCB34FF5 f_UpperCase
-
-: ME_AC6574DA3BBC
- CONST UID 'AC6574DA3BBC'
- CONST Name 'f_Regionable'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Regionable' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_4829D7E80085 // TevCustomEdit
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Regionable'
-
-ref; // ME_AC6574DA3BBC f_Regionable
-
 : ME_4860F690011D
  CONST Name 'Sender'
  CONST Class class_Parameter
@@ -9657,21 +9233,6 @@ ref; // ME_4860F69001AA aCodePage
  ; // Parameters
 
 ref; // ME_4860F67C0000 cnvLo2Up
-
-: ME_955F53E000BA
- CONST UID '955F53E000BA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4829D7E80085 // TevCustomEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_955F53E000BA Ini_Reg_Class
 
 : ME_482D99920299
  CONST Class class_Dependency
@@ -9783,17 +9344,6 @@ ref; // ME_4CFFC1B6029F
 
 ref; // ME_4CFFC1BF00EE 
 
-: ME_9BB22D690D4F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4829D7E80085 // TevCustomEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9BB22D690D4F 
-
 : ME_47D1602000C6_ME_4829D7E80085
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -9855,13 +9405,10 @@ ref; // ME_4CC847800383_ME_4829D7E80085 TuneRegion
  : Attributes
    Seq: ( ME_482D9D9302ED // UpperCase
  ME_4CFFC1BA00EB // Regionable
- ME_CF25DCB34FF5 // f_UpperCase
- ME_AC6574DA3BBC // f_Regionable
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4860F67C0000 // cnvLo2Up
- ME_955F53E000BA // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -9890,7 +9437,6 @@ ref; // ME_4CC847800383_ME_4829D7E80085 TuneRegion
  ME_4BA0DFFB011E // 
  ME_4CFFC1B6029F // 
  ME_4CFFC1BF00EE // 
- ME_9BB22D690D4F // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -10030,74 +9576,6 @@ ref; // ME_4BBCC35A0374 Create
 
 ref; // ME_4BBCC34901B7 Create
 
-FORWARD ME_4BBCC37300DB
-
-: ME_FDBC3960F688
- CONST Name 'aView'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ;
-
-ref; // ME_FDBC3960F688 aView
-
-: ME_78870B5DD12E
- CONST Name 'aLoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C5B50E0118' '47C5207602D1.pas.ms.script' // InevLocation
- ;
-
-ref; // ME_78870B5DD12E aLoc
-
-: ME_CC41CBB8E3BF
- CONST Name 'aProcessor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
- ;
-
-ref; // ME_CC41CBB8E3BF aProcessor
-
-: ME_010B4B721289
- CONST Name 'aTextParagraph'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B547F7801F3' '48E3836D00C8.pas.ms.script' // IedTextParagraph
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_4B547F7801F3' '48E3836D00C8.pas.ms.script' // IedTextParagraph
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_010B4B721289 aTextParagraph
-
-: ME_32D4A9FEF3F9
- CONST UID '32D4A9FEF3F9'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TedRangeImplementation.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BBCC37300DB // Make
- ;
- : Target WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
- ;
- : Parameters
-   Seq: ( ME_FDBC3960F688 // aView
- ME_78870B5DD12E // aLoc
- ME_CC41CBB8E3BF // aProcessor
- ME_010B4B721289 // aTextParagraph
- )
- ; // Parameters
-
-ref; // ME_32D4A9FEF3F9 Create
-
 : ME_4BBCC37300DB
  CONST UID '4BBCC37300DB'
  CONST Name 'Make'
@@ -10116,10 +9594,6 @@ ref; // ME_32D4A9FEF3F9 Create
    Seq: ( WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
  )
  ; // Implements
- : Operations
-   Seq: ( ME_32D4A9FEF3F9 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -10403,19 +9877,6 @@ ref; // ME_DB00787AB061
 
 ref; // ME_4BBF18C801F5 IterateRange
 
-: ME_912322D91309
- CONST UID '912322D91309'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4BBF09C60382 // Iterate
- ;
-
-ref; // ME_912322D91309 DoIt
-
 : ME_4BBF09C60382
  CONST UID '4BBF09C60382'
  CONST Name 'Iterate'
@@ -10438,7 +9899,6 @@ ref; // ME_912322D91309 DoIt
  ; // Attributes
  : Operations
    Seq: ( ME_4BBF18C801F5 // IterateRange
- ME_912322D91309 // DoIt
  )
  ; // Operations
 
@@ -10744,12 +10204,6 @@ ref; // ME_4BBCB3FE033D_ME_48E3859101D5 Save
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_48E3859101D5 IsCacheable
 
-: ME_5000565C019C_ME_48E3859101D5
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48E3859101D5 ClearFields
-
 : ME_48E3859101D5
  CONST UID '48E3859101D5'
  CONST Name 'TedRangeImplementation'
@@ -10804,7 +10258,6 @@ ref; // ME_5000565C019C_ME_48E3859101D5 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A6FEE600FC_ME_48E3859101D5 // IsCacheable
- ME_5000565C019C_ME_48E3859101D5 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -10912,21 +10365,6 @@ ref; // ME_484536BA01D7 Msg
  CONST "Message ID" 'WM_KEYDOWN'
 
 ref; // ME_484536B5002C WMKeyDown
-
-: ME_FE7C133B692C
- CONST UID 'FE7C133B692C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevTunedEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4845367E03B1 // TevTunedEditor
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FE7C133B692C Ini_Reg_Class
 
 : ME_484537940354
  CONST Class class_Dependency
@@ -11058,17 +10496,6 @@ ref; // ME_4A51FB15030D
 
 ref; // ME_5199F24602FE 
 
-: ME_12FD75422CFF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4845367E03B1 // TevTunedEditor
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_12FD75422CFF 
-
 : ME_482BFD1802D3_ME_4845367E03B1
  : Original ME_482BFD1802D3 // Tabulate
  ;
@@ -11098,7 +10525,6 @@ ref; // ME_482BFD2C0107_ME_4845367E03B1 Untabulate
  ; // Inherits
  : Operations
    Seq: ( ME_484536B5002C // WMKeyDown
- ME_FE7C133B692C // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -11120,7 +10546,6 @@ ref; // ME_482BFD2C0107_ME_4845367E03B1 Untabulate
  ME_49AE379B01B0 // 
  ME_4A51FB15030D // 
  ME_5199F24602FE // 
- ME_12FD75422CFF // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -13211,34 +12636,6 @@ ref; // ME_48ECE4420180_ME_48ECD68E0010 DoStore
 
 ref; // ME_48ECD68E0010 TevTextParaMultiSelectionBlock
 
-FORWARD ME_484658060127
-
-: ME_61421920B9AB
- CONST UID '61421920B9AB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_484658060127 // TevEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_61421920B9AB Ini_Reg_Class
-
-: ME_B23640951DC5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_484658060127 // TevEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B23640951DC5 
-
 : ME_484658060127
  CONST UID '484658060127'
  CONST Name 'TevEdit'
@@ -13254,14 +12651,6 @@ ref; // ME_B23640951DC5
    Seq: ( ME_4829D7E80085 // TevCustomEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_61421920B9AB // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_B23640951DC5 // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -13276,34 +12665,6 @@ ref; // ME_B23640951DC5
  CONST extprop:pas:UnitName 'evEdit'
 
 ref; // ME_484658060127 TevEdit
-
-FORWARD ME_484544370206
-
-: ME_4AD0D173EE77
- CONST UID '4AD0D173EE77'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_484544370206 // TevEditor
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4AD0D173EE77 Ini_Reg_Class
-
-: ME_B4673F13168A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_484544370206 // TevEditor
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B4673F13168A 
 
 : ME_484544370206
  CONST UID '484544370206'
@@ -13320,14 +12681,6 @@ ref; // ME_B4673F13168A
    Seq: ( ME_4845367E03B1 // TevTunedEditor
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4AD0D173EE77 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_B4673F13168A // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -13342,34 +12695,6 @@ ref; // ME_B4673F13168A
  CONST extprop:pas:UnitName 'evEditor'
 
 ref; // ME_484544370206 TevEditor
-
-FORWARD ME_48454EBB0050
-
-: ME_32CECF2E03AB
- CONST UID '32CECF2E03AB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevMemo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_48454EBB0050 // TevMemo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_32CECF2E03AB Ini_Reg_Class
-
-: ME_3BCDB7D30F62
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48454EBB0050 // TevMemo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3BCDB7D30F62 
 
 : ME_48454EBB0050
  CONST UID '48454EBB0050'
@@ -13386,14 +12711,6 @@ ref; // ME_3BCDB7D30F62
    Seq: ( ME_4829D81D02E5 // TevCustomMemo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_32CECF2E03AB // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_3BCDB7D30F62 // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -13411,19 +12728,6 @@ ref; // ME_48454EBB0050 TevMemo
 
 FORWARD ME_4BBD91060298
 
-: ME_2943672F5B11
- CONST UID '2943672F5B11'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода evFreeLPA' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4BBD9120022D // evFreeLPA
- ;
-
-ref; // ME_2943672F5B11 DoIt
-
 : ME_4BBD9120022D
  CONST UID '4BBD9120022D'
  CONST Name 'evFreeLPA'
@@ -13434,10 +12738,6 @@ ref; // ME_2943672F5B11 DoIt
  CONST Abstraction at_final
  : Parent ME_4BBD91060298 // evEditorInterfacesMisc
  ;
- : Operations
-   Seq: ( ME_2943672F5B11 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'FreeLPA'
 
 ref; // ME_4BBD9120022D evFreeLPA
@@ -13625,7 +12925,6 @@ ref; // ME_4BBD91980212 evBitmapReader
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

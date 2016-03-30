@@ -225,21 +225,6 @@ ref; // ME_4799E9EE0087 TPrinterCapability
 
 ref; // ME_4799EA1C0221 TPrinterCapabilities
 
-FORWARD ME_4AE1D63601CB
-
-: ME_3CE0428068EA
- CONST UID '3CE0428068EA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Printer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AE1D63601CB // Printer
- ;
-
-ref; // ME_3CE0428068EA DoIt
-
 : ME_4AE1D63601CB
  CONST UID '4AE1D63601CB'
  CONST Name 'Printer'
@@ -250,10 +235,6 @@ ref; // ME_3CE0428068EA DoIt
  CONST Abstraction at_final
  : Parent ME_4799D2E6027B // Printers
  ;
- : Operations
-   Seq: ( ME_3CE0428068EA // DoIt
- )
- ; // Operations
 
 ref; // ME_4AE1D63601CB Printer
 

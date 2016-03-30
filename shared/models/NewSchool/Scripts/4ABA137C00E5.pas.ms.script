@@ -6,21 +6,6 @@ FORWARD ME_4ABA137C00E5
 
 FORWARD ME_4ABB4C2B03D5
 
-FORWARD ME_4ABB4C3B03D9
-
-: ME_75116349799C
- CONST UID '75116349799C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ConfigurationList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4ABB4C3B03D9 // ConfigurationList
- ;
-
-ref; // ME_75116349799C DoIt
-
 : ME_4ABB4C3B03D9
  CONST UID '4ABB4C3B03D9'
  CONST Name 'ConfigurationList'
@@ -31,10 +16,6 @@ ref; // ME_75116349799C DoIt
  CONST Abstraction at_final
  : Parent ME_4ABB4C2B03D5 // nsConfigurationList
  ;
- : Operations
-   Seq: ( ME_75116349799C // DoIt
- )
- ; // Operations
 
 ref; // ME_4ABB4C3B03D9 ConfigurationList
 
@@ -80,23 +61,6 @@ FORWARD ME_4C4089A10092
 
 ref; // ME_523171D10106 ConfName
 
-: ME_EF9DDD2E6868
- CONST UID 'EF9DDD2E6868'
- CONST Name 'f_ConfName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ConfName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C4089A10092 // EDuplicateConfName
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'ConfName'
-
-ref; // ME_EF9DDD2E6868 f_ConfName
-
 : ME_4C4089A10092
  CONST UID '4C4089A10092'
  CONST Name 'EDuplicateConfName'
@@ -113,7 +77,6 @@ ref; // ME_EF9DDD2E6868 f_ConfName
  ; // Inherits
  : Attributes
    Seq: ( ME_523171D10106 // ConfName
- ME_EF9DDD2E6868 // f_ConfName
  )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
@@ -484,21 +447,6 @@ ref; // ME_22C4BC43253B DoIt
 
 ref; // ME_52317475018A OnChangeHint
 
-FORWARD ME_523174880004
-
-: ME_D2F44CC05422
- CONST UID 'D2F44CC05422'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetEditsWidth' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_523174880004 // SetEditsWidth
- ;
-
-ref; // ME_D2F44CC05422 DoIt
-
 : ME_523174880004
  CONST UID '523174880004'
  CONST Name 'SetEditsWidth'
@@ -509,10 +457,6 @@ ref; // ME_D2F44CC05422 DoIt
  CONST Abstraction at_final
  : Parent ME_523172E8012E // TnsConfInfoNode
  ;
- : Operations
-   Seq: ( ME_D2F44CC05422 // DoIt
- )
- ; // Operations
 
 ref; // ME_523174880004 SetEditsWidth
 
@@ -2129,40 +2073,6 @@ ref; // ME_523183A1003F ZoneSetting
 
 ref; // ME_523183B70159 FloatingSetting
 
-: ME_D5A1C08A1AF6
- CONST UID 'D5A1C08A1AF6'
- CONST Name 'f_FloatingValue'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FloatingValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_523182220295 // TstgNavigatorFormPosition
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FloatingValue'
-
-ref; // ME_D5A1C08A1AF6 f_FloatingValue
-
-: ME_19EB2332CE0E
- CONST UID '19EB2332CE0E'
- CONST Name 'f_ZoneValue'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ZoneValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_523182220295 // TstgNavigatorFormPosition
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- CONST extprop:clearViaProperty 'ZoneValue'
-
-ref; // ME_19EB2332CE0E f_ZoneValue
-
 FORWARD ME_52318340035D
 
 : ME_5231834801B7
@@ -2268,12 +2178,6 @@ ref; // ME_523183550370 GetAliasName
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_523182220295 Cleanup
 
-: ME_5000565C019C_ME_523182220295
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_523182220295 ClearFields
-
 : ME_52172B72014C_ME_523182220295
  : Original WL 'ME_52172B72014C' '4B990EDE031A.pas.ms.script' // LoadValue
  ;
@@ -2306,8 +2210,6 @@ ref; // ME_52172CA801E3_ME_523182220295 SaveValue
  ME_523182FF0327 // ZoneValue
  ME_523183A1003F // ZoneSetting
  ME_523183B70159 // FloatingSetting
- ME_D5A1C08A1AF6 // f_FloatingValue
- ME_19EB2332CE0E // f_ZoneValue
  )
  ; // Attributes
  : Operations
@@ -2317,7 +2219,6 @@ ref; // ME_52172CA801E3_ME_523182220295 SaveValue
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_523182220295 // Cleanup
- ME_5000565C019C_ME_523182220295 // ClearFields
  ME_52172B72014C_ME_523182220295 // LoadValue
  ME_52172CA801E3_ME_523182220295 // SaveValue
  )
@@ -3457,23 +3358,6 @@ FORWARD ME_9A1AB3598928
 
 ref; // ME_87664887B1EE Make
 
-: ME_6B69565DC6D4
- CONST UID '6B69565DC6D4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_9A1AB3598928 // TWordPositionNamesMapImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_6B69565DC6D4 Exists
-
 : ME_9A1AB3598928
  CONST UID '9A1AB3598928'
  CONST Name 'TWordPositionNamesMapImpl'
@@ -3492,7 +3376,6 @@ ref; // ME_6B69565DC6D4 Exists
  ; // Inherits
  : Operations
    Seq: ( ME_87664887B1EE // Make
- ME_6B69565DC6D4 // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -3856,23 +3739,6 @@ FORWARD ME_4E9251221D21
 
 ref; // ME_41A4AF57FA8C Make
 
-: ME_96FE0E5EDABC
- CONST UID '96FE0E5EDABC'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E9251221D21 // TTreeLevelDistNamesMapImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_96FE0E5EDABC Exists
-
 : ME_4E9251221D21
  CONST UID '4E9251221D21'
  CONST Name 'TTreeLevelDistNamesMapImpl'
@@ -3891,7 +3757,6 @@ ref; // ME_96FE0E5EDABC Exists
  ; // Inherits
  : Operations
    Seq: ( ME_41A4AF57FA8C // Make
- ME_96FE0E5EDABC // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -4254,23 +4119,6 @@ FORWARD ME_3DB0B8BFFFFD
 
 ref; // ME_FCC33F9BFF23 Make
 
-: ME_C864134A0D0D
- CONST UID 'C864134A0D0D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_3DB0B8BFFFFD // TWordOrderNamesMapImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_C864134A0D0D Exists
-
 : ME_3DB0B8BFFFFD
  CONST UID '3DB0B8BFFFFD'
  CONST Name 'TWordOrderNamesMapImpl'
@@ -4289,7 +4137,6 @@ ref; // ME_C864134A0D0D Exists
  ; // Inherits
  : Operations
    Seq: ( ME_FCC33F9BFF23 // Make
- ME_C864134A0D0D // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

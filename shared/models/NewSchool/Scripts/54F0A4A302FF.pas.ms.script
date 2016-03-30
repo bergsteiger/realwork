@@ -142,23 +142,6 @@ ref; // ME_4DCC1E660097 DoIt
 
 ref; // ME_4DCC1E58031B Create
 
-FORWARD ME_4DCC1E770077
-
-: ME_84DA5BC10C79
- CONST UID '84DA5BC10C79'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwArray.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DCC1E770077 // Make
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_84DA5BC10C79 DoIt
-
 : ME_4DCC1E770077
  CONST UID '4DCC1E770077'
  CONST Name 'Make'
@@ -177,10 +160,6 @@ ref; // ME_84DA5BC10C79 DoIt
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- : Operations
-   Seq: ( ME_84DA5BC10C79 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

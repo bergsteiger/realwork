@@ -4309,23 +4309,6 @@ ref; // ME_3BD7F4F77D13 Tk2DictionaryFriend
 
 ref; // ME_55522BCE00BC ForExport
 
-: ME_D773B218DB17
- CONST UID 'D773B218DB17'
- CONST Name 'f_ForExport'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ForExport' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ForExport'
-
-ref; // ME_D773B218DB17 f_ForExport
-
 FORWARD ME_55522C52008B
 
 : ME_55522C6101FF
@@ -4642,7 +4625,6 @@ ref; // ME_47A042E100E2_ME_55522B5101D3 InitFields
  ; // Inherits
  : Attributes
    Seq: ( ME_55522BCE00BC // ForExport
- ME_D773B218DB17 // f_ForExport
  )
  ; // Attributes
  : Operations
@@ -6363,23 +6345,6 @@ FORWARD ME_1F17EF4CC358
 
 ref; // ME_369351B72390 Make
 
-: ME_E24A28349835
- CONST UID 'E24A28349835'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1F17EF4CC358 // TPrintAndExportFontSizeValuesMapImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_E24A28349835 Exists
-
 : ME_1F17EF4CC358
  CONST UID '1F17EF4CC358'
  CONST Name 'TPrintAndExportFontSizeValuesMapImpl'
@@ -6398,7 +6363,6 @@ ref; // ME_E24A28349835 Exists
  ; // Inherits
  : Operations
    Seq: ( ME_369351B72390 // Make
- ME_E24A28349835 // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

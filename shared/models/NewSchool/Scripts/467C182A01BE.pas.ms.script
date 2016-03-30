@@ -198,48 +198,6 @@ ref; // ME_54BD16CB00B2 DoIt
 
 ref; // ME_54BD16B6032F StartOp
 
-FORWARD ME_54BD284F0204
-
-: ME_E65660820D86
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_E65660820D86 aTag
-
-: ME_929756860143
- CONST Name 'aProcessor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
- ;
-
-ref; // ME_929756860143 aProcessor
-
-: ME_1203D15ACEB6
- CONST UID '1203D15ACEB6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tk2ProcessorTagTool.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54BD284F0204 // Make
- ;
- : Target WL 'ME_467818430333' '4678137501EA.pas.ms.script' // Ik2TagTool
- ;
- : Parameters
-   Seq: ( ME_E65660820D86 // aTag
- ME_929756860143 // aProcessor
- )
- ; // Parameters
-
-ref; // ME_1203D15ACEB6 DoIt
-
 : ME_54BD284F0204
  CONST UID '54BD284F0204'
  CONST Name 'Make'
@@ -258,10 +216,6 @@ ref; // ME_1203D15ACEB6 DoIt
    Seq: ( WL 'ME_467818430333' '4678137501EA.pas.ms.script' // Ik2TagTool
  )
  ; // Implements
- : Operations
-   Seq: ( ME_1203D15ACEB6 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

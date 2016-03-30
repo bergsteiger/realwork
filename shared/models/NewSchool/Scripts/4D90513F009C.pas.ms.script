@@ -406,56 +406,6 @@ ref; // ME_4FC76A86012B Panel
 
 ref; // ME_4FC76E2700B2 f_CurrentBounds
 
-: ME_E1F6DDE6E417
- CONST UID 'E1F6DDE6E417'
- CONST Name 'f_AfterBaloonHidden'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AfterBaloonHidden' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D90583503C2 // TvtPopupForm
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'AfterBaloonHidden'
-
-ref; // ME_E1F6DDE6E417 f_AfterBaloonHidden
-
-: ME_4718669325BE
- CONST UID '4718669325BE'
- CONST Name 'f_TailPosition'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TailPosition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D90583503C2 // TvtPopupForm
- ;
- : Target ME_4F86D90400CD // TvtTailPosition
- ;
- CONST extprop:clearViaProperty 'TailPosition'
-
-ref; // ME_4718669325BE f_TailPosition
-
-: ME_E510F732C8EB
- CONST UID 'E510F732C8EB'
- CONST Name 'f_Panel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Panel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D90583503C2 // TvtPopupForm
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_E510F732C8EB f_Panel
-
 FORWARD ME_4FC7711F014B
 
 : ME_4FC7719B009E
@@ -660,21 +610,6 @@ ref; // ME_4FC7697603E6 Message
 
 ref; // ME_4FC7694303B7 CMVisibleChanged
 
-: ME_B7812D154C35
- CONST UID 'B7812D154C35'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtPopupForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D90583503C2 // TvtPopupForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B7812D154C35 Ini_Reg_Class
-
 : ME_4FC767AE01D9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -775,17 +710,6 @@ ref; // ME_4FC77F3102DD
 
 ref; // ME_4FC7850403D5 
 
-: ME_B817DD29C744
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D90583503C2 // TvtPopupForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B817DD29C744 
-
 : ME_48C7925A02E5_ME_4D90583503C2
  : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
  ;
@@ -828,16 +752,12 @@ ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
  ME_4FC768990140 // TailPosition
  ME_4FC76A86012B // Panel
  ME_4FC76E2700B2 // f_CurrentBounds
- ME_E1F6DDE6E417 // f_AfterBaloonHidden
- ME_4718669325BE // f_TailPosition
- ME_E510F732C8EB // f_Panel
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4FC7711F014B // AdjustBalloonSize
  ME_4FC87D8002D6 // PanelGetSiteInfo
  ME_4FC7694303B7 // CMVisibleChanged
- ME_B7812D154C35 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -867,7 +787,6 @@ ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
  ME_4FC77F2F001C // 
  ME_4FC77F3102DD // 
  ME_4FC7850403D5 // 
- ME_B817DD29C744 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -972,21 +891,6 @@ ref; // ME_4F86D824037D rV
 
 ref; // ME_4F86D7E8030F TPopupFormBoundsRects
 
-: ME_BD3B1D5DC6E5
- CONST UID 'BD3B1D5DC6E5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtPopupFormModelPart' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D9058880214 // TvtPopupFormModelPart
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BD3B1D5DC6E5 Ini_Reg_Class
-
 : ME_4D905C2A0349
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -996,17 +900,6 @@ ref; // ME_BD3B1D5DC6E5 Ini_Reg_Class
  ;
 
 ref; // ME_4D905C2A0349 
-
-: ME_666A69AC9576
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D9058880214 // TvtPopupFormModelPart
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_666A69AC9576 
 
 : ME_4D905A2A00D6_ME_4D9058880214
  : Original WL 'ME_4D905A2A00D6' '467BAB7F021E.pas.ms.script' // DataSourceChanged
@@ -1032,10 +925,6 @@ ref; // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
    Seq: ( WL 'ME_4D905A0F0316' '467BAB7F021E.pas.ms.script' // IvcmDatasourceChangeListener
  )
  ; // Implements
- : Operations
-   Seq: ( ME_BD3B1D5DC6E5 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4D905A2A00D6_ME_4D9058880214 // DataSourceChanged
  )
@@ -1047,7 +936,6 @@ ref; // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
  ; // Children
  : Dependencies
    Seq: ( ME_4D905C2A0349 // 
- ME_666A69AC9576 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -1106,7 +994,6 @@ ref; // ME_4D9058880214 TvtPopupFormModelPart
  WL 'ME_4F635E1901E5' '4F635E1901E5.pas.ms.script' // l3Listeners
  WL 'ME_4F8BEB580354' '4F8BEB580354.pas.ms.script' // vtInterfaces
  WL 'ME_4FD078FF017D' '4FD078FF017D.pas.ms.script' // vtImgLists
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

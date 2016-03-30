@@ -1366,37 +1366,6 @@ ref; // ME_4F6C7E6F00C7 DoIt
 
 ref; // ME_4F6C7E6802B0 Create
 
-FORWARD ME_4F6C7E8E02D1
-
-: ME_4929BE37250C
- CONST Name 'aSettingsImpl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4F6C6EEE038B // IafwSettingsImpl
- ;
-
-ref; // ME_4929BE37250C aSettingsImpl
-
-: ME_B813F2A38804
- CONST UID 'B813F2A38804'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwSettingsPrimPrim.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6C7E8E02D1 // Make
- ;
- : Target WL 'ME_4AB728CB025C' '467823B7002C.pas.ms.script' // IafwSettingsPrim
- ;
- : Parameters
-   Seq: ( ME_4929BE37250C // aSettingsImpl
- )
- ; // Parameters
-
-ref; // ME_B813F2A38804 DoIt
-
 : ME_4F6C7E8E02D1
  CONST UID '4F6C7E8E02D1'
  CONST Name 'Make'
@@ -1415,10 +1384,6 @@ ref; // ME_B813F2A38804 DoIt
    Seq: ( WL 'ME_4AB728CB025C' '467823B7002C.pas.ms.script' // IafwSettingsPrim
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B813F2A38804 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1536,37 +1501,6 @@ ref; // ME_4F6C7A0C035E DoIt
 
 ref; // ME_4F6C7A060311 Create
 
-FORWARD ME_4F6C7A1F020E
-
-: ME_E5071AB1D799
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_E5071AB1D799 aString
-
-: ME_482D4C6C41CA
- CONST UID '482D4C6C41CA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwAString.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6C7A1F020E // Make
- ;
- : Target WL 'ME_46A45CF00005' '4677FBA70343.pas.ms.script' // Il3AString
- ;
- : Parameters
-   Seq: ( ME_E5071AB1D799 // aString
- )
- ; // Parameters
-
-ref; // ME_482D4C6C41CA DoIt
-
 : ME_4F6C7A1F020E
  CONST UID '4F6C7A1F020E'
  CONST Name 'Make'
@@ -1585,10 +1519,6 @@ ref; // ME_482D4C6C41CA DoIt
    Seq: ( WL 'ME_46A45CF00005' '4677FBA70343.pas.ms.script' // Il3AString
  )
  ; // Implements
- : Operations
-   Seq: ( ME_482D4C6C41CA // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2151,37 +2081,6 @@ FORWARD ME_4F6C957F01E7
 
 ref; // ME_4F6C979A024B f_State
 
-FORWARD ME_4F6C960D0300
-
-: ME_88D4F056D887
- CONST Name 'aSettingsImpl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4F6C6EEE038B // IafwSettingsImpl
- ;
-
-ref; // ME_88D4F056D887 aSettingsImpl
-
-: ME_455D30C9275E
- CONST UID '455D30C9275E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwSettings.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6C960D0300 // Make
- ;
- : Target WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
- ;
- : Parameters
-   Seq: ( ME_88D4F056D887 // aSettingsImpl
- )
- ; // Parameters
-
-ref; // ME_455D30C9275E DoIt
-
 : ME_4F6C960D0300
  CONST UID '4F6C960D0300'
  CONST Name 'Make'
@@ -2200,10 +2099,6 @@ ref; // ME_455D30C9275E DoIt
    Seq: ( WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
  )
  ; // Implements
- : Operations
-   Seq: ( ME_455D30C9275E // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2349,23 +2244,6 @@ ref; // ME_4F6C8F00027F DoIt
 
 ref; // ME_4F6C8EF600AE Create
 
-FORWARD ME_4F6C8F070179
-
-: ME_553AE3521663
- CONST UID '553AE3521663'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwSettingsImplemented.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6C8F070179 // Make
- ;
- : Target WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
- ;
-
-ref; // ME_553AE3521663 DoIt
-
 : ME_4F6C8F070179
  CONST UID '4F6C8F070179'
  CONST Name 'Make'
@@ -2384,10 +2262,6 @@ ref; // ME_553AE3521663 DoIt
    Seq: ( WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
  )
  ; // Implements
- : Operations
-   Seq: ( ME_553AE3521663 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

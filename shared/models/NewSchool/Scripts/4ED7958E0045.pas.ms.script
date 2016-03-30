@@ -65,37 +65,6 @@ ref; // ME_56F3EF1D03E2 DoIt
 
 ref; // ME_56F3EF17004C Create
 
-FORWARD ME_56F3EF2B012F
-
-: ME_14A212816986
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_14A212816986 aString
-
-: ME_13CF3DA2FF9B
- CONST UID '13CF3DA2FF9B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwStringIterator.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56F3EF2B012F // Make
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_14A212816986 // aString
- )
- ; // Parameters
-
-ref; // ME_13CF3DA2FF9B DoIt
-
 : ME_56F3EF2B012F
  CONST UID '56F3EF2B012F'
  CONST Name 'Make'
@@ -114,10 +83,6 @@ ref; // ME_13CF3DA2FF9B DoIt
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- : Operations
-   Seq: ( ME_13CF3DA2FF9B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -9495,23 +9460,6 @@ ref; // ME_56F3E8D60391 DoIt
 
 ref; // ME_56F3E8BE02A5 Create
 
-FORWARD ME_56F3E8C900CA
-
-: ME_106B863D6A93
- CONST UID '106B863D6A93'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwHash16Table.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56F3E8C900CA // Make
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_106B863D6A93 DoIt
-
 : ME_56F3E8C900CA
  CONST UID '56F3E8C900CA'
  CONST Name 'Make'
@@ -9530,10 +9478,6 @@ ref; // ME_106B863D6A93 DoIt
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- : Operations
-   Seq: ( ME_106B863D6A93 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

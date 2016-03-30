@@ -1509,32 +1509,6 @@ ref; // ME_4D5EA2F3003C FChildren
 
 ref; // ME_4D5EA31B005D ResourceList
 
-: ME_F43274311BCF
- CONST UID 'F43274311BCF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgCustomScene' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D54170F00D8 // TvgCustomScene
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F43274311BCF Ini_Reg_Class
-
-: ME_324F1E8FB88D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D54170F00D8 // TvgCustomScene
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_324F1E8FB88D 
-
 : ME_4D550CFB029F_ME_4D54170F00D8
  : Original WL 'ME_4D550CFB029F' '4D550C220363.pas.ms.script' // AddObject
  ;
@@ -1822,10 +1796,6 @@ ref; // ME_538DBFB202DE_ME_4D54170F00D8 GetSceneControl
  ME_4D5EA31B005D // ResourceList
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_F43274311BCF // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4D550CFB029F_ME_4D54170F00D8 // AddObject
  ME_4D550D1300CE_ME_4D54170F00D8 // RemoveObject
@@ -1872,10 +1842,6 @@ ref; // ME_538DBFB202DE_ME_4D54170F00D8 GetSceneControl
  ME_538DBFB202DE_ME_4D54170F00D8 // GetSceneControl
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_324F1E8FB88D // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -1931,32 +1897,6 @@ ref; // ME_4F90009C026E new_operation
 
 ref; // ME_4F90008B02C6 ApplyStyle
 
-: ME_9380F2681038
- CONST UID '9380F2681038'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D49560D0013 // TvgControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9380F2681038 Ini_Reg_Class
-
-: ME_83B2D831ECAF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D49560D0013 // TvgControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_83B2D831ECAF 
-
 : ME_4D49560D0013
  CONST UID '4D49560D0013'
  CONST Name 'TvgControl'
@@ -1977,13 +1917,8 @@ ref; // ME_83B2D831ECAF
  ; // Attributes
  : Operations
    Seq: ( ME_4F90008B02C6 // ApplyStyle
- ME_9380F2681038 // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_83B2D831ECAF // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2342,34 +2277,6 @@ ref; // ME_4D5EB9AF02AE Visual
 
 ref; // ME_4D5EB9810101 TvgBrush
 
-FORWARD ME_4FC762770058
-
-: ME_AC67537BDAD5
- CONST UID 'AC67537BDAD5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgBackground' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC762770058 // TvgBackground
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_AC67537BDAD5 Ini_Reg_Class
-
-: ME_4C175A01A390
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FC762770058 // TvgBackground
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4C175A01A390 
-
 : ME_4FC762770058
  CONST UID '4FC762770058'
  CONST Name 'TvgBackground'
@@ -2384,14 +2291,6 @@ ref; // ME_4C175A01A390
    Seq: ( ME_4D49560D0013 // TvgControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AC67537BDAD5 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4C175A01A390 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2400,19 +2299,6 @@ ref; // ME_4C175A01A390
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC762770058 TvgBackground
-
-: ME_841126AA4C89
- CONST UID '841126AA4C89'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vgColorToStr' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4D555FED002F // vgColorToStr
- ;
-
-ref; // ME_841126AA4C89 DoIt
 
 : ME_4D555FED002F
  CONST UID '4D555FED002F'
@@ -2424,26 +2310,9 @@ ref; // ME_841126AA4C89 DoIt
  CONST Abstraction at_final
  : Parent ME_4CFE3E000371 // vg_scene
  ;
- : Operations
-   Seq: ( ME_841126AA4C89 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ColorToStr'
 
 ref; // ME_4D555FED002F vgColorToStr
-
-: ME_BA3AF8DDF595
- CONST UID 'BA3AF8DDF595'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vgStrToColor' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4D555FFC0179 // vgStrToColor
- ;
-
-ref; // ME_BA3AF8DDF595 DoIt
 
 : ME_4D555FFC0179
  CONST UID '4D555FFC0179'
@@ -2455,28 +2324,9 @@ ref; // ME_BA3AF8DDF595 DoIt
  CONST Abstraction at_final
  : Parent ME_4CFE3E000371 // vg_scene
  ;
- : Operations
-   Seq: ( ME_BA3AF8DDF595 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'StrToColor'
 
 ref; // ME_4D555FFC0179 vgStrToColor
-
-FORWARD ME_4D5D148101F9
-
-: ME_E3B2856AAD63
- CONST UID 'E3B2856AAD63'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vgDoTab' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4D5D148101F9 // vgDoTab
- ;
-
-ref; // ME_E3B2856AAD63 DoIt
 
 : ME_4D5D148101F9
  CONST UID '4D5D148101F9'
@@ -2488,10 +2338,6 @@ ref; // ME_E3B2856AAD63 DoIt
  CONST Abstraction at_final
  : Parent ME_4CFE3E000371 // vg_scene
  ;
- : Operations
-   Seq: ( ME_E3B2856AAD63 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'DoTab'
 
 ref; // ME_4D5D148101F9 vgDoTab
@@ -2678,32 +2524,6 @@ ref; // ME_4D5E5AD3030B DoIt
 
 ref; // ME_4D5E5ACA029B SetText
 
-: ME_C51BCBDB734D
- CONST UID 'C51BCBDB734D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgTextControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4955ED018F // TvgTextControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C51BCBDB734D Ini_Reg_Class
-
-: ME_698211B07A02
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D4955ED018F // TvgTextControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_698211B07A02 
-
 : ME_4D4955ED018F
  CONST UID '4D4955ED018F'
  CONST Name 'TvgTextControl'
@@ -2720,13 +2540,8 @@ ref; // ME_698211B07A02
  ; // Inherits
  : Operations
    Seq: ( ME_4D5E5ACA029B // SetText
- ME_C51BCBDB734D // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_698211B07A02 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2756,49 +2571,6 @@ FORWARD ME_4D4955DB0282
 
 ref; // ME_4D5E5B530342 ModalResult
 
-: ME_D2FB674CCDC7
- CONST UID 'D2FB674CCDC7'
- CONST Name 'f_ModalResult'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ModalResult' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D4955DB0282 // TvgCustomButton
- ;
- : Target WL 'ME_47FE430F0088' '4799D29F033F.pas.ms.script' // TModalResult
- ;
- CONST extprop:clearViaProperty 'ModalResult'
-
-ref; // ME_D2FB674CCDC7 f_ModalResult
-
-: ME_DD50DCE2B580
- CONST UID 'DD50DCE2B580'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgCustomButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4955DB0282 // TvgCustomButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DD50DCE2B580 Ini_Reg_Class
-
-: ME_FE9E52A2A349
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D4955DB0282 // TvgCustomButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FE9E52A2A349 
-
 : ME_4D4955DB0282
  CONST UID '4D4955DB0282'
  CONST Name 'TvgCustomButton'
@@ -2815,17 +2587,8 @@ ref; // ME_FE9E52A2A349
  ; // Inherits
  : Attributes
    Seq: ( ME_4D5E5B530342 // ModalResult
- ME_D2FB674CCDC7 // f_ModalResult
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_DD50DCE2B580 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_FE9E52A2A349 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2873,40 +2636,6 @@ ref; // ME_4D5E5C0A01E6 Default
 
 ref; // ME_4D5E5C27000E Cancel
 
-: ME_2B7DA9C3ED44
- CONST UID '2B7DA9C3ED44'
- CONST Name 'f_Default'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Default' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFF5690033D // TvgButton
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Default'
-
-ref; // ME_2B7DA9C3ED44 f_Default
-
-: ME_27C179334A69
- CONST UID '27C179334A69'
- CONST Name 'f_Cancel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Cancel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFF5690033D // TvgButton
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Cancel'
-
-ref; // ME_27C179334A69 f_Cancel
-
 : ME_4CFF5690033D
  CONST UID '4CFF5690033D'
  CONST Name 'TvgButton'
@@ -2924,8 +2653,6 @@ ref; // ME_27C179334A69 f_Cancel
  : Attributes
    Seq: ( ME_4D5E5C0A01E6 // Default
  ME_4D5E5C27000E // Cancel
- ME_2B7DA9C3ED44 // f_Default
- ME_27C179334A69 // f_Cancel
  )
  ; // Attributes
  CONST "finished" false
@@ -2957,34 +2684,6 @@ ref; // ME_4CFF5690033D TvgButton
 
 ref; // ME_4F91672600DC TvgCheckBox
 
-FORWARD ME_4FC76491011E
-
-: ME_62BBB280F721
- CONST UID '62BBB280F721'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC76491011E // TvgPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_62BBB280F721 Ini_Reg_Class
-
-: ME_45C0885728AC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FC76491011E // TvgPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_45C0885728AC 
-
 : ME_4FC76491011E
  CONST UID '4FC76491011E'
  CONST Name 'TvgPanel'
@@ -2999,14 +2698,6 @@ ref; // ME_45C0885728AC
    Seq: ( ME_4D49560D0013 // TvgControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_62BBB280F721 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_45C0885728AC // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -3015,34 +2706,6 @@ ref; // ME_45C0885728AC
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC76491011E TvgPanel
-
-FORWARD ME_4FC7649B002C
-
-: ME_200A4E73847E
- CONST UID '200A4E73847E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgCalloutPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7649B002C // TvgCalloutPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_200A4E73847E Ini_Reg_Class
-
-: ME_D86652FBABB3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FC7649B002C // TvgCalloutPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D86652FBABB3 
 
 : ME_4FC7649B002C
  CONST UID '4FC7649B002C'
@@ -3058,14 +2721,6 @@ ref; // ME_D86652FBABB3
    Seq: ( ME_4FC76491011E // TvgPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_200A4E73847E // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_D86652FBABB3 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -3232,34 +2887,6 @@ ref; // ME_4CFE0E4401D1 TvgStringComboBox
 
 ref; // ME_4D3D71CE0254 TvgComboBox
 
-FORWARD ME_4D49985C0087
-
-: ME_A3237655D225
- CONST UID 'A3237655D225'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgListBoxItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D49985C0087 // TvgListBoxItem
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A3237655D225 Ini_Reg_Class
-
-: ME_2A18B2F075D8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D49985C0087 // TvgListBoxItem
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2A18B2F075D8 
-
 : ME_4D49985C0087
  CONST UID '4D49985C0087'
  CONST Name 'TvgListBoxItem'
@@ -3274,14 +2901,6 @@ ref; // ME_2A18B2F075D8
    Seq: ( ME_4D4955ED018F // TvgTextControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A3237655D225 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_2A18B2F075D8 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -3612,37 +3231,6 @@ ref; // ME_533E6FDD018D TvgRectList
 
 FORWARD ME_551ABD0E013B
 
-: ME_635D6B94DFCC
- CONST UID '635D6B94DFCC'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgGetComponentFromPointImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_551ABD0E013B // TvgGetComponentFromPointImpl
- ;
-
-ref; // ME_635D6B94DFCC bind
-
-: ME_CEA60D4CB2D9
- CONST UID 'CEA60D4CB2D9'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551ABD0E013B // TvgGetComponentFromPointImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CEA60D4CB2D9 Exists
-
 : ME_551ACCA50238
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -3677,11 +3265,6 @@ ref; // ME_77F02E022F3C_ME_551ABD0E013B GetComponent
    Seq: ( WL 'ME_90623703A4D4' '55001317029B.pas.ms.script' // Il3GetComponentFromPointHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_635D6B94DFCC // bind
- ME_CEA60D4CB2D9 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_77F02E022F3C_ME_551ABD0E013B // GetComponent
  )
@@ -3701,37 +3284,6 @@ ref; // ME_77F02E022F3C_ME_551ABD0E013B GetComponent
 ref; // ME_551ABD0E013B TvgGetComponentFromPointImpl
 
 FORWARD ME_551BCE070003
-
-: ME_14F744894DB1
- CONST UID '14F744894DB1'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgFormatObjectInfoImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_551BCE070003 // TvgFormatObjectInfoImpl
- ;
-
-ref; // ME_14F744894DB1 bind
-
-: ME_E73FBCF56189
- CONST UID 'E73FBCF56189'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551BCE070003 // TvgFormatObjectInfoImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_E73FBCF56189 Exists
 
 : ME_551BCE1702D0
  CONST Class class_Dependency
@@ -3807,11 +3359,6 @@ ref; // ME_D4A861440DBF_ME_551BCE070003 Format
    Seq: ( WL 'ME_5DD0A3AA9AB2' '55001317029B.pas.ms.script' // Il3FormatObjectInfoHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_14F744894DB1 // bind
- ME_E73FBCF56189 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_D4A861440DBF_ME_551BCE070003 // Format
  )
@@ -3835,37 +3382,6 @@ ref; // ME_D4A861440DBF_ME_551BCE070003 Format
 ref; // ME_551BCE070003 TvgFormatObjectInfoImpl
 
 FORWARD ME_551C4D2300E5
-
-: ME_F7C4A295A940
- CONST UID 'F7C4A295A940'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgIterateComponentsImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_551C4D2300E5 // TvgIterateComponentsImpl
- ;
-
-ref; // ME_F7C4A295A940 bind
-
-: ME_CAD388D21A85
- CONST UID 'CAD388D21A85'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551C4D2300E5 // TvgIterateComponentsImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CAD388D21A85 Exists
 
 : ME_551C4D340171
  CONST Class class_Dependency
@@ -3923,11 +3439,6 @@ ref; // ME_3410F441967F_ME_551C4D2300E5 IterateF
    Seq: ( WL 'ME_7D793C9B4E2A' '55001317029B.pas.ms.script' // Il3IterateComponentParents
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F7C4A295A940 // bind
- ME_CAD388D21A85 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_3410F441967F_ME_551C4D2300E5 // IterateF
  )
@@ -3949,37 +3460,6 @@ ref; // ME_3410F441967F_ME_551C4D2300E5 IterateF
 ref; // ME_551C4D2300E5 TvgIterateComponentsImpl
 
 FORWARD ME_55226D5F0212
-
-: ME_EADF30761AAB
- CONST UID 'EADF30761AAB'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgGetCaptureImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55226D5F0212 // TvgGetCaptureImpl
- ;
-
-ref; // ME_EADF30761AAB bind
-
-: ME_2185E22D7EBA
- CONST UID '2185E22D7EBA'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55226D5F0212 // TvgGetCaptureImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_2185E22D7EBA Exists
 
 : ME_55226D830172
  CONST Class class_Dependency
@@ -4015,11 +3495,6 @@ ref; // ME_FC96CEF34C46_ME_55226D5F0212 GetCapture
    Seq: ( WL 'ME_23B04EF2BA04' '55001317029B.pas.ms.script' // Il3GetCaptureHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_EADF30761AAB // bind
- ME_2185E22D7EBA // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_FC96CEF34C46_ME_55226D5F0212 // GetCapture
  )
@@ -4039,37 +3514,6 @@ ref; // ME_FC96CEF34C46_ME_55226D5F0212 GetCapture
 ref; // ME_55226D5F0212 TvgGetCaptureImpl
 
 FORWARD ME_5522D81901CB
-
-: ME_00AAD172BF27
- CONST UID '00AAD172BF27'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgGetComponentBoundsImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5522D81901CB // TvgGetComponentBoundsImpl
- ;
-
-ref; // ME_00AAD172BF27 bind
-
-: ME_9267CDABE2EB
- CONST UID '9267CDABE2EB'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5522D81901CB // TvgGetComponentBoundsImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_9267CDABE2EB Exists
 
 : ME_5522D8520273
  CONST Class class_Dependency
@@ -4115,11 +3559,6 @@ ref; // ME_BB0BB5CAA29B_ME_5522D81901CB GetBounds
    Seq: ( WL 'ME_DFD91650A75C' '55001317029B.pas.ms.script' // Il3GetComponentBoundsHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_00AAD172BF27 // bind
- ME_9267CDABE2EB // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_BB0BB5CAA29B_ME_5522D81901CB // GetBounds
  )

@@ -198,91 +198,6 @@ ref; // ME_55670FBF01D7 OldDay
 
 ref; // ME_55670FF801D4 Date
 
-: ME_D03897F9CD17
- CONST UID 'D03897F9CD17'
- CONST Name 'f_StartOfWeek'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StartOfWeek' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- : Target WL 'ME_554C8DC4028F' '47D0290B016D.pas.ms.script' // TStDayType
- ;
- CONST extprop:clearViaProperty 'StartOfWeek'
-
-ref; // ME_D03897F9CD17 f_StartOfWeek
-
-: ME_F442AA6AA886
- CONST UID 'F442AA6AA886'
- CONST Name 'f_Weekends'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Weekends' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- : Target WL 'ME_554C8E0102AB' '47D0290B016D.pas.ms.script' // TDaysOfWeek
- ;
- CONST extprop:clearViaProperty 'Weekends'
-
-ref; // ME_F442AA6AA886 f_Weekends
-
-: ME_92D3E92108FE
- CONST UID '92D3E92108FE'
- CONST Name 'f_WeekendColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WeekendColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'WeekendColor'
-
-ref; // ME_92D3E92108FE f_WeekendColor
-
-: ME_B64AEEAD16D4
- CONST UID 'B64AEEAD16D4'
- CONST Name 'f_OnChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnChange'
-
-ref; // ME_B64AEEAD16D4 f_OnChange
-
-: ME_ED8E9E19EDD0
- CONST UID 'ED8E9E19EDD0'
- CONST Name 'f_OldDay'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OldDay' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'OldDay'
-
-ref; // ME_ED8E9E19EDD0 f_OldDay
-
 FORWARD ME_55670EF101FF
 
 : ME_55670EFC0207
@@ -416,21 +331,6 @@ ref; // ME_55670F78005E DoIt
 
 ref; // ME_55670F7202CB DrawFocusFrame
 
-FORWARD ME_55670F9602CB
-
-: ME_99386AAAC6A6
- CONST UID '99386AAAC6A6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InvalidateDayArray' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55670F9602CB // InvalidateDayArray
- ;
-
-ref; // ME_99386AAAC6A6 DoIt
-
 : ME_55670F9602CB
  CONST UID '55670F9602CB'
  CONST Name 'InvalidateDayArray'
@@ -441,27 +341,8 @@ ref; // ME_99386AAAC6A6 DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_99386AAAC6A6 // DoIt
- )
- ; // Operations
 
 ref; // ME_55670F9602CB InvalidateDayArray
-
-FORWARD ME_55670FA502B8
-
-: ME_C5E17B33EFBA
- CONST UID 'C5E17B33EFBA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Change' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55670FA502B8 // Change
- ;
-
-ref; // ME_C5E17B33EFBA DoIt
 
 : ME_55670FA502B8
  CONST UID '55670FA502B8'
@@ -473,27 +354,8 @@ ref; // ME_C5E17B33EFBA DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_C5E17B33EFBA // DoIt
- )
- ; // Operations
 
 ref; // ME_55670FA502B8 Change
-
-FORWARD ME_55671071035C
-
-: ME_292B3ABAFBD4
- CONST UID '292B3ABAFBD4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NextDay' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55671071035C // NextDay
- ;
-
-ref; // ME_292B3ABAFBD4 DoIt
 
 : ME_55671071035C
  CONST UID '55671071035C'
@@ -505,27 +367,8 @@ ref; // ME_292B3ABAFBD4 DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_292B3ABAFBD4 // DoIt
- )
- ; // Operations
 
 ref; // ME_55671071035C NextDay
-
-FORWARD ME_5567107A01EF
-
-: ME_258DEACD52B5
- CONST UID '258DEACD52B5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PrevDay' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5567107A01EF // PrevDay
- ;
-
-ref; // ME_258DEACD52B5 DoIt
 
 : ME_5567107A01EF
  CONST UID '5567107A01EF'
@@ -537,27 +380,8 @@ ref; // ME_258DEACD52B5 DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_258DEACD52B5 // DoIt
- )
- ; // Operations
 
 ref; // ME_5567107A01EF PrevDay
-
-FORWARD ME_55671084000E
-
-: ME_99A1D606B1BC
- CONST UID '99A1D606B1BC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NextWeek' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55671084000E // NextWeek
- ;
-
-ref; // ME_99A1D606B1BC DoIt
 
 : ME_55671084000E
  CONST UID '55671084000E'
@@ -569,27 +393,8 @@ ref; // ME_99A1D606B1BC DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_99A1D606B1BC // DoIt
- )
- ; // Operations
 
 ref; // ME_55671084000E NextWeek
-
-FORWARD ME_5567108F020C
-
-: ME_8C22A11C4905
- CONST UID '8C22A11C4905'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PrevWeek' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5567108F020C // PrevWeek
- ;
-
-ref; // ME_8C22A11C4905 DoIt
 
 : ME_5567108F020C
  CONST UID '5567108F020C'
@@ -601,27 +406,8 @@ ref; // ME_8C22A11C4905 DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_8C22A11C4905 // DoIt
- )
- ; // Operations
 
 ref; // ME_5567108F020C PrevWeek
-
-FORWARD ME_5567109A01A1
-
-: ME_B07E9EE931CA
- CONST UID 'B07E9EE931CA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NextMonth' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5567109A01A1 // NextMonth
- ;
-
-ref; // ME_B07E9EE931CA DoIt
 
 : ME_5567109A01A1
  CONST UID '5567109A01A1'
@@ -633,27 +419,8 @@ ref; // ME_B07E9EE931CA DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_B07E9EE931CA // DoIt
- )
- ; // Operations
 
 ref; // ME_5567109A01A1 NextMonth
-
-FORWARD ME_556710A500BA
-
-: ME_26C626152604
- CONST UID '26C626152604'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PrevMonth' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_556710A500BA // PrevMonth
- ;
-
-ref; // ME_26C626152604 DoIt
 
 : ME_556710A500BA
  CONST UID '556710A500BA'
@@ -665,27 +432,8 @@ ref; // ME_26C626152604 DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_26C626152604 // DoIt
- )
- ; // Operations
 
 ref; // ME_556710A500BA PrevMonth
-
-FORWARD ME_556710AF02F4
-
-: ME_86DF89ABCECC
- CONST UID '86DF89ABCECC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NextYear' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_556710AF02F4 // NextYear
- ;
-
-ref; // ME_86DF89ABCECC DoIt
 
 : ME_556710AF02F4
  CONST UID '556710AF02F4'
@@ -697,27 +445,8 @@ ref; // ME_86DF89ABCECC DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_86DF89ABCECC // DoIt
- )
- ; // Operations
 
 ref; // ME_556710AF02F4 NextYear
-
-FORWARD ME_556710BA0108
-
-: ME_69FBBC978B7F
- CONST UID '69FBBC978B7F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PrevYear' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_556710BA0108 // PrevYear
- ;
-
-ref; // ME_69FBBC978B7F DoIt
 
 : ME_556710BA0108
  CONST UID '556710BA0108'
@@ -729,10 +458,6 @@ ref; // ME_69FBBC978B7F DoIt
  CONST Abstraction at_final
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
- : Operations
-   Seq: ( ME_69FBBC978B7F // DoIt
- )
- ; // Operations
 
 ref; // ME_556710BA0108 PrevYear
 
@@ -909,32 +634,6 @@ ref; // ME_556711A3024F Message
 
 ref; // ME_5567119C03D0 WMShowWindow
 
-: ME_F038DE85DAD9
- CONST UID 'F038DE85DAD9'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomCalendarPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F038DE85DAD9 Ini_Reg_Class
-
-: ME_4E39F227D2A8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_556709D10061 // TvtCustomCalendarPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4E39F227D2A8 
-
 : ME_47D1602000C6_ME_556709D10061
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -980,11 +679,6 @@ ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
  ME_55670E87023E // OnChange
  ME_55670FBF01D7 // OldDay
  ME_55670FF801D4 // Date
- ME_D03897F9CD17 // f_StartOfWeek
- ME_F442AA6AA886 // f_Weekends
- ME_92D3E92108FE // f_WeekendColor
- ME_B64AEEAD16D4 // f_OnChange
- ME_ED8E9E19EDD0 // f_OldDay
  )
  ; // Attributes
  : Operations
@@ -1007,7 +701,6 @@ ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
  ME_55671181020A // WMLButtonUp
  ME_5567118E02EF // WMMouseMove
  ME_5567119C03D0 // WMShowWindow
- ME_F038DE85DAD9 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1016,10 +709,6 @@ ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
  ME_554CABC100AC_ME_556709D10061 // KeyDown
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_4E39F227D2A8 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1085,21 +774,6 @@ ref; // ME_556712910077 SplitLineHeight
 
 ref; // ME_5567126103D0 Calendar Panel const
 
-: ME_CBA63B21344B
- CONST UID 'CBA63B21344B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCalendarPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5562DB5D0259 // TvtCalendarPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CBA63B21344B Ini_Reg_Class
-
 FORWARD ME_4B8E4B58034D
 
 : ME_5567131F031A
@@ -1152,17 +826,6 @@ ref; // ME_5568449F0208
 
 ref; // ME_556844A10231 
 
-: ME_7E3CB3F74E72
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5562DB5D0259 // TvtCalendarPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7E3CB3F74E72 
-
 : ME_5562DB5D0259
  CONST UID '5562DB5D0259'
  CONST Name 'TvtCalendarPanel'
@@ -1177,10 +840,6 @@ ref; // ME_7E3CB3F74E72
    Seq: ( ME_556709D10061 // TvtCustomCalendarPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CBA63B21344B // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_556709D10061 // TvtCustomCalendarPanel
  )
@@ -1195,7 +854,6 @@ ref; // ME_7E3CB3F74E72
  ME_5568449D0199 // 
  ME_5568449F0208 // 
  ME_556844A10231 // 
- ME_7E3CB3F74E72 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -3671,23 +3329,6 @@ ref; // ME_5562DBA70371 MenuOpen
 
 ref; // ME_556837A7019B f_Calendar
 
-: ME_7EFECDD659EC
- CONST UID '7EFECDD659EC'
- CONST Name 'f_MenuOpen'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MenuOpen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F8D5553010A // TPopupCalendar
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'MenuOpen'
-
-ref; // ME_7EFECDD659EC f_MenuOpen
-
 FORWARD ME_5562DBEF006B
 
 : ME_5562DC060254
@@ -4520,32 +4161,6 @@ ref; // ME_556497A70285 DoIt
 
 ref; // ME_556486A5039E DoKeyDown
 
-: ME_BDFA655C2F5D
- CONST UID 'BDFA655C2F5D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TPopupCalendar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F8D5553010A // TPopupCalendar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BDFA655C2F5D Ini_Reg_Class
-
-: ME_FB07A1E54C96
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F8D5553010A // TPopupCalendar
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FB07A1E54C96 
-
 : ME_47D1602000C6_ME_4F8D5553010A
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -4588,7 +4203,6 @@ ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
  ME_5562DAFA03CB // Date
  ME_5562DBA70371 // MenuOpen
  ME_556837A7019B // f_Calendar
- ME_7EFECDD659EC // f_MenuOpen
  )
  ; // Attributes
  : Operations
@@ -4609,7 +4223,6 @@ ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
  ME_5562DE3A02DF // MakeTodayPad
  ME_5562DE4D0243 // AdjustTitleButtonFont
  ME_556486A5039E // DoKeyDown
- ME_BDFA655C2F5D // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -4618,10 +4231,6 @@ ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
  ME_554CABC100AC_ME_4F8D5553010A // KeyDown
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_FB07A1E54C96 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -5120,226 +4729,6 @@ ref; // ME_554C924B03A3 StDate
 
 ref; // ME_554CA0640118 f_CalendarPanel
 
-: ME_DB804CB981AE
- CONST UID 'DB804CB981AE'
- CONST Name 'f_OnApplyDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnApplyDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target ME_554C8A090247 // TvtOnApplyDate
- ;
- CONST extprop:clearViaProperty 'OnApplyDate'
-
-ref; // ME_DB804CB981AE f_OnApplyDate
-
-: ME_1F3286469CFD
- CONST UID '1F3286469CFD'
- CONST Name 'f_OnAppliedDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnAppliedDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target ME_554C8A190075 // TvtOnAppliedDate
- ;
- CONST extprop:clearViaProperty 'OnAppliedDate'
-
-ref; // ME_1F3286469CFD f_OnAppliedDate
-
-: ME_2571D7177A72
- CONST UID '2571D7177A72'
- CONST Name 'f_OnAutoCorrectDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnAutoCorrectDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnAutoCorrectDate'
-
-ref; // ME_2571D7177A72 f_OnAutoCorrectDate
-
-: ME_F19DCA759C8F
- CONST UID 'F19DCA759C8F'
- CONST Name 'f_OnExecute'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnExecute' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnExecute'
-
-ref; // ME_F19DCA759C8F f_OnExecute
-
-: ME_EBD28B6C4B98
- CONST UID 'EBD28B6C4B98'
- CONST Name 'f_OnInvalidDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnInvalidDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnInvalidDate'
-
-ref; // ME_EBD28B6C4B98 f_OnInvalidDate
-
-: ME_FDC69912F11A
- CONST UID 'FDC69912F11A'
- CONST Name 'f_RestrictInvalidDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RestrictInvalidDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'RestrictInvalidDate'
-
-ref; // ME_FDC69912F11A f_RestrictInvalidDate
-
-: ME_3FBE974CFC97
- CONST UID '3FBE974CFC97'
- CONST Name 'f_BlanksChar'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BlanksChar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
- ;
- CONST extprop:clearViaProperty 'BlanksChar'
-
-ref; // ME_3FBE974CFC97 f_BlanksChar
-
-: ME_66DF83495627
- CONST UID '66DF83495627'
- CONST Name 'f_StartOfWeek'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StartOfWeek' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_554C8DC4028F' '47D0290B016D.pas.ms.script' // TStDayType
- ;
- CONST extprop:clearViaProperty 'StartOfWeek'
-
-ref; // ME_66DF83495627 f_StartOfWeek
-
-: ME_6D66C09C6926
- CONST UID '6D66C09C6926'
- CONST Name 'f_Weekends'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Weekends' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_554C8E0102AB' '47D0290B016D.pas.ms.script' // TDaysOfWeek
- ;
- CONST extprop:clearViaProperty 'Weekends'
-
-ref; // ME_6D66C09C6926 f_Weekends
-
-: ME_04AC9DE90237
- CONST UID '04AC9DE90237'
- CONST Name 'f_WeekendColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WeekendColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'WeekendColor'
-
-ref; // ME_04AC9DE90237 f_WeekendColor
-
-: ME_12B1E77B9781
- CONST UID '12B1E77B9781'
- CONST Name 'f_YearDigits'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства YearDigits' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target ME_554C8F2B00A9 // TYearDigits
- ;
- CONST extprop:clearViaProperty 'YearDigits'
-
-ref; // ME_12B1E77B9781 f_YearDigits
-
-: ME_3998B939BAA4
- CONST UID '3998B939BAA4'
- CONST Name 'f_CheckOnExit'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CheckOnExit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'CheckOnExit'
-
-ref; // ME_3998B939BAA4 f_CheckOnExit
-
-: ME_36F0868582AF
- CONST UID '36F0868582AF'
- CONST Name 'f_Formatting'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Formatting' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_36F0868582AF f_Formatting
-
 FORWARD ME_52A9AF0F021B
 
 : ME_EC66472F354B
@@ -5622,21 +5011,6 @@ ref; // ME_554CA427031E DoIt
 
 ref; // ME_554CA41F01D7 ApplyDate
 
-FORWARD ME_554CA47D03A0
-
-: ME_BC061CBFA347
- CONST UID 'BC061CBFA347'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateFormat' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CA47D03A0 // UpdateFormat
- ;
-
-ref; // ME_BC061CBFA347 DoIt
-
 : ME_554CA47D03A0
  CONST UID '554CA47D03A0'
  CONST Name 'UpdateFormat'
@@ -5647,27 +5021,8 @@ ref; // ME_BC061CBFA347 DoIt
  CONST Abstraction at_final
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
- : Operations
-   Seq: ( ME_BC061CBFA347 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CA47D03A0 UpdateFormat
-
-FORWARD ME_554CA5170329
-
-: ME_2D407508BF48
- CONST UID '2D407508BF48'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckValidDate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CA5170329 // CheckValidDate
- ;
-
-ref; // ME_2D407508BF48 DoIt
 
 : ME_554CA5170329
  CONST UID '554CA5170329'
@@ -5679,10 +5034,6 @@ ref; // ME_2D407508BF48 DoIt
  CONST Abstraction at_final
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
- : Operations
-   Seq: ( ME_2D407508BF48 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CA5170329 CheckValidDate
 
@@ -5750,21 +5101,6 @@ ref; // ME_E5E56082E430 DoIt
 
 ref; // ME_554CA555014B UpdateMask
 
-FORWARD ME_554CA5630382
-
-: ME_D4AC045C0117
- CONST UID 'D4AC045C0117'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ClearDate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CA5630382 // ClearDate
- ;
-
-ref; // ME_D4AC045C0117 DoIt
-
 : ME_554CA5630382
  CONST UID '554CA5630382'
  CONST Name 'ClearDate'
@@ -5775,10 +5111,6 @@ ref; // ME_D4AC045C0117 DoIt
  CONST Abstraction at_final
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
- : Operations
-   Seq: ( ME_D4AC045C0117 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CA5630382 ClearDate
 
@@ -5893,21 +5225,6 @@ ref; // ME_398A40C48184 DoIt
 
 ref; // ME_554CA67F0123 IsBlank
 
-FORWARD ME_554CA6CB0191
-
-: ME_95024AD50FE6
- CONST UID '95024AD50FE6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AutoResize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CA6CB0191 // AutoResize
- ;
-
-ref; // ME_95024AD50FE6 DoIt
-
 : ME_554CA6CB0191
  CONST UID '554CA6CB0191'
  CONST Name 'AutoResize'
@@ -5918,10 +5235,6 @@ ref; // ME_95024AD50FE6 DoIt
  CONST Abstraction at_final
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
- : Operations
-   Seq: ( ME_95024AD50FE6 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CA6CB0191 AutoResize
 
@@ -6061,32 +5374,6 @@ ref; // ME_554CA4F10182 Message
 
 ref; // ME_554CA4E801D4 WMPaste
 
-: ME_75C8140A89E2
- CONST UID '75C8140A89E2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomDateEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_75C8140A89E2 Ini_Reg_Class
-
-: ME_60232D683D43
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_60232D683D43 
-
 : ME_554CA8F903AE_ME_52A9ACFF0183
  : Original WL 'ME_554CA8F903AE' '4A83EE0E0002.pas.ms.script' // GetDropDownContainer
  ;
@@ -6200,19 +5487,6 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
  ME_554C92180230 // Date
  ME_554C924B03A3 // StDate
  ME_554CA0640118 // f_CalendarPanel
- ME_DB804CB981AE // f_OnApplyDate
- ME_1F3286469CFD // f_OnAppliedDate
- ME_2571D7177A72 // f_OnAutoCorrectDate
- ME_F19DCA759C8F // f_OnExecute
- ME_EBD28B6C4B98 // f_OnInvalidDate
- ME_FDC69912F11A // f_RestrictInvalidDate
- ME_3FBE974CFC97 // f_BlanksChar
- ME_66DF83495627 // f_StartOfWeek
- ME_6D66C09C6926 // f_Weekends
- ME_04AC9DE90237 // f_WeekendColor
- ME_12B1E77B9781 // f_YearDigits
- ME_3998B939BAA4 // f_CheckOnExit
- ME_36F0868582AF // f_Formatting
  )
  ; // Attributes
  : Operations
@@ -6238,7 +5512,6 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
  ME_554C9FAE023A // CMEnter
  ME_554CA4D40035 // WMMouseWheel
  ME_554CA4E801D4 // WMPaste
- ME_75C8140A89E2 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -6264,10 +5537,6 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
    Seq: ( ME_554C911D0364 // SupportStDate
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_60232D683D43 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -6325,49 +5594,6 @@ ref; // ME_554CC0BC01D9 f_DateFormat
 
 ref; // ME_554CC0D002D0 DateText
 
-: ME_5BD04EFB928F
- CONST UID '5BD04EFB928F'
- CONST Name 'f_DateText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DateText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_554CBF5C01D8 // TvtCalendarForm
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'DateText'
-
-ref; // ME_5BD04EFB928F f_DateText
-
-: ME_51405B3B23A4
- CONST UID '51405B3B23A4'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCalendarForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_554CBF5C01D8 // TvtCalendarForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_51405B3B23A4 Ini_Reg_Class
-
-: ME_25918C4479CD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_554CBF5C01D8 // TvtCalendarForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_25918C4479CD 
-
 : ME_47A042E100E2_ME_554CBF5C01D8
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
@@ -6406,23 +5632,14 @@ ref; // ME_49F057120234_ME_554CBF5C01D8 AfterConstruction
    Seq: ( ME_554CC0890053 // f_Calendar
  ME_554CC0BC01D9 // f_DateFormat
  ME_554CC0D002D0 // DateText
- ME_5BD04EFB928F // f_DateText
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_51405B3B23A4 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47A042E100E2_ME_554CBF5C01D8 // InitFields
  ME_47E136A80191_ME_554CBF5C01D8 // WndProc
  ME_49F057120234_ME_554CBF5C01D8 // AfterConstruction
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_25918C4479CD // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -6484,32 +5701,6 @@ ref; // ME_65FAF40E11A9 DoIt
 
 ref; // ME_5562DEB2009F OkClick
 
-: ME_B2A29A2C2E23
- CONST UID 'B2A29A2C2E23'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TDblClickPopupCalendar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5562DE9702A4 // TDblClickPopupCalendar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B2A29A2C2E23 Ini_Reg_Class
-
-: ME_9CBD86495BB1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5562DE9702A4 // TDblClickPopupCalendar
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9CBD86495BB1 
-
 : ME_5562DBEF006B_ME_5562DE9702A4
  : Original ME_5562DBEF006B // CalendarMouseUp
  ;
@@ -6550,7 +5741,6 @@ ref; // ME_5562DE4D0243_ME_5562DE9702A4 AdjustTitleButtonFont
  ; // Inherits
  : Operations
    Seq: ( ME_5562DEB2009F // OkClick
- ME_B2A29A2C2E23 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -6560,10 +5750,6 @@ ref; // ME_5562DE4D0243_ME_5562DE9702A4 AdjustTitleButtonFont
  ME_5562DE4D0243_ME_5562DE9702A4 // AdjustTitleButtonFont
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_9CBD86495BB1 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -6685,21 +5871,6 @@ ref; // ME_556464A3026C TDblClickPopupCalendar Const
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_85C4A351AC4D TvtCalendarPanelFriend
-
-: ME_5DD22A2937F7
- CONST UID '5DD22A2937F7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtDateEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8AB7B038F // TvtDateEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5DD22A2937F7 Ini_Reg_Class
 
 : ME_556452780136
  CONST Class class_Dependency
@@ -6831,17 +6002,6 @@ ref; // ME_5564AC63031F
 
 ref; // ME_55670AFA0153 
 
-: ME_97F7F93AE6C3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8AB7B038F // TvtDateEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_97F7F93AE6C3 
-
 : ME_4AA8AB7B038F
  CONST UID '4AA8AB7B038F'
  CONST Name 'TvtDateEdit'
@@ -6856,10 +6016,6 @@ ref; // ME_97F7F93AE6C3
    Seq: ( ME_52A9ACFF0183 // TvtCustomDateEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5DD22A2937F7 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4F8D5553010A // TPopupCalendar
  ME_554C8A090247 // TvtOnApplyDate
@@ -6891,7 +6047,6 @@ ref; // ME_97F7F93AE6C3
  ME_556465E30230 // 
  ME_5564AC63031F // 
  ME_55670AFA0153 // 
- ME_97F7F93AE6C3 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -6908,32 +6063,6 @@ ref; // ME_97F7F93AE6C3
 ref; // ME_4AA8AB7B038F TvtDateEdit
 
 FORWARD ME_4AC5DAE50246
-
-: ME_B98337B23551
- CONST UID 'B98337B23551'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtDblClickDateEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC5DAE50246 // TvtDblClickDateEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B98337B23551 Ini_Reg_Class
-
-: ME_6167FDB02615
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC5DAE50246 // TvtDblClickDateEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6167FDB02615 
 
 : ME_554CA3BF011D_ME_4AC5DAE50246
  : Original ME_554CA3BF011D // MakeCalendar
@@ -6955,18 +6084,10 @@ ref; // ME_554CA3BF011D_ME_4AC5DAE50246 MakeCalendar
    Seq: ( ME_4AA8AB7B038F // TvtDateEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B98337B23551 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_554CA3BF011D_ME_4AC5DAE50246 // MakeCalendar
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_6167FDB02615 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -7015,7 +6136,6 @@ ref; // ME_4AC5DAE50246 TvtDblClickDateEdit
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

@@ -6,21 +6,6 @@ FORWARD ME_52DE57B200A5
 
 FORWARD ME_52DE57DF007B
 
-: ME_6CA2F64A2D31
- CONST UID '6CA2F64A2D31'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscTreeViewWithAdapterDragDrop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52DE57DF007B // TnscTreeViewWithAdapterDragDrop
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6CA2F64A2D31 Ini_Reg_Class
-
 FORWARD ME_48F73BBD02B3
 
 : ME_52DE586D02EC
@@ -32,17 +17,6 @@ FORWARD ME_48F73BBD02B3
  ;
 
 ref; // ME_52DE586D02EC 
-
-: ME_8C6FC0BDDEAC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DE57DF007B // TnscTreeViewWithAdapterDragDrop
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8C6FC0BDDEAC 
 
 : ME_52DD106403D3_ME_52DE57DF007B
  : Original WL 'ME_52DD106403D3' '4B97E7FD006C.pas.ms.script' // DataObjectClass
@@ -64,17 +38,12 @@ ref; // ME_52DD106403D3_ME_52DE57DF007B DataObjectClass
    Seq: ( WL 'ME_499C26240034' '499C2614028C.pas.ms.script' // TnscTreeView
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6CA2F64A2D31 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52DD106403D3_ME_52DE57DF007B // DataObjectClass
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_52DE586D02EC // 
- ME_8C6FC0BDDEAC // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -377,7 +346,6 @@ ref; // ME_48F73BBD02B3 TnsEntitiesTreeDataObject
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST extprop:pas:UnitName 'Tree$WithDnD'

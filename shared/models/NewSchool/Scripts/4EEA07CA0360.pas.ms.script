@@ -1817,21 +1817,6 @@ ref; // ME_DD5E4AD1835B DoIt
 
 ref; // ME_54E5C772012F DoReqClear
 
-FORWARD ME_54E5C80B0342
-
-: ME_B2BC442739BC
- CONST UID 'B2BC442739BC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода MakeChangedReq' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54E5C80B0342 // MakeChangedReq
- ;
-
-ref; // ME_B2BC442739BC DoIt
-
 : ME_54E5C80B0342
  CONST UID '54E5C80B0342'
  CONST Name 'MakeChangedReq'
@@ -1842,10 +1827,6 @@ ref; // ME_B2BC442739BC DoIt
  CONST Abstraction at_final
  : Parent ME_46839C340218 // TqaReq
  ;
- : Operations
-   Seq: ( ME_B2BC442739BC // DoIt
- )
- ; // Operations
  CONST "ifndef" 'Admin'
 
 ref; // ME_54E5C80B0342 MakeChangedReq
@@ -2010,21 +1991,6 @@ ref; // ME_54E5C8A60185 DoIt
 
 ref; // ME_54E5C89F0045 IsEditEmpty
 
-FORWARD ME_54E5C8B6016B
-
-: ME_33789F53C6BA
- CONST UID '33789F53C6BA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DeleteEmptyValues' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54E5C8B6016B // DeleteEmptyValues
- ;
-
-ref; // ME_33789F53C6BA DoIt
-
 : ME_54E5C8B6016B
  CONST UID '54E5C8B6016B'
  CONST Name 'DeleteEmptyValues'
@@ -2035,10 +2001,6 @@ ref; // ME_33789F53C6BA DoIt
  CONST Abstraction at_final
  : Parent ME_46839C340218 // TqaReq
  ;
- : Operations
-   Seq: ( ME_33789F53C6BA // DoIt
- )
- ; // Operations
 
 ref; // ME_54E5C8B6016B DeleteEmptyValues
 
@@ -2388,12 +2350,6 @@ ref; // ME_5554953A023D_ME_46839C340218 GetReqAsStrings
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_46839C340218 Cleanup
 
-: ME_5000565C019C_ME_46839C340218
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_46839C340218 ClearFields
-
 : ME_46839C340218
  CONST UID '46839C340218'
  CONST Name 'TqaReq'
@@ -2463,7 +2419,6 @@ ref; // ME_5000565C019C_ME_46839C340218 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_46839C340218 // Cleanup
- ME_5000565C019C_ME_46839C340218 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -2664,56 +2619,6 @@ ref; // ME_46839D0B0113 Mask
 
 ref; // ME_54EC8AA800EB Oper
 
-: ME_16E30E58EF83
- CONST UID '16E30E58EF83'
- CONST Name 'f_NodeBase'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NodeBase' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_46839CF3010E // TqaAttrInfo
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_16E30E58EF83 f_NodeBase
-
-: ME_413DDAF9954F
- CONST UID '413DDAF9954F'
- CONST Name 'f_Mask'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Mask' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_46839CF3010E // TqaAttrInfo
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- CONST extprop:clearViaProperty 'Mask'
-
-ref; // ME_413DDAF9954F f_Mask
-
-: ME_9A5A9EB9BD91
- CONST UID '9A5A9EB9BD91'
- CONST Name 'f_Oper'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Oper' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_46839CF3010E // TqaAttrInfo
- ;
- : Target WL 'ME_49006BB201CB' '4990510C0026.pas.ms.script' // TLogicOperation
- ;
- CONST extprop:clearViaProperty 'Oper'
-
-ref; // ME_9A5A9EB9BD91 f_Oper
-
 FORWARD ME_54EC8AD90376
 
 : ME_54EC8AF3001D
@@ -2795,12 +2700,6 @@ ref; // ME_54EC8AD90376 Create
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_46839CF3010E Cleanup
 
-: ME_5000565C019C_ME_46839CF3010E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_46839CF3010E ClearFields
-
 : ME_46839CF3010E
  CONST UID '46839CF3010E'
  CONST Name 'TqaAttrInfo'
@@ -2820,9 +2719,6 @@ ref; // ME_5000565C019C_ME_46839CF3010E ClearFields
    Seq: ( ME_46839E12008F // NodeBase
  ME_46839D0B0113 // Mask
  ME_54EC8AA800EB // Oper
- ME_16E30E58EF83 // f_NodeBase
- ME_413DDAF9954F // f_Mask
- ME_9A5A9EB9BD91 // f_Oper
  )
  ; // Attributes
  : Operations
@@ -2831,7 +2727,6 @@ ref; // ME_5000565C019C_ME_46839CF3010E ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_46839CF3010E // Cleanup
- ME_5000565C019C_ME_46839CF3010E // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -3743,21 +3638,6 @@ ref; // ME_54F42EAE0179 DoIt
 
 ref; // ME_54F42EA70211 Root
 
-FORWARD ME_54F42EBA00FC
-
-: ME_CBCD1728B920
- CONST UID 'CBCD1728B920'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetAttributesToView' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F42EBA00FC // SetAttributesToView
- ;
-
-ref; // ME_CBCD1728B920 DoIt
-
 : ME_54F42EBA00FC
  CONST UID '54F42EBA00FC'
  CONST Name 'SetAttributesToView'
@@ -3768,10 +3648,6 @@ ref; // ME_CBCD1728B920 DoIt
  CONST Abstraction at_final
  : Parent ME_4683A3310076 // TqaReqAttribute
  ;
- : Operations
-   Seq: ( ME_CBCD1728B920 // DoIt
- )
- ; // Operations
 
 ref; // ME_54F42EBA00FC SetAttributesToView
 
@@ -4483,73 +4359,6 @@ ref; // ME_54F4613D02D5 EndDate
 
 ref; // ME_54F461690297 IsOk
 
-: ME_6FA4AB3323DA
- CONST UID '6FA4AB3323DA'
- CONST Name 'f_ReqCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReqCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A3F40329 // TqaDateReqDataHolder
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_6FA4AB3323DA f_ReqCaption
-
-: ME_AF9692B61150
- CONST UID 'AF9692B61150'
- CONST Name 'f_StartDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StartDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A3F40329 // TqaDateReqDataHolder
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST extprop:clearViaProperty 'StartDate'
-
-ref; // ME_AF9692B61150 f_StartDate
-
-: ME_7541025CC7DC
- CONST UID '7541025CC7DC'
- CONST Name 'f_EndDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EndDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A3F40329 // TqaDateReqDataHolder
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST extprop:clearViaProperty 'EndDate'
-
-ref; // ME_7541025CC7DC f_EndDate
-
-: ME_C588C46C9D17
- CONST UID 'C588C46C9D17'
- CONST Name 'f_IsOk'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsOk' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A3F40329 // TqaDateReqDataHolder
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsOk'
-
-ref; // ME_C588C46C9D17 f_IsOk
-
 FORWARD ME_54F4619A00B4
 
 : ME_54F461A401A4
@@ -4685,12 +4494,6 @@ ref; // ME_5232FEC70307_ME_4683A3F40329 IsEndDateEmpty
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4683A3F40329 Cleanup
 
-: ME_5000565C019C_ME_4683A3F40329
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4683A3F40329 ClearFields
-
 : ME_4683A3F40329
  CONST UID '4683A3F40329'
  CONST Name 'TqaDateReqDataHolder'
@@ -4714,10 +4517,6 @@ ref; // ME_5000565C019C_ME_4683A3F40329 ClearFields
  ME_54F46119002E // StartDate
  ME_54F4613D02D5 // EndDate
  ME_54F461690297 // IsOk
- ME_6FA4AB3323DA // f_ReqCaption
- ME_AF9692B61150 // f_StartDate
- ME_7541025CC7DC // f_EndDate
- ME_C588C46C9D17 // f_IsOk
  )
  ; // Attributes
  : Operations
@@ -4736,7 +4535,6 @@ ref; // ME_5000565C019C_ME_4683A3F40329 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4683A3F40329 // Cleanup
- ME_5000565C019C_ME_4683A3F40329 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -5025,89 +4823,6 @@ ref; // ME_54F59B0D00F1 f_ContextHistory
 
 ref; // ME_54F59B3B008E f_FirstErrorContextReq
 
-: ME_AC758238D542
- CONST UID 'AC758238D542'
- CONST Name 'f_IsQueryNew'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsQueryNew' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A4A90094 // TqaMgrSearch
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_AC758238D542 f_IsQueryNew
-
-: ME_05451AEB9DE7
- CONST UID '05451AEB9DE7'
- CONST Name 'f_QueryType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства QueryType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A4A90094 // TqaMgrSearch
- ;
- : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
- ;
-
-ref; // ME_05451AEB9DE7 f_QueryType
-
-: ME_0950D20D5FBD
- CONST UID '0950D20D5FBD'
- CONST Name 'f_QueryCard'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства QueryCard' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A4A90094 // TqaMgrSearch
- ;
- : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
- ;
- CONST extprop:clearViaProperty 'QueryCard'
-
-ref; // ME_0950D20D5FBD f_QueryCard
-
-: ME_8FE1C3A24FAD
- CONST UID '8FE1C3A24FAD'
- CONST Name 'f_FromHistory'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FromHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A4A90094 // TqaMgrSearch
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FromHistory'
-
-ref; // ME_8FE1C3A24FAD f_FromHistory
-
-: ME_82108FA53A2B
- CONST UID '82108FA53A2B'
- CONST Name 'f_Query'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Query' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4683A4A90094 // TqaMgrSearch
- ;
- : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
- ;
- CONST extprop:clearViaProperty 'Query'
-
-ref; // ME_82108FA53A2B f_Query
-
 FORWARD ME_54F590B7028F
 
 : ME_F05F9E1AEE8B
@@ -5244,103 +4959,6 @@ ref; // ME_54F594DE0143 DoIt
 
 ref; // ME_54F594D4005F Create
 
-FORWARD ME_54F5956A012B
-
-: ME_D680087798C6
- CONST Name 'aQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
- ;
-
-ref; // ME_D680087798C6 aQuery
-
-: ME_46345AD15D16
- CONST Name 'aQueryType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
- ;
-
-ref; // ME_46345AD15D16 aQueryType
-
-: ME_4A9F2A1E4EF8
- CONST Name 'aFormName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_4A9F2A1E4EF8 aFormName
-
-: ME_AAD5F3A793E9
- CONST Name 'OnDateQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5232FF630166' '46837A08002C.pas.ms.script' // TOnDateQuery
- ;
-
-ref; // ME_AAD5F3A793E9 OnDateQuery
-
-: ME_8EC9DF3D3ADF
- CONST Name 'OnNeedExecQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
-
-ref; // ME_8EC9DF3D3ADF OnNeedExecQuery
-
-: ME_83F3657347ED
- CONST Name 'OnModifiedChanged'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
-
-ref; // ME_83F3657347ED OnModifiedChanged
-
-: ME_F1E4D0BDBF64
- CONST Name 'aContextHistory'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496B53D10104' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistory
- ;
-
-ref; // ME_F1E4D0BDBF64 aContextHistory
-
-: ME_DF61D4F67490
- CONST UID 'DF61D4F67490'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TqaMgrSearch.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5956A012B // Make
- ;
- : Target WL 'ME_468395810205' '46837A08002C.pas.ms.script' // IqaMgrSearch
- ;
- : Parameters
-   Seq: ( ME_D680087798C6 // aQuery
- ME_46345AD15D16 // aQueryType
- ME_4A9F2A1E4EF8 // aFormName
- ME_AAD5F3A793E9 // OnDateQuery
- ME_8EC9DF3D3ADF // OnNeedExecQuery
- ME_83F3657347ED // OnModifiedChanged
- ME_F1E4D0BDBF64 // aContextHistory
- )
- ; // Parameters
-
-ref; // ME_DF61D4F67490 DoIt
-
 : ME_54F5956A012B
  CONST UID '54F5956A012B'
  CONST Name 'Make'
@@ -5359,10 +4977,6 @@ ref; // ME_DF61D4F67490 DoIt
    Seq: ( WL 'ME_468395810205' '46837A08002C.pas.ms.script' // IqaMgrSearch
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DF61D4F67490 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "ifndef" 'Monitorings'
  CONST "need AfterCreate" 'undefined'
@@ -5465,92 +5079,6 @@ ref; // ME_54F59920020F DoIt
 
 ref; // ME_54F5990601E6 Create$1
 
-FORWARD ME_54F5992B011A
-
-: ME_58E44522E492
- CONST Name 'aQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
- ;
-
-ref; // ME_58E44522E492 aQuery
-
-: ME_41EA2203E4CD
- CONST Name 'aQueryType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
- ;
-
-ref; // ME_41EA2203E4CD aQueryType
-
-: ME_54B0FDA3A418
- CONST Name 'aFormName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_54B0FDA3A418 aFormName
-
-: ME_D5E1A75F8FE6
- CONST Name 'OnDateQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5232FF630166' '46837A08002C.pas.ms.script' // TOnDateQuery
- ;
-
-ref; // ME_D5E1A75F8FE6 OnDateQuery
-
-: ME_E3D8CFEE0F48
- CONST Name 'OnNeedExecQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
-
-ref; // ME_E3D8CFEE0F48 OnNeedExecQuery
-
-: ME_B068788D5078
- CONST Name 'OnModifiedChanged'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
-
-ref; // ME_B068788D5078 OnModifiedChanged
-
-: ME_6FFE7809194E
- CONST UID '6FFE7809194E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TqaMgrSearch.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5992B011A // Make$1
- ;
- : Target WL 'ME_468395810205' '46837A08002C.pas.ms.script' // IqaMgrSearch
- ;
- : Parameters
-   Seq: ( ME_58E44522E492 // aQuery
- ME_41EA2203E4CD // aQueryType
- ME_54B0FDA3A418 // aFormName
- ME_D5E1A75F8FE6 // OnDateQuery
- ME_E3D8CFEE0F48 // OnNeedExecQuery
- ME_B068788D5078 // OnModifiedChanged
- )
- ; // Parameters
-
-ref; // ME_6FFE7809194E DoIt
-
 : ME_54F5992B011A
  CONST UID '54F5992B011A'
  CONST Name 'Make'
@@ -5569,10 +5097,6 @@ ref; // ME_6FFE7809194E DoIt
    Seq: ( WL 'ME_468395810205' '46837A08002C.pas.ms.script' // IqaMgrSearch
  )
  ; // Implements
- : Operations
-   Seq: ( ME_6FFE7809194E // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "ifdef" 'Monitorings'
  CONST "need AfterCreate" 'undefined'
@@ -5613,21 +5137,6 @@ ref; // ME_54F59B59029C DoIt
 
 ref; // ME_54F59B5200CD NeedSettings
 
-FORWARD ME_54F59B6502ED
-
-: ME_395E0E4CED66
- CONST UID '395E0E4CED66'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FinishEntering' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F59B6502ED // FinishEntering
- ;
-
-ref; // ME_395E0E4CED66 DoIt
-
 : ME_54F59B6502ED
  CONST UID '54F59B6502ED'
  CONST Name 'FinishEntering'
@@ -5638,10 +5147,6 @@ ref; // ME_395E0E4CED66 DoIt
  CONST Abstraction at_final
  : Parent ME_4683A4A90094 // TqaMgrSearch
  ;
- : Operations
-   Seq: ( ME_395E0E4CED66 // DoIt
- )
- ; // Operations
 
 ref; // ME_54F59B6502ED FinishEntering
 
@@ -5784,21 +5289,6 @@ ref; // ME_54F59BC400B2 DoIt
 
 ref; // ME_54F59BBE0039 IterateAttrsF
 
-FORWARD ME_54F59BCF01B2
-
-: ME_63CEC4AA2AD2
- CONST UID '63CEC4AA2AD2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CallModifiedChanged' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F59BCF01B2 // CallModifiedChanged
- ;
-
-ref; // ME_63CEC4AA2AD2 DoIt
-
 : ME_54F59BCF01B2
  CONST UID '54F59BCF01B2'
  CONST Name 'CallModifiedChanged'
@@ -5809,27 +5299,8 @@ ref; // ME_63CEC4AA2AD2 DoIt
  CONST Abstraction at_final
  : Parent ME_4683A4A90094 // TqaMgrSearch
  ;
- : Operations
-   Seq: ( ME_63CEC4AA2AD2 // DoIt
- )
- ; // Operations
 
 ref; // ME_54F59BCF01B2 CallModifiedChanged
-
-FORWARD ME_54F59BDA034F
-
-: ME_2788D34A7A18
- CONST UID '2788D34A7A18'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ClearAttrs' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F59BDA034F // ClearAttrs
- ;
-
-ref; // ME_2788D34A7A18 DoIt
 
 : ME_54F59BDA034F
  CONST UID '54F59BDA034F'
@@ -5841,27 +5312,8 @@ ref; // ME_2788D34A7A18 DoIt
  CONST Abstraction at_final
  : Parent ME_4683A4A90094 // TqaMgrSearch
  ;
- : Operations
-   Seq: ( ME_2788D34A7A18 // DoIt
- )
- ; // Operations
 
 ref; // ME_54F59BDA034F ClearAttrs
-
-FORWARD ME_54F59BF002AF
-
-: ME_3C92AA9D716E
- CONST UID '3C92AA9D716E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckAttrs' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F59BF002AF // CheckAttrs
- ;
-
-ref; // ME_3C92AA9D716E DoIt
 
 : ME_54F59BF002AF
  CONST UID '54F59BF002AF'
@@ -5873,27 +5325,8 @@ ref; // ME_3C92AA9D716E DoIt
  CONST Abstraction at_final
  : Parent ME_4683A4A90094 // TqaMgrSearch
  ;
- : Operations
-   Seq: ( ME_3C92AA9D716E // DoIt
- )
- ; // Operations
 
 ref; // ME_54F59BF002AF CheckAttrs
-
-FORWARD ME_54F59BFB00BD
-
-: ME_43D7C9AF7C12
- CONST UID '43D7C9AF7C12'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckMorpho' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F59BFB00BD // CheckMorpho
- ;
-
-ref; // ME_43D7C9AF7C12 DoIt
 
 : ME_54F59BFB00BD
  CONST UID '54F59BFB00BD'
@@ -5905,28 +5338,9 @@ ref; // ME_43D7C9AF7C12 DoIt
  CONST Abstraction at_final
  : Parent ME_4683A4A90094 // TqaMgrSearch
  ;
- : Operations
-   Seq: ( ME_43D7C9AF7C12 // DoIt
- )
- ; // Operations
  CONST "ifndef" 'Monitorings'
 
 ref; // ME_54F59BFB00BD CheckMorpho
-
-FORWARD ME_54F59C0E0149
-
-: ME_D6E5601FAF95
- CONST UID 'D6E5601FAF95'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InitFocus' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F59C0E0149 // InitFocus
- ;
-
-ref; // ME_D6E5601FAF95 DoIt
 
 : ME_54F59C0E0149
  CONST UID '54F59C0E0149'
@@ -5938,10 +5352,6 @@ ref; // ME_D6E5601FAF95 DoIt
  CONST Abstraction at_final
  : Parent ME_4683A4A90094 // TqaMgrSearch
  ;
- : Operations
-   Seq: ( ME_D6E5601FAF95 // DoIt
- )
- ; // Operations
 
 ref; // ME_54F59C0E0149 InitFocus
 
@@ -6221,12 +5631,6 @@ ref; // ME_5233087C020F_ME_4683A4A90094 FinishGettingFromView
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4683A4A90094 Cleanup
 
-: ME_5000565C019C_ME_4683A4A90094
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4683A4A90094 ClearFields
-
 : ME_4683A4A90094
  CONST UID '4683A4A90094'
  CONST Name 'TqaMgrSearch'
@@ -6264,11 +5668,6 @@ ref; // ME_5000565C019C_ME_4683A4A90094 ClearFields
  ME_54F59AD000E4 // f_GettingAttributesFromView
  ME_54F59B0D00F1 // f_ContextHistory
  ME_54F59B3B008E // f_FirstErrorContextReq
- ME_AC758238D542 // f_IsQueryNew
- ME_05451AEB9DE7 // f_QueryType
- ME_0950D20D5FBD // f_QueryCard
- ME_8FE1C3A24FAD // f_FromHistory
- ME_82108FA53A2B // f_Query
  )
  ; // Attributes
  : Operations
@@ -6338,7 +5737,6 @@ ref; // ME_5000565C019C_ME_4683A4A90094 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4683A4A90094 // Cleanup
- ME_5000565C019C_ME_4683A4A90094 // ClearFields
  )
  ; // Overridden
  : Children

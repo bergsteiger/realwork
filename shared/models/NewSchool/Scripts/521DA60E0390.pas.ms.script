@@ -1756,23 +1756,6 @@ FORWARD ME_9F77928A4477
 
 ref; // ME_E8666180421B Make
 
-: ME_34129C7CB22F
- CONST UID '34129C7CB22F'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_9F77928A4477 // TPrintAndExportFontSizeValuesMapImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_34129C7CB22F Exists
-
 : ME_9F77928A4477
  CONST UID '9F77928A4477'
  CONST Name 'TPrintAndExportFontSizeValuesMapImpl'
@@ -1791,7 +1774,6 @@ ref; // ME_34129C7CB22F Exists
  ; // Inherits
  : Operations
    Seq: ( ME_E8666180421B // Make
- ME_34129C7CB22F // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

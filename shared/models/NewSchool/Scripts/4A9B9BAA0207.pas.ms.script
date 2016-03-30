@@ -136,32 +136,6 @@ FORWARD ME_50253C0401F1
 
 ref; // ME_4F292A6A030D _UnknownIsComponent
 
-: ME_D3B9F500AA98
- CONST UID 'D3B9F500AA98'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomLabelPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50253C0401F1 // TvtCustomLabelPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D3B9F500AA98 Ini_Reg_Class
-
-: ME_5E155D84397E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50253C0401F1 // TvtCustomLabelPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5E155D84397E 
-
 : ME_50253C0401F1
  CONST UID '50253C0401F1'
  CONST Name 'TvtCustomLabelPrim'
@@ -177,18 +151,10 @@ ref; // ME_5E155D84397E
  WL 'ME_4F29268F035C' '4799D29F033F.pas.ms.script' // TCustomLabel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D3B9F500AA98 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4F292A6A030D // _UnknownIsComponent
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_5E155D84397E // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -349,91 +315,6 @@ ref; // ME_4F29387A0298 DrawDirection
 
 ref; // ME_4F2A554F01F4 Caption
 
-: ME_23EF391DD6EB
- CONST UID '23EF391DD6EB'
- CONST Name 'f_EndEllipsis'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EndEllipsis' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'EndEllipsis'
-
-ref; // ME_23EF391DD6EB f_EndEllipsis
-
-: ME_F256A9B5CC45
- CONST UID 'F256A9B5CC45'
- CONST Name 'f_CCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- CONST extprop:clearViaProperty 'CCaption'
-
-ref; // ME_F256A9B5CC45 f_CCaption
-
-: ME_3F6E3825F544
- CONST UID '3F6E3825F544'
- CONST Name 'f_VerticalAligment'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства VerticalAligment' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- : Target WL 'ME_467BC89800B9' '469D0AC7005E.pas.ms.script' // VerticalAligment
- ;
- CONST extprop:clearViaProperty 'VerticalAligment'
-
-ref; // ME_3F6E3825F544 f_VerticalAligment
-
-: ME_FCE3934C4691
- CONST UID 'FCE3934C4691'
- CONST Name 'f_DrawDirection'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DrawDirection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- : Target ME_4F2923CF0065 // TvtDrawDirection
- ;
- CONST extprop:clearViaProperty 'DrawDirection'
-
-ref; // ME_FCE3934C4691 f_DrawDirection
-
-: ME_FC9E36998CD8
- CONST UID 'FC9E36998CD8'
- CONST Name 'f_Caption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Caption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- : Target WL 'ME_46A616080197' '4677FBA70343.pas.ms.script' // Tl3DString
- ;
- CONST extprop:clearViaProperty 'Caption'
-
-ref; // ME_FC9E36998CD8 f_Caption
-
 : ME_4F29330D01C2
  CONST Name 'Msg'
  CONST Class class_Parameter
@@ -554,21 +435,6 @@ ref; // ME_4F293EBE00D9 CheckStamp
 
 ref; // ME_6B1BE297C357 CaptionStored
 
-: ME_BE61D0DC1925
- CONST UID 'BE61D0DC1925'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BE61D0DC1925 Ini_Reg_Class
-
 : ME_4F2FF7FC03C8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -619,17 +485,6 @@ ref; // ME_4F300CB30148
 
 ref; // ME_4F30F698003A 
 
-: ME_8FDA461E7121
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F29240F0204 // TvtCustomLabel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8FDA461E7121 
-
 : ME_473DAC05025F_ME_4F29240F0204
  : Original WL 'ME_473DAC05025F' '467823B7002C.pas.ms.script' // CCaption
  ;
@@ -674,12 +529,6 @@ ref; // ME_4F2A461702D8_ME_4F29240F0204 DoDrawText
  CONST OpKind opkind_Overridden
 ref; // ME_4F2A599E0283_ME_4F29240F0204 SetBounds
 
-: ME_5000565C019C_ME_4F29240F0204
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
-
 : ME_4F29240F0204
  CONST UID '4F29240F0204'
  CONST Name 'TvtCustomLabel'
@@ -706,11 +555,6 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  ME_4F2938060364 // f_InAdjustBounds
  ME_4F29387A0298 // DrawDirection
  ME_4F2A554F01F4 // Caption
- ME_23EF391DD6EB // f_EndEllipsis
- ME_F256A9B5CC45 // f_CCaption
- ME_3F6E3825F544 // f_VerticalAligment
- ME_FCE3934C4691 // f_DrawDirection
- ME_FC9E36998CD8 // f_Caption
  )
  ; // Attributes
  : Operations
@@ -719,7 +563,6 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  ME_4F293E2A012A // WMSetText
  ME_4F293EBE00D9 // CheckStamp
  ME_6B1BE297C357 // CaptionStored
- ME_BE61D0DC1925 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -733,7 +576,6 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  ME_4F2A45C40091_ME_4F29240F0204 // GetLabelText
  ME_4F2A461702D8_ME_4F29240F0204 // DoDrawText
  ME_4F2A599E0283_ME_4F29240F0204 // SetBounds
- ME_5000565C019C_ME_4F29240F0204 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -742,7 +584,6 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  ME_4F300C5600DA // 
  ME_4F300CB30148 // 
  ME_4F30F698003A // 
- ME_8FDA461E7121 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -756,32 +597,6 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F29240F0204 TvtCustomLabel
-
-: ME_375650FBCA42
- CONST UID '375650FBCA42'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AE8541A01AE // TvtLabel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_375650FBCA42 Ini_Reg_Class
-
-: ME_D0ECDAD99280
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AE8541A01AE // TvtLabel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D0ECDAD99280 
 
 : ME_4AE8541A01AE
  CONST UID '4AE8541A01AE'
@@ -797,10 +612,6 @@ ref; // ME_D0ECDAD99280
    Seq: ( ME_4F29240F0204 // TvtCustomLabel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_375650FBCA42 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4F2923CF0065 // TvtDrawDirection
  ME_50253C0401F1 // TvtCustomLabelPrim
@@ -808,10 +619,6 @@ ref; // ME_D0ECDAD99280
  ME_4F29240F0204 // TvtCustomLabel
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_D0ECDAD99280 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -855,7 +662,6 @@ ref; // ME_4AE8541A01AE TvtLabel
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

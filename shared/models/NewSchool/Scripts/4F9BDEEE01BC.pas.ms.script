@@ -569,23 +569,6 @@ ref; // ME_26AFA90E5B84 Il3StringIDExHelper
 
 ref; // ME_05B3D469C519 Alien
 
-: ME_460532C55BB1
- CONST UID '460532C55BB1'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B98D6C201AD // Tl3StringIDExHelper
- ;
- : Target ME_26AFA90E5B84 // Il3StringIDExHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_460532C55BB1 f_Alien
-
 : ME_4B98D79E0230
  CONST Name 'aStr'
  CONST Class class_Parameter
@@ -665,23 +648,6 @@ ref; // ME_4B98D7CB0329 theStr
 
 ref; // ME_4B98D7BA00C6 Init
 
-: ME_EC9235189D85
- CONST UID 'EC9235189D85'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B98D6C201AD // Tl3StringIDExHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_EC9235189D85 Exists
-
 : ME_4B3B51E700BF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -722,12 +688,6 @@ ref; // ME_201B50E5979A_ME_4B98D6C201AD AsCStr
  CONST OpKind opkind_Implemented
 ref; // ME_74E80608E1B4_ME_4B98D6C201AD AsStr
 
-: ME_5000565C019C_ME_4B98D6C201AD
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4B98D6C201AD ClearFields
-
 : ME_4B98D6C201AD
  CONST UID '4B98D6C201AD'
  CONST Name 'Tl3StringIDExHelper'
@@ -748,14 +708,12 @@ ref; // ME_5000565C019C_ME_4B98D6C201AD ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_05B3D469C519 // Alien
- ME_460532C55BB1 // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4B98D78501E1 // AsCStr
  ME_4B98D7A50160 // AsStr
  ME_4B98D7BA00C6 // Init
- ME_EC9235189D85 // Exists
  )
  ; // Operations
  : Implemented
@@ -764,10 +722,6 @@ ref; // ME_5000565C019C_ME_4B98D6C201AD ClearFields
  ME_74E80608E1B4_ME_4B98D6C201AD // AsStr
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4B98D6C201AD // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_38979385DFF9 // Ml3StringIDExHelper
  ME_26AFA90E5B84 // Il3StringIDExHelper

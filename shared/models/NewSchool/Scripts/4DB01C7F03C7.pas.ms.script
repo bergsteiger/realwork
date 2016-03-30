@@ -6,17 +6,6 @@ FORWARD ME_4DB01C7F03C7
 
 FORWARD ME_4DB03B1B0055
 
-: ME_8BA4CDAD9EDB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DB03B1B0055 // InsiderOwnScripter
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_8BA4CDAD9EDB 
-
 : ME_4DC3D2E00153_ME_4DB03B1B0055
  : Original WL 'ME_4DC3D2E00153' '4DC3D21E006E.pas.ms.script' // Run
  ;
@@ -28,18 +17,6 @@ ref; // ME_4DC3D2E00153_ME_4DB03B1B0055 Run
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DC3DE630030_ME_4DB03B1B0055 Prepare
-
-: ME_4C937013031D_ME_4DB03B1B0055
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4DB03B1B0055 GetFolder
-
-: ME_4DAED6F60146_ME_4DB03B1B0055
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4DB03B1B0055 GetModelElementGUID
 
 : ME_4DB03B1B0055
  CONST UID '4DB03B1B0055'
@@ -64,15 +41,6 @@ ref; // ME_4DAED6F60146_ME_4DB03B1B0055 GetModelElementGUID
  ME_4DC3DE630030_ME_4DB03B1B0055 // Prepare
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4C937013031D_ME_4DB03B1B0055 // GetFolder
- ME_4DAED6F60146_ME_4DB03B1B0055 // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8BA4CDAD9EDB // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -115,17 +83,6 @@ ref; // ME_4DDA4D160197
  ;
 
 ref; // ME_52FCA98F01BC 
-
-: ME_84FCB114492C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DC3F6DD00F1 // TF1AutoScripter
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_84FCB114492C 
 
 : ME_4C937013031D_ME_4DC3F6DD00F1
  : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
@@ -177,7 +134,6 @@ ref; // ME_4DC395670274_ME_4DC3F6DD00F1 IsScript
    Seq: ( ME_4DC40364034B // 
  ME_4DDA4D160197 // 
  ME_52FCA98F01BC // 
- ME_84FCB114492C // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -210,7 +166,6 @@ ref; // ME_4DC3F6DD00F1 TF1AutoScripter
  WL 'ME_47F086170200' '47F086170200.pas.ms.script' // DocumentContainers
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
  WL 'ME_4DA318AB0254' '4DA318AB0254.pas.ms.script' // TestsTuning
  WL 'ME_4DC3D21E006E' '4DC3D21E006E.pas.ms.script' // ScriptTestUnit

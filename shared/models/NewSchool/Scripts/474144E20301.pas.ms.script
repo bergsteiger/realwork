@@ -168,52 +168,6 @@ ref; // ME_4CC69ED00037 Create
 
 ref; // ME_4CC69EC600C3 Create
 
-FORWARD ME_4CC69EB001E3
-
-: ME_C4557B7F3DB2
- CONST Name 'aPrinter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47750D8F0051' '467823B7002C.pas.ms.script' // IafwPrinter
- ;
-
-ref; // ME_C4557B7F3DB2 aPrinter
-
-: ME_322423B2026B
- CONST Name 'aPagesArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_473C571F02A2' '473C569D0287.pas.ms.script' // TafwPrintPagesArray
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_473C571F02A2' '473C569D0287.pas.ms.script' // TafwPrintPagesArray
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_322423B2026B aPagesArray
-
-: ME_98431D421706
- CONST UID '98431D421706'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwCanvasEx.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CC69EB001E3 // Make
- ;
- : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
- ;
- : Parameters
-   Seq: ( ME_C4557B7F3DB2 // aPrinter
- ME_322423B2026B // aPagesArray
- )
- ; // Parameters
-
-ref; // ME_98431D421706 Create
-
 : ME_4CC69EB001E3
  CONST UID '4CC69EB001E3'
  CONST Name 'Make'
@@ -232,10 +186,6 @@ ref; // ME_98431D421706 Create
    Seq: ( WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
  )
  ; // Implements
- : Operations
-   Seq: ( ME_98431D421706 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -406,48 +356,6 @@ ref; // ME_4CC69ADE038A Create
 
 ref; // ME_4CC69AD60087 Create
 
-FORWARD ME_4CC69AC100E1
-
-: ME_CB9E96E3F96A
- CONST Name 'anExtent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_473D8F4C03CD' '467823B7002C.pas.ms.script' // TafwPoint
- ;
-
-ref; // ME_CB9E96E3F96A anExtent
-
-: ME_6B2C797AF8AB
- CONST Name 'aCaret'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_478E4BF6002B' '467823B7002C.pas.ms.script' // IafwCaret
- ;
-
-ref; // ME_6B2C797AF8AB aCaret
-
-: ME_C2D4EFC6B4FE
- CONST UID 'C2D4EFC6B4FE'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwMeasureCanvas.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CC69AC100E1 // Make
- ;
- : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
- ;
- : Parameters
-   Seq: ( ME_CB9E96E3F96A // anExtent
- ME_6B2C797AF8AB // aCaret
- )
- ; // Parameters
-
-ref; // ME_C2D4EFC6B4FE Create
-
 : ME_4CC69AC100E1
  CONST UID '4CC69AC100E1'
  CONST Name 'Make'
@@ -466,10 +374,6 @@ ref; // ME_C2D4EFC6B4FE Create
    Seq: ( WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C2D4EFC6B4FE // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -618,37 +522,6 @@ ref; // ME_4CC69A9203D0 Create
 
 ref; // ME_4CC69A8B0337 Create
 
-FORWARD ME_4CC69A7801C6
-
-: ME_FA12B3E2D950
- CONST Name 'anExtent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_478E59910054' '467823B7002C.pas.ms.script' // TafwSPoint
- ;
-
-ref; // ME_FA12B3E2D950 anExtent
-
-: ME_004FCDE681C0
- CONST UID '004FCDE681C0'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwVirtualCaret.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CC69A7801C6 // Make
- ;
- : Target WL 'ME_478E4C070069' '467823B7002C.pas.ms.script' // IafwScrollCaret
- ;
- : Parameters
-   Seq: ( ME_FA12B3E2D950 // anExtent
- )
- ; // Parameters
-
-ref; // ME_004FCDE681C0 Create
-
 : ME_4CC69A7801C6
  CONST UID '4CC69A7801C6'
  CONST Name 'Make'
@@ -667,10 +540,6 @@ ref; // ME_004FCDE681C0 Create
    Seq: ( WL 'ME_478E4C070069' '467823B7002C.pas.ms.script' // IafwScrollCaret
  )
  ; // Implements
- : Operations
-   Seq: ( ME_004FCDE681C0 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1143,37 +1012,6 @@ ref; // ME_4CB6E48C0213 Create
 
 ref; // ME_4CB6E48501B8 Create
 
-FORWARD ME_4CB6E4940086
-
-: ME_27DC468579EA
- CONST Name 'aCanvas'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_478E3C97021E' '473C3BEE0334.pas.ms.script' // Tl3Canvas
- ;
-
-ref; // ME_27DC468579EA aCanvas
-
-: ME_D19796A12C2B
- CONST UID 'D19796A12C2B'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TafwPreviewPage.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB6E4940086 // Make
- ;
- : Target WL 'ME_473C60E70003' '467823B7002C.pas.ms.script' // IafwPreviewPage
- ;
- : Parameters
-   Seq: ( ME_27DC468579EA // aCanvas
- )
- ; // Parameters
-
-ref; // ME_D19796A12C2B Create
-
 : ME_4CB6E4940086
  CONST UID '4CB6E4940086'
  CONST Name 'Make'
@@ -1192,10 +1030,6 @@ ref; // ME_D19796A12C2B Create
    Seq: ( WL 'ME_473C60E70003' '467823B7002C.pas.ms.script' // IafwPreviewPage
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D19796A12C2B // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

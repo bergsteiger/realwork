@@ -6,21 +6,6 @@ FORWARD ME_4912E16B01B4
 
 FORWARD ME_4912E178000B
 
-FORWARD ME_4AF819AB01B0
-
-: ME_43323AC24E3E
- CONST UID '43323AC24E3E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода eeL2NA' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AF819AB01B0 // eeL2NA
- ;
-
-ref; // ME_43323AC24E3E DoIt
-
 : ME_4AF819AB01B0
  CONST UID '4AF819AB01B0'
  CONST Name 'eeL2NA'
@@ -31,10 +16,6 @@ ref; // ME_43323AC24E3E DoIt
  CONST Abstraction at_final
  : Parent ME_4912E178000B // eeTreeMisc
  ;
- : Operations
-   Seq: ( ME_43323AC24E3E // DoIt
- )
- ; // Operations
 
 ref; // ME_4AF819AB01B0 eeL2NA
 
@@ -72,21 +53,6 @@ ref; // ME_4912E178000B eeTreeMisc
 
 FORWARD ME_49523C160394
 
-FORWARD ME_4AEEFE46025F
-
-: ME_897F747ABD52
- CONST UID '897F747ABD52'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода eeFindNumberedPara' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AEEFE46025F // eeFindNumberedPara
- ;
-
-ref; // ME_897F747ABD52 DoIt
-
 : ME_4AEEFE46025F
  CONST UID '4AEEFE46025F'
  CONST Name 'eeFindNumberedPara'
@@ -97,10 +63,6 @@ ref; // ME_897F747ABD52 DoIt
  CONST Abstraction at_final
  : Parent ME_49523C160394 // eeParaTools
  ;
- : Operations
-   Seq: ( ME_897F747ABD52 // DoIt
- )
- ; // Operations
 
 ref; // ME_4AEEFE46025F eeFindNumberedPara
 
@@ -521,83 +483,6 @@ ref; // ME_54872F1803C7 DoIt
 
 ref; // ME_54872F04032C Create
 
-FORWARD ME_54872F23003E
-
-: ME_8D10BBE56D3A
- CONST Name 'aTagWrap'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_8D10BBE56D3A aTagWrap
-
-: ME_2A077090A7D7
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
- ;
-
-ref; // ME_2A077090A7D7 aDocument
-
-: ME_0452D2F3433D
- CONST Name 'aHyperlink'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ;
-
-ref; // ME_0452D2F3433D aHyperlink
-
-: ME_1E7C284B5364
- CONST Name 'aInSelection'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_1E7C284B5364 aInSelection
-
-: ME_FEE17BAF1070
- CONST Name 'aSub'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AE9DFBF0327' '4912DD020283.pas.ms.script' // IeeSub
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_4AE9DFBF0327' '4912DD020283.pas.ms.script' // IeeSub
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_FEE17BAF1070 aSub
-
-: ME_CC84DF110534
- CONST UID 'CC84DF110534'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TeeHotSpot.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54872F23003E // Make
- ;
- : Parameters
-   Seq: ( ME_8D10BBE56D3A // aTagWrap
- ME_2A077090A7D7 // aDocument
- ME_0452D2F3433D // aHyperlink
- ME_1E7C284B5364 // aInSelection
- ME_FEE17BAF1070 // aSub
- )
- ; // Parameters
-
-ref; // ME_CC84DF110534 DoIt
-
 : ME_54872F23003E
  CONST UID '54872F23003E'
  CONST Name 'Make'
@@ -612,10 +497,6 @@ ref; // ME_CC84DF110534 DoIt
    Seq: ( ME_54872F04032C // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CC84DF110534 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -870,68 +751,6 @@ ref; // ME_5487199F01E3 DoIt
 
 ref; // ME_5487199800AD Create
 
-FORWARD ME_548719A80358
-
-: ME_B39EC5C007DD
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
- ;
-
-ref; // ME_B39EC5C007DD aDocument
-
-: ME_C5287585EB71
- CONST Name 'anID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C5287585EB71 anID
-
-: ME_9CDD04E88903
- CONST Name 'aLayerID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_9CDD04E88903 aLayerID
-
-: ME_AA6AE0DEF1A8
- CONST Name 'aFlag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_AA6AE0DEF1A8 aFlag
-
-: ME_687F2D9A1E62
- CONST UID '687F2D9A1E62'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TeeSub.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_548719A80358 // Make
- ;
- : Parameters
-   Seq: ( ME_B39EC5C007DD // aDocument
- ME_C5287585EB71 // anID
- ME_9CDD04E88903 // aLayerID
- ME_AA6AE0DEF1A8 // aFlag
- )
- ; // Parameters
-
-ref; // ME_687F2D9A1E62 DoIt
-
 : ME_548719A80358
  CONST UID '548719A80358'
  CONST Name 'Make'
@@ -946,10 +765,6 @@ ref; // ME_687F2D9A1E62 DoIt
    Seq: ( ME_5487199800AD // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_687F2D9A1E62 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

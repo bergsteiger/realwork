@@ -361,59 +361,6 @@ ref; // ME_4CDD3E38004C DoIt
 
 ref; // ME_4CDD3E250364 Create
 
-FORWARD ME_4CDD3E5C0052
-
-: ME_44BB4E541156
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_44BB4E541156 aText
-
-: ME_891980B716CD
- CONST Name 'anAddress'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48F4941A0249' '48F4E61C0060.pas.ms.script' // Address
- ;
-
-ref; // ME_891980B716CD anAddress
-
-: ME_3CEBEC183E0B
- CONST Name 'anAppInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_3CEBEC183E0B anAppInfo
-
-: ME_575781FBB26C
- CONST UID '575781FBB26C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevdHyperlinkInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CDD3E5C0052 // Make
- ;
- : Target WL 'ME_4CDD38560217' '48F4E61C0060.pas.ms.script' // HyperlinkInfo
- ;
- : Parameters
-   Seq: ( ME_44BB4E541156 // aText
- ME_891980B716CD // anAddress
- ME_3CEBEC183E0B // anAppInfo
- )
- ; // Parameters
-
-ref; // ME_575781FBB26C DoIt
-
 : ME_4CDD3E5C0052
  CONST UID '4CDD3E5C0052'
  CONST Name 'Make'
@@ -432,10 +379,6 @@ ref; // ME_575781FBB26C DoIt
    Seq: ( WL 'ME_4CDD38560217' '48F4E61C0060.pas.ms.script' // HyperlinkInfo
  )
  ; // Implements
- : Operations
-   Seq: ( ME_575781FBB26C // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

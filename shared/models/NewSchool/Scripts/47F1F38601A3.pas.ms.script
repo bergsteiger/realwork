@@ -2684,21 +2684,6 @@ ref; // ME_47F1F3BC0330 evParaTools
 
 FORWARD ME_47F2499F0049
 
-FORWARD ME_55CB15DB03A7
-
-: ME_29BD6688F4E6
- CONST UID '29BD6688F4E6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода evSegments_GetSegmentOnPos' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55CB15DB03A7 // evSegments_GetSegmentOnPos
- ;
-
-ref; // ME_29BD6688F4E6 DoIt
-
 : ME_55CB15DB03A7
  CONST UID '55CB15DB03A7'
  CONST Name 'evSegments_GetSegmentOnPos'
@@ -2709,10 +2694,6 @@ ref; // ME_29BD6688F4E6 DoIt
  CONST Abstraction at_final
  : Parent ME_47F2499F0049 // evSegLst
  ;
- : Operations
-   Seq: ( ME_29BD6688F4E6 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'Segments_GetSegmentOnPos'
 
 ref; // ME_55CB15DB03A7 evSegments_GetSegmentOnPos
@@ -6208,22 +6189,6 @@ ref; // ME_4F6C2E5E033F f_Location
 
 ref; // ME_4F6C2E8C0049 View
 
-: ME_24359707896D
- CONST UID '24359707896D'
- CONST Name 'f_View'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства View' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6C2DB4038D // TevLocationProcessorTagTool
- ;
- : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ;
-
-ref; // ME_24359707896D f_View
-
 FORWARD ME_4F6C2EBF02EA
 
 : ME_5342B66A0150
@@ -6307,12 +6272,6 @@ ref; // ME_4F6C2EBF02EA Create
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F6C2DB4038D Cleanup
 
-: ME_5000565C019C_ME_4F6C2DB4038D
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4F6C2DB4038D ClearFields
-
 : ME_4F6C2DB4038D
  CONST UID '4F6C2DB4038D'
  CONST Name 'TevLocationProcessorTagTool'
@@ -6331,7 +6290,6 @@ ref; // ME_5000565C019C_ME_4F6C2DB4038D ClearFields
  : Attributes
    Seq: ( ME_4F6C2E5E033F // f_Location
  ME_4F6C2E8C0049 // View
- ME_24359707896D // f_View
  )
  ; // Attributes
  : Operations
@@ -6340,7 +6298,6 @@ ref; // ME_5000565C019C_ME_4F6C2DB4038D ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4F6C2DB4038D // Cleanup
- ME_5000565C019C_ME_4F6C2DB4038D // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'

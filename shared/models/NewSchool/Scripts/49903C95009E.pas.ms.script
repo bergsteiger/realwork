@@ -24,21 +24,14 @@ FORWARD ME_491D982203CD
 
 ref; // ME_491D98470107 MaxLength
 
-: ME_7AC108DB4043
- CONST UID '7AC108DB4043'
- CONST Name 'f_MaxLength'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MaxLength' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_491D982203CD // EdsMaxLengthExceed
- ;
+: ME_491D988200C1
+ CONST Name 'aMaxLength'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
-ref; // ME_7AC108DB4043 f_MaxLength
+ref; // ME_491D988200C1 aMaxLength
 
 : ME_491D987C0028
  CONST UID '491D987C0028'
@@ -49,6 +42,10 @@ ref; // ME_7AC108DB4043 f_MaxLength
  CONST Abstraction at_final
  : Parent ME_491D982203CD // EdsMaxLengthExceed
  ;
+ : Parameters
+   Seq: ( ME_491D988200C1 // aMaxLength
+ )
+ ; // Parameters
 
 ref; // ME_491D987C0028 Create
 
@@ -69,7 +66,6 @@ ref; // ME_491D987C0028 Create
  ; // Inherits
  : Attributes
    Seq: ( ME_491D98470107 // MaxLength
- ME_7AC108DB4043 // f_MaxLength
  )
  ; // Attributes
  : Operations

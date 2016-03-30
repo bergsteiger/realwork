@@ -1695,37 +1695,6 @@ ref; // ME_56443EA102F1 DoIt
 
 ref; // ME_56443E9B03A4 Create$1
 
-FORWARD ME_56443EB00018
-
-: ME_7B360A19CDDF
- CONST Name 'aFilters'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB14402F9' '45EEA48F011F.pas.ms.script' // FiltersFromQuery
- ;
-
-ref; // ME_7B360A19CDDF aFilters
-
-: ME_6B7D7C978727
- CONST UID '6B7D7C978727'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersEnumerator.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56443EB00018 // Make$1
- ;
- : Target WL 'ME_56443DCF0299' '4CAC58E50231.pas.ms.script' // InsFiltersEnumerator
- ;
- : Parameters
-   Seq: ( ME_7B360A19CDDF // aFilters
- )
- ; // Parameters
-
-ref; // ME_6B7D7C978727 DoIt
-
 : ME_56443EB00018
  CONST UID '56443EB00018'
  CONST Name 'Make'
@@ -1744,10 +1713,6 @@ ref; // ME_6B7D7C978727 DoIt
    Seq: ( WL 'ME_56443DCF0299' '4CAC58E50231.pas.ms.script' // InsFiltersEnumerator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_6B7D7C978727 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1808,48 +1773,6 @@ ref; // ME_56444042025D DoIt
 
 ref; // ME_56444038035E Create$2
 
-FORWARD ME_5644405D0287
-
-: ME_BBBB84721FD5
- CONST Name 'aFirstFilters'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB14402F9' '45EEA48F011F.pas.ms.script' // FiltersFromQuery
- ;
-
-ref; // ME_BBBB84721FD5 aFirstFilters
-
-: ME_666A4BA59989
- CONST Name 'aSecondFilters'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB14402F9' '45EEA48F011F.pas.ms.script' // FiltersFromQuery
- ;
-
-ref; // ME_666A4BA59989 aSecondFilters
-
-: ME_E85FCAD448FE
- CONST UID 'E85FCAD448FE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersEnumerator.Make$2' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5644405D0287 // Make$2
- ;
- : Target WL 'ME_56443DCF0299' '4CAC58E50231.pas.ms.script' // InsFiltersEnumerator
- ;
- : Parameters
-   Seq: ( ME_BBBB84721FD5 // aFirstFilters
- ME_666A4BA59989 // aSecondFilters
- )
- ; // Parameters
-
-ref; // ME_E85FCAD448FE DoIt
-
 : ME_5644405D0287
  CONST UID '5644405D0287'
  CONST Name 'Make'
@@ -1868,10 +1791,6 @@ ref; // ME_E85FCAD448FE DoIt
    Seq: ( WL 'ME_56443DCF0299' '4CAC58E50231.pas.ms.script' // InsFiltersEnumerator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E85FCAD448FE // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

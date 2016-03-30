@@ -111,23 +111,6 @@ ref; // ME_BDE9EFF83116 Il3VersionInfoService
 
 ref; // ME_213C1435C00A Alien
 
-: ME_ECBEA8EA6F74
- CONST UID 'ECBEA8EA6F74'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
- ;
- : Target ME_BDE9EFF83116 // Il3VersionInfoService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_ECBEA8EA6F74 f_Alien
-
 : ME_55DDCFBE0096
  CONST UID '55DDCFBE0096'
  CONST Name 'VersionInfo'
@@ -141,23 +124,6 @@ ref; // ME_ECBEA8EA6F74 f_Alien
  ;
 
 ref; // ME_55DDCFBE0096 VersionInfo
-
-: ME_65F1D4822964
- CONST UID '65F1D4822964'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_65F1D4822964 Exists
 
 : ME_55DDCFB403BB
  CONST Class class_Dependency
@@ -185,12 +151,6 @@ ref; // ME_55DDD84A00AB
  CONST OpKind opkind_Implemented
 ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
 
-: ME_5000565C019C_ME_55DDCF7C004A
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55DDCF7C004A ClearFields
-
 : ME_55DDCF7C004A
  CONST UID '55DDCF7C004A'
  CONST Name 'Tl3VersionInfoService'
@@ -211,22 +171,16 @@ ref; // ME_5000565C019C_ME_55DDCF7C004A ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_213C1435C00A // Alien
- ME_ECBEA8EA6F74 // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_55DDCFBE0096 // VersionInfo
- ME_65F1D4822964 // Exists
  )
  ; // Operations
  : Implemented
    Seq: ( ME_30F5EA5AF6DF_ME_55DDCF7C004A // VersionInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_55DDCF7C004A // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_9F707534EAE2 // Ml3VersionInfoService
  ME_BDE9EFF83116 // Il3VersionInfoService
@@ -250,37 +204,6 @@ ref; // ME_5000565C019C_ME_55DDCF7C004A ClearFields
 ref; // ME_55DDCF7C004A Tl3VersionInfoService
 
 FORWARD ME_55DDD0110086
-
-: ME_DB74325CC883
- CONST UID 'DB74325CC883'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tf1VersionInfoService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55DDD0110086 // Tf1VersionInfoService
- ;
-
-ref; // ME_DB74325CC883 bind
-
-: ME_082545F9DBB0
- CONST UID '082545F9DBB0'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55DDD0110086 // Tf1VersionInfoService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_082545F9DBB0 Exists
 
 : ME_55DDD05B0205
  CONST Class class_Dependency
@@ -316,11 +239,6 @@ ref; // ME_30F5EA5AF6DF_ME_55DDD0110086 VersionInfo
    Seq: ( ME_BDE9EFF83116 // Il3VersionInfoService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DB74325CC883 // bind
- ME_082545F9DBB0 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_30F5EA5AF6DF_ME_55DDD0110086 // VersionInfo
  )

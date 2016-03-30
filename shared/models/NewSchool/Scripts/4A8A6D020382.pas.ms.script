@@ -6,21 +6,6 @@ FORWARD ME_4A8A6D020382
 
 FORWARD ME_4A8A6DD700CC
 
-: ME_EF5D8E935964
- CONST UID 'EF5D8E935964'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomChatMemo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8A6DD700CC // TevCustomChatMemo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EF5D8E935964 Ini_Reg_Class
-
 : ME_4A8A84C2001E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -40,17 +25,6 @@ ref; // ME_4A8A84C2001E
  ;
 
 ref; // ME_4B3096BD01AE 
-
-: ME_33AE9F91DE84
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8A6DD700CC // TevCustomChatMemo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_33AE9F91DE84 
 
 : ME_47A042E100E2_ME_4A8A6DD700CC
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
@@ -91,10 +65,6 @@ ref; // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
    Seq: ( WL 'ME_4829D81D02E5' '4829D7D50156.pas.ms.script' // TevCustomMemo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EF5D8E935964 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47A042E100E2_ME_4A8A6DD700CC // InitFields
  ME_4A8A6D4701CC_ME_4A8A6DD700CC // KeepParaFormattingTag
@@ -105,7 +75,6 @@ ref; // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
  : Dependencies
    Seq: ( ME_4A8A84C2001E // 
  ME_4B3096BD01AE // 
- ME_33AE9F91DE84 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -140,7 +109,6 @@ ref; // ME_4A8A6DD700CC TevCustomChatMemo
    Seq: ( WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
  WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

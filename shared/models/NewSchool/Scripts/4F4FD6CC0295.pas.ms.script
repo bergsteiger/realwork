@@ -108,37 +108,6 @@ ref; // ME_4F4FD8800331 DoIt
 
 ref; // ME_4F4FD85F033A CreateWrite
 
-FORWARD ME_4F4FD88C01B2
-
-: ME_96C6C5C2D2C0
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_96C6C5C2D2C0 aFileName
-
-: ME_5924CD0048E0
- CONST UID '5924CD0048E0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwFile.MakeRead' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD88C01B2 // MakeRead
- ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
- : Parameters
-   Seq: ( ME_96C6C5C2D2C0 // aFileName
- )
- ; // Parameters
-
-ref; // ME_5924CD0048E0 DoIt
-
 : ME_4F4FD88C01B2
  CONST UID '4F4FD88C01B2'
  CONST Name 'MakeRead'
@@ -157,47 +126,12 @@ ref; // ME_5924CD0048E0 DoIt
    Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5924CD0048E0 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_4F4FD88C01B2 MakeRead
-
-FORWARD ME_4F4FD89C00DB
-
-: ME_82AF9852D2D9
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_82AF9852D2D9 aFileName
-
-: ME_A7F24F8402CD
- CONST UID 'A7F24F8402CD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwFile.MakeWrite' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD89C00DB // MakeWrite
- ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
- : Parameters
-   Seq: ( ME_82AF9852D2D9 // aFileName
- )
- ; // Parameters
-
-ref; // ME_A7F24F8402CD DoIt
 
 : ME_4F4FD89C00DB
  CONST UID '4F4FD89C00DB'
@@ -217,10 +151,6 @@ ref; // ME_A7F24F8402CD DoIt
    Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A7F24F8402CD // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

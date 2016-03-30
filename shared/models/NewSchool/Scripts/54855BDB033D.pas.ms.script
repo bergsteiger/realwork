@@ -164,19 +164,6 @@ FORWARD ME_54855CA501E1
 
 FORWARD ME_54855CCF019F
 
-: ME_35FF3B2330E2
- CONST UID '35FF3B2330E2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ncsServerRegister' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54855CCF019F // ncsServerRegister
- ;
-
-ref; // ME_35FF3B2330E2 DoIt
-
 : ME_54855D0301EA
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -247,10 +234,6 @@ ref; // ME_54BF90D4008D
  CONST Abstraction at_final
  : Parent ME_54855CA501E1 // ncsTaskSendReg
  ;
- : Operations
-   Seq: ( ME_35FF3B2330E2 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_54855D0301EA // 
  ME_54855D090203 // 
@@ -264,19 +247,6 @@ ref; // ME_54BF90D4008D
 ref; // ME_54855CCF019F ncsServerRegister
 
 FORWARD ME_54855CE1027C
-
-: ME_1646D5A2E7BF
- CONST UID '1646D5A2E7BF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ncsClientRegister' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54855CE1027C // ncsClientRegister
- ;
-
-ref; // ME_1646D5A2E7BF DoIt
 
 : ME_54855D0D0113
  CONST Class class_Dependency
@@ -340,10 +310,6 @@ ref; // ME_54BF8C4A03BA
  CONST Abstraction at_final
  : Parent ME_54855CA501E1 // ncsTaskSendReg
  ;
- : Operations
-   Seq: ( ME_1646D5A2E7BF // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_54855D0D0113 // 
  ME_54855D110273 // 

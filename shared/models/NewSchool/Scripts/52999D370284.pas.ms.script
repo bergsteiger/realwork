@@ -239,91 +239,6 @@ ref; // ME_5299A66600BD f_IsStartResize
 
 ref; // ME_5299A6A9020D f_Width
 
-: ME_3686FFFF44C7
- CONST UID '3686FFFF44C7'
- CONST Name 'f_OnEndResize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnEndResize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnEndResize'
-
-ref; // ME_3686FFFF44C7 f_OnEndResize
-
-: ME_D054335DC787
- CONST UID 'D054335DC787'
- CONST Name 'f_OnNeedCloseTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnNeedCloseTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnNeedCloseTree'
-
-ref; // ME_D054335DC787 f_OnNeedCloseTree
-
-: ME_608AC50A6C0B
- CONST UID '608AC50A6C0B'
- CONST Name 'f_OnStartResize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnStartResize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnStartResize'
-
-ref; // ME_608AC50A6C0B f_OnStartResize
-
-: ME_5506D27B605D
- CONST UID '5506D27B605D'
- CONST Name 'f_OnOwnerAssigned'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnOwnerAssigned' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- : Target ME_5299A4D80166 // TCheckEvent
- ;
- CONST extprop:clearViaProperty 'OnOwnerAssigned'
-
-ref; // ME_5506D27B605D f_OnOwnerAssigned
-
-: ME_D5F71DFA450F
- CONST UID 'D5F71DFA450F'
- CONST Name 'f_OnChooseItem'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnChooseItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- : Target ME_5299A4A50262 // TChooseItem
- ;
- CONST extprop:clearViaProperty 'OnChooseItem'
-
-ref; // ME_D5F71DFA450F f_OnChooseItem
-
 FORWARD ME_5299A3A90164
 
 : ME_5299A3B90032
@@ -491,21 +406,6 @@ ref; // ME_5299A2BD0082 Msg
 
 ref; // ME_5299A2B600AC WMLButtonDown
 
-: ME_2D2C7C6ED282
- CONST UID '2D2C7C6ED282'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevDropTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2D2C7C6ED282 Ini_Reg_Class
-
 : ME_5299B7F40035
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -525,17 +425,6 @@ ref; // ME_5299B7F40035
  ;
 
 ref; // ME_5299B7FA011D 
-
-: ME_FAE9C17E8C09
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_47D0211D0209 // TevDropTree
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FAE9C17E8C09 
 
 : ME_5298BEBA032D_ME_47D0211D0209
  : Original WL 'ME_5298BEBA032D' '48297E42011A.pas.ms.script' // IsSizeableTree
@@ -609,11 +498,6 @@ ref; // ME_5152C85403DA_ME_47D0211D0209 DoOnSelect
  ME_5299A6590285 // f_IsInvert
  ME_5299A66600BD // f_IsStartResize
  ME_5299A6A9020D // f_Width
- ME_3686FFFF44C7 // f_OnEndResize
- ME_D054335DC787 // f_OnNeedCloseTree
- ME_608AC50A6C0B // f_OnStartResize
- ME_5506D27B605D // f_OnOwnerAssigned
- ME_D5F71DFA450F // f_OnChooseItem
  )
  ; // Attributes
  : Operations
@@ -622,7 +506,6 @@ ref; // ME_5152C85403DA_ME_47D0211D0209 DoOnSelect
  ME_5299A25802A0 // WMEnterSizeMove
  ME_5299A27702BC // WMActivate
  ME_5299A2B600AC // WMLButtonDown
- ME_2D2C7C6ED282 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -647,7 +530,6 @@ ref; // ME_5152C85403DA_ME_47D0211D0209 DoOnSelect
  : Dependencies
    Seq: ( ME_5299B7F40035 // 
  ME_5299B7FA011D // 
- ME_FAE9C17E8C09 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -684,7 +566,6 @@ ref; // ME_47D0211D0209 TevDropTree
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/qf'

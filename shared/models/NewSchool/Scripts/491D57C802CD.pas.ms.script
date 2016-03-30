@@ -360,6 +360,22 @@ ref; // ME_49527E930015 IsShowLiteratureList
 
 ref; // ME_52D7CF420184 ContextMap
 
+: ME_56FB811400FB
+ CONST UID '56FB811400FB'
+ CONST Name 'CurrentLanguage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492552F20152 // IdDiction
+ ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "pm" true
+
+ref; // ME_56FB811400FB CurrentLanguage
+
 FORWARD ME_49527E60023F
 
 : ME_49527E6E039A
@@ -478,6 +494,7 @@ ref; // ME_E1561B99CC62_ME_492552F20152 HasAttributes
  ME_49527E84009B // refTranslationCount
  ME_49527E930015 // IsShowLiteratureList
  ME_52D7CF420184 // ContextMap
+ ME_56FB811400FB // CurrentLanguage
  ME_49527E60023F // refTranslation
  )
  ; // Attributes

@@ -40,32 +40,6 @@ ref; // ME_52A08AFE012F DoIt
 
 ref; // ME_52A08AF5004B HackCheck
 
-: ME_5CF33A8AB61C
- CONST UID '5CF33A8AB61C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevCustomButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52A085CE03AC // TevCustomButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5CF33A8AB61C Ini_Reg_Class
-
-: ME_D47D21CB61E9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52A085CE03AC // TevCustomButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D47D21CB61E9 
-
 : ME_52A085CE03AC
  CONST UID '52A085CE03AC'
  CONST Name 'TevCustomButton'
@@ -82,13 +56,8 @@ ref; // ME_D47D21CB61E9
  ; // Inherits
  : Operations
    Seq: ( ME_52A08AF5004B // HackCheck
- ME_5CF33A8AB61C // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_D47D21CB61E9 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -170,7 +139,6 @@ ref; // ME_52A085A703D4 TevButton
  : Depends
    Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4C43E8750153' '4C43E8750153.pas.ms.script' // Buttons
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

@@ -1305,23 +1305,6 @@ ref; // ME_5422B5BB63D5 Il3ExceptionHandler
 
 ref; // ME_0A2B705603DC Alien
 
-: ME_2240501A74F1
- CONST UID '2240501A74F1'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5589239300B6 // Tl3ExceptionHandler
- ;
- : Target ME_5422B5BB63D5 // Il3ExceptionHandler
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_2240501A74F1 f_Alien
-
 : ME_558923C60279
  CONST Name 'Sender'
  CONST Class class_Parameter
@@ -1347,34 +1330,11 @@ ref; // ME_558923C60279 Sender
 
 ref; // ME_558923B00366 HandleException
 
-: ME_808511BFB931
- CONST UID '808511BFB931'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5589239300B6 // Tl3ExceptionHandler
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_808511BFB931 Exists
-
 : ME_9B9F43B530B0_ME_5589239300B6
  : Original ME_9B9F43B530B0 // HandleException
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_9B9F43B530B0_ME_5589239300B6 HandleException
-
-: ME_5000565C019C_ME_5589239300B6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5589239300B6 ClearFields
 
 : ME_5589239300B6
  CONST UID '5589239300B6'
@@ -1396,22 +1356,16 @@ ref; // ME_5000565C019C_ME_5589239300B6 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_0A2B705603DC // Alien
- ME_2240501A74F1 // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_558923B00366 // HandleException
- ME_808511BFB931 // Exists
  )
  ; // Operations
  : Implemented
    Seq: ( ME_9B9F43B530B0_ME_5589239300B6 // HandleException
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_5589239300B6 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_65F2D0983F0E // Ml3ExceptionHandler
  ME_5422B5BB63D5 // Il3ExceptionHandler
@@ -1519,23 +1473,6 @@ ref; // ME_9FC6401FC34F Il3ProcessingEnabledService
 
 ref; // ME_9744634201B3 Alien
 
-: ME_5644D8D15FFA
- CONST UID '5644D8D15FFA'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_561CEB90011D // Tl3ProcessingEnabledService
- ;
- : Target ME_9FC6401FC34F // Il3ProcessingEnabledService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_5644D8D15FFA f_Alien
-
 : ME_561CEBC40218
  CONST UID '561CEBC40218'
  CONST Name 'Enabled'
@@ -1550,34 +1487,11 @@ ref; // ME_5644D8D15FFA f_Alien
 
 ref; // ME_561CEBC40218 Enabled
 
-: ME_4BC7105A7DE4
- CONST UID '4BC7105A7DE4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_561CEB90011D // Tl3ProcessingEnabledService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_4BC7105A7DE4 Exists
-
 : ME_ECCF31CF8A24_ME_561CEB90011D
  : Original ME_ECCF31CF8A24 // Enabled
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_ECCF31CF8A24_ME_561CEB90011D Enabled
-
-: ME_5000565C019C_ME_561CEB90011D
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_561CEB90011D ClearFields
 
 : ME_561CEB90011D
  CONST UID '561CEB90011D'
@@ -1599,22 +1513,16 @@ ref; // ME_5000565C019C_ME_561CEB90011D ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_9744634201B3 // Alien
- ME_5644D8D15FFA // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_561CEBC40218 // Enabled
- ME_4BC7105A7DE4 // Exists
  )
  ; // Operations
  : Implemented
    Seq: ( ME_ECCF31CF8A24_ME_561CEB90011D // Enabled
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_561CEB90011D // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
  ME_9FC6401FC34F // Il3ProcessingEnabledService

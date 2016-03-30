@@ -198,23 +198,6 @@ ref; // ME_95B86FA902A2 InsBaseSearchService
 
 ref; // ME_C4A0C6DDC674 Alien
 
-: ME_AF43CB1F6C1A
- CONST UID 'AF43CB1F6C1A'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_563875050317 // TnsBaseSearchService
- ;
- : Target ME_95B86FA902A2 // InsBaseSearchService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_AF43CB1F6C1A f_Alien
-
 : ME_5638754F0166
  CONST Name 'aEntityForm'
  CONST Class class_Parameter
@@ -312,23 +295,6 @@ ref; // ME_56387590010E aProvider
 
 ref; // ME_5638758B005B RegisterBaseSearcherProvider
 
-: ME_BE712A0D294B
- CONST UID 'BE712A0D294B'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_563875050317 // TnsBaseSearchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_BE712A0D294B Exists
-
 : ME_563875E103DB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -367,12 +333,6 @@ ref; // ME_B86FD3ED4532_ME_563875050317 RegisterBaseSearcherProvider
  CONST OpKind opkind_Implemented
 ref; // ME_CB784FFDCCE4_ME_563875050317 UnregisterBaseSearcherProvider
 
-: ME_5000565C019C_ME_563875050317
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_563875050317 ClearFields
-
 : ME_563875050317
  CONST UID '563875050317'
  CONST Name 'TnsBaseSearchService'
@@ -393,14 +353,12 @@ ref; // ME_5000565C019C_ME_563875050317 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_C4A0C6DDC674 // Alien
- ME_AF43CB1F6C1A // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_5638753D025D // GetBaseSearcher
  ME_563875610245 // UnregisterBaseSearcherProvider
  ME_5638758B005B // RegisterBaseSearcherProvider
- ME_BE712A0D294B // Exists
  )
  ; // Operations
  : Implemented
@@ -409,10 +367,6 @@ ref; // ME_5000565C019C_ME_563875050317 ClearFields
  ME_CB784FFDCCE4_ME_563875050317 // UnregisterBaseSearcherProvider
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_563875050317 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_A7888A84DDDB // MnsBaseSearchService
  ME_95B86FA902A2 // InsBaseSearchService
@@ -452,7 +406,6 @@ ref; // ME_563875050317 TnsBaseSearchService
    Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
 

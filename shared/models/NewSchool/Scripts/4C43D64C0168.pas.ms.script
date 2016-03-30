@@ -4,34 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4C43D64C0168
 
-FORWARD ME_4C43D65C0204
-
-: ME_5C9AFC39E2BE
- CONST UID '5C9AFC39E2BE'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtSpeedButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C43D65C0204 // TvtSpeedButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5C9AFC39E2BE Ini_Reg_Class
-
-: ME_E68E47251A70
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C43D65C0204 // TvtSpeedButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E68E47251A70 
-
 : ME_4C43D65C0204
  CONST UID '4C43D65C0204'
  CONST Name 'TvtSpeedButton'
@@ -46,14 +18,6 @@ ref; // ME_E68E47251A70
    Seq: ( WL 'ME_4C43E8A60084' '4C43E8750153.pas.ms.script' // TToolbarButton97
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5C9AFC39E2BE // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E68E47251A70 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -264,38 +228,6 @@ FORWARD ME_55250990030E
 
 ref; // ME_552511AE0342 ActivateWindowOnClick
 
-: ME_48B047A3390A
- CONST UID '48B047A3390A'
- CONST Name 'f_ActivateWindowOnClick'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ActivateWindowOnClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55250990030E // TvtSpeedButtonForVGScene
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ActivateWindowOnClick'
-
-ref; // ME_48B047A3390A f_ActivateWindowOnClick
-
-: ME_ADF4F2F4A6DD
- CONST UID 'ADF4F2F4A6DD'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtSpeedButtonForVGScene' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55250990030E // TvtSpeedButtonForVGScene
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_ADF4F2F4A6DD Ini_Reg_Class
-
 : ME_5525119B0196
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -305,17 +237,6 @@ ref; // ME_ADF4F2F4A6DD Ini_Reg_Class
  ;
 
 ref; // ME_5525119B0196 
-
-: ME_9D83E1ECD101
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55250990030E // TvtSpeedButtonForVGScene
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9D83E1ECD101 
 
 : ME_47D1602000C6_ME_55250990030E
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
@@ -345,13 +266,8 @@ ref; // ME_4F88473B03CD_ME_55250990030E MouseDown
  ; // Inherits
  : Attributes
    Seq: ( ME_552511AE0342 // ActivateWindowOnClick
- ME_48B047A3390A // f_ActivateWindowOnClick
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_ADF4F2F4A6DD // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47D1602000C6_ME_55250990030E // Create
  ME_4F88473B03CD_ME_55250990030E // MouseDown
@@ -359,7 +275,6 @@ ref; // ME_4F88473B03CD_ME_55250990030E MouseDown
  ; // Overridden
  : Dependencies
    Seq: ( ME_5525119B0196 // 
- ME_9D83E1ECD101 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -399,7 +314,6 @@ ref; // ME_55250990030E TvtSpeedButtonForVGScene
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4C43E8750153' '4C43E8750153.pas.ms.script' // Buttons
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

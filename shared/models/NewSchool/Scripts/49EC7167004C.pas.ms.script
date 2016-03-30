@@ -184,23 +184,6 @@ ref; // ME_51F8BDBC03C0 f_FPUCtrlWord
 
 ref; // ME_548A9074019B f_RememberedWndHandle
 
-: ME_7B6E0E2F78E6
- CONST UID '7B6E0E2F78E6'
- CONST Name 'f_Scale'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Scale' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49ECB8E002B0 // TnsWebBrowser
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Scale'
-
-ref; // ME_7B6E0E2F78E6 f_Scale
-
 FORWARD ME_49F0457A016C
 
 : ME_49F045A60281
@@ -483,21 +466,6 @@ ref; // ME_4E9579F202C6 aMsg
 
 ref; // ME_4E9574530051 WMSize
 
-: ME_4279859667A7
- CONST UID '4279859667A7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnsWebBrowser' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_49ECB8E002B0 // TnsWebBrowser
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4279859667A7 Ini_Reg_Class
-
 FORWARD ME_4E9574DB0120
 
 : ME_4E95750C01FF
@@ -539,17 +507,6 @@ ref; // ME_501BDE4F003E
  ;
 
 ref; // ME_501BDEBC028B 
-
-: ME_32E1F31CAC31
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49ECB8E002B0 // TnsWebBrowser
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_32E1F31CAC31 
 
 : ME_4A485B710126_ME_49ECB8E002B0
  : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
@@ -619,7 +576,6 @@ ref; // ME_4E955E8F0237_ME_49ECB8E002B0 ForceWMSize
    Seq: ( ME_4BB32FCD0157 // Scale
  ME_51F8BDBC03C0 // f_FPUCtrlWord
  ME_548A9074019B // f_RememberedWndHandle
- ME_7B6E0E2F78E6 // f_Scale
  )
  ; // Attributes
  : Operations
@@ -628,7 +584,6 @@ ref; // ME_4E955E8F0237_ME_49ECB8E002B0 ForceWMSize
  ME_4BB3665300BC // ScaleDisabled
  ME_5175412302EE // DocumentCompleteXE
  ME_4E9574530051 // WMSize
- ME_4279859667A7 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -649,7 +604,6 @@ ref; // ME_4E955E8F0237_ME_49ECB8E002B0 ForceWMSize
  ME_4E95791101FD // 
  ME_501BDE4F003E // 
  ME_501BDEBC028B // 
- ME_32E1F31CAC31 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

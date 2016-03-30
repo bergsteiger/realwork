@@ -599,48 +599,6 @@ ref; // ME_4CE27E8902F1 DoIt
 
 ref; // ME_4CE27E5A011A Create
 
-FORWARD ME_4CE27E4901C4
-
-: ME_AE09DA4464E8
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_48F8C8C201F0 // DataType
- ;
-
-ref; // ME_AE09DA4464E8 aData
-
-: ME_39A791C176A9
- CONST Name 'aFormats'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A449C50391' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormats
- ;
-
-ref; // ME_39A791C176A9 aFormats
-
-: ME_415CA0F75FF6
- CONST UID '415CA0F75FF6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики l3InterfacedDataObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CE27E4901C4 // Make
- ;
- : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
- ;
- : Parameters
-   Seq: ( ME_AE09DA4464E8 // aData
- ME_39A791C176A9 // aFormats
- )
- ; // Parameters
-
-ref; // ME_415CA0F75FF6 DoIt
-
 : ME_4CE27E4901C4
  CONST UID '4CE27E4901C4'
  CONST Name 'Make'
@@ -659,10 +617,6 @@ ref; // ME_415CA0F75FF6 DoIt
    Seq: ( WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
  )
  ; // Implements
- : Operations
-   Seq: ( ME_415CA0F75FF6 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1413,37 +1367,6 @@ ref; // ME_55E5CB1102D4 DoIt
 
 ref; // ME_55E5CB0A0231 Create
 
-FORWARD ME_55E5CB2C01E4
-
-: ME_99E27A2E9AA0
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_99E27A2E9AA0 aString
-
-: ME_709153B31130
- CONST UID '709153B31130'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tl3CStringDataObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55E5CB2C01E4 // Make
- ;
- : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
- ;
- : Parameters
-   Seq: ( ME_99E27A2E9AA0 // aString
- )
- ; // Parameters
-
-ref; // ME_709153B31130 DoIt
-
 : ME_55E5CB2C01E4
  CONST UID '55E5CB2C01E4'
  CONST Name 'Make'
@@ -1462,10 +1385,6 @@ ref; // ME_709153B31130 DoIt
    Seq: ( WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
  )
  ; // Implements
- : Operations
-   Seq: ( ME_709153B31130 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

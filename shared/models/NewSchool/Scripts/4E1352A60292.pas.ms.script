@@ -91,38 +91,6 @@ ref; // ME_5018FA4600BB f_OnBreakingPara
 
 ref; // ME_530B25360303 DisableMouseWheelProcessing
 
-: ME_D804E3C7B610
- CONST UID 'D804E3C7B610'
- CONST Name 'f_DisableMouseWheelProcessing'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DisableMouseWheelProcessing' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'DisableMouseWheelProcessing'
-
-ref; // ME_D804E3C7B610 f_DisableMouseWheelProcessing
-
-: ME_70CF45D7D5FA
- CONST UID '70CF45D7D5FA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscSimpleEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_70CF45D7D5FA Ini_Reg_Class
-
 : ME_50191EF60191
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -162,17 +130,6 @@ ref; // ME_530B21C60022
  ;
 
 ref; // ME_530B250F029A 
-
-: ME_A779FB8E6440
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFF6CF60266 // TnscSimpleEditor
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A779FB8E6440 
 
 : ME_47D1602000C6_ME_4CFF6CF60266
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
@@ -227,13 +184,8 @@ ref; // ME_48E22AD302CE_ME_4CFF6CF60266 SelectWhenUnfocused
  : Attributes
    Seq: ( ME_5018FA4600BB // f_OnBreakingPara
  ME_530B25360303 // DisableMouseWheelProcessing
- ME_D804E3C7B610 // f_DisableMouseWheelProcessing
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_70CF45D7D5FA // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47D1602000C6_ME_4CFF6CF60266 // Create
  ME_47E136A80191_ME_4CFF6CF60266 // WndProc
@@ -252,7 +204,6 @@ ref; // ME_48E22AD302CE_ME_4CFF6CF60266 SelectWhenUnfocused
  ME_530B113D0022 // 
  ME_530B21C60022 // 
  ME_530B250F029A // 
- ME_A779FB8E6440 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -269,21 +220,6 @@ ref; // ME_48E22AD302CE_ME_4CFF6CF60266 SelectWhenUnfocused
 ref; // ME_4CFF6CF60266 TnscSimpleEditor
 
 FORWARD ME_4D6B981E0319
-
-: ME_31EEDFFECF50
- CONST UID '31EEDFFECF50'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscSimpleEditorForDialogs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6B981E0319 // TnscSimpleEditorForDialogs
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_31EEDFFECF50 Ini_Reg_Class
 
 FORWARD ME_4D6BAF110364
 
@@ -316,17 +252,6 @@ ref; // ME_4D6BD00F0286
  ;
 
 ref; // ME_4E1352CE03B1 
-
-: ME_C22A6545335E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6B981E0319 // TnscSimpleEditorForDialogs
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C22A6545335E 
 
 : ME_47D1602000C6_ME_4D6B981E0319
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
@@ -378,10 +303,6 @@ ref; // ME_4E1350DE0094_ME_4D6B981E0319 CanFocus
    Seq: ( ME_4CFF6CF60266 // TnscSimpleEditor
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_31EEDFFECF50 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47D1602000C6_ME_4D6B981E0319 // Create
  ME_482D9D1701E0_ME_4D6B981E0319 // TextSourceClass
@@ -395,7 +316,6 @@ ref; // ME_4E1350DE0094_ME_4D6B981E0319 CanFocus
    Seq: ( ME_4D6BAF21020E // 
  ME_4D6BD00F0286 // 
  ME_4E1352CE03B1 // 
- ME_C22A6545335E // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -535,7 +455,6 @@ ref; // ME_4D6BAF99010E TnscSimpleEditorForDialogsContainer
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

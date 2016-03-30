@@ -227,39 +227,6 @@ ref; // ME_48FD9F220263 CountViewChanged
 
 ref; // ME_48FD9F4002E8 CountView
 
-: ME_121E702B2A38
- CONST UID '121E702B2A38'
- CONST Name 'f_CountViewChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CountViewChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FD8F78038B // nsNodeNotifierBase
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'CountViewChanged'
-
-ref; // ME_121E702B2A38 f_CountViewChanged
-
-: ME_791DDE8B958C
- CONST UID '791DDE8B958C'
- CONST Name 'f_CountView'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CountView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FD8F78038B // nsNodeNotifierBase
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_791DDE8B958C f_CountView
-
 : ME_48FDA0CB01AD
  CONST UID '48FDA0CB01AD'
  CONST Name 'IsInGetByVisibleIndex'
@@ -651,8 +618,6 @@ ref; // ME_48FD97BC0335_ME_48FD8F78038B Cleanup
  : Attributes
    Seq: ( ME_48FD9F220263 // CountViewChanged
  ME_48FD9F4002E8 // CountView
- ME_121E702B2A38 // f_CountViewChanged
- ME_791DDE8B958C // f_CountView
  )
  ; // Attributes
  : Operations
@@ -891,35 +856,12 @@ FORWARD ME_48FDB9BD0325
 
 ref; // ME_48FDB9E80327 RootNode
 
-: ME_8CC31563D67A
- CONST UID '8CC31563D67A'
- CONST Name 'f_RootNode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RootNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FDB9BD0325 // nsRootManagerPrim
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
- CONST extprop:clearViaProperty 'RootNode'
-
-ref; // ME_8CC31563D67A f_RootNode
-
 : ME_48FD97BC0335_ME_48FDB9BD0325
  : Original WL 'ME_48FD97BC0335' '47913B47006E.pas.ms.script' // Cleanup
  ;
  CONST OpKind opkind_Overridden
  CONST "is static" false
 ref; // ME_48FD97BC0335_ME_48FDB9BD0325 Cleanup
-
-: ME_5000565C019C_ME_48FDB9BD0325
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48FDB9BD0325 ClearFields
 
 : ME_500056650395_ME_48FDB9BD0325
  : Original WL 'ME_500056650395' '47913B47006E.pas.ms.script' // BeforeClearFields
@@ -943,12 +885,10 @@ ref; // ME_500056650395_ME_48FDB9BD0325 BeforeClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_48FDB9E80327 // RootNode
- ME_8CC31563D67A // f_RootNode
  )
  ; // Attributes
  : Overridden
    Seq: ( ME_48FD97BC0335_ME_48FDB9BD0325 // Cleanup
- ME_5000565C019C_ME_48FDB9BD0325 // ClearFields
  ME_500056650395_ME_48FDB9BD0325 // BeforeClearFields
  )
  ; // Overridden
@@ -1032,55 +972,6 @@ ref; // ME_48FDC5D302A1 f_GetByVisibleIndexCounter
  CONST "writes field" true
 
 ref; // ME_549D5B64019A OneLevel
-
-: ME_4D2848F34026
- CONST UID '4D2848F34026'
- CONST Name 'f_CurrentNodeIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrentNodeIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FDC52D0006 // nsRootManager
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4D2848F34026 f_CurrentNodeIndex
-
-: ME_00782086631A
- CONST UID '00782086631A'
- CONST Name 'f_CurrentNode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrentNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FDC52D0006 // nsRootManager
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_00782086631A f_CurrentNode
-
-: ME_A2A2232B1EC1
- CONST UID 'A2A2232B1EC1'
- CONST Name 'f_OneLevel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OneLevel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FDC52D0006 // nsRootManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'OneLevel'
-
-ref; // ME_A2A2232B1EC1 f_OneLevel
 
 : ME_48FDC59F013D
  CONST Name 'anIndex'
@@ -1234,12 +1125,6 @@ ref; // ME_48FDA0F500F9_ME_48FDC52D0006 DoChangeChildrenCount
  CONST OpKind opkind_Overridden
 ref; // ME_48FDA1F20208_ME_48FDC52D0006 DropCurrent
 
-: ME_5000565C019C_ME_48FDC52D0006
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48FDC52D0006 ClearFields
-
 : ME_48FDC52D0006
  CONST UID '48FDC52D0006'
  CONST Name 'nsRootManager'
@@ -1259,9 +1144,6 @@ ref; // ME_5000565C019C_ME_48FDC52D0006 ClearFields
  ME_48FDC5BC0004 // CurrentNode
  ME_48FDC5D302A1 // f_GetByVisibleIndexCounter
  ME_549D5B64019A // OneLevel
- ME_4D2848F34026 // f_CurrentNodeIndex
- ME_00782086631A // f_CurrentNode
- ME_A2A2232B1EC1 // f_OneLevel
  )
  ; // Attributes
  : Operations
@@ -1278,7 +1160,6 @@ ref; // ME_5000565C019C_ME_48FDC52D0006 ClearFields
  ME_48FDA0CB01AD_ME_48FDC52D0006 // IsInGetByVisibleIndex
  ME_48FDA0F500F9_ME_48FDC52D0006 // DoChangeChildrenCount
  ME_48FDA1F20208_ME_48FDC52D0006 // DropCurrent
- ME_5000565C019C_ME_48FDC52D0006 // ClearFields
  )
  ; // Overridden
  : Dependencies

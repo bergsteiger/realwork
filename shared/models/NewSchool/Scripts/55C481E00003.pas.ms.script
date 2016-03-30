@@ -93,23 +93,6 @@ ref; // ME_55C4A53202D3 DoIt
 
 ref; // ME_55C4A52C01A0 Create
 
-FORWARD ME_55C4A53D0305
-
-: ME_CDA83D765596
- CONST UID 'CDA83D765596'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwDefaultScriptCaller.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C4A53D0305 // Make
- ;
- : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
- ;
-
-ref; // ME_CDA83D765596 DoIt
-
 : ME_55C4A53D0305
  CONST UID '55C4A53D0305'
  CONST Name 'Make'
@@ -128,10 +111,6 @@ ref; // ME_CDA83D765596 DoIt
    Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
  )
  ; // Implements
- : Operations
-   Seq: ( ME_CDA83D765596 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -824,37 +803,6 @@ ref; // ME_5645712D01A1 DoIt
 
 ref; // ME_5645710E0083 Create
 
-FORWARD ME_5645713B035C
-
-: ME_FEEF855F5E99
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_FEEF855F5E99 aFileName
-
-: ME_8874AB430B25
- CONST UID '8874AB430B25'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TtfwOutToFileScriptCaller.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5645713B035C // Make
- ;
- : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
- ;
- : Parameters
-   Seq: ( ME_FEEF855F5E99 // aFileName
- )
- ; // Parameters
-
-ref; // ME_8874AB430B25 DoIt
-
 : ME_5645713B035C
  CONST UID '5645713B035C'
  CONST Name 'Make'
@@ -873,10 +821,6 @@ ref; // ME_8874AB430B25 DoIt
    Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8874AB430B25 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

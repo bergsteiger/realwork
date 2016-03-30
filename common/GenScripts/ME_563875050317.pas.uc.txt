@@ -2,10 +2,43 @@
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearcher(aEntityForm)
  else
+ begin
+  Result := nil;
   Assert(False);
+ end;
 //#UC END# *4923CA8F0CFB_563875050317_impl*
 //#UC START# *4923CA8F0CFB_563875050317_var*
 //#UC END# *4923CA8F0CFB_563875050317_var*
+//#UC START# *4ABAA1CACFFB_563875050317_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetBaseSearchModel(aContainer)
+ else
+ begin
+  Result := nil;
+  Assert(False);
+ end;
+//#UC END# *4ABAA1CACFFB_563875050317_impl*
+//#UC START# *4ABAA1CACFFB_563875050317_var*
+//#UC END# *4ABAA1CACFFB_563875050317_var*
+//#UC START# *6C7931F4A18B_563875050317_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetBaseSearchController(aContainer)
+ else
+ begin
+  Result := nil;
+  Assert(False);
+ end;
+//#UC END# *6C7931F4A18B_563875050317_impl*
+//#UC START# *6C7931F4A18B_563875050317_var*
+//#UC END# *6C7931F4A18B_563875050317_var*
+//#UC START# *70C5DA8D8F2F_563875050317_impl*
+ if (f_Alien <> nil) then
+  f_Alien.OpenBaseSearch(aContainer, OpenKind)
+ else
+  Assert(False);
+//#UC END# *70C5DA8D8F2F_563875050317_impl*
+//#UC START# *70C5DA8D8F2F_563875050317_var*
+//#UC END# *70C5DA8D8F2F_563875050317_var*
 //#UC START# *B86FD3ED4532_563875050317_impl*
  if (f_Alien <> nil) then
   f_Alien.RegisterBaseSearcherProvider(aContainer, aProvider)
@@ -14,6 +47,17 @@
 //#UC END# *B86FD3ED4532_563875050317_impl*
 //#UC START# *B86FD3ED4532_563875050317_var*
 //#UC END# *B86FD3ED4532_563875050317_var*
+//#UC START# *C7CCEB7A959A_563875050317_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetBaseSearchView(aContainer)
+ else
+ begin
+  Result := nil;
+  Assert(False);
+ end;
+//#UC END# *C7CCEB7A959A_563875050317_impl*
+//#UC START# *C7CCEB7A959A_563875050317_var*
+//#UC END# *C7CCEB7A959A_563875050317_var*
 //#UC START# *CB784FFDCCE4_563875050317_impl*
  if (f_Alien <> nil) then
   f_Alien.UnregisterBaseSearcherProvider(aContainer, aProvider)
@@ -22,3 +66,8 @@
 //#UC END# *CB784FFDCCE4_563875050317_impl*
 //#UC START# *CB784FFDCCE4_563875050317_var*
 //#UC END# *CB784FFDCCE4_563875050317_var*
+//#UC START# *F7C8D765EBD8_563875050317_impl*
+ Assert(False);
+//#UC END# *F7C8D765EBD8_563875050317_impl*
+//#UC START# *F7C8D765EBD8_563875050317_var*
+//#UC END# *F7C8D765EBD8_563875050317_var*

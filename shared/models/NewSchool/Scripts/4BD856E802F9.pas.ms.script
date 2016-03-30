@@ -2447,6 +2447,72 @@ ref; // ME_4F38F72F407C ListAnalizeIDs
 
 ref; // ME_4FFBDE1C011E ListAnalize
 
+FORWARD ME_56FA879A0085
+
+FORWARD ME_849410578A04
+
+: ME_06ECA86450A1
+ CONST UID '06ECA86450A1'
+ CONST Name 'fm_en_MainMenuWithProfNews'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор формы Ten_MainMenuWithProfNews' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_849410578A04 // MainMenuWithProfNewsIDs
+ ;
+ : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST Value '(rFormID : (rName : ''en_MainMenuWithProfNews''; rID : 0); rFactory : nil)'
+ : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''en_MainMenuWithProfNews''; rID : 0); rFactory : nil)'
+
+ref; // ME_06ECA86450A1 fm_en_MainMenuWithProfNews
+
+: ME_849410578A04
+ CONST UID '849410578A04'
+ CONST Name 'MainMenuWithProfNewsIDs'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56FA879A0085 // MainMenuWithProfNews
+ ;
+ : Attributes
+   Seq: ( ME_06ECA86450A1 // fm_en_MainMenuWithProfNews
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_849410578A04 MainMenuWithProfNewsIDs
+
+: ME_56FA879A0085
+ CONST UID '56FA879A0085'
+ CONST GUID '38026B15-FE8E-4BAF-9B6F-1B7174C5523F'
+ CONST Name 'MainMenuWithProfNews'
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BD856E802F9 // FormDefinitions
+ ;
+ : Constants
+   Seq: ( ME_849410578A04 // MainMenuWithProfNewsIDs
+ )
+ ; // Constants
+ CONST extprop:pas:TypeName 'MainMenuWithProfNewsFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56FA879A0085 MainMenuWithProfNews
+
 FORWARD ME_A42C665003F3
 
 : ME_CF755E600715
@@ -4889,6 +4955,72 @@ ref; // ME_4DDFD2EA0116_ME_220FE6F108B4 GetString
 
 ref; // ME_220FE6F108B4 Tkw_Form_ListAnalize_ID
 
+FORWARD ME_FDBA71DDB22A
+
+: ME_96F604F5A2ED
+ CONST UID '96F604F5A2ED'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_MainMenuWithProfNews_ID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_FDBA71DDB22A // Tkw_Form_MainMenuWithProfNews_ID
+ ;
+
+ref; // ME_96F604F5A2ED Ini_Reg
+
+: ME_4DB0614603C8_ME_FDBA71DDB22A
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_FDBA71DDB22A GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_FDBA71DDB22A
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DDFD2EA0116_ME_FDBA71DDB22A GetString
+
+: ME_FDBA71DDB22A
+ CONST UID 'FDBA71DDB22A'
+ CONST Name 'Tkw_Form_MainMenuWithProfNews_ID'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы MainMenuWithProfNews'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::MainMenuWithProfNews TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BD856E802F9 // FormDefinitions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_96F604F5A2ED // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_FDBA71DDB22A // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_FDBA71DDB22A // GetString
+ )
+ ; // Overridden
+ CONST "NameForScript" 'форма::MainMenuWithProfNews'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName '_Form_MainMenuWithProfNews_ID'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor WL 'ME_56FA87D80010' '4958DD470101.pas.ms.script' // MainMenuWithProfNews
+ ;
+
+ref; // ME_FDBA71DDB22A Tkw_Form_MainMenuWithProfNews_ID
+
 : ME_4BD856E802F9
  CONST UID '4BD856E802F9'
  CONST Name 'FormDefinitions'
@@ -4937,6 +5069,7 @@ ref; // ME_220FE6F108B4 Tkw_Form_ListAnalize_ID
  ME_4FFAF05A024E // MedicListSynchroView
  ME_4FFBDD0903A1 // SynchroView
  ME_4FFBDE1C011E // ListAnalize
+ ME_56FA879A0085 // MainMenuWithProfNews
  ME_A42C665003F3 // Tkw_Form_Text_ID
  ME_98FBD18995D6 // Tkw_Form_UnderControl_ID
  ME_34B8571751D0 // Tkw_Form_Folders_ID
@@ -4974,6 +5107,7 @@ ref; // ME_220FE6F108B4 Tkw_Form_ListAnalize_ID
  ME_BCA467367971 // Tkw_Form_MedicListSynchroView_ID
  ME_47F71A21EEDD // Tkw_Form_SynchroView_ID
  ME_220FE6F108B4 // Tkw_Form_ListAnalize_ID
+ ME_FDBA71DDB22A // Tkw_Form_MainMenuWithProfNews_ID
  )
  ; // Children
  : Depends

@@ -1099,37 +1099,6 @@ ref; // ME_4EC3ED8F033C DoIt
 
 ref; // ME_4EC3ED650369 Create$1
 
-FORWARD ME_4EC3EDB403A3
-
-: ME_2B776581E698
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_2B776581E698 aDocument
-
-: ME_18F99F4F7893
- CONST UID '18F99F4F7893'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsEditionsRoot.MakeAsSimpleRoot' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EC3EDB403A3 // MakeAsSimpleRoot
- ;
- : Target WL 'ME_468274930190' '4682595B0268.pas.ms.script' // Il3SimpleRootNode
- ;
- : Parameters
-   Seq: ( ME_2B776581E698 // aDocument
- )
- ; // Parameters
-
-ref; // ME_18F99F4F7893 DoIt
-
 : ME_4EC3EDB403A3
  CONST UID '4EC3EDB403A3'
  CONST Name 'MakeAsSimpleRoot'
@@ -1148,10 +1117,6 @@ ref; // ME_18F99F4F7893 DoIt
    Seq: ( WL 'ME_468274930190' '4682595B0268.pas.ms.script' // Il3SimpleRootNode
  )
  ; // Implements
- : Operations
-   Seq: ( ME_18F99F4F7893 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1223,12 +1188,6 @@ ref; // ME_4A60B23E00C3_ME_492182D60225 COMQueryInterface
  CONST OpKind opkind_Overridden
 ref; // ME_4B1CE7F6012A_ME_492182D60225 ChildNodeClass
 
-: ME_5000565C019C_ME_492182D60225
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_492182D60225 ClearFields
-
 : ME_492182D60225
  CONST UID '492182D60225'
  CONST Name 'TnsEditionsRoot'
@@ -1274,7 +1233,6 @@ ref; // ME_5000565C019C_ME_492182D60225 ClearFields
  ME_47A869D10074_ME_492182D60225 // DoSetAsPCharLen
  ME_4A60B23E00C3_ME_492182D60225 // COMQueryInterface
  ME_4B1CE7F6012A_ME_492182D60225 // ChildNodeClass
- ME_5000565C019C_ME_492182D60225 // ClearFields
  )
  ; // Overridden
  : Children

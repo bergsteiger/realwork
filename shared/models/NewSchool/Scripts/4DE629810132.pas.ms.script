@@ -152,40 +152,6 @@ ref; // ME_5425550E01AA TarSkipDialog
 
 ref; // ME_5425578502BE SkipLockDialog
 
-: ME_6A9F1FE226BE
- CONST UID '6A9F1FE226BE'
- CONST Name 'f_SkipLockDialog'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SkipLockDialog' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5425548D01DD // TarTestConfig
- ;
- : Target ME_5425550E01AA // TarSkipDialog
- ;
- CONST extprop:clearViaProperty 'SkipLockDialog'
-
-ref; // ME_6A9F1FE226BE f_SkipLockDialog
-
-: ME_BA1B136AFC51
- CONST UID 'BA1B136AFC51'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5425548D01DD // TarTestConfig
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_BA1B136AFC51 Exists
-
 : ME_47A042E100E2_ME_5425548D01DD
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
@@ -215,13 +181,8 @@ ref; // ME_5000565C019C_ME_5425548D01DD ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_5425578502BE // SkipLockDialog
- ME_6A9F1FE226BE // f_SkipLockDialog
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_BA1B136AFC51 // Exists
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47A042E100E2_ME_5425548D01DD // InitFields
  ME_5000565C019C_ME_5425548D01DD // ClearFields

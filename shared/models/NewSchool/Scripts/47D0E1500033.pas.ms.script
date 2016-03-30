@@ -323,22 +323,6 @@ ref; // ME_5017EC7103C1 UseCaseControllerType
 
 ref; // ME_5017EC8F02DB UseCaseController
 
-: ME_1F6A636860B0
- CONST UID '1F6A636860B0'
- CONST Name 'f_UseCaseController'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UseCaseController' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5017EAF4027D // vcmFormDataSourcePrimWithFlexUseCaseControllerType
- ;
- : Target ME_5017EC5602B0 // UseCaseControllerType
- ;
-
-ref; // ME_1F6A636860B0 f_UseCaseController
-
 FORWARD ME_55097FF5008E
 
 : ME_1EA050F99E5C
@@ -648,7 +632,6 @@ ref; // ME_479731C50290_ME_5017EAF4027D Cleanup
  ME_5017EC1701B4 // f_DisplayName
  ME_5017EC7103C1 // UseCaseControllerType
  ME_5017EC8F02DB // UseCaseController
- ME_1F6A636860B0 // f_UseCaseController
  )
  ; // Attributes
  : Operations
@@ -828,21 +811,6 @@ ref; // ME_52A1D97A009E TvcmExecuteEvent
 
 ref; // ME_52A82F500189 TvcmLongintList
 
-FORWARD ME_4A8ADF9E0058
-
-: ME_573C139BBBB7
- CONST UID '573C139BBBB7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmFmt' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A8ADF9E0058 // vcmFmt
- ;
-
-ref; // ME_573C139BBBB7 DoIt
-
 : ME_4A8ADF9E0058
  CONST UID '4A8ADF9E0058'
  CONST Name 'vcmFmt'
@@ -853,28 +821,9 @@ ref; // ME_573C139BBBB7 DoIt
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_573C139BBBB7 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'Fmt'
 
 ref; // ME_4A8ADF9E0058 vcmFmt
-
-FORWARD ME_4A93BA1802CE
-
-: ME_A94FA8BD46BF
- CONST UID 'A94FA8BD46BF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A93BA1802CE // vcmParams
- ;
-
-ref; // ME_A94FA8BD46BF DoIt
 
 : ME_4A93BA1802CE
  CONST UID '4A93BA1802CE'
@@ -886,28 +835,9 @@ ref; // ME_A94FA8BD46BF DoIt
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_A94FA8BD46BF // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'Params'
 
 ref; // ME_4A93BA1802CE vcmParams
-
-FORWARD ME_4AA7F1CB012C
-
-: ME_901939218406
- CONST UID '901939218406'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmConstString' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA7F1CB012C // vcmConstString
- ;
-
-ref; // ME_901939218406 DoIt
 
 : ME_4AA7F1CB012C
  CONST UID '4AA7F1CB012C'
@@ -919,28 +849,9 @@ ref; // ME_901939218406 DoIt
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_901939218406 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ConstString'
 
 ref; // ME_4AA7F1CB012C vcmConstString
-
-FORWARD ME_4AA936DC0154
-
-: ME_8D68ACFCC8D1
- CONST UID '8D68ACFCC8D1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmDispatcher' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA936DC0154 // vcmDispatcher
- ;
-
-ref; // ME_8D68ACFCC8D1 DoIt
 
 : ME_4AA936DC0154
  CONST UID '4AA936DC0154'
@@ -952,28 +863,9 @@ ref; // ME_8D68ACFCC8D1 DoIt
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_8D68ACFCC8D1 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'Dispatcher'
 
 ref; // ME_4AA936DC0154 vcmDispatcher
-
-FORWARD ME_4AC0B9CF018A
-
-: ME_AE37E4F48272
- CONST UID 'AE37E4F48272'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmCStr' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AC0B9CF018A // vcmCStr
- ;
-
-ref; // ME_AE37E4F48272 DoIt
 
 : ME_4AC0B9CF018A
  CONST UID '4AC0B9CF018A'
@@ -985,28 +877,11 @@ ref; // ME_AE37E4F48272 DoIt
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_AE37E4F48272 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'CStr'
 
 ref; // ME_4AC0B9CF018A vcmCStr
 
 FORWARD ME_4AD89C420296
-
-: ME_99B4952FAF91
- CONST UID '99B4952FAF91'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmMakeParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AD89C420296 // vcmMakeParams
- ;
-
-ref; // ME_99B4952FAF91 DoIt
 
 FORWARD ME_4AD89C12030A
 
@@ -1030,10 +905,6 @@ ref; // ME_4AD89C5C009D
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_99B4952FAF91 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_4AD89C5C009D // 
  )
@@ -1088,21 +959,6 @@ ref; // ME_4B98E1260192 DoIt
 
 ref; // ME_4B98E11603D6 DoNotCall
 
-FORWARD ME_508FEA3B02B0
-
-: ME_6477C4D6B286
- CONST UID '6477C4D6B286'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmStr' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_508FEA3B02B0 // vcmStr
- ;
-
-ref; // ME_6477C4D6B286 DoIt
-
 : ME_508FEA3B02B0
  CONST UID '508FEA3B02B0'
  CONST Name 'vcmStr'
@@ -1113,10 +969,6 @@ ref; // ME_6477C4D6B286 DoIt
  CONST Abstraction at_final
  : Parent ME_47F25BC801DB // vcmBase
  ;
- : Operations
-   Seq: ( ME_6477C4D6B286 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'Str'
 
 ref; // ME_508FEA3B02B0 vcmStr
@@ -1503,70 +1355,6 @@ ref; // ME_49479AE80237 InitialUseCaseData
  ;
 
 ref; // ME_56011AC9015C f_ForbidRefresh
-
-: ME_A6923B4F6042
- CONST UID 'A6923B4F6042'
- CONST Name 'f_FormSet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FormSet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F37723017A // vcmFormSetDataSource
- ;
- : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
- ;
-
-ref; // ME_A6923B4F6042 f_FormSet
-
-: ME_F5B673E49B0A
- CONST UID 'F5B673E49B0A'
- CONST Name 'f_InInit'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InInit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F37723017A // vcmFormSetDataSource
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_F5B673E49B0A f_InInit
-
-: ME_3202296FE55B
- CONST UID '3202296FE55B'
- CONST Name 'f_SetData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SetData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F37723017A // vcmFormSetDataSource
- ;
- : Target ME_494162F500A4 // SetDataType
- ;
-
-ref; // ME_3202296FE55B f_SetData
-
-: ME_5D93EA25403C
- CONST UID '5D93EA25403C'
- CONST Name 'f_InitialUseCaseData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InitialUseCaseData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F37723017A // vcmFormSetDataSource
- ;
- : Target ME_49479A050026 // InitDataType
- ;
-
-ref; // ME_5D93EA25403C f_InitialUseCaseData
 
 FORWARD ME_53B3BF9C00EF
 
@@ -2050,12 +1838,6 @@ ref; // ME_479731C50290_ME_47F37723017A Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_47F37723017A InitFields
 
-: ME_5000565C019C_ME_47F37723017A
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47F37723017A ClearFields
-
 : ME_47F37723017A
  CONST UID '47F37723017A'
  CONST Name 'vcmFormSetDataSource'
@@ -2084,10 +1866,6 @@ ref; // ME_5000565C019C_ME_47F37723017A ClearFields
  ME_494163340251 // SetData
  ME_49479AE80237 // InitialUseCaseData
  ME_56011AC9015C // f_ForbidRefresh
- ME_A6923B4F6042 // f_FormSet
- ME_F5B673E49B0A // f_InInit
- ME_3202296FE55B // f_SetData
- ME_5D93EA25403C // f_InitialUseCaseData
  )
  ; // Attributes
  : Operations
@@ -2130,7 +1908,6 @@ ref; // ME_5000565C019C_ME_47F37723017A ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_47F37723017A // Cleanup
  ME_47A042E100E2_ME_47F37723017A // InitFields
- ME_5000565C019C_ME_47F37723017A // ClearFields
  )
  ; // Overridden
  : Children
@@ -2281,22 +2058,6 @@ ref; // ME_501802610283 InitDataType
 
 ref; // ME_5018027003D3 PartData
 
-: ME_4F52AC5763B9
- CONST UID '4F52AC5763B9'
- CONST Name 'f_PartData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PartData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_501802270075 // vcmFormDataSourceWithData
- ;
- : Target ME_491B1E8D0051 // InitDataType
- ;
-
-ref; // ME_4F52AC5763B9 f_PartData
-
 : ME_492ACF1E0201
  CONST Name 'aDataSource'
  CONST Class class_Parameter
@@ -2426,7 +2187,6 @@ ref; // ME_47A042E100E2_ME_501802270075 InitFields
  : Attributes
    Seq: ( ME_501802610283 // InitDataType
  ME_5018027003D3 // PartData
- ME_4F52AC5763B9 // f_PartData
  )
  ; // Attributes
  : Operations
@@ -2457,21 +2217,6 @@ ref; // ME_501802270075 vcmFormDataSourceWithData
 
 FORWARD ME_49312C5F0078
 
-FORWARD ME_4B6870EE00C4
-
-: ME_6B7344F3EAB2
- CONST UID '6B7344F3EAB2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmMakeDataRefreshParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B6870EE00C4 // vcmMakeDataRefreshParams
- ;
-
-ref; // ME_6B7344F3EAB2 DoIt
-
 : ME_4B6870EE00C4
  CONST UID '4B6870EE00C4'
  CONST Name 'vcmMakeDataRefreshParams'
@@ -2482,10 +2227,6 @@ ref; // ME_6B7344F3EAB2 DoIt
  CONST Abstraction at_final
  : Parent ME_49312C5F0078 // vcmFormSetRefreshParams
  ;
- : Operations
-   Seq: ( ME_6B7344F3EAB2 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'MakeDataRefreshParams'
 
 ref; // ME_4B6870EE00C4 vcmMakeDataRefreshParams
@@ -3037,21 +2778,6 @@ ref; // ME_499AA4AD0036 TvcmProfiler
 
 FORWARD ME_4AA9377803B5
 
-FORWARD ME_4AA9378C03B4
-
-: ME_2A98F5E9285B
- CONST UID '2A98F5E9285B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmToAggregate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA9378C03B4 // vcmToAggregate
- ;
-
-ref; // ME_2A98F5E9285B DoIt
-
 : ME_4AA9378C03B4
  CONST UID '4AA9378C03B4'
  CONST Name 'vcmToAggregate'
@@ -3062,28 +2788,9 @@ ref; // ME_2A98F5E9285B DoIt
  CONST Abstraction at_final
  : Parent ME_4AA9377803B5 // vcmUtils
  ;
- : Operations
-   Seq: ( ME_2A98F5E9285B // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ToAggregate'
 
 ref; // ME_4AA9378C03B4 vcmToAggregate
-
-FORWARD ME_4C3B044D01EB
-
-: ME_8FB14B0D5020
- CONST UID '8FB14B0D5020'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmSelectDate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4C3B044D01EB // vcmSelectDate
- ;
-
-ref; // ME_8FB14B0D5020 DoIt
 
 : ME_4C3B044D01EB
  CONST UID '4C3B044D01EB'
@@ -3095,28 +2802,9 @@ ref; // ME_8FB14B0D5020 DoIt
  CONST Abstraction at_final
  : Parent ME_4AA9377803B5 // vcmUtils
  ;
- : Operations
-   Seq: ( ME_8FB14B0D5020 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'SelectDate'
 
 ref; // ME_4C3B044D01EB vcmSelectDate
-
-FORWARD ME_5624CA8601DE
-
-: ME_CD493EF21E45
- CONST UID 'CD493EF21E45'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmByteShift' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5624CA8601DE // vcmByteShift
- ;
-
-ref; // ME_CD493EF21E45 DoIt
 
 : ME_5624CA8601DE
  CONST UID '5624CA8601DE'
@@ -3128,10 +2816,6 @@ ref; // ME_CD493EF21E45 DoIt
  CONST Abstraction at_final
  : Parent ME_4AA9377803B5 // vcmUtils
  ;
- : Operations
-   Seq: ( ME_CD493EF21E45 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ByteShift'
 
 ref; // ME_5624CA8601DE vcmByteShift
@@ -3572,35 +3256,6 @@ ref; // ME_4B16B97200FC DoIt
 
 ref; // ME_4B16B95802AF Create
 
-FORWARD ME_4B16B8F80019
-
-: ME_1375C4A60860
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4B220B4D03B4 // IvcmRealData
- ;
-
-ref; // ME_1375C4A60860 aData
-
-: ME_2CF2F7690A67
- CONST UID '2CF2F7690A67'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики vcmData.MakeFrom' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B16B8F80019 // MakeFrom
- ;
- : Parameters
-   Seq: ( ME_1375C4A60860 // aData
- )
- ; // Parameters
-
-ref; // ME_2CF2F7690A67 DoIt
-
 : ME_4B16B8F80019
  CONST UID '4B16B8F80019'
  CONST Name 'MakeFrom'
@@ -3615,10 +3270,6 @@ ref; // ME_2CF2F7690A67 DoIt
    Seq: ( ME_4B16B95802AF // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2CF2F7690A67 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "is static" true
  CONST "need AfterCreate" 'undefined'
@@ -3737,21 +3388,6 @@ ref; // ME_4C8F785C005B MvcmModule
 
 FORWARD ME_4E01F29C0139
 
-FORWARD ME_4E01F2B0003E
-
-: ME_A51872FDBDA3
- CONST UID 'A51872FDBDA3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода vcmSaveIntParam' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E01F2B0003E // vcmSaveIntParam
- ;
-
-ref; // ME_A51872FDBDA3 DoIt
-
 : ME_4E01F2B0003E
  CONST UID '4E01F2B0003E'
  CONST Name 'vcmSaveIntParam'
@@ -3762,10 +3398,6 @@ ref; // ME_A51872FDBDA3 DoIt
  CONST Abstraction at_final
  : Parent ME_4E01F29C0139 // vcmSettings
  ;
- : Operations
-   Seq: ( ME_A51872FDBDA3 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'SaveIntParam'
 
 ref; // ME_4E01F2B0003E vcmSaveIntParam
@@ -5443,37 +5075,6 @@ ref; // ME_5559A3F601FD TvcmFormSetContainerRegistry
 
 FORWARD ME_55714DD30399
 
-: ME_ADDE7EF2F0B0
- CONST UID 'ADDE7EF2F0B0'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmStringIDExHelper' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B98D9FD038B // TvcmStringIDExHelper
- ;
-
-ref; // ME_ADDE7EF2F0B0 bind
-
-: ME_B401F42047CE
- CONST UID 'B401F42047CE'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B98D9FD038B // TvcmStringIDExHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_B401F42047CE Exists
-
 : ME_4B98DA0C0226
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5540,11 +5141,6 @@ ref; // ME_74E80608E1B4_ME_4B98D9FD038B AsStr
    Seq: ( WL 'ME_26AFA90E5B84' '4F9BDEEE01BC.pas.ms.script' // Il3StringIDExHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_ADDE7EF2F0B0 // bind
- ME_B401F42047CE // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_071573E75439_ME_4B98D9FD038B // Init
  ME_201B50E5979A_ME_4B98D9FD038B // AsCStr

@@ -179,32 +179,6 @@ ref; // ME_52A08B3301CE DoIt
 
 ref; // ME_52A08B2C0001 AutoAllUp
 
-: ME_4A89C24FFE9E
- CONST UID '4A89C24FFE9E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TCustomToolbarButton97' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F69EF8C027C // TCustomToolbarButton97
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4A89C24FFE9E Ini_Reg_Class
-
-: ME_F3A56CA02D8A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F69EF8C027C // TCustomToolbarButton97
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F3A56CA02D8A 
-
 : ME_4F69EF8C027C
  CONST UID '4F69EF8C027C'
  CONST Name 'TCustomToolbarButton97'
@@ -225,13 +199,8 @@ ref; // ME_F3A56CA02D8A
  ME_504779E00385 // CalcSize
  ME_50477A430157 // NeedAutoDown
  ME_52A08B2C0001 // AutoAllUp
- ME_4A89C24FFE9E // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_F3A56CA02D8A // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_DAA7456BE524' '54F5915202B8.pas.ms.script' // 
  )
@@ -269,34 +238,6 @@ ref; // ME_4F69EF8C027C TCustomToolbarButton97
 
 ref; // ME_4C43E8A60084 TToolbarButton97
 
-FORWARD ME_503DEAA102E9
-
-: ME_6D44D41D4F3C
- CONST UID '6D44D41D4F3C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TCustomToolbarPanel97' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DEAA102E9 // TCustomToolbarPanel97
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6D44D41D4F3C Ini_Reg_Class
-
-: ME_DF6831FB8E40
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_503DEAA102E9 // TCustomToolbarPanel97
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_DF6831FB8E40 
-
 : ME_503DEAA102E9
  CONST UID '503DEAA102E9'
  CONST Name 'TCustomToolbarPanel97'
@@ -311,14 +252,6 @@ ref; // ME_DF6831FB8E40
    Seq: ( ME_4F69EF8C027C // TCustomToolbarButton97
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6D44D41D4F3C // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_DF6831FB8E40 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -362,32 +295,6 @@ ref; // ME_53CE39DE0073 DoIt
 
 ref; // ME_53CE39CD0045 GetFormToResize
 
-: ME_AA48BBA283B4
- CONST UID 'AA48BBA283B4'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TSizeGripPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5058B6600074 // TSizeGripPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_AA48BBA283B4 Ini_Reg_Class
-
-: ME_199A82DB0AAD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5058B6600074 // TSizeGripPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_199A82DB0AAD 
-
 : ME_5058B6600074
  CONST UID '5058B6600074'
  CONST Name 'TSizeGripPanel'
@@ -404,13 +311,8 @@ ref; // ME_199A82DB0AAD
  ; // Inherits
  : Operations
    Seq: ( ME_53CE39CD0045 // GetFormToResize
- ME_AA48BBA283B4 // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_199A82DB0AAD // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -499,7 +401,6 @@ ref; // ME_4C43E892032F tb97Ctls
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_5028898902A2' '5028898902A2.pas.ms.script' // tb97utils
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

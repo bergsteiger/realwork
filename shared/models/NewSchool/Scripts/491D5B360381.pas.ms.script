@@ -808,6 +808,12 @@ ref; // ME_4A60B23E00C3_ME_4936CB1B0022 COMQueryInterface
  CONST OpKind opkind_Overridden
 ref; // ME_53B3BF9C00EF_ME_4936CB1B0022 DoGetFormSetImageIndex
 
+: ME_55C1DD070354_ME_4936CB1B0022
+ : Original WL 'ME_55C1DD070354' '47D0E1500033.pas.ms.script' // GetDataForClone
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55C1DD070354_ME_4936CB1B0022 GetDataForClone
+
 : ME_4936CB1B0022
  CONST UID '4936CB1B0022'
  CONST Name 'TsdsDiction'
@@ -861,6 +867,7 @@ ref; // ME_53B3BF9C00EF_ME_4936CB1B0022 DoGetFormSetImageIndex
  ME_4936B8C20119_ME_4936CB1B0022 // AfterAssignDocument
  ME_4A60B23E00C3_ME_4936CB1B0022 // COMQueryInterface
  ME_53B3BF9C00EF_ME_4936CB1B0022 // DoGetFormSetImageIndex
+ ME_55C1DD070354_ME_4936CB1B0022 // GetDataForClone
  )
  ; // Overridden
  : Dependencies
@@ -966,6 +973,20 @@ ref; // ME_4B220F0500F9 IvcmRealData
  ;
 
 ref; // ME_52D8CBE70309 f_ContextMap
+
+: ME_56FB8144033F
+ CONST UID '56FB8144033F'
+ CONST Name 'f_CurrentLanguage'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4936CCA700F0 // TdDiction
+ ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+
+ref; // ME_56FB8144033F f_CurrentLanguage
 
 : ME_CC6EE239BD8F
  CONST UID 'CC6EE239BD8F'
@@ -1139,6 +1160,13 @@ ref; // ME_49527E930015_ME_4936CCA700F0 IsShowLiteratureList
  CONST "pm" true
 ref; // ME_52D7CF420184_ME_4936CCA700F0 ContextMap
 
+: ME_56FB811400FB_ME_4936CCA700F0
+ : Original WL 'ME_56FB811400FB' '491D57C802CD.pas.ms.script' // CurrentLanguage
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56FB811400FB_ME_4936CCA700F0 CurrentLanguage
+
 : ME_479731C50290_ME_4936CCA700F0
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1181,6 +1209,7 @@ ref; // ME_4B16B8CF0307_ME_4936CCA700F0 AssignData
  ME_4B1910A401EF // f_Languages
  ME_4B220F0500F9 // IvcmRealData
  ME_52D8CBE70309 // f_ContextMap
+ ME_56FB8144033F // f_CurrentLanguage
  ME_CC6EE239BD8F // f_refTranslationList
  )
  ; // Attributes
@@ -1195,6 +1224,7 @@ ref; // ME_4B16B8CF0307_ME_4936CCA700F0 AssignData
  ME_49527E84009B_ME_4936CCA700F0 // refTranslationCount
  ME_49527E930015_ME_4936CCA700F0 // IsShowLiteratureList
  ME_52D7CF420184_ME_4936CCA700F0 // ContextMap
+ ME_56FB811400FB_ME_4936CCA700F0 // CurrentLanguage
  )
  ; // Implemented
  : Overridden

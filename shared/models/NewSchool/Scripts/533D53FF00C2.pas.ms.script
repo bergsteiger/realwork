@@ -763,71 +763,6 @@ ref; // ME_5424F478017D NCRenderingDisabled
 
 ref; // ME_5424F4F601BD Active
 
-: ME_4762724B58DF
- CONST UID '4762724B58DF'
- CONST Name 'f_GlassFrame'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства GlassFrame' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5339219B0225 // vcmGlassForm
- ;
- : Target ME_533921E6004B // TvcmGlassFrame
- ;
- CONST extprop:clearViaProperty 'GlassFrame'
-
-ref; // ME_4762724B58DF f_GlassFrame
-
-: ME_DC1BE871F9C8
- CONST UID 'DC1BE871F9C8'
- CONST Name 'f_GlassFramePainting'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства GlassFramePainting' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5339219B0225 // vcmGlassForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_DC1BE871F9C8 f_GlassFramePainting
-
-: ME_C1506E18C92A
- CONST UID 'C1506E18C92A'
- CONST Name 'f_NCRenderingDisabled'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NCRenderingDisabled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5339219B0225 // vcmGlassForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_C1506E18C92A f_NCRenderingDisabled
-
-: ME_623175655D16
- CONST UID '623175655D16'
- CONST Name 'f_Active'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Active' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5339219B0225 // vcmGlassForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_623175655D16 f_Active
-
 FORWARD ME_53392725015D
 
 : ME_533927DC0125
@@ -1112,10 +1047,6 @@ ref; // ME_5028E66702B0_ME_5339219B0225 AlignControls
  ME_54211AC901C1 // f_RefreshGlassFrame
  ME_5424F478017D // NCRenderingDisabled
  ME_5424F4F601BD // Active
- ME_4762724B58DF // f_GlassFrame
- ME_DC1BE871F9C8 // f_GlassFramePainting
- ME_C1506E18C92A // f_NCRenderingDisabled
- ME_623175655D16 // f_Active
  )
  ; // Attributes
  : Operations
@@ -1327,22 +1258,6 @@ FORWARD ME_533A9B6A00D9
 
 ref; // ME_54B4B8D50155 Decorator
 
-: ME_908C1462639D
- CONST UID '908C1462639D'
- CONST Name 'f_Decorator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Decorator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
- ;
- : Target WL 'ME_54211E830399' '54211E53007C.pas.ms.script' // TFormFrameDecorator
- ;
-
-ref; // ME_908C1462639D f_Decorator
-
 FORWARD ME_54B4B92D0212
 
 : ME_54B4B93900BB
@@ -1474,21 +1389,6 @@ ref; // ME_54B4B91A035D aMessage
 
 ref; // ME_54B4B8FF023D WMSysCommand
 
-: ME_400FAC7A80C9
- CONST UID '400FAC7A80C9'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmChromeLikeTabbedContainerForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_400FAC7A80C9 Ini_Reg_Class
-
 : ME_533BD1DB0128
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1589,17 +1489,6 @@ ref; // ME_54B4BBC80225
 
 ref; // ME_54B4C062013D 
 
-: ME_EDD5F850D38D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_EDD5F850D38D 
-
 : ME_479731C50290_ME_533A9B6A00D9
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1641,7 +1530,6 @@ ref; // ME_500004A60200_ME_533A9B6A00D9 MakeControls
  ; // Inherits
  : Attributes
    Seq: ( ME_54B4B8D50155 // Decorator
- ME_908C1462639D // f_Decorator
  )
  ; // Attributes
  : Operations
@@ -1649,7 +1537,6 @@ ref; // ME_500004A60200_ME_533A9B6A00D9 MakeControls
  ME_54B4B94903C5 // GetClientControl
  ME_54B4B9E2025C // DoOnNeedRecreateButtons
  ME_54B4B8FF023D // WMSysCommand
- ME_400FAC7A80C9 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1670,7 +1557,6 @@ ref; // ME_500004A60200_ME_533A9B6A00D9 MakeControls
  ME_54B4BBBB012D // 
  ME_54B4BBC80225 // 
  ME_54B4C062013D // 
- ME_EDD5F850D38D // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -3242,38 +3128,6 @@ ref; // ME_550AB8E801B2 WindowStateBeforeMinimizing
 
 ref; // ME_550BD5D70027 f_BackgroundBitmap
 
-: ME_C8E73E2F53CB
- CONST UID 'C8E73E2F53CB'
- CONST Name 'f_ContainerIsClosing'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContainerIsClosing' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_C8E73E2F53CB f_ContainerIsClosing
-
-: ME_7C9E72DA2AF9
- CONST UID '7C9E72DA2AF9'
- CONST Name 'f_WindowStateBeforeMinimizing'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WindowStateBeforeMinimizing' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
- ;
- : Target WL 'ME_476A77110209' '4799D29F033F.pas.ms.script' // TWindowState
- ;
-
-ref; // ME_7C9E72DA2AF9 f_WindowStateBeforeMinimizing
-
 FORWARD ME_550AB82400FD
 
 : ME_550AB85B009A
@@ -3420,21 +3274,6 @@ ref; // ME_550BB59A01AF DoIt
 
 ref; // ME_550BB5850337 MakeWithChild
 
-FORWARD ME_550BBECD016F
-
-: ME_E6AF5C198136
- CONST UID 'E6AF5C198136'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ResetClosing' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BBECD016F // ResetClosing
- ;
-
-ref; // ME_E6AF5C198136 DoIt
-
 : ME_550BBECD016F
  CONST UID '550BBECD016F'
  CONST Name 'ResetClosing'
@@ -3445,10 +3284,6 @@ ref; // ME_E6AF5C198136 DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_E6AF5C198136 // DoIt
- )
- ; // Operations
 
 ref; // ME_550BBECD016F ResetClosing
 
@@ -3499,21 +3334,6 @@ ref; // ME_550BBEEF0151 DoIt
 
 ref; // ME_550BBEE402D5 UpdateMenu
 
-FORWARD ME_550BBF190077
-
-: ME_84263E58C8AE
- CONST UID '84263E58C8AE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода EnableRemindersActivity' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BBF190077 // EnableRemindersActivity
- ;
-
-ref; // ME_84263E58C8AE DoIt
-
 : ME_550BBF190077
  CONST UID '550BBF190077'
  CONST Name 'EnableRemindersActivity'
@@ -3524,27 +3344,8 @@ ref; // ME_84263E58C8AE DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_84263E58C8AE // DoIt
- )
- ; // Operations
 
 ref; // ME_550BBF190077 EnableRemindersActivity
-
-FORWARD ME_550BBF280023
-
-: ME_106AD609E162
- CONST UID '106AD609E162'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DisableRemindersActivity' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BBF280023 // DisableRemindersActivity
- ;
-
-ref; // ME_106AD609E162 DoIt
 
 : ME_550BBF280023
  CONST UID '550BBF280023'
@@ -3556,10 +3357,6 @@ ref; // ME_106AD609E162 DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_106AD609E162 // DoIt
- )
- ; // Operations
 
 ref; // ME_550BBF280023 DisableRemindersActivity
 
@@ -3618,21 +3415,6 @@ ref; // ME_550BBF7E001D DoIt
 
 ref; // ME_550BBF70002F CanBeDocked
 
-FORWARD ME_550BCFD00150
-
-: ME_8EF3B39245B0
- CONST UID '8EF3B39245B0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateContainedFormsActions' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BCFD00150 // UpdateContainedFormsActions
- ;
-
-ref; // ME_8EF3B39245B0 DoIt
-
 : ME_550BCFD00150
  CONST UID '550BCFD00150'
  CONST Name 'UpdateContainedFormsActions'
@@ -3643,10 +3425,6 @@ ref; // ME_8EF3B39245B0 DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_8EF3B39245B0 // DoIt
- )
- ; // Operations
 
 ref; // ME_550BCFD00150 UpdateContainedFormsActions
 
@@ -3693,21 +3471,6 @@ ref; // ME_550BCFE501D4 DoIt
 
 ref; // ME_550BCFDF0357 DisableOthers
 
-FORWARD ME_550BD0050137
-
-: ME_E4F8BE880141
- CONST UID 'E4F8BE880141'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateContainerCaption' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BD0050137 // UpdateContainerCaption
- ;
-
-ref; // ME_E4F8BE880141 DoIt
-
 : ME_550BD0050137
  CONST UID '550BD0050137'
  CONST Name 'UpdateContainerCaption'
@@ -3718,27 +3481,8 @@ ref; // ME_E4F8BE880141 DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_E4F8BE880141 // DoIt
- )
- ; // Operations
 
 ref; // ME_550BD0050137 UpdateContainerCaption
-
-FORWARD ME_550BD0180268
-
-: ME_8CE964514566
- CONST UID '8CE964514566'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetFocusToSelectedForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BD0180268 // SetFocusToSelectedForm
- ;
-
-ref; // ME_8CE964514566 DoIt
 
 : ME_550BD0180268
  CONST UID '550BD0180268'
@@ -3750,27 +3494,8 @@ ref; // ME_8CE964514566 DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_8CE964514566 // DoIt
- )
- ; // Operations
 
 ref; // ME_550BD0180268 SetFocusToSelectedForm
-
-FORWARD ME_550BD03202AF
-
-: ME_99ACA15A1E91
- CONST UID '99ACA15A1E91'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoGiveFocusToContainedForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550BD03202AF // DoGiveFocusToContainedForm
- ;
-
-ref; // ME_99ACA15A1E91 DoIt
 
 : ME_550BD03202AF
  CONST UID '550BD03202AF'
@@ -3782,10 +3507,6 @@ ref; // ME_99ACA15A1E91 DoIt
  CONST Abstraction at_final
  : Parent ME_534F69E702D9 // TvcmTabbedContainerForm
  ;
- : Operations
-   Seq: ( ME_99ACA15A1E91 // DoIt
- )
- ; // Operations
 
 ref; // ME_550BD03202AF DoGiveFocusToContainedForm
 
@@ -4451,8 +4172,6 @@ ref; // ME_5518E1700367_ME_534F69E702D9 MakeTabSetParams
  ME_550AB8A301BA // Forms
  ME_550AB8E801B2 // WindowStateBeforeMinimizing
  ME_550BD5D70027 // f_BackgroundBitmap
- ME_C8E73E2F53CB // f_ContainerIsClosing
- ME_7C9E72DA2AF9 // f_WindowStateBeforeMinimizing
  )
  ; // Attributes
  : Operations
@@ -5860,169 +5579,6 @@ ref; // ME_5608DA3500B4 CloningTab
  CONST "pm" true
 
 ref; // ME_560BA7C70186 ReopeningTab
-
-: ME_03FBE010BCF1
- CONST UID '03FBE010BCF1'
- CONST Name 'f_ContainerCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContainerCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_03FBE010BCF1 f_ContainerCount
-
-: ME_A459E0E95D46
- CONST UID 'A459E0E95D46'
- CONST Name 'f_FormToContainerMap'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FormToContainerMap' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target ME_537AEACC00D6 // TvcmFormToContainerMap
- ;
-
-ref; // ME_A459E0E95D46 f_FormToContainerMap
-
-: ME_E88B2191EDB5
- CONST UID 'E88B2191EDB5'
- CONST Name 'f_MenuImages'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MenuImages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'MenuImages'
-
-ref; // ME_E88B2191EDB5 f_MenuImages
-
-: ME_EAD9673CBCD7
- CONST UID 'EAD9673CBCD7'
- CONST Name 'f_ActiveContainer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ActiveContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target ME_534F69E702D9 // TvcmTabbedContainerForm
- ;
-
-ref; // ME_EAD9673CBCD7 f_ActiveContainer
-
-: ME_558B4B18E579
- CONST UID '558B4B18E579'
- CONST Name 'f_ContainerList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContainerList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
- ;
-
-ref; // ME_558B4B18E579 f_ContainerList
-
-: ME_1E0CFC924175
- CONST UID '1E0CFC924175'
- CONST Name 'f_TabImages'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TabImages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'TabImages'
-
-ref; // ME_1E0CFC924175 f_TabImages
-
-: ME_AD201973538C
- CONST UID 'AD201973538C'
- CONST Name 'f_Listeners'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Listeners' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
- ;
-
-ref; // ME_AD201973538C f_Listeners
-
-: ME_C15EFD152BCD
- CONST UID 'C15EFD152BCD'
- CONST Name 'f_TabSetParams'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TabSetParams' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_551552FA002B' '53F2D7B00186.pas.ms.script' // TChromeLikeTabSetParams
- ;
- CONST extprop:clearViaProperty 'TabSetParams'
-
-ref; // ME_C15EFD152BCD f_TabSetParams
-
-: ME_76C583B5B121
- CONST UID '76C583B5B121'
- CONST Name 'f_CloningTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloningTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_76C583B5B121 f_CloningTab
-
-: ME_2977E7AE5C8D
- CONST UID '2977E7AE5C8D'
- CONST Name 'f_ReopeningTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReopeningTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_2977E7AE5C8D f_ReopeningTab
 
 FORWARD ME_537AF05A0038
 
@@ -8461,37 +8017,6 @@ ref; // ME_5602A54602B8 DoIt
 
 ref; // ME_5602A5390084 GetFormTabIcon
 
-: ME_4A3669C744E4
- CONST UID '4A3669C744E4'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmTabbedContainerFormDispatcher' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
-
-ref; // ME_4A3669C744E4 bind
-
-: ME_1ACE43D137B8
- CONST UID '1ACE43D137B8'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_1ACE43D137B8 Exists
-
 : ME_537AECAD011F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -8974,12 +8499,6 @@ ref; // ME_F550802110EC_ME_537AEC5E03DD CloseAll
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_537AEC5E03DD Cleanup
 
-: ME_5000565C019C_ME_537AEC5E03DD
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_537AEC5E03DD ClearFields
-
 : ME_53B24E7A0280_ME_537AEC5E03DD
  : Original ME_53B24E7A0280 // NeedProcessKeyData
  ;
@@ -9039,16 +8558,6 @@ ref; // ME_53B24F1D034F_ME_537AEC5E03DD DoProcessKeyData
  ME_5583E3F7021E // ActiveVCMContainer
  ME_5608DA3500B4 // CloningTab
  ME_560BA7C70186 // ReopeningTab
- ME_03FBE010BCF1 // f_ContainerCount
- ME_A459E0E95D46 // f_FormToContainerMap
- ME_E88B2191EDB5 // f_MenuImages
- ME_EAD9673CBCD7 // f_ActiveContainer
- ME_558B4B18E579 // f_ContainerList
- ME_1E0CFC924175 // f_TabImages
- ME_AD201973538C // f_Listeners
- ME_C15EFD152BCD // f_TabSetParams
- ME_76C583B5B121 // f_CloningTab
- ME_2977E7AE5C8D // f_ReopeningTab
  )
  ; // Attributes
  : Operations
@@ -9101,8 +8610,6 @@ ref; // ME_53B24F1D034F_ME_537AEC5E03DD DoProcessKeyData
  ME_558BCEA90163 // SaveTabHistory
  ME_55B881940117 // GetTabHistory
  ME_5602A5390084 // GetFormTabIcon
- ME_4A3669C744E4 // bind
- ME_1ACE43D137B8 // Exists
  )
  ; // Operations
  : Implemented
@@ -9140,7 +8647,6 @@ ref; // ME_53B24F1D034F_ME_537AEC5E03DD DoProcessKeyData
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_537AEC5E03DD // Cleanup
- ME_5000565C019C_ME_537AEC5E03DD // ClearFields
  ME_53B24E7A0280_ME_537AEC5E03DD // NeedProcessKeyData
  ME_53B24F1D034F_ME_537AEC5E03DD // DoProcessKeyData
  )
@@ -9519,35 +9025,6 @@ ref; // ME_5583D6030204 DoIt
 
 ref; // ME_5583D5F301E7 Create
 
-FORWARD ME_5583D61A00C2
-
-: ME_85FF3561E829
- CONST Name 'aRealContainerMaker'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_53ABAC5D0352' '4683F37902CF.pas.ms.script' // IvcmContainerMaker
- ;
-
-ref; // ME_85FF3561E829 aRealContainerMaker
-
-: ME_D636F88112A4
- CONST UID 'D636F88112A4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmContainerWithTabMaker.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5583D61A00C2 // Make
- ;
- : Parameters
-   Seq: ( ME_85FF3561E829 // aRealContainerMaker
- )
- ; // Parameters
-
-ref; // ME_D636F88112A4 DoIt
-
 : ME_5583D61A00C2
  CONST UID '5583D61A00C2'
  CONST Name 'Make'
@@ -9562,10 +9039,6 @@ ref; // ME_D636F88112A4 DoIt
    Seq: ( ME_5583D5F301E7 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D636F88112A4 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -11254,37 +10727,6 @@ ref; // ME_558163840015 vcmTabbedContainerFormDispatcherUtils
 
 FORWARD ME_5587AB210223
 
-: ME_3A2358229ACF
- CONST UID '3A2358229ACF'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmPopupControlWindowService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5587AB210223 // TvcmPopupControlWindowService
- ;
-
-ref; // ME_3A2358229ACF bind
-
-: ME_CBA91809865B
- CONST UID 'CBA91809865B'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5587AB210223 // TvcmPopupControlWindowService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CBA91809865B Exists
-
 : ME_5587ABDD01BD
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -11319,11 +10761,6 @@ ref; // ME_D2E4642CC7BC_ME_5587AB210223 IsPopupControlWindow
    Seq: ( WL 'ME_824B0D4B2322' '55879DBD0111.pas.ms.script' // Il3PopupControlService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3A2358229ACF // bind
- ME_CBA91809865B // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_D2E4642CC7BC_ME_5587AB210223 // IsPopupControlWindow
  )
@@ -11410,37 +10847,6 @@ ref; // ME_5587B1300205
 ref; // ME_5587AAF10290 vcmPopupControlWindowService
 
 FORWARD ME_559BA3E6014C
-
-: ME_ACE26D1F4A87
- CONST UID 'ACE26D1F4A87'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmTabsHistoryService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BA3E6014C // TvcmTabsHistoryService
- ;
-
-ref; // ME_ACE26D1F4A87 bind
-
-: ME_A6241623A692
- CONST UID 'A6241623A692'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_559BA3E6014C // TvcmTabsHistoryService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A6241623A692 Exists
 
 : ME_559BA40A0131
  CONST Class class_Dependency
@@ -11550,11 +10956,6 @@ ref; // ME_A872A2AAB575_ME_559BA3E6014C IsInBF
    Seq: ( WL 'ME_5E9754328486' '553893E60323.pas.ms.script' // IvcmHistoryService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_ACE26D1F4A87 // bind
- ME_A6241623A692 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_18FC3BA729CF_ME_559BA3E6014C // Back
  ME_27BEBF0EE9FD_ME_559BA3E6014C // GetContainerHistory
@@ -12094,21 +11495,6 @@ ref; // ME_55A4C2350341 DoIt
 
 ref; // ME_55A4C21A006B DoMakeFormSet
 
-FORWARD ME_55C9B6EF01AE
-
-: ME_E0DD60A70A19
- CONST UID 'E0DD60A70A19'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadFormsState' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55C9B6EF01AE // LoadFormsState
- ;
-
-ref; // ME_E0DD60A70A19 DoIt
-
 : ME_55C9B6EF01AE
  CONST UID '55C9B6EF01AE'
  CONST Name 'LoadFormsState'
@@ -12119,10 +11505,6 @@ ref; // ME_E0DD60A70A19 DoIt
  CONST Abstraction at_final
  : Parent ME_55A4AE43002D // TvcmBaseFormSetHistoryItem
  ;
- : Operations
-   Seq: ( ME_E0DD60A70A19 // DoIt
- )
- ; // Operations
 
 ref; // ME_55C9B6EF01AE LoadFormsState
 
@@ -12386,59 +11768,6 @@ ref; // ME_55A4BC88019F DoIt
 
 ref; // ME_55A4BC700145 Create
 
-FORWARD ME_55A4BC940299
-
-: ME_D916CE16AAD7
- CONST Name 'aFormSet'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
- ;
-
-ref; // ME_D916CE16AAD7 aFormSet
-
-: ME_B32081989313
- CONST Name 'aContainer'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_B32081989313 aContainer
-
-: ME_CBC9923D3040
- CONST Name 'aForClone'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_CBC9923D3040 aForClone
-
-: ME_32400876D633
- CONST UID '32400876D633'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmFormSetHistoryItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55A4BC940299 // Make
- ;
- : Target WL 'ME_55A4A4870036' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryItem
- ;
- : Parameters
-   Seq: ( ME_D916CE16AAD7 // aFormSet
- ME_B32081989313 // aContainer
- ME_CBC9923D3040 // aForClone
- )
- ; // Parameters
-
-ref; // ME_32400876D633 DoIt
-
 : ME_55A4BC940299
  CONST UID '55A4BC940299'
  CONST Name 'Make'
@@ -12457,10 +11786,6 @@ ref; // ME_32400876D633 DoIt
    Seq: ( WL 'ME_55A4A4870036' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryItem
  )
  ; // Implements
- : Operations
-   Seq: ( ME_32400876D633 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -12824,37 +12149,6 @@ ref; // ME_55A4E8E401D0 DoIt
 
 ref; // ME_55A4E8DA034B Create
 
-FORWARD ME_55A4E8F0023D
-
-: ME_F99ADBF4FAE4
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_F99ADBF4FAE4 aForm
-
-: ME_180F08C78496
- CONST UID '180F08C78496'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmFormSetFormHistoryItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55A4E8F0023D // Make
- ;
- : Target WL 'ME_55A4A4FD03A1' '4683F37902CF.pas.ms.script' // IvcmFormSetFormHistoryItem
- ;
- : Parameters
-   Seq: ( ME_F99ADBF4FAE4 // aForm
- )
- ; // Parameters
-
-ref; // ME_180F08C78496 DoIt
-
 : ME_55A4E8F0023D
  CONST UID '55A4E8F0023D'
  CONST Name 'Make'
@@ -12873,10 +12167,6 @@ ref; // ME_180F08C78496 DoIt
    Seq: ( WL 'ME_55A4A4FD03A1' '4683F37902CF.pas.ms.script' // IvcmFormSetFormHistoryItem
  )
  ; // Implements
- : Operations
-   Seq: ( ME_180F08C78496 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -13046,21 +12336,6 @@ ref; // ME_55B86FBC033B f_InBF
 
 ref; // ME_55DAB5DD01A2 f_ContainerInOp
 
-FORWARD ME_55A63AE5034E
-
-: ME_EA8B478C7E3A
- CONST UID 'EA8B478C7E3A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55A63AE5034E // Create
- ;
-
-ref; // ME_EA8B478C7E3A DoIt
-
 : ME_55A63AE5034E
  CONST UID '55A63AE5034E'
  CONST Name 'Create'
@@ -13071,29 +12346,8 @@ ref; // ME_EA8B478C7E3A DoIt
  CONST Abstraction at_final
  : Parent ME_55A5EB6F0346 // TvcmFormSetHistory
  ;
- : Operations
-   Seq: ( ME_EA8B478C7E3A // DoIt
- )
- ; // Operations
 
 ref; // ME_55A63AE5034E Create
-
-FORWARD ME_55A63AFD0169
-
-: ME_D7C2F4E2A05B
- CONST UID 'D7C2F4E2A05B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmFormSetHistory.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55A63AFD0169 // Make
- ;
- : Target WL 'ME_55A4A40E00B3' '4683F37902CF.pas.ms.script' // IvcmFormSetHistory
- ;
-
-ref; // ME_D7C2F4E2A05B DoIt
 
 : ME_55A63AFD0169
  CONST UID '55A63AFD0169'
@@ -13113,10 +12367,6 @@ ref; // ME_D7C2F4E2A05B DoIt
    Seq: ( WL 'ME_55A4A40E00B3' '4683F37902CF.pas.ms.script' // IvcmFormSetHistory
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D7C2F4E2A05B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -14061,48 +13311,6 @@ ref; // ME_55A4BCCA0103 DoIt
 
 ref; // ME_55A4BCC1028B Create
 
-FORWARD ME_55A4BCD501C1
-
-: ME_F4D4E2D09BF9
- CONST Name 'aContainer'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_F4D4E2D09BF9 aContainer
-
-: ME_734F38370BA7
- CONST Name 'aForClone'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_734F38370BA7 aForClone
-
-: ME_7C3E565AE957
- CONST UID '7C3E565AE957'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmLegacyFormSetHistoryItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55A4BCD501C1 // Make
- ;
- : Target WL 'ME_55A4A4870036' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryItem
- ;
- : Parameters
-   Seq: ( ME_F4D4E2D09BF9 // aContainer
- ME_734F38370BA7 // aForClone
- )
- ; // Parameters
-
-ref; // ME_7C3E565AE957 DoIt
-
 : ME_55A4BCD501C1
  CONST UID '55A4BCD501C1'
  CONST Name 'Make'
@@ -14121,10 +13329,6 @@ ref; // ME_7C3E565AE957 DoIt
    Seq: ( WL 'ME_55A4A4870036' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryItem
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7C3E565AE957 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -14433,48 +13637,6 @@ ref; // ME_55E409BB029B DoIt
 
 ref; // ME_55E409B1026B Create
 
-FORWARD ME_55E409CD0312
-
-: ME_2A24165E6FE3
- CONST Name 'aContainer'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
- ;
-
-ref; // ME_2A24165E6FE3 aContainer
-
-: ME_1A27D1E62004
- CONST Name 'aForClone'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_1A27D1E62004 aForClone
-
-: ME_4EE9468ED860
- CONST UID '4EE9468ED860'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmBaseFormSetHistoryStepItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55E409CD0312 // Make
- ;
- : Target WL 'ME_55E4035B013E' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStepItem
- ;
- : Parameters
-   Seq: ( ME_2A24165E6FE3 // aContainer
- ME_1A27D1E62004 // aForClone
- )
- ; // Parameters
-
-ref; // ME_4EE9468ED860 DoIt
-
 : ME_55E409CD0312
  CONST UID '55E409CD0312'
  CONST Name 'Make'
@@ -14493,10 +13655,6 @@ ref; // ME_4EE9468ED860 DoIt
    Seq: ( WL 'ME_55E4035B013E' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStepItem
  )
  ; // Implements
- : Operations
-   Seq: ( ME_4EE9468ED860 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -14709,21 +13867,6 @@ ref; // ME_55F7CDC9006E f_Steps
 
 ref; // ME_55F7D2FA02A3 f_CurrentIndex
 
-FORWARD ME_55F7CDE00187
-
-: ME_F8BABC9F7BC0
- CONST UID 'F8BABC9F7BC0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55F7CDE00187 // Create
- ;
-
-ref; // ME_F8BABC9F7BC0 DoIt
-
 : ME_55F7CDE00187
  CONST UID '55F7CDE00187'
  CONST Name 'Create'
@@ -14734,29 +13877,8 @@ ref; // ME_F8BABC9F7BC0 DoIt
  CONST Abstraction at_final
  : Parent ME_55F7CD4B039A // TvcmFormSetHistoryStepItems
  ;
- : Operations
-   Seq: ( ME_F8BABC9F7BC0 // DoIt
- )
- ; // Operations
 
 ref; // ME_55F7CDE00187 Create
-
-FORWARD ME_55F7CE0A010A
-
-: ME_905FCD2A8F93
- CONST UID '905FCD2A8F93'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmFormSetHistoryStepItems.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55F7CE0A010A // Make
- ;
- : Target WL 'ME_55F7CCA8010E' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStepItems
- ;
-
-ref; // ME_905FCD2A8F93 DoIt
 
 : ME_55F7CE0A010A
  CONST UID '55F7CE0A010A'
@@ -14776,10 +13898,6 @@ ref; // ME_905FCD2A8F93 DoIt
    Seq: ( WL 'ME_55F7CCA8010E' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStepItems
  )
  ; // Implements
- : Operations
-   Seq: ( ME_905FCD2A8F93 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -14926,37 +14044,6 @@ ref; // ME_5602502900E2 DoIt
 
 ref; // ME_56024E5400EC Create
 
-FORWARD ME_56024E800373
-
-: ME_EAD6196C8563
- CONST Name 'aSteps'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55F7CCA8010E' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStepItems
- ;
-
-ref; // ME_EAD6196C8563 aSteps
-
-: ME_9D6AAFD06B7F
- CONST UID '9D6AAFD06B7F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmFormSetHistoryStep.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56024E800373 // Make
- ;
- : Target WL 'ME_560246C501BF' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStep
- ;
- : Parameters
-   Seq: ( ME_EAD6196C8563 // aSteps
- )
- ; // Parameters
-
-ref; // ME_9D6AAFD06B7F DoIt
-
 : ME_56024E800373
  CONST UID '56024E800373'
  CONST Name 'Make'
@@ -14975,10 +14062,6 @@ ref; // ME_9D6AAFD06B7F DoIt
    Seq: ( WL 'ME_560246C501BF' '4683F37902CF.pas.ms.script' // IvcmFormSetHistoryStep
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9D6AAFD06B7F // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

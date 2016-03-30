@@ -892,21 +892,6 @@ ref; // ME_5319F18502DE DoIt
 
 ref; // ME_5319F17400EC RootChanged$2
 
-FORWARD ME_5319F2A101E6
-
-: ME_1CDCBACC0A7E
- CONST UID '1CDCBACC0A7E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateStatus' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5319F2A101E6 // UpdateStatus
- ;
-
-ref; // ME_1CDCBACC0A7E DoIt
-
 : ME_5319F2A101E6
  CONST UID '5319F2A101E6'
  CONST Name 'UpdateStatus'
@@ -918,10 +903,6 @@ ref; // ME_1CDCBACC0A7E DoIt
  CONST Abstraction at_final
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
- : Operations
-   Seq: ( ME_1CDCBACC0A7E // DoIt
- )
- ; // Operations
 
 ref; // ME_5319F2A101E6 UpdateStatus
 
@@ -1223,37 +1204,6 @@ ref; // ME_531A0A630396 DoIt
 
 ref; // ME_531A0A5E017A Create
 
-FORWARD ME_531A0A880317
-
-: ME_1FC0803FE88A
- CONST Name 'aTreeView'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_531DB14D03CC // TeeTreeViewExportPrim
- ;
-
-ref; // ME_1FC0803FE88A aTreeView
-
-: ME_B4A7B1A28DDE
- CONST UID 'B4A7B1A28DDE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TeeTreeViewShadow.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_531A0A880317 // Make
- ;
- : Target WL 'ME_4912DD200333' '4912DD020283.pas.ms.script' // IeeTreeView
- ;
- : Parameters
-   Seq: ( ME_1FC0803FE88A // aTreeView
- )
- ; // Parameters
-
-ref; // ME_B4A7B1A28DDE DoIt
-
 : ME_531A0A880317
  CONST UID '531A0A880317'
  CONST Name 'Make'
@@ -1272,10 +1222,6 @@ ref; // ME_B4A7B1A28DDE DoIt
    Seq: ( WL 'ME_4912DD200333' '4912DD020283.pas.ms.script' // IeeTreeView
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B4A7B1A28DDE // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1797,48 +1743,6 @@ ref; // ME_531F040F0314 DoIt
 
 ref; // ME_531F040903D7 Create
 
-FORWARD ME_531F041C0175
-
-: ME_C2CA6AD497E3
- CONST Name 'aTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_C2CA6AD497E3 aTree
-
-: ME_7EBA45ED5D03
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_515DAE6F0242' '4B97E7FD006C.pas.ms.script' // TvtOutlinerHystoryData
- ;
-
-ref; // ME_7EBA45ED5D03 aData
-
-: ME_B9781A09473B
- CONST UID 'B9781A09473B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TeeTreeState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_531F041C0175 // Make
- ;
- : Target ME_531F032C03BA // IeeTreeState
- ;
- : Parameters
-   Seq: ( ME_C2CA6AD497E3 // aTree
- ME_7EBA45ED5D03 // aData
- )
- ; // Parameters
-
-ref; // ME_B9781A09473B DoIt
-
 : ME_531F041C0175
  CONST UID '531F041C0175'
  CONST Name 'Make'
@@ -1857,10 +1761,6 @@ ref; // ME_B9781A09473B DoIt
    Seq: ( ME_531F032C03BA // IeeTreeState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B9781A09473B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

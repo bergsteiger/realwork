@@ -3567,22 +3567,6 @@ ref; // ME_53A2DCED02A4 Items
 
 ref; // ME_53A2DE24004A Count
 
-: ME_321B2D999ED5
- CONST UID '321B2D999ED5'
- CONST Name 'f_Items'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Items' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53A2D3BC030A // TcsMessageRecepientList
- ;
- : Target ME_52FB9F5A0077 // TcsMessageRecepientListPrim
- ;
-
-ref; // ME_321B2D999ED5 f_Items
-
 FORWARD ME_53A2DD470028
 
 : ME_53A2DD590224
@@ -3658,21 +3642,6 @@ ref; // ME_53A2DDF701B2 DoIt
 
 ref; // ME_53A2DDCF036D Clear
 
-FORWARD ME_56E7B1F7010C
-
-: ME_A885E341E0FD
- CONST UID 'A885E341E0FD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PackEmptyRecepients' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56E7B1F7010C // PackEmptyRecepients
- ;
-
-ref; // ME_A885E341E0FD DoIt
-
 : ME_56E7B1F7010C
  CONST UID '56E7B1F7010C'
  CONST Name 'PackEmptyRecepients'
@@ -3683,10 +3652,6 @@ ref; // ME_A885E341E0FD DoIt
  CONST Abstraction at_final
  : Parent ME_53A2D3BC030A // TcsMessageRecepientList
  ;
- : Operations
-   Seq: ( ME_A885E341E0FD // DoIt
- )
- ; // Operations
 
 ref; // ME_56E7B1F7010C PackEmptyRecepients
 
@@ -3732,7 +3697,6 @@ ref; // ME_47A042E100E2_ME_53A2D3BC030A InitFields
  : Attributes
    Seq: ( ME_53A2DCED02A4 // Items
  ME_53A2DE24004A // Count
- ME_321B2D999ED5 // f_Items
  )
  ; // Attributes
  : Operations
@@ -3979,22 +3943,6 @@ ref; // ME_53A2F9C90070 Items
 
 ref; // ME_53A2FA8802B1 Count
 
-: ME_B5B96DB7AF92
- CONST UID 'B5B96DB7AF92'
- CONST Name 'f_Items'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Items' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53A2EA3D0044 // TddClientMessageSortableList
- ;
- : Target ME_52FA508003E5 // TddClientMessageSortableListPrim
- ;
-
-ref; // ME_B5B96DB7AF92 f_Items
-
 FORWARD ME_53A2FA070288
 
 : ME_53A2FA1B02B8
@@ -4163,7 +4111,6 @@ ref; // ME_47A042E100E2_ME_53A2EA3D0044 InitFields
  : Attributes
    Seq: ( ME_53A2F9C90070 // Items
  ME_53A2FA8802B1 // Count
- ME_B5B96DB7AF92 // f_Items
  )
  ; // Attributes
  : Operations
@@ -4325,22 +4272,6 @@ FORWARD ME_52F8C2AE0042
 
 ref; // ME_53E0D9150023 TaskResult
 
-: ME_EBD92336C1F9
- CONST UID 'EBD92336C1F9'
- CONST Name 'f_TaskResult'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TaskResult' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52F8C2BF0110 // TddProcessTask
- ;
- : Target WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
- ;
-
-ref; // ME_EBD92336C1F9 f_TaskResult
-
 FORWARD ME_53A2EEE90097
 
 : ME_53CCC66602D6
@@ -4384,21 +4315,6 @@ ref; // ME_53A2EEFA00F8 DoIt
 
 ref; // ME_53A2EEE90097 DoRun
 
-FORWARD ME_53CF5FC303D9
-
-: ME_7AE23598B5A7
- CONST UID '7AE23598B5A7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53CF5FC303D9 // RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
- ;
-
-ref; // ME_7AE23598B5A7 DoIt
-
 : ME_53CF5FC303D9
  CONST UID '53CF5FC303D9'
  CONST Name 'RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)'
@@ -4409,27 +4325,8 @@ ref; // ME_7AE23598B5A7 DoIt
  CONST Abstraction at_final
  : Parent ME_52F8C2BF0110 // TddProcessTask
  ;
- : Operations
-   Seq: ( ME_7AE23598B5A7 // DoIt
- )
- ; // Operations
 
 ref; // ME_53CF5FC303D9 RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
-
-FORWARD ME_53CF5FE40219
-
-: ME_F1E29B47006E
- CONST UID 'F1E29B47006E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53CF5FE40219 // UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
- ;
-
-ref; // ME_F1E29B47006E DoIt
 
 : ME_53CF5FE40219
  CONST UID '53CF5FE40219'
@@ -4441,10 +4338,6 @@ ref; // ME_F1E29B47006E DoIt
  CONST Abstraction at_final
  : Parent ME_52F8C2BF0110 // TddProcessTask
  ;
- : Operations
-   Seq: ( ME_F1E29B47006E // DoIt
- )
- ; // Operations
 
 ref; // ME_53CF5FE40219 UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
 
@@ -4502,7 +4395,6 @@ ref; // ME_479731C50290_ME_52F8C2BF0110 Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_53E0D9150023 // TaskResult
- ME_EBD92336C1F9 // f_TaskResult
  )
  ; // Attributes
  : Operations
@@ -7419,37 +7311,6 @@ ref; // ME_53EDDBB5025F SourceFilesHelper
 
 FORWARD ME_54B3B12C007B
 
-FORWARD ME_54B3B43000FE
-
-: ME_7E12ECD398D2
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_7E12ECD398D2 aValue
-
-: ME_281D68D1C560
- CONST UID '281D68D1C560'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TAdditionalFilesHelper.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54B3B43000FE // Make
- ;
- : Target ME_54B3B0E401C8 // AdditionalFilesHelper
- ;
- : Parameters
-   Seq: ( ME_7E12ECD398D2 // aValue
- )
- ; // Parameters
-
-ref; // ME_281D68D1C560 DoIt
-
 : ME_54B3B43000FE
  CONST UID '54B3B43000FE'
  CONST Name 'Make'
@@ -7468,10 +7329,6 @@ ref; // ME_281D68D1C560 DoIt
    Seq: ( ME_54B3B0E401C8 // AdditionalFilesHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_281D68D1C560 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7641,37 +7498,6 @@ ref; // ME_54B522D800A0 cObjTopicToken
 
 ref; // ME_54B3D8780114 SearchTokens
 
-FORWARD ME_53BFD5C10134
-
-: ME_4E8EBCDBDA64
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_4E8EBCDBDA64 aValue
-
-: ME_F474BEC01FA6
- CONST UID 'F474BEC01FA6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TSourceFilesHelper.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53BFD5C10134 // Make
- ;
- : Target ME_53EDDBB5025F // SourceFilesHelper
- ;
- : Parameters
-   Seq: ( ME_4E8EBCDBDA64 // aValue
- )
- ; // Parameters
-
-ref; // ME_F474BEC01FA6 DoIt
-
 : ME_53BFD5C10134
  CONST UID '53BFD5C10134'
  CONST Name 'Make'
@@ -7690,10 +7516,6 @@ ref; // ME_F474BEC01FA6 DoIt
    Seq: ( ME_53EDDBB5025F // SourceFilesHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F474BEC01FA6 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7995,37 +7817,6 @@ ref; // ME_53BFCD060366 TSourceFilesHelper
 
 FORWARD ME_53C3A63C0315
 
-FORWARD ME_53C3A6770100
-
-: ME_E2323AC54F97
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_E2323AC54F97 aValue
-
-: ME_3D9138E36AD7
- CONST UID '3D9138E36AD7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TReplacementFileHelper.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53C3A6770100 // Make
- ;
- : Target ME_53C3A62101DB // ReplacementFileHelper
- ;
- : Parameters
-   Seq: ( ME_E2323AC54F97 // aValue
- )
- ; // Parameters
-
-ref; // ME_3D9138E36AD7 DoIt
-
 : ME_53C3A6770100
  CONST UID '53C3A6770100'
  CONST Name 'Make'
@@ -8044,10 +7835,6 @@ ref; // ME_3D9138E36AD7 DoIt
    Seq: ( ME_53C3A62101DB // ReplacementFileHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3D9138E36AD7 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -8233,23 +8020,6 @@ ref; // ME_7CDAE66D12BB IcsTaskChangeHelper
 
 ref; // ME_7FB9A4A45F1E Alien
 
-: ME_AF78CDF6C2B9
- CONST UID 'AF78CDF6C2B9'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5583BE960064 // TcsTaskChangeHelper
- ;
- : Target ME_7CDAE66D12BB // IcsTaskChangeHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_AF78CDF6C2B9 f_Alien
-
 : ME_5583BFE00181
  CONST UID '5583BFE00181'
  CONST Name 'TaskGotErrorStatus'
@@ -8262,34 +8032,11 @@ ref; // ME_AF78CDF6C2B9 f_Alien
 
 ref; // ME_5583BFE00181 TaskGotErrorStatus
 
-: ME_0FA1BDEC332D
- CONST UID '0FA1BDEC332D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5583BE960064 // TcsTaskChangeHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_0FA1BDEC332D Exists
-
 : ME_F75B4443B80B_ME_5583BE960064
  : Original ME_F75B4443B80B // TaskGotErrorStatus
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_F75B4443B80B_ME_5583BE960064 TaskGotErrorStatus
-
-: ME_5000565C019C_ME_5583BE960064
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5583BE960064 ClearFields
 
 : ME_5583BE960064
  CONST UID '5583BE960064'
@@ -8311,22 +8058,16 @@ ref; // ME_5000565C019C_ME_5583BE960064 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_7FB9A4A45F1E // Alien
- ME_AF78CDF6C2B9 // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_5583BFE00181 // TaskGotErrorStatus
- ME_0FA1BDEC332D // Exists
  )
  ; // Operations
  : Implemented
    Seq: ( ME_F75B4443B80B_ME_5583BE960064 // TaskGotErrorStatus
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_5583BE960064 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_5E793B4475C3 // McsTaskChangeHelper
  ME_7CDAE66D12BB // IcsTaskChangeHelper

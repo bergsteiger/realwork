@@ -1220,37 +1220,6 @@ ref; // ME_5506D99C03D6 DoIt
 
 ref; // ME_5506D99500B7 Create
 
-FORWARD ME_559A3FCA017D
-
-: ME_305717D3556A
- CONST Name 'aMainForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_305717D3556A aMainForm
-
-: ME_E49FA1E8A382
- CONST UID 'E49FA1E8A382'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmHistory.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559A3FCA017D // Make
- ;
- : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
- ;
- : Parameters
-   Seq: ( ME_305717D3556A // aMainForm
- )
- ; // Parameters
-
-ref; // ME_E49FA1E8A382 DoIt
-
 : ME_559A3FCA017D
  CONST UID '559A3FCA017D'
  CONST Name 'Make'
@@ -1269,10 +1238,6 @@ ref; // ME_E49FA1E8A382 DoIt
    Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E49FA1E8A382 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1632,21 +1597,6 @@ ref; // ME_5506DBEF02F5 f_Object
 
 ref; // ME_5506DBF70194 f_Data
 
-FORWARD ME_5506DB9403A6
-
-: ME_365485162274
- CONST UID '365485162274'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoActivate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5506DB9403A6 // DoActivate
- ;
-
-ref; // ME_365485162274 DoIt
-
 : ME_5506DB9403A6
  CONST UID '5506DB9403A6'
  CONST Name 'DoActivate'
@@ -1657,10 +1607,6 @@ ref; // ME_365485162274 DoIt
  CONST Abstraction at_final
  : Parent ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
- : Operations
-   Seq: ( ME_365485162274 // DoIt
- )
- ; // Operations
 
 ref; // ME_5506DB9403A6 DoActivate
 
@@ -1717,46 +1663,6 @@ ref; // ME_5506DBAF0301 DoIt
 
 ref; // ME_5506DBA30102 Create
 
-FORWARD ME_5506DBBA03DA
-
-: ME_252E695EDF05
- CONST Name 'aObject'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491AFD0D015E' '4683F37902CF.pas.ms.script' // IvcmObjectWithData
- ;
-
-ref; // ME_252E695EDF05 aObject
-
-: ME_D0FB99BA6575
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
- ;
-
-ref; // ME_D0FB99BA6575 aData
-
-: ME_E5FC6D8D46EE
- CONST UID 'E5FC6D8D46EE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmObjectWithDataHistoryItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5506DBBA03DA // Make
- ;
- : Parameters
-   Seq: ( ME_252E695EDF05 // aObject
- ME_D0FB99BA6575 // aData
- )
- ; // Parameters
-
-ref; // ME_E5FC6D8D46EE DoIt
-
 : ME_5506DBBA03DA
  CONST UID '5506DBBA03DA'
  CONST Name 'Make'
@@ -1771,10 +1677,6 @@ ref; // ME_E5FC6D8D46EE DoIt
    Seq: ( ME_5506DBA30102 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E5FC6D8D46EE // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2105,22 +2007,6 @@ ref; // ME_55082298015F f_DataSource
 
 ref; // ME_550822A20275 f_ItemType
 
-: ME_9FF906C1926F
- CONST UID '9FF906C1926F'
- CONST Name 'f_SavingClone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SavingClone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_9FF906C1926F f_SavingClone
-
 FORWARD ME_55080FE40284
 
 : ME_55080FF30386
@@ -2366,21 +2252,6 @@ ref; // ME_90D2A4E037E4 DoIt
 
 ref; // ME_5508104402FE UpdateFormInfo
 
-FORWARD ME_5508105E024B
-
-: ME_946E3168DFEA
- CONST UID '946E3168DFEA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FreeContainer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5508105E024B // FreeContainer
- ;
-
-ref; // ME_946E3168DFEA DoIt
-
 : ME_5508105E024B
  CONST UID '5508105E024B'
  CONST Name 'FreeContainer'
@@ -2391,27 +2262,8 @@ ref; // ME_946E3168DFEA DoIt
  CONST Abstraction at_final
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
- : Operations
-   Seq: ( ME_946E3168DFEA // DoIt
- )
- ; // Operations
 
 ref; // ME_5508105E024B FreeContainer
-
-FORWARD ME_5508106B01A3
-
-: ME_8A5F82217E34
- CONST UID '8A5F82217E34'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FreeOwner' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5508106B01A3 // FreeOwner
- ;
-
-ref; // ME_8A5F82217E34 DoIt
 
 : ME_5508106B01A3
  CONST UID '5508106B01A3'
@@ -2423,27 +2275,8 @@ ref; // ME_8A5F82217E34 DoIt
  CONST Abstraction at_final
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
- : Operations
-   Seq: ( ME_8A5F82217E34 // DoIt
- )
- ; // Operations
 
 ref; // ME_5508106B01A3 FreeOwner
-
-FORWARD ME_550810770379
-
-: ME_DE12EFE1705F
- CONST UID 'DE12EFE1705F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FreeAggregate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550810770379 // FreeAggregate
- ;
-
-ref; // ME_DE12EFE1705F DoIt
 
 : ME_550810770379
  CONST UID '550810770379'
@@ -2455,10 +2288,6 @@ ref; // ME_DE12EFE1705F DoIt
  CONST Abstraction at_final
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
- : Operations
-   Seq: ( ME_DE12EFE1705F // DoIt
- )
- ; // Operations
 
 ref; // ME_550810770379 FreeAggregate
 
@@ -2783,112 +2612,6 @@ ref; // ME_550811680044 DoIt
 
 ref; // ME_550811520043 Create
 
-FORWARD ME_550811800186
-
-: ME_087B7BBAC830
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
- ;
-
-ref; // ME_087B7BBAC830 aForm
-
-: ME_CDDA7ADE12AD
- CONST Name 'aStateType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
- ;
-
-ref; // ME_CDDA7ADE12AD aStateType
-
-: ME_E6027C3C9FF3
- CONST Name 'aFormId'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476A84380187' '4683F37902CF.pas.ms.script' // TvcmFormID
- ;
-
-ref; // ME_E6027C3C9FF3 aFormId
-
-: ME_D5E92C074FC1
- CONST Name 'aUserType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
-
-ref; // ME_D5E92C074FC1 aUserType
-
-: ME_2421315657AE
- CONST Name 'aZoneType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
- ;
-
-ref; // ME_2421315657AE aZoneType
-
-: ME_2B590D1AA16A
- CONST Name 'aItemType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683F451006D' '4683F37902CF.pas.ms.script' // TvcmHistoryItemType
- ;
-
-ref; // ME_2B590D1AA16A aItemType
-
-: ME_DFB913583309
- CONST Name 'aSubUserType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
-
-ref; // ME_DFB913583309 aSubUserType
-
-: ME_140C1B9DDAD5
- CONST Name 'aForClone'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_140C1B9DDAD5 aForClone
-
-: ME_A1238EBE8983
- CONST UID 'A1238EBE8983'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmHistoryItemBase.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550811800186 // Make$1
- ;
- : Parameters
-   Seq: ( ME_087B7BBAC830 // aForm
- ME_CDDA7ADE12AD // aStateType
- ME_E6027C3C9FF3 // aFormId
- ME_D5E92C074FC1 // aUserType
- ME_2421315657AE // aZoneType
- ME_2B590D1AA16A // aItemType
- ME_DFB913583309 // aSubUserType
- ME_140C1B9DDAD5 // aForClone
- )
- ; // Parameters
-
-ref; // ME_A1238EBE8983 DoIt
-
 : ME_550811800186
  CONST UID '550811800186'
  CONST Name 'Make'
@@ -2903,10 +2626,6 @@ ref; // ME_A1238EBE8983 DoIt
    Seq: ( ME_550811520043 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A1238EBE8983 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3075,7 +2794,6 @@ ref; // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
  ME_5508228D0145 // f_SubUserType
  ME_55082298015F // f_DataSource
  ME_550822A20275 // f_ItemType
- ME_9FF906C1926F // f_SavingClone
  )
  ; // Attributes
  : Operations
@@ -3729,37 +3447,6 @@ ref; // ME_5508290100A1 DoIt
 
 ref; // ME_550828F60179 DoActivate
 
-FORWARD ME_55C0BFCB029A
-
-: ME_B32D827C9FE8
- CONST Name 'aCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
- ;
-
-ref; // ME_B32D827C9FE8 aCaption
-
-: ME_35F21F5E2C56
- CONST UID '35F21F5E2C56'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmContainerHistoryItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C0BFCB029A // Make
- ;
- : Target WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
- ;
- : Parameters
-   Seq: ( ME_B32D827C9FE8 // aCaption
- )
- ; // Parameters
-
-ref; // ME_35F21F5E2C56 DoIt
-
 : ME_55C0BFCB029A
  CONST UID '55C0BFCB029A'
  CONST Name 'Make'
@@ -3778,10 +3465,6 @@ ref; // ME_35F21F5E2C56 DoIt
    Seq: ( WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
  )
  ; // Implements
- : Operations
-   Seq: ( ME_35F21F5E2C56 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4010,57 +3693,6 @@ ref; // ME_558A5AD802E5 DoIt
 
 ref; // ME_558A5AC303BA Create
 
-FORWARD ME_558A5AE30142
-
-: ME_B4FF479E7CEF
- CONST Name 'aItems'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5589489B004F' '4683F37902CF.pas.ms.script' // IvcmHistoryItems
- ;
-
-ref; // ME_B4FF479E7CEF aItems
-
-: ME_05A04767F2D9
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_05A04767F2D9 aCurrent
-
-: ME_44FB884E074F
- CONST Name 'aContainerItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
- ;
-
-ref; // ME_44FB884E074F aContainerItem
-
-: ME_6008B4F976EE
- CONST UID '6008B4F976EE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmHistoryState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_558A5AE30142 // Make
- ;
- : Parameters
-   Seq: ( ME_B4FF479E7CEF // aItems
- ME_05A04767F2D9 // aCurrent
- ME_44FB884E074F // aContainerItem
- )
- ; // Parameters
-
-ref; // ME_6008B4F976EE DoIt
-
 : ME_558A5AE30142
  CONST UID '558A5AE30142'
  CONST Name 'Make'
@@ -4075,10 +3707,6 @@ ref; // ME_6008B4F976EE DoIt
    Seq: ( ME_558A5AC303BA // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6008B4F976EE // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

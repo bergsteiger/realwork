@@ -164,19 +164,6 @@ FORWARD ME_54645E360193
 
 FORWARD ME_54645E5F018E
 
-: ME_DB54813F2A62
- CONST UID 'DB54813F2A62'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ncsServerRegister' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54645E5F018E // ncsServerRegister
- ;
-
-ref; // ME_DB54813F2A62 DoIt
-
 : ME_546464C902AF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -277,10 +264,6 @@ ref; // ME_549AAE5401B6
  CONST Abstraction at_final
  : Parent ME_54645E360193 // ncsFileTransferReg
  ;
- : Operations
-   Seq: ( ME_DB54813F2A62 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_546464C902AF // 
  ME_546464EF032F // 
@@ -296,19 +279,6 @@ ref; // ME_549AAE5401B6
 ref; // ME_54645E5F018E ncsServerRegister
 
 FORWARD ME_54645E7C0285
-
-: ME_940B1764E04E
- CONST UID '940B1764E04E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ncsClientRegister' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54645E7C0285 // ncsClientRegister
- ;
-
-ref; // ME_940B1764E04E DoIt
 
 : ME_546464D00027
  CONST Class class_Dependency
@@ -386,10 +356,6 @@ ref; // ME_54895C0603E7
  CONST Abstraction at_final
  : Parent ME_54645E360193 // ncsFileTransferReg
  ;
- : Operations
-   Seq: ( ME_940B1764E04E // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_546464D00027 // 
  ME_546464F6001D // 
@@ -968,37 +934,6 @@ ref; // ME_546EF57803B0 FileDescHelper
 
 FORWARD ME_546EF62900AA
 
-FORWARD ME_546F04DB0269
-
-: ME_95EE14CC2688
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_95EE14CC2688 aValue
-
-: ME_0C6276C8EF6B
- CONST UID '0C6276C8EF6B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TFileDescHelper.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_546F04DB0269 // Make
- ;
- : Target ME_546EF57803B0 // FileDescHelper
- ;
- : Parameters
-   Seq: ( ME_95EE14CC2688 // aValue
- )
- ; // Parameters
-
-ref; // ME_0C6276C8EF6B DoIt
-
 : ME_546F04DB0269
  CONST UID '546F04DB0269'
  CONST Name 'Make'
@@ -1017,10 +952,6 @@ ref; // ME_0C6276C8EF6B DoIt
    Seq: ( ME_546EF57803B0 // FileDescHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0C6276C8EF6B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

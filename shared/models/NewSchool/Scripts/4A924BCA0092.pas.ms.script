@@ -17423,23 +17423,6 @@ ref; // ME_1E74B0CF4425 If1StartupCompletedService
 
 ref; // ME_E9AE57C09E06 Alien
 
-: ME_5C0796525902
- CONST UID '5C0796525902'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55B0CFA90241 // Tf1StartupCompletedService
- ;
- : Target ME_1E74B0CF4425 // If1StartupCompletedService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_5C0796525902 f_Alien
-
 : ME_55B0DDC00044
  CONST UID '55B0DDC00044'
  CONST Name 'StartupComplete'
@@ -17452,34 +17435,11 @@ ref; // ME_5C0796525902 f_Alien
 
 ref; // ME_55B0DDC00044 StartupComplete
 
-: ME_06B360281B21
- CONST UID '06B360281B21'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55B0CFA90241 // Tf1StartupCompletedService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_06B360281B21 Exists
-
 : ME_2627E933260B_ME_55B0CFA90241
  : Original ME_2627E933260B // StartupComplete
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_2627E933260B_ME_55B0CFA90241 StartupComplete
-
-: ME_5000565C019C_ME_55B0CFA90241
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55B0CFA90241 ClearFields
 
 : ME_55B0CFA90241
  CONST UID '55B0CFA90241'
@@ -17501,22 +17461,16 @@ ref; // ME_5000565C019C_ME_55B0CFA90241 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_E9AE57C09E06 // Alien
- ME_5C0796525902 // f_Alien
  )
  ; // Attributes
  : Operations
    Seq: ( ME_55B0DDC00044 // StartupComplete
- ME_06B360281B21 // Exists
  )
  ; // Operations
  : Implemented
    Seq: ( ME_2627E933260B_ME_55B0CFA90241 // StartupComplete
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_55B0CFA90241 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_3044CBAC1F5E // Mf1StartupCompletedService
  ME_1E74B0CF4425 // If1StartupCompletedService

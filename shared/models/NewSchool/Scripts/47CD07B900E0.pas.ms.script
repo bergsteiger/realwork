@@ -1039,34 +1039,6 @@ ref; // ME_52B9904300C5 TnpDrawSplitterType
 
 ref; // ME_52B9907000E3 TnpDrawSplitterTypes
 
-FORWARD ME_52B9912003D9
-
-: ME_241A461C63A4
- CONST UID '241A461C63A4'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpCustomControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9912003D9 // TnpCustomControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_241A461C63A4 Ini_Reg_Class
-
-: ME_7CB100025E41
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B9912003D9 // TnpCustomControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7CB100025E41 
-
 : ME_52B9912003D9
  CONST UID '52B9912003D9'
  CONST Name 'TnpCustomControl'
@@ -1081,14 +1053,6 @@ ref; // ME_7CB100025E41
    Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_241A461C63A4 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_7CB100025E41 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1100,32 +1064,6 @@ ref; // ME_7CB100025E41
 ref; // ME_52B9912003D9 TnpCustomControl
 
 FORWARD ME_52B9922001E1
-
-: ME_8F4F08B32175
- CONST UID '8F4F08B32175'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpCustomPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9922001E1 // TnpCustomPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8F4F08B32175 Ini_Reg_Class
-
-: ME_811278C02C84
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B9922001E1 // TnpCustomPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_811278C02C84 
 
 : ME_476A5BBD03D9_ME_52B9922001E1
  : Original WL 'ME_476A5BBD03D9' '467BAB7F021E.pas.ms.script' // ControlIsPanel
@@ -1152,18 +1090,10 @@ ref; // ME_476A5BBD03D9_ME_52B9922001E1 ControlIsPanel
    Seq: ( WL 'ME_4683E895003F' '467BAB7F021E.pas.ms.script' // IvcmDockType
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8F4F08B32175 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_476A5BBD03D9_ME_52B9922001E1 // ControlIsPanel
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_811278C02C84 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1253,23 +1183,6 @@ FORWARD ME_52B9ADFB0090
 
 ref; // ME_52B9AE5B02F8 OnStateChanged
 
-: ME_15F566765BB8
- CONST UID '15F566765BB8'
- CONST Name 'f_OnStateChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnStateChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52B9ADFB0090 // TnpChangeLink
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnStateChanged'
-
-ref; // ME_15F566765BB8 f_OnStateChanged
-
 : ME_52B9ADFB0090
  CONST UID '52B9ADFB0090'
  CONST Name 'TnpChangeLink'
@@ -1287,7 +1200,6 @@ ref; // ME_15F566765BB8 f_OnStateChanged
  ; // Inherits
  : Attributes
    Seq: ( ME_52B9AE5B02F8 // OnStateChanged
- ME_15F566765BB8 // f_OnStateChanged
  )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
@@ -1675,32 +1587,6 @@ ref; // ME_52B9ACAB00E9 Message
 
 ref; // ME_52B9ACA10057 WMEraseBkgnd
 
-: ME_DF36E1B49B5D
- CONST UID 'DF36E1B49B5D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpPageControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B99259019E // TnpPageControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DF36E1B49B5D Ini_Reg_Class
-
-: ME_BCBC8B6D714F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B99259019E // TnpPageControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BCBC8B6D714F 
-
 : ME_47D1602000C6_ME_52B99259019E
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -1764,7 +1650,6 @@ ref; // ME_52B9A85201C2_ME_52B99259019E DoActivePrevPage
  ME_52B9AC2801E0 // WMKeyDown
  ME_52B9AC3F01E2 // WMSysKeyDown
  ME_52B9ACA10057 // WMEraseBkgnd
- ME_DF36E1B49B5D // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1776,10 +1661,6 @@ ref; // ME_52B9A85201C2_ME_52B99259019E DoActivePrevPage
  ME_52B9A85201C2_ME_52B99259019E // DoActivePrevPage
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_BCBC8B6D714F // 
- )
- ; // Dependencies
  : Forwarded
    Seq: ( ME_52BAD1C40174 // TvtNavigatorPrim
  )
@@ -1813,7 +1694,1749 @@ ref; // ME_52B99259019E TnpPageControl
 
 ref; // ME_52B9AD4E02CB RnpPageControl
 
+FORWARD ME_52B9AF0A027C
+
+FORWARD ME_52B9AED10282
+
+: ME_52B9AF720263
+ CONST UID '52B9AF720263'
+ CONST Name 'Surface'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52B9AED10282 // TnpContainerSurface
+ ;
+ : Target ME_52B9AF0A027C // TnpSurface
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52B9AF720263 Surface
+
+FORWARD ME_52B9AFE90213
+
+: ME_52B9AFFD00C5
+ CONST Name 'aSurface'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_52B9AF0A027C // TnpSurface
+ ;
+
+ref; // ME_52B9AFFD00C5 aSurface
+
+: ME_52B9AFFA022A
+ CONST UID '52B9AFFA022A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AFE90213 // Make
+ ;
+ : Target ME_52B9AED10282 // TnpContainerSurface
+ ;
+ : Parameters
+   Seq: ( ME_52B9AFFD00C5 // aSurface
+ )
+ ; // Parameters
+
+ref; // ME_52B9AFFA022A DoIt
+
+: ME_52B9AFE90213
+ CONST UID '52B9AFE90213'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AED10282 // TnpContainerSurface
+ ;
+ : Operations
+   Seq: ( ME_52B9AFFA022A // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_52B9AFE90213 Make
+
+: ME_52B9B064029D
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
+ ;
+
+ref; // ME_52B9B064029D Message
+
+: ME_52B9B0560033
+ CONST UID '52B9B0560033'
+ CONST Name 'WMEraseBkgnd'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ %SUMMARY 'иначе границы toolbar-ов не прорисовываются' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AED10282 // TnpContainerSurface
+ ;
+ : Parameters
+   Seq: ( ME_52B9B064029D // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ERASEBKGND'
+
+ref; // ME_52B9B0560033 WMEraseBkgnd
+
+: ME_52B9AED10282
+ CONST UID '52B9AED10282'
+ CONST Name 'TnpContainerSurface'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8A252E01C2 // TvtNavigator
+ ;
+ : Inherits
+   Seq: ( ME_52B9912003D9 // TnpCustomControl
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_52B9AF720263 // Surface
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_52B9AFE90213 // Make
+ ME_52B9B0560033 // WMEraseBkgnd
+ )
+ ; // Operations
+ : Forwarded
+   Seq: ( ME_52B9AF0A027C // TnpSurface
+ )
+ ; // Forwarded
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'npContainerSurface'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52B9AED10282 TnpContainerSurface
+
+FORWARD ME_52B9B0AA0105
+
+FORWARD ME_52BABCB3015C
+
+: ME_52BABD9C03B7
+ CONST UID '52BABD9C03B7'
+ CONST Name 'PageControl'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target ME_52B99259019E // TnpPageControl
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BABD9C03B7 PageControl
+
+: ME_52BABDB6021C
+ CONST UID '52BABDB6021C'
+ CONST Name 'Header'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BABDB6021C Header
+
+: ME_52BAC0430151
+ CONST UID '52BAC0430151'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_52BAC0430151 Size
+
+: ME_52BAC1BC000B
+ CONST UID '52BAC1BC000B'
+ CONST Name 'f_Link'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target ME_52B9ADFB0090 // TnpChangeLink
+ ;
+
+ref; // ME_52BAC1BC000B f_Link
+
+: ME_52BAC1EA013B
+ CONST UID '52BAC1EA013B'
+ CONST Name 'f_Container'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target ME_52B9AED10282 // TnpContainerSurface
+ ;
+
+ref; // ME_52BAC1EA013B f_Container
+
+: ME_52BC48CC01E9
+ CONST UID '52BC48CC01E9'
+ CONST Name 'Navigator'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target ME_52BAD1C40174 // TvtNavigatorPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BC48CC01E9 Navigator
+
+: ME_52BC4CE70167
+ CONST UID '52BC4CE70167'
+ CONST Name 'f_Splitter'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Target ME_52B9B0AA0105 // TnpSplitter
+ ;
+
+ref; // ME_52BC4CE70167 f_Splitter
+
+: ME_52BAC11201BE
+ CONST UID '52BAC11201BE'
+ CONST Name 'InitAutoHidePosition'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'обновить Left окна' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+
+ref; // ME_52BAC11201BE InitAutoHidePosition
+
+FORWARD ME_52BAC1220315
+
+: ME_C0F0E57EE0A6
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_C0F0E57EE0A6 Sender
+
+: ME_6A9C80F0804B
+ CONST UID '6A9C80F0804B'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BAC1220315 // OnStateChanged
+ ;
+ : Parameters
+   Seq: ( ME_C0F0E57EE0A6 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_6A9C80F0804B DoIt
+
+: ME_52BAC1220315
+ CONST UID '52BAC1220315'
+ CONST Name 'OnStateChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_6A9C80F0804B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BAC1220315 OnStateChanged
+
+: ME_52BAC1450146
+ CONST UID '52BAC1450146'
+ CONST Name 'SetSizeMini'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+
+ref; // ME_52BAC1450146 SetSizeMini
+
+: ME_52BAC14E0369
+ CONST UID '52BAC14E0369'
+ CONST Name 'DefineSplitterAlign'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+
+ref; // ME_52BAC14E0369 DefineSplitterAlign
+
+: ME_52BAC0AE02F4
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_52BAC0AE02F4 Message
+
+: ME_52BAC0A1016B
+ CONST UID '52BAC0A1016B'
+ CONST Name 'WMEraseBkgnd'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9AF0A027C // TnpSurface
+ ;
+ : Parameters
+   Seq: ( ME_52BAC0AE02F4 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ERASEBKGND'
+
+ref; // ME_52BAC0A1016B WMEraseBkgnd
+
+: ME_479731C50290_ME_52B9AF0A027C
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_52B9AF0A027C Cleanup
+
+: ME_47D1602000C6_ME_52B9AF0A027C
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52B9AF0A027C Create
+
+: ME_5028A60300AD_ME_52B9AF0A027C
+ : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5028A60300AD_ME_52B9AF0A027C Paint
+
+: ME_52B9AF0A027C
+ CONST UID '52B9AF0A027C'
+ CONST Name 'TnpSurface'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подложка. На подложке лежат TnpHeader (заголовок ) и PageControl' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8A252E01C2 // TvtNavigator
+ ;
+ : Inherits
+   Seq: ( ME_52B9912003D9 // TnpCustomControl
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_52BABD9C03B7 // PageControl
+ ME_52BABDB6021C // Header
+ ME_52BAC0430151 // Size
+ ME_52BAC1BC000B // f_Link
+ ME_52BAC1EA013B // f_Container
+ ME_52BC48CC01E9 // Navigator
+ ME_52BC4CE70167 // f_Splitter
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_52BAC11201BE // InitAutoHidePosition
+ ME_52BAC1220315 // OnStateChanged
+ ME_52BAC1450146 // SetSizeMini
+ ME_52BAC14E0369 // DefineSplitterAlign
+ ME_52BAC0A1016B // WMEraseBkgnd
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52B9AF0A027C // Cleanup
+ ME_47D1602000C6_ME_52B9AF0A027C // Create
+ ME_5028A60300AD_ME_52B9AF0A027C // Paint
+ )
+ ; // Overridden
+ : Forwarded
+   Seq: ( ME_52B9B0AA0105 // TnpSplitter
+ ME_52BABCB3015C // TnpHeaderPrim
+ )
+ ; // Forwarded
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'npSurface'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52B9AF0A027C TnpSurface
+
+: ME_52BAAFE902BC
+ CONST UID '52BAAFE902BC'
+ CONST Name 'f_MouseDownPoint'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Target WL 'ME_46A104F4028B' '4AB0C3F60375.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_52BAAFE902BC f_MouseDownPoint
+
+: ME_52BAB00903A4
+ CONST UID '52BAB00903A4'
+ CONST Name 'IsHideButtonDown'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAB00903A4 IsHideButtonDown
+
+: ME_52BAB02F021D
+ CONST UID '52BAB02F021D'
+ CONST Name 'HideButtonHint'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'подсказка к кнопке "скрыть\развернуть"' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Target WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52BAB02F021D HideButtonHint
+
+: ME_52BAB05F0215
+ CONST UID '52BAB05F0215'
+ CONST Name 'IsMouseDown'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52BAB05F0215 IsMouseDown
+
+: ME_52BC4CAF0314
+ CONST UID '52BC4CAF0314'
+ CONST Name 'f_Surface'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Target ME_52B9AF0A027C // TnpSurface
+ ;
+
+ref; // ME_52BC4CAF0314 f_Surface
+
+FORWARD ME_52BABB100388
+
+: ME_52BABB41018F
+ CONST Name 'X'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52BABB41018F X
+
+: ME_52BABB4101A9
+ CONST Name 'Y'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52BABB4101A9 Y
+
+: ME_52BABB3B00F1
+ CONST UID '52BABB3B00F1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABB100388 // splShowHint
+ ;
+ : Parameters
+   Seq: ( ME_52BABB41018F // X
+ ME_52BABB4101A9 // Y
+ )
+ ; // Parameters
+
+ref; // ME_52BABB3B00F1 DoIt
+
+: ME_52BABB100388
+ CONST UID '52BABB100388'
+ CONST Name 'splShowHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Operations
+   Seq: ( ME_52BABB3B00F1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BABB100388 splShowHint
+
+: ME_52BABB57018D
+ CONST UID '52BABB57018D'
+ CONST Name 'splHideHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+
+ref; // ME_52BABB57018D splHideHint
+
+FORWARD ME_52BABB61000E
+
+: ME_52BABB6A02E1
+ CONST UID '52BABB6A02E1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABB61000E // CreateButtonHint
+ ;
+ : Target WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
+ ;
+
+ref; // ME_52BABB6A02E1 DoIt
+
+: ME_52BABB61000E
+ CONST UID '52BABB61000E'
+ CONST Name 'CreateButtonHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Operations
+   Seq: ( ME_52BABB6A02E1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BABB61000E CreateButtonHint
+
+FORWARD ME_52BABB7902B0
+
+: ME_52BABB80023A
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_52BABB80023A aButton
+
+: ME_52BABB7E02A3
+ CONST UID '52BABB7E02A3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABB7902B0 // UpdateCursor
+ ;
+ : Parameters
+   Seq: ( ME_52BABB80023A // aButton
+ )
+ ; // Parameters
+
+ref; // ME_52BABB7E02A3 DoIt
+
+: ME_52BABB7902B0
+ CONST UID '52BABB7902B0'
+ CONST Name 'UpdateCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Operations
+   Seq: ( ME_52BABB7E02A3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BABB7902B0 UpdateCursor
+
+FORWARD ME_52BABB8900D4
+
+: ME_52BABB900130
+ CONST Name 'aCanvas'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_52BABB900130 aCanvas
+
+: ME_52BABB8E0062
+ CONST UID '52BABB8E0062'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABB8900D4 // DrawButton
+ ;
+ : Parameters
+   Seq: ( ME_52BABB900130 // aCanvas
+ )
+ ; // Parameters
+
+ref; // ME_52BABB8E0062 DoIt
+
+: ME_52BABB8900D4
+ CONST UID '52BABB8900D4'
+ CONST Name 'DrawButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Operations
+   Seq: ( ME_52BABB8E0062 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BABB8900D4 DrawButton
+
+FORWARD ME_52BABB9A02AB
+
+: ME_52BABBA00153
+ CONST UID '52BABBA00153'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABB9A02AB // GetButtonRect
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_52BABBA00153 DoIt
+
+: ME_52BABB9A02AB
+ CONST UID '52BABB9A02AB'
+ CONST Name 'GetButtonRect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'определяет прямоугольник для кнопки' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Operations
+   Seq: ( ME_52BABBA00153 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BABB9A02AB GetButtonRect
+
+: ME_52BABBD102EC
+ CONST UID '52BABBD102EC'
+ CONST Name 'SetSizeCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'устанавливает курсор для изменения размеров' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+
+ref; // ME_52BABBD102EC SetSizeCursor
+
+FORWARD ME_52BABBE6027E
+
+: ME_52BABBED036E
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_52BABBED036E Msg
+
+: ME_52BABBEA0259
+ CONST UID '52BABBEA0259'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABBE6027E // IsHandledShortcut
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_52BABBED036E // Msg
+ )
+ ; // Parameters
+
+ref; // ME_52BABBEA0259 DoIt
+
+: ME_52BABBE6027E
+ CONST UID '52BABBE6027E'
+ CONST Name 'IsHandledShortcut'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Operations
+   Seq: ( ME_52BABBEA0259 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BABBE6027E IsHandledShortcut
+
+: ME_52BAB81B0379
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_52BAB81B0379 Msg
+
+: ME_52BAB80A032F
+ CONST UID '52BAB80A032F'
+ CONST Name 'WMKeyDown'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Parameters
+   Seq: ( ME_52BAB81B0379 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_KEYDOWN'
+
+ref; // ME_52BAB80A032F WMKeyDown
+
+: ME_52BAB82D01B0
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_5110F6AF016B' '476F78840219.pas.ms.script' // TWMSysKeyDown
+ ;
+
+ref; // ME_52BAB82D01B0 Msg
+
+: ME_52BAB8250200
+ CONST UID '52BAB8250200'
+ CONST Name 'WMSysKeyDown'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Parameters
+   Seq: ( ME_52BAB82D01B0 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_SYSKEYDOWN'
+
+ref; // ME_52BAB8250200 WMSysKeyDown
+
+: ME_52BAB8480228
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_52BAB8480228 Msg
+
+: ME_52BAB838013D
+ CONST UID '52BAB838013D'
+ CONST Name 'CNKeyDown'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Parameters
+   Seq: ( ME_52BAB8480228 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CN_KEYDOWN'
+
+ref; // ME_52BAB838013D CNKeyDown
+
+: ME_52BAB85B0031
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_5110F6AF016B' '476F78840219.pas.ms.script' // TWMSysKeyDown
+ ;
+
+ref; // ME_52BAB85B0031 Msg
+
+: ME_52BAB8530216
+ CONST UID '52BAB8530216'
+ CONST Name 'CNSysKeyDown'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Parameters
+   Seq: ( ME_52BAB85B0031 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'CN_SYSKEYDOWN'
+
+ref; // ME_52BAB8530216 CNSysKeyDown
+
+: ME_5374D6410345
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_5374D6410345 Msg
+
+: ME_5374D62902DC
+ CONST UID '5374D62902DC'
+ CONST Name 'WMMouseLeave'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Parameters
+   Seq: ( ME_5374D6410345 // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_MOUSELEAVE'
+
+ref; // ME_5374D62902DC WMMouseLeave
+
+: ME_479731C50290_ME_52B9B0AA0105
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_52B9B0AA0105 Cleanup
+
+: ME_47D1602000C6_ME_52B9B0AA0105
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52B9B0AA0105 Create
+
+: ME_48E22B250241_ME_52B9B0AA0105
+ : Original WL 'ME_48E22B250241' '4799D29F033F.pas.ms.script' // MouseMove
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48E22B250241_ME_52B9B0AA0105 MouseMove
+
+: ME_4E7896270076_ME_52B9B0AA0105
+ : Original WL 'ME_4E7896270076' '4799D29F033F.pas.ms.script' // MouseUp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4E7896270076_ME_52B9B0AA0105 MouseUp
+
+: ME_4F88473B03CD_ME_52B9B0AA0105
+ : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F88473B03CD_ME_52B9B0AA0105 MouseDown
+
+: ME_5028A60300AD_ME_52B9B0AA0105
+ : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5028A60300AD_ME_52B9B0AA0105 Paint
+
+: ME_52B9B0AA0105
+ CONST UID '52B9B0AA0105'
+ CONST Name 'TnpSplitter'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сплиттер используемый в навигаторе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8A252E01C2 // TvtNavigator
+ ;
+ : Inherits
+   Seq: ( ME_52B9912003D9 // TnpCustomControl
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_52BAAFE902BC // f_MouseDownPoint
+ ME_52BAB00903A4 // IsHideButtonDown
+ ME_52BAB02F021D // HideButtonHint
+ ME_52BAB05F0215 // IsMouseDown
+ ME_52BC4CAF0314 // f_Surface
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_52BABB100388 // splShowHint
+ ME_52BABB57018D // splHideHint
+ ME_52BABB61000E // CreateButtonHint
+ ME_52BABB7902B0 // UpdateCursor
+ ME_52BABB8900D4 // DrawButton
+ ME_52BABB9A02AB // GetButtonRect
+ ME_52BABBD102EC // SetSizeCursor
+ ME_52BABBE6027E // IsHandledShortcut
+ ME_52BAB80A032F // WMKeyDown
+ ME_52BAB8250200 // WMSysKeyDown
+ ME_52BAB838013D // CNKeyDown
+ ME_52BAB8530216 // CNSysKeyDown
+ ME_5374D62902DC // WMMouseLeave
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52B9B0AA0105 // Cleanup
+ ME_47D1602000C6_ME_52B9B0AA0105 // Create
+ ME_48E22B250241_ME_52B9B0AA0105 // MouseMove
+ ME_4E7896270076_ME_52B9B0AA0105 // MouseUp
+ ME_4F88473B03CD_ME_52B9B0AA0105 // MouseDown
+ ME_5028A60300AD_ME_52B9B0AA0105 // Paint
+ )
+ ; // Overridden
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+ CONST extprop:rc:SelfName 'npSplitter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52B9B0AA0105 TnpSplitter
+
 FORWARD ME_52BAC22601F8
+
+: ME_52BAC55302F0
+ CONST UID '52BAC55302F0'
+ CONST Name 'CloseButton'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target ME_52BAC22601F8 // TnpButton
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC55302F0 CloseButton
+
+: ME_52BAC569023C
+ CONST UID '52BAC569023C'
+ CONST Name 'HideButton'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target ME_52BAC22601F8 // TnpButton
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC569023C HideButton
+
+: ME_52BAC5810060
+ CONST UID '52BAC5810060'
+ CONST Name 'AutoHideButton'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target ME_52BAC22601F8 // TnpButton
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC5810060 AutoHideButton
+
+: ME_52BAC6E20218
+ CONST UID '52BAC6E20218'
+ CONST Name 'IsDragBegining'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'определяет была ли инициализирована операция Control.IsDragBegining от заголовка.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52BAC6E20218 IsDragBegining
+
+: ME_52BAC726019F
+ CONST UID '52BAC726019F'
+ CONST Name 'Align'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
+ ;
+ CONST "pm" true
+
+ref; // ME_52BAC726019F Align
+
+: ME_52BAC77E0213
+ CONST UID '52BAC77E0213'
+ CONST Name 'CloseImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC77E0213 CloseImage
+
+: ME_52BAC83B035F
+ CONST UID '52BAC83B035F'
+ CONST Name 'AutoHideOnImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC83B035F AutoHideOnImage
+
+: ME_52BAC84C0124
+ CONST UID '52BAC84C0124'
+ CONST Name 'AutoHideOffImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC84C0124 AutoHideOffImage
+
+: ME_52BAC8920025
+ CONST UID '52BAC8920025'
+ CONST Name 'HideLeftImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC8920025 HideLeftImage
+
+: ME_52BAC89D020A
+ CONST UID '52BAC89D020A'
+ CONST Name 'HideRightImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC89D020A HideRightImage
+
+: ME_52BAC8A7004C
+ CONST UID '52BAC8A7004C'
+ CONST Name 'HideUpImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC8A7004C HideUpImage
+
+: ME_52BAC8AF036E
+ CONST UID '52BAC8AF036E'
+ CONST Name 'HideDownImage'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BAC8AF036E HideDownImage
+
+: ME_52BAC8FB0112
+ CONST UID '52BAC8FB0112'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_52BAC8FB0112 Size
+
+: ME_52BAC9740089
+ CONST UID '52BAC9740089'
+ CONST Name 'OnHide'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+
+ref; // ME_52BAC9740089 OnHide
+
+: ME_52BAC993024A
+ CONST UID '52BAC993024A'
+ CONST Name 'OnAutoHide'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+
+ref; // ME_52BAC993024A OnAutoHide
+
+: ME_52BACA3F0292
+ CONST UID '52BACA3F0292'
+ CONST Name 'ButtonsImageList'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BACA3F0292 ButtonsImageList
+
+: ME_52BACC030096
+ CONST UID '52BACC030096'
+ CONST Name 'f_Canvas'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target WL 'ME_48C68AA40296' '473C3BEE0334.pas.ms.script' // Tl3WinControlCanvas
+ ;
+
+ref; // ME_52BACC030096 f_Canvas
+
+: ME_52BACCC20204
+ CONST UID '52BACCC20204'
+ CONST Name 'f_Link'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target ME_52B9ADFB0090 // TnpChangeLink
+ ;
+
+ref; // ME_52BACCC20204 f_Link
+
+: ME_52BC48D00331
+ CONST UID '52BC48D00331'
+ CONST Name 'Navigator'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Target ME_52BAD1C40174 // TvtNavigatorPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BC48D00331 Navigator
+
+: ME_52BACD510230
+ CONST UID '52BACD510230'
+ CONST Name 'HideCloseButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACD510230 HideCloseButton
+
+FORWARD ME_52BACD6D0047
+
+: ME_52BACD76016C
+ CONST Name 'aHandler'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47D0DE52037F' '467BAB7F021E.pas.ms.script' // IvcmFormHandler
+ ;
+
+ref; // ME_52BACD76016C aHandler
+
+: ME_52BACD7103E4
+ CONST UID '52BACD7103E4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACD6D0047 // ShowCloseButton
+ ;
+ : Parameters
+   Seq: ( ME_52BACD76016C // aHandler
+ )
+ ; // Parameters
+
+ref; // ME_52BACD7103E4 DoIt
+
+: ME_52BACD6D0047
+ CONST UID '52BACD6D0047'
+ CONST Name 'ShowCloseButton'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Operations
+   Seq: ( ME_52BACD7103E4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BACD6D0047 ShowCloseButton
+
+FORWARD ME_52BACD9A0283
+
+: ME_52BACDA1033A
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52BACDA1033A aValue
+
+: ME_52BACD9F013D
+ CONST UID '52BACD9F013D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACD9A0283 // CloseButtonVisible
+ ;
+ : Parameters
+   Seq: ( ME_52BACDA1033A // aValue
+ )
+ ; // Parameters
+
+ref; // ME_52BACD9F013D DoIt
+
+: ME_52BACD9A0283
+ CONST UID '52BACD9A0283'
+ CONST Name 'CloseButtonVisible'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'изменить видимость кнопки закрыть, установить кнопку видимой без установленного обработчика OnClick нельзя' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Operations
+   Seq: ( ME_52BACD9F013D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BACD9A0283 CloseButtonVisible
+
+: ME_52BACDF902D8
+ CONST UID '52BACDF902D8'
+ CONST Name 'UpdateImages'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACDF902D8 UpdateImages
+
+: ME_52BACE0703DA
+ CONST UID '52BACE0703DA'
+ CONST Name 'UpdateSize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACE0703DA UpdateSize
+
+: ME_52BACE0F03BF
+ CONST UID '52BACE0F03BF'
+ CONST Name 'UpdatePositions'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACE0F03BF UpdatePositions
+
+: ME_52BACE1A006B
+ CONST UID '52BACE1A006B'
+ CONST Name 'UpdateHideImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACE1A006B UpdateHideImage
+
+: ME_52BACE520121
+ CONST UID '52BACE520121'
+ CONST Name 'UpdateCloseImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACE520121 UpdateCloseImage
+
+: ME_52BACE6303BA
+ CONST UID '52BACE6303BA'
+ CONST Name 'UpdateAutoHideImage'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACE6303BA UpdateAutoHideImage
+
+FORWARD ME_52BACE6F03E3
+
+: ME_52BACE77000B
+ CONST UID '52BACE77000B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACE6F03E3 // GetRectLines
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_52BACE77000B DoIt
+
+: ME_52BACE6F03E3
+ CONST UID '52BACE6F03E3'
+ CONST Name 'GetRectLines'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Operations
+   Seq: ( ME_52BACE77000B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BACE6F03E3 GetRectLines
+
+: ME_52BACE8501F5
+ CONST UID '52BACE8501F5'
+ CONST Name 'DoStateChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+
+ref; // ME_52BACE8501F5 DoStateChanged
+
+FORWARD ME_52BACE8C01C7
+
+: ME_A213BB92E4D7
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_A213BB92E4D7 Sender
+
+: ME_6C9CCF149434
+ CONST UID '6C9CCF149434'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACE8C01C7 // OnStateChanged
+ ;
+ : Parameters
+   Seq: ( ME_A213BB92E4D7 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_6C9CCF149434 DoIt
+
+: ME_52BACE8C01C7
+ CONST UID '52BACE8C01C7'
+ CONST Name 'OnStateChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_6C9CCF149434 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BACE8C01C7 OnStateChanged
+
+: ME_52BAC3990334
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
+ ;
+
+ref; // ME_52BAC3990334 Message
+
+: ME_52BAC39100F8
+ CONST UID '52BAC39100F8'
+ CONST Name 'WMEraseBkgnd'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BABCB3015C // TnpHeaderPrim
+ ;
+ : Parameters
+   Seq: ( ME_52BAC3990334 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ERASEBKGND'
+
+ref; // ME_52BAC39100F8 WMEraseBkgnd
+
+: ME_479731C50290_ME_52BABCB3015C
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_52BABCB3015C Cleanup
+
+: ME_47D1602000C6_ME_52BABCB3015C
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_52BABCB3015C Create
+
+: ME_4F88473B03CD_ME_52BABCB3015C
+ : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F88473B03CD_ME_52BABCB3015C MouseDown
+
+: ME_5028A60300AD_ME_52BABCB3015C
+ : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5028A60300AD_ME_52BABCB3015C Paint
+
+: ME_508F957E0283_ME_52BABCB3015C
+ : Original WL 'ME_508F957E0283' '4799D29F033F.pas.ms.script' // AdjustClientRect
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_508F957E0283_ME_52BABCB3015C AdjustClientRect
+
+: ME_52BABCB3015C
+ CONST UID '52BABCB3015C'
+ CONST Name 'TnpHeaderPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'панель отображающаяся в навигаторе. Содержит кнопки включения(отключения автоскрытия) и скрытия панели до размеров вкладки. Событие OnMouseDown инициализирует перетаскиваение активного компонента.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8A252E01C2 // TvtNavigator
+ ;
+ : Inherits
+   Seq: ( ME_52B9912003D9 // TnpCustomControl
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_52BAC55302F0 // CloseButton
+ ME_52BAC569023C // HideButton
+ ME_52BAC5810060 // AutoHideButton
+ ME_52BAC6E20218 // IsDragBegining
+ ME_52BAC726019F // Align
+ ME_52BAC77E0213 // CloseImage
+ ME_52BAC83B035F // AutoHideOnImage
+ ME_52BAC84C0124 // AutoHideOffImage
+ ME_52BAC8920025 // HideLeftImage
+ ME_52BAC89D020A // HideRightImage
+ ME_52BAC8A7004C // HideUpImage
+ ME_52BAC8AF036E // HideDownImage
+ ME_52BAC8FB0112 // Size
+ ME_52BAC9740089 // OnHide
+ ME_52BAC993024A // OnAutoHide
+ ME_52BACA3F0292 // ButtonsImageList
+ ME_52BACC030096 // f_Canvas
+ ME_52BACCC20204 // f_Link
+ ME_52BC48D00331 // Navigator
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_52BACD510230 // HideCloseButton
+ ME_52BACD6D0047 // ShowCloseButton
+ ME_52BACD9A0283 // CloseButtonVisible
+ ME_52BACDF902D8 // UpdateImages
+ ME_52BACE0703DA // UpdateSize
+ ME_52BACE0F03BF // UpdatePositions
+ ME_52BACE1A006B // UpdateHideImage
+ ME_52BACE520121 // UpdateCloseImage
+ ME_52BACE6303BA // UpdateAutoHideImage
+ ME_52BACE6F03E3 // GetRectLines
+ ME_52BACE8501F5 // DoStateChanged
+ ME_52BACE8C01C7 // OnStateChanged
+ ME_52BAC39100F8 // WMEraseBkgnd
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52BABCB3015C // Cleanup
+ ME_47D1602000C6_ME_52BABCB3015C // Create
+ ME_4F88473B03CD_ME_52BABCB3015C // MouseDown
+ ME_5028A60300AD_ME_52BABCB3015C // Paint
+ ME_508F957E0283_ME_52BABCB3015C // AdjustClientRect
+ )
+ ; // Overridden
+ : Forwarded
+   Seq: ( ME_52BAC22601F8 // TnpButton
+ )
+ ; // Forwarded
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'npHeaderPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52BABCB3015C TnpHeaderPrim
 
 FORWARD ME_52B990B001E1
 
@@ -2049,32 +3672,6 @@ ref; // ME_52BAC3210071 Message
 
 ref; // ME_52BAC31903DB WMMouseMove
 
-: ME_591851A9B15D
- CONST UID '591851A9B15D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BAC22601F8 // TnpButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_591851A9B15D Ini_Reg_Class
-
-: ME_B9EBF8FA36E0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52BAC22601F8 // TnpButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B9EBF8FA36E0 
-
 : ME_52BAC22601F8
  CONST UID '52BAC22601F8'
  CONST Name 'TnpButton'
@@ -2100,17 +3697,12 @@ ref; // ME_B9EBF8FA36E0
  ME_52BAC34B0242 // MakeHint
  ME_52BAC30A020A // CMHintShow
  ME_52BAC31903DB // WMMouseMove
- ME_591851A9B15D // Ini_Reg_Class
  )
  ; // Operations
  : Children
    Seq: ( ME_52B990B001E1 // TnpButtonType
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_B9EBF8FA36E0 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -2121,13 +3713,807 @@ ref; // ME_B9EBF8FA36E0
 
 ref; // ME_52BAC22601F8 TnpButton
 
-FORWARD ME_52B9AF0A027C
-
-FORWARD ME_52BABCB3015C
+FORWARD ME_52BD70B7032A
 
 FORWARD ME_52BACEF001CB
 
-FORWARD ME_52BACEF900C7
+: ME_52BD719F0004
+ CONST UID '52BD719F0004'
+ CONST Name 'Navigator'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Target ME_52BAD1C40174 // TvtNavigatorPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52BD719F0004 Navigator
+
+: ME_52BD71C101CD
+ CONST UID '52BD71C101CD'
+ CONST Name 'State'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'состояние плавающего окна' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Target ME_52BD70DA02CA // TnpFloatWindowState
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52BD71C101CD State
+
+: ME_52BD732A0292
+ CONST UID '52BD732A0292'
+ CONST Name 'FloatID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52BD732A0292 FloatID
+
+: ME_52BD73AB008B
+ CONST UID '52BD73AB008B'
+ CONST Name 'f_SizeNormal'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52BD73AB008B f_SizeNormal
+
+: ME_52BD73C2027A
+ CONST UID '52BD73C2027A'
+ CONST Name 'f_CloseDisabled'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52BD73C2027A f_CloseDisabled
+
+: ME_52BD73CB01E0
+ CONST UID '52BD73CB01E0'
+ CONST Name 'f_ReactivateDisabled'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52BD73CB01E0 f_ReactivateDisabled
+
+FORWARD ME_52BD73E2039B
+
+: ME_52BD73EA0247
+ CONST UID '52BD73EA0247'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD73E2039B // GetGripperRect
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_52BD73EA0247 DoIt
+
+: ME_52BD73E2039B
+ CONST UID '52BD73E2039B'
+ CONST Name 'GetGripperRect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD73EA0247 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD73E2039B GetGripperRect
+
+FORWARD ME_52BD73F900BF
+
+: ME_52BD7400033D
+ CONST UID '52BD7400033D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD73F900BF // GetGripperHeight
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52BD7400033D DoIt
+
+: ME_52BD73F900BF
+ CONST UID '52BD73F900BF'
+ CONST Name 'GetGripperHeight'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD7400033D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD73F900BF GetGripperHeight
+
+FORWARD ME_52BD740F023F
+
+: ME_52BD741700DF
+ CONST UID '52BD741700DF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD740F023F // CheckGripperCursor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52BD741700DF DoIt
+
+: ME_52BD740F023F
+ CONST UID '52BD740F023F'
+ CONST Name 'CheckGripperCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD741700DF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD740F023F CheckGripperCursor
+
+: ME_52BD742402DA
+ CONST UID '52BD742402DA'
+ CONST Name 'UpdateFloatWindowsBounds'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ CONST "ifdef" 'Nemesis'
+
+ref; // ME_52BD742402DA UpdateFloatWindowsBounds
+
+FORWARD ME_52BD745C0104
+
+: ME_AFB514D7A11A
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_AFB514D7A11A Sender
+
+: ME_299E16DB8D47
+ CONST UID '299E16DB8D47'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD745C0104 // OnChangeState
+ ;
+ : Parameters
+   Seq: ( ME_AFB514D7A11A // Sender
+ )
+ ; // Parameters
+
+ref; // ME_299E16DB8D47 DoIt
+
+: ME_52BD745C0104
+ CONST UID '52BD745C0104'
+ CONST Name 'OnChangeState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_299E16DB8D47 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD745C0104 OnChangeState
+
+FORWARD ME_52BD74650377
+
+: ME_3FBBE5ADA677
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_3FBBE5ADA677 Sender
+
+: ME_02A29762C835
+ CONST UID '02A29762C835'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD74650377 // OnCloseWindow
+ ;
+ : Parameters
+   Seq: ( ME_3FBBE5ADA677 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_02A29762C835 DoIt
+
+: ME_52BD74650377
+ CONST UID '52BD74650377'
+ CONST Name 'OnCloseWindow'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_02A29762C835 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD74650377 OnCloseWindow
+
+FORWARD ME_52BD74710051
+
+: ME_CE9496A536D5
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_CE9496A536D5 Sender
+
+: ME_D9EED6C21DCD
+ CONST UID 'D9EED6C21DCD'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD74710051 // FormOnResize
+ ;
+ : Parameters
+   Seq: ( ME_CE9496A536D5 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_D9EED6C21DCD DoIt
+
+: ME_52BD74710051
+ CONST UID '52BD74710051'
+ CONST Name 'FormOnResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_D9EED6C21DCD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD74710051 FormOnResize
+
+FORWARD ME_52BD748B0337
+
+: ME_52BD749703AC
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_52BD749703AC Sender
+
+: ME_52BD749703C6
+ CONST Name 'Action'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_52BD888400E3' '4799D29F033F.pas.ms.script' // TCloseAction
+ ;
+
+ref; // ME_52BD749703C6 Action
+
+: ME_52BD74950341
+ CONST UID '52BD74950341'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD748B0337 // FormClose
+ ;
+ : Parameters
+   Seq: ( ME_52BD749703AC // Sender
+ ME_52BD749703C6 // Action
+ )
+ ; // Parameters
+
+ref; // ME_52BD74950341 DoIt
+
+: ME_52BD748B0337
+ CONST UID '52BD748B0337'
+ CONST Name 'FormClose'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD74950341 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD748B0337 FormClose
+
+FORWARD ME_52BD74BD0029
+
+: ME_52BD74C4034F
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_52BD74C4034F Sender
+
+: ME_52BD74C40369
+ CONST Name 'Page'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+
+ref; // ME_52BD74C40369 Page
+
+: ME_52BD74C20208
+ CONST UID '52BD74C20208'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD74BD0029 // OnTabSheetClick
+ ;
+ : Parameters
+   Seq: ( ME_52BD74C4034F // Sender
+ ME_52BD74C40369 // Page
+ )
+ ; // Parameters
+
+ref; // ME_52BD74C20208 DoIt
+
+: ME_52BD74BD0029
+ CONST UID '52BD74BD0029'
+ CONST Name 'OnTabSheetClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD74C20208 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD74BD0029 OnTabSheetClick
+
+FORWARD ME_52BD74D2028D
+
+: ME_52BD74DC00E6
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_52BD74DC00E6 Sender
+
+: ME_52BD74DC0100
+ CONST Name 'Source'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F8851F9033B' '4799D29F033F.pas.ms.script' // TDragDockObject
+ ;
+
+ref; // ME_52BD74DC0100 Source
+
+: ME_52BD74DC0125
+ CONST Name 'X'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52BD74DC0125 X
+
+: ME_52BD74DC016D
+ CONST Name 'Y'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52BD74DC016D Y
+
+: ME_52BD74D6035B
+ CONST UID '52BD74D6035B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD74D2028D // OnDockDrop
+ ;
+ : Parameters
+   Seq: ( ME_52BD74DC00E6 // Sender
+ ME_52BD74DC0100 // Source
+ ME_52BD74DC0125 // X
+ ME_52BD74DC016D // Y
+ )
+ ; // Parameters
+
+ref; // ME_52BD74D6035B DoIt
+
+: ME_52BD74D2028D
+ CONST UID '52BD74D2028D'
+ CONST Name 'OnDockDrop'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD74D6035B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD74D2028D OnDockDrop
+
+FORWARD ME_52BD752A00D3
+
+: ME_52BD75300293
+ CONST UID '52BD75300293'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BD752A00D3 // GetNavigatorClass
+ ;
+ : Target ME_52BD70B7032A // RvtNavigator
+ ;
+
+ref; // ME_52BD75300293 DoIt
+
+: ME_52BD752A00D3
+ CONST UID '52BD752A00D3'
+ CONST Name 'GetNavigatorClass'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Operations
+   Seq: ( ME_52BD75300293 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_52BD752A00D3 GetNavigatorClass
+
+: ME_52BD728F02D7
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_50291A020241' '476F78840219.pas.ms.script' // TWMNCCalcSize
+ ;
+
+ref; // ME_52BD728F02D7 Message
+
+: ME_52BD728700B7
+ CONST UID '52BD728700B7'
+ CONST Name 'WMNCCalcSize'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Parameters
+   Seq: ( ME_52BD728F02D7 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_NCCALCSIZE'
+
+ref; // ME_52BD728700B7 WMNCCalcSize
+
+: ME_52BD72A900A4
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_52BD72A900A4 Message
+
+: ME_52BD729D02CC
+ CONST UID '52BD729D02CC'
+ CONST Name 'WMNCPaint'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Parameters
+   Seq: ( ME_52BD72A900A4 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_NCPAINT'
+
+ref; // ME_52BD729D02CC WMNCPaint
+
+: ME_52BD72D00032
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_50291A30019C' '476F78840219.pas.ms.script' // TWMNCHitTest
+ ;
+
+ref; // ME_52BD72D00032 Message
+
+: ME_52BD72BD00B9
+ CONST UID '52BD72BD00B9'
+ CONST Name 'WMNCHitTest'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Parameters
+   Seq: ( ME_52BD72D00032 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_NCHITTEST'
+
+ref; // ME_52BD72BD00B9 WMNCHitTest
+
+: ME_52BD72E60091
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
+ ;
+
+ref; // ME_52BD72E60091 Message
+
+: ME_52BD72DE0167
+ CONST UID '52BD72DE0167'
+ CONST Name 'WMEraseBkgnd'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52BACEF001CB // TnpFloatingWindow
+ ;
+ : Parameters
+   Seq: ( ME_52BD72E60091 // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_ERASEBKGND'
+
+ref; // ME_52BD72DE0167 WMEraseBkgnd
+
+: ME_4E79FED900C6_ME_52BACEF001CB
+ : Original WL 'ME_4E79FED900C6' '467823B7002C.pas.ms.script' // DisableClose
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4E79FED900C6_ME_52BACEF001CB DisableClose
+
+: ME_4E7A0D9401F6_ME_52BACEF001CB
+ : Original WL 'ME_4E7A0D9401F6' '467823B7002C.pas.ms.script' // DisableReactivate
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4E7A0D9401F6_ME_52BACEF001CB DisableReactivate
+
+: ME_479731C50290_ME_52BACEF001CB
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_52BACEF001CB Cleanup
+
+: ME_48C7925A02E5_ME_52BACEF001CB
+ : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48C7925A02E5_ME_52BACEF001CB CreateParams
+
+: ME_4980403E021E_ME_52BACEF001CB
+ : Original WL 'ME_4980403E021E' '4799D29F033F.pas.ms.script' // CloseQuery
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4980403E021E_ME_52BACEF001CB CloseQuery
+
+: ME_4F9007B20376_ME_52BACEF001CB
+ : Original WL 'ME_4F9007B20376' '4799D29F033F.pas.ms.script' // CreateNew
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F9007B20376_ME_52BACEF001CB CreateNew
+
+: ME_52BACEF001CB
+ CONST UID '52BACEF001CB'
+ CONST Name 'TnpFloatingWindow'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'плавающая форма содержащая плавающий навигатор. Форма создается если NewTarget отстыкованного компонента = nil. Форму можно перемещать за TnpHeader. При этом вызывается метод IsDragBegining первого компонента активной вкладки f_PageControl.ActivePage.Controls[0], если компонент не был пристыкован, то форма перемещается в место где была отпущена рамка.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8A252E01C2 // TvtNavigator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E79FEC0019E' '467823B7002C.pas.ms.script' // IafwFloatingWindow
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_52BD719F0004 // Navigator
+ ME_52BD71C101CD // State
+ ME_52BD732A0292 // FloatID
+ ME_52BD73AB008B // f_SizeNormal
+ ME_52BD73C2027A // f_CloseDisabled
+ ME_52BD73CB01E0 // f_ReactivateDisabled
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_52BD73E2039B // GetGripperRect
+ ME_52BD73F900BF // GetGripperHeight
+ ME_52BD740F023F // CheckGripperCursor
+ ME_52BD742402DA // UpdateFloatWindowsBounds
+ ME_52BD745C0104 // OnChangeState
+ ME_52BD74650377 // OnCloseWindow
+ ME_52BD74710051 // FormOnResize
+ ME_52BD748B0337 // FormClose
+ ME_52BD74BD0029 // OnTabSheetClick
+ ME_52BD74D2028D // OnDockDrop
+ ME_52BD752A00D3 // GetNavigatorClass
+ ME_52BD728700B7 // WMNCCalcSize
+ ME_52BD729D02CC // WMNCPaint
+ ME_52BD72BD00B9 // WMNCHitTest
+ ME_52BD72DE0167 // WMEraseBkgnd
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4E79FED900C6_ME_52BACEF001CB // DisableClose
+ ME_4E7A0D9401F6_ME_52BACEF001CB // DisableReactivate
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52BACEF001CB // Cleanup
+ ME_48C7925A02E5_ME_52BACEF001CB // CreateParams
+ ME_4980403E021E_ME_52BACEF001CB // CloseQuery
+ ME_4F9007B20376_ME_52BACEF001CB // CreateNew
+ )
+ ; // Overridden
+ : Forwarded
+   Seq: ( ME_52BD70B7032A // RvtNavigator
+ )
+ ; // Forwarded
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'npFloatingWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52BACEF001CB TnpFloatingWindow
+
+: ME_52BACEF900C7
+ CONST UID '52BACEF900C7'
+ CONST Name 'RnpFloatingWindow'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8A252E01C2 // TvtNavigator
+ ;
+ : Inherits
+   Seq: ( ME_52BACEF001CB // TnpFloatingWindow
+ )
+ ; // Inherits
+ CONST "isClassRef" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52BACEF900C7 RnpFloatingWindow
 
 : ME_52BC2D2B0000
  CONST UID '52BC2D2B0000'
@@ -3300,412 +5686,6 @@ ref; // ME_551BD4FD03A2 f_PageDeactivated
 
 ref; // ME_552669DF0373 f_ParentMainForm
 
-: ME_9FB5BE66FED6
- CONST UID '9FB5BE66FED6'
- CONST Name 'f_SizeMini'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SizeMini' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_9FB5BE66FED6 f_SizeMini
-
-: ME_2267DBA0A139
- CONST UID '2267DBA0A139'
- CONST Name 'f_Swim'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Swim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Swim'
-
-ref; // ME_2267DBA0A139 f_Swim
-
-: ME_7F18EB1A19F1
- CONST UID '7F18EB1A19F1'
- CONST Name 'f_Activate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Activate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Activate'
-
-ref; // ME_7F18EB1A19F1 f_Activate
-
-: ME_A8908BB59548
- CONST UID 'A8908BB59548'
- CONST Name 'f_PageControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PageControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target ME_52B99259019E // TnpPageControl
- ;
-
-ref; // ME_A8908BB59548 f_PageControl
-
-: ME_F24FAF862C46
- CONST UID 'F24FAF862C46'
- CONST Name 'f_Float'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Float' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Float'
-
-ref; // ME_F24FAF862C46 f_Float
-
-: ME_1A6D1549EE36
- CONST UID '1A6D1549EE36'
- CONST Name 'f_State'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства State' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target ME_4F7B1E670309 // TNavigatorState
- ;
- CONST extprop:clearViaProperty 'State'
-
-ref; // ME_1A6D1549EE36 f_State
-
-: ME_87120FC3950A
- CONST UID '87120FC3950A'
- CONST Name 'f_ShowActivePageInHeader'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ShowActivePageInHeader' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ShowActivePageInHeader'
-
-ref; // ME_87120FC3950A f_ShowActivePageInHeader
-
-: ME_D13E60987E09
- CONST UID 'D13E60987E09'
- CONST Name 'f_AutoHideOffHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoHideOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'AutoHideOffHint'
-
-ref; // ME_D13E60987E09 f_AutoHideOffHint
-
-: ME_A6DED6AD7479
- CONST UID 'A6DED6AD7479'
- CONST Name 'f_AutoHideOnHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoHideOnHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'AutoHideOnHint'
-
-ref; // ME_A6DED6AD7479 f_AutoHideOnHint
-
-: ME_074D46ED34B5
- CONST UID '074D46ED34B5'
- CONST Name 'f_MinimizedOnHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MinimizedOnHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'MinimizedOnHint'
-
-ref; // ME_074D46ED34B5 f_MinimizedOnHint
-
-: ME_DD812ED26C66
- CONST UID 'DD812ED26C66'
- CONST Name 'f_MinimizedOffHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MinimizedOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'MinimizedOffHint'
-
-ref; // ME_DD812ED26C66 f_MinimizedOffHint
-
-: ME_F29611892A7F
- CONST UID 'F29611892A7F'
- CONST Name 'f_CloseHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'CloseHint'
-
-ref; // ME_F29611892A7F f_CloseHint
-
-: ME_DE77F6ADB756
- CONST UID 'DE77F6ADB756'
- CONST Name 'f_OnSaveSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnSaveSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target ME_52BACF2C03A4 // TOnSaveSizeNavigator
- ;
- CONST extprop:clearViaProperty 'OnSaveSize'
-
-ref; // ME_DE77F6ADB756 f_OnSaveSize
-
-: ME_A25432E144ED
- CONST UID 'A25432E144ED'
- CONST Name 'f_OnLoadSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnLoadSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target ME_52BACF64003F // TOnLoadSizeNavigator
- ;
- CONST extprop:clearViaProperty 'OnLoadSize'
-
-ref; // ME_A25432E144ED f_OnLoadSize
-
-: ME_83FECC821C9E
- CONST UID '83FECC821C9E'
- CONST Name 'f_AutoHideFloat'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoHideFloat' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AutoHideFloat'
-
-ref; // ME_83FECC821C9E f_AutoHideFloat
-
-: ME_25248341BF2B
- CONST UID '25248341BF2B'
- CONST Name 'f_DelayIntervalOnShow'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DelayIntervalOnShow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'DelayIntervalOnShow'
-
-ref; // ME_25248341BF2B f_DelayIntervalOnShow
-
-: ME_1EDE3144E4EE
- CONST UID '1EDE3144E4EE'
- CONST Name 'f_DelayIntervalOnHide'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DelayIntervalOnHide' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'DelayIntervalOnHide'
-
-ref; // ME_1EDE3144E4EE f_DelayIntervalOnHide
-
-: ME_D64D15A73E97
- CONST UID 'D64D15A73E97'
- CONST Name 'f_DelayOnAutoHide'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DelayOnAutoHide' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'DelayOnAutoHide'
-
-ref; // ME_D64D15A73E97 f_DelayOnAutoHide
-
-: ME_53FBEF276187
- CONST UID '53FBEF276187'
- CONST Name 'f_SingleFloatNavigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SingleFloatNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'SingleFloatNavigator'
-
-ref; // ME_53FBEF276187 f_SingleFloatNavigator
-
-: ME_0FD064C1E80A
- CONST UID '0FD064C1E80A'
- CONST Name 'f_SizeEmpty'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SizeEmpty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'SizeEmpty'
-
-ref; // ME_0FD064C1E80A f_SizeEmpty
-
-: ME_C08E405FF8DB
- CONST UID 'C08E405FF8DB'
- CONST Name 'f_SizeNormal'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SizeNormal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'SizeNormal'
-
-ref; // ME_C08E405FF8DB f_SizeNormal
-
-: ME_5C2236F6DBC0
- CONST UID '5C2236F6DBC0'
- CONST Name 'f_OnStateChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnStateChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnStateChange'
-
-ref; // ME_5C2236F6DBC0 f_OnStateChange
-
-: ME_73A0D7314E03
- CONST UID '73A0D7314E03'
- CONST Name 'f_UnDockFromFloat'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UnDockFromFloat' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'UnDockFromFloat'
-
-ref; // ME_73A0D7314E03 f_UnDockFromFloat
-
-: ME_A4809C9D7782
- CONST UID 'A4809C9D7782'
- CONST Name 'f_NavigatorOnForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NavigatorOnForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST extprop:clearViaProperty 'NavigatorOnForm'
-
-ref; // ME_A4809C9D7782 f_NavigatorOnForm
-
 FORWARD ME_52BD5F51022B
 
 : ME_52BD5F6002AE
@@ -3969,21 +5949,6 @@ ref; // ME_52BD601C02A4 DoIt
 
 ref; // ME_52BD60180199 CorrectBounds
 
-FORWARD ME_52BD604900EC
-
-: ME_63F84DC7CC87
- CONST UID '63F84DC7CC87'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD604900EC // UpdateSize
- ;
-
-ref; // ME_63F84DC7CC87 DoIt
-
 : ME_52BD604900EC
  CONST UID '52BD604900EC'
  CONST Name 'UpdateSize'
@@ -3994,27 +5959,8 @@ ref; // ME_63F84DC7CC87 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_63F84DC7CC87 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD604900EC UpdateSize
-
-FORWARD ME_52BD60530301
-
-: ME_001A81C0C9E1
- CONST UID '001A81C0C9E1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AutoUpdateSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD60530301 // AutoUpdateSize
- ;
-
-ref; // ME_001A81C0C9E1 DoIt
 
 : ME_52BD60530301
  CONST UID '52BD60530301'
@@ -4026,27 +5972,8 @@ ref; // ME_001A81C0C9E1 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_001A81C0C9E1 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD60530301 AutoUpdateSize
-
-FORWARD ME_52BD60960071
-
-: ME_66146B211BDB
- CONST UID '66146B211BDB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ResetDragInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD60960071 // ResetDragInfo
- ;
-
-ref; // ME_66146B211BDB DoIt
 
 : ME_52BD60960071
  CONST UID '52BD60960071'
@@ -4059,10 +5986,6 @@ ref; // ME_66146B211BDB DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_66146B211BDB // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD60960071 ResetDragInfo
 
@@ -4153,21 +6076,6 @@ ref; // ME_52BD616F03D6 DoIt
 
 ref; // ME_52BD615702DB OnDblClickUndock
 
-FORWARD ME_52BD619100C0
-
-: ME_5F668FAF3361
- CONST UID '5F668FAF3361'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CreateSurface' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD619100C0 // CreateSurface
- ;
-
-ref; // ME_5F668FAF3361 DoIt
-
 : ME_52BD619100C0
  CONST UID '52BD619100C0'
  CONST Name 'CreateSurface'
@@ -4178,27 +6086,8 @@ ref; // ME_5F668FAF3361 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_5F668FAF3361 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD619100C0 CreateSurface
-
-FORWARD ME_52BD619A032E
-
-: ME_0796A7F035E2
- CONST UID '0796A7F035E2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CreateHeader' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD619A032E // CreateHeader
- ;
-
-ref; // ME_0796A7F035E2 DoIt
 
 : ME_52BD619A032E
  CONST UID '52BD619A032E'
@@ -4210,27 +6099,8 @@ ref; // ME_0796A7F035E2 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_0796A7F035E2 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD619A032E CreateHeader
-
-FORWARD ME_52BD61A40323
-
-: ME_7803A4EDFEBA
- CONST UID '7803A4EDFEBA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CreatePageControl' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD61A40323 // CreatePageControl
- ;
-
-ref; // ME_7803A4EDFEBA DoIt
 
 : ME_52BD61A40323
  CONST UID '52BD61A40323'
@@ -4242,10 +6112,6 @@ ref; // ME_7803A4EDFEBA DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_7803A4EDFEBA // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD61A40323 CreatePageControl
 
@@ -4292,21 +6158,6 @@ ref; // ME_52BD61C8033C DoIt
 
 ref; // ME_52BD61C202D9 InitMainForm
 
-FORWARD ME_52BD61E101FF
-
-: ME_BACC4F471CA9
- CONST UID 'BACC4F471CA9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RecalcSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD61E101FF // RecalcSize
- ;
-
-ref; // ME_BACC4F471CA9 DoIt
-
 : ME_52BD61E101FF
  CONST UID '52BD61E101FF'
  CONST Name 'RecalcSize'
@@ -4317,10 +6168,6 @@ ref; // ME_BACC4F471CA9 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_BACC4F471CA9 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD61E101FF RecalcSize
 
@@ -4382,21 +6229,6 @@ ref; // ME_52BD61FE012A DoIt
 
 ref; // ME_52BD61F501E5 SetSize
 
-FORWARD ME_52BD625A0013
-
-: ME_BAA3FFA03D30
- CONST UID 'BAA3FFA03D30'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateState' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD625A0013 // UpdateState
- ;
-
-ref; // ME_BAA3FFA03D30 DoIt
-
 : ME_52BD625A0013
  CONST UID '52BD625A0013'
  CONST Name 'UpdateState'
@@ -4408,27 +6240,8 @@ ref; // ME_BAA3FFA03D30 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_BAA3FFA03D30 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD625A0013 UpdateState
-
-FORWARD ME_52BD627B0350
-
-: ME_B2C92D2B1594
- CONST UID 'B2C92D2B1594'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PlaceSurface' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD627B0350 // PlaceSurface
- ;
-
-ref; // ME_B2C92D2B1594 DoIt
 
 : ME_52BD627B0350
  CONST UID '52BD627B0350'
@@ -4440,27 +6253,8 @@ ref; // ME_B2C92D2B1594 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_B2C92D2B1594 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD627B0350 PlaceSurface
-
-FORWARD ME_52BD628801D8
-
-: ME_C9226B7A171A
- CONST UID 'C9226B7A171A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AttachSurface' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD628801D8 // AttachSurface
- ;
-
-ref; // ME_C9226B7A171A DoIt
 
 : ME_52BD628801D8
  CONST UID '52BD628801D8'
@@ -4472,27 +6266,8 @@ ref; // ME_C9226B7A171A DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_C9226B7A171A // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD628801D8 AttachSurface
-
-FORWARD ME_52BD62920263
-
-: ME_27B50DDED2F6
- CONST UID '27B50DDED2F6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DetachSurface' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD62920263 // DetachSurface
- ;
-
-ref; // ME_27B50DDED2F6 DoIt
 
 : ME_52BD62920263
  CONST UID '52BD62920263'
@@ -4504,27 +6279,8 @@ ref; // ME_27B50DDED2F6 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_27B50DDED2F6 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD62920263 DetachSurface
-
-FORWARD ME_52BD629A02DA
-
-: ME_5E63D2A006B3
- CONST UID '5E63D2A006B3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetSizeMini' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD629A02DA // SetSizeMini
- ;
-
-ref; // ME_5E63D2A006B3 DoIt
 
 : ME_52BD629A02DA
  CONST UID '52BD629A02DA'
@@ -4536,27 +6292,8 @@ ref; // ME_5E63D2A006B3 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_5E63D2A006B3 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD629A02DA SetSizeMini
-
-FORWARD ME_52BD62A70122
-
-: ME_8692DBE5801A
- CONST UID '8692DBE5801A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoAutoHide' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD62A70122 // DoAutoHide
- ;
-
-ref; // ME_8692DBE5801A DoIt
 
 : ME_52BD62A70122
  CONST UID '52BD62A70122'
@@ -4569,10 +6306,6 @@ ref; // ME_8692DBE5801A DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_8692DBE5801A // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD62A70122 DoAutoHide
 
@@ -4804,21 +6537,6 @@ ref; // ME_52BD638D0092 DoIt
 
 ref; // ME_52BD637E01DC FindFloatNavigator
 
-FORWARD ME_52BD640D0313
-
-: ME_1DA3AC51C06A
- CONST UID '1DA3AC51C06A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateCloseButton' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD640D0313 // UpdateCloseButton
- ;
-
-ref; // ME_1DA3AC51C06A DoIt
-
 : ME_52BD640D0313
  CONST UID '52BD640D0313'
  CONST Name 'UpdateCloseButton'
@@ -4829,10 +6547,6 @@ ref; // ME_1DA3AC51C06A DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_1DA3AC51C06A // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD640D0313 UpdateCloseButton
 
@@ -4934,21 +6648,6 @@ ref; // ME_52BD644F0167 DoIt
 
 ref; // ME_52BD644A002B AddNavigator
 
-FORWARD ME_52BD645E0355
-
-: ME_92C9A3DCD227
- CONST UID '92C9A3DCD227'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AutoHideUpdate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD645E0355 // AutoHideUpdate
- ;
-
-ref; // ME_92C9A3DCD227 DoIt
-
 : ME_52BD645E0355
  CONST UID '52BD645E0355'
  CONST Name 'AutoHideUpdate'
@@ -4959,27 +6658,8 @@ ref; // ME_92C9A3DCD227 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_92C9A3DCD227 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD645E0355 AutoHideUpdate
-
-FORWARD ME_52BD64760236
-
-: ME_FF0262654D38
- CONST UID 'FF0262654D38'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CloseDelay' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD64760236 // CloseDelay
- ;
-
-ref; // ME_FF0262654D38 DoIt
 
 : ME_52BD64760236
  CONST UID '52BD64760236'
@@ -4991,10 +6671,6 @@ ref; // ME_FF0262654D38 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_FF0262654D38 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD64760236 CloseDelay
 
@@ -5087,21 +6763,6 @@ ref; // ME_52BD64B703BC DoIt
 
 ref; // ME_52BD64B202A8 DockToFloatNavigator
 
-FORWARD ME_52BD64EC0294
-
-: ME_69150ECB291F
- CONST UID '69150ECB291F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Minimized' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD64EC0294 // Minimized
- ;
-
-ref; // ME_69150ECB291F DoIt
-
 : ME_52BD64EC0294
  CONST UID '52BD64EC0294'
  CONST Name 'Minimized'
@@ -5112,27 +6773,8 @@ ref; // ME_69150ECB291F DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_69150ECB291F // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD64EC0294 Minimized
-
-FORWARD ME_52BD64F60307
-
-: ME_351B17363E5C
- CONST UID '351B17363E5C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoSaveSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD64F60307 // DoSaveSize
- ;
-
-ref; // ME_351B17363E5C DoIt
 
 : ME_52BD64F60307
  CONST UID '52BD64F60307'
@@ -5144,10 +6786,6 @@ ref; // ME_351B17363E5C DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_351B17363E5C // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD64F60307 DoSaveSize
 
@@ -5194,21 +6832,6 @@ ref; // ME_52BD650E036B DoIt
 
 ref; // ME_52BD65070210 DrawSplit
 
-FORWARD ME_52BD653001BE
-
-: ME_2291080EAACA
- CONST UID '2291080EAACA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InitDockDrop' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD653001BE // InitDockDrop
- ;
-
-ref; // ME_2291080EAACA DoIt
-
 : ME_52BD653001BE
  CONST UID '52BD653001BE'
  CONST Name 'InitDockDrop'
@@ -5219,27 +6842,8 @@ ref; // ME_2291080EAACA DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_2291080EAACA // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD653001BE InitDockDrop
-
-FORWARD ME_52BD656B01FB
-
-: ME_D6936795620C
- CONST UID 'D6936795620C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ModeAutoUpdate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD656B01FB // ModeAutoUpdate
- ;
-
-ref; // ME_D6936795620C DoIt
 
 : ME_52BD656B01FB
  CONST UID '52BD656B01FB'
@@ -5251,27 +6855,8 @@ ref; // ME_D6936795620C DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_D6936795620C // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD656B01FB ModeAutoUpdate
-
-FORWARD ME_52BD6597029C
-
-: ME_CB92B807C812
- CONST UID 'CB92B807C812'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ModeHide' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD6597029C // ModeHide
- ;
-
-ref; // ME_CB92B807C812 DoIt
 
 : ME_52BD6597029C
  CONST UID '52BD6597029C'
@@ -5283,27 +6868,8 @@ ref; // ME_CB92B807C812 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_CB92B807C812 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD6597029C ModeHide
-
-FORWARD ME_52BD65A40367
-
-: ME_96F436741BEE
- CONST UID '96F436741BEE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ModeNormalUpdate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD65A40367 // ModeNormalUpdate
- ;
-
-ref; // ME_96F436741BEE DoIt
 
 : ME_52BD65A40367
  CONST UID '52BD65A40367'
@@ -5315,27 +6881,8 @@ ref; // ME_96F436741BEE DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_96F436741BEE // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD65A40367 ModeNormalUpdate
-
-FORWARD ME_52BD65DF01E3
-
-: ME_B1F46D0779D3
- CONST UID 'B1F46D0779D3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ModeStateUpdate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD65DF01E3 // ModeStateUpdate
- ;
-
-ref; // ME_B1F46D0779D3 DoIt
 
 : ME_52BD65DF01E3
  CONST UID '52BD65DF01E3'
@@ -5348,27 +6895,8 @@ ref; // ME_B1F46D0779D3 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_B1F46D0779D3 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD65DF01E3 ModeStateUpdate
-
-FORWARD ME_52BD661D0125
-
-: ME_0A8E7A2C0C69
- CONST UID '0A8E7A2C0C69'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ModeStateUpdateAfter' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD661D0125 // ModeStateUpdateAfter
- ;
-
-ref; // ME_0A8E7A2C0C69 DoIt
 
 : ME_52BD661D0125
  CONST UID '52BD661D0125'
@@ -5381,10 +6909,6 @@ ref; // ME_0A8E7A2C0C69 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_0A8E7A2C0C69 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD661D0125 ModeStateUpdateAfter
 
@@ -5441,21 +6965,6 @@ ref; // ME_52BD666302F4 DoIt
 
 ref; // ME_52BD665B0244 MovePagesToNavigator
 
-FORWARD ME_52BD669D02AB
-
-: ME_C774D434B915
- CONST UID 'C774D434B915'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода OpenDelay' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD669D02AB // OpenDelay
- ;
-
-ref; // ME_C774D434B915 DoIt
-
 : ME_52BD669D02AB
  CONST UID '52BD669D02AB'
  CONST Name 'OpenDelay'
@@ -5466,10 +6975,6 @@ ref; // ME_C774D434B915 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_C774D434B915 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD669D02AB OpenDelay
 
@@ -6185,21 +7690,6 @@ ref; // ME_52BD6DCF003B DoIt
 
 ref; // ME_52BD6DC7031F SetSelfSize
 
-FORWARD ME_52BD6DE601F7
-
-: ME_0D692C5AEFB9
- CONST UID '0D692C5AEFB9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoSplit' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD6DE601F7 // DoSplit
- ;
-
-ref; // ME_0D692C5AEFB9 DoIt
-
 : ME_52BD6DE601F7
  CONST UID '52BD6DE601F7'
  CONST Name 'DoSplit'
@@ -6210,27 +7700,8 @@ ref; // ME_0D692C5AEFB9 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_0D692C5AEFB9 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD6DE601F7 DoSplit
-
-FORWARD ME_52BD6E0B0379
-
-: ME_4C1A6108FCF9
- CONST UID '4C1A6108FCF9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetUndockSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD6E0B0379 // SetUndockSize
- ;
-
-ref; // ME_4C1A6108FCF9 DoIt
 
 : ME_52BD6E0B0379
  CONST UID '52BD6E0B0379'
@@ -6242,10 +7713,6 @@ ref; // ME_4C1A6108FCF9 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_4C1A6108FCF9 // DoIt
- )
- ; // Operations
 
 ref; // ME_52BD6E0B0379 SetUndockSize
 
@@ -6769,21 +8236,6 @@ ref; // ME_52BD708D0165 DoIt
 
 ref; // ME_52BD70850139 hGetMessage
 
-FORWARD ME_52CECF5600E7
-
-: ME_360CB1622D54
- CONST UID '360CB1622D54'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NormalUpdateSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52CECF5600E7 // NormalUpdateSize
- ;
-
-ref; // ME_360CB1622D54 DoIt
-
 : ME_52CECF5600E7
  CONST UID '52CECF5600E7'
  CONST Name 'NormalUpdateSize'
@@ -6794,27 +8246,8 @@ ref; // ME_360CB1622D54 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_360CB1622D54 // DoIt
- )
- ; // Operations
 
 ref; // ME_52CECF5600E7 NormalUpdateSize
-
-FORWARD ME_52CFCE2D03DE
-
-: ME_62E7A567E6D5
- CONST UID '62E7A567E6D5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ModeShow' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52CFCE2D03DE // ModeShow
- ;
-
-ref; // ME_62E7A567E6D5 DoIt
 
 : ME_52CFCE2D03DE
  CONST UID '52CFCE2D03DE'
@@ -6826,10 +8259,6 @@ ref; // ME_62E7A567E6D5 DoIt
  CONST Abstraction at_final
  : Parent ME_52BAD1C40174 // TvtNavigatorPrim
  ;
- : Operations
-   Seq: ( ME_62E7A567E6D5 // DoIt
- )
- ; // Operations
 
 ref; // ME_52CFCE2D03DE ModeShow
 
@@ -7150,32 +8579,6 @@ ref; // ME_B9B2E2BB624D MinimizedOffHintStored
 
 ref; // ME_7A36423C7FB3 CloseHintStored
 
-: ME_FD8A809FD712
- CONST UID 'FD8A809FD712'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtNavigatorPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FD8A809FD712 Ini_Reg_Class
-
-: ME_CD13FA618D78
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CD13FA618D78 
-
 : ME_4683E75B01D8_ME_52BAD1C40174
  : Original WL 'ME_4683E75B01D8' '467BAB7F021E.pas.ms.script' // SaveState
  ;
@@ -7404,30 +8807,6 @@ ref; // ME_52BC2B9401F3_ME_52BAD1C40174 AfterDestroyCalled
  ME_52CED0F20285 // NavigatorOnForm
  ME_551BD4FD03A2 // f_PageDeactivated
  ME_552669DF0373 // f_ParentMainForm
- ME_9FB5BE66FED6 // f_SizeMini
- ME_2267DBA0A139 // f_Swim
- ME_7F18EB1A19F1 // f_Activate
- ME_A8908BB59548 // f_PageControl
- ME_F24FAF862C46 // f_Float
- ME_1A6D1549EE36 // f_State
- ME_87120FC3950A // f_ShowActivePageInHeader
- ME_D13E60987E09 // f_AutoHideOffHint
- ME_A6DED6AD7479 // f_AutoHideOnHint
- ME_074D46ED34B5 // f_MinimizedOnHint
- ME_DD812ED26C66 // f_MinimizedOffHint
- ME_F29611892A7F // f_CloseHint
- ME_DE77F6ADB756 // f_OnSaveSize
- ME_A25432E144ED // f_OnLoadSize
- ME_83FECC821C9E // f_AutoHideFloat
- ME_25248341BF2B // f_DelayIntervalOnShow
- ME_1EDE3144E4EE // f_DelayIntervalOnHide
- ME_D64D15A73E97 // f_DelayOnAutoHide
- ME_53FBEF276187 // f_SingleFloatNavigator
- ME_0FD064C1E80A // f_SizeEmpty
- ME_C08E405FF8DB // f_SizeNormal
- ME_5C2236F6DBC0 // f_OnStateChange
- ME_73A0D7314E03 // f_UnDockFromFloat
- ME_A4809C9D7782 // f_NavigatorOnForm
  )
  ; // Attributes
  : Operations
@@ -7520,7 +8899,6 @@ ref; // ME_52BC2B9401F3_ME_52BAD1C40174 AfterDestroyCalled
  ME_8B031BED9702 // MinimizedOnHintStored
  ME_B9B2E2BB624D // MinimizedOffHintStored
  ME_7A36423C7FB3 // CloseHintStored
- ME_FD8A809FD712 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -7551,17 +8929,6 @@ ref; // ME_52BC2B9401F3_ME_52BAD1C40174 AfterDestroyCalled
  ME_52BC2B9401F3_ME_52BAD1C40174 // AfterDestroyCalled
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_CD13FA618D78 // 
- )
- ; // Dependencies
- : Forwarded
-   Seq: ( ME_52B9AF0A027C // TnpSurface
- ME_52BABCB3015C // TnpHeaderPrim
- ME_52BACEF001CB // TnpFloatingWindow
- ME_52BACEF900C7 // RnpFloatingWindow
- )
- ; // Forwarded
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -7571,3386 +8938,6 @@ ref; // ME_52BC2B9401F3_ME_52BAD1C40174 AfterDestroyCalled
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52BAD1C40174 TvtNavigatorPrim
-
-: ME_52BAC55302F0
- CONST UID '52BAC55302F0'
- CONST Name 'CloseButton'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAC22601F8 // TnpButton
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC55302F0 CloseButton
-
-: ME_52BAC569023C
- CONST UID '52BAC569023C'
- CONST Name 'HideButton'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAC22601F8 // TnpButton
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC569023C HideButton
-
-: ME_52BAC5810060
- CONST UID '52BAC5810060'
- CONST Name 'AutoHideButton'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAC22601F8 // TnpButton
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC5810060 AutoHideButton
-
-: ME_52BAC6E20218
- CONST UID '52BAC6E20218'
- CONST Name 'IsDragBegining'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'определяет была ли инициализирована операция Control.IsDragBegining от заголовка.' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_52BAC6E20218 IsDragBegining
-
-: ME_52BAC726019F
- CONST UID '52BAC726019F'
- CONST Name 'Align'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
- ;
- CONST "pm" true
-
-ref; // ME_52BAC726019F Align
-
-: ME_52BAC77E0213
- CONST UID '52BAC77E0213'
- CONST Name 'CloseImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC77E0213 CloseImage
-
-: ME_52BAC83B035F
- CONST UID '52BAC83B035F'
- CONST Name 'AutoHideOnImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC83B035F AutoHideOnImage
-
-: ME_52BAC84C0124
- CONST UID '52BAC84C0124'
- CONST Name 'AutoHideOffImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC84C0124 AutoHideOffImage
-
-: ME_52BAC8920025
- CONST UID '52BAC8920025'
- CONST Name 'HideLeftImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC8920025 HideLeftImage
-
-: ME_52BAC89D020A
- CONST UID '52BAC89D020A'
- CONST Name 'HideRightImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC89D020A HideRightImage
-
-: ME_52BAC8A7004C
- CONST UID '52BAC8A7004C'
- CONST Name 'HideUpImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC8A7004C HideUpImage
-
-: ME_52BAC8AF036E
- CONST UID '52BAC8AF036E'
- CONST Name 'HideDownImage'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAC8AF036E HideDownImage
-
-: ME_52BAC8FB0112
- CONST UID '52BAC8FB0112'
- CONST Name 'Size'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_52BAC8FB0112 Size
-
-: ME_52BAC9740089
- CONST UID '52BAC9740089'
- CONST Name 'OnHide'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "pm" true
-
-ref; // ME_52BAC9740089 OnHide
-
-: ME_52BAC993024A
- CONST UID '52BAC993024A'
- CONST Name 'OnAutoHide'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST "pm" true
-
-ref; // ME_52BAC993024A OnAutoHide
-
-: ME_52BACA3F0292
- CONST UID '52BACA3F0292'
- CONST Name 'ButtonsImageList'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BACA3F0292 ButtonsImageList
-
-: ME_52BACC030096
- CONST UID '52BACC030096'
- CONST Name 'f_Canvas'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_48C68AA40296' '473C3BEE0334.pas.ms.script' // Tl3WinControlCanvas
- ;
-
-ref; // ME_52BACC030096 f_Canvas
-
-: ME_52BACCC20204
- CONST UID '52BACCC20204'
- CONST Name 'f_Link'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52B9ADFB0090 // TnpChangeLink
- ;
-
-ref; // ME_52BACCC20204 f_Link
-
-: ME_52BC48D00331
- CONST UID '52BC48D00331'
- CONST Name 'Navigator'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BC48D00331 Navigator
-
-: ME_02C2F0E22A65
- CONST UID '02C2F0E22A65'
- CONST Name 'f_CloseButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAC22601F8 // TnpButton
- ;
-
-ref; // ME_02C2F0E22A65 f_CloseButton
-
-: ME_D16357DD912D
- CONST UID 'D16357DD912D'
- CONST Name 'f_HideButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HideButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAC22601F8 // TnpButton
- ;
-
-ref; // ME_D16357DD912D f_HideButton
-
-: ME_0C9224783FDA
- CONST UID '0C9224783FDA'
- CONST Name 'f_AutoHideButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoHideButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAC22601F8 // TnpButton
- ;
-
-ref; // ME_0C9224783FDA f_AutoHideButton
-
-: ME_5C0B3F7C0482
- CONST UID '5C0B3F7C0482'
- CONST Name 'f_IsDragBegining'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsDragBegining' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsDragBegining'
-
-ref; // ME_5C0B3F7C0482 f_IsDragBegining
-
-: ME_9FBC080CF3D1
- CONST UID '9FBC080CF3D1'
- CONST Name 'f_CloseImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'CloseImage'
-
-ref; // ME_9FBC080CF3D1 f_CloseImage
-
-: ME_8E29B324CD97
- CONST UID '8E29B324CD97'
- CONST Name 'f_AutoHideOnImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoHideOnImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'AutoHideOnImage'
-
-ref; // ME_8E29B324CD97 f_AutoHideOnImage
-
-: ME_5E6BADC9B9DD
- CONST UID '5E6BADC9B9DD'
- CONST Name 'f_AutoHideOffImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoHideOffImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'AutoHideOffImage'
-
-ref; // ME_5E6BADC9B9DD f_AutoHideOffImage
-
-: ME_917A86E98030
- CONST UID '917A86E98030'
- CONST Name 'f_HideLeftImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HideLeftImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'HideLeftImage'
-
-ref; // ME_917A86E98030 f_HideLeftImage
-
-: ME_B156C0B32EFD
- CONST UID 'B156C0B32EFD'
- CONST Name 'f_HideRightImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HideRightImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'HideRightImage'
-
-ref; // ME_B156C0B32EFD f_HideRightImage
-
-: ME_65F1081ACE6D
- CONST UID '65F1081ACE6D'
- CONST Name 'f_HideUpImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HideUpImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'HideUpImage'
-
-ref; // ME_65F1081ACE6D f_HideUpImage
-
-: ME_B233E48B8867
- CONST UID 'B233E48B8867'
- CONST Name 'f_HideDownImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HideDownImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'HideDownImage'
-
-ref; // ME_B233E48B8867 f_HideDownImage
-
-: ME_BD21BDD30AB1
- CONST UID 'BD21BDD30AB1'
- CONST Name 'f_Size'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Size' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Size'
-
-ref; // ME_BD21BDD30AB1 f_Size
-
-: ME_05C2CBC4E2A8
- CONST UID '05C2CBC4E2A8'
- CONST Name 'f_ButtonsImageList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ButtonsImageList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'ButtonsImageList'
-
-ref; // ME_05C2CBC4E2A8 f_ButtonsImageList
-
-: ME_39B5ACA1804C
- CONST UID '39B5ACA1804C'
- CONST Name 'f_Navigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Navigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST extprop:clearViaProperty 'Navigator'
-
-ref; // ME_39B5ACA1804C f_Navigator
-
-FORWARD ME_52BACD510230
-
-: ME_82EA3CD245AE
- CONST UID '82EA3CD245AE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода HideCloseButton' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACD510230 // HideCloseButton
- ;
-
-ref; // ME_82EA3CD245AE DoIt
-
-: ME_52BACD510230
- CONST UID '52BACD510230'
- CONST Name 'HideCloseButton'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_82EA3CD245AE // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACD510230 HideCloseButton
-
-FORWARD ME_52BACD6D0047
-
-: ME_52BACD76016C
- CONST Name 'aHandler'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47D0DE52037F' '467BAB7F021E.pas.ms.script' // IvcmFormHandler
- ;
-
-ref; // ME_52BACD76016C aHandler
-
-: ME_52BACD7103E4
- CONST UID '52BACD7103E4'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACD6D0047 // ShowCloseButton
- ;
- : Parameters
-   Seq: ( ME_52BACD76016C // aHandler
- )
- ; // Parameters
-
-ref; // ME_52BACD7103E4 DoIt
-
-: ME_52BACD6D0047
- CONST UID '52BACD6D0047'
- CONST Name 'ShowCloseButton'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_52BACD7103E4 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACD6D0047 ShowCloseButton
-
-FORWARD ME_52BACD9A0283
-
-: ME_52BACDA1033A
- CONST Name 'aValue'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_52BACDA1033A aValue
-
-: ME_52BACD9F013D
- CONST UID '52BACD9F013D'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACD9A0283 // CloseButtonVisible
- ;
- : Parameters
-   Seq: ( ME_52BACDA1033A // aValue
- )
- ; // Parameters
-
-ref; // ME_52BACD9F013D DoIt
-
-: ME_52BACD9A0283
- CONST UID '52BACD9A0283'
- CONST Name 'CloseButtonVisible'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'изменить видимость кнопки закрыть, установить кнопку видимой без установленного обработчика OnClick нельзя' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_52BACD9F013D // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACD9A0283 CloseButtonVisible
-
-FORWARD ME_52BACDF902D8
-
-: ME_A8B76278C8A8
- CONST UID 'A8B76278C8A8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateImages' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACDF902D8 // UpdateImages
- ;
-
-ref; // ME_A8B76278C8A8 DoIt
-
-: ME_52BACDF902D8
- CONST UID '52BACDF902D8'
- CONST Name 'UpdateImages'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_A8B76278C8A8 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACDF902D8 UpdateImages
-
-FORWARD ME_52BACE0703DA
-
-: ME_03C5CB9D7E3B
- CONST UID '03C5CB9D7E3B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACE0703DA // UpdateSize
- ;
-
-ref; // ME_03C5CB9D7E3B DoIt
-
-: ME_52BACE0703DA
- CONST UID '52BACE0703DA'
- CONST Name 'UpdateSize'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_03C5CB9D7E3B // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE0703DA UpdateSize
-
-FORWARD ME_52BACE0F03BF
-
-: ME_E6F5AE08A6D7
- CONST UID 'E6F5AE08A6D7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdatePositions' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACE0F03BF // UpdatePositions
- ;
-
-ref; // ME_E6F5AE08A6D7 DoIt
-
-: ME_52BACE0F03BF
- CONST UID '52BACE0F03BF'
- CONST Name 'UpdatePositions'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_E6F5AE08A6D7 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE0F03BF UpdatePositions
-
-FORWARD ME_52BACE1A006B
-
-: ME_DA6C6379F427
- CONST UID 'DA6C6379F427'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateHideImage' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACE1A006B // UpdateHideImage
- ;
-
-ref; // ME_DA6C6379F427 DoIt
-
-: ME_52BACE1A006B
- CONST UID '52BACE1A006B'
- CONST Name 'UpdateHideImage'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_DA6C6379F427 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE1A006B UpdateHideImage
-
-FORWARD ME_52BACE520121
-
-: ME_CBA8BCCE155D
- CONST UID 'CBA8BCCE155D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateCloseImage' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACE520121 // UpdateCloseImage
- ;
-
-ref; // ME_CBA8BCCE155D DoIt
-
-: ME_52BACE520121
- CONST UID '52BACE520121'
- CONST Name 'UpdateCloseImage'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_CBA8BCCE155D // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE520121 UpdateCloseImage
-
-FORWARD ME_52BACE6303BA
-
-: ME_CDB1C53FA992
- CONST UID 'CDB1C53FA992'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateAutoHideImage' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACE6303BA // UpdateAutoHideImage
- ;
-
-ref; // ME_CDB1C53FA992 DoIt
-
-: ME_52BACE6303BA
- CONST UID '52BACE6303BA'
- CONST Name 'UpdateAutoHideImage'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_CDB1C53FA992 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE6303BA UpdateAutoHideImage
-
-FORWARD ME_52BACE6F03E3
-
-: ME_52BACE77000B
- CONST UID '52BACE77000B'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACE6F03E3 // GetRectLines
- ;
- : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
-
-ref; // ME_52BACE77000B DoIt
-
-: ME_52BACE6F03E3
- CONST UID '52BACE6F03E3'
- CONST Name 'GetRectLines'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_52BACE77000B // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE6F03E3 GetRectLines
-
-FORWARD ME_52BACE8501F5
-
-: ME_AF869A11613E
- CONST UID 'AF869A11613E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoStateChanged' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BACE8501F5 // DoStateChanged
- ;
-
-ref; // ME_AF869A11613E DoIt
-
-: ME_52BACE8501F5
- CONST UID '52BACE8501F5'
- CONST Name 'DoStateChanged'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Operations
-   Seq: ( ME_AF869A11613E // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE8501F5 DoStateChanged
-
-FORWARD ME_52BACE8C01C7
-
-: ME_A213BB92E4D7
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A213BB92E4D7 Sender
-
-: ME_6C9CCF149434
- CONST UID '6C9CCF149434'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACE8C01C7 // OnStateChanged
- ;
- : Parameters
-   Seq: ( ME_A213BB92E4D7 // Sender
- )
- ; // Parameters
-
-ref; // ME_6C9CCF149434 DoIt
-
-: ME_52BACE8C01C7
- CONST UID '52BACE8C01C7'
- CONST Name 'OnStateChanged'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_6C9CCF149434 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BACE8C01C7 OnStateChanged
-
-: ME_52BAC3990334
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
- ;
-
-ref; // ME_52BAC3990334 Message
-
-: ME_52BAC39100F8
- CONST UID '52BAC39100F8'
- CONST Name 'WMEraseBkgnd'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Parameters
-   Seq: ( ME_52BAC3990334 // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_ERASEBKGND'
-
-ref; // ME_52BAC39100F8 WMEraseBkgnd
-
-: ME_BD2B3586508C
- CONST UID 'BD2B3586508C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpHeaderPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BD2B3586508C Ini_Reg_Class
-
-: ME_AEAC902D20B9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52BABCB3015C // TnpHeaderPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AEAC902D20B9 
-
-: ME_479731C50290_ME_52BABCB3015C
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_52BABCB3015C Cleanup
-
-: ME_47D1602000C6_ME_52BABCB3015C
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_52BABCB3015C Create
-
-: ME_4F88473B03CD_ME_52BABCB3015C
- : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F88473B03CD_ME_52BABCB3015C MouseDown
-
-: ME_5028A60300AD_ME_52BABCB3015C
- : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5028A60300AD_ME_52BABCB3015C Paint
-
-: ME_508F957E0283_ME_52BABCB3015C
- : Original WL 'ME_508F957E0283' '4799D29F033F.pas.ms.script' // AdjustClientRect
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_508F957E0283_ME_52BABCB3015C AdjustClientRect
-
-: ME_52BABCB3015C
- CONST UID '52BABCB3015C'
- CONST Name 'TnpHeaderPrim'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- %SUMMARY 'панель отображающаяся в навигаторе. Содержит кнопки включения(отключения автоскрытия) и скрытия панели до размеров вкладки. Событие OnMouseDown инициализирует перетаскиваение активного компонента.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Inherits
-   Seq: ( ME_52B9912003D9 // TnpCustomControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_52BAC55302F0 // CloseButton
- ME_52BAC569023C // HideButton
- ME_52BAC5810060 // AutoHideButton
- ME_52BAC6E20218 // IsDragBegining
- ME_52BAC726019F // Align
- ME_52BAC77E0213 // CloseImage
- ME_52BAC83B035F // AutoHideOnImage
- ME_52BAC84C0124 // AutoHideOffImage
- ME_52BAC8920025 // HideLeftImage
- ME_52BAC89D020A // HideRightImage
- ME_52BAC8A7004C // HideUpImage
- ME_52BAC8AF036E // HideDownImage
- ME_52BAC8FB0112 // Size
- ME_52BAC9740089 // OnHide
- ME_52BAC993024A // OnAutoHide
- ME_52BACA3F0292 // ButtonsImageList
- ME_52BACC030096 // f_Canvas
- ME_52BACCC20204 // f_Link
- ME_52BC48D00331 // Navigator
- ME_02C2F0E22A65 // f_CloseButton
- ME_D16357DD912D // f_HideButton
- ME_0C9224783FDA // f_AutoHideButton
- ME_5C0B3F7C0482 // f_IsDragBegining
- ME_9FBC080CF3D1 // f_CloseImage
- ME_8E29B324CD97 // f_AutoHideOnImage
- ME_5E6BADC9B9DD // f_AutoHideOffImage
- ME_917A86E98030 // f_HideLeftImage
- ME_B156C0B32EFD // f_HideRightImage
- ME_65F1081ACE6D // f_HideUpImage
- ME_B233E48B8867 // f_HideDownImage
- ME_BD21BDD30AB1 // f_Size
- ME_05C2CBC4E2A8 // f_ButtonsImageList
- ME_39B5ACA1804C // f_Navigator
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_52BACD510230 // HideCloseButton
- ME_52BACD6D0047 // ShowCloseButton
- ME_52BACD9A0283 // CloseButtonVisible
- ME_52BACDF902D8 // UpdateImages
- ME_52BACE0703DA // UpdateSize
- ME_52BACE0F03BF // UpdatePositions
- ME_52BACE1A006B // UpdateHideImage
- ME_52BACE520121 // UpdateCloseImage
- ME_52BACE6303BA // UpdateAutoHideImage
- ME_52BACE6F03E3 // GetRectLines
- ME_52BACE8501F5 // DoStateChanged
- ME_52BACE8C01C7 // OnStateChanged
- ME_52BAC39100F8 // WMEraseBkgnd
- ME_BD2B3586508C // Ini_Reg_Class
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_479731C50290_ME_52BABCB3015C // Cleanup
- ME_47D1602000C6_ME_52BABCB3015C // Create
- ME_4F88473B03CD_ME_52BABCB3015C // MouseDown
- ME_5028A60300AD_ME_52BABCB3015C // Paint
- ME_508F957E0283_ME_52BABCB3015C // AdjustClientRect
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_AEAC902D20B9 // 
- )
- ; // Dependencies
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'npHeaderPrim'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52BABCB3015C TnpHeaderPrim
-
-FORWARD ME_52B9AED10282
-
-FORWARD ME_52B9B0AA0105
-
-: ME_52BABD9C03B7
- CONST UID '52BABD9C03B7'
- CONST Name 'PageControl'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52B99259019E // TnpPageControl
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BABD9C03B7 PageControl
-
-: ME_52BABDB6021C
- CONST UID '52BABDB6021C'
- CONST Name 'Header'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52BABCB3015C // TnpHeaderPrim
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BABDB6021C Header
-
-: ME_52BAC0430151
- CONST UID '52BAC0430151'
- CONST Name 'Size'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "pm" true
-
-ref; // ME_52BAC0430151 Size
-
-: ME_52BAC1BC000B
- CONST UID '52BAC1BC000B'
- CONST Name 'f_Link'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52B9ADFB0090 // TnpChangeLink
- ;
-
-ref; // ME_52BAC1BC000B f_Link
-
-: ME_52BAC1EA013B
- CONST UID '52BAC1EA013B'
- CONST Name 'f_Container'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52B9AED10282 // TnpContainerSurface
- ;
-
-ref; // ME_52BAC1EA013B f_Container
-
-: ME_52BC48CC01E9
- CONST UID '52BC48CC01E9'
- CONST Name 'Navigator'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BC48CC01E9 Navigator
-
-: ME_52BC4CE70167
- CONST UID '52BC4CE70167'
- CONST Name 'f_Splitter'
- CONST Class class_Attribute
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52B9B0AA0105 // TnpSplitter
- ;
-
-ref; // ME_52BC4CE70167 f_Splitter
-
-: ME_380CC167389D
- CONST UID '380CC167389D'
- CONST Name 'f_PageControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PageControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52B99259019E // TnpPageControl
- ;
- CONST extprop:clearViaProperty 'PageControl'
-
-ref; // ME_380CC167389D f_PageControl
-
-: ME_6C728F338B59
- CONST UID '6C728F338B59'
- CONST Name 'f_Header'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Header' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52BABCB3015C // TnpHeaderPrim
- ;
- CONST extprop:clearViaProperty 'Header'
-
-ref; // ME_6C728F338B59 f_Header
-
-: ME_82CE6887CD72
- CONST UID '82CE6887CD72'
- CONST Name 'f_Navigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Navigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST extprop:clearViaProperty 'Navigator'
-
-ref; // ME_82CE6887CD72 f_Navigator
-
-FORWARD ME_52BAC11201BE
-
-: ME_4D8C084DFDFF
- CONST UID '4D8C084DFDFF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InitAutoHidePosition' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BAC11201BE // InitAutoHidePosition
- ;
-
-ref; // ME_4D8C084DFDFF DoIt
-
-: ME_52BAC11201BE
- CONST UID '52BAC11201BE'
- CONST Name 'InitAutoHidePosition'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'обновить Left окна' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Operations
-   Seq: ( ME_4D8C084DFDFF // DoIt
- )
- ; // Operations
-
-ref; // ME_52BAC11201BE InitAutoHidePosition
-
-FORWARD ME_52BAC1220315
-
-: ME_C0F0E57EE0A6
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_C0F0E57EE0A6 Sender
-
-: ME_6A9C80F0804B
- CONST UID '6A9C80F0804B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BAC1220315 // OnStateChanged
- ;
- : Parameters
-   Seq: ( ME_C0F0E57EE0A6 // Sender
- )
- ; // Parameters
-
-ref; // ME_6A9C80F0804B DoIt
-
-: ME_52BAC1220315
- CONST UID '52BAC1220315'
- CONST Name 'OnStateChanged'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_6A9C80F0804B // DoIt
- )
- ; // Operations
-
-ref; // ME_52BAC1220315 OnStateChanged
-
-FORWARD ME_52BAC1450146
-
-: ME_730ED3F81C9B
- CONST UID '730ED3F81C9B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetSizeMini' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BAC1450146 // SetSizeMini
- ;
-
-ref; // ME_730ED3F81C9B DoIt
-
-: ME_52BAC1450146
- CONST UID '52BAC1450146'
- CONST Name 'SetSizeMini'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Operations
-   Seq: ( ME_730ED3F81C9B // DoIt
- )
- ; // Operations
-
-ref; // ME_52BAC1450146 SetSizeMini
-
-FORWARD ME_52BAC14E0369
-
-: ME_4ED65E345189
- CONST UID '4ED65E345189'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DefineSplitterAlign' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BAC14E0369 // DefineSplitterAlign
- ;
-
-ref; // ME_4ED65E345189 DoIt
-
-: ME_52BAC14E0369
- CONST UID '52BAC14E0369'
- CONST Name 'DefineSplitterAlign'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Operations
-   Seq: ( ME_4ED65E345189 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BAC14E0369 DefineSplitterAlign
-
-: ME_52BAC0AE02F4
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_52BAC0AE02F4 Message
-
-: ME_52BAC0A1016B
- CONST UID '52BAC0A1016B'
- CONST Name 'WMEraseBkgnd'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Parameters
-   Seq: ( ME_52BAC0AE02F4 // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_ERASEBKGND'
-
-ref; // ME_52BAC0A1016B WMEraseBkgnd
-
-: ME_A517CF1DD486
- CONST UID 'A517CF1DD486'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpSurface' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A517CF1DD486 Ini_Reg_Class
-
-: ME_5B992E3A9A58
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B9AF0A027C // TnpSurface
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5B992E3A9A58 
-
-: ME_479731C50290_ME_52B9AF0A027C
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_52B9AF0A027C Cleanup
-
-: ME_47D1602000C6_ME_52B9AF0A027C
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_52B9AF0A027C Create
-
-: ME_5028A60300AD_ME_52B9AF0A027C
- : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5028A60300AD_ME_52B9AF0A027C Paint
-
-: ME_52B9AF0A027C
- CONST UID '52B9AF0A027C'
- CONST Name 'TnpSurface'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Подложка. На подложке лежат TnpHeader (заголовок ) и PageControl' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Inherits
-   Seq: ( ME_52B9912003D9 // TnpCustomControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_52BABD9C03B7 // PageControl
- ME_52BABDB6021C // Header
- ME_52BAC0430151 // Size
- ME_52BAC1BC000B // f_Link
- ME_52BAC1EA013B // f_Container
- ME_52BC48CC01E9 // Navigator
- ME_52BC4CE70167 // f_Splitter
- ME_380CC167389D // f_PageControl
- ME_6C728F338B59 // f_Header
- ME_82CE6887CD72 // f_Navigator
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_52BAC11201BE // InitAutoHidePosition
- ME_52BAC1220315 // OnStateChanged
- ME_52BAC1450146 // SetSizeMini
- ME_52BAC14E0369 // DefineSplitterAlign
- ME_52BAC0A1016B // WMEraseBkgnd
- ME_A517CF1DD486 // Ini_Reg_Class
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_479731C50290_ME_52B9AF0A027C // Cleanup
- ME_47D1602000C6_ME_52B9AF0A027C // Create
- ME_5028A60300AD_ME_52B9AF0A027C // Paint
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5B992E3A9A58 // 
- )
- ; // Dependencies
- : Forwarded
-   Seq: ( ME_52B9AED10282 // TnpContainerSurface
- ME_52B9B0AA0105 // TnpSplitter
- )
- ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'npSurface'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52B9AF0A027C TnpSurface
-
-: ME_52B9AF720263
- CONST UID '52B9AF720263'
- CONST Name 'Surface'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52B9AED10282 // TnpContainerSurface
- ;
- : Target ME_52B9AF0A027C // TnpSurface
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52B9AF720263 Surface
-
-: ME_B1363B6C92E8
- CONST UID 'B1363B6C92E8'
- CONST Name 'f_Surface'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Surface' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9AED10282 // TnpContainerSurface
- ;
- : Target ME_52B9AF0A027C // TnpSurface
- ;
- CONST extprop:clearViaProperty 'Surface'
-
-ref; // ME_B1363B6C92E8 f_Surface
-
-FORWARD ME_52B9AFE90213
-
-: ME_52B9AFFD00C5
- CONST Name 'aSurface'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_52B9AF0A027C // TnpSurface
- ;
-
-ref; // ME_52B9AFFD00C5 aSurface
-
-: ME_52B9AFFA022A
- CONST UID '52B9AFFA022A'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AFE90213 // Make
- ;
- : Target ME_52B9AED10282 // TnpContainerSurface
- ;
- : Parameters
-   Seq: ( ME_52B9AFFD00C5 // aSurface
- )
- ; // Parameters
-
-ref; // ME_52B9AFFA022A DoIt
-
-: ME_52B9AFE90213
- CONST UID '52B9AFE90213'
- CONST Name 'Make'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52B9AED10282 // TnpContainerSurface
- ;
- : Operations
-   Seq: ( ME_52B9AFFA022A // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_52B9AFE90213 Make
-
-: ME_52B9B064029D
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
- ;
-
-ref; // ME_52B9B064029D Message
-
-: ME_52B9B0560033
- CONST UID '52B9B0560033'
- CONST Name 'WMEraseBkgnd'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- %SUMMARY 'иначе границы toolbar-ов не прорисовываются' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AED10282 // TnpContainerSurface
- ;
- : Parameters
-   Seq: ( ME_52B9B064029D // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_ERASEBKGND'
-
-ref; // ME_52B9B0560033 WMEraseBkgnd
-
-: ME_25B7B6F74289
- CONST UID '25B7B6F74289'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpContainerSurface' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9AED10282 // TnpContainerSurface
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_25B7B6F74289 Ini_Reg_Class
-
-: ME_496725E93ED8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B9AED10282 // TnpContainerSurface
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_496725E93ED8 
-
-: ME_52B9AED10282
- CONST UID '52B9AED10282'
- CONST Name 'TnpContainerSurface'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Inherits
-   Seq: ( ME_52B9912003D9 // TnpCustomControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_52B9AF720263 // Surface
- ME_B1363B6C92E8 // f_Surface
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_52B9AFE90213 // Make
- ME_52B9B0560033 // WMEraseBkgnd
- ME_25B7B6F74289 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_496725E93ED8 // 
- )
- ; // Dependencies
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'npContainerSurface'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52B9AED10282 TnpContainerSurface
-
-: ME_52BAAFE902BC
- CONST UID '52BAAFE902BC'
- CONST Name 'f_MouseDownPoint'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_46A104F4028B' '4AB0C3F60375.pas.ms.script' // TPoint
- ;
-
-ref; // ME_52BAAFE902BC f_MouseDownPoint
-
-: ME_52BAB00903A4
- CONST UID '52BAB00903A4'
- CONST Name 'IsHideButtonDown'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BAB00903A4 IsHideButtonDown
-
-: ME_52BAB02F021D
- CONST UID '52BAB02F021D'
- CONST Name 'HideButtonHint'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'подсказка к кнопке "скрыть\развернуть"' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_52BAB02F021D HideButtonHint
-
-: ME_52BAB05F0215
- CONST UID '52BAB05F0215'
- CONST Name 'IsMouseDown'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_52BAB05F0215 IsMouseDown
-
-: ME_52BC4CAF0314
- CONST UID '52BC4CAF0314'
- CONST Name 'f_Surface'
- CONST Class class_Attribute
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target ME_52B9AF0A027C // TnpSurface
- ;
-
-ref; // ME_52BC4CAF0314 f_Surface
-
-: ME_22BB1C6E5C54
- CONST UID '22BB1C6E5C54'
- CONST Name 'f_IsHideButtonDown'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsHideButtonDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsHideButtonDown'
-
-ref; // ME_22BB1C6E5C54 f_IsHideButtonDown
-
-: ME_1852B406003F
- CONST UID '1852B406003F'
- CONST Name 'f_HideButtonHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HideButtonHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
- ;
- CONST extprop:clearViaProperty 'HideButtonHint'
-
-ref; // ME_1852B406003F f_HideButtonHint
-
-: ME_37532708B264
- CONST UID '37532708B264'
- CONST Name 'f_IsMouseDown'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsMouseDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsMouseDown'
-
-ref; // ME_37532708B264 f_IsMouseDown
-
-FORWARD ME_52BABB100388
-
-: ME_52BABB41018F
- CONST Name 'X'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_52BABB41018F X
-
-: ME_52BABB4101A9
- CONST Name 'Y'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_52BABB4101A9 Y
-
-: ME_52BABB3B00F1
- CONST UID '52BABB3B00F1'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABB100388 // splShowHint
- ;
- : Parameters
-   Seq: ( ME_52BABB41018F // X
- ME_52BABB4101A9 // Y
- )
- ; // Parameters
-
-ref; // ME_52BABB3B00F1 DoIt
-
-: ME_52BABB100388
- CONST UID '52BABB100388'
- CONST Name 'splShowHint'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_52BABB3B00F1 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABB100388 splShowHint
-
-FORWARD ME_52BABB57018D
-
-: ME_D206CC1709EC
- CONST UID 'D206CC1709EC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода splHideHint' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BABB57018D // splHideHint
- ;
-
-ref; // ME_D206CC1709EC DoIt
-
-: ME_52BABB57018D
- CONST UID '52BABB57018D'
- CONST Name 'splHideHint'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_D206CC1709EC // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABB57018D splHideHint
-
-FORWARD ME_52BABB61000E
-
-: ME_52BABB6A02E1
- CONST UID '52BABB6A02E1'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABB61000E // CreateButtonHint
- ;
- : Target WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
- ;
-
-ref; // ME_52BABB6A02E1 DoIt
-
-: ME_52BABB61000E
- CONST UID '52BABB61000E'
- CONST Name 'CreateButtonHint'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_52BABB6A02E1 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABB61000E CreateButtonHint
-
-FORWARD ME_52BABB7902B0
-
-: ME_52BABB80023A
- CONST Name 'aButton'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST Value true
- : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value true
-
-ref; // ME_52BABB80023A aButton
-
-: ME_52BABB7E02A3
- CONST UID '52BABB7E02A3'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABB7902B0 // UpdateCursor
- ;
- : Parameters
-   Seq: ( ME_52BABB80023A // aButton
- )
- ; // Parameters
-
-ref; // ME_52BABB7E02A3 DoIt
-
-: ME_52BABB7902B0
- CONST UID '52BABB7902B0'
- CONST Name 'UpdateCursor'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_52BABB7E02A3 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABB7902B0 UpdateCursor
-
-FORWARD ME_52BABB8900D4
-
-: ME_52BABB900130
- CONST Name 'aCanvas'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_52BABB900130 aCanvas
-
-: ME_52BABB8E0062
- CONST UID '52BABB8E0062'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABB8900D4 // DrawButton
- ;
- : Parameters
-   Seq: ( ME_52BABB900130 // aCanvas
- )
- ; // Parameters
-
-ref; // ME_52BABB8E0062 DoIt
-
-: ME_52BABB8900D4
- CONST UID '52BABB8900D4'
- CONST Name 'DrawButton'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_52BABB8E0062 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABB8900D4 DrawButton
-
-FORWARD ME_52BABB9A02AB
-
-: ME_52BABBA00153
- CONST UID '52BABBA00153'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABB9A02AB // GetButtonRect
- ;
- : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
-
-ref; // ME_52BABBA00153 DoIt
-
-: ME_52BABB9A02AB
- CONST UID '52BABB9A02AB'
- CONST Name 'GetButtonRect'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'определяет прямоугольник для кнопки' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_52BABBA00153 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABB9A02AB GetButtonRect
-
-FORWARD ME_52BABBD102EC
-
-: ME_01321972A036
- CONST UID '01321972A036'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetSizeCursor' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BABBD102EC // SetSizeCursor
- ;
-
-ref; // ME_01321972A036 DoIt
-
-: ME_52BABBD102EC
- CONST UID '52BABBD102EC'
- CONST Name 'SetSizeCursor'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'устанавливает курсор для изменения размеров' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_01321972A036 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABBD102EC SetSizeCursor
-
-FORWARD ME_52BABBE6027E
-
-: ME_52BABBED036E
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
- ;
-
-ref; // ME_52BABBED036E Msg
-
-: ME_52BABBEA0259
- CONST UID '52BABBEA0259'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BABBE6027E // IsHandledShortcut
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_52BABBED036E // Msg
- )
- ; // Parameters
-
-ref; // ME_52BABBEA0259 DoIt
-
-: ME_52BABBE6027E
- CONST UID '52BABBE6027E'
- CONST Name 'IsHandledShortcut'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Operations
-   Seq: ( ME_52BABBEA0259 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BABBE6027E IsHandledShortcut
-
-: ME_52BAB81B0379
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
- ;
-
-ref; // ME_52BAB81B0379 Msg
-
-: ME_52BAB80A032F
- CONST UID '52BAB80A032F'
- CONST Name 'WMKeyDown'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Parameters
-   Seq: ( ME_52BAB81B0379 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'WM_KEYDOWN'
-
-ref; // ME_52BAB80A032F WMKeyDown
-
-: ME_52BAB82D01B0
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_5110F6AF016B' '476F78840219.pas.ms.script' // TWMSysKeyDown
- ;
-
-ref; // ME_52BAB82D01B0 Msg
-
-: ME_52BAB8250200
- CONST UID '52BAB8250200'
- CONST Name 'WMSysKeyDown'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Parameters
-   Seq: ( ME_52BAB82D01B0 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'WM_SYSKEYDOWN'
-
-ref; // ME_52BAB8250200 WMSysKeyDown
-
-: ME_52BAB8480228
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
- ;
-
-ref; // ME_52BAB8480228 Msg
-
-: ME_52BAB838013D
- CONST UID '52BAB838013D'
- CONST Name 'CNKeyDown'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Parameters
-   Seq: ( ME_52BAB8480228 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'CN_KEYDOWN'
-
-ref; // ME_52BAB838013D CNKeyDown
-
-: ME_52BAB85B0031
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_5110F6AF016B' '476F78840219.pas.ms.script' // TWMSysKeyDown
- ;
-
-ref; // ME_52BAB85B0031 Msg
-
-: ME_52BAB8530216
- CONST UID '52BAB8530216'
- CONST Name 'CNSysKeyDown'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Parameters
-   Seq: ( ME_52BAB85B0031 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'CN_SYSKEYDOWN'
-
-ref; // ME_52BAB8530216 CNSysKeyDown
-
-: ME_5374D6410345
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_5374D6410345 Msg
-
-: ME_5374D62902DC
- CONST UID '5374D62902DC'
- CONST Name 'WMMouseLeave'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Parameters
-   Seq: ( ME_5374D6410345 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'WM_MOUSELEAVE'
-
-ref; // ME_5374D62902DC WMMouseLeave
-
-: ME_FCB5B1B8697A
- CONST UID 'FCB5B1B8697A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpSplitter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FCB5B1B8697A Ini_Reg_Class
-
-: ME_4918A3201941
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B9B0AA0105 // TnpSplitter
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4918A3201941 
-
-: ME_479731C50290_ME_52B9B0AA0105
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_52B9B0AA0105 Cleanup
-
-: ME_47D1602000C6_ME_52B9B0AA0105
- : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47D1602000C6_ME_52B9B0AA0105 Create
-
-: ME_48E22B250241_ME_52B9B0AA0105
- : Original WL 'ME_48E22B250241' '4799D29F033F.pas.ms.script' // MouseMove
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48E22B250241_ME_52B9B0AA0105 MouseMove
-
-: ME_4E7896270076_ME_52B9B0AA0105
- : Original WL 'ME_4E7896270076' '4799D29F033F.pas.ms.script' // MouseUp
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4E7896270076_ME_52B9B0AA0105 MouseUp
-
-: ME_4F88473B03CD_ME_52B9B0AA0105
- : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F88473B03CD_ME_52B9B0AA0105 MouseDown
-
-: ME_5028A60300AD_ME_52B9B0AA0105
- : Original WL 'ME_5028A60300AD' '4799D29F033F.pas.ms.script' // Paint
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5028A60300AD_ME_52B9B0AA0105 Paint
-
-: ME_52B9B0AA0105
- CONST UID '52B9B0AA0105'
- CONST Name 'TnpSplitter'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- %SUMMARY 'сплиттер используемый в навигаторе' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Inherits
-   Seq: ( ME_52B9912003D9 // TnpCustomControl
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_52BAAFE902BC // f_MouseDownPoint
- ME_52BAB00903A4 // IsHideButtonDown
- ME_52BAB02F021D // HideButtonHint
- ME_52BAB05F0215 // IsMouseDown
- ME_52BC4CAF0314 // f_Surface
- ME_22BB1C6E5C54 // f_IsHideButtonDown
- ME_1852B406003F // f_HideButtonHint
- ME_37532708B264 // f_IsMouseDown
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_52BABB100388 // splShowHint
- ME_52BABB57018D // splHideHint
- ME_52BABB61000E // CreateButtonHint
- ME_52BABB7902B0 // UpdateCursor
- ME_52BABB8900D4 // DrawButton
- ME_52BABB9A02AB // GetButtonRect
- ME_52BABBD102EC // SetSizeCursor
- ME_52BABBE6027E // IsHandledShortcut
- ME_52BAB80A032F // WMKeyDown
- ME_52BAB8250200 // WMSysKeyDown
- ME_52BAB838013D // CNKeyDown
- ME_52BAB8530216 // CNSysKeyDown
- ME_5374D62902DC // WMMouseLeave
- ME_FCB5B1B8697A // Ini_Reg_Class
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_479731C50290_ME_52B9B0AA0105 // Cleanup
- ME_47D1602000C6_ME_52B9B0AA0105 // Create
- ME_48E22B250241_ME_52B9B0AA0105 // MouseMove
- ME_4E7896270076_ME_52B9B0AA0105 // MouseUp
- ME_4F88473B03CD_ME_52B9B0AA0105 // MouseDown
- ME_5028A60300AD_ME_52B9B0AA0105 // Paint
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4918A3201941 // 
- )
- ; // Dependencies
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" true
- CONST extprop:rc:SelfName 'npSplitter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52B9B0AA0105 TnpSplitter
-
-FORWARD ME_52BD70B7032A
-
-: ME_52BD719F0004
- CONST UID '52BD719F0004'
- CONST Name 'Navigator'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_52BD719F0004 Navigator
-
-: ME_52BD71C101CD
- CONST UID '52BD71C101CD'
- CONST Name 'State'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'состояние плавающего окна' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target ME_52BD70DA02CA // TnpFloatWindowState
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_52BD71C101CD State
-
-: ME_52BD732A0292
- CONST UID '52BD732A0292'
- CONST Name 'FloatID'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_52BD732A0292 FloatID
-
-: ME_52BD73AB008B
- CONST UID '52BD73AB008B'
- CONST Name 'f_SizeNormal'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_52BD73AB008B f_SizeNormal
-
-: ME_52BD73C2027A
- CONST UID '52BD73C2027A'
- CONST Name 'f_CloseDisabled'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_52BD73C2027A f_CloseDisabled
-
-: ME_52BD73CB01E0
- CONST UID '52BD73CB01E0'
- CONST Name 'f_ReactivateDisabled'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_52BD73CB01E0 f_ReactivateDisabled
-
-: ME_7479FF615F3A
- CONST UID '7479FF615F3A'
- CONST Name 'f_Navigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Navigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
- CONST extprop:clearViaProperty 'Navigator'
-
-ref; // ME_7479FF615F3A f_Navigator
-
-: ME_6E2900585C31
- CONST UID '6E2900585C31'
- CONST Name 'f_State'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства State' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target ME_52BD70DA02CA // TnpFloatWindowState
- ;
- CONST extprop:clearViaProperty 'State'
-
-ref; // ME_6E2900585C31 f_State
-
-: ME_646411F86BB3
- CONST UID '646411F86BB3'
- CONST Name 'f_FloatID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FloatID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'FloatID'
-
-ref; // ME_646411F86BB3 f_FloatID
-
-FORWARD ME_52BD73E2039B
-
-: ME_52BD73EA0247
- CONST UID '52BD73EA0247'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD73E2039B // GetGripperRect
- ;
- : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
-
-ref; // ME_52BD73EA0247 DoIt
-
-: ME_52BD73E2039B
- CONST UID '52BD73E2039B'
- CONST Name 'GetGripperRect'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD73EA0247 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD73E2039B GetGripperRect
-
-FORWARD ME_52BD73F900BF
-
-: ME_52BD7400033D
- CONST UID '52BD7400033D'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD73F900BF // GetGripperHeight
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_52BD7400033D DoIt
-
-: ME_52BD73F900BF
- CONST UID '52BD73F900BF'
- CONST Name 'GetGripperHeight'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD7400033D // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD73F900BF GetGripperHeight
-
-FORWARD ME_52BD740F023F
-
-: ME_52BD741700DF
- CONST UID '52BD741700DF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD740F023F // CheckGripperCursor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_52BD741700DF DoIt
-
-: ME_52BD740F023F
- CONST UID '52BD740F023F'
- CONST Name 'CheckGripperCursor'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD741700DF // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD740F023F CheckGripperCursor
-
-FORWARD ME_52BD742402DA
-
-: ME_FFDCA59B8826
- CONST UID 'FFDCA59B8826'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateFloatWindowsBounds' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52BD742402DA // UpdateFloatWindowsBounds
- ;
-
-ref; // ME_FFDCA59B8826 DoIt
-
-: ME_52BD742402DA
- CONST UID '52BD742402DA'
- CONST Name 'UpdateFloatWindowsBounds'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_FFDCA59B8826 // DoIt
- )
- ; // Operations
- CONST "ifdef" 'Nemesis'
-
-ref; // ME_52BD742402DA UpdateFloatWindowsBounds
-
-FORWARD ME_52BD745C0104
-
-: ME_AFB514D7A11A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_AFB514D7A11A Sender
-
-: ME_299E16DB8D47
- CONST UID '299E16DB8D47'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD745C0104 // OnChangeState
- ;
- : Parameters
-   Seq: ( ME_AFB514D7A11A // Sender
- )
- ; // Parameters
-
-ref; // ME_299E16DB8D47 DoIt
-
-: ME_52BD745C0104
- CONST UID '52BD745C0104'
- CONST Name 'OnChangeState'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_299E16DB8D47 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD745C0104 OnChangeState
-
-FORWARD ME_52BD74650377
-
-: ME_3FBBE5ADA677
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_3FBBE5ADA677 Sender
-
-: ME_02A29762C835
- CONST UID '02A29762C835'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD74650377 // OnCloseWindow
- ;
- : Parameters
-   Seq: ( ME_3FBBE5ADA677 // Sender
- )
- ; // Parameters
-
-ref; // ME_02A29762C835 DoIt
-
-: ME_52BD74650377
- CONST UID '52BD74650377'
- CONST Name 'OnCloseWindow'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_02A29762C835 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD74650377 OnCloseWindow
-
-FORWARD ME_52BD74710051
-
-: ME_CE9496A536D5
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_CE9496A536D5 Sender
-
-: ME_D9EED6C21DCD
- CONST UID 'D9EED6C21DCD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD74710051 // FormOnResize
- ;
- : Parameters
-   Seq: ( ME_CE9496A536D5 // Sender
- )
- ; // Parameters
-
-ref; // ME_D9EED6C21DCD DoIt
-
-: ME_52BD74710051
- CONST UID '52BD74710051'
- CONST Name 'FormOnResize'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_D9EED6C21DCD // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD74710051 FormOnResize
-
-FORWARD ME_52BD748B0337
-
-: ME_52BD749703AC
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_52BD749703AC Sender
-
-: ME_52BD749703C6
- CONST Name 'Action'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_52BD888400E3' '4799D29F033F.pas.ms.script' // TCloseAction
- ;
-
-ref; // ME_52BD749703C6 Action
-
-: ME_52BD74950341
- CONST UID '52BD74950341'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD748B0337 // FormClose
- ;
- : Parameters
-   Seq: ( ME_52BD749703AC // Sender
- ME_52BD749703C6 // Action
- )
- ; // Parameters
-
-ref; // ME_52BD74950341 DoIt
-
-: ME_52BD748B0337
- CONST UID '52BD748B0337'
- CONST Name 'FormClose'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD74950341 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD748B0337 FormClose
-
-FORWARD ME_52BD74BD0029
-
-: ME_52BD74C4034F
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_52BD74C4034F Sender
-
-: ME_52BD74C40369
- CONST Name 'Page'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
- ;
-
-ref; // ME_52BD74C40369 Page
-
-: ME_52BD74C20208
- CONST UID '52BD74C20208'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD74BD0029 // OnTabSheetClick
- ;
- : Parameters
-   Seq: ( ME_52BD74C4034F // Sender
- ME_52BD74C40369 // Page
- )
- ; // Parameters
-
-ref; // ME_52BD74C20208 DoIt
-
-: ME_52BD74BD0029
- CONST UID '52BD74BD0029'
- CONST Name 'OnTabSheetClick'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD74C20208 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD74BD0029 OnTabSheetClick
-
-FORWARD ME_52BD74D2028D
-
-: ME_52BD74DC00E6
- CONST Name 'Sender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_52BD74DC00E6 Sender
-
-: ME_52BD74DC0100
- CONST Name 'Source'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F8851F9033B' '4799D29F033F.pas.ms.script' // TDragDockObject
- ;
-
-ref; // ME_52BD74DC0100 Source
-
-: ME_52BD74DC0125
- CONST Name 'X'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_52BD74DC0125 X
-
-: ME_52BD74DC016D
- CONST Name 'Y'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_52BD74DC016D Y
-
-: ME_52BD74D6035B
- CONST UID '52BD74D6035B'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD74D2028D // OnDockDrop
- ;
- : Parameters
-   Seq: ( ME_52BD74DC00E6 // Sender
- ME_52BD74DC0100 // Source
- ME_52BD74DC0125 // X
- ME_52BD74DC016D // Y
- )
- ; // Parameters
-
-ref; // ME_52BD74D6035B DoIt
-
-: ME_52BD74D2028D
- CONST UID '52BD74D2028D'
- CONST Name 'OnDockDrop'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD74D6035B // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD74D2028D OnDockDrop
-
-FORWARD ME_52BD752A00D3
-
-: ME_52BD75300293
- CONST UID '52BD75300293'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD752A00D3 // GetNavigatorClass
- ;
- : Target ME_52BD70B7032A // RvtNavigator
- ;
-
-ref; // ME_52BD75300293 DoIt
-
-: ME_52BD752A00D3
- CONST UID '52BD752A00D3'
- CONST Name 'GetNavigatorClass'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Operations
-   Seq: ( ME_52BD75300293 // DoIt
- )
- ; // Operations
-
-ref; // ME_52BD752A00D3 GetNavigatorClass
-
-: ME_52BD728F02D7
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_50291A020241' '476F78840219.pas.ms.script' // TWMNCCalcSize
- ;
-
-ref; // ME_52BD728F02D7 Message
-
-: ME_52BD728700B7
- CONST UID '52BD728700B7'
- CONST Name 'WMNCCalcSize'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Parameters
-   Seq: ( ME_52BD728F02D7 // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_NCCALCSIZE'
-
-ref; // ME_52BD728700B7 WMNCCalcSize
-
-: ME_52BD72A900A4
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_52BD72A900A4 Message
-
-: ME_52BD729D02CC
- CONST UID '52BD729D02CC'
- CONST Name 'WMNCPaint'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Parameters
-   Seq: ( ME_52BD72A900A4 // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_NCPAINT'
-
-ref; // ME_52BD729D02CC WMNCPaint
-
-: ME_52BD72D00032
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_50291A30019C' '476F78840219.pas.ms.script' // TWMNCHitTest
- ;
-
-ref; // ME_52BD72D00032 Message
-
-: ME_52BD72BD00B9
- CONST UID '52BD72BD00B9'
- CONST Name 'WMNCHitTest'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Parameters
-   Seq: ( ME_52BD72D00032 // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_NCHITTEST'
-
-ref; // ME_52BD72BD00B9 WMNCHitTest
-
-: ME_52BD72E60091
- CONST Name 'Message'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4F86F32B0299' '476F78840219.pas.ms.script' // TWMEraseBkgnd
- ;
-
-ref; // ME_52BD72E60091 Message
-
-: ME_52BD72DE0167
- CONST UID '52BD72DE0167'
- CONST Name 'WMEraseBkgnd'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Parameters
-   Seq: ( ME_52BD72E60091 // Message
- )
- ; // Parameters
- CONST "Message ID" 'WM_ERASEBKGND'
-
-ref; // ME_52BD72DE0167 WMEraseBkgnd
-
-: ME_B0B5C17EAB25
- CONST UID 'B0B5C17EAB25'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpFloatingWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B0B5C17EAB25 Ini_Reg_Class
-
-: ME_31D1E4B64576
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52BACEF001CB // TnpFloatingWindow
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_31D1E4B64576 
-
-: ME_4E79FED900C6_ME_52BACEF001CB
- : Original WL 'ME_4E79FED900C6' '467823B7002C.pas.ms.script' // DisableClose
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4E79FED900C6_ME_52BACEF001CB DisableClose
-
-: ME_4E7A0D9401F6_ME_52BACEF001CB
- : Original WL 'ME_4E7A0D9401F6' '467823B7002C.pas.ms.script' // DisableReactivate
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4E7A0D9401F6_ME_52BACEF001CB DisableReactivate
-
-: ME_479731C50290_ME_52BACEF001CB
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_52BACEF001CB Cleanup
-
-: ME_48C7925A02E5_ME_52BACEF001CB
- : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_48C7925A02E5_ME_52BACEF001CB CreateParams
-
-: ME_4980403E021E_ME_52BACEF001CB
- : Original WL 'ME_4980403E021E' '4799D29F033F.pas.ms.script' // CloseQuery
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4980403E021E_ME_52BACEF001CB CloseQuery
-
-: ME_4F9007B20376_ME_52BACEF001CB
- : Original WL 'ME_4F9007B20376' '4799D29F033F.pas.ms.script' // CreateNew
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4F9007B20376_ME_52BACEF001CB CreateNew
-
-: ME_52BACEF001CB
- CONST UID '52BACEF001CB'
- CONST Name 'TnpFloatingWindow'
- CONST Class class_Class
- : Stereotype st_GuiControl ;
- CONST Kind kind_NormalClass
- %SUMMARY 'плавающая форма содержащая плавающий навигатор. Форма создается если NewTarget отстыкованного компонента = nil. Форму можно перемещать за TnpHeader. При этом вызывается метод IsDragBegining первого компонента активной вкладки f_PageControl.ActivePage.Controls[0], если компонент не был пристыкован, то форма перемещается в место где была отпущена рамка.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Inherits
-   Seq: ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
- )
- ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4E79FEC0019E' '467823B7002C.pas.ms.script' // IafwFloatingWindow
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_52BD719F0004 // Navigator
- ME_52BD71C101CD // State
- ME_52BD732A0292 // FloatID
- ME_52BD73AB008B // f_SizeNormal
- ME_52BD73C2027A // f_CloseDisabled
- ME_52BD73CB01E0 // f_ReactivateDisabled
- ME_7479FF615F3A // f_Navigator
- ME_6E2900585C31 // f_State
- ME_646411F86BB3 // f_FloatID
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_52BD73E2039B // GetGripperRect
- ME_52BD73F900BF // GetGripperHeight
- ME_52BD740F023F // CheckGripperCursor
- ME_52BD742402DA // UpdateFloatWindowsBounds
- ME_52BD745C0104 // OnChangeState
- ME_52BD74650377 // OnCloseWindow
- ME_52BD74710051 // FormOnResize
- ME_52BD748B0337 // FormClose
- ME_52BD74BD0029 // OnTabSheetClick
- ME_52BD74D2028D // OnDockDrop
- ME_52BD752A00D3 // GetNavigatorClass
- ME_52BD728700B7 // WMNCCalcSize
- ME_52BD729D02CC // WMNCPaint
- ME_52BD72BD00B9 // WMNCHitTest
- ME_52BD72DE0167 // WMEraseBkgnd
- ME_B0B5C17EAB25 // Ini_Reg_Class
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4E79FED900C6_ME_52BACEF001CB // DisableClose
- ME_4E7A0D9401F6_ME_52BACEF001CB // DisableReactivate
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_52BACEF001CB // Cleanup
- ME_48C7925A02E5_ME_52BACEF001CB // CreateParams
- ME_4980403E021E_ME_52BACEF001CB // CloseQuery
- ME_4F9007B20376_ME_52BACEF001CB // CreateNew
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_31D1E4B64576 // 
- )
- ; // Dependencies
- : Forwarded
-   Seq: ( ME_52BD70B7032A // RvtNavigator
- )
- ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'npFloatingWindow'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52BACEF001CB TnpFloatingWindow
-
-: ME_52BACEF900C7
- CONST UID '52BACEF900C7'
- CONST Name 'RnpFloatingWindow'
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Inherits
-   Seq: ( ME_52BACEF001CB // TnpFloatingWindow
- )
- ; // Inherits
- CONST "isClassRef" true
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52BACEF900C7 RnpFloatingWindow
 
 : ME_52BD70B7032A
  CONST UID '52BD70B7032A'
@@ -10971,34 +8958,6 @@ ref; // ME_52BACEF900C7 RnpFloatingWindow
 
 ref; // ME_52BD70B7032A RvtNavigator
 
-FORWARD ME_52BAC7A10261
-
-: ME_E1C378DB1735
- CONST UID 'E1C378DB1735'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnpHeader' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BAC7A10261 // TnpHeader
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E1C378DB1735 Ini_Reg_Class
-
-: ME_533F1102C8B5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52BAC7A10261 // TnpHeader
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_533F1102C8B5 
-
 : ME_52BAC7A10261
  CONST UID '52BAC7A10261'
  CONST Name 'TnpHeader'
@@ -11013,14 +8972,6 @@ ref; // ME_533F1102C8B5
    Seq: ( ME_52BABCB3015C // TnpHeaderPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E1C378DB1735 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_533F1102C8B5 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -12080,21 +10031,6 @@ ref; // ME_FE08BFE52BE6 Init_Str_cemNavigatorAlreadyExists
 
 ref; // ME_CCAC57A374FE Init_Str_cemDeleteNavigatorNotExists
 
-: ME_FC7D487DC75D
- CONST UID 'FC7D487DC75D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FC7D487DC75D Ini_Reg_Class
-
 FORWARD ME_4F61A51602F4
 
 : ME_4F61A5200029
@@ -12345,17 +10281,6 @@ ref; // ME_F22C434E7110
 
 ref; // ME_331B8E210DA6 
 
-: ME_24F6D28F15A6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_24F6D28F15A6 
-
 : ME_4C8A252E01C2
  CONST UID '4C8A252E01C2'
  CONST Name 'TvtNavigator'
@@ -12380,7 +10305,6 @@ ref; // ME_24F6D28F15A6
  ME_F129D3D35D87 // Init_Str_cemIndexOutOfPageCount
  ME_FE08BFE52BE6 // Init_Str_cemNavigatorAlreadyExists
  ME_CCAC57A374FE // Init_Str_cemDeleteNavigatorNotExists
- ME_FC7D487DC75D // Ini_Reg_Class
  )
  ; // Operations
  : Children
@@ -12397,14 +10321,14 @@ ref; // ME_24F6D28F15A6
  ME_52BD70DA02CA // TnpFloatWindowState
  ME_52B99259019E // TnpPageControl
  ME_52B9AD4E02CB // RnpPageControl
- ME_52BAC22601F8 // TnpButton
- ME_52BAD1C40174 // TvtNavigatorPrim
- ME_52BABCB3015C // TnpHeaderPrim
- ME_52B9AF0A027C // TnpSurface
  ME_52B9AED10282 // TnpContainerSurface
+ ME_52B9AF0A027C // TnpSurface
  ME_52B9B0AA0105 // TnpSplitter
+ ME_52BABCB3015C // TnpHeaderPrim
+ ME_52BAC22601F8 // TnpButton
  ME_52BACEF001CB // TnpFloatingWindow
  ME_52BACEF900C7 // RnpFloatingWindow
+ ME_52BAD1C40174 // TvtNavigatorPrim
  ME_52BD70B7032A // RvtNavigator
  ME_52BAC7A10261 // TnpHeader
  ME_52BD75860377 // TnpDoActionWithFormControl
@@ -12444,7 +10368,6 @@ ref; // ME_24F6D28F15A6
  ME_55AE37F3024A // 
  ME_F22C434E7110 // 
  ME_331B8E210DA6 // 
- ME_24F6D28F15A6 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -13438,7 +11361,6 @@ ref; // ME_52691A8D018E vtNavigatorUtils
  WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
  WL 'ME_55879DBD0111' '55879DBD0111.pas.ms.script' // PopupControlServices
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

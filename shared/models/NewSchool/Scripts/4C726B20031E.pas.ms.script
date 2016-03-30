@@ -186,38 +186,6 @@ ref; // ME_4C727D7601AC Parent
 
 ref; // ME_4C727E800254 ChildID
 
-: ME_BD3D1144E6F6
- CONST UID 'BD3D1144E6F6'
- CONST Name 'f_Parent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Parent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C727CF102FF // nsParentedTagData
- ;
- : Target ME_4C727C5B007B // Tf1ListTagDataFromDTPPrim
- ;
-
-ref; // ME_BD3D1144E6F6 f_Parent
-
-: ME_E89ED71D5868
- CONST UID 'E89ED71D5868'
- CONST Name 'f_ChildID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChildID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C727CF102FF // nsParentedTagData
- ;
- : Target WL 'ME_4C5AA67E002B' '4570511E038A.pas.ms.script' // ChildID
- ;
-
-ref; // ME_E89ED71D5868 f_ChildID
-
 FORWARD ME_4C727EAE031D
 
 : ME_4C727EC8017B
@@ -345,8 +313,6 @@ ref; // ME_4C72A6B5000F_ME_4C727CF102FF ParentPrim
  : Attributes
    Seq: ( ME_4C727D7601AC // Parent
  ME_4C727E800254 // ChildID
- ME_BD3D1144E6F6 // f_Parent
- ME_E89ED71D5868 // f_ChildID
  )
  ; // Attributes
  : Operations
@@ -1418,12 +1384,6 @@ ref; // ME_4D0F4C9E0379_ME_4C727ADB0312 TechComment
  CONST "pm" false
 ref; // ME_4D6E5C270068_ME_4C727ADB0312 IsProviderGot
 
-: ME_5000565C019C_ME_4C727ADB0312
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C727ADB0312 ClearFields
-
 : ME_4C727ADB0312
  CONST UID '4C727ADB0312'
  CONST Name 'Tf1TagDataFromDTP'
@@ -1479,10 +1439,6 @@ ref; // ME_5000565C019C_ME_4C727ADB0312 ClearFields
  ME_4D6E5C270068_ME_4C727ADB0312 // IsProviderGot
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4C727ADB0312 // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_4CEBC51E00CA // 
  ME_4CEBCE0901C5 // 
@@ -1524,22 +1480,6 @@ ref; // ME_4C727ADB0312 Tf1TagDataFromDTP
  CONST "pm" true
 
 ref; // ME_4C72897703B9 LayerID
-
-: ME_4B9AEECA7C20
- CONST UID '4B9AEECA7C20'
- CONST Name 'f_LayerID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LayerID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C727C5B007B // Tf1ListTagDataFromDTPPrim
- ;
- : Target ME_4C728C1D01FD // DTPLayerID
- ;
-
-ref; // ME_4B9AEECA7C20 f_LayerID
 
 : ME_4C72871C0212
  CONST Class class_Dependency
@@ -1594,7 +1534,6 @@ ref; // ME_4C7298A100C9_ME_4C727C5B007B Child
  ; // Inherits
  : Attributes
    Seq: ( ME_4C72897703B9 // LayerID
- ME_4B9AEECA7C20 // f_LayerID
  )
  ; // Attributes
  : Overridden

@@ -329,21 +329,6 @@ ref; // ME_5049B38503C0 f_UpdateStringsTimer
 
 ref; // ME_505C55130356 f_GroupIndex
 
-FORWARD ME_503DE99801D3
-
-: ME_B0F55654BC38
- CONST UID 'B0F55654BC38'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetLink' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_503DE99801D3 // SetLink
- ;
-
-ref; // ME_B0F55654BC38 DoIt
-
 : ME_503DE99801D3
  CONST UID '503DE99801D3'
  CONST Name 'SetLink'
@@ -354,27 +339,8 @@ ref; // ME_B0F55654BC38 DoIt
  CONST Abstraction at_final
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
- : Operations
-   Seq: ( ME_B0F55654BC38 // DoIt
- )
- ; // Operations
 
 ref; // ME_503DE99801D3 SetLink
-
-FORWARD ME_503DE9AA03AD
-
-: ME_417EE60869AD
- CONST UID '417EE60869AD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ReleaseLink' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_503DE9AA03AD // ReleaseLink
- ;
-
-ref; // ME_417EE60869AD DoIt
 
 : ME_503DE9AA03AD
  CONST UID '503DE9AA03AD'
@@ -386,10 +352,6 @@ ref; // ME_417EE60869AD DoIt
  CONST Abstraction at_final
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
- : Operations
-   Seq: ( ME_417EE60869AD // DoIt
- )
- ; // Operations
 
 ref; // ME_503DE9AA03AD ReleaseLink
 
@@ -506,21 +468,6 @@ ref; // ME_3C98A8704C0E DoIt
 
 ref; // ME_503DEA120182 TimerProc
 
-FORWARD ME_5049B3BE0205
-
-: ME_E817DDA8A51D
- CONST UID 'E817DDA8A51D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FireUpUpdateStringsTimer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5049B3BE0205 // FireUpUpdateStringsTimer
- ;
-
-ref; // ME_E817DDA8A51D DoIt
-
 : ME_5049B3BE0205
  CONST UID '5049B3BE0205'
  CONST Name 'FireUpUpdateStringsTimer'
@@ -531,10 +478,6 @@ ref; // ME_E817DDA8A51D DoIt
  CONST Abstraction at_final
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
- : Operations
-   Seq: ( ME_E817DDA8A51D // DoIt
- )
- ; // Operations
 
 ref; // ME_5049B3BE0205 FireUpUpdateStringsTimer
 
@@ -1234,90 +1177,6 @@ ref; // ME_4FEC3D2C02B2 DoIt
 
 ref; // ME_4FEC3D23013F Create
 
-FORWARD ME_4FEC3D9A0253
-
-: ME_FA70F6EF6A61
- CONST Name 'aShowCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_FA70F6EF6A61 aShowCaption
-
-: ME_4F0B187C88EA
- CONST Name 'aCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_4F0B187C88EA aCaption
-
-: ME_383AF6B55CE7
- CONST Name 'aUseTooltip'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_383AF6B55CE7 aUseTooltip
-
-: ME_095E19E361C3
- CONST Name 'aRequireAutoPopup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_095E19E361C3 aRequireAutoPopup
-
-: ME_ADDB75ACC591
- CONST Name 'anAutoPopupTimeout'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
-
-ref; // ME_ADDB75ACC591 anAutoPopupTimeout
-
-: ME_C6E4F3700C32
- CONST Name 'aToolTipKind'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_498035FA00E9' '490838E10313.pas.ms.script' // TnscToolTipKind
- ;
-
-ref; // ME_C6E4F3700C32 aToolTipKind
-
-: ME_B0EB86FF6CE2
- CONST UID 'B0EB86FF6CE2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnscStatusBarItemDef.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FEC3D9A0253 // Make
- ;
- : Parameters
-   Seq: ( ME_FA70F6EF6A61 // aShowCaption
- ME_4F0B187C88EA // aCaption
- ME_383AF6B55CE7 // aUseTooltip
- ME_095E19E361C3 // aRequireAutoPopup
- ME_ADDB75ACC591 // anAutoPopupTimeout
- ME_C6E4F3700C32 // aToolTipKind
- )
- ; // Parameters
-
-ref; // ME_B0EB86FF6CE2 DoIt
-
 : ME_4FEC3D9A0253
  CONST UID '4FEC3D9A0253'
  CONST Name 'Make'
@@ -1332,10 +1191,6 @@ ref; // ME_B0EB86FF6CE2 DoIt
    Seq: ( ME_4FEC3D23013F // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B0EB86FF6CE2 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1601,65 +1456,6 @@ ref; // ME_4FEC497001EF DoIt
 
 ref; // ME_4FEC49660337 Create
 
-FORWARD ME_4FEC4982036E
-
-: ME_93885D090E3C
- CONST Name 'aSeparatorVisible'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
-
-ref; // ME_93885D090E3C aSeparatorVisible
-
-: ME_C7299739BEDE
- CONST Name 'aSeparatorPos'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4FF314BE007F' '490838E10313.pas.ms.script' // TsbdSeparatorPos
- ;
- CONST Value 'spMiddle'
- : ValueType WL 'ME_4FF314BE007F' '490838E10313.pas.ms.script' // TsbdSeparatorPos
- ;
- CONST extprop:pas:Value 'nscNewInterfaces.spMiddle'
-
-ref; // ME_C7299739BEDE aSeparatorPos
-
-: ME_AA3FDCB8D33E
- CONST Name 'aWidth'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST Value 0
- : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:pas:Value 0
-
-ref; // ME_AA3FDCB8D33E aWidth
-
-: ME_D2026D5AB932
- CONST UID 'D2026D5AB932'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnscStatusBarDelimiterDef.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FEC4982036E // Make
- ;
- : Parameters
-   Seq: ( ME_93885D090E3C // aSeparatorVisible
- ME_C7299739BEDE // aSeparatorPos
- ME_AA3FDCB8D33E // aWidth
- )
- ; // Parameters
-
-ref; // ME_D2026D5AB932 DoIt
-
 : ME_4FEC4982036E
  CONST UID '4FEC4982036E'
  CONST Name 'Make'
@@ -1674,10 +1470,6 @@ ref; // ME_D2026D5AB932 DoIt
    Seq: ( ME_4FEC49660337 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D2026D5AB932 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1871,101 +1663,6 @@ ref; // ME_4FEC4A3F0164 DoIt
 
 ref; // ME_4FEC4A26030E Create
 
-FORWARD ME_4FEC4A6C02E8
-
-: ME_1E92904850C2
- CONST Name 'anOperation'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683D016009C' '467BAB7F021E.pas.ms.script' // TvcmOpSelector
- ;
-
-ref; // ME_1E92904850C2 anOperation
-
-: ME_A15D5CFA93BC
- CONST Name 'aShowCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_A15D5CFA93BC aShowCaption
-
-: ME_375ED80F940E
- CONST Name 'aCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_375ED80F940E aCaption
-
-: ME_637723AD3C38
- CONST Name 'aUseToolTip'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_637723AD3C38 aUseToolTip
-
-: ME_EFB1659D7D7B
- CONST Name 'aRequireAutoPopup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_EFB1659D7D7B aRequireAutoPopup
-
-: ME_092B6155F778
- CONST Name 'anAutoPopupTimeout'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
-
-ref; // ME_092B6155F778 anAutoPopupTimeout
-
-: ME_AAE01886E4FC
- CONST Name 'aToolTipKind'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_498035FA00E9' '490838E10313.pas.ms.script' // TnscToolTipKind
- ;
-
-ref; // ME_AAE01886E4FC aToolTipKind
-
-: ME_7D26097B4332
- CONST UID '7D26097B4332'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnscStatusBarOperationDef.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FEC4A6C02E8 // Make
- ;
- : Parameters
-   Seq: ( ME_1E92904850C2 // anOperation
- ME_A15D5CFA93BC // aShowCaption
- ME_375ED80F940E // aCaption
- ME_637723AD3C38 // aUseToolTip
- ME_EFB1659D7D7B // aRequireAutoPopup
- ME_092B6155F778 // anAutoPopupTimeout
- ME_AAE01886E4FC // aToolTipKind
- )
- ; // Parameters
-
-ref; // ME_7D26097B4332 DoIt
-
 : ME_4FEC4A6C02E8
  CONST UID '4FEC4A6C02E8'
  CONST Name 'Make'
@@ -1980,10 +1677,6 @@ ref; // ME_7D26097B4332 DoIt
    Seq: ( ME_4FEC4A26030E // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7D26097B4332 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

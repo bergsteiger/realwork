@@ -263,23 +263,6 @@ ref; // ME_51E8070603AC First
 
 ref; // ME_51E8074101B5 Last
 
-: ME_E5C8F5D2D7BC
- CONST UID 'E5C8F5D2D7BC'
- CONST Name 'f_Count'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_51DEB07E03E4 // List
- ;
- : Target ME_51DEB8CB0127 // IndexType
- ;
- CONST extprop:clearViaProperty 'Count'
-
-ref; // ME_E5C8F5D2D7BC f_Count
-
 FORWARD ME_51DEB8770017
 
 : ME_51DEB8930015
@@ -866,21 +849,6 @@ ref; // ME_51E80242014A DoIt
 
 ref; // ME_51E802290167 Remove
 
-FORWARD ME_51E8026302B4
-
-: ME_143FADC47A8C
- CONST UID '143FADC47A8C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Clear' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_51E8026302B4 // Clear
- ;
-
-ref; // ME_143FADC47A8C DoIt
-
 : ME_51E8026302B4
  CONST UID '51E8026302B4'
  CONST Name 'Clear'
@@ -892,10 +860,6 @@ ref; // ME_143FADC47A8C DoIt
  CONST Abstraction at_final
  : Parent ME_51DEB07E03E4 // List
  ;
- : Operations
-   Seq: ( ME_143FADC47A8C // DoIt
- )
- ; // Operations
 
 ref; // ME_51E8026302B4 Clear
 
@@ -1046,7 +1010,6 @@ ref; // ME_479731C50290_ME_51DEB07E03E4 Cleanup
  ME_51E7FDAC023D // Empty
  ME_51E8070603AC // First
  ME_51E8074101B5 // Last
- ME_E5C8F5D2D7BC // f_Count
  )
  ; // Attributes
  : Operations

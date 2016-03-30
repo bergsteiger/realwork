@@ -250,37 +250,6 @@ ref; // ME_5538B7640154 MvcmTabbedContainersService
 
 FORWARD ME_5539E9010272
 
-: ME_60A51C082022
- CONST UID '60A51C082022'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmTabbedContainersDispatcher' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5539E9010272 // TvcmTabbedContainersDispatcher
- ;
-
-ref; // ME_60A51C082022 bind
-
-: ME_F8EA8FBD0892
- CONST UID 'F8EA8FBD0892'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5539E9010272 // TvcmTabbedContainersDispatcher
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_F8EA8FBD0892 Exists
-
 : ME_5539E92602C9
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -483,11 +452,6 @@ ref; // ME_F550802110EC_ME_5539E9010272 CloseAll
    Seq: ( WL 'ME_D7B11E9421DB' '553213B80041.pas.ms.script' // Il3TabbedContainersDispatcher
  )
  ; // Implements
- : Operations
-   Seq: ( ME_60A51C082022 // bind
- ME_F8EA8FBD0892 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_02157F96E465_ME_5539E9010272 // GetTabIcon
  ME_06D14140190A_ME_5539E9010272 // IsInBF
@@ -790,40 +754,6 @@ ref; // ME_31E98986F011 IvcmTabbedContainersService
 
 ref; // ME_53AF9D0D053A Alien
 
-: ME_C9DAB4A688B3
- CONST UID 'C9DAB4A688B3'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
- ;
- : Target ME_31E98986F011 // IvcmTabbedContainersService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_C9DAB4A688B3 f_Alien
-
-: ME_280D0F4DCAAF
- CONST UID '280D0F4DCAAF'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_280D0F4DCAAF Exists
-
 : ME_5538BD7D01B5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1044,12 +974,6 @@ ref; // ME_F2A394FBFE56_ME_5538940C00DD SaveTabToHistory
  CONST OpKind opkind_Implemented
 ref; // ME_F550802110EC_ME_5538940C00DD CloseAll
 
-: ME_5000565C019C_ME_5538940C00DD
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5538940C00DD ClearFields
-
 : ME_5538940C00DD
  CONST UID '5538940C00DD'
  CONST Name 'TvcmTabbedContainersService'
@@ -1070,13 +994,8 @@ ref; // ME_5000565C019C_ME_5538940C00DD ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_53AF9D0D053A // Alien
- ME_C9DAB4A688B3 // f_Alien
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_280D0F4DCAAF // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_02157F96E465_ME_5538940C00DD // GetTabIcon
  ME_06D14140190A_ME_5538940C00DD // IsInBF
@@ -1110,10 +1029,6 @@ ref; // ME_5000565C019C_ME_5538940C00DD ClearFields
  ME_F550802110EC_ME_5538940C00DD // CloseAll
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_5538940C00DD // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_5538B7640154 // MvcmTabbedContainersService
  ME_5539E9010272 // TvcmTabbedContainersDispatcher
@@ -1389,23 +1304,6 @@ ref; // ME_5E9754328486 IvcmHistoryService
 
 ref; // ME_64681A7E247B Alien
 
-: ME_81BCC6235DF3
- CONST UID '81BCC6235DF3'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_559BA19C0076 // TvcmHistoryService
- ;
- : Target ME_5E9754328486 // IvcmHistoryService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_81BCC6235DF3 f_Alien
-
 : ME_559BA32202BC
  CONST Name 'aForm'
  CONST Class class_Parameter
@@ -1539,23 +1437,6 @@ ref; // ME_569E019A000B aForm
 
 ref; // ME_569E01920150 Back
 
-: ME_5393CD53F600
- CONST UID '5393CD53F600'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_559BA19C0076 // TvcmHistoryService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5393CD53F600 Exists
-
 : ME_559BA1F00004
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1606,12 +1487,6 @@ ref; // ME_975F702287E2_ME_559BA19C0076 SaveFormState
  CONST OpKind opkind_Implemented
 ref; // ME_A872A2AAB575_ME_559BA19C0076 IsInBF
 
-: ME_5000565C019C_ME_559BA19C0076
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_559BA19C0076 ClearFields
-
 : ME_559BA19C0076
  CONST UID '559BA19C0076'
  CONST Name 'TvcmHistoryService'
@@ -1632,7 +1507,6 @@ ref; // ME_5000565C019C_ME_559BA19C0076 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_64681A7E247B // Alien
- ME_81BCC6235DF3 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -1641,7 +1515,6 @@ ref; // ME_5000565C019C_ME_559BA19C0076 ClearFields
  ME_559CAE8C0067 // GetContainerHistory
  ME_55B8A6460123 // IsInBF
  ME_569E01920150 // Back
- ME_5393CD53F600 // Exists
  )
  ; // Operations
  : Implemented
@@ -1652,10 +1525,6 @@ ref; // ME_5000565C019C_ME_559BA19C0076 ClearFields
  ME_A872A2AAB575_ME_559BA19C0076 // IsInBF
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_559BA19C0076 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_401DD96F3E52 // MvcmHistoryService
  ME_5E9754328486 // IvcmHistoryService

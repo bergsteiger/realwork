@@ -6,34 +6,6 @@ FORWARD ME_4E159FE900E2
 
 FORWARD ME_4E15A00502A3
 
-FORWARD ME_4E15A01301E2
-
-: ME_5881F9C20CB1
- CONST UID '5881F9C20CB1'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomStatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E15A01301E2 // TvtCustomStatusBar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5881F9C20CB1 Ini_Reg_Class
-
-: ME_B1E4795AFC22
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A01301E2 // TvtCustomStatusBar
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B1E4795AFC22 
-
 : ME_4E15A01301E2
  CONST UID '4E15A01301E2'
  CONST Name 'TvtCustomStatusBar'
@@ -48,14 +20,6 @@ ref; // ME_B1E4795AFC22
    Seq: ( WL 'ME_4E159FC602F5' '4799D29F033F.pas.ms.script' // TCustomStatusBar
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5881F9C20CB1 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_B1E4795AFC22 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -65,34 +29,6 @@ ref; // ME_B1E4795AFC22
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E15A01301E2 TvtCustomStatusBar
-
-FORWARD ME_53F7021D0257
-
-: ME_948B50879DBB
- CONST UID '948B50879DBB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtStatusPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53F7021D0257 // TvtStatusPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_948B50879DBB Ini_Reg_Class
-
-: ME_29BB6FEA10F1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53F7021D0257 // TvtStatusPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_29BB6FEA10F1 
 
 : ME_53F7021D0257
  CONST UID '53F7021D0257'
@@ -104,14 +40,6 @@ ref; // ME_29BB6FEA10F1
  CONST Abstraction at_regular
  : Parent ME_4E15A00502A3 // TvtStatusBar
  ;
- : Operations
-   Seq: ( ME_948B50879DBB // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_29BB6FEA10F1 // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_677003967BFF' '4F6094D80196.pas.ms.script' // 
  )
@@ -191,7 +119,6 @@ ref; // ME_4E15A00502A3 TvtStatusBar
  : Depends
    Seq: ( WL 'ME_474144E20301' '474144E20301.pas.ms.script' // Draw
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

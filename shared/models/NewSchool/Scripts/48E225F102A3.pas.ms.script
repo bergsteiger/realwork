@@ -516,21 +516,6 @@ ref; // ME_5270B1AA0104 Msg
 
 ref; // ME_5270B18C017C WMRButtonDown
 
-: ME_B7CB0EDF35CB
- CONST UID 'B7CB0EDF35CB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevQueryCardEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_48E22669037D // TevQueryCardEditor
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B7CB0EDF35CB Ini_Reg_Class
-
 FORWARD ME_48E2366202B9
 
 : ME_48E2369500EA
@@ -734,17 +719,6 @@ ref; // ME_4F75BA8800C4
  ;
 
 ref; // ME_4F75D6B5034B 
-
-: ME_10F9FED94DFE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48E22669037D // TevQueryCardEditor
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_10F9FED94DFE 
 
 : ME_48D3B965002C_ME_48E22669037D
  : Original WL 'ME_48D3B965002C' '47CD5C7602CD.pas.ms.script' // SetCursorToPara
@@ -991,7 +965,6 @@ ref; // ME_4A265562032B_ME_48E22669037D ClearUpper
  ME_48E24904033E // GetLine
  ME_5270B15102AB // WMLButtonDown
  ME_5270B18C017C // WMRButtonDown
- ME_B7CB0EDF35CB // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1058,7 +1031,6 @@ ref; // ME_4A265562032B_ME_48E22669037D ClearUpper
  ME_4D14ED78002A // 
  ME_4F75BA8800C4 // 
  ME_4F75D6B5034B // 
- ME_10F9FED94DFE // 
  )
  ; // Dependencies
  : Injected
@@ -1357,7 +1329,6 @@ ref; // ME_48E2466300B3 TevQueryCardSelection
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4F635E1901E5' '4F635E1901E5.pas.ms.script' // l3Listeners
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

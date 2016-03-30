@@ -3577,37 +3577,6 @@ FORWARD ME_5506FEE90052
 
 FORWARD ME_5506FF1A0056
 
-: ME_201AE7280E36
- CONST UID '201AE7280E36'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevDocumentsCacheService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5506FF1A0056 // TevDocumentsCacheService
- ;
-
-ref; // ME_201AE7280E36 bind
-
-: ME_79FACD5A1B3D
- CONST UID '79FACD5A1B3D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5506FF1A0056 // TevDocumentsCacheService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_79FACD5A1B3D Exists
-
 : ME_5506FF2402ED
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -3652,11 +3621,6 @@ ref; // ME_0AC8DEBDD602_ME_5506FF1A0056 Clear
    Seq: ( WL 'ME_8089B05A548A' '5506D09003AB.pas.ms.script' // Il3DocumentsCacheService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_201AE7280E36 // bind
- ME_79FACD5A1B3D // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_0AC8DEBDD602_ME_5506FF1A0056 // Clear
  )

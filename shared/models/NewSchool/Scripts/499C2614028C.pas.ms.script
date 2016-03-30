@@ -144,46 +144,6 @@ ref; // ME_52DD084701FD DoIt
 
 ref; // ME_52DD083B0184 Create
 
-FORWARD ME_52DD085202A3
-
-: ME_DDE5109F49D1
- CONST Name 'aAggregate'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
- ;
-
-ref; // ME_DDE5109F49D1 aAggregate
-
-: ME_BD29FDF3431C
- CONST Name 'aWrap'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_BD29FDF3431C aWrap
-
-: ME_AC46F2F5F929
- CONST UID 'AC46F2F5F929'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnscTreeViewState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52DD085202A3 // Make
- ;
- : Parameters
-   Seq: ( ME_DDE5109F49D1 // aAggregate
- ME_BD29FDF3431C // aWrap
- )
- ; // Parameters
-
-ref; // ME_AC46F2F5F929 DoIt
-
 : ME_52DD085202A3
  CONST UID '52DD085202A3'
  CONST Name 'Make'
@@ -198,10 +158,6 @@ ref; // ME_AC46F2F5F929 DoIt
    Seq: ( ME_52DD083B0184 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AC46F2F5F929 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1091,21 +1047,6 @@ ref; // ME_559BCE900315 DoIt
 
 ref; // ME_559BCE89021B SetHotTruckIndex
 
-FORWARD ME_559BCE9C0001
-
-: ME_50D79565E579
- CONST UID '50D79565E579'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateTruckFromCursor' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_559BCE9C0001 // UpdateTruckFromCursor
- ;
-
-ref; // ME_50D79565E579 DoIt
-
 : ME_559BCE9C0001
  CONST UID '559BCE9C0001'
  CONST Name 'UpdateTruckFromCursor'
@@ -1116,10 +1057,6 @@ ref; // ME_50D79565E579 DoIt
  CONST Abstraction at_final
  : Parent ME_4B60346A022E // TnscTreeViewHotTruck
  ;
- : Operations
-   Seq: ( ME_50D79565E579 // DoIt
- )
- ; // Operations
 
 ref; // ME_559BCE9C0001 UpdateTruckFromCursor
 
