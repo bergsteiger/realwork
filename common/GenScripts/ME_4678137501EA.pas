@@ -12,9 +12,14 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
+ , l3Types
+ , TypInfo
+ , l3IID
+ , k2BaseTypes
+ , k2PureMixIns
+ , l3Variants
  , k2Prim
  , l3Variant
- , l3Types
 ;
 
 type

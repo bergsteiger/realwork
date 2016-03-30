@@ -1,78 +1,59 @@
 {$IfNDef nsRootManager_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsRootManager.imp.pas"
-// Начат: 2005/11/22 21:28:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::nsRootManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManager.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsRootManager" MUID: (48FDC52D0006)
+// Имя типа: "_nsRootManager_"
 
 {$Define nsRootManager_imp}
+
  _nsRootManagerPrim_Parent_ = _nsRootManager_Parent_;
- {$Include ..\Tree\nsRootManagerPrim.imp.pas}
- _nsRootManager_ = {mixin} class(_nsRootManagerPrim_)
- private
- // private fields
-   f_GetByVisibleIndexCounter : Integer;
-   f_CurrentNodeIndex : Integer;
-    {* Поле для свойства CurrentNodeIndex}
-   f_CurrentNode : INodeBase;
-    {* Поле для свойства CurrentNode}
-   f_OneLevel : Boolean;
-    {* Поле для свойства OneLevel}
- private
- // private methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas}
+ _nsRootManager_ = class(_nsRootManagerPrim_)
+  private
+   f_GetByVisibleIndexCounter: Integer;
+   f_CurrentNodeIndex: Integer;
+   f_CurrentNode: INodeBase;
+   f_OneLevel: Boolean;
+  private
    procedure GetByVisibleIndexStarted;
-     {* Скобки, обрамляющие вызов GetByVisibleIndex }
+    {* Скобки, обрамляющие вызов GetByVisibleIndex }
    procedure GetByVisibleIndexFinished;
-     {* Скобки, обрамляющие вызов GetByVisibleIndex }
- protected
- // property methods
+    {* Скобки, обрамляющие вызов GetByVisibleIndex }
+  protected
    function pm_GetCurrentNode: INodeBase;
- protected
- // overridden protected methods
+   function GetByVisibleIndex(anIndex: Integer): INodeBase; virtual;
+    {* возвращает ноду по видимому индексу }
+   function GetVisibleIndex(const aNode: INodeBase): Integer;
+    {* рассчитываем видимый индекс для ноды }
+   function GetINode(anIndex: Integer): INodeBase;
+    {* возвращает узел по видимому индексу [0..CountView-1] }
+   procedure CursorTop;
+    {* переставить курсор на первый видимый элемент }
    procedure Cleanup; override;
    function IsInGetByVisibleIndex: Boolean; override;
    function DoChangeChildrenCount(aNodeIndex: TVisibleIndex;
     aDelta: Integer): Integer; override;
    procedure DropCurrent; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function GetByVisibleIndex(anIndex: Integer): INodeBase; virtual;
-     {* возвращает ноду по видимому индексу }
-   function GetVisibleIndex(const aNode: INodeBase): Integer;
-     {* рассчитываем видимый индекс для ноды }
-   function GetINode(anIndex: Integer): INodeBase;
-     {* возвращает узел по видимому индексу [0..CountView-1] }
-   procedure CursorTop;
-     {* переставить курсор на первый видимый элемент }
- protected
- // protected properties
+  protected
    property OneLevel: Boolean
-     read f_OneLevel
-     write f_OneLevel;
- public
- // public properties
+    read f_OneLevel
+    write f_OneLevel;
+  public
    property CurrentNodeIndex: Integer
-     read f_CurrentNodeIndex;
+    read f_CurrentNodeIndex;
    property CurrentNode: INodeBase
-     read pm_GetCurrentNode;
+    read pm_GetCurrentNode;
  end;//_nsRootManager_
 
 {$Else nsRootManager_imp}
 
-{$Include ..\Tree\nsRootManagerPrim.imp.pas}
+{$IfNDef nsRootManager_imp_impl}
 
-// start class _nsRootManager_
+{$Define nsRootManager_imp_impl}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas}
 
 function _nsRootManager_.pm_GetCurrentNode: INodeBase;
 //#UC START# *48FDC5BC0004_48FDC52D0006get_var*
@@ -93,6 +74,7 @@ begin
 end;//_nsRootManager_.pm_GetCurrentNode
 
 function _nsRootManager_.GetByVisibleIndex(anIndex: Integer): INodeBase;
+ {* возвращает ноду по видимому индексу }
 //#UC START# *48FDC58F0218_48FDC52D0006_var*
 var
  l_Index: Integer;
@@ -142,6 +124,7 @@ begin
 end;//_nsRootManager_.GetByVisibleIndex
 
 procedure _nsRootManager_.GetByVisibleIndexStarted;
+ {* Скобки, обрамляющие вызов GetByVisibleIndex }
 //#UC START# *48FDC5DE02CF_48FDC52D0006_var*
 //#UC END# *48FDC5DE02CF_48FDC52D0006_var*
 begin
@@ -151,6 +134,7 @@ begin
 end;//_nsRootManager_.GetByVisibleIndexStarted
 
 procedure _nsRootManager_.GetByVisibleIndexFinished;
+ {* Скобки, обрамляющие вызов GetByVisibleIndex }
 //#UC START# *48FDC5EE026F_48FDC52D0006_var*
 //#UC END# *48FDC5EE026F_48FDC52D0006_var*
 begin
@@ -163,6 +147,7 @@ begin
 end;//_nsRootManager_.GetByVisibleIndexFinished
 
 function _nsRootManager_.GetVisibleIndex(const aNode: INodeBase): Integer;
+ {* рассчитываем видимый индекс для ноды }
 //#UC START# *48FDC60C0328_48FDC52D0006_var*
 var
  l_Index            : Integer;
@@ -198,6 +183,7 @@ begin
 end;//_nsRootManager_.GetVisibleIndex
 
 function _nsRootManager_.GetINode(anIndex: Integer): INodeBase;
+ {* возвращает узел по видимому индексу [0..CountView-1] }
 //#UC START# *48FDC628027A_48FDC52D0006_var*
 //#UC END# *48FDC628027A_48FDC52D0006_var*
 begin
@@ -224,6 +210,7 @@ begin
 end;//_nsRootManager_.GetINode
 
 procedure _nsRootManager_.CursorTop;
+ {* переставить курсор на первый видимый элемент }
 //#UC START# *48FDC63903E2_48FDC52D0006_var*
 //#UC END# *48FDC63903E2_48FDC52D0006_var*
 begin
@@ -260,7 +247,7 @@ begin
 end;//_nsRootManager_.IsInGetByVisibleIndex
 
 function _nsRootManager_.DoChangeChildrenCount(aNodeIndex: TVisibleIndex;
-  aDelta: Integer): Integer;
+ aDelta: Integer): Integer;
 //#UC START# *48FDA0F500F9_48FDC52D0006_var*
 //#UC END# *48FDA0F500F9_48FDC52D0006_var*
 begin
@@ -305,10 +292,12 @@ begin
 end;//_nsRootManager_.DropCurrent
 
 procedure _nsRootManager_.ClearFields;
- {-}
 begin
  f_CurrentNode := nil;
  inherited;
 end;//_nsRootManager_.ClearFields
 
+{$EndIf nsRootManager_imp_impl}
+
 {$EndIf nsRootManager_imp}
+

@@ -24,9 +24,7 @@ type
  _nsNodeNotifierBase_ = class(_nsNodeNotifierPrim_)
   private
    f_CountViewChanged: Boolean;
-    {* Поле для свойства CountViewChanged }
    f_CountView: Integer;
-    {* Поле для свойства CountView }
   protected
    function IsInGetByVisibleIndex: Boolean; virtual;
    function IsOneLevelPrim: Boolean; virtual;

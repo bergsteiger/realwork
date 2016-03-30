@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , k2TypedSmallLeafTag
  , l3Variant
+ //#UC START# *4A64874301F2intf_uses*
+ //#UC END# *4A64874301F2intf_uses*
 ;
 
 type
@@ -36,6 +38,8 @@ uses
  , k2Base
  , k2NullTagImpl
  , l3BitArr
+ //#UC START# *4A64874301F2impl_uses*
+ //#UC END# *4A64874301F2impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}

@@ -17,15 +17,14 @@ type
   private
    f_Initialized: Boolean;
    f_Title: AnsiString;
-    {* Поле для свойства Title }
   protected
    function pm_GetTitle: AnsiString;
    procedure pm_SetTitle(const aValue: AnsiString);
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsAppTitleData;
     {* Метод получения экземпляра синглетона TnsAppTitleData }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Title: AnsiString
     read pm_GetTitle
@@ -69,12 +68,6 @@ begin
 //#UC END# *53EDD57A01CA_53EDD51203D9set_impl*
 end;//TnsAppTitleData.pm_SetTitle
 
-class function TnsAppTitleData.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsAppTitleData <> nil;
-end;//TnsAppTitleData.Exists
-
 class function TnsAppTitleData.Instance: TnsAppTitleData;
  {* Метод получения экземпляра синглетона TnsAppTitleData }
 begin
@@ -85,5 +78,11 @@ begin
  end;
  Result := g_TnsAppTitleData;
 end;//TnsAppTitleData.Instance
+
+class function TnsAppTitleData.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsAppTitleData <> nil;
+end;//TnsAppTitleData.Exists
 
 end.

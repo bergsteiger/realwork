@@ -23,7 +23,6 @@ type
   private
    {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
    f_TimeMachine: InsTimeMachine;
-    {* Поле для свойства TimeMachine }
    {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
   protected
    {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}

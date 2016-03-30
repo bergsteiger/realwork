@@ -13,11 +13,8 @@
   private
    f_GetByVisibleIndexCounter: Integer;
    f_CurrentNodeIndex: Integer;
-    {* Поле для свойства CurrentNodeIndex }
    f_CurrentNode: INodeBase;
-    {* Поле для свойства CurrentNode }
    f_OneLevel: Boolean;
-    {* Поле для свойства OneLevel }
   private
    procedure GetByVisibleIndexStarted;
     {* Скобки, обрамляющие вызов GetByVisibleIndex }

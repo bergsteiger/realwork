@@ -11,6 +11,7 @@ interface
 
 uses
  l3IntfUses
+ , k2Interfaces
  , l3PureMixIns
  , l3Variant
 ;

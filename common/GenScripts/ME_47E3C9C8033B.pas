@@ -19,6 +19,8 @@ uses
  , l3Core
  , l3Except
  , Classes
+ //#UC START# *47E3C9C8033Bintf_uses*
+ //#UC END# *47E3C9C8033Bintf_uses*
 ;
 
 type
@@ -45,6 +47,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E3C9C8033Bimpl_uses*
+ //#UC END# *47E3C9C8033Bimpl_uses*
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

@@ -1,38 +1,27 @@
 {$IfNDef nsUserSettingsEditListener_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/nsUserSettingsEditListener.imp.pas"
-// Начат: 29.12.2008 19:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::nsUserSettingsEditListener
-//
-// Слушатель событий редактирования конфигураций
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsEditListener.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsUserSettingsEditListener" MUID: (4958F42B0205)
+// Имя типа: "_nsUserSettingsEditListener_"
 
 {$Define nsUserSettingsEditListener_imp}
- _nsUserSettingsEditListener_ = {mixin} class(_nsUserSettingsEditListener_Parent_, InsUserSettingsEditListener)
+
+ _nsUserSettingsEditListener_ = class(_nsUserSettingsEditListener_Parent_, InsUserSettingsEditListener)
   {* Слушатель событий редактирования конфигураций }
- protected
- // realized methods
-   procedure StartEdit;
-     {* вызывается перед началом редактирования конфигурации }
- protected
- // protected methods
+  protected
    procedure StartSettingsEdit; virtual;
    procedure Cleanup; override;
    procedure InitFields; override;
+   procedure StartEdit;
+    {* вызывается перед началом редактирования конфигурации }
  end;//_nsUserSettingsEditListener_
 
 {$Else nsUserSettingsEditListener_imp}
 
-// start class _nsUserSettingsEditListener_
+{$IfNDef nsUserSettingsEditListener_imp_impl}
+
+{$Define nsUserSettingsEditListener_imp_impl}
 
 procedure _nsUserSettingsEditListener_.StartSettingsEdit;
 //#UC START# *4958F46C003B_4958F42B0205_var*
@@ -78,6 +67,7 @@ begin
 end;//_nsUserSettingsEditListener_.InitFields
 
 procedure _nsUserSettingsEditListener_.StartEdit;
+ {* вызывается перед началом редактирования конфигурации }
 //#UC START# *4914443E0326_4958F42B0205_var*
 //#UC END# *4914443E0326_4958F42B0205_var*
 begin
@@ -86,4 +76,7 @@ begin
 //#UC END# *4914443E0326_4958F42B0205_impl*
 end;//_nsUserSettingsEditListener_.StartEdit
 
+{$EndIf nsUserSettingsEditListener_imp_impl}
+
 {$EndIf nsUserSettingsEditListener_imp}
+

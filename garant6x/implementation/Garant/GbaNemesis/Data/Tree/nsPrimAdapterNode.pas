@@ -1,71 +1,54 @@
 unit nsPrimAdapterNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsPrimAdapterNode.pas"
-// Начат: 21.10.2009 14:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsPrimAdapterNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimAdapterNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimAdapterNode" MUID: (4ADDF4110392)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  BaseTreeSupportUnit,
-  nsPrimNode,
-  l3IID,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , nsPrimNode
+ , BaseTreeSupportUnit
+ , l3IID
+ , l3TreeInterfaces
+;
 
 type
  TnsPrimAdapterNode = {abstract} class(TnsPrimNode)
- private
- // private fields
-   f_AdapterNode : INode;
-    {* Поле для свойства AdapterNode}
- protected
- // overridden protected methods
+  private
+   f_AdapterNode: INode;
+    {* Поле для свойства AdapterNode }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
- public
- // public methods
+  public
    constructor Create(const aNode: INode;
-     aNumInParent: Integer); reintroduce;
- protected
- // protected properties
+    aNumInParent: Integer); reintroduce;
+  protected
    property AdapterNode: INode
-     read f_AdapterNode
-     write f_AdapterNode;
+    read f_AdapterNode
+    write f_AdapterNode;
  end;//TnsPrimAdapterNode
 
 implementation
 
 uses
-  SysUtils,
-  l3InterfacesMisc
-  ;
-
-// start class TnsPrimAdapterNode
+ l3ImplUses
+ , SysUtils
+ , l3InterfacesMisc
+;
 
 constructor TnsPrimAdapterNode.Create(const aNode: INode;
-  aNumInParent: Integer);
+ aNumInParent: Integer);
 //#UC START# *4AE02DE00365_4ADDF4110392_var*
 //#UC END# *4AE02DE00365_4ADDF4110392_var*
 begin
@@ -76,6 +59,7 @@ begin
 end;//TnsPrimAdapterNode.Create
 
 procedure TnsPrimAdapterNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDF4110392_var*
 //#UC END# *479731C50290_4ADDF4110392_var*
 begin
@@ -86,7 +70,8 @@ begin
 end;//TnsPrimAdapterNode.Cleanup
 
 function TnsPrimAdapterNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4ADDF4110392_var*
 var
  l_AdapterNode : INode;
@@ -120,7 +105,6 @@ begin
 end;//TnsPrimAdapterNode.COMQueryInterface
 
 procedure TnsPrimAdapterNode.ClearFields;
- {-}
 begin
  AdapterNode := nil;
  inherited;

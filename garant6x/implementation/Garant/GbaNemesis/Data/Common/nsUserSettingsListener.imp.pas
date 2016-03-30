@@ -1,39 +1,31 @@
 {$IfNDef nsUserSettingsListener_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/nsUserSettingsListener.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::nsUserSettingsListener
-//
-// Слушатель изменения настроек пользователя
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsUserSettingsListener" MUID: (4958BD880163)
+// Имя типа: "_nsUserSettingsListener_"
 
 {$Define nsUserSettingsListener_imp}
- _nsUserSettingsListener_ = {mixin} class(_nsUserSettingsListener_Parent_, InsUserSettingsListener)
+
+ _nsUserSettingsListener_ = class(_nsUserSettingsListener_Parent_, InsUserSettingsListener)
   {* Слушатель изменения настроек пользователя }
- protected
- // realized methods
-   procedure Changed;
-     {* вызывается после изменения\восстановления настроек }
- protected
- // protected methods
+  protected
    procedure UserSettingsChanged; virtual;
-     {* Изменились настройки пользователя }
+    {* Изменились настройки пользователя }
    procedure Cleanup; override;
    procedure InitFields; override;
+   procedure Changed;
+    {* вызывается после изменения\восстановления настроек }
  end;//_nsUserSettingsListener_
 
 {$Else nsUserSettingsListener_imp}
 
-// start class _nsUserSettingsListener_
+{$IfNDef nsUserSettingsListener_imp_impl}
+
+{$Define nsUserSettingsListener_imp_impl}
 
 procedure _nsUserSettingsListener_.UserSettingsChanged;
+ {* Изменились настройки пользователя }
 //#UC START# *4958BE910345_4958BD880163_var*
 //#UC END# *4958BE910345_4958BD880163_var*
 begin
@@ -77,6 +69,7 @@ begin
 end;//_nsUserSettingsListener_.InitFields
 
 procedure _nsUserSettingsListener_.Changed;
+ {* вызывается после изменения\восстановления настроек }
 //#UC START# *491443FE01BE_4958BD880163_var*
 //#UC END# *491443FE01BE_4958BD880163_var*
 begin
@@ -85,4 +78,7 @@ begin
 //#UC END# *491443FE01BE_4958BD880163_impl*
 end;//_nsUserSettingsListener_.Changed
 
+{$EndIf nsUserSettingsListener_imp_impl}
+
 {$EndIf nsUserSettingsListener_imp}
+

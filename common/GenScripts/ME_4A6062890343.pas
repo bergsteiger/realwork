@@ -19,6 +19,8 @@ uses
  , l3Core
  , l3Except
  , Classes
+ //#UC START# *4A6062890343intf_uses*
+ //#UC END# *4A6062890343intf_uses*
 ;
 
  {$Define l3Items_NoOwner}
@@ -47,6 +49,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *4A6062890343impl_uses*
+ //#UC END# *4A6062890343impl_uses*
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

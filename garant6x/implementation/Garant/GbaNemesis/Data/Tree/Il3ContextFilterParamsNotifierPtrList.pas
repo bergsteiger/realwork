@@ -1,37 +1,25 @@
 unit Il3ContextFilterParamsNotifierPtrList;
+ {* Список УКАЗАТЕЛЕЙ на Il3ContextFilterParamsNotifier }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/Il3ContextFilterParamsNotifierPtrList.pas"
-// Начат: 29.10.2008 20:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TIl3ContextFilterParamsNotifierPtrList
-//
-// Список УКАЗАТЕЛЕЙ на Il3ContextFilterParamsNotifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\Il3ContextFilterParamsNotifierPtrList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TIl3ContextFilterParamsNotifierPtrList" MUID: (49089895038A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  l3SimpleDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3SimpleDataContainer
+ , l3TreeInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = Il3ContextFilterParamsNotifier;
@@ -45,11 +33,12 @@ type
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TIl3ContextFilterParamsNotifierPtrList;
 

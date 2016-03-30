@@ -1,73 +1,58 @@
 unit nsNewCachableNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsNewCachableNode.pas"
-// Начат: 21.10.2009 16:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsNewCachableNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsNewCachableNode" MUID: (490AF9B0039B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Tree_TLB,
-  l3NodesModelPart,
-  l3Interfaces,
-  l3TreeInterfaces,
-  l3IID
-  ;
+ l3IntfUses
+ , l3NodesModelPart
+ , DynamicTreeUnit
+ , l3Tree_TLB
+ , l3Interfaces
+ , l3IID
+ , l3TreeInterfaces
+;
 
 type
  TnsNewCachableNode = class(Tl3PlaceNode)
- private
- // private fields
-   f_AdapterNode : INodeBase;
-    {* Поле для свойства AdapterNode}
- protected
- // overridden protected methods
+  private
+   f_AdapterNode: INodeBase;
+    {* Поле для свойства AdapterNode }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function DoGetLevel: Integer; override;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
- public
- // public methods
+  public
    constructor Create(const aNode: INodeBase); reintroduce;
    class function Make(const aNode: INodeBase): Il3Node; reintroduce;
-     {* Сигнатура фабрики TnsNewCachableNode.Make }
- protected
- // protected properties
+  protected
    property AdapterNode: INodeBase
-     read f_AdapterNode;
+    read f_AdapterNode;
  end;//TnsNewCachableNode
 
 implementation
 
 uses
-  nsTypes,
-  IOUnit,
-  SysUtils,
-  l3InterfacesMisc
-  ;
-
-// start class TnsNewCachableNode
+ l3ImplUses
+ , nsTypes
+ , IOUnit
+ , SysUtils
+ , l3InterfacesMisc
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor TnsNewCachableNode.Create(const aNode: INodeBase);
 //#UC START# *4AE058130153_490AF9B0039B_var*
@@ -89,9 +74,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsNewCachableNode.Make
 
 procedure TnsNewCachableNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_490AF9B0039B_var*
 //#UC END# *479731C50290_490AF9B0039B_var*
 begin
@@ -117,7 +103,8 @@ begin
 end;//TnsNewCachableNode.GetAsPCharLen
 
 function TnsNewCachableNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_490AF9B0039B_var*
 //#UC END# *4A60B23E00C3_490AF9B0039B_var*
 begin
@@ -134,7 +121,6 @@ begin
 end;//TnsNewCachableNode.COMQueryInterface
 
 procedure TnsNewCachableNode.ClearFields;
- {-}
 begin
  f_AdapterNode := nil;
  inherited;

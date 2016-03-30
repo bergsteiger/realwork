@@ -1,67 +1,50 @@
 unit nsDataResetTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsDataResetTree.pas"
-// Начат: 2005/11/21 17:21:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsDataResetTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDataResetTree" MUID: (4908A9240071)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Tree_TLB,
-  l3Tree,
-  nsTypes,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , l3Tree
+ , nsTypes
+ , l3Tree_TLB
+ , afwInterfaces
+;
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3Tree;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsDataResetTree = class(_afwApplicationDataUpdate_)
- private
- // private fields
-   f_InGetRoot : Boolean;
-   f_BeenReseted : TnsResetTreeStatus;
-    {* Поле для свойства BeenReseted}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure FinishDataUpdate; override;
-   function Get_CRootNode: Il3RootNode; override;
- protected
- // protected methods
+  private
+   f_InGetRoot: Boolean;
+   f_BeenReseted: TnsResetTreeStatus;
+    {* Поле для свойства BeenReseted }
+  protected
    procedure BeforeReset; virtual;
    procedure AfterReget; virtual;
    function RegetRootNode: Il3RootNode; virtual;
- public
- // public properties
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
+   function Get_CRootNode: Il3RootNode; override;
+  public
    property BeenReseted: TnsResetTreeStatus
-     read f_BeenReseted;
+    read f_BeenReseted;
  end;//TnsDataResetTree
 
 implementation
 
 uses
-  afwFacade
-  ;
+ l3ImplUses
+ , afwFacade
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-// start class TnsDataResetTree
 
 procedure TnsDataResetTree.BeforeReset;
 //#UC START# *4908AAED02BD_4908A9240071_var*
@@ -94,6 +77,7 @@ begin
 end;//TnsDataResetTree.RegetRootNode
 
 procedure TnsDataResetTree.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4908A9240071_var*
 //#UC END# *479731C50290_4908A9240071_var*
 begin

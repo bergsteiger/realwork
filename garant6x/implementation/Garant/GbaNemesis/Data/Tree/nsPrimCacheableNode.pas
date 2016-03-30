@@ -1,53 +1,40 @@
 unit nsPrimCacheableNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsPrimCacheableNode.pas"
-// Начат: 21.10.2009 14:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsPrimCacheableNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimCacheableNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimCacheableNode" MUID: (4ADDF42201A2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  IOUnit,
-  nsPrimAdapterNode,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , nsPrimAdapterNode
+ , IOUnit
+ , l3Interfaces
+;
 
 type
  TnsPrimCacheableNode = {abstract} class(TnsPrimAdapterNode)
- protected
- // overridden protected methods
+  protected
+   f_AdapterCaption: IString;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
- protected
- // protected fields
-   f_AdapterCaption : IString;
  end;//TnsPrimCacheableNode
 
 implementation
 
 uses
-  l3String,
-  nsTypes
-  ;
-
-// start class TnsPrimCacheableNode
+ l3ImplUses
+ , l3String
+ , nsTypes
+;
 
 procedure TnsPrimCacheableNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDF42201A2_var*
 //#UC END# *479731C50290_4ADDF42201A2_var*
 begin

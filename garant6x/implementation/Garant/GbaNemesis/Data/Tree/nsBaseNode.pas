@@ -1,152 +1,99 @@
 unit nsBaseNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsBaseNode.pas"
-// Начат: 21.10.2009 15:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsBaseNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsBaseNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseNode" MUID: (4ADDF4470087)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  BaseTreeSupportUnit,
-  l3Tree_TLB,
-  nsPrimCacheableNode
-  ;
+ l3IntfUses
+ , nsPrimCacheableNode
+ , l3Tree_TLB
+ , BaseTreeSupportUnit
+;
 
 type
- InsCacheable = interface(IUnknown)
-   ['{DFCFB2AE-BBBB-44F4-963F-AB185ED1AAAB}']
-   procedure ClearNums(aRecursive: Boolean);
-   function Next: InsCacheable;
+ InsCacheable = interface
+  ['{DFCFB2AE-BBBB-44F4-963F-AB185ED1AAAB}']
+  procedure ClearNums(aRecursive: Boolean);
+  function Next: InsCacheable;
  end;//InsCacheable
 
- InsLastCache = interface(IUnknown)
-   ['{AF66F55C-8880-4568-A079-B9E5C2EC90E8}']
-   function Get_LastChild: Il3Node;
-   procedure Set_LastChild(const aValue: Il3Node);
-   property LastChild: Il3Node
-     read Get_LastChild
-     write Set_LastChild;
+ InsLastCache = interface
+  ['{AF66F55C-8880-4568-A079-B9E5C2EC90E8}']
+  function Get_LastChild: Il3Node;
+  procedure Set_LastChild(const aValue: Il3Node);
+  property LastChild: Il3Node
+   read Get_LastChild
+   write Set_LastChild;
  end;//InsLastCache
 
  TnsBaseNode = class(TnsPrimCacheableNode, InsCacheable, InsLastCache)
- private
- // private fields
-   f_AllChildrenCount : Integer;
-   f_ChildNode : Il3Node;
-    {* Поле для свойства ChildNode}
-   f_LastChild : Il3Node;
-    {* Поле для свойства LastChild}
-   f_NextNode : Il3Node;
-    {* Поле для свойства NextNode}
- protected
- // property methods
+  private
+   f_AllChildrenCount: Integer;
+   f_ChildNode: Il3Node;
+    {* Поле для свойства ChildNode }
+   f_LastChild: Il3Node;
+    {* Поле для свойства LastChild }
+   f_NextNode: Il3Node;
+    {* Поле для свойства NextNode }
+  protected
+   f_TotalNumInParent: Integer;
+   f_ParentNode: Pointer;
+   f_PrevNode: Pointer;
+  protected
    function pm_GetLastChild: Il3Node;
    procedure pm_SetLastChild(const aValue: Il3Node);
- protected
- // realized methods
-   procedure ClearNums(aRecursive: Boolean);
-   function Next: InsCacheable;
-   function Get_LastChild: Il3Node;
-   procedure Set_LastChild(const aValue: Il3Node);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Set_ChildNode(const aValue: Il3Node); override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-   function Get_AllChildrenCount: Integer; override;
-   function Get_ChildNode: Il3Node; override;
-   procedure DoSortChilds(const aChild: Il3Node = nil); override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
-   procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
-   procedure DoIncAllChildrenCount(aInc: Integer); override;
- protected
- // protected fields
-   f_TotalNumInParent : Integer;
-   f_ParentNode : Pointer;
-   f_PrevNode : Pointer;
- protected
- // protected methods
    procedure ClearCache; virtual;
    procedure CallNextClearNums; virtual;
    procedure DoClearNums; virtual;
    function InsCacheableNext: InsCacheable;
    procedure InsCacheableClearNums(aRecursive: Boolean);
- public
- // public methods
+   procedure ClearNums(aRecursive: Boolean);
+   function Next: InsCacheable;
+   function Get_LastChild: Il3Node;
+   procedure Set_LastChild(const aValue: Il3Node);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Set_ChildNode(const aValue: Il3Node); override;
+   procedure ClearFields; override;
+   function Get_AllChildrenCount: Integer; override;
+   function Get_ChildNode: Il3Node; override;
+   procedure DoSortChilds(const aChild: Il3Node = nil); override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
+   procedure DoReleaseChilds; override;
+   procedure DoIncAllChildrenCount(aInc: Integer); override;
+  public
    constructor Create(const aNode: INode;
-     aNumInParent: Integer;
-     aTotalNumInParent: Integer); reintroduce;
+    aNumInParent: Integer;
+    aTotalNumInParent: Integer); reintroduce;
    class function Make(const aNode: INode;
-     aNumInParent: Integer = -1;
-     aTotalNumInParent: Integer = -1): Il3Node; reintroduce;
- public
- // public properties
+    aNumInParent: Integer = -1;
+    aTotalNumInParent: Integer = -1): Il3Node; reintroduce;
+  public
    property ChildNode: Il3Node
-     read f_ChildNode
-     write f_ChildNode;
+    read f_ChildNode
+    write f_ChildNode;
    property LastChild: Il3Node
-     read pm_GetLastChild
-     write pm_SetLastChild;
+    read pm_GetLastChild
+    write pm_SetLastChild;
    property NextNode: Il3Node
-     read f_NextNode
-     write f_NextNode;
+    read f_NextNode
+    write f_NextNode;
  end;//TnsBaseNode
 
 implementation
 
 uses
-  SysUtils,
-  l3Nodes,
-  l3Types,
-  l3TreeInterfaces
-  ;
-
-// start class TnsBaseNode
-
-constructor TnsBaseNode.Create(const aNode: INode;
-  aNumInParent: Integer;
-  aTotalNumInParent: Integer);
-//#UC START# *4AE05F2A0067_4ADDF4470087_var*
-//#UC END# *4AE05F2A0067_4ADDF4470087_var*
-begin
-//#UC START# *4AE05F2A0067_4ADDF4470087_impl*
- DoClearNums;
- inherited Create(aNode, aNumInParent);
- f_AllChildrenCount := -1;
- f_TotalNumInParent := aTotalNumInParent;
-//#UC END# *4AE05F2A0067_4ADDF4470087_impl*
-end;//TnsBaseNode.Create
-
-class function TnsBaseNode.Make(const aNode: INode;
-  aNumInParent: Integer = -1;
-  aTotalNumInParent: Integer = -1): Il3Node;
-var
- l_Inst : TnsBaseNode;
-begin
- l_Inst := Create(aNode, aNumInParent, aTotalNumInParent);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
+ l3ImplUses
+ , SysUtils
+ , l3Nodes
+ , l3Types
+ , l3TreeInterfaces
+;
 
 function TnsBaseNode.pm_GetLastChild: Il3Node;
 //#UC START# *4ADEE7A00336_4ADDF4470087get_var*
@@ -165,6 +112,34 @@ begin
  f_LastChild := aValue;
 //#UC END# *4ADEE7A00336_4ADDF4470087set_impl*
 end;//TnsBaseNode.pm_SetLastChild
+
+constructor TnsBaseNode.Create(const aNode: INode;
+ aNumInParent: Integer;
+ aTotalNumInParent: Integer);
+//#UC START# *4AE05F2A0067_4ADDF4470087_var*
+//#UC END# *4AE05F2A0067_4ADDF4470087_var*
+begin
+//#UC START# *4AE05F2A0067_4ADDF4470087_impl*
+ DoClearNums;
+ inherited Create(aNode, aNumInParent);
+ f_AllChildrenCount := -1;
+ f_TotalNumInParent := aTotalNumInParent;
+//#UC END# *4AE05F2A0067_4ADDF4470087_impl*
+end;//TnsBaseNode.Create
+
+class function TnsBaseNode.Make(const aNode: INode;
+ aNumInParent: Integer = -1;
+ aTotalNumInParent: Integer = -1): Il3Node;
+var
+ l_Inst : TnsBaseNode;
+begin
+ l_Inst := Create(aNode, aNumInParent, aTotalNumInParent);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsBaseNode.Make
 
 procedure TnsBaseNode.ClearCache;
 //#UC START# *4ADEE7F1039D_4ADDF4470087_var*
@@ -259,6 +234,7 @@ begin
 end;//TnsBaseNode.Set_LastChild
 
 procedure TnsBaseNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDF4470087_var*
 //#UC END# *479731C50290_4ADDF4470087_var*
 begin
@@ -278,7 +254,6 @@ begin
 end;//TnsBaseNode.Set_ChildNode
 
 procedure TnsBaseNode.ClearFields;
- {-}
 begin
  ChildNode := nil;
  LastChild := nil;

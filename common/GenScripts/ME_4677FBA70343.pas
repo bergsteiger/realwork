@@ -11,10 +11,10 @@ interface
 
 uses
  l3IntfUses
- , Windows
- , l3PureMixIns
  , ActiveX
  , l3Core
+ , l3PureMixIns
+ , Windows
 ;
 
 const

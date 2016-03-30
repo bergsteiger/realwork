@@ -1,49 +1,35 @@
 {$IfNDef nsRootManagerPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsRootManagerPrim.imp.pas"
-// Начат: 2005/11/22 21:28:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::nsRootManagerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsRootManagerPrim" MUID: (48FDB9BD0325)
+// Имя типа: "_nsRootManagerPrim_"
 
 {$Define nsRootManagerPrim_imp}
+
  _nsNodeNotifier_Parent_ = _nsRootManagerPrim_Parent_;
- {$Include ..\Tree\nsNodeNotifier.imp.pas}
- _nsRootManagerPrim_ = {mixin} class(_nsNodeNotifier_)
- private
- // private fields
-   f_RootNode : INodeBase;
-    {* Поле для свойства RootNode}
- protected
- // property methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifier.imp.pas}
+ _nsRootManagerPrim_ = class(_nsNodeNotifier_)
+  private
+   f_RootNode: INodeBase;
+  protected
    procedure pm_SetRootNode(const aValue: INodeBase);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    procedure BeforeClearFields; override;
-     {* Сигнатура метода BeforeClearFields }
- public
- // public properties
+   procedure ClearFields; override;
+  public
    property RootNode: INodeBase
-     read f_RootNode
-     write pm_SetRootNode;
+    read f_RootNode
+    write pm_SetRootNode;
  end;//_nsRootManagerPrim_
 
 {$Else nsRootManagerPrim_imp}
 
-{$Include ..\Tree\nsNodeNotifier.imp.pas}
+{$IfNDef nsRootManagerPrim_imp_impl}
 
-// start class _nsRootManagerPrim_
+{$Define nsRootManagerPrim_imp_impl}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifier.imp.pas}
 
 procedure _nsRootManagerPrim_.pm_SetRootNode(const aValue: INodeBase);
 //#UC START# *48FDB9E80327_48FDB9BD0325set_var*
@@ -71,13 +57,6 @@ begin
 //#UC END# *48FD97BC0335_48FDB9BD0325_impl*
 end;//_nsRootManagerPrim_.Cleanup
 
-procedure _nsRootManagerPrim_.ClearFields;
- {-}
-begin
- RootNode := nil;
- inherited;
-end;//_nsRootManagerPrim_.ClearFields
-
 procedure _nsRootManagerPrim_.BeforeClearFields;
 //#UC START# *500056650395_48FDB9BD0325_var*
 //#UC END# *500056650395_48FDB9BD0325_var*
@@ -88,4 +67,13 @@ begin
 //#UC END# *500056650395_48FDB9BD0325_impl*
 end;//_nsRootManagerPrim_.BeforeClearFields
 
+procedure _nsRootManagerPrim_.ClearFields;
+begin
+ RootNode := nil;
+ inherited;
+end;//_nsRootManagerPrim_.ClearFields
+
+{$EndIf nsRootManagerPrim_imp_impl}
+
 {$EndIf nsRootManagerPrim_imp}
+

@@ -1,209 +1,74 @@
 unit nsTreeStruct;
+ {* Дерево. Фасад к адаптерному дереву }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsTreeStruct.pas"
-// Начат: 22.04.2004 14:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsTreeStruct
-//
-// Дерево. Фасад к адаптерному дереву
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsTreeStruct" MUID: (46835B4001A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  nsINodeWrapBase,
-  nsRootManager,
-  l3LongintList,
-  bsInterfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , nsRootManager
+ , l3TreeInterfaces
+ , bsInterfaces
+ , l3LongintList
+ , nsINodeWrapBase
+ , l3Interfaces
+ , DynamicTreeUnit
+ , l3InternalInterfaces
+ , l3ProtoObject
+;
 
 type
  TnsTreeStructState = class(Tl3ProtoObject, InsTreeStructState)
- private
- // private fields
-   f_SelectedIndexList : Tl3LongintList;
- private
- // private methods
+  private
+   f_SelectedIndexList: Tl3LongintList;
+  private
    procedure FillList(aSelectedIndexList: Tl3LongintList);
- protected
- // realized methods
+  protected
    function GetSelectedNodeCount: Integer;
    function GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aSelectedIndexList: Tl3LongintList); reintroduce;
    class function Make(aSelectedIndexList: Tl3LongintList): InsTreeStructState; reintroduce;
-     {* Сигнатура фабрики TnsTreeStructState.Make }
  end;//TnsTreeStructState
 
  TnsTreeStruct = class(TnsRootManager, Il3RootSource, Il3SimpleTree, Il3ExpandedSimpleTree, InsTreeStructStateProvider, InsTreeStructStateConsumer)
   {* Дерево. Фасад к адаптерному дереву }
- private
- // private fields
-   f_ShowRoot : Boolean;
-   f_SelectedIndexList : Tl3LongintList;
- private
- // private methods
+  private
+   f_ShowRoot: Boolean;
+   f_SelectedIndexList: Tl3LongintList;
+  protected
+   f_Root: Il3SimpleRootNode;
+  private
    function GetNodeClass(const aNode: INodeBase): RnsINodeWrap;
-     {* вычисляем класс ноды для создания обертки }
- protected
- // property methods
+    {* вычисляем класс ноды для создания обертки }
+  protected
    function pm_GetRoot: Il3SimpleRootNode; virtual;
    procedure pm_SetRoot(const aValue: Il3SimpleRootNode); virtual;
- protected
- // realized methods
-   function Get_RootNode: Il3SimpleRootNode;
-   procedure Set_RootNode(const aValue: Il3SimpleRootNode);
-   procedure CursorTop;
-     {* переставить курсор на первый видимый элемент. }
-   function GetIndex(const aNode: Il3SimpleNode;
-    const aSubRootNode: Il3SimpleNode = nil): Integer;
-     {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
-   function GetLevel(const aNode: Il3SimpleNode): Integer;
-     {* возвращает уровень узла относительно корня. }
-   procedure SelectAllNodes(aMode: Tl3SetBitType);
-     {* выделяет/развыделяет все узлы. }
-   procedure SelectInterval(aFirstIndex: Integer;
-    aLastIndex: Integer;
-    aMode: Tl3SetBitType;
-    aCleanOther: Boolean);
-     {* выделяет/развыделяет узлы на указанном интервале. }
-   function ChangeExpand(const aNode: Il3SimpleNode;
-    aMode: Tl3SetBitType;
-    aForceMode: Boolean = false): Boolean;
-     {* меняет развернутость узла. }
-   procedure ExpandSubDir(const aNode: Il3SimpleNode = nil;
-    anExpand: Boolean = true;
-    aDeepLevel: Byte = 0);
-     {* развернуть/свернуть узлы. }
-   procedure SetBranchFlag(const aParentNode: Il3SimpleNode;
-    aMode: Tl3SetBitType;
-    aFlagsMask: Integer;
-    anIterMode: Integer);
-     {* зачем-то используется визуалкой в ExpandNode. }
-   function CountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
-     {* зачем-то используется визуалкой в ShowMoreChildrenOnScreen. }
-   function IsRoot(const aNode: Il3SimpleNode): Boolean;
-     {* является ли узел корневым для дерева. }
-   function IsExpanded(const aNode: Il3SimpleNode): Boolean;
-     {* раскрыт ли узел. }
-   function IsFirstVis(const aNode: Il3SimpleNode): Boolean;
-     {* является ли узел первым видимым в ветке. }
-   function IsLastVis(const aNode: Il3SimpleNode): Boolean;
-     {* является ли узел последним видимым в ветке. }
-   function HasVisibleChildren(const aNode: Il3SimpleNode): Boolean;
-     {* есть ли видимые дети у aNode. }
-   function GetLines(const aNode: Il3SimpleNode): Integer;
-     {* маска для рисования линий (надо смотреть реализацию). }
-   function Wake: Boolean;
-     {* проснись!!! Типа начали рисовать. }
-   function MoveNode(const aNode: Il3SimpleNode;
-    aDirection: Tl3Direction): Boolean;
-     {* переместить узел. }
-   function SearchNameBegin(const aFirstNode: Il3SimpleNode;
-    aSrchStr: PAnsiChar;
-    aIterMode: Integer): Il3SimpleNode;
-     {* зачем-то используется визуалкой в CharToItem. }
-   function SearchNameOccur(const aFirstNode: Il3SimpleNode;
-    aSrchStr: PAnsiChar;
-    aIterMode: Integer): Il3SimpleNode;
-     {* зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется. }
-   function MakeNodeVisible(const aNode: Il3SimpleNode): Integer;
-     {* зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел. }
-   function GetPrev(const aNode: Il3SimpleNode): Il3SimpleNode;
-     {* предыдущий узел. Зачем-то используется в CharToItem. }
-   function SimpleIterateF(Action: Tl3SimpleNodeAction;
-    IterMode: Integer = 0;
-    const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
-     {* перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
-   function IsChanging: Boolean;
-     {* дерево находится в фазе обновления. }
-   procedure Changing;
-   procedure Changed;
-   function Get_ShowRoot: Boolean;
-   procedure Set_ShowRoot(aValue: Boolean);
-   function Get_CountView: Integer;
-   function Get_SelectCount: Integer;
-   function Get_Flags(anIndex: Integer): Integer;
-   function Get_Select(anIndex: Integer): Boolean;
-   procedure Set_Select(anIndex: Integer; aValue: Boolean);
-   function Get_Nodes(anIndex: Integer): Il3SimpleNode;
-   function FlagIterateF(Action: Tl3SimpleNodeAction;
-    FlagMask: Word = 0;
-    IterMode: Integer = 0;
-    const aSubRootNode: Il3SimpleNode = nil;
-    aCheckResult: Boolean = False): Il3SimpleNode;
-     {* перебрать все узлы, удовлетворяющие FlagMask, и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
-   function MakeDataObject(const aNode: Il3SimpleNode;
-    const aBitmap: IUnknown): IDataObject;
-     {* сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты }
-   function CanAcceptData(const aTargetNode: Il3SimpleNode;
-    const aData: Tl3TreeData): Boolean;
-   function DropData(const aTargetNode: Il3SimpleNode;
-    const aData: Tl3TreeData): Boolean;
-   function MakeState: InsTreeStructState;
-   procedure AssignState(const aState: InsTreeStructState);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure FireChanged; override;
-   procedure ChangeChildrenCountPrim(aNodeIndex: TVisibleIndex;
-    aDelta: Integer;
-    const aIndexPath: INodeIndexPath;
-    aChildIndex: TIndexInParent); override;
-   function GetShowRoot: Boolean; override;
-   procedure ChangingPrim; override;
-   procedure ChangedPrim; override;
-   procedure ExternalInvalidate; override;
-   procedure ExternalVisibleCountChanged(aNewCount: Integer;
-    aNodeIndex: Integer;
-    aDelta: Integer); override;
-     {* нотификация визуальному дереву о смене количества видимых элементов }
- protected
- // protected fields
-   f_Root : Il3SimpleRootNode;
- protected
- // protected methods
    procedure DoSelectAllNodes(aMode: Tl3SetBitType); virtual;
    procedure DoSelectInterval(aFirstIndex: Integer;
-     aLastIndex: Integer;
-     aMode: Tl3SetBitType;
-     aCleanOther: Boolean); virtual;
+    aLastIndex: Integer;
+    aMode: Tl3SetBitType;
+    aCleanOther: Boolean); virtual;
    procedure RootChanged(const aOld: Il3SimpleRootNode;
     const aNew: Il3SimpleRootNode); virtual;
    procedure MakeRootNode(const aRoot: INodeBase); virtual;
    function IsNodeVisible(const aNode: INodeBase): Boolean;
    procedure SelectCountChanged(anOldCount: Integer;
     aNewCount: Integer);
-     {* нотификация визуальному дереву о смене количества выделенных элементов }
+    {* нотификация визуальному дереву о смене количества выделенных элементов }
    function RootNodeClass: RnsINodeWrap; virtual;
-     {* определяет класс обертки для Root }
+    {* определяет класс обертки для Root }
    function MakeChildNode(const aChild: INodeBase): Il3SimpleNode; virtual;
    function DoMakeDataObject(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap): IDataObject; virtual;
-     {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
+    {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
    function DoCanAcceptData(const aTargetNode: Il3SimpleNode;
     const aData: Tl3TreeData;
     aProcessed: PBoolean): Boolean; virtual;
@@ -212,7 +77,7 @@ type
     var aProcessed: Boolean): Boolean; virtual;
    procedure ExternalModified(aNode: Integer;
     aDelta: Integer);
-     {* в дереве были добавлены/удалены элементы.
+    {* в дереве были добавлены/удалены элементы.
              - aNode:
                  Узел ниже которого добавили/удалили узлы. Нумерация начинается
                  с нуля;
@@ -225,120 +90,143 @@ type
    function GetSelectCount: Integer; virtual;
    procedure DoSelectionChanged(anIndex: Integer;
     aSelected: Boolean);
- public
- // public methods
+   function Get_RootNode: Il3SimpleRootNode;
+   procedure Set_RootNode(const aValue: Il3SimpleRootNode);
+   procedure CursorTop;
+    {* переставить курсор на первый видимый элемент. }
+   function GetIndex(const aNode: Il3SimpleNode;
+    const aSubRootNode: Il3SimpleNode = nil): Integer;
+    {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
+   function GetLevel(const aNode: Il3SimpleNode): Integer;
+    {* возвращает уровень узла относительно корня. }
+   procedure SelectAllNodes(aMode: Tl3SetBitType);
+    {* выделяет/развыделяет все узлы. }
+   procedure SelectInterval(aFirstIndex: Integer;
+    aLastIndex: Integer;
+    aMode: Tl3SetBitType;
+    aCleanOther: Boolean);
+    {* выделяет/развыделяет узлы на указанном интервале. }
+   function ChangeExpand(const aNode: Il3SimpleNode;
+    aMode: Tl3SetBitType;
+    aForceMode: Boolean = False): Boolean;
+    {* меняет развернутость узла. }
+   procedure ExpandSubDir(const aNode: Il3SimpleNode = nil;
+    anExpand: Boolean = True;
+    aDeepLevel: Byte = 0);
+    {* развернуть/свернуть узлы. }
+   procedure SetBranchFlag(const aParentNode: Il3SimpleNode;
+    aMode: Tl3SetBitType;
+    aFlagsMask: Integer;
+    anIterMode: Integer);
+    {* зачем-то используется визуалкой в ExpandNode. }
+   function CountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
+    {* зачем-то используется визуалкой в ShowMoreChildrenOnScreen. }
+   function IsRoot(const aNode: Il3SimpleNode): Boolean;
+    {* является ли узел корневым для дерева. }
+   function IsExpanded(const aNode: Il3SimpleNode): Boolean;
+    {* раскрыт ли узел. }
+   function IsFirstVis(const aNode: Il3SimpleNode): Boolean;
+    {* является ли узел первым видимым в ветке. }
+   function IsLastVis(const aNode: Il3SimpleNode): Boolean;
+    {* является ли узел последним видимым в ветке. }
+   function HasVisibleChildren(const aNode: Il3SimpleNode): Boolean;
+    {* есть ли видимые дети у aNode. }
+   function GetLines(const aNode: Il3SimpleNode): Integer;
+    {* маска для рисования линий (надо смотреть реализацию). }
+   function Wake: Boolean;
+    {* проснись!!! Типа начали рисовать. }
+   function MoveNode(const aNode: Il3SimpleNode;
+    aDirection: Tl3Direction): Boolean;
+    {* переместить узел. }
+   function SearchNameBegin(const aFirstNode: Il3SimpleNode;
+    aSrchStr: PAnsiChar;
+    aIterMode: Integer): Il3SimpleNode;
+    {* зачем-то используется визуалкой в CharToItem. }
+   function SearchNameOccur(const aFirstNode: Il3SimpleNode;
+    aSrchStr: PAnsiChar;
+    aIterMode: Integer): Il3SimpleNode;
+    {* зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется. }
+   function MakeNodeVisible(const aNode: Il3SimpleNode): Integer;
+    {* зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел. }
+   function GetPrev(const aNode: Il3SimpleNode): Il3SimpleNode;
+    {* предыдущий узел. Зачем-то используется в CharToItem. }
+   function SimpleIterateF(Action: Tl3SimpleNodeAction;
+    IterMode: Integer = 0;
+    const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
+    {* перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
+   function IsChanging: Boolean;
+    {* дерево находится в фазе обновления. }
+   procedure Changing;
+   procedure Changed;
+   function Get_ShowRoot: Boolean;
+   procedure Set_ShowRoot(aValue: Boolean);
+   function Get_CountView: Integer;
+   function Get_SelectCount: Integer;
+   function Get_Flags(anIndex: Integer): Integer;
+   function Get_Select(anIndex: Integer): Boolean;
+   procedure Set_Select(anIndex: Integer;
+    aValue: Boolean);
+   function Get_Nodes(anIndex: Integer): Il3SimpleNode;
+   function FlagIterateF(Action: Tl3SimpleNodeAction;
+    FlagMask: Word = 0;
+    IterMode: Integer = 0;
+    const aSubRootNode: Il3SimpleNode = nil;
+    aCheckResult: Boolean = False): Il3SimpleNode;
+    {* перебрать все узлы, удовлетворяющие FlagMask, и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
+   function MakeDataObject(const aNode: Il3SimpleNode;
+    const aBitmap: IUnknown): IDataObject;
+    {* сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты }
+   function CanAcceptData(const aTargetNode: Il3SimpleNode;
+    const aData: Tl3TreeData): Boolean;
+   function DropData(const aTargetNode: Il3SimpleNode;
+    const aData: Tl3TreeData): Boolean;
+   function MakeState: InsTreeStructState;
+   procedure AssignState(const aState: InsTreeStructState);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FireChanged; override;
+   procedure ChangeChildrenCountPrim(aNodeIndex: TVisibleIndex;
+    aDelta: Integer;
+    const aIndexPath: INodeIndexPath;
+    aChildIndex: TIndexInParent); override;
+   function GetShowRoot: Boolean; override;
+   procedure ChangingPrim; override;
+   procedure ChangedPrim; override;
+   procedure ExternalInvalidate; override;
+   procedure ExternalVisibleCountChanged(aNewCount: Integer;
+    aNodeIndex: Integer;
+    aDelta: Integer); override;
+    {* нотификация визуальному дереву о смене количества видимых элементов }
+  public
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
     aOneLevel: Boolean = False); reintroduce; virtual;
    class function Make(const aRoot: INodeBase;
     aShowRoot: Boolean;
     aOneLevel: Boolean = False): Il3SimpleTree; reintroduce;
- protected
- // protected properties
+  protected
    property Root: Il3SimpleRootNode
-     read pm_GetRoot
-     write pm_SetRoot;
+    read pm_GetRoot
+    write pm_SetRoot;
  end;//TnsTreeStruct
 
 implementation
 
 uses
-  SysUtils,
-  l3InterfacesMisc,
-  l3Nodes,
-  l3Bits,
-  l3Base,
-  l3Types
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsINodeRootWrap,
-  nsINodeWrap,
-  BaseTypesUnit
-  ;
-
-// start class TnsTreeStruct
-
-procedure TnsTreeStruct.DoSelectAllNodes(aMode: Tl3SetBitType);
-//#UC START# *51F1503E01A9_46835B4001A4_var*
-var
- l_OldSelectCount,
- l_NewSelectCount: Integer;
-//#UC END# *51F1503E01A9_46835B4001A4_var*
-begin
-//#UC START# *51F1503E01A9_46835B4001A4_impl*
- if RootNode <> nil then
- begin
-  l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
-  if aMode = sbSelect then
-   RootNode.SetAllFlag(FM_SELECTION, True)
-  else
-   if aMode = sbDeselect then
-   begin
-    f_SelectedIndexList.Clear;
-    RootNode.SetAllFlag(FM_SELECTION, False);
-   end;
-  l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
-  SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
- end;
-//#UC END# *51F1503E01A9_46835B4001A4_impl*
-end;//TnsTreeStruct.DoSelectAllNodes
-
-procedure TnsTreeStruct.DoSelectInterval(aFirstIndex: Integer;
-  aLastIndex: Integer;
-  aMode: Tl3SetBitType;
-  aCleanOther: Boolean);
-//#UC START# *51F1508A01EA_46835B4001A4_var*
-var
- l_Node: INodeBase;
- l_First,
- l_Last: LongInt;
- l_OldSelectCount,
- l_NewSelectCount: Integer;
-//#UC END# *51F1508A01EA_46835B4001A4_var*
-begin
-//#UC START# *51F1508A01EA_46835B4001A4_impl*
- if CurrentNode <> nil then
- begin
-  l_Node := CurrentNode;
-  l_First := aFirstIndex - CurrentNodeIndex;
-  l_Last := aLastIndex - CurrentNodeIndex;
- end
- else
-  if RootNode <> nil then
-  begin
-   l_Node := RootNode;
-   l_First := aFirstIndex;
-   l_Last := aLastIndex;
-  end
-  else
-   exit;
-
- l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
- if aMode = sbSelect then
-  l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, True, aCleanOther)
- else
-  if aMode = sbDeselect then
-   l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, False, aCleanOther);
- l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
- SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
-//#UC END# *51F1508A01EA_46835B4001A4_impl*
-end;//TnsTreeStruct.DoSelectInterval
-// start class TnsTreeStructState
-
-procedure TnsTreeStructState.FillList(aSelectedIndexList: Tl3LongintList);
-//#UC START# *56A892DC0298_56A8877600AB_var*
-var
- l_Index: Integer;
-//#UC END# *56A892DC0298_56A8877600AB_var*
-begin
-//#UC START# *56A892DC0298_56A8877600AB_impl*
- for l_Index := 0 to Pred(aSelectedIndexList.Count) do
-  f_SelectedIndexList.Add(aSelectedIndexList[l_Index]);
-//#UC END# *56A892DC0298_56A8877600AB_impl*
-end;//TnsTreeStructState.FillList
+ l3ImplUses
+ , SysUtils
+ , l3InterfacesMisc
+ , l3Nodes
+ , l3Bits
+ , l3Base
+ , l3Types
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsINodeRootWrap
+ , nsINodeWrap
+ , BaseTypesUnit
+;
 
 constructor TnsTreeStructState.Create(aSelectedIndexList: Tl3LongintList);
 //#UC START# *56A887A200DE_56A8877600AB_var*
@@ -362,7 +250,19 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsTreeStructState.Make
+
+procedure TnsTreeStructState.FillList(aSelectedIndexList: Tl3LongintList);
+//#UC START# *56A892DC0298_56A8877600AB_var*
+var
+ l_Index: Integer;
+//#UC END# *56A892DC0298_56A8877600AB_var*
+begin
+//#UC START# *56A892DC0298_56A8877600AB_impl*
+ for l_Index := 0 to Pred(aSelectedIndexList.Count) do
+  f_SelectedIndexList.Add(aSelectedIndexList[l_Index]);
+//#UC END# *56A892DC0298_56A8877600AB_impl*
+end;//TnsTreeStructState.FillList
 
 function TnsTreeStructState.GetSelectedNodeCount: Integer;
 //#UC START# *56CD757F012F_56A8877600AB_var*
@@ -383,6 +283,7 @@ begin
 end;//TnsTreeStructState.GetSelectedNodeVisibleIndex
 
 procedure TnsTreeStructState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56A8877600AB_var*
 //#UC END# *479731C50290_56A8877600AB_var*
 begin
@@ -427,9 +328,75 @@ begin
 //#UC END# *48FDD9D901BB_46835B4001A4set_impl*
 end;//TnsTreeStruct.pm_SetRoot
 
+procedure TnsTreeStruct.DoSelectAllNodes(aMode: Tl3SetBitType);
+//#UC START# *51F1503E01A9_46835B4001A4_var*
+var
+ l_OldSelectCount,
+ l_NewSelectCount: Integer;
+//#UC END# *51F1503E01A9_46835B4001A4_var*
+begin
+//#UC START# *51F1503E01A9_46835B4001A4_impl*
+ if RootNode <> nil then
+ begin
+  l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+  if aMode = sbSelect then
+   RootNode.SetAllFlag(FM_SELECTION, True)
+  else
+   if aMode = sbDeselect then
+   begin
+    f_SelectedIndexList.Clear;
+    RootNode.SetAllFlag(FM_SELECTION, False);
+   end;
+  l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+  SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
+ end;
+//#UC END# *51F1503E01A9_46835B4001A4_impl*
+end;//TnsTreeStruct.DoSelectAllNodes
+
+procedure TnsTreeStruct.DoSelectInterval(aFirstIndex: Integer;
+ aLastIndex: Integer;
+ aMode: Tl3SetBitType;
+ aCleanOther: Boolean);
+//#UC START# *51F1508A01EA_46835B4001A4_var*
+var
+ l_Node: INodeBase;
+ l_First,
+ l_Last: LongInt;
+ l_OldSelectCount,
+ l_NewSelectCount: Integer;
+//#UC END# *51F1508A01EA_46835B4001A4_var*
+begin
+//#UC START# *51F1508A01EA_46835B4001A4_impl*
+ if CurrentNode <> nil then
+ begin
+  l_Node := CurrentNode;
+  l_First := aFirstIndex - CurrentNodeIndex;
+  l_Last := aLastIndex - CurrentNodeIndex;
+ end
+ else
+  if RootNode <> nil then
+  begin
+   l_Node := RootNode;
+   l_First := aFirstIndex;
+   l_Last := aLastIndex;
+  end
+  else
+   exit;
+
+ l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+ if aMode = sbSelect then
+  l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, True, aCleanOther)
+ else
+  if aMode = sbDeselect then
+   l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, False, aCleanOther);
+ l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+ SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
+//#UC END# *51F1508A01EA_46835B4001A4_impl*
+end;//TnsTreeStruct.DoSelectInterval
+
 constructor TnsTreeStruct.Create(const aRoot: INodeBase;
-  aShowRoot: Boolean;
-  aOneLevel: Boolean = False);
+ aShowRoot: Boolean;
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_46835B4001A4_var*
 //#UC END# *48FDD9270194_46835B4001A4_var*
 begin
@@ -443,8 +410,8 @@ begin
 end;//TnsTreeStruct.Create
 
 class function TnsTreeStruct.Make(const aRoot: INodeBase;
-  aShowRoot: Boolean;
-  aOneLevel: Boolean = False): Il3SimpleTree;
+ aShowRoot: Boolean;
+ aOneLevel: Boolean = False): Il3SimpleTree;
 var
  l_Inst : TnsTreeStruct;
 begin
@@ -454,10 +421,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsTreeStruct.Make
 
 procedure TnsTreeStruct.RootChanged(const aOld: Il3SimpleRootNode;
-  const aNew: Il3SimpleRootNode);
+ const aNew: Il3SimpleRootNode);
 //#UC START# *48FDDE4B01F5_46835B4001A4_var*
 
   procedure lp_Notify;
@@ -518,7 +485,8 @@ begin
 end;//TnsTreeStruct.IsNodeVisible
 
 procedure TnsTreeStruct.SelectCountChanged(anOldCount: Integer;
-  aNewCount: Integer);
+ aNewCount: Integer);
+ {* нотификация визуальному дереву о смене количества выделенных элементов }
 //#UC START# *48FDDE9E01C4_46835B4001A4_var*
 var
  l_Index : Integer;
@@ -542,6 +510,7 @@ begin
 end;//TnsTreeStruct.SelectCountChanged
 
 function TnsTreeStruct.GetNodeClass(const aNode: INodeBase): RnsINodeWrap;
+ {* вычисляем класс ноды для создания обертки }
 //#UC START# *48FEE33D00A2_46835B4001A4_var*
 var
  l_NodeInfo: InsNodeImplementationInfo;
@@ -561,6 +530,7 @@ begin
 end;//TnsTreeStruct.GetNodeClass
 
 function TnsTreeStruct.RootNodeClass: RnsINodeWrap;
+ {* определяет класс обертки для Root }
 //#UC START# *48FEE3640227_46835B4001A4_var*
 //#UC END# *48FEE3640227_46835B4001A4_var*
 begin
@@ -579,7 +549,8 @@ begin
 end;//TnsTreeStruct.MakeChildNode
 
 function TnsTreeStruct.DoMakeDataObject(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap): IDataObject;
+ const aBitmap: Il3Bitmap): IDataObject;
+ {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
 //#UC START# *48FEE6210205_46835B4001A4_var*
 //#UC END# *48FEE6210205_46835B4001A4_var*
 begin
@@ -589,8 +560,8 @@ begin
 end;//TnsTreeStruct.DoMakeDataObject
 
 function TnsTreeStruct.DoCanAcceptData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData;
-  aProcessed: PBoolean): Boolean;
+ const aData: Tl3TreeData;
+ aProcessed: PBoolean): Boolean;
 //#UC START# *48FEE78E01B2_46835B4001A4_var*
 //#UC END# *48FEE78E01B2_46835B4001A4_var*
 begin
@@ -600,8 +571,8 @@ begin
 end;//TnsTreeStruct.DoCanAcceptData
 
 function TnsTreeStruct.DoDropData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData;
-  var aProcessed: Boolean): Boolean;
+ const aData: Tl3TreeData;
+ var aProcessed: Boolean): Boolean;
 //#UC START# *48FEE9D303B6_46835B4001A4_var*
 //#UC END# *48FEE9D303B6_46835B4001A4_var*
 begin
@@ -611,7 +582,14 @@ begin
 end;//TnsTreeStruct.DoDropData
 
 procedure TnsTreeStruct.ExternalModified(aNode: Integer;
-  aDelta: Integer);
+ aDelta: Integer);
+ {* в дереве были добавлены/удалены элементы.
+             - aNode:
+                 Узел ниже которого добавили/удалили узлы. Нумерация начинается
+                 с нуля;
+             - aDelta:
+                 Количество элементов которое было добавлено/удалено. Если
+                 aDelta со знаком минус элементы были удалены; }
 //#UC START# *48FEEAB703D5_46835B4001A4_var*
 var
  l_Index : Integer;
@@ -637,8 +615,8 @@ begin
 end;//TnsTreeStruct.ExternalModified
 
 function TnsTreeStruct.DoChangeExpand(const aNode: Il3SimpleNode;
-  aMode: Tl3SetBitType;
-  aForceMode: Boolean): Boolean;
+ aMode: Tl3SetBitType;
+ aForceMode: Boolean): Boolean;
 //#UC START# *48FEFA1E02E7_46835B4001A4_var*
 var
  l_Node : INodeBase;
@@ -677,7 +655,7 @@ begin
 end;//TnsTreeStruct.GetSelectCount
 
 procedure TnsTreeStruct.DoSelectionChanged(anIndex: Integer;
-  aSelected: Boolean);
+ aSelected: Boolean);
 //#UC START# *56CD453700A7_46835B4001A4_var*
 //#UC END# *56CD453700A7_46835B4001A4_var*
 begin
@@ -708,6 +686,7 @@ begin
 end;//TnsTreeStruct.Set_RootNode
 
 procedure TnsTreeStruct.CursorTop;
+ {* переставить курсор на первый видимый элемент. }
 //#UC START# *4772448C01D2_46835B4001A4_var*
 //#UC END# *4772448C01D2_46835B4001A4_var*
 begin
@@ -717,7 +696,8 @@ begin
 end;//TnsTreeStruct.CursorTop
 
 function TnsTreeStruct.GetIndex(const aNode: Il3SimpleNode;
-  const aSubRootNode: Il3SimpleNode = nil): Integer;
+ const aSubRootNode: Il3SimpleNode = nil): Integer;
+ {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
 //#UC START# *4772449B00A1_46835B4001A4_var*
 Var
  l_AdapterNode: INodeBase;  
@@ -751,6 +731,7 @@ begin
 end;//TnsTreeStruct.GetIndex
 
 function TnsTreeStruct.GetLevel(const aNode: Il3SimpleNode): Integer;
+ {* возвращает уровень узла относительно корня. }
 //#UC START# *477244BA0074_46835B4001A4_var*
 //#UC END# *477244BA0074_46835B4001A4_var*
 begin
@@ -768,6 +749,7 @@ begin
 end;//TnsTreeStruct.GetLevel
 
 procedure TnsTreeStruct.SelectAllNodes(aMode: Tl3SetBitType);
+ {* выделяет/развыделяет все узлы. }
 //#UC START# *477244CE02AE_46835B4001A4_var*
 //#UC END# *477244CE02AE_46835B4001A4_var*
 begin
@@ -777,9 +759,10 @@ begin
 end;//TnsTreeStruct.SelectAllNodes
 
 procedure TnsTreeStruct.SelectInterval(aFirstIndex: Integer;
-  aLastIndex: Integer;
-  aMode: Tl3SetBitType;
-  aCleanOther: Boolean);
+ aLastIndex: Integer;
+ aMode: Tl3SetBitType;
+ aCleanOther: Boolean);
+ {* выделяет/развыделяет узлы на указанном интервале. }
 //#UC START# *477244DD0292_46835B4001A4_var*
 //#UC END# *477244DD0292_46835B4001A4_var*
 begin
@@ -789,8 +772,9 @@ begin
 end;//TnsTreeStruct.SelectInterval
 
 function TnsTreeStruct.ChangeExpand(const aNode: Il3SimpleNode;
-  aMode: Tl3SetBitType;
-  aForceMode: Boolean = false): Boolean;
+ aMode: Tl3SetBitType;
+ aForceMode: Boolean = False): Boolean;
+ {* меняет развернутость узла. }
 //#UC START# *47724512002D_46835B4001A4_var*
 //#UC END# *47724512002D_46835B4001A4_var*
 begin
@@ -800,8 +784,9 @@ begin
 end;//TnsTreeStruct.ChangeExpand
 
 procedure TnsTreeStruct.ExpandSubDir(const aNode: Il3SimpleNode = nil;
-  anExpand: Boolean = true;
-  aDeepLevel: Byte = 0);
+ anExpand: Boolean = True;
+ aDeepLevel: Byte = 0);
+ {* развернуть/свернуть узлы. }
 //#UC START# *4772452E002D_46835B4001A4_var*
 var
  l_SubRoot: Il3SimpleNode;
@@ -854,9 +839,10 @@ begin
 end;//TnsTreeStruct.ExpandSubDir
 
 procedure TnsTreeStruct.SetBranchFlag(const aParentNode: Il3SimpleNode;
-  aMode: Tl3SetBitType;
-  aFlagsMask: Integer;
-  anIterMode: Integer);
+ aMode: Tl3SetBitType;
+ aFlagsMask: Integer;
+ anIterMode: Integer);
+ {* зачем-то используется визуалкой в ExpandNode. }
 //#UC START# *477245520298_46835B4001A4_var*
 var
  l_Node: INodeBase;  
@@ -875,6 +861,7 @@ begin
 end;//TnsTreeStruct.SetBranchFlag
 
 function TnsTreeStruct.CountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
+ {* зачем-то используется визуалкой в ShowMoreChildrenOnScreen. }
 //#UC START# *4772457D032A_46835B4001A4_var*
 //#UC END# *4772457D032A_46835B4001A4_var*
 begin
@@ -884,6 +871,7 @@ begin
 end;//TnsTreeStruct.CountViewItemsInSubDir
 
 function TnsTreeStruct.IsRoot(const aNode: Il3SimpleNode): Boolean;
+ {* является ли узел корневым для дерева. }
 //#UC START# *477245A20228_46835B4001A4_var*
 //#UC END# *477245A20228_46835B4001A4_var*
 begin
@@ -893,6 +881,7 @@ begin
 end;//TnsTreeStruct.IsRoot
 
 function TnsTreeStruct.IsExpanded(const aNode: Il3SimpleNode): Boolean;
+ {* раскрыт ли узел. }
 //#UC START# *477245B301DE_46835B4001A4_var*
 var
  l_Node : INodeBase;
@@ -911,6 +900,7 @@ begin
 end;//TnsTreeStruct.IsExpanded
 
 function TnsTreeStruct.IsFirstVis(const aNode: Il3SimpleNode): Boolean;
+ {* является ли узел первым видимым в ветке. }
 //#UC START# *477245C40171_46835B4001A4_var*
 //#UC END# *477245C40171_46835B4001A4_var*
 begin
@@ -923,6 +913,7 @@ begin
 end;//TnsTreeStruct.IsFirstVis
 
 function TnsTreeStruct.IsLastVis(const aNode: Il3SimpleNode): Boolean;
+ {* является ли узел последним видимым в ветке. }
 //#UC START# *477245D9031B_46835B4001A4_var*
 //#UC END# *477245D9031B_46835B4001A4_var*
 begin
@@ -935,6 +926,7 @@ begin
 end;//TnsTreeStruct.IsLastVis
 
 function TnsTreeStruct.HasVisibleChildren(const aNode: Il3SimpleNode): Boolean;
+ {* есть ли видимые дети у aNode. }
 //#UC START# *477245F301AE_46835B4001A4_var*
 //#UC END# *477245F301AE_46835B4001A4_var*
 begin
@@ -947,6 +939,7 @@ begin
 end;//TnsTreeStruct.HasVisibleChildren
 
 function TnsTreeStruct.GetLines(const aNode: Il3SimpleNode): Integer;
+ {* маска для рисования линий (надо смотреть реализацию). }
 //#UC START# *477246040221_46835B4001A4_var*
 var
  lCNode  : Il3SimpleNode;
@@ -978,6 +971,7 @@ begin
 end;//TnsTreeStruct.GetLines
 
 function TnsTreeStruct.Wake: Boolean;
+ {* проснись!!! Типа начали рисовать. }
 //#UC START# *4772461601C6_46835B4001A4_var*
 //#UC END# *4772461601C6_46835B4001A4_var*
 begin
@@ -987,7 +981,8 @@ begin
 end;//TnsTreeStruct.Wake
 
 function TnsTreeStruct.MoveNode(const aNode: Il3SimpleNode;
-  aDirection: Tl3Direction): Boolean;
+ aDirection: Tl3Direction): Boolean;
+ {* переместить узел. }
 //#UC START# *477246270133_46835B4001A4_var*
 //#UC END# *477246270133_46835B4001A4_var*
 begin
@@ -997,8 +992,9 @@ begin
 end;//TnsTreeStruct.MoveNode
 
 function TnsTreeStruct.SearchNameBegin(const aFirstNode: Il3SimpleNode;
-  aSrchStr: PAnsiChar;
-  aIterMode: Integer): Il3SimpleNode;
+ aSrchStr: PAnsiChar;
+ aIterMode: Integer): Il3SimpleNode;
+ {* зачем-то используется визуалкой в CharToItem. }
 //#UC START# *477246440037_46835B4001A4_var*
 //#UC END# *477246440037_46835B4001A4_var*
 begin
@@ -1008,8 +1004,9 @@ begin
 end;//TnsTreeStruct.SearchNameBegin
 
 function TnsTreeStruct.SearchNameOccur(const aFirstNode: Il3SimpleNode;
-  aSrchStr: PAnsiChar;
-  aIterMode: Integer): Il3SimpleNode;
+ aSrchStr: PAnsiChar;
+ aIterMode: Integer): Il3SimpleNode;
+ {* зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется. }
 //#UC START# *4772465F0276_46835B4001A4_var*
 //#UC END# *4772465F0276_46835B4001A4_var*
 begin
@@ -1019,6 +1016,7 @@ begin
 end;//TnsTreeStruct.SearchNameOccur
 
 function TnsTreeStruct.MakeNodeVisible(const aNode: Il3SimpleNode): Integer;
+ {* зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел. }
 //#UC START# *477246860169_46835B4001A4_var*
 Var
  l_Node : INodeBase;
@@ -1038,6 +1036,7 @@ begin
 end;//TnsTreeStruct.MakeNodeVisible
 
 function TnsTreeStruct.GetPrev(const aNode: Il3SimpleNode): Il3SimpleNode;
+ {* предыдущий узел. Зачем-то используется в CharToItem. }
 //#UC START# *477246A40174_46835B4001A4_var*
 //#UC END# *477246A40174_46835B4001A4_var*
 begin
@@ -1047,8 +1046,9 @@ begin
 end;//TnsTreeStruct.GetPrev
 
 function TnsTreeStruct.SimpleIterateF(Action: Tl3SimpleNodeAction;
-  IterMode: Integer = 0;
-  const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
+ IterMode: Integer = 0;
+ const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
+ {* перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
 //#UC START# *477246C70141_46835B4001A4_var*
 //#UC END# *477246C70141_46835B4001A4_var*
 begin
@@ -1058,6 +1058,7 @@ begin
 end;//TnsTreeStruct.SimpleIterateF
 
 function TnsTreeStruct.IsChanging: Boolean;
+ {* дерево находится в фазе обновления. }
 //#UC START# *477246E802B1_46835B4001A4_var*
 //#UC END# *477246E802B1_46835B4001A4_var*
 begin
@@ -1151,7 +1152,8 @@ begin
 //#UC END# *477249AB0057_46835B4001A4get_impl*
 end;//TnsTreeStruct.Get_Select
 
-procedure TnsTreeStruct.Set_Select(anIndex: Integer; aValue: Boolean);
+procedure TnsTreeStruct.Set_Select(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *477249AB0057_46835B4001A4set_var*
 var
  l_Node : INodeBase;
@@ -1186,10 +1188,11 @@ begin
 end;//TnsTreeStruct.Get_Nodes
 
 function TnsTreeStruct.FlagIterateF(Action: Tl3SimpleNodeAction;
-  FlagMask: Word = 0;
-  IterMode: Integer = 0;
-  const aSubRootNode: Il3SimpleNode = nil;
-  aCheckResult: Boolean = False): Il3SimpleNode;
+ FlagMask: Word = 0;
+ IterMode: Integer = 0;
+ const aSubRootNode: Il3SimpleNode = nil;
+ aCheckResult: Boolean = False): Il3SimpleNode;
+ {* перебрать все узлы, удовлетворяющие FlagMask, и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
 //#UC START# *47724AB70207_46835B4001A4_var*
 var
  l_RootNeeded,
@@ -1256,7 +1259,8 @@ begin
 end;//TnsTreeStruct.FlagIterateF
 
 function TnsTreeStruct.MakeDataObject(const aNode: Il3SimpleNode;
-  const aBitmap: IUnknown): IDataObject;
+ const aBitmap: IUnknown): IDataObject;
+ {* сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты }
 //#UC START# *47A86EA80292_46835B4001A4_var*
 //#UC END# *47A86EA80292_46835B4001A4_var*
 begin
@@ -1266,7 +1270,7 @@ begin
 end;//TnsTreeStruct.MakeDataObject
 
 function TnsTreeStruct.CanAcceptData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData): Boolean;
+ const aData: Tl3TreeData): Boolean;
 //#UC START# *47BAD3080349_46835B4001A4_var*
 var
  l_Processed: Boolean;
@@ -1281,7 +1285,7 @@ begin
 end;//TnsTreeStruct.CanAcceptData
 
 function TnsTreeStruct.DropData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData): Boolean;
+ const aData: Tl3TreeData): Boolean;
 //#UC START# *47BAD32501E2_46835B4001A4_var*
 
   procedure lp_Notify;
@@ -1344,6 +1348,7 @@ begin
 end;//TnsTreeStruct.AssignState
 
 procedure TnsTreeStruct.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_46835B4001A4_var*
 //#UC END# *479731C50290_46835B4001A4_var*
 begin
@@ -1371,9 +1376,9 @@ begin
 end;//TnsTreeStruct.FireChanged
 
 procedure TnsTreeStruct.ChangeChildrenCountPrim(aNodeIndex: TVisibleIndex;
-  aDelta: Integer;
-  const aIndexPath: INodeIndexPath;
-  aChildIndex: TIndexInParent);
+ aDelta: Integer;
+ const aIndexPath: INodeIndexPath;
+ aChildIndex: TIndexInParent);
 //#UC START# *48FDA11E02D1_46835B4001A4_var*
 
  function lp_ConvertChildIndexToVisibleIndex(const aParent: INodeBase; aChildIndex: TIndexInParent; aResult: Integer): Integer;
@@ -1511,8 +1516,9 @@ begin
 end;//TnsTreeStruct.ExternalInvalidate
 
 procedure TnsTreeStruct.ExternalVisibleCountChanged(aNewCount: Integer;
-  aNodeIndex: Integer;
-  aDelta: Integer);
+ aNodeIndex: Integer;
+ aDelta: Integer);
+ {* нотификация визуальному дереву о смене количества видимых элементов }
 //#UC START# *48FDA30E0390_46835B4001A4_var*
 var
  l_Index : Integer;

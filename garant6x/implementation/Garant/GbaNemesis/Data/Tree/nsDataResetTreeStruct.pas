@@ -1,94 +1,74 @@
 unit nsDataResetTreeStruct;
+ {* Дерево, которое умеет обновляться при смене данных }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsDataResetTreeStruct.pas"
-// Начат: 2005/11/22 18:54:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsDataResetTreeStruct
-//
-// Дерево, которое умеет обновляться при смене данных
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDataResetTreeStruct" MUID: (468361010204)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  nsFilterableTreeStruct,
-  nsTypes,
-  afwInterfaces,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , nsFilterableTreeStruct
+ , nsTypes
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , afwInterfaces
+;
 
 type
  _afwApplicationDataUpdate_Parent_ = TnsFilterableTreeStruct;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsDataResetTreeStruct = {abstract} class(_afwApplicationDataUpdate_)
   {* Дерево, которое умеет обновляться при смене данных }
- private
- // private fields
-   f_InGetRoot : Boolean;
-   f_BeenReseted : TnsResetTreeStatus;
-    {* Поле для свойства BeenReseted}
- private
- // private methods
+  private
+   f_InGetRoot: Boolean;
+   f_BeenReseted: TnsResetTreeStatus;
+    {* Поле для свойства BeenReseted }
+  private
    procedure NotifyUpdated;
-     {* уведомляет об обновлении данных дерева }
+    {* уведомляет об обновлении данных дерева }
    procedure MakeResettedSimpleRoot;
- protected
- // overridden property methods
-   function pm_GetRoot: Il3SimpleRootNode; override;
-   procedure pm_SetRoot(const aValue: Il3SimpleRootNode); override;
- protected
- // overridden protected methods
+  protected
+   function ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase; virtual;
+    {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
+   procedure BeforeReset; virtual;
+   function ReAqurieUnfilteredRoot: INodeBase; virtual; abstract;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
    procedure ResetChildrenCountPrim; override;
+   function pm_GetRoot: Il3SimpleRootNode; override;
+   procedure pm_SetRoot(const aValue: Il3SimpleRootNode); override;
    function DoMakeFiltered(const aFilters: Il3TreeFilters;
     const aCurrentNode: Il3SimpleNode;
     out aSyncIndex: Integer;
     aAutoOpen: Boolean;
     CalcPartialContext: Boolean): Il3SimpleTree; override;
- protected
- // protected methods
-   function ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase; virtual;
-     {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
-   procedure BeforeReset; virtual;
-   function ReAqurieUnfilteredRoot: INodeBase; virtual; abstract;
- protected
- // protected properties
+  protected
    property BeenReseted: TnsResetTreeStatus
-     read f_BeenReseted
-     write f_BeenReseted;
+    read f_BeenReseted
+    write f_BeenReseted;
  end;//TnsDataResetTreeStruct
 
 implementation
 
 uses
-  bsInterfaces,
-  SysUtils,
-  BaseTypesUnit,
-  l3Types,
-  l3Base,
-  afwFacade
-  ;
+ l3ImplUses
+ , bsInterfaces
+ , SysUtils
+ , BaseTypesUnit
+ , l3Types
+ , l3Base
+ , afwFacade
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-// start class TnsDataResetTreeStruct
-
 function TnsDataResetTreeStruct.ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase;
+ {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
 //#UC START# *4F1D334C0371_468361010204_var*
 //#UC END# *4F1D334C0371_468361010204_var*
 begin
@@ -112,6 +92,7 @@ begin
 end;//TnsDataResetTreeStruct.BeforeReset
 
 procedure TnsDataResetTreeStruct.NotifyUpdated;
+ {* уведомляет об обновлении данных дерева }
 //#UC START# *48FF667E00CF_468361010204_var*
 var
  l_Index    : Integer;
@@ -176,6 +157,7 @@ begin
 end;//TnsDataResetTreeStruct.MakeResettedSimpleRoot
 
 procedure TnsDataResetTreeStruct.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_468361010204_var*
 //#UC END# *479731C50290_468361010204_var*
 begin
@@ -247,10 +229,10 @@ begin
 end;//TnsDataResetTreeStruct.pm_SetRoot
 
 function TnsDataResetTreeStruct.DoMakeFiltered(const aFilters: Il3TreeFilters;
-  const aCurrentNode: Il3SimpleNode;
-  out aSyncIndex: Integer;
-  aAutoOpen: Boolean;
-  CalcPartialContext: Boolean): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ out aSyncIndex: Integer;
+ aAutoOpen: Boolean;
+ CalcPartialContext: Boolean): Il3SimpleTree;
 //#UC START# *48FF5A9002CC_468361010204_var*
 //#UC END# *48FF5A9002CC_468361010204_var*
 begin

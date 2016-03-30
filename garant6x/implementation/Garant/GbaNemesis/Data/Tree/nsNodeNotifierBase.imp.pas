@@ -1,44 +1,31 @@
 {$IfNDef nsNodeNotifierBase_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsNodeNotifierBase.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::nsNodeNotifierBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsNodeNotifierBase" MUID: (48FD8F78038B)
+// Имя типа: "_nsNodeNotifierBase_"
 
 {$Define nsNodeNotifierBase_imp}
- TnsThreadCallParamsRec = record
-   rNodeIndex : TVisibleIndex;
-   rDelta : Integer;
-   rIndexPath : INodeIndexPath;
-   rChildIndex : TIndexInParent;
- end;//TnsThreadCallParamsRec
 
+type
  PnsThreadCallParamsRec = ^TnsThreadCallParamsRec;
+
+ TnsThreadCallParamsRec = record
+  rNodeIndex: TVisibleIndex;
+  rDelta: Integer;
+  rIndexPath: INodeIndexPath;
+  rChildIndex: TIndexInParent;
+ end;//TnsThreadCallParamsRec
 
  _l3ThreadNotifier_Parent_ = _nsNodeNotifierBase_Parent_;
  {$Include w:\common\components\rtl\Garant\L3\l3ThreadNotifier.imp.pas}
  _nsNodeNotifierPrim_Parent_ = _l3ThreadNotifier_;
- {$Include ..\Tree\nsNodeNotifierPrim.imp.pas}
- _nsNodeNotifierBase_ = {mixin} class(_nsNodeNotifierPrim_)
- private
- // private fields
-   f_CountViewChanged : Boolean;
-    {* Поле для свойства CountViewChanged}
-   f_CountView : Integer;
-    {* Поле для свойства CountView}
- protected
- // overridden protected methods
-   function HolderClass: Rl3DataHolder; override;
-   procedure Cleanup; override;
- protected
- // protected methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierPrim.imp.pas}
+ _nsNodeNotifierBase_ = class(_nsNodeNotifierPrim_)
+  private
+   f_CountViewChanged: Boolean;
+   f_CountView: Integer;
+  protected
    function IsInGetByVisibleIndex: Boolean; virtual;
    function IsOneLevelPrim: Boolean; virtual;
    function DoChangeChildrenCount(aNodeIndex: TVisibleIndex;
@@ -57,39 +44,38 @@
    procedure ExternalVisibleCountChanged(aNewCount: Integer;
     aNodeIndex: Integer;
     aDelta: Integer); virtual;
-     {* нотификация визуальному дереву о смене количества видимых элементов }
+    {* нотификация визуальному дереву о смене количества видимых элементов }
    procedure DropCountView;
    procedure InvalidateThread(aDataPtr: Tl3DataHolder);
    procedure ChangingThread(aDataPtr: Tl3DataHolder);
    procedure ChangedThread(aDataPtr: Tl3DataHolder);
    procedure ChangeChildrenCountThread(aDataPtr: Tl3DataHolder);
- protected
- // protected properties
+   function HolderClass: Rl3DataHolder; override;
+   procedure Cleanup; override;
+  protected
    property CountViewChanged: Boolean
-     read f_CountViewChanged
-     write f_CountViewChanged;
+    read f_CountViewChanged
+    write f_CountViewChanged;
    property CountView: Integer
-     read f_CountView;
+    read f_CountView;
  end;//_nsNodeNotifierBase_
 
 {$Else nsNodeNotifierBase_imp}
 
-{$Include w:\common\components\rtl\Garant\L3\l3ThreadNotifier.imp.pas}
+{$IfNDef nsNodeNotifierBase_imp_impl}
 
-{$Include ..\Tree\nsNodeNotifierPrim.imp.pas}
+{$Define nsNodeNotifierBase_imp_impl}
 
 type
-  TnsNodeNotifierHolder = class(Tl3DataHolder)
+ TnsNodeNotifierHolder = class(Tl3DataHolder)
   protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
-  end;//TnsNodeNotifierHolder
-
-// start class TnsNodeNotifierHolder
+ end;//TnsNodeNotifierHolder
 
 procedure TnsNodeNotifierHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48FD9AE5001C_var*
 //#UC END# *479731C50290_48FD9AE5001C_var*
 begin
@@ -113,6 +99,10 @@ begin
 //#UC END# *47A042E100E2_48FD9AE5001C_impl*
 end;//TnsNodeNotifierHolder.InitFields
 
+{$Include w:\common\components\rtl\Garant\L3\l3ThreadNotifier.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierPrim.imp.pas}
+
 function _nsNodeNotifierBase_.IsInGetByVisibleIndex: Boolean;
 //#UC START# *48FDA0CB01AD_48FD8F78038B_var*
 //#UC END# *48FDA0CB01AD_48FD8F78038B_var*
@@ -132,7 +122,7 @@ begin
 end;//_nsNodeNotifierBase_.IsOneLevelPrim
 
 function _nsNodeNotifierBase_.DoChangeChildrenCount(aNodeIndex: TVisibleIndex;
-  aDelta: Integer): Integer;
+ aDelta: Integer): Integer;
 //#UC START# *48FDA0F500F9_48FD8F78038B_var*
 //#UC END# *48FDA0F500F9_48FD8F78038B_var*
 begin
@@ -142,9 +132,9 @@ begin
 end;//_nsNodeNotifierBase_.DoChangeChildrenCount
 
 procedure _nsNodeNotifierBase_.ChangeChildrenCountPrim(aNodeIndex: TVisibleIndex;
-  aDelta: Integer;
-  const aIndexPath: INodeIndexPath;
-  aChildIndex: TIndexInParent);
+ aDelta: Integer;
+ const aIndexPath: INodeIndexPath;
+ aChildIndex: TIndexInParent);
 //#UC START# *48FDA11E02D1_48FD8F78038B_var*
 //#UC END# *48FDA11E02D1_48FD8F78038B_var*
 begin
@@ -234,8 +224,9 @@ begin
 end;//_nsNodeNotifierBase_.DropCurrent
 
 procedure _nsNodeNotifierBase_.ExternalVisibleCountChanged(aNewCount: Integer;
-  aNodeIndex: Integer;
-  aDelta: Integer);
+ aNodeIndex: Integer;
+ aDelta: Integer);
+ {* нотификация визуальному дереву о смене количества видимых элементов }
 //#UC START# *48FDA30E0390_48FD8F78038B_var*
 //#UC END# *48FDA30E0390_48FD8F78038B_var*
 begin
@@ -308,4 +299,7 @@ begin
 //#UC END# *48FD97BC0335_48FD8F78038B_impl*
 end;//_nsNodeNotifierBase_.Cleanup
 
+{$EndIf nsNodeNotifierBase_imp_impl}
+
 {$EndIf nsNodeNotifierBase_imp}
+

@@ -1,69 +1,48 @@
 unit nsWrapperNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsWrapperNode.pas"
-// Начат: 21.10.2009 18:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsWrapperNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsWrapperNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsWrapperNode" MUID: (4AC230590004)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3_String,
-  OldTreeInterfaces,
-  l3NodesModelPart,
-  l3Interfaces,
-  l3Types
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3NodesModelPart
+ , OldTreeInterfaces
+ , l3_String
+ , l3Interfaces
+ , l3Types
+;
 
-{$If not defined(Admin)}
 type
  TnsWrapperNode = class(Tl3PlaceNode, InsWrapperNode)
- private
- // private fields
-   f_Name : Tl3_String;
-   f_Comment : Tl3_String;
- protected
- // realized methods
+  private
+   f_Name: Tl3_String;
+   f_Comment: Tl3_String;
+  protected
    function pm_GetName: Tl3WString;
    procedure pm_SetName(const aValue: Tl3WString);
    function pm_GetComment: Tl3WString;
    procedure pm_SetComment(const aValue: Tl3WString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
  end;//TnsWrapperNode
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base,
-  SysUtils
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnsWrapperNode
+ l3ImplUses
+ , l3Base
+ , SysUtils
+;
 
 function TnsWrapperNode.pm_GetName: Tl3WString;
 //#UC START# *49904DAD00EB_4AC230590004get_var*
@@ -102,6 +81,7 @@ begin
 end;//TnsWrapperNode.pm_SetComment
 
 procedure TnsWrapperNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC230590004_var*
 //#UC END# *479731C50290_4AC230590004_var*
 begin
@@ -129,7 +109,6 @@ begin
  pm_SetName(Value);
 //#UC END# *47A869D10074_4AC230590004_impl*
 end;//TnsWrapperNode.DoSetAsPCharLen
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

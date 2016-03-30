@@ -1,106 +1,56 @@
 unit nsFilterableTreeStruct;
+ {* Фильтруемое дерево }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsFilterableTreeStruct.pas"
-// Начат: 07.03.2007 14:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsFilterableTreeStruct
-//
-// Фильтруемое дерево
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsFilterableTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFilterableTreeStruct" MUID: (46835BD201D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  IOUnit,
-  DynamicTreeUnit,
-  l3Interfaces,
-  afwInterfaces,
-  l3TreeInterfaces,
-  nsTreeStruct,
-  l3SimpleDataContainer,
-  bsInterfaces,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , nsTreeStruct
+ , l3TreeInterfaces
+ , bsInterfaces
+ , DynamicTreeUnit
+ , afwInterfaces
+ , l3Interfaces
+ , IOUnit
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = Il3ContextFilterNotifier;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TIl3ContextFilterNotifierList = class(_l3InterfacePtrList_)
  end;//TIl3ContextFilterNotifierList
 
  TnsFilterableTreeStruct = class(TnsTreeStruct, Il3FilterableTree, Il3ContextFilterParamsNotifier, Il3ContextFilterTarget, Il3ContextFilterNotifySource, InsInternalFilterableTree)
   {* Фильтруемое дерево }
- private
- // private fields
-   f_InParamsChanging : Boolean;
-   f_ContextFilterNotifySource : Il3ContextFilterParamsNotifySource;
-   f_ContextFilterParams : Il3ContextFilterParams;
-   f_Subscribers : TIl3ContextFilterNotifierList;
-   f_Filters : Il3TreeFilters;
-    {* Поле для свойства Filters}
- private
- // private methods
+  private
+   f_InParamsChanging: Boolean;
+   f_ContextFilterNotifySource: Il3ContextFilterParamsNotifySource;
+   f_ContextFilterParams: Il3ContextFilterParams;
+   f_Subscribers: TIl3ContextFilterNotifierList;
+   f_Filters: Il3TreeFilters;
+    {* Поле для свойства Filters }
+  private
    function ContextFilterParams: Il3ContextFilterParams;
    procedure ClearContextFilterParams;
- protected
- // property methods
+  protected
    function pm_GetFilters: Il3TreeFilters;
- protected
- // realized methods
-   function CloneFilters: Il3TreeFilters;
-   function MakeFiltered(const aFilters: Il3TreeFilters;
-    const aCurrentNode: Il3SimpleNode;
-    out aSyncIndex: Integer
-    {* Нода для синхронизации. Индекс этой ноды в
-                                   фильтрованном вью, будет возвращен в
-                                   параметре sync_index.};
-    aAutoOpen: Boolean = true
-    {* Раскрывать узлы с фильтром автоматически.
-                                   Узлы, часть детей которых отфильтрованно,
-                                   будут автоматически раскрываться.};
-    CalcPartialContext: Boolean = false
-    {* пытаться вычислить максимальный контекстный фильтр,
-                                   который еще вернет данные}): Il3SimpleTree;
-   procedure ParamsChanged;
-   procedure SubscribeToContextFilter(const aSubscriber: Il3ContextFilterNotifier);
-   procedure UnSubscribeFromContextFilter(const aSubscriber: Il3ContextFilterNotifier);
-   function IsSameContext(const aContext: Il3CString;
-    out DiffStart: Cardinal): Boolean;
-   procedure SetFilters(const aFilters: Il3TreeFilters);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   constructor Create(const aRoot: INodeBase;
-    aShowRoot: Boolean;
-    aOneLevel: Boolean = False); override;
- protected
- // protected methods
    constructor CreateFiltered(const aNewRoot: INodeBase;
     aSource: TnsFilterableTreeStruct;
-    const aFilters: Il3TreeFilters); virtual;
+    const aFilters: Il3TreeFilters); reintroduce; virtual;
    function MakeFilters: Il3TreeFilters; virtual;
    function CanFiltrate: Boolean; virtual;
    function GetFilteredRoot(const aRoot: INodeBase;
@@ -110,7 +60,7 @@ type
     aAutoOpen: Boolean;
     FullRefilter: Boolean;
     ApplyEmptyFilter: Boolean): INodeBase; virtual;
-     {* aSyncIndex     : Integer
+    {* aSyncIndex     : Integer
                               - Нода для синхронизации. Индекс этой ноды в
                                   фильтрованном вью, будет возвращен в
                                   параметре sync_index.
@@ -136,45 +86,83 @@ ApplyEmptyFilter: Boolean
     CalcPartialContext: Boolean): Il3SimpleTree; virtual;
    procedure RequestClearAndTurnOff;
    procedure ReAquireContextFilterParams;
- public
- // public methods
+   function CloneFilters: Il3TreeFilters;
+   function MakeFiltered(const aFilters: Il3TreeFilters;
+    const aCurrentNode: Il3SimpleNode;
+    out aSyncIndex: Integer
+    {* Нода для синхронизации. Индекс этой ноды в
+                                   фильтрованном вью, будет возвращен в
+                                   параметре sync_index. };
+    aAutoOpen: Boolean = True
+    {* Раскрывать узлы с фильтром автоматически.
+                                   Узлы, часть детей которых отфильтрованно,
+                                   будут автоматически раскрываться. };
+    CalcPartialContext: Boolean = False
+    {* пытаться вычислить максимальный контекстный фильтр,
+                                   который еще вернет данные }): Il3SimpleTree;
+   procedure ParamsChanged;
+   procedure SubscribeToContextFilter(const aSubscriber: Il3ContextFilterNotifier);
+   procedure UnSubscribeFromContextFilter(const aSubscriber: Il3ContextFilterNotifier);
+   function IsSameContext(const aContext: Il3CString;
+    out DiffStart: Cardinal): Boolean;
+   procedure SetFilters(const aFilters: Il3TreeFilters);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    class function MakeSearchStr(const aParams: Il3ContextFilterParams;
-     const aSource: Il3CString): Il3CString;
+    const aSource: Il3CString): Il3CString;
    class function MakeSearchStrI(const aParams: Il3ContextFilterParams;
-     const aSource: Il3CString): IString;
+    const aSource: Il3CString): IString;
    class function FillContextFilter(const aFilter: IContextFilter;
-     const aParams: Il3ContextFilterParams;
-     const aSource: Il3CString): Boolean;
- protected
- // protected properties
+    const aParams: Il3ContextFilterParams;
+    const aSource: Il3CString): Boolean;
+   constructor Create(const aRoot: INodeBase;
+    aShowRoot: Boolean;
+    aOneLevel: Boolean = False); override;
+  protected
    property Filters: Il3TreeFilters
-     read pm_GetFilters;
+    read pm_GetFilters;
  end;//TnsFilterableTreeStruct
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3String,
-  l3TreeFilters,
-  nsAdapterFilters,
-  l3Chars,
-  DataAdapter,
-  nsTypes,
-  bsConvert,
-  nsContextFilterParams
-  ;
+ l3ImplUses
+ , l3Base
+ , l3String
+ , l3TreeFilters
+ , nsAdapterFilters
+ , l3Chars
+ , DataAdapter
+ , nsTypes
+ , bsConvert
+ , nsContextFilterParams
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type
-  RnsFilterableTreeStruct = class of TnsFilterableTreeStruct;
+ RnsFilterableTreeStruct = class of TnsFilterableTreeStruct;
 
-// start class TnsFilterableTreeStruct
+type _Instance_R_ = TIl3ContextFilterNotifierList;
+
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+
+function TnsFilterableTreeStruct.pm_GetFilters: Il3TreeFilters;
+//#UC START# *48FF42E50041_46835BD201D6get_var*
+//#UC END# *48FF42E50041_46835BD201D6get_var*
+begin
+//#UC START# *48FF42E50041_46835BD201D6get_impl*
+ if f_Filters = nil then
+  f_Filters := MakeFilters;
+ Result := f_Filters;
+//#UC END# *48FF42E50041_46835BD201D6get_impl*
+end;//TnsFilterableTreeStruct.pm_GetFilters
 
 class function TnsFilterableTreeStruct.MakeSearchStr(const aParams: Il3ContextFilterParams;
-  const aSource: Il3CString): Il3CString;
+ const aSource: Il3CString): Il3CString;
 //#UC START# *4D4022340233_46835BD201D6_var*
 const
  cSimbol = '*';
@@ -236,7 +224,7 @@ begin
 end;//TnsFilterableTreeStruct.MakeSearchStr
 
 class function TnsFilterableTreeStruct.MakeSearchStrI(const aParams: Il3ContextFilterParams;
-  const aSource: Il3CString): IString;
+ const aSource: Il3CString): IString;
 //#UC START# *4D40228E0064_46835BD201D6_var*
 //#UC END# *4D40228E0064_46835BD201D6_var*
 begin
@@ -246,8 +234,8 @@ begin
 end;//TnsFilterableTreeStruct.MakeSearchStrI
 
 class function TnsFilterableTreeStruct.FillContextFilter(const aFilter: IContextFilter;
-  const aParams: Il3ContextFilterParams;
-  const aSource: Il3CString): Boolean;
+ const aParams: Il3ContextFilterParams;
+ const aSource: Il3CString): Boolean;
 //#UC START# *4D4030B70365_46835BD201D6_var*
 //#UC END# *4D4030B70365_46835BD201D6_var*
 begin
@@ -266,26 +254,10 @@ begin
   Result := false;
 //#UC END# *4D4030B70365_46835BD201D6_impl*
 end;//TnsFilterableTreeStruct.FillContextFilter
-type _Instance_R_ = TIl3ContextFilterNotifierList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
-
-// start class TnsFilterableTreeStruct
-
-function TnsFilterableTreeStruct.pm_GetFilters: Il3TreeFilters;
-//#UC START# *48FF42E50041_46835BD201D6get_var*
-//#UC END# *48FF42E50041_46835BD201D6get_var*
-begin
-//#UC START# *48FF42E50041_46835BD201D6get_impl*
- if f_Filters = nil then
-  f_Filters := MakeFilters;
- Result := f_Filters;
-//#UC END# *48FF42E50041_46835BD201D6get_impl*
-end;//TnsFilterableTreeStruct.pm_GetFilters
 
 constructor TnsFilterableTreeStruct.CreateFiltered(const aNewRoot: INodeBase;
-  aSource: TnsFilterableTreeStruct;
-  const aFilters: Il3TreeFilters);
+ aSource: TnsFilterableTreeStruct;
+ const aFilters: Il3TreeFilters);
 //#UC START# *48FF458602EC_46835BD201D6_var*
 //#UC END# *48FF458602EC_46835BD201D6_var*
 begin
@@ -315,12 +287,26 @@ begin
 end;//TnsFilterableTreeStruct.CanFiltrate
 
 function TnsFilterableTreeStruct.GetFilteredRoot(const aRoot: INodeBase;
-  const aFilters: Il3TreeFilters;
-  const aCurrentNode: INodeBase;
-  out aSyncIndex: Integer;
-  aAutoOpen: Boolean;
-  FullRefilter: Boolean;
-  ApplyEmptyFilter: Boolean): INodeBase;
+ const aFilters: Il3TreeFilters;
+ const aCurrentNode: INodeBase;
+ out aSyncIndex: Integer;
+ aAutoOpen: Boolean;
+ FullRefilter: Boolean;
+ ApplyEmptyFilter: Boolean): INodeBase;
+ {* aSyncIndex     : Integer
+                              - Нода для синхронизации. Индекс этой ноды в
+                                  фильтрованном вью, будет возвращен в
+                                  параметре sync_index.
+aAutoOpen     : Boolean
+                               - Раскрывать узлы с фильтром автоматически.
+                                   Узлы, часть детей которых отфильтрованно,
+                                   будут автоматически раскрываться.
+FullRefilter: Boolean
+                               - Перефильтровывать дерево полностью
+                                   иначе - применять фильтр (сужать) aRoot
+ApplyEmptyFilter: Boolean
+                              - Если список фильтров получился пустым -
+                                   все равно пытаться его наложить }
 //#UC START# *48FF4C4F03CA_46835BD201D6_var*
 var
  l_AdapterFilters: InsAdapterFilters;
@@ -424,7 +410,7 @@ begin
 end;//TnsFilterableTreeStruct.ClearContextFilterParams
 
 procedure TnsFilterableTreeStruct.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_46835BD201D6_var*
 
 //#UC END# *48FF520E03A0_46835BD201D6_var*
@@ -455,10 +441,10 @@ begin
 end;//TnsFilterableTreeStruct.SettingsID
 
 function TnsFilterableTreeStruct.DoMakeFiltered(const aFilters: Il3TreeFilters;
-  const aCurrentNode: Il3SimpleNode;
-  out aSyncIndex: Integer;
-  aAutoOpen: Boolean;
-  CalcPartialContext: Boolean): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ out aSyncIndex: Integer;
+ aAutoOpen: Boolean;
+ CalcPartialContext: Boolean): Il3SimpleTree;
 //#UC START# *48FF5A9002CC_46835BD201D6_var*
 var
  l_RootNode: INodeBase;
@@ -563,18 +549,18 @@ begin
 end;//TnsFilterableTreeStruct.CloneFilters
 
 function TnsFilterableTreeStruct.MakeFiltered(const aFilters: Il3TreeFilters;
-  const aCurrentNode: Il3SimpleNode;
-  out aSyncIndex: Integer
-  {* Нода для синхронизации. Индекс этой ноды в
+ const aCurrentNode: Il3SimpleNode;
+ out aSyncIndex: Integer
+ {* Нода для синхронизации. Индекс этой ноды в
                                    фильтрованном вью, будет возвращен в
-                                   параметре sync_index.};
-  aAutoOpen: Boolean = true
-  {* Раскрывать узлы с фильтром автоматически.
+                                   параметре sync_index. };
+ aAutoOpen: Boolean = True
+ {* Раскрывать узлы с фильтром автоматически.
                                    Узлы, часть детей которых отфильтрованно,
-                                   будут автоматически раскрываться.};
-  CalcPartialContext: Boolean = false
-  {* пытаться вычислить максимальный контекстный фильтр,
-                                   который еще вернет данные}): Il3SimpleTree;
+                                   будут автоматически раскрываться. };
+ CalcPartialContext: Boolean = False
+ {* пытаться вычислить максимальный контекстный фильтр,
+                                   который еще вернет данные }): Il3SimpleTree;
 //#UC START# *47724BE60202_46835BD201D6_var*
 //#UC END# *47724BE60202_46835BD201D6_var*
 begin
@@ -620,7 +606,7 @@ begin
 end;//TnsFilterableTreeStruct.UnSubscribeFromContextFilter
 
 function TnsFilterableTreeStruct.IsSameContext(const aContext: Il3CString;
-  out DiffStart: Cardinal): Boolean;
+ out DiffStart: Cardinal): Boolean;
 //#UC START# *4772521703E3_46835BD201D6_var*
 //#UC END# *4772521703E3_46835BD201D6_var*
 begin
@@ -643,6 +629,7 @@ begin
 end;//TnsFilterableTreeStruct.SetFilters
 
 procedure TnsFilterableTreeStruct.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_46835BD201D6_var*
 //#UC END# *479731C50290_46835BD201D6_var*
 begin
@@ -655,8 +642,8 @@ begin
 end;//TnsFilterableTreeStruct.Cleanup
 
 constructor TnsFilterableTreeStruct.Create(const aRoot: INodeBase;
-  aShowRoot: Boolean;
-  aOneLevel: Boolean = False);
+ aShowRoot: Boolean;
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_46835BD201D6_var*
 //#UC END# *48FDD9270194_46835BD201D6_var*
 begin
@@ -667,7 +654,6 @@ begin
 end;//TnsFilterableTreeStruct.Create
 
 procedure TnsFilterableTreeStruct.ClearFields;
- {-}
 begin
  f_Filters := nil;
  inherited;

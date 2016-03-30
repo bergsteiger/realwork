@@ -1,54 +1,40 @@
 unit nsAdapterFilters;
+ {* Реализация фабрики адаптерных фильтров }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsAdapterFilters.pas"
-// Начат: 12.03.2007 13:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsAdapterFilters
-//
-// Реализация фабрики адаптерных фильтров
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsAdapterFilters.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAdapterFilters" MUID: (48FF5126011C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  SecurityUnit,
-  l3CacheableBase,
-  bsInterfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , bsInterfaces
+ , DynamicTreeUnit
+ , SecurityUnit
+;
 
 type
  TnsAdapterFilters = class(Tl3CacheableBase, InsAdapterFilters)
   {* Реализация фабрики адаптерных фильтров }
- private
- // private fields
-   f_Context : IContextFilter;
-   f_UserFlags : IUserFilter;
-   f_Layer : ILayerFilter;
-   f_Trim : ITrimFilter;
-   f_TrimLeaf : ITrimLeafFilter;
-   f_Country : ICountryFilter;
-   f_CutToLeaf : ICutToLeafCountFilter;
-   f_Blocks : IBlocksFilter;
-   f_Inpharm : IInpharmFilter;
-   f_PromptsTreeFilter : IVariantsForDocFilter;
- private
- // private methods
+  private
+   f_Context: IContextFilter;
+   f_UserFlags: IUserFilter;
+   f_Layer: ILayerFilter;
+   f_Trim: ITrimFilter;
+   f_TrimLeaf: ITrimLeafFilter;
+   f_Country: ICountryFilter;
+   f_CutToLeaf: ICutToLeafCountFilter;
+   f_Blocks: IBlocksFilter;
+   f_Inpharm: IInpharmFilter;
+   f_PromptsTreeFilter: IVariantsForDocFilter;
+  private
    function ContextFilterUsed: Boolean;
- protected
- // realized methods
+  protected
+   procedure ClearFilters;
    function MakeFilterList: IFilterList;
    function FiltersCount: Integer;
    function HasPrefilters: Boolean;
@@ -67,26 +53,19 @@ type
    procedure MakeInpharmFilter;
    function Get_PromptsTreeFilter: IVariantsForDocFilter;
    function MakePromptsTreeFilter(aDocID: LongWord): IVariantsForDocFilter;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure ClearFilters;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: InsAdapterFilters; reintroduce;
  end;//TnsAdapterFilters
 
 implementation
 
 uses
-  IOUnit,
-  DataAdapter
-  ;
-
-// start class TnsAdapterFilters
+ l3ImplUses
+ , IOUnit
+ , DataAdapter
+;
 
 class function TnsAdapterFilters.Make: InsAdapterFilters;
 var
@@ -98,7 +77,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsAdapterFilters.Make
 
 function TnsAdapterFilters.ContextFilterUsed: Boolean;
 //#UC START# *4905E86F01BB_48FF5126011C_var*
@@ -359,6 +338,7 @@ begin
 end;//TnsAdapterFilters.MakePromptsTreeFilter
 
 procedure TnsAdapterFilters.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48FF5126011C_var*
 //#UC END# *479731C50290_48FF5126011C_var*
 begin

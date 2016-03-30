@@ -18,6 +18,8 @@ uses
  , l3Core
  , l3Except
  , Classes
+ //#UC START# *47BD505E0344intf_uses*
+ //#UC END# *47BD505E0344intf_uses*
 ;
 
 type
@@ -47,6 +49,8 @@ uses
  , SysUtils
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *47BD505E0344impl_uses*
+ //#UC END# *47BD505E0344impl_uses*
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

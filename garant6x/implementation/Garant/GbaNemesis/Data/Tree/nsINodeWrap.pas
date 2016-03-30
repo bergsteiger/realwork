@@ -1,47 +1,36 @@
 unit nsINodeWrap;
+ {* Реализация узла дерева с поддержкой информации о дочерних узлах }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsINodeWrap.pas"
-// Начат: 30.10.2008 15:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsINodeWrap
-//
-// Реализация узла дерева с поддержкой информации о дочерних узлах
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeWrap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsINodeWrap" MUID: (4909AEB00352)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsINodeWrapBase
-  ;
+ l3IntfUses
+ , nsINodeWrapBase
+;
 
 type
- InsNodeImplementationInfo = interface(IUnknown)
-   ['{93EEF340-A8DC-4727-A03A-E109D044C685}']
-   function ChildNodeClass: RnsINodeWrap;
+ InsNodeImplementationInfo = interface
+  ['{93EEF340-A8DC-4727-A03A-E109D044C685}']
+  function ChildNodeClass: RnsINodeWrap;
  end;//InsNodeImplementationInfo
 
  TnsINodeWrap = class(TnsINodeWrapBase, InsNodeImplementationInfo)
   {* Реализация узла дерева с поддержкой информации о дочерних узлах }
- protected
- // realized methods
+  protected
    function ChildNodeClass: RnsINodeWrap;
  end;//TnsINodeWrap
 
 implementation
 
-// start class TnsINodeWrap
+uses
+ l3ImplUses
+;
 
 function TnsINodeWrap.ChildNodeClass: RnsINodeWrap;
 //#UC START# *48FEE3B402EB_4909AEB00352_var*

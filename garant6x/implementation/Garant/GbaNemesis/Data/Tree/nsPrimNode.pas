@@ -1,45 +1,33 @@
 unit nsPrimNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsPrimNode.pas"
-// Начат: 21.10.2009 14:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::TnsPrimNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimNode" MUID: (4ADDF4020322)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  eeVirtualNode
-  ;
+ l3IntfUses
+ , eeVirtualNode
+;
 
 type
  TnsPrimNode = {abstract} class(TeeVirtualNode)
- protected
- // overridden protected methods
+  protected
+   f_NumInParent: Integer;
+  protected
    function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
- protected
- // protected fields
-   f_NumInParent : Integer;
- public
- // public methods
+  public
    constructor Create(aNumInParent: Integer); reintroduce;
  end;//TnsPrimNode
 
 implementation
 
-// start class TnsPrimNode
+uses
+ l3ImplUses
+;
 
 constructor TnsPrimNode.Create(aNumInParent: Integer);
 //#UC START# *4AE030AF029D_4ADDF4020322_var*

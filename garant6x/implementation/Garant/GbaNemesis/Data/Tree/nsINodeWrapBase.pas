@@ -1,152 +1,130 @@
 unit nsINodeWrapBase;
+ {* Узел дерева. Служит фасадом к адаптерному узлу для наших визуальных элементов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsINodeWrapBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsINodeWrapBase
-//
-// Узел дерева. Служит фасадом к адаптерному узлу для наших визуальных элементов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeWrapBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsINodeWrapBase" MUID: (4682732A02F9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  IOUnit,
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3CacheableBase,
-  l3TreeInterfaces,
-  l3IID
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , IOUnit
+ , l3Interfaces
+ , l3IID
+;
 
 type
  RnsINodeWrap = class of TnsINodeWrapBase;
 
  TnsINodeWrapBase = class(Tl3CacheableBase, Il3SimpleNode, Il3SimpleInternalNode)
   {* Узел дерева. Служит фасадом к адаптерному узлу для наших визуальных элементов }
- private
- // private fields
-   f_AdapterNodeCaption : IString;
-   f_ParentNode : Il3SimpleNode;
-   f_AdapterNode : INodeBase;
-    {* Поле для свойства AdapterNode}
- private
- // private methods
+  private
+   f_AdapterNodeCaption: IString;
+   f_ParentNode: Il3SimpleNode;
+   f_AdapterNode: INodeBase;
+    {* Поле для свойства AdapterNode }
+  private
    function ConvertFlagMask(anIndex: Integer): Word;
- protected
- // realized methods
+  protected
+   function DoGetText: Tl3WString; virtual;
+    {* Реализация функции получения текста узла }
+   function GetChildNodeClass: RnsINodeWrap; virtual;
+    {* Реализация функции получения класса реализации дочернего узла }
+   function DoGetChild: Il3SimpleNode; virtual;
+    {* Реализация функции получения первого ребёнка }
+   function GetHasChild: Boolean; virtual;
+    {* Реализация функции определения того есть ли дочерние узлы }
+   function GetMaybeChild: Boolean; virtual;
+    {* Реализация функции определения может ли узел иметь дочерние узлы }
+   function MakeChild(const aNode: INodeBase): Il3SimpleNode; virtual;
+   function MakeParent(const aNode: INodeBase): Il3SimpleNode; virtual;
+   procedure DoExpandCollapseAll(anExpand: Boolean);
+   function MakeSibling(const aNode: INodeBase): Il3SimpleNode; virtual;
+    {* Делает соседа }
    procedure Set_Parent(const aValue: Il3SimpleNode);
    function IsFirst: Boolean;
-     {* это первый узел внутри родителя? }
+    {* это первый узел внутри родителя? }
    function IsLast: Boolean;
-     {* это последний узел внутри родителя? }
+    {* это последний узел внутри родителя? }
    function HasChild: Boolean;
-     {* есть ли дочерние узлы? }
+    {* есть ли дочерние узлы? }
    function MaybeChild: Boolean;
-     {* может ли иметь дочерние узлы? }
+    {* может ли иметь дочерние узлы? }
    function GetLevel: Integer;
    function GetLevelFor(const aNode: Il3SimpleNode): Integer;
    function IsSame(const aNode: Il3SimpleNode): Boolean;
-     {* сравнивает ноды. }
+    {* сравнивает ноды. }
    function IsDisappeared: Boolean;
-     {* True если интерфейс на удаленную ноду,
+    {* True если интерфейс на удаленную ноду,
              применяется в виртуальных нодах - указателях на данные. }
    procedure BeginMove(var aUserParam: Pointer);
-     {* начать перемещение узла. }
+    {* начать перемещение узла. }
    procedure EndMove(aUserParam: Pointer);
-     {* закончить перемещение узла. }
+    {* закончить перемещение узла. }
    procedure Delete;
-     {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
+    {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
    function Get_Text: Tl3PCharLenPrim;
    function Get_Parent: Il3SimpleNode;
    function Get_Child: Il3SimpleNode;
    function Get_Next: Il3SimpleNode;
    function Get_Flag(anIndex: Integer): Boolean;
-   procedure Set_Flag(anIndex: Integer; aValue: Boolean);
+   procedure Set_Flag(anIndex: Integer;
+    aValue: Boolean);
    function Get_Flags: Integer;
    function Get_ThisChildrenCount: Integer;
    function pm_GetIndexInParent: Integer;
    function CanAcceptData(const aData: Tl3TreeData): Boolean;
-     {* может ли узел принять данные }
+    {* может ли узел принять данные }
    function DropData(const aData: Tl3TreeData): Boolean;
-     {* принять данные }
+    {* принять данные }
    function CanMove: Boolean;
-     {* определяет возможность перемещения узла }
+    {* определяет возможность перемещения узла }
    function Get_Prev: Il3SimpleNode;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DoGetText: Tl3WString; virtual;
-     {* Реализация функции получения текста узла }
-   function GetChildNodeClass: RnsINodeWrap; virtual;
-     {* Реализация функции получения класса реализации дочернего узла }
-   function DoGetChild: Il3SimpleNode; virtual;
-     {* Реализация функции получения первого ребёнка }
-   function GetHasChild: Boolean; virtual;
-     {* Реализация функции определения того есть ли дочерние узлы }
-   function GetMaybeChild: Boolean; virtual;
-     {* Реализация функции определения может ли узел иметь дочерние узлы }
-   function MakeChild(const aNode: INodeBase): Il3SimpleNode; virtual;
-   function MakeParent(const aNode: INodeBase): Il3SimpleNode; virtual;
-   procedure DoExpandCollapseAll(anExpand: Boolean);
-   function MakeSibling(const aNode: INodeBase): Il3SimpleNode; virtual;
-     {* Делает соседа }
- public
- // public methods
+  public
    constructor Create(const aNode: INodeBase); reintroduce; virtual;
-     {* Создаёт экземпляр узла дерева }
+    {* Создаёт экземпляр узла дерева }
    class function Make(const aNode: INodeBase): Il3SimpleNode;
-     {* Создаёт экземпляр узла дерева }
- protected
- // protected properties
+    {* Создаёт экземпляр узла дерева }
+  protected
    property AdapterNode: INodeBase
-     read f_AdapterNode;
-     {* Узел адаптерного дерева над которым строится наше дерево }
+    read f_AdapterNode;
+    {* Узел адаптерного дерева над которым строится наше дерево }
  end;//TnsINodeWrapBase
 
 implementation
 
 uses
-  nsTypes,
-  SysUtils,
-  l3InterfacesMisc,
-  l3Base
-  {$If not defined(NoScripts)}
-  ,
-  l3NodesKeyWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , nsTypes
+ , SysUtils
+ , l3InterfacesMisc
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 const
-   { Node Flags }
-  map_Default = $2000;
-  map_nfUserDefined2 = $4000;
-   { флаг для использования "пользователем". Смысл определяется конкретной реализацией }
-  map_nfUserDefined1 = $8000;
-   { флаг для использования "пользователем". Смысл определяется конкретной реализацией }
-
-// start class TnsINodeWrapBase
+ map_Default = $2000;
+ map_nfUserDefined2 = $4000;
+  {* флаг для использования "пользователем". Смысл определяется конкретной реализацией }
+ map_nfUserDefined1 = $8000;
+  {* флаг для использования "пользователем". Смысл определяется конкретной реализацией }
 
 function TnsINodeWrapBase.DoGetText: Tl3WString;
+ {* Реализация функции получения текста узла }
 //#UC START# *490825370178_4682732A02F9_var*
 //#UC END# *490825370178_4682732A02F9_var*
 begin
@@ -159,6 +137,7 @@ begin
 end;//TnsINodeWrapBase.DoGetText
 
 constructor TnsINodeWrapBase.Create(const aNode: INodeBase);
+ {* Создаёт экземпляр узла дерева }
 //#UC START# *490982310145_4682732A02F9_var*
 //#UC END# *490982310145_4682732A02F9_var*
 begin
@@ -169,6 +148,7 @@ begin
 end;//TnsINodeWrapBase.Create
 
 function TnsINodeWrapBase.GetChildNodeClass: RnsINodeWrap;
+ {* Реализация функции получения класса реализации дочернего узла }
 //#UC START# *490989330020_4682732A02F9_var*
 //#UC END# *490989330020_4682732A02F9_var*
 begin
@@ -178,6 +158,7 @@ begin
 end;//TnsINodeWrapBase.GetChildNodeClass
 
 function TnsINodeWrapBase.DoGetChild: Il3SimpleNode;
+ {* Реализация функции получения первого ребёнка }
 //#UC START# *4909A13402E2_4682732A02F9_var*
 var
  l_ChildNode : INodeBase;
@@ -196,6 +177,7 @@ begin
 end;//TnsINodeWrapBase.DoGetChild
 
 function TnsINodeWrapBase.GetHasChild: Boolean;
+ {* Реализация функции определения того есть ли дочерние узлы }
 //#UC START# *4909A1790056_4682732A02F9_var*
 //#UC END# *4909A1790056_4682732A02F9_var*
 begin
@@ -205,6 +187,7 @@ begin
 end;//TnsINodeWrapBase.GetHasChild
 
 function TnsINodeWrapBase.GetMaybeChild: Boolean;
+ {* Реализация функции определения может ли узел иметь дочерние узлы }
 //#UC START# *4909A1AA0089_4682732A02F9_var*
 //#UC END# *4909A1AA0089_4682732A02F9_var*
 begin
@@ -232,6 +215,7 @@ begin
 end;//TnsINodeWrapBase.MakeParent
 
 class function TnsINodeWrapBase.Make(const aNode: INodeBase): Il3SimpleNode;
+ {* Создаёт экземпляр узла дерева }
 //#UC START# *4909BB540039_4682732A02F9_var*
 var
  l_Node : TnsINodeWrapBase;
@@ -278,6 +262,7 @@ begin
 end;//TnsINodeWrapBase.DoExpandCollapseAll
 
 function TnsINodeWrapBase.MakeSibling(const aNode: INodeBase): Il3SimpleNode;
+ {* Делает соседа }
 //#UC START# *4B0694200234_4682732A02F9_var*
 //#UC END# *4B0694200234_4682732A02F9_var*
 begin
@@ -296,6 +281,7 @@ begin
 end;//TnsINodeWrapBase.Set_Parent
 
 function TnsINodeWrapBase.IsFirst: Boolean;
+ {* это первый узел внутри родителя? }
 //#UC START# *47723CDB00A4_4682732A02F9_var*
 //#UC END# *47723CDB00A4_4682732A02F9_var*
 begin
@@ -308,6 +294,7 @@ begin
 end;//TnsINodeWrapBase.IsFirst
 
 function TnsINodeWrapBase.IsLast: Boolean;
+ {* это последний узел внутри родителя? }
 //#UC START# *47723CFF0148_4682732A02F9_var*
 //#UC END# *47723CFF0148_4682732A02F9_var*
 begin
@@ -320,6 +307,7 @@ begin
 end;//TnsINodeWrapBase.IsLast
 
 function TnsINodeWrapBase.HasChild: Boolean;
+ {* есть ли дочерние узлы? }
 //#UC START# *47723D0F0392_4682732A02F9_var*
 //#UC END# *47723D0F0392_4682732A02F9_var*
 begin
@@ -329,6 +317,7 @@ begin
 end;//TnsINodeWrapBase.HasChild
 
 function TnsINodeWrapBase.MaybeChild: Boolean;
+ {* может ли иметь дочерние узлы? }
 //#UC START# *47723D1D03D6_4682732A02F9_var*
 //#UC END# *47723D1D03D6_4682732A02F9_var*
 begin
@@ -371,6 +360,7 @@ begin
 end;//TnsINodeWrapBase.GetLevelFor
 
 function TnsINodeWrapBase.IsSame(const aNode: Il3SimpleNode): Boolean;
+ {* сравнивает ноды. }
 //#UC START# *47723D4C0360_4682732A02F9_var*
 var
  l_AdapterNode : INodeBase;
@@ -392,6 +382,8 @@ begin
 end;//TnsINodeWrapBase.IsSame
 
 function TnsINodeWrapBase.IsDisappeared: Boolean;
+ {* True если интерфейс на удаленную ноду,
+             применяется в виртуальных нодах - указателях на данные. }
 //#UC START# *47723DB901CA_4682732A02F9_var*
 //#UC END# *47723DB901CA_4682732A02F9_var*
 begin
@@ -401,6 +393,7 @@ begin
 end;//TnsINodeWrapBase.IsDisappeared
 
 procedure TnsINodeWrapBase.BeginMove(var aUserParam: Pointer);
+ {* начать перемещение узла. }
 //#UC START# *47723DD1008F_4682732A02F9_var*
 //#UC END# *47723DD1008F_4682732A02F9_var*
 begin
@@ -409,6 +402,7 @@ begin
 end;//TnsINodeWrapBase.BeginMove
 
 procedure TnsINodeWrapBase.EndMove(aUserParam: Pointer);
+ {* закончить перемещение узла. }
 //#UC START# *47723DE0009F_4682732A02F9_var*
 //#UC END# *47723DE0009F_4682732A02F9_var*
 begin
@@ -417,6 +411,7 @@ begin
 end;//TnsINodeWrapBase.EndMove
 
 procedure TnsINodeWrapBase.Delete;
+ {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
 //#UC START# *47723DED006A_4682732A02F9_var*
 //#UC END# *47723DED006A_4682732A02F9_var*
 begin
@@ -494,7 +489,8 @@ begin
 //#UC END# *4772423302AF_4682732A02F9get_impl*
 end;//TnsINodeWrapBase.Get_Flag
 
-procedure TnsINodeWrapBase.Set_Flag(anIndex: Integer; aValue: Boolean);
+procedure TnsINodeWrapBase.Set_Flag(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *4772423302AF_4682732A02F9set_var*
 //#UC END# *4772423302AF_4682732A02F9set_var*
 begin
@@ -538,6 +534,7 @@ begin
 end;//TnsINodeWrapBase.pm_GetIndexInParent
 
 function TnsINodeWrapBase.CanAcceptData(const aData: Tl3TreeData): Boolean;
+ {* может ли узел принять данные }
 //#UC START# *47A86F070101_4682732A02F9_var*
 //#UC END# *47A86F070101_4682732A02F9_var*
 begin
@@ -547,6 +544,7 @@ begin
 end;//TnsINodeWrapBase.CanAcceptData
 
 function TnsINodeWrapBase.DropData(const aData: Tl3TreeData): Boolean;
+ {* принять данные }
 //#UC START# *47A86F1C016B_4682732A02F9_var*
 //#UC END# *47A86F1C016B_4682732A02F9_var*
 begin
@@ -556,6 +554,7 @@ begin
 end;//TnsINodeWrapBase.DropData
 
 function TnsINodeWrapBase.CanMove: Boolean;
+ {* определяет возможность перемещения узла }
 //#UC START# *47ADA09C019B_4682732A02F9_var*
 //#UC END# *47ADA09C019B_4682732A02F9_var*
 begin
@@ -583,6 +582,7 @@ begin
 end;//TnsINodeWrapBase.Get_Prev
 
 procedure TnsINodeWrapBase.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4682732A02F9_var*
 //#UC END# *479731C50290_4682732A02F9_var*
 begin
@@ -595,7 +595,8 @@ begin
 end;//TnsINodeWrapBase.Cleanup
 
 function TnsINodeWrapBase.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4682732A02F9_var*
 //#UC END# *4A60B23E00C3_4682732A02F9_var*
 begin
@@ -628,7 +629,6 @@ begin
 end;//TnsINodeWrapBase.COMQueryInterface
 
 procedure TnsINodeWrapBase.ClearFields;
- {-}
 begin
  f_AdapterNode := nil;
  inherited;

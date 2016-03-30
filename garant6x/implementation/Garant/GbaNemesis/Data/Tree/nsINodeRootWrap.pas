@@ -1,46 +1,36 @@
 unit nsINodeRootWrap;
+ {* Базовый корневой узел }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsINodeRootWrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsINodeRootWrap
-//
-// Базовый корневой узел
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeRootWrap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsINodeRootWrap" MUID: (468275200341)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  nsINodeWrap
-  ;
+ l3IntfUses
+ , nsINodeWrap
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+;
 
 type
  TnsINodeRootWrap = class(TnsINodeWrap, Il3SimpleRootNode)
   {* Базовый корневой узел }
- protected
- // realized methods
+  protected
    function CanExpandCollapseAll: Boolean;
    procedure ExpandCollapseAll(anExpand: Boolean);
- public
- // public methods
+  public
    class function Make(const aNode: INodeBase): Il3SimpleRootNode;
  end;//TnsINodeRootWrap
 
 implementation
 
-// start class TnsINodeRootWrap
+uses
+ l3ImplUses
+;
 
 class function TnsINodeRootWrap.Make(const aNode: INodeBase): Il3SimpleRootNode;
 //#UC START# *4909A77F0299_468275200341_var*

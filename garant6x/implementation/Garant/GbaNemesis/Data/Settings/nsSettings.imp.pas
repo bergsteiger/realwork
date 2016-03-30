@@ -1,29 +1,25 @@
 {$IfNDef nsSettings_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Settings/nsSettings.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Settings::nsSettings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsSettings" MUID: (4F6C571A00B2)
+// Имя типа: "_nsSettings_"
 
 {$Define nsSettings_imp}
+
  _IStringType_ = IString;
  _KeyType_ = PAnsiChar;
  _BooleanType_ = ByteBool;
  _nsAbstractSettingsPrim_Parent_ = _nsSettings_Parent_;
  {$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
- _nsSettings_ = {abstract mixin} class(_nsAbstractSettingsPrim_)
+ _nsSettings_ = {abstract} class(_nsAbstractSettingsPrim_)
  end;//_nsSettings_
 
 {$Else nsSettings_imp}
 
-// start class _nsSettings_
+{$IfNDef nsSettings_imp_impl}
+
+{$Define nsSettings_imp_impl}
 
 function SettingIDtoKeyType(const aSettingID: TafwSettingId): _KeyType_; forward;
 
@@ -69,5 +65,7 @@ end;//StringToPChar
 
 {$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
 
+{$EndIf nsSettings_imp_impl}
 
 {$EndIf nsSettings_imp}
+

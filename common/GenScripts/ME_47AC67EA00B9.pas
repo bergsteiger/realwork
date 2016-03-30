@@ -19,6 +19,8 @@ uses
  , l3Core
  , l3Except
  , Classes
+ //#UC START# *47AC67EA00B9intf_uses*
+ //#UC END# *47AC67EA00B9intf_uses*
 ;
 
  {$Define l3Items_HasCustomSort}
@@ -55,6 +57,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *47AC67EA00B9impl_uses*
+ //#UC END# *47AC67EA00B9impl_uses*
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

@@ -1,54 +1,46 @@
 unit k2OperationContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2OperationContainer.pas"
-// Начат: 07.12.1999 19:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::K2::Operations::Tk2OperationContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2OperationContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tk2OperationContainer" MUID: (47E3C78502FB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Op,
-  k2OpRefList,
-  k2Prim,
-  l3StringIDEx,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2OpRefList
+ , k2Prim
+ , l3Variant
+ , k2Op
+;
 
 type
- Ik2OpPackInternal = interface(IUnknown)
+ Ik2OpPackInternal = interface
   {* "Кишки" пачки операций. }
-   ['{C958785E-8F8A-495C-9B19-3B0F3AABB53B}']
-   procedure Put(Op: Tk2Op;
-    Modify: Boolean);
-     {* положить операцию. }
+  ['{C958785E-8F8A-495C-9B19-3B0F3AABB53B}']
+  procedure Put(Op: Tk2Op;
+   Modify: Boolean);
+   {* положить операцию. }
  end;//Ik2OpPackInternal
 
  Tk2OperationContainer = class(Tk2OpRefList, Ik2OpPackInternal, Il3OpPack)
- private
- // private fields
-   f_Owner : TObject;
-   f_Mode : Pointer;
-   f_Code : Integer;
-    {* Поле для свойства Code}
- private
- // private methods
+  private
+   f_Owner: TObject;
+   f_Mode: Pointer;
+   f_Code: Integer;
+    {* Поле для свойства Code }
+  private
    procedure FreeInOwner;
- protected
- // realized methods
+  protected
+   function GetSaveUndo: Boolean; virtual;
+   function GetNeedOptimize: Boolean; virtual;
+   function DoUndo(const aProcessor: Ik2Processor): Integer; virtual;
+   function DoRedo(const aProcessor: Ik2Processor): Integer; virtual;
+   procedure Add(anItem: Tk2Op); virtual;
+   procedure DoSetOwner(Value: TObject);
+    {* метод для установки "владельца" объекта. Для перекрытия в потомках. }
    procedure MarkModified(aTarget: Tl3Variant);
    procedure InvertModified;
    function GetModified: Boolean;
@@ -63,81 +55,68 @@ type
    procedure pm_SetInIOProcess(aValue: Boolean);
    function pm_GetProcessor: Ik2Processor;
    function Undo(const aProcessor: Ik2Processor): Integer;
-     {* откатывает все операции и возвращает их количество. }
+    {* откатывает все операции и возвращает их количество. }
    function Redo(const aProcessor: Ik2Processor): Integer;
-     {* возвращает все операции и возвращает их количество. }
+    {* возвращает все операции и возвращает их количество. }
    procedure Lock;
-     {* закрыть. }
+    {* закрыть. }
    procedure Unlock;
-     {* открыть. }
+    {* открыть. }
    function Get_Code: Integer;
    procedure Put(Op: Tk2Op;
-     Modify: Boolean);
-     {* положить операцию. }
+    Modify: Boolean);
+    {* положить операцию. }
    procedure CheckReadOnly;
    procedure DisableReadonly;
-     {* Выключает режим проверки ReadOnly }
+    {* Выключает режим проверки ReadOnly }
    procedure EnableReadOnly;
-     {* Включает режим проверки ReadOnly }
+    {* Включает режим проверки ReadOnly }
    procedure pm_SetReadOnly(aValue: Boolean);
    procedure CheckOn;
    procedure CheckOff;
    function IsCheckOff: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure BeforeFree; override;
-     {* функция, вызываемая при каждом уменьшении счетчика ссылок на 1. Вернув false может запретить уничтожение объекта. }
- protected
- // protected methods
-   function GetSaveUndo: Boolean; virtual;
-   function GetNeedOptimize: Boolean; virtual;
-   function DoUndo(const aProcessor: Ik2Processor): Integer; virtual;
-   function DoRedo(const aProcessor: Ik2Processor): Integer; virtual;
-   procedure Add(anItem: Tk2Op); virtual;
-   procedure DoSetOwner(Value: TObject);
-     {* метод для установки "владельца" объекта. Для перекрытия в потомках. }
- public
- // public methods
+    {* функция, вызываемая при каждом уменьшении счетчика ссылок на 1. Вернув false может запретить уничтожение объекта. }
+  public
    class function CheckWasExceptionInFreeInOwner: Boolean;
-     {* Проверяет было ли исключение FreeInOwner и сбрасывает этот флаг }
+    {* Проверяет было ли исключение FreeInOwner и сбрасывает этот флаг }
    constructor Create(anOwner: TObject); reintroduce; virtual;
- public
- // public properties
+  public
    property Code: Integer
-     read f_Code
-     write f_Code;
+    read f_Code
+    write f_Code;
  end;//Tk2OperationContainer
 
 implementation
 
 uses
-  SysUtils,
-  l3Types,
-  l3IntegerValueMapManager,
-  l3Base,
-  l3Const,
-  l3Interfaces,
-  k2NilOp,
-  l3MessageID
-  ;
+ l3ImplUses
+ , l3StringIDEx
+ , SysUtils
+ , l3Types
+ , l3IntegerValueMapManager
+ , l3Base
+ , l3Const
+ , l3Interfaces
+ , k2NilOp
+ , l3MessageID
+;
 
-var
-   g_WasExceptionInFreeInOwner : Boolean = false;
-    {* Было ли исключение в методе FreeInOwner}
+var g_WasExceptionInFreeInOwner: Boolean = False;
+ {* Было ли исключение в методе FreeInOwner }
 
-var
-   { Локализуемые строки Local }
-  str_l3mmUndo : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'l3mmUndo'; rValue : 'Откат');
-   { 'Откат' }
-  str_l3mmRedo : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'l3mmRedo'; rValue : 'Возврат');
-   { 'Возврат' }
-
-// start class Tk2OperationContainer
+const
+ {* Локализуемые строки Local }
+ str_l3mmUndo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'l3mmUndo'; rValue : 'Откат');
+  {* 'Откат' }
+ str_l3mmRedo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'l3mmRedo'; rValue : 'Возврат');
+  {* 'Возврат' }
 
 class function Tk2OperationContainer.CheckWasExceptionInFreeInOwner: Boolean;
+ {* Проверяет было ли исключение FreeInOwner и сбрасывает этот флаг }
 //#UC START# *4C1A312002E3_47E3C78502FB_var*
 //#UC END# *4C1A312002E3_47E3C78502FB_var*
 begin
@@ -346,6 +325,7 @@ begin
 end;//Tk2OperationContainer.Create
 
 procedure Tk2OperationContainer.DoSetOwner(Value: TObject);
+ {* метод для установки "владельца" объекта. Для перекрытия в потомках. }
 //#UC START# *4A60A2CF0329_47E3C78502FB_var*
 var
  l_M : Il3OpPackMode;
@@ -510,6 +490,7 @@ begin
 end;//Tk2OperationContainer.pm_GetProcessor
 
 function Tk2OperationContainer.Undo(const aProcessor: Ik2Processor): Integer;
+ {* откатывает все операции и возвращает их количество. }
 //#UC START# *46A5D33D025C_47E3C78502FB_var*
 var
  l_Mode : Pointer;  
@@ -532,6 +513,7 @@ begin
 end;//Tk2OperationContainer.Undo
 
 function Tk2OperationContainer.Redo(const aProcessor: Ik2Processor): Integer;
+ {* возвращает все операции и возвращает их количество. }
 //#UC START# *46A5D37B0247_47E3C78502FB_var*
 var
  l_Mode : Pointer;  
@@ -554,6 +536,7 @@ begin
 end;//Tk2OperationContainer.Redo
 
 procedure Tk2OperationContainer.Lock;
+ {* закрыть. }
 //#UC START# *46A5D3BC0041_47E3C78502FB_var*
 //#UC END# *46A5D3BC0041_47E3C78502FB_var*
 begin
@@ -564,6 +547,7 @@ begin
 end;//Tk2OperationContainer.Lock
 
 procedure Tk2OperationContainer.Unlock;
+ {* открыть. }
 //#UC START# *46A5D3D101E6_47E3C78502FB_var*
 //#UC END# *46A5D3D101E6_47E3C78502FB_var*
 begin
@@ -583,7 +567,8 @@ begin
 end;//Tk2OperationContainer.Get_Code
 
 procedure Tk2OperationContainer.Put(Op: Tk2Op;
-  Modify: Boolean);
+ Modify: Boolean);
+ {* положить операцию. }
 //#UC START# *4874FDA50243_47E3C78502FB_var*
 //#UC END# *4874FDA50243_47E3C78502FB_var*
 begin
@@ -609,6 +594,7 @@ begin
 end;//Tk2OperationContainer.CheckReadOnly
 
 procedure Tk2OperationContainer.DisableReadonly;
+ {* Выключает режим проверки ReadOnly }
 //#UC START# *48A564120005_47E3C78502FB_var*
 //#UC END# *48A564120005_47E3C78502FB_var*
 begin
@@ -619,6 +605,7 @@ begin
 end;//Tk2OperationContainer.DisableReadonly
 
 procedure Tk2OperationContainer.EnableReadOnly;
+ {* Включает режим проверки ReadOnly }
 //#UC START# *48A564160056_47E3C78502FB_var*
 //#UC END# *48A564160056_47E3C78502FB_var*
 begin
@@ -671,6 +658,7 @@ begin
 end;//Tk2OperationContainer.IsCheckOff
 
 procedure Tk2OperationContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47E3C78502FB_var*
 //#UC END# *479731C50290_47E3C78502FB_var*
 begin
@@ -693,6 +681,7 @@ begin
 end;//Tk2OperationContainer.InitFields
 
 procedure Tk2OperationContainer.BeforeFree;
+ {* функция, вызываемая при каждом уменьшении счетчика ссылок на 1. Вернув false может запретить уничтожение объекта. }
 //#UC START# *48B2BE560115_47E3C78502FB_var*
 //#UC END# *48B2BE560115_47E3C78502FB_var*
 begin
@@ -704,9 +693,9 @@ begin
 end;//Tk2OperationContainer.BeforeFree
 
 initialization
-// Инициализация str_l3mmUndo
  str_l3mmUndo.Init;
-// Инициализация str_l3mmRedo
+ {* Инициализация str_l3mmUndo }
  str_l3mmRedo.Init;
+ {* Инициализация str_l3mmRedo }
 
 end.

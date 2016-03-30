@@ -1,35 +1,23 @@
 unit nsContextFilterParams;
+ {* Реализация хранилищя для параметров контекстной фильтрации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р. В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsContextFilterParams.pas"
-// Начат: 2007/03/21 11:54:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::TnsContextFilterParams
-//
-// Реализация хранилищя для параметров контекстной фильтрации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsContextFilterParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsContextFilterParams" MUID: (4908930C0268)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  afwInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces,
-  Il3ContextFilterParamsNotifierPtrList,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , l3TreeInterfaces
+ , bsInterfaces
+ , afwInterfaces
+ , Il3ContextFilterParamsNotifierPtrList
+ , l3Interfaces
+;
 
 type
  _afwSettingChanged_Parent_ = Tl3CacheableBase;
@@ -38,21 +26,16 @@ type
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  TnsContextFilterParams = class(_afwSettingsReplace_, Il3ContextFilterParamsNotifySource, Il3ContextFilterParams, InsContextFilterParamsInfo)
   {* Реализация хранилищя для параметров контекстной фильтрации }
- private
- // private fields
-   f_BaseSettingID : TafwSettingId;
-   f_Subscribers : TIl3ContextFilterParamsNotifierPtrList;
- private
- // private methods
+  private
+   f_BaseSettingID: TafwSettingId;
+   f_Subscribers: TIl3ContextFilterParamsNotifierPtrList;
+  private
    function UseSettings: Boolean;
    procedure NotifySubscribers;
    function MakePath(const aSubSettingID: TafwSettingId): TafwSettingId;
    function IsSettingAffectUs(const aSettingID: TafwSettingId): Boolean;
- protected
- // property methods
+  protected
    function pm_GetSettings: IafwSettings; virtual;
- protected
- // realized methods
    function WordPosition: Tl3WordPosition;
    function WordOrder: Tl3WordOrder;
    function TreeLevelDist: Tl3TreeLevelDist;
@@ -62,46 +45,40 @@ type
    function WordPositionSettingID: TafwSettingId;
    function WordOrderSettingID: TafwSettingId;
    function TreeLevelDistSettingID: TafwSettingId;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
-     {* Обработчик изменения указанной настройки }
+    {* Обработчик изменения указанной настройки }
    procedure SettingsReplaceFinish; override;
- public
- // public methods
+  public
    class function Make(const aBaseSettingID: TafwSettingId): Il3ContextFilterParams; reintroduce;
    constructor Create(const aBaseSettingID: TafwSettingId); reintroduce;
- private
- // private properties
+  private
    property Settings: IafwSettings
-     read pm_GetSettings;
+    read pm_GetSettings;
  end;//TnsContextFilterParams
 
 implementation
 
 uses
-  SysUtils,
-  afwFacade,
-  afwConsts,
-  afwSettingsChangePublisher
-  ;
+ l3ImplUses
+ , SysUtils
+ , afwFacade
+ , afwConsts
+ , afwSettingsChangePublisher
+;
+
+const
+ cstTreeLevelDist = 'stTreeLevelDist';
+ cstWordOrder = 'stWordOrder';
+ cstWordPosition = 'stWordPosition';
+ cDefaultTreeLevelDist = tldAllLevels;
+ cDefaultWordOrder = woAnyOrder;
+ cDefaultWordPosition = wpAnyPathWord;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
-
-const
-   { Constants }
-  cstTreeLevelDist = 'stTreeLevelDist';
-  cstWordOrder = 'stWordOrder';
-  cstWordPosition = 'stWordPosition';
-  cDefaultTreeLevelDist = tldAllLevels;
-  cDefaultWordOrder = woAnyOrder;
-  cDefaultWordPosition = wpAnyPathWord;
-
-// start class TnsContextFilterParams
 
 function TnsContextFilterParams.pm_GetSettings: IafwSettings;
 //#UC START# *49089AFB017D_4908930C0268get_var*
@@ -122,7 +99,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsContextFilterParams.Make
 
 constructor TnsContextFilterParams.Create(const aBaseSettingID: TafwSettingId);
 //#UC START# *490894CF009C_4908930C0268_var*
@@ -279,6 +256,7 @@ begin
 end;//TnsContextFilterParams.TreeLevelDistSettingID
 
 procedure TnsContextFilterParams.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4908930C0268_var*
 //#UC END# *479731C50290_4908930C0268_var*
 begin
@@ -289,6 +267,7 @@ begin
 end;//TnsContextFilterParams.Cleanup
 
 function TnsContextFilterParams.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* Обработчик изменения указанной настройки }
 //#UC START# *47EA863A035C_4908930C0268_var*
 //#UC END# *47EA863A035C_4908930C0268_var*
 begin

@@ -12,12 +12,11 @@
  _nsRootManagerPrim_ = class(_nsNodeNotifier_)
   private
    f_RootNode: INodeBase;
-    {* Поле для свойства RootNode }
   protected
    procedure pm_SetRootNode(const aValue: INodeBase);
    procedure Cleanup; override;
-   procedure ClearFields; override;
    procedure BeforeClearFields; override;
+   procedure ClearFields; override;
   public
    property RootNode: INodeBase
     read f_RootNode
@@ -58,12 +57,6 @@ begin
 //#UC END# *48FD97BC0335_48FDB9BD0325_impl*
 end;//_nsRootManagerPrim_.Cleanup
 
-procedure _nsRootManagerPrim_.ClearFields;
-begin
- RootNode := nil;
- inherited;
-end;//_nsRootManagerPrim_.ClearFields
-
 procedure _nsRootManagerPrim_.BeforeClearFields;
 //#UC START# *500056650395_48FDB9BD0325_var*
 //#UC END# *500056650395_48FDB9BD0325_var*
@@ -73,6 +66,12 @@ begin
  inherited;
 //#UC END# *500056650395_48FDB9BD0325_impl*
 end;//_nsRootManagerPrim_.BeforeClearFields
+
+procedure _nsRootManagerPrim_.ClearFields;
+begin
+ RootNode := nil;
+ inherited;
+end;//_nsRootManagerPrim_.ClearFields
 
 {$EndIf nsRootManagerPrim_imp_impl}
 

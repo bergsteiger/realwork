@@ -149,10 +149,10 @@ type
    class procedure WaitForDownloaderExit;
    function CheckAndRunSupportProcessesIfNeed: Boolean;
    procedure TryActivateMainForm;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsStartupSupport;
     {* Метод получения экземпляра синглетона TnsStartupSupport }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsStartupSupport
 
 function nsIsOtherPrimeOrShellRunning(aTopForm: TCustomForm): Boolean;
@@ -2004,12 +2004,6 @@ begin
 //#UC END# *55F80B1F01CD_4AA7C26401C4_impl*
 end;//TnsStartupSupport.TryActivateMainForm
 
-class function TnsStartupSupport.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsStartupSupport <> nil;
-end;//TnsStartupSupport.Exists
-
 class function TnsStartupSupport.Instance: TnsStartupSupport;
  {* Метод получения экземпляра синглетона TnsStartupSupport }
 begin
@@ -2020,6 +2014,12 @@ begin
  end;
  Result := g_TnsStartupSupport;
 end;//TnsStartupSupport.Instance
+
+class function TnsStartupSupport.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsStartupSupport <> nil;
+end;//TnsStartupSupport.Exists
 
 procedure TnsStartupSupport.Cleanup;
  {* Функция очистки полей объекта. }

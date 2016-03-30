@@ -1,70 +1,47 @@
 unit k2NonOptimizeContext;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2NonOptimizeContext.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::K2::Operations::Tk2NonOptimizeContext
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2NonOptimizeContext.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tk2NonOptimizeContext" MUID: (531075C102DD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Context
-  ;
+ l3IntfUses
+ , k2Context
+;
 
 type
  Tk2NonOptimizeContext = class(Tk2Context)
- protected
- // overridden protected methods
+  protected
    function GetSaveUndo: Boolean; override;
    function GetNeedOptimize: Boolean; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2NonOptimizeContext;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tk2NonOptimizeContext }
  end;//Tk2NonOptimizeContext
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tk2NonOptimizeContext
-
-var g_Tk2NonOptimizeContext : Tk2NonOptimizeContext = nil;
+var g_Tk2NonOptimizeContext: Tk2NonOptimizeContext = nil;
+ {* Экземпляр синглетона Tk2NonOptimizeContext }
 
 procedure Tk2NonOptimizeContextFree;
+ {* Метод освобождения экземпляра синглетона Tk2NonOptimizeContext }
 begin
  l3Free(g_Tk2NonOptimizeContext);
-end;
-
-class function Tk2NonOptimizeContext.Instance: Tk2NonOptimizeContext;
-begin
- if (g_Tk2NonOptimizeContext = nil) then
- begin
-  l3System.AddExitProc(Tk2NonOptimizeContextFree);
-  g_Tk2NonOptimizeContext := Create;
- end;
- Result := g_Tk2NonOptimizeContext;
-end;
-
+end;//Tk2NonOptimizeContextFree
 
 constructor Tk2NonOptimizeContext.Create;
 //#UC START# *5310790D00D9_531075C102DD_var*
@@ -76,10 +53,21 @@ begin
 end;//Tk2NonOptimizeContext.Create
 
 class function Tk2NonOptimizeContext.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tk2NonOptimizeContext <> nil;
 end;//Tk2NonOptimizeContext.Exists
+
+class function Tk2NonOptimizeContext.Instance: Tk2NonOptimizeContext;
+ {* Метод получения экземпляра синглетона Tk2NonOptimizeContext }
+begin
+ if (g_Tk2NonOptimizeContext = nil) then
+ begin
+  l3System.AddExitProc(Tk2NonOptimizeContextFree);
+  g_Tk2NonOptimizeContext := Create;
+ end;
+ Result := g_Tk2NonOptimizeContext;
+end;//Tk2NonOptimizeContext.Instance
 
 function Tk2NonOptimizeContext.GetSaveUndo: Boolean;
 //#UC START# *4E7AF07603D9_531075C102DD_var*

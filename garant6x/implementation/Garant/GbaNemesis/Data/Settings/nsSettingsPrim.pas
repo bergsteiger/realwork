@@ -1,54 +1,43 @@
 unit nsSettingsPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Settings/nsSettingsPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Settings::TnsSettingsPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettingsPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSettingsPrim" MUID: (4AD58F5E0242)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SettingsUnit,
-  afwInterfaces,
-  l3ProtoObject,
-  IOUnit,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+ , SettingsUnit
+ , IOUnit
+ , l3Interfaces
+;
 
 type
  _SettingsClass_ = IBaseSettingsManager;
  _nsSettings_Parent_ = Tl3ProtoObject;
- {$Include ..\Settings\nsSettings.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
  TnsSettingsPrim = class(_nsSettings_, IafwSettingsPrim)
- public
- // public methods
+  public
    class function Make(const aSettings: IBaseSettingsManager): IafwSettingsPrim; reintroduce;
  end;//TnsSettingsPrim
 
 implementation
 
 uses
-  nsTypes,
-  SysUtils,
-  l3String,
-  l3VCLStrings,
-  l3Base
-  ;
+ l3ImplUses
+ , nsTypes
+ , SysUtils
+ , l3String
+ , l3VCLStrings
+ , l3Base
+;
 
-{$Include ..\Settings\nsSettings.imp.pas}
-
-// start class TnsSettingsPrim
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
 
 class function TnsSettingsPrim.Make(const aSettings: IBaseSettingsManager): IafwSettingsPrim;
 var
@@ -60,6 +49,6 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsSettingsPrim.Make
 
 end.

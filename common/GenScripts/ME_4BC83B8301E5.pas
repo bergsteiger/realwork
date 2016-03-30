@@ -11,6 +11,9 @@ interface
 
 uses
  l3IntfUses
+ , l3Interfaces
+ , l3Types
+ , l3Variants
  , l3Variant
 ;
 

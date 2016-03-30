@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , l3Types
+ , l3Const
 ;
 
 const
