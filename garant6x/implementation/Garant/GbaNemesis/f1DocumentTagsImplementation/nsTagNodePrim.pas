@@ -1,117 +1,95 @@
 unit nsTagNodePrim;
+ {* Реализация тега, представляющего данные из адаптерной ноды }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsTagNodePrim.pas"
-// Начат: 19.08.2010 15:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsTagNodePrim
-//
-// Реализация тега, представляющего данные из адаптерной ноды
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsTagNodePrim" MUID: (467FCCB101CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  IOUnit,
-  nsTagString,
-  k2Base,
-  nsTagNodePrimPrim,
-  F1TagDataProviderInterface,
-  l3Variant,
-  l3Interfaces,
-  nevBase,
-  DocumentUnit,
-  l3IID
-  ;
+ l3IntfUses
+ , nsTagNodePrimPrim
+ , F1TagDataProviderInterface
+ , k2Base
+ , l3Variant
+ , nsTagString
+ , IOUnit
+ , l3IID
+ , l3Interfaces
+;
 
 type
- DocTagNodeType = F1TagDataProviderInterface.If1TagDataProvider;
+ DocTagNodeType = If1TagDataProvider;
 
  _StyleParser_Parent_ = TnsTagNodePrimPrim;
- {$Include ..\f1DocumentTagsImplementation\StyleParser.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
  TnsTagNodePrim = {abstract} class(_StyleParser_)
   {* Реализация тега, представляющего данные из адаптерной ноды }
- private
- // private fields
-   f_TagDataProvider : DocTagNodeType;
-    {* Поле для свойства TagDataProvider}
- protected
- // overridden protected methods
+  private
+   f_TagDataProvider: DocTagNodeType;
+    {* Поле для свойства TagDataProvider }
+  protected
+   f_State: TnsNodeStates;
+  protected
+   procedure ParseStyle;
+   function GetTextAtomFromCaption(aProp: Tk2Prop;
+    out Data: Tl3Variant): Boolean;
+   procedure DoParseStyle; virtual;
+   function DoGetSubAtom(aProp: Tk2Prop;
+    out Data: Tl3Variant): Boolean; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(k2TagIsAtomic)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(k2TagIsAtomic)}
    function GetHasSubAtom(aProp: Tk2Prop): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    function GetSubAtom(aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; override;
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function DoMarkModified: Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_State : TnsNodeStates;
- protected
- // protected methods
-   procedure ParseStyle;
-   function GetTextAtomFromCaption(aProp: Tk2Prop;
-     out Data: Tl3Variant): Boolean;
-   procedure DoParseStyle; virtual;
-   function DoGetSubAtom(aProp: Tk2Prop;
-    out Data: Tl3Variant): Boolean; virtual;
- public
- // public methods
+  public
    procedure ResetStyle;
    function CheckAtom(aProp: Tk2Prop): Tl3Tag;
    constructor Create(aType: Tk2Type;
-     const aNode: DocTagNodeType;
-     aState: TnsNodeStates); reintroduce;
+    const aNode: DocTagNodeType;
+    aState: TnsNodeStates); reintroduce;
    class function MakeNodeTag(const aNode: DocTagNodeType;
-     aState: TnsNodeStates = []): Il3TagRef;
+    aState: TnsNodeStates = []): Il3TagRef;
    function HasTagDataProvider: Boolean;
- protected
- // protected properties
+  protected
    property TagDataProvider: DocTagNodeType
-     read f_TagDataProvider
-     write f_TagDataProvider;
-     {* Источник данных тега }
+    read f_TagDataProvider
+    write f_TagDataProvider;
+    {* Источник данных тега }
  end;//TnsTagNodePrim
 
 implementation
 
 uses
-  l3CustomString,
-  k2Tags,
-  SysUtils,
-  k2Facade,
-  l3Base,
-  evdVer,
-  DynamicTreeUnit,
-  BitmapPara_Const,
-  k2Empty_Const,
-  nsStyleParser
-  ;
+ l3ImplUses
+ , l3Base
+ , evdVer
+ , DynamicTreeUnit
+ , BitmapPara_Const
+ , k2Empty_Const
+ , nsStyleParser
+ , SysUtils
+ , l3CustomString
+ , k2Tags
+ , k2Facade
+ , l3BitArr
+;
 
 type _Instance_R_ = TnsTagNodePrim;
 
-{$Include ..\f1DocumentTagsImplementation\StyleParser.imp.pas}
-
-// start class TnsTagNodePrim
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
 
 procedure TnsTagNodePrim.ParseStyle;
 //#UC START# *4C6D1CE80342_467FCCB101CF_var*
@@ -127,12 +105,11 @@ begin
 end;//TnsTagNodePrim.ParseStyle
 
 function TnsTagNodePrim.GetTextAtomFromCaption(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
+var l_Text: TnsTagString;
+var l_String: IString;
 //#UC START# *4C6D1D74024A_467FCCB101CF_var*
 //#UC END# *4C6D1D74024A_467FCCB101CF_var*
-var
- l_Text : TnsTagString;
- l_String : IString;
 begin
 //#UC START# *4C6D1D74024A_467FCCB101CF_impl*
  Result := false;
@@ -182,8 +159,8 @@ begin
 end;//TnsTagNodePrim.CheckAtom
 
 constructor TnsTagNodePrim.Create(aType: Tk2Type;
-  const aNode: DocTagNodeType;
-  aState: TnsNodeStates);
+ const aNode: DocTagNodeType;
+ aState: TnsNodeStates);
 //#UC START# *4C6D1E5C03C8_467FCCB101CF_var*
 //#UC END# *4C6D1E5C03C8_467FCCB101CF_var*
 begin
@@ -195,7 +172,7 @@ begin
 end;//TnsTagNodePrim.Create
 
 class function TnsTagNodePrim.MakeNodeTag(const aNode: DocTagNodeType;
-  aState: TnsNodeStates = []): Il3TagRef;
+ aState: TnsNodeStates = []): Il3TagRef;
 //#UC START# *4C6D1E950086_467FCCB101CF_var*
 var
  l_Tag  : TnsTagNodePrim;
@@ -242,7 +219,7 @@ begin
 end;//TnsTagNodePrim.DoParseStyle
 
 function TnsTagNodePrim.DoGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D1D450332_467FCCB101CF_var*
 var
  l_ID : Integer;
@@ -305,6 +282,7 @@ begin
 end;//TnsTagNodePrim.DoGetSubAtom
 
 procedure TnsTagNodePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_467FCCB101CF_var*
 //#UC END# *479731C50290_467FCCB101CF_var*
 begin
@@ -314,7 +292,7 @@ begin
 //#UC END# *479731C50290_467FCCB101CF_impl*
 end;//TnsTagNodePrim.Cleanup
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function TnsTagNodePrim.GetHasSubAtom(aProp: Tk2Prop): Boolean;
 //#UC START# *49A544E802B2_467FCCB101CF_var*
 var
@@ -347,10 +325,10 @@ begin
   Result := inherited GetHasSubAtom(aProp);
 //#UC END# *49A544E802B2_467FCCB101CF_impl*
 end;//TnsTagNodePrim.GetHasSubAtom
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 function TnsTagNodePrim.GetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *49A54517029C_467FCCB101CF_var*
 //#UC END# *49A54517029C_467FCCB101CF_var*
 begin
@@ -361,7 +339,7 @@ begin
 end;//TnsTagNodePrim.GetSubAtom
 
 procedure TnsTagNodePrim.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_467FCCB101CF_var*
 var
  l_A : Tl3Variant;
@@ -382,7 +360,8 @@ begin
 end;//TnsTagNodePrim.DoIterateProperties
 
 function TnsTagNodePrim.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_467FCCB101CF_var*
 //#UC END# *4A60B23E00C3_467FCCB101CF_var*
 begin
@@ -427,7 +406,6 @@ begin
 end;//TnsTagNodePrim.DoMarkModified
 
 procedure TnsTagNodePrim.ClearFields;
- {-}
 begin
  TagDataProvider := nil;
  inherited;

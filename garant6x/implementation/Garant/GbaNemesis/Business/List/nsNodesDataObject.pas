@@ -1,54 +1,40 @@
 unit nsNodesDataObject;
+ {* Объект данных для нод адаптерного дерева. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/nsNodesDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::ListDataObjects::TnsNodesDataObject
-//
-// Объект данных для нод адаптерного дерева.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsNodesDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsNodesDataObject" MUID: (468246D003B6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  bsTypes,
-  evPersistentDataObjectEx,
-  l3IID,
-  evPersistentDataObject,
-  nevBase,
-  evdInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evPersistentDataObjectEx
+ , bsTypes
+ , DynamicTreeUnit
+ , l3Interfaces
+ , l3IID
+ , evPersistentDataObject
+ , nevBase
+ , evdInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsNodesDataObject = class(TevPersistentDataObjectEx)
   {* Объект данных для нод адаптерного дерева. }
- private
- // private fields
-   f_Inited : Boolean;
-    {* Данные зачитаны в поток.}
-   f_ListType : TbsListType;
-   f_List : INodesClipboard;
-    {* Список выделенных нод.}
- protected
- // overridden protected methods
+  private
+   f_Inited: Boolean;
+    {* Данные зачитаны в поток. }
+   f_ListType: TbsListType;
+   f_List: INodesClipboard;
+    {* Список выделенных нод. }
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* метод для реализации QueryInterface (Для перекрытия в потомках) }
+    {* метод для реализации QueryInterface (Для перекрытия в потомках) }
    function DataObjectClass: RevDataObject; override;
    function GetIsQuestionNeedBeforeFlush: Boolean; override;
    function DoStore(aFormat: TnevFormat;
@@ -56,37 +42,31 @@ type
     const aFilters: InevTagGenerator;
     aFlags: TevdStoreFlags): Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aList: INodesClipboard;
     aListType: TbsListType); reintroduce;
    class function Make(const aList: INodesClipboard;
     aListType: TbsListType): IDataObject; reintroduce;
  end;//TnsNodesDataObject
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsNodesInterfacedDataObject,
-  l3Base,
-  SysUtils,
-  nevTools,
-  evTypes,
-  Classes,
-  bsConvert,
-  bsUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsNodesDataObject
+ l3ImplUses
+ , nsNodesInterfacedDataObject
+ , l3Base
+ , SysUtils
+ , nevTools
+ , evTypes
+ , Classes
+ , bsConvert
+ , bsUtils
+;
 
 constructor TnsNodesDataObject.Create(const aList: INodesClipboard;
-  aListType: TbsListType);
+ aListType: TbsListType);
 //#UC START# *48F864830042_468246D003B6_var*
 var
  l_OH : InevObjectHolder;
@@ -110,7 +90,7 @@ begin
 end;//TnsNodesDataObject.Create
 
 class function TnsNodesDataObject.Make(const aList: INodesClipboard;
-  aListType: TbsListType): IDataObject;
+ aListType: TbsListType): IDataObject;
 var
  l_Inst : TnsNodesDataObject;
 begin
@@ -120,10 +100,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsNodesDataObject.Make
 
 function TnsNodesDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* метод для реализации QueryInterface (Для перекрытия в потомках) }
 //#UC START# *48F475350256_468246D003B6_var*
 //#UC END# *48F475350256_468246D003B6_var*
 begin
@@ -157,9 +138,9 @@ begin
 end;//TnsNodesDataObject.GetIsQuestionNeedBeforeFlush
 
 function TnsNodesDataObject.DoStore(aFormat: TnevFormat;
-  const aPool: IStream;
-  const aFilters: InevTagGenerator;
-  aFlags: TevdStoreFlags): Boolean;
+ const aPool: IStream;
+ const aFilters: InevTagGenerator;
+ aFlags: TevdStoreFlags): Boolean;
 //#UC START# *48F481B6035B_468246D003B6_var*
 var
  l_Stream  : IStream;
@@ -194,14 +175,10 @@ begin
 end;//TnsNodesDataObject.DoStore
 
 procedure TnsNodesDataObject.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_List := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsNodesDataObject.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

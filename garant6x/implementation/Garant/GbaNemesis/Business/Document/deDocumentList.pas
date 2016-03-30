@@ -1,97 +1,76 @@
 unit deDocumentList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/deDocumentList.pas"
-// Начат: 09.12.2009 14:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::BaseDocument::TdeDocumentList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deDocumentList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeDocumentList" MUID: (492FF76202CA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  l3TreeInterfaces,
-  bsTypes,
-  deList,
-  PrimListInterfaces,
-  PrimPrimListInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , deList
+ , PrimListInterfaces
+ , bsTypes
+ , DynamicDocListUnit
+ , l3TreeInterfaces
+ , PrimPrimListInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeDocumentList = class(TdeList, IdeDocumentList)
- private
- // private fields
-   f_OpenFrom : TbsListOpenFrom;
- protected
- // realized methods
+  private
+   f_OpenFrom: TbsListOpenFrom;
+  protected
+   procedure AssignClonned(aClone: TdeDocumentList); virtual;
    function CloneWithReplace(const aNewList: IDynList;
     const aNodeForPositioning: Il3SimpleNode): IdeDocumentList;
    function pm_GetOpenFrom: TbsListOpenFrom;
- protected
- // protected methods
-   procedure AssignClonned(aClone: TdeDocumentList); virtual;
- public
- // public methods
+   function pm_GetIsChanged: Boolean;
+  public
    constructor CreateClonned(const aList: IDynList;
-     aOpenFrom: TbsListOpenFrom;
-     aTimeMachineOff: Boolean;
-     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-     const aNodeForPositioning: Il3SimpleNode;
-     const aSearchInfo: IdeSearchInfo);
+    aOpenFrom: TbsListOpenFrom;
+    aTimeMachineOff: Boolean;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+    const aNodeForPositioning: Il3SimpleNode;
+    const aSearchInfo: IdeSearchInfo); reintroduce;
    constructor Create(const aList: IDynList;
-     aOpenFrom: TbsListOpenFrom;
-     aTimeMachineOff: Boolean;
-     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-     const aNodeForPositioning: Il3SimpleNode;
-     const aSearchInfo: IdeSearchInfo;
-     aAllDocumentsFiltered: Boolean;
-     aNeedApplyPermanentFilters: Boolean;
-     aIsChanged: Boolean); reintroduce;
+    aOpenFrom: TbsListOpenFrom;
+    aTimeMachineOff: Boolean;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+    const aNodeForPositioning: Il3SimpleNode;
+    const aSearchInfo: IdeSearchInfo;
+    aAllDocumentsFiltered: Boolean;
+    aNeedApplyPermanentFilters: Boolean;
+    aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
-     aOpenFrom: TbsListOpenFrom = lofNone;
-     aTimeMachineOff: Boolean = True;
-     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
-     const aNodeForPositioning: Il3SimpleNode = nil;
-     const aSearchInfo: IdeSearchInfo = nil;
-     aAllDocumentsFiltered: Boolean = False;
-     aNeedApplyPermanentFilters: Boolean = True;
-     aIsChanged: Boolean = False): IdeDocumentList; reintroduce;
+    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
+    aTimeMachineOff: Boolean = True;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
+    const aNodeForPositioning: Il3SimpleNode = nil;
+    const aSearchInfo: IdeSearchInfo = nil;
+    aAllDocumentsFiltered: Boolean = False;
+    aNeedApplyPermanentFilters: Boolean = True;
+    aIsChanged: Boolean = False): IdeDocumentList; reintroduce;
  end;//TdeDocumentList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeDocumentList
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TdeDocumentList.CreateClonned(const aList: IDynList;
-  aOpenFrom: TbsListOpenFrom;
-  aTimeMachineOff: Boolean;
-  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-  const aNodeForPositioning: Il3SimpleNode;
-  const aSearchInfo: IdeSearchInfo);
+ aOpenFrom: TbsListOpenFrom;
+ aTimeMachineOff: Boolean;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+ const aNodeForPositioning: Il3SimpleNode;
+ const aSearchInfo: IdeSearchInfo);
 //#UC START# *4B1F7A850082_492FF76202CA_var*
 //#UC END# *4B1F7A850082_492FF76202CA_var*
 begin
@@ -102,14 +81,14 @@ begin
 end;//TdeDocumentList.CreateClonned
 
 constructor TdeDocumentList.Create(const aList: IDynList;
-  aOpenFrom: TbsListOpenFrom;
-  aTimeMachineOff: Boolean;
-  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-  const aNodeForPositioning: Il3SimpleNode;
-  const aSearchInfo: IdeSearchInfo;
-  aAllDocumentsFiltered: Boolean;
-  aNeedApplyPermanentFilters: Boolean;
-  aIsChanged: Boolean);
+ aOpenFrom: TbsListOpenFrom;
+ aTimeMachineOff: Boolean;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+ const aNodeForPositioning: Il3SimpleNode;
+ const aSearchInfo: IdeSearchInfo;
+ aAllDocumentsFiltered: Boolean;
+ aNeedApplyPermanentFilters: Boolean;
+ aIsChanged: Boolean);
 //#UC START# *4B1F7AFB00BF_492FF76202CA_var*
 //#UC END# *4B1F7AFB00BF_492FF76202CA_var*
 begin
@@ -127,14 +106,14 @@ begin
 end;//TdeDocumentList.Create
 
 class function TdeDocumentList.Make(const aList: IDynList;
-  aOpenFrom: TbsListOpenFrom = lofNone;
-  aTimeMachineOff: Boolean = True;
-  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
-  const aNodeForPositioning: Il3SimpleNode = nil;
-  const aSearchInfo: IdeSearchInfo = nil;
-  aAllDocumentsFiltered: Boolean = False;
-  aNeedApplyPermanentFilters: Boolean = True;
-  aIsChanged: Boolean = False): IdeDocumentList;
+ aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
+ aTimeMachineOff: Boolean = True;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
+ const aNodeForPositioning: Il3SimpleNode = nil;
+ const aSearchInfo: IdeSearchInfo = nil;
+ aAllDocumentsFiltered: Boolean = False;
+ aNeedApplyPermanentFilters: Boolean = True;
+ aIsChanged: Boolean = False): IdeDocumentList;
 var
  l_Inst : TdeDocumentList;
 begin
@@ -144,7 +123,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeDocumentList.Make
 
 procedure TdeDocumentList.AssignClonned(aClone: TdeDocumentList);
 //#UC START# *4B1F7AE80158_492FF76202CA_var*
@@ -156,7 +135,7 @@ begin
 end;//TdeDocumentList.AssignClonned
 
 function TdeDocumentList.CloneWithReplace(const aNewList: IDynList;
-  const aNodeForPositioning: Il3SimpleNode): IdeDocumentList;
+ const aNodeForPositioning: Il3SimpleNode): IdeDocumentList;
 //#UC START# *4B1D107F02EB_492FF76202CA_var*
 var
  l_Class : TdeDocumentList;
@@ -186,6 +165,14 @@ begin
 //#UC END# *4B1D10CB029F_492FF76202CAget_impl*
 end;//TdeDocumentList.pm_GetOpenFrom
 
-{$IfEnd} //not Admin AND not Monitorings
+function TdeDocumentList.pm_GetIsChanged: Boolean;
+//#UC START# *56A5C84E02B0_492FF76202CAget_var*
+//#UC END# *56A5C84E02B0_492FF76202CAget_var*
+begin
+//#UC START# *56A5C84E02B0_492FF76202CAget_impl*
+ Result := inherited pm_GetIsChanged;
+//#UC END# *56A5C84E02B0_492FF76202CAget_impl*
+end;//TdeDocumentList.pm_GetIsChanged
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

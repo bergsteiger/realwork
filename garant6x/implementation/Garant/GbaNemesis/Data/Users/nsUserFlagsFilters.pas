@@ -1,64 +1,47 @@
 unit nsUserFlagsFilters;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Users/nsUserFlagsFilters.pas"
-// Начат: 2007/03/13 10:08:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Users$CommonForAdminAndF1::TnsUserFlagsFilters
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilters.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserFlagsFilters" MUID: (4901E95F019D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  bsInterfaces,
-  l3TreeFilters,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , l3TreeFilters
+ , bsInterfaces
+ , l3TreeInterfaces
+;
 
 type
  TnsUserFlagsFilters = class(Tl3TreeFilters, InsUserFlagsFilters)
- private
- // private fields
-   f_Group : InsGroupFilter;
-   f_Flags : InsUserFlagsFilter;
-   f_PermanentFlags : InsUserFlagsFilter;
- protected
- // realized methods
+  private
+   f_Group: InsGroupFilter;
+   f_Flags: InsUserFlagsFilter;
+   f_PermanentFlags: InsUserFlagsFilter;
+  protected
    function pm_GetUserFlags: InsUserFlagsFilter;
    function SetUserFlag(const aFilter: InsUserFlagsFilter): InsUserFlagsFilters;
    function pm_GetGroup: InsGroupFilter;
    function SetGroup(const aFilter: InsGroupFilter): InsUserFlagsFilters;
    function pm_GetPermanentUserFlags: InsUserFlagsFilter;
    function SetPermanentUserFlag(const aFilter: InsUserFlagsFilter): InsUserFlagsFilters;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSource: Il3TreeFilters); override;
  end;//TnsUserFlagsFilters
 
 implementation
 
 uses
-  nsUserFlagsFilter,
-  SysUtils,
-  nsGroupFilter
-  ;
-
-// start class TnsUserFlagsFilters
+ l3ImplUses
+ , nsUserFlagsFilter
+ , SysUtils
+ , nsGroupFilter
+;
 
 function TnsUserFlagsFilters.pm_GetUserFlags: InsUserFlagsFilter;
 //#UC START# *4901E691032E_4901E95F019Dget_var*
@@ -118,6 +101,7 @@ begin
 end;//TnsUserFlagsFilters.SetPermanentUserFlag
 
 procedure TnsUserFlagsFilters.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4901E95F019D_var*
 //#UC END# *479731C50290_4901E95F019D_var*
 begin

@@ -1,78 +1,58 @@
 unit nsDocumentWithSnippetList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/nsDocumentWithSnippetList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::Document::TnsDocumentWithSnippetList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentWithSnippetList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentWithSnippetList" MUID: (5645E9550108)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  nsINodeWrapBase,
-  l3Interfaces,
-  l3InternalInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , nsINodeWrapBase
+ , l3Interfaces
+ , l3InternalInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDocumentWithSnippetList = class(TnsDataResetTreeStruct)
- private
- // private fields
-   f_List : IDynList;
- protected
- // realized methods
+  private
+   f_List: IDynList;
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function RootNodeClass: RnsINodeWrap; override;
-     {* определяет класс обертки для Root }
+    {* определяет класс обертки для Root }
    function DoMakeDataObject(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap): IDataObject; override;
-     {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
- public
- // public methods
+    {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
+  public
    constructor Create(const aRoot: INodeBase;
-     const aDynList: IDynList); reintroduce;
+    const aDynList: IDynList); reintroduce;
    class function Make(const aRoot: INodeBase;
-     const aDynList: IDynList): Il3SimpleTree; reintroduce;
+    const aDynList: IDynList): Il3SimpleTree; reintroduce;
  end;//TnsDocumentWithSnippetList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsDocumentWithSnippetNode,
-  bsListTreeData,
-  bsListDataObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDocumentWithSnippetList
+ l3ImplUses
+ , nsDocumentWithSnippetNode
+ , bsListTreeData
+ , bsListDataObject
+;
 
 constructor TnsDocumentWithSnippetList.Create(const aRoot: INodeBase;
-  const aDynList: IDynList);
+ const aDynList: IDynList);
 //#UC START# *5649C48002E2_5645E9550108_var*
 //#UC END# *5649C48002E2_5645E9550108_var*
 begin
@@ -83,7 +63,7 @@ begin
 end;//TnsDocumentWithSnippetList.Create
 
 class function TnsDocumentWithSnippetList.Make(const aRoot: INodeBase;
-  const aDynList: IDynList): Il3SimpleTree;
+ const aDynList: IDynList): Il3SimpleTree;
 var
  l_Inst : TnsDocumentWithSnippetList;
 begin
@@ -93,7 +73,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDocumentWithSnippetList.Make
 
 function TnsDocumentWithSnippetList.ReAqurieUnfilteredRoot: INodeBase;
 //#UC START# *48FF64F60078_5645E9550108_var*
@@ -106,6 +86,7 @@ begin
 end;//TnsDocumentWithSnippetList.ReAqurieUnfilteredRoot
 
 procedure TnsDocumentWithSnippetList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5645E9550108_var*
 //#UC END# *479731C50290_5645E9550108_var*
 begin
@@ -116,6 +97,7 @@ begin
 end;//TnsDocumentWithSnippetList.Cleanup
 
 function TnsDocumentWithSnippetList.RootNodeClass: RnsINodeWrap;
+ {* определяет класс обертки для Root }
 //#UC START# *48FEE3640227_5645E9550108_var*
 //#UC END# *48FEE3640227_5645E9550108_var*
 begin
@@ -125,7 +107,8 @@ begin
 end;//TnsDocumentWithSnippetList.RootNodeClass
 
 function TnsDocumentWithSnippetList.DoMakeDataObject(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap): IDataObject;
+ const aBitmap: Il3Bitmap): IDataObject;
+ {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
 //#UC START# *48FEE6210205_5645E9550108_var*
 //#UC END# *48FEE6210205_5645E9550108_var*
 begin
@@ -135,7 +118,6 @@ begin
   Result := TbsListDataObject.Make(aData, aBitmap, TbsListTreeData.Make(f_List, RootNode, aData));
 //#UC END# *48FEE6210205_5645E9550108_impl*
 end;//TnsDocumentWithSnippetList.DoMakeDataObject
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

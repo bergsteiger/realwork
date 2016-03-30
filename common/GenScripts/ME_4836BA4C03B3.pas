@@ -13,6 +13,8 @@ interface
 uses
  l3IntfUses
  , k2DocumentGenerator
+ //#UC START# *4836BA4C03B3intf_uses*
+ //#UC END# *4836BA4C03B3intf_uses*
 ;
 
 type
@@ -33,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4836BA4C03B3impl_uses*
+ //#UC END# *4836BA4C03B3impl_uses*
 ;
 
 //#UC START# *4836BA4C03B3impl*

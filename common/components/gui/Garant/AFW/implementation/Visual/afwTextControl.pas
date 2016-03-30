@@ -12,6 +12,8 @@ uses
  l3IntfUses
  , afwTextControlPrim
  , afwInterfaces
+ //#UC START# *48BBF1470238intf_uses*
+ //#UC END# *48BBF1470238intf_uses*
 ;
 
 type
@@ -45,6 +47,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48BBF1470238impl_uses*
+ //#UC END# *48BBF1470238impl_uses*
 ;
 
 type

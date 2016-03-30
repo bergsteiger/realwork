@@ -1,53 +1,39 @@
 unit bsListDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/bsListDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::ListDataObjects::TbsListDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsListDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsListDataObject" MUID: (48F740E40022)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces,
-  evNodeData,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evNodeData
+ , bsInterfaces
+ , l3Interfaces
+ , l3TreeInterfaces
+ , l3InternalInterfaces
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsListDataObject = class(TevNodeData)
- private
- // private fields
-   f_ListData : IbsListTreeData;
- protected
- // overridden protected methods
+  private
+   f_ListData: IbsListTreeData;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; override;
    function GetFormats: Tl3ClipboardFormats; override;
    function MakeExtData: IDataObject; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap;
     const aListData: IbsListTreeData); reintroduce;
@@ -55,27 +41,23 @@ type
     const aBitmap: Il3Bitmap;
     const aListData: IbsListTreeData): IDataObject; reintroduce;
  end;//TbsListDataObject
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  nsNodesDataObject,
-  bsConvert,
-  l3TreeConst,
-  Windows
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsListDataObject
+ l3ImplUses
+ , l3Base
+ , nsNodesDataObject
+ , bsConvert
+ , l3TreeConst
+ , Windows
+;
 
 constructor TbsListDataObject.Create(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap;
-  const aListData: IbsListTreeData);
+ const aBitmap: Il3Bitmap;
+ const aListData: IbsListTreeData);
 //#UC START# *48F7415A0374_48F740E40022_var*
 //#UC END# *48F7415A0374_48F740E40022_var*
 begin
@@ -86,8 +68,8 @@ begin
 end;//TbsListDataObject.Create
 
 class function TbsListDataObject.Make(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap;
-  const aListData: IbsListTreeData): IDataObject;
+ const aBitmap: Il3Bitmap;
+ const aListData: IbsListTreeData): IDataObject;
 var
  l_Inst : TbsListDataObject;
 begin
@@ -97,9 +79,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsListDataObject.Make
 
 procedure TbsListDataObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F740E40022_var*
 //#UC END# *479731C50290_48F740E40022_var*
 begin
@@ -110,7 +93,7 @@ begin
 end;//TbsListDataObject.Cleanup
 
 function TbsListDataObject.DoGetData(const aFormatEtcIn: TFormatEtc;
-  var medium: Tl3StoragePlace): HResult;
+ var medium: Tl3StoragePlace): HResult;
 //#UC START# *48F3495D0398_48F740E40022_var*
 var
  l_Handle : THandle;
@@ -172,7 +155,8 @@ begin
 end;//TbsListDataObject.MakeExtData
 
 function TbsListDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48F740E40022_var*
 //#UC END# *4A60B23E00C3_48F740E40022_var*
 begin
@@ -185,7 +169,6 @@ begin
  end;//if l3IFail(Result) and IID.EQ(IbsListTreeData) then
 //#UC END# *4A60B23E00C3_48F740E40022_impl*
 end;//TbsListDataObject.COMQueryInterface
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

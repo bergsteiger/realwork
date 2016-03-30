@@ -1,60 +1,42 @@
 unit nsAttributeTreeFilters;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsAttributeTreeFilters.pas"
-// Начат: 2007/03/29 06:43:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::TnsAttributeTreeFilters
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeFilters.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeTreeFilters" MUID: (490203C503AD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  bsInterfaces,
-  l3TreeFilters,
-  nsTypes,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , l3TreeFilters
+ , bsInterfaces
+ , nsTypes
+ , l3TreeInterfaces
+;
 
 type
  TnsAttributeTreeFilters = class(Tl3TreeFilters, InsAttributeTreeFilters)
   {* Коллеги, это что? }
- private
- // private fields
-   f_FilterType : TnsFilterType;
- protected
- // realized methods
+  private
+   f_FilterType: TnsFilterType;
+  protected
    function pm_GetFilterType: TnsFilterType;
    function SetFilterType(aType: TnsFilterType): InsAttributeTreeFilters;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSource: Il3TreeFilters); override;
  end;//TnsAttributeTreeFilters
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TnsAttributeTreeFilters
+ l3ImplUses
+ , SysUtils
+;
 
 function TnsAttributeTreeFilters.pm_GetFilterType: TnsFilterType;
 //#UC START# *490201580363_490203C503ADget_var*
@@ -76,6 +58,7 @@ begin
 end;//TnsAttributeTreeFilters.SetFilterType
 
 procedure TnsAttributeTreeFilters.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_490203C503AD_var*
 //#UC END# *479731C50290_490203C503AD_var*
 begin

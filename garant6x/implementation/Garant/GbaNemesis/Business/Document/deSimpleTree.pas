@@ -1,72 +1,53 @@
 unit deSimpleTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/deSimpleTree.pas"
-// Начат: 12.01.2011 18:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::BaseDocument::TdeSimpleTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deSimpleTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeSimpleTree" MUID: (4D2DC8590283)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  DocumentAndListInterfaces,
-  l3ProtoObject,
-  F1TagDataProviderInterface,
-  DocumentUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , DocumentAndListInterfaces
+ , l3TreeInterfaces
+ , F1TagDataProviderInterface
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeSimpleTree = class(Tl3ProtoObject, IdeSimpleTree)
- private
- // private fields
-   f_Tree : Il3SimpleTree;
-   f_Adornments : InsDocumentAdornments;
- protected
- // realized methods
+  private
+   f_Tree: Il3SimpleTree;
+   f_Adornments: InsDocumentAdornments;
+  protected
    function Get_Contents: Il3SimpleTree;
    function Get_Bookmarks: IBookmarkList;
    function Get_Comments: ICommentsParaList;
    function Get_ExternalObjects: IExternalObjectDataList;
    function Get_Empty: Boolean;
    function Get_Adornments: InsDocumentAdornments;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aTree: Il3SimpleTree;
-     const anAdorments: InsDocumentAdornments); reintroduce;
+    const anAdorments: InsDocumentAdornments); reintroduce;
    class function Make(const aTree: Il3SimpleTree;
-     const anAdorments: InsDocumentAdornments): IdeSimpleTree; reintroduce;
-     {* Сигнатура фабрики TdeSimpleTree.Make }
+    const anAdorments: InsDocumentAdornments): IdeSimpleTree; reintroduce;
  end;//TdeSimpleTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeSimpleTree
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TdeSimpleTree.Create(const aTree: Il3SimpleTree;
-  const anAdorments: InsDocumentAdornments);
+ const anAdorments: InsDocumentAdornments);
 //#UC START# *4D2F170B02AD_4D2DC8590283_var*
 //#UC END# *4D2F170B02AD_4D2DC8590283_var*
 begin
@@ -78,7 +59,7 @@ begin
 end;//TdeSimpleTree.Create
 
 class function TdeSimpleTree.Make(const aTree: Il3SimpleTree;
-  const anAdorments: InsDocumentAdornments): IdeSimpleTree;
+ const anAdorments: InsDocumentAdornments): IdeSimpleTree;
 var
  l_Inst : TdeSimpleTree;
 begin
@@ -88,7 +69,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeSimpleTree.Make
 
 function TdeSimpleTree.Get_Contents: Il3SimpleTree;
 //#UC START# *4D2DC8190360_4D2DC8590283get_var*
@@ -162,17 +143,11 @@ begin
 end;//TdeSimpleTree.Get_Adornments
 
 procedure TdeSimpleTree.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Tree := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Adornments := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdeSimpleTree.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

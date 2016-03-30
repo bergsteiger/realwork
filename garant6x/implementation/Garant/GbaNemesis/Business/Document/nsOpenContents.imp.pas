@@ -1,48 +1,40 @@
 {$IfNDef nsOpenContents_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/nsOpenContents.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Common::Business::BaseDocument::nsOpenContents
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsOpenContents" MUID: (4DF9B9980075)
+// Имя типа: "_nsOpenContents_"
 
 {$Define nsOpenContents_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _nsOpenContents_ = {mixin} class(_nsOpenContents_Parent_)
- public
- // realized methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _nsOpenContents_ = class(_nsOpenContents_Parent_)
+  protected
+   f_MustKepContentsTree: Boolean;
+  protected
+   procedure ClearAllDS; override;
+   procedure FillState; override;
+  public
    procedure OpenContents(const aTree: IdeSimpleTree;
     anForceOpen: TnsContentsOpenMode;
     const aContainerOfDocument: InevDocumentContainer);
- protected
- // overridden protected methods
-   procedure ClearAllDS; override;
-   procedure FillState; override;
- protected
- // protected fields
-   f_MustKepContentsTree : Boolean;
  end;//_nsOpenContents_
-{$Else}
 
- _nsOpenContents_ = _nsOpenContents_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_nsOpenContents_ = _nsOpenContents_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else nsOpenContents_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef nsOpenContents_imp_impl}
 
-// start class _nsOpenContents_
+{$Define nsOpenContents_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _nsOpenContents_.OpenContents(const aTree: IdeSimpleTree;
-  anForceOpen: TnsContentsOpenMode;
-  const aContainerOfDocument: InevDocumentContainer);
+ anForceOpen: TnsContentsOpenMode;
+ const aContainerOfDocument: InevDocumentContainer);
 //#UC START# *4953D3B20211_4DF9B9980075_var*
 var
  l_NeedMake: TvcmNeedMakeDS;
@@ -121,7 +113,9 @@ begin
    NeedMake := vcm_nmYes;
 //#UC END# *493D51ED0329_4DF9B9980075_impl*
 end;//_nsOpenContents_.FillState
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf nsOpenContents_imp_impl}
 
 {$EndIf nsOpenContents_imp}
+

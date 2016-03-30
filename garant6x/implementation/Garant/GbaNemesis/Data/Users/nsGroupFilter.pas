@@ -1,48 +1,37 @@
 unit nsGroupFilter;
+ {* Фильтр на группу }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Users/nsGroupFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Users$CommonForAdminAndF1::TnsGroupFilter
-//
-// Фильтр на группу
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsGroupFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsGroupFilter" MUID: (49F017390338)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  bsInterfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , bsInterfaces
+;
 
 type
  TnsGroupFilter = class(Tl3CacheableBase, InsGroupFilter)
   {* Фильтр на группу }
- private
- // private fields
-   f_GroupUID : Integer;
- protected
- // realized methods
+  private
+   f_GroupUID: Integer;
+  protected
    function Get_GroupUID: Integer;
- public
- // public methods
+  public
    constructor Create(aGroupUID: Integer); reintroduce;
    class function Make(aGroupUID: Integer): InsGroupFilter; reintroduce;
  end;//TnsGroupFilter
 
 implementation
 
-// start class TnsGroupFilter
+uses
+ l3ImplUses
+;
 
 constructor TnsGroupFilter.Create(aGroupUID: Integer);
 //#UC START# *49F017D90351_49F017390338_var*
@@ -64,7 +53,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsGroupFilter.Make
 
 function TnsGroupFilter.Get_GroupUID: Integer;
 //#UC START# *49F015F003D0_49F017390338get_var*

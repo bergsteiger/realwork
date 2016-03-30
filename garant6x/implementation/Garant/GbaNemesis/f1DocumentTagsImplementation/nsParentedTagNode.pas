@@ -1,44 +1,31 @@
 unit nsParentedTagNode;
+ {* Тег над адаптерной нодой, представляющий ссылку на родителя }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsParentedTagNode.pas"
-// Начат: 2005/06/23 16:38:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsParentedTagNode
-//
-// Тег над адаптерной нодой, представляющий ссылку на родителя
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsParentedTagNode" MUID: (467FCD4401BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsTagNodePrim,
-  k2Base,
-  F1TagDataProviderInterface,
-  l3Variant
-  ;
+ l3IntfUses
+ , nsTagNodePrim
+ , k2Base
+ , l3Variant
+ , F1TagDataProviderInterface
+;
 
 type
  _k2ParentedTagObject_Parent_ = TnsTagNodePrim;
  {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
  TnsParentedTagNode = class(_k2ParentedTagObject_)
   {* Тег над адаптерной нодой, представляющий ссылку на родителя }
- public
- // public methods
+  public
    class function MakeNodeTag(const aNode: DocTagNodeType;
-     aParent: Tl3Tag = nil;
-     aState: TnsNodeStates = []): Il3TagRef;
+    aParent: Tl3Tag = nil;
+    aState: TnsNodeStates = []): Il3TagRef;
    constructor Create(aType: Tk2Type;
     const aNode: DocTagNodeType;
     aParent: Tl3Tag;
@@ -48,46 +35,43 @@ type
 implementation
 
 uses
-  k2Facade,
-  QueryCard_Const,
-  Document_Const,
-  nsDocumentTagNodePrim,
-  CommentPara_Const,
-  Block_Const,
-  ReqRow_Const,
-  ReqCell_Const,
-  ParaList_Const,
-  ControlPara_Const,
-  TextPara_Const,
-  BitmapPara_Const,
-  SectionBreak_Const,
-  LeafPara_Const,
-  SysUtils,
-  nsSubNode,
-  nsSectionBreakNode,
-  nsTextParaNode,
-  nsControlParaNode,
-  nsBitmapParaNode,
-  nsReqCellNode,
-  nsReqRowNode,
-  nsBlockNode,
-  nsBlockNodePrim,
-  nsLeafParaNode,
-  nsParaListNode,
-  k2NullTagImpl,
-  l3Base,
-  evdVer,
-  k2Empty_Const,
-  nsStyleParser
-  ;
+ l3ImplUses
+ , nsLeafParaNode
+ , nsParaListNode
+ , k2NullTagImpl
+ , k2Facade
+ , QueryCard_Const
+ , Document_Const
+ , nsDocumentTagNodePrim
+ , CommentPara_Const
+ , Block_Const
+ , ReqRow_Const
+ , ReqCell_Const
+ , ParaList_Const
+ , ControlPara_Const
+ , TextPara_Const
+ , BitmapPara_Const
+ , SectionBreak_Const
+ , LeafPara_Const
+ , SysUtils
+ , nsSubNode
+ , nsSectionBreakNode
+ , nsTextParaNode
+ , nsControlParaNode
+ , nsBitmapParaNode
+ , nsReqCellNode
+ , nsReqRowNode
+ , nsBlockNode
+ , nsBlockNodePrim
+ , l3BitArr
+ , nsStyleParser
+;
 
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
-// start class TnsParentedTagNode
-
 class function TnsParentedTagNode.MakeNodeTag(const aNode: DocTagNodeType;
-  aParent: Tl3Tag = nil;
-  aState: TnsNodeStates = []): Il3TagRef;
+ aParent: Tl3Tag = nil;
+ aState: TnsNodeStates = []): Il3TagRef;
 //#UC START# *4C6E60FE0011_467FCD4401BD_var*
 var
  l_Tag  : TnsParentedTagNode;
@@ -179,9 +163,9 @@ begin
 end;//TnsParentedTagNode.MakeNodeTag
 
 constructor TnsParentedTagNode.Create(aType: Tk2Type;
-  const aNode: DocTagNodeType;
-  aParent: Tl3Tag;
-  aState: TnsNodeStates);
+ const aNode: DocTagNodeType;
+ aParent: Tl3Tag;
+ aState: TnsNodeStates);
 //#UC START# *4C6E60C80037_467FCD4401BD_var*
 //#UC END# *4C6E60C80037_467FCD4401BD_var*
 begin

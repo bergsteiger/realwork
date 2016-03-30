@@ -11,14 +11,14 @@ interface
 
 uses
  l3IntfUses
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
- , afwTypes
  , l3Interfaces
  , l3InternalInterfaces
  , l3Core
+ , afwTypes
  , l3PrinterInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)

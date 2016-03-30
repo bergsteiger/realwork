@@ -14,9 +14,7 @@
    f_IsOneOperation: Boolean;
    f_IsDataOneLevel: Boolean;
    f_Tag: Il3CString;
-    {* Поле для свойства Tag }
    f_ServerOneLevel: Boolean;
-    {* Поле для свойства ServerOneLevel }
   protected
    procedure Cleanup; override;
     {* Метод очистки полей объекта }

@@ -19,6 +19,8 @@ uses
  , k2Long_Const
  , k2FontName_Const
  , k2Color_Const
+ //#UC START# *484CEE9A0170_484A4725001Dintf_uses*
+ //#UC END# *484CEE9A0170_484A4725001Dintf_uses*
 ;
 
  // FontTag
@@ -27,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *484CEE9A0170_484A4725001Dimpl_uses*
+ //#UC END# *484CEE9A0170_484A4725001Dimpl_uses*
 ;
 
 end.

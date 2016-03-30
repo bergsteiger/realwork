@@ -1,46 +1,31 @@
 unit nsUserTreeStruct;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Users/nsUserTreeStruct.pas"
-// Начат: 22.08.2005 20.30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Users$CommonForAdminAndF1::TnsUserTreeStruct
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserTreeStruct" MUID: (4906E96C0364)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsDataResetTreeStruct,
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  bsInterfaces,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , afwInterfaces
+ , bsInterfaces
+;
 
 type
  TnsUserTreeStruct = class(TnsDataResetTreeStruct)
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function MakeFilters: Il3TreeFilters; override;
    procedure FillFilters(const aFilters: Il3TreeFilters;
     const anAdapterFilters: InsAdapterFilters); override;
    function SettingsID: TafwSettingId; override;
- public
- // overridden public methods
+  public
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
     aOneLevel: Boolean = False); override;
@@ -49,15 +34,14 @@ type
 implementation
 
 uses
-  DataAdapter,
-  SysUtils,
-  nsConst,
-  nsUserFlagsFilters,
-  l3Interfaces,
-  SecurityUnit
-  ;
-
-// start class TnsUserTreeStruct
+ l3ImplUses
+ , DataAdapter
+ , SysUtils
+ , nsConst
+ , nsUserFlagsFilters
+ , l3Interfaces
+ , SecurityUnit
+;
 
 function TnsUserTreeStruct.ReAqurieUnfilteredRoot: INodeBase;
 //#UC START# *48FF64F60078_4906E96C0364_var*
@@ -69,8 +53,8 @@ begin
 end;//TnsUserTreeStruct.ReAqurieUnfilteredRoot
 
 constructor TnsUserTreeStruct.Create(const aRoot: INodeBase;
-  aShowRoot: Boolean;
-  aOneLevel: Boolean = False);
+ aShowRoot: Boolean;
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_4906E96C0364_var*
 //#UC END# *48FDD9270194_4906E96C0364_var*
 begin
@@ -90,7 +74,7 @@ begin
 end;//TnsUserTreeStruct.MakeFilters
 
 procedure TnsUserTreeStruct.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_4906E96C0364_var*
 var
  l_Filters: InsUserFlagsFilters;

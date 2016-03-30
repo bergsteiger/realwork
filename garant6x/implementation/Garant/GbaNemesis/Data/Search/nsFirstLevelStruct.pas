@@ -1,52 +1,41 @@
 unit nsFirstLevelStruct;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsFirstLevelStruct.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::TnsFirstLevelStruct
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsFirstLevelStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFirstLevelStruct" MUID: (4909DC950238)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  nsAttributeOneLevelTreeStruct
-  ;
+ l3IntfUses
+ , nsAttributeOneLevelTreeStruct
+ , l3TreeInterfaces
+ , l3Interfaces
+;
 
 type
  TnsFirstLevelStruct = class(TnsAttributeOneLevelTreeStruct)
   {* Коллеги, это что? }
- public
- // public methods
+  public
    class function Make(const aTag: Il3CString;
     aShowRoot: Boolean): Il3SimpleTree;
-     {* Создаёт экземпляр дерева }
+    {* Создаёт экземпляр дерева }
  end;//TnsFirstLevelStruct
 
 implementation
 
 uses
-  nsAttributeTreeCacheNew,
-  DynamicTreeUnit
-  ;
-
-// start class TnsFirstLevelStruct
+ l3ImplUses
+ , nsAttributeTreeCacheNew
+ , DynamicTreeUnit
+;
 
 class function TnsFirstLevelStruct.Make(const aTag: Il3CString;
-  aShowRoot: Boolean): Il3SimpleTree;
+ aShowRoot: Boolean): Il3SimpleTree;
+ {* Создаёт экземпляр дерева }
 //#UC START# *4909DCCD018E_4909DC950238_var*
 var
  l_Node: INodeBase;

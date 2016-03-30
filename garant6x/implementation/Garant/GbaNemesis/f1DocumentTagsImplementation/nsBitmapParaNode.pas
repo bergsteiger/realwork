@@ -1,47 +1,33 @@
 unit nsBitmapParaNode;
+ {* Параграф с картинкой. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsBitmapParaNode.pas"
-// Начат: 2005/06/23 16:38:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsBitmapParaNode
-//
-// Параграф с картинкой.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBitmapParaNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBitmapParaNode" MUID: (467FCDDA0064)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsLeafParaNode,
-  evBitmapPara_Wrap,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , nsLeafParaNode
+ , k2Base
+ , l3Variant
+ , evBitmapPara_Wrap
+;
 
 type
  TnsBitmapParaPictureGetter = class(TevBitmapParaPictureGetter)
- public
- // overridden public methods
+  public
    class function GetPicture(aTag: Tl3Variant;
-     aProp: Tk2Prop;
-     out Data: Tl3Variant): Boolean; override;
+    aProp: Tk2Prop;
+    out Data: Tl3Variant): Boolean; override;
  end;//TnsBitmapParaPictureGetter
 
  TnsBitmapParaNode = class(TnsLeafParaNode)
   {* Параграф с картинкой. }
- protected
- // overridden protected methods
+  protected
    function DoGetSubAtom(aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; override;
  end;//TnsBitmapParaNode
@@ -49,25 +35,24 @@ type
 implementation
 
 uses
-  SysUtils,
-  l3Interfaces,
-  StartUnit,
-  BaseTypesUnit,
-  DataAdapter,
-  k2Tags,
-  ExternalObjectUnit,
-  nsExternalObjectPrim,
-  l3Memory,
-  l3BaseStream,
-  k2SizedMemoryPool,
-  k2RawData_Const
-  ;
-
-// start class TnsBitmapParaPictureGetter
+ l3ImplUses
+ , StartUnit
+ , DataAdapter
+ , k2Tags
+ , ExternalObjectUnit
+ , l3Interfaces
+ , nsExternalObjectPrim
+ , SysUtils
+ , BaseTypesUnit
+ , l3Memory
+ , l3BaseStream
+ , k2SizedMemoryPool
+ , k2RawData_Const
+;
 
 class function TnsBitmapParaPictureGetter.GetPicture(aTag: Tl3Variant;
-  aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2Prop;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4F4B9CB401AF_4F4B9D41030A_var*
 var
  l_ID : Integer;
@@ -139,7 +124,7 @@ begin
 end;//TnsBitmapParaPictureGetter.GetPicture
 
 function TnsBitmapParaNode.DoGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D1D450332_467FCDDA0064_var*
 //#UC END# *4C6D1D450332_467FCDDA0064_var*
 begin

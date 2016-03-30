@@ -33,6 +33,8 @@ uses
  , l3Types
  , Windows
  , l3LongintList
+ //#UC START# *48BD1975029Bintf_uses*
+ //#UC END# *48BD1975029Bintf_uses*
 ;
 
 type
@@ -260,6 +262,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48BD1975029Bimpl_uses*
+ //#UC END# *48BD1975029Bimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas}

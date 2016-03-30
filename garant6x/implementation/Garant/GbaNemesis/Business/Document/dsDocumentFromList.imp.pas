@@ -1,60 +1,46 @@
 {$IfNDef dsDocumentFromList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/dsDocumentFromList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Common::Business::Document::dsDocumentFromList
-//
-// Примесь для документа открытого из списка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "dsDocumentFromList" MUID: (4914640A0125)
+// Имя типа: "_dsDocumentFromList_"
 
 {$Define dsDocumentFromList_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _dsDocumentFromList_ = {mixin} class(_dsDocumentFromList_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _dsDocumentFromList_ = class(_dsDocumentFromList_Parent_)
   {* Примесь для документа открытого из списка }
- protected
- // property methods
+  protected
    function pm_GetHasListNode: Boolean;
- protected
- // realized methods
+   procedure DoReturnToList(const aList: IDynList;
+    const aNodeForPositioning: Il3SimpleNode); virtual; abstract;
+    {* параметры создания списка }
+   function CloneSearchInfo(const aList: IDynList): IdeSearchInfo;
+    {* Коллеги, это что? }
    function pm_GetCanOpenPrevDoc: Boolean;
    function pm_GetCanOpenNextDoc: Boolean;
    function pm_GetCanReturnToList: Boolean;
- public
- // realized methods
+  public
    function SwitchToDocumentFromList(aPrev: Boolean): IdeDocInfo;
    procedure ReturnToList;
- protected
- // protected methods
-   procedure DoReturnToList(const aList: IDynList;
-    const aNodeForPositioning: Il3SimpleNode); virtual; abstract;
-     {* параметры создания списка }
-   function CloneSearchInfo(const aList: IDynList): IdeSearchInfo;
-     {* Коллеги, это что? }
- public
- // public properties
+  public
    property HasListNode: Boolean
-     read pm_GetHasListNode;
-     {* есть ли узел списка }
+    read pm_GetHasListNode;
+    {* есть ли узел списка }
  end;//_dsDocumentFromList_
-{$Else}
 
- _dsDocumentFromList_ = _dsDocumentFromList_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_dsDocumentFromList_ = _dsDocumentFromList_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else dsDocumentFromList_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef dsDocumentFromList_imp_impl}
 
-// start class _dsDocumentFromList_
+{$Define dsDocumentFromList_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _dsDocumentFromList_.pm_GetHasListNode: Boolean;
 //#UC START# *491466040150_4914640A0125get_var*
 //#UC END# *491466040150_4914640A0125get_var*
@@ -65,6 +51,7 @@ begin
 end;//_dsDocumentFromList_.pm_GetHasListNode
 
 function _dsDocumentFromList_.CloneSearchInfo(const aList: IDynList): IdeSearchInfo;
+ {* Коллеги, это что? }
 //#UC START# *4914664B019A_4914640A0125_var*
 //#UC END# *4914664B019A_4914640A0125_var*
 begin
@@ -199,7 +186,9 @@ begin
  Result := DocInfo.List <> nil;
 //#UC END# *49145C940250_4914640A0125get_impl*
 end;//_dsDocumentFromList_.pm_GetCanReturnToList
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf dsDocumentFromList_imp_impl}
 
 {$EndIf dsDocumentFromList_imp}
+

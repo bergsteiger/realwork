@@ -1,62 +1,47 @@
 unit nsCommentStorer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsCommentStorer.pas"
-// Начат: 24.11.2010 18:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsCommentStorer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentStorer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsCommentStorer" MUID: (4CED328E0140)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evCommentPara_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , evCommentPara_Wrap
+ , nevTools
+ , l3Variant
+;
 
 type
  TnsCommentStorer = class(TevCommentStorer)
- protected
- // overridden protected methods
-   class procedure ForceStore(aTag: Tl3Variant); override;
- protected
- // protected methods
+  protected
    class procedure NotifyOtherTexts(const anObj: InevObject);
+   class procedure ForceStore(aTag: Tl3Variant); override;
  end;//TnsCommentStorer
 
 implementation
 
 uses
-  evDocumentsCache,
-  k2Tags,
-  l3Base,
-  l3Types,
-  l3InterfacesMisc,
-  nsNativeCommentPara,
-  nsTagNodePrim,
-  nsCommentMemoryStream,
-  SysUtils,
-  evdInterfaces,
-  Classes,
-  evTypes,
-  l3Memory,
-  F1TagDataProviderInterface,
-  LegalDomain_DocumentNotifications_Controls
-  ;
-
-// start class TnsCommentStorer
+ l3ImplUses
+ , nsTagNodePrim
+ , nsCommentMemoryStream
+ , SysUtils
+ , k2Tags
+ , evdInterfaces
+ , Classes
+ , evTypes
+ , l3Memory
+ , F1TagDataProviderInterface
+ , LegalDomain_DocumentNotifications_Controls
+ , evDocumentsCache
+ , l3Base
+ , l3Types
+ , l3InterfacesMisc
+ , nsNativeCommentPara
+;
 
 class procedure TnsCommentStorer.NotifyOtherTexts(const anObj: InevObject);
 //#UC START# *4CED3A7F0099_4CED328E0140_var*

@@ -1,73 +1,54 @@
 unit nsIListDataObject;
+ {* - }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/nsIListDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::Document::TnsIListDataObject
-//
-// -
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsIListDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsIListDataObject" MUID: (47F23C2A0219)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  nevTools,
-  evEvdDataObject,
-  nevBase,
-  evdInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evEvdDataObject
+ , DynamicDocListUnit
+ , nevTools
+ , nevBase
+ , evdInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsIListDataObject = class(TevEvdDataObject)
   {* - }
- private
- // private fields
-   f_Document : IDynList;
-   f_OnlyFirstLevel : Boolean;
- protected
- // overridden protected methods
+  private
+   f_Document: IDynList;
+   f_OnlyFirstLevel: Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoStore(const G: InevTagGenerator;
     aFlags: TevdStoreFlags); override;
-     {* сохраняет поток в G }
- public
- // public methods
+    {* сохраняет поток в G }
+  public
    constructor Create(const aData: IDynList;
     aOnlyFirstLevel: Boolean); reintroduce;
    class function Make(const aData: IDynList;
-    aOnlyFirstLevel: Boolean = false): InevStorable; reintroduce;
+    aOnlyFirstLevel: Boolean = False): InevStorable; reintroduce;
  end;//TnsIListDataObject
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsConvert
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsIListDataObject
+ l3ImplUses
+ , bsConvert
+;
 
 constructor TnsIListDataObject.Create(const aData: IDynList;
-  aOnlyFirstLevel: Boolean);
+ aOnlyFirstLevel: Boolean);
 //#UC START# *48F885150025_47F23C2A0219_var*
 //#UC END# *48F885150025_47F23C2A0219_var*
 begin
@@ -79,7 +60,7 @@ begin
 end;//TnsIListDataObject.Create
 
 class function TnsIListDataObject.Make(const aData: IDynList;
-  aOnlyFirstLevel: Boolean = false): InevStorable;
+ aOnlyFirstLevel: Boolean = False): InevStorable;
 var
  l_Inst : TnsIListDataObject;
 begin
@@ -89,9 +70,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsIListDataObject.Make
 
 procedure TnsIListDataObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F23C2A0219_var*
 //#UC END# *479731C50290_47F23C2A0219_var*
 begin
@@ -102,7 +84,8 @@ begin
 end;//TnsIListDataObject.Cleanup
 
 procedure TnsIListDataObject.DoStore(const G: InevTagGenerator;
-  aFlags: TevdStoreFlags);
+ aFlags: TevdStoreFlags);
+ {* сохраняет поток в G }
 //#UC START# *48EA34990191_47F23C2A0219_var*
 //#UC END# *48EA34990191_47F23C2A0219_var*
 begin
@@ -115,7 +98,6 @@ begin
  end;//try..finally
 //#UC END# *48EA34990191_47F23C2A0219_impl*
 end;//TnsIListDataObject.DoStore
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

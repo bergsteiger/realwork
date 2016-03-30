@@ -13,6 +13,7 @@ uses
  l3IntfUses
  , l3Interfaces
  , k2Interfaces
+ , evdTypes
 ;
 
 type
@@ -80,7 +81,6 @@ implementation
 
 uses
  l3ImplUses
- , evdTypes
 ;
 
 function TevdAddress_E: TevdAddress;

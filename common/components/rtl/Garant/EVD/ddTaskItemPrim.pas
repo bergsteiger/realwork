@@ -1,40 +1,29 @@
 unit ddTaskItemPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/ddTaskItemPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::EVD::TasksTuning::TddTaskItemPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\ddTaskItemPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskItemPrim" MUID: (53AC018900AE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  Classes,
-  k2Base,
-  l3Variant,
-  evdTaskTypes
-  ;
+ l3IntfUses
+ , l3Variant
+ , evdTaskTypes
+ , Classes
+ , k2Base
+;
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include ..\EVD\evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TddTaskItemPrim = class(_evdTagHolder_)
- private
- // private fields
-   f_CanNotifyChange : Boolean;
-    {* Поле для свойства CanNotifyChange}
- protected
- // property methods
+  private
+   f_CanNotifyChange: Boolean;
+    {* Поле для свойства CanNotifyChange }
+  protected
    function pm_GetTaskType: TcsTaskType;
    function pm_GetPriority: Integer;
    procedure pm_SetPriority(aValue: Integer);
@@ -50,81 +39,207 @@ type
    procedure pm_SetDescription(const aValue: AnsiString);
    function pm_GetTaskFolder: AnsiString;
    procedure pm_SetTaskFolder(const aValue: AnsiString);
- public
- // realized methods
-   class function GetTaggedDataType: Tk2Type; override;
- protected
- // overridden protected methods
-   procedure InitFields; override;
- protected
- // protected methods
    class function ReadBoolean(aStream: TStream): Boolean;
    class function ReadInteger(aStream: TStream): Integer;
    class procedure WriteBoolean(aStream: TStream;
-     aValue: Boolean);
+    aValue: Boolean);
    class procedure WriteInteger(aStream: TStream;
-     aValue: Integer);
+    aValue: Integer);
    class function ReadDateTime(aStream: TStream): TDateTime;
    class procedure WriteDateTime(aStream: TStream;
-     aValue: TDateTime);
+    aValue: TDateTime);
    class function ReadCardinal(aStream: TStream): Cardinal;
    class procedure WriteCardinal(aStream: TStream;
-     aValue: Cardinal);
- public
- // public methods
+    aValue: Cardinal);
+   procedure InitFields; override;
+  public
    procedure Changed(aStatus: TcsTaskStatus);
    class function TaskTaggedDataType: Tk2Type;
    class function CanAsyncRun: Boolean; virtual;
- public
- // public properties
+   class function GetTaggedDataType: Tk2Type; override;
+  public
    property CanNotifyChange: Boolean
-     read f_CanNotifyChange
-     write f_CanNotifyChange;
+    read f_CanNotifyChange
+    write f_CanNotifyChange;
    property TaskType: TcsTaskType
-     read pm_GetTaskType;
+    read pm_GetTaskType;
    property Priority: Integer
-     read pm_GetPriority
-     write pm_SetPriority;
+    read pm_GetPriority
+    write pm_SetPriority;
    property Version: Integer
-     read pm_GetVersion
-     write pm_SetVersion;
+    read pm_GetVersion
+    write pm_SetVersion;
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
-     {* Идентификатор задания }
+    read pm_GetTaskID
+    write pm_SetTaskID;
+    {* Идентификатор задания }
    property Date: TDateTime
-     read pm_GetDate
-     write pm_SetDate;
+    read pm_GetDate
+    write pm_SetDate;
    property User: Cardinal
-     read pm_GetUser
-     write pm_SetUser;
+    read pm_GetUser
+    write pm_SetUser;
    property Description: AnsiString
-     read pm_GetDescription
-     write pm_SetDescription;
-     {* Description }
+    read pm_GetDescription
+    write pm_SetDescription;
+    {* Description }
    property TaskFolder: AnsiString
-     read pm_GetTaskFolder
-     write pm_SetTaskFolder;
-     {* TaskFolder }
+    read pm_GetTaskFolder
+    write pm_SetTaskFolder;
+    {* TaskFolder }
  end;//TddTaskItemPrim
 
 implementation
 
 uses
-  csTaskListening,
-  Task_Const,
-  evdNativeWriter,
-  l3Filer,
-  l3Types,
-  k2TagGen,
-  evdNativeReader,
-  k2DocumentBuffer,
-  SysUtils
-  ;
+ l3ImplUses
+ , csTaskListening
+ , Task_Const
+ , SysUtils
+ , evdNativeWriter
+ , l3Filer
+ , l3Types
+ , k2TagGen
+ , evdNativeReader
+ , k2DocumentBuffer
+;
 
-{$Include ..\EVD\evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
-// start class TddTaskItemPrim
+function TddTaskItemPrim.pm_GetTaskType: TcsTaskType;
+//#UC START# *5B83E11F22FB_53AC018900AEget_var*
+//#UC END# *5B83E11F22FB_53AC018900AEget_var*
+begin
+//#UC START# *5B83E11F22FB_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5B83E11F22FB_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetTaskType
+
+function TddTaskItemPrim.pm_GetPriority: Integer;
+//#UC START# *AF593256A9AE_53AC018900AEget_var*
+//#UC END# *AF593256A9AE_53AC018900AEget_var*
+begin
+//#UC START# *AF593256A9AE_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *AF593256A9AE_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetPriority
+
+procedure TddTaskItemPrim.pm_SetPriority(aValue: Integer);
+//#UC START# *AF593256A9AE_53AC018900AEset_var*
+//#UC END# *AF593256A9AE_53AC018900AEset_var*
+begin
+//#UC START# *AF593256A9AE_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *AF593256A9AE_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetPriority
+
+function TddTaskItemPrim.pm_GetVersion: Integer;
+//#UC START# *571225C20359_53AC018900AEget_var*
+//#UC END# *571225C20359_53AC018900AEget_var*
+begin
+//#UC START# *571225C20359_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *571225C20359_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetVersion
+
+procedure TddTaskItemPrim.pm_SetVersion(aValue: Integer);
+//#UC START# *571225C20359_53AC018900AEset_var*
+//#UC END# *571225C20359_53AC018900AEset_var*
+begin
+//#UC START# *571225C20359_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *571225C20359_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetVersion
+
+function TddTaskItemPrim.pm_GetTaskID: AnsiString;
+//#UC START# *86CFBC62FBD3_53AC018900AEget_var*
+//#UC END# *86CFBC62FBD3_53AC018900AEget_var*
+begin
+//#UC START# *86CFBC62FBD3_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *86CFBC62FBD3_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetTaskID
+
+procedure TddTaskItemPrim.pm_SetTaskID(const aValue: AnsiString);
+//#UC START# *86CFBC62FBD3_53AC018900AEset_var*
+//#UC END# *86CFBC62FBD3_53AC018900AEset_var*
+begin
+//#UC START# *86CFBC62FBD3_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *86CFBC62FBD3_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetTaskID
+
+function TddTaskItemPrim.pm_GetDate: TDateTime;
+//#UC START# *418658145475_53AC018900AEget_var*
+//#UC END# *418658145475_53AC018900AEget_var*
+begin
+//#UC START# *418658145475_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *418658145475_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetDate
+
+procedure TddTaskItemPrim.pm_SetDate(aValue: TDateTime);
+//#UC START# *418658145475_53AC018900AEset_var*
+//#UC END# *418658145475_53AC018900AEset_var*
+begin
+//#UC START# *418658145475_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *418658145475_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetDate
+
+function TddTaskItemPrim.pm_GetUser: Cardinal;
+//#UC START# *020041F4906E_53AC018900AEget_var*
+//#UC END# *020041F4906E_53AC018900AEget_var*
+begin
+//#UC START# *020041F4906E_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *020041F4906E_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetUser
+
+procedure TddTaskItemPrim.pm_SetUser(aValue: Cardinal);
+//#UC START# *020041F4906E_53AC018900AEset_var*
+//#UC END# *020041F4906E_53AC018900AEset_var*
+begin
+//#UC START# *020041F4906E_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *020041F4906E_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetUser
+
+function TddTaskItemPrim.pm_GetDescription: AnsiString;
+//#UC START# *72E56BB67EDF_53AC018900AEget_var*
+//#UC END# *72E56BB67EDF_53AC018900AEget_var*
+begin
+//#UC START# *72E56BB67EDF_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *72E56BB67EDF_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetDescription
+
+procedure TddTaskItemPrim.pm_SetDescription(const aValue: AnsiString);
+//#UC START# *72E56BB67EDF_53AC018900AEset_var*
+//#UC END# *72E56BB67EDF_53AC018900AEset_var*
+begin
+//#UC START# *72E56BB67EDF_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *72E56BB67EDF_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetDescription
+
+function TddTaskItemPrim.pm_GetTaskFolder: AnsiString;
+//#UC START# *A169F37C21C6_53AC018900AEget_var*
+//#UC END# *A169F37C21C6_53AC018900AEget_var*
+begin
+//#UC START# *A169F37C21C6_53AC018900AEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A169F37C21C6_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetTaskFolder
+
+procedure TddTaskItemPrim.pm_SetTaskFolder(const aValue: AnsiString);
+//#UC START# *A169F37C21C6_53AC018900AEset_var*
+//#UC END# *A169F37C21C6_53AC018900AEset_var*
+begin
+//#UC START# *A169F37C21C6_53AC018900AEset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A169F37C21C6_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetTaskFolder
 
 class function TddTaskItemPrim.ReadBoolean(aStream: TStream): Boolean;
 //#UC START# *53AC4F14023A_53AC018900AE_var*
@@ -145,7 +260,7 @@ begin
 end;//TddTaskItemPrim.ReadInteger
 
 class procedure TddTaskItemPrim.WriteBoolean(aStream: TStream;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *53AC4F7D023D_53AC018900AE_var*
 //#UC END# *53AC4F7D023D_53AC018900AE_var*
 begin
@@ -155,7 +270,7 @@ begin
 end;//TddTaskItemPrim.WriteBoolean
 
 class procedure TddTaskItemPrim.WriteInteger(aStream: TStream;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *53AC4FA30300_53AC018900AE_var*
 //#UC END# *53AC4FA30300_53AC018900AE_var*
 begin
@@ -174,7 +289,7 @@ begin
 end;//TddTaskItemPrim.ReadDateTime
 
 class procedure TddTaskItemPrim.WriteDateTime(aStream: TStream;
-  aValue: TDateTime);
+ aValue: TDateTime);
 //#UC START# *53B273660031_53AC018900AE_var*
 //#UC END# *53B273660031_53AC018900AE_var*
 begin
@@ -193,7 +308,7 @@ begin
 end;//TddTaskItemPrim.ReadCardinal
 
 class procedure TddTaskItemPrim.WriteCardinal(aStream: TStream;
-  aValue: Cardinal);
+ aValue: Cardinal);
 //#UC START# *53B3F2C902F8_53AC018900AE_var*
 //#UC END# *53B3F2C902F8_53AC018900AE_var*
 begin
@@ -231,121 +346,13 @@ begin
 //#UC END# *53E379480169_53AC018900AE_impl*
 end;//TddTaskItemPrim.CanAsyncRun
 
-function TddTaskItemPrim.pm_GetTaskType: TcsTaskType;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TcsTaskType(TaggedData.IntA[k2_attrTaskType]);
-end;//TddTaskItemPrim.pm_GetTaskType
-
-function TddTaskItemPrim.pm_GetPriority: Integer;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrPriority]);
-end;//TddTaskItemPrim.pm_GetPriority
-
-procedure TddTaskItemPrim.pm_SetPriority(aValue: Integer);
- {-}
-begin
- TaggedData.IntW[k2_attrPriority, nil] := (aValue);
-end;//TddTaskItemPrim.pm_SetPriority
-
-function TddTaskItemPrim.pm_GetVersion: Integer;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrVersion]);
-end;//TddTaskItemPrim.pm_GetVersion
-
-procedure TddTaskItemPrim.pm_SetVersion(aValue: Integer);
- {-}
-begin
- TaggedData.IntW[k2_attrVersion, nil] := (aValue);
-end;//TddTaskItemPrim.pm_SetVersion
-
-function TddTaskItemPrim.pm_GetTaskID: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
-end;//TddTaskItemPrim.pm_GetTaskID
-
-procedure TddTaskItemPrim.pm_SetTaskID(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
-end;//TddTaskItemPrim.pm_SetTaskID
-
-function TddTaskItemPrim.pm_GetDate: TDateTime;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- if not TaggedData.HasSubAtom(k2_attrDate) then
-  if not Tk2Type(TaggedData.TagType).Prop[k2_attrDate].ReadOnly then
-  begin
-   pm_SetDate(Now);
-  end;//not TaggedData.HasSubAtom(k2_attrDate)
- Result := (TaggedData.DateTimeA[k2_attrDate]);
-end;//TddTaskItemPrim.pm_GetDate
-
-procedure TddTaskItemPrim.pm_SetDate(aValue: TDateTime);
- {-}
-begin
- TaggedData.DateTimeW[k2_attrDate, nil] := (aValue);
-end;//TddTaskItemPrim.pm_SetDate
-
-function TddTaskItemPrim.pm_GetUser: Cardinal;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := Cardinal(TaggedData.IntA[k2_attrUser]);
-end;//TddTaskItemPrim.pm_GetUser
-
-procedure TddTaskItemPrim.pm_SetUser(aValue: Cardinal);
- {-}
-begin
- TaggedData.IntW[k2_attrUser, nil] := Integer(aValue);
-end;//TddTaskItemPrim.pm_SetUser
-
-function TddTaskItemPrim.pm_GetDescription: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrDescription]);
-end;//TddTaskItemPrim.pm_GetDescription
-
-procedure TddTaskItemPrim.pm_SetDescription(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrDescription, nil] := (aValue);
-end;//TddTaskItemPrim.pm_SetDescription
-
-function TddTaskItemPrim.pm_GetTaskFolder: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskFolder]);
-end;//TddTaskItemPrim.pm_GetTaskFolder
-
-procedure TddTaskItemPrim.pm_SetTaskFolder(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrTaskFolder, nil] := (aValue);
-end;//TddTaskItemPrim.pm_SetTaskFolder
-
 class function TddTaskItemPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53AC018900AE_var*
+//#UC END# *53AC03EE01FD_53AC018900AE_var*
 begin
- Result := k2_typTask;
+//#UC START# *53AC03EE01FD_53AC018900AE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53AC018900AE_impl*
 end;//TddTaskItemPrim.GetTaggedDataType
 
 procedure TddTaskItemPrim.InitFields;

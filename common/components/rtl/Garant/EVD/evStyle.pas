@@ -1,31 +1,26 @@
 unit evStyle;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evStyle.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::EVD::Standard::TevStyle
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evStyle.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevStyle" MUID: (5320772503DC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2DictRec
-  ;
+ l3IntfUses
+ , k2DictRec
+;
 
 type
  TevStyle = class(Tk2DictRec)
  end;//TevStyle
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

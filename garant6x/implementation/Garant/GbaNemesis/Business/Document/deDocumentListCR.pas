@@ -1,71 +1,53 @@
 unit deDocumentListCR;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/deDocumentListCR.pas"
-// Начат: 09.12.2009 14:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::BaseDocument::TdeDocumentListCR
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deDocumentListCR.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeDocumentListCR" MUID: (493D4D1A0388)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  DynamicTreeUnit,
-  bsTypes,
-  deDocumentList,
-  PrimListInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , deDocumentList
+ , PrimListInterfaces
+ , bsTypes
+ , DynamicTreeUnit
+ , DynamicDocListUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeDocumentListCR = class(TdeDocumentList, IdeDocumentListCR)
- private
- // private fields
-   fType : TlstCRType;
-   fCategory : INodeBase;
- protected
- // realized methods
+  private
+   fType: TlstCRType;
+   fCategory: INodeBase;
+  protected
    function pm_GetListType: TlstCRType;
    function pm_GetCategory: INodeBase;
- protected
- // overridden protected methods
    procedure AssignClonned(aClone: TdeDocumentList); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aList: IDynList;
-     const aCategory: INodeBase;
-     aType: TlstCRType); reintroduce;
+    const aCategory: INodeBase;
+    aType: TlstCRType); reintroduce;
    class function Make(const aList: IDynList;
-     const aCategory: INodeBase;
-     aType: TlstCRType): IdeDocumentListCR; reintroduce;
+    const aCategory: INodeBase;
+    aType: TlstCRType): IdeDocumentListCR; reintroduce;
  end;//TdeDocumentListCR
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeDocumentListCR
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TdeDocumentListCR.Create(const aList: IDynList;
-  const aCategory: INodeBase;
-  aType: TlstCRType);
+ const aCategory: INodeBase;
+ aType: TlstCRType);
 //#UC START# *4B1F7BB10212_493D4D1A0388_var*
 //#UC END# *4B1F7BB10212_493D4D1A0388_var*
 begin
@@ -77,8 +59,8 @@ begin
 end;//TdeDocumentListCR.Create
 
 class function TdeDocumentListCR.Make(const aList: IDynList;
-  const aCategory: INodeBase;
-  aType: TlstCRType): IdeDocumentListCR;
+ const aCategory: INodeBase;
+ aType: TlstCRType): IdeDocumentListCR;
 var
  l_Inst : TdeDocumentListCR;
 begin
@@ -88,7 +70,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeDocumentListCR.Make
 
 function TdeDocumentListCR.pm_GetListType: TlstCRType;
 //#UC START# *4B1D1100018E_493D4D1A0388get_var*
@@ -123,14 +105,10 @@ begin
 end;//TdeDocumentListCR.AssignClonned
 
 procedure TdeDocumentListCR.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  fCategory := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdeDocumentListCR.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -23,6 +23,8 @@ uses
  , evdFrame_Const
  , evdStyles
  , evdTypes
+ //#UC START# *484D2CBA0213_484A4725001Dintf_uses*
+ //#UC END# *484D2CBA0213_484A4725001Dintf_uses*
 ;
 
 type
@@ -97,6 +99,8 @@ implementation
 uses
  l3ImplUses
  , evdStyleContainer
+ //#UC START# *484D2CBA0213_484A4725001Dimpl_uses*
+ //#UC END# *484D2CBA0213_484A4725001Dimpl_uses*
 ;
 
 end.

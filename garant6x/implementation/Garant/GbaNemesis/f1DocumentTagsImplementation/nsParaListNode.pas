@@ -1,51 +1,46 @@
 unit nsParaListNode;
+ {* Список параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsParaListNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsParaListNode
-//
-// Список параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaListNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsParaListNode" MUID: (467FCE2703D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  k2TagList,
-  F1TagDataProviderInterface,
-  nsParaListNodeModelPart,
-  l3Variant,
-  l3Interfaces,
-  k2Base,
-  k2Prim,
-  l3Types
-  ;
+ l3IntfUses
+ , nsParaListNodeModelPart
+ , l3Variant
+ , k2Interfaces
+ , F1TagDataProviderInterface
+ , k2TagList
+ , l3Interfaces
+ , k2Base
+ , k2Prim
+ , l3Types
+;
 
 type
  TnsParaListNode = class(TnsParaListNodeModelPart)
   {* Список параграфов }
- private
- // private fields
-   f_NodeChildrenCount : Integer;
- protected
- // overridden property methods
-   function pm_GetChildrenCount: Integer; override;
-   function pm_GetChildPrim(anIndex: Integer): Tl3Variant; override;
- protected
- // overridden protected methods
+  private
+   f_NodeChildrenCount: Integer;
+  protected
+   procedure MakeChildForInsert(var anIndex: Integer;
+    var aChild: Tl3Tag;
+    const anOp: Ik2Op); virtual;
+   function NodeChildrenCount: Integer; virtual;
+   function BaseChildrenCount: LongInt;
+   function GetChildNode(anIndex: Integer): If1TagDataProvider;
+   function GetChildPrim(aCount: Integer;
+    anIndex: LongInt;
+    aCheckInCache: Boolean;
+    aList: Tk2TagList;
+    aCheckInTree: Boolean): Tl3Tag;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
     aLo: Tl3Index;
@@ -61,52 +56,40 @@ type
    function DoGetSubAtom(aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; override;
    procedure CheckChildInsert(var anIndex: Integer;
-     var aChild: Tl3Variant;
-     const anOp: Ik2Op); override;
+    var aChild: Tl3Variant;
+    const anOp: Ik2Op); override;
    function DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-     aHi: Tl3Index;
-     aLo: Tl3Index;
-     aLoadedOnly: Boolean): Integer; override;
-    {$If not defined(k2TagIsAtomic)}
+    aHi: Tl3Index;
+    aLo: Tl3Index;
+    aLoadedOnly: Boolean): Integer; override;
+   {$If NOT Defined(k2TagIsAtomic)}
    function IterateInnerChildrenOnWrite: Boolean; override;
-    {$IfEnd} //not k2TagIsAtomic
- protected
- // protected methods
-   procedure MakeChildForInsert(var anIndex: Integer;
-     var aChild: Tl3Tag;
-     const anOp: Ik2Op); virtual;
-   function NodeChildrenCount: Integer; virtual;
-   function BaseChildrenCount: LongInt;
-   function GetChildNode(anIndex: Integer): If1TagDataProvider;
-   function GetChildPrim(aCount: Integer;
-     anIndex: LongInt;
-     aCheckInCache: Boolean;
-     aList: Tk2TagList;
-     aCheckInTree: Boolean): Tl3Tag;
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   function pm_GetChildrenCount: Integer; override;
+   function pm_GetChildPrim(anIndex: Integer): Tl3Variant; override;
  end;//TnsParaListNode
 
 implementation
 
 uses
-  f1ChildMaker,
-  nsCommentStorer,
-  nsParentedTagNode,
-  nevTools,
-  SectionBreak_Const,
-  k2Tags,
-  l3MinMax,
-  LeafParaDecorationsHolder_Const,
-  CommentPara_Const,
-  SysUtils,
-  k2BaseStruct,
-  nsTagString
-  ;
-
-// start class TnsParaListNode
+ l3ImplUses
+ , f1ChildMaker
+ , nsCommentStorer
+ , nsParentedTagNode
+ , nevTools
+ , SectionBreak_Const
+ , k2Tags
+ , l3MinMax
+ , LeafParaDecorationsHolder_Const
+ , CommentPara_Const
+ , SysUtils
+ , k2BaseStruct
+ , nsTagString
+;
 
 procedure TnsParaListNode.MakeChildForInsert(var anIndex: Integer;
-  var aChild: Tl3Tag;
-  const anOp: Ik2Op);
+ var aChild: Tl3Tag;
+ const anOp: Ik2Op);
 //#UC START# *4CED5C3D02CB_467FCE2703D6_var*
 var
  l_Obj: TObject;
@@ -183,10 +166,10 @@ begin
 end;//TnsParaListNode.GetChildNode
 
 function TnsParaListNode.GetChildPrim(aCount: Integer;
-  anIndex: LongInt;
-  aCheckInCache: Boolean;
-  aList: Tk2TagList;
-  aCheckInTree: Boolean): Tl3Tag;
+ anIndex: LongInt;
+ aCheckInCache: Boolean;
+ aList: Tk2TagList;
+ aCheckInTree: Boolean): Tl3Tag;
 //#UC START# *508161F401E8_467FCE2703D6_var*
 var
  l_Node: If1TagDataProvider;
@@ -259,6 +242,7 @@ begin
 end;//TnsParaListNode.GetChildPrim
 
 procedure TnsParaListNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_467FCE2703D6_var*
 //#UC END# *479731C50290_467FCE2703D6_var*
 begin
@@ -280,9 +264,9 @@ begin
 end;//TnsParaListNode.InitFields
 
 function TnsParaListNode.DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index;
-  aHi: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aLo: Tl3Index;
+ aHi: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *48CF96D80241_467FCE2703D6_var*
 var
  l_Count: Integer;
@@ -348,7 +332,7 @@ begin
 end;//TnsParaListNode.DoIterateChildrenF
 
 procedure TnsParaListNode.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_467FCE2703D6_var*
 var
  l_Count: Integer;  
@@ -364,8 +348,8 @@ begin
 end;//TnsParaListNode.DoIterateProperties
 
 function TnsParaListNode.DeleteChildPrim(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack): Boolean;
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack): Boolean;
 //#UC START# *4C6CE735026E_467FCE2703D6_var*
 var
  l_Sink: If1CommentSink;
@@ -398,7 +382,7 @@ begin
 end;//TnsParaListNode.DeleteChildPrim
 
 function TnsParaListNode.DoDeleteChild(anIndex: Integer;
-  const aContext: Ik2Op): Boolean;
+ const aContext: Ik2Op): Boolean;
 //#UC START# *4C6CED4C009B_467FCE2703D6_var*
 //#UC END# *4C6CED4C009B_467FCE2703D6_var*
 begin
@@ -418,7 +402,7 @@ begin
 end;//TnsParaListNode.DoDeleteChild
 
 function TnsParaListNode.DoGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D1D450332_467FCE2703D6_var*
 //var
 // l_P: _PropLoc_;
@@ -469,8 +453,8 @@ begin
 end;//TnsParaListNode.DoGetSubAtom
 
 procedure TnsParaListNode.CheckChildInsert(var anIndex: Integer;
-  var aChild: Tl3Variant;
-  const anOp: Ik2Op);
+ var aChild: Tl3Variant;
+ const anOp: Ik2Op);
 //#UC START# *4CED66B8005F_467FCE2703D6_var*
 //#UC END# *4CED66B8005F_467FCE2703D6_var*
 begin
@@ -480,9 +464,9 @@ begin
 end;//TnsParaListNode.CheckChildInsert
 
 function TnsParaListNode.DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-  aHi: Tl3Index;
-  aLo: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aHi: Tl3Index;
+ aLo: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *5081632303E6_467FCE2703D6_var*
 var
  l_Count: Integer;
@@ -543,7 +527,7 @@ begin
 //#UC END# *5081632303E6_467FCE2703D6_impl*
 end;//TnsParaListNode.DoIterateChildrenBack
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function TnsParaListNode.IterateInnerChildrenOnWrite: Boolean;
 //#UC START# *5081947501ED_467FCE2703D6_var*
 //#UC END# *5081947501ED_467FCE2703D6_var*
@@ -552,7 +536,7 @@ begin
  Result := False;
 //#UC END# *5081947501ED_467FCE2703D6_impl*
 end;//TnsParaListNode.IterateInnerChildrenOnWrite
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 function TnsParaListNode.pm_GetChildrenCount: Integer;
 //#UC START# *5335815D03DC_467FCE2703D6get_var*

@@ -1,26 +1,23 @@
 {$IfNDef nsUserPropertyImpl_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Users/nsUserPropertyImpl.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Users$CommonForAdminAndF1::nsUserPropertyImpl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsUserPropertyImpl" MUID: (4B50388A00E5)
+// Имя типа: "_nsUserPropertyImpl_"
 
 {$Define nsUserPropertyImpl_imp}
- _nsUserPropertyImpl_ = {mixin} class(_nsUserPropertyImpl_Parent_)
- private
- // private fields
-   f_Profile : IUserProfile;
-   f_Changed : Boolean;
-   f_NewUser : Boolean;
- protected
- // realized methods
+
+ _nsUserPropertyImpl_ = class(_nsUserPropertyImpl_Parent_)
+  private
+   f_Profile: IUserProfile;
+   f_Changed: Boolean;
+   f_NewUser: Boolean;
+  protected
+   function DefaultGroupID: Integer; virtual; abstract;
+   procedure SetProfileData(const aProfile: IUserProfile;
+    aChanged: Boolean;
+    aNewUser: Boolean);
+   procedure ClearNewUser; virtual;
    function Get_UID: Integer;
    function Get_GroupUID: Integer;
    function Get_Login: Il3CString;
@@ -33,8 +30,9 @@
    function Get_IsSystem: Boolean;
    function Get_IsPrivileged: Boolean;
    function Get_DontDeleteIdle: Boolean;
- public
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    function HasUserProfile: Boolean;
    function HasPassword: Boolean;
    procedure SaveUserProfile(const aName: Tl3WString;
@@ -49,26 +47,17 @@
     const aMail: Tl3WString;
     const aPassword: Tl3WString;
     IsPasswordChanged: Boolean = False);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   function DefaultGroupID: Integer; virtual; abstract;
-   procedure SetProfileData(const aProfile: IUserProfile;
-    aChanged: Boolean;
-    aNewUser: Boolean);
-   procedure ClearNewUser; virtual;
  end;//_nsUserPropertyImpl_
 
 {$Else nsUserPropertyImpl_imp}
 
-// start class _nsUserPropertyImpl_
+{$IfNDef nsUserPropertyImpl_imp_impl}
+
+{$Define nsUserPropertyImpl_imp_impl}
 
 procedure _nsUserPropertyImpl_.SetProfileData(const aProfile: IUserProfile;
-  aChanged: Boolean;
-  aNewUser: Boolean);
+ aChanged: Boolean;
+ aNewUser: Boolean);
 //#UC START# *4B5047BC003A_4B50388A00E5_var*
 //#UC END# *4B5047BC003A_4B50388A00E5_var*
 begin
@@ -111,13 +100,13 @@ begin
 end;//_nsUserPropertyImpl_.HasPassword
 
 procedure _nsUserPropertyImpl_.SaveUserProfile(const aName: Tl3WString;
-  const aMail: Tl3WString;
-  aCanBuyConsulting: Boolean;
-  aIsPrivileged: Boolean;
-  aDontDeleteIdle: Boolean;
-  const aPassword: Tl3WString;
-  aGroupUID: Integer;
-  IsPasswordChanged: Boolean = False);
+ const aMail: Tl3WString;
+ aCanBuyConsulting: Boolean;
+ aIsPrivileged: Boolean;
+ aDontDeleteIdle: Boolean;
+ const aPassword: Tl3WString;
+ aGroupUID: Integer;
+ IsPasswordChanged: Boolean = False);
 //#UC START# *4B5026560312_4B50388A00E5_var*
 var
  l_UserManager: IUserManager;
@@ -288,9 +277,9 @@ begin
 end;//_nsUserPropertyImpl_.Get_IsPrivileged
 
 procedure _nsUserPropertyImpl_.SaveUserInfo(const aName: Tl3WString;
-  const aMail: Tl3WString;
-  const aPassword: Tl3WString;
-  IsPasswordChanged: Boolean = False);
+ const aMail: Tl3WString;
+ const aPassword: Tl3WString;
+ IsPasswordChanged: Boolean = False);
 //#UC START# *4B5460600098_4B50388A00E5_var*
 var
  l_UserManager: IUserManager;
@@ -326,6 +315,7 @@ begin
 end;//_nsUserPropertyImpl_.Get_DontDeleteIdle
 
 procedure _nsUserPropertyImpl_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B50388A00E5_var*
 //#UC END# *479731C50290_4B50388A00E5_var*
 begin
@@ -337,4 +327,7 @@ begin
 //#UC END# *479731C50290_4B50388A00E5_impl*
 end;//_nsUserPropertyImpl_.Cleanup
 
+{$EndIf nsUserPropertyImpl_imp_impl}
+
 {$EndIf nsUserPropertyImpl_imp}
+

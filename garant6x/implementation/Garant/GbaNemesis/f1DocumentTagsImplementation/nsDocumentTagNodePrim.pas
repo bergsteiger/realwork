@@ -1,41 +1,28 @@
 unit nsDocumentTagNodePrim;
+ {* Базовая нода документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsDocumentTagNodePrim.pas"
-// Начат: 2005/11/22 17:01:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsDocumentTagNodePrim
-//
-// Базовая нода документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsDocumentTagNodePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentTagNodePrim" MUID: (467FCF9300AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsBlockNodePrim,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , nsBlockNodePrim
+ , k2Base
+ , l3Variant
+;
 
 type
  TnsDocumentTagNodePrim = class(TnsBlockNodePrim)
   {* Базовая нода документа. }
- protected
- // overridden protected methods
-   {$If not defined(k2TagIsAtomic)}
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function GetHasSubAtom(aProp: Tk2Prop): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); override;
    function DoGetSubAtom(aProp: Tk2Prop;
@@ -45,22 +32,21 @@ type
 implementation
 
 uses
-  nsTagString,
-  DataAdapter,
-  k2Tags,
-  IOUnit,
-  DocumentUnit,
-  l3CustomString,
-  SysUtils,
-  k2Const,
-  evTextStyle_Const,
-  evdTextStyle_Const,
-  evdStyles
-  ;
+ l3ImplUses
+ , nsTagString
+ , DataAdapter
+ , k2Tags
+ , IOUnit
+ , DocumentUnit
+ , l3CustomString
+ , SysUtils
+ , k2Const
+ , evTextStyle_Const
+ , evdTextStyle_Const
+ , evdStyles
+;
 
-// start class TnsDocumentTagNodePrim
-
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function TnsDocumentTagNodePrim.GetHasSubAtom(aProp: Tk2Prop): Boolean;
 //#UC START# *49A544E802B2_467FCF9300AE_var*
 //#UC END# *49A544E802B2_467FCF9300AE_var*
@@ -79,10 +65,10 @@ begin
   Result := inherited GetHasSubAtom(aProp);
 //#UC END# *49A544E802B2_467FCF9300AE_impl*
 end;//TnsDocumentTagNodePrim.GetHasSubAtom
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure TnsDocumentTagNodePrim.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_467FCF9300AE_var*
 //#UC END# *49A545D501F6_467FCF9300AE_var*
 begin
@@ -103,7 +89,7 @@ begin
 end;//TnsDocumentTagNodePrim.DoIterateProperties
 
 function TnsDocumentTagNodePrim.DoGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D1D450332_467FCF9300AE_var*
 
  function HasInternetImage : Boolean;

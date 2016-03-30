@@ -1,42 +1,33 @@
 unit nsContentsRoot;
+ {* Корень оглавления. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsContentsRoot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsContentsRoot
-//
-// Корень оглавления.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsContentsRoot.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsRoot" MUID: (4682822A00FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  nsContentsNode
-  ;
+ l3IntfUses
+ , nsContentsNode
+ , l3TreeInterfaces
+;
 
 type
  TnsContentsRoot = class(TnsContentsNode, Il3SimpleRootNode)
   {* Корень оглавления. }
- protected
- // realized methods
+  protected
    function CanExpandCollapseAll: Boolean;
    procedure ExpandCollapseAll(anExpand: Boolean);
  end;//TnsContentsRoot
 
 implementation
 
-// start class TnsContentsRoot
+uses
+ l3ImplUses
+;
 
 function TnsContentsRoot.CanExpandCollapseAll: Boolean;
 //#UC START# *4772433F0008_4682822A00FA_var*

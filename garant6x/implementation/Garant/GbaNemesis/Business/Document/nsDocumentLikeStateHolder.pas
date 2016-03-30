@@ -1,63 +1,48 @@
 unit nsDocumentLikeStateHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/nsDocumentLikeStateHolder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::BaseDocument::TnsDocumentLikeStateHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentLikeStateHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentLikeStateHolder" MUID: (51ED304D0068)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces,
-  l3ProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , DocumentAndListInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- InsDocumentLikeStateHolder = interface(IUnknown)
-   ['{944B3FBB-00EB-4E3D-AE0B-AC0B0F59788F}']
-   function Get_LikeState: TdocLikeState;
-   procedure Set_LikeState(aValue: TdocLikeState);
-   property LikeState: TdocLikeState
-     read Get_LikeState
-     write Set_LikeState;
+ InsDocumentLikeStateHolder = interface
+  ['{944B3FBB-00EB-4E3D-AE0B-AC0B0F59788F}']
+  function Get_LikeState: TdocLikeState;
+  procedure Set_LikeState(aValue: TdocLikeState);
+  property LikeState: TdocLikeState
+   read Get_LikeState
+   write Set_LikeState;
  end;//InsDocumentLikeStateHolder
 
  TnsDocumentLikeStateHolder = class(Tl3ProtoObject, InsDocumentLikeStateHolder)
- private
- // private fields
-   f_LikeState : TdocLikeState;
- protected
- // realized methods
+  private
+   f_LikeState: TdocLikeState;
+  protected
    function Get_LikeState: TdocLikeState;
    procedure Set_LikeState(aValue: TdocLikeState);
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: InsDocumentLikeStateHolder; reintroduce;
-     {* Сигнатура фабрики TnsDocumentLikeStateHolder.Make }
  end;//TnsDocumentLikeStateHolder
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDocumentLikeStateHolder
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TnsDocumentLikeStateHolder.Create;
 //#UC START# *51ED52BC02FC_51ED304D0068_var*
@@ -79,7 +64,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDocumentLikeStateHolder.Make
 
 function TnsDocumentLikeStateHolder.Get_LikeState: TdocLikeState;
 //#UC START# *51ED55A2038E_51ED304D0068get_var*
@@ -98,7 +83,6 @@ begin
  f_LikeState := aValue;
 //#UC END# *51ED55A2038E_51ED304D0068set_impl*
 end;//TnsDocumentLikeStateHolder.Set_LikeState
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

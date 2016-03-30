@@ -12,6 +12,8 @@ uses
  l3IntfUses
  , OvcBase
  , l3PureMixIns
+ //#UC START# *48BC1AC0027Cintf_uses*
+ //#UC END# *48BC1AC0027Cintf_uses*
 ;
 
 type
@@ -43,6 +45,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48BC1AC0027Cimpl_uses*
+ //#UC END# *48BC1AC0027Cimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

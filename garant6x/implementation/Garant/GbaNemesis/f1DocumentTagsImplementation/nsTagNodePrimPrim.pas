@@ -1,53 +1,40 @@
 unit nsTagNodePrimPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsTagNodePrimPrim.pas"
-// Начат: 10.08.2010 15:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsTagNodePrimPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodePrimPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsTagNodePrimPrim" MUID: (4C6D0FD10112)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsBaseTagNode,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , nsBaseTagNode
+ , k2Base
+ , l3Variant
+;
 
 type
  TnsTagNodePrimPrim = {abstract} class(TnsBaseTagNode)
- protected
- // protected methods
+  protected
    function BaseGetSubAtom(aProp: Tk2Prop;
-     out Data: Tl3Variant): Boolean;
+    out Data: Tl3Variant): Boolean;
    procedure StoreIntAtom(aProp: Tk2Prop;
-     aValue: Integer);
+    aValue: Integer);
    procedure StoreTagAtom(aProp: Tk2Prop;
-     aValue: Tl3Variant);
+    aValue: Tl3Variant);
  end;//TnsTagNodePrimPrim
 
 implementation
 
 uses
-  k2BaseStruct
-  ;
-
-// start class TnsTagNodePrimPrim
+ l3ImplUses
+ , k2BaseStruct
+;
 
 function TnsTagNodePrimPrim.BaseGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D103002F8_4C6D0FD10112_var*
 //#UC END# *4C6D103002F8_4C6D0FD10112_var*
 begin
@@ -57,7 +44,7 @@ begin
 end;//TnsTagNodePrimPrim.BaseGetSubAtom
 
 procedure TnsTagNodePrimPrim.StoreIntAtom(aProp: Tk2Prop;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *4E68A61B0222_4C6D0FD10112_var*
 var
  l_Tag : Tl3Variant;
@@ -76,7 +63,7 @@ begin
 end;//TnsTagNodePrimPrim.StoreIntAtom
 
 procedure TnsTagNodePrimPrim.StoreTagAtom(aProp: Tk2Prop;
-  aValue: Tl3Variant);
+ aValue: Tl3Variant);
 //#UC START# *4E68A69B0273_4C6D0FD10112_var*
 var
  l_P : _PropLoc_;

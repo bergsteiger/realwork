@@ -1,48 +1,34 @@
 unit nsAttrBranchStruct;
+ {* Используется для отображения второго уровня дерева в Приемственной ППС (бывшая 5.х) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsAttrBranchStruct.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::TnsAttrBranchStruct
-//
-// Используется для отображения второго уровня дерева в Приемственной ППС (бывшая 5.х)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttrBranchStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttrBranchStruct" MUID: (4909E1DD038F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  nsAttributeOneLevelTreeStruct,
-  bsInterfaces,
-  l3TreeInterfaces,
-  nsFilterableTreeStruct
-  ;
+ l3IntfUses
+ , nsAttributeOneLevelTreeStruct
+ , bsInterfaces
+ , DynamicTreeUnit
+ , nsFilterableTreeStruct
+ , l3TreeInterfaces
+;
 
 type
  TnsAttrBranchStruct = class(TnsAttributeOneLevelTreeStruct, InsRootInfo)
   {* Используется для отображения второго уровня дерева в Приемственной ППС (бывшая 5.х) }
- private
- // private fields
-   f_RootInfoNode : INodeBase;
-    {* Коллеги, это что?}
- protected
- // realized methods
+  private
+   f_RootInfoNode: INodeBase;
+    {* Коллеги, это что? }
+  protected
    function pm_GetRoot: INodeBase;
    procedure pm_SetRoot(const aValue: INodeBase);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    constructor CreateFiltered(const aNewRoot: INodeBase;
     aSource: TnsFilterableTreeStruct;
     const aFilters: Il3TreeFilters); override;
@@ -51,7 +37,9 @@ type
 
 implementation
 
-// start class TnsAttrBranchStruct
+uses
+ l3ImplUses
+;
 
 function TnsAttrBranchStruct.pm_GetRoot: INodeBase;
 //#UC START# *4909E0C00304_4909E1DD038Fget_var*
@@ -72,6 +60,7 @@ begin
 end;//TnsAttrBranchStruct.pm_SetRoot
 
 procedure TnsAttrBranchStruct.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4909E1DD038F_var*
 //#UC END# *479731C50290_4909E1DD038F_var*
 begin
@@ -85,8 +74,8 @@ begin
 end;//TnsAttrBranchStruct.Cleanup
 
 constructor TnsAttrBranchStruct.CreateFiltered(const aNewRoot: INodeBase;
-  aSource: TnsFilterableTreeStruct;
-  const aFilters: Il3TreeFilters);
+ aSource: TnsFilterableTreeStruct;
+ const aFilters: Il3TreeFilters);
 //#UC START# *48FF458602EC_4909E1DD038F_var*
 //#UC END# *48FF458602EC_4909E1DD038F_var*
 begin

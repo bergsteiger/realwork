@@ -1,48 +1,33 @@
 unit nsAttributeOneLevelTreeStruct;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsAttributeOneLevelTreeStruct.pas"
-// Начат: 2007/03/29 13:18:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::TnsAttributeOneLevelTreeStruct
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeOneLevelTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeOneLevelTreeStruct" MUID: (4683698E01BC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3TreeInterfaces,
-  nsOneLevelTreeStruct,
-  SearchDomainInterfaces,
-  nsFilterableTreeStruct,
-  bsInterfaces,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , nsOneLevelTreeStruct
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , l3Interfaces
+ , afwInterfaces
+ , nsFilterableTreeStruct
+ , bsInterfaces
+ , SearchDomainInterfaces
+;
 
 type
  _nsTaggedTreeInfo_Parent_ = TnsOneLevelTreeStruct;
- {$Include ..\Search\nsTaggedTreeInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
  TnsAttributeOneLevelTreeStruct = class(_nsTaggedTreeInfo_)
   {* Коллеги, это что? }
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function GetSelectCount: Integer; override;
    constructor CreateFiltered(const aNewRoot: INodeBase;
     aSource: TnsFilterableTreeStruct;
@@ -53,45 +38,44 @@ type
    function SettingsID: TafwSettingId; override;
    procedure BeforeReset; override;
    procedure TagChanged; override;
-     {* Tag сменился }
- public
- // public methods
+    {* Tag сменился }
+  public
    class function Make(const aNode: INodeBase;
     aShowRoot: Boolean;
-    aCreateView: Boolean): Il3SimpleTree; overload; 
-     {* Коллеги, это что? Чем это от других Make отличается? }
+    aCreateView: Boolean): Il3SimpleTree; overload;
+    {* Коллеги, это что? Чем это от других Make отличается? }
    class function Make(const aTag: Il3CString;
     aShowRoot: Boolean;
-    aCreateView: Boolean): Il3SimpleTree; overload; 
-     {* Коллеги, это что? Чем это от других Make отличается? }
+    aCreateView: Boolean): Il3SimpleTree; overload;
+    {* Коллеги, это что? Чем это от других Make отличается? }
    class function Make(const aRoot: INodeBase;
-    const aCopy: Il3SimpleTree): Il3SimpleTree; overload; 
-     {* Коллеги, это что? Чем это от других Make отличается? }
+    const aCopy: Il3SimpleTree): Il3SimpleTree; overload;
+    {* Коллеги, это что? Чем это от других Make отличается? }
    class function Make(const aRoot: INodeBase;
     const aTag: Il3CString;
-    aShowRoot: Boolean): Il3SimpleTree; overload; 
-     {* Коллеги, это что? Чем это от других Make отличается? }
+    aShowRoot: Boolean): Il3SimpleTree; overload;
+    {* Коллеги, это что? Чем это от других Make отличается? }
  end;//TnsAttributeOneLevelTreeStruct
 
 implementation
 
 uses
-  nsAttributeTreeFilters,
-  DataAdapter,
-  SysUtils,
-  nsAttributeTreeCacheNew,
-  nsTypes,
-  l3String,
-  bsUtils
-  ;
+ l3ImplUses
+ , nsAttributeTreeFilters
+ , DataAdapter
+ , SysUtils
+ , nsAttributeTreeCacheNew
+ , nsTypes
+ , l3String
+ , bsUtils
+;
 
-{$Include ..\Search\nsTaggedTreeInfo.imp.pas}
-
-// start class TnsAttributeOneLevelTreeStruct
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
 
 class function TnsAttributeOneLevelTreeStruct.Make(const aNode: INodeBase;
-  aShowRoot: Boolean;
-  aCreateView: Boolean): Il3SimpleTree;
+ aShowRoot: Boolean;
+ aCreateView: Boolean): Il3SimpleTree;
+ {* Коллеги, это что? Чем это от других Make отличается? }
 //#UC START# *4909D3820227_4683698E01BC_var*
 var
  l_FilterList: IFilterList;
@@ -120,8 +104,9 @@ begin
 end;//TnsAttributeOneLevelTreeStruct.Make
 
 class function TnsAttributeOneLevelTreeStruct.Make(const aTag: Il3CString;
-  aShowRoot: Boolean;
-  aCreateView: Boolean): Il3SimpleTree;
+ aShowRoot: Boolean;
+ aCreateView: Boolean): Il3SimpleTree;
+ {* Коллеги, это что? Чем это от других Make отличается? }
 //#UC START# *4909D3A9022D_4683698E01BC_var*
 Var
  l_Node         : INodeBase;
@@ -145,7 +130,8 @@ begin
 end;//TnsAttributeOneLevelTreeStruct.Make
 
 class function TnsAttributeOneLevelTreeStruct.Make(const aRoot: INodeBase;
-  const aCopy: Il3SimpleTree): Il3SimpleTree;
+ const aCopy: Il3SimpleTree): Il3SimpleTree;
+ {* Коллеги, это что? Чем это от других Make отличается? }
 //#UC START# *4909D3CB0242_4683698E01BC_var*
 var
  l_Dest, l_Source: InsTaggedTreeInfo;
@@ -173,8 +159,9 @@ begin
 end;//TnsAttributeOneLevelTreeStruct.Make
 
 class function TnsAttributeOneLevelTreeStruct.Make(const aRoot: INodeBase;
-  const aTag: Il3CString;
-  aShowRoot: Boolean): Il3SimpleTree;
+ const aTag: Il3CString;
+ aShowRoot: Boolean): Il3SimpleTree;
+ {* Коллеги, это что? Чем это от других Make отличается? }
 //#UC START# *4909D3E601D2_4683698E01BC_var*
 var
  l_OneLevelRoot : INodeBase;
@@ -236,8 +223,8 @@ begin
 end;//TnsAttributeOneLevelTreeStruct.GetSelectCount
 
 constructor TnsAttributeOneLevelTreeStruct.CreateFiltered(const aNewRoot: INodeBase;
-  aSource: TnsFilterableTreeStruct;
-  const aFilters: Il3TreeFilters);
+ aSource: TnsFilterableTreeStruct;
+ const aFilters: Il3TreeFilters);
 //#UC START# *48FF458602EC_4683698E01BC_var*
 //#UC END# *48FF458602EC_4683698E01BC_var*
 begin
@@ -258,7 +245,7 @@ begin
 end;//TnsAttributeOneLevelTreeStruct.MakeFilters
 
 procedure TnsAttributeOneLevelTreeStruct.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_4683698E01BC_var*
 var
  l_Filters: InsAttributeTreeFilters;
@@ -306,6 +293,7 @@ begin
 end;//TnsAttributeOneLevelTreeStruct.BeforeReset
 
 procedure TnsAttributeOneLevelTreeStruct.TagChanged;
+ {* Tag сменился }
 //#UC START# *490071C401C8_4683698E01BC_var*
 //#UC END# *490071C401C8_4683698E01BC_var*
 begin

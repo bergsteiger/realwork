@@ -1,30 +1,18 @@
 unit nsBlockNodePrim;
+ {* Базовый блок документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsBlockNodePrim.pas"
-// Начат: 2005/06/23 16:38:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsBlockNodePrim
-//
-// Базовый блок документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBlockNodePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBlockNodePrim" MUID: (467FCE89008E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsParaListNode
-  ;
+ l3IntfUses
+ , nsParaListNode
+;
 
 type
  TnsBlockNodePrim = class(TnsParaListNode)
@@ -32,5 +20,9 @@ type
  end;//TnsBlockNodePrim
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -1,30 +1,18 @@
 unit nsControlParaNode;
+ {* Параграф с контролом. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsControlParaNode.pas"
-// Начат: 2005/06/23 16:38:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsControlParaNode
-//
-// Параграф с контролом.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsControlParaNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsControlParaNode" MUID: (467FCDFD01B9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsTextParaNode
-  ;
+ l3IntfUses
+ , nsTextParaNode
+;
 
 type
  TnsControlParaNode = class(TnsTextParaNode)
@@ -32,5 +20,9 @@ type
  end;//TnsControlParaNode
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

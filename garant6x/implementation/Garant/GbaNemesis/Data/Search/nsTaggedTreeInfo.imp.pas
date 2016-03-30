@@ -1,35 +1,25 @@
 {$IfNDef nsTaggedTreeInfo_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsTaggedTreeInfo.imp.pas"
-// Начат: 2007/03/29 12:20:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::nsTaggedTreeInfo
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsTaggedTreeInfo" MUID: (490070F20004)
+// Имя типа: "_nsTaggedTreeInfo_"
 
 {$Define nsTaggedTreeInfo_imp}
- _nsTaggedTreeInfo_ = {mixin} class(_nsTaggedTreeInfo_Parent_, InsTaggedTreeInfo)
+
+ _nsTaggedTreeInfo_ = class(_nsTaggedTreeInfo_Parent_, InsTaggedTreeInfo)
   {* Коллеги, это что? }
- private
- // private fields
-   f_LogicOperations : TLogicOperationSet;
-   f_IsOneOperation : Boolean;
-   f_IsDataOneLevel : Boolean;
-   f_Tag : Il3CString;
-    {* Поле для свойства Tag}
-   f_ServerOneLevel : Boolean;
-    {* Поле для свойства ServerOneLevel}
- protected
- // realized methods
+  private
+   f_LogicOperations: TLogicOperationSet;
+   f_IsOneOperation: Boolean;
+   f_IsDataOneLevel: Boolean;
+   f_Tag: Il3CString;
+   f_ServerOneLevel: Boolean;
+  protected
+   procedure Cleanup; override;
+    {* Метод очистки полей объекта }
+   procedure TagChanged; virtual;
+    {* Tag сменился }
    procedure AssignInfo(const aInfo: InsTaggedTreeInfo);
    function IsDataOneLevel: Boolean;
    function pm_GetTag: Il3CString;
@@ -39,25 +29,21 @@
    function pm_GetServerOneLevel: Boolean;
    procedure pm_SetServerOneLevel(aValue: Boolean);
    function pm_GetIsOneLogicOperation: Boolean;
- protected
- // protected methods
-   procedure Cleanup; override;
-     {* Метод очистки полей объекта }
-   procedure TagChanged; virtual;
-     {* Tag сменился }
- protected
- // protected properties
+  protected
    property Tag: Il3CString
-     read f_Tag;
+    read f_Tag;
    property ServerOneLevel: Boolean
-     read f_ServerOneLevel;
+    read f_ServerOneLevel;
  end;//_nsTaggedTreeInfo_
 
 {$Else nsTaggedTreeInfo_imp}
 
-// start class _nsTaggedTreeInfo_
+{$IfNDef nsTaggedTreeInfo_imp_impl}
+
+{$Define nsTaggedTreeInfo_imp_impl}
 
 procedure _nsTaggedTreeInfo_.Cleanup;
+ {* Метод очистки полей объекта }
 //#UC START# *490071BB01F4_490070F20004_var*
 //#UC END# *490071BB01F4_490070F20004_var*
 begin
@@ -69,6 +55,7 @@ begin
 end;//_nsTaggedTreeInfo_.Cleanup
 
 procedure _nsTaggedTreeInfo_.TagChanged;
+ {* Tag сменился }
 //#UC START# *490071C401C8_490070F20004_var*
 //#UC END# *490071C401C8_490070F20004_var*
 begin
@@ -177,4 +164,7 @@ begin
 //#UC END# *49006CD60357_490070F20004get_impl*
 end;//_nsTaggedTreeInfo_.pm_GetIsOneLogicOperation
 
+{$EndIf nsTaggedTreeInfo_imp_impl}
+
 {$EndIf nsTaggedTreeInfo_imp}
+

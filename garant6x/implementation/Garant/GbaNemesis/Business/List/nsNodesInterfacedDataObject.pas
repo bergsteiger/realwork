@@ -1,56 +1,41 @@
 unit nsNodesInterfacedDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/nsNodesInterfacedDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::ListDataObjects::TnsNodesInterfacedDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsNodesInterfacedDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsNodesInterfacedDataObject" MUID: (48F744610382)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evDataObject,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evDataObject
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsNodesInterfacedDataObject = class(TevDataObject)
- protected
- // overridden protected methods
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
  end;//TnsNodesInterfacedDataObject
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsNodesInterfacedDataObject
+ l3ImplUses
+ , DynamicTreeUnit
+ , SysUtils
+;
 
 function TnsNodesInterfacedDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48F744610382_var*
 //#UC END# *4A60B23E00C3_48F744610382_var*
 begin
@@ -66,7 +51,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_48F744610382_impl*
 end;//TnsNodesInterfacedDataObject.COMQueryInterface
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

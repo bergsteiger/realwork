@@ -1,59 +1,45 @@
 unit nsF1DocumentTagNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsF1DocumentTagNode.pas"
-// Начат: 17.08.2010 15:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsF1DocumentTagNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsF1DocumentTagNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsF1DocumentTagNode" MUID: (4C6A750F024E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit,
-  nsDocumentTagNodeBase,
-  l3Variant,
-  k2Base
-  ;
+ l3IntfUses
+ , nsDocumentTagNodeBase
+ , DocumentUnit
+ , l3Variant
+ , k2Base
+;
 
 type
  TnsF1DocumentTagNode = class(TnsDocumentTagNodeBase)
- protected
- // overridden protected methods
+  protected
    function DoGetSubAtom(aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; override;
- public
- // public methods
-   constructor Create(const aProvider: IDocumentTextProvider); reintroduce; overload; 
-   class function Make(const aProvider: IDocumentTextProvider): Il3TagRef; overload; 
+  public
+   constructor Create(const aProvider: IDocumentTextProvider); reintroduce; overload;
+   class function Make(const aProvider: IDocumentTextProvider): Il3TagRef; overload;
    constructor Create(aHandle: Cardinal;
-     const aDoc: IDocument); overload; 
+    const aDoc: IDocument); reintroduce; overload;
    class function Make(aHandle: Cardinal;
-     const aDoc: IDocument): Il3TagRef; overload; 
+    const aDoc: IDocument): Il3TagRef; overload;
  end;//TnsF1DocumentTagNode
 
 implementation
 
 uses
-  f1DocumentTagDataFromDTP,
-  SysUtils,
-  f1DocumentTagDataFromDTPHandle,
-  evdTypes,
-  k2Tags
-  ;
-
-// start class TnsF1DocumentTagNode
+ l3ImplUses
+ , evdTypes
+ , k2Tags
+ , f1DocumentTagDataFromDTP
+ , SysUtils
+ , f1DocumentTagDataFromDTPHandle
+;
 
 constructor TnsF1DocumentTagNode.Create(const aProvider: IDocumentTextProvider);
 //#UC START# *4C7275540230_4C6A750F024E_var*
@@ -81,7 +67,7 @@ begin
 end;//TnsF1DocumentTagNode.Make
 
 constructor TnsF1DocumentTagNode.Create(aHandle: Cardinal;
-  const aDoc: IDocument);
+ const aDoc: IDocument);
 //#UC START# *4D66AE430241_4C6A750F024E_var*
 //#UC END# *4D66AE430241_4C6A750F024E_var*
 begin
@@ -91,7 +77,7 @@ begin
 end;//TnsF1DocumentTagNode.Create
 
 class function TnsF1DocumentTagNode.Make(aHandle: Cardinal;
-  const aDoc: IDocument): Il3TagRef;
+ const aDoc: IDocument): Il3TagRef;
 //#UC START# *4D66AE6A01E2_4C6A750F024E_var*
 var
  l_Inst : TnsF1DocumentTagNode;
@@ -108,7 +94,7 @@ begin
 end;//TnsF1DocumentTagNode.Make
 
 function TnsF1DocumentTagNode.DoGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D1D450332_4C6A750F024E_var*
 //#UC END# *4C6D1D450332_4C6A750F024E_var*
 begin

@@ -170,7 +170,7 @@ function TdeDocumentList.pm_GetIsChanged: Boolean;
 //#UC END# *56A5C84E02B0_492FF76202CAget_var*
 begin
 //#UC START# *56A5C84E02B0_492FF76202CAget_impl*
- !!! Needs to be implemented !!!
+ Result := inherited pm_GetIsChanged;
 //#UC END# *56A5C84E02B0_492FF76202CAget_impl*
 end;//TdeDocumentList.pm_GetIsChanged
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

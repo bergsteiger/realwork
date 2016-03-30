@@ -1,68 +1,56 @@
 unit nsSettings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Settings/nsSettings.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Settings::TnsSettings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSettings" MUID: (4AD6FDC802F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SettingsUnit,
-  afwInterfaces,
-  bsInterfaces,
-  InsUserSettingsListenerPtrList,
-  InsUserSettingsEditListenerPtrList,
-  l3ProtoObject,
-  l3IID,
-  l3Interfaces,
-  IOUnit
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+ , bsInterfaces
+ , InsUserSettingsListenerPtrList
+ , InsUserSettingsEditListenerPtrList
+ , SettingsUnit
+ , l3IID
+ , l3Interfaces
+ , IOUnit
+;
 
 type
  _SettingsClass_ = ISettingsManager;
  _l3COMQueryInterface_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
  _nsSettings_Parent_ = _l3COMQueryInterface_;
- {$Include ..\Settings\nsSettings.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
  TnsSettings = class(_nsSettings_, IafwSettings, InsSettingsNotify, InsSettings)
- private
- // private fields
-   f_SettingsListeners : TInsUserSettingsListenerPtrList;
-   f_SettingsEditListeners : TInsUserSettingsEditListenerPtrList;
-   f_ConfigurationManager : IConfigurationManager;
-   f_State : TafwSettingsState;
- private
- // private methods
+  private
+   f_SettingsListeners: TInsUserSettingsListenerPtrList;
+   f_SettingsEditListeners: TInsUserSettingsEditListenerPtrList;
+   f_ConfigurationManager: IConfigurationManager;
+   f_State: TafwSettingsState;
+  private
    procedure NotifySettingsChanged;
    procedure NotifyReplace(aStart: Boolean = True);
- protected
- // realized methods
+  protected
    function pm_GetState: TafwSettingsState;
    procedure pm_SetState(aValue: TafwSettingsState);
-   procedure AddListener(const aListener: InsUserSettingsEditListener); overload; 
-   procedure RemoveListener(const aListener: InsUserSettingsEditListener); overload; 
-   procedure AddListener(const aListener: InsUserSettingsListener); overload; 
-   procedure RemoveListener(const aListener: InsUserSettingsListener); overload; 
+   procedure AddListener(const aListener: InsUserSettingsEditListener); overload;
+   procedure RemoveListener(const aListener: InsUserSettingsEditListener); overload;
+   procedure AddListener(const aListener: InsUserSettingsListener); overload;
+   procedure RemoveListener(const aListener: InsUserSettingsListener); overload;
    procedure StartEdit;
-     {* вызывается перед началом редактирования }
+    {* вызывается перед началом редактирования }
    procedure UserSettingsChanged;
-     {* при изменении\восстановлении пользовательских настроек }
+    {* при изменении\восстановлении пользовательских настроек }
    procedure StartReplace;
-     {* вызывается перед переключением конфигурации }
+    {* вызывается перед переключением конфигурации }
    procedure FinishReplace;
-     {* вызывается по окончании переключения конфигурации }
+    {* вызывается по окончании переключения конфигурации }
    function pm_GetSettingsNotify: InsSettingsNotify;
    function pm_GetData: ISettingsManager;
    procedure pm_SetData(const aValue: ISettingsManager);
@@ -73,13 +61,11 @@ type
     aValue: Double;
     aDefault: Double = 0;
     aSetAsDefault: Boolean = False);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure NotifySettingChanged(const aSettingID: TafwSettingId); override;
    function TryToRestore(const aSettingID: TafwSettingId): Boolean; override;
    procedure DoSaveParam(const aTarget: _SettingsClass_;
@@ -90,8 +76,7 @@ type
     aSetAsDefault: Boolean); override;
    procedure DoSetAsDefault(const aTarget: _SettingsClass_;
     const aSettingId: TafwSettingId); override;
- public
- // public methods
+  public
    constructor Create(const aSettings: ISettingsManager;
     const aManager: IConfigurationManager); reintroduce;
    class function Make(const aSettings: ISettingsManager;
@@ -101,25 +86,24 @@ type
 implementation
 
 uses
-  IafwSettingListenerPtrList,
-  IafwSettingsReplaceListenerPtrList,
-  l3InterfacesMisc,
-  l3Base,
-  afwSettingsChangePublisher,
-  nsTypes,
-  SysUtils,
-  l3String,
-  l3VCLStrings
-  ;
+ l3ImplUses
+ , IafwSettingListenerPtrList
+ , IafwSettingsReplaceListenerPtrList
+ , l3InterfacesMisc
+ , l3Base
+ , afwSettingsChangePublisher
+ , nsTypes
+ , SysUtils
+ , l3String
+ , l3VCLStrings
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 
-{$Include ..\Settings\nsSettings.imp.pas}
-
-// start class TnsSettings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
 
 constructor TnsSettings.Create(const aSettings: ISettingsManager;
-  const aManager: IConfigurationManager);
+ const aManager: IConfigurationManager);
 //#UC START# *4AD6FE86005C_4AD6FDC802F3_var*
 //#UC END# *4AD6FE86005C_4AD6FDC802F3_var*
 begin
@@ -131,7 +115,7 @@ begin
 end;//TnsSettings.Create
 
 class function TnsSettings.Make(const aSettings: ISettingsManager;
-  const aManager: IConfigurationManager): IafwSettings;
+ const aManager: IConfigurationManager): IafwSettings;
 var
  l_Inst : TnsSettings;
 begin
@@ -141,7 +125,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsSettings.Make
 
 procedure TnsSettings.NotifySettingsChanged;
 //#UC START# *4AD70DA301DF_4AD6FDC802F3_var*
@@ -229,6 +213,7 @@ begin
 end;//TnsSettings.RemoveListener
 
 procedure TnsSettings.StartEdit;
+ {* вызывается перед началом редактирования }
 //#UC START# *491444D00360_4AD6FDC802F3_var*
 var
  l_Index: Integer;
@@ -242,6 +227,7 @@ begin
 end;//TnsSettings.StartEdit
 
 procedure TnsSettings.UserSettingsChanged;
+ {* при изменении\восстановлении пользовательских настроек }
 //#UC START# *491444E70109_4AD6FDC802F3_var*
 //#UC END# *491444E70109_4AD6FDC802F3_var*
 begin
@@ -251,6 +237,7 @@ begin
 end;//TnsSettings.UserSettingsChanged
 
 procedure TnsSettings.StartReplace;
+ {* вызывается перед переключением конфигурации }
 //#UC START# *491444FB0228_4AD6FDC802F3_var*
 //#UC END# *491444FB0228_4AD6FDC802F3_var*
 begin
@@ -260,6 +247,7 @@ begin
 end;//TnsSettings.StartReplace
 
 procedure TnsSettings.FinishReplace;
+ {* вызывается по окончании переключения конфигурации }
 //#UC START# *4914450A01D2_4AD6FDC802F3_var*
 //#UC END# *4914450A01D2_4AD6FDC802F3_var*
 begin
@@ -296,8 +284,8 @@ begin
 end;//TnsSettings.pm_SetData
 
 function TnsSettings.LoadDouble(const aSettingId: TafwSettingId;
-  aDefault: Double = 0;
-  aRestoreDefault: Boolean = False): Double;
+ aDefault: Double = 0;
+ aRestoreDefault: Boolean = False): Double;
 //#UC START# *4AB729980069_4AD6FDC802F3_var*
 //#UC END# *4AB729980069_4AD6FDC802F3_var*
 begin
@@ -307,9 +295,9 @@ begin
 end;//TnsSettings.LoadDouble
 
 procedure TnsSettings.SaveDouble(const aSettingId: TafwSettingId;
-  aValue: Double;
-  aDefault: Double = 0;
-  aSetAsDefault: Boolean = False);
+ aValue: Double;
+ aDefault: Double = 0;
+ aSetAsDefault: Boolean = False);
 //#UC START# *4AB729A702A2_4AD6FDC802F3_var*
 //#UC END# *4AB729A702A2_4AD6FDC802F3_var*
 begin
@@ -319,6 +307,7 @@ begin
 end;//TnsSettings.SaveDouble
 
 procedure TnsSettings.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AD6FDC802F3_var*
 //#UC END# *479731C50290_4AD6FDC802F3_var*
 begin
@@ -330,7 +319,8 @@ begin
 end;//TnsSettings.Cleanup
 
 function TnsSettings.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4AD6FDC802F3_var*
 //#UC END# *4A60B23E00C3_4AD6FDC802F3_var*
 begin
@@ -374,11 +364,11 @@ begin
 end;//TnsSettings.TryToRestore
 
 procedure TnsSettings.DoSaveParam(const aTarget: _SettingsClass_;
-  const aSettingId: TafwSettingId;
-  aType: byte;
-  const aValue;
-  const aDefault;
-  aSetAsDefault: Boolean);
+ const aSettingId: TafwSettingId;
+ aType: byte;
+ const aValue;
+ const aDefault;
+ aSetAsDefault: Boolean);
 //#UC START# *4AD59C2C027D_4AD6FDC802F3_var*
 
  procedure lp_SaveInAllSettings;
@@ -420,7 +410,7 @@ begin
 end;//TnsSettings.DoSaveParam
 
 procedure TnsSettings.DoSetAsDefault(const aTarget: _SettingsClass_;
-  const aSettingId: TafwSettingId);
+ const aSettingId: TafwSettingId);
 //#UC START# *4AD5AA940324_4AD6FDC802F3_var*
 //#UC END# *4AD5AA940324_4AD6FDC802F3_var*
 begin

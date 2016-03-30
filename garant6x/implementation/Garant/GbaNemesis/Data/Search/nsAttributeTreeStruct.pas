@@ -1,48 +1,33 @@
 unit nsAttributeTreeStruct;
+ {* Коллеги, а чем это от TnsAttrOneLevelStruct отличается? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsAttributeTreeStruct.pas"
-// Начат: 2007/03/29 13:18:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::TnsAttributeTreeStruct
-//
-// Коллеги, а чем это от TnsAttrOneLevelStruct отличается?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeTreeStruct" MUID: (468364C70131)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  SearchDomainInterfaces,
-  DynamicTreeUnit,
-  nsFilterableTreeStruct,
-  bsInterfaces,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , l3TreeInterfaces
+ , l3Interfaces
+ , DynamicTreeUnit
+ , afwInterfaces
+ , nsFilterableTreeStruct
+ , bsInterfaces
+ , SearchDomainInterfaces
+;
 
 type
  _nsTaggedTreeInfo_Parent_ = TnsDataResetTreeStruct;
- {$Include ..\Search\nsTaggedTreeInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
  TnsAttributeTreeStruct = class(_nsTaggedTreeInfo_)
   {* Коллеги, а чем это от TnsAttrOneLevelStruct отличается? }
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    constructor CreateFiltered(const aNewRoot: INodeBase;
     aSource: TnsFilterableTreeStruct;
     const aFilters: Il3TreeFilters); override;
@@ -52,32 +37,31 @@ type
    function SettingsID: TafwSettingId; override;
    procedure BeforeReset; override;
    procedure TagChanged; override;
-     {* Tag сменился }
- public
- // public methods
+    {* Tag сменился }
+  public
    class function Make(const aTag: Il3CString;
     aShowRoot: Boolean): Il3SimpleTree;
-     {* Создаёт дерево }
+    {* Создаёт дерево }
  end;//TnsAttributeTreeStruct
 
 implementation
 
 uses
-  nsConst,
-  nsTypes,
-  nsAttributeTreeFilters,
-  SysUtils,
-  l3String,
-  nsAttributeTreeCacheNew,
-  bsUtils
-  ;
+ l3ImplUses
+ , nsConst
+ , nsTypes
+ , nsAttributeTreeFilters
+ , SysUtils
+ , l3String
+ , nsAttributeTreeCacheNew
+ , bsUtils
+;
 
-{$Include ..\Search\nsTaggedTreeInfo.imp.pas}
-
-// start class TnsAttributeTreeStruct
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
 
 class function TnsAttributeTreeStruct.Make(const aTag: Il3CString;
-  aShowRoot: Boolean): Il3SimpleTree;
+ aShowRoot: Boolean): Il3SimpleTree;
+ {* Создаёт дерево }
 //#UC START# *49086BA900AA_468364C70131_var*
 var
  l_Node: INodeBase;
@@ -118,8 +102,8 @@ begin
 end;//TnsAttributeTreeStruct.ReAqurieUnfilteredRoot
 
 constructor TnsAttributeTreeStruct.CreateFiltered(const aNewRoot: INodeBase;
-  aSource: TnsFilterableTreeStruct;
-  const aFilters: Il3TreeFilters);
+ aSource: TnsFilterableTreeStruct;
+ const aFilters: Il3TreeFilters);
 //#UC START# *48FF458602EC_468364C70131_var*
 //#UC END# *48FF458602EC_468364C70131_var*
 begin
@@ -140,7 +124,7 @@ begin
 end;//TnsAttributeTreeStruct.MakeFilters
 
 procedure TnsAttributeTreeStruct.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_468364C70131_var*
 var
  l_Filters: InsAttributeTreeFilters;
@@ -178,6 +162,7 @@ begin
 end;//TnsAttributeTreeStruct.BeforeReset
 
 procedure TnsAttributeTreeStruct.TagChanged;
+ {* Tag сменился }
 //#UC START# *490071C401C8_468364C70131_var*
 //#UC END# *490071C401C8_468364C70131_var*
 begin

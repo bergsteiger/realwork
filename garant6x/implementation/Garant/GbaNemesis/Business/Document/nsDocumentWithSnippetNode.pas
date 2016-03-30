@@ -1,111 +1,79 @@
 unit nsDocumentWithSnippetNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/nsDocumentWithSnippetNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::Document::TnsDocumentWithSnippetNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentWithSnippetNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentWithSnippetNode" MUID: (5645E9920077)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsINodeRootWrap,
-  l3Variant,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsINodeRootWrap
+ , l3Variant
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDocumentWithSnippetNode = class(TnsINodeRootWrap)
- private
- // private fields
-   f_DocPara : Tl3Variant;
-   f_SnippetPara : Tl3Variant;
-   f_Tag : Tl3Tag;
-    {* Поле для свойства Tag}
-   f_DocumentId : Integer;
-    {* Поле для свойства DocumentId}
- private
- // private methods
+  private
+   f_DocPara: Tl3Variant;
+   f_SnippetPara: Tl3Variant;
+   f_Tag: Tl3Tag;
+    {* Поле для свойства Tag }
+   f_DocumentId: Integer;
+    {* Поле для свойства DocumentId }
+  private
    function IsVisited: Boolean;
- protected
- // property methods
+  protected
    function pm_GetTag: Tl3Tag;
    function pm_GetDocumentId: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- protected
- // protected properties
+    {* Реализация запроса интерфейса }
+  protected
    property Tag: Tl3Tag
-     read pm_GetTag;
+    read pm_GetTag;
    property DocumentId: Integer
-     read pm_GetDocumentId;
+    read pm_GetDocumentId;
  end;//TnsDocumentWithSnippetNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evNodePainter,
-  l3InternalInterfaces,
-  SysUtils,
-  l3String,
-  l3Interfaces,
-  DynamicDocListUnit,
-  TextPara_Const
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  k2Tags,
-  nscDocumentHistory,
-  Document_Const,
-  l3Types,
-  evdStyles,
-  evdTypes,
-  TextSegment_Const,
-  DynamicTreeUnit,
-  IOUnit,
-  nsTypes,
-  l3VirtualCanvas,
-  nevNodeView,
-  nevTools,
-  l3Units
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDocumentWithSnippetNode
-
-function TnsDocumentWithSnippetNode.IsVisited: Boolean;
-//#UC START# *5657205D00B4_5645E9920077_var*
-//#UC END# *5657205D00B4_5645E9920077_var*
-begin
-//#UC START# *5657205D00B4_5645E9920077_impl*
- Result := (DocumentId <> 0) and TnscDocumentHistory.Instance.HasDocument(DocumentId);
-//#UC END# *5657205D00B4_5645E9920077_impl*
-end;//TnsDocumentWithSnippetNode.IsVisited
+ l3ImplUses
+ , evNodePainter
+ , l3InternalInterfaces
+ , SysUtils
+ , l3String
+ , l3Interfaces
+ , DynamicDocListUnit
+ , TextPara_Const
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , k2Tags
+ , nscDocumentHistory
+ , Document_Const
+ , l3Types
+ , evdStyles
+ , evdTypes
+ , TextSegment_Const
+ , DynamicTreeUnit
+ , IOUnit
+ , nsTypes
+ , l3VirtualCanvas
+ , nevNodeView
+ , nevTools
+ , l3Units
+;
 
 function TnsDocumentWithSnippetNode.pm_GetTag: Tl3Tag;
 //#UC START# *564B1D4702E5_5645E9920077get_var*
@@ -195,7 +163,17 @@ begin
 //#UC END# *5657201D02D1_5645E9920077get_impl*
 end;//TnsDocumentWithSnippetNode.pm_GetDocumentId
 
+function TnsDocumentWithSnippetNode.IsVisited: Boolean;
+//#UC START# *5657205D00B4_5645E9920077_var*
+//#UC END# *5657205D00B4_5645E9920077_var*
+begin
+//#UC START# *5657205D00B4_5645E9920077_impl*
+ Result := (DocumentId <> 0) and TnscDocumentHistory.Instance.HasDocument(DocumentId);
+//#UC END# *5657205D00B4_5645E9920077_impl*
+end;//TnsDocumentWithSnippetNode.IsVisited
+
 procedure TnsDocumentWithSnippetNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5645E9920077_var*
 //#UC END# *479731C50290_5645E9920077_var*
 begin
@@ -218,7 +196,8 @@ begin
 end;//TnsDocumentWithSnippetNode.InitFields
 
 function TnsDocumentWithSnippetNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_5645E9920077_var*
 //#UC END# *4A60B23E00C3_5645E9920077_var*
 begin
@@ -232,7 +211,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_5645E9920077_impl*
 end;//TnsDocumentWithSnippetNode.COMQueryInterface
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

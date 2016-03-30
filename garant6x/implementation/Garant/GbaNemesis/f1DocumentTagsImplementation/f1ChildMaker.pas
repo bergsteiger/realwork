@@ -1,57 +1,41 @@
 unit f1ChildMaker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1ChildMaker.pas"
-// Начат: 23.11.2010 15:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::Tf1ChildMaker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1ChildMaker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1ChildMaker" MUID: (4CEBB7C80129)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsParaListNode,
-  l3CProtoObject,
-  F1TagDataProviderInterface,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , F1TagDataProviderInterface
+ , nsParaListNode
+ , l3Variant
+;
 
 type
  Tf1ChildMaker = class(Tl3CProtoObject, If1ChildMaker)
- private
- // private fields
-   f_Tag : TnsParaListNode;
- protected
- // realized methods
+  private
+   f_Tag: TnsParaListNode;
+  protected
    function MakeChildTag(const aNode: If1TagDataProvider;
     aState: TnsNodeStates): Il3TagRef;
    function Get_Tag: Tl3Tag;
- public
- // public methods
+  public
    constructor Create(aTag: TnsParaListNode); reintroduce;
    class function Make(aTag: TnsParaListNode): If1ChildMaker; reintroduce;
-     {* Сигнатура фабрики Tf1ChildMaker.Make }
  end;//Tf1ChildMaker
 
 implementation
 
 uses
-  SysUtils,
-  DynamicTreeUnit
-  ;
-
-// start class Tf1ChildMaker
+ l3ImplUses
+ , SysUtils
+ , DynamicTreeUnit
+;
 
 constructor Tf1ChildMaker.Create(aTag: TnsParaListNode);
 //#UC START# *4CEBB84401C9_4CEBB7C80129_var*
@@ -73,10 +57,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tf1ChildMaker.Make
 
 function Tf1ChildMaker.MakeChildTag(const aNode: If1TagDataProvider;
-  aState: TnsNodeStates): Il3TagRef;
+ aState: TnsNodeStates): Il3TagRef;
 //#UC START# *4CEBB765029D_4CEBB7C80129_var*
 //#UC END# *4CEBB765029D_4CEBB7C80129_var*
 begin

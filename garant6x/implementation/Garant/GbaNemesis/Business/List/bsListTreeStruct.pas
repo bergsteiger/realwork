@@ -1,66 +1,48 @@
 unit bsListTreeStruct;
+ {* Данные дерева списка. Надо отсязаться от IdsList путйм вуртуализации и вернуть исходное дерево в Data/List }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/bsListTreeStruct.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::List::TbsListTreeStruct
-//
-// Данные дерева списка. Надо отсязаться от IdsList путйм вуртуализации и вернуть исходное дерево в
-// Data/List
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsListTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsListTreeStruct" MUID: (47F4D386036C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsDataResetTreeStruct,
-  DocumentAndListInterfaces,
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  DynamicTreeUnit,
-  afwInterfaces,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , DynamicTreeUnit
+ , DocumentAndListInterfaces
+ , l3Interfaces
+ , afwInterfaces
+ , l3TreeInterfaces
+ , l3IID
+ , l3InternalInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- IbsListTreeStruct = interface(IUnknown)
+ IbsListTreeStruct = interface
   {* Данные дерева для списка }
-   ['{F2B07141-C4A5-4757-94AB-EB5EB33572AF}']
-   procedure Set_DsList(const aValue: IdsList);
-   property dsList: IdsList
-     write Set_DsList;
+  ['{F2B07141-C4A5-4757-94AB-EB5EB33572AF}']
+  procedure Set_dsList(const aValue: IdsList);
+  property dsList: IdsList
+   write Set_dsList;
  end;//IbsListTreeStruct
 
  TbsListTreeStruct = class(TnsDataResetTreeStruct, IbsListTreeStruct)
   {* Данные дерева списка. Надо отсязаться от IdsList путйм вуртуализации и вернуть исходное дерево в Data/List }
- private
- // private fields
-   f_dsList : Pointer;
- protected
- // realized methods
+  private
+   f_dsList: Pointer;
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
-   procedure Set_DsList(const aValue: IdsList);
- protected
- // overridden protected methods
+   procedure Set_dsList(const aValue: IdsList);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoMakeDataObject(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap): IDataObject; override;
-     {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
+    {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
    function DoCanAcceptData(const aTargetNode: Il3SimpleNode;
     const aData: Tl3TreeData;
     aProcessed: PBoolean): Boolean; override;
@@ -74,7 +56,7 @@ type
     aAutoOpen: Boolean;
     FullRefilter: Boolean;
     ApplyEmptyFilter: Boolean): INodeBase; override;
-     {* aSyncIndex     : Integer
+    {* aSyncIndex     : Integer
                               - Нода для синхронизации. Индекс этой ноды в
                                   фильтрованном вью, будет возвращен в
                                   параметре sync_index.
@@ -96,30 +78,26 @@ ApplyEmptyFilter: Boolean
     CalcPartialContext: Boolean): Il3SimpleTree; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase; override;
-     {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
+    {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
  end;//TbsListTreeStruct
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  bsListDataObject,
-  DynamicDocListUnit,
-  BaseTypesUnit,
-  bsInterfaces,
-  nsAdapterFilters,
-  nsConst,
-  bsListTreeData
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsListTreeStruct
+ l3ImplUses
+ , SysUtils
+ , bsListDataObject
+ , DynamicDocListUnit
+ , BaseTypesUnit
+ , bsInterfaces
+ , nsAdapterFilters
+ , nsConst
+ , bsListTreeData
+;
 
 function TbsListTreeStruct.ReAqurieUnfilteredRoot: INodeBase;
 //#UC START# *48FF64F60078_47F4D386036C_var*
@@ -133,16 +111,17 @@ begin
 //#UC END# *48FF64F60078_47F4D386036C_impl*
 end;//TbsListTreeStruct.ReAqurieUnfilteredRoot
 
-procedure TbsListTreeStruct.Set_DsList(const aValue: IdsList);
+procedure TbsListTreeStruct.Set_dsList(const aValue: IdsList);
 //#UC START# *4B1547A80016_47F4D386036Cset_var*
 //#UC END# *4B1547A80016_47F4D386036Cset_var*
 begin
 //#UC START# *4B1547A80016_47F4D386036Cset_impl*
  f_dsList := Pointer(aValue);
 //#UC END# *4B1547A80016_47F4D386036Cset_impl*
-end;//TbsListTreeStruct.Set_DsList
+end;//TbsListTreeStruct.Set_dsList
 
 procedure TbsListTreeStruct.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F4D386036C_var*
 //#UC END# *479731C50290_47F4D386036C_var*
 begin
@@ -153,7 +132,8 @@ begin
 end;//TbsListTreeStruct.Cleanup
 
 function TbsListTreeStruct.DoMakeDataObject(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap): IDataObject;
+ const aBitmap: Il3Bitmap): IDataObject;
+ {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
 //#UC START# *48FEE6210205_47F4D386036C_var*
 //#UC END# *48FEE6210205_47F4D386036C_var*
 begin
@@ -166,8 +146,8 @@ begin
 end;//TbsListTreeStruct.DoMakeDataObject
 
 function TbsListTreeStruct.DoCanAcceptData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData;
-  aProcessed: PBoolean): Boolean;
+ const aData: Tl3TreeData;
+ aProcessed: PBoolean): Boolean;
 //#UC START# *48FEE78E01B2_47F4D386036C_var*
 var
  l_ListData: IbsListTreeData;
@@ -186,8 +166,8 @@ begin
 end;//TbsListTreeStruct.DoCanAcceptData
 
 function TbsListTreeStruct.DoDropData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData;
-  var aProcessed: Boolean): Boolean;
+ const aData: Tl3TreeData;
+ var aProcessed: Boolean): Boolean;
 //#UC START# *48FEE9D303B6_47F4D386036C_var*
 var
  l_ListData: IbsListTreeData;
@@ -208,12 +188,26 @@ begin
 end;//TbsListTreeStruct.DoDropData
 
 function TbsListTreeStruct.GetFilteredRoot(const aRoot: INodeBase;
-  const aFilters: Il3TreeFilters;
-  const aCurrentNode: INodeBase;
-  out aSyncIndex: Integer;
-  aAutoOpen: Boolean;
-  FullRefilter: Boolean;
-  ApplyEmptyFilter: Boolean): INodeBase;
+ const aFilters: Il3TreeFilters;
+ const aCurrentNode: INodeBase;
+ out aSyncIndex: Integer;
+ aAutoOpen: Boolean;
+ FullRefilter: Boolean;
+ ApplyEmptyFilter: Boolean): INodeBase;
+ {* aSyncIndex     : Integer
+                              - Нода для синхронизации. Индекс этой ноды в
+                                  фильтрованном вью, будет возвращен в
+                                  параметре sync_index.
+aAutoOpen     : Boolean
+                               - Раскрывать узлы с фильтром автоматически.
+                                   Узлы, часть детей которых отфильтрованно,
+                                   будут автоматически раскрываться.
+FullRefilter: Boolean
+                               - Перефильтровывать дерево полностью
+                                   иначе - применять фильтр (сужать) aRoot
+ApplyEmptyFilter: Boolean
+                              - Если список фильтров получился пустым -
+                                   все равно пытаться его наложить }
 //#UC START# *48FF4C4F03CA_47F4D386036C_var*
   
   function lp_MakeContextFilter: IContextFilter;
@@ -259,10 +253,10 @@ begin
 end;//TbsListTreeStruct.SettingsID
 
 function TbsListTreeStruct.DoMakeFiltered(const aFilters: Il3TreeFilters;
-  const aCurrentNode: Il3SimpleNode;
-  out aSyncIndex: Integer;
-  aAutoOpen: Boolean;
-  CalcPartialContext: Boolean): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ out aSyncIndex: Integer;
+ aAutoOpen: Boolean;
+ CalcPartialContext: Boolean): Il3SimpleTree;
 //#UC START# *48FF5A9002CC_47F4D386036C_var*
 //#UC END# *48FF5A9002CC_47F4D386036C_var*
 begin
@@ -283,7 +277,8 @@ begin
 end;//TbsListTreeStruct.DoMakeFiltered
 
 function TbsListTreeStruct.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_47F4D386036C_var*
 //#UC END# *4A60B23E00C3_47F4D386036C_var*
 begin
@@ -297,6 +292,7 @@ begin
 end;//TbsListTreeStruct.COMQueryInterface
 
 function TbsListTreeStruct.ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase;
+ {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
 //#UC START# *4F1D334C0371_47F4D386036C_var*
 //#UC END# *4F1D334C0371_47F4D386036C_var*
 begin
@@ -304,7 +300,6 @@ begin
  Result := nil;
 //#UC END# *4F1D334C0371_47F4D386036C_impl*
 end;//TbsListTreeStruct.ReAqurieUnfilteredRootForMakeResettedSimpleRoot
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

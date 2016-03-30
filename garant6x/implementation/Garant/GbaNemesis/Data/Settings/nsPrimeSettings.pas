@@ -1,55 +1,42 @@
 unit nsPrimeSettings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Settings/nsPrimeSettings.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Settings::TnsPrimeSettings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsPrimeSettings.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimeSettings" MUID: (4C99AEBC01B3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(nsWithoutLogin)}
+{$If Defined(nsWithoutLogin)}
 uses
-  afwInterfaces,
-  PrimeUnit,
-  bsInterfaces,
-  nsSettingsPrim,
-  SettingsUnit
-  ;
-{$IfEnd} //nsWithoutLogin
+ l3IntfUses
+ , nsSettingsPrim
+ , afwInterfaces
+ , bsInterfaces
+ , PrimeUnit
+ , SettingsUnit
+;
 
-{$If defined(nsWithoutLogin)}
 type
  TnsPrimeSettings = class(TnsSettingsPrim, IafwSettings, InsSettingsNotify, InsSettings)
- private
- // private fields
-   f_State : TafwSettingsState;
- protected
- // realized methods
+  private
+   f_State: TafwSettingsState;
+  protected
    function pm_GetState: TafwSettingsState;
    procedure pm_SetState(aValue: TafwSettingsState);
-   procedure AddListener(const aListener: InsUserSettingsEditListener); overload; 
-   procedure RemoveListener(const aListener: InsUserSettingsEditListener); overload; 
-   procedure AddListener(const aListener: InsUserSettingsListener); overload; 
-   procedure RemoveListener(const aListener: InsUserSettingsListener); overload; 
+   procedure AddListener(const aListener: InsUserSettingsEditListener); overload;
+   procedure RemoveListener(const aListener: InsUserSettingsEditListener); overload;
+   procedure AddListener(const aListener: InsUserSettingsListener); overload;
+   procedure RemoveListener(const aListener: InsUserSettingsListener); overload;
    procedure StartEdit;
-     {* вызывается перед началом редактирования }
+    {* вызывается перед началом редактирования }
    procedure UserSettingsChanged;
-     {* при изменении\восстановлении пользовательских настроек }
+    {* при изменении\восстановлении пользовательских настроек }
    procedure StartReplace;
-     {* вызывается перед переключением конфигурации }
+    {* вызывается перед переключением конфигурации }
    procedure FinishReplace;
-     {* вызывается по окончании переключения конфигурации }
+    {* вызывается по окончании переключения конфигурации }
    function pm_GetSettingsNotify: InsSettingsNotify;
    function pm_GetData: ISettingsManager;
    procedure pm_SetData(const aValue: ISettingsManager);
@@ -60,18 +47,18 @@ type
     aValue: Double;
     aDefault: Double = 0;
     aSetAsDefault: Boolean = False);
- public
- // public methods
+  public
    class function Make(const aSettings: IPrimeSettingsManager): IafwSettings; reintroduce;
    constructor Create(const aSettings: IPrimeSettingsManager); reintroduce;
  end;//TnsPrimeSettings
-{$IfEnd} //nsWithoutLogin
+{$IfEnd} // Defined(nsWithoutLogin)
 
 implementation
 
-{$If defined(nsWithoutLogin)}
-
-// start class TnsPrimeSettings
+{$If Defined(nsWithoutLogin)}
+uses
+ l3ImplUses
+;
 
 class function TnsPrimeSettings.Make(const aSettings: IPrimeSettingsManager): IafwSettings;
 var
@@ -83,7 +70,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsPrimeSettings.Make
 
 constructor TnsPrimeSettings.Create(const aSettings: IPrimeSettingsManager);
 //#UC START# *4C99BA8A0231_4C99AEBC01B3_var*
@@ -150,6 +137,7 @@ begin
 end;//TnsPrimeSettings.RemoveListener
 
 procedure TnsPrimeSettings.StartEdit;
+ {* вызывается перед началом редактирования }
 //#UC START# *491444D00360_4C99AEBC01B3_var*
 //#UC END# *491444D00360_4C99AEBC01B3_var*
 begin
@@ -159,6 +147,7 @@ begin
 end;//TnsPrimeSettings.StartEdit
 
 procedure TnsPrimeSettings.UserSettingsChanged;
+ {* при изменении\восстановлении пользовательских настроек }
 //#UC START# *491444E70109_4C99AEBC01B3_var*
 //#UC END# *491444E70109_4C99AEBC01B3_var*
 begin
@@ -168,6 +157,7 @@ begin
 end;//TnsPrimeSettings.UserSettingsChanged
 
 procedure TnsPrimeSettings.StartReplace;
+ {* вызывается перед переключением конфигурации }
 //#UC START# *491444FB0228_4C99AEBC01B3_var*
 //#UC END# *491444FB0228_4C99AEBC01B3_var*
 begin
@@ -177,6 +167,7 @@ begin
 end;//TnsPrimeSettings.StartReplace
 
 procedure TnsPrimeSettings.FinishReplace;
+ {* вызывается по окончании переключения конфигурации }
 //#UC START# *4914450A01D2_4C99AEBC01B3_var*
 //#UC END# *4914450A01D2_4C99AEBC01B3_var*
 begin
@@ -214,8 +205,8 @@ begin
 end;//TnsPrimeSettings.pm_SetData
 
 function TnsPrimeSettings.LoadDouble(const aSettingId: TafwSettingId;
-  aDefault: Double = 0;
-  aRestoreDefault: Boolean = False): Double;
+ aDefault: Double = 0;
+ aRestoreDefault: Boolean = False): Double;
 //#UC START# *4AB729980069_4C99AEBC01B3_var*
 //#UC END# *4AB729980069_4C99AEBC01B3_var*
 begin
@@ -225,9 +216,9 @@ begin
 end;//TnsPrimeSettings.LoadDouble
 
 procedure TnsPrimeSettings.SaveDouble(const aSettingId: TafwSettingId;
-  aValue: Double;
-  aDefault: Double = 0;
-  aSetAsDefault: Boolean = False);
+ aValue: Double;
+ aDefault: Double = 0;
+ aSetAsDefault: Boolean = False);
 //#UC START# *4AB729A702A2_4C99AEBC01B3_var*
 //#UC END# *4AB729A702A2_4C99AEBC01B3_var*
 begin
@@ -235,7 +226,6 @@ begin
  SaveParam(aSettingId, vtExtended, aValue, aDefault, aSetAsDefault);
 //#UC END# *4AB729A702A2_4C99AEBC01B3_impl*
 end;//TnsPrimeSettings.SaveDouble
-
-{$IfEnd} //nsWithoutLogin
+{$IfEnd} // Defined(nsWithoutLogin)
 
 end.

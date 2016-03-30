@@ -1,102 +1,72 @@
 unit nsAttributeTreeCacheNew;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Search/nsAttributeTreeCacheNew.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Search::TnsAttributeTreeCacheNew
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeCacheNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeTreeCacheNew" MUID: (4912AB3A01ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3InterfacedStringList,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , l3InterfacedStringList
+ , DynamicTreeUnit
+ , l3Interfaces
+ , afwInterfaces
+;
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3InterfacedStringList;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsAttributeTreeCacheNew = class(_afwApplicationDataUpdate_)
   {* Коллеги, это что? }
- private
- // private methods
+  private
    function GetAttributeRoot(const aTag: Il3CString;
     aDropFlags: Boolean = False): INodeBase;
-     {* Коллеги, это что? }
- protected
- // property methods
+    {* Коллеги, это что? }
+  protected
    function pm_GetAttributeRoot(const aTag: Il3CString): INodeBase;
    function pm_GetAttributeRootClosed(const aTag: Il3CString): INodeBase;
- protected
- // overridden protected methods
    procedure FinishDataUpdate; override;
- public
- // overridden public methods
-   constructor Create; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property AttributeRoot[const aTag: Il3CString]: INodeBase
-     read pm_GetAttributeRoot;
-   property AttributeRootClosed[const aTag: Il3CString]: INodeBase
-     read pm_GetAttributeRootClosed;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsAttributeTreeCacheNew;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsAttributeTreeCacheNew }
+   constructor Create; override;
+  public
+   property AttributeRoot[const aTag: Il3CString]: INodeBase
+    read pm_GetAttributeRoot;
+   property AttributeRootClosed[const aTag: Il3CString]: INodeBase
+    read pm_GetAttributeRootClosed;
  end;//TnsAttributeTreeCacheNew
 
 implementation
 
 uses
-  l3Base {a},
-  nsTypes,
-  DataAdapter,
-  GblAdapter,
-  afwFacade
-  ;
+ l3ImplUses
+ , nsTypes
+ , DataAdapter
+ , GblAdapter
+ , afwFacade
+ , l3Variant
+ , l3Memory
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TnsAttributeTreeCacheNew
-
-var g_TnsAttributeTreeCacheNew : TnsAttributeTreeCacheNew = nil;
+var g_TnsAttributeTreeCacheNew: TnsAttributeTreeCacheNew = nil;
+ {* Экземпляр синглетона TnsAttributeTreeCacheNew }
 
 procedure TnsAttributeTreeCacheNewFree;
+ {* Метод освобождения экземпляра синглетона TnsAttributeTreeCacheNew }
 begin
  l3Free(g_TnsAttributeTreeCacheNew);
-end;
-
-class function TnsAttributeTreeCacheNew.Instance: TnsAttributeTreeCacheNew;
-begin
- if (g_TnsAttributeTreeCacheNew = nil) then
- begin
-  l3System.AddExitProc(TnsAttributeTreeCacheNewFree);
-  g_TnsAttributeTreeCacheNew := Create;
- end;
- Result := g_TnsAttributeTreeCacheNew;
-end;
-
+end;//TnsAttributeTreeCacheNewFree
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-// start class TnsAttributeTreeCacheNew
 
 function TnsAttributeTreeCacheNew.pm_GetAttributeRoot(const aTag: Il3CString): INodeBase;
 //#UC START# *4912ABB40360_4912AB3A01EDget_var*
@@ -117,7 +87,8 @@ begin
 end;//TnsAttributeTreeCacheNew.pm_GetAttributeRootClosed
 
 function TnsAttributeTreeCacheNew.GetAttributeRoot(const aTag: Il3CString;
-  aDropFlags: Boolean = False): INodeBase;
+ aDropFlags: Boolean = False): INodeBase;
+ {* Коллеги, это что? }
 //#UC START# *4912AC600333_4912AB3A01ED_var*
 var
  l_Interface: IUnknown;
@@ -150,10 +121,21 @@ begin
 end;//TnsAttributeTreeCacheNew.GetAttributeRoot
 
 class function TnsAttributeTreeCacheNew.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsAttributeTreeCacheNew <> nil;
 end;//TnsAttributeTreeCacheNew.Exists
+
+class function TnsAttributeTreeCacheNew.Instance: TnsAttributeTreeCacheNew;
+ {* Метод получения экземпляра синглетона TnsAttributeTreeCacheNew }
+begin
+ if (g_TnsAttributeTreeCacheNew = nil) then
+ begin
+  l3System.AddExitProc(TnsAttributeTreeCacheNewFree);
+  g_TnsAttributeTreeCacheNew := Create;
+ end;
+ Result := g_TnsAttributeTreeCacheNew;
+end;//TnsAttributeTreeCacheNew.Instance
 
 constructor TnsAttributeTreeCacheNew.Create;
 //#UC START# *47B9866E034D_4912AB3A01ED_var*

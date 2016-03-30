@@ -1,58 +1,42 @@
 unit nsLeafParaNode;
+ {* Листьевой параграф }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsLeafParaNode.pas"
-// Начат: 2005/06/23 16:38:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsLeafParaNode
-//
-// Листьевой параграф
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLeafParaNode" MUID: (467FCDA10044)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsParentedTagNode,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , nsParentedTagNode
+ , k2Base
+ , l3Variant
+;
 
 type
  TnsLeafParaNode = class(TnsParentedTagNode)
   {* Листьевой параграф }
- protected
- // overridden protected methods
+  protected
+   procedure BuildSubs(aProp: Tk2Prop);
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); override;
    function DoGetSubAtom(aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; override;
    procedure DoDoLoad; override;
- protected
- // protected methods
-   procedure BuildSubs(aProp: Tk2Prop);
  end;//TnsLeafParaNode
 
 implementation
 
 uses
-  f1AtomChecker,
-  F1TagDataProviderInterface,
-  k2Tags,
-  ObjectSegment_Const
-  ;
-
-// start class TnsLeafParaNode
+ l3ImplUses
+ , k2Tags
+ , ObjectSegment_Const
+ , f1AtomChecker
+ , F1TagDataProviderInterface
+;
 
 procedure TnsLeafParaNode.BuildSubs(aProp: Tk2Prop);
 //#UC START# *4C722F3D02EE_467FCDA10044_var*
@@ -68,7 +52,7 @@ begin
 end;//TnsLeafParaNode.BuildSubs
 
 procedure TnsLeafParaNode.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_467FCDA10044_var*
 
   function lp_IterateLayer(aLayer: Tl3Variant; anIndex: Integer): Boolean;
@@ -106,7 +90,7 @@ begin
 end;//TnsLeafParaNode.DoIterateProperties
 
 function TnsLeafParaNode.DoGetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4C6D1D450332_467FCDA10044_var*
 //#UC END# *4C6D1D450332_467FCDA10044_var*
 begin

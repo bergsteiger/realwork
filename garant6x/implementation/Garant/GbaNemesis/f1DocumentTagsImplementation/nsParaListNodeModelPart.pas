@@ -1,79 +1,65 @@
 unit nsParaListNodeModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsParaListNodeModelPart.pas"
-// Начат: 26.11.2010 15:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsParaListNodeModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaListNodeModelPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsParaListNodeModelPart" MUID: (4CEFA95A0301)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nsParentedTagNode,
-  nevTools,
-  F1TagDataProviderInterface,
-  l3Variant
-  ;
+ l3IntfUses
+ , nsParentedTagNode
+ , F1TagDataProviderInterface
+ , l3Interfaces
+ , l3Variant
+ , nevTools
+;
 
 type
  TnsParaListNodeModelPart = class(TnsParentedTagNode)
- protected
- // overridden protected methods
+  protected
+   f_CurIndex: Integer;
+   f_CurNode: If1TagDataProvider;
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_CurIndex : Integer;
-   f_CurNode : If1TagDataProvider;
- public
- // public methods
+  public
    function MakeChildTag(aChildIndex: Integer;
-     const aNode: If1TagDataProvider;
-     aState: TnsNodeStates = []): Il3TagRef;
+    const aNode: If1TagDataProvider;
+    aState: TnsNodeStates = []): Il3TagRef;
  end;//TnsParaListNodeModelPart
 
 implementation
 
 uses
-  LeafPara_Const,
-  k2Facade,
-  k2Base,
-  nsNativeCommentPara,
-  CommentPara_Const,
-  LeafParaDecorationsHolder_Const,
-  k2Tags,
-  nsLeafParaDecorationsHolder,
-  nsTagString,
-  SysUtils,
-  TextPara_Const,
-  IOUnit,
-  evdStyles,
-  Document_Const,
-  Block_Const,
-  DecorTextPara_Const
-  ;
-
-// start class TnsParaListNodeModelPart
+ l3ImplUses
+ , LeafPara_Const
+ , k2Facade
+ , k2Base
+ , nsNativeCommentPara
+ , CommentPara_Const
+ , LeafParaDecorationsHolder_Const
+ , k2Tags
+ , nsLeafParaDecorationsHolder
+ , nsTagString
+ , SysUtils
+ , TextPara_Const
+ , IOUnit
+ , evdStyles
+ , Document_Const
+ , Block_Const
+ , DecorTextPara_Const
+;
 
 function TnsParaListNodeModelPart.MakeChildTag(aChildIndex: Integer;
-  const aNode: If1TagDataProvider;
-  aState: TnsNodeStates = []): Il3TagRef;
-var
- l_HolderTag : Il3TagRef;
-
+ const aNode: If1TagDataProvider;
+ aState: TnsNodeStates = []): Il3TagRef;
+var l_Comment: IStream;
+var l_CommentTag: Tl3Tag;
+var l_HolderTag: Il3TagRef;
+var l_Para: InevPara;
+var l_Container: InevDocumentContainer;
 //#UC START# *4CEFAD320395_4CEFA95A0301_var*
 
  procedure MakeTechComment(const aNode: If1TagDataProvider);
@@ -116,11 +102,6 @@ var
  l_IsLeaf  : Boolean;
  l_IsBlock : Boolean;
 //#UC END# *4CEFAD320395_4CEFA95A0301_var*
-var
- l_Comment : IStream;
- l_CommentTag : Tl3Tag;
- l_Para : InevPara;
- l_Container : InevDocumentContainer;
 begin
 //#UC START# *4CEFAD320395_4CEFA95A0301_impl*
  Result := TnsParentedTagNode.MakeNodeTag(aNode,
@@ -190,7 +171,6 @@ begin
 end;//TnsParaListNodeModelPart.MakeChildTag
 
 procedure TnsParaListNodeModelPart.ClearFields;
- {-}
 begin
  f_CurNode := nil;
  inherited;

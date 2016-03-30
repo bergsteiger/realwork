@@ -1,57 +1,41 @@
 unit f1AtomChecker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1AtomChecker.pas"
-// Начат: 23.08.2010 12:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::Tf1AtomChecker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1AtomChecker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1AtomChecker" MUID: (4C722ECF0107)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsTagNodePrim,
-  l3CProtoObject,
-  F1TagDataProviderInterface,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , F1TagDataProviderInterface
+ , nsTagNodePrim
+ , l3Variant
+ , k2Base
+;
 
 type
  Tf1AtomChecker = class(Tl3CProtoObject, If1AtomChecker)
- private
- // private fields
-   f_Tag : TnsTagNodePrim;
- protected
- // realized methods
+  private
+   f_Tag: TnsTagNodePrim;
+  protected
    function CheckAtom(aProp: Tk2CustomProperty): Tl3Tag;
    function MakeSubTag(const aProvider: If1TagDataProvider): Il3TagRef;
    function Get_Tag: Tl3Tag;
- public
- // public methods
+  public
    constructor Create(aTag: TnsTagNodePrim); reintroduce;
    class function Make(aTag: TnsTagNodePrim): If1AtomChecker; reintroduce;
-     {* Сигнатура фабрики Tf1AtomChecker.Make }
  end;//Tf1AtomChecker
 
 implementation
 
 uses
-  nsSubNode
-  ;
-
-// start class Tf1AtomChecker
+ l3ImplUses
+ , nsSubNode
+;
 
 constructor Tf1AtomChecker.Create(aTag: TnsTagNodePrim);
 //#UC START# *4C722F6B0307_4C722ECF0107_var*
@@ -73,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tf1AtomChecker.Make
 
 function Tf1AtomChecker.CheckAtom(aProp: Tk2CustomProperty): Tl3Tag;
 //#UC START# *4C722E2901C7_4C722ECF0107_var*

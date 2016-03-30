@@ -177,7 +177,8 @@ const
  ev_saAACLeftHyperlink = -83;
  ev_saDocumentInList = -84;
  {* Имена для Standard }
- StandardNames: array [0 .. 84] of PAnsiChar = ('Empty'
+ StandardNames: array [0 .. 84] of PAnsiChar = (
+ 'Empty'
  , 'TxtNormalANSI'
  , 'TxtNormalOEM'
  , 'TxtHeader1'

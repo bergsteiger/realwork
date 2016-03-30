@@ -1,84 +1,78 @@
 unit csTaskResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/csTaskResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::EVD::TasksTuning::TcsTaskResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\csTaskResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsTaskResult" MUID: (53E0D4F50178)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  l3Variant,
-  Classes,
-  k2Base
-  ;
+ l3IntfUses
+ , l3Variant
+ , k2Base
+ , Classes
+;
 
 type
  TcsTaskResultClass = class of TcsTaskResult;
 
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include ..\EVD\evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TcsTaskResult = class(_evdTagHolder_)
- protected
- // property methods
+  protected
    function pm_GetTaskID: AnsiString;
    procedure pm_SetTaskID(const aValue: AnsiString);
- public
- // realized methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
+    read pm_GetTaskID
+    write pm_SetTaskID;
  end;//TcsTaskResult
 
 implementation
 
 uses
-  TaskResult_Const,
-  evdNativeWriter,
-  l3Filer,
-  l3Types,
-  k2TagGen,
-  evdNativeReader,
-  k2DocumentBuffer,
-  SysUtils
-  ;
+ l3ImplUses
+ , TaskResult_Const
+ , SysUtils
+ , evdNativeWriter
+ , l3Filer
+ , l3Types
+ , k2TagGen
+ , evdNativeReader
+ , k2DocumentBuffer
+;
 
-{$Include ..\EVD\evdTagHolder.imp.pas}
-
-// start class TcsTaskResult
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TcsTaskResult.pm_GetTaskID: AnsiString;
- {-}
+//#UC START# *96286EAE2E82_53E0D4F50178get_var*
+//#UC END# *96286EAE2E82_53E0D4F50178get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
+//#UC START# *96286EAE2E82_53E0D4F50178get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *96286EAE2E82_53E0D4F50178get_impl*
 end;//TcsTaskResult.pm_GetTaskID
 
 procedure TcsTaskResult.pm_SetTaskID(const aValue: AnsiString);
- {-}
+//#UC START# *96286EAE2E82_53E0D4F50178set_var*
+//#UC END# *96286EAE2E82_53E0D4F50178set_var*
 begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
+//#UC START# *96286EAE2E82_53E0D4F50178set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *96286EAE2E82_53E0D4F50178set_impl*
 end;//TcsTaskResult.pm_SetTaskID
 
 class function TcsTaskResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53E0D4F50178_var*
+//#UC END# *53AC03EE01FD_53E0D4F50178_var*
 begin
- Result := k2_typTaskResult;
+//#UC START# *53AC03EE01FD_53E0D4F50178_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53E0D4F50178_impl*
 end;//TcsTaskResult.GetTaggedDataType
 
 end.

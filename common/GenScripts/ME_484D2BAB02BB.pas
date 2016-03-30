@@ -16,6 +16,8 @@ uses
  , k2String_Const
  , k2Color_Const
  , FramePart_Const
+ //#UC START# *484D2BAB02BB_484A4725001Dintf_uses*
+ //#UC END# *484D2BAB02BB_484A4725001Dintf_uses*
 ;
 
 type
@@ -41,6 +43,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *484D2BAB02BB_484A4725001Dimpl_uses*
+ //#UC END# *484D2BAB02BB_484A4725001Dimpl_uses*
 ;
 
 end.
