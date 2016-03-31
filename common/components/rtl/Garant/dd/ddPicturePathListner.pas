@@ -37,11 +37,10 @@ type
    f_PicturePath: Tl3Strings;
    f_PictureID: Integer;
    f_TestName: AnsiString;
-    {* Поле для свойства TestName }
+    {* Имя текущего теста. }
    f_EnableSave: Boolean;
-    {* Поле для свойства EnableSave }
    f_PDF4Etalon: Boolean;
-    {* Поле для свойства PDF4Etalon }
+    {* Если выставлен в True, то генеритя PDF, удобный для сравнения (сжатие отсутствует, вырезаны бинартные потоки, даты создания и модификации зафиксированы). В противном случае, генерятся "настоящие" PDF. }
   private
    function GetUniqPictureName(aForRTF: Boolean): AnsiString;
   protected

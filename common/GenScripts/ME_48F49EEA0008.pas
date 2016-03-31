@@ -21,7 +21,6 @@ type
  TevConstStringStorable = class(TevStringStorable)
   private
    f_Data: IevdHyperlinkInfo;
-    {* Поле для свойства Data }
   protected
    function Text: Tl3WString; override;
    procedure Cleanup; override;

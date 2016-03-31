@@ -27,13 +27,9 @@ type
    f_CollapsedObjects: TnevObjectList;
    {$IfEnd} // Defined(evNeedCollapsedVersionComments)
    f_PrevTop: InevBasePoint;
-    {* Поле для свойства PrevTop }
    f_Top: InevAnchor;
-    {* Поле для свойства Top }
    f_Canvas: InevCanvas;
-    {* Поле для свойства Canvas }
    f_ControlLMargin: Integer;
-    {* Поле для свойства ControlLMargin }
   private
    function CorrectFoundPoint(const aPoint: InevBasePoint;
     aMode: TnevPointByPtMode): InevBasePoint;

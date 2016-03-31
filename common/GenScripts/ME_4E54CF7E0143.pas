@@ -54,10 +54,10 @@ type
     out theFont: IevResultFont): Boolean;
    function GetStyleFont(aStyle: Tl3Variant;
     aPrinting: Boolean): IevResultFont;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevStandardStyles;
     {* Метод получения экземпляра синглетона TevStandardStyles }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevStandardStyles
 
 implementation
@@ -197,12 +197,6 @@ begin
 //#UC END# *4E5F9ADA02CE_4E54CF7E0143_impl*
 end;//TevStandardStyles.CheckFontInCache
 
-class function TevStandardStyles.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevStandardStyles <> nil;
-end;//TevStandardStyles.Exists
-
 procedure TevStandardStyles.DoStyleTableChanged;
 //#UC START# *4A485B710126_4E54CF7E0143_var*
 //#UC END# *4A485B710126_4E54CF7E0143_var*
@@ -222,6 +216,12 @@ begin
  end;
  Result := g_TevStandardStyles;
 end;//TevStandardStyles.Instance
+
+class function TevStandardStyles.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevStandardStyles <> nil;
+end;//TevStandardStyles.Exists
 
 procedure TevStandardStyles.Cleanup;
  {* Функция очистки полей объекта. }

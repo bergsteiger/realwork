@@ -27,7 +27,6 @@ type
  TvcmLayoutImplementation = class(Tl3ProtoObjectWithCOMQI, IvcmLayout, IvcmLayoutInternal)
   private
    f_Control: TWinControl;
-    {* ѕоле дл€ свойства Control }
   protected
    function GetIsAcceptable(aDataUpdate: Boolean): Boolean; virtual;
     {* ћожно ли открывать форму в текущих услови€х (например, на текущей базе) }

@@ -22,7 +22,6 @@ type
  TdestListoverride = class(TddRTFDestination)
   private
    f_ListOverride: TrtfListOverride;
-    {* Поле для свойства ListOverride }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

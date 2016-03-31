@@ -22,13 +22,9 @@ type
  TdestShapeInst = class(TddRTFDestination)
   private
    f_ShapeLeft: Integer;
-    {* Поле для свойства ShapeLeft }
    f_ShapeRight: Integer;
-    {* Поле для свойства ShapeRight }
    f_ShapeTop: Integer;
-    {* Поле для свойства ShapeTop }
    f_ShapeBottom: Integer;
-    {* Поле для свойства ShapeBottom }
   protected
    procedure pm_SetShapeLeft(aValue: Integer);
    procedure pm_SetShapeRight(aValue: Integer);

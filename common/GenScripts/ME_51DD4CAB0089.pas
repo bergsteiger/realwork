@@ -22,7 +22,6 @@ type
  TdestListLevel = class(TddRTFDestination)
   private
    f_Level: TrtfListLevel;
-    {* Поле для свойства Level }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

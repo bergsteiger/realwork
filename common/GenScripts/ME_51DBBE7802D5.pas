@@ -19,21 +19,13 @@ type
  TddSectionProperty = class(TddDocumentProperty)
   private
    f_cCols: Integer;
-    {* Поле для свойства cCols }
    f_ColsSpace: Integer;
-    {* Поле для свойства ColsSpace }
    f_EndHere: Boolean;
-    {* Поле для свойства EndHere }
    f_Landscape: Boolean;
-    {* Поле для свойства Landscape }
    f_LineBetween: Boolean;
-    {* Поле для свойства LineBetween }
    f_Unlocked: Boolean;
-    {* Поле для свойства Unlocked }
    f_pgnFormat: TPGN;
-    {* Поле для свойства pgnFormat }
    f_SBK: TSBK;
-    {* Поле для свойства SBK }
   public
    constructor Create; override;
     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }

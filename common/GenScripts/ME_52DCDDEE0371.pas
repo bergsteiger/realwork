@@ -19,7 +19,6 @@ type
   private
    f_HyperlinkIndex: Integer;
    f_BraceCount: Integer;
-    {* Поле для свойства BraceCount }
   private
    procedure ClearHyperlinkID(const aSeg: TddTextSegment);
   protected

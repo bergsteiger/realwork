@@ -28,13 +28,9 @@ type
    f_CellList: TddCellList;
    f_CellProps: TddCellsPropertyList;
    f_TAP: TddRowProperty;
-    {* Поле для свойства TAP }
    f_RTFLikeWidth: Boolean;
-    {* Поле для свойства RTFLikeWidth }
    f_CellPropsCompleate: Boolean;
-    {* Поле для свойства CellPropsCompleate }
    f_HasMerged: Boolean;
-    {* Поле для свойства HasMerged }
   private
    procedure DoApplyCellProps(aCellProps: TddCellsPropertyList);
   protected

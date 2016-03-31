@@ -28,9 +28,7 @@ type
  TddTextSegmentsList = class(_l3UncomparabeObjectRefList_)
   private
    f_HasHyperlink: Boolean;
-    {* Поле для свойства HasHyperlink }
    f_HasSegment: Boolean;
-    {* Поле для свойства HasSegment }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

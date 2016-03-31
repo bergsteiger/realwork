@@ -34,7 +34,6 @@ type
   {* указывает от какого навигатора на форме был отстыкован компонент }
   private
    f_Navigator: TvtNavigatorPrim;
-    {* ѕоле дл€ свойства Navigator }
   public
    function DeleteControl(aControl: TControl): Boolean;
    constructor Create(aNavigator: TvtNavigatorPrim); reintroduce;

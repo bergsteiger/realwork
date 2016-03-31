@@ -21,13 +21,9 @@ type
  TddParaList = class(TddDocumentAtom)
   private
    f_ListType: TddListType;
-    {* Поле для свойства ListType }
    f_OrderType: TddOrderType;
-    {* Поле для свойства OrderType }
    f_OrderStart: Integer;
-    {* Поле для свойства OrderStart }
    f_Multilevel: Boolean;
-    {* Поле для свойства Multilevel }
   public
    f_List: TddDocumentAtomList;
   protected

@@ -18,7 +18,6 @@ type
  TddRegSeacherOwner = class(Tk2CustomFileParser)
   private
    f_HREFSearcher: Tl3RegularSearch;
-    {* Поле для свойства HREFSearcher }
   private
    procedure InitRegSearcher;
   protected

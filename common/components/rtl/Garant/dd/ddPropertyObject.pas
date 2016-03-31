@@ -18,7 +18,6 @@ type
  TddPropertyObject = class(Tl3Base)
   private
    f_IsDefault: Boolean;
-    {* Поле для свойства IsDefault }
   public
    procedure Clear; virtual;
    procedure MergeWith(P: TddPropertyObject); virtual; abstract;

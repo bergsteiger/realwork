@@ -21,7 +21,7 @@ type
   {* Базовый класс, содержащий ссылку на параграф. }
   private
    f_Para: InevPara;
-    {* Поле для свойства Para }
+    {* Параграф, связанный с объектом. }
   protected
    procedure Set_Para(const Value: InevPara); virtual;
    function Get_Para: InevPara;

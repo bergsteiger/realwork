@@ -20,7 +20,6 @@ type
   private
    f_LimitWidth: Integer;
    f_Widthes: Tl3LongintList;
-    {* Поле для свойства Widthes }
   protected
    function WasChanged: Boolean; virtual;
    procedure ClearChangedFlag; virtual;

@@ -53,17 +53,11 @@ type
  TChromeLikeTabCloseButton = class(TChromeLikeBaseVisualObject)
   private
    f_ShowOnlyHovered: Boolean;
-    {* Поле для свойства ShowOnlyHovered }
    f_ButtonImages: TCustomImageList;
-    {* Поле для свойства ButtonImages }
    f_ImageIndex: TImageIndex;
-    {* Поле для свойства ImageIndex }
    f_HotImageIndex: TImageIndex;
-    {* Поле для свойства HotImageIndex }
    f_Image: TGPBitmap;
-    {* Поле для свойства Image }
    f_HotImage: TGPBitmap;
-    {* Поле для свойства HotImage }
   protected
    procedure pm_SetShowOnlyHovered(aValue: Boolean);
    procedure pm_SetButtonImages(aValue: TCustomImageList); virtual;
@@ -103,9 +97,7 @@ type
   private
    f_Image: TGPImage;
    f_ImageList: TCustomImageList;
-    {* Поле для свойства ImageList }
    f_ImageIndex: TImageIndex;
-    {* Поле для свойства ImageIndex }
   private
    function GetImage: TGPImage;
   protected
@@ -128,7 +120,6 @@ type
  TChromeLikeTabText = class(TChromeLikeBaseVisualObject)
   private
    f_Text: WideString;
-    {* Поле для свойства Text }
   protected
    procedure pm_SetText(const aValue: WideString);
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
@@ -158,27 +149,16 @@ type
    f_BottomEdgePath: TGPGraphicsPath;
    f_RoundingRadius: Single;
    f_Text: WideString;
-    {* Поле для свойства Text }
    f_Selected: Boolean;
-    {* Поле для свойства Selected }
    f_Form: TForm;
-    {* Поле для свойства Form }
    f_ImageIndex: TImageIndex;
-    {* Поле для свойства ImageIndex }
    f_ImageList: TCustomImageList;
-    {* Поле для свойства ImageList }
    f_SlotIndex: Integer;
-    {* Поле для свойства SlotIndex }
    f_OnNeedCloseTab: TChromeLikeTabNeedCloseEvent;
-    {* Поле для свойства OnNeedCloseTab }
    f_TabSet: TChromeLikeTabSetControlPrim;
-    {* Поле для свойства TabSet }
    f_CloseButtonImages: TCustomImageList;
-    {* Поле для свойства CloseButtonImages }
    f_CloseButtonImageIndex: TImageIndex;
-    {* Поле для свойства CloseButtonImageIndex }
    f_CloseButtonHotImageIndex: TImageIndex;
-    {* Поле для свойства CloseButtonHotImageIndex }
   private
    procedure DoOnCloseButtonClick(Sender: TObject);
    procedure SelectionChanged;
@@ -296,7 +276,6 @@ type
  TChromeLikeTabAction = {final} class(TAction)
   private
    f_Tab: TChromeLikeTab;
-    {* Поле для свойства Tab }
   protected
    function pm_GetTab: TChromeLikeTab; virtual;
    procedure pm_SetTab(aValue: TChromeLikeTab); virtual;
@@ -356,37 +335,21 @@ type
    f_LClickedObject: TChromeLikeBaseVisualObjectPrim;
    f_ProcessingClick: Boolean;
    f_TabHeight: Integer;
-    {* Поле для свойства TabHeight }
    f_SelectedTab: TChromeLikeTab;
-    {* Поле для свойства SelectedTab }
    f_OnPaintBackground: TChromeLikeTabSetPaintBackground;
-    {* Поле для свойства OnPaintBackground }
    f_OnTabSelected: TChromeLikeTabSetTabEvent;
-    {* Поле для свойства OnTabSelected }
    f_OnTabDeselected: TChromeLikeTabSetTabEvent;
-    {* Поле для свойства OnTabDeselected }
    f_OnAfterFormAdded: TChromeLikeTabSetAfterFormAddedEvent;
-    {* Поле для свойства OnAfterFormAdded }
    f_OnCloseTabForm: TChromeLikeTabSetCloseTabFormEvent;
-    {* Поле для свойства OnCloseTabForm }
    f_OnCanDockForm: TChromeLikeTabSetCanDockFormEvent;
-    {* Поле для свойства OnCanDockForm }
    f_OnCanUndockTabForm: TChromeLikeTabSetCanUndockFormEvent;
-    {* Поле для свойства OnCanUndockTabForm }
    f_OnSelectionChanged: TChromeLikeTabSetSelectionChangedEvent;
-    {* Поле для свойства OnSelectionChanged }
    f_MovingEaseType: TChromeLikeTabEaseType;
-    {* Поле для свойства MovingEaseType }
    f_OnTabClosed: TChromeLikeTabSetTabEvent;
-    {* Поле для свойства OnTabClosed }
    f_CloseButtonImages: TCustomImageList;
-    {* Поле для свойства CloseButtonImages }
    f_CloseButtonImageIndex: TImageIndex;
-    {* Поле для свойства CloseButtonImageIndex }
    f_CloseButtonHotImageIndex: TImageIndex;
-    {* Поле для свойства CloseButtonHotImageIndex }
    f_OnNewTabRequested: TChromeLikeTabSetNewTabRequested;
-    {* Поле для свойства OnNewTabRequested }
   private
    procedure InvalidateWidthPerSlot;
    function GetWidthPerSlot: Single;

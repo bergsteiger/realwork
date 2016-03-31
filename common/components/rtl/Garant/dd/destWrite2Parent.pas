@@ -22,7 +22,6 @@ type
  TdestWrite2Parent = class(TdestSkip)
   private
    f_ParentDestination: TddRTFDestination;
-    {* Поле для свойства ParentDestination }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

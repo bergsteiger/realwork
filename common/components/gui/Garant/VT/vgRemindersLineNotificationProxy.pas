@@ -23,10 +23,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvgRemindersLineNotificationProxy;
     {* Метод получения экземпляра синглетона TvgRemindersLineNotificationProxy }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgRemindersLineNotificationProxy
 {$IfEnd} // NOT Defined(NoVGScene)
 
@@ -49,12 +49,6 @@ begin
  l3Free(g_TvgRemindersLineNotificationProxy);
 end;//TvgRemindersLineNotificationProxyFree
 
-class function TvgRemindersLineNotificationProxy.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvgRemindersLineNotificationProxy <> nil;
-end;//TvgRemindersLineNotificationProxy.Exists
-
 procedure TvgRemindersLineNotificationProxy.HelpShown;
 //#UC START# *53760DC000EE_5376118F03C8_var*
 //#UC END# *53760DC000EE_5376118F03C8_var*
@@ -74,6 +68,12 @@ begin
  end;
  Result := g_TvgRemindersLineNotificationProxy;
 end;//TvgRemindersLineNotificationProxy.Instance
+
+class function TvgRemindersLineNotificationProxy.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvgRemindersLineNotificationProxy <> nil;
+end;//TvgRemindersLineNotificationProxy.Exists
 
 procedure TvgRemindersLineNotificationProxy.Cleanup;
  {* Функция очистки полей объекта. }

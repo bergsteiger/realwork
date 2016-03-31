@@ -42,9 +42,9 @@ type
    f_Styles: TStrings;
    f_ForBlock: Boolean;
    f_Font: TevFontInterface;
-    {* Поле для свойства Font }
+    {* шрифт текущего стиля }
    f_ParentInterface: TevStyleInterface;
-    {* Поле для свойства ParentInterface }
+    {* родительский стиль текущего стиля }
   protected
    procedure pm_SetParentName(const aValue: AnsiString);
    function pm_GetCaption: AnsiString;

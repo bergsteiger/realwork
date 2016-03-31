@@ -22,15 +22,10 @@ type
  TdestLevelText = class(TddRTFDestination)
   private
    f_Length: Integer;
-    {* Поле для свойства Length }
    f_Numbers: AnsiString;
-    {* Поле для свойства Numbers }
    f_Text: AnsiString;
-    {* Поле для свойства Text }
    f_UnicodeSymbol: Word;
-    {* Поле для свойства UnicodeSymbol }
    f_UnicodeBuffer: Tl3MemoryStream;
-    {* Поле для свойства UnicodeBuffer }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

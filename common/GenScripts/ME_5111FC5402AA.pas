@@ -27,25 +27,15 @@ type
  TddTextSegment = class(_ddDocAtomWithAssign_)
   private
    f_HLHandle: LongInt;
-    {* Поле для свойства HLHandle }
    f_Index: LongInt;
-    {* Поле для свойства Index }
    f_Start: LongInt;
-    {* Поле для свойства Start }
    f_Stop: LongInt;
-    {* Поле для свойства Stop }
    f_Style: LongInt;
-    {* Поле для свойства Style }
    f_CHP: TddCharacterProperty;
-    {* Поле для свойства CHP }
    f_Data: TddDocumentAtom;
-    {* Поле для свойства Data }
    f_URL: Tl3String;
-    {* Поле для свойства URL }
    f_TargetList: TddHyperlinkTargetList;
-    {* Поле для свойства TargetList }
    f_Opened: Boolean;
-    {* Поле для свойства Opened }
   protected
    procedure pm_SetCHP(aValue: TddCharacterProperty);
    procedure pm_SetData(aValue: TddDocumentAtom);

@@ -45,7 +45,6 @@ type
    f_ParserAction: TddParseParamAction;
    f_WasQuoter: Boolean;
    f_TagID: Integer;
-    {* Поле для свойства TagID }
   private
    function GetKeyID: TddHTMLParamID;
    procedure AddKeyValue(aValue: TddHTMLParamID);

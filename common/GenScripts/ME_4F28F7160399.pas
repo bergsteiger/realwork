@@ -35,10 +35,10 @@ type
     const aProgress: Il3Progress = nil); virtual;
    function CanApply: Boolean; virtual;
    procedure Clear; virtual;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevCopyTableCellWidth;
     {* Метод получения экземпляра синглетона TevCopyTableCellWidth }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevCopyTableCellWidth
 
 implementation
@@ -148,12 +148,6 @@ begin
 //#UC END# *4F28FCDD00F8_4F28F7160399_impl*
 end;//TevCopyTableCellWidth.Clear
 
-class function TevCopyTableCellWidth.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevCopyTableCellWidth <> nil;
-end;//TevCopyTableCellWidth.Exists
-
 class function TevCopyTableCellWidth.Instance: TevCopyTableCellWidth;
  {* Метод получения экземпляра синглетона TevCopyTableCellWidth }
 begin
@@ -164,6 +158,12 @@ begin
  end;
  Result := g_TevCopyTableCellWidth;
 end;//TevCopyTableCellWidth.Instance
+
+class function TevCopyTableCellWidth.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevCopyTableCellWidth <> nil;
+end;//TevCopyTableCellWidth.Exists
 
 procedure TevCopyTableCellWidth.Cleanup;
  {* Функция очистки полей объекта. }

@@ -53,13 +53,13 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVGScene)}
  , vcmDialogs
  {$IfEnd} // NOT Defined(NoVGScene)
  , vcmMessagesSupport
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , vcmForm
  , SysUtils
  , l3Base

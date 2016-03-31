@@ -22,9 +22,7 @@ type
  TddBreak = class(TddDocumentAtom)
   private
    f_BreakType: TddBreakType;
-    {* Поле для свойства BreakType }
    f_SEP: TddSectionProperty;
-    {* Поле для свойства SEP }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

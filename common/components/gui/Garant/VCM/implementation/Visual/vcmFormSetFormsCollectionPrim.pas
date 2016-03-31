@@ -23,7 +23,6 @@ type
  TvcmFormSetFormsCollectionPrim = class(TvcmFormSetFormsCollectionPrimPrim)
   private
    f_FormList: TvcmFormSetFormList;
-    {* Поле для свойства FormList }
   protected
    function pm_GetFormList: TvcmFormSetFormList; virtual;
    procedure pm_SetFormList(aValue: TvcmFormSetFormList); virtual;

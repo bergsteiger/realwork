@@ -23,7 +23,6 @@ type
   private
    f_RectData: TRect;
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
   private
    procedure Changed;
   protected
@@ -68,25 +67,15 @@ type
    f_EaseType: TChromeLikeTabEaseType;
    f_PositionInitialised: Boolean;
    f_PositionRect: TRect;
-    {* Поле для свойства PositionRect }
    f_Parent: TChromeLikeBaseVisualObjectPrim;
-    {* Поле для свойства Parent }
    f_Align: TAlign;
-    {* Поле для свойства Align }
    f_HintText: WideString;
-    {* Поле для свойства HintText }
    f_State: TChromeLikeVisualObjectState;
-    {* Поле для свойства State }
    f_OnClick: TNotifyEvent;
-    {* Поле для свойства OnClick }
    f_Behaviours: TChromeLikeVisualObjectBehaviours;
-    {* Поле для свойства Behaviours }
    f_InAnimation: Boolean;
-    {* Поле для свойства InAnimation }
    f_Margins: TChromeLikeMargins;
-    {* Поле для свойства Margins }
    f_Visible: Boolean;
-    {* Поле для свойства Visible }
   private
    procedure PaintChildren(const aContext: IChromeLkeTabSetDrawingContext);
    procedure LayoutChildren(const aRect: TRect);

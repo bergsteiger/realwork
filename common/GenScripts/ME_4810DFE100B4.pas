@@ -69,13 +69,9 @@ type
    f_Spacing: TnevCahcedSpacing;
    f_FrameTextFormatInfo: TnevFormatInfo;
    f_Prepared: TnevRenderingInfoParts;
-    {* Поле для свойства Prepared }
    f_LimitWidth: Integer;
-    {* Поле для свойства LimitWidth }
    f_Obj: InevObjectPrim;
-    {* Поле для свойства Obj }
    f_Parent: TnevFormatInfo;
-    {* Поле для свойства Parent }
   protected
    f_FI: TnevFormatInfoRec;
    f_ParaFont: IevResultFont;
@@ -1551,13 +1547,6 @@ begin
 //#UC END# *4E71EC33013E_4810DFE100B4get_impl*
 end;//TnevFormatInfo.Get_Obj
 
-procedure TnevFormatInfo.ClearFields;
-begin
- SectionBreak := nil;
- f_Obj := nil;
- inherited;
-end;//TnevFormatInfo.ClearFields
-
 function TnevFormatInfo.VerticalAlignmentMargin: Integer;
  {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
 //#UC START# *52021CDE00B2_4810DFE100B4_var*
@@ -1577,5 +1566,12 @@ begin
  Assert(False);
 //#UC END# *55794BA600EA_4810DFE100B4_impl*
 end;//TnevFormatInfo.GreatestObjPID
+
+procedure TnevFormatInfo.ClearFields;
+begin
+ SectionBreak := nil;
+ f_Obj := nil;
+ inherited;
+end;//TnevFormatInfo.ClearFields
 
 end.

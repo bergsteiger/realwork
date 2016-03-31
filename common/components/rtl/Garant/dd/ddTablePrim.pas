@@ -31,23 +31,14 @@ type
   private
    f_EtalonRow: TddTableRow;
    f_RowList: TddRowList;
-    {* Поле для свойства RowList }
    f_Level: Integer;
-    {* Поле для свойства Level }
    f_Scale: Integer;
-    {* Поле для свойства Scale }
    f_Width: Integer;
-    {* Поле для свойства Width }
    f_LeftIndent: Integer;
-    {* Поле для свойства LeftIndent }
    f_Nested: Boolean;
-    {* Поле для свойства Nested }
    f_IsPercent: Boolean;
-    {* Поле для свойства IsPercent }
    f_IsSBS: Boolean;
-    {* Поле для свойства IsSBS }
    f_Style: Integer;
-    {* Поле для свойства Style }
   private
    function GetLineLen(const aText: Tl3String): Integer;
    function FindPrevRowWithCellProps(aStartIndex: Integer): TddTableRow;

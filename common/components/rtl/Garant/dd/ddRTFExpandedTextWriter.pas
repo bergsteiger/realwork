@@ -33,11 +33,8 @@ type
   {* Свойства блока, нужные для выливки. }
   private
    f_StyleID: Integer;
-    {* Поле для свойства StyleID }
    f_Collapsed: TddCollapsed;
-    {* Поле для свойства Collapsed }
    f_ParaID: Integer;
-    {* Поле для свойства ParaID }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

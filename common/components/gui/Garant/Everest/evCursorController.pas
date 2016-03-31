@@ -24,11 +24,9 @@ type
   private
    f_NeedSetTop: Boolean;
    f_View: InevInputView;
-    {* Поле для свойства View }
    f_Cursor: InevLinkedPoint;
-    {* Поле для свойства Cursor }
+    {* Текущая позиция в документе }
    f_LockCaret: Integer;
-    {* Поле для свойства LockCaret }
   protected
    function pm_GetDocument: Tl3Tag;
    procedure pm_SetDocument(aValue: Tl3Tag);

@@ -32,10 +32,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnpNavigatorList;
     {* Метод получения экземпляра синглетона TnpNavigatorList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnpNavigatorList
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -58,12 +58,6 @@ procedure TnpNavigatorListFree;
 begin
  l3Free(g_TnpNavigatorList);
 end;//TnpNavigatorListFree
-
-class function TnpNavigatorList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnpNavigatorList <> nil;
-end;//TnpNavigatorList.Exists
 
 procedure TnpNavigatorList.GetMessageListenerNotify(Code: Integer;
  aWParam: WPARAM;
@@ -112,6 +106,12 @@ begin
  end;
  Result := g_TnpNavigatorList;
 end;//TnpNavigatorList.Instance
+
+class function TnpNavigatorList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnpNavigatorList <> nil;
+end;//TnpNavigatorList.Exists
 
 procedure TnpNavigatorList.Cleanup;
  {* Функция очистки полей объекта. }

@@ -21,9 +21,9 @@ type
   {* Примесь для классификации таблиц и строк }
   private
    f_TableStyle: TedTabelType;
-    {* Поле для свойства TableStyle }
+    {* Стиль таблицы. Устанавливается в процессе анализа таблицы. В зависимости от него изменяется алгоритм выравнивания границ. }
    f_CurrentRowType: TedRowType;
-    {* Поле для свойства CurrentRowType }
+    {* Тип текущей строки. }
   private
    procedure AnalizeTableStyle;
    procedure CheckRowType(const aRow: IedRow);

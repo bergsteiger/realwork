@@ -23,7 +23,6 @@ type
    f_SubStack: TevSCSubList;
    f_Labels: TevSCSubList;
    f_SubList: TevSCSubList;
-    {* Поле для свойства SubList }
   private
    procedure AddToSub(const aSub: IevSCSub;
     aAttrType: TevSCAttrType;

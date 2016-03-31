@@ -34,12 +34,12 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3DwmApi
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type _Instance_R_ = TvcmGlassForm;

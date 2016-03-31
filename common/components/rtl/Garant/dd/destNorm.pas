@@ -46,7 +46,6 @@ type
    f_FirstShape: Integer;
    f_Paragraphs: TddDocumentAtomList;
    f_TextBuffer: Tl3String;
-    {* Поле для свойства TextBuffer }
   private
    procedure AddTable(aLevel: Integer);
    function FindNestedLastTable: TddTable;

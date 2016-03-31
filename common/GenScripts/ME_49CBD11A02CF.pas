@@ -13,9 +13,9 @@ uses
  l3IntfUses
  , evDocumentPreviewPrim
  , afwInterfaces
- , nevTools
- , nevBase
  , l3Variant
+ , nevBase
+ , nevTools
 ;
 
 type

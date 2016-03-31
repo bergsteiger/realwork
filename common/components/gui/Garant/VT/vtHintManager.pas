@@ -43,13 +43,13 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , vtHintWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 var g_TvtHintManager: TvtHintManager = nil;

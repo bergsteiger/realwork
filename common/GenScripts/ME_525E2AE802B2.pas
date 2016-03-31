@@ -20,13 +20,9 @@ type
  TddBorderPart = class(TddBaseObject)
   private
    f_Width: Integer;
-    {* Поле для свойства Width }
    f_Space: Integer;
-    {* Поле для свойства Space }
    f_Color: Integer;
-    {* Поле для свойства Color }
    f_FrameType: TddBorderType;
-    {* Поле для свойства FrameType }
   protected
    function pm_GetEnable: Boolean;
    procedure pm_SetEnable(aValue: Boolean);

@@ -28,7 +28,6 @@ type
   private
    f_Linked: Boolean;
    f_Entities: TvcmBaseEntitiesCollection;
-    {* Поле для свойства Entities }
   protected
    function pm_GetEntities: TvcmBaseEntitiesCollection;
    procedure pm_SetEntities(aValue: TvcmBaseEntitiesCollection);

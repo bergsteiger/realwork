@@ -19,7 +19,6 @@ type
  TctFakeBoxStrings = class(TComboBoxStrings)
   private
    f_SubOwner: TFakeBox;
-    {* Поле для свойства SubOwner }
   public
    constructor Create(anOwner: TFakeBox); reintroduce;
    procedure Assign(Source: TPersistent); override;

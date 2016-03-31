@@ -33,9 +33,7 @@ type
  TevSubPanelSubArrayPrim = {abstract} class(_l3ObjectRefListPrim_)
   private
    f_Owner: TWinControl;
-    {* Поле для свойства Owner }
    f_Handle: Tl3Handle;
-    {* Поле для свойства Handle }
   protected
    {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;

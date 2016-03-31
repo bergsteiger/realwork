@@ -19,9 +19,7 @@ type
  TddVirtualTable = class(TddTable)
   private
    f_CellAdjust: TddAutoFitBehavior;
-    {* Поле для свойства CellAdjust }
    f_MaxWidth: Integer;
-    {* Поле для свойства MaxWidth }
   protected
    function pm_GetTotalCellCount: Integer;
   public

@@ -29,9 +29,8 @@ type
    f_OldOffset: TevCellsCharOffsets;
    f_NewOffset: TevCellsCharOffsets;
    f_CellsType: TedCellTypesList;
-    {* Поле для свойства CellsType }
+    {* Массив с типами содержимого ячеек. }
    f_RowType: TedRowType;
-    {* Поле для свойства RowType }
   private
    function CompareWidth(const aOffsetList: TevCellsOffsetsPair;
     var l_Delta: Integer): Integer;

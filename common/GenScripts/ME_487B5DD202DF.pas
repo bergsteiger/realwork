@@ -22,9 +22,7 @@ type
   {* Курсор с выделением. Для конечного использования. }
   private
    f_Mouse: InevPoint;
-    {* Поле для свойства Mouse }
    f_FoundBlock: InevRange;
-    {* Поле для свойства FoundBlock }
   protected
    function pm_GetMouse: InevPoint;
    procedure pm_SetFoundBlock(const aValue: InevRange);

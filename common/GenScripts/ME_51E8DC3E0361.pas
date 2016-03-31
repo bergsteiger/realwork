@@ -29,43 +29,24 @@ type
    f_NeedWMFHeader: Boolean;
    f_WMFHeader: Tl3MetafileHeader;
    f_IsBinary: Boolean;
-    {* Поле для свойства IsBinary }
    f_BPP: Integer;
-    {* Поле для свойства BPP }
    f_CropL: Integer;
-    {* Поле для свойства CropL }
    f_CropR: Integer;
-    {* Поле для свойства CropR }
    f_CropB: Integer;
-    {* Поле для свойства CropB }
    f_CropT: Integer;
-    {* Поле для свойства CropT }
    f_ExternalHandle: Integer;
-    {* Поле для свойства ExternalHandle }
    f_ExternalPath: AnsiString;
-    {* Поле для свойства ExternalPath }
    f_Format: Integer;
-    {* Поле для свойства Format }
    f_GoalX: Integer;
-    {* Поле для свойства GoalX }
    f_GoalY: Integer;
-    {* Поле для свойства GoalY }
    f_Height: Integer;
-    {* Поле для свойства Height }
    f_ScaleX: Integer;
-    {* Поле для свойства ScaleX }
    f_ScaleY: Integer;
-    {* Поле для свойства ScaleY }
    f_Width: Integer;
-    {* Поле для свойства Width }
    f_Stream: TStream;
-    {* Поле для свойства Stream }
    f_Picture: Tl3String;
-    {* Поле для свойства Picture }
    f_WidthInPixels: Integer;
-    {* Поле для свойства WidthInPixels }
    f_HeightInPixels: Integer;
-    {* Поле для свойства HeightInPixels }
   private
    procedure CropPicture;
    function HexToBinEx(aText: Tl3String;

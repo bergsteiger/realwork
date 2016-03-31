@@ -19,7 +19,6 @@ type
  Tdd_lcHiddenTextExtractor = class(TevdLeafParaFilter)
   private
    f_ClearFont: Boolean;
-    {* Поле для свойства ClearFont }
   private
    procedure WriteToLog(const aText: AnsiString;
     IsSeg: Boolean);

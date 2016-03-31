@@ -23,9 +23,7 @@ type
  TddDocumentAtom = class(_ddDocAtomWithAssign_)
   private
    f_Closed: Boolean;
-    {* Поле для свойства Closed }
    f_Stored: Boolean;
-    {* Поле для свойства Stored }
   protected
    f_Destination: TddCustomDestination;
   protected

@@ -18,7 +18,6 @@ type
  TvcmUserTypesCollectionItemPrim = class(TvcmBaseCollectionItem)
   private
    f_CanHaveToolbars: Boolean;
-    {* Поле для свойства CanHaveToolbars }
   protected
    procedure InitFields; override;
   public

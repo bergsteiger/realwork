@@ -25,14 +25,13 @@ type
  TvcmOperationsManager = class
   private
    f_Registrar: IvcmOperationsRegistrar;
-    {* Поле для свойства Registrar }
   public
    procedure Register(anEn: TvcmBaseEntitiesCollectionItem;
     anOp: TvcmBaseOperationsCollectionItem);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvcmOperationsManager;
     {* Метод получения экземпляра синглетона TvcmOperationsManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Registrar: IvcmOperationsRegistrar
     read f_Registrar
@@ -69,12 +68,6 @@ begin
 //#UC END# *52A73ABA0304_52A73A5900E2_impl*
 end;//TvcmOperationsManager.Register
 
-class function TvcmOperationsManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmOperationsManager <> nil;
-end;//TvcmOperationsManager.Exists
-
 class function TvcmOperationsManager.Instance: TvcmOperationsManager;
  {* Метод получения экземпляра синглетона TvcmOperationsManager }
 begin
@@ -85,6 +78,12 @@ begin
  end;
  Result := g_TvcmOperationsManager;
 end;//TvcmOperationsManager.Instance
+
+class function TvcmOperationsManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmOperationsManager <> nil;
+end;//TvcmOperationsManager.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

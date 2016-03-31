@@ -29,37 +29,21 @@ type
  TddDocumentProperty = class(TddPropertyObject)
   private
    f_CharSet: TrtfCharacterSet;
-    {* Поле для свойства CharSet }
    f_CodePage: Integer;
-    {* Поле для свойства CodePage }
    f_yaBottom: Integer;
-    {* Поле для свойства yaBottom }
    f_DefLang: Integer;
-    {* Поле для свойства DefLang }
    f_DefTab: Integer;
-    {* Поле для свойства DefTab }
    f_pgnStart: Integer;
-    {* Поле для свойства pgnStart }
    f_xaLeft: Integer;
-    {* Поле для свойства xaLeft }
    f_xaPage: Integer;
-    {* Поле для свойства xaPage }
    f_xaRight: Integer;
-    {* Поле для свойства xaRight }
    f_xGutter: Integer;
-    {* Поле для свойства xGutter }
    f_yaPage: Integer;
-    {* Поле для свойства yaPage }
    f_yaTop: Integer;
-    {* Поле для свойства yaTop }
    f_Facingp: Boolean;
-    {* Поле для свойства Facingp }
    f_FirstSpec: Boolean;
-    {* Поле для свойства FirstSpec }
    f_Landscape: Boolean;
-    {* Поле для свойства Landscape }
    f_DefFont: Integer;
-    {* Поле для свойства DefFont }
   public
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;

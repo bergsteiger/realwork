@@ -29,9 +29,7 @@ type
    f_CanRefresh: Boolean;
    f_DataSource: Integer;
    f_RefreshStack: TvcmFormSetRefreshDataParamsList;
-    {* Поле для свойства RefreshStack }
    f_Forms: TvcmFormSetFormList;
-    {* Поле для свойства Forms }
   protected
    function pm_GetRefreshStack: TvcmFormSetRefreshDataParamsList;
    function pm_GetForms: TvcmFormSetFormList;

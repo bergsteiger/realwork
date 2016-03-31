@@ -46,7 +46,7 @@ type
    f_IndentLevel: Integer;
    f_Justification: Tl3ProtoIntegerList;
    f_DefaultStyle: Integer;
-    {* Поле для свойства DefaultStyle }
+    {* Стиль текста по-умолчанию }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

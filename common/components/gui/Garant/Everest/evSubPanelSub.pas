@@ -20,11 +20,8 @@ type
  TevSubPanelSub = class(Tl3ProtoObject)
   private
    f_R: Tl3Rect;
-    {* Поле для свойства R }
    f_DrawRect: Tl3Rect;
-    {* Поле для свойства DrawRect }
    f_RealSub: IevSub;
-    {* Поле для свойства RealSub }
   protected
    function pm_GetHandle: Tl3Handle;
    procedure Cleanup; override;

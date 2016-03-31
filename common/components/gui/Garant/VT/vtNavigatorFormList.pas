@@ -17,10 +17,10 @@ uses
 type
  TvtNavigatorFormList = class(TvtNavigatorFormListPrim)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvtNavigatorFormList;
     {* Метод получения экземпляра синглетона TvtNavigatorFormList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvtNavigatorFormList
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -42,12 +42,6 @@ begin
  l3Free(g_TvtNavigatorFormList);
 end;//TvtNavigatorFormListFree
 
-class function TvtNavigatorFormList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvtNavigatorFormList <> nil;
-end;//TvtNavigatorFormList.Exists
-
 class function TvtNavigatorFormList.Instance: TvtNavigatorFormList;
  {* Метод получения экземпляра синглетона TvtNavigatorFormList }
 begin
@@ -58,6 +52,12 @@ begin
  end;
  Result := g_TvtNavigatorFormList;
 end;//TvtNavigatorFormList.Instance
+
+class function TvtNavigatorFormList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvtNavigatorFormList <> nil;
+end;//TvtNavigatorFormList.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

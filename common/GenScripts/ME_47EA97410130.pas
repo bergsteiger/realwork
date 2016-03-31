@@ -71,15 +71,10 @@ type
    f_TextOwner: Tl3Variant;
     {* Владелец текста, отличный от нас }
    f_Preview: IafwPreviewCanvas;
-    {* Поле для свойства Preview }
    f_Text: InevObject;
-    {* Поле для свойства Text }
    f_Printer: IafwPrinter;
-    {* Поле для свойства Printer }
    f_Processor: InevProcessor;
-    {* Поле для свойства Processor }
    f_PagesInfo: TafwPagesInfo;
-    {* Поле для свойства PagesInfo }
   private
    function GetText: InevObject;
     {* Получаем текст документа для просмотра }

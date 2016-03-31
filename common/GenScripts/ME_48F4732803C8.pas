@@ -30,7 +30,6 @@ type
    f_Formats: Tl3ClipboardFormats;
    f_SameFormat: Boolean;
    f_Format: Tl3ClipboardFormat;
-    {* Поле для свойства Format }
   protected
    function DataObjectClass: RevDataObject; virtual;
    function Sharp: Boolean; virtual;

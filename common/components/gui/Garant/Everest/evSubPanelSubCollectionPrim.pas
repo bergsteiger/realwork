@@ -31,7 +31,6 @@ type
  TevSubPanelSubCollectionPrim = {abstract} class(_l3UncomparabeObjectRefList_)
   private
    f_Owner: TWinControl;
-    {* Поле для свойства Owner }
   public
    constructor Create(anOwner: TWinControl); reintroduce;
   public

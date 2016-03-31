@@ -24,10 +24,10 @@ type
    function FontSizeForTag(aTag: Tl3Variant): Integer;
    procedure SaveStylesFontSizes;
    function FontSizeForStyle(aStyle: Integer): Integer;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevDefaultStylesFontSizes;
     {* Метод получения экземпляра синглетона TevDefaultStylesFontSizes }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevDefaultStylesFontSizes
 
 implementation
@@ -114,12 +114,6 @@ begin
 //#UC END# *4E32AE440052_4E31743D01F8_impl*
 end;//TevDefaultStylesFontSizes.FontSizeForStyle
 
-class function TevDefaultStylesFontSizes.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevDefaultStylesFontSizes <> nil;
-end;//TevDefaultStylesFontSizes.Exists
-
 class function TevDefaultStylesFontSizes.Instance: TevDefaultStylesFontSizes;
  {* Метод получения экземпляра синглетона TevDefaultStylesFontSizes }
 begin
@@ -130,5 +124,11 @@ begin
  end;
  Result := g_TevDefaultStylesFontSizes;
 end;//TevDefaultStylesFontSizes.Instance
+
+class function TevDefaultStylesFontSizes.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevDefaultStylesFontSizes <> nil;
+end;//TevDefaultStylesFontSizes.Exists
 
 end.

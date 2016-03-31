@@ -22,13 +22,13 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , vtComboTreeWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , vtComboBoxWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

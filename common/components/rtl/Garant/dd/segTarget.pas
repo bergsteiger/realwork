@@ -17,9 +17,7 @@ type
  TsegTarget = class(Tl3ProtoObject)
   private
    f_DocID: Integer;
-    {* Поле для свойства DocID }
    f_SubID: Integer;
-    {* Поле для свойства SubID }
   public
    constructor Create(aDocID: Integer;
     aSubID: Integer); reintroduce;

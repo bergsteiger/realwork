@@ -34,7 +34,6 @@ type
    f_FormatPool: TnevFormatPool;
    f_SectionBreaks: TnevSectionBreakList;
    f_Modified: Boolean;
-    {* Поле для свойства Modified }
   protected
    procedure pm_SetModified(aValue: Boolean); virtual;
    function DoGetControlImg(const aControl: TnevControlInfo;

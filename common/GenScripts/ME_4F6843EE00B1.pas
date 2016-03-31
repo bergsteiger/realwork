@@ -24,7 +24,6 @@ type
   private
    f_BorderParts: TddBorderPartArray;
    f_BorderOwner: TddBorderOwner;
-    {* Поле для свойства BorderOwner }
   private
    function HasAllFramePart: Boolean;
   protected

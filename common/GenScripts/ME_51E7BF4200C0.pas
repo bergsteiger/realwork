@@ -25,21 +25,20 @@ type
   {* Попытка разделить TddRTFReader на две части, чтобы используемые в нем классы могли знать об нем. }
   private
    f_SkipPicture: Boolean;
-    {* Поле для свойства SkipPicture }
+    {* Флаг для пропуска картинки в процессе чтения. }
    f_EnablePictures: Boolean;
-    {* Поле для свойства EnablePictures }
+    {* Читать картинки. }
    f_ReadWMFIfExists: Boolean;
-    {* Поле для свойства ReadWMFIfExists }
+    {* Читать WMF-файлы, вместо растровых картинок (если такое возможно) }
    f_NextFootnoteNumber: Integer;
-    {* Поле для свойства NextFootnoteNumber }
    f_MinPicWidth: Integer;
-    {* Поле для свойства MinPicWidth }
+    {* Если у картники меньше ширина, то такая картинка не добавляется в документ. }
    f_MinPicHeight: Integer;
-    {* Поле для свойства MinPicHeight }
+    {* Если у картники меньше высота, то такая картинка не добавляется в документ. }
    f_IdenticalRowWidths: Boolean;
-    {* Поле для свойства IdenticalRowWidths }
+    {* Делать ширину ячеек одинаковой (дополняя справа ячейками без границ). Для вставки в комментарии. }
    f_ReadURL: Boolean;
-    {* Поле для свойства ReadURL }
+    {* Читать гиперссылки. Ссылка добавляется в поле URL. }
   protected
    procedure pm_SetMinPicWidth(aValue: Integer); virtual;
    procedure pm_SetMinPicHeight(aValue: Integer);

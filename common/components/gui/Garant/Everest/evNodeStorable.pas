@@ -21,7 +21,6 @@ type
  TevNodeStorable = class(TevStringStorable)
   private
    f_Node: InevSimpleNode;
-    {* Поле для свойства Node }
   protected
    function Text: Tl3WString; override;
    procedure Cleanup; override;

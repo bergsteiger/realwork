@@ -30,7 +30,6 @@ type
   private
    f_TextSegmentQueue: TddTextSegmentQueue;
    f_Host: AnsiString;
-    {* Поле для свойства Host }
   private
    procedure CheckSegmentStart(const aPara: TddTextParagraph;
     const aSeg: TddTextSegment);

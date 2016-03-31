@@ -65,7 +65,6 @@ type
  TvcmFormSetContainerRegistry = class(Tl3ProtoObject)
   private
    f_Map: TvcmFormSetContainerMap;
-    {* Поле для свойства Map }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -78,10 +77,10 @@ type
    procedure UnregisterFormSet(const aFormSet: IvcmFormSet);
    function GetFormSetCount(const aContainer: IvcmContainer): Integer;
    procedure UnregisterContainer(const aContainer: IvcmContainer);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvcmFormSetContainerRegistry;
     {* Метод получения экземпляра синглетона TvcmFormSetContainerRegistry }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Map: TvcmFormSetContainerMap
     read f_Map;
@@ -356,12 +355,6 @@ begin
 //#UC END# *55E949D10216_5559A3F601FD_impl*
 end;//TvcmFormSetContainerRegistry.UnregisterContainer
 
-class function TvcmFormSetContainerRegistry.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmFormSetContainerRegistry <> nil;
-end;//TvcmFormSetContainerRegistry.Exists
-
 class function TvcmFormSetContainerRegistry.Instance: TvcmFormSetContainerRegistry;
  {* Метод получения экземпляра синглетона TvcmFormSetContainerRegistry }
 begin
@@ -372,6 +365,12 @@ begin
  end;
  Result := g_TvcmFormSetContainerRegistry;
 end;//TvcmFormSetContainerRegistry.Instance
+
+class function TvcmFormSetContainerRegistry.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmFormSetContainerRegistry <> nil;
+end;//TvcmFormSetContainerRegistry.Exists
 
 procedure TvcmFormSetContainerRegistry.Cleanup;
  {* Функция очистки полей объекта. }

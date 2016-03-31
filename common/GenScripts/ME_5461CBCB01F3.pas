@@ -24,13 +24,9 @@ type
  TdestShp = class(TddRTFDestination)
   private
    f_ShapeTxt: TdestShapeTxt;
-    {* Поле для свойства ShapeTxt }
    f_ShapeInst: TdestShapeInst;
-    {* Поле для свойства ShapeInst }
    f_Norm: TdestNorm;
-    {* Поле для свойства Norm }
    f_ShapeRslt: TdestShapeRslt;
-    {* Поле для свойства ShapeRslt }
   protected
    procedure pm_SetShapeTxt(aValue: TdestShapeTxt);
    procedure pm_SetShapeInst(aValue: TdestShapeInst);

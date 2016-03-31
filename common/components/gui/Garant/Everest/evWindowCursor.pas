@@ -28,9 +28,7 @@ type
    f_WasCollapsed: Boolean;
    f_Updates: TnevBasePointList;
    f_Caret: TafwCaret;
-    {* Поле для свойства Caret }
    f_xxxLock: Integer;
-    {* Поле для свойства xxxLock }
   protected
    function pm_GetCollapsed: Boolean; virtual;
    function pm_GetLocked: Boolean;

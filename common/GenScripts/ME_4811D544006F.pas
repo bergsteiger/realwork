@@ -22,9 +22,7 @@ type
   {* Базовая реализация области вывода. }
   private
    f_Level: Integer;
-    {* Поле для свойства Level }
    f_ShapesPainted: TnevShapesPainted;
-    {* Поле для свойства ShapesPainted }
   protected
    f_Holder: Pointer;
   protected

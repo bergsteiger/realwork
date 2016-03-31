@@ -16,10 +16,10 @@ uses
 type
  TevOperationDispatcherEx = class(TevOperationDispatcher)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TevOperationDispatcherEx;
     {* Метод получения экземпляра синглетона TevOperationDispatcherEx }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevOperationDispatcherEx
 
 implementation
@@ -39,12 +39,6 @@ begin
  l3Free(g_TevOperationDispatcherEx);
 end;//TevOperationDispatcherExFree
 
-class function TevOperationDispatcherEx.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevOperationDispatcherEx <> nil;
-end;//TevOperationDispatcherEx.Exists
-
 class function TevOperationDispatcherEx.Instance: TevOperationDispatcherEx;
  {* Метод получения экземпляра синглетона TevOperationDispatcherEx }
 begin
@@ -55,5 +49,11 @@ begin
  end;
  Result := g_TevOperationDispatcherEx;
 end;//TevOperationDispatcherEx.Instance
+
+class function TevOperationDispatcherEx.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevOperationDispatcherEx <> nil;
+end;//TevOperationDispatcherEx.Exists
 
 end.

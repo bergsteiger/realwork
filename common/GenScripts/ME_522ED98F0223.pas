@@ -21,7 +21,6 @@ type
   {* Базовый клас для инструментов работающих с тегами }
   private
    f_Context: InevOp;
-    {* Поле для свойства Context }
   protected
    function pm_GetTag: Tl3Variant; virtual;
    procedure pm_SetTag(aValue: Tl3Variant); virtual;

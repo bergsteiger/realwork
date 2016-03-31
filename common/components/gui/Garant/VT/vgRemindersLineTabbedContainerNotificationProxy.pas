@@ -23,10 +23,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvgRemindersLineTabbedContainerNotificationProxy;
     {* Метод получения экземпляра синглетона TvgRemindersLineTabbedContainerNotificationProxy }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvgRemindersLineTabbedContainerNotificationProxy
 {$IfEnd} // NOT Defined(NoVGScene)
 
@@ -48,12 +48,6 @@ procedure TvgRemindersLineTabbedContainerNotificationProxyFree;
 begin
  l3Free(g_TvgRemindersLineTabbedContainerNotificationProxy);
 end;//TvgRemindersLineTabbedContainerNotificationProxyFree
-
-class function TvgRemindersLineTabbedContainerNotificationProxy.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvgRemindersLineTabbedContainerNotificationProxy <> nil;
-end;//TvgRemindersLineTabbedContainerNotificationProxy.Exists
 
 procedure TvgRemindersLineTabbedContainerNotificationProxy.NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
 //#UC START# *55321ADE02E9_5417C7F502CD_var*
@@ -79,6 +73,12 @@ begin
  end;
  Result := g_TvgRemindersLineTabbedContainerNotificationProxy;
 end;//TvgRemindersLineTabbedContainerNotificationProxy.Instance
+
+class function TvgRemindersLineTabbedContainerNotificationProxy.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvgRemindersLineTabbedContainerNotificationProxy <> nil;
+end;//TvgRemindersLineTabbedContainerNotificationProxy.Exists
 
 procedure TvgRemindersLineTabbedContainerNotificationProxy.Cleanup;
  {* Функция очистки полей объекта. }

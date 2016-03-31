@@ -50,11 +50,8 @@ type
  )
   private
    f_EntityName: AnsiString;
-    {* Поле для свойства EntityName }
    f_OperationName: AnsiString;
-    {* Поле для свойства OperationName }
    f_ActionLink: TvgReminderActionLink;
-    {* Поле для свойства ActionLink }
   private
    procedure DoActionChange(Sender: TObject);
   protected

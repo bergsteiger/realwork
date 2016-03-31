@@ -21,7 +21,7 @@ type
   {* Элемент списка  форм навигатора. }
   private
    f_CloseHandler: IvcmFormHandler;
-    {* Поле для свойства CloseHandler }
+    {* Обработчик закрыть формы. }
   protected
    function pm_GetCloseHandler: IvcmFormHandler; virtual;
    procedure Cleanup; override;

@@ -63,39 +63,23 @@ type
    f_vgText: TvgText;
    f_TextRectColor: AnsiString;
    f_PopupForm: TvtPopupFormModelPart;
-    {* Поле для свойства PopupForm }
    f_ImageIndex: TImageIndex;
-    {* Поле для свойства ImageIndex }
    f_Caption: Il3CString;
-    {* Поле для свойства Caption }
    f_Hint: Il3CString;
-    {* Поле для свойства Hint }
    f_IsFlash: Boolean;
-    {* Поле для свойства IsFlash }
+    {* Состояние медали при мигании }
    f_vgTextRect: TvgRectangle;
-    {* Поле для свойства vgTextRect }
    f_vgImage: TvgImage;
-    {* Поле для свойства vgImage }
    f_Visible: Boolean;
-    {* Поле для свойства Visible }
    f_PopupFormBounds: TPopupFormBoundsRects;
-    {* Поле для свойства PopupFormBounds }
    f_UserType: TvcmUserType;
-    {* Поле для свойства UserType }
    f_PopupFormControl: TControl;
-    {* Поле для свойства PopupFormControl }
    f_OnPopupFormShow: TNotifyEvent;
-    {* Поле для свойства OnPopupFormShow }
    f_OnPopupFormHide: TNotifyEvent;
-    {* Поле для свойства OnPopupFormHide }
    f_OnShow: TNotifyEvent;
-    {* Поле для свойства OnShow }
    f_OnHide: TNotifyEvent;
-    {* Поле для свойства OnHide }
    f_PopupMenu: TPopupMenu;
-    {* Поле для свойства PopupMenu }
    f_SortIndex: Integer;
-    {* Поле для свойства SortIndex }
   private
    procedure FlashTimer(Sender: TObject);
    procedure DoChange;
@@ -235,19 +219,13 @@ type
    f_RestoreWindowTimer: TTimer;
    f_ActivateProcessingLockCount: Integer;
    f_Parent: TWinControl;
-    {* Поле для свойства Parent }
+    {* Контрол, "внутри" которого должны лежать медали }
    f_HorzPos: single;
-    {* Поле для свойства HorzPos }
    f_VertPos: single;
-    {* Поле для свойства VertPos }
    f_Form: TvgRemindersLineForm;
-    {* Поле для свойства Form }
    f_Visible: Boolean;
-    {* Поле для свойства Visible }
    f_Images: TCustomImageList;
-    {* Поле для свойства Images }
    f_Sorted: Boolean;
-    {* Поле для свойства Sorted }
   private
    procedure UpdateReminders;
    procedure UpdateReminder(aIndex: Integer);
@@ -422,12 +400,12 @@ uses
  , vgRemindersLineNotificationProxy
  , l3DwmApi
  , vgRemindersLineTabbedContainerNotificationProxy
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
  , RemindersLineWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
  , ReminderWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)

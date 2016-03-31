@@ -20,9 +20,7 @@ type
  TevHAFPainter = class(Tl3ProtoObject, Il3HAFPainter)
   private
    f_PagesCount: Integer;
-    {* Поле для свойства PagesCount }
    f_MacroReplacer: Il3HAFMacroReplacer;
-    {* Поле для свойства MacroReplacer }
   protected
    function pm_GetMacroReplacer: Il3HAFMacroReplacer;
    function MacroDocCurrentPage(const aCanvas: Il3Canvas): Il3CString;

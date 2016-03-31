@@ -28,7 +28,6 @@ type
    f_FL: Tl3FormattedLines;
    f_NCMousePoint: LongInt;
    f_LastHint: Il3CString;
-    {* Поле для свойства LastHint }
   protected
    {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;

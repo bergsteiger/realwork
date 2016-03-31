@@ -28,9 +28,6 @@ implementation
 {$If NOT Defined(NoVGScene)}
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -39,6 +36,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , OvcConst
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

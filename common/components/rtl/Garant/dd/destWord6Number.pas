@@ -22,7 +22,6 @@ type
   {* Текст нумерации в стиле Word 6/95 }
   private
    f_ItemText: AnsiString;
-    {* Поле для свойства ItemText }
   protected
    procedure ClearFields; override;
   public

@@ -18,7 +18,6 @@ type
  TddTable = class(TddTablePrim)
   private
    f_StartRow: Integer;
-    {* Поле для свойства StartRow }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

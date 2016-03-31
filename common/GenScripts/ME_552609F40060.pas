@@ -37,10 +37,10 @@ type
     const aParams: Il3TabParams);
    function GetFormParams(aForm: TForm): Il3TabParams;
    procedure DeleteFormParams(aForm: TForm);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TChromeLikeFormTabParamsList;
     {* Метод получения экземпляра синглетона TChromeLikeFormTabParamsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TChromeLikeFormTabParamsList
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
@@ -245,12 +245,6 @@ begin
 //#UC END# *55260E320249_552609F40060_impl*
 end;//TChromeLikeFormTabParamsList.MakeParamsItem
 
-class function TChromeLikeFormTabParamsList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TChromeLikeFormTabParamsList <> nil;
-end;//TChromeLikeFormTabParamsList.Exists
-
 class function TChromeLikeFormTabParamsList.Instance: TChromeLikeFormTabParamsList;
  {* Метод получения экземпляра синглетона TChromeLikeFormTabParamsList }
 begin
@@ -261,6 +255,12 @@ begin
  end;
  Result := g_TChromeLikeFormTabParamsList;
 end;//TChromeLikeFormTabParamsList.Instance
+
+class function TChromeLikeFormTabParamsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TChromeLikeFormTabParamsList <> nil;
+end;//TChromeLikeFormTabParamsList.Exists
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

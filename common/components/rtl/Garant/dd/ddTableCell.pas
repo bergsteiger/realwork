@@ -25,9 +25,7 @@ type
   private
    f_ParaList: TddDocumentAtomList;
    f_anIndex: Integer;
-    {* Поле для свойства anIndex }
    f_Props: TddCellProperty;
-    {* Поле для свойства Props }
   protected
    function pm_GetHi: Integer;
    function pm_GetCount: Integer;

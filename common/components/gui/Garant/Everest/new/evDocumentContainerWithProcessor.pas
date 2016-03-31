@@ -23,7 +23,7 @@ type
   {* Контейнер документа с процессором операций. }
   private
    f_Processor: TevCustomUndoProcessor;
-    {* Поле для свойства Processor }
+    {* Процессор операций. }
   protected
    function pm_GetProcessor: TevCustomUndoProcessor;
    procedure pm_SetProcessor(aValue: TevCustomUndoProcessor);

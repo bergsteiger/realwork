@@ -24,7 +24,6 @@ type
   private
    f_Filters: InevTagGenerator;
    f_Block: IevdDataObject;
-    {* Поле для свойства Block }
   protected
    function Store(aFormat: Tl3ClipboardFormat;
     const aPool: IStream): Boolean; override;

@@ -19,7 +19,6 @@ type
  TevDocumentPartGeneratorPrim = class(TevHighLevelDocumentGenerator, IevJoinGenerator)
   private
    f_Flags: TevLoadFlags;
-    {* Поле для свойства Flags }
   protected
    procedure AtEndChanged; virtual; abstract;
    procedure pm_SetNeedJoin(aValue: Boolean);

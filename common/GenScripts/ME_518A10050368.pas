@@ -20,27 +20,16 @@ type
  TddRowProperty = class(TddPropertyObject)
   private
    f_Gaph: LongInt;
-    {* Поле для свойства Gaph }
    f_Left: LongInt;
-    {* Поле для свойства Left }
    f_Width: LongInt;
-    {* Поле для свойства Width }
    f_AutoFit: Boolean;
-    {* Поле для свойства AutoFit }
    f_Border: TddBorder;
-    {* Поле для свойства Border }
    f_IsLastRow: Boolean;
-    {* Поле для свойства IsLastRow }
    f_RowIndex: LongInt;
-    {* Поле для свойства RowIndex }
    f_trwWidthB: LongInt;
-    {* Поле для свойства trwWidthB }
    f_trftsWidthA: TddRTFWidthUnits;
-    {* Поле для свойства trftsWidthA }
    f_trftsWidthB: TddRTFWidthUnits;
-    {* Поле для свойства trftsWidthB }
    f_trwWidthA: LongInt;
-    {* Поле для свойства trwWidthA }
   protected
    procedure pm_SetAutoFit(aValue: Boolean);
    function pm_GettrwWidthB: LongInt;

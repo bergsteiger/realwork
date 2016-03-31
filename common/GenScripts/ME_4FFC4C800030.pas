@@ -48,7 +48,6 @@ type
  TvcmBaseCollection = class(_l3Unknown_)
   private
    f_Sorted: Boolean;
-    {* Поле для свойства Sorted }
   protected
    f_FoundItem: TvcmPrimCollectionItem;
   protected
@@ -93,15 +92,15 @@ implementation
 uses
  l3ImplUses
  , l3String
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
  , l3Core
  , Windows
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4FFC4C800030impl_uses*
  //#UC END# *4FFC4C800030impl_uses*
 ;

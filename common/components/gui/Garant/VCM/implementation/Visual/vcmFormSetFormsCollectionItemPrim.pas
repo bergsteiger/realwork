@@ -33,23 +33,18 @@ type
  TvcmFormSetFormsCollectionItemPrim = class(Tl3ProtoObject)
   private
    f_FormDescriptor: PvcmFormDescriptor;
-    {* Поле для свойства FormDescriptor }
    f_Name: AnsiString;
-    {* Поле для свойства Name }
    f_Caption: Il3CString;
-    {* Поле для свойства Caption }
    f_OnFormCount: TvcmFormCountEvent;
-    {* Поле для свойства OnFormCount }
    f_OnNeedMakeForm: TvcmNeedMakeFormEvent;
-    {* Поле для свойства OnNeedMakeForm }
+    {* данные необходимые для создания формы }
    f_OnFormWeight: TvcmOnFormWeight;
-    {* Поле для свойства OnFormWeight }
+    {* событие определения веса для формы }
    f_UserType: TvcmUserType;
-    {* Поле для свойства UserType }
    f_ActivateIfUpdate: TvcmActivateIfUpdate;
-    {* Поле для свойства ActivateIfUpdate }
+    {* определяет нужно ли сделать активной закладку с формой в случае
+           изменения источника данных }
    f_ZoneType: TvcmZoneType;
-    {* Поле для свойства ZoneType }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

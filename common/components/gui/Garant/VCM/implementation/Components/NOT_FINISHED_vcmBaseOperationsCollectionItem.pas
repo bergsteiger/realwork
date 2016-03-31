@@ -65,41 +65,57 @@ type
    f_FormTest: TvcmControlTestEvent;
    f_FormExecute: TvcmControlExecuteEvent;
    f_OperationType: TvcmOperationType;
-    {* Поле для свойства OperationType }
    f_ContextMenuWeight: Integer;
-    {* Поле для свойства ContextMenuWeight }
    f_OperationID: Integer;
-    {* Поле для свойства OperationID }
    f_AutoLock: Boolean;
-    {* Поле для свойства AutoLock }
    f_AutoFocus: Boolean;
-    {* Поле для свойства AutoFocus }
+    {* Установка фокуса до выполнения операции.
+
+Если AutoFocus = True, перед выполнением операции, фокус передаётся форме или контролу, с которым связана эта операция }
    f_LongProcess: Boolean;
-    {* Поле для свойства LongProcess }
+    {* Обрамление выполнения операции курсором crHourGlass. Нужно только для длительных внутренних (vcm_otInternal) операций, т.к. все вызовы через Action и так обрамлены подобным образом.
+
+Если LongProcess = True, перед выполнением операции курсор заменяется на crHourGlass, а после выполнения возвращается к первоначальному виду }
    f_States: TvcmBaseOperationStates;
-    {* Поле для свойства States }
    f_State: TvcmOperationStateIndex;
-    {* Поле для свойства State }
    f_Controls: TvcmActiveControlsCollection;
-    {* Поле для свойства Controls }
    f_OnGetState: TvcmGetStateEvent;
-    {* Поле для свойства OnGetState }
    f_OnTest: TvcmTestEvent;
-    {* Поле для свойства OnTest }
+    {* Вызывается для перерисовки состояния операции.
+
+Данный обработчик вызывается для определения доступности операции. В массиве aParams можно вернуть изменившее состояние.
+
+Индекс параметра   Тип        Значение
+-----------------  ---------  --------------------------------
+vcm_opEnabled      Boolean    Доступность выполнения операции
+vcm_opVisible      Boolean    Видимость операции в меню и на панели инструментов
+vcm_opChecked      Boolean    Операция помечена
+vcm_opLongHint     AnsiString     Текст подсказки, отображаемой в статусной строке
+vcm_opCaption      AnsiString     Заголовок пункта меню
+
+Для типа операции vcm_otCombo в aParams.Op.SubItems нужно вернуть список строк, представляющий список элементов выпадающего списка. }
    f_OnExecute: TvcmExecuteEvent;
-    {* Поле для свойства OnExecute }
+    {* Обработчик операции. Вызывается из меню главной формы или панели инструментов. }
    f_OnContextTest: TvcmContextTestEvent;
-    {* Поле для свойства OnContextTest }
+    {* Вызывается из контекстного меню.
+          
+Данный обработчик вызывается для определения доступности операции. В массиве aParams можно вернуть изменившее состояние.
+
+Индекс параметра   Тип        Значение
+-----------------  ---------  --------------------------------
+vcm_opEnabled      Boolean    Доступность выполнения операции
+vcm_opVisible      Boolean    Видимость операции в меню и на панели инструментов
+vcm_opChecked      Boolean    Операция помечена
+vcm_opLongHint     AnsiString     Текст подсказки, отображаемой в статусной строке
+vcm_opCaption      AnsiString     Заголовок пункта меню
+
+Для типа операции vcm_otCombo в aParams.Op.SubItems нужно вернуть список строк, представляющий список элементов выпадающего списка. }
    f_OnContextExecute: TvcmContextExecuteEvent;
-    {* Поле для свойства OnContextExecute }
+    {* Обработчик операции. Вызывается из контекстного меню. }
    f_IsCaptionUnique: Boolean;
-    {* Поле для свойства IsCaptionUnique }
    f_SaveShortcut: TShortCut;
-    {* Поле для свойства SaveShortcut }
    f_SaveSecondaryShortcuts: AnsiString;
-    {* Поле для свойства SaveSecondaryShortcuts }
    f_IsDefault: Boolean;
-    {* Поле для свойства IsDefault }
   protected
    f_Options: TvcmOperationOptions;
   protected
@@ -161,11 +177,11 @@ type
     {* Функция очистки полей объекта. }
    procedure BeforeAddToCache; override;
     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
-   procedure ClearFields; override;
    procedure ChangeName(const anOld: AnsiString;
     const aNew: AnsiString); override;
    procedure ChangeCaption(const anOld: AnsiString;
     const aNew: AnsiString); override;
+   procedure ClearFields; override;
   public
    function OwnerForm: TCustomForm;
     {* Возвращает "форму" на которой определена операция }
@@ -994,13 +1010,6 @@ begin
 //#UC END# *4D555CF50027_5620CFFC0045_impl*
 end;//TvcmBaseOperationsCollectionItemPrim.Create
 
-procedure TvcmBaseOperationsCollectionItemPrim.ClearFields;
-begin
- Finalize(f_State);
- f_SaveSecondaryShortcuts := '';
- inherited;
-end;//TvcmBaseOperationsCollectionItemPrim.ClearFields
-
 procedure TvcmBaseOperationsCollectionItemPrim.ChangeName(const anOld: AnsiString;
  const aNew: AnsiString);
 //#UC START# *55CCBA3C0190_5620CFFC0045_var*
@@ -1048,6 +1057,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *561145D802BB_5620CFFC0045_impl*
 end;//TvcmBaseOperationsCollectionItemPrim.QueryInterface
+
+procedure TvcmBaseOperationsCollectionItemPrim.ClearFields;
+begin
+ Finalize(f_State);
+ f_SaveSecondaryShortcuts := '';
+ inherited;
+end;//TvcmBaseOperationsCollectionItemPrim.ClearFields
 
 //#UC START# *4D7A109601C2impl*
 //#UC END# *4D7A109601C2impl*

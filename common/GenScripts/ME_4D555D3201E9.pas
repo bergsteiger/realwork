@@ -32,9 +32,7 @@ type
  TvgCustomGradientPoint = class(_l3Unknown_)
   private
    f_IntColor: TvgColor;
-    {* Поле для свойства IntColor }
    f_Offset: single;
-    {* Поле для свойства Offset }
   protected
    function pm_GetColor: AnsiString;
    procedure pm_SetColor(const aValue: AnsiString);
@@ -68,15 +66,15 @@ implementation
 uses
  l3ImplUses
  , vg_scene
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
  , l3Core
  , Windows
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4D555D3201E9impl_uses*
  //#UC END# *4D555D3201E9impl_uses*
 ;

@@ -46,9 +46,6 @@ implementation
 {$If NOT Defined(NoVGScene)}
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
  , l3Core
@@ -56,6 +53,9 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4D5416AC01D1impl_uses*
  //#UC END# *4D5416AC01D1impl_uses*
 ;

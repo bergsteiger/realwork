@@ -25,21 +25,18 @@ type
   private
    f_LockCursorChange: Integer;
    f_NoCaret: Boolean;
-    {* Поле для свойства NoCaret }
    f_Persistent: Boolean;
-    {* Поле для свойства Persistent }
+    {* Persistent-выделение? }
    f_Start: InevLinkedPoint;
-    {* Поле для свойства Start }
+    {* начало выделения }
    f_Finish: InevLinkedPoint;
-    {* Поле для свойства Finish }
+    {* конец выделения }
    f_DrawLines: Boolean;
-    {* Поле для свойства DrawLines }
+    {* режим рисования линий? }
    f_StartMark: InevPoint;
-    {* Поле для свойства StartMark }
    f_FinishMark: InevPoint;
-    {* Поле для свойства FinishMark }
    f_StartMarkForCtrlKBCtrlKK: InevPoint;
-    {* Поле для свойства StartMarkForCtrlKBCtrlKK }
+    {* [$296097324] }
   protected
    function pm_GetStartMark: InevPoint;
    function pm_GetFinishMark: InevPoint;

@@ -23,7 +23,6 @@ type
  TvcmMainMenuAction = class(TvcmAction)
   private
    f_OnTest: TvcmTestEvent;
-    {* Поле для свойства OnTest }
   protected
    procedure DoUpdate; override;
   public

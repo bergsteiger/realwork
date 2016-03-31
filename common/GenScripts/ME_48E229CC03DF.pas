@@ -31,9 +31,9 @@ type
   private
    fl_ForeignHotSpotMove: TevForeignHotSpotMode;
    f_ForeignHotSpot: IevHotSpot;
-    {* Поле для свойства ForeignHotSpot }
+    {* "чужой" HotSpot - вся обработка сначала отдается ему }
    f_ClickCursor: InevBasePoint;
-    {* Поле для свойства ClickCursor }
+    {* курсор куда кликнули }
   protected
    function pm_GetStartMark: InevPoint;
    function pm_GetFinishMark: InevPoint;

@@ -29,11 +29,8 @@ type
    f_LevelTag: Integer;
    f_Flag: Word;
    f_LevelIndent: Integer;
-    {* Поле для свойства LevelIndent }
    f_Data: InevSimpleTree;
-    {* Поле для свойства Data }
    f_SubRoot: InevSimpleNode;
-    {* Поле для свойства SubRoot }
   protected
    procedure DoStoreNode(const aNode: InevSimpleNode;
     const G: InevTagGenerator;

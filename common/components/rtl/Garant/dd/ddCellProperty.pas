@@ -21,47 +21,31 @@ type
   private
    f_ClearBorder: TddClearBoder;
    f_Border: TddBorder;
-    {* Поле для свойства Border }
    f_BottomPad: LongInt;
-    {* Поле для свойства BottomPad }
    f_CellSpan: LongInt;
-    {* Поле для свойства CellSpan }
    f_Index: LongInt;
-    {* Поле для свойства Index }
    f_LeftPad: LongInt;
-    {* Поле для свойства LeftPad }
    f_PatternBackColor: LongInt;
-    {* Поле для свойства PatternBackColor }
    f_PatternBackColorIndex: LongInt;
-    {* Поле для свойства PatternBackColorIndex }
    f_PatternForeColor: LongInt;
-    {* Поле для свойства PatternForeColor }
    f_PatternForeColorIndex: LongInt;
-    {* Поле для свойства PatternForeColorIndex }
    f_RightPad: LongInt;
-    {* Поле для свойства RightPad }
    f_CellOffset: LongInt;
-    {* Поле для свойства CellOffset }
+    {* На самом деле это не ширина, а смещение (по крайней мере у преобразования из текста в табилцу). }
    f_CellJust: TddCellJust;
-    {* Поле для свойства CellJust }
    f_IsPercent: Boolean;
-    {* Поле для свойства IsPercent }
    f_Merged: Boolean;
-    {* Поле для свойства Merged }
    f_MergeFirst: Boolean;
-    {* Поле для свойства MergeFirst }
    f_VMerged: Boolean;
-    {* Поле для свойства VMerged }
+    {* Ячейки принадлежит к объедененым по вертикали. }
    f_VMergeFirst: Boolean;
-    {* Поле для свойства VMergeFirst }
+    {* Флаг устанавливается, чтобы можно было определить вертикальное выравнивание:
+          если попадается еще одна ячейка с таким флагом в колонке, то ей устанавливают
+          флаг VMerged. Начало объединения VMergeFirst = False. }
    f_RowSpan: LongInt;
-    {* Поле для свойства RowSpan }
    f_TopPad: LongInt;
-    {* Поле для свойства TopPad }
    f_AlignCell: Boolean;
-    {* Поле для свойства AlignCell }
    f_CellWidth: LongInt;
-    {* Поле для свойства CellWidth }
   protected
    function pm_GetIsBorder: Boolean;
    procedure pm_SetIsBorder(aValue: Boolean);

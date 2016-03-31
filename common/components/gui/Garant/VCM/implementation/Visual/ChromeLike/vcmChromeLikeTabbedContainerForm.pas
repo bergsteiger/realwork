@@ -26,6 +26,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , ChromeLikeInterfaces
+ , Classes
+ , Windows
 ;
 
 type
@@ -63,8 +65,6 @@ uses
  , vcmEntityForm
  , ChromeLikeFormFramePainter
  , ChromeLikeBaseWindowCaptionButton
- , Windows
- , Classes
  , ChromeLikeTabSetTypes
  , afwFacade
  {$If NOT Defined(NoScripts)}

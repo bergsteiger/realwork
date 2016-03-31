@@ -23,7 +23,6 @@ type
  TdestList = class(TddRTFDestination)
   private
    f_List: TrtfList;
-    {* Поле для свойства List }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

@@ -34,21 +34,13 @@ type
    f_CurrentFiles: TddCurrentFilesArray;
    f_CurrentTopic: TDocID;
    f_CodePage: LongInt;
-    {* Поле для свойства CodePage }
    f_ExportDate: TDateTime;
-    {* Поле для свойства ExportDate }
    f_FilePartSize: Integer;
-    {* Поле для свойства FilePartSize }
    f_TargetFolder: AnsiString;
-    {* Поле для свойства TargetFolder }
    f_FileExt: AnsiString;
-    {* Поле для свойства FileExt }
    f_LowcaseFilenames: Boolean;
-    {* Поле для свойства LowcaseFilenames }
    f_IsDirByMain: Boolean;
-    {* Поле для свойства IsDirByMain }
    f_UpdateFiles: Boolean;
-    {* Поле для свойства UpdateFiles }
   private
    procedure DropCurrentFilesData;
   protected

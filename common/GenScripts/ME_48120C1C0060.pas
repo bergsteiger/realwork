@@ -24,7 +24,6 @@ type
   private
    f_Text: Pointer;
    f_Canvas: InevCanvas;
-    {* Поле для свойства Canvas }
   protected
    f_LimitWidth: Integer;
   protected
