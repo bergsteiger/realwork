@@ -62,23 +62,6 @@ ref; // ME_4DD4F71E0262
 
 ref; // ME_4DD4F6EA03D9 evDisp
 
-: ME_5F1599FC00E3
- CONST UID '5F1599FC00E3'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4DD4F7060070 // TevOperationDispatcherEx
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5F1599FC00E3 Exists
-
 : ME_4DD4F7060070
  CONST UID '4DD4F7060070'
  CONST Name 'TevOperationDispatcherEx'
@@ -93,10 +76,6 @@ ref; // ME_5F1599FC00E3 Exists
    Seq: ( ME_4DD4F6FB0012 // TevOperationDispatcher
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5F1599FC00E3 // Exists
- )
- ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -125,9 +104,5 @@ ref; // ME_4DD4F7060070 TevOperationDispatcherEx
  ME_4DD4F7060070 // TevOperationDispatcherEx
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- )
- ; // Depends
 
 ref; // ME_4DD4F6C40009 Dispatcher

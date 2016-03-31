@@ -508,23 +508,6 @@ ref; // ME_4E7204210050 DoIt
 
 ref; // ME_4E7204190000 Create
 
-FORWARD ME_4E7204280219
-
-: ME_AC23DF02D167
- CONST UID 'AC23DF02D167'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevFontTool.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E7204280219 // Make
- ;
- : Target WL 'ME_467D2AA900F1' '4F4B74180276.pas.ms.script' // InevFontTool
- ;
-
-ref; // ME_AC23DF02D167 DoIt
-
 : ME_4E7204280219
  CONST UID '4E7204280219'
  CONST Name 'Make'
@@ -543,10 +526,6 @@ ref; // ME_AC23DF02D167 DoIt
    Seq: ( WL 'ME_467D2AA900F1' '4F4B74180276.pas.ms.script' // InevFontTool
  )
  ; // Implements
- : Operations
-   Seq: ( ME_AC23DF02D167 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

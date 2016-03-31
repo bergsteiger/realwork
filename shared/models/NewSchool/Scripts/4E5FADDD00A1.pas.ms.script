@@ -49,37 +49,6 @@ ref; // ME_4E5FB4A4037F DoIt
 
 ref; // ME_4E5FB49D0253 Create
 
-FORWARD ME_4E5FB4B90229
-
-: ME_F1F069B39E20
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_F1F069B39E20 aTag
-
-: ME_E676710C58D6
- CONST UID 'E676710C58D6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevSegmentObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E5FB4B90229 // Make
- ;
- : Target WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
- ;
- : Parameters
-   Seq: ( ME_F1F069B39E20 // aTag
- )
- ; // Parameters
-
-ref; // ME_E676710C58D6 DoIt
-
 : ME_4E5FB4B90229
  CONST UID '4E5FB4B90229'
  CONST Name 'Make'
@@ -98,10 +67,6 @@ ref; // ME_E676710C58D6 DoIt
    Seq: ( WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E676710C58D6 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

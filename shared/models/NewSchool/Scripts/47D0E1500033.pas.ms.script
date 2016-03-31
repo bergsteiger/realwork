@@ -3124,12 +3124,6 @@ ref; // ME_49930FE602DE_ME_4AD89C12030A Container
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4AD89C12030A Cleanup
 
-: ME_5000565C019C_ME_4AD89C12030A
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AD89C12030A ClearFields
-
 : ME_4AD89C12030A
  CONST UID '4AD89C12030A'
  CONST Name 'TvcmMakeParams'
@@ -3167,7 +3161,6 @@ ref; // ME_5000565C019C_ME_4AD89C12030A ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4AD89C12030A // Cleanup
- ME_5000565C019C_ME_4AD89C12030A // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -4628,22 +4621,6 @@ ref; // ME_5559A56501B4 TvcmFormSetContainerMap
 
 ref; // ME_5559A5DD037C Map
 
-: ME_0F30481E2FD8
- CONST UID '0F30481E2FD8'
- CONST Name 'f_Map'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Map' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
- ;
- : Target ME_5559A56501B4 // TvcmFormSetContainerMap
- ;
-
-ref; // ME_0F30481E2FD8 f_Map
-
 FORWARD ME_5559A45102B1
 
 : ME_5559A4A602A3
@@ -4734,21 +4711,6 @@ ref; // ME_5559A4AA001C DoIt
 
 ref; // ME_5559A45F0070 GetContainedFormSet
 
-FORWARD ME_5559A5EB0130
-
-: ME_53691A3297C7
- CONST UID '53691A3297C7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5559A5EB0130 // Create
- ;
-
-ref; // ME_53691A3297C7 DoIt
-
 : ME_5559A5EB0130
  CONST UID '5559A5EB0130'
  CONST Name 'Create'
@@ -4759,10 +4721,6 @@ ref; // ME_53691A3297C7 DoIt
  CONST Abstraction at_final
  : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
  ;
- : Operations
-   Seq: ( ME_53691A3297C7 // DoIt
- )
- ; // Operations
 
 ref; // ME_5559A5EB0130 Create
 
@@ -4950,23 +4908,6 @@ ref; // ME_55E949E500CE DoIt
 
 ref; // ME_55E949D10216 UnregisterContainer
 
-: ME_90AA927DF8A7
- CONST UID '90AA927DF8A7'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5559A3F601FD // TvcmFormSetContainerRegistry
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_90AA927DF8A7 Exists
-
 : ME_5559ABC70325
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5029,7 +4970,6 @@ ref; // ME_479731C50290_ME_5559A3F601FD Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_5559A5DD037C // Map
- ME_0F30481E2FD8 // f_Map
  )
  ; // Attributes
  : Operations
@@ -5040,7 +4980,6 @@ ref; // ME_479731C50290_ME_5559A3F601FD Cleanup
  ME_5559A62F028B // UnregisterFormSet
  ME_55E5816E00D5 // GetFormSetCount
  ME_55E949D10216 // UnregisterContainer
- ME_90AA927DF8A7 // Exists
  )
  ; // Operations
  : Overridden
@@ -5858,38 +5797,6 @@ ref; // ME_5286081A00D0 RefreshStack
 
 ref; // ME_528B259002B0 Forms
 
-: ME_4A42D32C92EC
- CONST UID '4A42D32C92EC'
- CONST Name 'f_RefreshStack'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RefreshStack' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5087BD37023E // TvcmFormSet
- ;
- : Target ME_55C1E2610332 // TvcmFormSetRefreshDataParamsList
- ;
-
-ref; // ME_4A42D32C92EC f_RefreshStack
-
-: ME_34D79D5F7C47
- CONST UID '34D79D5F7C47'
- CONST Name 'f_Forms'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Forms' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_5087BD37023E // TvcmFormSet
- ;
- : Target WL 'ME_5289CD8F0001' '528C931303C3.pas.ms.script' // TvcmFormSetFormList
- ;
-
-ref; // ME_34D79D5F7C47 f_Forms
-
 FORWARD ME_5286089601AD
 
 : ME_5286125F00DF
@@ -6466,8 +6373,6 @@ ref; // ME_479731C50290_ME_5087BD37023E Cleanup
  ME_5286076B01F8 // f_DataSource
  ME_5286081A00D0 // RefreshStack
  ME_528B259002B0 // Forms
- ME_4A42D32C92EC // f_RefreshStack
- ME_34D79D5F7C47 // f_Forms
  )
  ; // Attributes
  : Operations

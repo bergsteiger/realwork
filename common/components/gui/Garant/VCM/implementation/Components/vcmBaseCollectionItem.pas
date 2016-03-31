@@ -21,9 +21,7 @@ type
  TvcmBaseCollectionItemPrim = class(TvcmPrimCollectionItem)
   private
    f_Name: AnsiString;
-    {* Поле для свойства Name }
    f_Caption: AnsiString;
-    {* Поле для свойства Caption }
   protected
    function pm_GetName: AnsiString;
    procedure pm_SetName(const aValue: AnsiString);

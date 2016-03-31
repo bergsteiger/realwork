@@ -269,38 +269,6 @@ ref; // ME_544F981C03B5 f_Data
 
 ref; // ME_544F98B70016 f_DataReadyEvent
 
-: ME_2A87B6CE23AF
- CONST UID '2A87B6CE23AF'
- CONST Name 'f_Processing'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Processing' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544E3C54031D // TncsMessageQueue
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Processing'
-
-ref; // ME_2A87B6CE23AF f_Processing
-
-FORWARD ME_5451F97902B8
-
-: ME_39B4E76A5671
- CONST UID '39B4E76A5671'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SignalMessageReady' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5451F97902B8 // SignalMessageReady
- ;
-
-ref; // ME_39B4E76A5671 DoIt
-
 : ME_5451F97902B8
  CONST UID '5451F97902B8'
  CONST Name 'SignalMessageReady'
@@ -311,10 +279,6 @@ ref; // ME_39B4E76A5671 DoIt
  CONST Abstraction at_final
  : Parent ME_544E3C54031D // TncsMessageQueue
  ;
- : Operations
-   Seq: ( ME_39B4E76A5671 // DoIt
- )
- ; // Operations
 
 ref; // ME_5451F97902B8 SignalMessageReady
 
@@ -463,7 +427,6 @@ ref; // ME_47A042E100E2_ME_544E3C54031D InitFields
    Seq: ( ME_545A157B02C2 // Processing
  ME_544F981C03B5 // f_Data
  ME_544F98B70016 // f_DataReadyEvent
- ME_2A87B6CE23AF // f_Processing
  )
  ; // Attributes
  : Operations
@@ -513,22 +476,6 @@ FORWARD ME_5452248C02B8
  CONST "reads field" true
 
 ref; // ME_5450EA090093 Queue
-
-: ME_820D39A2F0B6
- CONST UID '820D39A2F0B6'
- CONST Name 'f_Queue'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Queue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5452248C02B8 // TncsTransporterThread
- ;
- : Target ME_544E3C54031D // TncsMessageQueue
- ;
-
-ref; // ME_820D39A2F0B6 f_Queue
 
 FORWARD ME_5450EAAA0367
 
@@ -643,7 +590,6 @@ ref; // ME_479731C50290_ME_5452248C02B8 Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_5450EA090093 // Queue
- ME_820D39A2F0B6 // f_Queue
  )
  ; // Attributes
  : Operations
@@ -693,38 +639,6 @@ FORWARD ME_5460B6230039
 
 ref; // ME_545224C80036 IOHandler
 
-: ME_932BE204ACB1
- CONST UID '932BE204ACB1'
- CONST Name 'f_IOHandler'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IOHandler' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5460B6230039 // TncsTransporterIOThread
- ;
- : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
- ;
- CONST extprop:clearViaProperty 'IOHandler'
-
-ref; // ME_932BE204ACB1 f_IOHandler
-
-FORWARD ME_545B3DEA0268
-
-: ME_8DF648F79B54
- CONST UID '8DF648F79B54'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ReleaseIOHandler' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_545B3DEA0268 // ReleaseIOHandler
- ;
-
-ref; // ME_8DF648F79B54 DoIt
-
 : ME_545B3DEA0268
  CONST UID '545B3DEA0268'
  CONST Name 'ReleaseIOHandler'
@@ -735,10 +649,6 @@ ref; // ME_8DF648F79B54 DoIt
  CONST Abstraction at_final
  : Parent ME_5460B6230039 // TncsTransporterIOThread
  ;
- : Operations
-   Seq: ( ME_8DF648F79B54 // DoIt
- )
- ; // Operations
 
 ref; // ME_545B3DEA0268 ReleaseIOHandler
 
@@ -780,7 +690,6 @@ ref; // ME_5459DB98029C_ME_5460B6230039 TerminatedConnection
  ; // Inherits
  : Attributes
    Seq: ( ME_545224C80036 // IOHandler
- ME_932BE204ACB1 // f_IOHandler
  )
  ; // Attributes
  : Operations
@@ -1030,39 +939,6 @@ ref; // ME_5461D977016B Reply
 
 ref; // ME_5463228D00A9 f_Event
 
-: ME_27C2B26992C3
- CONST UID '27C2B26992C3'
- CONST Name 'f_Message'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Message' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5461D6C30025 // TncsReplyDescription
- ;
- : Target ME_544E079E0253 // TncsMessage
- ;
-
-ref; // ME_27C2B26992C3 f_Message
-
-: ME_05DEC867B990
- CONST UID '05DEC867B990'
- CONST Name 'f_Reply'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Reply' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5461D6C30025 // TncsReplyDescription
- ;
- : Target ME_544E079E0253 // TncsMessage
- ;
- CONST extprop:clearViaProperty 'Reply'
-
-ref; // ME_05DEC867B990 f_Reply
-
 FORWARD ME_5461D8CE0020
 
 : ME_5461D8E50366
@@ -1108,19 +984,6 @@ ref; // ME_5461D8CE0020 Create
 
 FORWARD ME_5463220800C9
 
-: ME_C1FD0A58B390
- CONST UID 'C1FD0A58B390'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RequestEvent' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5463220800C9 // RequestEvent
- ;
-
-ref; // ME_C1FD0A58B390 DoIt
-
 : ME_54633E840128
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1141,10 +1004,6 @@ ref; // ME_54633E840128
  CONST Abstraction at_final
  : Parent ME_5461D6C30025 // TncsReplyDescription
  ;
- : Operations
-   Seq: ( ME_C1FD0A58B390 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_54633E840128 // 
  )
@@ -1201,21 +1060,6 @@ ref; // ME_546335100360 DoIt
 
 ref; // ME_546335030341 WaitForReply
 
-FORWARD ME_5464AAB30031
-
-: ME_52271C321839
- CONST UID '52271C321839'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AbortWait' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5464AAB30031 // AbortWait
- ;
-
-ref; // ME_52271C321839 DoIt
-
 : ME_5464AAB30031
  CONST UID '5464AAB30031'
  CONST Name 'AbortWait'
@@ -1226,10 +1070,6 @@ ref; // ME_52271C321839 DoIt
  CONST Abstraction at_final
  : Parent ME_5461D6C30025 // TncsReplyDescription
  ;
- : Operations
-   Seq: ( ME_52271C321839 // DoIt
- )
- ; // Operations
 
 ref; // ME_5464AAB30031 AbortWait
 
@@ -1277,8 +1117,6 @@ ref; // ME_479731C50290_ME_5461D6C30025 Cleanup
    Seq: ( ME_5461D95F00E6 // Message
  ME_5461D977016B // Reply
  ME_5463228D00A9 // f_Event
- ME_27C2B26992C3 // f_Message
- ME_05DEC867B990 // f_Reply
  )
  ; // Attributes
  : Operations
@@ -2820,23 +2658,6 @@ ref; // ME_545B8677028E aData
 
 ref; // ME_54538F64032E MakeFromTaggedData
 
-: ME_82122AAFE250
- CONST UID '82122AAFE250'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54539F4702B1 // TncsMessageFactory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_82122AAFE250 Exists
-
 : ME_545A292E0276
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2893,7 +2714,6 @@ ref; // ME_47A042E100E2_ME_54539F4702B1 InitFields
  ME_545A24130098 // Find
  ME_54538B990208 // MakeFromEVD
  ME_54538F64032E // MakeFromTaggedData
- ME_82122AAFE250 // Exists
  )
  ; // Operations
  : Overridden
@@ -3240,21 +3060,6 @@ FORWARD ME_54607384020A
 
 FORWARD ME_5464A0E40234
 
-FORWARD ME_5464A4DE0181
-
-: ME_D4AA126BFCDF
- CONST UID 'D4AA126BFCDF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5464A4DE0181 // Create
- ;
-
-ref; // ME_D4AA126BFCDF DoIt
-
 : ME_5464A4DE0181
  CONST UID '5464A4DE0181'
  CONST Name 'Create'
@@ -3265,29 +3070,8 @@ ref; // ME_D4AA126BFCDF DoIt
  CONST Abstraction at_final
  : Parent ME_5464A0E40234 // TncsInvalidExecutor
  ;
- : Operations
-   Seq: ( ME_D4AA126BFCDF // DoIt
- )
- ; // Operations
 
 ref; // ME_5464A4DE0181 Create
-
-FORWARD ME_5464A4E9009C
-
-: ME_A09DDE350E62
- CONST UID 'A09DDE350E62'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsInvalidExecutor.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5464A4E9009C // Make
- ;
- : Target ME_5460731E025E // IncsExecutor
- ;
-
-ref; // ME_A09DDE350E62 DoIt
 
 : ME_5464A4E9009C
  CONST UID '5464A4E9009C'
@@ -3307,10 +3091,6 @@ ref; // ME_A09DDE350E62 DoIt
    Seq: ( ME_5460731E025E // IncsExecutor
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A09DDE350E62 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3545,23 +3325,6 @@ ref; // ME_5460B06B03DE aMessage
 
 ref; // ME_5460AEC800B8 MakeExecutor
 
-: ME_BFE6B1A8F541
- CONST UID 'BFE6B1A8F541'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54607384020A // TncsMessageExecutorFactory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_BFE6B1A8F541 Exists
-
 : ME_5460A810027B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3627,7 +3390,6 @@ ref; // ME_47A042E100E2_ME_54607384020A InitFields
    Seq: ( ME_5460830D0295 // Register
  ME_5460832C0080 // UnRegister
  ME_5460AEC800B8 // MakeExecutor
- ME_BFE6B1A8F541 // Exists
  )
  ; // Operations
  : Overridden
@@ -3972,22 +3734,6 @@ ref; // ME_5464BDA603BD f_Transporter
 
 ref; // ME_5464BE030256 Transporter
 
-: ME_F3CEF15315A8
- CONST UID 'F3CEF15315A8'
- CONST Name 'f_ReplyWaiter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReplyWaiter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_546061CE03DA // TncsProcessThread
- ;
- : Target ME_5461D9EE0244 // TncsReplyWaiter
- ;
-
-ref; // ME_F3CEF15315A8 f_ReplyWaiter
-
 FORWARD ME_5460680D0277
 
 : ME_5460681F01B0
@@ -4214,7 +3960,6 @@ ref; // ME_4911B69E037D_ME_546061CE03DA DoExecute
    Seq: ( ME_5461D7EA00E4 // ReplyWaiter
  ME_5464BDA603BD // f_Transporter
  ME_5464BE030256 // Transporter
- ME_F3CEF15315A8 // f_ReplyWaiter
  )
  ; // Attributes
  : Operations
@@ -4479,119 +4224,6 @@ ref; // ME_548FEF8F0026 IntSessionID
 
 ref; // ME_5491709C03AC f_IOHandlers
 
-: ME_E29F67C9278B
- CONST UID 'E29F67C9278B'
- CONST Name 'f_SendQueue'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SendQueue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target ME_544E3C54031D // TncsMessageQueue
- ;
-
-ref; // ME_E29F67C9278B f_SendQueue
-
-: ME_AE6A73B404AC
- CONST UID 'AE6A73B404AC'
- CONST Name 'f_ReceiveQueue'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReceiveQueue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target ME_544E3C54031D // TncsMessageQueue
- ;
-
-ref; // ME_AE6A73B404AC f_ReceiveQueue
-
-: ME_7AEE0D8FFAF8
- CONST UID '7AEE0D8FFAF8'
- CONST Name 'f_SendThread'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SendThread' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target ME_5450E9A0034A // TncsSendThread
- ;
-
-ref; // ME_7AEE0D8FFAF8 f_SendThread
-
-: ME_390A99709FD8
- CONST UID '390A99709FD8'
- CONST Name 'f_ReceiveThread'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReceiveThread' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target ME_54534F1A00BF // TncsReceiveThread
- ;
-
-ref; // ME_390A99709FD8 f_ReceiveThread
-
-: ME_9BEF39A01DE1
- CONST UID '9BEF39A01DE1'
- CONST Name 'f_ProcessThread'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ProcessThread' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target ME_546061CE03DA // TncsProcessThread
- ;
-
-ref; // ME_9BEF39A01DE1 f_ProcessThread
-
-: ME_43D5E38812CC
- CONST UID '43D5E38812CC'
- CONST Name 'f_ReplyWaiter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReplyWaiter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target ME_5461D9EE0244 // TncsReplyWaiter
- ;
-
-ref; // ME_43D5E38812CC f_ReplyWaiter
-
-: ME_2397A2F9DDB1
- CONST UID '2397A2F9DDB1'
- CONST Name 'f_IntSessionID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IntSessionID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_544A09EE005F // TncsTransporter
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'IntSessionID'
-
-ref; // ME_2397A2F9DDB1 f_IntSessionID
-
 FORWARD ME_54533B010030
 
 : ME_54533B2900CE
@@ -4635,21 +4267,6 @@ ref; // ME_54533B1701F2 DoIt
 
 ref; // ME_54533B010030 SetConnected
 
-FORWARD ME_5459C7E00125
-
-: ME_178FCCEED7C4
- CONST UID '178FCCEED7C4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StartProcessing' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5459C7E00125 // StartProcessing
- ;
-
-ref; // ME_178FCCEED7C4 DoIt
-
 : ME_5459C7E00125
  CONST UID '5459C7E00125'
  CONST Name 'StartProcessing'
@@ -4660,10 +4277,6 @@ ref; // ME_178FCCEED7C4 DoIt
  CONST Abstraction at_final
  : Parent ME_544A09EE005F // TncsTransporter
  ;
- : Operations
-   Seq: ( ME_178FCCEED7C4 // DoIt
- )
- ; // Operations
 
 ref; // ME_5459C7E00125 StartProcessing
 
@@ -4919,13 +4532,6 @@ ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
  ME_5466092F01BB // f_ClientID
  ME_548FEF8F0026 // IntSessionID
  ME_5491709C03AC // f_IOHandlers
- ME_E29F67C9278B // f_SendQueue
- ME_AE6A73B404AC // f_ReceiveQueue
- ME_7AEE0D8FFAF8 // f_SendThread
- ME_390A99709FD8 // f_ReceiveThread
- ME_9BEF39A01DE1 // f_ProcessThread
- ME_43D5E38812CC // f_ReplyWaiter
- ME_2397A2F9DDB1 // f_IntSessionID
  )
  ; // Attributes
  : Operations
@@ -5081,21 +4687,6 @@ ref; // ME_549163F102D4 TncsClientArray
 
 ref; // ME_544A21B400E4 f_TCPClients
 
-FORWARD ME_54522FCE0023
-
-: ME_3909291F76B7
- CONST UID '3909291F76B7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода TransportConnected' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54522FCE0023 // TransportConnected
- ;
-
-ref; // ME_3909291F76B7 DoIt
-
 : ME_54522FCE0023
  CONST UID '54522FCE0023'
  CONST Name 'TransportConnected'
@@ -5106,10 +4697,6 @@ ref; // ME_3909291F76B7 DoIt
  CONST Abstraction at_final
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
- : Operations
-   Seq: ( ME_3909291F76B7 // DoIt
- )
- ; // Operations
 
 ref; // ME_54522FCE0023 TransportConnected
 
@@ -5184,21 +4771,6 @@ ref; // ME_2055A706176C DoIt
 
 ref; // ME_545B400202AF SendTransportStatus
 
-FORWARD ME_5465A71E02F2
-
-: ME_1F56C9FD2405
- CONST UID '1F56C9FD2405'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5465A71E02F2 // Create
- ;
-
-ref; // ME_1F56C9FD2405 DoIt
-
 : ME_5465A71E02F2
  CONST UID '5465A71E02F2'
  CONST Name 'Create'
@@ -5209,29 +4781,8 @@ ref; // ME_1F56C9FD2405 DoIt
  CONST Abstraction at_final
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
- : Operations
-   Seq: ( ME_1F56C9FD2405 // DoIt
- )
- ; // Operations
 
 ref; // ME_5465A71E02F2 Create
-
-FORWARD ME_5465A72C00CA
-
-: ME_13EBD7486226
- CONST UID '13EBD7486226'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsClientTransporter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5465A72C00CA // Make
- ;
- : Target ME_5465A598039E // IncsClientTransporter
- ;
-
-ref; // ME_13EBD7486226 DoIt
 
 : ME_5465A72C00CA
  CONST UID '5465A72C00CA'
@@ -5251,10 +4802,6 @@ ref; // ME_13EBD7486226 DoIt
    Seq: ( ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_13EBD7486226 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5642,48 +5189,6 @@ ref; // ME_5465A6860144 DoIt
 
 ref; // ME_5465A67802C1 Create
 
-FORWARD ME_5465A69A028C
-
-: ME_15390B0AF932
- CONST Name 'anIOHandler'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
- ;
-
-ref; // ME_15390B0AF932 anIOHandler
-
-: ME_DCFE41DED483
- CONST Name 'aSessionID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_DCFE41DED483 aSessionID
-
-: ME_D2193189965F
- CONST UID 'D2193189965F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsServerTransporter.IntMake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5465A69A028C // IntMake
- ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
- ;
- : Parameters
-   Seq: ( ME_15390B0AF932 // anIOHandler
- ME_DCFE41DED483 // aSessionID
- )
- ; // Parameters
-
-ref; // ME_D2193189965F DoIt
-
 : ME_5465A69A028C
  CONST UID '5465A69A028C'
  CONST Name 'IntMake'
@@ -5702,10 +5207,6 @@ ref; // ME_D2193189965F DoIt
    Seq: ( ME_5465A5AB0324 // IncsServerTransporter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D2193189965F // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -6330,23 +5831,6 @@ ref; // ME_5492D86002D4 aSessionID
 
 ref; // ME_5492D85A0389 FindTransporter
 
-: ME_A4EAA9E5A208
- CONST UID 'A4EAA9E5A208'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A4EAA9E5A208 Exists
-
 : ME_479731C50290_ME_54917FF702A4
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -6385,7 +5869,6 @@ ref; // ME_47A042E100E2_ME_54917FF702A4 InitFields
    Seq: ( ME_5492D83203D7 // Register
  ME_5492D8470118 // UnRegister
  ME_5492D85A0389 // FindTransporter
- ME_A4EAA9E5A208 // Exists
  )
  ; // Operations
  : Overridden
@@ -6464,37 +5947,6 @@ ref; // ME_5481A0F10108 DoIt
 
 ref; // ME_5481A0E30063 Create
 
-FORWARD ME_5481A13200D2
-
-: ME_CF7AE293F6F7
- CONST Name 'aQueryID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
- ;
-
-ref; // ME_CF7AE293F6F7 aQueryID
-
-: ME_495C55834DAD
- CONST UID '495C55834DAD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsCompatibilityClientTransporter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5481A13200D2 // Make
- ;
- : Target ME_5465A598039E // IncsClientTransporter
- ;
- : Parameters
-   Seq: ( ME_CF7AE293F6F7 // aQueryID
- )
- ; // Parameters
-
-ref; // ME_495C55834DAD DoIt
-
 : ME_5481A13200D2
  CONST UID '5481A13200D2'
  CONST Name 'Make'
@@ -6513,10 +5965,6 @@ ref; // ME_495C55834DAD DoIt
    Seq: ( ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_495C55834DAD // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -6654,40 +6102,6 @@ ref; // ME_54E3347301B2 f_Connected
 
 ref; // ME_54E334830061 IOHandler
 
-: ME_56A225C68BCE
- CONST UID '56A225C68BCE'
- CONST Name 'f_IntSessionID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IntSessionID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'IntSessionID'
-
-ref; // ME_56A225C68BCE f_IntSessionID
-
-: ME_B0DD65F164C7
- CONST UID 'B0DD65F164C7'
- CONST Name 'f_IOHandler'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IOHandler' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54E333CD0130 // TncsSynchroTransporter
- ;
- : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
- ;
- CONST extprop:clearViaProperty 'IOHandler'
-
-ref; // ME_B0DD65F164C7 f_IOHandler
-
 FORWARD ME_54E334CD02E9
 
 : ME_54E334E6039D
@@ -6731,21 +6145,6 @@ ref; // ME_54E334DA0249 DoIt
 
 ref; // ME_54E334CD02E9 SetConnected
 
-FORWARD ME_54E334F5028C
-
-: ME_9ED7004765DE
- CONST UID '9ED7004765DE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StartProcessing' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54E334F5028C // StartProcessing
- ;
-
-ref; // ME_9ED7004765DE DoIt
-
 : ME_54E334F5028C
  CONST UID '54E334F5028C'
  CONST Name 'StartProcessing'
@@ -6756,27 +6155,8 @@ ref; // ME_9ED7004765DE DoIt
  CONST Abstraction at_final
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
- : Operations
-   Seq: ( ME_9ED7004765DE // DoIt
- )
- ; // Operations
 
 ref; // ME_54E334F5028C StartProcessing
-
-FORWARD ME_54E3350B01CD
-
-: ME_59748589EAFE
- CONST UID '59748589EAFE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StopProcessing' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54E3350B01CD // StopProcessing
- ;
-
-ref; // ME_59748589EAFE DoIt
 
 : ME_54E3350B01CD
  CONST UID '54E3350B01CD'
@@ -6788,10 +6168,6 @@ ref; // ME_59748589EAFE DoIt
  CONST Abstraction at_final
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
- : Operations
-   Seq: ( ME_59748589EAFE // DoIt
- )
- ; // Operations
 
 ref; // ME_54E3350B01CD StopProcessing
 
@@ -7067,8 +6443,6 @@ ref; // ME_47A042E100E2_ME_54E333CD0130 InitFields
  ME_54E3346203DE // f_ClientID
  ME_54E3347301B2 // f_Connected
  ME_54E334830061 // IOHandler
- ME_56A225C68BCE // f_IntSessionID
- ME_B0DD65F164C7 // f_IOHandler
  )
  ; // Attributes
  : Operations
@@ -7133,21 +6507,6 @@ FORWARD ME_54E339B500F7
 
 ref; // ME_54E33B0E00EE f_TCPClient
 
-FORWARD ME_54E33A870172
-
-: ME_862671167DA3
- CONST UID '862671167DA3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54E33A870172 // Create
- ;
-
-ref; // ME_862671167DA3 DoIt
-
 : ME_54E33A870172
  CONST UID '54E33A870172'
  CONST Name 'Create'
@@ -7158,29 +6517,8 @@ ref; // ME_862671167DA3 DoIt
  CONST Abstraction at_final
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
- : Operations
-   Seq: ( ME_862671167DA3 // DoIt
- )
- ; // Operations
 
 ref; // ME_54E33A870172 Create
-
-FORWARD ME_54E33A920344
-
-: ME_E4A4A4C34FF3
- CONST UID 'E4A4A4C34FF3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsSynchroClientTransporter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E33A920344 // Make
- ;
- : Target ME_5465A598039E // IncsClientTransporter
- ;
-
-ref; // ME_E4A4A4C34FF3 DoIt
 
 : ME_54E33A920344
  CONST UID '54E33A920344'
@@ -7200,10 +6538,6 @@ ref; // ME_E4A4A4C34FF3 DoIt
    Seq: ( ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E4A4A4C34FF3 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7282,21 +6616,6 @@ ref; // ME_205DA59B7639 DoIt
 
 ref; // ME_54E33B3A02CB TransportStatus
 
-FORWARD ME_54E33B5E0245
-
-: ME_6662E852ACFF
- CONST UID '6662E852ACFF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода TransportConnected' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54E33B5E0245 // TransportConnected
- ;
-
-ref; // ME_6662E852ACFF DoIt
-
 : ME_54E33B5E0245
  CONST UID '54E33B5E0245'
  CONST Name 'TransportConnected'
@@ -7307,10 +6626,6 @@ ref; // ME_6662E852ACFF DoIt
  CONST Abstraction at_final
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
- : Operations
-   Seq: ( ME_6662E852ACFF // DoIt
- )
- ; // Operations
 
 ref; // ME_54E33B5E0245 TransportConnected
 
@@ -7600,37 +6915,6 @@ ref; // ME_54E33E3D00DB DoIt
 
 ref; // ME_54E33E1A00B4 Create
 
-FORWARD ME_54E33E23020D
-
-: ME_BB58DAED819F
- CONST Name 'aQueryID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
- ;
-
-ref; // ME_BB58DAED819F aQueryID
-
-: ME_0AF6782B7F05
- CONST UID '0AF6782B7F05'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsSynchroCompatibilityClientTransporter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E33E23020D // Make
- ;
- : Target ME_5465A598039E // IncsClientTransporter
- ;
- : Parameters
-   Seq: ( ME_BB58DAED819F // aQueryID
- )
- ; // Parameters
-
-ref; // ME_0AF6782B7F05 DoIt
-
 : ME_54E33E23020D
  CONST UID '54E33E23020D'
  CONST Name 'Make'
@@ -7649,10 +6933,6 @@ ref; // ME_0AF6782B7F05 DoIt
    Seq: ( ME_5465A598039E // IncsClientTransporter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0AF6782B7F05 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7773,48 +7053,6 @@ ref; // ME_54E591C00274 DoIt
 
 ref; // ME_54E591B50054 Create
 
-FORWARD ME_54E591D102F6
-
-: ME_63B3F71DF29E
- CONST Name 'anIOHandler'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
- ;
-
-ref; // ME_63B3F71DF29E anIOHandler
-
-: ME_68101AC0FD24
- CONST Name 'aSessionID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_68101AC0FD24 aSessionID
-
-: ME_D8F302F2A75D
- CONST UID 'D8F302F2A75D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsSynchroServerTransporter.IntMake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E591D102F6 // IntMake
- ;
- : Target ME_5465A5AB0324 // IncsServerTransporter
- ;
- : Parameters
-   Seq: ( ME_63B3F71DF29E // anIOHandler
- ME_68101AC0FD24 // aSessionID
- )
- ; // Parameters
-
-ref; // ME_D8F302F2A75D DoIt
-
 : ME_54E591D102F6
  CONST UID '54E591D102F6'
  CONST Name 'IntMake'
@@ -7833,10 +7071,6 @@ ref; // ME_D8F302F2A75D DoIt
    Seq: ( ME_5465A5AB0324 // IncsServerTransporter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D8F302F2A75D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

@@ -231,55 +231,6 @@ ref; // ME_53D0E36C00AE f_FinishNotifierList
 
 ref; // ME_55C2FE7C01F0 f_SubmitGuard
 
-: ME_078F4AFABEC5
- CONST UID '078F4AFABEC5'
- CONST Name 'f_HasWorkThreads'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasWorkThreads' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_078F4AFABEC5 f_HasWorkThreads
-
-: ME_873FCCCD48A0
- CONST UID '873FCCCD48A0'
- CONST Name 'f_WorkThreadCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WorkThreadCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
- ;
- : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
- ;
- CONST extprop:clearViaProperty 'WorkThreadCount'
-
-ref; // ME_873FCCCD48A0 f_WorkThreadCount
-
-: ME_FFD107211F50
- CONST UID 'FFD107211F50'
- CONST Name 'f_Manager'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Manager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
- ;
- : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
- ;
-
-ref; // ME_FFD107211F50 f_Manager
-
 FORWARD ME_53CDFAF10205
 
 : ME_53CDFB3B0038
@@ -627,12 +578,6 @@ ref; // ME_53D0E2CD0227_ME_53CDF9FE006B TaskFinished
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_53CDF9FE006B Cleanup
 
-: ME_5000565C019C_ME_53CDF9FE006B
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_53CDF9FE006B ClearFields
-
 : ME_53CDF9FE006B
  CONST UID '53CDF9FE006B'
  CONST Name 'TalcuSubmitterWorkPool'
@@ -660,9 +605,6 @@ ref; // ME_5000565C019C_ME_53CDF9FE006B ClearFields
  ME_53CE0BFC03C5 // f_List
  ME_53D0E36C00AE // f_FinishNotifierList
  ME_55C2FE7C01F0 // f_SubmitGuard
- ME_078F4AFABEC5 // f_HasWorkThreads
- ME_873FCCCD48A0 // f_WorkThreadCount
- ME_FFD107211F50 // f_Manager
  )
  ; // Attributes
  : Operations
@@ -684,7 +626,6 @@ ref; // ME_5000565C019C_ME_53CDF9FE006B ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_53CDF9FE006B // Cleanup
- ME_5000565C019C_ME_53CDF9FE006B // ClearFields
  )
  ; // Overridden
  : Dependencies

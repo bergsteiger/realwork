@@ -36,21 +36,13 @@ type
  TvcmBaseEntitiesCollectionItemPrim = class(TvcmBaseCollectionItem)
   private
    f_Operations: TvcmBaseOperationsCollection;
-    {* Поле для свойства Operations }
    f_ToolbarPos: TvcmToolBarPos;
-    {* Поле для свойства ToolbarPos }
    f_Controls: TvcmTargetedControlsCollection;
-    {* Поле для свойства Controls }
    f_OnGetTarget: TvcmGetTargetEvent;
-    {* Поле для свойства OnGetTarget }
    f_EntityDef: IvcmEntityDef;
-    {* Поле для свойства EntityDef }
    f_Options: TvcmEntityOperationsOptions;
-    {* Поле для свойства Options }
    f_ContextMenuWeight: Integer;
-    {* Поле для свойства ContextMenuWeight }
    f_EntityID: Integer;
-    {* Поле для свойства EntityID }
   protected
    procedure pm_SetOperations(aValue: TvcmBaseOperationsCollection);
    procedure pm_SetControls(aValue: TvcmTargetedControlsCollection);
@@ -69,11 +61,11 @@ type
     {* Функция очистки полей объекта. }
    procedure BeforeAddToCache; override;
     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
-   procedure ClearFields; override;
    procedure ChangeName(const anOld: AnsiString;
     const aNew: AnsiString); override;
    procedure ChangeCaption(const anOld: AnsiString;
     const aNew: AnsiString); override;
+   procedure ClearFields; override;
   public
    function GetEntityForControl(aControl: TComponent;
     aX: Integer;
@@ -561,12 +553,6 @@ begin
 //#UC END# *4D555CF50027_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.Create
 
-procedure TvcmBaseEntitiesCollectionItemPrim.ClearFields;
-begin
- f_EntityDef := nil;
- inherited;
-end;//TvcmBaseEntitiesCollectionItemPrim.ClearFields
-
 procedure TvcmBaseEntitiesCollectionItemPrim.ChangeName(const anOld: AnsiString;
  const aNew: AnsiString);
 //#UC START# *55CCBA3C0190_55D30D410267_var*
@@ -636,6 +622,12 @@ begin
   Result := inherited QueryInterface(IID, Obj);
 //#UC END# *561145D802BB_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.QueryInterface
+
+procedure TvcmBaseEntitiesCollectionItemPrim.ClearFields;
+begin
+ f_EntityDef := nil;
+ inherited;
+end;//TvcmBaseEntitiesCollectionItemPrim.ClearFields
 
 //#UC START# *4DDBBD1103C3impl*
 //#UC END# *4DDBBD1103C3impl*

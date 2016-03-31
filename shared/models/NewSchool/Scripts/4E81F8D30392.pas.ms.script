@@ -63,37 +63,6 @@ ref; // ME_4E81A2800188 DoIt
 
 ref; // ME_4E81A27A0202 Create
 
-FORWARD ME_4E81A2A903BA
-
-: ME_28BF7AB50802
- CONST Name 'aModel'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
- ;
-
-ref; // ME_28BF7AB50802 aModel
-
-: ME_8165657CDD57
- CONST UID '8165657CDD57'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevReqIterator.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E81A2A903BA // Make
- ;
- : Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
- ;
- : Parameters
-   Seq: ( ME_28BF7AB50802 // aModel
- )
- ; // Parameters
-
-ref; // ME_8165657CDD57 DoIt
-
 : ME_4E81A2A903BA
  CONST UID '4E81A2A903BA'
  CONST Name 'Make'
@@ -112,10 +81,6 @@ ref; // ME_8165657CDD57 DoIt
    Seq: ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8165657CDD57 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -180,37 +145,6 @@ ref; // ME_4E820EBA0117
 
 ref; // ME_4E820B680303 Create$1
 
-FORWARD ME_4E820B830131
-
-: ME_192C1DA86847
- CONST Name 'anEditor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
- ;
-
-ref; // ME_192C1DA86847 anEditor
-
-: ME_0343EE11F887
- CONST UID '0343EE11F887'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevReqIterator.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E820B830131 // Make$1
- ;
- : Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
- ;
- : Parameters
-   Seq: ( ME_192C1DA86847 // anEditor
- )
- ; // Parameters
-
-ref; // ME_0343EE11F887 DoIt
-
 : ME_4E820B830131
  CONST UID '4E820B830131'
  CONST Name 'Make'
@@ -229,22 +163,12 @@ ref; // ME_0343EE11F887 DoIt
    Seq: ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0343EE11F887 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_4E820B830131 Make$1
-
-: ME_5000565C019C_ME_4E81A1D3027D
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E81A1D3027D ClearFields
 
 : ME_4E81A1D3027D
  CONST UID '4E81A1D3027D'
@@ -275,10 +199,6 @@ ref; // ME_5000565C019C_ME_4E81A1D3027D ClearFields
  ME_4E820B830131 // Make$1
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4E81A1D3027D // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

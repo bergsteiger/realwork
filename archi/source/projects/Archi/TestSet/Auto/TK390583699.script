@@ -4,7 +4,7 @@ USES
 	QuickTestsUtils.script
 ;
 
-PROCEDURE "Создать каталог, если он не существует" STRING IN aNameDir 
+PROCEDURE "Создать каталог, если он не существует" STRING IN aNameDir
 	aNameDir sysutils:ForceDirectories ASSERT
 ;
 
@@ -59,6 +59,9 @@ PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aSourceDir STRIN
 		"Не открывать документ"
 	)
 	Выполнить (
+		BOOLEAN VAR l_WasException
+		false >>> l_WasException	
+	TRY
 		STRING VAR l_SourceDir
            	"Путь Архивариуса" >>> l_SourceDir
 		STRING VAR l_ArchiTestSet
@@ -68,15 +71,19 @@ PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aSourceDir STRIN
 		STRING VAR l_ArchiTestSetNew
  		[ l_DestDir '\' 'TestSet' ] strings:Cat >>>  l_ArchiTestSetNew
 		"Подготовка к копированию {(l_DestDir)}"
-		"Подготовка к копированию {(l_ArchiTestSetNew)}"
+		"Очистить каталог {(l_DestDir)}"
+		"Подготовка к копированию {(l_ArchiTestSetNew)}"	
+		"Очистить каталог {(l_ArchiTestSetNew)}"
 		"Копирование исполняемых файлов {(l_DestDir)} {(l_SourceDir)}"   		
 		"Распаковка тестовой базы"
 		500 SLEEP
 		"Запуск второй копии тестового Архивариуса {(l_SourceDir)} {(l_DestDir)}"
 		"Копировать из каталога {(l_DestDir)} в каталог {(l_ArchiTestSet)} для теста исполняемый файл {('ArchiTest_267330013.runned.txt')}"
 		"Сравнить с эталоном текстовый файл {(l_ArchiTestSet)} {('ArchiTest_267330013.runned.txt')}"
+	EXCEPT
+		true >>> l_WasException
+	END
 	)
-
 ;
 
 TK390583699

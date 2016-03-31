@@ -1095,38 +1095,6 @@ ref; // ME_4D5A46D202CE anObject
 
 ref; // ME_4D5A46930182 IsObjectCollapsed
 
-: ME_0E750AF9FAA8
- CONST UID '0E750AF9FAA8'
- CONST Name 'f_Level'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Level' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4811D544006F // TnevBaseView
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_0E750AF9FAA8 f_Level
-
-: ME_4AA15370B4F4
- CONST UID '4AA15370B4F4'
- CONST Name 'f_ShapesPainted'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ShapesPainted' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4811D544006F // TnevBaseView
- ;
- : Target ME_4811DA3100E6 // TnevShapesPainted
- ;
-
-ref; // ME_4AA15370B4F4 f_ShapesPainted
-
 FORWARD ME_4D5A4707033B
 
 : ME_4D5A472803B1
@@ -1549,8 +1517,6 @@ ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
  ME_4A6D4FB803CC // f_Holder
  ME_4B59AC930100 // ForceDrawFocusRectPrim
  ME_4D5A46930182 // IsObjectCollapsed
- ME_0E750AF9FAA8 // f_Level
- ME_4AA15370B4F4 // f_ShapesPainted
  )
  ; // Attributes
  : Operations
@@ -1734,22 +1700,6 @@ ref; // ME_48120CC20355 f_LimitWidth
 
 ref; // ME_48120C7D0266 Canvas
 
-: ME_A08285C03865
- CONST UID 'A08285C03865'
- CONST Name 'f_Canvas'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Canvas' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48120C1C0060 // TnevBaseDetachedView
- ;
- : Target WL 'ME_4811ED8A030D' '47C5207602D1.pas.ms.script' // InevCanvas
- ;
-
-ref; // ME_A08285C03865 f_Canvas
-
 FORWARD ME_4CB5BDF6031A
 
 : ME_4CB5BDFF03B3
@@ -1803,48 +1753,6 @@ ref; // ME_4CB5BDFD01BC Create
 
 ref; // ME_4CB5BDF6031A Create
 
-FORWARD ME_4CB5BE5903D2
-
-: ME_9BF1945D936E
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
- ;
-
-ref; // ME_9BF1945D936E aText
-
-: ME_0DBE496AAF8A
- CONST Name 'aCanvas'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
- ;
-
-ref; // ME_0DBE496AAF8A aCanvas
-
-: ME_A1DD278045C7
- CONST UID 'A1DD278045C7'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevBaseDetachedView.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB5BE5903D2 // Make
- ;
- : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ;
- : Parameters
-   Seq: ( ME_9BF1945D936E // aText
- ME_0DBE496AAF8A // aCanvas
- )
- ; // Parameters
-
-ref; // ME_A1DD278045C7 Create
-
 : ME_4CB5BE5903D2
  CONST UID '4CB5BE5903D2'
  CONST Name 'Make'
@@ -1863,10 +1771,6 @@ ref; // ME_A1DD278045C7 Create
    Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A1DD278045C7 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2190,12 +2094,6 @@ ref; // ME_4811D7DC0254_ME_48120C1C0060 DoGetMetrics
  CONST "pm" true
 ref; // ME_4D5A46930182_ME_48120C1C0060 IsObjectCollapsed
 
-: ME_5000565C019C_ME_48120C1C0060
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
-
 : ME_48120C1C0060
  CONST UID '48120C1C0060'
  CONST Name 'TnevBaseDetachedView'
@@ -2219,7 +2117,6 @@ ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
    Seq: ( ME_48120C6202B8 // f_Text
  ME_48120CC20355 // f_LimitWidth
  ME_48120C7D0266 // Canvas
- ME_A08285C03865 // f_Canvas
  )
  ; // Attributes
  : Operations
@@ -2257,7 +2154,6 @@ ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
  ME_4811D60B0043_ME_48120C1C0060 // Shape
  ME_4811D7DC0254_ME_48120C1C0060 // DoGetMetrics
  ME_4D5A46930182_ME_48120C1C0060 // IsObjectCollapsed
- ME_5000565C019C_ME_48120C1C0060 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -2401,71 +2297,6 @@ ref; // ME_492AB4D601EF ControlLMargin
  CONST "ifdef" 'evNeedCollapsedVersionComments'
 
 ref; // ME_4D5A47DF00B9 f_CollapsedObjects
-
-: ME_A420B6A80268
- CONST UID 'A420B6A80268'
- CONST Name 'f_PrevTop'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PrevTop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4811E4BA020A // TnevBaseDrawView
- ;
- : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
- ;
-
-ref; // ME_A420B6A80268 f_PrevTop
-
-: ME_ACE4EE9890BC
- CONST UID 'ACE4EE9890BC'
- CONST Name 'f_Top'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Top' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4811E4BA020A // TnevBaseDrawView
- ;
- : Target WL 'ME_47C5B5BE009D' '47C5207602D1.pas.ms.script' // InevAnchor
- ;
- CONST extprop:clearViaProperty 'Top'
-
-ref; // ME_ACE4EE9890BC f_Top
-
-: ME_011424C1FE76
- CONST UID '011424C1FE76'
- CONST Name 'f_Canvas'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Canvas' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4811E4BA020A // TnevBaseDrawView
- ;
- : Target WL 'ME_4811ED8A030D' '47C5207602D1.pas.ms.script' // InevCanvas
- ;
-
-ref; // ME_011424C1FE76 f_Canvas
-
-: ME_D9CC4C947A07
- CONST UID 'D9CC4C947A07'
- CONST Name 'f_ControlLMargin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ControlLMargin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4811E4BA020A // TnevBaseDrawView
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_D9CC4C947A07 f_ControlLMargin
 
 FORWARD ME_5011297D01AA
 
@@ -3142,12 +2973,6 @@ ref; // ME_4D5A46930182_ME_4811E4BA020A IsObjectCollapsed
  CONST "ifdef" 'evNeedCollapsedVersionComments'
 ref; // ME_4D5A4707033B_ME_4811E4BA020A DoVersionInfoVisabilityChanged
 
-: ME_5000565C019C_ME_4811E4BA020A
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
-
 : ME_4811E4BA020A
  CONST UID '4811E4BA020A'
  CONST Name 'TnevBaseDrawView'
@@ -3178,10 +3003,6 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_4811EDB202D7 // Canvas
  ME_492AB4D601EF // ControlLMargin
  ME_4D5A47DF00B9 // f_CollapsedObjects
- ME_A420B6A80268 // f_PrevTop
- ME_ACE4EE9890BC // f_Top
- ME_011424C1FE76 // f_Canvas
- ME_D9CC4C947A07 // f_ControlLMargin
  )
  ; // Attributes
  : Operations
@@ -3234,7 +3055,6 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_4B59AC930100_ME_4811E4BA020A // ForceDrawFocusRectPrim
  ME_4D5A46930182_ME_4811E4BA020A // IsObjectCollapsed
  ME_4D5A4707033B_ME_4811E4BA020A // DoVersionInfoVisabilityChanged
- ME_5000565C019C_ME_4811E4BA020A // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -3422,70 +3242,6 @@ ref; // ME_4CB5BEA0037D Create
 
 ref; // ME_4CB5BE9803DF Create
 
-FORWARD ME_4CB5BEB4010A
-
-: ME_B59446AF0F5E
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
- ;
-
-ref; // ME_B59446AF0F5E aText
-
-: ME_B29870D43F09
- CONST Name 'aParentFI'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
- ;
-
-ref; // ME_B29870D43F09 aParentFI
-
-: ME_6A6C8059B836
- CONST Name 'aCanvas'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
- ;
-
-ref; // ME_6A6C8059B836 aCanvas
-
-: ME_BE1B27E17219
- CONST Name 'aViewMetrics'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_467821CA019F' '4678209200A6.pas.ms.script' // InevViewMetrics
- ;
-
-ref; // ME_BE1B27E17219 aViewMetrics
-
-: ME_9C40DDD1E12B
- CONST UID '9C40DDD1E12B'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevVirtualDrawView.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB5BEB4010A // Make
- ;
- : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ;
- : Parameters
-   Seq: ( ME_B59446AF0F5E // aText
- ME_B29870D43F09 // aParentFI
- ME_6A6C8059B836 // aCanvas
- ME_BE1B27E17219 // aViewMetrics
- )
- ; // Parameters
-
-ref; // ME_9C40DDD1E12B Create
-
 : ME_4CB5BEB4010A
  CONST UID '4CB5BEB4010A'
  CONST Name 'Make'
@@ -3504,10 +3260,6 @@ ref; // ME_9C40DDD1E12B Create
    Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9C40DDD1E12B // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3691,48 +3443,6 @@ ref; // ME_4CB5BF3C01E9 Create
 
 ref; // ME_4CB5BF260122 Create
 
-FORWARD ME_4CB5BF43015E
-
-: ME_3BCBF7BABA82
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C699120129' '47C5207602D1.pas.ms.script' // InevObjectList
- ;
-
-ref; // ME_3BCBF7BABA82 aText
-
-: ME_3393A4D79561
- CONST Name 'aCanvas'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
- ;
-
-ref; // ME_3393A4D79561 aCanvas
-
-: ME_AB21052137E8
- CONST UID 'AB21052137E8'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevHAFPainterView.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB5BF43015E // Make
- ;
- : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ;
- : Parameters
-   Seq: ( ME_3BCBF7BABA82 // aText
- ME_3393A4D79561 // aCanvas
- )
- ; // Parameters
-
-ref; // ME_AB21052137E8 Create
-
 : ME_4CB5BF43015E
  CONST UID '4CB5BF43015E'
  CONST Name 'Make'
@@ -3751,10 +3461,6 @@ ref; // ME_AB21052137E8 Create
    Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  )
  ; // Implements
- : Operations
-   Seq: ( ME_AB21052137E8 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3961,37 +3667,6 @@ ref; // ME_4CB5C0820355 Create
 
 ref; // ME_4CB5C07B03E3 Create
 
-FORWARD ME_4CB5C0C90376
-
-: ME_F392A1AD5709
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C5BD7C0329' '47C5207602D1.pas.ms.script' // InevControl
- ;
-
-ref; // ME_F392A1AD5709 aControl
-
-: ME_8B39B2B7482E
- CONST UID '8B39B2B7482E'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevMeasureView.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB5C0C90376 // Make
- ;
- : Target WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
- ;
- : Parameters
-   Seq: ( ME_F392A1AD5709 // aControl
- )
- ; // Parameters
-
-ref; // ME_8B39B2B7482E Create
-
 : ME_4CB5C0C90376
  CONST UID '4CB5C0C90376'
  CONST Name 'Make'
@@ -4010,10 +3685,6 @@ ref; // ME_8B39B2B7482E Create
    Seq: ( WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8B39B2B7482E // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4650,12 +4321,6 @@ ref; // ME_516D44E701B7
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4CA5CC2C03CF Cleanup
 
-: ME_5000565C019C_ME_4CA5CC2C03CF
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CA5CC2C03CF ClearFields
-
 : ME_4CA5CC2C03CF
  CONST UID '4CA5CC2C03CF'
  CONST Name 'TnevShapesPaintedSpy'
@@ -4686,7 +4351,6 @@ ref; // ME_5000565C019C_ME_4CA5CC2C03CF ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4CA5CC2C03CF // Cleanup
- ME_5000565C019C_ME_4CA5CC2C03CF // ClearFields
  )
  ; // Overridden
  : Children
@@ -5298,12 +4962,6 @@ ref; // ME_4DAEC7500387
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4DAEB03E0034 Cleanup
 
-: ME_5000565C019C_ME_4DAEB03E0034
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4DAEB03E0034 ClearFields
-
 : ME_4DAEB03E0034
  CONST UID '4DAEB03E0034'
  CONST Name 'TnevVScrollerSpy'
@@ -5335,7 +4993,6 @@ ref; // ME_5000565C019C_ME_4DAEB03E0034 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4DAEB03E0034 // Cleanup
- ME_5000565C019C_ME_4DAEB03E0034 // ClearFields
  )
  ; // Overridden
  : Children
@@ -5452,59 +5109,6 @@ ref; // ME_4CB5BEFB02BC Create
 
 ref; // ME_4CB5BEE50148 Create
 
-FORWARD ME_4CB5BE0E00FA
-
-: ME_21043ACA5277
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
- ;
-
-ref; // ME_21043ACA5277 aText
-
-: ME_1ACC48C228AF
- CONST Name 'aCanvas'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
- ;
-
-ref; // ME_1ACC48C228AF aCanvas
-
-: ME_BDF3CD29CAC2
- CONST Name 'aHiddenStyles'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BE38D01B0' '476BE0350329.pas.ms.script' // StandardStyles
- ;
-
-ref; // ME_BDF3CD29CAC2 aHiddenStyles
-
-: ME_00B1765162AA
- CONST UID '00B1765162AA'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevPrintView.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB5BE0E00FA // Make
- ;
- : Target WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
- ;
- : Parameters
-   Seq: ( ME_21043ACA5277 // aText
- ME_1ACC48C228AF // aCanvas
- ME_BDF3CD29CAC2 // aHiddenStyles
- )
- ; // Parameters
-
-ref; // ME_00B1765162AA Create
-
 : ME_4CB5BE0E00FA
  CONST UID '4CB5BE0E00FA'
  CONST Name 'Make'
@@ -5523,10 +5127,6 @@ ref; // ME_00B1765162AA Create
    Seq: ( WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
  )
  ; // Implements
- : Operations
-   Seq: ( ME_00B1765162AA // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5578,12 +5178,6 @@ ref; // ME_48121CB0013E_ME_4812119C00C1 GetLimitWidth
  CONST OpKind opkind_Overridden
 ref; // ME_4F66FDB60040_ME_4812119C00C1 DoGetExcludeSuper
 
-: ME_5000565C019C_ME_4812119C00C1
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4812119C00C1 ClearFields
-
 : ME_4812119C00C1
  CONST UID '4812119C00C1'
  CONST Name 'TnevPrintView'
@@ -5619,7 +5213,6 @@ ref; // ME_5000565C019C_ME_4812119C00C1 ClearFields
  ME_48120D32035F_ME_4812119C00C1 // GetHiddenStyles
  ME_48121CB0013E_ME_4812119C00C1 // GetLimitWidth
  ME_4F66FDB60040_ME_4812119C00C1 // DoGetExcludeSuper
- ME_5000565C019C_ME_4812119C00C1 // ClearFields
  )
  ; // Overridden
  : Dependencies

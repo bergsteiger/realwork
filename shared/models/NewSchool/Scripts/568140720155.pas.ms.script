@@ -8,19 +8,6 @@ FORWARD ME_568140E2020B
 
 FORWARD ME_5681410002A8
 
-: ME_6CA629FCCD3C
- CONST UID '6CA629FCCD3C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Run' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5681410002A8 // Run
- ;
-
-ref; // ME_6CA629FCCD3C DoIt
-
 : ME_56814142011C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -111,10 +98,6 @@ ref; // ME_568155BD03BF
  CONST Abstraction at_final
  : Parent ME_568140E2020B // TscriptsListWatcherRunner
  ;
- : Operations
-   Seq: ( ME_6CA629FCCD3C // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_56814142011C // 
  ME_5681415A037D // 
@@ -144,6 +127,7 @@ ref; // ME_5681410002A8 Run
    Seq: ( ME_5681410002A8 // Run
  )
  ; // Operations
+ CONST "UseNewGen" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

@@ -45,23 +45,6 @@ FORWARD ME_53CE4F2F008D
 
 ref; // ME_53CE4F5F0206 BaseEngine
 
-: ME_26BEBB61E3C4
- CONST UID '26BEBB61E3C4'
- CONST Name 'f_BaseEngine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BaseEngine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53CE4F2F008D // TalcuBaseEngineHolder
- ;
- : Target ME_53CCCA5B036F // TalcuBaseEngine
- ;
- CONST extprop:clearViaProperty 'BaseEngine'
-
-ref; // ME_26BEBB61E3C4 f_BaseEngine
-
 : ME_561CCA19026B
  CONST UID '561CCA19026B'
  CONST Name 'IsBaseLocked'
@@ -107,7 +90,6 @@ ref; // ME_479731C50290_ME_53CE4F2F008D Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_53CE4F5F0206 // BaseEngine
- ME_26BEBB61E3C4 // f_BaseEngine
  )
  ; // Attributes
  : Operations

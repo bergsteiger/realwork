@@ -311,85 +311,6 @@ ref; // ME_5538D162032D DoIt
 
 ref; // ME_5538D15A03E5 Create
 
-FORWARD ME_5538D1AF03DB
-
-: ME_B9AAB247AF38
- CONST Name 'aSQLName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_B9AAB247AF38 aSQLName
-
-: ME_13D6E852A32C
- CONST Name 'aDesc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_13D6E852A32C aDesc
-
-: ME_D6D599F487B5
- CONST Name 'aRequired'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_D6D599F487B5 aRequired
-
-: ME_CF8B23D92146
- CONST Name 'aType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5535180A0366' '5432448401BC.pas.ms.script' // TdaDataType
- ;
-
-ref; // ME_CF8B23D92146 aType
-
-: ME_A352124CD129
- CONST Name 'aSize'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST Value 0
- : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:pas:Value 0
-
-ref; // ME_A352124CD129 aSize
-
-: ME_7FC6D5BC3386
- CONST UID '7FC6D5BC3386'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TdaFieldDescription.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5538D1AF03DB // Make
- ;
- : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
- ;
- : Parameters
-   Seq: ( ME_B9AAB247AF38 // aSQLName
- ME_13D6E852A32C // aDesc
- ME_D6D599F487B5 // aRequired
- ME_CF8B23D92146 // aType
- ME_A352124CD129 // aSize
- )
- ; // Parameters
-
-ref; // ME_7FC6D5BC3386 DoIt
-
 : ME_5538D1AF03DB
  CONST UID '5538D1AF03DB'
  CONST Name 'Make'
@@ -408,10 +329,6 @@ ref; // ME_7FC6D5BC3386 DoIt
    Seq: ( WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7FC6D5BC3386 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -778,19 +695,6 @@ ref; // ME_55360FB901F6 f_Tables
 
 FORWARD ME_552D0A31006D
 
-: ME_A722E9FDF1C5
- CONST UID 'A722E9FDF1C5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода BuildScheme' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552D0A31006D // BuildScheme
- ;
-
-ref; // ME_A722E9FDF1C5 DoIt
-
 FORWARD ME_55364525020F
 
 : ME_55360DF50244
@@ -825,10 +729,6 @@ ref; // ME_55363AFE0335
  CONST Abstraction at_final
  : Parent ME_552D07EB03CB // TdaScheme
  ;
- : Operations
-   Seq: ( ME_A722E9FDF1C5 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_55360DF50244 // 
  ME_55363AFE0335 // 
@@ -836,19 +736,6 @@ ref; // ME_55363AFE0335
  ; // Dependencies
 
 ref; // ME_552D0A31006D BuildScheme
-
-: ME_C4B76D8D5986
- CONST UID 'C4B76D8D5986'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода BuildMain' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55364525020F // BuildMain
- ;
-
-ref; // ME_C4B76D8D5986 DoIt
 
 : ME_553645730138
  CONST Class class_Dependency
@@ -890,10 +777,6 @@ ref; // ME_5538D50C0074
  CONST Abstraction at_final
  : Parent ME_552D07EB03CB // TdaScheme
  ;
- : Operations
-   Seq: ( ME_C4B76D8D5986 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_553645730138 // 
  ME_553645780084 // 
@@ -902,19 +785,6 @@ ref; // ME_5538D50C0074
  ; // Dependencies
 
 ref; // ME_55364525020F BuildMain
-
-: ME_94946418C461
- CONST UID '94946418C461'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода BuildFamily' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5536453001FD // BuildFamily
- ;
-
-ref; // ME_94946418C461 DoIt
 
 : ME_5536457C03C8
  CONST Class class_Dependency
@@ -956,10 +826,6 @@ ref; // ME_5538D511003D
  CONST Abstraction at_final
  : Parent ME_552D07EB03CB // TdaScheme
  ;
- : Operations
-   Seq: ( ME_94946418C461 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_5536457C03C8 // 
  ME_5536458100F3 // 
@@ -3891,23 +3757,6 @@ ref; // ME_56A60A740072 StoredProcName
 
 ref; // ME_56A60AA70045 StoredProcsCount
 
-: ME_170A0790FE69
- CONST UID '170A0790FE69'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552D07EB03CB // TdaScheme
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_170A0790FE69 Exists
-
 : ME_479731C50290_ME_552D07EB03CB
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -3996,7 +3845,6 @@ ref; // ME_479731C50290_ME_552D07EB03CB Cleanup
  ME_552FBDF700C9 // Table
  ME_56A60A740072 // StoredProcName
  ME_56A60AA70045 // StoredProcsCount
- ME_170A0790FE69 // Exists
  )
  ; // Operations
  : Overridden

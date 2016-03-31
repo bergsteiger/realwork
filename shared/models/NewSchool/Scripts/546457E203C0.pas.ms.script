@@ -1194,22 +1194,6 @@ ref; // ME_5489456000B9 f_Stream
 
 ref; // ME_5489482402E9 f_Progressor
 
-: ME_EE1F95B8278E
- CONST UID 'EE1F95B8278E'
- CONST Name 'f_LocalDesc'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LocalDesc' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_546F3804032D // TncsOneFileDeliverer
- ;
- : Target ME_546EF14803A6 // TncsTaskedFileDesc
- ;
-
-ref; // ME_EE1F95B8278E f_LocalDesc
-
 FORWARD ME_546F389A0156
 
 : ME_5472FF6C0224
@@ -1435,21 +1419,6 @@ ref; // ME_547326500188 DoIt
 
 ref; // ME_5473263D00AC LocalPartialFileName
 
-FORWARD ME_5474A3BD0077
-
-: ME_18646E20D15C
- CONST UID '18646E20D15C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SaveControl' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5474A3BD0077 // SaveControl
- ;
-
-ref; // ME_18646E20D15C DoIt
-
 : ME_5474A3BD0077
  CONST UID '5474A3BD0077'
  CONST Name 'SaveControl'
@@ -1460,27 +1429,10 @@ ref; // ME_18646E20D15C DoIt
  CONST Abstraction at_final
  : Parent ME_546F3804032D // TncsOneFileDeliverer
  ;
- : Operations
-   Seq: ( ME_18646E20D15C // DoIt
- )
- ; // Operations
 
 ref; // ME_5474A3BD0077 SaveControl
 
 FORWARD ME_5474A3D400D5
-
-: ME_54778D803EF5
- CONST UID '54778D803EF5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CommitDelivery' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5474A3D400D5 // CommitDelivery
- ;
-
-ref; // ME_54778D803EF5 DoIt
 
 : ME_5474A7F90226
  CONST Class class_Dependency
@@ -1502,10 +1454,6 @@ ref; // ME_5474A7F90226
  CONST Abstraction at_final
  : Parent ME_546F3804032D // TncsOneFileDeliverer
  ;
- : Operations
-   Seq: ( ME_54778D803EF5 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_5474A7F90226 // 
  )
@@ -1736,7 +1684,6 @@ ref; // ME_479731C50290_ME_546F3804032D Cleanup
  ME_547588AA019E // f_TaskID
  ME_5489456000B9 // f_Stream
  ME_5489482402E9 // f_Progressor
- ME_EE1F95B8278E // f_LocalDesc
  )
  ; // Attributes
  : Operations

@@ -159,81 +159,6 @@ ref; // ME_4E8ED008029A DoIt
 
 ref; // ME_4E8ECFF20106 Create
 
-FORWARD ME_4E8ED01E02AB
-
-: ME_B33410062298
- CONST Name 'aDocType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B33410062298 aDocType
-
-: ME_B15FC64BE4B6
- CONST Name 'aDate'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
- ;
-
-ref; // ME_B15FC64BE4B6 aDate
-
-: ME_B613FAB69A8A
- CONST Name 'aNum'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
- ;
-
-ref; // ME_B613FAB69A8A aNum
-
-: ME_EF09BE7F70F0
- CONST Name 'aSources'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
- ;
-
-ref; // ME_EF09BE7F70F0 aSources
-
-: ME_44B39964B2F2
- CONST Name 'aDocID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E96DF22023F' '4E96E0A803E1.pas.ms.script' // TddALDocRec
- ;
-
-ref; // ME_44B39964B2F2 aDocID
-
-: ME_F0642B9F8FA8
- CONST UID 'F0642B9F8FA8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TddAutolinkDocEntry.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E8ED01E02AB // Make
- ;
- : Target WL 'ME_4E8EAEAB0303' '4E8EAF5C020F.pas.ms.script' // IddAutolinkDocEntry
- ;
- : Parameters
-   Seq: ( ME_B33410062298 // aDocType
- ME_B15FC64BE4B6 // aDate
- ME_B613FAB69A8A // aNum
- ME_EF09BE7F70F0 // aSources
- ME_44B39964B2F2 // aDocID
- )
- ; // Parameters
-
-ref; // ME_F0642B9F8FA8 DoIt
-
 : ME_4E8ED01E02AB
  CONST UID '4E8ED01E02AB'
  CONST Name 'Make'
@@ -252,10 +177,6 @@ ref; // ME_F0642B9F8FA8 DoIt
    Seq: ( WL 'ME_4E8EAEAB0303' '4E8EAF5C020F.pas.ms.script' // IddAutolinkDocEntry
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F0642B9F8FA8 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -979,48 +900,6 @@ ref; // ME_51F25FC60329 DoIt
 
 ref; // ME_51F269D40190 Create
 
-FORWARD ME_51F25FA8022A
-
-: ME_A0D7B21C9FFA
- CONST Name 'aDocID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
- ;
-
-ref; // ME_A0D7B21C9FFA aDocID
-
-: ME_D14374943260
- CONST Name 'aTypesList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
- ;
-
-ref; // ME_D14374943260 aTypesList
-
-: ME_4D3E96DDEDC8
- CONST UID '4D3E96DDEDC8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TddAutolinkArbitraryDocEntry.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51F25FA8022A // Make
- ;
- : Target WL 'ME_51F251C90183' '4E8EAF5C020F.pas.ms.script' // IddAutolinkArbitraryDocEntry
- ;
- : Parameters
-   Seq: ( ME_A0D7B21C9FFA // aDocID
- ME_D14374943260 // aTypesList
- )
- ; // Parameters
-
-ref; // ME_4D3E96DDEDC8 DoIt
-
 : ME_51F25FA8022A
  CONST UID '51F25FA8022A'
  CONST Name 'Make'
@@ -1039,10 +918,6 @@ ref; // ME_4D3E96DDEDC8 DoIt
    Seq: ( WL 'ME_51F251C90183' '4E8EAF5C020F.pas.ms.script' // IddAutolinkArbitraryDocEntry
  )
  ; // Implements
- : Operations
-   Seq: ( ME_4D3E96DDEDC8 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

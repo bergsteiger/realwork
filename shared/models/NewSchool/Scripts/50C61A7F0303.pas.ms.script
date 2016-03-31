@@ -65,22 +65,6 @@ ref; // ME_50C61E01021E f_FL
 
 ref; // ME_50C61ECB00FF f_NCMousePoint
 
-: ME_8C4131D8DEE2
- CONST UID '8C4131D8DEE2'
- CONST Name 'f_LastHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LastHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50C61AAC00BF // TvtMultilineHint
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_8C4131D8DEE2 f_LastHint
-
 FORWARD ME_50C61C8E015D
 
 : ME_50C644FC021D
@@ -211,21 +195,6 @@ ref; // ME_50C61F0B0392 vtActivateHint
 
 ref; // ME_50C61F7E02BE DoIt
 
-: ME_65F41C106169
- CONST UID '65F41C106169'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtMultilineHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50C61AAC00BF // TvtMultilineHint
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_65F41C106169 Ini_Reg_Class
-
 FORWARD ME_50C6241B0355
 
 : ME_50C6248D0368
@@ -318,17 +287,6 @@ ref; // ME_50C645B70280
 
 ref; // ME_50C6461D0259 
 
-: ME_4D96C4D5D0E3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50C61AAC00BF // TvtMultilineHint
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4D96C4D5D0E3 
-
 : ME_47D1602000C6_ME_50C61AAC00BF
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -384,14 +342,12 @@ ref; // ME_50C61BD700BF_ME_50C61AAC00BF IsHintMsg
  ME_50C61D4C02FA // f_Canvas
  ME_50C61E01021E // f_FL
  ME_50C61ECB00FF // f_NCMousePoint
- ME_8C4131D8DEE2 // f_LastHint
  )
  ; // Attributes
  : Operations
    Seq: ( ME_50C61C8E015D // ActivateHintEx
  ME_50C61F0B0392 // vtActivateHint
  ME_50C61F7E02BE // DoIt
- ME_65F41C106169 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -413,7 +369,6 @@ ref; // ME_50C61BD700BF_ME_50C61AAC00BF IsHintMsg
  ME_50C6455A001A // 
  ME_50C645B70280 // 
  ME_50C6461D0259 // 
- ME_4D96C4D5D0E3 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -612,32 +567,6 @@ ref; // ME_52F9C5470125 DoIt
 
 ref; // ME_52F9C53B0374 Exists
 
-: ME_4A59C6D85E2E
- CONST UID '4A59C6D85E2E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtHintManager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50C6241B0355 // TvtHintManager
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4A59C6D85E2E Ini_Reg_Class
-
-: ME_404E99C94F51
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50C6241B0355 // TvtHintManager
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_404E99C94F51 
-
 : ME_479731C50290_ME_50C6241B0355
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -674,7 +603,6 @@ ref; // ME_47A042E100E2_ME_50C6241B0355 InitFields
    Seq: ( ME_50C624A002CF // Add
  ME_50C624D30325 // Remove
  ME_52F9C53B0374 // Exists
- ME_4A59C6D85E2E // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -682,10 +610,6 @@ ref; // ME_47A042E100E2_ME_50C6241B0355 InitFields
  ME_47A042E100E2_ME_50C6241B0355 // InitFields
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_404E99C94F51 // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_54EC8AD103D2' '54EC8A3E0397.pas.ms.script' // 
  )
@@ -727,7 +651,6 @@ ref; // ME_50C6241B0355 TvtHintManager
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

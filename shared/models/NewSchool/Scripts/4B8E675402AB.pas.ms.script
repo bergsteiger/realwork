@@ -1849,32 +1849,6 @@ ref; // ME_4D5E5A6B0246 DoIt
 
 ref; // ME_4D5E5A63025B UpdateDuplicateButton
 
-: ME_DF49753073E7
- CONST UID 'DF49753073E7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtVGButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D494D3601A8 // TvtVGButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DF49753073E7 Ini_Reg_Class
-
-: ME_CE58CBD802A7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D494D3601A8 // TvtVGButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CE58CBD802A7 
-
 : ME_47D1602000C6_ME_4D494D3601A8
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
@@ -1943,7 +1917,6 @@ ref; // ME_4D5E5C27000E_ME_4D494D3601A8 Cancel
  ; // Attributes
  : Operations
    Seq: ( ME_4D5E5A63025B // UpdateDuplicateButton
- ME_DF49753073E7 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1955,10 +1928,6 @@ ref; // ME_4D5E5C27000E_ME_4D494D3601A8 Cancel
  ME_4D5E5C27000E_ME_4D494D3601A8 // Cancel
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_CE58CBD802A7 // 
- )
- ; // Dependencies
  CONST "ifndef" 'NoVGScene'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -2099,7 +2068,6 @@ ref; // ME_4D99F7C003E0 vtDialogs
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.pas.ms.script' // Impl
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

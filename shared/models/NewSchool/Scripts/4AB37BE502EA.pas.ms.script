@@ -43,22 +43,6 @@ FORWARD ME_4AB38B45023C
 
 ref; // ME_4AB38B5E0320 ItemType
 
-: ME_9EE7090499DF
- CONST UID '9EE7090499DF'
- CONST Name 'f_ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB37C3E00BA // Tm4WordIDStr
- ;
- : Target ME_4ABA246700B4 // Tm4DictItemAddr
- ;
-
-ref; // ME_9EE7090499DF f_ID
-
 : ME_4AB385790382
  CONST Name 'anOther'
  CONST Class class_Parameter
@@ -130,12 +114,6 @@ ref; // ME_4AB3882501E1
 
 ref; // ME_4AB3884A02C6 
 
-: ME_5000565C019C_ME_4AB37C3E00BA
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AB37C3E00BA ClearFields
-
 : ME_4AB37C3E00BA
  CONST UID '4AB37C3E00BA'
  CONST Name 'Tm4WordIDStr'
@@ -155,7 +133,6 @@ ref; // ME_5000565C019C_ME_4AB37C3E00BA ClearFields
  : Attributes
    Seq: ( ME_4AB38ADC008B // ID
  ME_4AB38B5E0320 // ItemType
- ME_9EE7090499DF // f_ID
  )
  ; // Attributes
  : Operations
@@ -163,10 +140,6 @@ ref; // ME_5000565C019C_ME_4AB37C3E00BA ClearFields
  ME_4AB38AF30255 // Create
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4AB37C3E00BA // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_4AB3882501E1 // 
  ME_4AB3884A02C6 // 
@@ -304,23 +277,6 @@ ref; // ME_4AB37F9903CA f_ID
 
 ref; // ME_4AB773690008 FirstWordIDStrID
 
-: ME_0FC8C0BDC2B5
- CONST UID '0FC8C0BDC2B5'
- CONST Name 'f_FirstWordIDStrID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FirstWordIDStrID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB37F0D0301 // Tm4Word
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'FirstWordIDStrID'
-
-ref; // ME_0FC8C0BDC2B5 f_FirstWordIDStrID
-
 : ME_4AB37FCC0111
  CONST Name 'aStr'
  CONST Class class_Parameter
@@ -382,7 +338,6 @@ ref; // ME_47BC3BFD017F_ME_4AB37F0D0301 StringID
  : Attributes
    Seq: ( ME_4AB37F9903CA // f_ID
  ME_4AB773690008 // FirstWordIDStrID
- ME_0FC8C0BDC2B5 // f_FirstWordIDStrID
  )
  ; // Attributes
  : Operations

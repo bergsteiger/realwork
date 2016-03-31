@@ -68,23 +68,6 @@ ref; // ME_516D57C50277 GetRefCount
 
 ref; // ME_516D579302C5 ImyReferenceCountGuard
 
-FORWARD ME_516D57E601E6
-
-: ME_30D9E07673CF
- CONST UID '30D9E07673CF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TmyReferenceCountGuard.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_516D57E601E6 // Make
- ;
- : Target ME_516D579302C5 // ImyReferenceCountGuard
- ;
-
-ref; // ME_30D9E07673CF DoIt
-
 : ME_516D57E601E6
  CONST UID '516D57E601E6'
  CONST Name 'Make'
@@ -103,10 +86,6 @@ ref; // ME_30D9E07673CF DoIt
    Seq: ( ME_516D579302C5 // ImyReferenceCountGuard
  )
  ; // Implements
- : Operations
-   Seq: ( ME_30D9E07673CF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

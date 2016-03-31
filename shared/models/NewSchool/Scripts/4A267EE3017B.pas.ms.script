@@ -2843,22 +2843,6 @@ ref; // ME_4A27AC74011B Visible
 
 ref; // ME_4A48AAB903DA X
 
-: ME_17EECB9CAA77
- CONST UID '17EECB9CAA77'
- CONST Name 'f_ControlFriend'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ControlFriend' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A27A7D5019E // TevControlParaHotSpot
- ;
- : Target WL 'ME_47CD7700029C' '47CD5C7602CD.pas.ms.script' // IevControlFriend
- ;
-
-ref; // ME_17EECB9CAA77 f_ControlFriend
-
 FORWARD ME_4A27AD7103E7
 
 : ME_4A27AD8A0015
@@ -3417,12 +3401,6 @@ ref; // ME_4ECCD6840014_ME_4A27A7D5019E CanDrag
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A27A7D5019E Cleanup
 
-: ME_5000565C019C_ME_4A27A7D5019E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
-
 : ME_4A27A7D5019E
  CONST UID '4A27A7D5019E'
  CONST Name 'TevControlParaHotSpot'
@@ -3450,7 +3428,6 @@ ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
  ME_4A27AC32013C // ControlFriend
  ME_4A27AC74011B // Visible
  ME_4A48AAB903DA // X
- ME_17EECB9CAA77 // f_ControlFriend
  )
  ; // Attributes
  : Operations
@@ -3480,7 +3457,6 @@ ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4A27A7D5019E // Cleanup
- ME_5000565C019C_ME_4A27A7D5019E // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -4048,48 +4024,6 @@ ref; // ME_4E6E4DAC038A DoIt
 
 ref; // ME_4E6E4DA50023 Create
 
-FORWARD ME_4E6E4DC4003B
-
-: ME_DB74BDE54B14
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_DB74BDE54B14 aTag
-
-: ME_98386775A37E
- CONST Name 'aProcessor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
- ;
-
-ref; // ME_98386775A37E aProcessor
-
-: ME_9E0E060886B5
- CONST UID '9E0E060886B5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevParaListHotSpotTesterPrim.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E6E4DC4003B // Make
- ;
- : Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
- ;
- : Parameters
-   Seq: ( ME_DB74BDE54B14 // aTag
- ME_98386775A37E // aProcessor
- )
- ; // Parameters
-
-ref; // ME_9E0E060886B5 DoIt
-
 : ME_4E6E4DC4003B
  CONST UID '4E6E4DC4003B'
  CONST Name 'Make'
@@ -4108,10 +4042,6 @@ ref; // ME_9E0E060886B5 DoIt
    Seq: ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9E0E060886B5 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4492,22 +4422,6 @@ ref; // ME_4F968DE703AF f_BottomEdge
  ;
 
 ref; // ME_4F968F94014D thisMap
-
-: ME_2941848B5B53
- CONST UID '2941848B5B53'
- CONST Name 'f_Area'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Area' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
- ;
- : Target WL 'ME_4A2399C8012B' '4A1FCBA0014C.pas.ms.script' // TevObjectArea
- ;
-
-ref; // ME_2941848B5B53 f_Area
 
 FORWARD ME_4F9655E60184
 
@@ -5318,7 +5232,6 @@ ref; // ME_4E6E4F91001A_ME_4A27B5510171 DoGetAdvancedHotSpot
  ME_4F968D6E01D9 // f_TopEdge
  ME_4F968DE703AF // f_BottomEdge
  ME_4F968F94014D // thisMap
- ME_2941848B5B53 // f_Area
  )
  ; // Attributes
  : Operations
@@ -5443,22 +5356,6 @@ ref; // ME_4A27B5E3017E TContrBlockActFlags
  CONST "pm" true
 
 ref; // ME_4A27B7B10328 CommonControl
-
-: ME_C4FD38E35673
- CONST UID 'C4FD38E35673'
- CONST Name 'f_CommonControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CommonControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
- ;
- : Target WL 'ME_47C6AFC8021F' '47C5207602D1.pas.ms.script' // IevCommonControl
- ;
-
-ref; // ME_C4FD38E35673 f_CommonControl
 
 FORWARD ME_4A27B59E000D
 
@@ -5638,12 +5535,6 @@ ref; // ME_48E2638F0358_ME_4A27B51303A7 TransMouseMove
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A27B51303A7 Cleanup
 
-: ME_5000565C019C_ME_4A27B51303A7
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4A27B51303A7 ClearFields
-
 : ME_4A27B51303A7
  CONST UID '4A27B51303A7'
  CONST Name 'TevControlsBlockHotSpotTesterPrim'
@@ -5664,7 +5555,6 @@ ref; // ME_5000565C019C_ME_4A27B51303A7 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_4A27B7B10328 // CommonControl
- ME_C4FD38E35673 // f_CommonControl
  )
  ; // Attributes
  : Operations
@@ -5679,7 +5569,6 @@ ref; // ME_5000565C019C_ME_4A27B51303A7 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4A27B51303A7 // Cleanup
- ME_5000565C019C_ME_4A27B51303A7 // ClearFields
  )
  ; // Overridden
  : Children
@@ -6219,48 +6108,6 @@ ref; // ME_4D594CB6038E DoIt
 
 ref; // ME_4D594C980253 Create
 
-FORWARD ME_4D594CAA009C
-
-: ME_DAEC839206A8
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
- ;
-
-ref; // ME_DAEC839206A8 aPara
-
-: ME_686ADA076CD9
- CONST Name 'aProcessor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
- ;
-
-ref; // ME_686ADA076CD9 aProcessor
-
-: ME_00F049BF96A3
- CONST UID '00F049BF96A3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevTextParaHeaderHotSpot.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D594CAA009C // Make
- ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
- : Parameters
-   Seq: ( ME_DAEC839206A8 // aPara
- ME_686ADA076CD9 // aProcessor
- )
- ; // Parameters
-
-ref; // ME_00F049BF96A3 DoIt
-
 : ME_4D594CAA009C
  CONST UID '4D594CAA009C'
  CONST Name 'Make'
@@ -6279,10 +6126,6 @@ ref; // ME_00F049BF96A3 DoIt
    Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  )
  ; // Implements
- : Operations
-   Seq: ( ME_00F049BF96A3 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -6487,12 +6330,6 @@ ref; // ME_4ECCD6840014_ME_4D594C39031B CanDrag
  CONST OpKind opkind_Overridden
 ref; // ME_4A267FC6016B_ME_4D594C39031B DoHitTest
 
-: ME_5000565C019C_ME_4D594C39031B
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D594C39031B ClearFields
-
 : ME_4D594C39031B
  CONST UID '4D594C39031B'
  CONST Name 'TevTextParaHeaderHotSpot'
@@ -6538,7 +6375,6 @@ ref; // ME_5000565C019C_ME_4D594C39031B ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_4A267FC6016B_ME_4D594C39031B // DoHitTest
- ME_5000565C019C_ME_4D594C39031B // ClearFields
  )
  ; // Overridden
  : Constants
@@ -6715,48 +6551,6 @@ FORWARD ME_4D64068D027B
 
 FORWARD ME_4D64077A0131
 
-FORWARD ME_4D66225602D8
-
-: ME_42ECE8E3F5F3
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_42ECE8E3F5F3 aTag
-
-: ME_725F7C223A32
- CONST Name 'aProcessor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
- ;
-
-ref; // ME_725F7C223A32 aProcessor
-
-: ME_B5A4EF3FC7E0
- CONST UID 'B5A4EF3FC7E0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevReqGroupHotSpot.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D66225602D8 // Make
- ;
- : Target WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
- ;
- : Parameters
-   Seq: ( ME_42ECE8E3F5F3 // aTag
- ME_725F7C223A32 // aProcessor
- )
- ; // Parameters
-
-ref; // ME_B5A4EF3FC7E0 DoIt
-
 : ME_4D66225602D8
  CONST UID '4D66225602D8'
  CONST Name 'Make'
@@ -6775,10 +6569,6 @@ ref; // ME_B5A4EF3FC7E0 DoIt
    Seq: ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B5A4EF3FC7E0 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7055,37 +6845,6 @@ ref; // ME_4E1D77CB03E0 DoIt
 
 ref; // ME_4E1D77B700A5 Create
 
-FORWARD ME_4E1D780F011F
-
-: ME_7091754A0C94
- CONST Name 'aHotSpot'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
-
-ref; // ME_7091754A0C94 aHotSpot
-
-: ME_0687E0F1EBE0
- CONST UID '0687E0F1EBE0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevHotSpotProxy.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E1D780F011F // Make
- ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
- : Parameters
-   Seq: ( ME_7091754A0C94 // aHotSpot
- )
- ; // Parameters
-
-ref; // ME_0687E0F1EBE0 DoIt
-
 : ME_4E1D780F011F
  CONST UID '4E1D780F011F'
  CONST Name 'Make'
@@ -7104,10 +6863,6 @@ ref; // ME_0687E0F1EBE0 DoIt
    Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0687E0F1EBE0 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7524,12 +7279,6 @@ ref; // ME_4ECCD6840014_ME_4E1D76D101D0 CanDrag
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1D76D101D0 QueryInterface
 
-: ME_5000565C019C_ME_4E1D76D101D0
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E1D76D101D0 ClearFields
-
 : ME_4E1D76D101D0
  CONST UID '4E1D76D101D0'
  CONST Name 'TevHotSpotProxy'
@@ -7579,7 +7328,6 @@ ref; // ME_5000565C019C_ME_4E1D76D101D0 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A0AD3A01F7_ME_4E1D76D101D0 // QueryInterface
- ME_5000565C019C_ME_4E1D76D101D0 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -7658,37 +7406,6 @@ ref; // ME_4E1D95D3026B DoIt
 
 ref; // ME_4E1D95CA035F Create
 
-FORWARD ME_4E1D95E7019D
-
-: ME_26C42FBA64C5
- CONST Name 'anActive'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ;
-
-ref; // ME_26C42FBA64C5 anActive
-
-: ME_D4EE3A47BFB0
- CONST UID 'D4EE3A47BFB0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevActiveHyperlinkProxy.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E1D95E7019D // Make
- ;
- : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ;
- : Parameters
-   Seq: ( ME_26C42FBA64C5 // anActive
- )
- ; // Parameters
-
-ref; // ME_D4EE3A47BFB0 DoIt
-
 : ME_4E1D95E7019D
  CONST UID '4E1D95E7019D'
  CONST Name 'Make'
@@ -7707,10 +7424,6 @@ ref; // ME_D4EE3A47BFB0 DoIt
    Seq: ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D4EE3A47BFB0 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -7829,12 +7542,6 @@ ref; // ME_4FBF5595010C_ME_4E1D95610271 Invalidate
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1D95610271 QueryInterface
 
-: ME_5000565C019C_ME_4E1D95610271
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E1D95610271 ClearFields
-
 : ME_4E1D95610271
  CONST UID '4E1D95610271'
  CONST Name 'TnevActiveHyperlinkProxy'
@@ -7872,7 +7579,6 @@ ref; // ME_5000565C019C_ME_4E1D95610271 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A0AD3A01F7_ME_4E1D95610271 // QueryInterface
- ME_5000565C019C_ME_4E1D95610271 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -8018,48 +7724,6 @@ ref; // ME_4E1D97100095 DoIt
 
 ref; // ME_4E1D97080355 Create
 
-FORWARD ME_4E1D972D0277
-
-: ME_F5F48C818111
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
- ;
-
-ref; // ME_F5F48C818111 aPara
-
-: ME_6311AEB70C3E
- CONST Name 'anActive'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ;
-
-ref; // ME_6311AEB70C3E anActive
-
-: ME_DB5DB5815A1C
- CONST UID 'DB5DB5815A1C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevDecorActiveHyperlink.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E1D972D0277 // Make
- ;
- : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ;
- : Parameters
-   Seq: ( ME_F5F48C818111 // aPara
- ME_6311AEB70C3E // anActive
- )
- ; // Parameters
-
-ref; // ME_DB5DB5815A1C DoIt
-
 : ME_4E1D972D0277
  CONST UID '4E1D972D0277'
  CONST Name 'Make'
@@ -8078,10 +7742,6 @@ ref; // ME_DB5DB5815A1C DoIt
    Seq: ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DB5DB5815A1C // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -8118,12 +7778,6 @@ ref; // ME_4E1DB93401C4_ME_4E1D96B8035A DoIsSame
  CONST OpKind opkind_Overridden
 ref; // ME_4FBF5D0203DC_ME_4E1D96B8035A DoInvalidate
 
-: ME_5000565C019C_ME_4E1D96B8035A
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E1D96B8035A ClearFields
-
 : ME_4E1D96B8035A
  CONST UID '4E1D96B8035A'
  CONST Name 'TnevDecorActiveHyperlink'
@@ -8158,7 +7812,6 @@ ref; // ME_5000565C019C_ME_4E1D96B8035A ClearFields
  : Overridden
    Seq: ( ME_4E1DB93401C4_ME_4E1D96B8035A // DoIsSame
  ME_4FBF5D0203DC_ME_4E1D96B8035A // DoInvalidate
- ME_5000565C019C_ME_4E1D96B8035A // ClearFields
  )
  ; // Overridden
  : Children
@@ -8242,37 +7895,6 @@ ref; // ME_4E1DD80503D4 DoIt
 
 ref; // ME_4E1DD7FE016D Create
 
-FORWARD ME_4E1DD8160276
-
-: ME_0FA99FBD9FDD
- CONST Name 'aLink'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ;
-
-ref; // ME_0FA99FBD9FDD aLink
-
-: ME_7F5D81A9F2C8
- CONST UID '7F5D81A9F2C8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevHyperlinkProxy.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E1DD8160276 // Make
- ;
- : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ;
- : Parameters
-   Seq: ( ME_0FA99FBD9FDD // aLink
- )
- ; // Parameters
-
-ref; // ME_7F5D81A9F2C8 DoIt
-
 : ME_4E1DD8160276
  CONST UID '4E1DD8160276'
  CONST Name 'Make'
@@ -8291,10 +7913,6 @@ ref; // ME_7F5D81A9F2C8 DoIt
    Seq: ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7F5D81A9F2C8 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -8477,12 +8095,6 @@ ref; // ME_5063FF170259_ME_4E1DD7720136 GetHyperlink
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1DD7720136 QueryInterface
 
-: ME_5000565C019C_ME_4E1DD7720136
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E1DD7720136 ClearFields
-
 : ME_4E1DD7720136
  CONST UID '4E1DD7720136'
  CONST Name 'TevHyperlinkProxy'
@@ -8531,7 +8143,6 @@ ref; // ME_5000565C019C_ME_4E1DD7720136 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A0AD3A01F7_ME_4E1DD7720136 // QueryInterface
- ME_5000565C019C_ME_4E1DD7720136 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -8639,48 +8250,6 @@ ref; // ME_4E1DD89603A2 DoIt
 
 ref; // ME_4E1DD88E02EE Create
 
-FORWARD ME_4E1DD8B50181
-
-: ME_1E400210574B
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
- ;
-
-ref; // ME_1E400210574B aPara
-
-: ME_BFA1CA021908
- CONST Name 'aLink'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ;
-
-ref; // ME_BFA1CA021908 aLink
-
-: ME_DAD4285581AC
- CONST UID 'DAD4285581AC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevDecorHyperlink.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E1DD8B50181 // Make
- ;
- : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ;
- : Parameters
-   Seq: ( ME_1E400210574B // aPara
- ME_BFA1CA021908 // aLink
- )
- ; // Parameters
-
-ref; // ME_DAD4285581AC DoIt
-
 : ME_4E1DD8B50181
  CONST UID '4E1DD8B50181'
  CONST Name 'Make'
@@ -8699,10 +8268,6 @@ ref; // ME_DAD4285581AC DoIt
    Seq: ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DAD4285581AC // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -8756,12 +8321,6 @@ ref; // ME_5346A6210258
  CONST OpKind opkind_Overridden
 ref; // ME_4E1DDB7D0368_ME_4E1DD8400344 DoFromDocumentExternalHandle
 
-: ME_5000565C019C_ME_4E1DD8400344
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E1DD8400344 ClearFields
-
 : ME_4E1DD8400344
  CONST UID '4E1DD8400344'
  CONST Name 'TevDecorHyperlink'
@@ -8787,7 +8346,6 @@ ref; // ME_5000565C019C_ME_4E1DD8400344 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_4E1DDB7D0368_ME_4E1DD8400344 // DoFromDocumentExternalHandle
- ME_5000565C019C_ME_4E1DD8400344 // ClearFields
  )
  ; // Overridden
  : Children
@@ -8881,48 +8439,6 @@ ref; // ME_4E1D7A070074 DoIt
 
 ref; // ME_4E1D79FC01E9 Create
 
-FORWARD ME_4E1D7A1F0027
-
-: ME_553156DC23B0
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
- ;
-
-ref; // ME_553156DC23B0 aPara
-
-: ME_60367BA76486
- CONST Name 'aHotSpot'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
-
-ref; // ME_60367BA76486 aHotSpot
-
-: ME_56CBFC8CC20D
- CONST UID '56CBFC8CC20D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevDecorHotSpot.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E1D7A1F0027 // Make
- ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
- : Parameters
-   Seq: ( ME_553156DC23B0 // aPara
- ME_60367BA76486 // aHotSpot
- )
- ; // Parameters
-
-ref; // ME_56CBFC8CC20D DoIt
-
 : ME_4E1D7A1F0027
  CONST UID '4E1D7A1F0027'
  CONST Name 'Make'
@@ -8941,10 +8457,6 @@ ref; // ME_56CBFC8CC20D DoIt
    Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  )
  ; // Implements
- : Operations
-   Seq: ( ME_56CBFC8CC20D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -9111,12 +8623,6 @@ ref; // ME_47A0AD3A01F7_ME_4E1D961D02D6 QueryInterface
  CONST OpKind opkind_Overridden
 ref; // ME_4E1D94EF002C_ME_4E1D961D02D6 DoTransMouseMove
 
-: ME_5000565C019C_ME_4E1D961D02D6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E1D961D02D6 ClearFields
-
 : ME_4E1D961D02D6
  CONST UID '4E1D961D02D6'
  CONST Name 'TevDecorHotSpot'
@@ -9146,7 +8652,6 @@ ref; // ME_5000565C019C_ME_4E1D961D02D6 ClearFields
  : Overridden
    Seq: ( ME_47A0AD3A01F7_ME_4E1D961D02D6 // QueryInterface
  ME_4E1D94EF002C_ME_4E1D961D02D6 // DoTransMouseMove
- ME_5000565C019C_ME_4E1D961D02D6 // ClearFields
  )
  ; // Overridden
  : Dependencies

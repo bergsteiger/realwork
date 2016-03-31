@@ -470,87 +470,6 @@ ref; // ME_4CB5E5FC004A f_TextOwner
 
 ref; // ME_4CC6A35900D0 PagesInfo
 
-: ME_950D5081DD26
- CONST UID '950D5081DD26'
- CONST Name 'f_Preview'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Preview' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EA97410130 // TevDocumentPreviewPrim
- ;
- : Target WL 'ME_473C51AC0260' '467823B7002C.pas.ms.script' // IafwPreviewCanvas
- ;
-
-ref; // ME_950D5081DD26 f_Preview
-
-: ME_22077EC1C534
- CONST UID '22077EC1C534'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EA97410130 // TevDocumentPreviewPrim
- ;
- : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
- ;
-
-ref; // ME_22077EC1C534 f_Text
-
-: ME_BB23394C64E8
- CONST UID 'BB23394C64E8'
- CONST Name 'f_Printer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Printer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EA97410130 // TevDocumentPreviewPrim
- ;
- : Target WL 'ME_47750D8F0051' '467823B7002C.pas.ms.script' // IafwPrinter
- ;
- CONST extprop:clearViaProperty 'Printer'
-
-ref; // ME_BB23394C64E8 f_Printer
-
-: ME_D79A166F06FD
- CONST UID 'D79A166F06FD'
- CONST Name 'f_Processor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Processor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EA97410130 // TevDocumentPreviewPrim
- ;
- : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
- ;
-
-ref; // ME_D79A166F06FD f_Processor
-
-: ME_26929EF02299
- CONST UID '26929EF02299'
- CONST Name 'f_PagesInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PagesInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EA97410130 // TevDocumentPreviewPrim
- ;
- : Target WL 'ME_4CC6A3D403D7' '467823B7002C.pas.ms.script' // TafwPagesInfo
- ;
-
-ref; // ME_26929EF02299 f_PagesInfo
-
 FORWARD ME_49CB4BD701C9
 
 : ME_49CB738B019D
@@ -2986,12 +2905,6 @@ ref; // ME_49CCA4C90343_ME_47EA97410130 NeedUpdateOnUnsubscribe
  CONST OpKind opkind_Overridden
 ref; // ME_4A485B710126_ME_47EA97410130 DoStyleTableChanged
 
-: ME_5000565C019C_ME_47EA97410130
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
-
 : ME_47EA97410130
  CONST UID '47EA97410130'
  CONST Name 'TevDocumentPreviewPrim'
@@ -3050,11 +2963,6 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_4CB57D2200A6 // f_OriginalText
  ME_4CB5E5FC004A // f_TextOwner
  ME_4CC6A35900D0 // PagesInfo
- ME_950D5081DD26 // f_Preview
- ME_22077EC1C534 // f_Text
- ME_BB23394C64E8 // f_Printer
- ME_D79A166F06FD // f_Processor
- ME_26929EF02299 // f_PagesInfo
  )
  ; // Attributes
  : Operations
@@ -3121,7 +3029,6 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_49182CD402C9_ME_47EA97410130 // UnformatAll
  ME_49CCA4C90343_ME_47EA97410130 // NeedUpdateOnUnsubscribe
  ME_4A485B710126_ME_47EA97410130 // DoStyleTableChanged
- ME_5000565C019C_ME_47EA97410130 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -3392,63 +3299,6 @@ ref; // ME_4C2215040200 TevCustomHAFMacroReplacer
 
 FORWARD ME_49CBD11A02CF
 
-FORWARD ME_4CB57DAE016D
-
-: ME_BE4B0C558C44
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
-
-ref; // ME_BE4B0C558C44 aText
-
-: ME_5D040C6AC562
- CONST Name 'aKey'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_494F75DF001B' '4678209200A6.pas.ms.script' // TevPreviewCacheKey
- ;
-
-ref; // ME_5D040C6AC562 aKey
-
-: ME_CD97AD4C6EC4
- CONST Name 'aHAF'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_CD97AD4C6EC4 aHAF
-
-: ME_38BB81BC1516
- CONST UID '38BB81BC1516'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevDocumentPreview.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB57DAE016D // Make
- ;
- : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ;
- : Parameters
-   Seq: ( ME_BE4B0C558C44 // aText
- ME_5D040C6AC562 // aKey
- ME_CD97AD4C6EC4 // aHAF
- )
- ; // Parameters
-
-ref; // ME_38BB81BC1516 Create
-
 : ME_4CB57DAE016D
  CONST UID '4CB57DAE016D'
  CONST Name 'Make'
@@ -3467,73 +3317,12 @@ ref; // ME_38BB81BC1516 Create
    Seq: ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  )
  ; // Implements
- : Operations
-   Seq: ( ME_38BB81BC1516 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_4CB57DAE016D Make
-
-FORWARD ME_4CB57DE400D3
-
-: ME_95077A65A9DF
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
- ;
-
-ref; // ME_95077A65A9DF aText
-
-: ME_99AF94EF4A6E
- CONST Name 'aKey'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_494F75DF001B' '4678209200A6.pas.ms.script' // TevPreviewCacheKey
- ;
-
-ref; // ME_99AF94EF4A6E aKey
-
-: ME_FAC2F38A42A4
- CONST Name 'aHAF'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_FAC2F38A42A4 aHAF
-
-: ME_701CDF9A0D51
- CONST UID '701CDF9A0D51'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevDocumentPreview.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB57DE400D3 // Make$1
- ;
- : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ;
- : Parameters
-   Seq: ( ME_95077A65A9DF // aText
- ME_99AF94EF4A6E // aKey
- ME_FAC2F38A42A4 // aHAF
- )
- ; // Parameters
-
-ref; // ME_701CDF9A0D51 Create
 
 : ME_4CB57DE400D3
  CONST UID '4CB57DE400D3'
@@ -3553,10 +3342,6 @@ ref; // ME_701CDF9A0D51 Create
    Seq: ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  )
  ; // Implements
- : Operations
-   Seq: ( ME_701CDF9A0D51 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3703,39 +3488,6 @@ ref; // ME_5243CB170207 PagesCount
 
 ref; // ME_5243CB3A0332 MacroReplacer
 
-: ME_10B3464C0D20
- CONST UID '10B3464C0D20'
- CONST Name 'f_PagesCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PagesCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C22178C0102 // TevHAFPainter
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'PagesCount'
-
-ref; // ME_10B3464C0D20 f_PagesCount
-
-: ME_AE7AB4983433
- CONST UID 'AE7AB4983433'
- CONST Name 'f_MacroReplacer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MacroReplacer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C22178C0102 // TevHAFPainter
- ;
- : Target WL 'ME_49539CF5018B' '467C0CAA02AB.pas.ms.script' // Il3HAFMacroReplacer
- ;
-
-ref; // ME_AE7AB4983433 f_MacroReplacer
-
 FORWARD ME_5243CC9F00C7
 
 : ME_5243CCAE0306
@@ -3856,35 +3608,6 @@ ref; // ME_5243CD0600AE DoIt
 
 ref; // ME_5243CCEE0271 Create
 
-FORWARD ME_5243CD17020A
-
-: ME_F44B2E48A51D
- CONST Name 'aMacroReplacer'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49539CF5018B' '467C0CAA02AB.pas.ms.script' // Il3HAFMacroReplacer
- ;
-
-ref; // ME_F44B2E48A51D aMacroReplacer
-
-: ME_B47F5CA51604
- CONST UID 'B47F5CA51604'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevHAFPainter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5243CD17020A // Make
- ;
- : Parameters
-   Seq: ( ME_F44B2E48A51D // aMacroReplacer
- )
- ; // Parameters
-
-ref; // ME_B47F5CA51604 DoIt
-
 : ME_5243CD17020A
  CONST UID '5243CD17020A'
  CONST Name 'Make'
@@ -3899,10 +3622,6 @@ ref; // ME_B47F5CA51604 DoIt
    Seq: ( ME_5243CCEE0271 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B47F5CA51604 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4204,12 +3923,6 @@ ref; // ME_49539D77008C_ME_4C22178C0102 MacroReplacer
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4C22178C0102 Cleanup
 
-: ME_5000565C019C_ME_4C22178C0102
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C22178C0102 ClearFields
-
 : ME_4C22178C0102
  CONST UID '4C22178C0102'
  CONST Name 'TevHAFPainter'
@@ -4231,8 +3944,6 @@ ref; // ME_5000565C019C_ME_4C22178C0102 ClearFields
  : Attributes
    Seq: ( ME_5243CB170207 // PagesCount
  ME_5243CB3A0332 // MacroReplacer
- ME_10B3464C0D20 // f_PagesCount
- ME_AE7AB4983433 // f_MacroReplacer
  )
  ; // Attributes
  : Operations
@@ -4254,7 +3965,6 @@ ref; // ME_5000565C019C_ME_4C22178C0102 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4C22178C0102 // Cleanup
- ME_5000565C019C_ME_4C22178C0102 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -4888,37 +4598,6 @@ ref; // ME_4CB57EBB02EA DoIt
 
 ref; // ME_4CB57EB40216 Create
 
-FORWARD ME_4CB57EDA0325
-
-: ME_CC28D91F4B1D
- CONST Name 'aStorable'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
-
-ref; // ME_CC28D91F4B1D aStorable
-
-: ME_E61808BA9105
- CONST UID 'E61808BA9105'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevDocumentProvider.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB57EDA0325 // Make
- ;
- : Target WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
- ;
- : Parameters
-   Seq: ( ME_CC28D91F4B1D // aStorable
- )
- ; // Parameters
-
-ref; // ME_E61808BA9105 DoIt
-
 : ME_4CB57EDA0325
  CONST UID '4CB57EDA0325'
  CONST Name 'Make'
@@ -4937,10 +4616,6 @@ ref; // ME_E61808BA9105 DoIt
    Seq: ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E61808BA9105 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4996,12 +4671,6 @@ ref; // ME_4D1882B00158_ME_4CB57E560195 PageSetup
  CONST "pm" false
 ref; // ME_5343C5D2028A_ME_4CB57E560195 OriginalDocument
 
-: ME_5000565C019C_ME_4CB57E560195
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CB57E560195 ClearFields
-
 : ME_4CB57E560195
  CONST UID '4CB57E560195'
  CONST Name 'TnevDocumentProvider'
@@ -5039,10 +4708,6 @@ ref; // ME_5000565C019C_ME_4CB57E560195 ClearFields
  ME_5343C5D2028A_ME_4CB57E560195 // OriginalDocument
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4CB57E560195 // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_4D1886260173 // 
  ME_4D1893E9038E // 
@@ -5130,48 +4795,6 @@ ref; // ME_4CB5864E0303 DoIt
 
 ref; // ME_4CB586450301 Create
 
-FORWARD ME_4CB58669004B
-
-: ME_9B55CB628A7C
- CONST Name 'aStorable'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
-
-ref; // ME_9B55CB628A7C aStorable
-
-: ME_6B651107CDEC
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_6B651107CDEC aDocument
-
-: ME_84A11E5FE13C
- CONST UID '84A11E5FE13C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevDocumentProviderEx.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB58669004B // Make
- ;
- : Target WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
- ;
- : Parameters
-   Seq: ( ME_9B55CB628A7C // aStorable
- ME_6B651107CDEC // aDocument
- )
- ; // Parameters
-
-ref; // ME_84A11E5FE13C DoIt
-
 : ME_4CB58669004B
  CONST UID '4CB58669004B'
  CONST Name 'Make'
@@ -5190,10 +4813,6 @@ ref; // ME_84A11E5FE13C DoIt
    Seq: ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
  )
  ; // Implements
- : Operations
-   Seq: ( ME_84A11E5FE13C // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

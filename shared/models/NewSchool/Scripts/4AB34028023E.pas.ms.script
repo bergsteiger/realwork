@@ -283,21 +283,6 @@ ref; // ME_56116DAB014C DoIt
 
 ref; // ME_56116DA502E0 GetOperations
 
-FORWARD ME_56116DBA001A
-
-: ME_4BE1B1CC66D4
- CONST UID '4BE1B1CC66D4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RegisterInRep' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56116DBA001A // RegisterInRep
- ;
-
-ref; // ME_4BE1B1CC66D4 DoIt
-
 : ME_56116DBA001A
  CONST UID '56116DBA001A'
  CONST Name 'RegisterInRep'
@@ -308,10 +293,6 @@ ref; // ME_4BE1B1CC66D4 DoIt
  CONST Abstraction at_final
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
- : Operations
-   Seq: ( ME_4BE1B1CC66D4 // DoIt
- )
- ; // Operations
 
 ref; // ME_56116DBA001A RegisterInRep
 
@@ -527,21 +508,6 @@ ref; // ME_56116E350052 DoIt
 
 ref; // ME_56116E2E0246 UnlinkControl
 
-: ME_624F4F200C8B
- CONST UID '624F4F200C8B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmBaseOperationsCollection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_624F4F200C8B Ini_Reg_Class
-
 : ME_56116EB201D8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -606,17 +572,6 @@ ref; // ME_56116F5A01EF
 
 ref; // ME_5611807D017B 
 
-: ME_4B078E67A152
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4B078E67A152 
-
 : ME_5607EE71032D_ME_55D30E6601A8
  : Original WL 'ME_5607EE71032D' '4FFC33380166.pas.ms.script' // GetItemClass
  ;
@@ -665,7 +620,6 @@ ref; // ME_560A9DEB0155_ME_55D30E6601A8 GetItemAttr
  ME_56116DD0036F // PublishOp
  ME_56116E0A026F // PublishOpWithResult
  ME_56116E2E0246 // UnlinkControl
- ME_624F4F200C8B // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -682,7 +636,6 @@ ref; // ME_560A9DEB0155_ME_55D30E6601A8 GetItemAttr
  ME_56116EF001B4 // 
  ME_56116F5A01EF // 
  ME_5611807D017B // 
- ME_4B078E67A152 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -853,37 +806,6 @@ ref; // ME_51D12A6B00E4 DoIt
 
 ref; // ME_51D12A5F02EE Create
 
-FORWARD ME_51D12A7C0049
-
-: ME_C278BC52931E
- CONST Name 'anIter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
- ;
-
-ref; // ME_C278BC52931E anIter
-
-: ME_C2BA1D4F7631
- CONST UID 'C2BA1D4F7631'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmEntitiesDefIteratorForContextMenu.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D12A7C0049 // Make
- ;
- : Target WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
- ;
- : Parameters
-   Seq: ( ME_C278BC52931E // anIter
- )
- ; // Parameters
-
-ref; // ME_C2BA1D4F7631 DoIt
-
 : ME_51D12A7C0049
  CONST UID '51D12A7C0049'
  CONST Name 'Make'
@@ -902,10 +824,6 @@ ref; // ME_C2BA1D4F7631 DoIt
    Seq: ( WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C2BA1D4F7631 // DoIt
- )
- ; // Operations
  CONST "check nil" true
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -953,12 +871,6 @@ ref; // ME_47B99D4503A2_ME_51D128930090 CompareExistingItems
  CONST "pm" false
 ref; // ME_49956DB300D6_ME_51D128930090 Next
 
-: ME_5000565C019C_ME_51D128930090
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_51D128930090 ClearFields
-
 : ME_51D128930090
  CONST UID '51D128930090'
  CONST Name 'TvcmEntitiesDefIteratorForContextMenu'
@@ -996,10 +908,6 @@ ref; // ME_5000565C019C_ME_51D128930090 ClearFields
  ME_49956DB300D6_ME_51D128930090 // Next
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_51D128930090 // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_51D1489F01EB // 
  )
@@ -1072,37 +980,6 @@ ref; // ME_51D148DA01EF DoIt
 
 ref; // ME_51D148D100C2 Create
 
-FORWARD ME_51D148E7019F
-
-: ME_536F59DCBE4E
- CONST Name 'anEn'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
- ;
-
-ref; // ME_536F59DCBE4E anEn
-
-: ME_9EC3877F59A2
- CONST UID '9EC3877F59A2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmEntityDefForContextMenu.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D148E7019F // Make
- ;
- : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
- ;
- : Parameters
-   Seq: ( ME_536F59DCBE4E // anEn
- )
- ; // Parameters
-
-ref; // ME_9EC3877F59A2 DoIt
-
 : ME_51D148E7019F
  CONST UID '51D148E7019F'
  CONST Name 'Make'
@@ -1121,10 +998,6 @@ ref; // ME_9EC3877F59A2 DoIt
    Seq: ( WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9EC3877F59A2 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1214,12 +1087,6 @@ ref; // ME_499E95A60064_ME_51D148890323 Name
  CONST "pm" false
 ref; // ME_51D12DBB014B_ME_51D148890323 ContextMenuWeight
 
-: ME_5000565C019C_ME_51D148890323
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_51D148890323 ClearFields
-
 : ME_51D148890323
  CONST UID '51D148890323'
  CONST Name 'TvcmEntityDefForContextMenu'
@@ -1260,10 +1127,6 @@ ref; // ME_5000565C019C_ME_51D148890323 ClearFields
  ME_51D12DBB014B_ME_51D148890323 // ContextMenuWeight
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_51D148890323 // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_51D1492D02B3 // 
  )
@@ -1365,37 +1228,6 @@ ref; // ME_51D149C10000 DoIt
 
 ref; // ME_51D149B9038D Create
 
-FORWARD ME_51D149CE0372
-
-: ME_642DACE0B7A7
- CONST Name 'anIter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
- ;
-
-ref; // ME_642DACE0B7A7 anIter
-
-: ME_8B9E5D0E7593
- CONST UID '8B9E5D0E7593'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmOperationsDefIteratorForContextMenu.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D149CE0372 // Make
- ;
- : Target WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
- ;
- : Parameters
-   Seq: ( ME_642DACE0B7A7 // anIter
- )
- ; // Parameters
-
-ref; // ME_8B9E5D0E7593 DoIt
-
 : ME_51D149CE0372
  CONST UID '51D149CE0372'
  CONST Name 'Make'
@@ -1414,10 +1246,6 @@ ref; // ME_8B9E5D0E7593 DoIt
    Seq: ( WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8B9E5D0E7593 // DoIt
- )
- ; // Operations
  CONST "check nil" true
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1452,12 +1280,6 @@ ref; // ME_47B99D4503A2_ME_51D14918034E CompareExistingItems
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4995645B02C7_ME_51D14918034E Next
-
-: ME_5000565C019C_ME_51D14918034E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_51D14918034E ClearFields
 
 : ME_51D14918034E
  CONST UID '51D14918034E'
@@ -1496,10 +1318,6 @@ ref; // ME_5000565C019C_ME_51D14918034E ClearFields
  ME_4995645B02C7_ME_51D14918034E // Next
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_51D14918034E // ClearFields
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -1927,140 +1745,6 @@ ref; // ME_55D3128601A0 aControl
 
 ref; // ME_55D3127F038A SupportedBy
 
-: ME_3B3033332D45
- CONST UID '3B3033332D45'
- CONST Name 'f_Operations'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Operations' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target ME_55D30E6601A8 // TvcmBaseOperationsCollection
- ;
- CONST extprop:clearViaProperty 'Operations'
-
-ref; // ME_3B3033332D45 f_Operations
-
-: ME_5CEF6FC1F629
- CONST UID '5CEF6FC1F629'
- CONST Name 'f_ToolbarPos'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ToolbarPos' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target WL 'ME_4992F80B015F' '499EAAE502A8.pas.ms.script' // TvcmToolBarPos
- ;
- CONST extprop:clearViaProperty 'ToolbarPos'
-
-ref; // ME_5CEF6FC1F629 f_ToolbarPos
-
-: ME_F3CB43033746
- CONST UID 'F3CB43033746'
- CONST Name 'f_Controls'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Controls' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target ME_55D30F7D02AA // TvcmTargetedControlsCollection
- ;
- CONST extprop:clearViaProperty 'Controls'
-
-ref; // ME_F3CB43033746 f_Controls
-
-: ME_592EA9FDE849
- CONST UID '592EA9FDE849'
- CONST Name 'f_OnGetTarget'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetTarget' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target ME_55D30CC30066 // TvcmGetTargetEvent
- ;
- CONST extprop:clearViaProperty 'OnGetTarget'
-
-ref; // ME_592EA9FDE849 f_OnGetTarget
-
-: ME_91F57E8FB777
- CONST UID '91F57E8FB777'
- CONST Name 'f_EntityDef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EntityDef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
- ;
-
-ref; // ME_91F57E8FB777 f_EntityDef
-
-: ME_8C352886ABA0
- CONST UID '8C352886ABA0'
- CONST Name 'f_Options'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Options' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target WL 'ME_4992FA3601A9' '4683F37902CF.pas.ms.script' // TvcmEntityOperationsOptions
- ;
- CONST extprop:clearViaProperty 'Options'
-
-ref; // ME_8C352886ABA0 f_Options
-
-: ME_DB62CA3D2033
- CONST UID 'DB62CA3D2033'
- CONST Name 'f_ContextMenuWeight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextMenuWeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'ContextMenuWeight'
-
-ref; // ME_DB62CA3D2033 f_ContextMenuWeight
-
-: ME_F1A25B10E924
- CONST UID 'F1A25B10E924'
- CONST Name 'f_EntityID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EntityID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_F1A25B10E924 f_EntityID
-
 FORWARD ME_55D30ECE00AD
 
 : ME_55D30ED800C4
@@ -2454,21 +2138,6 @@ ref; // ME_FEDDA5D3824F DoIt
 
 ref; // ME_55D316B201E7 HasOnlyInternalOperations
 
-FORWARD ME_55D316CE0191
-
-: ME_7641D2E5E0A8
- CONST UID '7641D2E5E0A8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RegisterInRep' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55D316CE0191 // RegisterInRep
- ;
-
-ref; // ME_7641D2E5E0A8 DoIt
-
 : ME_55D316CE0191
  CONST UID '55D316CE0191'
  CONST Name 'RegisterInRep'
@@ -2479,10 +2148,6 @@ ref; // ME_7641D2E5E0A8 DoIt
  CONST Abstraction at_final
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
- : Operations
-   Seq: ( ME_7641D2E5E0A8 // DoIt
- )
- ; // Operations
 
 ref; // ME_55D316CE0191 RegisterInRep
 
@@ -2823,32 +2488,6 @@ ref; // ME_78B8116FEB76 OperationsStored
 
 ref; // ME_EC3EC97ADA92 ControlsStored
 
-: ME_92C0F0D119F0
- CONST UID '92C0F0D119F0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmBaseEntitiesCollectionItemPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_92C0F0D119F0 Ini_Reg_Class
-
-: ME_F70A14A80EC9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F70A14A80EC9 
-
 : ME_478CF34E02CE_ME_55D30D410267
  : Original WL 'ME_478CF34E02CE' '4AB0997B00A2.pas.ms.script' // Assign
  ;
@@ -2872,12 +2511,6 @@ ref; // ME_479F2B3302C1_ME_55D30D410267 BeforeAddToCache
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4D555CF50027_ME_55D30D410267 Create
-
-: ME_5000565C019C_ME_55D30D410267
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55D30D410267 ClearFields
 
 : ME_55CCBA3C0190_ME_55D30D410267
  : Original WL 'ME_55CCBA3C0190' '4FFC33380166.pas.ms.script' // ChangeName
@@ -2933,14 +2566,6 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_55D3115100B3 // ContextMenuWeight
  ME_55D3116F02D5 // EntityID
  ME_55D3127F038A // SupportedBy
- ME_3B3033332D45 // f_Operations
- ME_5CEF6FC1F629 // f_ToolbarPos
- ME_F3CB43033746 // f_Controls
- ME_592EA9FDE849 // f_OnGetTarget
- ME_91F57E8FB777 // f_EntityDef
- ME_8C352886ABA0 // f_Options
- ME_DB62CA3D2033 // f_ContextMenuWeight
- ME_F1A25B10E924 // f_EntityID
  )
  ; // Attributes
  : Operations
@@ -2961,7 +2586,6 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_55D317B50256 // IsItemCaptionUnique
  ME_78B8116FEB76 // OperationsStored
  ME_EC3EC97ADA92 // ControlsStored
- ME_92C0F0D119F0 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -2969,7 +2593,6 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_479731C50290_ME_55D30D410267 // Cleanup
  ME_479F2B3302C1_ME_55D30D410267 // BeforeAddToCache
  ME_4D555CF50027_ME_55D30D410267 // Create
- ME_5000565C019C_ME_55D30D410267 // ClearFields
  ME_55CCBA3C0190_ME_55D30D410267 // ChangeName
  ME_55CCBA8003C7_ME_55D30D410267 // ChangeCaption
  ME_55CCBAAB00F4_ME_55D30D410267 // MakeID
@@ -2977,10 +2600,6 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_561145D802BB_ME_55D30D410267 // QueryInterface
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_F70A14A80EC9 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2989,21 +2608,6 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55D30D410267 TvcmBaseEntitiesCollectionItemPrim
-
-: ME_AB2CDAE8245F
- CONST UID 'AB2CDAE8245F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmBaseEntitiesCollectionItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_AB2CDAE8245F Ini_Reg_Class
 
 FORWARD ME_55D33EF20068
 
@@ -3059,17 +2663,6 @@ ref; // ME_56113B2F0070
 
 ref; // ME_56113B7600D5 
 
-: ME_CAF8C8DCC3BC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CAF8C8DCC3BC 
-
 : ME_4DDBBD1103C3
  CONST UID '4DDBBD1103C3'
  CONST Name 'TvcmBaseEntitiesCollectionItem'
@@ -3085,10 +2678,6 @@ ref; // ME_CAF8C8DCC3BC
    Seq: ( ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AB2CDAE8245F // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_55D30CC30066 // TvcmGetTargetEvent
  ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
@@ -3100,7 +2689,6 @@ ref; // ME_CAF8C8DCC3BC
  ME_56112E5F0122 // 
  ME_56113B2F0070 // 
  ME_56113B7600D5 // 
- ME_CAF8C8DCC3BC // 
  )
  ; // Dependencies
  CONST "need UC" true
@@ -4038,308 +3626,6 @@ ref; // ME_5620E6F00105 Linked
 
 ref; // ME_5624C3E003C7 f_Options
 
-: ME_3E9B9346E545
- CONST UID '3E9B9346E545'
- CONST Name 'f_OperationType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OperationType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ;
- CONST extprop:clearViaProperty 'OperationType'
-
-ref; // ME_3E9B9346E545 f_OperationType
-
-: ME_3EC442E5BBBB
- CONST UID '3EC442E5BBBB'
- CONST Name 'f_ContextMenuWeight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextMenuWeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'ContextMenuWeight'
-
-ref; // ME_3EC442E5BBBB f_ContextMenuWeight
-
-: ME_FE39ACD20F73
- CONST UID 'FE39ACD20F73'
- CONST Name 'f_OperationID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OperationID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_FE39ACD20F73 f_OperationID
-
-: ME_224371F9D102
- CONST UID '224371F9D102'
- CONST Name 'f_AutoLock'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoLock' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AutoLock'
-
-ref; // ME_224371F9D102 f_AutoLock
-
-: ME_F552F1CB5EE0
- CONST UID 'F552F1CB5EE0'
- CONST Name 'f_AutoFocus'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoFocus' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AutoFocus'
-
-ref; // ME_F552F1CB5EE0 f_AutoFocus
-
-: ME_A391F7FC2B17
- CONST UID 'A391F7FC2B17'
- CONST Name 'f_LongProcess'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LongProcess' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'LongProcess'
-
-ref; // ME_A391F7FC2B17 f_LongProcess
-
-: ME_880409226FCA
- CONST UID '880409226FCA'
- CONST Name 'f_States'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства States' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target ME_5620D2420197 // TvcmBaseOperationStates
- ;
- CONST extprop:clearViaProperty 'States'
-
-ref; // ME_880409226FCA f_States
-
-: ME_20EA47343849
- CONST UID '20EA47343849'
- CONST Name 'f_State'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства State' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_4683F4D501E9' '467BAB7F021E.pas.ms.script' // TvcmOperationStateIndex
- ;
- CONST extprop:clearViaProperty 'State'
-
-ref; // ME_20EA47343849 f_State
-
-: ME_6345F32C5B8A
- CONST UID '6345F32C5B8A'
- CONST Name 'f_Controls'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Controls' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target ME_5620D3930294 // TvcmActiveControlsCollection
- ;
-
-ref; // ME_6345F32C5B8A f_Controls
-
-: ME_CB3C6D9E3C0D
- CONST UID 'CB3C6D9E3C0D'
- CONST Name 'f_OnGetState'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetState' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target ME_5620CA450068 // TvcmGetStateEvent
- ;
- CONST extprop:clearViaProperty 'OnGetState'
-
-ref; // ME_CB3C6D9E3C0D f_OnGetState
-
-: ME_0F5AF7FA689F
- CONST UID '0F5AF7FA689F'
- CONST Name 'f_OnTest'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTest' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
- ;
- CONST extprop:clearViaProperty 'OnTest'
-
-ref; // ME_0F5AF7FA689F f_OnTest
-
-: ME_2EA573A0FEFB
- CONST UID '2EA573A0FEFB'
- CONST Name 'f_OnExecute'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnExecute' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_52A1D97A009E' '47D0E1500033.pas.ms.script' // TvcmExecuteEvent
- ;
- CONST extprop:clearViaProperty 'OnExecute'
-
-ref; // ME_2EA573A0FEFB f_OnExecute
-
-: ME_5DB887AA8C0E
- CONST UID '5DB887AA8C0E'
- CONST Name 'f_OnContextTest'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnContextTest' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target ME_5620CABB02F5 // TvcmContextTestEvent
- ;
- CONST extprop:clearViaProperty 'OnContextTest'
-
-ref; // ME_5DB887AA8C0E f_OnContextTest
-
-: ME_E06C050C113A
- CONST UID 'E06C050C113A'
- CONST Name 'f_OnContextExecute'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnContextExecute' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target ME_5620CB260263 // TvcmContextExecuteEvent
- ;
- CONST extprop:clearViaProperty 'OnContextExecute'
-
-ref; // ME_E06C050C113A f_OnContextExecute
-
-: ME_FFEBB3F4DFE6
- CONST UID 'FFEBB3F4DFE6'
- CONST Name 'f_IsCaptionUnique'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsCaptionUnique' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsCaptionUnique'
-
-ref; // ME_FFEBB3F4DFE6 f_IsCaptionUnique
-
-: ME_C764F19ED731
- CONST UID 'C764F19ED731'
- CONST Name 'f_SaveShortcut'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SaveShortcut' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_499562B802E7' '4AB0997B00A2.pas.ms.script' // TShortCut
- ;
-
-ref; // ME_C764F19ED731 f_SaveShortcut
-
-: ME_ABBBCCAEC08D
- CONST UID 'ABBBCCAEC08D'
- CONST Name 'f_SaveSecondaryShortcuts'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SaveSecondaryShortcuts' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_ABBBCCAEC08D f_SaveSecondaryShortcuts
-
-: ME_62B6B1199537
- CONST UID '62B6B1199537'
- CONST Name 'f_IsDefault'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsDefault' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsDefault'
-
-ref; // ME_62B6B1199537 f_IsDefault
-
 FORWARD ME_5620E1270164
 
 : ME_5620E12F0055
@@ -4911,21 +4197,6 @@ ref; // ME_5620E80B03DB DoIt
 
 ref; // ME_5620E802035A FakeControlTest
 
-FORWARD ME_5620E8DC016C
-
-: ME_2FECB370C71E
- CONST UID '2FECB370C71E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ClearOp' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5620E8DC016C // ClearOp
- ;
-
-ref; // ME_2FECB370C71E DoIt
-
 : ME_5620E8DC016C
  CONST UID '5620E8DC016C'
  CONST Name 'ClearOp'
@@ -4936,10 +4207,6 @@ ref; // ME_2FECB370C71E DoIt
  CONST Abstraction at_final
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
- : Operations
-   Seq: ( ME_2FECB370C71E // DoIt
- )
- ; // Operations
 
 ref; // ME_5620E8DC016C ClearOp
 
@@ -5203,21 +4470,6 @@ ref; // ME_5620EFDC0236 DoIt
 
 ref; // ME_5620EF9D02F1 ReplaceShortCuts$2
 
-FORWARD ME_5620F0050158
-
-: ME_1BFCB7BC7884
- CONST UID '1BFCB7BC7884'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StoreDesignTimeShortcuts' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5620F0050158 // StoreDesignTimeShortcuts
- ;
-
-ref; // ME_1BFCB7BC7884 DoIt
-
 : ME_5620F0050158
  CONST UID '5620F0050158'
  CONST Name 'StoreDesignTimeShortcuts'
@@ -5228,10 +4480,6 @@ ref; // ME_1BFCB7BC7884 DoIt
  CONST Abstraction at_final
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
- : Operations
-   Seq: ( ME_1BFCB7BC7884 // DoIt
- )
- ; // Operations
 
 ref; // ME_5620F0050158 StoreDesignTimeShortcuts
 
@@ -5675,32 +4923,6 @@ ref; // ME_EBDB5C8A01C4 IsDefaultStored
 
 ref; // ME_C79988A52B31 GroupIDStored
 
-: ME_1E19DC38F44C
- CONST UID '1E19DC38F44C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmBaseOperationsCollectionItemPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1E19DC38F44C Ini_Reg_Class
-
-: ME_C0A6A33D8722
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C0A6A33D8722 
-
 : ME_478CF34E02CE_ME_5620CFFC0045
  : Original WL 'ME_478CF34E02CE' '4AB0997B00A2.pas.ms.script' // Assign
  ;
@@ -5724,12 +4946,6 @@ ref; // ME_479F2B3302C1_ME_5620CFFC0045 BeforeAddToCache
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4D555CF50027_ME_5620CFFC0045 Create
-
-: ME_5000565C019C_ME_5620CFFC0045
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5620CFFC0045 ClearFields
 
 : ME_55CCBA3C0190_ME_5620CFFC0045
  : Original WL 'ME_55CCBA3C0190' '4FFC33380166.pas.ms.script' // ChangeName
@@ -5810,24 +5026,6 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_5620E5640206 // CurrentState
  ME_5620E6F00105 // Linked
  ME_5624C3E003C7 // f_Options
- ME_3E9B9346E545 // f_OperationType
- ME_3EC442E5BBBB // f_ContextMenuWeight
- ME_FE39ACD20F73 // f_OperationID
- ME_224371F9D102 // f_AutoLock
- ME_F552F1CB5EE0 // f_AutoFocus
- ME_A391F7FC2B17 // f_LongProcess
- ME_880409226FCA // f_States
- ME_20EA47343849 // f_State
- ME_6345F32C5B8A // f_Controls
- ME_CB3C6D9E3C0D // f_OnGetState
- ME_0F5AF7FA689F // f_OnTest
- ME_2EA573A0FEFB // f_OnExecute
- ME_5DB887AA8C0E // f_OnContextTest
- ME_E06C050C113A // f_OnContextExecute
- ME_FFEBB3F4DFE6 // f_IsCaptionUnique
- ME_C764F19ED731 // f_SaveShortcut
- ME_ABBBCCAEC08D // f_SaveSecondaryShortcuts
- ME_62B6B1199537 // f_IsDefault
  )
  ; // Attributes
  : Operations
@@ -5864,7 +5062,6 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_7C0E36AF141A // OperationTypeStored
  ME_EBDB5C8A01C4 // IsDefaultStored
  ME_C79988A52B31 // GroupIDStored
- ME_1E19DC38F44C // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -5872,7 +5069,6 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_479731C50290_ME_5620CFFC0045 // Cleanup
  ME_479F2B3302C1_ME_5620CFFC0045 // BeforeAddToCache
  ME_4D555CF50027_ME_5620CFFC0045 // Create
- ME_5000565C019C_ME_5620CFFC0045 // ClearFields
  ME_55CCBA3C0190_ME_5620CFFC0045 // ChangeName
  ME_55CCBA8003C7_ME_5620CFFC0045 // ChangeCaption
  ME_55CCBAAB00F4_ME_5620CFFC0045 // MakeID
@@ -5880,10 +5076,6 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_561145D802BB_ME_5620CFFC0045 // QueryInterface
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_C0A6A33D8722 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -7148,21 +6340,6 @@ ref; // ME_E61BE25E8E91 DoIt
 
 ref; // ME_560AA0B60313 UnlinkControl
 
-FORWARD ME_560AA0C50016
-
-: ME_82EDB4627A10
- CONST UID '82EDB4627A10'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RegisterInRep' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_560AA0C50016 // RegisterInRep
- ;
-
-ref; // ME_82EDB4627A10 DoIt
-
 : ME_560AA0C50016
  CONST UID '560AA0C50016'
  CONST Name 'RegisterInRep'
@@ -7173,10 +6350,6 @@ ref; // ME_82EDB4627A10 DoIt
  CONST Abstraction at_final
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
- : Operations
-   Seq: ( ME_82EDB4627A10 // DoIt
- )
- ; // Operations
 
 ref; // ME_560AA0C50016 RegisterInRep
 
@@ -7226,21 +6399,6 @@ ref; // ME_560AA0E7038C DoIt
 
 ref; // ME_560AA0E20102 IsItemCaptionUnique
 
-: ME_28E2EF11F713
- CONST UID '28E2EF11F713'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmBaseEntitiesCollection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_28E2EF11F713 Ini_Reg_Class
-
 : ME_560AC8C202CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -7280,17 +6438,6 @@ ref; // ME_560AC9940195
  ;
 
 ref; // ME_560ADC4E0249 
-
-: ME_1FEDD033DA71
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1FEDD033DA71 
 
 : ME_476954790060_ME_52A72E6B00B1
  : Original WL 'ME_476954790060' '467BAB7F021E.pas.ms.script' // PublishEntity
@@ -7357,7 +6504,6 @@ ref; // ME_560A9DEB0155_ME_52A72E6B00B1 GetItemAttr
  ME_560AA0B60313 // UnlinkControl
  ME_560AA0C50016 // RegisterInRep
  ME_560AA0E20102 // IsItemCaptionUnique
- ME_28E2EF11F713 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -7376,7 +6522,6 @@ ref; // ME_560A9DEB0155_ME_52A72E6B00B1 GetItemAttr
  ME_560AC9260166 // 
  ME_560AC9940195 // 
  ME_560ADC4E0249 // 
- ME_1FEDD033DA71 // 
  )
  ; // Dependencies
  CONST "need UC" true
@@ -7424,23 +6569,6 @@ ref; // ME_5608151A02D6 f_Linked
  CONST "pm" true
 
 ref; // ME_560815340395 Entities
-
-: ME_CC2629305952
- CONST UID 'CC2629305952'
- CONST Name 'f_Entities'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Entities' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A1EA2A0184 // TvcmBaseEntities
- ;
- : Target ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
- ;
- CONST extprop:clearViaProperty 'Entities'
-
-ref; // ME_CC2629305952 f_Entities
 
 FORWARD ME_52A1ED12039D
 
@@ -7520,21 +6648,6 @@ ref; // ME_5608159C0077 DoIt
 
 ref; // ME_560815920320 GetItemByName
 
-FORWARD ME_560815A70133
-
-: ME_C79484DB655A
- CONST UID 'C79484DB655A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LinkControls' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_560815A70133 // LinkControls
- ;
-
-ref; // ME_C79484DB655A DoIt
-
 : ME_560815A70133
  CONST UID '560815A70133'
  CONST Name 'LinkControls'
@@ -7545,27 +6658,8 @@ ref; // ME_C79484DB655A DoIt
  CONST Abstraction at_final
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
- : Operations
-   Seq: ( ME_C79484DB655A // DoIt
- )
- ; // Operations
 
 ref; // ME_560815A70133 LinkControls
-
-FORWARD ME_560815B2001B
-
-: ME_4618F4897B97
- CONST UID '4618F4897B97'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnlinkControls' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_560815B2001B // UnlinkControls
- ;
-
-ref; // ME_4618F4897B97 DoIt
 
 : ME_560815B2001B
  CONST UID '560815B2001B'
@@ -7577,10 +6671,6 @@ ref; // ME_4618F4897B97 DoIt
  CONST Abstraction at_final
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
- : Operations
-   Seq: ( ME_4618F4897B97 // DoIt
- )
- ; // Operations
 
 ref; // ME_560815B2001B UnlinkControls
 
@@ -7859,7 +6949,6 @@ ref; // ME_4F884378016A_ME_52A1EA2A0184 Notification
  : Attributes
    Seq: ( ME_5608151A02D6 // f_Linked
  ME_560815340395 // Entities
- ME_CC2629305952 // f_Entities
  )
  ; // Attributes
  : Operations
@@ -8039,7 +7128,6 @@ ref; // ME_5624C95902C8 TvcmActiveControlsCollectionItem
  WL 'ME_5028887002FD' '5028887002FD.pas.ms.script' // Toolbar
  WL 'ME_5028898902A2' '5028898902A2.pas.ms.script' // tb97utils
  WL 'ME_52A0859B00E2' '52A0859B00E2.pas.ms.script' // Buttons
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/implementation/Components'

@@ -99,54 +99,6 @@ ref; // ME_542E875B02BA SharedMode
 
 ref; // ME_543FBC830019 f_RootStreamManager
 
-: ME_1A45496CD57E
- CONST UID '1A45496CD57E'
- CONST Name 'f_Access'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Access' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_542E5D79018F // Tm3StorageHolder
- ;
- : Target WL 'ME_47208653003B' '4720862F0238.pas.ms.script' // Tm3StoreAccess
- ;
-
-ref; // ME_1A45496CD57E f_Access
-
-: ME_7D72493722CE
- CONST UID '7D72493722CE'
- CONST Name 'f_FileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FileName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_542E5D79018F // Tm3StorageHolder
- ;
- : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
- ;
-
-ref; // ME_7D72493722CE f_FileName
-
-: ME_A3E652F9DB9B
- CONST UID 'A3E652F9DB9B'
- CONST Name 'f_SharedMode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SharedMode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_542E5D79018F // Tm3StorageHolder
- ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
-
-ref; // ME_A3E652F9DB9B f_SharedMode
-
 FORWARD ME_542E5E1A037B
 
 : ME_542E5E8D02E9
@@ -210,59 +162,6 @@ ref; // ME_542E5E4200B5 DoIt
 
 ref; // ME_542E5E1A037B Create
 
-FORWARD ME_542E5E2F020B
-
-: ME_E63B22178EC6
- CONST Name 'aStorageClass'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5422B2A502EB' '48294AA903A6.pas.ms.script' // Rm3CommonStorage
- ;
-
-ref; // ME_E63B22178EC6 aStorageClass
-
-: ME_6F57AB49BC7E
- CONST Name 'anAccess'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47208653003B' '4720862F0238.pas.ms.script' // Tm3StoreAccess
- ;
-
-ref; // ME_6F57AB49BC7E anAccess
-
-: ME_2F2A2463C167
- CONST Name 'aStream'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
- ;
-
-ref; // ME_2F2A2463C167 aStream
-
-: ME_B2ED1285DF00
- CONST UID 'B2ED1285DF00'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tm3StorageHolder.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_542E5E2F020B // Make
- ;
- : Target WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
- ;
- : Parameters
-   Seq: ( ME_E63B22178EC6 // aStorageClass
- ME_6F57AB49BC7E // anAccess
- ME_2F2A2463C167 // aStream
- )
- ; // Parameters
-
-ref; // ME_B2ED1285DF00 DoIt
-
 : ME_542E5E2F020B
  CONST UID '542E5E2F020B'
  CONST Name 'Make'
@@ -281,10 +180,6 @@ ref; // ME_B2ED1285DF00 DoIt
    Seq: ( WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B2ED1285DF00 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -474,12 +369,6 @@ ref; // ME_542E736E0204_ME_542E5D79018F StoreToCache
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_542E5D79018F Cleanup
 
-: ME_5000565C019C_ME_542E5D79018F
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_542E5D79018F ClearFields
-
 : ME_542E5D79018F
  CONST UID '542E5D79018F'
  CONST Name 'Tm3StorageHolder'
@@ -505,9 +394,6 @@ ref; // ME_5000565C019C_ME_542E5D79018F ClearFields
  ME_542E82C10111 // FileName
  ME_542E875B02BA // SharedMode
  ME_543FBC830019 // f_RootStreamManager
- ME_1A45496CD57E // f_Access
- ME_7D72493722CE // f_FileName
- ME_A3E652F9DB9B // f_SharedMode
  )
  ; // Attributes
  : Operations
@@ -524,7 +410,6 @@ ref; // ME_5000565C019C_ME_542E5D79018F ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_542E5D79018F // Cleanup
- ME_5000565C019C_ME_542E5D79018F // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -794,21 +679,6 @@ ref; // ME_542EA0D4038A DoIt
 
 ref; // ME_542EA0C5023C Drop
 
-FORWARD ME_555481D1035F
-
-: ME_8DA5EB01A0DD
- CONST UID '8DA5EB01A0DD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DropAll' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_555481D1035F // DropAll
- ;
-
-ref; // ME_8DA5EB01A0DD DoIt
-
 : ME_555481D1035F
  CONST UID '555481D1035F'
  CONST Name 'DropAll'
@@ -819,10 +689,6 @@ ref; // ME_8DA5EB01A0DD DoIt
  CONST Abstraction at_final
  : Parent ME_542E7AD00050 // Tm3StorageHolderList
  ;
- : Operations
-   Seq: ( ME_8DA5EB01A0DD // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_555481D1035F DropAll

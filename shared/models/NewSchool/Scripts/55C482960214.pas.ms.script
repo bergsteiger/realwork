@@ -8,19 +8,6 @@ FORWARD ME_55C482EC023E
 
 FORWARD ME_55C483850136
 
-: ME_FDC9EB6DED6D
- CONST UID 'FDC9EB6DED6D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Run' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55C483850136 // Run
- ;
-
-ref; // ME_FDC9EB6DED6D DoIt
-
 : ME_55C483970098
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -161,10 +148,6 @@ ref; // ME_56456EFB02A4
  CONST Abstraction at_final
  : Parent ME_55C482EC023E // TcallMSSRunner
  ;
- : Operations
-   Seq: ( ME_FDC9EB6DED6D // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_55C483970098 // 
  ME_55C483AE017E // 
@@ -199,6 +182,7 @@ ref; // ME_55C483850136 Run
    Seq: ( ME_55C483850136 // Run
  )
  ; // Operations
+ CONST "UseNewGen" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

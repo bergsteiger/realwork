@@ -921,89 +921,6 @@ ref; // ME_55890C18031B OnLocalTimeChange
 
 ref; // ME_55891413007D f_WindowHandle
 
-: ME_0C877D130570
- CONST UID '0C877D130570'
- CONST Name 'f_Enabled'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Enabled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55890A550297 // Tl3Timer
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Enabled'
-
-ref; // ME_0C877D130570 f_Enabled
-
-: ME_B60AC79587BE
- CONST UID 'B60AC79587BE'
- CONST Name 'f_Interval'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Interval' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55890A550297 // Tl3Timer
- ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
- CONST extprop:clearViaProperty 'Interval'
-
-ref; // ME_B60AC79587BE f_Interval
-
-: ME_0350690D9401
- CONST UID '0350690D9401'
- CONST Name 'f_OnTimer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTimer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55890A550297 // Tl3Timer
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnTimer'
-
-ref; // ME_0350690D9401 f_OnTimer
-
-: ME_9C3929D0C953
- CONST UID '9C3929D0C953'
- CONST Name 'f_OnLocalTimeChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnLocalTimeChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55890A550297 // Tl3Timer
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnLocalTimeChange'
-
-ref; // ME_9C3929D0C953 f_OnLocalTimeChange
-
-FORWARD ME_5589142F0292
-
-: ME_28F829C5C9DF
- CONST UID '28F829C5C9DF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateTimer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5589142F0292 // UpdateTimer
- ;
-
-ref; // ME_28F829C5C9DF DoIt
-
 : ME_5589142F0292
  CONST UID '5589142F0292'
  CONST Name 'UpdateTimer'
@@ -1014,10 +931,6 @@ ref; // ME_28F829C5C9DF DoIt
  CONST Abstraction at_final
  : Parent ME_55890A550297 // Tl3Timer
  ;
- : Operations
-   Seq: ( ME_28F829C5C9DF // DoIt
- )
- ; // Operations
 
 ref; // ME_5589142F0292 UpdateTimer
 
@@ -1172,10 +1085,6 @@ ref; // ME_47A042E100E2_ME_55890A550297 InitFields
  ME_55890C00017C // OnTimer
  ME_55890C18031B // OnLocalTimeChange
  ME_55891413007D // f_WindowHandle
- ME_0C877D130570 // f_Enabled
- ME_B60AC79587BE // f_Interval
- ME_0350690D9401 // f_OnTimer
- ME_9C3929D0C953 // f_OnLocalTimeChange
  )
  ; // Attributes
  : Operations

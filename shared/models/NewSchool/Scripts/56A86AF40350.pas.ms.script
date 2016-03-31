@@ -40,38 +40,6 @@ ref; // ME_56B9C43001F5 HTParams
 
 ref; // ME_56B9C43A00AE PGParams
 
-: ME_2CD8FB827F5B
- CONST UID '2CD8FB827F5B'
- CONST Name 'f_HTParams'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HTParams' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_54F9AF6B00DD' '54F9AF550087.pas.ms.script' // ThtDataProviderParams
- ;
-
-ref; // ME_2CD8FB827F5B f_HTParams
-
-: ME_08938EE9F5E5
- CONST UID '08938EE9F5E5'
- CONST Name 'f_PGParams'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PGParams' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_55D6CFA5009E' '55D6CF3B014B.pas.ms.script' // TpgDataProviderParams
- ;
-
-ref; // ME_08938EE9F5E5 f_PGParams
-
 : ME_52A37A4E5D05
  CONST UID '52A37A4E5D05'
  CONST Name 'DataServerHostName'
@@ -159,21 +127,6 @@ ref; // ME_56B9C4570254 DoIt
 
 ref; // ME_56B9C44F02BE Create
 
-FORWARD ME_56B9D5D8017F
-
-: ME_DC29681F9CFD
- CONST UID 'DC29681F9CFD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadFromAlienParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B9D5D8017F // LoadFromAlienParams
- ;
-
-ref; // ME_DC29681F9CFD DoIt
-
 : ME_56B9D5D8017F
  CONST UID '56B9D5D8017F'
  CONST Name 'LoadFromAlienParams'
@@ -184,27 +137,8 @@ ref; // ME_DC29681F9CFD DoIt
  CONST Abstraction at_final
  : Parent ME_56A86B450218 // TcaDataProviderParams
  ;
- : Operations
-   Seq: ( ME_DC29681F9CFD // DoIt
- )
- ; // Operations
 
 ref; // ME_56B9D5D8017F LoadFromAlienParams
-
-FORWARD ME_56B9E3810358
-
-: ME_41F1B4423457
- CONST UID '41F1B4423457'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SaveToAlienParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B9E3810358 // SaveToAlienParams
- ;
-
-ref; // ME_41F1B4423457 DoIt
 
 : ME_56B9E3810358
  CONST UID '56B9E3810358'
@@ -216,10 +150,6 @@ ref; // ME_41F1B4423457 DoIt
  CONST Abstraction at_final
  : Parent ME_56A86B450218 // TcaDataProviderParams
  ;
- : Operations
-   Seq: ( ME_41F1B4423457 // DoIt
- )
- ; // Operations
 
 ref; // ME_56B9E3810358 SaveToAlienParams
 
@@ -300,8 +230,6 @@ ref; // ME_553A37E902C9_ME_56A86B450218 AssignParams
  : Attributes
    Seq: ( ME_56B9C43001F5 // HTParams
  ME_56B9C43A00AE // PGParams
- ME_2CD8FB827F5B // f_HTParams
- ME_08938EE9F5E5 // f_PGParams
  ME_52A37A4E5D05 // DataServerHostName
  ME_0DC358F22E97 // DataServerPort
  )
@@ -561,81 +489,6 @@ ref; // ME_56BB1FD0007A DoIt DoIt
 
 ref; // ME_56BB1FC50359 Create
 
-FORWARD ME_56BB20040289
-
-: ME_491D14F7F297
- CONST Name 'aParams'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_56A86B450218 // TcaDataProviderParams
- ;
-
-ref; // ME_491D14F7F297 aParams
-
-: ME_4D7FF2F43CDD
- CONST Name 'ForCheckLogin'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4D7FF2F43CDD ForCheckLogin
-
-: ME_51428BC67FF0
- CONST Name 'AllowClearLocks'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_51428BC67FF0 AllowClearLocks
-
-: ME_E5F888458C97
- CONST Name 'aHTProvider'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
- ;
-
-ref; // ME_E5F888458C97 aHTProvider
-
-: ME_9BE3BEC04C27
- CONST Name 'aPGProvider'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
- ;
-
-ref; // ME_9BE3BEC04C27 aPGProvider
-
-: ME_DF21370D1C7E
- CONST UID 'DF21370D1C7E'
- CONST Name 'DoIt DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaDataProvider.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56BB20040289 // Make
- ;
- : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
- ;
- : Parameters
-   Seq: ( ME_491D14F7F297 // aParams
- ME_4D7FF2F43CDD // ForCheckLogin
- ME_51428BC67FF0 // AllowClearLocks
- ME_E5F888458C97 // aHTProvider
- ME_9BE3BEC04C27 // aPGProvider
- )
- ; // Parameters
-
-ref; // ME_DF21370D1C7E DoIt DoIt
-
 : ME_56BB20040289
  CONST UID '56BB20040289'
  CONST Name 'Make'
@@ -654,10 +507,6 @@ ref; // ME_DF21370D1C7E DoIt DoIt
    Seq: ( WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DF21370D1C7E // DoIt DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1538,59 +1387,6 @@ ref; // ME_56BD9C06005F DoIt
 
 ref; // ME_56BD9BFD0109 Create
 
-FORWARD ME_56BD9C15024A
-
-: ME_A15B58D7ACE6
- CONST Name 'aFactory'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
- ;
-
-ref; // ME_A15B58D7ACE6 aFactory
-
-: ME_D0BC659DD2D8
- CONST Name 'aHTJournal'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
- ;
-
-ref; // ME_D0BC659DD2D8 aHTJournal
-
-: ME_59467274C700
- CONST Name 'aPGJournal'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
- ;
-
-ref; // ME_59467274C700 aPGJournal
-
-: ME_A85939CE1005
- CONST UID 'A85939CE1005'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaJournal.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56BD9C15024A // Make
- ;
- : Target WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
- ;
- : Parameters
-   Seq: ( ME_A15B58D7ACE6 // aFactory
- ME_D0BC659DD2D8 // aHTJournal
- ME_59467274C700 // aPGJournal
- )
- ; // Parameters
-
-ref; // ME_A85939CE1005 DoIt
-
 : ME_56BD9C15024A
  CONST UID '56BD9C15024A'
  CONST Name 'Make'
@@ -1609,10 +1405,6 @@ ref; // ME_A85939CE1005 DoIt
    Seq: ( WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A85939CE1005 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1870,48 +1662,6 @@ ref; // ME_56C2EE390023 DoIt
 
 ref; // ME_56C2EE30009E Create
 
-FORWARD ME_56C2EE6C022D
-
-: ME_AC8E3D22179E
- CONST Name 'aHTConverter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55C0B2A30315' '550981B402B9.pas.ms.script' // IhtDataConverter
- ;
-
-ref; // ME_AC8E3D22179E aHTConverter
-
-: ME_0FCAC3CA8E9E
- CONST Name 'aPGConverter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
- ;
-
-ref; // ME_0FCAC3CA8E9E aPGConverter
-
-: ME_2472ABEB7F08
- CONST UID '2472ABEB7F08'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaDataConverter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56C2EE6C022D // Make
- ;
- : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
- ;
- : Parameters
-   Seq: ( ME_AC8E3D22179E // aHTConverter
- ME_0FCAC3CA8E9E // aPGConverter
- )
- ; // Parameters
-
-ref; // ME_2472ABEB7F08 DoIt
-
 : ME_56C2EE6C022D
  CONST UID '56C2EE6C022D'
  CONST Name 'Make'
@@ -1930,10 +1680,6 @@ ref; // ME_2472ABEB7F08 DoIt
    Seq: ( WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_2472ABEB7F08 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2118,48 +1864,6 @@ ref; // ME_56C4293D019A DoIt
 
 ref; // ME_56C429340002 Create
 
-FORWARD ME_56C4295D03C9
-
-: ME_4E199FDF46ED
- CONST Name 'aHTManager'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
- ;
-
-ref; // ME_4E199FDF46ED aHTManager
-
-: ME_17486813BB4A
- CONST Name 'aPGManager'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
- ;
-
-ref; // ME_17486813BB4A aPGManager
-
-: ME_F2B0CE57058C
- CONST UID 'F2B0CE57058C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaUserManager.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56C4295D03C9 // Make
- ;
- : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
- ;
- : Parameters
-   Seq: ( ME_4E199FDF46ED // aHTManager
- ME_17486813BB4A // aPGManager
- )
- ; // Parameters
-
-ref; // ME_F2B0CE57058C DoIt
-
 : ME_56C4295D03C9
  CONST UID '56C4295D03C9'
  CONST Name 'Make'
@@ -2178,10 +1882,6 @@ ref; // ME_F2B0CE57058C DoIt
    Seq: ( WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F2B0CE57058C // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2360,59 +2060,6 @@ ref; // ME_56C45EF40216 DoIt
 
 ref; // ME_56C45EE801FB Create
 
-FORWARD ME_56C45F1003BE
-
-: ME_BB6FC6644BC1
- CONST Name 'aDataConverter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
- ;
-
-ref; // ME_BB6FC6644BC1 aDataConverter
-
-: ME_F55B832C4035
- CONST Name 'aHTFactory'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
- ;
-
-ref; // ME_F55B832C4035 aHTFactory
-
-: ME_15804D1CD4FB
- CONST Name 'aPGFactory'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
- ;
-
-ref; // ME_15804D1CD4FB aPGFactory
-
-: ME_F7DD2C7CA311
- CONST UID 'F7DD2C7CA311'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaTableQueryFactory.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56C45F1003BE // Make
- ;
- : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
- ;
- : Parameters
-   Seq: ( ME_BB6FC6644BC1 // aDataConverter
- ME_F55B832C4035 // aHTFactory
- ME_15804D1CD4FB // aPGFactory
- )
- ; // Parameters
-
-ref; // ME_F7DD2C7CA311 DoIt
-
 : ME_56C45F1003BE
  CONST UID '56C45F1003BE'
  CONST Name 'Make'
@@ -2431,10 +2078,6 @@ ref; // ME_F7DD2C7CA311 DoIt
    Seq: ( WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F7DD2C7CA311 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2734,81 +2377,6 @@ ref; // ME_56C6DC1102C6 DoIt
 
 ref; // ME_56C6DC070160 Create
 
-FORWARD ME_56C6DC460273
-
-: ME_6AE6DA5C5BB4
- CONST Name 'aDataConverter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
- ;
-
-ref; // ME_6AE6DA5C5BB4 aDataConverter
-
-: ME_59C48AA0545D
- CONST Name 'aTable'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
- ;
-
-ref; // ME_59C48AA0545D aTable
-
-: ME_8E2F359FF102
- CONST Name 'anAlias'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_8E2F359FF102 anAlias
-
-: ME_F1A04AC37E8F
- CONST Name 'aHTQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
- ;
-
-ref; // ME_F1A04AC37E8F aHTQuery
-
-: ME_16A6A6CD8A62
- CONST Name 'aPGQuery'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
- ;
-
-ref; // ME_16A6A6CD8A62 aPGQuery
-
-: ME_3D0229CEC690
- CONST UID '3D0229CEC690'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaTabledQuery.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56C6DC460273 // Make
- ;
- : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
- ;
- : Parameters
-   Seq: ( ME_6AE6DA5C5BB4 // aDataConverter
- ME_59C48AA0545D // aTable
- ME_8E2F359FF102 // anAlias
- ME_F1A04AC37E8F // aHTQuery
- ME_16A6A6CD8A62 // aPGQuery
- )
- ; // Parameters
-
-ref; // ME_3D0229CEC690 DoIt
-
 : ME_56C6DC460273
  CONST UID '56C6DC460273'
  CONST Name 'Make'
@@ -2827,10 +2395,6 @@ ref; // ME_3D0229CEC690 DoIt
    Seq: ( WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3D0229CEC690 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3078,59 +2642,6 @@ ref; // ME_56DFDC520065 DoIt
 
 ref; // ME_56DFDC4B0032 Create
 
-FORWARD ME_56DFDC85009F
-
-: ME_599B38E27B8A
- CONST Name 'aFieldsDescription'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55C84D190010' '54F85B2500FB.pas.ms.script' // TdaSelectFieldList
- ;
-
-ref; // ME_599B38E27B8A aFieldsDescription
-
-: ME_1AFBEA49DD23
- CONST Name 'aHTResultSet'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
- ;
-
-ref; // ME_1AFBEA49DD23 aHTResultSet
-
-: ME_029014A51F7F
- CONST Name 'aPGResultSet'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
- ;
-
-ref; // ME_029014A51F7F aPGResultSet
-
-: ME_9B0BA19EB53B
- CONST UID '9B0BA19EB53B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaResultSet.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56DFDC85009F // Make
- ;
- : Target WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
- ;
- : Parameters
-   Seq: ( ME_599B38E27B8A // aFieldsDescription
- ME_1AFBEA49DD23 // aHTResultSet
- ME_029014A51F7F // aPGResultSet
- )
- ; // Parameters
-
-ref; // ME_9B0BA19EB53B DoIt
-
 : ME_56DFDC85009F
  CONST UID '56DFDC85009F'
  CONST Name 'Make'
@@ -3149,10 +2660,6 @@ ref; // ME_9B0BA19EB53B DoIt
    Seq: ( WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9B0BA19EB53B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3408,59 +2915,6 @@ ref; // ME_56E00A57028D DoIt
 
 ref; // ME_56E00A25007C Create
 
-FORWARD ME_56E00A320383
-
-: ME_154FE797AF29
- CONST Name 'aDataBuffer'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55A63E0A00E7' '5432518A0316.pas.ms.script' // IdaResultBuffer
- ;
-
-ref; // ME_154FE797AF29 aDataBuffer
-
-: ME_6A36F166EF4D
- CONST Name 'aHTField'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5590FD3101DE' '5432518A0316.pas.ms.script' // IdaField
- ;
-
-ref; // ME_6A36F166EF4D aHTField
-
-: ME_BB17FBC2F3D7
- CONST Name 'aPGField'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5590FD3101DE' '5432518A0316.pas.ms.script' // IdaField
- ;
-
-ref; // ME_BB17FBC2F3D7 aPGField
-
-: ME_D381D7A65290
- CONST UID 'D381D7A65290'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaField.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56E00A320383 // Make
- ;
- : Target WL 'ME_5590FD3101DE' '5432518A0316.pas.ms.script' // IdaField
- ;
- : Parameters
-   Seq: ( ME_154FE797AF29 // aDataBuffer
- ME_6A36F166EF4D // aHTField
- ME_BB17FBC2F3D7 // aPGField
- )
- ; // Parameters
-
-ref; // ME_D381D7A65290 DoIt
-
 : ME_56E00A320383
  CONST UID '56E00A320383'
  CONST Name 'Make'
@@ -3479,10 +2933,6 @@ ref; // ME_D381D7A65290 DoIt
    Seq: ( WL 'ME_5590FD3101DE' '5432518A0316.pas.ms.script' // IdaField
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D381D7A65290 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3680,48 +3130,6 @@ ref; // ME_56E14D9A02FB DoIt
 
 ref; // ME_56E14D92025C Create
 
-FORWARD ME_56E14DBB03A8
-
-: ME_BF13830F04A3
- CONST Name 'aHTParam'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
- ;
-
-ref; // ME_BF13830F04A3 aHTParam
-
-: ME_CA95DB443BB6
- CONST Name 'aPGParam'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
- ;
-
-ref; // ME_CA95DB443BB6 aPGParam
-
-: ME_F4AA471AE928
- CONST UID 'F4AA471AE928'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TcaParam.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56E14DBB03A8 // Make
- ;
- : Target WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
- ;
- : Parameters
-   Seq: ( ME_BF13830F04A3 // aHTParam
- ME_CA95DB443BB6 // aPGParam
- )
- ; // Parameters
-
-ref; // ME_F4AA471AE928 DoIt
-
 : ME_56E14DBB03A8
  CONST UID '56E14DBB03A8'
  CONST Name 'Make'
@@ -3740,10 +3148,6 @@ ref; // ME_F4AA471AE928 DoIt
    Seq: ( WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F4AA471AE928 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

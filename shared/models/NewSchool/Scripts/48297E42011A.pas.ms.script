@@ -4111,22 +4111,6 @@ ref; // ME_48723419028E f_Index
 
 ref; // ME_48723BDB030A f_Flags
 
-: ME_DE180803FD2B
- CONST UID 'DE180803FD2B'
- CONST Name 'f_Strings'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Strings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4872337C032B // TctComboBoxStringsItemNode
- ;
- : Target ME_48721FA80370 // TComboBoxStrings
- ;
-
-ref; // ME_DE180803FD2B f_Strings
-
 : ME_487233ED01A5
  CONST Name 'aStrings'
  CONST Class class_Parameter
@@ -4433,7 +4417,6 @@ ref; // ME_479731C50290_ME_4872337C032B Cleanup
    Seq: ( ME_4872340E00FD // Strings
  ME_48723419028E // f_Index
  ME_48723BDB030A // f_Flags
- ME_DE180803FD2B // f_Strings
  )
  ; // Attributes
  : Operations
@@ -6936,22 +6919,6 @@ ref; // ME_483158FD0155 TFakeBox
 
 ref; // ME_48722004002C SubOwner
 
-: ME_ADE21AEA135B
- CONST UID 'ADE21AEA135B'
- CONST Name 'f_SubOwner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SubOwner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487268A90374 // TctFakeBoxStrings
- ;
- : Target ME_483158FD0155 // TFakeBox
- ;
-
-ref; // ME_ADE21AEA135B f_SubOwner
-
 : ME_487268F802B0
  CONST Name 'anOwner'
  CONST Class class_Parameter
@@ -7015,7 +6982,6 @@ ref; // ME_47B1C16D0188_ME_487268A90374 Clear
  ; // Inherits
  : Attributes
    Seq: ( ME_48722004002C // SubOwner
- ME_ADE21AEA135B // f_SubOwner
  )
  ; // Attributes
  : Operations
@@ -7044,34 +7010,6 @@ ref; // ME_47B1C16D0188_ME_487268A90374 Clear
 
 ref; // ME_487268A90374 TctFakeBoxStrings
 
-FORWARD ME_55B780E60398
-
-: ME_E3713DB6951A
- CONST UID 'E3713DB6951A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtComboTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B780E60398 // TvtComboTree
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E3713DB6951A Ini_Reg_Class
-
-: ME_530358FD5572
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55B780E60398 // TvtComboTree
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_530358FD5572 
-
 : ME_55B780E60398
  CONST UID '55B780E60398'
  CONST Name 'TvtComboTree'
@@ -7086,14 +7024,6 @@ ref; // ME_530358FD5572
    Seq: ( ME_483158FD0155 // TFakeBox
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E3713DB6951A // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_530358FD5572 // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_A9721353002F' '4F4CB50403CC.pas.ms.script' // 
  WL 'ME_C09CC5CA04B9' '54EC8C220105.pas.ms.script' // 
@@ -7167,7 +7097,6 @@ ref; // ME_55B780E60398 TvtComboTree
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/ComboTree'

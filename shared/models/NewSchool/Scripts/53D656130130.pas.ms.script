@@ -665,21 +665,6 @@ FORWARD ME_52F8E80D00A5
 
 ref; // ME_55ED4AAF02A1 f_TaskManager
 
-FORWARD ME_55E6B55B0261
-
-: ME_DBF2D06D6841
- CONST UID 'DBF2D06D6841'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E6B55B0261 // Create
- ;
-
-ref; // ME_DBF2D06D6841 DoIt
-
 : ME_55E6B55B0261
  CONST UID '55E6B55B0261'
  CONST Name 'Create'
@@ -690,27 +675,10 @@ ref; // ME_DBF2D06D6841 DoIt
  CONST Abstraction at_final
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- : Operations
-   Seq: ( ME_DBF2D06D6841 // DoIt
- )
- ; // Operations
 
 ref; // ME_55E6B55B0261 Create
 
 FORWARD ME_55E6B56F008D
-
-: ME_07DA6224BBA5
- CONST UID '07DA6224BBA5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Start' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E6B56F008D // Start
- ;
-
-ref; // ME_07DA6224BBA5 DoIt
 
 : ME_55E6DC860185
  CONST Class class_Dependency
@@ -732,10 +700,6 @@ ref; // ME_55E6DC860185
  CONST Abstraction at_final
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- : Operations
-   Seq: ( ME_07DA6224BBA5 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_55E6DC860185 // 
  )
@@ -744,19 +708,6 @@ ref; // ME_55E6DC860185
 ref; // ME_55E6B56F008D Start
 
 FORWARD ME_55E6BC370138
-
-: ME_BFA3A10E4A8A
- CONST UID 'BFA3A10E4A8A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Stop' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E6BC370138 // Stop
- ;
-
-ref; // ME_BFA3A10E4A8A DoIt
 
 : ME_55E6DC8D016A
  CONST Class class_Dependency
@@ -778,10 +729,6 @@ ref; // ME_55E6DC8D016A
  CONST Abstraction at_final
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- : Operations
-   Seq: ( ME_BFA3A10E4A8A // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_55E6DC8D016A // 
  )
@@ -1024,21 +971,6 @@ ref; // ME_55E83B630311
 
 ref; // ME_55E80D38038B CreateXMLStream
 
-FORWARD ME_55E822EE00F5
-
-: ME_77A2BFE7C119
- CONST UID '77A2BFE7C119'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateSyncFolder' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E822EE00F5 // UpdateSyncFolder
- ;
-
-ref; // ME_77A2BFE7C119 DoIt
-
 : ME_55E822EE00F5
  CONST UID '55E822EE00F5'
  CONST Name 'UpdateSyncFolder'
@@ -1049,10 +981,6 @@ ref; // ME_77A2BFE7C119 DoIt
  CONST Abstraction at_final
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- : Operations
-   Seq: ( ME_77A2BFE7C119 // DoIt
- )
- ; // Operations
 
 ref; // ME_55E822EE00F5 UpdateSyncFolder
 
@@ -1688,21 +1616,6 @@ ref; // ME_560520190150 DoIt
 
 ref; // ME_56051FFF017E XMLPutField
 
-FORWARD ME_560E41400242
-
-: ME_19DDB7FAFBDF
- CONST UID '19DDB7FAFBDF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PrepareAllDicts' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_560E41400242 // PrepareAllDicts
- ;
-
-ref; // ME_19DDB7FAFBDF DoIt
-
 : ME_560E41400242
  CONST UID '560E41400242'
  CONST Name 'PrepareAllDicts'
@@ -1713,10 +1626,6 @@ ref; // ME_19DDB7FAFBDF DoIt
  CONST Abstraction at_final
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- : Operations
-   Seq: ( ME_19DDB7FAFBDF // DoIt
- )
- ; // Operations
 
 ref; // ME_560E41400242 PrepareAllDicts
 
@@ -2836,37 +2745,6 @@ ref; // ME_55EED3CD0299 TalcuMdpDocImporter
 
 FORWARD ME_5583CD3601BD
 
-: ME_0BFB49E2A35F
- CONST UID '0BFB49E2A35F'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TalcuTaskChangeHelper' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5583CD3601BD // TalcuTaskChangeHelper
- ;
-
-ref; // ME_0BFB49E2A35F bind
-
-: ME_12B93CE6EA17
- CONST UID '12B93CE6EA17'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5583CD3601BD // TalcuTaskChangeHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_12B93CE6EA17 Exists
-
 : ME_5583CD580330
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -2923,11 +2801,6 @@ ref; // ME_F75B4443B80B_ME_5583CD3601BD TaskGotErrorStatus
    Seq: ( WL 'ME_7CDAE66D12BB' '52F8C298005C.pas.ms.script' // IcsTaskChangeHelper
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0BFB49E2A35F // bind
- ME_12B93CE6EA17 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_F75B4443B80B_ME_5583CD3601BD // TaskGotErrorStatus
  )
@@ -2969,23 +2842,6 @@ ref; // ME_5583CD7A0364 alcuMailServer
 FORWARD ME_52F8C97B02D6
 
 FORWARD ME_52F8C9E00037
-
-: ME_2F104B1178AF
- CONST UID '2F104B1178AF'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52F8C9E00037 // TalcuServer
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_2F104B1178AF Exists
 
 : ME_52F8D9150172
  CONST Class class_Dependency
@@ -3047,10 +2903,6 @@ ref; // ME_52BC2B9401F3_ME_52F8C9E00037 AfterDestroyCalled
    Seq: ( ME_52F8C97B02D6 // TalcuServerPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2F104B1178AF // Exists
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52BC2B9401F3_ME_52F8C9E00037 // AfterDestroyCalled
  )
@@ -3181,37 +3033,6 @@ ref; // ME_52F8C97B02D6 TalcuServerPrim
 
 ref; // ME_52F8C95A006E alcuAutoPipeServer
 
-: ME_C0372BE1BE5B
- CONST UID 'C0372BE1BE5B'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TalcuProcessingEnabledService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_561CF00A0193 // TalcuProcessingEnabledService
- ;
-
-ref; // ME_C0372BE1BE5B bind
-
-: ME_3E999332150A
- CONST UID '3E999332150A'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_561CF00A0193 // TalcuProcessingEnabledService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_3E999332150A Exists
-
 : ME_561CFA9E038C
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -3256,11 +3077,6 @@ ref; // ME_ECCF31CF8A24_ME_561CF00A0193 Enabled
    Seq: ( WL 'ME_9FC6401FC34F' '47EA946A0315.pas.ms.script' // Il3ProcessingEnabledService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C0372BE1BE5B // bind
- ME_3E999332150A // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_ECCF31CF8A24_ME_561CF00A0193 // Enabled
  )

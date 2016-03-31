@@ -241,22 +241,6 @@ FORWARD ME_47CFDFAB0197
 
 ref; // ME_47CFE08E039B Para
 
-: ME_D8F3795F991C
- CONST UID 'D8F3795F991C'
- CONST Name 'f_Para'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Para' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47CFDFAB0197 // TevCustomControlTool
- ;
- : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
- ;
-
-ref; // ME_D8F3795F991C f_Para
-
 : ME_47CFE07E0029
  CONST Name 'aPara'
  CONST Class class_Parameter
@@ -339,12 +323,6 @@ ref; // ME_47CD5D46015B_ME_47CFDFAB0197 Para
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47CFDFAB0197 Cleanup
 
-: ME_5000565C019C_ME_47CFDFAB0197
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47CFDFAB0197 ClearFields
-
 : ME_47CFDFAB0197
  CONST UID '47CFDFAB0197'
  CONST Name 'TevCustomControlTool'
@@ -366,7 +344,6 @@ ref; // ME_5000565C019C_ME_47CFDFAB0197 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_47CFE08E039B // Para
- ME_D8F3795F991C // f_Para
  )
  ; // Attributes
  : Operations
@@ -380,7 +357,6 @@ ref; // ME_5000565C019C_ME_47CFDFAB0197 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_47CFDFAB0197 // Cleanup
- ME_5000565C019C_ME_47CFDFAB0197 // ClearFields
  )
  ; // Overridden
  : Dependencies

@@ -38,22 +38,6 @@ ref; // ME_52DCDEBC0067 BraceCount
 
 ref; // ME_52DE1BB20195 f_HyperlinkIndex
 
-: ME_8F39E0EBE20E
- CONST UID '8F39E0EBE20E'
- CONST Name 'f_BraceCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BraceCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8F39E0EBE20E f_BraceCount
-
 FORWARD ME_52DCDE4E003E
 
 : ME_52DCDE56038C
@@ -398,7 +382,6 @@ ref; // ME_47B1C16D0188_ME_52DCDDEE0371 Clear
  : Attributes
    Seq: ( ME_52DCDEBC0067 // BraceCount
  ME_52DE1BB20195 // f_HyperlinkIndex
- ME_8F39E0EBE20E // f_BraceCount
  )
  ; // Attributes
  : Operations
@@ -1127,23 +1110,6 @@ ref; // ME_52DCEBE902DA f_TextSegmentQueue
  CONST "writes field" true
 
 ref; // ME_52DCF3370367 Host
-
-: ME_3DB222F15A4D
- CONST UID '3DB222F15A4D'
- CONST Name 'f_Host'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Host' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'Host'
-
-ref; // ME_3DB222F15A4D f_Host
 
 FORWARD ME_52DCDFF9033B
 
@@ -2107,7 +2073,6 @@ ref; // ME_54D9DF54037B
  : Attributes
    Seq: ( ME_52DCEBE902DA // f_TextSegmentQueue
  ME_52DCF3370367 // Host
- ME_3DB222F15A4D // f_Host
  )
  ; // Attributes
  : Operations
@@ -2280,57 +2245,6 @@ ref; // ME_55BB2A220369 Collapsed
 
 ref; // ME_55BB822F0125 ParaID
 
-: ME_536CB19C1ECB
- CONST UID '536CB19C1ECB'
- CONST Name 'f_StyleID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StyleID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55BB29ED03B6 // TddBlockInfo
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'StyleID'
-
-ref; // ME_536CB19C1ECB f_StyleID
-
-: ME_4C9D04493340
- CONST UID '4C9D04493340'
- CONST Name 'f_Collapsed'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Collapsed' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55BB29ED03B6 // TddBlockInfo
- ;
- : Target ME_56FA1B5B034D // TddCollapsed
- ;
- CONST extprop:clearViaProperty 'Collapsed'
-
-ref; // ME_4C9D04493340 f_Collapsed
-
-: ME_61C7C8B8EFE5
- CONST UID '61C7C8B8EFE5'
- CONST Name 'f_ParaID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParaID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55BB29ED03B6 // TddBlockInfo
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'ParaID'
-
-ref; // ME_61C7C8B8EFE5 f_ParaID
-
 : ME_479731C50290_ME_55BB29ED03B6
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -2362,9 +2276,6 @@ ref; // ME_47A042E100E2_ME_55BB29ED03B6 InitFields
    Seq: ( ME_55BB2A1801BD // StyleID
  ME_55BB2A220369 // Collapsed
  ME_55BB822F0125 // ParaID
- ME_536CB19C1ECB // f_StyleID
- ME_4C9D04493340 // f_Collapsed
- ME_61C7C8B8EFE5 // f_ParaID
  )
  ; // Attributes
  : Overridden

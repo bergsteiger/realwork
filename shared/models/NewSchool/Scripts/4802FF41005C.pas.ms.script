@@ -165,37 +165,6 @@ ref; // ME_4D3EDD5C00FA DoIt
 
 ref; // ME_4D3EDD5301AA Create
 
-FORWARD ME_4D3EDD7701A0
-
-: ME_5264DBA7ED87
- CONST Name 'aStream'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
- ;
-
-ref; // ME_5264DBA7ED87 aStream
-
-: ME_DEB7B1AE607D
- CONST UID 'DEB7B1AE607D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevReaderDataObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D3EDD7701A0 // Make
- ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
- : Parameters
-   Seq: ( ME_5264DBA7ED87 // aStream
- )
- ; // Parameters
-
-ref; // ME_DEB7B1AE607D DoIt
-
 : ME_4D3EDD7701A0
  CONST UID '4D3EDD7701A0'
  CONST Name 'Make'
@@ -214,10 +183,6 @@ ref; // ME_DEB7B1AE607D DoIt
    Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DEB7B1AE607D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -274,12 +239,6 @@ ref; // ME_48EB69F20199
  CONST OpKind opkind_Implemented
 ref; // ME_48EA34990191_ME_48EB6945012D DoStore
 
-: ME_5000565C019C_ME_48EB6945012D
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48EB6945012D ClearFields
-
 : ME_48EB6945012D
  CONST UID '48EB6945012D'
  CONST Name 'TevReaderDataObject'
@@ -308,10 +267,6 @@ ref; // ME_5000565C019C_ME_48EB6945012D ClearFields
    Seq: ( ME_48EA34990191_ME_48EB6945012D // DoStore
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_48EB6945012D // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_48EB69920154 // Rk2CustomReader
  )
@@ -475,22 +430,6 @@ ref; // ME_48F4685000ED Block
 
 ref; // ME_48F468670155 f_Filters
 
-: ME_41E69D37B3EE
- CONST UID '41E69D37B3EE'
- CONST Name 'f_Block'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Block' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48EF3978008D // TevDataObject
- ;
- : Target WL 'ME_47C68C4500D2' '48F4E61C0060.pas.ms.script' // DataObject
- ;
-
-ref; // ME_41E69D37B3EE f_Block
-
 : ME_48F4688E015F
  CONST Name 'aBlock'
  CONST Class class_Parameter
@@ -560,12 +499,6 @@ ref; // ME_48F359680368_ME_48EF3978008D DoQueryGetData
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_48EF3978008D COMQueryInterface
 
-: ME_5000565C019C_ME_48EF3978008D
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48EF3978008D ClearFields
-
 : ME_48EF3978008D
  CONST UID '48EF3978008D'
  CONST Name 'TevDataObject'
@@ -584,7 +517,6 @@ ref; // ME_5000565C019C_ME_48EF3978008D ClearFields
  : Attributes
    Seq: ( ME_48F4685000ED // Block
  ME_48F468670155 // f_Filters
- ME_41E69D37B3EE // f_Block
  )
  ; // Attributes
  : Operations
@@ -599,7 +531,6 @@ ref; // ME_5000565C019C_ME_48EF3978008D ClearFields
    Seq: ( ME_479731C50290_ME_48EF3978008D // Cleanup
  ME_48F359680368_ME_48EF3978008D // DoQueryGetData
  ME_4A60B23E00C3_ME_48EF3978008D // COMQueryInterface
- ME_5000565C019C_ME_48EF3978008D // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -709,22 +640,6 @@ ref; // ME_48F478E5013B f_Formats
  ;
 
 ref; // ME_48F478EE03D1 f_SameFormat
-
-: ME_3CD18434FAD6
- CONST UID '3CD18434FAD6'
- CONST Name 'f_Format'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Format' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48F4732803C8 // TevPersistentDataObject
- ;
- : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
- ;
-
-ref; // ME_3CD18434FAD6 f_Format
 
 : ME_48F475DD022B
  CONST Name 'aBlock'
@@ -1259,7 +1174,6 @@ ref; // ME_48F475350256_ME_48F4732803C8 COMQueryInterface
  ME_48F478DE01CF // f_TagStorageW
  ME_48F478E5013B // f_Formats
  ME_48F478EE03D1 // f_SameFormat
- ME_3CD18434FAD6 // f_Format
  )
  ; // Attributes
  : Operations
@@ -1675,22 +1589,6 @@ FORWARD ME_48F49EEA0008
 
 ref; // ME_4CDD3F1B0368 Data
 
-: ME_108F66C97C1F
- CONST UID '108F66C97C1F'
- CONST Name 'f_Data'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Data' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48F49EEA0008 // TevConstStringStorable
- ;
- : Target WL 'ME_4CDD38560217' '48F4E61C0060.pas.ms.script' // HyperlinkInfo
- ;
-
-ref; // ME_108F66C97C1F f_Data
-
 FORWARD ME_4CDD2A59034A
 
 : ME_4CDD2A6A00DA
@@ -1744,48 +1642,6 @@ ref; // ME_4CDD2A6302E5 DoIt
 
 ref; // ME_4CDD2A59034A Create
 
-FORWARD ME_4CDD2A7103C0
-
-: ME_BB4ED9265A34
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4CDD38560217' '48F4E61C0060.pas.ms.script' // HyperlinkInfo
- ;
-
-ref; // ME_BB4ED9265A34 aData
-
-: ME_873A04662F9F
- CONST Name 'aReader'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C6AE9001D5' '47C5207602D1.pas.ms.script' // InevTagReader
- ;
-
-ref; // ME_873A04662F9F aReader
-
-: ME_7EE4ED459C3F
- CONST UID '7EE4ED459C3F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevConstStringStorable.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CDD2A7103C0 // Make
- ;
- : Target WL 'ME_47C68C4500D2' '48F4E61C0060.pas.ms.script' // DataObject
- ;
- : Parameters
-   Seq: ( ME_BB4ED9265A34 // aData
- ME_873A04662F9F // aReader
- )
- ; // Parameters
-
-ref; // ME_7EE4ED459C3F DoIt
-
 : ME_4CDD2A7103C0
  CONST UID '4CDD2A7103C0'
  CONST Name 'Make'
@@ -1804,10 +1660,6 @@ ref; // ME_7EE4ED459C3F DoIt
    Seq: ( WL 'ME_47C68C4500D2' '48F4E61C0060.pas.ms.script' // DataObject
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7EE4ED459C3F // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1853,12 +1705,6 @@ ref; // ME_479731C50290_ME_48F49EEA0008 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_48F494F102DD_ME_48F49EEA0008 GetAddress
 
-: ME_5000565C019C_ME_48F49EEA0008
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48F49EEA0008 ClearFields
-
 : ME_48F49EEA0008
  CONST UID '48F49EEA0008'
  CONST Name 'TevConstStringStorable'
@@ -1875,7 +1721,6 @@ ref; // ME_5000565C019C_ME_48F49EEA0008 ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_4CDD3F1B0368 // Data
- ME_108F66C97C1F // f_Data
  )
  ; // Attributes
  : Operations
@@ -1890,7 +1735,6 @@ ref; // ME_5000565C019C_ME_48F49EEA0008 ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_48F49EEA0008 // Cleanup
  ME_48F494F102DD_ME_48F49EEA0008 // GetAddress
- ME_5000565C019C_ME_48F49EEA0008 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -2077,22 +1921,6 @@ FORWARD ME_48F4D8230366
 
 ref; // ME_48F4D8540219 Node
 
-: ME_FB2A22174977
- CONST UID 'FB2A22174977'
- CONST Name 'f_Node'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Node' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48F4D8230366 // TevNodeStorable
- ;
- : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
- ;
-
-ref; // ME_FB2A22174977 f_Node
-
 : ME_48F4D88C01F6
  CONST Name 'aData'
  CONST Class class_Parameter
@@ -2181,12 +2009,6 @@ ref; // ME_48F494FD001D_ME_48F4D8230366 Text
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_48F4D8230366 Cleanup
 
-: ME_5000565C019C_ME_48F4D8230366
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48F4D8230366 ClearFields
-
 : ME_48F4D8230366
  CONST UID '48F4D8230366'
  CONST Name 'TevNodeStorable'
@@ -2203,7 +2025,6 @@ ref; // ME_5000565C019C_ME_48F4D8230366 ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_48F4D8540219 // Node
- ME_FB2A22174977 // f_Node
  )
  ; // Attributes
  : Operations
@@ -2217,7 +2038,6 @@ ref; // ME_5000565C019C_ME_48F4D8230366 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_48F4D8230366 // Cleanup
- ME_5000565C019C_ME_48F4D8230366 // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -2817,55 +2637,6 @@ ref; // ME_48F8AAF101B1 Data
 
 ref; // ME_48F8AAFE0210 SubRoot
 
-: ME_81743024259A
- CONST UID '81743024259A'
- CONST Name 'f_LevelIndent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LevelIndent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48F8A8480224 // TevTreeStorable
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'LevelIndent'
-
-ref; // ME_81743024259A f_LevelIndent
-
-: ME_9354AF0043F2
- CONST UID '9354AF0043F2'
- CONST Name 'f_Data'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Data' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48F8A8480224 // TevTreeStorable
- ;
- : Target WL 'ME_476BF1DD0075' '4678209200A6.pas.ms.script' // InevSimpleTree
- ;
-
-ref; // ME_9354AF0043F2 f_Data
-
-: ME_C5CAAC958CB3
- CONST UID 'C5CAAC958CB3'
- CONST Name 'f_SubRoot'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SubRoot' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48F8A8480224 // TevTreeStorable
- ;
- : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
- ;
-
-ref; // ME_C5CAAC958CB3 f_SubRoot
-
 : ME_48F8A8EC014B
  CONST Name 'aNode'
  CONST Class class_Parameter
@@ -3251,12 +3022,6 @@ ref; // ME_48F48C6E02F4_ME_48F8A8480224 DoStore
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_48F8A8480224 Cleanup
 
-: ME_5000565C019C_ME_48F8A8480224
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48F8A8480224 ClearFields
-
 : ME_48F8A8480224
  CONST UID '48F8A8480224'
  CONST Name 'TevTreeStorable'
@@ -3277,9 +3042,6 @@ ref; // ME_5000565C019C_ME_48F8A8480224 ClearFields
  ME_48F8AAE503D9 // f_Flag
  ME_48F8AAF101B1 // Data
  ME_48F8AAFE0210 // SubRoot
- ME_81743024259A // f_LevelIndent
- ME_9354AF0043F2 // f_Data
- ME_C5CAAC958CB3 // f_SubRoot
  )
  ; // Attributes
  : Operations
@@ -3296,7 +3058,6 @@ ref; // ME_5000565C019C_ME_48F8A8480224 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_48F8A8480224 // Cleanup
- ME_5000565C019C_ME_48F8A8480224 // ClearFields
  )
  ; // Overridden
  : Children
@@ -3550,37 +3311,6 @@ ref; // ME_4D3EE12D0355 DoIt
 
 ref; // ME_4D3EE11B022F Create
 
-FORWARD ME_4D3EE13B0146
-
-: ME_BAF253B26646
- CONST Name 'aHolder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C699BD0247' '47C5207602D1.pas.ms.script' // InevObjectHolder
- ;
-
-ref; // ME_BAF253B26646 aHolder
-
-: ME_C4C614B503A6
- CONST UID 'C4C614B503A6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevHolderDataObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D3EE13B0146 // Make
- ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
- : Parameters
-   Seq: ( ME_BAF253B26646 // aHolder
- )
- ; // Parameters
-
-ref; // ME_C4C614B503A6 DoIt
-
 : ME_4D3EE13B0146
  CONST UID '4D3EE13B0146'
  CONST Name 'Make'
@@ -3599,10 +3329,6 @@ ref; // ME_C4C614B503A6 DoIt
    Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C4C614B503A6 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3615,12 +3341,6 @@ ref; // ME_4D3EE13B0146 Make
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_48EA34990191_ME_4D3EE0C6003E DoStore
-
-: ME_5000565C019C_ME_4D3EE0C6003E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D3EE0C6003E ClearFields
 
 : ME_4D3EE0C6003E
  CONST UID '4D3EE0C6003E'
@@ -3649,10 +3369,6 @@ ref; // ME_5000565C019C_ME_4D3EE0C6003E ClearFields
    Seq: ( ME_48EA34990191_ME_4D3EE0C6003E // DoStore
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4D3EE0C6003E // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

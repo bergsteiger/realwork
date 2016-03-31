@@ -1927,40 +1927,6 @@ ref; // ME_5112066A0268 CellsType
 
 ref; // ME_5114D122029E RowType
 
-: ME_A354356F2814
- CONST UID 'A354356F2814'
- CONST Name 'f_CellsType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CellsType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
- ;
- : Target ME_511205FA00E2 // TedCellTypesList
- ;
- CONST extprop:clearViaProperty 'CellsType'
-
-ref; // ME_A354356F2814 f_CellsType
-
-: ME_4B80DF8BB702
- CONST UID '4B80DF8BB702'
- CONST Name 'f_RowType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RowType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
- ;
- : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
- ;
- CONST extprop:clearViaProperty 'RowType'
-
-ref; // ME_4B80DF8BB702 f_RowType
-
 FORWARD ME_4F2F7030001E
 
 : ME_4F2F703B0215
@@ -2998,8 +2964,6 @@ ref; // ME_479731C50290_ME_4F2F6F750263 Cleanup
  ME_4F2F7FE10238 // f_NewOffset
  ME_5112066A0268 // CellsType
  ME_5114D122029E // RowType
- ME_A354356F2814 // f_CellsType
- ME_4B80DF8BB702 // f_RowType
  )
  ; // Attributes
  : Operations
@@ -3709,12 +3673,6 @@ ref; // ME_529736C400F4
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4FC701EC00C0 Cleanup
 
-: ME_5000565C019C_ME_4FC701EC00C0
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4FC701EC00C0 ClearFields
-
 : ME_4FC701EC00C0
  CONST UID '4FC701EC00C0'
  CONST Name 'TevCellWidthCorrecterSpy'
@@ -3749,7 +3707,6 @@ ref; // ME_5000565C019C_ME_4FC701EC00C0 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4FC701EC00C0 // Cleanup
- ME_5000565C019C_ME_4FC701EC00C0 // ClearFields
  )
  ; // Overridden
  : Children
@@ -4861,23 +4818,6 @@ ref; // ME_4F28FCC703E7 CanApply
 
 ref; // ME_4F28FCDD00F8 Clear
 
-: ME_EC13559E8B86
- CONST UID 'EC13559E8B86'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F28F7160399 // TevCopyTableCellWidth
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_EC13559E8B86 Exists
-
 : ME_4F29062E001F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4940,7 +4880,6 @@ ref; // ME_479731C50290_ME_4F28F7160399 Cleanup
  ME_4F28FC900076 // ApplyWidths
  ME_4F28FCC703E7 // CanApply
  ME_4F28FCDD00F8 // Clear
- ME_EC13559E8B86 // Exists
  )
  ; // Operations
  : Overridden
@@ -5005,38 +4944,6 @@ ref; // ME_511238650353 TableStyle
  CONST "reads field" true
 
 ref; // ME_51123FF703D5 CurrentRowType
-
-: ME_A9CC49571C08
- CONST UID 'A9CC49571C08'
- CONST Name 'f_TableStyle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TableStyle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
- ;
- : Target WL 'ME_5076AAD90277' '48E3836D00C8.pas.ms.script' // TedTabelType
- ;
-
-ref; // ME_A9CC49571C08 f_TableStyle
-
-: ME_1FE32F7FE404
- CONST UID '1FE32F7FE404'
- CONST Name 'f_CurrentRowType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrentRowType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
- ;
- : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
- ;
-
-ref; // ME_1FE32F7FE404 f_CurrentRowType
 
 FORWARD ME_5076B24B0038
 
@@ -5293,8 +5200,6 @@ ref; // ME_47A042E100E2_ME_5112379700A6 InitFields
  : Attributes
    Seq: ( ME_511238650353 // TableStyle
  ME_51123FF703D5 // CurrentRowType
- ME_A9CC49571C08 // f_TableStyle
- ME_1FE32F7FE404 // f_CurrentRowType
  )
  ; // Attributes
  : Operations

@@ -218,37 +218,6 @@ ref; // ME_56559EC6007A DoIt
 
 ref; // ME_56559EBB00B3 Create
 
-FORWARD ME_56559ED6012A
-
-: ME_612335C119DF
- CONST Name 'aSubType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_565F14180230' '56555BA603A8.pas.ms.script' // TevSCSubType
- ;
-
-ref; // ME_612335C119DF aSubType
-
-: ME_8B7B13B6BBD4
- CONST UID '8B7B13B6BBD4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevSCSub.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56559ED6012A // Make
- ;
- : Target WL 'ME_56558580035A' '56555BA603A8.pas.ms.script' // IevSCSub
- ;
- : Parameters
-   Seq: ( ME_612335C119DF // aSubType
- )
- ; // Parameters
-
-ref; // ME_8B7B13B6BBD4 DoIt
-
 : ME_56559ED6012A
  CONST UID '56559ED6012A'
  CONST Name 'Make'
@@ -267,10 +236,6 @@ ref; // ME_8B7B13B6BBD4 DoIt
    Seq: ( WL 'ME_56558580035A' '56555BA603A8.pas.ms.script' // IevSCSub
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8B7B13B6BBD4 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -506,63 +471,6 @@ ref; // ME_56559D0C0327 DoIt
 
 ref; // ME_56559CFC005F Create
 
-FORWARD ME_56559D6D03E3
-
-: ME_C9DC9273E1FD
- CONST Name 'aType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_56555BFF0284' '56555BA603A8.pas.ms.script' // TevSCAttrType
- ;
-
-ref; // ME_C9DC9273E1FD aType
-
-: ME_8ECAB9887637
- CONST Name 'aID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8ECAB9887637 aID
-
-: ME_6E083EB37187
- CONST Name 'aSubID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST Value 0
- : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:pas:Value 0
-
-ref; // ME_6E083EB37187 aSubID
-
-: ME_676285C06257
- CONST UID '676285C06257'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevSCSubAttr.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56559D6D03E3 // Make
- ;
- : Target WL 'ME_56556E5B0080' '56555BA603A8.pas.ms.script' // IevSCAttrElement
- ;
- : Parameters
-   Seq: ( ME_C9DC9273E1FD // aType
- ME_8ECAB9887637 // aID
- ME_6E083EB37187 // aSubID
- )
- ; // Parameters
-
-ref; // ME_676285C06257 DoIt
-
 : ME_56559D6D03E3
  CONST UID '56559D6D03E3'
  CONST Name 'Make'
@@ -581,10 +489,6 @@ ref; // ME_676285C06257 DoIt
    Seq: ( WL 'ME_56556E5B0080' '56555BA603A8.pas.ms.script' // IevSCAttrElement
  )
  ; // Implements
- : Operations
-   Seq: ( ME_676285C06257 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -706,22 +610,6 @@ ref; // ME_565C3855030C f_SubStack
  ;
 
 ref; // ME_566548C000D5 f_Labels
-
-: ME_82A44E4C4439
- CONST UID '82A44E4C4439'
- CONST Name 'f_SubList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SubList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5656FD810153 // TevSCCollectFilter
- ;
- : Target ME_56558873036B // TevSCSubList
- ;
-
-ref; // ME_82A44E4C4439 f_SubList
 
 FORWARD ME_566548D70278
 
@@ -936,7 +824,6 @@ ref; // ME_538C1F9A00C7_ME_5656FD810153 Create
    Seq: ( ME_565C380501D1 // SubList
  ME_565C3855030C // f_SubStack
  ME_566548C000D5 // f_Labels
- ME_82A44E4C4439 // f_SubList
  )
  ; // Attributes
  : Operations

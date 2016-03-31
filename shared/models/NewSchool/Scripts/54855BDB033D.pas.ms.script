@@ -500,48 +500,6 @@ ref; // ME_54B7CAE50200 DoIt
 
 ref; // ME_54B7B6C70011 Create
 
-FORWARD ME_54B7B6D000AE
-
-: ME_CEED3A05BFAA
- CONST Name 'aBasePath'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_CEED3A05BFAA aBasePath
-
-: ME_0CF3127CF4C7
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_0CF3127CF4C7 aFileName
-
-: ME_3CB98D8DECB1
- CONST UID '3CB98D8DECB1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsGetPartialTaskDescriptionExecutor.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54B7B6D000AE // Make
- ;
- : Target WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
- ;
- : Parameters
-   Seq: ( ME_CEED3A05BFAA // aBasePath
- ME_0CF3127CF4C7 // aFileName
- )
- ; // Parameters
-
-ref; // ME_3CB98D8DECB1 DoIt
-
 : ME_54B7B6D000AE
  CONST UID '54B7B6D000AE'
  CONST Name 'Make'
@@ -560,10 +518,6 @@ ref; // ME_3CB98D8DECB1 DoIt
    Seq: ( WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3CB98D8DECB1 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -794,48 +748,6 @@ ref; // ME_54B7CAC30061 DoIt
 
 ref; // ME_54B7B6E402A1 Create
 
-FORWARD ME_54B7B6ED02B2
-
-: ME_7C18F28C4890
- CONST Name 'aBasePath'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_7C18F28C4890 aBasePath
-
-: ME_8E0BA6F6EECF
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_8E0BA6F6EECF aFileName
-
-: ME_5840A23CF82D
- CONST UID '5840A23CF82D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsGetFilePartExecutor.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54B7B6ED02B2 // Make
- ;
- : Target WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
- ;
- : Parameters
-   Seq: ( ME_7C18F28C4890 // aBasePath
- ME_8E0BA6F6EECF // aFileName
- )
- ; // Parameters
-
-ref; // ME_5840A23CF82D DoIt
-
 : ME_54B7B6ED02B2
  CONST UID '54B7B6ED02B2'
  CONST Name 'Make'
@@ -854,10 +766,6 @@ ref; // ME_5840A23CF82D DoIt
    Seq: ( WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5840A23CF82D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1064,37 +972,6 @@ ref; // ME_54B79DEA022F DoIt
 
 ref; // ME_54B79D23037B Create
 
-FORWARD ME_54B79D4703CE
-
-: ME_F994F1A8C71C
- CONST Name 'aTask'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
- ;
-
-ref; // ME_F994F1A8C71C aTask
-
-: ME_E50AED10687F
- CONST UID 'E50AED10687F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsTaskSendExecutorFactory.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54B79D4703CE // Make
- ;
- : Target WL 'ME_5460829B0384' '544E0148010D.pas.ms.script' // IncsMessageExecutorFactory
- ;
- : Parameters
-   Seq: ( ME_F994F1A8C71C // aTask
- )
- ; // Parameters
-
-ref; // ME_E50AED10687F DoIt
-
 : ME_54B79D4703CE
  CONST UID '54B79D4703CE'
  CONST Name 'Make'
@@ -1113,10 +990,6 @@ ref; // ME_E50AED10687F DoIt
    Seq: ( WL 'ME_5460829B0384' '544E0148010D.pas.ms.script' // IncsMessageExecutorFactory
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E50AED10687F // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

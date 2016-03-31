@@ -99,23 +99,6 @@ ref; // ME_52A73AE40326 IvcmOperationsRegistrar
 
 ref; // ME_52A73BF00215 Registrar
 
-: ME_9ADC046262FE
- CONST UID '9ADC046262FE'
- CONST Name 'f_Registrar'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Registrar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52A73A5900E2 // TvcmOperationsManager
- ;
- : Target ME_52A73AE40326 // IvcmOperationsRegistrar
- ;
- CONST extprop:clearViaProperty 'Registrar'
-
-ref; // ME_9ADC046262FE f_Registrar
-
 FORWARD ME_52A73ABA0304
 
 : ME_52A73AC40013
@@ -169,23 +152,6 @@ ref; // ME_52A73AC1001D DoIt
 
 ref; // ME_52A73ABA0304 Register
 
-: ME_BF7D6918D11C
- CONST UID 'BF7D6918D11C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52A73A5900E2 // TvcmOperationsManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_BF7D6918D11C Exists
-
 : ME_52A73A5900E2
  CONST UID '52A73A5900E2'
  CONST Name 'TvcmOperationsManager'
@@ -198,12 +164,10 @@ ref; // ME_BF7D6918D11C Exists
  ;
  : Attributes
    Seq: ( ME_52A73BF00215 // Registrar
- ME_9ADC046262FE // f_Registrar
  )
  ; // Attributes
  : Operations
    Seq: ( ME_52A73ABA0304 // Register
- ME_BF7D6918D11C // Exists
  )
  ; // Operations
  : Children
@@ -236,8 +200,7 @@ ref; // ME_52A73A5900E2 TvcmOperationsManager
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
+   Seq: ( WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
  )
  ; // Depends
 

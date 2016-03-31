@@ -164,74 +164,6 @@ ref; // ME_5553760F0399 FileMeter
 
 ref; // ME_5553762C02A1 FilesMeter
 
-: ME_807A0EE78AF0
- CONST UID '807A0EE78AF0'
- CONST Name 'f_FilesProcessed'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FilesProcessed' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49BFBC690162 // Tm3PrimDB
- ;
- : Target WL 'ME_55537517005E' '4720831F012D.pas.ms.script' // Tm3FilesProcessed
- ;
- CONST extprop:clearViaProperty 'FilesProcessed'
-
-ref; // ME_807A0EE78AF0 f_FilesProcessed
-
-: ME_9C25A44CCAA3
- CONST UID '9C25A44CCAA3'
- CONST Name 'f_FilesProcessedEx'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FilesProcessedEx' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49BFBC690162 // Tm3PrimDB
- ;
- : Target WL 'ME_55537541038B' '4720831F012D.pas.ms.script' // Tm3FilesProcessedEx
- ;
- CONST extprop:clearViaProperty 'FilesProcessedEx'
-
-ref; // ME_9C25A44CCAA3 f_FilesProcessedEx
-
-: ME_F28D232D3BE1
- CONST UID 'F28D232D3BE1'
- CONST Name 'f_FileMeter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FileMeter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49BFBC690162 // Tm3PrimDB
- ;
- : Target WL 'ME_4F1922630272' '4678193C009C.pas.ms.script' // Tl3ProgressProc
- ;
- CONST extprop:clearViaProperty 'FileMeter'
-
-ref; // ME_F28D232D3BE1 f_FileMeter
-
-: ME_8BE23113E69B
- CONST UID '8BE23113E69B'
- CONST Name 'f_FilesMeter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FilesMeter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49BFBC690162 // Tm3PrimDB
- ;
- : Target WL 'ME_4F1922630272' '4678193C009C.pas.ms.script' // Tl3ProgressProc
- ;
- CONST extprop:clearViaProperty 'FilesMeter'
-
-ref; // ME_8BE23113E69B f_FilesMeter
-
 FORWARD ME_5540ECC800D2
 
 : ME_5540ECDD01A2
@@ -1072,10 +1004,6 @@ ref; // ME_49C77D900385
  ME_555375BC010C // FilesProcessedEx
  ME_5553760F0399 // FileMeter
  ME_5553762C02A1 // FilesMeter
- ME_807A0EE78AF0 // f_FilesProcessed
- ME_9C25A44CCAA3 // f_FilesProcessedEx
- ME_F28D232D3BE1 // f_FileMeter
- ME_8BE23113E69B // f_FilesMeter
  )
  ; // Attributes
  : Operations
@@ -1780,22 +1708,6 @@ FORWARD ME_4742DC5C0219
 
 ref; // ME_555B266B0290 f_DB
 
-: ME_247F285A8447
- CONST UID '247F285A8447'
- CONST Name 'f_f_DB'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства f_DB' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4742DC5C0219 // Tm3BaseObject
- ;
- : Target ME_49BFBC690162 // Tm3PrimDB
- ;
-
-ref; // ME_247F285A8447 f_f_DB
-
 FORWARD ME_555B269800C2
 
 : ME_555B26AC00AC
@@ -1882,7 +1794,6 @@ ref; // ME_479731C50290_ME_4742DC5C0219 Cleanup
  ; // Implements
  : Attributes
    Seq: ( ME_555B266B0290 // f_DB
- ME_247F285A8447 // f_f_DB
  )
  ; // Attributes
  : Operations
@@ -1951,38 +1862,6 @@ ref; // ME_49BFBFBE01D9 DB
  CONST "reads field" true
 
 ref; // ME_49BFC6C603D4 ID
-
-: ME_C707E14F7A8F
- CONST UID 'C707E14F7A8F'
- CONST Name 'f_DB'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DB' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49BFBF3E00CD // Tm3DBProxyStream
- ;
- : Target ME_49BFBC690162 // Tm3PrimDB
- ;
-
-ref; // ME_C707E14F7A8F f_DB
-
-: ME_B5DC1A4AC9CA
- CONST UID 'B5DC1A4AC9CA'
- CONST Name 'f_ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49BFBF3E00CD // Tm3DBProxyStream
- ;
- : Target WL 'ME_49BFCF61009F' '4720831F012D.pas.ms.script' // Tm3DBStreamIndexEx
- ;
-
-ref; // ME_B5DC1A4AC9CA f_ID
 
 : ME_49BFC35301F9
  CONST Name 'aStream'
@@ -2107,12 +1986,6 @@ ref; // ME_49BFC01D032F
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_49BFBF3E00CD Cleanup
 
-: ME_5000565C019C_ME_49BFBF3E00CD
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_49BFBF3E00CD ClearFields
-
 : ME_49BFBF3E00CD
  CONST UID '49BFBF3E00CD'
  CONST Name 'Tm3DBProxyStream'
@@ -2131,8 +2004,6 @@ ref; // ME_5000565C019C_ME_49BFBF3E00CD ClearFields
  : Attributes
    Seq: ( ME_49BFBFBE01D9 // DB
  ME_49BFC6C603D4 // ID
- ME_C707E14F7A8F // f_DB
- ME_B5DC1A4AC9CA // f_ID
  )
  ; // Attributes
  : Operations
@@ -2142,7 +2013,6 @@ ref; // ME_5000565C019C_ME_49BFBF3E00CD ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_49BFBF3E00CD // Cleanup
- ME_5000565C019C_ME_49BFBF3E00CD // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -3642,22 +3512,6 @@ ref; // ME_4742D9F50189 m3DB
 
 ref; // ME_555B2DDA0391 ID
 
-: ME_FC58BAEF391A
- CONST UID 'FC58BAEF391A'
- CONST Name 'f_ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4742DCCE00DD // Tm3DBDocument
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_FC58BAEF391A f_ID
-
 FORWARD ME_555B2DEC002E
 
 : ME_555B2E0F00C8
@@ -3711,48 +3565,6 @@ ref; // ME_555B2DFE0279 DoIt
 
 ref; // ME_555B2DEC002E Create
 
-FORWARD ME_555B2E1502AF
-
-: ME_0508A4F4C9FC
- CONST Name 'aDB'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_49BFBC690162 // Tm3PrimDB
- ;
-
-ref; // ME_0508A4F4C9FC aDB
-
-: ME_1F3E32269220
- CONST Name 'anID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_1F3E32269220 anID
-
-: ME_FB3019779493
- CONST UID 'FB3019779493'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tm3DBDocument.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_555B2E1502AF // Make
- ;
- : Target WL 'ME_472084C101C4' '4720831F012D.pas.ms.script' // Im3DBDocument
- ;
- : Parameters
-   Seq: ( ME_0508A4F4C9FC // aDB
- ME_1F3E32269220 // anID
- )
- ; // Parameters
-
-ref; // ME_FB3019779493 DoIt
-
 : ME_555B2E1502AF
  CONST UID '555B2E1502AF'
  CONST Name 'Make'
@@ -3771,10 +3583,6 @@ ref; // ME_FB3019779493 DoIt
    Seq: ( WL 'ME_472084C101C4' '4720831F012D.pas.ms.script' // Im3DBDocument
  )
  ; // Implements
- : Operations
-   Seq: ( ME_FB3019779493 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3884,7 +3692,6 @@ ref; // ME_486B7FE5002E_ME_4742DCCE00DD DeleteObject
  ; // Implements
  : Attributes
    Seq: ( ME_555B2DDA0391 // ID
- ME_FC58BAEF391A // f_ID
  )
  ; // Attributes
  : Operations
@@ -4043,78 +3850,6 @@ ref; // ME_555B37E303C2 DoIt
 
 ref; // ME_555B37CA01B6 Create
 
-FORWARD ME_555B382E029E
-
-: ME_496BAAADE3B4
- CONST Name 'aDB'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_49BFBC690162 // Tm3PrimDB
- ;
-
-ref; // ME_496BAAADE3B4 aDB
-
-: ME_7E0D737285C9
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_472084C101C4' '4720831F012D.pas.ms.script' // Im3DBDocument
- ;
-
-ref; // ME_7E0D737285C9 aDoc
-
-: ME_ED8AC565BADF
- CONST Name 'aLevel'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST Value 0
- : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:pas:Value 0
-
-ref; // ME_ED8AC565BADF aLevel
-
-: ME_1A7F1B0CAF51
- CONST Name 'aFiler'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_1A7F1B0CAF51 aFiler
-
-: ME_5D70186797E5
- CONST UID '5D70186797E5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tm3DBDocumentPart.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_555B382E029E // Make
- ;
- : Target WL 'ME_472084A601F7' '4720831F012D.pas.ms.script' // Im3DBDocumentPart
- ;
- : Parameters
-   Seq: ( ME_496BAAADE3B4 // aDB
- ME_7E0D737285C9 // aDoc
- ME_ED8AC565BADF // aLevel
- ME_1A7F1B0CAF51 // aFiler
- )
- ; // Parameters
-
-ref; // ME_5D70186797E5 DoIt
-
 : ME_555B382E029E
  CONST UID '555B382E029E'
  CONST Name 'Make'
@@ -4133,10 +3868,6 @@ ref; // ME_5D70186797E5 DoIt
    Seq: ( WL 'ME_472084A601F7' '4720831F012D.pas.ms.script' // Im3DBDocumentPart
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5D70186797E5 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4366,12 +4097,6 @@ ref; // ME_555CAF230331_ME_4742DCFF02DC DateTime
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4742DCFF02DC Cleanup
 
-: ME_5000565C019C_ME_4742DCFF02DC
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4742DCFF02DC ClearFields
-
 : ME_4742DCFF02DC
  CONST UID '4742DCFF02DC'
  CONST Name 'Tm3DBDocumentPart'
@@ -4411,7 +4136,6 @@ ref; // ME_5000565C019C_ME_4742DCFF02DC ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4742DCFF02DC // Cleanup
- ME_5000565C019C_ME_4742DCFF02DC // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -4527,56 +4251,6 @@ ref; // ME_555C8A0B02D3 ObjectIndex
  ;
 
 ref; // ME_555C8A3102AB f_Level
-
-: ME_DF66504368CE
- CONST UID 'DF66504368CE'
- CONST Name 'f_Part'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Part' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555C88FF0236 // Tm3DBFiler
- ;
- : Target WL 'ME_472084A601F7' '4720831F012D.pas.ms.script' // Im3DBDocumentPart
- ;
-
-ref; // ME_DF66504368CE f_Part
-
-: ME_3CD2A8176FD2
- CONST UID '3CD2A8176FD2'
- CONST Name 'f_PartSelector'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PartSelector' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555C88FF0236 // Tm3DBFiler
- ;
- : Target WL 'ME_472083770011' '4720831F012D.pas.ms.script' // Tm3DocPartSelector
- ;
- CONST extprop:clearViaProperty 'PartSelector'
-
-ref; // ME_3CD2A8176FD2 f_PartSelector
-
-: ME_0EC6B703ED35
- CONST UID '0EC6B703ED35'
- CONST Name 'f_ObjectIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ObjectIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555C88FF0236 // Tm3DBFiler
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'ObjectIndex'
-
-ref; // ME_0EC6B703ED35 f_ObjectIndex
 
 FORWARD ME_555C8A63011E
 
@@ -4699,12 +4373,6 @@ ref; // ME_555C8F44020A
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_555C88FF0236 Cleanup
 
-: ME_5000565C019C_ME_555C88FF0236
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_555C88FF0236 ClearFields
-
 : ME_555C888301B0_ME_555C88FF0236
  : Original WL 'ME_555C888301B0' '47913B47006E.pas.ms.script' // DoOpen
  ;
@@ -4737,9 +4405,6 @@ ref; // ME_555C88B703E7_ME_555C88FF0236 DoClose
  ME_555C89CB0253 // PartSelector
  ME_555C8A0B02D3 // ObjectIndex
  ME_555C8A3102AB // f_Level
- ME_DF66504368CE // f_Part
- ME_3CD2A8176FD2 // f_PartSelector
- ME_0EC6B703ED35 // f_ObjectIndex
  )
  ; // Attributes
  : Operations
@@ -4748,7 +4413,6 @@ ref; // ME_555C88B703E7_ME_555C88FF0236 DoClose
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_555C88FF0236 // Cleanup
- ME_5000565C019C_ME_555C88FF0236 // ClearFields
  ME_555C888301B0_ME_555C88FF0236 // DoOpen
  ME_555C88B703E7_ME_555C88FF0236 // DoClose
  )

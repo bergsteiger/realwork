@@ -24,22 +24,6 @@ FORWARD ME_47CD0E4E001F
 
 ref; // ME_47D0FB460226 CloseHandler
 
-: ME_1F702B04501B
- CONST UID '1F702B04501B'
- CONST Name 'f_CloseHandler'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseHandler' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47CD0E4E001F // TvtNavigatorForm
- ;
- : Target WL 'ME_47D0DE52037F' '467BAB7F021E.pas.ms.script' // IvcmFormHandler
- ;
-
-ref; // ME_1F702B04501B f_CloseHandler
-
 : ME_4F61A65602A5
  CONST Name 'aCloseHandler'
  CONST Class class_Parameter
@@ -72,12 +56,6 @@ ref; // ME_47CE93D9033B Create
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47CD0E4E001F Cleanup
 
-: ME_5000565C019C_ME_47CD0E4E001F
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47CD0E4E001F ClearFields
-
 : ME_47CD0E4E001F
  CONST UID '47CD0E4E001F'
  CONST Name 'TvtNavigatorForm'
@@ -95,7 +73,6 @@ ref; // ME_5000565C019C_ME_47CD0E4E001F ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_47D0FB460226 // CloseHandler
- ME_1F702B04501B // f_CloseHandler
  )
  ; // Attributes
  : Operations
@@ -104,7 +81,6 @@ ref; // ME_5000565C019C_ME_47CD0E4E001F ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_47CD0E4E001F // Cleanup
- ME_5000565C019C_ME_47CD0E4E001F // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -10383,23 +10359,6 @@ ref; // ME_331B8E210DA6
 
 ref; // ME_4C8A252E01C2 TvtNavigator
 
-: ME_AC1764D76CA5
- CONST UID 'AC1764D76CA5'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F61A51602F4 // TvtNavigatorFormList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_AC1764D76CA5 Exists
-
 : ME_4F61A51602F4
  CONST UID '4F61A51602F4'
  CONST Name 'TvtNavigatorFormList'
@@ -10414,10 +10373,6 @@ ref; // ME_AC1764D76CA5 Exists
    Seq: ( ME_47D68267011D // TvtNavigatorFormListPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AC1764D76CA5 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -10463,22 +10418,6 @@ ref; // ME_4F61E1200353 ItemType
  CONST "reads field" true
 
 ref; // ME_52CECD7C007B Navigator
-
-: ME_857F973C3761
- CONST UID '857F973C3761'
- CONST Name 'f_Navigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Navigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F61DED90246 // TnpControls
- ;
- : Target ME_52BAD1C40174 // TvtNavigatorPrim
- ;
-
-ref; // ME_857F973C3761 f_Navigator
 
 FORWARD ME_4F61EDD001B7
 
@@ -10587,7 +10526,6 @@ ref; // ME_4F61F57501B6 Create
  : Attributes
    Seq: ( ME_4F61E1200353 // ItemType
  ME_52CECD7C007B // Navigator
- ME_857F973C3761 // f_Navigator
  )
  ; // Attributes
  : Operations
@@ -11129,23 +11067,6 @@ ref; // ME_47A042E100E2_ME_4F61FEEB00A5 InitFields
 
 ref; // ME_4F61FEEB00A5 TnpNavigatorListCBT
 
-: ME_0B47184362FE
- CONST UID '0B47184362FE'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F61DE580121 // TnpControlsList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_0B47184362FE Exists
-
 : ME_4F61DE580121
  CONST UID '4F61DE580121'
  CONST Name 'TnpControlsList'
@@ -11161,10 +11082,6 @@ ref; // ME_0B47184362FE Exists
    Seq: ( ME_4F61DE50034C // TnpControlsListPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0B47184362FE // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -11176,23 +11093,6 @@ ref; // ME_0B47184362FE Exists
  CONST extprop:pas:UnitName 'npControlsList'
 
 ref; // ME_4F61DE580121 TnpControlsList
-
-: ME_BEA92268C7C8
- CONST UID 'BEA92268C7C8'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F61E03003CF // TnpNavigatorList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_BEA92268C7C8 Exists
 
 : ME_4F6728B30396
  CONST Class class_Dependency
@@ -11258,10 +11158,6 @@ ref; // ME_47A042E100E2_ME_4F61E03003CF InitFields
  WL 'ME_4F62031400F6' '4677FBA70343.pas.ms.script' // Il3GetMessageListener
  )
  ; // Implements
- : Operations
-   Seq: ( ME_BEA92268C7C8 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4F62032D0058_ME_4F61E03003CF // GetMessageListenerNotify
  ME_4F79CF3400BB_ME_4F61E03003CF // WndProcListenerNotify

@@ -919,23 +919,6 @@ ref; // ME_4F9BCF6401AF DoIt
 
 ref; // ME_4F9BCF5401F8 CleanupItems
 
-: ME_21EF5F504708
- CONST UID '21EF5F504708'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F9BCB620208 // TPl3MessageIDList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_21EF5F504708 Exists
-
 : ME_479731C50290_ME_4F9BCB620208
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -964,7 +947,6 @@ ref; // ME_479F2AFB0397_ME_4F9BCB620208 Release
  ; // Inherits
  : Operations
    Seq: ( ME_4F9BCF5401F8 // CleanupItems
- ME_21EF5F504708 // Exists
  )
  ; // Operations
  : Overridden

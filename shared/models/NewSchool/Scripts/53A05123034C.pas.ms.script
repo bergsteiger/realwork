@@ -221,23 +221,6 @@ ref; // ME_53A04DD202EB f_TaskFolder
 
 ref; // ME_53A1803801A2 FileName
 
-: ME_5FDD1E046792
- CONST UID '5FDD1E046792'
- CONST Name 'f_FileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FileName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52FA3DB401BE // TalcuTaskList
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'FileName'
-
-ref; // ME_5FDD1E046792 f_FileName
-
 FORWARD ME_53A180B502CB
 
 : ME_53A180D20241
@@ -1176,7 +1159,6 @@ ref; // ME_53A1863C0097
  : Attributes
    Seq: ( ME_53A04DD202EB // f_TaskFolder
  ME_53A1803801A2 // FileName
- ME_5FDD1E046792 // f_FileName
  )
  ; // Attributes
  : Operations

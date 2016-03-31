@@ -173,38 +173,6 @@ ref; // ME_4DD28E040057 Owner
 
 ref; // ME_4E14303600A6 fl_ForeignHotSpotMove
 
-: ME_69264492CDE5
- CONST UID '69264492CDE5'
- CONST Name 'f_ForeignHotSpot'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ForeignHotSpot' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48E229CC03DF // TevEditorWindowHotSpot
- ;
- : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ;
-
-ref; // ME_69264492CDE5 f_ForeignHotSpot
-
-: ME_914C32EE4164
- CONST UID '914C32EE4164'
- CONST Name 'f_ClickCursor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ClickCursor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48E229CC03DF // TevEditorWindowHotSpot
- ;
- : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
- ;
-
-ref; // ME_914C32EE4164 f_ClickCursor
-
 : ME_48E4A90D0375
  CONST Name 'aView'
  CONST Class class_Parameter
@@ -963,12 +931,6 @@ ref; // ME_479731C50290_ME_48E229CC03DF Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_48E229CC03DF COMQueryInterface
 
-: ME_5000565C019C_ME_48E229CC03DF
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48E229CC03DF ClearFields
-
 : ME_48E229CC03DF
  CONST UID '48E229CC03DF'
  CONST Name 'TevEditorWindowHotSpot'
@@ -995,8 +957,6 @@ ref; // ME_5000565C019C_ME_48E229CC03DF ClearFields
  ME_48EF2EE00254 // FinishMark
  ME_4DD28E040057 // Owner
  ME_4E14303600A6 // fl_ForeignHotSpotMove
- ME_69264492CDE5 // f_ForeignHotSpot
- ME_914C32EE4164 // f_ClickCursor
  )
  ; // Attributes
  : Operations
@@ -1034,7 +994,6 @@ ref; // ME_5000565C019C_ME_48E229CC03DF ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_48E229CC03DF // Cleanup
  ME_4A60B23E00C3_ME_48E229CC03DF // COMQueryInterface
- ME_5000565C019C_ME_48E229CC03DF // ClearFields
  )
  ; // Overridden
  : Children
@@ -1158,54 +1117,6 @@ ref; // ME_48E275AF00DA LockCaret
  ;
 
 ref; // ME_48E342B30283 f_NeedSetTop
-
-: ME_17427AD86B9C
- CONST UID '17427AD86B9C'
- CONST Name 'f_View'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства View' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D2D004E // TevCursorController
- ;
- : Target WL 'ME_47C5C49600CD' '47C5207602D1.pas.ms.script' // InevInputView
- ;
-
-ref; // ME_17427AD86B9C f_View
-
-: ME_8F9CA8CC4048
- CONST UID '8F9CA8CC4048'
- CONST Name 'f_Cursor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Cursor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D2D004E // TevCursorController
- ;
- : Target WL 'ME_47FCC5960296' '47C5207602D1.pas.ms.script' // InevLinkedPoint
- ;
-
-ref; // ME_8F9CA8CC4048 f_Cursor
-
-: ME_9BC9EE7950E3
- CONST UID '9BC9EE7950E3'
- CONST Name 'f_LockCaret'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LockCaret' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D2D004E // TevCursorController
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_9BC9EE7950E3 f_LockCaret
 
 FORWARD ME_4D9476CA029F
 
@@ -1924,12 +1835,6 @@ ref; // ME_479731C50290_ME_487B5D2D004E Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_487B5D2D004E COMQueryInterface
 
-: ME_5000565C019C_ME_487B5D2D004E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_487B5D2D004E ClearFields
-
 : ME_487B5D2D004E
  CONST UID '487B5D2D004E'
  CONST Name 'TevCursorController'
@@ -1956,9 +1861,6 @@ ref; // ME_5000565C019C_ME_487B5D2D004E ClearFields
  ME_48E272D70333 // Document
  ME_48E275AF00DA // LockCaret
  ME_48E342B30283 // f_NeedSetTop
- ME_17427AD86B9C // f_View
- ME_8F9CA8CC4048 // f_Cursor
- ME_9BC9EE7950E3 // f_LockCaret
  )
  ; // Attributes
  : Operations
@@ -2004,7 +1906,6 @@ ref; // ME_5000565C019C_ME_487B5D2D004E ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_487B5D2D004E // Cleanup
  ME_4A60B23E00C3_ME_487B5D2D004E // COMQueryInterface
- ME_5000565C019C_ME_487B5D2D004E // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -2138,39 +2039,6 @@ ref; // ME_48E3723E0107 Collapsed
  CONST "pm" true
 
 ref; // ME_48E378EC00FF Locked
-
-: ME_D735FA455281
- CONST UID 'D735FA455281'
- CONST Name 'f_Caret'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Caret' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D7202DC // TevWindowCursor
- ;
- : Target WL 'ME_480DDF270394' '47877A6F000A.pas.ms.script' // TafwCaret
- ;
-
-ref; // ME_D735FA455281 f_Caret
-
-: ME_170E15935A07
- CONST UID '170E15935A07'
- CONST Name 'f_xxxLock'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства xxxLock' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D7202DC // TevWindowCursor
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'xxxLock'
-
-ref; // ME_170E15935A07 f_xxxLock
 
 : ME_48E370400283
  CONST Name 'aView'
@@ -2412,8 +2280,6 @@ ref; // ME_48E276B10286_ME_487B5D7202DC DoSetDocument
  ME_48E36EA001DF // xxxLock
  ME_48E3723E0107 // Collapsed
  ME_48E378EC00FF // Locked
- ME_D735FA455281 // f_Caret
- ME_170E15935A07 // f_xxxLock
  )
  ; // Attributes
  : Operations
@@ -2640,137 +2506,6 @@ ref; // ME_48E39C450371 Text
  CONST "pm" true
 
 ref; // ME_4EAA7C9502E7 StartMarkForCtrlKBCtrlKK
-
-: ME_BA81ED159782
- CONST UID 'BA81ED159782'
- CONST Name 'f_NoCaret'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NoCaret' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NoCaret'
-
-ref; // ME_BA81ED159782 f_NoCaret
-
-: ME_10138BB40CA5
- CONST UID '10138BB40CA5'
- CONST Name 'f_Persistent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Persistent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Persistent'
-
-ref; // ME_10138BB40CA5 f_Persistent
-
-: ME_68235DAB35D0
- CONST UID '68235DAB35D0'
- CONST Name 'f_Start'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Start' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_47FCC5960296' '47C5207602D1.pas.ms.script' // InevLinkedPoint
- ;
-
-ref; // ME_68235DAB35D0 f_Start
-
-: ME_5CCB78002FAC
- CONST UID '5CCB78002FAC'
- CONST Name 'f_Finish'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Finish' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_47FCC5960296' '47C5207602D1.pas.ms.script' // InevLinkedPoint
- ;
-
-ref; // ME_5CCB78002FAC f_Finish
-
-: ME_C39DB6B3C52A
- CONST UID 'C39DB6B3C52A'
- CONST Name 'f_DrawLines'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DrawLines' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'DrawLines'
-
-ref; // ME_C39DB6B3C52A f_DrawLines
-
-: ME_A1E3784BA5F4
- CONST UID 'A1E3784BA5F4'
- CONST Name 'f_StartMark'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StartMark' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_47C5B56900DA' '47C5207602D1.pas.ms.script' // InevPoint
- ;
-
-ref; // ME_A1E3784BA5F4 f_StartMark
-
-: ME_BB74D3D195B6
- CONST UID 'BB74D3D195B6'
- CONST Name 'f_FinishMark'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FinishMark' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_47C5B56900DA' '47C5207602D1.pas.ms.script' // InevPoint
- ;
-
-ref; // ME_BB74D3D195B6 f_FinishMark
-
-: ME_6D055900BFB0
- CONST UID '6D055900BFB0'
- CONST Name 'f_StartMarkForCtrlKBCtrlKK'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StartMarkForCtrlKBCtrlKK' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5D8D00ED // TevBlockCursor
- ;
- : Target WL 'ME_47C5B56900DA' '47C5207602D1.pas.ms.script' // InevPoint
- ;
-
-ref; // ME_6D055900BFB0 f_StartMarkForCtrlKBCtrlKK
 
 : ME_48E38B850299
  CONST UID '48E38B850299'
@@ -3365,12 +3100,6 @@ ref; // ME_4A60B23E00C3_ME_487B5D8D00ED COMQueryInterface
  CONST OpKind opkind_Overridden
 ref; // ME_4D9476CA029F_ME_487B5D8D00ED ForceStore
 
-: ME_5000565C019C_ME_487B5D8D00ED
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_487B5D8D00ED ClearFields
-
 : ME_487B5D8D00ED
  CONST UID '487B5D8D00ED'
  CONST Name 'TevBlockCursor'
@@ -3403,14 +3132,6 @@ ref; // ME_5000565C019C_ME_487B5D8D00ED ClearFields
  ME_48E38B6E01BA // f_LockCursorChange
  ME_48E39C450371 // Text
  ME_4EAA7C9502E7 // StartMarkForCtrlKBCtrlKK
- ME_BA81ED159782 // f_NoCaret
- ME_10138BB40CA5 // f_Persistent
- ME_68235DAB35D0 // f_Start
- ME_5CCB78002FAC // f_Finish
- ME_C39DB6B3C52A // f_DrawLines
- ME_A1E3784BA5F4 // f_StartMark
- ME_BB74D3D195B6 // f_FinishMark
- ME_6D055900BFB0 // f_StartMarkForCtrlKBCtrlKK
  )
  ; // Attributes
  : Operations
@@ -3458,7 +3179,6 @@ ref; // ME_5000565C019C_ME_487B5D8D00ED ClearFields
  ME_48E37364035C_ME_487B5D8D00ED // IsBlockCursor
  ME_4A60B23E00C3_ME_487B5D8D00ED // COMQueryInterface
  ME_4D9476CA029F_ME_487B5D8D00ED // ForceStore
- ME_5000565C019C_ME_487B5D8D00ED // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -3586,39 +3306,6 @@ ref; // ME_48E3A5E503CD Mouse
  CONST "reads field" true
 
 ref; // ME_48E3A614017E FoundBlock
-
-: ME_8F50E5AAD076
- CONST UID '8F50E5AAD076'
- CONST Name 'f_Mouse'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Mouse' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5DD202DF // TnevSelection
- ;
- : Target WL 'ME_47C5B56900DA' '47C5207602D1.pas.ms.script' // InevPoint
- ;
-
-ref; // ME_8F50E5AAD076 f_Mouse
-
-: ME_6C707AC1D875
- CONST UID '6C707AC1D875'
- CONST Name 'f_FoundBlock'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FoundBlock' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_487B5DD202DF // TnevSelection
- ;
- : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
- ;
- CONST extprop:clearViaProperty 'FoundBlock'
-
-ref; // ME_6C707AC1D875 f_FoundBlock
 
 : ME_48E3A5C203E1
  CONST UID '48E3A5C203E1'
@@ -3752,12 +3439,6 @@ ref; // ME_48E3723E0107_ME_487B5DD202DF Collapsed
  CONST OpKind opkind_Overridden
 ref; // ME_48E38E83007A_ME_487B5DD202DF AfterProcessCommand
 
-: ME_5000565C019C_ME_487B5DD202DF
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_487B5DD202DF ClearFields
-
 : ME_487B5DD202DF
  CONST UID '487B5DD202DF'
  CONST Name 'TnevSelection'
@@ -3776,8 +3457,6 @@ ref; // ME_5000565C019C_ME_487B5DD202DF ClearFields
  : Attributes
    Seq: ( ME_48E3A5E503CD // Mouse
  ME_48E3A614017E // FoundBlock
- ME_8F50E5AAD076 // f_Mouse
- ME_6C707AC1D875 // f_FoundBlock
  )
  ; // Attributes
  : Operations
@@ -3792,7 +3471,6 @@ ref; // ME_5000565C019C_ME_487B5DD202DF ClearFields
  ME_48E276B10286_ME_487B5DD202DF // DoSetDocument
  ME_48E3723E0107_ME_487B5DD202DF // Collapsed
  ME_48E38E83007A_ME_487B5DD202DF // AfterProcessCommand
- ME_5000565C019C_ME_487B5DD202DF // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -11344,22 +11022,6 @@ FORWARD ME_48ECD38B0204
 
 ref; // ME_48ECD40A0117 Blocks
 
-: ME_FDE2C3135B84
- CONST UID 'FDE2C3135B84'
- CONST Name 'f_Blocks'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Blocks' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48ECD38B0204 // TevMultiSelectionRange
- ;
- : Target WL 'ME_47E26A16008E' '47C52679006D.pas.ms.script' // TnevRangeList
- ;
-
-ref; // ME_FDE2C3135B84 f_Blocks
-
 : ME_48ECD4BD036D
  CONST Name 'aTagWrap'
  CONST Class class_Parameter
@@ -11774,7 +11436,6 @@ ref; // ME_4A60B23E00C3_ME_48ECD38B0204 COMQueryInterface
  ; // Implements
  : Attributes
    Seq: ( ME_48ECD40A0117 // Blocks
- ME_FDE2C3135B84 // f_Blocks
  )
  ; // Attributes
  : Operations

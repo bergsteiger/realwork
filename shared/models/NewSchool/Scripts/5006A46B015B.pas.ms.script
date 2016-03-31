@@ -24,49 +24,6 @@ FORWARD ME_5006A4A6003D
 
 ref; // ME_5006A52C0211 CanHaveToolbars
 
-: ME_BD1FEBA754C0
- CONST UID 'BD1FEBA754C0'
- CONST Name 'f_CanHaveToolbars'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CanHaveToolbars' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'CanHaveToolbars'
-
-ref; // ME_BD1FEBA754C0 f_CanHaveToolbars
-
-: ME_1D94637FAE1A
- CONST UID '1D94637FAE1A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmUserTypesCollectionItemPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1D94637FAE1A Ini_Reg_Class
-
-: ME_2818542FBC8C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2818542FBC8C 
-
 : ME_47A042E100E2_ME_5006A4A6003D
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
@@ -89,21 +46,12 @@ ref; // ME_47A042E100E2_ME_5006A4A6003D InitFields
  ; // Inherits
  : Attributes
    Seq: ( ME_5006A52C0211 // CanHaveToolbars
- ME_BD1FEBA754C0 // f_CanHaveToolbars
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_1D94637FAE1A // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47A042E100E2_ME_5006A4A6003D // InitFields
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_2818542FBC8C // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -185,7 +133,6 @@ ref; // ME_5006A4E003AB TvcmUserTypesCollectionItem
  : Depends
    Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4FFC33380166' '4FFC33380166.pas.ms.script' // Collections
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/implementation/Components'

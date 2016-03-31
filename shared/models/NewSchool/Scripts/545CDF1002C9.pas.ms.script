@@ -606,21 +606,6 @@ ref; // ME_54B6A23603A0 DoIt
 
 ref; // ME_54B6A22902AB DoFreeMem
 
-FORWARD ME_54B91C7A027A
-
-: ME_2C96B1CFD49D
- CONST UID '2C96B1CFD49D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AllocNewBlock' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54B91C7A027A // AllocNewBlock
- ;
-
-ref; // ME_2C96B1CFD49D DoIt
-
 : ME_54B91C7A027A
  CONST UID '54B91C7A027A'
  CONST Name 'AllocNewBlock'
@@ -631,10 +616,6 @@ ref; // ME_2C96B1CFD49D DoIt
  CONST Abstraction at_final
  : Parent ME_5453AE0C0100 // Tl3SimpleMemoryManager
  ;
- : Operations
-   Seq: ( ME_2C96B1CFD49D // DoIt
- )
- ; // Operations
 
 ref; // ME_54B91C7A027A AllocNewBlock
 

@@ -1975,39 +1975,6 @@ ref; // ME_548EECCB01DC ClientID
 
 ref; // ME_538DB550025A IOHandler
 
-: ME_90824DB982B2
- CONST UID '90824DB982B2'
- CONST Name 'f_ClientID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ClientID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_538DC31F03A5 // TCsDataPipePrim
- ;
- : Target ME_537F4A04037C // TCsClientId
- ;
- CONST extprop:clearViaProperty 'ClientID'
-
-ref; // ME_90824DB982B2 f_ClientID
-
-: ME_DD3BE46C2A3B
- CONST UID 'DD3BE46C2A3B'
- CONST Name 'f_IOHandler'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IOHandler' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_538DC31F03A5 // TCsDataPipePrim
- ;
- : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
- ;
-
-ref; // ME_DD3BE46C2A3B f_IOHandler
-
 FORWARD ME_538DC49700E1
 
 : ME_538DC4AE0146
@@ -2269,8 +2236,6 @@ ref; // ME_479731C50290_ME_538DC31F03A5 Cleanup
  : Attributes
    Seq: ( ME_548EECCB01DC // ClientID
  ME_538DB550025A // IOHandler
- ME_90824DB982B2 // f_ClientID
- ME_DD3BE46C2A3B // f_IOHandler
  )
  ; // Attributes
  : Operations

@@ -191,70 +191,6 @@ ref; // ME_53F2DA7B0272 DoIt
 
 ref; // ME_53F2DA6F0255 Create
 
-FORWARD ME_53F2DABB00B5
-
-: ME_D078C25BAB85
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_D078C25BAB85 aText
-
-: ME_47B60B8913AD
- CONST Name 'aHintText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_47B60B8913AD aHintText
-
-: ME_F377BD7285E8
- CONST Name 'aImageIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_F377BD7285E8 aImageIndex
-
-: ME_5B27E11D8DD0
- CONST Name 'aUpdateOptions'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_53F2E47C0055' '553213B80041.pas.ms.script' // Tl3TabUpdateOptions
- ;
-
-ref; // ME_5B27E11D8DD0 aUpdateOptions
-
-: ME_20FC0BCE1DBD
- CONST UID '20FC0BCE1DBD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TChromeLikeTabParams.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53F2DABB00B5 // Make
- ;
- : Target WL 'ME_53F2D7D90245' '553213B80041.pas.ms.script' // Il3TabParams
- ;
- : Parameters
-   Seq: ( ME_D078C25BAB85 // aText
- ME_47B60B8913AD // aHintText
- ME_F377BD7285E8 // aImageIndex
- ME_5B27E11D8DD0 // aUpdateOptions
- )
- ; // Parameters
-
-ref; // ME_20FC0BCE1DBD DoIt
-
 : ME_53F2DABB00B5
  CONST UID '53F2DABB00B5'
  CONST Name 'Make'
@@ -273,10 +209,6 @@ ref; // ME_20FC0BCE1DBD DoIt
    Seq: ( WL 'ME_53F2D7D90245' '553213B80041.pas.ms.script' // Il3TabParams
  )
  ; // Implements
- : Operations
-   Seq: ( ME_20FC0BCE1DBD // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -497,38 +429,6 @@ ref; // ME_5506AC9C0173 Bottom
 
 ref; // ME_550BED250296 OnChange
 
-: ME_B073ABDFF53B
- CONST UID 'B073ABDFF53B'
- CONST Name 'f_OnChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506AC0F0361 // TChromeLikeMargins
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnChange'
-
-ref; // ME_B073ABDFF53B f_OnChange
-
-FORWARD ME_5506ACBA0169
-
-: ME_5C551C05A276
- CONST UID '5C551C05A276'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Changed' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5506ACBA0169 // Changed
- ;
-
-ref; // ME_5C551C05A276 DoIt
-
 : ME_5506ACBA0169
  CONST UID '5506ACBA0169'
  CONST Name 'Changed'
@@ -539,10 +439,6 @@ ref; // ME_5C551C05A276 DoIt
  CONST Abstraction at_final
  : Parent ME_5506AC0F0361 // TChromeLikeMargins
  ;
- : Operations
-   Seq: ( ME_5C551C05A276 // DoIt
- )
- ; // Operations
 
 ref; // ME_5506ACBA0169 Changed
 
@@ -676,7 +572,6 @@ ref; // ME_5506ADB9017A
  ME_5506AC9101D3 // Right
  ME_5506AC9C0173 // Bottom
  ME_550BED250296 // OnChange
- ME_B073ABDFF53B // f_OnChange
  )
  ; // Attributes
  : Operations
@@ -1035,173 +930,6 @@ ref; // ME_5506B697014B f_EaseType
 
 ref; // ME_5506B6B301F4 f_PositionInitialised
 
-: ME_18C704450191
- CONST UID '18C704450191'
- CONST Name 'f_PositionRect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PositionRect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
- CONST extprop:clearViaProperty 'PositionRect'
-
-ref; // ME_18C704450191 f_PositionRect
-
-: ME_EE555A0D3810
- CONST UID 'EE555A0D3810'
- CONST Name 'f_Parent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Parent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- CONST extprop:clearViaProperty 'Parent'
-
-ref; // ME_EE555A0D3810 f_Parent
-
-: ME_10288CD4002A
- CONST UID '10288CD4002A'
- CONST Name 'f_Align'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Align' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
- ;
- CONST extprop:clearViaProperty 'Align'
-
-ref; // ME_10288CD4002A f_Align
-
-: ME_6A148935396E
- CONST UID '6A148935396E'
- CONST Name 'f_HintText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HintText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
- ;
- CONST extprop:clearViaProperty 'HintText'
-
-ref; // ME_6A148935396E f_HintText
-
-: ME_75D43EB15A27
- CONST UID '75D43EB15A27'
- CONST Name 'f_State'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства State' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target ME_5506A806012C // TChromeLikeVisualObjectState
- ;
- CONST extprop:clearViaProperty 'State'
-
-ref; // ME_75D43EB15A27 f_State
-
-: ME_BFA4090F7B74
- CONST UID 'BFA4090F7B74'
- CONST Name 'f_OnClick'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnClick'
-
-ref; // ME_BFA4090F7B74 f_OnClick
-
-: ME_AA5EC324762E
- CONST UID 'AA5EC324762E'
- CONST Name 'f_Behaviours'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Behaviours' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target ME_5506AA560272 // TChromeLikeVisualObjectBehaviours
- ;
-
-ref; // ME_AA5EC324762E f_Behaviours
-
-: ME_A5C25DF4AC6C
- CONST UID 'A5C25DF4AC6C'
- CONST Name 'f_InAnimation'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InAnimation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_A5C25DF4AC6C f_InAnimation
-
-: ME_3A713E5A1178
- CONST UID '3A713E5A1178'
- CONST Name 'f_Margins'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Margins' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target ME_5506AC0F0361 // TChromeLikeMargins
- ;
-
-ref; // ME_3A713E5A1178 f_Margins
-
-: ME_F36DD8BE0458
- CONST UID 'F36DD8BE0458'
- CONST Name 'f_Visible'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Visible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Visible'
-
-ref; // ME_F36DD8BE0458 f_Visible
-
 FORWARD ME_5506A3DF0209
 
 FORWARD ME_5506A72B034B
@@ -1481,21 +1209,6 @@ ref; // ME_F4D824426601 DoIt
 
 ref; // ME_5506AE050362 Invalidate
 
-FORWARD ME_5506AE1D02F9
-
-: ME_6E553051EAF6
- CONST UID '6E553051EAF6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AnimationFinished' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5506AE1D02F9 // AnimationFinished
- ;
-
-ref; // ME_6E553051EAF6 DoIt
-
 : ME_5506AE1D02F9
  CONST UID '5506AE1D02F9'
  CONST Name 'AnimationFinished'
@@ -1506,10 +1219,6 @@ ref; // ME_6E553051EAF6 DoIt
  CONST Abstraction at_final
  : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
  ;
- : Operations
-   Seq: ( ME_6E553051EAF6 // DoIt
- )
- ; // Operations
 
 ref; // ME_5506AE1D02F9 AnimationFinished
 
@@ -2584,21 +2293,6 @@ ref; // ME_5506B3090125 DoIt
 
 ref; // ME_5506B30003D3 Click
 
-FORWARD ME_5506B3150222
-
-: ME_54B87C273939
- CONST UID '54B87C273939'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RequestLayoutChildren' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5506B3150222 // RequestLayoutChildren
- ;
-
-ref; // ME_54B87C273939 DoIt
-
 : ME_5506B3150222
  CONST UID '5506B3150222'
  CONST Name 'RequestLayoutChildren'
@@ -2609,10 +2303,6 @@ ref; // ME_54B87C273939 DoIt
  CONST Abstraction at_final
  : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
  ;
- : Operations
-   Seq: ( ME_54B87C273939 // DoIt
- )
- ; // Operations
 
 ref; // ME_5506B3150222 RequestLayoutChildren
 
@@ -2736,21 +2426,6 @@ ref; // ME_B8993747494A DoIt
 
 ref; // ME_552638BD00A3 DoMouseLeave
 
-FORWARD ME_552638E40107
-
-: ME_1CE00F951043
- CONST UID '1CE00F951043'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода MouseLeave' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552638E40107 // MouseLeave
- ;
-
-ref; // ME_1CE00F951043 DoIt
-
 : ME_552638E40107
  CONST UID '552638E40107'
  CONST Name 'MouseLeave'
@@ -2761,10 +2436,6 @@ ref; // ME_1CE00F951043 DoIt
  CONST Abstraction at_final
  : Parent ME_5506A3B0036E // TChromeLikeBaseVisualObjectPrim
  ;
- : Operations
-   Seq: ( ME_1CE00F951043 // DoIt
- )
- ; // Operations
 
 ref; // ME_552638E40107 MouseLeave
 
@@ -2990,12 +2661,6 @@ ref; // ME_55ACE26F032B_ME_5506A3B0036E FinishAnimationImmediately
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5506A3B0036E Cleanup
 
-: ME_5000565C019C_ME_5506A3B0036E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5506A3B0036E ClearFields
-
 : ME_5506A3B0036E
  CONST UID '5506A3B0036E'
  CONST Name 'TChromeLikeBaseVisualObjectPrim'
@@ -3034,16 +2699,6 @@ ref; // ME_5000565C019C_ME_5506A3B0036E ClearFields
  ME_5506B67203CB // f_EndRect
  ME_5506B697014B // f_EaseType
  ME_5506B6B301F4 // f_PositionInitialised
- ME_18C704450191 // f_PositionRect
- ME_EE555A0D3810 // f_Parent
- ME_10288CD4002A // f_Align
- ME_6A148935396E // f_HintText
- ME_75D43EB15A27 // f_State
- ME_BFA4090F7B74 // f_OnClick
- ME_AA5EC324762E // f_Behaviours
- ME_A5C25DF4AC6C // f_InAnimation
- ME_3A713E5A1178 // f_Margins
- ME_F36DD8BE0458 // f_Visible
  )
  ; // Attributes
  : Operations
@@ -3096,7 +2751,6 @@ ref; // ME_5000565C019C_ME_5506A3B0036E ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_5506A3B0036E // Cleanup
- ME_5000565C019C_ME_5506A3B0036E // ClearFields
  )
  ; // Overridden
  : Children
@@ -5228,37 +4882,6 @@ ref; // ME_5507E6CC01CC DoIt
 
 ref; // ME_5507E6C202EE Create
 
-FORWARD ME_5507E6DA0097
-
-: ME_F4F5F6A6A16F
- CONST Name 'aCanvas'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
- ;
-
-ref; // ME_F4F5F6A6A16F aCanvas
-
-: ME_EDB37B453B4D
- CONST UID 'EDB37B453B4D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TChromeLikeDrawingContext.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5507E6DA0097 // Make
- ;
- : Target ME_5506A72B034B // IChromeLkeTabSetDrawingContext
- ;
- : Parameters
-   Seq: ( ME_F4F5F6A6A16F // aCanvas
- )
- ; // Parameters
-
-ref; // ME_EDB37B453B4D DoIt
-
 : ME_5507E6DA0097
  CONST UID '5507E6DA0097'
  CONST Name 'Make'
@@ -5277,10 +4900,6 @@ ref; // ME_EDB37B453B4D DoIt
    Seq: ( ME_5506A72B034B // IChromeLkeTabSetDrawingContext
  )
  ; // Implements
- : Operations
-   Seq: ( ME_EDB37B453B4D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -6551,106 +6170,6 @@ ref; // ME_551536010170 Image
 
 ref; // ME_5515361300D9 HotImage
 
-: ME_0B6A3E31F323
- CONST UID '0B6A3E31F323'
- CONST Name 'f_ShowOnlyHovered'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ShowOnlyHovered' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2380319 // TChromeLikeTabCloseButton
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ShowOnlyHovered'
-
-ref; // ME_0B6A3E31F323 f_ShowOnlyHovered
-
-: ME_EA62E5B620AF
- CONST UID 'EA62E5B620AF'
- CONST Name 'f_ButtonImages'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ButtonImages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2380319 // TChromeLikeTabCloseButton
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'ButtonImages'
-
-ref; // ME_EA62E5B620AF f_ButtonImages
-
-: ME_645746ED78F2
- CONST UID '645746ED78F2'
- CONST Name 'f_ImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2380319 // TChromeLikeTabCloseButton
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'ImageIndex'
-
-ref; // ME_645746ED78F2 f_ImageIndex
-
-: ME_126D8EA96553
- CONST UID '126D8EA96553'
- CONST Name 'f_HotImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HotImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2380319 // TChromeLikeTabCloseButton
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'HotImageIndex'
-
-ref; // ME_126D8EA96553 f_HotImageIndex
-
-: ME_31F6ADD89CA3
- CONST UID '31F6ADD89CA3'
- CONST Name 'f_Image'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Image' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2380319 // TChromeLikeTabCloseButton
- ;
- : Target WL 'ME_5507E291037D' '5507E07A0136.pas.ms.script' // TGPBitmap
- ;
-
-ref; // ME_31F6ADD89CA3 f_Image
-
-: ME_CA0755116327
- CONST UID 'CA0755116327'
- CONST Name 'f_HotImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HotImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2380319 // TChromeLikeTabCloseButton
- ;
- : Target WL 'ME_5507E291037D' '5507E07A0136.pas.ms.script' // TGPBitmap
- ;
-
-ref; // ME_CA0755116327 f_HotImage
-
 : ME_479731C50290_ME_5507F2380319
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -6708,12 +6227,6 @@ ref; // ME_552638BD00A3_ME_5507F2380319 DoMouseLeave
  ME_5515358D0359 // HotImageIndex
  ME_551536010170 // Image
  ME_5515361300D9 // HotImage
- ME_0B6A3E31F323 // f_ShowOnlyHovered
- ME_EA62E5B620AF // f_ButtonImages
- ME_645746ED78F2 // f_ImageIndex
- ME_126D8EA96553 // f_HotImageIndex
- ME_31F6ADD89CA3 // f_Image
- ME_CA0755116327 // f_HotImage
  )
  ; // Attributes
  : Overridden
@@ -6785,40 +6298,6 @@ ref; // ME_550910DC0394 ImageIndex
  ;
 
 ref; // ME_550911250223 f_Image
-
-: ME_C3C6E4254AF5
- CONST UID 'C3C6E4254AF5'
- CONST Name 'f_ImageList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ImageList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F24D0307 // TChromeLikeTabIcon
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'ImageList'
-
-ref; // ME_C3C6E4254AF5 f_ImageList
-
-: ME_65303C5117CA
- CONST UID '65303C5117CA'
- CONST Name 'f_ImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F24D0307 // TChromeLikeTabIcon
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'ImageIndex'
-
-ref; // ME_65303C5117CA f_ImageIndex
 
 FORWARD ME_5509113E00A2
 
@@ -6894,8 +6373,6 @@ ref; // ME_5506B0630312_ME_5507F24D0307 MakeBehaviourParams
    Seq: ( ME_550910B6003C // ImageList
  ME_550910DC0394 // ImageIndex
  ME_550911250223 // f_Image
- ME_C3C6E4254AF5 // f_ImageList
- ME_65303C5117CA // f_ImageIndex
  )
  ; // Attributes
  : Operations
@@ -6938,23 +6415,6 @@ FORWARD ME_5507F2580281
 
 ref; // ME_550911EC016C Text
 
-: ME_EE136E2874D4
- CONST UID 'EE136E2874D4'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F2580281 // TChromeLikeTabText
- ;
- : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
- ;
- CONST extprop:clearViaProperty 'Text'
-
-ref; // ME_EE136E2874D4 f_Text
-
 : ME_5506AE35023A_ME_5507F2580281
  : Original ME_5506AE35023A // DoPaint
  ;
@@ -6983,7 +6443,6 @@ ref; // ME_5506B0630312_ME_5507F2580281 MakeBehaviourParams
  ; // Inherits
  : Attributes
    Seq: ( ME_550911EC016C // Text
- ME_EE136E2874D4 // f_Text
  )
  ; // Attributes
  : Overridden
@@ -7400,193 +6859,6 @@ ref; // ME_55154DE60112 CloseButtonImageIndex
 
 ref; // ME_55154E010152 CloseButtonHotImageIndex
 
-: ME_88977BB2DC2F
- CONST UID '88977BB2DC2F'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
- ;
- CONST extprop:clearViaProperty 'Text'
-
-ref; // ME_88977BB2DC2F f_Text
-
-: ME_CCA688D5F442
- CONST UID 'CCA688D5F442'
- CONST Name 'f_Selected'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Selected' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Selected'
-
-ref; // ME_CCA688D5F442 f_Selected
-
-: ME_4A47C597DCB2
- CONST UID '4A47C597DCB2'
- CONST Name 'f_Form'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
- ;
- CONST extprop:clearViaProperty 'Form'
-
-ref; // ME_4A47C597DCB2 f_Form
-
-: ME_EB4E22B8F368
- CONST UID 'EB4E22B8F368'
- CONST Name 'f_ImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'ImageIndex'
-
-ref; // ME_EB4E22B8F368 f_ImageIndex
-
-: ME_FA5844BF73CA
- CONST UID 'FA5844BF73CA'
- CONST Name 'f_ImageList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ImageList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'ImageList'
-
-ref; // ME_FA5844BF73CA f_ImageList
-
-: ME_5BF0BDF45E3E
- CONST UID '5BF0BDF45E3E'
- CONST Name 'f_SlotIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SlotIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'SlotIndex'
-
-ref; // ME_5BF0BDF45E3E f_SlotIndex
-
-: ME_C9789DF563A5
- CONST UID 'C9789DF563A5'
- CONST Name 'f_OnNeedCloseTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnNeedCloseTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target ME_550FED950250 // TChromeLikeTabNeedCloseEvent
- ;
- CONST extprop:clearViaProperty 'OnNeedCloseTab'
-
-ref; // ME_C9789DF563A5 f_OnNeedCloseTab
-
-: ME_30BD15D52D2F
- CONST UID '30BD15D52D2F'
- CONST Name 'f_TabSet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TabSet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
- CONST extprop:clearViaProperty 'TabSet'
-
-ref; // ME_30BD15D52D2F f_TabSet
-
-: ME_04DAB7D957EA
- CONST UID '04DAB7D957EA'
- CONST Name 'f_CloseButtonImages'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButtonImages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'CloseButtonImages'
-
-ref; // ME_04DAB7D957EA f_CloseButtonImages
-
-: ME_C12EA39F5BEF
- CONST UID 'C12EA39F5BEF'
- CONST Name 'f_CloseButtonImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButtonImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'CloseButtonImageIndex'
-
-ref; // ME_C12EA39F5BEF f_CloseButtonImageIndex
-
-: ME_52DF388B84C5
- CONST UID '52DF388B84C5'
- CONST Name 'f_CloseButtonHotImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButtonHotImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507F22E0057 // TChromeLikeTab
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'CloseButtonHotImageIndex'
-
-ref; // ME_52DF388B84C5 f_CloseButtonHotImageIndex
-
 FORWARD ME_550915DC024B
 
 : ME_944AE11B373B
@@ -7637,21 +6909,6 @@ ref; // ME_075B1E580F90 DoIt
 
 ref; // ME_550915DC024B DoOnCloseButtonClick
 
-FORWARD ME_550915FA0072
-
-: ME_8647C9B0443A
- CONST UID '8647C9B0443A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SelectionChanged' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550915FA0072 // SelectionChanged
- ;
-
-ref; // ME_8647C9B0443A DoIt
-
 : ME_550915FA0072
  CONST UID '550915FA0072'
  CONST Name 'SelectionChanged'
@@ -7662,27 +6919,8 @@ ref; // ME_8647C9B0443A DoIt
  CONST Abstraction at_final
  : Parent ME_5507F22E0057 // TChromeLikeTab
  ;
- : Operations
-   Seq: ( ME_8647C9B0443A // DoIt
- )
- ; // Operations
 
 ref; // ME_550915FA0072 SelectionChanged
-
-FORWARD ME_5509160503A9
-
-: ME_AE8F1ED255F5
- CONST UID 'AE8F1ED255F5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода MakePaths' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5509160503A9 // MakePaths
- ;
-
-ref; // ME_AE8F1ED255F5 DoIt
 
 : ME_5509160503A9
  CONST UID '5509160503A9'
@@ -7694,10 +6932,6 @@ ref; // ME_AE8F1ED255F5 DoIt
  CONST Abstraction at_final
  : Parent ME_5507F22E0057 // TChromeLikeTab
  ;
- : Operations
-   Seq: ( ME_AE8F1ED255F5 // DoIt
- )
- ; // Operations
 
 ref; // ME_5509160503A9 MakePaths
 
@@ -7834,21 +7068,6 @@ ref; // ME_55111E910169 DoIt
 
 ref; // ME_55111E87034D Create
 
-FORWARD ME_5541CFB50145
-
-: ME_316005B725DB
- CONST UID '316005B725DB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CloseTab' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5541CFB50145 // CloseTab
- ;
-
-ref; // ME_316005B725DB DoIt
-
 : ME_5541CFB50145
  CONST UID '5541CFB50145'
  CONST Name 'CloseTab'
@@ -7859,10 +7078,6 @@ ref; // ME_316005B725DB DoIt
  CONST Abstraction at_final
  : Parent ME_5507F22E0057 // TChromeLikeTab
  ;
- : Operations
-   Seq: ( ME_316005B725DB // DoIt
- )
- ; // Operations
 
 ref; // ME_5541CFB50145 CloseTab
 
@@ -8077,17 +7292,6 @@ ref; // ME_5541B8C900EE_ME_5507F22E0057 DoMiddleButtonClick
  ME_5515476502F2 // CloseButtonImages
  ME_55154DE60112 // CloseButtonImageIndex
  ME_55154E010152 // CloseButtonHotImageIndex
- ME_88977BB2DC2F // f_Text
- ME_CCA688D5F442 // f_Selected
- ME_4A47C597DCB2 // f_Form
- ME_EB4E22B8F368 // f_ImageIndex
- ME_FA5844BF73CA // f_ImageList
- ME_5BF0BDF45E3E // f_SlotIndex
- ME_C9789DF563A5 // f_OnNeedCloseTab
- ME_30BD15D52D2F // f_TabSet
- ME_04DAB7D957EA // f_CloseButtonImages
- ME_C12EA39F5BEF // f_CloseButtonImageIndex
- ME_52DF388B84C5 // f_CloseButtonHotImageIndex
  )
  ; // Attributes
  : Operations
@@ -8785,23 +7989,6 @@ FORWARD ME_553F55FD034A
 
 ref; // ME_553F56960377 Tab
 
-: ME_1F8CAC029B64
- CONST UID '1F8CAC029B64'
- CONST Name 'f_Tab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Tab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_553F55FD034A // TChromeLikeTabAction
- ;
- : Target ME_5507F22E0057 // TChromeLikeTab
- ;
- CONST extprop:clearViaProperty 'Tab'
-
-ref; // ME_1F8CAC029B64 f_Tab
-
 : ME_553F55FD034A
  CONST UID '553F55FD034A'
  CONST Name 'TChromeLikeTabAction'
@@ -8818,7 +8005,6 @@ ref; // ME_1F8CAC029B64 f_Tab
  ; // Inherits
  : Attributes
    Seq: ( ME_553F56960377 // Tab
- ME_1F8CAC029B64 // f_Tab
  )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
@@ -8902,21 +8088,6 @@ ref; // ME_554202FC0215 f_TabSet
 
 ref; // ME_5565AF050347 f_PlusEdgePath
 
-FORWARD ME_5540B9B602F0
-
-: ME_CCEA20D76447
- CONST UID 'CCEA20D76447'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода MakePaths' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5540B9B602F0 // MakePaths
- ;
-
-ref; // ME_CCEA20D76447 DoIt
-
 : ME_5540B9B602F0
  CONST UID '5540B9B602F0'
  CONST Name 'MakePaths'
@@ -8927,10 +8098,6 @@ ref; // ME_CCEA20D76447 DoIt
  CONST Abstraction at_final
  : Parent ME_5540B1BC0019 // TChromeLikeNewTabButton
  ;
- : Operations
-   Seq: ( ME_CCEA20D76447 // DoIt
- )
- ; // Operations
 
 ref; // ME_5540B9B602F0 MakePaths
 
@@ -9848,292 +9015,6 @@ ref; // ME_5593BAC40325 Container
 
 ref; // ME_55BF0975035D f_ProcessingClick
 
-: ME_D9505B111272
- CONST UID 'D9505B111272'
- CONST Name 'f_TabHeight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TabHeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'TabHeight'
-
-ref; // ME_D9505B111272 f_TabHeight
-
-: ME_4ACF719029D9
- CONST UID '4ACF719029D9'
- CONST Name 'f_SelectedTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SelectedTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_5507F22E0057 // TChromeLikeTab
- ;
- CONST extprop:clearViaProperty 'SelectedTab'
-
-ref; // ME_4ACF719029D9 f_SelectedTab
-
-: ME_1DCD987C5BCF
- CONST UID '1DCD987C5BCF'
- CONST Name 'f_OnPaintBackground'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnPaintBackground' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_5508122F037A // TChromeLikeTabSetPaintBackground
- ;
- CONST extprop:clearViaProperty 'OnPaintBackground'
-
-ref; // ME_1DCD987C5BCF f_OnPaintBackground
-
-: ME_C7AEEEB89670
- CONST UID 'C7AEEEB89670'
- CONST Name 'f_OnTabSelected'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTabSelected' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_550812EB0195 // TChromeLikeTabSetTabEvent
- ;
- CONST extprop:clearViaProperty 'OnTabSelected'
-
-ref; // ME_C7AEEEB89670 f_OnTabSelected
-
-: ME_4122069B05CB
- CONST UID '4122069B05CB'
- CONST Name 'f_OnTabDeselected'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTabDeselected' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_550812EB0195 // TChromeLikeTabSetTabEvent
- ;
- CONST extprop:clearViaProperty 'OnTabDeselected'
-
-ref; // ME_4122069B05CB f_OnTabDeselected
-
-: ME_D0818561AA2F
- CONST UID 'D0818561AA2F'
- CONST Name 'f_OnAfterFormAdded'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnAfterFormAdded' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_550814270278 // TChromeLikeTabSetAfterFormAddedEvent
- ;
- CONST extprop:clearViaProperty 'OnAfterFormAdded'
-
-ref; // ME_D0818561AA2F f_OnAfterFormAdded
-
-: ME_134D055CB87C
- CONST UID '134D055CB87C'
- CONST Name 'f_OnCloseTabForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnCloseTabForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_5508135F0315 // TChromeLikeTabSetCloseTabFormEvent
- ;
- CONST extprop:clearViaProperty 'OnCloseTabForm'
-
-ref; // ME_134D055CB87C f_OnCloseTabForm
-
-: ME_51AF29FEF284
- CONST UID '51AF29FEF284'
- CONST Name 'f_OnCanDockForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnCanDockForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_5508145F0188 // TChromeLikeTabSetCanDockFormEvent
- ;
- CONST extprop:clearViaProperty 'OnCanDockForm'
-
-ref; // ME_51AF29FEF284 f_OnCanDockForm
-
-: ME_CE8D0D286519
- CONST UID 'CE8D0D286519'
- CONST Name 'f_OnCanUndockTabForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnCanUndockTabForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_55081499035A // TChromeLikeTabSetCanUndockFormEvent
- ;
- CONST extprop:clearViaProperty 'OnCanUndockTabForm'
-
-ref; // ME_CE8D0D286519 f_OnCanUndockTabForm
-
-: ME_45D80FD955DF
- CONST UID '45D80FD955DF'
- CONST Name 'f_OnSelectionChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnSelectionChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_5508129602E8 // TChromeLikeTabSetSelectionChangedEvent
- ;
- CONST extprop:clearViaProperty 'OnSelectionChanged'
-
-ref; // ME_45D80FD955DF f_OnSelectionChanged
-
-: ME_87C10DC92DEA
- CONST UID '87C10DC92DEA'
- CONST Name 'f_MovingEaseType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MovingEaseType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_5506A63F01A1 // TChromeLikeTabEaseType
- ;
- CONST extprop:clearViaProperty 'MovingEaseType'
-
-ref; // ME_87C10DC92DEA f_MovingEaseType
-
-: ME_07F0C2E24703
- CONST UID '07F0C2E24703'
- CONST Name 'f_OnTabClosed'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTabClosed' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_550812EB0195 // TChromeLikeTabSetTabEvent
- ;
- CONST extprop:clearViaProperty 'OnTabClosed'
-
-ref; // ME_07F0C2E24703 f_OnTabClosed
-
-: ME_F9D687DA87D5
- CONST UID 'F9D687DA87D5'
- CONST Name 'f_CloseButtonImages'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButtonImages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'CloseButtonImages'
-
-ref; // ME_F9D687DA87D5 f_CloseButtonImages
-
-: ME_84E22ACD1694
- CONST UID '84E22ACD1694'
- CONST Name 'f_CloseButtonImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButtonImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'CloseButtonImageIndex'
-
-ref; // ME_84E22ACD1694 f_CloseButtonImageIndex
-
-: ME_3B4BE4279D9C
- CONST UID '3B4BE4279D9C'
- CONST Name 'f_CloseButtonHotImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseButtonHotImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
- ;
- CONST extprop:clearViaProperty 'CloseButtonHotImageIndex'
-
-ref; // ME_3B4BE4279D9C f_CloseButtonHotImageIndex
-
-: ME_C846BD2DAB4D
- CONST UID 'C846BD2DAB4D'
- CONST Name 'f_OnNewTabRequested'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnNewTabRequested' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target ME_558114600228 // TChromeLikeTabSetNewTabRequested
- ;
-
-ref; // ME_C846BD2DAB4D f_OnNewTabRequested
-
-FORWARD ME_5507F039021B
-
-: ME_8736B5547197
- CONST UID '8736B5547197'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InvalidateWidthPerSlot' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507F039021B // InvalidateWidthPerSlot
- ;
-
-ref; // ME_8736B5547197 DoIt
-
 : ME_5507F039021B
  CONST UID '5507F039021B'
  CONST Name 'InvalidateWidthPerSlot'
@@ -10144,10 +9025,6 @@ ref; // ME_8736B5547197 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_8736B5547197 // DoIt
- )
- ; // Operations
 
 ref; // ME_5507F039021B InvalidateWidthPerSlot
 
@@ -10515,21 +9392,6 @@ ref; // ME_5507F2190074 DoIt
 
 ref; // ME_5507F0CD0156 GetSelectedSlotIndex
 
-FORWARD ME_5507F0DE02A0
-
-: ME_1B1541E66F97
- CONST UID '1B1541E66F97'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FinishMoving' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507F0DE02A0 // FinishMoving
- ;
-
-ref; // ME_1B1541E66F97 DoIt
-
 : ME_5507F0DE02A0
  CONST UID '5507F0DE02A0'
  CONST Name 'FinishMoving'
@@ -10540,10 +9402,6 @@ ref; // ME_1B1541E66F97 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_1B1541E66F97 // DoIt
- )
- ; // Operations
 
 ref; // ME_5507F0DE02A0 FinishMoving
 
@@ -10949,21 +9807,6 @@ ref; // ME_5507F33D007B DoIt
 
 ref; // ME_5507F32B02D6 DockFormIntoSlot
 
-FORWARD ME_5507F39000F4
-
-: ME_E692D333992B
- CONST UID 'E692D333992B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SelectNext' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507F39000F4 // SelectNext
- ;
-
-ref; // ME_E692D333992B DoIt
-
 : ME_5507F39000F4
  CONST UID '5507F39000F4'
  CONST Name 'SelectNext'
@@ -10975,27 +9818,8 @@ ref; // ME_E692D333992B DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_E692D333992B // DoIt
- )
- ; // Operations
 
 ref; // ME_5507F39000F4 SelectNext
-
-FORWARD ME_5507F39C0053
-
-: ME_5C70BE5FCDD7
- CONST UID '5C70BE5FCDD7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SelectPrev' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507F39C0053 // SelectPrev
- ;
-
-ref; // ME_5C70BE5FCDD7 DoIt
 
 : ME_5507F39C0053
  CONST UID '5507F39C0053'
@@ -11008,10 +9832,6 @@ ref; // ME_5C70BE5FCDD7 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_5C70BE5FCDD7 // DoIt
- )
- ; // Operations
 
 ref; // ME_5507F39C0053 SelectPrev
 
@@ -12109,21 +10929,6 @@ ref; // ME_550FFBFF0313 DoIt
 
 ref; // ME_550FFBF00385 GetSelectedTabAfterClosing
 
-FORWARD ME_550FFCD502DA
-
-: ME_0F5E9A74EE20
- CONST UID '0F5E9A74EE20'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DestroyTabs' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_550FFCD502DA // DestroyTabs
- ;
-
-ref; // ME_0F5E9A74EE20 DoIt
-
 : ME_550FFCD502DA
  CONST UID '550FFCD502DA'
  CONST Name 'DestroyTabs'
@@ -12134,10 +10939,6 @@ ref; // ME_0F5E9A74EE20 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_0F5E9A74EE20 // DoIt
- )
- ; // Operations
 
 ref; // ME_550FFCD502DA DestroyTabs
 
@@ -12274,21 +11075,6 @@ ref; // ME_5518E142022B DoIt
 
 ref; // ME_551554BB0334 SetParams
 
-FORWARD ME_553F0DAB01F7
-
-: ME_5776C6F0994F
- CONST UID '5776C6F0994F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PopulatePopupMenu' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_553F0DAB01F7 // PopulatePopupMenu
- ;
-
-ref; // ME_5776C6F0994F DoIt
-
 : ME_553F0DAB01F7
  CONST UID '553F0DAB01F7'
  CONST Name 'PopulatePopupMenu'
@@ -12299,10 +11085,6 @@ ref; // ME_5776C6F0994F DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_5776C6F0994F // DoIt
- )
- ; // Operations
 
 ref; // ME_553F0DAB01F7 PopulatePopupMenu
 
@@ -12606,21 +11388,6 @@ ref; // ME_13041534BF17 DoIt
 
 ref; // ME_553F20A603B7 actReopenClosedTabExecute
 
-FORWARD ME_553F21AF0289
-
-: ME_3EBC7604725A
- CONST UID '3EBC7604725A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода MakeActions' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_553F21AF0289 // MakeActions
- ;
-
-ref; // ME_3EBC7604725A DoIt
-
 : ME_553F21AF0289
  CONST UID '553F21AF0289'
  CONST Name 'MakeActions'
@@ -12631,10 +11398,6 @@ ref; // ME_3EBC7604725A DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_3EBC7604725A // DoIt
- )
- ; // Operations
 
 ref; // ME_553F21AF0289 MakeActions
 
@@ -12681,21 +11444,6 @@ ref; // ME_553F42DB001E DoIt
 
 ref; // ME_553F42BE0387 UpdateMenuActions
 
-FORWARD ME_5541DC5E03A4
-
-: ME_40264D5DBC9F
- CONST UID '40264D5DBC9F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateNewTabButtonPosition' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5541DC5E03A4 // UpdateNewTabButtonPosition
- ;
-
-ref; // ME_40264D5DBC9F DoIt
-
 : ME_5541DC5E03A4
  CONST UID '5541DC5E03A4'
  CONST Name 'UpdateNewTabButtonPosition'
@@ -12706,10 +11454,6 @@ ref; // ME_40264D5DBC9F DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_40264D5DBC9F // DoIt
- )
- ; // Operations
 
 ref; // ME_5541DC5E03A4 UpdateNewTabButtonPosition
 
@@ -12745,21 +11489,6 @@ ref; // ME_5541E0930051 DoIt
 
 ref; // ME_5541E0860318 GetTotalTabsRect
 
-FORWARD ME_556551BB00E1
-
-: ME_EF76ADB481E8
- CONST UID 'EF76ADB481E8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StartMoving' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_556551BB00E1 // StartMoving
- ;
-
-ref; // ME_EF76ADB481E8 DoIt
-
 : ME_556551BB00E1
  CONST UID '556551BB00E1'
  CONST Name 'StartMoving'
@@ -12770,27 +11499,8 @@ ref; // ME_EF76ADB481E8 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_EF76ADB481E8 // DoIt
- )
- ; // Operations
 
 ref; // ME_556551BB00E1 StartMoving
-
-FORWARD ME_55656DCA033E
-
-: ME_298B1FE31A6C
- CONST UID '298B1FE31A6C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода HideNewTabButton' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55656DCA033E // HideNewTabButton
- ;
-
-ref; // ME_298B1FE31A6C DoIt
 
 : ME_55656DCA033E
  CONST UID '55656DCA033E'
@@ -12802,27 +11512,8 @@ ref; // ME_298B1FE31A6C DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_298B1FE31A6C // DoIt
- )
- ; // Operations
 
 ref; // ME_55656DCA033E HideNewTabButton
-
-FORWARD ME_55656DDA01D4
-
-: ME_B54965F1E441
- CONST UID 'B54965F1E441'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ShowNewTabButton' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55656DDA01D4 // ShowNewTabButton
- ;
-
-ref; // ME_B54965F1E441 DoIt
 
 : ME_55656DDA01D4
  CONST UID '55656DDA01D4'
@@ -12834,10 +11525,6 @@ ref; // ME_B54965F1E441 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_B54965F1E441 // DoIt
- )
- ; // Operations
 
 ref; // ME_55656DDA01D4 ShowNewTabButton
 
@@ -13066,21 +11753,6 @@ ref; // ME_55BF1AF10264 DoIt
 
 ref; // ME_55BF16950082 StartProcessClick
 
-FORWARD ME_55BF16A200EE
-
-: ME_86D312FCF4B8
- CONST UID '86D312FCF4B8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FinishProcessClick' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55BF16A200EE // FinishProcessClick
- ;
-
-ref; // ME_86D312FCF4B8 DoIt
-
 : ME_55BF16A200EE
  CONST UID '55BF16A200EE'
  CONST Name 'FinishProcessClick'
@@ -13091,10 +11763,6 @@ ref; // ME_86D312FCF4B8 DoIt
  CONST Abstraction at_final
  : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
  ;
- : Operations
-   Seq: ( ME_86D312FCF4B8 // DoIt
- )
- ; // Operations
 
 ref; // ME_55BF16A200EE FinishProcessClick
 
@@ -13176,21 +11844,6 @@ ref; // ME_55CB0DFD001E DoIt
  ; // Operations
 
 ref; // ME_55CB0DE70292 DockFormAfterSpecified
-
-: ME_95B5513B9E72
- CONST UID '95B5513B9E72'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TChromeLikeTabSetControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_95B5513B9E72 Ini_Reg_Class
 
 : ME_5507F32302E8
  CONST Class class_Dependency
@@ -13384,17 +12037,6 @@ ref; // ME_5555CA9501BD
 
 ref; // ME_55E965290375 
 
-: ME_BC658A83E784
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5507EFFD01FE // TChromeLikeTabSetControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BC658A83E784 
-
 : ME_5507C5090199_ME_5507EFFD01FE
  : Original ME_5507C5090199 // IsTransparentPoint
  ;
@@ -13535,22 +12177,6 @@ ref; // ME_5507DE800105_ME_5507EFFD01FE DoOnMouseLeave
  ME_558114AA010C // OnNewTabRequested
  ME_5593BAC40325 // Container
  ME_55BF0975035D // f_ProcessingClick
- ME_D9505B111272 // f_TabHeight
- ME_4ACF719029D9 // f_SelectedTab
- ME_1DCD987C5BCF // f_OnPaintBackground
- ME_C7AEEEB89670 // f_OnTabSelected
- ME_4122069B05CB // f_OnTabDeselected
- ME_D0818561AA2F // f_OnAfterFormAdded
- ME_134D055CB87C // f_OnCloseTabForm
- ME_51AF29FEF284 // f_OnCanDockForm
- ME_CE8D0D286519 // f_OnCanUndockTabForm
- ME_45D80FD955DF // f_OnSelectionChanged
- ME_87C10DC92DEA // f_MovingEaseType
- ME_07F0C2E24703 // f_OnTabClosed
- ME_F9D687DA87D5 // f_CloseButtonImages
- ME_84E22ACD1694 // f_CloseButtonImageIndex
- ME_3B4BE4279D9C // f_CloseButtonHotImageIndex
- ME_C846BD2DAB4D // f_OnNewTabRequested
  )
  ; // Attributes
  : Operations
@@ -13622,7 +12248,6 @@ ref; // ME_5507DE800105_ME_5507EFFD01FE DoOnMouseLeave
  ME_55BF16950082 // StartProcessClick
  ME_55BF16A200EE // FinishProcessClick
  ME_55CB0DE70292 // DockFormAfterSpecified
- ME_95B5513B9E72 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -13686,7 +12311,6 @@ ref; // ME_5507DE800105_ME_5507EFFD01FE DoOnMouseLeave
  ME_5540B1CE0314 // 
  ME_5555CA9501BD // 
  ME_55E965290375 // 
- ME_BC658A83E784 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -16496,46 +15120,6 @@ ref; // ME_55260B9502FE DoIt
 
 ref; // ME_55260B8B0071 Create
 
-FORWARD ME_55260CCF0274
-
-: ME_AE9C832C90A8
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
- ;
-
-ref; // ME_AE9C832C90A8 aForm
-
-: ME_8C33D2BE6C71
- CONST Name 'aParams'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_53F2D7D90245' '553213B80041.pas.ms.script' // Il3TabParams
- ;
-
-ref; // ME_8C33D2BE6C71 aParams
-
-: ME_039066E3D234
- CONST UID '039066E3D234'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TChromeLikeFormTabParamsItem.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55260CCF0274 // Make
- ;
- : Parameters
-   Seq: ( ME_AE9C832C90A8 // aForm
- ME_8C33D2BE6C71 // aParams
- )
- ; // Parameters
-
-ref; // ME_039066E3D234 DoIt
-
 : ME_55260CCF0274
  CONST UID '55260CCF0274'
  CONST Name 'Make'
@@ -16550,10 +15134,6 @@ ref; // ME_039066E3D234 DoIt
    Seq: ( ME_55260B8B0071 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_039066E3D234 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -16890,23 +15470,6 @@ ref; // ME_55260E410243 DoIt
 
 ref; // ME_55260E320249 MakeParamsItem
 
-: ME_21FFF5D12022
- CONST UID '21FFF5D12022'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552609F40060 // TChromeLikeFormTabParamsList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_21FFF5D12022 Exists
-
 : ME_552609F40060
  CONST UID '552609F40060'
  CONST Name 'TChromeLikeFormTabParamsList'
@@ -16932,7 +15495,6 @@ ref; // ME_21FFF5D12022 Exists
  ME_55260DC5010D // DeleteFormParams
  ME_55260E100131 // FindFormTabParams
  ME_55260E320249 // MakeParamsItem
- ME_21FFF5D12022 // Exists
  )
  ; // Operations
  : Children
@@ -17451,7 +16013,6 @@ ref; // ME_553E255C00B2 ChromeLikeTabSetControlRes
  WL 'ME_5507E07A0136' '5507E07A0136.pas.ms.script' // GDIPLUS
  WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "ifndef" 'NoVGScene, NoVCM'

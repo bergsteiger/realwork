@@ -533,23 +533,6 @@ ref; // ME_4874FE290353 Code
 
 ref; // ME_4C1A30DF0063 g_WasExceptionInFreeInOwner
 
-: ME_2EB0E992DBF2
- CONST UID '2EB0E992DBF2'
- CONST Name 'f_Code'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Code' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47E3C78502FB // Tk2OperationContainer
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Code'
-
-ref; // ME_2EB0E992DBF2 f_Code
-
 FORWARD ME_4C1A312002E3
 
 : ME_4C1A315201D6
@@ -1105,7 +1088,6 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ME_4874FE190090 // f_Mode
  ME_4874FE290353 // Code
  ME_4C1A30DF0063 // g_WasExceptionInFreeInOwner
- ME_2EB0E992DBF2 // f_Code
  )
  ; // Attributes
  : Operations
@@ -1283,23 +1265,6 @@ ref; // ME_47E3D0820267 Tk2OperationContainerRefList
 
 ref; // ME_4BE404E701DB Tk2Context
 
-: ME_8CB0A029C134
- CONST UID '8CB0A029C134'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4DD4F2B10308 // Tk2NilOp
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_8CB0A029C134 Exists
-
 : ME_4DD4F2B10308
  CONST UID '4DD4F2B10308'
  CONST Name 'Tk2NilOp'
@@ -1314,10 +1279,6 @@ ref; // ME_8CB0A029C134 Exists
    Seq: ( ME_47E3C7030369 // Tk2Op
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8CB0A029C134 // Exists
- )
- ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1364,23 +1325,6 @@ ref; // ME_5310791302E6 DoIt
 
 ref; // ME_5310790D00D9 Create
 
-: ME_07BAAACEC466
- CONST UID '07BAAACEC466'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_531075C102DD // Tk2NonOptimizeContext
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_07BAAACEC466 Exists
-
 : ME_4E7AF07603D9_ME_531075C102DD
  : Original ME_4E7AF07603D9 // GetSaveUndo
  ;
@@ -1409,7 +1353,6 @@ ref; // ME_531075A60396_ME_531075C102DD GetNeedOptimize
  ; // Inherits
  : Operations
    Seq: ( ME_5310790D00D9 // Create
- ME_07BAAACEC466 // Exists
  )
  ; // Operations
  : Overridden

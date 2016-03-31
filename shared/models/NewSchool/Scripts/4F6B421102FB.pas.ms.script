@@ -188,22 +188,6 @@ ref; // ME_4ADC55470317 TnsUniqueName
 
 ref; // ME_4ADC531F03B4 Root
 
-: ME_7E979EDBEEDE
- CONST UID '7E979EDBEEDE'
- CONST Name 'f_Root'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Root' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4ADC5146016D // TnsWindowsListPrim
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
-
-ref; // ME_7E979EDBEEDE f_Root
-
 FORWARD ME_4ADC538702FA
 
 : ME_4ADC53FC01B1
@@ -649,7 +633,6 @@ ref; // ME_479731C50290_ME_4ADC5146016D Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_4ADC531F03B4 // Root
- ME_7E979EDBEEDE // f_Root
  )
  ; // Attributes
  : Operations
@@ -692,25 +675,6 @@ ref; // ME_479731C50290_ME_4ADC5146016D Cleanup
 
 ref; // ME_4ADC5146016D TnsWindowsListPrim
 
-FORWARD ME_4ADC5175035B
-
-: ME_6641229EF9B7
- CONST UID '6641229EF9B7'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4ADC5175035B // TnsWindowsList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_6641229EF9B7 Exists
-
 : ME_4ADC5175035B
  CONST UID '4ADC5175035B'
  CONST Name 'TnsWindowsList'
@@ -726,10 +690,6 @@ ref; // ME_6641229EF9B7 Exists
    Seq: ( ME_4ADC5146016D // TnsWindowsListPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6641229EF9B7 // Exists
- )
- ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

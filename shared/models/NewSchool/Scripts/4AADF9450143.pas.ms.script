@@ -207,32 +207,6 @@ ref; // ME_A1E64DB467E3_ME_55015117004B Close
 
 ref; // ME_55015117004B TvcmCloseFormHelper
 
-: ME_0D75C172FD8B
- CONST UID '0D75C172FD8B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmUserInteractiveForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E01D585033A // TvcmUserInteractiveForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0D75C172FD8B Ini_Reg_Class
-
-: ME_BB3E21070EDE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E01D585033A // TvcmUserInteractiveForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BB3E21070EDE 
-
 : ME_4E01D585033A
  CONST UID '4E01D585033A'
  CONST Name 'TvcmUserInteractiveForm'
@@ -248,18 +222,11 @@ ref; // ME_BB3E21070EDE
  ME_4E01D5E50001 // vcmUserInteractiveForm
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0D75C172FD8B // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_55015117004B // TvcmCloseFormHelper
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_BB3E21070EDE // 
- )
- ; // Dependencies
+ CONST "UseNewGen" true
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -344,22 +311,6 @@ ref; // ME_4F82723B00CF IvcmLayoutInternal
 
 ref; // ME_4F8271EE0387 Control
 
-: ME_B9C200E4A3F1
- CONST UID 'B9C200E4A3F1'
- CONST Name 'f_Control'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Control' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F82714B0271 // TvcmLayoutImplementation
- ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_B9C200E4A3F1 f_Control
-
 FORWARD ME_4F827263026A
 
 : ME_4F82727403A8
@@ -403,37 +354,6 @@ ref; // ME_4F82726A01B3 DoIt
 
 ref; // ME_4F827263026A Create
 
-FORWARD ME_4F82727D016D
-
-: ME_421A34EAB3CA
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_421A34EAB3CA aControl
-
-: ME_301E4CC28972
- CONST UID '301E4CC28972'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmLayoutImplementation.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F82727D016D // Make
- ;
- : Target WL 'ME_4F827093010E' '4683F37902CF.pas.ms.script' // IvcmLayout
- ;
- : Parameters
-   Seq: ( ME_421A34EAB3CA // aControl
- )
- ; // Parameters
-
-ref; // ME_301E4CC28972 DoIt
-
 : ME_4F82727D016D
  CONST UID '4F82727D016D'
  CONST Name 'Make'
@@ -452,10 +372,6 @@ ref; // ME_301E4CC28972 DoIt
    Seq: ( WL 'ME_4F827093010E' '4683F37902CF.pas.ms.script' // IvcmLayout
  )
  ; // Implements
- : Operations
-   Seq: ( ME_301E4CC28972 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -562,7 +478,6 @@ ref; // ME_47A6FEE600FC_ME_4F82714B0271 IsCacheable
  ; // Implements
  : Attributes
    Seq: ( ME_4F8271EE0387 // Control
- ME_B9C200E4A3F1 // f_Control
  )
  ; // Attributes
  : Operations
@@ -1560,21 +1475,6 @@ ref; // ME_55C1F803015D TvcmFormState
 
 FORWARD ME_4FC38C4C0119
 
-FORWARD ME_4A378C0E0268
-
-: ME_73ADD5F2912D
- CONST UID '73ADD5F2912D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateStatusInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A378C0E0268 // UpdateStatusInfo
- ;
-
-ref; // ME_73ADD5F2912D DoIt
-
 : ME_4A378C0E0268
  CONST UID '4A378C0E0268'
  CONST Name 'UpdateStatusInfo'
@@ -1585,10 +1485,6 @@ ref; // ME_73ADD5F2912D DoIt
  CONST Abstraction at_final
  : Parent ME_49525B34022A // TvcmEntityForm
  ;
- : Operations
-   Seq: ( ME_73ADD5F2912D // DoIt
- )
- ; // Operations
 
 ref; // ME_4A378C0E0268 UpdateStatusInfo
 
@@ -2912,32 +2808,6 @@ ref; // ME_4F7C6E0B037E DoIt
 
 ref; // ME_4F7C6DFE00DE AfterInsertForm
 
-: ME_7B5C7AC5EBC0
- CONST UID '7B5C7AC5EBC0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmContainerFormModelPart' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F7B1BC201C2 // TvcmContainerFormModelPart
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7B5C7AC5EBC0 Ini_Reg_Class
-
-: ME_F143D2D1C8F0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F7B1BC201C2 // TvcmContainerFormModelPart
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F143D2D1C8F0 
-
 : ME_4F7B1BC201C2
  CONST UID '4F7B1BC201C2'
  CONST Name 'TvcmContainerFormModelPart'
@@ -2954,13 +2824,8 @@ ref; // ME_F143D2D1C8F0
  ; // Inherits
  : Operations
    Seq: ( ME_4F7C6DFE00DE // AfterInsertForm
- ME_7B5C7AC5EBC0 // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_F143D2D1C8F0 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -4017,32 +3882,6 @@ ref; // ME_537DB0C101DE DoIt
 
 ref; // ME_537DB0AD03D8 AfterModulesRegistered
 
-: ME_B7AC0AB53C4F
- CONST UID 'B7AC0AB53C4F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmMainFormModelPart' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F7B0CBE0283 // TvcmMainFormModelPart
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B7AC0AB53C4F Ini_Reg_Class
-
-: ME_AADEF4AC759B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F7B0CBE0283 // TvcmMainFormModelPart
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AADEF4AC759B 
-
 : ME_4F7B0CBE0283
  CONST UID '4F7B0CBE0283'
  CONST Name 'TvcmMainFormModelPart'
@@ -4060,13 +3899,8 @@ ref; // ME_AADEF4AC759B
  : Operations
    Seq: ( ME_4F7B0CF50022 // DispatcherCreated
  ME_537DB0AD03D8 // AfterModulesRegistered
- ME_B7AC0AB53C4F // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_AADEF4AC759B // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -24347,7 +24181,6 @@ ref; // ME_564AE8B10025 TvcmEntityDefList
  WL 'ME_553893E60323' '553893E60323.pas.ms.script' // Services
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'

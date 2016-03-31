@@ -63,23 +63,6 @@ ref; // ME_4D6CD46803D7 HiddenStyles
 
 ref; // ME_4D6CD47E0284 f_TreatCollapsedAsHidden
 
-: ME_8C9E9BD587BC
- CONST UID '8C9E9BD587BC'
- CONST Name 'f_HiddenStyles'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HiddenStyles' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47ECBAA30322 // TevHiddenFilter
- ;
- : Target WL 'ME_476BE38D01B0' '476BE0350329.pas.ms.script' // StandardStyles
- ;
- CONST extprop:clearViaProperty 'HiddenStyles'
-
-ref; // ME_8C9E9BD587BC f_HiddenStyles
-
 FORWARD ME_4D6CD4C70259
 
 : ME_4D6CD4F50392
@@ -199,48 +182,6 @@ ref; // ME_4D6CD52D0206 DoIt
 
 ref; // ME_4D6CD5270101 Create
 
-FORWARD ME_4D6CD53A0371
-
-: ME_709311328BC7
- CONST Name 'aHiddenStyles'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BE38D01B0' '476BE0350329.pas.ms.script' // StandardStyles
- ;
-
-ref; // ME_709311328BC7 aHiddenStyles
-
-: ME_11727F79AC89
- CONST Name 'aTreatCollapsedAsHidden'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_11727F79AC89 aTreatCollapsedAsHidden
-
-: ME_A9159FED3CE4
- CONST UID 'A9159FED3CE4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevHiddenFilter.MakePrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6CD53A0371 // MakePrim
- ;
- : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
- : Parameters
-   Seq: ( ME_709311328BC7 // aHiddenStyles
- ME_11727F79AC89 // aTreatCollapsedAsHidden
- )
- ; // Parameters
-
-ref; // ME_A9159FED3CE4 DoIt
-
 : ME_4D6CD53A0371
  CONST UID '4D6CD53A0371'
  CONST Name 'MakePrim'
@@ -259,57 +200,12 @@ ref; // ME_A9159FED3CE4 DoIt
    Seq: ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A9159FED3CE4 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_4D6CD53A0371 MakePrim
-
-FORWARD ME_4D6CDD9601FB
-
-: ME_EA59889D6327
- CONST Name 'aHiddenStyles'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BE38D01B0' '476BE0350329.pas.ms.script' // StandardStyles
- ;
-
-ref; // ME_EA59889D6327 aHiddenStyles
-
-: ME_CDF475079BEE
- CONST Name 'aTreatCollapsedAsHidden'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_CDF475079BEE aTreatCollapsedAsHidden
-
-: ME_05677EFCCC69
- CONST UID '05677EFCCC69'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6CDD9601FB // Make
- ;
- : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
- : Parameters
-   Seq: ( ME_EA59889D6327 // aHiddenStyles
- ME_CDF475079BEE // aTreatCollapsedAsHidden
- )
- ; // Parameters
-
-ref; // ME_05677EFCCC69 DoIt
 
 : ME_4D6CDD9601FB
  CONST UID '4D6CDD9601FB'
@@ -325,10 +221,6 @@ ref; // ME_05677EFCCC69 DoIt
    Seq: ( ME_4D6CD53A0371 // MakePrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_05677EFCCC69 // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_4D6CDD9601FB Make
@@ -464,7 +356,6 @@ ref; // ME_49E48829016F_ME_47ECBAA30322 NeedWritePara
  : Attributes
    Seq: ( ME_4D6CD46803D7 // HiddenStyles
  ME_4D6CD47E0284 // f_TreatCollapsedAsHidden
- ME_8C9E9BD587BC // f_HiddenStyles
  )
  ; // Attributes
  : Operations
@@ -611,22 +502,6 @@ FORWARD ME_4A8BBCB90035
 
 ref; // ME_4A8BBD430288 Flags
 
-: ME_C922344C10C9
- CONST UID 'C922344C10C9'
- CONST Name 'f_Flags'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Flags' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A8BBCB90035 // TevDocumentPartGeneratorPrim
- ;
- : Target WL 'ME_476BED630189' '4678209200A6.pas.ms.script' // TevLoadFlags
- ;
-
-ref; // ME_C922344C10C9 f_Flags
-
 : ME_4A8BBFBE02D4
  CONST UID '4A8BBFBE02D4'
  CONST Name 'AtEndChanged'
@@ -692,7 +567,6 @@ ref; // ME_479731C50290_ME_4A8BBCB90035 Cleanup
  ; // Implements
  : Attributes
    Seq: ( ME_4A8BBD430288 // Flags
- ME_C922344C10C9 // f_Flags
  )
  ; // Attributes
  : Operations
@@ -7581,12 +7455,6 @@ ref; // ME_49E488070386_ME_4C1B8D2F039F ParaTypeForFiltering
  CONST OpKind opkind_Overridden
 ref; // ME_49E4883E0176_ME_4C1B8D2F039F DoWritePara
 
-: ME_5000565C019C_ME_4C1B8D2F039F
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C1B8D2F039F ClearFields
-
 : ME_4C1B8D2F039F
  CONST UID '4C1B8D2F039F'
  CONST Name 'TevdCustomHyperlinkCorrector'
@@ -7618,7 +7486,6 @@ ref; // ME_5000565C019C_ME_4C1B8D2F039F ClearFields
    Seq: ( ME_4836D52400D9_ME_4C1B8D2F039F // AddAtomEx
  ME_49E488070386_ME_4C1B8D2F039F // ParaTypeForFiltering
  ME_49E4883E0176_ME_4C1B8D2F039F // DoWritePara
- ME_5000565C019C_ME_4C1B8D2F039F // ClearFields
  )
  ; // Overridden
  : Dependencies

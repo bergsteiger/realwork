@@ -73,48 +73,6 @@ ref; // ME_548591A302AA DoIt
 
 ref; // ME_5485919200F1 Create
 
-FORWARD ME_54856F58005B
-
-: ME_5AF778A5874B
- CONST Name 'aList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_52FA5F460142' '52F8C298005C.pas.ms.script' // TddServerTaskList
- ;
-
-ref; // ME_5AF778A5874B aList
-
-: ME_39ED691323C0
- CONST Name 'aRootTaskFolder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_39ED691323C0 aRootTaskFolder
-
-: ME_3600176627E3
- CONST UID '3600176627E3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TalcuSendTaskExecutor.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54856F58005B // Make
- ;
- : Target WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
- ;
- : Parameters
-   Seq: ( ME_5AF778A5874B // aList
- ME_39ED691323C0 // aRootTaskFolder
- )
- ; // Parameters
-
-ref; // ME_3600176627E3 DoIt
-
 : ME_54856F58005B
  CONST UID '54856F58005B'
  CONST Name 'Make'
@@ -133,10 +91,6 @@ ref; // ME_3600176627E3 DoIt
    Seq: ( WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3600176627E3 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -366,48 +320,6 @@ ref; // ME_54B654450014 DoIt
 
 ref; // ME_54B64A7C0177 Create
 
-FORWARD ME_54B64A8B0212
-
-: ME_2915B3D33484
- CONST Name 'aTransporter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5464B4730055' '544E0148010D.pas.ms.script' // IncsTransporter
- ;
-
-ref; // ME_2915B3D33484 aTransporter
-
-: ME_4A656B647BE6
- CONST Name 'aTaskID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_4A656B647BE6 aTaskID
-
-: ME_144BBBF0972F
- CONST UID '144BBBF0972F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TalcuTaskFileTransferServices.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54B64A8B0212 // Make
- ;
- : Target WL 'ME_54B6221D02E2' '52F8C298005C.pas.ms.script' // IcsFileTransferServices
- ;
- : Parameters
-   Seq: ( ME_2915B3D33484 // aTransporter
- ME_4A656B647BE6 // aTaskID
- )
- ; // Parameters
-
-ref; // ME_144BBBF0972F DoIt
-
 : ME_54B64A8B0212
  CONST UID '54B64A8B0212'
  CONST Name 'Make'
@@ -426,10 +338,6 @@ ref; // ME_144BBBF0972F DoIt
    Seq: ( WL 'ME_54B6221D02E2' '52F8C298005C.pas.ms.script' // IcsFileTransferServices
  )
  ; // Implements
- : Operations
-   Seq: ( ME_144BBBF0972F // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1018,48 +926,6 @@ ref; // ME_54BE25F001D3 DoIt
 
 ref; // ME_54BE25E40316 Create
 
-FORWARD ME_54BE261A013A
-
-: ME_625967172B22
- CONST Name 'aPool'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_54BE32A30011 // TalcuDetachedExecutorPool
- ;
-
-ref; // ME_625967172B22 aPool
-
-: ME_92C17E2D46F5
- CONST Name 'anExecutor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
- ;
-
-ref; // ME_92C17E2D46F5 anExecutor
-
-: ME_6B6881D76428
- CONST UID '6B6881D76428'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TalcuDetachedExecutor.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54BE261A013A // Make
- ;
- : Target WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
- ;
- : Parameters
-   Seq: ( ME_625967172B22 // aPool
- ME_92C17E2D46F5 // anExecutor
- )
- ; // Parameters
-
-ref; // ME_6B6881D76428 DoIt
-
 : ME_54BE261A013A
  CONST UID '54BE261A013A'
  CONST Name 'Make'
@@ -1078,10 +944,6 @@ ref; // ME_6B6881D76428 DoIt
    Seq: ( WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
  )
  ; // Implements
- : Operations
-   Seq: ( ME_6B6881D76428 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

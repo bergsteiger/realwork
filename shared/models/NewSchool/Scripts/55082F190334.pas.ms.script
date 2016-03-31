@@ -64,35 +64,6 @@ ref; // ME_558A374B00B1 DoIt
 
 ref; // ME_558A37400258 Create
 
-FORWARD ME_558A377003D0
-
-: ME_FF806B4F5894
- CONST Name 'aOtherList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5589489B004F' '4683F37902CF.pas.ms.script' // IvcmHistoryItems
- ;
-
-ref; // ME_FF806B4F5894 aOtherList
-
-: ME_464BA3BA25A7
- CONST UID '464BA3BA25A7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmHistoryItemList.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_558A377003D0 // Make
- ;
- : Parameters
-   Seq: ( ME_FF806B4F5894 // aOtherList
- )
- ; // Parameters
-
-ref; // ME_464BA3BA25A7 DoIt
-
 : ME_558A377003D0
  CONST UID '558A377003D0'
  CONST Name 'Make'
@@ -107,31 +78,12 @@ ref; // ME_464BA3BA25A7 DoIt
    Seq: ( ME_558A37400258 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_464BA3BA25A7 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_558A377003D0 Make
-
-FORWARD ME_558A3C5601E4
-
-: ME_3E70430FFD7A
- CONST UID '3E70430FFD7A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create$1' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_558A3C5601E4 // Create$1
- ;
-
-ref; // ME_3E70430FFD7A DoIt
 
 : ME_558A3C5601E4
  CONST UID '558A3C5601E4'
@@ -143,27 +95,8 @@ ref; // ME_3E70430FFD7A DoIt
  CONST Abstraction at_final
  : Parent ME_558947020183 // TvcmHistoryItemList
  ;
- : Operations
-   Seq: ( ME_3E70430FFD7A // DoIt
- )
- ; // Operations
 
 ref; // ME_558A3C5601E4 Create$1
-
-FORWARD ME_558A3C660286
-
-: ME_0857E78FFEE6
- CONST UID '0857E78FFEE6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmHistoryItemList.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_558A3C660286 // Make$1
- ;
-
-ref; // ME_0857E78FFEE6 DoIt
 
 : ME_558A3C660286
  CONST UID '558A3C660286'
@@ -179,10 +112,6 @@ ref; // ME_0857E78FFEE6 DoIt
    Seq: ( ME_558A3C5601E4 // Create$1
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0857E78FFEE6 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

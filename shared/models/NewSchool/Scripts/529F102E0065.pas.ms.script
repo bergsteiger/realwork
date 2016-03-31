@@ -250,23 +250,6 @@ ref; // ME_4E71FCB503E2 DoIt
 
 ref; // ME_4E71FCAE00EE Create
 
-FORWARD ME_4E71FCBD0244
-
-: ME_FEC76867BD07
- CONST UID 'FEC76867BD07'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnevStringCache.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E71FCBD0244 // Make
- ;
- : Target WL 'ME_4E71F7B20222' '4678209200A6.pas.ms.script' // InevStringCache
- ;
-
-ref; // ME_FEC76867BD07 DoIt
-
 : ME_4E71FCBD0244
  CONST UID '4E71FCBD0244'
  CONST Name 'Make'
@@ -285,10 +268,6 @@ ref; // ME_FEC76867BD07 DoIt
    Seq: ( WL 'ME_4E71F7B20222' '4678209200A6.pas.ms.script' // InevStringCache
  )
  ; // Implements
- : Operations
-   Seq: ( ME_FEC76867BD07 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

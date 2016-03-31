@@ -870,23 +870,6 @@ ref; // ME_5384911D006B DoIt
 
 ref; // ME_5384910E011E Registered
 
-: ME_8489C2653986
- CONST UID '8489C2653986'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53848F4F00E4 // TddTaskClassManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_8489C2653986 Exists
-
 : ME_53848FAE0309
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -941,7 +924,6 @@ ref; // ME_47A042E100E2_ME_53848F4F00E4 InitFields
    Seq: ( ME_538490A701EF // GetClass
  ME_538490D80145 // RegisterClass
  ME_5384910E011E // Registered
- ME_8489C2653986 // Exists
  )
  ; // Operations
  : Overridden
@@ -983,19 +965,6 @@ FORWARD ME_54FE99C90168
 ref; // ME_54FEA25D03B2 f_InitCounter
 
 FORWARD ME_54FE9A000180
-
-: ME_5E769E707226
- CONST UID '5E769E707226'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InitClient' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54FE9A000180 // InitClient
- ;
-
-ref; // ME_5E769E707226 DoIt
 
 : ME_54FE9A14022C
  CONST Class class_Dependency
@@ -1068,10 +1037,6 @@ ref; // ME_56A8841E0120
  CONST Abstraction at_final
  : Parent ME_54FE99C90168 // TncsDataAccessServices
  ;
- : Operations
-   Seq: ( ME_5E769E707226 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_54FE9A14022C // 
  ME_54FE9A270134 // 
@@ -1085,19 +1050,6 @@ ref; // ME_56A8841E0120
 ref; // ME_54FE9A000180 InitClient
 
 FORWARD ME_5502A9100004
-
-: ME_2583AE2A7D45
- CONST UID '2583AE2A7D45'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода InitServer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5502A9100004 // InitServer
- ;
-
-ref; // ME_2583AE2A7D45 DoIt
 
 : ME_5502A9200190
  CONST Class class_Dependency
@@ -1139,10 +1091,6 @@ ref; // ME_552D0A15027E
  CONST Abstraction at_final
  : Parent ME_54FE99C90168 // TncsDataAccessServices
  ;
- : Operations
-   Seq: ( ME_2583AE2A7D45 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_5502A9200190 // 
  ME_5507E7300391 // 
@@ -1151,23 +1099,6 @@ ref; // ME_552D0A15027E
  ; // Dependencies
 
 ref; // ME_5502A9100004 InitServer
-
-: ME_C4C1401D2A7C
- CONST UID 'C4C1401D2A7C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54FE99C90168 // TncsDataAccessServices
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_C4C1401D2A7C Exists
 
 : ME_54FEA4AA0282
  CONST Class class_Dependency
@@ -1200,7 +1131,6 @@ ref; // ME_54FEA4AA0282
  : Operations
    Seq: ( ME_54FE9A000180 // InitClient
  ME_5502A9100004 // InitServer
- ME_C4C1401D2A7C // Exists
  )
  ; // Operations
  : Dependencies
@@ -1235,21 +1165,6 @@ FORWARD ME_551BB2E70032
 
 ref; // ME_551BB37A02B1 f_Provider
 
-FORWARD ME_551BB38C02D3
-
-: ME_9B220DD444F8
- CONST UID '9B220DD444F8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода IntCreateProvider' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551BB38C02D3 // IntCreateProvider
- ;
-
-ref; // ME_9B220DD444F8 DoIt
-
 : ME_551BB38C02D3
  CONST UID '551BB38C02D3'
  CONST Name 'IntCreateProvider'
@@ -1260,27 +1175,8 @@ ref; // ME_9B220DD444F8 DoIt
  CONST Abstraction at_final
  : Parent ME_551BB2E70032 // TncsDefaultProviderHolder
  ;
- : Operations
-   Seq: ( ME_9B220DD444F8 // DoIt
- )
- ; // Operations
 
 ref; // ME_551BB38C02D3 IntCreateProvider
-
-FORWARD ME_551BB3A3005E
-
-: ME_CEBA54852FFD
- CONST UID 'CEBA54852FFD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода IntDoneProvider' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551BB3A3005E // IntDoneProvider
- ;
-
-ref; // ME_CEBA54852FFD DoIt
 
 : ME_551BB3A3005E
  CONST UID '551BB3A3005E'
@@ -1292,10 +1188,6 @@ ref; // ME_CEBA54852FFD DoIt
  CONST Abstraction at_final
  : Parent ME_551BB2E70032 // TncsDefaultProviderHolder
  ;
- : Operations
-   Seq: ( ME_CEBA54852FFD // DoIt
- )
- ; // Operations
 
 ref; // ME_551BB3A3005E IntDoneProvider
 
@@ -1322,23 +1214,6 @@ ref; // ME_551BB3090356 CreateProvider
  ;
 
 ref; // ME_551BB3440181 DoneProvider
-
-: ME_5FB8210EFE11
- CONST UID '5FB8210EFE11'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_551BB2E70032 // TncsDefaultProviderHolder
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5FB8210EFE11 Exists
 
 : ME_551BB3D80160
  CONST Class class_Dependency
@@ -1415,7 +1290,6 @@ ref; // ME_47A042E100E2_ME_551BB2E70032 InitFields
  ME_551BB3A3005E // IntDoneProvider
  ME_551BB3090356 // CreateProvider
  ME_551BB3440181 // DoneProvider
- ME_5FB8210EFE11 // Exists
  )
  ; // Operations
  : Overridden

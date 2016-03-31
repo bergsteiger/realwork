@@ -23,7 +23,6 @@ type
  TvgVisualObject = class(TvgObject)
   private
    f_OnClick: TNotifyEvent;
-    {* Поле для свойства OnClick }
   protected
    FTabList: TvgObjectList;
   protected

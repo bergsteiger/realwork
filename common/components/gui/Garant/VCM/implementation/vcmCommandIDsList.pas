@@ -17,10 +17,10 @@ uses
 type
  TvcmCommandIDsList = {final} class(TvcmCommandIDsListPrim)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvcmCommandIDsList;
     {* Метод получения экземпляра синглетона TvcmCommandIDsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmCommandIDsList
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -42,12 +42,6 @@ begin
  l3Free(g_TvcmCommandIDsList);
 end;//TvcmCommandIDsListFree
 
-class function TvcmCommandIDsList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TvcmCommandIDsList <> nil;
-end;//TvcmCommandIDsList.Exists
-
 class function TvcmCommandIDsList.Instance: TvcmCommandIDsList;
  {* Метод получения экземпляра синглетона TvcmCommandIDsList }
 begin
@@ -58,6 +52,12 @@ begin
  end;
  Result := g_TvcmCommandIDsList;
 end;//TvcmCommandIDsList.Instance
+
+class function TvcmCommandIDsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmCommandIDsList <> nil;
+end;//TvcmCommandIDsList.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

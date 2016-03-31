@@ -885,52 +885,6 @@ ref; // ME_4D553BC10227 DoIt
 
 ref; // ME_4D553BBA0140 Create
 
-FORWARD ME_4D553BF20068
-
-: ME_EDDCEC4418F6
- CONST Name 'aGen'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
-
-ref; // ME_EDDCEC4418F6 aGen
-
-: ME_5CEC7A9ADDC4
- CONST Name 'anOptions'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47C6CB5C0032' '47C695A10172.pas.ms.script' // TevSearchOptionSet
- ;
- CONST Value '[]'
- : ValueType WL 'ME_47C6CB5C0032' '47C695A10172.pas.ms.script' // TevSearchOptionSet
- ;
- CONST extprop:pas:Value 'evTypes.[]'
-
-ref; // ME_5CEC7A9ADDC4 anOptions
-
-: ME_B606A05CD02E
- CONST UID 'B606A05CD02E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevParaSplitter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D553BF20068 // Make
- ;
- : Target WL 'ME_47C693BF0118' '47C5207602D1.pas.ms.script' // IevReplacer
- ;
- : Parameters
-   Seq: ( ME_EDDCEC4418F6 // aGen
- ME_5CEC7A9ADDC4 // anOptions
- )
- ; // Parameters
-
-ref; // ME_B606A05CD02E DoIt
-
 : ME_4D553BF20068
  CONST UID '4D553BF20068'
  CONST Name 'Make'
@@ -949,10 +903,6 @@ ref; // ME_B606A05CD02E DoIt
    Seq: ( WL 'ME_47C693BF0118' '47C5207602D1.pas.ms.script' // IevReplacer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B606A05CD02E // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -965,12 +915,6 @@ ref; // ME_4D553BF20068 Make
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4D553AC103A3_ME_4D553B19023C ReplaceFunc
-
-: ME_5000565C019C_ME_4D553B19023C
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D553B19023C ClearFields
 
 : ME_4D553B19023C
  CONST UID '4D553B19023C'
@@ -1000,10 +944,6 @@ ref; // ME_5000565C019C_ME_4D553B19023C ClearFields
    Seq: ( ME_4D553AC103A3_ME_4D553B19023C // ReplaceFunc
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4D553B19023C // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

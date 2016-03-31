@@ -315,108 +315,6 @@ ref; // ME_54F0465E02FC IsDeveloper
 
 ref; // ME_54F0467602D6 StandAlone
 
-: ME_E7FCF34CDE1F
- CONST UID 'E7FCF34CDE1F'
- CONST Name 'f_ServerHostName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ServerHostName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F044E00390 // TncsServiceProviderParams
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'ServerHostName'
-
-ref; // ME_E7FCF34CDE1F f_ServerHostName
-
-: ME_F311B99077E0
- CONST UID 'F311B99077E0'
- CONST Name 'f_ServerPort'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ServerPort' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F044E00390 // TncsServiceProviderParams
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'ServerPort'
-
-ref; // ME_F311B99077E0 f_ServerPort
-
-: ME_26E2E663DD21
- CONST UID '26E2E663DD21'
- CONST Name 'f_Login'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Login' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F044E00390 // TncsServiceProviderParams
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'Login'
-
-ref; // ME_26E2E663DD21 f_Login
-
-: ME_21B8BFF9DE6F
- CONST UID '21B8BFF9DE6F'
- CONST Name 'f_Password'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Password' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F044E00390 // TncsServiceProviderParams
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'Password'
-
-ref; // ME_21B8BFF9DE6F f_Password
-
-: ME_43246099C694
- CONST UID '43246099C694'
- CONST Name 'f_IsDeveloper'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsDeveloper' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F044E00390 // TncsServiceProviderParams
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsDeveloper'
-
-ref; // ME_43246099C694 f_IsDeveloper
-
-: ME_5681650585BC
- CONST UID '5681650585BC'
- CONST Name 'f_StandAlone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StandAlone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F044E00390 // TncsServiceProviderParams
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'StandAlone'
-
-ref; // ME_5681650585BC f_StandAlone
-
 : ME_54F044E00390
  CONST UID '54F044E00390'
  CONST Name 'TncsServiceProviderParams'
@@ -438,12 +336,6 @@ ref; // ME_5681650585BC f_StandAlone
  ME_54F0463A0334 // Password
  ME_54F0465E02FC // IsDeveloper
  ME_54F0467602D6 // StandAlone
- ME_E7FCF34CDE1F // f_ServerHostName
- ME_F311B99077E0 // f_ServerPort
- ME_26E2E663DD21 // f_Login
- ME_21B8BFF9DE6F // f_Password
- ME_43246099C694 // f_IsDeveloper
- ME_5681650585BC // f_StandAlone
  )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
@@ -710,23 +602,6 @@ ref; // ME_5502D4200028 aParams
 
 ref; // ME_54F81FA703DF SaveToConfig
 
-: ME_3E47557FA691
- CONST UID '3E47557FA691'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F04779024B // TncsServiceProviderParamsFactory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_3E47557FA691 Exists
-
 : ME_54F06B83036B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -808,7 +683,6 @@ ref; // ME_55C342CC038F
  ME_54F047C70145 // MakeEmpty
  ME_54F047F9029C // MakeFromConfig
  ME_54F81FA703DF // SaveToConfig
- ME_3E47557FA691 // Exists
  )
  ; // Operations
  : Dependencies
@@ -943,23 +817,6 @@ ref; // ME_55DAF4B80039 DataSection
 
 ref; // ME_55003A7D01E7 SectionNames
 
-FORWARD ME_550806B103D3
-
-: ME_D3AF4548A099
- CONST UID 'D3AF4548A099'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsClientParamsStorage.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550806B103D3 // Make
- ;
- : Target WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
- ;
-
-ref; // ME_D3AF4548A099 DoIt
-
 : ME_550806B103D3
  CONST UID '550806B103D3'
  CONST Name 'Make'
@@ -978,10 +835,6 @@ ref; // ME_D3AF4548A099 DoIt
    Seq: ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D3AF4548A099 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

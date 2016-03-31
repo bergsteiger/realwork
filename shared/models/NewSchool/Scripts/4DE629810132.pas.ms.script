@@ -1130,21 +1130,6 @@ ref; // ME_4DE7427102F2 anEditor
 
 ref; // ME_4DE7421F03DF DoWithEditor
 
-: ME_5E92D2DC938C
- CONST UID '5E92D2DC938C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TarEditorControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DE643F100CB // TarEditorControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5E92D2DC938C Ini_Reg_Class
-
 : ME_4DE644A5007E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1177,7 +1162,6 @@ ref; // ME_4DAEEDE10285_ME_4DE643F100CB DoDoIt
  ; // Inherits
  : Operations
    Seq: ( ME_4DE7421F03DF // DoWithEditor
- ME_5E92D2DC938C // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1669,21 +1653,6 @@ ref; // ME_52BD7B04013D
 
 ref; // ME_52BD79600196 DoWithFileName
 
-: ME_72C55B7D2670
- CONST UID '72C55B7D2670'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCreateNewFile' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52BD79050326 // TkwCreateNewFile
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_72C55B7D2670 Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_52BD79050326
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1706,7 +1675,6 @@ ref; // ME_4DAEEDE10285_ME_52BD79050326 DoDoIt
  ; // Inherits
  : Operations
    Seq: ( ME_52BD79600196 // DoWithFileName
- ME_72C55B7D2670 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented

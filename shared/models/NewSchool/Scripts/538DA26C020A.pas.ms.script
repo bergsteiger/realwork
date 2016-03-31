@@ -984,23 +984,6 @@ ref; // ME_5395BFDE00E3
 
 ref; // ME_5395BFCE0389 TCsServer
 
-: ME_9CCDD2F7DCC6
- CONST UID '9CCDD2F7DCC6'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5395B29D0177 // TCsReplyProcedures
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_9CCDD2F7DCC6 Exists
-
 : ME_5395B29D0177
  CONST UID '5395B29D0177'
  CONST Name 'TCsReplyProcedures'
@@ -1016,10 +999,6 @@ ref; // ME_9CCDD2F7DCC6 Exists
    Seq: ( ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9CCDD2F7DCC6 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -1033,23 +1012,6 @@ ref; // ME_9CCDD2F7DCC6 Exists
 ref; // ME_5395B29D0177 TCsReplyProcedures
 
 FORWARD ME_5507E70200AF
-
-FORWARD ME_550806D90113
-
-: ME_DBE20F5CF12C
- CONST UID 'DBE20F5CF12C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TncsServerParamsStorage.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550806D90113 // Make
- ;
- : Target WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
- ;
-
-ref; // ME_DBE20F5CF12C DoIt
 
 : ME_550806D90113
  CONST UID '550806D90113'
@@ -1069,10 +1031,6 @@ ref; // ME_DBE20F5CF12C DoIt
    Seq: ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
  )
  ; // Implements
- : Operations
-   Seq: ( ME_DBE20F5CF12C // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

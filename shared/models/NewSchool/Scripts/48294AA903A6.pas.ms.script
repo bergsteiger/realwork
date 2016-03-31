@@ -395,22 +395,6 @@ FORWARD ME_543F7EF202C6
 
 ref; // ME_543F9D0102A8 Logger
 
-: ME_5863A9D2CB31
- CONST UID '5863A9D2CB31'
- CONST Name 'f_Logger'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Logger' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_543F7EF202C6 // Tm3RootStreamManagerPrimPrim
- ;
- : Target WL 'ME_540EE3000176' '47913B47006E.pas.ms.script' // Tl3Logger
- ;
-
-ref; // ME_5863A9D2CB31 f_Logger
-
 FORWARD ME_543F8E8F0358
 
 : ME_543F8EBF02B0
@@ -1380,7 +1364,6 @@ ref; // ME_479731C50290_ME_543F7EF202C6 Cleanup
  ; // Implements
  : Attributes
    Seq: ( ME_543F9D0102A8 // Logger
- ME_5863A9D2CB31 // f_Logger
  )
  ; // Attributes
  : Operations
@@ -1665,71 +1648,6 @@ ref; // ME_54197BF1039F FirstCluster
  CONST "reads field" true
 
 ref; // ME_543FAB2D0334 Stream
-
-: ME_D0AAE1DBED97
- CONST UID 'D0AAE1DBED97'
- CONST Name 'f_Position'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Position' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
- ;
- : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
- ;
- CONST extprop:clearViaProperty 'Position'
-
-ref; // ME_D0AAE1DBED97 f_Position
-
-: ME_9AD3ACEBAC37
- CONST UID '9AD3ACEBAC37'
- CONST Name 'f_IsReadOnly'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsReadOnly' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_9AD3ACEBAC37 f_IsReadOnly
-
-: ME_EFBB165A9CAF
- CONST UID 'EFBB165A9CAF'
- CONST Name 'f_Name'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
- ;
- : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ;
-
-ref; // ME_EFBB165A9CAF f_Name
-
-: ME_3E1B268358EF
- CONST UID '3E1B268358EF'
- CONST Name 'f_Stream'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Stream' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
- ;
- : Target ME_543F7EF202C6 // Tm3RootStreamManagerPrimPrim
- ;
-
-ref; // ME_3E1B268358EF f_Stream
 
 FORWARD ME_5407189E0002
 
@@ -2152,21 +2070,6 @@ ref; // ME_540DDBD80134 DoIt
 
 ref; // ME_540DDBC0020B DoSaveNextPosition
 
-FORWARD ME_540DDC330067
-
-: ME_0CC4AF1A97DF
- CONST UID '0CC4AF1A97DF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Lock' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_540DDC330067 // Lock
- ;
-
-ref; // ME_0CC4AF1A97DF DoIt
-
 : ME_540DDC330067
  CONST UID '540DDC330067'
  CONST Name 'Lock'
@@ -2177,27 +2080,8 @@ ref; // ME_0CC4AF1A97DF DoIt
  CONST Abstraction at_final
  : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
  ;
- : Operations
-   Seq: ( ME_0CC4AF1A97DF // DoIt
- )
- ; // Operations
 
 ref; // ME_540DDC330067 Lock
-
-FORWARD ME_540DDC4601C6
-
-: ME_0B73B97E9ECB
- CONST UID '0B73B97E9ECB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Unlock' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_540DDC4601C6 // Unlock
- ;
-
-ref; // ME_0B73B97E9ECB DoIt
 
 : ME_540DDC4601C6
  CONST UID '540DDC4601C6'
@@ -2209,10 +2093,6 @@ ref; // ME_0B73B97E9ECB DoIt
  CONST Abstraction at_final
  : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
  ;
- : Operations
-   Seq: ( ME_0B73B97E9ECB // DoIt
- )
- ; // Operations
 
 ref; // ME_540DDC4601C6 Unlock
 
@@ -2448,21 +2328,6 @@ ref; // ME_543D340A029B DoIt
 
 ref; // ME_54104EA90033 InitData
 
-FORWARD ME_541078E20019
-
-: ME_A6E38D934EDB
- CONST UID 'A6E38D934EDB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_541078E20019 // DoLoad
- ;
-
-ref; // ME_A6E38D934EDB DoIt
-
 : ME_541078E20019
  CONST UID '541078E20019'
  CONST Name 'DoLoad'
@@ -2473,27 +2338,8 @@ ref; // ME_A6E38D934EDB DoIt
  CONST Abstraction at_final
  : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
  ;
- : Operations
-   Seq: ( ME_A6E38D934EDB // DoIt
- )
- ; // Operations
 
 ref; // ME_541078E20019 DoLoad
-
-FORWARD ME_541078ED0397
-
-: ME_915E95C85D2F
- CONST UID '915E95C85D2F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoSave' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_541078ED0397 // DoSave
- ;
-
-ref; // ME_915E95C85D2F DoIt
 
 : ME_541078ED0397
  CONST UID '541078ED0397'
@@ -2505,10 +2351,6 @@ ref; // ME_915E95C85D2F DoIt
  CONST Abstraction at_final
  : Parent ME_54084CDE023E // Tm3StoreHeaderDataPrim
  ;
- : Operations
-   Seq: ( ME_915E95C85D2F // DoIt
- )
- ; // Operations
 
 ref; // ME_541078ED0397 DoSave
 
@@ -2680,10 +2522,6 @@ ref; // ME_479731C50290_ME_54084CDE023E Cleanup
  ME_54197B970229 // rRealSize
  ME_54197BF1039F // FirstCluster
  ME_543FAB2D0334 // Stream
- ME_D0AAE1DBED97 // f_Position
- ME_9AD3ACEBAC37 // f_IsReadOnly
- ME_EFBB165A9CAF // f_Name
- ME_3E1B268358EF // f_Stream
  )
  ; // Attributes
  : Operations
@@ -3267,22 +3105,6 @@ ref; // ME_5423BF1A0014 f_AllocatedFATElements
 
 ref; // ME_5429235903AC f_AllocatedClusters
 
-: ME_1083662FCE46
- CONST UID '1083662FCE46'
- CONST Name 'f_RootStream'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RootStream' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_540EE8E40271 // Tm3RootStreamManager
- ;
- : Target ME_53FDE7290320 // Tm3RootStream
- ;
-
-ref; // ME_1083662FCE46 f_RootStream
-
 FORWARD ME_540EED370362
 
 : ME_540EED4702F2
@@ -3806,7 +3628,6 @@ ref; // ME_540EFD500389_ME_540EE8E40271 DoIsValidPosition
  ME_541C3A4102CC // f_NeedLocks
  ME_5423BF1A0014 // f_AllocatedFATElements
  ME_5429235903AC // f_AllocatedClusters
- ME_1083662FCE46 // f_RootStream
  )
  ; // Attributes
  : Operations
@@ -3939,54 +3760,6 @@ ref; // ME_5411C49E0248 TOCListPosition
  CONST "reads field" true
 
 ref; // ME_5411C4C10298 Name
-
-: ME_282ADE95478D
- CONST UID '282ADE95478D'
- CONST Name 'f_HeaderData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HeaderData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5411C42800B8 // Tm3StoreHeader
- ;
- : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
- ;
-
-ref; // ME_282ADE95478D f_HeaderData
-
-: ME_B55CA70CEB92
- CONST UID 'B55CA70CEB92'
- CONST Name 'f_RootStreamManager'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RootStreamManager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5411C42800B8 // Tm3StoreHeader
- ;
- : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
- ;
-
-ref; // ME_B55CA70CEB92 f_RootStreamManager
-
-: ME_E8C484FC5593
- CONST UID 'E8C484FC5593'
- CONST Name 'f_Name'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5411C42800B8 // Tm3StoreHeader
- ;
- : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ;
-
-ref; // ME_E8C484FC5593 f_Name
 
 FORWARD ME_5411C4EB00A3
 
@@ -4173,9 +3946,6 @@ ref; // ME_479731C50290_ME_5411C42800B8 Cleanup
  ME_5411C460001A // RootStreamManager
  ME_5411C49E0248 // TOCListPosition
  ME_5411C4C10298 // Name
- ME_282ADE95478D // f_HeaderData
- ME_B55CA70CEB92 // f_RootStreamManager
- ME_E8C484FC5593 // f_Name
  )
  ; // Attributes
  : Operations
@@ -6010,23 +5780,6 @@ ref; // ME_5421939F018F HandleName
 
 ref; // ME_542193DF0377 StoreInfo
 
-: ME_98B03FA43B58
- CONST UID '98B03FA43B58'
- CONST Name 'f_HandleName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HandleName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54219331013F // Tm3TOCHandle
- ;
- : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ;
- CONST extprop:clearViaProperty 'HandleName'
-
-ref; // ME_98B03FA43B58 f_HandleName
-
 FORWARD ME_542193BF033E
 
 : ME_542193C70278
@@ -6201,7 +5954,6 @@ ref; // ME_47A6FEE600FC_ME_54219331013F IsCacheable
  : Attributes
    Seq: ( ME_5421939F018F // HandleName
  ME_542193DF0377 // StoreInfo
- ME_98B03FA43B58 // f_HandleName
  )
  ; // Attributes
  : Operations
@@ -8207,23 +7959,6 @@ ref; // ME_545B661B0313 ItemType
 
 ref; // ME_545B846D02D3 KeyType
 
-: ME_15CF9FDB4850
- CONST UID '15CF9FDB4850'
- CONST Name 'f_Modified'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Modified' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54219FC800B5 // Tm3TOCHandleList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Modified'
-
-ref; // ME_15CF9FDB4850 f_Modified
-
 : ME_54219FCE0232
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -8284,7 +8019,6 @@ ref; // ME_47A042E100E2_ME_54219FC800B5 InitFields
    Seq: ( ME_5422B20901DA // Modified
  ME_545B661B0313 // ItemType
  ME_545B846D02D3 // KeyType
- ME_15CF9FDB4850 // f_Modified
  )
  ; // Attributes
  : Implemented
@@ -9665,12 +9399,6 @@ ref; // ME_49BFC98902FF_ME_542176490191 BeforeRelease
  CONST OpKind opkind_Overridden
 ref; // ME_4FA2802E0231_ME_542176490191 DoGetSize
 
-: ME_5000565C019C_ME_542176490191
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_542176490191 ClearFields
-
 : ME_542176490191
  CONST UID '542176490191'
  CONST Name 'Tm3CommonStorage'
@@ -9715,7 +9443,6 @@ ref; // ME_5000565C019C_ME_542176490191 ClearFields
    Seq: ( ME_479731C50290_ME_542176490191 // Cleanup
  ME_49BFC98902FF_ME_542176490191 // BeforeRelease
  ME_4FA2802E0231_ME_542176490191 // DoGetSize
- ME_5000565C019C_ME_542176490191 // ClearFields
  )
  ; // Overridden
  : Children
@@ -9847,23 +9574,6 @@ ref; // ME_5453B6D403C5 DoIt
 
 ref; // ME_5453B6CA01AD Create
 
-: ME_13D7AD2BF48F
- CONST UID '13D7AD2BF48F'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5453B699001A // Tm3BranchHandlesManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_13D7AD2BF48F Exists
-
 FORWARD ME_5453ACDE0177
 
 : ME_5459E38403B3
@@ -9892,7 +9602,6 @@ ref; // ME_5459E38403B3
  ; // Inherits
  : Operations
    Seq: ( ME_5453B6CA01AD // Create
- ME_13D7AD2BF48F // Exists
  )
  ; // Operations
  : Dependencies
@@ -10095,22 +9804,6 @@ FORWARD ME_54491A3702F4
 
 ref; // ME_54491A6800D8 Header
 
-: ME_174C0652ADE5
- CONST UID '174C0652ADE5'
- CONST Name 'f_Header'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Header' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54491A3702F4 // Tm3NewStoragePrim
- ;
- : Target ME_5411C42800B8 // Tm3StoreHeader
- ;
-
-ref; // ME_174C0652ADE5 f_Header
-
 FORWARD ME_54491AFD02C4
 
 : ME_54491B300197
@@ -10212,7 +9905,6 @@ ref; // ME_5412FB880320_ME_54491A3702F4 DoGetName
  ; // Inherits
  : Attributes
    Seq: ( ME_54491A6800D8 // Header
- ME_174C0652ADE5 // f_Header
  )
  ; // Attributes
  : Operations
@@ -10555,21 +10247,6 @@ ref; // ME_5459E943016A DoIt
 
 ref; // ME_5459E9360228 Create
 
-FORWARD ME_545A3464034C
-
-: ME_00A14AAF5C84
- CONST UID '00A14AAF5C84'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LockFree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_545A3464034C // LockFree
- ;
-
-ref; // ME_00A14AAF5C84 DoIt
-
 : ME_545A3464034C
  CONST UID '545A3464034C'
  CONST Name 'LockFree'
@@ -10580,27 +10257,8 @@ ref; // ME_00A14AAF5C84 DoIt
  CONST Abstraction at_final
  : Parent ME_5459E3FB0365 // Tm3WideStringManager
  ;
- : Operations
-   Seq: ( ME_00A14AAF5C84 // DoIt
- )
- ; // Operations
 
 ref; // ME_545A3464034C LockFree
-
-FORWARD ME_545A3476006F
-
-: ME_3FB1B7B7AB49
- CONST UID '3FB1B7B7AB49'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnlockFree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_545A3476006F // UnlockFree
- ;
-
-ref; // ME_3FB1B7B7AB49 DoIt
 
 : ME_545A3476006F
  CONST UID '545A3476006F'
@@ -10612,10 +10270,6 @@ ref; // ME_3FB1B7B7AB49 DoIt
  CONST Abstraction at_final
  : Parent ME_5459E3FB0365 // Tm3WideStringManager
  ;
- : Operations
-   Seq: ( ME_3FB1B7B7AB49 // DoIt
- )
- ; // Operations
 
 ref; // ME_545A3476006F UnlockFree
 
@@ -10732,22 +10386,6 @@ FORWARD ME_5459F38200AF
 
 ref; // ME_5459F3AF021F BranchHandleList
 
-: ME_634FB4A89A9F
- CONST UID '634FB4A89A9F'
- CONST Name 'f_BranchHandleList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BranchHandleList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5459F38200AF // Tm3HashHandle
- ;
- : Target ME_5453BC4F0348 // Tm3BranchHandleList
- ;
-
-ref; // ME_634FB4A89A9F f_BranchHandleList
-
 FORWARD ME_5459F3C30067
 
 : ME_5459F3CB016F
@@ -10810,7 +10448,6 @@ ref; // ME_479731C50290_ME_5459F38200AF Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_5459F3AF021F // BranchHandleList
- ME_634FB4A89A9F // f_BranchHandleList
  )
  ; // Attributes
  : Operations
@@ -10940,21 +10577,6 @@ ref; // ME_545A1BE20084 DoIt
 
 ref; // ME_545A1BD80041 Create
 
-FORWARD ME_545A301E038D
-
-: ME_57C1A65CC555
- CONST UID '57C1A65CC555'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LockFree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_545A301E038D // LockFree
- ;
-
-ref; // ME_57C1A65CC555 DoIt
-
 : ME_545A301E038D
  CONST UID '545A301E038D'
  CONST Name 'LockFree'
@@ -10965,27 +10587,8 @@ ref; // ME_57C1A65CC555 DoIt
  CONST Abstraction at_final
  : Parent ME_545A1B76019B // Tm3NormalFormsManager
  ;
- : Operations
-   Seq: ( ME_57C1A65CC555 // DoIt
- )
- ; // Operations
 
 ref; // ME_545A301E038D LockFree
-
-FORWARD ME_545A302902B2
-
-: ME_AFAF63308965
- CONST UID 'AFAF63308965'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnlockFree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_545A302902B2 // UnlockFree
- ;
-
-ref; // ME_AFAF63308965 DoIt
 
 : ME_545A302902B2
  CONST UID '545A302902B2'
@@ -10997,10 +10600,6 @@ ref; // ME_AFAF63308965 DoIt
  CONST Abstraction at_final
  : Parent ME_545A1B76019B // Tm3NormalFormsManager
  ;
- : Operations
-   Seq: ( ME_AFAF63308965 // DoIt
- )
- ; // Operations
 
 ref; // ME_545A302902B2 UnlockFree
 

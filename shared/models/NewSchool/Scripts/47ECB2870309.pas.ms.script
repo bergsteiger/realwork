@@ -527,23 +527,6 @@ ref; // ME_554CEA3900F2 anIndex
 
 ref; // ME_554CEA2D01A9 IsOwn
 
-: ME_ED92BE2C2BF6
- CONST UID 'ED92BE2C2BF6'
- CONST Name 'f_Context'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Context' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_522ED98F0223 // TevInterface
- ;
- : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
- ;
- CONST extprop:clearViaProperty 'Context'
-
-ref; // ME_ED92BE2C2BF6 f_Context
-
 FORWARD ME_554CE773030B
 
 : ME_563DCCC9FFBB
@@ -670,7 +653,6 @@ ref; // ME_554CE7CC01DE IsDefault
    Seq: ( ME_554CE8390106 // Tag
  ME_554CE92F02D5 // Context
  ME_554CEA2D01A9 // IsOwn
- ME_ED92BE2C2BF6 // f_Context
  )
  ; // Attributes
  : Operations
@@ -1647,23 +1629,6 @@ ref; // ME_4E32AE4C020B DoIt
 
 ref; // ME_4E32AE440052 FontSizeForStyle
 
-: ME_8138B129F774
- CONST UID '8138B129F774'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E31743D01F8 // TevDefaultStylesFontSizes
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_8138B129F774 Exists
-
 : ME_5239A0C500F2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1717,7 +1682,6 @@ ref; // ME_5239A347013E
    Seq: ( ME_4E317625032D // FontSizeForTag
  ME_4E317944036F // SaveStylesFontSizes
  ME_4E32AE440052 // FontSizeForStyle
- ME_8138B129F774 // Exists
  )
  ; // Operations
  : Dependencies
@@ -2380,23 +2344,6 @@ ref; // ME_4E5F9B56022C DoIt
 
 ref; // ME_4E5F9ADA02CE CheckFontInCache
 
-: ME_259DEB6622FC
- CONST UID '259DEB6622FC'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E54CF7E0143 // TevStandardStyles
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_259DEB6622FC Exists
-
 : ME_4E54D021021B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2526,7 +2473,6 @@ ref; // ME_4A4867A20049_ME_4E54CF7E0143 AtEnd
  ME_4E54D0F101B3 // FreeFonts
  ME_4E5F9A5E02A3 // GetStyleFont
  ME_4E5F9ADA02CE // CheckFontInCache
- ME_259DEB6622FC // Exists
  )
  ; // Operations
  : Implemented
@@ -2571,21 +2517,6 @@ FORWARD ME_522ED9B4018B
 
 FORWARD ME_5EDF2B8ACE76
 
-FORWARD ME_ADC42F5F57B3
-
-: ME_306B1D04CA9C
- CONST UID '306B1D04CA9C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckSubscribe' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_ADC42F5F57B3 // CheckSubscribe
- ;
-
-ref; // ME_306B1D04CA9C DoIt
-
 : ME_ADC42F5F57B3
  CONST UID 'ADC42F5F57B3'
  CONST Name 'CheckSubscribe'
@@ -2598,10 +2529,6 @@ ref; // ME_306B1D04CA9C DoIt
  CONST Abstraction at_final
  : Parent ME_5EDF2B8ACE76 // TevStylesSettingsListener
  ;
- : Operations
-   Seq: ( ME_306B1D04CA9C // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_ADC42F5F57B3 CheckSubscribe
@@ -2634,23 +2561,6 @@ ref; // ME_77C4E20A1895 aSettingId
  ; // Parameters
 
 ref; // ME_704CA5071A35 IsSettingAffectsUs
-
-: ME_E299FD04EA19
- CONST UID 'E299FD04EA19'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5EDF2B8ACE76 // TevStylesSettingsListener
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_E299FD04EA19 Exists
 
 : ME_D2016F86B06E
  CONST IsSummoned true
@@ -2692,7 +2602,6 @@ ref; // ME_47EA863A035C_ME_5EDF2B8ACE76 DoSettingChanged
  : Operations
    Seq: ( ME_ADC42F5F57B3 // CheckSubscribe
  ME_704CA5071A35 // IsSettingAffectsUs
- ME_E299FD04EA19 // Exists
  )
  ; // Operations
  : Overridden
@@ -3264,38 +3173,6 @@ ref; // ME_554CE5E60361 f_ForBlock
 
 ref; // ME_554CE6060046 ParentInterface
 
-: ME_3837A93A281E
- CONST UID '3837A93A281E'
- CONST Name 'f_Font'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Font' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480DB927035A // TevStyleInterface
- ;
- : Target ME_522EDD1F0044 // TevFontInterface
- ;
-
-ref; // ME_3837A93A281E f_Font
-
-: ME_5379A618E478
- CONST UID '5379A618E478'
- CONST Name 'f_ParentInterface'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParentInterface' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480DB927035A // TevStyleInterface
- ;
- : Target ME_480DB927035A // TevStyleInterface
- ;
-
-ref; // ME_5379A618E478 f_ParentInterface
-
 FORWARD ME_554CEC2A0191
 
 : ME_554CEC3901CE
@@ -3546,21 +3423,6 @@ ref; // ME_554CECD10299 DoIt
 
 ref; // ME_554CECCB0076 Add
 
-FORWARD ME_554CECE7001A
-
-: ME_1642490C4DAD
- CONST UID '1642490C4DAD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Delete' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CECE7001A // Delete
- ;
-
-ref; // ME_1642490C4DAD DoIt
-
 : ME_554CECE7001A
  CONST UID '554CECE7001A'
  CONST Name 'Delete'
@@ -3572,10 +3434,6 @@ ref; // ME_1642490C4DAD DoIt
  CONST Abstraction at_final
  : Parent ME_480DB927035A // TevStyleInterface
  ;
- : Operations
-   Seq: ( ME_1642490C4DAD // DoIt
- )
- ; // Operations
 
 ref; // ME_554CECE7001A Delete
 
@@ -3759,21 +3617,6 @@ ref; // ME_554CED97003E DoI
 
 ref; // ME_554CED8F018A SelectStyle$2
 
-FORWARD ME_554CEDBE0374
-
-: ME_B28F9FDA38F5
- CONST UID 'B28F9FDA38F5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода IncFontSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CEDBE0374 // IncFontSize
- ;
-
-ref; // ME_B28F9FDA38F5 DoIt
-
 : ME_554CEDBE0374
  CONST UID '554CEDBE0374'
  CONST Name 'IncFontSize'
@@ -3784,27 +3627,8 @@ ref; // ME_B28F9FDA38F5 DoIt
  CONST Abstraction at_final
  : Parent ME_480DB927035A // TevStyleInterface
  ;
- : Operations
-   Seq: ( ME_B28F9FDA38F5 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CEDBE0374 IncFontSize
-
-FORWARD ME_554CEDC503A4
-
-: ME_A853BD69C0E9
- CONST UID 'A853BD69C0E9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DecFontSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CEDC503A4 // DecFontSize
- ;
-
-ref; // ME_A853BD69C0E9 DoIt
 
 : ME_554CEDC503A4
  CONST UID '554CEDC503A4'
@@ -3816,27 +3640,8 @@ ref; // ME_A853BD69C0E9 DoIt
  CONST Abstraction at_final
  : Parent ME_480DB927035A // TevStyleInterface
  ;
- : Operations
-   Seq: ( ME_A853BD69C0E9 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CEDC503A4 DecFontSize
-
-FORWARD ME_554CEDCD0089
-
-: ME_0DFDA6F6258B
- CONST UID '0DFDA6F6258B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода IncAllFontSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CEDCD0089 // IncAllFontSize
- ;
-
-ref; // ME_0DFDA6F6258B DoIt
 
 : ME_554CEDCD0089
  CONST UID '554CEDCD0089'
@@ -3848,27 +3653,8 @@ ref; // ME_0DFDA6F6258B DoIt
  CONST Abstraction at_final
  : Parent ME_480DB927035A // TevStyleInterface
  ;
- : Operations
-   Seq: ( ME_0DFDA6F6258B // DoIt
- )
- ; // Operations
 
 ref; // ME_554CEDCD0089 IncAllFontSize
-
-FORWARD ME_554CEDD40305
-
-: ME_306F4E3509A8
- CONST UID '306F4E3509A8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DecAllFontSize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_554CEDD40305 // DecAllFontSize
- ;
-
-ref; // ME_306F4E3509A8 DoIt
 
 : ME_554CEDD40305
  CONST UID '554CEDD40305'
@@ -3880,10 +3666,6 @@ ref; // ME_306F4E3509A8 DoIt
  CONST Abstraction at_final
  : Parent ME_480DB927035A // TevStyleInterface
  ;
- : Operations
-   Seq: ( ME_306F4E3509A8 // DoIt
- )
- ; // Operations
 
 ref; // ME_554CEDD40305 DecAllFontSize
 
@@ -4193,8 +3975,6 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  ME_554CE5CD0244 // f_Styles
  ME_554CE5E60361 // f_ForBlock
  ME_554CE6060046 // ParentInterface
- ME_3837A93A281E // f_Font
- ME_5379A618E478 // f_ParentInterface
  )
  ; // Attributes
  : Operations

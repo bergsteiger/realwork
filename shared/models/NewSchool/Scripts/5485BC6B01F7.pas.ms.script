@@ -308,48 +308,6 @@ ref; // ME_54858CD100ED DoIt
 
 ref; // ME_54858CC10221 Create
 
-FORWARD ME_54858CF50041
-
-: ME_BD63E632F5BE
- CONST Name 'aStream'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
- ;
-
-ref; // ME_BD63E632F5BE aStream
-
-: ME_AA87F4B368F3
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_AA87F4B368F3 aCount
-
-: ME_109FE7A01ECB
- CONST UID '109FE7A01ECB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tm3TempEnumStatStg.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54858CF50041 // Make
- ;
- : Target WL 'ME_54523014032A' '46A0E6C5023A.pas.ms.script' // IEnumStatStg
- ;
- : Parameters
-   Seq: ( ME_BD63E632F5BE // aStream
- ME_AA87F4B368F3 // aCount
- )
- ; // Parameters
-
-ref; // ME_109FE7A01ECB DoIt
-
 : ME_54858CF50041
  CONST UID '54858CF50041'
  CONST Name 'Make'
@@ -368,10 +326,6 @@ ref; // ME_109FE7A01ECB DoIt
    Seq: ( WL 'ME_54523014032A' '46A0E6C5023A.pas.ms.script' // IEnumStatStg
  )
  ; // Implements
- : Operations
-   Seq: ( ME_109FE7A01ECB // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -425,12 +379,6 @@ ref; // ME_5485942F035B
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5485894C00CB Cleanup
 
-: ME_5000565C019C_ME_5485894C00CB
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5485894C00CB ClearFields
-
 : ME_5485894C00CB
  CONST UID '5485894C00CB'
  CONST Name 'Tm3TempEnumStatStg'
@@ -458,7 +406,6 @@ ref; // ME_5000565C019C_ME_5485894C00CB ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_5485894C00CB // Cleanup
- ME_5000565C019C_ME_5485894C00CB // ClearFields
  )
  ; // Overridden
  : Dependencies

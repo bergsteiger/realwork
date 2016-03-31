@@ -3538,23 +3538,6 @@ FORWARD ME_5397246F0175
 
 ref; // ME_539724CE027C State
 
-: ME_E03B54E5EE37
- CONST UID 'E03B54E5EE37'
- CONST Name 'f_State'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства State' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5397246F0175 // TvcmBaseNode
- ;
- : Target ME_53971F4C023B // TtpState
- ;
- CONST extprop:clearViaProperty 'State'
-
-ref; // ME_E03B54E5EE37 f_State
-
 FORWARD ME_53972500009A
 
 : ME_08E358C285B7
@@ -3587,21 +3570,6 @@ ref; // ME_08E358C285B7 DoIt
 
 ref; // ME_53972500009A DoSave
 
-FORWARD ME_5397295A01BA
-
-: ME_803CCA899AF9
- CONST UID '803CCA899AF9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5397295A01BA // Create
- ;
-
-ref; // ME_803CCA899AF9 DoIt
-
 : ME_5397295A01BA
  CONST UID '5397295A01BA'
  CONST Name 'Create'
@@ -3612,10 +3580,6 @@ ref; // ME_803CCA899AF9 DoIt
  CONST Abstraction at_final
  : Parent ME_5397246F0175 // TvcmBaseNode
  ;
- : Operations
-   Seq: ( ME_803CCA899AF9 // DoIt
- )
- ; // Operations
 
 ref; // ME_5397295A01BA Create
 
@@ -3693,7 +3657,6 @@ ref; // ME_5397202C0298_ME_5397246F0175 Save
  ; // Implements
  : Attributes
    Seq: ( ME_539724CE027C // State
- ME_E03B54E5EE37 // f_State
  )
  ; // Attributes
  : Operations
@@ -3817,23 +3780,6 @@ FORWARD ME_539725B701B4
 
 ref; // ME_539726250103 Position
 
-: ME_63A297E6DF76
- CONST UID '63A297E6DF76'
- CONST Name 'f_Position'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Position' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539725B701B4 // TvcmCustOpsNode
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Position'
-
-ref; // ME_63A297E6DF76 f_Position
-
 FORWARD ME_5397264A01C8
 
 : ME_539726680203
@@ -3904,7 +3850,6 @@ ref; // ME_5397209700B8_ME_539725B701B4 Position
  ; // Implements
  : Attributes
    Seq: ( ME_539726250103 // Position
- ME_63A297E6DF76 // f_Position
  )
  ; // Attributes
  : Operations
@@ -3960,53 +3905,6 @@ ref; // ME_539726E60260 Group
 
 ref; // ME_539726ED033A RepGroup
 
-: ME_FE1E06681A8B
- CONST UID 'FE1E06681A8B'
- CONST Name 'f_Group'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Group' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539726940063 // TvcmGroup
- ;
- : Target WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
- ;
-
-ref; // ME_FE1E06681A8B f_Group
-
-: ME_FCB2993F3D41
- CONST UID 'FCB2993F3D41'
- CONST Name 'f_RepGroup'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RepGroup' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539726940063 // TvcmGroup
- ;
- : Target WL 'ME_4992FD760178' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroup
- ;
-
-ref; // ME_FCB2993F3D41 f_RepGroup
-
-FORWARD ME_5397276701BB
-
-: ME_F19EAE30091D
- CONST UID 'F19EAE30091D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadOps' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5397276701BB // LoadOps
- ;
-
-ref; // ME_F19EAE30091D DoIt
-
 : ME_5397276701BB
  CONST UID '5397276701BB'
  CONST Name 'LoadOps'
@@ -4017,10 +3915,6 @@ ref; // ME_F19EAE30091D DoIt
  CONST Abstraction at_final
  : Parent ME_539726940063 // TvcmGroup
  ;
- : Operations
-   Seq: ( ME_F19EAE30091D // DoIt
- )
- ; // Operations
 
 ref; // ME_5397276701BB LoadOps
 
@@ -4067,37 +3961,6 @@ ref; // ME_539728C00055 DoIt
 
 ref; // ME_539728AF00C2 Create$1
 
-FORWARD ME_539728D300FB
-
-: ME_4D1C90937FF3
- CONST Name 'aGroup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
- ;
-
-ref; // ME_4D1C90937FF3 aGroup
-
-: ME_D0E990AA4F4F
- CONST UID 'D0E990AA4F4F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmGroup.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_539728D300FB // Make$1
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_4D1C90937FF3 // aGroup
- )
- ; // Parameters
-
-ref; // ME_D0E990AA4F4F DoIt
-
 : ME_539728D300FB
  CONST UID '539728D300FB'
  CONST Name 'Make'
@@ -4116,10 +3979,6 @@ ref; // ME_D0E990AA4F4F DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D0E990AA4F4F // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4180,48 +4039,6 @@ ref; // ME_53972916028F DoIt
 
 ref; // ME_53972905022F Create$2
 
-FORWARD ME_539729270321
-
-: ME_361E02C79704
- CONST Name 'aText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A455F7018F' '4677FBA70343.pas.ms.script' // Tl3PCharLenPrim
- ;
-
-ref; // ME_361E02C79704 aText
-
-: ME_B636DE1E0C11
- CONST Name 'aRepGroup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FD760178' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroup
- ;
-
-ref; // ME_B636DE1E0C11 aRepGroup
-
-: ME_7EC3E8F274A9
- CONST UID '7EC3E8F274A9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmGroup.Make$2' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_539729270321 // Make$2
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_361E02C79704 // aText
- ME_B636DE1E0C11 // aRepGroup
- )
- ; // Parameters
-
-ref; // ME_7EC3E8F274A9 DoIt
-
 : ME_539729270321
  CONST UID '539729270321'
  CONST Name 'Make'
@@ -4240,10 +4057,6 @@ ref; // ME_7EC3E8F274A9 DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7EC3E8F274A9 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4283,12 +4096,6 @@ ref; // ME_479731C50290_ME_539726940063 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_47A869D10074_ME_539726940063 DoSetAsPCharLen
 
-: ME_5000565C019C_ME_539726940063
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_539726940063 ClearFields
-
 : ME_53972500009A_ME_539726940063
  : Original ME_53972500009A // DoSave
  ;
@@ -4317,8 +4124,6 @@ ref; // ME_53972500009A_ME_539726940063 DoSave
  : Attributes
    Seq: ( ME_539726E60260 // Group
  ME_539726ED033A // RepGroup
- ME_FE1E06681A8B // f_Group
- ME_FCB2993F3D41 // f_RepGroup
  )
  ; // Attributes
  : Operations
@@ -4338,7 +4143,6 @@ ref; // ME_53972500009A_ME_539726940063 DoSave
  : Overridden
    Seq: ( ME_479731C50290_ME_539726940063 // Cleanup
  ME_47A869D10074_ME_539726940063 // DoSetAsPCharLen
- ME_5000565C019C_ME_539726940063 // ClearFields
  ME_53972500009A_ME_539726940063 // DoSave
  )
  ; // Overridden
@@ -4443,74 +4247,6 @@ ref; // ME_53972F3001DB GroupChanged
 
 ref; // ME_53972F530397 Group
 
-: ME_D294F99CB822
- CONST UID 'D294F99CB822'
- CONST Name 'f_Op'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Op' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539729990330 // TvcmGroupOperation
- ;
- : Target WL 'ME_4992FDB10225' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupOperation
- ;
- CONST extprop:clearViaProperty 'Op'
-
-ref; // ME_D294F99CB822 f_Op
-
-: ME_3E6FC9FF49CC
- CONST UID '3E6FC9FF49CC'
- CONST Name 'f_RepOp'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RepOp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539729990330 // TvcmGroupOperation
- ;
- : Target WL 'ME_4992FB1F0246' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepOperation
- ;
- CONST extprop:clearViaProperty 'RepOp'
-
-ref; // ME_3E6FC9FF49CC f_RepOp
-
-: ME_1EABDE3296BE
- CONST UID '1EABDE3296BE'
- CONST Name 'f_ForAllUseCases'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ForAllUseCases' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539729990330 // TvcmGroupOperation
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ForAllUseCases'
-
-ref; // ME_1EABDE3296BE f_ForAllUseCases
-
-: ME_09532344BE0E
- CONST UID '09532344BE0E'
- CONST Name 'f_GroupChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства GroupChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539729990330 // TvcmGroupOperation
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'GroupChanged'
-
-ref; // ME_09532344BE0E f_GroupChanged
-
 FORWARD ME_5397303B0195
 
 : ME_539730490239
@@ -4597,37 +4333,6 @@ ref; // ME_5397305C0310 DoIt
 
 ref; // ME_5397305603D4 Create$2
 
-FORWARD ME_539730710047
-
-: ME_FD53E02CE7CF
- CONST Name 'aOp'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FDB10225' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupOperation
- ;
-
-ref; // ME_FD53E02CE7CF aOp
-
-: ME_D21708BD1336
- CONST UID 'D21708BD1336'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmGroupOperation.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_539730710047 // Make$1
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_FD53E02CE7CF // aOp
- )
- ; // Parameters
-
-ref; // ME_D21708BD1336 DoIt
-
 : ME_539730710047
  CONST UID '539730710047'
  CONST Name 'Make'
@@ -4646,47 +4351,12 @@ ref; // ME_D21708BD1336 DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D21708BD1336 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_539730710047 Make$1
-
-FORWARD ME_539730790096
-
-: ME_48C8ABC50990
- CONST Name 'aRepOp'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FB1F0246' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepOperation
- ;
-
-ref; // ME_48C8ABC50990 aRepOp
-
-: ME_0486D3FAB9BF
- CONST UID '0486D3FAB9BF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmGroupOperation.Make$2' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_539730790096 // Make$2
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_48C8ABC50990 // aRepOp
- )
- ; // Parameters
-
-ref; // ME_0486D3FAB9BF DoIt
 
 : ME_539730790096
  CONST UID '539730790096'
@@ -4706,10 +4376,6 @@ ref; // ME_0486D3FAB9BF DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0486D3FAB9BF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4769,12 +4435,6 @@ ref; // ME_47A869D10074_ME_539729990330 DoSetAsPCharLen
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_539729990330 COMQueryInterface
 
-: ME_5000565C019C_ME_539729990330
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_539729990330 ClearFields
-
 : ME_53972500009A_ME_539729990330
  : Original ME_53972500009A // DoSave
  ;
@@ -4805,10 +4465,6 @@ ref; // ME_53972500009A_ME_539729990330 DoSave
  ME_53972EA90140 // ForAllUseCases
  ME_53972F3001DB // GroupChanged
  ME_53972F530397 // Group
- ME_D294F99CB822 // f_Op
- ME_3E6FC9FF49CC // f_RepOp
- ME_1EABDE3296BE // f_ForAllUseCases
- ME_09532344BE0E // f_GroupChanged
  )
  ; // Attributes
  : Operations
@@ -4830,7 +4486,6 @@ ref; // ME_53972500009A_ME_539729990330 DoSave
    Seq: ( ME_47A042E100E2_ME_539729990330 // InitFields
  ME_47A869D10074_ME_539729990330 // DoSetAsPCharLen
  ME_4A60B23E00C3_ME_539729990330 // COMQueryInterface
- ME_5000565C019C_ME_539729990330 // ClearFields
  ME_53972500009A_ME_539729990330 // DoSave
  )
  ; // Overridden
@@ -4861,22 +4516,6 @@ FORWARD ME_539730BD0307
  CONST "reads field" true
 
 ref; // ME_539737D201C3 Group
-
-: ME_AD20FD1AD2F0
- CONST UID 'AD20FD1AD2F0'
- CONST Name 'f_Group'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Group' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539730BD0307 // TvcmRepGroupOperationsNode
- ;
- : Target WL 'ME_4992FB48004C' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroupOperations
- ;
-
-ref; // ME_AD20FD1AD2F0 f_Group
 
 FORWARD ME_5397386402F9
 
@@ -4921,37 +4560,6 @@ ref; // ME_539738740123 DoIt
 
 ref; // ME_5397386402F9 Create
 
-FORWARD ME_5397388E00D1
-
-: ME_883327EEACF2
- CONST Name 'aGroup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FB48004C' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroupOperations
- ;
-
-ref; // ME_883327EEACF2 aGroup
-
-: ME_6019306A5601
- CONST UID '6019306A5601'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmRepGroupOperationsNode.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5397388E00D1 // Make
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_883327EEACF2 // aGroup
- )
- ; // Parameters
-
-ref; // ME_6019306A5601 DoIt
-
 : ME_5397388E00D1
  CONST UID '5397388E00D1'
  CONST Name 'Make'
@@ -4970,10 +4578,6 @@ ref; // ME_6019306A5601 DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_6019306A5601 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4993,12 +4597,6 @@ ref; // ME_539722450260_ME_539730BD0307 Group
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_539730BD0307 Cleanup
-
-: ME_5000565C019C_ME_539730BD0307
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_539730BD0307 ClearFields
 
 : ME_539730BD0307
  CONST UID '539730BD0307'
@@ -5020,7 +4618,6 @@ ref; // ME_5000565C019C_ME_539730BD0307 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_539737D201C3 // Group
- ME_AD20FD1AD2F0 // f_Group
  )
  ; // Attributes
  : Operations
@@ -5034,7 +4631,6 @@ ref; // ME_5000565C019C_ME_539730BD0307 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_539730BD0307 // Cleanup
- ME_5000565C019C_ME_539730BD0307 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -5064,22 +4660,6 @@ FORWARD ME_539738CD0281
  CONST "reads field" true
 
 ref; // ME_5397392900D7 Op
-
-: ME_8178F8A6721C
- CONST UID '8178F8A6721C'
- CONST Name 'f_Op'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Op' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_539738CD0281 // TvcmRepOperationNode
- ;
- : Target WL 'ME_4992FB1F0246' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepOperation
- ;
-
-ref; // ME_8178F8A6721C f_Op
 
 FORWARD ME_5397395D01D0
 
@@ -5124,37 +4704,6 @@ ref; // ME_539739690231 DoIt
 
 ref; // ME_5397395D01D0 Create
 
-FORWARD ME_5397397500F9
-
-: ME_0321F952BA47
- CONST Name 'aOp'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FB1F0246' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepOperation
- ;
-
-ref; // ME_0321F952BA47 aOp
-
-: ME_D30F3A74BD3E
- CONST UID 'D30F3A74BD3E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmRepOperationNode.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5397397500F9 // Make
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_0321F952BA47 // aOp
- )
- ; // Parameters
-
-ref; // ME_D30F3A74BD3E DoIt
-
 : ME_5397397500F9
  CONST UID '5397397500F9'
  CONST Name 'Make'
@@ -5173,10 +4722,6 @@ ref; // ME_D30F3A74BD3E DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D30F3A74BD3E // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5196,12 +4741,6 @@ ref; // ME_539722A401F2_ME_539738CD0281 Op
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_539738CD0281 Cleanup
-
-: ME_5000565C019C_ME_539738CD0281
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_539738CD0281 ClearFields
 
 : ME_539738CD0281
  CONST UID '539738CD0281'
@@ -5223,7 +4762,6 @@ ref; // ME_5000565C019C_ME_539738CD0281 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_5397392900D7 // Op
- ME_8178F8A6721C // f_Op
  )
  ; // Attributes
  : Operations
@@ -5237,7 +4775,6 @@ ref; // ME_5000565C019C_ME_539738CD0281 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_539738CD0281 // Cleanup
- ME_5000565C019C_ME_539738CD0281 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -5287,21 +4824,6 @@ ref; // ME_539739B2024F TvcmTree
 
 FORWARD ME_539739FB0026
 
-FORWARD ME_53973A2E02CB
-
-: ME_6961EDD1AB9D
- CONST UID '6961EDD1AB9D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadGroups' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53973A2E02CB // LoadGroups
- ;
-
-ref; // ME_6961EDD1AB9D DoIt
-
 : ME_53973A2E02CB
  CONST UID '53973A2E02CB'
  CONST Name 'LoadGroups'
@@ -5312,10 +4834,6 @@ ref; // ME_6961EDD1AB9D DoIt
  CONST Abstraction at_final
  : Parent ME_539739FB0026 // TvcmCustOpsTree
  ;
- : Operations
-   Seq: ( ME_6961EDD1AB9D // DoIt
- )
- ; // Operations
 
 ref; // ME_53973A2E02CB LoadGroups
 
@@ -5358,21 +4876,6 @@ ref; // ME_539739FB0026 TvcmCustOpsTree
 
 FORWARD ME_53973A55033D
 
-FORWARD ME_53973AA903CB
-
-: ME_0B9845DA9466
- CONST UID '0B9845DA9466'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ReadRepGroups' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53973AA903CB // ReadRepGroups
- ;
-
-ref; // ME_0B9845DA9466 DoIt
-
 : ME_53973AA903CB
  CONST UID '53973AA903CB'
  CONST Name 'ReadRepGroups'
@@ -5384,10 +4887,6 @@ ref; // ME_0B9845DA9466 DoIt
  CONST Abstraction at_final
  : Parent ME_53973A55033D // TvcmRepTree
  ;
- : Operations
-   Seq: ( ME_0B9845DA9466 // DoIt
- )
- ; // Operations
 
 ref; // ME_53973AA903CB ReadRepGroups
 
@@ -5537,23 +5036,6 @@ FORWARD ME_53973B3F02F2
 
 ref; // ME_53973B8F0014 RepGroup
 
-: ME_0EF567C690B8
- CONST UID '0EF567C690B8'
- CONST Name 'f_RepGroup'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RepGroup' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53973B3F02F2 // TvcmRepGroupNode
- ;
- : Target WL 'ME_4992FD760178' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroup
- ;
- CONST extprop:clearViaProperty 'RepGroup'
-
-ref; // ME_0EF567C690B8 f_RepGroup
-
 FORWARD ME_53973BE603E6
 
 : ME_53973BFD0327
@@ -5611,52 +5093,6 @@ ref; // ME_53973BFA003C DoIt
 
 ref; // ME_53973BE603E6 Create
 
-FORWARD ME_53973C0802CE
-
-: ME_6134EDD3AF14
- CONST Name 'aCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A455F7018F' '4677FBA70343.pas.ms.script' // Tl3PCharLenPrim
- ;
-
-ref; // ME_6134EDD3AF14 aCaption
-
-: ME_9567EC033872
- CONST Name 'aRepGroup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FD760178' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroup
- ;
- CONST Value 'nil'
- : ValueType WL 'ME_4992FD760178' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroup
- ;
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_9567EC033872 aRepGroup
-
-: ME_B4ED68122E22
- CONST UID 'B4ED68122E22'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TvcmRepGroupNode.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53973C0802CE // Make
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_6134EDD3AF14 // aCaption
- ME_9567EC033872 // aRepGroup
- )
- ; // Parameters
-
-ref; // ME_B4ED68122E22 DoIt
-
 : ME_53973C0802CE
  CONST UID '53973C0802CE'
  CONST Name 'Make'
@@ -5675,10 +5111,6 @@ ref; // ME_B4ED68122E22 DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B4ED68122E22 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5704,12 +5136,6 @@ ref; // ME_479731C50290_ME_53973B3F02F2 Cleanup
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47A869D10074_ME_53973B3F02F2 DoSetAsPCharLen
-
-: ME_5000565C019C_ME_53973B3F02F2
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_53973B3F02F2 ClearFields
 
 : ME_53972500009A_ME_53973B3F02F2
  : Original ME_53972500009A // DoSave
@@ -5737,7 +5163,6 @@ ref; // ME_53972500009A_ME_53973B3F02F2 DoSave
  ; // Implements
  : Attributes
    Seq: ( ME_53973B8F0014 // RepGroup
- ME_0EF567C690B8 // f_RepGroup
  )
  ; // Attributes
  : Operations
@@ -5752,7 +5177,6 @@ ref; // ME_53972500009A_ME_53973B3F02F2 DoSave
  : Overridden
    Seq: ( ME_479731C50290_ME_53973B3F02F2 // Cleanup
  ME_47A869D10074_ME_53973B3F02F2 // DoSetAsPCharLen
- ME_5000565C019C_ME_53973B3F02F2 // ClearFields
  ME_53972500009A_ME_53973B3F02F2 // DoSave
  )
  ; // Overridden

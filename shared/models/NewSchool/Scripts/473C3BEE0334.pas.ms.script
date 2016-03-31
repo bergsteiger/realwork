@@ -1008,46 +1008,6 @@ ref; // ME_56AB67C30233 DoIt
 
 ref; // ME_56AB67BC0111 Create
 
-FORWARD ME_56AB67DE00EB
-
-: ME_C2FD7B2A8647
- CONST Name 'aTabOffset'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C2FD7B2A8647 aTabOffset
-
-: ME_1ECD2450DF01
- CONST Name 'aTabStops'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4728A3D2034D' '4677FBA70343.pas.ms.script' // Il3TabStops
- ;
-
-ref; // ME_1ECD2450DF01 aTabStops
-
-: ME_F6C1324F8726
- CONST UID 'F6C1324F8726'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tl3TabInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56AB67DE00EB // Make
- ;
- : Parameters
-   Seq: ( ME_C2FD7B2A8647 // aTabOffset
- ME_1ECD2450DF01 // aTabStops
- )
- ; // Parameters
-
-ref; // ME_F6C1324F8726 DoIt
-
 : ME_56AB67DE00EB
  CONST UID '56AB67DE00EB'
  CONST Name 'Make'
@@ -1062,10 +1022,6 @@ ref; // ME_F6C1324F8726 DoIt
    Seq: ( ME_56AB67BC0111 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F6C1324F8726 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2598,307 +2554,6 @@ ref; // ME_56B7587C0137 f_OutString
 
 ref; // ME_56B780F303E3 f_PageNumber
 
-: ME_B6469CD3B8C3
- CONST UID 'B6469CD3B8C3'
- CONST Name 'f_Flags'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Flags' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target ME_4A4CBF6F03E7 // TevDrawFlags
- ;
- CONST extprop:clearViaProperty 'Flags'
-
-ref; // ME_B6469CD3B8C3 f_Flags
-
-: ME_C11F8EC36A6D
- CONST UID 'C11F8EC36A6D'
- CONST Name 'f_OnDrawSub'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnDrawSub' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_476F9BBD02F1' '467C0CAA02AB.pas.ms.script' // TevDrawSubEvent
- ;
- CONST extprop:clearViaProperty 'OnDrawSub'
-
-ref; // ME_C11F8EC36A6D f_OnDrawSub
-
-: ME_BA5D4E0AF1E8
- CONST UID 'BA5D4E0AF1E8'
- CONST Name 'f_CanDrawSubs'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CanDrawSubs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_BA5D4E0AF1E8 f_CanDrawSubs
-
-: ME_CBF4812359EF
- CONST UID 'CBF4812359EF'
- CONST Name 'f_PixelsPerInchX'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PixelsPerInchX' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_CBF4812359EF f_PixelsPerInchX
-
-: ME_22423B4D9BE0
- CONST UID '22423B4D9BE0'
- CONST Name 'f_PixelsPerInchY'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PixelsPerInchY' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_22423B4D9BE0 f_PixelsPerInchY
-
-: ME_8D94E1057E0C
- CONST UID '8D94E1057E0C'
- CONST Name 'f_OverallPageNumber'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OverallPageNumber' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8D94E1057E0C f_OverallPageNumber
-
-: ME_9A834AC46EA9
- CONST UID '9A834AC46EA9'
- CONST Name 'f_BackColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'BackColor'
-
-ref; // ME_9A834AC46EA9 f_BackColor
-
-: ME_6C9D65687E54
- CONST UID '6C9D65687E54'
- CONST Name 'f_NotFocused'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NotFocused' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NotFocused'
-
-ref; // ME_6C9D65687E54 f_NotFocused
-
-: ME_CB1A1452A27E
- CONST UID 'CB1A1452A27E'
- CONST Name 'f_DCFlag'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DCFlag' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target ME_4A4CBFCF02D5 // TevDCFlag
- ;
- CONST extprop:clearViaProperty 'DCFlag'
-
-ref; // ME_CB1A1452A27E f_DCFlag
-
-: ME_53570BF432F9
- CONST UID '53570BF432F9'
- CONST Name 'f_Canvas'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Canvas' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
- ;
- CONST extprop:clearViaProperty 'Canvas'
-
-ref; // ME_53570BF432F9 f_Canvas
-
-: ME_2B30B7FF0C57
- CONST UID '2B30B7FF0C57'
- CONST Name 'f_Owner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Owner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2B30B7FF0C57 f_Owner
-
-: ME_32981A0BEEF5
- CONST UID '32981A0BEEF5'
- CONST Name 'f_Zoom'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Zoom' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Zoom'
-
-ref; // ME_32981A0BEEF5 f_Zoom
-
-: ME_025CCAE9255F
- CONST UID '025CCAE9255F'
- CONST Name 'f_OnDrawSpecialChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnDrawSpecialChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnDrawSpecialChange'
-
-ref; // ME_025CCAE9255F f_OnDrawSpecialChange
-
-: ME_6DFB1640F5F2
- CONST UID '6DFB1640F5F2'
- CONST Name 'f_PageOrientation'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PageOrientation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_46A46B650237' '4677FBA70343.pas.ms.script' // Tl3PageOrientation
- ;
- CONST extprop:clearViaProperty 'PageOrientation'
-
-ref; // ME_6DFB1640F5F2 f_PageOrientation
-
-: ME_38BEE705CD28
- CONST UID '38BEE705CD28'
- CONST Name 'f_SectionExtent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SectionExtent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
- ;
- CONST extprop:clearViaProperty 'SectionExtent'
-
-ref; // ME_38BEE705CD28 f_SectionExtent
-
-: ME_00E2F513FA1D
- CONST UID '00E2F513FA1D'
- CONST Name 'f_Painter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Painter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_4728C0FF02A2' '467C0CAA02AB.pas.ms.script' // Il3HAFPainter
- ;
- CONST extprop:clearViaProperty 'Painter'
-
-ref; // ME_00E2F513FA1D f_Painter
-
-: ME_4EBFEB9D339E
- CONST UID '4EBFEB9D339E'
- CONST Name 'f_AbortChecker'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AbortChecker' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_5229D7DD016C' '467C0CAA02AB.pas.ms.script' // Il3AbortChecker
- ;
- CONST extprop:clearViaProperty 'AbortChecker'
-
-ref; // ME_4EBFEB9D339E f_AbortChecker
-
-: ME_79E21A8F9D56
- CONST UID '79E21A8F9D56'
- CONST Name 'f_etoFlags'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства etoFlags' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
- ;
- CONST extprop:clearViaProperty 'etoFlags'
-
-ref; // ME_79E21A8F9D56 f_etoFlags
-
 FORWARD ME_4A4CBD130121
 
 : ME_4A4CBD21006C
@@ -3453,21 +3108,6 @@ ref; // ME_582E58AA50C0 DoIt
 
 ref; // ME_56B0AEF1020C FontChanged
 
-FORWARD ME_56B0B2430282
-
-: ME_7944429E248A
- CONST UID '7944429E248A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода FreeDC' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B0B2430282 // FreeDC
- ;
-
-ref; // ME_7944429E248A DoIt
-
 : ME_56B0B2430282
  CONST UID '56B0B2430282'
  CONST Name 'FreeDC'
@@ -3478,10 +3118,6 @@ ref; // ME_7944429E248A DoIt
  CONST Abstraction at_final
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
- : Operations
-   Seq: ( ME_7944429E248A // DoIt
- )
- ; // Operations
 
 ref; // ME_56B0B2430282 FreeDC
 
@@ -4360,21 +3996,6 @@ ref; // ME_56B49F0C0194 DoIt
 
 ref; // ME_56B49F030225 GetCaret
 
-FORWARD ME_56B4A15D03C2
-
-: ME_92E9168D05BA
- CONST UID '92E9168D05BA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckOrientation' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B4A15D03C2 // CheckOrientation
- ;
-
-ref; // ME_92E9168D05BA DoIt
-
 : ME_56B4A15D03C2
  CONST UID '56B4A15D03C2'
  CONST Name 'CheckOrientation'
@@ -4385,10 +4006,6 @@ ref; // ME_92E9168D05BA DoIt
  CONST Abstraction at_final
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
- : Operations
-   Seq: ( ME_92E9168D05BA // DoIt
- )
- ; // Operations
 
 ref; // ME_56B4A15D03C2 CheckOrientation
 
@@ -4808,21 +4425,6 @@ ref; // ME_56B4DC4F00B2 DoIt
 
 ref; // ME_56B4DC3E0242 CheckConvertTable
 
-FORWARD ME_56B86C580374
-
-: ME_BD97B820C7C6
- CONST UID 'BD97B820C7C6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода MakeScreenDC' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B86C580374 // MakeScreenDC
- ;
-
-ref; // ME_BD97B820C7C6 DoIt
-
 : ME_56B86C580374
  CONST UID '56B86C580374'
  CONST Name 'MakeScreenDC'
@@ -4833,43 +4435,8 @@ ref; // ME_BD97B820C7C6 DoIt
  CONST Abstraction at_final
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
- : Operations
-   Seq: ( ME_BD97B820C7C6 // DoIt
- )
- ; // Operations
 
 ref; // ME_56B86C580374 MakeScreenDC
-
-FORWARD ME_56B86C940345
-
-: ME_8185571688DC
- CONST Name 'aPrinter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A4657201E7' '556F09AA036E.pas.ms.script' // Il3Printer
- ;
-
-ref; // ME_8185571688DC aPrinter
-
-: ME_F816A2C12F90
- CONST UID 'F816A2C12F90'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tl3CanvasPrim.MakeForPrinting' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56B86C940345 // MakeForPrinting
- ;
- : Target WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
- ;
- : Parameters
-   Seq: ( ME_8185571688DC // aPrinter
- )
- ; // Parameters
-
-ref; // ME_F816A2C12F90 DoIt
 
 : ME_56B86C940345
  CONST UID '56B86C940345'
@@ -4889,10 +4456,6 @@ ref; // ME_F816A2C12F90 DoIt
    Seq: ( WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F816A2C12F90 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -6362,12 +5925,6 @@ ref; // ME_479731C50290_ME_4A4CB79A02C6 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
 
-: ME_5000565C019C_ME_4A4CB79A02C6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4A4CB79A02C6 ClearFields
-
 : ME_4A4CB79A02C6
  CONST UID '4A4CB79A02C6'
  CONST Name 'Tl3CanvasPrim'
@@ -6486,24 +6043,6 @@ ref; // ME_5000565C019C_ME_4A4CB79A02C6 ClearFields
  ME_56B4DE960021 // f_ConvertTable
  ME_56B7587C0137 // f_OutString
  ME_56B780F303E3 // f_PageNumber
- ME_B6469CD3B8C3 // f_Flags
- ME_C11F8EC36A6D // f_OnDrawSub
- ME_BA5D4E0AF1E8 // f_CanDrawSubs
- ME_CBF4812359EF // f_PixelsPerInchX
- ME_22423B4D9BE0 // f_PixelsPerInchY
- ME_8D94E1057E0C // f_OverallPageNumber
- ME_9A834AC46EA9 // f_BackColor
- ME_6C9D65687E54 // f_NotFocused
- ME_CB1A1452A27E // f_DCFlag
- ME_53570BF432F9 // f_Canvas
- ME_2B30B7FF0C57 // f_Owner
- ME_32981A0BEEF5 // f_Zoom
- ME_025CCAE9255F // f_OnDrawSpecialChange
- ME_6DFB1640F5F2 // f_PageOrientation
- ME_38BEE705CD28 // f_SectionExtent
- ME_00E2F513FA1D // f_Painter
- ME_4EBFEB9D339E // f_AbortChecker
- ME_79E21A8F9D56 // f_etoFlags
  )
  ; // Attributes
  : Operations
@@ -6724,7 +6263,6 @@ ref; // ME_5000565C019C_ME_4A4CB79A02C6 ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_4A4CB79A02C6 // Cleanup
  ME_47A042E100E2_ME_4A4CB79A02C6 // InitFields
- ME_5000565C019C_ME_4A4CB79A02C6 // ClearFields
  )
  ; // Overridden
  : Children
@@ -8924,73 +8462,6 @@ ref; // ME_48CA64A80010 f_VerticalLines
 
 ref; // ME_48CA64B70191 f_HorisontalBtmBuffer
 
-: ME_7775C21737E4
- CONST UID '7775C21737E4'
- CONST Name 'f_FrameObjID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FrameObjID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48CA64150378 // Tl3FrameObject
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_7775C21737E4 f_FrameObjID
-
-: ME_913CBE0434FD
- CONST UID '913CBE0434FD'
- CONST Name 'f_FinishedFO'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FinishedFO' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48CA64150378 // Tl3FrameObject
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FinishedFO'
-
-ref; // ME_913CBE0434FD f_FinishedFO
-
-: ME_030E828CA493
- CONST UID '030E828CA493'
- CONST Name 'f_LineWidth'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LineWidth' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48CA64150378 // Tl3FrameObject
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_030E828CA493 f_LineWidth
-
-: ME_E2EF2DC8F120
- CONST UID 'E2EF2DC8F120'
- CONST Name 'f_NeedLog'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NeedLog' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48CA64150378 // Tl3FrameObject
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "ifdef" 'nsTest'
- CONST extprop:clearViaProperty 'NeedLog'
-
-ref; // ME_E2EF2DC8F120 f_NeedLog
-
 : ME_48CA655B00D1
  CONST Name 'aFrameID'
  CONST Class class_Parameter
@@ -9307,10 +8778,6 @@ ref; // ME_479731C50290_ME_48CA64150378 Cleanup
  ME_48CA64930157 // f_HorisontalLines
  ME_48CA64A80010 // f_VerticalLines
  ME_48CA64B70191 // f_HorisontalBtmBuffer
- ME_7775C21737E4 // f_FrameObjID
- ME_913CBE0434FD // f_FinishedFO
- ME_030E828CA493 // f_LineWidth
- ME_E2EF2DC8F120 // f_NeedLog
  )
  ; // Attributes
  : Operations
@@ -10136,37 +9603,6 @@ ref; // ME_56B9C0450315 DoIt
 
 ref; // ME_56B9C037031F Create
 
-FORWARD ME_56B9C0610123
-
-: ME_6EA24B7FC8CF
- CONST Name 'anExtent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A480790259' '4677FBA70343.pas.ms.script' // Tl3_Point
- ;
-
-ref; // ME_6EA24B7FC8CF anExtent
-
-: ME_1A0AFD65B9A5
- CONST UID '1A0AFD65B9A5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tl3VirtualCanvas.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56B9C0610123 // Make
- ;
- : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
- ;
- : Parameters
-   Seq: ( ME_6EA24B7FC8CF // anExtent
- )
- ; // Parameters
-
-ref; // ME_1A0AFD65B9A5 DoIt
-
 : ME_56B9C0610123
  CONST UID '56B9C0610123'
  CONST Name 'Make'
@@ -10185,10 +9621,6 @@ ref; // ME_1A0AFD65B9A5 DoIt
    Seq: ( WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
  )
  ; // Implements
- : Operations
-   Seq: ( ME_1A0AFD65B9A5 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -10758,23 +10190,6 @@ ref; // ME_51B6F72203A6 f_Printing
 
 ref; // ME_5270A1060242 NeedClear
 
-: ME_919C5183DF46
- CONST UID '919C5183DF46'
- CONST Name 'f_NeedClear'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NeedClear' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D00B058024F // Tl3FrameLinesSpy
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NeedClear'
-
-ref; // ME_919C5183DF46 f_NeedClear
-
 FORWARD ME_4D00B6A50143
 
 : ME_4D00B6F00280
@@ -11013,12 +10428,6 @@ ref; // ME_4D00CF9803D8
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4D00B058024F Cleanup
 
-: ME_5000565C019C_ME_4D00B058024F
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D00B058024F ClearFields
-
 : ME_4D00B058024F
  CONST UID '4D00B058024F'
  CONST Name 'Tl3FrameLinesSpy'
@@ -11039,7 +10448,6 @@ ref; // ME_5000565C019C_ME_4D00B058024F ClearFields
  ME_4D00C7FC0159 // f_Filer
  ME_51B6F72203A6 // f_Printing
  ME_5270A1060242 // NeedClear
- ME_919C5183DF46 // f_NeedClear
  )
  ; // Attributes
  : Operations
@@ -11051,7 +10459,6 @@ ref; // ME_5000565C019C_ME_4D00B058024F ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4D00B058024F // Cleanup
- ME_5000565C019C_ME_4D00B058024F // ClearFields
  )
  ; // Overridden
  : Children
@@ -11727,25 +11134,6 @@ ref; // ME_5314807A0393 Tl3FontManagerPrim
 
 FORWARD ME_4B88F0E700A0
 
-FORWARD ME_4B88F0F00211
-
-: ME_7D16761A0A99
- CONST UID '7D16761A0A99'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B88F0F00211 // Tl3FontManagerEx
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_7D16761A0A99 Exists
-
 : ME_4B88F0F00211
  CONST UID '4B88F0F00211'
  CONST Name 'Tl3FontManagerEx'
@@ -11760,10 +11148,6 @@ ref; // ME_7D16761A0A99 Exists
    Seq: ( ME_4B88F0E700A0 // Tl3FontManager
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7D16761A0A99 // Exists
- )
- ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

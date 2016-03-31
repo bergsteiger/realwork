@@ -93,23 +93,6 @@ ref; // ME_537F4C000221 UID
 
 ref; // ME_537F4C150009 LastPing
 
-: ME_64671909FEC3
- CONST UID '64671909FEC3'
- CONST Name 'f_ClientId'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ClientId' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_537F4B3B03DD // TCsClientInfo
- ;
- : Target WL 'ME_537F4A04037C' '52FBB2FC0386.pas.ms.script' // TCsClientId
- ;
- CONST extprop:clearViaProperty 'ClientId'
-
-ref; // ME_64671909FEC3 f_ClientId
-
 : ME_56F8ECFF015C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -141,7 +124,6 @@ ref; // ME_56F8ECFF015C
  ME_537F4BDD0351 // ListenPort
  ME_537F4C000221 // UID
  ME_537F4C150009 // LastPing
- ME_64671909FEC3 // f_ClientId
  )
  ; // Attributes
  : Dependencies

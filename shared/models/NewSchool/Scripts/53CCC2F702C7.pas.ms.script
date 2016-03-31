@@ -79,37 +79,6 @@ ref; // ME_53CCFD170192 DoIt
 
 ref; // ME_53CCF63B0139 Create
 
-FORWARD ME_53CCF6A902D8
-
-: ME_691DF78C577E
- CONST Name 'aBaseEngineHolder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_53CE4F2F008D' '53CCCA40004C.pas.ms.script' // TalcuBaseEngineHolder
- ;
-
-ref; // ME_691DF78C577E aBaseEngineHolder
-
-: ME_E7030C6036F9
- CONST UID 'E7030C6036F9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TalcuAsyncSubmitterManager.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53CCF6A902D8 // Make
- ;
- : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
- ;
- : Parameters
-   Seq: ( ME_691DF78C577E // aBaseEngineHolder
- )
- ; // Parameters
-
-ref; // ME_E7030C6036F9 DoIt
-
 : ME_53CCF6A902D8
  CONST UID '53CCF6A902D8'
  CONST Name 'Make'
@@ -128,10 +97,6 @@ ref; // ME_E7030C6036F9 DoIt
    Seq: ( WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E7030C6036F9 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

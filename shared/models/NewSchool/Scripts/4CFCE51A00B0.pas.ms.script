@@ -88,55 +88,6 @@ ref; // ME_4D555E79006C Offset
 
 ref; // ME_4D555E930177 Color
 
-: ME_840A83A3FE56
- CONST UID '840A83A3FE56'
- CONST Name 'f_IntColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IntColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
- ;
- : Target WL 'ME_4D555D65006D' '4D5420EC039D.pas.ms.script' // TvgColor
- ;
- CONST extprop:clearViaProperty 'IntColor'
-
-ref; // ME_840A83A3FE56 f_IntColor
-
-: ME_F18482C35F3A
- CONST UID 'F18482C35F3A'
- CONST Name 'f_Offset'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Offset' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
- ;
- : Target WL 'ME_4D542256019C' '4AB0C3C60310.pas.ms.script' // single
- ;
- CONST extprop:clearViaProperty 'Offset'
-
-ref; // ME_F18482C35F3A f_Offset
-
-: ME_81A7697EC7D3
- CONST UID '81A7697EC7D3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgCustomGradientPoint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_81A7697EC7D3 Ini_Reg_Class
-
 FORWARD ME_4D555FED002F
 
 : ME_4D55600E033F
@@ -160,17 +111,6 @@ FORWARD ME_4D555FFC0179
  ;
 
 ref; // ME_4D5560150227 
-
-: ME_50044F559945
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_50044F559945 
 
 : ME_478CF34E02CE_ME_4D555D3201E9
  : Original WL 'ME_478CF34E02CE' '4AB0997B00A2.pas.ms.script' // Assign
@@ -210,14 +150,8 @@ ref; // ME_4D555CF50027_ME_4D555D3201E9 Create
    Seq: ( ME_4D555E080266 // IntColor
  ME_4D555E79006C // Offset
  ME_4D555E930177 // Color
- ME_840A83A3FE56 // f_IntColor
- ME_F18482C35F3A // f_Offset
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_81A7697EC7D3 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_478CF34E02CE_ME_4D555D3201E9 // Assign
  ME_47A6FEE600FC_ME_4D555D3201E9 // IsCacheable
@@ -232,7 +166,6 @@ ref; // ME_4D555CF50027_ME_4D555D3201E9 Create
  : Dependencies
    Seq: ( ME_4D55600E033F // 
  ME_4D5560150227 // 
- ME_50044F559945 // 
  )
  ; // Dependencies
  CONST "need UC" true
@@ -246,34 +179,6 @@ ref; // ME_4D555CF50027_ME_4D555D3201E9 Create
  CONST extprop:pas:UnitName 'vgCustomGradientPoint'
 
 ref; // ME_4D555D3201E9 TvgCustomGradientPoint
-
-FORWARD ME_4D555E3901BF
-
-: ME_CA3BBAF00BA3
- CONST UID 'CA3BBAF00BA3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgGradientPoint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D555E3901BF // TvgGradientPoint
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CA3BBAF00BA3 Ini_Reg_Class
-
-: ME_19678FEA742F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D555E3901BF // TvgGradientPoint
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_19678FEA742F 
 
 : ME_4D555E3901BF
  CONST UID '4D555E3901BF'
@@ -289,14 +194,6 @@ ref; // ME_19678FEA742F
    Seq: ( ME_4D555D3201E9 // TvgCustomGradientPoint
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CA3BBAF00BA3 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_19678FEA742F // 
- )
- ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -460,32 +357,6 @@ ref; // ME_4D5562680091 anIndex
 
 ref; // ME_4D55624903C3 Points
 
-: ME_2700353B9993
- CONST UID '2700353B9993'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgGradientPoints' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D55623200CE // TvgGradientPoints
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2700353B9993 Ini_Reg_Class
-
-: ME_F0B3ACEA43B4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D55623200CE // TvgGradientPoints
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F0B3ACEA43B4 
-
 : ME_47A6FEE600FC_ME_4D55623200CE
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
@@ -512,10 +383,6 @@ ref; // ME_47A6FEE600FC_ME_4D55623200CE IsCacheable
    Seq: ( ME_4D55624903C3 // Points
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_2700353B9993 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47A6FEE600FC_ME_4D55623200CE // IsCacheable
  )
@@ -525,10 +392,6 @@ ref; // ME_47A6FEE600FC_ME_4D55623200CE IsCacheable
  ME_4D55646500FE // l3Unknown_NoIUnknown
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_F0B3ACEA43B4 // 
- )
- ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -605,34 +468,6 @@ ref; // ME_4CFFB1A00237 TvgLayout
 
 ref; // ME_4CFFAE8902BD vg_layouts
 
-FORWARD ME_4D5E628602E6
-
-: ME_7158476F7EC6
- CONST UID '7158476F7EC6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgScenePrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D5E628602E6 // TvgScenePrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7158476F7EC6 Ini_Reg_Class
-
-: ME_78E8D83413CD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D5E628602E6 // TvgScenePrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_78E8D83413CD 
-
 : ME_4D5E628602E6
  CONST UID '4D5E628602E6'
  CONST Name 'TvgScenePrim'
@@ -648,14 +483,6 @@ ref; // ME_78E8D83413CD
  WL 'ME_4D5416AC01D1' '4D52A63D0365.pas.ms.script' // TvgCustomControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7158476F7EC6 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_78E8D83413CD // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1283,23 +1110,6 @@ ref; // ME_4D5EC23E012F Margins
 
 ref; // ME_4D5EC27D0219 Position
 
-: ME_A47A68F783AA
- CONST UID 'A47A68F783AA'
- CONST Name 'f_OnClick'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D49562A01B7 // TvgVisualObject
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnClick'
-
-ref; // ME_A47A68F783AA f_OnClick
-
 : ME_4D5EAD10009D_ME_4D49562A01B7
  : Original WL 'ME_4D5EAD10009D' '4D542052038D.pas.ms.script' // IsVisual
  ;
@@ -1329,7 +1139,6 @@ ref; // ME_4D5EAD10009D_ME_4D49562A01B7 IsVisual
  ME_4D5EB5860298 // DragMode
  ME_4D5EC23E012F // Margins
  ME_4D5EC27D0219 // Position
- ME_A47A68F783AA // f_OnClick
  )
  ; // Attributes
  : Overridden
@@ -2959,34 +2768,6 @@ ref; // ME_4CFE0E330363 vg_listbox
 
 FORWARD ME_4D5415920189
 
-FORWARD ME_5326B4F301BF
-
-: ME_BEABC846A02F
- CONST UID 'BEABC846A02F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvgBitmapObject' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5326B4F301BF // TvgBitmapObject
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BEABC846A02F Ini_Reg_Class
-
-: ME_1E679EEAB767
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5326B4F301BF // TvgBitmapObject
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1E679EEAB767 
-
 : ME_5326B4F301BF
  CONST UID '5326B4F301BF'
  CONST Name 'TvgBitmapObject'
@@ -3001,14 +2782,6 @@ ref; // ME_1E679EEAB767
    Seq: ( ME_4D4956480326 // TvgObject
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BEABC846A02F // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_1E679EEAB767 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -3691,7 +3464,6 @@ ref; // ME_551ABCF10068 vg_services
  WL 'ME_4E650454009C' '4E650454009C.pas.ms.script' // Требования к контролам VGScene
  WL 'ME_5012CA2D0012' '5012CA2D0012.pas.ms.script' // l3TestUtils
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

@@ -445,23 +445,6 @@ ref; // ME_4E68E5BB02B8 DoIt
 
 ref; // ME_4E68E5AB0093 Create
 
-FORWARD ME_4E68E5C400EC
-
-: ME_943A990C53EE
- CONST UID '943A990C53EE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TevResultFontHolder.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E68E5C400EC // Make
- ;
- : Target ME_4E68E516025B // IevResultFont
- ;
-
-ref; // ME_943A990C53EE DoIt
-
 : ME_4E68E5C400EC
  CONST UID '4E68E5C400EC'
  CONST Name 'Make'
@@ -480,10 +463,6 @@ ref; // ME_943A990C53EE DoIt
    Seq: ( ME_4E68E516025B // IevResultFont
  )
  ; // Implements
- : Operations
-   Seq: ( ME_943A990C53EE // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

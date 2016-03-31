@@ -4,34 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_5028898902A2
 
-FORWARD ME_50288ABF02F4
-
-: ME_A7F58AE0060E
- CONST UID 'A7F58AE0060E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Ttb97Control' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50288ABF02F4 // Ttb97Control
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A7F58AE0060E Ini_Reg_Class
-
-: ME_FCE6EA0B7872
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_50288ABF02F4 // Ttb97Control
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FCE6EA0B7872 
-
 : ME_50288ABF02F4
  CONST UID '50288ABF02F4'
  CONST Name 'Ttb97Control'
@@ -46,14 +18,6 @@ ref; // ME_FCE6EA0B7872
    Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A7F58AE0060E // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_FCE6EA0B7872 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -373,34 +337,6 @@ ref; // ME_502889FF0054 TB97
 
 FORWARD ME_502CD8FA02E1
 
-FORWARD ME_502CD936004A
-
-: ME_A3785EB1DA66
- CONST UID 'A3785EB1DA66'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Ttb97CustomGraphicControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_502CD936004A // Ttb97CustomGraphicControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A3785EB1DA66 Ini_Reg_Class
-
-: ME_3E0BAB3449C8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_502CD936004A // Ttb97CustomGraphicControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3E0BAB3449C8 
-
 : ME_502CD936004A
  CONST UID '502CD936004A'
  CONST Name 'Ttb97CustomGraphicControl'
@@ -419,14 +355,6 @@ ref; // ME_3E0BAB3449C8
    Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A3785EB1DA66 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_3E0BAB3449C8 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -435,34 +363,6 @@ ref; // ME_3E0BAB3449C8
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502CD936004A Ttb97CustomGraphicControl
-
-FORWARD ME_502CD89E0200
-
-: ME_A52232776F00
- CONST UID 'A52232776F00'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Ttb97GraphicTextControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_502CD89E0200 // Ttb97GraphicTextControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A52232776F00 Ini_Reg_Class
-
-: ME_93A26C7D09E4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_502CD89E0200 // Ttb97GraphicTextControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_93A26C7D09E4 
 
 : ME_502CD89E0200
  CONST UID '502CD89E0200'
@@ -478,14 +378,6 @@ ref; // ME_93A26C7D09E4
    Seq: ( ME_502CD8FA02E1 // Ttb97GraphicControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A52232776F00 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_93A26C7D09E4 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -546,7 +438,6 @@ ref; // ME_502CD8FA02E1 Ttb97GraphicControl
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 
