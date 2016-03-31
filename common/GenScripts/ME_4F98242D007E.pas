@@ -24,9 +24,9 @@ type
   protected
    class function GetInstance: TnsFiltersListenersManagerPrim; virtual; abstract;
    class function HasInstance: Boolean; virtual; abstract;
-   procedure filters_changed;
-   procedure filter_name_changed;
-   procedure filter_permanence_changed;
+   procedure FiltersChanged; stdcall;
+   procedure FilterNameChanged; stdcall;
+   procedure FilterPermanenceChanged; stdcall;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -65,7 +65,7 @@ begin
 //#UC END# *4F98265301F4_4F98242D007E_impl*
 end;//TnsFiltersListenersManagerPrim.RemoveListener
 
-procedure TnsFiltersListenersManagerPrim.filters_changed;
+procedure TnsFiltersListenersManagerPrim.FiltersChanged;
 //#UC START# *4CB2B26B0365_4F98242D007E_var*
 var
  l_Loop: Integer;
@@ -75,9 +75,9 @@ begin
  for l_Loop := 0 to f_Listeners.Count - 1 do
   f_Listeners[l_Loop].FiltersChanged;
 //#UC END# *4CB2B26B0365_4F98242D007E_impl*
-end;//TnsFiltersListenersManagerPrim.filters_changed
+end;//TnsFiltersListenersManagerPrim.FiltersChanged
 
-procedure TnsFiltersListenersManagerPrim.filter_name_changed;
+procedure TnsFiltersListenersManagerPrim.FilterNameChanged;
 //#UC START# *4CB2B27F03C3_4F98242D007E_var*
 var
  l_Loop: Integer;
@@ -87,9 +87,9 @@ begin
  for l_Loop := 0 to f_Listeners.Count - 1 do
   f_Listeners[l_Loop].FilterNameChanged;
 //#UC END# *4CB2B27F03C3_4F98242D007E_impl*
-end;//TnsFiltersListenersManagerPrim.filter_name_changed
+end;//TnsFiltersListenersManagerPrim.FilterNameChanged
 
-procedure TnsFiltersListenersManagerPrim.filter_permanence_changed;
+procedure TnsFiltersListenersManagerPrim.FilterPermanenceChanged;
 //#UC START# *4CB2B2910052_4F98242D007E_var*
 var
  l_Loop: Integer;
@@ -99,7 +99,7 @@ begin
  for l_Loop := 0 to f_Listeners.Count - 1 do
   f_Listeners[l_Loop].FilterPermanenceChanged;
 //#UC END# *4CB2B2910052_4F98242D007E_impl*
-end;//TnsFiltersListenersManagerPrim.filter_permanence_changed
+end;//TnsFiltersListenersManagerPrim.FilterPermanenceChanged
 
 procedure TnsFiltersListenersManagerPrim.Cleanup;
  {* Функция очистки полей объекта. }

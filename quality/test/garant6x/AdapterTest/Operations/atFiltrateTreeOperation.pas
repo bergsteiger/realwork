@@ -1,56 +1,43 @@
 unit atFiltrateTreeOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atFiltrateTreeOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatFiltrateTreeOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atFiltrateTreeOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatFiltrateTreeOperation" MUID: (503B7D18032C)
 
 interface
 
 uses
-  atOperationBase,
-  atStringProvider
-  ;
+ l3IntfUses
+ , atOperationBase
+ , atStringProvider
+;
 
 type
  _atHasStringParamAddOn_Parent_ = TatOperationBase;
- {$Include ..\Operations\atHasStringParamAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
  TatFiltrateTreeOperation = class(_atHasStringParamAddOn_)
- protected
- // realized methods
+  protected
    function OnString(const aString: AnsiString): Boolean; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatFiltrateTreeOperation
 
 implementation
 
 uses
-  atLogger,
-  DynamicTreeUnit,
-  atNodeHelper,
-  atStringHelper,
-  atSettingsHelper,
-  atFilterHelper,
-  SysUtils,
-  atSyncedStringFileReader,
-  atStringFileReader,
-  atConstStringProvider
-  ;
+ l3ImplUses
+ , atLogger
+ , DynamicTreeUnit
+ , atNodeHelper
+ , atStringHelper
+ , atSettingsHelper
+ , atFilterHelper
+ , SysUtils
+ , atSyncedStringFileReader
+ , atStringFileReader
+ , atConstStringProvider
+;
 
-{$Include ..\Operations\atHasStringParamAddOn.imp.pas}
-
-// start class TatFiltrateTreeOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
 
 function TatFiltrateTreeOperation.OnString(const aString: AnsiString): Boolean;
 //#UC START# *503648620273_503B7D18032C_var*

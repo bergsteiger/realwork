@@ -1,52 +1,43 @@
 unit m3CommonStorageStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3CommonStorageStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3CommonStorageStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3CommonStorageStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CommonStorageStream" MUID: (54218C200328)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3StorageInterfaces,
-  l3_String,
-  m3BaseStream,
-  m3RootStreamManagerPrimPrim
-  ;
+ l3IntfUses
+ , m3BaseStream
+ , m3StorageInterfaces
+ , m3RootStreamManagerPrimPrim
+ , l3_String
+;
 
 type
  Tm3CommonStorageStream = {abstract} class(Tm3BaseStream)
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(anAccess: Tm3StoreAccess;
-     aRootStreamManager: Tm3RootStreamManagerPrimPrim;
-     aName: Tl3_String); reintroduce;
+    aRootStreamManager: Tm3RootStreamManagerPrimPrim;
+    aName: Tl3_String); reintroduce;
  end;//Tm3CommonStorageStream
 
 implementation
 
-// start class Tm3CommonStorageStream
+uses
+ l3ImplUses
+;
 
 constructor Tm3CommonStorageStream.Create(anAccess: Tm3StoreAccess;
-  aRootStreamManager: Tm3RootStreamManagerPrimPrim;
-  aName: Tl3_String);
+ aRootStreamManager: Tm3RootStreamManagerPrimPrim;
+ aName: Tl3_String);
 //#UC START# *54218C6B02B1_54218C200328_var*
 //#UC END# *54218C6B02B1_54218C200328_var*
 begin
@@ -57,8 +48,9 @@ begin
 //#UC END# *54218C6B02B1_54218C200328_impl*
 end;//Tm3CommonStorageStream.Create
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tm3CommonStorageStream.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_54218C200328_var*
 //#UC END# *47A6FEE600FC_54218C200328_var*
 begin
@@ -66,6 +58,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_54218C200328_impl*
 end;//Tm3CommonStorageStream.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

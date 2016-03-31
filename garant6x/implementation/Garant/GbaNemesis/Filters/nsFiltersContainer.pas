@@ -1,102 +1,69 @@
 unit nsFiltersContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::Impl::TnsFiltersContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersContainer" MUID: (4CAC5BD701BF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FiltersUnit,
-  SearchUnit,
-  l3Interfaces,
-  l3SimpleObject,
-  bsTypes,
-  nsFiltersInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , nsFiltersInterfaces
+ , SearchUnit
+ , l3Interfaces
+ , FiltersUnit
+ , bsTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersContainer = class(Tl3SimpleObject)
- private
- // private fields
-   f_DocFilter : InsFiltersContainer;
-   f_DrugFilter : InsFiltersContainer;
- protected
- // property methods
+  private
+   f_DocFilter: InsFiltersContainer;
+   f_DrugFilter: InsFiltersContainer;
+  protected
    function pm_GetFilters(ListType: TbsListType): InsFiltersContainer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class procedure ConvertToFilter(const aQuery: IQuery;
     const aName: Il3CString);
    class procedure RenameFilter(const aFilter: IFilterFromQuery;
     const aName: Il3CString);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Filters[ListType: TbsListType]: InsFiltersContainer
-     read pm_GetFilters;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsFiltersContainer;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsFiltersContainer }
+  public
+   property Filters[ListType: TbsListType]: InsFiltersContainer
+    read pm_GetFilters;
  end;//TnsFiltersContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  nsFiltersContainerPrim,
-  DataAdapter,
-  nsTypes,
-  SysUtils,
-  BaseTypesUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsFiltersContainerPrim
+ , DataAdapter
+ , nsTypes
+ , SysUtils
+ , BaseTypesUnit
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsFiltersContainer
-
-var g_TnsFiltersContainer : TnsFiltersContainer = nil;
+var g_TnsFiltersContainer: TnsFiltersContainer = nil;
+ {* Экземпляр синглетона TnsFiltersContainer }
 
 procedure TnsFiltersContainerFree;
+ {* Метод освобождения экземпляра синглетона TnsFiltersContainer }
 begin
  l3Free(g_TnsFiltersContainer);
-end;
-
-class function TnsFiltersContainer.Instance: TnsFiltersContainer;
-begin
- if (g_TnsFiltersContainer = nil) then
- begin
-  l3System.AddExitProc(TnsFiltersContainerFree);
-  g_TnsFiltersContainer := Create;
- end;
- Result := g_TnsFiltersContainer;
-end;
-
+end;//TnsFiltersContainerFree
 
 function TnsFiltersContainer.pm_GetFilters(ListType: TbsListType): InsFiltersContainer;
 //#UC START# *4CAD6F700075_4CAC5BD701BFget_var*
@@ -123,7 +90,7 @@ begin
 end;//TnsFiltersContainer.pm_GetFilters
 
 class procedure TnsFiltersContainer.ConvertToFilter(const aQuery: IQuery;
-  const aName: Il3CString);
+ const aName: Il3CString);
 //#UC START# *4CB5545B0148_4CAC5BD701BF_var*
 //#UC END# *4CB5545B0148_4CAC5BD701BF_var*
 begin
@@ -133,7 +100,7 @@ begin
 end;//TnsFiltersContainer.ConvertToFilter
 
 class procedure TnsFiltersContainer.RenameFilter(const aFilter: IFilterFromQuery;
-  const aName: Il3CString);
+ const aName: Il3CString);
 //#UC START# *4CB5549500AD_4CAC5BD701BF_var*
 //#UC END# *4CB5549500AD_4CAC5BD701BF_var*
 begin
@@ -143,12 +110,24 @@ begin
 end;//TnsFiltersContainer.RenameFilter
 
 class function TnsFiltersContainer.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsFiltersContainer <> nil;
 end;//TnsFiltersContainer.Exists
 
+class function TnsFiltersContainer.Instance: TnsFiltersContainer;
+ {* Метод получения экземпляра синглетона TnsFiltersContainer }
+begin
+ if (g_TnsFiltersContainer = nil) then
+ begin
+  l3System.AddExitProc(TnsFiltersContainerFree);
+  g_TnsFiltersContainer := Create;
+ end;
+ Result := g_TnsFiltersContainer;
+end;//TnsFiltersContainer.Instance
+
 procedure TnsFiltersContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CAC5BD701BF_var*
 //#UC END# *479731C50290_4CAC5BD701BF_var*
 begin
@@ -158,7 +137,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4CAC5BD701BF_impl*
 end;//TnsFiltersContainer.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

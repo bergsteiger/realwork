@@ -15,6 +15,8 @@ uses
  , l3Interfaces
  , m3StorageInterfaces
  , Windows
+ //#UC START# *4FA2766F02A5intf_uses*
+ //#UC END# *4FA2766F02A5intf_uses*
 ;
 
 type
@@ -198,6 +200,8 @@ uses
  , SysUtils
  , ComObj
  , m2MemLib
+ //#UC START# *4FA2766F02A5impl_uses*
+ //#UC END# *4FA2766F02A5impl_uses*
 ;
 
 procedure Tm3BaseStorage.DoCreateStore(const aName: Tl3WString;

@@ -1,53 +1,38 @@
 unit nsCounterEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsCounterEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::Logging::TnsCounterEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsCounterEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsCounterEvent" MUID: (4B13A1A2000F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  LoggingUnit,
-  nsPrimCachedEvent
-  ;
+ l3IntfUses
+ , nsPrimCachedEvent
+ , LoggingUnit
+;
 
 type
  TnsCounterEvent = {abstract} class(TnsPrimCachedEvent)
- private
- // private fields
-   f_Counter : Cardinal;
- protected
- // realized methods
-   procedure DoFireLog; override;
- protected
- // protected methods
+  private
+   f_Counter: Cardinal;
+  protected
    function EventID: TLogEvent; virtual; abstract;
- public
- // public methods
+   procedure DoFireLog; override;
+  public
    procedure Log;
  end;//TnsCounterEvent
 
 implementation
 
 uses
-  LoggingWrapperInterfaces,
-  nsLogEventData,
-  nsLogManager
-  ;
-
-// start class TnsCounterEvent
+ l3ImplUses
+ , LoggingWrapperInterfaces
+ , nsLogEventData
+ , nsLogManager
+;
 
 procedure TnsCounterEvent.Log;
 //#UC START# *4B13A5F10200_4B13A1A2000F_var*

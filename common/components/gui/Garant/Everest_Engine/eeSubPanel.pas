@@ -12,6 +12,8 @@ uses
  l3IntfUses
  , eeSubPanelExport
  , eeInterfaces
+ //#UC START# *4C7F948C03BDintf_uses*
+ //#UC END# *4C7F948C03BDintf_uses*
 ;
 
 type
@@ -59,6 +61,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C7F948C03BDimpl_uses*
+ //#UC END# *4C7F948C03BDimpl_uses*
 ;
 
 function TeeCustomSubPanel.pm_GetSubPanel: IeeSubPanel;

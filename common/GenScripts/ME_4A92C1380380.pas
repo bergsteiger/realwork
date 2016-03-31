@@ -33,7 +33,7 @@ uses
 ;
 
 type
- TPrimF1CommonModule = {abstract} class
+ TPrimF1CommonModule = {abstract} class(TvcmModule)
   {* "Общий" только для F1 }
   protected
    procedure ComplectInfo;
@@ -124,6 +124,7 @@ uses
  , nsConst
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimF1CommonModule.MakeProgressIndicator(const aProgress: InsProgressIndicator;
  const aCaption: Il3CString;
  aMaxCount: Integer);
@@ -669,6 +670,7 @@ begin
  Result := Ten_TurnOffTimeMachine.Make(anIntf);
 //#UC END# *4B2624ED010D_4A92C1380380_impl*
 end;//TPrimF1CommonModule.OpenTurnOffTimeMachine
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

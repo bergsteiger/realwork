@@ -1,81 +1,62 @@
 unit l3SimpleMemoryManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3SimpleMemoryManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MemoryManagers::Tl3SimpleMemoryManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleMemoryManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SimpleMemoryManager" MUID: (5453AE0C0100)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3SimpleMemoryManagerPrim
-  ;
+ l3IntfUses
+ , l3SimpleMemoryManagerPrim
+;
 
 type
-
  Pl3MemoryBlock = ^Tl3MemoryBlock;
- Tl3MemoryBlock = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rNext : Pl3MemoryBlock;
-   rFree : Cardinal;
+
+ Tl3MemoryBlock = object
+  public
+   rNext: Pl3MemoryBlock;
+   rFree: Cardinal;
  end;//Tl3MemoryBlock
 
  Tl3SimpleMemoryManager = class(Tl3SimpleMemoryManagerPrim)
- private
- // private fields
-   f_Head : Pl3MemoryBlock;
-   f_BlockSize : Cardinal;
-   f_WasAllocCountWarning : Boolean;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_AllocCount : Integer;
- public
- // public fields
-  {$If defined(MMTrace)}
-   f_GlobalAlloc : Integer;
-  {$IfEnd} //MMTrace
- protected
- // protected methods
+  private
+   f_Head: Pl3MemoryBlock;
+   f_BlockSize: Cardinal;
+   f_WasAllocCountWarning: Boolean;
+  protected
+   f_AllocCount: Integer;
+  public
+   {$If Defined(MMTrace)}
+   f_GlobalAlloc: Integer;
+   {$IfEnd} // Defined(MMTrace)
+  protected
    function CanFreeBlocks: Boolean; virtual;
    procedure FreeBlocks; virtual;
-     {* Сигнатура метода FreeBlocks }
    procedure DoGetMem(var P;
-     aSize: Cardinal); virtual;
+    aSize: Cardinal); virtual;
    procedure DoFreeMem(var P); virtual;
    procedure AllocNewBlock;
-     {* Сигнатура метода AllocNewBlock }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aBlockSize: Cardinal); reintroduce;
    procedure GetMem(var P;
-     aSize: Cardinal);
+    aSize: Cardinal);
    procedure FreeMem(var P);
  end;//Tl3SimpleMemoryManager
 
 implementation
 
 uses
-  l3MemUtils,
-  l3ExceptionsLog,
-  SysUtils
-  ;
-
-// start class Tl3SimpleMemoryManager
+ l3ImplUses
+ , l3MemUtils
+ , l3ExceptionsLog
+ , SysUtils
+;
 
 function Tl3SimpleMemoryManager.CanFreeBlocks: Boolean;
 //#UC START# *545A2F6800D6_5453AE0C0100_var*
@@ -106,7 +87,7 @@ begin
 end;//Tl3SimpleMemoryManager.FreeBlocks
 
 procedure Tl3SimpleMemoryManager.DoGetMem(var P;
-  aSize: Cardinal);
+ aSize: Cardinal);
 //#UC START# *54B6A20201D7_5453AE0C0100_var*
   
  procedure RaiseBlockSizeError;
@@ -202,7 +183,7 @@ begin
 end;//Tl3SimpleMemoryManager.Create
 
 procedure Tl3SimpleMemoryManager.GetMem(var P;
-  aSize: Cardinal);
+ aSize: Cardinal);
 //#UC START# *54B91CB0028C_5453AE0C0100_var*
 //#UC END# *54B91CB0028C_5453AE0C0100_var*
 begin
@@ -229,9 +210,9 @@ begin
  end;//try..finally
 //#UC END# *54B91CD502DD_5453AE0C0100_impl*
 end;//Tl3SimpleMemoryManager.FreeMem
-// start class Tl3SimpleMemoryManager
 
 procedure Tl3SimpleMemoryManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5453AE0C0100_var*
 //#UC END# *479731C50290_5453AE0C0100_var*
 begin

@@ -1,69 +1,61 @@
 unit DocumentDomainInterfaces;
+ {* Работа с документом }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Model"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Model/DocumentDomainInterfaces.pas"
-// Начат: 10.02.2009 20:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> F1 Базовые определения предметной области::LegalDomain::Model::DocumentDomainInterfaces
-//
-// Работа с документом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\DocumentDomainInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "DocumentDomainInterfaces" MUID: (4991BD69025E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3Interfaces
+;
 
 type
- InsLinkedObjectDescription = interface(IUnknown)
+ InsLinkedObjectDescription = interface
   {* Содержит информацию о картинке }
-   ['{29FA1780-029B-4E08-B914-F0668C44ADEB}']
-   function pm_GetID: Integer;
-   function pm_GetName: Il3CString;
-   function pm_GetShortName: Il3CString;
-   property ID: Integer
-     read pm_GetID;
-   property Name: Il3CString
-     read pm_GetName;
-   property ShortName: Il3CString
-     read pm_GetShortName;
+  ['{29FA1780-029B-4E08-B914-F0668C44ADEB}']
+  function pm_GetID: Integer;
+  function pm_GetName: Il3CString;
+  function pm_GetShortName: Il3CString;
+  property ID: Integer
+   read pm_GetID;
+  property Name: Il3CString
+   read pm_GetName;
+  property ShortName: Il3CString
+   read pm_GetShortName;
  end;//InsLinkedObjectDescription
 
- InsLinkedObjectData = interface(IUnknown)
+ InsLinkedObjectData = interface
   {* Содержит информацию о картинке и ее данные }
-   ['{650645AC-163D-4C26-82DA-2D307EB68A9F}']
-   function Get_IsPicture: Boolean;
-   function pm_GetObjectTitle: Il3CString;
-   function pm_GetWindowCaption: Il3CString;
-   function pm_GetFileName: Il3CString;
-   function pm_GetData: IStream;
-   function pm_GetDescription: InsLinkedObjectDescription;
-   property IsPicture: Boolean
-     read Get_IsPicture;
-   property ObjectTitle: Il3CString
-     read pm_GetObjectTitle;
-   property WindowCaption: Il3CString
-     read pm_GetWindowCaption;
-   property FileName: Il3CString
-     read pm_GetFileName;
-   property Data: IStream
-     read pm_GetData;
-   property Description: InsLinkedObjectDescription
-     read pm_GetDescription;
+  ['{650645AC-163D-4C26-82DA-2D307EB68A9F}']
+  function Get_IsPicture: Boolean;
+  function pm_GetObjectTitle: Il3CString;
+  function pm_GetWindowCaption: Il3CString;
+  function pm_GetFileName: Il3CString;
+  function pm_GetData: IStream;
+  function pm_GetDescription: InsLinkedObjectDescription;
+  property IsPicture: Boolean
+   read Get_IsPicture;
+  property ObjectTitle: Il3CString
+   read pm_GetObjectTitle;
+  property WindowCaption: Il3CString
+   read pm_GetWindowCaption;
+  property FileName: Il3CString
+   read pm_GetFileName;
+  property Data: IStream
+   read pm_GetData;
+  property Description: InsLinkedObjectDescription
+   read pm_GetDescription;
  end;//InsLinkedObjectData
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

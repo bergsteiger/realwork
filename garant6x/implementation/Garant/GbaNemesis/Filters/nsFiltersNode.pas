@@ -1,46 +1,33 @@
 unit nsFiltersNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::Impl::TnsFiltersNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersNode" MUID: (4CAEEE74038E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  IOUnit,
-  FiltersUnit,
-  l3Tree_TLB,
-  nsFiltersInterfaces,
-  l3NodesModelPart,
-  l3Interfaces,
-  l3TreeInterfaces,
-  l3Types,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3NodesModelPart
+ , nsFiltersInterfaces
+ , FiltersUnit
+ , IOUnit
+ , l3Tree_TLB
+ , l3Interfaces
+ , l3IID
+ , l3Types
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersNode = class(Tl3PlaceNode, InsFilterNode)
- private
- // private fields
-   f_Filter : IFilterFromQuery;
-   f_NameCache : IString;
- protected
- // realized methods
+  private
+   f_Filter: IFilterFromQuery;
+   f_NameCache: IString;
+  protected
    function pm_GetUsedStatus: Boolean;
    function pm_GetDeletedStatus: Boolean;
    function pm_GetAutoApplied: Boolean;
@@ -49,36 +36,31 @@ type
    procedure MarkToDelete;
    procedure ValidateName;
    function pm_GetID: Longword;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
- public
- // public methods
+  public
    constructor Create(const aFilter: IFilterFromQuery); reintroduce;
    class function Make(const aFilter: IFilterFromQuery): Il3Node; reintroduce;
-     {* Сигнатура фабрики TnsFiltersNode.Make }
  end;//TnsFiltersNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFiltersNode
+ l3ImplUses
+ , SysUtils
+ , nsTypes
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor TnsFiltersNode.Create(const aFilter: IFilterFromQuery);
 //#UC START# *4CB30BE00217_4CAEEE74038E_var*
@@ -100,7 +82,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFiltersNode.Make
 
 function TnsFiltersNode.pm_GetUsedStatus: Boolean;
 //#UC START# *499189000111_4CAEEE74038Eget_var*
@@ -175,6 +157,7 @@ begin
 end;//TnsFiltersNode.pm_GetID
 
 procedure TnsFiltersNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CAEEE74038E_var*
 //#UC END# *479731C50290_4CAEEE74038E_var*
 begin
@@ -208,7 +191,8 @@ begin
 end;//TnsFiltersNode.DoSetAsPCharLen
 
 function TnsFiltersNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4CAEEE74038E_var*
 var
  l_Filter : IFilterFromQuery;
@@ -254,7 +238,6 @@ begin
   Result := inherited GetIsSame(aNode);
 //#UC END# *54C78D9201B9_4CAEEE74038E_impl*
 end;//TnsFiltersNode.GetIsSame
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

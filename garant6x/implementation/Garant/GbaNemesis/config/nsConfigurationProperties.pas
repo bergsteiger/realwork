@@ -1,84 +1,56 @@
 unit nsConfigurationProperties;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Config"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Config/nsConfigurationProperties.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Основные прецеденты::Settings::Config::Config::TnsConfigurationProperties
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationProperties.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsConfigurationProperties" MUID: (5231A17601FD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmStringList
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmStringList
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsConfigurationProperties = class(TvcmStringList)
- public
- // public methods
+ TnsConfigurationProperties = class(TvcmStringList{$If NOT Defined(NoVCM)}
+ , IvcmStrings
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  public
    class function HasInstance: Boolean;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsConfigurationProperties;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsConfigurationProperties }
  end;//TnsConfigurationProperties
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsConfigurationProperties
-
-var g_TnsConfigurationProperties : TnsConfigurationProperties = nil;
+{$If NOT Defined(NoVCM)}
+var g_TnsConfigurationProperties: TnsConfigurationProperties = nil;
+ {* Экземпляр синглетона TnsConfigurationProperties }
 
 procedure TnsConfigurationPropertiesFree;
+ {* Метод освобождения экземпляра синглетона TnsConfigurationProperties }
 begin
  l3Free(g_TnsConfigurationProperties);
-end;
-
-class function TnsConfigurationProperties.Instance: TnsConfigurationProperties;
-begin
- if (g_TnsConfigurationProperties = nil) then
- begin
-  l3System.AddExitProc(TnsConfigurationPropertiesFree);
-  g_TnsConfigurationProperties := Create;
- end;
- Result := g_TnsConfigurationProperties;
-end;
-
+end;//TnsConfigurationPropertiesFree
 
 class function TnsConfigurationProperties.HasInstance: Boolean;
 //#UC START# *5231A23D03D2_5231A17601FD_var*
@@ -90,11 +62,22 @@ begin
 end;//TnsConfigurationProperties.HasInstance
 
 class function TnsConfigurationProperties.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsConfigurationProperties <> nil;
 end;//TnsConfigurationProperties.Exists
 
-{$IfEnd} //not Admin AND not Monitorings
+class function TnsConfigurationProperties.Instance: TnsConfigurationProperties;
+ {* Метод получения экземпляра синглетона TnsConfigurationProperties }
+begin
+ if (g_TnsConfigurationProperties = nil) then
+ begin
+  l3System.AddExitProc(TnsConfigurationPropertiesFree);
+  g_TnsConfigurationProperties := Create;
+ end;
+ Result := g_TnsConfigurationProperties;
+end;//TnsConfigurationProperties.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

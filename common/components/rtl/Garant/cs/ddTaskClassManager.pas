@@ -1,95 +1,65 @@
 unit ddTaskClassManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ddTaskClassManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ArchiClientServer::TddTaskClassManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ddTaskClassManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskClassManager" MUID: (53848F4F00E4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ddServerTask,
-  csTaskTypes,
-  ddTaskRecordList
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ddTaskRecordList
+ , ddServerTask
+ , csTaskTypes
+;
 
-{$If not defined(Nemesis)}
 type
  TddTaskClassManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_ClassList : TddTaskRecordList;
- protected
- // overridden protected methods
+  private
+   f_ClassList: TddTaskRecordList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    function GetClass(aClassType: TcsTaskType;
-     out aDescription: AnsiString): TddTaskClass;
+    out aDescription: AnsiString): TddTaskClass;
    procedure RegisterClass(aType: TcsTaskType;
-     aClass: TddTaskClass;
-     const aDescription: AnsiString);
+    aClass: TddTaskClass;
+    const aDescription: AnsiString);
    function Registered(aTaskType: TcsTaskType): Boolean;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TddTaskClassManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TddTaskClassManager }
  end;//TddTaskClassManager
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  SysUtils,
-  ddTaskRecord
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , SysUtils
+ , ddTaskRecord
+ , l3Base
+;
 
-{$If not defined(Nemesis)}
-
-
-// start class TddTaskClassManager
-
-var g_TddTaskClassManager : TddTaskClassManager = nil;
+var g_TddTaskClassManager: TddTaskClassManager = nil;
+ {* Экземпляр синглетона TddTaskClassManager }
 
 procedure TddTaskClassManagerFree;
+ {* Метод освобождения экземпляра синглетона TddTaskClassManager }
 begin
  l3Free(g_TddTaskClassManager);
-end;
-
-class function TddTaskClassManager.Instance: TddTaskClassManager;
-begin
- if (g_TddTaskClassManager = nil) then
- begin
-  l3System.AddExitProc(TddTaskClassManagerFree);
-  g_TddTaskClassManager := Create;
- end;
- Result := g_TddTaskClassManager;
-end;
-
+end;//TddTaskClassManagerFree
 
 function TddTaskClassManager.GetClass(aClassType: TcsTaskType;
-  out aDescription: AnsiString): TddTaskClass;
+ out aDescription: AnsiString): TddTaskClass;
 //#UC START# *538490A701EF_53848F4F00E4_var*
 var
   I: Integer;
@@ -110,8 +80,8 @@ begin
 end;//TddTaskClassManager.GetClass
 
 procedure TddTaskClassManager.RegisterClass(aType: TcsTaskType;
-  aClass: TddTaskClass;
-  const aDescription: AnsiString);
+ aClass: TddTaskClass;
+ const aDescription: AnsiString);
 //#UC START# *538490D80145_53848F4F00E4_var*
 var
  l_ClassRef: TddTaskRecord;
@@ -142,12 +112,24 @@ begin
 end;//TddTaskClassManager.Registered
 
 class function TddTaskClassManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TddTaskClassManager <> nil;
 end;//TddTaskClassManager.Exists
 
+class function TddTaskClassManager.Instance: TddTaskClassManager;
+ {* Метод получения экземпляра синглетона TddTaskClassManager }
+begin
+ if (g_TddTaskClassManager = nil) then
+ begin
+  l3System.AddExitProc(TddTaskClassManagerFree);
+  g_TddTaskClassManager := Create;
+ end;
+ Result := g_TddTaskClassManager;
+end;//TddTaskClassManager.Instance
+
 procedure TddTaskClassManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53848F4F00E4_var*
 //#UC END# *479731C50290_53848F4F00E4_var*
 begin
@@ -166,7 +148,6 @@ begin
  f_ClassList := TddTaskRecordList.Create;
 //#UC END# *47A042E100E2_53848F4F00E4_impl*
 end;//TddTaskClassManager.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

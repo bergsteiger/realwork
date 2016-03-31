@@ -1,86 +1,56 @@
 unit nsFiltersListenersDrugsManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersListenersDrugsManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::FiltersNotification::TnsFiltersListenersDrugsManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersDrugsManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersListenersDrugsManager" MUID: (4F98440301D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsFiltersListenersManagerPrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsFiltersListenersManagerPrim
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersListenersDrugsManager = class(TnsFiltersListenersManagerPrim)
- public
- // realized methods
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    class function GetInstance: TnsFiltersListenersManagerPrim; override;
    class function HasInstance: Boolean; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TnsFiltersListenersDrugsManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsFiltersListenersDrugsManager }
  end;//TnsFiltersListenersDrugsManager
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  DataAdapter
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , DataAdapter
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsFiltersListenersDrugsManager
-
-var g_TnsFiltersListenersDrugsManager : TnsFiltersListenersDrugsManager = nil;
+var g_TnsFiltersListenersDrugsManager: TnsFiltersListenersDrugsManager = nil;
+ {* Экземпляр синглетона TnsFiltersListenersDrugsManager }
 
 procedure TnsFiltersListenersDrugsManagerFree;
+ {* Метод освобождения экземпляра синглетона TnsFiltersListenersDrugsManager }
 begin
  l3Free(g_TnsFiltersListenersDrugsManager);
-end;
-
-class function TnsFiltersListenersDrugsManager.Instance: TnsFiltersListenersDrugsManager;
-begin
- if (g_TnsFiltersListenersDrugsManager = nil) then
- begin
-  l3System.AddExitProc(TnsFiltersListenersDrugsManagerFree);
-  g_TnsFiltersListenersDrugsManager := Create;
- end;
- Result := g_TnsFiltersListenersDrugsManager;
-end;
-
+end;//TnsFiltersListenersDrugsManagerFree
 
 class function TnsFiltersListenersDrugsManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsFiltersListenersDrugsManager <> nil;
 end;//TnsFiltersListenersDrugsManager.Exists
@@ -103,7 +73,19 @@ begin
 //#UC END# *4FFD45CD0313_4F98440301D2_impl*
 end;//TnsFiltersListenersDrugsManager.HasInstance
 
+class function TnsFiltersListenersDrugsManager.Instance: TnsFiltersListenersDrugsManager;
+ {* Метод получения экземпляра синглетона TnsFiltersListenersDrugsManager }
+begin
+ if (g_TnsFiltersListenersDrugsManager = nil) then
+ begin
+  l3System.AddExitProc(TnsFiltersListenersDrugsManagerFree);
+  g_TnsFiltersListenersDrugsManager := Create;
+ end;
+ Result := g_TnsFiltersListenersDrugsManager;
+end;//TnsFiltersListenersDrugsManager.Instance
+
 procedure TnsFiltersListenersDrugsManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F98440301D2_var*
 //#UC END# *479731C50290_4F98440301D2_var*
 begin
@@ -122,7 +104,6 @@ begin
  defDataAdapter.NativeAdapter.MakeFiltersManager.SetPharmNotifier(Self);
 //#UC END# *47A042E100E2_4F98440301D2_impl*
 end;//TnsFiltersListenersDrugsManager.InitFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

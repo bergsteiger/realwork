@@ -33,7 +33,7 @@ type
    f_Password: AnsiString;
    f_ServerPort: Integer;
    f_ExitCode: Cardinal;
-    {* Поле для свойства ExitCode }
+    {* Чем процесс завершился }
   protected
    procedure SubmitTask(const aTaskFile: AnsiString);
    procedure DoExecute; override;
@@ -61,13 +61,10 @@ type
    f_SubmitGuard: Integer;
    f_CheckExecutionGuard: Integer;
    f_UserID: TUserID;
-    {* Поле для свойства UserID }
    f_ActiveTask: TddProcessTask;
-    {* Поле для свойства ActiveTask }
    f_Manager: IalcuAsyncSubmitterManager;
-    {* Поле для свойства Manager }
    f_Active: Boolean;
-    {* Поле для свойства Active }
+    {* Можно ли отцеплять утилиту }
   private
    procedure NotifySubscribers;
   protected

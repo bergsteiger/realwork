@@ -1,77 +1,60 @@
 unit atStringsFromFile;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringsFromFile.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatStringsFromFile
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringsFromFile.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatStringsFromFile" MUID: (50294ABA02B0)
 
 interface
 
 uses
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+;
 
 type
- SFFHeader = record
-   StringsCount : Integer;
-   IndexOffset : Integer;
-   DataOffset : Integer;
-   DataLength : Integer;
- end;//SFFHeader
-
  PSFFHeader = ^SFFHeader;
 
+ SFFHeader = record
+  StringsCount: Integer;
+  IndexOffset: Integer;
+  DataOffset: Integer;
+  DataLength: Integer;
+ end;//SFFHeader
+
  TatStringsFromFile = class(TObject)
- private
- // private fields
-   f_PIndex : PInteger;
-   f_DataFileName : AnsiString;
-   f_PData : PAnsiChar;
-   f_PFileHeader : PSFFHeader;
-   f_StringFile : THandle;
-   f_DataFile : THandle;
-   f_DataFileMapping : THandle;
- private
- // private methods
+  private
+   f_PIndex: PInteger;
+   f_DataFileName: AnsiString;
+   f_PData: PAnsiChar;
+   f_PFileHeader: PSFFHeader;
+   f_StringFile: THandle;
+   f_DataFile: THandle;
+   f_DataFileMapping: THandle;
+  private
    procedure SetPointers; virtual;
    procedure CloseDataFile; virtual;
    procedure InitDataFile; virtual;
- protected
- // property methods
+  protected
    function pm_GetCount: Integer;
    function pm_GetStrings(anIndex: Integer): AnsiString; virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const aStringFileName: AnsiString); reintroduce;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property Strings[anIndex: Integer]: AnsiString
-     read pm_GetStrings;
+    read pm_GetStrings;
  end;//TatStringsFromFile
 
 implementation
 
 uses
-  atFileInitializer,
-  SysUtils,
-  Classes
-  ;
-
-// start class TatStringsFromFile
+ l3ImplUses
+ , atFileInitializer
+ , SysUtils
+ , Classes
+;
 
 function TatStringsFromFile.pm_GetCount: Integer;
 //#UC START# *502956AB00B3_50294ABA02B0get_var*

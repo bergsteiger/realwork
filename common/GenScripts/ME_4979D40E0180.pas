@@ -37,6 +37,7 @@ uses
 ;
 
 type
+ _BaseDocument_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  TPrimDictionForm = class(_BaseDocument_, IbsDictionListener)
   {* Толковый словарь }
@@ -169,6 +170,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utDictionLocalConstants }
  str_utDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionCaption'; rValue : 'Толковый словарь');
@@ -609,7 +611,6 @@ begin
 //#UC END# *47EA4E9002C6_4979D40E0180_impl*
 end;//TPrimDictionForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDictionForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -697,9 +698,7 @@ begin
  end;//Diction <> nil
 //#UC END# *497469C90140_4979D40E0180_impl*
 end;//TPrimDictionForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDictionForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4979D40E0180_var*
@@ -720,9 +719,7 @@ begin
  UpdateStatusInfo;
 //#UC END# *49803F5503AA_4979D40E0180_impl*
 end;//TPrimDictionForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimDictionForm.NeedDrawCaption: Boolean;
  {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_4979D40E0180_var*
@@ -732,9 +729,7 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_4979D40E0180_impl*
 end;//TPrimDictionForm.NeedDrawCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDictionForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979D40E0180_var*
@@ -783,9 +778,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4979D40E0180_impl*
 end;//TPrimDictionForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDictionForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4979D40E0180_var*
 //#UC END# *4F7C65380244_4979D40E0180_var*
@@ -795,7 +788,6 @@ begin
  WordsTree.Width := MaxInt; // без этого не появляется скролл в дереве почему-то
 //#UC END# *4F7C65380244_4979D40E0180_impl*
 end;//TPrimDictionForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimDictionForm.ClearFields;
 begin
@@ -812,6 +804,7 @@ initialization
  TtfwClassRef.Register(TPrimDictionForm);
  {* Регистрация PrimDiction }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

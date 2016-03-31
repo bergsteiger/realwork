@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
- , ChatTypes
  , l3TreeInterfaces
+ , ChatTypes
  , SysUtils
 ;
 

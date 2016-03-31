@@ -28,7 +28,7 @@ type
 
  // Right
 
- TAACContainerPrimForm = class
+ TAACContainerPrimForm = class(TvcmContainerForm)
   private
    f_TabCaption: IvcmCString;
    f_pnBack: TvtProportionalPanel;
@@ -93,6 +93,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки AACContainerLocalConstants }
  str_AACContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACContainerCaption'; rValue : '');
@@ -151,7 +152,6 @@ begin
   Self.AACTextContainer_SetJumpTo_Execute(JumpTo);
 end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo
 
-{$If NOT Defined(NoVCM)}
 procedure TAACContainerPrimForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4FF2E935019A_var*
@@ -226,9 +226,7 @@ begin
  inherited;
 //#UC END# *4A8E8F2E0195_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TAACContainerPrimForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4FF2E935019A_var*
 //#UC END# *53F1C6EF02C9_4FF2E935019A_var*
@@ -237,9 +235,7 @@ begin
  Result := f_TabCaption;
 //#UC END# *53F1C6EF02C9_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.DoGetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TAACContainerPrimForm.SetTabCaption(const aTabCaption: IvcmCString);
 //#UC START# *542A6DA20026_4FF2E935019A_var*
 var
@@ -253,7 +249,6 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=565492823
 //#UC END# *542A6DA20026_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.SetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_AACContainerCaption.Init;
@@ -264,6 +259,7 @@ initialization
  TtfwClassRef.Register(TAACContainerPrimForm);
  {* Регистрация AACContainerPrim }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

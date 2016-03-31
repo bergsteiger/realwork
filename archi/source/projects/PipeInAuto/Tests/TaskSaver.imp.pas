@@ -1,41 +1,35 @@
 {$IfNDef TaskSaver_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/TaskSaver.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> archi$AutoPipeServer$Garant::Low Level Tests::TaskSaveLoadMixIns::TaskSaver
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "TaskSaver" MUID: (53739B29005D)
+// Имя типа: "_TaskSaver_"
 
 {$Define TaskSaver_imp}
-{$If defined(AppServerSide) AND defined(InsiderTest)}
- _TaskSaver_ = {abstract mixin} class(_TaskSaver_Parent_)
- protected
- // protected methods
+
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
+ _TaskSaver_ = {abstract} class(_TaskSaver_Parent_)
+  protected
    procedure SaveTask(aTask: TddTaskItem;
-     aPipe: Boolean;
-     aAsEVD: Boolean = false);
+    aPipe: Boolean;
+    aAsEVD: Boolean = False);
  end;//_TaskSaver_
-{$Else}
 
- _TaskSaver_ = _TaskSaver_Parent_;
+{$Else Defined(AppServerSide) AND Defined(InsiderTest)}
 
-{$IfEnd} //AppServerSide AND InsiderTest
+_TaskSaver_ = _TaskSaver_Parent_;
 
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 {$Else TaskSaver_imp}
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$IfNDef TaskSaver_imp_impl}
 
-// start class _TaskSaver_
+{$Define TaskSaver_imp_impl}
 
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 procedure _TaskSaver_.SaveTask(aTask: TddTaskItem;
-  aPipe: Boolean;
-  aAsEVD: Boolean = false);
+ aPipe: Boolean;
+ aAsEVD: Boolean = False);
 //#UC START# *537383090350_53739B29005D_var*
 var
  l_File: Tl3CustomDosFiler;
@@ -59,7 +53,9 @@ begin
  CheckWithEtalon(FileForOutput, #0);
 //#UC END# *537383090350_53739B29005D_impl*
 end;//_TaskSaver_.SaveTask
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
-{$IfEnd} //AppServerSide AND InsiderTest
+{$EndIf TaskSaver_imp_impl}
 
 {$EndIf TaskSaver_imp}
+

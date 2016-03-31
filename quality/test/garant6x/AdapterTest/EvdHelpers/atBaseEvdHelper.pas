@@ -1,30 +1,20 @@
 unit atBaseEvdHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/EvdHelpers/atBaseEvdHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::EvdHelpers::TatBaseEvdHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\EvdHelpers\atBaseEvdHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatBaseEvdHelper" MUID: (48400B220217)
 
 interface
 
 uses
-  l3Memory,
-  evdNativeWriter
-  ;
+ l3IntfUses
+ , l3Memory
+ , evdNativeWriter
+;
 
 type
  TatBaseEvdHelper = class(Tl3MemoryStream)
- protected
- // protected methods
+  protected
    procedure Generate; virtual;
    procedure DoGenerate(anEVDNativeWriter: TevdNativeWriter); virtual; abstract;
  end;//TatBaseEvdHelper
@@ -32,13 +22,12 @@ type
 implementation
 
 uses
-  Classes,
-  k2TagGen,
-  ActiveX,
-  SysUtils
-  ;
-
-// start class TatBaseEvdHelper
+ l3ImplUses
+ , Classes
+ , k2TagGen
+ , ActiveX
+ , SysUtils
+;
 
 procedure TatBaseEvdHelper.Generate;
 //#UC START# *4B6AE78F01CF_48400B220217_var*

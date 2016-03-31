@@ -1,80 +1,68 @@
 unit ncsGetReadyToDeliveryTasks;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsGetReadyToDeliveryTasks.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsGetReadyToDeliveryTasks
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasks.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetReadyToDeliveryTasks" MUID: (54645DEC03E4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsGetReadyToDeliveryTasks = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetUserID: Cardinal;
    procedure pm_SetUserID(aValue: Cardinal);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property UserID: Cardinal
-     read pm_GetUserID
-     write pm_SetUserID;
+    read pm_GetUserID
+    write pm_SetUserID;
  end;//TncsGetReadyToDeliveryTasks
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csGetReadyToDeliveryTasks_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsGetReadyToDeliveryTasks
+ l3ImplUses
+ , csGetReadyToDeliveryTasks_Const
+;
 
 function TncsGetReadyToDeliveryTasks.pm_GetUserID: Cardinal;
- {-}
+//#UC START# *A01DBECFE7E7_54645DEC03E4get_var*
+//#UC END# *A01DBECFE7E7_54645DEC03E4get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := Cardinal(TaggedData.IntA[k2_attrUserID]);
+//#UC START# *A01DBECFE7E7_54645DEC03E4get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A01DBECFE7E7_54645DEC03E4get_impl*
 end;//TncsGetReadyToDeliveryTasks.pm_GetUserID
 
 procedure TncsGetReadyToDeliveryTasks.pm_SetUserID(aValue: Cardinal);
- {-}
+//#UC START# *A01DBECFE7E7_54645DEC03E4set_var*
+//#UC END# *A01DBECFE7E7_54645DEC03E4set_var*
 begin
- TaggedData.IntW[k2_attrUserID, nil] := Integer(aValue);
+//#UC START# *A01DBECFE7E7_54645DEC03E4set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A01DBECFE7E7_54645DEC03E4set_impl*
 end;//TncsGetReadyToDeliveryTasks.pm_SetUserID
 
 class function TncsGetReadyToDeliveryTasks.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_54645DEC03E4_var*
+//#UC END# *53AC03EE01FD_54645DEC03E4_var*
 begin
- Result := k2_typcsGetReadyToDeliveryTasks;
+//#UC START# *53AC03EE01FD_54645DEC03E4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_54645DEC03E4_impl*
 end;//TncsGetReadyToDeliveryTasks.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

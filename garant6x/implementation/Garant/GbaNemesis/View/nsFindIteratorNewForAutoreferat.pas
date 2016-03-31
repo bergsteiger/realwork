@@ -1,81 +1,62 @@
 unit nsFindIteratorNewForAutoreferat;
+ {* Реализация IFindIterator для нового представления автореферата }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsFindIteratorNewForAutoreferat.pas"
-// Начат: 19.11.2010 20:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::ContextSearchInEVDDocument::TnsFindIteratorNewForAutoreferat
-//
-// Реализация IFindIterator для нового представления автореферата
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForAutoreferat.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindIteratorNewForAutoreferat" MUID: (4CE6B3E90338)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  nevBase,
-  l3ProtoDataContainer,
-  l3ProtoObjectForTie,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObjectForTie
+ , DynamicTreeUnit
+ , nevBase
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsFindIteratorDef = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rIt : IFindIterator;
-   rDoc : InevObjectPrim;
- public
-    function EQ(const anOther: TnsFindIteratorDef): Boolean;
+ TnsFindIteratorDef = object
+  public
+   rIt: IFindIterator;
+   rDoc: InevObjectPrim;
+  public
+   function EQ(const anOther: TnsFindIteratorDef): Boolean;
  end;//TnsFindIteratorDef
 
  _ItemType_ = TnsFindIteratorDef;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TnsIFindIteratorList = class(_l3RecordWithEQList_)
   {* Список IFindIterator }
  end;//TnsIFindIteratorList
 
-//#UC START# *4CE6C58C01DEci*
-//#UC END# *4CE6C58C01DEci*
-//#UC START# *4CE6C58C01DEcit*
-//#UC END# *4CE6C58C01DEcit*
+ //#UC START# *4CE6C58C01DEci*
+ //#UC END# *4CE6C58C01DEci*
+ //#UC START# *4CE6C58C01DEcit*
+ //#UC END# *4CE6C58C01DEcit*
  TnsFindIteratorNewForAutoreferatFindPositionList = class(Tl3ProtoObjectForTie, IFindPositionList)
- private
- // private fields
-   f_List : IFindPositionList;
-   f_Doc : InevObjectPrim;
- protected
- // overridden protected methods
+  private
+   f_List: IFindPositionList;
+   f_Doc: InevObjectPrim;
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aDoc: InevObjectPrim;
-     const aList: IFindPositionList); reintroduce;
+    const aList: IFindPositionList); reintroduce;
    class function Make(const aDoc: InevObjectPrim;
-     const aList: IFindPositionList): IFindPositionList; reintroduce;
-     {* Сигнатура фабрики TnsFindIteratorNewForAutoreferatFindPositionList.Make }
-//#UC START# *4CE6C58C01DEpubl*
+    const aList: IFindPositionList): IFindPositionList; reintroduce;
+ //#UC START# *4CE6C58C01DEpubl*
  private
    // IFindPositionList
     function  pm_GetCount: Integer; stdcall;
@@ -93,88 +74,51 @@ type
       {* - добавляет элемент Item в конец. }
     procedure Insert(anIndex: Integer; const anItem: TFindPosition); stdcall;
       {* - вставляет элемент Item по индексу Index. }
-//#UC END# *4CE6C58C01DEpubl*
+ //#UC END# *4CE6C58C01DEpubl*
  end;//TnsFindIteratorNewForAutoreferatFindPositionList
 
  TnsFindIteratorNewForAutoreferat = class(Tl3ProtoObjectForTie, IFindIterator)
   {* Реализация IFindIterator для нового представления автореферата }
- private
- // private fields
-   f_List : TnsIFindIteratorList;
-   f_Current : Integer;
-   f_Count : Integer;
- protected
- // realized methods
+  private
+   f_List: TnsIFindIteratorList;
+   f_Current: Integer;
+   f_Count: Integer;
+  protected
    procedure Next; stdcall;
-     {* Перемещенеи итератора на следующий элемент. }
+    {* Перемещенеи итератора на следующий элемент. }
    procedure Prev; stdcall;
-     {* Перемещенеи итератора на предыдущий элемент. }
+    {* Перемещенеи итератора на предыдущий элемент. }
    function IsGood: ByteBool; stdcall;
-     {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-   procedure GetPosition(out aRet {: IFindPositionList}); stdcall;
+    {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
+   function GetPosition: IFindPositionList; stdcall;
    function IsFirst: ByteBool; stdcall;
-     {* возвращает true, если нельзя перейти на предыдущий фрагмент }
+    {* возвращает true, если нельзя перейти на предыдущий фрагмент }
    function GetCount: Cardinal; stdcall;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aList: TnsIFindIteratorList); reintroduce;
    class function Make(aList: TnsIFindIteratorList): IFindIterator; reintroduce;
-     {* Сигнатура фабрики TnsFindIteratorNewForAutoreferat.Make }
  end;//TnsFindIteratorNewForAutoreferat
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 function TnsFindIteratorDef_C(const aDoc: InevObjectPrim;
-     const anIt: IFindIterator): TnsFindIteratorDef;
-{$IfEnd} //not Admin AND not Monitorings
+ const anIt: IFindIterator): TnsFindIteratorDef;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  DataAdapter
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFindIteratorNewForAutoreferat
-
-constructor TnsFindIteratorNewForAutoreferat.Create(aList: TnsIFindIteratorList);
-//#UC START# *4CE6B761017A_4CE6B3E90338_var*
-//#UC END# *4CE6B761017A_4CE6B3E90338_var*
-begin
-//#UC START# *4CE6B761017A_4CE6B3E90338_impl*
- Assert(aList <> nil);
- inherited Create;
- l3Set(f_List, aList);
- f_Current := -1;
- f_Count := -1;
-//#UC END# *4CE6B761017A_4CE6B3E90338_impl*
-end;//TnsFindIteratorNewForAutoreferat.Create
-
-class function TnsFindIteratorNewForAutoreferat.Make(aList: TnsIFindIteratorList): IFindIterator;
-var
- l_Inst : TnsFindIteratorNewForAutoreferat;
-begin
- l_Inst := Create(aList);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
+ l3ImplUses
+ , SysUtils
+ , DataAdapter
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
 function TnsFindIteratorDef_C(const aDoc: InevObjectPrim;
-         const anIt: IFindIterator): TnsFindIteratorDef;
+ const anIt: IFindIterator): TnsFindIteratorDef;
 //#UC START# *4CE6BD260353_4CE6BCB900E2_var*
 //#UC END# *4CE6BD260353_4CE6BCB900E2_var*
 begin
@@ -184,9 +128,7 @@ begin
  Result.rDoc := aDoc;
  Result.rIt := anIt;
 //#UC END# *4CE6BD260353_4CE6BCB900E2_impl*
-end;//TnsFindIteratorDef.C
-
-// start class TnsFindIteratorDef
+end;//TnsFindIteratorDef_C
 
 function TnsFindIteratorDef.EQ(const anOther: TnsFindIteratorDef): Boolean;
 //#UC START# *4CE6BEF30100_4CE6BCB900E2_var*
@@ -197,13 +139,12 @@ begin
  Result := false;
 //#UC END# *4CE6BEF30100_4CE6BCB900E2_impl*
 end;//TnsFindIteratorDef.EQ
-// start class TnsIFindIteratorList
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4CE6B4D6016C_var*
 //#UC END# *47B2C42A0163_4CE6B4D6016C_var*
 begin
@@ -211,9 +152,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4CE6B4D6016C_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4CE6B4D6016C_var*
 //#UC END# *47B99D4503A2_4CE6B4D6016C_var*
 begin
@@ -227,10 +169,8 @@ type _Instance_R_ = TnsIFindIteratorList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
-// start class TnsFindIteratorNewForAutoreferatFindPositionList
-
 constructor TnsFindIteratorNewForAutoreferatFindPositionList.Create(const aDoc: InevObjectPrim;
-  const aList: IFindPositionList);
+ const aList: IFindPositionList);
 //#UC START# *4CE6C60002B8_4CE6C58C01DE_var*
 //#UC END# *4CE6C60002B8_4CE6C58C01DE_var*
 begin
@@ -242,7 +182,7 @@ begin
 end;//TnsFindIteratorNewForAutoreferatFindPositionList.Create
 
 class function TnsFindIteratorNewForAutoreferatFindPositionList.Make(const aDoc: InevObjectPrim;
-  const aList: IFindPositionList): IFindPositionList;
+ const aList: IFindPositionList): IFindPositionList;
 var
  l_Inst : TnsFindIteratorNewForAutoreferatFindPositionList;
 begin
@@ -252,17 +192,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFindIteratorNewForAutoreferatFindPositionList.Make
 
 procedure TnsFindIteratorNewForAutoreferatFindPositionList.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_List := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Finalize(f_List);
  f_Doc := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsFindIteratorNewForAutoreferatFindPositionList.ClearFields
 
@@ -326,7 +261,33 @@ end;
 
 //#UC END# *4CE6C58C01DEimpl*
 
+constructor TnsFindIteratorNewForAutoreferat.Create(aList: TnsIFindIteratorList);
+//#UC START# *4CE6B761017A_4CE6B3E90338_var*
+//#UC END# *4CE6B761017A_4CE6B3E90338_var*
+begin
+//#UC START# *4CE6B761017A_4CE6B3E90338_impl*
+ Assert(aList <> nil);
+ inherited Create;
+ l3Set(f_List, aList);
+ f_Current := -1;
+ f_Count := -1;
+//#UC END# *4CE6B761017A_4CE6B3E90338_impl*
+end;//TnsFindIteratorNewForAutoreferat.Create
+
+class function TnsFindIteratorNewForAutoreferat.Make(aList: TnsIFindIteratorList): IFindIterator;
+var
+ l_Inst : TnsFindIteratorNewForAutoreferat;
+begin
+ l_Inst := Create(aList);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsFindIteratorNewForAutoreferat.Make
+
 procedure TnsFindIteratorNewForAutoreferat.Next;
+ {* Перемещенеи итератора на следующий элемент. }
 //#UC START# *45EEC28202A0_4CE6B3E90338_var*
 
  procedure IncCurrent;
@@ -365,6 +326,7 @@ begin
 end;//TnsFindIteratorNewForAutoreferat.Next
 
 procedure TnsFindIteratorNewForAutoreferat.Prev;
+ {* Перемещенеи итератора на предыдущий элемент. }
 //#UC START# *45EEC28202A1_4CE6B3E90338_var*
 //#UC END# *45EEC28202A1_4CE6B3E90338_var*
 begin
@@ -393,6 +355,7 @@ begin
 end;//TnsFindIteratorNewForAutoreferat.Prev
 
 function TnsFindIteratorNewForAutoreferat.IsGood: ByteBool;
+ {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
 //#UC START# *45EEC28202A2_4CE6B3E90338_var*
 //#UC END# *45EEC28202A2_4CE6B3E90338_var*
 begin
@@ -407,7 +370,7 @@ begin
 //#UC END# *45EEC28202A2_4CE6B3E90338_impl*
 end;//TnsFindIteratorNewForAutoreferat.IsGood
 
-procedure TnsFindIteratorNewForAutoreferat.GetPosition(out aRet {: IFindPositionList});
+function TnsFindIteratorNewForAutoreferat.GetPosition: IFindPositionList;
 //#UC START# *461D00B9005D_4CE6B3E90338_var*
 var
  l_It : TnsFindIteratorDef;
@@ -423,6 +386,7 @@ begin
 end;//TnsFindIteratorNewForAutoreferat.GetPosition
 
 function TnsFindIteratorNewForAutoreferat.IsFirst: ByteBool;
+ {* возвращает true, если нельзя перейти на предыдущий фрагмент }
 //#UC START# *49FEC51501D8_4CE6B3E90338_var*
 //#UC END# *49FEC51501D8_4CE6B3E90338_var*
 begin
@@ -460,6 +424,7 @@ begin
 end;//TnsFindIteratorNewForAutoreferat.GetCount
 
 procedure TnsFindIteratorNewForAutoreferat.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CE6B3E90338_var*
 //#UC END# *479731C50290_4CE6B3E90338_var*
 begin
@@ -468,7 +433,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4CE6B3E90338_impl*
 end;//TnsFindIteratorNewForAutoreferat.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

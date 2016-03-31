@@ -1,64 +1,47 @@
 unit mmmReferencePharmaceuticalInformation;
+ {* Справочная фармацевтическая информация }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/mmmReferencePharmaceuticalInformation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::MedicMainMenu::TmmmReferencePharmaceuticalInformation
-//
-// Справочная фармацевтическая информация
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmReferencePharmaceuticalInformation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TmmmReferencePharmaceuticalInformation" MUID: (490C47190273)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  mmmTree,
-  l3StringIDEx,
-  l3Tree_TLB
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , mmmTree
+ , l3Tree_TLB
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TmmmReferencePharmaceuticalInformation = class(TmmmTree)
   {* Справочная фармацевтическая информация }
- protected
- // overridden protected methods
+  protected
    function MakeRoot: Il3RootNode; override;
-     {* Создаёт корень дерева }
+    {* Создаёт корень дерева }
  end;//TmmmReferencePharmaceuticalInformation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsTypes,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , nsTypes
+ , l3MessageID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки Local }
-  str_mmmiHelp : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mmmiHelp'; rValue : 'Руководство пользователя');
-   { 'Руководство пользователя' }
-
-// start class TmmmReferencePharmaceuticalInformation
+const
+ {* Локализуемые строки Local }
+ str_mmmiHelp: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mmmiHelp'; rValue : 'Руководство пользователя');
+  {* 'Руководство пользователя' }
 
 function TmmmReferencePharmaceuticalInformation.MakeRoot: Il3RootNode;
+ {* Создаёт корень дерева }
 //#UC START# *4909EF6E0361_490C47190273_var*
 const
  c_Documents: array [0..3] of Longint = (52390025, 52390014, 52390003, 52390001);
@@ -71,12 +54,9 @@ begin
 //#UC END# *4909EF6E0361_490C47190273_impl*
 end;//TmmmReferencePharmaceuticalInformation.MakeRoot
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_mmmiHelp
  str_mmmiHelp.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_mmmiHelp }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

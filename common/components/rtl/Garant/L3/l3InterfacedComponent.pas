@@ -14,6 +14,8 @@ uses
  , Classes
  , l3IID
  , l3PureMixIns
+ //#UC START# *47541E17024Eintf_uses*
+ //#UC END# *47541E17024Eintf_uses*
 ;
 
 type
@@ -48,6 +50,8 @@ uses
  , Windows
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *47541E17024Eimpl_uses*
+ //#UC END# *47541E17024Eimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

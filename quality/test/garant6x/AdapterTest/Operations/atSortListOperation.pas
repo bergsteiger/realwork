@@ -1,48 +1,34 @@
 unit atSortListOperation;
+ {* Сортирует текущий список документов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSortListOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSortListOperation
-//
-// Сортирует текущий список документов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSortListOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSortListOperation" MUID: (4A4CDBBD01E5)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSortListOperation = class(TatOperationBase)
   {* Сортирует текущий список документов }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatSortListOperation
 
 implementation
 
 uses
-  DynamicDocListUnit,
-  atLogger,
-  BaseTypesUnit,
-  atListHelper
-  ;
-
-// start class TatSortListOperation
+ l3ImplUses
+ , DynamicDocListUnit
+ , atLogger
+ , BaseTypesUnit
+ , atListHelper
+;
 
 procedure TatSortListOperation.ExecuteSelf;
 //#UC START# *48089F460352_4A4CDBBD01E5_var*

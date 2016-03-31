@@ -1,84 +1,54 @@
 unit csLoopBack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csLoopBack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::LoopBack::TcsLoopBack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csLoopBack.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsLoopBack" MUID: (538DF3CC00C8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsCommon,
-  CsDataPipe,
-  CsQueryTypes
-  {$If defined(AppServerSide) AND not defined(Nemesis)}
-  ,
-  CsReplyProceduresPrim
-  {$IfEnd} //AppServerSide AND not Nemesis
-  ,
-  CsQueryRequester
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , CsQueryTypes
+ , CsCommon
+ , CsDataPipe
+ , CsQueryRequester
+ {$If Defined(AppServerSide)}
+ , CsReplyProceduresPrim
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If not defined(Nemesis)}
 type
  TcsLoopBack = class
- private
- // private methods
+  private
    class function ProcessInternal(aQueryId: TCsQueryId): Boolean;
- public
- // public methods
+  public
    class procedure ExecuteQuery(aQueryId: TCsQueryId;
-     aClientID: TCsClientId;
-     aPipe: TCsDataPipe;
-     aQueryProc: TCsQueryProc;
-     aReplyProcedures: TCsReplyProceduresPrim);
+    aClientID: TCsClientId;
+    aPipe: TCsDataPipe;
+    aQueryProc: TCsQueryProc;
+    aReplyProcedures: TCsReplyProceduresPrim);
  end;//TcsLoopBack
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsQueryRequesterTool
-  {$If defined(AppServerSide) AND not defined(Nemesis)}
-  ,
-  CsReplyTool
-  {$IfEnd} //AppServerSide AND not Nemesis
-  
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsLoopBack
-
-class function TcsLoopBack.ProcessInternal(aQueryId: TCsQueryId): Boolean;
-//#UC START# *538DF4A80189_538DF3CC00C8_var*
-//#UC END# *538DF4A80189_538DF3CC00C8_var*
-begin
-//#UC START# *538DF4A80189_538DF3CC00C8_impl*
- Result := false;
-//#UC END# *538DF4A80189_538DF3CC00C8_impl*
-end;//TcsLoopBack.ProcessInternal
+ l3ImplUses
+ , CsQueryRequesterTool
+ {$If Defined(AppServerSide)}
+ , CsReplyTool
+ {$IfEnd} // Defined(AppServerSide)
+;
 
 class procedure TcsLoopBack.ExecuteQuery(aQueryId: TCsQueryId;
-  aClientID: TCsClientId;
-  aPipe: TCsDataPipe;
-  aQueryProc: TCsQueryProc;
-  aReplyProcedures: TCsReplyProceduresPrim);
+ aClientID: TCsClientId;
+ aPipe: TCsDataPipe;
+ aQueryProc: TCsQueryProc;
+ aReplyProcedures: TCsReplyProceduresPrim);
 //#UC START# *538DF4250167_538DF3CC00C8_var*
 var
  l_ClientId: TCsClientId;
@@ -91,6 +61,14 @@ begin
 //#UC END# *538DF4250167_538DF3CC00C8_impl*
 end;//TcsLoopBack.ExecuteQuery
 
-{$IfEnd} //not Nemesis
+class function TcsLoopBack.ProcessInternal(aQueryId: TCsQueryId): Boolean;
+//#UC START# *538DF4A80189_538DF3CC00C8_var*
+//#UC END# *538DF4A80189_538DF3CC00C8_var*
+begin
+//#UC START# *538DF4A80189_538DF3CC00C8_impl*
+ Result := false;
+//#UC END# *538DF4A80189_538DF3CC00C8_impl*
+end;//TcsLoopBack.ProcessInternal
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

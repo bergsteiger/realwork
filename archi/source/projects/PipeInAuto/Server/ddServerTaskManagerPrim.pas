@@ -1,69 +1,50 @@
 unit ddServerTaskManagerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/ddServerTaskManagerPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::Server::TddServerTaskManagerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\ddServerTaskManagerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddServerTaskManagerPrim" MUID: (5385C5B200E6)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3ProtoObject
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csTaskTypes
-  {$IfEnd} //not Nemesis
-  ,
-  csTaskListening,
-  evdTaskTypes,
-  ddTaskItemPrim
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , l3ProtoObject
+ , csTaskListening
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csTaskTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ddTaskItemPrim
+ , evdTaskTypes
+;
 
-{$If defined(AppServerSide)}
 type
  TddServerTaskManagerPrim = class(Tl3ProtoObject, IcsTaskListener)
- protected
- // realized methods
-   procedure TaskChanged(aTask: TddTaskItemPrim;
-     aStatus: TcsTaskStatus);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  protected
    procedure DoTaskChanged(aTask: TddTaskItem;
-     aStatus: TcsTaskStatus); virtual; abstract;
+    aStatus: TcsTaskStatus); virtual; abstract;
+   procedure TaskChanged(aTask: TddTaskItemPrim;
+    aStatus: TcsTaskStatus);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  end;//TddServerTaskManagerPrim
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
-
-// start class TddServerTaskManagerPrim
+{$If Defined(AppServerSide)}
+uses
+ l3ImplUses
+;
 
 procedure TddServerTaskManagerPrim.TaskChanged(aTask: TddTaskItemPrim;
-  aStatus: TcsTaskStatus);
+ aStatus: TcsTaskStatus);
 //#UC START# *5385C23A0106_5385C5B200E6_var*
 //#UC END# *5385C23A0106_5385C5B200E6_var*
 begin
@@ -74,6 +55,7 @@ begin
 end;//TddServerTaskManagerPrim.TaskChanged
 
 procedure TddServerTaskManagerPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5385C5B200E6_var*
 //#UC END# *479731C50290_5385C5B200E6_var*
 begin
@@ -93,7 +75,6 @@ begin
  TcsTaskListeners.Instance.AddListener(Self);
 //#UC END# *47A042E100E2_5385C5B200E6_impl*
 end;//TddServerTaskManagerPrim.InitFields
-
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 end.

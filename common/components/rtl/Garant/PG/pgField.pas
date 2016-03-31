@@ -1,47 +1,33 @@
 unit pgField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgField.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgField" MUID: (5627445F00C1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  pgInterfaces,
-  daTypes,
-  l3Date
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , pgInterfaces
+ , daTypes
+ , l3Date
+;
 
-{$If defined(UsePostgres)}
 type
  TpgField = class(Tl3ProtoObject, IdaField)
- private
- // private fields
-   f_ClientInfo : IdaSelectField;
-   f_DataBuffer : IdaResultBuffer;
-   f_DataConverter : IpgDataConverter;
-   f_FieldIndex : Integer;
- private
- // private methods
+  private
+   f_ClientInfo: IdaSelectField;
+   f_DataBuffer: IdaResultBuffer;
+   f_DataConverter: IpgDataConverter;
+   f_FieldIndex: Integer;
+  private
    function BufferPtr: Pointer;
- protected
- // realized methods
+  protected
    function Get_AsLargeInt: LargeInt;
    function Get_AsInteger: Integer;
    function Get_AsStDate: TStDate;
@@ -49,43 +35,31 @@ type
    function Get_AsString: AnsiString;
    function Get_AsByte: Byte;
    function Get_Alias: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataBuffer: IdaResultBuffer;
-     const aDataConverter: IpgDataConverter;
-     const aClientInfo: IdaSelectField;
-     aFieldIndex: Integer); reintroduce;
+    const aDataConverter: IpgDataConverter;
+    const aClientInfo: IdaSelectField;
+    aFieldIndex: Integer); reintroduce;
    class function Make(const aDataBuffer: IdaResultBuffer;
-     const aDataConverter: IpgDataConverter;
-     const aClientInfo: IdaSelectField;
-     aFieldIndex: Integer): IdaField; reintroduce;
-     {* Сигнатура фабрики TpgField.Make }
+    const aDataConverter: IpgDataConverter;
+    const aClientInfo: IdaSelectField;
+    aFieldIndex: Integer): IdaField; reintroduce;
  end;//TpgField
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
-
-// start class TpgField
-
-function TpgField.BufferPtr: Pointer;
-//#UC START# *56274C87017A_5627445F00C1_var*
-//#UC END# *56274C87017A_5627445F00C1_var*
-begin
-//#UC START# *56274C87017A_5627445F00C1_impl*
- Result := f_DataBuffer.FieldBufferPtr(f_FieldIndex);
-//#UC END# *56274C87017A_5627445F00C1_impl*
-end;//TpgField.BufferPtr
+{$If Defined(UsePostgres)}
+uses
+ l3ImplUses
+;
 
 constructor TpgField.Create(const aDataBuffer: IdaResultBuffer;
-  const aDataConverter: IpgDataConverter;
-  const aClientInfo: IdaSelectField;
-  aFieldIndex: Integer);
+ const aDataConverter: IpgDataConverter;
+ const aClientInfo: IdaSelectField;
+ aFieldIndex: Integer);
 //#UC START# *562744D501B9_5627445F00C1_var*
 //#UC END# *562744D501B9_5627445F00C1_var*
 begin
@@ -101,9 +75,9 @@ begin
 end;//TpgField.Create
 
 class function TpgField.Make(const aDataBuffer: IdaResultBuffer;
-  const aDataConverter: IpgDataConverter;
-  const aClientInfo: IdaSelectField;
-  aFieldIndex: Integer): IdaField;
+ const aDataConverter: IpgDataConverter;
+ const aClientInfo: IdaSelectField;
+ aFieldIndex: Integer): IdaField;
 var
  l_Inst : TpgField;
 begin
@@ -113,7 +87,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgField.Make
+
+function TpgField.BufferPtr: Pointer;
+//#UC START# *56274C87017A_5627445F00C1_var*
+//#UC END# *56274C87017A_5627445F00C1_var*
+begin
+//#UC START# *56274C87017A_5627445F00C1_impl*
+ Result := f_DataBuffer.FieldBufferPtr(f_FieldIndex);
+//#UC END# *56274C87017A_5627445F00C1_impl*
+end;//TpgField.BufferPtr
 
 function TpgField.Get_AsLargeInt: LargeInt;
 //#UC START# *5593905401D1_5627445F00C1get_var*
@@ -179,6 +162,7 @@ begin
 end;//TpgField.Get_Alias
 
 procedure TpgField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5627445F00C1_var*
 //#UC END# *479731C50290_5627445F00C1_var*
 begin
@@ -191,7 +175,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5627445F00C1_impl*
 end;//TpgField.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

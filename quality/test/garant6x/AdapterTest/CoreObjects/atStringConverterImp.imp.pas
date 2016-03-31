@@ -1,32 +1,26 @@
 {$IfNDef atStringConverterImp_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringConverterImp.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::CoreObjects::atStringConverterImp
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atStringConverterImp" MUID: (503E313601ED)
+// Имя типа: "_atStringConverterImp_"
 
 {$Define atStringConverterImp_imp}
- _atStringConverterImp_ = {mixin} class(_atStringConverterImp_Parent_)
- protected
- // overridden protected methods
+
+ _atStringConverterImp_ = class(_atStringConverterImp_Parent_)
+  protected
    procedure Error1st(const aFirst: _FirstType_); override;
- public
- // public methods
+  public
    function ToValue(const aName: AnsiString): _SecondType_; virtual;
-   function ToName(const aValue: _SecondType_): AnsiString; overload;  virtual;
+   function ToName(const aValue: _SecondType_): AnsiString; overload; virtual;
    function ToValueCI(const aName: AnsiString): _SecondType_; virtual;
  end;//_atStringConverterImp_
 
 {$Else atStringConverterImp_imp}
 
-// start class _atStringConverterImp_
+{$IfNDef atStringConverterImp_imp_impl}
+
+{$Define atStringConverterImp_imp_impl}
 
 function _atStringConverterImp_.ToValue(const aName: AnsiString): _SecondType_;
 //#UC START# *503E318D00A7_503E313601ED_var*
@@ -75,4 +69,7 @@ begin
 //#UC END# *503E3C86007D_503E313601ED_impl*
 end;//_atStringConverterImp_.Error1st
 
+{$EndIf atStringConverterImp_imp_impl}
+
 {$EndIf atStringConverterImp_imp}
+

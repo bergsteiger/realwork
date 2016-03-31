@@ -1,79 +1,64 @@
 unit htDataProviderFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htDataProviderFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtDataProviderFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htDataProviderFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataProviderFactory" MUID: (54FEAD4402AB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  daDataProviderFactory,
-  daDataProviderParams,
-  ddAppConfig,
-  daInterfaces
-  ;
+ l3IntfUses
+ , daDataProviderFactory
+ , daDataProviderParams
+ , ddAppConfig
+ , daInterfaces
+;
 
 type
  ThtDataProviderFactory = class(TdaDataProviderFactory)
- protected
- // realized methods
+  public
+   class function Key: AnsiString; override;
    function MakeFromConfig: TdaDataProviderParams; override;
    procedure SaveToConfig(aParams: TdaDataProviderParams); override;
    function ParamType: TdaDataProviderParamsClass; override;
    procedure FillOutConfig(aConfig: TddAppConfiguration;
-     aEtalon: TdaDataProviderParams;
-     out aParams: TdaDataProviderParams); override;
+    aEtalon: TdaDataProviderParams;
+    out aParams: TdaDataProviderParams); override;
    procedure FillInConfig(aConfig: TddAppConfiguration;
-     aParams: TdaDataProviderParams;
-     ForInfoOnly: Boolean = False); override;
+    aParams: TdaDataProviderParams;
+    ForInfoOnly: Boolean = False); override;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-     const aProviderKey: AnsiString = '';
-     ForInfoOnly: Boolean = False); override;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
- public
- // realized methods
-   class function Key: AnsiString; override;
- public
- // overridden public methods
    procedure CorrectByClient(aParams: TdaDataProviderParams); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
-     Quiet: Boolean = False): Boolean; override;
+    Quiet: Boolean = False): Boolean; override;
  end;//ThtDataProviderFactory
 
 implementation
 
 uses
-  htDataProviderParams,
-  htInterfaces,
-  ddUtils,
-  SysUtils,
-  l3Base,
-  ddAppConfigStrings,
-  l3IniFile,
-  l3FileUtils,
-  StrUtils,
-  htDataProvider,
-  ddAppConfigTypes
-  ;
-
-// start class ThtDataProviderFactory
+ l3ImplUses
+ , htDataProviderParams
+ , htInterfaces
+ , ddUtils
+ , SysUtils
+ , l3Base
+ , ddAppConfigStrings
+ , l3IniFile
+ , l3FileUtils
+ , StrUtils
+ , htDataProvider
+ , ddAppConfigTypes
+;
 
 class function ThtDataProviderFactory.Key: AnsiString;
 //#UC START# *54F8635B023E_54FEAD4402AB_var*
@@ -140,8 +125,8 @@ begin
 end;//ThtDataProviderFactory.ParamType
 
 procedure ThtDataProviderFactory.FillOutConfig(aConfig: TddAppConfiguration;
-  aEtalon: TdaDataProviderParams;
-  out aParams: TdaDataProviderParams);
+ aEtalon: TdaDataProviderParams;
+ out aParams: TdaDataProviderParams);
 //#UC START# *5512BAB20128_54FEAD4402AB_var*
 //#UC END# *5512BAB20128_54FEAD4402AB_var*
 begin
@@ -166,8 +151,8 @@ begin
 end;//ThtDataProviderFactory.FillOutConfig
 
 procedure ThtDataProviderFactory.FillInConfig(aConfig: TddAppConfiguration;
-  aParams: TdaDataProviderParams;
-  ForInfoOnly: Boolean = False);
+ aParams: TdaDataProviderParams;
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB030346_54FEAD4402AB_var*
 //#UC END# *5512BB030346_54FEAD4402AB_var*
 begin
@@ -193,8 +178,8 @@ begin
 end;//ThtDataProviderFactory.FillInConfig
 
 procedure ThtDataProviderFactory.BuildConfig(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString = '';
-  ForInfoOnly: Boolean = False);
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB1F023F_54FEAD4402AB_var*
 var
  l_Item: TddBaseConfigItem;
@@ -265,9 +250,9 @@ begin
 end;//ThtDataProviderFactory.LoadDBVersion
 
 function ThtDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalProvider: Boolean = True): IdaDataProvider;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_54FEAD4402AB_var*
 //#UC END# *551D06D402AF_54FEAD4402AB_var*
 begin
@@ -309,7 +294,7 @@ begin
 end;//ThtDataProviderFactory.CorrectByClient
 
 function ThtDataProviderFactory.IsParamsValid(aParams: TdaDataProviderParams;
-  Quiet: Boolean = False): Boolean;
+ Quiet: Boolean = False): Boolean;
 //#UC START# *551166B40046_54FEAD4402AB_var*
 var
  l_Storage: IhtParamsStorage;

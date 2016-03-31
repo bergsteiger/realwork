@@ -1,43 +1,30 @@
 unit nsLeafParaDecorationsHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsLeafParaDecorationsHolder.pas"
-// Начат: 25.11.2010 18:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::TnsLeafParaDecorationsHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaDecorationsHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLeafParaDecorationsHolder" MUID: (4CEFD73403E4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Variant,
-  k2Prim,
-  evNative_Schema
-  ;
+ l3IntfUses
+ , LeafParaDecorationsHolder_Const
+ , l3Variant
+ , k2Prim
+;
 
 type
  TnsLeafParaDecorationsHolder = class(LeafParaDecorationsHolderTagClass)
- protected
- // overridden protected methods
+  protected
    function DeleteChildPrim(anIndex: Integer;
     aChild: Tl3Variant;
     const aContext: Il3OpPack): Boolean; override;
    procedure CheckChildInsert(var anIndex: Integer;
-     var aChild: Tl3Variant;
-     const anOp: Ik2Op); override;
- public
- // public methods
+    var aChild: Tl3Variant;
+    const anOp: Ik2Op); override;
+  public
    constructor Create; reintroduce;
    class function Make: Il3TagRef;
  end;//TnsLeafParaDecorationsHolder
@@ -45,15 +32,13 @@ type
 implementation
 
 uses
-  SysUtils,
-  CommentPara_Const,
-  F1TagDataProviderInterface,
-  nsNativeCommentPara,
-  k2Tags,
-  LeafParaDecorationsHolder_Const
-  ;
-
-// start class TnsLeafParaDecorationsHolder
+ l3ImplUses
+ , CommentPara_Const
+ , F1TagDataProviderInterface
+ , SysUtils
+ , nsNativeCommentPara
+ , k2Tags
+;
 
 constructor TnsLeafParaDecorationsHolder.Create;
 //#UC START# *4CEFDCD80253_4CEFD73403E4_var*
@@ -81,8 +66,8 @@ begin
 end;//TnsLeafParaDecorationsHolder.Make
 
 function TnsLeafParaDecorationsHolder.DeleteChildPrim(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack): Boolean;
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack): Boolean;
 //#UC START# *4C6CE735026E_4CEFD73403E4_var*
 var
  l_Sink : If1CommentSink;
@@ -114,8 +99,8 @@ begin
 end;//TnsLeafParaDecorationsHolder.DeleteChildPrim
 
 procedure TnsLeafParaDecorationsHolder.CheckChildInsert(var anIndex: Integer;
-  var aChild: Tl3Variant;
-  const anOp: Ik2Op);
+ var aChild: Tl3Variant;
+ const anOp: Ik2Op);
 //#UC START# *4CED66B8005F_4CEFD73403E4_var*
 var
  l_Obj : TObject;

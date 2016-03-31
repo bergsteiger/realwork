@@ -1,44 +1,31 @@
 unit atCompareRedactionsOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atCompareRedactionsOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatCompareRedactionsOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCompareRedactionsOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatCompareRedactionsOperation" MUID: (4BAB7804006B)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatCompareRedactionsOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatCompareRedactionsOperation
 
 implementation
 
 uses
-  DocumentUnit,
-  atLogger,
-  atDocumentHelper
-  ;
-
-// start class TatCompareRedactionsOperation
+ l3ImplUses
+ , DocumentUnit
+ , atLogger
+ , atDocumentHelper
+;
 
 procedure TatCompareRedactionsOperation.ExecuteSelf;
 //#UC START# *48089F460352_4BAB7804006B_var*

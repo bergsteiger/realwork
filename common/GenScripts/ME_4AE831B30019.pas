@@ -10,16 +10,17 @@ interface
 
 uses
  l3IntfUses
+ , BaseTreeSupportUnit
+ , DynamicTreeUnit
+ , FiltersUnit
+ , SearchUnit
  , l3Interfaces
  , l3TreeInterfaces
- , DynamicTreeUnit
- , SearchUnit
- , FiltersUnit
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , nsTypes
  , SearchInterfaces
+ , nsTypes
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

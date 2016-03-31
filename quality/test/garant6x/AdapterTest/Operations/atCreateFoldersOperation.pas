@@ -1,52 +1,37 @@
 unit atCreateFoldersOperation;
+ {* Создает папки. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atCreateFoldersOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatCreateFoldersOperation
-//
-// Создает папки.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCreateFoldersOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatCreateFoldersOperation" MUID: (4846994F0144)
 
 interface
 
 uses
-  FoldersUnit,
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+ , FoldersUnit
+;
 
 type
  TatCreateFoldersOperation = class(TatOperationBase)
   {* Создает папки. }
- private
- // private fields
-   f_TotalFoldersAdded : Integer;
-    {* Столько папок всего уже создано.}
-   f_MaxFoldersCount : Integer;
-    {* Столько всего надо создать папок}
-   f_NamePrefix : AnsiString;
- private
- // private methods
+  private
+   f_TotalFoldersAdded: Integer;
+    {* Столько папок всего уже создано. }
+   f_MaxFoldersCount: Integer;
+    {* Столько всего надо создать папок }
+   f_NamePrefix: AnsiString;
+  private
    function CreateAsNTree(const aRootNode: IFoldersNode;
     aMaxFoldersCount: Integer;
     aN: Integer): Integer; virtual;
-     {* Создает дерево папок - в корне создает aN папок, в каждой папке еще aN и т.д., пока в общей сложности не создастся aMaxFoldersCount папок.
+    {* Создает дерево папок - в корне создает aN папок, в каждой папке еще aN и т.д., пока в общей сложности не создастся aMaxFoldersCount папок.
 Если хотим все папки на одном уровне, то, очевидно, надо чтобы aN >= aMaxFoldersCount. }
    procedure FolderHasBeenAdded(const aFolder: IFoldersNode); virtual;
-     {* Метод вызывается при добавлении папки. }
- protected
- // realized methods
+    {* Метод вызывается при добавлении папки. }
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteChilds; override;
  end;//TatCreateFoldersOperation
@@ -54,19 +39,20 @@ type
 implementation
 
 uses
-  atFoldersHelper,
-  atLogger,
-  BaseTreeSupportUnit,
-  SysUtils,
-  Math,
-  atCommon
-  ;
-
-// start class TatCreateFoldersOperation
+ l3ImplUses
+ , atFoldersHelper
+ , atLogger
+ , BaseTreeSupportUnit
+ , SysUtils
+ , Math
+ , atCommon
+;
 
 function TatCreateFoldersOperation.CreateAsNTree(const aRootNode: IFoldersNode;
-  aMaxFoldersCount: Integer;
-  aN: Integer): Integer;
+ aMaxFoldersCount: Integer;
+ aN: Integer): Integer;
+ {* Создает дерево папок - в корне создает aN папок, в каждой папке еще aN и т.д., пока в общей сложности не создастся aMaxFoldersCount папок.
+Если хотим все папки на одном уровне, то, очевидно, надо чтобы aN >= aMaxFoldersCount. }
 //#UC START# *48469BEB00C7_4846994F0144_var*
   var
     l_SubNodes : array of INode;
@@ -117,6 +103,7 @@ begin
 end;//TatCreateFoldersOperation.CreateAsNTree
 
 procedure TatCreateFoldersOperation.FolderHasBeenAdded(const aFolder: IFoldersNode);
+ {* Метод вызывается при добавлении папки. }
 //#UC START# *484A715B032F_4846994F0144_var*
   const
     PARTN = 5;

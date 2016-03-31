@@ -1,45 +1,39 @@
 unit myReferenceCountGuard;
+ {* Класс исключительно для примеров }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "myReferenceCountGuard.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::Basic Interfaces::TmyReferenceCountGuard
-//
-// Класс исключительно для примеров
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\myReferenceCountGuard.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TmyReferenceCountGuard" MUID: (516D572B0131)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  myInterfacedObject
-  ;
+ l3IntfUses
+ , myInterfacedObject
+;
 
 type
- ImyReferenceCountGuard = interface(IUnknown)
+ ImyReferenceCountGuard = interface
   {* Интерфейс исключительно для примеров }
-   ['{84AAAF31-F3AC-4BBC-A1B7-4E338748921F}']
-   function GetRefCount: Integer;
+  ['{84AAAF31-F3AC-4BBC-A1B7-4E338748921F}']
+  function GetRefCount: Integer;
  end;//ImyReferenceCountGuard
 
  TmyReferenceCountGuard = class(TmyInterfacedObject, ImyReferenceCountGuard)
   {* Класс исключительно для примеров }
- protected
- // realized methods
+  protected
    function GetRefCount: Integer;
- public
- // public methods
+  public
    class function Make: ImyReferenceCountGuard; reintroduce;
-     {* Сигнатура фабрики TmyReferenceCountGuard.Make }
  end;//TmyReferenceCountGuard
 
 implementation
 
-// start class TmyReferenceCountGuard
+uses
+ l3ImplUses
+;
 
 class function TmyReferenceCountGuard.Make: ImyReferenceCountGuard;
 var
@@ -51,7 +45,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TmyReferenceCountGuard.Make
 
 function TmyReferenceCountGuard.GetRefCount: Integer;
 //#UC START# *516D57C50277_516D572B0131_var*

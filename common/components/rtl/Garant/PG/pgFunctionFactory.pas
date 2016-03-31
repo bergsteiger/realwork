@@ -1,108 +1,98 @@
 unit pgFunctionFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgFunctionFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgFunctionFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgFunctionFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunctionFactory" MUID: (56613507012C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  pgConnection,
-  pgParamDecsriptionList
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , pgConnection
+ , daInterfaces
+ , pgParamDecsriptionList
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TTypeMapRec = record
-   rName : AnsiString;
-   rType : TdaDataType;
+  rName: AnsiString;
+  rType: TdaDataType;
  end;//TTypeMapRec
 
  TpgFunctionFactory = class(Tl3ProtoObject)
- private
- // private fields
-   f_Connection : TpgConnection;
-   f_TypesQueryName : AnsiString;
-   f_FunctionsQueryName : AnsiString;
-   f_DataConverter : IdaDataConverter;
- private
- // private methods
+  private
+   f_Connection: TpgConnection;
+   f_TypesQueryName: AnsiString;
+   f_FunctionsQueryName: AnsiString;
+   f_DataConverter: IdaDataConverter;
+  private
    procedure FillParamDescriptions(aList: TpgParamDecsriptionList;
-     const aFunctionName: AnsiString;
-     const aSchemeName: AnsiString;
-     out theIsRetCursor: Boolean);
+    const aFunctionName: AnsiString;
+    const aSchemeName: AnsiString;
+    out theIsRetCursor: Boolean);
    function ConvertType(const anOID: AnsiString): AnsiString;
    procedure InitTypesQuery;
-     {* Сигнатура метода InitTypesQuery }
    procedure DoneTypesQuery;
-     {* Сигнатура метода DoneTypesQuery }
    procedure InitFuctionsQuery;
-     {* Сигнатура метода InitFuctionsQuery }
    procedure DoneFuctionsQuery;
-     {* Сигнатура метода DoneFuctionsQuery }
    function ExtractDataType(const aDataType: AnsiString): TdaDataType;
    function ExtractParamType(const aParamType: AnsiString): TdaParamType;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aConnection: TpgConnection;
-     const aDataConverter: IdaDataConverter); reintroduce;
+    const aDataConverter: IdaDataConverter); reintroduce;
    function MakeFunction(const aFunctionName: AnsiString;
     const aSchemeName: AnsiString = ''): IdaFunction;
  end;//TpgFunctionFactory
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  LibPQ,
-  SysUtils,
-  daScheme,
-  pgInterfaces,
-  Classes,
-  pgUtils,
-  pgFunctionParamDescription,
-  pgFunction
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
+ l3ImplUses
+ , LibPQ
+ , SysUtils
+ , daScheme
+ , pgInterfaces
+ , Classes
+ , pgUtils
+ , pgFunctionParamDescription
+ , pgFunction
+;
 
 const
-   { ParamsCounts }
-  cFunctionParamsCount = 2;
-  cTypesParamsCount = 1;
-  cTypeNameParamIndex = 0;
-  cProcNameParamIndex = 0;
-  cSchemaNameParamIndex = 1;
+ cFunctionParamsCount = 2;
+ cTypesParamsCount = 1;
+ cTypeNameParamIndex = 0;
+ cProcNameParamIndex = 0;
+ cSchemaNameParamIndex = 1;
 
-// start class TpgFunctionFactory
+constructor TpgFunctionFactory.Create(aConnection: TpgConnection;
+ const aDataConverter: IdaDataConverter);
+//#UC START# *56653588036D_56613507012C_var*
+//#UC END# *56653588036D_56613507012C_var*
+begin
+//#UC START# *56653588036D_56613507012C_impl*
+ inherited Create;
+ aConnection.SetRefTo(f_Connection);
+ f_DataConverter := aDataConverter;
+ InitTypesQuery;
+ InitFuctionsQuery;
+//#UC END# *56653588036D_56613507012C_impl*
+end;//TpgFunctionFactory.Create
 
 procedure TpgFunctionFactory.FillParamDescriptions(aList: TpgParamDecsriptionList;
-  const aFunctionName: AnsiString;
-  const aSchemeName: AnsiString;
-  out theIsRetCursor: Boolean);
+ const aFunctionName: AnsiString;
+ const aSchemeName: AnsiString;
+ out theIsRetCursor: Boolean);
 //#UC START# *56653EE801A9_56613507012C_var*
 var
  l_Result: PPGresult;
@@ -375,22 +365,8 @@ begin
 //#UC END# *56728B7E02D7_56613507012C_impl*
 end;//TpgFunctionFactory.ExtractParamType
 
-constructor TpgFunctionFactory.Create(aConnection: TpgConnection;
-  const aDataConverter: IdaDataConverter);
-//#UC START# *56653588036D_56613507012C_var*
-//#UC END# *56653588036D_56613507012C_var*
-begin
-//#UC START# *56653588036D_56613507012C_impl*
- inherited Create;
- aConnection.SetRefTo(f_Connection);
- f_DataConverter := aDataConverter;
- InitTypesQuery;
- InitFuctionsQuery;
-//#UC END# *56653588036D_56613507012C_impl*
-end;//TpgFunctionFactory.Create
-
 function TpgFunctionFactory.MakeFunction(const aFunctionName: AnsiString;
-  const aSchemeName: AnsiString = ''): IdaFunction;
+ const aSchemeName: AnsiString = ''): IdaFunction;
 //#UC START# *56616E9800EA_56613507012C_var*
 var
  l_ParamsDescription: TpgParamDecsriptionList;
@@ -409,6 +385,7 @@ begin
 end;//TpgFunctionFactory.MakeFunction
 
 procedure TpgFunctionFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56613507012C_var*
 //#UC END# *479731C50290_56613507012C_var*
 begin
@@ -420,7 +397,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56613507012C_impl*
 end;//TpgFunctionFactory.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

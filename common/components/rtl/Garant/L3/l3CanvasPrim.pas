@@ -1,178 +1,184 @@
 unit l3CanvasPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CanvasPrim.pas"
-// Начат: 02.06.2009 17:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3CanvasPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CanvasPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CanvasPrim" MUID: (4A4CB79A02C6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CacheableBase,
-  l3Types,
-  l3InternalInterfaces,
-  l3Core,
-  l3Units,
-  l3Base,
-  Classes,
-  l3Defaults,
-  l3Memory,
-  l3LongintList,
-  Graphics,
-  Windows,
-  l3ProtoObject,
-  l3Region,
-  l3RectList,
-  l3PrinterInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , l3InternalInterfaces
+ , l3PrinterInterfaces
+ , l3Units
+ , l3RectList
+ , Windows
+ , l3LongintList
+ , Graphics
+ , Classes
+ , l3Region
+ , l3Memory
+ , l3Base
+ , l3Defaults
+ , l3Core
+ , l3Types
+ , l3CacheableBase
+;
 
 type
  Tl3OpenPageResult = (
-   l3_oprNo
- , l3_oprYes
- , l3_oprEndDoc
+  l3_oprNo
+  , l3_oprYes
+  , l3_oprEndDoc
  );//Tl3OpenPageResult
 
  Tl3DrawFlag = (
-   ev_dfDrawCursor
- , ev_dfDrawRegion
- , ev_dfDrawSpecial
- , ev_dfPrinting
- , ev_dfSelfStarted
- , ev_dfPrinted
+  ev_dfDrawCursor
+  , ev_dfDrawRegion
+  , ev_dfDrawSpecial
+  , ev_dfPrinting
+  , ev_dfSelfStarted
+  , ev_dfPrinted
  );//Tl3DrawFlag
 
  TevDrawFlags = set of Tl3DrawFlag;
 
  TevDCFlag = (
   {* флаги способа получения Handle канвы }
-   ev_dcfCanvas
- , ev_dcfGot
- , ev_dcfCreated
- , ev_dcfLinked
+  ev_dcfCanvas
+  , ev_dcfGot
+  , ev_dcfCreated
+  , ev_dcfLinked
  );//TevDCFlag
 
  Tl3DeviceCaps = record
   {* Информация об устройстве вывода }
-   rLOGPIXELSX : Integer;
-   rLOGPIXELSY : Integer;
-   rHORZRES : Integer;
-   rVERTRES : Integer;
-   rPHYSICALWIDTH : Integer;
-   rPHYSICALHEIGHT : Integer;
-   rPHYSICALOFFSETX : Integer;
-   rPHYSICALOFFSETY : Integer;
-   rIsAssigned : Boolean;
+  rLOGPIXELSX: Integer;
+  rLOGPIXELSY: Integer;
+  rHORZRES: Integer;
+  rVERTRES: Integer;
+  rPHYSICALWIDTH: Integer;
+  rPHYSICALHEIGHT: Integer;
+  rPHYSICALOFFSETX: Integer;
+  rPHYSICALOFFSETY: Integer;
+  rIsAssigned: Boolean;
  end;//Tl3DeviceCaps
 
  Tl3TabInfo = class(Tl3CacheableBase, Il3TabInfo)
- private
- // private fields
-   f_TabOffset : Integer;
-   f_TabStops : Il3TabStops;
- protected
- // realized methods
+  private
+   f_TabOffset: Integer;
+   f_TabStops: Il3TabStops;
+  protected
    function TabOffset: Integer;
    function TabStops: Il3TabStops;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTabOffset: Integer;
-     const aTabStops: Il3TabStops); reintroduce;
+    const aTabStops: Il3TabStops); reintroduce;
    class function Make(aTabOffset: Integer;
-     const aTabStops: Il3TabStops): Il3TabInfo; reintroduce;
-     {* Сигнатура фабрики Tl3TabInfo.Make }
+    const aTabStops: Il3TabStops): Il3TabInfo; reintroduce;
  end;//Tl3TabInfo
 
  Tl3MemoryPool_Bool = array [Boolean] of Tl3MemoryPool;
 
  Tl3CanvasPrim = class(Tl3ProtoObject, Il3Font, Il3InfoCanvas, Il3Canvas, Il3PageSetup, Il3EffectiveColors)
- private
- // private fields
-   f_Margins : Tl3_Rect;
-   f_ClipRectList : Tl3RectList;
-    {* Стек прямоугольников отсечения}
-   f_LineSpacingStack : Tl3LongintList;
-   f_Drawing : Integer;
-   f_Invert : Integer;
-   f_Fore : Integer;
-   f_DarkFore : Integer;
-   f_CheckingDrawing : Integer;
-   f_OldBrushChange : TNotifyEvent;
-   f_OldFontChange : TNotifyEvent;
-   f_AlienCanvas : Boolean;
-   f_FontIndex : Tl3FontIndex;
-   f_ClipRect : Tl3Rect;
-   f_ClipSRect : Tl3SRect;
-   f_ConvertBuf : PAnsiChar;
-   f_BCs : Tl3LongintList;
-   f_FCs : Tl3LongintList;
-   f_TextMetrics : TTextMetric;
-   f_WindowOrgInited : Boolean;
-   f_WindowOrg : Tl3Point;
-   f_RegionBottomRight : Tl3SPoint;
-   f_Kerning : Tl3MemoryPool;
-   f_FrameLines : Il3FrameLines;
-   f_FontIndexSet : Tl3FontIndexes;
-   f_Rgns : Tl3LongintList;
-   f_WOs : Tl3LongintList;
-   f_ConvertTable : Tl3MemoryPool_Bool;
-   f_OutString : Tl3String;
-   f_Flags : TevDrawFlags;
-    {* Поле для свойства Flags}
-   f_OnDrawSub : TevDrawSubEvent;
-    {* Поле для свойства OnDrawSub}
-   f_CanDrawSubs : Boolean;
-    {* Поле для свойства CanDrawSubs}
-   f_PixelsPerInchX : Integer;
-    {* Поле для свойства PixelsPerInchX}
-   f_PixelsPerInchY : Integer;
-    {* Поле для свойства PixelsPerInchY}
-   f_OverallPageNumber : Integer;
-    {* Поле для свойства OverallPageNumber}
-   f_BackColor : TColor;
-    {* Поле для свойства BackColor}
-   f_NotFocused : Boolean;
-    {* Поле для свойства NotFocused}
-   f_DCFlag : TevDCFlag;
-    {* Поле для свойства DCFlag}
-   f_Canvas : TCanvas;
-    {* Поле для свойства Canvas}
-   f_Owner : TObject;
-    {* Поле для свойства Owner}
-   f_Zoom : Integer;
-    {* Поле для свойства Zoom}
-   f_OnDrawSpecialChange : TNotifyEvent;
-    {* Поле для свойства OnDrawSpecialChange}
-   f_PageOrientation : Tl3PageOrientation;
-    {* Поле для свойства PageOrientation}
-   f_SectionExtent : Tl3Point;
-    {* Поле для свойства SectionExtent}
-   f_Painter : Il3HAFPainter;
-    {* Поле для свойства Painter}
-   f_AbortChecker : Il3AbortChecker;
-    {* Поле для свойства AbortChecker}
-   f_etoFlags : Word;
-    {* Поле для свойства etoFlags}
- protected
- // property methods
+  private
+   f_Margins: Tl3_Rect;
+   f_ClipRectList: Tl3RectList;
+    {* Стек прямоугольников отсечения }
+   f_LineSpacingStack: Tl3LongintList;
+   f_Drawing: Integer;
+   f_Invert: Integer;
+   f_Fore: Integer;
+   f_DarkFore: Integer;
+   f_CheckingDrawing: Integer;
+   f_OldBrushChange: TNotifyEvent;
+   f_OldFontChange: TNotifyEvent;
+   f_AlienCanvas: Boolean;
+   f_FontIndex: Tl3FontIndex;
+   f_ClipRect: Tl3Rect;
+   f_ClipSRect: Tl3SRect;
+   f_ConvertBuf: PAnsiChar;
+   f_BCs: Tl3LongintList;
+   f_FCs: Tl3LongintList;
+   f_TextMetrics: TTextMetric;
+   f_WindowOrgInited: Boolean;
+   f_WindowOrg: Tl3Point;
+   f_RegionBottomRight: Tl3SPoint;
+   f_Kerning: Tl3MemoryPool;
+   f_FrameLines: Il3FrameLines;
+   f_FontIndexSet: Tl3FontIndexes;
+   f_Rgns: Tl3LongintList;
+   f_WOs: Tl3LongintList;
+   f_ConvertTable: Tl3MemoryPool_Bool;
+   f_OutString: Tl3String;
+   f_Flags: TevDrawFlags;
+    {* Поле для свойства Flags }
+   f_OnDrawSub: TevDrawSubEvent;
+    {* Поле для свойства OnDrawSub }
+   f_CanDrawSubs: Boolean;
+    {* Поле для свойства CanDrawSubs }
+   f_PixelsPerInchX: Integer;
+    {* Поле для свойства PixelsPerInchX }
+   f_PixelsPerInchY: Integer;
+    {* Поле для свойства PixelsPerInchY }
+   f_OverallPageNumber: Integer;
+    {* Поле для свойства OverallPageNumber }
+   f_BackColor: TColor;
+    {* Поле для свойства BackColor }
+   f_NotFocused: Boolean;
+    {* Поле для свойства NotFocused }
+   f_DCFlag: TevDCFlag;
+    {* Поле для свойства DCFlag }
+   f_Canvas: TCanvas;
+    {* Поле для свойства Canvas }
+   f_Owner: TObject;
+    {* Поле для свойства Owner }
+   f_Zoom: Integer;
+    {* Поле для свойства Zoom }
+   f_OnDrawSpecialChange: TNotifyEvent;
+    {* Поле для свойства OnDrawSpecialChange }
+   f_PageOrientation: Tl3PageOrientation;
+    {* Поле для свойства PageOrientation }
+   f_SectionExtent: Tl3Point;
+    {* Поле для свойства SectionExtent }
+   f_Painter: Il3HAFPainter;
+    {* Поле для свойства Painter }
+   f_AbortChecker: Il3AbortChecker;
+    {* Поле для свойства AbortChecker }
+   f_etoFlags: Word;
+    {* Поле для свойства etoFlags }
+  protected
+   f_Printer: Il3Printer;
+   f_DeviceCaps: Tl3DeviceCaps;
+   f_PageWidthNumber: Integer;
+   f_InitialDCOffset: Tl3Point;
+   f_ClipRectInited: Boolean;
+   f_LineSpacing: Integer;
+   f_InitialDCOffsetStored: Tl3Point;
+   f_CheckingColors: Integer;
+   f_TextColor: TColor;
+   f_DC: hDC;
+   f_TextMetricsValid: Boolean;
+   f_SuffixedFont: Boolean;
+   f_AverageCharHeight: Integer;
+   f_AverageCharWidth: Integer;
+   f_pxAverageCharWidth: Integer;
+   f_Font: Il3Font;
+   f_TabOffset: Integer;
+   f_Filled: Tl3Region;
+   f_TabStops: Il3TabStops;
+   f_PasswordChar: AnsiChar;
+   f_Tabs: Integer;
+   f_SaveOrientation: Tl3PageOrientation;
+   f_VirtualCanvas: Il3Canvas;
+   f_PageNumber: Integer;
+  protected
    procedure pm_SetPrinting(aValue: Boolean);
    function pm_GetDrawing: Boolean;
    function pm_GetVCLFont: TFont;
@@ -186,9 +192,69 @@ type
    function pm_GetPen: TPen;
    procedure pm_SetPen(aValue: TPen);
    procedure pm_SetDrawSpecial(aValue: Boolean);
-   function pm_GetEtoFlags: Word;
- protected
- // realized methods
+   function pm_GetetoFlags: Word;
+   function CalcPrintableArea: Tl3_Rect;
+   procedure UpdatePixelsPerInch;
+   function GetIsPagesCounter: Boolean; virtual;
+   function GetGlobalClipRectWithZoom: Tl3Rect; virtual;
+   function BeginDrawing: Integer;
+   function EndDrawing: Integer;
+   function DrawingIsValid: Boolean;
+   function GetIsVirtual: Boolean; virtual;
+   function CheckDrawing: Boolean;
+   procedure BrushChanged(Sender: TObject);
+   procedure FontChanged(Sender: TObject);
+   procedure FreeDC;
+   procedure FreeAlienDC(aDC: hDC); virtual;
+   procedure FireDCSetToNull; virtual;
+   function IsPreview: Boolean; virtual;
+   procedure Invalidate; virtual;
+   procedure DoFillEmptyRect(const R: Tl3Rect); overload; virtual;
+   procedure DoFillEmptyRect(const R: Tl3SRect); overload; virtual;
+   function GetGlobalClipRect: Tl3Rect; virtual;
+   function GetTabWidth: Integer;
+   procedure RestoreTabInfo(const aTabInfo: Il3TabInfo);
+   function TabOffset: Integer;
+   procedure RecordRegionBottomPrim(const aBottom: Tl3SPoint);
+   procedure DoAddRect(const aRect: Tl3SRect); virtual;
+   function xCheckFilled: Tl3Region;
+   procedure AddRgn(const aRgn: Il3Region); virtual;
+   function KerningTextExtent(const S: Tl3PCharLenPrim): Tl3Point; virtual;
+   procedure KerningTextOut(const P: Tl3Point;
+    const R: Tl3Rect;
+    const S: Tl3PCharLenPrim); overload;
+   procedure KerningTextOut(const P: Tl3SPoint;
+    const R: Tl3SRect;
+    const S: Tl3PCharLenPrim); overload;
+   function CheckKerning(Size: Integer): Pointer;
+   function GetCaret: Il3Caret; virtual;
+   procedure CheckOrientation;
+   function NeedOpenRealPage(aDoc: Boolean;
+    ByWidth: Boolean = False): Tl3OpenPageResult; virtual;
+   procedure StartPrinterPage(aDoc: Boolean); virtual;
+   procedure StartPage; virtual;
+   procedure DoStartObject(anObjectID: Integer); virtual;
+   procedure DoSetPageTop; virtual;
+   procedure DoEndPaint; virtual;
+   procedure DoDrawLineTo(aX: Integer;
+    aY: Integer);
+   function CreateRectRgn(const aRect: Tl3SRect): Tl3Rgn;
+   function DoGetClientRect: Tl3Rect; virtual;
+   function CheckConvertTable(OEM: Boolean): PAnsiChar;
+   procedure MakeScreenDC;
+   function DoGetPageSetupWidth: Tl3Inch; virtual;
+   function DoGetPageSetupHeight: Tl3Inch; virtual;
+   function DoGetDrawEnabled: Boolean; virtual;
+   function GetPrinting: Boolean; virtual;
+   function AsIl3Canvas: Il3Canvas;
+   procedure AssignDeviceCaps;
+    {* Инициализировать информацию об устройстве }
+   function DoGetPaperWidth: Tl3Inch; virtual;
+   procedure DoFillForeRect(const R: Tl3SRect); virtual;
+   function GetAlienDC: hDC; virtual;
+   procedure FillRectPrim(const R: TRect); virtual;
+   procedure DoStartDrawAAC(aType: TspBlockType); virtual;
+   procedure DoEndDrawAAC(const R: Tl3Rect); virtual;
    function Get_ForeColor: Tl3Color;
    procedure Set_ForeColor(aValue: Tl3Color);
    function Get_BackColor: Tl3Color;
@@ -214,36 +280,36 @@ type
    function AssignFont(Font: TFont): Boolean;
    procedure Assign2Font(const aFont: Il3Font);
    function HF: hFont;
-   function PxAverageCharWidth: Integer;
-     {* средняя ширина символов контекста в пикселях. }
+   function pxAverageCharWidth: Integer;
+    {* средняя ширина символов контекста в пикселях. }
    function AverageCharWidth: Integer;
-     {* средняя ширина символов контекста в дюймах. }
+    {* средняя ширина символов контекста в дюймах. }
    function Pos2Index(W: Integer;
     const S: Tl3PCharLen): Integer;
-     {* находит индекс символа на рассоянии W дюймов от начала строки S. }
+    {* находит индекс символа на рассоянии W дюймов от начала строки S. }
    function Pos2IndexQ(W: Integer;
     const S: Tl3PCharLen;
     var aNoTabs: Boolean): Integer;
-     {* находит индекс символа на рассоянии W дюймов от начала строки S. }
+    {* находит индекс символа на рассоянии W дюймов от начала строки S. }
    function AverageCharHeight: Integer;
-     {* средняя высота символов контекста в дюймах. }
+    {* средняя высота символов контекста в дюймах. }
    procedure Lock;
-     {* начать работу с канвой. }
+    {* начать работу с канвой. }
    procedure Unlock;
-     {* закончить работу с канвой. }
+    {* закончить работу с канвой. }
    function GetKerning(const aSt: Tl3WString;
     Kerning: PLong): Tl3Point;
-     {* получить размеры строки и таблицу кернинга. }
+    {* получить размеры строки и таблицу кернинга. }
    function OffsetRgn(const Rgn: Il3Region;
     const Pt: Tl3Point): Integer;
-     {* сдвинуть регион. }
+    {* сдвинуть регион. }
    function CaretExtent: Tl3Point;
-     {* размеры курсора. }
+    {* размеры курсора. }
    procedure StartTabs(out theTabInfo: Il3TabInfo;
     const aTabStops: Il3TabStops;
-    aTabOffset: Integer = 0); overload; 
+    aTabOffset: Integer = 0); overload;
    procedure StartTabs(out theTabInfo: Il3TabInfo;
-    const aTabInfo: Il3TabInfo); overload; 
+    const aTabInfo: Il3TabInfo); overload;
    procedure FinishTabs(var aTabInfo: Il3TabInfo);
    function TabInfo: Il3TabInfo;
    function EQ(const aCanvas: Il3InfoCanvas): Boolean;
@@ -253,7 +319,7 @@ type
     var Rect: Tl3Rect;
     Precalculate: Boolean;
     aGap: Integer);
-     {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
+    {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
    procedure PushBC;
    function TopBC: Tl3Color;
    procedure PopBC;
@@ -266,13 +332,13 @@ type
    procedure pm_SetDC(aValue: hDC);
    function pm_GetPixelsPerInchX: Integer;
    function pm_GetPixelsPerInchY: Integer;
-   procedure MoveWindowOrg(const Delta: Tl3Point); overload; 
-   procedure MoveWindowOrg(const Delta: Tl3SPoint); overload; 
+   procedure MoveWindowOrg(const Delta: Tl3Point); overload;
+   procedure MoveWindowOrg(const Delta: Tl3SPoint); overload;
    procedure FillForeRect(const R: Tl3SRect);
-   procedure FillRect(const R: Tl3SRect); overload; 
-   procedure FillRect(const R: Tl3Rect); overload; 
-   procedure FillEmptyRect(const R: Tl3Rect); overload; 
-   procedure FillEmptyRect(const R: Tl3SRect); overload; 
+   procedure FillRect(const R: Tl3SRect); overload;
+   procedure FillRect(const R: Tl3Rect); overload;
+   procedure FillEmptyRect(const R: Tl3Rect); overload;
+   procedure FillEmptyRect(const R: Tl3SRect); overload;
    function FillRgn(const Region: Il3Region): Boolean;
    function TextOut(const P: Tl3Point;
     const S: Tl3PCharLen;
@@ -280,7 +346,7 @@ type
     BC: Tl3Color = clDefault): Tl3Point;
    procedure SetCaret(const Origin: Tl3Point;
     const Extent: Tl3Point;
-    Hidden: Boolean = false);
+    Hidden: Boolean = False);
    procedure IncCaret(aDeltaX: Integer);
    procedure StartObject(anObjectID: Integer);
    procedure SetPageTop;
@@ -296,42 +362,42 @@ type
     const R: Tl3Rect;
     const S: Tl3WString;
     F: Tl3TextFormatFlag = l3_tffLeft;
-    Dx: PInteger = nil); overload; 
+    Dx: PInteger = nil); overload;
    procedure ExtTextOut(const P: Tl3SPoint;
     const R: Tl3SRect;
     const S: Tl3WString;
     F: Tl3TextFormatFlag = l3_tffLeft;
-    Dx: PInteger = nil); overload; 
+    Dx: PInteger = nil); overload;
    function CaretLineOut(const aSt: Tl3WString;
     LineHeight: Integer;
     aHidden: Boolean;
     var CaretPos: Integer): Tl3Point;
-     {* выводит строку текста высотой LineHeight, со сдвигом курсора отрисовки. устанавливает курсор в CaretPos. возвращает размеры выведенной строки. }
+    {* выводит строку текста высотой LineHeight, со сдвигом курсора отрисовки. устанавливает курсор в CaretPos. возвращает размеры выведенной строки. }
    function StringOut(const P: Tl3Point;
     const Text: Tl3WString): Tl3Point;
    procedure TabbedTextOut(const P: Tl3Point;
     const R: Tl3Rect;
     const S: Tl3WString;
-    const aTabStops: Il3TabStops); overload; 
+    const aTabStops: Il3TabStops); overload;
    procedure TabbedTextOut(const P: Tl3SPoint;
     const R: Tl3SRect;
     const S: Tl3WString;
-    const aTabStops: Il3TabStops); overload; 
-   function NewPage(ByWidth: Boolean = false): Boolean;
-     {* начать новую страницу. }
+    const aTabStops: Il3TabStops); overload;
+   function NewPage(ByWidth: Boolean = False): Boolean;
+    {* начать новую страницу. }
    procedure Line(const A: Tl3Point;
-    const B: Tl3Point); overload; 
-     {* нарисовать линию. }
+    const B: Tl3Point); overload;
+    {* нарисовать линию. }
    procedure Line(const A: Tl3SPoint;
-    const B: Tl3SPoint); overload; 
-     {* нарисовать линию. }
-   procedure MoveTo(const Pt: Tl3Point); overload; 
-   procedure LineTo(const Pt: Tl3Point); overload; 
-   procedure MoveTo(const Pt: Tl3SPoint); overload; 
-   procedure LineTo(const Pt: Tl3SPoint); overload; 
-   function WO(const aRect: Tl3Rect): Tl3SRect; overload; 
-   function WO(const aPt: Tl3Point): Tl3SPoint; overload; 
-   function WO(const aPt: Tl3SPoint): Tl3SPoint; overload; 
+    const B: Tl3SPoint); overload;
+    {* нарисовать линию. }
+   procedure MoveTo(const Pt: Tl3Point); overload;
+   procedure LineTo(const Pt: Tl3Point); overload;
+   procedure MoveTo(const Pt: Tl3SPoint); overload;
+   procedure LineTo(const Pt: Tl3SPoint); overload;
+   function WO(const aRect: Tl3Rect): Tl3SRect; overload;
+   function WO(const aPt: Tl3Point): Tl3SPoint; overload;
+   function WO(const aPt: Tl3SPoint): Tl3SPoint; overload;
    procedure DrawFocusRect(const aRect: Tl3SRect);
    procedure StartRegion;
    procedure FinishRegion;
@@ -366,12 +432,12 @@ type
    procedure pm_SetNotFocused(aValue: Boolean);
    function pm_GetRegionBottomRight: Tl3Point;
    function IsAtomic: Boolean;
-     {* Строка для нанного шрифта представляет собой единый объект? }
+    {* Строка для нанного шрифта представляет собой единый объект? }
    function FM: Il3FontMetrics;
-     {* Метрики шрифта. }
+    {* Метрики шрифта. }
    function GetClientRect: Tl3Rect;
    function AdjustMarginsByPrintableArea(const aMargins: Tl3_Rect): Tl3_Rect;
-     {* Откорректировать поля с учетом непечатаемой области }
+    {* Откорректировать поля с учетом непечатаемой области }
    function Get_PasswordChar: AnsiChar;
    procedure Set_PasswordChar(aValue: AnsiChar);
    function Get_EffectiveColors: Il3EffectiveColors;
@@ -379,7 +445,7 @@ type
    function Get_FontColor: Tl3Color;
    function pm_GetPrinting: Boolean;
    function CheckConvertString(const aStr: Tl3PCharLen): Tl3PCharLen;
-     {* преобразует строку для отображения форматирующей информации в режиме DrawSpecial. }
+    {* преобразует строку для отображения форматирующей информации в режиме DrawSpecial. }
    function CheckOutString(const aStr: Tl3PCharLen): Tl3PCharLen;
    function pm_GetZoom: Integer;
    procedure pm_SetZoom(aValue: Integer);
@@ -407,300 +473,406 @@ type
    procedure EndDrawAAC(const R: Tl3Rect);
    procedure BeginDarkColor;
    procedure EndDarkColor;
- public
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure ClearFields; override;
+  public
+   constructor CreateOwned(anOwner: TObject); reintroduce;
+   constructor CreateForPrinting(const aPrinter: Il3Printer); reintroduce;
+   procedure SetCanvas(aValue: TCanvas;
+    anAlien: Boolean); virtual;
+   procedure SetDC(DC: hDC;
+    Flag: TevDCFlag);
+   procedure AddRect(const aRect: Tl3SRect);
+   class function MakeForPrinting(const aPrinter: Il3Printer): Il3InfoCanvas; reintroduce;
+   class function MakeForScreen: Il3InfoCanvas;
+   class function Make: Il3Canvas;
    function TextExtent(const S: Tl3WString;
-    aNoTabs: Boolean = false): Tl3Point;
-     {* возвращает длину строки текста в дюймах. }
+    aNoTabs: Boolean = False): Tl3Point;
+    {* возвращает длину строки текста в дюймах. }
    function LP2DP(const P: Tl3_Point;
-    NeedZoom: Boolean = false): Tl3SPoint;
-     {* преобразует точку в дюймах в точку в пикселях. }
+    NeedZoom: Boolean = False): Tl3SPoint;
+    {* преобразует точку в дюймах в точку в пикселях. }
    function LR2DR(const R: Tl3Rect): Tl3SRect;
-     {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
+    {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
    function DR2LR(const R: Tl3SRect): Tl3Rect;
-     {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
+    {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
    function DrawText(const aSt: Tl3WString;
     var R: TRect;
     aFormat: Cardinal;
     AFl: TObject = nil): Il3MultiLines;
-     {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
+    {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
    procedure BeginPaint;
    procedure EndPaint;
    procedure BeginInvert;
    procedure EndInvert;
    function IsVirtual: Boolean;
    function DP2LP(const aP: Tl3_SPoint): Tl3Point;
-     {* Преобразует точку в пикселях в точку в дюймах }
+    {* Преобразует точку в пикселях в точку в дюймах }
    function DeviceCaps(anIndex: Integer): Integer;
-     {* возвращает свойства устройства рисования. }
+    {* возвращает свойства устройства рисования. }
    function PushClipRect: Tl3Rect;
    procedure PopClipRect;
    procedure PushLineSpacing;
    procedure PopLineSpacing;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Printer : Il3Printer;
-   f_DeviceCaps : Tl3DeviceCaps;
-   f_PageWidthNumber : Integer;
-   f_InitialDCOffset : Tl3Point;
-   f_ClipRectInited : Boolean;
-   f_LineSpacing : Integer;
-   f_InitialDCOffsetStored : Tl3Point;
-   f_CheckingColors : Integer;
-   f_TextColor : TColor;
-   f_DC : hDC;
-   f_TextMetricsValid : Boolean;
-   f_SuffixedFont : Boolean;
-   f_AverageCharHeight : Integer;
-   f_AverageCharWidth : Integer;
-   f_pxAverageCharWidth : Integer;
-   f_Font : Il3Font;
-   f_TabOffset : Integer;
-   f_Filled : Tl3Region;
-   f_TabStops : Il3TabStops;
-   f_PasswordChar : AnsiChar;
-   f_Tabs : Integer;
-   f_SaveOrientation : Tl3PageOrientation;
-   f_VirtualCanvas : Il3Canvas;
-   f_PageNumber : Integer;
- protected
- // protected methods
-   function CalcPrintableArea: Tl3_Rect;
-   procedure UpdatePixelsPerInch;
-   function GetIsPagesCounter: Boolean; virtual;
-   function GetGlobalClipRectWithZoom: Tl3Rect; virtual;
-   function BeginDrawing: Integer;
-   function EndDrawing: Integer;
-   function DrawingIsValid: Boolean;
-   function GetIsVirtual: Boolean; virtual;
-   function CheckDrawing: Boolean;
-   procedure BrushChanged(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure FontChanged(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure FreeDC;
-     {* Сигнатура метода FreeDC }
-   procedure FreeAlienDC(aDC: hDC); virtual;
-   procedure FireDCSetToNull; virtual;
-     {* Сигнатура метода FireDCSetToNull }
-   function IsPreview: Boolean; virtual;
-   procedure Invalidate; virtual;
-     {* Сигнатура метода Invalidate }
-   procedure DoFillEmptyRect(const R: Tl3Rect); overload;  virtual;
-   procedure DoFillEmptyRect(const R: Tl3SRect); overload;  virtual;
-   function GetGlobalClipRect: Tl3Rect; virtual;
-   function GetTabWidth: Integer;
-   procedure RestoreTabInfo(const aTabInfo: Il3TabInfo);
-   function TabOffset: Integer;
-   procedure RecordRegionBottomPrim(const aBottom: Tl3SPoint);
-   procedure DoAddRect(const aRect: Tl3SRect); virtual;
-   function XCheckFilled: Tl3Region;
-   procedure AddRgn(const aRgn: Il3Region); virtual;
-   function KerningTextExtent(const S: Tl3PCharLenPrim): Tl3Point; virtual;
-   procedure KerningTextOut(const P: Tl3Point;
-     const R: Tl3Rect;
-     const S: Tl3PCharLenPrim); overload; 
-   procedure KerningTextOut(const P: Tl3SPoint;
-     const R: Tl3SRect;
-     const S: Tl3PCharLenPrim); overload; 
-   function CheckKerning(Size: Integer): Pointer;
-   function GetCaret: Il3Caret; virtual;
-   procedure CheckOrientation;
-     {* Сигнатура метода CheckOrientation }
-   function NeedOpenRealPage(aDoc: Boolean;
-     ByWidth: Boolean = false): Tl3OpenPageResult; virtual;
-   procedure StartPrinterPage(aDoc: Boolean); virtual;
-   procedure StartPage; virtual;
-     {* Сигнатура метода StartPage }
-   procedure DoStartObject(anObjectID: Integer); virtual;
-   procedure DoSetPageTop; virtual;
-     {* Сигнатура метода DoSetPageTop }
-   procedure DoEndPaint; virtual;
-     {* Сигнатура метода DoEndPaint }
-   procedure DoDrawLineTo(aX: Integer;
-     aY: Integer);
-   function CreateRectRgn(const aRect: Tl3SRect): Tl3Rgn;
-   function DoGetClientRect: Tl3Rect; virtual;
-   function CheckConvertTable(OEM: Boolean): PAnsiChar;
-   procedure MakeScreenDC;
-     {* Сигнатура метода MakeScreenDC }
-   function DoGetPageSetupWidth: Tl3Inch; virtual;
-   function DoGetPageSetupHeight: Tl3Inch; virtual;
-   function DoGetDrawEnabled: Boolean; virtual;
-   function GetPrinting: Boolean; virtual;
-   function AsIl3Canvas: Il3Canvas;
-   procedure AssignDeviceCaps;
-     {* Инициализировать информацию об устройстве }
-   function DoGetPaperWidth: Tl3Inch; virtual;
-   procedure DoFillForeRect(const R: Tl3SRect); virtual;
-   function GetAlienDC: hDC; virtual;
-   procedure FillRectPrim(const R: TRect); virtual;
-   procedure DoStartDrawAAC(aType: TspBlockType); virtual;
-   procedure DoEndDrawAAC(const R: Tl3Rect); virtual;
- public
- // public methods
-   constructor CreateOwned(anOwner: TObject);
-   constructor CreateForPrinting(const aPrinter: Il3Printer);
-   procedure SetCanvas(aValue: TCanvas;
-     anAlien: Boolean); virtual;
-   procedure SetDC(DC: hDC;
-     Flag: TevDCFlag);
-   procedure AddRect(const aRect: Tl3SRect);
-   class function MakeForPrinting(const aPrinter: Il3Printer): Il3InfoCanvas; reintroduce;
-     {* Сигнатура фабрики Tl3CanvasPrim.MakeForPrinting }
-   class function MakeForScreen: Il3InfoCanvas;
-   class function Make: Il3Canvas;
- protected
- // protected properties
+  protected
    property Printing: Boolean
-     read pm_GetPrinting
-     write pm_SetPrinting;
+    read pm_GetPrinting
+    write pm_SetPrinting;
    property Flags: TevDrawFlags
-     read f_Flags
-     write f_Flags;
+    read f_Flags
+    write f_Flags;
    property CanDrawSubs: Boolean
-     read pm_GetCanDrawSubs;
+    read pm_GetCanDrawSubs;
    property PageNumber: Integer
-     read pm_GetPageNumber;
+    read pm_GetPageNumber;
    property OverallPageNumber: Integer
-     read f_OverallPageNumber;
+    read f_OverallPageNumber;
    property GlobalClipRect: Tl3Rect
-     read pm_GetGlobalClipRect;
+    read pm_GetGlobalClipRect;
    property ClipRect: Tl3Rect
-     read pm_GetClipRect
-     write pm_SetClipRect;
+    read pm_GetClipRect
+    write pm_SetClipRect;
    property SWindowOrg: Tl3SPoint
-     read pm_GetSWindowOrg
-     write pm_SetSWindowOrg;
+    read pm_GetSWindowOrg
+    write pm_SetSWindowOrg;
    property VCLFont: TFont
-     read pm_GetVCLFont
-     write pm_SetVCLFont;
- public
- // public properties
+    read pm_GetVCLFont
+    write pm_SetVCLFont;
+  public
    property OnDrawSub: TevDrawSubEvent
-     read f_OnDrawSub
-     write f_OnDrawSub;
+    read f_OnDrawSub
+    write f_OnDrawSub;
    property PixelsPerInchX: Integer
-     read pm_GetPixelsPerInchX;
+    read pm_GetPixelsPerInchX;
    property PixelsPerInchY: Integer
-     read pm_GetPixelsPerInchY;
+    read pm_GetPixelsPerInchY;
    property WindowOrg: Tl3Point
-     read pm_GetWindowOrg
-     write pm_SetWindowOrg;
+    read pm_GetWindowOrg
+    write pm_SetWindowOrg;
    property DC: hDC
-     read pm_GetDC
-     write pm_SetDC;
+    read pm_GetDC
+    write pm_SetDC;
    property BackColor: TColor
-     read pm_GetBackColor
-     write pm_SetBackColor;
+    read pm_GetBackColor
+    write pm_SetBackColor;
    property DrawEnabled: Boolean
-     read pm_GetDrawEnabled
-     write pm_SetDrawEnabled;
+    read pm_GetDrawEnabled
+    write pm_SetDrawEnabled;
    property Drawing: Boolean
-     read pm_GetDrawing;
+    read pm_GetDrawing;
    property Invert: Boolean
-     read pm_GetInvert;
+    read pm_GetInvert;
    property TextColor: TColor
-     read pm_GetTextColor
-     write pm_SetTextColor;
+    read pm_GetTextColor
+    write pm_SetTextColor;
    property Brush: TBrush
-     read pm_GetBrush
-     write pm_SetBrush;
+    read pm_GetBrush
+    write pm_SetBrush;
    property NotFocused: Boolean
-     read f_NotFocused
-     write f_NotFocused;
+    read f_NotFocused
+    write f_NotFocused;
    property DCFlag: TevDCFlag
-     read pm_GetDCFlag
-     write f_DCFlag;
+    read pm_GetDCFlag
+    write f_DCFlag;
    property Canvas: TCanvas
-     read pm_GetCanvas
-     write pm_SetCanvas;
+    read pm_GetCanvas
+    write pm_SetCanvas;
    property Owner: TObject
-     read f_Owner;
+    read f_Owner;
    property Zoom: Integer
-     read pm_GetZoom
-     write pm_SetZoom;
+    read pm_GetZoom
+    write pm_SetZoom;
    property Pen: TPen
-     read pm_GetPen
-     write pm_SetPen;
+    read pm_GetPen
+    write pm_SetPen;
    property ShowCursor: Boolean
-     read pm_GetShowCursor
-     write pm_SetShowCursor;
+    read pm_GetShowCursor
+    write pm_SetShowCursor;
    property Printed: Boolean
-     read pm_GetPrinted
-     write pm_SetPrinted;
+    read pm_GetPrinted
+    write pm_SetPrinted;
    property OnDrawSpecialChange: TNotifyEvent
-     read f_OnDrawSpecialChange
-     write f_OnDrawSpecialChange;
+    read f_OnDrawSpecialChange
+    write f_OnDrawSpecialChange;
    property DrawSpecial: Boolean
-     read pm_GetDrawSpecial
-     write pm_SetDrawSpecial;
+    read pm_GetDrawSpecial
+    write pm_SetDrawSpecial;
    property PageSetup: Il3PageSetup
-     read pm_GetPageSetup;
+    read pm_GetPageSetup;
    property PageOrientation: Tl3PageOrientation
-     read pm_GetPageOrientation
-     write pm_SetPageOrientation;
+    read pm_GetPageOrientation
+    write pm_SetPageOrientation;
    property SectionExtent: Tl3Point
-     read pm_GetSectionExtent
-     write pm_SetSectionExtent;
+    read pm_GetSectionExtent
+    write pm_SetSectionExtent;
    property Painter: Il3HAFPainter
-     read f_Painter
-     write f_Painter;
+    read f_Painter
+    write f_Painter;
    property AbortChecker: Il3AbortChecker
-     read Get_AbortChecker
-     write Set_AbortChecker;
+    read Get_AbortChecker
+    write Set_AbortChecker;
    property etoFlags: Word
-     read pm_GetEtoFlags
-     write f_etoFlags;
+    read pm_GetetoFlags
+    write f_etoFlags;
  end;//Tl3CanvasPrim
 
-  {$If defined(nsTest)}
-var
-   g_PrintingLineSpacing : Integer = def_PrintingLineSpacing;
-  {$IfEnd} //nsTest
+{$If Defined(nsTest)}
+var g_PrintingLineSpacing: Integer = l3Defaults.def_PrintingLineSpacing;
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
 uses
-  l3MinMax,
-  l3Math,
-  l3Const,
-  SysUtils,
-  l3CanvasUtils,
-  StrUtils,
-  l3Chars,
-  l3LogFont,
-  l3FontManager,
-  l3FontTools,
-  l3String,
-  l3ScreenIC,
-  l3StringEx,
-  l3Utils,
-  l3InterfacesMisc,
-  l3FormattedLines,
-  l3LineArray,
-  l3VirtualCanvas,
-  l3Bitmap
-  {$If defined(l3Requires_m0)}
-  ,
-  m2XLtLib
-  {$IfEnd} //l3Requires_m0
-  ,
-  l3FrameLines
-  ;
+ l3ImplUses
+ , l3MinMax
+ , l3Math
+ , l3Const
+ , SysUtils
+ , l3CanvasUtils
+ , StrUtils
+ , l3Chars
+ , l3LogFont
+ , l3FontManager
+ , l3FontTools
+ , l3String
+ , l3ScreenIC
+ , l3StringEx
+ , l3Utils
+ , l3InterfacesMisc
+ , l3FormattedLines
+ , l3LineArray
+ , l3VirtualCanvas
+ , l3Bitmap
+ {$If Defined(l3Requires_m0)}
+ , m2XLtLib
+ {$IfEnd} // Defined(l3Requires_m0)
+ , l3FrameLines
+;
 
 const
-   {  }
-  cMaxTextLength = 3000;
+ cMaxTextLength = 3000;
 
-// start class Tl3CanvasPrim
+constructor Tl3TabInfo.Create(aTabOffset: Integer;
+ const aTabStops: Il3TabStops);
+//#UC START# *56AB67BC0111_56AB66AA01C0_var*
+//#UC END# *56AB67BC0111_56AB66AA01C0_var*
+begin
+//#UC START# *56AB67BC0111_56AB66AA01C0_impl*
+ inherited Create;
+ f_TabOffset := aTabOffset;
+ if (aTabStops = nil) then
+  f_TabStops := nil
+ else
+  f_TabStops := aTabStops.Clone;
+//#UC END# *56AB67BC0111_56AB66AA01C0_impl*
+end;//Tl3TabInfo.Create
+
+class function Tl3TabInfo.Make(aTabOffset: Integer;
+ const aTabStops: Il3TabStops): Il3TabInfo;
+var
+ l_Inst : Tl3TabInfo;
+begin
+ l_Inst := Create(aTabOffset, aTabStops);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//Tl3TabInfo.Make
+
+function Tl3TabInfo.TabOffset: Integer;
+//#UC START# *4728A3180093_56AB66AA01C0_var*
+//#UC END# *4728A3180093_56AB66AA01C0_var*
+begin
+//#UC START# *4728A3180093_56AB66AA01C0_impl*
+ Result := f_TabOffset;
+//#UC END# *4728A3180093_56AB66AA01C0_impl*
+end;//Tl3TabInfo.TabOffset
+
+function Tl3TabInfo.TabStops: Il3TabStops;
+//#UC START# *4728A4830294_56AB66AA01C0_var*
+//#UC END# *4728A4830294_56AB66AA01C0_var*
+begin
+//#UC START# *4728A4830294_56AB66AA01C0_impl*
+ Result := f_TabStops;
+//#UC END# *4728A4830294_56AB66AA01C0_impl*
+end;//Tl3TabInfo.TabStops
+
+procedure Tl3TabInfo.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_56AB66AA01C0_var*
+//#UC END# *479731C50290_56AB66AA01C0_var*
+begin
+//#UC START# *479731C50290_56AB66AA01C0_impl*
+ f_TabStops := nil;
+ inherited;
+//#UC END# *479731C50290_56AB66AA01C0_impl*
+end;//Tl3TabInfo.Cleanup
+
+procedure Tl3CanvasPrim.pm_SetPrinting(aValue: Boolean);
+//#UC START# *4A4CBF0003DF_4A4CB79A02C6set_var*
+//#UC END# *4A4CBF0003DF_4A4CB79A02C6set_var*
+begin
+//#UC START# *4A4CBF0003DF_4A4CB79A02C6set_impl*
+ if aValue then
+ begin
+  Include(f_Flags, ev_dfPrinting);
+  Exclude(f_Flags, ev_dfDrawSpecial);
+  OnDrawSub := nil;
+ end//aValue
+ else
+  Exclude(f_Flags, ev_dfPrinting);
+//#UC END# *4A4CBF0003DF_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetPrinting
+
+function Tl3CanvasPrim.pm_GetDrawing: Boolean;
+//#UC START# *56ACD3C302A5_4A4CB79A02C6get_var*
+//#UC END# *56ACD3C302A5_4A4CB79A02C6get_var*
+begin
+//#UC START# *56ACD3C302A5_4A4CB79A02C6get_impl*
+ Result := (f_Drawing > 0);
+//#UC END# *56ACD3C302A5_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetDrawing
+
+function Tl3CanvasPrim.pm_GetVCLFont: TFont;
+//#UC START# *56AD08DA011D_4A4CB79A02C6get_var*
+//#UC END# *56AD08DA011D_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AD08DA011D_4A4CB79A02C6get_impl*
+ Result := Canvas.Font;
+//#UC END# *56AD08DA011D_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetVCLFont
+
+procedure Tl3CanvasPrim.pm_SetVCLFont(aValue: TFont);
+//#UC START# *56AD08DA011D_4A4CB79A02C6set_var*
+//#UC END# *56AD08DA011D_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AD08DA011D_4A4CB79A02C6set_impl*
+ Canvas.Font := aValue;
+//#UC END# *56AD08DA011D_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetVCLFont
+
+function Tl3CanvasPrim.pm_GetTextColor: TColor;
+//#UC START# *56AD09460121_4A4CB79A02C6get_var*
+//#UC END# *56AD09460121_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AD09460121_4A4CB79A02C6get_impl*
+ Result := f_TextColor;
+//#UC END# *56AD09460121_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetTextColor
+
+procedure Tl3CanvasPrim.pm_SetTextColor(aValue: TColor);
+//#UC START# *56AD09460121_4A4CB79A02C6set_var*
+//#UC END# *56AD09460121_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AD09460121_4A4CB79A02C6set_impl*
+ if (f_TextColor = aValue) then
+ begin
+  if DrawEnabled and Drawing then
+   CheckColors;
+ end//f_TextColor = Value
+ else
+ if (aValue <> clDefault) then
+ begin
+  f_TextColor := aValue;
+  if DrawEnabled and Drawing then
+   CheckColors;
+ end;//f_TextColor <> Value
+//#UC END# *56AD09460121_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetTextColor
+
+function Tl3CanvasPrim.pm_GetBrush: TBrush;
+//#UC START# *56AD0ACC0034_4A4CB79A02C6get_var*
+//#UC END# *56AD0ACC0034_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AD0ACC0034_4A4CB79A02C6get_impl*
+ Result := Canvas.Brush;
+//#UC END# *56AD0ACC0034_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetBrush
+
+procedure Tl3CanvasPrim.pm_SetBrush(aValue: TBrush);
+//#UC START# *56AD0ACC0034_4A4CB79A02C6set_var*
+//#UC END# *56AD0ACC0034_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AD0ACC0034_4A4CB79A02C6set_impl*
+ Canvas.Brush := aValue;
+//#UC END# *56AD0ACC0034_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetBrush
+
+function Tl3CanvasPrim.pm_GetDCFlag: TevDCFlag;
+//#UC START# *56AF20160331_4A4CB79A02C6get_var*
+//#UC END# *56AF20160331_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AF20160331_4A4CB79A02C6get_impl*
+ Result := f_DCFlag;
+//#UC END# *56AF20160331_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetDCFlag
+
+procedure Tl3CanvasPrim.pm_SetCanvas(aValue: TCanvas);
+//#UC START# *56AF20BB0209_4A4CB79A02C6set_var*
+//#UC END# *56AF20BB0209_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AF20BB0209_4A4CB79A02C6set_impl*
+ SetCanvas(aValue, True);
+//#UC END# *56AF20BB0209_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetCanvas
+
+function Tl3CanvasPrim.pm_GetPen: TPen;
+//#UC START# *56B09CE001DA_4A4CB79A02C6get_var*
+//#UC END# *56B09CE001DA_4A4CB79A02C6get_var*
+begin
+//#UC START# *56B09CE001DA_4A4CB79A02C6get_impl*
+ Result := Canvas.Pen;
+//#UC END# *56B09CE001DA_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetPen
+
+procedure Tl3CanvasPrim.pm_SetPen(aValue: TPen);
+//#UC START# *56B09CE001DA_4A4CB79A02C6set_var*
+//#UC END# *56B09CE001DA_4A4CB79A02C6set_var*
+begin
+//#UC START# *56B09CE001DA_4A4CB79A02C6set_impl*
+ Canvas.Pen := aValue;
+//#UC END# *56B09CE001DA_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetPen
+
+procedure Tl3CanvasPrim.pm_SetDrawSpecial(aValue: Boolean);
+//#UC START# *56B0ADCF0192_4A4CB79A02C6set_var*
+var
+ l_WindowFlags: Il3CaretOwner;
+//#UC END# *56B0ADCF0192_4A4CB79A02C6set_var*
+begin
+//#UC START# *56B0ADCF0192_4A4CB79A02C6set_impl*
+ if (DrawSpecial <> aValue) then
+ begin
+  if aValue and not Printing then
+   Flags := Flags + [ev_dfDrawSpecial]
+  else
+   Flags := Flags - [ev_dfDrawSpecial];
+  if Assigned(f_OnDrawSpecialChange) then
+   f_OnDrawSpecialChange(Self);
+  if Supports(Owner, Il3CaretOwner, l_WindowFlags) then
+  try
+   l_WindowFlags.RedrawCaret;
+  finally
+   l_WindowFlags := nil;
+  end;//try..finally
+  Invalidate;
+ end;//DrawSpecial <> Value
+//#UC END# *56B0ADCF0192_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetDrawSpecial
+
+function Tl3CanvasPrim.pm_GetetoFlags: Word;
+//#UC START# *56B4CED4000D_4A4CB79A02C6get_var*
+//#UC END# *56B4CED4000D_4A4CB79A02C6get_var*
+begin
+//#UC START# *56B4CED4000D_4A4CB79A02C6get_impl*
+ Result := f_etoFlags;
+ if Printing then
+  Result :=  Result AND not eto_Opaque;
+//#UC END# *56B4CED4000D_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetetoFlags
 
 function Tl3CanvasPrim.CalcPrintableArea: Tl3_Rect;
 //#UC START# *4A4CBD130121_4A4CB79A02C6_var*
@@ -900,7 +1072,7 @@ begin
 end;//Tl3CanvasPrim.CreateForPrinting
 
 procedure Tl3CanvasPrim.SetCanvas(aValue: TCanvas;
-  anAlien: Boolean);
+ anAlien: Boolean);
 //#UC START# *56B0AE550267_4A4CB79A02C6_var*
 var
  l_E: TNotifyEvent;
@@ -1233,7 +1405,7 @@ begin
 end;//Tl3CanvasPrim.TabOffset
 
 procedure Tl3CanvasPrim.SetDC(DC: hDC;
-  Flag: TevDCFlag);
+ Flag: TevDCFlag);
 //#UC START# *56B386FC021B_4A4CB79A02C6_var*
 //#UC END# *56B386FC021B_4A4CB79A02C6_var*
 begin
@@ -1283,7 +1455,7 @@ begin
 //#UC END# *56B491A30323_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.DoAddRect
 
-function Tl3CanvasPrim.XCheckFilled: Tl3Region;
+function Tl3CanvasPrim.xCheckFilled: Tl3Region;
 //#UC START# *56B4942801F5_4A4CB79A02C6_var*
 //#UC END# *56B4942801F5_4A4CB79A02C6_var*
 begin
@@ -1292,7 +1464,7 @@ begin
   f_Filled := Tl3Region.Create;
  Result := f_Filled;
 //#UC END# *56B4942801F5_4A4CB79A02C6_impl*
-end;//Tl3CanvasPrim.XCheckFilled
+end;//Tl3CanvasPrim.xCheckFilled
 
 procedure Tl3CanvasPrim.AddRgn(const aRgn: Il3Region);
 //#UC START# *56B496300318_4A4CB79A02C6_var*
@@ -1369,8 +1541,8 @@ begin
 end;//Tl3CanvasPrim.KerningTextExtent
 
 procedure Tl3CanvasPrim.KerningTextOut(const P: Tl3Point;
-  const R: Tl3Rect;
-  const S: Tl3PCharLenPrim);
+ const R: Tl3Rect;
+ const S: Tl3PCharLenPrim);
 //#UC START# *56B49A1201C3_4A4CB79A02C6_var*
 //#UC END# *56B49A1201C3_4A4CB79A02C6_var*
 begin
@@ -1383,8 +1555,8 @@ begin
 end;//Tl3CanvasPrim.KerningTextOut
 
 procedure Tl3CanvasPrim.KerningTextOut(const P: Tl3SPoint;
-  const R: Tl3SRect;
-  const S: Tl3PCharLenPrim);
+ const R: Tl3SRect;
+ const S: Tl3PCharLenPrim);
 //#UC START# *56B49A32007A_4A4CB79A02C6_var*
 //#UC END# *56B49A32007A_4A4CB79A02C6_var*
 begin
@@ -1471,7 +1643,7 @@ begin
 end;//Tl3CanvasPrim.CheckOrientation
 
 function Tl3CanvasPrim.NeedOpenRealPage(aDoc: Boolean;
-  ByWidth: Boolean = false): Tl3OpenPageResult;
+ ByWidth: Boolean = False): Tl3OpenPageResult;
 //#UC START# *56B4A55202AB_4A4CB79A02C6_var*
 //#UC END# *56B4A55202AB_4A4CB79A02C6_var*
 begin
@@ -1610,7 +1782,7 @@ begin
 end;//Tl3CanvasPrim.DoEndPaint
 
 procedure Tl3CanvasPrim.DoDrawLineTo(aX: Integer;
-  aY: Integer);
+ aY: Integer);
 //#UC START# *56B4D32C038D_4A4CB79A02C6_var*
 var
  l_PenColor: TColor;
@@ -1723,7 +1895,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3CanvasPrim.MakeForPrinting
 
 class function Tl3CanvasPrim.MakeForScreen: Il3InfoCanvas;
 //#UC START# *56B86CC6013A_4A4CB79A02C6_var*
@@ -1757,226 +1929,6 @@ begin
  end;//try..finally
 //#UC END# *56B86CD200C4_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.Make
-// start class Tl3TabInfo
-
-constructor Tl3TabInfo.Create(aTabOffset: Integer;
-  const aTabStops: Il3TabStops);
-//#UC START# *56AB67BC0111_56AB66AA01C0_var*
-//#UC END# *56AB67BC0111_56AB66AA01C0_var*
-begin
-//#UC START# *56AB67BC0111_56AB66AA01C0_impl*
- inherited Create;
- f_TabOffset := aTabOffset;
- if (aTabStops = nil) then
-  f_TabStops := nil
- else
-  f_TabStops := aTabStops.Clone;
-//#UC END# *56AB67BC0111_56AB66AA01C0_impl*
-end;//Tl3TabInfo.Create
-
-class function Tl3TabInfo.Make(aTabOffset: Integer;
-  const aTabStops: Il3TabStops): Il3TabInfo;
-var
- l_Inst : Tl3TabInfo;
-begin
- l_Inst := Create(aTabOffset, aTabStops);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function Tl3TabInfo.TabOffset: Integer;
-//#UC START# *4728A3180093_56AB66AA01C0_var*
-//#UC END# *4728A3180093_56AB66AA01C0_var*
-begin
-//#UC START# *4728A3180093_56AB66AA01C0_impl*
- Result := f_TabOffset;
-//#UC END# *4728A3180093_56AB66AA01C0_impl*
-end;//Tl3TabInfo.TabOffset
-
-function Tl3TabInfo.TabStops: Il3TabStops;
-//#UC START# *4728A4830294_56AB66AA01C0_var*
-//#UC END# *4728A4830294_56AB66AA01C0_var*
-begin
-//#UC START# *4728A4830294_56AB66AA01C0_impl*
- Result := f_TabStops;
-//#UC END# *4728A4830294_56AB66AA01C0_impl*
-end;//Tl3TabInfo.TabStops
-
-procedure Tl3TabInfo.Cleanup;
-//#UC START# *479731C50290_56AB66AA01C0_var*
-//#UC END# *479731C50290_56AB66AA01C0_var*
-begin
-//#UC START# *479731C50290_56AB66AA01C0_impl*
- f_TabStops := nil;
- inherited;
-//#UC END# *479731C50290_56AB66AA01C0_impl*
-end;//Tl3TabInfo.Cleanup
-
-procedure Tl3CanvasPrim.pm_SetPrinting(aValue: Boolean);
-//#UC START# *4A4CBF0003DF_4A4CB79A02C6set_var*
-//#UC END# *4A4CBF0003DF_4A4CB79A02C6set_var*
-begin
-//#UC START# *4A4CBF0003DF_4A4CB79A02C6set_impl*
- if aValue then
- begin
-  Include(f_Flags, ev_dfPrinting);
-  Exclude(f_Flags, ev_dfDrawSpecial);
-  OnDrawSub := nil;
- end//aValue
- else
-  Exclude(f_Flags, ev_dfPrinting);
-//#UC END# *4A4CBF0003DF_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetPrinting
-
-function Tl3CanvasPrim.pm_GetDrawing: Boolean;
-//#UC START# *56ACD3C302A5_4A4CB79A02C6get_var*
-//#UC END# *56ACD3C302A5_4A4CB79A02C6get_var*
-begin
-//#UC START# *56ACD3C302A5_4A4CB79A02C6get_impl*
- Result := (f_Drawing > 0);
-//#UC END# *56ACD3C302A5_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetDrawing
-
-function Tl3CanvasPrim.pm_GetVCLFont: TFont;
-//#UC START# *56AD08DA011D_4A4CB79A02C6get_var*
-//#UC END# *56AD08DA011D_4A4CB79A02C6get_var*
-begin
-//#UC START# *56AD08DA011D_4A4CB79A02C6get_impl*
- Result := Canvas.Font;
-//#UC END# *56AD08DA011D_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetVCLFont
-
-procedure Tl3CanvasPrim.pm_SetVCLFont(aValue: TFont);
-//#UC START# *56AD08DA011D_4A4CB79A02C6set_var*
-//#UC END# *56AD08DA011D_4A4CB79A02C6set_var*
-begin
-//#UC START# *56AD08DA011D_4A4CB79A02C6set_impl*
- Canvas.Font := aValue;
-//#UC END# *56AD08DA011D_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetVCLFont
-
-function Tl3CanvasPrim.pm_GetTextColor: TColor;
-//#UC START# *56AD09460121_4A4CB79A02C6get_var*
-//#UC END# *56AD09460121_4A4CB79A02C6get_var*
-begin
-//#UC START# *56AD09460121_4A4CB79A02C6get_impl*
- Result := f_TextColor;
-//#UC END# *56AD09460121_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetTextColor
-
-procedure Tl3CanvasPrim.pm_SetTextColor(aValue: TColor);
-//#UC START# *56AD09460121_4A4CB79A02C6set_var*
-//#UC END# *56AD09460121_4A4CB79A02C6set_var*
-begin
-//#UC START# *56AD09460121_4A4CB79A02C6set_impl*
- if (f_TextColor = aValue) then
- begin
-  if DrawEnabled and Drawing then
-   CheckColors;
- end//f_TextColor = Value
- else
- if (aValue <> clDefault) then
- begin
-  f_TextColor := aValue;
-  if DrawEnabled and Drawing then
-   CheckColors;
- end;//f_TextColor <> Value
-//#UC END# *56AD09460121_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetTextColor
-
-function Tl3CanvasPrim.pm_GetBrush: TBrush;
-//#UC START# *56AD0ACC0034_4A4CB79A02C6get_var*
-//#UC END# *56AD0ACC0034_4A4CB79A02C6get_var*
-begin
-//#UC START# *56AD0ACC0034_4A4CB79A02C6get_impl*
- Result := Canvas.Brush;
-//#UC END# *56AD0ACC0034_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetBrush
-
-procedure Tl3CanvasPrim.pm_SetBrush(aValue: TBrush);
-//#UC START# *56AD0ACC0034_4A4CB79A02C6set_var*
-//#UC END# *56AD0ACC0034_4A4CB79A02C6set_var*
-begin
-//#UC START# *56AD0ACC0034_4A4CB79A02C6set_impl*
- Canvas.Brush := aValue;
-//#UC END# *56AD0ACC0034_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetBrush
-
-function Tl3CanvasPrim.pm_GetDCFlag: TevDCFlag;
-//#UC START# *56AF20160331_4A4CB79A02C6get_var*
-//#UC END# *56AF20160331_4A4CB79A02C6get_var*
-begin
-//#UC START# *56AF20160331_4A4CB79A02C6get_impl*
- Result := f_DCFlag;
-//#UC END# *56AF20160331_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetDCFlag
-
-procedure Tl3CanvasPrim.pm_SetCanvas(aValue: TCanvas);
-//#UC START# *56AF20BB0209_4A4CB79A02C6set_var*
-//#UC END# *56AF20BB0209_4A4CB79A02C6set_var*
-begin
-//#UC START# *56AF20BB0209_4A4CB79A02C6set_impl*
- SetCanvas(aValue, True);
-//#UC END# *56AF20BB0209_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetCanvas
-
-function Tl3CanvasPrim.pm_GetPen: TPen;
-//#UC START# *56B09CE001DA_4A4CB79A02C6get_var*
-//#UC END# *56B09CE001DA_4A4CB79A02C6get_var*
-begin
-//#UC START# *56B09CE001DA_4A4CB79A02C6get_impl*
- Result := Canvas.Pen;
-//#UC END# *56B09CE001DA_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetPen
-
-procedure Tl3CanvasPrim.pm_SetPen(aValue: TPen);
-//#UC START# *56B09CE001DA_4A4CB79A02C6set_var*
-//#UC END# *56B09CE001DA_4A4CB79A02C6set_var*
-begin
-//#UC START# *56B09CE001DA_4A4CB79A02C6set_impl*
- Canvas.Pen := aValue;
-//#UC END# *56B09CE001DA_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetPen
-
-procedure Tl3CanvasPrim.pm_SetDrawSpecial(aValue: Boolean);
-//#UC START# *56B0ADCF0192_4A4CB79A02C6set_var*
-var
- l_WindowFlags: Il3CaretOwner;
-//#UC END# *56B0ADCF0192_4A4CB79A02C6set_var*
-begin
-//#UC START# *56B0ADCF0192_4A4CB79A02C6set_impl*
- if (DrawSpecial <> aValue) then
- begin
-  if aValue and not Printing then
-   Flags := Flags + [ev_dfDrawSpecial]
-  else
-   Flags := Flags - [ev_dfDrawSpecial];
-  if Assigned(f_OnDrawSpecialChange) then
-   f_OnDrawSpecialChange(Self);
-  if Supports(Owner, Il3CaretOwner, l_WindowFlags) then
-  try
-   l_WindowFlags.RedrawCaret;
-  finally
-   l_WindowFlags := nil;
-  end;//try..finally
-  Invalidate;
- end;//DrawSpecial <> Value
-//#UC END# *56B0ADCF0192_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.pm_SetDrawSpecial
-
-function Tl3CanvasPrim.pm_GetEtoFlags: Word;
-//#UC START# *56B4CED4000D_4A4CB79A02C6get_var*
-//#UC END# *56B4CED4000D_4A4CB79A02C6get_var*
-begin
-//#UC START# *56B4CED4000D_4A4CB79A02C6get_impl*
- Result := f_etoFlags;
- if Printing then
-  Result :=  Result AND not eto_Opaque;
-//#UC END# *56B4CED4000D_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.pm_GetEtoFlags
 
 function Tl3CanvasPrim.DoGetPageSetupWidth: Tl3Inch;
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_var*
@@ -2030,6 +1982,7 @@ begin
 end;//Tl3CanvasPrim.AsIl3Canvas
 
 procedure Tl3CanvasPrim.AssignDeviceCaps;
+ {* Инициализировать информацию об устройстве }
 //#UC START# *4A4CE6BE005A_4A4CB79A02C6_var*
 var
  l_DC  : hDC;
@@ -2465,7 +2418,8 @@ begin
 //#UC END# *46A615A10333_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.HF
 
-function Tl3CanvasPrim.PxAverageCharWidth: Integer;
+function Tl3CanvasPrim.pxAverageCharWidth: Integer;
+ {* средняя ширина символов контекста в пикселях. }
 //#UC START# *4727432E0121_4A4CB79A02C6_var*
 //#UC END# *4727432E0121_4A4CB79A02C6_var*
 begin
@@ -2474,9 +2428,10 @@ begin
   f_pxAverageCharWidth := TextMetrics^.tmAveCharWidth;
  Result := f_pxAverageCharWidth;
 //#UC END# *4727432E0121_4A4CB79A02C6_impl*
-end;//Tl3CanvasPrim.PxAverageCharWidth
+end;//Tl3CanvasPrim.pxAverageCharWidth
 
 function Tl3CanvasPrim.AverageCharWidth: Integer;
+ {* средняя ширина символов контекста в дюймах. }
 //#UC START# *472743420382_4A4CB79A02C6_var*
 //#UC END# *472743420382_4A4CB79A02C6_var*
 begin
@@ -2488,7 +2443,8 @@ begin
 end;//Tl3CanvasPrim.AverageCharWidth
 
 function Tl3CanvasPrim.TextExtent(const S: Tl3WString;
-  aNoTabs: Boolean = false): Tl3Point;
+ aNoTabs: Boolean = False): Tl3Point;
+ {* возвращает длину строки текста в дюймах. }
 //#UC START# *472744E803E3_4A4CB79A02C6_var*
 var  
  l_Extent : TSize;
@@ -2623,7 +2579,8 @@ begin
 end;//Tl3CanvasPrim.TextExtent
 
 function Tl3CanvasPrim.Pos2Index(W: Integer;
-  const S: Tl3PCharLen): Integer;
+ const S: Tl3PCharLen): Integer;
+ {* находит индекс символа на рассоянии W дюймов от начала строки S. }
 //#UC START# *472894A001A6_4A4CB79A02C6_var*
 var
  TW    : Integer;
@@ -2661,8 +2618,9 @@ begin
 end;//Tl3CanvasPrim.Pos2Index
 
 function Tl3CanvasPrim.Pos2IndexQ(W: Integer;
-  const S: Tl3PCharLen;
-  var aNoTabs: Boolean): Integer;
+ const S: Tl3PCharLen;
+ var aNoTabs: Boolean): Integer;
+ {* находит индекс символа на рассоянии W дюймов от начала строки S. }
 //#UC START# *472894BA0258_4A4CB79A02C6_var*
 var
  l_Diff          : Long;
@@ -2733,6 +2691,7 @@ begin
 end;//Tl3CanvasPrim.Pos2IndexQ
 
 function Tl3CanvasPrim.AverageCharHeight: Integer;
+ {* средняя высота символов контекста в дюймах. }
 //#UC START# *472894EA0166_4A4CB79A02C6_var*
 //#UC END# *472894EA0166_4A4CB79A02C6_var*
 begin
@@ -2744,7 +2703,8 @@ begin
 end;//Tl3CanvasPrim.AverageCharHeight
 
 function Tl3CanvasPrim.LP2DP(const P: Tl3_Point;
-  NeedZoom: Boolean = false): Tl3SPoint;
+ NeedZoom: Boolean = False): Tl3SPoint;
+ {* преобразует точку в дюймах в точку в пикселях. }
 //#UC START# *4728950502EC_4A4CB79A02C6_var*
 //#UC END# *4728950502EC_4A4CB79A02C6_var*
 begin
@@ -2764,6 +2724,7 @@ begin
 end;//Tl3CanvasPrim.LP2DP
 
 function Tl3CanvasPrim.LR2DR(const R: Tl3Rect): Tl3SRect;
+ {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
 //#UC START# *472897C30237_4A4CB79A02C6_var*
 //#UC END# *472897C30237_4A4CB79A02C6_var*
 begin
@@ -2774,6 +2735,7 @@ begin
 end;//Tl3CanvasPrim.LR2DR
 
 function Tl3CanvasPrim.DR2LR(const R: Tl3SRect): Tl3Rect;
+ {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
 //#UC START# *472898020151_4A4CB79A02C6_var*
 //#UC END# *472898020151_4A4CB79A02C6_var*
 begin
@@ -2784,6 +2746,7 @@ begin
 end;//Tl3CanvasPrim.DR2LR
 
 procedure Tl3CanvasPrim.Lock;
+ {* начать работу с канвой. }
 //#UC START# *4728980E02AD_4A4CB79A02C6_var*
 //#UC END# *4728980E02AD_4A4CB79A02C6_var*
 begin
@@ -2792,6 +2755,7 @@ begin
 end;//Tl3CanvasPrim.Lock
 
 procedure Tl3CanvasPrim.Unlock;
+ {* закончить работу с канвой. }
 //#UC START# *4728981C0054_4A4CB79A02C6_var*
 //#UC END# *4728981C0054_4A4CB79A02C6_var*
 begin
@@ -2800,7 +2764,8 @@ begin
 end;//Tl3CanvasPrim.Unlock
 
 function Tl3CanvasPrim.GetKerning(const aSt: Tl3WString;
-  Kerning: PLong): Tl3Point;
+ Kerning: PLong): Tl3Point;
+ {* получить размеры строки и таблицу кернинга. }
 //#UC START# *47289B000379_4A4CB79A02C6_var*
  procedure _GetKerning(aDC: HDC; aBuff: PAnsiChar; aSize: Longint; aKerning: PLong; aSWidth: PLong); register;
  var
@@ -3089,7 +3054,8 @@ begin
 end;//Tl3CanvasPrim.GetKerning
 
 function Tl3CanvasPrim.OffsetRgn(const Rgn: Il3Region;
-  const Pt: Tl3Point): Integer;
+ const Pt: Tl3Point): Integer;
+ {* сдвинуть регион. }
 //#UC START# *4728A0840026_4A4CB79A02C6_var*
 //#UC END# *4728A0840026_4A4CB79A02C6_var*
 begin
@@ -3102,6 +3068,7 @@ begin
 end;//Tl3CanvasPrim.OffsetRgn
 
 function Tl3CanvasPrim.CaretExtent: Tl3Point;
+ {* размеры курсора. }
 //#UC START# *4728A0C40082_4A4CB79A02C6_var*
 //#UC END# *4728A0C40082_4A4CB79A02C6_var*
 begin
@@ -3115,8 +3082,8 @@ begin
 end;//Tl3CanvasPrim.CaretExtent
 
 procedure Tl3CanvasPrim.StartTabs(out theTabInfo: Il3TabInfo;
-  const aTabStops: Il3TabStops;
-  aTabOffset: Integer = 0);
+ const aTabStops: Il3TabStops;
+ aTabOffset: Integer = 0);
 //#UC START# *4728A4A703CC_4A4CB79A02C6_var*
 //#UC END# *4728A4A703CC_4A4CB79A02C6_var*
 begin
@@ -3131,7 +3098,7 @@ begin
 end;//Tl3CanvasPrim.StartTabs
 
 procedure Tl3CanvasPrim.StartTabs(out theTabInfo: Il3TabInfo;
-  const aTabInfo: Il3TabInfo);
+ const aTabInfo: Il3TabInfo);
 //#UC START# *4728A4D00013_4A4CB79A02C6_var*
 //#UC END# *4728A4D00013_4A4CB79A02C6_var*
 begin
@@ -3198,9 +3165,10 @@ begin
 end;//Tl3CanvasPrim.NearestColor
 
 function Tl3CanvasPrim.DrawText(const aSt: Tl3WString;
-  var R: TRect;
-  aFormat: Cardinal;
-  AFl: TObject = nil): Il3MultiLines;
+ var R: TRect;
+ aFormat: Cardinal;
+ AFl: TObject = nil): Il3MultiLines;
+ {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
 //#UC START# *4728A74F03A2_4A4CB79A02C6_var*
  procedure _DrawText(const aSt: Tl3PCharLenPrim);
 
@@ -3419,10 +3387,11 @@ begin
 end;//Tl3CanvasPrim.DrawText
 
 procedure Tl3CanvasPrim.TabbedMultilineTextOut(const aSt: Tl3WString;
-  const Tabs: Il3TabStops;
-  var Rect: Tl3Rect;
-  Precalculate: Boolean;
-  aGap: Integer);
+ const Tabs: Il3TabStops;
+ var Rect: Tl3Rect;
+ Precalculate: Boolean;
+ aGap: Integer);
+ {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
 //#UC START# *4728A7BC0330_4A4CB79A02C6_var*
 var
  l_Right    : Integer;
@@ -3789,9 +3758,9 @@ begin
 end;//Tl3CanvasPrim.FillRgn
 
 function Tl3CanvasPrim.TextOut(const P: Tl3Point;
-  const S: Tl3PCharLen;
-  FC: Tl3Color = clDefault;
-  BC: Tl3Color = clDefault): Tl3Point;
+ const S: Tl3PCharLen;
+ FC: Tl3Color = clDefault;
+ BC: Tl3Color = clDefault): Tl3Point;
 //#UC START# *4728B5B5026B_4A4CB79A02C6_var*
 //#UC END# *4728B5B5026B_4A4CB79A02C6_var*
 begin
@@ -3816,8 +3785,8 @@ begin
 end;//Tl3CanvasPrim.TextOut
 
 procedure Tl3CanvasPrim.SetCaret(const Origin: Tl3Point;
-  const Extent: Tl3Point;
-  Hidden: Boolean = false);
+ const Extent: Tl3Point;
+ Hidden: Boolean = False);
 //#UC START# *4728B5EB01A1_4A4CB79A02C6_var*
 var
  Pt      : array [0..1] of Tl3SPoint;
@@ -3972,7 +3941,7 @@ begin
 end;//Tl3CanvasPrim.HasToDraw
 
 procedure Tl3CanvasPrim.StretchDraw(const R: Tl3Rect;
-  Graphic: VCLGraphic);
+ Graphic: VCLGraphic);
 //#UC START# *4728B6ED0101_4A4CB79A02C6_var*
 var
  l_R       : Tl3SRect;
@@ -4015,9 +3984,9 @@ begin
 end;//Tl3CanvasPrim.StretchDraw
 
 procedure Tl3CanvasPrim.DrawSub(aSubTarget: TObject;
-  const R: Tl3Rect;
-  LayerHandle: Integer;
-  aSub: TObject);
+ const R: Tl3Rect;
+ LayerHandle: Integer;
+ aSub: TObject);
 //#UC START# *4728B97800C0_4A4CB79A02C6_var*
 //#UC END# *4728B97800C0_4A4CB79A02C6_var*
 begin
@@ -4028,10 +3997,10 @@ begin
 end;//Tl3CanvasPrim.DrawSub
 
 procedure Tl3CanvasPrim.ExtTextOut(const P: Tl3Point;
-  const R: Tl3Rect;
-  const S: Tl3WString;
-  F: Tl3TextFormatFlag = l3_tffLeft;
-  Dx: PInteger = nil);
+ const R: Tl3Rect;
+ const S: Tl3WString;
+ F: Tl3TextFormatFlag = l3_tffLeft;
+ Dx: PInteger = nil);
 //#UC START# *4728B9F10060_4A4CB79A02C6_var*
 var
  l_SOffset : Tl3SPoint;
@@ -4419,10 +4388,10 @@ begin
 end;//Tl3CanvasPrim.ExtTextOut
 
 procedure Tl3CanvasPrim.ExtTextOut(const P: Tl3SPoint;
-  const R: Tl3SRect;
-  const S: Tl3WString;
-  F: Tl3TextFormatFlag = l3_tffLeft;
-  Dx: PInteger = nil);
+ const R: Tl3SRect;
+ const S: Tl3WString;
+ F: Tl3TextFormatFlag = l3_tffLeft;
+ Dx: PInteger = nil);
 //#UC START# *4728BAAC0127_4A4CB79A02C6_var*
 //#UC END# *4728BAAC0127_4A4CB79A02C6_var*
 begin
@@ -4432,9 +4401,10 @@ begin
 end;//Tl3CanvasPrim.ExtTextOut
 
 function Tl3CanvasPrim.CaretLineOut(const aSt: Tl3WString;
-  LineHeight: Integer;
-  aHidden: Boolean;
-  var CaretPos: Integer): Tl3Point;
+ LineHeight: Integer;
+ aHidden: Boolean;
+ var CaretPos: Integer): Tl3Point;
+ {* выводит строку текста высотой LineHeight, со сдвигом курсора отрисовки. устанавливает курсор в CaretPos. возвращает размеры выведенной строки. }
 //#UC START# *4728BAD601DC_4A4CB79A02C6_var*
 var
  l_YOfs        : Long;
@@ -4512,7 +4482,7 @@ begin
 end;//Tl3CanvasPrim.CaretLineOut
 
 function Tl3CanvasPrim.StringOut(const P: Tl3Point;
-  const Text: Tl3WString): Tl3Point;
+ const Text: Tl3WString): Tl3Point;
 //#UC START# *4728BB120156_4A4CB79A02C6_var*
 //#UC END# *4728BB120156_4A4CB79A02C6_var*
 begin
@@ -4522,9 +4492,9 @@ begin
 end;//Tl3CanvasPrim.StringOut
 
 procedure Tl3CanvasPrim.TabbedTextOut(const P: Tl3Point;
-  const R: Tl3Rect;
-  const S: Tl3WString;
-  const aTabStops: Il3TabStops);
+ const R: Tl3Rect;
+ const S: Tl3WString;
+ const aTabStops: Il3TabStops);
 //#UC START# *4728BB2D0173_4A4CB79A02C6_var*
 var
  lTempTabInfo : Il3TabInfo;
@@ -4546,9 +4516,9 @@ begin
 end;//Tl3CanvasPrim.TabbedTextOut
 
 procedure Tl3CanvasPrim.TabbedTextOut(const P: Tl3SPoint;
-  const R: Tl3SRect;
-  const S: Tl3WString;
-  const aTabStops: Il3TabStops);
+ const R: Tl3SRect;
+ const S: Tl3WString;
+ const aTabStops: Il3TabStops);
 //#UC START# *4728BB8F03CD_4A4CB79A02C6_var*
 var
  lTempTabInfo : Il3TabInfo;
@@ -4569,7 +4539,8 @@ begin
 //#UC END# *4728BB8F03CD_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.TabbedTextOut
 
-function Tl3CanvasPrim.NewPage(ByWidth: Boolean = false): Boolean;
+function Tl3CanvasPrim.NewPage(ByWidth: Boolean = False): Boolean;
+ {* начать новую страницу. }
 //#UC START# *4728BBAF00BB_4A4CB79A02C6_var*
 var
  l_PrinterOrientation : Tl3PageOrientation;
@@ -4631,7 +4602,8 @@ begin
 end;//Tl3CanvasPrim.NewPage
 
 procedure Tl3CanvasPrim.Line(const A: Tl3Point;
-  const B: Tl3Point);
+ const B: Tl3Point);
+ {* нарисовать линию. }
 //#UC START# *4728BBC80252_4A4CB79A02C6_var*
 //#UC END# *4728BBC80252_4A4CB79A02C6_var*
 begin
@@ -4645,7 +4617,8 @@ begin
 end;//Tl3CanvasPrim.Line
 
 procedure Tl3CanvasPrim.Line(const A: Tl3SPoint;
-  const B: Tl3SPoint);
+ const B: Tl3SPoint);
+ {* нарисовать линию. }
 //#UC START# *4728BBE702D9_4A4CB79A02C6_var*
 //#UC END# *4728BBE702D9_4A4CB79A02C6_var*
 begin
@@ -5152,6 +5125,7 @@ begin
 end;//Tl3CanvasPrim.pm_GetRegionBottomRight
 
 function Tl3CanvasPrim.IsAtomic: Boolean;
+ {* Строка для нанного шрифта представляет собой единый объект? }
 //#UC START# *475E5BAD0198_4A4CB79A02C6_var*
 //#UC END# *475E5BAD0198_4A4CB79A02C6_var*
 begin
@@ -5161,6 +5135,7 @@ begin
 end;//Tl3CanvasPrim.IsAtomic
 
 function Tl3CanvasPrim.FM: Il3FontMetrics;
+ {* Метрики шрифта. }
 //#UC START# *475E5BED0118_4A4CB79A02C6_var*
 //#UC END# *475E5BED0118_4A4CB79A02C6_var*
 begin
@@ -5182,6 +5157,7 @@ begin
 end;//Tl3CanvasPrim.GetClientRect
 
 function Tl3CanvasPrim.AdjustMarginsByPrintableArea(const aMargins: Tl3_Rect): Tl3_Rect;
+ {* Откорректировать поля с учетом непечатаемой области }
 //#UC START# *4776171C037B_4A4CB79A02C6_var*
 var
  l_PrintableArea: Tl3_Rect;
@@ -5315,6 +5291,7 @@ begin
 end;//Tl3CanvasPrim.pm_GetPrinting
 
 function Tl3CanvasPrim.CheckConvertString(const aStr: Tl3PCharLen): Tl3PCharLen;
+ {* преобразует строку для отображения форматирующей информации в режиме DrawSpecial. }
 //#UC START# *4A0BD46901A0_4A4CB79A02C6_var*
 var
  l_Index : Integer;   
@@ -5488,6 +5465,7 @@ begin
 end;//Tl3CanvasPrim.pm_GetCanvas
 
 function Tl3CanvasPrim.DP2LP(const aP: Tl3_SPoint): Tl3Point;
+ {* Преобразует точку в пикселях в точку в дюймах }
 //#UC START# *4A4CE0990013_4A4CB79A02C6_var*
 //#UC END# *4A4CE0990013_4A4CB79A02C6_var*
 begin
@@ -5504,6 +5482,7 @@ begin
 end;//Tl3CanvasPrim.DP2LP
 
 function Tl3CanvasPrim.DeviceCaps(anIndex: Integer): Integer;
+ {* возвращает свойства устройства рисования. }
 //#UC START# *4A4CEC6202C3_4A4CB79A02C6_var*
 //#UC END# *4A4CEC6202C3_4A4CB79A02C6_var*
 begin
@@ -5752,6 +5731,7 @@ begin
 end;//Tl3CanvasPrim.EndDarkColor
 
 procedure Tl3CanvasPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A4CB79A02C6_var*
 //#UC END# *479731C50290_4A4CB79A02C6_var*
 begin
@@ -5806,7 +5786,6 @@ begin
 end;//Tl3CanvasPrim.InitFields
 
 procedure Tl3CanvasPrim.ClearFields;
- {-}
 begin
  Finalize(f_SectionExtent);
  Painter := nil;

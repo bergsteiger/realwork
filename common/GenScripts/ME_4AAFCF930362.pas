@@ -17,6 +17,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAFCF930362intf_uses*
+ //#UC END# *4AAFCF930362intf_uses*
 ;
 
 const
@@ -53,6 +55,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , PictureKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AAFCF930362impl_uses*
+ //#UC END# *4AAFCF930362impl_uses*
 ;
 
 //#UC START# *4AAFCF930362impl*

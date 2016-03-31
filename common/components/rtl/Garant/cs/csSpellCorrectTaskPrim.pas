@@ -1,73 +1,58 @@
 unit csSpellCorrectTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csSpellCorrectTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsSpellCorrectTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csSpellCorrectTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsSpellCorrectTaskPrim" MUID: (53B2545A003D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  csTasksHelpers,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , csTasksHelpers
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsSpellCorrectTaskPrim = class(TddProcessTask)
- protected
- // property methods
+  protected
    function pm_GetReplacementFile: ReplacementFileHelper;
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property ReplacementFile: ReplacementFileHelper
-     read pm_GetReplacementFile;
+    read pm_GetReplacementFile;
  end;//TcsSpellCorrectTaskPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SpellCorrectTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsSpellCorrectTaskPrim
+ l3ImplUses
+ , SpellCorrectTask_Const
+;
 
 function TcsSpellCorrectTaskPrim.pm_GetReplacementFile: ReplacementFileHelper;
- {-}
+//#UC START# *4D53CCA1F803_53B2545A003Dget_var*
+//#UC END# *4D53CCA1F803_53B2545A003Dget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TReplacementFileHelper.Make(TaggedData.cAtom(k2_attrReplacementFile));
+//#UC START# *4D53CCA1F803_53B2545A003Dget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4D53CCA1F803_53B2545A003Dget_impl*
 end;//TcsSpellCorrectTaskPrim.pm_GetReplacementFile
 
 class function TcsSpellCorrectTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B2545A003D_var*
+//#UC END# *53AC03EE01FD_53B2545A003D_var*
 begin
- Result := k2_typSpellCorrectTask;
+//#UC START# *53AC03EE01FD_53B2545A003D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B2545A003D_impl*
 end;//TcsSpellCorrectTaskPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

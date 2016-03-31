@@ -1,57 +1,43 @@
 unit csRemoteDictEditQueryPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csRemoteDictEditQueryPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsRemoteDictEditQueryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csRemoteDictEditQueryPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsRemoteDictEditQueryPrim" MUID: (53B27AE70084)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsRemoteDictEditQueryPrim = class(TddProcessTask)
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
  end;//TcsRemoteDictEditQueryPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  RemoteDictEditQuery_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsRemoteDictEditQueryPrim
+ l3ImplUses
+ , RemoteDictEditQuery_Const
+;
 
 class function TcsRemoteDictEditQueryPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B27AE70084_var*
+//#UC END# *53AC03EE01FD_53B27AE70084_var*
 begin
- Result := k2_typRemoteDictEditQuery;
+//#UC START# *53AC03EE01FD_53B27AE70084_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B27AE70084_impl*
 end;//TcsRemoteDictEditQueryPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

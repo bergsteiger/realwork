@@ -16,7 +16,7 @@ uses
 ;
 
 type
- TBaseWorkJournalModule = class
+ TBaseWorkJournalModule = class(TvcmModule)
   protected
    procedure BaseWorkJournal_OpenJournal_Test(const aParams: IvcmTestParamsPrim);
    procedure BaseWorkJournal_OpenJournal_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -37,6 +37,7 @@ uses
  , bsWorkJournal
 ;
 
+{$If NOT Defined(NoVCM)}
 function TBaseWorkJournalModule.MakeWorkJournal: IbsWorkJournal;
 //#UC START# *4A827E40004E_4A811C1A0293_var*
 //#UC END# *4A827E40004E_4A811C1A0293_var*
@@ -69,6 +70,7 @@ begin
  l_Window.SetActiveInParent;
 //#UC END# *4A97C7C0019C_4A811C1A0293exec_impl*
 end;//TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Execute
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

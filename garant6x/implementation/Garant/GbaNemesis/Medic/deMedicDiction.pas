@@ -1,44 +1,33 @@
 unit deMedicDiction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/deMedicDiction.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdeMedicDiction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\deMedicDiction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeMedicDiction" MUID: (492559970076)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  deCommonDiction,
-  DocumentUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , deCommonDiction
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeMedicDiction = class(TdeCommonDiction)
- protected
- // overridden protected methods
+  protected
    function DefaultDocType: TDocumentType; override;
  end;//TdeMedicDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeMedicDiction
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 function TdeMedicDiction.DefaultDocType: TDocumentType;
 //#UC START# *4B1E714A0125_492559970076_var*
@@ -48,7 +37,6 @@ begin
  Result := DT_MEDICAL_EXPLANATORY;
 //#UC END# *4B1E714A0125_492559970076_impl*
 end;//TdeMedicDiction.DefaultDocType
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,53 +1,39 @@
 unit nsPrimCachedEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsPrimCachedEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::Logging::TnsPrimCachedEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimCachedEvent" MUID: (4B13A069037A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  LoggingInterfaces,
-  nsLogEvent
-  ;
+ l3IntfUses
+ , nsLogEvent
+ , LoggingInterfaces
+;
 
 type
  TnsPrimCachedEvent = {abstract} class(TnsLogEvent, InsDefferedEvent)
- protected
- // realized methods
-   procedure FireLog;
- protected
- // protected methods
+  protected
    procedure DoFireLog; virtual; abstract;
    procedure RequestWrite;
- public
- // public methods
+   procedure FireLog;
+  public
    constructor Create; reintroduce;
  end;//TnsPrimCachedEvent
 
 implementation
 
 uses
-  nsCachedEventsProcessor,
-  nsLogEventData,
-  nsLogManager,
-  LoggingUnit,
-  LoggingWrapperInterfaces
-  ;
-
-// start class TnsPrimCachedEvent
+ l3ImplUses
+ , nsCachedEventsProcessor
+ , nsLogEventData
+ , nsLogManager
+ , LoggingUnit
+ , LoggingWrapperInterfaces
+;
 
 procedure TnsPrimCachedEvent.RequestWrite;
 //#UC START# *4B13A22E0048_4B13A069037A_var*

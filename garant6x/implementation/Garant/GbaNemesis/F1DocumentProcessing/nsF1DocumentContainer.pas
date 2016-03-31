@@ -1,111 +1,87 @@
 unit nsF1DocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsF1DocumentContainer.pas"
-// Начат: 17.08.2010 18:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::TnsF1DocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsF1DocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsF1DocumentContainer" MUID: (4C6A9AD101B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsF1DocumentContainerPrim,
-  l3Variant,
-  DocumentUnit,
-  nevTools,
-  DocumentInterfaces,
-  F1TagDataProviderInterface,
-  afwInterfaces,
-  l3Interfaces,
-  nevBase,
-  k2Base,
-  nevPrintableDocumentContainer,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsF1DocumentContainerPrim
+ , l3TreeInterfaces
+ , l3Variant
+ , nevBase
+ , F1TagDataProviderInterface
+ , DocumentInterfaces
+ , DocumentUnit
+ , nevTools
+ , afwInterfaces
+ , nevPrintableDocumentContainer
+ , l3IID
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _nsDocumentContainer_Parent_ = TnsF1DocumentContainerPrim;
- {$Include ..\F1DocumentProcessing\nsDocumentContainer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsF1DocumentContainer = class(_nsDocumentContainer_)
- private
- // private fields
-   f_ContentsTree : Il3SimpleTree;
-    {* Дерево оглавления}
- protected
- // overridden protected methods
+  private
+   f_ContentsTree: Il3SimpleTree;
+    {* Дерево оглавления }
+  protected
+   procedure TransformMadeDocument(var theDocument: Tl3Tag); virtual;
+    {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetDocument: Tl3Tag; override;
    function GetContentsTree: InevSimpleTree; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure TransformMadeDocument(var theDocument: Tl3Tag); virtual;
-     {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
  end;//TnsF1DocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsF1DocumentTagNode,
-  nsMedicContentsTree,
-  nsContentsTree,
-  DynamicTreeUnit,
-  nsManagers,
-  BaseTypesUnit,
-  ComObj,
-  evTypes,
-  l3Types,
-  evdNativeReader,
-  evdVer,
-  SysUtils,
-  nsIDocumentDataObject,
-  nsDocumentPreview,
-  nsHAFPainter,
-  LoggingInterfaces,
-  nsDocumentPrintEvent,
-  deDocInfo,
-  DataAdapter,
-  evdTypes,
-  nsTypes,
-  LeafPara_Const,
-  k2Tags,
-  nsTagString
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsF1DocumentTagNode
+ , nsMedicContentsTree
+ , nsContentsTree
+ , DynamicTreeUnit
+ , nsManagers
+ , BaseTypesUnit
+ , ComObj
+ , evTypes
+ , l3Types
+ , evdNativeReader
+ , evdVer
+ , SysUtils
+ , nsIDocumentDataObject
+ , nsDocumentPreview
+ , nsHAFPainter
+ , LoggingInterfaces
+ , nsDocumentPrintEvent
+ , deDocInfo
+ , DataAdapter
+ , evdTypes
+ , nsTypes
+ , LeafPara_Const
+ , k2Tags
+ , nsTagString
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , afwFacade
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-{$Include ..\F1DocumentProcessing\nsDocumentContainer.imp.pas}
-
-// start class TnsF1DocumentContainer
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 procedure TnsF1DocumentContainer.TransformMadeDocument(var theDocument: Tl3Tag);
+ {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
 //#UC START# *500ED7750045_4C6A9AD101B4_var*
 //#UC END# *500ED7750045_4C6A9AD101B4_var*
 begin
@@ -115,6 +91,7 @@ begin
 end;//TnsF1DocumentContainer.TransformMadeDocument
 
 procedure TnsF1DocumentContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C6A9AD101B4_var*
 //#UC END# *479731C50290_4C6A9AD101B4_var*
 begin
@@ -264,14 +241,10 @@ begin
 end;//TnsF1DocumentContainer.GetContentsTree
 
 procedure TnsF1DocumentContainer.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ContentsTree := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsF1DocumentContainer.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

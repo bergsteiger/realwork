@@ -1,51 +1,36 @@
 unit atIterateUserJournalOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atIterateUserJournalOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatIterateUserJournalOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atIterateUserJournalOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatIterateUserJournalOperation" MUID: (5006EE59000E)
 
 interface
 
 uses
-  atOperationBase,
-  atQuery,
-  atUserJournalHelper
-  ;
+ l3IntfUses
+ , atOperationBase
+ , atQuery
+ , atUserJournalHelper
+;
 
 type
  TatIterateUserJournalOperation = {abstract} class(TatOperationBase)
- protected
- // realized methods
-   procedure ExecuteSelf; override;
- protected
- // overridden protected methods
-   procedure InitParamList; override;
-   procedure ExecuteChilds; override;
- protected
- // protected methods
+  protected
    function OnQuery(const anQuery: TatQuery): Boolean; virtual; abstract;
    function OnBookmark(const aBookmark: TatJournalBookmark): Boolean; virtual; abstract;
+   procedure ExecuteSelf; override;
+   procedure InitParamList; override;
+   procedure ExecuteChilds; override;
  end;//TatIterateUserJournalOperation
 
 implementation
 
 uses
-  Contnrs,
-  SysUtils,
-  atLogger
-  ;
-
-// start class TatIterateUserJournalOperation
+ l3ImplUses
+ , Contnrs
+ , SysUtils
+ , atLogger
+;
 
 procedure TatIterateUserJournalOperation.ExecuteSelf;
 //#UC START# *48089F460352_5006EE59000E_var*

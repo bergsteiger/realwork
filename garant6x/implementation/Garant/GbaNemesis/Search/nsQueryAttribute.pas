@@ -108,11 +108,8 @@ type
   {* Предназначен для сохранения IDictNode и типа операции. }
   private
    f_NodeBase: INodeBase;
-    {* Поле для свойства NodeBase }
    f_Mask: Il3CString;
-    {* Поле для свойства Mask }
    f_Oper: TLogicOperation;
-    {* Поле для свойства Oper }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -316,13 +313,9 @@ type
  TqaDateReqDataHolder = class(TvcmBase, IqaDateReqDataHolder)
   private
    f_ReqCaption: Il3CString;
-    {* Поле для свойства ReqCaption }
    f_StartDate: TDateTime;
-    {* Поле для свойства StartDate }
    f_EndDate: TDateTime;
-    {* Поле для свойства EndDate }
    f_IsOk: Boolean;
-    {* Поле для свойства IsOk }
   protected
    function Get_StartDate: TDateTime;
    procedure Set_StartDate(aValue: TDateTime);
@@ -374,15 +367,10 @@ type
    {$IfEnd} // NOT Defined(Monitorings)
    f_FirstErrorContextReq: IevEditorControlField;
    f_IsQueryNew: Boolean;
-    {* Поле для свойства IsQueryNew }
    f_QueryType: TlgQueryType;
-    {* Поле для свойства QueryType }
    f_QueryCard: IevQueryCard;
-    {* Поле для свойства QueryCard }
    f_FromHistory: Boolean;
-    {* Поле для свойства FromHistory }
    f_Query: IQuery;
-    {* Поле для свойства Query }
   private
    function NeedSettings: Boolean;
    procedure FinishEntering;

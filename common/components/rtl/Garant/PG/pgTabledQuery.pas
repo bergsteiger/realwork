@@ -1,101 +1,68 @@
 unit pgTabledQuery;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgTabledQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgTabledQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgTabledQuery.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgTabledQuery" MUID: (55F960D502F6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daInterfaces,
-  pgInterfaces,
-  pgConnection,
-  daTabledQuery,
-  daParamList
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , daTabledQuery
+ , pgConnection
+ , pgInterfaces
+ , daInterfaces
+ , daParamList
+;
 
-{$If defined(UsePostgres)}
 type
  TpgTabledQuery = class(TdaTabledQuery)
- private
- // private fields
-   f_Connection : TpgConnection;
-   f_QueryName : AnsiString;
- private
- // private methods
+  private
+   f_Connection: TpgConnection;
+   f_QueryName: AnsiString;
+  private
    function BuildSQL: AnsiString;
- protected
- // realized methods
+  protected
    function MakeFromTable(const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaFromTable; override;
+    const anAlias: AnsiString = ''): IdaFromTable; override;
    procedure PrepareTable; override;
-     {* Сигнатура метода PrepareTable }
    procedure UnPrepareTable; override;
-     {* Сигнатура метода UnPrepareTable }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    function MakeParamList: TdaParamList; override;
- public
- // public methods
+  public
    constructor Create(const aDataConverter: IpgDataConverter;
-     const aTable: IdaTableDescription;
-     aConnection: TpgConnection;
-     const anAlias: AnsiString = ''); reintroduce;
+    const aTable: IdaTableDescription;
+    aConnection: TpgConnection;
+    const anAlias: AnsiString = ''); reintroduce;
    class function Make(const aDataConverter: IpgDataConverter;
-     const aTable: IdaTableDescription;
-     aConnection: TpgConnection;
-     const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
-     {* Сигнатура фабрики TpgTabledQuery.Make }
+    const aTable: IdaTableDescription;
+    aConnection: TpgConnection;
+    const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
  end;//TpgTabledQuery
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  LibPQ,
-  pgUtils,
-  pgParamList,
-  pgResultSet,
-  daFromTable
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgTabledQuery
-
-function TpgTabledQuery.BuildSQL: AnsiString;
-//#UC START# *560506760367_55F960D502F6_var*
-//#UC END# *560506760367_55F960D502F6_var*
-begin
-//#UC START# *560506760367_55F960D502F6_impl*
- Result := BuildSQLValue(Params);
-//#UC END# *560506760367_55F960D502F6_impl*
-end;//TpgTabledQuery.BuildSQL
+ l3ImplUses
+ , SysUtils
+ , LibPQ
+ , pgUtils
+ , pgParamList
+ , pgResultSet
+ , daFromTable
+;
 
 constructor TpgTabledQuery.Create(const aDataConverter: IpgDataConverter;
-  const aTable: IdaTableDescription;
-  aConnection: TpgConnection;
-  const anAlias: AnsiString = '');
+ const aTable: IdaTableDescription;
+ aConnection: TpgConnection;
+ const anAlias: AnsiString = '');
 //#UC START# *55F9617402F2_55F960D502F6_var*
 //#UC END# *55F9617402F2_55F960D502F6_var*
 begin
@@ -106,9 +73,9 @@ begin
 end;//TpgTabledQuery.Create
 
 class function TpgTabledQuery.Make(const aDataConverter: IpgDataConverter;
-  const aTable: IdaTableDescription;
-  aConnection: TpgConnection;
-  const anAlias: AnsiString = ''): IdaTabledQuery;
+ const aTable: IdaTableDescription;
+ aConnection: TpgConnection;
+ const anAlias: AnsiString = ''): IdaTabledQuery;
 var
  l_Inst : TpgTabledQuery;
 begin
@@ -118,10 +85,19 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgTabledQuery.Make
+
+function TpgTabledQuery.BuildSQL: AnsiString;
+//#UC START# *560506760367_55F960D502F6_var*
+//#UC END# *560506760367_55F960D502F6_var*
+begin
+//#UC START# *560506760367_55F960D502F6_impl*
+ Result := BuildSQLValue(Params);
+//#UC END# *560506760367_55F960D502F6_impl*
+end;//TpgTabledQuery.BuildSQL
 
 function TpgTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromTable;
 //#UC START# *5600FFF80332_55F960D502F6_var*
 //#UC END# *5600FFF80332_55F960D502F6_var*
 begin
@@ -166,6 +142,7 @@ begin
 end;//TpgTabledQuery.UnPrepareTable
 
 procedure TpgTabledQuery.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55F960D502F6_var*
 //#UC END# *479731C50290_55F960D502F6_var*
 begin
@@ -192,7 +169,6 @@ begin
  Result := TpgParamList.Make;
 //#UC END# *560B861302E9_55F960D502F6_impl*
 end;//TpgTabledQuery.MakeParamList
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

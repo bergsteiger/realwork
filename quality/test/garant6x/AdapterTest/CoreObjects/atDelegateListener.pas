@@ -1,51 +1,41 @@
 unit atDelegateListener;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atDelegateListener.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatDelegateListener
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atDelegateListener.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatDelegateListener" MUID: (48078A03039C)
 
 interface
 
 uses
-  atInterfaces,
-  atListener
-  ;
+ l3IntfUses
+ , atListener
+ , atInterfaces
+;
 
 type
- TatDelegateListenerProc = procedure (sender: TObject;
+ TatDelegateListenerProc = procedure(sender: TObject;
   const notification: IatNotification);
 
- TatDelegateListenerProcOfObject = procedure (sender: TObject;
+ TatDelegateListenerProcOfObject = procedure(sender: TObject;
   const notification: IatNotification) of object;
 
  TatDelegateListener = class(TatListener)
- private
- // private fields
-   f_FireProc : TatDelegateListenerProc;
-   f_FireProcOfObject : TatDelegateListenerProcOfObject;
- protected
- // realized methods
+  private
+   f_FireProc: TatDelegateListenerProc;
+   f_FireProcOfObject: TatDelegateListenerProcOfObject;
+  protected
    procedure DoFire(sender: TObject;
     const notification: IatNotification); override;
- public
- // public methods
-   constructor Create(fireProc: TatDelegateListenerProc); reintroduce; overload; 
-   constructor Create(fireProcOfObject: TatDelegateListenerProcOfObject); reintroduce; overload; 
+  public
+   constructor Create(fireProc: TatDelegateListenerProc); reintroduce; overload;
+   constructor Create(fireProcOfObject: TatDelegateListenerProcOfObject); reintroduce; overload;
  end;//TatDelegateListener
 
 implementation
 
-// start class TatDelegateListener
+uses
+ l3ImplUses
+;
 
 constructor TatDelegateListener.Create(fireProc: TatDelegateListenerProc);
 //#UC START# *48078AD3036C_48078A03039C_var*
@@ -70,7 +60,7 @@ begin
 end;//TatDelegateListener.Create
 
 procedure TatDelegateListener.DoFire(sender: TObject;
-  const notification: IatNotification);
+ const notification: IatNotification);
 //#UC START# *480784C30322_48078A03039C_var*
 //#UC END# *480784C30322_48078A03039C_var*
 begin

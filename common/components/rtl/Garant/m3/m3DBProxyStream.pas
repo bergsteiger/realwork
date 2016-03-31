@@ -1,82 +1,63 @@
 unit m3DBProxyStream;
+ {* Поток, знающий про базу, с которой он работает }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m3/m3DBProxyStream.pas"
-// Начат: 17.03.2009 18:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBProxyStream
-//
-// Поток, знающий про базу, с которой он работает
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3DBProxyStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBProxyStream" MUID: (49BFBF3E00CD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  m3DBInterfaces,
-  l3ProxyStream,
-  m3PrimDB
-  ;
+ l3IntfUses
+ , l3ProxyStream
+ , m3PrimDB
+ , m3DBInterfaces
+ , l3Interfaces
+;
 
 type
  Tm3DBProxyStream = class(Tl3ProxyStream)
   {* Поток, знающий про базу, с которой он работает }
- private
- // private fields
-   f_DB : Tm3PrimDB;
-    {* Поле для свойства DB}
-   f_ID : Tm3DBStreamIndexEx;
-    {* Поле для свойства ID}
- protected
- // overridden protected methods
+  private
+   f_DB: Tm3PrimDB;
+    {* Поле для свойства DB }
+   f_ID: Tm3DBStreamIndexEx;
+    {* Поле для свойства ID }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aStream: IStream;
     aDB: Tm3PrimDB;
     const anID: Tm3DBStreamIndexEx); reintroduce;
    class function Make(const aStream: IStream;
     aDB: Tm3PrimDB;
     const anID: Tm3DBStreamIndexEx): IStream; reintroduce;
-     {* Создаёт обёртку }
- protected
- // protected properties
+    {* Создаёт обёртку }
+  protected
    property DB: Tm3PrimDB
-     read f_DB;
-     {* База, с которой работает поток }
- public
- // public properties
+    read f_DB;
+    {* База, с которой работает поток }
+  public
    property ID: Tm3DBStreamIndexEx
-     read f_ID;
-     {* Идентификатор потока }
+    read f_ID;
+    {* Идентификатор потока }
  end;//Tm3DBProxyStream
 
 implementation
 
 uses
-  SysUtils,
-  l3Base
-  ;
-
-// start class Tm3DBProxyStream
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 constructor Tm3DBProxyStream.Create(const aStream: IStream;
-  aDB: Tm3PrimDB;
-  const anID: Tm3DBStreamIndexEx);
+ aDB: Tm3PrimDB;
+ const anID: Tm3DBStreamIndexEx);
 //#UC START# *49BFC03402A2_49BFBF3E00CD_var*
 //#UC END# *49BFC03402A2_49BFBF3E00CD_var*
 begin
@@ -92,8 +73,9 @@ begin
 end;//Tm3DBProxyStream.Create
 
 class function Tm3DBProxyStream.Make(const aStream: IStream;
-  aDB: Tm3PrimDB;
-  const anID: Tm3DBStreamIndexEx): IStream;
+ aDB: Tm3PrimDB;
+ const anID: Tm3DBStreamIndexEx): IStream;
+ {* Создаёт обёртку }
 var
  l_Inst : Tm3DBProxyStream;
 begin
@@ -103,9 +85,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tm3DBProxyStream.Make
 
 procedure Tm3DBProxyStream.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49BFBF3E00CD_var*
 //#UC END# *479731C50290_49BFBF3E00CD_var*
 begin
@@ -116,7 +99,6 @@ begin
 end;//Tm3DBProxyStream.Cleanup
 
 procedure Tm3DBProxyStream.ClearFields;
- {-}
 begin
  Finalize(f_ID);
  inherited;

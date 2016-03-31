@@ -1,61 +1,44 @@
 unit m3BaseObject;
+ {* Базовая реализация объекта хранилища. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3BaseObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3BaseObject
-//
-// Базовая реализация объекта хранилища.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3BaseObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseObject" MUID: (4742DC5C0219)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3DBInterfaces,
-  m3PrimDB,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , m3DBInterfaces
+ , m3PrimDB
+;
 
 type
  Tm3BaseObject = {abstract} class(Tl3CProtoObject, Im3DBObject)
   {* Базовая реализация объекта хранилища. }
- private
- // private fields
-   f_f_DB : Tm3PrimDB;
-    {* Поле для свойства f_DB}
- protected
- // realized methods
+  private
+   f_f_DB: Tm3PrimDB;
+    {* Поле для свойства f_DB }
+  protected
    function DB: Im3DB;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aDB: Tm3PrimDB); reintroduce;
- protected
- // protected properties
+  protected
    property f_DB: Tm3PrimDB
-     read f_f_DB;
+    read f_f_DB;
  end;//Tm3BaseObject
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class Tm3BaseObject
+ l3ImplUses
+ , SysUtils
+;
 
 constructor Tm3BaseObject.Create(aDB: Tm3PrimDB);
 //#UC START# *555B269800C2_4742DC5C0219_var*
@@ -77,6 +60,7 @@ begin
 end;//Tm3BaseObject.DB
 
 procedure Tm3BaseObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4742DC5C0219_var*
 //#UC END# *479731C50290_4742DC5C0219_var*
 begin

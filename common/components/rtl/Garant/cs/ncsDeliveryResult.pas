@@ -1,100 +1,92 @@
 unit ncsDeliveryResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsDeliveryResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsDeliveryResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsDeliveryResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsDeliveryResult" MUID: (547582EC02E0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  evdNcsTypes,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , evdNcsTypes
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsDeliveryResult = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetTaskID: AnsiString;
    procedure pm_SetTaskID(const aValue: AnsiString);
    function pm_GetResultKind: TncsResultKind;
    procedure pm_SetResultKind(aValue: TncsResultKind);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
+    read pm_GetTaskID
+    write pm_SetTaskID;
    property ResultKind: TncsResultKind
-     read pm_GetResultKind
-     write pm_SetResultKind;
+    read pm_GetResultKind
+    write pm_SetResultKind;
  end;//TncsDeliveryResult
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csDeliveryResult_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsDeliveryResult
+ l3ImplUses
+ , csDeliveryResult_Const
+;
 
 function TncsDeliveryResult.pm_GetTaskID: AnsiString;
- {-}
+//#UC START# *AD27C71E2468_547582EC02E0get_var*
+//#UC END# *AD27C71E2468_547582EC02E0get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
+//#UC START# *AD27C71E2468_547582EC02E0get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *AD27C71E2468_547582EC02E0get_impl*
 end;//TncsDeliveryResult.pm_GetTaskID
 
 procedure TncsDeliveryResult.pm_SetTaskID(const aValue: AnsiString);
- {-}
+//#UC START# *AD27C71E2468_547582EC02E0set_var*
+//#UC END# *AD27C71E2468_547582EC02E0set_var*
 begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
+//#UC START# *AD27C71E2468_547582EC02E0set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *AD27C71E2468_547582EC02E0set_impl*
 end;//TncsDeliveryResult.pm_SetTaskID
 
 function TncsDeliveryResult.pm_GetResultKind: TncsResultKind;
- {-}
+//#UC START# *D70695E16D88_547582EC02E0get_var*
+//#UC END# *D70695E16D88_547582EC02E0get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TncsResultKind(TaggedData.IntA[k2_attrResultKind]);
+//#UC START# *D70695E16D88_547582EC02E0get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D70695E16D88_547582EC02E0get_impl*
 end;//TncsDeliveryResult.pm_GetResultKind
 
 procedure TncsDeliveryResult.pm_SetResultKind(aValue: TncsResultKind);
- {-}
+//#UC START# *D70695E16D88_547582EC02E0set_var*
+//#UC END# *D70695E16D88_547582EC02E0set_var*
 begin
- TaggedData.IntW[k2_attrResultKind, nil] := Ord(aValue);
+//#UC START# *D70695E16D88_547582EC02E0set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D70695E16D88_547582EC02E0set_impl*
 end;//TncsDeliveryResult.pm_SetResultKind
 
 class function TncsDeliveryResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_547582EC02E0_var*
+//#UC END# *53AC03EE01FD_547582EC02E0_var*
 begin
- Result := k2_typcsDeliveryResult;
+//#UC START# *53AC03EE01FD_547582EC02E0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_547582EC02E0_impl*
 end;//TncsDeliveryResult.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

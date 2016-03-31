@@ -1,56 +1,40 @@
 unit nsComplectInfoRootNode;
+ {* Корневой узел дерева с информацией о комплекте }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsComplectInfoRootNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::ComplectInfo::TnsComplectInfoRootNode
-//
-// Корневой узел дерева с информацией о комплекте
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoRootNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsComplectInfoRootNode" MUID: (468276240241)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsINodeRootWrap,
-  nsINodeWrapBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsINodeRootWrap
+ , nsINodeWrapBase
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsComplectInfoRootNode = class(TnsINodeRootWrap)
   {* Корневой узел дерева с информацией о комплекте }
- protected
- // overridden protected methods
+  protected
    function GetChildNodeClass: RnsINodeWrap; override;
-     {* Реализация функции получения класса реализации дочернего узла }
+    {* Реализация функции получения класса реализации дочернего узла }
  end;//TnsComplectInfoRootNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsComplectInfoNode
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsComplectInfoRootNode
+ l3ImplUses
+ , nsComplectInfoNode
+;
 
 function TnsComplectInfoRootNode.GetChildNodeClass: RnsINodeWrap;
+ {* Реализация функции получения класса реализации дочернего узла }
 //#UC START# *490989330020_468276240241_var*
 //#UC END# *490989330020_468276240241_var*
 begin
@@ -58,7 +42,6 @@ begin
  Result := TnsComplectInfoNode;
 //#UC END# *490989330020_468276240241_impl*
 end;//TnsComplectInfoRootNode.GetChildNodeClass
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

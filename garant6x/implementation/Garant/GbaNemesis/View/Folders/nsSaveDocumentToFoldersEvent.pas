@@ -1,53 +1,37 @@
 unit nsSaveDocumentToFoldersEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/nsSaveDocumentToFoldersEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Основные прецеденты::Folders::View::Folders::TnsSaveDocumentToFoldersEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveDocumentToFoldersEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSaveDocumentToFoldersEvent" MUID: (51BEFA3D019E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsSaveDocumentToFoldersEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aDoc: IDocument);
  end;//TnsSaveDocumentToFoldersEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsLogEventData,
-  nsLogManager,
-  LoggingUnit,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsSaveDocumentToFoldersEvent
+ l3ImplUses
+ , nsLogEventData
+ , nsLogManager
+ , LoggingUnit
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsSaveDocumentToFoldersEvent.Log(const aDoc: IDocument);
 //#UC START# *51BEFAC50138_51BEFA3D019E_var*
@@ -61,7 +45,6 @@ begin
  GetLogger.AddEvent(LE_SAVE_DOCUMENT_TO_FOLDERS, l_Data);
 //#UC END# *51BEFAC50138_51BEFA3D019E_impl*
 end;//TnsSaveDocumentToFoldersEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

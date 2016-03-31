@@ -23,6 +23,8 @@ uses
  , eeEditorWithoutOperations
  , nevGUIInterfaces
  , afwInterfaces
+ //#UC START# *4AF8665A0079intf_uses*
+ //#UC END# *4AF8665A0079intf_uses*
 ;
 
 type
@@ -96,6 +98,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AF8665A0079impl_uses*
+ //#UC END# *4AF8665A0079impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

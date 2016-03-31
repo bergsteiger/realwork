@@ -1,58 +1,55 @@
 unit atListNodeTypeConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atListNodeTypeConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatListNodeTypeConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atListNodeTypeConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatListNodeTypeConverter" MUID: (539700E901EB)
 
 interface
 
 uses
-  BaseTypesUnit,
-  SysUtils
-  ;
+ l3IntfUses
+ , BaseTypesUnit
+;
 
 type
  _EnumType_ = TListNodeType;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatListNodeTypeConverter = class(_atEnumConverter_)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatListNodeTypeConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatListNodeTypeConverter }
  end;//TatListNodeTypeConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatListNodeTypeConverter
-
-var g_TatListNodeTypeConverter : TatListNodeTypeConverter = nil;
+var g_TatListNodeTypeConverter: TatListNodeTypeConverter = nil;
+ {* Экземпляр синглетона TatListNodeTypeConverter }
 
 procedure TatListNodeTypeConverterFree;
+ {* Метод освобождения экземпляра синглетона TatListNodeTypeConverter }
 begin
  l3Free(g_TatListNodeTypeConverter);
-end;
+end;//TatListNodeTypeConverterFree
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+class function TatListNodeTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatListNodeTypeConverter <> nil;
+end;//TatListNodeTypeConverter.Exists
 
 class function TatListNodeTypeConverter.Instance: TatListNodeTypeConverter;
+ {* Метод получения экземпляра синглетона TatListNodeTypeConverter }
 begin
  if (g_TatListNodeTypeConverter = nil) then
  begin
@@ -60,17 +57,6 @@ begin
   g_TatListNodeTypeConverter := Create;
  end;
  Result := g_TatListNodeTypeConverter;
-end;
-
-
-{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
-
-// start class TatListNodeTypeConverter
-
-class function TatListNodeTypeConverter.Exists: Boolean;
- {-}
-begin
- Result := g_TatListNodeTypeConverter <> nil;
-end;//TatListNodeTypeConverter.Exists
+end;//TatListNodeTypeConverter.Instance
 
 end.

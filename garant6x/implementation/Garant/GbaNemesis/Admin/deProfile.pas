@@ -1,66 +1,50 @@
 unit deProfile;
+ {* Интерфейс обмена данными для формы "efUserProfile" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/deProfile.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Admin::TdeProfile
-//
-// Интерфейс обмена данными для формы "efUserProfile"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\deProfile.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeProfile" MUID: (4AA5275401A5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  SecurityUnit,
-  AdminInterfaces,
-  l3ProtoObject
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , l3ProtoObject
+ , AdminInterfaces
+ , SecurityUnit
+;
 
-{$If defined(Admin)}
 type
  TdeProfile = class(Tl3ProtoObject, IdeProfile)
   {* Интерфейс обмена данными для формы "efUserProfile" }
- private
- // private fields
-   f_Profile : IUserProfile;
-   f_IsNew : Boolean;
- protected
- // realized methods
+  private
+   f_Profile: IUserProfile;
+   f_IsNew: Boolean;
+  protected
    function pm_GetUserProfile: IUserProfile;
    function pm_GetIsNewProfile: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aProfile: IUserProfile;
     aNew: Boolean); reintroduce;
    class function Make(const aProfile: IUserProfile;
-    aNew: Boolean = false): IdeProfile; reintroduce;
+    aNew: Boolean = False): IdeProfile; reintroduce;
  end;//TdeProfile
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-
-// start class TdeProfile
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 constructor TdeProfile.Create(const aProfile: IUserProfile;
-  aNew: Boolean);
+ aNew: Boolean);
 //#UC START# *4AA5279D0119_4AA5275401A5_var*
 //#UC END# *4AA5279D0119_4AA5275401A5_var*
 begin
@@ -72,7 +56,7 @@ begin
 end;//TdeProfile.Create
 
 class function TdeProfile.Make(const aProfile: IUserProfile;
-  aNew: Boolean = false): IdeProfile;
+ aNew: Boolean = False): IdeProfile;
 var
  l_Inst : TdeProfile;
 begin
@@ -82,7 +66,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeProfile.Make
 
 function TdeProfile.pm_GetUserProfile: IUserProfile;
 //#UC START# *4AA526EC03C7_4AA5275401A5get_var*
@@ -103,6 +87,7 @@ begin
 end;//TdeProfile.pm_GetIsNewProfile
 
 procedure TdeProfile.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AA5275401A5_var*
 //#UC END# *479731C50290_4AA5275401A5_var*
 begin
@@ -112,7 +97,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4AA5275401A5_impl*
 end;//TdeProfile.Cleanup
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

@@ -1,79 +1,73 @@
 unit atDocumentUnderControlOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atDocumentUnderControlOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatDocumentUnderControlOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDocumentUnderControlOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatDocumentUnderControlOperation" MUID: (504F1A8B004B)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  OpType = (
-   SET_CONTROL
- , UNSET_CONTROL
- , INVERT_CONTROL
- , RESET_CONTROL_STATUS
+  SET_CONTROL
+  , UNSET_CONTROL
+  , INVERT_CONTROL
+  , RESET_CONTROL_STATUS
  );//OpType
 
  TatDocumentUnderControlOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatDocumentUnderControlOperation
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo,
-  SysUtils,
-  UnderControlUnit,
-  atLogger,
-  DocumentUnit,
-  atControlStatusConverter
-  ;
+ l3ImplUses
+ , UnderControlUnit
+ , atLogger
+ , DocumentUnit
+ , atControlStatusConverter
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
 type
-  _EnumType_ = OpType;
+ _EnumType_ = OpType;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
-  TatOpTypeConverter = class(_atEnumConverter_)
+ TatOpTypeConverter = class(_atEnumConverter_)
   public
-  // public methods
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-  public
-  // singleton factory method
-    class function Instance: TatOpTypeConverter;
-     {- возвращает экземпляр синглетона. }
-  end;//TatOpTypeConverter
+    {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TatOpTypeConverter;
+    {* Метод получения экземпляра синглетона TatOpTypeConverter }
+ end;//TatOpTypeConverter
 
-
-// start class TatOpTypeConverter
-
-var g_TatOpTypeConverter : TatOpTypeConverter = nil;
+var g_TatOpTypeConverter: TatOpTypeConverter = nil;
+ {* Экземпляр синглетона TatOpTypeConverter }
 
 procedure TatOpTypeConverterFree;
+ {* Метод освобождения экземпляра синглетона TatOpTypeConverter }
 begin
  l3Free(g_TatOpTypeConverter);
-end;
+end;//TatOpTypeConverterFree
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+class function TatOpTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatOpTypeConverter <> nil;
+end;//TatOpTypeConverter.Exists
 
 class function TatOpTypeConverter.Instance: TatOpTypeConverter;
+ {* Метод получения экземпляра синглетона TatOpTypeConverter }
 begin
  if (g_TatOpTypeConverter = nil) then
  begin
@@ -81,18 +75,7 @@ begin
   g_TatOpTypeConverter := Create;
  end;
  Result := g_TatOpTypeConverter;
-end;
-
-
-{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
-
-// start class TatOpTypeConverter
-
-class function TatOpTypeConverter.Exists: Boolean;
- {-}
-begin
- Result := g_TatOpTypeConverter <> nil;
-end;//TatOpTypeConverter.Exists
+end;//TatOpTypeConverter.Instance
 
 procedure TatDocumentUnderControlOperation.ExecuteSelf;
 //#UC START# *48089F460352_504F1A8B004B_var*

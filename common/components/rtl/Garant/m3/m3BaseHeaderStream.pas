@@ -1,95 +1,78 @@
 unit m3BaseHeaderStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3BaseHeaderStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::HeaderStream::Tm3BaseHeaderStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3BaseHeaderStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseHeaderStream" MUID: (53FF134A03BA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3LinkedStream,
-  m3Const,
-  Classes
-  ;
+ l3IntfUses
+ , m3LinkedStream
+ , Classes
+ , m3Const
+;
 
 const
-  { Defaults }
  cHeaderFullSize = m3Const.Cm3BasClaDefHeaderSize;
 
 type
  Tm3BaseHeaderStream = class(Tm3LinkedStream)
- private
- // private fields
-   FHeaderLocked : Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoSeek(anOffset: Int64;
-     anOrigin: TSeekOrigin;
-     var theResult: Int64;
-     var theReturn: hResult); override;
-   procedure DoSetSize(aSize: Int64;
-     var theReturn: hResult); override;
-   procedure LockRegion(anOffset: Int64;
-     aSize: Int64;
-     aLockType: Integer;
-     var theReturn: hResult); override;
-   procedure UnlockRegion(anOffset: Int64;
-     aSize: Int64;
-     aLockType: Integer;
-     var theReturn: hResult); override;
-   function DoGetSize: Int64; override;
- protected
- // protected fields
-   FHeaderSize : Integer;
-   FHeaderLoaded : Integer;
- protected
- // protected methods
+  private
+   FHeaderLocked: Integer;
+  protected
+   FHeaderSize: Integer;
+   FHeaderLoaded: Integer;
+  protected
    procedure DefaultInitAction; virtual;
    procedure DefaultDoneAction; virtual;
    function DoLockHeader: Boolean; virtual;
    function DoUnlockHeader: Boolean; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure DoSeek(anOffset: Int64;
+    anOrigin: TSeekOrigin;
+    var theResult: Int64;
+    var theReturn: hResult); override;
+   procedure DoSetSize(aSize: Int64;
+    var theReturn: hResult); override;
+   procedure LockRegion(anOffset: Int64;
+    aSize: Int64;
+    aLockType: Integer;
+    var theReturn: hResult); override;
+   procedure UnlockRegion(anOffset: Int64;
+    aSize: Int64;
+    aLockType: Integer;
+    var theReturn: hResult); override;
+   function DoGetSize: Int64; override;
+  public
    procedure LockHeader;
-     {* закрывает заголовок }
+    {* закрывает заголовок }
    procedure UnlockHeader;
-     {* открывает заголовок }
+    {* открывает заголовок }
    procedure DoSaveHeader(aForceSave: Boolean); virtual; abstract;
-     {* сохраняет заголовок }
+    {* сохраняет заголовок }
    procedure DoLoadHeader; virtual; abstract;
-     {* загружает заголовок в память }
+    {* загружает заголовок в память }
    procedure LoadHeader;
-     {* Сигнатура метода LoadHeader }
-   procedure SaveHeader(aForceSave: Boolean = false);
+   procedure SaveHeader(aForceSave: Boolean = False);
  end;//Tm3BaseHeaderStream
 
 implementation
 
 uses
-  ComObj,
-  m2COMLib,
-  ActiveX,
-  l3Base,
-  l3Interlocked
-  ;
-
-// start class Tm3BaseHeaderStream
+ l3ImplUses
+ , ComObj
+ , m2COMLib
+ , ActiveX
+ , l3Base
+ , l3Interlocked
+;
 
 procedure Tm3BaseHeaderStream.LockHeader;
+ {* закрывает заголовок }
 //#UC START# *53FDFE220358_53FF134A03BA_var*
 //#UC END# *53FDFE220358_53FF134A03BA_var*
 begin
@@ -102,6 +85,7 @@ begin
 end;//Tm3BaseHeaderStream.LockHeader
 
 procedure Tm3BaseHeaderStream.UnlockHeader;
+ {* открывает заголовок }
 //#UC START# *53FDFE3802D0_53FF134A03BA_var*
 //#UC END# *53FDFE3802D0_53FF134A03BA_var*
 begin
@@ -132,7 +116,7 @@ begin
 //#UC END# *53FF1F6901C5_53FF134A03BA_impl*
 end;//Tm3BaseHeaderStream.LoadHeader
 
-procedure Tm3BaseHeaderStream.SaveHeader(aForceSave: Boolean = false);
+procedure Tm3BaseHeaderStream.SaveHeader(aForceSave: Boolean = False);
 //#UC START# *53FF1F90030A_53FF134A03BA_var*
 //#UC END# *53FF1F90030A_53FF134A03BA_var*
 begin
@@ -187,6 +171,7 @@ begin
 end;//Tm3BaseHeaderStream.DoUnlockHeader
 
 procedure Tm3BaseHeaderStream.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53FF134A03BA_var*
 //#UC END# *479731C50290_53FF134A03BA_var*
 begin
@@ -199,9 +184,9 @@ begin
 end;//Tm3BaseHeaderStream.Cleanup
 
 procedure Tm3BaseHeaderStream.DoSeek(anOffset: Int64;
-  anOrigin: TSeekOrigin;
-  var theResult: Int64;
-  var theReturn: hResult);
+ anOrigin: TSeekOrigin;
+ var theResult: Int64;
+ var theReturn: hResult);
 //#UC START# *4FA27D5302C5_53FF134A03BA_var*
 var
  LOffset : Int64;
@@ -226,7 +211,7 @@ begin
 end;//Tm3BaseHeaderStream.DoSeek
 
 procedure Tm3BaseHeaderStream.DoSetSize(aSize: Int64;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA27DCD02B4_53FF134A03BA_var*
 //#UC END# *4FA27DCD02B4_53FF134A03BA_var*
 begin
@@ -237,9 +222,9 @@ begin
 end;//Tm3BaseHeaderStream.DoSetSize
 
 procedure Tm3BaseHeaderStream.LockRegion(anOffset: Int64;
-  aSize: Int64;
-  aLockType: Integer;
-  var theReturn: hResult);
+ aSize: Int64;
+ aLockType: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E100218_53FF134A03BA_var*
 //#UC END# *4FA27E100218_53FF134A03BA_var*
 begin
@@ -250,9 +235,9 @@ begin
 end;//Tm3BaseHeaderStream.LockRegion
 
 procedure Tm3BaseHeaderStream.UnlockRegion(anOffset: Int64;
-  aSize: Int64;
-  aLockType: Integer;
-  var theReturn: hResult);
+ aSize: Int64;
+ aLockType: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E4C0342_53FF134A03BA_var*
 //#UC END# *4FA27E4C0342_53FF134A03BA_var*
 begin

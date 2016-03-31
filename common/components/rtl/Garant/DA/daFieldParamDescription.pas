@@ -1,54 +1,41 @@
 unit daFieldParamDescription;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daFieldParamDescription.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaFieldParamDescription
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daFieldParamDescription.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldParamDescription" MUID: (566E71FA000F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
 type
  TdaFieldParamDescription = class(Tl3ProtoObject, IdaParamDescription)
- private
- // private fields
-   f_Description : IdaFieldDescription;
- protected
- // realized methods
+  private
+   f_Description: IdaFieldDescription;
+  protected
    function Get_Name: AnsiString;
    function Get_DataType: TdaDataType;
    function Get_Size: Integer;
    function Get_ParamType: TdaParamType;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFieldDescription: IdaFieldDescription); reintroduce;
    class function Make(const aFieldDescription: IdaFieldDescription): IdaParamDescription; reintroduce;
-     {* Сигнатура фабрики TdaFieldParamDescription.Make }
  end;//TdaFieldParamDescription
 
 implementation
 
-// start class TdaFieldParamDescription
+uses
+ l3ImplUses
+;
 
 constructor TdaFieldParamDescription.Create(const aFieldDescription: IdaFieldDescription);
 //#UC START# *566E721A02B9_566E71FA000F_var*
@@ -70,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaFieldParamDescription.Make
 
 function TdaFieldParamDescription.Get_Name: AnsiString;
 //#UC START# *5555C5620242_566E71FA000Fget_var*
@@ -109,6 +96,7 @@ begin
 end;//TdaFieldParamDescription.Get_ParamType
 
 procedure TdaFieldParamDescription.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_566E71FA000F_var*
 //#UC END# *479731C50290_566E71FA000F_var*
 begin

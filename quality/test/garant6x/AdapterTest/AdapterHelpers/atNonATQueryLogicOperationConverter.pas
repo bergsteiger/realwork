@@ -1,77 +1,51 @@
 unit atNonATQueryLogicOperationConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atNonATQueryLogicOperationConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatNonATQueryLogicOperationConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atNonATQueryLogicOperationConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNonATQueryLogicOperationConverter" MUID: (503E51C002D7)
 
 interface
 
 uses
-  SearchUnit,
-  SysUtils
-  ;
+ l3IntfUses
+ , SearchUnit
+;
 
 type
  _SecondType_ = TQueryLogicOperation;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
  TatNonATQueryLogicOperationConverter = class(_atStringConverter_)
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatNonATQueryLogicOperationConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatNonATQueryLogicOperationConverter }
  end;//TatNonATQueryLogicOperationConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatNonATQueryLogicOperationConverter
-
-var g_TatNonATQueryLogicOperationConverter : TatNonATQueryLogicOperationConverter = nil;
+var g_TatNonATQueryLogicOperationConverter: TatNonATQueryLogicOperationConverter = nil;
+ {* Экземпляр синглетона TatNonATQueryLogicOperationConverter }
 
 procedure TatNonATQueryLogicOperationConverterFree;
+ {* Метод освобождения экземпляра синглетона TatNonATQueryLogicOperationConverter }
 begin
  l3Free(g_TatNonATQueryLogicOperationConverter);
-end;
-
-class function TatNonATQueryLogicOperationConverter.Instance: TatNonATQueryLogicOperationConverter;
-begin
- if (g_TatNonATQueryLogicOperationConverter = nil) then
- begin
-  l3System.AddExitProc(TatNonATQueryLogicOperationConverterFree);
-  g_TatNonATQueryLogicOperationConverter := Create;
- end;
- Result := g_TatNonATQueryLogicOperationConverter;
-end;
-
+end;//TatNonATQueryLogicOperationConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
 
-// start class TatNonATQueryLogicOperationConverter
-
 class function TatNonATQueryLogicOperationConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatNonATQueryLogicOperationConverter <> nil;
 end;//TatNonATQueryLogicOperationConverter.Exists
@@ -90,5 +64,16 @@ begin
   InitConvertMap(CONVERT_MAP);
 //#UC END# *503E3A040395_503E51C002D7_impl*
 end;//TatNonATQueryLogicOperationConverter.InitConvertMap
+
+class function TatNonATQueryLogicOperationConverter.Instance: TatNonATQueryLogicOperationConverter;
+ {* Метод получения экземпляра синглетона TatNonATQueryLogicOperationConverter }
+begin
+ if (g_TatNonATQueryLogicOperationConverter = nil) then
+ begin
+  l3System.AddExitProc(TatNonATQueryLogicOperationConverterFree);
+  g_TatNonATQueryLogicOperationConverter := Create;
+ end;
+ Result := g_TatNonATQueryLogicOperationConverter;
+end;//TatNonATQueryLogicOperationConverter.Instance
 
 end.

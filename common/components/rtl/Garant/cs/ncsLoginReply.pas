@@ -1,57 +1,43 @@
 unit ncsLoginReply;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsLoginReply.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsLoginReply
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsLoginReply.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsLoginReply" MUID: (54634A7902A1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsLoginReply = class(TncsReply)
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
  end;//TncsLoginReply
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csLoginReply_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsLoginReply
+ l3ImplUses
+ , csLoginReply_Const
+;
 
 class function TncsLoginReply.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_54634A7902A1_var*
+//#UC END# *53AC03EE01FD_54634A7902A1_var*
 begin
- Result := k2_typcsLoginReply;
+//#UC START# *53AC03EE01FD_54634A7902A1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_54634A7902A1_impl*
 end;//TncsLoginReply.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

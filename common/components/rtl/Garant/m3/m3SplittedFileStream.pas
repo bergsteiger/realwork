@@ -1,37 +1,30 @@
 unit m3SplittedFileStream;
+ {* Файловый поток порезанный на куски }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3SplittedFileStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3SplittedFileStream
-//
-// Файловый поток порезанный на куски
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3SplittedFileStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3SplittedFileStream" MUID: (4FA278B00247)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoDataContainer,
-  m3BaseStream,
-  m3FileStream,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes,
-  m3StorageInterfaces
-  ;
+ l3IntfUses
+ , m3BaseStream
+ , m3FileStream
+ , l3Interfaces
+ , Classes
+ , m3StorageInterfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+;
+
+const
+ m3_cInfoFileNameExt = '.cnt';
 
 type
  Tm3InnerFileStream = class(Tm3FileStream)
@@ -40,326 +33,119 @@ type
  _ItemType_ = Tm3InnerFileStream;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3OpenArray_Parent_ = _l3UncomparabeObjectRefList_;
-{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  Tm3InnerFileStreamList = class(_l3OpenArray_)
  end;//Tm3InnerFileStreamList
 
-const
-  { Constants }
- m3_cInfoFileNameExt = '.cnt';
-
-type
  Tm3SplittedFileStream = class(Tm3BaseStream)
   {* Файловый поток порезанный на куски }
- private
- // private fields
-   f_SharedMode : Cardinal;
-   f_Distribution : Cardinal;
-   f_Flags : Cardinal;
-   f_Name : WideString;
-   f_OpenedStreams : Tm3InnerFileStreamList;
-   f_Position : Int64;
-   f_Access : Cardinal;
-   f_SizeLimit : Int64;
-   f_Ext : AnsiString;
-   f_AnsiName : AnsiString;
-   f_InfoStream : Tm3FileStream;
-   f_FilesCount : Integer;
-    {* Поле для свойства FilesCount}
- private
- // private methods
+  private
+   f_SharedMode: Cardinal;
+   f_Distribution: Cardinal;
+   f_Flags: Cardinal;
+   f_Name: WideString;
+   f_OpenedStreams: Tm3InnerFileStreamList;
+   f_Position: Int64;
+   f_Access: Cardinal;
+   f_SizeLimit: Int64;
+   f_Ext: AnsiString;
+   f_AnsiName: AnsiString;
+   f_InfoStream: Tm3FileStream;
+   f_FilesCount: Integer;
+    {* Поле для свойства FilesCount }
+  private
    function FileByPos(aPos: Int64;
-     var theFileOffset: Int64): Tm3InnerFileStream;
+    var theFileOffset: Int64): Tm3InnerFileStream;
    function FileNameByIndex(anIndex: Integer): AnsiString;
    function FileIndexByPos(aPos: Int64): Integer;
    function NormalizePartSize(aPos: Int64;
-     aSize: Integer): Integer;
+    aSize: Integer): Integer;
    function CheckInfoStream(aNeedCreate: Boolean): Boolean;
- protected
- // property methods
+  protected
    function pm_GetFilesCount: Integer;
    procedure pm_SetFilesCount(aValue: Integer);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoRead(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoWrite(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoSeek(anOffset: Int64;
-     anOrigin: TSeekOrigin;
-     var theResult: Int64;
-     var theReturn: hResult); override;
+    anOrigin: TSeekOrigin;
+    var theResult: Int64;
+    var theReturn: hResult); override;
    procedure DoSetSize(aSize: Int64;
-     var theReturn: hResult); override;
+    var theReturn: hResult); override;
    procedure LockRegion(anOffset: Int64;
-     aSize: Int64;
-     aLockType: Integer;
-     var theReturn: hResult); override;
+    aSize: Int64;
+    aLockType: Integer;
+    var theReturn: hResult); override;
    procedure UnlockRegion(anOffset: Int64;
-     aSize: Int64;
-     aLockType: Integer;
-     var theReturn: hResult); override;
+    aSize: Int64;
+    aLockType: Integer;
+    var theReturn: hResult); override;
    procedure Stat(var theStatStg: TStatStg;
-     aStatFlag: Integer;
-     var theReturn: hResult); override;
+    aStatFlag: Integer;
+    var theReturn: hResult); override;
    function DoGetPosition: Int64; override;
    function DoGetSize: Int64; override;
    function DoGetLocksSupported: Integer; override;
    function DoGetName: WideString; override;
- public
- // overridden public methods
-   procedure Commit(aFlags: Integer;
-     var theReturn: hResult); override;
- public
- // public methods
+  public
    constructor Create(const aName: WideString;
-     anAccess: Cardinal;
-     aSharedMode: Cardinal;
-     aDistribution: Cardinal;
-     aFlags: Cardinal); reintroduce;
+    anAccess: Cardinal;
+    aSharedMode: Cardinal;
+    aDistribution: Cardinal;
+    aFlags: Cardinal); reintroduce;
    class function Make(const aName: WideString;
-     anAccess: Cardinal;
-     aSharedMode: Cardinal;
-     aDistribution: Cardinal;
-     aFlags: Cardinal): IStream; reintroduce;
-     {* Сигнатура фабрики Tm3SplittedFileStream.Make }
+    anAccess: Cardinal;
+    aSharedMode: Cardinal;
+    aDistribution: Cardinal;
+    aFlags: Cardinal): IStream; reintroduce;
    class function NormalizeFileName(const aFileName: AnsiString): AnsiString;
    class procedure SetDefaultSizeLimit(aValue: Cardinal);
- protected
- // protected properties
+   procedure Commit(aFlags: Integer;
+    var theReturn: hResult); override;
+  protected
    property FilesCount: Integer
-     read pm_GetFilesCount
-     write pm_SetFilesCount;
+    read pm_GetFilesCount
+    write pm_SetFilesCount;
  end;//Tm3SplittedFileStream
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  Windows,
-  ActiveX,
-  l3String,
-  l3FileUtils,
-  m2COMLib,
-  l3Stream,
-  ComObj
-  ;
+ l3ImplUses
+ , SysUtils
+ , Windows
+ , ActiveX
+ , l3String
+ , l3Base
+ , l3FileUtils
+ , m2COMLib
+ , l3Stream
+ , ComObj
+ , l3MinMax
+ , RTLConsts
+;
 
-var
-   g_DefaultSizeLimit : Cardinal = 0;
+var g_DefaultSizeLimit: Cardinal = 0;
 
-// start class Tm3SplittedFileStream
-
-function Tm3SplittedFileStream.FileByPos(aPos: Int64;
-  var theFileOffset: Int64): Tm3InnerFileStream;
-//#UC START# *4FA3AF4E0094_4FA278B00247_var*
-var
- l_Index : Integer;
- l_Count : Integer;
-//#UC END# *4FA3AF4E0094_4FA278B00247_var*
-begin
-//#UC START# *4FA3AF4E0094_4FA278B00247_impl*
- l_Index := FileIndexByPos(aPos);
- theFileOffset := l_Index * f_SizeLimit;
- Result := f_OpenedStreams[l_Index].Use;
- if (Result = nil) then
- begin
-  Result := Tm3InnerFileStream.Create(FileNameByIndex(l_Index),
-                                      f_Access,
-                                      f_SharedMode,
-                                      f_Distribution,
-                                      f_Flags);
-  l_Count := f_OpenedStreams.Count;
-  f_OpenedStreams[l_Index] := Result;
-  if (f_OpenedStreams.Count <> l_Count) then
-   FilesCount := f_OpenedStreams.Count;
- end;//Result = nil
-//#UC END# *4FA3AF4E0094_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.FileByPos
-
-function Tm3SplittedFileStream.FileNameByIndex(anIndex: Integer): AnsiString;
-//#UC START# *4FA3B62102E6_4FA278B00247_var*
-//#UC END# *4FA3B62102E6_4FA278B00247_var*
-begin
-//#UC START# *4FA3B62102E6_4FA278B00247_impl*
- Result := NormalizeFileName(f_AnsiName) + '.' + Format('%.4x', [anIndex]){IntToStr(anIndex)} + f_Ext;
-//#UC END# *4FA3B62102E6_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.FileNameByIndex
-
-function Tm3SplittedFileStream.FileIndexByPos(aPos: Int64): Integer;
-//#UC START# *4FA3BFAE01B0_4FA278B00247_var*
-//#UC END# *4FA3BFAE01B0_4FA278B00247_var*
-begin
-//#UC START# *4FA3BFAE01B0_4FA278B00247_impl*
- Result := aPos div f_SizeLimit;
-//#UC END# *4FA3BFAE01B0_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.FileIndexByPos
-
-function Tm3SplittedFileStream.NormalizePartSize(aPos: Int64;
-  aSize: Integer): Integer;
-//#UC START# *4FA4EF94004A_4FA278B00247_var*
-//#UC END# *4FA4EF94004A_4FA278B00247_var*
-begin
-//#UC START# *4FA4EF94004A_4FA278B00247_impl*
- if (aPos + aSize > f_SizeLimit) then
-  Result := (f_SizeLimit - aPos)
- else
-  Result := aSize;
-//#UC END# *4FA4EF94004A_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.NormalizePartSize
-
-function Tm3SplittedFileStream.CheckInfoStream(aNeedCreate: Boolean): Boolean;
-//#UC START# *4FA52DFA0143_4FA278B00247_var*
-var
- l_Name : AnsiString;
-//#UC END# *4FA52DFA0143_4FA278B00247_var*
-begin
-//#UC START# *4FA52DFA0143_4FA278B00247_impl*
- Result := true;
- if (f_InfoStream = nil) then
- begin
-  l_Name := NormalizeFileName(f_AnsiName) + m3_cInfoFileNameExt + f_Ext;
-  if not aNeedCreate OR Self.ReadOnly then
-   if not FileExists(l_Name) then
-   begin
-    Result := false;
-    Exit;
-   end;//not FileExists(l_Name)
-  f_InfoStream := Tm3FileStream.Create(l_Name,
-                                       f_Access,
-                                       f_SharedMode,
-                                       f_Distribution,
-                                       f_Flags);
- end;//f_InfoStream = nil
-//#UC END# *4FA52DFA0143_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.CheckInfoStream
-
-constructor Tm3SplittedFileStream.Create(const aName: WideString;
-  anAccess: Cardinal;
-  aSharedMode: Cardinal;
-  aDistribution: Cardinal;
-  aFlags: Cardinal);
-//#UC START# *4FA27BC90091_4FA278B00247_var*
-
- function lGetAccess(const AAccess: Cardinal): Integer;
- begin//lGetAccess
-  if ((AAccess and (GENERIC_READ or GENERIC_WRITE)) =
-       (GENERIC_READ or GENERIC_WRITE)) then
-   Result := STGM_READWRITE
-  else
-  begin
-   if ((AAccess and GENERIC_WRITE) <> 0) then
-    Result := STGM_WRITE
-   else
-    Result := STGM_READ;
-  end;//((AAccess and (GENERIC_READ or GENERIC_WRITE)) =..
- end;//lGetAccess
-
-var 
- l_S   : Tm3InnerFileStream;
- l_Ofs : Int64;
- l_FirstFileSize : Int64;
- l_FilesCount : Integer;
-//#UC END# *4FA27BC90091_4FA278B00247_var*
-begin
-//#UC START# *4FA27BC90091_4FA278B00247_impl*
- f_FilesCount := -1;
- inherited Create(lGetAccess(anAccess));
- f_SizeLimit := g_DefaultSizeLimit;
- if (f_SizeLimit = 0) then
- begin
-  f_SizeLimit := 2 * 1024 * 1024;
-  f_SizeLimit := f_SizeLimit * 1024;
- end;//f_SizeLimit = 0
- f_Position := 0;
- f_Name := aName;
- f_Access := anAccess;
- f_SharedMode := aSharedMode;
- f_Distribution := aDistribution;
- f_Flags := aFlags;
- f_AnsiName := l3Str(f_Name);
- f_Ext := ExtractFileExt(f_AnsiName);
- f_OpenedStreams := Tm3InnerFileStreamList.Create;
- l_FilesCount := FilesCount;
- f_OpenedStreams.Count := l_FilesCount;
- if (l_FilesCount > 0) then
- begin
-  l_S := FileByPos(f_Position, l_Ofs);
-  try
-   if (l_S <> nil) then
-   begin
-    l_FirstFileSize := m2COMGetSize(l_S);
-    if (l_FirstFileSize > f_SizeLimit) then
-     raise Exception.CreateFmt('Размер файла %d больше размера куска %d', [l_FirstFileSize, f_SizeLimit]);
-    if (l_FirstFileSize < f_SizeLimit) then
-     if (l_FilesCount > 1) then
-      raise Exception.CreateFmt('Размер файла %d меньше размера куска %d', [l_FirstFileSize, f_SizeLimit]);
-   end;//l_S <> nil
-  finally
-   FreeAndNil(l_S);
-  end;//try..finally
- end;//l_FilesCount > 0
-(* f_RealStream := Tm3InnerFileStream.Create(aName,
-                                           anAccess,
-                                           aSharedMode,
-                                           aDistribution,
-                                           aFlags);*)
-//#UC END# *4FA27BC90091_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.Create
-
-class function Tm3SplittedFileStream.Make(const aName: WideString;
-  anAccess: Cardinal;
-  aSharedMode: Cardinal;
-  aDistribution: Cardinal;
-  aFlags: Cardinal): IStream;
-var
- l_Inst : Tm3SplittedFileStream;
-begin
- l_Inst := Create(aName, anAccess, aSharedMode, aDistribution, aFlags);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-class function Tm3SplittedFileStream.NormalizeFileName(const aFileName: AnsiString): AnsiString;
-//#UC START# *4FBB8E7F0101_4FA278B00247_var*
-//#UC END# *4FBB8E7F0101_4FA278B00247_var*
-begin
-//#UC START# *4FBB8E7F0101_4FA278B00247_impl*
- Result := ChangeFileExt(aFileName, '');
-//#UC END# *4FBB8E7F0101_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.NormalizeFileName
-
-class procedure Tm3SplittedFileStream.SetDefaultSizeLimit(aValue: Cardinal);
-//#UC START# *540F18CB01AF_4FA278B00247_var*
-//#UC END# *540F18CB01AF_4FA278B00247_var*
-begin
-//#UC START# *540F18CB01AF_4FA278B00247_impl*
- g_DefaultSizeLimit := aValue;
-//#UC END# *540F18CB01AF_4FA278B00247_impl*
-end;//Tm3SplittedFileStream.SetDefaultSizeLimit{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 {$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
-// start class Tm3InnerFileStreamList
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4FA3D66401BD_var*
 //#UC END# *47B2C42A0163_4FA3D66401BD_var*
 begin
@@ -367,9 +153,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4FA3D66401BD_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4FA3D66401BD_var*
 //#UC END# *47B99D4503A2_4FA3D66401BD_var*
 begin
@@ -383,10 +170,7 @@ type _Instance_R_ = Tm3InnerFileStreamList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-
 {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
-
-// start class Tm3SplittedFileStream
 
 function Tm3SplittedFileStream.pm_GetFilesCount: Integer;
 //#UC START# *4FA3CE4C03CB_4FA278B00247get_var*
@@ -465,7 +249,199 @@ begin
 //#UC END# *4FA3CE4C03CB_4FA278B00247set_impl*
 end;//Tm3SplittedFileStream.pm_SetFilesCount
 
+constructor Tm3SplittedFileStream.Create(const aName: WideString;
+ anAccess: Cardinal;
+ aSharedMode: Cardinal;
+ aDistribution: Cardinal;
+ aFlags: Cardinal);
+//#UC START# *4FA27BC90091_4FA278B00247_var*
+
+ function lGetAccess(const AAccess: Cardinal): Integer;
+ begin//lGetAccess
+  if ((AAccess and (GENERIC_READ or GENERIC_WRITE)) =
+       (GENERIC_READ or GENERIC_WRITE)) then
+   Result := STGM_READWRITE
+  else
+  begin
+   if ((AAccess and GENERIC_WRITE) <> 0) then
+    Result := STGM_WRITE
+   else
+    Result := STGM_READ;
+  end;//((AAccess and (GENERIC_READ or GENERIC_WRITE)) =..
+ end;//lGetAccess
+
+var 
+ l_S   : Tm3InnerFileStream;
+ l_Ofs : Int64;
+ l_FirstFileSize : Int64;
+ l_FilesCount : Integer;
+//#UC END# *4FA27BC90091_4FA278B00247_var*
+begin
+//#UC START# *4FA27BC90091_4FA278B00247_impl*
+ f_FilesCount := -1;
+ inherited Create(lGetAccess(anAccess));
+ f_SizeLimit := g_DefaultSizeLimit;
+ if (f_SizeLimit = 0) then
+ begin
+  f_SizeLimit := 2 * 1024 * 1024;
+  f_SizeLimit := f_SizeLimit * 1024;
+ end;//f_SizeLimit = 0
+ f_Position := 0;
+ f_Name := aName;
+ f_Access := anAccess;
+ f_SharedMode := aSharedMode;
+ f_Distribution := aDistribution;
+ f_Flags := aFlags;
+ f_AnsiName := l3Str(f_Name);
+ f_Ext := ExtractFileExt(f_AnsiName);
+ f_OpenedStreams := Tm3InnerFileStreamList.Create;
+ l_FilesCount := FilesCount;
+ f_OpenedStreams.Count := l_FilesCount;
+ if (l_FilesCount > 0) then
+ begin
+  l_S := FileByPos(f_Position, l_Ofs);
+  try
+   if (l_S <> nil) then
+   begin
+    l_FirstFileSize := m2COMGetSize(l_S);
+    if (l_FirstFileSize > f_SizeLimit) then
+     raise Exception.CreateFmt('Размер файла %d больше размера куска %d', [l_FirstFileSize, f_SizeLimit]);
+    if (l_FirstFileSize < f_SizeLimit) then
+     if (l_FilesCount > 1) then
+      raise Exception.CreateFmt('Размер файла %d меньше размера куска %d', [l_FirstFileSize, f_SizeLimit]);
+   end;//l_S <> nil
+  finally
+   FreeAndNil(l_S);
+  end;//try..finally
+ end;//l_FilesCount > 0
+(* f_RealStream := Tm3InnerFileStream.Create(aName,
+                                           anAccess,
+                                           aSharedMode,
+                                           aDistribution,
+                                           aFlags);*)
+//#UC END# *4FA27BC90091_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.Create
+
+class function Tm3SplittedFileStream.Make(const aName: WideString;
+ anAccess: Cardinal;
+ aSharedMode: Cardinal;
+ aDistribution: Cardinal;
+ aFlags: Cardinal): IStream;
+var
+ l_Inst : Tm3SplittedFileStream;
+begin
+ l_Inst := Create(aName, anAccess, aSharedMode, aDistribution, aFlags);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//Tm3SplittedFileStream.Make
+
+function Tm3SplittedFileStream.FileByPos(aPos: Int64;
+ var theFileOffset: Int64): Tm3InnerFileStream;
+//#UC START# *4FA3AF4E0094_4FA278B00247_var*
+var
+ l_Index : Integer;
+ l_Count : Integer;
+//#UC END# *4FA3AF4E0094_4FA278B00247_var*
+begin
+//#UC START# *4FA3AF4E0094_4FA278B00247_impl*
+ l_Index := FileIndexByPos(aPos);
+ theFileOffset := l_Index * f_SizeLimit;
+ Result := f_OpenedStreams[l_Index].Use;
+ if (Result = nil) then
+ begin
+  Result := Tm3InnerFileStream.Create(FileNameByIndex(l_Index),
+                                      f_Access,
+                                      f_SharedMode,
+                                      f_Distribution,
+                                      f_Flags);
+  l_Count := f_OpenedStreams.Count;
+  f_OpenedStreams[l_Index] := Result;
+  if (f_OpenedStreams.Count <> l_Count) then
+   FilesCount := f_OpenedStreams.Count;
+ end;//Result = nil
+//#UC END# *4FA3AF4E0094_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.FileByPos
+
+function Tm3SplittedFileStream.FileNameByIndex(anIndex: Integer): AnsiString;
+//#UC START# *4FA3B62102E6_4FA278B00247_var*
+//#UC END# *4FA3B62102E6_4FA278B00247_var*
+begin
+//#UC START# *4FA3B62102E6_4FA278B00247_impl*
+ Result := NormalizeFileName(f_AnsiName) + '.' + Format('%.4x', [anIndex]){IntToStr(anIndex)} + f_Ext;
+//#UC END# *4FA3B62102E6_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.FileNameByIndex
+
+function Tm3SplittedFileStream.FileIndexByPos(aPos: Int64): Integer;
+//#UC START# *4FA3BFAE01B0_4FA278B00247_var*
+//#UC END# *4FA3BFAE01B0_4FA278B00247_var*
+begin
+//#UC START# *4FA3BFAE01B0_4FA278B00247_impl*
+ Result := aPos div f_SizeLimit;
+//#UC END# *4FA3BFAE01B0_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.FileIndexByPos
+
+function Tm3SplittedFileStream.NormalizePartSize(aPos: Int64;
+ aSize: Integer): Integer;
+//#UC START# *4FA4EF94004A_4FA278B00247_var*
+//#UC END# *4FA4EF94004A_4FA278B00247_var*
+begin
+//#UC START# *4FA4EF94004A_4FA278B00247_impl*
+ if (aPos + aSize > f_SizeLimit) then
+  Result := (f_SizeLimit - aPos)
+ else
+  Result := aSize;
+//#UC END# *4FA4EF94004A_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.NormalizePartSize
+
+function Tm3SplittedFileStream.CheckInfoStream(aNeedCreate: Boolean): Boolean;
+//#UC START# *4FA52DFA0143_4FA278B00247_var*
+var
+ l_Name : AnsiString;
+//#UC END# *4FA52DFA0143_4FA278B00247_var*
+begin
+//#UC START# *4FA52DFA0143_4FA278B00247_impl*
+ Result := true;
+ if (f_InfoStream = nil) then
+ begin
+  l_Name := NormalizeFileName(f_AnsiName) + m3_cInfoFileNameExt + f_Ext;
+  if not aNeedCreate OR Self.ReadOnly then
+   if not FileExists(l_Name) then
+   begin
+    Result := false;
+    Exit;
+   end;//not FileExists(l_Name)
+  f_InfoStream := Tm3FileStream.Create(l_Name,
+                                       f_Access,
+                                       f_SharedMode,
+                                       f_Distribution,
+                                       f_Flags);
+ end;//f_InfoStream = nil
+//#UC END# *4FA52DFA0143_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.CheckInfoStream
+
+class function Tm3SplittedFileStream.NormalizeFileName(const aFileName: AnsiString): AnsiString;
+//#UC START# *4FBB8E7F0101_4FA278B00247_var*
+//#UC END# *4FBB8E7F0101_4FA278B00247_var*
+begin
+//#UC START# *4FBB8E7F0101_4FA278B00247_impl*
+ Result := ChangeFileExt(aFileName, '');
+//#UC END# *4FBB8E7F0101_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.NormalizeFileName
+
+class procedure Tm3SplittedFileStream.SetDefaultSizeLimit(aValue: Cardinal);
+//#UC START# *540F18CB01AF_4FA278B00247_var*
+//#UC END# *540F18CB01AF_4FA278B00247_var*
+begin
+//#UC START# *540F18CB01AF_4FA278B00247_impl*
+ g_DefaultSizeLimit := aValue;
+//#UC END# *540F18CB01AF_4FA278B00247_impl*
+end;//Tm3SplittedFileStream.SetDefaultSizeLimit
+
 procedure Tm3SplittedFileStream.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FA278B00247_var*
 //#UC END# *479731C50290_4FA278B00247_var*
 begin
@@ -477,9 +453,9 @@ begin
 end;//Tm3SplittedFileStream.Cleanup
 
 procedure Tm3SplittedFileStream.DoRead(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27CF501C4_4FA278B00247_var*
 var
  l_Pos : Int64;
@@ -523,9 +499,9 @@ begin
 end;//Tm3SplittedFileStream.DoRead
 
 procedure Tm3SplittedFileStream.DoWrite(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27D310344_4FA278B00247_var*
 var
  l_Pos : Int64;
@@ -589,9 +565,9 @@ begin
 end;//Tm3SplittedFileStream.DoWrite
 
 procedure Tm3SplittedFileStream.DoSeek(anOffset: Int64;
-  anOrigin: TSeekOrigin;
-  var theResult: Int64;
-  var theReturn: hResult);
+ anOrigin: TSeekOrigin;
+ var theResult: Int64;
+ var theReturn: hResult);
 //#UC START# *4FA27D5302C5_4FA278B00247_var*
 (*var
  l_S : Tm3InnerFileStream;
@@ -638,7 +614,7 @@ begin
 end;//Tm3SplittedFileStream.DoSeek
 
 procedure Tm3SplittedFileStream.DoSetSize(aSize: Int64;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA27DCD02B4_4FA278B00247_var*
 //#UC END# *4FA27DCD02B4_4FA278B00247_var*
 begin
@@ -654,9 +630,9 @@ begin
 end;//Tm3SplittedFileStream.DoSetSize
 
 procedure Tm3SplittedFileStream.LockRegion(anOffset: Int64;
-  aSize: Int64;
-  aLockType: Integer;
-  var theReturn: hResult);
+ aSize: Int64;
+ aLockType: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E100218_4FA278B00247_var*
 var
  l_Pos : Int64;
@@ -710,9 +686,9 @@ begin
 end;//Tm3SplittedFileStream.LockRegion
 
 procedure Tm3SplittedFileStream.UnlockRegion(anOffset: Int64;
-  aSize: Int64;
-  aLockType: Integer;
-  var theReturn: hResult);
+ aSize: Int64;
+ aLockType: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E4C0342_4FA278B00247_var*
 var
  l_Pos : Int64;
@@ -766,8 +742,8 @@ begin
 end;//Tm3SplittedFileStream.UnlockRegion
 
 procedure Tm3SplittedFileStream.Stat(var theStatStg: TStatStg;
-  aStatFlag: Integer;
-  var theReturn: hResult);
+ aStatFlag: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E6A001B_4FA278B00247_var*
 //#UC END# *4FA27E6A001B_4FA278B00247_var*
 begin
@@ -845,7 +821,7 @@ begin
 end;//Tm3SplittedFileStream.DoGetLocksSupported
 
 procedure Tm3SplittedFileStream.Commit(aFlags: Integer;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA280DB0288_4FA278B00247_var*
 var
  l_Index : Integer;

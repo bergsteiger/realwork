@@ -1,49 +1,34 @@
 unit daCondition;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daCondition.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaCondition
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daCondition.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaCondition" MUID: (56408DB303B7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+;
 
 type
  TdaCondition = class(Tl3ProtoObject, IdaCondition)
- protected
- // realized methods
-   function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
- public
- // realized methods
-   {iterator} procedure Iterate(anAction: daConditionIterator_Iterate_Action); virtual;
-   {iterator} procedure IterateF(anAction: daConditionIterator_Iterate_Action);
- protected
- // protected methods
+  protected
    function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; virtual; abstract;
+   function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
+  public
+   procedure Iterate(anAction: daConditionIterator_Iterate_Action);
+   procedure IterateF(anAction: daConditionIterator_Iterate_Action);
  end;//TdaCondition
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TdaCondition
+ l3ImplUses
+;
 
 function TdaCondition.BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
 //#UC START# *5608E5FE0355_56408DB303B7_var*
@@ -54,7 +39,7 @@ begin
 //#UC END# *5608E5FE0355_56408DB303B7_impl*
 end;//TdaCondition.BuildSQLValue
 
-{iterator} procedure TdaCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
+procedure TdaCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
 //#UC START# *564089E3039B_56408DB303B7_var*
 //#UC END# *564089E3039B_56408DB303B7_var*
 begin
@@ -63,7 +48,7 @@ begin
 //#UC END# *564089E3039B_56408DB303B7_impl*
 end;//TdaCondition.Iterate
 
-{iterator} procedure TdaCondition.IterateF(anAction: daConditionIterator_Iterate_Action);
+procedure TdaCondition.IterateF(anAction: daConditionIterator_Iterate_Action);
 var
  Hack : Pointer absolute anAction;
 begin
@@ -72,6 +57,6 @@ begin
  finally
   l3FreeLocalStub(Hack);
  end;//try..finally
-end;
+end;//TdaCondition.IterateF
 
 end.

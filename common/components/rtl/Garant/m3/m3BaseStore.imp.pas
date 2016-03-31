@@ -1,51 +1,40 @@
 {$IfNDef m3BaseStore_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3BaseStore.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::Streams::m3BaseStore
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "m3BaseStore" MUID: (4FA276650046)
+// Имя типа: "_m3BaseStore_"
 
 {$Define m3BaseStore_imp}
- _m3BaseStore_ = {mixin} class(_m3BaseStore_Parent_, Im2StoreStat)
- private
- // private fields
-   f_Access : Tm3StoreAccess;
-    {* Поле для свойства Access}
- protected
- // realized methods
-   function pm_GetAccess: LongInt;
-   function pm_GetLocksSupported: LongInt;
-   function pm_GetSize: Int64;
-   function pm_GetPosition: Int64;
-   function Get_Name: WideString;
- protected
- // protected methods
+
+ _m3BaseStore_ = class(_m3BaseStore_Parent_, Im2StoreStat)
+  private
+   f_Access: Tm3StoreAccess;
+  protected
    function DoGetPosition: Int64; virtual;
    function DoGetSize: Int64; virtual;
    function DoGetLocksSupported: Integer; virtual;
    function DoGetAccess: Integer;
    function DoGetName: WideString; virtual;
- public
- // public methods
+   function pm_GetAccess: LongInt;
+   function pm_GetLocksSupported: LongInt;
+   function pm_GetSize: Int64;
+   function pm_GetPosition: Int64;
+   function Get_Name: WideString;
+  public
    constructor Create(anAccess: Tm3StoreAccess); reintroduce;
    function ReadOnly: Boolean;
-     {* только для чтения? }
- protected
- // protected properties
+    {* только для чтения? }
+  protected
    property Access: Tm3StoreAccess
-     read f_Access;
+    read f_Access;
  end;//_m3BaseStore_
 
 {$Else m3BaseStore_imp}
 
-// start class _m3BaseStore_
+{$IfNDef m3BaseStore_imp_impl}
+
+{$Define m3BaseStore_imp_impl}
 
 function _m3BaseStore_.DoGetPosition: Int64;
 //#UC START# *4FA280090314_4FA276650046_var*
@@ -104,6 +93,7 @@ begin
 end;//_m3BaseStore_.Create
 
 function _m3BaseStore_.ReadOnly: Boolean;
+ {* только для чтения? }
 //#UC START# *5481BE870251_4FA276650046_var*
 //#UC END# *5481BE870251_4FA276650046_var*
 begin
@@ -157,4 +147,7 @@ begin
 //#UC END# *5412F6940100_4FA276650046get_impl*
 end;//_m3BaseStore_.Get_Name
 
+{$EndIf m3BaseStore_imp_impl}
+
 {$EndIf m3BaseStore_imp}
+

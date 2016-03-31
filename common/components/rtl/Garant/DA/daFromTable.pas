@@ -1,79 +1,69 @@
 unit daFromTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daFromTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaFromTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daFromTable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaFromTable" MUID: (55FFB14A031C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+;
 
 type
  TdaFromTable = class(Tl3ProtoObject, IdaFromTable)
- private
- // private fields
-   f_Table : IdaTableDescription;
-    {* Поле для свойства Table}
-   f_Prepared : Boolean;
-    {* Поле для свойства Prepared}
-   f_TableAlias : AnsiString;
-    {* Поле для свойства TableAlias}
- protected
- // property methods
+  private
+   f_Table: IdaTableDescription;
+    {* Поле для свойства Table }
+   f_Prepared: Boolean;
+    {* Поле для свойства Prepared }
+   f_TableAlias: AnsiString;
+    {* Поле для свойства TableAlias }
+  protected
    procedure pm_SetPrepared(aValue: Boolean); virtual;
- protected
- // realized methods
    function Get_TableAlias: AnsiString;
    function Get_Table: IdaTableDescription;
    function BuildSQLValue: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''); reintroduce; virtual;
+    const anAlias: AnsiString = ''); reintroduce; virtual;
    class function Make(const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaFromTable; reintroduce;
-     {* Сигнатура фабрики TdaFromTable.Make }
- protected
- // protected properties
+    const anAlias: AnsiString = ''): IdaFromTable; reintroduce;
+  protected
    property Table: IdaTableDescription
-     read f_Table;
+    read f_Table;
    property Prepared: Boolean
-     read f_Prepared
-     write pm_SetPrepared;
+    read f_Prepared
+    write pm_SetPrepared;
    property TableAlias: AnsiString
-     read f_TableAlias;
+    read f_TableAlias;
  end;//TdaFromTable
 
 implementation
 
 uses
-  daScheme,
-  SysUtils
-  ;
+ l3ImplUses
+ , daScheme
+ , SysUtils
+;
 
-// start class TdaFromTable
+procedure TdaFromTable.pm_SetPrepared(aValue: Boolean);
+//#UC START# *55FFB1C600AB_55FFB14A031Cset_var*
+//#UC END# *55FFB1C600AB_55FFB14A031Cset_var*
+begin
+//#UC START# *55FFB1C600AB_55FFB14A031Cset_impl*
+ f_Prepared := aValue;
+//#UC END# *55FFB1C600AB_55FFB14A031Cset_impl*
+end;//TdaFromTable.pm_SetPrepared
 
 constructor TdaFromTable.Create(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = '');
+ const anAlias: AnsiString = '');
 //#UC START# *55530BE50143_55FFB14A031C_var*
 //#UC END# *55530BE50143_55FFB14A031C_var*
 begin
@@ -85,7 +75,7 @@ begin
 end;//TdaFromTable.Create
 
 class function TdaFromTable.Make(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromTable;
 var
  l_Inst : TdaFromTable;
 begin
@@ -95,16 +85,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-procedure TdaFromTable.pm_SetPrepared(aValue: Boolean);
-//#UC START# *55FFB1C600AB_55FFB14A031Cset_var*
-//#UC END# *55FFB1C600AB_55FFB14A031Cset_var*
-begin
-//#UC START# *55FFB1C600AB_55FFB14A031Cset_impl*
- f_Prepared := aValue;
-//#UC END# *55FFB1C600AB_55FFB14A031Cset_impl*
-end;//TdaFromTable.pm_SetPrepared
+end;//TdaFromTable.Make
 
 function TdaFromTable.Get_TableAlias: AnsiString;
 //#UC START# *5553634C0218_55FFB14A031Cget_var*
@@ -136,6 +117,7 @@ begin
 end;//TdaFromTable.BuildSQLValue
 
 procedure TdaFromTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55FFB14A031C_var*
 //#UC END# *479731C50290_55FFB14A031C_var*
 begin

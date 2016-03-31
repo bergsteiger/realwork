@@ -1,51 +1,42 @@
 {$IfNDef PageControlNotification_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PageControlNotification.imp.pas"
-// Начат: 27.01.2009 16:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Base Operations::View::Base Forms::PageControlNotification
-//
-// Класс для будущей реализации InscPageControlNotification
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "PageControlNotification" MUID: (497F0F17036D)
+// Имя типа: "_PageControlNotification_"
 
 {$Define PageControlNotification_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _PageControlNotification_ = {mixin} class(_PageControlNotification_Parent_ {$If defined(Nemesis)}, InscPageControlNotification{$IfEnd} //Nemesis
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _PageControlNotification_ = class(_PageControlNotification_Parent_{$If Defined(Nemesis)}
+ , InscPageControlNotification
+ {$IfEnd} // Defined(Nemesis)
  )
   {* Класс для будущей реализации InscPageControlNotification }
- protected
- // realized methods
-   {$If defined(Nemesis)}
-   procedure TabActivate;
-     {* Cобытие активации вкладки }
-   {$IfEnd} //Nemesis
- protected
- // protected methods
+  protected
    procedure DoTabActivate; virtual; abstract;
-     {* Реакция на переключение вкладки }
+    {* Реакция на переключение вкладки }
+   {$If Defined(Nemesis)}
+   procedure TabActivate;
+    {* Cобытие активации вкладки }
+   {$IfEnd} // Defined(Nemesis)
  end;//_PageControlNotification_
-{$Else}
 
- _PageControlNotification_ = _PageControlNotification_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_PageControlNotification_ = _PageControlNotification_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else PageControlNotification_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef PageControlNotification_imp_impl}
 
-// start class _PageControlNotification_
+{$Define PageControlNotification_imp_impl}
 
-{$If defined(Nemesis)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If Defined(Nemesis)}
 procedure _PageControlNotification_.TabActivate;
+ {* Cобытие активации вкладки }
 //#UC START# *496B781903E3_497F0F17036D_var*
 //#UC END# *496B781903E3_497F0F17036D_var*
 begin
@@ -53,8 +44,10 @@ begin
  DoTabActivate;
 //#UC END# *496B781903E3_497F0F17036D_impl*
 end;//_PageControlNotification_.TabActivate
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf PageControlNotification_imp_impl}
 
 {$EndIf PageControlNotification_imp}
+

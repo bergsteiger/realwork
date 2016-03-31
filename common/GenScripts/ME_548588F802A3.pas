@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , l3CProtoObject
  , ActiveX
+ //#UC START# *548588F802A3intf_uses*
+ //#UC END# *548588F802A3intf_uses*
 ;
 
 type
@@ -85,6 +87,8 @@ uses
  , ComObj
  , l3Base
  , m2MemLib
+ //#UC START# *548588F802A3impl_uses*
+ //#UC END# *548588F802A3impl_uses*
 ;
 
 //#UC START# *548588F802A3impl*

@@ -1,34 +1,28 @@
 {$IfNDef atEntityWithName_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atEntityWithName.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::AdapterHelpers::atEntityWithName
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atEntityWithName" MUID: (505205F10268)
+// Имя типа: "_atEntityWithName_"
 
 {$Define atEntityWithName_imp}
- {$Include ..\AdapterHelpers\atEntity.imp.pas}
- _atEntityWithName_ = {mixin} class(_atEntity_)
- protected
- // property methods
+
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
+ _atEntityWithName_ = class(_atEntity_)
+  protected
    function pm_GetName: AnsiString; virtual;
- public
- // public properties
+  public
    property Name: AnsiString
-     read pm_GetName;
+    read pm_GetName;
  end;//_atEntityWithName_
 
 {$Else atEntityWithName_imp}
 
-{$Include ..\AdapterHelpers\atEntity.imp.pas}
+{$IfNDef atEntityWithName_imp_impl}
 
-// start class _atEntityWithName_
+{$Define atEntityWithName_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
 
 function _atEntityWithName_.pm_GetName: AnsiString;
 //#UC START# *4FD249FB01FC_505205F10268get_var*
@@ -45,4 +39,7 @@ begin
 //#UC END# *4FD249FB01FC_505205F10268get_impl*
 end;//_atEntityWithName_.pm_GetName
 
+{$EndIf atEntityWithName_imp_impl}
+
 {$EndIf atEntityWithName_imp}
+

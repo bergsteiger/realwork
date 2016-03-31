@@ -1,37 +1,26 @@
 unit alcuAsyncTaskFinishedNotifierList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuAsyncTaskFinishedNotifierList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ServerAsyncExecution::TalcuAsyncTaskFinishedNotifierList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAsyncTaskFinishedNotifierList" MUID: (53D0E3330308)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  l3ProtoDataContainer,
-  alcuServerAsyncExecutionInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
+ l3IntfUses
+ , l3ProtoDataContainer
+ , alcuServerAsyncExecutionInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
 type
  _ItemType_ = IalcuAsyncTaskFinishedNotifier;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
@@ -39,25 +28,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TalcuAsyncTaskFinishedNotifierList = class(_l3InterfacePtrList_)
  end;//TalcuAsyncTaskFinishedNotifierList
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
-
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TalcuAsyncTaskFinishedNotifierList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
-
-{$IfEnd} //AppServerSide AND ServerTasks
 end.

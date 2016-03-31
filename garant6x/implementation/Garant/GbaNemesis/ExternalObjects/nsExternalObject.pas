@@ -1,56 +1,52 @@
 unit nsExternalObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ExternalObjects"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ExternalObjects/nsExternalObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::ExternalObjects::Implementation::TnsExternalObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsExternalObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsExternalObject" MUID: (52D669BA02CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  nsExternalObjectPrim
-  ;
+ l3IntfUses
+ , nsExternalObjectPrim
+;
 
 type
  TnsExternalObject = class(TnsExternalObjectPrim)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsExternalObject;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsExternalObject }
  end;//TnsExternalObject
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TnsExternalObject
-
-var g_TnsExternalObject : TnsExternalObject = nil;
+var g_TnsExternalObject: TnsExternalObject = nil;
+ {* Экземпляр синглетона TnsExternalObject }
 
 procedure TnsExternalObjectFree;
+ {* Метод освобождения экземпляра синглетона TnsExternalObject }
 begin
  l3Free(g_TnsExternalObject);
-end;
+end;//TnsExternalObjectFree
+
+class function TnsExternalObject.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsExternalObject <> nil;
+end;//TnsExternalObject.Exists
 
 class function TnsExternalObject.Instance: TnsExternalObject;
+ {* Метод получения экземпляра синглетона TnsExternalObject }
 begin
  if (g_TnsExternalObject = nil) then
  begin
@@ -58,13 +54,6 @@ begin
   g_TnsExternalObject := Create;
  end;
  Result := g_TnsExternalObject;
-end;
-
-
-class function TnsExternalObject.Exists: Boolean;
- {-}
-begin
- Result := g_TnsExternalObject <> nil;
-end;//TnsExternalObject.Exists
+end;//TnsExternalObject.Instance
 
 end.

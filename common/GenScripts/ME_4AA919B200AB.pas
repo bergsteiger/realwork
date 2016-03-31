@@ -22,7 +22,7 @@ uses
 ;
 
 type
- TCommonPostModule = class
+ TCommonPostModule = class(TvcmModule)
   {* Новостная лента }
   private
    function MessageHook(var Msg: TMessage): Boolean;
@@ -92,6 +92,7 @@ uses
  , nsOpenUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 function TCommonPostModule.OpenPostingOrderForm(const anAggregate: IvcmAggregate;
  const aContainer: IvcmContainer;
  const aQuery: IQuery): IvcmEntityForm;
@@ -332,6 +333,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B71847503BF_4AA919B200AB_impl*
 end;//TCommonPostModule.SavePostList
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

@@ -1,114 +1,98 @@
 unit m3CommonStorage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3CommonStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3CommonStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3CommonStorage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CommonStorage" MUID: (542176490191)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  ActiveX,
-  m3StorageInterfaces,
-  l3_String,
-  m3StoragePrim,
-  m3TOCHandleList,
-  m3RootStreamManagerPrim
-  ;
+ l3IntfUses
+ , m3StoragePrim
+ , ActiveX
+ , m3TOCHandleList
+ , l3Interfaces
+ , m3StorageInterfaces
+ , l3_String
+ , m3RootStreamManagerPrim
+;
 
 type
+ Rm3CommonStorage = class of Tm3CommonStorage;
+
  Tm3IndexInfo = packed record
   {* Информация об индексе }
-//#UC START# *542177F90247publ*
+ //#UC START# *542177F90247publ*
     rPosition : Int64;
     rBits     : Byte;
     rMaxBits  : Byte;
-//#UC END# *542177F90247publ*
+ //#UC END# *542177F90247publ*
  end;//Tm3IndexInfo
 
  Tm3StoreOperation = (
   {* Операция с элементом хранилища }
-   m3_soOpen
- , m3_soCreate
- , m3_soDelete
+  m3_soOpen
+  , m3_soCreate
+  , m3_soDelete
  );//Tm3StoreOperation
 
- Rm3CommonStorage = class of Tm3CommonStorage;
-
  Tm3CommonStorage = {abstract} class(Tm3StoragePrim)
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure BeforeRelease; override;
-   function DoGetSize: Int64; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_IndexStream : IStream;
-   f_IndexInfo : Tm3IndexInfo;
-   f_TableOfContents : Tm3TOCHandleList;
-   f_CanAllocateIndex : Boolean;
- protected
- // protected methods
+  protected
+   f_IndexStream: IStream;
+   f_IndexInfo: Tm3IndexInfo;
+   f_TableOfContents: Tm3TOCHandleList;
+   f_CanAllocateIndex: Boolean;
+  protected
    function IsValidName(aName: PWideChar;
-     aLen: Integer = -1): Boolean; overload; 
-   function IsValidName(const aName: Tl3WString): Boolean; overload; 
+    aLen: Integer = -1): Boolean; overload;
+   function IsValidName(const aName: Tl3WString): Boolean; overload;
    function IsValidName(const aName: Tl3WString;
-     out anIndex: Integer): Boolean; overload; 
+    out anIndex: Integer): Boolean; overload;
    procedure CheckIndexStream(aNeedCreate: Boolean;
-     aForIterate: Boolean); virtual; abstract;
+    aForIterate: Boolean); virtual; abstract;
    class function SubStorageClass: Rm3CommonStorage;
    procedure DoSaveTableOfContents; virtual; abstract;
    procedure SaveTableOfContents;
    function Manager: Tm3RootStreamManagerPrim; virtual; abstract;
    procedure LoadTableOfContents;
    procedure DoLoadTableOfContents; virtual; abstract;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure BeforeRelease; override;
+   function DoGetSize: Int64; override;
+   procedure ClearFields; override;
+  public
    constructor Create(anAccess: Tm3StoreAccess); reintroduce;
    class function Make(anAccess: Tm3StoreAccess;
-     aName: Tl3_String;
-     aManager: Tm3RootStreamManagerPrim;
-     aPosition: Int64): Im3IndexedStorage; virtual; abstract;
+    aName: Tl3_String;
+    aManager: Tm3RootStreamManagerPrim;
+    aPosition: Int64): Im3IndexedStorage; virtual; abstract;
    class function OpenRoot(anAccess: Tm3StoreAccess;
-     const aStream: IStream;
-     out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; virtual; abstract;
+    const aStream: IStream;
+    out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; virtual; abstract;
    class function ForPlugin: Boolean; virtual;
    class function IsPacked: Boolean; virtual;
    class function OpenFromManager(anAccess: Tm3StoreAccess;
-     aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; virtual; abstract;
+    aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; virtual; abstract;
  end;//Tm3CommonStorage
 
 implementation
 
 uses
-  SysUtils,
-  m3Const,
-  l3Const,
-  l3String,
-  l3StringEx,
-  m3CommonStorageStream,
-  l3Base
-  ;
-
-// start class Tm3CommonStorage
+ l3ImplUses
+ , m3Const
+ , l3Const
+ , l3String
+ , SysUtils
+ , l3StringEx
+ , m3CommonStorageStream
+ , l3Base
+;
 
 function Tm3CommonStorage.IsValidName(aName: PWideChar;
-  aLen: Integer = -1): Boolean;
+ aLen: Integer = -1): Boolean;
 //#UC START# *542176B30215_542176490191_var*
 var
  l_Index : Integer;
@@ -150,7 +134,7 @@ begin
 end;//Tm3CommonStorage.IsValidName
 
 function Tm3CommonStorage.IsValidName(const aName: Tl3WString;
-  out anIndex: Integer): Boolean;
+ out anIndex: Integer): Boolean;
 //#UC START# *542177090147_542176490191_var*
 var
  l_Name : AnsiString;
@@ -253,6 +237,7 @@ begin
 end;//Tm3CommonStorage.IsPacked
 
 procedure Tm3CommonStorage.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_542176490191_var*
 //#UC END# *479731C50290_542176490191_var*
 begin
@@ -301,7 +286,6 @@ begin
 end;//Tm3CommonStorage.DoGetSize
 
 procedure Tm3CommonStorage.ClearFields;
- {-}
 begin
  f_IndexStream := nil;
  inherited;

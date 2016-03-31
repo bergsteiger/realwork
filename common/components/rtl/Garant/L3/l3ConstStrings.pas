@@ -1,69 +1,44 @@
 unit l3ConstStrings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ConstStrings.pas"
-// Начат: 18.03.2010 15:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Поддержка локализованных сообщений::Tl3ConstStrings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ConstStrings.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ConstStrings" MUID: (4BA2214002EE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ConstStrings1
-  ;
+ l3IntfUses
+ , l3ConstStrings1
+;
 
 type
  Tl3ConstStrings = class(Tl3ConstStrings1)
- public
- // public methods
+  public
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: Tl3ConstStrings;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ConstStrings }
  end;//Tl3ConstStrings
 
-var
-   g_l3ConstStringsSealed : Boolean = false;
+var g_l3ConstStringsSealed: Boolean = False;
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3ConstStrings
-
-var g_Tl3ConstStrings : Tl3ConstStrings = nil;
+var g_Tl3ConstStrings: Tl3ConstStrings = nil;
+ {* Экземпляр синглетона Tl3ConstStrings }
 
 procedure Tl3ConstStringsFree;
+ {* Метод освобождения экземпляра синглетона Tl3ConstStrings }
 begin
  l3Free(g_Tl3ConstStrings);
-end;
-
-class function Tl3ConstStrings.Instance: Tl3ConstStrings;
-begin
- if (g_Tl3ConstStrings = nil) then
- begin
-  l3System.AddExitProc(Tl3ConstStringsFree);
-  g_Tl3ConstStrings := Create;
- end;
- Result := g_Tl3ConstStrings;
-end;
-
+end;//Tl3ConstStringsFree
 
 class function Tl3ConstStrings.Exists: Boolean;
 //#UC START# *4BA227540063_4BA2214002EE_var*
@@ -73,5 +48,16 @@ begin
  Result := (g_Tl3ConstStrings <> nil);
 //#UC END# *4BA227540063_4BA2214002EE_impl*
 end;//Tl3ConstStrings.Exists
+
+class function Tl3ConstStrings.Instance: Tl3ConstStrings;
+ {* Метод получения экземпляра синглетона Tl3ConstStrings }
+begin
+ if (g_Tl3ConstStrings = nil) then
+ begin
+  l3System.AddExitProc(Tl3ConstStringsFree);
+  g_Tl3ConstStrings := Create;
+ end;
+ Result := g_Tl3ConstStrings;
+end;//Tl3ConstStrings.Instance
 
 end.

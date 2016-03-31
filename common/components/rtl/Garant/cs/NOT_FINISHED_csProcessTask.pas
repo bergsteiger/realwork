@@ -20,7 +20,6 @@ type
  TddProcessTask = class(TddProcessTaskPrim)
   private
    f_TaskResult: TcsTaskResult;
-    {* Поле для свойства TaskResult }
   protected
    procedure DoRun(const aContext: TddRunContext); virtual;
    procedure GetTaskResultClass : TcsClassResultClass; virtual;

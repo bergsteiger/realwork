@@ -1,49 +1,34 @@
 unit atSettingsHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atSettingsHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatSettingsHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atSettingsHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSettingsHelper" MUID: (503F81C30303)
 
 interface
 
 uses
-  atStringToStringConverterBase,
-  atFilterHelper
-  ;
+ l3IntfUses
+ , atFilterHelper
+ , atStringToStringConverterBase
+;
 
 type
  TatTreeTagToSettingIDConverter = class(TatStringToStringConverterBase)
   {* конвертация между идентификатором адаптерного дерева и названием настройки в которой сохранены параметры контекстного фильтра для этого дерева (в оболочке Настройка конфигурации/Контекстная фильтрация) }
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatTreeTagToSettingIDConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatTreeTagToSettingIDConverter }
  end;//TatTreeTagToSettingIDConverter
 
  TatSettingsHelper = class
- private
- // private methods
+  private
    class function GetContextFilterParamsFromSettings(const aSettingsID: AnsiString;
     out theParams: ContextFilterParams): Boolean;
- public
- // public methods
+  public
    class function GetContextFilterParamsByTreeTag(const aTreeTag: AnsiString;
     out theParams: ContextFilterParams): Boolean;
  end;//TatSettingsHelper
@@ -51,38 +36,28 @@ type
 implementation
 
 uses
-  l3Base {a},
-  atTreeLevelConverter,
-  atWordOrderConverter,
-  atWordPositionConverter,
-  atGblAdapterWorker,
-  atLogger,
-  DynamicTreeUnit
-  ;
+ l3ImplUses
+ , atTreeLevelConverter
+ , atWordOrderConverter
+ , atWordPositionConverter
+ , atGblAdapterWorker
+ , atLogger
+ , DynamicTreeUnit
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatTreeTagToSettingIDConverter
-
-var g_TatTreeTagToSettingIDConverter : TatTreeTagToSettingIDConverter = nil;
+var g_TatTreeTagToSettingIDConverter: TatTreeTagToSettingIDConverter = nil;
+ {* Экземпляр синглетона TatTreeTagToSettingIDConverter }
 
 procedure TatTreeTagToSettingIDConverterFree;
+ {* Метод освобождения экземпляра синглетона TatTreeTagToSettingIDConverter }
 begin
  l3Free(g_TatTreeTagToSettingIDConverter);
-end;
-
-class function TatTreeTagToSettingIDConverter.Instance: TatTreeTagToSettingIDConverter;
-begin
- if (g_TatTreeTagToSettingIDConverter = nil) then
- begin
-  l3System.AddExitProc(TatTreeTagToSettingIDConverterFree);
-  g_TatTreeTagToSettingIDConverter := Create;
- end;
- Result := g_TatTreeTagToSettingIDConverter;
-end;
-
+end;//TatTreeTagToSettingIDConverterFree
 
 class function TatTreeTagToSettingIDConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatTreeTagToSettingIDConverter <> nil;
 end;//TatTreeTagToSettingIDConverter.Exists
@@ -125,8 +100,19 @@ begin
 //#UC END# *503E3A040395_503F83120326_impl*
 end;//TatTreeTagToSettingIDConverter.InitConvertMap
 
+class function TatTreeTagToSettingIDConverter.Instance: TatTreeTagToSettingIDConverter;
+ {* Метод получения экземпляра синглетона TatTreeTagToSettingIDConverter }
+begin
+ if (g_TatTreeTagToSettingIDConverter = nil) then
+ begin
+  l3System.AddExitProc(TatTreeTagToSettingIDConverterFree);
+  g_TatTreeTagToSettingIDConverter := Create;
+ end;
+ Result := g_TatTreeTagToSettingIDConverter;
+end;//TatTreeTagToSettingIDConverter.Instance
+
 class function TatSettingsHelper.GetContextFilterParamsFromSettings(const aSettingsID: AnsiString;
-  out theParams: ContextFilterParams): Boolean;
+ out theParams: ContextFilterParams): Boolean;
 //#UC START# *503F849A033F_503F81C30303_var*
   var
     l_IDs : array [0..2] of String;
@@ -158,7 +144,7 @@ begin
 end;//TatSettingsHelper.GetContextFilterParamsFromSettings
 
 class function TatSettingsHelper.GetContextFilterParamsByTreeTag(const aTreeTag: AnsiString;
-  out theParams: ContextFilterParams): Boolean;
+ out theParams: ContextFilterParams): Boolean;
 //#UC START# *503F85DF00DA_503F81C30303_var*
   var
     l_SettingID : String;

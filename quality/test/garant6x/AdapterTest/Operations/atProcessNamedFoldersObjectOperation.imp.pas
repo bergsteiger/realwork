@@ -1,31 +1,26 @@
 {$IfNDef atProcessNamedFoldersObjectOperation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atProcessNamedFoldersObjectOperation.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atProcessNamedFoldersObjectOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atProcessNamedFoldersObjectOperation" MUID: (484FA0FD0223)
+// Имя типа: "_atProcessNamedFoldersObjectOperation_"
 
 {$Define atProcessNamedFoldersObjectOperation_imp}
- {$Include ..\Operations\atProcessFoldersObjectOperation.imp.pas}
- _atProcessNamedFoldersObjectOperation_ = {abstract mixin} class(_atProcessFoldersObjectOperation_)
- protected
- // overridden protected methods
+
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas}
+ _atProcessNamedFoldersObjectOperation_ = {abstract} class(_atProcessFoldersObjectOperation_)
+  protected
    procedure InitParamList; override;
    procedure InitMatcher; override;
  end;//_atProcessNamedFoldersObjectOperation_
 
 {$Else atProcessNamedFoldersObjectOperation_imp}
 
-{$Include ..\Operations\atProcessFoldersObjectOperation.imp.pas}
+{$IfNDef atProcessNamedFoldersObjectOperation_imp_impl}
 
-// start class _atProcessNamedFoldersObjectOperation_
+{$Define atProcessNamedFoldersObjectOperation_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas}
 
 procedure _atProcessNamedFoldersObjectOperation_.InitParamList;
 //#UC START# *48089F3701B4_484FA0FD0223_var*
@@ -69,4 +64,7 @@ begin
 //#UC END# *484FDD22003E_484FA0FD0223_impl*
 end;//_atProcessNamedFoldersObjectOperation_.InitMatcher
 
+{$EndIf atProcessNamedFoldersObjectOperation_imp_impl}
+
 {$EndIf atProcessNamedFoldersObjectOperation_imp}
+

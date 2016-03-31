@@ -1,99 +1,71 @@
 unit m3StorageIndexAdapter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestsSupport"
-// Модуль: "w:/common/components/rtl/Garant/TestsSupport/m3StorageIndexAdapter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::TestsSupport::m3TetsSupport::Tm3StorageIndexAdapter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\TestsSupport\m3StorageIndexAdapter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageIndexAdapter" MUID: (4F19108601F3)
 
 {$Include w:\common\components\l3Define.inc}
 
 interface
 
 uses
-  l3Types,
-  SysUtils,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , SysUtils
+ , l3Types
+;
 
 type
  Tm3StorageIndexAdapter = class(Tl3ProtoObject)
- private
- // private fields
-   f_BaseName : TFileName;
-    {* Поле для свойства BaseName}
-   f_DirName : TFileName;
-    {* Поле для свойства DirName}
-  {$If not defined(nsTest)}
-   f_PhaseStr : AnsiString;
-    {* Поле для свойства PhaseStr}
-  {$IfEnd} //not nsTest
- protected
- // property methods
-   {$If not defined(nsTest)}
-
-   {$IfEnd} //not nsTest
- public
- // public methods
+  private
+   f_BaseName: TFileName;
+    {* Поле для свойства BaseName }
+   f_DirName: TFileName;
+    {* Поле для свойства DirName }
+   {$If NOT Defined(nsTest)}
+   f_PhaseStr: AnsiString;
+    {* Поле для свойства PhaseStr }
+   {$IfEnd} // NOT Defined(nsTest)
+  protected
+   procedure ClearFields; override;
+  public
    procedure DoBuildIndex(aFilesMeter: Tl3ProgressProc);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property BaseName: TFileName
-     read f_BaseName
-     write f_BaseName;
-   property DirName: TFileName
-     read f_DirName
-     write f_DirName;
-   {$If not defined(nsTest)}
-   property PhaseStr: AnsiString
-     read f_PhaseStr;
-   {$IfEnd} //not nsTest
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tm3StorageIndexAdapter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tm3StorageIndexAdapter }
+  public
+   property BaseName: TFileName
+    read f_BaseName
+    write f_BaseName;
+   property DirName: TFileName
+    read f_DirName
+    write f_DirName;
+   {$If NOT Defined(nsTest)}
+   property PhaseStr: AnsiString
+    read f_PhaseStr;
+   {$IfEnd} // NOT Defined(nsTest)
  end;//Tm3StorageIndexAdapter
 
 implementation
 
 uses
-  l3Base {a},
-  m4DBInterfaces,
-  m4DB,
-  l3FileUtils,
-  m3StorageInterfaces
-  ;
+ l3ImplUses
+ , m4DBInterfaces
+ , m4DB
+ , l3FileUtils
+ , m3StorageInterfaces
+ , l3Base
+;
 
-
-// start class Tm3StorageIndexAdapter
-
-var g_Tm3StorageIndexAdapter : Tm3StorageIndexAdapter = nil;
+var g_Tm3StorageIndexAdapter: Tm3StorageIndexAdapter = nil;
+ {* Экземпляр синглетона Tm3StorageIndexAdapter }
 
 procedure Tm3StorageIndexAdapterFree;
+ {* Метод освобождения экземпляра синглетона Tm3StorageIndexAdapter }
 begin
  l3Free(g_Tm3StorageIndexAdapter);
-end;
-
-class function Tm3StorageIndexAdapter.Instance: Tm3StorageIndexAdapter;
-begin
- if (g_Tm3StorageIndexAdapter = nil) then
- begin
-  l3System.AddExitProc(Tm3StorageIndexAdapterFree);
-  g_Tm3StorageIndexAdapter := Create;
- end;
- Result := g_Tm3StorageIndexAdapter;
-end;
-
+end;//Tm3StorageIndexAdapterFree
 
 procedure Tm3StorageIndexAdapter.DoBuildIndex(aFilesMeter: Tl3ProgressProc);
 //#UC START# *4F191143015F_4F19108601F3_var*
@@ -138,9 +110,30 @@ begin
 end;//Tm3StorageIndexAdapter.DoBuildIndex
 
 class function Tm3StorageIndexAdapter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tm3StorageIndexAdapter <> nil;
 end;//Tm3StorageIndexAdapter.Exists
+
+class function Tm3StorageIndexAdapter.Instance: Tm3StorageIndexAdapter;
+ {* Метод получения экземпляра синглетона Tm3StorageIndexAdapter }
+begin
+ if (g_Tm3StorageIndexAdapter = nil) then
+ begin
+  l3System.AddExitProc(Tm3StorageIndexAdapterFree);
+  g_Tm3StorageIndexAdapter := Create;
+ end;
+ Result := g_Tm3StorageIndexAdapter;
+end;//Tm3StorageIndexAdapter.Instance
+
+procedure Tm3StorageIndexAdapter.ClearFields;
+begin
+ BaseName := '';
+ DirName := '';
+ {$If NOT Defined(nsTest)}
+ f_PhaseStr := '';
+ {$IfEnd} // NOT Defined(nsTest)
+ inherited;
+end;//Tm3StorageIndexAdapter.ClearFields
 
 end.

@@ -1,37 +1,26 @@
 unit pgParamDecsriptionList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgParamDecsriptionList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgParamDecsriptionList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgParamDecsriptionList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgParamDecsriptionList" MUID: (56653E620110)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoDataContainer,
-  daInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoDataContainer
+ , daInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If defined(UsePostgres)}
 type
  _ItemType_ = IdaParamDescription;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
@@ -39,25 +28,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TpgParamDecsriptionList = class(_l3InterfacePtrList_)
  end;//TpgParamDecsriptionList
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TpgParamDecsriptionList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+{$IfEnd} // Defined(UsePostgres)
 
-
-{$IfEnd} //UsePostgres
 end.

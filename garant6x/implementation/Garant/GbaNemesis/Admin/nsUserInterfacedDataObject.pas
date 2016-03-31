@@ -1,56 +1,41 @@
 unit nsUserInterfacedDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/nsUserInterfacedDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::UsersDataObjects::TnsUserInterfacedDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserInterfacedDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserInterfacedDataObject" MUID: (49F57FF400B2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  evDataObject,
-  l3IID
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , evDataObject
+ , l3IID
+;
 
-{$If defined(Admin)}
 type
  TnsUserInterfacedDataObject = class(TevDataObject)
- protected
- // overridden protected methods
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
  end;//TnsUserInterfacedDataObject
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  bsInterfaces,
-  SysUtils
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TnsUserInterfacedDataObject
+ l3ImplUses
+ , bsInterfaces
+ , SysUtils
+;
 
 function TnsUserInterfacedDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_49F57FF400B2_var*
 //#UC END# *4A60B23E00C3_49F57FF400B2_var*
 begin
@@ -66,7 +51,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_49F57FF400B2_impl*
 end;//TnsUserInterfacedDataObject.COMQueryInterface
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

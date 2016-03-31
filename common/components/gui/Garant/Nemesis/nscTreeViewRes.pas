@@ -22,7 +22,8 @@ const
  str_nsc_UnwrapHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_UnwrapHint'; rValue : 'Выключить перенос по словам');
   {* 'Выключить перенос по словам' }
  {* Карта преобразования локализованных строк nscMultiStroke }
- nscMultiStrokeMap: array [Boolean] of Pl3StringIDEx = (@str_nsc_WrapHint
+ nscMultiStrokeMap: array [Boolean] of Pl3StringIDEx = (
+ @str_nsc_WrapHint
  , @str_nsc_UnwrapHint
  );
 {$IfEnd} // Defined(Nemesis)

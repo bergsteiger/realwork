@@ -11,16 +11,18 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , nsTypes
- , PrimPrimListInterfaces
- , DocumentAndListInterfaces
- , l3Tree_TLB
  , FoldersUnit
- , Base_Operations_Editions_Controls
  , DocumentUnit
+ , l3Interfaces
+ , nevBase
  , l3TreeInterfaces
- , l3Variant
+ , l3Tree_TLB
  , eeInterfaces
+ , DocumentAndListInterfaces
+ , Base_Operations_Editions_Controls
+ , PrimPrimListInterfaces
+ , nsTypes
+ , l3Variant
  , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces

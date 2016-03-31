@@ -1,35 +1,23 @@
 unit nsGroupTreeStructWithDrop;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/nsGroupTreeStructWithDrop.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Users::TnsGroupTreeStructWithDrop
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStructWithDrop.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsGroupTreeStructWithDrop" MUID: (49F16EE7010F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  nsGroupTreeStruct,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , nsGroupTreeStruct
+ , l3TreeInterfaces
+;
 
-{$If defined(Admin)}
 type
  TnsGroupTreeStructWithDrop = class(TnsGroupTreeStruct)
- protected
- // overridden protected methods
+  protected
    function DoCanAcceptData(const aTargetNode: Il3SimpleNode;
     const aData: Tl3TreeData;
     aProcessed: PBoolean): Boolean; override;
@@ -37,27 +25,23 @@ type
     const aData: Tl3TreeData;
     var aProcessed: Boolean): Boolean; override;
  end;//TnsGroupTreeStructWithDrop
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  bsInterfaces,
-  SysUtils,
-  DataAdapter,
-  SecurityUnit,
-  nsUserNodes
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TnsGroupTreeStructWithDrop
+ l3ImplUses
+ , bsInterfaces
+ , SysUtils
+ , DataAdapter
+ , SecurityUnit
+ , nsUserNodes
+;
 
 function TnsGroupTreeStructWithDrop.DoCanAcceptData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData;
-  aProcessed: PBoolean): Boolean;
+ const aData: Tl3TreeData;
+ aProcessed: PBoolean): Boolean;
 //#UC START# *48FEE78E01B2_49F16EE7010F_var*
 var
  l_Data: IbsUserTreeData;
@@ -76,8 +60,8 @@ begin
 end;//TnsGroupTreeStructWithDrop.DoCanAcceptData
 
 function TnsGroupTreeStructWithDrop.DoDropData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData;
-  var aProcessed: Boolean): Boolean;
+ const aData: Tl3TreeData;
+ var aProcessed: Boolean): Boolean;
 //#UC START# *48FEE9D303B6_49F16EE7010F_var*
 var
  l_Data: IbsUserTreeData;
@@ -103,7 +87,6 @@ begin
   Result := inherited DoDropData(aTargetNode, aData, aProcessed);
 //#UC END# *48FEE9D303B6_49F16EE7010F_impl*
 end;//TnsGroupTreeStructWithDrop.DoDropData
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

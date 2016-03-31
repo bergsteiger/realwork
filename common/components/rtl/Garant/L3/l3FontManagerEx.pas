@@ -1,58 +1,52 @@
 unit l3FontManagerEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FontManagerEx.pas"
-// Начат: 27.02.2010 13:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3FontManagerEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FontManagerEx.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FontManagerEx" MUID: (4B88F0F00211)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3FontManager
-  ;
+ l3IntfUses
+ , l3FontManager
+;
 
 type
  Tl3FontManagerEx = class(Tl3FontManager)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3FontManagerEx;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3FontManagerEx }
  end;//Tl3FontManagerEx
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3FontManagerEx
-
-var g_Tl3FontManagerEx : Tl3FontManagerEx = nil;
+var g_Tl3FontManagerEx: Tl3FontManagerEx = nil;
+ {* Экземпляр синглетона Tl3FontManagerEx }
 
 procedure Tl3FontManagerExFree;
+ {* Метод освобождения экземпляра синглетона Tl3FontManagerEx }
 begin
  l3Free(g_Tl3FontManagerEx);
-end;
+end;//Tl3FontManagerExFree
+
+class function Tl3FontManagerEx.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3FontManagerEx <> nil;
+end;//Tl3FontManagerEx.Exists
 
 class function Tl3FontManagerEx.Instance: Tl3FontManagerEx;
+ {* Метод получения экземпляра синглетона Tl3FontManagerEx }
 begin
  if (g_Tl3FontManagerEx = nil) then
  begin
@@ -60,13 +54,6 @@ begin
   g_Tl3FontManagerEx := Create;
  end;
  Result := g_Tl3FontManagerEx;
-end;
-
-
-class function Tl3FontManagerEx.Exists: Boolean;
- {-}
-begin
- Result := g_Tl3FontManagerEx <> nil;
-end;//Tl3FontManagerEx.Exists
+end;//Tl3FontManagerEx.Instance
 
 end.

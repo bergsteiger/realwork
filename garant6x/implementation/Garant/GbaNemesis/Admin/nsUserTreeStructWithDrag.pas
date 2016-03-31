@@ -1,58 +1,43 @@
 unit nsUserTreeStructWithDrag;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/nsUserTreeStructWithDrag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Users::TnsUserTreeStructWithDrag
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserTreeStructWithDrag.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserTreeStructWithDrag" MUID: (49F16EBF02AD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  nsUserTreeStruct,
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , nsUserTreeStruct
+ , l3Interfaces
+ , l3TreeInterfaces
+ , l3InternalInterfaces
+;
 
-{$If defined(Admin)}
 type
  TnsUserTreeStructWithDrag = class(TnsUserTreeStruct)
- protected
- // overridden protected methods
+  protected
    function DoMakeDataObject(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap): IDataObject; override;
-     {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
+    {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
  end;//TnsUserTreeStructWithDrag
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  bsUserDataObject,
-  bsUserTreeData
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TnsUserTreeStructWithDrag
+ l3ImplUses
+ , bsUserDataObject
+ , bsUserTreeData
+;
 
 function TnsUserTreeStructWithDrag.DoMakeDataObject(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap): IDataObject;
+ const aBitmap: Il3Bitmap): IDataObject;
+ {* объект данных дерева. aData - текущий элемент списка. aBitmap (Il3Bitmap) - картинка для перетаскивания }
 //#UC START# *48FEE6210205_49F16EBF02AD_var*
 //#UC END# *48FEE6210205_49F16EBF02AD_var*
 begin
@@ -63,7 +48,6 @@ begin
    TbsUserTreeData.Make(Self, aData));
 //#UC END# *48FEE6210205_49F16EBF02AD_impl*
 end;//TnsUserTreeStructWithDrag.DoMakeDataObject
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

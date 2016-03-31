@@ -12,8 +12,9 @@ interface
 uses
  l3IntfUses
  , TypInfo
- , tfwValueTypes
+ , tfwScriptingExceptions
  , tfwTypeInfo
+ , tfwValueTypes
  , l3Interfaces
 ;
 

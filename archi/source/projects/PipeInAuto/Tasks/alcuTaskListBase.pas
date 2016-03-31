@@ -48,7 +48,6 @@ type
  TalcuTaskListBase = class(_l3ChangingWithLock_)
   private
    f_Items: TalcuTaskListPrim;
-    {* Поле для свойства Items }
   protected
    function pm_GetCount: Integer;
    function NeedSort: Boolean; virtual;

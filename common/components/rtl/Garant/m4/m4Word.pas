@@ -1,63 +1,49 @@
 unit m4Word;
+ {* Слово словаря }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m4"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m4/m4Word.pas"
-// Начат: 18.09.2009 12:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m4::Dict::Tm4Word
-//
-// Слово словаря
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m4\m4Word.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm4Word" MUID: (4AB37F0D0301)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m4\m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3_String,
-  m4DictTypes
-  ;
+ l3IntfUses
+ , l3_String
+ , m4DictTypes
+ , l3Interfaces
+;
 
 type
  Tm4Word = class(Tl3_String)
   {* Слово словаря }
- private
- // private fields
-   f_ID : Tm4WordID;
-   f_FirstWordIDStrID : Integer;
-    {* Поле для свойства FirstWordIDStrID}
- protected
- // overridden property methods
+  private
+   f_ID: Tm4WordID;
+   f_FirstWordIDStrID: Integer;
+    {* Поле для свойства FirstWordIDStrID }
+  protected
    function pm_GetStringID: Integer; override;
    procedure pm_SetStringID(aValue: Integer); override;
- public
- // public methods
+  public
    constructor Create(const aStr: Tl3WString;
     anID: Tm4WordID); reintroduce;
- public
- // public properties
+  public
    property FirstWordIDStrID: Integer
-     read f_FirstWordIDStrID
-     write f_FirstWordIDStrID;
-     {* Первый элемент словаря который начинается с данного слова }
+    read f_FirstWordIDStrID
+    write f_FirstWordIDStrID;
+    {* Первый элемент словаря который начинается с данного слова }
  end;//Tm4Word
 
 implementation
 
-// start class Tm4Word
+uses
+ l3ImplUses
+;
 
 constructor Tm4Word.Create(const aStr: Tl3WString;
-  anID: Tm4WordID);
+ anID: Tm4WordID);
 //#UC START# *4AB37FB103D8_4AB37F0D0301_var*
 //#UC END# *4AB37FB103D8_4AB37F0D0301_var*
 begin

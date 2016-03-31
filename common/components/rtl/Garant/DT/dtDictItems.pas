@@ -1,34 +1,22 @@
 unit dtDictItems;
+ {* Список элементов словаря. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/dtDictItems.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DT::Dictionary::TdtDictItems
-//
-// Список элементов словаря.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\dtDictItems.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdtDictItems" MUID: (47BC55C00240)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  dt_Types,
-  dtDictItemsPrim,
-  l3Types
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , dtDictItemsPrim
+ , dt_Types
+ , l3Types
+;
 
-{$If not defined(Nemesis)}
 type
  _FindDataType_ = TDictID;
  _l3Searcher_Parent_ = TdtDictItemsPrim;
@@ -36,18 +24,22 @@ type
  TdtDictItems = class(_l3Searcher_)
   {* Список элементов словаря. }
  end;//TdtDictItems
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-
-// start class TdtDictItems
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+ , dtCustomDictItem
+ , l3Memory
+;
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_47BC55C00240_var*
 //#UC END# *47B9BAFD01F4_47BC55C00240_var*
 begin
@@ -66,7 +58,6 @@ end;//CompareItemWithData
 type _Instance_R_ = TdtDictItems;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
+{$IfEnd} // NOT Defined(Nemesis)
 
-
-{$IfEnd} //not Nemesis
 end.

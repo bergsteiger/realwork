@@ -12,19 +12,20 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
- , nsTypes
+ , BaseTypesUnit
+ , BaseTreeSupportUnit
  , FoldersUnit
- , eeInterfaces
- , FoldersDomainInterfaces
+ , FiltersUnit
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , BaseTypesUnit
- , BaseTreeSupportUnit
+ , eeInterfaces
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsTypes
 ;
 
 type

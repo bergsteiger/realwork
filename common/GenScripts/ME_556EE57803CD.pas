@@ -31,16 +31,16 @@ type
  Tl3ScreenService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3ScreenService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3ScreenService }
   protected
    procedure pm_SetAlien(const aValue: Il3ScreenService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IC: Il3InfoCanvas;
    class function Instance: Tl3ScreenService;
     {* Метод получения экземпляра синглетона Tl3ScreenService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3ScreenService
     write pm_SetAlien;
@@ -70,12 +70,6 @@ begin
  f_Alien := aValue;
 end;//Tl3ScreenService.pm_SetAlien
 
-class function Tl3ScreenService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ScreenService <> nil;
-end;//Tl3ScreenService.Exists
-
 function Tl3ScreenService.IC: Il3InfoCanvas;
 //#UC START# *88066E5D0414_556EE57803CD_var*
 //#UC END# *88066E5D0414_556EE57803CD_var*
@@ -98,6 +92,12 @@ begin
  end;
  Result := g_Tl3ScreenService;
 end;//Tl3ScreenService.Instance
+
+class function Tl3ScreenService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ScreenService <> nil;
+end;//Tl3ScreenService.Exists
 
 procedure Tl3ScreenService.ClearFields;
 begin

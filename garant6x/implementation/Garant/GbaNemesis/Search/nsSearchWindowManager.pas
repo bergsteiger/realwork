@@ -1,101 +1,74 @@
 unit nsSearchWindowManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsSearchWindowManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::BaseSearchUtils::TnsSearchWindowManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSearchWindowManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSearchWindowManager" MUID: (56163B0902D7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3ProtoDataContainer,
-  BaseSearchInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3ProtoDataContainer
+ , BaseSearchInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(Admin)}
 type
  _ItemType_ = InsSearchWindow;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsSearchWindowList = class(_l3InterfacePtrList_)
  end;//TnsSearchWindowList
 
  TnsSearchWindowManager = class(Tl3ProtoDataContainer)
- private
- // private fields
-   f_List : TnsSearchWindowList;
- protected
- // overridden protected methods
+  private
+   f_List: TnsSearchWindowList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure Subscribe(const aListener: InsSearchWindow);
    procedure Unsubscribe(const aListener: InsSearchWindow);
    procedure CheckFindEnabled;
-     {* Сигнатура метода CheckFindEnabled }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsSearchWindowManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsSearchWindowManager }
  end;//TnsSearchWindowManager
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a},
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-{$If not defined(Admin)}
-
-
-// start class TnsSearchWindowManager
-
-var g_TnsSearchWindowManager : TnsSearchWindowManager = nil;
+var g_TnsSearchWindowManager: TnsSearchWindowManager = nil;
+ {* Экземпляр синглетона TnsSearchWindowManager }
 
 procedure TnsSearchWindowManagerFree;
+ {* Метод освобождения экземпляра синглетона TnsSearchWindowManager }
 begin
  l3Free(g_TnsSearchWindowManager);
-end;
+end;//TnsSearchWindowManagerFree
 
-class function TnsSearchWindowManager.Instance: TnsSearchWindowManager;
-begin
- if (g_TnsSearchWindowManager = nil) then
- begin
-  l3System.AddExitProc(TnsSearchWindowManagerFree);
-  g_TnsSearchWindowManager := Create;
- end;
- Result := g_TnsSearchWindowManager;
-end;
+type _Instance_R_ = TnsSearchWindowList;
 
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 procedure TnsSearchWindowManager.Subscribe(const aListener: InsSearchWindow);
 //#UC START# *56163C39024C_56163B0902D7_var*
@@ -130,19 +103,26 @@ begin
    f_List[I].CheckFindEnabled;
 //#UC END# *56163C8A0267_56163B0902D7_impl*
 end;//TnsSearchWindowManager.CheckFindEnabled
-type _Instance_R_ = TnsSearchWindowList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
-
-// start class TnsSearchWindowManager
 
 class function TnsSearchWindowManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsSearchWindowManager <> nil;
 end;//TnsSearchWindowManager.Exists
 
+class function TnsSearchWindowManager.Instance: TnsSearchWindowManager;
+ {* Метод получения экземпляра синглетона TnsSearchWindowManager }
+begin
+ if (g_TnsSearchWindowManager = nil) then
+ begin
+  l3System.AddExitProc(TnsSearchWindowManagerFree);
+  g_TnsSearchWindowManager := Create;
+ end;
+ Result := g_TnsSearchWindowManager;
+end;//TnsSearchWindowManager.Instance
+
 procedure TnsSearchWindowManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56163B0902D7_var*
 //#UC END# *479731C50290_56163B0902D7_var*
 begin
@@ -151,7 +131,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56163B0902D7_impl*
 end;//TnsSearchWindowManager.Cleanup
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -29,7 +29,6 @@ type
   private
    f_ChildOperations: TatOperationsList;
    f_ExecutionContext: TatExecutionContext;
-    {* Поле для свойства ExecutionContext }
   protected
    f_ParamList: TatOperationParametersList;
   protected

@@ -1,49 +1,38 @@
 unit daProgressProcHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daProgressProcHolder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaProgressProcHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daProgressProcHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaProgressProcHolder" MUID: (552523F2014F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  l3ProtoObject,
-  daInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , l3Types
+;
 
 type
  TdaProgressProcHolder = class(Tl3ProtoObject, IdaProgressSubscriber)
- private
- // private fields
-   f_Proc : Tl3ProgressProc;
- protected
- // realized methods
+  private
+   f_Proc: Tl3ProgressProc;
+  protected
    procedure DoProgressNotify(aState: Byte;
-     aValue: Integer;
-     const aMsg: AnsiString = '');
- public
- // public methods
+    aValue: Integer;
+    const aMsg: AnsiString = '');
+  public
    constructor Create(aProc: Tl3ProgressProc); reintroduce;
    class function Make(aProc: Tl3ProgressProc): IdaProgressSubscriber; reintroduce;
-     {* Сигнатура фабрики TdaProgressProcHolder.Make }
  end;//TdaProgressProcHolder
 
 implementation
 
-// start class TdaProgressProcHolder
+uses
+ l3ImplUses
+;
 
 constructor TdaProgressProcHolder.Create(aProc: Tl3ProgressProc);
 //#UC START# *552524220076_552523F2014F_var*
@@ -65,11 +54,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaProgressProcHolder.Make
 
 procedure TdaProgressProcHolder.DoProgressNotify(aState: Byte;
-  aValue: Integer;
-  const aMsg: AnsiString = '');
+ aValue: Integer;
+ const aMsg: AnsiString = '');
 //#UC START# *552514570311_552523F2014F_var*
 //#UC END# *552514570311_552523F2014F_var*
 begin

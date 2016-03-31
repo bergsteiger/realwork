@@ -1,83 +1,62 @@
 unit nsBaseMainMenuTree;
+ {* Базовое дерево меню }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsBaseMainMenuTree.pas"
-// Начат: 2004/12/06 10:34:07 
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::MainMenu::TnsBaseMainMenuTree
-//
-// Базовое дерево меню
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsBaseMainMenuTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseMainMenuTree" MUID: (4909EF3B02B1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3Tree_TLB,
-  nsDataResetTree,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTree
+ , l3Tree_TLB
+ , DynamicTreeUnit
+ , nsTypes
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsBaseMainMenuTree = class(TnsDataResetTree)
   {* Базовое дерево меню }
- protected
- // overridden protected methods
+  protected
+   function MakeRoot: Il3RootNode; virtual;
+    {* Создаёт корень дерева }
+   class procedure nsAddMainMenuItem(const aRoot: Il3RootNode;
+    aMenuItem: Integer;
+    const aNavigatorItem: TnsNavigatorItemParams;
+    const aParent: INodeBase = nil); overload;
+   class procedure nsAddMainMenuItem(const aRoot: Il3RootNode;
+    aMenuItem: Integer;
+    const aCaption: Il3CString); overload;
    procedure InitFields; override;
    procedure AfterReget; override;
    function RegetRootNode: Il3RootNode; override;
- protected
- // protected methods
-   function MakeRoot: Il3RootNode; virtual;
-     {* Создаёт корень дерева }
-   class procedure NsAddMainMenuItem(const aRoot: Il3RootNode;
-    aMenuItem: Integer;
-    const aNavigatorItem: TnsNavigatorItemParams;
-    const aParent: INodeBase = nil); overload; 
-   class procedure NsAddMainMenuItem(const aRoot: Il3RootNode;
-    aMenuItem: Integer;
-    const aCaption: Il3CString); overload; 
- public
- // public methods
-   class function NsFindNavigatorItem(const aParams: TnsNavigatorItemParams;
+  public
+   class function nsFindNavigatorItem(const aParams: TnsNavigatorItemParams;
     const aParent: INodeBase = nil): INodeBase;
-     {* найти элемент в дереве навигатора. Если родитель не указан, то используется корень дерева. }
+    {* найти элемент в дереве навигатора. Если родитель не указан, то используется корень дерева. }
  end;//TnsBaseMainMenuTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsNodes,
-  SysUtils,
-  nsRubricatorCache,
-  BaseTypesUnit,
-  nsNewCachableNode,
-  nsMainMenuNode
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsBaseMainMenuTree
+ l3ImplUses
+ , nsNodes
+ , SysUtils
+ , nsRubricatorCache
+ , BaseTypesUnit
+ , nsNewCachableNode
+ , nsMainMenuNode
+;
 
 function TnsBaseMainMenuTree.MakeRoot: Il3RootNode;
+ {* Создаёт корень дерева }
 //#UC START# *4909EF6E0361_4909EF3B02B1_var*
 //#UC END# *4909EF6E0361_4909EF3B02B1_var*
 begin
@@ -86,8 +65,9 @@ begin
 //#UC END# *4909EF6E0361_4909EF3B02B1_impl*
 end;//TnsBaseMainMenuTree.MakeRoot
 
-class function TnsBaseMainMenuTree.NsFindNavigatorItem(const aParams: TnsNavigatorItemParams;
-  const aParent: INodeBase = nil): INodeBase;
+class function TnsBaseMainMenuTree.nsFindNavigatorItem(const aParams: TnsNavigatorItemParams;
+ const aParent: INodeBase = nil): INodeBase;
+ {* найти элемент в дереве навигатора. Если родитель не указан, то используется корень дерева. }
 //#UC START# *490B08670285_4909EF3B02B1_var*
 var
  l_Item   : INodeBase;
@@ -126,12 +106,12 @@ begin
   end;//try..finally
  end;//while Assigned(l_Item) do
 //#UC END# *490B08670285_4909EF3B02B1_impl*
-end;//TnsBaseMainMenuTree.NsFindNavigatorItem
+end;//TnsBaseMainMenuTree.nsFindNavigatorItem
 
-class procedure TnsBaseMainMenuTree.NsAddMainMenuItem(const aRoot: Il3RootNode;
-  aMenuItem: Integer;
-  const aNavigatorItem: TnsNavigatorItemParams;
-  const aParent: INodeBase = nil);
+class procedure TnsBaseMainMenuTree.nsAddMainMenuItem(const aRoot: Il3RootNode;
+ aMenuItem: Integer;
+ const aNavigatorItem: TnsNavigatorItemParams;
+ const aParent: INodeBase = nil);
 //#UC START# *490B12C6035E_4909EF3B02B1_var*
 var
  l_Node: INodeBase;
@@ -146,18 +126,18 @@ begin
   l_Node := nil;
  end;{try..finally}
 //#UC END# *490B12C6035E_4909EF3B02B1_impl*
-end;//TnsBaseMainMenuTree.NsAddMainMenuItem
+end;//TnsBaseMainMenuTree.nsAddMainMenuItem
 
-class procedure TnsBaseMainMenuTree.NsAddMainMenuItem(const aRoot: Il3RootNode;
-  aMenuItem: Integer;
-  const aCaption: Il3CString);
+class procedure TnsBaseMainMenuTree.nsAddMainMenuItem(const aRoot: Il3RootNode;
+ aMenuItem: Integer;
+ const aCaption: Il3CString);
 //#UC START# *53A988E703D5_4909EF3B02B1_var*
 //#UC END# *53A988E703D5_4909EF3B02B1_var*
 begin
 //#UC START# *53A988E703D5_4909EF3B02B1_impl*
  aRoot.InsertChild(TnsMainMenuNode.Make(aMenuItem, aCaption, nil));
 //#UC END# *53A988E703D5_4909EF3B02B1_impl*
-end;//TnsBaseMainMenuTree.NsAddMainMenuItem
+end;//TnsBaseMainMenuTree.nsAddMainMenuItem
 
 procedure TnsBaseMainMenuTree.InitFields;
 //#UC START# *47A042E100E2_4909EF3B02B1_var*
@@ -198,7 +178,6 @@ begin
  end;//case BeenReseted of
 //#UC END# *4908AB070319_4909EF3B02B1_impl*
 end;//TnsBaseMainMenuTree.RegetRootNode
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

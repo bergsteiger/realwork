@@ -1,66 +1,44 @@
 unit nsMedicDictionTreeBase;
+ {* Словарь медицинских терминов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/nsMedicDictionTreeBase.pas"
-// Начат: 2008/03/06 10:02:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic$Unit::TnsMedicDictionTreeBase
-//
-// Словарь медицинских терминов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTreeBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicDictionTreeBase" MUID: (490707F10167)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  afwInterfaces,
-  DynamicTreeUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMedicDictionTreeBase = class(TnsDataResetTreeStruct)
   {* Словарь медицинских терминов }
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function SettingsID: TafwSettingId; override;
- public
- // public methods
+  public
    class function Make: Il3SimpleTree;
  end;//TnsMedicDictionTreeBase
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsConst,
-  SysUtils,
-  DataAdapter,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsMedicDictionTreeBase
+ l3ImplUses
+ , nsConst
+ , SysUtils
+ , DataAdapter
+ , nsTypes
+;
 
 class function TnsMedicDictionTreeBase.Make: Il3SimpleTree;
 //#UC START# *49070844012C_490707F10167_var*
@@ -101,7 +79,6 @@ begin
  Result := gi_cpMedicDiction;
 //#UC END# *48FF56D003E6_490707F10167_impl*
 end;//TnsMedicDictionTreeBase.SettingsID
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

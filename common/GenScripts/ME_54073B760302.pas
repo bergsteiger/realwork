@@ -11,7 +11,6 @@
  _m3RootStream_ = class(_m3CustomHeaderStream_)
   private
    f_Logger: Tl3Logger;
-    {* Поле для свойства Logger }
   protected
    procedure pm_SetLogger(aValue: Tl3Logger);
    procedure Cleanup; override;

@@ -12,6 +12,8 @@ uses
  l3IntfUses
  , m3PrimStream
  , ActiveX
+ //#UC START# *4FA276800294intf_uses*
+ //#UC END# *4FA276800294intf_uses*
 ;
 
 type
@@ -84,6 +86,8 @@ uses
  , l3Base
  , Classes
  , m2MemLib
+ //#UC START# *4FA276800294impl_uses*
+ //#UC END# *4FA276800294impl_uses*
 ;
 
 //#UC START# *4FA276800294impl*

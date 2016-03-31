@@ -1,37 +1,26 @@
 unit ncsServerTransporterPtrList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsServerTransporterPtrList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsServerTransporterPtrList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsServerTransporterPtrList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerTransporterPtrList" MUID: (5492D7AC0214)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoDataContainer,
-  ncsMessageInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoDataContainer
+ , ncsMessageInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(Nemesis)}
 type
  _ItemType_ = IncsServerTransporter;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
@@ -39,25 +28,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TncsServerTransporterPtrList = class(_l3InterfacePtrList_)
  end;//TncsServerTransporterPtrList
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TncsServerTransporterPtrList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+{$IfEnd} // NOT Defined(Nemesis)
 
-
-{$IfEnd} //not Nemesis
 end.

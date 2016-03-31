@@ -1,104 +1,104 @@
 unit daTabledQuery;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daTabledQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaTabledQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daTabledQuery.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaTabledQuery" MUID: (5600FA2301B9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daInterfaces,
-  daSelectFieldList,
-  daQuery,
-  daSortFieldList
-  ;
+ l3IntfUses
+ , daQuery
+ , daInterfaces
+ , daSelectFieldList
+ , daSortFieldList
+;
 
 type
  TdaTabledQuery = class(TdaQuery, IdaTabledQuery)
- private
- // private fields
-   f_SelectFields : TdaSelectFieldList;
-    {* Поле для свойства SelectFields}
-   f_WhereCondition : IdaCondition;
-    {* Поле для свойства WhereCondition}
-   f_Table : IdaFromTable;
-    {* Поле для свойства Table}
-   f_OrderBy : TdaSortFieldList;
-    {* Поле для свойства OrderBy}
- private
- // private methods
+  private
+   f_SelectFields: TdaSelectFieldList;
+    {* Поле для свойства SelectFields }
+   f_WhereCondition: IdaCondition;
+    {* Поле для свойства WhereCondition }
+   f_Table: IdaFromTable;
+    {* Поле для свойства Table }
+   f_OrderBy: TdaSortFieldList;
+    {* Поле для свойства OrderBy }
+  private
    function BuildFromClause: AnsiString;
    function BuildSelectClause: AnsiString;
    function BuildWhereClause(const aHelper: IdaParamListHelper): AnsiString;
    function BuildOrderByClause: AnsiString;
- protected
- // property methods
+  protected
    procedure pm_SetWhereCondition(const aValue: IdaCondition); virtual;
- protected
- // realized methods
+   function MakeFromTable(const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaFromTable; virtual; abstract;
+   procedure PrepareTable; virtual; abstract;
+   procedure UnPrepareTable; virtual; abstract;
    procedure AddSelectField(const aField: IdaSelectField);
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    procedure PrepareQuery; override;
-     {* Сигнатура метода PrepareQuery }
    procedure UnprepareQuery; override;
-     {* Сигнатура метода UnprepareQuery }
    function Get_WhereCondition: IdaCondition;
    procedure Set_WhereCondition(const aValue: IdaCondition);
    function Get_Table: IdaFromTable;
    function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; override;
    procedure AddOrderBy(const aSortField: IdaSortField);
- protected
- // overridden protected methods
+   function SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function MakeFromTable(const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaFromTable; virtual; abstract;
-   procedure PrepareTable; virtual; abstract;
-     {* Сигнатура метода PrepareTable }
-   procedure UnPrepareTable; virtual; abstract;
-     {* Сигнатура метода UnPrepareTable }
- public
- // public methods
+  public
    constructor Create(const aDataConverter: IdaDataConverter;
-     const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''); reintroduce;
- protected
- // protected properties
+    const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''); reintroduce;
+  protected
    property SelectFields: TdaSelectFieldList
-     read f_SelectFields;
+    read f_SelectFields;
    property WhereCondition: IdaCondition
-     read f_WhereCondition
-     write pm_SetWhereCondition;
+    read f_WhereCondition
+    write pm_SetWhereCondition;
    property Table: IdaFromTable
-     read f_Table;
+    read f_Table;
    property OrderBy: TdaSortFieldList
-     read f_OrderBy;
+    read f_OrderBy;
  end;//TdaTabledQuery
 
 implementation
 
 uses
-  SysUtils,
-  daTypes
-  ;
+ l3ImplUses
+ , SysUtils
+ , daTypes
+;
 
-// start class TdaTabledQuery
+procedure TdaTabledQuery.pm_SetWhereCondition(const aValue: IdaCondition);
+//#UC START# *5600FAC103DE_5600FA2301B9set_var*
+//#UC END# *5600FAC103DE_5600FA2301B9set_var*
+begin
+//#UC START# *5600FAC103DE_5600FA2301B9set_impl*
+ f_WhereCondition := aValue;
+ UnPrepare;
+//#UC END# *5600FAC103DE_5600FA2301B9set_impl*
+end;//TdaTabledQuery.pm_SetWhereCondition
+
+constructor TdaTabledQuery.Create(const aDataConverter: IdaDataConverter;
+ const aTable: IdaTableDescription;
+ const anAlias: AnsiString = '');
+//#UC START# *5600FB3903DE_5600FA2301B9_var*
+//#UC END# *5600FB3903DE_5600FA2301B9_var*
+begin
+//#UC START# *5600FB3903DE_5600FA2301B9_impl*
+ inherited Create(aDataConverter);
+ f_Table := MakeFromTable(aTable, anAlias);
+ UnPrepare;
+ f_SelectFields := TdaSelectFieldList.Make;
+ f_OrderBy := TdaSortFieldList.Create;
+//#UC END# *5600FB3903DE_5600FA2301B9_impl*
+end;//TdaTabledQuery.Create
 
 function TdaTabledQuery.BuildFromClause: AnsiString;
 //#UC START# *56050F450363_5600FA2301B9_var*
@@ -161,31 +161,6 @@ begin
   Result := '';
 //#UC END# *5680E19E003D_5600FA2301B9_impl*
 end;//TdaTabledQuery.BuildOrderByClause
-
-constructor TdaTabledQuery.Create(const aDataConverter: IdaDataConverter;
-  const aTable: IdaTableDescription;
-  const anAlias: AnsiString = '');
-//#UC START# *5600FB3903DE_5600FA2301B9_var*
-//#UC END# *5600FB3903DE_5600FA2301B9_var*
-begin
-//#UC START# *5600FB3903DE_5600FA2301B9_impl*
- inherited Create(aDataConverter);
- f_Table := MakeFromTable(aTable, anAlias);
- UnPrepare;
- f_SelectFields := TdaSelectFieldList.Make;
- f_OrderBy := TdaSortFieldList.Create;
-//#UC END# *5600FB3903DE_5600FA2301B9_impl*
-end;//TdaTabledQuery.Create
-
-procedure TdaTabledQuery.pm_SetWhereCondition(const aValue: IdaCondition);
-//#UC START# *5600FAC103DE_5600FA2301B9set_var*
-//#UC END# *5600FAC103DE_5600FA2301B9set_var*
-begin
-//#UC START# *5600FAC103DE_5600FA2301B9set_impl*
- f_WhereCondition := aValue;
- UnPrepare;
-//#UC END# *5600FAC103DE_5600FA2301B9set_impl*
-end;//TdaTabledQuery.pm_SetWhereCondition
 
 procedure TdaTabledQuery.AddSelectField(const aField: IdaSelectField);
 //#UC START# *5551DC42038C_5600FA2301B9_var*
@@ -294,7 +269,22 @@ begin
 //#UC END# *567D12D00384_5600FA2301B9_impl*
 end;//TdaTabledQuery.AddOrderBy
 
+function TdaTabledQuery.SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
+//#UC START# *56F3D89F01C8_5600FA2301B9_var*
+var
+ l_IDX: Integer;
+//#UC END# *56F3D89F01C8_5600FA2301B9_var*
+begin
+//#UC START# *56F3D89F01C8_5600FA2301B9_impl*
+ if f_SelectFields.FindData(anAlias, l_IDX) then
+  Result := f_SelectFields[l_IDX]
+ else
+  Result := nil;
+//#UC END# *56F3D89F01C8_5600FA2301B9_impl*
+end;//TdaTabledQuery.SelectFieldByName
+
 procedure TdaTabledQuery.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5600FA2301B9_var*
 //#UC END# *479731C50290_5600FA2301B9_var*
 begin
@@ -308,7 +298,6 @@ begin
 end;//TdaTabledQuery.Cleanup
 
 procedure TdaTabledQuery.ClearFields;
- {-}
 begin
  WhereCondition := nil;
  f_Table := nil;

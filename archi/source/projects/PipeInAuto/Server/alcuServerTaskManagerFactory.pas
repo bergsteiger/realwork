@@ -1,62 +1,46 @@
 unit alcuServerTaskManagerFactory;
+ {* Фабрика для TddServerTaskManager }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuServerTaskManagerFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::Server::TalcuServerTaskManagerFactory
-//
-// Фабрика для TddServerTaskManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuServerTaskManagerFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuServerTaskManagerFactory" MUID: (52FA29AE02C2)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  alcuTaskManager,
-  alcuBaseEngineHolder
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , alcuTaskManager
+ , alcuBaseEngineHolder
+;
 
-{$If defined(AppServerSide)}
 type
  RalcuServerTaskManagerFactory = class of TalcuServerTaskManagerFactory;
 
  TalcuServerTaskManagerFactory = class
   {* Фабрика для TddServerTaskManager }
- protected
- // protected methods
+  protected
    class function DoMake(const aRootPath: AnsiString;
-     const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager; virtual;
- public
- // public methods
+    const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager; virtual;
+  public
    class function Make(const aRootPath: AnsiString;
-     const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
+    const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
  end;//TalcuServerTaskManagerFactory
-{$IfEnd} //AppServerSide
 
-  {$If defined(AppServerSide)}
-var
-   g_FactoryClass : RalcuServerTaskManagerFactory = nil;
-  {$IfEnd} //AppServerSide
+var g_FactoryClass: RalcuServerTaskManagerFactory = nil;
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
-
-// start class TalcuServerTaskManagerFactory
+{$If Defined(AppServerSide)}
+uses
+ l3ImplUses
+;
 
 class function TalcuServerTaskManagerFactory.Make(const aRootPath: AnsiString;
-  const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
+ const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
 //#UC START# *52FA29DE0384_52FA29AE02C2_var*
 //#UC END# *52FA29DE0384_52FA29AE02C2_var*
 begin
@@ -69,7 +53,7 @@ begin
 end;//TalcuServerTaskManagerFactory.Make
 
 class function TalcuServerTaskManagerFactory.DoMake(const aRootPath: AnsiString;
-  const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
+ const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
 //#UC START# *52FA2C99010A_52FA29AE02C2_var*
 //#UC END# *52FA2C99010A_52FA29AE02C2_var*
 begin
@@ -77,7 +61,6 @@ begin
  Result := TddServerTaskManager.Create(aRootPath, aBaseEngineHolder);
 //#UC END# *52FA2C99010A_52FA29AE02C2_impl*
 end;//TalcuServerTaskManagerFactory.DoMake
-
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 end.

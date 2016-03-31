@@ -1,97 +1,64 @@
 unit alcuGetReadyToDeliveryTasksExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuGetReadyToDeliveryTasksExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ResultDelivery::TalcuGetReadyToDeliveryTasksExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuGetReadyToDeliveryTasksExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuGetReadyToDeliveryTasksExecutor" MUID: (5465D93A0165)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskList
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  alcuExecutorWithTaskList
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExecutorWithTaskList
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(AppServerSide)}
+ , alcuTaskList
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuGetReadyToDeliveryTasksExecutor = class(TalcuExecutorWithTaskList {$If not defined(Nemesis)}, IncsExecutor{$IfEnd} //not Nemesis
+ TalcuGetReadyToDeliveryTasksExecutor = class(TalcuExecutorWithTaskList{$If NOT Defined(Nemesis)}
+ , IncsExecutor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
-   {$IfEnd} //not Nemesis
- public
- // public methods
+   {$IfEnd} // NOT Defined(Nemesis)
+  public
    class function Make(aTaskList: TalcuTaskList): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TalcuGetReadyToDeliveryTasksExecutor.Make }
  end;//TalcuGetReadyToDeliveryTasksExecutor
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetReadyToDeliveryTasks
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetReadyToDeliveryTasksReply
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  CsCommon
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskListBase
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  csTaskTypes
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuGetReadyToDeliveryTasksExecutor
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , ncsGetReadyToDeliveryTasks
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetReadyToDeliveryTasksReply
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsCommon
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ {$If Defined(AppServerSide)}
+ , alcuTaskListBase
+ {$IfEnd} // Defined(AppServerSide)
+ {$If NOT Defined(Nemesis)}
+ , csTaskTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 class function TalcuGetReadyToDeliveryTasksExecutor.Make(aTaskList: TalcuTaskList): IncsExecutor;
 var
@@ -103,9 +70,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuGetReadyToDeliveryTasksExecutor.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuGetReadyToDeliveryTasksExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_5465D93A0165_var*
 var
@@ -133,8 +100,7 @@ begin
  end;
 //#UC END# *54607DDC0159_5465D93A0165_impl*
 end;//TalcuGetReadyToDeliveryTasksExecutor.Execute
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //ServerTasks
-
+{$IfEnd} // Defined(ServerTasks)
 end.

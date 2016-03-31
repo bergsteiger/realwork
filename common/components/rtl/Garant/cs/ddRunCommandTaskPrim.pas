@@ -1,60 +1,45 @@
 unit ddRunCommandTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ddRunCommandTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TddRunCommandTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ddRunCommandTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddRunCommandTaskPrim" MUID: (53B6A75A024C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base,
-  dt_Types
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+ , dt_Types
+;
 
-{$If not defined(Nemesis)}
 type
  TddRunCommandTaskPrim = class(TddProcessTask)
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // overridden public methods
    constructor Create(aUserID: TUserID); override;
  end;//TddRunCommandTaskPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  evdTaskTypes,
-  RunCommandTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TddRunCommandTaskPrim
+ l3ImplUses
+ , evdTaskTypes
+ , RunCommandTask_Const
+;
 
 class function TddRunCommandTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B6A75A024C_var*
+//#UC END# *53AC03EE01FD_53B6A75A024C_var*
 begin
- Result := k2_typRunCommandTask;
+//#UC START# *53AC03EE01FD_53B6A75A024C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B6A75A024C_impl*
 end;//TddRunCommandTaskPrim.GetTaggedDataType
 
 constructor TddRunCommandTaskPrim.Create(aUserID: TUserID);
@@ -66,7 +51,6 @@ begin
  //TaskType := cs_ttRunCommand;
 //#UC END# *53B3D8A8011F_53B6A75A024C_impl*
 end;//TddRunCommandTaskPrim.Create
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

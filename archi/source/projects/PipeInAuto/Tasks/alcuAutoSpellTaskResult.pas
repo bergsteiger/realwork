@@ -1,99 +1,91 @@
 unit alcuAutoSpellTaskResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuAutoSpellTaskResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuAutoSpellTaskResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoSpellTaskResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAutoSpellTaskResult" MUID: (53FD813101B0)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  csTaskResult,
-  k2Base
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , csTaskResult
+ , k2Base
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuAutoSpellTaskResult = class(TcsTaskResult)
- protected
- // property methods
+  protected
    function pm_GetReportMessage: AnsiString;
    procedure pm_SetReportMessage(const aValue: AnsiString);
    function pm_GetReportAttach: AnsiString;
    procedure pm_SetReportAttach(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property ReportMessage: AnsiString
-     read pm_GetReportMessage
-     write pm_SetReportMessage;
+    read pm_GetReportMessage
+    write pm_SetReportMessage;
    property ReportAttach: AnsiString
-     read pm_GetReportAttach
-     write pm_SetReportAttach;
+    read pm_GetReportAttach
+    write pm_SetReportAttach;
  end;//TalcuAutoSpellTaskResult
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  AutoSpellTaskResult_Const
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuAutoSpellTaskResult
+ l3ImplUses
+ , AutoSpellTaskResult_Const
+;
 
 function TalcuAutoSpellTaskResult.pm_GetReportMessage: AnsiString;
- {-}
+//#UC START# *74ED8BF941B6_53FD813101B0get_var*
+//#UC END# *74ED8BF941B6_53FD813101B0get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrReportMessage]);
+//#UC START# *74ED8BF941B6_53FD813101B0get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *74ED8BF941B6_53FD813101B0get_impl*
 end;//TalcuAutoSpellTaskResult.pm_GetReportMessage
 
 procedure TalcuAutoSpellTaskResult.pm_SetReportMessage(const aValue: AnsiString);
- {-}
+//#UC START# *74ED8BF941B6_53FD813101B0set_var*
+//#UC END# *74ED8BF941B6_53FD813101B0set_var*
 begin
- TaggedData.StrW[k2_attrReportMessage, nil] := (aValue);
+//#UC START# *74ED8BF941B6_53FD813101B0set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *74ED8BF941B6_53FD813101B0set_impl*
 end;//TalcuAutoSpellTaskResult.pm_SetReportMessage
 
 function TalcuAutoSpellTaskResult.pm_GetReportAttach: AnsiString;
- {-}
+//#UC START# *37893D4ECBBB_53FD813101B0get_var*
+//#UC END# *37893D4ECBBB_53FD813101B0get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrReportAttach]);
+//#UC START# *37893D4ECBBB_53FD813101B0get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *37893D4ECBBB_53FD813101B0get_impl*
 end;//TalcuAutoSpellTaskResult.pm_GetReportAttach
 
 procedure TalcuAutoSpellTaskResult.pm_SetReportAttach(const aValue: AnsiString);
- {-}
+//#UC START# *37893D4ECBBB_53FD813101B0set_var*
+//#UC END# *37893D4ECBBB_53FD813101B0set_var*
 begin
- TaggedData.StrW[k2_attrReportAttach, nil] := (aValue);
+//#UC START# *37893D4ECBBB_53FD813101B0set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *37893D4ECBBB_53FD813101B0set_impl*
 end;//TalcuAutoSpellTaskResult.pm_SetReportAttach
 
 class function TalcuAutoSpellTaskResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53FD813101B0_var*
+//#UC END# *53AC03EE01FD_53FD813101B0_var*
 begin
- Result := k2_typAutoSpellTaskResult;
+//#UC START# *53AC03EE01FD_53FD813101B0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53FD813101B0_impl*
 end;//TalcuAutoSpellTaskResult.GetTaggedDataType
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

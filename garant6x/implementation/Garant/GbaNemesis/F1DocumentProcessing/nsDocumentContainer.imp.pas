@@ -1,40 +1,31 @@
 {$IfNDef nsDocumentContainer_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsDocumentContainer.imp.pas"
-// Начат: 17.08.2010 17:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::nsDocumentContainer
-//
-// Контейнер документа, работающий с IdeDocInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsDocumentContainer" MUID: (4C6A955F00D6)
+// Имя типа: "_nsDocumentContainer_"
 
 {$Define nsDocumentContainer_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _afwApplicationDataUpdate_Parent_ = _nsDocumentContainer_Parent_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- _nsDocumentContainer_ = {mixin} class(_afwApplicationDataUpdate_, InsDocumentAdornments, InevCommentTextProvider {from InsDocumentAdornments}, IdeDocInfoProvider)
+ _nsDocumentContainer_ = class(_afwApplicationDataUpdate_, InsDocumentAdornments, IdeDocInfoProvider)
   {* Контейнер документа, работающий с IdeDocInfo }
- private
- // private fields
-   f_Bookmarks : IBookmarkList;
-   f_Comments : ICommentsParaList;
-   f_ExternalObjects : IExternalObjectDataList;
- protected
- // realized methods
+  private
+   f_Bookmarks: IBookmarkList;
+   f_Comments: ICommentsParaList;
+   f_ExternalObjects: IExternalObjectDataList;
+  protected
+   f_DocumentInfo: IdeDocInfo;
+  protected
+   procedure AfterCreate(const aDocInfo: IdeDocInfo); virtual;
+   function As_InevCommentTextProvider: InevCommentTextProvider;
+    {* Метод приведения нашего интерфейса к InevCommentTextProvider }
    function Get_Bookmarks: IBookmarkList;
    function Get_Comments: ICommentsParaList;
    function Get_ExternalObjects: IExternalObjectDataList;
    function pm_GetDocInfo: IdeDocInfo;
- protected
- // overridden protected methods
    procedure FinishDataUpdate; override;
    function ReplaceContainerInOwner(const aDocumentContainer: InevDocumentContainer): Boolean; override;
    function CanBePlacedInDocumentsCache: Boolean; override;
@@ -51,47 +42,36 @@
    function Info: InevStorable; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure NotifySubReallyAdded(aParaID: Integer;
-     aSubID: Integer;
-     aLayerID: Integer;
-     const aSubName: Tl3WString;
-     aFlags: Integer); override;
+    aSubID: Integer;
+    aLayerID: Integer;
+    const aSubName: Tl3WString;
+    aFlags: Integer); override;
    procedure NotifySubReallyDeleted(aParaID: Integer;
-     aSubID: Integer;
-     aLayerID: Integer); override;
+    aSubID: Integer;
+    aLayerID: Integer); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_DocumentInfo : IdeDocInfo;
- protected
- // protected methods
-   procedure AfterCreate(const aDocInfo: IdeDocInfo); virtual;
- public
- // public methods
+  public
    constructor Create(const aDocInfo: IdeDocInfo); reintroduce;
    class function Make(const aDocInfo: IdeDocInfo): InevDocumentContainer; reintroduce;
-     {* Сигнатура фабрики nsDocumentContainer.Make }
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_InevCommentTextProvider: InevCommentTextProvider;
  end;//_nsDocumentContainer_
-{$Else}
 
- _afwApplicationDataUpdate_Parent_ = _nsDocumentContainer_Parent_;
- {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- _nsDocumentContainer_ = _afwApplicationDataUpdate_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_afwApplicationDataUpdate_Parent_ = _nsDocumentContainer_Parent_;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+_nsDocumentContainer_ = _afwApplicationDataUpdate_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else nsDocumentContainer_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef nsDocumentContainer_imp_impl}
 
+{$Define nsDocumentContainer_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-// start class _nsDocumentContainer_
 
 procedure _nsDocumentContainer_.AfterCreate(const aDocInfo: IdeDocInfo);
 //#UC START# *4B1FBF87020C_4C6A955F00D6_var*
@@ -128,7 +108,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_nsDocumentContainer_.Make
+
+function _nsDocumentContainer_.As_InevCommentTextProvider: InevCommentTextProvider;
+ {* Метод приведения нашего интерфейса к InevCommentTextProvider }
+begin
+ Result := Self;
+end;//_nsDocumentContainer_.As_InevCommentTextProvider
 
 function _nsDocumentContainer_.Get_Bookmarks: IBookmarkList;
 //#UC START# *4D2F11DC0208_4C6A955F00D6get_var*
@@ -273,8 +259,8 @@ begin
 end;//_nsDocumentContainer_.CanBePlacedInDocumentsCache
 
 function _nsDocumentContainer_.MakeDocumentPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer;
-  const aRange: InevRange = nil): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer;
+ const aRange: InevRange = nil): IafwDocumentPreview;
 //#UC START# *47F1112A0183_4C6A955F00D6_var*
 var
  l_Event: InsEventHolder;
@@ -288,7 +274,7 @@ begin
 end;//_nsDocumentContainer_.MakeDocumentPreview
 
 function _nsDocumentContainer_.MakeInfoPreview(const aKey: TevPreviewCacheKey;
-  const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
+ const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview;
 //#UC START# *47F111500241_4C6A955F00D6_var*
 var
  l_Event: InsEventHolder;
@@ -396,7 +382,8 @@ begin
 end;//_nsDocumentContainer_.Info
 
 function _nsDocumentContainer_.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4C6A955F00D6_var*
 //#UC END# *4A60B23E00C3_4C6A955F00D6_var*
 begin
@@ -428,10 +415,10 @@ begin
 end;//_nsDocumentContainer_.COMQueryInterface
 
 procedure _nsDocumentContainer_.NotifySubReallyAdded(aParaID: Integer;
-  aSubID: Integer;
-  aLayerID: Integer;
-  const aSubName: Tl3WString;
-  aFlags: Integer);
+ aSubID: Integer;
+ aLayerID: Integer;
+ const aSubName: Tl3WString;
+ aFlags: Integer);
 //#UC START# *4D2F0B29034E_4C6A955F00D6_var*
 var
  l_BM : TBookmark2;
@@ -495,8 +482,8 @@ begin
 end;//_nsDocumentContainer_.NotifySubReallyAdded
 
 procedure _nsDocumentContainer_.NotifySubReallyDeleted(aParaID: Integer;
-  aSubID: Integer;
-  aLayerID: Integer);
+ aSubID: Integer;
+ aLayerID: Integer);
 //#UC START# *4D3071570355_4C6A955F00D6_var*
 var
  l_Index : Integer;
@@ -549,30 +536,16 @@ begin
 end;//_nsDocumentContainer_.NotifySubReallyDeleted
 
 procedure _nsDocumentContainer_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_Bookmarks := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_Comments := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_ExternalObjects := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Finalize(f_Bookmarks);
+ Finalize(f_Comments);
+ Finalize(f_ExternalObjects);
  f_DocumentInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//_nsDocumentContainer_.ClearFields
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _nsDocumentContainer_.As_InevCommentTextProvider: InevCommentTextProvider;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf nsDocumentContainer_imp_impl}
 
 {$EndIf nsDocumentContainer_imp}
+

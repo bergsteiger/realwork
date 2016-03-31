@@ -1,43 +1,30 @@
 unit bsWorkJournalPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "WorkJournal"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/WorkJournal/bsWorkJournalPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Основные прецеденты::WorkJournal::WorkJournal::WorkJournalImpl::TbsWorkJournalPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournalPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsWorkJournalPrim" MUID: (4A825E02010E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3SimpleObject,
-  WorkJournalInterfaces,
-  nsWorkJournalListeners,
-  l3TreeInterfaces,
-  SearchUnit,
-  DocumentUnit,
-  PrimWorkJournalInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , WorkJournalInterfaces
+ , nsWorkJournalListeners
+ , l3TreeInterfaces
+ , SearchUnit
+ , DocumentUnit
+ , PrimWorkJournalInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsWorkJournalPrim = class(Tl3SimpleObject, IbsWorkJournal)
- private
- // private fields
-   f_Listeners : TnsWorkJournalListeners;
- protected
- // realized methods
+  private
+   f_Listeners: TnsWorkJournalListeners;
+  protected
    function MakeTree: Il3SimpleTree;
    procedure Clear;
    procedure AddQuery(const aQuery: IQuery);
@@ -50,37 +37,28 @@ type
    procedure RegisterListener(const aListener: InsWorkJournalListener);
    procedure UnRegisterListener(const aListener: InsWorkJournalListener);
    procedure NotifyJournalShrinked;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: IbsWorkJournal; reintroduce;
    constructor Create; reintroduce;
  end;//TbsWorkJournalPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsJournalTreeStruct,
-  DataAdapter,
-  DynamicTreeUnit,
-  UserJournalUnit,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsWorkJournalPrim
+ l3ImplUses
+ , nsJournalTreeStruct
+ , DataAdapter
+ , DynamicTreeUnit
+ , UserJournalUnit
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 class function TbsWorkJournalPrim.Make: IbsWorkJournal;
 var
@@ -92,7 +70,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsWorkJournalPrim.Make
 
 constructor TbsWorkJournalPrim.Create;
 //#UC START# *4A83AD2D030F_4A825E02010E_var*
@@ -145,7 +123,7 @@ begin
 end;//TbsWorkJournalPrim.AddBookMark
 
 function TbsWorkJournalPrim.MakeQueryHistory(aQueryType: TQueryType;
-  aMaxCount: Cardinal): IQueryList;
+ aMaxCount: Cardinal): IQueryList;
 //#UC START# *4A8261F2003D_4A825E02010E_var*
 //#UC END# *4A8261F2003D_4A825E02010E_var*
 begin
@@ -155,7 +133,7 @@ begin
 end;//TbsWorkJournalPrim.MakeQueryHistory
 
 function TbsWorkJournalPrim.MakeBookMarkHistory(ForInpharm: Boolean;
-  aMaxCount: Cardinal): IJournalBookmarkList;
+ aMaxCount: Cardinal): IJournalBookmarkList;
 //#UC START# *4A82623302E1_4A825E02010E_var*
 const
  cMap: array [Boolean] of TBookmarkJournalType = (BJT_BOOKMARK, BJT_PHARM_BOOKMARK);
@@ -212,6 +190,7 @@ begin
 end;//TbsWorkJournalPrim.NotifyJournalShrinked
 
 procedure TbsWorkJournalPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A825E02010E_var*
 //#UC END# *479731C50290_4A825E02010E_var*
 begin
@@ -220,7 +199,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_4A825E02010E_impl*
 end;//TbsWorkJournalPrim.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

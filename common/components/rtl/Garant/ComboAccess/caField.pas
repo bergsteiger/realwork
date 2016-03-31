@@ -1,42 +1,29 @@
 unit caField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caField.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaField" MUID: (56E009B303E1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes,
-  l3Date
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+ , l3Date
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaField = class(Tl3ProtoObject, IdaField)
- private
- // private fields
-   f_HTField : IdaField;
-   f_PGField : IdaField;
-   f_DataBuffer : IdaResultBuffer;
- protected
- // realized methods
+  private
+   f_HTField: IdaField;
+   f_PGField: IdaField;
+   f_DataBuffer: IdaResultBuffer;
+  protected
    function Get_AsLargeInt: LargeInt;
    function Get_AsInteger: Integer;
    function Get_AsStDate: TStDate;
@@ -44,31 +31,28 @@ type
    function Get_AsString: AnsiString;
    function Get_AsByte: Byte;
    function Get_Alias: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataBuffer: IdaResultBuffer;
-     const aHTField: IdaField;
-     const aPGField: IdaField); reintroduce;
+    const aHTField: IdaField;
+    const aPGField: IdaField); reintroduce;
    class function Make(const aDataBuffer: IdaResultBuffer;
-     const aHTField: IdaField;
-     const aPGField: IdaField): IdaField; reintroduce;
-     {* Сигнатура фабрики TcaField.Make }
+    const aHTField: IdaField;
+    const aPGField: IdaField): IdaField; reintroduce;
  end;//TcaField
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaField
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
+uses
+ l3ImplUses
+;
 
 constructor TcaField.Create(const aDataBuffer: IdaResultBuffer;
-  const aHTField: IdaField;
-  const aPGField: IdaField);
+ const aHTField: IdaField;
+ const aPGField: IdaField);
 //#UC START# *56E00A25007C_56E009B303E1_var*
 //#UC END# *56E00A25007C_56E009B303E1_var*
 begin
@@ -83,8 +67,8 @@ begin
 end;//TcaField.Create
 
 class function TcaField.Make(const aDataBuffer: IdaResultBuffer;
-  const aHTField: IdaField;
-  const aPGField: IdaField): IdaField;
+ const aHTField: IdaField;
+ const aPGField: IdaField): IdaField;
 var
  l_Inst : TcaField;
 begin
@@ -94,7 +78,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaField.Make
 
 function TcaField.Get_AsLargeInt: LargeInt;
 //#UC START# *5593905401D1_56E009B303E1get_var*
@@ -167,6 +151,7 @@ begin
 end;//TcaField.Get_Alias
 
 procedure TcaField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56E009B303E1_var*
 //#UC END# *479731C50290_56E009B303E1_var*
 begin
@@ -178,7 +163,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56E009B303E1_impl*
 end;//TcaField.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

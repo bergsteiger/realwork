@@ -1,45 +1,33 @@
 unit atQuery;
+ {* Вспомогательная обертка для Query }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatQuery
-//
-// Вспомогательная обертка для Query
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atQuery.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatQuery" MUID: (4A549C190378)
 
 interface
 
 uses
-  BaseTypesUnit,
-  DynamicTreeUnit,
-  SearchUnit,
-  Classes,
-  XMLIntf,
-  l3_Base
-  ;
+ l3IntfUses
+ , SearchUnit
+ , XMLIntf
+ , DynamicTreeUnit
+ , BaseTypesUnit
+ , Classes
+ , l3_Base
+;
 
 type
  _EntityInterface_ = IQuery;
- {$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatQuery = class(_atEntityWithName_)
   {* Вспомогательная обертка для Query }
- protected
- // property methods
+  protected
    function pm_GetQuery: IQuery;
    function pm_GetQueryType: TQueryType;
    function pm_GetEmpty: Boolean;
- public
- // public methods
-   constructor CreateByType(const aQueryType: TQueryType); virtual;
+  public
+   constructor CreateByType(const aQueryType: TQueryType); reintroduce; virtual;
    procedure ClearAttribute(const aTagName: AnsiString); virtual;
    procedure SaveNodeAttribute(const aTagName: AnsiString;
     const aOp: TQueryLogicOperation;
@@ -54,61 +42,56 @@ type
     const aFrom: TDate;
     const aTo: TDate); virtual;
    constructor CreateFromXML(const anXML: IXMLDocument;
-    const anImportErrors: TStrings = nil); virtual;
+    const anImportErrors: TStrings = nil); reintroduce; virtual;
    function ExportAsXML: IXMLDocument; virtual;
- public
- // public properties
+  public
    property Query: IQuery
-     read pm_GetQuery;
+    read pm_GetQuery;
    property QueryType: TQueryType
-     read pm_GetQueryType;
+    read pm_GetQueryType;
    property Empty: Boolean
-     read pm_GetEmpty;
+    read pm_GetEmpty;
  end;//TatQuery
 
 implementation
 
 uses
-  atStringHelper,
-  atGblAdapterWorker,
-  SysUtils,
-  IOUnit,
-  atQueryTypeConverter,
-  atQueryLogicOperationConverter,
-  atNodeHelper,
-  XMLDoc,
-  Variants,
-  atNonATQueryLogicOperationConverter
-  ;
-
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
+ l3ImplUses
+ , atStringHelper
+ , atGblAdapterWorker
+ , SysUtils
+ , IOUnit
+ , atQueryTypeConverter
+ , atQueryLogicOperationConverter
+ , atNodeHelper
+ , XMLDoc
+ , Variants
+ , atNonATQueryLogicOperationConverter
+;
 
 const
-   { NodeNames }
-  NN_ATTR = 'attribute';
-  NN_QUERY = 'query';
-  NN_ITEM = 'item';
-  NN_TEXT = 'text';
-  NN_DATE = 'date';
-  NN_PHONE = 'phone';
-   { AttributeNames }
-  AN_TYPE = 'type';
-  AN_TAG = 'tag';
-  AN_LOGIC_OPERATION = 'logic_operation';
-  AN_FROM_DAY = 'from_day';
-  AN_FROM_MONTH = 'from_month';
-  AN_FROM_YEAR = 'from_year';
-  AN_TO_DAY = 'to_day';
-  AN_TO_MONTH = 'to_month';
-  AN_TO_YEAR = 'to_year';
-  AN_BY_AT = 'created_by_at';
-  AN_XML_VERSION = 'xml_version';
-  AN_PHONE_NUMBER = 'phone_number';
-  AN_CITY_CODE = 'city_code';
-   { Constants }
-  PATH_DELIMITER = '\';
+ NN_ATTR = 'attribute';
+ NN_QUERY = 'query';
+ NN_ITEM = 'item';
+ NN_TEXT = 'text';
+ NN_DATE = 'date';
+ NN_PHONE = 'phone';
+ AN_TYPE = 'type';
+ AN_TAG = 'tag';
+ AN_LOGIC_OPERATION = 'logic_operation';
+ AN_FROM_DAY = 'from_day';
+ AN_FROM_MONTH = 'from_month';
+ AN_FROM_YEAR = 'from_year';
+ AN_TO_DAY = 'to_day';
+ AN_TO_MONTH = 'to_month';
+ AN_TO_YEAR = 'to_year';
+ AN_BY_AT = 'created_by_at';
+ AN_XML_VERSION = 'xml_version';
+ AN_PHONE_NUMBER = 'phone_number';
+ AN_CITY_CODE = 'city_code';
+ PATH_DELIMITER = '\';
 
-// start class TatQuery
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatQuery.pm_GetQuery: IQuery;
 //#UC START# *4A549D35001C_4A549C190378get_var*
@@ -180,8 +163,8 @@ begin
 end;//TatQuery.ClearAttribute
 
 procedure TatQuery.SaveNodeAttribute(const aTagName: AnsiString;
-  const aOp: TQueryLogicOperation;
-  const aNode: INodeBase);
+ const aOp: TQueryLogicOperation;
+ const aNode: INodeBase);
 //#UC START# *4A549D8100F9_4A549C190378_var*
   var
     l_NodeAttr : IQueryNodeAttribute;
@@ -195,8 +178,8 @@ begin
 end;//TatQuery.SaveNodeAttribute
 
 procedure TatQuery.SaveContextAttribute(const aTagName: AnsiString;
-  const aOp: TQueryLogicOperation;
-  const aContext: AnsiString);
+ const aOp: TQueryLogicOperation;
+ const aContext: AnsiString);
 //#UC START# *4A549DAD0296_4A549C190378_var*
   var
     l_ContextAttr : IQueryContextAttribute;
@@ -210,8 +193,8 @@ begin
 end;//TatQuery.SaveContextAttribute
 
 procedure TatQuery.SavePhoneAttribute(const aTagName: AnsiString;
-  const aCityCode: AnsiString;
-  const aPhoneNumber: AnsiString);
+ const aCityCode: AnsiString;
+ const aPhoneNumber: AnsiString);
 //#UC START# *4A54B321025E_4A549C190378_var*
   var
     l_PhoneAttr : IQueryPhoneNumberAttribute;
@@ -226,8 +209,8 @@ begin
 end;//TatQuery.SavePhoneAttribute
 
 procedure TatQuery.SaveDateAttribute(const aTagName: AnsiString;
-  const aFrom: TDate;
-  const aTo: TDate);
+ const aFrom: TDate;
+ const aTo: TDate);
 //#UC START# *50045A9402F4_4A549C190378_var*
   var
     l_DateAttr : IQueryDateAttribute;
@@ -241,7 +224,7 @@ begin
 end;//TatQuery.SaveDateAttribute
 
 constructor TatQuery.CreateFromXML(const anXML: IXMLDocument;
-  const anImportErrors: TStrings = nil);
+ const anImportErrors: TStrings = nil);
 //#UC START# *50045B3F032A_4A549C190378_var*
   var
     i, j : Integer;

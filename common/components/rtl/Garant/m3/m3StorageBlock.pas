@@ -60,11 +60,8 @@ type
    f_Offset: Int64;
    rHeaderCompare: Tm3StorageBlockHeaderData;
    f_Position: Int64;
-    {* Поле для свойства Position }
    f_Name: Tl3_String;
-    {* Поле для свойства Name }
    f_Index: Int64;
-    {* Поле для свойства Index }
   protected
    function pm_GetNextPosition: Int64;
    procedure pm_SetNextPosition(aValue: Int64);

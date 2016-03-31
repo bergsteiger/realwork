@@ -14,7 +14,7 @@ uses
 ;
 
 type
- TLogoForm = {final} class
+ TLogoForm = {final} class(TvcmEntityForm)
  end;//TLogoForm
 
 implementation
@@ -31,6 +31,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки ut_LogoLocalConstants }
  str_ut_LogoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LogoCaption'; rValue : 'Logo');
@@ -43,5 +44,6 @@ initialization
  TtfwClassRef.Register(TLogoForm);
  {* Регистрация Logo }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,73 +1,49 @@
 unit Pl3MessageIDList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/Pl3MessageIDList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Поддержка локализованных сообщений::TPl3MessageIDList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TPl3MessageIDList" MUID: (4F9BCB620208)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Pl3MessageIDListPrim
-  ;
+ l3IntfUses
+ , Pl3MessageIDListPrim
+;
 
 type
  TPl3MessageIDList = class(TPl3MessageIDListPrim)
- private
- // private methods
+  private
    procedure CleanupItems;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Release; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TPl3MessageIDList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TPl3MessageIDList }
  end;//TPl3MessageIDList
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TPl3MessageIDList
-
-var g_TPl3MessageIDList : TPl3MessageIDList = nil;
+var g_TPl3MessageIDList: TPl3MessageIDList = nil;
+ {* Экземпляр синглетона TPl3MessageIDList }
 
 procedure TPl3MessageIDListFree;
+ {* Метод освобождения экземпляра синглетона TPl3MessageIDList }
 begin
  l3Free(g_TPl3MessageIDList);
-end;
-
-class function TPl3MessageIDList.Instance: TPl3MessageIDList;
-begin
- if (g_TPl3MessageIDList = nil) then
- begin
-  l3System.AddExitProc(TPl3MessageIDListFree);
-  g_TPl3MessageIDList := Create;
- end;
- Result := g_TPl3MessageIDList;
-end;
-
+end;//TPl3MessageIDListFree
 
 procedure TPl3MessageIDList.CleanupItems;
 //#UC START# *4F9BCF5401F8_4F9BCB620208_var*
@@ -82,12 +58,24 @@ begin
 end;//TPl3MessageIDList.CleanupItems
 
 class function TPl3MessageIDList.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TPl3MessageIDList <> nil;
 end;//TPl3MessageIDList.Exists
 
+class function TPl3MessageIDList.Instance: TPl3MessageIDList;
+ {* Метод получения экземпляра синглетона TPl3MessageIDList }
+begin
+ if (g_TPl3MessageIDList = nil) then
+ begin
+  l3System.AddExitProc(TPl3MessageIDListFree);
+  g_TPl3MessageIDList := Create;
+ end;
+ Result := g_TPl3MessageIDList;
+end;//TPl3MessageIDList.Instance
+
 procedure TPl3MessageIDList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F9BCB620208_var*
 //#UC END# *479731C50290_4F9BCB620208_var*
 begin

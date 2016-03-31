@@ -1,39 +1,29 @@
 unit m3LinkedStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3LinkedStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3LinkedStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3LinkedStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3LinkedStream" MUID: (53FF125B01D4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3CustomStream
-  ;
+ l3IntfUses
+ , m3CustomStream
+;
 
 type
  Tm3LinkedStream = {abstract} class(Tm3CustomStream)
- protected
- // overridden protected methods
+  protected
    procedure DoRead(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoWrite(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    function DoGetLocksSupported: Integer; override;
    function DoGetName: WideString; override;
  end;//Tm3LinkedStream
@@ -41,17 +31,16 @@ type
 implementation
 
 uses
-  ComObj,
-  m2COMLib,
-  ActiveX
-  ;
-
-// start class Tm3LinkedStream
+ l3ImplUses
+ , ComObj
+ , m2COMLib
+ , ActiveX
+;
 
 procedure Tm3LinkedStream.DoRead(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27CF501C4_53FF125B01D4_var*
 //#UC END# *4FA27CF501C4_53FF125B01D4_var*
 begin
@@ -63,9 +52,9 @@ begin
 end;//Tm3LinkedStream.DoRead
 
 procedure Tm3LinkedStream.DoWrite(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27D310344_53FF125B01D4_var*
 //#UC END# *4FA27D310344_53FF125B01D4_var*
 begin

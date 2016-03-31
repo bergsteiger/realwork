@@ -10,9 +10,9 @@ interface
 
 uses
  l3IntfUses
- , Graphics
  , l3Interfaces
  , l3Core
+ , Graphics
 ;
 
 type

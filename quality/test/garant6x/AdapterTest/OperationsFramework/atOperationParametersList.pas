@@ -1,26 +1,16 @@
 unit atOperationParametersList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atOperationParametersList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatOperationParametersList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationParametersList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOperationParametersList" MUID: (48089BA60088)
 
 interface
 
 uses
-  atOperationParameter,
-  SysUtils,
-  atStringListWithOwn
-  ;
+ l3IntfUses
+ , atOperationParameter
+ , atStringListWithOwn
+;
 
 type
  _NamedParameter_ = TatOperationParameter;
@@ -32,8 +22,9 @@ type
 implementation
 
 uses
-  Classes
-  ;
+ l3ImplUses
+ , Classes
+;
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas}
 

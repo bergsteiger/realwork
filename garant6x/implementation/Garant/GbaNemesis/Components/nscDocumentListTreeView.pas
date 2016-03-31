@@ -1,113 +1,90 @@
 unit nscDocumentListTreeView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Components"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Components/nscDocumentListTreeView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> F1 Базовые определения предметной области::LegalDomain::Components::DocumentListTree::TnscDocumentListTreeView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentListTreeView.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TnscDocumentListTreeView" MUID: (51D56E9F004B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Messages,
-  bsTypes,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  nscDocumentHistory
-  {$IfEnd} //not Admin AND not Monitorings
-  ,
-  Classes,
-  l3Interfaces,
-  Graphics,
-  vtLister,
-  ActiveX,
-  vtOutlinerWithDragDrop
-  ;
+ l3IntfUses
+ , nscTreeViewWithAdapterDragDrop
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nscDocumentHistory
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ , Messages
+ , Classes
+ , l3Interfaces
+ , Graphics
+ , vtLister
+ , ActiveX
+ , bsTypes
+;
 
 type
- TdltGetNodeTypeEvent = function (anIndex: Integer): TbsListNodeType of object;
+ TdltGetNodeTypeEvent = function(anIndex: Integer): TbsListNodeType of object;
 
- TnscDocumentListTreeView = class(TnscTreeViewWithAdapterDragDrop {$If not defined(Admin) AND not defined(Monitorings)}, InscDocumentHistoryListener{$IfEnd} //not Admin AND not Monitorings
+ TnscDocumentListTreeView = class(TnscTreeViewWithAdapterDragDrop{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , InscDocumentHistoryListener
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
  )
- private
- // private fields
-   f_OnGetNodeType : TdltGetNodeTypeEvent;
-    {* Поле для свойства OnGetNodeType}
- private
- // private methods
+  private
+   f_OnGetNodeType: TdltGetNodeTypeEvent;
+  private
    procedure WMGetText(var Msg: TWMGetText); message WM_GetText;
    procedure WMGetTextLength(var Msg: TWMGetTextLength); message WM_GETTEXTLENGTH;
- protected
- // realized methods
-    {$If not defined(Admin) AND not defined(Monitorings)}
+  protected
+   function GetCurrentText: AnsiString; virtual;
+   {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
    procedure NewDocumentInHistory;
-    {$IfEnd} //not Admin AND not Monitorings
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure DoOnGetItemStyle(aItemIndex: Integer;
-      const aFont: Il3Font;
-      var aTextBackColor: TColor;
-      var aItemBackColor: TColor;
-      var aVJustify: TvtVJustify;
-      var aFocused: Boolean;
-      var theImageVertOffset: Integer); override;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify;
+    var aFocused: Boolean;
+    var theImageVertOffset: Integer); override;
    procedure DoOnGetItemFont(Index: LongInt;
-      const aFont: Il3Font;
-      anItemPart: TvtListerItemPart); override;
+    const aFont: Il3Font;
+    anItemPart: TvtListerItemPart); override;
    function DoOnGetItemIndentEx(anItemIndex: Integer): Integer; override;
-     {* для каждой ноды можно задать свой "персональный" сдвиг }
+    {* для каждой ноды можно задать свой "персональный" сдвиг }
    function CanAcceptData(const aData: IDataObject): Boolean; override;
    function GetRealClientWidth: Integer; override;
    function NeedAssignTreeStructFromHistory: Boolean; override;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   function GetCurrentText: AnsiString; virtual;
- public
- // public properties
+  public
    property OnGetNodeType: TdltGetNodeTypeEvent
-     read f_OnGetNodeType
-     write f_OnGetNodeType;
+    read f_OnGetNodeType
+    write f_OnGetNodeType;
  end;//TnscDocumentListTreeView
 
 implementation
 
 uses
-  l3ControlsTypes,
-  l3TreeInterfaces,
-  Windows,
-  SysUtils,
-  l3String,
-  evStyleTableTools,
-  l3Units,
-  l3ScreenIC,
-  evdStyles,
-  DynamicDocListUnit,
-  DynamicTreeUnit
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TnscDocumentListTreeView
+ l3ImplUses
+ , l3ControlsTypes
+ , l3TreeInterfaces
+ , Windows
+ , SysUtils
+ , l3String
+ , evStyleTableTools
+ , l3Units
+ , l3ScreenIC
+ , evdStyles
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TnscDocumentListTreeView.GetCurrentText: AnsiString;
 //#UC START# *51E01CC7023D_51D56E9F004B_var*
@@ -147,7 +124,7 @@ begin
 //#UC END# *51E00DAD024C_51D56E9F004B_impl*
 end;//TnscDocumentListTreeView.WMGetTextLength
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure TnscDocumentListTreeView.NewDocumentInHistory;
 //#UC START# *55E6CC91033A_51D56E9F004B_var*
 //#UC END# *55E6CC91033A_51D56E9F004B_var*
@@ -156,9 +133,10 @@ begin
  DropDrawPoints;
 //#UC END# *55E6CC91033A_51D56E9F004B_impl*
 end;//TnscDocumentListTreeView.NewDocumentInHistory
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 procedure TnscDocumentListTreeView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51D56E9F004B_var*
 //#UC END# *479731C50290_51D56E9F004B_var*
 begin
@@ -194,12 +172,12 @@ begin
 end;//TnscDocumentListTreeView.Create
 
 procedure TnscDocumentListTreeView.DoOnGetItemStyle(aItemIndex: Integer;
-  const aFont: Il3Font;
-  var aTextBackColor: TColor;
-  var aItemBackColor: TColor;
-  var aVJustify: TvtVJustify;
-  var aFocused: Boolean;
-  var theImageVertOffset: Integer);
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify;
+ var aFocused: Boolean;
+ var theImageVertOffset: Integer);
 //#UC START# *508F825303E4_51D56E9F004B_var*
  function l_IsVisited(const aNode: Il3SimpleNode): Boolean;
  var
@@ -248,8 +226,8 @@ begin
 end;//TnscDocumentListTreeView.DoOnGetItemStyle
 
 procedure TnscDocumentListTreeView.DoOnGetItemFont(Index: LongInt;
-  const aFont: Il3Font;
-  anItemPart: TvtListerItemPart);
+ const aFont: Il3Font;
+ anItemPart: TvtListerItemPart);
 //#UC START# *5152C7D50201_51D56E9F004B_var*
 //#UC END# *5152C7D50201_51D56E9F004B_var*
 begin
@@ -261,6 +239,7 @@ begin
 end;//TnscDocumentListTreeView.DoOnGetItemFont
 
 function TnscDocumentListTreeView.DoOnGetItemIndentEx(anItemIndex: Integer): Integer;
+ {* для каждой ноды можно задать свой "персональный" сдвиг }
 //#UC START# *51D2DC290320_51D56E9F004B_var*
 //#UC END# *51D2DC290320_51D56E9F004B_var*
 begin
@@ -312,9 +291,9 @@ begin
 end;//TnscDocumentListTreeView.NeedAssignTreeStructFromHistory
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TnscDocumentListTreeView
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscDocumentListTreeView);
-{$IfEnd} //not NoScripts
+ {* Регистрация TnscDocumentListTreeView }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

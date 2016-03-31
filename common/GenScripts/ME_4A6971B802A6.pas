@@ -18,7 +18,7 @@ uses
 ;
 
 type
- TBaseChatModule = class
+ TBaseChatModule = class(TvcmModule)
   protected
    procedure BaseChat_OpenContactList_Test(const aParams: IvcmTestParamsPrim);
    procedure BaseChat_OpenContactList_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -57,6 +57,7 @@ uses
  , bsChatDispatcher
 ;
 
+{$If NOT Defined(NoVCM)}
 function TBaseChatModule.MakeChatDispatcher: IbsChatDispatcher;
 //#UC START# *4A82A0A603BF_4A6971B802A6_var*
 //#UC END# *4A82A0A603BF_4A6971B802A6_var*
@@ -126,6 +127,7 @@ begin
  l_Chat.SetActiveInParent;
 //#UC END# *4A97C2460052_4A6971B802A6exec_impl*
 end;//TBaseChatModule.BaseChat_OpenContactList_Execute
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

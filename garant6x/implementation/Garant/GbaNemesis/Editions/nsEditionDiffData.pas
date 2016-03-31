@@ -1,55 +1,41 @@
 unit nsEditionDiffData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/nsEditionDiffData.pas"
-// Начат: 10.08.2009 12:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::TnsEditionDiffData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionDiffData.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsEditionDiffData" MUID: (4A7FD7E9035C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  eeInterfaces,
-  EditionsInterfaces,
-  nsCompareEditionsInfoPrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsCompareEditionsInfoPrim
+ , EditionsInterfaces
+ , DocumentUnit
+ , eeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsEditionDiffData = class(TnsCompareEditionsInfoPrim, InsEditionDiffData)
- public
- // public methods
+  public
    class function Make(const aDoc: IDocument;
-     const aPara: IeeLeafPara;
-     const aDocumentForReturn: TnsDocumentForReturnInfo): InsEditionDiffData; reintroduce;
-     {* Сигнатура фабрики TnsEditionDiffData.Make }
+    const aPara: IeeLeafPara;
+    const aDocumentForReturn: TnsDocumentForReturnInfo): InsEditionDiffData; reintroduce;
  end;//TnsEditionDiffData
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsEditionDiffData
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 class function TnsEditionDiffData.Make(const aDoc: IDocument;
-  const aPara: IeeLeafPara;
-  const aDocumentForReturn: TnsDocumentForReturnInfo): InsEditionDiffData;
+ const aPara: IeeLeafPara;
+ const aDocumentForReturn: TnsDocumentForReturnInfo): InsEditionDiffData;
 var
  l_Inst : TnsEditionDiffData;
 begin
@@ -59,8 +45,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TnsEditionDiffData.Make
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,42 +1,30 @@
 unit daParamsCondition;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daParamsCondition.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaParamsCondition
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daParamsCondition.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaParamsCondition" MUID: (5551DD0F02A1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daTypes,
-  daInterfaces,
-  daCondition
-  ;
+ l3IntfUses
+ , daCondition
+ , daInterfaces
+ , daTypes
+;
 
 type
  TdaParamsCondition = class(TdaCondition, IdaFieldFromTable, IdaParamDescription, IdaAtomicCondition)
- private
- // private fields
-   f_Field : IdaFieldDescription;
-   f_TableAlias : AnsiString;
-   f_ParamName : AnsiString;
-   f_Operation : TdaCompareOperation;
- private
- // private methods
+  private
+   f_Field: IdaFieldDescription;
+   f_TableAlias: AnsiString;
+   f_ParamName: AnsiString;
+   f_Operation: TdaCompareOperation;
+  private
    function AddCaseInsensetive(const aStr: AnsiString): AnsiString;
- protected
- // realized methods
+  protected
    function Get_TableAlias: AnsiString;
    function Get_Field: IdaFieldDescription;
    function Get_Name: AnsiString;
@@ -45,48 +33,30 @@ type
    function Get_Operation: TdaCompareOperation;
    function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; override;
    function Get_ParamType: TdaParamType;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTableAlias: AnsiString;
-     const aField: IdaFieldDescription;
-     anOperation: TdaCompareOperation;
-     const aParamName: AnsiString); reintroduce;
+    const aField: IdaFieldDescription;
+    anOperation: TdaCompareOperation;
+    const aParamName: AnsiString); reintroduce;
    class function Make(const aTableAlias: AnsiString;
-     const aField: IdaFieldDescription;
-     anOperation: TdaCompareOperation;
-     const aParamName: AnsiString): IdaCondition; reintroduce;
-     {* Сигнатура фабрики TdaParamsCondition.Make }
+    const aField: IdaFieldDescription;
+    anOperation: TdaCompareOperation;
+    const aParamName: AnsiString): IdaCondition; reintroduce;
  end;//TdaParamsCondition
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
-
-// start class TdaParamsCondition
-
-function TdaParamsCondition.AddCaseInsensetive(const aStr: AnsiString): AnsiString;
-//#UC START# *562DE57001BE_5551DD0F02A1_var*
-//#UC END# *562DE57001BE_5551DD0F02A1_var*
-begin
-//#UC START# *562DE57001BE_5551DD0F02A1_impl*
- if f_Field.DataType = da_dtChar then
-  Result := Format('UPPER(%s)', [aStr])
- else
-  Result := aStr;
-//#UC END# *562DE57001BE_5551DD0F02A1_impl*
-end;//TdaParamsCondition.AddCaseInsensetive
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TdaParamsCondition.Create(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  anOperation: TdaCompareOperation;
-  const aParamName: AnsiString);
+ const aField: IdaFieldDescription;
+ anOperation: TdaCompareOperation;
+ const aParamName: AnsiString);
 //#UC START# *5552FC6E01D4_5551DD0F02A1_var*
 //#UC END# *5552FC6E01D4_5551DD0F02A1_var*
 begin
@@ -100,9 +70,9 @@ begin
 end;//TdaParamsCondition.Create
 
 class function TdaParamsCondition.Make(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  anOperation: TdaCompareOperation;
-  const aParamName: AnsiString): IdaCondition;
+ const aField: IdaFieldDescription;
+ anOperation: TdaCompareOperation;
+ const aParamName: AnsiString): IdaCondition;
 var
  l_Inst : TdaParamsCondition;
 begin
@@ -112,7 +82,19 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaParamsCondition.Make
+
+function TdaParamsCondition.AddCaseInsensetive(const aStr: AnsiString): AnsiString;
+//#UC START# *562DE57001BE_5551DD0F02A1_var*
+//#UC END# *562DE57001BE_5551DD0F02A1_var*
+begin
+//#UC START# *562DE57001BE_5551DD0F02A1_impl*
+ if f_Field.DataType = da_dtChar then
+  Result := Format('UPPER(%s)', [aStr])
+ else
+  Result := aStr;
+//#UC END# *562DE57001BE_5551DD0F02A1_impl*
+end;//TdaParamsCondition.AddCaseInsensetive
 
 function TdaParamsCondition.Get_TableAlias: AnsiString;
 //#UC START# *555351D702B3_5551DD0F02A1get_var*
@@ -208,6 +190,7 @@ begin
 end;//TdaParamsCondition.Get_ParamType
 
 procedure TdaParamsCondition.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5551DD0F02A1_var*
 //#UC END# *479731C50290_5551DD0F02A1_var*
 begin

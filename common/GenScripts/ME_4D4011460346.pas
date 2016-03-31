@@ -23,8 +23,8 @@ type
    f_Contents: IdsBaseContents;
    f_Type: TnsContentsListType;
   protected
-   function item(index: Cardinal): IString;
-   function Get_count: Cardinal;
+   function Item(index: Cardinal): IString; stdcall;
+   function GetCount: Cardinal; stdcall;
    {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
     {* функци€ класса, определ€юща€ могут ли объекты данного класса попадать в кэш повторного использовани€. }
@@ -74,7 +74,7 @@ begin
  end;//try..finally
 end;//TnsContentsListForFiltering.Make
 
-function TnsContentsListForFiltering.item(index: Cardinal): IString;
+function TnsContentsListForFiltering.Item(index: Cardinal): IString;
 //#UC START# *4D3D26DC0123_4D4011460346_var*
 
  function DoGet: IString;
@@ -95,9 +95,9 @@ begin
   //l_I := IString(aRet)._AddRef;
  end;//f_Contents = nil
 //#UC END# *4D3D26DC0123_4D4011460346_impl*
-end;//TnsContentsListForFiltering.item
+end;//TnsContentsListForFiltering.Item
 
-function TnsContentsListForFiltering.Get_count: Cardinal;
+function TnsContentsListForFiltering.GetCount: Cardinal;
 //#UC START# *4D3D272402AE_4D4011460346get_var*
 //#UC END# *4D3D272402AE_4D4011460346get_var*
 begin
@@ -107,7 +107,7 @@ begin
  else
   Result := f_Contents.ContentsListCount[f_Type];
 //#UC END# *4D3D272402AE_4D4011460346get_impl*
-end;//TnsContentsListForFiltering.Get_count
+end;//TnsContentsListForFiltering.GetCount
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TnsContentsListForFiltering.IsCacheable: Boolean;

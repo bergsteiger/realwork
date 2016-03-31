@@ -1,81 +1,52 @@
 unit alcuProcessingEnabledService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuProcessingEnabledService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ServiceImplementation::Class>> archi$AutoPipeServer$Garant::Server::Server::TalcuProcessingEnabledService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuProcessingEnabledService.pas"
+// Стереотип: "ServiceImplementation"
+// Элемент модели: "TalcuProcessingEnabledService" MUID: (561CF00A0193)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3ProtoObject,
-  l3ProcessingEnabledService
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , l3ProtoObject
+ , l3ProcessingEnabledService
+;
 
-{$If defined(AppServerSide)}
 type
  TalcuProcessingEnabledService = {final} class(Tl3ProtoObject, Il3ProcessingEnabledService)
- public
- // realized methods
-   function Enabled: Boolean;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function Enabled: Boolean;
    class function Instance: TalcuProcessingEnabledService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TalcuProcessingEnabledService }
  end;//TalcuProcessingEnabledService
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3Base {a},
-  alcuServer
-  ;
-{$IfEnd} //AppServerSide
+ l3ImplUses
+ , alcuServer
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(AppServerSide)}
-
-
-// start class TalcuProcessingEnabledService
-
-var g_TalcuProcessingEnabledService : TalcuProcessingEnabledService = nil;
+var g_TalcuProcessingEnabledService: TalcuProcessingEnabledService = nil;
+ {* Экземпляр синглетона TalcuProcessingEnabledService }
 
 procedure TalcuProcessingEnabledServiceFree;
+ {* Метод освобождения экземпляра синглетона TalcuProcessingEnabledService }
 begin
  l3Free(g_TalcuProcessingEnabledService);
-end;
-
-class function TalcuProcessingEnabledService.Instance: TalcuProcessingEnabledService;
-begin
- if (g_TalcuProcessingEnabledService = nil) then
- begin
-  l3System.AddExitProc(TalcuProcessingEnabledServiceFree);
-  g_TalcuProcessingEnabledService := Create;
- end;
- Result := g_TalcuProcessingEnabledService;
-end;
-
+end;//TalcuProcessingEnabledServiceFree
 
 class function TalcuProcessingEnabledService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TalcuProcessingEnabledService <> nil;
 end;//TalcuProcessingEnabledService.Exists
@@ -89,12 +60,20 @@ begin
 //#UC END# *ECCF31CF8A24_561CF00A0193_impl*
 end;//TalcuProcessingEnabledService.Enabled
 
-{$IfEnd} //AppServerSide
+class function TalcuProcessingEnabledService.Instance: TalcuProcessingEnabledService;
+ {* Метод получения экземпляра синглетона TalcuProcessingEnabledService }
+begin
+ if (g_TalcuProcessingEnabledService = nil) then
+ begin
+  l3System.AddExitProc(TalcuProcessingEnabledServiceFree);
+  g_TalcuProcessingEnabledService := Create;
+ end;
+ Result := g_TalcuProcessingEnabledService;
+end;//TalcuProcessingEnabledService.Instance
 
 initialization
-{$If defined(AppServerSide)}
-// Регистрация TalcuProcessingEnabledService
  Tl3ProcessingEnabledService.Instance.Alien := TalcuProcessingEnabledService.Instance;
-{$IfEnd} //AppServerSide
+ {* Регистрация TalcuProcessingEnabledService }
+{$IfEnd} // Defined(AppServerSide)
 
 end.

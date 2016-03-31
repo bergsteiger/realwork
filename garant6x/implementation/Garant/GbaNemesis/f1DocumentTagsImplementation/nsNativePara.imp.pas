@@ -1,34 +1,25 @@
 {$IfNDef nsNativePara_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsNativePara.imp.pas"
-// Начат: 24.11.2010 20:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::nsNativePara
-//
-// "Родной" параграф. Не представлен нодой из адаптерного дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsNativePara" MUID: (4CED4C700123)
+// Имя типа: "_nsNativePara_"
 
 {$Define nsNativePara_imp}
- _nsNativePara_ = {mixin} class(_nsNativePara_Parent_)
+
+ _nsNativePara_ = class(_nsNativePara_Parent_)
   {* "Родной" параграф. Не представлен нодой из адаптерного дерева }
- public
- // public methods
+  public
    class function Make(aStub: Tl3Tag): Il3TagRef;
-   constructor Create(aStub: Tl3Tag); reintroduce; overload; 
-   constructor Create(aTypeID: Tk2Type); overload; 
+   constructor Create(aStub: Tl3Tag); reintroduce; overload;
+   constructor Create(aTypeID: Tk2Type); reintroduce; overload;
  end;//_nsNativePara_
 
 {$Else nsNativePara_imp}
 
-// start class _nsNativePara_
+{$IfNDef nsNativePara_imp_impl}
+
+{$Define nsNativePara_imp_impl}
 
 class function _nsNativePara_.Make(aStub: Tl3Tag): Il3TagRef;
 //#UC START# *4C6ACFE7038A_4CED4C700123_var*
@@ -66,4 +57,7 @@ begin
 //#UC END# *4CEFB6330350_4CED4C700123_impl*
 end;//_nsNativePara_.Create
 
+{$EndIf nsNativePara_imp_impl}
+
 {$EndIf nsNativePara_imp}
+

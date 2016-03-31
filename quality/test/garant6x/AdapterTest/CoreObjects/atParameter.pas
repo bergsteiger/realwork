@@ -1,47 +1,34 @@
 unit atParameter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atParameter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatParameter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atParameter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatParameter" MUID: (48086D7103BE)
 
 interface
 
 uses
-  SysUtils,
-  l3_Base
-  ;
+ l3IntfUses
+ , l3_Base
+ , SysUtils
+;
+
+const
+ INVALID_DEFAULT_VALUE = '{70802953-4F65-4867-856A-ED08CCB25A4D}';
 
 type
  ECanNotCast = class(Exception)
  end;//ECanNotCast
 
-const
-  { Values }
- INVALID_DEFAULT_VALUE = '{70802953-4F65-4867-856A-ED08CCB25A4D}';
-
-type
  EHasNotSet = class(Exception)
  end;//EHasNotSet
 
  TatParameter = class(Tl3_Base)
- private
- // private fields
-   f_Data : Variant;
-   f_DefaultValue : Variant;
-   f_IsSet : Boolean;
-    {* Поле для свойства IsSet}
- protected
- // property methods
+  private
+   f_Data: Variant;
+   f_DefaultValue: Variant;
+   f_IsSet: Boolean;
+    {* Поле для свойства IsSet }
+  protected
    function pm_GetAsStr: AnsiString;
    procedure pm_SetAsStr(const aValue: AnsiString);
    function pm_GetAsInt: Integer;
@@ -51,39 +38,35 @@ type
    function pm_GetIsDefaultSet: Boolean;
    function pm_GetValue: Variant; virtual;
    procedure pm_SetValue(const aValue: Variant); virtual;
- public
- // public methods
-   constructor Create(const defaultValue: AnsiString); reintroduce; overload; 
-   constructor Create; reintroduce; overload; 
- protected
- // protected properties
+  public
+   constructor Create(const defaultValue: AnsiString); reintroduce; overload;
+   constructor Create; reintroduce; overload;
+  protected
    property Value: Variant
-     read pm_GetValue
-     write pm_SetValue;
- public
- // public properties
+    read pm_GetValue
+    write pm_SetValue;
+  public
    property IsSet: Boolean
-     read f_IsSet;
+    read f_IsSet;
    property AsStr: AnsiString
-     read pm_GetAsStr
-     write pm_SetAsStr;
+    read pm_GetAsStr
+    write pm_SetAsStr;
    property AsInt: Integer
-     read pm_GetAsInt
-     write pm_SetAsInt;
+    read pm_GetAsInt
+    write pm_SetAsInt;
    property AsBool: Boolean
-     read pm_GetAsBool
-     write pm_SetAsBool;
+    read pm_GetAsBool
+    write pm_SetAsBool;
    property IsDefaultSet: Boolean
-     read pm_GetIsDefaultSet;
+    read pm_GetIsDefaultSet;
  end;//TatParameter
 
 implementation
 
 uses
-  Variants
-  ;
-
-// start class TatParameter
+ l3ImplUses
+ , Variants
+;
 
 function TatParameter.pm_GetAsStr: AnsiString;
 //#UC START# *48086E50016E_48086D7103BEget_var*

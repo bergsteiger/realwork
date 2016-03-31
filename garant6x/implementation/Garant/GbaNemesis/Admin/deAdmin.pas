@@ -1,67 +1,49 @@
 unit deAdmin;
+ {* Интерфейс обмена данными содержащий Node }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/deAdmin.pas"
-// Начат: 07.09.2009 17:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Admin::TdeAdmin
-//
-// Интерфейс обмена данными содержащий Node
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\deAdmin.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeAdmin" MUID: (4AA50FB0007E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  AdminInterfaces,
-  l3ProtoObject
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , l3ProtoObject
+ , AdminInterfaces
+;
 
-{$If defined(Admin)}
 type
  TdeAdmin = class(Tl3ProtoObject, IdeAdmin)
   {* Интерфейс обмена данными содержащий Node }
- private
- // private fields
-   f_Groups : IdeNode;
-   f_Users : IdeNode;
- protected
- // realized methods
+  private
+   f_Groups: IdeNode;
+   f_Users: IdeNode;
+  protected
    function pm_GetGroups: IdeNode;
    function pm_GetUsers: IdeNode;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aGroups: IdeNode;
     const aUsers: IdeNode); reintroduce;
    class function Make(const aGroups: IdeNode;
     const aUsers: IdeNode): IdeAdmin; reintroduce;
  end;//TdeAdmin
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-
-// start class TdeAdmin
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 constructor TdeAdmin.Create(const aGroups: IdeNode;
-  const aUsers: IdeNode);
+ const aUsers: IdeNode);
 //#UC START# *4AA5118C031E_4AA50FB0007E_var*
 //#UC END# *4AA5118C031E_4AA50FB0007E_var*
 begin
@@ -73,7 +55,7 @@ begin
 end;//TdeAdmin.Create
 
 class function TdeAdmin.Make(const aGroups: IdeNode;
-  const aUsers: IdeNode): IdeAdmin;
+ const aUsers: IdeNode): IdeAdmin;
 var
  l_Inst : TdeAdmin;
 begin
@@ -83,7 +65,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeAdmin.Make
 
 function TdeAdmin.pm_GetGroups: IdeNode;
 //#UC START# *4AA510B00041_4AA50FB0007Eget_var*
@@ -104,6 +86,7 @@ begin
 end;//TdeAdmin.pm_GetUsers
 
 procedure TdeAdmin.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AA50FB0007E_var*
 //#UC END# *479731C50290_4AA50FB0007E_var*
 begin
@@ -113,7 +96,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4AA50FB0007E_impl*
 end;//TdeAdmin.Cleanup
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

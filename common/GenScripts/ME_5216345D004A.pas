@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TDocumentModule = class
+ TDocumentModule = class(TvcmModule)
   {* Документ }
   public
    class function DocumentPrintAndExportDefaultSetting: Boolean;
@@ -38,6 +38,7 @@ uses
  , afwFacade
 ;
 
+{$If NOT Defined(NoVCM)}
 class function TDocumentModule.DocumentPrintAndExportDefaultSetting: Boolean;
  {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране" }
 //#UC START# *17DC451B397C_5216345D004A_var*
@@ -77,5 +78,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *930B9F1EF1E3_5216345D004A_impl*
 end;//TDocumentModule.WriteDocumentPrintAndExportFontSizeSetting
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,54 +1,40 @@
 unit deList;
+ {* Данные списка. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/deList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TdeList
-//
-// Данные списка.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeList" MUID: (47F33E9E03C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  DynamicDocListUnit,
-  l3TreeInterfaces,
-  bsTypes,
-  l3ProtoObject,
-  PrimPrimListInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3ProtoObject
+ , PrimPrimListInterfaces
+ , DynamicDocListUnit
+ , bsTypes
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin)}
 type
  TdeList = class(Tl3ProtoObject, IdeList)
   {* Данные списка. }
- private
- // private fields
-   f_List : IDynList;
-   f_NodeForPositioning : Il3SimpleNode;
-   f_AllDocumentsFiltered : Boolean;
-   f_NeedApplyPermanentFilters : Boolean;
-   f_IsChanged : Boolean;
-   f_TimeMachineOff : Boolean;
-    {* Поле для свойства TimeMachineOff}
-   f_WhatDoingIfOneDoc : TbsWhatDoingIfOneDoc;
-    {* Поле для свойства WhatDoingIfOneDoc}
-   f_SearchInfo : IdeSearchInfo;
-    {* Поле для свойства SearchInfo}
- protected
- // realized methods
+  private
+   f_List: IDynList;
+   f_NodeForPositioning: Il3SimpleNode;
+   f_AllDocumentsFiltered: Boolean;
+   f_NeedApplyPermanentFilters: Boolean;
+   f_IsChanged: Boolean;
+   f_TimeMachineOff: Boolean;
+    {* Поле для свойства TimeMachineOff }
+   f_WhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+    {* Поле для свойства WhatDoingIfOneDoc }
+   f_SearchInfo: IdeSearchInfo;
+    {* Поле для свойства SearchInfo }
+  protected
    function pm_GetList: IDynList;
    function pm_GetTimeMachineOff: Boolean;
    function pm_GetWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
@@ -57,55 +43,51 @@ type
    function pm_GetAllDocumentsFiltered: Boolean;
    function pm_GetNeedApplyPermanentFilters: Boolean;
    function pm_GetIsChanged: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aList: IDynList;
-     aTimeMachineOff: Boolean;
-     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-     const aNodeForPositioning: Il3SimpleNode;
-     const aSearchInfo: IdeSearchInfo;
-     aAllDocumentsFiltered: Boolean;
-     aNeedApplyPermanentFilters: Boolean;
-     aIsChanged: Boolean); reintroduce;
+    aTimeMachineOff: Boolean;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+    const aNodeForPositioning: Il3SimpleNode;
+    const aSearchInfo: IdeSearchInfo;
+    aAllDocumentsFiltered: Boolean;
+    aNeedApplyPermanentFilters: Boolean;
+    aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
-     aTimeMachineOff: Boolean = true;
-     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
-     const aNodeForPositioning: Il3SimpleNode = nil;
-     const aSearchInfo: IdeSearchInfo = nil;
-     aAllDocumentsFiltered: Boolean = False;
-     aNeedApplyPermanentFilters: Boolean = True;
-     aIsChanged: Boolean = False): IdeList; reintroduce;
- protected
- // protected properties
+    aTimeMachineOff: Boolean = True;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
+    const aNodeForPositioning: Il3SimpleNode = nil;
+    const aSearchInfo: IdeSearchInfo = nil;
+    aAllDocumentsFiltered: Boolean = False;
+    aNeedApplyPermanentFilters: Boolean = True;
+    aIsChanged: Boolean = False): IdeList; reintroduce;
+  protected
    property TimeMachineOff: Boolean
-     read f_TimeMachineOff;
+    read f_TimeMachineOff;
    property WhatDoingIfOneDoc: TbsWhatDoingIfOneDoc
-     read f_WhatDoingIfOneDoc;
+    read f_WhatDoingIfOneDoc;
    property SearchInfo: IdeSearchInfo
-     read f_SearchInfo;
+    read f_SearchInfo;
  end;//TdeList
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-
-// start class TdeList
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 constructor TdeList.Create(const aList: IDynList;
-  aTimeMachineOff: Boolean;
-  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-  const aNodeForPositioning: Il3SimpleNode;
-  const aSearchInfo: IdeSearchInfo;
-  aAllDocumentsFiltered: Boolean;
-  aNeedApplyPermanentFilters: Boolean;
-  aIsChanged: Boolean);
+ aTimeMachineOff: Boolean;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+ const aNodeForPositioning: Il3SimpleNode;
+ const aSearchInfo: IdeSearchInfo;
+ aAllDocumentsFiltered: Boolean;
+ aNeedApplyPermanentFilters: Boolean;
+ aIsChanged: Boolean);
 //#UC START# *4B1F76940201_47F33E9E03C8_var*
 //#UC END# *4B1F76940201_47F33E9E03C8_var*
 begin
@@ -123,13 +105,13 @@ begin
 end;//TdeList.Create
 
 class function TdeList.Make(const aList: IDynList;
-  aTimeMachineOff: Boolean = true;
-  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
-  const aNodeForPositioning: Il3SimpleNode = nil;
-  const aSearchInfo: IdeSearchInfo = nil;
-  aAllDocumentsFiltered: Boolean = False;
-  aNeedApplyPermanentFilters: Boolean = True;
-  aIsChanged: Boolean = False): IdeList;
+ aTimeMachineOff: Boolean = True;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
+ const aNodeForPositioning: Il3SimpleNode = nil;
+ const aSearchInfo: IdeSearchInfo = nil;
+ aAllDocumentsFiltered: Boolean = False;
+ aNeedApplyPermanentFilters: Boolean = True;
+ aIsChanged: Boolean = False): IdeList;
 var
  l_Inst : TdeList;
 begin
@@ -139,7 +121,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeList.Make
 
 function TdeList.pm_GetList: IDynList;
 //#UC START# *4B1D0FB101BA_47F33E9E03C8get_var*
@@ -214,6 +196,7 @@ begin
 end;//TdeList.pm_GetIsChanged
 
 procedure TdeList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F33E9E03C8_var*
 //#UC END# *479731C50290_47F33E9E03C8_var*
 begin
@@ -224,20 +207,12 @@ begin
 end;//TdeList.Cleanup
 
 procedure TdeList.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_List := nil;
- {$IfEnd} //not Admin
- {$If not defined(Admin)}
  f_NodeForPositioning := nil;
- {$IfEnd} //not Admin
- {$If not defined(Admin)}
  f_SearchInfo := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TdeList.ClearFields
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

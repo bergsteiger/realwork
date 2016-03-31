@@ -15,6 +15,8 @@ uses
  , DocumentUnit
  , nevRangeList
  , nevBase
+ //#UC START# *4D8A1D6700A0intf_uses*
+ //#UC END# *4D8A1D6700A0intf_uses*
 ;
 
 type
@@ -63,6 +65,8 @@ uses
  , SysUtils
  , nsFragmentListForSearchViaEverestOwnSearcher
  , l3Base
+ //#UC START# *4D8A1D6700A0impl_uses*
+ //#UC END# *4D8A1D6700A0impl_uses*
 ;
 
 constructor TnsContextListForSearchViaEverestOwnSearcher.Create(const aDoc: InevObjectPrim;

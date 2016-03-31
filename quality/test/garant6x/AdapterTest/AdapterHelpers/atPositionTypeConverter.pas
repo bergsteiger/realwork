@@ -1,58 +1,55 @@
 unit atPositionTypeConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atPositionTypeConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatPositionTypeConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atPositionTypeConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatPositionTypeConverter" MUID: (53971CFA00EF)
 
 interface
 
 uses
-  DocumentUnit,
-  SysUtils
-  ;
+ l3IntfUses
+ , DocumentUnit
+;
 
 type
  _EnumType_ = TPositionType;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatPositionTypeConverter = class(_atEnumConverter_)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatPositionTypeConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatPositionTypeConverter }
  end;//TatPositionTypeConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatPositionTypeConverter
-
-var g_TatPositionTypeConverter : TatPositionTypeConverter = nil;
+var g_TatPositionTypeConverter: TatPositionTypeConverter = nil;
+ {* Экземпляр синглетона TatPositionTypeConverter }
 
 procedure TatPositionTypeConverterFree;
+ {* Метод освобождения экземпляра синглетона TatPositionTypeConverter }
 begin
  l3Free(g_TatPositionTypeConverter);
-end;
+end;//TatPositionTypeConverterFree
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+class function TatPositionTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatPositionTypeConverter <> nil;
+end;//TatPositionTypeConverter.Exists
 
 class function TatPositionTypeConverter.Instance: TatPositionTypeConverter;
+ {* Метод получения экземпляра синглетона TatPositionTypeConverter }
 begin
  if (g_TatPositionTypeConverter = nil) then
  begin
@@ -60,17 +57,6 @@ begin
   g_TatPositionTypeConverter := Create;
  end;
  Result := g_TatPositionTypeConverter;
-end;
-
-
-{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
-
-// start class TatPositionTypeConverter
-
-class function TatPositionTypeConverter.Exists: Boolean;
- {-}
-begin
- Result := g_TatPositionTypeConverter <> nil;
-end;//TatPositionTypeConverter.Exists
+end;//TatPositionTypeConverter.Instance
 
 end.

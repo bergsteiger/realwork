@@ -1,41 +1,28 @@
 unit caParam;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caParam.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaParam
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caParam.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaParam" MUID: (56E14CE0012E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes,
-  l3Date
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+ , l3Date
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaParam = class(Tl3ProtoObject, IdaParam)
- private
- // private fields
-   f_HTParam : IdaParam;
-   f_PGParam : IdaParam;
- protected
- // realized methods
+  private
+   f_HTParam: IdaParam;
+   f_PGParam: IdaParam;
+  protected
    function Get_Name: AnsiString;
    function IsSameType(const aDesc: IdaParamDescription): Boolean;
    function Get_AsInteger: LongInt;
@@ -46,32 +33,29 @@ type
    function Get_AsString: AnsiString;
    procedure Set_AsString(const aValue: AnsiString);
    function Get_AsStDate: TStDate;
-   procedure Set_AsStDate(aValue: TStDate);
+   procedure Set_AsStDate(const aValue: TStDate);
    function Get_AsStTime: TStTime;
-   procedure Set_AsStTime(aValue: TStTime);
+   procedure Set_AsStTime(const aValue: TStTime);
    function Get_ParamType: TdaParamType;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aHTParam: IdaParam;
-     const aPGParam: IdaParam); reintroduce;
+    const aPGParam: IdaParam); reintroduce;
    class function Make(const aHTParam: IdaParam;
-     const aPGParam: IdaParam): IdaParam; reintroduce;
-     {* Сигнатура фабрики TcaParam.Make }
+    const aPGParam: IdaParam): IdaParam; reintroduce;
  end;//TcaParam
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaParam
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
+uses
+ l3ImplUses
+;
 
 constructor TcaParam.Create(const aHTParam: IdaParam;
-  const aPGParam: IdaParam);
+ const aPGParam: IdaParam);
 //#UC START# *56E14D92025C_56E14CE0012E_var*
 //#UC END# *56E14D92025C_56E14CE0012E_var*
 begin
@@ -83,7 +67,7 @@ begin
 end;//TcaParam.Create
 
 class function TcaParam.Make(const aHTParam: IdaParam;
-  const aPGParam: IdaParam): IdaParam;
+ const aPGParam: IdaParam): IdaParam;
 var
  l_Inst : TcaParam;
 begin
@@ -93,7 +77,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaParam.Make
 
 function TcaParam.Get_Name: AnsiString;
 //#UC START# *5555CC750283_56E14CE0012Eget_var*
@@ -198,7 +182,7 @@ begin
 //#UC END# *563C8B50016A_56E14CE0012Eget_impl*
 end;//TcaParam.Get_AsStDate
 
-procedure TcaParam.Set_AsStDate(aValue: TStDate);
+procedure TcaParam.Set_AsStDate(const aValue: TStDate);
 //#UC START# *563C8B50016A_56E14CE0012Eset_var*
 //#UC END# *563C8B50016A_56E14CE0012Eset_var*
 begin
@@ -219,7 +203,7 @@ begin
 //#UC END# *564C37CF00C4_56E14CE0012Eget_impl*
 end;//TcaParam.Get_AsStTime
 
-procedure TcaParam.Set_AsStTime(aValue: TStTime);
+procedure TcaParam.Set_AsStTime(const aValue: TStTime);
 //#UC START# *564C37CF00C4_56E14CE0012Eset_var*
 //#UC END# *564C37CF00C4_56E14CE0012Eset_var*
 begin
@@ -241,6 +225,7 @@ begin
 end;//TcaParam.Get_ParamType
 
 procedure TcaParam.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56E14CE0012E_var*
 //#UC END# *479731C50290_56E14CE0012E_var*
 begin
@@ -250,7 +235,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56E14CE0012E_impl*
 end;//TcaParam.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

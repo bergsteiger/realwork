@@ -1,57 +1,43 @@
 unit alcuHavanskyExportTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuHavanskyExportTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuHavanskyExportTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuHavanskyExportTaskPrim" MUID: (53DF6A58036D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(HavanskyExport) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(HavanskyExport)}
 uses
-  alcuExport,
-  k2Base
-  ;
-{$IfEnd} //HavanskyExport AND ServerTasks
+ l3IntfUses
+ , alcuExport
+ , k2Base
+;
 
-{$If defined(HavanskyExport) AND defined(ServerTasks)}
 type
  TalcuHavanskyExportTaskPrim = class(TalcuExport)
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
  end;//TalcuHavanskyExportTaskPrim
-{$IfEnd} //HavanskyExport AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(HavanskyExport)
 
 implementation
 
-{$If defined(HavanskyExport) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(HavanskyExport)}
 uses
-  HavanskyExportTask_Const
-  ;
-{$IfEnd} //HavanskyExport AND ServerTasks
-
-{$If defined(HavanskyExport) AND defined(ServerTasks)}
-
-// start class TalcuHavanskyExportTaskPrim
+ l3ImplUses
+ , HavanskyExportTask_Const
+;
 
 class function TalcuHavanskyExportTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53DF6A58036D_var*
+//#UC END# *53AC03EE01FD_53DF6A58036D_var*
 begin
- Result := k2_typHavanskyExportTask;
+//#UC START# *53AC03EE01FD_53DF6A58036D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53DF6A58036D_impl*
 end;//TalcuHavanskyExportTaskPrim.GetTaggedDataType
-
-{$IfEnd} //HavanskyExport AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(HavanskyExport)
 
 end.

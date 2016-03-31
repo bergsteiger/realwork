@@ -1,63 +1,44 @@
 unit htUserManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htUserManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtUserManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htUserManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtUserManager" MUID: (5629E343023B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
 type
  ThtUserManager = class(Tl3ProtoObject, IdaUserManager)
- protected
- // realized methods
+  protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
    function IsUserAdmin(anUserID: TdaUserID): Boolean;
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IdaUserManager; reintroduce;
-     {* Сигнатура фабрики ThtUserManager.Make }
  end;//ThtUserManager
 
 implementation
 
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  dt_Serv
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_User
-  {$IfEnd} //not Nemesis
-  
-  ;
-
-// start class ThtUserManager
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , dt_Serv
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 constructor ThtUserManager.Create;
 //#UC START# *5629F0F901C8_5629E343023B_var*
@@ -78,12 +59,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtUserManager.Make
 
 function ThtUserManager.CheckPassword(const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  RequireAdminRights: Boolean;
-  out theUserID: TdaUserID): TdaLoginError;
+ const aPassword: AnsiString;
+ RequireAdminRights: Boolean;
+ out theUserID: TdaUserID): TdaLoginError;
 //#UC START# *5628D14D0151_5629E343023B_var*
 var
  l_Result: Boolean;

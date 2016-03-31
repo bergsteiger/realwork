@@ -1,30 +1,21 @@
 unit m3StoreHeaderDataNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StoreHeaderDataNew.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3StoreHeaderDataNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StoreHeaderDataNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StoreHeaderDataNew" MUID: (540854CA0131)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3StoreHeaderDataPrim
-  ;
+ l3IntfUses
+ , m3StoreHeaderDataPrim
+;
 
 type
  Tm3StoreHeaderDataRecNew = packed record
-//#UC START# *541057750002publ*
+ //#UC START# *541057750002publ*
    rNextPosition: Int64;
      {* - позиция следующего свободного элемента каталога (для связывания в цепочки). }
    rTOCBuffRootPosition: Int64;
@@ -33,42 +24,38 @@ type
      {* - указатель на позицию где в данном потоке находится оглавление. }
    rRealSize: Int64;
      {* - реальный размер потока. }
-//#UC END# *541057750002publ*
+ //#UC END# *541057750002publ*
  end;//Tm3StoreHeaderDataRecNew
 
  Tm3StoreHeaderDataNew = class(Tm3StoreHeaderDataPrim)
- private
- // private fields
-   Data : Tm3StoreHeaderDataRecNew;
-   DataCompare : Tm3StoreHeaderDataRecNew;
- protected
- // realized methods
+  private
+   Data: Tm3StoreHeaderDataRecNew;
+   DataCompare: Tm3StoreHeaderDataRecNew;
+  protected
    function Modified: Boolean; override;
-   function pm_GetRRealSizePrim: Int64; override;
-   procedure pm_SetRRealSizePrim(aValue: Int64); override;
+   function pm_GetrRealSizePrim: Int64; override;
+   procedure pm_SetrRealSizePrim(aValue: Int64); override;
    function pm_GetFirstClusterPrim: Int64; override;
    procedure pm_SetFirstClusterPrim(aValue: Int64); override;
-   function pm_GetRTOCItemListPositionPrim: Int64; override;
-   procedure pm_SetRTOCItemListPositionPrim(aValue: Int64); override;
+   function pm_GetrTOCItemListPositionPrim: Int64; override;
+   procedure pm_SetrTOCItemListPositionPrim(aValue: Int64); override;
    procedure DoDoLoad; override;
    procedure DoDoSave; override;
    procedure DoSaveNextPosition(aNextPosition: Int64); override;
    procedure InitData(aNew: Boolean); override;
- public
- // realized methods
+  public
    class function DataSize: Integer; override;
  end;//Tm3StoreHeaderDataNew
 
 implementation
 
 uses
-  m2MemLib,
-  m2COMLib,
-  ActiveX,
-  m3Exceptions
-  ;
-
-// start class Tm3StoreHeaderDataNew
+ l3ImplUses
+ , m2MemLib
+ , m2COMLib
+ , ActiveX
+ , m3Exceptions
+;
 
 class function Tm3StoreHeaderDataNew.DataSize: Integer;
 //#UC START# *5407189E0002_540854CA0131_var*
@@ -90,23 +77,23 @@ begin
 //#UC END# *540718BC025B_540854CA0131_impl*
 end;//Tm3StoreHeaderDataNew.Modified
 
-function Tm3StoreHeaderDataNew.pm_GetRRealSizePrim: Int64;
+function Tm3StoreHeaderDataNew.pm_GetrRealSizePrim: Int64;
 //#UC START# *540834BD03CA_540854CA0131get_var*
 //#UC END# *540834BD03CA_540854CA0131get_var*
 begin
 //#UC START# *540834BD03CA_540854CA0131get_impl*
  Result := Data.rRealSize;
 //#UC END# *540834BD03CA_540854CA0131get_impl*
-end;//Tm3StoreHeaderDataNew.pm_GetRRealSizePrim
+end;//Tm3StoreHeaderDataNew.pm_GetrRealSizePrim
 
-procedure Tm3StoreHeaderDataNew.pm_SetRRealSizePrim(aValue: Int64);
+procedure Tm3StoreHeaderDataNew.pm_SetrRealSizePrim(aValue: Int64);
 //#UC START# *540834BD03CA_540854CA0131set_var*
 //#UC END# *540834BD03CA_540854CA0131set_var*
 begin
 //#UC START# *540834BD03CA_540854CA0131set_impl*
  Data.rRealSize := aValue;
 //#UC END# *540834BD03CA_540854CA0131set_impl*
-end;//Tm3StoreHeaderDataNew.pm_SetRRealSizePrim
+end;//Tm3StoreHeaderDataNew.pm_SetrRealSizePrim
 
 function Tm3StoreHeaderDataNew.pm_GetFirstClusterPrim: Int64;
 //#UC START# *540834F20369_540854CA0131get_var*
@@ -126,23 +113,23 @@ begin
 //#UC END# *540834F20369_540854CA0131set_impl*
 end;//Tm3StoreHeaderDataNew.pm_SetFirstClusterPrim
 
-function Tm3StoreHeaderDataNew.pm_GetRTOCItemListPositionPrim: Int64;
+function Tm3StoreHeaderDataNew.pm_GetrTOCItemListPositionPrim: Int64;
 //#UC START# *5408350602F2_540854CA0131get_var*
 //#UC END# *5408350602F2_540854CA0131get_var*
 begin
 //#UC START# *5408350602F2_540854CA0131get_impl*
  Result := Data.rTOCItemListPosition;
 //#UC END# *5408350602F2_540854CA0131get_impl*
-end;//Tm3StoreHeaderDataNew.pm_GetRTOCItemListPositionPrim
+end;//Tm3StoreHeaderDataNew.pm_GetrTOCItemListPositionPrim
 
-procedure Tm3StoreHeaderDataNew.pm_SetRTOCItemListPositionPrim(aValue: Int64);
+procedure Tm3StoreHeaderDataNew.pm_SetrTOCItemListPositionPrim(aValue: Int64);
 //#UC START# *5408350602F2_540854CA0131set_var*
 //#UC END# *5408350602F2_540854CA0131set_var*
 begin
 //#UC START# *5408350602F2_540854CA0131set_impl*
  Data.rTOCItemListPosition := aValue;
 //#UC END# *5408350602F2_540854CA0131set_impl*
-end;//Tm3StoreHeaderDataNew.pm_SetRTOCItemListPositionPrim
+end;//Tm3StoreHeaderDataNew.pm_SetrTOCItemListPositionPrim
 
 procedure Tm3StoreHeaderDataNew.DoDoLoad;
 //#UC START# *54083558039D_540854CA0131_var*

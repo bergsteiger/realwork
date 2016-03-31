@@ -1,94 +1,62 @@
 unit ncsServerTransporterPtrPool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsServerTransporterPtrPool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsServerTransporterPtrPool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsServerTransporterPtrPool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerTransporterPtrPool" MUID: (54917FF702A4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ncsMessageInterfaces,
-  ncsServerTransporterPtrList,
-  SyncObjs
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsServerTransporterPtrList
+ , ncsMessageInterfaces
+ , SyncObjs
+;
 
-{$If not defined(Nemesis)}
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsServerTransporterPtrPool = class(_l3CriticalSectionHolder_)
- private
- // private fields
-   f_Data : TncsServerTransporterPtrList;
- protected
- // overridden protected methods
+  private
+   f_Data: TncsServerTransporterPtrList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure Register(const aTransporter: IncsServerTransporter);
    procedure UnRegister(const aTransporter: IncsServerTransporter);
    function FindTransporter(const aSessionID: AnsiString): IncsServerTransporter;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsServerTransporterPtrPool;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TncsServerTransporterPtrPool }
  end;//TncsServerTransporterPtrPool
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Nemesis)}
-
-
-// start class TncsServerTransporterPtrPool
-
-var g_TncsServerTransporterPtrPool : TncsServerTransporterPtrPool = nil;
+var g_TncsServerTransporterPtrPool: TncsServerTransporterPtrPool = nil;
+ {* Экземпляр синглетона TncsServerTransporterPtrPool }
 
 procedure TncsServerTransporterPtrPoolFree;
+ {* Метод освобождения экземпляра синглетона TncsServerTransporterPtrPool }
 begin
  l3Free(g_TncsServerTransporterPtrPool);
-end;
-
-class function TncsServerTransporterPtrPool.Instance: TncsServerTransporterPtrPool;
-begin
- if (g_TncsServerTransporterPtrPool = nil) then
- begin
-  l3System.AddExitProc(TncsServerTransporterPtrPoolFree);
-  g_TncsServerTransporterPtrPool := Create;
- end;
- Result := g_TncsServerTransporterPtrPool;
-end;
-
+end;//TncsServerTransporterPtrPoolFree
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
-
-// start class TncsServerTransporterPtrPool
 
 procedure TncsServerTransporterPtrPool.Register(const aTransporter: IncsServerTransporter);
 //#UC START# *5492D83203D7_54917FF702A4_var*
@@ -137,12 +105,24 @@ begin
 end;//TncsServerTransporterPtrPool.FindTransporter
 
 class function TncsServerTransporterPtrPool.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TncsServerTransporterPtrPool <> nil;
 end;//TncsServerTransporterPtrPool.Exists
 
+class function TncsServerTransporterPtrPool.Instance: TncsServerTransporterPtrPool;
+ {* Метод получения экземпляра синглетона TncsServerTransporterPtrPool }
+begin
+ if (g_TncsServerTransporterPtrPool = nil) then
+ begin
+  l3System.AddExitProc(TncsServerTransporterPtrPoolFree);
+  g_TncsServerTransporterPtrPool := Create;
+ end;
+ Result := g_TncsServerTransporterPtrPool;
+end;//TncsServerTransporterPtrPool.Instance
+
 procedure TncsServerTransporterPtrPool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54917FF702A4_var*
 //#UC END# *479731C50290_54917FF702A4_var*
 begin
@@ -161,7 +141,6 @@ begin
  f_Data := TncsServerTransporterPtrList.Make;
 //#UC END# *47A042E100E2_54917FF702A4_impl*
 end;//TncsServerTransporterPtrPool.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

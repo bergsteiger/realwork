@@ -17,6 +17,7 @@ uses
 ;
 
 type
+ _BaseDocument_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  TPrimCommonDictionForm = class(_BaseDocument_)
   protected
@@ -52,6 +53,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utTipsLocalConstants }
  str_utTipsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utTipsCaption'; rValue : 'Совет дня');
@@ -77,7 +79,6 @@ begin
 //#UC END# *47EA4E9002C6_497ED770029D_impl*
 end;//TPrimCommonDictionForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 function TPrimCommonDictionForm.NeedDrawCaption: Boolean;
  {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_497ED770029D_var*
@@ -87,9 +88,7 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_497ED770029D_impl*
 end;//TPrimCommonDictionForm.NeedDrawCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimCommonDictionForm.IsAcceptable(aDataUpdate: Boolean): Boolean;
  {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *55127A5401DE_497ED770029D_var*
@@ -99,7 +98,6 @@ begin
  Result := dsCommonDiction.IsDataAvailable;
 //#UC END# *55127A5401DE_497ED770029D_impl*
 end;//TPrimCommonDictionForm.IsAcceptable
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utTipsCaption.Init;
@@ -114,6 +112,7 @@ initialization
  TtfwClassRef.Register(TPrimCommonDictionForm);
  {* Регистрация PrimCommonDiction }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

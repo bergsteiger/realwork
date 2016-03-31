@@ -16,7 +16,7 @@ uses
 ;
 
 type
- TPrimEditionsResForm = class
+ TPrimEditionsResForm = class(TDataModule)
   private
    f_EditionsStateIcons: TvtPngImageList;
     {* Поле для свойства EditionsStateIcons }

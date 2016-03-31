@@ -1,115 +1,87 @@
 unit atFileIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atFileIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatFileIterator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atFileIterator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatFileIterator" MUID: (50254E240133)
 
 interface
 
 uses
-  SysUtils,
-  Contnrs,
-  Masks
-  ;
+ l3IntfUses
+ , Contnrs
+ , Masks
+ , SysUtils
+;
 
 type
  TatFileIteratorBase = {abstract} class(TObject)
- protected
- // property methods
+  protected
    function pm_GetAtEnd: Boolean; virtual; abstract;
    function pm_GetName: AnsiString; virtual; abstract;
    function pm_GetFullPath: AnsiString; virtual; abstract;
- public
- // public methods
+  public
    procedure MoveNext; virtual; abstract;
- public
- // public properties
+  public
    property AtEnd: Boolean
-     read pm_GetAtEnd;
+    read pm_GetAtEnd;
    property Name: AnsiString
-     read pm_GetName;
+    read pm_GetName;
    property FullPath: AnsiString
-     read pm_GetFullPath;
+    read pm_GetFullPath;
  end;//TatFileIteratorBase
 
  TatSimpleFileIterator = class(TatFileIteratorBase)
- private
- // private fields
-   f_FindRes : Integer;
-   f_SearchRec : TSearchRec;
-   f_Folder : AnsiString;
- private
- // private methods
+  private
+   f_FindRes: Integer;
+   f_SearchRec: TSearchRec;
+   f_Folder: AnsiString;
+  private
    procedure SkipDots; virtual;
- protected
- // property methods
+  protected
    function pm_GetIsFolder: Boolean; virtual;
- protected
- // realized methods
    function pm_GetAtEnd: Boolean; override;
-   procedure MoveNext; override;
    function pm_GetName: AnsiString; override;
    function pm_GetFullPath: AnsiString; override;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const aFolder: AnsiString;
     const aFileMask: AnsiString;
     const anAttrs: Integer); reintroduce; virtual;
- public
- // public properties
+   procedure MoveNext; override;
+   destructor Destroy; override;
+  public
    property IsFolder: Boolean
-     read pm_GetIsFolder;
+    read pm_GetIsFolder;
  end;//TatSimpleFileIterator
 
  TatFileIterator = class(TatFileIteratorBase)
- private
- // private fields
-   f_Attrs : Integer;
-   f_InFolderIterators : TStack;
-   f_Mask : TMask;
- private
- // private methods
+  private
+   f_Attrs: Integer;
+   f_InFolderIterators: TStack;
+   f_Mask: TMask;
+  private
    function IsOnGoodFile: Boolean; virtual;
- protected
- // property methods
+  protected
    function pm_GetCurrent: TatSimpleFileIterator; virtual;
- protected
- // realized methods
    function pm_GetAtEnd: Boolean; override;
-   procedure MoveNext; override;
    function pm_GetName: AnsiString; override;
    function pm_GetFullPath: AnsiString; override;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const aFolder: AnsiString;
     const aFileMask: AnsiString;
-    const isRecursive: Boolean = true;
+    const isRecursive: Boolean = True;
     const anAttributes: Integer = 0); reintroduce;
- private
- // private properties
+   procedure MoveNext; override;
+   destructor Destroy; override;
+  private
    property Current: TatSimpleFileIterator
-     read pm_GetCurrent;
+    read pm_GetCurrent;
  end;//TatFileIterator
 
 implementation
 
-// start class TatSimpleFileIterator
+uses
+ l3ImplUses
+;
 
 function TatSimpleFileIterator.pm_GetIsFolder: Boolean;
 //#UC START# *50254F360175_50254F1703A1get_var*
@@ -121,8 +93,8 @@ begin
 end;//TatSimpleFileIterator.pm_GetIsFolder
 
 constructor TatSimpleFileIterator.Create(const aFolder: AnsiString;
-  const aFileMask: AnsiString;
-  const anAttrs: Integer);
+ const aFileMask: AnsiString;
+ const anAttrs: Integer);
 //#UC START# *50254F49027D_50254F1703A1_var*
 //#UC END# *50254F49027D_50254F1703A1_var*
 begin
@@ -200,9 +172,9 @@ begin
 end;//TatFileIterator.pm_GetCurrent
 
 constructor TatFileIterator.Create(const aFolder: AnsiString;
-  const aFileMask: AnsiString;
-  const isRecursive: Boolean = true;
-  const anAttributes: Integer = 0);
+ const aFileMask: AnsiString;
+ const isRecursive: Boolean = True;
+ const anAttributes: Integer = 0);
 //#UC START# *50255C38035F_50254E240133_var*
 //#UC END# *50255C38035F_50254E240133_var*
 begin

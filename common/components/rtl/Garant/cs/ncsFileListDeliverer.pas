@@ -1,80 +1,61 @@
 unit ncsFileListDeliverer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsFileListDeliverer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsFileListDeliverer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsFileListDeliverer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsFileListDeliverer" MUID: (546F398E0203)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  l3ProtoObject,
-  ddProgressObj,
-  ncsMessageInterfaces,
-  ncsFileDescHelper,
-  ncsOneFileDelivererList
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsOneFileDelivererList
+ , ncsMessageInterfaces
+ , ddProgressObj
+ , ncsFileDescHelper
+ , SysUtils
+;
 
-{$If not defined(Nemesis)}
 type
  EncsEmptyResults = class(Exception)
  end;//EncsEmptyResults
 
  TncsFileListDeliverer = class(Tl3ProtoObject)
- private
- // private fields
-   f_Data : TncsOneFileDelivererList;
-   f_Transporter : IncsTransporter;
-   f_LocalPath : AnsiString;
-   f_TaskID : AnsiString;
-   f_Progressor : TddProgressObject;
- private
- // private methods
+  private
+   f_Data: TncsOneFileDelivererList;
+   f_Transporter: IncsTransporter;
+   f_LocalPath: AnsiString;
+   f_TaskID: AnsiString;
+   f_Progressor: TddProgressObject;
+  private
    procedure PrepareDescription(const aList: FileDescHelper);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    constructor Create(const aTransporter: IncsTransporter;
-     aProgressor: TddProgressObject;
-     const aTaskID: AnsiString;
-     const aLocalPath: AnsiString); reintroduce;
+    aProgressor: TddProgressObject;
+    const aTaskID: AnsiString;
+    const aLocalPath: AnsiString); reintroduce;
    function Execute(const aList: FileDescHelper): Boolean;
  end;//TncsFileListDeliverer
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsOneFileDeliverer,
-  ncsFileDesc,
-  l3Interfaces,
-  l3FileUtils,
-  l3Base
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsFileListDeliverer
+ l3ImplUses
+ , l3Interfaces
+ , l3FileUtils
+ , l3Base
+ , ncsOneFileDeliverer
+ , ncsFileDesc
+;
 
 procedure TncsFileListDeliverer.PrepareDescription(const aList: FileDescHelper);
 //#UC START# *5472D96A03B7_546F398E0203_var*
@@ -114,9 +95,9 @@ begin
 end;//TncsFileListDeliverer.PrepareDescription
 
 constructor TncsFileListDeliverer.Create(const aTransporter: IncsTransporter;
-  aProgressor: TddProgressObject;
-  const aTaskID: AnsiString;
-  const aLocalPath: AnsiString);
+ aProgressor: TddProgressObject;
+ const aTaskID: AnsiString;
+ const aLocalPath: AnsiString);
 //#UC START# *5472DC690380_546F398E0203_var*
 //#UC END# *5472DC690380_546F398E0203_var*
 begin
@@ -128,7 +109,6 @@ begin
  f_LocalPath := aLocalPath;
 //#UC END# *5472DC690380_546F398E0203_impl*
 end;//TncsFileListDeliverer.Create
-// start class TncsFileListDeliverer
 
 function TncsFileListDeliverer.Execute(const aList: FileDescHelper): Boolean;
 //#UC START# *546F3BE702A4_546F398E0203_var*
@@ -176,6 +156,7 @@ begin
 end;//TncsFileListDeliverer.Execute
 
 procedure TncsFileListDeliverer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_546F398E0203_var*
 //#UC END# *479731C50290_546F398E0203_var*
 begin
@@ -196,7 +177,6 @@ begin
  f_Data := TncsOneFileDelivererList.Create;
 //#UC END# *47A042E100E2_546F398E0203_impl*
 end;//TncsFileListDeliverer.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

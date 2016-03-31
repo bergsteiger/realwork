@@ -43,15 +43,10 @@ type
    f_DocGen: TddDocumentGenerator;
    f_PreviewEnabled: Boolean;
    f_Editor: TevCustomEditor;
-    {* Поле для свойства Editor }
    f_CellSeparator: TddCellSeparator;
-    {* Поле для свойства CellSeparator }
    f_TableWidth: LongInt;
-    {* Поле для свойства TableWidth }
    f_CodePageIn: LongInt;
-    {* Поле для свойства CodePageIn }
    f_CodePageOut: LongInt;
-    {* Поле для свойства CodePageOut }
   protected
    procedure pm_SetEditor(aValue: TevCustomEditor); virtual;
    procedure pm_SetTableWidth(aValue: LongInt); virtual;

@@ -1,42 +1,29 @@
 unit caTableQueryFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caTableQueryFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaTableQueryFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caTableQueryFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaTableQueryFactory" MUID: (56C4594703CF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  caInterfaces,
-  daTypes
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , caInterfaces
+ , daTypes
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaTableQueryFactory = class(Tl3ProtoObject, IdaTableQueryFactory)
- private
- // private fields
-   f_HTFactory : IdaTableQueryFactory;
-   f_PGFactory : IdaTableQueryFactory;
-   f_DataConverter : IcaDataConverter;
- protected
- // realized methods
+  private
+   f_HTFactory: IdaTableQueryFactory;
+   f_PGFactory: IdaTableQueryFactory;
+   f_DataConverter: IcaDataConverter;
+  protected
    function MakeTabledQuery(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaTabledQuery;
    function MakeSelectField(const aTableAlias: AnsiString;
@@ -55,43 +42,35 @@ type
     const aField: IdaFieldDescription;
     const aQuery: IdaTabledQuery): IdaCondition;
    function MakeSortField(const aSelectField: IdaSelectField;
-    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
- protected
- // overridden protected methods
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataConverter: IcaDataConverter;
-     const aHTFactory: IdaTableQueryFactory;
-     const aPGFactory: IdaTableQueryFactory); reintroduce;
+    const aHTFactory: IdaTableQueryFactory;
+    const aPGFactory: IdaTableQueryFactory); reintroduce;
    class function Make(const aDataConverter: IcaDataConverter;
-     const aHTFactory: IdaTableQueryFactory;
-     const aPGFactory: IdaTableQueryFactory): IdaTableQueryFactory; reintroduce;
-     {* Сигнатура фабрики TcaTableQueryFactory.Make }
+    const aHTFactory: IdaTableQueryFactory;
+    const aPGFactory: IdaTableQueryFactory): IdaTableQueryFactory; reintroduce;
  end;//TcaTableQueryFactory
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  caTabledQuery,
-  daLogicCondition,
-  daParamsCondition,
-  daSortField,
-  daSelectField,
-  daSubQueryCondition
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
-
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaTableQueryFactory
+ l3ImplUses
+ , caTabledQuery
+ , daLogicCondition
+ , daParamsCondition
+ , daSortField
+ , daSelectField
+ , daSubQueryCondition
+;
 
 constructor TcaTableQueryFactory.Create(const aDataConverter: IcaDataConverter;
-  const aHTFactory: IdaTableQueryFactory;
-  const aPGFactory: IdaTableQueryFactory);
+ const aHTFactory: IdaTableQueryFactory;
+ const aPGFactory: IdaTableQueryFactory);
 //#UC START# *56C45EE801FB_56C4594703CF_var*
 //#UC END# *56C45EE801FB_56C4594703CF_var*
 begin
@@ -104,8 +83,8 @@ begin
 end;//TcaTableQueryFactory.Create
 
 class function TcaTableQueryFactory.Make(const aDataConverter: IcaDataConverter;
-  const aHTFactory: IdaTableQueryFactory;
-  const aPGFactory: IdaTableQueryFactory): IdaTableQueryFactory;
+ const aHTFactory: IdaTableQueryFactory;
+ const aPGFactory: IdaTableQueryFactory): IdaTableQueryFactory;
 var
  l_Inst : TcaTableQueryFactory;
 begin
@@ -115,10 +94,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaTableQueryFactory.Make
 
 function TcaTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaTabledQuery;
+ const anAlias: AnsiString = ''): IdaTabledQuery;
 //#UC START# *5549C65D038D_56C4594703CF_var*
 //#UC END# *5549C65D038D_56C4594703CF_var*
 begin
@@ -129,8 +108,8 @@ begin
 end;//TcaTableQueryFactory.MakeTabledQuery
 
 function TcaTableQueryFactory.MakeSelectField(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const anAlias: AnsiString = ''): IdaSelectField;
+ const aField: IdaFieldDescription;
+ const anAlias: AnsiString = ''): IdaSelectField;
 //#UC START# *559B80BD00A8_56C4594703CF_var*
 //#UC END# *559B80BD00A8_56C4594703CF_var*
 begin
@@ -140,9 +119,9 @@ begin
 end;//TcaTableQueryFactory.MakeSelectField
 
 function TcaTableQueryFactory.MakeParamsCondition(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  anOperation: TdaCompareOperation;
-  const aParamName: AnsiString): IdaCondition;
+ const aField: IdaFieldDescription;
+ anOperation: TdaCompareOperation;
+ const aParamName: AnsiString): IdaCondition;
 //#UC START# *559B810003CF_56C4594703CF_var*
 //#UC END# *559B810003CF_56C4594703CF_var*
 begin
@@ -171,8 +150,8 @@ begin
 end;//TcaTableQueryFactory.Get_DataConverter
 
 function TcaTableQueryFactory.MakeLogicCondition(const aLeft: IdaCondition;
-  anOperation: TdaLogicOperation;
-  const aRight: IdaCondition): IdaCondition;
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition): IdaCondition;
 //#UC START# *56405475021D_56C4594703CF_var*
 //#UC END# *56405475021D_56C4594703CF_var*
 begin
@@ -182,8 +161,8 @@ begin
 end;//TcaTableQueryFactory.MakeLogicCondition
 
 function TcaTableQueryFactory.MakeSubQueryCondition(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const aQuery: IdaTabledQuery): IdaCondition;
+ const aField: IdaFieldDescription;
+ const aQuery: IdaTabledQuery): IdaCondition;
 //#UC START# *5641E5DB02C3_56C4594703CF_var*
 //#UC END# *5641E5DB02C3_56C4594703CF_var*
 begin
@@ -193,7 +172,7 @@ begin
 end;//TcaTableQueryFactory.MakeSubQueryCondition
 
 function TcaTableQueryFactory.MakeSortField(const aSelectField: IdaSelectField;
-  aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
 //#UC START# *56811844032C_56C4594703CF_var*
 //#UC END# *56811844032C_56C4594703CF_var*
 begin
@@ -203,6 +182,7 @@ begin
 end;//TcaTableQueryFactory.MakeSortField
 
 procedure TcaTableQueryFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56C4594703CF_var*
 //#UC END# *479731C50290_56C4594703CF_var*
 begin
@@ -213,7 +193,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56C4594703CF_impl*
 end;//TcaTableQueryFactory.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

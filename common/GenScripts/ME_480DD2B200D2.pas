@@ -11,6 +11,8 @@ interface
 uses
  l3IntfUses
  , afwCustomCaretType
+ //#UC START# *480DD2B200D2intf_uses*
+ //#UC END# *480DD2B200D2intf_uses*
 ;
 
 type
@@ -34,6 +36,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *480DD2B200D2impl_uses*
+ //#UC END# *480DD2B200D2impl_uses*
 ;
 
 constructor TafwOvrCaretType.Create;

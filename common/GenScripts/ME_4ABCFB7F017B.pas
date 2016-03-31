@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TConsultationModule = class
+ TConsultationModule = class(TvcmModule)
   {* Консультации }
   public
    procedure GiveMarkOnConsultation(const aNode: Il3SimpleNode);
@@ -56,6 +56,7 @@ uses
  , DataAdapter
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TConsultationModule.GiveMarkOnConsultation(const aNode: Il3SimpleNode);
 var l_OpenConsultation: IsdsConsultation;
 var l_Form: IvcmEntityForm;
@@ -136,6 +137,7 @@ begin
  end;//try..finally
 //#UC END# *4AA5363D02D0_4ABCFB7F017B_impl*
 end;//TConsultationModule.OpenConsultation
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

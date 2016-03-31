@@ -1,65 +1,47 @@
 unit alcuDetachedExecutorPool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuDetachedExecutorPool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::TaskSend::TalcuDetachedExecutorPool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutorPool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuDetachedExecutorPool" MUID: (54BE32A30011)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  l3Base,
-  l3ProtoObject,
-  alcuDetachedExecutorList,
-  SyncObjs
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , l3ProtoObject
+ , alcuDetachedExecutorList
+ , l3Base
+ , SyncObjs
+;
 
-{$If defined(ServerTasks)}
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TalcuDetachedExecutorPool = class(_l3CriticalSectionHolder_)
- private
- // private fields
-   f_Data : TalcuDetachedExecutorList;
- protected
- // overridden protected methods
+  private
+   f_Data: TalcuDetachedExecutorList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure Launch(anExecutor: Tl3ThreadContainer);
    procedure Pack;
  end;//TalcuDetachedExecutorPool
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
+ l3ImplUses
+ , SysUtils
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
-
-// start class TalcuDetachedExecutorPool
 
 procedure TalcuDetachedExecutorPool.Launch(anExecutor: Tl3ThreadContainer);
 //#UC START# *54BE5EBC03D3_54BE32A30011_var*
@@ -95,6 +77,7 @@ begin
 end;//TalcuDetachedExecutorPool.Pack
 
 procedure TalcuDetachedExecutorPool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54BE32A30011_var*
 //#UC END# *479731C50290_54BE32A30011_var*
 begin
@@ -113,7 +96,6 @@ begin
  f_Data := TalcuDetachedExecutorList.Make;
 //#UC END# *47A042E100E2_54BE32A30011_impl*
 end;//TalcuDetachedExecutorPool.InitFields
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

@@ -1,135 +1,129 @@
 unit ncsTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsTransporter" MUID: (544A09EE005F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  CsCommon,
-  csIdIOHandlerAbstractAdapter,
-  ncsMessageQueue,
-  ncsSendThread,
-  ncsReceiveThread,
-  ncsProcessThread,
-  ncsMessageInterfaces,
-  ncsReplyWaiter,
-  SyncObjs,
-  ncsMessage,
-  Windows
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageInterfaces
+ , ncsMessageQueue
+ , ncsSendThread
+ , csIdIOHandlerAbstractAdapter
+ , ncsReceiveThread
+ , ncsProcessThread
+ , ncsReplyWaiter
+ , CsCommon
+ , ncsMessage
+ , Windows
+ , SyncObjs
+;
 
-{$If not defined(Nemesis)}
 type
  TncsIOHandlerArray = array [TncsSocketKind] of TcsIdIOHandlerAbstractAdapter;
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsTransporter = class(_l3CriticalSectionHolder_, IncsTransporter)
- private
- // private fields
-   f_Connected : Boolean;
-   f_ClientID : TCsClientId;
-   f_IOHandlers : TncsIOHandlerArray;
-   f_SendQueue : TncsMessageQueue;
-    {* Поле для свойства SendQueue}
-   f_ReceiveQueue : TncsMessageQueue;
-    {* Поле для свойства ReceiveQueue}
-   f_SendThread : TncsSendThread;
-    {* Поле для свойства SendThread}
-   f_ReceiveThread : TncsReceiveThread;
-    {* Поле для свойства ReceiveThread}
-   f_ProcessThread : TncsProcessThread;
-    {* Поле для свойства ProcessThread}
-   f_ReplyWaiter : TncsReplyWaiter;
-    {* Поле для свойства ReplyWaiter}
-   f_IntSessionID : AnsiString;
-    {* Поле для свойства IntSessionID}
- protected
- // property methods
+  private
+   f_Connected: Boolean;
+   f_ClientID: TCsClientId;
+   f_IOHandlers: TncsIOHandlerArray;
+   f_SendQueue: TncsMessageQueue;
+    {* Поле для свойства SendQueue }
+   f_ReceiveQueue: TncsMessageQueue;
+    {* Поле для свойства ReceiveQueue }
+   f_SendThread: TncsSendThread;
+    {* Поле для свойства SendThread }
+   f_ReceiveThread: TncsReceiveThread;
+    {* Поле для свойства ReceiveThread }
+   f_ProcessThread: TncsProcessThread;
+    {* Поле для свойства ProcessThread }
+   f_ReplyWaiter: TncsReplyWaiter;
+    {* Поле для свойства ReplyWaiter }
+   f_IntSessionID: AnsiString;
+    {* Поле для свойства IntSessionID }
+  protected
    function pm_GetIOHandlers(SocketKind: TncsSocketKind): TcsIdIOHandlerAbstractAdapter;
-   procedure pm_SetIOHandlers(SocketKind: TncsSocketKind; aValue: TcsIdIOHandlerAbstractAdapter);
- protected
- // realized methods
+   procedure pm_SetIOHandlers(SocketKind: TncsSocketKind;
+    aValue: TcsIdIOHandlerAbstractAdapter);
+   procedure SetConnected(aValue: Boolean);
+   procedure StartProcessing;
+   procedure StopProcessing(WaitForThreads: Boolean);
+   procedure HandShake; virtual; abstract;
+   function HandShakeKind: TncsSocketKind; virtual; abstract;
+   procedure TransportStarted; virtual;
    procedure Send(aMessage: TncsMessage);
    function WaitForReply(aMessage: TncsMessage;
     var theReply: TncsMessage;
-    aTimeOut: LongWord = INFINITE): Boolean;
+    aTimeOut: LongWord = Windows.INFINITE): Boolean;
    function Get_Connected: Boolean;
    function Get_ClientID: TCsClientId;
    procedure Set_ClientID(aValue: TCsClientId);
    function Get_Processing: Boolean;
    function Get_SessionID: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   procedure SetConnected(aValue: Boolean);
-   procedure StartProcessing;
-     {* Сигнатура метода StartProcessing }
-   procedure StopProcessing(WaitForThreads: Boolean);
-   procedure HandShake; virtual; abstract;
-     {* Сигнатура метода HandShake }
-   function HandShakeKind: TncsSocketKind; virtual; abstract;
-   procedure TransportStarted; virtual;
-     {* Сигнатура метода TransportStarted }
- protected
- // protected properties
+   procedure ClearFields; override;
+  protected
    property SendQueue: TncsMessageQueue
-     read f_SendQueue;
+    read f_SendQueue;
    property ReceiveQueue: TncsMessageQueue
-     read f_ReceiveQueue;
+    read f_ReceiveQueue;
    property SendThread: TncsSendThread
-     read f_SendThread;
+    read f_SendThread;
    property IOHandlers[SocketKind: TncsSocketKind]: TcsIdIOHandlerAbstractAdapter
-     read pm_GetIOHandlers
-     write pm_SetIOHandlers;
+    read pm_GetIOHandlers
+    write pm_SetIOHandlers;
    property ReceiveThread: TncsReceiveThread
-     read f_ReceiveThread;
+    read f_ReceiveThread;
    property ProcessThread: TncsProcessThread
-     read f_ProcessThread;
+    read f_ProcessThread;
    property ReplyWaiter: TncsReplyWaiter
-     read f_ReplyWaiter;
+    read f_ReplyWaiter;
    property IntSessionID: AnsiString
-     read f_IntSessionID
-     write f_IntSessionID;
+    read f_IntSessionID
+    write f_IntSessionID;
  end;//TncsTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Utils,
-  SysUtils,
-  evdNcsTypes
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , l3Utils
+ , SysUtils
+ , evdNcsTypes
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
-// start class TncsTransporter
+function TncsTransporter.pm_GetIOHandlers(SocketKind: TncsSocketKind): TcsIdIOHandlerAbstractAdapter;
+//#UC START# *545225640060_544A09EE005Fget_var*
+//#UC END# *545225640060_544A09EE005Fget_var*
+begin
+//#UC START# *545225640060_544A09EE005Fget_impl*
+ Result := f_IOHandlers[SocketKind];
+//#UC END# *545225640060_544A09EE005Fget_impl*
+end;//TncsTransporter.pm_GetIOHandlers
+
+procedure TncsTransporter.pm_SetIOHandlers(SocketKind: TncsSocketKind;
+ aValue: TcsIdIOHandlerAbstractAdapter);
+//#UC START# *545225640060_544A09EE005Fset_var*
+//#UC END# *545225640060_544A09EE005Fset_var*
+begin
+//#UC START# *545225640060_544A09EE005Fset_impl*
+ aValue.SetRefTo(f_IOHandlers[SocketKind]);
+//#UC END# *545225640060_544A09EE005Fset_impl*
+end;//TncsTransporter.pm_SetIOHandlers
 
 procedure TncsTransporter.SetConnected(aValue: Boolean);
 //#UC START# *54533B010030_544A09EE005F_var*
@@ -219,24 +213,6 @@ begin
 //#UC END# *5492C5F703AA_544A09EE005F_impl*
 end;//TncsTransporter.TransportStarted
 
-function TncsTransporter.pm_GetIOHandlers(SocketKind: TncsSocketKind): TcsIdIOHandlerAbstractAdapter;
-//#UC START# *545225640060_544A09EE005Fget_var*
-//#UC END# *545225640060_544A09EE005Fget_var*
-begin
-//#UC START# *545225640060_544A09EE005Fget_impl*
- Result := f_IOHandlers[SocketKind];
-//#UC END# *545225640060_544A09EE005Fget_impl*
-end;//TncsTransporter.pm_GetIOHandlers
-
-procedure TncsTransporter.pm_SetIOHandlers(SocketKind: TncsSocketKind; aValue: TcsIdIOHandlerAbstractAdapter);
-//#UC START# *545225640060_544A09EE005Fset_var*
-//#UC END# *545225640060_544A09EE005Fset_var*
-begin
-//#UC START# *545225640060_544A09EE005Fset_impl*
- aValue.SetRefTo(f_IOHandlers[SocketKind]);
-//#UC END# *545225640060_544A09EE005Fset_impl*
-end;//TncsTransporter.pm_SetIOHandlers
-
 procedure TncsTransporter.Send(aMessage: TncsMessage);
 //#UC START# *5464B4E900DA_544A09EE005F_var*
 //#UC END# *5464B4E900DA_544A09EE005F_var*
@@ -249,8 +225,8 @@ begin
 end;//TncsTransporter.Send
 
 function TncsTransporter.WaitForReply(aMessage: TncsMessage;
-  var theReply: TncsMessage;
-  aTimeOut: LongWord = INFINITE): Boolean;
+ var theReply: TncsMessage;
+ aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *5464B52F02D5_544A09EE005F_var*
 //#UC END# *5464B52F02D5_544A09EE005F_var*
 begin
@@ -307,6 +283,7 @@ begin
 end;//TncsTransporter.Get_SessionID
 
 procedure TncsTransporter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_544A09EE005F_var*
 //#UC END# *479731C50290_544A09EE005F_var*
 begin
@@ -344,6 +321,11 @@ begin
 //#UC END# *47A042E100E2_544A09EE005F_impl*
 end;//TncsTransporter.InitFields
 
-{$IfEnd} //not Nemesis
+procedure TncsTransporter.ClearFields;
+begin
+ IntSessionID := '';
+ inherited;
+end;//TncsTransporter.ClearFields
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

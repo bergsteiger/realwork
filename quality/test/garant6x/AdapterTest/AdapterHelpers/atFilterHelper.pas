@@ -1,46 +1,30 @@
 unit atFilterHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atFilterHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatFilterHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atFilterHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatFilterHelper" MUID: (503F84050182)
 
 interface
 
 uses
-  DynamicTreeUnit
-  ;
+ l3IntfUses
+ , DynamicTreeUnit
+;
 
 type
  ContextFilterParams = record
-   ContextPlace : TContextPlace;
-   FindOrder : TFindOrder;
-   SearchArea : TSearchArea;
+  ContextPlace: TContextPlace;
+  FindOrder: TFindOrder;
+  SearchArea: TSearchArea;
  end;//ContextFilterParams
 
-const
-  { Consts }
- DEFAULT_CONTEXT_FILTER_PARAMS : ContextFilterParams = (ContextPlace: CP_ANY; FindOrder : FO_ANY; SearchArea : SA_ALL_LEVEL);
-
-type
  TatContextFilter = class
- private
- // private fields
-   f_TweakContextOnAssignment : Boolean;
-    {* Поле для свойства TweakContextOnAssignment}
-   f_Filter : IContextFilter;
-    {* Поле для свойства Filter}
- protected
- // property methods
+  private
+   f_TweakContextOnAssignment: Boolean;
+    {* Поле для свойства TweakContextOnAssignment }
+   f_Filter: IContextFilter;
+    {* Поле для свойства Filter }
+  protected
    function pm_GetContext: AnsiString;
    procedure pm_SetContext(const aValue: AnsiString);
    function pm_GetArea: TSearchArea; virtual;
@@ -49,45 +33,45 @@ type
    procedure pm_SetOrder(aValue: TFindOrder); virtual;
    function pm_GetPlace: TContextPlace; virtual;
    procedure pm_SetPlace(aValue: TContextPlace); virtual;
- public
- // public methods
-   constructor Create(const aFilter: IContextFilter); reintroduce; overload; 
-   constructor Create; reintroduce; overload; 
- public
- // public properties
+  public
+   constructor Create(const aFilter: IContextFilter); reintroduce; overload;
+   constructor Create; reintroduce; overload;
+  public
    property Context: AnsiString
-     read pm_GetContext
-     write pm_SetContext;
+    read pm_GetContext
+    write pm_SetContext;
    property TweakContextOnAssignment: Boolean
-     read f_TweakContextOnAssignment
-     write f_TweakContextOnAssignment;
-     {* Изменяет контекст при присвоении в соответствии с настройками фильтра }
+    read f_TweakContextOnAssignment
+    write f_TweakContextOnAssignment;
+    {* Изменяет контекст при присвоении в соответствии с настройками фильтра }
    property Filter: IContextFilter
-     read f_Filter;
+    read f_Filter;
    property Area: TSearchArea
-     read pm_GetArea
-     write pm_SetArea;
+    read pm_GetArea
+    write pm_SetArea;
    property Order: TFindOrder
-     read pm_GetOrder
-     write pm_SetOrder;
+    read pm_GetOrder
+    write pm_SetOrder;
    property Place: TContextPlace
-     read pm_GetPlace
-     write pm_SetPlace;
+    read pm_GetPlace
+    write pm_SetPlace;
  end;//TatContextFilter
 
  TatFilterHelper = class
  end;//TatFilterHelper
 
+const
+ DEFAULT_CONTEXT_FILTER_PARAMS: ContextFilterParams = (ContextPlace: CP_ANY; FindOrder : FO_ANY; SearchArea : SA_ALL_LEVEL);
+
 implementation
 
 uses
-  atGblAdapterWorker,
-  IOUnit,
-  SysUtils,
-  atStringHelper
-  ;
-
-// start class TatContextFilter
+ l3ImplUses
+ , SysUtils
+ , atStringHelper
+ , atGblAdapterWorker
+ , IOUnit
+;
 
 function TatContextFilter.pm_GetContext: AnsiString;
 //#UC START# *5040D48103B0_5040D3EE02D5get_var*

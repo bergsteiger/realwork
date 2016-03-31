@@ -1,53 +1,42 @@
 unit stDocumentPrintAndExportFontSizeItem;
+ {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "stDocumentPrintAndExportFontSizeItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box$UC::Document::View::Document::TstDocumentPrintAndExportFontSizeItem
-//
-// Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта"
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\VCM\View\Document\stDocumentPrintAndExportFontSizeItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TstDocumentPrintAndExportFontSizeItem" MUID: (1599BCBFE969)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 
 uses
-  ddAppConfigTypes
-  ;
+ l3IntfUses
+ , ddAppConfigTypes
+;
 
 type
  TstDocumentPrintAndExportFontSizeItem = class(TddComboBoxConfigItem)
   {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
-     {* undefined }
  end;//TstDocumentPrintAndExportFontSizeItem
 
 implementation
 
 uses
-  DocumentPrintAndExportFontSizeSettingRes,
-  l3Base,
-  ddAppConfigConst
-  ;
-
-// start class TstDocumentPrintAndExportFontSizeItem
+ l3ImplUses
+ , DocumentPrintAndExportFontSizeSettingRes
+ , l3Base
+ , ddAppConfigConst
+;
 
 constructor TstDocumentPrintAndExportFontSizeItem.Create(aMasterItem: TddBaseConfigItem = nil);
-var
- l_Value : TddConfigValue;
+//#UC START# *C1762961E823_1599BCBFE969_var*
+//#UC END# *C1762961E823_1599BCBFE969_var*
 begin
- l3FillChar(l_Value, SizeOf(l_Value));
- l_Value.Kind := dd_vkInteger;
- l_Value.AsInteger := dv_Document_PrintAndExportFontSize;
- inherited Create(pi_Document_PrintAndExportFontSize,
-  str_PrintAndExportFontSize.AsStr,
-  l_Value, TPrintAndExportFontSizeValuesMapImpl.Make, aMasterItem);
+//#UC START# *C1762961E823_1599BCBFE969_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C1762961E823_1599BCBFE969_impl*
 end;//TstDocumentPrintAndExportFontSizeItem.Create
 
 end.

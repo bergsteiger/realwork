@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4979E5520222intf_uses*
+ //#UC END# *4979E5520222intf_uses*
 ;
 
 type
@@ -151,6 +153,8 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
+ //#UC START# *4979E5520222impl_uses*
+ //#UC END# *4979E5520222impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

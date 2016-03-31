@@ -11,6 +11,9 @@ interface
 
 uses
  l3IntfUses
+ , BaseTypesUnit
+ , LoggingUnit
+ , l3Interfaces
 ;
 
 type

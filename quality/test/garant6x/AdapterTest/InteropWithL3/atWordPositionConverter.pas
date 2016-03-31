@@ -1,79 +1,53 @@
 unit atWordPositionConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/InteropWithL3/atWordPositionConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::InteropWithL3::TatWordPositionConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\InteropWithL3\atWordPositionConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatWordPositionConverter" MUID: (503E65B1032E)
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  SysUtils
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , DynamicTreeUnit
+;
 
 type
  _FirstType_ = Tl3WordPosition;
  _SecondType_ = TContextPlace;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
  TatWordPositionConverter = class(_atEnumToEnumConverter_)
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatWordPositionConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatWordPositionConverter }
  end;//TatWordPositionConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatWordPositionConverter
-
-var g_TatWordPositionConverter : TatWordPositionConverter = nil;
+var g_TatWordPositionConverter: TatWordPositionConverter = nil;
+ {* Экземпляр синглетона TatWordPositionConverter }
 
 procedure TatWordPositionConverterFree;
+ {* Метод освобождения экземпляра синглетона TatWordPositionConverter }
 begin
  l3Free(g_TatWordPositionConverter);
-end;
-
-class function TatWordPositionConverter.Instance: TatWordPositionConverter;
-begin
- if (g_TatWordPositionConverter = nil) then
- begin
-  l3System.AddExitProc(TatWordPositionConverterFree);
-  g_TatWordPositionConverter := Create;
- end;
- Result := g_TatWordPositionConverter;
-end;
-
+end;//TatWordPositionConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
 
-// start class TatWordPositionConverter
-
 class function TatWordPositionConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatWordPositionConverter <> nil;
 end;//TatWordPositionConverter.Exists
@@ -92,5 +66,16 @@ begin
   InitConvertMap(CONVERT_MAP);
 //#UC END# *503E3A040395_503E65B1032E_impl*
 end;//TatWordPositionConverter.InitConvertMap
+
+class function TatWordPositionConverter.Instance: TatWordPositionConverter;
+ {* Метод получения экземпляра синглетона TatWordPositionConverter }
+begin
+ if (g_TatWordPositionConverter = nil) then
+ begin
+  l3System.AddExitProc(TatWordPositionConverterFree);
+  g_TatWordPositionConverter := Create;
+ end;
+ Result := g_TatWordPositionConverter;
+end;//TatWordPositionConverter.Instance
 
 end.

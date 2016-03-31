@@ -29,9 +29,9 @@ type
    procedure LoadChildren;
   protected
    function pm_GetFiltersType: TbsListType;
-   procedure filters_changed;
-   procedure filter_name_changed;
-   procedure filter_permanence_changed;
+   procedure FiltersChanged; stdcall;
+   procedure FilterNameChanged; stdcall;
+   procedure FilterPermanenceChanged; stdcall;
    procedure LockRebuild;
    procedure UnlockRebuild;
    function IsRebuildLocked: Boolean;
@@ -273,16 +273,16 @@ begin
 //#UC END# *499044F60208_4CAEC809015Dget_impl*
 end;//TnsFiltersTree.pm_GetFiltersType
 
-procedure TnsFiltersTree.filters_changed;
+procedure TnsFiltersTree.FiltersChanged;
 //#UC START# *4CB2B26B0365_4CAEC809015D_var*
 //#UC END# *4CB2B26B0365_4CAEC809015D_var*
 begin
 //#UC START# *4CB2B26B0365_4CAEC809015D_impl*
  LoadChildren;
 //#UC END# *4CB2B26B0365_4CAEC809015D_impl*
-end;//TnsFiltersTree.filters_changed
+end;//TnsFiltersTree.FiltersChanged
 
-procedure TnsFiltersTree.filter_name_changed;
+procedure TnsFiltersTree.FilterNameChanged;
 //#UC START# *4CB2B27F03C3_4CAEC809015D_var*
 
  function CheckNode(const anIntf: Il3Node): Boolean;
@@ -304,16 +304,16 @@ begin
  IterateF(l3L2NA(@CheckNode));
  Invalidate;
 //#UC END# *4CB2B27F03C3_4CAEC809015D_impl*
-end;//TnsFiltersTree.filter_name_changed
+end;//TnsFiltersTree.FilterNameChanged
 
-procedure TnsFiltersTree.filter_permanence_changed;
+procedure TnsFiltersTree.FilterPermanenceChanged;
 //#UC START# *4CB2B2910052_4CAEC809015D_var*
 //#UC END# *4CB2B2910052_4CAEC809015D_var*
 begin
 //#UC START# *4CB2B2910052_4CAEC809015D_impl*
  Invalidate;
 //#UC END# *4CB2B2910052_4CAEC809015D_impl*
-end;//TnsFiltersTree.filter_permanence_changed
+end;//TnsFiltersTree.FilterPermanenceChanged
 
 procedure TnsFiltersTree.LockRebuild;
 //#UC START# *51A4D1810053_4CAEC809015D_var*

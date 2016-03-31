@@ -1,44 +1,31 @@
 unit atSaveListToFileOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSaveListToFileOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSaveListToFileOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveListToFileOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveListToFileOperation" MUID: (539730EE009E)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSaveListToFileOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatSaveListToFileOperation
 
 implementation
 
 uses
-  atComparableList,
-  SysUtils,
-  atLogger
-  ;
-
-// start class TatSaveListToFileOperation
+ l3ImplUses
+ , atComparableList
+ , SysUtils
+ , atLogger
+;
 
 procedure TatSaveListToFileOperation.ExecuteSelf;
 //#UC START# *48089F460352_539730EE009E_var*

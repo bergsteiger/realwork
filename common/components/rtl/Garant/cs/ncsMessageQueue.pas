@@ -1,92 +1,61 @@
 unit ncsMessageQueue;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsMessageQueue.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsMessageQueue
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsMessageQueue.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsMessageQueue" MUID: (544E3C54031D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SyncObjs,
-  Windows,
-  l3ProtoObject,
-  ncsPriorityMessageList,
-  ncsMessage
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsPriorityMessageList
+ , SyncObjs
+ , ncsMessage
+ , Windows
+;
 
-{$If not defined(Nemesis)}
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsMessageQueue = class(_l3CriticalSectionHolder_)
- private
- // private fields
-   f_Data : TncsPriorityMessageList;
-   f_DataReadyEvent : TEvent;
-   f_Processing : Boolean;
-    {* Поле для свойства Processing}
- protected
- // property methods
+  private
+   f_Data: TncsPriorityMessageList;
+   f_DataReadyEvent: TEvent;
+   f_Processing: Boolean;
+    {* Поле для свойства Processing }
+  protected
    procedure pm_SetProcessing(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure SignalMessageReady;
-     {* Сигнатура метода SignalMessageReady }
    procedure Push(aMessage: TncsMessage);
-   function WaitForMessage(aTimeOut: LongWord = INFINITE): Boolean;
+   function WaitForMessage(aTimeOut: LongWord = Windows.INFINITE): Boolean;
    function ExtractMessage(out theMessage: TncsMessage): Boolean;
-     {* Увеличивает счетчик theMessage! Требуется theMessage.Free }
- public
- // public properties
+    {* Увеличивает счетчик theMessage! Требуется theMessage.Free }
+  public
    property Processing: Boolean
-     read f_Processing
-     write pm_SetProcessing;
+    read f_Processing
+    write pm_SetProcessing;
  end;//TncsMessageQueue
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  l3Types,
-  l3Utils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , l3Utils
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
-
-// start class TncsMessageQueue
-
-procedure TncsMessageQueue.SignalMessageReady;
-//#UC START# *5451F97902B8_544E3C54031D_var*
-//#UC END# *5451F97902B8_544E3C54031D_var*
-begin
-//#UC START# *5451F97902B8_544E3C54031D_impl*
- f_DataReadyEvent.SetEvent;
-//#UC END# *5451F97902B8_544E3C54031D_impl*
-end;//TncsMessageQueue.SignalMessageReady
 
 procedure TncsMessageQueue.pm_SetProcessing(aValue: Boolean);
 //#UC START# *545A157B02C2_544E3C54031Dset_var*
@@ -112,6 +81,15 @@ begin
 //#UC END# *545A157B02C2_544E3C54031Dset_impl*
 end;//TncsMessageQueue.pm_SetProcessing
 
+procedure TncsMessageQueue.SignalMessageReady;
+//#UC START# *5451F97902B8_544E3C54031D_var*
+//#UC END# *5451F97902B8_544E3C54031D_var*
+begin
+//#UC START# *5451F97902B8_544E3C54031D_impl*
+ f_DataReadyEvent.SetEvent;
+//#UC END# *5451F97902B8_544E3C54031D_impl*
+end;//TncsMessageQueue.SignalMessageReady
+
 procedure TncsMessageQueue.Push(aMessage: TncsMessage);
 //#UC START# *544E3DE3032D_544E3C54031D_var*
 //#UC END# *544E3DE3032D_544E3C54031D_var*
@@ -127,7 +105,7 @@ begin
 //#UC END# *544E3DE3032D_544E3C54031D_impl*
 end;//TncsMessageQueue.Push
 
-function TncsMessageQueue.WaitForMessage(aTimeOut: LongWord = INFINITE): Boolean;
+function TncsMessageQueue.WaitForMessage(aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *5452022F026A_544E3C54031D_var*
 //#UC END# *5452022F026A_544E3C54031D_var*
 begin
@@ -140,6 +118,7 @@ begin
 end;//TncsMessageQueue.WaitForMessage
 
 function TncsMessageQueue.ExtractMessage(out theMessage: TncsMessage): Boolean;
+ {* Увеличивает счетчик theMessage! Требуется theMessage.Free }
 //#UC START# *545202810200_544E3C54031D_var*
 //#UC END# *545202810200_544E3C54031D_var*
 begin
@@ -166,6 +145,7 @@ begin
 end;//TncsMessageQueue.ExtractMessage
 
 procedure TncsMessageQueue.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_544E3C54031D_var*
 //#UC END# *479731C50290_544E3C54031D_var*
 begin
@@ -187,7 +167,6 @@ begin
  f_DataReadyEvent := TEvent.Create(nil, True, False, l3CreateStringGUID);
 //#UC END# *47A042E100E2_544E3C54031D_impl*
 end;//TncsMessageQueue.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

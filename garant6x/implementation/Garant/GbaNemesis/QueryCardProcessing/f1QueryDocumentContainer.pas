@@ -1,100 +1,81 @@
 unit f1QueryDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "QueryCardProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/QueryCardProcessing/f1QueryDocumentContainer.pas"
-// Начат: 01.11.2010 15:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::QueryCardProcessing::Containers::Tf1QueryDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\QueryCardProcessing\f1QueryDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1QueryDocumentContainer" MUID: (4CCEACEC0101)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  IOUnit,
-  SearchUnit,
-  l3Interfaces,
-  nsQueryInterfaces,
-  ActiveX,
-  nevTools,
-  evQueryCardInt,
-  evQueryDocumentContainer,
-  l3Variant,
-  nevBase,
-  afwInterfaces,
-  k2Base
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , evQueryDocumentContainer
+ , nsQueryInterfaces
+ , ActiveX
+ , SearchUnit
+ , evQueryCardInt
+ , IOUnit
+ , l3Interfaces
+ , l3Variant
+ , nevTools
+;
 
-{$If not defined(Admin)}
 type
  Tf1QueryDocumentContainer = class(TevQueryDocumentContainer)
- private
- // private fields
-   f_CardType : TlgQueryType;
-    {* Тип карточки}
- public
- // public methods
+  private
+   f_CardType: TlgQueryType;
+    {* Тип карточки }
+  public
    constructor Create(aCardType: TlgQueryType;
-     const aModel: IevAdapterModel); reintroduce;
+    const aModel: IevAdapterModel); reintroduce;
    class function Make(aCardType: TlgQueryType;
-     const aModel: IevAdapterModel): InevDocumentContainer; reintroduce;
-     {* Сигнатура фабрики Tf1QueryDocumentContainer.Make }
+    const aModel: IevAdapterModel): InevDocumentContainer; reintroduce;
  end;//Tf1QueryDocumentContainer
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  k2String_Const,
-  l3Types,
-  k2IUnknown_Const,
-  SysUtils,
-  l3TreeInterfaces,
-  DynamicTreeUnit,
-  nsTreeUtils,
-  nsAttributeTreeStruct,
-  nsINodeWrap,
-  nsTypes,
-  l3String,
-  DataAdapter,
-  evTypes,
-  k2Tags,
-  nsSearchClasses,
-  Table_Const,
-  ReqRow_Const,
-  ControlsBlock_Const,
-  evdTypes,
-  k2IUnknownTag
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class Tf1QueryDocumentContainer
+ l3ImplUses
+ , DataAdapter
+ , nsSearchClasses
+ , evdTypes
+ , k2IUnknownTag
+ , evTypes
+ , k2Tags
+ , Table_Const
+ , ReqRow_Const
+ , ControlsBlock_Const
+ , nsTypes
+ , l3String
+ , k2String_Const
+ , l3Types
+ , k2IUnknown_Const
+ , SysUtils
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , nsTreeUtils
+ , nsAttributeTreeStruct
+ , nsINodeWrap
+;
 
 constructor Tf1QueryDocumentContainer.Create(aCardType: TlgQueryType;
-  const aModel: IevAdapterModel);
-var
- l_L : IAttributeList;
+ const aModel: IevAdapterModel);
+var l_S: IStream;
+var l_L: IAttributeList;
 
  function ProcessRow(aRow: Tl3Tag): Boolean;
+ var l_A: IFullAttributeInfo;
+ var l_T: IString;
+ var l_TN: Il3CString;
 
   procedure TuneReq(const aTagName: Il3CString;
-    aReq: Tl3Tag;
-    const anInfo: IFullAttributeInfo);
+   aReq: Tl3Tag;
+   const anInfo: IFullAttributeInfo);
+   {* Настраивает атрибут по информации с адаптера }
   //#UC START# *4CCED25603D7__var*
 
    procedure GetOps(const anAttrInfo : IAttributeInfo);
@@ -256,10 +237,6 @@ var
  var
   l_Index : Integer;
  //#UC END# *4CCEC43A01AB__var*
- var
-  l_A : IFullAttributeInfo;
-  l_T : IString;
-  l_TN : Il3CString;
  begin
  //#UC START# *4CCEC43A01AB__impl*
   if aRow.IsKindOf(k2_typReqRow) then
@@ -313,8 +290,6 @@ var
  l_R : Integer;
  l_B : Integer;
 //#UC END# *4CCEADD30141_4CCEACEC0101_var*
-var
- l_S : IStream;
 begin
 //#UC START# *4CCEADD30141_4CCEACEC0101_impl*
  inherited Create(nil);
@@ -376,7 +351,7 @@ begin
 end;//Tf1QueryDocumentContainer.Create
 
 class function Tf1QueryDocumentContainer.Make(aCardType: TlgQueryType;
-  const aModel: IevAdapterModel): InevDocumentContainer;
+ const aModel: IevAdapterModel): InevDocumentContainer;
 var
  l_Inst : Tf1QueryDocumentContainer;
 begin
@@ -386,8 +361,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-{$IfEnd} //not Admin
+end;//Tf1QueryDocumentContainer.Make
+{$IfEnd} // NOT Defined(Admin)
 
 end.

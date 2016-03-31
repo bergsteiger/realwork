@@ -1,51 +1,38 @@
 unit atSaveListToFolderOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSaveListToFolderOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSaveListToFolderOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveListToFolderOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveListToFolderOperation" MUID: (484FDA86037B)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSaveListToFolderOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatSaveListToFolderOperation
 
 implementation
 
 uses
-  atLogger,
-  atFoldersHelper,
-  BaseTreeSupportUnit,
-  BaseTypesUnit,
-  DynamicDocListUnit,
-  atGblAdapterWorker,
-  DynamicTreeUnit,
-  SysUtils,
-  atCommon,
-  atStringHelper
-  ;
-
-// start class TatSaveListToFolderOperation
+ l3ImplUses
+ , atLogger
+ , atFoldersHelper
+ , BaseTreeSupportUnit
+ , BaseTypesUnit
+ , DynamicDocListUnit
+ , atGblAdapterWorker
+ , DynamicTreeUnit
+ , SysUtils
+ , atCommon
+ , atStringHelper
+;
 
 procedure TatSaveListToFolderOperation.ExecuteSelf;
 //#UC START# *48089F460352_484FDA86037B_var*

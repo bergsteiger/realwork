@@ -1,37 +1,25 @@
 unit m4WordIDStr;
+ {* Элемент словаря. Список идентификаторов слов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m4"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m4/m4WordIDStr.pas"
-// Начат: 18.09.2009 16:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m4::Dict::Tm4WordIDStr
-//
-// Элемент словаря. Список идентификаторов слов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m4\m4WordIDStr.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm4WordIDStr" MUID: (4AB37C3E00BA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m4\m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 
 uses
-  l3ProtoDataContainer,
-  m4DictTypes,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , m4DictTypes
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = Tm4WordID;
@@ -40,39 +28,33 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
  Tm4WordIDStr = class(_l3AtomicList_)
   {* Элемент словаря. Список идентификаторов слов }
- private
- // private fields
-   f_ID : Tm4DictItemAddr;
-    {* Поле для свойства ID}
- protected
- // overridden protected methods
+  private
+   f_ID: Tm4DictItemAddr;
+    {* Поле для свойства ID }
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    function Compare(anOther: Tm4WordIDStr): Integer;
    constructor Create(const anID: Tm4DictItemAddr); reintroduce;
- public
- // public properties
+  public
    property ID: Tm4DictItemAddr
-     read f_ID;
+    read f_ID;
  end;//Tm4WordIDStr
 
 implementation
 
 uses
-  m2MemLib,
-  l3MinMax,
-  l3Base,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , m2MemLib
+ , l3MinMax
+ , l3Base
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = Tm4WordIDStr;
 
 {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
-
-// start class Tm4WordIDStr
 
 function Tm4WordIDStr.Compare(anOther: Tm4WordIDStr): Integer;
 //#UC START# *4AB3856602A8_4AB37C3E00BA_var*
@@ -106,7 +88,6 @@ begin
 end;//Tm4WordIDStr.Create
 
 procedure Tm4WordIDStr.ClearFields;
- {-}
 begin
  Finalize(f_ID);
  inherited;

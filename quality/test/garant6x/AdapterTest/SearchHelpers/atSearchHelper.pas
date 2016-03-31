@@ -1,57 +1,42 @@
 unit atSearchHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/SearchHelpers/atSearchHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::SearchHelpers::TatSearchHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\SearchHelpers\atSearchHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSearchHelper" MUID: (4FC8DA4E01A4)
 
 interface
 
 uses
-  DynamicDocListUnit,
-  atQuery,
-  atSearchHelperBase
-  ;
+ l3IntfUses
+ , atSearchHelperBase
+ , DynamicDocListUnit
+ , atQuery
+;
 
 type
  TatSearchHelper = class(TatSearchHelperBase)
- private
- // private fields
-   f_List : IDynList;
-    {* Поле для свойства List}
- protected
- // overridden protected methods
+  private
+   f_List: IDynList;
+    {* Поле для свойства List }
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aQuery: TatQuery); reintroduce; virtual;
    function ExecuteAndBuildList: Boolean; virtual;
- public
- // public properties
+  public
    property List: IDynList
-     read f_List;
+    read f_List;
  end;//TatSearchHelper
 
 implementation
 
 uses
-  atGblAdapterWorker,
-  atLogger,
-  DynamicTreeUnit,
-  SysUtils
-  ;
-
-// start class TatSearchHelper
+ l3ImplUses
+ , atGblAdapterWorker
+ , atLogger
+ , DynamicTreeUnit
+ , SysUtils
+;
 
 constructor TatSearchHelper.Create(aQuery: TatQuery);
 //#UC START# *4FC8DA650160_4FC8DA4E01A4_var*
@@ -93,7 +78,6 @@ begin
 end;//TatSearchHelper.ExecuteAndBuildList
 
 procedure TatSearchHelper.ClearFields;
- {-}
 begin
  f_List := nil;
  inherited;

@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TLiteSearchModule = class
+ TLiteSearchModule = class(TvcmModule)
   public
    procedure MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
     aZoneType: TvcmZoneType;
@@ -52,6 +52,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TLiteSearchModule.MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
  aRecursive: Boolean;
@@ -150,5 +151,6 @@ begin
  l_Container := nil;
 //#UC END# *4AAF590401AC_4AA0EA76017F_impl*
 end;//TLiteSearchModule.OpenTreeSelection
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

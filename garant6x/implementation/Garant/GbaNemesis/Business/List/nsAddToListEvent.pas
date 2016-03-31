@@ -1,53 +1,37 @@
 unit nsAddToListEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/nsAddToListEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::ListDataSources::TnsAddToListEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsAddToListEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAddToListEvent" MUID: (4B0A7FAF0270)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DynamicDocListUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsAddToListEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aList: IDynList);
  end;//TnsAddToListEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsAddToListEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsAddToListEvent.Log(const aList: IDynList);
 //#UC START# *4B0A7FEC0294_4B0A7FAF0270_var*
@@ -61,7 +45,6 @@ begin
  GetLogger.AddEvent(LE_ADD_TO_LIST, l_Data);
 //#UC END# *4B0A7FEC0294_4B0A7FAF0270_impl*
 end;//TnsAddToListEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

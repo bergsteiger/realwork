@@ -1,50 +1,34 @@
 unit arSpravkaDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/arSpravkaDocumentContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocumentContainer::TarSpravkaDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\arSpravkaDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarSpravkaDocumentContainer" MUID: (4F9501970235)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arDocumentContainer,
-  evOpProc
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , arDocumentContainer
+ , evOpProc
+;
 
-{$If defined(AppClientSide)}
 type
  TarSpravkaDocumentContainer = class(TarDocumentContainer)
- protected
- // overridden protected methods
+  protected
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); override;
  end;//TarSpravkaDocumentContainer
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  evdStyles
-  ;
-{$IfEnd} //AppClientSide
-
-{$If defined(AppClientSide)}
-
-// start class TarSpravkaDocumentContainer
+ l3ImplUses
+ , evdStyles
+;
 
 procedure TarSpravkaDocumentContainer.MakeProcessor(out theProcessor: TevCustomUndoProcessor);
 //#UC START# *47F35245009A_4F9501970235_var*
@@ -55,7 +39,6 @@ begin
  theProcessor.DefaultStyle := ev_saNormalNote;
 //#UC END# *47F35245009A_4F9501970235_impl*
 end;//TarSpravkaDocumentContainer.MakeProcessor
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

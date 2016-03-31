@@ -17,6 +17,8 @@ uses
  , l3Core
  , l3Except
  , Classes
+ //#UC START# *47F07C1B03E4intf_uses*
+ //#UC END# *47F07C1B03E4intf_uses*
 ;
 
 type
@@ -46,6 +48,8 @@ uses
  , SysUtils
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *47F07C1B03E4impl_uses*
+ //#UC END# *47F07C1B03E4impl_uses*
 ;
 
 type _Instance_R_ = Tl3NotifyPtrList;

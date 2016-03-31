@@ -1,30 +1,25 @@
 unit IUnknownRefList;
+ {* Список ССЫЛОК на IUnknown }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "IUnknownRefList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::FinalContainers::TIUnknownRefList
-//
-// Список ССЫЛОК на IUnknown
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IUnknownRefList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TIUnknownRefList" MUID: (51E80A960173)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Refcounted,
-  Classes,
-  l3PtrLoc
-  ;
+ l3IntfUses
+ , Refcounted
+ , l3PtrLoc
+ , Classes
+;
 
 type
  _ItemType_ = IUnknown;
  _InterfaceRefList_Parent_ = TRefcounted;
- {$Include ..\SandBox\InterfaceRefList.imp.pas}
+ {$Include w:\common\components\SandBox\InterfaceRefList.imp.pas}
  TIUnknownRefList = class(_InterfaceRefList_)
   {* Список ССЫЛОК на IUnknown }
  end;//TIUnknownRefList
@@ -32,10 +27,11 @@ type
 implementation
 
 uses
-  RTLConsts,
-  l3MemorySizeUtils
-  ;
+ l3ImplUses
+ , RTLConsts
+ , l3MemorySizeUtils
+;
 
-{$Include ..\SandBox\InterfaceRefList.imp.pas}
+{$Include w:\common\components\SandBox\InterfaceRefList.imp.pas}
 
 end.

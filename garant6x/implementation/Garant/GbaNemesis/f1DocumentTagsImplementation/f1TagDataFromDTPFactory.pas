@@ -1,72 +1,58 @@
 unit f1TagDataFromDTPFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1TagDataFromDTPFactory.pas"
-// Начат: 23.08.2010 18:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::Tf1TagDataFromDTPFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataFromDTPFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1TagDataFromDTPFactory" MUID: (4C7286FE0291)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit,
-  k2Base,
-  F1TagDataProviderInterface,
-  f1TagDataFromDTP
-  ;
+ l3IntfUses
+ , k2Base
+ , f1TagDataFromDTP
+ , F1TagDataProviderInterface
+ , DocumentUnit
+;
 
 type
  _f1TagDataProviderFactory_Parent_ = TObject;
- {$Include ..\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}
  Tf1TagDataFromDTPFactory = class(_f1TagDataProviderFactory_)
- public
- // public methods
+  public
    class function MakeProvider(const aProvider: IDocumentTextProvider;
-     aParent: Tf1ListTagDataFromDTPPrim;
-     aChildID: TChildID): If1TagDataProvider;
+    aParent: Tf1ListTagDataFromDTPPrim;
+    aChildID: TChildID): If1TagDataProvider;
  end;//Tf1TagDataFromDTPFactory
 
 implementation
 
 uses
-  f1LeafTagDataFromDTP,
-  f1ListTagDataFromDTP,
-  nevBase,
-  k2Facade,
-  ParaList_Const,
-  LeafPara_Const,
-  CommentPara_Const,
-  Document_Const,
-  Block_Const,
-  SysUtils
-  ;
+ l3ImplUses
+ , k2Facade
+ , ParaList_Const
+ , LeafPara_Const
+ , CommentPara_Const
+ , Document_Const
+ , Block_Const
+ , SysUtils
+ , f1LeafTagDataFromDTP
+ , f1ListTagDataFromDTP
+ , nevBase
+;
 
-{$Include ..\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}
-
-// start class Tf1TagDataFromDTPFactory
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}
 
 class function Tf1TagDataFromDTPFactory.MakeProvider(const aProvider: IDocumentTextProvider;
-  aParent: Tf1ListTagDataFromDTPPrim;
-  aChildID: TChildID): If1TagDataProvider;
+ aParent: Tf1ListTagDataFromDTPPrim;
+ aChildID: TChildID): If1TagDataProvider;
+var l_T: Tk2Type;
+var l_P: Tf1TagDataFromDTP;
 //#UC START# *4C727B6A0242_4C7286FE0291_var*
 var
  l_EP : TEntryPoint;
 //#UC END# *4C727B6A0242_4C7286FE0291_var*
-var
- l_T : Tk2Type;
- l_P : Tf1TagDataFromDTP;
 begin
 //#UC START# *4C727B6A0242_4C7286FE0291_impl*
  Assert(aProvider <> nil);

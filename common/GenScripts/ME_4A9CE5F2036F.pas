@@ -32,7 +32,7 @@ type
    class procedure Log;
  end;//TnsOpenDictionaryEvent
 
- TDictionModule = class
+ TDictionModule = class(TvcmModule)
   {* Толковый словарь }
   protected
    procedure OpenDict;
@@ -74,6 +74,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 class procedure TnsOpenDictionaryEvent.Log;
 //#UC START# *4B14CE0A001F_4B14CDEA039C_var*
 //#UC END# *4B14CE0A001F_4B14CDEA039C_var*
@@ -160,6 +161,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4A9D55E901D6_4A9CE5F2036F_impl*
 end;//TDictionModule.OpenDict
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,102 +1,85 @@
 unit m3FileStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3FileStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3FileStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3FileStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3FileStream" MUID: (4FA276920090)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  Windows,
-  m3BaseStream,
-  m3FileStreamMapView,
-  Classes
-  ;
+ l3IntfUses
+ , m3BaseStream
+ , Windows
+ , ActiveX
+ , m3FileStreamMapView
+ , Classes
+;
 
 type
  Tm3FileStream = class(Tm3BaseStream)
- private
- // private fields
-   FHandle : THandle;
-   f_Name : WideString;
-   f_SharedMode : LongWord;
- private
- // private methods
+  private
+   FHandle: THandle;
+   f_Name: WideString;
+   f_SharedMode: LongWord;
+  private
    procedure SysCheck(AResult: LongBool);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoRead(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoWrite(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoSeek(anOffset: Int64;
-     anOrigin: TSeekOrigin;
-     var theResult: Int64;
-     var theReturn: hResult); override;
+    anOrigin: TSeekOrigin;
+    var theResult: Int64;
+    var theReturn: hResult); override;
    procedure DoSetSize(aSize: Int64;
-     var theReturn: hResult); override;
+    var theReturn: hResult); override;
    procedure LockRegion(anOffset: Int64;
-     aSize: Int64;
-     aLockType: Integer;
-     var theReturn: hResult); override;
+    aSize: Int64;
+    aLockType: Integer;
+    var theReturn: hResult); override;
    procedure UnlockRegion(anOffset: Int64;
-     aSize: Int64;
-     aLockType: Integer;
-     var theReturn: hResult); override;
+    aSize: Int64;
+    aLockType: Integer;
+    var theReturn: hResult); override;
    function DoGetSize: Int64; override;
    function DoGetLocksSupported: Integer; override;
    function DoGetName: WideString; override;
- public
- // overridden public methods
-   procedure Commit(aFlags: Integer;
-     var theReturn: hResult); override;
- public
- // public methods
+  public
    constructor Create(const AName: WideString;
-     AAccess: LongWord;
-     ASharedMode: LongWord;
-     ADistribution: LongWord;
-     AFlags: LongWord); reintroduce;
+    AAccess: LongWord;
+    ASharedMode: LongWord;
+    ADistribution: LongWord;
+    AFlags: LongWord); reintroduce;
    class function Make(const AName: WideString;
-     AAccess: LongWord;
-     ASharedMode: LongWord;
-     ADistribution: LongWord;
-     AFlags: LongWord): IStream; reintroduce;
-     {* Сигнатура фабрики Tm3FileStream.Make }
+    AAccess: LongWord;
+    ASharedMode: LongWord;
+    ADistribution: LongWord;
+    AFlags: LongWord): IStream; reintroduce;
    function CreateMapView(AProtect: LongWord;
-     AAccess: LongWord): Tm3FileStreamMapView;
+    AAccess: LongWord): Tm3FileStreamMapView;
+   procedure Commit(aFlags: Integer;
+    var theReturn: hResult); override;
  end;//Tm3FileStream
 
 implementation
 
 uses
-  ComObj,
-  SysUtils,
-  l3Base,
-  m2AddPrc,
-  StrUtils
-  ;
-
-// start class Tm3FileStream
+ l3ImplUses
+ , ComObj
+ , SysUtils
+ , l3Base
+ , m2AddPrc
+ , StrUtils
+;
 
 procedure Tm3FileStream.SysCheck(AResult: LongBool);
 //#UC START# *5481A7080336_4FA276920090_var*
@@ -135,10 +118,10 @@ begin
 end;//Tm3FileStream.SysCheck
 
 constructor Tm3FileStream.Create(const AName: WideString;
-  AAccess: LongWord;
-  ASharedMode: LongWord;
-  ADistribution: LongWord;
-  AFlags: LongWord);
+ AAccess: LongWord;
+ ASharedMode: LongWord;
+ ADistribution: LongWord;
+ AFlags: LongWord);
 //#UC START# *5481A82803BB_4FA276920090_var*
 
  function  lGetAccess(const AAccess: LongWord): LongInt;
@@ -223,10 +206,10 @@ begin
 end;//Tm3FileStream.Create
 
 class function Tm3FileStream.Make(const AName: WideString;
-  AAccess: LongWord;
-  ASharedMode: LongWord;
-  ADistribution: LongWord;
-  AFlags: LongWord): IStream;
+ AAccess: LongWord;
+ ASharedMode: LongWord;
+ ADistribution: LongWord;
+ AFlags: LongWord): IStream;
 var
  l_Inst : Tm3FileStream;
 begin
@@ -236,10 +219,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tm3FileStream.Make
 
 function Tm3FileStream.CreateMapView(AProtect: LongWord;
-  AAccess: LongWord): Tm3FileStreamMapView;
+ AAccess: LongWord): Tm3FileStreamMapView;
 //#UC START# *5481A8860001_4FA276920090_var*
 //#UC END# *5481A8860001_4FA276920090_var*
 begin
@@ -253,6 +236,7 @@ begin
 end;//Tm3FileStream.CreateMapView
 
 procedure Tm3FileStream.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FA276920090_var*
 //#UC END# *479731C50290_4FA276920090_var*
 begin
@@ -267,9 +251,9 @@ begin
 end;//Tm3FileStream.Cleanup
 
 procedure Tm3FileStream.DoRead(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27CF501C4_4FA276920090_var*
 //#UC END# *4FA27CF501C4_4FA276920090_var*
 begin
@@ -280,9 +264,9 @@ begin
 end;//Tm3FileStream.DoRead
 
 procedure Tm3FileStream.DoWrite(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27D310344_4FA276920090_var*
 //#UC END# *4FA27D310344_4FA276920090_var*
 begin
@@ -293,9 +277,9 @@ begin
 end;//Tm3FileStream.DoWrite
 
 procedure Tm3FileStream.DoSeek(anOffset: Int64;
-  anOrigin: TSeekOrigin;
-  var theResult: Int64;
-  var theReturn: hResult);
+ anOrigin: TSeekOrigin;
+ var theResult: Int64;
+ var theReturn: hResult);
 //#UC START# *4FA27D5302C5_4FA276920090_var*
 
   function __SetFilePointer(AHandle : THandle;
@@ -331,7 +315,7 @@ begin
 end;//Tm3FileStream.DoSeek
 
 procedure Tm3FileStream.DoSetSize(aSize: Int64;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA27DCD02B4_4FA276920090_var*
 //#UC END# *4FA27DCD02B4_4FA276920090_var*
 begin
@@ -345,9 +329,9 @@ begin
 end;//Tm3FileStream.DoSetSize
 
 procedure Tm3FileStream.LockRegion(anOffset: Int64;
-  aSize: Int64;
-  aLockType: Integer;
-  var theReturn: hResult);
+ aSize: Int64;
+ aLockType: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E100218_4FA276920090_var*
 
   function __LockFile(const AHandle: THandle;
@@ -379,9 +363,9 @@ begin
 end;//Tm3FileStream.LockRegion
 
 procedure Tm3FileStream.UnlockRegion(anOffset: Int64;
-  aSize: Int64;
-  aLockType: Integer;
-  var theReturn: hResult);
+ aSize: Int64;
+ aLockType: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27E4C0342_4FA276920090_var*
 
  function  __UnlockFile(const AHandle: THandle;
@@ -455,7 +439,7 @@ begin
 end;//Tm3FileStream.DoGetLocksSupported
 
 procedure Tm3FileStream.Commit(aFlags: Integer;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA280DB0288_4FA276920090_var*
 //#UC END# *4FA280DB0288_4FA276920090_var*
 begin

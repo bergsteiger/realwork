@@ -1,79 +1,65 @@
 unit pgDataProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgDataProvider.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgDataProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgDataProvider.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgDataProvider" MUID: (55D6DA9E00BF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  l3Languages,
-  daLongProcessSubscriberList,
-  daProgressSubscriberList,
-  pgDataProviderParams,
-  pgInterfaces,
-  pgConnection,
-  pgFamilyHelper,
-  pgRenumerator,
-  pgFreeIDHelper,
-  pgFunctionFactory,
-  l3DatLst
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , pgDataProviderParams
+ , pgInterfaces
+ , daLongProcessSubscriberList
+ , daProgressSubscriberList
+ , pgConnection
+ , daTypes
+ , l3Languages
+ , pgFamilyHelper
+ , pgRenumerator
+ , pgFreeIDHelper
+ , pgFunctionFactory
+ , l3DatLst
+;
 
-{$If defined(UsePostgres)}
 type
  TpgDataProvider = class(Tl3ProtoObject, IdaDataProvider, IdaComboAccessDataProviderHelper)
- private
- // private fields
-   f_Params : TpgDataProviderParams;
-   f_DataConverter : IpgDataConverter;
-   f_NeedClearGlobalDataProvider : Boolean;
-   f_LongProcessList : TdaLongProcessSubscriberList;
-   f_ProgressList : TdaProgressSubscriberList;
-   f_ForCheckLogin : Boolean;
-   f_AllowClearLocks : Boolean;
-   f_RequireAdminRights : Boolean;
-   f_Connection : TpgConnection;
-   f_RegionID : TdaRegionID;
-   f_BaseName : AnsiString;
-   f_BaseLang : TLanguageObj;
-   f_Factory : IdaTableQueryFactory;
-   f_Journal : IdaJournal;
-   f_ImpersonatedUserID : TdaUserID;
-   f_UserManager : IdaUserManager;
-   f_IsStarted : Boolean;
-   f_RegionQuery : IdaTabledQuery;
-   f_FamilyHelper : TpgFamilyHelper;
-   f_CurHomePath : AnsiString;
-   f_LockCounter : Integer;
-   f_Renum : TpgRenumerator;
-   f_MainFreeIDHelper : TpgFreeIDHelper;
-   f_CurrentFreeIDHelper : TpgFreeIDHelper;
-   f_FunctionFactory : TpgFunctionFactory;
-   f_SetGlobalDataProvider : Boolean;
-   f_HasAdminRights : Boolean;
-   f_AlienSessionID : TdaSessionID;
- private
- // private methods
+  private
+   f_Params: TpgDataProviderParams;
+   f_DataConverter: IpgDataConverter;
+   f_NeedClearGlobalDataProvider: Boolean;
+   f_LongProcessList: TdaLongProcessSubscriberList;
+   f_ProgressList: TdaProgressSubscriberList;
+   f_ForCheckLogin: Boolean;
+   f_AllowClearLocks: Boolean;
+   f_RequireAdminRights: Boolean;
+   f_Connection: TpgConnection;
+   f_RegionID: TdaRegionID;
+   f_BaseName: AnsiString;
+   f_BaseLang: TLanguageObj;
+   f_Factory: IdaTableQueryFactory;
+   f_Journal: IdaJournal;
+   f_ImpersonatedUserID: TdaUserID;
+   f_UserManager: IdaUserManager;
+   f_IsStarted: Boolean;
+   f_RegionQuery: IdaTabledQuery;
+   f_FamilyHelper: TpgFamilyHelper;
+   f_CurHomePath: AnsiString;
+   f_LockCounter: Integer;
+   f_Renum: TpgRenumerator;
+   f_MainFreeIDHelper: TpgFreeIDHelper;
+   f_CurrentFreeIDHelper: TpgFreeIDHelper;
+   f_FunctionFactory: TpgFunctionFactory;
+   f_SetGlobalDataProvider: Boolean;
+   f_HasAdminRights: Boolean;
+   f_AlienSessionID: TdaSessionID;
+  private
    procedure ReadIniFile;
-     {* Сигнатура метода ReadIniFile }
    function RegionQuery: IdaTabledQuery;
    function RegionResultSet(anID: TdaRegionID): IdaResultSet;
    function FamilyHelper: TpgFamilyHelper;
@@ -81,12 +67,9 @@ type
    function Renum: TpgRenumerator;
    function ExtDocIDsFromRange: Boolean;
    function CheckFreeResource(aFamilyID: TdaFamilyID;
-     const aKey: AnsiString): Boolean;
- protected
- // property methods
+    const aKey: AnsiString): Boolean;
+  protected
    function pm_GetFreeIDHelper(aFamilyID: TdaFamilyID): TpgFreeIDHelper;
- protected
- // realized methods
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
    function CheckLogin(const aLogin: AnsiString;
@@ -96,7 +79,7 @@ type
    function IsRegionExists(anID: TdaRegionID): Boolean;
    function GetRegionName(anID: TdaRegionID): AnsiString;
    procedure FillRegionDataList(aList: Tl3StringDataList;
-     Caps: Boolean);
+    Caps: Boolean);
    function Get_BaseName: AnsiString;
    function Get_AdminRights: Boolean;
    function Get_CurUserIsServer: Boolean;
@@ -117,9 +100,7 @@ type
    procedure SubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure UnSubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure Start;
-     {* Сигнатура метода Start }
    procedure Stop;
-     {* Сигнатура метода Stop }
    function Get_Journal: IdaJournal;
    function Get_TableQueryFactory: IdaTableQueryFactory;
    function Get_DataConverter: IdaDataConverter;
@@ -135,56 +116,112 @@ type
     anID: TdaDocID): Boolean;
    procedure SetAlienJournalData(aSessionID: TdaSessionID);
    function HasJournal: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aParams: TpgDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalDataProvider: Boolean = True); reintroduce;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True); reintroduce;
    class function Make(aParams: TpgDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
-     {* Сигнатура фабрики TpgDataProvider.Make }
- private
- // private properties
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
+  private
    property FreeIDHelper[aFamilyID: TdaFamilyID]: TpgFreeIDHelper
-     read pm_GetFreeIDHelper;
+    read pm_GetFreeIDHelper;
  end;//TpgDataProvider
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  pgDataConverter,
-  daDataProvider,
-  daUtils,
-  l3IniFile,
-  pgTableQueryFactory,
-  pgJournal,
-  l3Base,
-  pgUserManager,
-  daScheme
-  {$If defined(l3Requires_m0)}
-  ,
-  m2XLtLib
-  {$IfEnd} //l3Requires_m0
-  ,
-  l3FileUtils,
-  StrUtils,
-  daSchemeConsts
-  ;
-{$IfEnd} //UsePostgres
+ l3ImplUses
+ , SysUtils
+ , pgDataConverter
+ , daDataProvider
+ , daUtils
+ , l3IniFile
+ , pgTableQueryFactory
+ , pgJournal
+ , l3Base
+ , pgUserManager
+ , daScheme
+ {$If Defined(l3Requires_m0)}
+ , m2XLtLib
+ {$IfEnd} // Defined(l3Requires_m0)
+ , l3FileUtils
+ , StrUtils
+ , daSchemeConsts
+;
 
-{$If defined(UsePostgres)}
+function TpgDataProvider.pm_GetFreeIDHelper(aFamilyID: TdaFamilyID): TpgFreeIDHelper;
+//#UC START# *56556F42021A_55D6DA9E00BFget_var*
+//#UC END# *56556F42021A_55D6DA9E00BFget_var*
+begin
+//#UC START# *56556F42021A_55D6DA9E00BFget_impl*
+ case aFamilyID of
+  MainTblsFamily:
+   begin
+    if f_MainFreeIDHelper = nil then
+     f_MainFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
+    Result := f_MainFreeIDHelper;
+   end;
+  CurrentFamily:
+   begin
+    if f_CurrentFreeIDHelper = nil then
+     f_CurrentFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
+    Result := f_CurrentFreeIDHelper;
+   end;
+  else
+  begin
+   Result := nil;
+   Assert(False);
+  end; 
+ end;
+//#UC END# *56556F42021A_55D6DA9E00BFget_impl*
+end;//TpgDataProvider.pm_GetFreeIDHelper
 
-// start class TpgDataProvider
+constructor TpgDataProvider.Create(aParams: TpgDataProviderParams;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True);
+//#UC START# *55E00D5A0297_55D6DA9E00BF_var*
+//#UC END# *55E00D5A0297_55D6DA9E00BF_var*
+begin
+//#UC START# *55E00D5A0297_55D6DA9E00BF_impl*
+ inherited Create;
+ f_SetGlobalDataProvider := SetGlobalDataProvider;
+ f_DataConverter := TpgDataConverter.Make;
+ f_ForCheckLogin := ForCheckLogin;
+ f_LongProcessList := TdaLongProcessSubscriberList.Make;
+ f_ProgressList := TdaProgressSubscriberList.Make;
+ aParams.SetRefTo(f_Params);
+// f_Helper := ThtDataSchemeHelper.Make(f_Params);
+ f_AllowClearLocks := AllowClearLocks;
+ f_ImpersonatedUserID := 0;
+ f_CurHomePath:=aParams.HomeDirPath;
+ f_Connection := TpgConnection.Create(f_LongProcessList);
+ f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
+ f_AlienSessionID := BlankSession;
+//#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
+end;//TpgDataProvider.Create
+
+class function TpgDataProvider.Make(aParams: TpgDataProviderParams;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True): IdaDataProvider;
+var
+ l_Inst : TpgDataProvider;
+begin
+ l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks, SetGlobalDataProvider);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TpgDataProvider.Make
 
 procedure TpgDataProvider.ReadIniFile;
 //#UC START# *55F7F8080115_55D6DA9E00BF_var*
@@ -281,7 +318,7 @@ begin
 end;//TpgDataProvider.ExtDocIDsFromRange
 
 function TpgDataProvider.CheckFreeResource(aFamilyID: TdaFamilyID;
-  const aKey: AnsiString): Boolean;
+ const aKey: AnsiString): Boolean;
 //#UC START# *56558A4A01D1_55D6DA9E00BF_var*
 //#UC END# *56558A4A01D1_55D6DA9E00BF_var*
 begin
@@ -289,73 +326,6 @@ begin
  Result := FreeIDHelper[aFamilyID].AnyRangesPresent(aKey);
 //#UC END# *56558A4A01D1_55D6DA9E00BF_impl*
 end;//TpgDataProvider.CheckFreeResource
-
-constructor TpgDataProvider.Create(aParams: TpgDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalDataProvider: Boolean = True);
-//#UC START# *55E00D5A0297_55D6DA9E00BF_var*
-//#UC END# *55E00D5A0297_55D6DA9E00BF_var*
-begin
-//#UC START# *55E00D5A0297_55D6DA9E00BF_impl*
- inherited Create;
- f_SetGlobalDataProvider := SetGlobalDataProvider;
- f_DataConverter := TpgDataConverter.Make;
- f_ForCheckLogin := ForCheckLogin;
- f_LongProcessList := TdaLongProcessSubscriberList.Make;
- f_ProgressList := TdaProgressSubscriberList.Make;
- aParams.SetRefTo(f_Params);
-// f_Helper := ThtDataSchemeHelper.Make(f_Params);
- f_AllowClearLocks := AllowClearLocks;
- f_ImpersonatedUserID := 0;
- f_CurHomePath:=aParams.HomeDirPath;
- f_Connection := TpgConnection.Create(f_LongProcessList);
- f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
- f_AlienSessionID := BlankSession;
-//#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
-end;//TpgDataProvider.Create
-
-class function TpgDataProvider.Make(aParams: TpgDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalDataProvider: Boolean = True): IdaDataProvider;
-var
- l_Inst : TpgDataProvider;
-begin
- l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks, SetGlobalDataProvider);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TpgDataProvider.pm_GetFreeIDHelper(aFamilyID: TdaFamilyID): TpgFreeIDHelper;
-//#UC START# *56556F42021A_55D6DA9E00BFget_var*
-//#UC END# *56556F42021A_55D6DA9E00BFget_var*
-begin
-//#UC START# *56556F42021A_55D6DA9E00BFget_impl*
- case aFamilyID of
-  MainTblsFamily:
-   begin
-    if f_MainFreeIDHelper = nil then
-     f_MainFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
-    Result := f_MainFreeIDHelper;
-   end;
-  CurrentFamily:
-   begin
-    if f_CurrentFreeIDHelper = nil then
-     f_CurrentFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
-    Result := f_CurrentFreeIDHelper;
-   end;
-  else
-  begin
-   Result := nil;
-   Assert(False);
-  end; 
- end;
-//#UC END# *56556F42021A_55D6DA9E00BFget_impl*
-end;//TpgDataProvider.pm_GetFreeIDHelper
 
 function TpgDataProvider.Get_UserID: TdaUserID;
 //#UC START# *551A929E02D5_55D6DA9E00BFget_var*
@@ -376,8 +346,8 @@ begin
 end;//TpgDataProvider.Get_RegionID
 
 function TpgDataProvider.CheckLogin(const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  IsRequireAdminRights: Boolean): TdaLoginError;
+ const aPassword: AnsiString;
+ IsRequireAdminRights: Boolean): TdaLoginError;
 //#UC START# *551BE2D701DE_55D6DA9E00BF_var*
 var
  l_UserID: TdaUserID;
@@ -445,7 +415,7 @@ begin
 end;//TpgDataProvider.GetRegionName
 
 procedure TpgDataProvider.FillRegionDataList(aList: Tl3StringDataList;
-  Caps: Boolean);
+ Caps: Boolean);
 //#UC START# *551D35040362_55D6DA9E00BF_var*
 var
  l_Query: IdaTabledQuery;
@@ -888,8 +858,8 @@ begin
 end;//TpgDataProvider.Get_UserManager
 
 function TpgDataProvider.RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
-  const aKey: AnsiString;
-  anID: TdaDocID): Boolean;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
 //#UC START# *56BC642200D0_55D6DA9E00BF_var*
 //#UC END# *56BC642200D0_55D6DA9E00BF_var*
 begin
@@ -899,8 +869,8 @@ begin
 end;//TpgDataProvider.RegisterFreeExtObjID
 
 function TpgDataProvider.RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
-  const aKey: AnsiString;
-  anID: TdaDocID): Boolean;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
 //#UC START# *56BC6437030F_55D6DA9E00BF_var*
 //#UC END# *56BC6437030F_55D6DA9E00BF_var*
 begin
@@ -930,6 +900,7 @@ begin
 end;//TpgDataProvider.HasJournal
 
 procedure TpgDataProvider.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55D6DA9E00BF_var*
 //#UC END# *479731C50290_55D6DA9E00BF_var*
 begin
@@ -953,7 +924,6 @@ begin
  inherited;
 //#UC END# *479731C50290_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

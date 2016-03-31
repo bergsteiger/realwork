@@ -1,84 +1,89 @@
 unit htTabledQuery;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htTabledQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtTabledQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htTabledQuery.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtTabledQuery" MUID: (5551AB1602F4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  daInterfaces,
-  htInterfaces,
-  daTabledQuery
-  ;
+ l3IntfUses
+ , daTabledQuery
+ , htInterfaces
+ , daInterfaces
+;
 
 type
  ThtTabledQuery = class(TdaTabledQuery)
- private
- // private fields
-   f_Helper : IhtDataSchemeHelper;
- private
- // private methods
+  private
+   f_Helper: IhtDataSchemeHelper;
+  private
    function FindTable(const anAlias: AnsiString): IhtFromTable;
- protected
- // realized methods
+  protected
    function MakeFromTable(const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaFromTable; override;
+    const anAlias: AnsiString = ''): IdaFromTable; override;
    procedure PrepareTable; override;
-     {* Сигнатура метода PrepareTable }
    procedure UnPrepareTable; override;
-     {* Сигнатура метода UnPrepareTable }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
- public
- // public methods
+  public
    constructor Create(const aDataConverter: IhtDataConverter;
-     const aHelper: IhtDataSchemeHelper;
-     const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''); reintroduce;
+    const aHelper: IhtDataSchemeHelper;
+    const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''); reintroduce;
    class function Make(const aDataConverter: IhtDataConverter;
-     const aHelper: IhtDataSchemeHelper;
-     const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
-     {* Сигнатура фабрики ThtTabledQuery.Make }
+    const aHelper: IhtDataSchemeHelper;
+    const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
  end;//ThtTabledQuery
 
 implementation
 
 uses
-  htFromTable,
-  daTypes
-  {$If not defined(Nemesis)}
-  ,
-  HT_Const
-  {$IfEnd} //not Nemesis
-  ,
-  htResultSet,
-  l3Base
-  {$If not defined(Nemesis)}
-  ,
-  HT_DLL
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils
-  ;
+ l3ImplUses
+ , htFromTable
+ , daTypes
+ {$If NOT Defined(Nemesis)}
+ , HT_Const
+ {$IfEnd} // NOT Defined(Nemesis)
+ , htResultSet
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , HT_DLL
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+;
 
-// start class ThtTabledQuery
+constructor ThtTabledQuery.Create(const aDataConverter: IhtDataConverter;
+ const aHelper: IhtDataSchemeHelper;
+ const aTable: IdaTableDescription;
+ const anAlias: AnsiString = '');
+//#UC START# *5551AB780328_5551AB1602F4_var*
+//#UC END# *5551AB780328_5551AB1602F4_var*
+begin
+//#UC START# *5551AB780328_5551AB1602F4_impl*
+ inherited Create(aDataConverter, aTable, anAlias);
+ f_Helper := aHelper;
+//#UC END# *5551AB780328_5551AB1602F4_impl*
+end;//ThtTabledQuery.Create
+
+class function ThtTabledQuery.Make(const aDataConverter: IhtDataConverter;
+ const aHelper: IhtDataSchemeHelper;
+ const aTable: IdaTableDescription;
+ const anAlias: AnsiString = ''): IdaTabledQuery;
+var
+ l_Inst : ThtTabledQuery;
+begin
+ l_Inst := Create(aDataConverter, aHelper, aTable, anAlias);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//ThtTabledQuery.Make
 
 function ThtTabledQuery.FindTable(const anAlias: AnsiString): IhtFromTable;
 //#UC START# *555CA4CC00D6_5551AB1602F4_var*
@@ -94,36 +99,8 @@ begin
 //#UC END# *555CA4CC00D6_5551AB1602F4_impl*
 end;//ThtTabledQuery.FindTable
 
-constructor ThtTabledQuery.Create(const aDataConverter: IhtDataConverter;
-  const aHelper: IhtDataSchemeHelper;
-  const aTable: IdaTableDescription;
-  const anAlias: AnsiString = '');
-//#UC START# *5551AB780328_5551AB1602F4_var*
-//#UC END# *5551AB780328_5551AB1602F4_var*
-begin
-//#UC START# *5551AB780328_5551AB1602F4_impl*
- inherited Create(aDataConverter, aTable, anAlias);
- f_Helper := aHelper;
-//#UC END# *5551AB780328_5551AB1602F4_impl*
-end;//ThtTabledQuery.Create
-
-class function ThtTabledQuery.Make(const aDataConverter: IhtDataConverter;
-  const aHelper: IhtDataSchemeHelper;
-  const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaTabledQuery;
-var
- l_Inst : ThtTabledQuery;
-begin
- l_Inst := Create(aDataConverter, aHelper, aTable, anAlias);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 function ThtTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromTable;
 //#UC START# *5600FFF80332_5551AB1602F4_var*
 //#UC END# *5600FFF80332_5551AB1602F4_var*
 begin
@@ -162,6 +139,7 @@ begin
 end;//ThtTabledQuery.UnPrepareTable
 
 procedure ThtTabledQuery.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5551AB1602F4_var*
 //#UC END# *479731C50290_5551AB1602F4_var*
 begin

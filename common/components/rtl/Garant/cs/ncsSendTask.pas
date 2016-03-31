@@ -1,81 +1,69 @@
 unit ncsSendTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsSendTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::TaskSend::TncsSendTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsSendTask.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsSendTask" MUID: (54855C2F0088)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  k2SizedMemoryPool,
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2SizedMemoryPool
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsSendTask = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetData: Tk2RawData;
    procedure pm_SetData(aValue: Tk2RawData);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property Data: Tk2RawData
-     read pm_GetData
-     write pm_SetData;
+    read pm_GetData
+    write pm_SetData;
  end;//TncsSendTask
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csSendTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsSendTask
+ l3ImplUses
+ , csSendTask_Const
+;
 
 function TncsSendTask.pm_GetData: Tk2RawData;
- {-}
+//#UC START# *8E4295A820EB_54855C2F0088get_var*
+//#UC END# *8E4295A820EB_54855C2F0088get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := Tk2RawData(TaggedData.cAtom(k2_attrData));
+//#UC START# *8E4295A820EB_54855C2F0088get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *8E4295A820EB_54855C2F0088get_impl*
 end;//TncsSendTask.pm_GetData
 
 procedure TncsSendTask.pm_SetData(aValue: Tk2RawData);
- {-}
+//#UC START# *8E4295A820EB_54855C2F0088set_var*
+//#UC END# *8E4295A820EB_54855C2F0088set_var*
 begin
- TaggedData.AttrW[k2_attrData, nil] := (aValue);
+//#UC START# *8E4295A820EB_54855C2F0088set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *8E4295A820EB_54855C2F0088set_impl*
 end;//TncsSendTask.pm_SetData
 
 class function TncsSendTask.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_54855C2F0088_var*
+//#UC END# *53AC03EE01FD_54855C2F0088_var*
 begin
- Result := k2_typcsSendTask;
+//#UC START# *53AC03EE01FD_54855C2F0088_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_54855C2F0088_impl*
 end;//TncsSendTask.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

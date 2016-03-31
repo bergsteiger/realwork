@@ -1,111 +1,101 @@
 {$IfNDef l3UntypedList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3UntypedList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::RecLists::l3UntypedList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "l3UntypedList" MUID: (47B433E500BC)
+// Имя типа: "_l3UntypedList_"
 
 {$Define l3UntypedList_imp}
+
+type
  VOID = record
   {* Специальный тип, заменяющий void в C++. }
-   aLong : Integer;
-   aByte : Integer;
+  aLong: Integer;
+  aByte: Integer;
  end;//VOID
 
  {$Define l3Items_FillItem_NeedsList}
- { Функции обработки элементов списка требуют знания о самом списке }
 
  {$Define l3Items_CompareItemsRec_NeedsRList}
 
  _ItemType_ = VOID;
  _l3Items_Parent_ = _l3UntypedList_Parent_;
- {$Include ..\L3\l3Items.imp.pas}
- _l3UntypedList_ = {abstract mixin} class(_l3Items_)
- protected
- // property methods
+ {$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
+ _l3UntypedList_ = {abstract} class(_l3Items_)
+  protected
    function pm_GetItemSize: Integer; virtual; abstract;
- protected
- // realized methods
-   procedure pm_SetCount(aValue: Integer); override;
- protected
- // protected methods
    function DoCompare(const A;
     const B;
     DataSize: Cardinal): Integer; virtual; abstract;
-     {* Сравнивает элементы. }
+    {* Сравнивает элементы. }
    procedure DoInsert(anIndex: Integer;
-    const aData); // can raise EListError
-   function DoAdd(const aData): Integer; // can raise El3DuplicateItem
- public
- // public methods
+    const aData); { can raise EListError }
+   function DoAdd(const aData): Integer; { can raise El3DuplicateItem }
+   procedure pm_SetCount(aValue: Integer); override; { can raise EListError }
+  public
    procedure Clear;
-     {* Очищает список. }
+    {* Очищает список. }
    function Iterate(aLo: Tl3Index;
     aHi: Tl3Index;
     Action: Tl3IteratorAction): Integer;
-     {* перебирает все элементы хранилища с aLo по aHi. }
+    {* перебирает все элементы хранилища с aLo по aHi. }
    function IterateAll(Action: Tl3IteratorAction): Integer;
-     {* перебирает все элементы хранилища. }
+    {* перебирает все элементы хранилища. }
    function Add(const aData): Integer;
    function Find(const aData;
     out theIndex: Integer): Boolean;
-     {* Находит данные, при помощи основной операции сравнения. }
+    {* Находит данные, при помощи основной операции сравнения. }
    procedure Insert(anIndex: Integer;
     const aData);
- public
- // public properties
+  public
    property ItemSize: Integer
-     read pm_GetItemSize;
+    read pm_GetItemSize;
  end;//_l3UntypedList_
 
 {$Else l3UntypedList_imp}
 
-// start class _l3UntypedList_
+{$IfNDef l3UntypedList_imp_impl}
+
+{$Define l3UntypedList_imp_impl}
 
 procedure ReAllocList(NewCapacity: Integer;
-  aList: _l3Items_); forward;
+ aList: _l3Items_); forward;
 
 function GetCapacity(aList: _l3Items_): Integer; forward;
 
 procedure DoExchange(var A: _ItemType_;
-  var B: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  ); forward;
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  ); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  ); forward;
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 function GetItemSlot(anIndex: Integer;
-  aList: _l3Items_): PItemType; forward;
+ aList: _l3Items_): PItemType; forward;
 
 procedure MoveItems(Dst: Integer;
-  Src: Integer;
-  aSize: Cardinal;
-  aList: _l3Items_);
+ Src: Integer;
+ aSize: Cardinal;
+ aList: _l3Items_);
+ {* Передвигает кусок памяти. }
 //#UC START# *47B48A510176_47B433E500BC_var*
 var
  l_Sz : Integer;
@@ -146,7 +136,8 @@ begin
 end;//MoveItems
 
 procedure ReAllocList(NewCapacity: Integer;
-  aList: _l3Items_);
+ aList: _l3Items_);
+ {* изменяет мощность списка. }
 //#UC START# *47B5976F024E_47B433E500BC_var*
 var
  l_Cap : Integer;
@@ -174,12 +165,12 @@ begin
 end;//GetCapacity
 
 procedure DoExchange(var A: _ItemType_;
-  var B: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Меняет элементы списка местами. Без всяких проверок. }
 //#UC START# *47B5C4080270_47B433E500BC_var*
 //#UC END# *47B5C4080270_47B433E500BC_var*
 begin
@@ -189,12 +180,12 @@ begin
 end;//DoExchange
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_47B433E500BC_var*
 //#UC END# *47B935AF0066_47B433E500BC_var*
 begin
@@ -204,11 +195,11 @@ begin
 end;//FillItem
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  );
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
+ {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_47B433E500BC_var*
 //#UC END# *47B94A5C006E_47B433E500BC_var*
 begin
@@ -218,6 +209,7 @@ begin
 end;//FreeItem
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_47B433E500BC_var*
 //#UC END# *47B99D4503A2_47B433E500BC_var*
 begin
@@ -230,7 +222,7 @@ begin
 end;//CompareExistingItems
 
 function GetItemSlot(anIndex: Integer;
-  aList: _l3Items_): PItemType;
+ aList: _l3Items_): PItemType;
 //#UC START# *47BEDF2A02EA_47B433E500BC_var*
 //#UC END# *47BEDF2A02EA_47B433E500BC_var*
 begin
@@ -239,12 +231,10 @@ begin
 //#UC END# *47BEDF2A02EA_47B433E500BC_impl*
 end;//GetItemSlot
 
-
-{$Include ..\L3\l3Items.imp.pas}
-
-// start class _l3UntypedList_
+{$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
 
 procedure _l3UntypedList_.Clear;
+ {* Очищает список. }
 //#UC START# *47BC108C03C9_47B433E500BC_var*
 //#UC END# *47BC108C03C9_47B433E500BC_var*
 begin
@@ -254,8 +244,9 @@ begin
 end;//_l3UntypedList_.Clear
 
 function _l3UntypedList_.Iterate(aLo: Tl3Index;
-  aHi: Tl3Index;
-  Action: Tl3IteratorAction): Integer;
+ aHi: Tl3Index;
+ Action: Tl3IteratorAction): Integer;
+ {* перебирает все элементы хранилища с aLo по aHi. }
 //#UC START# *47BEEBE602B1_47B433E500BC_var*
 var
  i, j, k   : Long;
@@ -281,6 +272,7 @@ begin
 end;//_l3UntypedList_.Iterate
 
 function _l3UntypedList_.IterateAll(Action: Tl3IteratorAction): Integer;
+ {* перебирает все элементы хранилища. }
 //#UC START# *47BEEC10022E_47B433E500BC_var*
 //#UC END# *47BEEC10022E_47B433E500BC_var*
 begin
@@ -290,7 +282,7 @@ begin
 end;//_l3UntypedList_.IterateAll
 
 procedure _l3UntypedList_.DoInsert(anIndex: Integer;
-  const aData); // can raise EListError
+ const aData); { can raise EListError }
 //#UC START# *47BEF05C0032_47B433E500BC_var*
 
  procedure _Error;
@@ -307,7 +299,7 @@ begin
 //#UC END# *47BEF05C0032_47B433E500BC_impl*
 end;//_l3UntypedList_.DoInsert
 
-function _l3UntypedList_.DoAdd(const aData): Integer; // can raise El3DuplicateItem
+function _l3UntypedList_.DoAdd(const aData): Integer; { can raise El3DuplicateItem }
 //#UC START# *47BEF3910285_47B433E500BC_var*
 
  procedure SayDup(anIndex: Integer);
@@ -370,7 +362,8 @@ begin
 end;//_l3UntypedList_.Add
 
 function _l3UntypedList_.Find(const aData;
-  out theIndex: Integer): Boolean;
+ out theIndex: Integer): Boolean;
+ {* Находит данные, при помощи основной операции сравнения. }
 //#UC START# *47BF0A3100F6_47B433E500BC_var*
 //#UC END# *47BF0A3100F6_47B433E500BC_var*
 begin
@@ -380,7 +373,7 @@ begin
 end;//_l3UntypedList_.Find
 
 procedure _l3UntypedList_.Insert(anIndex: Integer;
-  const aData);
+ const aData);
 //#UC START# *47BF0C7C01D6_47B433E500BC_var*
 //#UC END# *47BF0C7C01D6_47B433E500BC_var*
 begin
@@ -389,7 +382,7 @@ begin
 //#UC END# *47BF0C7C01D6_47B433E500BC_impl*
 end;//_l3UntypedList_.Insert
 
-procedure _l3UntypedList_.pm_SetCount(aValue: Integer);
+procedure _l3UntypedList_.pm_SetCount(aValue: Integer); { can raise EListError }
 //#UC START# *47BEE088001A_47B433E500BCset_var*
 
  procedure SayBadCount(aNewCount: LongInt);
@@ -425,4 +418,7 @@ begin
 //#UC END# *47BEE088001A_47B433E500BCset_impl*
 end;//_l3UntypedList_.pm_SetCount
 
+{$EndIf l3UntypedList_imp_impl}
+
 {$EndIf l3UntypedList_imp}
+

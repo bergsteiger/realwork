@@ -1,63 +1,46 @@
 unit arDocumentContainerWithContentsTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/arDocumentContainerWithContentsTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocumentContainer::TarDocumentContainerWithContentsTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\arDocumentContainerWithContentsTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarDocumentContainerWithContentsTree" MUID: (4E004D900171)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  l3Tree_TLB,
-  l3LongintList,
-  arDocumentContainer,
-  arCommonTypes,
-  k2DocumentGenerator,
-  nevBase,
-  k2Base,
-  evdTypes
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , arDocumentContainer
+ , arCommonTypes
+ , l3Tree_TLB
+ , l3LongintList
+ , evdTypes
+ , nevBase
+ , k2DocumentGenerator
+ , k2Base
+;
 
-{$If defined(AppClientSide)}
 const
-  { Defaults }
  cnUndefAACSubID = -1;
 
 type
  TarDocumentContainerWithContentsTree = class(TarDocumentContainer, IarCheckLeftOrRightBlock)
- private
- // private fields
-   f_ContentsTree : Il3Tree;
-    {* Дерево оглавления.}
-   f_RightSubID : Tl3LongintList;
-   f_LeftSubID : Tl3LongintList;
- private
- // private methods
+  private
+   f_ContentsTree: Il3Tree;
+    {* Дерево оглавления. }
+   f_RightSubID: Tl3LongintList;
+   f_LeftSubID: Tl3LongintList;
+  private
    procedure MakeContentsTree;
-     {* Создать, если нужно, дерево оглваления. }
- protected
- // realized methods
+    {* Создать, если нужно, дерево оглваления. }
+  protected
    function HasAACBlock(aLeft: Boolean): Boolean;
    procedure SetBlockKind(aOldSubID: Integer;
     aNewSubID: Integer;
     aBlockKind: TevBlockViewKind);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure SendTOCCreatedNotify; override;
    function DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
@@ -68,29 +51,26 @@ type
     const anOpPack: InevOp); override;
    procedure SubDeleted(aSubID: Integer); override;
  end;//TarDocumentContainerWithContentsTree
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  evContentsTree,
-  evInternalInterfaces,
-  nevTools,
-  SysUtils,
-  arConst,
-  l3Types,
-  Block_Const,
-  k2Tags,
-  Sub_Const
-  ;
-{$IfEnd} //AppClientSide
-
-{$If defined(AppClientSide)}
-
-// start class TarDocumentContainerWithContentsTree
+ l3ImplUses
+ , evContentsTree
+ , evInternalInterfaces
+ , nevTools
+ , SysUtils
+ , arConst
+ , l3Types
+ , Block_Const
+ , k2Tags
+ , Sub_Const
+;
 
 procedure TarDocumentContainerWithContentsTree.MakeContentsTree;
+ {* Создать, если нужно, дерево оглваления. }
 //#UC START# *4E0056E503BE_4E004D900171_var*
 var
  l_Listener : InevSubChangeListener;
@@ -125,8 +105,8 @@ begin
 end;//TarDocumentContainerWithContentsTree.HasAACBlock
 
 procedure TarDocumentContainerWithContentsTree.SetBlockKind(aOldSubID: Integer;
-  aNewSubID: Integer;
-  aBlockKind: TevBlockViewKind);
+ aNewSubID: Integer;
+ aBlockKind: TevBlockViewKind);
 //#UC START# *52738B2F02B7_4E004D900171_var*
 //#UC END# *52738B2F02B7_4E004D900171_var*
 begin
@@ -141,6 +121,7 @@ begin
 end;//TarDocumentContainerWithContentsTree.SetBlockKind
 
 procedure TarDocumentContainerWithContentsTree.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E004D900171_var*
 //#UC END# *479731C50290_4E004D900171_var*
 begin
@@ -174,7 +155,7 @@ begin
 end;//TarDocumentContainerWithContentsTree.SendTOCCreatedNotify
 
 function TarDocumentContainerWithContentsTree.DoBeforeFinishAtom1(aGenerator: Tk2DocumentGenerator;
-  var anAtom: Tk2StackAtom): Boolean;
+ var anAtom: Tk2StackAtom): Boolean;
 //#UC START# *47F226170180_4E004D900171_var*
 //#UC END# *47F226170180_4E004D900171_var*
 begin
@@ -201,8 +182,8 @@ begin
 end;//TarDocumentContainerWithContentsTree.GetContentsTree
 
 procedure TarDocumentContainerWithContentsTree.DoPropChanged(Prop: Tk2Prop;
-  const V: TnevValues;
-  const anOpPack: InevOp);
+ const V: TnevValues;
+ const anOpPack: InevOp);
 //#UC START# *49184A180301_4E004D900171_var*
 //#UC END# *49184A180301_4E004D900171_var*
 begin
@@ -230,7 +211,6 @@ begin
   f_RightSubID.Remove(aSubID);
 //#UC END# *527384840253_4E004D900171_impl*
 end;//TarDocumentContainerWithContentsTree.SubDeleted
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

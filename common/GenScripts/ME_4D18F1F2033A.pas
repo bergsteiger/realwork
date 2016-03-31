@@ -15,6 +15,8 @@ uses
  , l3ProtoObjectForTie
  , DynamicTreeUnit
  , DocumentUnit
+ //#UC START# *4D18F1F2033Aintf_uses*
+ //#UC END# *4D18F1F2033Aintf_uses*
 ;
 
 type
@@ -58,6 +60,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4D18F1F2033Aimpl_uses*
+ //#UC END# *4D18F1F2033Aimpl_uses*
 ;
 
 constructor TnsFindIteratorNewFindPositionList.Create(const aGotList: IFragmentList);

@@ -1,50 +1,37 @@
 unit atSetBookmarkOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSetBookmarkOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSetBookmarkOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSetBookmarkOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSetBookmarkOperation" MUID: (48171DA40077)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSetBookmarkOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatSetBookmarkOperation
 
 implementation
 
 uses
-  atLogger,
-  DocumentUnit,
-  Math,
-  BaseTreeSupportUnit,
-  SysUtils,
-  atDocumentHelper,
-  atFoldersHelper,
-  BaseTypesUnit,
-  atCommon
-  ;
-
-// start class TatSetBookmarkOperation
+ l3ImplUses
+ , atLogger
+ , DocumentUnit
+ , Math
+ , BaseTreeSupportUnit
+ , SysUtils
+ , atDocumentHelper
+ , atFoldersHelper
+ , BaseTypesUnit
+ , atCommon
+;
 
 procedure TatSetBookmarkOperation.ExecuteSelf;
 //#UC START# *48089F460352_48171DA40077_var*

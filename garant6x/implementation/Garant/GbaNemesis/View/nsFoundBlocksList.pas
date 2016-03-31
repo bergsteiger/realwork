@@ -1,46 +1,32 @@
 unit nsFoundBlocksList;
+ {* Найденные блоки для позиционирования }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsFoundBlocksList.pas"
-// Начат: 28.01.2010 18:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::ContextSearchInEVDDocument::TnsFoundBlocksList
-//
-// Найденные блоки для позиционирования
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFoundBlocksList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFoundBlocksList" MUID: (4B61AB64033F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nevTools,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsFoundBlockInfo = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rBlockID : Integer;
-   rPoint : InevBasePoint;
+ TnsFoundBlockInfo = object
+  public
+   rBlockID: Integer;
+   rPoint: InevBasePoint;
  end;//TnsFoundBlockInfo
 
  _ItemType_ = TnsFoundBlockInfo;
@@ -50,42 +36,57 @@ type
  TnsFoundBlocksList = class(_l3RecordListPrim_)
   {* Найденные блоки для позиционирования }
  end;//TnsFoundBlocksList
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 function TnsFoundBlockInfo_C(aBlockID: Integer;
-    const aPoint: InevBasePoint): TnsFoundBlockInfo; overload;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
+ const aPoint: InevBasePoint): TnsFoundBlockInfo; overload;
 function TnsFoundBlockInfo_C(aBlockID: Integer): TnsFoundBlockInfo; overload;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+function TnsFoundBlockInfo_C(aBlockID: Integer;
+ const aPoint: InevBasePoint): TnsFoundBlockInfo;
+//#UC START# *4B61AC4403B2_4B61ABFB015F_var*
+//#UC END# *4B61AC4403B2_4B61ABFB015F_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4B61AC4403B2_4B61ABFB015F_impl*
+ Result.rBlockID := aBlockID;
+ Result.rPoint := aPoint;
+//#UC END# *4B61AC4403B2_4B61ABFB015F_impl*
+end;//TnsFoundBlockInfo_C
 
-// start class TnsFoundBlocksList
+function TnsFoundBlockInfo_C(aBlockID: Integer): TnsFoundBlockInfo;
+//#UC START# *4B61AE6A01A4_4B61ABFB015F_var*
+//#UC END# *4B61AE6A01A4_4B61ABFB015F_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4B61AE6A01A4_4B61ABFB015F_impl*
+ Result := TnsFoundBlockInfo_C(aBlockID, nil);
+//#UC END# *4B61AE6A01A4_4B61ABFB015F_impl*
+end;//TnsFoundBlockInfo_C
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4B61AB64033F_var*
 //#UC END# *47B07CF403D0_4B61AB64033F_var*
 begin
@@ -94,11 +95,11 @@ begin
  Assert(false);
 //#UC END# *47B07CF403D0_4B61AB64033F_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4B61AB64033F_var*
 //#UC END# *47B2C42A0163_4B61AB64033F_var*
 begin
@@ -106,9 +107,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4B61AB64033F_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4B61AB64033F_var*
 //#UC END# *47B99D4503A2_4B61AB64033F_var*
 begin
@@ -123,33 +125,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TnsFoundBlocksList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-
-function TnsFoundBlockInfo_C(aBlockID: Integer;
-        const aPoint: InevBasePoint): TnsFoundBlockInfo;
-//#UC START# *4B61AC4403B2_4B61ABFB015F_var*
-//#UC END# *4B61AC4403B2_4B61ABFB015F_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4B61AC4403B2_4B61ABFB015F_impl*
- Result.rBlockID := aBlockID;
- Result.rPoint := aPoint;
-//#UC END# *4B61AC4403B2_4B61ABFB015F_impl*
-end;//TnsFoundBlockInfo.C
-
-
-function TnsFoundBlockInfo_C(aBlockID: Integer): TnsFoundBlockInfo;
-//#UC START# *4B61AE6A01A4_4B61ABFB015F_var*
-//#UC END# *4B61AE6A01A4_4B61ABFB015F_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4B61AE6A01A4_4B61ABFB015F_impl*
- Result := TnsFoundBlockInfo_C(aBlockID, nil);
-//#UC END# *4B61AE6A01A4_4B61ABFB015F_impl*
-end;//TnsFoundBlockInfo.C
-
-
-{$IfEnd} //not Admin AND not Monitorings
 end.

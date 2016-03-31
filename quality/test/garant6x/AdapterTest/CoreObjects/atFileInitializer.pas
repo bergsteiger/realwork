@@ -1,63 +1,48 @@
 unit atFileInitializer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atFileInitializer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatFileInitializer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atFileInitializer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatFileInitializer" MUID: (50294907000B)
 
 interface
 
 uses
-  Classes,
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+ , Classes
+;
 
 type
  TatFileInitializer = class(TObject)
- private
- // private fields
-   f_GuardFile : THandle;
-   f_FileName : AnsiString;
-    {* Поле для свойства FileName}
-   f_Handle : THandle;
-    {* Поле для свойства Handle}
-   f_Stream : TStream;
-    {* Поле для свойства Stream}
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  private
+   f_GuardFile: THandle;
+   f_FileName: AnsiString;
+    {* Поле для свойства FileName }
+   f_Handle: THandle;
+    {* Поле для свойства Handle }
+   f_Stream: TStream;
+    {* Поле для свойства Stream }
+  public
    function DupHandle: THandle; virtual;
    function TryInit: Boolean; virtual;
    procedure FinishInit; virtual;
    constructor Create(const aFileName: AnsiString = ''); reintroduce;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property FileName: AnsiString
-     read f_FileName;
+    read f_FileName;
    property Handle: THandle
-     read f_Handle;
+    read f_Handle;
    property Stream: TStream
-     read f_Stream;
+    read f_Stream;
  end;//TatFileInitializer
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatFileInitializer
+ l3ImplUses
+ , SysUtils
+;
 
 function TatFileInitializer.DupHandle: THandle;
 //#UC START# *50294A39012E_50294907000B_var*

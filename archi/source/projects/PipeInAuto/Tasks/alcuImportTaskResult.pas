@@ -1,36 +1,24 @@
 unit alcuImportTaskResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuImportTaskResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuImportTaskResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuImportTaskResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuImportTaskResult" MUID: (53E1D0D00252)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  evdTasksHelpers,
-  csTaskResult,
-  k2Base
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , csTaskResult
+ , evdTasksHelpers
+ , k2Base
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuImportTaskResult = class(TcsTaskResult)
- protected
- // property methods
+  protected
    function pm_GetMailBody: AnsiString;
    procedure pm_SetMailBody(const aValue: AnsiString);
    function pm_GetImportedDocList: ImportedDocListHelper;
@@ -40,110 +28,123 @@ type
    procedure pm_SetMailSubject(const aValue: AnsiString);
    function pm_GetEMailSubject: AnsiString;
    procedure pm_SetEMailSubject(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property MailBody: AnsiString
-     read pm_GetMailBody
-     write pm_SetMailBody;
+    read pm_GetMailBody
+    write pm_SetMailBody;
    property ImportedDocList: ImportedDocListHelper
-     read pm_GetImportedDocList;
+    read pm_GetImportedDocList;
    property UserNotification: AnsiString
-     read pm_GetUserNotification
-     write pm_SetUserNotification;
+    read pm_GetUserNotification
+    write pm_SetUserNotification;
    property MailSubject: AnsiString
-     read pm_GetMailSubject
-     write pm_SetMailSubject;
+    read pm_GetMailSubject
+    write pm_SetMailSubject;
    property EMailSubject: AnsiString
-     read pm_GetEMailSubject
-     write pm_SetEMailSubject;
+    read pm_GetEMailSubject
+    write pm_SetEMailSubject;
  end;//TalcuImportTaskResult
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  ImportTaskResult_Const
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuImportTaskResult
+ l3ImplUses
+ , ImportTaskResult_Const
+;
 
 function TalcuImportTaskResult.pm_GetMailBody: AnsiString;
- {-}
+//#UC START# *AF613FEFED45_53E1D0D00252get_var*
+//#UC END# *AF613FEFED45_53E1D0D00252get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrMailBody]);
+//#UC START# *AF613FEFED45_53E1D0D00252get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *AF613FEFED45_53E1D0D00252get_impl*
 end;//TalcuImportTaskResult.pm_GetMailBody
 
 procedure TalcuImportTaskResult.pm_SetMailBody(const aValue: AnsiString);
- {-}
+//#UC START# *AF613FEFED45_53E1D0D00252set_var*
+//#UC END# *AF613FEFED45_53E1D0D00252set_var*
 begin
- TaggedData.StrW[k2_attrMailBody, nil] := (aValue);
+//#UC START# *AF613FEFED45_53E1D0D00252set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *AF613FEFED45_53E1D0D00252set_impl*
 end;//TalcuImportTaskResult.pm_SetMailBody
 
 function TalcuImportTaskResult.pm_GetImportedDocList: ImportedDocListHelper;
- {-}
+//#UC START# *E9096F97F529_53E1D0D00252get_var*
+//#UC END# *E9096F97F529_53E1D0D00252get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TImportedDocListHelper.Make(TaggedData.cAtom(k2_attrImportedDocList));
+//#UC START# *E9096F97F529_53E1D0D00252get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E9096F97F529_53E1D0D00252get_impl*
 end;//TalcuImportTaskResult.pm_GetImportedDocList
 
 function TalcuImportTaskResult.pm_GetUserNotification: AnsiString;
- {-}
+//#UC START# *9D4CEB3DAD3D_53E1D0D00252get_var*
+//#UC END# *9D4CEB3DAD3D_53E1D0D00252get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrUserNotification]);
+//#UC START# *9D4CEB3DAD3D_53E1D0D00252get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *9D4CEB3DAD3D_53E1D0D00252get_impl*
 end;//TalcuImportTaskResult.pm_GetUserNotification
 
 procedure TalcuImportTaskResult.pm_SetUserNotification(const aValue: AnsiString);
- {-}
+//#UC START# *9D4CEB3DAD3D_53E1D0D00252set_var*
+//#UC END# *9D4CEB3DAD3D_53E1D0D00252set_var*
 begin
- TaggedData.StrW[k2_attrUserNotification, nil] := (aValue);
+//#UC START# *9D4CEB3DAD3D_53E1D0D00252set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *9D4CEB3DAD3D_53E1D0D00252set_impl*
 end;//TalcuImportTaskResult.pm_SetUserNotification
 
 function TalcuImportTaskResult.pm_GetMailSubject: AnsiString;
- {-}
+//#UC START# *C878B7965184_53E1D0D00252get_var*
+//#UC END# *C878B7965184_53E1D0D00252get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrMailSubject]);
+//#UC START# *C878B7965184_53E1D0D00252get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C878B7965184_53E1D0D00252get_impl*
 end;//TalcuImportTaskResult.pm_GetMailSubject
 
 procedure TalcuImportTaskResult.pm_SetMailSubject(const aValue: AnsiString);
- {-}
+//#UC START# *C878B7965184_53E1D0D00252set_var*
+//#UC END# *C878B7965184_53E1D0D00252set_var*
 begin
- TaggedData.StrW[k2_attrMailSubject, nil] := (aValue);
+//#UC START# *C878B7965184_53E1D0D00252set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C878B7965184_53E1D0D00252set_impl*
 end;//TalcuImportTaskResult.pm_SetMailSubject
 
 function TalcuImportTaskResult.pm_GetEMailSubject: AnsiString;
- {-}
+//#UC START# *0434CD7FED8A_53E1D0D00252get_var*
+//#UC END# *0434CD7FED8A_53E1D0D00252get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrEMailSubject]);
+//#UC START# *0434CD7FED8A_53E1D0D00252get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *0434CD7FED8A_53E1D0D00252get_impl*
 end;//TalcuImportTaskResult.pm_GetEMailSubject
 
 procedure TalcuImportTaskResult.pm_SetEMailSubject(const aValue: AnsiString);
- {-}
+//#UC START# *0434CD7FED8A_53E1D0D00252set_var*
+//#UC END# *0434CD7FED8A_53E1D0D00252set_var*
 begin
- TaggedData.StrW[k2_attrEMailSubject, nil] := (aValue);
+//#UC START# *0434CD7FED8A_53E1D0D00252set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *0434CD7FED8A_53E1D0D00252set_impl*
 end;//TalcuImportTaskResult.pm_SetEMailSubject
 
 class function TalcuImportTaskResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53E1D0D00252_var*
+//#UC END# *53AC03EE01FD_53E1D0D00252_var*
 begin
- Result := k2_typImportTaskResult;
+//#UC START# *53AC03EE01FD_53E1D0D00252_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53E1D0D00252_impl*
 end;//TalcuImportTaskResult.GetTaggedDataType
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

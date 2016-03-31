@@ -1,36 +1,24 @@
 unit alcuRegionAutoExportTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuRegionAutoExportTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuRegionAutoExportTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRegionAutoExportTaskPrim" MUID: (540466FA008B)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAutoExportTask,
-  l3Variant,
-  k2Base
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuAutoExportTask
+ , l3Variant
+ , k2Base
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuRegionAutoExportTaskPrim = class(TalcuAutoExportTask)
- protected
- // property methods
+  protected
    function pm_GetRegionIndex: Integer;
    procedure pm_SetRegionIndex(aValue: Integer);
    function pm_GetFTPParams: Tl3Tag;
@@ -39,100 +27,112 @@ type
    procedure pm_SetFileNameMask(const aValue: AnsiString);
    function pm_GetResultWarehouse: AnsiString;
    procedure pm_SetResultWarehouse(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property RegionIndex: Integer
-     read pm_GetRegionIndex
-     write pm_SetRegionIndex;
+    read pm_GetRegionIndex
+    write pm_SetRegionIndex;
    property FTPParams: Tl3Tag
-     read pm_GetFTPParams
-     write pm_SetFTPParams;
+    read pm_GetFTPParams
+    write pm_SetFTPParams;
    property FileNameMask: AnsiString
-     read pm_GetFileNameMask
-     write pm_SetFileNameMask;
+    read pm_GetFileNameMask
+    write pm_SetFileNameMask;
    property ResultWarehouse: AnsiString
-     read pm_GetResultWarehouse
-     write pm_SetResultWarehouse;
+    read pm_GetResultWarehouse
+    write pm_SetResultWarehouse;
  end;//TalcuRegionAutoExportTaskPrim
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  RegionAutoExportTask_Const
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuRegionAutoExportTaskPrim
+ l3ImplUses
+ , RegionAutoExportTask_Const
+;
 
 function TalcuRegionAutoExportTaskPrim.pm_GetRegionIndex: Integer;
- {-}
+//#UC START# *348B7F231B99_540466FA008Bget_var*
+//#UC END# *348B7F231B99_540466FA008Bget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrRegionIndex]);
+//#UC START# *348B7F231B99_540466FA008Bget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *348B7F231B99_540466FA008Bget_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_GetRegionIndex
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetRegionIndex(aValue: Integer);
- {-}
+//#UC START# *348B7F231B99_540466FA008Bset_var*
+//#UC END# *348B7F231B99_540466FA008Bset_var*
 begin
- TaggedData.IntW[k2_attrRegionIndex, nil] := (aValue);
+//#UC START# *348B7F231B99_540466FA008Bset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *348B7F231B99_540466FA008Bset_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_SetRegionIndex
 
 function TalcuRegionAutoExportTaskPrim.pm_GetFTPParams: Tl3Tag;
- {-}
+//#UC START# *E962DB912BF7_540466FA008Bget_var*
+//#UC END# *E962DB912BF7_540466FA008Bget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.Attr[k2_attrFTPParams]);
+//#UC START# *E962DB912BF7_540466FA008Bget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E962DB912BF7_540466FA008Bget_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_GetFTPParams
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetFTPParams(aValue: Tl3Tag);
- {-}
+//#UC START# *E962DB912BF7_540466FA008Bset_var*
+//#UC END# *E962DB912BF7_540466FA008Bset_var*
 begin
- TaggedData.AttrW[k2_attrFTPParams, nil] := (aValue);
+//#UC START# *E962DB912BF7_540466FA008Bset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E962DB912BF7_540466FA008Bset_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_SetFTPParams
 
 function TalcuRegionAutoExportTaskPrim.pm_GetFileNameMask: AnsiString;
- {-}
+//#UC START# *91FF306EFAB4_540466FA008Bget_var*
+//#UC END# *91FF306EFAB4_540466FA008Bget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrFileNameMask]);
+//#UC START# *91FF306EFAB4_540466FA008Bget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *91FF306EFAB4_540466FA008Bget_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_GetFileNameMask
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetFileNameMask(const aValue: AnsiString);
- {-}
+//#UC START# *91FF306EFAB4_540466FA008Bset_var*
+//#UC END# *91FF306EFAB4_540466FA008Bset_var*
 begin
- TaggedData.StrW[k2_attrFileNameMask, nil] := (aValue);
+//#UC START# *91FF306EFAB4_540466FA008Bset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *91FF306EFAB4_540466FA008Bset_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_SetFileNameMask
 
 function TalcuRegionAutoExportTaskPrim.pm_GetResultWarehouse: AnsiString;
- {-}
+//#UC START# *1E7A33327C44_540466FA008Bget_var*
+//#UC END# *1E7A33327C44_540466FA008Bget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrResultWarehouse]);
+//#UC START# *1E7A33327C44_540466FA008Bget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *1E7A33327C44_540466FA008Bget_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_GetResultWarehouse
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetResultWarehouse(const aValue: AnsiString);
- {-}
+//#UC START# *1E7A33327C44_540466FA008Bset_var*
+//#UC END# *1E7A33327C44_540466FA008Bset_var*
 begin
- TaggedData.StrW[k2_attrResultWarehouse, nil] := (aValue);
+//#UC START# *1E7A33327C44_540466FA008Bset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *1E7A33327C44_540466FA008Bset_impl*
 end;//TalcuRegionAutoExportTaskPrim.pm_SetResultWarehouse
 
 class function TalcuRegionAutoExportTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_540466FA008B_var*
+//#UC END# *53AC03EE01FD_540466FA008B_var*
 begin
- Result := k2_typRegionAutoExportTask;
+//#UC START# *53AC03EE01FD_540466FA008B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_540466FA008B_impl*
 end;//TalcuRegionAutoExportTaskPrim.GetTaggedDataType
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

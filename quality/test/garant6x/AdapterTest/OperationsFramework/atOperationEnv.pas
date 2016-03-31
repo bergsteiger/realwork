@@ -1,89 +1,61 @@
 unit atOperationEnv;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atOperationEnv.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatOperationEnv
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationEnv.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOperationEnv" MUID: (5396EA3E0230)
 
 interface
 
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 const
-  { EnvVarNames }
- ENV_CURRENT_FILE_PATH : AnsiString = '%CURRENT_FILE_PATH%';
- ENV_CURRENT_FILE_DIR : AnsiString = '%CURRENT_FILE_DIR%';
- ENV_CURRENT_FILE_NAME : AnsiString = '%CURRENT_FILE_NAME%';
- ENV_F1_USER_NAME : AnsiString = '%F1_USER_NAME%';
+ ENV_CURRENT_FILE_PATH: AnsiString = '%CURRENT_FILE_PATH%';
+ ENV_CURRENT_FILE_DIR: AnsiString = '%CURRENT_FILE_DIR%';
+ ENV_CURRENT_FILE_NAME: AnsiString = '%CURRENT_FILE_NAME%';
+ ENV_F1_USER_NAME: AnsiString = '%F1_USER_NAME%';
 
 type
  TatOperationEnv = class(TObject)
- private
- // private fields
-   f_VarList : TStringList;
- protected
- // property methods
+  private
+   f_VarList: TStringList;
+  protected
    function pm_GetEnvVar(const aName: AnsiString): AnsiString;
-   procedure pm_SetEnvVar(const aName: AnsiString; const aValue: AnsiString);
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+   procedure pm_SetEnvVar(const aName: AnsiString;
+    const aValue: AnsiString);
+  public
    function ExpandString(const aString: AnsiString): AnsiString; virtual;
    constructor Create; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property EnvVar[const aName: AnsiString]: AnsiString
-     read pm_GetEnvVar
-     write pm_SetEnvVar;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatOperationEnv;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatOperationEnv }
+   destructor Destroy; override;
+  public
+   property EnvVar[const aName: AnsiString]: AnsiString
+    read pm_GetEnvVar
+    write pm_SetEnvVar;
  end;//TatOperationEnv
 
 implementation
 
 uses
-  l3Base {a},
-  StrUtils,
-  SysUtils
-  ;
+ l3ImplUses
+ , StrUtils
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatOperationEnv
-
-var g_TatOperationEnv : TatOperationEnv = nil;
+var g_TatOperationEnv: TatOperationEnv = nil;
+ {* Экземпляр синглетона TatOperationEnv }
 
 procedure TatOperationEnvFree;
+ {* Метод освобождения экземпляра синглетона TatOperationEnv }
 begin
  l3Free(g_TatOperationEnv);
-end;
-
-class function TatOperationEnv.Instance: TatOperationEnv;
-begin
- if (g_TatOperationEnv = nil) then
- begin
-  l3System.AddExitProc(TatOperationEnvFree);
-  g_TatOperationEnv := Create;
- end;
- Result := g_TatOperationEnv;
-end;
-
+end;//TatOperationEnvFree
 
 function TatOperationEnv.pm_GetEnvVar(const aName: AnsiString): AnsiString;
 //#UC START# *5396EBFF012A_5396EA3E0230get_var*
@@ -94,7 +66,8 @@ begin
 //#UC END# *5396EBFF012A_5396EA3E0230get_impl*
 end;//TatOperationEnv.pm_GetEnvVar
 
-procedure TatOperationEnv.pm_SetEnvVar(const aName: AnsiString; const aValue: AnsiString);
+procedure TatOperationEnv.pm_SetEnvVar(const aName: AnsiString;
+ const aValue: AnsiString);
 //#UC START# *5396EBFF012A_5396EA3E0230set_var*
   var
     l_Value : String;
@@ -153,10 +126,21 @@ begin
 end;//TatOperationEnv.Create
 
 class function TatOperationEnv.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatOperationEnv <> nil;
 end;//TatOperationEnv.Exists
+
+class function TatOperationEnv.Instance: TatOperationEnv;
+ {* Метод получения экземпляра синглетона TatOperationEnv }
+begin
+ if (g_TatOperationEnv = nil) then
+ begin
+  l3System.AddExitProc(TatOperationEnvFree);
+  g_TatOperationEnv := Create;
+ end;
+ Result := g_TatOperationEnv;
+end;//TatOperationEnv.Instance
 
 destructor TatOperationEnv.Destroy;
 //#UC START# *48077504027E_5396EA3E0230_var*

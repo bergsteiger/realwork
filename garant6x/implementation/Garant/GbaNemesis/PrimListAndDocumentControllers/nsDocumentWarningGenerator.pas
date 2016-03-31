@@ -1,133 +1,109 @@
 unit nsDocumentWarningGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PrimListAndDocumentControllers"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/PrimListAndDocumentControllers/nsDocumentWarningGenerator.pas"
-// Начат: 01.12.2011 14:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::PrimListAndDocumentControllers::PrimListAndDocumentControllersRealization::TnsDocumentWarningGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimListAndDocumentControllers\nsDocumentWarningGenerator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentWarningGenerator" MUID: (4ED7576E02F7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nevBase,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  l3StringIDEx,
-  UnderControlInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsTypes
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , nevBase
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , UnderControlInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDocumentWarningGenerator = class
- public
- // public methods
+  public
    class function Generate(const aWarning: IdsWarning;
-     const aDoc: IDocument;
-     const aGen: InevTagGenerator;
-     aUserType: TvcmUserType;
-     const anUnderControl: IucpUnderControl): TWarningTypeSet;
+    const aDoc: IDocument;
+    const aGen: InevTagGenerator;
+    aUserType: TvcmUserType;
+    const anUnderControl: IucpUnderControl): TWarningTypeSet;
  end;//TnsDocumentWarningGenerator
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaloonWarningUserTypes_remListModified_UserType,
-  bsUtils,
-  Document_Const,
-  TextPara_Const,
-  k2Tags,
-  l3String,
-  l3Base,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  BaloonWarningUserTypes_WarnTimeMachineException_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineWarning_UserType,
-  BaloonWarningUserTypes_WarnRedaction_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineOn_UserType,
-  l3Interfaces,
-  l3Core,
-  Graphics,
-  nsDocumentTools,
-  BaseTypesUnit,
-  nsConst
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  BaloonWarningUserTypes_WarnJuror_UserType,
-  BaloonWarningUserTypes_WarnPreActive_UserType,
-  ControlStatusUtils,
-  BaloonWarningUserTypes_WarnInactualDocument_UserType,
-  BaloonWarningUserTypes_WarnOnControl_UserType,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ , BaloonWarningUserTypes_remListModified_UserType
+ , bsUtils
+ , Document_Const
+ , TextPara_Const
+ , k2Tags
+ , l3String
+ , l3Base
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , l3Interfaces
+ , l3Core
+ , Graphics
+ , nsDocumentTools
+ , BaseTypesUnit
+ , nsConst
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , ControlStatusUtils
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки WarningGeneratorStrings }
-  str_wgNoActiveRedation : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgNoActiveRedation'; rValue : 'Настоящая редакция документа не действовала');
-   { 'Настоящая редакция документа не действовала' }
-  str_wgPreActiveRedation : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgPreActiveRedation'; rValue : 'Настоящая редакция документа не будет действовать');
-   { 'Настоящая редакция документа не будет действовать' }
-  str_wgBadRedation : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgBadRedation'; rValue : 'Настоящая редакция документа не действует на момент выхода установленной у вас версии системы ГАРАНТ');
-   { 'Настоящая редакция документа не действует на момент выхода установленной у вас версии системы ГАРАНТ' }
-  str_wgNotSureLinkText : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgNotSureLinkText'; rValue : 'См. комментарий');
-   { 'См. комментарий' }
-  str_wgTimeMachineOffActualRedactionLink : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineOffActualRedactionLink'; rValue : 'Выключить Машину времени');
-   { 'Выключить Машину времени' }
-  str_wgTimeMachineOffLink : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineOffLink'; rValue : 'Выключить Машину времени и перейти в актуальную редакцию');
-   { 'Выключить Машину времени и перейти в актуальную редакцию' }
-  str_wgBadRedationLink : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgBadRedationLink'; rValue : '[Переключиться в актуальную редакцию документа|script:оп::Редакции_документа_Актуальная_редакция|Текст документа будет представлен в актуальной редакции]');
-   { '[Переключиться в актуальную редакцию документа|script:оп::Редакции_документа_Актуальная_редакция|Текст документа будет представлен в актуальной редакции]' }
-  str_wgTimeMachineChangeDateOrOff : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineChangeDateOrOff'; rValue : 'Изменить дату или выключить Машину времени');
-   { 'Изменить дату или выключить Машину времени' }
-  str_wgOpenInIntranetLink : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgOpenInIntranetLink'; rValue : '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:оп::enIntranetSourcePoint_opGoToIntranet]');
-   { '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:оп::enIntranetSourcePoint_opGoToIntranet]' }
-  str_wgChangingDocuments : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgChangingDocuments'; rValue : 'Изменяющие документы:');
-   { 'Изменяющие документы:' }
-  str_wgChangingDocument : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgChangingDocument'; rValue : 'Изменяющий документ:');
-   { 'Изменяющий документ:' }
-  str_wgRedactionIsNotActive : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgRedactionIsNotActive'; rValue : 'Редакция не действует');
-   { 'Редакция не действует' }
-  str_wgFutureRedaction : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgFutureRedaction'; rValue : 'Будущая редакция');
-   { 'Будущая редакция' }
-
-// start class TnsDocumentWarningGenerator
+const
+ {* Локализуемые строки WarningGeneratorStrings }
+ str_wgNoActiveRedation: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgNoActiveRedation'; rValue : 'Настоящая редакция документа не действовала');
+  {* 'Настоящая редакция документа не действовала' }
+ str_wgPreActiveRedation: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgPreActiveRedation'; rValue : 'Настоящая редакция документа не будет действовать');
+  {* 'Настоящая редакция документа не будет действовать' }
+ str_wgBadRedation: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgBadRedation'; rValue : 'Настоящая редакция документа не действует на момент выхода установленной у вас версии системы ГАРАНТ');
+  {* 'Настоящая редакция документа не действует на момент выхода установленной у вас версии системы ГАРАНТ' }
+ str_wgNotSureLinkText: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgNotSureLinkText'; rValue : 'См. комментарий');
+  {* 'См. комментарий' }
+ str_wgTimeMachineOffActualRedactionLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineOffActualRedactionLink'; rValue : 'Выключить Машину времени');
+  {* 'Выключить Машину времени' }
+ str_wgTimeMachineOffLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineOffLink'; rValue : 'Выключить Машину времени и перейти в актуальную редакцию');
+  {* 'Выключить Машину времени и перейти в актуальную редакцию' }
+ str_wgBadRedationLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgBadRedationLink'; rValue : '[Переключиться в актуальную редакцию документа|script:оп::Редакции_документа_Актуальная_редакция|Текст документа будет представлен в актуальной редакции]');
+  {* '[Переключиться в актуальную редакцию документа|script:оп::Редакции_документа_Актуальная_редакция|Текст документа будет представлен в актуальной редакции]' }
+ str_wgTimeMachineChangeDateOrOff: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineChangeDateOrOff'; rValue : 'Изменить дату или выключить Машину времени');
+  {* 'Изменить дату или выключить Машину времени' }
+ str_wgOpenInIntranetLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgOpenInIntranetLink'; rValue : '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:оп::enIntranetSourcePoint_opGoToIntranet]');
+  {* '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:оп::enIntranetSourcePoint_opGoToIntranet]' }
+ str_wgChangingDocuments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgChangingDocuments'; rValue : 'Изменяющие документы:');
+  {* 'Изменяющие документы:' }
+ str_wgChangingDocument: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgChangingDocument'; rValue : 'Изменяющий документ:');
+  {* 'Изменяющий документ:' }
+ str_wgRedactionIsNotActive: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgRedactionIsNotActive'; rValue : 'Редакция не действует');
+  {* 'Редакция не действует' }
+ str_wgFutureRedaction: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgFutureRedaction'; rValue : 'Будущая редакция');
+  {* 'Будущая редакция' }
 
 class function TnsDocumentWarningGenerator.Generate(const aWarning: IdsWarning;
-  const aDoc: IDocument;
-  const aGen: InevTagGenerator;
-  aUserType: TvcmUserType;
-  const anUnderControl: IucpUnderControl): TWarningTypeSet;
+ const aDoc: IDocument;
+ const aGen: InevTagGenerator;
+ aUserType: TvcmUserType;
+ const anUnderControl: IucpUnderControl): TWarningTypeSet;
 //#UC START# *4ED7594E0218_4ED7576E02F7_var*
 
  procedure AddBlankPara(const aGen: InevTagGenerator);
@@ -512,60 +488,33 @@ begin
 //#UC END# *4ED7594E0218_4ED7576E02F7_impl*
 end;//TnsDocumentWarningGenerator.Generate
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgNoActiveRedation
  str_wgNoActiveRedation.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgPreActiveRedation
+ {* Инициализация str_wgNoActiveRedation }
  str_wgPreActiveRedation.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgBadRedation
+ {* Инициализация str_wgPreActiveRedation }
  str_wgBadRedation.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgNotSureLinkText
+ {* Инициализация str_wgBadRedation }
  str_wgNotSureLinkText.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgTimeMachineOffActualRedactionLink
+ {* Инициализация str_wgNotSureLinkText }
  str_wgTimeMachineOffActualRedactionLink.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgTimeMachineOffLink
+ {* Инициализация str_wgTimeMachineOffActualRedactionLink }
  str_wgTimeMachineOffLink.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgBadRedationLink
+ {* Инициализация str_wgTimeMachineOffLink }
  str_wgBadRedationLink.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgTimeMachineChangeDateOrOff
+ {* Инициализация str_wgBadRedationLink }
  str_wgTimeMachineChangeDateOrOff.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgOpenInIntranetLink
+ {* Инициализация str_wgTimeMachineChangeDateOrOff }
  str_wgOpenInIntranetLink.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgChangingDocuments
+ {* Инициализация str_wgOpenInIntranetLink }
  str_wgChangingDocuments.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgChangingDocument
+ {* Инициализация str_wgChangingDocuments }
  str_wgChangingDocument.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgRedactionIsNotActive
+ {* Инициализация str_wgChangingDocument }
  str_wgRedactionIsNotActive.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_wgFutureRedaction
+ {* Инициализация str_wgRedactionIsNotActive }
  str_wgFutureRedaction.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_wgFutureRedaction }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

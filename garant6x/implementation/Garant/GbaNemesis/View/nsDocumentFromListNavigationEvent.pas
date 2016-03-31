@@ -1,60 +1,44 @@
 unit nsDocumentFromListNavigationEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsDocumentFromListNavigationEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Работа с документом и списком документов::Document::View::CommonForDocumentAndFlash::TnsDocumentFromListNavigationEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsDocumentFromListNavigationEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentFromListNavigationEvent" MUID: (4B1658140144)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  DocumentUnit,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DynamicDocListUnit
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDocumentFromListNavigationEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(aNext: Boolean;
     const aList: IDynList;
     const aDoc: IDocument);
  end;//TnsDocumentFromListNavigationEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDocumentFromListNavigationEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsDocumentFromListNavigationEvent.Log(aNext: Boolean;
-  const aList: IDynList;
-  const aDoc: IDocument);
+ const aList: IDynList;
+ const aDoc: IDocument);
 //#UC START# *4B16583901B5_4B1658140144_var*
 var
  l_Data: InsLogEventData;
@@ -72,7 +56,6 @@ begin
  GetLogger.AddEvent(c_Event[aNext], l_Data);
 //#UC END# *4B16583901B5_4B1658140144_impl*
 end;//TnsDocumentFromListNavigationEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

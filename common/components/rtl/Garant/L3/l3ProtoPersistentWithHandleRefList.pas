@@ -1,38 +1,35 @@
 unit l3ProtoPersistentWithHandleRefList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ProtoPersistentWithHandleRefList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Garbage::Tl3ProtoPersistentWithHandleRefList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPersistentWithHandleRefList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoPersistentWithHandleRefList" MUID: (52FCCB450032)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ProtoPersistentWithHandleRefListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , l3ProtoPersistentWithHandleRefListPrim
+ , l3Types
+;
 
 type
  _l3ObjectByHandleSearcher_Parent_ = Tl3ProtoPersistentWithHandleRefListPrim;
- {$Include ..\L3\l3ObjectByHandleSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
  Tl3ProtoPersistentWithHandleRefList = class(_l3ObjectByHandleSearcher_)
  end;//Tl3ProtoPersistentWithHandleRefList
 
 implementation
 
+uses
+ l3ImplUses
+ , l3ProtoPersistentWithHandle
+ , l3Memory
+;
+
 type _Instance_R_ = Tl3ProtoPersistentWithHandleRefList;
 
-{$Include ..\L3\l3ObjectByHandleSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
 
 end.

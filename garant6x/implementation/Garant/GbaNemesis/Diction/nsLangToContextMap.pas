@@ -1,94 +1,68 @@
 unit nsLangToContextMap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/nsLangToContextMap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction$Unit::TnsLangToContextMap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLangToContextMap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLangToContextMap" MUID: (490837B901D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  bsTypes
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  InscContextFilterStateList
-  {$IfEnd} //Nemesis
-  ,
-  nsLangList,
-  DictionInterfaces,
-  l3CProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CProtoObject
+ , l3TreeInterfaces
+ , DictionInterfaces
+ , nsLangList
+ {$If Defined(Nemesis)}
+ , InscContextFilterStateList
+ {$IfEnd} // Defined(Nemesis)
+ , bsTypes
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsLangToContextMap = class(Tl3CProtoObject, Il3ContextFilterNotifier, InsLangToContextMap)
- private
- // private fields
-   f_Langs : TnsLangList;
-   f_Contexts : TInscContextFilterStateList;
-   f_NotifySource : Pointer;
- private
- // private methods
+  private
+   f_Langs: TnsLangList;
+   f_Contexts: TInscContextFilterStateList;
+   f_NotifySource: Pointer;
+  private
    function Add(aLang: TbsLanguage;
     const aContextState: InscContextFilterState): Integer;
- protected
- // realized methods
+  protected
    procedure RequestReapply;
-     {* Желательно переприменить фильтр. }
+    {* Желательно переприменить фильтр. }
    procedure RequestClearAndTurnOff;
-     {* Дерево выключило на себе фильтр. }
+    {* Дерево выключило на себе фильтр. }
    procedure RequestCheckValid;
-     {* Дерево поменялось - нужно проверить валидность фильтра. }
+    {* Дерево поменялось - нужно проверить валидность фильтра. }
    function pm_GetByLang(aLang: TbsLanguage): InscContextFilterState;
-   procedure pm_SetByLang(aLang: TbsLanguage; const aValue: InscContextFilterState);
+   procedure pm_SetByLang(aLang: TbsLanguage;
+    const aValue: InscContextFilterState);
    procedure Subscribe(const aNotifySource: Il3ContextFilterNotifySource);
    procedure Unsubscribe(const aNotifySource: Il3ContextFilterNotifySource);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(const aNotifySource: Il3ContextFilterNotifySource): InsLangToContextMap;
    constructor Create(const aNotifySource: Il3ContextFilterNotifySource); reintroduce;
  end;//TnsLangToContextMap
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilterState
-  {$IfEnd} //Nemesis
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsLangToContextMap
+ l3ImplUses
+ , SysUtils
+ {$If Defined(Nemesis)}
+ , nscContextFilterState
+ {$IfEnd} // Defined(Nemesis)
+;
 
 class function TnsLangToContextMap.Make(const aNotifySource: Il3ContextFilterNotifySource): InsLangToContextMap;
 //#UC START# *52D3E220005C_490837B901D4_var*
@@ -120,7 +94,7 @@ begin
 end;//TnsLangToContextMap.Create
 
 function TnsLangToContextMap.Add(aLang: TbsLanguage;
-  const aContextState: InscContextFilterState): Integer;
+ const aContextState: InscContextFilterState): Integer;
 //#UC START# *490844660228_490837B901D4_var*
 //#UC END# *490844660228_490837B901D4_var*
 begin
@@ -135,6 +109,7 @@ begin
 end;//TnsLangToContextMap.Add
 
 procedure TnsLangToContextMap.RequestReapply;
+ {* Желательно переприменить фильтр. }
 //#UC START# *477250FC0040_490837B901D4_var*
 //#UC END# *477250FC0040_490837B901D4_var*
 begin
@@ -144,6 +119,7 @@ begin
 end;//TnsLangToContextMap.RequestReapply
 
 procedure TnsLangToContextMap.RequestClearAndTurnOff;
+ {* Дерево выключило на себе фильтр. }
 //#UC START# *4772510D0043_490837B901D4_var*
 var
  l_IDX: Integer;
@@ -158,6 +134,7 @@ begin
 end;//TnsLangToContextMap.RequestClearAndTurnOff
 
 procedure TnsLangToContextMap.RequestCheckValid;
+ {* Дерево поменялось - нужно проверить валидность фильтра. }
 //#UC START# *4772511D0316_490837B901D4_var*
 //#UC END# *4772511D0316_490837B901D4_var*
 begin
@@ -180,7 +157,8 @@ begin
 //#UC END# *52D3BE04039D_490837B901D4get_impl*
 end;//TnsLangToContextMap.pm_GetByLang
 
-procedure TnsLangToContextMap.pm_SetByLang(aLang: TbsLanguage; const aValue: InscContextFilterState);
+procedure TnsLangToContextMap.pm_SetByLang(aLang: TbsLanguage;
+ const aValue: InscContextFilterState);
 //#UC START# *52D3BE04039D_490837B901D4set_var*
 var
  l_Index : Integer;
@@ -219,6 +197,7 @@ begin
 end;//TnsLangToContextMap.Unsubscribe
 
 procedure TnsLangToContextMap.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_490837B901D4_var*
 //#UC END# *479731C50290_490837B901D4_var*
 begin
@@ -228,7 +207,6 @@ begin
  inherited;
 //#UC END# *479731C50290_490837B901D4_impl*
 end;//TnsLangToContextMap.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

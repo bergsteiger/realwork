@@ -1,121 +1,96 @@
 unit nsOpenDialog;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsOpenDialog.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::Dialogs::TnsOpenDialog
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsOpenDialog.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsOpenDialog" MUID: (4DDD468D0131)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  vtPanel,
-  nsSaveDialog,
-  l3StringIDEx,
-  vtCheckBox
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsSaveDialog
+ , vtPanel
+ , vtCheckBox
+ , Classes
+ //#UC START# *4DDD468D0131intf_uses*
+ //#UC END# *4DDD468D0131intf_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-//#UC START# *4DDD468D0131ci*
+ //#UC START# *4DDD468D0131ci*
 {$R *.res}
-//#UC END# *4DDD468D0131ci*
-//#UC START# *4DDD468D0131cit*
-//#UC END# *4DDD468D0131cit*
+ //#UC END# *4DDD468D0131ci*
+ //#UC START# *4DDD468D0131cit*
+ //#UC END# *4DDD468D0131cit*
  TnsOpenDialog = class(TnsSaveDialog)
- private
- // private fields
-   f_ExtraPanel : TvtPanel;
-   f_InnerNumbersCheckBox : TvtCheckBox;
-   f_InnerNumbersEnabled : Boolean;
-    {* Поле для свойства InnerNumbersEnabled}
- protected
- // property methods
+  private
+   f_ExtraPanel: TvtPanel;
+   f_InnerNumbersCheckBox: TvtCheckBox;
+   f_InnerNumbersEnabled: Boolean;
+    {* Поле для свойства InnerNumbersEnabled }
+  protected
    procedure pm_SetInnerNumbersEnabled(aValue: Boolean);
    function pm_GetInnerNumbersChecked: Boolean;
    procedure pm_SetInnerNumbersChecked(aValue: Boolean);
- protected
- // overridden protected methods
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure DoShow; override;
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    constructor Create(AOwner: TComponent); override;
    destructor Destroy; override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    function Execute: Boolean; override;
-    {$IfEnd} //not NoVCL
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property InnerNumbersEnabled: Boolean
-     read f_InnerNumbersEnabled
-     write pm_SetInnerNumbersEnabled;
+    read f_InnerNumbersEnabled
+    write pm_SetInnerNumbersEnabled;
    property InnerNumbersChecked: Boolean
-     read pm_GetInnerNumbersChecked
-     write pm_SetInnerNumbersChecked;
-//#UC START# *4DDD468D0131publ*
-//#UC END# *4DDD468D0131publ*
+    read pm_GetInnerNumbersChecked
+    write pm_SetInnerNumbersChecked;
+ //#UC START# *4DDD468D0131publ*
+ //#UC END# *4DDD468D0131publ*
  end;//TnsOpenDialog
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  eeCheckBox,
-  SysUtils,
-  l3Base,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  CommDlg
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки OpenDialog }
-  str_OpenDialogInnerNumbers : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'OpenDialogInnerNumbers'; rValue : 'Внутренний номер в базе');
-   { 'Внутренний номер в базе' }
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , eeCheckBox
+ , SysUtils
+ , l3Base
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , CommDlg
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
+ //#UC START# *4DDD468D0131impl_uses*
+ //#UC END# *4DDD468D0131impl_uses*
+;
 
 type
-  THackWinControl = class(TWinControl)
-  end;//THackWinControl
+ THackWinControl = class(TWinControl)
+ end;//THackWinControl
 
-// start class TnsOpenDialog
+const
+ {* Локализуемые строки OpenDialog }
+ str_OpenDialogInnerNumbers: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'OpenDialogInnerNumbers'; rValue : 'Внутренний номер в базе');
+  {* 'Внутренний номер в базе' }
 
 procedure TnsOpenDialog.pm_SetInnerNumbersEnabled(aValue: Boolean);
 //#UC START# *4DE67223009E_4DDD468D0131set_var*
@@ -196,7 +171,7 @@ begin
 //#UC END# *48077504027E_4DDD468D0131_impl*
 end;//TnsOpenDialog.Destroy
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnsOpenDialog.DoShow;
 //#UC START# *4DCC1FEE0352_4DDD468D0131_var*
 var
@@ -221,9 +196,9 @@ begin
  inherited DoShow;
 //#UC END# *4DCC1FEE0352_4DDD468D0131_impl*
 end;//TnsOpenDialog.DoShow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TnsOpenDialog.Execute: Boolean;
 //#UC START# *4DCC20C10116_4DDD468D0131_var*
 var
@@ -256,17 +231,14 @@ begin
  end;
 //#UC END# *4DCC20C10116_4DDD468D0131_impl*
 end;//TnsOpenDialog.Execute
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *4DDD468D0131impl*
 //#UC END# *4DDD468D0131impl*
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_OpenDialogInnerNumbers
  str_OpenDialogInnerNumbers.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_OpenDialogInnerNumbers }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -40,7 +40,7 @@ type
 
  // Child
 
- TPrimAttributeSelectForm = class
+ TPrimAttributeSelectForm = class(TvcmContainerForm)
   private
    f_BackgroundPanel: TvtProportionalPanel;
     {* Поле для свойства BackgroundPanel }
@@ -165,6 +165,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  // ExludeForSingleSearch
 
@@ -279,7 +280,6 @@ begin
 end;//TPrimAttributeSelectForm.GetFormState
 {$IfEnd} // NOT Defined(Admin)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
 //#UC START# *4A8AD47D0357_497EFC6002FCtest_var*
@@ -289,9 +289,7 @@ begin
  // - ничего не делаем
 //#UC END# *4A8AD47D0357_497EFC6002FCtest_impl*
 end;//TPrimAttributeSelectForm.Result_OkExt_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
 //#UC START# *4A8AD47D0357_497EFC6002FCexec_var*
@@ -305,9 +303,7 @@ begin
  ModalResult := mrOk;
 //#UC END# *4A8AD47D0357_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.Result_OkExt_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_OkExt_GetState(var State: TvcmOperationStateIndex);
  {* OK }
 //#UC START# *4A8AD47D0357_497EFC6002FCgetstate_var*
@@ -317,9 +313,7 @@ begin
  State := st_user_Result_OkExt_AttributesSelect
 //#UC END# *4A8AD47D0357_497EFC6002FCgetstate_impl*
 end;//TPrimAttributeSelectForm.Result_OkExt_GetState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
 //#UC START# *4AC5D61E0284_497EFC6002FCtest_var*
@@ -329,9 +323,7 @@ begin
  // - ничего не делаем
 //#UC END# *4AC5D61E0284_497EFC6002FCtest_impl*
 end;//TPrimAttributeSelectForm.Result_Cancel_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
 //#UC START# *4AC5D61E0284_497EFC6002FCexec_var*
@@ -341,9 +333,7 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4AC5D61E0284_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.Result_Cancel_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
  {* Отмена }
 //#UC START# *4AC5D61E0284_497EFC6002FCgetstate_var*
@@ -353,7 +343,6 @@ begin
  // - ничего не делаем
 //#UC END# *4AC5D61E0284_497EFC6002FCgetstate_impl*
 end;//TPrimAttributeSelectForm.Result_Cancel_GetState
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
 //#UC START# *4AE884E803AA_497EFC6002FCexec_var*
@@ -505,7 +494,6 @@ begin
 //#UC END# *47A042E100E2_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -524,9 +512,7 @@ begin
   end;//with dsAttributeSelect.Search do
 //#UC END# *497469C90140_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EFC6002FC_var*
@@ -537,9 +523,7 @@ begin
  CCaption := nil;
 //#UC END# *49803F5503AA_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAttributeSelectForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EFC6002FC_var*
@@ -567,7 +551,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimAttributeSelectForm.ClearFields;
 begin
@@ -587,5 +570,6 @@ initialization
  TtfwClassRef.Register(TPrimAttributeSelectForm);
  {* Регистрация PrimAttributeSelect }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

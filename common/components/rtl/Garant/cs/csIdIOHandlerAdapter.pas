@@ -1,39 +1,30 @@
 unit csIdIOHandlerAdapter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csIdIOHandlerAdapter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Core::TcsIdIOHandlerAdapter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsIdIOHandlerAdapter" MUID: (538DB527006C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  IdIOHandler,
-  csIdIOHandlerAbstractAdapter,
-  Classes
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csIdIOHandlerAbstractAdapter
+ , IdIOHandler
+ , Classes
+;
 
-{$If not defined(Nemesis)}
 type
  TcsIdIOHandlerAdapter = class(TcsIdIOHandlerAbstractAdapter)
- private
- // private fields
-   f_IOHandler : TIdIOHandler;
- protected
- // realized methods
+  private
+   f_IOHandler: TIdIOHandler;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(aIOHandler: TIdIOHandler); reintroduce;
    procedure WriteBufferFlush; override;
    function ReadChar: AnsiChar; override;
    function ReadCardinal: Cardinal; override;
@@ -41,14 +32,14 @@ type
    function ReadLn: AnsiString; override;
    function ReadInt64: Int64; override;
    procedure ReadStream(aStream: TStream;
-     aSize: Int64 = -1); override;
+    aSize: Int64 = -1); override;
    function ReadInteger: Integer; override;
    function ReadSmallInt: SmallInt; override;
    procedure WriteLn(const aString: AnsiString); override;
    procedure WriteCardinal(aValue: Cardinal); override;
    procedure WriteInt64(aValue: Int64); override;
    procedure WriteStream(aStream: TStream;
-     aByteCount: Int64 = 0); override;
+    aByteCount: Int64 = 0); override;
    procedure WriteChar(aValue: AnsiChar); override;
    procedure WriteSmallInt(aValue: SmallInt); override;
    procedure WriteInteger(aValue: Integer); override;
@@ -62,30 +53,19 @@ type
    procedure InputBufferClear; override;
    procedure WriteLargeStr(const aString: AnsiString); override;
    function ReadLargeStr: AnsiString; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
-   constructor Create(aIOHandler: TIdIOHandler); reintroduce;
  end;//TcsIdIOHandlerAdapter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  IdGlobal,
-  l3Base,
-  l3Memory,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsIdIOHandlerAdapter
+ l3ImplUses
+ , IdGlobal
+ , l3Base
+ , l3Memory
+ , SysUtils
+;
 
 constructor TcsIdIOHandlerAdapter.Create(aIOHandler: TIdIOHandler);
 //#UC START# *538DB5610283_538DB527006C_var*
@@ -157,7 +137,7 @@ begin
 end;//TcsIdIOHandlerAdapter.ReadInt64
 
 procedure TcsIdIOHandlerAdapter.ReadStream(aStream: TStream;
-  aSize: Int64 = -1);
+ aSize: Int64 = -1);
 //#UC START# *538DB69000E7_538DB527006C_var*
 //#UC END# *538DB69000E7_538DB527006C_var*
 begin
@@ -212,7 +192,7 @@ begin
 end;//TcsIdIOHandlerAdapter.WriteInt64
 
 procedure TcsIdIOHandlerAdapter.WriteStream(aStream: TStream;
-  aByteCount: Int64 = 0);
+ aByteCount: Int64 = 0);
 //#UC START# *538DB86700DB_538DB527006C_var*
 //#UC END# *538DB86700DB_538DB527006C_var*
 begin
@@ -372,6 +352,7 @@ begin
 end;//TcsIdIOHandlerAdapter.ReadLargeStr
 
 procedure TcsIdIOHandlerAdapter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_538DB527006C_var*
 //#UC END# *479731C50290_538DB527006C_var*
 begin
@@ -380,7 +361,6 @@ begin
  inherited;
 //#UC END# *479731C50290_538DB527006C_impl*
 end;//TcsIdIOHandlerAdapter.Cleanup
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

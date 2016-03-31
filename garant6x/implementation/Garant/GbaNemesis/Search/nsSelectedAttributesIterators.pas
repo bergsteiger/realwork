@@ -1,47 +1,33 @@
 unit nsSelectedAttributesIterators;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsSelectedAttributesIterators.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::SearchLite::Search::Search::TnsSelectedAttributesIterators
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSelectedAttributesIterators.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSelectedAttributesIterators" MUID: (4AE58E7C00A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3SimpleObject,
-  SearchInterfaces
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , SearchInterfaces
+ , DynamicTreeUnit
+;
 
 type
  TnsSelectedAttributesIterators = class(Tl3SimpleObject, InsSelectedAttributesIterators)
- private
- // private fields
-   f_OrIterator : INodeIterator;
-   f_AndIterator : INodeIterator;
-   f_NotIterator : INodeIterator;
- protected
- // realized methods
+  private
+   f_OrIterator: INodeIterator;
+   f_AndIterator: INodeIterator;
+   f_NotIterator: INodeIterator;
+  protected
    function Get_OrIterator: INodeIterator;
    function Get_AndIterator: INodeIterator;
    function Get_NotIterator: INodeIterator;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const anOrIterator: INodeIterator;
     const anAndIterator: INodeIterator;
     const aNotIterator: INodeIterator); reintroduce;
@@ -52,11 +38,13 @@ type
 
 implementation
 
-// start class TnsSelectedAttributesIterators
+uses
+ l3ImplUses
+;
 
 constructor TnsSelectedAttributesIterators.Create(const anOrIterator: INodeIterator;
-  const anAndIterator: INodeIterator;
-  const aNotIterator: INodeIterator);
+ const anAndIterator: INodeIterator;
+ const aNotIterator: INodeIterator);
 //#UC START# *4AE58EF903D2_4AE58E7C00A4_var*
 //#UC END# *4AE58EF903D2_4AE58E7C00A4_var*
 begin
@@ -69,8 +57,8 @@ begin
 end;//TnsSelectedAttributesIterators.Create
 
 class function TnsSelectedAttributesIterators.Make(const anOrIterator: INodeIterator;
-  const anAndIterator: INodeIterator;
-  const aNotIterator: INodeIterator): InsSelectedAttributesIterators;
+ const anAndIterator: INodeIterator;
+ const aNotIterator: INodeIterator): InsSelectedAttributesIterators;
 var
  l_Inst : TnsSelectedAttributesIterators;
 begin
@@ -80,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsSelectedAttributesIterators.Make
 
 function TnsSelectedAttributesIterators.Get_OrIterator: INodeIterator;
 //#UC START# *4AE589E702F9_4AE58E7C00A4get_var*
@@ -110,6 +98,7 @@ begin
 end;//TnsSelectedAttributesIterators.Get_NotIterator
 
 procedure TnsSelectedAttributesIterators.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AE58E7C00A4_var*
 //#UC END# *479731C50290_4AE58E7C00A4_var*
 begin

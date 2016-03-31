@@ -1,106 +1,78 @@
 unit l3FrameLinesSpy;
+ {* Сохранение информации по опечатанным линиям (для отрисовки не работает). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FrameLinesSpy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3FrameLinesSpy
-//
-// Сохранение информации по опечатанным линиям (для отрисовки не работает).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FrameLinesSpy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FrameLinesSpy" MUID: (4D00B058024F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  l3Filer,
-  l3FrameObject,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Filer
+ , l3FrameObject
+ , l3InternalInterfaces
+;
 
 type
- Il3FrameLinesLogger = interface(IUnknown)
-   ['{E5FD726A-30C8-4738-830E-D410AAE40FCA}']
-   function OpenLinesLog(const aCanvas: Il3InfoCanvas;
-    aObjID: Integer): AnsiString;
-   procedure CloseLinesLog(const aLogName: AnsiString);
-   function GetPrecision: Integer;
+ Il3FrameLinesLogger = interface
+  ['{E5FD726A-30C8-4738-830E-D410AAE40FCA}']
+  function OpenLinesLog(const aCanvas: Il3InfoCanvas;
+   aObjID: Integer): AnsiString;
+  procedure CloseLinesLog(const aLogName: AnsiString);
+  function GetPrecision: Integer;
  end;//Il3FrameLinesLogger
 
  Tl3FrameLinesSpy = class(Tl3ProtoObject)
   {* Сохранение информации по опечатанным линиям (для отрисовки не работает). }
- private
- // private fields
-   f_Logger : Il3FrameLinesLogger;
-   f_Filer : Tl3CustomFiler;
-   f_Printing : Boolean;
-   f_NeedClear : Boolean;
-    {* Поле для свойства NeedClear}
- protected
- // overridden protected methods
+  private
+   f_Logger: Il3FrameLinesLogger;
+   f_Filer: Tl3CustomFiler;
+   f_Printing: Boolean;
+   f_NeedClear: Boolean;
+    {* Поле для свойства NeedClear }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
    procedure LogLines(aLines: Tl3FrameObject;
-     const aCanvas: Il3InfoCanvas;
-     anIndex: Integer);
+    const aCanvas: Il3InfoCanvas;
+    anIndex: Integer);
    procedure SetLogger(const aLogger: Il3FrameLinesLogger;
-     aPrinting: Boolean);
+    aPrinting: Boolean);
    procedure RemoveLogger(const aLogger: Il3FrameLinesLogger);
- public
- // public properties
-   property NeedClear: Boolean
-     read f_NeedClear
-     write f_NeedClear;
- public
- // singleton factory method
    class function Instance: Tl3FrameLinesSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3FrameLinesSpy }
+  public
+   property NeedClear: Boolean
+    read f_NeedClear
+    write f_NeedClear;
  end;//Tl3FrameLinesSpy
 
 implementation
 
 uses
-  l3Base {a},
-  l3FrameLine,
-  l3Types,
-  SysUtils,
-  l3Interfaces
-  ;
+ l3ImplUses
+ , l3FrameLine
+ , l3Types
+ , SysUtils
+ , l3Interfaces
+ , l3Base
+;
 
-
-// start class Tl3FrameLinesSpy
-
-var g_Tl3FrameLinesSpy : Tl3FrameLinesSpy = nil;
+var g_Tl3FrameLinesSpy: Tl3FrameLinesSpy = nil;
+ {* Экземпляр синглетона Tl3FrameLinesSpy }
 
 procedure Tl3FrameLinesSpyFree;
+ {* Метод освобождения экземпляра синглетона Tl3FrameLinesSpy }
 begin
  l3Free(g_Tl3FrameLinesSpy);
-end;
-
-class function Tl3FrameLinesSpy.Instance: Tl3FrameLinesSpy;
-begin
- if (g_Tl3FrameLinesSpy = nil) then
- begin
-  l3System.AddExitProc(Tl3FrameLinesSpyFree);
-  g_Tl3FrameLinesSpy := Create;
- end;
- Result := g_Tl3FrameLinesSpy;
-end;
-
+end;//Tl3FrameLinesSpyFree
 
 class function Tl3FrameLinesSpy.Exists: Boolean;
 //#UC START# *4D00B6A50143_4D00B058024F_var*
@@ -112,8 +84,8 @@ begin
 end;//Tl3FrameLinesSpy.Exists
 
 procedure Tl3FrameLinesSpy.LogLines(aLines: Tl3FrameObject;
-  const aCanvas: Il3InfoCanvas;
-  anIndex: Integer);
+ const aCanvas: Il3InfoCanvas;
+ anIndex: Integer);
 //#UC START# *4D00BAD501C9_4D00B058024F_var*
 
   function MangleCoord(aValue : Integer): Integer;
@@ -184,7 +156,7 @@ begin
 end;//Tl3FrameLinesSpy.LogLines
 
 procedure Tl3FrameLinesSpy.SetLogger(const aLogger: Il3FrameLinesLogger;
-  aPrinting: Boolean);
+ aPrinting: Boolean);
 //#UC START# *4D00CCAB029E_4D00B058024F_var*
 //#UC END# *4D00CCAB029E_4D00B058024F_var*
 begin
@@ -208,7 +180,19 @@ begin
 //#UC END# *4D00CCF000BC_4D00B058024F_impl*
 end;//Tl3FrameLinesSpy.RemoveLogger
 
+class function Tl3FrameLinesSpy.Instance: Tl3FrameLinesSpy;
+ {* Метод получения экземпляра синглетона Tl3FrameLinesSpy }
+begin
+ if (g_Tl3FrameLinesSpy = nil) then
+ begin
+  l3System.AddExitProc(Tl3FrameLinesSpyFree);
+  g_Tl3FrameLinesSpy := Create;
+ end;
+ Result := g_Tl3FrameLinesSpy;
+end;//Tl3FrameLinesSpy.Instance
+
 procedure Tl3FrameLinesSpy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4D00B058024F_var*
 //#UC END# *479731C50290_4D00B058024F_var*
 begin
@@ -219,7 +203,6 @@ begin
 end;//Tl3FrameLinesSpy.Cleanup
 
 procedure Tl3FrameLinesSpy.ClearFields;
- {-}
 begin
  f_Logger := nil;
  inherited;

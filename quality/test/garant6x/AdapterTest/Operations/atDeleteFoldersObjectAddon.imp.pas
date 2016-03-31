@@ -1,28 +1,23 @@
 {$IfNDef atDeleteFoldersObjectAddon_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atDeleteFoldersObjectAddon.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atDeleteFoldersObjectAddon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersObjectAddon.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atDeleteFoldersObjectAddon" MUID: (4FCF9DCF00E8)
+// Имя типа: "_atDeleteFoldersObjectAddon_"
 
 {$Define atDeleteFoldersObjectAddon_imp}
- _atDeleteFoldersObjectAddon_ = {mixin} class(_atDeleteFoldersObjectAddon_Parent_, IatFoldersNodeCallback)
- protected
- // realized methods
+
+ _atDeleteFoldersObjectAddon_ = class(_atDeleteFoldersObjectAddon_Parent_, IatFoldersNodeCallback)
+  protected
    procedure ExecuteSelf; override;
    procedure OnFoldersNode(const aFoldersNode: IFoldersNode);
  end;//_atDeleteFoldersObjectAddon_
 
 {$Else atDeleteFoldersObjectAddon_imp}
 
-// start class _atDeleteFoldersObjectAddon_
+{$IfNDef atDeleteFoldersObjectAddon_imp_impl}
+
+{$Define atDeleteFoldersObjectAddon_imp_impl}
 
 procedure _atDeleteFoldersObjectAddon_.ExecuteSelf;
 //#UC START# *48089F460352_4FCF9DCF00E8_var*
@@ -44,4 +39,7 @@ begin
 //#UC END# *4FCF8EE001D4_4FCF9DCF00E8_impl*
 end;//_atDeleteFoldersObjectAddon_.OnFoldersNode
 
+{$EndIf atDeleteFoldersObjectAddon_imp_impl}
+
 {$EndIf atDeleteFoldersObjectAddon_imp}
+

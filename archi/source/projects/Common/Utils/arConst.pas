@@ -1,29 +1,25 @@
 unit arConst;
+ {* Общие константы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Utils"
-// Модуль: "w:/archi/source/projects/Common/Utils/arConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> archi$common::Utils::arConst
-//
-// Общие константы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Utils\arConst.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "arConst" MUID: (4E255287019F)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { ContentsTreeConst }
  nfContens = $8000;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

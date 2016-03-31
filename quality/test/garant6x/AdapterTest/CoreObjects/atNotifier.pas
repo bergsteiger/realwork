@@ -1,54 +1,41 @@
 unit atNotifier;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atNotifier.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatNotifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNotifier.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNotifier" MUID: (4807877801B7)
 
 interface
 
 uses
-  SysUtils,
-  Classes,
-  atInterfaces
-  ;
+ l3IntfUses
+ , atInterfaces
+ , Classes
+ , SysUtils
+;
 
 type
  TatNotifier = class(TInterfacedObject, IatNotifier)
- private
- // private fields
-   f_Listeners : TInterfaceList;
-   f_MREWS : TMultiReadExclusiveWriteSynchronizer;
- private
- // private methods
+  private
+   f_Listeners: TInterfaceList;
+   f_MREWS: TMultiReadExclusiveWriteSynchronizer;
+  private
    function IsNotify(const listener: IatListener): Boolean;
- protected
- // realized methods
+  protected
    procedure StartNotify(const listener: IatListener);
-   procedure StopNotify; overload; 
-   procedure StopNotify(const listener: IatListener); overload; 
+   procedure StopNotify; overload;
+   procedure StopNotify(const listener: IatListener); overload;
    procedure Trigger(sender: TObject;
     const notification: IatNotification);
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
+   destructor Destroy; override;
  end;//TatNotifier
 
 implementation
 
-// start class TatNotifier
+uses
+ l3ImplUses
+;
 
 function TatNotifier.IsNotify(const listener: IatListener): Boolean;
 //#UC START# *480787C7033C_4807877801B7_var*
@@ -124,7 +111,7 @@ begin
 end;//TatNotifier.StopNotify
 
 procedure TatNotifier.Trigger(sender: TObject;
-  const notification: IatNotification);
+ const notification: IatNotification);
 //#UC START# *48077FA2038C_4807877801B7_var*
     var
       i : integer;

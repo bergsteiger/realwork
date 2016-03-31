@@ -1,43 +1,32 @@
 unit l3FormCanvas;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FormCanvas.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3FormCanvas
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FormCanvas.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FormCanvas" MUID: (4F916FD10199)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3WinControlCanvas
-  ;
+ l3IntfUses
+ , l3WinControlCanvas
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  Tl3FormCanvas = class(Tl3WinControlCanvas)
- public
- // public methods
+  public
    constructor Create(aForm: TForm); reintroduce;
  end;//Tl3FormCanvas
 
 implementation
 
-// start class Tl3FormCanvas
+uses
+ l3ImplUses
+;
 
 constructor Tl3FormCanvas.Create(aForm: TForm);
 //#UC START# *4FAE57980326_4F916FD10199_var*

@@ -1,96 +1,80 @@
 unit m3RootStreamManagerPrimPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3RootStreamManagerPrimPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3RootStreamManagerPrimPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3RootStreamManagerPrimPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3RootStreamManagerPrimPrim" MUID: (543F7EF202C6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3CustomString,
-  l3CProtoObject,
-  l3Logger,
-  m3FileRegion,
-  SyncObjs
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Logger
+ , l3CustomString
+ , m3FileRegion
+ , SyncObjs
+;
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3CProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tm3RootStreamManagerPrimPrim = {abstract} class(_l3CriticalSectionHolder_)
- private
- // private fields
-   f_Logger : Tl3Logger;
-    {* Поле для свойства Logger}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+  private
+   f_Logger: Tl3Logger;
+    {* Поле для свойства Logger }
+  protected
    function DoIsValidPosition(aPosition: Int64;
-     aName: Tl3CustomString): Boolean; virtual;
+    aName: Tl3CustomString): Boolean; virtual;
    procedure DoUnlockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion); virtual; abstract;
+    const aRegion: Tm3FileRegion); virtual; abstract;
    procedure DoLockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion); virtual; abstract;
- public
- // public methods
+    const aRegion: Tm3FileRegion); virtual; abstract;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    procedure ReadData(aPosition: Int64;
-     out aData;
-     aSize: Integer); virtual; abstract;
+    out aData;
+    aSize: Integer); virtual; abstract;
    procedure WriteData(aPosition: Int64;
-     const aData;
-     aSize: Integer); virtual; abstract;
+    const aData;
+    aSize: Integer); virtual; abstract;
    function AllocatedStreamSize: Int64; virtual; abstract;
    procedure SetPositionAndValidateIt(aPosition: Int64;
-     var thePosition: Int64); virtual; abstract;
+    var thePosition: Int64); virtual; abstract;
    constructor Create(aLogger: Tl3Logger); reintroduce;
    function IsValidLink(aPosition: Int64;
-     aName: Tl3CustomString): Boolean;
+    aName: Tl3CustomString): Boolean;
    function IsValidPosition(aPosition: Int64;
-     aName: Tl3CustomString): Boolean;
+    aName: Tl3CustomString): Boolean;
    procedure LockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion);
+    const aRegion: Tm3FileRegion);
    procedure UnlockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion);
+    const aRegion: Tm3FileRegion);
    procedure ReloadHeader(aName: Tl3CustomString); virtual; abstract;
    procedure ReadDataAtCurrent(out aData;
-     aSize: Integer); virtual; abstract;
+    aSize: Integer); virtual; abstract;
    function ClusterBodySize: Int64; virtual; abstract;
    function AllocNewCluster: Int64; virtual; abstract;
    function ClusterHeaderSize: Int64; virtual; abstract;
    function ClusterSize: Int64;
    procedure RemoveTOCBuffData(var ATOCBuffDataPosition: Int64); virtual; abstract;
- public
- // public properties
+  public
    property Logger: Tl3Logger
-     read f_Logger;
+    read f_Logger;
  end;//Tm3RootStreamManagerPrimPrim
 
 implementation
 
 uses
-  l3Base,
-  m2COMLib,
-  SysUtils
-  ;
+ l3ImplUses
+ , m2COMLib
+ , SysUtils
+ , l3Base
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
-
-// start class Tm3RootStreamManagerPrimPrim
 
 constructor Tm3RootStreamManagerPrimPrim.Create(aLogger: Tl3Logger);
 //#UC START# *543F9D22008D_543F7EF202C6_var*
@@ -103,7 +87,7 @@ begin
 end;//Tm3RootStreamManagerPrimPrim.Create
 
 function Tm3RootStreamManagerPrimPrim.IsValidLink(aPosition: Int64;
-  aName: Tl3CustomString): Boolean;
+ aName: Tl3CustomString): Boolean;
 //#UC START# *540EFD670025_543F7EF202C6_var*
 //#UC END# *540EFD670025_543F7EF202C6_var*
 begin
@@ -116,7 +100,7 @@ begin
 end;//Tm3RootStreamManagerPrimPrim.IsValidLink
 
 function Tm3RootStreamManagerPrimPrim.DoIsValidPosition(aPosition: Int64;
-  aName: Tl3CustomString): Boolean;
+ aName: Tl3CustomString): Boolean;
 //#UC START# *540EFD500389_543F7EF202C6_var*
 //#UC END# *540EFD500389_543F7EF202C6_var*
 begin
@@ -126,7 +110,7 @@ begin
 end;//Tm3RootStreamManagerPrimPrim.DoIsValidPosition
 
 function Tm3RootStreamManagerPrimPrim.IsValidPosition(aPosition: Int64;
-  aName: Tl3CustomString): Boolean;
+ aName: Tl3CustomString): Boolean;
 //#UC START# *543FA0F703D6_543F7EF202C6_var*
 var
  l_S : String;
@@ -153,7 +137,7 @@ begin
 end;//Tm3RootStreamManagerPrimPrim.IsValidPosition
 
 procedure Tm3RootStreamManagerPrimPrim.LockRegion(aForRead: Boolean;
-  const aRegion: Tm3FileRegion);
+ const aRegion: Tm3FileRegion);
 //#UC START# *543FAAB80195_543F7EF202C6_var*
 //#UC END# *543FAAB80195_543F7EF202C6_var*
 begin
@@ -164,7 +148,7 @@ begin
 end;//Tm3RootStreamManagerPrimPrim.LockRegion
 
 procedure Tm3RootStreamManagerPrimPrim.UnlockRegion(aForRead: Boolean;
-  const aRegion: Tm3FileRegion);
+ const aRegion: Tm3FileRegion);
 //#UC START# *543FAAD0011B_543F7EF202C6_var*
 //#UC END# *543FAAD0011B_543F7EF202C6_var*
 begin
@@ -185,6 +169,7 @@ begin
 end;//Tm3RootStreamManagerPrimPrim.ClusterSize
 
 procedure Tm3RootStreamManagerPrimPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_543F7EF202C6_var*
 //#UC END# *479731C50290_543F7EF202C6_var*
 begin

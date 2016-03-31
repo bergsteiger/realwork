@@ -1,58 +1,45 @@
 unit daSortField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daSortField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaSortField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daSortField.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaSortField" MUID: (5680EF290107)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
 type
  TdaSortField = class(Tl3ProtoObject, IdaSortField)
- private
- // private fields
-   f_SelectField : IdaSelectField;
-   f_SortOrder : TdaSortOrder;
- protected
- // realized methods
+  private
+   f_SelectField: IdaSelectField;
+   f_SortOrder: TdaSortOrder;
+  protected
    function Get_SelectField: IdaSelectField;
    function Get_SortOrder: TdaSortOrder;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSelectField: IdaSelectField;
-     aSortOrder: TdaSortOrder = da_soAscending); reintroduce;
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending); reintroduce;
    class function Make(const aSelectField: IdaSelectField;
-     aSortOrder: TdaSortOrder = da_soAscending): IdaSortField; reintroduce;
-     {* Сигнатура фабрики TdaSortField.Make }
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField; reintroduce;
  end;//TdaSortField
 
 implementation
 
-// start class TdaSortField
+uses
+ l3ImplUses
+;
 
 constructor TdaSortField.Create(const aSelectField: IdaSelectField;
-  aSortOrder: TdaSortOrder = da_soAscending);
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending);
 //#UC START# *5680EF4703D5_5680EF290107_var*
 //#UC END# *5680EF4703D5_5680EF290107_var*
 begin
@@ -64,7 +51,7 @@ begin
 end;//TdaSortField.Create
 
 class function TdaSortField.Make(const aSelectField: IdaSelectField;
-  aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
 var
  l_Inst : TdaSortField;
 begin
@@ -74,7 +61,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaSortField.Make
 
 function TdaSortField.Get_SelectField: IdaSelectField;
 //#UC START# *5680EEB20163_5680EF290107get_var*
@@ -95,6 +82,7 @@ begin
 end;//TdaSortField.Get_SortOrder
 
 procedure TdaSortField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5680EF290107_var*
 //#UC END# *479731C50290_5680EF290107_var*
 begin

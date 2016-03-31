@@ -1,59 +1,44 @@
 unit l3CustomRecListView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CustomRecListView.pas"
-// Начат: 08.06.2011 22:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecListView::Tl3CustomRecListView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CustomRecListView.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CustomRecListView" MUID: (4DEFC4AE0296)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ProtoPtrRecListPrim,
-  l3PureMixIns,
-  l3CustomOtherListView
-  ;
+ l3IntfUses
+ , l3ProtoPtrRecListPrim
+ , l3PureMixIns
+ , l3CustomOtherListView
+;
 
 type
  _ListType_ = Tl3ProtoPtrRecListPrim;
  _ItemType_ = VOID;
- {$Include ..\L3\l3OtherListView.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
  Tl3CustomRecListView = {abstract} class(_l3OtherListView_)
- protected
- // realized methods
-   function CompareData(const anItem1: _ItemType_;
-     const anItem2: _ItemType_): Integer; override;
- protected
- // protected methods
+  protected
    function CompareRecs(aRec1: PItemType;
-     aRec2: PItemType): Integer; virtual; abstract;
+    aRec2: PItemType): Integer; virtual; abstract;
+   function CompareData(const anItem1: _ItemType_;
+    const anItem2: _ItemType_): Integer; override;
  end;//Tl3CustomRecListView
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , SysUtils
+;
 
-{$Include ..\L3\l3OtherListView.imp.pas}
-
-// start class Tl3CustomRecListView
+{$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
 
 function Tl3CustomRecListView.CompareData(const anItem1: _ItemType_;
-  const anItem2: _ItemType_): Integer;
+ const anItem2: _ItemType_): Integer;
 //#UC START# *4DEFB2D90167_4DEFC4AE0296_var*
 //#UC END# *4DEFB2D90167_4DEFC4AE0296_var*
 begin

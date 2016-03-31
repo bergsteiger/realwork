@@ -1,59 +1,41 @@
 unit pgRenumerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgRenumerator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgRenumerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgRenumerator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgRenumerator" MUID: (5652B5360294)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TpgRenumerator = class(Tl3ProtoObject)
- private
- // private fields
-   f_ToRealQuery : IdaTabledQuery;
- protected
- // overridden protected methods
+  private
+   f_ToRealQuery: IdaTabledQuery;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
    function ConvertToRealNumber(aImpID: TdaDocID): TdaDocID;
  end;//TpgRenumerator
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daScheme
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgRenumerator
+ l3ImplUses
+ , daScheme
+;
 
 constructor TpgRenumerator.Create(const aFactory: IdaTableQueryFactory);
 //#UC START# *5652CB64000B_5652B5360294_var*
@@ -92,6 +74,7 @@ begin
 end;//TpgRenumerator.ConvertToRealNumber
 
 procedure TpgRenumerator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5652B5360294_var*
 //#UC END# *479731C50290_5652B5360294_var*
 begin
@@ -100,7 +83,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5652B5360294_impl*
 end;//TpgRenumerator.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

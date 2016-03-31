@@ -22,7 +22,7 @@ uses
 ;
 
 type
- TBaseEditionsModule = {abstract} class
+ TBaseEditionsModule = {abstract} class(TvcmModule)
   public
    procedure MakeCompareEditions(const aDoc: IDocument;
     const aPara: IeeLeafPara;
@@ -79,6 +79,7 @@ uses
  , nsCompareEditionsInfo
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Local }
  str_NoPrevEdition: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'NoPrevEdition'; rValue : 'Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.');
@@ -210,6 +211,7 @@ end;//TBaseEditionsModule.MakeCompareEditions
 initialization
  str_NoPrevEdition.Init;
  {* Инициализация str_NoPrevEdition }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

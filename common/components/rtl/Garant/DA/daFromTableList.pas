@@ -1,27 +1,18 @@
 unit daFromTableList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daFromTableList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaFromTableList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daFromTableList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaFromTableList" MUID: (555CA6E80352)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daFromTableListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , daFromTableListPrim
+ , l3Types
+;
 
 type
  _FindDataType_ = AnsiString;
@@ -33,15 +24,18 @@ type
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+ , daInterfaces
+;
 
-// start class TdaFromTableList
+{$If not Declared(_ItemType_)}type _ItemType_ = IdaFromTable;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_555CA6E80352_var*
 //#UC END# *47B9BAFD01F4_555CA6E80352_var*
 begin

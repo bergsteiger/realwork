@@ -1,40 +1,27 @@
 unit atNamedMutex;
+ {* Обертка вокруг виндового мьютекса }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atNamedMutex.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatNamedMutex
-//
-// Обертка вокруг виндового мьютекса
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedMutex.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNamedMutex" MUID: (491D8DFA00BB)
 
 interface
 
 uses
-  l3_Base,
-  Windows
-  ;
+ l3IntfUses
+ , l3_Base
+ , Windows
+;
 
 type
  TatNamedMutex = class(Tl3_Base)
   {* Обертка вокруг виндового мьютекса }
- private
- // private fields
-   f_MutexHandle : THandle;
- protected
- // overridden protected methods
+  private
+   f_MutexHandle: THandle;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aName: AnsiString); reintroduce;
    function Acquire(aTimeOut: LongWord = INFINITE): Boolean; virtual;
    procedure Release; virtual;
@@ -43,10 +30,9 @@ type
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatNamedMutex
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TatNamedMutex.Create(const aName: AnsiString);
 //#UC START# *491D94ED015F_491D8DFA00BB_var*
@@ -79,6 +65,7 @@ begin
 end;//TatNamedMutex.Release
 
 procedure TatNamedMutex.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_491D8DFA00BB_var*
 //#UC END# *479731C50290_491D8DFA00BB_var*
 begin

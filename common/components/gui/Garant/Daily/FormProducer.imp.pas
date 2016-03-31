@@ -1,47 +1,43 @@
 {$IfNDef FormProducer_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/FormProducer.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Operations For Tests::TestFormsTest::MixIns::FormProducer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Daily\FormProducer.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "FormProducer" MUID: (4BCE9EF8033F)
+// Имя типа: "_FormProducer_"
 
 {$Define FormProducer_imp}
-{$If defined(nsTest) AND not defined(NoVCM)}
+
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
+type
  FormClassRef = class of _FormClass_;
 
- _FormProducer_ = {mixin} class(_FormProducer_Parent_)
- protected
- // protected fields
-   f_FixedHeight : Integer;
- protected
- // protected methods
+ // _FormClass_
+
+ _FormProducer_ = class(_FormProducer_Parent_)
+  protected
+   f_FixedHeight: Integer;
+  protected
    function MakeForm: _FormClass_;
    function MakeFormClass: FormClassRef; virtual;
    function FormExtent: TPoint; virtual;
-     {* Размеры формы }
+    {* Размеры формы }
    procedure FormMade(const aForm: _FormClass_); virtual;
    function UseFormExtentAsClientSize: Boolean; virtual;
-     {* Использовать заданные размеры формы как размеры клиентской области - размеры формы пересчитываются относительно этих ограничений. }
+    {* Использовать заданные размеры формы как размеры клиентской области - размеры формы пересчитываются относительно этих ограничений. }
  end;//_FormProducer_
-{$Else}
 
- _FormProducer_ = _FormProducer_Parent_;
+{$Else Defined(nsTest) AND NOT Defined(NoVCM)}
 
-{$IfEnd} //nsTest AND not NoVCM
+_FormProducer_ = _FormProducer_Parent_;
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 {$Else FormProducer_imp}
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$IfNDef FormProducer_imp_impl}
 
-// start class _FormProducer_
+{$Define FormProducer_imp_impl}
 
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 function _FormProducer_.MakeForm: _FormClass_;
 //#UC START# *4BCE9FC203E4_4BCE9EF8033F_var*
 var
@@ -87,6 +83,7 @@ begin
 end;//_FormProducer_.MakeFormClass
 
 function _FormProducer_.FormExtent: TPoint;
+ {* Размеры формы }
 //#UC START# *4C08CF700318_4BCE9EF8033F_var*
 //#UC END# *4C08CF700318_4BCE9EF8033F_var*
 begin
@@ -105,6 +102,7 @@ begin
 end;//_FormProducer_.FormMade
 
 function _FormProducer_.UseFormExtentAsClientSize: Boolean;
+ {* Использовать заданные размеры формы как размеры клиентской области - размеры формы пересчитываются относительно этих ограничений. }
 //#UC START# *4DA2F7900393_4BCE9EF8033F_var*
 //#UC END# *4DA2F7900393_4BCE9EF8033F_var*
 begin
@@ -112,7 +110,9 @@ begin
  Result := False;
 //#UC END# *4DA2F7900393_4BCE9EF8033F_impl*
 end;//_FormProducer_.UseFormExtentAsClientSize
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoVCM
+{$EndIf FormProducer_imp_impl}
 
 {$EndIf FormProducer_imp}
+

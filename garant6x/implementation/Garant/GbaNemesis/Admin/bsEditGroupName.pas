@@ -1,57 +1,42 @@
 unit bsEditGroupName;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/bsEditGroupName.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Admin::TbsEditGroupName
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsEditGroupName.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsEditGroupName" MUID: (49EEFBA6010A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3Interfaces,
-  AdminInterfaces,
-  l3ProtoObject
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , l3ProtoObject
+ , AdminInterfaces
+ , l3Interfaces
+;
 
-{$If defined(Admin)}
 type
  TbsEditGroupName = class(Tl3ProtoObject, IbsEditGroupName)
- private
- // private fields
-   f_Name : Il3CString;
- protected
- // realized methods
+  private
+   f_Name: Il3CString;
+  protected
    function Get_Name: Il3CString;
    procedure Set_Name(const aValue: Il3CString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aName: Il3CString); reintroduce;
    class function Make(const aName: Il3CString): IbsEditGroupName; reintroduce;
  end;//TbsEditGroupName
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-
-// start class TbsEditGroupName
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 constructor TbsEditGroupName.Create(const aName: Il3CString);
 //#UC START# *49EEFC1B007D_49EEFBA6010A_var*
@@ -73,7 +58,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsEditGroupName.Make
 
 function TbsEditGroupName.Get_Name: Il3CString;
 //#UC START# *49EEFAAB0318_49EEFBA6010Aget_var*
@@ -94,6 +79,7 @@ begin
 end;//TbsEditGroupName.Set_Name
 
 procedure TbsEditGroupName.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49EEFBA6010A_var*
 //#UC END# *479731C50290_49EEFBA6010A_var*
 begin
@@ -102,7 +88,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_49EEFBA6010A_impl*
 end;//TbsEditGroupName.Cleanup
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

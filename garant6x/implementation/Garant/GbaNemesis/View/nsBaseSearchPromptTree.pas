@@ -1,68 +1,52 @@
 unit nsBaseSearchPromptTree;
+ {* Дерево подсказок. Синглетон }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsBaseSearchPromptTree.pas"
-// Начат: 2008/06/25 08:04:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::BaseSearch::TnsBaseSearchPromptTree
-//
-// Дерево подсказок. Синглетон
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchPromptTree" MUID: (4906D9DE02FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsBaseSearchPromptTreeBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsBaseSearchPromptTreeBase
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsBaseSearchPromptTree = class(TnsBaseSearchPromptTreeBase)
   {* Дерево подсказок. Синглетон }
- public
- // public methods
+  public
    class function Make: Il3SimpleTree; reintroduce;
-     {* Создаёт дерево подсказок }
+    {* Создаёт дерево подсказок }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsBaseSearchPromptTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsBaseSearchPromptTree
-
-var g_TnsBaseSearchPromptTree : Pointer = nil;
+var g_TnsBaseSearchPromptTree: Pointer = nil;
+ {* Экземпляр синглетона TnsBaseSearchPromptTree }
 
 procedure TnsBaseSearchPromptTreeFree;
+ {* Метод освобождения экземпляра синглетона TnsBaseSearchPromptTree }
 begin
  IUnknown(g_TnsBaseSearchPromptTree) := nil;
-end;
-
+end;//TnsBaseSearchPromptTreeFree
 
 class function TnsBaseSearchPromptTree.Make: Il3SimpleTree;
+ {* Создаёт дерево подсказок }
 begin
  if (g_TnsBaseSearchPromptTree = nil) then
  begin
@@ -70,14 +54,13 @@ begin
   Il3SimpleTree(g_TnsBaseSearchPromptTree) := inherited Make;
  end;
  Result := Il3SimpleTree(g_TnsBaseSearchPromptTree);
-end;
+end;//TnsBaseSearchPromptTree.Make
 
 class function TnsBaseSearchPromptTree.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsBaseSearchPromptTree <> nil;
 end;//TnsBaseSearchPromptTree.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

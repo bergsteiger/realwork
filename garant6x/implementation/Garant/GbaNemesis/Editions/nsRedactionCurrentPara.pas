@@ -1,58 +1,40 @@
 unit nsRedactionCurrentPara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/nsRedactionCurrentPara.pas"
-// Начат: 10.08.2009 14:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::CommonObjects::TnsRedactionCurrentPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsRedactionCurrentPara.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsRedactionCurrentPara" MUID: (4A7FF2C901C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  eeInterfaces,
-  l3ProtoObject,
-  EditionsInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , EditionsInterfaces
+ , eeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsRedactionCurrentPara = class(Tl3ProtoObject)
- private
- // private fields
-   f_Para : IeeLeafPara;
-    {* Параграф для синхронизации}
- protected
- // realized methods
+  private
+   f_Para: IeeLeafPara;
+    {* Параграф для синхронизации }
+  protected
    function Get_RedactionCurrentPara: IeeLeafPara;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aPara: IeeLeafPara); reintroduce;
  end;//TnsRedactionCurrentPara
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsRedactionCurrentPara
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TnsRedactionCurrentPara.Create(const aPara: IeeLeafPara);
 //#UC START# *4B5853E10268_4A7FF2C901C8_var*
@@ -74,14 +56,10 @@ begin
 end;//TnsRedactionCurrentPara.Get_RedactionCurrentPara
 
 procedure TnsRedactionCurrentPara.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Para := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsRedactionCurrentPara.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

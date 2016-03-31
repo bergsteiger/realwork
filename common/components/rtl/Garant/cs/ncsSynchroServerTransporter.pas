@@ -1,75 +1,54 @@
 unit ncsSynchroServerTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsSynchroServerTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsSynchroServerTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsSynchroServerTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsSynchroServerTransporter" MUID: (54E47AE90373)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csIdIOHandlerAbstractAdapter,
-  ncsMessageInterfaces,
-  ncsSynchroTransporter,
-  ncsMessage,
-  Windows,
-  CsCommon
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsSynchroTransporter
+ , ncsMessageInterfaces
+ , csIdIOHandlerAbstractAdapter
+;
 
-{$If not defined(Nemesis)}
 type
  TncsSynchroServerTransporter = class(TncsSynchroTransporter, IncsServerTransporter)
- protected
- // realized methods
+  protected
    procedure ProcessMessages(IsMainSocket: Boolean);
    procedure Terminate(WaitForTermination: Boolean = True);
    function Get_Terminated: Boolean;
    procedure RegisterSendBackHandler(aHandler: TcsIdIOHandlerAbstractAdapter);
    procedure HandShake; override;
-     {* Сигнатура метода HandShake }
- public
- // public methods
+  public
    constructor Create(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-     const aSessionID: AnsiString); reintroduce;
+    const aSessionID: AnsiString); reintroduce;
    class function IntMake(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-     const aSessionID: AnsiString): IncsServerTransporter; reintroduce;
-     {* Сигнатура фабрики TncsSynchroServerTransporter.IntMake }
+    const aSessionID: AnsiString): IncsServerTransporter; reintroduce;
    class function Make(anIOHandler: TcsIdIOHandlerAbstractAdapter): IncsServerTransporter;
  end;//TncsSynchroServerTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  ncsProfile,
-  Classes,
-  l3TempMemoryStream,
-  ncsMessageFactory,
-  l3Base
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsSynchroServerTransporter
+ l3ImplUses
+ , SysUtils
+ , ncsProfile
+ , Classes
+ , l3TempMemoryStream
+ , ncsMessage
+ , ncsMessageFactory
+ , l3Base
+;
 
 constructor TncsSynchroServerTransporter.Create(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-  const aSessionID: AnsiString);
+ const aSessionID: AnsiString);
 //#UC START# *54E591B50054_54E47AE90373_var*
 //#UC END# *54E591B50054_54E47AE90373_var*
 begin
@@ -81,7 +60,7 @@ begin
 end;//TncsSynchroServerTransporter.Create
 
 class function TncsSynchroServerTransporter.IntMake(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-  const aSessionID: AnsiString): IncsServerTransporter;
+ const aSessionID: AnsiString): IncsServerTransporter;
 var
  l_Inst : TncsSynchroServerTransporter;
 begin
@@ -91,7 +70,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsSynchroServerTransporter.IntMake
 
 class function TncsSynchroServerTransporter.Make(anIOHandler: TcsIdIOHandlerAbstractAdapter): IncsServerTransporter;
 //#UC START# *54E5920A003C_54E47AE90373_var*
@@ -236,7 +215,6 @@ begin
 // !!! Needs to be implemented !!!
 //#UC END# *54E3353000D8_54E47AE90373_impl*
 end;//TncsSynchroServerTransporter.HandShake
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

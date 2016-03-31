@@ -11,15 +11,17 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
- , k2Base
- , l3Variant
  , evdTypes
- , eeConst
- , nevNavigation
  , ActiveX
  , evInternalInterfaces
+ , nevNavigation
+ , eeConst
+ , k2Base
+ , l3Variant
  , Windows
  , nevTools
+ //#UC START# *4912DD020283intf_uses*
+ //#UC END# *4912DD020283intf_uses*
 ;
 
 type
@@ -501,6 +503,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4912DD020283impl_uses*
+ //#UC END# *4912DD020283impl_uses*
 ;
 
 end.

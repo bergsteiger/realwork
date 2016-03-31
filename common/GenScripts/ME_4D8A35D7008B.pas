@@ -15,6 +15,8 @@ uses
  , DocumentUnit
  , nevTools
  , nevBase
+ //#UC START# *4D8A35D7008Bintf_uses*
+ //#UC END# *4D8A35D7008Bintf_uses*
 ;
 
 type
@@ -59,6 +61,8 @@ implementation
 uses
  l3ImplUses
  , DataAdapter
+ //#UC START# *4D8A35D7008Bimpl_uses*
+ //#UC END# *4D8A35D7008Bimpl_uses*
 ;
 
 constructor TnsFragmentListForSearchViaEverestOwnSearcher.Create(const aDoc: InevObjectPrim;

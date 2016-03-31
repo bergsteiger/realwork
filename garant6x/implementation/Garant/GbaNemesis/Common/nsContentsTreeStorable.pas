@@ -1,80 +1,57 @@
 unit nsContentsTreeStorable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsContentsTreeStorable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::DocumentDataObjects::TnsContentsTreeStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsContentsTreeStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsTreeStorable" MUID: (48F8B61F0032)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nevBase,
-  nevTools,
-  evTreeStorable,
-  evdInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evTreeStorable
+ , DocumentUnit
+ , nevBase
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsContentsTreeStorable = class(TevTreeStorable)
- private
- // private fields
-   f_Document : IDocument;
- protected
- // overridden protected methods
-   procedure DoIterateTree(const G: InevTagGenerator;
-    aFlags: TevStoreFlags = evDefaultStoreFlags); override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_Document: IDocument;
+  protected
    procedure DoIterate(const aNode: InevSimpleNode;
     aLevel: Integer;
     const G: InevTagGenerator);
- public
- // public methods
+   procedure DoIterateTree(const G: InevTagGenerator;
+    aFlags: TevStoreFlags = evDefaultStoreFlags); override;
+   procedure ClearFields; override;
+  public
    constructor Create(const aDocument: IDocument;
-     const aData: InevSimpleTree;
-     const aSubRoot: InevSimpleNode); reintroduce;
+    const aData: InevSimpleTree;
+    const aSubRoot: InevSimpleNode); reintroduce;
    class function Make(const aDocument: IDocument;
-     const aData: InevSimpleTree;
-     const aSubRoot: InevSimpleNode): InevStorable; reintroduce;
-     {* Сигнатура фабрики TnsContentsTreeStorable.Make }
+    const aData: InevSimpleTree;
+    const aSubRoot: InevSimpleNode): InevStorable; reintroduce;
  end;//TnsContentsTreeStorable
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  k2Tags,
-  TextPara_Const,
-  IOUnit,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsContentsTreeStorable
+ l3ImplUses
+ , k2Tags
+ , TextPara_Const
+ , IOUnit
+ , nsTypes
+;
 
 constructor TnsContentsTreeStorable.Create(const aDocument: IDocument;
-  const aData: InevSimpleTree;
-  const aSubRoot: InevSimpleNode);
+ const aData: InevSimpleTree;
+ const aSubRoot: InevSimpleNode);
 //#UC START# *4C933899017C_48F8B61F0032_var*
 //#UC END# *4C933899017C_48F8B61F0032_var*
 begin
@@ -85,8 +62,8 @@ begin
 end;//TnsContentsTreeStorable.Create
 
 class function TnsContentsTreeStorable.Make(const aDocument: IDocument;
-  const aData: InevSimpleTree;
-  const aSubRoot: InevSimpleNode): InevStorable;
+ const aData: InevSimpleTree;
+ const aSubRoot: InevSimpleNode): InevStorable;
 var
  l_Inst : TnsContentsTreeStorable;
 begin
@@ -96,11 +73,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsContentsTreeStorable.Make
 
 procedure TnsContentsTreeStorable.DoIterate(const aNode: InevSimpleNode;
-  aLevel: Integer;
-  const G: InevTagGenerator);
+ aLevel: Integer;
+ const G: InevTagGenerator);
 //#UC START# *48F8B68401A1_48F8B61F0032_var*
 var
  l_Next: InevSimpleNode;
@@ -122,7 +99,7 @@ begin
 end;//TnsContentsTreeStorable.DoIterate
 
 procedure TnsContentsTreeStorable.DoIterateTree(const G: InevTagGenerator;
-  aFlags: TevStoreFlags = evDefaultStoreFlags);
+ aFlags: TevStoreFlags = evDefaultStoreFlags);
 //#UC START# *48F8A8F501DD_48F8B61F0032_var*
 var
  l_Root : InevSimpleNode;
@@ -147,14 +124,10 @@ begin
 end;//TnsContentsTreeStorable.DoIterateTree
 
 procedure TnsContentsTreeStorable.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Document := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsContentsTreeStorable.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

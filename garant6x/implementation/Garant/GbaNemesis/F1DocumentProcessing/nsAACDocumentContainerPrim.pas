@@ -1,58 +1,44 @@
 unit nsAACDocumentContainerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsAACDocumentContainerPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::TnsAACDocumentContainerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsAACDocumentContainerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAACDocumentContainerPrim" MUID: (500E758002C7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evdTypes,
-  bsTypesNew,
-  nsF1DocumentContainer,
-  l3Variant,
-  nevTools
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsF1DocumentContainer
+ , l3Variant
+ , bsTypesNew
+ , evdTypes
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsBlockViewKinds = set of TevBlockViewKind;
 
- InsAACDocumentContainer = interface(IUnknown)
-   ['{1701839E-CED5-46B4-B26A-42565DD13B4D}']
-   function GotPos: TbsDocPos;
-   function GotViewKind: TevBlockViewKind;
+ InsAACDocumentContainer = interface
+  ['{1701839E-CED5-46B4-B26A-42565DD13B4D}']
+  function GotPos: TbsDocPos;
+  function GotViewKind: TevBlockViewKind;
  end;//InsAACDocumentContainer
 
  TnsAACDocumentContainerPrim = {abstract} class(TnsF1DocumentContainer, InsAACDocumentContainer)
- private
- // private fields
-   f_OriginalDocument : Tl3Tag;
-    {* Нужно для того чтобы держать ссылку на Provider'а документа с адаптера}
-   f_GotPos : TbsDocPos;
-   f_GotViewKind : TevBlockViewKind;
- protected
- // realized methods
+  private
+   f_OriginalDocument: Tl3Tag;
+    {* Нужно для того чтобы держать ссылку на Provider'а документа с адаптера }
+   f_GotPos: TbsDocPos;
+   f_GotViewKind: TevBlockViewKind;
+  protected
+   function AcceptableBlockViewKinds: TnsBlockViewKinds; virtual; abstract;
    function GotPos: TbsDocPos;
    function GotViewKind: TevBlockViewKind;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function ReplaceContainerInOwner(const aDocumentContainer: InevDocumentContainer): Boolean; override;
    function CanBePlacedInDocumentsCache: Boolean; override;
@@ -60,41 +46,31 @@ type
    function GetDocument: Tl3Tag; override;
    function CanFindParaAsNode: Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    procedure TransformMadeDocument(var theDocument: Tl3Tag); override;
-     {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
+    {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
    function DocumentForFindPara: Tl3Tag; override;
- protected
- // protected methods
-   function AcceptableBlockViewKinds: TnsBlockViewKinds; virtual; abstract;
  end;//TnsAACDocumentContainerPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Document_Const,
-  k2Tags,
-  Block_Const,
-  nsBlockNode,
-  SysUtils,
-  F1TagDataProviderInterface,
-  k2Base,
-  nsTagNodeToolsNew
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Sub_Const,
-  LeafPara_Const
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsAACDocumentContainerPrim
+ l3ImplUses
+ , Document_Const
+ , k2Tags
+ , Block_Const
+ , nsBlockNode
+ , SysUtils
+ , F1TagDataProviderInterface
+ , k2Base
+ , nsTagNodeToolsNew
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Sub_Const
+ , LeafPara_Const
+;
 
 function TnsAACDocumentContainerPrim.GotPos: TbsDocPos;
 //#UC START# *5023F94B0206_500E758002C7_var*
@@ -115,6 +91,7 @@ begin
 end;//TnsAACDocumentContainerPrim.GotViewKind
 
 procedure TnsAACDocumentContainerPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_500E758002C7_var*
 //#UC END# *479731C50290_500E758002C7_var*
 begin
@@ -248,13 +225,13 @@ begin
 end;//TnsAACDocumentContainerPrim.CanFindParaAsNode
 
 procedure TnsAACDocumentContainerPrim.ClearFields;
- {-}
 begin
  Finalize(f_GotPos);
  inherited;
 end;//TnsAACDocumentContainerPrim.ClearFields
 
 procedure TnsAACDocumentContainerPrim.TransformMadeDocument(var theDocument: Tl3Tag);
+ {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
 //#UC START# *500ED7750045_500E758002C7_var*
 
 var
@@ -376,7 +353,6 @@ begin
  Result := f_OriginalDocument;
 //#UC END# *506982B0037E_500E758002C7_impl*
 end;//TnsAACDocumentContainerPrim.DocumentForFindPara
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

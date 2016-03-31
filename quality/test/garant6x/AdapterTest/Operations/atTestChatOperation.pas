@@ -1,48 +1,35 @@
 unit atTestChatOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atTestChatOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatTestChatOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atTestChatOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatTestChatOperation" MUID: (4B7155A4014A)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatTestChatOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatTestChatOperation
 
 implementation
 
 uses
-  atChatWorker,
-  SysUtils,
-  atUserListHelper,
-  Windows,
-  atLogger,
-  Classes,
-  atCommon
-  ;
-
-// start class TatTestChatOperation
+ l3ImplUses
+ , atChatWorker
+ , SysUtils
+ , atUserListHelper
+ , Windows
+ , atLogger
+ , Classes
+ , atCommon
+;
 
 procedure TatTestChatOperation.ExecuteSelf;
 //#UC START# *48089F460352_4B7155A4014A_var*

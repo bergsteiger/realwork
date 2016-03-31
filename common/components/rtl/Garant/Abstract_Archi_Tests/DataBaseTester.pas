@@ -1,68 +1,62 @@
 unit DataBaseTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Archi Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Archi_Tests/DataBaseTester.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::Abstract Archi Tests::DataBaseTestUtils::TDataBaseTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\DataBaseTester.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TDataBaseTester" MUID: (541957650320)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Archi_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  m3DBInterfaces,
-  Classes
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , Classes
+ , m3DBInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TDataBaseTester = class(TThread)
- private
- // private fields
-   f_DataPath : AnsiString;
-   f_BasePath : AnsiString;
- private
- // private methods
+  private
+   f_DataPath: AnsiString;
+   f_BasePath: AnsiString;
+  private
    procedure DoBase(const aDB: Im3DB);
- protected
- // realized methods
+  protected
    procedure Execute; override;
- public
- // public methods
+  public
    constructor Create(CreateSuspended: Boolean;
-     const aDataPath: AnsiString;
-     const aBaseName: AnsiString); reintroduce;
+    const aDataPath: AnsiString;
+    const aBaseName: AnsiString); reintroduce;
  end;//TDataBaseTester
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Types,
-  m3StorageInterfaces,
-  l3Stream,
-  l3FileUtils,
-  m3DB,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , m3StorageInterfaces
+ , l3Stream
+ , l3FileUtils
+ , m3DB
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TDataBaseTester
+constructor TDataBaseTester.Create(CreateSuspended: Boolean;
+ const aDataPath: AnsiString;
+ const aBaseName: AnsiString);
+//#UC START# *541FFFCB03B7_541957650320_var*
+//#UC END# *541FFFCB03B7_541957650320_var*
+begin
+//#UC START# *541FFFCB03B7_541957650320_impl*
+ inherited Create(CreateSuspended);
+ f_DataPath := aDataPath;
+ f_BasePath := aBaseName;
+//#UC END# *541FFFCB03B7_541957650320_impl*
+end;//TDataBaseTester.Create
 
 procedure TDataBaseTester.DoBase(const aDB: Im3DB);
 //#UC START# *542003B40317_541957650320_var*
@@ -146,19 +140,6 @@ begin
 //#UC END# *542003B40317_541957650320_impl*
 end;//TDataBaseTester.DoBase
 
-constructor TDataBaseTester.Create(CreateSuspended: Boolean;
-  const aDataPath: AnsiString;
-  const aBaseName: AnsiString);
-//#UC START# *541FFFCB03B7_541957650320_var*
-//#UC END# *541FFFCB03B7_541957650320_var*
-begin
-//#UC START# *541FFFCB03B7_541957650320_impl*
- inherited Create(CreateSuspended);
- f_DataPath := aDataPath;
- f_BasePath := aBaseName;
-//#UC END# *541FFFCB03B7_541957650320_impl*
-end;//TDataBaseTester.Create
-
 procedure TDataBaseTester.Execute;
 //#UC START# *4FFFDF740099_541957650320_var*
 var
@@ -179,7 +160,6 @@ begin
  end;//try..finally
 //#UC END# *4FFFDF740099_541957650320_impl*
 end;//TDataBaseTester.Execute
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

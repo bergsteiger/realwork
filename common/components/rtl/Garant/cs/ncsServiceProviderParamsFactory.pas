@@ -1,98 +1,70 @@
 unit ncsServiceProviderParamsFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsServiceProviderParamsFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ClientSide::TncsServiceProviderParamsFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsServiceProviderParamsFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsServiceProviderParamsFactory" MUID: (54F04779024B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ddAppConfig,
-  ncsServiceProviderParams,
-  daGUITypes
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsServiceProviderParams
+ , ddAppConfig
+ , daGUITypes
+;
 
-{$If not defined(Nemesis)}
 type
  TncsServiceProviderParamsFactory = class(Tl3ProtoObject)
- public
- // public methods
+  public
    procedure FillInConfig(aConfig: TddAppConfiguration;
-     aParams: TncsServiceProviderParams;
-     ForInfoOnly: Boolean = False);
+    aParams: TncsServiceProviderParams;
+    ForInfoOnly: Boolean = False);
    procedure FillOutConfig(aConfig: TddAppConfiguration;
-     aParams: TncsServiceProviderParams);
+    aParams: TncsServiceProviderParams);
    procedure BuildConfig(aConfig: TddAppConfiguration;
-     aCallBack: TBuildConfigProc;
-     const aProviderKey: AnsiString = '';
-     ForInfoOnly: Boolean = False);
+    aCallBack: TBuildConfigProc;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False);
    function MakeEmpty: TncsServiceProviderParams;
    function MakeFromConfig: TncsServiceProviderParams;
    procedure SaveToConfig(aParams: TncsServiceProviderParams);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsServiceProviderParamsFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TncsServiceProviderParamsFactory }
  end;//TncsServiceProviderParamsFactory
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  l3Base64,
-  l3Utils,
-  l3IniFile,
-  ddAppConfigTypes,
-  ddAppConfigStrings,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , l3Base64
+ , l3Utils
+ , l3IniFile
+ , ddAppConfigTypes
+ , ddAppConfigStrings
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Nemesis)}
-
-
-// start class TncsServiceProviderParamsFactory
-
-var g_TncsServiceProviderParamsFactory : TncsServiceProviderParamsFactory = nil;
+var g_TncsServiceProviderParamsFactory: TncsServiceProviderParamsFactory = nil;
+ {* Экземпляр синглетона TncsServiceProviderParamsFactory }
 
 procedure TncsServiceProviderParamsFactoryFree;
+ {* Метод освобождения экземпляра синглетона TncsServiceProviderParamsFactory }
 begin
  l3Free(g_TncsServiceProviderParamsFactory);
-end;
-
-class function TncsServiceProviderParamsFactory.Instance: TncsServiceProviderParamsFactory;
-begin
- if (g_TncsServiceProviderParamsFactory = nil) then
- begin
-  l3System.AddExitProc(TncsServiceProviderParamsFactoryFree);
-  g_TncsServiceProviderParamsFactory := Create;
- end;
- Result := g_TncsServiceProviderParamsFactory;
-end;
-
+end;//TncsServiceProviderParamsFactoryFree
 
 procedure TncsServiceProviderParamsFactory.FillInConfig(aConfig: TddAppConfiguration;
-  aParams: TncsServiceProviderParams;
-  ForInfoOnly: Boolean = False);
+ aParams: TncsServiceProviderParams;
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512C125015E_54F04779024B_var*
 const
  cMap: array [Boolean] of Integer = (0, 1);
@@ -122,7 +94,7 @@ begin
 end;//TncsServiceProviderParamsFactory.FillInConfig
 
 procedure TncsServiceProviderParamsFactory.FillOutConfig(aConfig: TddAppConfiguration;
-  aParams: TncsServiceProviderParams);
+ aParams: TncsServiceProviderParams);
 //#UC START# *5512C13A039D_54F04779024B_var*
 //#UC END# *5512C13A039D_54F04779024B_var*
 begin
@@ -139,9 +111,9 @@ begin
 end;//TncsServiceProviderParamsFactory.FillOutConfig
 
 procedure TncsServiceProviderParamsFactory.BuildConfig(aConfig: TddAppConfiguration;
-  aCallBack: TBuildConfigProc;
-  const aProviderKey: AnsiString = '';
-  ForInfoOnly: Boolean = False);
+ aCallBack: TBuildConfigProc;
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512C166028C_54F04779024B_var*
 var
  l_Container: TddContainerConfigItem;
@@ -259,11 +231,21 @@ begin
 end;//TncsServiceProviderParamsFactory.SaveToConfig
 
 class function TncsServiceProviderParamsFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TncsServiceProviderParamsFactory <> nil;
 end;//TncsServiceProviderParamsFactory.Exists
 
-{$IfEnd} //not Nemesis
+class function TncsServiceProviderParamsFactory.Instance: TncsServiceProviderParamsFactory;
+ {* Метод получения экземпляра синглетона TncsServiceProviderParamsFactory }
+begin
+ if (g_TncsServiceProviderParamsFactory = nil) then
+ begin
+  l3System.AddExitProc(TncsServiceProviderParamsFactoryFree);
+  g_TncsServiceProviderParamsFactory := Create;
+ end;
+ Result := g_TncsServiceProviderParamsFactory;
+end;//TncsServiceProviderParamsFactory.Instance
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

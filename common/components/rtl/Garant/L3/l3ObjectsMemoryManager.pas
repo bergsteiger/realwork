@@ -1,45 +1,34 @@
 unit l3ObjectsMemoryManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ObjectsMemoryManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MemoryManagers::Tl3ObjectsMemoryManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectsMemoryManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ObjectsMemoryManager" MUID: (545CDF7D0249)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3SimpleMemoryManager
-  ;
+ l3IntfUses
+ , l3SimpleMemoryManager
+;
 
 type
  Tl3ObjectsMemoryManager = class(Tl3SimpleMemoryManager)
- public
- // public methods
+  public
    constructor Create; reintroduce;
    procedure FreeMem(anObject: TObject);
    procedure GetMem(out thePlace: TObject;
-     aClass: TClass);
+    aClass: TClass);
  end;//Tl3ObjectsMemoryManager
 
 implementation
 
 uses
-  l3MemUtils,
-  SysUtils
-  ;
-
-// start class Tl3ObjectsMemoryManager
+ l3ImplUses
+ , l3MemUtils
+ , SysUtils
+;
 
 constructor Tl3ObjectsMemoryManager.Create;
 //#UC START# *545CDFD70320_545CDF7D0249_var*
@@ -74,7 +63,7 @@ begin
 end;//Tl3ObjectsMemoryManager.FreeMem
 
 procedure Tl3ObjectsMemoryManager.GetMem(out thePlace: TObject;
-  aClass: TClass);
+ aClass: TClass);
 //#UC START# *545CE0BF0347_545CDF7D0249_var*
 //#UC END# *545CE0BF0347_545CDF7D0249_var*
 begin

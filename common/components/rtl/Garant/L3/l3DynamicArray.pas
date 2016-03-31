@@ -1,33 +1,23 @@
 unit l3DynamicArray;
+ {* Базовый класс для динамических массовов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DynamicArray.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3DynamicArray
-//
-// Базовый класс для динамических массовов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DynamicArray.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DynamicArray" MUID: (479DFD5300C5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Memory,
-  l3SimpleDataContainer,
-  l3Interfaces,
-  l3Types,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Interfaces
+ , l3Types
+ , Classes
+ , l3Except
+;
 
  {$Define _l3Items_NeedsBeforeFreeItem}
 
@@ -35,33 +25,30 @@ type
  _DataType_ = Tl3Ptr;
  _l3UntypedList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3UntypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
  Tl3DynamicArray = class(_l3UntypedList_)
   {* Базовый класс для динамических массовов. }
- protected
- // property methods
+  protected
    function pm_GetItems(anIndex: Integer): Pointer;
- public
- // public properties
+  public
    property Items[anIndex: Integer]: Pointer
-     read pm_GetItems;
-     default;
+    read pm_GetItems;
+    default;
  end;//Tl3DynamicArray
 
 implementation
 
 uses
-  l3Base,
-  RTLConsts,
-  SysUtils,
-  l3MinMax
-  ;
+ l3ImplUses
+ , l3Base
+ , RTLConsts
+ , SysUtils
+ , l3MinMax
+;
 
 type _Instance_R_ = Tl3DynamicArray;
 
-{$Include ..\L3\l3UntypedList.imp.pas}
-
-// start class Tl3DynamicArray
+{$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
 
 function Tl3DynamicArray.pm_GetItems(anIndex: Integer): Pointer;
 //#UC START# *479DFDBE0123_479DFD5300C5get_var*

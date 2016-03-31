@@ -41,7 +41,7 @@ uses
 type
  TTypeMap = array [TFoldersElementType] of TFoldersItemType;
 
- TPrimFoldersElementInfoForm = class
+ TPrimFoldersElementInfoForm = class(TvcmEntityForm)
   private
    f_EDoChangedAlreadyDoneFired: Boolean;
     {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обрабиотки переподнять его }
@@ -225,6 +225,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utFoldersPropertyLocalConstants }
  str_utFoldersPropertyCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersPropertyCaption'; rValue : 'Панель свойств');
@@ -1303,7 +1304,6 @@ begin
 //#UC END# *47A042E100E2_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersElementInfoForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AE706BB029F_var*
@@ -1323,9 +1323,7 @@ begin
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *49803F5503AA_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersElementInfoForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE706BB029F_var*
@@ -1418,9 +1416,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersElementInfoForm.SetActiveControl;
  {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
 //#UC START# *4AC3803A03CD_4AE706BB029F_var*
@@ -1430,7 +1426,6 @@ begin
  Windows.SetFocus(ElementName.Handle);
 //#UC END# *4AC3803A03CD_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.SetActiveControl
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFoldersElementInfoForm.ClearFields;
 begin
@@ -1450,6 +1445,7 @@ initialization
  TtfwClassRef.Register(TPrimFoldersElementInfoForm);
  {* Регистрация PrimFoldersElementInfo }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

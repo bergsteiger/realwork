@@ -18,6 +18,8 @@ uses
  , eeInterfaces
  , eeTreeViewExport
  , Messages
+ //#UC START# *494B949E022Bintf_uses*
+ //#UC END# *494B949E022Bintf_uses*
 ;
 
 type
@@ -222,6 +224,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *494B949E022Bimpl_uses*
+ //#UC END# *494B949E022Bimpl_uses*
 ;
 
 procedure TeeCustomTreeView.vlbProcessingChar(const aMsg: TWMChar);

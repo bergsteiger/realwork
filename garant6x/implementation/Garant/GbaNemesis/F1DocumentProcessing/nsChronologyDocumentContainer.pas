@@ -1,66 +1,48 @@
 unit nsChronologyDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsChronologyDocumentContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::TnsChronologyDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsChronologyDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsChronologyDocumentContainer" MUID: (53C65E01039B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsF1DocumentContainer,
-  nevTools,
-  l3Variant
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsF1DocumentContainer
+ , nevTools
+ , l3Variant
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsChronologyDocumentContainer = class(TnsF1DocumentContainer)
- protected
- // overridden protected methods
+  protected
    function CanBePlacedInDocumentsCache: Boolean; override;
    function GetIsSame(const aContainer: InevDocumentContainer): Boolean; override;
    function CanFindParaAsNode: Boolean; override;
    procedure TransformMadeDocument(var theDocument: Tl3Tag); override;
-     {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
+    {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
  end;//TnsChronologyDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsBlockNode,
-  F1TagDataProviderInterface,
-  k2Base,
-  k2Tags,
-  SysUtils,
-  Block_Const,
-  nsTagNodeToolsNew
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsChronologyDocumentContainer
+ l3ImplUses
+ , nsBlockNode
+ , F1TagDataProviderInterface
+ , k2Base
+ , k2Tags
+ , SysUtils
+ , Block_Const
+ , nsTagNodeToolsNew
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TnsChronologyDocumentContainer.CanBePlacedInDocumentsCache: Boolean;
 //#UC START# *47F10C6E0240_53C65E01039B_var*
@@ -90,6 +72,7 @@ begin
 end;//TnsChronologyDocumentContainer.CanFindParaAsNode
 
 procedure TnsChronologyDocumentContainer.TransformMadeDocument(var theDocument: Tl3Tag);
+ {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
 //#UC START# *500ED7750045_53C65E01039B_var*
 var
  l_D: Tl3Variant;
@@ -158,7 +141,6 @@ begin
  end;//try..finally
 //#UC END# *500ED7750045_53C65E01039B_impl*
 end;//TnsChronologyDocumentContainer.TransformMadeDocument
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

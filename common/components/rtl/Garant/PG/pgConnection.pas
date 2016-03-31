@@ -1,112 +1,91 @@
 unit pgConnection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgConnection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgConnection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgConnection.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgConnection" MUID: (55F6875803A8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daLongProcessSubscriberList,
-  LibPQ,
-  pgDataProviderParams
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , LibPQ
+ , daTypes
+ , daLongProcessSubscriberList
+ , pgDataProviderParams
+;
 
-{$If defined(UsePostgres)}
 type
  TpgLockAction = (
-   pg_laLock
- , pg_laUnLock
+  pg_laLock
+  , pg_laUnLock
  );//TpgLockAction
 
  TpgLockLevel = (
-   pg_llShared
- , pg_llExclusive
+  pg_llShared
+  , pg_llExclusive
  );//TpgLockLevel
 
  TpgConnection = class(Tl3ProtoObject)
- private
- // private fields
-   f_InTransaction : Boolean;
-   f_TransactionTables : TdaTablesSet;
-   f_LongProcessList : TdaLongProcessSubscriberList;
-   f_Handle : PPGconn;
-    {* Поле для свойства Handle}
- private
- // private methods
+  private
+   f_InTransaction: Boolean;
+   f_TransactionTables: TdaTablesSet;
+   f_LongProcessList: TdaLongProcessSubscriberList;
+   f_Handle: PPGconn;
+    {* Поле для свойства Handle }
+  private
    function BuildConnectString(const anUser: AnsiString;
-     const aPassword: AnsiString;
-     const aDatabase: AnsiString;
-     aParams: TpgDataProviderParams): AnsiString;
+    const aPassword: AnsiString;
+    const aDatabase: AnsiString;
+    aParams: TpgDataProviderParams): AnsiString;
    function LockAction(Action: TpgLockAction;
-     Level: TpgLockLevel;
-     LockValue: Integer = -1): Boolean;
+    Level: TpgLockLevel;
+    LockValue: Integer = -1): Boolean;
    procedure LockTable(aTableID: TdaTables);
    procedure UnlockTable(aTableID: TdaTables);
    procedure UnlockAllTransactionTables;
-     {* Сигнатура метода UnlockAllTransactionTables }
    procedure ExecSQLCommand(const anSQL: AnsiString);
    procedure DoBeginTransaction(aTables: TdaTablesSet);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    function Lock(Level: TpgLockLevel): Boolean;
    procedure Unlock(Level: TpgLockLevel);
    constructor Create(aList: TdaLongProcessSubscriberList); reintroduce;
    procedure ConnectAs(const anUser: AnsiString;
-     const aPassword: AnsiString;
-     const aDatabase: AnsiString;
-     aParams: TpgDataProviderParams);
+    const aPassword: AnsiString;
+    const aDatabase: AnsiString;
+    aParams: TpgDataProviderParams);
    procedure Connect(aParams: TpgDataProviderParams);
    procedure Disconnect;
    function Connected: Boolean;
    function BeginTransaction(aTables: TdaTablesSet): Boolean;
    procedure CommitTransaction;
    procedure RollbackTransaction;
- public
- // public properties
+  public
    property Handle: PPGconn
-     read f_Handle;
+    read f_Handle;
  end;//TpgConnection
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  pgInterfaces,
-  TypInfo
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgConnection
+ l3ImplUses
+ , pgInterfaces
+ , TypInfo
+ , SysUtils
+;
 
 function TpgConnection.BuildConnectString(const anUser: AnsiString;
-  const aPassword: AnsiString;
-  const aDatabase: AnsiString;
-  aParams: TpgDataProviderParams): AnsiString;
+ const aPassword: AnsiString;
+ const aDatabase: AnsiString;
+ aParams: TpgDataProviderParams): AnsiString;
 //#UC START# *55F7BAE0023F_55F6875803A8_var*
 //#UC END# *55F7BAE0023F_55F6875803A8_var*
 begin
@@ -116,9 +95,28 @@ begin
 //#UC END# *55F7BAE0023F_55F6875803A8_impl*
 end;//TpgConnection.BuildConnectString
 
+function TpgConnection.Lock(Level: TpgLockLevel): Boolean;
+//#UC START# *564EE49B000D_55F6875803A8_var*
+//#UC END# *564EE49B000D_55F6875803A8_var*
+begin
+//#UC START# *564EE49B000D_55F6875803A8_impl*
+ Result := LockAction(pg_laLock, Level);
+//#UC END# *564EE49B000D_55F6875803A8_impl*
+end;//TpgConnection.Lock
+
+procedure TpgConnection.Unlock(Level: TpgLockLevel);
+//#UC START# *564EE4C50158_55F6875803A8_var*
+//#UC END# *564EE4C50158_55F6875803A8_var*
+begin
+//#UC START# *564EE4C50158_55F6875803A8_impl*
+ if not LockAction(pg_laUnLock, Level) then
+  EPgError.Create('Не удалось отпустить базу');
+//#UC END# *564EE4C50158_55F6875803A8_impl*
+end;//TpgConnection.Unlock
+
 function TpgConnection.LockAction(Action: TpgLockAction;
-  Level: TpgLockLevel;
-  LockValue: Integer = -1): Boolean;
+ Level: TpgLockLevel;
+ LockValue: Integer = -1): Boolean;
 //#UC START# *564EE4E40187_55F6875803A8_var*
 var
   l_Result: PPGResult;
@@ -224,25 +222,6 @@ begin
 //#UC END# *565D9EA2007D_55F6875803A8_impl*
 end;//TpgConnection.DoBeginTransaction
 
-function TpgConnection.Lock(Level: TpgLockLevel): Boolean;
-//#UC START# *564EE49B000D_55F6875803A8_var*
-//#UC END# *564EE49B000D_55F6875803A8_var*
-begin
-//#UC START# *564EE49B000D_55F6875803A8_impl*
- Result := LockAction(pg_laLock, Level);
-//#UC END# *564EE49B000D_55F6875803A8_impl*
-end;//TpgConnection.Lock
-
-procedure TpgConnection.Unlock(Level: TpgLockLevel);
-//#UC START# *564EE4C50158_55F6875803A8_var*
-//#UC END# *564EE4C50158_55F6875803A8_var*
-begin
-//#UC START# *564EE4C50158_55F6875803A8_impl*
- if not LockAction(pg_laUnLock, Level) then
-  EPgError.Create('Не удалось отпустить базу');
-//#UC END# *564EE4C50158_55F6875803A8_impl*
-end;//TpgConnection.Unlock
-
 constructor TpgConnection.Create(aList: TdaLongProcessSubscriberList);
 //#UC START# *565EA7B30042_55F6875803A8_var*
 //#UC END# *565EA7B30042_55F6875803A8_var*
@@ -254,9 +233,9 @@ begin
 end;//TpgConnection.Create
 
 procedure TpgConnection.ConnectAs(const anUser: AnsiString;
-  const aPassword: AnsiString;
-  const aDatabase: AnsiString;
-  aParams: TpgDataProviderParams);
+ const aPassword: AnsiString;
+ const aDatabase: AnsiString;
+ aParams: TpgDataProviderParams);
 //#UC START# *569636A400D9_55F6875803A8_var*
 var
  l_Message: AnsiString;
@@ -375,6 +354,7 @@ begin
 end;//TpgConnection.RollbackTransaction
 
 procedure TpgConnection.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55F6875803A8_var*
 //#UC END# *479731C50290_55F6875803A8_var*
 begin
@@ -383,7 +363,6 @@ begin
  inherited;
 //#UC END# *479731C50290_55F6875803A8_impl*
 end;//TpgConnection.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

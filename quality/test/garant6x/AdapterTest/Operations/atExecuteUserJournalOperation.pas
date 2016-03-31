@@ -1,54 +1,41 @@
 unit atExecuteUserJournalOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atExecuteUserJournalOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatExecuteUserJournalOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecuteUserJournalOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatExecuteUserJournalOperation" MUID: (4FC8B0A8002E)
 
 interface
 
 uses
-  atIterateUserJournalOperation,
-  SearchUnit,
-  atQuery,
-  atUserJournalHelper
-  ;
+ l3IntfUses
+ , atIterateUserJournalOperation
+ , atQuery
+ , atUserJournalHelper
+ , SearchUnit
+;
 
 type
  _atExecutesQueryAddOn_Parent_ = TatIterateUserJournalOperation;
- {$Include ..\Operations\atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatExecuteUserJournalOperation = class(_atExecutesQueryAddOn_)
- protected
- // realized methods
+  protected
    function OnQuery(const anQuery: TatQuery): Boolean; override;
    function OnBookmark(const aBookmark: TatJournalBookmark): Boolean; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatExecuteUserJournalOperation
 
 implementation
 
 uses
-  atLogger,
-  atDocumentHelper,
-  atSearchHelper,
-  BaseTypesUnit,
-  SysUtils
-  ;
+ l3ImplUses
+ , atLogger
+ , atDocumentHelper
+ , atSearchHelper
+ , BaseTypesUnit
+ , SysUtils
+;
 
-{$Include ..\Operations\atExecutesQueryAddOn.imp.pas}
-
-// start class TatExecuteUserJournalOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 function TatExecuteUserJournalOperation.OnQuery(const anQuery: TatQuery): Boolean;
 //#UC START# *5006F37302DF_4FC8B0A8002E_var*

@@ -1,58 +1,45 @@
 unit atChatMessage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/EvdHelpers/atChatMessage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::EvdHelpers::TatChatMessage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\EvdHelpers\atChatMessage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatChatMessage" MUID: (4B6AE9CB00C2)
 
 interface
 
 uses
-  atBaseEvdHelper,
-  evdNativeWriter
-  ;
+ l3IntfUses
+ , atBaseEvdHelper
+ , evdNativeWriter
+;
 
 type
- IatChatMessage = interface(IUnknown)
-   ['{3CB60B5E-38D0-4476-80FB-C4338CE4D13E}']
-   function Get_ChatMessage: AnsiString;
-   procedure Set_ChatMessage(const aValue: AnsiString);
-   property ChatMessage: AnsiString
-     read Get_ChatMessage
-     write Set_ChatMessage;
+ IatChatMessage = interface
+  ['{3CB60B5E-38D0-4476-80FB-C4338CE4D13E}']
+  function Get_ChatMessage: AnsiString;
+  procedure Set_ChatMessage(const aValue: AnsiString);
+  property ChatMessage: AnsiString
+   read Get_ChatMessage
+   write Set_ChatMessage;
  end;//IatChatMessage
 
  TatChatMessage = class(TatBaseEvdHelper, IatChatMessage)
- private
- // private fields
-   f_ChatMessage : AnsiString;
- protected
- // realized methods
+  private
+   f_ChatMessage: AnsiString;
+  protected
    procedure DoGenerate(anEVDNativeWriter: TevdNativeWriter); override;
    function Get_ChatMessage: AnsiString;
    procedure Set_ChatMessage(const aValue: AnsiString);
- public
- // public methods
+  public
    class function Make: IatChatMessage; reintroduce;
  end;//TatChatMessage
 
 implementation
 
 uses
-  TextPara_Const,
-  k2Tags
-  ;
-
-// start class TatChatMessage
+ l3ImplUses
+ , TextPara_Const
+ , k2Tags
+;
 
 class function TatChatMessage.Make: IatChatMessage;
 var
@@ -64,7 +51,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TatChatMessage.Make
 
 procedure TatChatMessage.DoGenerate(anEVDNativeWriter: TevdNativeWriter);
 //#UC START# *4B6AE81E0267_4B6AE9CB00C2_var*

@@ -35,7 +35,7 @@ type
 
  // ChildZone
 
- TPrimFoldersForm = class
+ TPrimFoldersForm = class(TvcmContainerForm)
   {* Мои документы }
   private
    f_IsInfoShown: Boolean;
@@ -130,6 +130,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utFoldersLocalConstants }
  str_utFoldersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersCaption'; rValue : 'Мои документы');
@@ -145,7 +146,6 @@ begin
 //#UC END# *1BA52F720139_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.utFoldersQueryClose
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
 //#UC START# *4A8AD46D0226_4A96B6AE0071test_var*
@@ -164,9 +164,7 @@ begin
  end;
 //#UC END# *4A8AD46D0226_4A96B6AE0071test_impl*
 end;//TPrimFoldersForm.Result_Cancel_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
 //#UC START# *4A8AD46D0226_4A96B6AE0071exec_var*
@@ -184,7 +182,6 @@ begin
   end;
 //#UC END# *4A8AD46D0226_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.Result_Cancel_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFoldersForm.FoldersControl_EditElement_Execute(const aNode: IFoldersNode);
  {* Начать редактирование элемента }
@@ -220,7 +217,6 @@ begin
   ResultValue := Self.FoldersControl_DeleteElement_Execute(Node);
 end;//TPrimFoldersForm.FoldersControl_DeleteElement
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
 //#UC START# *4A97EBE702F8_4A96B6AE0071test_var*
@@ -243,9 +239,7 @@ begin
  end;
 //#UC END# *4A97EBE702F8_4A96B6AE0071test_impl*
 end;//TPrimFoldersForm.Result_Ok_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
 //#UC START# *4A97EBE702F8_4A96B6AE0071exec_var*
@@ -263,9 +257,7 @@ begin
   end;//try..finally
 //#UC END# *4A97EBE702F8_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.Result_Ok_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
  {* OK }
 //#UC START# *4A97EBE702F8_4A96B6AE0071getstate_var*
@@ -275,7 +267,6 @@ begin
  // Do nothing
 //#UC END# *4A97EBE702F8_4A96B6AE0071getstate_impl*
 end;//TPrimFoldersForm.Result_Ok_GetState
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFoldersForm.Result_Append_Test(const aParams: IvcmTestParamsPrim);
  {* Добавить }
@@ -414,7 +405,6 @@ begin
 //#UC END# *47EA4E9002C6_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4A96B6AE0071_var*
@@ -426,9 +416,7 @@ begin
  f_IsInfoShown := False;
 //#UC END# *49803F5503AA_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A96B6AE0071_var*
@@ -458,7 +446,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TPrimFoldersForm.SetParent(AParent: TWinControl);
@@ -484,6 +471,7 @@ initialization
  TtfwClassRef.Register(TPrimFoldersForm);
  {* Регистрация PrimFolders }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

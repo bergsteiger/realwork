@@ -21,6 +21,8 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
+ //#UC START# *503DE6F30027intf_uses*
+ //#UC END# *503DE6F30027intf_uses*
 ;
 
 type
@@ -66,6 +68,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *503DE6F30027impl_uses*
+ //#UC END# *503DE6F30027impl_uses*
 ;
 
 {$If NOT Defined(NoTB97)}

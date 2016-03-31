@@ -1,69 +1,57 @@
 unit nsWindowsList;
+ {* класс управляющий списком окон }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "UserInteraction"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/UserInteraction/nsWindowsList.pas"
-// Начат: 19.10.2009 15:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Operations::OfficeLike::UserInteraction::WindowsListSupport::TnsWindowsList
-//
-// класс управляющий списком окон
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowsList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsWindowsList" MUID: (4ADC5175035B)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  nsWindowsListPrim
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , nsWindowsListPrim
+;
 
-{$If not defined(NoVCM)}
 type
  TnsWindowsList = class(TnsWindowsListPrim)
   {* класс управляющий списком окон }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsWindowsList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsWindowsList }
  end;//TnsWindowsList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCM)}
-
-
-// start class TnsWindowsList
-
-var g_TnsWindowsList : TnsWindowsList = nil;
+var g_TnsWindowsList: TnsWindowsList = nil;
+ {* Экземпляр синглетона TnsWindowsList }
 
 procedure TnsWindowsListFree;
+ {* Метод освобождения экземпляра синглетона TnsWindowsList }
 begin
  l3Free(g_TnsWindowsList);
-end;
+end;//TnsWindowsListFree
+
+class function TnsWindowsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsWindowsList <> nil;
+end;//TnsWindowsList.Exists
 
 class function TnsWindowsList.Instance: TnsWindowsList;
+ {* Метод получения экземпляра синглетона TnsWindowsList }
 begin
  if (g_TnsWindowsList = nil) then
  begin
@@ -71,15 +59,7 @@ begin
   g_TnsWindowsList := Create;
  end;
  Result := g_TnsWindowsList;
-end;
-
-
-class function TnsWindowsList.Exists: Boolean;
- {-}
-begin
- Result := g_TnsWindowsList <> nil;
-end;//TnsWindowsList.Exists
-
-{$IfEnd} //not NoVCM
+end;//TnsWindowsList.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

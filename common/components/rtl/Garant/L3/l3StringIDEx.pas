@@ -79,18 +79,18 @@ type
  Tl3StringIDExHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3StringIDExHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3StringIDExHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3StringIDExHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure Init(var theStr: Tl3StringIDEx);
    function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
    function AsStr(const aStr: Tl3StringIDEx): AnsiString;
    class function Instance: Tl3StringIDExHelper;
     {* Метод получения экземпляра синглетона Tl3StringIDExHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3StringIDExHelper
     write pm_SetAlien;
@@ -213,12 +213,6 @@ begin
  f_Alien := aValue;
 end;//Tl3StringIDExHelper.pm_SetAlien
 
-class function Tl3StringIDExHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3StringIDExHelper <> nil;
-end;//Tl3StringIDExHelper.Exists
-
 procedure Tl3StringIDExHelper.Init(var theStr: Tl3StringIDEx);
 //#UC START# *071573E75439_4B98D6C201AD_var*
 //#UC END# *071573E75439_4B98D6C201AD_var*
@@ -273,6 +267,12 @@ begin
  end;
  Result := g_Tl3StringIDExHelper;
 end;//Tl3StringIDExHelper.Instance
+
+class function Tl3StringIDExHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3StringIDExHelper <> nil;
+end;//Tl3StringIDExHelper.Exists
 
 procedure Tl3StringIDExHelper.ClearFields;
 begin

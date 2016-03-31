@@ -1,64 +1,48 @@
 unit CsQueryRequesterTool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsQueryRequesterTool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ClientSide::TCsQueryRequesterTool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsQueryRequesterTool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCsQueryRequesterTool" MUID: (538DA33503D9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsCommon,
-  CsDataPipe,
-  CsQueryTypes,
-  CsQueryRequester
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , CsQueryTypes
+ , CsCommon
+ , CsDataPipe
+ , CsQueryRequester
+;
 
-{$If not defined(Nemesis)}
 type
  TCsQueryRequesterTool = class
- public
- // public methods
+  public
    class function ExecuteQuery(aQueryId: TCsQueryId;
-     aClientID: TCsClientId;
-     aPipe: TCsDataPipe;
-     aQueryProc: TCsQueryProc;
-     aWrite2Log: Boolean): Boolean;
+    aClientID: TCsClientId;
+    aPipe: TCsDataPipe;
+    aQueryProc: TCsQueryProc;
+    aWrite2Log: Boolean): Boolean;
  end;//TCsQueryRequesterTool
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base,
-  CsConst,
-  TypInfo
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TCsQueryRequesterTool
+ l3ImplUses
+ , l3Base
+ , CsConst
+ , TypInfo
+;
 
 class function TCsQueryRequesterTool.ExecuteQuery(aQueryId: TCsQueryId;
-  aClientID: TCsClientId;
-  aPipe: TCsDataPipe;
-  aQueryProc: TCsQueryProc;
-  aWrite2Log: Boolean): Boolean;
+ aClientID: TCsClientId;
+ aPipe: TCsDataPipe;
+ aQueryProc: TCsQueryProc;
+ aWrite2Log: Boolean): Boolean;
 //#UC START# *538DA34E03C3_538DA33503D9_var*
 //#UC END# *538DA34E03C3_538DA33503D9_var*
 begin
@@ -82,7 +66,6 @@ begin
  end;
 //#UC END# *538DA34E03C3_538DA33503D9_impl*
 end;//TCsQueryRequesterTool.ExecuteQuery
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

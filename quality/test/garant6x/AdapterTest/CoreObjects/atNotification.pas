@@ -1,44 +1,32 @@
 unit atNotification;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atNotification.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatNotification
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNotification.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNotification" MUID: (480781120349)
 
 interface
 
 uses
-  atInterfaces
-  ;
+ l3IntfUses
+ , atInterfaces
+;
 
 type
  TatNotification = class(TInterfacedObject, IatNotification)
- private
- // private fields
-   f_Data : Variant;
- protected
- // realized methods
+  private
+   f_Data: Variant;
+  protected
    function GetData: Variant;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const data: Variant); reintroduce;
+   destructor Destroy; override;
  end;//TatNotification
 
 implementation
 
-// start class TatNotification
+uses
+ l3ImplUses
+;
 
 constructor TatNotification.Create(const data: Variant);
 //#UC START# *48078161002A_480781120349_var*

@@ -1,52 +1,36 @@
 unit nsFontSizeEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsFontSizeEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::Events::TnsFontSizeEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFontSizeEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFontSizeEvent" MUID: (4B0BB0FA011D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFontSizeEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(aSize: Cardinal); virtual;
  end;//TnsFontSizeEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFontSizeEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsFontSizeEvent.Log(aSize: Cardinal);
 //#UC START# *4B0BB10A02E7_4B0BB0FA011D_var*
@@ -60,7 +44,6 @@ begin
  GetLogger.AddEvent(LE_FONT_SIZE, l_Data);
 //#UC END# *4B0BB10A02E7_4B0BB0FA011D_impl*
 end;//TnsFontSizeEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

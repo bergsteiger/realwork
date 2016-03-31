@@ -1,36 +1,26 @@
 {$IfNDef atSaveQueryToXMLAddon_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSaveQueryToXMLAddon.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atSaveQueryToXMLAddon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atSaveQueryToXMLAddon" MUID: (5006FE0303DD)
+// Имя типа: "_atSaveQueryToXMLAddon_"
 
 {$Define atSaveQueryToXMLAddon_imp}
- _atSaveQueryToXMLAddon_ = {mixin} class(_atSaveQueryToXMLAddon_Parent_)
- protected
- // realized methods
-   procedure ExecuteSelf; override;
- protected
- // overridden protected methods
-   procedure InitParamList; override;
- protected
- // protected fields
-   f_FilePathPrefix : AnsiString;
- protected
- // protected methods
+
+ _atSaveQueryToXMLAddon_ = class(_atSaveQueryToXMLAddon_Parent_)
+  protected
+   f_FilePathPrefix: AnsiString;
+  protected
    procedure SaveQuery(anQuery: TatQuery); virtual;
+   procedure ExecuteSelf; override;
+   procedure InitParamList; override;
  end;//_atSaveQueryToXMLAddon_
 
 {$Else atSaveQueryToXMLAddon_imp}
 
-// start class _atSaveQueryToXMLAddon_
+{$IfNDef atSaveQueryToXMLAddon_imp_impl}
+
+{$Define atSaveQueryToXMLAddon_imp_impl}
 
 procedure _atSaveQueryToXMLAddon_.SaveQuery(anQuery: TatQuery);
 //#UC START# *5006FE6A03B4_5006FE0303DD_var*
@@ -93,4 +83,7 @@ begin
 //#UC END# *48089F3701B4_5006FE0303DD_impl*
 end;//_atSaveQueryToXMLAddon_.InitParamList
 
+{$EndIf atSaveQueryToXMLAddon_imp_impl}
+
 {$EndIf atSaveQueryToXMLAddon_imp}
+

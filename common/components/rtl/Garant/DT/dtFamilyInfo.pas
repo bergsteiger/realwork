@@ -1,46 +1,36 @@
 unit dtFamilyInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/dtFamilyInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DT::DbInfo::TdtFamilyInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\dtFamilyInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdtFamilyInfo" MUID: (537F78410340)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+;
 
-{$If not defined(Nemesis)}
 type
  TdtFamilyInfo = class(Tl3ProtoObject)
- public
- // public fields
-   Number : Integer;
-   Name : AnsiString;
-   Path : AnsiString;
-   DocGroup : Integer;
-   Attributes : Integer;
+  public
+   Number: Integer;
+   Name: AnsiString;
+   Path: AnsiString;
+   DocGroup: Integer;
+   Attributes: Integer;
  end;//TdtFamilyInfo
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
-
-{$IfEnd} //not Nemesis
 end.

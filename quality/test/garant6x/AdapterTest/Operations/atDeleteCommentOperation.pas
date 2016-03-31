@@ -1,45 +1,32 @@
 unit atDeleteCommentOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atDeleteCommentOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatDeleteCommentOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteCommentOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatDeleteCommentOperation" MUID: (4817437E02D8)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatDeleteCommentOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatDeleteCommentOperation
 
 implementation
 
 uses
-  atLogger,
-  SysUtils,
-  atDocumentHelper,
-  DocumentUnit
-  ;
-
-// start class TatDeleteCommentOperation
+ l3ImplUses
+ , atLogger
+ , SysUtils
+ , atDocumentHelper
+ , DocumentUnit
+;
 
 procedure TatDeleteCommentOperation.ExecuteSelf;
 //#UC START# *48089F460352_4817437E02D8_var*

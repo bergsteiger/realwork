@@ -1,43 +1,32 @@
 unit atConstStringProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atConstStringProvider.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatConstStringProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atConstStringProvider.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatConstStringProvider" MUID: (5037D1DF03D8)
 
 interface
 
 uses
-  atStringProvider
-  ;
+ l3IntfUses
+ , atStringProvider
+;
 
 type
  TatConstStringProvider = class(TatStringProvider)
- private
- // private fields
-   f_Acquired : Boolean;
-   f_String : AnsiString;
- protected
- // realized methods
+  private
+   f_Acquired: Boolean;
+   f_String: AnsiString;
+  public
+   constructor Create(const aString: AnsiString); reintroduce; virtual;
    function AcquireNext(out theString: AnsiString): Boolean; override;
    procedure Reset; override;
- public
- // public methods
-   constructor Create(const aString: AnsiString); reintroduce; virtual;
  end;//TatConstStringProvider
 
 implementation
 
-// start class TatConstStringProvider
+uses
+ l3ImplUses
+;
 
 constructor TatConstStringProvider.Create(const aString: AnsiString);
 //#UC START# *5037D2B10112_5037D1DF03D8_var*

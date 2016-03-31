@@ -1,38 +1,27 @@
 unit htTableQueryFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htTableQueryFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtTableQueryFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htTableQueryFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtTableQueryFactory" MUID: (554C7FE80228)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  htInterfaces,
-  daTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , htInterfaces
+ , daTypes
+;
 
 type
  ThtTableQueryFactory = class(Tl3ProtoObject, IdaTableQueryFactory)
- private
- // private fields
-   f_DataConverter : IhtDataConverter;
-   f_Helper : IhtDataSchemeHelper;
- protected
- // realized methods
+  private
+   f_DataConverter: IhtDataConverter;
+   f_Helper: IhtDataSchemeHelper;
+  protected
    function MakeTabledQuery(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaTabledQuery;
    function MakeSelectField(const aTableAlias: AnsiString;
@@ -51,40 +40,33 @@ type
     const aField: IdaFieldDescription;
     const aQuery: IdaTabledQuery): IdaCondition;
    function MakeSortField(const aSelectField: IdaSelectField;
-    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
- protected
- // overridden protected methods
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataConverter: IhtDataConverter;
-     const aHelper: IhtDataSchemeHelper); reintroduce;
+    const aHelper: IhtDataSchemeHelper); reintroduce;
    class function Make(const aDataConverter: IhtDataConverter;
-     const aHelper: IhtDataSchemeHelper): IdaTableQueryFactory; reintroduce;
-     {* Сигнатура фабрики ThtTableQueryFactory.Make }
+    const aHelper: IhtDataSchemeHelper): IdaTableQueryFactory; reintroduce;
  end;//ThtTableQueryFactory
 
 implementation
 
 uses
-  htTabledQuery,
-  daParamsCondition,
-  daSelectField
-  {$If not defined(Nemesis)}
-  ,
-  dt_User
-  {$IfEnd} //not Nemesis
-  ,
-  daLogicCondition,
-  daSubQueryCondition,
-  daSortField
-  ;
-
-// start class ThtTableQueryFactory
+ l3ImplUses
+ , htTabledQuery
+ , daParamsCondition
+ , daSelectField
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daLogicCondition
+ , daSubQueryCondition
+ , daSortField
+;
 
 constructor ThtTableQueryFactory.Create(const aDataConverter: IhtDataConverter;
-  const aHelper: IhtDataSchemeHelper);
+ const aHelper: IhtDataSchemeHelper);
 //#UC START# *554C8017020C_554C7FE80228_var*
 //#UC END# *554C8017020C_554C7FE80228_var*
 begin
@@ -96,7 +78,7 @@ begin
 end;//ThtTableQueryFactory.Create
 
 class function ThtTableQueryFactory.Make(const aDataConverter: IhtDataConverter;
-  const aHelper: IhtDataSchemeHelper): IdaTableQueryFactory;
+ const aHelper: IhtDataSchemeHelper): IdaTableQueryFactory;
 var
  l_Inst : ThtTableQueryFactory;
 begin
@@ -106,10 +88,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtTableQueryFactory.Make
 
 function ThtTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaTabledQuery;
+ const anAlias: AnsiString = ''): IdaTabledQuery;
 //#UC START# *5549C65D038D_554C7FE80228_var*
 //#UC END# *5549C65D038D_554C7FE80228_var*
 begin
@@ -119,8 +101,8 @@ begin
 end;//ThtTableQueryFactory.MakeTabledQuery
 
 function ThtTableQueryFactory.MakeSelectField(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const anAlias: AnsiString = ''): IdaSelectField;
+ const aField: IdaFieldDescription;
+ const anAlias: AnsiString = ''): IdaSelectField;
 //#UC START# *559B80BD00A8_554C7FE80228_var*
 //#UC END# *559B80BD00A8_554C7FE80228_var*
 begin
@@ -130,9 +112,9 @@ begin
 end;//ThtTableQueryFactory.MakeSelectField
 
 function ThtTableQueryFactory.MakeParamsCondition(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  anOperation: TdaCompareOperation;
-  const aParamName: AnsiString): IdaCondition;
+ const aField: IdaFieldDescription;
+ anOperation: TdaCompareOperation;
+ const aParamName: AnsiString): IdaCondition;
 //#UC START# *559B810003CF_554C7FE80228_var*
 //#UC END# *559B810003CF_554C7FE80228_var*
 begin
@@ -160,8 +142,8 @@ begin
 end;//ThtTableQueryFactory.Get_DataConverter
 
 function ThtTableQueryFactory.MakeLogicCondition(const aLeft: IdaCondition;
-  anOperation: TdaLogicOperation;
-  const aRight: IdaCondition): IdaCondition;
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition): IdaCondition;
 //#UC START# *56405475021D_554C7FE80228_var*
 //#UC END# *56405475021D_554C7FE80228_var*
 begin
@@ -171,8 +153,8 @@ begin
 end;//ThtTableQueryFactory.MakeLogicCondition
 
 function ThtTableQueryFactory.MakeSubQueryCondition(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const aQuery: IdaTabledQuery): IdaCondition;
+ const aField: IdaFieldDescription;
+ const aQuery: IdaTabledQuery): IdaCondition;
 //#UC START# *5641E5DB02C3_554C7FE80228_var*
 //#UC END# *5641E5DB02C3_554C7FE80228_var*
 begin
@@ -182,7 +164,7 @@ begin
 end;//ThtTableQueryFactory.MakeSubQueryCondition
 
 function ThtTableQueryFactory.MakeSortField(const aSelectField: IdaSelectField;
-  aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
 //#UC START# *56811844032C_554C7FE80228_var*
 //#UC END# *56811844032C_554C7FE80228_var*
 begin
@@ -192,6 +174,7 @@ begin
 end;//ThtTableQueryFactory.MakeSortField
 
 procedure ThtTableQueryFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_554C7FE80228_var*
 //#UC END# *479731C50290_554C7FE80228_var*
 begin

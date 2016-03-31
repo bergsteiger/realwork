@@ -1,38 +1,29 @@
 unit atCycleOperation;
+ {* Пустая операция. Нужна чтобы циклически исполнять вложенные операции. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atCycleOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatCycleOperation
-//
-// Пустая операция. Нужна чтобы циклически исполнять вложенные операции.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCycleOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatCycleOperation" MUID: (489B0B86039C)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatCycleOperation = class(TatOperationBase)
   {* Пустая операция. Нужна чтобы циклически исполнять вложенные операции. }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
  end;//TatCycleOperation
 
 implementation
 
-// start class TatCycleOperation
+uses
+ l3ImplUses
+;
 
 procedure TatCycleOperation.ExecuteSelf;
 //#UC START# *48089F460352_489B0B86039C_var*

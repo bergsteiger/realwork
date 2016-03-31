@@ -1,94 +1,71 @@
 unit caJournal;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caJournal.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaJournal
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caJournal.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaJournal" MUID: (56BD8F200154)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  daInterfaces,
-  daJournal,
-  l3Tree_TLB,
-  l3Date,
-  daTypes,
-  l3Tree
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , daJournal
+ , daInterfaces
+ , l3Tree
+ , daTypes
+ , l3Date
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaJournal = class(TdaJournal)
- private
- // private fields
-   f_HTJournal : IdaJournal;
-   f_PGJournal : IdaJournal;
- protected
- // realized methods
+  private
+   f_HTJournal: IdaJournal;
+   f_PGJournal: IdaJournal;
+  protected
    procedure LogEvent(aOperation: TdaJournalOperation;
-     aFamilyID: TdaFamilyID;
-     aExtID: LongInt;
-     aData: LongInt); override;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt); override;
    procedure CheckUser(anUserID: TdaUserID); override;
    procedure UserChanged(anUserID: TdaUserID); override;
    procedure SessionChanged; override;
-     {* Сигнатура метода SessionChanged }
    procedure DoStartCaching; override;
-     {* Сигнатура метода DoStartCaching }
    procedure DoStopCaching; override;
-     {* Сигнатура метода DoStopCaching }
-   function MakeResultSet(FromDate: TStDate;
-     ToDate: TStDate;
-     aDocID: TdaDocID;
-     UserOrGroupID: TdaUserID;
-     UserGr: Boolean): IdaResultSet; override;
- protected
- // overridden protected methods
+   function MakeResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
+    aDocID: TdaDocID;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): IdaResultSet; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+   function NeedLogSessionBegin: Boolean; override;
+   function NeedLogSessionEnd: Boolean; override;
+  public
    constructor Create(const aFactory: IdaTableQueryFactory;
-     const aHTJournal: IdaJournal;
-     const aPGJournal: IdaJournal); reintroduce;
+    const aHTJournal: IdaJournal;
+    const aPGJournal: IdaJournal); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory;
-     const aHTJournal: IdaJournal;
-     const aPGJournal: IdaJournal): IdaJournal; reintroduce;
-     {* Сигнатура фабрики TcaJournal.Make }
+    const aHTJournal: IdaJournal;
+    const aPGJournal: IdaJournal): IdaJournal; reintroduce;
  end;//TcaJournal
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  daScheme,
-  daSelectFieldList,
-  caResultSet,
-  SysUtils
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
-
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaJournal
+ l3ImplUses
+ , daScheme
+ , daSelectFieldList
+ , caResultSet
+ , SysUtils
+;
 
 constructor TcaJournal.Create(const aFactory: IdaTableQueryFactory;
-  const aHTJournal: IdaJournal;
-  const aPGJournal: IdaJournal);
+ const aHTJournal: IdaJournal;
+ const aPGJournal: IdaJournal);
 //#UC START# *56BD9BFD0109_56BD8F200154_var*
 //#UC END# *56BD9BFD0109_56BD8F200154_var*
 begin
@@ -100,8 +77,8 @@ begin
 end;//TcaJournal.Create
 
 class function TcaJournal.Make(const aFactory: IdaTableQueryFactory;
-  const aHTJournal: IdaJournal;
-  const aPGJournal: IdaJournal): IdaJournal;
+ const aHTJournal: IdaJournal;
+ const aPGJournal: IdaJournal): IdaJournal;
 var
  l_Inst : TcaJournal;
 begin
@@ -111,12 +88,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaJournal.Make
 
 procedure TcaJournal.LogEvent(aOperation: TdaJournalOperation;
-  aFamilyID: TdaFamilyID;
-  aExtID: LongInt;
-  aData: LongInt);
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt);
 //#UC START# *5549F6220397_56BD8F200154_var*
 //#UC END# *5549F6220397_56BD8F200154_var*
 begin
@@ -174,11 +151,11 @@ begin
 //#UC END# *559B88B00126_56BD8F200154_impl*
 end;//TcaJournal.DoStopCaching
 
-function TcaJournal.MakeResultSet(FromDate: TStDate;
-  ToDate: TStDate;
-  aDocID: TdaDocID;
-  UserOrGroupID: TdaUserID;
-  UserGr: Boolean): IdaResultSet;
+function TcaJournal.MakeResultSet(const FromDate: TStDate;
+ const ToDate: TStDate;
+ aDocID: TdaDocID;
+ UserOrGroupID: TdaUserID;
+ UserGr: Boolean): IdaResultSet;
 //#UC START# *559CF9D300FA_56BD8F200154_var*
 var
  l_SelectFields : TdaSelectFieldList;
@@ -205,6 +182,7 @@ begin
 end;//TcaJournal.MakeResultSet
 
 procedure TcaJournal.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56BD8F200154_var*
 //#UC END# *479731C50290_56BD8F200154_var*
 begin
@@ -215,6 +193,25 @@ begin
 //#UC END# *479731C50290_56BD8F200154_impl*
 end;//TcaJournal.Cleanup
 
-{$IfEnd} //TestComboAccess AND UsePostgres
+function TcaJournal.NeedLogSessionBegin: Boolean;
+//#UC START# *56F2622600C7_56BD8F200154_var*
+//#UC END# *56F2622600C7_56BD8F200154_var*
+begin
+//#UC START# *56F2622600C7_56BD8F200154_impl*
+ Result := not f_HTJournal.IsSessionActive;
+ Assert(f_HTJournal.IsSessionActive = f_PGJournal.IsSessionActive)
+//#UC END# *56F2622600C7_56BD8F200154_impl*
+end;//TcaJournal.NeedLogSessionBegin
+
+function TcaJournal.NeedLogSessionEnd: Boolean;
+//#UC START# *56F271D602AB_56BD8F200154_var*
+//#UC END# *56F271D602AB_56BD8F200154_var*
+begin
+//#UC START# *56F271D602AB_56BD8F200154_impl*
+ Result := f_HTJournal.IsSessionActive;
+ Assert(f_HTJournal.IsSessionActive = f_PGJournal.IsSessionActive)
+//#UC END# *56F271D602AB_56BD8F200154_impl*
+end;//TcaJournal.NeedLogSessionEnd
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

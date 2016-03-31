@@ -64,7 +64,7 @@ type
   private
    f_TestResult: TTestResult;
    f_DataSubFolder: AnsiString;
-    {* Поле для свойства DataSubFolder }
+    {* Папка с данными тестов для режима работы с файлами из папки. }
   protected
    function ShouldStop: Boolean;
    function FolderMode: Boolean;

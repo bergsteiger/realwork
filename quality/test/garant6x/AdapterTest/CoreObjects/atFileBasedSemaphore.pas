@@ -1,44 +1,31 @@
 unit atFileBasedSemaphore;
+ {* Обеспечивает функциональность в стиле семафора. Работает на файлах. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atFileBasedSemaphore.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatFileBasedSemaphore
-//
-// Обеспечивает функциональность в стиле семафора. Работает на файлах.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atFileBasedSemaphore.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatFileBasedSemaphore" MUID: (4A4DFF7800C9)
 
 interface
 
 uses
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+;
 
 const
-  { WaitConsts }
  FBS_WAIT_FOREVER = -1;
 
 type
  TatFileBasedSemaphore = class(TObject)
   {* Обеспечивает функциональность в стиле семафора. Работает на файлах. }
- private
- // private fields
-   f_FileName : AnsiString;
-   f_MaxEnteredCount : Integer;
-   f_LocksCount : Integer;
-   f_WriteHandle : THandle;
-   f_ReadHandle : THandle;
-   f_IsEntered : Boolean;
- private
- // private methods
+  private
+   f_FileName: AnsiString;
+   f_MaxEnteredCount: Integer;
+   f_LocksCount: Integer;
+   f_WriteHandle: THandle;
+   f_ReadHandle: THandle;
+   f_IsEntered: Boolean;
+  private
    function LockForWrite(const aTimeOut: Int64 = FBS_WAIT_FOREVER): Boolean; virtual;
    procedure UnlockForWrite; virtual;
    function GetCurrEnteredCount: Integer; virtual;
@@ -46,29 +33,25 @@ type
    function OpenFile(const aAccessMode: DWORD;
     const aShareMode: DWORD): THandle; virtual;
    function OpenForRead: Boolean; virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const aFileName: AnsiString;
     const aMaxEnteredCount: Integer = 1); reintroduce;
    function Enter(const aTimeOut: Int64 = FBS_WAIT_FOREVER): Boolean; virtual;
    procedure Leave; virtual;
+   destructor Destroy; override;
  end;//TatFileBasedSemaphore
 
 implementation
 
 uses
-  Classes,
-  SysUtils,
-  DateUtils
-  ;
-
-// start class TatFileBasedSemaphore
+ l3ImplUses
+ , Classes
+ , SysUtils
+ , DateUtils
+;
 
 constructor TatFileBasedSemaphore.Create(const aFileName: AnsiString;
-  const aMaxEnteredCount: Integer = 1);
+ const aMaxEnteredCount: Integer = 1);
 //#UC START# *4A4DFFB801BA_4A4DFF7800C9_var*
   const
     WAIT_TIME = 300;
@@ -241,7 +224,7 @@ begin
 end;//TatFileBasedSemaphore.SetCurrEnteredCount
 
 function TatFileBasedSemaphore.OpenFile(const aAccessMode: DWORD;
-  const aShareMode: DWORD): THandle;
+ const aShareMode: DWORD): THandle;
 //#UC START# *4A4E3AE300B6_4A4DFF7800C9_var*
 //#UC END# *4A4E3AE300B6_4A4DFF7800C9_var*
 begin

@@ -1,76 +1,50 @@
 unit m3NormalFormsManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3NormalFormsManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3NormalFormsManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3NormalFormsManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NormalFormsManager" MUID: (545A1B76019B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3SizedPoolManager
-  ;
+ l3IntfUses
+ , l3SizedPoolManager
+;
 
 type
  Tm3NormalFormsManager = class(Tl3SizedPoolManager)
- private
- // private fields
-   f_CanFreeBlocks : Integer;
- protected
- // overridden protected methods
+  private
+   f_CanFreeBlocks: Integer;
+  protected
    function CanFreeBlocks: Boolean; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    procedure LockFree;
-     {* Сигнатура метода LockFree }
    procedure UnlockFree;
-     {* Сигнатура метода UnlockFree }
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: Tm3NormalFormsManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tm3NormalFormsManager }
  end;//Tm3NormalFormsManager
 
 implementation
 
 uses
-  l3Base {a},
-  l3SimpleMM
-  ;
+ l3ImplUses
+ , l3SimpleMM
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tm3NormalFormsManager
-
-var g_Tm3NormalFormsManager : Tm3NormalFormsManager = nil;
+var g_Tm3NormalFormsManager: Tm3NormalFormsManager = nil;
+ {* Экземпляр синглетона Tm3NormalFormsManager }
 
 procedure Tm3NormalFormsManagerFree;
+ {* Метод освобождения экземпляра синглетона Tm3NormalFormsManager }
 begin
  l3Free(g_Tm3NormalFormsManager);
-end;
-
-class function Tm3NormalFormsManager.Instance: Tm3NormalFormsManager;
-begin
- if (g_Tm3NormalFormsManager = nil) then
- begin
-  l3System.AddExitProc(Tm3NormalFormsManagerFree);
-  g_Tm3NormalFormsManager := Create;
- end;
- Result := g_Tm3NormalFormsManager;
-end;
-
+end;//Tm3NormalFormsManagerFree
 
 constructor Tm3NormalFormsManager.Create;
 //#UC START# *545A1BD80041_545A1B76019B_var*
@@ -112,6 +86,17 @@ begin
  Result := (g_Tm3NormalFormsManager <> nil); 
 //#UC END# *545A476801BA_545A1B76019B_impl*
 end;//Tm3NormalFormsManager.Exists
+
+class function Tm3NormalFormsManager.Instance: Tm3NormalFormsManager;
+ {* Метод получения экземпляра синглетона Tm3NormalFormsManager }
+begin
+ if (g_Tm3NormalFormsManager = nil) then
+ begin
+  l3System.AddExitProc(Tm3NormalFormsManagerFree);
+  g_Tm3NormalFormsManager := Create;
+ end;
+ Result := g_Tm3NormalFormsManager;
+end;//Tm3NormalFormsManager.Instance
 
 function Tm3NormalFormsManager.CanFreeBlocks: Boolean;
 //#UC START# *545A2F6800D6_545A1B76019B_var*

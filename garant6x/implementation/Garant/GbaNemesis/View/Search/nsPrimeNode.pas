@@ -1,66 +1,44 @@
 unit nsPrimeNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$Strange"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/nsPrimeNode.pas"
-// Начат: 21.10.2009 19:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$Strange::Search::TnsPrimeNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPrimeNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimeNode" MUID: (4AC21C8401A8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Tree_TLB,
-  PrimeUnit,
-  nsWrapperNode,
-  PrimeDomainInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , nsWrapperNode
+ , PrimeDomainInterfaces
+ , PrimeUnit
+ , l3Tree_TLB
+;
 
-{$If not defined(Admin)}
 type
  TnsPrimeNode = class(TnsWrapperNode, InsPrimeNode)
- private
- // private fields
-   f_Prime : IPrime;
- protected
- // realized methods
+  private
+   f_Prime: IPrime;
+  protected
    function pm_GetData: IPrime;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aPrime: IPrime); reintroduce;
    class function Make(const aPrime: IPrime): Il3Node; reintroduce;
  end;//TnsPrimeNode
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  IOUnit,
-  nsTypes
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnsPrimeNode
+ l3ImplUses
+ , IOUnit
+ , nsTypes
+;
 
 constructor TnsPrimeNode.Create(const aPrime: IPrime);
 //#UC START# *4ADF2D5D01FC_4AC21C8401A8_var*
@@ -90,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsPrimeNode.Make
 
 function TnsPrimeNode.pm_GetData: IPrime;
 //#UC START# *499032D40064_4AC21C8401A8get_var*
@@ -102,6 +80,7 @@ begin
 end;//TnsPrimeNode.pm_GetData
 
 procedure TnsPrimeNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC21C8401A8_var*
 //#UC END# *479731C50290_4AC21C8401A8_var*
 begin
@@ -110,7 +89,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4AC21C8401A8_impl*
 end;//TnsPrimeNode.Cleanup
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -1,55 +1,43 @@
 {$IfNDef UnderControlBehaviour_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "UnderControl$Resetter"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/UnderControl/UnderControlBehaviour.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Common::UnderControl$Resetter::UnderControlImpl::UnderControlBehaviour
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "UnderControlBehaviour" MUID: (4B9A34C4007A)
+// Имя типа: "_UnderControlBehaviour_"
 
 {$Define UnderControlBehaviour_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _afwApplicationDataUpdate_Parent_ = _UnderControlBehaviour_Parent_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- _UnderControlBehaviour_ = {mixin} class(_afwApplicationDataUpdate_, IucpUnderControl)
- private
- // private fields
-   f_HasControlStatus : Tl3Bool;
- protected
- // realized methods
+ _UnderControlBehaviour_ = class(_afwApplicationDataUpdate_, IucpUnderControl)
+  private
+   f_HasControlStatus: Tl3Bool;
+  protected
+   function DoGetControllable: IControllable; virtual; abstract;
    function Get_HasControlStatus: Boolean;
    function Get_Controllable: IControllable;
    function Get_ControlStatus: Longword;
- public
- // realized methods
-   procedure ClearControlStatus;
- protected
- // overridden protected methods
    procedure FinishDataUpdate; override;
- protected
- // protected methods
-   function DoGetControllable: IControllable; virtual; abstract;
+  public
+   procedure ClearControlStatus;
  end;//_UnderControlBehaviour_
-{$Else}
 
- _afwApplicationDataUpdate_Parent_ = _UnderControlBehaviour_Parent_;
- {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- _UnderControlBehaviour_ = _afwApplicationDataUpdate_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_afwApplicationDataUpdate_Parent_ = _UnderControlBehaviour_Parent_;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+_UnderControlBehaviour_ = _afwApplicationDataUpdate_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else UnderControlBehaviour_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef UnderControlBehaviour_imp_impl}
 
+{$Define UnderControlBehaviour_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-// start class _UnderControlBehaviour_
 
 procedure _UnderControlBehaviour_.ClearControlStatus;
 //#UC START# *4B9A2F660115_4B9A34C4007A_var*
@@ -116,7 +104,9 @@ begin
  l3BoolReset(f_HasControlStatus);
 //#UC END# *47EA4E9002C6_4B9A34C4007A_impl*
 end;//_UnderControlBehaviour_.FinishDataUpdate
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf UnderControlBehaviour_imp_impl}
 
 {$EndIf UnderControlBehaviour_imp}
+

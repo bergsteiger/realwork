@@ -1,32 +1,30 @@
 {$IfNDef DTTypesUser_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SimpleTests"
-// Модуль: "W:/archi/source/projects/ImportExportTest/DTTypesUser.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> archi$ImportExprortTest::SimpleTests::ExportPipeTestsSupport::DTTypesUser
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "DTTypesUser" MUID: (55FFC24301D0)
+// Имя типа: "_DTTypesUser_"
 
 {$Define DTTypesUser_imp}
-{$If defined(nsTest)}
- _DTTypesUser_ = {abstract mixin} class(_DTTypesUser_Parent_)
+
+{$If Defined(nsTest)}
+ _DTTypesUser_ = {abstract} class(_DTTypesUser_Parent_)
  end;//_DTTypesUser_
-{$Else}
 
- _DTTypesUser_ = _DTTypesUser_Parent_;
+{$Else Defined(nsTest)}
 
-{$IfEnd} //nsTest
+_DTTypesUser_ = _DTTypesUser_Parent_;
 
+{$IfEnd} // Defined(nsTest)
 {$Else DTTypesUser_imp}
 
-{$If defined(nsTest)}
+{$IfNDef DTTypesUser_imp_impl}
 
+{$Define DTTypesUser_imp_impl}
 
-{$IfEnd} //nsTest
+{$If Defined(nsTest)}
+{$IfEnd} // Defined(nsTest)
+{$EndIf DTTypesUser_imp_impl}
 
 {$EndIf DTTypesUser_imp}
+

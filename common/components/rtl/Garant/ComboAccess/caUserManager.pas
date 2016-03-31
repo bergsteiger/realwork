@@ -1,67 +1,51 @@
 unit caUserManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caUserManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaUserManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caUserManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaUserManager" MUID: (56C428E4014A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaUserManager = class(Tl3ProtoObject, IdaUserManager)
- private
- // private fields
-   f_HTManager : IdaUserManager;
-   f_PGManager : IdaUserManager;
- protected
- // realized methods
+  private
+   f_HTManager: IdaUserManager;
+   f_PGManager: IdaUserManager;
+  protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
    function IsUserAdmin(anUserID: TdaUserID): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aHTManager: IdaUserManager;
-     const aPGManager: IdaUserManager); reintroduce;
+    const aPGManager: IdaUserManager); reintroduce;
    class function Make(const aHTManager: IdaUserManager;
-     const aPGManager: IdaUserManager): IdaUserManager; reintroduce;
-     {* Сигнатура фабрики TcaUserManager.Make }
+    const aPGManager: IdaUserManager): IdaUserManager; reintroduce;
  end;//TcaUserManager
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaUserManager
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
+uses
+ l3ImplUses
+;
 
 constructor TcaUserManager.Create(const aHTManager: IdaUserManager;
-  const aPGManager: IdaUserManager);
+ const aPGManager: IdaUserManager);
 //#UC START# *56C429340002_56C428E4014A_var*
 //#UC END# *56C429340002_56C428E4014A_var*
 begin
@@ -73,7 +57,7 @@ begin
 end;//TcaUserManager.Create
 
 class function TcaUserManager.Make(const aHTManager: IdaUserManager;
-  const aPGManager: IdaUserManager): IdaUserManager;
+ const aPGManager: IdaUserManager): IdaUserManager;
 var
  l_Inst : TcaUserManager;
 begin
@@ -83,12 +67,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaUserManager.Make
 
 function TcaUserManager.CheckPassword(const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  RequireAdminRights: Boolean;
-  out theUserID: TdaUserID): TdaLoginError;
+ const aPassword: AnsiString;
+ RequireAdminRights: Boolean;
+ out theUserID: TdaUserID): TdaLoginError;
 //#UC START# *5628D14D0151_56C428E4014A_var*
 var
  l_Result: TdaLoginError;
@@ -113,6 +97,7 @@ begin
 end;//TcaUserManager.IsUserAdmin
 
 procedure TcaUserManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56C428E4014A_var*
 //#UC END# *479731C50290_56C428E4014A_var*
 begin
@@ -122,7 +107,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56C428E4014A_impl*
 end;//TcaUserManager.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

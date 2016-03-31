@@ -1,65 +1,49 @@
 unit daSubQueryCondition;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daSubQueryCondition.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaSubQueryCondition
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daSubQueryCondition.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaSubQueryCondition" MUID: (5641ED5A01D1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daInterfaces,
-  daCondition
-  ;
+ l3IntfUses
+ , daCondition
+ , daInterfaces
+;
 
 type
  TdaSubQueryCondition = class(TdaCondition)
- private
- // private fields
-   f_TableAlias : AnsiString;
-   f_Field : IdaFieldDescription;
-   f_SubQuery : IdaTabledQuery;
- protected
- // realized methods
+  private
+   f_TableAlias: AnsiString;
+   f_Field: IdaFieldDescription;
+   f_SubQuery: IdaTabledQuery;
+  protected
    function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTableAlias: AnsiString;
-     const aField: IdaFieldDescription;
-     const aQuery: IdaTabledQuery); reintroduce;
+    const aField: IdaFieldDescription;
+    const aQuery: IdaTabledQuery); reintroduce;
    class function Make(const aTableAlias: AnsiString;
-     const aField: IdaFieldDescription;
-     const aQuery: IdaTabledQuery): IdaCondition; reintroduce;
-     {* Сигнатура фабрики TdaSubQueryCondition.Make }
+    const aField: IdaFieldDescription;
+    const aQuery: IdaTabledQuery): IdaCondition; reintroduce;
+   procedure Iterate(anAction: daConditionIterator_Iterate_Action); override;
  end;//TdaSubQueryCondition
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
-
-// start class TdaSubQueryCondition
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TdaSubQueryCondition.Create(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const aQuery: IdaTabledQuery);
+ const aField: IdaFieldDescription;
+ const aQuery: IdaTabledQuery);
 //#UC START# *5641ED7401B8_5641ED5A01D1_var*
 //#UC END# *5641ED7401B8_5641ED5A01D1_var*
 begin
@@ -72,8 +56,8 @@ begin
 end;//TdaSubQueryCondition.Create
 
 class function TdaSubQueryCondition.Make(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const aQuery: IdaTabledQuery): IdaCondition;
+ const aField: IdaFieldDescription;
+ const aQuery: IdaTabledQuery): IdaCondition;
 var
  l_Inst : TdaSubQueryCondition;
 begin
@@ -83,7 +67,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaSubQueryCondition.Make
+
+procedure TdaSubQueryCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
+//#UC START# *56F3AB4F0096_5641ED5A01D1_var*
+//#UC END# *56F3AB4F0096_5641ED5A01D1_var*
+begin
+//#UC START# *56F3AB4F0096_5641ED5A01D1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56F3AB4F0096_5641ED5A01D1_impl*
+end;//TdaSubQueryCondition.Iterate
 
 function TdaSubQueryCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;
 //#UC START# *56408E7F01A1_5641ED5A01D1_var*
@@ -99,6 +92,7 @@ begin
 end;//TdaSubQueryCondition.DoBuildSQL
 
 procedure TdaSubQueryCondition.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5641ED5A01D1_var*
 //#UC END# *479731C50290_5641ED5A01D1_var*
 begin

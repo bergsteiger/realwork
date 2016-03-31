@@ -1,59 +1,43 @@
 unit nsFindContextInListEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/nsFindContextInListEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::ListDataSources::TnsFindContextInListEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsFindContextInListEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindContextInListEvent" MUID: (4B0BDF4E022E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  l3Interfaces,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DynamicDocListUnit
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFindContextInListEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aList: IDynList;
     const aContext: Il3CString);
  end;//TnsFindContextInListEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsTypes,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFindContextInListEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsTypes
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsFindContextInListEvent.Log(const aList: IDynList;
-  const aContext: Il3CString);
+ const aContext: Il3CString);
 //#UC START# *4B0BDF9A02DD_4B0BDF4E022E_var*
 var
  l_Data: InsLogEventData;
@@ -66,7 +50,6 @@ begin
  GetLogger.AddEvent(LE_FIND_CONTEXT_IN_LIST, l_Data);
 //#UC END# *4B0BDF9A02DD_4B0BDF4E022E_impl*
 end;//TnsFindContextInListEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

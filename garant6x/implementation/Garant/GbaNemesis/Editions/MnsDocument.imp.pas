@@ -1,54 +1,41 @@
 {$IfNDef MnsDocument_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/MnsDocument.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::CommonObjects::MnsDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "MnsDocument" MUID: (4AE03C7F0002)
+// Имя типа: "_MnsDocument_"
 
 {$Define MnsDocument_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _MnsDocument_ = {mixin} class(_MnsDocument_Parent_)
- private
- // private fields
-   f_DocumentForReturn : TnsDocumentForReturnInfo;
- protected
- // realized methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _MnsDocument_ = class(_MnsDocument_Parent_)
+  private
+   f_DocumentForReturn: TnsDocumentForReturnInfo;
+  protected
+   f_Doc: IDocument;
+    {* Документ }
+  protected
+   procedure Init(const aDoc: IDocument;
+    const aDocumentForReturn: TnsDocumentForReturnInfo);
    function Get_Document: IDocument;
    function Get_DocumentForReturn: TnsDocumentForReturnInfo;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Doc : IDocument;
-    {* Документ}
- protected
- // protected methods
-   procedure Init(const aDoc: IDocument;
-     const aDocumentForReturn: TnsDocumentForReturnInfo);
  end;//_MnsDocument_
-{$Else}
 
- _MnsDocument_ = _MnsDocument_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_MnsDocument_ = _MnsDocument_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else MnsDocument_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef MnsDocument_imp_impl}
 
-// start class _MnsDocument_
+{$Define MnsDocument_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _MnsDocument_.Init(const aDoc: IDocument;
-  const aDocumentForReturn: TnsDocumentForReturnInfo);
+ const aDocumentForReturn: TnsDocumentForReturnInfo);
 //#UC START# *4AE03D230118_4AE03C7F0002_var*
 //#UC END# *4AE03D230118_4AE03C7F0002_var*
 begin
@@ -77,15 +64,14 @@ begin
 end;//_MnsDocument_.Get_DocumentForReturn
 
 procedure _MnsDocument_.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Doc := nil;
- {$IfEnd} //not Admin AND not Monitorings
  Finalize(f_DocumentForReturn);
  inherited;
 end;//_MnsDocument_.ClearFields
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf MnsDocument_imp_impl}
 
 {$EndIf MnsDocument_imp}
+

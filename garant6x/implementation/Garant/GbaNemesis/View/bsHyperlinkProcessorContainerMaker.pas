@@ -1,77 +1,54 @@
 unit bsHyperlinkProcessorContainerMaker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/bsHyperlinkProcessorContainerMaker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::Navigation::TbsHyperlinkProcessorContainerMaker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsHyperlinkProcessorContainerMaker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsHyperlinkProcessorContainerMaker" MUID: (5417E71801D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  NavigationInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , NavigationInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TbsHyperlinkProcessorContainerMaker = class(Tl3ProtoObject {$If not defined(NoVCM)}, IvcmContainerMaker{$IfEnd} //not NoVCM
+ TbsHyperlinkProcessorContainerMaker = class(Tl3ProtoObject{$If NOT Defined(NoVCM)}
+ , IvcmContainerMaker
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_Behaviour : TbsProcessHyperLinkBehaviour;
-   f_Helper : Pointer;
- private
- // private methods
+  private
+   f_Behaviour: TbsProcessHyperLinkBehaviour;
+   f_Helper: Pointer;
+  private
    function DoMakeContainer: IvcmContainer;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function MakeContainer: IvcmContainer;
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aBehaviour: TbsProcessHyperLinkBehaviour;
-     const aHelper: IbsHyperLinkProcessorHelper); reintroduce;
+    const aHelper: IbsHyperLinkProcessorHelper); reintroduce;
    class function Make(aBehaviour: TbsProcessHyperLinkBehaviour;
-     const aHelper: IbsHyperLinkProcessorHelper): IvcmContainerMaker; reintroduce;
-     {* Сигнатура фабрики TbsHyperlinkProcessorContainerMaker.Make }
+    const aHelper: IbsHyperLinkProcessorHelper): IvcmContainerMaker; reintroduce;
  end;//TbsHyperlinkProcessorContainerMaker
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsHyperlinkProcessorTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsHyperlinkProcessorContainerMaker
+ l3ImplUses
+ , nsHyperlinkProcessorTypes
+;
 
 function TbsHyperlinkProcessorContainerMaker.DoMakeContainer: IvcmContainer;
 //#UC START# *5417E8EB032B_5417E71801D2_var*
@@ -99,7 +76,7 @@ begin
 end;//TbsHyperlinkProcessorContainerMaker.DoMakeContainer
 
 constructor TbsHyperlinkProcessorContainerMaker.Create(aBehaviour: TbsProcessHyperLinkBehaviour;
-  const aHelper: IbsHyperLinkProcessorHelper);
+ const aHelper: IbsHyperLinkProcessorHelper);
 //#UC START# *5417E940038E_5417E71801D2_var*
 //#UC END# *5417E940038E_5417E71801D2_var*
 begin
@@ -111,7 +88,7 @@ begin
 end;//TbsHyperlinkProcessorContainerMaker.Create
 
 class function TbsHyperlinkProcessorContainerMaker.Make(aBehaviour: TbsProcessHyperLinkBehaviour;
-  const aHelper: IbsHyperLinkProcessorHelper): IvcmContainerMaker;
+ const aHelper: IbsHyperLinkProcessorHelper): IvcmContainerMaker;
 var
  l_Inst : TbsHyperlinkProcessorContainerMaker;
 begin
@@ -121,9 +98,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsHyperlinkProcessorContainerMaker.Make
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TbsHyperlinkProcessorContainerMaker.MakeContainer: IvcmContainer;
 //#UC START# *53ABACBB02D0_5417E71801D2_var*
 //#UC END# *53ABACBB02D0_5417E71801D2_var*
@@ -132,9 +109,10 @@ begin
  Result := DoMakeContainer;
 //#UC END# *53ABACBB02D0_5417E71801D2_impl*
 end;//TbsHyperlinkProcessorContainerMaker.MakeContainer
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TbsHyperlinkProcessorContainerMaker.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5417E71801D2_var*
 //#UC END# *479731C50290_5417E71801D2_var*
 begin
@@ -143,7 +121,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5417E71801D2_impl*
 end;//TbsHyperlinkProcessorContainerMaker.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

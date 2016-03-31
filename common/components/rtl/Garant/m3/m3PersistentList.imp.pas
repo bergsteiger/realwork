@@ -1,36 +1,30 @@
 {$IfNDef m3PersistentList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3PersistentList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::m3CoreObjects::m3PersistentList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "m3PersistentList" MUID: (542179BD00BB)
+// Имя типа: "_m3PersistentList_"
 
 {$Define m3PersistentList_imp}
- {$Include ..\m3\m3ListWithFind.imp.pas}
- _m3PersistentList_ = {mixin} class(_m3ListWithFind_)
- public
- // public methods
+
+ {$Include w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas}
+ _m3PersistentList_ = class(_m3ListWithFind_)
+  public
    procedure LoadFromStream(const aStream: IStream;
-     aPosition: Int64);
+    aPosition: Int64);
    function SaveToStream(const aStream: IStream): Int64;
  end;//_m3PersistentList_
 
 {$Else m3PersistentList_imp}
 
+{$IfNDef m3PersistentList_imp_impl}
 
-{$Include ..\m3\m3ListWithFind.imp.pas}
+{$Define m3PersistentList_imp_impl}
 
-// start class _m3PersistentList_
+{$Include w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas}
 
 procedure _m3PersistentList_.LoadFromStream(const aStream: IStream;
-  aPosition: Int64);
+ aPosition: Int64);
 //#UC START# *54538D8402D6_542179BD00BB_var*
 
  procedure __LoadFromStream(const AStream: IStream);
@@ -115,4 +109,7 @@ begin
 //#UC END# *54538DB3032A_542179BD00BB_impl*
 end;//_m3PersistentList_.SaveToStream
 
+{$EndIf m3PersistentList_imp_impl}
+
 {$EndIf m3PersistentList_imp}
+

@@ -21,6 +21,8 @@ uses
  , vtPanel
  , vtRadioButton
  , Classes
+ //#UC START# *4AF32FBD00F5intf_uses*
+ //#UC END# *4AF32FBD00F5intf_uses*
 ;
 
 type
@@ -149,6 +151,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AF32FBD00F5impl_uses*
+ //#UC END# *4AF32FBD00F5impl_uses*
 ;
 
 type

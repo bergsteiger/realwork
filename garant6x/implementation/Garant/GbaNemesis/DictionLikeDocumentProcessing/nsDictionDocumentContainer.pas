@@ -1,97 +1,73 @@
 unit nsDictionDocumentContainer;
+ {* Контейнер документа толкового словаря }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DictionLikeDocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/DictionLikeDocumentProcessing/nsDictionDocumentContainer.pas"
-// Начат: 19.11.2010 14:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::DictionLike::DictionLikeDocumentProcessing::DocumentContainers::TnsDictionDocumentContainer
-//
-// Контейнер документа толкового словаря
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing\nsDictionDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictionDocumentContainer" MUID: (4CE662B803DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  eeDocumentContainer
-  {$IfEnd} //Nemesis
-  ,
-  DocumentUnit,
-  nevTools,
-  DocumentInterfaces,
-  F1TagDataProviderInterface,
-  afwInterfaces,
-  l3Interfaces,
-  nevBase,
-  l3Variant,
-  k2Base,
-  nevPrintableDocumentContainer,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , eeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ , l3Variant
+ , F1TagDataProviderInterface
+ , DocumentInterfaces
+ , DocumentUnit
+ , nevTools
+ , afwInterfaces
+ , nevPrintableDocumentContainer
+ , l3IID
+ , nevBase
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsDictionDocumentContainer = class(_nsDocumentContainer_)
   {* Контейнер документа толкового словаря }
- protected
- // overridden protected methods
+  protected
    function GetDocument: Tl3Tag; override;
  end;//TnsDictionDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Document_Const,
-  Block_Const,
-  k2Tags,
-  nsF1DocumentTagNode,
-  DictEntry_Const,
-  BaseTypesUnit,
-  SysUtils,
-  nsIDocumentDataObject,
-  nsDocumentPreview,
-  nsHAFPainter,
-  LoggingInterfaces,
-  nsDocumentPrintEvent,
-  deDocInfo,
-  DataAdapter,
-  evdTypes,
-  nsTypes,
-  LeafPara_Const,
-  nsTagString
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Document_Const
+ , Block_Const
+ , k2Tags
+ , nsF1DocumentTagNode
+ , DictEntry_Const
+ , BaseTypesUnit
+ , SysUtils
+ , nsIDocumentDataObject
+ , nsDocumentPreview
+ , nsHAFPainter
+ , LoggingInterfaces
+ , nsDocumentPrintEvent
+ , deDocInfo
+ , DataAdapter
+ , evdTypes
+ , nsTypes
+ , LeafPara_Const
+ , nsTagString
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , afwFacade
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
-
-// start class TnsDictionDocumentContainer
 
 function TnsDictionDocumentContainer.GetDocument: Tl3Tag;
 //#UC START# *47F27DA80172_4CE662B803DA_var*
@@ -148,7 +124,7 @@ begin
  end;//Result = nil
 //#UC END# *47F27DA80172_4CE662B803DA_impl*
 end;//TnsDictionDocumentContainer.GetDocument
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

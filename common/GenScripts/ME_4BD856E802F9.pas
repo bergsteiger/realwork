@@ -165,6 +165,10 @@ const
  fm_ListAnalizeForm: TvcmFormDescriptor = (rFormID : (rName : 'ListAnalizeForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TListAnalizeForm }
 
+const
+ fm_en_MainMenuWithProfNews: TvcmFormDescriptor = (rFormID : (rName : 'en_MainMenuWithProfNews'; rID : 0); rFactory : nil);
+  {* Идентификатор формы Ten_MainMenuWithProfNews }
+
 type
  TextFormDef = interface
   {* Текст документа }
@@ -314,6 +318,10 @@ type
  ListAnalizeFormDef = interface
   ['{C7F290D3-3BBE-4F07-9748-231F70CB5C22}']
  end;//ListAnalizeFormDef
+
+ MainMenuWithProfNewsFormDef = interface
+  ['{38026B15-FE8E-4BAF-9B6F-1B7174C5523F}']
+ end;//MainMenuWithProfNewsFormDef
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -882,6 +890,21 @@ type
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
+type
+ Tkw_Form_MainMenuWithProfNews_ID = {final} class(TtfwString)
+  {* Слово словаря для идентификатора формы MainMenuWithProfNews
+----
+*Пример использования*:
+[code]
+'aControl' форма::MainMenuWithProfNews TryFocus ASSERT
+[code] }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   function GetString: AnsiString; override;
+ end;//Tkw_Form_MainMenuWithProfNews_ID
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
 class function Tkw_Form_Text_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::Text';
@@ -1325,6 +1348,18 @@ begin
 end;//Tkw_Form_ListAnalize_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
+{$If NOT Defined(NoScripts)}
+class function Tkw_Form_MainMenuWithProfNews_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::MainMenuWithProfNews';
+end;//Tkw_Form_MainMenuWithProfNews_ID.GetWordNameForRegister
+
+function Tkw_Form_MainMenuWithProfNews_ID.GetString: AnsiString;
+begin
+ Result := 'en_MainMenuWithProfNews';
+end;//Tkw_Form_MainMenuWithProfNews_ID.GetString
+{$IfEnd} // NOT Defined(NoScripts)
+
 initialization
 {$If NOT Defined(NoScripts)}
  Tkw_Form_Text_ID.RegisterInEngine;
@@ -1473,6 +1508,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  Tkw_Form_ListAnalize_ID.RegisterInEngine;
  {* Регистрация Tkw_Form_ListAnalize_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ Tkw_Form_MainMenuWithProfNews_ID.RegisterInEngine;
+ {* Регистрация Tkw_Form_MainMenuWithProfNews_ID }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

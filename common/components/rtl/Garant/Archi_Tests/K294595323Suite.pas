@@ -1,35 +1,30 @@
 unit K294595323Suite;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Tests"
-// Модуль: "w:/common/components/rtl/Garant/Archi_Tests/K294595323Suite.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::Archi Tests::MultyFileTests::TK294595323Suite
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TK294595323Suite" MUID: (4EA538D60064)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Archi_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Archi_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  CustomFolderTestSuite
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , CustomFolderTestSuite
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK294595323Suite = class(TCustomFolderTestSuite)
  end;//TK294595323Suite
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
+
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

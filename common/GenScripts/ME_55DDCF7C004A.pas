@@ -30,16 +30,16 @@ type
  Tl3VersionInfoService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3VersionInfoService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3VersionInfoService }
   protected
    procedure pm_SetAlien(const aValue: Il3VersionInfoService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function VersionInfo: AnsiString;
    class function Instance: Tl3VersionInfoService;
     {* Метод получения экземпляра синглетона Tl3VersionInfoService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3VersionInfoService
     write pm_SetAlien;
@@ -69,12 +69,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3VersionInfoService.pm_SetAlien
-
-class function Tl3VersionInfoService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3VersionInfoService <> nil;
-end;//Tl3VersionInfoService.Exists
 
 function Tl3VersionInfoService.VersionInfo: AnsiString;
 //#UC START# *30F5EA5AF6DF_55DDCF7C004A_var*
@@ -110,6 +104,12 @@ begin
  end;
  Result := g_Tl3VersionInfoService;
 end;//Tl3VersionInfoService.Instance
+
+class function Tl3VersionInfoService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3VersionInfoService <> nil;
+end;//Tl3VersionInfoService.Exists
 
 procedure Tl3VersionInfoService.ClearFields;
 begin

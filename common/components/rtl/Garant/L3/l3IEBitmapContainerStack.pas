@@ -1,66 +1,42 @@
 unit l3IEBitmapContainerStack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3IEBitmapContainerStack.pas"
-// Начат: 18.05.2011 17:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3IEBitmapContainerStack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3IEBitmapContainerStack.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3IEBitmapContainerStack" MUID: (4DD3D054004A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ObjectList
-  ;
+ l3IntfUses
+ , l3ObjectList
+;
 
 type
  Tl3IEBitmapContainerStack = class(Tl3ObjectList)
- public
- // public methods
+  public
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: Tl3IEBitmapContainerStack;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3IEBitmapContainerStack }
  end;//Tl3IEBitmapContainerStack
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3IEBitmapContainerStack
-
-var g_Tl3IEBitmapContainerStack : Tl3IEBitmapContainerStack = nil;
+var g_Tl3IEBitmapContainerStack: Tl3IEBitmapContainerStack = nil;
+ {* Экземпляр синглетона Tl3IEBitmapContainerStack }
 
 procedure Tl3IEBitmapContainerStackFree;
+ {* Метод освобождения экземпляра синглетона Tl3IEBitmapContainerStack }
 begin
  l3Free(g_Tl3IEBitmapContainerStack);
-end;
-
-class function Tl3IEBitmapContainerStack.Instance: Tl3IEBitmapContainerStack;
-begin
- if (g_Tl3IEBitmapContainerStack = nil) then
- begin
-  l3System.AddExitProc(Tl3IEBitmapContainerStackFree);
-  g_Tl3IEBitmapContainerStack := Create;
- end;
- Result := g_Tl3IEBitmapContainerStack;
-end;
-
+end;//Tl3IEBitmapContainerStackFree
 
 class function Tl3IEBitmapContainerStack.Exists: Boolean;
 //#UC START# *4DD3D0BB03BD_4DD3D054004A_var*
@@ -70,5 +46,16 @@ begin
  Result := (g_Tl3IEBitmapContainerStack <> nil);
 //#UC END# *4DD3D0BB03BD_4DD3D054004A_impl*
 end;//Tl3IEBitmapContainerStack.Exists
+
+class function Tl3IEBitmapContainerStack.Instance: Tl3IEBitmapContainerStack;
+ {* Метод получения экземпляра синглетона Tl3IEBitmapContainerStack }
+begin
+ if (g_Tl3IEBitmapContainerStack = nil) then
+ begin
+  l3System.AddExitProc(Tl3IEBitmapContainerStackFree);
+  g_Tl3IEBitmapContainerStack := Create;
+ end;
+ Result := g_Tl3IEBitmapContainerStack;
+end;//Tl3IEBitmapContainerStack.Instance
 
 end.

@@ -1,104 +1,66 @@
 unit archiDBTest;
+ {* Базовый класс для тестов, использующих базу данных }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ArchiDBTests"
-// Модуль: "W:/archi/source/projects/ImportExportTest/ArchiDBTests/archiDBTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$ImportExprortTest::ArchiDBTests::ArchiDBTests::TarchiDBTest
-//
-// Базовый класс для тестов, использующих базу данных
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarchiDBTest" MUID: (55F29BD60218)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Sab
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dtIntf
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ {$If NOT Defined(Nemesis)}
+ , dt_Sab
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dtIntf
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(nsTest)}
 type
  TarchiDBTest = class(TBaseTest)
   {* Базовый класс для тестов, использующих базу данных }
- private
- // private methods
+  protected
+   f_SabFiller: IValueSetFiller;
+   f_NumSab: ISab;
+  private
    function GetDatabasePath: AnsiString;
- protected
- // protected fields
-   f_SabFiller : IValueSetFiller;
-   f_NumSab : ISab;
- protected
- // protected methods
+  protected
    procedure UnpackDatabase;
    procedure ConnectToDatabase;
    procedure DeleteDatabase;
    procedure DisconnectFromDatabase;
  end;//TarchiDBTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ZipForge
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  ddHTinit,
-  dt_Const,
-  dt_Types,
-  l3IniFile,
-  l3FileUtils
-  {$If defined(AppClientSide) AND not defined(Nemesis)}
-  ,
-  ddClientBaseEngine
-  {$IfEnd} //AppClientSide AND not Nemesis
-  ,
-  m3StorageHolderList,
-  SysUtils
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , ZipForge
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , ddHTinit
+ , dt_Const
+ , dt_Types
+ , l3IniFile
+ , l3FileUtils
+ {$If Defined(AppClientSide) AND NOT Defined(Nemesis)}
+ , ddClientBaseEngine
+ {$IfEnd} // Defined(AppClientSide) AND NOT Defined(Nemesis)
+ , m3StorageHolderList
+ , SysUtils
+;
 
-{$If defined(nsTest)}
-
-// start class TarchiDBTest
-
-function TarchiDBTest.GetDatabasePath: AnsiString;
-//#UC START# *519615B000D3_55F29BD60218_var*
-//#UC END# *519615B000D3_55F29BD60218_var*
-begin
-//#UC START# *519615B000D3_55F29BD60218_impl*
- Result := ExtractFilePath(ParamStr(0)) + 'DB';
-//#UC END# *519615B000D3_55F29BD60218_impl*
-end;//TarchiDBTest.GetDatabasePath
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TarchiDBTest.UnpackDatabase;
 //#UC START# *5195F36403BC_55F29BD60218_var*
 var
@@ -154,6 +116,15 @@ begin
 //#UC END# *5195F68401A9_55F29BD60218_impl*
 end;//TarchiDBTest.DisconnectFromDatabase
 
-{$IfEnd} //nsTest
+function TarchiDBTest.GetDatabasePath: AnsiString;
+//#UC START# *519615B000D3_55F29BD60218_var*
+//#UC END# *519615B000D3_55F29BD60218_var*
+begin
+//#UC START# *519615B000D3_55F29BD60218_impl*
+ Result := ExtractFilePath(ParamStr(0)) + 'DB';
+//#UC END# *519615B000D3_55F29BD60218_impl*
+end;//TarchiDBTest.GetDatabasePath
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest)
 end.

@@ -1,31 +1,28 @@
 {$IfNDef AtomicList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "AtomicList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Sand Box::SandBox::STLLike::AtomicList
-//
-// Список атомарных значений
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\AtomicList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "AtomicList" MUID: (51DED48301D9)
+// Имя типа: "_AtomicList_"
 
 {$Define AtomicList_imp}
+
  {$Define l3Items_IsAtomic}
 
  _UnrefcountedListPrim_Parent_ = _AtomicList_Parent_;
- {$Include ..\SandBox\UnrefcountedListPrim.imp.pas}
- _AtomicList_ = {mixin} class(_UnrefcountedListPrim_)
+ {$Include w:\common\components\SandBox\UnrefcountedListPrim.imp.pas}
+ _AtomicList_ = class(_UnrefcountedListPrim_)
   {* Список атомарных значений }
  end;//_AtomicList_
 
 {$Else AtomicList_imp}
 
-// start class _AtomicList_
+{$IfNDef AtomicList_imp_impl}
+
+{$Define AtomicList_imp_impl}
 
 procedure FillItem(var thePlace: _ItemType_;
-  const aFrom: _ItemType_); forward;
+ const aFrom: _ItemType_); forward;
 
 procedure FreeItem(var thePlace: _ItemType_);
 //#UC START# *51DEC20B01D7_51DED48301D9_var*
@@ -37,7 +34,7 @@ begin
 end;//FreeItem
 
 procedure FillItem(var thePlace: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *51DECB440087_51DED48301D9_var*
 //#UC END# *51DECB440087_51DED48301D9_var*
 begin
@@ -46,7 +43,9 @@ begin
 //#UC END# *51DECB440087_51DED48301D9_impl*
 end;//FillItem
 
-{$Include ..\SandBox\UnrefcountedListPrim.imp.pas}
+{$Include w:\common\components\SandBox\UnrefcountedListPrim.imp.pas}
 
+{$EndIf AtomicList_imp_impl}
 
 {$EndIf AtomicList_imp}
+

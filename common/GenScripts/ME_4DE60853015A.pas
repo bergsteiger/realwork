@@ -35,16 +35,15 @@ type
   {* Хранилище всяких флагов, настроек и т.п. чтобы в одном месте было. }
   private
    f_SkipLockDialog: TarSkipDialog;
-    {* Поле для свойства SkipLockDialog }
   protected
    procedure pm_SetSkipLockDialog(aValue: TarSkipDialog);
    procedure InitFields; override;
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TarTestConfig;
     {* Метод получения экземпляра синглетона TarTestConfig }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property SkipLockDialog: TarSkipDialog
     read f_SkipLockDialog
@@ -328,12 +327,6 @@ begin
 //#UC END# *5425578502BE_5425548D01DDset_impl*
 end;//TarTestConfig.pm_SetSkipLockDialog
 
-class function TarTestConfig.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TarTestConfig <> nil;
-end;//TarTestConfig.Exists
-
 class function TarTestConfig.Instance: TarTestConfig;
  {* Метод получения экземпляра синглетона TarTestConfig }
 begin
@@ -344,6 +337,12 @@ begin
  end;
  Result := g_TarTestConfig;
 end;//TarTestConfig.Instance
+
+class function TarTestConfig.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TarTestConfig <> nil;
+end;//TarTestConfig.Exists
 
 procedure TarTestConfig.InitFields;
 //#UC START# *47A042E100E2_5425548D01DD_var*

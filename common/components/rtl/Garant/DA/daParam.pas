@@ -1,39 +1,28 @@
 unit daParam;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daParam.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaParam
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daParam.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaParam" MUID: (5555AD2A0004)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes,
-  l3Date
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+ , l3Date
+;
 
 type
  TdaParam = class(Tl3ProtoObject, IdaParam)
- private
- // private fields
-   f_Description : IdaParamDescription;
-   f_Converter : IdaDataConverter;
-   f_Buffer : Pointer;
- protected
- // realized methods
+  private
+   f_Description: IdaParamDescription;
+   f_Converter: IdaDataConverter;
+   f_Buffer: Pointer;
+  protected
    function Get_Name: AnsiString;
    function IsSameType(const aDesc: IdaParamDescription): Boolean;
    function Get_AsInteger: LongInt;
@@ -44,29 +33,27 @@ type
    function Get_AsString: AnsiString;
    procedure Set_AsString(const aValue: AnsiString);
    function Get_AsStDate: TStDate;
-   procedure Set_AsStDate(aValue: TStDate);
+   procedure Set_AsStDate(const aValue: TStDate);
    function Get_AsStTime: TStTime;
-   procedure Set_AsStTime(aValue: TStTime);
+   procedure Set_AsStTime(const aValue: TStTime);
    function Get_ParamType: TdaParamType;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aConverter: IdaDataConverter;
-     const aDesc: IdaParamDescription); reintroduce;
+    const aDesc: IdaParamDescription); reintroduce;
    class function Make(const aConverter: IdaDataConverter;
-     const aDesc: IdaParamDescription): IdaParam; reintroduce;
-     {* Сигнатура фабрики TdaParam.Make }
+    const aDesc: IdaParamDescription): IdaParam; reintroduce;
  end;//TdaParam
 
 implementation
 
-// start class TdaParam
+uses
+ l3ImplUses
+;
 
 constructor TdaParam.Create(const aConverter: IdaDataConverter;
-  const aDesc: IdaParamDescription);
+ const aDesc: IdaParamDescription);
 //#UC START# *5555AD6F0065_5555AD2A0004_var*
 //#UC END# *5555AD6F0065_5555AD2A0004_var*
 begin
@@ -79,7 +66,7 @@ begin
 end;//TdaParam.Create
 
 class function TdaParam.Make(const aConverter: IdaDataConverter;
-  const aDesc: IdaParamDescription): IdaParam;
+ const aDesc: IdaParamDescription): IdaParam;
 var
  l_Inst : TdaParam;
 begin
@@ -89,7 +76,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaParam.Make
 
 function TdaParam.Get_Name: AnsiString;
 //#UC START# *5555CC750283_5555AD2A0004get_var*
@@ -181,7 +168,7 @@ begin
 //#UC END# *563C8B50016A_5555AD2A0004get_impl*
 end;//TdaParam.Get_AsStDate
 
-procedure TdaParam.Set_AsStDate(aValue: TStDate);
+procedure TdaParam.Set_AsStDate(const aValue: TStDate);
 //#UC START# *563C8B50016A_5555AD2A0004set_var*
 //#UC END# *563C8B50016A_5555AD2A0004set_var*
 begin
@@ -199,7 +186,7 @@ begin
 //#UC END# *564C37CF00C4_5555AD2A0004get_impl*
 end;//TdaParam.Get_AsStTime
 
-procedure TdaParam.Set_AsStTime(aValue: TStTime);
+procedure TdaParam.Set_AsStTime(const aValue: TStTime);
 //#UC START# *564C37CF00C4_5555AD2A0004set_var*
 //#UC END# *564C37CF00C4_5555AD2A0004set_var*
 begin
@@ -218,6 +205,7 @@ begin
 end;//TdaParam.Get_ParamType
 
 procedure TdaParam.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5555AD2A0004_var*
 //#UC END# *479731C50290_5555AD2A0004_var*
 begin

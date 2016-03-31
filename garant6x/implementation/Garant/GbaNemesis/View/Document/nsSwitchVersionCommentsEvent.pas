@@ -1,52 +1,36 @@
 unit nsSwitchVersionCommentsEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/nsSwitchVersionCommentsEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Работа с документом и списком документов::Document::View::Document::TnsSwitchVersionCommentsEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsSwitchVersionCommentsEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSwitchVersionCommentsEvent" MUID: (4B0E6EAD01D9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsSwitchVersionCommentsEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(State: Boolean);
  end;//TnsSwitchVersionCommentsEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsSwitchVersionCommentsEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsSwitchVersionCommentsEvent.Log(State: Boolean);
 //#UC START# *4B0E6ED502E0_4B0E6EAD01D9_var*
@@ -62,7 +46,6 @@ begin
  GetLogger.AddEvent(LE_SWITCH_VERSION_COMMENTS, l_Data);
 //#UC END# *4B0E6ED502E0_4B0E6EAD01D9_impl*
 end;//TnsSwitchVersionCommentsEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

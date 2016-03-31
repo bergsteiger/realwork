@@ -1,53 +1,39 @@
 unit atSyncedStringFileReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atSyncedStringFileReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatSyncedStringFileReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atSyncedStringFileReader.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSyncedStringFileReader" MUID: (502A4763011B)
 
 interface
 
 uses
-  atLockFile,
-  atStringFileReader
-  ;
+ l3IntfUses
+ , atStringFileReader
+ , atLockFile
+;
 
 type
  TatSyncedStringFileReader = class(TatStringFileReader)
- private
- // private fields
-   f_LockFile : TatLockFile;
-   f_SyncFile : AnsiString;
- public
- // overridden public methods
+  private
+   f_LockFile: TatLockFile;
+   f_SyncFile: AnsiString;
+  public
+   constructor Create(const aStringFile: AnsiString;
+    const aSyncFile: AnsiString); reintroduce; virtual;
    destructor Destroy; override;
    function AcquireNext(out theString: AnsiString): Boolean; override;
    procedure Reset; override;
- public
- // public methods
-   constructor Create(const aStringFile: AnsiString;
-    const aSyncFile: AnsiString); reintroduce; virtual;
  end;//TatSyncedStringFileReader
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatSyncedStringFileReader
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TatSyncedStringFileReader.Create(const aStringFile: AnsiString;
-  const aSyncFile: AnsiString);
+ const aSyncFile: AnsiString);
 //#UC START# *502A49CD0158_502A4763011B_var*
 //#UC END# *502A49CD0158_502A4763011B_var*
 begin

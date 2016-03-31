@@ -1,62 +1,44 @@
 unit atListener;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atListener.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatListener
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atListener.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatListener" MUID: (4807838102C9)
 
 interface
 
 uses
-  Classes,
-  atInterfaces,
-  SyncObjs
-  ;
+ l3IntfUses
+ , atInterfaces
+ , Classes
+ , SyncObjs
+;
 
 type
  TatListener = class(TInterfacedObject, IatListener)
- private
- // private fields
-   f_Notifiers : TInterfaceList;
-   f_CS : TCriticalSection;
- private
- // private methods
+  private
+   f_Notifiers: TInterfaceList;
+   f_CS: TCriticalSection;
+  private
    function IsListen(const notifier: IatNotifier): Boolean;
- protected
- // realized methods
-   procedure StartListen(const notifier: IatNotifier);
-   procedure StopListen; overload; 
-   procedure StopListen(const notifier: IatNotifier); overload; 
-   procedure Fire(sender: TObject;
-    const notification: IatNotification);
- public
- // overridden public methods
-   destructor Destroy; override;
- protected
- // protected methods
+  protected
    procedure DoFire(sender: TObject;
     const notification: IatNotification); virtual; abstract;
- public
- // public methods
+   procedure StartListen(const notifier: IatNotifier);
+   procedure StopListen; overload;
+   procedure StopListen(const notifier: IatNotifier); overload;
+   procedure Fire(sender: TObject;
+    const notification: IatNotification);
+  public
    constructor Create; reintroduce;
+   destructor Destroy; override;
  end;//TatListener
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatListener
+ l3ImplUses
+ , SysUtils
+;
 
 function TatListener.IsListen(const notifier: IatNotifier): Boolean;
 //#UC START# *480783E2019D_4807838102C9_var*
@@ -140,7 +122,7 @@ begin
 end;//TatListener.StopListen
 
 procedure TatListener.Fire(sender: TObject;
-  const notification: IatNotification);
+ const notification: IatNotification);
 //#UC START# *48077F6101B4_4807838102C9_var*
 //#UC END# *48077F6101B4_4807838102C9_var*
 begin

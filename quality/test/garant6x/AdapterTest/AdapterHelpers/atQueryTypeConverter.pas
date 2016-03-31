@@ -1,58 +1,55 @@
 unit atQueryTypeConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atQueryTypeConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatQueryTypeConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atQueryTypeConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatQueryTypeConverter" MUID: (50045BDB00CA)
 
 interface
 
 uses
-  SearchUnit,
-  SysUtils
-  ;
+ l3IntfUses
+ , SearchUnit
+;
 
 type
  _EnumType_ = TQueryType;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatQueryTypeConverter = class(_atEnumConverter_)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatQueryTypeConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatQueryTypeConverter }
  end;//TatQueryTypeConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatQueryTypeConverter
-
-var g_TatQueryTypeConverter : TatQueryTypeConverter = nil;
+var g_TatQueryTypeConverter: TatQueryTypeConverter = nil;
+ {* Экземпляр синглетона TatQueryTypeConverter }
 
 procedure TatQueryTypeConverterFree;
+ {* Метод освобождения экземпляра синглетона TatQueryTypeConverter }
 begin
  l3Free(g_TatQueryTypeConverter);
-end;
+end;//TatQueryTypeConverterFree
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+class function TatQueryTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatQueryTypeConverter <> nil;
+end;//TatQueryTypeConverter.Exists
 
 class function TatQueryTypeConverter.Instance: TatQueryTypeConverter;
+ {* Метод получения экземпляра синглетона TatQueryTypeConverter }
 begin
  if (g_TatQueryTypeConverter = nil) then
  begin
@@ -60,17 +57,6 @@ begin
   g_TatQueryTypeConverter := Create;
  end;
  Result := g_TatQueryTypeConverter;
-end;
-
-
-{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
-
-// start class TatQueryTypeConverter
-
-class function TatQueryTypeConverter.Exists: Boolean;
- {-}
-begin
- Result := g_TatQueryTypeConverter <> nil;
-end;//TatQueryTypeConverter.Exists
+end;//TatQueryTypeConverter.Instance
 
 end.

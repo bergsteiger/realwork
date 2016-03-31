@@ -1,62 +1,45 @@
 unit DailyAutoTest;
+ {* Автотест с поддержкой создаваемых форм. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnit Script Support"
-// Модуль: "w:/common/components/rtl/Garant/DUnit_Script_Support/DailyAutoTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnit Script Support::DUnitKeyWordsSupport::TDailyAutoTest
-//
-// Автотест с поддержкой создаваемых форм.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TDailyAutoTest" MUID: (4E297BC401BE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnit_Script_Support\dsDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  AutoTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , AutoTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TDailyAutoTest = {abstract} class(TAutoTest)
   {* Автотест с поддержкой создаваемых форм. }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function ResolveScriptFilePath(const aFileName: AnsiString): AnsiString; override;
    class function IsScript: Boolean; override;
-     {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
- public
- // overridden public methods
+    {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
+  public
    constructor Create(const aMethodName: AnsiString;
     const aFolder: AnsiString); override;
  end;//TDailyAutoTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TDailyAutoTest
+ l3ImplUses
+ , SysUtils
+;
 
 function TDailyAutoTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
 //#UC START# *4C937013031D_4E297BC401BE_var*
 //#UC END# *4C937013031D_4E297BC401BE_var*
 begin
@@ -78,6 +61,7 @@ begin
 end;//TDailyAutoTest.ResolveScriptFilePath
 
 class function TDailyAutoTest.IsScript: Boolean;
+ {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
 //#UC START# *4DC395670274_4E297BC401BE_var*
 //#UC END# *4DC395670274_4E297BC401BE_var*
 begin
@@ -87,7 +71,7 @@ begin
 end;//TDailyAutoTest.IsScript
 
 constructor TDailyAutoTest.Create(const aMethodName: AnsiString;
-  const aFolder: AnsiString);
+ const aFolder: AnsiString);
 //#UC START# *4DC399CA00BC_4E297BC401BE_var*
 //#UC END# *4DC399CA00BC_4E297BC401BE_var*
 begin
@@ -96,7 +80,6 @@ begin
  FMethod := Self.DoIt;
 //#UC END# *4DC399CA00BC_4E297BC401BE_impl*
 end;//TDailyAutoTest.Create
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

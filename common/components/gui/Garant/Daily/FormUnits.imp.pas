@@ -1,32 +1,30 @@
 {$IfNDef FormUnits_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/FormUnits.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Operations For Tests::TestFormsTest::AutoTestSupport::FormUnits
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Daily\FormUnits.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "FormUnits" MUID: (509A43E800C8)
+// Имя типа: "_FormUnits_"
 
 {$Define FormUnits_imp}
-{$If defined(nsTest) AND not defined(InsiderTest) AND not defined(NoVCM)}
- _FormUnits_ = {mixin} class(_FormUnits_Parent_)
+
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
+ _FormUnits_ = class(_FormUnits_Parent_)
  end;//_FormUnits_
-{$Else}
 
- _FormUnits_ = _FormUnits_Parent_;
+{$Else Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
 
-{$IfEnd} //nsTest AND not InsiderTest AND not NoVCM
+_FormUnits_ = _FormUnits_Parent_;
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)
 {$Else FormUnits_imp}
 
-{$If defined(nsTest) AND not defined(InsiderTest) AND not defined(NoVCM)}
+{$IfNDef FormUnits_imp_impl}
 
+{$Define FormUnits_imp_impl}
 
-{$IfEnd} //nsTest AND not InsiderTest AND not NoVCM
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)
+{$EndIf FormUnits_imp_impl}
 
 {$EndIf FormUnits_imp}
+

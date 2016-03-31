@@ -1,43 +1,33 @@
 unit l3DynamicArrayEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DynamicArrayEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3DynamicArrayEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DynamicArrayEx.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DynamicArrayEx" MUID: (479DFD65024D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3DynamicArray
-  ;
+ l3IntfUses
+ , l3DynamicArray
+;
 
 type
  Tl3DynamicArrayEx = class(Tl3DynamicArray)
- private
- // private fields
-   f_ItemSize : Integer;
- protected
- // realized methods
+  private
+   f_ItemSize: Integer;
+  protected
    function pm_GetItemSize: Integer; override;
- public
- // public methods
+  public
    constructor Create(anItemSize: Integer); reintroduce;
  end;//Tl3DynamicArrayEx
 
 implementation
 
-// start class Tl3DynamicArrayEx
+uses
+ l3ImplUses
+;
 
 constructor Tl3DynamicArrayEx.Create(anItemSize: Integer);
 //#UC START# *479F082A0193_479DFD65024D_var*

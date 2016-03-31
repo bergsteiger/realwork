@@ -1,70 +1,54 @@
 unit atSynchroPoint;
+ {* "Точка синхронизации". Для синхронизации типа "дойти до определенного места и ждать пока все не достигнут этого места". }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atSynchroPoint.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatSynchroPoint
-//
-// "Точка синхронизации". Для синхронизации типа "дойти до определенного места и ждать пока все не
-// достигнут этого места".
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atSynchroPoint.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSynchroPoint" MUID: (491D9DFA0288)
 
 interface
 
 uses
-  l3_Base,
-  SyncObjs,
-  atSharedBuffer,
-  atNamedMutex
-  ;
+ l3IntfUses
+ , l3_Base
+ , atNamedMutex
+ , atSharedBuffer
+ , SyncObjs
+;
 
 type
- TSyncData = record
-   Total : Integer;
-   Waiting : Integer;
- end;//TSyncData
-
  PSyncData = ^TSyncData;
+
+ TSyncData = record
+  Total: Integer;
+  Waiting: Integer;
+ end;//TSyncData
 
  TatSynchroPoint = class(Tl3_Base)
   {* "Точка синхронизации". Для синхронизации типа "дойти до определенного места и ждать пока все не достигнут этого места". }
- private
- // private fields
-   f_Mutex : TatNamedMutex;
-   f_SharedBuf : TatSharedBuffer;
-   f_SyncData : PSyncData;
-   f_ContinueEvent : TEvent;
- private
- // private methods
+  private
+   f_Mutex: TatNamedMutex;
+   f_SharedBuf: TatSharedBuffer;
+   f_SyncData: PSyncData;
+   f_ContinueEvent: TEvent;
+  private
    procedure Register; virtual;
    procedure Unregister; virtual;
    function ContinueIfSynchronized: Boolean; virtual;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aName: AnsiString); reintroduce;
    function Synchronize(aTimeOut: LongWord): Boolean; virtual;
-     {* Функция возвращает управление либо после успешной синхронизации (когда все дошли до вызова Synchronize), либо по истечении таймаута. В первом случае резельтат - true, во втором - false. }
+    {* Функция возвращает управление либо после успешной синхронизации (когда все дошли до вызова Synchronize), либо по истечении таймаута. В первом случае резельтат - true, во втором - false. }
  end;//TatSynchroPoint
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatSynchroPoint
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TatSynchroPoint.Create(const aName: AnsiString);
 //#UC START# *491DA1A60030_491D9DFA0288_var*
@@ -84,6 +68,7 @@ begin
 end;//TatSynchroPoint.Create
 
 function TatSynchroPoint.Synchronize(aTimeOut: LongWord): Boolean;
+ {* Функция возвращает управление либо после успешной синхронизации (когда все дошли до вызова Synchronize), либо по истечении таймаута. В первом случае резельтат - true, во втором - false. }
 //#UC START# *491DA82B01A2_491D9DFA0288_var*
 //#UC END# *491DA82B01A2_491D9DFA0288_var*
 begin
@@ -160,6 +145,7 @@ begin
 end;//TatSynchroPoint.ContinueIfSynchronized
 
 procedure TatSynchroPoint.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_491D9DFA0288_var*
 //#UC END# *479731C50290_491D9DFA0288_var*
 begin

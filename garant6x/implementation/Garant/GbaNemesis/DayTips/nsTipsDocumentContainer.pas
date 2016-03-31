@@ -1,95 +1,71 @@
 unit nsTipsDocumentContainer;
+ {* Контейнер документа для советов дня }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DayTips"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/DayTips/nsTipsDocumentContainer.pas"
-// Начат: 18.11.2010 17:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Интерфейсные элементы::DayTips::DayTips::DayTips::TnsTipsDocumentContainer
-//
-// Контейнер документа для советов дня
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsTipsDocumentContainer" MUID: (4CE53CC80300)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  eeDocumentContainer
-  {$IfEnd} //Nemesis
-  ,
-  DocumentUnit,
-  nevTools,
-  DocumentInterfaces,
-  F1TagDataProviderInterface,
-  afwInterfaces,
-  l3Interfaces,
-  nevBase,
-  l3Variant,
-  k2Base,
-  nevPrintableDocumentContainer,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , eeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ , l3Variant
+ , DocumentInterfaces
+ , F1TagDataProviderInterface
+ , DocumentUnit
+ , nevTools
+ , afwInterfaces
+ , nevPrintableDocumentContainer
+ , l3IID
+ , nevBase
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsTipsDocumentContainer = class(_nsDocumentContainer_)
   {* Контейнер документа для советов дня }
- protected
- // overridden protected methods
+  protected
    function GetDocument: Tl3Tag; override;
    procedure AfterCreate(const aDocInfo: IdeDocInfo); override;
  end;//TnsTipsDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evTypes,
-  IOUnit,
-  SysUtils,
-  nsIDocumentDataObject,
-  nsDocumentPreview,
-  nsHAFPainter,
-  LoggingInterfaces,
-  nsDocumentPrintEvent,
-  deDocInfo,
-  DataAdapter,
-  evdTypes,
-  nsTypes,
-  LeafPara_Const,
-  k2Tags,
-  nsTagString
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , evTypes
+ , IOUnit
+ , SysUtils
+ , nsIDocumentDataObject
+ , nsDocumentPreview
+ , nsHAFPainter
+ , LoggingInterfaces
+ , nsDocumentPrintEvent
+ , deDocInfo
+ , DataAdapter
+ , evdTypes
+ , nsTypes
+ , LeafPara_Const
+ , k2Tags
+ , nsTagString
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , afwFacade
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
-
-// start class TnsTipsDocumentContainer
 
 function TnsTipsDocumentContainer.GetDocument: Tl3Tag;
 //#UC START# *47F27DA80172_4CE53CC80300_var*
@@ -129,7 +105,7 @@ begin
  end;//l_String <> nil
 //#UC END# *4B1FBF87020C_4CE53CC80300_impl*
 end;//TnsTipsDocumentContainer.AfterCreate
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

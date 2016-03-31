@@ -32,7 +32,6 @@ type
  TcsMessageRecepientList = class(_l3CriticalSectionHolder_)
   private
    f_Items: TcsMessageRecepientListPrim;
-    {* Поле для свойства Items }
   protected
    function pm_GetCount: Integer;
    procedure Cleanup; override;

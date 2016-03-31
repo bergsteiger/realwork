@@ -1,43 +1,32 @@
 unit K460275638Suite;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K460275638Suite.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::DailyTest::RegExpUtils::TK460275638Suite
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K460275638Suite.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TK460275638Suite" MUID: (51BB0020030A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  CustomFolderTestSuite
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , CustomFolderTestSuite
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK460275638Suite = class(TCustomFolderTestSuite)
- protected
- // overridden protected methods
+  protected
    function GetExt: AnsiString; override;
  end;//TK460275638Suite
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK460275638Suite
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TK460275638Suite.GetExt: AnsiString;
 //#UC START# *4EA50C04021B_51BB0020030A_var*
@@ -47,7 +36,6 @@ begin
  Result := '.regexp';
 //#UC END# *4EA50C04021B_51BB0020030A_impl*
 end;//TK460275638Suite.GetExt
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

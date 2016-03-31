@@ -30,16 +30,16 @@ type
  Tl3ProcessingEnabledService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3ProcessingEnabledService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3ProcessingEnabledService }
   protected
    procedure pm_SetAlien(const aValue: Il3ProcessingEnabledService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function Enabled: Boolean;
    class function Instance: Tl3ProcessingEnabledService;
     {* Метод получения экземпляра синглетона Tl3ProcessingEnabledService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3ProcessingEnabledService
     write pm_SetAlien;
@@ -69,12 +69,6 @@ begin
  f_Alien := aValue;
 end;//Tl3ProcessingEnabledService.pm_SetAlien
 
-class function Tl3ProcessingEnabledService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ProcessingEnabledService <> nil;
-end;//Tl3ProcessingEnabledService.Exists
-
 function Tl3ProcessingEnabledService.Enabled: Boolean;
 //#UC START# *ECCF31CF8A24_561CEB90011D_var*
 //#UC END# *ECCF31CF8A24_561CEB90011D_var*
@@ -94,6 +88,12 @@ begin
  end;
  Result := g_Tl3ProcessingEnabledService;
 end;//Tl3ProcessingEnabledService.Instance
+
+class function Tl3ProcessingEnabledService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ProcessingEnabledService <> nil;
+end;//Tl3ProcessingEnabledService.Exists
 
 procedure Tl3ProcessingEnabledService.ClearFields;
 begin

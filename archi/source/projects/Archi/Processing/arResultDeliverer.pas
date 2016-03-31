@@ -1,168 +1,145 @@
 unit arResultDeliverer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Processing"
-// Модуль: "w:/archi/source/projects/Archi/Processing/arResultDeliverer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Processing::ExportDelivery::TarResultDeliverer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Processing\arResultDeliverer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarResultDeliverer" MUID: (545C749003C2)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  l3Base
-  {$If not defined(Nemesis)}
-  ,
-  CsCommon
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  arResultDeliveryInterfaces
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , CsCommon
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ , arResultDeliveryInterfaces
+;
 
-{$If defined(AppClientSide)}
 type
  TarResultDeliverer = class(Tl3ThreadContainer)
- private
- // private fields
-   f_RequestCounter : Integer;
-   f_Transporter : IncsClientTransporter;
-   f_Listener : Pointer;
-    {* Weak IarResultDelivererListner}
-   f_ServerHost : AnsiString;
-    {* Поле для свойства ServerHost}
-   f_ServerPort : Integer;
-    {* Поле для свойства ServerPort}
- private
- // private methods
+  private
+   f_RequestCounter: Integer;
+   f_Transporter: IncsClientTransporter;
+   f_Listener: Pointer;
+    {* Weak IarResultDelivererListner }
+   f_ServerHost: AnsiString;
+    {* Поле для свойства ServerHost }
+   f_ServerPort: Integer;
+    {* Поле для свойства ServerPort }
+  private
    function ReceiveTaskResult(const aTaskID: AnsiString): Boolean;
- protected
- // property methods
+  protected
    function pm_GetClientID: TCsClientId;
    procedure pm_SetClientID(aValue: TCsClientId);
    function pm_GetListener: IarResultDelivererListner; virtual;
- protected
- // realized methods
    procedure DoExecute; override;
-     {* основная процедура нити. Для перекрытия в потомках }
- protected
- // overridden protected methods
+    {* основная процедура нити. Для перекрытия в потомках }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+   procedure ClearFields; override;
+  public
    constructor Create(const aWeakListener: IarResultDelivererListner); reintroduce;
    procedure TerminateProcess;
    procedure RequestDelivery;
    function CanRequestDelivery: Boolean;
    function HasReadyToDeliveryData: Boolean;
- protected
- // protected properties
+  protected
    property Listener: IarResultDelivererListner
-     read pm_GetListener;
- public
- // public properties
+    read pm_GetListener;
+  public
    property ClientID: TCsClientId
-     read pm_GetClientID
-     write pm_SetClientID;
+    read pm_GetClientID
+    write pm_SetClientID;
    property ServerHost: AnsiString
-     read f_ServerHost
-     write f_ServerHost;
+    read f_ServerHost
+    write f_ServerHost;
    property ServerPort: Integer
-     read f_ServerPort
-     write f_ServerPort;
+    read f_ServerPort
+    write f_ServerPort;
  end;//TarResultDeliverer
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arOneTaskDeliverer,
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  csIdIOHandlerAbstractAdapter
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsFileTransferReg
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetReadyToDeliveryTasksReply
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetReadyToDeliveryTasks
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessage
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsCompatibilityClientTransporter
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  CsQueryTypes
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsProfile
-  {$IfEnd} //not Nemesis
-  ,
-  l3StopWatch,
-  l3Utils,
-  evdNcsTypes
-  {$If not defined(Nemesis)}
-  ,
-  ncsCorrectFolder
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsDeliveryResult
-  {$IfEnd} //not Nemesis
-  ,
-  Windows,
-  Messages,
-  l3Interlocked
-  {$If not defined(Nemesis)}
-  ,
-  ncsSynchroCompatibilityClientTransporter
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppClientSide
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(Nemesis)}
+ , csIdIOHandlerAbstractAdapter
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsFileTransferReg
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetReadyToDeliveryTasksReply
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetReadyToDeliveryTasks
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsMessage
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsCompatibilityClientTransporter
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsQueryTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsProfile
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3StopWatch
+ , l3Utils
+ , evdNcsTypes
+ {$If NOT Defined(Nemesis)}
+ , ncsCorrectFolder
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsDeliveryResult
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Windows
+ , Messages
+ , l3Interlocked
+ {$If NOT Defined(Nemesis)}
+ , ncsSynchroCompatibilityClientTransporter
+ {$IfEnd} // NOT Defined(Nemesis)
+ , arOneTaskDeliverer
+;
 
-{$If defined(AppClientSide)}
+function TarResultDeliverer.pm_GetClientID: TCsClientId;
+//#UC START# *545C74C40316_545C749003C2get_var*
+//#UC END# *545C74C40316_545C749003C2get_var*
+begin
+//#UC START# *545C74C40316_545C749003C2get_impl*
+ Result := f_Transporter.ClientID;
+//#UC END# *545C74C40316_545C749003C2get_impl*
+end;//TarResultDeliverer.pm_GetClientID
 
-// start class TarResultDeliverer
+procedure TarResultDeliverer.pm_SetClientID(aValue: TCsClientId);
+//#UC START# *545C74C40316_545C749003C2set_var*
+//#UC END# *545C74C40316_545C749003C2set_var*
+begin
+//#UC START# *545C74C40316_545C749003C2set_impl*
+ f_Transporter.ClientID := aValue;
+//#UC END# *545C74C40316_545C749003C2set_impl*
+end;//TarResultDeliverer.pm_SetClientID
+
+function TarResultDeliverer.pm_GetListener: IarResultDelivererListner;
+//#UC START# *549AA07C02A4_545C749003C2get_var*
+//#UC END# *549AA07C02A4_545C749003C2get_var*
+begin
+//#UC START# *549AA07C02A4_545C749003C2get_impl*
+ Result := IarResultDelivererListner(f_Listener);
+//#UC END# *549AA07C02A4_545C749003C2get_impl*
+end;//TarResultDeliverer.pm_GetListener
 
 function TarResultDeliverer.ReceiveTaskResult(const aTaskID: AnsiString): Boolean;
 //#UC START# *5465FDD1009D_545C749003C2_var*
@@ -261,33 +238,6 @@ begin
 //#UC END# *546AF1220010_545C749003C2_impl*
 end;//TarResultDeliverer.Create
 
-function TarResultDeliverer.pm_GetClientID: TCsClientId;
-//#UC START# *545C74C40316_545C749003C2get_var*
-//#UC END# *545C74C40316_545C749003C2get_var*
-begin
-//#UC START# *545C74C40316_545C749003C2get_impl*
- Result := f_Transporter.ClientID;
-//#UC END# *545C74C40316_545C749003C2get_impl*
-end;//TarResultDeliverer.pm_GetClientID
-
-procedure TarResultDeliverer.pm_SetClientID(aValue: TCsClientId);
-//#UC START# *545C74C40316_545C749003C2set_var*
-//#UC END# *545C74C40316_545C749003C2set_var*
-begin
-//#UC START# *545C74C40316_545C749003C2set_impl*
- f_Transporter.ClientID := aValue;
-//#UC END# *545C74C40316_545C749003C2set_impl*
-end;//TarResultDeliverer.pm_SetClientID
-
-function TarResultDeliverer.pm_GetListener: IarResultDelivererListner;
-//#UC START# *549AA07C02A4_545C749003C2get_var*
-//#UC END# *549AA07C02A4_545C749003C2get_var*
-begin
-//#UC START# *549AA07C02A4_545C749003C2get_impl*
- Result := IarResultDelivererListner(f_Listener);
-//#UC END# *549AA07C02A4_545C749003C2get_impl*
-end;//TarResultDeliverer.pm_GetListener
-
 procedure TarResultDeliverer.TerminateProcess;
 //#UC START# *545C84E90055_545C749003C2_var*
 //#UC END# *545C84E90055_545C749003C2_var*
@@ -330,6 +280,7 @@ begin
 end;//TarResultDeliverer.HasReadyToDeliveryData
 
 procedure TarResultDeliverer.DoExecute;
+ {* основная процедура нити. Для перекрытия в потомках }
 //#UC START# *4911B69E037D_545C749003C2_var*
 var
  l_OldValue: Integer;
@@ -425,6 +376,7 @@ begin
 end;//TarResultDeliverer.DoExecute
 
 procedure TarResultDeliverer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_545C749003C2_var*
 //#UC END# *479731C50290_545C749003C2_var*
 begin
@@ -450,6 +402,11 @@ begin
 //#UC END# *47A042E100E2_545C749003C2_impl*
 end;//TarResultDeliverer.InitFields
 
-{$IfEnd} //AppClientSide
+procedure TarResultDeliverer.ClearFields;
+begin
+ ServerHost := '';
+ inherited;
+end;//TarResultDeliverer.ClearFields
+{$IfEnd} // Defined(AppClientSide)
 
 end.

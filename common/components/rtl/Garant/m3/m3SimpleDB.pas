@@ -1,53 +1,40 @@
 unit m3SimpleDB;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3SimpleDB.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3SimpleDB
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3SimpleDB.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3SimpleDB" MUID: (4742CA7E00BE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3DBInterfaces,
-  m3DB,
-  m3StorageInterfaces
-  ;
+ l3IntfUses
+ , m3DB
+ , m3DBInterfaces
+ , m3StorageInterfaces
+;
 
 type
  Tm3SimpleDB = class(Tm3DB)
- public
- // overridden public methods
+  public
+   class function Make(const aBaseName: AnsiString): Im3DB;
    function MainStorage(aMode: Tm3StoreAccess): Im3IndexedStorage; override;
-     {* Возвращает корень постоянной части }
+    {* Возвращает корень постоянной части }
    function GetVersionsStorage(aMode: Tm3StoreAccess): Im3IndexedStorage; override;
-     {* Возвращает корень переменной части }
+    {* Возвращает корень переменной части }
    function GetBackupStorage(aMode: Tm3StoreAccess): Im3IndexedStorage; override;
-     {* Возвращает корень резервной копии }
+    {* Возвращает корень резервной копии }
    function NeedsFork: Boolean; override;
    function NeedProxy: Boolean; override;
- public
- // public methods
-   class function Make(const aBaseName: AnsiString): Im3DB;
  end;//Tm3SimpleDB
 
 implementation
 
 uses
-  m3StorageService
-  ;
-
-// start class Tm3SimpleDB
+ l3ImplUses
+ , m3StorageService
+;
 
 class function Tm3SimpleDB.Make(const aBaseName: AnsiString): Im3DB;
 //#UC START# *5540F2810201_4742CA7E00BE_var*
@@ -59,6 +46,7 @@ begin
 end;//Tm3SimpleDB.Make
 
 function Tm3SimpleDB.MainStorage(aMode: Tm3StoreAccess): Im3IndexedStorage;
+ {* Возвращает корень постоянной части }
 //#UC START# *49BFD4CE0235_4742CA7E00BE_var*
 //#UC END# *49BFD4CE0235_4742CA7E00BE_var*
 begin
@@ -68,6 +56,7 @@ begin
 end;//Tm3SimpleDB.MainStorage
 
 function Tm3SimpleDB.GetVersionsStorage(aMode: Tm3StoreAccess): Im3IndexedStorage;
+ {* Возвращает корень переменной части }
 //#UC START# *49BFD4F3013E_4742CA7E00BE_var*
 var
  l_US : Boolean;
@@ -89,6 +78,7 @@ begin
 end;//Tm3SimpleDB.GetVersionsStorage
 
 function Tm3SimpleDB.GetBackupStorage(aMode: Tm3StoreAccess): Im3IndexedStorage;
+ {* Возвращает корень резервной копии }
 //#UC START# *49BFD52D0076_4742CA7E00BE_var*
 //#UC END# *49BFD52D0076_4742CA7E00BE_var*
 begin

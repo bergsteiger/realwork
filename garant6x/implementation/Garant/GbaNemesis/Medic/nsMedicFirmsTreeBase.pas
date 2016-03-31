@@ -1,70 +1,49 @@
 unit nsMedicFirmsTreeBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/nsMedicFirmsTreeBase.pas"
-// Начат: 2008/03/21 11:36:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic$Unit::TnsMedicFirmsTreeBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsTreeBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicFirmsTreeBase" MUID: (490711B101F9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  bsInterfaces,
-  afwInterfaces,
-  DynamicTreeUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , afwInterfaces
+ , bsInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMedicFirmsTreeBase = class(TnsDataResetTreeStruct)
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function MakeFilters: Il3TreeFilters; override;
    procedure FillFilters(const aFilters: Il3TreeFilters;
     const anAdapterFilters: InsAdapterFilters); override;
    function SettingsID: TafwSettingId; override;
    procedure BeforeReset; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: Il3SimpleTree;
  end;//TnsMedicFirmsTreeBase
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  nsConst,
-  SysUtils,
-  nsMedicFirmListFilters,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsMedicFirmsTreeBase
+ l3ImplUses
+ , DataAdapter
+ , nsConst
+ , SysUtils
+ , nsMedicFirmListFilters
+ , nsTypes
+;
 
 constructor TnsMedicFirmsTreeBase.Create;
 //#UC START# *490711E203CD_490711B101F9_var*
@@ -115,7 +94,7 @@ begin
 end;//TnsMedicFirmsTreeBase.MakeFilters
 
 procedure TnsMedicFirmsTreeBase.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_490711B101F9_var*
 var
  l_Filters: InsMedicFirmListFilters;
@@ -157,7 +136,6 @@ begin
   l_Filters.Country.Country := nil;
 //#UC END# *48FF64E700E5_490711B101F9_impl*
 end;//TnsMedicFirmsTreeBase.BeforeReset
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,70 +1,49 @@
 unit pgUserManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgUserManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgUserManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgUserManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgUserManager" MUID: (5629FC88034B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daTypes
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TpgUserManager = class(Tl3ProtoObject, IdaUserManager)
- private
- // private fields
-   f_Factory : IdaTableQueryFactory;
-   f_PasswordQuery : IdaTabledQuery;
-   f_UserFlagsQuery : IdaTabledQuery;
- protected
- // realized methods
+  private
+   f_Factory: IdaTableQueryFactory;
+   f_PasswordQuery: IdaTabledQuery;
+   f_UserFlagsQuery: IdaTabledQuery;
+  protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
    function IsUserAdmin(anUserID: TdaUserID): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory): IdaUserManager; reintroduce;
-     {* Сигнатура фабрики TpgUserManager.Make }
  end;//TpgUserManager
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  daScheme
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgUserManager
+ l3ImplUses
+ , SysUtils
+ , daScheme
+;
 
 constructor TpgUserManager.Create(const aFactory: IdaTableQueryFactory);
 //#UC START# *562A074E0321_5629FC88034B_var*
@@ -97,12 +76,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgUserManager.Make
 
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  RequireAdminRights: Boolean;
-  out theUserID: TdaUserID): TdaLoginError;
+ const aPassword: AnsiString;
+ RequireAdminRights: Boolean;
+ out theUserID: TdaUserID): TdaLoginError;
 //#UC START# *5628D14D0151_5629FC88034B_var*
 var
  l_ResultSet: IdaResultSet;
@@ -172,6 +151,7 @@ begin
 end;//TpgUserManager.IsUserAdmin
 
 procedure TpgUserManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5629FC88034B_var*
 //#UC END# *479731C50290_5629FC88034B_var*
 begin
@@ -182,7 +162,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5629FC88034B_impl*
 end;//TpgUserManager.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

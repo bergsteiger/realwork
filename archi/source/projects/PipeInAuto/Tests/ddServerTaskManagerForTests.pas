@@ -1,84 +1,60 @@
 unit ddServerTaskManagerForTests;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/ddServerTaskManagerForTests.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Low Level Tests::TaskProcessingTuningForTests::TddServerTaskManagerForTests
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\ddServerTaskManagerForTests.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddServerTaskManagerForTests" MUID: (52F8E8A101EC)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes,
-  alcuTaskManager
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  alcuServerTaskManagerFactory,
-  alcuBaseEngineHolder
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ , alcuTaskManager
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Classes
+ , alcuServerTaskManagerFactory
+ , alcuBaseEngineHolder
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  TTaskDone = class(TThread)
- private
- // private fields
-   f_Task : TddProcessTask;
-   ServerTaskManager : TddServerTaskManager;
- protected
- // realized methods
+  private
+   f_Task: TddProcessTask;
+   ServerTaskManager: TddServerTaskManager;
+  protected
    procedure Execute; override;
  end;//TTaskDone
 
  TalcuServerTaskManagerFactoryForTests = class(TalcuServerTaskManagerFactory)
- protected
- // overridden protected methods
+  protected
    class function DoMake(const aRootPath: AnsiString;
     const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager; override;
  end;//TalcuServerTaskManagerFactoryForTests
 
  TddServerTaskManagerForTests = class(TddServerTaskManager)
- protected
- // overridden protected methods
+  protected
    procedure SimulateTaskDone(aTask: TddProcessTask); override;
-     {* имитирует отправку результата пользователю после выполнения задания }
+    {* имитирует отправку результата пользователю после выполнения задания }
    procedure BeforeSaveQuery; override;
-     {* Сигнатура метода BeforeSaveQuery }
    function NeedRaiseInProcessQuery: Boolean; override;
  end;//TddServerTaskManagerForTests
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  ,
-  l3BatchService
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
-
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
-// start class TTaskDone
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3BatchService
+;
 
 procedure TTaskDone.Execute;
 //#UC START# *4FFFDF740099_52F8EE5400B0_var*
@@ -92,10 +68,9 @@ begin
  end;//try..finally
 //#UC END# *4FFFDF740099_52F8EE5400B0_impl*
 end;//TTaskDone.Execute
-// start class TalcuServerTaskManagerFactoryForTests
 
 class function TalcuServerTaskManagerFactoryForTests.DoMake(const aRootPath: AnsiString;
-  const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
+ const aBaseEngineHolder: TalcuBaseEngineHolder): TddServerTaskManager;
 //#UC START# *52FA2C99010A_52FA2C470046_var*
 //#UC END# *52FA2C99010A_52FA2C470046_var*
 begin
@@ -105,6 +80,7 @@ begin
 end;//TalcuServerTaskManagerFactoryForTests.DoMake
 
 procedure TddServerTaskManagerForTests.SimulateTaskDone(aTask: TddProcessTask);
+ {* имитирует отправку результата пользователю после выполнения задания }
 //#UC START# *52F8EDDA037F_52F8E8A101EC_var*
 //#UC END# *52F8EDDA037F_52F8E8A101EC_var*
 begin
@@ -142,13 +118,10 @@ begin
 //#UC END# *52F8F0990208_52F8E8A101EC_impl*
 end;//TddServerTaskManagerForTests.NeedRaiseInProcessQuery
 
-{$IfEnd} //AppServerSide AND InsiderTest
-
 initialization
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 //#UC START# *52FA2A9C014E*
  alcuServerTaskManagerFactory.g_FactoryClass := TalcuServerTaskManagerFactoryForTests;
 //#UC END# *52FA2A9C014E*
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 end.

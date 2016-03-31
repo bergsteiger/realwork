@@ -1,123 +1,111 @@
 unit htJournal;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htJournal.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtJournal
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htJournal.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtJournal" MUID: (5540D3060300)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3Date,
-  daTypes,
-  daInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  dt_BBLog
-  {$IfEnd} //not Nemesis
-  ,
-  daJournal
-  {$If not defined(Nemesis)}
-  ,
-  dtIntf
-  {$IfEnd} //not Nemesis
-  ,
-  l3Tree_TLB,
-  l3Tree
-  ;
+ l3IntfUses
+ , daJournal
+ {$If NOT Defined(Nemesis)}
+ , dt_BBLog
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daInterfaces
+ {$If NOT Defined(Nemesis)}
+ , dtIntf
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Date
+ , daTypes
+ , l3Tree
+;
 
 type
  TBigBrotherAccess = {final} class(TBigBrotherTbl)
  end;//TBigBrotherAccess
 
  ThtJournal = class(TdaJournal)
- private
- // private fields
-   f_Table : TBigBrotherTbl;
- private
- // private methods
+  private
+   f_Table: TBigBrotherTbl;
+  private
    function BigBrother: TBigBrotherAccess;
-   function GetUserStatistic(FromDate: TStDate;
-     ToDate: TStDate;
-     UserOrGroupID: TdaUserID;
-     UserGr: Boolean): ISab;
-   function GetDocStatistic(FromDate: TStDate;
-     ToDate: TStDate;
-     aDocID: TdaDocID): ISab;
- protected
- // realized methods
+   function GetUserStatistic(const FromDate: TStDate;
+    const ToDate: TStDate;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): ISab;
+   function GetDocStatistic(const FromDate: TStDate;
+    const ToDate: TStDate;
+    aDocID: TdaDocID): ISab;
+  protected
    procedure LogEvent(aOperation: TdaJournalOperation;
-     aFamilyID: TdaFamilyID;
-     aExtID: LongInt;
-     aData: LongInt); override;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt); override;
    procedure CheckUser(anUserID: TdaUserID); override;
    procedure UserChanged(anUserID: TdaUserID); override;
    procedure SessionChanged; override;
-     {* Сигнатура метода SessionChanged }
    procedure DoStartCaching; override;
-     {* Сигнатура метода DoStartCaching }
    procedure DoStopCaching; override;
-     {* Сигнатура метода DoStopCaching }
-   function MakeResultSet(FromDate: TStDate;
-     ToDate: TStDate;
-     aDocID: TdaDocID;
-     UserOrGroupID: TdaUserID;
-     UserGr: Boolean): IdaResultSet; override;
- protected
- // overridden protected methods
+   function MakeResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
+    aDocID: TdaDocID;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): IdaResultSet; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory): IdaJournal; reintroduce;
-     {* Сигнатура фабрики ThtJournal.Make }
  end;//ThtJournal
 
 implementation
 
 uses
-  l3Base,
-  SysUtils,
-  htResultSet
-  {$If not defined(Nemesis)}
-  ,
-  dt_Sab
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  HT_Const
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_User
-  {$IfEnd} //not Nemesis
-  ,
-  htInterfaces,
-  daSelectFieldList,
-  daScheme,
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  dt_Err
-  {$IfEnd} //not Nemesis
-  
-  ;
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , htResultSet
+ {$If NOT Defined(Nemesis)}
+ , dt_Sab
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , HT_Const
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
+ , htInterfaces
+ , daSelectFieldList
+ , daScheme
+ , Classes
+ {$If NOT Defined(Nemesis)}
+ , dt_Err
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-// start class ThtJournal
+constructor ThtJournal.Create(const aFactory: IdaTableQueryFactory);
+//#UC START# *5540D6BB015A_5540D3060300_var*
+//#UC END# *5540D6BB015A_5540D3060300_var*
+begin
+//#UC START# *5540D6BB015A_5540D3060300_impl*
+ inherited Create(aFactory);
+//#UC END# *5540D6BB015A_5540D3060300_impl*
+end;//ThtJournal.Create
+
+class function ThtJournal.Make(const aFactory: IdaTableQueryFactory): IdaJournal;
+var
+ l_Inst : ThtJournal;
+begin
+ l_Inst := Create(aFactory);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//ThtJournal.Make
 
 function ThtJournal.BigBrother: TBigBrotherAccess;
 //#UC START# *5549F376004F_5540D3060300_var*
@@ -130,10 +118,10 @@ begin
 //#UC END# *5549F376004F_5540D3060300_impl*
 end;//ThtJournal.BigBrother
 
-function ThtJournal.GetUserStatistic(FromDate: TStDate;
-  ToDate: TStDate;
-  UserOrGroupID: TdaUserID;
-  UserGr: Boolean): ISab;
+function ThtJournal.GetUserStatistic(const FromDate: TStDate;
+ const ToDate: TStDate;
+ UserOrGroupID: TdaUserID;
+ UserGr: Boolean): ISab;
 //#UC START# *5563286A0387_5540D3060300_var*
 var
  l_ResultSab: ISab;
@@ -180,9 +168,9 @@ begin
 //#UC END# *5563286A0387_5540D3060300_impl*
 end;//ThtJournal.GetUserStatistic
 
-function ThtJournal.GetDocStatistic(FromDate: TStDate;
-  ToDate: TStDate;
-  aDocID: TdaDocID): ISab;
+function ThtJournal.GetDocStatistic(const FromDate: TStDate;
+ const ToDate: TStDate;
+ aDocID: TdaDocID): ISab;
 //#UC START# *556328D003C8_5540D3060300_var*
 var
  l_DocSab  : ISab;
@@ -243,32 +231,10 @@ begin
 //#UC END# *556328D003C8_5540D3060300_impl*
 end;//ThtJournal.GetDocStatistic
 
-constructor ThtJournal.Create(const aFactory: IdaTableQueryFactory);
-//#UC START# *5540D6BB015A_5540D3060300_var*
-//#UC END# *5540D6BB015A_5540D3060300_var*
-begin
-//#UC START# *5540D6BB015A_5540D3060300_impl*
- inherited Create(aFactory);
-//#UC END# *5540D6BB015A_5540D3060300_impl*
-end;//ThtJournal.Create
-
-class function ThtJournal.Make(const aFactory: IdaTableQueryFactory): IdaJournal;
-var
- l_Inst : ThtJournal;
-begin
- l_Inst := Create(aFactory);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-// start class ThtJournal
-
 procedure ThtJournal.LogEvent(aOperation: TdaJournalOperation;
-  aFamilyID: TdaFamilyID;
-  aExtID: LongInt;
-  aData: LongInt);
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt);
 //#UC START# *5549F6220397_5540D3060300_var*
 Var
  TmpLI   : LongInt;
@@ -345,11 +311,11 @@ begin
 //#UC END# *559B88B00126_5540D3060300_impl*
 end;//ThtJournal.DoStopCaching
 
-function ThtJournal.MakeResultSet(FromDate: TStDate;
-  ToDate: TStDate;
-  aDocID: TdaDocID;
-  UserOrGroupID: TdaUserID;
-  UserGr: Boolean): IdaResultSet;
+function ThtJournal.MakeResultSet(const FromDate: TStDate;
+ const ToDate: TStDate;
+ aDocID: TdaDocID;
+ UserOrGroupID: TdaUserID;
+ UserGr: Boolean): IdaResultSet;
 //#UC START# *559CF9D300FA_5540D3060300_var*
 var
  l_ResultSab: ISab;
@@ -397,6 +363,7 @@ begin
 end;//ThtJournal.MakeResultSet
 
 procedure ThtJournal.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5540D3060300_var*
 //#UC END# *479731C50290_5540D3060300_var*
 begin

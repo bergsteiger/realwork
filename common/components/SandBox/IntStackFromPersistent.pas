@@ -1,31 +1,31 @@
 unit IntStackFromPersistent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "IntStackFromPersistent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::Containers::TIntStackFromPersistent
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IntStackFromPersistent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TIntStackFromPersistent" MUID: (515584EB0339)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 type
  _ItemType_ = Integer;
  _StackPrim_Parent_ = TPersistent;
- {$Include ..\SandBox\StackPrim.imp.pas}
+ {$Include w:\common\components\SandBox\StackPrim.imp.pas}
  TIntStackFromPersistent = class(_StackPrim_)
  end;//TIntStackFromPersistent
 
 implementation
 
-{$Include ..\SandBox\StackPrim.imp.pas}
+uses
+ l3ImplUses
+;
+
+{$Include w:\common\components\SandBox\StackPrim.imp.pas}
 
 end.

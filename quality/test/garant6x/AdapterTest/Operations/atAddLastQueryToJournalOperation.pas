@@ -1,48 +1,35 @@
 unit atAddLastQueryToJournalOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atAddLastQueryToJournalOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatAddLastQueryToJournalOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atAddLastQueryToJournalOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatAddLastQueryToJournalOperation" MUID: (500D895D02A3)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatAddLastQueryToJournalOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatAddLastQueryToJournalOperation
 
 implementation
 
 uses
-  atUserJournalHelper,
-  SearchUnit,
-  atLogger,
-  atQuery,
-  atQueryTypeConverter,
-  Contnrs,
-  SysUtils
-  ;
-
-// start class TatAddLastQueryToJournalOperation
+ l3ImplUses
+ , atUserJournalHelper
+ , SearchUnit
+ , atLogger
+ , atQuery
+ , atQueryTypeConverter
+ , Contnrs
+ , SysUtils
+;
 
 procedure TatAddLastQueryToJournalOperation.ExecuteSelf;
 //#UC START# *48089F460352_500D895D02A3_var*

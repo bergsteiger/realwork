@@ -1,38 +1,32 @@
 unit csTaskedAction;
+ {* Действие на сервере с возможностью помещения в очередь }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csTaskedAction.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Actions::TcsTaskedAction
-//
-// Действие на сервере с возможностью помещения в очередь
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csTaskedAction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsTaskedAction" MUID: (5395CD170333)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csAction
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csAction
+;
 
-{$If not defined(Nemesis)}
 type
  TcsTaskedAction = {abstract} class(TcsAction)
   {* Действие на сервере с возможностью помещения в очередь }
  end;//TcsTaskedAction
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
+
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

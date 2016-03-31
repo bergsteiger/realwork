@@ -1,79 +1,53 @@
 unit atTreeLevelConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/InteropWithL3/atTreeLevelConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::InteropWithL3::TatTreeLevelConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\InteropWithL3\atTreeLevelConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatTreeLevelConverter" MUID: (503E65E30321)
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  SysUtils
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , DynamicTreeUnit
+;
 
 type
  _FirstType_ = Tl3TreeLevelDist;
  _SecondType_ = TSearchArea;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
  TatTreeLevelConverter = class(_atEnumToEnumConverter_)
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatTreeLevelConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatTreeLevelConverter }
  end;//TatTreeLevelConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatTreeLevelConverter
-
-var g_TatTreeLevelConverter : TatTreeLevelConverter = nil;
+var g_TatTreeLevelConverter: TatTreeLevelConverter = nil;
+ {* Экземпляр синглетона TatTreeLevelConverter }
 
 procedure TatTreeLevelConverterFree;
+ {* Метод освобождения экземпляра синглетона TatTreeLevelConverter }
 begin
  l3Free(g_TatTreeLevelConverter);
-end;
-
-class function TatTreeLevelConverter.Instance: TatTreeLevelConverter;
-begin
- if (g_TatTreeLevelConverter = nil) then
- begin
-  l3System.AddExitProc(TatTreeLevelConverterFree);
-  g_TatTreeLevelConverter := Create;
- end;
- Result := g_TatTreeLevelConverter;
-end;
-
+end;//TatTreeLevelConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
 
-// start class TatTreeLevelConverter
-
 class function TatTreeLevelConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatTreeLevelConverter <> nil;
 end;//TatTreeLevelConverter.Exists
@@ -91,5 +65,16 @@ begin
   InitConvertMap(CONVERT_MAP);
 //#UC END# *503E3A040395_503E65E30321_impl*
 end;//TatTreeLevelConverter.InitConvertMap
+
+class function TatTreeLevelConverter.Instance: TatTreeLevelConverter;
+ {* Метод получения экземпляра синглетона TatTreeLevelConverter }
+begin
+ if (g_TatTreeLevelConverter = nil) then
+ begin
+  l3System.AddExitProc(TatTreeLevelConverterFree);
+  g_TatTreeLevelConverter := Create;
+ end;
+ Result := g_TatTreeLevelConverter;
+end;//TatTreeLevelConverter.Instance
 
 end.

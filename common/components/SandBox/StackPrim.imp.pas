@@ -1,30 +1,30 @@
 {$IfNDef StackPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "StackPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Sand Box::SandBox::Containers::StackPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\StackPrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "StackPrim" MUID: (51545DEA00FB)
+// Имя типа: "_StackPrim_"
 
 {$Define StackPrim_imp}
+
+ // _ItemType_
+
+type
  ItemsHolder = array of _ItemType_;
 
- _StackPrim_ = {mixin} class(_StackPrim_Parent_)
- private
- // private fields
-   f_Items : ItemsHolder;
- public
- // public methods
+ _StackPrim_ = class(_StackPrim_Parent_)
+  private
+   f_Items: ItemsHolder;
+  public
    procedure Push(const anItem: _ItemType_);
    function Pop: _ItemType_;
  end;//_StackPrim_
 
 {$Else StackPrim_imp}
 
-// start class _StackPrim_
+{$IfNDef StackPrim_imp_impl}
+
+{$Define StackPrim_imp_impl}
 
 procedure _StackPrim_.Push(const anItem: _ItemType_);
 //#UC START# *51545E8E032C_51545DEA00FB_var*
@@ -52,4 +52,7 @@ begin
 //#UC END# *51545EB100A8_51545DEA00FB_impl*
 end;//_StackPrim_.Pop
 
+{$EndIf StackPrim_imp_impl}
+
 {$EndIf StackPrim_imp}
+

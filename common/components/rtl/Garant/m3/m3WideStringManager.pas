@@ -1,76 +1,50 @@
 unit m3WideStringManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3WideStringManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3WideStringManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3WideStringManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3WideStringManager" MUID: (5459E3FB0365)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3WideStringManager
-  ;
+ l3IntfUses
+ , l3WideStringManager
+;
 
 type
  Tm3WideStringManager = class(Tl3WideStringManager)
- private
- // private fields
-   f_CanFreeBlocks : Integer;
- protected
- // overridden protected methods
+  private
+   f_CanFreeBlocks: Integer;
+  protected
    function CanFreeBlocks: Boolean; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    procedure LockFree;
-     {* Сигнатура метода LockFree }
    procedure UnlockFree;
-     {* Сигнатура метода UnlockFree }
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: Tm3WideStringManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tm3WideStringManager }
  end;//Tm3WideStringManager
 
 implementation
 
 uses
-  l3Base {a},
-  l3SimpleMM
-  ;
+ l3ImplUses
+ , l3SimpleMM
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tm3WideStringManager
-
-var g_Tm3WideStringManager : Tm3WideStringManager = nil;
+var g_Tm3WideStringManager: Tm3WideStringManager = nil;
+ {* Экземпляр синглетона Tm3WideStringManager }
 
 procedure Tm3WideStringManagerFree;
+ {* Метод освобождения экземпляра синглетона Tm3WideStringManager }
 begin
  l3Free(g_Tm3WideStringManager);
-end;
-
-class function Tm3WideStringManager.Instance: Tm3WideStringManager;
-begin
- if (g_Tm3WideStringManager = nil) then
- begin
-  l3System.AddExitProc(Tm3WideStringManagerFree);
-  g_Tm3WideStringManager := Create;
- end;
- Result := g_Tm3WideStringManager;
-end;
-
+end;//Tm3WideStringManagerFree
 
 constructor Tm3WideStringManager.Create;
 //#UC START# *5459E9360228_5459E3FB0365_var*
@@ -112,6 +86,17 @@ begin
  Result := (g_Tm3WideStringManager <> nil);
 //#UC END# *545A46C20284_5459E3FB0365_impl*
 end;//Tm3WideStringManager.Exists
+
+class function Tm3WideStringManager.Instance: Tm3WideStringManager;
+ {* Метод получения экземпляра синглетона Tm3WideStringManager }
+begin
+ if (g_Tm3WideStringManager = nil) then
+ begin
+  l3System.AddExitProc(Tm3WideStringManagerFree);
+  g_Tm3WideStringManager := Create;
+ end;
+ Result := g_Tm3WideStringManager;
+end;//Tm3WideStringManager.Instance
 
 function Tm3WideStringManager.CanFreeBlocks: Boolean;
 //#UC START# *545A2F6800D6_5459E3FB0365_var*

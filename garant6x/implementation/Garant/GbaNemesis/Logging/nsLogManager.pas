@@ -1,93 +1,63 @@
 unit nsLogManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsLogManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::LoggingWrapper::TnsLogManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLogManager" MUID: (55B761180244)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  LoggingUnit,
-  l3SimpleObject,
-  LoggingWrapperInterfaces
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , LoggingWrapperInterfaces
+ , LoggingUnit
+;
 
 type
  TnsLogManager = class(Tl3SimpleObject, InsLogManager)
- private
- // private fields
-   f_LoggingTestService : InsLoggingTestService;
-   f_LogManager : ILogManager;
-    {* Поле для свойства LogManager}
- protected
- // property methods
+  private
+   f_LoggingTestService: InsLoggingTestService;
+   f_LogManager: ILogManager;
+    {* Поле для свойства LogManager }
+  protected
    function pm_GetLogManager: ILogManager;
- protected
- // realized methods
    procedure AddEvent(aLogEvent: TLogEvent;
     const aData: InsLogEventData);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- protected
- // protected properties
-   property LogManager: ILogManager
-     read pm_GetLogManager;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsLogManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsLogManager }
+  protected
+   property LogManager: ILogManager
+    read pm_GetLogManager;
  end;//TnsLogManager
 
 implementation
 
 uses
-  l3Base {a},
-  DataAdapter,
-  nsLoggingTestService,
-  TypInfo
-  ;
+ l3ImplUses
+ , DataAdapter
+ , nsLoggingTestService
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TnsLogManager
-
-var g_TnsLogManager : TnsLogManager = nil;
+var g_TnsLogManager: TnsLogManager = nil;
+ {* Экземпляр синглетона TnsLogManager }
 
 procedure TnsLogManagerFree;
+ {* Метод освобождения экземпляра синглетона TnsLogManager }
 begin
  l3Free(g_TnsLogManager);
-end;
-
-class function TnsLogManager.Instance: TnsLogManager;
-begin
- if (g_TnsLogManager = nil) then
- begin
-  l3System.AddExitProc(TnsLogManagerFree);
-  g_TnsLogManager := Create;
- end;
- Result := g_TnsLogManager;
-end;
-
+end;//TnsLogManagerFree
 
 function TnsLogManager.pm_GetLogManager: ILogManager;
 //#UC START# *55B761D70223_55B761180244get_var*
@@ -101,13 +71,13 @@ begin
 end;//TnsLogManager.pm_GetLogManager
 
 class function TnsLogManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsLogManager <> nil;
 end;//TnsLogManager.Exists
 
 procedure TnsLogManager.AddEvent(aLogEvent: TLogEvent;
-  const aData: InsLogEventData);
+ const aData: InsLogEventData);
 //#UC START# *55B760550256_55B761180244_var*
 var
  l_LogString: String;
@@ -120,7 +90,19 @@ begin
 //#UC END# *55B760550256_55B761180244_impl*
 end;//TnsLogManager.AddEvent
 
+class function TnsLogManager.Instance: TnsLogManager;
+ {* Метод получения экземпляра синглетона TnsLogManager }
+begin
+ if (g_TnsLogManager = nil) then
+ begin
+  l3System.AddExitProc(TnsLogManagerFree);
+  g_TnsLogManager := Create;
+ end;
+ Result := g_TnsLogManager;
+end;//TnsLogManager.Instance
+
 procedure TnsLogManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55B761180244_var*
 //#UC END# *479731C50290_55B761180244_var*
 begin
@@ -143,7 +125,6 @@ begin
 end;//TnsLogManager.InitFields
 
 procedure TnsLogManager.ClearFields;
- {-}
 begin
  f_LogManager := nil;
  inherited;

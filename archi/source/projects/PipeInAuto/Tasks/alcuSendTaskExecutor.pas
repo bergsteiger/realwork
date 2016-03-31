@@ -1,99 +1,69 @@
 unit alcuSendTaskExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuSendTaskExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::TaskSend::TalcuSendTaskExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSendTaskExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSendTaskExecutor" MUID: (54856BFA003E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTaskList
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  alcuExecutorWithIncomingTaskList
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExecutorWithIncomingTaskList
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ddServerTaskList
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuSendTaskExecutor = class(TalcuExecutorWithIncomingTaskList {$If not defined(Nemesis)}, IncsExecutor{$IfEnd} //not Nemesis
+ TalcuSendTaskExecutor = class(TalcuExecutorWithIncomingTaskList{$If NOT Defined(Nemesis)}
+ , IncsExecutor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- private
- // private fields
-   f_RootTaskFolder : AnsiString;
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  private
+   f_RootTaskFolder: AnsiString;
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
-   {$IfEnd} //not Nemesis
- public
- // public methods
+   {$IfEnd} // NOT Defined(Nemesis)
+  public
    constructor Create(aList: TddServerTaskList;
-     const aRootTaskFolder: AnsiString); reintroduce;
+    const aRootTaskFolder: AnsiString); reintroduce;
    class function Make(aList: TddServerTaskList;
-     const aRootTaskFolder: AnsiString): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TalcuSendTaskExecutor.Make }
+    const aRootTaskFolder: AnsiString): IncsExecutor; reintroduce;
  end;//TalcuSendTaskExecutor
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsSendTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsSendTaskReply
-  {$IfEnd} //not Nemesis
-  ,
-  l3Base
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  l3Memory,
-  alcuTaskFileTransferServices
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuSendTaskExecutor
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsSendTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsSendTaskReply
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Memory
+ , Classes
+ , alcuTaskFileTransferServices
+;
 
 constructor TalcuSendTaskExecutor.Create(aList: TddServerTaskList;
-  const aRootTaskFolder: AnsiString);
+ const aRootTaskFolder: AnsiString);
 //#UC START# *5485919200F1_54856BFA003E_var*
 //#UC END# *5485919200F1_54856BFA003E_var*
 begin
@@ -104,7 +74,7 @@ begin
 end;//TalcuSendTaskExecutor.Create
 
 class function TalcuSendTaskExecutor.Make(aList: TddServerTaskList;
-  const aRootTaskFolder: AnsiString): IncsExecutor;
+ const aRootTaskFolder: AnsiString): IncsExecutor;
 var
  l_Inst : TalcuSendTaskExecutor;
 begin
@@ -114,9 +84,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuSendTaskExecutor.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuSendTaskExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_54856BFA003E_var*
 var
@@ -172,8 +142,7 @@ begin
  end;
 //#UC END# *54607DDC0159_54856BFA003E_impl*
 end;//TalcuSendTaskExecutor.Execute
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //ServerTasks
-
+{$IfEnd} // Defined(ServerTasks)
 end.

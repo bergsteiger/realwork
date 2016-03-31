@@ -1,17 +1,16 @@
 unit myInterfacedObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "myInterfacedObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::Basic Interfaces::TmyInterfacedObject
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\myInterfacedObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TmyInterfacedObject" MUID: (516D4F4E0326)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  _Unknown_Parent_ = TObject;
@@ -22,8 +21,9 @@ type
 implementation
 
 uses
-  Windows
-  ;
+ l3ImplUses
+ , Windows
+;
 
 {$Include w:\common\components\rtl\Garant\L3\Unknown.imp.pas}
 

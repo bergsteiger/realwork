@@ -1,33 +1,23 @@
 unit htDataProviderParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htDataProviderParams.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtDataProviderParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htDataProviderParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataProviderParams" MUID: (54F9AF6B00DD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  dt_Types,
-  daDataProviderParams,
-  k2Base
-  ;
+ l3IntfUses
+ , daDataProviderParams
+ , dt_Types
+ , k2Base
+;
 
 type
  ThtDataProviderParams = class(TdaDataProviderParams)
- protected
- // property methods
+  protected
    function pm_GetStationName: AnsiString;
    procedure pm_SetStationName(const aValue: AnsiString);
    function pm_GetTablePath: AnsiString;
@@ -36,42 +26,107 @@ type
    procedure pm_SetTmpDirPath(const aValue: AnsiString);
    function pm_GetLockPath: AnsiString;
    procedure pm_SetLockPath(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
+   function MakePathRec: TPathRec;
    class function GetTaggedDataType: Tk2Type; override;
- public
- // overridden public methods
    procedure ChangeBasePath(const aPath: AnsiString); override;
    procedure AssignParams(aParams: TdaDataProviderParams); override;
- public
- // public methods
-   function MakePathRec: TPathRec;
- public
- // public properties
+  public
    property StationName: AnsiString
-     read pm_GetStationName
-     write pm_SetStationName;
+    read pm_GetStationName
+    write pm_SetStationName;
    property TablePath: AnsiString
-     read pm_GetTablePath
-     write pm_SetTablePath;
+    read pm_GetTablePath
+    write pm_SetTablePath;
    property TmpDirPath: AnsiString
-     read pm_GetTmpDirPath
-     write pm_SetTmpDirPath;
+    read pm_GetTmpDirPath
+    write pm_SetTmpDirPath;
    property LockPath: AnsiString
-     read pm_GetLockPath
-     write pm_SetLockPath;
+    read pm_GetLockPath
+    write pm_SetLockPath;
  end;//ThtDataProviderParams
 
 implementation
 
 uses
-  l3FileUtils,
-  ddUtils,
-  SysUtils,
-  HyTechProviderParams_Const
-  ;
+ l3ImplUses
+ , l3FileUtils
+ , ddUtils
+ , SysUtils
+ , HyTechProviderParams_Const
+;
 
-// start class ThtDataProviderParams
+function ThtDataProviderParams.pm_GetStationName: AnsiString;
+//#UC START# *818595D6D5F9_54F9AF6B00DDget_var*
+//#UC END# *818595D6D5F9_54F9AF6B00DDget_var*
+begin
+//#UC START# *818595D6D5F9_54F9AF6B00DDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *818595D6D5F9_54F9AF6B00DDget_impl*
+end;//ThtDataProviderParams.pm_GetStationName
+
+procedure ThtDataProviderParams.pm_SetStationName(const aValue: AnsiString);
+//#UC START# *818595D6D5F9_54F9AF6B00DDset_var*
+//#UC END# *818595D6D5F9_54F9AF6B00DDset_var*
+begin
+//#UC START# *818595D6D5F9_54F9AF6B00DDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *818595D6D5F9_54F9AF6B00DDset_impl*
+end;//ThtDataProviderParams.pm_SetStationName
+
+function ThtDataProviderParams.pm_GetTablePath: AnsiString;
+//#UC START# *C4877C0D468E_54F9AF6B00DDget_var*
+//#UC END# *C4877C0D468E_54F9AF6B00DDget_var*
+begin
+//#UC START# *C4877C0D468E_54F9AF6B00DDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C4877C0D468E_54F9AF6B00DDget_impl*
+end;//ThtDataProviderParams.pm_GetTablePath
+
+procedure ThtDataProviderParams.pm_SetTablePath(const aValue: AnsiString);
+//#UC START# *C4877C0D468E_54F9AF6B00DDset_var*
+//#UC END# *C4877C0D468E_54F9AF6B00DDset_var*
+begin
+//#UC START# *C4877C0D468E_54F9AF6B00DDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C4877C0D468E_54F9AF6B00DDset_impl*
+end;//ThtDataProviderParams.pm_SetTablePath
+
+function ThtDataProviderParams.pm_GetTmpDirPath: AnsiString;
+//#UC START# *98857C6A95A2_54F9AF6B00DDget_var*
+//#UC END# *98857C6A95A2_54F9AF6B00DDget_var*
+begin
+//#UC START# *98857C6A95A2_54F9AF6B00DDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *98857C6A95A2_54F9AF6B00DDget_impl*
+end;//ThtDataProviderParams.pm_GetTmpDirPath
+
+procedure ThtDataProviderParams.pm_SetTmpDirPath(const aValue: AnsiString);
+//#UC START# *98857C6A95A2_54F9AF6B00DDset_var*
+//#UC END# *98857C6A95A2_54F9AF6B00DDset_var*
+begin
+//#UC START# *98857C6A95A2_54F9AF6B00DDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *98857C6A95A2_54F9AF6B00DDset_impl*
+end;//ThtDataProviderParams.pm_SetTmpDirPath
+
+function ThtDataProviderParams.pm_GetLockPath: AnsiString;
+//#UC START# *CD710F71E829_54F9AF6B00DDget_var*
+//#UC END# *CD710F71E829_54F9AF6B00DDget_var*
+begin
+//#UC START# *CD710F71E829_54F9AF6B00DDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *CD710F71E829_54F9AF6B00DDget_impl*
+end;//ThtDataProviderParams.pm_GetLockPath
+
+procedure ThtDataProviderParams.pm_SetLockPath(const aValue: AnsiString);
+//#UC START# *CD710F71E829_54F9AF6B00DDset_var*
+//#UC END# *CD710F71E829_54F9AF6B00DDset_var*
+begin
+//#UC START# *CD710F71E829_54F9AF6B00DDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *CD710F71E829_54F9AF6B00DDset_impl*
+end;//ThtDataProviderParams.pm_SetLockPath
 
 function ThtDataProviderParams.MakePathRec: TPathRec;
 //#UC START# *55114DCA0351_54F9AF6B00DD_var*
@@ -87,66 +142,13 @@ begin
 //#UC END# *55114DCA0351_54F9AF6B00DD_impl*
 end;//ThtDataProviderParams.MakePathRec
 
-function ThtDataProviderParams.pm_GetStationName: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrStationName]);
-end;//ThtDataProviderParams.pm_GetStationName
-
-procedure ThtDataProviderParams.pm_SetStationName(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrStationName, nil] := (aValue);
-end;//ThtDataProviderParams.pm_SetStationName
-
-function ThtDataProviderParams.pm_GetTablePath: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTablePath]);
-end;//ThtDataProviderParams.pm_GetTablePath
-
-procedure ThtDataProviderParams.pm_SetTablePath(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrTablePath, nil] := (aValue);
-end;//ThtDataProviderParams.pm_SetTablePath
-
-function ThtDataProviderParams.pm_GetTmpDirPath: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTmpDirPath]);
-end;//ThtDataProviderParams.pm_GetTmpDirPath
-
-procedure ThtDataProviderParams.pm_SetTmpDirPath(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrTmpDirPath, nil] := (aValue);
-end;//ThtDataProviderParams.pm_SetTmpDirPath
-
-function ThtDataProviderParams.pm_GetLockPath: AnsiString;
- {-}
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrLockPath]);
-end;//ThtDataProviderParams.pm_GetLockPath
-
-procedure ThtDataProviderParams.pm_SetLockPath(const aValue: AnsiString);
- {-}
-begin
- TaggedData.StrW[k2_attrLockPath, nil] := (aValue);
-end;//ThtDataProviderParams.pm_SetLockPath
-
 class function ThtDataProviderParams.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_54F9AF6B00DD_var*
+//#UC END# *53AC03EE01FD_54F9AF6B00DD_var*
 begin
- Result := k2_typHyTechProviderParams;
+//#UC START# *53AC03EE01FD_54F9AF6B00DD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_54F9AF6B00DD_impl*
 end;//ThtDataProviderParams.GetTaggedDataType
 
 procedure ThtDataProviderParams.ChangeBasePath(const aPath: AnsiString);

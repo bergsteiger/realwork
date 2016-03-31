@@ -1,44 +1,31 @@
 unit htDataConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htDataConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtDataConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htDataConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataConverter" MUID: (55599B5C014A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  htInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  HT_Const
-  {$IfEnd} //not Nemesis
-  ,
-  daInterfaces,
-  daTypes,
-  l3Date
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , htInterfaces
+ {$If NOT Defined(Nemesis)}
+ , HT_Const
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daTypes
+ , l3Date
+ , daInterfaces
+;
 
 type
  ThtDataConverter = class(Tl3ProtoObject, IhtDataConverter)
- private
- // private methods
+  private
    function MakeString(aData: Pointer;
-     const aDesc: OPEL): AnsiString;
- protected
- // realized methods
+    const aDesc: OPEL): AnsiString;
+  protected
    function AllocateParamBuffer(const aDescription: IdaParamDescription): Pointer;
    procedure ParamToDataBase(const aDescription: IdaParamDescription;
     ClientBufferFormat: TdaDataType;
@@ -62,36 +49,19 @@ type
     const aDesc: OPEL): AnsiString;
    function ToByte(aData: Pointer;
     const aDesc: OPEL): Byte;
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IhtDataConverter; reintroduce;
-     {* Сигнатура фабрики ThtDataConverter.Make }
  end;//ThtDataConverter
 
 implementation
 
 uses
-  l3Base,
-  l3String,
-  SysUtils
-  ;
-
-// start class ThtDataConverter
-
-function ThtDataConverter.MakeString(aData: Pointer;
-  const aDesc: OPEL): AnsiString;
-//#UC START# *562E1BAB0090_55599B5C014A_var*
-//#UC END# *562E1BAB0090_55599B5C014A_var*
-begin
-//#UC START# *562E1BAB0090_55599B5C014A_impl*
- if aDesc.nType = ET_CHAR then
-  Result := l3ArrayToString(aData^, aDesc.wLen)
- else
-  Result := '';
-//#UC END# *562E1BAB0090_55599B5C014A_impl*
-end;//ThtDataConverter.MakeString
+ l3ImplUses
+ , l3Base
+ , l3String
+ , SysUtils
+;
 
 constructor ThtDataConverter.Create;
 //#UC START# *55599D240026_55599B5C014A_var*
@@ -112,7 +82,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtDataConverter.Make
+
+function ThtDataConverter.MakeString(aData: Pointer;
+ const aDesc: OPEL): AnsiString;
+//#UC START# *562E1BAB0090_55599B5C014A_var*
+//#UC END# *562E1BAB0090_55599B5C014A_var*
+begin
+//#UC START# *562E1BAB0090_55599B5C014A_impl*
+ if aDesc.nType = ET_CHAR then
+  Result := l3ArrayToString(aData^, aDesc.wLen)
+ else
+  Result := '';
+//#UC END# *562E1BAB0090_55599B5C014A_impl*
+end;//ThtDataConverter.MakeString
 
 function ThtDataConverter.AllocateParamBuffer(const aDescription: IdaParamDescription): Pointer;
 //#UC START# *555995210007_55599B5C014A_var*
@@ -151,9 +134,9 @@ begin
 end;//ThtDataConverter.AllocateParamBuffer
 
 procedure ThtDataConverter.ParamToDataBase(const aDescription: IdaParamDescription;
-  ClientBufferFormat: TdaDataType;
-  aClientBuffer: Pointer;
-  var aServerBuffer: Pointer);
+ ClientBufferFormat: TdaDataType;
+ aClientBuffer: Pointer;
+ var aServerBuffer: Pointer);
 //#UC START# *5559955500DF_55599B5C014A_var*
 //#UC END# *5559955500DF_55599B5C014A_var*
 begin
@@ -331,9 +314,9 @@ begin
 end;//ThtDataConverter.ParamToDataBase
 
 procedure ThtDataConverter.ParamFromDataBase(const aDescription: IdaParamDescription;
-  ClientBufferFormat: TdaDataType;
-  aServerBuffer: Pointer;
-  aClientBuffer: Pointer);
+ ClientBufferFormat: TdaDataType;
+ aServerBuffer: Pointer;
+ aClientBuffer: Pointer);
 //#UC START# *55599596005B_55599B5C014A_var*
 //#UC END# *55599596005B_55599B5C014A_var*
 begin
@@ -511,7 +494,7 @@ begin
 end;//ThtDataConverter.ParamFromDataBase
 
 procedure ThtDataConverter.FreeParamBuffer(const aDescription: IdaParamDescription;
-  aBuffer: Pointer);
+ aBuffer: Pointer);
 //#UC START# *5559D14D02D1_55599B5C014A_var*
 //#UC END# *5559D14D02D1_55599B5C014A_var*
 begin
@@ -521,7 +504,7 @@ begin
 end;//ThtDataConverter.FreeParamBuffer
 
 function ThtDataConverter.ToLargeInt(aData: Pointer;
-  const aDesc: OPEL): LargeInt;
+ const aDesc: OPEL): LargeInt;
 //#UC START# *55C89B830012_55599B5C014A_var*
 //#UC END# *55C89B830012_55599B5C014A_var*
 begin
@@ -553,7 +536,7 @@ begin
 end;//ThtDataConverter.ToLargeInt
 
 function ThtDataConverter.ToInteger(aData: Pointer;
-  const aDesc: OPEL): Integer;
+ const aDesc: OPEL): Integer;
 //#UC START# *55C89BB40093_55599B5C014A_var*
 //#UC END# *55C89BB40093_55599B5C014A_var*
 begin
@@ -585,7 +568,7 @@ begin
 end;//ThtDataConverter.ToInteger
 
 function ThtDataConverter.ToStDate(aData: Pointer;
-  const aDesc: OPEL): TStDate;
+ const aDesc: OPEL): TStDate;
 //#UC START# *55C89BC8017D_55599B5C014A_var*
 //#UC END# *55C89BC8017D_55599B5C014A_var*
 begin
@@ -617,7 +600,7 @@ begin
 end;//ThtDataConverter.ToStDate
 
 function ThtDataConverter.ToStTime(aData: Pointer;
-  const aDesc: OPEL): TStTime;
+ const aDesc: OPEL): TStTime;
 //#UC START# *55C89BDC012F_55599B5C014A_var*
 //#UC END# *55C89BDC012F_55599B5C014A_var*
 begin
@@ -649,7 +632,7 @@ begin
 end;//ThtDataConverter.ToStTime
 
 function ThtDataConverter.ToString(aData: Pointer;
-  const aDesc: OPEL): AnsiString;
+ const aDesc: OPEL): AnsiString;
 //#UC START# *55FA9B9301D7_55599B5C014A_var*
 //#UC END# *55FA9B9301D7_55599B5C014A_var*
 begin
@@ -681,7 +664,7 @@ begin
 end;//ThtDataConverter.ToString
 
 function ThtDataConverter.ToByte(aData: Pointer;
-  const aDesc: OPEL): Byte;
+ const aDesc: OPEL): Byte;
 //#UC START# *562E0F8F02F3_55599B5C014A_var*
 //#UC END# *562E0F8F02F3_55599B5C014A_var*
 begin

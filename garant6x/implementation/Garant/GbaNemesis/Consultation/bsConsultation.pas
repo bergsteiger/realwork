@@ -1,57 +1,41 @@
 unit bsConsultation;
+ {* Бизнес объект прецедента "Консультация" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation$Lib"
-// Автор: Морозов М.А
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/bsConsultation.pas"
-// Начат: 06.04.2006 17.27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::Consultation$Lib::ConsultationDomain::TbsConsultation
-//
-// Бизнес объект прецедента "Консультация"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsConsultation" MUID: (49228BA50210)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ConsultingUnit,
-  DocumentUnit,
-  l3Types,
-  l3SimpleObject,
-  bsTypes,
-  ConsultationDomainInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , ConsultationDomainInterfaces
+ , l3Types
+ , bsTypes
+ , ConsultingUnit
+ , DocumentUnit
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsConsultation = class(Tl3SimpleObject, IbsConsultation)
   {* Бизнес объект прецедента "Консультация" }
- private
- // private fields
-   f_IsRefusedOldFormat : Tl3Bool;
-    {* отклоненная консультация старого формата}
-   f_IsStatusChached : Boolean;
-   f_Text : IDocument;
-   f_CachedStatuses : TbsConsultationStatuses;
-    {* Поле для свойства CachedStatuses}
-   f_Consultation : IConsultation;
-    {* Поле для свойства Consultation}
- protected
- // realized methods
+  private
+   f_IsRefusedOldFormat: Tl3Bool;
+    {* отклоненная консультация старого формата }
+   f_IsStatusChached: Boolean;
+   f_Text: IDocument;
+   f_CachedStatuses: TbsConsultationStatuses;
+    {* Поле для свойства CachedStatuses }
+   f_Consultation: IConsultation;
+    {* Поле для свойства Consultation }
+  protected
    procedure RefreshText;
-     {* обновить текст. Необхоидимо при изменении состояния консультации }
+    {* обновить текст. Необхоидимо при изменении состояния консультации }
    function pm_GetStatus: TbsConsultationStatuses;
    function pm_GetIsStatusChached: Boolean;
    procedure pm_SetIsStatusChached(aValue: Boolean);
@@ -62,43 +46,34 @@ type
    function pm_GetWasModified: SysDateTime;
    function pm_GetCaption: Il3CString;
    function pm_GetText: IDocument;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aConsultation: IConsultation); reintroduce;
    class function Make(const aConsultation: IConsultation): IbsConsultation; reintroduce;
- protected
- // protected properties
+  protected
    property CachedStatuses: TbsConsultationStatuses
-     read f_CachedStatuses
-     write f_CachedStatuses;
-     {* кешированный статус, на время открытия консультации }
+    read f_CachedStatuses
+    write f_CachedStatuses;
+    {* кешированный статус, на время открытия консультации }
    property Consultation: IConsultation
-     read f_Consultation
-     write f_Consultation;
+    read f_Consultation
+    write f_Consultation;
  end;//TbsConsultation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  IOUnit,
-  BaseTypesUnit,
-  bsConvert,
-  nsTypes,
-  bsUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsConsultation
+ l3ImplUses
+ , IOUnit
+ , BaseTypesUnit
+ , bsConvert
+ , nsTypes
+ , bsUtils
+;
 
 constructor TbsConsultation.Create(const aConsultation: IConsultation);
 //#UC START# *498FFACA0046_49228BA50210_var*
@@ -121,9 +96,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsConsultation.Make
 
 procedure TbsConsultation.RefreshText;
+ {* обновить текст. Необхоидимо при изменении состояния консультации }
 //#UC START# *491C42400193_49228BA50210_var*
 //#UC END# *491C42400193_49228BA50210_var*
 begin
@@ -317,6 +293,7 @@ begin
 end;//TbsConsultation.pm_GetText
 
 procedure TbsConsultation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49228BA50210_var*
 //#UC END# *479731C50290_49228BA50210_var*
 begin
@@ -329,14 +306,10 @@ begin
 end;//TbsConsultation.Cleanup
 
 procedure TbsConsultation.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  Consultation := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TbsConsultation.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

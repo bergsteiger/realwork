@@ -1,113 +1,74 @@
 unit l3VersionInfoService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3VersionInfoService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3::VersionInfo::Tl3VersionInfoService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3VersionInfoService.pas"
+// Стереотип: "Service"
+// Элемент модели: "Tl3VersionInfoService" MUID: (55DDCF7C004A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+;
 
-(*
- Ml3VersionInfoService = PureMixIn
+ (*
+ Ml3VersionInfoService = interface
   {* Контракт сервиса Tl3VersionInfoService }
-   function VersionInfo: AnsiString;
+  function VersionInfo: AnsiString;
  end;//Ml3VersionInfoService
-*)
+ *)
 
 type
- Il3VersionInfoService = interface(IUnknown)
+ Il3VersionInfoService = interface
   {* Интерфейс сервиса Tl3VersionInfoService }
-   ['{FC342D5B-DACB-416A-AC66-742EECFB5B6A}']
-  // Ml3VersionInfoService
-   function VersionInfo: AnsiString;
+  ['{FC342D5B-DACB-416A-AC66-742EECFB5B6A}']
+  function VersionInfo: AnsiString;
  end;//Il3VersionInfoService
 
  Tl3VersionInfoService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3VersionInfoService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3VersionInfoService;
+    {* Внешняя реализация сервиса Il3VersionInfoService }
+  protected
    procedure pm_SetAlien(const aValue: Il3VersionInfoService);
- public
- // realized methods
-   function VersionInfo: AnsiString;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3VersionInfoService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3VersionInfoService }
- public
- // singleton factory method
+  public
+   function VersionInfo: AnsiString;
    class function Instance: Tl3VersionInfoService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3VersionInfoService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: Il3VersionInfoService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3VersionInfoService }
  end;//Tl3VersionInfoService
 
 implementation
 
 uses
-  l3Base {a},
-  vtVerInf,
-  SysUtils
-  ;
+ l3ImplUses
+ , vtVerInf
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3VersionInfoService
-
-var g_Tl3VersionInfoService : Tl3VersionInfoService = nil;
+var g_Tl3VersionInfoService: Tl3VersionInfoService = nil;
+ {* Экземпляр синглетона Tl3VersionInfoService }
 
 procedure Tl3VersionInfoServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3VersionInfoService }
 begin
  l3Free(g_Tl3VersionInfoService);
-end;
-
-class function Tl3VersionInfoService.Instance: Tl3VersionInfoService;
-begin
- if (g_Tl3VersionInfoService = nil) then
- begin
-  l3System.AddExitProc(Tl3VersionInfoServiceFree);
-  g_Tl3VersionInfoService := Create;
- end;
- Result := g_Tl3VersionInfoService;
-end;
-
+end;//Tl3VersionInfoServiceFree
 
 procedure Tl3VersionInfoService.pm_SetAlien(const aValue: Il3VersionInfoService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3VersionInfoService.pm_SetAlien
-
-class function Tl3VersionInfoService.Exists: Boolean;
- {-}
-begin
- Result := g_Tl3VersionInfoService <> nil;
-end;//Tl3VersionInfoService.Exists
 
 function Tl3VersionInfoService.VersionInfo: AnsiString;
 //#UC START# *30F5EA5AF6DF_55DDCF7C004A_var*
@@ -133,8 +94,24 @@ begin
 //#UC END# *30F5EA5AF6DF_55DDCF7C004A_impl*
 end;//Tl3VersionInfoService.VersionInfo
 
+class function Tl3VersionInfoService.Instance: Tl3VersionInfoService;
+ {* Метод получения экземпляра синглетона Tl3VersionInfoService }
+begin
+ if (g_Tl3VersionInfoService = nil) then
+ begin
+  l3System.AddExitProc(Tl3VersionInfoServiceFree);
+  g_Tl3VersionInfoService := Create;
+ end;
+ Result := g_Tl3VersionInfoService;
+end;//Tl3VersionInfoService.Instance
+
+class function Tl3VersionInfoService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3VersionInfoService <> nil;
+end;//Tl3VersionInfoService.Exists
+
 procedure Tl3VersionInfoService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

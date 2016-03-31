@@ -1,51 +1,34 @@
 unit f1DocumentTagDataFromDTP;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1DocumentTagDataFromDTP.pas"
-// Начат: 23.08.2010 17:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::Tf1DocumentTagDataFromDTP
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1DocumentTagDataFromDTP.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1DocumentTagDataFromDTP" MUID: (4C727C990284)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit,
-  F1TagDataProviderInterface,
-  f1TagDataFromDTP,
-  IOUnit,
-  l3Interfaces,
-  k2Base,
-  nevBase,
-  l3Variant
-  ;
+ l3IntfUses
+ , f1TagDataFromDTP
+ , F1TagDataProviderInterface
+ , DocumentUnit
+;
 
 type
  Tf1DocumentTagDataFromDTP = class(Tf1ListTagDataFromDTPPrim)
- protected
- // realized methods
+  protected
    function GetChildID: TChildID; override;
    function GetParentLayerID: DTPLayerID; override;
- public
- // public methods
+  public
    class function Make(const aProvider: IDocumentTextProvider): If1TagDataProvider; reintroduce;
-     {* Сигнатура фабрики Tf1DocumentTagDataFromDTP.Make }
  end;//Tf1DocumentTagDataFromDTP
 
 implementation
 
-// start class Tf1DocumentTagDataFromDTP
+uses
+ l3ImplUses
+;
 
 class function Tf1DocumentTagDataFromDTP.Make(const aProvider: IDocumentTextProvider): If1TagDataProvider;
 var
@@ -57,7 +40,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tf1DocumentTagDataFromDTP.Make
 
 function Tf1DocumentTagDataFromDTP.GetChildID: TChildID;
 //#UC START# *4C7281C90170_4C727C990284_var*

@@ -1,40 +1,27 @@
 unit atBaseSearchOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atBaseSearchOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatBaseSearchOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atBaseSearchOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatBaseSearchOperation" MUID: (483D28C30393)
 
 interface
 
 uses
-  atOperationBase,
-  atBaseSearchHelper,
-  atStringProvider
-  ;
+ l3IntfUses
+ , atOperationBase
+ , atBaseSearchHelper
+ , atStringProvider
+;
 
 type
  _atHasStringParamAddOn_Parent_ = TatOperationBase;
- {$Include ..\Operations\atHasStringParamAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
  TatBaseSearchOperation = class(_atHasStringParamAddOn_)
- private
- // private fields
-   f_SearchNumber : Integer;
-   f_BaseSearchHelper : TatBaseSearchHelper;
- protected
- // realized methods
+  private
+   f_SearchNumber: Integer;
+   f_BaseSearchHelper: TatBaseSearchHelper;
+  protected
    function OnString(const aString: AnsiString): Boolean; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteSelf; override;
    procedure ExecuteChilds; override;
@@ -43,16 +30,15 @@ type
 implementation
 
 uses
-  SysUtils,
-  atLogger,
-  atSyncedStringFileReader,
-  atStringFileReader,
-  atConstStringProvider
-  ;
+ l3ImplUses
+ , SysUtils
+ , atLogger
+ , atSyncedStringFileReader
+ , atStringFileReader
+ , atConstStringProvider
+;
 
-{$Include ..\Operations\atHasStringParamAddOn.imp.pas}
-
-// start class TatBaseSearchOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
 
 function TatBaseSearchOperation.OnString(const aString: AnsiString): Boolean;
 //#UC START# *503648620273_483D28C30393_var*

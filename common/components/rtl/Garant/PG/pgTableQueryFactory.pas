@@ -1,46 +1,32 @@
 unit pgTableQueryFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgTableQueryFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgTableQueryFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgTableQueryFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgTableQueryFactory" MUID: (55F81B3F024D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  pgInterfaces,
-  pgConnection,
-  daTypes
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , pgInterfaces
+ , pgConnection
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TpgTableQueryFactory = class(Tl3ProtoObject, IdaTableQueryFactory)
- private
- // private fields
-   f_DataConverter : IpgDataConverter;
-   f_Connection : TpgConnection;
-   f_UserNameQuery : IdaTabledQuery;
- private
- // private methods
+  private
+   f_DataConverter: IpgDataConverter;
+   f_Connection: TpgConnection;
+   f_UserNameQuery: IdaTabledQuery;
+  private
    function UserNameQuery: IdaTabledQuery;
- protected
- // realized methods
+  protected
    function MakeTabledQuery(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaTabledQuery;
    function MakeSelectField(const aTableAlias: AnsiString;
@@ -59,39 +45,56 @@ type
     const aField: IdaFieldDescription;
     const aQuery: IdaTabledQuery): IdaCondition;
    function MakeSortField(const aSelectField: IdaSelectField;
-    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
- protected
- // overridden protected methods
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataConverter: IpgDataConverter;
-     aConnection: TpgConnection); reintroduce;
+    aConnection: TpgConnection); reintroduce;
    class function Make(const aDataConverter: IpgDataConverter;
-     aConnection: TpgConnection): IdaTableQueryFactory; reintroduce;
-     {* Сигнатура фабрики TpgTableQueryFactory.Make }
+    aConnection: TpgConnection): IdaTableQueryFactory; reintroduce;
  end;//TpgTableQueryFactory
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daSelectField,
-  daParamsCondition,
-  pgTabledQuery,
-  daScheme,
-  SysUtils,
-  daLogicCondition,
-  daSubQueryCondition,
-  daSortField
-  ;
-{$IfEnd} //UsePostgres
+ l3ImplUses
+ , daSelectField
+ , daParamsCondition
+ , pgTabledQuery
+ , daScheme
+ , SysUtils
+ , daLogicCondition
+ , daSubQueryCondition
+ , daSortField
+;
 
-{$If defined(UsePostgres)}
+constructor TpgTableQueryFactory.Create(const aDataConverter: IpgDataConverter;
+ aConnection: TpgConnection);
+//#UC START# *55F81B5C029C_55F81B3F024D_var*
+//#UC END# *55F81B5C029C_55F81B3F024D_var*
+begin
+//#UC START# *55F81B5C029C_55F81B3F024D_impl*
+ inherited Create;
+ f_DataConverter := aDataConverter;
+ aConnection.SetRefTo(f_Connection);
+//#UC END# *55F81B5C029C_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.Create
 
-// start class TpgTableQueryFactory
+class function TpgTableQueryFactory.Make(const aDataConverter: IpgDataConverter;
+ aConnection: TpgConnection): IdaTableQueryFactory;
+var
+ l_Inst : TpgTableQueryFactory;
+begin
+ l_Inst := Create(aDataConverter, aConnection);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TpgTableQueryFactory.Make
 
 function TpgTableQueryFactory.UserNameQuery: IdaTabledQuery;
 //#UC START# *56F11DEF037F_55F81B3F024D_var*
@@ -109,33 +112,8 @@ begin
 //#UC END# *56F11DEF037F_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.UserNameQuery
 
-constructor TpgTableQueryFactory.Create(const aDataConverter: IpgDataConverter;
-  aConnection: TpgConnection);
-//#UC START# *55F81B5C029C_55F81B3F024D_var*
-//#UC END# *55F81B5C029C_55F81B3F024D_var*
-begin
-//#UC START# *55F81B5C029C_55F81B3F024D_impl*
- inherited Create;
- f_DataConverter := aDataConverter;
- aConnection.SetRefTo(f_Connection);
-//#UC END# *55F81B5C029C_55F81B3F024D_impl*
-end;//TpgTableQueryFactory.Create
-
-class function TpgTableQueryFactory.Make(const aDataConverter: IpgDataConverter;
-  aConnection: TpgConnection): IdaTableQueryFactory;
-var
- l_Inst : TpgTableQueryFactory;
-begin
- l_Inst := Create(aDataConverter, aConnection);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 function TpgTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaTabledQuery;
+ const anAlias: AnsiString = ''): IdaTabledQuery;
 //#UC START# *5549C65D038D_55F81B3F024D_var*
 //#UC END# *5549C65D038D_55F81B3F024D_var*
 begin
@@ -145,8 +123,8 @@ begin
 end;//TpgTableQueryFactory.MakeTabledQuery
 
 function TpgTableQueryFactory.MakeSelectField(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const anAlias: AnsiString = ''): IdaSelectField;
+ const aField: IdaFieldDescription;
+ const anAlias: AnsiString = ''): IdaSelectField;
 //#UC START# *559B80BD00A8_55F81B3F024D_var*
 //#UC END# *559B80BD00A8_55F81B3F024D_var*
 begin
@@ -156,9 +134,9 @@ begin
 end;//TpgTableQueryFactory.MakeSelectField
 
 function TpgTableQueryFactory.MakeParamsCondition(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  anOperation: TdaCompareOperation;
-  const aParamName: AnsiString): IdaCondition;
+ const aField: IdaFieldDescription;
+ anOperation: TdaCompareOperation;
+ const aParamName: AnsiString): IdaCondition;
 //#UC START# *559B810003CF_55F81B3F024D_var*
 //#UC END# *559B810003CF_55F81B3F024D_var*
 begin
@@ -194,8 +172,8 @@ begin
 end;//TpgTableQueryFactory.Get_DataConverter
 
 function TpgTableQueryFactory.MakeLogicCondition(const aLeft: IdaCondition;
-  anOperation: TdaLogicOperation;
-  const aRight: IdaCondition): IdaCondition;
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition): IdaCondition;
 //#UC START# *56405475021D_55F81B3F024D_var*
 //#UC END# *56405475021D_55F81B3F024D_var*
 begin
@@ -205,8 +183,8 @@ begin
 end;//TpgTableQueryFactory.MakeLogicCondition
 
 function TpgTableQueryFactory.MakeSubQueryCondition(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const aQuery: IdaTabledQuery): IdaCondition;
+ const aField: IdaFieldDescription;
+ const aQuery: IdaTabledQuery): IdaCondition;
 //#UC START# *5641E5DB02C3_55F81B3F024D_var*
 //#UC END# *5641E5DB02C3_55F81B3F024D_var*
 begin
@@ -216,7 +194,7 @@ begin
 end;//TpgTableQueryFactory.MakeSubQueryCondition
 
 function TpgTableQueryFactory.MakeSortField(const aSelectField: IdaSelectField;
-  aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
 //#UC START# *56811844032C_55F81B3F024D_var*
 //#UC END# *56811844032C_55F81B3F024D_var*
 begin
@@ -226,6 +204,7 @@ begin
 end;//TpgTableQueryFactory.MakeSortField
 
 procedure TpgTableQueryFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55F81B3F024D_var*
 //#UC END# *479731C50290_55F81B3F024D_var*
 begin
@@ -236,7 +215,6 @@ begin
  inherited;
 //#UC END# *479731C50290_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

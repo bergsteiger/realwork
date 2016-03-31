@@ -1,62 +1,41 @@
 unit nsFiltersRootNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersRootNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::Impl::TnsFiltersRootNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersRootNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersRootNode" MUID: (5061DE4402FD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsFiltersInterfaces,
-  l3NodesModelPart,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3NodesModelPart
+ , nsFiltersInterfaces
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersRootNode = class(Tl3PlaceNode, InsFilterRootNode)
- private
- // private fields
-   f_FiltersType : TnsFiltersType;
- protected
- // realized methods
+  private
+   f_FiltersType: TnsFiltersType;
+  protected
    function Get_FiltersType: TnsFiltersType;
- protected
- // overridden protected methods
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
- public
- // public methods
+  public
    constructor Create(aFiltersType: TnsFiltersType); reintroduce;
    class function Make(aFiltersType: TnsFiltersType): InsFilterRootNode; reintroduce;
-     {* Сигнатура фабрики TnsFiltersRootNode.Make }
  end;//TnsFiltersRootNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFiltersRootNode
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TnsFiltersRootNode.Create(aFiltersType: TnsFiltersType);
 //#UC START# *5061DE910095_5061DE4402FD_var*
@@ -78,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFiltersRootNode.Make
 
 function TnsFiltersRootNode.Get_FiltersType: TnsFiltersType;
 //#UC START# *5061DE2D0275_5061DE4402FDget_var*
@@ -101,7 +80,6 @@ begin
   Result := l_FilterRootNode.FiltersType = f_FiltersType; 
 //#UC END# *54C78D9201B9_5061DE4402FD_impl*
 end;//TnsFiltersRootNode.GetIsSame
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

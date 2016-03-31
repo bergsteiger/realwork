@@ -1,35 +1,23 @@
 unit csMdpSyncDicts;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csMdpSyncDicts.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsMdpSyncDicts
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csMdpSyncDicts.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsMdpSyncDicts" MUID: (55E9759603C8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsMdpSyncDicts = class(TddProcessTask)
- protected
- // property methods
+  protected
    function pm_GetSyncFolderMask: AnsiString;
    procedure pm_SetSyncFolderMask(const aValue: AnsiString);
    function pm_GetGuardName: AnsiString;
@@ -46,168 +34,196 @@ type
    procedure pm_SetProxyLogin(const aValue: AnsiString);
    function pm_GetProxyPassword: AnsiString;
    procedure pm_SetProxyPassword(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property SyncFolderMask: AnsiString
-     read pm_GetSyncFolderMask
-     write pm_SetSyncFolderMask;
+    read pm_GetSyncFolderMask
+    write pm_SetSyncFolderMask;
    property GuardName: AnsiString
-     read pm_GetGuardName
-     write pm_SetGuardName;
+    read pm_GetGuardName
+    write pm_SetGuardName;
    property SyncURL: AnsiString
-     read pm_GetSyncURL
-     write pm_SetSyncURL;
+    read pm_GetSyncURL
+    write pm_SetSyncURL;
    property UseProxy: Boolean
-     read pm_GetUseProxy
-     write pm_SetUseProxy;
+    read pm_GetUseProxy
+    write pm_SetUseProxy;
    property ProxyServer: AnsiString
-     read pm_GetProxyServer
-     write pm_SetProxyServer;
+    read pm_GetProxyServer
+    write pm_SetProxyServer;
    property ProxyPort: Integer
-     read pm_GetProxyPort
-     write pm_SetProxyPort;
+    read pm_GetProxyPort
+    write pm_SetProxyPort;
    property ProxyLogin: AnsiString
-     read pm_GetProxyLogin
-     write pm_SetProxyLogin;
+    read pm_GetProxyLogin
+    write pm_SetProxyLogin;
    property ProxyPassword: AnsiString
-     read pm_GetProxyPassword
-     write pm_SetProxyPassword;
+    read pm_GetProxyPassword
+    write pm_SetProxyPassword;
  end;//TcsMdpSyncDicts
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  mdpSyncDicts_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsMdpSyncDicts
+ l3ImplUses
+ , mdpSyncDicts_Const
+;
 
 function TcsMdpSyncDicts.pm_GetSyncFolderMask: AnsiString;
- {-}
+//#UC START# *16FBD314D238_55E9759603C8get_var*
+//#UC END# *16FBD314D238_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrSyncFolderMask]);
+//#UC START# *16FBD314D238_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *16FBD314D238_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetSyncFolderMask
 
 procedure TcsMdpSyncDicts.pm_SetSyncFolderMask(const aValue: AnsiString);
- {-}
+//#UC START# *16FBD314D238_55E9759603C8set_var*
+//#UC END# *16FBD314D238_55E9759603C8set_var*
 begin
- TaggedData.StrW[k2_attrSyncFolderMask, nil] := (aValue);
+//#UC START# *16FBD314D238_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *16FBD314D238_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetSyncFolderMask
 
 function TcsMdpSyncDicts.pm_GetGuardName: AnsiString;
- {-}
+//#UC START# *D4FBD6A22E70_55E9759603C8get_var*
+//#UC END# *D4FBD6A22E70_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrGuardName]);
+//#UC START# *D4FBD6A22E70_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D4FBD6A22E70_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetGuardName
 
 procedure TcsMdpSyncDicts.pm_SetGuardName(const aValue: AnsiString);
- {-}
+//#UC START# *D4FBD6A22E70_55E9759603C8set_var*
+//#UC END# *D4FBD6A22E70_55E9759603C8set_var*
 begin
- TaggedData.StrW[k2_attrGuardName, nil] := (aValue);
+//#UC START# *D4FBD6A22E70_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D4FBD6A22E70_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetGuardName
 
 function TcsMdpSyncDicts.pm_GetSyncURL: AnsiString;
- {-}
+//#UC START# *9DF75D4438F1_55E9759603C8get_var*
+//#UC END# *9DF75D4438F1_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrSyncURL]);
+//#UC START# *9DF75D4438F1_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *9DF75D4438F1_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetSyncURL
 
 procedure TcsMdpSyncDicts.pm_SetSyncURL(const aValue: AnsiString);
- {-}
+//#UC START# *9DF75D4438F1_55E9759603C8set_var*
+//#UC END# *9DF75D4438F1_55E9759603C8set_var*
 begin
- TaggedData.StrW[k2_attrSyncURL, nil] := (aValue);
+//#UC START# *9DF75D4438F1_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *9DF75D4438F1_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetSyncURL
 
 function TcsMdpSyncDicts.pm_GetUseProxy: Boolean;
- {-}
+//#UC START# *D92CA5B3B8A7_55E9759603C8get_var*
+//#UC END# *D92CA5B3B8A7_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.BoolA[k2_attrUseProxy]);
+//#UC START# *D92CA5B3B8A7_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D92CA5B3B8A7_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetUseProxy
 
 procedure TcsMdpSyncDicts.pm_SetUseProxy(aValue: Boolean);
- {-}
+//#UC START# *D92CA5B3B8A7_55E9759603C8set_var*
+//#UC END# *D92CA5B3B8A7_55E9759603C8set_var*
 begin
- TaggedData.BoolW[k2_attrUseProxy, nil] := (aValue);
+//#UC START# *D92CA5B3B8A7_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D92CA5B3B8A7_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetUseProxy
 
 function TcsMdpSyncDicts.pm_GetProxyServer: AnsiString;
- {-}
+//#UC START# *5C6536AC5DA7_55E9759603C8get_var*
+//#UC END# *5C6536AC5DA7_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrProxyServer]);
+//#UC START# *5C6536AC5DA7_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5C6536AC5DA7_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetProxyServer
 
 procedure TcsMdpSyncDicts.pm_SetProxyServer(const aValue: AnsiString);
- {-}
+//#UC START# *5C6536AC5DA7_55E9759603C8set_var*
+//#UC END# *5C6536AC5DA7_55E9759603C8set_var*
 begin
- TaggedData.StrW[k2_attrProxyServer, nil] := (aValue);
+//#UC START# *5C6536AC5DA7_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5C6536AC5DA7_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetProxyServer
 
 function TcsMdpSyncDicts.pm_GetProxyPort: Integer;
- {-}
+//#UC START# *57AD1EB5E0FD_55E9759603C8get_var*
+//#UC END# *57AD1EB5E0FD_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrProxyPort]);
+//#UC START# *57AD1EB5E0FD_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57AD1EB5E0FD_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetProxyPort
 
 procedure TcsMdpSyncDicts.pm_SetProxyPort(aValue: Integer);
- {-}
+//#UC START# *57AD1EB5E0FD_55E9759603C8set_var*
+//#UC END# *57AD1EB5E0FD_55E9759603C8set_var*
 begin
- TaggedData.IntW[k2_attrProxyPort, nil] := (aValue);
+//#UC START# *57AD1EB5E0FD_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57AD1EB5E0FD_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetProxyPort
 
 function TcsMdpSyncDicts.pm_GetProxyLogin: AnsiString;
- {-}
+//#UC START# *D6864A19541F_55E9759603C8get_var*
+//#UC END# *D6864A19541F_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrProxyLogin]);
+//#UC START# *D6864A19541F_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D6864A19541F_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetProxyLogin
 
 procedure TcsMdpSyncDicts.pm_SetProxyLogin(const aValue: AnsiString);
- {-}
+//#UC START# *D6864A19541F_55E9759603C8set_var*
+//#UC END# *D6864A19541F_55E9759603C8set_var*
 begin
- TaggedData.StrW[k2_attrProxyLogin, nil] := (aValue);
+//#UC START# *D6864A19541F_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D6864A19541F_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetProxyLogin
 
 function TcsMdpSyncDicts.pm_GetProxyPassword: AnsiString;
- {-}
+//#UC START# *DF2F64FF9209_55E9759603C8get_var*
+//#UC END# *DF2F64FF9209_55E9759603C8get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrProxyPassword]);
+//#UC START# *DF2F64FF9209_55E9759603C8get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *DF2F64FF9209_55E9759603C8get_impl*
 end;//TcsMdpSyncDicts.pm_GetProxyPassword
 
 procedure TcsMdpSyncDicts.pm_SetProxyPassword(const aValue: AnsiString);
- {-}
+//#UC START# *DF2F64FF9209_55E9759603C8set_var*
+//#UC END# *DF2F64FF9209_55E9759603C8set_var*
 begin
- TaggedData.StrW[k2_attrProxyPassword, nil] := (aValue);
+//#UC START# *DF2F64FF9209_55E9759603C8set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *DF2F64FF9209_55E9759603C8set_impl*
 end;//TcsMdpSyncDicts.pm_SetProxyPassword
 
 class function TcsMdpSyncDicts.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_55E9759603C8_var*
+//#UC END# *53AC03EE01FD_55E9759603C8_var*
 begin
- Result := k2_typmdpSyncDicts;
+//#UC START# *53AC03EE01FD_55E9759603C8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_55E9759603C8_impl*
 end;//TcsMdpSyncDicts.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

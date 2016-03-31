@@ -22,7 +22,7 @@ uses
 ;
 
 type
- TFiltersModule = class
+ TFiltersModule = class(TvcmModule)
   public
    procedure FiltersOpen(const aData: IucpFilters);
    procedure OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;
@@ -49,6 +49,7 @@ uses
  , deFilter
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TFiltersModule.FiltersOpen(const aData: IucpFilters);
 //#UC START# *4AC09F1D0356_4CCAA9E50274_var*
 //#UC END# *4AC09F1D0356_4CCAA9E50274_var*
@@ -115,6 +116,7 @@ begin
  end;
 //#UC END# *4CB6AFEE024B_4CCAA9E50274_impl*
 end;//TFiltersModule.RenameFilter
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

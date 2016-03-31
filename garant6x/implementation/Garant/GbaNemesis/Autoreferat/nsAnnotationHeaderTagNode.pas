@@ -1,72 +1,51 @@
 unit nsAnnotationHeaderTagNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Autoreferat"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Autoreferat/nsAnnotationHeaderTagNode.pas"
-// Начат: 02.03.2011 12:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::Autoreferat::Autoreferat::Autoreferat::TnsAnnotationHeaderTagNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAnnotationHeaderTagNode" MUID: (4D6E0C4A001F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nsF1DocumentTagNode,
-  l3Variant
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsF1DocumentTagNode
+ , DocumentUnit
+ , l3Variant
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsAnnotationHeaderTagNode = class(TnsF1DocumentTagNode)
- protected
- // overridden property methods
-   function pm_GetChildrenCount: Integer; override;
- protected
- // overridden protected methods
+  protected
    function NodeChildrenCount: Integer; override;
- public
- // public methods
+   function pm_GetChildrenCount: Integer; override;
+  public
    constructor Create(anIndex: Integer;
-     aLeafCount: Integer;
-     const aDoc: IDocument;
-     anAnno: Tl3Tag); reintroduce;
+    aLeafCount: Integer;
+    const aDoc: IDocument;
+    anAnno: Tl3Tag); reintroduce;
    class function Make(anIndex: Integer;
-     aLeafCount: Integer;
-     const aDoc: IDocument;
-     anAnno: Tl3Tag): Il3TagRef;
+    aLeafCount: Integer;
+    const aDoc: IDocument;
+    anAnno: Tl3Tag): Il3TagRef;
  end;//TnsAnnotationHeaderTagNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsAnnotationHeaderTagData,
-  k2Tags
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsAnnotationHeaderTagNode
+ l3ImplUses
+ , nsAnnotationHeaderTagData
+ , k2Tags
+;
 
 constructor TnsAnnotationHeaderTagNode.Create(anIndex: Integer;
-  aLeafCount: Integer;
-  const aDoc: IDocument;
-  anAnno: Tl3Tag);
+ aLeafCount: Integer;
+ const aDoc: IDocument;
+ anAnno: Tl3Tag);
 //#UC START# *4D6E0CA20143_4D6E0C4A001F_var*
 //#UC END# *4D6E0CA20143_4D6E0C4A001F_var*
 begin
@@ -78,9 +57,9 @@ begin
 end;//TnsAnnotationHeaderTagNode.Create
 
 class function TnsAnnotationHeaderTagNode.Make(anIndex: Integer;
-  aLeafCount: Integer;
-  const aDoc: IDocument;
-  anAnno: Tl3Tag): Il3TagRef;
+ aLeafCount: Integer;
+ const aDoc: IDocument;
+ anAnno: Tl3Tag): Il3TagRef;
 //#UC START# *4D6E0CDD033D_4D6E0C4A001F_var*
 var
  l_Inst : TnsAnnotationHeaderTagNode;
@@ -115,7 +94,6 @@ begin
  Result := BaseChildrenCount;
 //#UC END# *5335815D03DC_4D6E0C4A001Fget_impl*
 end;//TnsAnnotationHeaderTagNode.pm_GetChildrenCount
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

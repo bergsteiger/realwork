@@ -1,69 +1,46 @@
 unit ncsTransporterThread;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTransporterThread.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsTransporterThread
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTransporterThread.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsTransporterThread" MUID: (5452248C02B8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base,
-  ncsMessageQueue
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3Base
+ , ncsMessageQueue
+;
 
-{$If not defined(Nemesis)}
 type
  TncsTransporterThread = class(Tl3ThreadContainer)
- private
- // private fields
-   f_Queue : TncsMessageQueue;
-    {* Поле для свойства Queue}
- protected
- // realized methods
-   procedure DoExecute; override;
-     {* основная процедура нити. Для перекрытия в потомках }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+  private
+   f_Queue: TncsMessageQueue;
+    {* Поле для свойства Queue }
+  protected
    function TerminatedConnection: Boolean; virtual;
- public
- // public methods
+   procedure DoExecute; override;
+    {* основная процедура нити. Для перекрытия в потомках }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(anQueue: TncsMessageQueue); reintroduce;
- protected
- // protected properties
+  protected
    property Queue: TncsMessageQueue
-     read f_Queue;
+    read f_Queue;
  end;//TncsTransporterThread
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsTransporterThread
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TncsTransporterThread.Create(anQueue: TncsMessageQueue);
 //#UC START# *5450EAAA0367_5452248C02B8_var*
@@ -85,6 +62,7 @@ begin
 end;//TncsTransporterThread.TerminatedConnection
 
 procedure TncsTransporterThread.DoExecute;
+ {* основная процедура нити. Для перекрытия в потомках }
 //#UC START# *4911B69E037D_5452248C02B8_var*
 //#UC END# *4911B69E037D_5452248C02B8_var*
 begin
@@ -94,6 +72,7 @@ begin
 end;//TncsTransporterThread.DoExecute
 
 procedure TncsTransporterThread.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5452248C02B8_var*
 //#UC END# *479731C50290_5452248C02B8_var*
 begin
@@ -102,7 +81,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_5452248C02B8_impl*
 end;//TncsTransporterThread.Cleanup
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

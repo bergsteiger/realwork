@@ -1,192 +1,172 @@
 unit m3CustomNewStorage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3CustomNewStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3CustomNewStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3CustomNewStorage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CustomNewStorage" MUID: (5451095F00E9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  ActiveX,
-  m3StorageInterfaces,
-  l3_String,
-  m3StoreHeaderDataPrim,
-  m3StoreHeader,
-  m3CommonStorage,
-  m3NewStoragePrim,
-  m3RootStreamManagerPrim
-  ;
+ l3IntfUses
+ , m3NewStoragePrim
+ , m3StorageInterfaces
+ , m3CommonStorage
+ , l3Interfaces
+ , l3_String
+ , ActiveX
+ , m3StoreHeader
+ , m3RootStreamManagerPrim
+;
 
 type
  Tm3CustomNewStorage = {abstract} class(Tm3NewStoragePrim, Im3IndexedStorage)
- protected
- // realized methods
+  protected
+   function FindItemByIndex(anIndex: Tm3StoreElementIndex;
+    aStoreType: Tm3StoreType;
+    anOp: Tm3StoreOperation;
+    out thePosition: Int64;
+    theStoreType: Pm3StoreType = nil): Boolean;
+   function FindItemByName(const aName: Tl3WString;
+    anOp: Tm3StoreOperation;
+    out theStoreInfo: Tm3StoreInfo): Boolean;
+   function IsValidOpenMode(aMode: Integer): Boolean; virtual;
+   function IsValidCreateMode(aMode: Integer): Boolean;
+   procedure RemoveElementByName(aName: Tl3_String;
+    const aStoreInfo: Tm3StoreInfo);
+   procedure RemoveElementByTOCIndex(anIndex: Integer);
+   function CreateOpenStoreByName(const aStoreInfo: Tm3StoreInfo;
+    anAccess: Tm3StoreAccess;
+    aName: Tl3_String;
+    aMode: Tm3StoreMode;
+    aUseCompression: Boolean): Tm3Store; overload; virtual;
+   function CreateOpenStoreByName(const aStoreInfo: Tm3StorageElementInfo;
+    anAccess: Tm3StoreAccess;
+    aMode: Tm3StoreMode;
+    aUseCompression: Boolean): Tm3Store; overload;
+   function CreateOpenStoreByIndex(const aStoreInfo: Tm3StoreInfo;
+    anAccess: Tm3StoreAccess;
+    anIndex: Tm3StoreElementIndex;
+    aMode: Tm3StoreMode;
+    aUseCompression: Boolean): Tm3Store;
+   function SaveTableOfContentsPrim(const aStream: IStream): Int64;
+   function As_IStorage: IStorage;
+    {* Метод приведения нашего интерфейса к IStorage }
    function SetIndexParam(aBits: byte;
     aMaxBits: byte): Boolean;
-     {* устанавливает параметры "размазывания" индекса. }
+    {* устанавливает параметры "размазывания" индекса. }
    function DeleteStore(anIndex: Tm3StoreElementIndex): hResult;
-     {* удаляет элемент хранилища. }
+    {* удаляет элемент хранилища. }
    function CreateStore(anIndex: Tm3StoreElementIndex;
     anAccess: Tm3StoreAccess;
     aStoreType: Tm3StoreType;
     out aStore: Tm3Store;
-    aUseCompression: Boolean): hResult; overload; 
-     {* создает элемент хранилища. }
+    aUseCompression: Boolean): hResult; overload;
+    {* создает элемент хранилища. }
    function OpenStore(anIndex: Tm3StoreElementIndex;
     anAccess: Tm3StoreAccess;
     aStoreType: Tm3StoreType;
     out aStore: Tm3Store;
-    aUseCompression: Boolean): hResult; overload; 
-     {* открывает элемент хранилища. }
+    aUseCompression: Boolean): hResult; overload;
+    {* открывает элемент хранилища. }
    function CreateStore(const aName: Tl3WString;
     anAccess: Tm3StoreAccess;
     aStoreType: Tm3StoreType;
     out aStore: Tm3Store;
-    aUseCompression: Boolean): hResult; overload; 
-     {* создает элемент хранилища }
+    aUseCompression: Boolean): hResult; overload;
+    {* создает элемент хранилища }
    function OpenStore(const aName: Tl3WString;
     anAccess: Tm3StoreAccess;
     aStoreType: Tm3StoreType;
     out aStore: Tm3Store;
-    aUseCompression: Boolean): hResult; overload; 
-     {* открывает элемент хранилища }
+    aUseCompression: Boolean): hResult; overload;
+    {* открывает элемент хранилища }
    function OpenStore(const aStoreInfo: Tm3StorageElementInfo;
     anAccess: Tm3StoreAccess;
-    aUseCompression: Boolean): Tm3Store; overload; 
-     {* открывает элемент хранилища. }
+    aUseCompression: Boolean): Tm3Store; overload;
+    {* открывает элемент хранилища. }
    function OpenStore(const aStoreInfo: Tm3StoreInfo;
     anAccess: Tm3StoreAccess;
     anIndex: Tm3StoreElementIndex;
-    aUseCompression: Boolean): Tm3Store; overload; 
-     {* открывает элемент хранилища }
+    aUseCompression: Boolean): Tm3Store; overload;
+    {* открывает элемент хранилища }
    function RenameElementA(const aOldName: Tl3WString;
     const aNewName: Tl3WString): hResult;
-     {* Переименовывает элемент хранилища }
+    {* Переименовывает элемент хранилища }
    function ElementExists(const aName: Tl3WString): Boolean;
-     {* Проверяет существование элемента с указанным именем }
+    {* Проверяет существование элемента с указанным именем }
    procedure CheckIndexStream(aNeedCreate: Boolean;
-     aForIterate: Boolean); override;
+    aForIterate: Boolean); override;
    procedure DoSaveTableOfContents; override;
    procedure DoLoadTableOfContents; override;
    procedure ClearAll;
    procedure CopyFrom(const aSource: Im3IndexedStorage);
- public
- // realized methods
-   class function Make(anAccess: Tm3StoreAccess;
-     aName: Tl3_String;
-     aManager: Tm3RootStreamManagerPrim;
-     aPosition: Int64): Im3IndexedStorage; override;
-   class function OpenRoot(anAccess: Tm3StoreAccess;
-     const aStream: IStream;
-     out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; override;
-   class function OpenFromManager(anAccess: Tm3StoreAccess;
-     aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; override;
-   {iterator} procedure IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
-   {iterator} procedure IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
- protected
- // overridden protected methods
    procedure DoCreateStore(const aName: Tl3WString;
-     anAccess: Tm3StoreAccess;
-     aStoreType: Tm3StoreType;
-     out theStream: Tm3Store;
-     out theReturn: hResult;
-     aUseCompression: Boolean); override;
+    anAccess: Tm3StoreAccess;
+    aStoreType: Tm3StoreType;
+    out theStream: Tm3Store;
+    out theReturn: hResult;
+    aUseCompression: Boolean); override;
    procedure DoOpenStore(const aName: Tl3WString;
-     anAccess: Tm3StoreAccess;
-     aStoreType: Tm3StoreType;
-     out theStream: Tm3Store;
-     out theReturn: hResult;
-     aUseCompression: Boolean); override;
- protected
- // protected methods
-   function FindItemByIndex(anIndex: Tm3StoreElementIndex;
-     aStoreType: Tm3StoreType;
-     anOp: Tm3StoreOperation;
-     out thePosition: Int64;
-     theStoreType: Pm3StoreType = nil): Boolean;
-   function FindItemByName(const aName: Tl3WString;
-     anOp: Tm3StoreOperation;
-     out theStoreInfo: Tm3StoreInfo): Boolean;
-   function IsValidOpenMode(aMode: Integer): Boolean; virtual;
-   function IsValidCreateMode(aMode: Integer): Boolean;
-   procedure RemoveElementByName(aName: Tl3_String;
-     const aStoreInfo: Tm3StoreInfo);
-   procedure RemoveElementByTOCIndex(anIndex: Integer);
-   function CreateOpenStoreByName(const aStoreInfo: Tm3StoreInfo;
-     anAccess: Tm3StoreAccess;
-     aName: Tl3_String;
-     aMode: Tm3StoreMode;
-     aUseCompression: Boolean): Tm3Store; overload;  virtual;
-   function CreateOpenStoreByName(const aStoreInfo: Tm3StorageElementInfo;
-     anAccess: Tm3StoreAccess;
-     aMode: Tm3StoreMode;
-     aUseCompression: Boolean): Tm3Store; overload; 
-   function CreateOpenStoreByIndex(const aStoreInfo: Tm3StoreInfo;
-     anAccess: Tm3StoreAccess;
-     anIndex: Tm3StoreElementIndex;
-     aMode: Tm3StoreMode;
-     aUseCompression: Boolean): Tm3Store;
-   function SaveTableOfContentsPrim(const aStream: IStream): Int64;
- public
- // public methods
+    anAccess: Tm3StoreAccess;
+    aStoreType: Tm3StoreType;
+    out theStream: Tm3Store;
+    out theReturn: hResult;
+    aUseCompression: Boolean); override;
+  public
    constructor Create(anAccess: Tm3StoreAccess;
-     aStoreHeader: Tm3StoreHeader;
-     aIsRoot: Boolean); reintroduce;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IStorage: IStorage;
+    aStoreHeader: Tm3StoreHeader;
+    aIsRoot: Boolean); reintroduce;
+   class function Make(anAccess: Tm3StoreAccess;
+    aName: Tl3_String;
+    aManager: Tm3RootStreamManagerPrim;
+    aPosition: Int64): Im3IndexedStorage; override;
+   class function OpenRoot(anAccess: Tm3StoreAccess;
+    const aStream: IStream;
+    out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; override;
+   class function OpenFromManager(anAccess: Tm3StoreAccess;
+    aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; override;
+   procedure IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
+   procedure IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
  end;//Tm3CustomNewStorage
 
 implementation
 
 uses
-  m3Const,
-  l3String,
-  SysUtils,
-  Windows,
-  m2COMLib,
-  m3TOCHandle,
-  l3Base,
-  m3StorageTools,
-  m3StorageIndexStreamForIterate,
-  m3StorageIndexStream,
-  m3StorageTableOfContentsStream,
-  m3ReadOnlyRootStreamManager,
-  m3NewRootStreamManager,
-  m3Exceptions,
-  m3NewStorageStream,
-  ComObj,
-  m2S64Lib
-  ;
-
-const
-   { Names }
-  cPseudoRootName : WideString = ':ROOT:';
+ l3ImplUses
+ , m3StoreHeaderDataPrim
+ , m3Const
+ , l3String
+ , SysUtils
+ , Windows
+ , m2COMLib
+ , m3TOCHandle
+ , l3Base
+ , m3StorageTools
+ , m3StorageIndexStreamForIterate
+ , m3StorageIndexStream
+ , m3StorageTableOfContentsStream
+ , m3ReadOnlyRootStreamManager
+ , m3NewRootStreamManager
+ , m3Exceptions
+ , m3NewStorageStream
+ , ComObj
+ , m2S64Lib
+;
 
 type
-  Tm3StoreHeaderDataPrimHack = {abstract} class(Tm3StoreHeaderDataPrim)
-  end;//Tm3StoreHeaderDataPrimHack
+ Tm3StoreHeaderDataPrimHack = {abstract} class(Tm3StoreHeaderDataPrim)
+ end;//Tm3StoreHeaderDataPrimHack
 
-// start class Tm3CustomNewStorage
+const
+ cPseudoRootName: WideString = ':ROOT:';
 
 function Tm3CustomNewStorage.FindItemByIndex(anIndex: Tm3StoreElementIndex;
-  aStoreType: Tm3StoreType;
-  anOp: Tm3StoreOperation;
-  out thePosition: Int64;
-  theStoreType: Pm3StoreType = nil): Boolean;
+ aStoreType: Tm3StoreType;
+ anOp: Tm3StoreOperation;
+ out thePosition: Int64;
+ theStoreType: Pm3StoreType = nil): Boolean;
 //#UC START# *5451116E01AE_5451095F00E9_var*
 var
  l_Stream     : IStream;
@@ -321,8 +301,8 @@ begin
 end;//Tm3CustomNewStorage.FindItemByIndex
 
 function Tm3CustomNewStorage.FindItemByName(const aName: Tl3WString;
-  anOp: Tm3StoreOperation;
-  out theStoreInfo: Tm3StoreInfo): Boolean;
+ anOp: Tm3StoreOperation;
+ out theStoreInfo: Tm3StoreInfo): Boolean;
 //#UC START# *5451121F001E_5451095F00E9_var*
 var
  l_Index : LongInt;
@@ -372,7 +352,7 @@ begin
 end;//Tm3CustomNewStorage.IsValidCreateMode
 
 procedure Tm3CustomNewStorage.RemoveElementByName(aName: Tl3_String;
-  const aStoreInfo: Tm3StoreInfo);
+ const aStoreInfo: Tm3StoreInfo);
 //#UC START# *545113AB00C0_5451095F00E9_var*
 
  procedure DoRemove;
@@ -440,10 +420,10 @@ begin
 end;//Tm3CustomNewStorage.RemoveElementByTOCIndex
 
 function Tm3CustomNewStorage.CreateOpenStoreByName(const aStoreInfo: Tm3StoreInfo;
-  anAccess: Tm3StoreAccess;
-  aName: Tl3_String;
-  aMode: Tm3StoreMode;
-  aUseCompression: Boolean): Tm3Store;
+ anAccess: Tm3StoreAccess;
+ aName: Tl3_String;
+ aMode: Tm3StoreMode;
+ aUseCompression: Boolean): Tm3Store;
 //#UC START# *545119B000EE_5451095F00E9_var*
 //#UC END# *545119B000EE_5451095F00E9_var*
 begin
@@ -473,9 +453,9 @@ begin
 end;//Tm3CustomNewStorage.CreateOpenStoreByName
 
 function Tm3CustomNewStorage.CreateOpenStoreByName(const aStoreInfo: Tm3StorageElementInfo;
-  anAccess: Tm3StoreAccess;
-  aMode: Tm3StoreMode;
-  aUseCompression: Boolean): Tm3Store;
+ anAccess: Tm3StoreAccess;
+ aMode: Tm3StoreMode;
+ aUseCompression: Boolean): Tm3Store;
 //#UC START# *54511A30020D_5451095F00E9_var*
 var
  l_Name : Tl3_String;
@@ -492,10 +472,10 @@ begin
 end;//Tm3CustomNewStorage.CreateOpenStoreByName
 
 function Tm3CustomNewStorage.CreateOpenStoreByIndex(const aStoreInfo: Tm3StoreInfo;
-  anAccess: Tm3StoreAccess;
-  anIndex: Tm3StoreElementIndex;
-  aMode: Tm3StoreMode;
-  aUseCompression: Boolean): Tm3Store;
+ anAccess: Tm3StoreAccess;
+ anIndex: Tm3StoreElementIndex;
+ aMode: Tm3StoreMode;
+ aUseCompression: Boolean): Tm3Store;
 //#UC START# *54511A6901FF_5451095F00E9_var*
 const
  cFormatString = m3IndexPrefixFormatStr;
@@ -525,8 +505,8 @@ begin
 end;//Tm3CustomNewStorage.SaveTableOfContentsPrim
 
 constructor Tm3CustomNewStorage.Create(anAccess: Tm3StoreAccess;
-  aStoreHeader: Tm3StoreHeader;
-  aIsRoot: Boolean);
+ aStoreHeader: Tm3StoreHeader;
+ aIsRoot: Boolean);
 //#UC START# *5451E49C023B_5451095F00E9_var*
 var
  l_NeedLoadTOC : Boolean;                                 
@@ -569,8 +549,15 @@ begin
 //#UC END# *5451E49C023B_5451095F00E9_impl*
 end;//Tm3CustomNewStorage.Create
 
+function Tm3CustomNewStorage.As_IStorage: IStorage;
+ {* Метод приведения нашего интерфейса к IStorage }
+begin
+ Result := Self;
+end;//Tm3CustomNewStorage.As_IStorage
+
 function Tm3CustomNewStorage.SetIndexParam(aBits: byte;
-  aMaxBits: byte): Boolean;
+ aMaxBits: byte): Boolean;
+ {* устанавливает параметры "размазывания" индекса. }
 //#UC START# *4720939E0233_5451095F00E9_var*
 //#UC END# *4720939E0233_5451095F00E9_var*
 begin
@@ -587,6 +574,7 @@ begin
 end;//Tm3CustomNewStorage.SetIndexParam
 
 function Tm3CustomNewStorage.DeleteStore(anIndex: Tm3StoreElementIndex): hResult;
+ {* удаляет элемент хранилища. }
 //#UC START# *472093CD005A_5451095F00E9_var*
 const
  cFormatString = m3IndexPrefixFormatStr;
@@ -619,10 +607,11 @@ begin
 end;//Tm3CustomNewStorage.DeleteStore
 
 function Tm3CustomNewStorage.CreateStore(anIndex: Tm3StoreElementIndex;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out aStore: Tm3Store;
-  aUseCompression: Boolean): hResult;
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out aStore: Tm3Store;
+ aUseCompression: Boolean): hResult;
+ {* создает элемент хранилища. }
 //#UC START# *472093E4036B_5451095F00E9_var*
 var
  l_StorePosition : Int64;
@@ -656,10 +645,11 @@ begin
 end;//Tm3CustomNewStorage.CreateStore
 
 function Tm3CustomNewStorage.OpenStore(anIndex: Tm3StoreElementIndex;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out aStore: Tm3Store;
-  aUseCompression: Boolean): hResult;
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out aStore: Tm3Store;
+ aUseCompression: Boolean): hResult;
+ {* открывает элемент хранилища. }
 //#UC START# *472094380181_5451095F00E9_var*
 var
  l_StorePosition : Int64;
@@ -688,10 +678,11 @@ begin
 end;//Tm3CustomNewStorage.OpenStore
 
 function Tm3CustomNewStorage.CreateStore(const aName: Tl3WString;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out aStore: Tm3Store;
-  aUseCompression: Boolean): hResult;
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out aStore: Tm3Store;
+ aUseCompression: Boolean): hResult;
+ {* создает элемент хранилища }
 //#UC START# *47209BA50026_5451095F00E9_var*
 var
  l_TOCIndex  : Integer;
@@ -745,10 +736,11 @@ begin
 end;//Tm3CustomNewStorage.CreateStore
 
 function Tm3CustomNewStorage.OpenStore(const aName: Tl3WString;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out aStore: Tm3Store;
-  aUseCompression: Boolean): hResult;
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out aStore: Tm3Store;
+ aUseCompression: Boolean): hResult;
+ {* открывает элемент хранилища }
 //#UC START# *47209BD8008D_5451095F00E9_var*
 var
  l_Index : Integer;
@@ -800,8 +792,9 @@ begin
 end;//Tm3CustomNewStorage.OpenStore
 
 function Tm3CustomNewStorage.OpenStore(const aStoreInfo: Tm3StorageElementInfo;
-  anAccess: Tm3StoreAccess;
-  aUseCompression: Boolean): Tm3Store;
+ anAccess: Tm3StoreAccess;
+ aUseCompression: Boolean): Tm3Store;
+ {* открывает элемент хранилища. }
 //#UC START# *47209BF501C5_5451095F00E9_var*
 //#UC END# *47209BF501C5_5451095F00E9_var*
 begin
@@ -811,9 +804,10 @@ begin
 end;//Tm3CustomNewStorage.OpenStore
 
 function Tm3CustomNewStorage.OpenStore(const aStoreInfo: Tm3StoreInfo;
-  anAccess: Tm3StoreAccess;
-  anIndex: Tm3StoreElementIndex;
-  aUseCompression: Boolean): Tm3Store;
+ anAccess: Tm3StoreAccess;
+ anIndex: Tm3StoreElementIndex;
+ aUseCompression: Boolean): Tm3Store;
+ {* открывает элемент хранилища }
 //#UC START# *47209C92017B_5451095F00E9_var*
 //#UC END# *47209C92017B_5451095F00E9_var*
 begin
@@ -823,7 +817,8 @@ begin
 end;//Tm3CustomNewStorage.OpenStore
 
 function Tm3CustomNewStorage.RenameElementA(const aOldName: Tl3WString;
-  const aNewName: Tl3WString): hResult;
+ const aNewName: Tl3WString): hResult;
+ {* Переименовывает элемент хранилища }
 //#UC START# *49C0E07203A8_5451095F00E9_var*
 //#UC END# *49C0E07203A8_5451095F00E9_var*
 begin
@@ -834,6 +829,7 @@ begin
 end;//Tm3CustomNewStorage.RenameElementA
 
 function Tm3CustomNewStorage.ElementExists(const aName: Tl3WString): Boolean;
+ {* Проверяет существование элемента с указанным именем }
 //#UC START# *4B0FC2FB02DA_5451095F00E9_var*
 var
  l_Index : Integer;
@@ -849,7 +845,7 @@ begin
 end;//Tm3CustomNewStorage.ElementExists
 
 procedure Tm3CustomNewStorage.CheckIndexStream(aNeedCreate: Boolean;
-  aForIterate: Boolean);
+ aForIterate: Boolean);
 //#UC START# *5421776B00F3_5451095F00E9_var*
 var
  l_Stream : IStream;
@@ -933,9 +929,9 @@ begin
 end;//Tm3CustomNewStorage.CheckIndexStream
 
 class function Tm3CustomNewStorage.Make(anAccess: Tm3StoreAccess;
-  aName: Tl3_String;
-  aManager: Tm3RootStreamManagerPrim;
-  aPosition: Int64): Im3IndexedStorage;
+ aName: Tl3_String;
+ aManager: Tm3RootStreamManagerPrim;
+ aPosition: Int64): Im3IndexedStorage;
 //#UC START# *5422B23D0352_5451095F00E9_var*
 var
  l_Header : Tm3StoreHeader;
@@ -993,8 +989,8 @@ begin
 end;//Tm3CustomNewStorage.DoLoadTableOfContents
 
 class function Tm3CustomNewStorage.OpenRoot(anAccess: Tm3StoreAccess;
-  const aStream: IStream;
-  out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage;
+ const aStream: IStream;
+ out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage;
 //#UC START# *5425558F008E_5451095F00E9_var*
 var
  l_Name : Tl3String;
@@ -1045,7 +1041,7 @@ begin
 end;//Tm3CustomNewStorage.OpenRoot
 
 class function Tm3CustomNewStorage.OpenFromManager(anAccess: Tm3StoreAccess;
-  aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage;
+ aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage;
 //#UC START# *542E82E10073_5451095F00E9_var*
 var
  l_Name : Tl3String;
@@ -1105,7 +1101,7 @@ begin
 //#UC END# *5452222303C7_5451095F00E9_impl*
 end;//Tm3CustomNewStorage.CopyFrom
 
-{iterator} procedure Tm3CustomNewStorage.IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
+procedure Tm3CustomNewStorage.IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
 //#UC START# *545255C003CB_5451095F00E9_var*
 
  function IterateStream(const aStream : IStream;
@@ -1197,7 +1193,7 @@ begin
 //#UC END# *545255C003CB_5451095F00E9_impl*
 end;//Tm3CustomNewStorage.IterateIndexedF
 
-{iterator} procedure Tm3CustomNewStorage.IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
+procedure Tm3CustomNewStorage.IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
 //#UC START# *54525E3A02BF_5451095F00E9_var*
 
 var
@@ -1242,11 +1238,11 @@ begin
 end;//Tm3CustomNewStorage.IterateAllF
 
 procedure Tm3CustomNewStorage.DoCreateStore(const aName: Tl3WString;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out theStream: Tm3Store;
-  out theReturn: hResult;
-  aUseCompression: Boolean);
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out theStream: Tm3Store;
+ out theReturn: hResult;
+ aUseCompression: Boolean);
 //#UC START# *54520BDF0089_5451095F00E9_var*
 //#UC END# *54520BDF0089_5451095F00E9_var*
 begin
@@ -1257,11 +1253,11 @@ begin
 end;//Tm3CustomNewStorage.DoCreateStore
 
 procedure Tm3CustomNewStorage.DoOpenStore(const aName: Tl3WString;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out theStream: Tm3Store;
-  out theReturn: hResult;
-  aUseCompression: Boolean);
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out theStream: Tm3Store;
+ out theReturn: hResult;
+ aUseCompression: Boolean);
 //#UC START# *54520C63028A_5451095F00E9_var*
 //#UC END# *54520C63028A_5451095F00E9_var*
 begin
@@ -1270,12 +1266,5 @@ begin
  theReturn := OpenStore(aName, anAccess, aStoreType, theStream, aUseCompression);
 //#UC END# *54520C63028A_5451095F00E9_impl*
 end;//Tm3CustomNewStorage.DoOpenStore
-
-// Методы преобразования к реализуемым интерфейсам
-
-function Tm3CustomNewStorage.As_IStorage: IStorage;
-begin
- Result := Self;
-end;
 
 end.

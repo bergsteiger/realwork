@@ -1,62 +1,48 @@
 unit atUserJournalHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atUserJournalHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatUserJournalHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atUserJournalHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatUserJournalHelper" MUID: (4D0A033202D2)
 
 interface
 
 uses
-  DocumentUnit,
-  DynamicTreeUnit,
-  SearchUnit,
-  Contnrs,
-  UserJournalUnit,
-  BaseTypesUnit,
-  l3_Base
-  ;
+ l3IntfUses
+ , UserJournalUnit
+ , Contnrs
+ , DocumentUnit
+ , SearchUnit
+ , DynamicTreeUnit
+ , BaseTypesUnit
+ , l3_Base
+;
 
 type
  _EntityInterface_ = IJournalBookmark;
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatJournalBookmark = class(_atEntityWithName_)
- protected
- // property methods
+  protected
    function pm_GetDocument: IDocument; virtual;
    function pm_GetPara: TParaId; virtual;
    function pm_GetFullName: AnsiString; virtual;
- public
- // overridden public methods
+  public
    constructor Create(const anEntityBase: IEntityBase); override;
- public
- // public properties
+  public
    property Document: IDocument
-     read pm_GetDocument;
+    read pm_GetDocument;
    property Para: TParaId
-     read pm_GetPara;
+    read pm_GetPara;
    property FullName: AnsiString
-     read pm_GetFullName;
+    read pm_GetFullName;
  end;//TatJournalBookmark
 
  TatUserJournalHelper = class
- private
- // private methods
+  private
    class procedure ReadJournalNode(const aNode: INodeBase);
    class procedure ReadJournalBookmark(const aJournalBookmark: IJournalBookmark);
    class procedure ReadJournalQuery(const aQuery: IQuery);
    class function UserJournal: IUserJournal;
- public
- // public methods
+  public
    class procedure AddBookmark(const aBookmark: IJournalBookmark);
    class procedure AddQuery(const aQuery: IQuery);
    class procedure Clear;
@@ -70,17 +56,16 @@ type
 implementation
 
 uses
-  SysUtils,
-  IOUnit,
-  atNodeHelper,
-  atGblAdapterWorker,
-  atLogger,
-  atQuery
-  ;
+ l3ImplUses
+ , atNodeHelper
+ , atGblAdapterWorker
+ , IOUnit
+ , atLogger
+ , SysUtils
+ , atQuery
+;
 
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
-
-// start class TatJournalBookmark
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatJournalBookmark.pm_GetDocument: IDocument;
 //#UC START# *4FC8EDB701E9_4FC8EC8900FEget_var*
@@ -339,7 +324,7 @@ begin
 end;//TatUserJournalHelper.GetElements
 
 class function TatUserJournalHelper.GetQueryHistory(aType: TQueryType;
-  aMaxCount: Integer): TObjectList;
+ aMaxCount: Integer): TObjectList;
 //#UC START# *500D90A4007E_4D0A033202D2_var*
   var
     l_QL : IQueryList;

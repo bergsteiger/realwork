@@ -1,99 +1,91 @@
 unit alcuRelPublishTaskResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuRelPublishTaskResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuRelPublishTaskResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRelPublishTaskResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRelPublishTaskResult" MUID: (53E328BF03DF)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  csTaskResult,
-  k2Base
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , csTaskResult
+ , k2Base
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuRelPublishTaskResult = class(TcsTaskResult)
- protected
- // property methods
+  protected
    function pm_GetMailBody: AnsiString;
    procedure pm_SetMailBody(const aValue: AnsiString);
    function pm_GetIsError: Boolean;
    procedure pm_SetIsError(aValue: Boolean);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property MailBody: AnsiString
-     read pm_GetMailBody
-     write pm_SetMailBody;
+    read pm_GetMailBody
+    write pm_SetMailBody;
    property IsError: Boolean
-     read pm_GetIsError
-     write pm_SetIsError;
+    read pm_GetIsError
+    write pm_SetIsError;
  end;//TalcuRelPublishTaskResult
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  RelPublishTaskResult_Const
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuRelPublishTaskResult
+ l3ImplUses
+ , RelPublishTaskResult_Const
+;
 
 function TalcuRelPublishTaskResult.pm_GetMailBody: AnsiString;
- {-}
+//#UC START# *50F069887B07_53E328BF03DFget_var*
+//#UC END# *50F069887B07_53E328BF03DFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrMailBody]);
+//#UC START# *50F069887B07_53E328BF03DFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *50F069887B07_53E328BF03DFget_impl*
 end;//TalcuRelPublishTaskResult.pm_GetMailBody
 
 procedure TalcuRelPublishTaskResult.pm_SetMailBody(const aValue: AnsiString);
- {-}
+//#UC START# *50F069887B07_53E328BF03DFset_var*
+//#UC END# *50F069887B07_53E328BF03DFset_var*
 begin
- TaggedData.StrW[k2_attrMailBody, nil] := (aValue);
+//#UC START# *50F069887B07_53E328BF03DFset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *50F069887B07_53E328BF03DFset_impl*
 end;//TalcuRelPublishTaskResult.pm_SetMailBody
 
 function TalcuRelPublishTaskResult.pm_GetIsError: Boolean;
- {-}
+//#UC START# *7A0D5E0B03BA_53E328BF03DFget_var*
+//#UC END# *7A0D5E0B03BA_53E328BF03DFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.BoolA[k2_attrIsError]);
+//#UC START# *7A0D5E0B03BA_53E328BF03DFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *7A0D5E0B03BA_53E328BF03DFget_impl*
 end;//TalcuRelPublishTaskResult.pm_GetIsError
 
 procedure TalcuRelPublishTaskResult.pm_SetIsError(aValue: Boolean);
- {-}
+//#UC START# *7A0D5E0B03BA_53E328BF03DFset_var*
+//#UC END# *7A0D5E0B03BA_53E328BF03DFset_var*
 begin
- TaggedData.BoolW[k2_attrIsError, nil] := (aValue);
+//#UC START# *7A0D5E0B03BA_53E328BF03DFset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *7A0D5E0B03BA_53E328BF03DFset_impl*
 end;//TalcuRelPublishTaskResult.pm_SetIsError
 
 class function TalcuRelPublishTaskResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53E328BF03DF_var*
+//#UC END# *53AC03EE01FD_53E328BF03DF_var*
 begin
- Result := k2_typRelPublishTaskResult;
+//#UC START# *53AC03EE01FD_53E328BF03DF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53E328BF03DF_impl*
 end;//TalcuRelPublishTaskResult.GetTaggedDataType
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

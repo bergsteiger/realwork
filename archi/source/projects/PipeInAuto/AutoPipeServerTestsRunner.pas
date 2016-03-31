@@ -1,62 +1,42 @@
 unit AutoPipeServerTestsRunner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/archi/source/projects/PipeInAuto/AutoPipeServerTestsRunner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::AutoPipeServer$Test::TAutoPipeServerTestsRunner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\PipeInAuto\AutoPipeServerTestsRunner.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TAutoPipeServerTestsRunner" MUID: (52F24FD90066)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PipeInAuto\alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  Classes
-  {$If defined(nsTest)}
-  ,
-  GUIAppTester
-  {$IfEnd} //nsTest
-  
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ {$If Defined(nsTest)}
+ , GUIAppTester
+ {$IfEnd} // Defined(nsTest)
+;
 
-{$If defined(AppServerSide)}
 type
  TAutoPipeServerTestsRunner = class(TGUIAppTester)
- public
- // realized methods
-    {$If defined(nsTest)}
+  public
+   {$If Defined(nsTest)}
    class function GetResultsPlaces: TResultsPlaces; override;
-    {$IfEnd} //nsTest
+   {$IfEnd} // Defined(nsTest)
  end;//TAutoPipeServerTestsRunner
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  toK
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  ArchiAutoTestSuite
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  ;
-{$IfEnd} //AppServerSide
+ l3ImplUses
+ , toK
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , ArchiAutoTestSuite
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+;
 
-{$If defined(AppServerSide)}
-
-// start class TAutoPipeServerTestsRunner
-
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 class function TAutoPipeServerTestsRunner.GetResultsPlaces: TResultsPlaces;
 //#UC START# *52F264840382_52F24FD90066_var*
 //#UC END# *52F264840382_52F24FD90066_var*
@@ -65,8 +45,7 @@ begin
  Result := MakeResults([TtoK{, TtoKT}]);
 //#UC END# *52F264840382_52F24FD90066_impl*
 end;//TAutoPipeServerTestsRunner.GetResultsPlaces
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$IfEnd} //AppServerSide
-
+{$IfEnd} // Defined(AppServerSide)
 end.

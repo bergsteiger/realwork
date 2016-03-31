@@ -1,37 +1,30 @@
 unit MakeCORunner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/common/components/MakeCO/MakeCORunner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::MakeCO::TMakeCORunner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\MakeCO\MakeCORunner.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TMakeCORunner" MUID: (55C1F539010F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\MakeCO\MakeCO.inc}
+{$Include w:\common\components\MakeCO\MakeCO.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TMakeCORunner = {final} class
- public
- // public methods
+  public
    class procedure Run;
  end;//TMakeCORunner
 
 implementation
 
 uses
-  SysUtils,
-  tfwCOMaker
-  ;
-
-// start class TMakeCORunner
+ l3ImplUses
+ , tfwCOMaker
+ , SysUtils
+;
 
 class procedure TMakeCORunner.Run;
 //#UC START# *55C1F54A0327_55C1F539010F_var*

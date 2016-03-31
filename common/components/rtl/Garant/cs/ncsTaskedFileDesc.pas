@@ -1,99 +1,91 @@
 unit ncsTaskedFileDesc;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTaskedFileDesc.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsTaskedFileDesc
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskedFileDesc.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsTaskedFileDesc" MUID: (546EF14803A6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsFileDesc,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsFileDesc
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsTaskedFileDesc = class(TncsFileDesc)
- protected
- // property methods
+  protected
    function pm_GetTaskID: AnsiString;
    procedure pm_SetTaskID(const aValue: AnsiString);
    function pm_GetCopiedSize: Int64;
    procedure pm_SetCopiedSize(aValue: Int64);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
+    read pm_GetTaskID
+    write pm_SetTaskID;
    property CopiedSize: Int64
-     read pm_GetCopiedSize
-     write pm_SetCopiedSize;
+    read pm_GetCopiedSize
+    write pm_SetCopiedSize;
  end;//TncsTaskedFileDesc
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  TaskedFileDesc_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsTaskedFileDesc
+ l3ImplUses
+ , TaskedFileDesc_Const
+;
 
 function TncsTaskedFileDesc.pm_GetTaskID: AnsiString;
- {-}
+//#UC START# *4002BB80A765_546EF14803A6get_var*
+//#UC END# *4002BB80A765_546EF14803A6get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
+//#UC START# *4002BB80A765_546EF14803A6get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4002BB80A765_546EF14803A6get_impl*
 end;//TncsTaskedFileDesc.pm_GetTaskID
 
 procedure TncsTaskedFileDesc.pm_SetTaskID(const aValue: AnsiString);
- {-}
+//#UC START# *4002BB80A765_546EF14803A6set_var*
+//#UC END# *4002BB80A765_546EF14803A6set_var*
 begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
+//#UC START# *4002BB80A765_546EF14803A6set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4002BB80A765_546EF14803A6set_impl*
 end;//TncsTaskedFileDesc.pm_SetTaskID
 
 function TncsTaskedFileDesc.pm_GetCopiedSize: Int64;
- {-}
+//#UC START# *3B46B181312E_546EF14803A6get_var*
+//#UC END# *3B46B181312E_546EF14803A6get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.Int64A[k2_attrCopiedSize]);
+//#UC START# *3B46B181312E_546EF14803A6get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *3B46B181312E_546EF14803A6get_impl*
 end;//TncsTaskedFileDesc.pm_GetCopiedSize
 
 procedure TncsTaskedFileDesc.pm_SetCopiedSize(aValue: Int64);
- {-}
+//#UC START# *3B46B181312E_546EF14803A6set_var*
+//#UC END# *3B46B181312E_546EF14803A6set_var*
 begin
- TaggedData.Int64W[k2_attrCopiedSize, nil] := (aValue);
+//#UC START# *3B46B181312E_546EF14803A6set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *3B46B181312E_546EF14803A6set_impl*
 end;//TncsTaskedFileDesc.pm_SetCopiedSize
 
 class function TncsTaskedFileDesc.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_546EF14803A6_var*
+//#UC END# *53AC03EE01FD_546EF14803A6_var*
 begin
- Result := k2_typTaskedFileDesc;
+//#UC START# *53AC03EE01FD_546EF14803A6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_546EF14803A6_impl*
 end;//TncsTaskedFileDesc.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

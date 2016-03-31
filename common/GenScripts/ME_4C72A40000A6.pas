@@ -79,7 +79,6 @@ type
   {* Поставщик данных о списке параграфов }
   private
    f_LayerID: DTPLayerID;
-    {* Поле для свойства LayerID }
   protected
    function pm_GetLayerID: DTPLayerID;
    procedure InitFields; override;

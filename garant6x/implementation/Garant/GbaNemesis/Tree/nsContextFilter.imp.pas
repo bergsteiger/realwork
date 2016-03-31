@@ -1,44 +1,31 @@
 {$IfNDef nsContextFilter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tree"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Tree/nsContextFilter.imp.pas"
-// Начат: 26.11.2008 21:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::Tree::Tree::nsContextFilter
-//
-// Контекстный фильтр
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsContextFilter" MUID: (492D91B7037E)
+// Имя типа: "_nsContextFilter_"
 
 {$Define nsContextFilter_imp}
- _nsContextFilter_ = {mixin} class(_nsContextFilter_Parent_)
+
+ _nsContextFilter_ = class(_nsContextFilter_Parent_)
   {* Контекстный фильтр }
- private
- // private fields
-   f_CurrentContextFilter : InscContextFilterState;
- protected
- // realized methods
+  private
+   f_CurrentContextFilter: InscContextFilterState;
+  protected
+   procedure Cleanup; override;
    function pm_GetCurrentContextFilter: InscContextFilterState;
- public
- // realized methods
+  public
    function FiltrateByContext(const aTreeSource: Il3SimpleTree;
     const aCurrentNode: Il3SimpleNode;
     const aFilter: InscContextFilterState;
     out aCurrent: Integer): Il3SimpleTree;
- protected
- // protected methods
-   procedure Cleanup; override;
  end;//_nsContextFilter_
 
 {$Else nsContextFilter_imp}
 
-// start class _nsContextFilter_
+{$IfNDef nsContextFilter_imp_impl}
+
+{$Define nsContextFilter_imp_impl}
 
 procedure _nsContextFilter_.Cleanup;
 //#UC START# *492D92370149_492D91B7037E_var*
@@ -62,9 +49,9 @@ begin
 end;//_nsContextFilter_.pm_GetCurrentContextFilter
 
 function _nsContextFilter_.FiltrateByContext(const aTreeSource: Il3SimpleTree;
-  const aCurrentNode: Il3SimpleNode;
-  const aFilter: InscContextFilterState;
-  out aCurrent: Integer): Il3SimpleTree;
+ const aCurrentNode: Il3SimpleNode;
+ const aFilter: InscContextFilterState;
+ out aCurrent: Integer): Il3SimpleTree;
 //#UC START# *492D90AA0118_492D91B7037E_var*
 var
  l_FilterableTree: Il3FilterableTree;
@@ -89,4 +76,7 @@ begin
 //#UC END# *492D90AA0118_492D91B7037E_impl*
 end;//_nsContextFilter_.FiltrateByContext
 
+{$EndIf nsContextFilter_imp_impl}
+
 {$EndIf nsContextFilter_imp}
+

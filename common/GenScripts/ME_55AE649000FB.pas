@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , tfwDictionaryDataIteratorPrim
  , tfwDictionaryPtrList
- , tfwScriptingInterfaces
  , tfwDictionaryEx
+ , tfwScriptingInterfaces
 ;
 
 type

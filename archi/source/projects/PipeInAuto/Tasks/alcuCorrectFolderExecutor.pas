@@ -1,88 +1,58 @@
 unit alcuCorrectFolderExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuCorrectFolderExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ResultDelivery::TalcuCorrectFolderExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuCorrectFolderExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuCorrectFolderExecutor" MUID: (549AC018025D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskList
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  alcuExecutorWithTaskList
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExecutorWithTaskList
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(AppServerSide)}
+ , alcuTaskList
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuCorrectFolderExecutor = class(TalcuExecutorWithTaskList {$If not defined(Nemesis)}, IncsExecutor{$IfEnd} //not Nemesis
+ TalcuCorrectFolderExecutor = class(TalcuExecutorWithTaskList{$If NOT Defined(Nemesis)}
+ , IncsExecutor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
-   {$IfEnd} //not Nemesis
- public
- // public methods
+   {$IfEnd} // NOT Defined(Nemesis)
+  public
    class function Make(aTaskList: TalcuTaskList): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TalcuCorrectFolderExecutor.Make }
  end;//TalcuCorrectFolderExecutor
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  ncsCorrectFolder
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskListBase
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csExport
-  {$IfEnd} //not Nemesis
-  ,
-  l3Base
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuCorrectFolderExecutor
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , ncsCorrectFolder
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(AppServerSide)}
+ , alcuTaskListBase
+ {$IfEnd} // Defined(AppServerSide)
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csExport
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
+;
 
 class function TalcuCorrectFolderExecutor.Make(aTaskList: TalcuTaskList): IncsExecutor;
 var
@@ -94,9 +64,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuCorrectFolderExecutor.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuCorrectFolderExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_549AC018025D_var*
 var
@@ -121,8 +91,7 @@ begin
  l3System.Msg2Log('Скорректирован каталог доставки');
 //#UC END# *54607DDC0159_549AC018025D_impl*
 end;//TalcuCorrectFolderExecutor.Execute
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //ServerTasks
-
+{$IfEnd} // Defined(ServerTasks)
 end.

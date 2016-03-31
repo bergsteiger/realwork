@@ -152,6 +152,7 @@ type
     out Obj): HResult; override;
  end;//TExTextFormState
 
+ _SearcheableText_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas}
  _PageControlNotification_Parent_ = _SearcheableText_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}

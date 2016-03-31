@@ -1,92 +1,75 @@
 unit daDataProviderFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daDataProviderFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaDataProviderFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daDataProviderFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaDataProviderFactory" MUID: (54F85EE102D1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  ddAppConfig,
-  daTypes,
-  daInterfaces,
-  daDataProviderParams
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daDataProviderParams
+ , ddAppConfig
+ , daTypes
+;
 
 type
  TdaDataProviderFactory = class(Tl3ProtoObject)
- private
- // private fields
-   f_ParamsStorage : IdaParamsStorage;
-    {* Поле для свойства ParamsStorage}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_ParamsStorage: IdaParamsStorage;
+    {* Поле для свойства ParamsStorage }
+  protected
    procedure LoadCommonParams(aParams: TdaDataProviderParams);
    procedure SaveCommonParams(aParams: TdaDataProviderParams);
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    function MakeFromConfig: TdaDataProviderParams; virtual; abstract;
    procedure SaveToConfig(aParams: TdaDataProviderParams); virtual; abstract;
    function ParamType: TdaDataProviderParamsClass; virtual; abstract;
    procedure CorrectByClient(aParams: TdaDataProviderParams); virtual;
    function IsParamsValid(aParams: TdaDataProviderParams;
-     Quiet: Boolean = False): Boolean; virtual;
+    Quiet: Boolean = False): Boolean; virtual;
    procedure FillOutConfig(aConfig: TddAppConfiguration;
-     aEtalon: TdaDataProviderParams;
-     out aParams: TdaDataProviderParams); virtual; abstract;
+    aEtalon: TdaDataProviderParams;
+    out aParams: TdaDataProviderParams); virtual; abstract;
    procedure FillInConfig(aConfig: TddAppConfiguration;
-     aParams: TdaDataProviderParams;
-     ForInfoOnly: Boolean = False); virtual; abstract;
+    aParams: TdaDataProviderParams;
+    ForInfoOnly: Boolean = False); virtual; abstract;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-     const aProviderKey: AnsiString = '';
-     ForInfoOnly: Boolean = False); virtual; abstract;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False); virtual; abstract;
    function MakeProvider(aParams: TdaDataProviderParams;
-     AllowClearLocks: Boolean): IdaDataProvider;
+    AllowClearLocks: Boolean): IdaDataProvider;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); virtual; abstract;
    function CheckLogin(aParams: TdaDataProviderParams;
-     const aLogin: AnsiString;
-     const aPassword: AnsiString;
-     IsRequireAdminRights: Boolean): TdaLoginError;
+    const aLogin: AnsiString;
+    const aPassword: AnsiString;
+    IsRequireAdminRights: Boolean): TdaLoginError;
    function DoMakeProvider(aParams: TdaDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalProvider: Boolean = True): IdaDataProvider; virtual; abstract;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; virtual; abstract;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); virtual; abstract;
    class function Key: AnsiString; virtual; abstract;
    function ParamKey: AnsiString;
- public
- // public properties
+  public
    property ParamsStorage: IdaParamsStorage
-     read f_ParamsStorage
-     write f_ParamsStorage;
+    read f_ParamsStorage
+    write f_ParamsStorage;
  end;//TdaDataProviderFactory
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TdaDataProviderFactory
+ l3ImplUses
+ , l3Base
+;
 
 procedure TdaDataProviderFactory.LoadCommonParams(aParams: TdaDataProviderParams);
 //#UC START# *55001D8D038F_54F85EE102D1_var*
@@ -135,7 +118,7 @@ begin
 end;//TdaDataProviderFactory.CorrectByClient
 
 function TdaDataProviderFactory.IsParamsValid(aParams: TdaDataProviderParams;
-  Quiet: Boolean = False): Boolean;
+ Quiet: Boolean = False): Boolean;
 //#UC START# *551166B40046_54F85EE102D1_var*
 //#UC END# *551166B40046_54F85EE102D1_var*
 begin
@@ -147,7 +130,7 @@ begin
 end;//TdaDataProviderFactory.IsParamsValid
 
 function TdaDataProviderFactory.MakeProvider(aParams: TdaDataProviderParams;
-  AllowClearLocks: Boolean): IdaDataProvider;
+ AllowClearLocks: Boolean): IdaDataProvider;
 //#UC START# *5515443E027B_54F85EE102D1_var*
 //#UC END# *5515443E027B_54F85EE102D1_var*
 begin
@@ -157,9 +140,9 @@ begin
 end;//TdaDataProviderFactory.MakeProvider
 
 function TdaDataProviderFactory.CheckLogin(aParams: TdaDataProviderParams;
-  const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  IsRequireAdminRights: Boolean): TdaLoginError;
+ const aLogin: AnsiString;
+ const aPassword: AnsiString;
+ IsRequireAdminRights: Boolean): TdaLoginError;
 //#UC START# *551BE3520031_54F85EE102D1_var*
 var
  l_Provider: IdaDataProvider;
@@ -202,6 +185,7 @@ begin
 end;//TdaDataProviderFactory.ParamKey
 
 procedure TdaDataProviderFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54F85EE102D1_var*
 //#UC END# *479731C50290_54F85EE102D1_var*
 begin
@@ -212,7 +196,6 @@ begin
 end;//TdaDataProviderFactory.Cleanup
 
 procedure TdaDataProviderFactory.ClearFields;
- {-}
 begin
  ParamsStorage := nil;
  inherited;

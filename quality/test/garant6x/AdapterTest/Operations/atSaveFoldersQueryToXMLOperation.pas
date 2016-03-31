@@ -1,63 +1,52 @@
 unit atSaveFoldersQueryToXMLOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSaveFoldersQueryToXMLOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSaveFoldersQueryToXMLOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveFoldersQueryToXMLOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveFoldersQueryToXMLOperation" MUID: (5006FF3D006C)
 
 interface
 
 uses
-  SearchUnit,
-  atFoldersHelper,
-  atOperationBase,
-  FoldersUnit,
-  atQuery
-  ;
+ l3IntfUses
+ , atFoldersHelper
+ , SearchUnit
+ , atOperationBase
+ , FoldersUnit
+ , atQuery
+;
 
 type
  _FoldersNodeMatcher_ = TatQueryMatcher;
  _ObjectType_ = IQuery;
- {$Include ..\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include ..\Operations\atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  _atSaveQueryToXMLAddon_Parent_ = _atOpenFoldersObjectAddon_;
- {$Include ..\Operations\atSaveQueryToXMLAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
  TatSaveFoldersQueryToXMLOperation = class(_atSaveQueryToXMLAddon_)
- protected
- // realized methods
+  protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
  end;//TatSaveFoldersQueryToXMLOperation
 
 implementation
 
 uses
-  atLogger,
-  SysUtils,
-  BaseTypesUnit,
-  atNodeHelper,
-  atCommon,
-  XMLIntf,
-  atQueryTypeConverter,
-  Windows
-  ;
+ l3ImplUses
+ , atLogger
+ , SysUtils
+ , BaseTypesUnit
+ , atNodeHelper
+ , atCommon
+ , XMLIntf
+ , atQueryTypeConverter
+ , Windows
+;
 
-{$Include ..\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include ..\Operations\atOpenFoldersObjectAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
-{$Include ..\Operations\atSaveQueryToXMLAddon.imp.pas}
-
-// start class TatSaveFoldersQueryToXMLOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
 
 procedure TatSaveFoldersQueryToXMLOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_5006FF3D006C_var*

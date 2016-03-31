@@ -1,75 +1,57 @@
 unit l3BaseBoxMemoryManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3BaseBoxMemoryManager.pas"
-// Начат: 28.05.2004 19:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MemoryManagers::Tl3BaseBoxMemoryManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3BaseBoxMemoryManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseBoxMemoryManager" MUID: (54B69F9700DE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3SimpleMemoryManager
-  ;
+ l3IntfUses
+ , l3SimpleMemoryManager
+;
 
 type
  Tl3BaseBoxMemoryManager = {abstract} class(Tl3SimpleMemoryManager)
- private
- // private fields
-   f_Lost : Integer;
- protected
- // overridden protected methods
-   procedure FreeBlocks; override;
-     {* Сигнатура метода FreeBlocks }
-   procedure DoGetMem(var P;
-     aSize: Cardinal); override;
-   procedure DoFreeMem(var P); override;
- protected
- // protected methods
+  private
+   f_Lost: Integer;
+  protected
    function SizeSize: Cardinal; virtual; abstract;
    function Size2Index(aSize: Cardinal): Integer; virtual; abstract;
    function AlignSize(aSize: Cardinal): Cardinal; virtual; abstract;
    function GetPSz(aPt: PAnsiChar): Cardinal; virtual; abstract;
    procedure SetPSz(aPt: PAnsiChar;
-     aValue: Cardinal); virtual; abstract;
+    aValue: Cardinal); virtual; abstract;
    function HasFreed: Boolean; virtual; abstract;
    procedure InitFreed; virtual; abstract;
-     {* Сигнатура метода InitFreed }
    procedure ClearFreed; virtual; abstract;
-     {* Сигнатура метода ClearFreed }
    function IsValidIndex(anIndex: Integer): Boolean; virtual; abstract;
    function GetFreed(anIndex: Integer): Pointer; virtual; abstract;
    procedure SetFreed(anIndex: Integer;
-     aValue: Pointer); virtual; abstract;
- public
- // public methods
+    aValue: Pointer); virtual; abstract;
+   procedure FreeBlocks; override;
+   procedure DoGetMem(var P;
+    aSize: Cardinal); override;
+   procedure DoFreeMem(var P); override;
+  public
    constructor Create(aBlockSize: Cardinal); reintroduce;
-     {* создает менеджер }
+    {* создает менеджер }
    function GetSize(aPt: Pointer): Cardinal;
    procedure ReallocMem(var P;
-     aNewSize: Cardinal);
+    aNewSize: Cardinal);
  end;//Tl3BaseBoxMemoryManager
 
 implementation
 
 uses
-  l3MinMax
-  ;
-
-// start class Tl3BaseBoxMemoryManager
+ l3ImplUses
+ , l3MinMax
+;
 
 constructor Tl3BaseBoxMemoryManager.Create(aBlockSize: Cardinal);
+ {* создает менеджер }
 //#UC START# *54B6A1AA02CE_54B69F9700DE_var*
 //#UC END# *54B6A1AA02CE_54B69F9700DE_var*
 begin
@@ -91,7 +73,7 @@ begin
 end;//Tl3BaseBoxMemoryManager.GetSize
 
 procedure Tl3BaseBoxMemoryManager.ReallocMem(var P;
-  aNewSize: Cardinal);
+ aNewSize: Cardinal);
 //#UC START# *54B6A25901A2_54B69F9700DE_var*
 var
  l_OldSz : Integer;
@@ -132,7 +114,7 @@ begin
 end;//Tl3BaseBoxMemoryManager.FreeBlocks
 
 procedure Tl3BaseBoxMemoryManager.DoGetMem(var P;
-  aSize: Cardinal);
+ aSize: Cardinal);
 //#UC START# *54B6A20201D7_54B69F9700DE_var*
 var
  l_Index : Integer;

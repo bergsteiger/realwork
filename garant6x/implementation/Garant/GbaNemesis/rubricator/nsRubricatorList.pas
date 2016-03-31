@@ -1,102 +1,70 @@
 unit nsRubricatorList;
+ {* Структура "одноуровневое дерево" для узла рубрикатора }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rubricator"
-// Автор: Никитин А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Rubricator/nsRubricatorList.pas"
-// Начат: 2003/06/10 12:57:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Основные прецеденты::Rubricator::Rubricator::Rubricator::TnsRubricatorList
-//
-// Структура "одноуровневое дерево" для узла рубрикатора
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Rubricator\nsRubricatorList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsRubricatorList" MUID: (46836A280235)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  nsOneLevelTreeStruct,
-  MainMenuUnit,
-  RubricatorInterfaces,
-  l3TreeInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsOneLevelTreeStruct
+ , RubricatorInterfaces
+ , DynamicTreeUnit
+ , MainMenuUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsRubricatorList = class(TnsOneLevelTreeStruct, InsRubricatorTree)
   {* Структура "одноуровневое дерево" для узла рубрикатора }
- private
- // private fields
-   f_FrozenRoot : INodeBase;
-   f_RootToKeep : INodeBase;
-   f_MenuSectionItemToKeep : ISectionItem;
- protected
- // realized methods
+  private
+   f_FrozenRoot: INodeBase;
+   f_RootToKeep: INodeBase;
+   f_MenuSectionItemToKeep: ISectionItem;
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
    function Get_RootToKeep: INodeBase;
    function Get_MenuSectionItemToKeep: ISectionItem;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
+  public
+   constructor CreateKeeped(const aRoot: INodeBase;
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem); reintroduce;
+   class function Make(const aRoot: INodeBase;
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem): InsRubricatorTree; reintroduce;
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
     aOneLevel: Boolean = False); override;
- public
- // public methods
-   constructor CreateKeeped(const aRoot: INodeBase;
-     const aRootToKeep: INodeBase;
-     const aMenuSectionItemToKeep: ISectionItem);
-   class function Make(const aRoot: INodeBase;
-     const aRootToKeep: INodeBase;
-     const aMenuSectionItemToKeep: ISectionItem): InsRubricatorTree; reintroduce;
-     {* Сигнатура фабрики TnsRubricatorList.Make }
  end;//TnsRubricatorList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsRubricatorCache,
-  nsNodes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3Tree_TLB,
-  nsTypes,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsRubricatorList
+ l3ImplUses
+ , nsRubricatorCache
+ , nsNodes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Tree_TLB
+ , l3TreeInterfaces
+ , nsTypes
+ , SysUtils
+;
 
 constructor TnsRubricatorList.CreateKeeped(const aRoot: INodeBase;
-  const aRootToKeep: INodeBase;
-  const aMenuSectionItemToKeep: ISectionItem);
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
 //#UC START# *4E7387AE0021_46836A280235_var*
 //#UC END# *4E7387AE0021_46836A280235_var*
 begin
@@ -107,8 +75,8 @@ begin
 end;//TnsRubricatorList.CreateKeeped
 
 class function TnsRubricatorList.Make(const aRoot: INodeBase;
-  const aRootToKeep: INodeBase;
-  const aMenuSectionItemToKeep: ISectionItem): InsRubricatorTree;
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem): InsRubricatorTree;
 var
  l_Inst : TnsRubricatorList;
 begin
@@ -118,7 +86,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsRubricatorList.Make
 
 function TnsRubricatorList.ReAqurieUnfilteredRoot: INodeBase;
 //#UC START# *48FF64F60078_46836A280235_var*
@@ -189,8 +157,8 @@ begin
 end;//TnsRubricatorList.Get_MenuSectionItemToKeep
 
 constructor TnsRubricatorList.Create(const aRoot: INodeBase;
-  aShowRoot: Boolean;
-  aOneLevel: Boolean = False);
+ aShowRoot: Boolean;
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_46836A280235_var*
 //#UC END# *48FDD9270194_46836A280235_var*
 begin
@@ -202,20 +170,12 @@ begin
 end;//TnsRubricatorList.Create
 
 procedure TnsRubricatorList.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_FrozenRoot := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_RootToKeep := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_MenuSectionItemToKeep := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsRubricatorList.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -12,9 +12,9 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , l3Interfaces
  , BaseTypesUnit
  , DocumentUnit
+ , l3Interfaces
 ;
 
 type

@@ -20,7 +20,7 @@ uses
 ;
 
 type
- TAACPrimModule = class
+ TAACPrimModule = class(TvcmModule)
   {* Реализация прецедента "Актуальная аналитика". [RequestLink:365838080] }
   public
    procedure MakeAAC(const aDocInfo: IdeDocInfo;
@@ -43,6 +43,7 @@ uses
  , sdsAAC
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TAACPrimModule.MakeAAC(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
  {* Создаёт сборку для документа ААК }
@@ -64,6 +65,7 @@ begin
   Tfs_AACContents.Make(TsdsAAC.Make(aDocInfo), CheckContainer(aContainer));
 //#UC END# *4FF428150001_4FF2E5C70060_impl*
 end;//TAACPrimModule.MakeAACContents
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

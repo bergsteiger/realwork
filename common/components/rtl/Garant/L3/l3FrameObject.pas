@@ -1,123 +1,101 @@
 unit l3FrameObject;
+ {* Объект с рамкой }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FrameObject.pas"
-// Начат: 02.10.06 16:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3FrameObject
-//
-// Объект с рамкой
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FrameObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FrameObject" MUID: (48CA64150378)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3Units,
-  l3CoordinateMap,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Interfaces
+ , l3CoordinateMap
+ , l3Units
+ , l3InternalInterfaces
+;
 
 type
  Tl3FrameObject = class(Tl3CProtoObject)
   {* Объект с рамкой }
- private
- // private fields
-   f_LastBottom : Integer;
-    {* Нижняя граница для выравнивания рамок.}
-   f_CurrColorArray : Tl3LinesColorArray;
-    {* Массив цветов для отрисовки линий}
-   f_HorisontalLines : Tl3CoordinateMap;
-    {* Массив горизонтальных линий для отрисовки}
-   f_VerticalLines : Tl3CoordinateMap;
-    {* Массив вертикальных линий для отрисовки}
-   f_HorisontalBtmBuffer : Tl3CoordinateMap;
-    {* Массив горизонтальных линий для выравнивания}
-   f_FrameObjID : Integer;
-    {* Поле для свойства FrameObjID}
-   f_FinishedFO : Boolean;
-    {* Поле для свойства FinishedFO}
-   f_LineWidth : Integer;
-    {* Поле для свойства LineWidth}
-  {$If defined(nsTest)}
-   f_NeedLog : Boolean;
-    {* Поле для свойства NeedLog}
-  {$IfEnd} //nsTest
- protected
- // property methods
+  private
+   f_LastBottom: Integer;
+    {* Нижняя граница для выравнивания рамок. }
+   f_CurrColorArray: Tl3LinesColorArray;
+    {* Массив цветов для отрисовки линий }
+   f_HorisontalLines: Tl3CoordinateMap;
+    {* Массив горизонтальных линий для отрисовки }
+   f_VerticalLines: Tl3CoordinateMap;
+    {* Массив вертикальных линий для отрисовки }
+   f_HorisontalBtmBuffer: Tl3CoordinateMap;
+    {* Массив горизонтальных линий для выравнивания }
+   f_FrameObjID: Integer;
+    {* Поле для свойства FrameObjID }
+   f_FinishedFO: Boolean;
+    {* Поле для свойства FinishedFO }
+   f_LineWidth: Integer;
+    {* Поле для свойства LineWidth }
+   {$If Defined(nsTest)}
+   f_NeedLog: Boolean;
+    {* Поле для свойства NeedLog }
+   {$IfEnd} // Defined(nsTest)
+  protected
    function pm_GetLineWidth: Integer;
-   {$If defined(nsTest)}
-
-   {$IfEnd} //nsTest
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aFrameID: Integer;
     const aColorArray: Tl3LinesColorArray); reintroduce;
    procedure AddFrame(const aFrame: Tl3Frame;
     const aFrameRect: Tl3Rect;
     anAnalizeType: Tl3FrameAnalizeType);
-     {* Учесть рамку (продлить одну или несколько линий или создать новую) }
+    {* Учесть рамку (продлить одну или несколько линий или создать новую) }
    procedure AlignBoundary(const aFrame: Tl3Frame;
     anIsSingle: Boolean);
-     {* Применить выравнивающие ограничения - выравниванием все линии от aStart 
+    {* Применить выравнивающие ограничения - выравниванием все линии от aStart 
          до aFinish по значению Finish }
    procedure FinishFrameObject(aAlignValue: Integer);
-     {* Скобки для отрисовки "сложных" объектов с рамками - таблиц }
+    {* Скобки для отрисовки "сложных" объектов с рамками - таблиц }
    procedure DrawLines(const aCanvas: Il3Canvas);
-     {* Нарисовать выровненные рамки }
+    {* Нарисовать выровненные рамки }
    function GetAlignData: Il3IntegerList;
-     {* Получить данный о выравнивании }
+    {* Получить данный о выравнивании }
    procedure SetAlignData(const aData: Il3IntegerList);
-     {* Сохранить информацию о выравнивании }
+    {* Сохранить информацию о выравнивании }
    procedure Clear;
-     {* Очистить линии для текущего объекта. }
+    {* Очистить линии для текущего объекта. }
    function GetLines(aVertical: Boolean): Tl3CoordinateMap;
    function GetColorArray: Tl3LinesColorArray;
- public
- // public properties
+  public
    property FrameObjID: Integer
-     read f_FrameObjID;
-     {* Идентификатор отрисовываемого объета. Может быть указателем, номером 
+    read f_FrameObjID;
+    {* Идентификатор отрисовываемого объета. Может быть указателем, номером 
          в списке параграфов - чем угодно, только бы был уникальным. В любом 
          случае информация хранится только до слеующей прорисовки }
    property FinishedFO: Boolean
-     read f_FinishedFO
-     write f_FinishedFO;
-     {* Закончена ли отрисовка объекта. }
+    read f_FinishedFO
+    write f_FinishedFO;
+    {* Закончена ли отрисовка объекта. }
    property LineWidth: Integer
-     read pm_GetLineWidth;
-   {$If defined(nsTest)}
+    read pm_GetLineWidth;
+   {$If Defined(nsTest)}
    property NeedLog: Boolean
-     read f_NeedLog
-     write f_NeedLog;
-   {$IfEnd} //nsTest
+    read f_NeedLog
+    write f_NeedLog;
+   {$IfEnd} // Defined(nsTest)
  end;//Tl3FrameObject
 
 implementation
 
 uses
-  l3Base,
-  l3FrameLine,
-  l3MinMax
-  ;
-
-// start class Tl3FrameObject
+ l3ImplUses
+ , l3Base
+ , l3FrameLine
+ , l3MinMax
+;
 
 function Tl3FrameObject.pm_GetLineWidth: Integer;
 //#UC START# *4A92848703B5_48CA64150378get_var*
@@ -129,7 +107,7 @@ begin
 end;//Tl3FrameObject.pm_GetLineWidth
 
 constructor Tl3FrameObject.Create(aFrameID: Integer;
-  const aColorArray: Tl3LinesColorArray);
+ const aColorArray: Tl3LinesColorArray);
 //#UC START# *48CA655400D8_48CA64150378_var*
 //#UC END# *48CA655400D8_48CA64150378_var*
 begin
@@ -147,8 +125,9 @@ begin
 end;//Tl3FrameObject.Create
 
 procedure Tl3FrameObject.AddFrame(const aFrame: Tl3Frame;
-  const aFrameRect: Tl3Rect;
-  anAnalizeType: Tl3FrameAnalizeType);
+ const aFrameRect: Tl3Rect;
+ anAnalizeType: Tl3FrameAnalizeType);
+ {* Учесть рамку (продлить одну или несколько линий или создать новую) }
 //#UC START# *48CA656F02B4_48CA64150378_var*
 var
  l_UpLine    : Tl3FrameLine;
@@ -202,7 +181,9 @@ begin
 end;//Tl3FrameObject.AddFrame
 
 procedure Tl3FrameObject.AlignBoundary(const aFrame: Tl3Frame;
-  anIsSingle: Boolean);
+ anIsSingle: Boolean);
+ {* Применить выравнивающие ограничения - выравниванием все линии от aStart 
+         до aFinish по значению Finish }
 //#UC START# *48CA65890091_48CA64150378_var*
 //#UC END# *48CA65890091_48CA64150378_var*
 begin
@@ -216,6 +197,7 @@ begin
 end;//Tl3FrameObject.AlignBoundary
 
 procedure Tl3FrameObject.FinishFrameObject(aAlignValue: Integer);
+ {* Скобки для отрисовки "сложных" объектов с рамками - таблиц }
 //#UC START# *48CA65AD0380_48CA64150378_var*
 //#UC END# *48CA65AD0380_48CA64150378_var*
 begin
@@ -229,6 +211,7 @@ begin
 end;//Tl3FrameObject.FinishFrameObject
 
 procedure Tl3FrameObject.DrawLines(const aCanvas: Il3Canvas);
+ {* Нарисовать выровненные рамки }
 //#UC START# *48CA65D00372_48CA64150378_var*
 //#UC END# *48CA65D00372_48CA64150378_var*
 begin
@@ -239,6 +222,7 @@ begin
 end;//Tl3FrameObject.DrawLines
 
 function Tl3FrameObject.GetAlignData: Il3IntegerList;
+ {* Получить данный о выравнивании }
 //#UC START# *4AB8764202D2_48CA64150378_var*
 //#UC END# *4AB8764202D2_48CA64150378_var*
 begin
@@ -248,6 +232,7 @@ begin
 end;//Tl3FrameObject.GetAlignData
 
 procedure Tl3FrameObject.SetAlignData(const aData: Il3IntegerList);
+ {* Сохранить информацию о выравнивании }
 //#UC START# *4AB8766F019E_48CA64150378_var*
 //#UC END# *4AB8766F019E_48CA64150378_var*
 begin
@@ -257,6 +242,7 @@ begin
 end;//Tl3FrameObject.SetAlignData
 
 procedure Tl3FrameObject.Clear;
+ {* Очистить линии для текущего объекта. }
 //#UC START# *4C651E890332_48CA64150378_var*
 //#UC END# *4C651E890332_48CA64150378_var*
 begin
@@ -290,6 +276,7 @@ begin
 end;//Tl3FrameObject.GetColorArray
 
 procedure Tl3FrameObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48CA64150378_var*
 //#UC END# *479731C50290_48CA64150378_var*
 begin

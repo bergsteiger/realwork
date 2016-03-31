@@ -1,95 +1,102 @@
 unit pgTableModifier;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgTableModifier.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgTableModifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgTableModifier.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgTableModifier" MUID: (564B212F02DA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  daParamList,
-  pgConnection
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daParamList
+ , daInterfaces
+ , pgConnection
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TpgTableModifier = class(Tl3ProtoObject)
- private
- // private fields
-   f_Params : TdaParamList;
-   f_DataConverter : IdaDataConverter;
-   f_InsertName : AnsiString;
-   f_Connection : TpgConnection;
-   f_TableID : TdaTables;
- private
- // private methods
+  private
+   f_Params: TdaParamList;
+   f_DataConverter: IdaDataConverter;
+   f_InsertName: AnsiString;
+   f_Connection: TpgConnection;
+   f_TableID: TdaTables;
+  private
    procedure BuildSQLAndFillParams(aTableID: TdaTables;
-     out anSQL: AnsiString;
-     aParams: TdaParamList);
+    out anSQL: AnsiString;
+    aParams: TdaParamList);
    procedure PrepareSQL(aTableID: TdaTables);
    procedure UnPrepareSQL;
-     {* Сигнатура метода UnPrepareSQL }
- protected
- // property methods
+  protected
    function pm_GetParams(const Name: AnsiString): IdaParam;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTableID: TdaTables;
-     aConnection: TpgConnection;
-     const aDataConverter: IdaDataConverter); reintroduce;
+    aConnection: TpgConnection;
+    const aDataConverter: IdaDataConverter); reintroduce;
    procedure Insert;
    function BeginTransaction: Boolean;
    procedure CommitTransaction;
    procedure RollBackTransaction;
- public
- // public properties
+  public
    property Params[const Name: AnsiString]: IdaParam
-     read pm_GetParams;
+    read pm_GetParams;
  end;//TpgTableModifier
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  LibPQ,
-  pgUtils,
-  pgInterfaces,
-  daScheme,
-  daParam,
-  daFieldParamDescription
-  ;
-{$IfEnd} //UsePostgres
+ l3ImplUses
+ , SysUtils
+ , LibPQ
+ , pgUtils
+ , pgInterfaces
+ , daScheme
+ , daParam
+ , daFieldParamDescription
+;
 
-{$If defined(UsePostgres)}
+function TpgTableModifier.pm_GetParams(const Name: AnsiString): IdaParam;
+//#UC START# *564C2778019B_564B212F02DAget_var*
+var
+ l_IDX: Integer;
+//#UC END# *564C2778019B_564B212F02DAget_var*
+begin
+//#UC START# *564C2778019B_564B212F02DAget_impl*
+ if f_Params.FindData(Name, l_IDX) then
+  Result := f_Params[l_IDX]
+ else
+  Result := nil;
+//#UC END# *564C2778019B_564B212F02DAget_impl*
+end;//TpgTableModifier.pm_GetParams
 
-// start class TpgTableModifier
+constructor TpgTableModifier.Create(aTableID: TdaTables;
+ aConnection: TpgConnection;
+ const aDataConverter: IdaDataConverter);
+//#UC START# *564C1BDD02FE_564B212F02DA_var*
+//#UC END# *564C1BDD02FE_564B212F02DA_var*
+begin
+//#UC START# *564C1BDD02FE_564B212F02DA_impl*
+ inherited Create;
+ f_TableID := aTableID;
+ f_Params := TdaParamList.Make;
+ f_DataConverter := aDataConverter;
+ aConnection.SetRefTo(f_Connection);
+ PrepareSQL(aTableID);
+//#UC END# *564C1BDD02FE_564B212F02DA_impl*
+end;//TpgTableModifier.Create
 
 procedure TpgTableModifier.BuildSQLAndFillParams(aTableID: TdaTables;
-  out anSQL: AnsiString;
-  aParams: TdaParamList);
+ out anSQL: AnsiString;
+ aParams: TdaParamList);
 //#UC START# *564C664702D3_564B212F02DA_var*
 var
  l_Table: IdaTableDescription;
@@ -159,36 +166,6 @@ begin
 //#UC END# *564C66BE013F_564B212F02DA_impl*
 end;//TpgTableModifier.UnPrepareSQL
 
-constructor TpgTableModifier.Create(aTableID: TdaTables;
-  aConnection: TpgConnection;
-  const aDataConverter: IdaDataConverter);
-//#UC START# *564C1BDD02FE_564B212F02DA_var*
-//#UC END# *564C1BDD02FE_564B212F02DA_var*
-begin
-//#UC START# *564C1BDD02FE_564B212F02DA_impl*
- inherited Create;
- f_TableID := aTableID;
- f_Params := TdaParamList.Make;
- f_DataConverter := aDataConverter;
- aConnection.SetRefTo(f_Connection);
- PrepareSQL(aTableID);
-//#UC END# *564C1BDD02FE_564B212F02DA_impl*
-end;//TpgTableModifier.Create
-
-function TpgTableModifier.pm_GetParams(const Name: AnsiString): IdaParam;
-//#UC START# *564C2778019B_564B212F02DAget_var*
-var
- l_IDX: Integer;
-//#UC END# *564C2778019B_564B212F02DAget_var*
-begin
-//#UC START# *564C2778019B_564B212F02DAget_impl*
- if f_Params.FindData(Name, l_IDX) then
-  Result := f_Params[l_IDX]
- else
-  Result := nil;
-//#UC END# *564C2778019B_564B212F02DAget_impl*
-end;//TpgTableModifier.pm_GetParams
-
 procedure TpgTableModifier.Insert;
 //#UC START# *564C58CD016F_564B212F02DA_var*
 var
@@ -244,6 +221,7 @@ begin
 end;//TpgTableModifier.RollBackTransaction
 
 procedure TpgTableModifier.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_564B212F02DA_var*
 //#UC END# *479731C50290_564B212F02DA_var*
 begin
@@ -255,7 +233,6 @@ begin
  inherited;
 //#UC END# *479731C50290_564B212F02DA_impl*
 end;//TpgTableModifier.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

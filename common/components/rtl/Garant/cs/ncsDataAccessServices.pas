@@ -1,103 +1,69 @@
 unit ncsDataAccessServices;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsDataAccessServices.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ArchiClientServer::TncsDataAccessServices
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsDataAccessServices.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsDataAccessServices" MUID: (54FE99C90168)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+;
 
-{$If not defined(Nemesis)}
 type
  TncsDataAccessServices = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_InitCounter : Integer;
- public
- // public methods
+  private
+   f_InitCounter: Integer;
+  public
    procedure InitClient;
-     {* Настраивает и регестрирует фабрики для TdaDataProviderSuperFactory
+    {* Настраивает и регестрирует фабрики для TdaDataProviderSuperFactory
 Должен быть вызван до обращения к методам TdaDataProviderSuperFactory }
    procedure InitServer;
-     {* Сигнатура метода InitServer }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsDataAccessServices;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TncsDataAccessServices }
  end;//TncsDataAccessServices
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  htDataProviderFactory,
-  daDataProviderSuperFactory,
-  ncsClientParamsStorage,
-  daScheme
-  {$If defined(UsePostgres)}
-  ,
-  pgDataProviderFactory
-  {$IfEnd} //UsePostgres
-  
-  {$If defined(TestComboAccess) AND defined(UsePostgres)}
-  ,
-  caDataProviderFactory
-  {$IfEnd} //TestComboAccess AND UsePostgres
-  
-  {$If defined(AppServerSide) AND not defined(Nemesis)}
-  ,
-  ncsServerParamsStorage
-  {$IfEnd} //AppServerSide AND not Nemesis
-  ,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , SysUtils
+ , htDataProviderFactory
+ , daDataProviderSuperFactory
+ , ncsClientParamsStorage
+ , daScheme
+ {$If Defined(UsePostgres)}
+ , pgDataProviderFactory
+ {$IfEnd} // Defined(UsePostgres)
+ {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
+ , caDataProviderFactory
+ {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
+ {$If Defined(AppServerSide)}
+ , ncsServerParamsStorage
+ {$IfEnd} // Defined(AppServerSide)
+ , l3Base
+;
 
-{$If not defined(Nemesis)}
-
-
-// start class TncsDataAccessServices
-
-var g_TncsDataAccessServices : TncsDataAccessServices = nil;
+var g_TncsDataAccessServices: TncsDataAccessServices = nil;
+ {* Экземпляр синглетона TncsDataAccessServices }
 
 procedure TncsDataAccessServicesFree;
+ {* Метод освобождения экземпляра синглетона TncsDataAccessServices }
 begin
  l3Free(g_TncsDataAccessServices);
-end;
-
-class function TncsDataAccessServices.Instance: TncsDataAccessServices;
-begin
- if (g_TncsDataAccessServices = nil) then
- begin
-  l3System.AddExitProc(TncsDataAccessServicesFree);
-  g_TncsDataAccessServices := Create;
- end;
- Result := g_TncsDataAccessServices;
-end;
-
+end;//TncsDataAccessServicesFree
 
 procedure TncsDataAccessServices.InitClient;
+ {* Настраивает и регестрирует фабрики для TdaDataProviderSuperFactory
+Должен быть вызван до обращения к методам TdaDataProviderSuperFactory }
 //#UC START# *54FE9A000180_54FE99C90168_var*
 var
  l_HyTechProviderFactory : ThtDataProviderFactory;
@@ -190,11 +156,21 @@ begin
 end;//TncsDataAccessServices.InitServer
 
 class function TncsDataAccessServices.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TncsDataAccessServices <> nil;
 end;//TncsDataAccessServices.Exists
 
-{$IfEnd} //not Nemesis
+class function TncsDataAccessServices.Instance: TncsDataAccessServices;
+ {* Метод получения экземпляра синглетона TncsDataAccessServices }
+begin
+ if (g_TncsDataAccessServices = nil) then
+ begin
+  l3System.AddExitProc(TncsDataAccessServicesFree);
+  g_TncsDataAccessServices := Create;
+ end;
+ Result := g_TncsDataAccessServices;
+end;//TncsDataAccessServices.Instance
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

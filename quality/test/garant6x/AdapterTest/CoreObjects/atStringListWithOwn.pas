@@ -1,47 +1,35 @@
 unit atStringListWithOwn;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringListWithOwn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatStringListWithOwn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringListWithOwn.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatStringListWithOwn" MUID: (4807752C025A)
 
 interface
 
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 type
  TatStringListWithOwn = class(TStringList)
- private
- // private fields
-   f_OwnsObjects : Boolean;
-    {* Поле для свойства OwnsObjects}
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  private
+   f_OwnsObjects: Boolean;
+    {* Поле для свойства OwnsObjects }
+  public
    constructor Create(ownsObjects: Boolean); reintroduce;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property OwnsObjects: Boolean
-     read f_OwnsObjects
-     write f_OwnsObjects;
+    read f_OwnsObjects
+    write f_OwnsObjects;
  end;//TatStringListWithOwn
 
 implementation
 
-// start class TatStringListWithOwn
+uses
+ l3ImplUses
+;
 
 constructor TatStringListWithOwn.Create(ownsObjects: Boolean);
 //#UC START# *480775BA0035_4807752C025A_var*

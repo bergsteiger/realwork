@@ -1,80 +1,58 @@
 unit nsJournalBookmarkNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsJournalBookmarkNode.pas"
-// Начат: 21.10.2009 19:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::MainMenu::TnsJournalBookmarkNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsJournalBookmarkNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsJournalBookmarkNode" MUID: (4ADDF4D901D1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3Interfaces,
-  l3Tree_TLB,
-  MainMenuDomainInterfaces,
-  nsWrapperNode,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsWrapperNode
+ , MainMenuDomainInterfaces
+ , DocumentUnit
+ , l3Interfaces
+ , l3Tree_TLB
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsJournalBookmarkNode = class(TnsWrapperNode, InsJournalBookmarkNode)
- private
- // private fields
-   f_Bookmark : IJournalBookmark;
-   f_DocName : Il3CString;
- protected
- // realized methods
+  private
+   f_Bookmark: IJournalBookmark;
+   f_DocName: Il3CString;
+  protected
    function Get_DocName: Il3CString;
    function Get_Bookmark: IJournalBookmark;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aBookmark: IJournalBookmark;
     aFullDocName: Boolean); reintroduce;
    class function Make(const aBookmark: IJournalBookmark;
     aFullDocName: Boolean = False): Il3Node; reintroduce;
  end;//TnsJournalBookmarkNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  IOUnit,
-  nsTypes,
-  BaseTypesUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsJournalBookmarkNode
+ l3ImplUses
+ , l3String
+ , IOUnit
+ , nsTypes
+ , BaseTypesUnit
+;
 
 constructor TnsJournalBookmarkNode.Create(const aBookmark: IJournalBookmark;
-  aFullDocName: Boolean);
+ aFullDocName: Boolean);
 //#UC START# *4ADF23C202CF_4ADDF4D901D1_var*
 
  procedure lp_MakeText;
@@ -146,7 +124,7 @@ begin
 end;//TnsJournalBookmarkNode.Create
 
 class function TnsJournalBookmarkNode.Make(const aBookmark: IJournalBookmark;
-  aFullDocName: Boolean = False): Il3Node;
+ aFullDocName: Boolean = False): Il3Node;
 var
  l_Inst : TnsJournalBookmarkNode;
 begin
@@ -156,7 +134,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsJournalBookmarkNode.Make
 
 function TnsJournalBookmarkNode.Get_DocName: Il3CString;
 //#UC START# *4A8BAAA50229_4ADDF4D901D1get_var*
@@ -196,6 +174,7 @@ begin
 end;//TnsJournalBookmarkNode.Get_Bookmark
 
 procedure TnsJournalBookmarkNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDF4D901D1_var*
 //#UC END# *479731C50290_4ADDF4D901D1_var*
 begin
@@ -207,7 +186,8 @@ begin
 end;//TnsJournalBookmarkNode.Cleanup
 
 function TnsJournalBookmarkNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4ADDF4D901D1_var*
 //#UC END# *4A60B23E00C3_4ADDF4D901D1_var*
 begin
@@ -222,7 +202,6 @@ begin
  end;
 //#UC END# *4A60B23E00C3_4ADDF4D901D1_impl*
 end;//TnsJournalBookmarkNode.COMQueryInterface
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,62 +1,49 @@
 unit l3ImageList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ImageList.pas"
-// Начат: 28.07.2005 15:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3ImageList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ImageList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ImageList" MUID: (47D02E5F022F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3CProtoObject,
-  l3Interfaces,
-  l3Units,
-  l3Core
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Core
+ , l3Units
+ , l3Interfaces
+;
 
 type
  Tl3ImageList = class(Tl3CProtoObject, Il3ImageList)
- private
- // private fields
-   f_List : TCustomImageList;
- protected
- // realized methods
+  private
+   f_List: TCustomImageList;
+  protected
+   function DoGetBigSize: Boolean; virtual;
+   procedure DoSetBigSize(aValue: Boolean); virtual;
    procedure Draw(const aCanvas: Il3Canvas;
     const aRect: Tl3SRect;
     aFillColor: Tl3Color;
     Index: Integer;
-    Enabled: Boolean = True); overload; 
+    Enabled: Boolean = True); overload;
    procedure Draw(const aCanvas: Il3Canvas;
     X: Integer;
     Y: Integer;
     Index: Integer;
-    Enabled: Boolean = True); overload; 
+    Enabled: Boolean = True); overload;
    procedure Draw(const aCanvas: Il3Canvas;
     X: Integer;
     Y: Integer;
     Index: Integer;
     ADrawingStyle: Tl3DrawingStyle;
     AImageType: Tl3ImageType;
-    Enabled: Boolean = True); overload; 
+    Enabled: Boolean = True); overload;
    function Hack: pointer;
    function pm_GetWidth: Integer;
    function pm_GetHeight: Integer;
@@ -64,12 +51,7 @@ type
    function pm_GetHandle: THandle;
    function pm_GetBigSize: Boolean;
    procedure pm_SetBigSize(aValue: Boolean);
- protected
- // protected methods
-   function DoGetBigSize: Boolean; virtual;
-   procedure DoSetBigSize(aValue: Boolean); virtual;
- public
- // public methods
+  public
    constructor Create(aList: TCustomImageList); reintroduce; virtual;
    class function Make(aList: TCustomImageList): Il3ImageList; reintroduce;
  end;//Tl3ImageList
@@ -77,12 +59,11 @@ type
 implementation
 
 uses
-  l3Bitmap,
-  Graphics,
-  Types
-  ;
-
-// start class Tl3ImageList
+ l3ImplUses
+ , l3Bitmap
+ , Graphics
+ , Types
+;
 
 constructor Tl3ImageList.Create(aList: TCustomImageList);
 //#UC START# *47D14ADF03A0_47D02E5F022F_var*
@@ -105,7 +86,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3ImageList.Make
 
 function Tl3ImageList.DoGetBigSize: Boolean;
 //#UC START# *47D14E0C0120_47D02E5F022F_var*
@@ -125,10 +106,10 @@ begin
 end;//Tl3ImageList.DoSetBigSize
 
 procedure Tl3ImageList.Draw(const aCanvas: Il3Canvas;
-  const aRect: Tl3SRect;
-  aFillColor: Tl3Color;
-  Index: Integer;
-  Enabled: Boolean = True);
+ const aRect: Tl3SRect;
+ aFillColor: Tl3Color;
+ Index: Integer;
+ Enabled: Boolean = True);
 //#UC START# *4728C6D400FA_47D02E5F022F_var*
 var
  l_ImgX, l_ImgY: Integer;
@@ -157,10 +138,10 @@ begin
 end;//Tl3ImageList.Draw
 
 procedure Tl3ImageList.Draw(const aCanvas: Il3Canvas;
-  X: Integer;
-  Y: Integer;
-  Index: Integer;
-  Enabled: Boolean = True);
+ X: Integer;
+ Y: Integer;
+ Index: Integer;
+ Enabled: Boolean = True);
 //#UC START# *4728C6F401E6_47D02E5F022F_var*
 //#UC END# *4728C6F401E6_47D02E5F022F_var*
 begin
@@ -170,12 +151,12 @@ begin
 end;//Tl3ImageList.Draw
 
 procedure Tl3ImageList.Draw(const aCanvas: Il3Canvas;
-  X: Integer;
-  Y: Integer;
-  Index: Integer;
-  ADrawingStyle: Tl3DrawingStyle;
-  AImageType: Tl3ImageType;
-  Enabled: Boolean = True);
+ X: Integer;
+ Y: Integer;
+ Index: Integer;
+ ADrawingStyle: Tl3DrawingStyle;
+ AImageType: Tl3ImageType;
+ Enabled: Boolean = True);
 //#UC START# *4728C76E03C2_47D02E5F022F_var*
 //#UC END# *4728C76E03C2_47D02E5F022F_var*
 begin

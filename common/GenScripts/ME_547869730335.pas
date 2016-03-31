@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , Classes
  , Types
+ //#UC START# *547869730335intf_uses*
+ //#UC END# *547869730335intf_uses*
 ;
 
 type
@@ -44,6 +46,8 @@ implementation
 {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ //#UC START# *547869730335impl_uses*
+ //#UC END# *547869730335impl_uses*
 ;
 
 constructor TRectWrap.Create(const aRect: TRect);

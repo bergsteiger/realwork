@@ -1,65 +1,50 @@
 unit m3NewRootStreamManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3NewRootStreamManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3NewRootStreamManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3NewRootStreamManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NewRootStreamManager" MUID: (5411A4410076)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3StoreHeaderDataPrim,
-  m3RootStreamManager,
-  m3RootStream
-  ;
+ l3IntfUses
+ , m3RootStreamManager
+ , m3StoreHeaderDataPrim
+ , ActiveX
+ , m3RootStream
+;
 
 type
  Tm3NewRootStreamManager = class(Tm3RootStreamManager)
- private
- // private fields
-   f_StoreHeaderDataClass : Rm3StoreHeaderDataPrim;
- protected
- // realized methods
+  private
+   f_StoreHeaderDataClass: Rm3StoreHeaderDataPrim;
+  protected
    function DoAllocNewFATElement(aFromFreeChainOnly: Boolean): Int64; override;
-   function StoreHeaderDataClass: Rm3StoreHeaderDataPrim; override;
    procedure DoRemoveFATElementAtPos(aPosition: Int64); override;
-   procedure RemoveTOCBuffData(var ATOCBuffDataPosition: Int64); override;
    procedure DoClearFATElement(aPosition: Int64); override;
-   function ClusterHeaderSize: Int64; override;
- public
- // overridden public methods
-   constructor Create(aStream: Tm3RootStream); override;
- public
- // public methods
+  public
    class function Make(const aStream: IStream): Tm3NewRootStreamManager;
+   function StoreHeaderDataClass: Rm3StoreHeaderDataPrim; override;
+   procedure RemoveTOCBuffData(var ATOCBuffDataPosition: Int64); override;
+   function ClusterHeaderSize: Int64; override;
+   constructor Create(aStream: Tm3RootStream); override;
  end;//Tm3NewRootStreamManager
 
 implementation
 
 uses
-  ComObj,
-  m2COMLib,
-  Windows,
-  SysUtils,
-  m3StoreHeaderData,
-  m3StoreHeaderDataNew,
-  m3RootStreamNew,
-  m3StorageBlock
-  ;
-
-// start class Tm3NewRootStreamManager
+ l3ImplUses
+ , m3StoreHeaderData
+ , m3StoreHeaderDataNew
+ , m3RootStreamNew
+ , m3StorageBlock
+ , ComObj
+ , m2COMLib
+ , Windows
+ , SysUtils
+;
 
 class function Tm3NewRootStreamManager.Make(const aStream: IStream): Tm3NewRootStreamManager;
 //#UC START# *5411B27E014C_5411A4410076_var*

@@ -1,72 +1,49 @@
 unit nsBaseSearchPromptFilters;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsBaseSearchPromptFilters.pas"
-// Начат: 2008/06/25 08:04:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::BaseSearch::TnsBaseSearchPromptFilters
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptFilters.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchPromptFilters" MUID: (4901FC9F0096)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3TreeFilters,
-  BaseSearchInterfaces,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3TreeFilters
+ , BaseSearchInterfaces
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin)}
 type
  TnsBaseSearchPromptFilters = class(Tl3TreeFilters, InsBaseSearchPromptFilters)
   {* Коллеги, это что? }
- private
- // private fields
-   f_PromptForDoc : InsPromptForDocFilter;
-   f_Leaf : InsCutToLeafFilter;
- protected
- // realized methods
+  private
+   f_PromptForDoc: InsPromptForDocFilter;
+   f_Leaf: InsCutToLeafFilter;
+  protected
    function pm_GetLeaf: InsCutToLeafFilter;
    function SetLeaf(const aFilter: InsCutToLeafFilter): InsBaseSearchPromptFilters;
    function Get_ForDoc: InsPromptForDocFilter;
    function SetPromptForDoc(const aFilter: InsPromptForDocFilter): InsBaseSearchPromptFilters;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSource: Il3TreeFilters); override;
  end;//TnsBaseSearchPromptFilters
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nsCutToLeafFilter,
-  SysUtils,
-  nsPromptForDocFilter
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnsBaseSearchPromptFilters
+ l3ImplUses
+ , nsCutToLeafFilter
+ , SysUtils
+ , nsPromptForDocFilter
+;
 
 function TnsBaseSearchPromptFilters.pm_GetLeaf: InsCutToLeafFilter;
 //#UC START# *4901F76E0360_4901FC9F0096get_var*
@@ -107,6 +84,7 @@ begin
 end;//TnsBaseSearchPromptFilters.SetPromptForDoc
 
 procedure TnsBaseSearchPromptFilters.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4901FC9F0096_var*
 //#UC END# *479731C50290_4901FC9F0096_var*
 begin
@@ -134,7 +112,6 @@ begin
  end;
 //#UC END# *48FF4F47010F_4901FC9F0096_impl*
 end;//TnsBaseSearchPromptFilters.Create
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

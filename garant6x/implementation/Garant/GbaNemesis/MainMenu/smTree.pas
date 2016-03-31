@@ -1,72 +1,49 @@
 unit smTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MainMenu"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/MainMenu/smTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Интерфейсные элементы::MainMenu::MainMenu::MainMenuTrees::TsmTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TsmTree" MUID: (490B0E9A02A2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Tree_TLB,
-  nsBaseMainMenuTree,
-  MainMenuUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsBaseMainMenuTree
+ , MainMenuUnit
+ , l3Tree_TLB
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TsmTree = class(TnsBaseMainMenuTree)
- private
- // private fields
-   f_Section : ISection;
-   f_SectionType : TSectionType;
- protected
- // overridden protected methods
+  private
+   f_Section: ISection;
+   f_SectionType: TSectionType;
+  protected
+   procedure AddItems2011(const aRoot: Il3RootNode;
+    aSectionType: TSectionType);
    procedure BeforeReset; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure AddItems2011(const aRoot: Il3RootNode;
-     aSectionType: TSectionType);
  end;//TsmTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsMainMenu2011Node,
-  DataAdapter,
-  nsMainMenuNode
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TsmTree
+ l3ImplUses
+ , nsMainMenuNode
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsMainMenu2011Node
+ , DataAdapter
+;
 
 procedure TsmTree.AddItems2011(const aRoot: Il3RootNode;
-  aSectionType: TSectionType);
+ aSectionType: TSectionType);
 //#UC START# *4E73127A01C7_490B0E9A02A2_var*
 var
  l_Sect : ISection;
@@ -111,14 +88,10 @@ begin
 end;//TsmTree.BeforeReset
 
 procedure TsmTree.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Section := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TsmTree.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

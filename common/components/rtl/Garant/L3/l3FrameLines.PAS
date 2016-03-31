@@ -1,40 +1,28 @@
 unit l3FrameLines;
+ {* Комментарии к использованию: 
+Есть возможность отрисовывать все накопленные линии сразу или по одному 
+объекту (в качестве идентификатора выступает PID). Последнее используется 
+при выводе на печать. При выводе на экран накапливается информация для всех 
+таблиц, а потом выводить все за один прием выводится. Можно использовать
+для любых объектов, имеющих рамку, но пока используется только для таблиц. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FrameLines.pas"
-// Начат: 02.10.06 16:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3FrameLines
-//
-// Комментарии к использованию:
-// Есть возможность отрисовывать все накопленные линии сразу или по одному
-// объекту (в качестве идентификатора выступает PID). Последнее используется
-// при выводе на печать. При выводе на экран накапливается информация для всех
-// таблиц, а потом выводить все за один прием выводится. Можно использовать
-// для любых объектов, имеющих рамку, но пока используется только для таблиц.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FrameLines.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FrameLines" MUID: (48CA6E8201B8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3Units,
-  l3FrameObject,
-  l3FrameObjectList,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3InternalInterfaces
+ , l3FrameObjectList
+ , l3FrameObject
+ , l3Interfaces
+ , l3Units
+;
 
 type
  Tl3FrameLines = class(Tl3CProtoObject, Il3FrameLines)
@@ -44,94 +32,84 @@ type
 при выводе на печать. При выводе на экран накапливается информация для всех 
 таблиц, а потом выводить все за один прием выводится. Можно использовать
 для любых объектов, имеющих рамку, но пока используется только для таблиц. }
- private
- // private fields
-  {$If defined(nsTest)}
-   f_LastFoundObjIndex : Integer;
-    {* Используется для тестов для формирования уникального имени лога для таблицы}
-  {$IfEnd} //nsTest
-   f_FrameObjects : Tl3FrameObjectList;
-    {* Массив списка линий по данной координате}
-   f_Behaviour : Tl3FrameObjectBehaviour;
- private
- // private methods
+  private
+   {$If Defined(nsTest)}
+   f_LastFoundObjIndex: Integer;
+    {* Используется для тестов для формирования уникального имени лога для таблицы }
+   {$IfEnd} // Defined(nsTest)
+   f_FrameObjects: Tl3FrameObjectList;
+    {* Массив списка линий по данной координате }
+   f_Behaviour: Tl3FrameObjectBehaviour;
+  private
    function GetFrameObjects: Tl3FrameObjectList;
- protected
- // realized methods
+  protected
+   function InternalFrameObject(anObjID: Integer): Tl3FrameObject;
+    {* Возвращает объект отрисовки по ключу }
+   procedure UpdateFrameRect(const aCanvas: Il3Canvas;
+    const aFrame: Tl3Frame;
+    var aRect: Tl3Rect);
+    {* Добавить к aRect отсутпы границ рамок }
    function Get_FinishedFO(aFrameObjID: Integer): Boolean;
-   procedure Set_FinishedFO(aFrameObjID: Integer; aValue: Boolean);
- public
- // realized methods
+   procedure Set_FinishedFO(aFrameObjID: Integer;
+    aValue: Boolean);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
+   class function Make: Il3FrameLines; reintroduce;
+    {* конструктор }
    procedure StartFrameObject(anBehaviour: Tl3FrameObjectBehaviour;
     aFrameObjID: Integer;
     const aColorArray: Tl3LinesColorArray);
-     {* Скобки для отрисовки "сложных" объектов с рамками - таблиц. }
+    {* Скобки для отрисовки "сложных" объектов с рамками - таблиц. }
    procedure FinishFrameObject(anObjectID: Integer;
     aAlignValue: Integer);
-     {* Скобки для отрисовки "сложных" объектов с рамками - таблиц. }
+    {* Скобки для отрисовки "сложных" объектов с рамками - таблиц. }
    procedure AddFrame(const aCanvas: Il3Canvas;
     anObjectID: Integer;
     const aFrame: Tl3Frame;
     anAnalizeType: Tl3FrameAnalizeType);
-     {* Учесть рамку (продлить одну или несколько линий или создать новую). }
+    {* Учесть рамку (продлить одну или несколько линий или создать новую). }
    procedure AlignBoundary(anObjectID: Integer;
     const aFrame: Tl3Frame;
     anIsSingle: Boolean);
-     {* Применить выравнивающие ограничения. }
+    {* Применить выравнивающие ограничения. }
    procedure DrawAllLines(const aCanvas: Il3Canvas;
     anObjectID: Integer);
-     {* Нарисовать выровненные рамки. anObjectID = -1 выводить все линии, 
+    {* Нарисовать выровненные рамки. anObjectID = -1 выводить все линии, 
           если anObjectID > -1, то выводим линии только для одного объекта. 
           Пока в качестве anObjectID передается PID параграфа (таблицы и т.п.) }
    procedure DrawFrame(const aCanvas: Il3Canvas;
     const aFrame: Tl3Frame;
     const aText: Il3FrameTextPainter);
-     {* Отрисовывает рамку. }
+    {* Отрисовывает рамку. }
    function GetLineWidth(aFrameObjID: Integer): Integer;
-     {* Возвращает ширину линии для указанного объекта. }
+    {* Возвращает ширину линии для указанного объекта. }
    function ReadAlignData(anObjectID: Integer): Il3IntegerList;
-     {* Прочитать массив данных для сохранения }
+    {* Прочитать массив данных для сохранения }
    procedure WriteAlignData(anObjectID: Integer;
     const aData: Il3IntegerList);
-     {* Записать данные о выравнивании }
-   {$If defined(nsTest)}
+    {* Записать данные о выравнивании }
+   {$If Defined(nsTest)}
    procedure SetNeedLogging(anObjectID: Integer;
     aNeedLog: Boolean);
-     {* Метод для тестов. Выставляет флаг объекту о необходимости записи в лог. }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Метод для тестов. Выставляет флаг объекту о необходимости записи в лог. }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    procedure ClearFrameObject(aFrameObjID: Integer);
-   {$IfEnd} //nsTest
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
-   function InternalFrameObject(anObjID: Integer): Tl3FrameObject;
-     {* Возвращает объект отрисовки по ключу }
-   procedure UpdateFrameRect(const aCanvas: Il3Canvas;
-    const aFrame: Tl3Frame;
-    var aRect: Tl3Rect);
-     {* Добавить к aRect отсутпы границ рамок }
- public
- // public methods
-   class function Make: Il3FrameLines; reintroduce;
-     {* конструктор }
+   {$IfEnd} // Defined(nsTest)
  end;//Tl3FrameLines
 
 implementation
 
 uses
-  l3Base,
-  l3Types,
-  l3MinMax,
-  Windows,
-  l3FrameLinesSpy
-  ;
-
-// start class Tl3FrameLines
+ l3ImplUses
+ , l3Base
+ , l3Types
+ , l3MinMax
+ , Windows
+ , l3FrameLinesSpy
+;
 
 function Tl3FrameLines.GetFrameObjects: Tl3FrameObjectList;
 //#UC START# *51B96284001B_48CA6E8201B8_var*
@@ -145,6 +123,7 @@ begin
 end;//Tl3FrameLines.GetFrameObjects
 
 class function Tl3FrameLines.Make: Il3FrameLines;
+ {* конструктор }
 var
  l_Inst : Tl3FrameLines;
 begin
@@ -154,9 +133,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3FrameLines.Make
 
 function Tl3FrameLines.InternalFrameObject(anObjID: Integer): Tl3FrameObject;
+ {* Возвращает объект отрисовки по ключу }
 //#UC START# *48CA703303A3_48CA6E8201B8_var*
 
  function CheckElement(Data: PObject; Index: Integer): Boolean;
@@ -184,8 +164,9 @@ begin
 end;//Tl3FrameLines.InternalFrameObject
 
 procedure Tl3FrameLines.UpdateFrameRect(const aCanvas: Il3Canvas;
-  const aFrame: Tl3Frame;
-  var aRect: Tl3Rect);
+ const aFrame: Tl3Frame;
+ var aRect: Tl3Rect);
+ {* Добавить к aRect отсутпы границ рамок }
 //#UC START# *48CA70430236_48CA6E8201B8_var*
 //#UC END# *48CA70430236_48CA6E8201B8_var*
 begin
@@ -200,8 +181,9 @@ begin
 end;//Tl3FrameLines.UpdateFrameRect
 
 procedure Tl3FrameLines.StartFrameObject(anBehaviour: Tl3FrameObjectBehaviour;
-  aFrameObjID: Integer;
-  const aColorArray: Tl3LinesColorArray);
+ aFrameObjID: Integer;
+ const aColorArray: Tl3LinesColorArray);
+ {* Скобки для отрисовки "сложных" объектов с рамками - таблиц. }
 //#UC START# *4A4CB2B2031F_48CA6E8201B8_var*
 var
  l_FrameObject : Tl3FrameObject;
@@ -234,7 +216,8 @@ begin
 end;//Tl3FrameLines.StartFrameObject
 
 procedure Tl3FrameLines.FinishFrameObject(anObjectID: Integer;
-  aAlignValue: Integer);
+ aAlignValue: Integer);
+ {* Скобки для отрисовки "сложных" объектов с рамками - таблиц. }
 //#UC START# *4A4CB2BE0134_48CA6E8201B8_var*
 var
  l_FrameObject: Tl3FrameObject;
@@ -252,9 +235,10 @@ begin
 end;//Tl3FrameLines.FinishFrameObject
 
 procedure Tl3FrameLines.AddFrame(const aCanvas: Il3Canvas;
-  anObjectID: Integer;
-  const aFrame: Tl3Frame;
-  anAnalizeType: Tl3FrameAnalizeType);
+ anObjectID: Integer;
+ const aFrame: Tl3Frame;
+ anAnalizeType: Tl3FrameAnalizeType);
+ {* Учесть рамку (продлить одну или несколько линий или создать новую). }
 //#UC START# *4A4CB2C300F6_48CA6E8201B8_var*
 var
  l_FrameObject : Tl3FrameObject;
@@ -276,8 +260,9 @@ begin
 end;//Tl3FrameLines.AddFrame
 
 procedure Tl3FrameLines.AlignBoundary(anObjectID: Integer;
-  const aFrame: Tl3Frame;
-  anIsSingle: Boolean);
+ const aFrame: Tl3Frame;
+ anIsSingle: Boolean);
+ {* Применить выравнивающие ограничения. }
 //#UC START# *4A4CB2D20019_48CA6E8201B8_var*
 var
  l_FrameObject: Tl3FrameObject;
@@ -295,7 +280,10 @@ begin
 end;//Tl3FrameLines.AlignBoundary
 
 procedure Tl3FrameLines.DrawAllLines(const aCanvas: Il3Canvas;
-  anObjectID: Integer);
+ anObjectID: Integer);
+ {* Нарисовать выровненные рамки. anObjectID = -1 выводить все линии, 
+          если anObjectID > -1, то выводим линии только для одного объекта. 
+          Пока в качестве anObjectID передается PID параграфа (таблицы и т.п.) }
 //#UC START# *4A4CB2DD02ED_48CA6E8201B8_var*
 var
  l_FrameObject: Tl3FrameObject;
@@ -324,8 +312,9 @@ begin
 end;//Tl3FrameLines.DrawAllLines
 
 procedure Tl3FrameLines.DrawFrame(const aCanvas: Il3Canvas;
-  const aFrame: Tl3Frame;
-  const aText: Il3FrameTextPainter);
+ const aFrame: Tl3Frame;
+ const aText: Il3FrameTextPainter);
+ {* Отрисовывает рамку. }
 //#UC START# *4A4CB2E1010D_48CA6E8201B8_var*
 var
  l_E     : Tl3SPoint;
@@ -432,7 +421,8 @@ begin
 //#UC END# *4A810BC702C0_48CA6E8201B8get_impl*
 end;//Tl3FrameLines.Get_FinishedFO
 
-procedure Tl3FrameLines.Set_FinishedFO(aFrameObjID: Integer; aValue: Boolean);
+procedure Tl3FrameLines.Set_FinishedFO(aFrameObjID: Integer;
+ aValue: Boolean);
 //#UC START# *4A810BC702C0_48CA6E8201B8set_var*
 var
  l_FO: Tl3FrameObject;
@@ -446,6 +436,7 @@ begin
 end;//Tl3FrameLines.Set_FinishedFO
 
 function Tl3FrameLines.GetLineWidth(aFrameObjID: Integer): Integer;
+ {* Возвращает ширину линии для указанного объекта. }
 //#UC START# *4A928509010C_48CA6E8201B8_var*
 var
  l_FO: Tl3FrameObject;
@@ -460,6 +451,7 @@ begin
 end;//Tl3FrameLines.GetLineWidth
 
 function Tl3FrameLines.ReadAlignData(anObjectID: Integer): Il3IntegerList;
+ {* Прочитать массив данных для сохранения }
 //#UC START# *4AB873270004_48CA6E8201B8_var*
 var
  l_FO: Tl3FrameObject;
@@ -475,7 +467,8 @@ begin
 end;//Tl3FrameLines.ReadAlignData
 
 procedure Tl3FrameLines.WriteAlignData(anObjectID: Integer;
-  const aData: Il3IntegerList);
+ const aData: Il3IntegerList);
+ {* Записать данные о выравнивании }
 //#UC START# *4AB8736B0062_48CA6E8201B8_var*
 var
  l_FO: Tl3FrameObject;
@@ -488,9 +481,10 @@ begin
 //#UC END# *4AB8736B0062_48CA6E8201B8_impl*
 end;//Tl3FrameLines.WriteAlignData
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 procedure Tl3FrameLines.SetNeedLogging(anObjectID: Integer;
-  aNeedLog: Boolean);
+ aNeedLog: Boolean);
+ {* Метод для тестов. Выставляет флаг объекту о необходимости записи в лог. }
 //#UC START# *4D01F080037C_48CA6E8201B8_var*
 var
  l_FO: Tl3FrameObject;
@@ -502,9 +496,9 @@ begin
   l_FO.NeedLog := aNeedLog;
 //#UC END# *4D01F080037C_48CA6E8201B8_impl*
 end;//Tl3FrameLines.SetNeedLogging
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 procedure Tl3FrameLines.ClearFrameObject(aFrameObjID: Integer);
 //#UC START# *4E54CF2D00D3_48CA6E8201B8_var*
 var
@@ -517,9 +511,10 @@ begin
   l_FO.Clear;
 //#UC END# *4E54CF2D00D3_48CA6E8201B8_impl*
 end;//Tl3FrameLines.ClearFrameObject
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 procedure Tl3FrameLines.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48CA6E8201B8_var*
 //#UC END# *479731C50290_48CA6E8201B8_var*
 begin

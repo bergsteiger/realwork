@@ -1,43 +1,30 @@
 unit atSleepOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSleepOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSleepOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSleepOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSleepOperation" MUID: (4808B0320120)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSleepOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatSleepOperation
 
 implementation
 
 uses
-  SysUtils,
-  atLogger
-  ;
-
-// start class TatSleepOperation
+ l3ImplUses
+ , SysUtils
+ , atLogger
+;
 
 procedure TatSleepOperation.ExecuteSelf;
 //#UC START# *48089F460352_4808B0320120_var*

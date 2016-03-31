@@ -1,59 +1,48 @@
 unit atCommandLineParameter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atCommandLineParameter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatCommandLineParameter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atCommandLineParameter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatCommandLineParameter" MUID: (4808938A0159)
 
 interface
 
 uses
-  atParameter,
-  atNamedParameter
-  ;
+ l3IntfUses
+ , atNamedParameter
+ , atParameter
+;
 
 type
  TCLPType = (
   {* тип параметра командной строки }
-   clptKey
- , clptString
- , clptNumber
+  clptKey
+  , clptString
+  , clptNumber
  );//TCLPType
 
  TatCommandLineParameter = class(TatNamedParameter)
- private
- // private fields
-   f_ParamType : TCLPType;
-    {* Поле для свойства ParamType}
- protected
- // property methods
+  private
+   f_ParamType: TCLPType;
+    {* Поле для свойства ParamType }
+  protected
    function pm_GetIsRequired: Boolean;
- public
- // public methods
+  public
    constructor Create(parType: TCLPType;
     const name: AnsiString;
     const description: AnsiString = '';
-    const defaultValue: AnsiString = INVALID_DEFAULT_VALUE); reintroduce;
- public
- // public properties
+    const defaultValue: AnsiString = atParameter.INVALID_DEFAULT_VALUE); reintroduce;
+  public
    property ParamType: TCLPType
-     read f_ParamType;
+    read f_ParamType;
    property IsRequired: Boolean
-     read pm_GetIsRequired;
+    read pm_GetIsRequired;
  end;//TatCommandLineParameter
 
 implementation
 
-// start class TatCommandLineParameter
+uses
+ l3ImplUses
+;
 
 function TatCommandLineParameter.pm_GetIsRequired: Boolean;
 //#UC START# *480893F80392_4808938A0159get_var*
@@ -65,9 +54,9 @@ begin
 end;//TatCommandLineParameter.pm_GetIsRequired
 
 constructor TatCommandLineParameter.Create(parType: TCLPType;
-  const name: AnsiString;
-  const description: AnsiString = '';
-  const defaultValue: AnsiString = INVALID_DEFAULT_VALUE);
+ const name: AnsiString;
+ const description: AnsiString = '';
+ const defaultValue: AnsiString = atParameter.INVALID_DEFAULT_VALUE);
 //#UC START# *4808941B0073_4808938A0159_var*
 //#UC END# *4808941B0073_4808938A0159_var*
 begin

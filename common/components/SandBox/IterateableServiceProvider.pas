@@ -1,38 +1,29 @@
 unit IterateableServiceProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "IterateableServiceProvider.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::Services::TIterateableServiceProvider
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IterateableServiceProvider.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TIterateableServiceProvider" MUID: (5519612B01D3)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  IterateableService,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , IterateableService
+ , Classes
+;
 
 type
  TIterateableServiceImpl = {final} class(Tl3ProtoObject, IIterateableService)
- public
- // realized methods
-   {iterator} procedure IterateF(anAction: MIterateableService_IterateF_Action;
+  public
+   procedure IterateF(anAction: MIterateableService_IterateF_Action;
     anOwner: TComponent);
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TIterateableServiceImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TIterateableServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TIterateableServiceImpl
 
  TIterateableServiceProvider = class
@@ -41,38 +32,22 @@ type
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TIterateableServiceImpl
-
-var g_TIterateableServiceImpl : TIterateableServiceImpl = nil;
+var g_TIterateableServiceImpl: TIterateableServiceImpl = nil;
+ {* Экземпляр синглетона TIterateableServiceImpl }
 
 procedure TIterateableServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TIterateableServiceImpl }
 begin
  l3Free(g_TIterateableServiceImpl);
-end;
+end;//TIterateableServiceImplFree
 
-class function TIterateableServiceImpl.Instance: TIterateableServiceImpl;
-begin
- if (g_TIterateableServiceImpl = nil) then
- begin
-  l3System.AddExitProc(TIterateableServiceImplFree);
-  g_TIterateableServiceImpl := Create;
- end;
- Result := g_TIterateableServiceImpl;
-end;
-
-
-class function TIterateableServiceImpl.Exists: Boolean;
- {-}
-begin
- Result := g_TIterateableServiceImpl <> nil;
-end;//TIterateableServiceImpl.Exists
-
-{iterator} procedure TIterateableServiceImpl.IterateF(anAction: MIterateableService_IterateF_Action;
-  anOwner: TComponent);
+procedure TIterateableServiceImpl.IterateF(anAction: MIterateableService_IterateF_Action;
+ anOwner: TComponent);
 //#UC START# *A44911B9A95D_551961470035_var*
 var
  Hack : Pointer absolute anAction;
@@ -90,8 +65,25 @@ begin
 //#UC END# *A44911B9A95D_551961470035_impl*
 end;//TIterateableServiceImpl.IterateF
 
+class function TIterateableServiceImpl.Instance: TIterateableServiceImpl;
+ {* Метод получения экземпляра синглетона TIterateableServiceImpl }
+begin
+ if (g_TIterateableServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TIterateableServiceImplFree);
+  g_TIterateableServiceImpl := Create;
+ end;
+ Result := g_TIterateableServiceImpl;
+end;//TIterateableServiceImpl.Instance
+
+class function TIterateableServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TIterateableServiceImpl <> nil;
+end;//TIterateableServiceImpl.Exists
+
 initialization
-// Регистрация TIterateableServiceImpl
  TIterateableService.Instance.Alien := TIterateableServiceImpl.Instance;
+ {* Регистрация TIterateableServiceImpl }
 
 end.

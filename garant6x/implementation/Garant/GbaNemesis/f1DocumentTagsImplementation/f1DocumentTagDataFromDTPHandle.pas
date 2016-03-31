@@ -1,72 +1,48 @@
 unit f1DocumentTagDataFromDTPHandle;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1DocumentTagDataFromDTPHandle.pas"
-// Начат: 24.02.2011 22:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::Tf1DocumentTagDataFromDTPHandle
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1DocumentTagDataFromDTPHandle.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1DocumentTagDataFromDTPHandle" MUID: (4D66AE9800B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit,
-  F1TagDataProviderInterface,
-  f1DocumentTagDataFromDTP,
-  IOUnit,
-  l3Interfaces,
-  k2Base,
-  nevBase,
-  l3Variant
-  ;
+ l3IntfUses
+ , f1DocumentTagDataFromDTP
+ , DocumentUnit
+ , F1TagDataProviderInterface
+ , k2Base
+;
 
 type
  Tf1DocumentTagDataFromDTPHandle = class(Tf1DocumentTagDataFromDTP)
- private
- // private fields
-   f_Handle : Cardinal;
-   f_Doc : IDocument;
- protected
- // overridden property methods
-   function pm_GetFProvider: IDocumentTextProvider; override;
- protected
- // overridden protected methods
+  private
+   f_Handle: Cardinal;
+   f_Doc: IDocument;
+  protected
+   function pm_Getf_Provider: IDocumentTextProvider; override;
    function GetAllParaChildrenCount: Integer; override;
    function DoGetType: Tk2Type; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aHandle: Cardinal;
-     const aDoc: IDocument); reintroduce;
+    const aDoc: IDocument); reintroduce;
    class function Make(aHandle: Cardinal;
-     const aDoc: IDocument): If1TagDataProvider; reintroduce;
-     {* Сигнатура фабрики Tf1DocumentTagDataFromDTPHandle.Make }
+    const aDoc: IDocument): If1TagDataProvider; reintroduce;
  end;//Tf1DocumentTagDataFromDTPHandle
 
 implementation
 
 uses
-  Document_Const,
-  AutoreferatDocument_Const,
-  k2Facade
-  ;
-
-// start class Tf1DocumentTagDataFromDTPHandle
+ l3ImplUses
+ , Document_Const
+ , AutoreferatDocument_Const
+;
 
 constructor Tf1DocumentTagDataFromDTPHandle.Create(aHandle: Cardinal;
-  const aDoc: IDocument);
+ const aDoc: IDocument);
 //#UC START# *4D66AF7A025A_4D66AE9800B7_var*
 //#UC END# *4D66AF7A025A_4D66AE9800B7_var*
 begin
@@ -78,7 +54,7 @@ begin
 end;//Tf1DocumentTagDataFromDTPHandle.Create
 
 class function Tf1DocumentTagDataFromDTPHandle.Make(aHandle: Cardinal;
-  const aDoc: IDocument): If1TagDataProvider;
+ const aDoc: IDocument): If1TagDataProvider;
 var
  l_Inst : Tf1DocumentTagDataFromDTPHandle;
 begin
@@ -88,9 +64,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tf1DocumentTagDataFromDTPHandle.Make
 
-function Tf1DocumentTagDataFromDTPHandle.pm_GetFProvider: IDocumentTextProvider;
+function Tf1DocumentTagDataFromDTPHandle.pm_Getf_Provider: IDocumentTextProvider;
 //#UC START# *4C727B320016_4D66AE9800B7get_var*
 //#UC END# *4C727B320016_4D66AE9800B7get_var*
 begin
@@ -99,7 +75,7 @@ begin
   f_Doc.GetTextProviderByDesc(f_Handle, f_f_Provider);
  Result := f_f_Provider; 
 //#UC END# *4C727B320016_4D66AE9800B7get_impl*
-end;//Tf1DocumentTagDataFromDTPHandle.pm_GetFProvider
+end;//Tf1DocumentTagDataFromDTPHandle.pm_Getf_Provider
 
 function Tf1DocumentTagDataFromDTPHandle.GetAllParaChildrenCount: Integer;
 //#UC START# *4C7294F40339_4D66AE9800B7_var*
@@ -121,7 +97,6 @@ begin
 end;//Tf1DocumentTagDataFromDTPHandle.DoGetType
 
 procedure Tf1DocumentTagDataFromDTPHandle.ClearFields;
- {-}
 begin
  f_Doc := nil;
  inherited;

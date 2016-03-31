@@ -1,70 +1,56 @@
 unit pgFunctionParamDescription;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgFunctionParamDescription.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgFunctionParamDescription
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgFunctionParamDescription.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunctionParamDescription" MUID: (5671531301DB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TpgFunctionParamDescription = class(Tl3ProtoObject, IdaParamDescription)
- private
- // private fields
-   f_Name : AnsiString;
-   f_DataType : TdaDataType;
-   f_ParamType : TdaParamType;
-   f_Size : Integer;
- protected
- // realized methods
+  private
+   f_Name: AnsiString;
+   f_DataType: TdaDataType;
+   f_ParamType: TdaParamType;
+   f_Size: Integer;
+  protected
    function Get_Name: AnsiString;
    function Get_DataType: TdaDataType;
    function Get_Size: Integer;
    function Get_ParamType: TdaParamType;
- public
- // public methods
+  public
    constructor Create(const aName: AnsiString;
-     aDataType: TdaDataType;
-     aSize: Integer;
-     aParamType: TdaParamType); reintroduce;
+    aDataType: TdaDataType;
+    aSize: Integer;
+    aParamType: TdaParamType); reintroduce;
    class function Make(const aName: AnsiString;
-     aDataType: TdaDataType;
-     aSize: Integer;
-     aParamType: TdaParamType): IdaParamDescription; reintroduce;
-     {* Сигнатура фабрики TpgFunctionParamDescription.Make }
+    aDataType: TdaDataType;
+    aSize: Integer;
+    aParamType: TdaParamType): IdaParamDescription; reintroduce;
  end;//TpgFunctionParamDescription
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
-
-// start class TpgFunctionParamDescription
+{$If Defined(UsePostgres)}
+uses
+ l3ImplUses
+;
 
 constructor TpgFunctionParamDescription.Create(const aName: AnsiString;
-  aDataType: TdaDataType;
-  aSize: Integer;
-  aParamType: TdaParamType);
+ aDataType: TdaDataType;
+ aSize: Integer;
+ aParamType: TdaParamType);
 //#UC START# *56715338023C_5671531301DB_var*
 //#UC END# *56715338023C_5671531301DB_var*
 begin
@@ -78,9 +64,9 @@ begin
 end;//TpgFunctionParamDescription.Create
 
 class function TpgFunctionParamDescription.Make(const aName: AnsiString;
-  aDataType: TdaDataType;
-  aSize: Integer;
-  aParamType: TdaParamType): IdaParamDescription;
+ aDataType: TdaDataType;
+ aSize: Integer;
+ aParamType: TdaParamType): IdaParamDescription;
 var
  l_Inst : TpgFunctionParamDescription;
 begin
@@ -90,7 +76,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgFunctionParamDescription.Make
 
 function TpgFunctionParamDescription.Get_Name: AnsiString;
 //#UC START# *5555C5620242_5671531301DBget_var*
@@ -127,7 +113,6 @@ begin
  Result := f_ParamType;
 //#UC END# *56725D45021B_5671531301DBget_impl*
 end;//TpgFunctionParamDescription.Get_ParamType
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

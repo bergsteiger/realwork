@@ -35,7 +35,7 @@ type
   {* Это чтобы избежать Tl3FrameLine "[Error] l3FrameLine.pas(40): Type 'Tl3FrameLine' is not yet completely defined" }
   private
    f_LineCoordinate: Integer;
-    {* Поле для свойства LineCoordinate }
+    {* Начальная точка линии в дюймах }
   protected
    procedure ChangeLine(aSource: Tl3FrameLinePrim;
     aDest: Tl3FrameLinePrim); virtual; abstract;

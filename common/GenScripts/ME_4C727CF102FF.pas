@@ -10,9 +10,7 @@
  _nsParentedTagData_ = class(_nsParentedTagData_Parent_)
   private
    f_Parent: Tf1ListTagDataFromDTPPrim;
-    {* Поле для свойства Parent }
    f_ChildID: TChildID;
-    {* Поле для свойства ChildID }
   protected
    function GetChildID: TChildID; override;
    function GetParentLayerID: DTPLayerID; override;

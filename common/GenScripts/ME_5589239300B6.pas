@@ -30,16 +30,16 @@ type
  Tl3ExceptionHandler = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3ExceptionHandler;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3ExceptionHandler }
   protected
    procedure pm_SetAlien(const aValue: Il3ExceptionHandler);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure HandleException(Sender: TObject);
    class function Instance: Tl3ExceptionHandler;
     {* Метод получения экземпляра синглетона Tl3ExceptionHandler }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3ExceptionHandler
     write pm_SetAlien;
@@ -69,12 +69,6 @@ begin
  f_Alien := aValue;
 end;//Tl3ExceptionHandler.pm_SetAlien
 
-class function Tl3ExceptionHandler.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ExceptionHandler <> nil;
-end;//Tl3ExceptionHandler.Exists
-
 procedure Tl3ExceptionHandler.HandleException(Sender: TObject);
 //#UC START# *9B9F43B530B0_5589239300B6_var*
 //#UC END# *9B9F43B530B0_5589239300B6_var*
@@ -95,6 +89,12 @@ begin
  end;
  Result := g_Tl3ExceptionHandler;
 end;//Tl3ExceptionHandler.Instance
+
+class function Tl3ExceptionHandler.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ExceptionHandler <> nil;
+end;//Tl3ExceptionHandler.Exists
 
 procedure Tl3ExceptionHandler.ClearFields;
 begin

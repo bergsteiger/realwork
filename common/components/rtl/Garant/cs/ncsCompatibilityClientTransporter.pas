@@ -1,65 +1,41 @@
 unit ncsCompatibilityClientTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsCompatibilityClientTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsCompatibilityClientTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsCompatibilityClientTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsCompatibilityClientTransporter" MUID: (547708500384)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsQueryTypes,
-  ncsClientTransporter,
-  ncsMessageInterfaces,
-  ncsMessage,
-  Windows,
-  CsCommon
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsClientTransporter
+ , CsQueryTypes
+ , ncsMessageInterfaces
+;
 
-{$If not defined(Nemesis)}
 type
  TncsCompatibilityClientTransporter = class(TncsClientTransporter)
- private
- // private fields
-   f_QueryID : TCsQueryId;
- protected
- // overridden protected methods
+  private
+   f_QueryID: TCsQueryId;
+  protected
    procedure BeforeSendHandshake; override;
-     {* Сигнатура метода BeforeSendHandshake }
    procedure BeforeReceiveHandshake; override;
-     {* Сигнатура метода BeforeReceiveHandshake }
- public
- // public methods
+  public
    constructor Create(aQueryID: TCsQueryId); reintroduce;
    class function Make(aQueryID: TCsQueryId): IncsClientTransporter; reintroduce;
-     {* Сигнатура фабрики TncsCompatibilityClientTransporter.Make }
  end;//TncsCompatibilityClientTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsConst
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsCompatibilityClientTransporter
+ l3ImplUses
+ , CsConst
+;
 
 constructor TncsCompatibilityClientTransporter.Create(aQueryID: TCsQueryId);
 //#UC START# *5481A0E30063_547708500384_var*
@@ -81,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsCompatibilityClientTransporter.Make
 
 procedure TncsCompatibilityClientTransporter.BeforeSendHandshake;
 //#UC START# *549279980264_547708500384_var*
@@ -106,7 +82,6 @@ begin
  IOHandlers[ncs_skReceive].WriteBufferFlush;
 //#UC END# *549279B300D5_547708500384_impl*
 end;//TncsCompatibilityClientTransporter.BeforeReceiveHandshake
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

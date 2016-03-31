@@ -1,51 +1,41 @@
 {$IfNDef atObjectHistory_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atObjectHistory.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::OperationsFramework::atObjectHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atObjectHistory" MUID: (483A7BE60395)
+// Имя типа: "_atObjectHistory_"
 
 {$Define atObjectHistory_imp}
+
  _InterfaceListElement_ = _HistoryStoredObject_;
  _atTypedInterfaceList_Parent_ = TInterfaceList;
  {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas}
- _atObjectHistory_ = {mixin} class(_atTypedInterfaceList_)
- private
- // private fields
-   f_HistoryLength : Integer;
-    {* Поле для свойства HistoryLength}
- private
- // private methods
+ _atObjectHistory_ = class(_atTypedInterfaceList_)
+  private
+   f_HistoryLength: Integer;
+  private
    procedure TrimHistory; virtual;
- protected
- // property methods
+  protected
    function pm_GetHistoryLength: Integer;
    procedure pm_SetHistoryLength(aValue: Integer);
    function pm_GetCurrent: _HistoryStoredObject_; virtual;
- public
- // public methods
+  public
    procedure AddToHistory(const aStoredObject: _HistoryStoredObject_); virtual;
- public
- // public properties
+  public
    property HistoryLength: Integer
-     read pm_GetHistoryLength
-     write pm_SetHistoryLength;
+    read pm_GetHistoryLength
+    write pm_SetHistoryLength;
    property Current: _HistoryStoredObject_
-     read pm_GetCurrent;
+    read pm_GetCurrent;
  end;//_atObjectHistory_
 
 {$Else atObjectHistory_imp}
 
-{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas}
+{$IfNDef atObjectHistory_imp_impl}
 
-// start class _atObjectHistory_
+{$Define atObjectHistory_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas}
 
 function _atObjectHistory_.pm_GetHistoryLength: Integer;
 //#UC START# *483A8008021E_483A7BE60395get_var*
@@ -94,4 +84,7 @@ begin
 //#UC END# *483AA4810302_483A7BE60395_impl*
 end;//_atObjectHistory_.TrimHistory
 
+{$EndIf atObjectHistory_imp_impl}
+
 {$EndIf atObjectHistory_imp}
+

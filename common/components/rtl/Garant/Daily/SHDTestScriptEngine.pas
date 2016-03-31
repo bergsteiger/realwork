@@ -1,50 +1,34 @@
 unit SHDTestScriptEngine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/SHDTestScriptEngine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::DailyTest::ScriptSupport::TSHDTestScriptEngine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\SHDTestScriptEngine.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TSHDTestScriptEngine" MUID: (4DC3B4A603C9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(InsiderTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)}
 uses
-  tfwScriptEngineEX
-  ;
-{$IfEnd} //nsTest AND not InsiderTest AND not NoScripts
+ l3IntfUses
+ , tfwScriptEngineEX
+;
 
-{$If defined(nsTest) AND not defined(InsiderTest) AND not defined(NoScripts)}
 type
  TSHDTestScriptEngine = class(TtfwScriptEngineEX)
  end;//TSHDTestScriptEngine
-{$IfEnd} //nsTest AND not InsiderTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)
 
 implementation
 
-{$If defined(nsTest) AND not defined(InsiderTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)}
 uses
-  AutoTestsSuite
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  SupportKeyWords
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not InsiderTest AND not NoScripts
+ l3ImplUses
+ , AutoTestsSuite
+ {$If NOT Defined(NoVCM)}
+ , SupportKeyWords
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(InsiderTest) AND not defined(NoScripts)}
-
-
-{$IfEnd} //nsTest AND not InsiderTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)
 end.

@@ -1,80 +1,68 @@
 unit ncsSendTaskReply;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsSendTaskReply.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::TaskSend::TncsSendTaskReply
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsSendTaskReply.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsSendTaskReply" MUID: (54855C4200D7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsSendTaskReply = class(TncsReply)
- protected
- // property methods
+  protected
    function pm_GetIsSuccess: Boolean;
    procedure pm_SetIsSuccess(aValue: Boolean);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property IsSuccess: Boolean
-     read pm_GetIsSuccess
-     write pm_SetIsSuccess;
+    read pm_GetIsSuccess
+    write pm_SetIsSuccess;
  end;//TncsSendTaskReply
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csSendTaskReply_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsSendTaskReply
+ l3ImplUses
+ , csSendTaskReply_Const
+;
 
 function TncsSendTaskReply.pm_GetIsSuccess: Boolean;
- {-}
+//#UC START# *C8A43DA1739F_54855C4200D7get_var*
+//#UC END# *C8A43DA1739F_54855C4200D7get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.BoolA[k2_attrIsSuccess]);
+//#UC START# *C8A43DA1739F_54855C4200D7get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C8A43DA1739F_54855C4200D7get_impl*
 end;//TncsSendTaskReply.pm_GetIsSuccess
 
 procedure TncsSendTaskReply.pm_SetIsSuccess(aValue: Boolean);
- {-}
+//#UC START# *C8A43DA1739F_54855C4200D7set_var*
+//#UC END# *C8A43DA1739F_54855C4200D7set_var*
 begin
- TaggedData.BoolW[k2_attrIsSuccess, nil] := (aValue);
+//#UC START# *C8A43DA1739F_54855C4200D7set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C8A43DA1739F_54855C4200D7set_impl*
 end;//TncsSendTaskReply.pm_SetIsSuccess
 
 class function TncsSendTaskReply.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_54855C4200D7_var*
+//#UC END# *53AC03EE01FD_54855C4200D7_var*
 begin
- Result := k2_typcsSendTaskReply;
+//#UC START# *53AC03EE01FD_54855C4200D7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_54855C4200D7_impl*
 end;//TncsSendTaskReply.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

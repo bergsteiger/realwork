@@ -1,63 +1,48 @@
 {$IfNDef GUIAppTester_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Shared Delphi Tests Common"
-// Модуль: "w:/common/components/rtl/Garant/Shared_Delphi_Tests_Common/GUIAppTester.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Testing Framework::Shared Delphi Tests Common::Tests Res Common::GUIAppTester
-//
-// Базовый тестер GUI-приложений
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "GUIAppTester" MUID: (52F21A610247)
+// Имя типа: "_GUIAppTester_"
 
 {$Define GUIAppTester_imp}
-{$If defined(nsTest)}
- _GUIAppTester_ = {abstract mixin} class(_GUIAppTester_Parent_)
+
+{$If Defined(nsTest)}
+ _GUIAppTester_ = {abstract} class(_GUIAppTester_Parent_)
   {* Базовый тестер GUI-приложений }
- private
- // private methods
+  private
    class procedure DoIdle(Sender: TObject;
-     var Done: Boolean);
- protected
- // protected methods
+    var Done: Boolean);
+  protected
    class function CalcBatchMode: Boolean; virtual; abstract;
- public
- // public methods
-    {$If defined(InsiderTest) AND defined(nsTest)}
+  public
+   {$If Defined(InsiderTest)}
    class function IsBatchMode: Boolean;
-    {$IfEnd} //InsiderTest AND nsTest
+   {$IfEnd} // Defined(InsiderTest)
    class procedure ReadyToRun;
-     {* Вызывается непосредственно перед запуском приложения, например для инициализации/запуска тестов }
+    {* Вызывается непосредственно перед запуском приложения, например для инициализации/запуска тестов }
  end;//_GUIAppTester_
-{$Else}
 
- _GUIAppTester_ = _GUIAppTester_Parent_;
+{$Else Defined(nsTest)}
 
-{$IfEnd} //nsTest
+_GUIAppTester_ = _GUIAppTester_Parent_;
 
+{$IfEnd} // Defined(nsTest)
 {$Else GUIAppTester_imp}
 
-{$If defined(nsTest)}
+{$IfNDef GUIAppTester_imp_impl}
 
-var
-   g_IsBatchMode : Boolean = false;
-var
-   g_IsBatchModeValid : Boolean = false;
-var
-   g_Debugger : TtfwScriptDebugger_Form;
-var
-   g_TestsForm : TGUITestRunner;
-var
-   g_InRun : Boolean = false;
+{$Define GUIAppTester_imp_impl}
 
-// start class _GUIAppTester_
+{$If Defined(nsTest)}
+var g_IsBatchMode: Boolean = False;
+var g_IsBatchModeValid: Boolean = False;
+var g_Debugger: TtfwScriptDebugger_Form;
+var g_TestsForm: TGUITestRunner;
+var g_InRun: Boolean = False;
 
 class procedure _GUIAppTester_.DoIdle(Sender: TObject;
-  var Done: Boolean);
+ var Done: Boolean);
 //#UC START# *4DA3361A0305_52F21A610247_var*
 //#UC END# *4DA3361A0305_52F21A610247_var*
 begin
@@ -76,7 +61,7 @@ begin
 //#UC END# *4DA3361A0305_52F21A610247_impl*
 end;//_GUIAppTester_.DoIdle
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(InsiderTest)}
 class function _GUIAppTester_.IsBatchMode: Boolean;
 //#UC START# *4DA476580343_52F21A610247_var*
 //#UC END# *4DA476580343_52F21A610247_var*
@@ -90,9 +75,10 @@ begin
  Result := g_IsBatchMode;
 //#UC END# *4DA476580343_52F21A610247_impl*
 end;//_GUIAppTester_.IsBatchMode
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(InsiderTest)
 
 class procedure _GUIAppTester_.ReadyToRun;
+ {* Вызывается непосредственно перед запуском приложения, например для инициализации/запуска тестов }
 //#UC START# *4F79B9D500D7_52F21A610247_var*
 //#UC END# *4F79B9D500D7_52F21A610247_var*
 begin
@@ -116,7 +102,9 @@ begin
  end;//IsBatchMode
 //#UC END# *4F79B9D500D7_52F21A610247_impl*
 end;//_GUIAppTester_.ReadyToRun
+{$IfEnd} // Defined(nsTest)
 
-{$IfEnd} //nsTest
+{$EndIf GUIAppTester_imp_impl}
 
 {$EndIf GUIAppTester_imp}
+

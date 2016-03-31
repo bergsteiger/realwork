@@ -1,113 +1,77 @@
 unit alcuTaskFileTransferServices;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuTaskFileTransferServices.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::TaskSend::TalcuTaskFileTransferServices
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskFileTransferServices.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskFileTransferServices" MUID: (54B638150163)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  l3ProtoObject
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuTaskFileTransferServices = class(Tl3ProtoObject {$If not defined(Nemesis)}, IcsFileTransferServices{$IfEnd} //not Nemesis
+ TalcuTaskFileTransferServices = class(Tl3ProtoObject{$If NOT Defined(Nemesis)}
+ , IcsFileTransferServices
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- private
- // private fields
-   f_Transporter : IncsTransporter;
-   f_TaskID : AnsiString;
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  private
+   f_Transporter: IncsTransporter;
+   f_TaskID: AnsiString;
+  protected
+   {$If NOT Defined(Nemesis)}
    function TransferFile(const aTargetFolder: AnsiString;
     const aSourceFileName: AnsiString;
     const aTargetFileName: AnsiString): Boolean;
-   {$IfEnd} //not Nemesis
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTransporter: IncsTransporter;
-     const aTaskID: AnsiString); reintroduce;
+    const aTaskID: AnsiString); reintroduce;
    class function Make(const aTransporter: IncsTransporter;
-     const aTaskID: AnsiString): IcsFileTransferServices; reintroduce;
-     {* Сигнатура фабрики TalcuTaskFileTransferServices.Make }
+    const aTaskID: AnsiString): IcsFileTransferServices; reintroduce;
  end;//TalcuTaskFileTransferServices
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetTaskDescriptionReply
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetPartialTaskDescription
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsOneFileDeliverer
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessage
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsFileDescHelper
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsFileDesc
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuTaskFileTransferServices
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , ncsGetTaskDescriptionReply
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetPartialTaskDescription
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsOneFileDeliverer
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ {$If NOT Defined(Nemesis)}
+ , ncsMessage
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsFileDescHelper
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsFileDesc
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 constructor TalcuTaskFileTransferServices.Create(const aTransporter: IncsTransporter;
-  const aTaskID: AnsiString);
+ const aTaskID: AnsiString);
 //#UC START# *54B64A7C0177_54B638150163_var*
 //#UC END# *54B64A7C0177_54B638150163_var*
 begin
@@ -119,7 +83,7 @@ begin
 end;//TalcuTaskFileTransferServices.Create
 
 class function TalcuTaskFileTransferServices.Make(const aTransporter: IncsTransporter;
-  const aTaskID: AnsiString): IcsFileTransferServices;
+ const aTaskID: AnsiString): IcsFileTransferServices;
 var
  l_Inst : TalcuTaskFileTransferServices;
 begin
@@ -129,12 +93,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuTaskFileTransferServices.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 function TalcuTaskFileTransferServices.TransferFile(const aTargetFolder: AnsiString;
-  const aSourceFileName: AnsiString;
-  const aTargetFileName: AnsiString): Boolean;
+ const aSourceFileName: AnsiString;
+ const aTargetFileName: AnsiString): Boolean;
 //#UC START# *54B62A0501D7_54B638150163_var*
 var
  l_Message: TncsGetPartialTaskDescription;
@@ -195,9 +159,10 @@ begin
  end;
 //#UC END# *54B62A0501D7_54B638150163_impl*
 end;//TalcuTaskFileTransferServices.TransferFile
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 procedure TalcuTaskFileTransferServices.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54B638150163_var*
 //#UC END# *479731C50290_54B638150163_var*
 begin
@@ -206,7 +171,6 @@ begin
  inherited;
 //#UC END# *479731C50290_54B638150163_impl*
 end;//TalcuTaskFileTransferServices.Cleanup
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

@@ -1,99 +1,91 @@
 unit ncsCorrectFolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsCorrectFolder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsCorrectFolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsCorrectFolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsCorrectFolder" MUID: (549AA9CE0345)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsCorrectFolder = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetTaskID: AnsiString;
    procedure pm_SetTaskID(const aValue: AnsiString);
    function pm_GetNewFolder: AnsiString;
    procedure pm_SetNewFolder(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
+    read pm_GetTaskID
+    write pm_SetTaskID;
    property NewFolder: AnsiString
-     read pm_GetNewFolder
-     write pm_SetNewFolder;
+    read pm_GetNewFolder
+    write pm_SetNewFolder;
  end;//TncsCorrectFolder
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csCorrectFolder_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsCorrectFolder
+ l3ImplUses
+ , csCorrectFolder_Const
+;
 
 function TncsCorrectFolder.pm_GetTaskID: AnsiString;
- {-}
+//#UC START# *C62F9955664F_549AA9CE0345get_var*
+//#UC END# *C62F9955664F_549AA9CE0345get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
+//#UC START# *C62F9955664F_549AA9CE0345get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C62F9955664F_549AA9CE0345get_impl*
 end;//TncsCorrectFolder.pm_GetTaskID
 
 procedure TncsCorrectFolder.pm_SetTaskID(const aValue: AnsiString);
- {-}
+//#UC START# *C62F9955664F_549AA9CE0345set_var*
+//#UC END# *C62F9955664F_549AA9CE0345set_var*
 begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
+//#UC START# *C62F9955664F_549AA9CE0345set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C62F9955664F_549AA9CE0345set_impl*
 end;//TncsCorrectFolder.pm_SetTaskID
 
 function TncsCorrectFolder.pm_GetNewFolder: AnsiString;
- {-}
+//#UC START# *5C25740B908E_549AA9CE0345get_var*
+//#UC END# *5C25740B908E_549AA9CE0345get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrNewFolder]);
+//#UC START# *5C25740B908E_549AA9CE0345get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5C25740B908E_549AA9CE0345get_impl*
 end;//TncsCorrectFolder.pm_GetNewFolder
 
 procedure TncsCorrectFolder.pm_SetNewFolder(const aValue: AnsiString);
- {-}
+//#UC START# *5C25740B908E_549AA9CE0345set_var*
+//#UC END# *5C25740B908E_549AA9CE0345set_var*
 begin
- TaggedData.StrW[k2_attrNewFolder, nil] := (aValue);
+//#UC START# *5C25740B908E_549AA9CE0345set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5C25740B908E_549AA9CE0345set_impl*
 end;//TncsCorrectFolder.pm_SetNewFolder
 
 class function TncsCorrectFolder.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_549AA9CE0345_var*
+//#UC END# *53AC03EE01FD_549AA9CE0345_var*
 begin
- Result := k2_typcsCorrectFolder;
+//#UC START# *53AC03EE01FD_549AA9CE0345_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_549AA9CE0345_impl*
 end;//TncsCorrectFolder.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

@@ -1,45 +1,33 @@
 unit atXMLScenarioGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atXMLScenarioGenerator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatXMLScenarioGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atXMLScenarioGenerator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatXMLScenarioGenerator" MUID: (483EC52400C9)
 
 interface
 
 uses
-  SysUtils,
-  atOperationBase,
-  atScenario,
-  XMLIntf
-  ;
+ l3IntfUses
+ , atScenario
+ , atOperationBase
+ , XMLIntf
+ , SysUtils
+;
 
 type
  EInvalidXMLScenario = class(Exception)
  end;//EInvalidXMLScenario
 
  TatXMLScenarioGenerator = class
- private
- // private fields
-   f_Scenario : TatScenario;
- private
- // private methods
+  private
+   f_Scenario: TatScenario;
+  private
    procedure FillOperationParameters(anOperation: TatOperationBase;
     const anAttributes: IXMLNodeList); virtual;
    procedure ParseXMLDoc(const aXmlDoc: IXMLDocument); virtual;
    procedure ParseOperationNode(const aXmlNode: IXMLNode;
     aParentOp: TatOperationBase); virtual;
- public
- // public methods
+  public
    function FillScenario(aScenario: TatScenario;
     const aXmlFileName: AnsiString): Boolean; virtual;
  end;//TatXMLScenarioGenerator
@@ -47,15 +35,14 @@ type
 implementation
 
 uses
-  atLogger,
-  atOperationFactory,
-  XMLDoc
-  ;
-
-// start class TatXMLScenarioGenerator
+ l3ImplUses
+ , atLogger
+ , atOperationFactory
+ , XMLDoc
+;
 
 function TatXMLScenarioGenerator.FillScenario(aScenario: TatScenario;
-  const aXmlFileName: AnsiString): Boolean;
+ const aXmlFileName: AnsiString): Boolean;
 //#UC START# *483ECFCA023D_483EC52400C9_var*
   var
     xmlDoc : IXMLDocument;
@@ -71,7 +58,7 @@ begin
 end;//TatXMLScenarioGenerator.FillScenario
 
 procedure TatXMLScenarioGenerator.FillOperationParameters(anOperation: TatOperationBase;
-  const anAttributes: IXMLNodeList);
+ const anAttributes: IXMLNodeList);
 //#UC START# *483ECFFD02CA_483EC52400C9_var*
   var
     i : Integer;
@@ -119,7 +106,7 @@ begin
 end;//TatXMLScenarioGenerator.ParseXMLDoc
 
 procedure TatXMLScenarioGenerator.ParseOperationNode(const aXmlNode: IXMLNode;
-  aParentOp: TatOperationBase);
+ aParentOp: TatOperationBase);
 //#UC START# *483ED09F0138_483EC52400C9_var*
   var
     opName : String;

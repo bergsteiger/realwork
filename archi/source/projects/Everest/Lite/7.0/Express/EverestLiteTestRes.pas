@@ -1,71 +1,48 @@
 unit EverestLiteTestRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestLiteTestRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$EverestLite$Test::EverestLite$Test::TEverestLiteTestRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLiteTestRes.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TEverestLiteTestRes" MUID: (512AF4F300FC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Express\EverestLite.inc}
+{$Include w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLite.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  GUIAppTester
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ , GUIAppTester
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
  TEverestLiteTestRes = class(TGUIAppTester)
- public
- // realized methods
+  public
    class function GetResultsPlaces: TResultsPlaces; override;
  end;//TEverestLiteTestRes
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  toK,
-  TestFrameWork
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngineEX
-  {$IfEnd} //not NoScripts
-  ,
-  EverestLiteTestSuite,
-  toKT
-  ;
-{$IfEnd} //InsiderTest AND nsTest
-
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-// start class TEverestLiteTestRes
+ l3ImplUses
+ , toK
+ , TestFrameWork
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
+ , EverestLiteTestSuite
+ , toKT
+;
 
 class function TEverestLiteTestRes.GetResultsPlaces: TResultsPlaces;
 //#UC START# *52F264840382_512AF4F300FC_var*
@@ -75,7 +52,6 @@ begin
  Result := MakeResults([TtoK, TtoKT]);
 //#UC END# *52F264840382_512AF4F300FC_impl*
 end;//TEverestLiteTestRes.GetResultsPlaces
-
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 end.

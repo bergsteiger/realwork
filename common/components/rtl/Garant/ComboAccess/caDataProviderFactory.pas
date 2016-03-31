@@ -1,96 +1,74 @@
 unit caDataProviderFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caDataProviderFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaDataProviderFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProviderFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaDataProviderFactory" MUID: (56A86C020121)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  daDataProviderFactory,
-  htDataProviderFactory,
-  pgDataProviderFactory,
-  daDataProviderParams,
-  ddAppConfig,
-  daInterfaces
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , daDataProviderFactory
+ , htDataProviderFactory
+ , pgDataProviderFactory
+ , daDataProviderParams
+ , ddAppConfig
+ , daInterfaces
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaDataProviderFactory = class(TdaDataProviderFactory)
- private
- // private fields
-   f_HTFactory : ThtDataProviderFactory;
-   f_PGFactory : TpgDataProviderFactory;
- protected
- // realized methods
+  private
+   f_HTFactory: ThtDataProviderFactory;
+   f_PGFactory: TpgDataProviderFactory;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(aHTFactory: ThtDataProviderFactory;
+    aPGFactory: TpgDataProviderFactory); reintroduce;
+   class function Key: AnsiString; override;
    function MakeFromConfig: TdaDataProviderParams; override;
    procedure SaveToConfig(aParams: TdaDataProviderParams); override;
    function ParamType: TdaDataProviderParamsClass; override;
    procedure FillOutConfig(aConfig: TddAppConfiguration;
-     aEtalon: TdaDataProviderParams;
-     out aParams: TdaDataProviderParams); override;
+    aEtalon: TdaDataProviderParams;
+    out aParams: TdaDataProviderParams); override;
    procedure FillInConfig(aConfig: TddAppConfiguration;
-     aParams: TdaDataProviderParams;
-     ForInfoOnly: Boolean = False); override;
+    aParams: TdaDataProviderParams;
+    ForInfoOnly: Boolean = False); override;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-     const aProviderKey: AnsiString = '';
-     ForInfoOnly: Boolean = False); override;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
- public
- // realized methods
-   class function Key: AnsiString; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
-   constructor Create(aHTFactory: ThtDataProviderFactory;
-     aPGFactory: TpgDataProviderFactory); reintroduce;
  end;//TcaDataProviderFactory
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  caDataProviderParams,
-  caDataProvider,
-  SysUtils,
-  htDataProviderParams,
-  pgDataProviderParams,
-  ddAppConfigTypes,
-  l3Base,
-  pgInterfaces
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
-
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaDataProviderFactory
+ l3ImplUses
+ , caDataProviderParams
+ , caDataProvider
+ , SysUtils
+ , htDataProviderParams
+ , pgDataProviderParams
+ , ddAppConfigTypes
+ , l3Base
+ , pgInterfaces
+;
 
 constructor TcaDataProviderFactory.Create(aHTFactory: ThtDataProviderFactory;
-  aPGFactory: TpgDataProviderFactory);
+ aPGFactory: TpgDataProviderFactory);
 //#UC START# *56AB24FB0037_56A86C020121_var*
 //#UC END# *56AB24FB0037_56A86C020121_var*
 begin
@@ -154,8 +132,8 @@ begin
 end;//TcaDataProviderFactory.ParamType
 
 procedure TcaDataProviderFactory.FillOutConfig(aConfig: TddAppConfiguration;
-  aEtalon: TdaDataProviderParams;
-  out aParams: TdaDataProviderParams);
+ aEtalon: TdaDataProviderParams;
+ out aParams: TdaDataProviderParams);
 //#UC START# *5512BAB20128_56A86C020121_var*
 var
  l_HTParams: ThtDataProviderParams;
@@ -194,8 +172,8 @@ begin
 end;//TcaDataProviderFactory.FillOutConfig
 
 procedure TcaDataProviderFactory.FillInConfig(aConfig: TddAppConfiguration;
-  aParams: TdaDataProviderParams;
-  ForInfoOnly: Boolean = False);
+ aParams: TdaDataProviderParams;
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB030346_56A86C020121_var*
 var
  l_Params: TcaDataProviderParams;
@@ -230,8 +208,8 @@ begin
 end;//TcaDataProviderFactory.FillInConfig
 
 procedure TcaDataProviderFactory.BuildConfig(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString = '';
-  ForInfoOnly: Boolean = False);
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB1F023F_56A86C020121_var*
 var
  l_Item: TddBaseConfigItem;
@@ -278,9 +256,9 @@ begin
 end;//TcaDataProviderFactory.LoadDBVersion
 
 function TcaDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalProvider: Boolean = True): IdaDataProvider;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_56A86C020121_var*
 var
  l_Params: TcaDataProviderParams;
@@ -321,6 +299,7 @@ begin
 end;//TcaDataProviderFactory.LoginCheckSucceed
 
 procedure TcaDataProviderFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56A86C020121_var*
 //#UC END# *479731C50290_56A86C020121_var*
 begin
@@ -330,7 +309,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56A86C020121_impl*
 end;//TcaDataProviderFactory.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

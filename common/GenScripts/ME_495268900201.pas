@@ -13,6 +13,8 @@ uses
  , eeEditorExport
  , eeInterfaces
  , Classes
+ //#UC START# *495268900201intf_uses*
+ //#UC END# *495268900201intf_uses*
 ;
 
 type
@@ -121,6 +123,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *495268900201impl_uses*
+ //#UC END# *495268900201impl_uses*
 ;
 
 function TeeCustomEditor.pm_GetEditor: IeeEditor;

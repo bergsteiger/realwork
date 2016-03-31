@@ -1,107 +1,101 @@
 unit ncsOneFileDeliverer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsOneFileDeliverer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsOneFileDeliverer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsOneFileDeliverer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsOneFileDeliverer" MUID: (546F3804032D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  Classes,
-  l3ProtoObject,
-  ddProgressObj,
-  ncsMessageInterfaces,
-  ncsFileDesc,
-  ncsTaskedFileDesc,
-  ncsMessage
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageInterfaces
+ , ncsTaskedFileDesc
+ , Classes
+ , ddProgressObj
+ , ncsFileDesc
+ , ncsMessage
+;
 
-{$If not defined(Nemesis)}
 type
  TncsOneFileDeliverer = class(Tl3ProtoObject, IncsExecutor, IncsMessageExecutorFactory)
- private
- // private fields
-   f_Transporter : IncsTransporter;
-   f_LocalPath : AnsiString;
-   f_TaskID : AnsiString;
-   f_Stream : TStream;
-   f_Progressor : TddProgressObject;
-   f_LocalDesc : TncsTaskedFileDesc;
-    {* Поле для свойства LocalDesc}
- private
- // private methods
+  private
+   f_Transporter: IncsTransporter;
+   f_LocalPath: AnsiString;
+   f_TaskID: AnsiString;
+   f_Stream: TStream;
+   f_Progressor: TddProgressObject;
+   f_LocalDesc: TncsTaskedFileDesc;
+    {* Поле для свойства LocalDesc }
+  private
    function CheckContinue(aRemoteDesc: TncsFileDesc): Boolean;
    procedure InitNew(aRemoteDesc: TncsFileDesc);
    function LocalControlFileName: AnsiString;
    function LocalPartialFileName: AnsiString;
    procedure SaveControl;
-     {* Сигнатура метода SaveControl }
    function LocalFileName: AnsiString;
- protected
- // realized methods
+  protected
    procedure Execute(const aContext: TncsExecuteContext);
    function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTransporter: IncsTransporter;
-     const aTaskID: AnsiString;
-     const aLocalPath: AnsiString;
-     aRemoteDesc: TncsFileDesc); reintroduce;
+    const aTaskID: AnsiString;
+    const aLocalPath: AnsiString;
+    aRemoteDesc: TncsFileDesc); reintroduce;
    procedure CommitDelivery;
-     {* Сигнатура метода CommitDelivery }
-   function DoProcess(aProgressor: TddProgressObject): Boolean; overload; 
- public
- // public properties
+   function DoProcess(aProgressor: TddProgressObject): Boolean; overload;
+  public
    property LocalDesc: TncsTaskedFileDesc
-     read f_LocalDesc;
+    read f_LocalDesc;
  end;//TncsOneFileDeliverer
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3FileUtils,
-  SysUtils,
-  l3Stream,
-  l3Types,
-  l3CRCUtils,
-  ncsGetFilePartReply,
-  ncsGetFilePart,
-  Math,
-  ncsPushFilePart,
-  ncsMessageExecutorFactory,
-  ncsProfile,
-  l3Base
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , SysUtils
+ , l3Stream
+ , l3Types
+ , l3CRCUtils
+ , ncsGetFilePartReply
+ , ncsGetFilePart
+ , Math
+ , ncsPushFilePart
+ , ncsMessageExecutorFactory
+ , ncsProfile
+ , l3Base
+ , l3FileUtils
+;
 
 const
-   { cFilesExtensions }
-  cControlExt = '.control';
-  cPartialExt = '.partial';
+ cControlExt = '.control';
+ cPartialExt = '.partial';
 
-// start class TncsOneFileDeliverer
+constructor TncsOneFileDeliverer.Create(const aTransporter: IncsTransporter;
+ const aTaskID: AnsiString;
+ const aLocalPath: AnsiString;
+ aRemoteDesc: TncsFileDesc);
+//#UC START# *546F389A0156_546F3804032D_var*
+//#UC END# *546F389A0156_546F3804032D_var*
+begin
+//#UC START# *546F389A0156_546F3804032D_impl*
+ inherited Create;
+ f_Transporter := aTransporter;
+ f_LocalPath := aLocalPath;
+ f_LocalDesc := TncsTaskedFileDesc.Create;
+ f_LocalDesc.Name := aRemoteDesc.Name;
+ f_TaskID := aTaskID;
+ if not CheckContinue(aRemoteDesc) then
+  InitNew(aRemoteDesc);
+//#UC END# *546F389A0156_546F3804032D_impl*
+end;//TncsOneFileDeliverer.Create
 
 function TncsOneFileDeliverer.CheckContinue(aRemoteDesc: TncsFileDesc): Boolean;
 //#UC START# *5473254E0090_546F3804032D_var*
@@ -196,34 +190,6 @@ begin
 //#UC END# *5474A3BD0077_546F3804032D_impl*
 end;//TncsOneFileDeliverer.SaveControl
 
-function TncsOneFileDeliverer.LocalFileName: AnsiString;
-//#UC START# *5474A7B201FC_546F3804032D_var*
-//#UC END# *5474A7B201FC_546F3804032D_var*
-begin
-//#UC START# *5474A7B201FC_546F3804032D_impl*
- Result := f_LocalPath + f_LocalDesc.Name;
-//#UC END# *5474A7B201FC_546F3804032D_impl*
-end;//TncsOneFileDeliverer.LocalFileName
-
-constructor TncsOneFileDeliverer.Create(const aTransporter: IncsTransporter;
-  const aTaskID: AnsiString;
-  const aLocalPath: AnsiString;
-  aRemoteDesc: TncsFileDesc);
-//#UC START# *546F389A0156_546F3804032D_var*
-//#UC END# *546F389A0156_546F3804032D_var*
-begin
-//#UC START# *546F389A0156_546F3804032D_impl*
- inherited Create;
- f_Transporter := aTransporter;
- f_LocalPath := aLocalPath;
- f_LocalDesc := TncsTaskedFileDesc.Create;
- f_LocalDesc.Name := aRemoteDesc.Name;
- f_TaskID := aTaskID;
- if not CheckContinue(aRemoteDesc) then
-  InitNew(aRemoteDesc);
-//#UC END# *546F389A0156_546F3804032D_impl*
-end;//TncsOneFileDeliverer.Create
-
 procedure TncsOneFileDeliverer.CommitDelivery;
 //#UC START# *5474A3D400D5_546F3804032D_var*
 //#UC END# *5474A3D400D5_546F3804032D_var*
@@ -234,6 +200,15 @@ begin
   DeleteFile(LocalControlFileName);
 //#UC END# *5474A3D400D5_546F3804032D_impl*
 end;//TncsOneFileDeliverer.CommitDelivery
+
+function TncsOneFileDeliverer.LocalFileName: AnsiString;
+//#UC START# *5474A7B201FC_546F3804032D_var*
+//#UC END# *5474A7B201FC_546F3804032D_var*
+begin
+//#UC START# *5474A7B201FC_546F3804032D_impl*
+ Result := f_LocalPath + f_LocalDesc.Name;
+//#UC END# *5474A7B201FC_546F3804032D_impl*
+end;//TncsOneFileDeliverer.LocalFileName
 
 function TncsOneFileDeliverer.DoProcess(aProgressor: TddProgressObject): Boolean;
 //#UC START# *5472E6E201EE_546F3804032D_var*
@@ -370,6 +345,7 @@ begin
 end;//TncsOneFileDeliverer.MakeExecutor
 
 procedure TncsOneFileDeliverer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_546F3804032D_var*
 //#UC END# *479731C50290_546F3804032D_var*
 begin
@@ -379,7 +355,6 @@ begin
  inherited;
 //#UC END# *479731C50290_546F3804032D_impl*
 end;//TncsOneFileDeliverer.Cleanup
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

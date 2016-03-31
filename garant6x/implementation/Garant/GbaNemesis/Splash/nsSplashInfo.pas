@@ -1,68 +1,53 @@
 unit nsSplashInfo;
+ {* Информация о том что показывать }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Splash"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Splash/nsSplashInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Splash::Splash::SplashServer::TnsSplashInfo
-//
-// Информация о том что показывать
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\nsSplashInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSplashInfo" MUID: (499D24A503A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes,
-  l3SimpleObject,
-  Windows,
-  SplashTypes,
-  SplashServerInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , SplashServerInterfaces
+ , SplashTypes
+ , Windows
+ , Classes
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsSplashInfo = class(Tl3SimpleObject, InsSplashInfo)
   {* Информация о том что показывать }
- private
- // private fields
-   f_Header : PnsSplashData;
-   f_Guard : THandle;
-   f_CanCloseEvent : THandle;
-   f_Valid : Boolean;
-   f_MemFile : THandle;
-   f_Waiter : Pointer;
-    {* Сдабая ссылка на InsSplashWaiter}
-   f_WaiterGuard : TRTLCriticalSection;
-   f_Thread : TThread;
-    {* Ждет сообщения от клиента}
-   f_CanClose : Boolean;
- private
- // private methods
+  private
+   f_Header: PnsSplashData;
+   f_Guard: THandle;
+   f_CanCloseEvent: THandle;
+   f_Valid: Boolean;
+   f_MemFile: THandle;
+   f_Waiter: Pointer;
+    {* Сдабая ссылка на InsSplashWaiter }
+   f_WaiterGuard: TRTLCriticalSection;
+   f_Thread: TThread;
+    {* Ждет сообщения от клиента }
+   f_CanClose: Boolean;
+  private
    function SplashDataPointer: Pointer;
-     {* Указатель на данные SplashData в файле проецируемом в память }
+    {* Указатель на данные SplashData в файле проецируемом в память }
    function UserInfoPointer: Pointer;
    function WarningPointer: Pointer;
    function ApplicationTitlePointer: Pointer;
    procedure SignalCanClose;
    function LogoPointer: Pointer;
- protected
- // realized methods
+  protected
    function Get_Waiter: InsSplashWaiter;
    procedure Set_Waiter(const aValue: InsSplashWaiter);
    procedure SwitchToParent;
-     {* Переключиться на окно клиента (в конце показа) }
+    {* Переключиться на окно клиента (в конце показа) }
    function Get_IsValid: Boolean;
    function Get_MinimalShowTime: Cardinal;
    function Get_Warning: Il3CString;
@@ -70,48 +55,37 @@ type
    function Get_ApplicationTitle: PAnsiChar;
    function MakeSplashDataStream: IStream;
    function MakeLogoStream: IStream;
-     {* Создает поток для вычитывания TvtPngImageList в котормо лежит лого }
- protected
- // overridden protected methods
+    {* Создает поток для вычитывания TvtPngImageList в котормо лежит лого }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
    class function Make: InsSplashInfo; reintroduce;
  end;//TnsSplashInfo
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Memory,
-  SysUtils,
-  l3Base,
-  l3String
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , l3Memory
+ , SysUtils
+ , l3Base
+ , l3String
+;
 
 type
-  TnsWaitThread = class(TThread)
+ TnsWaitThread = class(TThread)
   private
-  // private fields
-   f_Info : TnsSplashInfo;
+   f_Info: TnsSplashInfo;
   private
-  // private methods
    procedure DoDone; virtual;
   protected
-  // realized methods
    procedure Execute; override;
   public
-  // public methods
    constructor Create(aInfo: TnsSplashInfo); reintroduce;
-  end;//TnsWaitThread
-
-// start class TnsWaitThread
+ end;//TnsWaitThread
 
 constructor TnsWaitThread.Create(aInfo: TnsSplashInfo);
 //#UC START# *499D3BA602BC_499D3B52019D_var*
@@ -197,9 +171,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsSplashInfo.Make
 
 function TnsSplashInfo.SplashDataPointer: Pointer;
+ {* Указатель на данные SplashData в файле проецируемом в память }
 //#UC START# *499D3344000F_499D24A503A6_var*
 //#UC END# *499D3344000F_499D24A503A6_var*
 begin
@@ -301,6 +276,7 @@ begin
 end;//TnsSplashInfo.Set_Waiter
 
 procedure TnsSplashInfo.SwitchToParent;
+ {* Переключиться на окно клиента (в конце показа) }
 //#UC START# *499D076503E0_499D24A503A6_var*
 //#UC END# *499D076503E0_499D24A503A6_var*
 begin
@@ -389,6 +365,7 @@ begin
 end;//TnsSplashInfo.MakeSplashDataStream
 
 function TnsSplashInfo.MakeLogoStream: IStream;
+ {* Создает поток для вычитывания TvtPngImageList в котормо лежит лого }
 //#UC START# *499E5EA40035_499D24A503A6_var*
 var
  l_Instance: Tl3ConstMemoryStream;
@@ -410,6 +387,7 @@ begin
 end;//TnsSplashInfo.MakeLogoStream
 
 procedure TnsSplashInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_499D24A503A6_var*
 //#UC END# *479731C50290_499D24A503A6_var*
 begin
@@ -430,7 +408,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_499D24A503A6_impl*
 end;//TnsSplashInfo.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -11,9 +11,10 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , l3TreeInterfaces
- , SearchUnit
  , DocumentUnit
+ , SearchUnit
+ , l3TreeInterfaces
+ , UserJournalUnit
  , PrimWorkJournalInterfaces
 ;
 

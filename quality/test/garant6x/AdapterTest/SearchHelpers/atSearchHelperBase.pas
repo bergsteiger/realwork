@@ -1,62 +1,46 @@
 unit atSearchHelperBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/SearchHelpers/atSearchHelperBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::SearchHelpers::TatSearchHelperBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\SearchHelpers\atSearchHelperBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSearchHelperBase" MUID: (4B90F31A02F5)
 
 interface
 
 uses
-  DynamicDocListUnit,
-  SearchUnit,
-  l3_Base,
-  atQuery
-  ;
+ l3IntfUses
+ , l3_Base
+ , atQuery
+ , SearchUnit
+ , DynamicDocListUnit
+;
 
 type
  TatSearchHelperBase = {abstract} class(Tl3_Base)
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Query : TatQuery;
-   f_Search : ISearch;
- protected
- // protected methods
+  protected
+   f_Query: TatQuery;
+   f_Search: ISearch;
+  protected
    constructor Create(const aSearch: ISearch); reintroduce; virtual;
- public
- // public methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
+  public
    function Execute(out theList: ISearchDynList): Boolean; virtual;
-     {* Выполняет поиск.
+    {* Выполняет поиск.
 Возвращает true если результат поиска содержит хотя бы один документ. }
  end;//TatSearchHelperBase
 
 implementation
 
 uses
-  atQueryExecutor,
-  SysUtils,
-  BaseTypesUnit,
-  atUserJournalHelper
-  ;
-
-// start class TatSearchHelperBase
+ l3ImplUses
+ , atQueryExecutor
+ , SysUtils
+ , BaseTypesUnit
+ , atUserJournalHelper
+;
 
 constructor TatSearchHelperBase.Create(const aSearch: ISearch);
 //#UC START# *4B910130021C_4B90F31A02F5_var*
@@ -71,6 +55,8 @@ begin
 end;//TatSearchHelperBase.Create
 
 function TatSearchHelperBase.Execute(out theList: ISearchDynList): Boolean;
+ {* Выполняет поиск.
+Возвращает true если результат поиска содержит хотя бы один документ. }
 //#UC START# *4B91013A0057_4B90F31A02F5_var*
   var
     l_SearchResult : ISearchEntity;
@@ -102,8 +88,9 @@ begin
 //#UC END# *4B91013A0057_4B90F31A02F5_impl*
 end;//TatSearchHelperBase.Execute
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TatSearchHelperBase.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4B90F31A02F5_var*
 //#UC END# *47A6FEE600FC_4B90F31A02F5_var*
 begin
@@ -111,7 +98,7 @@ begin
   Result := true;
 //#UC END# *47A6FEE600FC_4B90F31A02F5_impl*
 end;//TatSearchHelperBase.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TatSearchHelperBase.ClearFields;
 //#UC START# *5000565C019C_4B90F31A02F5_var*

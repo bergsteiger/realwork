@@ -34,7 +34,7 @@ type
   ['{F678B4F8-60D5-4B4F-AE77-F61D6A29D2F9}']
  end;//AboutFormDef
 
- TefAbout = {final} class(AboutFormDef)
+ TefAbout = {final} class(TvcmEntityForm, AboutFormDef)
   {* О программе }
   private
    f_pbLogo: TPaintBox;
@@ -154,6 +154,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки ut_AboutLocalConstants }
  str_ut_AboutCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_AboutCaption'; rValue : 'О программе');
@@ -458,7 +459,6 @@ begin
 //#UC END# *47EA4E9002C6_4ABB6F3F001B_impl*
 end;//TefAbout.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TefAbout.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4ABB6F3F001B_var*
@@ -567,7 +567,6 @@ begin
 
 //#UC END# *4A8E8F2E0195_4ABB6F3F001B_impl*
 end;//TefAbout.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
@@ -578,6 +577,7 @@ initialization
  {* Регистрация фабрики формы About }
  str_ut_AboutCaption.Init;
  {* Инициализация str_ut_AboutCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

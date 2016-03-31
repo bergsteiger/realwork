@@ -1,66 +1,55 @@
 unit nsPostingsTreeSingle;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$Strange"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/nsPostingsTreeSingle.pas"
-// Начат: 31.10.2011 17:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$Strange::Search::TnsPostingsTreeSingle
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsTreeSingle.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPostingsTreeSingle" MUID: (4AAF9400011C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nsPostingsLine
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , nsPostingsLine
+;
 
-{$If not defined(Admin)}
 type
  TnsPostingsTreeSingle = {final} class(TnsPostingsTree)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsPostingsTreeSingle;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsPostingsTreeSingle }
  end;//TnsPostingsTreeSingle
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin)}
-
-
-// start class TnsPostingsTreeSingle
-
-var g_TnsPostingsTreeSingle : TnsPostingsTreeSingle = nil;
+var g_TnsPostingsTreeSingle: TnsPostingsTreeSingle = nil;
+ {* Экземпляр синглетона TnsPostingsTreeSingle }
 
 procedure TnsPostingsTreeSingleFree;
+ {* Метод освобождения экземпляра синглетона TnsPostingsTreeSingle }
 begin
  l3Free(g_TnsPostingsTreeSingle);
-end;
+end;//TnsPostingsTreeSingleFree
+
+class function TnsPostingsTreeSingle.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsPostingsTreeSingle <> nil;
+end;//TnsPostingsTreeSingle.Exists
 
 class function TnsPostingsTreeSingle.Instance: TnsPostingsTreeSingle;
+ {* Метод получения экземпляра синглетона TnsPostingsTreeSingle }
 begin
  if (g_TnsPostingsTreeSingle = nil) then
  begin
@@ -68,15 +57,7 @@ begin
   g_TnsPostingsTreeSingle := Create;
  end;
  Result := g_TnsPostingsTreeSingle;
-end;
-
-
-class function TnsPostingsTreeSingle.Exists: Boolean;
- {-}
-begin
- Result := g_TnsPostingsTreeSingle <> nil;
-end;//TnsPostingsTreeSingle.Exists
-
-{$IfEnd} //not Admin
+end;//TnsPostingsTreeSingle.Instance
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -1,63 +1,54 @@
 unit m3BaseStorage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3BaseStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3BaseStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3BaseStorage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseStorage" MUID: (4FA2766F02A5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  ActiveX,
-  m3StorageInterfaces,
-  Windows,
-  m3BaseStore
-  ;
+ l3IntfUses
+ , m3BaseStore
+ , ActiveX
+ , l3Interfaces
+ , m3StorageInterfaces
+ , Windows
+ //#UC START# *4FA2766F02A5intf_uses*
+ //#UC END# *4FA2766F02A5intf_uses*
+;
 
 type
- TWindowsFileTime = Windows.TFileTime;
+ TWindowsFileTime = TFileTime;
 
-//#UC START# *4FA2766F02A5ci*
-//#UC END# *4FA2766F02A5ci*
-//#UC START# *4FA2766F02A5cit*
-//#UC END# *4FA2766F02A5cit*
+ //#UC START# *4FA2766F02A5ci*
+ //#UC END# *4FA2766F02A5ci*
+ //#UC START# *4FA2766F02A5cit*
+ //#UC END# *4FA2766F02A5cit*
  Tm3BaseStorage = {abstract} class(Tm3BaseStore, IStorage)
- public
- // realized methods
+  protected
+   procedure DoCreateStore(const aName: Tl3WString;
+    anAccess: Tm3StoreAccess;
+    aStoreType: Tm3StoreType;
+    out theStream: Tm3Store;
+    out theReturn: hResult;
+    aUseCompression: Boolean); virtual;
+   procedure DoOpenStore(const aName: Tl3WString;
+    anAccess: Tm3StoreAccess;
+    aStoreType: Tm3StoreType;
+    out theStream: Tm3Store;
+    out theReturn: hResult;
+    aUseCompression: Boolean); virtual;
+  public
    function DestroyElement(aName: PWideChar): HResult; stdcall;
    function EnumElements(unused1: Integer;
-     unused2: Pointer;
-     unused3: Integer;
-     out theStatStg: IEnumStatStg): HResult; stdcall;
+    unused2: Pointer;
+    unused3: Integer;
+    out theStatStg: IEnumStatStg): HResult; stdcall;
    function Stat(out theStatStg: TStatStg;
-     aStatFlag: Integer): HResult; stdcall;
- protected
- // protected methods
-   procedure DoCreateStore(const aName: Tl3WString;
-     anAccess: Tm3StoreAccess;
-     aStoreType: Tm3StoreType;
-     out theStream: Tm3Store;
-     out theReturn: hResult;
-     aUseCompression: Boolean); virtual;
-   procedure DoOpenStore(const aName: Tl3WString;
-     anAccess: Tm3StoreAccess;
-     aStoreType: Tm3StoreType;
-     out theStream: Tm3Store;
-     out theReturn: hResult;
-     aUseCompression: Boolean); virtual;
-//#UC START# *4FA2766F02A5publ*
+    aStatFlag: Integer): HResult; stdcall;
+ //#UC START# *4FA2766F02A5publ*
     private
     // IStorage
       function IStorage.CreateStream=COMCreateStream;
@@ -196,28 +187,29 @@ type
                                                        AMask: LongInt
                                                 ): HRESULT; stdcall;
 
-//#UC END# *4FA2766F02A5publ*
+ //#UC END# *4FA2766F02A5publ*
  end;//Tm3BaseStorage
 
 implementation
 
 uses
-  l3Base,
-  m2COMLib,
-  l3String,
-  SysUtils,
-  ComObj,
-  m2MemLib
-  ;
-
-// start class Tm3BaseStorage
+ l3ImplUses
+ , l3Base
+ , m2COMLib
+ , l3String
+ , SysUtils
+ , ComObj
+ , m2MemLib
+ //#UC START# *4FA2766F02A5impl_uses*
+ //#UC END# *4FA2766F02A5impl_uses*
+;
 
 procedure Tm3BaseStorage.DoCreateStore(const aName: Tl3WString;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out theStream: Tm3Store;
-  out theReturn: hResult;
-  aUseCompression: Boolean);
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out theStream: Tm3Store;
+ out theReturn: hResult;
+ aUseCompression: Boolean);
 //#UC START# *54520BDF0089_4FA2766F02A5_var*
 //#UC END# *54520BDF0089_4FA2766F02A5_var*
 begin
@@ -229,11 +221,11 @@ begin
 end;//Tm3BaseStorage.DoCreateStore
 
 procedure Tm3BaseStorage.DoOpenStore(const aName: Tl3WString;
-  anAccess: Tm3StoreAccess;
-  aStoreType: Tm3StoreType;
-  out theStream: Tm3Store;
-  out theReturn: hResult;
-  aUseCompression: Boolean);
+ anAccess: Tm3StoreAccess;
+ aStoreType: Tm3StoreType;
+ out theStream: Tm3Store;
+ out theReturn: hResult;
+ aUseCompression: Boolean);
 //#UC START# *54520C63028A_4FA2766F02A5_var*
 //#UC END# *54520C63028A_4FA2766F02A5_var*
 begin
@@ -301,9 +293,9 @@ begin
 end;//Tm3BaseStorage.DestroyElement
 
 function Tm3BaseStorage.EnumElements(unused1: Integer;
-  unused2: Pointer;
-  unused3: Integer;
-  out theStatStg: IEnumStatStg): HResult;
+ unused2: Pointer;
+ unused3: Integer;
+ out theStatStg: IEnumStatStg): HResult;
 //#UC START# *5452303401DA_4FA2766F02A5_var*
 
   function    __ValidErrorCode(const AErrorCode: HRESULT): HRESULT;
@@ -386,7 +378,7 @@ begin
 end;//Tm3BaseStorage.EnumElements
 
 function Tm3BaseStorage.Stat(out theStatStg: TStatStg;
-  aStatFlag: Integer): HResult;
+ aStatFlag: Integer): HResult;
 //#UC START# *545244AA00BB_4FA2766F02A5_var*
 
   function    __ValidErrorCode(const AErrorCode: HRESULT): HRESULT;

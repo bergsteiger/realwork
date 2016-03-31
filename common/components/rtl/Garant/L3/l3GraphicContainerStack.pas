@@ -1,66 +1,42 @@
 unit l3GraphicContainerStack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3GraphicContainerStack.pas"
-// Начат: 18.05.2011 17:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3GraphicContainerStack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3GraphicContainerStack.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3GraphicContainerStack" MUID: (4DD3CD0B0193)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ObjectList
-  ;
+ l3IntfUses
+ , l3ObjectList
+;
 
 type
  Tl3GraphicContainerStack = class(Tl3ObjectList)
- public
- // public methods
+  public
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: Tl3GraphicContainerStack;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3GraphicContainerStack }
  end;//Tl3GraphicContainerStack
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3GraphicContainerStack
-
-var g_Tl3GraphicContainerStack : Tl3GraphicContainerStack = nil;
+var g_Tl3GraphicContainerStack: Tl3GraphicContainerStack = nil;
+ {* Экземпляр синглетона Tl3GraphicContainerStack }
 
 procedure Tl3GraphicContainerStackFree;
+ {* Метод освобождения экземпляра синглетона Tl3GraphicContainerStack }
 begin
  l3Free(g_Tl3GraphicContainerStack);
-end;
-
-class function Tl3GraphicContainerStack.Instance: Tl3GraphicContainerStack;
-begin
- if (g_Tl3GraphicContainerStack = nil) then
- begin
-  l3System.AddExitProc(Tl3GraphicContainerStackFree);
-  g_Tl3GraphicContainerStack := Create;
- end;
- Result := g_Tl3GraphicContainerStack;
-end;
-
+end;//Tl3GraphicContainerStackFree
 
 class function Tl3GraphicContainerStack.Exists: Boolean;
 //#UC START# *4DD3CE6A00B7_4DD3CD0B0193_var*
@@ -70,5 +46,16 @@ begin
  Result := (g_Tl3GraphicContainerStack <> nil);
 //#UC END# *4DD3CE6A00B7_4DD3CD0B0193_impl*
 end;//Tl3GraphicContainerStack.Exists
+
+class function Tl3GraphicContainerStack.Instance: Tl3GraphicContainerStack;
+ {* Метод получения экземпляра синглетона Tl3GraphicContainerStack }
+begin
+ if (g_Tl3GraphicContainerStack = nil) then
+ begin
+  l3System.AddExitProc(Tl3GraphicContainerStackFree);
+  g_Tl3GraphicContainerStack := Create;
+ end;
+ Result := g_Tl3GraphicContainerStack;
+end;//Tl3GraphicContainerStack.Instance
 
 end.

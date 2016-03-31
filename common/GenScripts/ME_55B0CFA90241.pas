@@ -30,16 +30,16 @@ type
  Tf1StartupCompletedService = {final} class(Tl3ProtoObject)
   private
    f_Alien: If1StartupCompletedService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса If1StartupCompletedService }
   protected
    procedure pm_SetAlien(const aValue: If1StartupCompletedService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure StartupComplete;
    class function Instance: Tf1StartupCompletedService;
     {* Метод получения экземпляра синглетона Tf1StartupCompletedService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: If1StartupCompletedService
     write pm_SetAlien;
@@ -69,12 +69,6 @@ begin
  f_Alien := aValue;
 end;//Tf1StartupCompletedService.pm_SetAlien
 
-class function Tf1StartupCompletedService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tf1StartupCompletedService <> nil;
-end;//Tf1StartupCompletedService.Exists
-
 procedure Tf1StartupCompletedService.StartupComplete;
 //#UC START# *2627E933260B_55B0CFA90241_var*
 //#UC END# *2627E933260B_55B0CFA90241_var*
@@ -95,6 +89,12 @@ begin
  end;
  Result := g_Tf1StartupCompletedService;
 end;//Tf1StartupCompletedService.Instance
+
+class function Tf1StartupCompletedService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tf1StartupCompletedService <> nil;
+end;//Tf1StartupCompletedService.Exists
 
 procedure Tf1StartupCompletedService.ClearFields;
 begin

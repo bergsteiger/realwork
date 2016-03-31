@@ -1,55 +1,48 @@
 {$IfNDef atNamedParametersList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atNamedParametersList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::CoreObjects::atNamedParametersList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atNamedParametersList" MUID: (4807779F01CA)
+// Имя типа: "_atNamedParametersList_"
 
 {$Define atNamedParametersList_imp}
+
+type
+ CNamedParameter = class of _NamedParameter_;
+
  EParameterNotExists = class(Exception)
  end;//EParameterNotExists
 
- CNamedParameter = class of _NamedParameter_;
-
- _atNamedParametersList_ = {mixin} class(_atNamedParametersList_Parent_)
- private
- // private fields
-   f_Parameters : TatStringListWithOwn;
- protected
- // property methods
+ _atNamedParametersList_ = class(_atNamedParametersList_Parent_)
+  private
+   f_Parameters: TatStringListWithOwn;
+  protected
    function pm_GetCount: Integer;
    function pm_GetParamType: CNamedParameter; virtual;
    function pm_GetParamByName(const aName: AnsiString): _NamedParameter_;
    function pm_GetParamByIndex(anIndex: Integer): _NamedParameter_;
- public
- // public methods
-   destructor Destroy; override;
+  public
+   destructor destroy; override;
    procedure Add(const aParam: _NamedParameter_);
    constructor Create; reintroduce;
    procedure AddAlias(const aParamName: AnsiString;
     const anAliasName: AnsiString); virtual;
- public
- // public properties
+  public
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property ParamType: CNamedParameter
-     read pm_GetParamType;
+    read pm_GetParamType;
    property ParamByName[const aName: AnsiString]: _NamedParameter_
-     read pm_GetParamByName;
+    read pm_GetParamByName;
    property ParamByIndex[anIndex: Integer]: _NamedParameter_
-     read pm_GetParamByIndex;
+    read pm_GetParamByIndex;
  end;//_atNamedParametersList_
 
 {$Else atNamedParametersList_imp}
 
-// start class _atNamedParametersList_
+{$IfNDef atNamedParametersList_imp_impl}
+
+{$Define atNamedParametersList_imp_impl}
 
 function _atNamedParametersList_.pm_GetCount: Integer;
 //#UC START# *4807787D0165_4807779F01CAget_var*
@@ -92,7 +85,7 @@ begin
 //#UC END# *480778200358_4807779F01CAget_impl*
 end;//_atNamedParametersList_.pm_GetParamByIndex
 
-destructor _atNamedParametersList_.Destroy;
+destructor _atNamedParametersList_.destroy;
 //#UC START# *48077863002D_4807779F01CA_var*
 //#UC END# *48077863002D_4807779F01CA_var*
 begin
@@ -100,7 +93,7 @@ begin
   FreeAndNil(f_Parameters);
   inherited;
 //#UC END# *48077863002D_4807779F01CA_impl*
-end;//_atNamedParametersList_.Destroy
+end;//_atNamedParametersList_.destroy
 
 procedure _atNamedParametersList_.Add(const aParam: _NamedParameter_);
 //#UC START# *480778A700B7_4807779F01CA_var*
@@ -124,7 +117,7 @@ begin
 end;//_atNamedParametersList_.Create
 
 procedure _atNamedParametersList_.AddAlias(const aParamName: AnsiString;
-  const anAliasName: AnsiString);
+ const anAliasName: AnsiString);
 //#UC START# *50363C5402FA_4807779F01CA_var*
 //#UC END# *50363C5402FA_4807779F01CA_var*
 begin
@@ -133,4 +126,7 @@ begin
 //#UC END# *50363C5402FA_4807779F01CA_impl*
 end;//_atNamedParametersList_.AddAlias
 
+{$EndIf atNamedParametersList_imp_impl}
+
 {$EndIf atNamedParametersList_imp}
+

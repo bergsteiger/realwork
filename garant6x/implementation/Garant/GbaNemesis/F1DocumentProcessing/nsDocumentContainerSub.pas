@@ -1,85 +1,63 @@
 unit nsDocumentContainerSub;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsDocumentContainerSub.pas"
-// Начат: 2005/12/03 21:22:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::TnsDocumentContainerSub
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainerSub.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentContainerSub" MUID: (4A7AA075008F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nevBase,
-  nsSubPrim,
-  nevTools,
-  l3Variant,
-  evdTypes,
-  l3Interfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsSubPrim
+ , l3Variant
+ , nevBase
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDocumentContainerSub = class(TnsSubPrim)
- private
- // private fields
-   f_SubPara : Tl3Tag;
- protected
- // overridden protected methods
+  private
+   f_SubPara: Tl3Tag;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function Tag: Tl3Tag; override;
    function SubPara: Tl3Tag; override;
- public
- // public methods
+  public
    constructor Create(aDocument: Tl3Tag;
-     const aProcessor: InevProcessor;
-     anID: Integer;
-     aLayerID: Integer); reintroduce;
+    const aProcessor: InevProcessor;
+    anID: Integer;
+    aLayerID: Integer); reintroduce;
    class function Make(aDocument: Tl3Tag;
-     const aProcessor: InevProcessor;
-     anID: Integer;
-     aLayerID: Integer): IevSub; reintroduce;
-     {* Сигнатура фабрики TnsDocumentContainerSub.Make }
+    const aProcessor: InevProcessor;
+    anID: Integer;
+    aLayerID: Integer): IevSub; reintroduce;
  end;//TnsDocumentContainerSub
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsTagNodeToolsNew,
-  Block_Const,
-  CommentPara_Const,
-  Sub_Const,
-  Mark_Const,
-  k2Tags,
-  Bookmark_Const,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDocumentContainerSub
+ l3ImplUses
+ , nsTagNodeToolsNew
+ , evdTypes
+ , Block_Const
+ , CommentPara_Const
+ , Sub_Const
+ , Mark_Const
+ , k2Tags
+ , Bookmark_Const
+ , SysUtils
+;
 
 constructor TnsDocumentContainerSub.Create(aDocument: Tl3Tag;
-  const aProcessor: InevProcessor;
-  anID: Integer;
-  aLayerID: Integer);
+ const aProcessor: InevProcessor;
+ anID: Integer;
+ aLayerID: Integer);
 //#UC START# *4C9B0D0A035C_4A7AA075008F_var*
 //#UC END# *4C9B0D0A035C_4A7AA075008F_var*
 begin
@@ -92,9 +70,9 @@ begin
 end;//TnsDocumentContainerSub.Create
 
 class function TnsDocumentContainerSub.Make(aDocument: Tl3Tag;
-  const aProcessor: InevProcessor;
-  anID: Integer;
-  aLayerID: Integer): IevSub;
+ const aProcessor: InevProcessor;
+ anID: Integer;
+ aLayerID: Integer): IevSub;
 var
  l_Inst : TnsDocumentContainerSub;
 begin
@@ -104,9 +82,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDocumentContainerSub.Make
 
 procedure TnsDocumentContainerSub.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A7AA075008F_var*
 //#UC END# *479731C50290_4A7AA075008F_var*
 begin
@@ -171,7 +150,6 @@ begin
  end;//Result = nil
 //#UC END# *4C9B0AEF009B_4A7AA075008F_impl*
 end;//TnsDocumentContainerSub.SubPara
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

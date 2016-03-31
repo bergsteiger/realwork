@@ -1,49 +1,36 @@
 unit ncsClientParamsStorage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsClientParamsStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ClientSide::TncsClientParamsStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsClientParamsStorage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsClientParamsStorage" MUID: (5507E6CB0165)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  htInterfaces
-  {$If defined(UsePostgres)}
-  ,
-  pgInterfaces
-  {$IfEnd} //UsePostgres
-  ,
-  ddAppConfig
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , htInterfaces
+ {$If Defined(UsePostgres)}
+ , pgInterfaces
+ {$IfEnd} // Defined(UsePostgres)
+ , ddAppConfig
+;
 
-{$If not defined(Nemesis)}
 const
-  { SectionNames }
  BaseSection = 'BaseDocPath';
  FamilySection = 'FamilyConst';
  DataSection = 'Postgress.Data';
 
 type
- TncsClientParamsStorage = class(Tl3ProtoObject, IdaParamsStorage, IhtParamsStorage {$If defined(UsePostgres)}, IpgParamsStorage{$IfEnd} //UsePostgres
+ TncsClientParamsStorage = class(Tl3ProtoObject, IdaParamsStorage, IhtParamsStorage{$If Defined(UsePostgres)}
+ , IpgParamsStorage
+ {$IfEnd} // Defined(UsePostgres)
  )
- protected
- // realized methods
+  protected
    function Get_ProviderKey: AnsiString;
    procedure Set_ProviderKey(const aValue: AnsiString);
    procedure InitStorage;
@@ -69,37 +56,35 @@ type
    function LockPathErrorMessage: AnsiString;
    function OuterConfigEdit: Boolean;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-    const aProviderKey: AnsiString); overload; 
-   {$If defined(UsePostgres)}
+    const aProviderKey: AnsiString); overload;
+   {$If Defined(UsePostgres)}
    function Get_DataServerHostName: AnsiString;
+   {$IfEnd} // Defined(UsePostgres)
+   {$If Defined(UsePostgres)}
    procedure Set_DataServerHostName(const aValue: AnsiString);
-   {$IfEnd} //UsePostgres
-   {$If defined(UsePostgres)}
+   {$IfEnd} // Defined(UsePostgres)
+   {$If Defined(UsePostgres)}
    function Get_DataServerPort: Integer;
+   {$IfEnd} // Defined(UsePostgres)
+   {$If Defined(UsePostgres)}
    procedure Set_DataServerPort(aValue: Integer);
-   {$IfEnd} //UsePostgres
- public
- // public methods
+   {$IfEnd} // Defined(UsePostgres)
+  public
    class function Make: IdaParamsStorage; reintroduce;
-     {* Сигнатура фабрики TncsClientParamsStorage.Make }
  end;//TncsClientParamsStorage
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3IniFile,
-  l3Utils,
-  l3Base64,
-  l3FileUtils,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsClientParamsStorage
+ l3ImplUses
+ , l3IniFile
+ , l3Utils
+ , l3Base64
+ , l3FileUtils
+ , SysUtils
+;
 
 class function TncsClientParamsStorage.Make: IdaParamsStorage;
 var
@@ -111,7 +96,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsClientParamsStorage.Make
 
 function TncsClientParamsStorage.Get_ProviderKey: AnsiString;
 //#UC START# *5507D9B100F7_5507E6CB0165get_var*
@@ -403,7 +388,7 @@ begin
 end;//TncsClientParamsStorage.OuterConfigEdit
 
 procedure TncsClientParamsStorage.BuildConfig(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString);
+ const aProviderKey: AnsiString);
 //#UC START# *551512370064_5507E6CB0165_var*
 //#UC END# *551512370064_5507E6CB0165_var*
 begin
@@ -412,7 +397,7 @@ begin
 //#UC END# *551512370064_5507E6CB0165_impl*
 end;//TncsClientParamsStorage.BuildConfig
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 function TncsClientParamsStorage.Get_DataServerHostName: AnsiString;
 //#UC START# *55DAD43B00AF_5507E6CB0165get_var*
 //#UC END# *55DAD43B00AF_5507E6CB0165get_var*
@@ -422,9 +407,9 @@ begin
  Result := ServerConfig.ReadParamStrDef('DataServerHostName', '');
 //#UC END# *55DAD43B00AF_5507E6CB0165get_impl*
 end;//TncsClientParamsStorage.Get_DataServerHostName
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 procedure TncsClientParamsStorage.Set_DataServerHostName(const aValue: AnsiString);
 //#UC START# *55DAD43B00AF_5507E6CB0165set_var*
 //#UC END# *55DAD43B00AF_5507E6CB0165set_var*
@@ -437,9 +422,9 @@ begin
  end;
 //#UC END# *55DAD43B00AF_5507E6CB0165set_impl*
 end;//TncsClientParamsStorage.Set_DataServerHostName
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 function TncsClientParamsStorage.Get_DataServerPort: Integer;
 //#UC START# *55DAD44D036F_5507E6CB0165get_var*
 //#UC END# *55DAD44D036F_5507E6CB0165get_var*
@@ -449,9 +434,9 @@ begin
  Result := ServerConfig.ReadParamIntDef('DataServerPort', c_DefaultPostgresPort);
 //#UC END# *55DAD44D036F_5507E6CB0165get_impl*
 end;//TncsClientParamsStorage.Get_DataServerPort
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 procedure TncsClientParamsStorage.Set_DataServerPort(aValue: Integer);
 //#UC START# *55DAD44D036F_5507E6CB0165set_var*
 //#UC END# *55DAD44D036F_5507E6CB0165set_var*
@@ -464,8 +449,7 @@ begin
  end;
 //#UC END# *55DAD44D036F_5507E6CB0165set_impl*
 end;//TncsClientParamsStorage.Set_DataServerPort
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
-{$IfEnd} //not Nemesis
-
+{$IfEnd} // NOT Defined(Nemesis)
 end.

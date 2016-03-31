@@ -1,66 +1,49 @@
 unit m3StoreHeaderDataPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StoreHeaderDataPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3StoreHeaderDataPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StoreHeaderDataPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StoreHeaderDataPrim" MUID: (54084CDE023E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3_String,
-  l3CProtoObject,
-  m3RootStreamManagerPrimPrim
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3_String
+ , m3RootStreamManagerPrimPrim
+;
 
 type
  Rm3StoreHeaderDataPrim = class of Tm3StoreHeaderDataPrim;
 
  Tm3StoreHeaderDataPrim = class(Tl3CProtoObject)
- private
- // private fields
-   f_Lock : Integer;
-   f_Position : Int64;
-    {* Поле для свойства Position}
-   f_IsReadOnly : Boolean;
-    {* Поле для свойства IsReadOnly}
-   f_Name : Tl3_String;
-    {* Поле для свойства Name}
-   f_Stream : Tm3RootStreamManagerPrimPrim;
-    {* Поле для свойства Stream}
- protected
- // property methods
-   function pm_GetRRealSizePrim: Int64; virtual; abstract;
-   procedure pm_SetRRealSizePrim(aValue: Int64); virtual; abstract;
+  private
+   f_Lock: Integer;
+   f_Position: Int64;
+    {* Поле для свойства Position }
+   f_IsReadOnly: Boolean;
+    {* Поле для свойства IsReadOnly }
+   f_Name: Tl3_String;
+    {* Поле для свойства Name }
+   f_Stream: Tm3RootStreamManagerPrimPrim;
+    {* Поле для свойства Stream }
+  protected
+   function pm_GetrRealSizePrim: Int64; virtual; abstract;
+   procedure pm_SetrRealSizePrim(aValue: Int64); virtual; abstract;
    function pm_GetFirstClusterPrim: Int64; virtual; abstract;
    procedure pm_SetFirstClusterPrim(aValue: Int64); virtual; abstract;
-   function pm_GetRTOCItemListPositionPrim: Int64; virtual; abstract;
-   procedure pm_SetRTOCItemListPositionPrim(aValue: Int64); virtual; abstract;
+   function pm_GetrTOCItemListPositionPrim: Int64; virtual; abstract;
+   procedure pm_SetrTOCItemListPositionPrim(aValue: Int64); virtual; abstract;
    procedure pm_SetPosition(aValue: Int64);
    function pm_GetLocked: Boolean;
-   function pm_GetRTOCItemListPosition: Int64;
-   procedure pm_SetRTOCItemListPosition(aValue: Int64);
-   function pm_GetRRealSize: Int64;
-   procedure pm_SetRRealSize(aValue: Int64);
+   function pm_GetrTOCItemListPosition: Int64;
+   procedure pm_SetrTOCItemListPosition(aValue: Int64);
+   function pm_GetrRealSize: Int64;
+   procedure pm_SetrRealSize(aValue: Int64);
    function pm_GetFirstCluster: Int64;
    procedure pm_SetFirstCluster(aValue: Int64);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
    class function DataSize: Integer; virtual; abstract;
    function Modified: Boolean; virtual; abstract;
    procedure DoDoLoad; virtual; abstract;
@@ -69,83 +52,159 @@ type
    procedure Save;
    procedure DoSaveNextPosition(aNextPosition: Int64); virtual; abstract;
    procedure Lock;
-     {* Сигнатура метода Lock }
    procedure Unlock;
-     {* Сигнатура метода Unlock }
    constructor CreatePrim(aStream: Tm3RootStreamManagerPrimPrim;
-     aPosition: Int64;
-     aIsReadOnly: Boolean;
-     aName: Tl3_String;
-     aNeedLock: Boolean);
+    aPosition: Int64;
+    aIsReadOnly: Boolean;
+    aName: Tl3_String;
+    aNeedLock: Boolean); reintroduce;
    procedure InitData(aNew: Boolean); virtual; abstract;
    procedure DoLoad;
-     {* Сигнатура метода DoLoad }
    procedure DoSave;
-     {* Сигнатура метода DoSave }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    function SaveToExistingPlace: Int64;
-   constructor CreateNew(aStream: Tm3RootStreamManagerPrimPrim);
+   constructor CreateNew(aStream: Tm3RootStreamManagerPrimPrim); reintroduce;
    constructor Create(aStream: Tm3RootStreamManagerPrimPrim;
-     aPosition: Int64;
-     aIsReadOnly: Boolean;
-     aName: Tl3_String); reintroduce;
+    aPosition: Int64;
+    aIsReadOnly: Boolean;
+    aName: Tl3_String); reintroduce;
    function SaveToNewPlace(var theRootSize: Int64): Int64;
    constructor CreateAtExistingPlace(aStream: Tm3RootStreamManagerPrimPrim;
-     aPosition: Int64);
+    aPosition: Int64); reintroduce;
    constructor CreateForDeletion(aStream: Tm3RootStreamManagerPrimPrim;
-     aPosition: Int64);
+    aPosition: Int64); reintroduce;
    procedure Delete(aNextPosition: Int64);
- protected
- // protected properties
+  protected
    property rRealSizePrim: Int64
-     read pm_GetRRealSizePrim
-     write pm_SetRRealSizePrim;
+    read pm_GetrRealSizePrim
+    write pm_SetrRealSizePrim;
    property FirstClusterPrim: Int64
-     read pm_GetFirstClusterPrim
-     write pm_SetFirstClusterPrim;
+    read pm_GetFirstClusterPrim
+    write pm_SetFirstClusterPrim;
    property rTOCItemListPositionPrim: Int64
-     read pm_GetRTOCItemListPositionPrim
-     write pm_SetRTOCItemListPositionPrim;
+    read pm_GetrTOCItemListPositionPrim
+    write pm_SetrTOCItemListPositionPrim;
    property Position: Int64
-     read f_Position
-     write pm_SetPosition;
+    read f_Position
+    write pm_SetPosition;
    property Locked: Boolean
-     read pm_GetLocked;
- public
- // public properties
+    read pm_GetLocked;
+  public
    property IsReadOnly: Boolean
-     read f_IsReadOnly;
+    read f_IsReadOnly;
    property Name: Tl3_String
-     read f_Name;
+    read f_Name;
    property rTOCItemListPosition: Int64
-     read pm_GetRTOCItemListPosition
-     write pm_SetRTOCItemListPosition;
+    read pm_GetrTOCItemListPosition
+    write pm_SetrTOCItemListPosition;
    property rRealSize: Int64
-     read pm_GetRRealSize
-     write pm_SetRRealSize;
+    read pm_GetrRealSize
+    write pm_SetrRealSize;
    property FirstCluster: Int64
-     read pm_GetFirstCluster
-     write pm_SetFirstCluster;
+    read pm_GetFirstCluster
+    write pm_SetFirstCluster;
    property Stream: Tm3RootStreamManagerPrimPrim
-     read f_Stream;
+    read f_Stream;
  end;//Tm3StoreHeaderDataPrim
 
 implementation
 
 uses
-  SysUtils,
-  m3Exceptions,
-  m2COMLib,
-  ActiveX,
-  ComObj,
-  l3Base,
-  Windows,
-  m3FileRegion,
-  l3Interlocked
-  ;
+ l3ImplUses
+ , SysUtils
+ , m3Exceptions
+ , m2COMLib
+ , ActiveX
+ , ComObj
+ , l3Base
+ , Windows
+ , m3FileRegion
+ , l3Interlocked
+;
 
-// start class Tm3StoreHeaderDataPrim
+procedure Tm3StoreHeaderDataPrim.pm_SetPosition(aValue: Int64);
+//#UC START# *540D8F84003A_54084CDE023Eset_var*
+//#UC END# *540D8F84003A_54084CDE023Eset_var*
+begin
+//#UC START# *540D8F84003A_54084CDE023Eset_impl*
+ if (f_Position = aValue) then
+  Exit;
+ Assert(not Self.Locked);
+ Assert((f_Position = -1) OR (aValue = -1));
+ f_Position := aValue; 
+//#UC END# *540D8F84003A_54084CDE023Eset_impl*
+end;//Tm3StoreHeaderDataPrim.pm_SetPosition
+
+function Tm3StoreHeaderDataPrim.pm_GetLocked: Boolean;
+//#UC START# *54197985018A_54084CDE023Eget_var*
+//#UC END# *54197985018A_54084CDE023Eget_var*
+begin
+//#UC START# *54197985018A_54084CDE023Eget_impl*
+ Result := (f_Lock > 0);
+//#UC END# *54197985018A_54084CDE023Eget_impl*
+end;//Tm3StoreHeaderDataPrim.pm_GetLocked
+
+function Tm3StoreHeaderDataPrim.pm_GetrTOCItemListPosition: Int64;
+//#UC START# *54197B6E02B7_54084CDE023Eget_var*
+//#UC END# *54197B6E02B7_54084CDE023Eget_var*
+begin
+//#UC START# *54197B6E02B7_54084CDE023Eget_impl*
+ Result := rTOCItemListPositionPrim; 
+//#UC END# *54197B6E02B7_54084CDE023Eget_impl*
+end;//Tm3StoreHeaderDataPrim.pm_GetrTOCItemListPosition
+
+procedure Tm3StoreHeaderDataPrim.pm_SetrTOCItemListPosition(aValue: Int64);
+//#UC START# *54197B6E02B7_54084CDE023Eset_var*
+//#UC END# *54197B6E02B7_54084CDE023Eset_var*
+begin
+//#UC START# *54197B6E02B7_54084CDE023Eset_impl*
+ Assert(Self.Locked);
+ rTOCItemListPositionPrim := aValue; 
+//#UC END# *54197B6E02B7_54084CDE023Eset_impl*
+end;//Tm3StoreHeaderDataPrim.pm_SetrTOCItemListPosition
+
+function Tm3StoreHeaderDataPrim.pm_GetrRealSize: Int64;
+//#UC START# *54197B970229_54084CDE023Eget_var*
+//#UC END# *54197B970229_54084CDE023Eget_var*
+begin
+//#UC START# *54197B970229_54084CDE023Eget_impl*
+ Result := rRealSizePrim;
+//#UC END# *54197B970229_54084CDE023Eget_impl*
+end;//Tm3StoreHeaderDataPrim.pm_GetrRealSize
+
+procedure Tm3StoreHeaderDataPrim.pm_SetrRealSize(aValue: Int64);
+//#UC START# *54197B970229_54084CDE023Eset_var*
+//#UC END# *54197B970229_54084CDE023Eset_var*
+begin
+//#UC START# *54197B970229_54084CDE023Eset_impl*
+ Assert(Self.Locked);
+ Assert((aValue > 0) OR (Position > 0), 'Нельзя уменьшать данные корневого потока');
+ rRealSizePrim := aValue;
+//#UC END# *54197B970229_54084CDE023Eset_impl*
+end;//Tm3StoreHeaderDataPrim.pm_SetrRealSize
+
+function Tm3StoreHeaderDataPrim.pm_GetFirstCluster: Int64;
+//#UC START# *54197BF1039F_54084CDE023Eget_var*
+//#UC END# *54197BF1039F_54084CDE023Eget_var*
+begin
+//#UC START# *54197BF1039F_54084CDE023Eget_impl*
+ Result := FirstClusterPrim;
+//#UC END# *54197BF1039F_54084CDE023Eget_impl*
+end;//Tm3StoreHeaderDataPrim.pm_GetFirstCluster
+
+procedure Tm3StoreHeaderDataPrim.pm_SetFirstCluster(aValue: Int64);
+//#UC START# *54197BF1039F_54084CDE023Eset_var*
+//#UC END# *54197BF1039F_54084CDE023Eset_var*
+begin
+//#UC START# *54197BF1039F_54084CDE023Eset_impl*
+ Assert(Self.Locked);
+ Assert((aValue = -1) OR (Self.FirstCluster = -1), 'Начальный блок потока может только распределяться или освобождаться, но не меняться');
+ Assert((aValue >= 0) OR (Position > 0), 'Нельзя удалять заголовок корневого хранилища');
+ Self.FirstClusterPrim := aValue;
+//#UC END# *54197BF1039F_54084CDE023Eset_impl*
+end;//Tm3StoreHeaderDataPrim.pm_SetFirstCluster
 
 function Tm3StoreHeaderDataPrim.SaveToExistingPlace: Int64;
 //#UC START# *540D8FE0012F_54084CDE023E_var*
@@ -220,9 +279,9 @@ begin
 end;//Tm3StoreHeaderDataPrim.CreateNew
 
 constructor Tm3StoreHeaderDataPrim.Create(aStream: Tm3RootStreamManagerPrimPrim;
-  aPosition: Int64;
-  aIsReadOnly: Boolean;
-  aName: Tl3_String);
+ aPosition: Int64;
+ aIsReadOnly: Boolean;
+ aName: Tl3_String);
 //#UC START# *540D9056031E_54084CDE023E_var*
 //#UC END# *540D9056031E_54084CDE023E_var*
 begin
@@ -313,10 +372,10 @@ begin
 end;//Tm3StoreHeaderDataPrim.Unlock
 
 constructor Tm3StoreHeaderDataPrim.CreatePrim(aStream: Tm3RootStreamManagerPrimPrim;
-  aPosition: Int64;
-  aIsReadOnly: Boolean;
-  aName: Tl3_String;
-  aNeedLock: Boolean);
+ aPosition: Int64;
+ aIsReadOnly: Boolean;
+ aName: Tl3_String;
+ aNeedLock: Boolean);
 //#UC START# *540EEFD70388_54084CDE023E_var*
 //#UC END# *540EEFD70388_54084CDE023E_var*
 begin
@@ -342,7 +401,7 @@ begin
 end;//Tm3StoreHeaderDataPrim.CreatePrim
 
 constructor Tm3StoreHeaderDataPrim.CreateAtExistingPlace(aStream: Tm3RootStreamManagerPrimPrim;
-  aPosition: Int64);
+ aPosition: Int64);
 //#UC START# *541025B80378_54084CDE023E_var*
 //#UC END# *541025B80378_54084CDE023E_var*
 begin
@@ -353,7 +412,7 @@ begin
 end;//Tm3StoreHeaderDataPrim.CreateAtExistingPlace
 
 constructor Tm3StoreHeaderDataPrim.CreateForDeletion(aStream: Tm3RootStreamManagerPrimPrim;
-  aPosition: Int64);
+ aPosition: Int64);
 //#UC START# *541026120318_54084CDE023E_var*
 //#UC END# *541026120318_54084CDE023E_var*
 begin
@@ -431,89 +490,8 @@ begin
 //#UC END# *5411719C0255_54084CDE023E_impl*
 end;//Tm3StoreHeaderDataPrim.Delete
 
-procedure Tm3StoreHeaderDataPrim.pm_SetPosition(aValue: Int64);
-//#UC START# *540D8F84003A_54084CDE023Eset_var*
-//#UC END# *540D8F84003A_54084CDE023Eset_var*
-begin
-//#UC START# *540D8F84003A_54084CDE023Eset_impl*
- if (f_Position = aValue) then
-  Exit;
- Assert(not Self.Locked);
- Assert((f_Position = -1) OR (aValue = -1));
- f_Position := aValue; 
-//#UC END# *540D8F84003A_54084CDE023Eset_impl*
-end;//Tm3StoreHeaderDataPrim.pm_SetPosition
-
-function Tm3StoreHeaderDataPrim.pm_GetLocked: Boolean;
-//#UC START# *54197985018A_54084CDE023Eget_var*
-//#UC END# *54197985018A_54084CDE023Eget_var*
-begin
-//#UC START# *54197985018A_54084CDE023Eget_impl*
- Result := (f_Lock > 0);
-//#UC END# *54197985018A_54084CDE023Eget_impl*
-end;//Tm3StoreHeaderDataPrim.pm_GetLocked
-
-function Tm3StoreHeaderDataPrim.pm_GetRTOCItemListPosition: Int64;
-//#UC START# *54197B6E02B7_54084CDE023Eget_var*
-//#UC END# *54197B6E02B7_54084CDE023Eget_var*
-begin
-//#UC START# *54197B6E02B7_54084CDE023Eget_impl*
- Result := rTOCItemListPositionPrim; 
-//#UC END# *54197B6E02B7_54084CDE023Eget_impl*
-end;//Tm3StoreHeaderDataPrim.pm_GetRTOCItemListPosition
-
-procedure Tm3StoreHeaderDataPrim.pm_SetRTOCItemListPosition(aValue: Int64);
-//#UC START# *54197B6E02B7_54084CDE023Eset_var*
-//#UC END# *54197B6E02B7_54084CDE023Eset_var*
-begin
-//#UC START# *54197B6E02B7_54084CDE023Eset_impl*
- Assert(Self.Locked);
- rTOCItemListPositionPrim := aValue; 
-//#UC END# *54197B6E02B7_54084CDE023Eset_impl*
-end;//Tm3StoreHeaderDataPrim.pm_SetRTOCItemListPosition
-
-function Tm3StoreHeaderDataPrim.pm_GetRRealSize: Int64;
-//#UC START# *54197B970229_54084CDE023Eget_var*
-//#UC END# *54197B970229_54084CDE023Eget_var*
-begin
-//#UC START# *54197B970229_54084CDE023Eget_impl*
- Result := rRealSizePrim;
-//#UC END# *54197B970229_54084CDE023Eget_impl*
-end;//Tm3StoreHeaderDataPrim.pm_GetRRealSize
-
-procedure Tm3StoreHeaderDataPrim.pm_SetRRealSize(aValue: Int64);
-//#UC START# *54197B970229_54084CDE023Eset_var*
-//#UC END# *54197B970229_54084CDE023Eset_var*
-begin
-//#UC START# *54197B970229_54084CDE023Eset_impl*
- Assert(Self.Locked);
- Assert((aValue > 0) OR (Position > 0), 'Нельзя уменьшать данные корневого потока');
- rRealSizePrim := aValue;
-//#UC END# *54197B970229_54084CDE023Eset_impl*
-end;//Tm3StoreHeaderDataPrim.pm_SetRRealSize
-
-function Tm3StoreHeaderDataPrim.pm_GetFirstCluster: Int64;
-//#UC START# *54197BF1039F_54084CDE023Eget_var*
-//#UC END# *54197BF1039F_54084CDE023Eget_var*
-begin
-//#UC START# *54197BF1039F_54084CDE023Eget_impl*
- Result := FirstClusterPrim;
-//#UC END# *54197BF1039F_54084CDE023Eget_impl*
-end;//Tm3StoreHeaderDataPrim.pm_GetFirstCluster
-
-procedure Tm3StoreHeaderDataPrim.pm_SetFirstCluster(aValue: Int64);
-//#UC START# *54197BF1039F_54084CDE023Eset_var*
-//#UC END# *54197BF1039F_54084CDE023Eset_var*
-begin
-//#UC START# *54197BF1039F_54084CDE023Eset_impl*
- Assert(Self.Locked);
- Assert((aValue = -1) OR (Self.FirstCluster = -1), 'Начальный блок потока может только распределяться или освобождаться, но не меняться');
- Assert((aValue >= 0) OR (Position > 0), 'Нельзя удалять заголовок корневого хранилища');
- Self.FirstClusterPrim := aValue;
-//#UC END# *54197BF1039F_54084CDE023Eset_impl*
-end;//Tm3StoreHeaderDataPrim.pm_SetFirstCluster
-
 procedure Tm3StoreHeaderDataPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54084CDE023E_var*
 //#UC END# *479731C50290_54084CDE023E_var*
 begin

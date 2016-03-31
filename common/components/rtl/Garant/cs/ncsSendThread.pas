@@ -1,57 +1,40 @@
 unit ncsSendThread;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsSendThread.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsSendThread
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsSendThread.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsSendThread" MUID: (5450E9A0034A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  ncsTransporterIOThread
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsTransporterIOThread
+ , ncsMessage
+;
 
-{$If not defined(Nemesis)}
 type
  TncsSendThread = class(TncsTransporterIOThread)
- private
- // private methods
+  private
    procedure Send(aMessage: TncsMessage);
- protected
- // overridden protected methods
+  protected
    procedure DoExecute; override;
-     {* основная процедура нити. Для перекрытия в потомках }
+    {* основная процедура нити. Для перекрытия в потомках }
  end;//TncsSendThread
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3TempMemoryStream,
-  Classes,
-  SysUtils,
-  ncsProfile
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsSendThread
+ l3ImplUses
+ , SysUtils
+ , ncsProfile
+ , l3TempMemoryStream
+ , Classes
+;
 
 procedure TncsSendThread.Send(aMessage: TncsMessage);
 //#UC START# *545201B70046_5450E9A0034A_var*
@@ -88,6 +71,7 @@ begin
 end;//TncsSendThread.Send
 
 procedure TncsSendThread.DoExecute;
+ {* основная процедура нити. Для перекрытия в потомках }
 //#UC START# *4911B69E037D_5450E9A0034A_var*
 var
  l_Message: TncsMessage;
@@ -116,7 +100,6 @@ begin
  end;
 //#UC END# *4911B69E037D_5450E9A0034A_impl*
 end;//TncsSendThread.DoExecute
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

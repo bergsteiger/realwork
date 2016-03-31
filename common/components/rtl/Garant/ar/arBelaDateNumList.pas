@@ -1,41 +1,30 @@
 unit arBelaDateNumList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ar"
-// Модуль: "w:/common/components/rtl/Garant/ar/arBelaDateNumList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ar::Belarus::TarBelaDateNumList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\ar\arBelaDateNumList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarBelaDateNumList" MUID: (56A5E3010270)
 
 {$Include w:\common\components\l3Define.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Interfaces,
-  l3Date,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , l3Date
+;
 
-{$If not defined(Nemesis)}
 type
  TarBelaDateNumRec = record
-   rNum : Il3CString;
-   rDate : TStDate;
+  rNum: Il3CString;
+  rDate: TStDate;
  end;//TarBelaDateNumRec
 
  _ItemType_ = TarBelaDateNumRec;
@@ -44,35 +33,30 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TarBelaDateNumList = class(_l3RecordListPrim_)
  end;//TarBelaDateNumList
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3String,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , l3String
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-{$If not defined(Nemesis)}
-
-// start class TarBelaDateNumList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_56A5E3010270_var*
 //#UC END# *47B07CF403D0_56A5E3010270_var*
 begin
@@ -80,11 +64,11 @@ begin
  Result := (A.rDate = B.rDate) and l3Same(A.rNum, B.rNum);
 //#UC END# *47B07CF403D0_56A5E3010270_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_56A5E3010270_var*
 //#UC END# *47B2C42A0163_56A5E3010270_var*
 begin
@@ -92,9 +76,10 @@ begin
  Assert(False);
 //#UC END# *47B2C42A0163_56A5E3010270_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_56A5E3010270_var*
 //#UC END# *47B99D4503A2_56A5E3010270_var*
 begin
@@ -108,7 +93,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TarBelaDateNumList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+{$IfEnd} // NOT Defined(Nemesis)
 
-
-{$IfEnd} //not Nemesis
 end.

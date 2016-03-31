@@ -1,74 +1,55 @@
 unit nsSaveDialog;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsSaveDialog.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::Dialogs::TnsSaveDialog
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSaveDialog" MUID: (4AF32FBD00F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  PresentationInterfaces,
-  nsTypes,
-  vtPanel,
-  vtSaveDialog
-  {$If defined(Nemesis)}
-  ,
-  eeGroupBox
-  {$IfEnd} //Nemesis
-  ,
-  vtCheckBox,
-  vtRadioButton
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , vtSaveDialog
+ , PresentationInterfaces
+ , nsTypes
+ {$If Defined(Nemesis)}
+ , eeGroupBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
+ , vtPanel
+ , vtRadioButton
+ , Classes
+ //#UC START# *4AF32FBD00F5intf_uses*
+ //#UC END# *4AF32FBD00F5intf_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-//#UC START# *4AF32FBD00F5ci*
+ //#UC START# *4AF32FBD00F5ci*
 {$R *.RES}
-//#UC END# *4AF32FBD00F5ci*
-//#UC START# *4AF32FBD00F5cit*
-//#UC END# *4AF32FBD00F5cit*
+ //#UC END# *4AF32FBD00F5ci*
+ //#UC START# *4AF32FBD00F5cit*
+ //#UC END# *4AF32FBD00F5cit*
  TnsSaveDialog = class(TvtSaveDialog)
- private
- // private fields
-   f_ListTargetGroup : TeeGroupBox;
-   f_SelectedOnlyCheckBox : TvtCheckBox;
-   f_ExtraPanel : TvtPanel;
-   f_MergeCheckBox : TvtCheckBox;
-   f_SaveFileName : AnsiString;
-   f_TitlesRadio : TvtRadioButton;
-   f_ContentsRadio : TvtRadioButton;
-   f_NumbersRadio : TvtRadioButton;
-   f_Executing : Boolean;
-   f_DialogKind : TnsSaveDialogKind;
-    {* Поле для свойства DialogKind}
- private
- // private methods
+  private
+   f_ListTargetGroup: TeeGroupBox;
+   f_SelectedOnlyCheckBox: TvtCheckBox;
+   f_ExtraPanel: TvtPanel;
+   f_MergeCheckBox: TvtCheckBox;
+   f_SaveFileName: AnsiString;
+   f_TitlesRadio: TvtRadioButton;
+   f_ContentsRadio: TvtRadioButton;
+   f_NumbersRadio: TvtRadioButton;
+   f_Executing: Boolean;
+   f_DialogKind: TnsSaveDialogKind;
+    {* Поле для свойства DialogKind }
+  private
    procedure UpdateFileNameEditEnable(ForceEnable: Boolean = False);
    procedure MergeClick(Sender: TObject);
    procedure ListTargetClick(Sender: TObject);
    procedure ClearControls;
- protected
- // property methods
+  protected
    function pm_GetSelectedOnlyEnabled: Boolean;
    procedure pm_SetSelectedOnlyEnabled(aValue: Boolean);
    function pm_GetSaveListTarget: TnsSaveDialogListTarget;
@@ -80,192 +61,106 @@ type
    function pm_GetSelectedOnlyChecked: Boolean;
    procedure pm_SetSelectedOnlyChecked(aValue: Boolean);
    procedure pm_SetDialogKind(aValue: TnsSaveDialogKind);
- protected
- // overridden protected methods
    function GetFileNameForAdjust: AnsiString; override;
-     {* Получить имя файла для корректировки расширения }
    procedure FirstCorrectFileName; override;
    procedure SetAdjustedFileName(const aFileName: AnsiString); override;
-     {* Установить откорректированное имя файла }
-    {$If not defined(NoVCL)}
+    {* Установить откорректированное имя файла }
+   {$If NOT Defined(NoVCL)}
    procedure DoClose; override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure DoShow; override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    function DoCanClose: Boolean; override;
-    {$IfEnd} //not NoVCL
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    constructor Create(AOwner: TComponent); override;
    destructor Destroy; override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    function Execute: Boolean; override;
-    {$IfEnd} //not NoVCL
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property SelectedOnlyEnabled: Boolean
-     read pm_GetSelectedOnlyEnabled
-     write pm_SetSelectedOnlyEnabled;
+    read pm_GetSelectedOnlyEnabled
+    write pm_SetSelectedOnlyEnabled;
    property SaveListTarget: TnsSaveDialogListTarget
-     read pm_GetSaveListTarget
-     write pm_SetSaveListTarget;
+    read pm_GetSaveListTarget
+    write pm_SetSaveListTarget;
    property MergeChecked: Boolean
-     read pm_GetMergeChecked
-     write pm_SetMergeChecked;
+    read pm_GetMergeChecked
+    write pm_SetMergeChecked;
    property MergeEnabled: Boolean
-     read pm_GetMergeEnabled;
+    read pm_GetMergeEnabled;
    property SelectedFileFormat: TnsFileFormat
-     read pm_GetSelectedFileFormat;
+    read pm_GetSelectedFileFormat;
    property SelectedOnlyChecked: Boolean
-     read pm_GetSelectedOnlyChecked
-     write pm_SetSelectedOnlyChecked;
+    read pm_GetSelectedOnlyChecked
+    write pm_SetSelectedOnlyChecked;
    property DialogKind: TnsSaveDialogKind
-     read f_DialogKind
-     write pm_SetDialogKind;
-//#UC START# *4AF32FBD00F5publ*
-//#UC END# *4AF32FBD00F5publ*
+    read f_DialogKind
+    write pm_SetDialogKind;
+ //#UC START# *4AF32FBD00F5publ*
+ //#UC END# *4AF32FBD00F5publ*
  end;//TnsSaveDialog
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  eeButton,
-  l3Base,
-  Consts
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Math,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Buttons
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  CommDlg
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-const
-   { nsSaveDialog Constants }
-  c_ListKinds = [ns_sdkListInternal, ns_sdkList];
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeButton
+ , l3Base
+ , Consts
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Math
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Windows
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Buttons
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , CommDlg
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AF32FBD00F5impl_uses*
+ //#UC END# *4AF32FBD00F5impl_uses*
+;
 
 type
-  THackWinControl = class(TWinControl)
-  end;//THackWinControl
+ THackWinControl = class(TWinControl)
+ end;//THackWinControl
 
-// start class TnsSaveDialog
-
-procedure TnsSaveDialog.UpdateFileNameEditEnable(ForceEnable: Boolean = False);
-//#UC START# *4DD269E001B6_4AF32FBD00F5_var*
-var
- l_Edit: THandle;
- l_EditEnable: Boolean;
-//#UC END# *4DD269E001B6_4AF32FBD00F5_var*
-begin
-//#UC START# *4DD269E001B6_4AF32FBD00F5_impl*
- if f_Executing and (f_DialogKind in c_ListKinds) then
- begin
-  l_Edit := GetFileNameEditHandle;
-  Assert(l_Edit <> 0);
-  l_EditEnable := MergeChecked or not MergeEnabled or ForceEnable;
-  if (l_EditEnable <> IsWindowEnabled(l_Edit)) then
-  begin
-   EnableWindow(l_Edit, l_EditEnable);
-   if l_EditEnable then
-    inherited SetAdjustedFileName(f_SaveFileName)
-   else
-   begin
-    f_SaveFileName := inherited GetFileNameForAdjust;
-    inherited SetAdjustedFileName(vcmConstString(str_ChooseCatalog));
-   end;//l_EditEnable
-  end;//l_EditEnable <> IsWindowEnabled(l_Edit)
- end;//f_Executing and (f_DialogKind in c_ListKinds)
-//#UC END# *4DD269E001B6_4AF32FBD00F5_impl*
-end;//TnsSaveDialog.UpdateFileNameEditEnable
-
-procedure TnsSaveDialog.MergeClick(Sender: TObject);
-//#UC START# *4DD26A2E0223_4AF32FBD00F5_var*
-//#UC END# *4DD26A2E0223_4AF32FBD00F5_var*
-begin
-//#UC START# *4DD26A2E0223_4AF32FBD00F5_impl*
- UpdateFileNameEditEnable;
-//#UC END# *4DD26A2E0223_4AF32FBD00F5_impl*
-end;//TnsSaveDialog.MergeClick
-
-procedure TnsSaveDialog.ListTargetClick(Sender: TObject);
-//#UC START# *4DD26A5D0253_4AF32FBD00F5_var*
-//#UC END# *4DD26A5D0253_4AF32FBD00F5_var*
-begin
-//#UC START# *4DD26A5D0253_4AF32FBD00F5_impl*
- SaveListTarget := TnsSaveDialogListTarget((Sender as TvtRadioButton).Tag);
- UpdateFileNameEditEnable;
-//#UC END# *4DD26A5D0253_4AF32FBD00F5_impl*
-end;//TnsSaveDialog.ListTargetClick
-
-procedure TnsSaveDialog.ClearControls;
-//#UC START# *4DD26A8700A8_4AF32FBD00F5_var*
-//#UC END# *4DD26A8700A8_4AF32FBD00F5_var*
-begin
-//#UC START# *4DD26A8700A8_4AF32FBD00F5_impl*
- f_SelectedOnlyCheckBox := nil;
- f_MergeCheckBox := nil;
- f_ListTargetGroup := nil;
- f_TitlesRadio := nil;
- f_ContentsRadio := nil;
- f_NumbersRadio := nil;
-//#UC END# *4DD26A8700A8_4AF32FBD00F5_impl*
-end;//TnsSaveDialog.ClearControls
+const
+ c_ListKinds = [ns_sdkListInternal, ns_sdkList];
 
 function TnsSaveDialog.pm_GetSelectedOnlyEnabled: Boolean;
 //#UC START# *4DBB11B8006A_4AF32FBD00F5get_var*
@@ -528,6 +423,67 @@ begin
 //#UC END# *4DC2F34E0143_4AF32FBD00F5set_impl*
 end;//TnsSaveDialog.pm_SetDialogKind
 
+procedure TnsSaveDialog.UpdateFileNameEditEnable(ForceEnable: Boolean = False);
+//#UC START# *4DD269E001B6_4AF32FBD00F5_var*
+var
+ l_Edit: THandle;
+ l_EditEnable: Boolean;
+//#UC END# *4DD269E001B6_4AF32FBD00F5_var*
+begin
+//#UC START# *4DD269E001B6_4AF32FBD00F5_impl*
+ if f_Executing and (f_DialogKind in c_ListKinds) then
+ begin
+  l_Edit := GetFileNameEditHandle;
+  Assert(l_Edit <> 0);
+  l_EditEnable := MergeChecked or not MergeEnabled or ForceEnable;
+  if (l_EditEnable <> IsWindowEnabled(l_Edit)) then
+  begin
+   EnableWindow(l_Edit, l_EditEnable);
+   if l_EditEnable then
+    inherited SetAdjustedFileName(f_SaveFileName)
+   else
+   begin
+    f_SaveFileName := inherited GetFileNameForAdjust;
+    inherited SetAdjustedFileName(vcmConstString(str_ChooseCatalog));
+   end;//l_EditEnable
+  end;//l_EditEnable <> IsWindowEnabled(l_Edit)
+ end;//f_Executing and (f_DialogKind in c_ListKinds)
+//#UC END# *4DD269E001B6_4AF32FBD00F5_impl*
+end;//TnsSaveDialog.UpdateFileNameEditEnable
+
+procedure TnsSaveDialog.MergeClick(Sender: TObject);
+//#UC START# *4DD26A2E0223_4AF32FBD00F5_var*
+//#UC END# *4DD26A2E0223_4AF32FBD00F5_var*
+begin
+//#UC START# *4DD26A2E0223_4AF32FBD00F5_impl*
+ UpdateFileNameEditEnable;
+//#UC END# *4DD26A2E0223_4AF32FBD00F5_impl*
+end;//TnsSaveDialog.MergeClick
+
+procedure TnsSaveDialog.ListTargetClick(Sender: TObject);
+//#UC START# *4DD26A5D0253_4AF32FBD00F5_var*
+//#UC END# *4DD26A5D0253_4AF32FBD00F5_var*
+begin
+//#UC START# *4DD26A5D0253_4AF32FBD00F5_impl*
+ SaveListTarget := TnsSaveDialogListTarget((Sender as TvtRadioButton).Tag);
+ UpdateFileNameEditEnable;
+//#UC END# *4DD26A5D0253_4AF32FBD00F5_impl*
+end;//TnsSaveDialog.ListTargetClick
+
+procedure TnsSaveDialog.ClearControls;
+//#UC START# *4DD26A8700A8_4AF32FBD00F5_var*
+//#UC END# *4DD26A8700A8_4AF32FBD00F5_var*
+begin
+//#UC START# *4DD26A8700A8_4AF32FBD00F5_impl*
+ f_SelectedOnlyCheckBox := nil;
+ f_MergeCheckBox := nil;
+ f_ListTargetGroup := nil;
+ f_TitlesRadio := nil;
+ f_ContentsRadio := nil;
+ f_NumbersRadio := nil;
+//#UC END# *4DD26A8700A8_4AF32FBD00F5_impl*
+end;//TnsSaveDialog.ClearControls
+
 constructor TnsSaveDialog.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_4AF32FBD00F5_var*
 //#UC END# *47D1602000C6_4AF32FBD00F5_var*
@@ -573,6 +529,7 @@ begin
 end;//TnsSaveDialog.FirstCorrectFileName
 
 procedure TnsSaveDialog.SetAdjustedFileName(const aFileName: AnsiString);
+ {* Установить откорректированное имя файла }
 //#UC START# *4DCBC96000E3_4AF32FBD00F5_var*
 //#UC END# *4DCBC96000E3_4AF32FBD00F5_var*
 begin
@@ -584,7 +541,7 @@ begin
 //#UC END# *4DCBC96000E3_4AF32FBD00F5_impl*
 end;//TnsSaveDialog.SetAdjustedFileName
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnsSaveDialog.DoClose;
 //#UC START# *4DCC1EF50061_4AF32FBD00F5_var*
 //#UC END# *4DCC1EF50061_4AF32FBD00F5_var*
@@ -594,9 +551,9 @@ begin
  Application.HideHint;
 //#UC END# *4DCC1EF50061_4AF32FBD00F5_impl*
 end;//TnsSaveDialog.DoClose
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnsSaveDialog.DoShow;
 //#UC START# *4DCC1FEE0352_4AF32FBD00F5_var*
 
@@ -660,9 +617,9 @@ begin
  inherited;
 //#UC END# *4DCC1FEE0352_4AF32FBD00F5_impl*
 end;//TnsSaveDialog.DoShow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TnsSaveDialog.DoCanClose: Boolean;
 //#UC START# *4DCC203E0199_4AF32FBD00F5_var*
 var
@@ -680,9 +637,9 @@ begin
  end;
 //#UC END# *4DCC203E0199_4AF32FBD00F5_impl*
 end;//TnsSaveDialog.DoCanClose
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TnsSaveDialog.Execute: Boolean;
 //#UC START# *4DCC20C10116_4AF32FBD00F5_var*
 var
@@ -733,11 +690,10 @@ begin
  end;//try..finally
 //#UC END# *4DCC20C10116_4AF32FBD00F5_impl*
 end;//TnsSaveDialog.Execute
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *4AF32FBD00F5impl*
 //#UC END# *4AF32FBD00F5impl*
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

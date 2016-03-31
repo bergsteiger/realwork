@@ -11,8 +11,8 @@ interface
 
 uses
  l3IntfUses
- , SysUtils
  , l3Interfaces
+ , SysUtils
 ;
 
 type
@@ -20,9 +20,8 @@ type
   {* Превышена допустимая длинна строки }
   private
    f_MaxLength: Integer;
-    {* Поле для свойства MaxLength }
   public
-   constructor Create; reintroduce;
+   constructor Create(aMaxLength: Integer); reintroduce;
   public
    property MaxLength: Integer
     read f_MaxLength;
@@ -161,5 +160,15 @@ implementation
 uses
  l3ImplUses
 ;
+
+constructor EdsMaxLengthExceed.Create(aMaxLength: Integer);
+//#UC START# *491D987C0028_491D982203CD_var*
+//#UC END# *491D987C0028_491D982203CD_var*
+begin
+//#UC START# *491D987C0028_491D982203CD_impl*
+ inherited Create('');
+ f_MaxLength := aMaxLength;
+//#UC END# *491D987C0028_491D982203CD_impl*
+end;//EdsMaxLengthExceed.Create
 
 end.

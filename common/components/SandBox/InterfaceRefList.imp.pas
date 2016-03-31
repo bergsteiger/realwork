@@ -1,29 +1,26 @@
 {$IfNDef InterfaceRefList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "InterfaceRefList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Sand Box::SandBox::STLLike::InterfaceRefList
-//
-// Список Ссылок на интерфейсы. Владеет своими элементами
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\InterfaceRefList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "InterfaceRefList" MUID: (51E809AD001D)
+// Имя типа: "_InterfaceRefList_"
 
 {$Define InterfaceRefList_imp}
+
  _InterfaceList_Parent_ = _InterfaceRefList_Parent_;
- {$Include ..\SandBox\InterfaceList.imp.pas}
- _InterfaceRefList_ = {mixin} class(_InterfaceList_)
+ {$Include w:\common\components\SandBox\InterfaceList.imp.pas}
+ _InterfaceRefList_ = class(_InterfaceList_)
   {* Список Ссылок на интерфейсы. Владеет своими элементами }
  end;//_InterfaceRefList_
 
 {$Else InterfaceRefList_imp}
 
-// start class _InterfaceRefList_
+{$IfNDef InterfaceRefList_imp_impl}
+
+{$Define InterfaceRefList_imp_impl}
 
 procedure FillItem(var thePlace: _ItemType_;
-  const aFrom: _ItemType_); forward;
+ const aFrom: _ItemType_); forward;
 
 procedure FreeItem(var thePlace: _ItemType_);
 //#UC START# *51DEC20B01D7_51E809AD001D_var*
@@ -35,7 +32,7 @@ begin
 end;//FreeItem
 
 procedure FillItem(var thePlace: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *51DECB440087_51E809AD001D_var*
 //#UC END# *51DECB440087_51E809AD001D_var*
 begin
@@ -44,7 +41,9 @@ begin
 //#UC END# *51DECB440087_51E809AD001D_impl*
 end;//FillItem
 
-{$Include ..\SandBox\InterfaceList.imp.pas}
+{$Include w:\common\components\SandBox\InterfaceList.imp.pas}
 
+{$EndIf InterfaceRefList_imp_impl}
 
 {$EndIf InterfaceRefList_imp}
+

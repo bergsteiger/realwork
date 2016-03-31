@@ -1,60 +1,46 @@
 unit bsChatDispatcher;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Chat"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Chat/bsChatDispatcher.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Chat::Chat::ChatImpl::TbsChatDispatcher
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcher.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsChatDispatcher" MUID: (4A683EC401BB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ChatInterfaces,
-  bsChatDispatcherPrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , bsChatDispatcherPrim
+ , ChatInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsChatDispatcher = class(TbsChatDispatcherPrim)
- public
- // public methods
+  public
    class function Make: IbsChatDispatcher; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TbsChatDispatcher
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsChatDispatcher
-
-var g_TbsChatDispatcher : Pointer = nil;
+var g_TbsChatDispatcher: Pointer = nil;
+ {* Экземпляр синглетона TbsChatDispatcher }
 
 procedure TbsChatDispatcherFree;
+ {* Метод освобождения экземпляра синглетона TbsChatDispatcher }
 begin
  IUnknown(g_TbsChatDispatcher) := nil;
-end;
-
+end;//TbsChatDispatcherFree
 
 class function TbsChatDispatcher.Make: IbsChatDispatcher;
 begin
@@ -64,14 +50,13 @@ begin
   IbsChatDispatcher(g_TbsChatDispatcher) := inherited Make;
  end;
  Result := IbsChatDispatcher(g_TbsChatDispatcher);
-end;
+end;//TbsChatDispatcher.Make
 
 class function TbsChatDispatcher.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TbsChatDispatcher <> nil;
 end;//TbsChatDispatcher.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

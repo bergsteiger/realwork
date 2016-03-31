@@ -1,45 +1,32 @@
 unit atCompareSavedListOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atCompareSavedListOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatCompareSavedListOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCompareSavedListOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatCompareSavedListOperation" MUID: (5397319401E6)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatCompareSavedListOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatCompareSavedListOperation
 
 implementation
 
 uses
-  atComparableList,
-  SysUtils,
-  atLogger,
-  atLockFile
-  ;
-
-// start class TatCompareSavedListOperation
+ l3ImplUses
+ , atComparableList
+ , SysUtils
+ , atLogger
+ , atLockFile
+;
 
 procedure TatCompareSavedListOperation.ExecuteSelf;
 //#UC START# *48089F460352_5397319401E6_var*

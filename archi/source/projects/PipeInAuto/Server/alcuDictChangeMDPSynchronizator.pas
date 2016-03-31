@@ -1,203 +1,189 @@
 unit alcuDictChangeMDPSynchronizator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuDictChangeMDPSynchronizator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::Server::TalcuDictChangeMDPSynchronizator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuDictChangeMDPSynchronizator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuDictChangeMDPSynchronizator" MUID: (55E6A67A02ED)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
+{$If Defined(AppServerSide) AND Defined(MDPSyncIntegrated)}
 uses
-  l3Interfaces,
-  dt_Types,
-  l3BaseStream,
-  l3ProtoObject,
-  alcuTaskManager,
-  l3Mutex,
-  daTypes
-  {$If not defined(Nemesis)}
-  ,
-  dtIntf
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_DictTypes
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_DictConst
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(Nemesis)}
+ , dt_DictTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Mutex
+ , alcuTaskManager
+ , daTypes
+ {$If NOT Defined(Nemesis)}
+ , dtIntf
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3BaseStream
+ , l3Interfaces
+ {$If NOT Defined(Nemesis)}
+ , dt_DictConst
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Types
+;
 
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
 type
+ PSourceSyncRec = ^TSourceSyncRec;
+
  TmssOperation = (
-   ssoAll
- , ssoNew
- , ssoDel
- , ssoUpd
+  ssoAll
+  , ssoNew
+  , ssoDel
+  , ssoUpd
  );//TmssOperation
 
- TShortNameIndex = 1..cSourceShortNameLen;
+ TShortNameIndex = 1 .. dt_DictConst.cSourceShortNameLen;
 
- TSynonimsIndex = 1..cSourceSynonimsLen;
+ TSynonimsIndex = 1 .. dt_DictConst.cSourceSynonimsLen;
 
  TShortNameArray = array [TShortNameIndex] of AnsiChar;
 
  TSynonimsArray = array [TSynonimsIndex] of AnsiChar;
 
  TSourceSyncRec = record
-   rID : TDictID;
-   rShortName : TShortNameArray;
-   rSynonims : TSynonimsArray;
+  rID: TDictID;
+  rShortName: TShortNameArray;
+  rSynonims: TSynonimsArray;
  end;//TSourceSyncRec
 
- PSourceSyncRec = ^TSourceSyncRec;
-
- TalcuDictChangeMDPSynchronizator = class(Tl3ProtoObject {$If not defined(Nemesis)}, IDictChangeNotifyRecipient{$IfEnd} //not Nemesis
+ TalcuDictChangeMDPSynchronizator = class(Tl3ProtoObject{$If NOT Defined(Nemesis)}
+ , IDictChangeNotifyRecipient
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- private
- // private fields
-   f_Guard : Tl3Mutex;
-   f_SyncFolder : AnsiString;
-   f_TaskManager : TddServerTaskManager;
- private
- // private methods
+  private
+   f_Guard: Tl3Mutex;
+   f_SyncFolder: AnsiString;
+   f_TaskManager: TddServerTaskManager;
+  private
    procedure PrepareDict(aDict: TdaDictionaryType;
-     anOp: TmssOperation;
-     const aSab: ISab = nil);
+    anOp: TmssOperation;
+    const aSab: ISab = nil);
    procedure CreateXMLFile(aDict: TdaDictionaryType;
-     anOp: TmssOperation;
-     const aSab: ISab = nil);
+    anOp: TmssOperation;
+    const aSab: ISab = nil);
    function CreateXMLStream(const aFolder: AnsiString;
-     aDict: TdaDictionaryType;
-     PurgeFolder: Boolean): Tl3Stream;
+    aDict: TdaDictionaryType;
+    PurgeFolder: Boolean): Tl3Stream;
    procedure ExportSourcesToXML(aStream: Tl3Stream;
-     aOperation: TmssOperation;
-     const aSrcList: ISab);
+    aOperation: TmssOperation;
+    const aSrcList: ISab);
    function HasDataToSend: Boolean;
    function GuardName: AnsiString;
    function SyncFolderMask: AnsiString;
    procedure ExportDictToXML(aDict: TdaDictionaryType;
-     aStream: Tl3Stream;
-     aOperation: TmssOperation;
-     const aSrcList: ISab);
+    aStream: Tl3Stream;
+    aOperation: TmssOperation;
+    const aSrcList: ISab);
    procedure XMLGenerateRoot(const aXML: Il3XMLWriter;
-     aDict: TdaDictionaryType;
-     aOperation: TmssOperation);
+    aDict: TdaDictionaryType;
+    aOperation: TmssOperation);
    procedure XMLGenerateDelOperation(aDict: TdaDictionaryType;
-     aStream: Tl3Stream;
-     const aSrcList: ISab);
+    aStream: Tl3Stream;
+    const aSrcList: ISab);
    procedure ExportPubSourcesToXML(aStream: Tl3Stream;
-     aOperation: TmssOperation;
-     const aSrcList: ISab);
+    aOperation: TmssOperation;
+    const aSrcList: ISab);
    procedure XMLPutField(const aXML: Il3XMLWriter;
-     const aName: AnsiString;
-     const aData: AnsiString);
+    const aName: AnsiString;
+    const aData: AnsiString);
    procedure ExportTypesToXML(aStream: Tl3Stream;
-     aOperation: TmssOperation;
-     const aSrcList: ISab);
+    aOperation: TmssOperation;
+    const aSrcList: ISab);
    procedure ExportSimpleDictToXML(aDict: TdaDictionaryType;
-     aStream: Tl3Stream;
-     aOperation: TmssOperation;
-     const aSrcList: ISab);
- protected
- // realized methods
-   {$If not defined(Nemesis)}
-   procedure Dcn_DictionaryChange(const Info: TDictMessageRec);
-   {$IfEnd} //not Nemesis
- protected
- // overridden protected methods
+    aStream: Tl3Stream;
+    aOperation: TmssOperation;
+    const aSrcList: ISab);
+  protected
+   {$If NOT Defined(Nemesis)}
+   procedure dcn_DictionaryChange(const Info: TDictMessageRec);
+   {$IfEnd} // NOT Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    procedure Start;
-     {* Сигнатура метода Start }
    procedure Stop;
-     {* Сигнатура метода Stop }
    procedure UpdateSyncFolder;
-     {* Сигнатура метода UpdateSyncFolder }
    procedure SendDataThenReady(aTaskManager: TddServerTaskManager);
    procedure PrepareAllDicts;
-     {* Сигнатура метода PrepareAllDicts }
  end;//TalcuDictChangeMDPSynchronizator
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
+{$IfEnd} // Defined(AppServerSide) AND Defined(MDPSyncIntegrated)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
+{$If Defined(AppServerSide) AND Defined(MDPSyncIntegrated)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  dt_Dict
-  {$IfEnd} //not Nemesis
-  ,
-  l3FileUtils,
-  l3Stream,
-  l3Types,
-  daDataProvider,
-  l3XMLWriter,
-  l3LongintList,
-  l3String
-  {$If defined(ServerTasks)}
-  ,
-  alcuMdpSyncDicts
-  {$IfEnd} //ServerTasks
-  ,
-  daInterfaces,
-  dt_Const
-  {$If not defined(Nemesis)}
-  ,
-  dt_Sab
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils,
-  ddAppConfig,
-  daSchemeConsts
-  ;
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
-
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
-
-const
-   { MDPVersion }
-  cMdpSourceSyncVersion = 4;
+ l3ImplUses
+ , dt_Const
+ {$If NOT Defined(Nemesis)}
+ , dt_Sab
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ , ddAppConfig
+ , daSchemeConsts
+ {$If NOT Defined(Nemesis)}
+ , dt_Dict
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3FileUtils
+ , l3Stream
+ , l3Types
+ , daDataProvider
+ , l3XMLWriter
+ , l3LongintList
+ , l3String
+ {$If Defined(ServerTasks)}
+ , alcuMdpSyncDicts
+ {$IfEnd} // Defined(ServerTasks)
+ , daInterfaces
+;
 
 type
-  TOperationMap = array [TmssOperation] of AnsiString;
-const
-   { Names }
-  c_mssOperationStr : TOperationMap = ('all', 'new', 'del', 'upd');
+ TOperationMap = array [TmssOperation] of AnsiString;
 
 const
-   { SupportedDicts }
-  c_SupportedDicts = [da_dlSources, da_dlTypes, da_dlCorSources];
+ cMdpSourceSyncVersion = 4;
+ c_mssOperationStr: TOperationMap = ('all', 'new', 'del', 'upd');
+ c_SupportedDicts = [da_dlSources, da_dlTypes, da_dlCorSources];
 
-// start class TalcuDictChangeMDPSynchronizator
+constructor TalcuDictChangeMDPSynchronizator.Create;
+//#UC START# *55E6B55B0261_55E6A67A02ED_var*
+//#UC END# *55E6B55B0261_55E6A67A02ED_var*
+begin
+//#UC START# *55E6B55B0261_55E6A67A02ED_impl*
+ inherited Create;
+//#UC END# *55E6B55B0261_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.Create
+
+procedure TalcuDictChangeMDPSynchronizator.Start;
+//#UC START# *55E6B56F008D_55E6A67A02ED_var*
+//#UC END# *55E6B56F008D_55E6A67A02ED_var*
+begin
+//#UC START# *55E6B56F008D_55E6A67A02ED_impl*
+ DictServer(CurrentFamily).AddDictChangeNotifiedObj(Self);
+ UpdateSyncFolder;
+ PrepareAllDicts;
+//#UC END# *55E6B56F008D_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.Start
+
+procedure TalcuDictChangeMDPSynchronizator.Stop;
+//#UC START# *55E6BC370138_55E6A67A02ED_var*
+//#UC END# *55E6BC370138_55E6A67A02ED_var*
+begin
+//#UC START# *55E6BC370138_55E6A67A02ED_impl*
+ DictServer(CurrentFamily).DelDictChangeNotifiedObj(Self);
+//#UC END# *55E6BC370138_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.Stop
 
 procedure TalcuDictChangeMDPSynchronizator.PrepareDict(aDict: TdaDictionaryType;
-  anOp: TmssOperation;
-  const aSab: ISab = nil);
+ anOp: TmssOperation;
+ const aSab: ISab = nil);
 //#UC START# *55E6FB200328_55E6A67A02ED_var*
 //#UC END# *55E6FB200328_55E6A67A02ED_var*
 begin
@@ -210,8 +196,8 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.PrepareDict
 
 procedure TalcuDictChangeMDPSynchronizator.CreateXMLFile(aDict: TdaDictionaryType;
-  anOp: TmssOperation;
-  const aSab: ISab = nil);
+ anOp: TmssOperation;
+ const aSab: ISab = nil);
 //#UC START# *55E8091A01E5_55E6A67A02ED_var*
 var
  l_Stream: Tl3Stream;
@@ -228,8 +214,8 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.CreateXMLFile
 
 function TalcuDictChangeMDPSynchronizator.CreateXMLStream(const aFolder: AnsiString;
-  aDict: TdaDictionaryType;
-  PurgeFolder: Boolean): Tl3Stream;
+ aDict: TdaDictionaryType;
+ PurgeFolder: Boolean): Tl3Stream;
 //#UC START# *55E80D38038B_55E6A67A02ED_var*
 var
  l_Name: String;
@@ -278,9 +264,27 @@ begin
 //#UC END# *55E80D38038B_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.CreateXMLStream
 
+procedure TalcuDictChangeMDPSynchronizator.UpdateSyncFolder;
+//#UC START# *55E822EE00F5_55E6A67A02ED_var*
+var
+ l_SyncFolder: String;
+//#UC END# *55E822EE00F5_55E6A67A02ED_var*
+begin
+//#UC START# *55E822EE00F5_55E6A67A02ED_impl*
+ l_SyncFolder := AnsiLowerCase(IncludeTrailingBackslash(ddAppConfiguration.AsString['dsSyncFolder']));
+ if l_SyncFolder <> f_SyncFolder then
+ begin
+  f_SyncFolder := l_SyncFolder;
+  FreeAndNil(f_Guard);
+  if f_SyncFolder <> '' then
+   f_Guard := Tl3Mutex.Create(GuardName);
+ end;
+//#UC END# *55E822EE00F5_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.UpdateSyncFolder
+
 procedure TalcuDictChangeMDPSynchronizator.ExportSourcesToXML(aStream: Tl3Stream;
-  aOperation: TmssOperation;
-  const aSrcList: ISab);
+ aOperation: TmssOperation;
+ const aSrcList: ISab);
 //#UC START# *55E847E400CD_55E6A67A02ED_var*
 var
  l_Sab: ISab;
@@ -355,6 +359,29 @@ begin
 //#UC END# *55E847E400CD_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.ExportSourcesToXML
 
+procedure TalcuDictChangeMDPSynchronizator.SendDataThenReady(aTaskManager: TddServerTaskManager);
+//#UC START# *55ED481E007A_55E6A67A02ED_var*
+var
+ l_Task: TalcuMdpSyncDicts;
+//#UC END# *55ED481E007A_55E6A67A02ED_var*
+begin
+//#UC START# *55ED481E007A_55E6A67A02ED_impl*
+ if HasDataToSend then
+ begin
+  l_Task := TalcuMdpSyncDicts.Create(usServerService);
+  try
+   l_Task.SyncFolderMask := SyncFolderMask;
+   l_Task.GuardName := GuardName;
+   l_Task.Description := 'Синхронизация словарей в Гардок';
+   if aTaskManager.ActiveTaskList.FindTask(l_Task.TaskType) = nil then
+    aTaskManager.AddActiveTask(l_Task);
+  finally
+   FreeAndNil(l_Task);
+  end;
+ end;
+//#UC END# *55ED481E007A_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.SendDataThenReady
+
 function TalcuDictChangeMDPSynchronizator.HasDataToSend: Boolean;
 //#UC START# *55ED484B0321_55E6A67A02ED_var*
 //#UC END# *55ED484B0321_55E6A67A02ED_var*
@@ -383,9 +410,9 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.SyncFolderMask
 
 procedure TalcuDictChangeMDPSynchronizator.ExportDictToXML(aDict: TdaDictionaryType;
-  aStream: Tl3Stream;
-  aOperation: TmssOperation;
-  const aSrcList: ISab);
+ aStream: Tl3Stream;
+ aOperation: TmssOperation;
+ const aSrcList: ISab);
 //#UC START# *5605071B011C_55E6A67A02ED_var*
 //#UC END# *5605071B011C_55E6A67A02ED_var*
 begin
@@ -408,8 +435,8 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.ExportDictToXML
 
 procedure TalcuDictChangeMDPSynchronizator.XMLGenerateRoot(const aXML: Il3XMLWriter;
-  aDict: TdaDictionaryType;
-  aOperation: TmssOperation);
+ aDict: TdaDictionaryType;
+ aOperation: TmssOperation);
 //#UC START# *560507F403A2_55E6A67A02ED_var*
 var
  l_DictName: AnsiString;
@@ -429,8 +456,8 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.XMLGenerateRoot
 
 procedure TalcuDictChangeMDPSynchronizator.XMLGenerateDelOperation(aDict: TdaDictionaryType;
-  aStream: Tl3Stream;
-  const aSrcList: ISab);
+ aStream: Tl3Stream;
+ const aSrcList: ISab);
 //#UC START# *5605088602E0_55E6A67A02ED_var*
 var
  l_XML: Il3XMLWriter;
@@ -464,8 +491,8 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.XMLGenerateDelOperation
 
 procedure TalcuDictChangeMDPSynchronizator.ExportPubSourcesToXML(aStream: Tl3Stream;
-  aOperation: TmssOperation;
-  const aSrcList: ISab);
+ aOperation: TmssOperation;
+ const aSrcList: ISab);
 //#UC START# *560519400306_55E6A67A02ED_var*
 //#UC END# *560519400306_55E6A67A02ED_var*
 begin
@@ -475,8 +502,8 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.ExportPubSourcesToXML
 
 procedure TalcuDictChangeMDPSynchronizator.XMLPutField(const aXML: Il3XMLWriter;
-  const aName: AnsiString;
-  const aData: AnsiString);
+ const aName: AnsiString;
+ const aData: AnsiString);
 //#UC START# *56051FFF017E_55E6A67A02ED_var*
 //#UC END# *56051FFF017E_55E6A67A02ED_var*
 begin
@@ -490,9 +517,20 @@ begin
 //#UC END# *56051FFF017E_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.XMLPutField
 
+procedure TalcuDictChangeMDPSynchronizator.PrepareAllDicts;
+//#UC START# *560E41400242_55E6A67A02ED_var*
+//#UC END# *560E41400242_55E6A67A02ED_var*
+begin
+//#UC START# *560E41400242_55E6A67A02ED_impl*
+ PrepareDict(da_dlSources, ssoAll);
+ PrepareDict(da_dlTypes, ssoAll);
+ PrepareDict(da_dlCorSources, ssoAll);
+//#UC END# *560E41400242_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.PrepareAllDicts
+
 procedure TalcuDictChangeMDPSynchronizator.ExportTypesToXML(aStream: Tl3Stream;
-  aOperation: TmssOperation;
-  const aSrcList: ISab);
+ aOperation: TmssOperation;
+ const aSrcList: ISab);
 //#UC START# *561E342703DE_55E6A67A02ED_var*
 //#UC END# *561E342703DE_55E6A67A02ED_var*
 begin
@@ -502,9 +540,9 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.ExportTypesToXML
 
 procedure TalcuDictChangeMDPSynchronizator.ExportSimpleDictToXML(aDict: TdaDictionaryType;
-  aStream: Tl3Stream;
-  aOperation: TmssOperation;
-  const aSrcList: ISab);
+ aStream: Tl3Stream;
+ aOperation: TmssOperation;
+ const aSrcList: ISab);
 //#UC START# *561E38AE0112_55E6A67A02ED_var*
 var
  l_Sab: ISab;
@@ -560,89 +598,8 @@ begin
 //#UC END# *561E38AE0112_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.ExportSimpleDictToXML
 
-constructor TalcuDictChangeMDPSynchronizator.Create;
-//#UC START# *55E6B55B0261_55E6A67A02ED_var*
-//#UC END# *55E6B55B0261_55E6A67A02ED_var*
-begin
-//#UC START# *55E6B55B0261_55E6A67A02ED_impl*
- inherited Create;
-//#UC END# *55E6B55B0261_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.Create
-
-procedure TalcuDictChangeMDPSynchronizator.Start;
-//#UC START# *55E6B56F008D_55E6A67A02ED_var*
-//#UC END# *55E6B56F008D_55E6A67A02ED_var*
-begin
-//#UC START# *55E6B56F008D_55E6A67A02ED_impl*
- DictServer(CurrentFamily).AddDictChangeNotifiedObj(Self);
- UpdateSyncFolder;
- PrepareAllDicts;
-//#UC END# *55E6B56F008D_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.Start
-
-procedure TalcuDictChangeMDPSynchronizator.Stop;
-//#UC START# *55E6BC370138_55E6A67A02ED_var*
-//#UC END# *55E6BC370138_55E6A67A02ED_var*
-begin
-//#UC START# *55E6BC370138_55E6A67A02ED_impl*
- DictServer(CurrentFamily).DelDictChangeNotifiedObj(Self);
-//#UC END# *55E6BC370138_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.Stop
-
-procedure TalcuDictChangeMDPSynchronizator.UpdateSyncFolder;
-//#UC START# *55E822EE00F5_55E6A67A02ED_var*
-var
- l_SyncFolder: String;
-//#UC END# *55E822EE00F5_55E6A67A02ED_var*
-begin
-//#UC START# *55E822EE00F5_55E6A67A02ED_impl*
- l_SyncFolder := AnsiLowerCase(IncludeTrailingBackslash(ddAppConfiguration.AsString['dsSyncFolder']));
- if l_SyncFolder <> f_SyncFolder then
- begin
-  f_SyncFolder := l_SyncFolder;
-  FreeAndNil(f_Guard);
-  if f_SyncFolder <> '' then
-   f_Guard := Tl3Mutex.Create(GuardName);
- end;
-//#UC END# *55E822EE00F5_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.UpdateSyncFolder
-
-procedure TalcuDictChangeMDPSynchronizator.SendDataThenReady(aTaskManager: TddServerTaskManager);
-//#UC START# *55ED481E007A_55E6A67A02ED_var*
-var
- l_Task: TalcuMdpSyncDicts;
-//#UC END# *55ED481E007A_55E6A67A02ED_var*
-begin
-//#UC START# *55ED481E007A_55E6A67A02ED_impl*
- if HasDataToSend then
- begin
-  l_Task := TalcuMdpSyncDicts.Create(usServerService);
-  try
-   l_Task.SyncFolderMask := SyncFolderMask;
-   l_Task.GuardName := GuardName;
-   l_Task.Description := 'Синхронизация словарей в Гардок';
-   if aTaskManager.ActiveTaskList.FindTask(l_Task.TaskType) = nil then
-    aTaskManager.AddActiveTask(l_Task);
-  finally
-   FreeAndNil(l_Task);
-  end;
- end;
-//#UC END# *55ED481E007A_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.SendDataThenReady
-
-procedure TalcuDictChangeMDPSynchronizator.PrepareAllDicts;
-//#UC START# *560E41400242_55E6A67A02ED_var*
-//#UC END# *560E41400242_55E6A67A02ED_var*
-begin
-//#UC START# *560E41400242_55E6A67A02ED_impl*
- PrepareDict(da_dlSources, ssoAll);
- PrepareDict(da_dlTypes, ssoAll);
- PrepareDict(da_dlCorSources, ssoAll);
-//#UC END# *560E41400242_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.PrepareAllDicts
-
-{$If not defined(Nemesis)}
-procedure TalcuDictChangeMDPSynchronizator.Dcn_DictionaryChange(const Info: TDictMessageRec);
+{$If NOT Defined(Nemesis)}
+procedure TalcuDictChangeMDPSynchronizator.dcn_DictionaryChange(const Info: TDictMessageRec);
 //#UC START# *55E6B66A036E_55E6A67A02ED_var*
 var
  l_Sab: ISab;
@@ -664,10 +621,11 @@ begin
   PrepareDict(Info.DictType, l_Op, l_Sab);
  end;
 //#UC END# *55E6B66A036E_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.Dcn_DictionaryChange
-{$IfEnd} //not Nemesis
+end;//TalcuDictChangeMDPSynchronizator.dcn_DictionaryChange
+{$IfEnd} // NOT Defined(Nemesis)
 
 procedure TalcuDictChangeMDPSynchronizator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55E6A67A02ED_var*
 //#UC END# *479731C50290_55E6A67A02ED_var*
 begin
@@ -676,7 +634,6 @@ begin
  inherited;
 //#UC END# *479731C50290_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.Cleanup
-
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
+{$IfEnd} // Defined(AppServerSide) AND Defined(MDPSyncIntegrated)
 
 end.

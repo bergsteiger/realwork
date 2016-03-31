@@ -11,8 +11,8 @@ interface
 
 uses
  l3IntfUses
- , afwInterfaces
  , l3Interfaces
+ , afwInterfaces
 ;
 
 type

@@ -13,6 +13,8 @@ uses
  l3IntfUses
  , l3ProtoObject
  , l3VersionInfoService
+ //#UC START# *55DDD0110086intf_uses*
+ //#UC END# *55DDD0110086intf_uses*
 ;
 
 type
@@ -22,11 +24,11 @@ type
  //#UC END# *55DDD0110086cit*
  Tf1VersionInfoService = {final} class(Tl3ProtoObject, Il3VersionInfoService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function VersionInfo: AnsiString;
    class function Instance: Tf1VersionInfoService;
     {* Метод получения экземпляра синглетона Tf1VersionInfoService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  //#UC START# *55DDD0110086publ*
  //#UC END# *55DDD0110086publ*
  end;//Tf1VersionInfoService
@@ -39,6 +41,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *55DDD0110086impl_uses*
+ //#UC END# *55DDD0110086impl_uses*
 ;
 
 var g_Tf1VersionInfoService: Tf1VersionInfoService = nil;
@@ -49,12 +53,6 @@ procedure Tf1VersionInfoServiceFree;
 begin
  l3Free(g_Tf1VersionInfoService);
 end;//Tf1VersionInfoServiceFree
-
-class function Tf1VersionInfoService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tf1VersionInfoService <> nil;
-end;//Tf1VersionInfoService.Exists
 
 function Tf1VersionInfoService.VersionInfo: AnsiString;
 //#UC START# *30F5EA5AF6DF_55DDD0110086_var*
@@ -78,6 +76,12 @@ begin
  end;
  Result := g_Tf1VersionInfoService;
 end;//Tf1VersionInfoService.Instance
+
+class function Tf1VersionInfoService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tf1VersionInfoService <> nil;
+end;//Tf1VersionInfoService.Exists
 
 //#UC START# *55DDD0110086impl*
 //#UC END# *55DDD0110086impl*

@@ -1,57 +1,38 @@
 unit nsDictionTree;
+ {* Дерево толкового словаря. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/nsDictionTree.pas"
-// Начат: 2004/02/20 08:36:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction$Unit::TnsDictionTree
-//
-// Дерево толкового словаря.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictionTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictionTree" MUID: (46836BA203A1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  bsTypes,
-  bsInterfaces,
-  CommonDictionInterfaces,
-  nsFilterableTreeStruct,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , bsTypes
+ , CommonDictionInterfaces
+ , l3TreeInterfaces
+ , bsInterfaces
+ , l3Interfaces
+ , DynamicTreeUnit
+ , afwInterfaces
+ , nsFilterableTreeStruct
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDictionTree = class(TnsDataResetTreeStruct)
   {* Дерево толкового словаря. }
- private
- // private fields
-   f_DictionKind : TnsDictionKind;
-    {* Поле для свойства DictionKind}
- protected
- // property methods
+  private
+   f_DictionKind: TnsDictionKind;
+    {* Поле для свойства DictionKind }
+  protected
    function pm_GetLanguage: TbsLanguage; virtual;
- protected
- // realized methods
+   function DictFilters: InsLayeredTreeFilters;
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function MakeChildNode(const aChild: INodeBase): Il3SimpleNode; override;
    constructor CreateFiltered(const aNewRoot: INodeBase;
     aSource: TnsFilterableTreeStruct;
@@ -61,64 +42,41 @@ type
     const anAdapterFilters: InsAdapterFilters); override;
    function SettingsID: TafwSettingId; override;
    procedure BeforeReset; override;
- protected
- // protected methods
-   function DictFilters: InsLayeredTreeFilters;
- public
- // public methods
+  public
    constructor Create(aKind: TnsDictionKind;
-     const aRoot: INodeBase;
-     aShowRoot: Boolean;
-     aOneLevel: Boolean = False); reintroduce;
+    const aRoot: INodeBase;
+    aShowRoot: Boolean;
+    aOneLevel: Boolean = False); reintroduce;
    class function Make(aKind: TnsDictionKind;
     aLang: TbsLanguage;
     const anActiveContext: Il3CString = nil;
-    CalcPartialContext: Boolean = false): Il3SimpleTree;
- private
- // private properties
+    CalcPartialContext: Boolean = False): Il3SimpleTree;
+  private
    property Language: TbsLanguage
-     read pm_GetLanguage;
- public
- // public properties
+    read pm_GetLanguage;
+  public
    property DictionKind: TnsDictionKind
-     read f_DictionKind;
+    read f_DictionKind;
  end;//TnsDictionTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsDictListChild,
-  bsConvert,
-  SysUtils,
-  nsLayeredTreeFilters,
-  nsConst,
-  nsLayerFilter,
-  l3String,
-  nsDictCache,
-  nsMedicDictCache,
-  nsINodeOneLevelWrap,
-  nsDayTipsDictCache
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDictionTree
-
-constructor TnsDictionTree.Create(aKind: TnsDictionKind;
-  const aRoot: INodeBase;
-  aShowRoot: Boolean;
-  aOneLevel: Boolean = False);
-//#UC START# *556C49A400D8_46836BA203A1_var*
-//#UC END# *556C49A400D8_46836BA203A1_var*
-begin
-//#UC START# *556C49A400D8_46836BA203A1_impl*
- inherited Create(aRoot, aShowRoot, aOneLevel);
- f_DictionKind := aKind;
-//#UC END# *556C49A400D8_46836BA203A1_impl*
-end;//TnsDictionTree.Create
+ l3ImplUses
+ , nsDictListChild
+ , bsConvert
+ , SysUtils
+ , nsLayeredTreeFilters
+ , nsConst
+ , nsLayerFilter
+ , l3String
+ , nsDictCache
+ , nsMedicDictCache
+ , nsINodeOneLevelWrap
+ , nsDayTipsDictCache
+;
 
 function TnsDictionTree.pm_GetLanguage: TbsLanguage;
 //#UC START# *490823D301BE_46836BA203A1get_var*
@@ -130,10 +88,23 @@ begin
 //#UC END# *490823D301BE_46836BA203A1get_impl*
 end;//TnsDictionTree.pm_GetLanguage
 
+constructor TnsDictionTree.Create(aKind: TnsDictionKind;
+ const aRoot: INodeBase;
+ aShowRoot: Boolean;
+ aOneLevel: Boolean = False);
+//#UC START# *556C49A400D8_46836BA203A1_var*
+//#UC END# *556C49A400D8_46836BA203A1_var*
+begin
+//#UC START# *556C49A400D8_46836BA203A1_impl*
+ inherited Create(aRoot, aShowRoot, aOneLevel);
+ f_DictionKind := aKind;
+//#UC END# *556C49A400D8_46836BA203A1_impl*
+end;//TnsDictionTree.Create
+
 class function TnsDictionTree.Make(aKind: TnsDictionKind;
-  aLang: TbsLanguage;
-  const anActiveContext: Il3CString = nil;
-  CalcPartialContext: Boolean = false): Il3SimpleTree;
+ aLang: TbsLanguage;
+ const anActiveContext: Il3CString = nil;
+ CalcPartialContext: Boolean = False): Il3SimpleTree;
 //#UC START# *490823A102D3_46836BA203A1_var*
 var
  l_Tree: TnsDictionTree;
@@ -221,8 +192,8 @@ begin
 end;//TnsDictionTree.MakeChildNode
 
 constructor TnsDictionTree.CreateFiltered(const aNewRoot: INodeBase;
-  aSource: TnsFilterableTreeStruct;
-  const aFilters: Il3TreeFilters);
+ aSource: TnsFilterableTreeStruct;
+ const aFilters: Il3TreeFilters);
 //#UC START# *48FF458602EC_46836BA203A1_var*
 //#UC END# *48FF458602EC_46836BA203A1_var*
 begin
@@ -243,7 +214,7 @@ begin
 end;//TnsDictionTree.MakeFilters
 
 procedure TnsDictionTree.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_46836BA203A1_var*
 var
  l_Filters: InsLayeredTreeFilters;
@@ -274,7 +245,6 @@ begin
  TnsDictCache.Instance.ClearCache;
 //#UC END# *48FF64E700E5_46836BA203A1_impl*
 end;//TnsDictionTree.BeforeReset
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

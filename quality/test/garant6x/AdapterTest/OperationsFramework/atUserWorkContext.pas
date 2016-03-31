@@ -1,39 +1,28 @@
 unit atUserWorkContext;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atUserWorkContext.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatUserWorkContext
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atUserWorkContext.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatUserWorkContext" MUID: (4808672500A0)
 
 interface
 
 uses
-  DynamicDocListUnit,
-  FoldersUnit,
-  DocumentUnit,
-  atDocumentHistory,
-  atListHistory
-  ;
+ l3IntfUses
+ , DocumentUnit
+ , DynamicDocListUnit
+ , atDocumentHistory
+ , atListHistory
+ , FoldersUnit
+;
 
 type
  TatUserWorkContext = class(TObject)
- private
- // private fields
-   f_DocumentHistory : TatDocumentHistory;
-   f_ListHistory : TatListHistory;
-   f_CurrFolder : IFoldersNode;
-    {* Поле для свойства CurrFolder}
- protected
- // property methods
+  private
+   f_DocumentHistory: TatDocumentHistory;
+   f_ListHistory: TatListHistory;
+   f_CurrFolder: IFoldersNode;
+    {* Поле для свойства CurrFolder }
+  protected
    function pm_GetDocHistoryLength: Integer;
    procedure pm_SetDocHistoryLength(aValue: Integer);
    function pm_GetListHistoryLength: Integer;
@@ -41,42 +30,37 @@ type
    function pm_GetCurrDoc: IDocument;
    function pm_GetCurrList: IDynList;
    procedure pm_SetCurrFolder(const aValue: IFoldersNode); virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    procedure AddDocToHistory(const document: IDocument);
    procedure Clear;
    procedure AddListToHistory(const list: IDynList); virtual;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property DocHistoryLength: Integer
-     read pm_GetDocHistoryLength
-     write pm_SetDocHistoryLength;
+    read pm_GetDocHistoryLength
+    write pm_SetDocHistoryLength;
    property ListHistoryLength: Integer
-     read pm_GetListHistoryLength
-     write pm_SetListHistoryLength;
+    read pm_GetListHistoryLength
+    write pm_SetListHistoryLength;
    property CurrDoc: IDocument
-     read pm_GetCurrDoc;
-     {* Текущий (последний в истории) документ. Например, операция открытия документа его устанавливает. Сюда мы устанавливаем закладку, добавляем комментарии и вообще когда нам понадобится документ мы его берем отсюда. }
+    read pm_GetCurrDoc;
+    {* Текущий (последний в истории) документ. Например, операция открытия документа его устанавливает. Сюда мы устанавливаем закладку, добавляем комментарии и вообще когда нам понадобится документ мы его берем отсюда. }
    property CurrList: IDynList
-     read pm_GetCurrList;
-     {* Текущий (последний в истории) список. Если какая-то операция получает список, то она его ложит сюда, чтобы те операции которым нужен список пользовались. }
+    read pm_GetCurrList;
+    {* Текущий (последний в истории) список. Если какая-то операция получает список, то она его ложит сюда, чтобы те операции которым нужен список пользовались. }
    property CurrFolder: IFoldersNode
-     read f_CurrFolder
-     write pm_SetCurrFolder;
-     {* Текущая папка. Например, операция создания папки будет ее устанавливать, а операция сохранения закладки сможет туда сохранить закладку. }
+    read f_CurrFolder
+    write pm_SetCurrFolder;
+    {* Текущая папка. Например, операция создания папки будет ее устанавливать, а операция сохранения закладки сможет туда сохранить закладку. }
  end;//TatUserWorkContext
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatUserWorkContext
+ l3ImplUses
+ , SysUtils
+;
 
 function TatUserWorkContext.pm_GetDocHistoryLength: Integer;
 //#UC START# *4808679100E8_4808672500A0get_var*

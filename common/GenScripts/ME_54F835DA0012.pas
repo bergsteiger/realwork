@@ -31,7 +31,6 @@ type
  TtasSaveLoadProxy = class(Tl3ProtoDataContainer)
   private
    f_Processor: ItasSaveLoadProcessor;
-    {* Поле для свойства Processor }
   protected
    procedure pm_SetProcessor(const aValue: ItasSaveLoadProcessor);
    procedure Cleanup; override;
@@ -45,10 +44,10 @@ type
     const aTag: Il3CString;
     const aTree: Il3SimpleTree): Boolean;
    function IsQuerySaved(const aQuery: IQuery): Boolean;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtasSaveLoadProxy;
     {* Метод получения экземпляра синглетона TtasSaveLoadProxy }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Processor: ItasSaveLoadProcessor
     read f_Processor
@@ -121,12 +120,6 @@ begin
 //#UC END# *54F85E7203A1_54F8360D0043_impl*
 end;//TtasSaveLoadProxy.IsQuerySaved
 
-class function TtasSaveLoadProxy.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtasSaveLoadProxy <> nil;
-end;//TtasSaveLoadProxy.Exists
-
 class function TtasSaveLoadProxy.Instance: TtasSaveLoadProxy;
  {* Метод получения экземпляра синглетона TtasSaveLoadProxy }
 begin
@@ -137,6 +130,12 @@ begin
  end;
  Result := g_TtasSaveLoadProxy;
 end;//TtasSaveLoadProxy.Instance
+
+class function TtasSaveLoadProxy.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtasSaveLoadProxy <> nil;
+end;//TtasSaveLoadProxy.Exists
 
 procedure TtasSaveLoadProxy.Cleanup;
  {* Функция очистки полей объекта. }

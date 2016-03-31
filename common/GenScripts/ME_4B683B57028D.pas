@@ -124,7 +124,7 @@ type
    f_MREWS: TMultiReadExclusiveWriteSynchronizer;
   protected
    constructor Create; reintroduce;
-   procedure fire(const notify: INotification);
+   procedure Fire(const notify: INotification); stdcall;
    procedure Attach(aFunction: TatChatListenerFireFunction);
    procedure Detach;
    procedure Cleanup; override;
@@ -336,7 +336,7 @@ begin
 //#UC END# *4B69384701C8_4B6937C20205_impl*
 end;//TatChatListener.Create
 
-procedure TatChatListener.fire(const notify: INotification);
+procedure TatChatListener.Fire(const notify: INotification);
 //#UC START# *45EEDE9D01C5_4B6937C20205_var*
 //#UC END# *45EEDE9D01C5_4B6937C20205_var*
 begin
@@ -349,7 +349,7 @@ begin
     f_MREWS.EndRead;
   end;
 //#UC END# *45EEDE9D01C5_4B6937C20205_impl*
-end;//TatChatListener.fire
+end;//TatChatListener.Fire
 
 procedure TatChatListener.Attach(aFunction: TatChatListenerFireFunction);
 //#UC START# *4B69379E0046_4B6937C20205_var*

@@ -1,54 +1,43 @@
 unit l3BaseRecList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3BaseRecList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3BaseRecList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3BaseRecList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseRecList" MUID: (479DF7E200A3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ProtoPtrRecList
-  ;
+ l3IntfUses
+ , l3ProtoPtrRecList
+;
 
 type
  Tl3BaseRecList = class(Tl3ProtoPtrRecList)
- protected
- // realized methods
+  protected
    function DoCompare(const A;
     const B;
     DataSize: Cardinal): Integer; override;
-     {* Сравнивает элементы. }
- public
- // public methods
+    {* Сравнивает элементы. }
+  public
    function CompareItem(A: Integer;
     const B;
     aDataSize: Cardinal): Integer;
-     {* aDataSize - размер сравниваемой части записи, если 0, то вся запись }
+    {* aDataSize - размер сравниваемой части записи, если 0, то вся запись }
  end;//Tl3BaseRecList
 
 implementation
 
 uses
-  m2MemLib
-  ;
-
-// start class Tl3BaseRecList
+ l3ImplUses
+ , m2MemLib
+;
 
 function Tl3BaseRecList.CompareItem(A: Integer;
-  const B;
-  aDataSize: Cardinal): Integer;
+ const B;
+ aDataSize: Cardinal): Integer;
+ {* aDataSize - размер сравниваемой части записи, если 0, то вся запись }
 //#UC START# *47BF07D000E6_479DF7E200A3_var*
 //#UC END# *47BF07D000E6_479DF7E200A3_var*
 begin
@@ -58,8 +47,9 @@ begin
 end;//Tl3BaseRecList.CompareItem
 
 function Tl3BaseRecList.DoCompare(const A;
-  const B;
-  DataSize: Cardinal): Integer;
+ const B;
+ DataSize: Cardinal): Integer;
+ {* Сравнивает элементы. }
 //#UC START# *47BC677E02B1_479DF7E200A3_var*
 //#UC END# *47BC677E02B1_479DF7E200A3_var*
 begin

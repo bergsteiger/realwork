@@ -11,14 +11,14 @@ interface
 
 uses
  l3IntfUses
- , afwInterfaces
- , l3Interfaces
- , evTypes
  , SettingsUnit
+ , l3Interfaces
+ , afwInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Tree_TLB
+ , evTypes
  , eeInterfaces
 ;
 

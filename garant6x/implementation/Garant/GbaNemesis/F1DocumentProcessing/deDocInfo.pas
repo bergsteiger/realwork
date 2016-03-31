@@ -1,90 +1,73 @@
 unit deDocInfo;
+ {* Интерфейс обмена данными для бизнес объекта "TextForm" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/deDocInfo.pas"
-// Начат: 08.12.2009 18:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::DocInfo::TdeDocInfo
-//
-// Интерфейс обмена данными для бизнес объекта "TextForm"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deDocInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeDocInfo" MUID: (491C0BE302FF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3Interfaces,
-  nsRootManager,
-  bsTypes,
-  PrimPrimListInterfaces,
-  deBase,
-  DocumentInterfaces,
-  bsTypesNew,
-  nsTypes,
-  AdapterFacade,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , deBase
+ , l3Interfaces
+ , DocumentInterfaces
+ , bsTypesNew
+ , bsTypes
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ , nsRootManager
+ , PrimPrimListInterfaces
+ , DocumentUnit
+ , nsTypes
+ , AdapterFacade
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsListInfo = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rList : IDynList;
-   rListNode : INodeBase;
-   rListRoot : INodeBase;
-   rCorrectByTimeMachine : Boolean;
-   rSearchInfo : IdeSearchInfo;
+ TnsListInfo = object
+  public
+   rList: IDynList;
+   rListNode: INodeBase;
+   rListRoot: INodeBase;
+   rCorrectByTimeMachine: Boolean;
+   rSearchInfo: IdeSearchInfo;
  end;//TnsListInfo
 
  TdeDocInfo = class(TdeBase, Il3ItemNotifyRecipient, IdeDocInfo)
   {* Интерфейс обмена данными для бизнес объекта "TextForm" }
- private
- // private fields
-   f_Pos : TbsDocPos;
-   f_Language : TbsLanguage;
-   f_List : IDynList;
-   f_ListNode : INodeBase;
-   f_CorrectByTimeMachine : Boolean;
-   f_DocInited : Boolean;
-   f_QueryInfo : IdeSearchInfo;
-   f_DocContainer : IbsDocumentContainer;
-    {* Поле для свойства DocContainer}
-   f_RootManager : TnsRootManager;
-    {* Поле для свойства RootManager}
- private
- // private methods
+  private
+   f_Pos: TbsDocPos;
+   f_Language: TbsLanguage;
+   f_List: IDynList;
+   f_ListNode: INodeBase;
+   f_CorrectByTimeMachine: Boolean;
+   f_DocInited: Boolean;
+   f_QueryInfo: IdeSearchInfo;
+   f_DocContainer: IbsDocumentContainer;
+    {* Поле для свойства DocContainer }
+   f_RootManager: TnsRootManager;
+    {* Поле для свойства RootManager }
+  private
    procedure ResetListChildrenCount;
    procedure MakeCurrentState;
-     {* устанавливаем состояние документа }
- protected
- // property methods
+    {* устанавливаем состояние документа }
+  protected
    function pm_GetDocContainer: IbsDocumentContainer;
    function pm_GetRootManager: TnsRootManager;
- protected
- // realized methods
+   function DefaultDocType: TDocumentType; virtual;
+   procedure AssignFromClone(const aData: IdeDocInfo); virtual;
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    function IsSame(const aDocInfo: IdeDocInfo;
     aView: Boolean = True;
     aPosition: Boolean = True): Boolean;
-     {* сравнить документы.
+    {* сравнить документы.
            - aView: возвращает равенство документов с учетом их состояния (в
                     отличии от is_same_entity, который возвращает равенство без
                     учета состояния). Состоянием документа является суперпозиция
@@ -92,12 +75,12 @@ type
            - aPosition: сравнивать с учетом позиций. }
    procedure SetPosition(const aPos: TbsDocPos);
    function ChangeRedaction(aChangeType: TnsChangeRedactionType;
-    aRedaction: TRedactionID = 0): Boolean; overload; 
-   function ChangeRedaction(const aDate: AdapterDate): Boolean; overload; 
-   function ChangeRedaction(const aDocument: IDocument): Boolean; overload; 
+    aRedaction: TRedactionID = 0): Boolean; overload;
+   function ChangeRedaction(const aDate: AdapterDate): Boolean; overload;
+   function ChangeRedaction(const aDocument: IDocument): Boolean; overload;
    procedure InitListNode(const aRoot: INodeBase;
     const aListNode: INodeBase);
-     {* документ открывается из списка }
+    {* документ открывается из списка }
    procedure CorrectLanguage(aLanguage: TbsLanguage);
    function Clone: IdeDocInfo;
    function pm_GetDoc: IDocument;
@@ -119,114 +102,120 @@ type
    procedure pm_SetSearchInfo(const aValue: IdeSearchInfo);
    function pm_GetFilePosition: Il3CString;
    procedure ClearListNode;
-     {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
- protected
- // overridden protected methods
+    {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DefaultDocType: TDocumentType; virtual;
-   procedure AssignFromClone(const aData: IdeDocInfo); virtual;
- public
- // public methods
-   constructor CreateCloned(const aDocInfo: IdeDocInfo);
+  public
+   constructor CreateCloned(const aDocInfo: IdeDocInfo); reintroduce;
    constructor Create(const aDoc: IbsDocumentContainer;
-     const aList: TnsListInfo;
-     const aPos: TbsDocPos;
-     aLanguage: TbsLanguage); reintroduce; overload; 
+    const aList: TnsListInfo;
+    const aPos: TbsDocPos;
+    aLanguage: TbsLanguage); reintroduce; overload;
    constructor Create(const aDoc: IbsDocumentContainer;
-     const aPos: TbsDocPos;
-     aLanguage: TbsLanguage); overload; 
+    const aPos: TbsDocPos;
+    aLanguage: TbsLanguage); reintroduce; overload;
    class function Make(const aDoc: IDocument;
-     const aPos: TbsDocPos;
-     aLanguage: TbsLanguage = LG_RUSSIAN): IdeDocInfo; overload; 
-   class function Make: IdeDocInfo; overload; 
+    const aPos: TbsDocPos;
+    aLanguage: TbsLanguage = bsTypes.LG_RUSSIAN): IdeDocInfo; overload;
+   class function Make: IdeDocInfo; overload;
    class function Make(const aDoc: IbsDocumentContainer;
-     const aPos: TbsDocPos;
-     aLanguage: TbsLanguage): IdeDocInfo; reintroduce; overload; 
-     {* Сигнатура фабрики TdeDocInfo.Make }
-   constructor Create(const aDoc: IbsDocumentContainer); overload; 
-   class function Make(const aDoc: IbsDocumentContainer): IdeDocInfo; reintroduce; overload; 
-     {* Сигнатура фабрики TdeDocInfo.Make$FromContainer }
-   class function Make(const aDoc: IDocument): IdeDocInfo; overload; 
+    const aPos: TbsDocPos;
+    aLanguage: TbsLanguage): IdeDocInfo; reintroduce; overload;
+   constructor Create(const aDoc: IbsDocumentContainer); reintroduce; overload;
+   class function Make(const aDoc: IbsDocumentContainer): IdeDocInfo; reintroduce; overload;
+   class function Make(const aDoc: IDocument): IdeDocInfo; overload;
    class function MakeFromList(const aDoc: IbsDocumentContainer;
-     const aList: TnsListInfo;
-     const aPos: TbsDocPos;
-     aLanguage: TbsLanguage): IdeDocInfo; reintroduce;
-     {* Сигнатура фабрики TdeDocInfo.MakeFromList }
- protected
- // protected properties
+    const aList: TnsListInfo;
+    const aPos: TbsDocPos;
+    aLanguage: TbsLanguage): IdeDocInfo; reintroduce;
+  protected
    property DocContainer: IbsDocumentContainer
-     read pm_GetDocContainer;
+    read pm_GetDocContainer;
    property RootManager: TnsRootManager
-     read pm_GetRootManager;
+    read pm_GetRootManager;
  end;//TdeDocInfo
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 function TnsListInfo_C(const aList: IDynList;
-     const aListNode: INodeBase;
-     const aListRoot: INodeBase;
-     aCorrectByTimeMachine: Boolean;
-     const aSearchInfo: IdeSearchInfo): TnsListInfo;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
+ const aListNode: INodeBase;
+ const aListRoot: INodeBase;
+ aCorrectByTimeMachine: Boolean;
+ const aSearchInfo: IdeSearchInfo): TnsListInfo;
 function TnsListInfo_E: TnsListInfo;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  bsDataContainer,
-  l3Bits,
-  IOUnit,
-  bsUtils,
-  DataAdapter,
-  l3Base,
-  afwFacade,
-  BaseTypesUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Bits
+ , IOUnit
+ , bsUtils
+ , DataAdapter
+ , l3Base
+ , afwFacade
+ , BaseTypesUnit
+ , bsDataContainer
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeDocInfo
-
-procedure TdeDocInfo.ResetListChildrenCount;
-//#UC START# *4B1E8576014C_491C0BE302FF_var*
-//#UC END# *4B1E8576014C_491C0BE302FF_var*
+function TnsListInfo_C(const aList: IDynList;
+ const aListNode: INodeBase;
+ const aListRoot: INodeBase;
+ aCorrectByTimeMachine: Boolean;
+ const aSearchInfo: IdeSearchInfo): TnsListInfo;
+//#UC START# *4BA7913300CB_4BA7907A03C2_var*
+//#UC END# *4BA7913300CB_4BA7907A03C2_var*
 begin
-//#UC START# *4B1E8576014C_491C0BE302FF_impl*
- f_ListNode := nil;
-//#UC END# *4B1E8576014C_491C0BE302FF_impl*
-end;//TdeDocInfo.ResetListChildrenCount
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4BA7913300CB_4BA7907A03C2_impl*
+ Result.rList := aList;
+ Result.rListNode := aListNode;
+ Result.rListRoot := aListRoot;
+ Result.rCorrectByTimeMachine := aCorrectByTimeMachine;
+ Result.rSearchInfo := aSearchInfo;
+//#UC END# *4BA7913300CB_4BA7907A03C2_impl*
+end;//TnsListInfo_C
 
-procedure TdeDocInfo.MakeCurrentState;
-//#UC START# *4B1E8E050028_491C0BE302FF_var*
-var
- l_State : IDocumentState;
- l_Doc   : IDocument;
-//#UC END# *4B1E8E050028_491C0BE302FF_var*
+function TnsListInfo_E: TnsListInfo;
+//#UC START# *4BA7923F0214_4BA7907A03C2_var*
+//#UC END# *4BA7923F0214_4BA7907A03C2_var*
 begin
-//#UC START# *4B1E8E050028_491C0BE302FF_impl*
- if DocContainer.Document <> nil then
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4BA7923F0214_4BA7907A03C2_impl*
+//#UC END# *4BA7923F0214_4BA7907A03C2_impl*
+end;//TnsListInfo_E
+
+function TdeDocInfo.pm_GetDocContainer: IbsDocumentContainer;
+//#UC START# *4B1E7334015A_491C0BE302FFget_var*
+//#UC END# *4B1E7334015A_491C0BE302FFget_var*
+begin
+//#UC START# *4B1E7334015A_491C0BE302FFget_impl*
+ if (f_DocContainer = nil) then
+  f_DocContainer := TbsDocumentContainer.Make(nil);
+ Result := f_DocContainer;
+//#UC END# *4B1E7334015A_491C0BE302FFget_impl*
+end;//TdeDocInfo.pm_GetDocContainer
+
+function TdeDocInfo.pm_GetRootManager: TnsRootManager;
+//#UC START# *4B1E73F20247_491C0BE302FFget_var*
+//#UC END# *4B1E73F20247_491C0BE302FFget_var*
+begin
+//#UC START# *4B1E73F20247_491C0BE302FFget_impl*
+ if f_RootManager = nil then
  begin
-  DocContainer.Document.GetCurrentState(l_State);
-  l_State.SetLanguage(f_Language);
-  DocContainer.Document.CreateView(l_State, l_Doc);
-  if l_Doc <> nil then // документ поменялся
-   DocContainer.Document := l_Doc;
- end;//if Document <> nil then
-//#UC END# *4B1E8E050028_491C0BE302FF_impl*
-end;//TdeDocInfo.MakeCurrentState
+  f_RootManager := TnsRootManager.Create;
+  Il3ChangeNotifier(f_RootManager).Subscribe(Il3ItemNotifyRecipient(Self));
+ end;//if f_RootManager = nil then
+ Result := f_RootManager;
+//#UC END# *4B1E73F20247_491C0BE302FFget_impl*
+end;//TdeDocInfo.pm_GetRootManager
 
 constructor TdeDocInfo.CreateCloned(const aDocInfo: IdeDocInfo);
 //#UC START# *4B1E74D10031_491C0BE302FF_var*
@@ -260,9 +249,9 @@ begin
 end;//TdeDocInfo.CreateCloned
 
 constructor TdeDocInfo.Create(const aDoc: IbsDocumentContainer;
-  const aList: TnsListInfo;
-  const aPos: TbsDocPos;
-  aLanguage: TbsLanguage);
+ const aList: TnsListInfo;
+ const aPos: TbsDocPos;
+ aLanguage: TbsLanguage);
 //#UC START# *4B1E75C802B9_491C0BE302FF_var*
 //#UC END# *4B1E75C802B9_491C0BE302FF_var*
 begin
@@ -281,8 +270,8 @@ begin
 end;//TdeDocInfo.Create
 
 constructor TdeDocInfo.Create(const aDoc: IbsDocumentContainer;
-  const aPos: TbsDocPos;
-  aLanguage: TbsLanguage);
+ const aPos: TbsDocPos;
+ aLanguage: TbsLanguage);
 //#UC START# *4B1E8B8B003B_491C0BE302FF_var*
 //#UC END# *4B1E8B8B003B_491C0BE302FF_var*
 begin
@@ -292,8 +281,8 @@ begin
 end;//TdeDocInfo.Create
 
 class function TdeDocInfo.Make(const aDoc: IDocument;
-  const aPos: TbsDocPos;
-  aLanguage: TbsLanguage = LG_RUSSIAN): IdeDocInfo;
+ const aPos: TbsDocPos;
+ aLanguage: TbsLanguage = bsTypes.LG_RUSSIAN): IdeDocInfo;
 //#UC START# *4B1E76F30227_491C0BE302FF_var*
 //#UC END# *4B1E76F30227_491C0BE302FF_var*
 begin
@@ -313,9 +302,18 @@ begin
 //#UC END# *4B1E772503CC_491C0BE302FF_impl*
 end;//TdeDocInfo.Make
 
+procedure TdeDocInfo.ResetListChildrenCount;
+//#UC START# *4B1E8576014C_491C0BE302FF_var*
+//#UC END# *4B1E8576014C_491C0BE302FF_var*
+begin
+//#UC START# *4B1E8576014C_491C0BE302FF_impl*
+ f_ListNode := nil;
+//#UC END# *4B1E8576014C_491C0BE302FF_impl*
+end;//TdeDocInfo.ResetListChildrenCount
+
 class function TdeDocInfo.Make(const aDoc: IbsDocumentContainer;
-  const aPos: TbsDocPos;
-  aLanguage: TbsLanguage): IdeDocInfo;
+ const aPos: TbsDocPos;
+ aLanguage: TbsLanguage): IdeDocInfo;
 var
  l_Inst : TdeDocInfo;
 begin
@@ -325,7 +323,27 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeDocInfo.Make
+
+procedure TdeDocInfo.MakeCurrentState;
+ {* устанавливаем состояние документа }
+//#UC START# *4B1E8E050028_491C0BE302FF_var*
+var
+ l_State : IDocumentState;
+ l_Doc   : IDocument;
+//#UC END# *4B1E8E050028_491C0BE302FF_var*
+begin
+//#UC START# *4B1E8E050028_491C0BE302FF_impl*
+ if DocContainer.Document <> nil then
+ begin
+  DocContainer.Document.GetCurrentState(l_State);
+  l_State.SetLanguage(f_Language);
+  DocContainer.Document.CreateView(l_State, l_Doc);
+  if l_Doc <> nil then // документ поменялся
+   DocContainer.Document := l_Doc;
+ end;//if Document <> nil then
+//#UC END# *4B1E8E050028_491C0BE302FF_impl*
+end;//TdeDocInfo.MakeCurrentState
 
 constructor TdeDocInfo.Create(const aDoc: IbsDocumentContainer);
 //#UC START# *4BA755510355_491C0BE302FF_var*
@@ -346,7 +364,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeDocInfo.Make
 
 class function TdeDocInfo.Make(const aDoc: IDocument): IdeDocInfo;
 //#UC START# *4BA78A8E027E_491C0BE302FF_var*
@@ -358,9 +376,9 @@ begin
 end;//TdeDocInfo.Make
 
 class function TdeDocInfo.MakeFromList(const aDoc: IbsDocumentContainer;
-  const aList: TnsListInfo;
-  const aPos: TbsDocPos;
-  aLanguage: TbsLanguage): IdeDocInfo;
+ const aList: TnsListInfo;
+ const aPos: TbsDocPos;
+ aLanguage: TbsLanguage): IdeDocInfo;
 var
  l_Inst : TdeDocInfo;
 begin
@@ -370,64 +388,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TnsListInfo_C(const aList: IDynList;
-         const aListNode: INodeBase;
-         const aListRoot: INodeBase;
-         aCorrectByTimeMachine: Boolean;
-         const aSearchInfo: IdeSearchInfo): TnsListInfo;
-//#UC START# *4BA7913300CB_4BA7907A03C2_var*
-//#UC END# *4BA7913300CB_4BA7907A03C2_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4BA7913300CB_4BA7907A03C2_impl*
- Result.rList := aList;
- Result.rListNode := aListNode;
- Result.rListRoot := aListRoot;
- Result.rCorrectByTimeMachine := aCorrectByTimeMachine;
- Result.rSearchInfo := aSearchInfo;
-//#UC END# *4BA7913300CB_4BA7907A03C2_impl*
-end;//TnsListInfo.C
-
-
-function TnsListInfo_E: TnsListInfo;
-//#UC START# *4BA7923F0214_4BA7907A03C2_var*
-//#UC END# *4BA7923F0214_4BA7907A03C2_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4BA7923F0214_4BA7907A03C2_impl*
-//#UC END# *4BA7923F0214_4BA7907A03C2_impl*
-end;//TnsListInfo.E
-
-// start class TdeDocInfo
-
-function TdeDocInfo.pm_GetDocContainer: IbsDocumentContainer;
-//#UC START# *4B1E7334015A_491C0BE302FFget_var*
-//#UC END# *4B1E7334015A_491C0BE302FFget_var*
-begin
-//#UC START# *4B1E7334015A_491C0BE302FFget_impl*
- if (f_DocContainer = nil) then
-  f_DocContainer := TbsDocumentContainer.Make(nil);
- Result := f_DocContainer;
-//#UC END# *4B1E7334015A_491C0BE302FFget_impl*
-end;//TdeDocInfo.pm_GetDocContainer
-
-function TdeDocInfo.pm_GetRootManager: TnsRootManager;
-//#UC START# *4B1E73F20247_491C0BE302FFget_var*
-//#UC END# *4B1E73F20247_491C0BE302FFget_var*
-begin
-//#UC START# *4B1E73F20247_491C0BE302FFget_impl*
- if f_RootManager = nil then
- begin
-  f_RootManager := TnsRootManager.Create;
-  Il3ChangeNotifier(f_RootManager).Subscribe(Il3ItemNotifyRecipient(Self));
- end;//if f_RootManager = nil then
- Result := f_RootManager;
-//#UC END# *4B1E73F20247_491C0BE302FFget_impl*
-end;//TdeDocInfo.pm_GetRootManager
+end;//TdeDocInfo.MakeFromList
 
 function TdeDocInfo.DefaultDocType: TDocumentType;
 //#UC START# *4B1E714A0125_491C0BE302FF_var*
@@ -448,8 +409,9 @@ begin
 end;//TdeDocInfo.AssignFromClone
 
 procedure TdeDocInfo.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_491C0BE302FF_var*
 //#UC END# *46A4504B03C4_491C0BE302FF_var*
 begin
@@ -460,8 +422,14 @@ begin
 end;//TdeDocInfo.Notify
 
 function TdeDocInfo.IsSame(const aDocInfo: IdeDocInfo;
-  aView: Boolean = True;
-  aPosition: Boolean = True): Boolean;
+ aView: Boolean = True;
+ aPosition: Boolean = True): Boolean;
+ {* сравнить документы.
+           - aView: возвращает равенство документов с учетом их состояния (в
+                    отличии от is_same_entity, который возвращает равенство без
+                    учета состояния). Состоянием документа является суперпозиция
+                    номера редакции, языка и списка извлечений.
+           - aPosition: сравнивать с учетом позиций. }
 //#UC START# *4B1D118000EA_491C0BE302FF_var*
 var
  l_DC: IbsDocumentContainer;
@@ -501,7 +469,7 @@ begin
 end;//TdeDocInfo.SetPosition
 
 function TdeDocInfo.ChangeRedaction(aChangeType: TnsChangeRedactionType;
-  aRedaction: TRedactionID = 0): Boolean;
+ aRedaction: TRedactionID = 0): Boolean;
 //#UC START# *4B1D11CF0265_491C0BE302FF_var*
 var
  l_State : IDocumentState;
@@ -586,7 +554,8 @@ begin
 end;//TdeDocInfo.ChangeRedaction
 
 procedure TdeDocInfo.InitListNode(const aRoot: INodeBase;
-  const aListNode: INodeBase);
+ const aListNode: INodeBase);
+ {* документ открывается из списка }
 //#UC START# *4B1D11FE0117_491C0BE302FF_var*
 //#UC END# *4B1D11FE0117_491C0BE302FF_var*
 begin
@@ -877,6 +846,7 @@ begin
 end;//TdeDocInfo.pm_GetFilePosition
 
 procedure TdeDocInfo.ClearListNode;
+ {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
 //#UC START# *4B1FA0B003E1_491C0BE302FF_var*
 //#UC END# *4B1FA0B003E1_491C0BE302FF_var*
 begin
@@ -886,6 +856,7 @@ begin
 end;//TdeDocInfo.ClearListNode
 
 procedure TdeDocInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_491C0BE302FF_var*
 //#UC END# *479731C50290_491C0BE302FF_var*
 begin
@@ -902,7 +873,8 @@ begin
 end;//TdeDocInfo.Cleanup
 
 function TdeDocInfo.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_491C0BE302FF_var*
 //#UC END# *4A60B23E00C3_491C0BE302FF_var*
 begin
@@ -918,23 +890,13 @@ begin
 end;//TdeDocInfo.COMQueryInterface
 
 procedure TdeDocInfo.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_List := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ListNode := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_QueryInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_DocContainer := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdeDocInfo.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

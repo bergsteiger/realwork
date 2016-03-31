@@ -1,63 +1,45 @@
 unit nsPrimCachedEventsProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsPrimCachedEventsProcessor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::Logging::TnsPrimCachedEventsProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEventsProcessor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimCachedEventsProcessor" MUID: (4B139F5C025B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3SimpleObject,
-  LoggingInterfaces,
-  InsDefferedEventList
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , LoggingInterfaces
+ , InsDefferedEventList
+;
 
 type
  TnsPrimCachedEventsProcessor = class(Tl3SimpleObject, InsCachedEventsProcessor)
- private
- // private fields
-   f_List : TInsDefferedEventList;
-   f_CacheWasWritten : TDateTime;
- private
- // private methods
+  private
+   f_List: TInsDefferedEventList;
+   f_CacheWasWritten: TDateTime;
+  private
    procedure Notify;
- protected
- // realized methods
+  protected
+   constructor Create; reintroduce;
    procedure RegisterEvent(const aEvent: InsDefferedEvent);
    procedure RequestWriteCache;
    procedure ForceWriteCache;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   constructor Create; reintroduce;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: InsCachedEventsProcessor; reintroduce;
  end;//TnsPrimCachedEventsProcessor
 
 implementation
 
 uses
-  DateUtils,
-  SysUtils
-  ;
-
-// start class TnsPrimCachedEventsProcessor
+ l3ImplUses
+ , DateUtils
+ , SysUtils
+;
 
 procedure TnsPrimCachedEventsProcessor.Notify;
 //#UC START# *4B139F9D008C_4B139F5C025B_var*
@@ -92,7 +74,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsPrimCachedEventsProcessor.Make
 
 procedure TnsPrimCachedEventsProcessor.RegisterEvent(const aEvent: InsDefferedEvent);
 //#UC START# *4B139E6B00C1_4B139F5C025B_var*
@@ -128,6 +110,7 @@ begin
 end;//TnsPrimCachedEventsProcessor.ForceWriteCache
 
 procedure TnsPrimCachedEventsProcessor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B139F5C025B_var*
 //#UC END# *479731C50290_4B139F5C025B_var*
 begin

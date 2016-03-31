@@ -1,94 +1,61 @@
 unit ncsDefaultProviderHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsDefaultProviderHolder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ArchiClientServer::TncsDefaultProviderHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsDefaultProviderHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsDefaultProviderHolder" MUID: (551BB2E70032)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  daInterfaces
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+;
 
-{$If not defined(Nemesis)}
 type
  TncsDefaultProviderHolder = class(Tl3ProtoObject)
- private
- // private fields
-   f_Provider : IdaDataProvider;
- private
- // private methods
+  private
+   f_Provider: IdaDataProvider;
+  private
    procedure IntCreateProvider;
-     {* Сигнатура метода IntCreateProvider }
    procedure IntDoneProvider;
-     {* Сигнатура метода IntDoneProvider }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class procedure CreateProvider;
    class procedure DoneProvider;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsDefaultProviderHolder;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TncsDefaultProviderHolder }
  end;//TncsDefaultProviderHolder
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  daDataProviderSuperFactory,
-  daDataProviderParams,
-  ncsDataAccessServices,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , daDataProviderSuperFactory
+ , daDataProviderParams
+ , ncsDataAccessServices
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Nemesis)}
-
-
-// start class TncsDefaultProviderHolder
-
-var g_TncsDefaultProviderHolder : TncsDefaultProviderHolder = nil;
+var g_TncsDefaultProviderHolder: TncsDefaultProviderHolder = nil;
+ {* Экземпляр синглетона TncsDefaultProviderHolder }
 
 procedure TncsDefaultProviderHolderFree;
+ {* Метод освобождения экземпляра синглетона TncsDefaultProviderHolder }
 begin
  l3Free(g_TncsDefaultProviderHolder);
-end;
-
-class function TncsDefaultProviderHolder.Instance: TncsDefaultProviderHolder;
-begin
- if (g_TncsDefaultProviderHolder = nil) then
- begin
-  l3System.AddExitProc(TncsDefaultProviderHolderFree);
-  g_TncsDefaultProviderHolder := Create;
- end;
- Result := g_TncsDefaultProviderHolder;
-end;
-
+end;//TncsDefaultProviderHolderFree
 
 procedure TncsDefaultProviderHolder.IntCreateProvider;
 //#UC START# *551BB38C02D3_551BB2E70032_var*
@@ -140,12 +107,24 @@ begin
 end;//TncsDefaultProviderHolder.DoneProvider
 
 class function TncsDefaultProviderHolder.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TncsDefaultProviderHolder <> nil;
 end;//TncsDefaultProviderHolder.Exists
 
+class function TncsDefaultProviderHolder.Instance: TncsDefaultProviderHolder;
+ {* Метод получения экземпляра синглетона TncsDefaultProviderHolder }
+begin
+ if (g_TncsDefaultProviderHolder = nil) then
+ begin
+  l3System.AddExitProc(TncsDefaultProviderHolderFree);
+  g_TncsDefaultProviderHolder := Create;
+ end;
+ Result := g_TncsDefaultProviderHolder;
+end;//TncsDefaultProviderHolder.Instance
+
 procedure TncsDefaultProviderHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_551BB2E70032_var*
 //#UC END# *479731C50290_551BB2E70032_var*
 begin
@@ -164,7 +143,6 @@ begin
  TncsDataAccessServices.Instance.InitClient;
 //#UC END# *47A042E100E2_551BB2E70032_impl*
 end;//TncsDefaultProviderHolder.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

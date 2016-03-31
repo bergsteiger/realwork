@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , daInterfaces
+ //#UC START# *538DA49902A4intf_uses*
+ //#UC END# *538DA49902A4intf_uses*
 ;
 
 const
@@ -40,6 +42,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *538DA49902A4impl_uses*
+ //#UC END# *538DA49902A4impl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

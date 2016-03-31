@@ -1,76 +1,51 @@
 unit deSearchInfo;
+ {* Информация о запросе }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/deSearchInfo.pas"
-// Начат: 08.12.2009 17:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TdeSearchInfo
-//
-// Информация о запросе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearchInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeSearchInfo" MUID: (491D718A00A9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  DynamicDocListUnit,
-  l3Interfaces,
-  l3ProtoObject,
-  PrimPrimListInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3ProtoObject
+ , PrimPrimListInterfaces
+ , l3Interfaces
+ , DynamicDocListUnit
+;
 
-{$If not defined(Admin)}
 type
  TdeSearchInfo = class(Tl3ProtoObject, IdeSearchInfo)
   {* Информация о запросе }
- private
- // private fields
-   f_NeedApplyPermanentFilters : Boolean;
-   f_QueryInfo : Il3CString;
- protected
- // realized methods
+  private
+   f_NeedApplyPermanentFilters: Boolean;
+   f_QueryInfo: Il3CString;
+  protected
    function pm_GetNeedApplyPermanentFilters: Boolean;
    function pm_GetQueryInfo: Il3CString;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aList: IDynList;
-     aNeedApplyPermanentFilters: Boolean); reintroduce;
+    aNeedApplyPermanentFilters: Boolean); reintroduce;
    class function Make(const aList: IDynList;
-     aNeedApplyPermanentFilters: Boolean): IdeSearchInfo; reintroduce;
-     {* Сигнатура фабрики TdeSearchInfo.Make }
+    aNeedApplyPermanentFilters: Boolean): IdeSearchInfo; reintroduce;
  end;//TdeSearchInfo
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  bsUtils
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TdeSearchInfo
+ l3ImplUses
+ , bsUtils
+;
 
 constructor TdeSearchInfo.Create(const aList: IDynList;
-  aNeedApplyPermanentFilters: Boolean);
+ aNeedApplyPermanentFilters: Boolean);
 //#UC START# *4B1E67780224_491D718A00A9_var*
 //#UC END# *4B1E67780224_491D718A00A9_var*
 begin
@@ -82,7 +57,7 @@ begin
 end;//TdeSearchInfo.Create
 
 class function TdeSearchInfo.Make(const aList: IDynList;
-  aNeedApplyPermanentFilters: Boolean): IdeSearchInfo;
+ aNeedApplyPermanentFilters: Boolean): IdeSearchInfo;
 var
  l_Inst : TdeSearchInfo;
 begin
@@ -92,7 +67,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeSearchInfo.Make
 
 function TdeSearchInfo.pm_GetNeedApplyPermanentFilters: Boolean;
 //#UC START# *4B1D0ED601F5_491D718A00A9get_var*
@@ -113,14 +88,10 @@ begin
 end;//TdeSearchInfo.pm_GetQueryInfo
 
 procedure TdeSearchInfo.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_QueryInfo := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TdeSearchInfo.ClearFields
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

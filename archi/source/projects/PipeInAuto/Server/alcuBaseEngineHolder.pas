@@ -1,66 +1,45 @@
 unit alcuBaseEngineHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuBaseEngineHolder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::BaseEngine::TalcuBaseEngineHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuBaseEngineHolder" MUID: (53CE4F2F008D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3ProtoObject,
-  alcuBaseEngine
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , l3ProtoObject
+ , alcuBaseEngine
+;
 
-{$If defined(AppServerSide)}
 type
  TalcuBaseEngineHolder = class(Tl3ProtoObject)
- private
- // private fields
-   f_BaseEngine : TalcuBaseEngine;
-    {* Поле для свойства BaseEngine}
- protected
- // property methods
+  private
+   f_BaseEngine: TalcuBaseEngine;
+    {* Поле для свойства BaseEngine }
+  protected
    procedure pm_SetBaseEngine(aValue: TalcuBaseEngine); virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    function IsBaseLocked: Boolean;
- public
- // public properties
+  public
    property BaseEngine: TalcuBaseEngine
-     read f_BaseEngine
-     write pm_SetBaseEngine;
+    read f_BaseEngine
+    write pm_SetBaseEngine;
  end;//TalcuBaseEngineHolder
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide
-
-{$If defined(AppServerSide)}
-
-// start class TalcuBaseEngineHolder
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TalcuBaseEngineHolder.pm_SetBaseEngine(aValue: TalcuBaseEngine);
 //#UC START# *53CE4F5F0206_53CE4F2F008Dset_var*
@@ -86,6 +65,7 @@ begin
 end;//TalcuBaseEngineHolder.IsBaseLocked
 
 procedure TalcuBaseEngineHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53CE4F2F008D_var*
 //#UC END# *479731C50290_53CE4F2F008D_var*
 begin
@@ -94,7 +74,6 @@ begin
  inherited;
 //#UC END# *479731C50290_53CE4F2F008D_impl*
 end;//TalcuBaseEngineHolder.Cleanup
-
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 end.

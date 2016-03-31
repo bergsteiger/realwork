@@ -1,48 +1,34 @@
 unit nsSplashVisualizer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Splash"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Splash/nsSplashVisualizer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Splash::Splash::SplashClient::TnsSplashVisualizer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\nsSplashVisualizer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSplashVisualizer" MUID: (499D5F560195)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  Classes,
-  l3SimpleObject,
-  Windows,
-  SplashInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , SplashInterfaces
+ , Windows
+ , Classes
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsSplashVisualizer = class(Tl3SimpleObject, InsSplashClient)
- private
- // private fields
-   f_Process : THandle;
-   f_MemFile : THandle;
-   f_Guard : THandle;
-   f_CanCloseEvent : THandle;
- protected
- // overridden protected methods
+  private
+   f_Process: THandle;
+   f_MemFile: THandle;
+   f_Guard: THandle;
+   f_CanCloseEvent: THandle;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(aPicture: TStream;
     aLogo: TStream;
     aMinShowTime: Cardinal;
@@ -58,31 +44,27 @@ type
     const aUserInfo: Il3CString;
     const aWarning: Il3CString); reintroduce;
  end;//TnsSplashVisualizer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  SysUtils,
-  SplashTypes,
-  l3Base,
-  l3String
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsSplashVisualizer
+ l3ImplUses
+ , afwFacade
+ , SysUtils
+ , SplashTypes
+ , l3Base
+ , l3String
+;
 
 class function TnsSplashVisualizer.Make(aPicture: TStream;
-  aLogo: TStream;
-  aMinShowTime: Cardinal;
-  aWnd: THandle;
-  const anAppTitle: AnsiString;
-  const aUserInfo: Il3CString;
-  const aWarning: Il3CString): InsSplashClient;
+ aLogo: TStream;
+ aMinShowTime: Cardinal;
+ aWnd: THandle;
+ const anAppTitle: AnsiString;
+ const aUserInfo: Il3CString;
+ const aWarning: Il3CString): InsSplashClient;
 var
  l_Inst : TnsSplashVisualizer;
 begin
@@ -92,15 +74,15 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsSplashVisualizer.Make
 
 constructor TnsSplashVisualizer.Create(aPicture: TStream;
-  aLogo: TStream;
-  aMinShowTime: Cardinal;
-  aWnd: THandle;
-  const anAppTitle: AnsiString;
-  const aUserInfo: Il3CString;
-  const aWarning: Il3CString);
+ aLogo: TStream;
+ aMinShowTime: Cardinal;
+ aWnd: THandle;
+ const anAppTitle: AnsiString;
+ const aUserInfo: Il3CString;
+ const aWarning: Il3CString);
 //#UC START# *499D5FDA0332_499D5F560195_var*
 var
  l_MemSize: Cardinal;
@@ -193,6 +175,7 @@ begin
 end;//TnsSplashVisualizer.Create
 
 procedure TnsSplashVisualizer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_499D5F560195_var*
 //#UC END# *479731C50290_499D5F560195_var*
 begin
@@ -216,7 +199,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_499D5F560195_impl*
 end;//TnsSplashVisualizer.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

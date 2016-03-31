@@ -1,137 +1,112 @@
 unit nsTreeMultiDocumentPreviewContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsTreeMultiDocumentPreviewContainer.pas"
-// Начат: 2008/08/01 10:55:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::ns::TnsTreeMultiDocumentPreviewContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsTreeMultiDocumentPreviewContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsTreeMultiDocumentPreviewContainer" MUID: (4892DA33009F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  afwInterfaces,
-  l3TreeInterfaces,
-  PreviewInterfaces,
-  l3CProtoObject,
-  l3Interfaces,
-  afwTypes,
-  l3Core
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CProtoObject
+ , afwInterfaces
+ , PreviewInterfaces
+ , l3TreeInterfaces
+ , afwTypes
+ , l3Interfaces
+ , l3Core
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsTreeMultiDocumentPreviewContainer = class(Tl3CProtoObject, IafwDocumentPreview, InsTreeMultiDocumentPreviewContainer)
- private
- // private fields
-   f_Preview : IafwDocumentPreview;
-   f_Tree : Il3ExpandedSimpleTree;
-   f_Prepared : Boolean;
-   f_ForSelection : Boolean;
-   f_OnlyFirstLevel : Boolean;
- protected
- // realized methods
+  private
+   f_Preview: IafwDocumentPreview;
+   f_Tree: Il3ExpandedSimpleTree;
+   f_Prepared: Boolean;
+   f_ForSelection: Boolean;
+   f_OnlyFirstLevel: Boolean;
+  protected
    function DocumentName: IafwCString;
-     {* имя документа для preview. }
+    {* имя документа для preview. }
    function InProcess: Boolean;
-     {* идет процесс? }
+    {* идет процесс? }
    function InPagesCounting: Boolean;
-     {* сейчас в процессе подсчета страниц? }
+    {* сейчас в процессе подсчета страниц? }
    function InUpdate: Boolean;
-     {* находимся в процессе построения preview? }
+    {* находимся в процессе построения preview? }
    function InPrinting: Boolean;
-     {* находимся в процессе построения печати? }
+    {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
-     {* установить preview на панель для отображения. }
-   procedure Print(anInterval: TafwPagesInterval = afw_piAll;
+    {* установить preview на панель для отображения. }
+   procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
     aCollate: Boolean = True);
-     {* напечатать на принтер. }
+    {* напечатать на принтер. }
    procedure Stop(aWnd: THandle = 0);
-     {* остановит процесс построение preview/печати. }
+    {* остановит процесс построение preview/печати. }
    function Stopped: Boolean;
-     {* процесс остановлен? }
+    {* процесс остановлен? }
    function CloseRequested: Boolean;
-     {* при остановке процесса был запрос на закрытие превью }
+    {* при остановке процесса был запрос на закрытие превью }
    function PreviewResetting: Boolean;
-     {* канва отсутствует, но будет передалываться }
+    {* канва отсутствует, но будет передалываться }
    procedure SetCurrentPage(const aCursor: IUnknown);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPagePara(aParaID: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPageNumber(aPageNumber: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    function CurrentPage: Integer;
-     {* текущая страница для печати. }
+    {* текущая страница для печати. }
    function HasCurrentPage: Boolean;
-     {* установлена ли текущая страница. }
+    {* установлена ли текущая страница. }
    function pm_GetPrinter: IafwPrinter;
    procedure pm_SetPrinter(const aValue: IafwPrinter);
    function pm_GetHasText: Boolean;
    function Get_ApproxDocCount: Integer;
    procedure Prepare;
    function pm_GetPagesInfo: TafwPagesInfo;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aTree: Il3ExpandedSimpleTree;
-     ForSelection: Boolean;
-     aOnlyFirstLevel: Boolean); reintroduce;
+    ForSelection: Boolean;
+    aOnlyFirstLevel: Boolean); reintroduce;
    class function MakePrim(const aTree: Il3ExpandedSimpleTree;
-     ForSelection: Boolean;
-     aOnlyFirstLevel: Boolean): IafwDocumentPreview; reintroduce;
-     {* Сигнатура фабрики TnsTreeMultiDocumentPreviewContainer.MakePrim }
+    ForSelection: Boolean;
+    aOnlyFirstLevel: Boolean): IafwDocumentPreview; reintroduce;
    class function Make(const aTree: Il3ExpandedSimpleTree;
-     ForSelection: Boolean;
-     aOnlyFirstLevel: Boolean): IafwDocumentPreview;
+    ForSelection: Boolean;
+    aOnlyFirstLevel: Boolean): IafwDocumentPreview;
  end;//TnsTreeMultiDocumentPreviewContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evMultiDocumentPreview,
-  bsUtils,
-  nsDocumentTools,
-  DataAdapter,
-  SysUtils,
-  bsTypes,
-  l3Nodes,
-  DocumentUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DynamicTreeUnit
+ , evMultiDocumentPreview
+ , bsUtils
+ , nsDocumentTools
+ , DataAdapter
+ , SysUtils
+ , bsTypes
+ , l3Nodes
+ , DocumentUnit
+;
 
 const
-   { Const }
-  cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
-
-// start class TnsTreeMultiDocumentPreviewContainer
+ cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
 
 constructor TnsTreeMultiDocumentPreviewContainer.Create(const aTree: Il3ExpandedSimpleTree;
-  ForSelection: Boolean;
-  aOnlyFirstLevel: Boolean);
+ ForSelection: Boolean;
+ aOnlyFirstLevel: Boolean);
 //#UC START# *4D4C073502C0_4892DA33009F_var*
 //#UC END# *4D4C073502C0_4892DA33009F_var*
 begin
@@ -146,8 +121,8 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.Create
 
 class function TnsTreeMultiDocumentPreviewContainer.MakePrim(const aTree: Il3ExpandedSimpleTree;
-  ForSelection: Boolean;
-  aOnlyFirstLevel: Boolean): IafwDocumentPreview;
+ ForSelection: Boolean;
+ aOnlyFirstLevel: Boolean): IafwDocumentPreview;
 var
  l_Inst : TnsTreeMultiDocumentPreviewContainer;
 begin
@@ -157,11 +132,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsTreeMultiDocumentPreviewContainer.MakePrim
 
 class function TnsTreeMultiDocumentPreviewContainer.Make(const aTree: Il3ExpandedSimpleTree;
-  ForSelection: Boolean;
-  aOnlyFirstLevel: Boolean): IafwDocumentPreview;
+ ForSelection: Boolean;
+ aOnlyFirstLevel: Boolean): IafwDocumentPreview;
 //#UC START# *4D4C0E3B0225_4892DA33009F_var*
 //#UC END# *4D4C0E3B0225_4892DA33009F_var*
 begin
@@ -174,6 +149,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.Make
 
 function TnsTreeMultiDocumentPreviewContainer.DocumentName: IafwCString;
+ {* имя документа для preview. }
 //#UC START# *473D8C450198_4892DA33009F_var*
 //#UC END# *473D8C450198_4892DA33009F_var*
 begin
@@ -183,6 +159,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.DocumentName
 
 function TnsTreeMultiDocumentPreviewContainer.InProcess: Boolean;
+ {* идет процесс? }
 //#UC START# *473D8C5C0187_4892DA33009F_var*
 //#UC END# *473D8C5C0187_4892DA33009F_var*
 begin
@@ -195,6 +172,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.InProcess
 
 function TnsTreeMultiDocumentPreviewContainer.InPagesCounting: Boolean;
+ {* сейчас в процессе подсчета страниц? }
 //#UC START# *473D8C6C0266_4892DA33009F_var*
 //#UC END# *473D8C6C0266_4892DA33009F_var*
 begin
@@ -207,6 +185,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.InPagesCounting
 
 function TnsTreeMultiDocumentPreviewContainer.InUpdate: Boolean;
+ {* находимся в процессе построения preview? }
 //#UC START# *473D8C7C01B5_4892DA33009F_var*
 //#UC END# *473D8C7C01B5_4892DA33009F_var*
 begin
@@ -219,6 +198,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.InUpdate
 
 function TnsTreeMultiDocumentPreviewContainer.InPrinting: Boolean;
+ {* находимся в процессе построения печати? }
 //#UC START# *473D8C90022C_4892DA33009F_var*
 //#UC END# *473D8C90022C_4892DA33009F_var*
 begin
@@ -231,6 +211,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.InPrinting
 
 procedure TnsTreeMultiDocumentPreviewContainer.Update(const aPanel: IafwPreviewPanel);
+ {* установить preview на панель для отображения. }
 //#UC START# *473D8CA002D9_4892DA33009F_var*
 //#UC END# *473D8CA002D9_4892DA33009F_var*
 begin
@@ -241,11 +222,12 @@ begin
 //#UC END# *473D8CA002D9_4892DA33009F_impl*
 end;//TnsTreeMultiDocumentPreviewContainer.Update
 
-procedure TnsTreeMultiDocumentPreviewContainer.Print(anInterval: TafwPagesInterval = afw_piAll;
-  const aRange: Il3RangeManager = nil;
-  aCopies: Integer = 1;
-  const aFileName: AnsiString = '';
-  aCollate: Boolean = True);
+procedure TnsTreeMultiDocumentPreviewContainer.Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+ const aRange: Il3RangeManager = nil;
+ aCopies: Integer = 1;
+ const aFileName: AnsiString = '';
+ aCollate: Boolean = True);
+ {* напечатать на принтер. }
 //#UC START# *473D8CAF028B_4892DA33009F_var*
 //#UC END# *473D8CAF028B_4892DA33009F_var*
 begin
@@ -257,6 +239,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.Print
 
 procedure TnsTreeMultiDocumentPreviewContainer.Stop(aWnd: THandle = 0);
+ {* остановит процесс построение preview/печати. }
 //#UC START# *473D8CE9007C_4892DA33009F_var*
 //#UC END# *473D8CE9007C_4892DA33009F_var*
 begin
@@ -267,6 +250,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.Stop
 
 function TnsTreeMultiDocumentPreviewContainer.Stopped: Boolean;
+ {* процесс остановлен? }
 //#UC START# *473D8CF80037_4892DA33009F_var*
 //#UC END# *473D8CF80037_4892DA33009F_var*
 begin
@@ -279,6 +263,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.Stopped
 
 function TnsTreeMultiDocumentPreviewContainer.CloseRequested: Boolean;
+ {* при остановке процесса был запрос на закрытие превью }
 //#UC START# *473D8D0A01D7_4892DA33009F_var*
 //#UC END# *473D8D0A01D7_4892DA33009F_var*
 begin
@@ -291,6 +276,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.CloseRequested
 
 function TnsTreeMultiDocumentPreviewContainer.PreviewResetting: Boolean;
+ {* канва отсутствует, но будет передалываться }
 //#UC START# *473D8D1E01B8_4892DA33009F_var*
 //#UC END# *473D8D1E01B8_4892DA33009F_var*
 begin
@@ -303,6 +289,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.PreviewResetting
 
 procedure TnsTreeMultiDocumentPreviewContainer.SetCurrentPage(const aCursor: IUnknown);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D3800B1_4892DA33009F_var*
 //#UC END# *473D8D3800B1_4892DA33009F_var*
 begin
@@ -312,6 +299,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.SetCurrentPage
 
 procedure TnsTreeMultiDocumentPreviewContainer.SetCurrentPagePara(aParaID: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D4A019D_4892DA33009F_var*
 //#UC END# *473D8D4A019D_4892DA33009F_var*
 begin
@@ -321,6 +309,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.SetCurrentPagePara
 
 procedure TnsTreeMultiDocumentPreviewContainer.SetCurrentPageNumber(aPageNumber: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D5D032B_4892DA33009F_var*
 //#UC END# *473D8D5D032B_4892DA33009F_var*
 begin
@@ -330,6 +319,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.SetCurrentPageNumber
 
 function TnsTreeMultiDocumentPreviewContainer.CurrentPage: Integer;
+ {* текущая страница для печати. }
 //#UC START# *473D8D72010F_4892DA33009F_var*
 //#UC END# *473D8D72010F_4892DA33009F_var*
 begin
@@ -339,6 +329,7 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.CurrentPage
 
 function TnsTreeMultiDocumentPreviewContainer.HasCurrentPage: Boolean;
+ {* установлена ли текущая страница. }
 //#UC START# *473D8D830163_4892DA33009F_var*
 //#UC END# *473D8D830163_4892DA33009F_var*
 begin
@@ -559,17 +550,11 @@ begin
 end;//TnsTreeMultiDocumentPreviewContainer.pm_GetPagesInfo
 
 procedure TnsTreeMultiDocumentPreviewContainer.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Preview := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Tree := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsTreeMultiDocumentPreviewContainer.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

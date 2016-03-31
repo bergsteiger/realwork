@@ -10,7 +10,6 @@
  _m3BaseStore_ = class(_m3BaseStore_Parent_, Im2StoreStat)
   private
    f_Access: Tm3StoreAccess;
-    {* Поле для свойства Access }
   protected
    function DoGetPosition: Int64; virtual;
    function DoGetSize: Int64; virtual;

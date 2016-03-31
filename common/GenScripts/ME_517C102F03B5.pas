@@ -32,14 +32,14 @@ implementation
 
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , Windows
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Themes
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}

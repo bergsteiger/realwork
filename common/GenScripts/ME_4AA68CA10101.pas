@@ -82,6 +82,7 @@ type
     aLinkType: TNavigatorMenuItemType): InsRubricatorState; reintroduce;
  end;//TnsRubricatorState
 
+ _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimRubricatorForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Правовой навигатор }
@@ -224,6 +225,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utRubricatorListLocalConstants }
  str_utRubricatorListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListCaption'; rValue : 'Правовой навигатор (линейное представление)');
@@ -692,7 +694,6 @@ begin
 //#UC END# *47A042E100E2_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRubricatorForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AA68CA10101_var*
@@ -766,9 +767,8 @@ begin
   OnMakeDocumentContainer := ExampleTextSourceMakeDocumentContainer;
 //#UC END# *4A8E8F2E0195_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimRubricatorForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4AA68CA10101_var*
 //#UC END# *543E3AA801D0_4AA68CA10101_var*
@@ -777,7 +777,7 @@ begin
  Result := nsTabIconIndex(titRubricator);
 //#UC END# *543E3AA801D0_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 initialization
  str_utRubricatorListCaption.Init;
@@ -788,6 +788,7 @@ initialization
  TtfwClassRef.Register(TPrimRubricatorForm);
  {* Регистрация PrimRubricator }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

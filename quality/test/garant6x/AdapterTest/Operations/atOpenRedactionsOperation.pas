@@ -1,38 +1,25 @@
 unit atOpenRedactionsOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOpenRedactionsOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatOpenRedactionsOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenRedactionsOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenRedactionsOperation" MUID: (48B560B601B8)
 
 interface
 
 uses
-  atOperationBase,
-  atLoadDocumentsByIDFromListOperation
-  ;
+ l3IntfUses
+ , atOperationBase
+ , atLoadDocumentsByIDFromListOperation
+;
 
 type
  TatOpenRedactionsOperation = class(TatOperationBase)
- private
- // private fields
-   f_LoadDocumentByIDFromListOperation : TatLoadDocumentsByIDFromListOperation;
- protected
- // realized methods
+  private
+   f_LoadDocumentByIDFromListOperation: TatLoadDocumentsByIDFromListOperation;
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ExecuteChilds; override;
  end;//TatOpenRedactionsOperation
@@ -40,13 +27,12 @@ type
 implementation
 
 uses
-  DocumentUnit,
-  atLogger,
-  atStringHelper,
-  SysUtils
-  ;
-
-// start class TatOpenRedactionsOperation
+ l3ImplUses
+ , DocumentUnit
+ , atLogger
+ , atStringHelper
+ , SysUtils
+;
 
 procedure TatOpenRedactionsOperation.ExecuteSelf;
 //#UC START# *48089F460352_48B560B601B8_var*
@@ -90,6 +76,7 @@ begin
 end;//TatOpenRedactionsOperation.ExecuteSelf
 
 procedure TatOpenRedactionsOperation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48B560B601B8_var*
 //#UC END# *479731C50290_48B560B601B8_var*
 begin

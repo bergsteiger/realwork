@@ -1,80 +1,68 @@
 unit ncsGetFilePartReply;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsGetFilePartReply.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsGetFilePartReply
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetFilePartReply.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetFilePartReply" MUID: (547583540319)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsGetFilePartReply = class(TncsReply)
- protected
- // property methods
+  protected
    function pm_GetIsSuccess: Boolean;
    procedure pm_SetIsSuccess(aValue: Boolean);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property IsSuccess: Boolean
-     read pm_GetIsSuccess
-     write pm_SetIsSuccess;
+    read pm_GetIsSuccess
+    write pm_SetIsSuccess;
  end;//TncsGetFilePartReply
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csGetFilePartReply_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsGetFilePartReply
+ l3ImplUses
+ , csGetFilePartReply_Const
+;
 
 function TncsGetFilePartReply.pm_GetIsSuccess: Boolean;
- {-}
+//#UC START# *B1CB2F60283B_547583540319get_var*
+//#UC END# *B1CB2F60283B_547583540319get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.BoolA[k2_attrIsSuccess]);
+//#UC START# *B1CB2F60283B_547583540319get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *B1CB2F60283B_547583540319get_impl*
 end;//TncsGetFilePartReply.pm_GetIsSuccess
 
 procedure TncsGetFilePartReply.pm_SetIsSuccess(aValue: Boolean);
- {-}
+//#UC START# *B1CB2F60283B_547583540319set_var*
+//#UC END# *B1CB2F60283B_547583540319set_var*
 begin
- TaggedData.BoolW[k2_attrIsSuccess, nil] := (aValue);
+//#UC START# *B1CB2F60283B_547583540319set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *B1CB2F60283B_547583540319set_impl*
 end;//TncsGetFilePartReply.pm_SetIsSuccess
 
 class function TncsGetFilePartReply.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_547583540319_var*
+//#UC END# *53AC03EE01FD_547583540319_var*
 begin
- Result := k2_typcsGetFilePartReply;
+//#UC START# *53AC03EE01FD_547583540319_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_547583540319_impl*
 end;//TncsGetFilePartReply.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

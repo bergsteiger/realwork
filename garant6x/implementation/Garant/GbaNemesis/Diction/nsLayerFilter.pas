@@ -1,54 +1,39 @@
 unit nsLayerFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/nsLayerFilter.pas"
-// Начат: 2007/03/23 14:18:10 
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction$Unit::TnsLayerFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLayerFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLayerFilter" MUID: (49020B8C03BE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3CacheableBase,
-  bsInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CacheableBase
+ , bsInterfaces
+ , DynamicTreeUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsLayerFilter = class(Tl3CacheableBase, InsLayerFilter)
- private
- // private fields
-   f_LayerID : TLayerId;
- protected
- // realized methods
+  private
+   f_LayerID: TLayerId;
+  protected
    function pm_GetLayerID: TLayerId;
- public
- // public methods
+  public
    constructor Create(aLayerID: TLayerId); reintroduce;
    class function Make(aLayerID: TLayerId): InsLayerFilter; reintroduce;
  end;//TnsLayerFilter
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsLayerFilter
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TnsLayerFilter.Create(aLayerID: TLayerId);
 //#UC START# *49020C630037_49020B8C03BE_var*
@@ -70,7 +55,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsLayerFilter.Make
 
 function TnsLayerFilter.pm_GetLayerID: TLayerId;
 //#UC START# *4902077E028F_49020B8C03BEget_var*
@@ -80,7 +65,6 @@ begin
  Result := f_LayerID;
 //#UC END# *4902077E028F_49020B8C03BEget_impl*
 end;//TnsLayerFilter.pm_GetLayerID
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

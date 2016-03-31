@@ -11,11 +11,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , PrimPrimListInterfaces
- , bsTypes
  , DynamicDocListUnit
- , l3TreeInterfaces
  , DynamicTreeUnit
+ , l3TreeInterfaces
+ , bsTypes
+ , PrimPrimListInterfaces
 ;
 
 type

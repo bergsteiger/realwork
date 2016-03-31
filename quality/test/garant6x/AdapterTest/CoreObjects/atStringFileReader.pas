@@ -1,52 +1,36 @@
 unit atStringFileReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringFileReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatStringFileReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringFileReader.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatStringFileReader" MUID: (502A45570012)
 
 interface
 
 uses
-  atBits,
-  atStringsFromFile,
-  atStringProvider
-  ;
+ l3IntfUses
+ , atStringProvider
+ , atBits
+ , atStringsFromFile
+;
 
 type
  TatStringFileReader = class(TatStringProvider)
- protected
- // realized methods
+  protected
+   f_StringsUsage: TatBits;
+   f_Strings: TatStringsFromFile;
+  public
+   constructor Create(const aFileName: AnsiString); reintroduce; virtual;
    function AcquireNext(out theString: AnsiString): Boolean; override;
    procedure Reset; override;
- public
- // overridden public methods
    destructor Destroy; override;
- protected
- // protected fields
-   f_StringsUsage : TatBits;
-   f_Strings : TatStringsFromFile;
- public
- // public methods
-   constructor Create(const aFileName: AnsiString); reintroduce; virtual;
  end;//TatStringFileReader
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatStringFileReader
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TatStringFileReader.Create(const aFileName: AnsiString);
 //#UC START# *502A457D0301_502A45570012_var*

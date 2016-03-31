@@ -1,60 +1,46 @@
 unit nsDocumentContextHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ContextHistory"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/rtl/Garant/ContextHistory/nsDocumentContextHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::ContextHistory::ContextHistory::TnsDocumentContextHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsDocumentContextHistory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentContextHistory" MUID: (4AD8466301A3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nsDocumentContextHistoryPrim,
-  ContextHistoryInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , nsDocumentContextHistoryPrim
+ , ContextHistoryInterfaces
+;
 
-{$If not defined(Admin)}
 type
  TnsDocumentContextHistory = class(TnsDocumentContextHistoryPrim)
- public
- // public methods
+  public
    class function Make: InsContextSearchHistory; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsDocumentContextHistory
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin)}
-
-// start class TnsDocumentContextHistory
-
-var g_TnsDocumentContextHistory : Pointer = nil;
+var g_TnsDocumentContextHistory: Pointer = nil;
+ {* Экземпляр синглетона TnsDocumentContextHistory }
 
 procedure TnsDocumentContextHistoryFree;
+ {* Метод освобождения экземпляра синглетона TnsDocumentContextHistory }
 begin
  IUnknown(g_TnsDocumentContextHistory) := nil;
-end;
-
+end;//TnsDocumentContextHistoryFree
 
 class function TnsDocumentContextHistory.Make: InsContextSearchHistory;
 begin
@@ -64,14 +50,13 @@ begin
   InsContextSearchHistory(g_TnsDocumentContextHistory) := inherited Make;
  end;
  Result := InsContextSearchHistory(g_TnsDocumentContextHistory);
-end;
+end;//TnsDocumentContextHistory.Make
 
 class function TnsDocumentContextHistory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsDocumentContextHistory <> nil;
 end;//TnsDocumentContextHistory.Exists
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

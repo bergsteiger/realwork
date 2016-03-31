@@ -1,66 +1,45 @@
 unit alcuExecutorWithIncomingTaskList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuExecutorWithIncomingTaskList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::CoreExecutors::TalcuExecutorWithIncomingTaskList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithIncomingTaskList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuExecutorWithIncomingTaskList" MUID: (54856E500154)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  l3ProtoObject
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTaskList
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(Nemesis)}
+ , ddServerTaskList
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuExecutorWithIncomingTaskList = class(Tl3ProtoObject)
- private
- // private fields
-   f_IncomingList : TddServerTaskList;
-    {* Поле для свойства IncomingList}
- protected
- // overridden protected methods
+  private
+   f_IncomingList: TddServerTaskList;
+    {* Поле для свойства IncomingList }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aList: TddServerTaskList); reintroduce;
- protected
- // protected properties
+  protected
    property IncomingList: TddServerTaskList
-     read f_IncomingList;
+    read f_IncomingList;
  end;//TalcuExecutorWithIncomingTaskList
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuExecutorWithIncomingTaskList
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TalcuExecutorWithIncomingTaskList.Create(aList: TddServerTaskList);
 //#UC START# *54856F0B019F_54856E500154_var*
@@ -73,6 +52,7 @@ begin
 end;//TalcuExecutorWithIncomingTaskList.Create
 
 procedure TalcuExecutorWithIncomingTaskList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54856E500154_var*
 //#UC END# *479731C50290_54856E500154_var*
 begin
@@ -81,7 +61,6 @@ begin
  inherited;
 //#UC END# *479731C50290_54856E500154_impl*
 end;//TalcuExecutorWithIncomingTaskList.Cleanup
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

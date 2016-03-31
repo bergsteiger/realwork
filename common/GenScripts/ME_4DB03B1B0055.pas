@@ -35,7 +35,6 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -48,6 +47,7 @@ uses
  , nsUtils
  , nsConst
  , bsTypesNew
+ , TestFrameWork
  , tfwScriptEngine
 ;
 

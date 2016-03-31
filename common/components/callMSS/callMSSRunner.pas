@@ -1,74 +1,53 @@
 unit callMSSRunner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/common/components/callMSS/callMSSRunner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::callMSS::TcallMSSRunner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\callMSS\callMSSRunner.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcallMSSRunner" MUID: (55C482EC023E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\callMSS\callMSS.inc}
+{$Include w:\common\components\callMSS\callMSS.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TcallMSSRunner = class
- public
- // public methods
+  public
    class procedure Run;
-     {* Сигнатура метода Run }
  end;//TcallMSSRunner
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  kwMain
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwDefaultScriptCaller
-  {$IfEnd} //not NoScripts
-  ,
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  tfwConsoleScriptCaller
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngine
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngineEX
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils,
-  l3FileUtils,
-  l3Base,
-  Windows,
-  StrUtils,
-  l3StringList
-  {$If not defined(NoScripts)}
-  ,
-  tfwOutToFileScriptCaller
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TcallMSSRunner
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , kwMain
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDefaultScriptCaller
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , tfwConsoleScriptCaller
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngine
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3FileUtils
+ , l3Base
+ , Windows
+ , StrUtils
+ , l3StringList
+ {$If NOT Defined(NoScripts)}
+ , tfwOutToFileScriptCaller
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 class procedure TcallMSSRunner.Run;
 //#UC START# *55C483850136_55C482EC023E_var*

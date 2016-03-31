@@ -1,57 +1,41 @@
 unit arSubImplementation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/arSubImplementation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocumentContainer::TarSubImplementation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\arSubImplementation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarSubImplementation" MUID: (535F5A0E0098)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  evSubImplementation,
-  nevBase
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , evSubImplementation
+ , nevBase
+;
 
-{$If defined(AppClientSide)}
 type
  TarSubImplementation = class(TevSubImplementation)
- protected
- // overridden protected methods
+  protected
    function DoGetFlags(aTag: Tl3Variant;
-     aFlag: LongInt): LongInt; override;
+    aFlag: LongInt): LongInt; override;
  end;//TarSubImplementation
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  dt_Const,
-  k2Tags,
-  l3Bits,
-  Block_Const
-  ;
-{$IfEnd} //AppClientSide
-
-{$If defined(AppClientSide)}
-
-// start class TarSubImplementation
+ l3ImplUses
+ , dt_Const
+ , k2Tags
+ , l3Bits
+ , Block_Const
+;
 
 function TarSubImplementation.DoGetFlags(aTag: Tl3Variant;
-  aFlag: LongInt): LongInt;
+ aFlag: LongInt): LongInt;
 //#UC START# *535F5A7D00BB_535F5A0E0098_var*
 var
  l_Tag    : Tl3Variant;
@@ -77,7 +61,6 @@ begin
   l3SetBit(Result, sfbitDocType);
 //#UC END# *535F5A7D00BB_535F5A0E0098_impl*
 end;//TarSubImplementation.DoGetFlags
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

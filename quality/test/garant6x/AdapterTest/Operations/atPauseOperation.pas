@@ -1,42 +1,30 @@
 unit atPauseOperation;
+ {* Приостанавливает выполнение до нажатия пользователем Enter }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atPauseOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatPauseOperation
-//
-// Приостанавливает выполнение до нажатия пользователем Enter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atPauseOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatPauseOperation" MUID: (4A5222F60224)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatPauseOperation = class(TatOperationBase)
   {* Приостанавливает выполнение до нажатия пользователем Enter }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
  end;//TatPauseOperation
 
 implementation
 
 uses
-  atLogger
-  ;
-
-// start class TatPauseOperation
+ l3ImplUses
+ , atLogger
+;
 
 procedure TatPauseOperation.ExecuteSelf;
 //#UC START# *48089F460352_4A5222F60224_var*

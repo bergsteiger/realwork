@@ -1,35 +1,23 @@
 unit csDictEditQueryPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csDictEditQueryPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsDictEditQueryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csDictEditQueryPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsDictEditQueryPrim" MUID: (53B27A6E01FC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsDictEditQueryPrim = class(TddProcessTask)
- protected
- // property methods
+  protected
    function pm_GetFamily: Integer;
    procedure pm_SetFamily(aValue: Integer);
    function pm_GetDictType: Integer;
@@ -42,134 +30,154 @@ type
    procedure pm_SetParentID(aValue: Integer);
    function pm_GetNextID: Integer;
    procedure pm_SetNextID(aValue: Integer);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property Family: Integer
-     read pm_GetFamily
-     write pm_SetFamily;
+    read pm_GetFamily
+    write pm_SetFamily;
    property DictType: Integer
-     read pm_GetDictType
-     write pm_SetDictType;
+    read pm_GetDictType
+    write pm_SetDictType;
    property Operation: Integer
-     read pm_GetOperation
-     write pm_SetOperation;
+    read pm_GetOperation
+    write pm_SetOperation;
    property ID: Integer
-     read pm_GetID
-     write pm_SetID;
+    read pm_GetID
+    write pm_SetID;
    property ParentID: Integer
-     read pm_GetParentID
-     write pm_SetParentID;
+    read pm_GetParentID
+    write pm_SetParentID;
    property NextID: Integer
-     read pm_GetNextID
-     write pm_SetNextID;
+    read pm_GetNextID
+    write pm_SetNextID;
  end;//TcsDictEditQueryPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  DictEditQuery_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsDictEditQueryPrim
+ l3ImplUses
+ , DictEditQuery_Const
+;
 
 function TcsDictEditQueryPrim.pm_GetFamily: Integer;
- {-}
+//#UC START# *75BC6533A630_53B27A6E01FCget_var*
+//#UC END# *75BC6533A630_53B27A6E01FCget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrFamily]);
+//#UC START# *75BC6533A630_53B27A6E01FCget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *75BC6533A630_53B27A6E01FCget_impl*
 end;//TcsDictEditQueryPrim.pm_GetFamily
 
 procedure TcsDictEditQueryPrim.pm_SetFamily(aValue: Integer);
- {-}
+//#UC START# *75BC6533A630_53B27A6E01FCset_var*
+//#UC END# *75BC6533A630_53B27A6E01FCset_var*
 begin
- TaggedData.IntW[k2_attrFamily, nil] := (aValue);
+//#UC START# *75BC6533A630_53B27A6E01FCset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *75BC6533A630_53B27A6E01FCset_impl*
 end;//TcsDictEditQueryPrim.pm_SetFamily
 
 function TcsDictEditQueryPrim.pm_GetDictType: Integer;
- {-}
+//#UC START# *E28DB204BDDA_53B27A6E01FCget_var*
+//#UC END# *E28DB204BDDA_53B27A6E01FCget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrDictType]);
+//#UC START# *E28DB204BDDA_53B27A6E01FCget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E28DB204BDDA_53B27A6E01FCget_impl*
 end;//TcsDictEditQueryPrim.pm_GetDictType
 
 procedure TcsDictEditQueryPrim.pm_SetDictType(aValue: Integer);
- {-}
+//#UC START# *E28DB204BDDA_53B27A6E01FCset_var*
+//#UC END# *E28DB204BDDA_53B27A6E01FCset_var*
 begin
- TaggedData.IntW[k2_attrDictType, nil] := (aValue);
+//#UC START# *E28DB204BDDA_53B27A6E01FCset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E28DB204BDDA_53B27A6E01FCset_impl*
 end;//TcsDictEditQueryPrim.pm_SetDictType
 
 function TcsDictEditQueryPrim.pm_GetOperation: Integer;
- {-}
+//#UC START# *E5B01D3DCF61_53B27A6E01FCget_var*
+//#UC END# *E5B01D3DCF61_53B27A6E01FCget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrOperation]);
+//#UC START# *E5B01D3DCF61_53B27A6E01FCget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E5B01D3DCF61_53B27A6E01FCget_impl*
 end;//TcsDictEditQueryPrim.pm_GetOperation
 
 procedure TcsDictEditQueryPrim.pm_SetOperation(aValue: Integer);
- {-}
+//#UC START# *E5B01D3DCF61_53B27A6E01FCset_var*
+//#UC END# *E5B01D3DCF61_53B27A6E01FCset_var*
 begin
- TaggedData.IntW[k2_attrOperation, nil] := (aValue);
+//#UC START# *E5B01D3DCF61_53B27A6E01FCset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E5B01D3DCF61_53B27A6E01FCset_impl*
 end;//TcsDictEditQueryPrim.pm_SetOperation
 
 function TcsDictEditQueryPrim.pm_GetID: Integer;
- {-}
+//#UC START# *57E8CBA42C3C_53B27A6E01FCget_var*
+//#UC END# *57E8CBA42C3C_53B27A6E01FCget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrID]);
+//#UC START# *57E8CBA42C3C_53B27A6E01FCget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E8CBA42C3C_53B27A6E01FCget_impl*
 end;//TcsDictEditQueryPrim.pm_GetID
 
 procedure TcsDictEditQueryPrim.pm_SetID(aValue: Integer);
- {-}
+//#UC START# *57E8CBA42C3C_53B27A6E01FCset_var*
+//#UC END# *57E8CBA42C3C_53B27A6E01FCset_var*
 begin
- TaggedData.IntW[k2_attrID, nil] := (aValue);
+//#UC START# *57E8CBA42C3C_53B27A6E01FCset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E8CBA42C3C_53B27A6E01FCset_impl*
 end;//TcsDictEditQueryPrim.pm_SetID
 
 function TcsDictEditQueryPrim.pm_GetParentID: Integer;
- {-}
+//#UC START# *2610F05DA82F_53B27A6E01FCget_var*
+//#UC END# *2610F05DA82F_53B27A6E01FCget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrParentID]);
+//#UC START# *2610F05DA82F_53B27A6E01FCget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *2610F05DA82F_53B27A6E01FCget_impl*
 end;//TcsDictEditQueryPrim.pm_GetParentID
 
 procedure TcsDictEditQueryPrim.pm_SetParentID(aValue: Integer);
- {-}
+//#UC START# *2610F05DA82F_53B27A6E01FCset_var*
+//#UC END# *2610F05DA82F_53B27A6E01FCset_var*
 begin
- TaggedData.IntW[k2_attrParentID, nil] := (aValue);
+//#UC START# *2610F05DA82F_53B27A6E01FCset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *2610F05DA82F_53B27A6E01FCset_impl*
 end;//TcsDictEditQueryPrim.pm_SetParentID
 
 function TcsDictEditQueryPrim.pm_GetNextID: Integer;
- {-}
+//#UC START# *F8482228B27F_53B27A6E01FCget_var*
+//#UC END# *F8482228B27F_53B27A6E01FCget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrNextID]);
+//#UC START# *F8482228B27F_53B27A6E01FCget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F8482228B27F_53B27A6E01FCget_impl*
 end;//TcsDictEditQueryPrim.pm_GetNextID
 
 procedure TcsDictEditQueryPrim.pm_SetNextID(aValue: Integer);
- {-}
+//#UC START# *F8482228B27F_53B27A6E01FCset_var*
+//#UC END# *F8482228B27F_53B27A6E01FCset_var*
 begin
- TaggedData.IntW[k2_attrNextID, nil] := (aValue);
+//#UC START# *F8482228B27F_53B27A6E01FCset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F8482228B27F_53B27A6E01FCset_impl*
 end;//TcsDictEditQueryPrim.pm_SetNextID
 
 class function TcsDictEditQueryPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B27A6E01FC_var*
+//#UC END# *53AC03EE01FD_53B27A6E01FC_var*
 begin
- Result := k2_typDictEditQuery;
+//#UC START# *53AC03EE01FD_53B27A6E01FC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B27A6E01FC_impl*
 end;//TcsDictEditQueryPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

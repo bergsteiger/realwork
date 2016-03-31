@@ -1,61 +1,61 @@
 unit vcmInsiderTest;
+ {* Базовый тест запускающийся "внутри" тестируемого приложения }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/vcmInsiderTest.pas"
-// Начат: 20.04.2011 16:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnitTuning::VCM_TFW::TvcmInsiderTest
-//
-// Базовый тест запускающийся "внутри" тестируемого приложения
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\vcmInsiderTest.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmInsiderTest" MUID: (4DAECE5D0060)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  BaseTest,
-  tfwScriptingInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //nsTest AND not NoScripts AND not NotTunedDUnit
+ l3IntfUses
+ , BaseTest
+ , tfwScriptingInterfaces
+ , l3Filer
+ , l3Interfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
 type
  _Scripter_Parent_ = TBaseTest;
  {$Include w:\common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas}
  TvcmInsiderTest = {abstract} class(_Scripter_, ItfwScriptCaller)
   {* Базовый тест запускающийся "внутри" тестируемого приложения }
- private
- // private fields
-   f_Output : Tl3CustomDosFiler;
-   f_DontRaiseIfEtalonCreated : Boolean;
- protected
- // realized methods
+  private
+   f_Output: Tl3CustomDosFiler;
+   f_DontRaiseIfEtalonCreated: Boolean;
+  protected
+   procedure OwnScriptFromFile;
+    {* Запускает "собственный" тест из файла }
+   procedure CheckOutputFiler(aWasException: Boolean);
+   function GetScriptName: AnsiString; virtual;
    function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
    function ResolveOutputFilePath(const aFile: AnsiString): AnsiString;
    function ResolveInputFilePath(const aFile: AnsiString): AnsiString;
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
- public
- // realized methods
+   procedure Cleanup; override;
+   procedure InitFields; override;
+   function EtalonNeedsComputerName: Boolean; override;
+   function RaiseIfEtalonCreated: Boolean; override;
+   function ResolveScriptFilePath(const aFileName: AnsiString): AnsiString; override;
+   {$If Defined(XE)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE)
+   function EtalonNeedsOSName: Boolean; override;
+   function EtalonNeeds64: Boolean; override;
+  public
+   class function DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+   class function DoResolveOutputFilePath(const aFile: AnsiString): AnsiString;
+   class function DoResolveInputFilePath(const aFile: AnsiString): AnsiString;
    procedure Check(aCondition: Boolean;
     const aMessage: AnsiString = '');
-     {* Проверяет инвариант }
-   procedure Print(const aStr: Tl3WString); overload; 
-   procedure Print(const aStr: Il3CString); overload; 
+    {* Проверяет инвариант }
+   procedure Print(const aStr: Tl3WString); overload;
+   procedure Print(const aStr: Il3CString); overload;
    procedure CheckPrintEtalon(const aLogName: AnsiString;
     const aOutputName: AnsiString);
    function ShouldStop: Boolean;
@@ -64,81 +64,48 @@ type
    function StartTimer: Longword;
    function StopTimer(const aSt: AnsiString = '';
     const aSubName: AnsiString = '';
-    aNeedTimeToLog: Boolean = true): Longword;
+    aNeedTimeToLog: Boolean = True): Longword;
    function GetIsWritingToK: Boolean;
    function GetIsFakeCVS: Boolean;
    function GetCVSPath: AnsiString;
    procedure DontRaiseIfEtalonCreated;
    procedure TimeToLog(aTime: Cardinal;
-     const aSt: AnsiString;
-     const aSubName: AnsiString);
+    const aSt: AnsiString;
+    const aSubName: AnsiString);
    function GetTestSetFolderName: AnsiString;
    function GetEtalonSuffix: AnsiString;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-   procedure InitFields; override;
-   function EtalonNeedsComputerName: Boolean; override;
-   function RaiseIfEtalonCreated: Boolean; override;
-   function ResolveScriptFilePath(const aFileName: AnsiString): AnsiString; override;
-    {$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-    {$IfEnd} //XE AND nsTest AND not NotTunedDUnit
-   function EtalonNeedsOSName: Boolean; override;
-   function EtalonNeeds64: Boolean; override;
- public
- // overridden public methods
    function AlwaysShowAFC: Boolean; override;
-     {* Всегда показывать сравнивалку файлов, когда не пишем в К }
- protected
- // protected methods
-   procedure OwnScriptFromFile;
-     {* Запускает "собственный" тест из файла }
-   procedure CheckOutputFiler(aWasException: Boolean);
-   function GetScriptName: AnsiString; virtual;
- public
- // public methods
-   class function DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
-   class function DoResolveOutputFilePath(const aFile: AnsiString): AnsiString;
-   class function DoResolveInputFilePath(const aFile: AnsiString): AnsiString;
+    {* Всегда показывать сравнивалку файлов, когда не пишем в К }
  end;//TvcmInsiderTest
-{$IfEnd} //nsTest AND not NoScripts AND not NotTunedDUnit
 
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
-var
-   g_CompileOnly : Boolean = false;
-  {$IfEnd} //nsTest AND not NoScripts AND not NotTunedDUnit
+var g_CompileOnly: Boolean = False;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3String,
-  KTestRunner
-  {$If defined(InsiderTest) AND not defined(NoScripts)}
-  ,
-  kwPrintDataSaver
-  {$IfEnd} //InsiderTest AND not NoScripts
-  ,
-  TestFrameWork,
-  StrUtils,
-  l3EtalonsService,
-  l3_String,
-  l3Chars,
-  tfwScriptEngine
-  ;
-{$IfEnd} //nsTest AND not NoScripts AND not NotTunedDUnit
-
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , KTestRunner
+ {$If Defined(InsiderTest)}
+ , kwPrintDataSaver
+ {$IfEnd} // Defined(InsiderTest)
+ , TestFrameWork
+ , StrUtils
+ , l3EtalonsService
+ , l3_String
+ , l3Chars
+ , tfwScriptEngine
+;
 
 type _Instance_R_ = TvcmInsiderTest;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas}
 
-// start class TvcmInsiderTest
-
 procedure TvcmInsiderTest.OwnScriptFromFile;
+ {* Запускает "собственный" тест из файла }
 //#UC START# *4DB0333103BF_4DAECE5D0060_var*
 //#UC END# *4DB0333103BF_4DAECE5D0060_var*
 begin
@@ -271,7 +238,8 @@ begin
 end;//TvcmInsiderTest.GetScriptName
 
 procedure TvcmInsiderTest.Check(aCondition: Boolean;
-  const aMessage: AnsiString = '');
+ const aMessage: AnsiString = '');
+ {* Проверяет инвариант }
 //#UC START# *4DAF1A280116_4DAECE5D0060_var*
 //#UC END# *4DAF1A280116_4DAECE5D0060_var*
 begin
@@ -345,7 +313,7 @@ begin
 end;//TvcmInsiderTest.ResolveInputFilePath
 
 procedure TvcmInsiderTest.CheckPrintEtalon(const aLogName: AnsiString;
-  const aOutputName: AnsiString);
+ const aOutputName: AnsiString);
 //#UC START# *4F0D7AC900FA_4DAECE5D0060_var*
 var
  l_N : String;
@@ -391,7 +359,7 @@ begin
 end;//TvcmInsiderTest.ShouldStop
 
 procedure TvcmInsiderTest.CheckTimeout(aNow: Cardinal;
-  aTimeout: Cardinal);
+ aTimeout: Cardinal);
 //#UC START# *4F0D8C360085_4DAECE5D0060_var*
 //#UC END# *4F0D8C360085_4DAECE5D0060_var*
 begin
@@ -410,8 +378,8 @@ begin
 end;//TvcmInsiderTest.StartTimer
 
 function TvcmInsiderTest.StopTimer(const aSt: AnsiString = '';
-  const aSubName: AnsiString = '';
-  aNeedTimeToLog: Boolean = true): Longword;
+ const aSubName: AnsiString = '';
+ aNeedTimeToLog: Boolean = True): Longword;
 //#UC START# *4F0D8CB0015D_4DAECE5D0060_var*
 //#UC END# *4F0D8CB0015D_4DAECE5D0060_var*
 begin
@@ -475,8 +443,8 @@ begin
 end;//TvcmInsiderTest.DontRaiseIfEtalonCreated
 
 procedure TvcmInsiderTest.TimeToLog(aTime: Cardinal;
-  const aSt: AnsiString;
-  const aSubName: AnsiString);
+ const aSt: AnsiString;
+ const aSubName: AnsiString);
 //#UC START# *511BC7C60063_4DAECE5D0060_var*
 //#UC END# *511BC7C60063_4DAECE5D0060_var*
 begin
@@ -566,6 +534,7 @@ begin
 end;//TvcmInsiderTest.ResolveScriptFilePath
 
 function TvcmInsiderTest.AlwaysShowAFC: Boolean;
+ {* Всегда показывать сравнивалку файлов, когда не пишем в К }
 //#UC START# *4F5F28EB0242_4DAECE5D0060_var*
 //#UC END# *4F5F28EB0242_4DAECE5D0060_var*
 begin
@@ -574,7 +543,7 @@ begin
 //#UC END# *4F5F28EB0242_4DAECE5D0060_impl*
 end;//TvcmInsiderTest.AlwaysShowAFC
 
-{$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(XE)}
 function TvcmInsiderTest.EtalonNeedsXE: Boolean;
 //#UC START# *51AF49E5001B_4DAECE5D0060_var*
 //#UC END# *51AF49E5001B_4DAECE5D0060_var*
@@ -583,7 +552,7 @@ begin
  Result := Tl3EtalonsService.Instance.EtalonNeedsXE;
 //#UC END# *51AF49E5001B_4DAECE5D0060_impl*
 end;//TvcmInsiderTest.EtalonNeedsXE
-{$IfEnd} //XE AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(XE)
 
 function TvcmInsiderTest.EtalonNeedsOSName: Boolean;
 //#UC START# *51AF4A1C036E_4DAECE5D0060_var*
@@ -602,7 +571,6 @@ begin
  Result := Tl3EtalonsService.Instance.EtalonNeeds64;
 //#UC END# *51B0AF8E0378_4DAECE5D0060_impl*
 end;//TvcmInsiderTest.EtalonNeeds64
-
-{$IfEnd} //nsTest AND not NoScripts AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 
 end.

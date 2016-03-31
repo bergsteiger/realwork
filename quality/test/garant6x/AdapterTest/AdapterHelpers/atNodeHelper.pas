@@ -1,44 +1,33 @@
 unit atNodeHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atNodeHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatNodeHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atNodeHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNodeHelper" MUID: (48078D230277)
 
 interface
 
 uses
-  BaseTreeSupportUnit,
-  FoldersUnit,
-  DynamicTreeUnit,
-  DynamicTreeDefinesUnit,
-  atStringToStringConverterBase
-  ;
+ l3IntfUses
+ , DynamicTreeUnit
+ , DynamicTreeDefinesUnit
+ , BaseTreeSupportUnit
+ , FoldersUnit
+ , atStringToStringConverterBase
+;
 
 type
- TatNodeCallBackProcOfObj = procedure (const node: INodeBase) of object;
+ TatNodeCallBackProcOfObj = procedure(const node: INodeBase) of object;
 
  TatNodeCallbacks = class
- public
- // public methods
+  public
    class procedure CallNodeCaption(const node: INodeBase); virtual;
  end;//TatNodeCallbacks
 
- TatNodeMatchFuncOfObj = function (const aNode: INodeBase;
+ TatNodeMatchFuncOfObj = function(const aNode: INodeBase;
   const aParam: Variant): Boolean of object;
 
  TatNodeMatchFuncs = class
- public
- // public methods
+  public
    class function MatchByCaption(const aNode: INodeBase;
     const aCaption: Variant): Boolean; virtual;
    class function MatchByCaptionCI(const aNode: INodeBase;
@@ -47,33 +36,27 @@ type
 
  TatTreeTagConverter = class(TatStringToStringConverterBase)
   {* конвертация между адаптерныи именем дерева  и тем как оно пишется в логе сервера }
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatTreeTagConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatTreeTagConverter }
  end;//TatTreeTagConverter
 
  TatNodeHelper = class
- private
- // private methods
+  private
    class procedure LoadNodesPriv(const rootNode: INodeBase;
     const level: Word;
     var count: Longword;
     nodeCallBack: TatNodeCallBackProcOfObj);
- public
- // public methods
+  public
    class function LoadNodesThrough(const rootNode: INodeBase;
     nodeFlag: TFlagMask;
     nodesCount: Integer;
     NodeCallBack: TatNodeCallBackProcOfObj = nil): Boolean;
-   class function GetCaption(const aNode: INode): AnsiString; overload;  virtual;
+   class function GetCaption(const aNode: INode): AnsiString; overload; virtual;
    class procedure LoadNodes(const rootNode: INodeBase;
     const level: Word = 0;
     count: Longword = 4294967295;
@@ -81,37 +64,45 @@ type
    class function FindNodeByPath(const aRoot: INodeBase;
     const aPath: array of Variant;
     aMatchFunc: TatNodeMatchFuncOfObj;
-    const isExcludeRoot: Boolean = false): INodeBase; overload;  virtual;
+    const isExcludeRoot: Boolean = False): INodeBase; overload; virtual;
    class function CountNodes(const rootNode: INodeBase): Integer;
    class function FindNode(const aNode: INodeBase;
     const aValue: Variant;
     aMatchFunc: TatNodeMatchFuncOfObj): INodeBase; virtual;
-   class function GetCaption(const aNode: INodeBase): AnsiString; overload;  virtual;
-   class function GetCaption(const aNode: IFoldersNode): AnsiString; overload; 
+   class function GetCaption(const aNode: INodeBase): AnsiString; overload; virtual;
+   class function GetCaption(const aNode: IFoldersNode): AnsiString; overload;
    class function FindNodeByPath(const aRoot: INodeBase;
     const aPath: AnsiString;
     const aPathDelimiter: AnsiChar = '\';
-    const isCaseInsensitive: Boolean = false;
-    const isExcludeRoot: Boolean = false): INodeBase; overload; 
+    const isCaseInsensitive: Boolean = False;
+    const isExcludeRoot: Boolean = False): INodeBase; overload;
    class function GetPath(const aNode: INodeBase;
     const aPathDelimiter: AnsiString = '\';
-    const isExcludeRoot: Boolean = false): AnsiString;
-     {* Возвращает текстовый путь (по Caption'ам) к ноде }
+    const isExcludeRoot: Boolean = False): AnsiString;
+    {* Возвращает текстовый путь (по Caption'ам) к ноде }
    class function GetNext(const aNode: INodeBase): INodeBase;
  end;//TatNodeHelper
 
 implementation
 
 uses
-  Variants,
-  SysUtils,
-  Classes,
-  l3Base {a},
-  IOUnit,
-  atDocumentHelper
-  ;
+ l3ImplUses
+ , IOUnit
+ , atDocumentHelper
+ , Variants
+ , SysUtils
+ , Classes
+ , l3Base
+;
 
-// start class TatNodeCallbacks
+var g_TatTreeTagConverter: TatTreeTagConverter = nil;
+ {* Экземпляр синглетона TatTreeTagConverter }
+
+procedure TatTreeTagConverterFree;
+ {* Метод освобождения экземпляра синглетона TatTreeTagConverter }
+begin
+ l3Free(g_TatTreeTagConverter);
+end;//TatTreeTagConverterFree
 
 class procedure TatNodeCallbacks.CallNodeCaption(const node: INodeBase);
 //#UC START# *4A4DEF3101A3_4A4DEF1D0195_var*
@@ -124,10 +115,9 @@ begin
   if str <> nil then str.GetData;
 //#UC END# *4A4DEF3101A3_4A4DEF1D0195_impl*
 end;//TatNodeCallbacks.CallNodeCaption
-// start class TatNodeMatchFuncs
 
 class function TatNodeMatchFuncs.MatchByCaption(const aNode: INodeBase;
-  const aCaption: Variant): Boolean;
+ const aCaption: Variant): Boolean;
 //#UC START# *4B90F22700A3_4B90F1F501DD_var*
   var
     l_String : IString;
@@ -141,7 +131,7 @@ begin
 end;//TatNodeMatchFuncs.MatchByCaption
 
 class function TatNodeMatchFuncs.MatchByCaptionCI(const aNode: INodeBase;
-  const aCaption: Variant): Boolean;
+ const aCaption: Variant): Boolean;
 //#UC START# *50046733037B_4B90F1F501DD_var*
   var
     l_String : IString;
@@ -154,28 +144,8 @@ begin
 //#UC END# *50046733037B_4B90F1F501DD_impl*
 end;//TatNodeMatchFuncs.MatchByCaptionCI
 
-// start class TatTreeTagConverter
-
-var g_TatTreeTagConverter : TatTreeTagConverter = nil;
-
-procedure TatTreeTagConverterFree;
-begin
- l3Free(g_TatTreeTagConverter);
-end;
-
-class function TatTreeTagConverter.Instance: TatTreeTagConverter;
-begin
- if (g_TatTreeTagConverter = nil) then
- begin
-  l3System.AddExitProc(TatTreeTagConverterFree);
-  g_TatTreeTagConverter := Create;
- end;
- Result := g_TatTreeTagConverter;
-end;
-
-
 class function TatTreeTagConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatTreeTagConverter <> nil;
 end;//TatTreeTagConverter.Exists
@@ -237,10 +207,21 @@ begin
 //#UC END# *503E3A040395_503F7E3800E2_impl*
 end;//TatTreeTagConverter.InitConvertMap
 
+class function TatTreeTagConverter.Instance: TatTreeTagConverter;
+ {* Метод получения экземпляра синглетона TatTreeTagConverter }
+begin
+ if (g_TatTreeTagConverter = nil) then
+ begin
+  l3System.AddExitProc(TatTreeTagConverterFree);
+  g_TatTreeTagConverter := Create;
+ end;
+ Result := g_TatTreeTagConverter;
+end;//TatTreeTagConverter.Instance
+
 class procedure TatNodeHelper.LoadNodesPriv(const rootNode: INodeBase;
-  const level: Word;
-  var count: Longword;
-  nodeCallBack: TatNodeCallBackProcOfObj);
+ const level: Word;
+ var count: Longword;
+ nodeCallBack: TatNodeCallBackProcOfObj);
 //#UC START# *48078DCF011F_48078D230277_var*
     var
       currNode, tempNode, firstChild : INodeBase;
@@ -274,9 +255,9 @@ begin
 end;//TatNodeHelper.LoadNodesPriv
 
 class function TatNodeHelper.LoadNodesThrough(const rootNode: INodeBase;
-  nodeFlag: TFlagMask;
-  nodesCount: Integer;
-  NodeCallBack: TatNodeCallBackProcOfObj = nil): Boolean;
+ nodeFlag: TFlagMask;
+ nodesCount: Integer;
+ NodeCallBack: TatNodeCallBackProcOfObj = nil): Boolean;
 //#UC START# *48078DFD028F_48078D230277_var*
     const
       FUNCTION_NAME = 'TatNodeHelper.LoadNodes';
@@ -328,9 +309,9 @@ begin
 end;//TatNodeHelper.GetCaption
 
 class procedure TatNodeHelper.LoadNodes(const rootNode: INodeBase;
-  const level: Word = 0;
-  count: Longword = 4294967295;
-  nodeCallBack: TatNodeCallBackProcOfObj = nil);
+ const level: Word = 0;
+ count: Longword = 4294967295;
+ nodeCallBack: TatNodeCallBackProcOfObj = nil);
 //#UC START# *4A4DE37502ED_48078D230277_var*
 //#UC END# *4A4DE37502ED_48078D230277_var*
 begin
@@ -340,9 +321,9 @@ begin
 end;//TatNodeHelper.LoadNodes
 
 class function TatNodeHelper.FindNodeByPath(const aRoot: INodeBase;
-  const aPath: array of Variant;
-  aMatchFunc: TatNodeMatchFuncOfObj;
-  const isExcludeRoot: Boolean = false): INodeBase;
+ const aPath: array of Variant;
+ aMatchFunc: TatNodeMatchFuncOfObj;
+ const isExcludeRoot: Boolean = False): INodeBase;
 //#UC START# *4B90F261015F_48078D230277_var*
   var
     l_CurrNode, l_TmpNode : INodeBase;
@@ -432,8 +413,8 @@ begin
 end;//TatNodeHelper.CountNodes
 
 class function TatNodeHelper.FindNode(const aNode: INodeBase;
-  const aValue: Variant;
-  aMatchFunc: TatNodeMatchFuncOfObj): INodeBase;
+ const aValue: Variant;
+ aMatchFunc: TatNodeMatchFuncOfObj): INodeBase;
 //#UC START# *4BAB7D76024F_48078D230277_var*
   var
     l_CurrNode, l_NextNode : INodeBase;
@@ -498,10 +479,10 @@ begin
 end;//TatNodeHelper.GetCaption
 
 class function TatNodeHelper.FindNodeByPath(const aRoot: INodeBase;
-  const aPath: AnsiString;
-  const aPathDelimiter: AnsiChar = '\';
-  const isCaseInsensitive: Boolean = false;
-  const isExcludeRoot: Boolean = false): INodeBase;
+ const aPath: AnsiString;
+ const aPathDelimiter: AnsiChar = '\';
+ const isCaseInsensitive: Boolean = False;
+ const isExcludeRoot: Boolean = False): INodeBase;
 //#UC START# *500466E70257_48078D230277_var*
   var
     l_Path : array of Variant;
@@ -532,8 +513,9 @@ begin
 end;//TatNodeHelper.FindNodeByPath
 
 class function TatNodeHelper.GetPath(const aNode: INodeBase;
-  const aPathDelimiter: AnsiString = '\';
-  const isExcludeRoot: Boolean = false): AnsiString;
+ const aPathDelimiter: AnsiString = '\';
+ const isExcludeRoot: Boolean = False): AnsiString;
+ {* Возвращает текстовый путь (по Caption'ам) к ноде }
 //#UC START# *50056589021B_48078D230277_var*
   var
     l_CurrentNode, l_ParentNode : INodeBase;

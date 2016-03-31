@@ -1,106 +1,82 @@
 unit nsAutoreferatDocumentContainer;
+ {* Контейнер документа для автореферата }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Autoreferat"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Autoreferat/nsAutoreferatDocumentContainer.pas"
-// Начат: 19.11.2010 18:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::Autoreferat::Autoreferat::Autoreferat::TnsAutoreferatDocumentContainer
-//
-// Контейнер документа для автореферата
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAutoreferatDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAutoreferatDocumentContainer" MUID: (4CE6937D031D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  eeDocumentContainer
-  {$IfEnd} //Nemesis
-  ,
-  DocumentUnit,
-  nevTools,
-  DocumentInterfaces,
-  F1TagDataProviderInterface,
-  afwInterfaces,
-  l3Interfaces,
-  nevBase,
-  l3Variant,
-  k2Base,
-  nevPrintableDocumentContainer,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , eeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ , l3Variant
+ , F1TagDataProviderInterface
+ , DocumentInterfaces
+ , DocumentUnit
+ , nevTools
+ , afwInterfaces
+ , nevPrintableDocumentContainer
+ , l3IID
+ , nevBase
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsAutoreferatDocumentContainer = class(_nsDocumentContainer_)
   {* Контейнер документа для автореферата }
- protected
- // overridden protected methods
+  protected
    function GetDocument: Tl3Tag; override;
  end;//TnsAutoreferatDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Document_Const,
-  nsF1DocumentTagNode,
-  DataAdapter,
-  nsConst,
-  k2Tags,
-  k2DocumentBuffer,
-  evdNativeReader,
-  ComObj,
-  ActiveX,
-  evdVer,
-  LeafPara_Const,
-  ParaList_Const,
-  TextPara_Const,
-  l3Defaults,
-  BaseTypesUnit,
-  nsAnnotationHeaderTagNode,
-  nsF1AutoreferatDocumentTagNode,
-  SysUtils,
-  nsIDocumentDataObject,
-  nsDocumentPreview,
-  nsHAFPainter,
-  LoggingInterfaces,
-  nsDocumentPrintEvent,
-  deDocInfo,
-  evdTypes,
-  nsTypes,
-  nsTagString
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Document_Const
+ , nsF1DocumentTagNode
+ , DataAdapter
+ , nsConst
+ , k2Tags
+ , k2DocumentBuffer
+ , evdNativeReader
+ , ComObj
+ , ActiveX
+ , evdVer
+ , LeafPara_Const
+ , ParaList_Const
+ , TextPara_Const
+ , l3Defaults
+ , BaseTypesUnit
+ , nsAnnotationHeaderTagNode
+ , nsF1AutoreferatDocumentTagNode
+ , SysUtils
+ , nsIDocumentDataObject
+ , nsDocumentPreview
+ , nsHAFPainter
+ , LoggingInterfaces
+ , nsDocumentPrintEvent
+ , deDocInfo
+ , evdTypes
+ , nsTypes
+ , nsTagString
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , afwFacade
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
-
-// start class TnsAutoreferatDocumentContainer
 
 function TnsAutoreferatDocumentContainer.GetDocument: Tl3Tag;
 //#UC START# *47F27DA80172_4CE6937D031D_var*
@@ -221,7 +197,7 @@ begin
  end;//Result = nil
 //#UC END# *47F27DA80172_4CE6937D031D_impl*
 end;//TnsAutoreferatDocumentContainer.GetDocument
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

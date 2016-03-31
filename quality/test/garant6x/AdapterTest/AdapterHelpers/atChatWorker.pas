@@ -1,253 +1,139 @@
 unit atChatWorker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atChatWorker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatChatWorker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atChatWorker.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatChatWorker" MUID: (4B683B57028D)
 
 interface
 
 uses
-  BaseTypesUnit,
-  NotifyUnit,
-  SysUtils,
-  l3_Base,
-  Classes,
-  SyncObjs,
-  ChatInterfacesUnit,
-  atUserListHelper
-  ;
+ l3IntfUses
+ , l3_Base
+ , atUserListHelper
+ , ChatInterfacesUnit
+ , Classes
+ , SyncObjs
+ , BaseTypesUnit
+ , NotifyUnit
+;
 
 type
  TatChatConversation = class(Tl3_Base)
- private
- // private fields
-   f_HasNewMessages : Boolean;
-   f_NewMessageCS : TCriticalSection;
-   f_UserID : TUid;
-    {* Поле для свойства UserID}
-   f_MessagesReceived : Integer;
-    {* Поле для свойства MessagesReceived}
-   f_MessagesSent : Integer;
-    {* Поле для свойства MessagesSent}
-   f_MessagesManager : IMessagesManager;
-    {* Поле для свойства MessagesManager}
- private
- // private methods
+  private
+   f_HasNewMessages: Boolean;
+   f_NewMessageCS: TCriticalSection;
+   f_UserID: TUid;
+    {* Поле для свойства UserID }
+   f_MessagesReceived: Integer;
+    {* Поле для свойства MessagesReceived }
+   f_MessagesSent: Integer;
+    {* Поле для свойства MessagesSent }
+   f_MessagesManager: IMessagesManager;
+    {* Поле для свойства MessagesManager }
+  private
    procedure OnNewMessageReceived; virtual;
    constructor Create(anUserID: TUid); reintroduce;
    procedure ReadMessage(const aMessage: TMessage); virtual;
    procedure ReadMessages(const aMessages: IMessages); virtual;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure SendMessage(const aMessage: AnsiString); virtual;
    procedure ProcessNewMessages; virtual;
- protected
- // protected properties
+  protected
    property MessagesManager: IMessagesManager
-     read f_MessagesManager;
- public
- // public properties
+    read f_MessagesManager;
+  public
    property UserID: TUid
-     read f_UserID;
+    read f_UserID;
    property MessagesReceived: Integer
-     read f_MessagesReceived;
+    read f_MessagesReceived;
    property MessagesSent: Integer
-     read f_MessagesSent;
+    read f_MessagesSent;
  end;//TatChatConversation
 
- TatChatListenerFireFunction = procedure (const aNotification: INotification) of object;
+ TatChatListenerFireFunction = procedure(const aNotification: INotification) of object;
 
  IatChatListener = interface(IListener)
-   ['{5E6FDA1E-7A85-47AA-BA86-52ADA5B0BC69}']
-   procedure Attach(aFunction: TatChatListenerFireFunction);
-   procedure Detach;
+  ['{5E6FDA1E-7A85-47AA-BA86-52ADA5B0BC69}']
+  procedure Attach(aFunction: TatChatListenerFireFunction);
+  procedure Detach;
  end;//IatChatListener
 
  TatChatWorker = class(Tl3_Base)
- private
- // private fields
-   f_Conversations : TStringList;
-   f_ChatListener : IatChatListener;
-   f_UidsWithUnreadedMessages : TStringList;
-   f_UWUMCS : TCriticalSection;
-   f_NotifyCS : TCriticalSection;
-   f_ChatManager : IChatManager;
-    {* Поле для свойства ChatManager}
- private
- // private methods
+  private
+   f_Conversations: TStringList;
+   f_ChatListener: IatChatListener;
+   f_UidsWithUnreadedMessages: TStringList;
+   f_UWUMCS: TCriticalSection;
+   f_NotifyCS: TCriticalSection;
+   f_ChatManager: IChatManager;
+    {* Поле для свойства ChatManager }
+  private
    procedure OnChatNotification(const aNotification: INotification); virtual;
- protected
- // property methods
+  protected
    function pm_GetConversationsCount: Integer;
    function pm_GetUIDsWithUnreadedMessages: TatArrayOfUID;
    function pm_GetConversationByIndex(anIndex: Integer): TatChatConversation; virtual;
    function pm_GetConversationByUID(anUID: TUid): TatChatConversation; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
    function StartConversation(anUserID: TUid): Boolean; virtual;
    procedure FinishConversation(anUserID: TUid); virtual;
-   function GetContactListUIDs(isActiveOnly: Boolean = false;
-    isAdapterTestsOnly: Boolean = false): TatArrayOfUID; virtual;
+   function GetContactListUIDs(isActiveOnly: Boolean = False;
+    isAdapterTestsOnly: Boolean = False): TatArrayOfUID; virtual;
    procedure AddUser(anUserID: TUid); virtual;
    procedure DeleteUser(anUserID: TUid); virtual;
- protected
- // protected properties
+  protected
    property ChatManager: IChatManager
-     read f_ChatManager;
- public
- // public properties
+    read f_ChatManager;
+  public
    property ConversationsCount: Integer
-     read pm_GetConversationsCount;
+    read pm_GetConversationsCount;
    property UIDsWithUnreadedMessages: TatArrayOfUID
-     read pm_GetUIDsWithUnreadedMessages;
+    read pm_GetUIDsWithUnreadedMessages;
    property ConversationByIndex[anIndex: Integer]: TatChatConversation
-     read pm_GetConversationByIndex;
+    read pm_GetConversationByIndex;
    property ConversationByUID[anUID: TUid]: TatChatConversation
-     read pm_GetConversationByUID;
+    read pm_GetConversationByUID;
  end;//TatChatWorker
 
 implementation
 
 uses
-  atChatMessage,
-  atUserComment,
-  ActiveX,
-  atLogger,
-  atGblAdapterWorker,
-  DynamicTreeUnit,
-  SecurityUnit,
-  atStringHelper
-  ;
+ l3ImplUses
+ , SysUtils
+ , atLogger
+ , atGblAdapterWorker
+ , DynamicTreeUnit
+ , SecurityUnit
+ , atStringHelper
+ , atChatMessage
+ , atUserComment
+ , ActiveX
+;
 
 type
-  TatChatListener = class(Tl3_Base, IatChatListener)
+ TatChatListener = class(Tl3_Base, IatChatListener)
   private
-  // private fields
-   f_Func : TatChatListenerFireFunction;
-   f_MREWS : TMultiReadExclusiveWriteSynchronizer;
+   f_Func: TatChatListenerFireFunction;
+   f_MREWS: TMultiReadExclusiveWriteSynchronizer;
   protected
-  // realized methods
-   procedure Fire(const aNotify: INotification); stdcall;
+   constructor Create; reintroduce;
+   procedure Fire(const notify: INotification); stdcall;
    procedure Attach(aFunction: TatChatListenerFireFunction);
    procedure Detach;
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-  protected
-  // protected methods
-   constructor Create; reintroduce;
+    {* Функция очистки полей объекта. }
   public
-  // public methods
    class function Make: IatChatListener; reintroduce;
-  end;//TatChatListener
+ end;//TatChatListener
 
-// start class TatChatListener
-
-class function TatChatListener.Make: IatChatListener;
-var
- l_Inst : TatChatListener;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-constructor TatChatListener.Create;
-//#UC START# *4B69384701C8_4B6937C20205_var*
-//#UC END# *4B69384701C8_4B6937C20205_var*
-begin
-//#UC START# *4B69384701C8_4B6937C20205_impl*
-  inherited Create();
-  f_Func := nil;
-  f_MREWS := TMultiReadExclusiveWriteSynchronizer.Create;
-//#UC END# *4B69384701C8_4B6937C20205_impl*
-end;//TatChatListener.Create
-
-procedure TatChatListener.Fire(const aNotify: INotification);
-//#UC START# *45EEDE9D01C5_4B6937C20205_var*
-//#UC END# *45EEDE9D01C5_4B6937C20205_var*
-begin
-//#UC START# *45EEDE9D01C5_4B6937C20205_impl*
-  f_MREWS.BeginRead;
-  try
-    if (@f_Func <> nil) then
-      f_Func(aNotify);
-  finally
-    f_MREWS.EndRead;
-  end;
-//#UC END# *45EEDE9D01C5_4B6937C20205_impl*
-end;//TatChatListener.Fire
-
-procedure TatChatListener.Attach(aFunction: TatChatListenerFireFunction);
-//#UC START# *4B69379E0046_4B6937C20205_var*
-//#UC END# *4B69379E0046_4B6937C20205_var*
-begin
-//#UC START# *4B69379E0046_4B6937C20205_impl*
-  f_MREWS.BeginWrite;
-  try
-    f_Func := aFunction;
-  finally
-    f_MREWS.EndWrite;
-  end;
-//#UC END# *4B69379E0046_4B6937C20205_impl*
-end;//TatChatListener.Attach
-
-procedure TatChatListener.Detach;
-//#UC START# *4B6937B701C3_4B6937C20205_var*
-//#UC END# *4B6937B701C3_4B6937C20205_var*
-begin
-//#UC START# *4B6937B701C3_4B6937C20205_impl*
-  f_MREWS.BeginWrite;
-  try
-    f_Func := nil;
-  finally
-    f_MREWS.EndWrite;
-  end;
-//#UC END# *4B6937B701C3_4B6937C20205_impl*
-end;//TatChatListener.Detach
-
-procedure TatChatListener.Cleanup;
-//#UC START# *479731C50290_4B6937C20205_var*
-//#UC END# *479731C50290_4B6937C20205_var*
-begin
-//#UC START# *479731C50290_4B6937C20205_impl*
-  Detach();
-  FreeAndNil(f_MREWS);
-  {$IFDEF DEBUG}
-  WriteLn('TatChatListener.Cleanup');
-  {$ENDIF}
-  inherited;
-//#UC END# *479731C50290_4B6937C20205_impl*
-end;//TatChatListener.Cleanup
-var
-   f_ReadSendCS : TCriticalSection;
-
-// start class TatChatConversation
+var f_ReadSendCS: TCriticalSection;
 
 procedure TatChatConversation.SendMessage(const aMessage: AnsiString);
 //#UC START# *4B683C2B037C_4B683B6501EB_var*
@@ -410,6 +296,7 @@ begin
 end;//TatChatConversation.ProcessNewMessages
 
 procedure TatChatConversation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B683B6501EB_var*
 //#UC END# *479731C50290_4B683B6501EB_var*
 begin
@@ -421,11 +308,91 @@ begin
 end;//TatChatConversation.Cleanup
 
 procedure TatChatConversation.ClearFields;
- {-}
 begin
  f_MessagesManager := nil;
  inherited;
 end;//TatChatConversation.ClearFields
+
+class function TatChatListener.Make: IatChatListener;
+var
+ l_Inst : TatChatListener;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TatChatListener.Make
+
+constructor TatChatListener.Create;
+//#UC START# *4B69384701C8_4B6937C20205_var*
+//#UC END# *4B69384701C8_4B6937C20205_var*
+begin
+//#UC START# *4B69384701C8_4B6937C20205_impl*
+  inherited Create();
+  f_Func := nil;
+  f_MREWS := TMultiReadExclusiveWriteSynchronizer.Create;
+//#UC END# *4B69384701C8_4B6937C20205_impl*
+end;//TatChatListener.Create
+
+procedure TatChatListener.Fire(const notify: INotification);
+//#UC START# *45EEDE9D01C5_4B6937C20205_var*
+//#UC END# *45EEDE9D01C5_4B6937C20205_var*
+begin
+//#UC START# *45EEDE9D01C5_4B6937C20205_impl*
+  f_MREWS.BeginRead;
+  try
+    if (@f_Func <> nil) then
+      f_Func(aNotify);
+  finally
+    f_MREWS.EndRead;
+  end;
+//#UC END# *45EEDE9D01C5_4B6937C20205_impl*
+end;//TatChatListener.Fire
+
+procedure TatChatListener.Attach(aFunction: TatChatListenerFireFunction);
+//#UC START# *4B69379E0046_4B6937C20205_var*
+//#UC END# *4B69379E0046_4B6937C20205_var*
+begin
+//#UC START# *4B69379E0046_4B6937C20205_impl*
+  f_MREWS.BeginWrite;
+  try
+    f_Func := aFunction;
+  finally
+    f_MREWS.EndWrite;
+  end;
+//#UC END# *4B69379E0046_4B6937C20205_impl*
+end;//TatChatListener.Attach
+
+procedure TatChatListener.Detach;
+//#UC START# *4B6937B701C3_4B6937C20205_var*
+//#UC END# *4B6937B701C3_4B6937C20205_var*
+begin
+//#UC START# *4B6937B701C3_4B6937C20205_impl*
+  f_MREWS.BeginWrite;
+  try
+    f_Func := nil;
+  finally
+    f_MREWS.EndWrite;
+  end;
+//#UC END# *4B6937B701C3_4B6937C20205_impl*
+end;//TatChatListener.Detach
+
+procedure TatChatListener.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_4B6937C20205_var*
+//#UC END# *479731C50290_4B6937C20205_var*
+begin
+//#UC START# *479731C50290_4B6937C20205_impl*
+  Detach();
+  FreeAndNil(f_MREWS);
+  {$IFDEF DEBUG}
+  WriteLn('TatChatListener.Cleanup');
+  {$ENDIF}
+  inherited;
+//#UC END# *479731C50290_4B6937C20205_impl*
+end;//TatChatListener.Cleanup
 
 function TatChatWorker.pm_GetConversationsCount: Integer;
 //#UC START# *4B6864970085_4B683B57028Dget_var*
@@ -614,8 +581,8 @@ begin
 //#UC END# *4B6938860170_4B683B57028D_impl*
 end;//TatChatWorker.OnChatNotification
 
-function TatChatWorker.GetContactListUIDs(isActiveOnly: Boolean = false;
-  isAdapterTestsOnly: Boolean = false): TatArrayOfUID;
+function TatChatWorker.GetContactListUIDs(isActiveOnly: Boolean = False;
+ isAdapterTestsOnly: Boolean = False): TatArrayOfUID;
 //#UC START# *4B7021A30255_4B683B57028D_var*
   var
     l_Node : INodeBase;
@@ -658,6 +625,7 @@ begin
 end;//TatChatWorker.DeleteUser
 
 procedure TatChatWorker.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B683B57028D_var*
   var
     i : Integer;

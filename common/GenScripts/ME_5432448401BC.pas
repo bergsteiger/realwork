@@ -10,6 +10,7 @@ interface
 
 uses
  l3IntfUses
+ , l3Types
  , dt_Types
  , SysUtils
 ;

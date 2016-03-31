@@ -30,9 +30,7 @@ type
  TalcuTaskExecutionCounter = class(Tl3ProtoObject)
   private
    f_Task: TddProcessTask;
-    {* Поле для свойства Task }
    f_Counter: Integer;
-    {* Поле для свойства Counter }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

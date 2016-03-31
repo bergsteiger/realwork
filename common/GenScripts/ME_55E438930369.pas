@@ -1,6 +1,6 @@
-unit nsListExceptions;
+unit NOT_COMPLETED_nsListExceptions;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListExceptions.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_COMPLETED_nsListExceptions.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "nsListExceptions" MUID: (55E438930369)
 

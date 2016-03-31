@@ -1,43 +1,33 @@
 unit l3RecList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3RecList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3RecList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3RecList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3RecList" MUID: (479F10C70202)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3BaseRecList
-  ;
+ l3IntfUses
+ , l3BaseRecList
+;
 
 type
  Tl3RecList = class(Tl3BaseRecList)
- private
- // private fields
-   f_ItemSize : Integer;
- protected
- // realized methods
+  private
+   f_ItemSize: Integer;
+  protected
    function pm_GetItemSize: Integer; override;
- public
- // public methods
+  public
    constructor Create(anItemSize: Integer); reintroduce;
  end;//Tl3RecList
 
 implementation
 
-// start class Tl3RecList
+uses
+ l3ImplUses
+;
 
 constructor Tl3RecList.Create(anItemSize: Integer);
 //#UC START# *479F111E032C_479F10C70202_var*

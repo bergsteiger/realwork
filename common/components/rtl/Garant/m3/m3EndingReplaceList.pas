@@ -1,29 +1,20 @@
 unit m3EndingReplaceList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$Morpho"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3EndingReplaceList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$Morpho::m3Morpho::Tm3EndingReplaceList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3EndingReplaceList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3EndingReplaceList" MUID: (4F4CB5D10031)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes,
-  m3EndingReplaceListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , m3EndingReplaceListPrim
+ , l3Interfaces
+ , Classes
+ , l3Types
+;
 
 type
  TByteArrayOfChar = array [Byte] of AnsiChar;
@@ -32,8 +23,7 @@ type
  _l3Searcher_Parent_ = Tm3EndingReplaceListPrim;
  {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tm3EndingReplaceList = class(_l3Searcher_)
- public
- // public methods
+  public
    procedure Load(aStream: TStream);
    function MakeNorm(var aCheckStr: Tl3WString): Boolean;
  end;//Tm3EndingReplaceList
@@ -41,21 +31,24 @@ type
 implementation
 
 uses
-  l3String,
-  l3Chars,
-  SysUtils,
-  l3Parser
-  ;
+ l3ImplUses
+ , l3String
+ , l3Chars
+ , SysUtils
+ , l3Parser
+ , l3Memory
+;
 
-var
-   cBuff : TByteArrayOfChar;
+var cBuff: TByteArrayOfChar;
 
-// start class Tm3EndingReplaceList
+const
+ cNoTrunc = High(Byte);
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_4F4CB5D10031_var*
 
  function lCheckWrongRest : boolean;
@@ -91,12 +84,6 @@ end;//CompareItemWithData
 type _Instance_R_ = Tm3EndingReplaceList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
-
-const
-   { Const }
-  cNoTrunc = High(Byte);
-
-// start class Tm3EndingReplaceList
 
 procedure Tm3EndingReplaceList.Load(aStream: TStream);
 //#UC START# *5089072C0220_4F4CB5D10031_var*

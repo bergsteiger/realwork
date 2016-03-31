@@ -18,6 +18,8 @@ uses
  , l3Types
  , l3Interfaces
  , l3Core
+ //#UC START# *4773DC930147intf_uses*
+ //#UC END# *4773DC930147intf_uses*
 ;
 
 type
@@ -62,6 +64,8 @@ uses
  , RTLConsts
  , SysUtils
  , l3Stream
+ //#UC START# *4773DC930147impl_uses*
+ //#UC END# *4773DC930147impl_uses*
 ;
 
 type _Instance_R_ = Tl3LongintListPrim;

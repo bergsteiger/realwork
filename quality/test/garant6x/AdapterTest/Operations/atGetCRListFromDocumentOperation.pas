@@ -1,35 +1,22 @@
 unit atGetCRListFromDocumentOperation;
+ {* Получает у текущего документа список корреспондентов/респондентов заданной типизации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atGetCRListFromDocumentOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatGetCRListFromDocumentOperation
-//
-// Получает у текущего документа список корреспондентов/респондентов заданной типизации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atGetCRListFromDocumentOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatGetCRListFromDocumentOperation" MUID: (4A4CA0DD02F9)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatGetCRListFromDocumentOperation = class(TatOperationBase)
   {* Получает у текущего документа список корреспондентов/респондентов заданной типизации }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteChilds; override;
  end;//TatGetCRListFromDocumentOperation
@@ -37,16 +24,15 @@ type
 implementation
 
 uses
-  DynamicTreeUnit,
-  DynamicDocListUnit,
-  SysUtils,
-  atLogger,
-  BaseTypesUnit,
-  atListHelper,
-  atNodeHelper
-  ;
-
-// start class TatGetCRListFromDocumentOperation
+ l3ImplUses
+ , DynamicTreeUnit
+ , DynamicDocListUnit
+ , SysUtils
+ , atLogger
+ , BaseTypesUnit
+ , atListHelper
+ , atNodeHelper
+;
 
 procedure TatGetCRListFromDocumentOperation.ExecuteSelf;
 //#UC START# *48089F460352_4A4CA0DD02F9_var*

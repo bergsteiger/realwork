@@ -1,60 +1,45 @@
 unit smNewSchoolReferencesTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MainMenu"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/MainMenu/smNewSchoolReferencesTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Интерфейсные элементы::MainMenu::MainMenu::MainMenuTrees::TsmNewSchoolReferencesTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smNewSchoolReferencesTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TsmNewSchoolReferencesTree" MUID: (4AFBF77E0200)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  smTree,
-  l3Tree_TLB
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , smTree
+ , l3Tree_TLB
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TsmNewSchoolReferencesTree = class(TsmTree)
- protected
- // overridden protected methods
+  protected
    function MakeRoot: Il3RootNode; override;
-     {* Создаёт корень дерева }
+    {* Создаёт корень дерева }
  end;//TsmNewSchoolReferencesTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsNodes,
-  l3Base,
-  DynamicTreeUnit,
-  nsINodeWrap,
-  nsNewCachableNode,
-  BaseTypesUnit,
-  nsTypes,
-  MainMenuUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TsmNewSchoolReferencesTree
+ l3ImplUses
+ , nsNodes
+ , l3Base
+ , DynamicTreeUnit
+ , nsINodeWrap
+ , nsNewCachableNode
+ , BaseTypesUnit
+ , nsTypes
+ , MainMenuUnit
+;
 
 function TsmNewSchoolReferencesTree.MakeRoot: Il3RootNode;
+ {* Создаёт корень дерева }
 //#UC START# *4909EF6E0361_4AFBF77E0200_var*
 (*var
  l_P : TnsNavigatorItemParams;*)
@@ -68,7 +53,6 @@ begin
  nsMakeTreeLevel(Result, nsFindNavigatorItem(l_P));*)
 //#UC END# *4909EF6E0361_4AFBF77E0200_impl*
 end;//TsmNewSchoolReferencesTree.MakeRoot
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -12,18 +12,18 @@ interface
 {$If NOT Defined(Admin)}
 uses
  l3IntfUses
- , evQueryCardInt
+ , BaseTreeSupportUnit
+ , DynamicTreeUnit
+ , FiltersUnit
+ , SearchUnit
  , l3Interfaces
  , nevBase
- , DynamicTreeUnit
- , SearchUnit
- , BaseTreeSupportUnit
- , FiltersUnit
- , SysUtils
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , nevTools
+ , evQueryCardInt
+ , SysUtils
 ;
 
 type
@@ -200,7 +200,6 @@ type
  EqaException = class(Exception)
   private
    f_ErrorControl: IevEditorControlField;
-    {* Поле для свойства ErrorControl }
   public
    constructor Create(const anErrorControl: IevEditorControlField;
     const Msg: AnsiString); reintroduce;

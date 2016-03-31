@@ -1,99 +1,91 @@
 unit csUserDefinedExportTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csUserDefinedExportTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsUserDefinedExportTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csUserDefinedExportTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsUserDefinedExportTaskPrim" MUID: (53B26E1A01A6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsUserDefinedExportTaskPrim = class(TddProcessTask)
- protected
- // property methods
+  protected
    function pm_GetQueryFile: AnsiString;
    procedure pm_SetQueryFile(const aValue: AnsiString);
    function pm_GetTimeToRun: TDateTime;
    procedure pm_SetTimeToRun(aValue: TDateTime);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property QueryFile: AnsiString
-     read pm_GetQueryFile
-     write pm_SetQueryFile;
+    read pm_GetQueryFile
+    write pm_SetQueryFile;
    property TimeToRun: TDateTime
-     read pm_GetTimeToRun
-     write pm_SetTimeToRun;
+    read pm_GetTimeToRun
+    write pm_SetTimeToRun;
  end;//TcsUserDefinedExportTaskPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  UserDefinedExportTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsUserDefinedExportTaskPrim
+ l3ImplUses
+ , UserDefinedExportTask_Const
+;
 
 function TcsUserDefinedExportTaskPrim.pm_GetQueryFile: AnsiString;
- {-}
+//#UC START# *3FED742390E4_53B26E1A01A6get_var*
+//#UC END# *3FED742390E4_53B26E1A01A6get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrQueryFile]);
+//#UC START# *3FED742390E4_53B26E1A01A6get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *3FED742390E4_53B26E1A01A6get_impl*
 end;//TcsUserDefinedExportTaskPrim.pm_GetQueryFile
 
 procedure TcsUserDefinedExportTaskPrim.pm_SetQueryFile(const aValue: AnsiString);
- {-}
+//#UC START# *3FED742390E4_53B26E1A01A6set_var*
+//#UC END# *3FED742390E4_53B26E1A01A6set_var*
 begin
- TaggedData.StrW[k2_attrQueryFile, nil] := (aValue);
+//#UC START# *3FED742390E4_53B26E1A01A6set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *3FED742390E4_53B26E1A01A6set_impl*
 end;//TcsUserDefinedExportTaskPrim.pm_SetQueryFile
 
 function TcsUserDefinedExportTaskPrim.pm_GetTimeToRun: TDateTime;
- {-}
+//#UC START# *4DDC348B9CCC_53B26E1A01A6get_var*
+//#UC END# *4DDC348B9CCC_53B26E1A01A6get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.DateTimeA[k2_attrTimeToRun]);
+//#UC START# *4DDC348B9CCC_53B26E1A01A6get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DDC348B9CCC_53B26E1A01A6get_impl*
 end;//TcsUserDefinedExportTaskPrim.pm_GetTimeToRun
 
 procedure TcsUserDefinedExportTaskPrim.pm_SetTimeToRun(aValue: TDateTime);
- {-}
+//#UC START# *4DDC348B9CCC_53B26E1A01A6set_var*
+//#UC END# *4DDC348B9CCC_53B26E1A01A6set_var*
 begin
- TaggedData.DateTimeW[k2_attrTimeToRun, nil] := (aValue);
+//#UC START# *4DDC348B9CCC_53B26E1A01A6set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DDC348B9CCC_53B26E1A01A6set_impl*
 end;//TcsUserDefinedExportTaskPrim.pm_SetTimeToRun
 
 class function TcsUserDefinedExportTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B26E1A01A6_var*
+//#UC END# *53AC03EE01FD_53B26E1A01A6_var*
 begin
- Result := k2_typUserDefinedExportTask;
+//#UC START# *53AC03EE01FD_53B26E1A01A6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B26E1A01A6_impl*
 end;//TcsUserDefinedExportTaskPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

@@ -1,59 +1,43 @@
 unit CsDataPipe;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsDataPipe.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Core::TCsDataPipe
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsDataPipe.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCsDataPipe" MUID: (537F62DD009F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsDataPipePrim
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , CsDataPipePrim
+;
 
-{$If not defined(Nemesis)}
 type
  TCsDataPipe = class(TCsDataPipePrim)
- public
- // public methods
+  public
    function ReadFolder(const aToPath: AnsiString): Boolean;
    procedure WriteFolder(const aFolderName: AnsiString);
  end;//TCsDataPipe
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Stream,
-  l3Memory,
-  l3FileUtils,
-  l3BaseStream,
-  SysUtils,
-  l3Base,
-  l3TempMemoryStream,
-  l3Types,
-  IdIOHandler,
-  Classes
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TCsDataPipe
+ l3ImplUses
+ , l3Stream
+ , l3Memory
+ , l3FileUtils
+ , l3BaseStream
+ , SysUtils
+ , l3Base
+ , l3TempMemoryStream
+ , l3Types
+ , IdIOHandler
+ , Classes
+;
 
 function TCsDataPipe.ReadFolder(const aToPath: AnsiString): Boolean;
 //#UC START# *538DE0DC02BD_537F62DD009F_var*
@@ -219,7 +203,6 @@ begin
   IOHandler.WriteLn(c_NoMoreFiles); // только точка
 //#UC END# *538DE100010F_537F62DD009F_impl*
 end;//TCsDataPipe.WriteFolder
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

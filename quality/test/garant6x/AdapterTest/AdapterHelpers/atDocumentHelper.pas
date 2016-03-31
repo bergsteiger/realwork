@@ -1,154 +1,126 @@
 unit atDocumentHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atDocumentHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatDocumentHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atDocumentHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatDocumentHelper" MUID: (4815C75902A2)
 
 interface
 
 uses
-  DocumentUnit,
-  DynamicTreeUnit,
-  BaseTypesUnit,
-  l3_Base
-  ;
+ l3IntfUses
+ , DocumentUnit
+ , DynamicTreeUnit
+ , l3_Base
+ , BaseTypesUnit
+;
 
 type
+ PTatLayerContext = ^TatLayerContext;
+
  TatCurr = record
-   ChildrenCount : Integer;
-   EP : TEntryPoint;
-   ChildLayerID : TDocumentLayerID;
+  ChildrenCount: Integer;
+  EP: TEntryPoint;
+  ChildLayerID: TDocumentLayerID;
  end;//TatCurr
 
  TatLayerContext = record
-   Curr : TatCurr;
-   MaxChild : TChildID;
+  Curr: TatCurr;
+  MaxChild: TChildID;
  end;//TatLayerContext
 
- PTatLayerContext = ^TatLayerContext;
-
  TatDTPIterator = class
- private
- // private fields
-   f_DTP : IDocumentTextProvider;
-   f_LayerStack : array of TatLayerContext;
-   f_CurrLayerIdx : Integer;
-   f_CurrLayer : PTatLayerContext;
-    {* Поле для свойства CurrLayer}
- private
- // private methods
+  private
+   f_DTP: IDocumentTextProvider;
+   f_LayerStack: array of TatLayerContext;
+   f_CurrLayerIdx: Integer;
+   f_CurrLayer: PTatLayerContext;
+    {* Поле для свойства CurrLayer }
+  private
    procedure PushLayer(const aLayer: TatLayerContext); virtual;
    procedure PopLayer; virtual;
    procedure InitLayerStackByNIP(const aNIP: INodeIndexPath); virtual;
- public
- // public methods
+  public
    constructor Create(const aDTP: IDocumentTextProvider); reintroduce; virtual;
    function GetNext: TEntryPoint; virtual;
    function HasNext: Boolean; virtual;
    procedure Reset; virtual;
    procedure SetNextToPara(aParaID: TParaId); virtual;
    procedure SetNextToSub(aSubID: TSubId); virtual;
- private
- // private properties
+  private
    property CurrLayer: PTatLayerContext
-     read f_CurrLayer;
+    read f_CurrLayer;
  end;//TatDTPIterator
 
  TatDTPParaIterator = class(TatDTPIterator)
- private
- // private fields
-   f_HasNext : Boolean;
-   f_IsParaMustHaveNonZeroID : Boolean;
-    {* Поле для свойства IsParaMustHaveNonZeroID}
-   f_IsParaMustHaveComments : Boolean;
-    {* Поле для свойства IsParaMustHaveComments}
- public
- // overridden public methods
+  private
+   f_HasNext: Boolean;
+   f_IsParaMustHaveNonZeroID: Boolean;
+    {* Поле для свойства IsParaMustHaveNonZeroID }
+   f_IsParaMustHaveComments: Boolean;
+    {* Поле для свойства IsParaMustHaveComments }
+  public
+   constructor Create(const aDTP: IDocumentTextProvider); reintroduce; virtual;
    function HasNext: Boolean; override;
    function GetNext: TEntryPoint; override;
- public
- // public methods
-   constructor Create(const aDTP: IDocumentTextProvider); reintroduce; virtual;
- public
- // public properties
+  public
    property IsParaMustHaveNonZeroID: Boolean
-     read f_IsParaMustHaveNonZeroID
-     write f_IsParaMustHaveNonZeroID;
+    read f_IsParaMustHaveNonZeroID
+    write f_IsParaMustHaveNonZeroID;
    property IsParaMustHaveComments: Boolean
-     read f_IsParaMustHaveComments
-     write f_IsParaMustHaveComments;
+    read f_IsParaMustHaveComments
+    write f_IsParaMustHaveComments;
  end;//TatDTPParaIterator
 
  TEntryPointArr = array of TEntryPoint;
 
- TParaIDArr = array of TParaID;
+ TParaIDArr = array of TParaId;
 
  TatDocReader = class(TObject)
- private
- // private fields
-   f_Document : IDocument;
-   f_DTP : IDocumentTextProvider;
-   f_ParaIDForJournal : TParaId;
-   f_ParaIterator : TatDTPParaIterator;
-   f_IsFullLoad : Boolean;
-    {* Поле для свойства IsFullLoad}
- private
- // private methods
+  private
+   f_Document: IDocument;
+   f_DTP: IDocumentTextProvider;
+   f_ParaIDForJournal: TParaId;
+   f_ParaIterator: TatDTPParaIterator;
+   f_IsFullLoad: Boolean;
+    {* Поле для свойства IsFullLoad }
+  private
    procedure ReadContent; virtual;
    procedure ReadDocBody; virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const aDocument: IDocument); reintroduce; virtual;
    procedure Read; virtual;
    procedure ReadFromPara(aParaID: TParaId); virtual;
    procedure ReadFromSub(aSubID: TSubId); virtual;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property IsFullLoad: Boolean
-     read f_IsFullLoad
-     write f_IsFullLoad;
+    read f_IsFullLoad
+    write f_IsFullLoad;
  end;//TatDocReader
 
  _EntityInterface_ = IBookmark;
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatBookmark = class(_atEntityWithName_)
- protected
- // property methods
+  protected
    function pm_GetDocument: IDocument; virtual;
    function pm_GetPara: TParaId; virtual;
    function pm_GetComment: AnsiString; virtual;
- public
- // public properties
+  public
    property Document: IDocument
-     read pm_GetDocument;
+    read pm_GetDocument;
    property Para: TParaId
-     read pm_GetPara;
+    read pm_GetPara;
    property Comment: AnsiString
-     read pm_GetComment;
+    read pm_GetComment;
  end;//TatBookmark
 
  TatDocumentHelper = class
- private
- // private methods
+  private
    class procedure ReadChildBookmarks(const aDTP: IDocumentTextProvider;
     const aBookmarkList: IBookmarkList);
    class procedure ReadChildComment(const aDTP: IDocumentTextProvider;
     const anEP: TEntryPoint);
- public
- // public methods
+  public
    class function GetParaIDArray(const aDTP: IDocumentTextProvider;
     const aMaxParaCount: Integer;
     const isRandomParas: Boolean): TParaIDArr;
@@ -170,24 +142,23 @@ type
 implementation
 
 uses
-  SysUtils,
-  IOUnit,
-  atNodeHelper,
-  k2Facade,
-  atLogger,
-  LeafPara_Const,
-  atCommon,
-  Math,
-  ActiveX,
-  BitmapPara_Const,
-  ExternalObjectUnit,
-  atUserJournalHelper,
-  atGblAdapterWorker,
-  atStringHelper,
-  k2Empty_Const
-  ;
-
-// start class TatDTPIterator
+ l3ImplUses
+ , IOUnit
+ , atNodeHelper
+ , k2Facade
+ , atLogger
+ , LeafPara_Const
+ , SysUtils
+ , atCommon
+ , Math
+ , ActiveX
+ , BitmapPara_Const
+ , ExternalObjectUnit
+ , atUserJournalHelper
+ , atGblAdapterWorker
+ , atStringHelper
+ , k2Empty_Const
+;
 
 procedure TatDTPIterator.PushLayer(const aLayer: TatLayerContext);
 //#UC START# *4CFE2AFB01CC_4CFCF9A6024F_var*
@@ -365,7 +336,6 @@ begin
   InitLayerStackByNIP(l_NIP);
 //#UC END# *4DD3A10C0050_4CFCF9A6024F_impl*
 end;//TatDTPIterator.SetNextToSub
-// start class TatDTPParaIterator
 
 constructor TatDTPParaIterator.Create(const aDTP: IDocumentTextProvider);
 //#UC START# *4DCD71E3035A_4CFE70A801B2_var*
@@ -415,7 +385,6 @@ begin
   f_HasNext := false;
 //#UC END# *4CFD01FD00DB_4CFE70A801B2_impl*
 end;//TatDTPParaIterator.GetNext
-// start class TatDocReader
 
 constructor TatDocReader.Create(const aDocument: IDocument);
 //#UC START# *4DD39F4E00F4_4DD39F320114_var*
@@ -619,9 +588,8 @@ begin
   inherited;
 //#UC END# *48077504027E_4DD39F320114_impl*
 end;//TatDocReader.Destroy
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
 
-// start class TatBookmark
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatBookmark.pm_GetDocument: IDocument;
 //#UC START# *4FD0E49203B9_4FD0E3FA03BEget_var*
@@ -655,8 +623,8 @@ begin
 end;//TatBookmark.pm_GetComment
 
 class function TatDocumentHelper.GetParaIDArray(const aDTP: IDocumentTextProvider;
-  const aMaxParaCount: Integer;
-  const isRandomParas: Boolean): TParaIDArr;
+ const aMaxParaCount: Integer;
+ const isRandomParas: Boolean): TParaIDArr;
 //#UC START# *4815C85E0300_4815C75902A2_var*
   var
     l_EPArr : TEntryPointArr;
@@ -686,8 +654,8 @@ begin
 end;//TatDocumentHelper.IsParaType
 
 class function TatDocumentHelper.GetParaEPArray(const aDTP: IDocumentTextProvider;
-  const aMaxParaCount: Integer;
-  const isRandomParas: Boolean): TEntryPointArr;
+ const aMaxParaCount: Integer;
+ const isRandomParas: Boolean): TEntryPointArr;
 //#UC START# *4CFF5AE60132_4815C75902A2_var*
   var
     l_DTPIter : TatDTPParaIterator;
@@ -735,7 +703,7 @@ begin
 end;//TatDocumentHelper.GetParaEPArray
 
 class procedure TatDocumentHelper.ReadPara(const aDTP: IDocumentTextProvider;
-  const aParaEP: TEntryPoint);
+ const aParaEP: TEntryPoint);
 //#UC START# *4D07884A01F1_4815C75902A2_var*
   var
     l_Stream : IStream;
@@ -776,8 +744,8 @@ begin
 end;//TatDocumentHelper.ReadPara
 
 class function TatDocumentHelper.FindPara(const aDTP: IDocumentTextProvider;
-  const aParaID: TParaId;
-  out theEP: TEntryPoint): Boolean;
+ const aParaID: TParaId;
+ out theEP: TEntryPoint): Boolean;
 //#UC START# *4D07A129017B_4815C75902A2_var*
   var
     l_NIP : INodeIndexPath;
@@ -802,7 +770,7 @@ begin
 end;//TatDocumentHelper.FindPara
 
 class procedure TatDocumentHelper.ReadChildBookmarks(const aDTP: IDocumentTextProvider;
-  const aBookmarkList: IBookmarkList);
+ const aBookmarkList: IBookmarkList);
 //#UC START# *4D6E71B102CA_4815C75902A2_var*
   var
     l_Bookmark : TBookmark2;
@@ -820,7 +788,7 @@ begin
 end;//TatDocumentHelper.ReadChildBookmarks
 
 class procedure TatDocumentHelper.ReadChildComment(const aDTP: IDocumentTextProvider;
-  const anEP: TEntryPoint);
+ const anEP: TEntryPoint);
 //#UC START# *4D6E741503AA_4815C75902A2_var*
   var
     l_EVDStream : IEVDStream;
@@ -834,7 +802,7 @@ begin
 end;//TatDocumentHelper.ReadChildComment
 
 class function TatDocumentHelper.GetEPByNIP(const aDTP: IDocumentTextProvider;
-  const aNIP: INodeIndexPath): TEntryPoint;
+ const aNIP: INodeIndexPath): TEntryPoint;
 //#UC START# *5046225B0281_4815C75902A2_var*
   var
     i : Integer;
@@ -853,7 +821,7 @@ begin
 end;//TatDocumentHelper.GetEPByNIP
 
 class function TatDocumentHelper.ReadParaText(const aDTP: IDocumentTextProvider;
-  const anEP: TEntryPoint): AnsiString;
+ const anEP: TEntryPoint): AnsiString;
 //#UC START# *50462535009C_4815C75902A2_var*
   var
     l_ChildText : IString;

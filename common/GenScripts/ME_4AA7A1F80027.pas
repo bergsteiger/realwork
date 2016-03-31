@@ -18,7 +18,7 @@ uses
 ;
 
 type
- TMainMenuModule = class
+ TMainMenuModule = class(TvcmModule)
   public
    procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function MainMenuChangeableMainMenuTypeSetting: Integer;
@@ -48,6 +48,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  TnsOpenMainMenuEvent = {final} class(TnsLogEvent)
   public
@@ -105,6 +106,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *F62C297CC387_4AA7A1F80027_impl*
 end;//TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,39 +1,28 @@
 unit atGuestLoginOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atGuestLoginOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatGuestLoginOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atGuestLoginOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatGuestLoginOperation" MUID: (4808AF7B0011)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatGuestLoginOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
  end;//TatGuestLoginOperation
 
 implementation
 
 uses
-  atOperationEnv
-  ;
-
-// start class TatGuestLoginOperation
+ l3ImplUses
+ , atOperationEnv
+;
 
 procedure TatGuestLoginOperation.ExecuteSelf;
 //#UC START# *48089F460352_4808AF7B0011_var*

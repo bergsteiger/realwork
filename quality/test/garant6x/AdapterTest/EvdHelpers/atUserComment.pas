@@ -1,59 +1,46 @@
 unit atUserComment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/EvdHelpers/atUserComment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::EvdHelpers::TatUserComment
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\EvdHelpers\atUserComment.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatUserComment" MUID: (4B6AE7650002)
 
 interface
 
 uses
-  atBaseEvdHelper,
-  evdNativeWriter
-  ;
+ l3IntfUses
+ , atBaseEvdHelper
+ , evdNativeWriter
+;
 
 type
- IatUserComment = interface(IUnknown)
-   ['{4154A018-1A3E-4640-997F-FD9B825F8618}']
-   function Get_CommentText: AnsiString;
-   procedure Set_CommentText(const aValue: AnsiString);
-   property CommentText: AnsiString
-     read Get_CommentText
-     write Set_CommentText;
+ IatUserComment = interface
+  ['{4154A018-1A3E-4640-997F-FD9B825F8618}']
+  function Get_CommentText: AnsiString;
+  procedure Set_CommentText(const aValue: AnsiString);
+  property CommentText: AnsiString
+   read Get_CommentText
+   write Set_CommentText;
  end;//IatUserComment
 
  TatUserComment = class(TatBaseEvdHelper, IatUserComment)
- private
- // private fields
-   f_CommentText : AnsiString;
- protected
- // realized methods
+  private
+   f_CommentText: AnsiString;
+  protected
    function Get_CommentText: AnsiString;
    procedure Set_CommentText(const aValue: AnsiString);
    procedure DoGenerate(anEVDNativeWriter: TevdNativeWriter); override;
- public
- // public methods
+  public
    class function Make: IatUserComment; reintroduce;
  end;//TatUserComment
 
 implementation
 
 uses
-  evdStyles,
-  k2Tags,
-  TextPara_Const
-  ;
-
-// start class TatUserComment
+ l3ImplUses
+ , evdStyles
+ , k2Tags
+ , TextPara_Const
+;
 
 class function TatUserComment.Make: IatUserComment;
 var
@@ -65,7 +52,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TatUserComment.Make
 
 function TatUserComment.Get_CommentText: AnsiString;
 //#UC START# *484415F90238_4B6AE7650002get_var*

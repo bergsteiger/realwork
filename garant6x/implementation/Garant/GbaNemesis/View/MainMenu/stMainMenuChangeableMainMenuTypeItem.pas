@@ -1,68 +1,46 @@
 unit stMainMenuChangeableMainMenuTypeItem;
+ {* Визуализатор для настройки "Тип изменяемой части основного меню" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/stMainMenuChangeableMainMenuTypeItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Интерфейсные элементы::MainMenu::View::MainMenu::TstMainMenuChangeableMainMenuTypeItem
-//
-// Визуализатор для настройки "Тип изменяемой части основного меню"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\stMainMenuChangeableMainMenuTypeItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TstMainMenuChangeableMainMenuTypeItem" MUID: (98CD882A435E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ddAppConfigTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ddAppConfigTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TstMainMenuChangeableMainMenuTypeItem = class(TddComboBoxConfigItem)
   {* Визуализатор для настройки "Тип изменяемой части основного меню" }
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
-     {* undefined }
  end;//TstMainMenuChangeableMainMenuTypeItem
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  MainMenuChangeableMainMenuTypeSettingRes,
-  l3Base,
-  ddAppConfigConst
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TstMainMenuChangeableMainMenuTypeItem
+ l3ImplUses
+ , MainMenuChangeableMainMenuTypeSettingRes
+ , l3Base
+ , ddAppConfigConst
+;
 
 constructor TstMainMenuChangeableMainMenuTypeItem.Create(aMasterItem: TddBaseConfigItem = nil);
-var
- l_Value : TddConfigValue;
+//#UC START# *5F66B3E8463A_98CD882A435E_var*
+//#UC END# *5F66B3E8463A_98CD882A435E_var*
 begin
- l3FillChar(l_Value, SizeOf(l_Value));
- l_Value.Kind := dd_vkInteger;
- l_Value.AsInteger := dv_MainMenu_ChangeableMainMenuType;
- inherited Create(pi_MainMenu_ChangeableMainMenuType,
-  str_ChangeableMainMenuType.AsStr,
-  l_Value, TChangeableMainMenuTypeValuesMapImpl.Make, aMasterItem);
+//#UC START# *5F66B3E8463A_98CD882A435E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5F66B3E8463A_98CD882A435E_impl*
 end;//TstMainMenuChangeableMainMenuTypeItem.Create
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

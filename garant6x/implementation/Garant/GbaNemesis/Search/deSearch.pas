@@ -1,46 +1,32 @@
 unit deSearch;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/deSearch.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::SearchLite::Search::Search::TdeSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearch.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeSearch" MUID: (4AE593970016)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SearchUnit,
-  l3Interfaces,
-  l3SimpleObject,
-  SearchInterfaces
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , SearchInterfaces
+ , l3Interfaces
+ , SearchUnit
+;
 
 type
  TdeSearch = class(Tl3SimpleObject, IdeSearch)
- private
- // private fields
-   f_Tag : Il3CString;
-   f_Query : IQuery;
- protected
- // realized methods
+  private
+   f_Tag: Il3CString;
+   f_Query: IQuery;
+  protected
    function pm_GetTag: Il3CString;
    function pm_GetQuery: IQuery;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTag: Il3CString;
     const aQuery: IQuery); reintroduce;
    class function Make(const aTag: Il3CString;
@@ -50,10 +36,12 @@ type
 
 implementation
 
-// start class TdeSearch
+uses
+ l3ImplUses
+;
 
 constructor TdeSearch.Create(const aTag: Il3CString;
-  const aQuery: IQuery);
+ const aQuery: IQuery);
 //#UC START# *4AE5940C03BE_4AE593970016_var*
 //#UC END# *4AE5940C03BE_4AE593970016_var*
 begin
@@ -65,7 +53,7 @@ begin
 end;//TdeSearch.Create
 
 class function TdeSearch.Make(const aTag: Il3CString;
-  const aQuery: IQuery): IdeSearch;
+ const aQuery: IQuery): IdeSearch;
 var
  l_Inst : TdeSearch;
 begin
@@ -75,7 +63,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeSearch.Make
 
 class function TdeSearch.Clone(const aSource: IdeSearch): IdeSearch;
 //#UC START# *4AE5AA5F0073_4AE593970016_var*
@@ -108,6 +96,7 @@ begin
 end;//TdeSearch.pm_GetQuery
 
 procedure TdeSearch.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AE593970016_var*
 //#UC END# *479731C50290_4AE593970016_var*
 begin

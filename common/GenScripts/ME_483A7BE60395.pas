@@ -13,7 +13,6 @@
  _atObjectHistory_ = class(_atTypedInterfaceList_)
   private
    f_HistoryLength: Integer;
-    {* Поле для свойства HistoryLength }
   private
    procedure TrimHistory; virtual;
   protected

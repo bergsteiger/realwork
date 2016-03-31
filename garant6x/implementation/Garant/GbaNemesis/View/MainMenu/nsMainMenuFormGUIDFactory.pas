@@ -1,77 +1,62 @@
 unit nsMainMenuFormGUIDFactory;
+ {* Фабрика GUID'ов для ОМ
+http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-330698414 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/nsMainMenuFormGUIDFactory.pas"
-// Начат: 25.01.2012 18:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Интерфейсные элементы::MainMenu::View::MainMenu::TnsMainMenuFormGUIDFactory
-//
-// Фабрика GUID'ов для ОМ
-// http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-
-// 330698414
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\nsMainMenuFormGUIDFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMainMenuFormGUIDFactory" MUID: (4F2012220355)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormGUIDFromMainFormList
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmFormGUIDFromMainFormList
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMainMenuFormGUIDFactory = class(TvcmFormGUIDFromMainFormList)
   {* Фабрика GUID'ов для ОМ
 http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-330698414 }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsMainMenuFormGUIDFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsMainMenuFormGUIDFactory }
  end;//TnsMainMenuFormGUIDFactory
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsMainMenuFormGUIDFactory
-
-var g_TnsMainMenuFormGUIDFactory : TnsMainMenuFormGUIDFactory = nil;
+{$If NOT Defined(NoVCM)}
+var g_TnsMainMenuFormGUIDFactory: TnsMainMenuFormGUIDFactory = nil;
+ {* Экземпляр синглетона TnsMainMenuFormGUIDFactory }
 
 procedure TnsMainMenuFormGUIDFactoryFree;
+ {* Метод освобождения экземпляра синглетона TnsMainMenuFormGUIDFactory }
 begin
  l3Free(g_TnsMainMenuFormGUIDFactory);
-end;
+end;//TnsMainMenuFormGUIDFactoryFree
+
+class function TnsMainMenuFormGUIDFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsMainMenuFormGUIDFactory <> nil;
+end;//TnsMainMenuFormGUIDFactory.Exists
 
 class function TnsMainMenuFormGUIDFactory.Instance: TnsMainMenuFormGUIDFactory;
+ {* Метод получения экземпляра синглетона TnsMainMenuFormGUIDFactory }
 begin
  if (g_TnsMainMenuFormGUIDFactory = nil) then
  begin
@@ -79,15 +64,8 @@ begin
   g_TnsMainMenuFormGUIDFactory := Create;
  end;
  Result := g_TnsMainMenuFormGUIDFactory;
-end;
+end;//TnsMainMenuFormGUIDFactory.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-class function TnsMainMenuFormGUIDFactory.Exists: Boolean;
- {-}
-begin
- Result := g_TnsMainMenuFormGUIDFactory <> nil;
-end;//TnsMainMenuFormGUIDFactory.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

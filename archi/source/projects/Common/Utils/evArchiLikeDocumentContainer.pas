@@ -1,44 +1,34 @@
 unit evArchiLikeDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Utils"
-// Модуль: "w:/archi/source/projects/Common/Utils/evArchiLikeDocumentContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$common::Utils::EditorCommon::TevArchiLikeDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Utils\evArchiLikeDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TevArchiLikeDocumentContainer" MUID: (50F8F97E0292)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
 uses
-  nevPrintableDocumentContainer
-  ;
+ l3IntfUses
+ , nevPrintableDocumentContainer
+;
 
 type
  TevArchiLikeDocumentContainer = class(TnevPrintableDocumentContainer)
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
  end;//TevArchiLikeDocumentContainer
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TevArchiLikeDocumentContainer
+ l3ImplUses
+ , l3Base
+;
 
 procedure TevArchiLikeDocumentContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_50F8F97E0292_var*
 //#UC END# *479731C50290_50F8F97E0292_var*
 begin

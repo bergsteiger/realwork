@@ -1,62 +1,47 @@
 unit atLoginFromListOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atLoginFromListOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatLoginFromListOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atLoginFromListOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatLoginFromListOperation" MUID: (4FF30FEB005D)
 
 interface
 
 uses
-  atOperationBase,
-  atLockFile
-  ;
+ l3IntfUses
+ , atOperationBase
+ , atLockFile
+;
 
 type
  TatLoginFromListOperation = class(TatOperationBase)
- private
- // private fields
-   f_LockFile : TatLockFile;
-   f_IsLoop : Boolean;
-   f_UsedFN : AnsiString;
-   f_FreeFN : AnsiString;
-   f_LPStr : AnsiString;
- protected
- // realized methods
+  private
+   f_LockFile: TatLockFile;
+   f_IsLoop: Boolean;
+   f_UsedFN: AnsiString;
+   f_FreeFN: AnsiString;
+   f_LPStr: AnsiString;
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitParamList; override;
- public
- // overridden public methods
+  public
    procedure AfterFillingParamList; override;
-     {* Вызывается генератором сценария после заполнения значений параметров.
+    {* Вызывается генератором сценария после заполнения значений параметров.
 Если операции надо что-то инициализировать, и для этого нужны значения параметров из сценария. }
  end;//TatLoginFromListOperation
 
 implementation
 
 uses
-  Classes,
-  SysUtils,
-  atLogger,
-  atLoginOperation,
-  XMLDoc,
-  XMLIntf
-  ;
-
-// start class TatLoginFromListOperation
+ l3ImplUses
+ , Classes
+ , SysUtils
+ , atLogger
+ , atLoginOperation
+ , XMLDoc
+ , XMLIntf
+;
 
 procedure TatLoginFromListOperation.ExecuteSelf;
 //#UC START# *48089F460352_4FF30FEB005D_var*
@@ -225,6 +210,7 @@ begin
 end;//TatLoginFromListOperation.ExecuteSelf
 
 procedure TatLoginFromListOperation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FF30FEB005D_var*
 //#UC END# *479731C50290_4FF30FEB005D_var*
 begin
@@ -269,6 +255,8 @@ begin
 end;//TatLoginFromListOperation.InitParamList
 
 procedure TatLoginFromListOperation.AfterFillingParamList;
+ {* Вызывается генератором сценария после заполнения значений параметров.
+Если операции надо что-то инициализировать, и для этого нужны значения параметров из сценария. }
 //#UC START# *492188F70140_4FF30FEB005D_var*
 //#UC END# *492188F70140_4FF30FEB005D_var*
 begin

@@ -1,95 +1,69 @@
 unit nsEditionFromDTPDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/nsEditionFromDTPDocumentContainer.pas"
-// Начат: 01.11.2010 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::TnsEditionFromDTPDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionFromDTPDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsEditionFromDTPDocumentContainer" MUID: (4CCE7DC70233)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nevTools,
-  EditionsInterfaces,
-  nsF1DocumentContainerPrim,
-  F1TagDataProviderInterface,
-  afwInterfaces,
-  nevBase,
-  l3Interfaces,
-  l3Variant,
-  k2Base,
-  nevPrintableDocumentContainer
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsF1DocumentContainerPrim
+ , F1TagDataProviderInterface
+ , DocumentUnit
+ , EditionsInterfaces
+ , nevTools
+ , l3Variant
+ , nevPrintableDocumentContainer
+ , afwInterfaces
+ , nevBase
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _afwApplicationDataUpdate_Parent_ = TnsF1DocumentContainerPrim;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _nsEditionsDecorationRules_Parent_ = _afwApplicationDataUpdate_;
  {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
  TnsEditionFromDTPDocumentContainer = class(_nsEditionsDecorationRules_, If1EditionDocumentContainer)
- private
- // private fields
-   f_Provider : IDocumentTextProvider;
-   f_IsLeft : Boolean;
-   f_ProviderFactory : InsDocumentTextProviderFactory;
- protected
- // realized methods
+  private
+   f_Provider: IDocumentTextProvider;
+   f_IsLeft: Boolean;
+   f_ProviderFactory: InsDocumentTextProviderFactory;
+  protected
    function CollapsedTagDefaultValueForPara(aTag: Tl3Tag): Boolean;
- protected
- // overridden protected methods
    procedure FinishDataUpdate; override;
    function GetDocument: Tl3Tag; override;
    function HAFPainterClass: RevHAFPainter; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aIsLeft: Boolean;
-     const aProviderFactory: InsDocumentTextProviderFactory); reintroduce;
+    const aProviderFactory: InsDocumentTextProviderFactory); reintroduce;
    class function Make(aIsLeft: Boolean;
-     const aProviderFactory: InsDocumentTextProviderFactory): InevDocumentContainer; reintroduce;
-     {* Сигнатура фабрики TnsEditionFromDTPDocumentContainer.Make }
+    const aProviderFactory: InsDocumentTextProviderFactory): InevDocumentContainer; reintroduce;
  end;//TnsEditionFromDTPDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsF1DocumentTagNode,
-  nsHAFPainter,
-  afwFacade,
-  evTextStyle_Const,
-  k2Tags
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsF1DocumentTagNode
+ , nsHAFPainter
+ , afwFacade
+ , evTextStyle_Const
+ , k2Tags
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
 
-// start class TnsEditionFromDTPDocumentContainer
-
 constructor TnsEditionFromDTPDocumentContainer.Create(aIsLeft: Boolean;
-  const aProviderFactory: InsDocumentTextProviderFactory);
+ const aProviderFactory: InsDocumentTextProviderFactory);
 //#UC START# *4CCE7F0100E8_4CCE7DC70233_var*
 //#UC END# *4CCE7F0100E8_4CCE7DC70233_var*
 begin
@@ -102,7 +76,7 @@ begin
 end;//TnsEditionFromDTPDocumentContainer.Create
 
 class function TnsEditionFromDTPDocumentContainer.Make(aIsLeft: Boolean;
-  const aProviderFactory: InsDocumentTextProviderFactory): InevDocumentContainer;
+ const aProviderFactory: InsDocumentTextProviderFactory): InevDocumentContainer;
 var
  l_Inst : TnsEditionFromDTPDocumentContainer;
 begin
@@ -112,7 +86,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsEditionFromDTPDocumentContainer.Make
 
 function TnsEditionFromDTPDocumentContainer.CollapsedTagDefaultValueForPara(aTag: Tl3Tag): Boolean;
 //#UC START# *4E898AC40207_4CCE7DC70233_var*
@@ -161,17 +135,11 @@ begin
 end;//TnsEditionFromDTPDocumentContainer.HAFPainterClass
 
 procedure TnsEditionFromDTPDocumentContainer.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Provider := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ProviderFactory := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsEditionFromDTPDocumentContainer.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

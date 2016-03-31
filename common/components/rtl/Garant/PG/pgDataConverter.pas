@@ -1,38 +1,26 @@
 unit pgDataConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgDataConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgDataConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgDataConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgDataConverter" MUID: (55E42F2D027B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  pgInterfaces,
-  daInterfaces,
-  daTypes,
-  l3Date
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , pgInterfaces
+ , daTypes
+ , l3Date
+ , daInterfaces
+;
 
-{$If defined(UsePostgres)}
 type
  TpgDataConverter = class(Tl3ProtoObject, IpgDataConverter)
- protected
- // realized methods
+  protected
    function AllocateParamBuffer(const aDescription: IdaParamDescription): Pointer;
    procedure ParamToDataBase(const aDescription: IdaParamDescription;
     ClientBufferFormat: TdaDataType;
@@ -50,27 +38,20 @@ type
    function ToStTime(aData: Pointer): TStTime;
    function ToString(aData: Pointer): AnsiString;
    function ToByte(aData: Pointer): Byte;
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IpgDataConverter; reintroduce;
-     {* Сигнатура фабрики TpgDataConverter.Make }
  end;//TpgDataConverter
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3Base,
-  SysUtils
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgDataConverter
+ l3ImplUses
+ , l3Base
+ , SysUtils
+;
 
 constructor TpgDataConverter.Create;
 //#UC START# *55E42F4600AD_55E42F2D027B_var*
@@ -91,7 +72,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgDataConverter.Make
 
 function TpgDataConverter.AllocateParamBuffer(const aDescription: IdaParamDescription): Pointer;
 //#UC START# *555995210007_55E42F2D027B_var*
@@ -130,9 +111,9 @@ begin
 end;//TpgDataConverter.AllocateParamBuffer
 
 procedure TpgDataConverter.ParamToDataBase(const aDescription: IdaParamDescription;
-  ClientBufferFormat: TdaDataType;
-  aClientBuffer: Pointer;
-  var aServerBuffer: Pointer);
+ ClientBufferFormat: TdaDataType;
+ aClientBuffer: Pointer;
+ var aServerBuffer: Pointer);
 //#UC START# *5559955500DF_55E42F2D027B_var*
 var
  l_Str: AnsiString;
@@ -324,9 +305,9 @@ begin
 end;//TpgDataConverter.ParamToDataBase
 
 procedure TpgDataConverter.ParamFromDataBase(const aDescription: IdaParamDescription;
-  ClientBufferFormat: TdaDataType;
-  aServerBuffer: Pointer;
-  aClientBuffer: Pointer);
+ ClientBufferFormat: TdaDataType;
+ aServerBuffer: Pointer;
+ aClientBuffer: Pointer);
 //#UC START# *55599596005B_55E42F2D027B_var*
 //#UC END# *55599596005B_55E42F2D027B_var*
 begin
@@ -505,7 +486,7 @@ begin
 end;//TpgDataConverter.ParamFromDataBase
 
 procedure TpgDataConverter.FreeParamBuffer(const aDescription: IdaParamDescription;
-  aBuffer: Pointer);
+ aBuffer: Pointer);
 //#UC START# *5559D14D02D1_55E42F2D027B_var*
 //#UC END# *5559D14D02D1_55E42F2D027B_var*
 begin
@@ -567,7 +548,6 @@ begin
  Result := StrToInt(PAnsiChar(aData));
 //#UC END# *562E129A00BB_55E42F2D027B_impl*
 end;//TpgDataConverter.ToByte
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

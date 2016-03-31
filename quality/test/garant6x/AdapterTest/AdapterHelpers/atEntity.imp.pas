@@ -1,46 +1,36 @@
 {$IfNDef atEntity_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atEntity.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::AdapterHelpers::atEntity
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atEntity" MUID: (4FC8E3BF0125)
+// Имя типа: "_atEntity_"
 
 {$Define atEntity_imp}
- _atEntity_ = {mixin} class(Tl3_Base)
- private
- // private fields
-   f_Entity : _EntityInterface_;
-    {* Поле для свойства Entity}
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+
+ _atEntity_ = class(Tl3_Base)
+  private
+   f_Entity: _EntityInterface_;
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function IsItMe(const anEntity: IEntityBase): Boolean; virtual;
-   constructor Create(const anEntityBase: IEntityBase); reintroduce; overload;  virtual;
-   constructor Create(const anEntity: _EntityInterface_); reintroduce; overload;  virtual;
-   constructor Create(const aNodeBase: INodeBase); reintroduce; overload;  virtual;
- public
- // public properties
+   constructor Create(const anEntityBase: IEntityBase); reintroduce; overload; virtual;
+   constructor Create(const anEntity: _EntityInterface_); reintroduce; overload; virtual;
+   constructor Create(const aNodeBase: INodeBase); reintroduce; overload; virtual;
+  public
    property Entity: _EntityInterface_
-     read f_Entity;
+    read f_Entity;
  end;//_atEntity_
 
 {$Else atEntity_imp}
 
-// start class _atEntity_
+{$IfNDef atEntity_imp_impl}
+
+{$Define atEntity_imp_impl}
 
 class function _atEntity_.IsItMe(const anEntity: IEntityBase): Boolean;
 //#UC START# *4FC8E4970307_4FC8E3BF0125_var*
@@ -82,8 +72,9 @@ begin
 //#UC END# *5051EAD80280_4FC8E3BF0125_impl*
 end;//_atEntity_.Create
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function _atEntity_.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4FC8E3BF0125_var*
 //#UC END# *47A6FEE600FC_4FC8E3BF0125_var*
 begin
@@ -91,7 +82,7 @@ begin
   Result := true;
 //#UC END# *47A6FEE600FC_4FC8E3BF0125_impl*
 end;//_atEntity_.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure _atEntity_.ClearFields;
 //#UC START# *5000565C019C_4FC8E3BF0125_var*
@@ -104,4 +95,7 @@ begin
 //#UC END# *5000565C019C_4FC8E3BF0125_impl*
 end;//_atEntity_.ClearFields
 
+{$EndIf atEntity_imp_impl}
+
 {$EndIf atEntity_imp}
+

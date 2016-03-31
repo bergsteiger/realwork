@@ -11,7 +11,9 @@ interface
 
 uses
  l3IntfUses
+ , l3Interfaces
  , l3Types
+ , m3Interfaces
  , m3DBInterfaces
  , m3StorageInterfaces
 ;

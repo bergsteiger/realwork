@@ -1,97 +1,69 @@
 unit tasSaveLoadRealization;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$Strange"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/tasSaveLoadRealization.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$Strange::TreeAttributeSelectSaveLoadRealization::TtasSaveLoadRealization
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\tasSaveLoadRealization.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TtasSaveLoadRealization" MUID: (54F83BC9036B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3ProtoDataContainer,
-  tasSaveLoadProxy,
-  SearchUnit,
-  l3Interfaces,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3ProtoDataContainer
+ , tasSaveLoadProxy
+ , SearchUnit
+ , l3Interfaces
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin)}
 type
  TtasSaveLoadRealization = class(Tl3ProtoDataContainer, ItasSaveLoadProcessor)
- protected
- // realized methods
+  protected
    procedure LoadFromQuery(const aQuery: IQuery;
-     const aTag: Il3CString;
-     const aTree: Il3SimpleTree);
+    const aTag: Il3CString;
+    const aTree: Il3SimpleTree);
    function SaveToQuery(const aQuery: IQuery;
-     const aTag: Il3CString;
-     const aTree: Il3SimpleTree): Boolean;
+    const aTag: Il3CString;
+    const aTree: Il3SimpleTree): Boolean;
    function IsQuerySaved(const aQuery: IQuery): Boolean;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtasSaveLoadRealization;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtasSaveLoadRealization }
  end;//TtasSaveLoadRealization
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a},
-  nsQueryUtils
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , nsQueryUtils
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin)}
-
-
-// start class TtasSaveLoadRealization
-
-var g_TtasSaveLoadRealization : TtasSaveLoadRealization = nil;
+var g_TtasSaveLoadRealization: TtasSaveLoadRealization = nil;
+ {* Экземпляр синглетона TtasSaveLoadRealization }
 
 procedure TtasSaveLoadRealizationFree;
+ {* Метод освобождения экземпляра синглетона TtasSaveLoadRealization }
 begin
  l3Free(g_TtasSaveLoadRealization);
-end;
-
-class function TtasSaveLoadRealization.Instance: TtasSaveLoadRealization;
-begin
- if (g_TtasSaveLoadRealization = nil) then
- begin
-  l3System.AddExitProc(TtasSaveLoadRealizationFree);
-  g_TtasSaveLoadRealization := Create;
- end;
- Result := g_TtasSaveLoadRealization;
-end;
-
+end;//TtasSaveLoadRealizationFree
 
 class function TtasSaveLoadRealization.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtasSaveLoadRealization <> nil;
 end;//TtasSaveLoadRealization.Exists
 
 procedure TtasSaveLoadRealization.LoadFromQuery(const aQuery: IQuery;
-  const aTag: Il3CString;
-  const aTree: Il3SimpleTree);
+ const aTag: Il3CString;
+ const aTree: Il3SimpleTree);
 //#UC START# *54F839B602DC_54F83BC9036B_var*
 //#UC END# *54F839B602DC_54F83BC9036B_var*
 begin
@@ -101,8 +73,8 @@ begin
 end;//TtasSaveLoadRealization.LoadFromQuery
 
 function TtasSaveLoadRealization.SaveToQuery(const aQuery: IQuery;
-  const aTag: Il3CString;
-  const aTree: Il3SimpleTree): Boolean;
+ const aTag: Il3CString;
+ const aTree: Il3SimpleTree): Boolean;
 //#UC START# *54F839D803D3_54F83BC9036B_var*
 //#UC END# *54F839D803D3_54F83BC9036B_var*
 begin
@@ -120,13 +92,21 @@ begin
 //#UC END# *54F85E5A00B4_54F83BC9036B_impl*
 end;//TtasSaveLoadRealization.IsQuerySaved
 
-{$IfEnd} //not Admin
+class function TtasSaveLoadRealization.Instance: TtasSaveLoadRealization;
+ {* Метод получения экземпляра синглетона TtasSaveLoadRealization }
+begin
+ if (g_TtasSaveLoadRealization = nil) then
+ begin
+  l3System.AddExitProc(TtasSaveLoadRealizationFree);
+  g_TtasSaveLoadRealization := Create;
+ end;
+ Result := g_TtasSaveLoadRealization;
+end;//TtasSaveLoadRealization.Instance
 
 initialization
-{$If not defined(Admin)}
 //#UC START# *54F83BEF0258*
  TtasSaveLoadProxy.Instance.Processor := TtasSaveLoadRealization.Instance;
 //#UC END# *54F83BEF0258*
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

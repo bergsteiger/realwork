@@ -1,64 +1,48 @@
 unit tfwKConst;
+ {* Константы для общения тестового фреймфорка с К }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/tfwKConst.pas"
-// Начат: 14.06.2011 21:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Testing Framework::DUnitTuning::tfwKConst
-//
-// Константы для общения тестового фреймфорка с К
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\tfwKConst.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "tfwKConst" MUID: (4DF79C0F03A9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
-{$If defined(Archi) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3IntfUses
+;
+
 const
-  { Archi }
+{$If Defined(Archi)}
  KUser = 'architester';
  KUserPassword = '6v2K3024';
-{$IfEnd} //Archi AND nsTest AND not NotTunedDUnit
-
-{$If defined(InsiderTest) AND defined(Nemesis) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-const
-  { Nemesis }
+{$IfEnd} // Defined(Archi)
+{$If Defined(Nemesis) AND Defined(InsiderTest)}
  KUser = 'f1tester';
  KUserPassword = 'f1_tester_user';
-{$IfEnd} //InsiderTest AND Nemesis AND nsTest AND not NotTunedDUnit
-
-{$If defined(nsTest) AND not defined(Archi) AND not defined(EverestLite) AND not defined(Nemesis) AND not defined(NotTunedDUnit)}
-const
-  { Other }
+{$IfEnd} // Defined(Nemesis) AND Defined(InsiderTest)
+{$If NOT Defined(Nemesis) AND NOT Defined(Archi) AND NOT Defined(EverestLite)}
  KUser = '';
  KUserPassword = '';
-{$IfEnd} //nsTest AND not Archi AND not EverestLite AND not Nemesis AND not NotTunedDUnit
-
-{$If defined(Nemesis) AND defined(nsTest) AND not defined(InsiderTest) AND not defined(NotTunedDUnit)}
-const
-  { Daily }
+{$IfEnd} // NOT Defined(Nemesis) AND NOT Defined(Archi) AND NOT Defined(EverestLite)
+{$If Defined(Nemesis) AND NOT Defined(InsiderTest)}
  KUser = 'shdtester';
  KUserPassword = 'shdtester';
-{$IfEnd} //Nemesis AND nsTest AND not InsiderTest AND not NotTunedDUnit
-
-{$If defined(EverestLite) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-const
-  { EverestLite }
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(InsiderTest)
+{$If Defined(EverestLite)}
  KUser = 'architester';
  KUserPassword = '6v2K3024';
-{$IfEnd} //EverestLite AND nsTest AND not NotTunedDUnit
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(EverestLite)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 implementation
+
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 end.

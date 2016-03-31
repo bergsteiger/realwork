@@ -1,21 +1,16 @@
 {$IfNDef atConverter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atConverter.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::CoreObjects::atConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atConverter" MUID: (503E2BCA01E8)
+// Имя типа: "_atConverter_"
 
 {$Define atConverter_imp}
+
+type
  Synonyms = record
-   First : _FirstType_;
-   Second : _SecondType_;
+  First: _FirstType_;
+  Second: _SecondType_;
  end;//Synonyms
 
  ConvertMap = array of Synonyms;
@@ -23,26 +18,25 @@
  EConvertError = class(Exception)
  end;//EConvertError
 
- _atConverter_ = {mixin} class(TObject)
- protected
- // protected fields
-   f_ConvertMap : ConvertMap;
- protected
- // protected methods
-   procedure InitConvertMap; overload;  virtual; abstract;
+ _atConverter_ = class(TObject)
+  protected
+   f_ConvertMap: ConvertMap;
+  protected
+   procedure InitConvertMap; overload; virtual; abstract;
    procedure Error1st(const aFirst: _FirstType_); virtual;
    procedure Error2nd(const aSecond: _SecondType_); virtual;
-   procedure InitConvertMap(const anArray: array of Synonyms); overload; 
- public
- // public methods
-   function FirstToSecond(const aFirst: _FirstType_): _SecondType_; overload; 
-   function SecondToFirst(const aSecond: _SecondType_): _FirstType_; overload; 
+   procedure InitConvertMap(const anArray: array of Synonyms); overload;
+  public
+   function FirstToSecond(const aFirst: _FirstType_): _SecondType_; overload;
+   function SecondToFirst(const aSecond: _SecondType_): _FirstType_; overload;
    constructor Create; reintroduce;
  end;//_atConverter_
 
 {$Else atConverter_imp}
 
-// start class _atConverter_
+{$IfNDef atConverter_imp_impl}
+
+{$Define atConverter_imp_impl}
 
 function _atConverter_.FirstToSecond(const aFirst: _FirstType_): _SecondType_;
 //#UC START# *503E2F000018_503E2BCA01E8_var*
@@ -131,4 +125,7 @@ begin
 //#UC END# *503E5D3102F3_503E2BCA01E8_impl*
 end;//_atConverter_.InitConvertMap
 
+{$EndIf atConverter_imp_impl}
+
 {$EndIf atConverter_imp}
+

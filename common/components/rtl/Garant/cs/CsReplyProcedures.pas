@@ -1,68 +1,57 @@
 unit CsReplyProcedures;
+ {* Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsReplyProcedures.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ServerSide::TCsReplyProcedures
-//
-// Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон.
-// Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsReplyProcedures.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCsReplyProcedures" MUID: (5395B29D0177)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  CsReplyProceduresWithRegistering
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3IntfUses
+ , CsReplyProceduresWithRegistering
+;
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
 type
  TCsReplyProcedures = class(TCsReplyProceduresWithRegistering)
   {* Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TCsReplyProcedures;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TCsReplyProcedures }
  end;//TCsReplyProcedures
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
-
-
-// start class TCsReplyProcedures
-
-var g_TCsReplyProcedures : TCsReplyProcedures = nil;
+var g_TCsReplyProcedures: TCsReplyProcedures = nil;
+ {* Экземпляр синглетона TCsReplyProcedures }
 
 procedure TCsReplyProceduresFree;
+ {* Метод освобождения экземпляра синглетона TCsReplyProcedures }
 begin
  l3Free(g_TCsReplyProcedures);
-end;
+end;//TCsReplyProceduresFree
+
+class function TCsReplyProcedures.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TCsReplyProcedures <> nil;
+end;//TCsReplyProcedures.Exists
 
 class function TCsReplyProcedures.Instance: TCsReplyProcedures;
+ {* Метод получения экземпляра синглетона TCsReplyProcedures }
 begin
  if (g_TCsReplyProcedures = nil) then
  begin
@@ -70,15 +59,7 @@ begin
   g_TCsReplyProcedures := Create;
  end;
  Result := g_TCsReplyProcedures;
-end;
-
-
-class function TCsReplyProcedures.Exists: Boolean;
- {-}
-begin
- Result := g_TCsReplyProcedures <> nil;
-end;//TCsReplyProcedures.Exists
-
-{$IfEnd} //AppServerSide AND not Nemesis
+end;//TCsReplyProcedures.Instance
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 end.

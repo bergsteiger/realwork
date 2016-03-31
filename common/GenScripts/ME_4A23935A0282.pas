@@ -11,9 +11,9 @@ interface
 
 uses
  l3IntfUses
- , evdInterfaces
- , evdTypes
  , afwInterfaces
+ , evdTypes
+ , evdInterfaces
 ;
 
 type

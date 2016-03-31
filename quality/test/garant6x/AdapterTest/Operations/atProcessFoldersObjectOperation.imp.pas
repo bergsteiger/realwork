@@ -1,38 +1,28 @@
 {$IfNDef atProcessFoldersObjectOperation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atProcessFoldersObjectOperation.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atProcessFoldersObjectOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atProcessFoldersObjectOperation" MUID: (484FDCD001F4)
+// Имя типа: "_atProcessFoldersObjectOperation_"
 
 {$Define atProcessFoldersObjectOperation_imp}
- _atProcessFoldersObjectOperation_ = {abstract mixin} class(TatOperationBase, IatFoldersNodeCallback)
- protected
- // realized methods
+
+ _atProcessFoldersObjectOperation_ = {abstract} class(TatOperationBase, IatFoldersNodeCallback)
+  protected
+   f_Matcher: IatFoldersNodeMatcher;
+   f_ProcessedObjects: Integer;
+  protected
+   procedure InitMatcher; virtual;
    procedure ExecuteSelf; override;
    procedure OnFoldersNode(const aFoldersNode: IFoldersNode);
- protected
- // overridden protected methods
    procedure InitParamList; override;
- protected
- // protected fields
-   f_Matcher : IatFoldersNodeMatcher;
-   f_ProcessedObjects : Integer;
- protected
- // protected methods
-   procedure InitMatcher; virtual;
  end;//_atProcessFoldersObjectOperation_
 
 {$Else atProcessFoldersObjectOperation_imp}
 
-// start class _atProcessFoldersObjectOperation_
+{$IfNDef atProcessFoldersObjectOperation_imp_impl}
+
+{$Define atProcessFoldersObjectOperation_imp_impl}
 
 procedure _atProcessFoldersObjectOperation_.InitMatcher;
 //#UC START# *484FDD22003E_484FDCD001F4_var*
@@ -94,4 +84,7 @@ begin
 //#UC END# *48089F3701B4_484FDCD001F4_impl*
 end;//_atProcessFoldersObjectOperation_.InitParamList
 
+{$EndIf atProcessFoldersObjectOperation_imp_impl}
+
 {$EndIf atProcessFoldersObjectOperation_imp}
+

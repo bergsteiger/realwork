@@ -1,63 +1,46 @@
 unit ArchiAutoTest;
+ {* Поддержка автоскриптов в Арчи. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/ArchiAutoTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$TestSupport::Archi Insider Test Support::ArchiScriptSupport::TArchiAutoTest
-//
-// Поддержка автоскриптов в Арчи.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiAutoTest.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TArchiAutoTest" MUID: (4DE482A503AB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  ArchiInsiderTest
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , ArchiInsiderTest
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
  TArchiAutoTest = class(TArchiInsiderTest)
   {* Поддержка автоскриптов в Арчи. }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function ResolveScriptFilePath(const aFileName: AnsiString): AnsiString; override;
    class function IsScript: Boolean; override;
-     {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
- public
- // overridden public methods
+    {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
+  public
    constructor Create(const aMethodName: AnsiString;
     const aFolder: AnsiString); override;
  end;//TArchiAutoTest
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  StrUtils
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TArchiAutoTest
+ l3ImplUses
+ , SysUtils
+ , StrUtils
+;
 
 function TArchiAutoTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
 //#UC START# *4C937013031D_4DE482A503AB_var*
 //#UC END# *4C937013031D_4DE482A503AB_var*
 begin
@@ -82,6 +65,7 @@ begin
 end;//TArchiAutoTest.ResolveScriptFilePath
 
 class function TArchiAutoTest.IsScript: Boolean;
+ {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
 //#UC START# *4DC395670274_4DE482A503AB_var*
 //#UC END# *4DC395670274_4DE482A503AB_var*
 begin
@@ -91,7 +75,7 @@ begin
 end;//TArchiAutoTest.IsScript
 
 constructor TArchiAutoTest.Create(const aMethodName: AnsiString;
-  const aFolder: AnsiString);
+ const aFolder: AnsiString);
 //#UC START# *4DC399CA00BC_4DE482A503AB_var*
 //#UC END# *4DC399CA00BC_4DE482A503AB_var*
 begin
@@ -100,7 +84,6 @@ begin
  FMethod := Self.DoIt;
 //#UC END# *4DC399CA00BC_4DE482A503AB_impl*
 end;//TArchiAutoTest.Create
-
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

@@ -1,113 +1,76 @@
 unit ncsMessageExecutorFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsMessageExecutorFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsMessageExecutorFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsMessageExecutorFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsMessageExecutorFactory" MUID: (54607384020A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ncsMessage,
-  ncsExecutorFactoryList,
-  ncsMessageInterfaces
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsExecutorFactoryList
+ , ncsMessageInterfaces
+ , ncsMessage
+;
 
-{$If not defined(Nemesis)}
 type
  TncsDisconnectExecutor = {final} class(Tl3ProtoObject, IncsExecutor, IncsMessageExecutorFactory)
- protected
- // realized methods
+  protected
    procedure Execute(const aContext: TncsExecuteContext);
    function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
  end;//TncsDisconnectExecutor
 
  TncsMessageExecutorFactory = class(Tl3ProtoObject)
- private
- // private fields
-   f_List : TncsExecutorFactoryList;
-   f_DisconnectExecutor : TncsDisconnectExecutor;
- protected
- // overridden protected methods
+  private
+   f_List: TncsExecutorFactoryList;
+   f_DisconnectExecutor: TncsDisconnectExecutor;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure Register(const aFactory: IncsMessageExecutorFactory);
    procedure UnRegister(const aFactory: IncsMessageExecutorFactory);
    function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsMessageExecutorFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TncsMessageExecutorFactory }
  end;//TncsMessageExecutorFactory
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  SysUtils,
-  l3Types,
-  evdNcsTypes
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-
-// start class TncsMessageExecutorFactory
-
-var g_TncsMessageExecutorFactory : TncsMessageExecutorFactory = nil;
-
-procedure TncsMessageExecutorFactoryFree;
-begin
- l3Free(g_TncsMessageExecutorFactory);
-end;
-
-class function TncsMessageExecutorFactory.Instance: TncsMessageExecutorFactory;
-begin
- if (g_TncsMessageExecutorFactory = nil) then
- begin
-  l3System.AddExitProc(TncsMessageExecutorFactoryFree);
-  g_TncsMessageExecutorFactory := Create;
- end;
- Result := g_TncsMessageExecutorFactory;
-end;
-
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , evdNcsTypes
+ , l3Base
+;
 
 type
-  TncsInvalidExecutor = {final} class(Tl3ProtoObject, IncsExecutor)
+ TncsInvalidExecutor = {final} class(Tl3ProtoObject, IncsExecutor)
   protected
-  // realized methods
    procedure Execute(const aContext: TncsExecuteContext);
   public
-  // public methods
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TncsInvalidExecutor.Make }
-  end;//TncsInvalidExecutor
+ end;//TncsInvalidExecutor
 
-// start class TncsInvalidExecutor
+var g_TncsMessageExecutorFactory: TncsMessageExecutorFactory = nil;
+ {* Экземпляр синглетона TncsMessageExecutorFactory }
+
+procedure TncsMessageExecutorFactoryFree;
+ {* Метод освобождения экземпляра синглетона TncsMessageExecutorFactory }
+begin
+ l3Free(g_TncsMessageExecutorFactory);
+end;//TncsMessageExecutorFactoryFree
 
 constructor TncsInvalidExecutor.Create;
 //#UC START# *5464A4DE0181_5464A0E40234_var*
@@ -128,7 +91,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsInvalidExecutor.Make
 
 procedure TncsInvalidExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_5464A0E40234_var*
@@ -151,7 +114,6 @@ begin
  end;
 //#UC END# *54607DDC0159_5464A0E40234_impl*
 end;//TncsInvalidExecutor.Execute
-// start class TncsDisconnectExecutor
 
 procedure TncsDisconnectExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_547C1FB30097_var*
@@ -226,12 +188,24 @@ begin
 end;//TncsMessageExecutorFactory.MakeExecutor
 
 class function TncsMessageExecutorFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TncsMessageExecutorFactory <> nil;
 end;//TncsMessageExecutorFactory.Exists
 
+class function TncsMessageExecutorFactory.Instance: TncsMessageExecutorFactory;
+ {* Метод получения экземпляра синглетона TncsMessageExecutorFactory }
+begin
+ if (g_TncsMessageExecutorFactory = nil) then
+ begin
+  l3System.AddExitProc(TncsMessageExecutorFactoryFree);
+  g_TncsMessageExecutorFactory := Create;
+ end;
+ Result := g_TncsMessageExecutorFactory;
+end;//TncsMessageExecutorFactory.Instance
+
 procedure TncsMessageExecutorFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54607384020A_var*
 //#UC END# *479731C50290_54607384020A_var*
 begin
@@ -255,7 +229,6 @@ begin
  Register(f_DisconnectExecutor);
 //#UC END# *47A042E100E2_54607384020A_impl*
 end;//TncsMessageExecutorFactory.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

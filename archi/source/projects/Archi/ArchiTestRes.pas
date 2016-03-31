@@ -1,78 +1,55 @@
 unit ArchiTestRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/archi/source/projects/Archi/ArchiTestRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$Test::Archi$Test::TArchiTestRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\Archi\ArchiTestRes.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TArchiTestRes" MUID: (4DE3420B030C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Archi\arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  GUIAppTester
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ , GUIAppTester
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
  TArchiTestRes = class(TGUIAppTester)
- public
- // realized methods
+  public
    class function GetResultsPlaces: TResultsPlaces; override;
  end;//TArchiTestRes
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  GUITestRunner
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  ArchiScriptEngine,
-  TestFrameWork,
-  toK,
-  l3CustomSortIntegerList,
-  l3CustomOtherListView,
-  l3CustomLongintListView,
-  l3LongintListReverseSorter,
-  l3EventedRecListView,
-  k2TagByHandleView
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  ArchiAutoTestSuite
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  ,
-  toKT
-  ;
-{$IfEnd} //InsiderTest AND nsTest
-
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-// start class TArchiTestRes
+ l3ImplUses
+ , GUITestRunner
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ArchiScriptEngine
+ , TestFrameWork
+ , toK
+ , l3CustomSortIntegerList
+ , l3CustomOtherListView
+ , l3CustomLongintListView
+ , l3LongintListReverseSorter
+ , l3EventedRecListView
+ , k2TagByHandleView
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ArchiAutoTestSuite
+ {$IfEnd} // NOT Defined(NoScripts)
+ , toKT
+;
 
 class function TArchiTestRes.GetResultsPlaces: TResultsPlaces;
 //#UC START# *52F264840382_4DE3420B030C_var*
@@ -82,7 +59,6 @@ begin
  Result := MakeResults([TtoK, TtoKT]);
 //#UC END# *52F264840382_4DE3420B030C_impl*
 end;//TArchiTestRes.GetResultsPlaces
-
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 end.

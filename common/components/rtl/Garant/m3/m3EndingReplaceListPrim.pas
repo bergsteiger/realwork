@@ -1,39 +1,30 @@
 unit m3EndingReplaceListPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$Morpho"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3EndingReplaceListPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$Morpho::m3Morpho::Tm3EndingReplaceListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3EndingReplaceListPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3EndingReplaceListPrim" MUID: (4F4CB5140310)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Interfaces
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
- Tm3EndingReplaceItem = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rEndingFind : AnsiString;
-   rEndingReplace : AnsiString;
-   rExcessChars : Byte;
+ Tm3EndingReplaceItem = object
+  public
+   rEndingFind: AnsiString;
+   rEndingReplace: AnsiString;
+   rExcessChars: Byte;
  end;//Tm3EndingReplaceItem
 
  _ItemType_ = Tm3EndingReplaceItem;
@@ -41,39 +32,51 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  Tm3EndingReplaceListPrim = class(_l3RecordListPrim_)
- public
- // public methods
+  public
    class function CompareStrings(const aStr1: Tl3WString;
-     const aStr2: Tl3WString): Integer;
+    const aStr2: Tl3WString): Integer;
  end;//Tm3EndingReplaceListPrim
 
 function Tm3EndingReplaceItem_C(const anEndingFind: AnsiString;
-     const anEndingReplace: AnsiString;
-     anExcessChars: Byte): Tm3EndingReplaceItem;
+ const anEndingReplace: AnsiString;
+ anExcessChars: Byte): Tm3EndingReplaceItem;
 
 implementation
 
 uses
-  l3String,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3String
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-// start class Tm3EndingReplaceListPrim
+function Tm3EndingReplaceItem_C(const anEndingFind: AnsiString;
+ const anEndingReplace: AnsiString;
+ anExcessChars: Byte): Tm3EndingReplaceItem;
+//#UC START# *4F4CB697008D_4F4CB52A039F_var*
+//#UC END# *4F4CB697008D_4F4CB52A039F_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4F4CB697008D_4F4CB52A039F_impl*
+ Result.rEndingFind := anEndingFind;
+ Result.rEndingReplace := anEndingReplace;
+ Result.rExcessChars := anExcessChars;
+//#UC END# *4F4CB697008D_4F4CB52A039F_impl*
+end;//Tm3EndingReplaceItem_C
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4F4CB5140310_var*
 //#UC END# *47B07CF403D0_4F4CB5140310_var*
 begin
@@ -82,11 +85,11 @@ begin
  //Result := Tm3EndingReplaceListPrim.CompareStrings(l3PCharLen(A.rEndingFind), l3PCharLen(B.rEndingFind)) = 0;
 //#UC END# *47B07CF403D0_4F4CB5140310_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4F4CB5140310_var*
 //#UC END# *47B2C42A0163_4F4CB5140310_var*
 begin
@@ -94,9 +97,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4F4CB5140310_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4F4CB5140310_var*
 //#UC END# *47B99D4503A2_4F4CB5140310_var*
 begin
@@ -111,10 +115,8 @@ type _Instance_R_ = Tm3EndingReplaceListPrim;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
-// start class Tm3EndingReplaceListPrim
-
 class function Tm3EndingReplaceListPrim.CompareStrings(const aStr1: Tl3WString;
-  const aStr2: Tl3WString): Integer;
+ const aStr2: Tl3WString): Integer;
 //#UC START# *4F4CB73B0187_4F4CB5140310_var*
 var
  I : Integer;
@@ -130,19 +132,5 @@ begin
  end;
 //#UC END# *4F4CB73B0187_4F4CB5140310_impl*
 end;//Tm3EndingReplaceListPrim.CompareStrings
-
-function Tm3EndingReplaceItem_C(const anEndingFind: AnsiString;
-        const anEndingReplace: AnsiString;
-        anExcessChars: Byte): Tm3EndingReplaceItem;
-//#UC START# *4F4CB697008D_4F4CB52A039F_var*
-//#UC END# *4F4CB697008D_4F4CB52A039F_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4F4CB697008D_4F4CB52A039F_impl*
- Result.rEndingFind := anEndingFind;
- Result.rEndingReplace := anEndingReplace;
- Result.rExcessChars := anExcessChars;
-//#UC END# *4F4CB697008D_4F4CB52A039F_impl*
-end;//Tm3EndingReplaceItem.C
 
 end.

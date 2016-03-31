@@ -1,78 +1,55 @@
 unit nsPromptContextFilterParams;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsPromptContextFilterParams.pas"
-// Начат: 2008/06/25 08:04:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::BaseSearch::TnsPromptContextFilterParams
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsPromptContextFilterParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPromptContextFilterParams" MUID: (4906D40F0363)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3CacheableBase,
-  l3TreeInterfaces,
-  Il3ContextFilterParamsNotifierPtrList,
-  l3Interfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3CacheableBase
+ , l3TreeInterfaces
+ , Il3ContextFilterParamsNotifierPtrList
+ , l3Interfaces
+;
 
-{$If not defined(Admin)}
 type
  TnsPromptContextFilterParams = class(Tl3CacheableBase, Il3ContextFilterParamsNotifySource, Il3ContextFilterParams)
   {* Коллеги, это что? }
- private
- // private fields
-   f_Subscribers : TIl3ContextFilterParamsNotifierPtrList;
- private
- // private methods
+  private
+   f_Subscribers: TIl3ContextFilterParamsNotifierPtrList;
+  private
    procedure NotifySubscribers;
-     {* Уведомляет подписчиков, о чём? }
- protected
- // realized methods
+    {* Уведомляет подписчиков, о чём? }
+  protected
    function WordPosition: Tl3WordPosition;
    function WordOrder: Tl3WordOrder;
    function TreeLevelDist: Tl3TreeLevelDist;
    procedure Subscribe(const aSubscriber: Il3ContextFilterParamsNotifier);
    procedure UnSubscribe(const aSubscriber: Il3ContextFilterParamsNotifier);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: Il3ContextFilterParams; reintroduce;
-     {* Создаёт дерево }
+    {* Создаёт дерево }
  end;//TnsPromptContextFilterParams
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnsPromptContextFilterParams
+ l3ImplUses
+ , SysUtils
+;
 
 class function TnsPromptContextFilterParams.Make: Il3ContextFilterParams;
+ {* Создаёт дерево }
 var
  l_Inst : TnsPromptContextFilterParams;
 begin
@@ -82,9 +59,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsPromptContextFilterParams.Make
 
 procedure TnsPromptContextFilterParams.NotifySubscribers;
+ {* Уведомляет подписчиков, о чём? }
 //#UC START# *49089FF80356_4906D40F0363_var*
 var
  l_Index : Integer;
@@ -147,6 +125,7 @@ begin
 end;//TnsPromptContextFilterParams.UnSubscribe
 
 procedure TnsPromptContextFilterParams.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4906D40F0363_var*
 //#UC END# *479731C50290_4906D40F0363_var*
 begin
@@ -155,7 +134,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4906D40F0363_impl*
 end;//TnsPromptContextFilterParams.Cleanup
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

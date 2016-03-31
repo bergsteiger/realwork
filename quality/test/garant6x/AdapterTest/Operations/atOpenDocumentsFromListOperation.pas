@@ -1,35 +1,22 @@
 unit atOpenDocumentsFromListOperation;
+ {* Открывает документы из списка документов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOpenDocumentsFromListOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatOpenDocumentsFromListOperation
-//
-// Открывает документы из списка документов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenDocumentsFromListOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenDocumentsFromListOperation" MUID: (4875E9B503DC)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatOpenDocumentsFromListOperation = class(TatOperationBase)
   {* Открывает документы из списка документов }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteChilds; override;
  end;//TatOpenDocumentsFromListOperation
@@ -37,17 +24,16 @@ type
 implementation
 
 uses
-  atDocumentHelper,
-  DocumentUnit,
-  DynamicTreeUnit,
-  atLogger,
-  Math,
-  BaseTypesUnit,
-  DynamicDocListUnit,
-  IOUnit
-  ;
-
-// start class TatOpenDocumentsFromListOperation
+ l3ImplUses
+ , atDocumentHelper
+ , DocumentUnit
+ , DynamicTreeUnit
+ , atLogger
+ , Math
+ , BaseTypesUnit
+ , DynamicDocListUnit
+ , IOUnit
+;
 
 procedure TatOpenDocumentsFromListOperation.ExecuteSelf;
 //#UC START# *48089F460352_4875E9B503DC_var*

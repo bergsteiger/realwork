@@ -1,95 +1,86 @@
 unit ncsSynchroClientTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsSynchroClientTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsSynchroClientTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsSynchroClientTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsSynchroClientTransporter" MUID: (54E339B500F7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsTCPClient,
-  idComponent,
-  ncsMessageInterfaces,
-  ncsSynchroTransporter,
-  ncsMessage,
-  Windows,
-  CsCommon
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsSynchroTransporter
+ , ncsMessageInterfaces
+ , ncsTCPClient
+ , idComponent
+;
 
-{$If not defined(Nemesis)}
 type
  TncsSynchroClientTransporter = class(TncsSynchroTransporter, IncsClientTransporter)
- private
- // private fields
-   f_TCPClient : TncsTCPClient;
- private
- // private methods
+  private
+   f_TCPClient: TncsTCPClient;
+  private
    procedure TransportStatus(ASender: TObject;
-     const AStatus: TIdStatus;
-     const AStatusText: AnsiString);
+    const AStatus: TIdStatus;
+    const AStatusText: AnsiString);
    procedure TransportConnected;
-     {* Сигнатура метода TransportConnected }
- protected
- // realized methods
+  protected
+   procedure BeforeHandshake; virtual;
    procedure Connect(const aServerHost: AnsiString;
     aServerPort: Integer;
     const aSessionID: AnsiString);
    procedure Disconnect(Immidiate: Boolean = False);
-     {* Immidiate = True - отрубить сразу
+    {* Immidiate = True - отрубить сразу
 Immidiate = False - дождаться завершения обмена послав ncsDisconnect и дождавшись ответа }
    procedure HandShake; override;
-     {* Сигнатура метода HandShake }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   procedure BeforeHandshake; virtual;
-     {* Сигнатура метода BeforeHandshake }
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IncsClientTransporter; reintroduce;
-     {* Сигнатура фабрики TncsSynchroClientTransporter.Make }
  end;//TncsSynchroClientTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csIdIOHandlerAdapter,
-  csIdIOHandlerAbstractAdapter,
-  l3Base,
-  IdException,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , csIdIOHandlerAdapter
+ , csIdIOHandlerAbstractAdapter
+ , l3Base
+ , IdException
+ , SysUtils
+ , ncsMessage
+;
 
-{$If not defined(Nemesis)}
+constructor TncsSynchroClientTransporter.Create;
+//#UC START# *54E33A870172_54E339B500F7_var*
+//#UC END# *54E33A870172_54E339B500F7_var*
+begin
+//#UC START# *54E33A870172_54E339B500F7_impl*
+ inherited Create;
+//#UC END# *54E33A870172_54E339B500F7_impl*
+end;//TncsSynchroClientTransporter.Create
 
-// start class TncsSynchroClientTransporter
+class function TncsSynchroClientTransporter.Make: IncsClientTransporter;
+var
+ l_Inst : TncsSynchroClientTransporter;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TncsSynchroClientTransporter.Make
 
 procedure TncsSynchroClientTransporter.TransportStatus(ASender: TObject;
-  const AStatus: TIdStatus;
-  const AStatusText: AnsiString);
+ const AStatus: TIdStatus;
+ const AStatusText: AnsiString);
 //#UC START# *54E33B3A02CB_54E339B500F7_var*
 //#UC END# *54E33B3A02CB_54E339B500F7_var*
 begin
@@ -121,27 +112,6 @@ begin
 //#UC END# *54E33B5E0245_54E339B500F7_impl*
 end;//TncsSynchroClientTransporter.TransportConnected
 
-constructor TncsSynchroClientTransporter.Create;
-//#UC START# *54E33A870172_54E339B500F7_var*
-//#UC END# *54E33A870172_54E339B500F7_var*
-begin
-//#UC START# *54E33A870172_54E339B500F7_impl*
- inherited Create;
-//#UC END# *54E33A870172_54E339B500F7_impl*
-end;//TncsSynchroClientTransporter.Create
-
-class function TncsSynchroClientTransporter.Make: IncsClientTransporter;
-var
- l_Inst : TncsSynchroClientTransporter;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 procedure TncsSynchroClientTransporter.BeforeHandshake;
 //#UC START# *54E33EA40163_54E339B500F7_var*
 //#UC END# *54E33EA40163_54E339B500F7_var*
@@ -152,8 +122,8 @@ begin
 end;//TncsSynchroClientTransporter.BeforeHandshake
 
 procedure TncsSynchroClientTransporter.Connect(const aServerHost: AnsiString;
-  aServerPort: Integer;
-  const aSessionID: AnsiString);
+ aServerPort: Integer;
+ const aSessionID: AnsiString);
 //#UC START# *544A1FD802E9_54E339B500F7_var*
 //#UC END# *544A1FD802E9_54E339B500F7_var*
 begin
@@ -175,6 +145,8 @@ begin
 end;//TncsSynchroClientTransporter.Connect
 
 procedure TncsSynchroClientTransporter.Disconnect(Immidiate: Boolean = False);
+ {* Immidiate = True - отрубить сразу
+Immidiate = False - дождаться завершения обмена послав ncsDisconnect и дождавшись ответа }
 //#UC START# *544A1FF00062_54E339B500F7_var*
 var
  l_Message: TncsDisconnect;
@@ -226,6 +198,7 @@ begin
 end;//TncsSynchroClientTransporter.HandShake
 
 procedure TncsSynchroClientTransporter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54E339B500F7_var*
 //#UC END# *479731C50290_54E339B500F7_var*
 begin
@@ -252,7 +225,6 @@ begin
  f_TcpClient.OnStatus := TransportStatus;
 //#UC END# *47A042E100E2_54E339B500F7_impl*
 end;//TncsSynchroClientTransporter.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

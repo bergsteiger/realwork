@@ -1,65 +1,48 @@
 unit nsMedicDictionTree;
+ {* Словарь медицинских терминов (синглетон) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/nsMedicDictionTree.pas"
-// Начат: 2008/03/06 10:02:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic$Unit::TnsMedicDictionTree
-//
-// Словарь медицинских терминов (синглетон)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicDictionTree" MUID: (49070AD5032C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsMedicDictionTreeBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsMedicDictionTreeBase
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMedicDictionTree = class(TnsMedicDictionTreeBase)
   {* Словарь медицинских терминов (синглетон) }
- public
- // public methods
+  public
    class function Make: Il3SimpleTree; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsMedicDictionTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsMedicDictionTree
-
-var g_TnsMedicDictionTree : Pointer = nil;
+var g_TnsMedicDictionTree: Pointer = nil;
+ {* Экземпляр синглетона TnsMedicDictionTree }
 
 procedure TnsMedicDictionTreeFree;
+ {* Метод освобождения экземпляра синглетона TnsMedicDictionTree }
 begin
  IUnknown(g_TnsMedicDictionTree) := nil;
-end;
-
+end;//TnsMedicDictionTreeFree
 
 class function TnsMedicDictionTree.Make: Il3SimpleTree;
 begin
@@ -69,14 +52,13 @@ begin
   Il3SimpleTree(g_TnsMedicDictionTree) := inherited Make;
  end;
  Result := Il3SimpleTree(g_TnsMedicDictionTree);
-end;
+end;//TnsMedicDictionTree.Make
 
 class function TnsMedicDictionTree.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsMedicDictionTree <> nil;
 end;//TnsMedicDictionTree.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

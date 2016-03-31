@@ -11,17 +11,26 @@ interface
 
 uses
  l3IntfUses
- , l3Interfaces
- , l3TreeInterfaces
- , nsTypes
- , DynamicTreeUnit
- , SecurityUnit
- , afwInterfaces
- , SettingsUnit
- , l3Types
+ , BaseTreeSupportUnit
  , DynamicDocListUnit
+ , DocumentUnit
+ , DynamicTreeUnit
+ , ExternalOperationUnit
+ , SettingsUnit
+ , SecurityUnit
+ , l3Interfaces
+ , l3Types
+ , afwInterfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Tree_TLB
  , nevTools
  , bsTypes
+ , eeInterfaces
+ , nevNavigation
+ , nsTypes
 ;
 
 type

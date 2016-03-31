@@ -1,42 +1,32 @@
 unit m3BaseArcStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3BaseArcStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::ArchiveStreams::Tm3BaseArcStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3BaseArcStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseArcStream" MUID: (53FF2D7500EB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3BaseHeaderStream
-  ;
+ l3IntfUses
+ , ActiveX
+ , m3BaseHeaderStream
+;
 
 type
  Tm3BaseArcStreamHeader = packed record
-//#UC START# *53FF2DA80270publ*
+ //#UC START# *53FF2DA80270publ*
    RZerroFrontierByte: Byte;
    RRealSize: Int64;
    RListPos: Int64;
-//#UC END# *53FF2DA80270publ*
+ //#UC END# *53FF2DA80270publ*
  end;//Tm3BaseArcStreamHeader
 
  _HeaderType_ = Tm3BaseArcStreamHeader;
- {$Include ..\m3\m3CustomHeaderStream.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}
  Tm3BaseArcStream = class(_m3CustomHeaderStream_)
- public
- // realized methods
+  public
    class function HeaderID: TCLSID; override;
    class function DefaultHeaderValue: _HeaderType_; override;
  end;//Tm3BaseArcStream
@@ -44,18 +34,17 @@ type
 implementation
 
 uses
-  m2AddDbg,
-  m2AddPrc,
-  m2COMLib,
-  m2MemLib,
-  l3Base,
-  ComObj,
-  m3Const
-  ;
+ l3ImplUses
+ , m2AddDbg
+ , m2AddPrc
+ , m2COMLib
+ , m2MemLib
+ , l3Base
+ , ComObj
+ , m3Const
+;
 
-{$Include ..\m3\m3CustomHeaderStream.imp.pas}
-
-// start class Tm3BaseArcStream
+{$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}
 
 class function Tm3BaseArcStream.HeaderID: TCLSID;
 //#UC START# *53FDFAF900ED_53FF2D7500EB_var*

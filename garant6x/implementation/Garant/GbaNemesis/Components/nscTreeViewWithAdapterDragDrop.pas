@@ -1,53 +1,38 @@
 unit nscTreeViewWithAdapterDragDrop;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Components"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Components/nscTreeViewWithAdapterDragDrop.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> F1 Базовые определения предметной области::LegalDomain::Components::Tree$WithDnD::TnscTreeViewWithAdapterDragDrop
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscTreeViewWithAdapterDragDrop.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeViewWithAdapterDragDrop" MUID: (52DE57DF007B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  nscTreeView
-  {$IfEnd} //Nemesis
-  ,
-  vtOutlinerWithDragDrop
-  ;
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ , vtOutlinerWithDragDrop
+;
 
 type
  TnscTreeViewWithAdapterDragDrop = class(TnscTreeView)
- protected
- // overridden protected methods
+  protected
    function DataObjectClass: RvtNodeDataObject; override;
  end;//TnscTreeViewWithAdapterDragDrop
 
 implementation
 
 uses
-  nsEntitiesTreeDataObject
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , nsEntitiesTreeDataObject
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TnscTreeViewWithAdapterDragDrop
-
+{$If Defined(Nemesis)}
 function TnscTreeViewWithAdapterDragDrop.DataObjectClass: RvtNodeDataObject;
 //#UC START# *52DD106403D3_52DE57DF007B_var*
 //#UC END# *52DD106403D3_52DE57DF007B_var*
@@ -66,9 +51,10 @@ begin
 end;//TnscTreeViewWithAdapterDragDrop.DataObjectClass
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TnscTreeViewWithAdapterDragDrop
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
-{$IfEnd} //not NoScripts
+ {* Регистрация TnscTreeViewWithAdapterDragDrop }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

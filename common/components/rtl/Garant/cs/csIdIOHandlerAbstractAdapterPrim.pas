@@ -1,35 +1,23 @@
 unit csIdIOHandlerAbstractAdapterPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csIdIOHandlerAbstractAdapterPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Core::TcsIdIOHandlerAbstractAdapterPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csIdIOHandlerAbstractAdapterPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsIdIOHandlerAbstractAdapterPrim" MUID: (538DB4F00335)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  Classes,
-  CsObject
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , CsObject
+ , Classes
+;
 
-{$If not defined(Nemesis)}
 type
  TcsIdIOHandlerAbstractAdapterPrim = {abstract} class(TCsObject)
- public
- // public methods
+  public
    procedure WriteBufferFlush; virtual; abstract;
    function ReadChar: AnsiChar; virtual; abstract;
    function ReadCardinal: Cardinal; virtual; abstract;
@@ -37,14 +25,14 @@ type
    function ReadLn: AnsiString; virtual; abstract;
    function ReadInt64: Int64; virtual; abstract;
    procedure ReadStream(aStream: TStream;
-     aSize: Int64 = -1); virtual; abstract;
+    aSize: Int64 = -1); virtual; abstract;
    function ReadInteger: Integer; virtual; abstract;
    function ReadSmallInt: SmallInt; virtual; abstract;
    procedure WriteLn(const aString: AnsiString); virtual; abstract;
    procedure WriteCardinal(aValue: Cardinal); virtual; abstract;
    procedure WriteInt64(aValue: Int64); virtual; abstract;
    procedure WriteStream(aStream: TStream;
-     aByteCount: Int64 = 0); virtual; abstract;
+    aByteCount: Int64 = 0); virtual; abstract;
    procedure WriteChar(aValue: AnsiChar); virtual; abstract;
    procedure WriteSmallInt(aValue: SmallInt); virtual; abstract;
    procedure WriteInteger(aValue: Integer); virtual; abstract;
@@ -53,18 +41,15 @@ type
    procedure WriteLargeStr(const aString: AnsiString); virtual; abstract;
    function ReadLargeStr: AnsiString; virtual; abstract;
  end;//TcsIdIOHandlerAbstractAdapterPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , l3Base
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-
-
-{$IfEnd} //not Nemesis
 end.

@@ -1,49 +1,36 @@
 unit pgResultSet;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgResultSet.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgResultSet
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgResultSet.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgResultSet" MUID: (560B961401E4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daParamList,
-  LibPQ,
-  daSelectFieldList,
-  pgInterfaces,
-  pgConnection,
-  daFieldList
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , LibPQ
+ , daSelectFieldList
+ , daFieldList
+ , pgInterfaces
+ , pgConnection
+ , daParamList
+;
 
-{$If defined(UsePostgres)}
 type
  TpgResultSet = class(Tl3ProtoObject, IdaResultSet, IdaResultBuffer)
- private
- // private fields
-   f_Result : PPGresult;
-   f_CurrentPos : LongInt;
-   f_EOF : Boolean;
-   f_FieldsDescription : TdaSelectFieldList;
-   f_Fields : TdaFieldList;
-   f_DataConverter : IpgDataConverter;
- protected
- // realized methods
+  private
+   f_Result: PPGresult;
+   f_CurrentPos: LongInt;
+   f_EOF: Boolean;
+   f_FieldsDescription: TdaSelectFieldList;
+   f_Fields: TdaFieldList;
+   f_DataConverter: IpgDataConverter;
+  protected
    procedure Next;
    function EOF: Boolean;
    function IsEmpty: Boolean;
@@ -51,48 +38,40 @@ type
    procedure RegisterField(const aField: IdaField);
    procedure UnregisterField(const aField: IdaField);
    function FieldBufferPtr(FieldIndex: Integer): Pointer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aConnection: TpgConnection;
-     const aDataConverter: IpgDataConverter;
-     const aQueryName: AnsiString;
-     aParams: TdaParamList;
-     aSelectFields: TdaSelectFieldList;
-     Unidirectional: Boolean); reintroduce;
+    const aDataConverter: IpgDataConverter;
+    const aQueryName: AnsiString;
+    aParams: TdaParamList;
+    aSelectFields: TdaSelectFieldList;
+    Unidirectional: Boolean); reintroduce;
    class function Make(aConnection: TpgConnection;
-     const aDataConverter: IpgDataConverter;
-     const aQueryName: AnsiString;
-     aParams: TdaParamList;
-     aSelectFields: TdaSelectFieldList;
-     Unidirectional: Boolean): IdaResultSet; reintroduce;
-     {* Сигнатура фабрики TpgResultSet.Make }
+    const aDataConverter: IpgDataConverter;
+    const aQueryName: AnsiString;
+    aParams: TdaParamList;
+    aSelectFields: TdaSelectFieldList;
+    Unidirectional: Boolean): IdaResultSet; reintroduce;
  end;//TpgResultSet
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  pgField,
-  l3Types
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgResultSet
+ l3ImplUses
+ , SysUtils
+ , pgField
+ , l3Types
+;
 
 constructor TpgResultSet.Create(aConnection: TpgConnection;
-  const aDataConverter: IpgDataConverter;
-  const aQueryName: AnsiString;
-  aParams: TdaParamList;
-  aSelectFields: TdaSelectFieldList;
-  Unidirectional: Boolean);
+ const aDataConverter: IpgDataConverter;
+ const aQueryName: AnsiString;
+ aParams: TdaParamList;
+ aSelectFields: TdaSelectFieldList;
+ Unidirectional: Boolean);
 //#UC START# *560B99890062_560B961401E4_var*
 var
  l_ParamsValue: array of AnsiString;
@@ -133,11 +112,11 @@ begin
 end;//TpgResultSet.Create
 
 class function TpgResultSet.Make(aConnection: TpgConnection;
-  const aDataConverter: IpgDataConverter;
-  const aQueryName: AnsiString;
-  aParams: TdaParamList;
-  aSelectFields: TdaSelectFieldList;
-  Unidirectional: Boolean): IdaResultSet;
+ const aDataConverter: IpgDataConverter;
+ const aQueryName: AnsiString;
+ aParams: TdaParamList;
+ aSelectFields: TdaSelectFieldList;
+ Unidirectional: Boolean): IdaResultSet;
 var
  l_Inst : TpgResultSet;
 begin
@@ -147,7 +126,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgResultSet.Make
 
 procedure TpgResultSet.Next;
 //#UC START# *5549C44C037A_560B961401E4_var*
@@ -231,6 +210,7 @@ begin
 end;//TpgResultSet.FieldBufferPtr
 
 procedure TpgResultSet.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_560B961401E4_var*
 //#UC END# *479731C50290_560B961401E4_var*
 begin
@@ -242,7 +222,6 @@ begin
  inherited;
 //#UC END# *479731C50290_560B961401E4_impl*
 end;//TpgResultSet.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

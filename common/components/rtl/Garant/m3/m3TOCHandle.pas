@@ -1,81 +1,77 @@
 unit m3TOCHandle;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3TOCHandle.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3TOCHandle
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3TOCHandle.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3TOCHandle" MUID: (54219331013F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  m3StorageInterfaces,
-  l3_String,
-  m3Persistent,
-  m3RootStreamManagerPrim,
-  ActiveX
-  ;
+ l3IntfUses
+ , m3Persistent
+ , l3_String
+ , m3StorageInterfaces
+ , m3RootStreamManagerPrim
+ , l3Interfaces
+ , ActiveX
+;
 
 type
  Tm3TOCHandle = class(Tm3Persistent)
- private
- // private fields
-   f_HandleName : Tl3_String;
-    {* Поле для свойства HandleName}
- protected
- // property methods
+  private
+   f_HandleName: Tl3_String;
+    {* Поле для свойства HandleName }
+  public
+   StoreInfo: Tm3StoreInfo;
+  protected
    procedure pm_SetHandleName(aValue: Tl3_String);
- protected
- // realized methods
-   procedure Load(const aStream: IStream); override;
-   procedure Save(const aStream: IStream); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure BeforeAddToCache; override;
-     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
-   {$If not defined(DesignTimeLibrary)}
+    {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public fields
-   StoreInfo : Tm3StoreInfo;
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create; reintroduce;
    class function CreateNew(aManager: Tm3RootStreamManagerPrim;
-     const aName: Tl3WString;
-     aStoreType: Tm3StoreType): Tm3TOCHandle;
- public
- // public properties
+    const aName: Tl3WString;
+    aStoreType: Tm3StoreType): Tm3TOCHandle;
+   procedure Load(const aStream: IStream); override;
+   procedure Save(const aStream: IStream); override;
+  public
    property HandleName: Tl3_String
-     read f_HandleName
-     write pm_SetHandleName;
-     {* имя вхождения директории }
+    read f_HandleName
+    write pm_SetHandleName;
+    {* имя вхождения директории }
  end;//Tm3TOCHandle
 
 implementation
 
 uses
-  l3Chars,
-  SysUtils,
-  m3Exceptions
-  ;
+ l3ImplUses
+ , l3Chars
+ , SysUtils
+ , m3Exceptions
+;
 
-// start class Tm3TOCHandle
+procedure Tm3TOCHandle.pm_SetHandleName(aValue: Tl3_String);
+//#UC START# *5421939F018F_54219331013Fset_var*
+//#UC END# *5421939F018F_54219331013Fset_var*
+begin
+//#UC START# *5421939F018F_54219331013Fset_impl*
+ if (aValue = nil) then
+  FreeAndNil(f_HandleName)
+ else
+ if (f_HandleName = nil) then
+  f_HandleName := Tl3_String.Make(aValue)
+ else
+  f_HandleName.Assign(aValue); 
+//#UC END# *5421939F018F_54219331013Fset_impl*
+end;//Tm3TOCHandle.pm_SetHandleName
 
 constructor Tm3TOCHandle.Create;
 //#UC START# *542193BF033E_54219331013F_var*
@@ -90,8 +86,8 @@ begin
 end;//Tm3TOCHandle.Create
 
 class function Tm3TOCHandle.CreateNew(aManager: Tm3RootStreamManagerPrim;
-  const aName: Tl3WString;
-  aStoreType: Tm3StoreType): Tm3TOCHandle;
+ const aName: Tl3WString;
+ aStoreType: Tm3StoreType): Tm3TOCHandle;
 //#UC START# *5421943000C9_54219331013F_var*
 var
  l_TOCItemDataPosition : Int64;
@@ -124,21 +120,6 @@ begin
 //#UC END# *5421943000C9_54219331013F_impl*
 end;//Tm3TOCHandle.CreateNew
 
-procedure Tm3TOCHandle.pm_SetHandleName(aValue: Tl3_String);
-//#UC START# *5421939F018F_54219331013Fset_var*
-//#UC END# *5421939F018F_54219331013Fset_var*
-begin
-//#UC START# *5421939F018F_54219331013Fset_impl*
- if (aValue = nil) then
-  FreeAndNil(f_HandleName)
- else
- if (f_HandleName = nil) then
-  f_HandleName := Tl3_String.Make(aValue)
- else
-  f_HandleName.Assign(aValue); 
-//#UC END# *5421939F018F_54219331013Fset_impl*
-end;//Tm3TOCHandle.pm_SetHandleName
-
 procedure Tm3TOCHandle.Load(const aStream: IStream);
 //#UC START# *542194B001E1_54219331013F_var*
 var
@@ -168,6 +149,7 @@ begin
 end;//Tm3TOCHandle.Save
 
 procedure Tm3TOCHandle.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54219331013F_var*
 //#UC END# *479731C50290_54219331013F_var*
 begin
@@ -178,6 +160,7 @@ begin
 end;//Tm3TOCHandle.Cleanup
 
 procedure Tm3TOCHandle.BeforeAddToCache;
+ {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 //#UC START# *479F2B3302C1_54219331013F_var*
 //#UC END# *479F2B3302C1_54219331013F_var*
 begin
@@ -194,8 +177,9 @@ begin
 //#UC END# *479F2B3302C1_54219331013F_impl*
 end;//Tm3TOCHandle.BeforeAddToCache
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tm3TOCHandle.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_54219331013F_var*
 //#UC END# *47A6FEE600FC_54219331013F_var*
 begin
@@ -203,6 +187,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_54219331013F_impl*
 end;//Tm3TOCHandle.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

@@ -1,111 +1,104 @@
 unit alcuAutoClassTaskResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuAutoClassTaskResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuAutoClassTaskResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoClassTaskResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAutoClassTaskResult" MUID: (53F472280036)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  evdTasksHelpers,
-  csTaskResult,
-  k2Base
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , csTaskResult
+ , evdTasksHelpers
+ , k2Base
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuAutoClassTaskResult = class(TcsTaskResult)
- protected
- // property methods
+  protected
    function pm_GetReportMessage: AnsiString;
    procedure pm_SetReportMessage(const aValue: AnsiString);
    function pm_GetMissedDocsStr: AnsiString;
    procedure pm_SetMissedDocsStr(const aValue: AnsiString);
    function pm_GetDocumentIDList: DocumentIDListHelper;
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property ReportMessage: AnsiString
-     read pm_GetReportMessage
-     write pm_SetReportMessage;
+    read pm_GetReportMessage
+    write pm_SetReportMessage;
    property MissedDocsStr: AnsiString
-     read pm_GetMissedDocsStr
-     write pm_SetMissedDocsStr;
+    read pm_GetMissedDocsStr
+    write pm_SetMissedDocsStr;
    property DocumentIDList: DocumentIDListHelper
-     read pm_GetDocumentIDList;
+    read pm_GetDocumentIDList;
  end;//TalcuAutoClassTaskResult
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  AutoClassTaskResult_Const
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuAutoClassTaskResult
+ l3ImplUses
+ , AutoClassTaskResult_Const
+;
 
 function TalcuAutoClassTaskResult.pm_GetReportMessage: AnsiString;
- {-}
+//#UC START# *0632E6B8F326_53F472280036get_var*
+//#UC END# *0632E6B8F326_53F472280036get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrReportMessage]);
+//#UC START# *0632E6B8F326_53F472280036get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *0632E6B8F326_53F472280036get_impl*
 end;//TalcuAutoClassTaskResult.pm_GetReportMessage
 
 procedure TalcuAutoClassTaskResult.pm_SetReportMessage(const aValue: AnsiString);
- {-}
+//#UC START# *0632E6B8F326_53F472280036set_var*
+//#UC END# *0632E6B8F326_53F472280036set_var*
 begin
- TaggedData.StrW[k2_attrReportMessage, nil] := (aValue);
+//#UC START# *0632E6B8F326_53F472280036set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *0632E6B8F326_53F472280036set_impl*
 end;//TalcuAutoClassTaskResult.pm_SetReportMessage
 
 function TalcuAutoClassTaskResult.pm_GetMissedDocsStr: AnsiString;
- {-}
+//#UC START# *10D805489FFC_53F472280036get_var*
+//#UC END# *10D805489FFC_53F472280036get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrMissedDocsStr]);
+//#UC START# *10D805489FFC_53F472280036get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *10D805489FFC_53F472280036get_impl*
 end;//TalcuAutoClassTaskResult.pm_GetMissedDocsStr
 
 procedure TalcuAutoClassTaskResult.pm_SetMissedDocsStr(const aValue: AnsiString);
- {-}
+//#UC START# *10D805489FFC_53F472280036set_var*
+//#UC END# *10D805489FFC_53F472280036set_var*
 begin
- TaggedData.StrW[k2_attrMissedDocsStr, nil] := (aValue);
+//#UC START# *10D805489FFC_53F472280036set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *10D805489FFC_53F472280036set_impl*
 end;//TalcuAutoClassTaskResult.pm_SetMissedDocsStr
 
 function TalcuAutoClassTaskResult.pm_GetDocumentIDList: DocumentIDListHelper;
- {-}
+//#UC START# *A47CDE8B8269_53F472280036get_var*
+//#UC END# *A47CDE8B8269_53F472280036get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
+//#UC START# *A47CDE8B8269_53F472280036get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A47CDE8B8269_53F472280036get_impl*
 end;//TalcuAutoClassTaskResult.pm_GetDocumentIDList
 
 class function TalcuAutoClassTaskResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53F472280036_var*
+//#UC END# *53AC03EE01FD_53F472280036_var*
 begin
- Result := k2_typAutoClassTaskResult;
+//#UC START# *53AC03EE01FD_53F472280036_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53F472280036_impl*
 end;//TalcuAutoClassTaskResult.GetTaggedDataType
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

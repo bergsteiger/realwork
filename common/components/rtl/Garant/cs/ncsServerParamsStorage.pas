@@ -1,37 +1,25 @@
 unit ncsServerParamsStorage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsServerParamsStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ServerSide::TncsServerParamsStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsServerParamsStorage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerParamsStorage" MUID: (5507E70200AF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  htInterfaces,
-  ddAppConfig
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , htInterfaces
+ , ddAppConfig
+;
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
 type
  TncsServerParamsStorage = class(Tl3ProtoObject, IdaParamsStorage, IhtParamsStorage)
- protected
- // realized methods
+  protected
    function Get_ProviderKey: AnsiString;
    procedure Set_ProviderKey(const aValue: AnsiString);
    procedure InitStorage;
@@ -57,39 +45,31 @@ type
    function LockPathErrorMessage: AnsiString;
    function OuterConfigEdit: Boolean;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-    const aProviderKey: AnsiString); overload; 
- public
- // public methods
+    const aProviderKey: AnsiString); overload;
+  public
    class function Make: IdaParamsStorage; reintroduce;
-     {* Сигнатура фабрики TncsServerParamsStorage.Make }
  end;//TncsServerParamsStorage
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  l3FileUtils,
-  StrUtils,
-  ddUtils,
-  SysUtils,
-  evdTaskTypes,
-  ddAppConfigConst,
-  ddAppConfigStrings,
-  ddAppConfigTypes,
-  l3Base
-  {$If defined(UsePostgres)}
-  ,
-  pgDataProviderFactory
-  {$IfEnd} //UsePostgres
-  ,
-  htDataProviderFactory
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
-
-{$If defined(AppServerSide) AND not defined(Nemesis)}
-
-// start class TncsServerParamsStorage
+ l3ImplUses
+ , l3FileUtils
+ , StrUtils
+ , ddUtils
+ , SysUtils
+ , evdTaskTypes
+ , ddAppConfigConst
+ , ddAppConfigStrings
+ , ddAppConfigTypes
+ , l3Base
+ {$If Defined(UsePostgres)}
+ , pgDataProviderFactory
+ {$IfEnd} // Defined(UsePostgres)
+ , htDataProviderFactory
+;
 
 class function TncsServerParamsStorage.Make: IdaParamsStorage;
 var
@@ -101,7 +81,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsServerParamsStorage.Make
 
 function TncsServerParamsStorage.Get_ProviderKey: AnsiString;
 //#UC START# *5507D9B100F7_5507E70200AFget_var*
@@ -320,7 +300,7 @@ begin
 end;//TncsServerParamsStorage.OuterConfigEdit
 
 procedure TncsServerParamsStorage.BuildConfig(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString);
+ const aProviderKey: AnsiString);
 //#UC START# *551512370064_5507E70200AF_var*
 var
  l_Default: TddConfigValue;
@@ -367,7 +347,6 @@ begin
 {$IfEnd defined(UsePostgres)}
 //#UC END# *551512370064_5507E70200AF_impl*
 end;//TncsServerParamsStorage.BuildConfig
-
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 end.

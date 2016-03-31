@@ -1,43 +1,31 @@
 unit ddProcessTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ddProcessTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TddProcessTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ddProcessTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddProcessTaskPrim" MUID: (53AC09FE03C7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ddServerTask,
-  ddProgressObj,
-  evdTaskTypes,
-  evdTasksHelpers,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ddServerTask
+ , evdTaskTypes
+ , evdTasksHelpers
+ , k2Base
+ , ddProgressObj
+;
 
-{$If not defined(Nemesis)}
 type
- TddRunContext = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rProgressor : TddProgressObject;
+ TddRunContext = object
+  public
+   rProgressor: TddProgressObject;
  end;//TddRunContext
 
  TddProcessTaskPrim = class(TddTaskItem)
- protected
- // property methods
+  protected
    function pm_GetComment: AnsiString;
    procedure pm_SetComment(const aValue: AnsiString);
    function pm_GetStatus: TcsTaskStatus;
@@ -45,39 +33,32 @@ type
    function pm_GetDocumentIDList: DocumentIDListHelper;
    function pm_GetReplyAddress: AnsiString;
    procedure pm_SetReplyAddress(const aValue: AnsiString);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property Comment: AnsiString
-     read pm_GetComment
-     write pm_SetComment;
+    read pm_GetComment
+    write pm_SetComment;
    property Status: TcsTaskStatus
-     read pm_GetStatus
-     write pm_SetStatus;
+    read pm_GetStatus
+    write pm_SetStatus;
    property DocumentIDList: DocumentIDListHelper
-     read pm_GetDocumentIDList;
+    read pm_GetDocumentIDList;
    property ReplyAddress: AnsiString
-     read pm_GetReplyAddress
-     write pm_SetReplyAddress;
+    read pm_GetReplyAddress
+    write pm_SetReplyAddress;
  end;//TddProcessTaskPrim
-{$IfEnd} //not Nemesis
 
-{$If not defined(Nemesis)}
 function TddRunContext_C(aProgressor: TddProgressObject): TddRunContext;
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ProcessTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
+ l3ImplUses
+ , ProcessTask_Const
+;
 
 function TddRunContext_C(aProgressor: TddProgressObject): TddRunContext;
 //#UC START# *53CCC5AA01BD_53CCC56502C7_var*
@@ -87,66 +68,79 @@ begin
 //#UC START# *53CCC5AA01BD_53CCC56502C7_impl*
  Result.rProgressor := aProgressor;
 //#UC END# *53CCC5AA01BD_53CCC56502C7_impl*
-end;//TddRunContext.C
-
-// start class TddProcessTaskPrim
+end;//TddRunContext_C
 
 function TddProcessTaskPrim.pm_GetComment: AnsiString;
- {-}
+//#UC START# *1EA09B9A77DE_53AC09FE03C7get_var*
+//#UC END# *1EA09B9A77DE_53AC09FE03C7get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrComment]);
+//#UC START# *1EA09B9A77DE_53AC09FE03C7get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *1EA09B9A77DE_53AC09FE03C7get_impl*
 end;//TddProcessTaskPrim.pm_GetComment
 
 procedure TddProcessTaskPrim.pm_SetComment(const aValue: AnsiString);
- {-}
+//#UC START# *1EA09B9A77DE_53AC09FE03C7set_var*
+//#UC END# *1EA09B9A77DE_53AC09FE03C7set_var*
 begin
- TaggedData.StrW[k2_attrComment, nil] := (aValue);
+//#UC START# *1EA09B9A77DE_53AC09FE03C7set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *1EA09B9A77DE_53AC09FE03C7set_impl*
 end;//TddProcessTaskPrim.pm_SetComment
 
 function TddProcessTaskPrim.pm_GetStatus: TcsTaskStatus;
- {-}
+//#UC START# *66ED44905989_53AC09FE03C7get_var*
+//#UC END# *66ED44905989_53AC09FE03C7get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TcsTaskStatus(TaggedData.IntA[k2_attrStatus]);
+//#UC START# *66ED44905989_53AC09FE03C7get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *66ED44905989_53AC09FE03C7get_impl*
 end;//TddProcessTaskPrim.pm_GetStatus
 
 procedure TddProcessTaskPrim.pm_SetStatus(aValue: TcsTaskStatus);
- {-}
+//#UC START# *66ED44905989_53AC09FE03C7set_var*
+//#UC END# *66ED44905989_53AC09FE03C7set_var*
 begin
- TaggedData.IntW[k2_attrStatus, nil] := Ord(aValue);
+//#UC START# *66ED44905989_53AC09FE03C7set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *66ED44905989_53AC09FE03C7set_impl*
 end;//TddProcessTaskPrim.pm_SetStatus
 
 function TddProcessTaskPrim.pm_GetDocumentIDList: DocumentIDListHelper;
- {-}
+//#UC START# *D9A88AF55146_53AC09FE03C7get_var*
+//#UC END# *D9A88AF55146_53AC09FE03C7get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
+//#UC START# *D9A88AF55146_53AC09FE03C7get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D9A88AF55146_53AC09FE03C7get_impl*
 end;//TddProcessTaskPrim.pm_GetDocumentIDList
 
 function TddProcessTaskPrim.pm_GetReplyAddress: AnsiString;
- {-}
+//#UC START# *CFD2E55B7996_53AC09FE03C7get_var*
+//#UC END# *CFD2E55B7996_53AC09FE03C7get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrReplyAddress]);
+//#UC START# *CFD2E55B7996_53AC09FE03C7get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *CFD2E55B7996_53AC09FE03C7get_impl*
 end;//TddProcessTaskPrim.pm_GetReplyAddress
 
 procedure TddProcessTaskPrim.pm_SetReplyAddress(const aValue: AnsiString);
- {-}
+//#UC START# *CFD2E55B7996_53AC09FE03C7set_var*
+//#UC END# *CFD2E55B7996_53AC09FE03C7set_var*
 begin
- TaggedData.StrW[k2_attrReplyAddress, nil] := (aValue);
+//#UC START# *CFD2E55B7996_53AC09FE03C7set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *CFD2E55B7996_53AC09FE03C7set_impl*
 end;//TddProcessTaskPrim.pm_SetReplyAddress
 
 class function TddProcessTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53AC09FE03C7_var*
+//#UC END# *53AC03EE01FD_53AC09FE03C7_var*
 begin
- Result := k2_typProcessTask;
+//#UC START# *53AC03EE01FD_53AC09FE03C7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53AC09FE03C7_impl*
 end;//TddProcessTaskPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

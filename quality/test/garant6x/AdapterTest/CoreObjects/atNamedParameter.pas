@@ -1,56 +1,48 @@
 unit atNamedParameter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atNamedParameter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatNamedParameter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParameter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNamedParameter" MUID: (480890870368)
 
 interface
 
 uses
-  atParameter
-  ;
+ l3IntfUses
+ , atParameter
+;
 
 type
  TatNamedParameter = class(TatParameter)
- private
- // private fields
-   f_Name : AnsiString;
-    {* Поле для свойства Name}
-   f_Description : AnsiString;
-    {* Поле для свойства Description}
- public
- // public methods
+  private
+   f_Name: AnsiString;
+    {* Поле для свойства Name }
+   f_Description: AnsiString;
+    {* Поле для свойства Description }
+  protected
+   procedure ClearFields; override;
+  public
    constructor Create(const name: AnsiString;
     const description: AnsiString;
-    const defaultValue: AnsiString); reintroduce; overload; 
+    const defaultValue: AnsiString); reintroduce; overload;
    constructor Create(const name: AnsiString;
-    const description: AnsiString); reintroduce; overload; 
-   constructor Create(const name: AnsiString); reintroduce; overload; 
- public
- // public properties
+    const description: AnsiString); reintroduce; overload;
+   constructor Create(const name: AnsiString); reintroduce; overload;
+  public
    property Name: AnsiString
-     read f_Name;
+    read f_Name;
    property Description: AnsiString
-     read f_Description;
+    read f_Description;
  end;//TatNamedParameter
 
 implementation
 
-// start class TatNamedParameter
+uses
+ l3ImplUses
+;
 
 constructor TatNamedParameter.Create(const name: AnsiString;
-  const description: AnsiString;
-  const defaultValue: AnsiString);
+ const description: AnsiString;
+ const defaultValue: AnsiString);
 //#UC START# *480890C200C7_480890870368_var*
 //#UC END# *480890C200C7_480890870368_var*
 begin
@@ -62,7 +54,7 @@ begin
 end;//TatNamedParameter.Create
 
 constructor TatNamedParameter.Create(const name: AnsiString;
-  const description: AnsiString);
+ const description: AnsiString);
 //#UC START# *480890DD012B_480890870368_var*
 //#UC END# *480890DD012B_480890870368_var*
 begin
@@ -82,5 +74,12 @@ begin
     f_Description := '';
 //#UC END# *480890EF00D2_480890870368_impl*
 end;//TatNamedParameter.Create
+
+procedure TatNamedParameter.ClearFields;
+begin
+ f_Name := '';
+ f_Description := '';
+ inherited;
+end;//TatNamedParameter.ClearFields
 
 end.

@@ -1,62 +1,46 @@
 unit nsMedicFirmsTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/nsMedicFirmsTree.pas"
-// Начат: 2008/03/21 11:36:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic$Unit::TnsMedicFirmsTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicFirmsTree" MUID: (49071797031F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsMedicFirmsTreeBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsMedicFirmsTreeBase
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMedicFirmsTree = class(TnsMedicFirmsTreeBase)
- public
- // public methods
+  public
    class function Make: Il3SimpleTree; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsMedicFirmsTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsMedicFirmsTree
-
-var g_TnsMedicFirmsTree : Pointer = nil;
+var g_TnsMedicFirmsTree: Pointer = nil;
+ {* Экземпляр синглетона TnsMedicFirmsTree }
 
 procedure TnsMedicFirmsTreeFree;
+ {* Метод освобождения экземпляра синглетона TnsMedicFirmsTree }
 begin
  IUnknown(g_TnsMedicFirmsTree) := nil;
-end;
-
+end;//TnsMedicFirmsTreeFree
 
 class function TnsMedicFirmsTree.Make: Il3SimpleTree;
 begin
@@ -66,14 +50,13 @@ begin
   Il3SimpleTree(g_TnsMedicFirmsTree) := inherited Make;
  end;
  Result := Il3SimpleTree(g_TnsMedicFirmsTree);
-end;
+end;//TnsMedicFirmsTree.Make
 
 class function TnsMedicFirmsTree.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsMedicFirmsTree <> nil;
 end;//TnsMedicFirmsTree.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -28,7 +28,7 @@ uses
 ;
 
 type
- TPrimFoldersTreeForm = class(Il3ItemNotifyRecipient, InsFolderNodeListener)
+ TPrimFoldersTreeForm = class(TvcmEntityForm, Il3ItemNotifyRecipient, InsFolderNodeListener)
   {* Дерево папок }
   private
    f_FoldersTree: TnscTreeViewWithAdapterDragDrop;
@@ -168,6 +168,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utFoldersTreeLocalConstants }
  str_utFoldersTreeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersTreeCaption'; rValue : 'Мои документы (вкладка)');
@@ -784,7 +785,6 @@ begin
 //#UC END# *479731C50290_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497DD4870291_var*
@@ -798,9 +798,7 @@ begin
  FoldersTree.VJustify := vt_vjTop;
 //#UC END# *49803F5503AA_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497DD4870291_var*
@@ -825,7 +823,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utFoldersTreeCaption.Init;
@@ -836,6 +833,7 @@ initialization
  TtfwClassRef.Register(TPrimFoldersTreeForm);
  {* Регистрация PrimFoldersTree }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

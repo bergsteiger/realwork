@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TListModule = class
+ TListModule = class(TvcmModule)
   {* Список }
   public
    class function ListPrintAndExportDefaultSetting: Boolean;
@@ -38,6 +38,7 @@ uses
  , afwFacade
 ;
 
+{$If NOT Defined(NoVCM)}
 class function TListModule.ListPrintAndExportDefaultSetting: Boolean;
  {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране" }
 //#UC START# *7C0BFDDC64B7_521DA6370197_var*
@@ -77,5 +78,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *35644933EC2C_521DA6370197_impl*
 end;//TListModule.WriteListPrintAndExportFontSizeSetting
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

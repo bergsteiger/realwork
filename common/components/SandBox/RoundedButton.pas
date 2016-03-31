@@ -1,52 +1,48 @@
 unit RoundedButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "RoundedButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: GuiControl::Class Shared Delphi Sand Box::SandBox::Rounded::TRoundedButton
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\RoundedButton.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TRoundedButton" MUID: (517C0F9C03C3)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  Messages,
-  l3Region,
-  Controls {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Region
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+;
 
 type
  _RefCounted_Parent_ = TButton;
  {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
  _RoundedControl_Parent_ = _RefCounted_;
- {$Include ..\SandBox\RoundedControl.imp.pas}
+ {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
  TRoundedButton = class(_RoundedControl_)
  end;//TRoundedButton
 
 implementation
 
 uses
-  Windows,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Themes
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , Windows
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Themes
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
-{$Include ..\SandBox\RoundedControl.imp.pas}
+{$Include w:\common\components\SandBox\RoundedControl.imp.pas}
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

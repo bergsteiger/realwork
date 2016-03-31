@@ -34,7 +34,7 @@ uses
 ;
 
 type
- TPrimUnderControlForm = class(InsUnderControlRootListener)
+ TPrimUnderControlForm = class(TvcmEntityForm, InsUnderControlRootListener)
   {* На контроле }
   private
    f_UnderControlList: TnscTreeViewWithAdapterDragDrop;
@@ -158,6 +158,7 @@ uses
  , nsFolders
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utUnderControlLocalConstants }
  str_utUnderControlCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlCaption'; rValue : 'Документы на контроле');
@@ -590,7 +591,6 @@ begin
  Self.ControlCenter_Refresh_Execute;
 end;//TPrimUnderControlForm.ControlCenter_Refresh
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
 //#UC START# *4BDAF7880236_4A7C349D02CBtest_var*
@@ -600,9 +600,7 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_4A7C349D02CBtest_impl*
 end;//TPrimUnderControlForm.Tree_ExpandAll_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4A7C349D02CBtest_var*
@@ -612,7 +610,6 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_4A7C349D02CBtest_impl*
 end;//TPrimUnderControlForm.Tree_CollapseAll_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimUnderControlForm.Document_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
  {* Показать изменения }
@@ -673,7 +670,6 @@ begin
 //#UC END# *47A042E100E2_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A7C349D02CB_var*
@@ -702,9 +698,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4A7C349D02CB_var*
@@ -716,7 +710,6 @@ begin
  Height := 480;
 //#UC END# *529332B40230_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utUnderControlCaption.Init;
@@ -727,6 +720,7 @@ initialization
  TtfwClassRef.Register(TPrimUnderControlForm);
  {* Регистрация PrimUnderControl }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -18,11 +18,11 @@ uses
 type
  Tl3ScreenServiceDef = {final} class(Tl3ProtoObject, Il3ScreenService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IC: Il3InfoCanvas;
    class function Instance: Tl3ScreenServiceDef;
     {* Метод получения экземпляра синглетона Tl3ScreenServiceDef }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3ScreenServiceDef
 
 function l3CrtIC: Il3InfoCanvas;
@@ -69,12 +69,6 @@ begin
 //#UC END# *4799F86A0356_4799F84900DD_impl*
 end;//l3CrtIC
 
-class function Tl3ScreenServiceDef.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ScreenServiceDef <> nil;
-end;//Tl3ScreenServiceDef.Exists
-
 function Tl3ScreenServiceDef.IC: Il3InfoCanvas;
 //#UC START# *88066E5D0414_556EE661021E_var*
 //#UC END# *88066E5D0414_556EE661021E_var*
@@ -94,6 +88,12 @@ begin
  end;
  Result := g_Tl3ScreenServiceDef;
 end;//Tl3ScreenServiceDef.Instance
+
+class function Tl3ScreenServiceDef.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ScreenServiceDef <> nil;
+end;//Tl3ScreenServiceDef.Exists
 
 initialization
  Tl3ScreenService.Instance.Alien := Tl3ScreenServiceDef.Instance;

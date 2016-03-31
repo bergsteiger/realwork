@@ -1,163 +1,128 @@
 unit nsBaseSearchPromptTreeBase;
+ {* Дерево подсказок для БП }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsBaseSearchPromptTreeBase.pas"
-// Начат: 2008/06/25 08:04:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::BaseSearch::TnsBaseSearchPromptTreeBase
-//
-// Дерево подсказок для БП
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptTreeBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchPromptTreeBase" MUID: (4906D1790319)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsINodeRootWrap,
-  nsDataResetTreeStruct,
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  nsLogEvent,
-  l3Variant,
-  l3IID,
-  nsINodeWrapBase,
-  bsInterfaces,
-  DynamicTreeUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , nsINodeWrapBase
+ , bsInterfaces
+ , SysUtils
+ , nsINodeRootWrap
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , l3Variant
+ , l3IID
+ , nsLogEvent
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  EPromptTreeNotFound = class(Exception)
   {* Подсказки не найдены }
  end;//EPromptTreeNotFound
 
  TnsOpenDocumentFromBaseSearchPromptEvent = class(TnsLogEvent)
- private
- // private methods
+  private
    class procedure Log(const aText: AnsiString;
     aDoc: Integer);
  end;//TnsOpenDocumentFromBaseSearchPromptEvent
 
- TnsBaseSearchPromptRoot = class(TnsINodeRootWrap {$If defined(Nemesis)}, InscBaseSearchPromptNode{$IfEnd} //Nemesis
+ TnsBaseSearchPromptRoot = class(TnsINodeRootWrap{$If Defined(Nemesis)}
+ , InscBaseSearchPromptNode
+ {$IfEnd} // Defined(Nemesis)
  )
- private
- // private fields
-   f_Doc : Integer;
-   f_Sub : Integer;
-   f_Text : AnsiString;
-   f_Para : Tl3Tag;
-    {* Поле для свойства Para}
- protected
- // property methods
+  private
+   f_Doc: Integer;
+   f_Sub: Integer;
+   f_Text: AnsiString;
+   f_Para: Tl3Tag;
+    {* Поле для свойства Para }
+  protected
    function pm_GetPara: Tl3Tag;
- protected
- // realized methods
-   {$If defined(Nemesis)}
+   {$If Defined(Nemesis)}
    function OpenDocument: Boolean;
-   {$IfEnd} //Nemesis
-   {$If defined(Nemesis)}
+   {$IfEnd} // Defined(Nemesis)
+   {$If Defined(Nemesis)}
    function IsLinkOnDocument: Boolean;
-   {$IfEnd} //Nemesis
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
-   out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- protected
- // protected properties
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+  protected
    property Para: Tl3Tag
-     read pm_GetPara;
+    read pm_GetPara;
  end;//TnsBaseSearchPromptRoot
 
  TnsBaseSearchPromptTreeBase = class(TnsDataResetTreeStruct)
   {* Дерево подсказок для БП }
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function RootNodeClass: RnsINodeWrap; override;
-     {* определяет класс обертки для Root }
+    {* определяет класс обертки для Root }
    function MakeFilters: Il3TreeFilters; override;
    procedure FillFilters(const aFilters: Il3TreeFilters;
     const anAdapterFilters: InsAdapterFilters); override;
    function MakeContextFilterParams: Il3ContextFilterParams; override;
- public
- // public methods
-   constructor Create; reintroduce; // can raise EPromptTreeNotFound
+  public
+   constructor Create; reintroduce; { can raise EPromptTreeNotFound }
    class function Make: Il3SimpleTree;
-     {* Создаёт дерево подсказок }
+    {* Создаёт дерево подсказок }
  end;//TnsBaseSearchPromptTreeBase
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  evNodePainter,
-  l3Memory,
-  l3Stream,
-  evCustomWikiReader,
-  l3InternalInterfaces,
-  k2DocumentBuffer,
-  l3Interfaces,
-  k2Tags,
-  evTextStyle_Const,
-  evdTypes,
-  k2Const,
-  bsTypesNew,
-  nsUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  nsPromptContextFilterParams,
-  nsBaseSearchPromptFilters,
-  nsCutToLeafFilter,
-  nsTypes,
-  nsConst,
-  BaseTypesUnit,
-  nsPromptForDocFilter,
-  BaseSearchInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DataAdapter
+ , nsPromptContextFilterParams
+ , nsBaseSearchPromptFilters
+ , nsCutToLeafFilter
+ , nsTypes
+ , nsConst
+ , BaseTypesUnit
+ , nsPromptForDocFilter
+ , BaseSearchInterfaces
+ , evNodePainter
+ , l3Memory
+ , l3Stream
+ , evCustomWikiReader
+ , l3InternalInterfaces
+ , k2DocumentBuffer
+ , l3Interfaces
+ , k2Tags
+ , evTextStyle_Const
+ , evdTypes
+ , k2Const
+ , bsTypesNew
+ , nsUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LoggingUnit
+;
 
 const
-   { Внутрение константы }
-  c_CutCount = 7;
-   { Коллеги, это что? }
-
-// start class TnsOpenDocumentFromBaseSearchPromptEvent
+ {* Внутрение константы }
+ c_CutCount = 7;
+  {* Коллеги, это что? }
 
 class procedure TnsOpenDocumentFromBaseSearchPromptEvent.Log(const aText: AnsiString;
-  aDoc: Integer);
+ aDoc: Integer);
 //#UC START# *555DC78401EF_555DAC3101FD_var*
 var
  l_Data: InsLogEventData;
@@ -217,7 +182,7 @@ begin
 //#UC END# *52B1DDA402C8_52B1DD5901CEget_impl*
 end;//TnsBaseSearchPromptRoot.pm_GetPara
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 function TnsBaseSearchPromptRoot.OpenDocument: Boolean;
 //#UC START# *52B9761F024B_52B1DD5901CE_var*
 var
@@ -239,9 +204,9 @@ begin
  end;
 //#UC END# *52B9761F024B_52B1DD5901CE_impl*
 end;//TnsBaseSearchPromptRoot.OpenDocument
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 function TnsBaseSearchPromptRoot.IsLinkOnDocument: Boolean;
 //#UC START# *52B977E30154_52B1DD5901CE_var*
 var
@@ -269,9 +234,10 @@ begin
  end;//Assigned(Para)
 //#UC END# *52B977E30154_52B1DD5901CE_impl*
 end;//TnsBaseSearchPromptRoot.IsLinkOnDocument
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 procedure TnsBaseSearchPromptRoot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52B1DD5901CE_var*
 //#UC END# *479731C50290_52B1DD5901CE_var*
 begin
@@ -282,7 +248,8 @@ begin
 end;//TnsBaseSearchPromptRoot.Cleanup
 
 function TnsBaseSearchPromptRoot.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_52B1DD5901CE_var*
 //#UC END# *4A60B23E00C3_52B1DD5901CE_var*
 begin
@@ -297,7 +264,7 @@ begin
 //#UC END# *4A60B23E00C3_52B1DD5901CE_impl*
 end;//TnsBaseSearchPromptRoot.COMQueryInterface
 
-constructor TnsBaseSearchPromptTreeBase.Create; // can raise EPromptTreeNotFound
+constructor TnsBaseSearchPromptTreeBase.Create; { can raise EPromptTreeNotFound }
 //#UC START# *4906D20B0185_4906D1790319_var*
 var
  l_Node : INodeBase;
@@ -313,6 +280,7 @@ begin
 end;//TnsBaseSearchPromptTreeBase.Create
 
 class function TnsBaseSearchPromptTreeBase.Make: Il3SimpleTree;
+ {* Создаёт дерево подсказок }
 //#UC START# *4906D21E035B_4906D1790319_var*
 var
  l_Tree        : TnsBaseSearchPromptTreeBase;
@@ -355,6 +323,7 @@ begin
 end;//TnsBaseSearchPromptTreeBase.ReAqurieUnfilteredRoot
 
 function TnsBaseSearchPromptTreeBase.RootNodeClass: RnsINodeWrap;
+ {* определяет класс обертки для Root }
 //#UC START# *48FEE3640227_4906D1790319_var*
 //#UC END# *48FEE3640227_4906D1790319_var*
 begin
@@ -373,7 +342,7 @@ begin
 end;//TnsBaseSearchPromptTreeBase.MakeFilters
 
 procedure TnsBaseSearchPromptTreeBase.FillFilters(const aFilters: Il3TreeFilters;
-  const anAdapterFilters: InsAdapterFilters);
+ const anAdapterFilters: InsAdapterFilters);
 //#UC START# *48FF520E03A0_4906D1790319_var*
 var
  l_Filters: InsBaseSearchPromptFilters;
@@ -400,7 +369,6 @@ begin
  Result := TnsPromptContextFilterParams.Make;
 //#UC END# *48FF52670038_4906D1790319_impl*
 end;//TnsBaseSearchPromptTreeBase.MakeContextFilterParams
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

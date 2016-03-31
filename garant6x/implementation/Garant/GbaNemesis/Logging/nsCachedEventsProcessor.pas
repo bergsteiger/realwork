@@ -1,52 +1,43 @@
 unit nsCachedEventsProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsCachedEventsProcessor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::Logging::TnsCachedEventsProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsCachedEventsProcessor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsCachedEventsProcessor" MUID: (4B139FB1009B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  LoggingInterfaces,
-  nsPrimCachedEventsProcessor
-  ;
+ l3IntfUses
+ , nsPrimCachedEventsProcessor
+ , LoggingInterfaces
+;
 
 type
  TnsCachedEventsProcessor = class(TnsPrimCachedEventsProcessor)
- public
- // public methods
+  public
    class function Make: InsCachedEventsProcessor; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsCachedEventsProcessor
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-// start class TnsCachedEventsProcessor
-
-var g_TnsCachedEventsProcessor : Pointer = nil;
+var g_TnsCachedEventsProcessor: Pointer = nil;
+ {* Экземпляр синглетона TnsCachedEventsProcessor }
 
 procedure TnsCachedEventsProcessorFree;
+ {* Метод освобождения экземпляра синглетона TnsCachedEventsProcessor }
 begin
  IUnknown(g_TnsCachedEventsProcessor) := nil;
-end;
-
+end;//TnsCachedEventsProcessorFree
 
 class function TnsCachedEventsProcessor.Make: InsCachedEventsProcessor;
 begin
@@ -56,10 +47,10 @@ begin
   InsCachedEventsProcessor(g_TnsCachedEventsProcessor) := inherited Make;
  end;
  Result := InsCachedEventsProcessor(g_TnsCachedEventsProcessor);
-end;
+end;//TnsCachedEventsProcessor.Make
 
 class function TnsCachedEventsProcessor.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsCachedEventsProcessor <> nil;
 end;//TnsCachedEventsProcessor.Exists

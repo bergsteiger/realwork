@@ -1,47 +1,32 @@
 unit nsOpenDocOnNumberData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsOpenDocOnNumberData.pas"
-// Начат: 28.10.2009 0*07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::Navigation::TnsOpenDocOnNumberData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocOnNumberData.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsOpenDocOnNumberData" MUID: (4AE760FD0182)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  NavigationInterfaces,
-  l3CProtoObject,
-  bsTypesNew
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CProtoObject
+ , NavigationInterfaces
+ , l3Interfaces
+ , bsTypesNew
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsOpenDocOnNumberData = class(Tl3CProtoObject, InsOpenDocOnNumberData)
- private
- // private fields
-   f_DocID : Integer;
-   f_PosID : Integer;
-   f_Internal : Boolean;
-   f_History : Il3CString;
-   f_Done : Boolean;
-   f_PosType : TDocumentPositionType;
- protected
- // realized methods
+  private
+   f_DocID: Integer;
+   f_PosID: Integer;
+   f_Internal: Boolean;
+   f_History: Il3CString;
+   f_Done: Boolean;
+   f_PosType: TDocumentPositionType;
+  protected
    function Get_DocID: Integer;
    procedure Set_DocID(aValue: Integer);
    function Get_PosID: Integer;
@@ -54,36 +39,33 @@ type
    procedure Set_Done(aValue: Boolean);
    function Get_PosType: TDocumentPositionType;
    procedure Set_PosType(aValue: TDocumentPositionType);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aDocID: Integer;
-     aPosID: Integer;
-     aPosType: TDocumentPositionType;
-     aInternal: Boolean;
-     const aHistory: Il3CString); reintroduce;
+    aPosID: Integer;
+    aPosType: TDocumentPositionType;
+    aInternal: Boolean;
+    const aHistory: Il3CString); reintroduce;
    class function Make(aDocID: Integer;
-     aPosID: Integer;
-     aPosType: TDocumentPositionType;
-     aInternal: Boolean;
-     const aHistory: Il3CString): InsOpenDocOnNumberData; reintroduce;
+    aPosID: Integer;
+    aPosType: TDocumentPositionType;
+    aInternal: Boolean;
+    const aHistory: Il3CString): InsOpenDocOnNumberData; reintroduce;
  end;//TnsOpenDocOnNumberData
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsOpenDocOnNumberData
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TnsOpenDocOnNumberData.Create(aDocID: Integer;
-  aPosID: Integer;
-  aPosType: TDocumentPositionType;
-  aInternal: Boolean;
-  const aHistory: Il3CString);
+ aPosID: Integer;
+ aPosType: TDocumentPositionType;
+ aInternal: Boolean;
+ const aHistory: Il3CString);
 //#UC START# *4AE761950144_4AE760FD0182_var*
 //#UC END# *4AE761950144_4AE760FD0182_var*
 begin
@@ -99,10 +81,10 @@ begin
 end;//TnsOpenDocOnNumberData.Create
 
 class function TnsOpenDocOnNumberData.Make(aDocID: Integer;
-  aPosID: Integer;
-  aPosType: TDocumentPositionType;
-  aInternal: Boolean;
-  const aHistory: Il3CString): InsOpenDocOnNumberData;
+ aPosID: Integer;
+ aPosType: TDocumentPositionType;
+ aInternal: Boolean;
+ const aHistory: Il3CString): InsOpenDocOnNumberData;
 var
  l_Inst : TnsOpenDocOnNumberData;
 begin
@@ -112,7 +94,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsOpenDocOnNumberData.Make
 
 function TnsOpenDocOnNumberData.Get_DocID: Integer;
 //#UC START# *4AE760B500BD_4AE760FD0182get_var*
@@ -223,14 +205,10 @@ begin
 end;//TnsOpenDocOnNumberData.Set_PosType
 
 procedure TnsOpenDocOnNumberData.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_History := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsOpenDocOnNumberData.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

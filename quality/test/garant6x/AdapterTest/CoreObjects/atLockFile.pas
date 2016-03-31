@@ -1,70 +1,51 @@
 unit atLockFile;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atLockFile.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatLockFile
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atLockFile.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatLockFile" MUID: (4FEB10B100CD)
 
 interface
 
 uses
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+;
 
 type
  TatLockFile = class(TObject)
- private
- // private fields
-   f_WriteHandle : THandle;
-   f_ReadHandle : THandle;
-   f_LocksCount : Integer;
-   f_FileName : AnsiString;
-    {* Поле для свойства FileName}
- private
- // private methods
+  private
+   f_WriteHandle: THandle;
+   f_ReadHandle: THandle;
+   f_LocksCount: Integer;
+   f_FileName: AnsiString;
+    {* Поле для свойства FileName }
+  private
    function OpenForRead: Boolean; virtual;
    function OpenFile(const aAccessMode: DWORD;
     const aShareMode: DWORD): THandle; virtual;
- protected
- // overridden protected methods
+  protected
+   procedure Initialize; virtual;
    procedure AfterConstruction; override;
-     {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+    {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
 
 The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
- public
- // overridden public methods
-   destructor Destroy; override;
- protected
- // protected methods
-   procedure Initialize; virtual;
- public
- // public methods
+  public
    constructor Create(const aFileName: AnsiString); reintroduce; virtual;
    function Acquire(aTimeOut: LongWord = INFINITE): Boolean; virtual;
    procedure Release; virtual;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property FileName: AnsiString
-     read f_FileName;
+    read f_FileName;
  end;//TatLockFile
 
 implementation
 
 uses
-  DateUtils,
-  SysUtils
-  ;
-
-// start class TatLockFile
+ l3ImplUses
+ , DateUtils
+ , SysUtils
+;
 
 constructor TatLockFile.Create(const aFileName: AnsiString);
 //#UC START# *4FEB10EA02B3_4FEB10B100CD_var*
@@ -147,7 +128,7 @@ begin
 end;//TatLockFile.OpenForRead
 
 function TatLockFile.OpenFile(const aAccessMode: DWORD;
-  const aShareMode: DWORD): THandle;
+ const aShareMode: DWORD): THandle;
 //#UC START# *4FEB12C50271_4FEB10B100CD_var*
 //#UC END# *4FEB12C50271_4FEB10B100CD_var*
 begin
@@ -178,6 +159,9 @@ begin
 end;//TatLockFile.Destroy
 
 procedure TatLockFile.AfterConstruction;
+ {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+
+The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
 //#UC START# *49F057120234_4FEB10B100CD_var*
   const
     WAIT_TIME = 100;

@@ -1,42 +1,31 @@
 {$IfNDef atIterateThroughFilesAddOn_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atIterateThroughFilesAddOn.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atIterateThroughFilesAddOn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atIterateThroughFilesAddOn" MUID: (502A769902EE)
+// Имя типа: "_atIterateThroughFilesAddOn_"
 
 {$Define atIterateThroughFilesAddOn_imp}
- _atIterateThroughFilesAddOn_ = {mixin} class(_atIterateThroughFilesAddOn_Parent_)
- private
- // private fields
-   f_FileList : TatStringFileReader;
- private
- // private methods
+
+ _atIterateThroughFilesAddOn_ = class(_atIterateThroughFilesAddOn_Parent_)
+  private
+   f_FileList: TatStringFileReader;
+  private
    function InitFileList: Boolean; virtual;
    procedure IterateThroughFiles; virtual;
- protected
- // realized methods
-   procedure ExecuteSelf; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitParamList; override;
- protected
- // protected methods
+  protected
    function OnFile(const aFileName: AnsiString): Boolean; virtual; abstract;
+   procedure ExecuteSelf; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitParamList; override;
  end;//_atIterateThroughFilesAddOn_
 
 {$Else atIterateThroughFilesAddOn_imp}
 
-// start class _atIterateThroughFilesAddOn_
+{$IfNDef atIterateThroughFilesAddOn_imp_impl}
+
+{$Define atIterateThroughFilesAddOn_imp_impl}
 
 function _atIterateThroughFilesAddOn_.InitFileList: Boolean;
 //#UC START# *502A64880035_502A769902EE_var*
@@ -157,6 +146,7 @@ begin
 end;//_atIterateThroughFilesAddOn_.ExecuteSelf
 
 procedure _atIterateThroughFilesAddOn_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_502A769902EE_var*
 //#UC END# *479731C50290_502A769902EE_var*
 begin
@@ -185,4 +175,7 @@ begin
 //#UC END# *48089F3701B4_502A769902EE_impl*
 end;//_atIterateThroughFilesAddOn_.InitParamList
 
+{$EndIf atIterateThroughFilesAddOn_imp_impl}
+
 {$EndIf atIterateThroughFilesAddOn_imp}
+

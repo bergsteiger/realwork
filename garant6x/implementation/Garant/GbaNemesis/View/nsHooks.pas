@@ -28,10 +28,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsHooks;
     {* Метод получения экземпляра синглетона TnsHooks }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsHooks
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -58,12 +58,6 @@ procedure TnsHooksFree;
 begin
  l3Free(g_TnsHooks);
 end;//TnsHooksFree
-
-class function TnsHooks.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsHooks <> nil;
-end;//TnsHooks.Exists
 
 procedure TnsHooks.MouseListenerNotify(aMouseMessage: WPARAM;
  aHookStruct: PMouseHookStruct;
@@ -127,6 +121,12 @@ begin
  end;
  Result := g_TnsHooks;
 end;//TnsHooks.Instance
+
+class function TnsHooks.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsHooks <> nil;
+end;//TnsHooks.Exists
 
 procedure TnsHooks.Cleanup;
  {* Функция очистки полей объекта. }

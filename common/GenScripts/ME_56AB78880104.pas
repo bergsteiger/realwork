@@ -14,6 +14,8 @@ uses
  , l3Interfaces
  , Types
  , Graphics
+ //#UC START# *56AB78880104intf_uses*
+ //#UC END# *56AB78880104intf_uses*
 ;
 
 type
@@ -71,6 +73,8 @@ uses
  , l3InternalInterfaces
  , l3ScreenIC
  , l3String
+ //#UC START# *56AB78880104impl_uses*
+ //#UC END# *56AB78880104impl_uses*
 ;
 
 function ApplyLineSpacing(aValue: Integer;

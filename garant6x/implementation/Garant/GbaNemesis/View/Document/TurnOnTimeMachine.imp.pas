@@ -1,44 +1,37 @@
 {$IfNDef TurnOnTimeMachine_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/TurnOnTimeMachine.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Работа с документом и списком документов::Document::View::Document::TurnOnTimeMachine
-//
-// Реализация InsTurnOnTimeMachine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "TurnOnTimeMachine" MUID: (49805ACC01CF)
+// Имя типа: "_TurnOnTimeMachine_"
 
 {$Define TurnOnTimeMachine_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _TurnOnTimeMachine_ = {mixin} class(_TurnOnTimeMachine_Parent_, InsTurnOnTimeMachine)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _TurnOnTimeMachine_ = class(_TurnOnTimeMachine_Parent_, InsTurnOnTimeMachine)
   {* Реализация InsTurnOnTimeMachine }
- protected
- // realized methods
+  protected
    procedure OnDate(aDate: RtlDateTime);
-     {* включить на дату }
+    {* включить на дату }
    procedure OnCurrentRedaction;
-     {* включить с начала действия текущей редакции }
+    {* включить с начала действия текущей редакции }
    function Get_DisableOps: TnsTurnOnTimeMachineOperations;
  end;//_TurnOnTimeMachine_
-{$Else}
 
- _TurnOnTimeMachine_ = _TurnOnTimeMachine_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_TurnOnTimeMachine_ = _TurnOnTimeMachine_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else TurnOnTimeMachine_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef TurnOnTimeMachine_imp_impl}
 
-// start class _TurnOnTimeMachine_
+{$Define TurnOnTimeMachine_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _TurnOnTimeMachine_.OnDate(aDate: RtlDateTime);
+ {* включить на дату }
 //#UC START# *49804EB60303_49805ACC01CF_var*
 //#UC END# *49804EB60303_49805ACC01CF_var*
 begin
@@ -48,6 +41,7 @@ begin
 end;//_TurnOnTimeMachine_.OnDate
 
 procedure _TurnOnTimeMachine_.OnCurrentRedaction;
+ {* включить с начала действия текущей редакции }
 //#UC START# *49804ED003A8_49805ACC01CF_var*
 //#UC END# *49804ED003A8_49805ACC01CF_var*
 begin
@@ -70,7 +64,9 @@ begin
   Result := [];
 //#UC END# *49805F2C0082_49805ACC01CFget_impl*
 end;//_TurnOnTimeMachine_.Get_DisableOps
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf TurnOnTimeMachine_imp_impl}
 
 {$EndIf TurnOnTimeMachine_imp}
+

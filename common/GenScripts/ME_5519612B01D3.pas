@@ -18,12 +18,12 @@ uses
 type
  TIterateableServiceImpl = {final} class(Tl3ProtoObject, IIterateableService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure IterateF(anAction: MIterateableService_IterateF_Action;
     anOwner: TComponent);
    class function Instance: TIterateableServiceImpl;
     {* Метод получения экземпляра синглетона TIterateableServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TIterateableServiceImpl
 
  TIterateableServiceProvider = class
@@ -45,12 +45,6 @@ procedure TIterateableServiceImplFree;
 begin
  l3Free(g_TIterateableServiceImpl);
 end;//TIterateableServiceImplFree
-
-class function TIterateableServiceImpl.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TIterateableServiceImpl <> nil;
-end;//TIterateableServiceImpl.Exists
 
 procedure TIterateableServiceImpl.IterateF(anAction: MIterateableService_IterateF_Action;
  anOwner: TComponent);
@@ -81,6 +75,12 @@ begin
  end;
  Result := g_TIterateableServiceImpl;
 end;//TIterateableServiceImpl.Instance
+
+class function TIterateableServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TIterateableServiceImpl <> nil;
+end;//TIterateableServiceImpl.Exists
 
 initialization
  TIterateableService.Instance.Alien := TIterateableServiceImpl.Instance;

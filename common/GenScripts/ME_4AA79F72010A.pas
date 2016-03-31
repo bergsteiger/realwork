@@ -19,7 +19,7 @@ uses
 ;
 
 type
- TSettingsModule = class
+ TSettingsModule = class(TvcmModule)
   protected
    procedure OpenStyleEditorAsModal; overload;
     {* Редактор стилей... }
@@ -72,6 +72,7 @@ uses
  , SelfInfo_Form
 ;
 
+{$If NOT Defined(NoVCM)}
 function TSettingsModule.OpenStyleEditorAsModal(const aData: InsStyleTableSettingsInfo): Integer;
 var l_SettingsData: InsStyleTableSettingsInfo;
 var l_Container: IvcmEntityForm;
@@ -228,6 +229,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B506F0902B5_4AA79F72010A_impl*
 end;//TSettingsModule.UserProperties
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -12,11 +12,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , l3TreeInterfaces
- , l3Interfaces
  , DocumentUnit
- , OldTreeInterfaces
  , SearchUnit
+ , l3Interfaces
+ , l3TreeInterfaces
+ , OldTreeInterfaces
 ;
 
 type

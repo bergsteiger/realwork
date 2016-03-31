@@ -1,79 +1,54 @@
 unit ncsServerTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsServerTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsServerTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsServerTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerTransporter" MUID: (544A0A21036B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csIdIOHandlerAbstractAdapter,
-  ncsTransporter,
-  ncsMessageInterfaces,
-  ncsMessage,
-  Windows,
-  CsCommon
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsTransporter
+ , ncsMessageInterfaces
+ , csIdIOHandlerAbstractAdapter
+;
 
-{$If not defined(Nemesis)}
 type
  TncsServerTransporter = class(TncsTransporter, IncsServerTransporter)
- protected
- // realized methods
+  protected
    procedure ProcessMessages(IsMainSocket: Boolean);
    procedure Terminate(WaitForTermination: Boolean = True);
    function Get_Terminated: Boolean;
    procedure HandShake; override;
-     {* Сигнатура метода HandShake }
    function HandShakeKind: TncsSocketKind; override;
    procedure RegisterSendBackHandler(aHandler: TcsIdIOHandlerAbstractAdapter);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure TransportStarted; override;
-     {* Сигнатура метода TransportStarted }
- public
- // public methods
+  public
    constructor Create(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-     const aSessionID: AnsiString); reintroduce;
+    const aSessionID: AnsiString); reintroduce;
    class function IntMake(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-     const aSessionID: AnsiString): IncsServerTransporter; reintroduce;
-     {* Сигнатура фабрики TncsServerTransporter.IntMake }
+    const aSessionID: AnsiString): IncsServerTransporter; reintroduce;
    class function Make(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-     out IsMainSocket: Boolean): IncsServerTransporter;
+    out IsMainSocket: Boolean): IncsServerTransporter;
  end;//TncsServerTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  ncsServerTransporterPtrPool
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsServerTransporter
+ l3ImplUses
+ , SysUtils
+ , ncsServerTransporterPtrPool
+;
 
 constructor TncsServerTransporter.Create(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-  const aSessionID: AnsiString);
+ const aSessionID: AnsiString);
 //#UC START# *5465A67802C1_544A0A21036B_var*
 //#UC END# *5465A67802C1_544A0A21036B_var*
 begin
@@ -86,7 +61,7 @@ begin
 end;//TncsServerTransporter.Create
 
 class function TncsServerTransporter.IntMake(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-  const aSessionID: AnsiString): IncsServerTransporter;
+ const aSessionID: AnsiString): IncsServerTransporter;
 var
  l_Inst : TncsServerTransporter;
 begin
@@ -96,10 +71,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsServerTransporter.IntMake
 
 class function TncsServerTransporter.Make(anIOHandler: TcsIdIOHandlerAbstractAdapter;
-  out IsMainSocket: Boolean): IncsServerTransporter;
+ out IsMainSocket: Boolean): IncsServerTransporter;
 //#UC START# *549195670058_544A0A21036B_var*
 var
  l_Kind: TncsSocketKind;
@@ -200,6 +175,7 @@ begin
 end;//TncsServerTransporter.RegisterSendBackHandler
 
 procedure TncsServerTransporter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_544A0A21036B_var*
 //#UC END# *479731C50290_544A0A21036B_var*
 begin
@@ -218,7 +194,6 @@ begin
  IOHandlers[HandShakeKind].WriteBufferFlush;
 //#UC END# *5492C5F703AA_544A0A21036B_impl*
 end;//TncsServerTransporter.TransportStarted
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

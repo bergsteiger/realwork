@@ -1,49 +1,34 @@
 unit nsContentsTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsContentsTree.pas"
-// Начат: 2005/09/05 08:12:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::TnsContentsTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsContentsTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsTree" MUID: (4683630000A0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  DocumentInterfaces,
-  l3Variant,
-  nsINodeWrapBase,
-  nsFilterableTreeStruct,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , DocumentInterfaces
+ , l3Variant
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , nsINodeWrapBase
+ , afwInterfaces
+ , nsFilterableTreeStruct
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsContentsTree = class(TnsDataResetTreeStruct, InsContentsTree)
- private
- // private fields
-   f_NeedResetRoot : Boolean;
-   f_RootWasResetted : Boolean;
-   f_Document : Tl3Tag;
-    {* Документ.}
- protected
- // realized methods
+  private
+   f_NeedResetRoot: Boolean;
+   f_RootWasResetted: Boolean;
+   f_Document: Tl3Tag;
+    {* Документ. }
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
    function FindBlock(aBlockID: Integer): Il3SimpleNode;
    function NeedResetRoot: Boolean;
@@ -51,21 +36,18 @@ type
     const aRoot: Il3SimpleRootNode);
    function RootResetted: Boolean;
    procedure DataReceived;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure MakeRootNode(const aRoot: INodeBase); override;
    function RootNodeClass: RnsINodeWrap; override;
-     {* определяет класс обертки для Root }
+    {* определяет класс обертки для Root }
    function MakeChildNode(const aChild: INodeBase): Il3SimpleNode; override;
    constructor CreateFiltered(const aNewRoot: INodeBase;
     aSource: TnsFilterableTreeStruct;
     const aFilters: Il3TreeFilters); override;
    function SettingsID: TafwSettingId; override;
    procedure BeforeReset; override;
- public
- // public methods
+  public
    constructor Create(const aRoot: INodeBase;
     aDocument: Tl3Tag); reintroduce;
    class function Make(const aRoot: INodeBase;
@@ -73,39 +55,35 @@ type
    class function MakeTagNode(aDocument: Tl3Tag;
     const aChild: INodeBase): Il3SimpleNode;
  end;//TnsContentsTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsContentsNode,
-  SysUtils,
-  nsConst,
-  nsParentedTagNode,
-  nsTagNodeTools,
-  k2Tags,
-  Document_Const,
-  CommentPara_Const,
-  Block_Const,
-  LeafPara_Const,
-  Bookmark_Const,
-  Sub_Const,
-  DocumentUnit,
-  nsTagNodeToolsNew,
-  k2Base,
-  k2Facade,
-  LeafParaDecorationsHolder_Const,
-  k2Empty_Const
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsContentsTree
+ l3ImplUses
+ , nsContentsNode
+ , SysUtils
+ , nsConst
+ , nsParentedTagNode
+ , nsTagNodeTools
+ , k2Tags
+ , Document_Const
+ , CommentPara_Const
+ , Block_Const
+ , LeafPara_Const
+ , Bookmark_Const
+ , Sub_Const
+ , DocumentUnit
+ , nsTagNodeToolsNew
+ , k2Base
+ , k2Facade
+ , LeafParaDecorationsHolder_Const
+ , k2Empty_Const
+;
 
 constructor TnsContentsTree.Create(const aRoot: INodeBase;
-  aDocument: Tl3Tag);
+ aDocument: Tl3Tag);
 //#UC START# *490860BD0003_4683630000A0_var*
 //#UC END# *490860BD0003_4683630000A0_var*
 begin
@@ -117,7 +95,7 @@ begin
 end;//TnsContentsTree.Create
 
 class function TnsContentsTree.Make(const aRoot: INodeBase;
-  aDocument: Tl3Tag): Il3SimpleTree;
+ aDocument: Tl3Tag): Il3SimpleTree;
 var
  l_Inst : TnsContentsTree;
 begin
@@ -127,10 +105,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsContentsTree.Make
 
 class function TnsContentsTree.MakeTagNode(aDocument: Tl3Tag;
-  const aChild: INodeBase): Il3SimpleNode;
+ const aChild: INodeBase): Il3SimpleNode;
 //#UC START# *49086150030C_4683630000A0_var*
 var
  l_Provider : IDocumentTextProvider;
@@ -269,7 +247,7 @@ begin
 end;//TnsContentsTree.NeedResetRoot
 
 procedure TnsContentsTree.ResetRoot(aDocument: Tl3Tag;
-  const aRoot: Il3SimpleRootNode);
+ const aRoot: Il3SimpleRootNode);
 //#UC START# *49085EAE0132_4683630000A0_var*
 var
  l_Root: INodeBase;
@@ -311,6 +289,7 @@ begin
 end;//TnsContentsTree.DataReceived
 
 procedure TnsContentsTree.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4683630000A0_var*
 //#UC END# *479731C50290_4683630000A0_var*
 begin
@@ -332,6 +311,7 @@ begin
 end;//TnsContentsTree.MakeRootNode
 
 function TnsContentsTree.RootNodeClass: RnsINodeWrap;
+ {* определяет класс обертки для Root }
 //#UC START# *48FEE3640227_4683630000A0_var*
 //#UC END# *48FEE3640227_4683630000A0_var*
 begin
@@ -352,8 +332,8 @@ begin
 end;//TnsContentsTree.MakeChildNode
 
 constructor TnsContentsTree.CreateFiltered(const aNewRoot: INodeBase;
-  aSource: TnsFilterableTreeStruct;
-  const aFilters: Il3TreeFilters);
+ aSource: TnsFilterableTreeStruct;
+ const aFilters: Il3TreeFilters);
 //#UC START# *48FF458602EC_4683630000A0_var*
 //#UC END# *48FF458602EC_4683630000A0_var*
 begin
@@ -382,7 +362,6 @@ begin
  f_NeedResetRoot := True;
 //#UC END# *48FF64E700E5_4683630000A0_impl*
 end;//TnsContentsTree.BeforeReset
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,85 +1,68 @@
 unit atNewConsultation;
+ {* Работа с новой консультацией }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atNewConsultation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatNewConsultation
-//
-// Работа с новой консультацией
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atNewConsultation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatNewConsultation" MUID: (4A54B2EB00FF)
 
 interface
 
 uses
-  atQuery
-  ;
+ l3IntfUses
+ , atQuery
+;
 
 type
  TatNewConsultation = class(TObject)
   {* Работа с новой консультацией }
- private
- // private fields
-   f_Query : TatQuery;
-   f_UserName : AnsiString;
-    {* Поле для свойства UserName}
-   f_CityCode : AnsiString;
-    {* Поле для свойства CityCode}
-   f_PhoneNumber : AnsiString;
-    {* Поле для свойства PhoneNumber}
-   f_QuestionText : AnsiString;
-    {* Поле для свойства QuestionText}
-   f_EMail : AnsiString;
-    {* Поле для свойства EMail}
- protected
- // property methods
+  private
+   f_Query: TatQuery;
+   f_UserName: AnsiString;
+    {* Поле для свойства UserName }
+   f_CityCode: AnsiString;
+    {* Поле для свойства CityCode }
+   f_PhoneNumber: AnsiString;
+    {* Поле для свойства PhoneNumber }
+   f_QuestionText: AnsiString;
+    {* Поле для свойства QuestionText }
+   f_EMail: AnsiString;
+    {* Поле для свойства EMail }
+  protected
    procedure pm_SetUserName(const aValue: AnsiString);
    procedure pm_SetCityCode(const aValue: AnsiString);
    procedure pm_SetPhoneNumber(const aValue: AnsiString);
    procedure pm_SetQuestionText(const aValue: AnsiString);
    procedure pm_SetEMail(const aValue: AnsiString);
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    procedure Send; virtual;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property UserName: AnsiString
-     read f_UserName
-     write pm_SetUserName;
+    read f_UserName
+    write pm_SetUserName;
    property CityCode: AnsiString
-     read f_CityCode
-     write pm_SetCityCode;
+    read f_CityCode
+    write pm_SetCityCode;
    property PhoneNumber: AnsiString
-     read f_PhoneNumber
-     write pm_SetPhoneNumber;
+    read f_PhoneNumber
+    write pm_SetPhoneNumber;
    property QuestionText: AnsiString
-     read f_QuestionText
-     write pm_SetQuestionText;
+    read f_QuestionText
+    write pm_SetQuestionText;
    property EMail: AnsiString
-     read f_EMail
-     write pm_SetEMail;
+    read f_EMail
+    write pm_SetEMail;
  end;//TatNewConsultation
 
 implementation
 
 uses
-  SearchUnit,
-  atStringHelper,
-  SysUtils
-  ;
-
-// start class TatNewConsultation
+ l3ImplUses
+ , SearchUnit
+ , atStringHelper
+ , SysUtils
+;
 
 procedure TatNewConsultation.pm_SetUserName(const aValue: AnsiString);
 //#UC START# *4A54B65D01D0_4A54B2EB00FFset_var*

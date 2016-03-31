@@ -1,60 +1,42 @@
 unit pgCommandExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgCommandExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgCommandExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgCommandExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgCommandExecutor" MUID: (5694BA3500C4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  pgConnection
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , pgConnection
+;
 
-{$If defined(UsePostgres)}
 type
  TpgCommandExecutor = class(Tl3ProtoObject)
- private
- // private fields
-   f_Connection : TpgConnection;
- protected
- // overridden protected methods
+  private
+   f_Connection: TpgConnection;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aConnection: TpgConnection); reintroduce;
    procedure Execute(const aCommand: AnsiString);
  end;//TpgCommandExecutor
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  SysUtils,
-  LibPQ,
-  pgUtils
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgCommandExecutor
+ l3ImplUses
+ , SysUtils
+ , LibPQ
+ , pgUtils
+;
 
 constructor TpgCommandExecutor.Create(aConnection: TpgConnection);
 //#UC START# *5694BA880236_5694BA3500C4_var*
@@ -83,6 +65,7 @@ begin
 end;//TpgCommandExecutor.Execute
 
 procedure TpgCommandExecutor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5694BA3500C4_var*
 //#UC END# *479731C50290_5694BA3500C4_var*
 begin
@@ -91,7 +74,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5694BA3500C4_impl*
 end;//TpgCommandExecutor.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

@@ -1,59 +1,43 @@
 unit htDataSchemeHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htDataSchemeHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtDataSchemeHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htDataSchemeHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataSchemeHelper" MUID: (555F0C89007D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  htDataProviderParams,
-  htInterfaces,
-  daTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , htInterfaces
+ , htDataProviderParams
+ , daTypes
+;
 
 type
  ThtDataSchemeHelper = class(Tl3ProtoObject, IhtDataSchemeHelper)
- private
- // private fields
-   f_Params : ThtDataProviderParams;
- protected
- // realized methods
+  private
+   f_Params: ThtDataProviderParams;
+  protected
    function TableFullPath(aTable: TdaTables): AnsiString;
    function TablePassword(aTable: TdaTables): AnsiString;
    function TableFamily(aTable: TdaTables): TdaFamilyID;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aParams: ThtDataProviderParams); reintroduce;
    class function Make(aParams: ThtDataProviderParams): IhtDataSchemeHelper; reintroduce;
-     {* Сигнатура фабрики ThtDataSchemeHelper.Make }
  end;//ThtDataSchemeHelper
 
 implementation
 
 uses
-  SysUtils,
-  l3FileUtils
-  ;
-
-// start class ThtDataSchemeHelper
+ l3ImplUses
+ , SysUtils
+ , l3FileUtils
+;
 
 constructor ThtDataSchemeHelper.Create(aParams: ThtDataProviderParams);
 //#UC START# *555F0CCD008C_555F0C89007D_var*
@@ -75,7 +59,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtDataSchemeHelper.Make
 
 function ThtDataSchemeHelper.TableFullPath(aTable: TdaTables): AnsiString;
 //#UC START# *555EF7F5009F_555F0C89007D_var*
@@ -151,6 +135,7 @@ begin
 end;//ThtDataSchemeHelper.TableFamily
 
 procedure ThtDataSchemeHelper.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_555F0C89007D_var*
 //#UC END# *479731C50290_555F0C89007D_var*
 begin

@@ -1,55 +1,40 @@
 unit htResultSet;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htResultSet.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtResultSet
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htResultSet.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtResultSet" MUID: (559121CE0393)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  htInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  HT_Const
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_List
-  {$IfEnd} //not Nemesis
-  ,
-  daSelectFieldList,
-  daFieldList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ {$If NOT Defined(Nemesis)}
+ , HT_Const
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_List
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daFieldList
+ , htInterfaces
+ , daSelectFieldList
+;
 
 type
  ThtResultSet = class(Tl3ProtoObject, IdaResultSet, IdaResultBuffer)
- private
- // private fields
-   f_SAB : SAB;
-   f_CurrentPos : LongInt;
-   f_Data : TAbstractList;
-   f_Fields : TdaFieldList;
-   f_DataConverter : IhtDataConverter;
-   f_SabDescription : ThtSubItemDescriptionArray;
-   f_FieldsDescription : TdaSelectFieldList;
-   f_EOF : Boolean;
- protected
- // realized methods
+  private
+   f_SAB: SAB;
+   f_CurrentPos: LongInt;
+   f_Data: TAbstractList;
+   f_Fields: TdaFieldList;
+   f_DataConverter: IhtDataConverter;
+   f_SabDescription: ThtSubItemDescriptionArray;
+   f_FieldsDescription: TdaSelectFieldList;
+   f_EOF: Boolean;
+  protected
    procedure Next;
    function EOF: Boolean;
    function IsEmpty: Boolean;
@@ -57,49 +42,40 @@ type
    procedure RegisterField(const aField: IdaField);
    procedure UnregisterField(const aField: IdaField);
    function FieldBufferPtr(FieldIndex: Integer): Pointer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataConverter: IhtDataConverter;
-     const aSAB: SAB;
-     aSelectFields: TdaSelectFieldList;
-     Unidirectional: Boolean); reintroduce;
+    const aSAB: SAB;
+    aSelectFields: TdaSelectFieldList;
+    Unidirectional: Boolean); reintroduce;
    class function Make(const aDataConverter: IhtDataConverter;
-     const aSAB: SAB;
-     aSelectFields: TdaSelectFieldList;
-     Unidirectional: Boolean): IdaResultSet; reintroduce;
-     {* Сигнатура фабрики ThtResultSet.Make }
+    const aSAB: SAB;
+    aSelectFields: TdaSelectFieldList;
+    Unidirectional: Boolean): IdaResultSet; reintroduce;
  end;//ThtResultSet
 
 implementation
 
 uses
-  l3Base
-  {$If not defined(Nemesis)}
-  ,
-  HT_DLL
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Err
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils,
-  dt_Types,
-  htField,
-  l3Types
-  ;
-
-// start class ThtResultSet
+ l3ImplUses
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , HT_DLL
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_Err
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ , dt_Types
+ , htField
+ , l3Types
+;
 
 constructor ThtResultSet.Create(const aDataConverter: IhtDataConverter;
-  const aSAB: SAB;
-  aSelectFields: TdaSelectFieldList;
-  Unidirectional: Boolean);
+ const aSAB: SAB;
+ aSelectFields: TdaSelectFieldList;
+ Unidirectional: Boolean);
 //#UC START# *5591222303A9_559121CE0393_var*
 var
  l_Mode: TOpenMode;
@@ -141,9 +117,9 @@ begin
 end;//ThtResultSet.Create
 
 class function ThtResultSet.Make(const aDataConverter: IhtDataConverter;
-  const aSAB: SAB;
-  aSelectFields: TdaSelectFieldList;
-  Unidirectional: Boolean): IdaResultSet;
+ const aSAB: SAB;
+ aSelectFields: TdaSelectFieldList;
+ Unidirectional: Boolean): IdaResultSet;
 var
  l_Inst : ThtResultSet;
 begin
@@ -153,7 +129,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtResultSet.Make
 
 procedure ThtResultSet.Next;
 //#UC START# *5549C44C037A_559121CE0393_var*
@@ -237,6 +213,7 @@ begin
 end;//ThtResultSet.FieldBufferPtr
 
 procedure ThtResultSet.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_559121CE0393_var*
 //#UC END# *479731C50290_559121CE0393_var*
 begin

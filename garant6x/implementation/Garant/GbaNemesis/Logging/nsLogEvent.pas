@@ -1,29 +1,19 @@
 unit nsLogEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsLogEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::Logging::TnsLogEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLogEvent" MUID: (4B0A6109010C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  LoggingUnit,
-  l3SimpleObject,
-  LoggingWrapperInterfaces,
-  BaseTypesUnit
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , LoggingWrapperInterfaces
+ , LoggingUnit
+;
 
 type
  InsLogEventData = LoggingWrapperInterfaces.InsLogEventData;
@@ -31,32 +21,27 @@ type
  TLogEvent = LoggingUnit.TLogEvent;
 
  _nsLogEvent_Parent_ = Tl3SimpleObject;
- {$Include ..\Logging\nsLogEvent.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.imp.pas}
  TnsLogEvent = {abstract} class(_nsLogEvent_)
- private
- // private fields
-   f_Logger : InsLogManager;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  private
+   f_Logger: InsLogManager;
+  protected
    class function GetLogger: InsLogManager;
    class function MakeParamsList: InsLogEventData;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  end;//TnsLogEvent
 
 implementation
 
 uses
-  nsLogEventData,
-  nsLogManager
-  ;
+ l3ImplUses
+ , nsLogEventData
+ , nsLogManager
+;
 
-{$Include ..\Logging\nsLogEvent.imp.pas}
-
-// start class TnsLogEvent
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.imp.pas}
 
 class function TnsLogEvent.GetLogger: InsLogManager;
 //#UC START# *566AE04B01D3_4B0A6109010C_var*
@@ -78,6 +63,7 @@ begin
 end;//TnsLogEvent.MakeParamsList
 
 procedure TnsLogEvent.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B0A6109010C_var*
 //#UC END# *479731C50290_4B0A6109010C_var*
 begin

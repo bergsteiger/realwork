@@ -1,50 +1,33 @@
 unit l3ControlCanvas;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ControlCanvas.pas"
-// Начат: 26.05.2005 17:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3ControlCanvas
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ControlCanvas.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ControlCanvas" MUID: (48C68AC60396)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Canvas
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , l3Canvas
+ , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  Tl3ControlCanvas = class(Tl3Canvas)
- private
- // private fields
-   f_Caret : Il3Caret;
- protected
- // overridden protected methods
+  private
+   f_Caret: Il3Caret;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Invalidate; override;
-     {* Сигнатура метода Invalidate }
    function GetCaret: Il3Caret; override;
    function DoGetClientRect: Tl3Rect; override;
- public
- // public methods
+  public
    constructor Create(aControl: TControl;
     const aCaret: Il3Caret = nil); reintroduce;
  end;//Tl3ControlCanvas
@@ -52,13 +35,12 @@ type
 implementation
 
 uses
-  l3Units
-  ;
-
-// start class Tl3ControlCanvas
+ l3ImplUses
+ , l3Units
+;
 
 constructor Tl3ControlCanvas.Create(aControl: TControl;
-  const aCaret: Il3Caret = nil);
+ const aCaret: Il3Caret = nil);
 //#UC START# *4FAE47E60126_48C68AC60396_var*
 //#UC END# *4FAE47E60126_48C68AC60396_var*
 begin
@@ -69,6 +51,7 @@ begin
 end;//Tl3ControlCanvas.Create
 
 procedure Tl3ControlCanvas.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48C68AC60396_var*
 //#UC END# *479731C50290_48C68AC60396_var*
 begin

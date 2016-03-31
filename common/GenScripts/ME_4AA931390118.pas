@@ -25,7 +25,7 @@ uses
 ;
 
 type
- TCommonSearchModule = class(IafwPageSetup, IafwPrintManager)
+ TCommonSearchModule = class(TvcmModule, IafwPageSetup, IafwPrintManager)
   protected
    function pm_GetMargins: TafwRect;
    function pm_GetOrientation: Tl3PageOrientation;
@@ -69,6 +69,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TCommonSearchModule.MakeSaveLoadForm(const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
  aRecursive: Boolean;
@@ -225,6 +226,7 @@ begin
   afw.Application.PrintManager := Self;
 //#UC END# *47D1602000C6_4AA931390118_impl*
 end;//TCommonSearchModule.Create
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

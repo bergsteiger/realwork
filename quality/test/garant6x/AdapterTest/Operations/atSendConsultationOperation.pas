@@ -1,49 +1,35 @@
 unit atSendConsultationOperation;
+ {* Создает и посылает новую консультацию }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSendConsultationOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSendConsultationOperation
-//
-// Создает и посылает новую консультацию
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSendConsultationOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSendConsultationOperation" MUID: (4A54BDC0001E)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSendConsultationOperation = class(TatOperationBase)
   {* Создает и посылает новую консультацию }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatSendConsultationOperation
 
 implementation
 
 uses
-  atNewConsultation,
-  atLogger,
-  SysUtils,
-  Math,
-  atCommon
-  ;
-
-// start class TatSendConsultationOperation
+ l3ImplUses
+ , atNewConsultation
+ , atLogger
+ , SysUtils
+ , Math
+ , atCommon
+;
 
 procedure TatSendConsultationOperation.ExecuteSelf;
 //#UC START# *48089F460352_4A54BDC0001E_var*

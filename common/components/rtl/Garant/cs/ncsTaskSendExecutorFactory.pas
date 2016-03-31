@@ -1,68 +1,47 @@
 unit ncsTaskSendExecutorFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTaskSendExecutorFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::TaskSend::TncsTaskSendExecutorFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskSendExecutorFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsTaskSendExecutorFactory" MUID: (5481B39101AF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  csProcessTask,
-  ncsMessageInterfaces,
-  ncsMessage
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageInterfaces
+ , csProcessTask
+ , ncsMessage
+;
 
-{$If not defined(Nemesis)}
 type
  TncsTaskSendExecutorFactory = class(Tl3ProtoObject, IncsMessageExecutorFactory)
- private
- // private fields
-   f_Task : TddProcessTask;
- protected
- // realized methods
+  private
+   f_Task: TddProcessTask;
+  protected
    function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTask: TddProcessTask); reintroduce;
    class function Make(aTask: TddProcessTask): IncsMessageExecutorFactory; reintroduce;
-     {* Сигнатура фабрики TncsTaskSendExecutorFactory.Make }
  end;//TncsTaskSendExecutorFactory
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  ncsGetPartialTaskDescription,
-  ncsGetFilePart,
-  ncsGetPartialTaskDescriptionExecutor,
-  ncsGetFilePartExecutor
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsTaskSendExecutorFactory
+ l3ImplUses
+ , SysUtils
+ , ncsGetPartialTaskDescription
+ , ncsGetFilePart
+ , ncsGetPartialTaskDescriptionExecutor
+ , ncsGetFilePartExecutor
+;
 
 constructor TncsTaskSendExecutorFactory.Create(aTask: TddProcessTask);
 //#UC START# *54B79D23037B_5481B39101AF_var*
@@ -84,7 +63,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsTaskSendExecutorFactory.Make
 
 function TncsTaskSendExecutorFactory.MakeExecutor(aMessage: TncsMessage): IncsExecutor;
 //#UC START# *546082B801F3_5481B39101AF_var*
@@ -106,6 +85,7 @@ begin
 end;//TncsTaskSendExecutorFactory.MakeExecutor
 
 procedure TncsTaskSendExecutorFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5481B39101AF_var*
 //#UC END# *479731C50290_5481B39101AF_var*
 begin
@@ -114,7 +94,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5481B39101AF_impl*
 end;//TncsTaskSendExecutorFactory.Cleanup
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

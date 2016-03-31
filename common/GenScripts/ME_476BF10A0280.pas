@@ -11,9 +11,9 @@ interface
 
 uses
  l3IntfUses
+ , l3Interfaces
  , l3TreeInterfaces
  , l3PureMixIns
- , l3Interfaces
  , SysUtils
 ;
 

@@ -49,6 +49,7 @@ uses
 ;
 
 type
+ _BaseSearchPresentationFor296635421_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
  _vcmScrollableFormWithWheelSupport_Parent_ = _BaseSearchPresentationFor296635421_;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
@@ -190,6 +191,7 @@ uses
  , nsBaseSearchService
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки BaseSearchLocalConst }
  str_BaseSearch: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'BaseSearch'; rValue : 'Базовый поиск');
@@ -449,7 +451,6 @@ begin
 //#UC END# *4A83AA610299_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.JournalShrinked
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchCardForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
 //#UC START# *4A8AD47D0357_4AB7A3210135exec_var*
@@ -468,7 +469,6 @@ begin
   end;//try..except
 //#UC END# *4A8AD47D0357_4AB7A3210135exec_impl*
 end;//TPrimBaseSearchCardForm.Result_OkExt_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimBaseSearchCardForm.SupportDisabled: Boolean;
 //#UC START# *4ACA17770179_4AB7A3210135_var*
@@ -623,7 +623,6 @@ begin
 //#UC END# *47EA4E9002C6_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchCardForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AB7A3210135_var*
@@ -707,9 +706,7 @@ begin
  RecalcGrid;
 //#UC END# *4A8E8F2E0195_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchCardForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AB7A3210135_var*
 //#UC END# *4F7C65380244_4AB7A3210135_var*
@@ -719,7 +716,6 @@ begin
  Tl3ListenersManager.Add(Self as Il3Listener);
 //#UC END# *4F7C65380244_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_BaseSearch.Init;
@@ -730,6 +726,7 @@ initialization
  TtfwClassRef.Register(TPrimBaseSearchCardForm);
  {* Регистрация PrimBaseSearchCard }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

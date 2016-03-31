@@ -1,84 +1,64 @@
 unit pgDataProviderFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgDataProviderFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgDataProviderFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgDataProviderFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgDataProviderFactory" MUID: (55D6E2FB025D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daDataProviderFactory,
-  daDataProviderParams,
-  ddAppConfig,
-  daInterfaces
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , daDataProviderFactory
+ , daDataProviderParams
+ , ddAppConfig
+ , daInterfaces
+;
 
-{$If defined(UsePostgres)}
 type
  TpgDataProviderFactory = class(TdaDataProviderFactory)
- protected
- // realized methods
+  public
+   class function Key: AnsiString; override;
    function MakeFromConfig: TdaDataProviderParams; override;
    procedure SaveToConfig(aParams: TdaDataProviderParams); override;
    function ParamType: TdaDataProviderParamsClass; override;
    procedure FillOutConfig(aConfig: TddAppConfiguration;
-     aEtalon: TdaDataProviderParams;
-     out aParams: TdaDataProviderParams); override;
+    aEtalon: TdaDataProviderParams;
+    out aParams: TdaDataProviderParams); override;
    procedure FillInConfig(aConfig: TddAppConfiguration;
-     aParams: TdaDataProviderParams;
-     ForInfoOnly: Boolean = False); override;
+    aParams: TdaDataProviderParams;
+    ForInfoOnly: Boolean = False); override;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-     const aProviderKey: AnsiString = '';
-     ForInfoOnly: Boolean = False); override;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
- public
- // realized methods
-   class function Key: AnsiString; override;
- public
- // overridden public methods
    procedure CorrectByClient(aParams: TdaDataProviderParams); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
-     Quiet: Boolean = False): Boolean; override;
+    Quiet: Boolean = False): Boolean; override;
  end;//TpgDataProviderFactory
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  pgDataProviderParams,
-  pgDataProvider,
-  pgInterfaces,
-  ddAppConfigTypes,
-  l3Base,
-  SysUtils,
-  l3IniFile,
-  l3FileUtils
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgDataProviderFactory
+ l3ImplUses
+ , pgDataProviderParams
+ , pgDataProvider
+ , pgInterfaces
+ , ddAppConfigTypes
+ , l3Base
+ , SysUtils
+ , l3IniFile
+ , l3FileUtils
+;
 
 class function TpgDataProviderFactory.Key: AnsiString;
 //#UC START# *54F8635B023E_55D6E2FB025D_var*
@@ -141,8 +121,8 @@ begin
 end;//TpgDataProviderFactory.ParamType
 
 procedure TpgDataProviderFactory.FillOutConfig(aConfig: TddAppConfiguration;
-  aEtalon: TdaDataProviderParams;
-  out aParams: TdaDataProviderParams);
+ aEtalon: TdaDataProviderParams;
+ out aParams: TdaDataProviderParams);
 //#UC START# *5512BAB20128_55D6E2FB025D_var*
 //#UC END# *5512BAB20128_55D6E2FB025D_var*
 begin
@@ -165,8 +145,8 @@ begin
 end;//TpgDataProviderFactory.FillOutConfig
 
 procedure TpgDataProviderFactory.FillInConfig(aConfig: TddAppConfiguration;
-  aParams: TdaDataProviderParams;
-  ForInfoOnly: Boolean = False);
+ aParams: TdaDataProviderParams;
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB030346_55D6E2FB025D_var*
 var
  l_Params: TpgDataProviderParams;
@@ -195,8 +175,8 @@ begin
 end;//TpgDataProviderFactory.FillInConfig
 
 procedure TpgDataProviderFactory.BuildConfig(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString = '';
-  ForInfoOnly: Boolean = False);
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB1F023F_55D6E2FB025D_var*
 var
  l_Item: TddBaseConfigItem;
@@ -241,9 +221,9 @@ begin
 end;//TpgDataProviderFactory.LoadDBVersion
 
 function TpgDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalProvider: Boolean = True): IdaDataProvider;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_55D6E2FB025D_var*
 //#UC END# *551D06D402AF_55D6E2FB025D_var*
 begin
@@ -281,7 +261,7 @@ begin
 end;//TpgDataProviderFactory.CorrectByClient
 
 function TpgDataProviderFactory.IsParamsValid(aParams: TdaDataProviderParams;
-  Quiet: Boolean = False): Boolean;
+ Quiet: Boolean = False): Boolean;
 //#UC START# *551166B40046_55D6E2FB025D_var*
 var
  l_Result: Boolean;
@@ -303,7 +283,6 @@ begin
  Result := l_Result;
 //#UC END# *551166B40046_55D6E2FB025D_impl*
 end;//TpgDataProviderFactory.IsParamsValid
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

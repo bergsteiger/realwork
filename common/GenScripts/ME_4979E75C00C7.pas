@@ -25,6 +25,7 @@ uses
 type
  // Child
 
+ _PageControlNotification_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _SynchroViewUserTypes_Parent_ = _PageControlNotification_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes.imp.pas}
@@ -80,6 +81,7 @@ uses
  , l3MessageID
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  TnsSynchroviewActivateEvent = {final} class(TnsLogEvent)
   public
@@ -150,7 +152,6 @@ begin
 //#UC END# *F5C4A5904D01_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.svSynchroViewQueryClose
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSynchroViewForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979E75C00C7_var*
@@ -164,13 +165,13 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSynchroViewForm);
  {* Регистрация PrimSynchroView }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,80 +1,58 @@
 unit deDiction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/deDiction.pas"
-// Начат: 08.12.2009
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction::TdeDiction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\deDiction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeDiction" MUID: (4925538201C4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  bsTypes,
-  DictionInterfaces,
-  deCommonDiction,
-  DocumentInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , deCommonDiction
+ , DictionInterfaces
+ , bsTypes
+ , DocumentInterfaces
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeDiction = class(TdeCommonDiction, IdeDiction)
- private
- // private fields
-   f_DictLanguage : TbsLanguage;
-   f_ContextMap : InsLangToContextMap;
- protected
- // realized methods
+  private
+   f_DictLanguage: TbsLanguage;
+   f_ContextMap: InsLangToContextMap;
+  protected
    function pm_GetDictLanguage: TbsLanguage;
    procedure pm_SetDictLanguage(aValue: TbsLanguage);
    function pm_GetContextMap: InsLangToContextMap;
    procedure pm_SetContextMap(const aValue: InsLangToContextMap);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DefaultDocType: TDocumentType; override;
    procedure AssignFromClone(const aData: IdeDocInfo); override;
- public
- // public methods
+  public
    class function Make(const aDocument: IDocument;
-     aDictLanguage: TbsLanguage = LG_RUSSIAN;
-     const aContextMap: InsLangToContextMap = nil): IdeDocInfo;
+    aDictLanguage: TbsLanguage = bsTypes.LG_RUSSIAN;
+    const aContextMap: InsLangToContextMap = nil): IdeDocInfo;
    class function Convert(const aDocInfo: IdeDocInfo;
-     aLang: TbsLanguage): IdeDiction;
+    aLang: TbsLanguage): IdeDiction;
  end;//TdeDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  bsDataContainer
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeDiction
+ l3ImplUses
+ , SysUtils
+ , bsDataContainer
+;
 
 class function TdeDiction.Make(const aDocument: IDocument;
-  aDictLanguage: TbsLanguage = LG_RUSSIAN;
-  const aContextMap: InsLangToContextMap = nil): IdeDocInfo;
+ aDictLanguage: TbsLanguage = bsTypes.LG_RUSSIAN;
+ const aContextMap: InsLangToContextMap = nil): IdeDocInfo;
 //#UC START# *4B1E9B7E023E_4925538201C4_var*
 var
  lClass: TdeDiction;
@@ -93,7 +71,7 @@ begin
 end;//TdeDiction.Make
 
 class function TdeDiction.Convert(const aDocInfo: IdeDocInfo;
-  aLang: TbsLanguage): IdeDiction;
+ aLang: TbsLanguage): IdeDiction;
 //#UC START# *4B1E9BA80018_4925538201C4_var*
 var
  l_Data: TdeDiction;
@@ -150,6 +128,7 @@ begin
 end;//TdeDiction.pm_SetContextMap
 
 procedure TdeDiction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4925538201C4_var*
 //#UC END# *479731C50290_4925538201C4_var*
 begin
@@ -183,7 +162,6 @@ begin
  end;
 //#UC END# *4B1E749D033C_4925538201C4_impl*
 end;//TdeDiction.AssignFromClone
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

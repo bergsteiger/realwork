@@ -1,39 +1,26 @@
 unit ConfigStorageStub;
+ {* Заглушка для эмуляции чтения настроек. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/ConfigStorageStub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::DailyTest::AppConfigUtils::TConfigStorageStub
-//
-// Заглушка для эмуляции чтения настроек.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\ConfigStorageStub.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TConfigStorageStub" MUID: (51D54BCD02DA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3ProtoObject,
-  ddConfigStorages,
-  l3Interfaces
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , l3ProtoObject
+ , ddConfigStorages
+ , l3Interfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TConfigStorageStub = class(Tl3ProtoObject, IddConfigStorage)
   {* Заглушка для эмуляции чтения настроек. }
- protected
- // realized methods
+  protected
    function ReadBool(const Alias: AnsiString;
     Default: Boolean): Boolean; stdcall;
    function ReadDateTime(const Alias: AnsiString;
@@ -52,23 +39,18 @@ type
     const S: AnsiString); stdcall;
    function Get_Section: AnsiString; stdcall;
    procedure Set_Section(const aValue: AnsiString); stdcall;
- public
- // public methods
+  public
    class function Make: IddConfigStorage;
  end;//TConfigStorageStub
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TConfigStorageStub
+ l3ImplUses
+ , l3Base
+;
 
 class function TConfigStorageStub.Make: IddConfigStorage;
 //#UC START# *51D55B7D0119_51D54BCD02DA_var*
@@ -87,7 +69,7 @@ begin
 end;//TConfigStorageStub.Make
 
 function TConfigStorageStub.ReadBool(const Alias: AnsiString;
-  Default: Boolean): Boolean;
+ Default: Boolean): Boolean;
 //#UC START# *51D51983016F_51D54BCD02DA_var*
 //#UC END# *51D51983016F_51D54BCD02DA_var*
 begin
@@ -97,7 +79,7 @@ begin
 end;//TConfigStorageStub.ReadBool
 
 function TConfigStorageStub.ReadDateTime(const Alias: AnsiString;
-  Default: TDateTime): TDateTime;
+ Default: TDateTime): TDateTime;
 //#UC START# *51D519A40189_51D54BCD02DA_var*
 //#UC END# *51D519A40189_51D54BCD02DA_var*
 begin
@@ -107,7 +89,7 @@ begin
 end;//TConfigStorageStub.ReadDateTime
 
 function TConfigStorageStub.ReadInteger(const Alias: AnsiString;
-  Default: Integer): Integer;
+ Default: Integer): Integer;
 //#UC START# *51D519B403D0_51D54BCD02DA_var*
 //#UC END# *51D519B403D0_51D54BCD02DA_var*
 begin
@@ -117,7 +99,7 @@ begin
 end;//TConfigStorageStub.ReadInteger
 
 function TConfigStorageStub.ReadString(const Alias: AnsiString;
-  const Default: AnsiString): Il3CString;
+ const Default: AnsiString): Il3CString;
 //#UC START# *51D519D00291_51D54BCD02DA_var*
 //#UC END# *51D519D00291_51D54BCD02DA_var*
 begin
@@ -127,7 +109,7 @@ begin
 end;//TConfigStorageStub.ReadString
 
 procedure TConfigStorageStub.WriteBool(const Alias: AnsiString;
-  B: Boolean);
+ B: Boolean);
 //#UC START# *51D519FC00D5_51D54BCD02DA_var*
 //#UC END# *51D519FC00D5_51D54BCD02DA_var*
 begin
@@ -137,7 +119,7 @@ begin
 end;//TConfigStorageStub.WriteBool
 
 procedure TConfigStorageStub.WriteDateTime(const Alias: AnsiString;
-  DT: TDateTime);
+ DT: TDateTime);
 //#UC START# *51D51A0D0133_51D54BCD02DA_var*
 //#UC END# *51D51A0D0133_51D54BCD02DA_var*
 begin
@@ -147,7 +129,7 @@ begin
 end;//TConfigStorageStub.WriteDateTime
 
 procedure TConfigStorageStub.WriteInteger(const Alias: AnsiString;
-  I: Integer);
+ I: Integer);
 //#UC START# *51D51A1E025E_51D54BCD02DA_var*
 //#UC END# *51D51A1E025E_51D54BCD02DA_var*
 begin
@@ -157,7 +139,7 @@ begin
 end;//TConfigStorageStub.WriteInteger
 
 procedure TConfigStorageStub.WriteString(const Alias: AnsiString;
-  const S: AnsiString);
+ const S: AnsiString);
 //#UC START# *51D51A3201BA_51D54BCD02DA_var*
 //#UC END# *51D51A3201BA_51D54BCD02DA_var*
 begin
@@ -183,7 +165,6 @@ begin
 
 //#UC END# *51D51A48025D_51D54BCD02DAset_impl*
 end;//TConfigStorageStub.Set_Section
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

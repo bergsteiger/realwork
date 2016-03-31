@@ -1,35 +1,31 @@
 {$IfNDef atBitMaskConverter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atBitMaskConverter.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::CoreObjects::atBitMaskConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atBitMaskConverter" MUID: (504F22BD0284)
+// Имя типа: "_atBitMaskConverter_"
 
 {$Define atBitMaskConverter_imp}
+
+type
  TBitMaskValues = array of _BitMaskValueType_;
 
  _SecondType_ = _BitMaskType_;
  _FirstType_ = _BitMaskValueType_;
- {$Include ..\CoreObjects\atConverter.imp.pas}
- _atBitMaskConverter_ = {mixin} class(_atConverter_)
- public
- // public methods
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
+ _atBitMaskConverter_ = class(_atConverter_)
+  public
    function ToValues(const aMask: _BitMaskType_): TBitMaskValues; virtual;
    function ToMask(const aValues: array of _BitMaskValueType_): _BitMaskType_; virtual;
  end;//_atBitMaskConverter_
 
 {$Else atBitMaskConverter_imp}
 
-{$Include ..\CoreObjects\atConverter.imp.pas}
+{$IfNDef atBitMaskConverter_imp_impl}
 
-// start class _atBitMaskConverter_
+{$Define atBitMaskConverter_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
 
 function _atBitMaskConverter_.ToValues(const aMask: _BitMaskType_): TBitMaskValues;
 //#UC START# *504F313903B0_504F22BD0284_var*
@@ -67,4 +63,7 @@ begin
 //#UC END# *504F319402B1_504F22BD0284_impl*
 end;//_atBitMaskConverter_.ToMask
 
+{$EndIf atBitMaskConverter_imp_impl}
+
 {$EndIf atBitMaskConverter_imp}
+

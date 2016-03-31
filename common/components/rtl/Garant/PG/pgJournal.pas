@@ -1,98 +1,96 @@
 unit pgJournal;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgJournal.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgJournal
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgJournal.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgJournal" MUID: (5602A0790033)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daInterfaces,
-  daJournal,
-  pgConnection,
-  pgJournalCache,
-  pgTableModifier,
-  l3Tree_TLB,
-  l3Date,
-  daTypes,
-  l3Tree
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , daJournal
+ , pgJournalCache
+ , pgTableModifier
+ , pgConnection
+ , daInterfaces
+ , l3Tree
+ , daTypes
+ , l3Date
+;
 
-{$If defined(UsePostgres)}
 type
  TpgJournal = class(TdaJournal)
- private
- // private fields
-   f_CacheCounter : Integer;
-   f_Cache : TpgJournalCacheList;
-   f_Modifier : TpgTableModifier;
-   f_Connection : TpgConnection;
- private
- // private methods
+  private
+   f_CacheCounter: Integer;
+   f_Cache: TpgJournalCacheList;
+   f_Modifier: TpgTableModifier;
+   f_Connection: TpgConnection;
+  private
    procedure PurgeCache;
-     {* Сигнатура метода PurgeCache }
    function Modifier: TpgTableModifier;
- protected
- // realized methods
+  protected
    procedure LogEvent(aOperation: TdaJournalOperation;
-     aFamilyID: TdaFamilyID;
-     aExtID: LongInt;
-     aData: LongInt); override;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt); override;
    procedure CheckUser(anUserID: TdaUserID); override;
    procedure UserChanged(anUserID: TdaUserID); override;
    procedure SessionChanged; override;
-     {* Сигнатура метода SessionChanged }
    procedure DoStartCaching; override;
-     {* Сигнатура метода DoStartCaching }
    procedure DoStopCaching; override;
-     {* Сигнатура метода DoStopCaching }
-   function MakeResultSet(FromDate: TStDate;
-     ToDate: TStDate;
-     aDocID: TdaDocID;
-     UserOrGroupID: TdaUserID;
-     UserGr: Boolean): IdaResultSet; override;
- protected
- // overridden protected methods
+   function MakeResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
+    aDocID: TdaDocID;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): IdaResultSet; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aConnection: TpgConnection;
-     const aFactory: IdaTableQueryFactory); reintroduce;
+    const aFactory: IdaTableQueryFactory); reintroduce;
    class function Make(aConnection: TpgConnection;
-     const aFactory: IdaTableQueryFactory): IdaJournal; reintroduce;
-     {* Сигнатура фабрики TpgJournal.Make }
+    const aFactory: IdaTableQueryFactory): IdaJournal; reintroduce;
  end;//TpgJournal
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daScheme,
-  SysUtils,
-  l3Types,
-  l3Base
-  ;
-{$IfEnd} //UsePostgres
+ l3ImplUses
+ , daScheme
+ , SysUtils
+ , l3Types
+ , l3Base
+;
 
-{$If defined(UsePostgres)}
+constructor TpgJournal.Create(aConnection: TpgConnection;
+ const aFactory: IdaTableQueryFactory);
+//#UC START# *5602A3C10042_5602A0790033_var*
+//#UC END# *5602A3C10042_5602A0790033_var*
+begin
+//#UC START# *5602A3C10042_5602A0790033_impl*
+ inherited Create(aFactory);
+ f_Cache := TpgJournalCacheList.Create;
+ aConnection.SetRefTo(f_Connection);
+//#UC END# *5602A3C10042_5602A0790033_impl*
+end;//TpgJournal.Create
 
-// start class TpgJournal
+class function TpgJournal.Make(aConnection: TpgConnection;
+ const aFactory: IdaTableQueryFactory): IdaJournal;
+var
+ l_Inst : TpgJournal;
+begin
+ l_Inst := Create(aConnection, aFactory);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TpgJournal.Make
 
 procedure TpgJournal.PurgeCache;
 //#UC START# *5649D8A70161_5602A0790033_var*
@@ -119,35 +117,10 @@ begin
 //#UC END# *564B218C013C_5602A0790033_impl*
 end;//TpgJournal.Modifier
 
-constructor TpgJournal.Create(aConnection: TpgConnection;
-  const aFactory: IdaTableQueryFactory);
-//#UC START# *5602A3C10042_5602A0790033_var*
-//#UC END# *5602A3C10042_5602A0790033_var*
-begin
-//#UC START# *5602A3C10042_5602A0790033_impl*
- inherited Create(aFactory);
- f_Cache := TpgJournalCacheList.Create;
- aConnection.SetRefTo(f_Connection);
-//#UC END# *5602A3C10042_5602A0790033_impl*
-end;//TpgJournal.Create
-
-class function TpgJournal.Make(aConnection: TpgConnection;
-  const aFactory: IdaTableQueryFactory): IdaJournal;
-var
- l_Inst : TpgJournal;
-begin
- l_Inst := Create(aConnection, aFactory);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 procedure TpgJournal.LogEvent(aOperation: TdaJournalOperation;
-  aFamilyID: TdaFamilyID;
-  aExtID: LongInt;
-  aData: LongInt);
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt);
 //#UC START# *5549F6220397_5602A0790033_var*
 //#UC END# *5549F6220397_5602A0790033_var*
 begin
@@ -217,11 +190,11 @@ begin
 //#UC END# *559B88B00126_5602A0790033_impl*
 end;//TpgJournal.DoStopCaching
 
-function TpgJournal.MakeResultSet(FromDate: TStDate;
-  ToDate: TStDate;
-  aDocID: TdaDocID;
-  UserOrGroupID: TdaUserID;
-  UserGr: Boolean): IdaResultSet;
+function TpgJournal.MakeResultSet(const FromDate: TStDate;
+ const ToDate: TStDate;
+ aDocID: TdaDocID;
+ UserOrGroupID: TdaUserID;
+ UserGr: Boolean): IdaResultSet;
 //#UC START# *559CF9D300FA_5602A0790033_var*
 var
  l_Query: IdaTabledQuery;
@@ -334,6 +307,7 @@ begin
 end;//TpgJournal.MakeResultSet
 
 procedure TpgJournal.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5602A0790033_var*
 //#UC END# *479731C50290_5602A0790033_var*
 begin
@@ -344,7 +318,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5602A0790033_impl*
 end;//TpgJournal.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

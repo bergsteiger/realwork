@@ -37,7 +37,7 @@ type
     {* Метод получения экземпляра синглетона Tf1StartupCompletedServiceImpl }
  end;//Tf1StartupCompletedServiceImpl
 
- TPrimMonitoringsModule = {abstract} class
+ TPrimMonitoringsModule = {abstract} class(TvcmModule)
   protected
    procedure OpenNewsLine; overload;
     {* Новостная лента }
@@ -94,6 +94,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tf1StartupCompletedServiceImpl: Tf1StartupCompletedServiceImpl = nil;
  {* Экземпляр синглетона Tf1StartupCompletedServiceImpl }
 
@@ -379,6 +380,7 @@ initialization
  str_DefaultSetttingsWereChanged.Init;
 !!! Lost Message ini !!!
  {* Инициализация str_DefaultSetttingsWereChanged }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

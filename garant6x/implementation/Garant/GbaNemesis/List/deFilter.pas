@@ -1,64 +1,46 @@
 unit deFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "List"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/List/deFilter.pas"
-// Начат: 08.12.2009 16:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::List::SimpleList::TdeFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\deFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeFilter" MUID: (4923ECA602AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  FiltersUnit,
-  SearchUnit,
-  l3TreeInterfaces,
-  SimpleListInterfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , SimpleListInterfaces
+ , FiltersUnit
+ , SearchUnit
+ , l3TreeInterfaces
+;
 
 type
  TdeFilter = class(Tl3ProtoObject, IdeFilter)
- private
- // private fields
-   f_Filter : IFilterFromQuery;
-   f_Query : IQuery;
- protected
- // realized methods
+  private
+   f_Filter: IFilterFromQuery;
+   f_Query: IQuery;
+  protected
    function pm_GetQuery: IQuery;
    function pm_GetFilter: IFilterFromQuery;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aFilter: IFilterFromQuery); reintroduce; overload; 
-   constructor Create(const aQuery: IQuery); overload; 
-   class function Make(const aFilter: IFilterFromQuery): IdeFilter; reintroduce; overload; 
-   class function Make(const aQuery: IQuery): IdeFilter; reintroduce; overload; 
-   class function Make(const aNode: Il3SimpleNode): IdeFilter; overload; 
+  public
+   constructor Create(const aFilter: IFilterFromQuery); reintroduce; overload;
+   constructor Create(const aQuery: IQuery); reintroduce; overload;
+   class function Make(const aFilter: IFilterFromQuery): IdeFilter; reintroduce; overload;
+   class function Make(const aQuery: IQuery): IdeFilter; reintroduce; overload;
+   class function Make(const aNode: Il3SimpleNode): IdeFilter; overload;
  end;//TdeFilter
 
 implementation
 
 uses
-  SysUtils,
-  BaseTypesUnit
-  ;
-
-// start class TdeFilter
+ l3ImplUses
+ , SysUtils
+ , BaseTypesUnit
+;
 
 constructor TdeFilter.Create(const aFilter: IFilterFromQuery);
 //#UC START# *4B1E59B3005A_4923ECA602AE_var*
@@ -97,7 +79,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeFilter.Make
 
 class function TdeFilter.Make(const aQuery: IQuery): IdeFilter;
 var
@@ -109,7 +91,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeFilter.Make
 
 class function TdeFilter.Make(const aNode: Il3SimpleNode): IdeFilter;
 //#UC START# *4B1E5A280341_4923ECA602AE_var*
@@ -148,7 +130,6 @@ begin
 end;//TdeFilter.pm_GetFilter
 
 procedure TdeFilter.ClearFields;
- {-}
 begin
  f_Filter := nil;
  f_Query := nil;

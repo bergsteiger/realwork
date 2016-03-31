@@ -1,74 +1,54 @@
 unit nsMainMenu2011Node;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsMainMenu2011Node.pas"
-// Начат: 16.09.2011 12:38
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::MainMenu::TnsMainMenu2011Node
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsMainMenu2011Node.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMainMenu2011Node" MUID: (4E730AE6014C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3Tree_TLB,
-  nsNewCachableNode,
-  MainMenuUnit,
-  l3TreeInterfaces,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsNewCachableNode
+ , MainMenuUnit
+ , l3Interfaces
+ , l3Tree_TLB
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMainMenu2011Node = class(TnsNewCachableNode)
- private
- // private fields
-   f_SectionItem : ISectionItem;
-   f_Caption : Il3CString;
- protected
- // overridden protected methods
+  private
+   f_SectionItem: ISectionItem;
+   f_Caption: Il3CString;
+  protected
    function GetAsPCharLen: Tl3WString; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aSectionItem: ISectionItem); reintroduce;
    class function Make(const aSectionItem: ISectionItem): Il3Node; reintroduce;
-     {* Сигнатура фабрики TnsMainMenu2011Node.Make }
  end;//TnsMainMenu2011Node
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  SysUtils,
-  l3String,
-  nsTypes,
-  IOUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsMainMenu2011Node
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , l3String
+ , nsTypes
+ , IOUnit
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor TnsMainMenu2011Node.Create(const aSectionItem: ISectionItem);
 //#UC START# *4E730CD20352_4E730AE6014C_var*
@@ -91,7 +71,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsMainMenu2011Node.Make
 
 function TnsMainMenu2011Node.GetAsPCharLen: Tl3WString;
 //#UC START# *47A869BB02DE_4E730AE6014C_var*
@@ -113,7 +93,8 @@ begin
 end;//TnsMainMenu2011Node.GetAsPCharLen
 
 function TnsMainMenu2011Node.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4E730AE6014C_var*
 //#UC END# *4A60B23E00C3_4E730AE6014C_var*
 begin
@@ -127,17 +108,11 @@ begin
 end;//TnsMainMenu2011Node.COMQueryInterface
 
 procedure TnsMainMenu2011Node.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_SectionItem := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Caption := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsMainMenu2011Node.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

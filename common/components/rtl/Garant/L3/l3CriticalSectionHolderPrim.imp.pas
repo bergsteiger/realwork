@@ -1,57 +1,29 @@
 {$IfNDef l3CriticalSectionHolderPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CriticalSectionHolderPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::MemoryManagers::l3CriticalSectionHolderPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "l3CriticalSectionHolderPrim" MUID: (54B6852C0241)
+// Имя типа: "_l3CriticalSectionHolderPrim_"
 
 {$Define l3CriticalSectionHolderPrim_imp}
- _l3CriticalSectionHolderPrim_ = {mixin} class(_l3CriticalSectionHolderPrim_Parent_)
- private
- // private fields
-   f_LockCount : Integer;
-   f_CS : TCriticalSection;
- private
- // private methods
+
+ _l3CriticalSectionHolderPrim_ = class(_l3CriticalSectionHolderPrim_Parent_)
+  private
+   f_LockCount: Integer;
+   f_CS: TCriticalSection;
+  private
    procedure CreateCS;
    procedure FreeCS;
- public
- // public methods
+  public
    procedure Lock;
    procedure Unlock;
  end;//_l3CriticalSectionHolderPrim_
 
 {$Else l3CriticalSectionHolderPrim_imp}
 
-// start class _l3CriticalSectionHolderPrim_
+{$IfNDef l3CriticalSectionHolderPrim_imp_impl}
 
-procedure _l3CriticalSectionHolderPrim_.CreateCS;
-//#UC START# *54B6860D01ED_54B6852C0241_var*
-//#UC END# *54B6860D01ED_54B6852C0241_var*
-begin
-//#UC START# *54B6860D01ED_54B6852C0241_impl*
- f_LockCount := 0;
- Assert(f_CS = nil);
- f_CS := TCriticalSection.Create;
-//#UC END# *54B6860D01ED_54B6852C0241_impl*
-end;//_l3CriticalSectionHolderPrim_.CreateCS
-
-procedure _l3CriticalSectionHolderPrim_.FreeCS;
-//#UC START# *54B686270035_54B6852C0241_var*
-//#UC END# *54B686270035_54B6852C0241_var*
-begin
-//#UC START# *54B686270035_54B6852C0241_impl*
- Assert(f_LockCount = 0, 'Похоже, что непарные вызовы критической секции');
- FreeAndNil(f_CS);
-//#UC END# *54B686270035_54B6852C0241_impl*
-end;//_l3CriticalSectionHolderPrim_.FreeCS
+{$Define l3CriticalSectionHolderPrim_imp_impl}
 
 procedure _l3CriticalSectionHolderPrim_.Lock;
 //#UC START# *53A039050219_54B6852C0241_var*
@@ -75,4 +47,28 @@ begin
 //#UC END# *53A039150130_54B6852C0241_impl*
 end;//_l3CriticalSectionHolderPrim_.Unlock
 
+procedure _l3CriticalSectionHolderPrim_.CreateCS;
+//#UC START# *54B6860D01ED_54B6852C0241_var*
+//#UC END# *54B6860D01ED_54B6852C0241_var*
+begin
+//#UC START# *54B6860D01ED_54B6852C0241_impl*
+ f_LockCount := 0;
+ Assert(f_CS = nil);
+ f_CS := TCriticalSection.Create;
+//#UC END# *54B6860D01ED_54B6852C0241_impl*
+end;//_l3CriticalSectionHolderPrim_.CreateCS
+
+procedure _l3CriticalSectionHolderPrim_.FreeCS;
+//#UC START# *54B686270035_54B6852C0241_var*
+//#UC END# *54B686270035_54B6852C0241_var*
+begin
+//#UC START# *54B686270035_54B6852C0241_impl*
+ Assert(f_LockCount = 0, 'Похоже, что непарные вызовы критической секции');
+ FreeAndNil(f_CS);
+//#UC END# *54B686270035_54B6852C0241_impl*
+end;//_l3CriticalSectionHolderPrim_.FreeCS
+
+{$EndIf l3CriticalSectionHolderPrim_imp_impl}
+
 {$EndIf l3CriticalSectionHolderPrim_imp}
+

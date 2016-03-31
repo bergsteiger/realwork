@@ -33,7 +33,6 @@ type
  TddClientMessageSortableList = class(_l3CriticalSectionHolder_)
   private
    f_Items: TddClientMessageSortableListPrim;
-    {* Поле для свойства Items }
   protected
    function pm_GetCount: Integer;
    procedure Cleanup; override;

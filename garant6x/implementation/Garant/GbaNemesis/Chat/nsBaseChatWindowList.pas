@@ -1,37 +1,26 @@
 unit nsBaseChatWindowList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Chat"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Chat/nsBaseChatWindowList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Chat::Chat::ChatImpl::TnsBaseChatWindowList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsBaseChatWindowList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseChatWindowList" MUID: (4A6D72AD01D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3SimpleDataContainer,
-  ChatInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleDataContainer
+ , ChatInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _ItemType_ = IbsChatWindow;
  _l3InterfacePtrListPrim_Parent_ = Tl3SimpleDataContainer;
@@ -39,34 +28,29 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas}
  TnsBaseChatWindowList = class(_l3InterfacePtrListPrim_)
  end;//TnsBaseChatWindowList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsBaseChatWindowList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4A6D72AD01D4_var*
 //#UC END# *47B07CF403D0_4A6D72AD01D4_var*
 begin
@@ -74,11 +58,11 @@ begin
  Result := A.UserID = B.UserID;
 //#UC END# *47B07CF403D0_4A6D72AD01D4_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4A6D72AD01D4_var*
 //#UC END# *47B2C42A0163_4A6D72AD01D4_var*
 begin
@@ -86,9 +70,10 @@ begin
  Assert(False);
 //#UC END# *47B2C42A0163_4A6D72AD01D4_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4A6D72AD01D4_var*
 //#UC END# *47B99D4503A2_4A6D72AD01D4_var*
 begin
@@ -103,7 +88,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TnsBaseChatWindowList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas}
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-
-{$IfEnd} //not Admin AND not Monitorings
 end.

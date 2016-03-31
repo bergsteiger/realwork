@@ -1,35 +1,22 @@
 unit atScenario;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atScenario.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatScenario
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atScenario.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatScenario" MUID: (4808A3EC021F)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatScenario = class(TatOperationBase)
- private
- // private fields
-   f_IsAlwaysRun : Boolean;
- protected
- // realized methods
+  private
+   f_IsAlwaysRun: Boolean;
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitFields; override;
    procedure InitParamList; override;
  end;//TatScenario
@@ -37,14 +24,13 @@ type
 implementation
 
 uses
-  atOperationParameter,
-  atCRC32,
-  SysUtils,
-  Windows,
-  atLogger
-  ;
-
-// start class TatScenario
+ l3ImplUses
+ , atOperationParameter
+ , atCRC32
+ , SysUtils
+ , Windows
+ , atLogger
+;
 
 procedure TatScenario.ExecuteSelf;
 //#UC START# *48089F460352_4808A3EC021F_var*

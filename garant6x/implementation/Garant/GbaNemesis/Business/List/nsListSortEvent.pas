@@ -1,60 +1,44 @@
 unit nsListSortEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/List/nsListSortEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::ListDataSources::TnsListSortEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsListSortEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsListSortEvent" MUID: (4B0BDE9503E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  bsTypes,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DynamicDocListUnit
+ , bsTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsListSortEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aList: IDynList;
     SortOrder: TbsSortOrder;
     SortType: TbsSortType);
  end;//TnsListSortEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsListSortEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsListSortEvent.Log(const aList: IDynList;
-  SortOrder: TbsSortOrder;
-  SortType: TbsSortType);
+ SortOrder: TbsSortOrder;
+ SortType: TbsSortType);
 //#UC START# *4B0BDF0A03E2_4B0BDE9503E2_var*
 var
  l_Data: InsLogEventData;
@@ -68,7 +52,6 @@ begin
  GetLogger.AddEvent(LE_LIST_SORT, l_Data);
 //#UC END# *4B0BDF0A03E2_4B0BDE9503E2_impl*
 end;//TnsListSortEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

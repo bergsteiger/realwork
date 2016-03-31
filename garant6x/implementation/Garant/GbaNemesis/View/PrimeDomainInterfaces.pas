@@ -1,40 +1,35 @@
 unit PrimeDomainInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$Strange"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimeDomainInterfaces.pas"
-// Начат: 21.10.2009 21:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> F1 Common For Shell And Monitoring::Search::View$Strange::PrimeDomainInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "PrimeDomainInterfaces" MUID: (4ADF3FBB00C3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  PrimeUnit
-  ;
+ l3IntfUses
+ , PrimeUnit
+;
 
 type
- InsPrimeNode = interface(IUnknown)
+ InsPrimeNode = interface
   {* Узел дерева новостных лент }
-   ['{E5BF71FF-A857-40FD-A325-7B8F18DEEA50}']
-   function pm_GetData: IPrime;
-   property Data: IPrime
-     read pm_GetData;
+  ['{E5BF71FF-A857-40FD-A325-7B8F18DEEA50}']
+  function pm_GetData: IPrime;
+  property Data: IPrime
+   read pm_GetData;
  end;//InsPrimeNode
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin)
 
 end.

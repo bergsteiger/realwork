@@ -1,87 +1,102 @@
 unit l3Timer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Timer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Misc::Tl3Timer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Timer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Timer" MUID: (55890A550297)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Messages,
-  Classes,
-  Windows,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , Classes
+ , Windows
+ , Messages
+;
 
 type
  Tl3Timer = class(Tl3ProtoObject)
- private
- // private fields
-   f_WindowHandle : THandle;
-   f_Enabled : Boolean;
-    {* Поле для свойства Enabled}
-   f_Interval : Cardinal;
-    {* Поле для свойства Interval}
-   f_OnTimer : TNotifyEvent;
-    {* Поле для свойства OnTimer}
-   f_OnLocalTimeChange : TNotifyEvent;
-    {* Поле для свойства OnLocalTimeChange}
- private
- // private methods
+  private
+   f_WindowHandle: THandle;
+   f_Enabled: Boolean;
+    {* Поле для свойства Enabled }
+   f_Interval: Cardinal;
+    {* Поле для свойства Interval }
+   f_OnTimer: TNotifyEvent;
+    {* Поле для свойства OnTimer }
+   f_OnLocalTimeChange: TNotifyEvent;
+    {* Поле для свойства OnLocalTimeChange }
+  private
    procedure UpdateTimer;
-     {* Сигнатура метода UpdateTimer }
    procedure WndProc(var Msg: TMessage);
- protected
- // property methods
+  protected
    procedure pm_SetEnabled(aValue: Boolean);
    procedure pm_SetInterval(aValue: Cardinal);
    procedure pm_SetOnTimer(aValue: TNotifyEvent);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
    procedure DoOnTimer; virtual;
-     {* Сигнатура метода DoOnTimer }
    procedure DoOnLocalTimeChange; virtual;
-     {* Сигнатура метода DoOnLocalTimeChange }
- public
- // public properties
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
    property Enabled: Boolean
-     read f_Enabled
-     write pm_SetEnabled;
+    read f_Enabled
+    write pm_SetEnabled;
    property Interval: Cardinal
-     read f_Interval
-     write pm_SetInterval;
+    read f_Interval
+    write pm_SetInterval;
    property OnTimer: TNotifyEvent
-     read f_OnTimer
-     write pm_SetOnTimer;
+    read f_OnTimer
+    write pm_SetOnTimer;
    property OnLocalTimeChange: TNotifyEvent
-     read f_OnLocalTimeChange
-     write f_OnLocalTimeChange;
+    read f_OnLocalTimeChange
+    write f_OnLocalTimeChange;
  end;//Tl3Timer
 
 implementation
 
 uses
-  l3ExceptionHandler
-  ;
+ l3ImplUses
+ , l3ExceptionHandler
+;
 
-// start class Tl3Timer
+procedure Tl3Timer.pm_SetEnabled(aValue: Boolean);
+//#UC START# *55890AE80379_55890A550297set_var*
+//#UC END# *55890AE80379_55890A550297set_var*
+begin
+//#UC START# *55890AE80379_55890A550297set_impl*
+ if aValue <> f_Enabled then
+ begin
+  f_Enabled := aValue;
+  UpdateTimer;
+ end;
+//#UC END# *55890AE80379_55890A550297set_impl*
+end;//Tl3Timer.pm_SetEnabled
+
+procedure Tl3Timer.pm_SetInterval(aValue: Cardinal);
+//#UC START# *55890B7A0309_55890A550297set_var*
+//#UC END# *55890B7A0309_55890A550297set_var*
+begin
+//#UC START# *55890B7A0309_55890A550297set_impl*
+ if aValue <> f_Interval then
+ begin
+   f_Interval := aValue;
+   UpdateTimer;
+ end;
+//#UC END# *55890B7A0309_55890A550297set_impl*
+end;//Tl3Timer.pm_SetInterval
+
+procedure Tl3Timer.pm_SetOnTimer(aValue: TNotifyEvent);
+//#UC START# *55890C00017C_55890A550297set_var*
+//#UC END# *55890C00017C_55890A550297set_var*
+begin
+//#UC START# *55890C00017C_55890A550297set_impl*
+  f_OnTimer := aValue;
+  UpdateTimer;
+//#UC END# *55890C00017C_55890A550297set_impl*
+end;//Tl3Timer.pm_SetOnTimer
 
 procedure Tl3Timer.UpdateTimer;
 //#UC START# *5589142F0292_55890A550297_var*
@@ -140,43 +155,8 @@ begin
 //#UC END# *5589417C02FC_55890A550297_impl*
 end;//Tl3Timer.DoOnLocalTimeChange
 
-procedure Tl3Timer.pm_SetEnabled(aValue: Boolean);
-//#UC START# *55890AE80379_55890A550297set_var*
-//#UC END# *55890AE80379_55890A550297set_var*
-begin
-//#UC START# *55890AE80379_55890A550297set_impl*
- if aValue <> f_Enabled then
- begin
-  f_Enabled := aValue;
-  UpdateTimer;
- end;
-//#UC END# *55890AE80379_55890A550297set_impl*
-end;//Tl3Timer.pm_SetEnabled
-
-procedure Tl3Timer.pm_SetInterval(aValue: Cardinal);
-//#UC START# *55890B7A0309_55890A550297set_var*
-//#UC END# *55890B7A0309_55890A550297set_var*
-begin
-//#UC START# *55890B7A0309_55890A550297set_impl*
- if aValue <> f_Interval then
- begin
-   f_Interval := aValue;
-   UpdateTimer;
- end;
-//#UC END# *55890B7A0309_55890A550297set_impl*
-end;//Tl3Timer.pm_SetInterval
-
-procedure Tl3Timer.pm_SetOnTimer(aValue: TNotifyEvent);
-//#UC START# *55890C00017C_55890A550297set_var*
-//#UC END# *55890C00017C_55890A550297set_var*
-begin
-//#UC START# *55890C00017C_55890A550297set_impl*
-  f_OnTimer := aValue;
-  UpdateTimer;
-//#UC END# *55890C00017C_55890A550297set_impl*
-end;//Tl3Timer.pm_SetOnTimer
-
 procedure Tl3Timer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55890A550297_var*
 //#UC END# *479731C50290_55890A550297_var*
 begin

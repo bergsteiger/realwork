@@ -1,45 +1,33 @@
 unit m3LZOInflateStreamNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3LZOInflateStreamNew.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::ArchiveStreams::Tm3LZOInflateStreamNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3LZOInflateStreamNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3LZOInflateStreamNew" MUID: (542AA48C0354)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3ArcCla,
-  ActiveX
-  ;
+ l3IntfUses
+ , m3ArcCla
+ , ActiveX
+;
 
 type
  Tm3LZOInflateStreamNew = class(Tm3LZOInflateStream)
- protected
- // overridden protected methods
+  protected
    class function NeedHeaderAlignment: Boolean; override;
- public
- // overridden public methods
+  public
    class function HeaderID: TCLSID; override;
  end;//Tm3LZOInflateStreamNew
 
 implementation
 
 uses
-  m3LZODeflateStreamNew
-  ;
-
-// start class Tm3LZOInflateStreamNew
+ l3ImplUses
+ , m3LZODeflateStreamNew
+;
 
 class function Tm3LZOInflateStreamNew.HeaderID: TCLSID;
 //#UC START# *53FDFAF900ED_542AA48C0354_var*

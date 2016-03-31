@@ -1,71 +1,59 @@
 unit alcuServer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuServer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::Server::TalcuServer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuServer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuServer" MUID: (52F8C9E00037)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  alcuAutoPipeServer
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , alcuAutoPipeServer
+;
 
-{$If defined(AppServerSide)}
 type
  TalcuServer = class(TalcuServerPrim)
- protected
- // overridden protected methods
+  protected
    procedure AfterDestroyCalled; override;
-     {* Сигнатура метода AfterDestroyCalled }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TalcuServer;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TalcuServer }
  end;//TalcuServer
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3Base {a},
-  alcuStrings,
-  SysUtils,
-  alcuTaskChangeHelper
-  ;
-{$IfEnd} //AppServerSide
+ l3ImplUses
+ , alcuStrings
+ , l3Base
+ , SysUtils
+ , alcuTaskChangeHelper
+;
 
-{$If defined(AppServerSide)}
-
-
-// start class TalcuServer
-
-var g_TalcuServer : TalcuServer = nil;
+var g_TalcuServer: TalcuServer = nil;
+ {* Экземпляр синглетона TalcuServer }
 
 procedure TalcuServerFree;
+ {* Метод освобождения экземпляра синглетона TalcuServer }
 begin
  l3Free(g_TalcuServer);
-end;
+end;//TalcuServerFree
+
+class function TalcuServer.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TalcuServer <> nil;
+end;//TalcuServer.Exists
 
 class function TalcuServer.Instance: TalcuServer;
+ {* Метод получения экземпляра синглетона TalcuServer }
 begin
  if (g_TalcuServer = nil) then
  begin
@@ -73,14 +61,7 @@ begin
   g_TalcuServer := Create;
  end;
  Result := g_TalcuServer;
-end;
-
-
-class function TalcuServer.Exists: Boolean;
- {-}
-begin
- Result := g_TalcuServer <> nil;
-end;//TalcuServer.Exists
+end;//TalcuServer.Instance
 
 procedure TalcuServer.AfterDestroyCalled;
 //#UC START# *52BC2B9401F3_52F8C9E00037_var*
@@ -92,7 +73,6 @@ begin
  inherited;
 //#UC END# *52BC2B9401F3_52F8C9E00037_impl*
 end;//TalcuServer.AfterDestroyCalled
-
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 end.

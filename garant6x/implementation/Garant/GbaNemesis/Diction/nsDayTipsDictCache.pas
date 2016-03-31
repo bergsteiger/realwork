@@ -1,85 +1,56 @@
 unit nsDayTipsDictCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/nsDayTipsDictCache.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction$Unit::TnsDayTipsDictCache
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDayTipsDictCache.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDayTipsDictCache" MUID: (5571B3100338)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  nsDictCachePrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDictCachePrim
+ , DynamicTreeUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDayTipsDictCache = class(TnsDictCachePrim)
- private
- // private fields
-   f_Root : INodeBase;
- protected
- // realized methods
+  private
+   f_Root: INodeBase;
+  protected
    function DoGetRoot: INodeBase; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsDayTipsDictCache;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsDayTipsDictCache }
  end;//TnsDayTipsDictCache
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  DataAdapter,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , DataAdapter
+ , nsTypes
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsDayTipsDictCache
-
-var g_TnsDayTipsDictCache : TnsDayTipsDictCache = nil;
+var g_TnsDayTipsDictCache: TnsDayTipsDictCache = nil;
+ {* Экземпляр синглетона TnsDayTipsDictCache }
 
 procedure TnsDayTipsDictCacheFree;
+ {* Метод освобождения экземпляра синглетона TnsDayTipsDictCache }
 begin
  l3Free(g_TnsDayTipsDictCache);
-end;
-
-class function TnsDayTipsDictCache.Instance: TnsDayTipsDictCache;
-begin
- if (g_TnsDayTipsDictCache = nil) then
- begin
-  l3System.AddExitProc(TnsDayTipsDictCacheFree);
-  g_TnsDayTipsDictCache := Create;
- end;
- Result := g_TnsDayTipsDictCache;
-end;
-
+end;//TnsDayTipsDictCacheFree
 
 class function TnsDayTipsDictCache.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsDayTipsDictCache <> nil;
 end;//TnsDayTipsDictCache.Exists
@@ -93,6 +64,16 @@ begin
 //#UC END# *5571C22C03A5_5571B3100338_impl*
 end;//TnsDayTipsDictCache.DoGetRoot
 
-{$IfEnd} //not Admin AND not Monitorings
+class function TnsDayTipsDictCache.Instance: TnsDayTipsDictCache;
+ {* Метод получения экземпляра синглетона TnsDayTipsDictCache }
+begin
+ if (g_TnsDayTipsDictCache = nil) then
+ begin
+  l3System.AddExitProc(TnsDayTipsDictCacheFree);
+  g_TnsDayTipsDictCache := Create;
+ end;
+ Result := g_TnsDayTipsDictCache;
+end;//TnsDayTipsDictCache.Instance
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

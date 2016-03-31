@@ -1,81 +1,65 @@
 unit m3DBDocument;
+ {* Реализация документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3DBDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBDocument
-//
-// Реализация документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3DBDocument.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBDocument" MUID: (4742DCCE00DD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3DBInterfaces,
-  m3BaseObject,
-  m3PrimDB,
-  ActiveX,
-  m3StorageInterfaces
-  ;
+ l3IntfUses
+ , m3BaseObject
+ , m3DBInterfaces
+ , m3PrimDB
+ , ActiveX
+ , m3StorageInterfaces
+;
 
 type
  Tm3DBDocument = class(Tm3BaseObject, Im3DBDocument)
   {* Реализация документа. }
- private
- // private fields
-   f_ID : Integer;
-    {* Поле для свойства ID}
- protected
- // realized methods
+  private
+   f_ID: Integer;
+    {* Поле для свойства ID }
+  protected
    function pm_GetID: Integer;
    procedure Delete;
-     {* Удаляет документ из хранилища. }
+    {* Удаляет документ из хранилища. }
    function Undelete: Boolean;
-     {* Восстанавливает документ. }
+    {* Восстанавливает документ. }
    function GetConst: Im3DBDocumentPart;
-     {* Постоянная часть документа. }
+    {* Постоянная часть документа. }
    function GetVersion(aLevel: Integer = 0): Im3DBDocumentPart;
-     {* Переменная часть документа. }
+    {* Переменная часть документа. }
    function Open(aMode: Tm3StoreAccess = m3_saRead;
     aDocPart: Tm3DocPartSelector = m3_defDocPart;
     aIndex: Integer = 0): IStream;
-     {* открыть документ. }
+    {* открыть документ. }
    function GetFreeObjectID: Integer;
    procedure DeleteObject(aObjID: Integer);
- public
- // public methods
+  public
    constructor Create(aDB: Tm3PrimDB;
-     anID: Integer); reintroduce;
+    anID: Integer); reintroduce;
    class function Make(aDB: Tm3PrimDB;
-     anID: Integer): Im3DBDocument; reintroduce;
-     {* Сигнатура фабрики Tm3DBDocument.Make }
- protected
- // protected properties
+    anID: Integer): Im3DBDocument; reintroduce;
+  protected
    property ID: Integer
-     read f_ID;
+    read f_ID;
  end;//Tm3DBDocument
 
 implementation
 
 uses
-  m3DBDocumentPart,
-  m3DB
-  ;
-
-// start class Tm3DBDocument
+ l3ImplUses
+ , m3DBDocumentPart
+ , m3DB
+;
 
 constructor Tm3DBDocument.Create(aDB: Tm3PrimDB;
-  anID: Integer);
+ anID: Integer);
 //#UC START# *555B2DEC002E_4742DCCE00DD_var*
 //#UC END# *555B2DEC002E_4742DCCE00DD_var*
 begin
@@ -86,7 +70,7 @@ begin
 end;//Tm3DBDocument.Create
 
 class function Tm3DBDocument.Make(aDB: Tm3PrimDB;
-  anID: Integer): Im3DBDocument;
+ anID: Integer): Im3DBDocument;
 var
  l_Inst : Tm3DBDocument;
 begin
@@ -96,7 +80,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tm3DBDocument.Make
 
 function Tm3DBDocument.pm_GetID: Integer;
 //#UC START# *472084D802D5_4742DCCE00DDget_var*
@@ -108,6 +92,7 @@ begin
 end;//Tm3DBDocument.pm_GetID
 
 procedure Tm3DBDocument.Delete;
+ {* Удаляет документ из хранилища. }
 //#UC START# *472084FC00BA_4742DCCE00DD_var*
 //#UC END# *472084FC00BA_4742DCCE00DD_var*
 begin
@@ -128,6 +113,7 @@ begin
 end;//Tm3DBDocument.Delete
 
 function Tm3DBDocument.Undelete: Boolean;
+ {* Восстанавливает документ. }
 //#UC START# *47208516014E_4742DCCE00DD_var*
 //#UC END# *47208516014E_4742DCCE00DD_var*
 begin
@@ -155,6 +141,7 @@ begin
 end;//Tm3DBDocument.Undelete
 
 function Tm3DBDocument.GetConst: Im3DBDocumentPart;
+ {* Постоянная часть документа. }
 //#UC START# *472085390162_4742DCCE00DD_var*
 //#UC END# *472085390162_4742DCCE00DD_var*
 begin
@@ -164,6 +151,7 @@ begin
 end;//Tm3DBDocument.GetConst
 
 function Tm3DBDocument.GetVersion(aLevel: Integer = 0): Im3DBDocumentPart;
+ {* Переменная часть документа. }
 //#UC START# *4720856602B2_4742DCCE00DD_var*
 //#UC END# *4720856602B2_4742DCCE00DD_var*
 begin
@@ -173,8 +161,9 @@ begin
 end;//Tm3DBDocument.GetVersion
 
 function Tm3DBDocument.Open(aMode: Tm3StoreAccess = m3_saRead;
-  aDocPart: Tm3DocPartSelector = m3_defDocPart;
-  aIndex: Integer = 0): IStream;
+ aDocPart: Tm3DocPartSelector = m3_defDocPart;
+ aIndex: Integer = 0): IStream;
+ {* открыть документ. }
 //#UC START# *472085990020_4742DCCE00DD_var*
 //#UC END# *472085990020_4742DCCE00DD_var*
 begin

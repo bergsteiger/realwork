@@ -31,7 +31,7 @@ type
    f_FPUCtrlWord: Word;
    f_RememberedWndHandle: hWnd;
    f_Scale: Integer;
-    {* Поле для свойства Scale }
+    {* Масштаб }
   private
    {$If NOT Defined(XE)}
    procedure DocumentComplete(Sender: TObject;
@@ -83,9 +83,6 @@ uses
  , l3SysUtils
  , l3Base
  , SysUtils
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -99,6 +96,9 @@ uses
  , evStyleTableTools
  , Variants
  , StrUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

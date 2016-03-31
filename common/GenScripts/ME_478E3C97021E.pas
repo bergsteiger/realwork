@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , l3CanvasPrim
+ //#UC START# *478E3C97021Eintf_uses*
+ //#UC END# *478E3C97021Eintf_uses*
 ;
 
 type
@@ -40,6 +42,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *478E3C97021Eimpl_uses*
+ //#UC END# *478E3C97021Eimpl_uses*
 ;
 
 //#UC START# *478E3C97021Eimpl*

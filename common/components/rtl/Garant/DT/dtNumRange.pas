@@ -1,64 +1,46 @@
 unit dtNumRange;
+ {* вспомогательный тип для TNumSet }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/dtNumRange.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DT::Containers::TdtNumRange
-//
-// вспомогательный тип для TNumSet
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\dtNumRange.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdtNumRange" MUID: (537F6DA00036)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+;
 
-{$If not defined(Nemesis)}
 type
  TdtNumRange = class(Tl3ProtoObject)
   {* вспомогательный тип для TNumSet }
- public
- // public fields
-   LowNum : LongWord;
-   HiNum : LongWord;
- public
- // public methods
+  public
+   LowNum: LongWord;
+   HiNum: LongWord;
+  public
    constructor Create(aLowNum: LongWord;
-     aHiNum: LongWord); reintroduce;
+    aHiNum: LongWord); reintroduce;
    function HasIntersectionWith(aRange: TdtNumRange): Boolean;
    procedure JoinWith(aRange: TdtNumRange);
    function Amount: Integer;
  end;//TdtNumRange
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  l3MinMax
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TdtNumRange
+ l3ImplUses
+ , SysUtils
+ , l3MinMax
+;
 
 constructor TdtNumRange.Create(aLowNum: LongWord;
-  aHiNum: LongWord);
+ aHiNum: LongWord);
 //#UC START# *537F6E030167_537F6DA00036_var*
 //#UC END# *537F6E030167_537F6DA00036_var*
 begin
@@ -108,7 +90,6 @@ begin
  Result := HiNum - LowNum + 1;
 //#UC END# *537F6ED601AE_537F6DA00036_impl*
 end;//TdtNumRange.Amount
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

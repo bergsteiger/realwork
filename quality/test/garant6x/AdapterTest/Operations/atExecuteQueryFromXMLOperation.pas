@@ -1,45 +1,32 @@
 unit atExecuteQueryFromXMLOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atExecuteQueryFromXMLOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatExecuteQueryFromXMLOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecuteQueryFromXMLOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatExecuteQueryFromXMLOperation" MUID: (50085F6E0099)
 
 interface
 
 uses
-  Classes,
-  atOperationBase,
-  atStringFileReader,
-  SearchUnit,
-  atQuery
-  ;
+ l3IntfUses
+ , atOperationBase
+ , Classes
+ , atStringFileReader
+ , atQuery
+ , SearchUnit
+;
 
 type
  _atIterateThroughFilesAddOn_Parent_ = TatOperationBase;
- {$Include ..\Operations\atIterateThroughFilesAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
  _atExecutesQueryAddOn_Parent_ = _atIterateThroughFilesAddOn_;
- {$Include ..\Operations\atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatExecuteQueryFromXMLOperation = class(_atExecutesQueryAddOn_)
- private
- // private fields
-   f_IsIgnoreImportErrors : Boolean;
-   f_IsCallChildsOnEmptyResult : Boolean;
-   f_ImportErrors : TStringList;
- protected
- // realized methods
+  private
+   f_IsIgnoreImportErrors: Boolean;
+   f_IsCallChildsOnEmptyResult: Boolean;
+   f_ImportErrors: TStringList;
+  protected
    function OnFile(const aFileName: AnsiString): Boolean; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteSelf; override;
    procedure ExecuteChilds; override;
@@ -48,22 +35,21 @@ type
 implementation
 
 uses
-  atLogger,
-  XMLDoc,
-  XMLIntf,
-  SysUtils,
-  atFileInitializer,
-  atFileIterator,
-  atSyncedStringFileReader,
-  atOperationEnv,
-  atSearchHelper
-  ;
+ l3ImplUses
+ , atLogger
+ , XMLDoc
+ , XMLIntf
+ , SysUtils
+ , atFileInitializer
+ , atFileIterator
+ , atSyncedStringFileReader
+ , atOperationEnv
+ , atSearchHelper
+;
 
-{$Include ..\Operations\atIterateThroughFilesAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
 
-{$Include ..\Operations\atExecutesQueryAddOn.imp.pas}
-
-// start class TatExecuteQueryFromXMLOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 function TatExecuteQueryFromXMLOperation.OnFile(const aFileName: AnsiString): Boolean;
 //#UC START# *502A649F0204_50085F6E0099_var*

@@ -24,16 +24,16 @@ type
    f_Current: Integer;
    f_List: IContextList;
   protected
-   procedure next;
+   procedure Next; stdcall;
     {* Перемещенеи итератора на следующий элемент. }
-   procedure prev;
+   procedure Prev; stdcall;
     {* Перемещенеи итератора на предыдущий элемент. }
-   function is_good: Boolean;
+   function IsGood: ByteBool; stdcall;
     {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-   function get_position: IFindPositionList;
-   function is_first: Boolean;
+   function GetPosition: IFindPositionList; stdcall;
+   function IsFirst: ByteBool; stdcall;
     {* возвращает true, если нельзя перейти на предыдущий фрагмент }
-   function Get_count: Cardinal;
+   function GetCount: Cardinal; stdcall;
    procedure ClearFields; override;
   public
    constructor Create(const aContext: IFoundContext); reintroduce; overload;
@@ -101,7 +101,7 @@ begin
  end;//try..finally
 end;//TnsFindIteratorNew.Make
 
-procedure TnsFindIteratorNew.next;
+procedure TnsFindIteratorNew.Next;
  {* Перемещенеи итератора на следующий элемент. }
 //#UC START# *45EEC28202A0_4C9C918102BC_var*
 //#UC END# *45EEC28202A0_4C9C918102BC_var*
@@ -110,9 +110,9 @@ begin
  Assert(f_Current <= Pred(GetCount));
  Inc(f_Current);
 //#UC END# *45EEC28202A0_4C9C918102BC_impl*
-end;//TnsFindIteratorNew.next
+end;//TnsFindIteratorNew.Next
 
-procedure TnsFindIteratorNew.prev;
+procedure TnsFindIteratorNew.Prev;
  {* Перемещенеи итератора на предыдущий элемент. }
 //#UC START# *45EEC28202A1_4C9C918102BC_var*
 //#UC END# *45EEC28202A1_4C9C918102BC_var*
@@ -121,9 +121,9 @@ begin
  Assert(f_Current >= 0);
  Dec(f_Current);
 //#UC END# *45EEC28202A1_4C9C918102BC_impl*
-end;//TnsFindIteratorNew.prev
+end;//TnsFindIteratorNew.Prev
 
-function TnsFindIteratorNew.is_good: Boolean;
+function TnsFindIteratorNew.IsGood: ByteBool;
  {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
 //#UC START# *45EEC28202A2_4C9C918102BC_var*
 //#UC END# *45EEC28202A2_4C9C918102BC_var*
@@ -132,9 +132,9 @@ begin
  Result := (GetCount > 0) AND
            (f_Current >= 0) AND (f_Current <= Pred(GetCount));
 //#UC END# *45EEC28202A2_4C9C918102BC_impl*
-end;//TnsFindIteratorNew.is_good
+end;//TnsFindIteratorNew.IsGood
 
-function TnsFindIteratorNew.get_position: IFindPositionList;
+function TnsFindIteratorNew.GetPosition: IFindPositionList;
 //#UC START# *461D00B9005D_4C9C918102BC_var*
 var
  l_GotList : IFragmentList;
@@ -145,9 +145,9 @@ begin
  f_List.pm_GetItem(f_Current, l_GotList);
  IFindPositionList(aRet) := TnsFindIteratorNewFindPositionList.Make(l_GotList);
 //#UC END# *461D00B9005D_4C9C918102BC_impl*
-end;//TnsFindIteratorNew.get_position
+end;//TnsFindIteratorNew.GetPosition
 
-function TnsFindIteratorNew.is_first: Boolean;
+function TnsFindIteratorNew.IsFirst: ByteBool;
  {* возвращает true, если нельзя перейти на предыдущий фрагмент }
 //#UC START# *49FEC51501D8_4C9C918102BC_var*
 //#UC END# *49FEC51501D8_4C9C918102BC_var*
@@ -155,9 +155,9 @@ begin
 //#UC START# *49FEC51501D8_4C9C918102BC_impl*
  Result := (f_Current <= 0);
 //#UC END# *49FEC51501D8_4C9C918102BC_impl*
-end;//TnsFindIteratorNew.is_first
+end;//TnsFindIteratorNew.IsFirst
 
-function TnsFindIteratorNew.Get_count: Cardinal;
+function TnsFindIteratorNew.GetCount: Cardinal;
 //#UC START# *49FFDC8B015D_4C9C918102BCget_var*
 //#UC END# *49FFDC8B015D_4C9C918102BCget_var*
 begin
@@ -167,7 +167,7 @@ begin
  else
   Result := f_List.Count;
 //#UC END# *49FFDC8B015D_4C9C918102BCget_impl*
-end;//TnsFindIteratorNew.Get_count
+end;//TnsFindIteratorNew.GetCount
 
 procedure TnsFindIteratorNew.ClearFields;
 begin

@@ -1,63 +1,44 @@
 unit MessageOnDesktop;
+ {* Коллеги, это что? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1Test"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/MessageOnDesktop.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::F1Test::TestHelpers::TMessageOnDesktop
-//
-// Коллеги, это что?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MessageOnDesktop.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TMessageOnDesktop" MUID: (499C38220140)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(XE)}
+{$If NOT Defined(XE)}
 uses
-  l3Core,
-  l3SimpleObject,
-  Windows
-  ;
-{$IfEnd} //not XE
+ l3IntfUses
+ , l3SimpleObject
+ , l3Core
+ , Windows
+;
 
-{$If not defined(XE)}
 type
  TMessageOnDesktop = class(Tl3SimpleObject)
   {* Коллеги, это что? }
- private
- // private fields
-   hDC : hDC;
-   hFont : HFONT;
- protected
- // overridden protected methods
+  private
+   hDC: hDC;
+   hFont: HFONT;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
    procedure DrawMessage(const aMsg: AnsiString);
  end;//TMessageOnDesktop
-{$IfEnd} //not XE
+{$IfEnd} // NOT Defined(XE)
 
 implementation
 
-{$If not defined(XE)}
+{$If NOT Defined(XE)}
 uses
-  Graphics
-  ;
-{$IfEnd} //not XE
-
-{$If not defined(XE)}
-
-// start class TMessageOnDesktop
+ l3ImplUses
+ , Graphics
+;
 
 constructor TMessageOnDesktop.Create;
 //#UC START# *499C387E0015_499C38220140_var*
@@ -89,6 +70,7 @@ begin
 end;//TMessageOnDesktop.DrawMessage
 
 procedure TMessageOnDesktop.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_499C38220140_var*
 //#UC END# *479731C50290_499C38220140_var*
 begin
@@ -99,7 +81,6 @@ begin
  inherited;
 //#UC END# *479731C50290_499C38220140_impl*
 end;//TMessageOnDesktop.Cleanup
-
-{$IfEnd} //not XE
+{$IfEnd} // NOT Defined(XE)
 
 end.

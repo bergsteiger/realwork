@@ -1,60 +1,47 @@
 unit m3ArcHandle;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3ArcHandle.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::ArchiveStreams::Tm3ArcHandle
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3ArcHandle.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3ArcHandle" MUID: (54539D300254)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3Persistent,
-  ActiveX
-  ;
+ l3IntfUses
+ , m3Persistent
+ , ActiveX
+;
 
 type
  Tm3ArcHandleData = record
-   Position : Int64;
-   PositionInStream : Int64;
-   DataSize : Integer;
+  Position: Int64;
+  PositionInStream: Int64;
+  DataSize: Integer;
  end;//Tm3ArcHandleData
 
  Tm3ArcHandle = class(Tm3Persistent)
- protected
- // realized methods
+  public
+   Data: Tm3ArcHandleData;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    procedure Load(const aStream: IStream); override;
    procedure Save(const aStream: IStream); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public fields
-   Data : Tm3ArcHandleData;
  end;//Tm3ArcHandle
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class Tm3ArcHandle
+ l3ImplUses
+ , l3Base
+;
 
 procedure Tm3ArcHandle.Load(const aStream: IStream);
 //#UC START# *542194B001E1_54539D300254_var*
@@ -91,6 +78,7 @@ begin
 end;//Tm3ArcHandle.Save
 
 procedure Tm3ArcHandle.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54539D300254_var*
 //#UC END# *479731C50290_54539D300254_var*
 begin
@@ -100,8 +88,9 @@ begin
 //#UC END# *479731C50290_54539D300254_impl*
 end;//Tm3ArcHandle.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tm3ArcHandle.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_54539D300254_var*
 //#UC END# *47A6FEE600FC_54539D300254_var*
 begin
@@ -109,6 +98,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_54539D300254_impl*
 end;//Tm3ArcHandle.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

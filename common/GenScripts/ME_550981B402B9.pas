@@ -10,9 +10,9 @@ interface
 
 uses
  l3IntfUses
+ , daTypes
  , daInterfaces
  , ddAppConfig
- , daTypes
  {$If NOT Defined(Nemesis)}
  , HT_Const
  {$IfEnd} // NOT Defined(Nemesis)

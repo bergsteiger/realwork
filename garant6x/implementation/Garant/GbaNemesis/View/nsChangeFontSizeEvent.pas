@@ -1,56 +1,40 @@
 unit nsChangeFontSizeEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsChangeFontSizeEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::Events::TnsChangeFontSizeEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsChangeFontSizeEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsChangeFontSizeEvent" MUID: (4B0BAFB9012B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsChangeFontSizeEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(aInc: Boolean;
     aSize: Cardinal);
  end;//TnsChangeFontSizeEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsChangeFontSizeEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsChangeFontSizeEvent.Log(aInc: Boolean;
-  aSize: Cardinal);
+ aSize: Cardinal);
 //#UC START# *4B0BAFD30056_4B0BAFB9012B_var*
 var
  l_Data: InsLogEventData;
@@ -64,7 +48,6 @@ begin
  GetLogger.AddEvent(cMap[aInc], l_Data);
 //#UC END# *4B0BAFD30056_4B0BAFB9012B_impl*
 end;//TnsChangeFontSizeEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

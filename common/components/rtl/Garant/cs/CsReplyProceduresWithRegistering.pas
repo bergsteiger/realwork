@@ -1,58 +1,42 @@
 unit CsReplyProceduresWithRegistering;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsReplyProceduresWithRegistering.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ServerSide::TCsReplyProceduresWithRegistering
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCsReplyProceduresWithRegistering" MUID: (5395C8DC03A7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  CsProcWithId,
-  CsQueryTypes,
-  CsReplyProceduresPrim
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3IntfUses
+ , CsReplyProceduresPrim
+ , CsQueryTypes
+ , CsProcWithId
+;
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
 type
  TCsReplyProceduresWithRegistering = {abstract} class(TCsReplyProceduresPrim)
- public
- // public methods
+  public
    procedure Register(aQueryId: TCsQueryId;
-     aProc: TCsReplyProc);
+    aProc: TCsReplyProc);
    procedure UnregisterAll;
  end;//TCsReplyProceduresWithRegistering
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  l3Base,
-  TypInfo,
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
-
-{$If defined(AppServerSide) AND not defined(Nemesis)}
-
-// start class TCsReplyProceduresWithRegistering
+ l3ImplUses
+ , l3Base
+ , TypInfo
+ , SysUtils
+;
 
 procedure TCsReplyProceduresWithRegistering.Register(aQueryId: TCsQueryId;
-  aProc: TCsReplyProc);
+ aProc: TCsReplyProc);
 //#UC START# *53959AE3018D_5395C8DC03A7_var*
 var
  l_ProcWithId: TCsProcWithId;
@@ -96,7 +80,6 @@ begin
  end;//try..finally
 //#UC END# *53BFBB81029F_5395C8DC03A7_impl*
 end;//TCsReplyProceduresWithRegistering.UnregisterAll
-
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 end.

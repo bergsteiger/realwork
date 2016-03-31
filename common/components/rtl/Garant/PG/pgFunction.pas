@@ -1,125 +1,82 @@
 unit pgFunction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgFunction.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgFunction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgFunction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunction" MUID: (56616E840213)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daInterfaces,
-  daParamList,
-  daSelectFieldList,
-  pgConnection,
-  pgParamDecsriptionList,
-  daQuery
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , daQuery
+ , daInterfaces
+ , daParamList
+ , daSelectFieldList
+ , pgConnection
+ , pgParamDecsriptionList
+;
 
-{$If defined(UsePostgres)}
 type
  TpgFunction = class(TdaQuery, IdaFunction)
- private
- // private fields
-   f_SchemeName : AnsiString;
-   f_FunctionName : AnsiString;
-   f_CanReturnSet : Boolean;
-   f_InParamList : TdaParamList;
-   f_OutParamList : TdaParamList;
-   f_SelectFields : TdaSelectFieldList;
-   f_QueryName : AnsiString;
-   f_Connection : TpgConnection;
- private
- // private methods
+  private
+   f_SchemeName: AnsiString;
+   f_FunctionName: AnsiString;
+   f_CanReturnSet: Boolean;
+   f_InParamList: TdaParamList;
+   f_OutParamList: TdaParamList;
+   f_SelectFields: TdaSelectFieldList;
+   f_QueryName: AnsiString;
+   f_Connection: TpgConnection;
+  private
    function BuildParamList: AnsiString;
- protected
- // realized methods
+  protected
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    procedure PrepareQuery; override;
-     {* Сигнатура метода PrepareQuery }
    procedure UnprepareQuery; override;
-     {* Сигнатура метода UnprepareQuery }
    procedure Execute;
    function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aConnection: TpgConnection;
-     const aDataConverter: IdaDataConverter;
-     const aSchemeName: AnsiString;
-     const aFunctionName: AnsiString;
-     aParamsDescription: TpgParamDecsriptionList;
-     CanReturnSet: Boolean); reintroduce;
+    const aDataConverter: IdaDataConverter;
+    const aSchemeName: AnsiString;
+    const aFunctionName: AnsiString;
+    aParamsDescription: TpgParamDecsriptionList;
+    CanReturnSet: Boolean); reintroduce;
    class function Make(aConnection: TpgConnection;
-     const aDataConverter: IdaDataConverter;
-     const aSchemeName: AnsiString;
-     const aFunctionName: AnsiString;
-     aParamsDescription: TpgParamDecsriptionList;
-     CanReturnSet: Boolean): IdaFunction; reintroduce;
-     {* Сигнатура фабрики TpgFunction.Make }
+    const aDataConverter: IdaDataConverter;
+    const aSchemeName: AnsiString;
+    const aFunctionName: AnsiString;
+    aParamsDescription: TpgParamDecsriptionList;
+    CanReturnSet: Boolean): IdaFunction; reintroduce;
  end;//TpgFunction
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daTypes,
-  SysUtils,
-  pgResultSet,
-  pgFunctionSelectField,
-  pgInterfaces,
-  LibPQ,
-  daScheme,
-  pgUtils
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgFunction
-
-function TpgFunction.BuildParamList: AnsiString;
-//#UC START# *567BD1FA031C_56616E840213_var*
-var
- l_IDX: Integer;
-//#UC END# *567BD1FA031C_56616E840213_var*
-begin
-//#UC START# *567BD1FA031C_56616E840213_impl*
- Result := '';
- for l_IDX := 0 to f_InParamList.Count - 1 do
- begin
-  if l_IDX > 0 then
-   Result := Result + ', ';
-  Result := Format('%s$%d', [Result, l_IDX + 1]);
- end;
- if Result <> '' then
-  Result := Format('(%s)', [Result]);
-//#UC END# *567BD1FA031C_56616E840213_impl*
-end;//TpgFunction.BuildParamList
+ l3ImplUses
+ , daTypes
+ , SysUtils
+ , pgResultSet
+ , pgFunctionSelectField
+ , pgInterfaces
+ , LibPQ
+ , daScheme
+ , pgUtils
+;
 
 constructor TpgFunction.Create(aConnection: TpgConnection;
-  const aDataConverter: IdaDataConverter;
-  const aSchemeName: AnsiString;
-  const aFunctionName: AnsiString;
-  aParamsDescription: TpgParamDecsriptionList;
-  CanReturnSet: Boolean);
+ const aDataConverter: IdaDataConverter;
+ const aSchemeName: AnsiString;
+ const aFunctionName: AnsiString;
+ aParamsDescription: TpgParamDecsriptionList;
+ CanReturnSet: Boolean);
 //#UC START# *5673D6990214_56616E840213_var*
 var
  l_IDX: Integer;
@@ -149,12 +106,31 @@ begin
 //#UC END# *5673D6990214_56616E840213_impl*
 end;//TpgFunction.Create
 
+function TpgFunction.BuildParamList: AnsiString;
+//#UC START# *567BD1FA031C_56616E840213_var*
+var
+ l_IDX: Integer;
+//#UC END# *567BD1FA031C_56616E840213_var*
+begin
+//#UC START# *567BD1FA031C_56616E840213_impl*
+ Result := '';
+ for l_IDX := 0 to f_InParamList.Count - 1 do
+ begin
+  if l_IDX > 0 then
+   Result := Result + ', ';
+  Result := Format('%s$%d', [Result, l_IDX + 1]);
+ end;
+ if Result <> '' then
+  Result := Format('(%s)', [Result]);
+//#UC END# *567BD1FA031C_56616E840213_impl*
+end;//TpgFunction.BuildParamList
+
 class function TpgFunction.Make(aConnection: TpgConnection;
-  const aDataConverter: IdaDataConverter;
-  const aSchemeName: AnsiString;
-  const aFunctionName: AnsiString;
-  aParamsDescription: TpgParamDecsriptionList;
-  CanReturnSet: Boolean): IdaFunction;
+ const aDataConverter: IdaDataConverter;
+ const aSchemeName: AnsiString;
+ const aFunctionName: AnsiString;
+ aParamsDescription: TpgParamDecsriptionList;
+ CanReturnSet: Boolean): IdaFunction;
 var
  l_Inst : TpgFunction;
 begin
@@ -164,7 +140,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgFunction.Make
 
 function TpgFunction.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
 //#UC START# *56010A7801F2_56616E840213_var*
@@ -241,6 +217,7 @@ begin
 end;//TpgFunction.DoBuildSQLValue
 
 procedure TpgFunction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56616E840213_var*
 //#UC END# *479731C50290_56616E840213_var*
 begin
@@ -253,7 +230,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56616E840213_impl*
 end;//TpgFunction.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

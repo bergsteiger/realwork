@@ -15,6 +15,8 @@ uses
  , vtPanel
  , vtCheckBox
  , Classes
+ //#UC START# *4DDD468D0131intf_uses*
+ //#UC END# *4DDD468D0131intf_uses*
 ;
 
 type
@@ -77,6 +79,8 @@ uses
  , CommDlg
  {$IfEnd} // NOT Defined(NoVCL)
  , l3MessageID
+ //#UC START# *4DDD468D0131impl_uses*
+ //#UC END# *4DDD468D0131impl_uses*
 ;
 
 type

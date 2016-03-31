@@ -1,42 +1,31 @@
 unit daFieldDescription;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daFieldDescription.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::DataScheme::TdaFieldDescription
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daFieldDescription.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldDescription" MUID: (5538D0A902AF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
 type
  TdaFieldDescription = class(Tl3ProtoObject, IdaFieldDescription)
- private
- // private fields
-   f_Table : Pointer;
-   f_SQLName : AnsiString;
-   f_Description : AnsiString;
-   f_Required : Boolean;
-   f_DataType : TdaDataType;
-   f_Index : Integer;
-   f_Size : Integer;
- protected
- // realized methods
+  private
+   f_Table: Pointer;
+   f_SQLName: AnsiString;
+   f_Description: AnsiString;
+   f_Required: Boolean;
+   f_DataType: TdaDataType;
+   f_Index: Integer;
+   f_Size: Integer;
+  protected
    function Get_SQLName: AnsiString;
    function Get_Description: AnsiString;
    function Get_DataType: TdaDataType;
@@ -46,30 +35,30 @@ type
    procedure BindToTable(const aTable: IdaTableDescription = nil;
     anIndex: Integer = -1);
    function Get_Size: Integer;
- public
- // public methods
+  public
    constructor Create(const aSQLName: AnsiString;
-     const aDesc: AnsiString;
-     aRequired: Boolean;
-     aType: TdaDataType;
-     aSize: Integer = 0); reintroduce;
+    const aDesc: AnsiString;
+    aRequired: Boolean;
+    aType: TdaDataType;
+    aSize: Integer = 0); reintroduce;
    class function Make(const aSQLName: AnsiString;
-     const aDesc: AnsiString;
-     aRequired: Boolean;
-     aType: TdaDataType;
-     aSize: Integer = 0): IdaFieldDescription; reintroduce;
-     {* Сигнатура фабрики TdaFieldDescription.Make }
+    const aDesc: AnsiString;
+    aRequired: Boolean;
+    aType: TdaDataType;
+    aSize: Integer = 0): IdaFieldDescription; reintroduce;
  end;//TdaFieldDescription
 
 implementation
 
-// start class TdaFieldDescription
+uses
+ l3ImplUses
+;
 
 constructor TdaFieldDescription.Create(const aSQLName: AnsiString;
-  const aDesc: AnsiString;
-  aRequired: Boolean;
-  aType: TdaDataType;
-  aSize: Integer = 0);
+ const aDesc: AnsiString;
+ aRequired: Boolean;
+ aType: TdaDataType;
+ aSize: Integer = 0);
 //#UC START# *5538D15A03E5_5538D0A902AF_var*
 //#UC END# *5538D15A03E5_5538D0A902AF_var*
 begin
@@ -84,10 +73,10 @@ begin
 end;//TdaFieldDescription.Create
 
 class function TdaFieldDescription.Make(const aSQLName: AnsiString;
-  const aDesc: AnsiString;
-  aRequired: Boolean;
-  aType: TdaDataType;
-  aSize: Integer = 0): IdaFieldDescription;
+ const aDesc: AnsiString;
+ aRequired: Boolean;
+ aType: TdaDataType;
+ aSize: Integer = 0): IdaFieldDescription;
 var
  l_Inst : TdaFieldDescription;
 begin
@@ -97,7 +86,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaFieldDescription.Make
 
 function TdaFieldDescription.Get_SQLName: AnsiString;
 //#UC START# *5538AA34030F_5538D0A902AFget_var*
@@ -154,7 +143,7 @@ begin
 end;//TdaFieldDescription.Get_Index
 
 procedure TdaFieldDescription.BindToTable(const aTable: IdaTableDescription = nil;
-  anIndex: Integer = -1);
+ anIndex: Integer = -1);
 //#UC START# *5538AB95021E_5538D0A902AF_var*
 //#UC END# *5538AB95021E_5538D0A902AF_var*
 begin

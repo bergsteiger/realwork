@@ -1,111 +1,73 @@
 unit l3ExceptionHandler;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ExceptionHandler.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3::l3Misc::Tl3ExceptionHandler
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ExceptionHandler.pas"
+// Стереотип: "Service"
+// Элемент модели: "Tl3ExceptionHandler" MUID: (5589239300B6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+;
 
-(*
- Ml3ExceptionHandler = PureMixIn
+ (*
+ Ml3ExceptionHandler = interface
   {* Контракт сервиса Tl3ExceptionHandler }
-   procedure HandleException(Sender: TObject);
+  procedure HandleException(Sender: TObject);
  end;//Ml3ExceptionHandler
-*)
+ *)
 
 type
- Il3ExceptionHandler = interface(IUnknown)
+ Il3ExceptionHandler = interface
   {* Интерфейс сервиса Tl3ExceptionHandler }
-   ['{85F70758-7234-4849-BCCC-261AAAA9117F}']
-  // Ml3ExceptionHandler
-   procedure HandleException(Sender: TObject);
+  ['{85F70758-7234-4849-BCCC-261AAAA9117F}']
+  procedure HandleException(Sender: TObject);
  end;//Il3ExceptionHandler
 
  Tl3ExceptionHandler = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3ExceptionHandler;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3ExceptionHandler;
+    {* Внешняя реализация сервиса Il3ExceptionHandler }
+  protected
    procedure pm_SetAlien(const aValue: Il3ExceptionHandler);
- public
- // realized methods
-   procedure HandleException(Sender: TObject);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3ExceptionHandler
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3ExceptionHandler }
- public
- // singleton factory method
+  public
+   procedure HandleException(Sender: TObject);
    class function Instance: Tl3ExceptionHandler;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ExceptionHandler }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: Il3ExceptionHandler
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3ExceptionHandler }
  end;//Tl3ExceptionHandler
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3ExceptionHandler
-
-var g_Tl3ExceptionHandler : Tl3ExceptionHandler = nil;
+var g_Tl3ExceptionHandler: Tl3ExceptionHandler = nil;
+ {* Экземпляр синглетона Tl3ExceptionHandler }
 
 procedure Tl3ExceptionHandlerFree;
+ {* Метод освобождения экземпляра синглетона Tl3ExceptionHandler }
 begin
  l3Free(g_Tl3ExceptionHandler);
-end;
-
-class function Tl3ExceptionHandler.Instance: Tl3ExceptionHandler;
-begin
- if (g_Tl3ExceptionHandler = nil) then
- begin
-  l3System.AddExitProc(Tl3ExceptionHandlerFree);
-  g_Tl3ExceptionHandler := Create;
- end;
- Result := g_Tl3ExceptionHandler;
-end;
-
+end;//Tl3ExceptionHandlerFree
 
 procedure Tl3ExceptionHandler.pm_SetAlien(const aValue: Il3ExceptionHandler);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3ExceptionHandler.pm_SetAlien
-
-class function Tl3ExceptionHandler.Exists: Boolean;
- {-}
-begin
- Result := g_Tl3ExceptionHandler <> nil;
-end;//Tl3ExceptionHandler.Exists
 
 procedure Tl3ExceptionHandler.HandleException(Sender: TObject);
 //#UC START# *9B9F43B530B0_5589239300B6_var*
@@ -117,8 +79,24 @@ begin
 //#UC END# *9B9F43B530B0_5589239300B6_impl*
 end;//Tl3ExceptionHandler.HandleException
 
+class function Tl3ExceptionHandler.Instance: Tl3ExceptionHandler;
+ {* Метод получения экземпляра синглетона Tl3ExceptionHandler }
+begin
+ if (g_Tl3ExceptionHandler = nil) then
+ begin
+  l3System.AddExitProc(Tl3ExceptionHandlerFree);
+  g_Tl3ExceptionHandler := Create;
+ end;
+ Result := g_Tl3ExceptionHandler;
+end;//Tl3ExceptionHandler.Instance
+
+class function Tl3ExceptionHandler.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ExceptionHandler <> nil;
+end;//Tl3ExceptionHandler.Exists
+
 procedure Tl3ExceptionHandler.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

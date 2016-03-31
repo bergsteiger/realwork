@@ -1,30 +1,30 @@
 {$IfNDef atStringConverter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringConverter.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::CoreObjects::atStringConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atStringConverter" MUID: (504F25E90064)
+// Имя типа: "_atStringConverter_"
 
 {$Define atStringConverter_imp}
+
  _FirstType_ = AnsiString;
- {$Include ..\CoreObjects\atConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
  _atStringConverterImp_Parent_ = _atConverter_;
- {$Include ..\CoreObjects\atStringConverterImp.imp.pas}
- _atStringConverter_ = {mixin} class(_atStringConverterImp_)
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
+ _atStringConverter_ = class(_atStringConverterImp_)
  end;//_atStringConverter_
 
 {$Else atStringConverter_imp}
 
-{$Include ..\CoreObjects\atConverter.imp.pas}
+{$IfNDef atStringConverter_imp_impl}
 
-{$Include ..\CoreObjects\atStringConverterImp.imp.pas}
+{$Define atStringConverter_imp_impl}
 
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
+
+{$EndIf atStringConverter_imp_impl}
 
 {$EndIf atStringConverter_imp}
+

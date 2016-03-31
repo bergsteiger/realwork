@@ -11,9 +11,9 @@ interface
 {$If Defined(UsePostgres)}
 uses
  l3IntfUses
+ , daTypes
  , daInterfaces
  , ddAppConfig
- , daTypes
  , l3Date
  , SysUtils
 ;

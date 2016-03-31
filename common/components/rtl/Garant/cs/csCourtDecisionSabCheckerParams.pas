@@ -1,169 +1,172 @@
 unit csCourtDecisionSabCheckerParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csCourtDecisionSabCheckerParams.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::CourtDecisionSabCheckerParams::TcsCourtDecisionSabCheckerParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csCourtDecisionSabCheckerParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsCourtDecisionSabCheckerParams" MUID: (53EDB09201BF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Variant,
-  csCourtsListHelper,
-  Classes,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3Variant
+ , csCourtsListHelper
+ , k2Base
+ , Classes
+;
 
-{$If not defined(Nemesis)}
 type
  _evdTagHolder_Parent_ = Tl3Tag;
  {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TcsCourtDecisionSabCheckerParams = class(_evdTagHolder_)
- protected
- // property methods
+  protected
    function pm_GetDocTypeID: Integer;
    procedure pm_SetDocTypeID(aValue: Integer);
-   {$If not defined(Nemesis) AND not defined(Region)}
+   {$If NOT Defined(Region)}
    function pm_GetLastUpdateDate: TDateTime;
+   {$IfEnd} // NOT Defined(Region)
+   {$If NOT Defined(Region)}
    procedure pm_SetLastUpdateDate(aValue: TDateTime);
-   {$IfEnd} //not Nemesis AND not Region
+   {$IfEnd} // NOT Defined(Region)
    function pm_GetNotifyList: AnsiString;
    procedure pm_SetNotifyList(const aValue: AnsiString);
    function pm_GetCourtsList: CourtsListHelper;
    function pm_GetIsParamsValid: Boolean;
    procedure pm_SetIsParamsValid(aValue: Boolean);
- public
- // realized methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property DocTypeID: Integer
-     read pm_GetDocTypeID
-     write pm_SetDocTypeID;
-   {$If not defined(Nemesis) AND not defined(Region)}
+    read pm_GetDocTypeID
+    write pm_SetDocTypeID;
+   {$If NOT Defined(Region)}
    property LastUpdateDate: TDateTime
-     read pm_GetLastUpdateDate
-     write pm_SetLastUpdateDate;
-   {$IfEnd} //not Nemesis AND not Region
+    read pm_GetLastUpdateDate
+    write pm_SetLastUpdateDate;
+   {$IfEnd} // NOT Defined(Region)
    property NotifyList: AnsiString
-     read pm_GetNotifyList
-     write pm_SetNotifyList;
+    read pm_GetNotifyList
+    write pm_SetNotifyList;
    property CourtsList: CourtsListHelper
-     read pm_GetCourtsList;
+    read pm_GetCourtsList;
    property IsParamsValid: Boolean
-     read pm_GetIsParamsValid
-     write pm_SetIsParamsValid;
+    read pm_GetIsParamsValid
+    write pm_SetIsParamsValid;
  end;//TcsCourtDecisionSabCheckerParams
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CourtDecisionSabCheckerParams_Const,
-  evdNativeWriter,
-  l3Filer,
-  l3Types,
-  k2TagGen,
-  evdNativeReader,
-  k2DocumentBuffer,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , CourtDecisionSabCheckerParams_Const
+ , SysUtils
+ , evdNativeWriter
+ , l3Filer
+ , l3Types
+ , k2TagGen
+ , evdNativeReader
+ , k2DocumentBuffer
+;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
-// start class TcsCourtDecisionSabCheckerParams
-
 function TcsCourtDecisionSabCheckerParams.pm_GetDocTypeID: Integer;
- {-}
+//#UC START# *4EEADA1C3DD0_53EDB09201BFget_var*
+//#UC END# *4EEADA1C3DD0_53EDB09201BFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrDocTypeID]);
+//#UC START# *4EEADA1C3DD0_53EDB09201BFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4EEADA1C3DD0_53EDB09201BFget_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_GetDocTypeID
 
 procedure TcsCourtDecisionSabCheckerParams.pm_SetDocTypeID(aValue: Integer);
- {-}
+//#UC START# *4EEADA1C3DD0_53EDB09201BFset_var*
+//#UC END# *4EEADA1C3DD0_53EDB09201BFset_var*
 begin
- TaggedData.IntW[k2_attrDocTypeID, nil] := (aValue);
+//#UC START# *4EEADA1C3DD0_53EDB09201BFset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4EEADA1C3DD0_53EDB09201BFset_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_SetDocTypeID
 
-{$If not defined(Nemesis) AND not defined(Region)}
+{$If NOT Defined(Region)}
 function TcsCourtDecisionSabCheckerParams.pm_GetLastUpdateDate: TDateTime;
- {-}
+//#UC START# *E24C1E692D7A_53EDB09201BFget_var*
+//#UC END# *E24C1E692D7A_53EDB09201BFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.DateTimeA[k2_attrLastUpdateDate]);
+//#UC START# *E24C1E692D7A_53EDB09201BFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E24C1E692D7A_53EDB09201BFget_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_GetLastUpdateDate
-{$IfEnd} //not Nemesis AND not Region
+{$IfEnd} // NOT Defined(Region)
 
-{$If not defined(Nemesis) AND not defined(Region)}
+{$If NOT Defined(Region)}
 procedure TcsCourtDecisionSabCheckerParams.pm_SetLastUpdateDate(aValue: TDateTime);
- {-}
+//#UC START# *E24C1E692D7A_53EDB09201BFset_var*
+//#UC END# *E24C1E692D7A_53EDB09201BFset_var*
 begin
- TaggedData.DateTimeW[k2_attrLastUpdateDate, nil] := (aValue);
+//#UC START# *E24C1E692D7A_53EDB09201BFset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *E24C1E692D7A_53EDB09201BFset_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_SetLastUpdateDate
-{$IfEnd} //not Nemesis AND not Region
+{$IfEnd} // NOT Defined(Region)
 
 function TcsCourtDecisionSabCheckerParams.pm_GetNotifyList: AnsiString;
- {-}
+//#UC START# *43C9B3E0B545_53EDB09201BFget_var*
+//#UC END# *43C9B3E0B545_53EDB09201BFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrNotifyList]);
+//#UC START# *43C9B3E0B545_53EDB09201BFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *43C9B3E0B545_53EDB09201BFget_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_GetNotifyList
 
 procedure TcsCourtDecisionSabCheckerParams.pm_SetNotifyList(const aValue: AnsiString);
- {-}
+//#UC START# *43C9B3E0B545_53EDB09201BFset_var*
+//#UC END# *43C9B3E0B545_53EDB09201BFset_var*
 begin
- TaggedData.StrW[k2_attrNotifyList, nil] := (aValue);
+//#UC START# *43C9B3E0B545_53EDB09201BFset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *43C9B3E0B545_53EDB09201BFset_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_SetNotifyList
 
 function TcsCourtDecisionSabCheckerParams.pm_GetCourtsList: CourtsListHelper;
- {-}
+//#UC START# *C4D1E41E73D1_53EDB09201BFget_var*
+//#UC END# *C4D1E41E73D1_53EDB09201BFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TCourtsListHelper.Make(TaggedData.cAtom(k2_attrCourtsList));
+//#UC START# *C4D1E41E73D1_53EDB09201BFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C4D1E41E73D1_53EDB09201BFget_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_GetCourtsList
 
 function TcsCourtDecisionSabCheckerParams.pm_GetIsParamsValid: Boolean;
- {-}
+//#UC START# *B67A69AEE25A_53EDB09201BFget_var*
+//#UC END# *B67A69AEE25A_53EDB09201BFget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.BoolA[k2_attrIsParamsValid]);
+//#UC START# *B67A69AEE25A_53EDB09201BFget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *B67A69AEE25A_53EDB09201BFget_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_GetIsParamsValid
 
 procedure TcsCourtDecisionSabCheckerParams.pm_SetIsParamsValid(aValue: Boolean);
- {-}
+//#UC START# *B67A69AEE25A_53EDB09201BFset_var*
+//#UC END# *B67A69AEE25A_53EDB09201BFset_var*
 begin
- TaggedData.BoolW[k2_attrIsParamsValid, nil] := (aValue);
+//#UC START# *B67A69AEE25A_53EDB09201BFset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *B67A69AEE25A_53EDB09201BFset_impl*
 end;//TcsCourtDecisionSabCheckerParams.pm_SetIsParamsValid
 
 class function TcsCourtDecisionSabCheckerParams.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53EDB09201BF_var*
+//#UC END# *53AC03EE01FD_53EDB09201BF_var*
 begin
- Result := k2_typCourtDecisionSabCheckerParams;
+//#UC START# *53AC03EE01FD_53EDB09201BF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53EDB09201BF_impl*
 end;//TcsCourtDecisionSabCheckerParams.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

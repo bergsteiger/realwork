@@ -27,6 +27,8 @@ uses
  , l3Interfaces
  , Classes
  , afwInterfaces
+ //#UC START# *499C26240034intf_uses*
+ //#UC END# *499C26240034intf_uses*
 ;
 
 type
@@ -204,6 +206,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *499C26240034impl_uses*
+ //#UC END# *499C26240034impl_uses*
 ;
 
 const

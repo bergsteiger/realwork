@@ -1,31 +1,19 @@
 unit ArchiScriptEngine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Script Engine"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Script_Engine/ArchiScriptEngine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$ScriptEngine::Archi Script Engine::ScriptEngine::TArchiScriptEngine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Script_Engine\ArchiScriptEngine.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TArchiScriptEngine" MUID: (4DE34290028F)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngineEX
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type
  TArchiScriptEngine = class(TtfwScriptEngineEX)
@@ -34,43 +22,31 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  arEditorUtils
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  arDialogsPack
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  CommonArchiWords
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  kwCompiledWord
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
-  kwDocumentSpravka
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  kwEditorKeyWordsPack
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  {$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  kwCommonArchiWords
-  {$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , arEditorUtils
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , arDialogsPack
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , CommonArchiWords
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledWord
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
+ , kwDocumentSpravka
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , kwEditorKeyWordsPack
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
+ , kwCommonArchiWords
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
+;
 
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
 end.

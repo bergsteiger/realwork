@@ -1,94 +1,63 @@
 unit ncsMessageFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsMessageFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsMessageFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsMessageFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsMessageFactory" MUID: (54539F4702B1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  Classes,
-  l3ProtoObject,
-  l3Variant,
-  ncsMessage,
-  ncsMessageClassList
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageClassList
+ , ncsMessage
+ , Classes
+ , l3Variant
+;
 
-{$If not defined(Nemesis)}
 type
  TncsMessageFactory = class(Tl3ProtoObject)
- private
- // private fields
-   f_List : TncsMessageClassList;
- private
- // private methods
+  private
+   f_List: TncsMessageClassList;
+  private
    function Find(const aMessageTag: AnsiString): TncsMessageClass;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure Register(aClass: TncsMessageClass);
    procedure UnRegister(aClass: TncsMessageClass);
    class function MakeFromEVD(aStream: TStream): TncsMessage;
    class function MakeFromTaggedData(aData: Tl3Tag): TncsMessage;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsMessageFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TncsMessageFactory }
  end;//TncsMessageFactory
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a},
-  SysUtils,
-  l3Types
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , l3Base
+;
 
-{$If not defined(Nemesis)}
-
-
-// start class TncsMessageFactory
-
-var g_TncsMessageFactory : TncsMessageFactory = nil;
+var g_TncsMessageFactory: TncsMessageFactory = nil;
+ {* Экземпляр синглетона TncsMessageFactory }
 
 procedure TncsMessageFactoryFree;
+ {* Метод освобождения экземпляра синглетона TncsMessageFactory }
 begin
  l3Free(g_TncsMessageFactory);
-end;
-
-class function TncsMessageFactory.Instance: TncsMessageFactory;
-begin
- if (g_TncsMessageFactory = nil) then
- begin
-  l3System.AddExitProc(TncsMessageFactoryFree);
-  g_TncsMessageFactory := Create;
- end;
- Result := g_TncsMessageFactory;
-end;
-
+end;//TncsMessageFactoryFree
 
 procedure TncsMessageFactory.Register(aClass: TncsMessageClass);
 //#UC START# *545A23D30081_54539F4702B1_var*
@@ -171,12 +140,24 @@ begin
 end;//TncsMessageFactory.MakeFromTaggedData
 
 class function TncsMessageFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TncsMessageFactory <> nil;
 end;//TncsMessageFactory.Exists
 
+class function TncsMessageFactory.Instance: TncsMessageFactory;
+ {* Метод получения экземпляра синглетона TncsMessageFactory }
+begin
+ if (g_TncsMessageFactory = nil) then
+ begin
+  l3System.AddExitProc(TncsMessageFactoryFree);
+  g_TncsMessageFactory := Create;
+ end;
+ Result := g_TncsMessageFactory;
+end;//TncsMessageFactory.Instance
+
 procedure TncsMessageFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54539F4702B1_var*
 //#UC END# *479731C50290_54539F4702B1_var*
 begin
@@ -195,7 +176,6 @@ begin
  f_List := TncsMessageClassList.MakeSorted(l3_dupIgnore);
 //#UC END# *47A042E100E2_54539F4702B1_impl*
 end;//TncsMessageFactory.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

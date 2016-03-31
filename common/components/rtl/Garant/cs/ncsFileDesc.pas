@@ -1,38 +1,26 @@
 unit ncsFileDesc;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsFileDesc.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsFileDesc
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsFileDesc.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsFileDesc" MUID: (546C52C001ED)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Variant,
-  Classes,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3Variant
+ , k2Base
+ , Classes
+;
 
-{$If not defined(Nemesis)}
 type
  _evdTagHolder_Parent_ = Tl3Tag;
  {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TncsFileDesc = class(_evdTagHolder_)
- protected
- // property methods
+  protected
    function pm_GetName: AnsiString;
    procedure pm_SetName(const aValue: AnsiString);
    function pm_GetCRC: Cardinal;
@@ -41,109 +29,121 @@ type
    procedure pm_SetDateTime(aValue: Integer);
    function pm_GetSize: Int64;
    procedure pm_SetSize(aValue: Int64);
- public
- // realized methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property Name: AnsiString
-     read pm_GetName
-     write pm_SetName;
+    read pm_GetName
+    write pm_SetName;
    property CRC: Cardinal
-     read pm_GetCRC
-     write pm_SetCRC;
+    read pm_GetCRC
+    write pm_SetCRC;
    property DateTime: Integer
-     read pm_GetDateTime
-     write pm_SetDateTime;
+    read pm_GetDateTime
+    write pm_SetDateTime;
    property Size: Int64
-     read pm_GetSize
-     write pm_SetSize;
+    read pm_GetSize
+    write pm_SetSize;
  end;//TncsFileDesc
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  FileDesc_Const,
-  evdNativeWriter,
-  l3Filer,
-  l3Types,
-  k2TagGen,
-  evdNativeReader,
-  k2DocumentBuffer,
-  SysUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , FileDesc_Const
+ , SysUtils
+ , evdNativeWriter
+ , l3Filer
+ , l3Types
+ , k2TagGen
+ , evdNativeReader
+ , k2DocumentBuffer
+;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
-// start class TncsFileDesc
-
 function TncsFileDesc.pm_GetName: AnsiString;
- {-}
+//#UC START# *253C8AC17454_546C52C001EDget_var*
+//#UC END# *253C8AC17454_546C52C001EDget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrName]);
+//#UC START# *253C8AC17454_546C52C001EDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *253C8AC17454_546C52C001EDget_impl*
 end;//TncsFileDesc.pm_GetName
 
 procedure TncsFileDesc.pm_SetName(const aValue: AnsiString);
- {-}
+//#UC START# *253C8AC17454_546C52C001EDset_var*
+//#UC END# *253C8AC17454_546C52C001EDset_var*
 begin
- TaggedData.StrW[k2_attrName, nil] := (aValue);
+//#UC START# *253C8AC17454_546C52C001EDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *253C8AC17454_546C52C001EDset_impl*
 end;//TncsFileDesc.pm_SetName
 
 function TncsFileDesc.pm_GetCRC: Cardinal;
- {-}
+//#UC START# *7F5542D15E0D_546C52C001EDget_var*
+//#UC END# *7F5542D15E0D_546C52C001EDget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := Cardinal(TaggedData.IntA[k2_attrCRC]);
+//#UC START# *7F5542D15E0D_546C52C001EDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *7F5542D15E0D_546C52C001EDget_impl*
 end;//TncsFileDesc.pm_GetCRC
 
 procedure TncsFileDesc.pm_SetCRC(aValue: Cardinal);
- {-}
+//#UC START# *7F5542D15E0D_546C52C001EDset_var*
+//#UC END# *7F5542D15E0D_546C52C001EDset_var*
 begin
- TaggedData.IntW[k2_attrCRC, nil] := Integer(aValue);
+//#UC START# *7F5542D15E0D_546C52C001EDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *7F5542D15E0D_546C52C001EDset_impl*
 end;//TncsFileDesc.pm_SetCRC
 
 function TncsFileDesc.pm_GetDateTime: Integer;
- {-}
+//#UC START# *54C47EC3BF67_546C52C001EDget_var*
+//#UC END# *54C47EC3BF67_546C52C001EDget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrDateTime]);
+//#UC START# *54C47EC3BF67_546C52C001EDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C47EC3BF67_546C52C001EDget_impl*
 end;//TncsFileDesc.pm_GetDateTime
 
 procedure TncsFileDesc.pm_SetDateTime(aValue: Integer);
- {-}
+//#UC START# *54C47EC3BF67_546C52C001EDset_var*
+//#UC END# *54C47EC3BF67_546C52C001EDset_var*
 begin
- TaggedData.IntW[k2_attrDateTime, nil] := (aValue);
+//#UC START# *54C47EC3BF67_546C52C001EDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C47EC3BF67_546C52C001EDset_impl*
 end;//TncsFileDesc.pm_SetDateTime
 
 function TncsFileDesc.pm_GetSize: Int64;
- {-}
+//#UC START# *A278B43F8E2B_546C52C001EDget_var*
+//#UC END# *A278B43F8E2B_546C52C001EDget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.Int64A[k2_attrSize]);
+//#UC START# *A278B43F8E2B_546C52C001EDget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A278B43F8E2B_546C52C001EDget_impl*
 end;//TncsFileDesc.pm_GetSize
 
 procedure TncsFileDesc.pm_SetSize(aValue: Int64);
- {-}
+//#UC START# *A278B43F8E2B_546C52C001EDset_var*
+//#UC END# *A278B43F8E2B_546C52C001EDset_var*
 begin
- TaggedData.Int64W[k2_attrSize, nil] := (aValue);
+//#UC START# *A278B43F8E2B_546C52C001EDset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A278B43F8E2B_546C52C001EDset_impl*
 end;//TncsFileDesc.pm_SetSize
 
 class function TncsFileDesc.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_546C52C001ED_var*
+//#UC END# *53AC03EE01FD_546C52C001ED_var*
 begin
- Result := k2_typFileDesc;
+//#UC START# *53AC03EE01FD_546C52C001ED_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_546C52C001ED_impl*
 end;//TncsFileDesc.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

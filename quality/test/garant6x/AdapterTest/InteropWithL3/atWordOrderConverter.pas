@@ -1,79 +1,53 @@
 unit atWordOrderConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/InteropWithL3/atWordOrderConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::InteropWithL3::TatWordOrderConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\InteropWithL3\atWordOrderConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatWordOrderConverter" MUID: (503E615E0377)
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  SysUtils
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , DynamicTreeUnit
+;
 
 type
  _FirstType_ = Tl3WordOrder;
  _SecondType_ = TFindOrder;
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
  TatWordOrderConverter = class(_atEnumToEnumConverter_)
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatWordOrderConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatWordOrderConverter }
  end;//TatWordOrderConverter
 
 implementation
 
 uses
-  l3Base {a},
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatWordOrderConverter
-
-var g_TatWordOrderConverter : TatWordOrderConverter = nil;
+var g_TatWordOrderConverter: TatWordOrderConverter = nil;
+ {* Экземпляр синглетона TatWordOrderConverter }
 
 procedure TatWordOrderConverterFree;
+ {* Метод освобождения экземпляра синглетона TatWordOrderConverter }
 begin
  l3Free(g_TatWordOrderConverter);
-end;
-
-class function TatWordOrderConverter.Instance: TatWordOrderConverter;
-begin
- if (g_TatWordOrderConverter = nil) then
- begin
-  l3System.AddExitProc(TatWordOrderConverterFree);
-  g_TatWordOrderConverter := Create;
- end;
- Result := g_TatWordOrderConverter;
-end;
-
+end;//TatWordOrderConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
 
-// start class TatWordOrderConverter
-
 class function TatWordOrderConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatWordOrderConverter <> nil;
 end;//TatWordOrderConverter.Exists
@@ -91,5 +65,16 @@ begin
   InitConvertMap(CONVERT_MAP);
 //#UC END# *503E3A040395_503E615E0377_impl*
 end;//TatWordOrderConverter.InitConvertMap
+
+class function TatWordOrderConverter.Instance: TatWordOrderConverter;
+ {* Метод получения экземпляра синглетона TatWordOrderConverter }
+begin
+ if (g_TatWordOrderConverter = nil) then
+ begin
+  l3System.AddExitProc(TatWordOrderConverterFree);
+  g_TatWordOrderConverter := Create;
+ end;
+ Result := g_TatWordOrderConverter;
+end;//TatWordOrderConverter.Instance
 
 end.

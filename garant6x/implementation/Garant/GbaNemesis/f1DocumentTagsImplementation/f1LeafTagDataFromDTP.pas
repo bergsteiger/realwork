@@ -1,42 +1,29 @@
 unit f1LeafTagDataFromDTP;
+ {* Поставщик данных о листьевом параграфе }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1LeafTagDataFromDTP.pas"
-// Начат: 23.08.2010 17:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::Tf1LeafTagDataFromDTP
-//
-// Поставщик данных о листьевом параграфе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1LeafTagDataFromDTP.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1LeafTagDataFromDTP" MUID: (4C727C300081)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  f1TagDataFromDTP,
-  DocumentUnit,
-  l3Interfaces,
-  k2Base,
-  F1TagDataProviderInterface
-  ;
+ l3IntfUses
+ , f1TagDataFromDTP
+ , l3Interfaces
+ , k2Base
+ , F1TagDataProviderInterface
+ , DocumentUnit
+;
 
 type
  _nsParentedTagData_Parent_ = Tf1TagDataFromDTP;
- {$Include ..\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
  Tf1LeafTagDataFromDTP = class(_nsParentedTagData_)
   {* Поставщик данных о листьевом параграфе }
- protected
- // overridden protected methods
+  protected
    procedure DoSetWStyle(const aValue: IStream); override;
    procedure DoBuildSubs(aProp: Tk2CustomProperty;
     const aChecker: If1AtomChecker); override;
@@ -45,19 +32,18 @@ type
 implementation
 
 uses
-  evdTypes,
-  nevTools,
-  k2Tags,
-  BaseTypesUnit,
-  nsTagString,
-  SysUtils,
-  l3Variant,
-  l3Base
-  ;
+ l3ImplUses
+ , evdTypes
+ , nevTools
+ , k2Tags
+ , BaseTypesUnit
+ , nsTagString
+ , SysUtils
+ , l3Variant
+ , l3Base
+;
 
-{$Include ..\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
-
-// start class Tf1LeafTagDataFromDTP
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
 
 procedure Tf1LeafTagDataFromDTP.DoSetWStyle(const aValue: IStream);
 //#UC START# *4C6EAFC9029B_4C727C300081_var*
@@ -78,7 +64,7 @@ begin
 end;//Tf1LeafTagDataFromDTP.DoSetWStyle
 
 procedure Tf1LeafTagDataFromDTP.DoBuildSubs(aProp: Tk2CustomProperty;
-  const aChecker: If1AtomChecker);
+ const aChecker: If1AtomChecker);
 //#UC START# *4C722FFF0364_4C727C300081_var*
 
 var

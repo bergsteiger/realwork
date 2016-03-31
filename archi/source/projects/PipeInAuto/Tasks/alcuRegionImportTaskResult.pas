@@ -1,80 +1,68 @@
 unit alcuRegionImportTaskResult;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuRegionImportTaskResult.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuRegionImportTaskResult
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskResult.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRegionImportTaskResult" MUID: (540867800117)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuImportTaskResult,
-  k2Base
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuImportTaskResult
+ , k2Base
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuRegionImportTaskResult = class(TalcuImportTaskResult)
- protected
- // property methods
+  protected
    function pm_GetHasMoreFilesToProcess: Boolean;
    procedure pm_SetHasMoreFilesToProcess(aValue: Boolean);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property HasMoreFilesToProcess: Boolean
-     read pm_GetHasMoreFilesToProcess
-     write pm_SetHasMoreFilesToProcess;
+    read pm_GetHasMoreFilesToProcess
+    write pm_SetHasMoreFilesToProcess;
  end;//TalcuRegionImportTaskResult
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  RegionImportTaskResult_Const
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuRegionImportTaskResult
+ l3ImplUses
+ , RegionImportTaskResult_Const
+;
 
 function TalcuRegionImportTaskResult.pm_GetHasMoreFilesToProcess: Boolean;
- {-}
+//#UC START# *21C8D96C6236_540867800117get_var*
+//#UC END# *21C8D96C6236_540867800117get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.BoolA[k2_attrHasMoreFilesToProcess]);
+//#UC START# *21C8D96C6236_540867800117get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *21C8D96C6236_540867800117get_impl*
 end;//TalcuRegionImportTaskResult.pm_GetHasMoreFilesToProcess
 
 procedure TalcuRegionImportTaskResult.pm_SetHasMoreFilesToProcess(aValue: Boolean);
- {-}
+//#UC START# *21C8D96C6236_540867800117set_var*
+//#UC END# *21C8D96C6236_540867800117set_var*
 begin
- TaggedData.BoolW[k2_attrHasMoreFilesToProcess, nil] := (aValue);
+//#UC START# *21C8D96C6236_540867800117set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *21C8D96C6236_540867800117set_impl*
 end;//TalcuRegionImportTaskResult.pm_SetHasMoreFilesToProcess
 
 class function TalcuRegionImportTaskResult.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_540867800117_var*
+//#UC END# *53AC03EE01FD_540867800117_var*
 begin
- Result := k2_typRegionImportTaskResult;
+//#UC START# *53AC03EE01FD_540867800117_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_540867800117_impl*
 end;//TalcuRegionImportTaskResult.GetTaggedDataType
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

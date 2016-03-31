@@ -1,60 +1,45 @@
 unit tstNSRCGenerator;
+ {* Обертка над TddGenerator для чтения данных о внешних файлах и запоминания их в тесте для последующей проверки. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/tstNSRCGenerator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::DailyTest::NSRCUtils::TtstNSRCGenerator
-//
-// Обертка над TddGenerator для чтения данных о внешних файлах и запоминания их в тесте для
-// последующей проверки.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\tstNSRCGenerator.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TtstNSRCGenerator" MUID: (4D70B17C001C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  ddNSRCGenerator
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , ddNSRCGenerator
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
- ItstNSRCListener = interface(IUnknown)
-   ['{A89ABBCC-F4DD-4B5B-8AA4-50EA93C9907A}']
-   procedure ExtractFileEvent(const aFileName: AnsiString);
-     {* Событие выливки внешнего файла. }
+ ItstNSRCListener = interface
+  ['{A89ABBCC-F4DD-4B5B-8AA4-50EA93C9907A}']
+  procedure ExtractFileEvent(const aFileName: AnsiString);
+   {* Событие выливки внешнего файла. }
  end;//ItstNSRCListener
 
  TtstNSRCGenerator = class(TddNSRCGenerator)
   {* Обертка над TddGenerator для чтения данных о внешних файлах и запоминания их в тесте для последующей проверки. }
- private
- // private fields
-   f_Listener : ItstNSRCListener;
- protected
- // overridden protected methods
+  private
+   f_Listener: ItstNSRCListener;
+  protected
    procedure SaveObjFileName(const aFileName: AnsiString); override;
- public
- // public methods
+  public
    procedure LinkNSRCListener(const aListener: ItstNSRCListener);
    procedure UnlinkNSRCListener(const aListener: ItstNSRCListener);
  end;//TtstNSRCGenerator
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TtstNSRCGenerator
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TtstNSRCGenerator.LinkNSRCListener(const aListener: ItstNSRCListener);
 //#UC START# *4D70B25B0190_4D70B17C001C_var*
@@ -84,7 +69,6 @@ begin
   f_Listener.ExtractFileEvent(aFileName);
 //#UC END# *4D70C8250128_4D70B17C001C_impl*
 end;//TtstNSRCGenerator.SaveObjFileName
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

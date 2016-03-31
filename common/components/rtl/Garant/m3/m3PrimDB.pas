@@ -1,61 +1,46 @@
 unit m3PrimDB;
+ {* Заготовка для абстрактной базы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m3/m3PrimDB.pas"
-// Начат: 17.03.2009 18:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3PrimDB
-//
-// Заготовка для абстрактной базы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3PrimDB.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3PrimDB" MUID: (49BFBC690162)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Types,
-  m3DBInterfaces,
-  m3StorageInterfaces,
-  l3Filer,
-  m3BackupTools,
-  l3ProxyStream,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , m3DBInterfaces
+ , l3Types
+ , m3StorageInterfaces
+ , l3ProxyStream
+ , l3Filer
+ , m3BackupTools
+;
 
 const
-  { DBConstants }
- m3_cDocPartNameW : Tm3DocPartSelector_Names_Array = ('Xmain', 'Xanno', 'Xinfo', m3_cObject);
-  { Имена стандартных потоков для ЗАПИСИ }
+ m3_cDocPartNameW: Tm3DocPartSelector_Names_Array = ('Xmain', 'Xanno', 'Xinfo', m3_cObject);
+  {* Имена стандартных потоков для ЗАПИСИ }
  m3_cMaxTry = 10000;
-  { Число попыток повторения открытия потока базы когда упёрлись в залочку }
+  {* Число попыток повторения открытия потока базы когда упёрлись в залочку }
  m3_cMaxSleep = 1000;
-  { Максимальное время  ожидания между попытками открытия потоков базы }
+  {* Максимальное время  ожидания между попытками открытия потоков базы }
 
 type
  Tm3PrimDB = {abstract} class(Tl3CProtoObject)
   {* Заготовка для абстрактной базы }
- private
- // private fields
-   f_FilesProcessed : Tm3FilesProcessed;
-    {* Поле для свойства FilesProcessed}
-   f_FilesProcessedEx : Tm3FilesProcessedEx;
-    {* Поле для свойства FilesProcessedEx}
-   f_FileMeter : Tl3ProgressProc;
-    {* Поле для свойства FileMeter}
-   f_FilesMeter : Tl3ProgressProc;
-    {* Поле для свойства FilesMeter}
- public
- // public methods
+  private
+   f_FilesProcessed: Tm3FilesProcessed;
+    {* Поле для свойства FilesProcessed }
+   f_FilesProcessedEx: Tm3FilesProcessedEx;
+    {* Поле для свойства FilesProcessedEx }
+   f_FileMeter: Tl3ProgressProc;
+    {* Поле для свойства FileMeter }
+   f_FilesMeter: Tl3ProgressProc;
+    {* Поле для свойства FilesMeter }
+  public
    function NeedsFork: Boolean; virtual;
    function IsExclusive: Boolean; virtual; abstract;
    function NeedProxy: Boolean; virtual;
@@ -63,73 +48,70 @@ type
    function LastElapsed: TDateTime; virtual; abstract;
    function Stopped: Boolean; virtual; abstract;
    procedure Yield; virtual; abstract;
-     {* Сигнатура метода Yield }
    procedure TuneFiler(aFiler: Tl3CustomFiler); virtual; abstract;
    procedure ModifyDeleted(anID: Integer;
-     aInsert: Boolean); virtual; abstract;
+    aInsert: Boolean); virtual; abstract;
    function InProcess: Boolean; virtual; abstract;
    procedure ModifyModified(anID: Integer); virtual; abstract;
-     {* Добавляет документ в список изменённых }
+    {* Добавляет документ в список изменённых }
    procedure Commit(aStream: Tl3ProxyStream);
-     {* Сохраняет изменения в документе }
+    {* Сохраняет изменения в документе }
    procedure Revert(aStream: Tl3ProxyStream);
-     {* Откатывает изменения потока }
+    {* Откатывает изменения потока }
    function MainStorage(aMode: Tm3StoreAccess): Im3IndexedStorage; virtual; abstract;
-     {* Возвращает корень постоянной части }
+    {* Возвращает корень постоянной части }
    function GetVersionsStorage(aMode: Tm3StoreAccess): Im3IndexedStorage; virtual; abstract;
-     {* Возвращает корень переменной части }
+    {* Возвращает корень переменной части }
    function GetBackupStorage(aMode: Tm3StoreAccess): Im3IndexedStorage; virtual; abstract;
-     {* Возвращает корень резервной копии }
+    {* Возвращает корень резервной копии }
    function GetDocumentObjectsIDs(aDocID: Integer): Im3StorageElementIDList;
-     {* Возвращает список номеров объектов в документе }
+    {* Возвращает список номеров объектов в документе }
    procedure Start(aOpenMode: Tm3StoreAccess); virtual; abstract;
-     {* начинает процесс с базой }
+    {* начинает процесс с базой }
    procedure Finish; virtual; abstract;
-     {* заканчивает процесс с базой }
+    {* заканчивает процесс с базой }
    procedure StartEx(aVersionsMode: Tm3StoreAccess;
     aConstMode: Tm3StoreAccess); virtual; abstract;
-     {* начинает процесс с базой }
+    {* начинает процесс с базой }
    procedure CloseBase; virtual; abstract;
-     {* закрывает открытые файлы }
+    {* закрывает открытые файлы }
    procedure IterateObjectsInDocF(aDocID: Integer;
     aDeleted: Boolean;
     anAction: Tm3DBStreamAction;
     aSkipMain: Boolean);
-     {* Перебирает объекты в документе }
- public
- // public properties
+    {* Перебирает объекты в документе }
+  public
    property FilesProcessed: Tm3FilesProcessed
-     read f_FilesProcessed
-     write f_FilesProcessed;
+    read f_FilesProcessed
+    write f_FilesProcessed;
    property FilesProcessedEx: Tm3FilesProcessedEx
-     read f_FilesProcessedEx
-     write f_FilesProcessedEx;
+    read f_FilesProcessedEx
+    write f_FilesProcessedEx;
    property FileMeter: Tl3ProgressProc
-     read f_FileMeter
-     write f_FileMeter;
+    read f_FileMeter
+    write f_FileMeter;
    property FilesMeter: Tl3ProgressProc
-     read f_FilesMeter
-     write f_FilesMeter;
+    read f_FilesMeter
+    write f_FilesMeter;
  end;//Tm3PrimDB
 
 implementation
 
 uses
-  l3Interfaces,
-  m3DBProxyWriteStream,
-  m3StorageTools,
-  m2COMLib,
-  SysUtils,
-  ComObj,
-  l3String,
-  m3StorageElementIDList,
-  StrUtils,
-  Windows,
-  l3Base,
-  m3DBActions
-  ;
-
-// start class Tm3PrimDB
+ l3ImplUses
+ , l3Interfaces
+ , m3DBProxyWriteStream
+ , m3StorageTools
+ , m2COMLib
+ , SysUtils
+ , ComObj
+ , l3String
+ , m3StorageElementIDList
+ , StrUtils
+ , Windows
+ , l3Base
+ , m3DBActions
+;
 
 function Tm3PrimDB.NeedsFork: Boolean;
 //#UC START# *5540ECC800D2_49BFBC690162_var*
@@ -164,6 +146,7 @@ begin
 end;//Tm3PrimDB.AsDB
 
 procedure Tm3PrimDB.Commit(aStream: Tl3ProxyStream);
+ {* Сохраняет изменения в документе }
 //#UC START# *49BFC9AF02B0_49BFBC690162_var*
 
  procedure AddDocToBaseSummary(const aBase: Im3IndexedStorage;
@@ -402,6 +385,7 @@ begin
 end;//Tm3PrimDB.Commit
 
 procedure Tm3PrimDB.Revert(aStream: Tl3ProxyStream);
+ {* Откатывает изменения потока }
 //#UC START# *49BFD2E803B1_49BFBC690162_var*
 //#UC END# *49BFD2E803B1_49BFBC690162_var*
 begin
@@ -411,6 +395,7 @@ begin
 end;//Tm3PrimDB.Revert
 
 function Tm3PrimDB.GetDocumentObjectsIDs(aDocID: Integer): Im3StorageElementIDList;
+ {* Возвращает список номеров объектов в документе }
 //#UC START# *49C2446A025E_49BFBC690162_var*
 
 var
@@ -432,9 +417,10 @@ begin
 end;//Tm3PrimDB.GetDocumentObjectsIDs
 
 procedure Tm3PrimDB.IterateObjectsInDocF(aDocID: Integer;
-  aDeleted: Boolean;
-  anAction: Tm3DBStreamAction;
-  aSkipMain: Boolean);
+ aDeleted: Boolean;
+ anAction: Tm3DBStreamAction;
+ aSkipMain: Boolean);
+ {* Перебирает объекты в документе }
 //#UC START# *49C77CA801B9_49BFBC690162_var*
 
 var

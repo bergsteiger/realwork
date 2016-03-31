@@ -1,81 +1,55 @@
 unit nsFindIteratorNew;
+ {* Реализация IFindIterator для нового представления документов (без деревьев) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsFindIteratorNew.pas"
-// Начат: 24.09.2010 15:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::ContextSearchInEVDDocument::TnsFindIteratorNew
-//
-// Реализация IFindIterator для нового представления документов (без деревьев)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindIteratorNew" MUID: (4C9C918102BC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3ProtoObjectForTie
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObjectForTie
+ , DynamicTreeUnit
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFindIteratorNew = class(Tl3ProtoObjectForTie, IFindIterator)
   {* Реализация IFindIterator для нового представления документов (без деревьев) }
- private
- // private fields
-   f_Current : Integer;
-   f_List : IContextList;
- protected
- // realized methods
+  private
+   f_Current: Integer;
+   f_List: IContextList;
+  protected
    procedure Next; stdcall;
-     {* Перемещенеи итератора на следующий элемент. }
+    {* Перемещенеи итератора на следующий элемент. }
    procedure Prev; stdcall;
-     {* Перемещенеи итератора на предыдущий элемент. }
+    {* Перемещенеи итератора на предыдущий элемент. }
    function IsGood: ByteBool; stdcall;
-     {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-   procedure GetPosition(out aRet {: IFindPositionList}); stdcall;
+    {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
+   function GetPosition: IFindPositionList; stdcall;
    function IsFirst: ByteBool; stdcall;
-     {* возвращает true, если нельзя перейти на предыдущий фрагмент }
+    {* возвращает true, если нельзя перейти на предыдущий фрагмент }
    function GetCount: Cardinal; stdcall;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aContext: IFoundContext); reintroduce; overload; 
-   class function Make(const aContext: IFoundContext): IFindIterator; reintroduce; overload; 
-     {* Сигнатура фабрики TnsFindIteratorNew.Make }
-   constructor Create(const aList: IContextList); overload; 
-   class function Make(const aList: IContextList): IFindIterator; reintroduce; overload; 
-     {* Сигнатура фабрики TnsFindIteratorNew.Make$1 }
+  public
+   constructor Create(const aContext: IFoundContext); reintroduce; overload;
+   class function Make(const aContext: IFoundContext): IFindIterator; reintroduce; overload;
+   constructor Create(const aList: IContextList); reintroduce; overload;
+   class function Make(const aList: IContextList): IFindIterator; reintroduce; overload;
  end;//TnsFindIteratorNew
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsFindIteratorNewFindPositionList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFindIteratorNew
+ l3ImplUses
+ , nsFindIteratorNewFindPositionList
+;
 
 constructor TnsFindIteratorNew.Create(const aContext: IFoundContext);
 //#UC START# *4C9C92330122_4C9C918102BC_var*
@@ -102,7 +76,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFindIteratorNew.Make
 
 constructor TnsFindIteratorNew.Create(const aList: IContextList);
 //#UC START# *4D8A1E420133_4C9C918102BC_var*
@@ -125,9 +99,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFindIteratorNew.Make
 
 procedure TnsFindIteratorNew.Next;
+ {* Перемещенеи итератора на следующий элемент. }
 //#UC START# *45EEC28202A0_4C9C918102BC_var*
 //#UC END# *45EEC28202A0_4C9C918102BC_var*
 begin
@@ -138,6 +113,7 @@ begin
 end;//TnsFindIteratorNew.Next
 
 procedure TnsFindIteratorNew.Prev;
+ {* Перемещенеи итератора на предыдущий элемент. }
 //#UC START# *45EEC28202A1_4C9C918102BC_var*
 //#UC END# *45EEC28202A1_4C9C918102BC_var*
 begin
@@ -148,6 +124,7 @@ begin
 end;//TnsFindIteratorNew.Prev
 
 function TnsFindIteratorNew.IsGood: ByteBool;
+ {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
 //#UC START# *45EEC28202A2_4C9C918102BC_var*
 //#UC END# *45EEC28202A2_4C9C918102BC_var*
 begin
@@ -157,7 +134,7 @@ begin
 //#UC END# *45EEC28202A2_4C9C918102BC_impl*
 end;//TnsFindIteratorNew.IsGood
 
-procedure TnsFindIteratorNew.GetPosition(out aRet {: IFindPositionList});
+function TnsFindIteratorNew.GetPosition: IFindPositionList;
 //#UC START# *461D00B9005D_4C9C918102BC_var*
 var
  l_GotList : IFragmentList;
@@ -171,6 +148,7 @@ begin
 end;//TnsFindIteratorNew.GetPosition
 
 function TnsFindIteratorNew.IsFirst: ByteBool;
+ {* возвращает true, если нельзя перейти на предыдущий фрагмент }
 //#UC START# *49FEC51501D8_4C9C918102BC_var*
 //#UC END# *49FEC51501D8_4C9C918102BC_var*
 begin
@@ -192,14 +170,10 @@ begin
 end;//TnsFindIteratorNew.GetCount
 
 procedure TnsFindIteratorNew.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_List := nil;
- {$IfEnd} //not Admin AND not Monitorings
+ Finalize(f_List);
  inherited;
 end;//TnsFindIteratorNew.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

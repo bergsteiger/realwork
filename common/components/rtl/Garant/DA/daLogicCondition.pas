@@ -1,67 +1,50 @@
 unit daLogicCondition;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daLogicCondition.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaLogicCondition
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daLogicCondition.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaLogicCondition" MUID: (5640598000F0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daTypes,
-  daInterfaces,
-  daCondition
-  ;
+ l3IntfUses
+ , daCondition
+ , daInterfaces
+ , daTypes
+;
 
 type
  TdaLogicCondition = class(TdaCondition)
- private
- // private fields
-   f_Left : IdaCondition;
-   f_Right : IdaCondition;
-   f_Operation : TdaLogicOperation;
- protected
- // realized methods
+  private
+   f_Left: IdaCondition;
+   f_Right: IdaCondition;
+   f_Operation: TdaLogicOperation;
+  protected
    function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aLeft: IdaCondition;
-     anOperation: TdaLogicOperation;
-     const aRight: IdaCondition); reintroduce;
+    anOperation: TdaLogicOperation;
+    const aRight: IdaCondition); reintroduce;
    class function Make(const aLeft: IdaCondition;
-     anOperation: TdaLogicOperation;
-     const aRight: IdaCondition): IdaCondition; reintroduce;
-     {* Сигнатура фабрики TdaLogicCondition.Make }
-   {iterator} procedure Iterate(anAction: daConditionIterator_Iterate_Action); override;
+    anOperation: TdaLogicOperation;
+    const aRight: IdaCondition): IdaCondition; reintroduce;
+   procedure Iterate(anAction: daConditionIterator_Iterate_Action); override;
  end;//TdaLogicCondition
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
-
-// start class TdaLogicCondition
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TdaLogicCondition.Create(const aLeft: IdaCondition;
-  anOperation: TdaLogicOperation;
-  const aRight: IdaCondition);
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition);
 //#UC START# *564059E50042_5640598000F0_var*
 //#UC END# *564059E50042_5640598000F0_var*
 begin
@@ -74,8 +57,8 @@ begin
 end;//TdaLogicCondition.Create
 
 class function TdaLogicCondition.Make(const aLeft: IdaCondition;
-  anOperation: TdaLogicOperation;
-  const aRight: IdaCondition): IdaCondition;
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition): IdaCondition;
 var
  l_Inst : TdaLogicCondition;
 begin
@@ -85,17 +68,15 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaLogicCondition.Make
 
-{iterator} procedure TdaLogicCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
-//#UC START# *564089E3039B_5640598000F0_var*
-//#UC END# *564089E3039B_5640598000F0_var*
+procedure TdaLogicCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
+//#UC START# *56F3A69D0089_5640598000F0_var*
+//#UC END# *56F3A69D0089_5640598000F0_var*
 begin
-//#UC START# *564089E3039B_5640598000F0_impl*
- inherited;
- anAction(f_Left);
- anAction(f_Right);
-//#UC END# *564089E3039B_5640598000F0_impl*
+//#UC START# *56F3A69D0089_5640598000F0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56F3A69D0089_5640598000F0_impl*
 end;//TdaLogicCondition.Iterate
 
 function TdaLogicCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;
@@ -113,6 +94,7 @@ begin
 end;//TdaLogicCondition.DoBuildSQL
 
 procedure TdaLogicCondition.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5640598000F0_var*
 //#UC END# *479731C50290_5640598000F0_var*
 begin

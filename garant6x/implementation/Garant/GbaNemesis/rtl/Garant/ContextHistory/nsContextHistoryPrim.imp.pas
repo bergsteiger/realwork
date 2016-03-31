@@ -1,55 +1,44 @@
 {$IfNDef nsContextHistoryPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ContextHistory"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/rtl/Garant/ContextHistory/nsContextHistoryPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Common For Shell And Monitoring::Search::ContextHistory::ContextHistory::nsContextHistoryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsContextHistoryPrim" MUID: (4AD843F802B4)
+// Имя типа: "_nsContextHistoryPrim_"
 
 {$Define nsContextHistoryPrim_imp}
-{$If not defined(Admin)}
- _nsContextHistoryPrim_ = {mixin} class(_nsContextHistoryPrim_Parent_)
- private
- // private fields
-   f_Subscribers : TInsContextSearchHistoryNotifierList;
-   f_Kind : TnsContextHistoryKind;
- private
- // private methods
+
+{$If NOT Defined(Admin)}
+ _nsContextHistoryPrim_ = class(_nsContextHistoryPrim_Parent_)
+  private
+   f_Subscribers: TInsContextSearchHistoryNotifierList;
+   f_Kind: TnsContextHistoryKind;
+  private
    procedure NotifySubscribers(const aNewHistory: IvcmStrings);
    function SettingsName: TafwSettingId;
- public
- // realized methods
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(aKind: TnsContextHistoryKind); reintroduce;
    procedure AddNotifier(const aNotifier: InsContextSearchHistoryNotifier);
    function History: IvcmStrings;
    procedure RemoveNotifier(const aNotifier: InsContextSearchHistoryNotifier);
    procedure Searched(const aContext: IvcmStrings);
    procedure Clear;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
-   constructor Create(aKind: TnsContextHistoryKind); reintroduce;
  end;//_nsContextHistoryPrim_
-{$Else}
 
- _nsContextHistoryPrim_ = _nsContextHistoryPrim_Parent_;
+{$Else NOT Defined(Admin)}
 
-{$IfEnd} //not Admin
+_nsContextHistoryPrim_ = _nsContextHistoryPrim_Parent_;
 
+{$IfEnd} // NOT Defined(Admin)
 {$Else nsContextHistoryPrim_imp}
 
-{$If not defined(Admin)}
+{$IfNDef nsContextHistoryPrim_imp_impl}
 
-// start class _nsContextHistoryPrim_
+{$Define nsContextHistoryPrim_imp_impl}
 
+{$If NOT Defined(Admin)}
 constructor _nsContextHistoryPrim_.Create(aKind: TnsContextHistoryKind);
 //#UC START# *4AD8449003C3_4AD843F802B4_var*
 //#UC END# *4AD8449003C3_4AD843F802B4_var*
@@ -170,6 +159,7 @@ begin
 end;//_nsContextHistoryPrim_.Clear
 
 procedure _nsContextHistoryPrim_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AD843F802B4_var*
 //#UC END# *479731C50290_4AD843F802B4_var*
 begin
@@ -178,7 +168,9 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_4AD843F802B4_impl*
 end;//_nsContextHistoryPrim_.Cleanup
+{$IfEnd} // NOT Defined(Admin)
 
-{$IfEnd} //not Admin
+{$EndIf nsContextHistoryPrim_imp_impl}
 
 {$EndIf nsContextHistoryPrim_imp}
+

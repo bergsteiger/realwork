@@ -1,58 +1,42 @@
 {$IfNDef nsParentedTagData_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsParentedTagData.imp.pas"
-// Начат: 23.08.2010 17:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::nsParentedTagData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsParentedTagData" MUID: (4C727CF102FF)
+// Имя типа: "_nsParentedTagData_"
 
 {$Define nsParentedTagData_imp}
- _nsParentedTagData_ = {mixin} class(_nsParentedTagData_Parent_)
- private
- // private fields
-   f_Parent : Tf1ListTagDataFromDTPPrim;
-    {* Поле для свойства Parent}
-   f_ChildID : TChildID;
-    {* Поле для свойства ChildID}
- protected
- // realized methods
+
+ _nsParentedTagData_ = class(_nsParentedTagData_Parent_)
+  private
+   f_Parent: Tf1ListTagDataFromDTPPrim;
+   f_ChildID: TChildID;
+  protected
    function GetChildID: TChildID; override;
    function GetParentLayerID: DTPLayerID; override;
- protected
- // overridden property methods
-   function pm_GetParentPrim: Tf1ListTagDataFromDTPPrim; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+   function pm_GetParentPrim: Tf1ListTagDataFromDTPPrim; override;
+  public
    constructor Create(const aProvider: IDocumentTextProvider;
-     aParent: Tf1ListTagDataFromDTPPrim;
-     aChildID: TChildID); reintroduce;
- protected
- // protected properties
+    aParent: Tf1ListTagDataFromDTPPrim;
+    aChildID: TChildID); reintroduce;
+  protected
    property Parent: Tf1ListTagDataFromDTPPrim
-     read f_Parent;
+    read f_Parent;
    property ChildID: TChildID
-     read f_ChildID;
+    read f_ChildID;
  end;//_nsParentedTagData_
 
 {$Else nsParentedTagData_imp}
 
-// start class _nsParentedTagData_
+{$IfNDef nsParentedTagData_imp_impl}
+
+{$Define nsParentedTagData_imp_impl}
 
 constructor _nsParentedTagData_.Create(const aProvider: IDocumentTextProvider;
-  aParent: Tf1ListTagDataFromDTPPrim;
-  aChildID: TChildID);
+ aParent: Tf1ListTagDataFromDTPPrim;
+ aChildID: TChildID);
 //#UC START# *4C727EAE031D_4C727CF102FF_var*
 //#UC END# *4C727EAE031D_4C727CF102FF_var*
 begin
@@ -83,6 +67,7 @@ begin
 end;//_nsParentedTagData_.GetParentLayerID
 
 procedure _nsParentedTagData_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C727CF102FF_var*
 //#UC END# *479731C50290_4C727CF102FF_var*
 begin
@@ -102,4 +87,7 @@ begin
 //#UC END# *4C72A6B5000F_4C727CF102FFget_impl*
 end;//_nsParentedTagData_.pm_GetParentPrim
 
+{$EndIf nsParentedTagData_imp_impl}
+
 {$EndIf nsParentedTagData_imp}
+

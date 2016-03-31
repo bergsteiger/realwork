@@ -1,48 +1,37 @@
 unit nsNodeStorable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Components"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Components/nsNodeStorable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Components::Tree$WithDnD::TnsNodeStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nsNodeStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsNodeStorable" MUID: (468271030094)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  evNodeStorable,
-  afwNavigation
-  ;
+ l3IntfUses
+ , evNodeStorable
+ , afwNavigation
+;
 
 type
  TnsNodeStorable = class(TevNodeStorable)
- protected
- // overridden protected methods
+  protected
    procedure GetAddress(var Addr: TevAddress); override;
  end;//TnsNodeStorable
 
 implementation
 
 uses
-  FoldersUnit,
-  DocumentUnit,
-  SysUtils,
-  BaseTypesUnit,
-  BaseTreeSupportUnit,
-  nevTools,
-  evdTypes
-  ;
-
-// start class TnsNodeStorable
+ l3ImplUses
+ , FoldersUnit
+ , DocumentUnit
+ , SysUtils
+ , BaseTypesUnit
+ , BaseTreeSupportUnit
+ , nevTools
+ , evdTypes
+;
 
 procedure TnsNodeStorable.GetAddress(var Addr: TevAddress);
 //#UC START# *48F494F102DD_468271030094_var*

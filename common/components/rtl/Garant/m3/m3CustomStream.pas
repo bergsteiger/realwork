@@ -1,65 +1,48 @@
 unit m3CustomStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3CustomStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3CustomStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3CustomStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CustomStream" MUID: (53FDCE880154)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3StorageInterfaces,
-  m3BaseStream
-  ;
+ l3IntfUses
+ , m3BaseStream
+ , ActiveX
+ , m3StorageInterfaces
+;
 
 type
  Tm3CustomStream = {abstract} class(Tm3BaseStream)
- private
- // private fields
-   f_InnerStream : IStream;
-    {* Поле для свойства InnerStream}
- protected
- // overridden protected methods
+  private
+   f_InnerStream: IStream;
+    {* Поле для свойства InnerStream }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   procedure Commit(aFlags: Integer;
-     var theReturn: hResult); override;
- public
- // public methods
+  public
    constructor Create(const aStream: IStream;
-     anAccess: Tm3StoreAccess); reintroduce;
- protected
- // protected properties
+    anAccess: Tm3StoreAccess); reintroduce;
+   procedure Commit(aFlags: Integer;
+    var theReturn: hResult); override;
+  protected
    property InnerStream: IStream
-     read f_InnerStream;
+    read f_InnerStream;
  end;//Tm3CustomStream
 
 implementation
 
 uses
-  m3Exceptions
-  ;
-
-// start class Tm3CustomStream
+ l3ImplUses
+ , m3Exceptions
+;
 
 constructor Tm3CustomStream.Create(const aStream: IStream;
-  anAccess: Tm3StoreAccess);
+ anAccess: Tm3StoreAccess);
 //#UC START# *5480895501A0_53FDCE880154_var*
 //#UC END# *5480895501A0_53FDCE880154_var*
 begin
@@ -72,6 +55,7 @@ begin
 end;//Tm3CustomStream.Create
 
 procedure Tm3CustomStream.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53FDCE880154_var*
 //#UC END# *479731C50290_53FDCE880154_var*
 begin
@@ -82,7 +66,7 @@ begin
 end;//Tm3CustomStream.Cleanup
 
 procedure Tm3CustomStream.Commit(aFlags: Integer;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA280DB0288_53FDCE880154_var*
 //#UC END# *4FA280DB0288_53FDCE880154_var*
 begin
@@ -95,7 +79,6 @@ begin
 end;//Tm3CustomStream.Commit
 
 procedure Tm3CustomStream.ClearFields;
- {-}
 begin
  f_InnerStream := nil;
  inherited;

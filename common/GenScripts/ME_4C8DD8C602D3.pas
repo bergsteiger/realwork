@@ -21,7 +21,7 @@ uses
 ;
 
 type
- TPrimTasksPanelMenuModule = {abstract} class
+ TPrimTasksPanelMenuModule = {abstract} class(TvcmModule)
   private
    f_PopupMenu: TvcmPopupMenuPrim;
     {* Поле для свойства PopupMenu }

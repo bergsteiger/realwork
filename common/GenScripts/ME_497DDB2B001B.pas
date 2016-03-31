@@ -31,6 +31,7 @@ uses
  , WorkWithListInterfaces
  , SimpleListInterfaces
  , L10nInterfaces
+ , l3Interfaces
  , vtPanel
  , nscDocumentListTreeView
  {$If Defined(Nemesis)}
@@ -52,7 +53,6 @@ uses
  , DynamicTreeUnit
  , PreviewInterfaces
  , afwInterfaces
- , l3Interfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
@@ -234,6 +234,7 @@ type
   {* Список документов }
   private
    f_AllowCallCurrentChangedOnTest: Boolean;
+   f_SearchContext: Il3CString;
    f_ListPanel: TvtPanel;
     {* Поле для свойства ListPanel }
    f_tvList: TnscDocumentListTreeView;
@@ -768,6 +769,7 @@ uses
  , nscDocumentHistory
  , vtLister
  , Graphics
+ , IOUnit
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

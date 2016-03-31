@@ -20,7 +20,7 @@ type
   , wkLogout
  );//TShutdownWarningKind
 
- TPrimCommonModule = {abstract} class
+ TPrimCommonModule = {abstract} class(TvcmModule)
   public
    procedure MakeUpdateMessage;
     {* Создаёт окно с сообщением об обновлении базы }
@@ -44,6 +44,7 @@ uses
  , F1_Application_Template_InternalOperations_Controls
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonModule.MakeUpdateMessage;
  {* Создаёт окно с сообщением об обновлении базы }
 //#UC START# *4A93DE1B0371_4A8EC78503BB_var*
@@ -66,5 +67,6 @@ begin
  Op_System_InitShutdown.Call(Result.Entity, aKind = wkShutDown, aCloseInterval);
 //#UC END# *4A93A8AB0239_4A8EC78503BB_impl*
 end;//TPrimCommonModule.MakeShutdownWindow
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

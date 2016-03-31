@@ -1,122 +1,94 @@
 unit bsDocumentContextSearcher;
+ {* Объект предназначенный для контекстного поиска в документе }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: М. Морозов.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/bsDocumentContextSearcher.pas"
-// Начат: 01.06.2006
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::ContextSearchInEVDDocument::TbsDocumentContextSearcher
-//
-// Объект предназначенный для контекстного поиска в документе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsDocumentContextSearcher.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsDocumentContextSearcher" MUID: (495137C70135)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3Interfaces,
-  nevTools,
-  eeEditor,
-  l3ProtoObject,
-  BaseSearchInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , BaseSearchInterfaces
+ , eeEditor
+ , DynamicTreeUnit
+ , l3Interfaces
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsDocumentContextSearcher = class(Tl3ProtoObject, IbsBaseDocumentContextSearcher)
   {* Объект предназначенный для контекстного поиска в документе }
- private
- // private fields
-   f_Editor : TeeCustomEditor;
-   f_Found : IFindIterator;
-   f_Context : Il3CString;
-   f_WasFound : Boolean;
-   f_CaretPoint : InevBasePoint;
- private
- // private methods
+  private
+   f_Editor: TeeCustomEditor;
+   f_Found: IFindIterator;
+   f_Context: Il3CString;
+   f_WasFound: Boolean;
+   f_CaretPoint: InevBasePoint;
+  private
    procedure DoContextFound(const aFoundBlock: InevRange;
-     var aResult: TbsBaseSearchResult);
+    var aResult: TbsBaseSearchResult);
    procedure DoSearchFinished(const aPrevFoundBlock: InevRange;
-     SearchDown: Boolean;
-     var aResult: TbsBaseSearchResult);
- protected
- // realized methods
+    SearchDown: Boolean;
+    var aResult: TbsBaseSearchResult);
+  protected
    function Find(const aContext: Il3CString): TbsBaseSearchResult;
-     {* поиск }
+    {* поиск }
    procedure ContextChanged(const aNewContext: Il3CString);
    function pm_GetCanContinue: Boolean;
    function pm_GetContext: Il3CString;
    function FindBack: TbsBaseSearchResult;
-     {* Вернутся к предыдущему вхождению }
+    {* Вернутся к предыдущему вхождению }
    function Get_CanFindBack: Boolean;
    function pm_GetFragmentsCount: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aEditor: TeeCustomEditor); reintroduce;
    class function Make(aEditor: TeeCustomEditor): IbsBaseDocumentContextSearcher; reintroduce;
-     {* Сигнатура фабрики TbsDocumentContextSearcher.Make }
  end;//TbsDocumentContextSearcher
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  nsTagNodeTools,
-  SysUtils,
-  DataAdapter,
-  nsTypes,
-  k2Tags,
-  nsContextSearchParams,
-  Document_Const,
-  Block_Const,
-  BaseTypesUnit,
-  nsFindIteratorNew,
-  nsFindIteratorNewForAutoreferat,
-  nsFindIteratorNewForDiction,
-  DocumentUnit
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evSearch,
-  nsContextListForSearchViaEverestOwnSearcher,
-  nsFoundRangeCollector,
-  evTypes,
-  l3Variant
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsDocumentContextSearcher
+ l3ImplUses
+ , l3String
+ , nsTagNodeTools
+ , SysUtils
+ , DataAdapter
+ , nsTypes
+ , k2Tags
+ , nsContextSearchParams
+ , Document_Const
+ , Block_Const
+ , BaseTypesUnit
+ , nsFindIteratorNew
+ , nsFindIteratorNewForAutoreferat
+ , nsFindIteratorNewForDiction
+ , DocumentUnit
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evSearch
+ , nsContextListForSearchViaEverestOwnSearcher
+ , nsFoundRangeCollector
+ , evTypes
+ , l3Variant
+;
 
 procedure TbsDocumentContextSearcher.DoContextFound(const aFoundBlock: InevRange;
-  var aResult: TbsBaseSearchResult);
+ var aResult: TbsBaseSearchResult);
+var l_Start: InevBasePoint;
+var l_Finish: InevBasePoint;
+var l_Lock: Il3Lock;
 //#UC START# *4A1FEB0D01AF_495137C70135_var*
 //#UC END# *4A1FEB0D01AF_495137C70135_var*
-var
- l_Start : InevBasePoint;
- l_Finish : InevBasePoint;
- l_Lock : Il3Lock;
 begin
 //#UC START# *4A1FEB0D01AF_495137C70135_impl*
  aResult := bsrContinueSearch;
@@ -141,12 +113,11 @@ begin
 end;//TbsDocumentContextSearcher.DoContextFound
 
 procedure TbsDocumentContextSearcher.DoSearchFinished(const aPrevFoundBlock: InevRange;
-  SearchDown: Boolean;
-  var aResult: TbsBaseSearchResult);
+ SearchDown: Boolean;
+ var aResult: TbsBaseSearchResult);
+var l_HasEntries: Boolean;
 //#UC START# *4A1FEB3F01DB_495137C70135_var*
 //#UC END# *4A1FEB3F01DB_495137C70135_var*
-var
- l_HasEntries : Boolean;
 begin
 //#UC START# *4A1FEB3F01DB_495137C70135_impl*
  l_HasEntries := Assigned(f_Found) and (f_Found.GetCount > 0);
@@ -192,9 +163,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsDocumentContextSearcher.Make
 
 function TbsDocumentContextSearcher.Find(const aContext: Il3CString): TbsBaseSearchResult;
+ {* поиск }
 //#UC START# *4952664C03BC_495137C70135_var*
 
  function lp_MakeFound(const aDoc   : InevObject;
@@ -462,6 +434,7 @@ begin
 end;//TbsDocumentContextSearcher.pm_GetContext
 
 function TbsDocumentContextSearcher.FindBack: TbsBaseSearchResult;
+ {* Вернутся к предыдущему вхождению }
 //#UC START# *49FEAD670382_495137C70135_var*
 var
  l_Doc   : InevObject;
@@ -521,6 +494,7 @@ begin
 end;//TbsDocumentContextSearcher.pm_GetFragmentsCount
 
 procedure TbsDocumentContextSearcher.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_495137C70135_var*
 //#UC END# *479731C50290_495137C70135_var*
 begin
@@ -532,7 +506,6 @@ begin
  inherited;
 //#UC END# *479731C50290_495137C70135_impl*
 end;//TbsDocumentContextSearcher.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,48 +1,34 @@
 unit atOperationParameter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atOperationParameter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatOperationParameter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationParameter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOperationParameter" MUID: (48089A46022D)
 
 interface
 
 uses
-  atNamedParameter
-  ;
+ l3IntfUses
+ , atNamedParameter
+;
 
 type
  TatOperationParameter = class(TatNamedParameter)
- protected
- // property methods
+  protected
    function pm_GetIsRequired: Boolean;
- protected
- // overridden property methods
    function pm_GetValue: Variant; override;
    procedure pm_SetValue(const aValue: Variant); override;
- public
- // public properties
+  public
    property IsRequired: Boolean
-     read pm_GetIsRequired;
+    read pm_GetIsRequired;
  end;//TatOperationParameter
 
 implementation
 
 uses
-  atOperationEnv,
-  Variants
-  ;
-
-// start class TatOperationParameter
+ l3ImplUses
+ , atOperationEnv
+ , Variants
+;
 
 function TatOperationParameter.pm_GetIsRequired: Boolean;
 //#UC START# *48089A77026D_48089A46022Dget_var*

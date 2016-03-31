@@ -14,6 +14,8 @@ uses
  , nscCustomTreeComboWithHistory
  , nscConst
  , Graphics
+ //#UC START# *4B97EE390310intf_uses*
+ //#UC END# *4B97EE390310intf_uses*
 ;
 
 const
@@ -66,6 +68,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B97EE390310impl_uses*
+ //#UC END# *4B97EE390310impl_uses*
 ;
 
 //#UC START# *4B97EE390310impl*

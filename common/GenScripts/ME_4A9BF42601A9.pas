@@ -23,7 +23,7 @@ uses
 ;
 
 type
- TListModule = class
+ TListModule = class(TvcmModule)
   {* Работа со списком документов }
   protected
    function TryOpenDocument(const aList: IdeList;
@@ -67,6 +67,7 @@ uses
  , PrimListInterfaces
 ;
 
+{$If NOT Defined(NoVCM)}
 function TListModule.TryOpenDocument(const aList: IdeList;
  const aContainer: IvcmContainer): Boolean;
 var l_Info: TbsOpenListInfo;
@@ -163,6 +164,7 @@ begin
                 false);
 //#UC END# *4AA4EF7803A4_4A9BF42601A9_impl*
 end;//TListModule.OpenListWithReplace
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

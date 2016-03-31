@@ -49,6 +49,8 @@ uses
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
  , vtLister
+ //#UC START# *4D3424C203C2intf_uses*
+ //#UC END# *4D3424C203C2intf_uses*
 ;
 
 const
@@ -389,6 +391,8 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , vtOutliner
+ //#UC START# *4D3424C203C2impl_uses*
+ //#UC END# *4D3424C203C2impl_uses*
 ;
 
 const

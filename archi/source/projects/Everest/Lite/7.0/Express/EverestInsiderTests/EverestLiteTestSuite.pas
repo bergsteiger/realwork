@@ -1,63 +1,41 @@
 unit EverestLiteTestSuite;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestInsiderTests"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestInsiderTests/EverestLiteTestSuite.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$EverestLite$TestSupport::EverestInsiderTests::EverestLiteInsiderTest::TEverestLiteTestSuite
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests\EverestLiteTestSuite.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TEverestLiteTestSuite" MUID: (512DB031030F)
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  ArchiAutoTestSuite
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ {$If NOT Defined(NoScripts)}
+ , ArchiAutoTestSuite
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
  TEverestLiteTestSuite = class(TArchiAutoTestSuite)
  end;//TEverestLiteTestSuite
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  SysUtils
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  EverestLiteKeyWords
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  kwEditorKeyWordsPack
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  kwArchiEverestWordsPack
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , EverestLiteKeyWords
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwEditorKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwArchiEverestWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-
-{$IfEnd} //InsiderTest AND nsTest
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 end.

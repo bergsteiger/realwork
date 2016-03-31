@@ -1,79 +1,54 @@
 unit m3StorageHolderList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StorageHolderList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::StorageHolder::Tm3StorageHolderList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StorageHolderList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageHolderList" MUID: (542E7AD00050)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3StorageHolderListPrim1,
-  SyncObjs
-  ;
+ l3IntfUses
+ , m3StorageHolderListPrim1
+ , SyncObjs
+;
 
 type
  _l3CriticalSectionHolder_Parent_ = Tm3StorageHolderListPrim1;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tm3StorageHolderList = class(_l3CriticalSectionHolder_)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
    class procedure Drop(const aFileName: WideString);
    class procedure DropAll;
-     {* Сигнатура метода DropAll }
- public
- // singleton factory method
    class function Instance: Tm3StorageHolderList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tm3StorageHolderList }
  end;//Tm3StorageHolderList
 
 implementation
 
 uses
-  l3Base {a},
-  l3Types,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Types
+ , SysUtils
+ , m3StorageHolder
+ , l3Memory
+ , l3Base
+;
 
-
-// start class Tm3StorageHolderList
-
-var g_Tm3StorageHolderList : Tm3StorageHolderList = nil;
+var g_Tm3StorageHolderList: Tm3StorageHolderList = nil;
+ {* Экземпляр синглетона Tm3StorageHolderList }
 
 procedure Tm3StorageHolderListFree;
+ {* Метод освобождения экземпляра синглетона Tm3StorageHolderList }
 begin
  l3Free(g_Tm3StorageHolderList);
-end;
-
-class function Tm3StorageHolderList.Instance: Tm3StorageHolderList;
-begin
- if (g_Tm3StorageHolderList = nil) then
- begin
-  l3System.AddExitProc(Tm3StorageHolderListFree);
-  g_Tm3StorageHolderList := Create;
- end;
- Result := g_Tm3StorageHolderList;
-end;
-
+end;//Tm3StorageHolderListFree
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
-
-// start class Tm3StorageHolderList
 
 class function Tm3StorageHolderList.Exists: Boolean;
 //#UC START# *542E9D1B0264_542E7AD00050_var*
@@ -109,6 +84,17 @@ begin
   Instance.Clear;
 //#UC END# *555481D1035F_542E7AD00050_impl*
 end;//Tm3StorageHolderList.DropAll
+
+class function Tm3StorageHolderList.Instance: Tm3StorageHolderList;
+ {* Метод получения экземпляра синглетона Tm3StorageHolderList }
+begin
+ if (g_Tm3StorageHolderList = nil) then
+ begin
+  l3System.AddExitProc(Tm3StorageHolderListFree);
+  g_Tm3StorageHolderList := Create;
+ end;
+ Result := g_Tm3StorageHolderList;
+end;//Tm3StorageHolderList.Instance
 
 procedure Tm3StorageHolderList.InitFields;
 //#UC START# *47A042E100E2_542E7AD00050_var*

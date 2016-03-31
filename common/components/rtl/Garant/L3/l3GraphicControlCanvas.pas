@@ -1,48 +1,37 @@
 unit l3GraphicControlCanvas;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3GraphicControlCanvas.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3GraphicControlCanvas
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3GraphicControlCanvas" MUID: (4F29376B00C7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ControlCanvas
-  ;
+ l3IntfUses
+ , l3ControlCanvas
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  Tl3GraphicControlCanvas = class(Tl3ControlCanvas)
- public
- // public methods
+  public
    constructor Create(aControl: TGraphicControl); reintroduce;
  end;//Tl3GraphicControlCanvas
 
 implementation
 
-type
-  TGraphicControlFriend = {abstract} class(TGraphicControl)
-   {* Друг для TGraphicControl }
-  end;//TGraphicControlFriend
+uses
+ l3ImplUses
+;
 
-// start class Tl3GraphicControlCanvas
+type
+ TGraphicControlFriend = {abstract} class(TGraphicControl)
+  {* Друг для TGraphicControl }
+ end;//TGraphicControlFriend
 
 constructor Tl3GraphicControlCanvas.Create(aControl: TGraphicControl);
 //#UC START# *56B9CBE7022E_4F29376B00C7_var*

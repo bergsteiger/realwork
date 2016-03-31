@@ -1,64 +1,48 @@
 unit m3NewStoragePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3NewStoragePrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3NewStoragePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3NewStoragePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NewStoragePrim" MUID: (54491A3702F4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3StorageInterfaces,
-  m3StoreHeader,
-  m3CommonStorage,
-  m3RootStreamManagerPrim
-  ;
+ l3IntfUses
+ , m3CommonStorage
+ , m3StoreHeader
+ , m3StorageInterfaces
+ , m3RootStreamManagerPrim
+;
 
 type
  Tm3NewStoragePrim = {abstract} class(Tm3CommonStorage)
- private
- // private fields
-   f_Header : Tm3StoreHeader;
-    {* Поле для свойства Header}
- protected
- // realized methods
+  private
+   f_Header: Tm3StoreHeader;
+    {* Поле для свойства Header }
+  protected
    function Manager: Tm3RootStreamManagerPrim; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetName: WideString; override;
- public
- // public methods
+  public
    constructor Create(anAccess: Tm3StoreAccess;
-     aHeader: Tm3StoreHeader); reintroduce;
- public
- // public properties
+    aHeader: Tm3StoreHeader); reintroduce;
+  public
    property Header: Tm3StoreHeader
-     read f_Header;
+    read f_Header;
  end;//Tm3NewStoragePrim
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class Tm3NewStoragePrim
+ l3ImplUses
+ , SysUtils
+;
 
 constructor Tm3NewStoragePrim.Create(anAccess: Tm3StoreAccess;
-  aHeader: Tm3StoreHeader);
+ aHeader: Tm3StoreHeader);
 //#UC START# *54491AFD02C4_54491A3702F4_var*
 //#UC END# *54491AFD02C4_54491A3702F4_var*
 begin
@@ -79,6 +63,7 @@ begin
 end;//Tm3NewStoragePrim.Manager
 
 procedure Tm3NewStoragePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54491A3702F4_var*
 //#UC END# *479731C50290_54491A3702F4_var*
 begin

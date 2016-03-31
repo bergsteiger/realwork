@@ -36,17 +36,17 @@ type
  TIterateableService = {final} class(Tl3ProtoObject)
   private
    f_Alien: IIterateableService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса IIterateableService }
   protected
    procedure pm_SetAlien(const aValue: IIterateableService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure IterateF(anAction: MIterateableService_IterateF_Action;
     anOwner: TComponent);
    class function Instance: TIterateableService;
     {* Метод получения экземпляра синглетона TIterateableService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: IIterateableService
     write pm_SetAlien;
@@ -85,12 +85,6 @@ begin
  f_Alien := aValue;
 end;//TIterateableService.pm_SetAlien
 
-class function TIterateableService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TIterateableService <> nil;
-end;//TIterateableService.Exists
-
 procedure TIterateableService.IterateF(anAction: MIterateableService_IterateF_Action;
  anOwner: TComponent);
 //#UC START# *A44911B9A95D_5519611903CF_var*
@@ -122,6 +116,12 @@ begin
  end;
  Result := g_TIterateableService;
 end;//TIterateableService.Instance
+
+class function TIterateableService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TIterateableService <> nil;
+end;//TIterateableService.Exists
 
 procedure TIterateableService.ClearFields;
 begin

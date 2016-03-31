@@ -1,57 +1,42 @@
 unit dtCustomDictItem;
+ {* Базовый элемент словаря. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/dtCustomDictItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DT::Dictionary::TdtCustomDictItem
-//
-// Базовый элемент словаря.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\dtCustomDictItem.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdtCustomDictItem" MUID: (47BC507501AB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3NCString,
-  dt_Types
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3NCString
+ , dt_Types
+;
 
-{$If not defined(Nemesis)}
 type
  TdtCustomDictItem = class(Tl3NCString)
   {* Базовый элемент словаря. }
- protected
- // property methods
+  protected
    function Get_Handle: TDictID; virtual;
    procedure Set_Handle(aValue: TDictID); virtual;
- protected
- // overridden property methods
    function pm_GetStringID: Integer; override;
    procedure pm_SetStringID(aValue: Integer); override;
- public
- // public properties
+  public
    property Handle: TDictID
-     read Get_Handle
-     write Set_Handle;
+    read Get_Handle
+    write Set_Handle;
  end;//TdtCustomDictItem
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-
-// start class TdtCustomDictItem
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 function TdtCustomDictItem.Get_Handle: TDictID;
 //#UC START# *47BC528601A2_47BC507501ABget_var*
@@ -87,7 +72,6 @@ begin
  Set_Handle(aValue);
 //#UC END# *47BC3BFD017F_47BC507501ABset_impl*
 end;//TdtCustomDictItem.pm_SetStringID
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

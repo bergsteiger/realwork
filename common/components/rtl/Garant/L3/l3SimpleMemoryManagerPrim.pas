@@ -1,49 +1,37 @@
 unit l3SimpleMemoryManagerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3SimpleMemoryManagerPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MemoryManagers::Tl3SimpleMemoryManagerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleMemoryManagerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SimpleMemoryManagerPrim" MUID: (54B67EB9023D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Refcounted,
-  SyncObjs
-  ;
+ l3IntfUses
+ , Refcounted
+ , SyncObjs
+;
 
 type
  _l3CriticalSectionHolderPrim_Parent_ = TRefcounted;
- {$Include ..\L3\l3CriticalSectionHolderPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}
  Tl3SimpleMemoryManagerPrim = {abstract} class(_l3CriticalSectionHolderPrim_)
- protected
- // overridden protected methods
+  protected
    procedure Release; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
  end;//Tl3SimpleMemoryManagerPrim
 
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+;
 
-{$Include ..\L3\l3CriticalSectionHolderPrim.imp.pas}
-
-// start class Tl3SimpleMemoryManagerPrim
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}
 
 constructor Tl3SimpleMemoryManagerPrim.Create;
 //#UC START# *54B68024012F_54B67EB9023D_var*

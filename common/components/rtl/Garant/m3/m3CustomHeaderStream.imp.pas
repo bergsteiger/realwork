@@ -1,58 +1,46 @@
 {$IfNDef m3CustomHeaderStream_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3CustomHeaderStream.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::HeaderStream::m3CustomHeaderStream
-//
-// Поток с заголовком-идентификатором
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "m3CustomHeaderStream" MUID: (53FDCEC40006)
+// Имя типа: "_m3CustomHeaderStream_"
 
 {$Define m3CustomHeaderStream_imp}
+
+ // _HeaderType_
+
  _m3HeaderIDSupplier_Parent_ = Tm3BaseHeaderStream;
- {$Include ..\m3\m3HeaderIDSupplier.imp.pas}
- _m3CustomHeaderStream_ = {mixin} class(_m3HeaderIDSupplier_)
+ {$Include w:\common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas}
+ _m3CustomHeaderStream_ = class(_m3HeaderIDSupplier_)
   {* Поток с заголовком-идентификатором }
- private
- // private fields
-   HeaderDataCompare : _HeaderType_;
- protected
- // realized methods
-   procedure DoLoadHeader; override;
-     {* загружает заголовок в память }
-   procedure DoSaveHeader(aForceSave: Boolean); override;
-     {* сохраняет заголовок }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public fields
-   HeaderData : _HeaderType_;
- protected
- // protected methods
+  private
+   HeaderDataCompare: _HeaderType_;
+  public
+   HeaderData: _HeaderType_;
+  protected
    class function NeedHeaderAlignment: Boolean; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aStream: IStream;
-     aAccess: Integer); reintroduce;
+    aAccess: Integer); reintroduce;
    class function DefaultHeaderValue: _HeaderType_; virtual; abstract;
+   procedure DoLoadHeader; override;
+    {* загружает заголовок в память }
+   procedure DoSaveHeader(aForceSave: Boolean); override;
+    {* сохраняет заголовок }
  end;//_m3CustomHeaderStream_
 
 {$Else m3CustomHeaderStream_imp}
 
-{$Include ..\m3\m3HeaderIDSupplier.imp.pas}
+{$IfNDef m3CustomHeaderStream_imp_impl}
 
-// start class _m3CustomHeaderStream_
+{$Define m3CustomHeaderStream_imp_impl}
+
+{$Include w:\common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas}
 
 constructor _m3CustomHeaderStream_.Create(const aStream: IStream;
-  aAccess: Integer);
+ aAccess: Integer);
 //#UC START# *53FF2351033E_53FDCEC40006_var*
 
  procedure AutoCreateHeader;
@@ -104,6 +92,7 @@ begin
 end;//_m3CustomHeaderStream_.NeedHeaderAlignment
 
 procedure _m3CustomHeaderStream_.DoLoadHeader;
+ {* загружает заголовок в память }
 //#UC START# *53FDFDD90071_53FDCEC40006_var*
 var
  LBodyCRC        : LongInt;
@@ -142,6 +131,7 @@ begin
 end;//_m3CustomHeaderStream_.DoLoadHeader
 
 procedure _m3CustomHeaderStream_.DoSaveHeader(aForceSave: Boolean);
+ {* сохраняет заголовок }
 //#UC START# *53FDFDF503CE_53FDCEC40006_var*
 var
  LBodyCRC  : LongInt;
@@ -188,6 +178,7 @@ begin
 end;//_m3CustomHeaderStream_.DoSaveHeader
 
 procedure _m3CustomHeaderStream_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53FDCEC40006_var*
 //#UC END# *479731C50290_53FDCEC40006_var*
 begin
@@ -200,4 +191,7 @@ begin
 //#UC END# *479731C50290_53FDCEC40006_impl*
 end;//_m3CustomHeaderStream_.Cleanup
 
+{$EndIf m3CustomHeaderStream_imp_impl}
+
 {$EndIf m3CustomHeaderStream_imp}
+

@@ -1,69 +1,51 @@
 unit l3ProxyStream;
+ {* Поток служащий обёрткой над другим потоком }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ProxyStream.pas"
-// Начат: 16.03.2009 17:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Streams::Tl3ProxyStream
-//
-// Поток служащий обёрткой над другим потоком
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProxyStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProxyStream" MUID: (49BE68B201D1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3BaseStream,
-  Classes
-  ;
+ l3IntfUses
+ , l3BaseStream
+ , l3Interfaces
+ , Classes
+;
 
 type
  Tl3ProxyStream = class(Tl3Stream)
   {* Поток служащий обёрткой над другим потоком }
- private
- // private fields
-   f_Inner : IStream;
-    {* Поток, над которым мы оборачиваемся}
- protected
- // overridden protected methods
+  private
+   f_Inner: IStream;
+    {* Поток, над которым мы оборачиваемся }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aStream: IStream); reintroduce;
+   class function Make(const aStream: IStream): IStream; reintroduce;
+    {* Создаёт обёртку над потоком }
+   procedure CloseInner;
+    {* Освобождает внутренний поток }
    function Read(var Buffer;
     Count: Integer): Integer; override;
    function Write(const Buffer;
     Count: Integer): Integer; override;
    function Seek(const Offset: Int64;
     Origin: TSeekOrigin): Int64; override;
- public
- // public methods
-   constructor Create(const aStream: IStream); reintroduce;
-   class function Make(const aStream: IStream): IStream; reintroduce;
-     {* Создаёт обёртку над потоком }
-   procedure CloseInner;
-     {* Освобождает внутренний поток }
  end;//Tl3ProxyStream
 
 implementation
 
 uses
-  ComObj,
-  l3Types
-  ;
-
-// start class Tl3ProxyStream
+ l3ImplUses
+ , ComObj
+ , l3Types
+;
 
 constructor Tl3ProxyStream.Create(const aStream: IStream);
 //#UC START# *49BE699000B0_49BE68B201D1_var*
@@ -77,6 +59,7 @@ begin
 end;//Tl3ProxyStream.Create
 
 class function Tl3ProxyStream.Make(const aStream: IStream): IStream;
+ {* Создаёт обёртку над потоком }
 var
  l_Inst : Tl3ProxyStream;
 begin
@@ -86,9 +69,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3ProxyStream.Make
 
 procedure Tl3ProxyStream.CloseInner;
+ {* Освобождает внутренний поток }
 //#UC START# *49C0DA3F015D_49BE68B201D1_var*
 //#UC END# *49C0DA3F015D_49BE68B201D1_var*
 begin
@@ -98,6 +82,7 @@ begin
 end;//Tl3ProxyStream.CloseInner
 
 procedure Tl3ProxyStream.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49BE68B201D1_var*
 //#UC END# *479731C50290_49BE68B201D1_var*
 begin
@@ -108,7 +93,7 @@ begin
 end;//Tl3ProxyStream.Cleanup
 
 function Tl3ProxyStream.Read(var Buffer;
-  Count: Integer): Integer;
+ Count: Integer): Integer;
 //#UC START# *49BE656C006E_49BE68B201D1_var*
 //#UC END# *49BE656C006E_49BE68B201D1_var*
 begin
@@ -118,7 +103,7 @@ begin
 end;//Tl3ProxyStream.Read
 
 function Tl3ProxyStream.Write(const Buffer;
-  Count: Integer): Integer;
+ Count: Integer): Integer;
 //#UC START# *49BE658C0261_49BE68B201D1_var*
 //#UC END# *49BE658C0261_49BE68B201D1_var*
 begin
@@ -128,7 +113,7 @@ begin
 end;//Tl3ProxyStream.Write
 
 function Tl3ProxyStream.Seek(const Offset: Int64;
-  Origin: TSeekOrigin): Int64;
+ Origin: TSeekOrigin): Int64;
 //#UC START# *49BE65E80020_49BE68B201D1_var*
 
  function ConvertOrigin: Integer;

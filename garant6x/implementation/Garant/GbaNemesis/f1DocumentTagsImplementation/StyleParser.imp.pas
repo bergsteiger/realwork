@@ -1,27 +1,22 @@
 {$IfNDef StyleParser_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/StyleParser.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::StyleParser
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "StyleParser" MUID: (4CEFBA3C0323)
+// Имя типа: "_StyleParser_"
 
 {$Define StyleParser_imp}
- _StyleParser_ = {mixin} class(_StyleParser_Parent_)
- protected
- // protected methods
+
+ _StyleParser_ = class(_StyleParser_Parent_)
+  protected
    procedure DoDoParseStyle(const aStyle: IStream);
  end;//_StyleParser_
 
 {$Else StyleParser_imp}
 
-// start class _StyleParser_
+{$IfNDef StyleParser_imp_impl}
+
+{$Define StyleParser_imp_impl}
 
 procedure _StyleParser_.DoDoParseStyle(const aStyle: IStream);
 //#UC START# *4CEFBA5302E6_4CEFBA3C0323_var*
@@ -40,4 +35,7 @@ begin
 //#UC END# *4CEFBA5302E6_4CEFBA3C0323_impl*
 end;//_StyleParser_.DoDoParseStyle
 
+{$EndIf StyleParser_imp_impl}
+
 {$EndIf StyleParser_imp}
+

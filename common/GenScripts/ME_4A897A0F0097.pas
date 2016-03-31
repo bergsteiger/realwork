@@ -12,8 +12,8 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , Base_Operations_Editions_Controls
  , DocumentUnit
+ , Base_Operations_Editions_Controls
  , NavigationInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces

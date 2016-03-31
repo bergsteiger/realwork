@@ -329,24 +329,6 @@ begin
 //#UC END# *562DB68E022A_5628BBF40355get_impl*
 end;//TnsBaseSearcherWindowData.pm_GetPromptTree
 
-procedure TnsBaseSearcherWindowData.;
-//#UC START# *_5628BBF40355_var*
-//#UC END# *_5628BBF40355_var*
-begin
-//#UC START# *_5628BBF40355_impl*
- !!! Needs to be implemented !!!
-//#UC END# *_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.
-
-procedure TnsBaseSearcherWindowData.;
-//#UC START# *_5628BBF40355_var*
-//#UC END# *_5628BBF40355_var*
-begin
-//#UC START# *_5628BBF40355_impl*
- !!! Needs to be implemented !!!
-//#UC END# *_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.
-
 function TnsBaseSearcherWindowData.pm_GetErrorWords: IvcmStrings;
 //#UC START# *562F3AFA00EF_5628BBF40355get_var*
 //#UC END# *562F3AFA00EF_5628BBF40355get_var*
@@ -364,24 +346,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *562F3AFA00EF_5628BBF40355set_impl*
 end;//TnsBaseSearcherWindowData.pm_SetErrorWords
-
-procedure TnsBaseSearcherWindowData.;
-//#UC START# *_5628BBF40355_var*
-//#UC END# *_5628BBF40355_var*
-begin
-//#UC START# *_5628BBF40355_impl*
- !!! Needs to be implemented !!!
-//#UC END# *_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.
-
-procedure TnsBaseSearcherWindowData.;
-//#UC START# *_5628BBF40355_var*
-//#UC END# *_5628BBF40355_var*
-begin
-//#UC START# *_5628BBF40355_impl*
- !!! Needs to be implemented !!!
-//#UC END# *_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

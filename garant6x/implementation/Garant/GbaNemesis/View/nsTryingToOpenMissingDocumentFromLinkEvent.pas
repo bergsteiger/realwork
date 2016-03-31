@@ -1,53 +1,37 @@
 unit nsTryingToOpenMissingDocumentFromLinkEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsTryingToOpenMissingDocumentFromLinkEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::Navigation::TnsTryingToOpenMissingDocumentFromLinkEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTryingToOpenMissingDocumentFromLinkEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsTryingToOpenMissingDocumentFromLinkEvent" MUID: (527CD1B702B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsTryingToOpenMissingDocumentFromLinkEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aTopic: TTopic);
  end;//TnsTryingToOpenMissingDocumentFromLinkEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsLogEventData,
-  nsLogManager,
-  LoggingUnit,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsTryingToOpenMissingDocumentFromLinkEvent
+ l3ImplUses
+ , nsLogEventData
+ , nsLogManager
+ , LoggingUnit
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsTryingToOpenMissingDocumentFromLinkEvent.Log(const aTopic: TTopic);
 //#UC START# *527CD1EB017C_527CD1B702B4_var*
@@ -67,7 +51,6 @@ begin
  GetLogger.AddEvent(LE_DOCUMENT_NOT_EXIST, l_Data);
 //#UC END# *527CD1EB017C_527CD1B702B4_impl*
 end;//TnsTryingToOpenMissingDocumentFromLinkEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

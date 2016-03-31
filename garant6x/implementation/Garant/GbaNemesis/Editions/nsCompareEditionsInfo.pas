@@ -1,81 +1,64 @@
 unit nsCompareEditionsInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/nsCompareEditionsInfo.pas"
-// Начат: 04.08.2009 19:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::CommonObjects::TnsCompareEditionsInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsCompareEditionsInfo" MUID: (4A78506900E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  eeInterfaces,
-  EditionsInterfaces,
-  nsCompareEditionsInfoPrim,
-  bsTypesNew
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsCompareEditionsInfoPrim
+ , EditionsInterfaces
+ , bsTypesNew
+ , DocumentUnit
+ , eeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsCompareEditionsInfo = class(TnsCompareEditionsInfoPrim, InsCompareEditionsInfo)
- private
- // private fields
-   f_EditionForCompare : Integer;
-   f_Position : TbsDocPos;
- protected
- // realized methods
+  private
+   f_EditionForCompare: Integer;
+   f_Position: TbsDocPos;
+  protected
    function Get_State: IDocumentState;
    function Get_EditionForCompare: TRedactionID;
    procedure Set_EditionForCompare(aValue: TRedactionID);
    function Get_Position: TbsDocPos;
- public
- // public methods
+  public
    constructor Create(const aDoc: IDocument;
-     const aPara: IeeLeafPara;
-     aEditionForCompare: Integer;
-     const aDocumentForReturn: TnsDocumentForReturnInfo); reintroduce; overload; 
+    const aPara: IeeLeafPara;
+    aEditionForCompare: Integer;
+    const aDocumentForReturn: TnsDocumentForReturnInfo); reintroduce; overload;
    class function Make(const aDoc: IDocument;
-     const aPara: IeeLeafPara;
-     aEditionForCompare: Integer;
-     const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo; reintroduce; overload; 
-     {* Сигнатура фабрики TnsCompareEditionsInfo.Make }
+    const aPara: IeeLeafPara;
+    aEditionForCompare: Integer;
+    const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo; reintroduce; overload;
    constructor Create(const aDoc: IDocument;
-     const aPosition: TbsDocPos;
-     aEditionForCompare: Integer;
-     const aDocumentForReturn: TnsDocumentForReturnInfo); overload; 
+    const aPosition: TbsDocPos;
+    aEditionForCompare: Integer;
+    const aDocumentForReturn: TnsDocumentForReturnInfo); reintroduce; overload;
    class function Make(const aDoc: IDocument;
-     const aPosition: TbsDocPos;
-     aEditionForCompare: Integer;
-     const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo; reintroduce; overload; 
-     {* Сигнатура фабрики TnsCompareEditionsInfo.Make$1 }
+    const aPosition: TbsDocPos;
+    aEditionForCompare: Integer;
+    const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo; reintroduce; overload;
  end;//TnsCompareEditionsInfo
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsCompareEditionsInfo
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TnsCompareEditionsInfo.Create(const aDoc: IDocument;
-  const aPara: IeeLeafPara;
-  aEditionForCompare: Integer;
-  const aDocumentForReturn: TnsDocumentForReturnInfo);
+ const aPara: IeeLeafPara;
+ aEditionForCompare: Integer;
+ const aDocumentForReturn: TnsDocumentForReturnInfo);
 //#UC START# *4B6BD88A03B2_4A78506900E2_var*
 var
  l_State : IDocumentState;
@@ -95,9 +78,9 @@ begin
 end;//TnsCompareEditionsInfo.Create
 
 class function TnsCompareEditionsInfo.Make(const aDoc: IDocument;
-  const aPara: IeeLeafPara;
-  aEditionForCompare: Integer;
-  const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo;
+ const aPara: IeeLeafPara;
+ aEditionForCompare: Integer;
+ const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo;
 var
  l_Inst : TnsCompareEditionsInfo;
 begin
@@ -107,12 +90,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsCompareEditionsInfo.Make
 
 constructor TnsCompareEditionsInfo.Create(const aDoc: IDocument;
-  const aPosition: TbsDocPos;
-  aEditionForCompare: Integer;
-  const aDocumentForReturn: TnsDocumentForReturnInfo);
+ const aPosition: TbsDocPos;
+ aEditionForCompare: Integer;
+ const aDocumentForReturn: TnsDocumentForReturnInfo);
 //#UC START# *5214BEB10136_4A78506900E2_var*
 var
  l_Para: IeeLeafPara;
@@ -126,9 +109,9 @@ begin
 end;//TnsCompareEditionsInfo.Create
 
 class function TnsCompareEditionsInfo.Make(const aDoc: IDocument;
-  const aPosition: TbsDocPos;
-  aEditionForCompare: Integer;
-  const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo;
+ const aPosition: TbsDocPos;
+ aEditionForCompare: Integer;
+ const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo;
 var
  l_Inst : TnsCompareEditionsInfo;
 begin
@@ -138,7 +121,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsCompareEditionsInfo.Make
 
 function TnsCompareEditionsInfo.Get_State: IDocumentState;
 //#UC START# *4A784CF30229_4A78506900E2get_var*
@@ -176,7 +159,6 @@ begin
  Result := f_Position;
 //#UC END# *5214A243027F_4A78506900E2get_impl*
 end;//TnsCompareEditionsInfo.Get_Position
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

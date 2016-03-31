@@ -1,60 +1,46 @@
 unit nsInpharmContextHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ContextHistory"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/rtl/Garant/ContextHistory/nsInpharmContextHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::ContextHistory::ContextHistory::TnsInpharmContextHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsInpharmContextHistory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsInpharmContextHistory" MUID: (4AD8469402FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nsInpharmContextHistoryPrim,
-  ContextHistoryInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , nsInpharmContextHistoryPrim
+ , ContextHistoryInterfaces
+;
 
-{$If not defined(Admin)}
 type
  TnsInpharmContextHistory = class(TnsInpharmContextHistoryPrim)
- public
- // public methods
+  public
    class function Make: InsContextSearchHistory; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsInpharmContextHistory
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin)}
-
-// start class TnsInpharmContextHistory
-
-var g_TnsInpharmContextHistory : Pointer = nil;
+var g_TnsInpharmContextHistory: Pointer = nil;
+ {* Экземпляр синглетона TnsInpharmContextHistory }
 
 procedure TnsInpharmContextHistoryFree;
+ {* Метод освобождения экземпляра синглетона TnsInpharmContextHistory }
 begin
  IUnknown(g_TnsInpharmContextHistory) := nil;
-end;
-
+end;//TnsInpharmContextHistoryFree
 
 class function TnsInpharmContextHistory.Make: InsContextSearchHistory;
 begin
@@ -64,14 +50,13 @@ begin
   InsContextSearchHistory(g_TnsInpharmContextHistory) := inherited Make;
  end;
  Result := InsContextSearchHistory(g_TnsInpharmContextHistory);
-end;
+end;//TnsInpharmContextHistory.Make
 
 class function TnsInpharmContextHistory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsInpharmContextHistory <> nil;
 end;//TnsInpharmContextHistory.Exists
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

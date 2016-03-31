@@ -1,84 +1,56 @@
 unit alcuTaskProgressExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuTaskProgressExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ResultDelivery::TalcuTaskProgressExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskProgressExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskProgressExecutor" MUID: (54748E8A0085)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskList
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  alcuExecutorWithTaskList
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExecutorWithTaskList
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(AppServerSide)}
+ , alcuTaskList
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuTaskProgressExecutor = class(TalcuExecutorWithTaskList {$If not defined(Nemesis)}, IncsExecutor{$IfEnd} //not Nemesis
+ TalcuTaskProgressExecutor = class(TalcuExecutorWithTaskList{$If NOT Defined(Nemesis)}
+ , IncsExecutor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
-   {$IfEnd} //not Nemesis
- public
- // public methods
+   {$IfEnd} // NOT Defined(Nemesis)
+  public
    class function Make(aTaskList: TalcuTaskList): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TalcuTaskProgressExecutor.Make }
  end;//TalcuTaskProgressExecutor
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskListBase
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsTaskProgress
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  Messages,
-  Windows
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuTaskProgressExecutor
+ l3ImplUses
+ {$If Defined(AppServerSide)}
+ , alcuTaskListBase
+ {$IfEnd} // Defined(AppServerSide)
+ {$If NOT Defined(Nemesis)}
+ , ncsTaskProgress
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Messages
+ , Windows
+;
 
 class function TalcuTaskProgressExecutor.Make(aTaskList: TalcuTaskList): IncsExecutor;
 var
@@ -90,9 +62,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuTaskProgressExecutor.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuTaskProgressExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_54748E8A0085_var*
 var
@@ -111,8 +83,7 @@ begin
  PostThreadMessage(MainThreadID, WM_NULL, 0, 0);
 //#UC END# *54607DDC0159_54748E8A0085_impl*
 end;//TalcuTaskProgressExecutor.Execute
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //ServerTasks
-
+{$IfEnd} // Defined(ServerTasks)
 end.

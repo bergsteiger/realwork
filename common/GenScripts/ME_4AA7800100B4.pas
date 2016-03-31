@@ -11,8 +11,8 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , l3TreeInterfaces
  , DynamicTreeUnit
+ , l3TreeInterfaces
  , MainMenuUnit
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces

@@ -29,13 +29,13 @@ type
    procedure pm_SetLinkViewKind(aSeg: Tl3Variant;
     aValue: TevLinkViewKind);
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IsAbolishedDocumentLink(aSeg: Tl3Variant;
     const aPara: InevPara): Boolean;
    function IsVisitedDocumentLink(aSeg: Tl3Variant): Boolean;
    class function Instance: TnsCustomStyleProcessor;
     {* Метод получения экземпляра синглетона TnsCustomStyleProcessor }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   protected
    property LinkViewKind[aSeg: Tl3Variant]: TevLinkViewKind
     read pm_GetLinkViewKind
@@ -183,12 +183,6 @@ begin
 //#UC END# *5542334A00E6_53AC08C900D0_impl*
 end;//TnsCustomStyleProcessor.GetLinkAddress
 
-class function TnsCustomStyleProcessor.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsCustomStyleProcessor <> nil;
-end;//TnsCustomStyleProcessor.Exists
-
 function TnsCustomStyleProcessor.IsAbolishedDocumentLink(aSeg: Tl3Variant;
  const aPara: InevPara): Boolean;
 //#UC START# *391A810FF759_53AC08C900D0_var*
@@ -240,6 +234,12 @@ begin
  end;
  Result := g_TnsCustomStyleProcessor;
 end;//TnsCustomStyleProcessor.Instance
+
+class function TnsCustomStyleProcessor.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsCustomStyleProcessor <> nil;
+end;//TnsCustomStyleProcessor.Exists
 
 initialization
  TevCustomStyleManager.Instance.Alien := TnsCustomStyleProcessor.Instance;

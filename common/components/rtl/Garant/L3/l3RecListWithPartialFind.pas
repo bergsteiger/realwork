@@ -1,55 +1,50 @@
 unit l3RecListWithPartialFind;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3RecListWithPartialFind.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3RecListWithPartialFind
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3RecListWithPartialFind.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3RecListWithPartialFind" MUID: (47BC6C30022F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3ProtoPtrRecListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , l3ProtoPtrRecListPrim
+ , l3Types
+;
 
 type
  Tl3DataAndSize = record
-   rData : Pointer;
-   rSize : Cardinal;
+  rData: Pointer;
+  rSize: Cardinal;
  end;//Tl3DataAndSize
 
  _FindDataType_ = Tl3DataAndSize;
  _l3Searcher_Parent_ = Tl3ProtoPtrRecListPrim;
- {$Include ..\L3\l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3RecListWithPartialFind = class(_l3Searcher_)
- public
- // public methods
+  public
    function FindPart(const aData;
     aDataSize: Cardinal;
     out theIndex: Integer): Boolean;
-     {* поиск по началу записи, размер сравниваемых данных в aDataSize }
+    {* поиск по началу записи, размер сравниваемых данных в aDataSize }
  end;//Tl3RecListWithPartialFind
 
 implementation
 
-// start class Tl3RecListWithPartialFind
+uses
+ l3ImplUses
+ , l3Memory
+;
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_47BC6C30022F_var*
 //#UC END# *47B9BAFD01F4_47BC6C30022F_var*
 begin
@@ -61,13 +56,12 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3RecListWithPartialFind;
 
-{$Include ..\L3\l3Searcher.imp.pas}
-
-// start class Tl3RecListWithPartialFind
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function Tl3RecListWithPartialFind.FindPart(const aData;
-  aDataSize: Cardinal;
-  out theIndex: Integer): Boolean;
+ aDataSize: Cardinal;
+ out theIndex: Integer): Boolean;
+ {* поиск по началу записи, размер сравниваемых данных в aDataSize }
 //#UC START# *47BF0AB902EB_47BC6C30022F_var*
 var
  l_DS : Tl3DataAndSize;                                       

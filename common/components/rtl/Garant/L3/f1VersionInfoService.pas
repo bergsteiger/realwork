@@ -1,89 +1,58 @@
 unit f1VersionInfoService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/f1VersionInfoService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ServiceImplementation::Class>> Shared Delphi Low Level::L3::VersionInfo::Tf1VersionInfoService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\f1VersionInfoService.pas"
+// Стереотип: "ServiceImplementation"
+// Элемент модели: "Tf1VersionInfoService" MUID: (55DDD0110086)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  l3VersionInfoService
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , l3VersionInfoService
+ //#UC START# *55DDD0110086intf_uses*
+ //#UC END# *55DDD0110086intf_uses*
+;
 
-{$If defined(Nemesis)}
 type
-//#UC START# *55DDD0110086ci*
-//#UC END# *55DDD0110086ci*
-//#UC START# *55DDD0110086cit*
-//#UC END# *55DDD0110086cit*
+ //#UC START# *55DDD0110086ci*
+ //#UC END# *55DDD0110086ci*
+ //#UC START# *55DDD0110086cit*
+ //#UC END# *55DDD0110086cit*
  Tf1VersionInfoService = {final} class(Tl3ProtoObject, Il3VersionInfoService)
- public
- // realized methods
+  public
    function VersionInfo: AnsiString;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
-//#UC START# *55DDD0110086publ*
-//#UC END# *55DDD0110086publ*
- public
- // singleton factory method
    class function Instance: Tf1VersionInfoService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tf1VersionInfoService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ //#UC START# *55DDD0110086publ*
+ //#UC END# *55DDD0110086publ*
  end;//Tf1VersionInfoService
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ //#UC START# *55DDD0110086impl_uses*
+ //#UC END# *55DDD0110086impl_uses*
+;
 
-{$If defined(Nemesis)}
-
-
-// start class Tf1VersionInfoService
-
-var g_Tf1VersionInfoService : Tf1VersionInfoService = nil;
+var g_Tf1VersionInfoService: Tf1VersionInfoService = nil;
+ {* Экземпляр синглетона Tf1VersionInfoService }
 
 procedure Tf1VersionInfoServiceFree;
+ {* Метод освобождения экземпляра синглетона Tf1VersionInfoService }
 begin
  l3Free(g_Tf1VersionInfoService);
-end;
-
-class function Tf1VersionInfoService.Instance: Tf1VersionInfoService;
-begin
- if (g_Tf1VersionInfoService = nil) then
- begin
-  l3System.AddExitProc(Tf1VersionInfoServiceFree);
-  g_Tf1VersionInfoService := Create;
- end;
- Result := g_Tf1VersionInfoService;
-end;
-
-
-class function Tf1VersionInfoService.Exists: Boolean;
- {-}
-begin
- Result := g_Tf1VersionInfoService <> nil;
-end;//Tf1VersionInfoService.Exists
+end;//Tf1VersionInfoServiceFree
 
 function Tf1VersionInfoService.VersionInfo: AnsiString;
 //#UC START# *30F5EA5AF6DF_55DDD0110086_var*
@@ -97,15 +66,29 @@ begin
 //#UC END# *30F5EA5AF6DF_55DDD0110086_impl*
 end;//Tf1VersionInfoService.VersionInfo
 
+class function Tf1VersionInfoService.Instance: Tf1VersionInfoService;
+ {* Метод получения экземпляра синглетона Tf1VersionInfoService }
+begin
+ if (g_Tf1VersionInfoService = nil) then
+ begin
+  l3System.AddExitProc(Tf1VersionInfoServiceFree);
+  g_Tf1VersionInfoService := Create;
+ end;
+ Result := g_Tf1VersionInfoService;
+end;//Tf1VersionInfoService.Instance
+
+class function Tf1VersionInfoService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tf1VersionInfoService <> nil;
+end;//Tf1VersionInfoService.Exists
+
 //#UC START# *55DDD0110086impl*
 //#UC END# *55DDD0110086impl*
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis)}
-// Регистрация Tf1VersionInfoService
  Tl3VersionInfoService.Instance.Alien := Tf1VersionInfoService.Instance;
-{$IfEnd} //Nemesis
+ {* Регистрация Tf1VersionInfoService }
+{$IfEnd} // Defined(Nemesis)
 
 end.

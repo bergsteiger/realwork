@@ -1,60 +1,41 @@
 unit nscTreeViewForNewsLine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Tree/nscTreeViewForNewsLine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Tree::TnscTreeViewForNewsLine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Tree\nscTreeViewForNewsLine.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeViewForNewsLine" MUID: (54522FE602ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nscTreeViewWithAdapterDragDrop,
-  l3TreeInterfaces,
-  vtOutliner
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , nscTreeViewWithAdapterDragDrop
+ , l3TreeInterfaces
+ , vtOutliner
+;
 
-{$If not defined(Admin)}
 type
  TnscTreeViewForNewsLine = class(TnscTreeViewWithAdapterDragDrop)
- protected
- // overridden protected methods
+  protected
    procedure SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
-      const aData: TvtOutlinerHystoryData); override;
+    const aData: TvtOutlinerHystoryData); override;
  end;//TnscTreeViewForNewsLine
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnscTreeViewForNewsLine
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TnscTreeViewForNewsLine.SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
-  const aData: TvtOutlinerHystoryData);
+ const aData: TvtOutlinerHystoryData);
 //#UC START# *51629D8E02C8_54522FE602ED_var*
 //#UC END# *51629D8E02C8_54522FE602ED_var*
 begin
@@ -66,12 +47,11 @@ begin
 //#UC END# *51629D8E02C8_54522FE602ED_impl*
 end;//TnscTreeViewForNewsLine.SetTreeStructFromHistory
 
-{$IfEnd} //not Admin
-
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация TnscTreeViewForNewsLine
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTreeViewForNewsLine);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация TnscTreeViewForNewsLine }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

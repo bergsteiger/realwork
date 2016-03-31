@@ -1,94 +1,111 @@
 unit nsStyleParser;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsStyleParser.pas"
-// Начат: 25.05.2011 21:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::TnsStyleParser
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsStyleParser.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsStyleParser" MUID: (4DDD3D520070)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  k2DocumentGenerator,
-  evdNativeReader,
-  l3CProtoObject,
-  k2InPlaceGenerator,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2InPlaceGenerator
+ , evdNativeReader
+ , l3Interfaces
+ , l3Variant
+ , l3CProtoObject
+ , nevBase
+ , k2DocumentGenerator
+;
 
 type
  TnsStyleParserContext = class(Tl3CProtoObject)
- private
- // private fields
-   f_Processor : InevProcessor;
- private
- // private methods
+  private
+   f_Processor: InevProcessor;
+  private
    function DoFinishAtom(G: Tk2DocumentGenerator;
-     var Atom: Tk2StackAtom): Boolean;
- protected
- // overridden protected methods
+    var Atom: Tk2StackAtom): Boolean;
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aProcessor: InevProcessor); reintroduce;
  end;//TnsStyleParserContext
 
  TnsStyleParser = class
- public
- // public methods
+  public
    class procedure Parse(const aStyle: IStream;
-     aTag: Tl3Tag);
+    aTag: Tl3Tag);
  end;//TnsStyleParser
+
+var g_Gen: Tk2InPlaceGenerator = nil;
+var g_Reader: TevdNativeReader = nil;
 
 implementation
 
 uses
-  SysUtils,
-  l3Base,
-  evdVer,
-  k2Base,
-  evNestedCommentsEliminator,
-  k2TagGen,
-  CommentPara_Const,
-  StyledLeafPara_Const,
-  evTextStyle_Const,
-  k2Tags
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  F1TagDataProviderInterface,
-  k2Empty_Const,
-  Block_Const,
-  Para_Const,
-  nevTools
-  ;
+ l3ImplUses
+ , Para_Const
+ , nevTools
+ , SysUtils
+ , l3Base
+ , evdVer
+ , k2Base
+ , evNestedCommentsEliminator
+ , k2TagGen
+ , CommentPara_Const
+ , StyledLeafPara_Const
+ , evTextStyle_Const
+ , k2Tags
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , F1TagDataProviderInterface
+ , k2Empty_Const
+ , Block_Const
+;
 
-var
-   g_Gen : Tk2InPlaceGenerator = nil;
-var
-   g_Reader : TevdNativeReader = nil;
+function TnsStyleParserContext.DoFinishAtom(G: Tk2DocumentGenerator;
+ var Atom: Tk2StackAtom): Boolean;
+//#UC START# *4EA97C6C021C_4EAA9EA101C9_var*
+//#UC END# *4EA97C6C021C_4EAA9EA101C9_var*
+begin
+//#UC START# *4EA97C6C021C_4EAA9EA101C9_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278135821
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278135821&focusedCommentId=296093753#comment-296093753
+ Result := true;
+ if Atom.Box.IsKindOf(k2_typPara) then
+ begin
+  if (Atom.Parent = nil) then
+  begin
+   //Atom.Box.IsKindOf(k2_typCommentPara);
+   f_Processor.NotifyCompleted(Atom.Box.Owner, Atom.Box);
+  end//Atom.Parent = nil
+  else
+   f_Processor.NotifyCompleted(Atom.Parent^.Box, Atom.Box);
+ end;//Atom.Box.IsKindOf(k2_typPara)
+//#UC END# *4EA97C6C021C_4EAA9EA101C9_impl*
+end;//TnsStyleParserContext.DoFinishAtom
 
-// start class TnsStyleParser
+constructor TnsStyleParserContext.Create(const aProcessor: InevProcessor);
+//#UC START# *4EAA9F0A03D5_4EAA9EA101C9_var*
+//#UC END# *4EAA9F0A03D5_4EAA9EA101C9_var*
+begin
+//#UC START# *4EAA9F0A03D5_4EAA9EA101C9_impl*
+ Assert(aProcessor <> nil);
+ inherited Create;
+ f_Processor := aProcessor;
+//#UC END# *4EAA9F0A03D5_4EAA9EA101C9_impl*
+end;//TnsStyleParserContext.Create
+
+procedure TnsStyleParserContext.ClearFields;
+begin
+ f_Processor := nil;
+ inherited;
+end;//TnsStyleParserContext.ClearFields
 
 class procedure TnsStyleParser.Parse(const aStyle: IStream;
-  aTag: Tl3Tag);
+ aTag: Tl3Tag);
 //#UC START# *4DDD3DBD02A1_4DDD3D520070_var*
 var
  l_Reader : TevdNativeReader;
@@ -223,47 +240,6 @@ begin
  end;//l_T <> k2_typEmpty
 //#UC END# *4DDD3DBD02A1_4DDD3D520070_impl*
 end;//TnsStyleParser.Parse
-// start class TnsStyleParserContext
-
-function TnsStyleParserContext.DoFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
-//#UC START# *4EA97C6C021C_4EAA9EA101C9_var*
-//#UC END# *4EA97C6C021C_4EAA9EA101C9_var*
-begin
-//#UC START# *4EA97C6C021C_4EAA9EA101C9_impl*
- // http://mdp.garant.ru/pages/viewpage.action?pageId=278135821
- // http://mdp.garant.ru/pages/viewpage.action?pageId=278135821&focusedCommentId=296093753#comment-296093753
- Result := true;
- if Atom.Box.IsKindOf(k2_typPara) then
- begin
-  if (Atom.Parent = nil) then
-  begin
-   //Atom.Box.IsKindOf(k2_typCommentPara);
-   f_Processor.NotifyCompleted(Atom.Box.Owner, Atom.Box);
-  end//Atom.Parent = nil
-  else
-   f_Processor.NotifyCompleted(Atom.Parent^.Box, Atom.Box);
- end;//Atom.Box.IsKindOf(k2_typPara)
-//#UC END# *4EA97C6C021C_4EAA9EA101C9_impl*
-end;//TnsStyleParserContext.DoFinishAtom
-
-constructor TnsStyleParserContext.Create(const aProcessor: InevProcessor);
-//#UC START# *4EAA9F0A03D5_4EAA9EA101C9_var*
-//#UC END# *4EAA9F0A03D5_4EAA9EA101C9_var*
-begin
-//#UC START# *4EAA9F0A03D5_4EAA9EA101C9_impl*
- Assert(aProcessor <> nil);
- inherited Create;
- f_Processor := aProcessor;
-//#UC END# *4EAA9F0A03D5_4EAA9EA101C9_impl*
-end;//TnsStyleParserContext.Create
-
-procedure TnsStyleParserContext.ClearFields;
- {-}
-begin
- f_Processor := nil;
- inherited;
-end;//TnsStyleParserContext.ClearFields
 
 initialization
 //#UC START# *4C6E5E6E025B*

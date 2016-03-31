@@ -1,26 +1,16 @@
 unit atBaseSearchHelper;
+ {* Класс, для проведения базового поиска }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/SearchHelpers/atBaseSearchHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::SearchHelpers::TatBaseSearchHelper
-//
-// Класс, для проведения базового поиска
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\SearchHelpers\atBaseSearchHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatBaseSearchHelper" MUID: (483C01430224)
 
 interface
 
 uses
-  atSearchHelper
-  ;
+ l3IntfUses
+ , atSearchHelper
+;
 
 type
  EUnknownInfoKind = class
@@ -28,70 +18,61 @@ type
 
  TatBaseSearchHelper = class(TatSearchHelper)
   {* Класс, для проведения базового поиска }
- private
- // private fields
-   f_Context : AnsiString;
-    {* Поле для свойства Context}
-   f_InfoKind : AnsiString;
-    {* Поле для свойства InfoKind}
-   f_InvalidWords : AnsiString;
-    {* Поле для свойства InvalidWords}
-   f_CorrectedContext : AnsiString;
-    {* Поле для свойства CorrectedContext}
-   f_IsShortList : Boolean;
-    {* Поле для свойства IsShortList}
- private
- // private methods
+  private
+   f_Context: AnsiString;
+    {* Поле для свойства Context }
+   f_InfoKind: AnsiString;
+    {* Поле для свойства InfoKind }
+   f_InvalidWords: AnsiString;
+    {* Поле для свойства InvalidWords }
+   f_CorrectedContext: AnsiString;
+    {* Поле для свойства CorrectedContext }
+   f_IsShortList: Boolean;
+    {* Поле для свойства IsShortList }
+  private
    procedure CheckContext; virtual;
-     {* проверяет контекст на валидность }
- protected
- // property methods
+    {* проверяет контекст на валидность }
+  protected
    procedure pm_SetContext(const aValue: AnsiString);
    procedure pm_SetInfoKind(const aValue: AnsiString);
    procedure pm_SetIsShortList(aValue: Boolean);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create; reintroduce; virtual;
- public
- // public properties
+  public
    property Context: AnsiString
-     read f_Context
-     write pm_SetContext;
-     {* Контекст, который будем искать }
+    read f_Context
+    write pm_SetContext;
+    {* Контекст, который будем искать }
    property InfoKind: AnsiString
-     read f_InfoKind
-     write pm_SetInfoKind;
-     {* Тип информации, которую будем искать }
+    read f_InfoKind
+    write pm_SetInfoKind;
+    {* Тип информации, которую будем искать }
    property InvalidWords: AnsiString
-     read f_InvalidWords;
-     {* Строка со словами из запроса, которые нельзя использовать }
+    read f_InvalidWords;
+    {* Строка со словами из запроса, которые нельзя использовать }
    property CorrectedContext: AnsiString
-     read f_CorrectedContext;
-     {* Скорректированный контекст }
+    read f_CorrectedContext;
+    {* Скорректированный контекст }
    property IsShortList: Boolean
-     read f_IsShortList
-     write pm_SetIsShortList;
+    read f_IsShortList
+    write pm_SetIsShortList;
  end;//TatBaseSearchHelper
 
 implementation
 
 uses
-  IOUnit,
-  StrUtils,
-  DynamicTreeUnit,
-  SysUtils,
-  atGblAdapterWorker,
-  atQuery,
-  atStringHelper,
-  SearchUnit,
-  atNodeHelper
-  ;
-
-// start class TatBaseSearchHelper
+ l3ImplUses
+ , IOUnit
+ , StrUtils
+ , DynamicTreeUnit
+ , SysUtils
+ , atGblAdapterWorker
+ , atQuery
+ , atStringHelper
+ , SearchUnit
+ , atNodeHelper
+;
 
 procedure TatBaseSearchHelper.pm_SetContext(const aValue: AnsiString);
 //#UC START# *483C06250290_483C01430224set_var*
@@ -187,6 +168,7 @@ begin
 end;//TatBaseSearchHelper.pm_SetIsShortList
 
 procedure TatBaseSearchHelper.CheckContext;
+ {* проверяет контекст на валидность }
 //#UC START# *48A448300134_483C01430224_var*
   const
     DELIMITER = ', ';

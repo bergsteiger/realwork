@@ -1,59 +1,42 @@
 unit nsCountryFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/nsCountryFilter.pas"
-// Начат: 2008/04/07 11:18:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic$Unit::TnsCountryFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsCountryFilter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsCountryFilter" MUID: (4901F13D034E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3CacheableBase,
-  l3TreeInterfaces,
-  bsInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CacheableBase
+ , bsInterfaces
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsCountryFilter = class(Tl3CacheableBase, InsCountryFilter)
- private
- // private fields
-   f_Country : Il3SimpleNode;
- protected
- // realized methods
+  private
+   f_Country: Il3SimpleNode;
+  protected
    function pm_GetCountry: Il3SimpleNode;
    procedure pm_SetCountry(const aValue: Il3SimpleNode);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aNode: Il3SimpleNode); reintroduce;
    class function Make(const aNode: Il3SimpleNode): InsCountryFilter; reintroduce;
  end;//TnsCountryFilter
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsCountryFilter
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TnsCountryFilter.Create(const aNode: Il3SimpleNode);
 //#UC START# *4901F1B5030B_4901F13D034E_var*
@@ -75,7 +58,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsCountryFilter.Make
 
 function TnsCountryFilter.pm_GetCountry: Il3SimpleNode;
 //#UC START# *4901EE910334_4901F13D034Eget_var*
@@ -96,6 +79,7 @@ begin
 end;//TnsCountryFilter.pm_SetCountry
 
 procedure TnsCountryFilter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4901F13D034E_var*
 //#UC END# *479731C50290_4901F13D034E_var*
 begin
@@ -104,7 +88,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4901F13D034E_impl*
 end;//TnsCountryFilter.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

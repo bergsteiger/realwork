@@ -1,67 +1,43 @@
 unit nsWebBrowserPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/InternetAgent/nsWebBrowserPrim.pas"
-// Начат: 23.04.2009 15:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::InternetAgent::View::InternetAgent::TnsWebBrowserPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsWebBrowserPrim" MUID: (49F0573B0332)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  shdocvw
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , shdocvw
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsWebBrowserPrim = class(TWebBrowser)
- protected
- // overridden protected methods
-   procedure AfterConstruction; override;
-     {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
-
-The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
- public
- // overridden public methods
-   destructor Destroy; override;
- protected
- // protected methods
+  protected
    procedure InitFields; virtual;
    procedure Cleanup; virtual;
    function CheckStamp(const aGUID: TGUID): Boolean;
+   procedure AfterConstruction; override;
+    {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+
+The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
+  public
+   destructor Destroy; override;
  end;//TnsWebBrowserPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsWebBrowserPrim
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TnsWebBrowserPrim.InitFields;
 //#UC START# *49F0577C02ED_49F0573B0332_var*
@@ -101,6 +77,9 @@ begin
 end;//TnsWebBrowserPrim.Destroy
 
 procedure TnsWebBrowserPrim.AfterConstruction;
+ {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+
+The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
 //#UC START# *49F057120234_49F0573B0332_var*
 //#UC END# *49F057120234_49F0573B0332_var*
 begin
@@ -110,12 +89,11 @@ begin
 //#UC END# *49F057120234_49F0573B0332_impl*
 end;//TnsWebBrowserPrim.AfterConstruction
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация TnsWebBrowserPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsWebBrowserPrim);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация TnsWebBrowserPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

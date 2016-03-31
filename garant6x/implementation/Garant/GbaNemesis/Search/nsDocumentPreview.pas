@@ -1,69 +1,46 @@
 unit nsDocumentPreview;
+ {* Предварительный просмотр документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsDocumentPreview.pas"
-// Начат: 2003/07/02 19:45:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TnsDocumentPreview
-//
-// Предварительный просмотр документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDocumentPreview.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentPreview" MUID: (47F22D5701A7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  LoggingInterfaces,
-  evDocumentPreview,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , evDocumentPreview
+ , LoggingInterfaces
+ , afwInterfaces
+;
 
-{$If not defined(Admin)}
 type
  TnsDocumentPreview = class(TevDocumentPreview, InsEventHolder)
   {* Предварительный просмотр документа }
- private
- // private fields
-   f_Event : InsDefferedEvent;
- protected
- // realized methods
+  private
+   f_Event: InsDefferedEvent;
+  protected
    procedure SetEvent(const anEvent: InsDefferedEvent);
- protected
- // overridden protected methods
    function IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean; override;
    procedure AfterPrint; override;
    function NeedAddBlockNames: Boolean; override;
-     {* Нужно ли добавлять имена блоков }
+    {* Нужно ли добавлять имена блоков }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//TnsDocumentPreview
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  afwFacade,
-  nsConst,
-  SysUtils
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnsDocumentPreview
+ l3ImplUses
+ , afwFacade
+ , nsConst
+ , SysUtils
+;
 
 procedure TnsDocumentPreview.SetEvent(const anEvent: InsDefferedEvent);
 //#UC START# *499140B20354_47F22D5701A7_var*
@@ -100,6 +77,7 @@ begin
 end;//TnsDocumentPreview.AfterPrint
 
 function TnsDocumentPreview.NeedAddBlockNames: Boolean;
+ {* Нужно ли добавлять имена блоков }
 //#UC START# *4A2E97A4021B_47F22D5701A7_var*
 //#UC END# *4A2E97A4021B_47F22D5701A7_var*
 begin
@@ -109,14 +87,10 @@ begin
 end;//TnsDocumentPreview.NeedAddBlockNames
 
 procedure TnsDocumentPreview.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_Event := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TnsDocumentPreview.ClearFields
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -49,7 +49,8 @@ const
  str_culfActiveUsers: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'culfActiveUsers'; rValue : 'Активные пользователи');
   {* 'Активные пользователи' }
  {* Карта преобразования локализованных строк ContactType }
- ContactTypeMap: array [TContactListFilterTypes] of Pl3StringIDEx = (@str_culfAllUsers
+ ContactTypeMap: array [TContactListFilterTypes] of Pl3StringIDEx = (
+ @str_culfAllUsers
  , @str_culfActiveUsers
  );
 

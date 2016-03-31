@@ -1,59 +1,43 @@
 unit nsSearchInDocumentEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsSearchInDocumentEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::Base Forms::TnsSearchInDocumentEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsSearchInDocumentEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSearchInDocumentEvent" MUID: (4B0A8AB30113)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3Interfaces,
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+ , DocumentUnit
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsSearchInDocumentEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aDoc: IDocument;
     const aContext: Il3CString);
  end;//TnsSearchInDocumentEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsTypes,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsSearchInDocumentEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsTypes
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsSearchInDocumentEvent.Log(const aDoc: IDocument;
-  const aContext: Il3CString);
+ const aContext: Il3CString);
 //#UC START# *4B0A8AF000C9_4B0A8AB30113_var*
 var
  l_Data: InsLogEventData;
@@ -66,7 +50,6 @@ begin
  GetLogger.AddEvent(LE_SEARCH_IN_DOCUMENT, l_Data);
 //#UC END# *4B0A8AF000C9_4B0A8AB30113_impl*
 end;//TnsSearchInDocumentEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

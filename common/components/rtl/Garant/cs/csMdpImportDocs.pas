@@ -1,118 +1,114 @@
 unit csMdpImportDocs;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csMdpImportDocs.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsMdpImportDocs
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csMdpImportDocs.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsMdpImportDocs" MUID: (55EEC220007F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsMdpImportDocs = class(TddProcessTask)
- protected
- // property methods
+  protected
    function pm_GetMail: AnsiString;
    procedure pm_SetMail(const aValue: AnsiString);
    function pm_GetErrorMail: AnsiString;
    procedure pm_SetErrorMail(const aValue: AnsiString);
    function pm_GetMaxCount: Integer;
    procedure pm_SetMaxCount(aValue: Integer);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property Mail: AnsiString
-     read pm_GetMail
-     write pm_SetMail;
+    read pm_GetMail
+    write pm_SetMail;
    property ErrorMail: AnsiString
-     read pm_GetErrorMail
-     write pm_SetErrorMail;
+    read pm_GetErrorMail
+    write pm_SetErrorMail;
    property MaxCount: Integer
-     read pm_GetMaxCount
-     write pm_SetMaxCount;
+    read pm_GetMaxCount
+    write pm_SetMaxCount;
  end;//TcsMdpImportDocs
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  mdpImportDocs_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsMdpImportDocs
+ l3ImplUses
+ , mdpImportDocs_Const
+;
 
 function TcsMdpImportDocs.pm_GetMail: AnsiString;
- {-}
+//#UC START# *ACB4DD73A6F0_55EEC220007Fget_var*
+//#UC END# *ACB4DD73A6F0_55EEC220007Fget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrMail]);
+//#UC START# *ACB4DD73A6F0_55EEC220007Fget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *ACB4DD73A6F0_55EEC220007Fget_impl*
 end;//TcsMdpImportDocs.pm_GetMail
 
 procedure TcsMdpImportDocs.pm_SetMail(const aValue: AnsiString);
- {-}
+//#UC START# *ACB4DD73A6F0_55EEC220007Fset_var*
+//#UC END# *ACB4DD73A6F0_55EEC220007Fset_var*
 begin
- TaggedData.StrW[k2_attrMail, nil] := (aValue);
+//#UC START# *ACB4DD73A6F0_55EEC220007Fset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *ACB4DD73A6F0_55EEC220007Fset_impl*
 end;//TcsMdpImportDocs.pm_SetMail
 
 function TcsMdpImportDocs.pm_GetErrorMail: AnsiString;
- {-}
+//#UC START# *2A71761FFD30_55EEC220007Fget_var*
+//#UC END# *2A71761FFD30_55EEC220007Fget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrErrorMail]);
+//#UC START# *2A71761FFD30_55EEC220007Fget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *2A71761FFD30_55EEC220007Fget_impl*
 end;//TcsMdpImportDocs.pm_GetErrorMail
 
 procedure TcsMdpImportDocs.pm_SetErrorMail(const aValue: AnsiString);
- {-}
+//#UC START# *2A71761FFD30_55EEC220007Fset_var*
+//#UC END# *2A71761FFD30_55EEC220007Fset_var*
 begin
- TaggedData.StrW[k2_attrErrorMail, nil] := (aValue);
+//#UC START# *2A71761FFD30_55EEC220007Fset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *2A71761FFD30_55EEC220007Fset_impl*
 end;//TcsMdpImportDocs.pm_SetErrorMail
 
 function TcsMdpImportDocs.pm_GetMaxCount: Integer;
- {-}
+//#UC START# *7F1C1465BBBC_55EEC220007Fget_var*
+//#UC END# *7F1C1465BBBC_55EEC220007Fget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrMaxCount]);
+//#UC START# *7F1C1465BBBC_55EEC220007Fget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *7F1C1465BBBC_55EEC220007Fget_impl*
 end;//TcsMdpImportDocs.pm_GetMaxCount
 
 procedure TcsMdpImportDocs.pm_SetMaxCount(aValue: Integer);
- {-}
+//#UC START# *7F1C1465BBBC_55EEC220007Fset_var*
+//#UC END# *7F1C1465BBBC_55EEC220007Fset_var*
 begin
- TaggedData.IntW[k2_attrMaxCount, nil] := (aValue);
+//#UC START# *7F1C1465BBBC_55EEC220007Fset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *7F1C1465BBBC_55EEC220007Fset_impl*
 end;//TcsMdpImportDocs.pm_SetMaxCount
 
 class function TcsMdpImportDocs.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_55EEC220007F_var*
+//#UC END# *53AC03EE01FD_55EEC220007F_var*
 begin
- Result := k2_typmdpImportDocs;
+//#UC START# *53AC03EE01FD_55EEC220007F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_55EEC220007F_impl*
 end;//TcsMdpImportDocs.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

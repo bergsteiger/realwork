@@ -1,60 +1,46 @@
 unit bsWorkJournal;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "WorkJournal"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/WorkJournal/bsWorkJournal.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Основные прецеденты::WorkJournal::WorkJournal::WorkJournalImpl::TbsWorkJournal
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournal.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsWorkJournal" MUID: (4A825E1200F4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  WorkJournalInterfaces,
-  bsWorkJournalPrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , bsWorkJournalPrim
+ , WorkJournalInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsWorkJournal = class(TbsWorkJournalPrim)
- public
- // public methods
+  public
    class function Make: IbsWorkJournal; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TbsWorkJournal
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsWorkJournal
-
-var g_TbsWorkJournal : Pointer = nil;
+var g_TbsWorkJournal: Pointer = nil;
+ {* Экземпляр синглетона TbsWorkJournal }
 
 procedure TbsWorkJournalFree;
+ {* Метод освобождения экземпляра синглетона TbsWorkJournal }
 begin
  IUnknown(g_TbsWorkJournal) := nil;
-end;
-
+end;//TbsWorkJournalFree
 
 class function TbsWorkJournal.Make: IbsWorkJournal;
 begin
@@ -64,14 +50,13 @@ begin
   IbsWorkJournal(g_TbsWorkJournal) := inherited Make;
  end;
  Result := IbsWorkJournal(g_TbsWorkJournal);
-end;
+end;//TbsWorkJournal.Make
 
 class function TbsWorkJournal.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TbsWorkJournal <> nil;
 end;//TbsWorkJournal.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

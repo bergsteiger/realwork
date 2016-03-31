@@ -26,7 +26,7 @@ type
    class procedure Log;
  end;//TnsOpenInternetAgentEvent
 
- TPrimInternetAgentModule = {abstract} class
+ TPrimInternetAgentModule = {abstract} class(TvcmModule)
   {* Модуль для [Интернет-агента|$144575249] }
   protected
    procedure PrimInternetAgent_InternetAgent_Test(const aParams: IvcmTestParamsPrim);
@@ -64,6 +64,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 class procedure TnsOpenInternetAgentEvent.Log;
 //#UC START# *4B14DF4201A3_4B14DF1F0101_var*
 //#UC END# *4B14DF4201A3_4B14DF1F0101_var*
@@ -115,6 +116,7 @@ begin
  TnsOpenInternetAgentEvent.Log;
 //#UC END# *4A979E9B0245_49EC739C0100exec_impl*
 end;//TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Execute
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

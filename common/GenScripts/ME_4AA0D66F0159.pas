@@ -43,7 +43,7 @@ type
    class procedure Log;
  end;//TnsOpenMedicFirmsEvent
 
- TInpharmModule = class
+ TInpharmModule = class(TvcmModule)
   protected
    procedure OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
     const aContainer: IvcmContainer);
@@ -94,6 +94,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 class procedure TnsOpenPharmFirmDocumentEvent.Log(const aDoc: IDocument);
 //#UC START# *4B14D8D10222_4B14D8AE00D4_var*
 var
@@ -276,6 +277,7 @@ begin
  TdmStdRes.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
 //#UC END# *530513060354_4AA0D66F0159_impl*
 end;//TInpharmModule.OpenDrugListIfNeeded
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

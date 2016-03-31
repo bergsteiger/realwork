@@ -1,90 +1,60 @@
 unit TestNameList;
+ {* Список тестов для  запуска. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/TestNameList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnitTuning::Source::TTestNameList
-//
-// Список тестов для  запуска.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestNameList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TTestNameList" MUID: (4D1AEAC80371)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3StringList,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
+ l3IntfUses
+ , l3StringList
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 type
  TLoadOperation = (
-   lo_Clear
- , lo_AND
- , lo_OR
- , lo_NOT
+  lo_Clear
+  , lo_AND
+  , lo_OR
+  , lo_NOT
  );//TLoadOperation
 
  TTestNameList = class(Tl3StringList)
   {* Список тестов для  запуска. }
- protected
- // overridden protected methods
+  protected
    function StringItemClass: Rl3String; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
    class procedure LoadFromFileEX(const aFileName: AnsiString;
-     aOperation: TLoadOperation);
+    aOperation: TLoadOperation);
    class procedure ClearList;
- public
- // singleton factory method
    class function Instance: TTestNameList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TTestNameList }
  end;//TTestNameList
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  TestNameString
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
+ l3ImplUses
+ , TestNameString
+ , SysUtils
+;
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
-
-
-// start class TTestNameList
-
-var g_TTestNameList : TTestNameList = nil;
+var g_TTestNameList: TTestNameList = nil;
+ {* Экземпляр синглетона TTestNameList }
 
 procedure TTestNameListFree;
+ {* Метод освобождения экземпляра синглетона TTestNameList }
 begin
  l3Free(g_TTestNameList);
-end;
-
-class function TTestNameList.Instance: TTestNameList;
-begin
- if (g_TTestNameList = nil) then
- begin
-  l3System.AddExitProc(TTestNameListFree);
-  g_TTestNameList := Create;
- end;
- Result := g_TTestNameList;
-end;
-
+end;//TTestNameListFree
 
 class function TTestNameList.Exists: Boolean;
 //#UC START# *4D2EE63E0318_4D1AEAC80371_var*
@@ -96,7 +66,7 @@ begin
 end;//TTestNameList.Exists
 
 class procedure TTestNameList.LoadFromFileEX(const aFileName: AnsiString;
-  aOperation: TLoadOperation);
+ aOperation: TLoadOperation);
 //#UC START# *5245135701C4_4D1AEAC80371_var*
 var
  l_NewList : TTestNameList;
@@ -163,6 +133,17 @@ begin
 //#UC END# *525CFBC20231_4D1AEAC80371_impl*
 end;//TTestNameList.ClearList
 
+class function TTestNameList.Instance: TTestNameList;
+ {* Метод получения экземпляра синглетона TTestNameList }
+begin
+ if (g_TTestNameList = nil) then
+ begin
+  l3System.AddExitProc(TTestNameListFree);
+  g_TTestNameList := Create;
+ end;
+ Result := g_TTestNameList;
+end;//TTestNameList.Instance
+
 function TTestNameList.StringItemClass: Rl3String;
 //#UC START# *47B1E5230151_4D1AEAC80371_var*
 //#UC END# *47B1E5230151_4D1AEAC80371_var*
@@ -171,7 +152,6 @@ begin
  Result := TTestNameString;
 //#UC END# *47B1E5230151_4D1AEAC80371_impl*
 end;//TTestNameList.StringItemClass
-
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 end.

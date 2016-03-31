@@ -1,48 +1,39 @@
 unit l3SizedPoolManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3SizedPoolManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MemoryManagers::Tl3SizedPoolManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3SizedPoolManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SizedPoolManager" MUID: (545A25F5016C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3SimpleMemoryManager
-  ;
+ l3IntfUses
+ , l3SimpleMemoryManager
+;
 
 type
  Tl3SizedPoolManager = class(Tl3SimpleMemoryManager)
- protected
- // protected fields
-   f_ItemSize : Cardinal;
- public
- // public methods
+  protected
+   f_ItemSize: Cardinal;
+  public
    constructor Create(aBlockSize: Cardinal;
-     anItemSize: Cardinal); reintroduce;
+    anItemSize: Cardinal); reintroduce;
    procedure AllocItem(var theItem;
-     aLength: Cardinal);
+    aLength: Cardinal);
    procedure FreeItem(var theItem);
    class function ItemLength(anItem: Pointer): Integer;
  end;//Tl3SizedPoolManager
 
 implementation
 
-// start class Tl3SizedPoolManager
+uses
+ l3ImplUses
+;
 
 constructor Tl3SizedPoolManager.Create(aBlockSize: Cardinal;
-  anItemSize: Cardinal);
+ anItemSize: Cardinal);
 //#UC START# *54B90FFB019F_545A25F5016C_var*
 //#UC END# *54B90FFB019F_545A25F5016C_var*
 begin
@@ -53,7 +44,7 @@ begin
 end;//Tl3SizedPoolManager.Create
 
 procedure Tl3SizedPoolManager.AllocItem(var theItem;
-  aLength: Cardinal);
+ aLength: Cardinal);
 //#UC START# *54B9101F0107_545A25F5016C_var*
 //#UC END# *54B9101F0107_545A25F5016C_var*
 begin

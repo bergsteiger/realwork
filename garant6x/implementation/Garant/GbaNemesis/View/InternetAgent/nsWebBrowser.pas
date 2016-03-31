@@ -1,39 +1,25 @@
 unit nsWebBrowser;
+ {* Наследник от стандартного компонента, для заточек в F1 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/InternetAgent/nsWebBrowser.pas"
-// Начат: 20.04.2009 22:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> F1 Встроенные продукты::InternetAgent::View::InternetAgent::TnsWebBrowser
-//
-// Наследник от стандартного компонента, для заточек в F1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowser.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TnsWebBrowser" MUID: (49ECB8E002B0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Messages,
-  Windows,
-  nsWebBrowserPrim,
-  OvcController,
-  afwInterfaces,
-  Classes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsWebBrowserPrim
+ , Windows
+ , Messages
+ , Classes
+ , OvcController
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _afwShortcutsHandler_Parent_ = TnsWebBrowserPrim;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
@@ -41,111 +27,103 @@ type
  {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  TnsWebBrowser = class(_evStyleTableListener_)
   {* Наследник от стандартного компонента, для заточек в F1 }
- private
- // private fields
-   f_FPUCtrlWord : Word;
-   f_RememberedWndHandle : hWnd;
-   f_Scale : Integer;
-    {* Поле для свойства Scale}
- private
- // private methods
-    {$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+  private
+   f_FPUCtrlWord: Word;
+   f_RememberedWndHandle: hWnd;
+   f_Scale: Integer;
+    {* Масштаб }
+  private
+   {$If NOT Defined(XE)}
    procedure DocumentComplete(Sender: TObject;
-     const pDisp: IDispatch;
-     var URL: OleVariant);
-     {* Документ готов к работе }
-    {$IfEnd} //not Admin AND not Monitorings AND not XE
+    const pDisp: IDispatch;
+    var URL: OleVariant);
+    {* Документ готов к работе }
+   {$IfEnd} // NOT Defined(XE)
    procedure ApplyZoom;
-     {* Выставляет Zoom из таблицы стилей }
+    {* Выставляет Zoom из таблицы стилей }
    procedure DocumentCompleteXE(Sender: TObject;
-     const pDisp: IDispatch;
-     const URL: OleVariant);
+    const pDisp: IDispatch;
+    const URL: OleVariant);
    procedure WMSize(var aMsg: TWMSize); message WM_Size;
- protected
- // property methods
+  protected
    procedure pm_SetScale(aValue: Integer);
- protected
- // realized methods
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure InitFields; override;
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure CreateWnd; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure DestroyWnd; override;
-   {$IfEnd} //not NoVCL
-    {$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
    procedure ForceWMSize(aWidth: Integer;
-     aHeight: Integer); override;
-    {$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
- public
- // overridden public methods
+    aHeight: Integer); override;
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+  public
+   function ScaleDisabled: Boolean;
+    {* Масштабирование запрещено }
    constructor Create(AOwner: TComponent); override;
    destructor Destroy; override;
- public
- // public methods
-   function ScaleDisabled: Boolean;
-     {* Масштабирование запрещено }
- public
- // public properties
+  public
    property Scale: Integer
-     read f_Scale
-     write pm_SetScale;
-     {* Масштаб }
+    read f_Scale
+    write pm_SetScale;
+    {* Масштаб }
  end;//TnsWebBrowser
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evStyleTableTools,
-  Variants,
-  StrUtils,
-  nsWebBrowserHelper,
-  l3SysUtils,
-  l3Base,
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  OvcConst
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsWebBrowserHelper
+ , l3SysUtils
+ , l3Base
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , OvcConst
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , evStyleTableTools
+ , Variants
+ , StrUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(DesignTimeLibrary)}
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
-// start class TnsWebBrowser
+procedure TnsWebBrowser.pm_SetScale(aValue: Integer);
+//#UC START# *4BB32FCD0157_49ECB8E002B0set_var*
+//#UC END# *4BB32FCD0157_49ECB8E002B0set_var*
+begin
+//#UC START# *4BB32FCD0157_49ECB8E002B0set_impl*
+ if (f_Scale <> aValue) then
+ begin
+  f_Scale := aValue;
+  ApplyZoom;
+ end;//f_Scale <> aValue
+//#UC END# *4BB32FCD0157_49ECB8E002B0set_impl*
+end;//TnsWebBrowser.pm_SetScale
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+{$If NOT Defined(XE)}
 procedure TnsWebBrowser.DocumentComplete(Sender: TObject;
-  const pDisp: IDispatch;
-  var URL: OleVariant);
+ const pDisp: IDispatch;
+ var URL: OleVariant);
+ {* Документ готов к работе }
 //#UC START# *49F0457A016C_49ECB8E002B0_var*
 //#UC END# *49F0457A016C_49ECB8E002B0_var*
 begin
@@ -153,9 +131,10 @@ begin
  DocumentCompleteXE(Sender, pDisp, URL);
 //#UC END# *49F0457A016C_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DocumentComplete
-{$IfEnd} //not Admin AND not Monitorings AND not XE
+{$IfEnd} // NOT Defined(XE)
 
 procedure TnsWebBrowser.ApplyZoom;
+ {* Выставляет Zoom из таблицы стилей }
 //#UC START# *49F062A50141_49ECB8E002B0_var*
 //#UC END# *49F062A50141_49ECB8E002B0_var*
 begin
@@ -177,18 +156,8 @@ begin
 //#UC END# *49F062A50141_49ECB8E002B0_impl*
 end;//TnsWebBrowser.ApplyZoom
 
-procedure TnsWebBrowser.DocumentCompleteXE(Sender: TObject;
-  const pDisp: IDispatch;
-  const URL: OleVariant);
-//#UC START# *5175412302EE_49ECB8E002B0_var*
-//#UC END# *5175412302EE_49ECB8E002B0_var*
-begin
-//#UC START# *5175412302EE_49ECB8E002B0_impl*
- ApplyZoom;
-//#UC END# *5175412302EE_49ECB8E002B0_impl*
-end;//TnsWebBrowser.DocumentCompleteXE
-
 function TnsWebBrowser.ScaleDisabled: Boolean;
+ {* Масштабирование запрещено }
 //#UC START# *4BB3665300BC_49ECB8E002B0_var*
 //#UC END# *4BB3665300BC_49ECB8E002B0_var*
 begin
@@ -198,18 +167,16 @@ begin
 //#UC END# *4BB3665300BC_49ECB8E002B0_impl*
 end;//TnsWebBrowser.ScaleDisabled
 
-procedure TnsWebBrowser.pm_SetScale(aValue: Integer);
-//#UC START# *4BB32FCD0157_49ECB8E002B0set_var*
-//#UC END# *4BB32FCD0157_49ECB8E002B0set_var*
+procedure TnsWebBrowser.DocumentCompleteXE(Sender: TObject;
+ const pDisp: IDispatch;
+ const URL: OleVariant);
+//#UC START# *5175412302EE_49ECB8E002B0_var*
+//#UC END# *5175412302EE_49ECB8E002B0_var*
 begin
-//#UC START# *4BB32FCD0157_49ECB8E002B0set_impl*
- if (f_Scale <> aValue) then
- begin
-  f_Scale := aValue;
-  ApplyZoom;
- end;//f_Scale <> aValue
-//#UC END# *4BB32FCD0157_49ECB8E002B0set_impl*
-end;//TnsWebBrowser.pm_SetScale
+//#UC START# *5175412302EE_49ECB8E002B0_impl*
+ ApplyZoom;
+//#UC END# *5175412302EE_49ECB8E002B0_impl*
+end;//TnsWebBrowser.DocumentCompleteXE
 
 procedure TnsWebBrowser.WMSize(var aMsg: TWMSize);
 //#UC START# *4E9574530051_49ECB8E002B0_var*
@@ -262,7 +229,6 @@ begin
 //#UC END# *4E9574530051_49ECB8E002B0_impl*
 end;//TnsWebBrowser.WMSize
 
-{$If not defined(DesignTimeLibrary)}
 procedure TnsWebBrowser.DoStyleTableChanged;
 //#UC START# *4A485B710126_49ECB8E002B0_var*
 //#UC END# *4A485B710126_49ECB8E002B0_var*
@@ -271,7 +237,6 @@ begin
  ApplyZoom;
 //#UC END# *4A485B710126_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
 
 constructor TnsWebBrowser.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_49ECB8E002B0_var*
@@ -308,7 +273,7 @@ begin
 //#UC END# *49F0577C02ED_49ECB8E002B0_impl*
 end;//TnsWebBrowser.InitFields
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnsWebBrowser.CreateWnd;
 //#UC START# *4CC8414403B8_49ECB8E002B0_var*
 var
@@ -340,9 +305,9 @@ begin
  inherited;
 //#UC END# *4CC8414403B8_49ECB8E002B0_impl*
 end;//TnsWebBrowser.CreateWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnsWebBrowser.DestroyWnd;
 //#UC START# *4CC841540158_49ECB8E002B0_var*
 //#UC END# *4CC841540158_49ECB8E002B0_var*
@@ -365,11 +330,11 @@ begin
  end;
 //#UC END# *4CC841540158_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DestroyWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 procedure TnsWebBrowser.ForceWMSize(aWidth: Integer;
-  aHeight: Integer);
+ aHeight: Integer);
 //#UC START# *4E955E8F0237_49ECB8E002B0_var*
 //#UC END# *4E955E8F0237_49ECB8E002B0_var*
 begin
@@ -388,14 +353,14 @@ begin
  ShowScrollBar(WindowHandle, SB_Vert, true);*)
 //#UC END# *4E955E8F0237_49ECB8E002B0_impl*
 end;//TnsWebBrowser.ForceWMSize
-{$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация TnsWebBrowser
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsWebBrowser);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация TnsWebBrowser }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

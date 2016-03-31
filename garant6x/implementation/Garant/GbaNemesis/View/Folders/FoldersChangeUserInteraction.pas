@@ -1,66 +1,43 @@
 unit FoldersChangeUserInteraction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/FoldersChangeUserInteraction.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Основные прецеденты::Folders::View::Folders::TFoldersChangeUserInteraction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersChangeUserInteraction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TFoldersChangeUserInteraction" MUID: (51F65A1A03D3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FoldersDomainInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , FoldersDomainInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TFoldersChangeUserInteraction = class
- public
- // public methods
+  public
    class function AskAllowMerge: TnsListMergeKind;
    class procedure SayChildNodeDuplicated;
  end;//TFoldersChangeUserInteraction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsQuestionsWithChoices
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TFoldersChangeUserInteraction
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsQuestionsWithChoices
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 class function TFoldersChangeUserInteraction.AskAllowMerge: TnsListMergeKind;
 //#UC START# *51F65ADD01D0_51F65A1A03D3_var*
@@ -86,7 +63,6 @@ begin
  vcmSay(err_DuplicateNameError);
 //#UC END# *51F65B500160_51F65A1A03D3_impl*
 end;//TFoldersChangeUserInteraction.SayChildNodeDuplicated
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

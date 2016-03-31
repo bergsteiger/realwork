@@ -1,44 +1,36 @@
 unit scriptsListWatcherRunner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/common/components/scriptsListWatcher/scriptsListWatcherRunner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::scriptsListWatcher::TscriptsListWatcherRunner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\scriptsListWatcher\scriptsListWatcherRunner.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TscriptsListWatcherRunner" MUID: (568140E2020B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\scriptsListWatcher\scriptsListWatcher.inc}
+{$Include w:\common\components\scriptsListWatcher\scriptsListWatcher.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TscriptsListWatcherRunner = class
- public
- // public methods
+  public
    class procedure Run;
-     {* Сигнатура метода Run }
  end;//TscriptsListWatcherRunner
 
 implementation
 
 uses
-  l3Filer,
-  l3Types,
-  l3FileUtils,
-  l3Base,
-  SysUtils,
-  l3String,
-  Classes,
-  Windows
-  ;
-
-// start class TscriptsListWatcherRunner
+ l3ImplUses
+ , l3Filer
+ , l3Types
+ , l3FileUtils
+ , l3Base
+ , SysUtils
+ , l3String
+ , Classes
+ , Windows
+;
 
 class procedure TscriptsListWatcherRunner.Run;
 //#UC START# *5681410002A8_568140E2020B_var*

@@ -1,67 +1,50 @@
 unit mmmMainFeatures;
+ {* Основные возможности }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/mmmMainFeatures.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::MedicMainMenu::TmmmMainFeatures
-//
-// Основные возможности
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmMainFeatures.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TmmmMainFeatures" MUID: (490C422B0022)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  mmmTree,
-  l3StringIDEx,
-  l3Tree_TLB
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , mmmTree
+ , l3Tree_TLB
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TmmmMainFeatures = class(TmmmTree)
   {* Основные возможности }
- protected
- // overridden protected methods
+  protected
    function MakeRoot: Il3RootNode; override;
-     {* Создаёт корень дерева }
+    {* Создаёт корень дерева }
  end;//TmmmMainFeatures
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsTypes,
-  DynamicTreeUnit,
-  nsConst,
-  nsMainMenuNode,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , nsTypes
+ , DynamicTreeUnit
+ , nsConst
+ , nsMainMenuNode
+ , l3MessageID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки Main Features }
-  str_PharmPublishSearch : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PharmPublishSearch'; rValue : 'СМИ по медицине и здравоохранению');
-   { 'СМИ по медицине и здравоохранению' }
-
-// start class TmmmMainFeatures
+const
+ {* Локализуемые строки Main Features }
+ str_PharmPublishSearch: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PharmPublishSearch'; rValue : 'СМИ по медицине и здравоохранению');
+  {* 'СМИ по медицине и здравоохранению' }
 
 function TmmmMainFeatures.MakeRoot: Il3RootNode;
+ {* Создаёт корень дерева }
 //#UC START# *4909EF6E0361_490C422B0022_var*
 //#UC END# *4909EF6E0361_490C422B0022_var*
 begin
@@ -80,12 +63,9 @@ begin
 //#UC END# *4909EF6E0361_490C422B0022_impl*
 end;//TmmmMainFeatures.MakeRoot
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_PharmPublishSearch
  str_PharmPublishSearch.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_PharmPublishSearch }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

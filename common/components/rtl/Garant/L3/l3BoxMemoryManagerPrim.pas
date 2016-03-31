@@ -1,76 +1,59 @@
 unit l3BoxMemoryManagerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3BoxMemoryManagerPrim.pas"
-// Начат: 28.05.2004 19:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MemoryManagers::Tl3BoxMemoryManagerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3BoxMemoryManagerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BoxMemoryManagerPrim" MUID: (54B69FAC0256)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3BaseBoxMemoryManager
-  ;
+ l3IntfUses
+ , l3BaseBoxMemoryManager
+;
 
 type
  Tl3BoxMemoryManagerPrim = class(Tl3BaseBoxMemoryManager)
- private
- // private fields
-   f_Freed : PAnsiChar;
-   f_LowIndex : Integer;
-   f_HighIndex : Integer;
-   f_SizeSize : Cardinal;
- protected
- // realized methods
+  private
+   f_Freed: PAnsiChar;
+   f_LowIndex: Integer;
+   f_HighIndex: Integer;
+   f_SizeSize: Cardinal;
+  protected
    function SizeSize: Cardinal; override;
    function Size2Index(aSize: Cardinal): Integer; override;
    function AlignSize(aSize: Cardinal): Cardinal; override;
    function GetPSz(aPt: PAnsiChar): Cardinal; override;
    procedure SetPSz(aPt: PAnsiChar;
-     aValue: Cardinal); override;
+    aValue: Cardinal); override;
    function HasFreed: Boolean; override;
    procedure InitFreed; override;
-     {* Сигнатура метода InitFreed }
    procedure ClearFreed; override;
-     {* Сигнатура метода ClearFreed }
    function IsValidIndex(anIndex: Integer): Boolean; override;
    function GetFreed(anIndex: Integer): Pointer; override;
    procedure SetFreed(anIndex: Integer;
-     aValue: Pointer); override;
- public
- // public methods
+    aValue: Pointer); override;
+  public
    constructor Create(aBlockSize: Integer;
-     aHighIndex: Integer = 8;
-     aLowIndex: Integer = 0); reintroduce;
+    aHighIndex: Integer = 8;
+    aLowIndex: Integer = 0); reintroduce;
  end;//Tl3BoxMemoryManagerPrim
 
 implementation
 
 uses
-  l3MinMax,
-  l3MemUtils
-  ;
+ l3ImplUses
+ , l3MinMax
+ , l3MemUtils
+;
 
 const
-   { Constants }
-  cStep = 4;
-
-// start class Tl3BoxMemoryManagerPrim
+ cStep = 4;
 
 constructor Tl3BoxMemoryManagerPrim.Create(aBlockSize: Integer;
-  aHighIndex: Integer = 8;
-  aLowIndex: Integer = 0);
+ aHighIndex: Integer = 8;
+ aLowIndex: Integer = 0);
 //#UC START# *54B6A30003E2_54B69FAC0256_var*
 //#UC END# *54B6A30003E2_54B69FAC0256_var*
 begin
@@ -128,7 +111,7 @@ begin
 end;//Tl3BoxMemoryManagerPrim.GetPSz
 
 procedure Tl3BoxMemoryManagerPrim.SetPSz(aPt: PAnsiChar;
-  aValue: Cardinal);
+ aValue: Cardinal);
 //#UC START# *54B6A0F1005C_54B69FAC0256_var*
 //#UC END# *54B6A0F1005C_54B69FAC0256_var*
 begin
@@ -190,7 +173,7 @@ begin
 end;//Tl3BoxMemoryManagerPrim.GetFreed
 
 procedure Tl3BoxMemoryManagerPrim.SetFreed(anIndex: Integer;
-  aValue: Pointer);
+ aValue: Pointer);
 //#UC START# *54B6A1830090_54B69FAC0256_var*
 //#UC END# *54B6A1830090_54B69FAC0256_var*
 begin

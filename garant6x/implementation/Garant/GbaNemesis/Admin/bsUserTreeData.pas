@@ -1,74 +1,54 @@
 unit bsUserTreeData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/bsUserTreeData.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::UsersDataObjects::TbsUserTreeData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserTreeData.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsUserTreeData" MUID: (49F592D400E6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3TreeInterfaces,
-  l3SimpleObject,
-  bsInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , l3SimpleObject
+ , bsInterfaces
+ , l3TreeInterfaces
+;
 
-{$If defined(Admin)}
 type
  TbsUserTreeData = class(Tl3SimpleObject, IbsUserTreeData)
- private
- // private fields
-   f_Users : IbsSelectedUsers;
-   f_Node : Il3SimpleNode;
- protected
- // realized methods
+  private
+   f_Users: IbsSelectedUsers;
+   f_Node: Il3SimpleNode;
+  protected
    function pm_GetNode: Il3SimpleNode;
    function pm_GetUsers: IbsSelectedUsers;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTree: Il3ExpandedSimpleTree;
     const aNode: Il3SimpleNode); reintroduce;
    class function Make(const aTree: Il3ExpandedSimpleTree;
     const aNode: Il3SimpleNode): IbsUserTreeData; reintroduce;
  end;//TbsUserTreeData
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  bsSelectedUsers,
-  SecurityUnit,
-  SysUtils,
-  nsTypes,
-  DynamicTreeUnit,
-  l3Nodes
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TbsUserTreeData
+ l3ImplUses
+ , bsSelectedUsers
+ , SecurityUnit
+ , SysUtils
+ , nsTypes
+ , DynamicTreeUnit
+ , l3Nodes
+;
 
 constructor TbsUserTreeData.Create(const aTree: Il3ExpandedSimpleTree;
-  const aNode: Il3SimpleNode);
+ const aNode: Il3SimpleNode);
 //#UC START# *49F59364009C_49F592D400E6_var*
  function lpIterator(const aNode: Il3SimpleNode): Boolean;
  var
@@ -89,7 +69,7 @@ begin
 end;//TbsUserTreeData.Create
 
 class function TbsUserTreeData.Make(const aTree: Il3ExpandedSimpleTree;
-  const aNode: Il3SimpleNode): IbsUserTreeData;
+ const aNode: Il3SimpleNode): IbsUserTreeData;
 var
  l_Inst : TbsUserTreeData;
 begin
@@ -99,7 +79,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsUserTreeData.Make
 
 function TbsUserTreeData.pm_GetNode: Il3SimpleNode;
 //#UC START# *49F17C070091_49F592D400E6get_var*
@@ -120,6 +100,7 @@ begin
 end;//TbsUserTreeData.pm_GetUsers
 
 procedure TbsUserTreeData.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49F592D400E6_var*
 //#UC END# *479731C50290_49F592D400E6_var*
 begin
@@ -129,7 +110,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_49F592D400E6_impl*
 end;//TbsUserTreeData.Cleanup
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

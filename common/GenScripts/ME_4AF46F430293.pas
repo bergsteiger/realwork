@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , nscComboBox
+ //#UC START# *4AF46F430293intf_uses*
+ //#UC END# *4AF46F430293intf_uses*
 ;
 
 type
@@ -37,6 +39,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AF46F430293impl_uses*
+ //#UC END# *4AF46F430293impl_uses*
 ;
 
 //#UC START# *4AF46F430293impl*

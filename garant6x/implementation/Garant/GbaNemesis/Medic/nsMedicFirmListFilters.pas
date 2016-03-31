@@ -1,65 +1,43 @@
 unit nsMedicFirmListFilters;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/nsMedicFirmListFilters.pas"
-// Начат: 2008/03/21 11:36:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic$Unit::TnsMedicFirmListFilters
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmListFilters.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicFirmListFilters" MUID: (4901F0CF03B0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsInterfaces,
-  l3TreeFilters,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3TreeFilters
+ , bsInterfaces
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsMedicFirmListFilters = class(Tl3TreeFilters, InsMedicFirmListFilters)
- private
- // private fields
-   f_Country : InsCountryFilter;
- protected
- // realized methods
+  private
+   f_Country: InsCountryFilter;
+  protected
    function pm_GetCountry: InsCountryFilter;
    function SetCountry(const aFilter: InsCountryFilter): InsMedicFirmListFilters;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSource: Il3TreeFilters); override;
  end;//TnsMedicFirmListFilters
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsCountryFilter,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsMedicFirmListFilters
+ l3ImplUses
+ , nsCountryFilter
+ , SysUtils
+;
 
 function TnsMedicFirmListFilters.pm_GetCountry: InsCountryFilter;
 //#UC START# *4901EEAD0242_4901F0CF03B0get_var*
@@ -81,6 +59,7 @@ begin
 end;//TnsMedicFirmListFilters.SetCountry
 
 procedure TnsMedicFirmListFilters.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4901F0CF03B0_var*
 //#UC END# *479731C50290_4901F0CF03B0_var*
 begin
@@ -102,7 +81,6 @@ begin
   f_Country := TnsCountryFilter.Make(l_Filter.Country.Country);
 //#UC END# *48FF4F47010F_4901F0CF03B0_impl*
 end;//TnsMedicFirmListFilters.Create
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

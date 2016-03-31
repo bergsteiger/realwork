@@ -21,7 +21,7 @@ uses
 ;
 
 type
- TDayTipsModule = class
+ TDayTipsModule = class(TvcmModule)
   protected
    procedure OpenTipsPrim(const aSDS: IsdsCommonDiction;
     const aContainer: IvcmContainer);
@@ -52,6 +52,7 @@ uses
  , DataAdapter
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TDayTipsModule.OpenTip(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
  {* Открывает совет дня }
@@ -97,6 +98,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4AB9DBA1038E_4AA0D5380056_impl*
 end;//TDayTipsModule.ShowDayTips
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

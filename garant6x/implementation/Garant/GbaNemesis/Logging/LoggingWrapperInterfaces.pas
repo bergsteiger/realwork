@@ -1,51 +1,45 @@
 unit LoggingWrapperInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Автор: Костицын
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/LoggingWrapperInterfaces.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> F1 Базовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWrapperInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "LoggingWrapperInterfaces" MUID: (55B75E6E034C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  BaseTypesUnit,
-  LoggingUnit
-  ;
+ l3IntfUses
+ , BaseTypesUnit
+ , LoggingUnit
+;
 
 type
- InsLogEventData = interface(IUnknown)
-   ['{05D8F7D5-49AA-498E-8183-FC025550B703}']
-   procedure AddDate(const aData: TDate);
-   procedure AddObject(const aData: IUnknown);
-   procedure AddString(aData: PAnsiChar);
-   procedure AddULong(aData: Longword);
-   function AsString: AnsiString;
-   function AsLogEventData: ILogEventData;
+ InsLogEventData = interface
+  ['{05D8F7D5-49AA-498E-8183-FC025550B703}']
+  procedure AddDate(const aData: TDate);
+  procedure AddObject(const aData: IUnknown);
+  procedure AddString(aData: PAnsiChar);
+  procedure AddULong(aData: Longword);
+  function AsString: AnsiString;
+  function AsLogEventData: ILogEventData;
  end;//InsLogEventData
 
- InsLogManager = interface(IUnknown)
-   ['{966DBDBB-C728-4A76-9AA5-6CF45837D11F}']
-   procedure AddEvent(aLogEvent: TLogEvent;
-    const aData: InsLogEventData);
+ InsLogManager = interface
+  ['{966DBDBB-C728-4A76-9AA5-6CF45837D11F}']
+  procedure AddEvent(aLogEvent: TLogEvent;
+   const aData: InsLogEventData);
  end;//InsLogManager
 
- InsLoggingTestService = interface(IUnknown)
-   ['{BEAE7BA4-756B-405A-8CA5-39CEEEE025E2}']
-   procedure AddLogString(const aString: AnsiString);
+ InsLoggingTestService = interface
+  ['{BEAE7BA4-756B-405A-8CA5-39CEEEE025E2}']
+  procedure AddLogString(const aString: AnsiString);
  end;//InsLoggingTestService
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

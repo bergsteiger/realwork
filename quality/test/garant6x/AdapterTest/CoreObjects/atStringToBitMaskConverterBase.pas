@@ -1,50 +1,39 @@
 unit atStringToBitMaskConverterBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringToBitMaskConverterBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatStringToBitMaskConverterBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringToBitMaskConverterBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatStringToBitMaskConverterBase" MUID: (504F268A02FD)
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+;
 
 type
  _BitMaskValueType_ = AnsiString;
  _BitMaskType_ = Integer;
- {$Include ..\CoreObjects\atBitMaskConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}
  _atStringConverterImp_Parent_ = _atBitMaskConverter_;
- {$Include ..\CoreObjects\atStringConverterImp.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
  TatStringToBitMaskConverterBase = {abstract} class(_atStringConverterImp_)
- public
- // public methods
+  public
    function ToMaskCI(const aValues: array of _BitMaskValueType_): _BitMaskType_; virtual;
    function ToValues(const aMask: _BitMaskType_;
-    const aDelim: AnsiString): AnsiString; overload;  virtual;
+    const aDelim: AnsiString): AnsiString; overload; virtual;
  end;//TatStringToBitMaskConverterBase
 
 implementation
 
 uses
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+ , SysUtils
+;
 
-{$Include ..\CoreObjects\atBitMaskConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}
 
-{$Include ..\CoreObjects\atStringConverterImp.imp.pas}
-
-// start class TatStringToBitMaskConverterBase
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
 
 function TatStringToBitMaskConverterBase.ToMaskCI(const aValues: array of _BitMaskValueType_): _BitMaskType_;
 //#UC START# *504F3866005D_504F268A02FD_var*
@@ -60,7 +49,7 @@ begin
 end;//TatStringToBitMaskConverterBase.ToMaskCI
 
 function TatStringToBitMaskConverterBase.ToValues(const aMask: _BitMaskType_;
-  const aDelim: AnsiString): AnsiString;
+ const aDelim: AnsiString): AnsiString;
 //#UC START# *504F8645031F_504F268A02FD_var*
   var
     l_Arr : TBitMaskValues;

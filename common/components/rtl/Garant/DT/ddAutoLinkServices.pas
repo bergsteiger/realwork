@@ -19,12 +19,12 @@ uses
 type
  TddAutolinkService = {final} class(Tl3ProtoObject, Il3AutolinkService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetAutolinkFilter: Ik2TagGenerator;
    procedure CleanAutolinkFilter;
    class function Instance: TddAutolinkService;
     {* Метод получения экземпляра синглетона TddAutolinkService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TddAutolinkService
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -46,12 +46,6 @@ procedure TddAutolinkServiceFree;
 begin
  l3Free(g_TddAutolinkService);
 end;//TddAutolinkServiceFree
-
-class function TddAutolinkService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TddAutolinkService <> nil;
-end;//TddAutolinkService.Exists
 
 function TddAutolinkService.GetAutolinkFilter: Ik2TagGenerator;
 //#UC START# *27BE83734EFD_552BF7B201EE_var*
@@ -81,6 +75,12 @@ begin
  end;
  Result := g_TddAutolinkService;
 end;//TddAutolinkService.Instance
+
+class function TddAutolinkService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TddAutolinkService <> nil;
+end;//TddAutolinkService.Exists
 
 initialization
  Tl3AutolinkService.Instance.Alien := TddAutolinkService.Instance;

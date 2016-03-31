@@ -1,72 +1,49 @@
 unit alcuSubmitterWorkPool;
+ {* Коллекция служебно-рабочих пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuSubmitterWorkPool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ServerAsyncExecution::TalcuSubmitterWorkPool
-//
-// Коллекция служебно-рабочих пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkPool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSubmitterWorkPool" MUID: (53CDF9FE006B)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  l3ProtoObject
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  alcuServerAsyncExecutionInterfaces,
-  alcuSubmitterWorkThreadList,
-  alcuAsyncTaskFinishedNotifierList
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
+ l3IntfUses
+ , l3ProtoObject
+ , alcuServerAsyncExecutionInterfaces
+ , alcuSubmitterWorkThreadList
+ , alcuAsyncTaskFinishedNotifierList
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
 type
  TalcuSubmitterWorkPool = class(Tl3ProtoObject, IalcuAsyncTaskFinishedNotifier)
   {* Коллекция служебно-рабочих пользователей }
- private
- // private fields
-   f_LockSubmitTaskCounter : Integer;
-   f_List : TalcuSubmitterWorkThreadList;
-   f_FinishNotifierList : TalcuAsyncTaskFinishedNotifierList;
-   f_SubmitGuard : Integer;
-   f_HasWorkThreads : Boolean;
-    {* Поле для свойства HasWorkThreads}
-   f_WorkThreadCount : integer;
-    {* Поле для свойства WorkThreadCount}
-   f_Manager : IalcuAsyncSubmitterManager;
-    {* Поле для свойства Manager}
- private
- // private methods
+  private
+   f_LockSubmitTaskCounter: Integer;
+   f_List: TalcuSubmitterWorkThreadList;
+   f_FinishNotifierList: TalcuAsyncTaskFinishedNotifierList;
+   f_SubmitGuard: Integer;
+   f_HasWorkThreads: Boolean;
+    {* Поле для свойства HasWorkThreads }
+   f_WorkThreadCount: integer;
+    {* Поле для свойства WorkThreadCount }
+   f_Manager: IalcuAsyncSubmitterManager;
+    {* Поле для свойства Manager }
+  private
    procedure NotifySubscribers(const aTask: TddProcessTask);
- protected
- // property methods
+  protected
    procedure pm_SetWorkThreadCount(aValue: integer);
- protected
- // realized methods
    procedure TaskFinished(const aTask: TddProcessTask);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aManager: IalcuAsyncSubmitterManager); reintroduce;
    function SubmitTask(const aTask: TddProcessTask): Boolean;
    procedure CheckExecution(const aServices: IcsRunTaskServices);
@@ -76,73 +53,37 @@ type
    function AllowSubmitTask: Boolean;
    procedure LockSubmitTask;
    procedure UnLockSubmitTask;
- protected
- // protected properties
+  protected
    property Manager: IalcuAsyncSubmitterManager
-     read f_Manager;
- public
- // public properties
+    read f_Manager;
+  public
    property HasWorkThreads: Boolean
-     read f_HasWorkThreads;
+    read f_HasWorkThreads;
    property WorkThreadCount: integer
-     read f_WorkThreadCount
-     write pm_SetWorkThreadCount;
+    read f_WorkThreadCount
+    write pm_SetWorkThreadCount;
  end;//TalcuSubmitterWorkPool
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  alcuAsyncSubmitter,
-  l3Types,
-  l3Base,
-  Windows
-  {$If not defined(Nemesis)}
-  ,
-  dt_User
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils,
-  daInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  csTaskTypes
-  {$IfEnd} //not Nemesis
-  ,
-  l3Interlocked
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
-
-{$If defined(AppServerSide) AND defined(ServerTasks)}
-
-// start class TalcuSubmitterWorkPool
-
-procedure TalcuSubmitterWorkPool.NotifySubscribers(const aTask: TddProcessTask);
-//#UC START# *53D0E7D8019F_53CDF9FE006B_var*
- function DoIt(aNotifier: PalcuAsyncTaskFinishedNotifier; Index: Long): Bool;
- begin
-   aNotifier.TaskFinished(aTask);
-   Result := True;
- end;
-//#UC END# *53D0E7D8019F_53CDF9FE006B_var*
-begin
-//#UC START# *53D0E7D8019F_53CDF9FE006B_impl*
- f_FinishNotifierList.IterateAllF(l3L2IA(@DoIt))
-//#UC END# *53D0E7D8019F_53CDF9FE006B_impl*
-end;//TalcuSubmitterWorkPool.NotifySubscribers
-
-constructor TalcuSubmitterWorkPool.Create(const aManager: IalcuAsyncSubmitterManager);
-//#UC START# *53CDFAF10205_53CDF9FE006B_var*
-//#UC END# *53CDFAF10205_53CDF9FE006B_var*
-begin
-//#UC START# *53CDFAF10205_53CDF9FE006B_impl*
- inherited Create;
- f_List := TalcuSubmitterWorkThreadList.Make;
- f_Manager := aManager;
- f_FinishNotifierList := TalcuAsyncTaskFinishedNotifierList.Make;
-//#UC END# *53CDFAF10205_53CDF9FE006B_impl*
-end;//TalcuSubmitterWorkPool.Create
+ l3ImplUses
+ , alcuAsyncSubmitter
+ , l3Types
+ , l3Base
+ , Windows
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ , daInterfaces
+ {$If NOT Defined(Nemesis)}
+ , csTaskTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Interlocked
+;
 
 procedure TalcuSubmitterWorkPool.pm_SetWorkThreadCount(aValue: integer);
 //#UC START# *5416C3670067_53CDF9FE006Bset_var*
@@ -210,6 +151,32 @@ begin
  end;
 //#UC END# *5416C3670067_53CDF9FE006Bset_impl*
 end;//TalcuSubmitterWorkPool.pm_SetWorkThreadCount
+
+constructor TalcuSubmitterWorkPool.Create(const aManager: IalcuAsyncSubmitterManager);
+//#UC START# *53CDFAF10205_53CDF9FE006B_var*
+//#UC END# *53CDFAF10205_53CDF9FE006B_var*
+begin
+//#UC START# *53CDFAF10205_53CDF9FE006B_impl*
+ inherited Create;
+ f_List := TalcuSubmitterWorkThreadList.Make;
+ f_Manager := aManager;
+ f_FinishNotifierList := TalcuAsyncTaskFinishedNotifierList.Make;
+//#UC END# *53CDFAF10205_53CDF9FE006B_impl*
+end;//TalcuSubmitterWorkPool.Create
+
+procedure TalcuSubmitterWorkPool.NotifySubscribers(const aTask: TddProcessTask);
+//#UC START# *53D0E7D8019F_53CDF9FE006B_var*
+ function DoIt(aNotifier: PalcuAsyncTaskFinishedNotifier; Index: Long): Bool;
+ begin
+   aNotifier.TaskFinished(aTask);
+   Result := True;
+ end;
+//#UC END# *53D0E7D8019F_53CDF9FE006B_var*
+begin
+//#UC START# *53D0E7D8019F_53CDF9FE006B_impl*
+ f_FinishNotifierList.IterateAllF(l3L2IA(@DoIt))
+//#UC END# *53D0E7D8019F_53CDF9FE006B_impl*
+end;//TalcuSubmitterWorkPool.NotifySubscribers
 
 function TalcuSubmitterWorkPool.SubmitTask(const aTask: TddProcessTask): Boolean;
 //#UC START# *53CDFABD0075_53CDF9FE006B_var*
@@ -345,6 +312,7 @@ begin
 end;//TalcuSubmitterWorkPool.TaskFinished
 
 procedure TalcuSubmitterWorkPool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53CDF9FE006B_var*
 //#UC END# *479731C50290_53CDF9FE006B_var*
 begin
@@ -356,14 +324,10 @@ begin
 end;//TalcuSubmitterWorkPool.Cleanup
 
 procedure TalcuSubmitterWorkPool.ClearFields;
- {-}
 begin
- {$If defined(AppServerSide) AND defined(ServerTasks)}
  f_Manager := nil;
- {$IfEnd} //AppServerSide AND ServerTasks
  inherited;
 end;//TalcuSubmitterWorkPool.ClearFields
-
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

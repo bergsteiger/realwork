@@ -1,95 +1,75 @@
 unit m3StorageHolder;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StorageHolder.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::StorageHolder::Tm3StorageHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StorageHolder.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageHolder" MUID: (542E5D79018F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3StorageInterfaces,
-  l3CProtoObject,
-  m3CommonStorage,
-  m3RootStreamManagerPrim
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , m3StorageInterfaces
+ , m3CommonStorage
+ , m3RootStreamManagerPrim
+ , ActiveX
+;
 
 type
  Tm3StorageHolder = class(Tl3CProtoObject, Im3StorageHolder)
- private
- // private fields
-   f_Storage : Im3IndexedStorage;
-   f_StorageClass : Rm3CommonStorage;
-   f_RootStreamManager : Tm3RootStreamManagerPrim;
-   f_Access : Tm3StoreAccess;
-    {* Поле для свойства Access}
-   f_FileName : WideString;
-    {* Поле для свойства FileName}
-   f_SharedMode : Cardinal;
-    {* Поле для свойства SharedMode}
- protected
- // realized methods
+  private
+   f_Storage: Im3IndexedStorage;
+   f_StorageClass: Rm3CommonStorage;
+   f_RootStreamManager: Tm3RootStreamManagerPrim;
+   f_Access: Tm3StoreAccess;
+    {* Поле для свойства Access }
+   f_FileName: WideString;
+    {* Поле для свойства FileName }
+   f_SharedMode: Cardinal;
+    {* Поле для свойства SharedMode }
+  protected
+   function ReopenStorage(anAccess: Tm3StoreAccess): Im3IndexedStorage;
    function Get_Storage: Im3IndexedStorage;
    function StoreToCache(const aFileName: WideString;
-     aSharedMode: Cardinal): Im3IndexedStorage;
- protected
- // overridden protected methods
+    aSharedMode: Cardinal): Im3IndexedStorage;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function ReopenStorage(anAccess: Tm3StoreAccess): Im3IndexedStorage;
- public
- // public methods
+  public
    constructor Create(aStorageClass: Rm3CommonStorage;
-     anAccess: Tm3StoreAccess;
-     const aStream: IStream); reintroduce;
+    anAccess: Tm3StoreAccess;
+    const aStream: IStream); reintroduce;
    class function Make(aStorageClass: Rm3CommonStorage;
-     anAccess: Tm3StoreAccess;
-     const aStream: IStream): Im3StorageHolder; reintroduce;
-     {* Сигнатура фабрики Tm3StorageHolder.Make }
+    anAccess: Tm3StoreAccess;
+    const aStream: IStream): Im3StorageHolder; reintroduce;
    class function GetFromCache(const aFileName: WideString;
-     anAccess: Tm3StoreAccess;
-     aType: Tm3StorageType;
-     aSharedMode: Cardinal;
-     out theStorage: Im3IndexedStorage): Boolean;
- public
- // public properties
+    anAccess: Tm3StoreAccess;
+    aType: Tm3StorageType;
+    aSharedMode: Cardinal;
+    out theStorage: Im3IndexedStorage): Boolean;
+  public
    property Access: Tm3StoreAccess
-     read f_Access;
+    read f_Access;
    property FileName: WideString
-     read f_FileName;
+    read f_FileName;
    property SharedMode: Cardinal
-     read f_SharedMode;
+    read f_SharedMode;
  end;//Tm3StorageHolder
 
 implementation
 
 uses
-  SysUtils,
-  m3StorageHolderList,
-  Windows
-  ;
-
-// start class Tm3StorageHolder
+ l3ImplUses
+ , SysUtils
+ , m3StorageHolderList
+ , Windows
+;
 
 constructor Tm3StorageHolder.Create(aStorageClass: Rm3CommonStorage;
-  anAccess: Tm3StoreAccess;
-  const aStream: IStream);
+ anAccess: Tm3StoreAccess;
+ const aStream: IStream);
 //#UC START# *542E5E1A037B_542E5D79018F_var*
 //#UC END# *542E5E1A037B_542E5D79018F_var*
 begin
@@ -108,8 +88,8 @@ begin
 end;//Tm3StorageHolder.Create
 
 class function Tm3StorageHolder.Make(aStorageClass: Rm3CommonStorage;
-  anAccess: Tm3StoreAccess;
-  const aStream: IStream): Im3StorageHolder;
+ anAccess: Tm3StoreAccess;
+ const aStream: IStream): Im3StorageHolder;
 var
  l_Inst : Tm3StorageHolder;
 begin
@@ -119,13 +99,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tm3StorageHolder.Make
 
 class function Tm3StorageHolder.GetFromCache(const aFileName: WideString;
-  anAccess: Tm3StoreAccess;
-  aType: Tm3StorageType;
-  aSharedMode: Cardinal;
-  out theStorage: Im3IndexedStorage): Boolean;
+ anAccess: Tm3StoreAccess;
+ aType: Tm3StorageType;
+ aSharedMode: Cardinal;
+ out theStorage: Im3IndexedStorage): Boolean;
 //#UC START# *542E6E450028_542E5D79018F_var*
 var
  l_List : Tm3StorageHolderList;
@@ -209,7 +189,7 @@ begin
 end;//Tm3StorageHolder.Get_Storage
 
 function Tm3StorageHolder.StoreToCache(const aFileName: WideString;
-  aSharedMode: Cardinal): Im3IndexedStorage;
+ aSharedMode: Cardinal): Im3IndexedStorage;
 //#UC START# *542E736E0204_542E5D79018F_var*
 var
  l_List : Tm3StorageHolderList;
@@ -260,6 +240,7 @@ begin
 end;//Tm3StorageHolder.StoreToCache
 
 procedure Tm3StorageHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_542E5D79018F_var*
 //#UC END# *479731C50290_542E5D79018F_var*
 begin
@@ -270,9 +251,9 @@ begin
 end;//Tm3StorageHolder.Cleanup
 
 procedure Tm3StorageHolder.ClearFields;
- {-}
 begin
  f_Storage := nil;
+ f_FileName := '';
  inherited;
 end;//Tm3StorageHolder.ClearFields
 

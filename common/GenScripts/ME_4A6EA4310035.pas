@@ -39,6 +39,7 @@ uses
 ;
 
 type
+ _TextWithComments_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = _TextWithComments_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
@@ -154,6 +155,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TAbstractHistoryForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
@@ -320,7 +322,6 @@ begin
 //#UC END# *4A8AAD450084_4A6EA4310035get_impl*
 end;//TAbstractHistoryForm.pm_GetTextWithComments
 
-{$If NOT Defined(NoVCM)}
 procedure TAbstractHistoryForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
 //#UC START# *4AC5D61E0284_4A6EA4310035test_var*
@@ -330,9 +331,7 @@ begin
  // - ничего не делаем
 //#UC END# *4AC5D61E0284_4A6EA4310035test_impl*
 end;//TAbstractHistoryForm.Result_Cancel_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TAbstractHistoryForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
 //#UC START# *4AC5D61E0284_4A6EA4310035exec_var*
@@ -342,9 +341,7 @@ begin
  SafeClose;
 //#UC END# *4AC5D61E0284_4A6EA4310035exec_impl*
 end;//TAbstractHistoryForm.Result_Cancel_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TAbstractHistoryForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
  {* Отмена }
 //#UC START# *4AC5D61E0284_4A6EA4310035getstate_var*
@@ -355,7 +352,6 @@ begin
   State := st_user_Result_Cancel_Close
 //#UC END# *4AC5D61E0284_4A6EA4310035getstate_impl*
 end;//TAbstractHistoryForm.Result_Cancel_GetState
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TAbstractHistoryForm.OpenRedactionGlobalLink(const aDocument: IDocument;
  aSub: Cardinal;
@@ -406,7 +402,6 @@ begin
 //#UC END# *4A8A9E2A004F_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.DoCheckLinkInfo
 
-{$If NOT Defined(NoVCM)}
 function TAbstractHistoryForm.SettingsSuffix: AnsiString;
 //#UC START# *4A8E425D0268_4A6EA4310035_var*
 //#UC END# *4A8E425D0268_4A6EA4310035_var*
@@ -415,9 +410,7 @@ begin
  Result := Format('_%d',[f_UserID]);
 //#UC END# *4A8E425D0268_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.SettingsSuffix
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TAbstractHistoryForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6EA4310035_var*
@@ -432,13 +425,13 @@ begin
  end;//with HistoryEditor
 //#UC END# *4A8E8F2E0195_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAbstractHistoryForm);
  {* Регистрация AbstractHistory }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

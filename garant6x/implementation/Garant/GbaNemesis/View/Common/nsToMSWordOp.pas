@@ -1,80 +1,56 @@
 unit nsToMSWordOp;
+ {* Экспорт в ворд }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/nsToMSWordOp.pas"
-// Начат: 2009/01/14 09:35:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::View::Common::TnsToMSWordOp
-//
-// Экспорт в ворд
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\nsToMSWordOp.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsToMSWordOp" MUID: (496DA60C03CA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsToMSWordExportKind = (
   {* Куда экспортировать }
-   mswekNewFile // В новый файл
- , mswekActiveWindow // В активное окно
+  mswekNewFile
+   {* В новый файл }
+  , mswekActiveWindow
+   {* В активное окно }
  );//TnsToMSWordExportKind
 
  TnsToMSWordOp = class
   {* Экспорт в ворд }
- public
- // public methods
+  public
    class procedure Test(const aParams: IvcmTestParamsPrim);
    class function Execute(const aFilePath: Il3CString;
-    aKind: TnsToMSWordExportKind): Boolean; overload; 
+    aKind: TnsToMSWordExportKind): Boolean; overload;
    class function Execute(const aFilePath: Il3CString;
-    const aParams: IvcmExecuteParamsPrim): Boolean; overload; 
+    const aParams: IvcmExecuteParamsPrim): Boolean; overload;
  end;//TnsToMSWordOp
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsExternalObjectPrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsToMSWordOp
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsExternalObjectPrim
+;
 
 class procedure TnsToMSWordOp.Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4975FB3102A5_496DA60C03CA_var*
@@ -91,7 +67,7 @@ begin
 end;//TnsToMSWordOp.Test
 
 class function TnsToMSWordOp.Execute(const aFilePath: Il3CString;
-  aKind: TnsToMSWordExportKind): Boolean;
+ aKind: TnsToMSWordExportKind): Boolean;
 //#UC START# *4975FB460262_496DA60C03CA_var*
 //#UC END# *4975FB460262_496DA60C03CA_var*
 begin
@@ -115,7 +91,7 @@ begin
 end;//TnsToMSWordOp.Execute
 
 class function TnsToMSWordOp.Execute(const aFilePath: Il3CString;
-  const aParams: IvcmExecuteParamsPrim): Boolean;
+ const aParams: IvcmExecuteParamsPrim): Boolean;
 //#UC START# *4975FB5B0162_496DA60C03CA_var*
 //#UC END# *4975FB5B0162_496DA60C03CA_var*
 begin
@@ -133,7 +109,6 @@ begin
  end;//Case aParams.ItemIndex
 //#UC END# *4975FB5B0162_496DA60C03CA_impl*
 end;//TnsToMSWordOp.Execute
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

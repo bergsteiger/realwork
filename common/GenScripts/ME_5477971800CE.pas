@@ -19,6 +19,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *5477971800CEintf_uses*
+ //#UC END# *5477971800CEintf_uses*
 ;
 
 type
@@ -54,6 +56,8 @@ implementation
 {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ //#UC START# *5477971800CEimpl_uses*
+ //#UC END# *5477971800CEimpl_uses*
 ;
 
 function TvcmMenuForChromeLikeItemWrap.pm_GetrRectStub: TRectWrap;

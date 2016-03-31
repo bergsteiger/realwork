@@ -11,15 +11,17 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ , DocumentUnit
+ , ExternalOperationUnit
  , l3Interfaces
- , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , DocumentInterfaces
- , ExternalOperationUnit
+ , bsTypes
+ , DocumentAndListInterfaces
  , nevNavigation
- , DocumentUnit
+ , DocumentInterfaces
+ , bsTypesNew
 ;
 
 type

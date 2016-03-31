@@ -1,41 +1,32 @@
 unit m3RootStreamNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3RootStreamNew.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3RootStreamNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3RootStreamNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3RootStreamNew" MUID: (54086C1B011D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3RootStream,
-  ActiveX
-  ;
+ l3IntfUses
+ , m3RootStream
+ , ActiveX
+;
 
 type
  Tm3RootStreamNew = class(Tm3RootStream)
- protected
- // overridden protected methods
+  protected
    class function NeedHeaderAlignment: Boolean; override;
- public
- // overridden public methods
+  public
    class function HeaderID: TCLSID; override;
  end;//Tm3RootStreamNew
 
 implementation
 
-// start class Tm3RootStreamNew
+uses
+ l3ImplUses
+;
 
 class function Tm3RootStreamNew.HeaderID: TCLSID;
 //#UC START# *53FDFAF900ED_54086C1B011D_var*

@@ -17,6 +17,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , afwInterfaces
  , l3ProtoObject
+ //#UC START# *4AC9C67300A2intf_uses*
+ //#UC END# *4AC9C67300A2intf_uses*
 ;
 
 type
@@ -100,6 +102,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , afwConsts
+ //#UC START# *4AC9C67300A2impl_uses*
+ //#UC END# *4AC9C67300A2impl_uses*
 ;
 
 const

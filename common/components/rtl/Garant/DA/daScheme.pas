@@ -1,59 +1,43 @@
 unit daScheme;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daScheme.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::DataScheme::TdaScheme
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daScheme.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaScheme" MUID: (552D07EB03CB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  daTableDescription
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+ , daTableDescription
+;
+
+const
+ da_TreeTableKinds = [da_ftSources, da_ftTypes, da_ftClasses, da_ftKeywords, da_ftBelongs, da_ftWarnings, da_ftCoSources, da_ftPrefixes, da_ftTerritories, da_ftNorms, da_ftAccessGroups, da_ftAnnoClasses, da_ftServiceInfo];
+ cStoredProcCount = 4;
 
 type
  TFamilyDescriptions = array [TdaTables] of IdaTableDescription;
 
- TdaFillTableDescriptionProc = procedure (aTable: TdaTableDescription) of object;
+ TdaFillTableDescriptionProc = procedure(aTable: TdaTableDescription) of object;
 
-const
-  { cTreeTables }
- da_TreeTableKinds = [da_ftSources, da_ftTypes, da_ftClasses, da_ftKeywords, da_ftBelongs, da_ftWarnings, da_ftCoSources, da_ftPrefixes, da_ftTerritories, da_ftNorms, da_ftAccessGroups, da_ftAnnoClasses, da_ftServiceInfo];
-  { cStoredProcs }
- cStoredProcCount = 4;
-
-type
  TdaScheme = class(Tl3ProtoObject)
- private
- // private fields
-   f_Tables : TFamilyDescriptions;
- private
- // private methods
+  private
+   f_Tables: TFamilyDescriptions;
+  private
    procedure BuildMain;
-     {* Сигнатура метода BuildMain }
    procedure BuildFamily;
-     {* Сигнатура метода BuildFamily }
    function MakeTableDescription(aKind: TdaTables;
-     const aSQLName: AnsiString;
-     const aDescription: AnsiString;
-     aProc: TdaFillTableDescriptionProc;
-     const aScheme: AnsiString = '';
-     aDublicate: Boolean = False;
-     aFake: Boolean = False): IdaTableDescription;
+    const aSQLName: AnsiString;
+    const aDescription: AnsiString;
+    aProc: TdaFillTableDescriptionProc;
+    const aScheme: AnsiString = '';
+    aDublicate: Boolean = False;
+    aFake: Boolean = False): IdaTableDescription;
    procedure FillMainAccess(aTable: TdaTableDescription);
    procedure FillMainPassword(aTable: TdaTableDescription);
    procedure FillMainUsers(aTable: TdaTableDescription);
@@ -109,54 +93,52 @@ type
    procedure FillFamilyDocAlarm(aTable: TdaTableDescription);
    procedure FillFamilyAutolinkDoc(aTable: TdaTableDescription);
    procedure FillFamilyAutolinkEdition(aTable: TdaTableDescription);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure BuildScheme;
-     {* Сигнатура метода BuildScheme }
    function CheckScheme(const aSchemeName: AnsiString): AnsiString;
    function Table(aTableKind: TdaTables): IdaTableDescription;
    function StoredProcName(anIndex: Integer): AnsiString;
    function StoredProcsCount: Integer;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TdaScheme;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TdaScheme }
  end;//TdaScheme
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  daFieldDescription
-  ;
+ l3ImplUses
+ , SysUtils
+ , daFieldDescription
+ , l3Base
+;
 
-
-// start class TdaScheme
-
-var g_TdaScheme : TdaScheme = nil;
+var g_TdaScheme: TdaScheme = nil;
+ {* Экземпляр синглетона TdaScheme }
 
 procedure TdaSchemeFree;
+ {* Метод освобождения экземпляра синглетона TdaScheme }
 begin
  l3Free(g_TdaScheme);
-end;
+end;//TdaSchemeFree
 
-class function TdaScheme.Instance: TdaScheme;
+procedure TdaScheme.BuildScheme;
+//#UC START# *552D0A31006D_552D07EB03CB_var*
+var
+ l_Idx : TdaTables;
+//#UC END# *552D0A31006D_552D07EB03CB_var*
 begin
- if (g_TdaScheme = nil) then
- begin
-  l3System.AddExitProc(TdaSchemeFree);
-  g_TdaScheme := Create;
- end;
- Result := g_TdaScheme;
-end;
-
+//#UC START# *552D0A31006D_552D07EB03CB_impl*
+ BuildMain;
+ BuildFamily;
+ for l_Idx := Low(f_Tables) to High(f_Tables) do
+  Assert(Assigned(f_Tables[l_Idx]));
+//#UC END# *552D0A31006D_552D07EB03CB_impl*
+end;//TdaScheme.BuildScheme
 
 procedure TdaScheme.BuildMain;
 //#UC START# *55364525020F_552D07EB03CB_var*
@@ -232,16 +214,16 @@ begin
  f_Tables[da_ftAutolinkEditionsLocal] := MakeTableDescription(da_ftAutolinkEditionsLocal, 'autolink_editions_local', 'Автопростановщик - локальные редакции', FillFamilyAutolinkEdition);
  f_Tables[da_ftAutolinkDocumentsRemote] := MakeTableDescription(da_ftAutolinkDocumentsRemote, 'autolink_doc_remote', 'Автопростановщик - внешние документы', FillFamilyAutolinkDoc);
  f_Tables[da_ftAutolinkEditionsRemote] := MakeTableDescription(da_ftAutolinkEditionsRemote, 'autolink_editions_remote', 'Автопростановщик - внешние редакции', FillFamilyAutolinkEdition);
- //#UC END# *5536453001FD_552D07EB03CB_impl*
+//#UC END# *5536453001FD_552D07EB03CB_impl*
 end;//TdaScheme.BuildFamily
 
 function TdaScheme.MakeTableDescription(aKind: TdaTables;
-  const aSQLName: AnsiString;
-  const aDescription: AnsiString;
-  aProc: TdaFillTableDescriptionProc;
-  const aScheme: AnsiString = '';
-  aDublicate: Boolean = False;
-  aFake: Boolean = False): IdaTableDescription;
+ const aSQLName: AnsiString;
+ const aDescription: AnsiString;
+ aProc: TdaFillTableDescriptionProc;
+ const aScheme: AnsiString = '';
+ aDublicate: Boolean = False;
+ aFake: Boolean = False): IdaTableDescription;
 //#UC START# *5539EF2000FF_552D07EB03CB_var*
 var
  l_Table: TdaTableDescription;
@@ -886,6 +868,18 @@ begin
 //#UC END# *553F318A0380_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocAlarm
 
+function TdaScheme.CheckScheme(const aSchemeName: AnsiString): AnsiString;
+//#UC START# *56654FC70181_552D07EB03CB_var*
+//#UC END# *56654FC70181_552D07EB03CB_var*
+begin
+//#UC START# *56654FC70181_552D07EB03CB_impl*
+ if Trim(aSchemeName) = '' then
+  Result := 'archi'
+ else
+  Result := Trim(aSchemeName);
+//#UC END# *56654FC70181_552D07EB03CB_impl*
+end;//TdaScheme.CheckScheme
+
 procedure TdaScheme.FillFamilyAutolinkDoc(aTable: TdaTableDescription);
 //#UC START# *569F44020026_552D07EB03CB_var*
 //#UC END# *569F44020026_552D07EB03CB_var*
@@ -913,32 +907,6 @@ begin
  aTable.AddField(TdaFieldDescription.Make('Finish', 'Дата окончания действия', True, da_dtDate));
 //#UC END# *569F444D0185_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyAutolinkEdition
-
-procedure TdaScheme.BuildScheme;
-//#UC START# *552D0A31006D_552D07EB03CB_var*
-var
- l_Idx : TdaTables;
-//#UC END# *552D0A31006D_552D07EB03CB_var*
-begin
-//#UC START# *552D0A31006D_552D07EB03CB_impl*
- BuildMain;
- BuildFamily;
- for l_Idx := Low(f_Tables) to High(f_Tables) do
-  Assert(Assigned(f_Tables[l_Idx]));
-//#UC END# *552D0A31006D_552D07EB03CB_impl*
-end;//TdaScheme.BuildScheme
-
-function TdaScheme.CheckScheme(const aSchemeName: AnsiString): AnsiString;
-//#UC START# *56654FC70181_552D07EB03CB_var*
-//#UC END# *56654FC70181_552D07EB03CB_var*
-begin
-//#UC START# *56654FC70181_552D07EB03CB_impl*
- if Trim(aSchemeName) = '' then
-  Result := 'archi'
- else
-  Result := Trim(aSchemeName);
-//#UC END# *56654FC70181_552D07EB03CB_impl*
-end;//TdaScheme.CheckScheme
 
 function TdaScheme.Table(aTableKind: TdaTables): IdaTableDescription;
 //#UC START# *552FBDF700C9_552D07EB03CB_var*
@@ -976,12 +944,24 @@ begin
 end;//TdaScheme.StoredProcsCount
 
 class function TdaScheme.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TdaScheme <> nil;
 end;//TdaScheme.Exists
 
+class function TdaScheme.Instance: TdaScheme;
+ {* Метод получения экземпляра синглетона TdaScheme }
+begin
+ if (g_TdaScheme = nil) then
+ begin
+  l3System.AddExitProc(TdaSchemeFree);
+  g_TdaScheme := Create;
+ end;
+ Result := g_TdaScheme;
+end;//TdaScheme.Instance
+
 procedure TdaScheme.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_552D07EB03CB_var*
 var
  l_Idx : TdaTables;

@@ -1,49 +1,35 @@
 unit htField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htField.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtField" MUID: (559E77B902D8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  htInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  HT_Const
-  {$IfEnd} //not Nemesis
-  ,
-  daTypes,
-  l3Date
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ {$If NOT Defined(Nemesis)}
+ , HT_Const
+ {$IfEnd} // NOT Defined(Nemesis)
+ , htInterfaces
+ , daTypes
+ , l3Date
+;
 
 type
  ThtField = class(Tl3ProtoObject, IdaField)
- private
- // private fields
-   f_ClientInfo : IdaSelectField;
-   f_ServerInfo : OPEL;
-   f_DataBuffer : IdaResultBuffer;
-   f_DataConverter : IhtDataConverter;
- private
- // private methods
+  private
+   f_ClientInfo: IdaSelectField;
+   f_ServerInfo: OPEL;
+   f_DataBuffer: IdaResultBuffer;
+   f_DataConverter: IhtDataConverter;
+  private
    function BufferPtr: Pointer;
- protected
- // realized methods
+  protected
    function Get_AsLargeInt: LargeInt;
    function Get_AsInteger: Integer;
    function Get_AsStDate: TStDate;
@@ -51,40 +37,29 @@ type
    function Get_AsString: AnsiString;
    function Get_AsByte: Byte;
    function Get_Alias: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDataBuffer: IdaResultBuffer;
-     const aDataConverter: IhtDataConverter;
-     const aClientInfo: IdaSelectField;
-     const aServerInfo: OPEL); reintroduce;
+    const aDataConverter: IhtDataConverter;
+    const aClientInfo: IdaSelectField;
+    const aServerInfo: OPEL); reintroduce;
    class function Make(const aDataBuffer: IdaResultBuffer;
-     const aDataConverter: IhtDataConverter;
-     const aClientInfo: IdaSelectField;
-     const aServerInfo: OPEL): IdaField; reintroduce;
-     {* Сигнатура фабрики ThtField.Make }
+    const aDataConverter: IhtDataConverter;
+    const aClientInfo: IdaSelectField;
+    const aServerInfo: OPEL): IdaField; reintroduce;
  end;//ThtField
 
 implementation
 
-// start class ThtField
-
-function ThtField.BufferPtr: Pointer;
-//#UC START# *55C8A09B00F0_559E77B902D8_var*
-//#UC END# *55C8A09B00F0_559E77B902D8_var*
-begin
-//#UC START# *55C8A09B00F0_559E77B902D8_impl*
- Result := f_DataBuffer.FieldBufferPtr(f_ServerInfo.nNum - 1);
-//#UC END# *55C8A09B00F0_559E77B902D8_impl*
-end;//ThtField.BufferPtr
+uses
+ l3ImplUses
+;
 
 constructor ThtField.Create(const aDataBuffer: IdaResultBuffer;
-  const aDataConverter: IhtDataConverter;
-  const aClientInfo: IdaSelectField;
-  const aServerInfo: OPEL);
+ const aDataConverter: IhtDataConverter;
+ const aClientInfo: IdaSelectField;
+ const aServerInfo: OPEL);
 //#UC START# *559E77D30158_559E77B902D8_var*
 //#UC END# *559E77D30158_559E77B902D8_var*
 begin
@@ -100,9 +75,9 @@ begin
 end;//ThtField.Create
 
 class function ThtField.Make(const aDataBuffer: IdaResultBuffer;
-  const aDataConverter: IhtDataConverter;
-  const aClientInfo: IdaSelectField;
-  const aServerInfo: OPEL): IdaField;
+ const aDataConverter: IhtDataConverter;
+ const aClientInfo: IdaSelectField;
+ const aServerInfo: OPEL): IdaField;
 var
  l_Inst : ThtField;
 begin
@@ -112,7 +87,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtField.Make
+
+function ThtField.BufferPtr: Pointer;
+//#UC START# *55C8A09B00F0_559E77B902D8_var*
+//#UC END# *55C8A09B00F0_559E77B902D8_var*
+begin
+//#UC START# *55C8A09B00F0_559E77B902D8_impl*
+ Result := f_DataBuffer.FieldBufferPtr(f_ServerInfo.nNum - 1);
+//#UC END# *55C8A09B00F0_559E77B902D8_impl*
+end;//ThtField.BufferPtr
 
 function ThtField.Get_AsLargeInt: LargeInt;
 //#UC START# *5593905401D1_559E77B902D8get_var*
@@ -178,6 +162,7 @@ begin
 end;//ThtField.Get_Alias
 
 procedure ThtField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_559E77B902D8_var*
 //#UC END# *479731C50290_559E77B902D8_var*
 begin

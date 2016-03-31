@@ -1,46 +1,33 @@
 unit atJurQueryTestOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atJurQueryTestOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatJurQueryTestOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atJurQueryTestOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatJurQueryTestOperation" MUID: (5051E5CB00F4)
 
 interface
 
 uses
-  Classes,
-  atOperationBase,
-  atStringFileReader,
-  SearchUnit,
-  atQuery
-  ;
+ l3IntfUses
+ , atOperationBase
+ , Classes
+ , atStringFileReader
+ , atQuery
+ , SearchUnit
+;
 
 type
  _atIterateThroughFilesAddOn_Parent_ = TatOperationBase;
- {$Include ..\Operations\atIterateThroughFilesAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
  _atExecutesQueryAddOn_Parent_ = _atIterateThroughFilesAddOn_;
- {$Include ..\Operations\atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatJurQueryTestOperation = class(_atExecutesQueryAddOn_)
- private
- // private fields
-   f_ImportErrors : TStringList;
-   f_Errors : TStringList;
-   f_ResultsDir : AnsiString;
-   f_IsInternalNumbers : Boolean;
- protected
- // realized methods
+  private
+   f_ImportErrors: TStringList;
+   f_Errors: TStringList;
+   f_ResultsDir: AnsiString;
+   f_IsInternalNumbers: Boolean;
+  protected
    function OnFile(const aFileName: AnsiString): Boolean; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteSelf; override;
  end;//TatJurQueryTestOperation
@@ -48,26 +35,25 @@ type
 implementation
 
 uses
-  atLogger,
-  atListHelper,
-  SysUtils,
-  XMLDoc,
-  XMLIntf,
-  DynamicTreeUnit,
-  atListEntryInfo,
-  atNodeHelper,
-  atFileInitializer,
-  atFileIterator,
-  atSyncedStringFileReader,
-  atOperationEnv,
-  atSearchHelper
-  ;
+ l3ImplUses
+ , atLogger
+ , atListHelper
+ , SysUtils
+ , XMLDoc
+ , XMLIntf
+ , DynamicTreeUnit
+ , atListEntryInfo
+ , atNodeHelper
+ , atFileInitializer
+ , atFileIterator
+ , atSyncedStringFileReader
+ , atOperationEnv
+ , atSearchHelper
+;
 
-{$Include ..\Operations\atIterateThroughFilesAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
 
-{$Include ..\Operations\atExecutesQueryAddOn.imp.pas}
-
-// start class TatJurQueryTestOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 function TatJurQueryTestOperation.OnFile(const aFileName: AnsiString): Boolean;
 //#UC START# *502A649F0204_5051E5CB00F4_var*

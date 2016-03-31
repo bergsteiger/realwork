@@ -1,57 +1,41 @@
 unit pgFunctionSelectField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgFunctionSelectField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgFunctionSelectField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgFunctionSelectField.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunctionSelectField" MUID: (567A8BE7002D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daInterfaces
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+;
 
-{$If defined(UsePostgres)}
 type
  TpgFunctionSelectField = class(Tl3ProtoObject, IdaSelectField)
- private
- // private fields
-   f_Description : IdaParamDescription;
- protected
- // realized methods
+  private
+   f_Description: IdaParamDescription;
+  protected
    function Get_Alias: AnsiString;
    function BuildSQLValue: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDescription: IdaParamDescription); reintroduce;
    class function Make(const aDescription: IdaParamDescription): IdaSelectField; reintroduce;
-     {* Сигнатура фабрики TpgFunctionSelectField.Make }
  end;//TpgFunctionSelectField
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
-
-// start class TpgFunctionSelectField
+{$If Defined(UsePostgres)}
+uses
+ l3ImplUses
+;
 
 constructor TpgFunctionSelectField.Create(const aDescription: IdaParamDescription);
 //#UC START# *567BB5780118_567A8BE7002D_var*
@@ -73,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TpgFunctionSelectField.Make
 
 function TpgFunctionSelectField.Get_Alias: AnsiString;
 //#UC START# *555352070022_567A8BE7002Dget_var*
@@ -94,6 +78,7 @@ begin
 end;//TpgFunctionSelectField.BuildSQLValue
 
 procedure TpgFunctionSelectField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_567A8BE7002D_var*
 //#UC END# *479731C50290_567A8BE7002D_var*
 begin
@@ -102,7 +87,6 @@ begin
  inherited;
 //#UC END# *479731C50290_567A8BE7002D_impl*
 end;//TpgFunctionSelectField.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

@@ -1,27 +1,18 @@
 unit m3StoragePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StoragePrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3StoragePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StoragePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StoragePrim" MUID: (540F286903C7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3BaseStorage,
-  SyncObjs
-  ;
+ l3IntfUses
+ , m3BaseStorage
+ , SyncObjs
+;
 
 type
  _l3CriticalSectionHolder_Parent_ = Tm3BaseStorage;
@@ -32,8 +23,9 @@ type
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 

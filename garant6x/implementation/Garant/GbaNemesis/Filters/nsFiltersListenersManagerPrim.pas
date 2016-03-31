@@ -1,70 +1,48 @@
 unit nsFiltersListenersManagerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersListenersManagerPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::FiltersNotification::TnsFiltersListenersManagerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersManagerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersListenersManagerPrim" MUID: (4F98242D007E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FiltersUnit,
-  l3ProtoObject,
-  nsFiltersInterfaces,
-  nsFiltersListenersList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , FiltersUnit
+ , nsFiltersListenersList
+ , nsFiltersInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersListenersManagerPrim = class(Tl3ProtoObject, IFilterNotifier)
- private
- // private fields
-   f_Listeners : TnsFiltersListenersList;
- protected
- // realized methods
+  private
+   f_Listeners: TnsFiltersListenersList;
+  protected
+   class function GetInstance: TnsFiltersListenersManagerPrim; virtual; abstract;
+   class function HasInstance: Boolean; virtual; abstract;
    procedure FiltersChanged; stdcall;
    procedure FilterNameChanged; stdcall;
    procedure FilterPermanenceChanged; stdcall;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   class function GetInstance: TnsFiltersListenersManagerPrim; virtual; abstract;
-   class function HasInstance: Boolean; virtual; abstract;
- public
- // public methods
+  public
    class procedure AddListener(const aListener: InsFiltersListener);
    class procedure RemoveListener(const aListener: InsFiltersListener);
  end;//TnsFiltersListenersManagerPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFiltersListenersManagerPrim
+ l3ImplUses
+ , l3Base
+;
 
 class procedure TnsFiltersListenersManagerPrim.AddListener(const aListener: InsFiltersListener);
 //#UC START# *4F982629031E_4F98242D007E_var*
@@ -124,6 +102,7 @@ begin
 end;//TnsFiltersListenersManagerPrim.FilterPermanenceChanged
 
 procedure TnsFiltersListenersManagerPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F98242D007E_var*
 //#UC END# *479731C50290_4F98242D007E_var*
 begin
@@ -142,7 +121,6 @@ begin
  f_Listeners := TnsFiltersListenersList.Create; 
 //#UC END# *47A042E100E2_4F98242D007E_impl*
 end;//TnsFiltersListenersManagerPrim.InitFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

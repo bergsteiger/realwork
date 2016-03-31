@@ -1327,7 +1327,7 @@ function TPrimBaseSearchForm.pm_GetIsMainInUseCase: Boolean;
 //#UC END# *56E13D0501D6_4AB791130260get_var*
 begin
 //#UC START# *56E13D0501D6_4AB791130260get_impl*
- !!! Needs to be implemented !!!
+ Result := MainMenuLikeBaseSearch;
 //#UC END# *56E13D0501D6_4AB791130260get_impl*
 end;//TPrimBaseSearchForm.pm_GetIsMainInUseCase
 
@@ -1336,7 +1336,7 @@ function TPrimBaseSearchForm.pm_GetVisible: Boolean;
 //#UC END# *56F5028901D2_4AB791130260get_var*
 begin
 //#UC START# *56F5028901D2_4AB791130260get_impl*
- !!! Needs to be implemented !!!
+ Result := Visible;
 //#UC END# *56F5028901D2_4AB791130260get_impl*
 end;//TPrimBaseSearchForm.pm_GetVisible
 

@@ -1,50 +1,35 @@
 unit atScenarioPlayer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atScenarioPlayer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::OperationsFramework::TatScenarioPlayer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atScenarioPlayer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatScenarioPlayer" MUID: (4808A6A50028)
 
 interface
 
 uses
-  atExecutionContext,
-  atScenario
-  ;
+ l3IntfUses
+ , atScenario
+ , atExecutionContext
+;
 
 type
  TatScenarioPlayer = class(TObject)
- private
- // private fields
-   f_Scenario : TatScenario;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public fields
-   F_ExecutionContext : TatExecutionContext;
- public
- // public methods
+  private
+   f_Scenario: TatScenario;
+  public
+   F_ExecutionContext: TatExecutionContext;
+  public
    constructor Create(scenario: TatScenario); reintroduce;
    procedure Execute;
+   destructor Destroy; override;
  end;//TatScenarioPlayer
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatScenarioPlayer
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TatScenarioPlayer.Create(scenario: TatScenario);
 //#UC START# *4808A73202A6_4808A6A50028_var*

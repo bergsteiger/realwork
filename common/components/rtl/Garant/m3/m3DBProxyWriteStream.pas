@@ -1,65 +1,45 @@
 unit m3DBProxyWriteStream;
+ {* Поток, пишущий в базу }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m3/m3DBProxyWriteStream.pas"
-// Начат: 17.03.2009 18:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBProxyWriteStream
-//
-// Поток, пишущий в базу
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3DBProxyWriteStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBProxyWriteStream" MUID: (49BFC520008A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  m3DBProxyStream
-  ;
+ l3IntfUses
+ , m3DBProxyStream
+ , l3Interfaces
+;
 
 type
  Tm3DBProxyWriteStream = class(Tm3DBProxyStream, Il3Rollback)
   {* Поток, пишущий в базу }
- private
- // private fields
-   f_NeedCommit : Boolean;
-    {* Сохранять ли изменения}
- protected
- // property methods
+  private
+   f_NeedCommit: Boolean;
+    {* Сохранять ли изменения }
+  protected
    function pm_GetIsNewVersion: Boolean; virtual;
- protected
- // realized methods
    procedure Rollback;
-     {* Откатить данные }
- protected
- // overridden protected methods
+    {* Откатить данные }
    procedure InitFields; override;
    procedure BeforeRelease; override;
- public
- // public properties
+  public
    property IsNewVersion: Boolean
-     read pm_GetIsNewVersion;
-     {* Новая версия документа }
+    read pm_GetIsNewVersion;
+    {* Новая версия документа }
  end;//Tm3DBProxyWriteStream
 
 implementation
 
 uses
-  SysUtils,
-  l3Base
-  ;
-
-// start class Tm3DBProxyWriteStream
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 function Tm3DBProxyWriteStream.pm_GetIsNewVersion: Boolean;
 //#UC START# *49BFE6600304_49BFC520008Aget_var*
@@ -71,6 +51,7 @@ begin
 end;//Tm3DBProxyWriteStream.pm_GetIsNewVersion
 
 procedure Tm3DBProxyWriteStream.Rollback;
+ {* Откатить данные }
 //#UC START# *49C1040A0256_49BFC520008A_var*
 //#UC END# *49C1040A0256_49BFC520008A_var*
 begin

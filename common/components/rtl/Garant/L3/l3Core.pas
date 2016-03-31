@@ -11,11 +11,11 @@ interface
 
 uses
  l3IntfUses
+ , Types
+ , Messages
  , Classes
  , Graphics
  , Windows
- , Types
- , Messages
 ;
 
 const

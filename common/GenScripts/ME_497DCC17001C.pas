@@ -69,6 +69,7 @@ type
    class function Make(const aTree: IeeTree): IvcmBase;
  end;//TnsSelectedFiltersState
 
+ _FiltersUserTypes_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas}
  TPrimFiltersForm = class(_FiltersUserTypes_)
   {* Фильтры }
@@ -201,6 +202,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Local }
  str_CreateFilter: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CreateFilter'; rValue : 'Создать фильтр...');
@@ -802,7 +804,6 @@ begin
 //#UC END# *4D0B5FBF0310_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.Filter_CreateFilter_Execute
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -814,9 +815,7 @@ begin
   SetActiveFilters;
 //#UC END# *497469C90140_497DCC17001C_impl*
 end;//TPrimFiltersForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497DCC17001C_var*
@@ -826,9 +825,7 @@ begin
  FiltersList.Images := nsFoldersRes.FoldersItemImages;
 //#UC END# *49803F5503AA_497DCC17001C_impl*
 end;//TPrimFiltersForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimFiltersForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -847,9 +844,7 @@ begin
  end;
 //#UC END# *49806ED503D5_497DCC17001C_impl*
 end;//TPrimFiltersForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimFiltersForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -883,9 +878,7 @@ begin
    Assert(False);
 //#UC END# *49807428008C_497DCC17001C_impl*
 end;//TPrimFiltersForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497DCC17001C_var*
@@ -919,7 +912,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DCC17001C_impl*
 end;//TPrimFiltersForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_CreateFilter.Init;
@@ -928,6 +920,7 @@ initialization
  TtfwClassRef.Register(TPrimFiltersForm);
  {* Регистрация PrimFilters }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

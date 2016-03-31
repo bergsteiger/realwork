@@ -25,6 +25,8 @@ uses
  , vtOutliner
  , l3CacheableBase
  , eeInterfacesEx
+ //#UC START# *499C0B7B012Eintf_uses*
+ //#UC END# *499C0B7B012Eintf_uses*
 ;
 
 type
@@ -304,6 +306,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *499C0B7B012Eimpl_uses*
+ //#UC END# *499C0B7B012Eimpl_uses*
 ;
 
 type

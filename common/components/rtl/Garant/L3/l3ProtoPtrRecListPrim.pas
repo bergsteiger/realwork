@@ -1,34 +1,23 @@
 unit l3ProtoPtrRecListPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ProtoPtrRecListPrim.pas"
-// Начат: 20.04.2006 17:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3ProtoPtrRecListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPtrRecListPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoPtrRecListPrim" MUID: (479DF9C5033A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Memory,
-  l3ProtoDataContainer,
-  l3PureMixIns,
-  l3Interfaces,
-  l3Types,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3PureMixIns
+ , l3Interfaces
+ , l3Types
+ , Classes
+ , l3Except
+;
 
  {$Define l3Items_NeedsBeforeFreeItem}
 
@@ -39,25 +28,26 @@ uses
 type
  _DataType_ = Tl3Ptr;
  _l3Changing_Parent_ = Tl3ProtoDataContainer;
- {$Include ..\L3\l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  _l3UntypedList_Parent_ = _l3Changing_;
- {$Include ..\L3\l3UntypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
  Tl3ProtoPtrRecListPrim = class(_l3UntypedList_)
  end;//Tl3ProtoPtrRecListPrim
 
 implementation
 
 uses
-  SysUtils,
-  RTLConsts,
-  l3Base,
-  l3MinMax
-  ;
+ l3ImplUses
+ , SysUtils
+ , RTLConsts
+ , l3Base
+ , l3MinMax
+;
 
-{$Include ..\L3\l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 type _Instance_R_ = Tl3ProtoPtrRecListPrim;
 
-{$Include ..\L3\l3UntypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
 
 end.

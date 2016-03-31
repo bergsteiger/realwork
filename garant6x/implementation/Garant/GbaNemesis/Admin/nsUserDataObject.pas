@@ -1,51 +1,37 @@
 unit nsUserDataObject;
+ {* Объект данных для нод дерева пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/nsUserDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::UsersDataObjects::TnsUserDataObject
-//
-// Объект данных для нод дерева пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserDataObject" MUID: (49F56C06023C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3Interfaces,
-  bsInterfaces,
-  evPersistentDataObjectEx,
-  l3IID,
-  evPersistentDataObject,
-  nevBase,
-  evdInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , evPersistentDataObjectEx
+ , bsInterfaces
+ , l3Interfaces
+ , l3IID
+ , evPersistentDataObject
+ , nevBase
+ , evdInterfaces
+;
 
-{$If defined(Admin)}
 type
  TnsUserDataObject = class(TevPersistentDataObjectEx)
   {* Объект данных для нод дерева пользователей }
- private
- // private fields
-   f_Inited : Boolean;
-    {* Данные зачитаны в поток.}
-   f_List : IbsSelectedUsers;
- protected
- // overridden protected methods
+  private
+   f_Inited: Boolean;
+    {* Данные зачитаны в поток. }
+   f_List: IbsSelectedUsers;
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* метод для реализации QueryInterface (Для перекрытия в потомках) }
+    {* метод для реализации QueryInterface (Для перекрытия в потомках) }
    function DataObjectClass: RevDataObject; override;
    function GetIsQuestionNeedBeforeFlush: Boolean; override;
    function DoStore(aFormat: TnevFormat;
@@ -53,34 +39,28 @@ type
     const aFilters: InevTagGenerator;
     aFlags: TevdStoreFlags): Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aList: IbsSelectedUsers); reintroduce;
    class function Make(const aList: IbsSelectedUsers): IDataObject; reintroduce;
  end;//TnsUserDataObject
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  nevTools,
-  evTypes,
-  l3Base,
-  Classes,
-  nsUserInterfacedDataObject,
-  l3Types,
-  k2Tags,
-  evdNativeWriter,
-  Document_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TnsUserDataObject
+ l3ImplUses
+ , nevTools
+ , evTypes
+ , l3Base
+ , Classes
+ , nsUserInterfacedDataObject
+ , l3Types
+ , k2Tags
+ , evdNativeWriter
+ , Document_Const
+ , TextPara_Const
+;
 
 constructor TnsUserDataObject.Create(const aList: IbsSelectedUsers);
 //#UC START# *49F56D450147_49F56C06023C_var*
@@ -114,10 +94,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsUserDataObject.Make
 
 function TnsUserDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* метод для реализации QueryInterface (Для перекрытия в потомках) }
 //#UC START# *48F475350256_49F56C06023C_var*
 //#UC END# *48F475350256_49F56C06023C_var*
 begin
@@ -151,9 +132,9 @@ begin
 end;//TnsUserDataObject.GetIsQuestionNeedBeforeFlush
 
 function TnsUserDataObject.DoStore(aFormat: TnevFormat;
-  const aPool: IStream;
-  const aFilters: InevTagGenerator;
-  aFlags: TevdStoreFlags): Boolean;
+ const aPool: IStream;
+ const aFilters: InevTagGenerator;
+ aFlags: TevdStoreFlags): Boolean;
 //#UC START# *48F481B6035B_49F56C06023C_var*
 var
  l_Writer: TevdNativeWriter;
@@ -199,14 +180,10 @@ begin
 end;//TnsUserDataObject.DoStore
 
 procedure TnsUserDataObject.ClearFields;
- {-}
 begin
- {$If defined(Admin)}
  f_List := nil;
- {$IfEnd} //Admin
  inherited;
 end;//TnsUserDataObject.ClearFields
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

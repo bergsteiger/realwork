@@ -1,41 +1,30 @@
 {$IfNDef atHasStringParamAddOn_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atHasStringParamAddOn.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atHasStringParamAddOn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atHasStringParamAddOn" MUID: (5036475001FC)
+// Имя типа: "_atHasStringParamAddOn_"
 
 {$Define atHasStringParamAddOn_imp}
- _atHasStringParamAddOn_ = {mixin} class(_atHasStringParamAddOn_Parent_)
- private
- // private fields
-   f_Strings : TatStringProvider;
- private
- // private methods
+
+ _atHasStringParamAddOn_ = class(_atHasStringParamAddOn_Parent_)
+  private
+   f_Strings: TatStringProvider;
+  private
    function InitStringList: Boolean; virtual;
- protected
- // realized methods
-   procedure ExecuteSelf; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitParamList; override;
- protected
- // protected methods
+  protected
    function OnString(const aString: AnsiString): Boolean; virtual; abstract;
+   procedure ExecuteSelf; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitParamList; override;
  end;//_atHasStringParamAddOn_
 
 {$Else atHasStringParamAddOn_imp}
 
-// start class _atHasStringParamAddOn_
+{$IfNDef atHasStringParamAddOn_imp_impl}
+
+{$Define atHasStringParamAddOn_imp_impl}
 
 function _atHasStringParamAddOn_.InitStringList: Boolean;
 //#UC START# *5036545B039D_5036475001FC_var*
@@ -90,6 +79,7 @@ begin
 end;//_atHasStringParamAddOn_.ExecuteSelf
 
 procedure _atHasStringParamAddOn_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5036475001FC_var*
 //#UC END# *479731C50290_5036475001FC_var*
 begin
@@ -117,4 +107,7 @@ begin
 //#UC END# *48089F3701B4_5036475001FC_impl*
 end;//_atHasStringParamAddOn_.InitParamList
 
+{$EndIf atHasStringParamAddOn_imp_impl}
+
 {$EndIf atHasStringParamAddOn_imp}
+

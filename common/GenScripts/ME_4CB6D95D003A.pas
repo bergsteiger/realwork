@@ -29,7 +29,7 @@ uses
 ;
 
 type
- TPrimCreateFilterForm = class
+ TPrimCreateFilterForm = class(TvcmEntityForm)
   private
    ViewArea: IdsCreateFilter;
    f_NameLabel: TvtLabel;
@@ -92,6 +92,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки cfCreateLocalConstants }
  str_cfCreateCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfCreateCaption'; rValue : 'Создать фильтр');
@@ -112,7 +113,6 @@ begin
  end;//try..finally
 end;//TPrimCreateFilterForm.Make
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCreateFilterForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
 //#UC START# *4C762A1501FC_4CB6D95D003Aexec_var*
@@ -122,9 +122,7 @@ begin
  Result_OkExt_Execute(aParams);
 //#UC END# *4C762A1501FC_4CB6D95D003Aexec_impl*
 end;//TPrimCreateFilterForm.Result_Ok_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCreateFilterForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
 //#UC START# *4C762C910358_4CB6D95D003Aexec_var*
@@ -134,9 +132,7 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4C762C910358_4CB6D95D003Aexec_impl*
 end;//TPrimCreateFilterForm.Result_Cancel_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCreateFilterForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
 //#UC START# *4C762D9B0224_4CB6D95D003Aexec_var*
@@ -150,9 +146,7 @@ begin
  ModalResult := mrOk;
 //#UC END# *4C762D9B0224_4CB6D95D003Aexec_impl*
 end;//TPrimCreateFilterForm.Result_OkExt_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCreateFilterForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -165,9 +159,7 @@ begin
   FilterName.Text := ViewArea.Name;
 //#UC END# *497469C90140_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCreateFilterForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4CB6D95D003A_var*
@@ -178,9 +170,7 @@ begin
  CCaption := l3CStr(CurUserType.Caption);
 //#UC END# *49803F5503AA_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCreateFilterForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4CB6D95D003A_var*
@@ -201,7 +191,6 @@ begin
  Position := poScreenCenter;
 //#UC END# *4A8E8F2E0195_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_cfCreateCaption.Init;
@@ -212,6 +201,7 @@ initialization
  TtfwClassRef.Register(TPrimCreateFilterForm);
  {* Регистрация PrimCreateFilter }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

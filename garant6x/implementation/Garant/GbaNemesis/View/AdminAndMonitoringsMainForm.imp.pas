@@ -1,34 +1,30 @@
 {$IfNDef AdminAndMonitoringsMainForm_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/AdminAndMonitoringsMainForm.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Common For Admin And Monitoring::View::MainForm::AdminAndMonitoringsMainForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "AdminAndMonitoringsMainForm" MUID: (4F7C1E96000A)
+// Имя типа: "_AdminAndMonitoringsMainForm_"
 
 {$Define AdminAndMonitoringsMainForm_imp}
- _AdminAndMonitoringsMainForm_ = {abstract mixin} class(_AdminAndMonitoringsMainForm_Parent_)
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+
+ _AdminAndMonitoringsMainForm_ = {abstract} class(_AdminAndMonitoringsMainForm_Parent_)
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure LoadSettings; override;
  end;//_AdminAndMonitoringsMainForm_
 
 {$Else AdminAndMonitoringsMainForm_imp}
 
-// start class _AdminAndMonitoringsMainForm_
+{$IfNDef AdminAndMonitoringsMainForm_imp_impl}
 
-{$If not defined(NoVCM)}
+{$Define AdminAndMonitoringsMainForm_imp_impl}
+
+{$If NOT Defined(NoVCM)}
 procedure _AdminAndMonitoringsMainForm_.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F7C1E96000A_var*
 //#UC END# *49803F5503AA_4F7C1E96000A_var*
 begin
@@ -47,7 +43,7 @@ begin
  end;//with Dispatcher
 //#UC END# *49803F5503AA_4F7C1E96000A_impl*
 end;//_AdminAndMonitoringsMainForm_.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _AdminAndMonitoringsMainForm_.LoadSettings;
 //#UC START# *4F7B0815025A_4F7C1E96000A_var*
@@ -68,4 +64,7 @@ begin
 //#UC END# *4F7B0815025A_4F7C1E96000A_impl*
 end;//_AdminAndMonitoringsMainForm_.LoadSettings
 
+{$EndIf AdminAndMonitoringsMainForm_imp_impl}
+
 {$EndIf AdminAndMonitoringsMainForm_imp}
+

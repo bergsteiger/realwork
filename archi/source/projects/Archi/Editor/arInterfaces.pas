@@ -1,40 +1,37 @@
 unit arInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/arInterfaces.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> archi::Editor::arInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\arInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "arInterfaces" MUID: (53EC893302E3)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3Interfaces
+;
 
 type
- IInfoOut = interface(IUnknown)
-   ['{6F7B46BD-A994-43D8-B879-BACC11B55687}']
-   procedure AddString(const aStr: AnsiString;
-    aFormat: Tl3ClipboardFormat = cf_Text);
-   procedure StartData;
-   procedure EndData;
+ IInfoOut = interface
+  ['{6F7B46BD-A994-43D8-B879-BACC11B55687}']
+  procedure AddString(const aStr: AnsiString;
+   aFormat: Tl3ClipboardFormat = cf_Text);
+  procedure StartData;
+  procedure EndData;
  end;//IInfoOut
 
- TarFillDocInfo = procedure (const lInfoOut: IInfoOut) of object;
-{$IfEnd} //AppClientSide
+ TarFillDocInfo = procedure(const lInfoOut: IInfoOut) of object;
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
+
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(AppClientSide)
 
 end.

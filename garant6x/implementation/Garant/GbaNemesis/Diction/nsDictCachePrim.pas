@@ -1,97 +1,70 @@
 unit nsDictCachePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/nsDictCachePrim.pas"
-// Начат: 2004/02/20 08:36:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Diction::Diction::Diction$Unit::TnsDictCachePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCachePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictCachePrim" MUID: (4908190C017C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3CacheableBase,
-  bsTypes,
-  nsLangList,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CacheableBase
+ , nsLangList
+ , DynamicTreeUnit
+ , bsTypes
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _afwApplicationDataUpdate_Parent_ = Tl3CacheableBase;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsDictCachePrim = class(_afwApplicationDataUpdate_)
- private
- // private fields
-   f_AvailableLangs : TnsLangList;
-   f_IsRootReceived : Boolean;
-    {* Поле для свойства IsRootReceived}
-   f_Root : INodeBase;
-    {* Поле для свойства Root}
- protected
- // property methods
+  private
+   f_AvailableLangs: TnsLangList;
+   f_IsRootReceived: Boolean;
+    {* Поле для свойства IsRootReceived }
+   f_Root: INodeBase;
+    {* Поле для свойства Root }
+  protected
    function pm_GetRoot: INodeBase;
- protected
- // overridden protected methods
+   function DoGetRoot: INodeBase; virtual; abstract;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DoGetRoot: INodeBase; virtual; abstract;
- public
- // public methods
+  public
    procedure ClearCache; virtual;
    function ContainsLang(aLang: TbsLanguage): Boolean;
- protected
- // protected properties
+  protected
    property IsRootReceived: Boolean
-     read f_IsRootReceived
-     write f_IsRootReceived;
-     {* определяет получали ли мы корень дерева толкования с адаптера. Для
+    read f_IsRootReceived
+    write f_IsRootReceived;
+    {* определяет получали ли мы корень дерева толкования с адаптера. Для
            случая, когда обновились на базу без толкового словаря и для кнопок
            панели иснтрументов спрашиваем доступные языки, это позволит
            избавится от большого количества серверных вызоов }
- public
- // public properties
+  public
    property Root: INodeBase
-     read pm_GetRoot;
+    read pm_GetRoot;
  end;//TnsDictCachePrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsConvert,
-  DataAdapter,
-  nsTypes,
-  l3Base,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , bsConvert
+ , DataAdapter
+ , nsTypes
+ , l3Base
+ , afwFacade
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-// start class TnsDictCachePrim
 
 function TnsDictCachePrim.pm_GetRoot: INodeBase;
 //#UC START# *490819DA005E_4908190C017Cget_var*
@@ -152,6 +125,7 @@ begin
 end;//TnsDictCachePrim.ContainsLang
 
 procedure TnsDictCachePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4908190C017C_var*
 //#UC END# *479731C50290_4908190C017C_var*
 begin
@@ -173,14 +147,10 @@ begin
 end;//TnsDictCachePrim.FinishDataUpdate
 
 procedure TnsDictCachePrim.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Root := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsDictCachePrim.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

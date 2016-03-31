@@ -1,86 +1,58 @@
 unit GUIAppTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Shared Delphi Tests Common"
-// Модуль: "w:/common/components/rtl/Garant/Shared_Delphi_Tests_Common/GUIAppTester.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::Shared Delphi Tests Common::Tests Res Common::TGUIAppTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TGUIAppTester" MUID: (52F255E702F0)
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  l3ProtoObject
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  GUITestRunner
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
-  ,
-  tfwScriptDebugger
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ {$If Defined(InsiderTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
+ , tfwScriptDebugger
+ {$IfEnd} // Defined(InsiderTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
+ , GUITestRunner
+;
 
-{$If defined(nsTest)}
 type
  TResultsPlaces = array of RTestResultsPlace;
 
  _GUIAppTester_Parent_ = Tl3ProtoObject;
- {$Include ..\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
+ {$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
  TGUIAppTester = {abstract} class(_GUIAppTester_)
- public
- // realized methods
-   class function CalcBatchMode: Boolean; override;
- protected
- // protected methods
+  protected
    class function GetResultsPlaces: TResultsPlaces; virtual; abstract;
    class function MakeResults(const aPlaces: array of RTestResultsPlace): TResultsPlaces;
+  public
+   class function CalcBatchMode: Boolean; override;
  end;//TGUIAppTester
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngineEX
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  ,
-  TestFrameWork,
-  l3BatchService
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ , TestFrameWork
+ , l3BatchService
+;
 
-{$If defined(nsTest)}
-
-{$Include ..\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
-
-// start class TGUIAppTester
+{$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
 
 class function TGUIAppTester.MakeResults(const aPlaces: array of RTestResultsPlace): TResultsPlaces;
 //#UC START# *52F2651C00F4_52F255E702F0_var*
@@ -103,7 +75,6 @@ begin
  Result := KTestRunner.NeedKTestRunner(GetResultsPlaces);
 //#UC END# *4F79BCC902C5_52F255E702F0_impl*
 end;//TGUIAppTester.CalcBatchMode
-
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

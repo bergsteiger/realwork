@@ -1,59 +1,43 @@
 unit pgFreeIDHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgFreeIDHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgFreeIDHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgFreeIDHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgFreeIDHelper" MUID: (56556EF3017C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  pgConnection,
-  pgFunctionFactory
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+ , pgConnection
+ , pgFunctionFactory
+;
 
-{$If defined(UsePostgres)}
 type
  TpgFreeIDHelper = class(Tl3ProtoObject, IdaComboAccessDataProviderHelper)
- private
- // private fields
-   f_IntervalQuery : IdaTabledQuery;
-   f_FamilyID : TdaFamilyID;
-   f_GetFreeFunction : IdaFunction;
-   f_DeleteIntervalFunction : IdaFunction;
-   f_Connection : TpgConnection;
-   f_ExclusiveUse : Boolean;
-    {* Поле для свойства ExclusiveUse}
- private
- // private methods
+  private
+   f_IntervalQuery: IdaTabledQuery;
+   f_FamilyID: TdaFamilyID;
+   f_GetFreeFunction: IdaFunction;
+   f_DeleteIntervalFunction: IdaFunction;
+   f_Connection: TpgConnection;
+   f_ExclusiveUse: Boolean;
+    {* Поле для свойства ExclusiveUse }
+  private
    function KeyPrefix(const aKey: AnsiString): AnsiString;
    function RepairInterval(const aKey: AnsiString): Boolean;
    function GetFreeFromTable(const aKey: AnsiString;
-     out theNumber: TdaDocID): Boolean;
+    out theNumber: TdaDocID): Boolean;
    function GetFreeFromReplica(const aKey: AnsiString;
-     out theNumber: TdaDocID): Boolean;
+    out theNumber: TdaDocID): Boolean;
    function TableKind: TdaTables;
- protected
- // property methods
+  protected
    procedure pm_SetExclusiveUse(aValue: Boolean); virtual;
- protected
- // realized methods
    function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
     const aKey: AnsiString;
     anID: TdaDocID): Boolean;
@@ -61,44 +45,90 @@ type
     const aKey: AnsiString;
     anID: TdaDocID): Boolean;
    procedure SetAlienJournalData(aSessionID: TdaSessionID);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aConnection: TpgConnection;
-     const aFactory: IdaTableQueryFactory;
-     aFunctionFactory: TpgFunctionFactory;
-     aFamilyID: TdaFamilyID); reintroduce;
+    const aFactory: IdaTableQueryFactory;
+    aFunctionFactory: TpgFunctionFactory;
+    aFamilyID: TdaFamilyID); reintroduce;
    function GetFree(const aKey: AnsiString): TdaDocID;
    function AnyRangesPresent(const aKey: AnsiString): Boolean;
- public
- // public properties
+  public
    property ExclusiveUse: Boolean
-     read f_ExclusiveUse
-     write pm_SetExclusiveUse;
+    read f_ExclusiveUse
+    write pm_SetExclusiveUse;
  end;//TpgFreeIDHelper
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daScheme,
-  daSchemeConsts,
-  SysUtils,
-  pgInterfaces
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
+ l3ImplUses
+ , daScheme
+ , daSchemeConsts
+ , SysUtils
+ , pgInterfaces
+;
 
 const
-   { cErrorMessages }
-  cFreeTblErr = 'Ошибка получения свободного номера';
+ cFreeTblErr = 'Ошибка получения свободного номера';
 
-// start class TpgFreeIDHelper
+procedure TpgFreeIDHelper.pm_SetExclusiveUse(aValue: Boolean);
+//#UC START# *565ECB810377_56556EF3017Cset_var*
+//#UC END# *565ECB810377_56556EF3017Cset_var*
+begin
+//#UC START# *565ECB810377_56556EF3017Cset_impl*
+ if f_ExclusiveUse <> aValue then
+ begin
+  f_ExclusiveUse := aValue;
+  Assert(False);
+//!! !!! Needs to be implemented !!!
+ end;
+//#UC END# *565ECB810377_56556EF3017Cset_impl*
+end;//TpgFreeIDHelper.pm_SetExclusiveUse
+
+constructor TpgFreeIDHelper.Create(aConnection: TpgConnection;
+ const aFactory: IdaTableQueryFactory;
+ aFunctionFactory: TpgFunctionFactory;
+ aFamilyID: TdaFamilyID);
+//#UC START# *5656EF8D0161_56556EF3017C_var*
+const
+ cGetFreeMap: array [MainTblsFamily..CurrentFamily] of AnsiString = (
+  'get_admin_free_num',
+  'get_free_num'
+ );
+ cDeleteIntervalMap: array [MainTblsFamily..CurrentFamily] of AnsiString = (
+  'delete_admin_free_interval',
+  'delete_free_interval'
+ );
+var
+ l_Description: IdaTableDescription;
+ l_FieldToSort: IdaSelectField;
+//#UC END# *5656EF8D0161_56556EF3017C_var*
+begin
+//#UC START# *5656EF8D0161_56556EF3017C_impl*
+ inherited Create;
+ Assert(aFamilyID in [MainTblsFamily, CurrentFamily]);
+ f_FamilyID := aFamilyID;
+ l_Description := TdaScheme.Instance.Table(TableKind);
+ try
+  f_IntervalQuery := aFactory.MakeTabledQuery(l_Description);
+  f_IntervalQuery.AddSelectField(aFactory.MakeSelectField('', l_Description.Field['start_num']));
+  l_FieldToSort := aFactory.MakeSelectField('', l_Description.Field['last_num']);
+  f_IntervalQuery.AddSelectField(l_FieldToSort);
+  f_IntervalQuery.WhereCondition := aFactory.MakeParamsCondition('', l_Description.Field['table_name'], da_copEqual, 'p_Key');
+  f_IntervalQuery.AddOrderBy(aFactory.MakeSortField(l_FieldToSort));
+  f_IntervalQuery.Prepare;
+ finally
+  l_Description := nil;
+ end;
+ aConnection.SetRefTo(f_Connection);
+ f_GetFreeFunction := aFunctionFactory.MakeFunction(cGetFreeMap[aFamilyID]);
+ f_DeleteIntervalFunction := aFunctionFactory.MakeFunction(cDeleteIntervalMap[aFamilyID]);
+//#UC END# *5656EF8D0161_56556EF3017C_impl*
+end;//TpgFreeIDHelper.Create
 
 function TpgFreeIDHelper.KeyPrefix(const aKey: AnsiString): AnsiString;
 //#UC START# *565703DA0330_56556EF3017C_var*
@@ -127,7 +157,7 @@ begin
 end;//TpgFreeIDHelper.RepairInterval
 
 function TpgFreeIDHelper.GetFreeFromTable(const aKey: AnsiString;
-  out theNumber: TdaDocID): Boolean;
+ out theNumber: TdaDocID): Boolean;
 //#UC START# *5658229402A8_56556EF3017C_var*
 const
  ATTEMPT_AMOUNT = 20;
@@ -185,7 +215,7 @@ begin
 end;//TpgFreeIDHelper.GetFreeFromTable
 
 function TpgFreeIDHelper.GetFreeFromReplica(const aKey: AnsiString;
-  out theNumber: TdaDocID): Boolean;
+ out theNumber: TdaDocID): Boolean;
 //#UC START# *565822B40312_56556EF3017C_var*
 //#UC END# *565822B40312_56556EF3017C_var*
 begin
@@ -212,61 +242,6 @@ begin
  Result := cTableKindMap[f_FamilyID];
 //#UC END# *56A7208C003C_56556EF3017C_impl*
 end;//TpgFreeIDHelper.TableKind
-
-constructor TpgFreeIDHelper.Create(aConnection: TpgConnection;
-  const aFactory: IdaTableQueryFactory;
-  aFunctionFactory: TpgFunctionFactory;
-  aFamilyID: TdaFamilyID);
-//#UC START# *5656EF8D0161_56556EF3017C_var*
-const
- cGetFreeMap: array [MainTblsFamily..CurrentFamily] of AnsiString = (
-  'get_admin_free_num',
-  'get_free_num'
- );
- cDeleteIntervalMap: array [MainTblsFamily..CurrentFamily] of AnsiString = (
-  'delete_admin_free_interval',
-  'delete_free_interval'
- );
-var
- l_Description: IdaTableDescription;
- l_FieldToSort: IdaSelectField;
-//#UC END# *5656EF8D0161_56556EF3017C_var*
-begin
-//#UC START# *5656EF8D0161_56556EF3017C_impl*
- inherited Create;
- Assert(aFamilyID in [MainTblsFamily, CurrentFamily]);
- f_FamilyID := aFamilyID;
- l_Description := TdaScheme.Instance.Table(TableKind);
- try
-  f_IntervalQuery := aFactory.MakeTabledQuery(l_Description);
-  f_IntervalQuery.AddSelectField(aFactory.MakeSelectField('', l_Description.Field['start_num']));
-  l_FieldToSort := aFactory.MakeSelectField('', l_Description.Field['last_num']);
-  f_IntervalQuery.AddSelectField(l_FieldToSort);
-  f_IntervalQuery.WhereCondition := aFactory.MakeParamsCondition('', l_Description.Field['table_name'], da_copEqual, 'p_Key');
-  f_IntervalQuery.AddOrderBy(aFactory.MakeSortField(l_FieldToSort));
-  f_IntervalQuery.Prepare;
- finally
-  l_Description := nil;
- end;
- aConnection.SetRefTo(f_Connection);
- f_GetFreeFunction := aFunctionFactory.MakeFunction(cGetFreeMap[aFamilyID]);
- f_DeleteIntervalFunction := aFunctionFactory.MakeFunction(cDeleteIntervalMap[aFamilyID]);
-//#UC END# *5656EF8D0161_56556EF3017C_impl*
-end;//TpgFreeIDHelper.Create
-
-procedure TpgFreeIDHelper.pm_SetExclusiveUse(aValue: Boolean);
-//#UC START# *565ECB810377_56556EF3017Cset_var*
-//#UC END# *565ECB810377_56556EF3017Cset_var*
-begin
-//#UC START# *565ECB810377_56556EF3017Cset_impl*
- if f_ExclusiveUse <> aValue then
- begin
-  f_ExclusiveUse := aValue;
-  Assert(False);
-//!! !!! Needs to be implemented !!!
- end;
-//#UC END# *565ECB810377_56556EF3017Cset_impl*
-end;//TpgFreeIDHelper.pm_SetExclusiveUse
 
 function TpgFreeIDHelper.GetFree(const aKey: AnsiString): TdaDocID;
 //#UC START# *565589E102C3_56556EF3017C_var*
@@ -306,8 +281,8 @@ begin
 end;//TpgFreeIDHelper.AnyRangesPresent
 
 function TpgFreeIDHelper.RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
-  const aKey: AnsiString;
-  anID: TdaDocID): Boolean;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
 //#UC START# *56BC642200D0_56556EF3017C_var*
 //#UC END# *56BC642200D0_56556EF3017C_var*
 begin
@@ -319,8 +294,8 @@ begin
 end;//TpgFreeIDHelper.RegisterFreeExtObjID
 
 function TpgFreeIDHelper.RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
-  const aKey: AnsiString;
-  anID: TdaDocID): Boolean;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
 //#UC START# *56BC6437030F_56556EF3017C_var*
 //#UC END# *56BC6437030F_56556EF3017C_var*
 begin
@@ -342,6 +317,7 @@ begin
 end;//TpgFreeIDHelper.SetAlienJournalData
 
 procedure TpgFreeIDHelper.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56556EF3017C_var*
 //#UC END# *479731C50290_56556EF3017C_var*
 begin
@@ -352,7 +328,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56556EF3017C_impl*
 end;//TpgFreeIDHelper.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

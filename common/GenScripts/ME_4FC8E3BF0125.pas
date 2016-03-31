@@ -10,7 +10,6 @@
  _atEntity_ = class(Tl3_Base)
   private
    f_Entity: _EntityInterface_;
-    {* Поле для свойства Entity }
   protected
    {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;

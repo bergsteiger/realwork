@@ -11,10 +11,10 @@ interface
 {$If NOT Defined(Admin)}
 uses
  l3IntfUses
- , l3Interfaces
  , DynamicDocListUnit
- , bsTypes
+ , l3Interfaces
  , l3TreeInterfaces
+ , bsTypes
 ;
 
 type

@@ -1,99 +1,83 @@
 unit l3CoordinateMap;
+ {* Объект группирующий горизонтальные или вертикальные выравнивающие линии. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CoordinateMap.pas"
-// Начат: 02.10.06 16:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3CoordinateMap
-//
-// Объект группирующий горизонтальные или вертикальные выравнивающие линии.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CoordinateMap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CoordinateMap" MUID: (48CA5CB001A3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3FrameLine,
-  l3FrameLineList,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3FrameLineList
+ , l3FrameLine
+ , l3Interfaces
+ , l3InternalInterfaces
+;
 
 type
  Tl3CoordinateMap = class(Tl3CProtoObject)
   {* Объект группирующий горизонтальные или вертикальные выравнивающие линии. }
- private
- // private fields
-   f_IsVertical : Boolean;
-    {* Ориентация линии}
-   f_PrevIndex : Integer;
-    {* Индекс предыдущей линии}
-   f_VBuffer : Integer;
-    {* Буфер для выравнивания последней горизонтальной линии.}
-   f_Values : Tl3FrameLineList;
-    {* Массив списка линий по данной координате}
- protected
- // overridden protected methods
+  private
+   f_IsVertical: Boolean;
+    {* Ориентация линии }
+   f_PrevIndex: Integer;
+    {* Индекс предыдущей линии }
+   f_VBuffer: Integer;
+    {* Буфер для выравнивания последней горизонтальной линии. }
+   f_Values: Tl3FrameLineList;
+    {* Массив списка линий по данной координате }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(anOrientation: Boolean); reintroduce;
    procedure DrawLines(const aCanvas: Il3Canvas;
     const aColorArray: Tl3LinesColorArray;
     aWidth: Integer);
-     {* Отрисовать все элементы для объекта с anObjectID }
+    {* Отрисовать все элементы для объекта с anObjectID }
    function AddLine(aMapValue: Integer;
     aLine: Tl3FrameLine;
     aToBuffer: Boolean): Tl3FrameLine;
-     {* Добавляет значение в мапу }
+    {* Добавляет значение в мапу }
    procedure AlignBoundary(aStart: Integer;
     aFinish: Integer;
     aDestList: Tl3CoordinateMap);
-     {* Применить выравнивающие ограничения - выравниванием все линии от aStart
+    {* Применить выравнивающие ограничения - выравниванием все линии от aStart
          до aFinish по значению aFinish. }
    procedure AlignAllLines(aValue: Integer;
     aDestList: Tl3CoordinateMap); virtual;
-     {* Выравнять все линии по значению aValue (используется для выравнивания отсвшихся горизонтальных линий) }
+    {* Выравнять все линии по значению aValue (используется для выравнивания отсвшихся горизонтальных линий) }
    procedure CheckLine(aMinBound: Integer;
     aMaxBound: Integer);
-     {* Вызывает CheckCoordinate для всех отрезков. }
+    {* Вызывает CheckCoordinate для всех отрезков. }
    procedure ClearPrev(aClearAll: Boolean);
-     {* Сбрасывает индекс предыдущего }
+    {* Сбрасывает индекс предыдущего }
    function GetAlignData: Il3IntegerList;
-     {* Получить данные о выравнивании }
+    {* Получить данные о выравнивании }
    procedure SetAlignData(const aData: Il3IntegerList);
-     {* Сохранить данные о выравнивании }
+    {* Сохранить данные о выравнивании }
    procedure SavePrev;
-     {* Запомнить PrevIndex для последующего применения. }
+    {* Запомнить PrevIndex для последующего применения. }
    procedure Clear;
-     {* Очищает данные о линиях. }
+    {* Очищает данные о линиях. }
    function GetValues: Tl3FrameLineList;
  end;//Tl3CoordinateMap
 
 implementation
 
 uses
-  l3Base,
-  l3Types,
-  l3Const,
-  l3InterfacedIntegerList,
-  SysUtils,
-  l3UnitsTools
-  ;
-
-// start class Tl3CoordinateMap
+ l3ImplUses
+ , l3Base
+ , l3Types
+ , l3Const
+ , l3InterfacedIntegerList
+ , SysUtils
+ , l3UnitsTools
+;
 
 constructor Tl3CoordinateMap.Create(anOrientation: Boolean);
 //#UC START# *48CA5D1F037A_48CA5CB001A3_var*
@@ -108,8 +92,9 @@ begin
 end;//Tl3CoordinateMap.Create
 
 procedure Tl3CoordinateMap.DrawLines(const aCanvas: Il3Canvas;
-  const aColorArray: Tl3LinesColorArray;
-  aWidth: Integer);
+ const aColorArray: Tl3LinesColorArray;
+ aWidth: Integer);
+ {* Отрисовать все элементы для объекта с anObjectID }
 //#UC START# *48CA5D5101AE_48CA5CB001A3_var*
 
  function DrawElement(Data: PObject; Index: Integer): Boolean; 
@@ -126,8 +111,9 @@ begin
 end;//Tl3CoordinateMap.DrawLines
 
 function Tl3CoordinateMap.AddLine(aMapValue: Integer;
-  aLine: Tl3FrameLine;
-  aToBuffer: Boolean): Tl3FrameLine;
+ aLine: Tl3FrameLine;
+ aToBuffer: Boolean): Tl3FrameLine;
+ {* Добавляет значение в мапу }
 //#UC START# *48CA5D78038C_48CA5CB001A3_var*
 var
  l_Index      : Integer;
@@ -181,8 +167,10 @@ begin
 end;//Tl3CoordinateMap.AddLine
 
 procedure Tl3CoordinateMap.AlignBoundary(aStart: Integer;
-  aFinish: Integer;
-  aDestList: Tl3CoordinateMap);
+ aFinish: Integer;
+ aDestList: Tl3CoordinateMap);
+ {* Применить выравнивающие ограничения - выравниванием все линии от aStart
+         до aFinish по значению aFinish. }
 //#UC START# *48CA5D9D008E_48CA5CB001A3_var*
 var
  l_Last  : Integer; 
@@ -209,7 +197,8 @@ begin
 end;//Tl3CoordinateMap.AlignBoundary
 
 procedure Tl3CoordinateMap.AlignAllLines(aValue: Integer;
-  aDestList: Tl3CoordinateMap);
+ aDestList: Tl3CoordinateMap);
+ {* Выравнять все линии по значению aValue (используется для выравнивания отсвшихся горизонтальных линий) }
 //#UC START# *491448230196_48CA5CB001A3_var*
 var
  l_Last  : Integer;
@@ -233,7 +222,8 @@ begin
 end;//Tl3CoordinateMap.AlignAllLines
 
 procedure Tl3CoordinateMap.CheckLine(aMinBound: Integer;
-  aMaxBound: Integer);
+ aMaxBound: Integer);
+ {* Вызывает CheckCoordinate для всех отрезков. }
 //#UC START# *49BE609800C6_48CA5CB001A3_var*
  function CheckElement(Data: PObject; Index: Integer): Boolean;
  begin
@@ -249,6 +239,7 @@ begin
 end;//Tl3CoordinateMap.CheckLine
 
 procedure Tl3CoordinateMap.ClearPrev(aClearAll: Boolean);
+ {* Сбрасывает индекс предыдущего }
 //#UC START# *4AB1D0CF01E7_48CA5CB001A3_var*
 //#UC END# *4AB1D0CF01E7_48CA5CB001A3_var*
 begin
@@ -260,6 +251,7 @@ begin
 end;//Tl3CoordinateMap.ClearPrev
 
 function Tl3CoordinateMap.GetAlignData: Il3IntegerList;
+ {* Получить данные о выравнивании }
 //#UC START# *4AB8773101B3_48CA5CB001A3_var*
 var
  i: Integer;
@@ -280,6 +272,7 @@ begin
 end;//Tl3CoordinateMap.GetAlignData
 
 procedure Tl3CoordinateMap.SetAlignData(const aData: Il3IntegerList);
+ {* Сохранить данные о выравнивании }
 //#UC START# *4AB8775E017C_48CA5CB001A3_var*
 var
  i       : Integer;
@@ -293,6 +286,7 @@ begin
 end;//Tl3CoordinateMap.SetAlignData
 
 procedure Tl3CoordinateMap.SavePrev;
+ {* Запомнить PrevIndex для последующего применения. }
 //#UC START# *4C18991501FE_48CA5CB001A3_var*
 //#UC END# *4C18991501FE_48CA5CB001A3_var*
 begin
@@ -302,6 +296,7 @@ begin
 end;//Tl3CoordinateMap.SavePrev
 
 procedure Tl3CoordinateMap.Clear;
+ {* Очищает данные о линиях. }
 //#UC START# *4C651ED702E4_48CA5CB001A3_var*
 //#UC END# *4C651ED702E4_48CA5CB001A3_var*
 begin
@@ -321,6 +316,7 @@ begin
 end;//Tl3CoordinateMap.GetValues
 
 procedure Tl3CoordinateMap.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48CA5CB001A3_var*
 //#UC END# *479731C50290_48CA5CB001A3_var*
 begin

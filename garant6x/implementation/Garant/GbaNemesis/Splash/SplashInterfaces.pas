@@ -1,35 +1,34 @@
 unit SplashInterfaces;
+ {* Интерфесы для клиента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Splash"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Splash/SplashInterfaces.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> F1 Core::Splash::Splash::SplashInterfaces
-//
-// Интерфесы для клиента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\SplashInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "SplashInterfaces" MUID: (499D0684023C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+;
+
 type
- InsSplashClient = interface(IUnknown)
+ InsSplashClient = interface
   {* Невизуальный объект.
 Готовит данные для сервера и запускает его.
 Перед разрушением говорит серверу, что можно уже не показывать сплеш. }
-   ['{6DE59664-EC43-42E5-AE95-A2465CF37006}']
+  ['{6DE59664-EC43-42E5-AE95-A2465CF37006}']
  end;//InsSplashClient
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

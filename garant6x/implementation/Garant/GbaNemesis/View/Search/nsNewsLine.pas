@@ -1,81 +1,61 @@
 unit nsNewsLine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/nsNewsLine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::Autoreferat::View::Search::TnsNewsLine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsNewsLine.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsNewsLine" MUID: (4C87BD1A0218)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3SimpleDataContainer,
-  PrimeInterfaces,
-  l3ProtoObject,
-  nsNotificationManager,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes,
-  afwInterfaces,
-  l3TreeInterfaces,
-  DocumentUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimeInterfaces
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , l3ProtoObject
+ , nsNotificationManager
+ , DynamicTreeUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , l3TreeInterfaces
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _ItemType_ = InsNewsLineNotifier;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsNewsLineSubscribersList = class(_l3InterfacePtrList_)
  end;//TnsNewsLineSubscribersList
 
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
-{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsNewsLinePrim = class(_afwApplicationDataUpdate_, InsNewsLine, InsNotificationListener)
- private
- // private fields
-   f_Root : INodeBase;
-   f_CurrentThemeIndex : Integer;
-   f_ThemeCount : Integer;
-   f_ThemeList : IvcmStrings;
-   f_Subscribers : TnsNewsLineSubscribersList;
-   f_CurrentThemeNode : INodeBase;
-    {* Поле для свойства CurrentThemeNode}
- private
- // private methods
+  private
+   f_Root: INodeBase;
+   f_CurrentThemeIndex: Integer;
+   f_ThemeCount: Integer;
+   f_ThemeList: IvcmStrings;
+   f_Subscribers: TnsNewsLineSubscribersList;
+   f_CurrentThemeNode: INodeBase;
+    {* Поле для свойства CurrentThemeNode }
+  private
    procedure LoadThemeList;
-     {* Сигнатура метода LoadThemeList }
    procedure SetCurrentThemeIndex(anIndex: Integer);
    procedure NotifySubscribers;
-     {* Сигнатура метода NotifySubscribers }
    procedure DoDataUpdate(aSaveCurrentTheme: Boolean);
- protected
- // property methods
+  protected
    function pm_GetCurrentThemeNode: INodeBase;
- protected
- // realized methods
    procedure SaveThemeToSettings;
    procedure LoadThemeFromSettings;
    procedure Subscribe(const aNotifier: InsNewsLineNotifier);
@@ -84,62 +64,59 @@ type
    function pm_GetCurrentTheme: Il3CString;
    procedure pm_SetCurrentTheme(const aValue: Il3CString);
    function MakeCurrentThemeTreeStruct: Il3SimpleTree;
-     {* Создать TreeStruct для текущей ленты }
+    {* Создать TreeStruct для текущей ленты }
    function ExtractAutoreferat(const aNode: Il3SimpleNode): IDocument;
-   procedure NsNotification(aType: TnsNotificationType);
- protected
- // overridden protected methods
+   procedure nsNotification(aType: TnsNotificationType);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure FinishDataUpdate; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: InsNewsLine; reintroduce;
-     {* Сигнатура фабрики TnsNewsLinePrim.Make }
- private
- // private properties
+  private
    property CurrentThemeNode: INodeBase
-     read pm_GetCurrentThemeNode;
+    read pm_GetCurrentThemeNode;
  end;//TnsNewsLinePrim
 
  TnsNewsLine = {final} class(TnsNewsLinePrim)
- public
- // public methods
+  public
    class function Make: InsNewsLine; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsNewsLine
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  afwFacade,
-  IOUnit,
-  BaseTypesUnit,
-  nsTypes,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmStringList
-  {$IfEnd} //not NoVCM
-  ,
-  nsTreeStruct,
-  nsConst
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , IOUnit
+ , BaseTypesUnit
+ , nsTypes
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmStringList
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsTreeStruct
+ , nsConst
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , afwFacade
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+var g_TnsNewsLine: Pointer = nil;
+ {* Экземпляр синглетона TnsNewsLine }
+
+procedure TnsNewsLineFree;
+ {* Метод освобождения экземпляра синглетона TnsNewsLine }
+begin
+ IUnknown(g_TnsNewsLine) := nil;
+end;//TnsNewsLineFree
 
 type _Instance_R_ = TnsNewsLineSubscribersList;
 
@@ -147,7 +124,41 @@ type _Instance_R_ = TnsNewsLineSubscribersList;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-// start class TnsNewsLinePrim
+function TnsNewsLinePrim.pm_GetCurrentThemeNode: INodeBase;
+//#UC START# *524D3F740063_524D3E260036get_var*
+//#UC END# *524D3F740063_524D3E260036get_var*
+begin
+//#UC START# *524D3F740063_524D3E260036get_impl*
+ Assert(Assigned(f_Root));
+ if (f_CurrentThemeNode = nil) and
+    (f_CurrentThemeIndex >= 0) then
+ begin
+  try
+   f_Root.GetByVisibleIndex(f_CurrentThemeIndex + 1, f_CurrentThemeNode);
+  except
+   on EStorageLocked do
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=294597335
+   begin
+    f_CurrentThemeNode := nil;
+    Result := nil;
+    Exit;
+   end;//EStorageLocked
+  end;//try..except 
+  f_CurrentThemeNode.SetFlag(FM_OPEN, True);
+ end;//f_CurrentThemeNode = nil
+ Result := f_CurrentThemeNode;
+//#UC END# *524D3F740063_524D3E260036get_impl*
+end;//TnsNewsLinePrim.pm_GetCurrentThemeNode
+
+constructor TnsNewsLinePrim.Create;
+//#UC START# *524D3EAE02E1_524D3E260036_var*
+//#UC END# *524D3EAE02E1_524D3E260036_var*
+begin
+//#UC START# *524D3EAE02E1_524D3E260036_impl*
+ inherited Create;
+ f_CurrentThemeIndex := -1;
+//#UC END# *524D3EAE02E1_524D3E260036_impl*
+end;//TnsNewsLinePrim.Create
 
 procedure TnsNewsLinePrim.LoadThemeList;
 //#UC START# *524D3FAC00F2_524D3E260036_var*
@@ -223,6 +234,18 @@ begin
 //#UC END# *524D590B0136_524D3E260036_impl*
 end;//TnsNewsLinePrim.NotifySubscribers
 
+class function TnsNewsLinePrim.Make: InsNewsLine;
+var
+ l_Inst : TnsNewsLinePrim;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsNewsLinePrim.Make
+
 procedure TnsNewsLinePrim.DoDataUpdate(aSaveCurrentTheme: Boolean);
 //#UC START# *54366C58003B_524D3E260036_var*
 var
@@ -251,54 +274,6 @@ begin
  NotifySubscribers;
 //#UC END# *54366C58003B_524D3E260036_impl*
 end;//TnsNewsLinePrim.DoDataUpdate
-
-constructor TnsNewsLinePrim.Create;
-//#UC START# *524D3EAE02E1_524D3E260036_var*
-//#UC END# *524D3EAE02E1_524D3E260036_var*
-begin
-//#UC START# *524D3EAE02E1_524D3E260036_impl*
- inherited Create;
- f_CurrentThemeIndex := -1;
-//#UC END# *524D3EAE02E1_524D3E260036_impl*
-end;//TnsNewsLinePrim.Create
-
-class function TnsNewsLinePrim.Make: InsNewsLine;
-var
- l_Inst : TnsNewsLinePrim;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TnsNewsLinePrim.pm_GetCurrentThemeNode: INodeBase;
-//#UC START# *524D3F740063_524D3E260036get_var*
-//#UC END# *524D3F740063_524D3E260036get_var*
-begin
-//#UC START# *524D3F740063_524D3E260036get_impl*
- Assert(Assigned(f_Root));
- if (f_CurrentThemeNode = nil) and
-    (f_CurrentThemeIndex >= 0) then
- begin
-  try
-   f_Root.GetByVisibleIndex(f_CurrentThemeIndex + 1, f_CurrentThemeNode);
-  except
-   on EStorageLocked do
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=294597335
-   begin
-    f_CurrentThemeNode := nil;
-    Result := nil;
-    Exit;
-   end;//EStorageLocked
-  end;//try..except 
-  f_CurrentThemeNode.SetFlag(FM_OPEN, True);
- end;//f_CurrentThemeNode = nil
- Result := f_CurrentThemeNode;
-//#UC END# *524D3F740063_524D3E260036get_impl*
-end;//TnsNewsLinePrim.pm_GetCurrentThemeNode
 
 procedure TnsNewsLinePrim.SaveThemeToSettings;
 //#UC START# *49918CE0025D_524D3E260036_var*
@@ -418,6 +393,7 @@ begin
 end;//TnsNewsLinePrim.pm_SetCurrentTheme
 
 function TnsNewsLinePrim.MakeCurrentThemeTreeStruct: Il3SimpleTree;
+ {* Создать TreeStruct для текущей ленты }
 //#UC START# *49F7028D024F_524D3E260036_var*
 //#UC END# *49F7028D024F_524D3E260036_var*
 begin
@@ -446,7 +422,7 @@ begin
 //#UC END# *49F7F4E603A4_524D3E260036_impl*
 end;//TnsNewsLinePrim.ExtractAutoreferat
 
-procedure TnsNewsLinePrim.NsNotification(aType: TnsNotificationType);
+procedure TnsNewsLinePrim.nsNotification(aType: TnsNotificationType);
 //#UC START# *542BF11D00B6_524D3E260036_var*
 //#UC END# *542BF11D00B6_524D3E260036_var*
 begin
@@ -454,9 +430,10 @@ begin
  if aType = ntMonitoringUpdate then
   DoDataUpdate(True);
 //#UC END# *542BF11D00B6_524D3E260036_impl*
-end;//TnsNewsLinePrim.NsNotification
+end;//TnsNewsLinePrim.nsNotification
 
 procedure TnsNewsLinePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_524D3E260036_var*
 //#UC END# *479731C50290_524D3E260036_var*
 begin
@@ -491,21 +468,10 @@ begin
 end;//TnsNewsLinePrim.FinishDataUpdate
 
 procedure TnsNewsLinePrim.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_CurrentThemeNode := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsNewsLinePrim.ClearFields
-
-var g_TnsNewsLine : Pointer = nil;
-
-procedure TnsNewsLineFree;
-begin
- IUnknown(g_TnsNewsLine) := nil;
-end;
-
 
 class function TnsNewsLine.Make: InsNewsLine;
 begin
@@ -515,14 +481,13 @@ begin
   InsNewsLine(g_TnsNewsLine) := inherited Make;
  end;
  Result := InsNewsLine(g_TnsNewsLine);
-end;
+end;//TnsNewsLine.Make
 
 class function TnsNewsLine.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsNewsLine <> nil;
 end;//TnsNewsLine.Exists
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

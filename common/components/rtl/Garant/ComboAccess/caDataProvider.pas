@@ -1,55 +1,41 @@
 unit caDataProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caDataProvider.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaDataProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProvider.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaDataProvider" MUID: (56A86BCE01EE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  caDataProviderParams,
-  caInterfaces,
-  l3DatLst,
-  l3Languages
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , caDataProviderParams
+ , caInterfaces
+ , daTypes
+ , l3Languages
+ , l3DatLst
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaDataProvider = class(Tl3ProtoObject, IdaDataProvider)
- private
- // private fields
-   f_Params : TcaDataProviderParams;
-   f_HTProvider : IdaDataProvider;
-   f_PGProvider : IdaDataProvider;
-   f_IsStarted : Boolean;
-   f_NeedClearGlobalDataProvider : Boolean;
-   f_Journal : IdaJournal;
-   f_DataConverter : IcaDataConverter;
-   f_UserManager : IdaUserManager;
-   f_Factory : IdaTableQueryFactory;
-   f_AlienSessionID : TdaSessionID;
- private
- // private methods
+  private
+   f_Params: TcaDataProviderParams;
+   f_HTProvider: IdaDataProvider;
+   f_PGProvider: IdaDataProvider;
+   f_IsStarted: Boolean;
+   f_NeedClearGlobalDataProvider: Boolean;
+   f_Journal: IdaJournal;
+   f_DataConverter: IcaDataConverter;
+   f_UserManager: IdaUserManager;
+   f_Factory: IdaTableQueryFactory;
+   f_AlienSessionID: TdaSessionID;
+  private
    procedure SetAlienJournalData(aSessionID: TdaSessionID);
- protected
- // realized methods
+  protected
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
    function CheckLogin(const aLogin: AnsiString;
@@ -59,7 +45,7 @@ type
    function IsRegionExists(anID: TdaRegionID): Boolean;
    function GetRegionName(anID: TdaRegionID): AnsiString;
    procedure FillRegionDataList(aList: Tl3StringDataList;
-     Caps: Boolean);
+    Caps: Boolean);
    function Get_BaseName: AnsiString;
    function Get_AdminRights: Boolean;
    function Get_CurUserIsServer: Boolean;
@@ -80,9 +66,7 @@ type
    procedure SubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure UnSubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure Start;
-     {* Сигнатура метода Start }
    procedure Stop;
-     {* Сигнатура метода Stop }
    function Get_Journal: IdaJournal;
    function Get_TableQueryFactory: IdaTableQueryFactory;
    function Get_DataConverter: IdaDataConverter;
@@ -91,62 +75,43 @@ type
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
    function HasJournal: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aParams: TcaDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     const aHTProvider: IdaDataProvider;
-     const aPGProvider: IdaDataProvider); reintroduce;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    const aHTProvider: IdaDataProvider;
+    const aPGProvider: IdaDataProvider); reintroduce;
    class function Make(aParams: TcaDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     const aHTProvider: IdaDataProvider;
-     const aPGProvider: IdaDataProvider): IdaDataProvider; reintroduce;
-     {* Сигнатура фабрики TcaDataProvider.Make }
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    const aHTProvider: IdaDataProvider;
+    const aPGProvider: IdaDataProvider): IdaDataProvider; reintroduce;
  end;//TcaDataProvider
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  SysUtils,
-  daDataProvider,
-  caJournal,
-  caDataConverter,
-  htInterfaces,
-  pgInterfaces,
-  caUserManager,
-  caTableQueryFactory,
-  daSchemeConsts
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
-
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaDataProvider
-
-procedure TcaDataProvider.SetAlienJournalData(aSessionID: TdaSessionID);
-//#UC START# *56F0E44D0379_56A86BCE01EE_var*
-//#UC END# *56F0E44D0379_56A86BCE01EE_var*
-begin
-//#UC START# *56F0E44D0379_56A86BCE01EE_impl*
- f_AlienSessionID := aSessionID;
- if Assigned(f_Journal) then
-  (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID);
-//#UC END# *56F0E44D0379_56A86BCE01EE_impl*
-end;//TcaDataProvider.SetAlienJournalData
+ l3ImplUses
+ , SysUtils
+ , daDataProvider
+ , caJournal
+ , caDataConverter
+ , htInterfaces
+ , pgInterfaces
+ , caUserManager
+ , caTableQueryFactory
+ , daSchemeConsts
+;
 
 constructor TcaDataProvider.Create(aParams: TcaDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  const aHTProvider: IdaDataProvider;
-  const aPGProvider: IdaDataProvider);
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ const aHTProvider: IdaDataProvider;
+ const aPGProvider: IdaDataProvider);
 //#UC START# *56BB1FC50359_56A86BCE01EE_var*
 //#UC END# *56BB1FC50359_56A86BCE01EE_var*
 begin
@@ -161,10 +126,10 @@ begin
 end;//TcaDataProvider.Create
 
 class function TcaDataProvider.Make(aParams: TcaDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  const aHTProvider: IdaDataProvider;
-  const aPGProvider: IdaDataProvider): IdaDataProvider;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ const aHTProvider: IdaDataProvider;
+ const aPGProvider: IdaDataProvider): IdaDataProvider;
 var
  l_Inst : TcaDataProvider;
 begin
@@ -174,7 +139,18 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaDataProvider.Make
+
+procedure TcaDataProvider.SetAlienJournalData(aSessionID: TdaSessionID);
+//#UC START# *56F0E44D0379_56A86BCE01EE_var*
+//#UC END# *56F0E44D0379_56A86BCE01EE_var*
+begin
+//#UC START# *56F0E44D0379_56A86BCE01EE_impl*
+ f_AlienSessionID := aSessionID;
+ if Assigned(f_Journal) then
+  (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID);
+//#UC END# *56F0E44D0379_56A86BCE01EE_impl*
+end;//TcaDataProvider.SetAlienJournalData
 
 function TcaDataProvider.Get_UserID: TdaUserID;
 //#UC START# *551A929E02D5_56A86BCE01EEget_var*
@@ -197,8 +173,8 @@ begin
 end;//TcaDataProvider.Get_RegionID
 
 function TcaDataProvider.CheckLogin(const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  IsRequireAdminRights: Boolean): TdaLoginError;
+ const aPassword: AnsiString;
+ IsRequireAdminRights: Boolean): TdaLoginError;
 //#UC START# *551BE2D701DE_56A86BCE01EE_var*
 var
  l_Check: TdaLoginError;
@@ -249,7 +225,7 @@ begin
 end;//TcaDataProvider.GetRegionName
 
 procedure TcaDataProvider.FillRegionDataList(aList: Tl3StringDataList;
-  Caps: Boolean);
+ Caps: Boolean);
 //#UC START# *551D35040362_56A86BCE01EE_var*
 var
  l_Check: Tl3StringDataList;
@@ -637,6 +613,7 @@ begin
 end;//TcaDataProvider.HasJournal
 
 procedure TcaDataProvider.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56A86BCE01EE_var*
 //#UC END# *479731C50290_56A86BCE01EE_var*
 begin
@@ -651,7 +628,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56A86BCE01EE_impl*
 end;//TcaDataProvider.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

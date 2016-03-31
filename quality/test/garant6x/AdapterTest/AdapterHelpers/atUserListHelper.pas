@@ -1,49 +1,36 @@
 unit atUserListHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atUserListHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatUserListHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atUserListHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatUserListHelper" MUID: (4B6C27F50058)
 
 interface
 
 uses
-  BaseTypesUnit,
-  DynamicTreeUnit,
-  SecurityUnit
-  ;
+ l3IntfUses
+ , DynamicTreeUnit
+ , BaseTypesUnit
+ , SecurityUnit
+;
 
 type
  TatArrayOfUID = array of TUid;
 
  TatBaseNB2AoUHlpr = {abstract} class
- public
- // public fields
-   ArrOfUID : TatArrayOfUID;
- protected
- // protected methods
+  public
+   ArrOfUID: TatArrayOfUID;
+  protected
    function IsAdd(const aProfileNode: IProfileNode): Boolean; virtual; abstract;
- public
- // public methods
+  public
    procedure Proc(const aNode: INodeBase); virtual;
  end;//TatBaseNB2AoUHlpr
 
  TatUserListHelper = class
- public
- // public methods
+  public
    class function UserTree2TatArrayOfUID(const aRoot: INodeBase): TatArrayOfUID; virtual;
    class function GetFilteredUserTree(const aRoot: INodeBase;
     aFlags: Longword): INodeBase; virtual;
-   class function GetAdapterTestUIDs(isActiveOnly: Boolean = false): TatArrayOfUID; virtual;
+   class function GetAdapterTestUIDs(isActiveOnly: Boolean = False): TatArrayOfUID; virtual;
    class function GetOnlyAdapterTestUIDs(const aRoot: INodeBase): TatArrayOfUID; virtual;
    class function GetMyUID: TUid; virtual;
  end;//TatUserListHelper
@@ -51,21 +38,43 @@ type
 implementation
 
 uses
-  atNodeHelper,
-  SysUtils,
-  atGblAdapterWorker,
-  atStringHelper,
-  IOUnit
-  ;
+ l3ImplUses
+ , atNodeHelper
+ , SysUtils
+ , atGblAdapterWorker
+ , atStringHelper
+ , IOUnit
+;
 
 type
-  TatNB2AoUHlpr = class(TatBaseNB2AoUHlpr)
+ TatNB2AoUHlpr = class(TatBaseNB2AoUHlpr)
   protected
-  // realized methods
    function IsAdd(const aProfileNode: IProfileNode): Boolean; override;
-  end;//TatNB2AoUHlpr
+ end;//TatNB2AoUHlpr
 
-// start class TatNB2AoUHlpr
+ TatNB2AoUByNameHlpr = class(TatNB2AoUHlpr)
+  public
+   UserName: AnsiString;
+  protected
+   function IsAdd(const aProfileNode: IProfileNode): Boolean; override;
+ end;//TatNB2AoUByNameHlpr
+
+procedure TatBaseNB2AoUHlpr.Proc(const aNode: INodeBase);
+//#UC START# *4B6C3A240321_4B6C39F4013F_var*
+  var
+    l_ProfileNode : IProfileNode;
+    l_Length : Integer;
+//#UC END# *4B6C3A240321_4B6C39F4013F_var*
+begin
+//#UC START# *4B6C3A240321_4B6C39F4013F_impl*
+  if Supports(aNode, IProfileNode, l_ProfileNode) AND IsAdd(l_ProfileNode) then
+  begin
+    l_Length := Length(ArrOfUID);
+    SetLength(ArrOfUID, l_Length+1);
+    ArrOfUID[l_Length] := l_ProfileNode.GetUid;
+  end;
+//#UC END# *4B6C3A240321_4B6C39F4013F_impl*
+end;//TatBaseNB2AoUHlpr.Proc
 
 function TatNB2AoUHlpr.IsAdd(const aProfileNode: IProfileNode): Boolean;
 //#UC START# *4B71720A0019_4B716F4402A1_var*
@@ -75,18 +84,6 @@ begin
   Result := true;
 //#UC END# *4B71720A0019_4B716F4402A1_impl*
 end;//TatNB2AoUHlpr.IsAdd
-
-type
-  TatNB2AoUByNameHlpr = class(TatNB2AoUHlpr)
-  protected
-  // overridden protected methods
-   function IsAdd(const aProfileNode: IProfileNode): Boolean; override;
-  public
-  // public fields
-   UserName : AnsiString;
-  end;//TatNB2AoUByNameHlpr
-
-// start class TatNB2AoUByNameHlpr
 
 function TatNB2AoUByNameHlpr.IsAdd(const aProfileNode: IProfileNode): Boolean;
 //#UC START# *4B71720A0019_4B716F69018B_var*
@@ -108,24 +105,6 @@ begin
   end;
 //#UC END# *4B71720A0019_4B716F69018B_impl*
 end;//TatNB2AoUByNameHlpr.IsAdd
-// start class TatBaseNB2AoUHlpr
-
-procedure TatBaseNB2AoUHlpr.Proc(const aNode: INodeBase);
-//#UC START# *4B6C3A240321_4B6C39F4013F_var*
-  var
-    l_ProfileNode : IProfileNode;
-    l_Length : Integer;
-//#UC END# *4B6C3A240321_4B6C39F4013F_var*
-begin
-//#UC START# *4B6C3A240321_4B6C39F4013F_impl*
-  if Supports(aNode, IProfileNode, l_ProfileNode) AND IsAdd(l_ProfileNode) then
-  begin
-    l_Length := Length(ArrOfUID);
-    SetLength(ArrOfUID, l_Length+1);
-    ArrOfUID[l_Length] := l_ProfileNode.GetUid;
-  end;
-//#UC END# *4B6C3A240321_4B6C39F4013F_impl*
-end;//TatBaseNB2AoUHlpr.Proc
 
 class function TatUserListHelper.UserTree2TatArrayOfUID(const aRoot: INodeBase): TatArrayOfUID;
 //#UC START# *4B6C321A01F5_4B6C27F50058_var*
@@ -144,7 +123,7 @@ begin
 end;//TatUserListHelper.UserTree2TatArrayOfUID
 
 class function TatUserListHelper.GetFilteredUserTree(const aRoot: INodeBase;
-  aFlags: Longword): INodeBase;
+ aFlags: Longword): INodeBase;
 //#UC START# *4B70115C0096_4B6C27F50058_var*
   var
     l_UserFilter : IUserFilter;
@@ -169,7 +148,7 @@ begin
 //#UC END# *4B70115C0096_4B6C27F50058_impl*
 end;//TatUserListHelper.GetFilteredUserTree
 
-class function TatUserListHelper.GetAdapterTestUIDs(isActiveOnly: Boolean = false): TatArrayOfUID;
+class function TatUserListHelper.GetAdapterTestUIDs(isActiveOnly: Boolean = False): TatArrayOfUID;
 //#UC START# *4B716C2601D4_4B6C27F50058_var*
   var
     l_UserManager : IUserManager;

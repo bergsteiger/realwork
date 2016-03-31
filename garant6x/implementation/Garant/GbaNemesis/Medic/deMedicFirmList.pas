@@ -1,56 +1,45 @@
 unit deMedicFirmList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/deMedicFirmList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TdeMedicFirmList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\deMedicFirmList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeMedicFirmList" MUID: (561F6D380330)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  MedicInterfaces,
-  l3ProtoObject,
-  DocumentInterfaces,
-  bsTypesNew,
-  DocumentUnit,
-  nsTypes,
-  AdapterFacade,
-  bsTypes,
-  DynamicDocListUnit,
-  l3Interfaces,
-  PrimPrimListInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , MedicInterfaces
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , DocumentInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , bsTypes
+ , DynamicDocListUnit
+ , l3Interfaces
+ , PrimPrimListInterfaces
+ , nsTypes
+ , AdapterFacade
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TdeMedicFirmList = class(Tl3ProtoObject, IdeMedicFirmList, IdeDocInfo {from IdeMedicFirmList})
- private
- // private fields
-   f_CountryFilterTree : Il3SimpleTree;
-   f_CurrentCountryFilter : Il3SimpleNode;
-   f_Current : INodeBase;
-   f_DocInfo : IdeDocInfo;
- protected
- // realized methods
+ TdeMedicFirmList = class(Tl3ProtoObject, IdeMedicFirmList, IdeDocInfo)
+  private
+   f_CountryFilterTree: Il3SimpleTree;
+   f_CurrentCountryFilter: Il3SimpleNode;
+   f_Current: INodeBase;
+   f_DocInfo: IdeDocInfo;
+  protected
+   function As_IdeDocInfo: IdeDocInfo;
+    {* Метод приведения нашего интерфейса к IdeDocInfo }
    function IsSame(const aDocInfo: IdeDocInfo;
     aView: Boolean = True;
     aPosition: Boolean = True): Boolean;
-     {* сравнить документы.
+    {* сравнить документы.
            - aView: возвращает равенство документов с учетом их состояния (в
                     отличии от is_same_entity, который возвращает равенство без
                     учета состояния). Состоянием документа является суперпозиция
@@ -58,12 +47,12 @@ type
            - aPosition: сравнивать с учетом позиций. }
    procedure SetPosition(const aPos: TbsDocPos);
    function ChangeRedaction(aChangeType: TnsChangeRedactionType;
-    aRedaction: TRedactionID = 0): Boolean; overload; 
-   function ChangeRedaction(const aDate: AdapterDate): Boolean; overload; 
-   function ChangeRedaction(const aDocument: IDocument): Boolean; overload; 
+    aRedaction: TRedactionID = 0): Boolean; overload;
+   function ChangeRedaction(const aDate: AdapterDate): Boolean; overload;
+   function ChangeRedaction(const aDocument: IDocument): Boolean; overload;
    procedure InitListNode(const aRoot: INodeBase;
     const aListNode: INodeBase);
-     {* документ открывается из списка }
+    {* документ открывается из списка }
    procedure CorrectLanguage(aLanguage: TbsLanguage);
    function Clone: IdeDocInfo;
    function pm_GetDoc: IDocument;
@@ -85,40 +74,36 @@ type
    procedure pm_SetSearchInfo(const aValue: IdeSearchInfo);
    function pm_GetFilePosition: Il3CString;
    procedure ClearListNode;
-     {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
+    {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
    function pm_GetCurrent: INodeBase;
    procedure pm_SetCurrent(const aValue: INodeBase);
    function pm_GetCountryFilterTree: Il3SimpleTree;
    procedure pm_SetCountryFilterTree(const aValue: Il3SimpleTree);
    function pm_GetCurrentCountryFilter: Il3SimpleNode;
    procedure pm_SetCurrentCountryFilter(const aValue: Il3SimpleNode);
- public
- // public methods
+  public
    constructor Create(const aDocInfo: IdeDocInfo;
-     const aCurrent: INodeBase;
-     const aCountryFilter: Il3SimpleTree;
-     const aCurrentCountryFilter: Il3SimpleNode); reintroduce;
+    const aCurrent: INodeBase;
+    const aCountryFilter: Il3SimpleTree;
+    const aCurrentCountryFilter: Il3SimpleNode); reintroduce;
    class function Make(const aDocInfo: IdeDocInfo;
-     const aCurrent: INodeBase;
-     const aCountryFilter: Il3SimpleTree;
-     const aCurrentCountryFilter: Il3SimpleNode): IdeMedicFirmList; reintroduce;
-     {* Сигнатура фабрики TdeMedicFirmList.Make }
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IdeDocInfo: IdeDocInfo;
+    const aCurrent: INodeBase;
+    const aCountryFilter: Il3SimpleTree;
+    const aCurrentCountryFilter: Il3SimpleNode): IdeMedicFirmList; reintroduce;
  end;//TdeMedicFirmList
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeMedicFirmList
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
 constructor TdeMedicFirmList.Create(const aDocInfo: IdeDocInfo;
-  const aCurrent: INodeBase;
-  const aCountryFilter: Il3SimpleTree;
-  const aCurrentCountryFilter: Il3SimpleNode);
+ const aCurrent: INodeBase;
+ const aCountryFilter: Il3SimpleTree;
+ const aCurrentCountryFilter: Il3SimpleNode);
 //#UC START# *561F6E61019E_561F6D380330_var*
 //#UC END# *561F6E61019E_561F6D380330_var*
 begin
@@ -135,9 +120,9 @@ begin
 end;//TdeMedicFirmList.Create
 
 class function TdeMedicFirmList.Make(const aDocInfo: IdeDocInfo;
-  const aCurrent: INodeBase;
-  const aCountryFilter: Il3SimpleTree;
-  const aCurrentCountryFilter: Il3SimpleNode): IdeMedicFirmList;
+ const aCurrent: INodeBase;
+ const aCountryFilter: Il3SimpleTree;
+ const aCurrentCountryFilter: Il3SimpleNode): IdeMedicFirmList;
 var
  l_Inst : TdeMedicFirmList;
 begin
@@ -147,11 +132,23 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeMedicFirmList.Make
+
+function TdeMedicFirmList.As_IdeDocInfo: IdeDocInfo;
+ {* Метод приведения нашего интерфейса к IdeDocInfo }
+begin
+ Result := Self;
+end;//TdeMedicFirmList.As_IdeDocInfo
 
 function TdeMedicFirmList.IsSame(const aDocInfo: IdeDocInfo;
-  aView: Boolean = True;
-  aPosition: Boolean = True): Boolean;
+ aView: Boolean = True;
+ aPosition: Boolean = True): Boolean;
+ {* сравнить документы.
+           - aView: возвращает равенство документов с учетом их состояния (в
+                    отличии от is_same_entity, который возвращает равенство без
+                    учета состояния). Состоянием документа является суперпозиция
+                    номера редакции, языка и списка извлечений.
+           - aPosition: сравнивать с учетом позиций. }
 //#UC START# *4B1D118000EA_561F6D380330_var*
 //#UC END# *4B1D118000EA_561F6D380330_var*
 begin
@@ -170,7 +167,7 @@ begin
 end;//TdeMedicFirmList.SetPosition
 
 function TdeMedicFirmList.ChangeRedaction(aChangeType: TnsChangeRedactionType;
-  aRedaction: TRedactionID = 0): Boolean;
+ aRedaction: TRedactionID = 0): Boolean;
 //#UC START# *4B1D11CF0265_561F6D380330_var*
 //#UC END# *4B1D11CF0265_561F6D380330_var*
 begin
@@ -198,7 +195,8 @@ begin
 end;//TdeMedicFirmList.ChangeRedaction
 
 procedure TdeMedicFirmList.InitListNode(const aRoot: INodeBase;
-  const aListNode: INodeBase);
+ const aListNode: INodeBase);
+ {* документ открывается из списка }
 //#UC START# *4B1D11FE0117_561F6D380330_var*
 //#UC END# *4B1D11FE0117_561F6D380330_var*
 begin
@@ -388,6 +386,7 @@ begin
 end;//TdeMedicFirmList.pm_GetFilePosition
 
 procedure TdeMedicFirmList.ClearListNode;
+ {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
 //#UC START# *4B1FA0B003E1_561F6D380330_var*
 //#UC END# *4B1FA0B003E1_561F6D380330_var*
 begin
@@ -449,14 +448,6 @@ begin
  f_CurrentCountryFilter := aValue;
 //#UC END# *561F6394002D_561F6D380330set_impl*
 end;//TdeMedicFirmList.pm_SetCurrentCountryFilter
-
-// Методы преобразования к реализуемым интерфейсам
-
-function TdeMedicFirmList.As_IdeDocInfo: IdeDocInfo;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

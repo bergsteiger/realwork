@@ -1,37 +1,24 @@
 unit l3ProtoPtrRecList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ProtoPtrRecList.pas"
-// Начат: 20.04.2006 17:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::RecLists::Tl3ProtoPtrRecList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPtrRecList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoPtrRecList" MUID: (479DF9D50043)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Types,
-  l3RecListWithPartialFind
-  ;
+ l3IntfUses
+ , l3RecListWithPartialFind
+ , l3Types
+;
 
 type
  Tl3ProtoPtrRecList = class(Tl3RecListWithPartialFind)
- private
- // private fields
-   f_SortIndex : Tl3SortIndex;
- protected
- // overridden protected methods
+  private
+   f_SortIndex: Tl3SortIndex;
+  protected
    procedure InitFields; override;
    function DoGetSortIndex: Tl3SortIndex; override;
    procedure DoSetSortIndex(Value: Tl3SortIndex); override;
@@ -39,7 +26,9 @@ type
 
 implementation
 
-// start class Tl3ProtoPtrRecList
+uses
+ l3ImplUses
+;
 
 procedure Tl3ProtoPtrRecList.InitFields;
 //#UC START# *47A042E100E2_479DF9D50043_var*

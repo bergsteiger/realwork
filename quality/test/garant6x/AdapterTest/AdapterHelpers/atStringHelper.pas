@@ -1,29 +1,19 @@
 unit atStringHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atStringHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatStringHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atStringHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatStringHelper" MUID: (48B5671301C7)
 
 interface
 
 uses
-  IOUnit
-  ;
+ l3IntfUses
+ , IOUnit
+;
 
 type
  TatStringHelper = class
- public
- // public methods
+  public
    class function AStr2DStr(const aString: IString): AnsiString; virtual;
    class function DStr2AStr(const aString: AnsiString): IString; virtual;
  end;//TatStringHelper
@@ -31,10 +21,9 @@ type
 implementation
 
 uses
-  atGblAdapterWorker
-  ;
-
-// start class TatStringHelper
+ l3ImplUses
+ , atGblAdapterWorker
+;
 
 class function TatStringHelper.AStr2DStr(const aString: IString): AnsiString;
 //#UC START# *48B567460292_48B5671301C7_var*

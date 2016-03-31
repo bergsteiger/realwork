@@ -1,156 +1,153 @@
 unit nsConsultationDocumentContainerNew;
+ {* Контейнер документа-консультации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/nsConsultationDocumentContainerNew.pas"
-// Начат: 29.11.2010 13:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TnsConsultationDocumentContainerNew
-//
-// Контейнер документа-консультации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\nsConsultationDocumentContainerNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsConsultationDocumentContainerNew" MUID: (4CF37A0400FB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ConsultingUnit,
-  l3Interfaces
-  {$If defined(Nemesis)}
-  ,
-  eeDocumentContainer
-  {$IfEnd} //Nemesis
-  ,
-  l3Memory,
-  nevTools,
-  k2DocumentBuffer,
-  k2DocumentGenerator,
-  evdNativeReader,
-  DocumentInterfaces,
-  l3Variant,
-  DocumentUnit,
-  F1TagDataProviderInterface,
-  afwInterfaces,
-  nevBase,
-  k2Base,
-  nevPrintableDocumentContainer,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , eeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ , ConsultingUnit
+ , DocumentInterfaces
+ , nevTools
+ , l3Variant
+ , l3Interfaces
+ , l3Memory
+ , evdNativeReader
+ , k2DocumentBuffer
+ , k2DocumentGenerator
+ , nevPrintableDocumentContainer
+ , F1TagDataProviderInterface
+ , DocumentUnit
+ , afwInterfaces
+ , l3IID
+ , nevBase
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsTemplateFieldType = (
-   ns_ftQuery
- , ns_ftUser
- , ns_ftDate
- , ns_ftCost
- , ns_ftAnswer
- , ns_ftAuther
- , ns_ftDealerInf
- , ns_ftQueryByParas
+  ns_ftQuery
+  , ns_ftUser
+  , ns_ftDate
+  , ns_ftCost
+  , ns_ftAnswer
+  , ns_ftAuther
+  , ns_ftDealerInf
+  , ns_ftQueryByParas
  );//TnsTemplateFieldType
 
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsConsultationDocumentContainerNew = class(_nsDocumentContainer_)
   {* Контейнер документа-консультации }
- private
- // private fields
-   f_Cons : IConsultation;
-   f_DocInfo : IdeDocInfo;
- private
- // private methods
+  private
+   f_Cons: IConsultation;
+   f_DocInfo: IdeDocInfo;
+  private
    procedure FillTemplateFields(aTag: Tl3Tag;
-     const anInfo: IConsultingTemplateInfo);
-     {* Заполняет поля шаблона реальными значениями }
+    const anInfo: IConsultingTemplateInfo);
+    {* Заполняет поля шаблона реальными значениями }
    function HideHyperlinks(aPara: Tl3Tag): Boolean;
    function DoFinishAtom(G: Tk2DocumentGenerator;
-     var Atom: Tk2StackAtom): Boolean;
+    var Atom: Tk2StackAtom): Boolean;
    function DoGetDocument: Tl3Tag;
- protected
- // overridden protected methods
+  protected
    function GetDocument: Tl3Tag; override;
    function HAFPainterClass: RevHAFPainter; override;
    procedure AfterCreate(const aDocInfo: IdeDocInfo); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aDocInfo: IdeDocInfo;
-     const aCons: IConsultation); reintroduce;
+    const aCons: IConsultation); reintroduce;
    class function Make(const aDocInfo: IdeDocInfo;
-     const aCons: IConsultation): InevDocumentContainer; reintroduce;
-     {* Сигнатура фабрики TnsConsultationDocumentContainerNew.Make }
+    const aCons: IConsultation): InevDocumentContainer; reintroduce;
  end;//TnsConsultationDocumentContainerNew
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  evdVer,
-  IOUnit,
-  nsTypes,
-  AdapterFacade,
-  nsQuery,
-  ParaList_Const,
-  LeafPara_Const,
-  ControlPara_Const,
-  evdTypes,
-  k2Tags,
-  l3String,
-  ReqCell_Const,
-  ExternalOperationUnit,
-  nsConsultationHAFPainterImages_Form,
-  evTypes,
-  DataAdapter,
-  nsConst,
-  l3Types,
-  l3SysUtils,
-  Document_Const,
-  Para_Const,
-  SysUtils,
-  nsIDocumentDataObject,
-  nsDocumentPreview,
-  nsHAFPainter,
-  LoggingInterfaces,
-  nsDocumentPrintEvent,
-  deDocInfo,
-  nsTagString
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsConsultationHAFPainterImages_Form
+ , evTypes
+ , DataAdapter
+ , k2Tags
+ , nsConst
+ , l3Types
+ , l3SysUtils
+ , Document_Const
+ , Para_Const
+ , SysUtils
+ , nsIDocumentDataObject
+ , nsDocumentPreview
+ , nsHAFPainter
+ , LoggingInterfaces
+ , nsDocumentPrintEvent
+ , deDocInfo
+ , evdTypes
+ , nsTypes
+ , LeafPara_Const
+ , nsTagString
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , afwFacade
+ , ParaList_Const
+ , ControlPara_Const
+ , l3String
+ , ReqCell_Const
+ , ExternalOperationUnit
+ , IOUnit
+ , AdapterFacade
+ , nsQuery
+ , l3Base
+ , evdVer
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
-// start class TnsConsultationDocumentContainerNew
+constructor TnsConsultationDocumentContainerNew.Create(const aDocInfo: IdeDocInfo;
+ const aCons: IConsultation);
+//#UC START# *4CF3965400E5_4CF37A0400FB_var*
+//#UC END# *4CF3965400E5_4CF37A0400FB_var*
+begin
+//#UC START# *4CF3965400E5_4CF37A0400FB_impl*
+ f_Cons := aCons;
+ inherited Create(aDocInfo);
+//#UC END# *4CF3965400E5_4CF37A0400FB_impl*
+end;//TnsConsultationDocumentContainerNew.Create
+
+class function TnsConsultationDocumentContainerNew.Make(const aDocInfo: IdeDocInfo;
+ const aCons: IConsultation): InevDocumentContainer;
+var
+ l_Inst : TnsConsultationDocumentContainerNew;
+begin
+ l_Inst := Create(aDocInfo, aCons);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsConsultationDocumentContainerNew.Make
 
 procedure TnsConsultationDocumentContainerNew.FillTemplateFields(aTag: Tl3Tag;
-  const anInfo: IConsultingTemplateInfo);
-var
- l_WasSomeHyperlinkHidden : Boolean;
+ const anInfo: IConsultingTemplateInfo);
+ {* Заполняет поля шаблона реальными значениями }
+var l_WasSomeHyperlinkHidden: Boolean;
 
  function DoIt(anItem: Tl3Variant;
-   anIndex: Integer): Boolean;
+  anIndex: Integer): Boolean;
+  {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из FillTemplateFields }
 
   procedure FillText(const aText: Tl3WString);
   //#UC START# *4CF3B096018E__var*
@@ -161,6 +158,7 @@ var
   //#UC END# *4CF3B096018E__impl*
   end;//FillText
 
+
   procedure FillTextS(const aText: AnsiString);
   //#UC START# *4CF3B62D02CE__var*
   //#UC END# *4CF3B62D02CE__var*
@@ -169,6 +167,7 @@ var
    FillText(l3PCharLen(aText));
   //#UC END# *4CF3B62D02CE__impl*
   end;//FillTextS
+
 
   procedure FillTextL(const aText: IParasList);
   //#UC START# *4CF3B85B002B__var*
@@ -196,17 +195,17 @@ var
   //#UC END# *4CF3B85B002B__impl*
   end;//FillTextL
 
+
   procedure FillTextEVD(const aText: IParasList);
+  var l_S: Tl3ConstMemoryStream;
+  var l_R: TevdNativeReader;
+  var l_B: Tk2DocumentBuffer;
   //#UC START# *4DECEBC00327__var*
   var
    l_St  : IString;
    l_Tag : Tl3Variant;
    l_Ow  : Tl3Variant;
   //#UC END# *4DECEBC00327__var*
-  var
-   l_S : Tl3ConstMemoryStream;
-   l_R : TevdNativeReader;
-   l_B : Tk2DocumentBuffer;
   begin
   //#UC START# *4DECEBC00327__impl*
    if (aText <> nil) then
@@ -372,7 +371,7 @@ begin
  l_WasSomeHyperlinkHidden := false;
  aTag.
  //#UC END# *4CF39F58031Eiter*
-  IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt))
+ IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt))
  //#UC START# *4CF39F58031Eafteriter*
  ;
  if l_WasSomeHyperlinkHidden then
@@ -427,7 +426,7 @@ begin
 end;//TnsConsultationDocumentContainerNew.HideHyperlinks
 
 function TnsConsultationDocumentContainerNew.DoFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *4EAA71CA009F_4CF37A0400FB_var*
 //#UC END# *4EAA71CA009F_4CF37A0400FB_var*
 begin
@@ -482,30 +481,6 @@ begin
 //#UC END# *51E676440200_4CF37A0400FB_impl*
 end;//TnsConsultationDocumentContainerNew.DoGetDocument
 
-constructor TnsConsultationDocumentContainerNew.Create(const aDocInfo: IdeDocInfo;
-  const aCons: IConsultation);
-//#UC START# *4CF3965400E5_4CF37A0400FB_var*
-//#UC END# *4CF3965400E5_4CF37A0400FB_var*
-begin
-//#UC START# *4CF3965400E5_4CF37A0400FB_impl*
- f_Cons := aCons;
- inherited Create(aDocInfo);
-//#UC END# *4CF3965400E5_4CF37A0400FB_impl*
-end;//TnsConsultationDocumentContainerNew.Create
-
-class function TnsConsultationDocumentContainerNew.Make(const aDocInfo: IdeDocInfo;
-  const aCons: IConsultation): InevDocumentContainer;
-var
- l_Inst : TnsConsultationDocumentContainerNew;
-begin
- l_Inst := Create(aDocInfo, aCons);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 function TnsConsultationDocumentContainerNew.GetDocument: Tl3Tag;
 //#UC START# *47F27DA80172_4CF37A0400FB_var*
 //#UC END# *47F27DA80172_4CF37A0400FB_var*
@@ -542,17 +517,12 @@ begin
 end;//TnsConsultationDocumentContainerNew.AfterCreate
 
 procedure TnsConsultationDocumentContainerNew.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Cons := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_DocInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsConsultationDocumentContainerNew.ClearFields
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

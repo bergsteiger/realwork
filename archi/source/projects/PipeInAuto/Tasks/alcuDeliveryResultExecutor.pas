@@ -1,99 +1,68 @@
 unit alcuDeliveryResultExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuDeliveryResultExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ResultDelivery::TalcuDeliveryResultExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuDeliveryResultExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuDeliveryResultExecutor" MUID: (54759BE1037A)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskList
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  alcuExecutorWithTaskList,
-  alcuDeliveryInterfaces
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExecutorWithTaskList
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ , alcuDeliveryInterfaces
+ {$If Defined(AppServerSide)}
+ , alcuTaskList
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuDeliveryResultExecutor = class(TalcuExecutorWithTaskList {$If not defined(Nemesis)}, IncsExecutor{$IfEnd} //not Nemesis
+ TalcuDeliveryResultExecutor = class(TalcuExecutorWithTaskList{$If NOT Defined(Nemesis)}
+ , IncsExecutor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- private
- // private fields
-   f_Finisher : IalcuTaskFinisher;
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  private
+   f_Finisher: IalcuTaskFinisher;
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
-   {$IfEnd} //not Nemesis
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTaskList: TalcuTaskList;
-     const aFinisher: IalcuTaskFinisher); reintroduce;
+    const aFinisher: IalcuTaskFinisher); reintroduce;
    class function Make(aTaskList: TalcuTaskList;
-     const aFinisher: IalcuTaskFinisher): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TalcuDeliveryResultExecutor.Make }
+    const aFinisher: IalcuTaskFinisher): IncsExecutor; reintroduce;
  end;//TalcuDeliveryResultExecutor
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskListBase
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsDeliveryResult
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  l3Base,
-  evdNcsTypes,
-  TypInfo
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuDeliveryResultExecutor
+ l3ImplUses
+ {$If Defined(AppServerSide)}
+ , alcuTaskListBase
+ {$IfEnd} // Defined(AppServerSide)
+ {$If NOT Defined(Nemesis)}
+ , ncsDeliveryResult
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
+ , evdNcsTypes
+ , TypInfo
+;
 
 constructor TalcuDeliveryResultExecutor.Create(aTaskList: TalcuTaskList;
-  const aFinisher: IalcuTaskFinisher);
+ const aFinisher: IalcuTaskFinisher);
 //#UC START# *5475AFFB0169_54759BE1037A_var*
 //#UC END# *5475AFFB0169_54759BE1037A_var*
 begin
@@ -104,7 +73,7 @@ begin
 end;//TalcuDeliveryResultExecutor.Create
 
 class function TalcuDeliveryResultExecutor.Make(aTaskList: TalcuTaskList;
-  const aFinisher: IalcuTaskFinisher): IncsExecutor;
+ const aFinisher: IalcuTaskFinisher): IncsExecutor;
 var
  l_Inst : TalcuDeliveryResultExecutor;
 begin
@@ -114,9 +83,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuDeliveryResultExecutor.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuDeliveryResultExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_54759BE1037A_var*
 var
@@ -143,9 +112,10 @@ begin
  l3System.Msg2Log('Передача результатов завершена');
 //#UC END# *54607DDC0159_54759BE1037A_impl*
 end;//TalcuDeliveryResultExecutor.Execute
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 procedure TalcuDeliveryResultExecutor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54759BE1037A_var*
 //#UC END# *479731C50290_54759BE1037A_var*
 begin
@@ -154,7 +124,6 @@ begin
  inherited;
 //#UC END# *479731C50290_54759BE1037A_impl*
 end;//TalcuDeliveryResultExecutor.Cleanup
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

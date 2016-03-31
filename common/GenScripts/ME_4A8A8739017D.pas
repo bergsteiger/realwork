@@ -13,6 +13,8 @@ interface
 uses
  l3IntfUses
  , nscCustomChatMemo
+ //#UC START# *4A8A8739017Dintf_uses*
+ //#UC END# *4A8A8739017Dintf_uses*
 ;
 
 type
@@ -37,6 +39,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A8A8739017Dimpl_uses*
+ //#UC END# *4A8A8739017Dimpl_uses*
 ;
 
 //#UC START# *4A8A8739017Dimpl*

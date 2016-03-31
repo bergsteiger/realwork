@@ -1,36 +1,22 @@
 unit atSemaphoreOperation;
+ {* Обеспечивает выполнение вложенных операций одновременно не более чем заданному количеству клиентов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSemaphoreOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSemaphoreOperation
-//
-// Обеспечивает выполнение вложенных операций одновременно не более чем заданному количеству
-// клиентов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSemaphoreOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSemaphoreOperation" MUID: (4A4DF86D0208)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatSemaphoreOperation = class(TatOperationBase)
   {* Обеспечивает выполнение вложенных операций одновременно не более чем заданному количеству клиентов }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteChilds; override;
  end;//TatSemaphoreOperation
@@ -38,12 +24,11 @@ type
 implementation
 
 uses
-  atFileBasedSemaphore,
-  atLogger,
-  SysUtils
-  ;
-
-// start class TatSemaphoreOperation
+ l3ImplUses
+ , atFileBasedSemaphore
+ , atLogger
+ , SysUtils
+;
 
 procedure TatSemaphoreOperation.ExecuteSelf;
 //#UC START# *48089F460352_4A4DF86D0208_var*

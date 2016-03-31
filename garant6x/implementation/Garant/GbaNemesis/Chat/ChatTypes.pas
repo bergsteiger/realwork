@@ -1,46 +1,47 @@
 unit ChatTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Chat"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Chat/ChatTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> F1 Встроенные продукты::Chat::Chat::ChatTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\ChatTypes.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "ChatTypes" MUID: (4A66B9840002)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  SecurityUnit
-  ;
+ l3IntfUses
+ , BaseTypesUnit
+ , SecurityUnit
+;
 
 type
  TnsContactType = (
   {* Тип активности контакта }
-   ctActive // Залогинен
- , ctInactive // Отлогинен
+  ctActive
+   {* Залогинен }
+  , ctInactive
+   {* Отлогинен }
  );//TnsContactType
 
  TContactListFilterTypes = (
   {* Тип фильтра списка контактов }
-   clftNone // Все контакты
- , clftActive // Только залогиненные
+  clftNone
+   {* Все контакты }
+  , clftActive
+   {* Только залогиненные }
  );//TContactListFilterTypes
 
- TbsUserID = BaseTypesUnit.TUid;
+ TbsUserID = TUid;
   {* ID пользователя }
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

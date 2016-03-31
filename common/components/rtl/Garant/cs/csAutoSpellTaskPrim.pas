@@ -1,57 +1,43 @@
 unit csAutoSpellTaskPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csAutoSpellTaskPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsAutoSpellTaskPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csAutoSpellTaskPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsAutoSpellTaskPrim" MUID: (53B682E2009F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsAutoSpellTaskPrim = class(TddProcessTask)
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
  end;//TcsAutoSpellTaskPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  AutoSpellTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsAutoSpellTaskPrim
+ l3ImplUses
+ , AutoSpellTask_Const
+;
 
 class function TcsAutoSpellTaskPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B682E2009F_var*
+//#UC END# *53AC03EE01FD_53B682E2009F_var*
 begin
- Result := k2_typAutoSpellTask;
+//#UC START# *53AC03EE01FD_53B682E2009F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B682E2009F_impl*
 end;//TcsAutoSpellTaskPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

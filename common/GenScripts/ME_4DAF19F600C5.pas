@@ -11,24 +11,24 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwTypeInfo
- , tfwScriptingTypes
  , l3Interfaces
+ , l3Types
+ , l3PureMixIns
  , l3EtalonsWorking
+ , tfwParserInterfaces
+ , tfwScriptingTypes
  , tfwScriptingExceptions
+ , tfwTypeInfo
  , l3ProtoObject
  , TypInfo
  , tfwValueTypes
  , tfwCStringFactory
- , tfwParserInterfaces
  , SysUtils
  , tfwStreamFactory
  , l3Variant
  , tfwKeyWordPrim
  , tfwDictionaryPrim
- , l3Types
  , Types
- , l3PureMixIns
 ;
 
 const

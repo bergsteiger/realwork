@@ -1,66 +1,45 @@
 unit alcuExecutorWithTaskList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuExecutorWithTaskList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::CoreExecutors::TalcuExecutorWithTaskList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithTaskList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuExecutorWithTaskList" MUID: (54748D2A0111)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  l3ProtoObject
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskList
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , l3ProtoObject
+ {$If Defined(AppServerSide)}
+ , alcuTaskList
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuExecutorWithTaskList = class(Tl3ProtoObject)
- private
- // private fields
-   f_TaskList : TalcuTaskList;
-    {* Поле для свойства TaskList}
- protected
- // overridden protected methods
+  private
+   f_TaskList: TalcuTaskList;
+    {* Поле для свойства TaskList }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTaskList: TalcuTaskList); reintroduce;
- protected
- // protected properties
+  protected
    property TaskList: TalcuTaskList
-     read f_TaskList;
+    read f_TaskList;
  end;//TalcuExecutorWithTaskList
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuExecutorWithTaskList
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TalcuExecutorWithTaskList.Create(aTaskList: TalcuTaskList);
 //#UC START# *5465DA0F0245_54748D2A0111_var*
@@ -73,6 +52,7 @@ begin
 end;//TalcuExecutorWithTaskList.Create
 
 procedure TalcuExecutorWithTaskList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54748D2A0111_var*
 //#UC END# *479731C50290_54748D2A0111_var*
 begin
@@ -81,7 +61,6 @@ begin
  inherited;
 //#UC END# *479731C50290_54748D2A0111_impl*
 end;//TalcuExecutorWithTaskList.Cleanup
-
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 end.

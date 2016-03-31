@@ -1,33 +1,23 @@
 unit atSaveJournalQueryToXMLOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atSaveJournalQueryToXMLOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatSaveJournalQueryToXMLOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveJournalQueryToXMLOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveJournalQueryToXMLOperation" MUID: (5006FEE200E1)
 
 interface
 
 uses
-  atIterateUserJournalOperation,
-  atQuery,
-  atUserJournalHelper
-  ;
+ l3IntfUses
+ , atIterateUserJournalOperation
+ , atQuery
+ , atUserJournalHelper
+;
 
 type
  _atSaveQueryToXMLAddon_Parent_ = TatIterateUserJournalOperation;
- {$Include ..\Operations\atSaveQueryToXMLAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
  TatSaveJournalQueryToXMLOperation = class(_atSaveQueryToXMLAddon_)
- protected
- // realized methods
+  protected
    function OnQuery(const anQuery: TatQuery): Boolean; override;
    function OnBookmark(const aBookmark: TatJournalBookmark): Boolean; override;
  end;//TatSaveJournalQueryToXMLOperation
@@ -35,17 +25,16 @@ type
 implementation
 
 uses
-  atLogger,
-  atCommon,
-  XMLIntf,
-  SysUtils,
-  atQueryTypeConverter,
-  Windows
-  ;
+ l3ImplUses
+ , atLogger
+ , atCommon
+ , XMLIntf
+ , SysUtils
+ , atQueryTypeConverter
+ , Windows
+;
 
-{$Include ..\Operations\atSaveQueryToXMLAddon.imp.pas}
-
-// start class TatSaveJournalQueryToXMLOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
 
 function TatSaveJournalQueryToXMLOperation.OnQuery(const anQuery: TatQuery): Boolean;
 //#UC START# *5006F37302DF_5006FEE200E1_var*

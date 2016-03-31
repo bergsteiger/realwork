@@ -1,89 +1,57 @@
 unit nsRubricatorCache;
+ {* Какой-то кеш, который на самом деле ничего не кеширует, а напрямую ходит к адаптеру }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsRubricatorCache.pas"
-// Начат: 2003/06/10 12:57:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::Rubricator::TnsRubricatorCache
-//
-// Какой-то кеш, который на самом деле ничего не кеширует, а напрямую ходит к адаптеру
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsRubricatorCache.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsRubricatorCache" MUID: (490724F202F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3CacheableBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CacheableBase
+ , DynamicTreeUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsRubricatorCache = class(Tl3CacheableBase)
   {* Какой-то кеш, который на самом деле ничего не кеширует, а напрямую ходит к адаптеру }
- protected
- // property methods
+  protected
    function pm_GetRubricatorRoot: INodeBase;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property RubricatorRoot: INodeBase
-     read pm_GetRubricatorRoot;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsRubricatorCache;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsRubricatorCache }
+  public
+   property RubricatorRoot: INodeBase
+    read pm_GetRubricatorRoot;
  end;//TnsRubricatorCache
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  DataAdapter,
-  BaseTypesUnit,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , DataAdapter
+ , BaseTypesUnit
+ , nsTypes
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsRubricatorCache
-
-var g_TnsRubricatorCache : TnsRubricatorCache = nil;
+var g_TnsRubricatorCache: TnsRubricatorCache = nil;
+ {* Экземпляр синглетона TnsRubricatorCache }
 
 procedure TnsRubricatorCacheFree;
+ {* Метод освобождения экземпляра синглетона TnsRubricatorCache }
 begin
  l3Free(g_TnsRubricatorCache);
-end;
-
-class function TnsRubricatorCache.Instance: TnsRubricatorCache;
-begin
- if (g_TnsRubricatorCache = nil) then
- begin
-  l3System.AddExitProc(TnsRubricatorCacheFree);
-  g_TnsRubricatorCache := Create;
- end;
- Result := g_TnsRubricatorCache;
-end;
-
+end;//TnsRubricatorCacheFree
 
 function TnsRubricatorCache.pm_GetRubricatorRoot: INodeBase;
 //#UC START# *4908807B02FD_490724F202F5get_var*
@@ -103,11 +71,21 @@ begin
 end;//TnsRubricatorCache.pm_GetRubricatorRoot
 
 class function TnsRubricatorCache.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsRubricatorCache <> nil;
 end;//TnsRubricatorCache.Exists
 
-{$IfEnd} //not Admin AND not Monitorings
+class function TnsRubricatorCache.Instance: TnsRubricatorCache;
+ {* Метод получения экземпляра синглетона TnsRubricatorCache }
+begin
+ if (g_TnsRubricatorCache = nil) then
+ begin
+  l3System.AddExitProc(TnsRubricatorCacheFree);
+  g_TnsRubricatorCache := Create;
+ end;
+ Result := g_TnsRubricatorCache;
+end;//TnsRubricatorCache.Instance
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

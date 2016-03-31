@@ -1,49 +1,40 @@
 unit CsDataPipePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsDataPipePrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Core::TCsDataPipePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsDataPipePrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCsDataPipePrim" MUID: (538DC31F03A5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsCommon,
-  IdIOHandler,
-  csIdIOHandlerAbstractAdapterPrim,
-  csIdIOHandlerAbstractAdapter,
-  Classes
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csIdIOHandlerAbstractAdapterPrim
+ , CsCommon
+ , csIdIOHandlerAbstractAdapter
+ , IdIOHandler
+ , Classes
+;
 
-{$If not defined(Nemesis)}
 const
-  { Constants }
  c_MaxDataStringLength = 4 * 1024;
  c_NoMoreFiles = '<>';
 
 type
  TCsDataPipePrim = class(TcsIdIOHandlerAbstractAdapterPrim)
- private
- // private fields
-   f_ClientID : TCsClientId;
-    {* Поле для свойства ClientID}
-   f_IOHandler : TcsIdIOHandlerAbstractAdapter;
-    {* Поле для свойства IOHandler}
- protected
- // realized methods
+  private
+   f_ClientID: TCsClientId;
+    {* Поле для свойства ClientID }
+   f_IOHandler: TcsIdIOHandlerAbstractAdapter;
+    {* Поле для свойства IOHandler }
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(aIOHandler: TcsIdIOHandlerAbstractAdapter); reintroduce; overload;
+   constructor Create(aIOHandler: TIdIOHandler); reintroduce; overload;
    procedure WriteBufferFlush; override;
    function ReadChar: AnsiChar; override;
    function ReadCardinal: Cardinal; override;
@@ -51,14 +42,14 @@ type
    function ReadLn: AnsiString; override;
    function ReadInt64: Int64; override;
    procedure ReadStream(aStream: TStream;
-     aSize: Int64 = -1); override;
+    aSize: Int64 = -1); override;
    function ReadInteger: Integer; override;
    function ReadSmallInt: SmallInt; override;
    procedure WriteLn(const aString: AnsiString); override;
    procedure WriteCardinal(aValue: Cardinal); override;
    procedure WriteInt64(aValue: Int64); override;
    procedure WriteStream(aStream: TStream;
-     aByteCount: Int64 = 0); override;
+    aByteCount: Int64 = 0); override;
    procedure WriteChar(aValue: AnsiChar); override;
    procedure WriteSmallInt(aValue: SmallInt); override;
    procedure WriteInteger(aValue: Integer); override;
@@ -66,38 +57,25 @@ type
    function WaitForReadData(aTimeout: Integer): Boolean; override;
    procedure WriteLargeStr(const aString: AnsiString); override;
    function ReadLargeStr: AnsiString; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
-   constructor Create(aIOHandler: TcsIdIOHandlerAbstractAdapter); reintroduce; overload; 
-   constructor Create(aIOHandler: TIdIOHandler); overload; 
- public
- // public properties
+  public
    property ClientID: TCsClientId
-     read f_ClientID
-     write f_ClientID;
+    read f_ClientID
+    write f_ClientID;
    property IOHandler: TcsIdIOHandlerAbstractAdapter
-     read f_IOHandler;
-     {* Пока торчит наружу до перехода на постоянно живущее соединение (для подделки протокола) }
+    read f_IOHandler;
+    {* Пока торчит наружу до перехода на постоянно живущее соединение (для подделки протокола) }
  end;//TCsDataPipePrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csIdIOHandlerAdapter,
-  SysUtils,
-  StrUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TCsDataPipePrim
+ l3ImplUses
+ , csIdIOHandlerAdapter
+ , SysUtils
+ , StrUtils
+;
 
 constructor TCsDataPipePrim.Create(aIOHandler: TcsIdIOHandlerAbstractAdapter);
 //#UC START# *538DC49700E1_538DC31F03A5_var*
@@ -189,7 +167,7 @@ begin
 end;//TCsDataPipePrim.ReadInt64
 
 procedure TCsDataPipePrim.ReadStream(aStream: TStream;
-  aSize: Int64 = -1);
+ aSize: Int64 = -1);
 //#UC START# *538DB69000E7_538DC31F03A5_var*
 //#UC END# *538DB69000E7_538DC31F03A5_var*
 begin
@@ -256,7 +234,7 @@ begin
 end;//TCsDataPipePrim.WriteInt64
 
 procedure TCsDataPipePrim.WriteStream(aStream: TStream;
-  aByteCount: Int64 = 0);
+ aByteCount: Int64 = 0);
 //#UC START# *538DB86700DB_538DC31F03A5_var*
 //#UC END# *538DB86700DB_538DC31F03A5_var*
 begin
@@ -330,6 +308,7 @@ begin
 end;//TCsDataPipePrim.ReadLargeStr
 
 procedure TCsDataPipePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_538DC31F03A5_var*
 //#UC END# *479731C50290_538DC31F03A5_var*
 begin
@@ -338,7 +317,6 @@ begin
  inherited;
 //#UC END# *479731C50290_538DC31F03A5_impl*
 end;//TCsDataPipePrim.Cleanup
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

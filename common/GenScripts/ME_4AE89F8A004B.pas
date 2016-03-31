@@ -11,10 +11,13 @@ interface
 {$If NOT Defined(Admin)}
 uses
  l3IntfUses
- , PrimPrimListInterfaces
- , bsTypes
+ , BaseTreeSupportUnit
+ , DynamicTreeUnit
  , FiltersUnit
+ , l3TreeInterfaces
+ , bsTypes
  , eeInterfaces
+ , PrimPrimListInterfaces
  , nsTypes
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces

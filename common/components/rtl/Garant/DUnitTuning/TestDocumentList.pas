@@ -1,72 +1,45 @@
 unit TestDocumentList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/TestDocumentList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnitTuning::Source::TTestDocumentList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestDocumentList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TTestDocumentList" MUID: (5279D2EA02DE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3StringList
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
+ l3IntfUses
+ , l3StringList
+;
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 type
  TTestDocumentList = class(Tl3StringList)
- public
- // public methods
+  public
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: TTestDocumentList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TTestDocumentList }
  end;//TTestDocumentList
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
-
-
-// start class TTestDocumentList
-
-var g_TTestDocumentList : TTestDocumentList = nil;
+var g_TTestDocumentList: TTestDocumentList = nil;
+ {* Экземпляр синглетона TTestDocumentList }
 
 procedure TTestDocumentListFree;
+ {* Метод освобождения экземпляра синглетона TTestDocumentList }
 begin
  l3Free(g_TTestDocumentList);
-end;
-
-class function TTestDocumentList.Instance: TTestDocumentList;
-begin
- if (g_TTestDocumentList = nil) then
- begin
-  l3System.AddExitProc(TTestDocumentListFree);
-  g_TTestDocumentList := Create;
- end;
- Result := g_TTestDocumentList;
-end;
-
+end;//TTestDocumentListFree
 
 class function TTestDocumentList.Exists: Boolean;
 //#UC START# *5279D3220116_5279D2EA02DE_var*
@@ -77,6 +50,16 @@ begin
 //#UC END# *5279D3220116_5279D2EA02DE_impl*
 end;//TTestDocumentList.Exists
 
-{$IfEnd} //nsTest AND not NotTunedDUnit
+class function TTestDocumentList.Instance: TTestDocumentList;
+ {* Метод получения экземпляра синглетона TTestDocumentList }
+begin
+ if (g_TTestDocumentList = nil) then
+ begin
+  l3System.AddExitProc(TTestDocumentListFree);
+  g_TTestDocumentList := Create;
+ end;
+ Result := g_TTestDocumentList;
+end;//TTestDocumentList.Instance
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 end.

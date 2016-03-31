@@ -1,81 +1,64 @@
 unit m3TOCHandleList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3TOCHandleList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3TOCHandleList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3TOCHandleList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3TOCHandleList" MUID: (54219FC800B5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  m3TOCHandle,
-  ActiveX,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , m3TOCHandle
+ , l3Interfaces
+ , ActiveX
+ , l3ProtoDataContainer
+ , Classes
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+;
 
 type
  _ItemType_ = Tm3TOCHandle;
  _KeyType_ = Tl3WString;
- {$Include ..\m3\m3PersistentList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas}
  Tm3TOCHandleList = class(_m3PersistentList_)
- private
- // private fields
-   f_Modified : Boolean;
-    {* Поле для свойства Modified}
- protected
- // property methods
+  private
+   f_Modified: Boolean;
+    {* Поле для свойства Modified }
+  protected
    function pm_GetModified: Boolean;
    procedure pm_SetModified(aValue: Boolean);
- protected
- // realized methods
    function CompareKeyByItem(const aKey: _KeyType_;
-     const anItem: _ItemType_): Integer; override;
- protected
- // overridden protected methods
+    const anItem: _ItemType_): Integer; override;
    procedure InitFields; override;
- public
- // public properties
+  public
    property Modified: Boolean
-     read pm_GetModified
-     write pm_SetModified;
+    read pm_GetModified
+    write pm_SetModified;
  end;//Tm3TOCHandleList
 
 implementation
 
 uses
-  l3String,
-  m2COMLib,
-  l3Base,
-  m3BuffStream,
-  m2S32Lib,
-  m3Persistent,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3String
+ , m3Persistent
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , m2COMLib
+ , m3BuffStream
+ , m2S32Lib
+;
 
 type _Instance_R_ = Tm3TOCHandleList;
 
-{$Include ..\m3\m3PersistentList.imp.pas}
-
-// start class Tm3TOCHandleList
+{$Include w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas}
 
 function Tm3TOCHandleList.pm_GetModified: Boolean;
 //#UC START# *5422B20901DA_54219FC800B5get_var*
@@ -101,7 +84,7 @@ begin
 end;//Tm3TOCHandleList.pm_SetModified
 
 function Tm3TOCHandleList.CompareKeyByItem(const aKey: _KeyType_;
-  const anItem: _ItemType_): Integer;
+ const anItem: _ItemType_): Integer;
 //#UC START# *5421A06902CD_54219FC800B5_var*
 //#UC END# *5421A06902CD_54219FC800B5_var*
 begin

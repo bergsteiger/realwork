@@ -1,55 +1,43 @@
 unit atListEntryInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atListEntryInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatListEntryInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atListEntryInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatListEntryInfo" MUID: (5051EA2101A5)
 
 interface
 
 uses
-  BaseTypesUnit,
-  DynamicDocListUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3_Base
-  ;
+ l3IntfUses
+ , DynamicDocListUnit
+ , DocumentUnit
+ , BaseTypesUnit
+ , l3_Base
+ , DynamicTreeUnit
+;
 
 type
  _EntityInterface_ = IListEntryInfo;
- {$Include ..\AdapterHelpers\atEntity.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
  TatListEntryInfo = class(_atEntity_)
- protected
- // property methods
+  protected
    function pm_GetDocument: IDocument; virtual;
    function pm_GetPID: TPId; virtual;
- public
- // public properties
+  public
    property Document: IDocument
-     read pm_GetDocument;
+    read pm_GetDocument;
    property PID: TPId
-     read pm_GetPID;
+    read pm_GetPID;
  end;//TatListEntryInfo
 
 implementation
 
 uses
-  SysUtils,
-  IOUnit
-  ;
+ l3ImplUses
+ , SysUtils
+ , IOUnit
+;
 
-{$Include ..\AdapterHelpers\atEntity.imp.pas}
-
-// start class TatListEntryInfo
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
 
 function TatListEntryInfo.pm_GetDocument: IDocument;
 //#UC START# *5051EB280111_5051EA2101A5get_var*

@@ -1,106 +1,72 @@
 unit alcuGetFilePartExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuGetFilePartExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::ResultDelivery::TalcuGetFilePartExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuGetFilePartExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuGetFilePartExecutor" MUID: (54759BFB02B4)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskList
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  alcuExecutorWithTaskList
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExecutorWithTaskList
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(AppServerSide)}
+ , alcuTaskList
+ {$IfEnd} // Defined(AppServerSide)
+;
 
-{$If defined(ServerTasks)}
 type
- TalcuGetFilePartExecutor = class(TalcuExecutorWithTaskList {$If not defined(Nemesis)}, IncsExecutor{$IfEnd} //not Nemesis
+ TalcuGetFilePartExecutor = class(TalcuExecutorWithTaskList{$If NOT Defined(Nemesis)}
+ , IncsExecutor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
-   {$IfEnd} //not Nemesis
- public
- // public methods
+   {$IfEnd} // NOT Defined(Nemesis)
+  public
    class function Make(aTaskList: TalcuTaskList): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TalcuGetFilePartExecutor.Make }
  end;//TalcuGetFilePartExecutor
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  SysUtils
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuTaskListBase
-  {$IfEnd} //AppServerSide AND ServerTasks
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetFilePart
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetFilePartReply
-  {$IfEnd} //not Nemesis
-  ,
-  l3Stream,
-  l3Types
-  {$If not defined(Nemesis)}
-  ,
-  csExport
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsPushFilePart
-  {$IfEnd} //not Nemesis
-  ,
-  Math
-  {$If not defined(Nemesis)}
-  ,
-  ncsProfile
-  {$IfEnd} //not Nemesis
-  ,
-  l3Base
-  ;
-{$IfEnd} //ServerTasks
-
-{$If defined(ServerTasks)}
-
-// start class TalcuGetFilePartExecutor
+ l3ImplUses
+ {$If Defined(AppServerSide)}
+ , alcuTaskListBase
+ {$IfEnd} // Defined(AppServerSide)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetFilePart
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetFilePartReply
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Stream
+ , Classes
+ , l3Types
+ , SysUtils
+ {$If NOT Defined(Nemesis)}
+ , csExport
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsPushFilePart
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Math
+ {$If NOT Defined(Nemesis)}
+ , ncsProfile
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
+;
 
 class function TalcuGetFilePartExecutor.Make(aTaskList: TalcuTaskList): IncsExecutor;
 var
@@ -112,9 +78,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuGetFilePartExecutor.Make
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuGetFilePartExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_54759BFB02B4_var*
 var
@@ -200,8 +166,7 @@ begin
  end;
 //#UC END# *54607DDC0159_54759BFB02B4_impl*
 end;//TalcuGetFilePartExecutor.Execute
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //ServerTasks
-
+{$IfEnd} // Defined(ServerTasks)
 end.

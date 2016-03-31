@@ -1,63 +1,50 @@
 unit daSelectField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daSelectField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaSelectField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daSelectField.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaSelectField" MUID: (5551DCD200EE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+;
 
 type
  TdaSelectField = class(Tl3ProtoObject, IdaSelectField, IdaFieldFromTable)
- private
- // private fields
-   f_Alias : AnsiString;
-   f_TableAlias : AnsiString;
-   f_Field : IdaFieldDescription;
- protected
- // realized methods
+  private
+   f_Alias: AnsiString;
+   f_TableAlias: AnsiString;
+   f_Field: IdaFieldDescription;
+  protected
    function Get_TableAlias: AnsiString;
    function Get_Field: IdaFieldDescription;
    function Get_Alias: AnsiString;
    function BuildSQLValue: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTableAlias: AnsiString;
-     const aField: IdaFieldDescription;
-     const anAlias: AnsiString = ''); reintroduce; virtual;
+    const aField: IdaFieldDescription;
+    const anAlias: AnsiString = ''); reintroduce; virtual;
    class function Make(const aTableAlias: AnsiString;
-     const aField: IdaFieldDescription;
-     const anAlias: AnsiString = ''): IdaSelectField; reintroduce;
-     {* Сигнатура фабрики TdaSelectField.Make }
+    const aField: IdaFieldDescription;
+    const anAlias: AnsiString = ''): IdaSelectField; reintroduce;
  end;//TdaSelectField
 
 implementation
 
-// start class TdaSelectField
+uses
+ l3ImplUses
+;
 
 constructor TdaSelectField.Create(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const anAlias: AnsiString = '');
+ const aField: IdaFieldDescription;
+ const anAlias: AnsiString = '');
 //#UC START# *5551F6DC02D0_5551DCD200EE_var*
 //#UC END# *5551F6DC02D0_5551DCD200EE_var*
 begin
@@ -73,8 +60,8 @@ begin
 end;//TdaSelectField.Create
 
 class function TdaSelectField.Make(const aTableAlias: AnsiString;
-  const aField: IdaFieldDescription;
-  const anAlias: AnsiString = ''): IdaSelectField;
+ const aField: IdaFieldDescription;
+ const anAlias: AnsiString = ''): IdaSelectField;
 var
  l_Inst : TdaSelectField;
 begin
@@ -84,7 +71,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdaSelectField.Make
 
 function TdaSelectField.Get_TableAlias: AnsiString;
 //#UC START# *555351D702B3_5551DCD200EEget_var*
@@ -129,6 +116,7 @@ begin
 end;//TdaSelectField.BuildSQLValue
 
 procedure TdaSelectField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5551DCD200EE_var*
 //#UC END# *479731C50290_5551DCD200EE_var*
 begin

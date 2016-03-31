@@ -1,75 +1,56 @@
 unit ncsReplyWaiter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsReplyWaiter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsReplyWaiter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsReplyWaiter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsReplyWaiter" MUID: (5461D9EE0244)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  Windows,
-  l3ProtoObject,
-  ncsMessage,
-  ncsReplyDescription,
-  ncsReplyDecsriptionList,
-  SyncObjs
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsReplyDecsriptionList
+ , ncsMessage
+ , Windows
+ , ncsReplyDescription
+ , SyncObjs
+;
 
-{$If not defined(Nemesis)}
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsReplyWaiter = class(_l3CriticalSectionHolder_)
- private
- // private fields
-   f_List : TncsReplyDecsriptionList;
- private
- // private methods
+  private
+   f_List: TncsReplyDecsriptionList;
+  private
    function FindDesc(aMessage: TncsMessage): TncsReplyDescription;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure SubmitReply(aMessage: TncsMessage);
    procedure SubmitMessage(aMessage: TncsMessage);
    procedure Clear;
    function WaitForReply(aMessage: TncsMessage;
     var theReply: TncsMessage;
-    aTimeOut: LongWord = INFINITE): Boolean;
+    aTimeOut: LongWord = Windows.INFINITE): Boolean;
  end;//TncsReplyWaiter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
-
-// start class TncsReplyWaiter
 
 function TncsReplyWaiter.FindDesc(aMessage: TncsMessage): TncsReplyDescription;
 //#UC START# *54633EAE039A_5461D9EE0244_var*
@@ -153,8 +134,8 @@ begin
 end;//TncsReplyWaiter.Clear
 
 function TncsReplyWaiter.WaitForReply(aMessage: TncsMessage;
-  var theReply: TncsMessage;
-  aTimeOut: LongWord = INFINITE): Boolean;
+ var theReply: TncsMessage;
+ aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *54630A80027D_5461D9EE0244_var*
 var
  l_Desc: TncsReplyDescription;
@@ -200,6 +181,7 @@ begin
 end;//TncsReplyWaiter.WaitForReply
 
 procedure TncsReplyWaiter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5461D9EE0244_var*
 //#UC END# *479731C50290_5461D9EE0244_var*
 begin
@@ -219,7 +201,6 @@ begin
  f_List := TncsReplyDecsriptionList.Create;
 //#UC END# *47A042E100E2_5461D9EE0244_impl*
 end;//TncsReplyWaiter.InitFields
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

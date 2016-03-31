@@ -1,40 +1,35 @@
 unit OfficeLikeAppInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "UserInteraction"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/UserInteraction/OfficeLikeAppInterfaces.pas"
-// Начат: 20.10.2009 20:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Operations::OfficeLike::UserInteraction::OfficeLikeAppInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeAppInterfaces.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "OfficeLikeAppInterfaces" MUID: (4ADDE3D70311)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces
-  ;
+ l3IntfUses
+ , vcmInterfaces
+;
 
 type
- InsWindow = interface(IUnknown)
+ InsWindow = interface
   {* интерфейс окна. Для работы с окнами системы }
-   ['{8F95EBB5-E396-4AF3-9A6A-EFD0684A20C9}']
-   function Get_Form: IvcmEntityForm;
-   property Form: IvcmEntityForm
-     read Get_Form;
+  ['{8F95EBB5-E396-4AF3-9A6A-EFD0684A20C9}']
+  function Get_Form: IvcmEntityForm;
+  property Form: IvcmEntityForm
+   read Get_Form;
  end;//InsWindow
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

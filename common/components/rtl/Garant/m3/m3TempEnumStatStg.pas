@@ -1,53 +1,41 @@
 unit m3TempEnumStatStg;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3TempEnumStatStg.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Storage::Tm3TempEnumStatStg
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3TempEnumStatStg.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3TempEnumStatStg" MUID: (5485894C00CB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3BaseEnumStatStg
-  ;
+ l3IntfUses
+ , m3BaseEnumStatStg
+ , ActiveX
+ //#UC START# *5485894C00CBintf_uses*
+ //#UC END# *5485894C00CBintf_uses*
+;
 
 type
-//#UC START# *5485894C00CBci*
-//#UC END# *5485894C00CBci*
-//#UC START# *5485894C00CBcit*
-//#UC END# *5485894C00CBcit*
+ //#UC START# *5485894C00CBci*
+ //#UC END# *5485894C00CBci*
+ //#UC START# *5485894C00CBcit*
+ //#UC END# *5485894C00CBcit*
  Tm3TempEnumStatStg = class(Tm3BaseEnumStatStg)
- private
- // private fields
-   FStream : IStream;
-   FItemsCount : Integer;
-   FItemsIndex : Integer;
- protected
- // overridden protected methods
+  private
+   FStream: IStream;
+   FItemsCount: Integer;
+   FItemsIndex: Integer;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aStream: IStream;
-     aCount: Integer); reintroduce;
+    aCount: Integer); reintroduce;
    class function Make(const aStream: IStream;
-     aCount: Integer): IEnumStatStg; reintroduce;
-     {* Сигнатура фабрики Tm3TempEnumStatStg.Make }
-//#UC START# *5485894C00CBpubl*
+    aCount: Integer): IEnumStatStg; reintroduce;
+ //#UC START# *5485894C00CBpubl*
          private
 
 
@@ -84,22 +72,23 @@ type
                                                       ); override;
 
 
-//#UC END# *5485894C00CBpubl*
+ //#UC END# *5485894C00CBpubl*
  end;//Tm3TempEnumStatStg
 
 implementation
 
 uses
-  m2AddPrc,
-  m2COMLib,
-  m2MemLib,
-  ComObj
-  ;
-
-// start class Tm3TempEnumStatStg
+ l3ImplUses
+ , m2AddPrc
+ , m2COMLib
+ , m2MemLib
+ , ComObj
+ //#UC START# *5485894C00CBimpl_uses*
+ //#UC END# *5485894C00CBimpl_uses*
+;
 
 constructor Tm3TempEnumStatStg.Create(const aStream: IStream;
-  aCount: Integer);
+ aCount: Integer);
 //#UC START# *54858CC10221_5485894C00CB_var*
 //#UC END# *54858CC10221_5485894C00CB_var*
 begin
@@ -113,7 +102,7 @@ begin
 end;//Tm3TempEnumStatStg.Create
 
 class function Tm3TempEnumStatStg.Make(const aStream: IStream;
-  aCount: Integer): IEnumStatStg;
+ aCount: Integer): IEnumStatStg;
 var
  l_Inst : Tm3TempEnumStatStg;
 begin
@@ -123,9 +112,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tm3TempEnumStatStg.Make
 
 procedure Tm3TempEnumStatStg.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5485894C00CB_var*
 //#UC END# *479731C50290_5485894C00CB_var*
 begin
@@ -139,7 +129,6 @@ begin
 end;//Tm3TempEnumStatStg.Cleanup
 
 procedure Tm3TempEnumStatStg.ClearFields;
- {-}
 begin
  FStream := nil;
  inherited;

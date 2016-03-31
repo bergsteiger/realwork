@@ -1,86 +1,63 @@
 unit caTabledQuery;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caTabledQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaTabledQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caTabledQuery.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaTabledQuery" MUID: (56C6DB730289)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  daInterfaces,
-  daTabledQuery
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , daTabledQuery
+ , daInterfaces
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaTabledQuery = class(TdaTabledQuery)
- private
- // private fields
-   f_PGQuery : IdaTabledQuery;
-   f_HTQuery : IdaTabledQuery;
- protected
- // realized methods
+  private
+   f_PGQuery: IdaTabledQuery;
+   f_HTQuery: IdaTabledQuery;
+  protected
    function MakeFromTable(const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaFromTable; override;
+    const anAlias: AnsiString = ''): IdaFromTable; override;
    procedure PrepareTable; override;
-     {* Сигнатура метода PrepareTable }
    procedure UnPrepareTable; override;
-     {* Сигнатура метода UnPrepareTable }
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    function DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam; override;
- public
- // public methods
+  public
    constructor Create(const aDataConverter: IdaDataConverter;
-     const aTable: IdaTableDescription;
-     const anAlias: AnsiString;
-     const aHTQuery: IdaTabledQuery;
-     const aPGQuery: IdaTabledQuery); reintroduce;
+    const aTable: IdaTableDescription;
+    const anAlias: AnsiString;
+    const aHTQuery: IdaTabledQuery;
+    const aPGQuery: IdaTabledQuery); reintroduce;
    class function Make(const aDataConverter: IdaDataConverter;
-     const aTable: IdaTableDescription;
-     const anAlias: AnsiString;
-     const aHTQuery: IdaTabledQuery;
-     const aPGQuery: IdaTabledQuery): IdaTabledQuery; reintroduce;
-     {* Сигнатура фабрики TcaTabledQuery.Make }
+    const aTable: IdaTableDescription;
+    const anAlias: AnsiString;
+    const aHTQuery: IdaTabledQuery;
+    const aPGQuery: IdaTabledQuery): IdaTabledQuery; reintroduce;
  end;//TcaTabledQuery
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  daFromTable,
-  caResultSet,
-  caParam
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
-
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaTabledQuery
+ l3ImplUses
+ , daFromTable
+ , caResultSet
+ , caParam
+;
 
 constructor TcaTabledQuery.Create(const aDataConverter: IdaDataConverter;
-  const aTable: IdaTableDescription;
-  const anAlias: AnsiString;
-  const aHTQuery: IdaTabledQuery;
-  const aPGQuery: IdaTabledQuery);
+ const aTable: IdaTableDescription;
+ const anAlias: AnsiString;
+ const aHTQuery: IdaTabledQuery;
+ const aPGQuery: IdaTabledQuery);
 //#UC START# *56C6DC070160_56C6DB730289_var*
 //#UC END# *56C6DC070160_56C6DB730289_var*
 begin
@@ -92,10 +69,10 @@ begin
 end;//TcaTabledQuery.Create
 
 class function TcaTabledQuery.Make(const aDataConverter: IdaDataConverter;
-  const aTable: IdaTableDescription;
-  const anAlias: AnsiString;
-  const aHTQuery: IdaTabledQuery;
-  const aPGQuery: IdaTabledQuery): IdaTabledQuery;
+ const aTable: IdaTableDescription;
+ const anAlias: AnsiString;
+ const aHTQuery: IdaTabledQuery;
+ const aPGQuery: IdaTabledQuery): IdaTabledQuery;
 var
  l_Inst : TcaTabledQuery;
 begin
@@ -105,10 +82,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaTabledQuery.Make
 
 function TcaTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromTable;
 //#UC START# *5600FFF80332_56C6DB730289_var*
 //#UC END# *5600FFF80332_56C6DB730289_var*
 begin
@@ -138,6 +115,7 @@ begin
 end;//TcaTabledQuery.UnPrepareTable
 
 procedure TcaTabledQuery.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56C6DB730289_var*
 //#UC END# *479731C50290_56C6DB730289_var*
 begin
@@ -165,7 +143,6 @@ begin
  Result := TcaParam.Make((f_HTQuery as IdaComboAccessQueryHelper).AddParam(aParamDesc), (f_PGQuery as IdaComboAccessQueryHelper).AddParam(aParamDesc));
 //#UC END# *56E120F00095_56C6DB730289_impl*
 end;//TcaTabledQuery.DoMakeParam
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

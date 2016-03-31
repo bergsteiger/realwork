@@ -36,18 +36,18 @@ type
   private
    f_UseSplitted: Boolean;
    f_Alien: Im3StorageService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Im3StorageService }
   protected
    procedure pm_SetAlien(const aValue: Im3StorageService);
    procedure InitFields; override;
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function UseSplitted: Boolean;
    function SetUseSplitted(aValue: Boolean): Boolean;
    class function Instance: Tm3StorageService;
     {* Метод получения экземпляра синглетона Tm3StorageService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Im3StorageService
     write pm_SetAlien;
@@ -78,12 +78,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tm3StorageService.pm_SetAlien
-
-class function Tm3StorageService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tm3StorageService <> nil;
-end;//Tm3StorageService.Exists
 
 function Tm3StorageService.UseSplitted: Boolean;
 //#UC START# *AA9D589FDBFC_5551C8670144_var*
@@ -132,6 +126,12 @@ begin
  end;
  Result := g_Tm3StorageService;
 end;//Tm3StorageService.Instance
+
+class function Tm3StorageService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tm3StorageService <> nil;
+end;//Tm3StorageService.Exists
 
 procedure Tm3StorageService.InitFields;
 //#UC START# *47A042E100E2_5551C8670144_var*

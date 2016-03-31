@@ -19,7 +19,7 @@ uses
 ;
 
 type
- TAdminModule = class
+ TAdminModule = class(TvcmModule)
   public
    procedure OpenUserList(const aContainer: IvcmContainer);
    function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
@@ -46,6 +46,7 @@ uses
  , l3String
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TAdminModule.OpenUserList(const aContainer: IvcmContainer);
 //#UC START# *4AA512AA00C5_4AA5120303E5_var*
 //#UC END# *4AA512AA00C5_4AA5120303E5_var*
@@ -77,6 +78,7 @@ begin
  Result := l_Form.ShowModal;
 //#UC END# *4AA8E2C60357_4AA5120303E5_impl*
 end;//TAdminModule.ShowRenameGroupDialog
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

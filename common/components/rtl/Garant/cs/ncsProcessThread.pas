@@ -1,84 +1,70 @@
 unit ncsProcessThread;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsProcessThread.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsProcessThread
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsProcessThread.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsProcessThread" MUID: (546061CE03DA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessageQueue,
-  ncsTransporterThread,
-  ncsMessage,
-  ncsMessageInterfaces,
-  ncsReplyWaiter
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsTransporterThread
+ , ncsReplyWaiter
+ , ncsMessageInterfaces
+ , ncsMessage
+ , ncsMessageQueue
+;
 
-{$If not defined(Nemesis)}
 type
  TncsProcessThread = class(TncsTransporterThread)
- private
- // private fields
-   f_Transporter : Pointer;
-    {* [weak] IncsTransporter}
-   f_ReplyWaiter : TncsReplyWaiter;
-    {* Поле для свойства ReplyWaiter}
- private
- // private methods
+  private
+   f_Transporter: Pointer;
+    {* [weak] IncsTransporter }
+   f_ReplyWaiter: TncsReplyWaiter;
+    {* Поле для свойства ReplyWaiter }
+  private
    procedure ProcessMessage(aMessage: TncsMessage);
- protected
- // property methods
+  protected
    function pm_GetTransporter: IncsTransporter;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoExecute; override;
-     {* основная процедура нити. Для перекрытия в потомках }
- public
- // public methods
+    {* основная процедура нити. Для перекрытия в потомках }
+  public
    constructor Create(anQueue: TncsMessageQueue;
-     const aTransporter: IncsTransporter;
-     aWaiter: TncsReplyWaiter); reintroduce;
- protected
- // protected properties
+    const aTransporter: IncsTransporter;
+    aWaiter: TncsReplyWaiter); reintroduce;
+  protected
    property ReplyWaiter: TncsReplyWaiter
-     read f_ReplyWaiter;
- public
- // public properties
+    read f_ReplyWaiter;
+  public
    property Transporter: IncsTransporter
-     read pm_GetTransporter;
+    read pm_GetTransporter;
  end;//TncsProcessThread
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base,
-  SysUtils,
-  ncsMessageExecutorFactory,
-  evdNcsTypes
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , ncsMessageExecutorFactory
+ , evdNcsTypes
+;
 
-{$If not defined(Nemesis)}
-
-// start class TncsProcessThread
+function TncsProcessThread.pm_GetTransporter: IncsTransporter;
+//#UC START# *5464BE030256_546061CE03DAget_var*
+//#UC END# *5464BE030256_546061CE03DAget_var*
+begin
+//#UC START# *5464BE030256_546061CE03DAget_impl*
+ Result := IncsTransporter(f_Transporter);
+//#UC END# *5464BE030256_546061CE03DAget_impl*
+end;//TncsProcessThread.pm_GetTransporter
 
 procedure TncsProcessThread.ProcessMessage(aMessage: TncsMessage);
 //#UC START# *5460680D0277_546061CE03DA_var*
@@ -125,8 +111,8 @@ begin
 end;//TncsProcessThread.ProcessMessage
 
 constructor TncsProcessThread.Create(anQueue: TncsMessageQueue;
-  const aTransporter: IncsTransporter;
-  aWaiter: TncsReplyWaiter);
+ const aTransporter: IncsTransporter;
+ aWaiter: TncsReplyWaiter);
 //#UC START# *5464BDC203B1_546061CE03DA_var*
 //#UC END# *5464BDC203B1_546061CE03DA_var*
 begin
@@ -137,16 +123,8 @@ begin
 //#UC END# *5464BDC203B1_546061CE03DA_impl*
 end;//TncsProcessThread.Create
 
-function TncsProcessThread.pm_GetTransporter: IncsTransporter;
-//#UC START# *5464BE030256_546061CE03DAget_var*
-//#UC END# *5464BE030256_546061CE03DAget_var*
-begin
-//#UC START# *5464BE030256_546061CE03DAget_impl*
- Result := IncsTransporter(f_Transporter);
-//#UC END# *5464BE030256_546061CE03DAget_impl*
-end;//TncsProcessThread.pm_GetTransporter
-
 procedure TncsProcessThread.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_546061CE03DA_var*
 //#UC END# *479731C50290_546061CE03DA_var*
 begin
@@ -158,6 +136,7 @@ begin
 end;//TncsProcessThread.Cleanup
 
 procedure TncsProcessThread.DoExecute;
+ {* основная процедура нити. Для перекрытия в потомках }
 //#UC START# *4911B69E037D_546061CE03DA_var*
 var
  l_Message: TncsMessage;
@@ -184,7 +163,6 @@ begin
  end;
 //#UC END# *4911B69E037D_546061CE03DA_impl*
 end;//TncsProcessThread.DoExecute
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

@@ -31,16 +31,16 @@ type
  TcsTaskChangeHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: IcsTaskChangeHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса IcsTaskChangeHelper }
   protected
    procedure pm_SetAlien(const aValue: IcsTaskChangeHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure TaskGotErrorStatus;
    class function Instance: TcsTaskChangeHelper;
     {* Метод получения экземпляра синглетона TcsTaskChangeHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: IcsTaskChangeHelper
     write pm_SetAlien;
@@ -72,12 +72,6 @@ begin
  f_Alien := aValue;
 end;//TcsTaskChangeHelper.pm_SetAlien
 
-class function TcsTaskChangeHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TcsTaskChangeHelper <> nil;
-end;//TcsTaskChangeHelper.Exists
-
 procedure TcsTaskChangeHelper.TaskGotErrorStatus;
 //#UC START# *F75B4443B80B_5583BE960064_var*
 //#UC END# *F75B4443B80B_5583BE960064_var*
@@ -98,6 +92,12 @@ begin
  end;
  Result := g_TcsTaskChangeHelper;
 end;//TcsTaskChangeHelper.Instance
+
+class function TcsTaskChangeHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TcsTaskChangeHelper <> nil;
+end;//TcsTaskChangeHelper.Exists
 
 procedure TcsTaskChangeHelper.ClearFields;
 begin

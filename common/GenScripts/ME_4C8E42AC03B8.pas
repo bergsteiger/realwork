@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TPrimCustomizeToolsForm = class
+ TPrimCustomizeToolsForm = class(TvcmEntityForm)
  end;//TPrimCustomizeToolsForm
 {$IfEnd} // NOT Defined(NoVCM)
 

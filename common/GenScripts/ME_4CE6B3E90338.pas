@@ -84,16 +84,16 @@ type
    f_Current: Integer;
    f_Count: Integer;
   protected
-   procedure next;
+   procedure Next; stdcall;
     {* Перемещенеи итератора на следующий элемент. }
-   procedure prev;
+   procedure Prev; stdcall;
     {* Перемещенеи итератора на предыдущий элемент. }
-   function is_good: Boolean;
+   function IsGood: ByteBool; stdcall;
     {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-   function get_position: IFindPositionList;
-   function is_first: Boolean;
+   function GetPosition: IFindPositionList; stdcall;
+   function IsFirst: ByteBool; stdcall;
     {* возвращает true, если нельзя перейти на предыдущий фрагмент }
-   function Get_count: Cardinal;
+   function GetCount: Cardinal; stdcall;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -286,7 +286,7 @@ begin
  end;//try..finally
 end;//TnsFindIteratorNewForAutoreferat.Make
 
-procedure TnsFindIteratorNewForAutoreferat.next;
+procedure TnsFindIteratorNewForAutoreferat.Next;
  {* Перемещенеи итератора на следующий элемент. }
 //#UC START# *45EEC28202A0_4CE6B3E90338_var*
 
@@ -323,9 +323,9 @@ begin
    IncCurrent; // ??? 
  end;//f_Current >= f_List.Count
 //#UC END# *45EEC28202A0_4CE6B3E90338_impl*
-end;//TnsFindIteratorNewForAutoreferat.next
+end;//TnsFindIteratorNewForAutoreferat.Next
 
-procedure TnsFindIteratorNewForAutoreferat.prev;
+procedure TnsFindIteratorNewForAutoreferat.Prev;
  {* Перемещенеи итератора на предыдущий элемент. }
 //#UC START# *45EEC28202A1_4CE6B3E90338_var*
 //#UC END# *45EEC28202A1_4CE6B3E90338_var*
@@ -352,9 +352,9 @@ begin
   end;//not f_List[f_Current].rIt.IsFirst
  end;//f_Current >= f_List.Count
 //#UC END# *45EEC28202A1_4CE6B3E90338_impl*
-end;//TnsFindIteratorNewForAutoreferat.prev
+end;//TnsFindIteratorNewForAutoreferat.Prev
 
-function TnsFindIteratorNewForAutoreferat.is_good: Boolean;
+function TnsFindIteratorNewForAutoreferat.IsGood: ByteBool;
  {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
 //#UC START# *45EEC28202A2_4CE6B3E90338_var*
 //#UC END# *45EEC28202A2_4CE6B3E90338_var*
@@ -368,9 +368,9 @@ begin
  else
   Result := f_List[f_Current].rIt.IsGood;
 //#UC END# *45EEC28202A2_4CE6B3E90338_impl*
-end;//TnsFindIteratorNewForAutoreferat.is_good
+end;//TnsFindIteratorNewForAutoreferat.IsGood
 
-function TnsFindIteratorNewForAutoreferat.get_position: IFindPositionList;
+function TnsFindIteratorNewForAutoreferat.GetPosition: IFindPositionList;
 //#UC START# *461D00B9005D_4CE6B3E90338_var*
 var
  l_It : TnsFindIteratorDef;
@@ -383,9 +383,9 @@ begin
  l_It.rIt.GetPosition(l_L);
  IFindPositionList(aRet) := TnsFindIteratorNewForAutoreferatFindPositionList.Make(l_It.rDoc, l_L);
 //#UC END# *461D00B9005D_4CE6B3E90338_impl*
-end;//TnsFindIteratorNewForAutoreferat.get_position
+end;//TnsFindIteratorNewForAutoreferat.GetPosition
 
-function TnsFindIteratorNewForAutoreferat.is_first: Boolean;
+function TnsFindIteratorNewForAutoreferat.IsFirst: ByteBool;
  {* возвращает true, если нельзя перейти на предыдущий фрагмент }
 //#UC START# *49FEC51501D8_4CE6B3E90338_var*
 //#UC END# *49FEC51501D8_4CE6B3E90338_var*
@@ -404,9 +404,9 @@ begin
  else
   Result := false;
 //#UC END# *49FEC51501D8_4CE6B3E90338_impl*
-end;//TnsFindIteratorNewForAutoreferat.is_first
+end;//TnsFindIteratorNewForAutoreferat.IsFirst
 
-function TnsFindIteratorNewForAutoreferat.Get_count: Cardinal;
+function TnsFindIteratorNewForAutoreferat.GetCount: Cardinal;
 //#UC START# *49FFDC8B015D_4CE6B3E90338get_var*
 var
  l_Index : Integer;
@@ -421,7 +421,7 @@ begin
  end;//f_Count < 0
  Result := f_Count;
 //#UC END# *49FFDC8B015D_4CE6B3E90338get_impl*
-end;//TnsFindIteratorNewForAutoreferat.Get_count
+end;//TnsFindIteratorNewForAutoreferat.GetCount
 
 procedure TnsFindIteratorNewForAutoreferat.Cleanup;
  {* Функция очистки полей объекта. }

@@ -20,7 +20,7 @@ uses
 ;
 
 type
- TParentAndChildPrimModule = {abstract} class
+ TParentAndChildPrimModule = {abstract} class(TvcmModule)
   public
    procedure MakeChild(aMainForm: TvcmMainForm;
     anOwner: TvcmEntityForm);
@@ -36,6 +36,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TParentAndChildPrimModule.MakeChild(aMainForm: TvcmMainForm;
  anOwner: TvcmEntityForm);
 //#UC START# *4F6B67820382_4F6B66260326_var*
@@ -54,5 +55,6 @@ begin
   Result := TParentForm.Make(vcmMakeParams(nil, aMainForm, aMainForm));
 //#UC END# *4F6B678D03B8_4F6B66260326_impl*
 end;//TParentAndChildPrimModule.MakeParent
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

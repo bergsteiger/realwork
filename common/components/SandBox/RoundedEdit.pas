@@ -1,64 +1,55 @@
 unit RoundedEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "RoundedEdit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: GuiControl::Class Shared Delphi Sand Box::SandBox::Rounded::TRoundedEdit
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\RoundedEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TRoundedEdit" MUID: (517C102F03B5)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  Messages,
-  l3Region,
-  Controls {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Region
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+;
 
 type
  _RefCounted_Parent_ = TEdit;
  {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
  _RoundedControl_Parent_ = _RefCounted_;
- {$Include ..\SandBox\RoundedControl.imp.pas}
+ {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
  TRoundedEdit = class(_RoundedControl_)
  end;//TRoundedEdit
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Themes
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , Windows
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Themes
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
-{$Include ..\SandBox\RoundedControl.imp.pas}
-
+{$Include w:\common\components\SandBox\RoundedControl.imp.pas}
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TRoundedEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TRoundedEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TRoundedEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

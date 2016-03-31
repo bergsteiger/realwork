@@ -19,7 +19,7 @@ uses
 ;
 
 type
- TUnderControlModule = class
+ TUnderControlModule = class(TvcmModule)
   protected
    procedure UnderControlOpen(const aContainer: IvcmContainer);
    function FindUnderControlForm(const aContainer: IvcmContainer): IvcmEntityForm;
@@ -55,6 +55,7 @@ uses
  , FoldersDomainInterfaces
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TUnderControlModule.CloseUnderControl(const aContainer: IvcmContainer);
 //#UC START# *4ABCE38D00B4_4CCAC71C0347_var*
 var
@@ -163,6 +164,7 @@ begin
     aContainer.HasForm(fm_enUnderControl.rFormID, vcm_ztNavigator, true, @Result);
 //#UC END# *4ABCD31A033C_4CCAC71C0347_impl*
 end;//TUnderControlModule.FindUnderControlForm
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

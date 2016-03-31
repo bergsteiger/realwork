@@ -1,106 +1,88 @@
 unit ncsSynchroTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsSynchroTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsSynchroTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsSynchroTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsSynchroTransporter" MUID: (54E333CD0130)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  CsCommon,
-  csIdIOHandlerAbstractAdapter,
-  ncsMessage,
-  ncsMessageInterfaces,
-  Windows
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageInterfaces
+ , CsCommon
+ , csIdIOHandlerAbstractAdapter
+ , ncsMessage
+ , Windows
+;
 
-{$If not defined(Nemesis)}
 type
  TncsSynchroTransporter = class(Tl3ProtoObject, IncsTransporter)
- private
- // private fields
-   f_ClientID : TCsClientId;
-   f_Connected : Boolean;
-   f_IntSessionID : AnsiString;
-    {* Поле для свойства IntSessionID}
-   f_IOHandler : TcsIdIOHandlerAbstractAdapter;
-    {* Поле для свойства IOHandler}
- protected
- // property methods
+  private
+   f_ClientID: TCsClientId;
+   f_Connected: Boolean;
+   f_IntSessionID: AnsiString;
+    {* Поле для свойства IntSessionID }
+   f_IOHandler: TcsIdIOHandlerAbstractAdapter;
+    {* Поле для свойства IOHandler }
+  protected
    procedure pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter); virtual;
- protected
- // realized methods
+   procedure SetConnected(aValue: Boolean);
+   procedure StartProcessing;
+   procedure StopProcessing;
+   procedure HandShake; virtual; abstract;
+   procedure TransportStarted; virtual;
+   procedure ProcessMessage(aMessage: TncsMessage);
    procedure Send(aMessage: TncsMessage);
    function WaitForReply(aMessage: TncsMessage;
     var theReply: TncsMessage;
-    aTimeOut: LongWord = INFINITE): Boolean;
+    aTimeOut: LongWord = Windows.INFINITE): Boolean;
    function Get_Connected: Boolean;
    function Get_ClientID: TCsClientId;
    procedure Set_ClientID(aValue: TCsClientId);
    function Get_Processing: Boolean;
    function Get_SessionID: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   procedure SetConnected(aValue: Boolean);
-   procedure StartProcessing;
-     {* Сигнатура метода StartProcessing }
-   procedure StopProcessing;
-     {* Сигнатура метода StopProcessing }
-   procedure HandShake; virtual; abstract;
-     {* Сигнатура метода HandShake }
-   procedure TransportStarted; virtual;
-     {* Сигнатура метода TransportStarted }
-   procedure ProcessMessage(aMessage: TncsMessage);
- protected
- // protected properties
+   procedure ClearFields; override;
+  protected
    property IntSessionID: AnsiString
-     read f_IntSessionID
-     write f_IntSessionID;
+    read f_IntSessionID
+    write f_IntSessionID;
    property IOHandler: TcsIdIOHandlerAbstractAdapter
-     read f_IOHandler
-     write pm_SetIOHandler;
+    read f_IOHandler
+    write pm_SetIOHandler;
  end;//TncsSynchroTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  Classes,
-  l3TempMemoryStream,
-  ncsProfile,
-  SysUtils,
-  ncsMessageFactory,
-  evdNcsTypes,
-  l3Base,
-  ncsMessageExecutorFactory,
-  DateUtils
-  ;
-{$IfEnd} //not Nemesis
+ l3ImplUses
+ , Classes
+ , l3TempMemoryStream
+ , ncsProfile
+ , SysUtils
+ , ncsMessageFactory
+ , evdNcsTypes
+ , l3Base
+ , ncsMessageExecutorFactory
+ , DateUtils
+;
 
-{$If not defined(Nemesis)}
-
-// start class TncsSynchroTransporter
+procedure TncsSynchroTransporter.pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter);
+//#UC START# *54E334830061_54E333CD0130set_var*
+//#UC END# *54E334830061_54E333CD0130set_var*
+begin
+//#UC START# *54E334830061_54E333CD0130set_impl*
+ aValue.SetRefTo(f_IOHandler);
+//#UC END# *54E334830061_54E333CD0130set_impl*
+end;//TncsSynchroTransporter.pm_SetIOHandler
 
 procedure TncsSynchroTransporter.SetConnected(aValue: Boolean);
 //#UC START# *54E334CD02E9_54E333CD0130_var*
@@ -187,15 +169,6 @@ begin
 //#UC END# *54E45D5E01D9_54E333CD0130_impl*
 end;//TncsSynchroTransporter.ProcessMessage
 
-procedure TncsSynchroTransporter.pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter);
-//#UC START# *54E334830061_54E333CD0130set_var*
-//#UC END# *54E334830061_54E333CD0130set_var*
-begin
-//#UC START# *54E334830061_54E333CD0130set_impl*
- aValue.SetRefTo(f_IOHandler);
-//#UC END# *54E334830061_54E333CD0130set_impl*
-end;//TncsSynchroTransporter.pm_SetIOHandler
-
 procedure TncsSynchroTransporter.Send(aMessage: TncsMessage);
 //#UC START# *5464B4E900DA_54E333CD0130_var*
 var
@@ -232,8 +205,8 @@ begin
 end;//TncsSynchroTransporter.Send
 
 function TncsSynchroTransporter.WaitForReply(aMessage: TncsMessage;
-  var theReply: TncsMessage;
-  aTimeOut: LongWord = INFINITE): Boolean;
+ var theReply: TncsMessage;
+ aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *5464B52F02D5_54E333CD0130_var*
 const
    { ThreadTimeouts }
@@ -366,6 +339,7 @@ begin
 end;//TncsSynchroTransporter.Get_SessionID
 
 procedure TncsSynchroTransporter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54E333CD0130_var*
 //#UC END# *479731C50290_54E333CD0130_var*
 begin
@@ -387,6 +361,11 @@ begin
 //#UC END# *47A042E100E2_54E333CD0130_impl*
 end;//TncsSynchroTransporter.InitFields
 
-{$IfEnd} //not Nemesis
+procedure TncsSynchroTransporter.ClearFields;
+begin
+ IntSessionID := '';
+ inherited;
+end;//TncsSynchroTransporter.ClearFields
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

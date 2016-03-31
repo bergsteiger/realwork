@@ -1,85 +1,65 @@
 unit daQuery;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daQuery.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaQuery" MUID: (566A7DCD0151)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daParamList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daParamList
+;
 
 type
  TdaQuery = class(Tl3ProtoObject, IdaQuery, IdaComboAccessQueryHelper)
- private
- // private fields
-   f_DataConverter : IdaDataConverter;
-    {* Поле для свойства DataConverter}
-   f_Params : TdaParamList;
-    {* Поле для свойства Params}
-   f_Prepared : Boolean;
-    {* Поле для свойства Prepared}
- protected
- // realized methods
+  private
+   f_DataConverter: IdaDataConverter;
+    {* Поле для свойства DataConverter }
+   f_Params: TdaParamList;
+    {* Поле для свойства Params }
+   f_Prepared: Boolean;
+    {* Поле для свойства Prepared }
+  protected
+   procedure PrepareQuery; virtual; abstract;
+   procedure UnprepareQuery; virtual; abstract;
+   function MakeParamList: TdaParamList; virtual;
+   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; virtual; abstract;
+   function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; virtual; abstract;
+   function DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam; virtual;
    function OpenResultSet(Unidirectional: Boolean = True): IdaResultSet;
    procedure Prepare;
    function Get_Param(const aName: AnsiString): IdaParam;
    procedure UnPrepare;
    function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
    function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure BeforeRelease; override;
- protected
- // protected methods
-   procedure PrepareQuery; virtual; abstract;
-     {* Сигнатура метода PrepareQuery }
-   procedure UnprepareQuery; virtual; abstract;
-     {* Сигнатура метода UnprepareQuery }
-   function MakeParamList: TdaParamList; virtual;
-   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; virtual; abstract;
-   function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; virtual; abstract;
-   function DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam; virtual;
- public
- // public methods
+  public
    constructor Create(const aDataConverter: IdaDataConverter); reintroduce;
- protected
- // protected properties
+  protected
    property DataConverter: IdaDataConverter
-     read f_DataConverter;
+    read f_DataConverter;
    property Params: TdaParamList
-     read f_Params;
+    read f_Params;
    property Prepared: Boolean
-     read f_Prepared
-     write f_Prepared;
+    read f_Prepared
+    write f_Prepared;
  end;//TdaQuery
 
 implementation
 
 uses
-  SysUtils,
-  daParam,
-  daTypes
-  ;
-
-// start class TdaQuery
+ l3ImplUses
+ , SysUtils
+ , daParam
+ , daTypes
+;
 
 function TdaQuery.MakeParamList: TdaParamList;
 //#UC START# *560B861302E9_566A7DCD0151_var*
@@ -192,6 +172,7 @@ begin
 end;//TdaQuery.AddParam
 
 procedure TdaQuery.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_566A7DCD0151_var*
 //#UC END# *479731C50290_566A7DCD0151_var*
 begin

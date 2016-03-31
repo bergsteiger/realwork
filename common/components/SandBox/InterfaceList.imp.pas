@@ -1,26 +1,25 @@
 {$IfNDef InterfaceList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "InterfaceList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Sand Box::SandBox::STLLike::InterfaceList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\InterfaceList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "InterfaceList" MUID: (51E81D74001D)
+// Имя типа: "_InterfaceList_"
 
 {$Define InterfaceList_imp}
+
  _List_Parent_ = _InterfaceList_Parent_;
- {$Include ..\SandBox\List.imp.pas}
- _InterfaceList_ = {mixin} class(_List_)
+ {$Include w:\common\components\SandBox\List.imp.pas}
+ _InterfaceList_ = class(_List_)
  end;//_InterfaceList_
 
 {$Else InterfaceList_imp}
 
-// start class _InterfaceList_
+{$IfNDef InterfaceList_imp_impl}
+
+{$Define InterfaceList_imp_impl}
 
 function IsSame(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
 //#UC START# *51DECB820261_51E81D74001D_var*
 //#UC END# *51DECB820261_51E81D74001D_var*
 begin
@@ -29,7 +28,9 @@ begin
 //#UC END# *51DECB820261_51E81D74001D_impl*
 end;//IsSame
 
-{$Include ..\SandBox\List.imp.pas}
+{$Include w:\common\components\SandBox\List.imp.pas}
 
+{$EndIf InterfaceList_imp_impl}
 
 {$EndIf InterfaceList_imp}
+

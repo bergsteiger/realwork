@@ -12,12 +12,15 @@ interface
 uses
  l3IntfUses
  , IOUnit
- , l3Interfaces
- , k2Base
  , DocumentUnit
- , l3Variant
+ , DynamicTreeUnit
+ , DocTreeUnit
+ , l3Interfaces
+ , k2Interfaces
  , nevBase
  , nevTools
+ , k2Base
+ , l3Variant
 ;
 
  (*

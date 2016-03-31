@@ -16,7 +16,8 @@ uses
 
 const
  {* URL адреса, открываемые во встроенном браузере }
- InternalBrowserURLArr: array [0 .. 2] of AnsiString = ('www.garant.ru'
+ InternalBrowserURLArr: array [0 .. 2] of AnsiString = (
+ 'www.garant.ru'
  , 'mirror2.garant.ru'
  , 'forum.garant.ru'
  );

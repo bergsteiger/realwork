@@ -1,71 +1,47 @@
 unit atControlStatusConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atControlStatusConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatControlStatusConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atControlStatusConverter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatControlStatusConverter" MUID: (504F47A401F7)
 
 interface
 
 uses
-  atStringToBitMaskConverterBase
-  ;
+ l3IntfUses
+ , atStringToBitMaskConverterBase
+;
 
 type
  TatControlStatusConverter = class(TatStringToBitMaskConverterBase)
- protected
- // realized methods
+  protected
    procedure InitConvertMap; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatControlStatusConverter;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TatControlStatusConverter }
  end;//TatControlStatusConverter
 
 implementation
 
 uses
-  l3Base {a},
-  UnderControlUnit,
-  SysUtils
-  ;
+ l3ImplUses
+ , UnderControlUnit
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TatControlStatusConverter
-
-var g_TatControlStatusConverter : TatControlStatusConverter = nil;
+var g_TatControlStatusConverter: TatControlStatusConverter = nil;
+ {* Экземпляр синглетона TatControlStatusConverter }
 
 procedure TatControlStatusConverterFree;
+ {* Метод освобождения экземпляра синглетона TatControlStatusConverter }
 begin
  l3Free(g_TatControlStatusConverter);
-end;
-
-class function TatControlStatusConverter.Instance: TatControlStatusConverter;
-begin
- if (g_TatControlStatusConverter = nil) then
- begin
-  l3System.AddExitProc(TatControlStatusConverterFree);
-  g_TatControlStatusConverter := Create;
- end;
- Result := g_TatControlStatusConverter;
-end;
-
+end;//TatControlStatusConverterFree
 
 class function TatControlStatusConverter.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TatControlStatusConverter <> nil;
 end;//TatControlStatusConverter.Exists
@@ -88,5 +64,16 @@ begin
   InitConvertMap(CONVERT_MAP);
 //#UC END# *503E3A040395_504F47A401F7_impl*
 end;//TatControlStatusConverter.InitConvertMap
+
+class function TatControlStatusConverter.Instance: TatControlStatusConverter;
+ {* Метод получения экземпляра синглетона TatControlStatusConverter }
+begin
+ if (g_TatControlStatusConverter = nil) then
+ begin
+  l3System.AddExitProc(TatControlStatusConverterFree);
+  g_TatControlStatusConverter := Create;
+ end;
+ Result := g_TatControlStatusConverter;
+end;//TatControlStatusConverter.Instance
 
 end.

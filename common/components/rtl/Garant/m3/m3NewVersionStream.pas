@@ -1,42 +1,31 @@
 unit m3NewVersionStream;
+ {* Поток, создавший новую версию документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m3/m3NewVersionStream.pas"
-// Начат: 17.03.2009 20:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3NewVersionStream
-//
-// Поток, создавший новую версию документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3NewVersionStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NewVersionStream" MUID: (49BFE43D019F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3DBProxyWriteStream
-  ;
+ l3IntfUses
+ , m3DBProxyWriteStream
+;
 
 type
  Tm3NewVersionStream = class(Tm3DBProxyWriteStream)
   {* Поток, создавший новую версию документа }
- protected
- // overridden property methods
+  protected
    function pm_GetIsNewVersion: Boolean; override;
  end;//Tm3NewVersionStream
 
 implementation
 
-// start class Tm3NewVersionStream
+uses
+ l3ImplUses
+;
 
 function Tm3NewVersionStream.pm_GetIsNewVersion: Boolean;
 //#UC START# *49BFE6600304_49BFE43D019Fget_var*

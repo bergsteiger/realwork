@@ -21,7 +21,7 @@ uses
 ;
 
 type
- TRubricatorModule = class
+ TRubricatorModule = class(TvcmModule)
   public
    procedure OpenRubricator(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
@@ -44,6 +44,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TRubricatorModule.OpenRubricator(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem;
@@ -113,6 +114,7 @@ begin
  end;//try..finally
 //#UC END# *4AA691690389_4AA67768038F_impl*
 end;//TRubricatorModule.OpenRubricator
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

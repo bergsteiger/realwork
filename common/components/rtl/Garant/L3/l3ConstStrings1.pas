@@ -1,38 +1,26 @@
 unit l3ConstStrings1;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ConstStrings1.pas"
-// Начат: 05.04.2010 15:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Поддержка локализованных сообщений::Tl3ConstStrings1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ConstStrings1" MUID: (4BB9C58B039B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3StringIDEx,
-  l3Types
-  ;
+ l3IntfUses
+ , l3StringIDEx
+ , l3Interfaces
+ , l3Types
+;
 
 type
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = Tl3ConstStringsPrim;
- {$Include ..\L3\l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3ConstStrings1 = class(_l3Searcher_, Il3ApplicationL10NStrings)
- protected
- // realized methods
+  protected
    procedure Define(const aName: AnsiString;
     const aRus: AnsiString;
     const anAlien: AnsiString);
@@ -41,16 +29,17 @@ type
 implementation
 
 uses
-  l3String,
-  SysUtils
-  ;
-
-// start class Tl3ConstStrings1
+ l3ImplUses
+ , l3String
+ , SysUtils
+ , l3Memory
+;
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_4BB9C58B039B_var*
 //#UC END# *47B9BAFD01F4_4BB9C58B039B_var*
 begin
@@ -63,13 +52,11 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3ConstStrings1;
 
-{$Include ..\L3\l3Searcher.imp.pas}
-
-// start class Tl3ConstStrings1
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 procedure Tl3ConstStrings1.Define(const aName: AnsiString;
-  const aRus: AnsiString;
-  const anAlien: AnsiString);
+ const aRus: AnsiString;
+ const anAlien: AnsiString);
 //#UC START# *4BB9C06901AE_4BB9C58B039B_var*
 
  function CutPrefix(const aPref : String; const aStr : Tl3WString): Tl3WString;

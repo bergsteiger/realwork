@@ -1,58 +1,45 @@
 unit atOpenSavedListOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOpenSavedListOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatOpenSavedListOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenSavedListOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenSavedListOperation" MUID: (4FD234F20321)
 
 interface
 
 uses
-  DynamicDocListUnit,
-  atFoldersHelper,
-  atOperationBase,
-  FoldersUnit
-  ;
+ l3IntfUses
+ , atFoldersHelper
+ , DynamicDocListUnit
+ , atOperationBase
+ , FoldersUnit
+;
 
 type
  _FoldersNodeMatcher_ = TatListMatcher;
  _ObjectType_ = IDynList;
- {$Include ..\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include ..\Operations\atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  TatOpenSavedListOperation = class(_atOpenFoldersObjectAddon_)
- protected
- // realized methods
+  protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
- protected
- // overridden protected methods
    procedure ExecuteChilds; override;
  end;//TatOpenSavedListOperation
 
 implementation
 
 uses
-  atListHelper,
-  atLogger,
-  SysUtils,
-  BaseTypesUnit,
-  atNodeHelper
-  ;
+ l3ImplUses
+ , atListHelper
+ , atLogger
+ , SysUtils
+ , BaseTypesUnit
+ , atNodeHelper
+;
 
-{$Include ..\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include ..\Operations\atOpenFoldersObjectAddon.imp.pas}
-
-// start class TatOpenSavedListOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
 procedure TatOpenSavedListOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_4FD234F20321_var*

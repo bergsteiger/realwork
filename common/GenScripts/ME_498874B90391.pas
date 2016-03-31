@@ -13,10 +13,15 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
+ , nevBase
+ , l3TreeInterfaces
+ , bsTypes
+ , eeInterfaces
  , DocumentAndListInterfaces
  , DocumentDomainInterfaces
- , F1TagDataProviderInterface
+ , Base_Operations_Editions_Controls
  , BaseSearchInterfaces
+ , F1TagDataProviderInterface
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

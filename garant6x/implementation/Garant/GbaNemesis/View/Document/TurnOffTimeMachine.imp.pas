@@ -1,51 +1,40 @@
 {$IfNDef TurnOffTimeMachine_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/TurnOffTimeMachine.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Работа с документом и списком документов::Document::View::Document::TurnOffTimeMachine
-//
-// Реализация InsTurnOffTimeMachine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOffTimeMachine.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "TurnOffTimeMachine" MUID: (4980620401ED)
+// Имя типа: "_TurnOffTimeMachine_"
 
 {$Define TurnOffTimeMachine_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _TurnOffTimeMachine_ = {mixin} class(_TurnOffTimeMachine_Parent_, InsTurnOffTimeMachine)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _TurnOffTimeMachine_ = class(_TurnOffTimeMachine_Parent_, InsTurnOffTimeMachine)
   {* Реализация InsTurnOffTimeMachine }
- protected
- // realized methods
-   procedure GotoActualRedaction;
-     {* выключить и перейти в актуальную редакцию }
-   procedure StayInCurrentRedaction;
-     {* выключить и остаться в текущей редакции }
-   procedure ChangeDate(aDate: RtlDateTime);
-     {* изменить }
-   function Get_DisableOps: TnsTurnOffTimeMachineOperations;
- protected
- // protected fields
-   f_DontResetRedactions : Boolean;
- protected
- // protected methods
+  protected
+   f_DontResetRedactions: Boolean;
+  protected
    procedure TimeMachineOnOff(aPureOff: Boolean = False); virtual;
+   procedure GotoActualRedaction;
+    {* выключить и перейти в актуальную редакцию }
+   procedure StayInCurrentRedaction;
+    {* выключить и остаться в текущей редакции }
+   procedure ChangeDate(aDate: RtlDateTime);
+    {* изменить }
+   function Get_DisableOps: TnsTurnOffTimeMachineOperations;
  end;//_TurnOffTimeMachine_
-{$Else}
 
- _TurnOffTimeMachine_ = _TurnOffTimeMachine_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_TurnOffTimeMachine_ = _TurnOffTimeMachine_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else TurnOffTimeMachine_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef TurnOffTimeMachine_imp_impl}
 
-// start class _TurnOffTimeMachine_
+{$Define TurnOffTimeMachine_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _TurnOffTimeMachine_.TimeMachineOnOff(aPureOff: Boolean = False);
 //#UC START# *4980630101F0_4980620401ED_var*
 //#UC END# *4980630101F0_4980620401ED_var*
@@ -62,6 +51,7 @@ begin
 end;//_TurnOffTimeMachine_.TimeMachineOnOff
 
 procedure _TurnOffTimeMachine_.GotoActualRedaction;
+ {* выключить и перейти в актуальную редакцию }
 //#UC START# *49805EED0054_4980620401ED_var*
 //#UC END# *49805EED0054_4980620401ED_var*
 begin
@@ -72,6 +62,7 @@ begin
 end;//_TurnOffTimeMachine_.GotoActualRedaction
 
 procedure _TurnOffTimeMachine_.StayInCurrentRedaction;
+ {* выключить и остаться в текущей редакции }
 //#UC START# *49805EFF013C_4980620401ED_var*
 //#UC END# *49805EFF013C_4980620401ED_var*
 begin
@@ -82,6 +73,7 @@ begin
 end;//_TurnOffTimeMachine_.StayInCurrentRedaction
 
 procedure _TurnOffTimeMachine_.ChangeDate(aDate: RtlDateTime);
+ {* изменить }
 //#UC START# *49805F0D0221_4980620401ED_var*
 //#UC END# *49805F0D0221_4980620401ED_var*
 begin
@@ -98,7 +90,9 @@ begin
  Result := [];
 //#UC END# *49805F190314_4980620401EDget_impl*
 end;//_TurnOffTimeMachine_.Get_DisableOps
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf TurnOffTimeMachine_imp_impl}
 
 {$EndIf TurnOffTimeMachine_imp}
+

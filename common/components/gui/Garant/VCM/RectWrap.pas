@@ -1,44 +1,33 @@
 unit RectWrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCMTest"
-// Модуль: "w:/common/components/gui/Garant/VCM/RectWrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi TestComplete Wrappers::VCMTest::Wrap::TRectWrap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\RectWrap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TRectWrap" MUID: (547869730335)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
+{$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types,
-  Classes
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not XE
+ l3IntfUses
+ , Classes
+ , Types
+ //#UC START# *547869730335intf_uses*
+ //#UC END# *547869730335intf_uses*
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
 type
-//#UC START# *547869730335ci*
+ //#UC START# *547869730335ci*
  //#UC END# *547869730335ci*
-//#UC START# *547869730335cit*
+ //#UC START# *547869730335cit*
  //#UC END# *547869730335cit*
  TRectWrap = class(TPersistent)
- private
- // private fields
-   f_Rect : TRect;
- public
- // public methods
+  private
+   f_Rect: TRect;
+  public
    constructor Create(const aRect: TRect); reintroduce;
-//#UC START# *547869730335publ*
+ //#UC START# *547869730335publ*
  published
   property Left : Integer
     read f_Rect.Left;
@@ -50,13 +39,16 @@ type
     read f_Rect.Bottom;
  //#UC END# *547869730335publ*
  end;//TRectWrap
-{$IfEnd} //not NoTabs AND not NoVCM AND not XE
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
-
-// start class TRectWrap
+{$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3ImplUses
+ //#UC START# *547869730335impl_uses*
+ //#UC END# *547869730335impl_uses*
+;
 
 constructor TRectWrap.Create(const aRect: TRect);
 //#UC START# *547869A4035F_547869730335_var*
@@ -70,7 +62,6 @@ end;//TRectWrap.Create
 
 //#UC START# *547869730335impl*
 //#UC END# *547869730335impl*
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not XE
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

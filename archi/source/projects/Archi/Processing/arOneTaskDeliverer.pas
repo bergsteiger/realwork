@@ -1,113 +1,105 @@
 unit arOneTaskDeliverer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Processing"
-// Модуль: "w:/archi/source/projects/Archi/Processing/arOneTaskDeliverer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Processing::ExportDelivery::TarOneTaskDeliverer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Processing\arOneTaskDeliverer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarOneTaskDeliverer" MUID: (546AFE0D01CB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  l3ProtoObject,
-  ddProgressObj
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessageInterfaces
-  {$IfEnd} //not Nemesis
-  ,
-  evdNcsTypes
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetTaskDescriptionReply
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(Nemesis)}
+ , ncsMessageInterfaces
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsGetTaskDescriptionReply
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ddProgressObj
+ , evdNcsTypes
+;
 
-{$If defined(AppClientSide)}
 type
  TarOneTaskDeliverer = class(Tl3ProtoObject)
- private
- // private fields
-   f_Transporter : IncsTransporter;
-   f_TaskID : AnsiString;
-   f_Reply : TncsGetTaskDescriptionReply;
-   f_ProgressDescription : AnsiString;
-   f_ProgressPercent : Integer;
-   f_Progressor : TddProgressObject;
- private
- // private methods
+  private
+   f_Transporter: IncsTransporter;
+   f_TaskID: AnsiString;
+   f_Reply: TncsGetTaskDescriptionReply;
+   f_ProgressDescription: AnsiString;
+   f_ProgressPercent: Integer;
+   f_Progressor: TddProgressObject;
+  private
    procedure ProgressUpdate(Sender: TObject;
-     aTotalPercent: Integer);
+    aTotalPercent: Integer);
    procedure SetProgress(aNewPercent: Integer;
-     const aNewDescription: AnsiString);
- protected
- // property methods
+    const aNewDescription: AnsiString);
+  protected
    function pm_GetTargetFolder: AnsiString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTransporter: IncsTransporter;
-     const aTaskID: AnsiString); reintroduce;
+    const aTaskID: AnsiString); reintroduce;
    function Execute: TncsResultKind;
- public
- // public properties
+  public
    property TargetFolder: AnsiString
-     read pm_GetTargetFolder;
+    read pm_GetTargetFolder;
  end;//TarOneTaskDeliverer
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  ncsTaskProgress
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  ncsGetTaskDescription
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsMessage
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  ncsFileListDeliverer
-  {$IfEnd} //not Nemesis
-  ,
-  l3Base
-  ;
-{$IfEnd} //AppClientSide
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(Nemesis)}
+ , ncsGetTaskDescription
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsMessage
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsFileListDeliverer
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , ncsTaskProgress
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppClientSide)}
+function TarOneTaskDeliverer.pm_GetTargetFolder: AnsiString;
+//#UC START# *546AFEAB00E6_546AFE0D01CBget_var*
+//#UC END# *546AFEAB00E6_546AFE0D01CBget_var*
+begin
+//#UC START# *546AFEAB00E6_546AFE0D01CBget_impl*
+ if Assigned(f_Reply) then
+  Result := f_Reply.LocalFolder
+ else
+  Result := '';
+//#UC END# *546AFEAB00E6_546AFE0D01CBget_impl*
+end;//TarOneTaskDeliverer.pm_GetTargetFolder
 
-// start class TarOneTaskDeliverer
+constructor TarOneTaskDeliverer.Create(const aTransporter: IncsTransporter;
+ const aTaskID: AnsiString);
+//#UC START# *546AFEF1001C_546AFE0D01CB_var*
+//#UC END# *546AFEF1001C_546AFE0D01CB_var*
+begin
+//#UC START# *546AFEF1001C_546AFE0D01CB_impl*
+ inherited Create;
+ f_Transporter := aTransporter;
+ f_TaskID := aTaskID;
+ f_Progressor := TddProgressObject.Create;
+ f_Progressor.AllowProgressDecrement := True;
+ f_Progressor.OnUpdate := ProgressUpdate;
+//#UC END# *546AFEF1001C_546AFE0D01CB_impl*
+end;//TarOneTaskDeliverer.Create
 
 procedure TarOneTaskDeliverer.ProgressUpdate(Sender: TObject;
-  aTotalPercent: Integer);
+ aTotalPercent: Integer);
 //#UC START# *5474528D0320_546AFE0D01CB_var*
 //#UC END# *5474528D0320_546AFE0D01CB_var*
 begin
@@ -117,7 +109,7 @@ begin
 end;//TarOneTaskDeliverer.ProgressUpdate
 
 procedure TarOneTaskDeliverer.SetProgress(aNewPercent: Integer;
-  const aNewDescription: AnsiString);
+ const aNewDescription: AnsiString);
 //#UC START# *547452F8012B_546AFE0D01CB_var*
 var
  l_Message: TncsTaskProgress;
@@ -143,33 +135,6 @@ begin
  end;
 //#UC END# *547452F8012B_546AFE0D01CB_impl*
 end;//TarOneTaskDeliverer.SetProgress
-
-constructor TarOneTaskDeliverer.Create(const aTransporter: IncsTransporter;
-  const aTaskID: AnsiString);
-//#UC START# *546AFEF1001C_546AFE0D01CB_var*
-//#UC END# *546AFEF1001C_546AFE0D01CB_var*
-begin
-//#UC START# *546AFEF1001C_546AFE0D01CB_impl*
- inherited Create;
- f_Transporter := aTransporter;
- f_TaskID := aTaskID;
- f_Progressor := TddProgressObject.Create;
- f_Progressor.AllowProgressDecrement := True;
- f_Progressor.OnUpdate := ProgressUpdate;
-//#UC END# *546AFEF1001C_546AFE0D01CB_impl*
-end;//TarOneTaskDeliverer.Create
-
-function TarOneTaskDeliverer.pm_GetTargetFolder: AnsiString;
-//#UC START# *546AFEAB00E6_546AFE0D01CBget_var*
-//#UC END# *546AFEAB00E6_546AFE0D01CBget_var*
-begin
-//#UC START# *546AFEAB00E6_546AFE0D01CBget_impl*
- if Assigned(f_Reply) then
-  Result := f_Reply.LocalFolder
- else
-  Result := '';
-//#UC END# *546AFEAB00E6_546AFE0D01CBget_impl*
-end;//TarOneTaskDeliverer.pm_GetTargetFolder
 
 function TarOneTaskDeliverer.Execute: TncsResultKind;
 //#UC START# *546AFE51021F_546AFE0D01CB_var*
@@ -231,6 +196,7 @@ begin
 end;//TarOneTaskDeliverer.Execute
 
 procedure TarOneTaskDeliverer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_546AFE0D01CB_var*
 //#UC END# *479731C50290_546AFE0D01CB_var*
 begin
@@ -241,7 +207,6 @@ begin
  inherited;
 //#UC END# *479731C50290_546AFE0D01CB_impl*
 end;//TarOneTaskDeliverer.Cleanup
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

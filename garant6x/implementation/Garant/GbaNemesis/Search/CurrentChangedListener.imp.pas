@@ -1,40 +1,28 @@
 {$IfNDef CurrentChangedListener_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/CurrentChangedListener.imp.pas"
-// Начат: 2008/01/30 08:25:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Базовые определения предметной области::SearchLite::Search::Search::CurrentChangedListener
-//
-// Шаблон необходим для реализация поведения получения слушателем
-// уведомления об изменении текущего в дереве и рассылки такого же
-// уведомления своим слушателям.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "CurrentChangedListener" MUID: (492428D203A1)
+// Имя типа: "_CurrentChangedListener_"
 
 {$Define CurrentChangedListener_imp}
- _CurrentChangedListener_ = {mixin} class(_CurrentChangedListener_Parent_)
+
+ _CurrentChangedListener_ = class(_CurrentChangedListener_Parent_)
   {* Шаблон необходим для реализация поведения получения слушателем
 уведомления об изменении текущего в дереве и рассылки такого же
 уведомления своим слушателям. }
- public
- // realized methods
-   procedure Process(const aNode: Il3SimpleNode);
-     {* обработать событие }
- protected
- // protected methods
+  protected
    procedure CurrentChangedNotification(const aNode: Il3SimpleNode); virtual;
+  public
+   procedure Process(const aNode: Il3SimpleNode);
+    {* обработать событие }
  end;//_CurrentChangedListener_
 
 {$Else CurrentChangedListener_imp}
 
-// start class _CurrentChangedListener_
+{$IfNDef CurrentChangedListener_imp_impl}
+
+{$Define CurrentChangedListener_imp_impl}
 
 procedure _CurrentChangedListener_.CurrentChangedNotification(const aNode: Il3SimpleNode);
 //#UC START# *49242A4E0252_492428D203A1_var*
@@ -57,6 +45,7 @@ begin
 end;//_CurrentChangedListener_.CurrentChangedNotification
 
 procedure _CurrentChangedListener_.Process(const aNode: Il3SimpleNode);
+ {* обработать событие }
 //#UC START# *49590D4802EE_492428D203A1_var*
 //#UC END# *49590D4802EE_492428D203A1_var*
 begin
@@ -65,4 +54,7 @@ begin
 //#UC END# *49590D4802EE_492428D203A1_impl*
 end;//_CurrentChangedListener_.Process
 
+{$EndIf CurrentChangedListener_imp_impl}
+
 {$EndIf CurrentChangedListener_imp}
+

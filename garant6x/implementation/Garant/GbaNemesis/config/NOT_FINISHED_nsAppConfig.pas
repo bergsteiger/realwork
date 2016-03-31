@@ -59,7 +59,6 @@ type
  EDuplicateConfName = class(Exception)
   private
    f_ConfName: AnsiString;
-    {* Поле для свойства ConfName }
   protected
    procedure pm_SetConfName(const aValue: AnsiString);
   public
@@ -222,9 +221,7 @@ type
   {* класс для сохранения позиции форм встраиваемых в область навиагатора }
   private
    f_FloatingValue: Boolean;
-    {* Поле для свойства FloatingValue }
    f_ZoneValue: Il3CString;
-    {* Поле для свойства ZoneValue }
   protected
    procedure pm_SetFloatingValue(aValue: Boolean);
    procedure pm_SetZoneValue(const aValue: Il3CString);
@@ -872,12 +869,6 @@ begin
 //#UC END# *479731C50290_523182220295_impl*
 end;//TstgNavigatorFormPosition.Cleanup
 
-procedure TstgNavigatorFormPosition.ClearFields;
-begin
- ZoneValue := nil;
- inherited;
-end;//TstgNavigatorFormPosition.ClearFields
-
 procedure TstgNavigatorFormPosition.LoadValue(const aStorage: IddConfigStorage);
 //#UC START# *52172B72014C_523182220295_var*
 //#UC END# *52172B72014C_523182220295_var*
@@ -895,6 +886,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52172CA801E3_523182220295_impl*
 end;//TstgNavigatorFormPosition.SaveValue
+
+procedure TstgNavigatorFormPosition.ClearFields;
+begin
+ ZoneValue := nil;
+ inherited;
+end;//TstgNavigatorFormPosition.ClearFields
 
 function TstgScalePicture.CheckValue: Boolean;
  {* Были ли исправлены ошибки: true - ошибки были }

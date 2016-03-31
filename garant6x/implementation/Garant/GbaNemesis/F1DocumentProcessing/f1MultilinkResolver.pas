@@ -1,79 +1,58 @@
 unit f1MultilinkResolver;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/f1MultilinkResolver.pas"
-// Начат: 13.05.2011 21:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::F1DocumentProcessing::DocumentFilters::Tf1MultilinkResolver
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\f1MultilinkResolver.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tf1MultilinkResolver" MUID: (4DCD5932009E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  evdLeafParaFilter,
-  l3Variant,
-  k2Base
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evdLeafParaFilter
+ , DocumentUnit
+ , l3Variant
+ , k2Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  Tf1MultilinkResolver = class(TevdLeafParaFilter)
- private
- // private fields
-   f_Doc : IDocument;
-   f_ParaID : Integer;
- protected
- // overridden protected methods
+  private
+   f_Doc: IDocument;
+   f_ParaID: Integer;
+  protected
    procedure StartChild(TypeID: Tl3Type); override;
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
    function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function SetTo(var theGenerator: Ik2TagGenerator;
-     const aDoc: IDocument): Ik2TagGenerator;
+    const aDoc: IDocument): Ik2TagGenerator;
    constructor Create(const aDoc: IDocument); reintroduce;
  end;//Tf1MultilinkResolver
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  HyperLink_Const,
-  evdTypes,
-  k2Tags,
-  LeafPara_Const,
-  SysUtils,
-  BaseTypesUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class Tf1MultilinkResolver
+ l3ImplUses
+ , HyperLink_Const
+ , evdTypes
+ , k2Tags
+ , LeafPara_Const
+ , SysUtils
+ , BaseTypesUnit
+;
 
 class function Tf1MultilinkResolver.SetTo(var theGenerator: Ik2TagGenerator;
-  const aDoc: IDocument): Ik2TagGenerator;
+ const aDoc: IDocument): Ik2TagGenerator;
 //#UC START# *4DCD5A9F022F_4DCD5932009E_var*
 var
  l_G : Tf1MultilinkResolver;
@@ -113,7 +92,7 @@ begin
 end;//Tf1MultilinkResolver.StartChild
 
 procedure Tf1MultilinkResolver.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_4DCD5932009E_var*
 //#UC END# *4836D52400D9_4DCD5932009E_var*
 begin
@@ -126,6 +105,7 @@ begin
 end;//Tf1MultilinkResolver.AddAtomEx
 
 function Tf1MultilinkResolver.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_4DCD5932009E_var*
 //#UC END# *49E488070386_4DCD5932009E_var*
 begin
@@ -135,6 +115,7 @@ begin
 end;//Tf1MultilinkResolver.ParaTypeForFiltering
 
 procedure Tf1MultilinkResolver.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_4DCD5932009E_var*
 var
  l_T : TTopic;
@@ -187,14 +168,10 @@ begin
 end;//Tf1MultilinkResolver.DoWritePara
 
 procedure Tf1MultilinkResolver.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Doc := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//Tf1MultilinkResolver.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,29 +1,18 @@
 unit atAdapterTestCommandLine;
+ {* Для  разбора командной строки тестов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Runner/atAdapterTestCommandLine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Runner::TatAdapterTestCommandLine
-//
-// Для  разбора командной строки тестов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Runner\atAdapterTestCommandLine.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatAdapterTestCommandLine" MUID: (4AC347FD023D)
 
 interface
 
 uses
-  atCommandLine
-  ;
+ l3IntfUses
+ , atCommandLine
+;
 
 const
-  { CLP }
  CLP_LOGIN = 'login';
  CLP_PASSWORD = 'password';
  CLP_LOGFILENAME = 'log_file';
@@ -32,18 +21,16 @@ const
 type
  TatAdapterTestCommandLine = class(TatCommandLine)
   {* Для  разбора командной строки тестов }
- protected
- // realized methods
+  protected
    procedure InitParamList; override;
  end;//TatAdapterTestCommandLine
 
 implementation
 
 uses
-  atCommandLineParameter
-  ;
-
-// start class TatAdapterTestCommandLine
+ l3ImplUses
+ , atCommandLineParameter
+;
 
 procedure TatAdapterTestCommandLine.InitParamList;
 //#UC START# *4808976C00AF_4AC347FD023D_var*

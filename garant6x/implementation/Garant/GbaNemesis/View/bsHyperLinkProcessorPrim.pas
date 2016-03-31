@@ -1,76 +1,53 @@
 unit bsHyperLinkProcessorPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/bsHyperLinkProcessorPrim.pas"
-// Начат: 15.07.2011 20:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::Navigation::TbsHyperLinkProcessorPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsHyperLinkProcessorPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsHyperLinkProcessorPrim" MUID: (4E2067E2007C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ExternalObjectUnit,
-  l3Interfaces,
-  l3CProtoObject
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CProtoObject
+ , l3Interfaces
+ , ExternalObjectUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsHyperLinkProcessorPrim = class(Tl3CProtoObject)
- protected
- // protected methods
-   function OpenURL(const anURL: Tl3WString): Boolean; overload; 
+  protected
+   function OpenURL(const anURL: Tl3WString): Boolean; overload;
    procedure ExecuteScript(const aScript: AnsiString);
- public
- // public methods
-   procedure OpenURL(const anURL: IExternalLink); overload; 
+  public
+   procedure OpenURL(const anURL: IExternalLink); overload;
    class procedure RunScript(const aScript: AnsiString);
  end;//TbsHyperLinkProcessorPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  IOUnit,
-  nsTypes
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngine
-  {$IfEnd} //not NoScripts
-  ,
-  l3String,
-  l3Base,
-  DataAdapter,
-  nsExternalObjectPrim,
-  SysUtils,
-  ComObj,
-  ActiveX
-  {$If not defined(NoScripts)}
-  ,
-  tfwF1HyperlinkScriptCaller
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TbsHyperLinkProcessorPrim
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngine
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3String
+ , l3Base
+ , DataAdapter
+ , nsExternalObjectPrim
+ , SysUtils
+ , ComObj
+ , ActiveX
+ {$If NOT Defined(NoScripts)}
+ , tfwF1HyperlinkScriptCaller
+ {$IfEnd} // NOT Defined(NoScripts)
+ , IOUnit
+ , nsTypes
+;
 
 function TbsHyperLinkProcessorPrim.OpenURL(const anURL: Tl3WString): Boolean;
 //#UC START# *4E2068B30386_4E2067E2007C_var*
@@ -133,7 +110,6 @@ begin
  TtfwScriptEngine.Script(aScript, TtfwF1HyperlinkScriptCaller.Make);
 //#UC END# *502B7892000D_4E2067E2007C_impl*
 end;//TbsHyperLinkProcessorPrim.RunScript
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -10,6 +10,7 @@ interface
 
 uses
  l3IntfUses
+ , l3IID
 ;
 
 implementation

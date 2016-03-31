@@ -1,107 +1,230 @@
 {$IfNDef List_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "List.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Sand Box::SandBox::STLLike::List
-//
-// Абстрактный список значений
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\List.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "List" MUID: (51DEB07E03E4)
+// Имя типа: "_List_"
 
 {$Define List_imp}
- PItemType = ^_ItemType_;
 
 const
-  { Sizes }
  cItemSize = SizeOf(_ItemType_);
 
 type
- IndexType = System.Integer;
+ PItemType = ^_ItemType_;
 
- _List_ = {mixin} class(_List_Parent_)
+ IndexType = Integer;
+
+ _List_ = class(_List_Parent_)
   {* Абстрактный список значений }
- private
- // private fields
-   f_Data : Tl3PtrLoc;
-    {* Собственно место хранения данных}
-   f_Count : IndexType;
-    {* Поле для свойства Count}
- private
- // private methods
+  private
+   f_Data: Tl3PtrLoc;
+    {* Собственно место хранения данных }
+   f_Count: IndexType;
+    {* Количество элементов списка }
+  private
    procedure ReAllocList(aNewCapacity: IndexType);
-   procedure CheckIndex(anIndex: IndexType); // can raise EListError
-     {* проверяет валидность индекса и поднимает исключение, если он неправильный }
+   procedure CheckIndex(anIndex: IndexType);
+    {* проверяет валидность индекса и поднимает исключение, если он неправильный }
    function ItemSlot(anIndex: IndexType): PItemType;
    function ExpandSize(aTargetSize: IndexType): Cardinal;
-   procedure CheckSetItem(anIndex: IndexType); // can raise EListError
-     {* Проверяет валидность индекса при вставке }
+   procedure CheckSetItem(anIndex: IndexType);
+    {* Проверяет валидность индекса при вставке }
    procedure DirectInsert(anIndex: IndexType;
-     const anItem: _ItemType_);
-     {* Непосредственная вставка элемента. Без проверки валидности индекса }
+    const anItem: _ItemType_);
+    {* Непосредственная вставка элемента. Без проверки валидности индекса }
    procedure MoveItems(aDst: IndexType;
-     aSrc: IndexType;
-     aSize: Cardinal);
- protected
- // property methods
-   procedure pm_SetCount(aValue: IndexType);
+    aSrc: IndexType;
+    aSize: Cardinal);
+  protected
+   procedure pm_SetCount(aValue: IndexType); { can raise EListError }
    function pm_GetCapacity: IndexType;
-   procedure pm_SetCapacity(aValue: IndexType);
+   procedure pm_SetCapacity(aValue: IndexType); { can raise EListError }
    function pm_GetItems(anIndex: IndexType): _ItemType_;
-   procedure pm_SetItems(anIndex: IndexType; const aValue: _ItemType_);
+   procedure pm_SetItems(anIndex: IndexType;
+    const aValue: _ItemType_);
    function pm_GetEmpty: Boolean;
-   function pm_GetFirst: _ItemType_;
-   function pm_GetLast: _ItemType_;
- protected
- // overridden protected methods
+   function pm_GetFirst: _ItemType_; { can raise EListError }
+   function pm_GetLast: _ItemType_; { can raise EListError }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
-   procedure Delete(anIndex: IndexType); // can raise EListError
-     {* удалить элемент с индексом anIndex }
+    {* Функция очистки полей объекта. }
+  public
+   procedure Delete(anIndex: IndexType);
+    {* удалить элемент с индексом anIndex }
    procedure Insert(anIndex: IndexType;
-     const anItem: _ItemType_); // can raise EListError
-     {* Вставка элемента }
+    const anItem: _ItemType_);
+    {* Вставка элемента }
    procedure Add(const anItem: _ItemType_);
-     {* Добавляет элемент списка }
+    {* Добавляет элемент списка }
    function IndexOf(const anItem: _ItemType_): IndexType;
-     {* Возвращает индекс элемента списка или -1, если элемента в списке нет }
+    {* Возвращает индекс элемента списка или -1, если элемента в списке нет }
    procedure Remove(const anIndex: _ItemType_);
-     {* Удаляет элемент из списка }
+    {* Удаляет элемент из списка }
    procedure Clear;
-     {* Очищает список }
- public
- // public properties
+    {* Очищает список }
+  public
    property Count: IndexType
-     read f_Count
-     write pm_SetCount;
-     {* Количество элементов списка }
+    read f_Count
+    write pm_SetCount;
+    {* Количество элементов списка }
    property Capacity: IndexType
-     read pm_GetCapacity
-     write pm_SetCapacity;
-     {* Мощность списка }
+    read pm_GetCapacity
+    write pm_SetCapacity;
+    {* Мощность списка }
    property Items[anIndex: IndexType]: _ItemType_
-     read pm_GetItems
-     write pm_SetItems;
-     default;
-     {* Элементы списка. }
+    read pm_GetItems
+    write pm_SetItems;
+    default;
+    {* Элементы списка. }
    property Empty: Boolean
-     read pm_GetEmpty;
-     {* Список пустой }
+    read pm_GetEmpty;
+    {* Список пустой }
    property First: _ItemType_
-     read pm_GetFirst;
-     {* Первый элемент списка }
+    read pm_GetFirst;
+    {* Первый элемент списка }
    property Last: _ItemType_
-     read pm_GetLast;
-     {* Последний элемент списка }
+    read pm_GetLast;
+    {* Последний элемент списка }
  end;//_List_
 
 {$Else List_imp}
 
-// start class _List_
+{$IfNDef List_imp_impl}
+
+{$Define List_imp_impl}
+
+procedure _List_.pm_SetCount(aValue: IndexType); { can raise EListError }
+//#UC START# *51DEB1ED0017_51DEB07E03E4set_var*
+
+ procedure SayBadCount(aNewCount: LongInt);
+ begin
+  raise EListError.CreateFmt(sListIndexError, [aNewCount]);
+ end;
+
+var
+ l_Ptr   : PItemType;
+ {$IfNDef l3Items_IsUnrefcounted}
+ l_Index : Integer;
+ {$EndIf  l3Items_IsUnrefcounted}
+//#UC END# *51DEB1ED0017_51DEB07E03E4set_var*
+begin
+//#UC START# *51DEB1ED0017_51DEB07E03E4set_impl*
+ if (aValue < 0) then
+  SayBadCount(aValue);
+ if (aValue < f_Count) then
+ begin
+  l_Ptr := ItemSlot(aValue);
+  {$IfDef l3Items_IsUnrefcounted}
+  System.FillChar(l_Ptr^, (f_Count - 1 - aValue) * cItemSize, 0);
+  {$Else  l3Items_IsUnrefcounted}
+  for l_Index := aValue to f_Count - 1 do
+  begin
+   FreeItem(l_Ptr^);
+   Inc(PMem(l_Ptr), cItemSize);
+  end;//for i
+  {$EndIf  l3Items_IsUnrefcounted}
+ end//aValue < f_Count
+ else
+ if (aValue > Self.Capacity) then
+  ReAllocList(ExpandSize(aValue));
+ if (f_Count < aValue) then
+  System.FillChar(ItemSlot(f_Count)^, (aValue - f_Count) * cItemSize, 0);
+ f_Count := aValue;
+//#UC END# *51DEB1ED0017_51DEB07E03E4set_impl*
+end;//_List_.pm_SetCount
+
+function _List_.pm_GetCapacity: IndexType;
+//#UC START# *51DEB20E0130_51DEB07E03E4get_var*
+//#UC END# *51DEB20E0130_51DEB07E03E4get_var*
+begin
+//#UC START# *51DEB20E0130_51DEB07E03E4get_impl*
+ Result := f_Data.GetSize div cItemSize;
+//#UC END# *51DEB20E0130_51DEB07E03E4get_impl*
+end;//_List_.pm_GetCapacity
+
+procedure _List_.pm_SetCapacity(aValue: IndexType); { can raise EListError }
+//#UC START# *51DEB20E0130_51DEB07E03E4set_var*
+
+ procedure SayBadCap(aNewCapacity: IndexType);
+ begin
+  raise EListError.CreateFmt(sListIndexError, [aNewCapacity]);
+ end;
+
+//#UC END# *51DEB20E0130_51DEB07E03E4set_var*
+begin
+//#UC START# *51DEB20E0130_51DEB07E03E4set_impl*
+ if (aValue < 0) then
+  SayBadCap(aValue);
+ if (pm_GetCapacity <> aValue) then
+ begin
+  { If the list is shrinking, then update _Count for the smaller size. }
+  if (aValue < f_Count) then
+   Count := aValue;
+  ReAllocList(aValue);
+ end;//GetCapacity(Self) <> aValue
+//#UC END# *51DEB20E0130_51DEB07E03E4set_impl*
+end;//_List_.pm_SetCapacity
+
+function _List_.pm_GetItems(anIndex: IndexType): _ItemType_;
+//#UC START# *51DECA1202C5_51DEB07E03E4get_var*
+//#UC END# *51DECA1202C5_51DEB07E03E4get_var*
+begin
+//#UC START# *51DECA1202C5_51DEB07E03E4get_impl*
+ CheckIndex(anIndex);
+ Result := ItemSlot(anIndex)^;
+//#UC END# *51DECA1202C5_51DEB07E03E4get_impl*
+end;//_List_.pm_GetItems
+
+procedure _List_.pm_SetItems(anIndex: IndexType;
+ const aValue: _ItemType_);
+//#UC START# *51DECA1202C5_51DEB07E03E4set_var*
+{$IfNDef l3Items_IsAtomic}
+var
+ l_P : PItemType;
+{$EndIf  l3Items_IsAtomic}
+//#UC END# *51DECA1202C5_51DEB07E03E4set_var*
+begin
+//#UC START# *51DECA1202C5_51DEB07E03E4set_impl*
+ CheckSetItem(anIndex);
+ {$IfDef l3Items_IsAtomic}
+ PItemType(ItemSlot(anIndex))^ := aValue;
+ {$Else  l3Items_IsAtomic}
+ l_P := PItemType(ItemSlot(anIndex));
+ if not IsSame(l_P^, aValue) then
+ begin
+  FreeItem(l_P^);
+  FillItem(l_P^, aValue);
+ end;//not IsSame(l_P^, anItem)
+ {$EndIf l3Items_IsAtomic}
+//#UC END# *51DECA1202C5_51DEB07E03E4set_impl*
+end;//_List_.pm_SetItems
+
+function _List_.pm_GetEmpty: Boolean;
+//#UC START# *51E7FDAC023D_51DEB07E03E4get_var*
+//#UC END# *51E7FDAC023D_51DEB07E03E4get_var*
+begin
+//#UC START# *51E7FDAC023D_51DEB07E03E4get_impl*
+ Result := (Count = 0);
+//#UC END# *51E7FDAC023D_51DEB07E03E4get_impl*
+end;//_List_.pm_GetEmpty
+
+function _List_.pm_GetFirst: _ItemType_; { can raise EListError }
+//#UC START# *51E8070603AC_51DEB07E03E4get_var*
+//#UC END# *51E8070603AC_51DEB07E03E4get_var*
+begin
+//#UC START# *51E8070603AC_51DEB07E03E4get_impl*
+ Result := Items[0];
+//#UC END# *51E8070603AC_51DEB07E03E4get_impl*
+end;//_List_.pm_GetFirst
+
+function _List_.pm_GetLast: _ItemType_; { can raise EListError }
+//#UC START# *51E8074101B5_51DEB07E03E4get_var*
+//#UC END# *51E8074101B5_51DEB07E03E4get_var*
+begin
+//#UC START# *51E8074101B5_51DEB07E03E4get_impl*
+ Result := Items[f_Count - 1];
+//#UC END# *51E8074101B5_51DEB07E03E4get_impl*
+end;//_List_.pm_GetLast
 
 procedure _List_.ReAllocList(aNewCapacity: IndexType);
 //#UC START# *51DEB8770017_51DEB07E03E4_var*
@@ -120,7 +243,8 @@ begin
 //#UC END# *51DEB8770017_51DEB07E03E4_impl*
 end;//_List_.ReAllocList
 
-procedure _List_.CheckIndex(anIndex: IndexType); // can raise EListError
+procedure _List_.CheckIndex(anIndex: IndexType);
+ {* проверяет валидность индекса и поднимает исключение, если он неправильный }
 //#UC START# *51DEB95E00BD_51DEB07E03E4_var*
 
  procedure _Error;
@@ -174,7 +298,8 @@ begin
 //#UC END# *51DEC11F0058_51DEB07E03E4_impl*
 end;//_List_.ExpandSize
 
-procedure _List_.CheckSetItem(anIndex: IndexType); // can raise EListError
+procedure _List_.CheckSetItem(anIndex: IndexType);
+ {* Проверяет валидность индекса при вставке }
 //#UC START# *51DECAA8035E_51DEB07E03E4_var*
 //#UC END# *51DECAA8035E_51DEB07E03E4_var*
 begin
@@ -183,8 +308,26 @@ begin
 //#UC END# *51DECAA8035E_51DEB07E03E4_impl*
 end;//_List_.CheckSetItem
 
+procedure _List_.Delete(anIndex: IndexType);
+ {* удалить элемент с индексом anIndex }
+//#UC START# *51E6A2660270_51DEB07E03E4_var*
+var
+ l_P : PItemType;
+//#UC END# *51E6A2660270_51DEB07E03E4_var*
+begin
+//#UC START# *51E6A2660270_51DEB07E03E4_impl*
+ CheckIndex(anIndex);
+ l_P := ItemSlot(anIndex);
+ Dec(f_Count);
+ FreeItem(l_P^);
+ if (anIndex <> f_Count) then
+  MoveItems(anIndex, Succ(anIndex), f_Count-anIndex);
+//#UC END# *51E6A2660270_51DEB07E03E4_impl*
+end;//_List_.Delete
+
 procedure _List_.DirectInsert(anIndex: IndexType;
-  const anItem: _ItemType_);
+ const anItem: _ItemType_);
+ {* Непосредственная вставка элемента. Без проверки валидности индекса }
 //#UC START# *51E6A2AA02E4_51DEB07E03E4_var*
 var
  l_Cap   : Integer;
@@ -218,9 +361,28 @@ begin
 //#UC END# *51E6A2AA02E4_51DEB07E03E4_impl*
 end;//_List_.DirectInsert
 
+procedure _List_.Insert(anIndex: IndexType;
+ const anItem: _ItemType_);
+ {* Вставка элемента }
+//#UC START# *51E6A3140016_51DEB07E03E4_var*
+
+ procedure _Error;
+ begin
+  raise EListError.CreateFmt(SListIndexError, [anIndex]);
+ end;
+
+//#UC END# *51E6A3140016_51DEB07E03E4_var*
+begin
+//#UC START# *51E6A3140016_51DEB07E03E4_impl*
+ if (anIndex < 0) or (anIndex > f_Count) then
+  _Error;
+ DirectInsert(anIndex, anItem) 
+//#UC END# *51E6A3140016_51DEB07E03E4_impl*
+end;//_List_.Insert
+
 procedure _List_.MoveItems(aDst: IndexType;
-  aSrc: IndexType;
-  aSize: Cardinal);
+ aSrc: IndexType;
+ aSize: Cardinal);
 //#UC START# *51E6A8190252_51DEB07E03E4_var*
 type
  PInteger = ^Integer;
@@ -249,41 +411,8 @@ begin
 //#UC END# *51E6A8190252_51DEB07E03E4_impl*
 end;//_List_.MoveItems
 
-procedure _List_.Delete(anIndex: IndexType); // can raise EListError
-//#UC START# *51E6A2660270_51DEB07E03E4_var*
-var
- l_P : PItemType;
-//#UC END# *51E6A2660270_51DEB07E03E4_var*
-begin
-//#UC START# *51E6A2660270_51DEB07E03E4_impl*
- CheckIndex(anIndex);
- l_P := ItemSlot(anIndex);
- Dec(f_Count);
- FreeItem(l_P^);
- if (anIndex <> f_Count) then
-  MoveItems(anIndex, Succ(anIndex), f_Count-anIndex);
-//#UC END# *51E6A2660270_51DEB07E03E4_impl*
-end;//_List_.Delete
-
-procedure _List_.Insert(anIndex: IndexType;
-  const anItem: _ItemType_); // can raise EListError
-//#UC START# *51E6A3140016_51DEB07E03E4_var*
-
- procedure _Error;
- begin
-  raise EListError.CreateFmt(SListIndexError, [anIndex]);
- end;
-
-//#UC END# *51E6A3140016_51DEB07E03E4_var*
-begin
-//#UC START# *51E6A3140016_51DEB07E03E4_impl*
- if (anIndex < 0) or (anIndex > f_Count) then
-  _Error;
- DirectInsert(anIndex, anItem) 
-//#UC END# *51E6A3140016_51DEB07E03E4_impl*
-end;//_List_.Insert
-
 procedure _List_.Add(const anItem: _ItemType_);
+ {* Добавляет элемент списка }
 //#UC START# *51E80192036C_51DEB07E03E4_var*
 //#UC END# *51E80192036C_51DEB07E03E4_var*
 begin
@@ -293,6 +422,7 @@ begin
 end;//_List_.Add
 
 function _List_.IndexOf(const anItem: _ItemType_): IndexType;
+ {* Возвращает индекс элемента списка или -1, если элемента в списке нет }
 //#UC START# *51E801D503C5_51DEB07E03E4_var*
 var
  l_Index : IndexType;
@@ -313,6 +443,7 @@ begin
 end;//_List_.IndexOf
 
 procedure _List_.Remove(const anIndex: _ItemType_);
+ {* Удаляет элемент из списка }
 //#UC START# *51E802290167_51DEB07E03E4_var*
 var
  l_Index : IndexType;
@@ -326,6 +457,7 @@ begin
 end;//_List_.Remove
 
 procedure _List_.Clear;
+ {* Очищает список }
 //#UC START# *51E8026302B4_51DEB07E03E4_var*
 //#UC END# *51E8026302B4_51DEB07E03E4_var*
 begin
@@ -334,139 +466,8 @@ begin
 //#UC END# *51E8026302B4_51DEB07E03E4_impl*
 end;//_List_.Clear
 
-procedure _List_.pm_SetCount(aValue: IndexType);
-//#UC START# *51DEB1ED0017_51DEB07E03E4set_var*
-
- procedure SayBadCount(aNewCount: LongInt);
- begin
-  raise EListError.CreateFmt(sListIndexError, [aNewCount]);
- end;
-
-var
- l_Ptr   : PItemType;
- {$IfNDef l3Items_IsUnrefcounted}
- l_Index : Integer;
- {$EndIf  l3Items_IsUnrefcounted}
-//#UC END# *51DEB1ED0017_51DEB07E03E4set_var*
-begin
-//#UC START# *51DEB1ED0017_51DEB07E03E4set_impl*
- if (aValue < 0) then
-  SayBadCount(aValue);
- if (aValue < f_Count) then
- begin
-  l_Ptr := ItemSlot(aValue);
-  {$IfDef l3Items_IsUnrefcounted}
-  System.FillChar(l_Ptr^, (f_Count - 1 - aValue) * cItemSize, 0);
-  {$Else  l3Items_IsUnrefcounted}
-  for l_Index := aValue to f_Count - 1 do
-  begin
-   FreeItem(l_Ptr^);
-   Inc(PMem(l_Ptr), cItemSize);
-  end;//for i
-  {$EndIf  l3Items_IsUnrefcounted}
- end//aValue < f_Count
- else
- if (aValue > Self.Capacity) then
-  ReAllocList(ExpandSize(aValue));
- if (f_Count < aValue) then
-  System.FillChar(ItemSlot(f_Count)^, (aValue - f_Count) * cItemSize, 0);
- f_Count := aValue;
-//#UC END# *51DEB1ED0017_51DEB07E03E4set_impl*
-end;//_List_.pm_SetCount
-
-function _List_.pm_GetCapacity: IndexType;
-//#UC START# *51DEB20E0130_51DEB07E03E4get_var*
-//#UC END# *51DEB20E0130_51DEB07E03E4get_var*
-begin
-//#UC START# *51DEB20E0130_51DEB07E03E4get_impl*
- Result := f_Data.GetSize div cItemSize;
-//#UC END# *51DEB20E0130_51DEB07E03E4get_impl*
-end;//_List_.pm_GetCapacity
-
-procedure _List_.pm_SetCapacity(aValue: IndexType);
-//#UC START# *51DEB20E0130_51DEB07E03E4set_var*
-
- procedure SayBadCap(aNewCapacity: IndexType);
- begin
-  raise EListError.CreateFmt(sListIndexError, [aNewCapacity]);
- end;
-
-//#UC END# *51DEB20E0130_51DEB07E03E4set_var*
-begin
-//#UC START# *51DEB20E0130_51DEB07E03E4set_impl*
- if (aValue < 0) then
-  SayBadCap(aValue);
- if (pm_GetCapacity <> aValue) then
- begin
-  { If the list is shrinking, then update _Count for the smaller size. }
-  if (aValue < f_Count) then
-   Count := aValue;
-  ReAllocList(aValue);
- end;//GetCapacity(Self) <> aValue
-//#UC END# *51DEB20E0130_51DEB07E03E4set_impl*
-end;//_List_.pm_SetCapacity
-
-function _List_.pm_GetItems(anIndex: IndexType): _ItemType_;
-//#UC START# *51DECA1202C5_51DEB07E03E4get_var*
-//#UC END# *51DECA1202C5_51DEB07E03E4get_var*
-begin
-//#UC START# *51DECA1202C5_51DEB07E03E4get_impl*
- CheckIndex(anIndex);
- Result := ItemSlot(anIndex)^;
-//#UC END# *51DECA1202C5_51DEB07E03E4get_impl*
-end;//_List_.pm_GetItems
-
-procedure _List_.pm_SetItems(anIndex: IndexType; const aValue: _ItemType_);
-//#UC START# *51DECA1202C5_51DEB07E03E4set_var*
-{$IfNDef l3Items_IsAtomic}
-var
- l_P : PItemType;
-{$EndIf  l3Items_IsAtomic}
-//#UC END# *51DECA1202C5_51DEB07E03E4set_var*
-begin
-//#UC START# *51DECA1202C5_51DEB07E03E4set_impl*
- CheckSetItem(anIndex);
- {$IfDef l3Items_IsAtomic}
- PItemType(ItemSlot(anIndex))^ := aValue;
- {$Else  l3Items_IsAtomic}
- l_P := PItemType(ItemSlot(anIndex));
- if not IsSame(l_P^, aValue) then
- begin
-  FreeItem(l_P^);
-  FillItem(l_P^, aValue);
- end;//not IsSame(l_P^, anItem)
- {$EndIf l3Items_IsAtomic}
-//#UC END# *51DECA1202C5_51DEB07E03E4set_impl*
-end;//_List_.pm_SetItems
-
-function _List_.pm_GetEmpty: Boolean;
-//#UC START# *51E7FDAC023D_51DEB07E03E4get_var*
-//#UC END# *51E7FDAC023D_51DEB07E03E4get_var*
-begin
-//#UC START# *51E7FDAC023D_51DEB07E03E4get_impl*
- Result := (Count = 0);
-//#UC END# *51E7FDAC023D_51DEB07E03E4get_impl*
-end;//_List_.pm_GetEmpty
-
-function _List_.pm_GetFirst: _ItemType_;
-//#UC START# *51E8070603AC_51DEB07E03E4get_var*
-//#UC END# *51E8070603AC_51DEB07E03E4get_var*
-begin
-//#UC START# *51E8070603AC_51DEB07E03E4get_impl*
- Result := Items[0];
-//#UC END# *51E8070603AC_51DEB07E03E4get_impl*
-end;//_List_.pm_GetFirst
-
-function _List_.pm_GetLast: _ItemType_;
-//#UC START# *51E8074101B5_51DEB07E03E4get_var*
-//#UC END# *51E8074101B5_51DEB07E03E4get_var*
-begin
-//#UC START# *51E8074101B5_51DEB07E03E4get_impl*
- Result := Items[f_Count - 1];
-//#UC END# *51E8074101B5_51DEB07E03E4get_impl*
-end;//_List_.pm_GetLast
-
 procedure _List_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51DEB07E03E4_var*
 //#UC END# *479731C50290_51DEB07E03E4_var*
 begin
@@ -477,4 +478,7 @@ begin
 //#UC END# *479731C50290_51DEB07E03E4_impl*
 end;//_List_.Cleanup
 
+{$EndIf List_imp_impl}
+
 {$EndIf List_imp}
+

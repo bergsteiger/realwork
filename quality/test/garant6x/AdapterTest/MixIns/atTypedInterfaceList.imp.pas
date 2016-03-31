@@ -1,48 +1,42 @@
 {$IfNDef atTypedInterfaceList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/MixIns/atTypedInterfaceList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::MixIns::atTypedInterfaceList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atTypedInterfaceList" MUID: (4836DFD401E3)
+// Имя типа: "_atTypedInterfaceList_"
 
 {$Define atTypedInterfaceList_imp}
- _atTypedInterfaceList_ = {mixin} class(_atTypedInterfaceList_Parent_)
- protected
- // property methods
+
+ _atTypedInterfaceList_ = class(_atTypedInterfaceList_Parent_)
+  protected
    function pm_GetFirst: _InterfaceListElement_; virtual;
    function pm_GetItems(anIndex: Integer): _InterfaceListElement_; virtual;
-   procedure pm_SetItems(anIndex: Integer; const aValue: _InterfaceListElement_); virtual;
+   procedure pm_SetItems(anIndex: Integer;
+    const aValue: _InterfaceListElement_); virtual;
    function pm_GetLast: _InterfaceListElement_; virtual;
- public
- // public methods
+  public
    function Add(const anInterface: _InterfaceListElement_): Integer; virtual;
    procedure Delete(anIndex: Integer); virtual;
    function Remove(const anInterface: _InterfaceListElement_): Integer; virtual;
    function IndexOf(const anInterface: _InterfaceListElement_): Integer; virtual;
    procedure Insert(anIndex: Integer;
     const anInterface: _InterfaceListElement_); virtual;
- public
- // public properties
+  public
    property First: _InterfaceListElement_
-     read pm_GetFirst;
+    read pm_GetFirst;
    property Items[anIndex: Integer]: _InterfaceListElement_
-     read pm_GetItems
-     write pm_SetItems;
-     default;
+    read pm_GetItems
+    write pm_SetItems;
+    default;
    property Last: _InterfaceListElement_
-     read pm_GetLast;
+    read pm_GetLast;
  end;//_atTypedInterfaceList_
 
 {$Else atTypedInterfaceList_imp}
 
-// start class _atTypedInterfaceList_
+{$IfNDef atTypedInterfaceList_imp_impl}
+
+{$Define atTypedInterfaceList_imp_impl}
 
 function _atTypedInterfaceList_.pm_GetFirst: _InterfaceListElement_;
 //#UC START# *4836E1400166_4836DFD401E3get_var*
@@ -62,7 +56,8 @@ begin
 //#UC END# *4836E1A0031B_4836DFD401E3get_impl*
 end;//_atTypedInterfaceList_.pm_GetItems
 
-procedure _atTypedInterfaceList_.pm_SetItems(anIndex: Integer; const aValue: _InterfaceListElement_);
+procedure _atTypedInterfaceList_.pm_SetItems(anIndex: Integer;
+ const aValue: _InterfaceListElement_);
 //#UC START# *4836E1A0031B_4836DFD401E3set_var*
 //#UC END# *4836E1A0031B_4836DFD401E3set_var*
 begin
@@ -117,7 +112,7 @@ begin
 end;//_atTypedInterfaceList_.IndexOf
 
 procedure _atTypedInterfaceList_.Insert(anIndex: Integer;
-  const anInterface: _InterfaceListElement_);
+ const anInterface: _InterfaceListElement_);
 //#UC START# *4836E0B6004D_4836DFD401E3_var*
 //#UC END# *4836E0B6004D_4836DFD401E3_var*
 begin
@@ -126,4 +121,7 @@ begin
 //#UC END# *4836E0B6004D_4836DFD401E3_impl*
 end;//_atTypedInterfaceList_.Insert
 
+{$EndIf atTypedInterfaceList_imp_impl}
+
 {$EndIf atTypedInterfaceList_imp}
+

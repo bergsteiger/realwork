@@ -1,28 +1,26 @@
 {$IfNDef RoundedControl_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "RoundedControl.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: GUIControlMixIn::Class Shared Delphi Sand Box::SandBox::Rounded::RoundedControl
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\RoundedControl.imp.pas"
+// Стереотип: "GUIControlMixIn"
+// Элемент модели: "RoundedControl" MUID: (517C0F4B027C)
+// Имя типа: "_RoundedControl_"
 
 {$Define RoundedControl_imp}
+
  _RegionableControl_Parent_ = _RoundedControl_Parent_;
  {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
- _RoundedControl_ = {mixin} class(_RegionableControl_)
- protected
- // overridden protected methods
+ _RoundedControl_ = class(_RegionableControl_)
+  protected
    procedure TuneRegion(aRegion: Tl3Region); override;
  end;//_RoundedControl_
 
 {$Else RoundedControl_imp}
 
-{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
+{$IfNDef RoundedControl_imp_impl}
 
-// start class _RoundedControl_
+{$Define RoundedControl_imp_impl}
+
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 
 procedure _RoundedControl_.TuneRegion(aRegion: Tl3Region);
 //#UC START# *4CC847800383_517C0F4B027C_var*
@@ -44,4 +42,7 @@ begin
 //#UC END# *4CC847800383_517C0F4B027C_impl*
 end;//_RoundedControl_.TuneRegion
 
+{$EndIf RoundedControl_imp_impl}
+
 {$EndIf RoundedControl_imp}
+

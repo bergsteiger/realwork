@@ -86,6 +86,9 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function GetDataForClone: _InitDataType_; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -437,6 +440,26 @@ begin
  Result := nsTabIconIndex(titDictionary);
 //#UC END# *53B3BF9C00EF_4936CB1B0022_impl*
 end;//TsdsDiction.DoGetFormSetImageIndex
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function TsdsDiction.GetDataForClone: _InitDataType_;
+//#UC START# *55C1DD070354_4936CB1B0022_var*
+var
+ l_Diction: IdeDiction;
+//#UC END# *55C1DD070354_4936CB1B0022_var*
+begin
+//#UC START# *55C1DD070354_4936CB1B0022_impl*
+ Result := MakeDocInfo(pm_GetDocInfo).Clone;
+ if Supports(Result, IdeDiction, l_Diction) then
+ try
+  l_Diction.DictLanguage := pm_GetDsDiction.Language;
+ finally
+  l_Diction := nil;
+ end;
+// Result.DictLanguage := pm_GetDsDiction.Language; 
+//#UC END# *55C1DD070354_4936CB1B0022_impl*
+end;//TsdsDiction.GetDataForClone
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

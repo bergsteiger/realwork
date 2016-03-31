@@ -1,69 +1,48 @@
 unit nsFiltersContainerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersContainerPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::Impl::TnsFiltersContainerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainerPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersContainerPrim" MUID: (4CAC5B4900ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Tree_TLB,
-  l3SimpleObject,
-  nsFiltersInterfaces,
-  FiltersUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , nsFiltersInterfaces
+ , l3Tree_TLB
+ , FiltersUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersContainerPrim = class(Tl3SimpleObject, InsFiltersContainer)
- private
- // private fields
-   f_Tree : Il3Tree;
-   f_FilterType : TnsFiltersType;
- protected
- // realized methods
+  private
+   f_Tree: Il3Tree;
+   f_FilterType: TnsFiltersType;
+  protected
    function pm_GetTree: Il3Tree;
    function pm_GetPermanentFilters: IFiltersFromQuery;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aFilterType: TnsFiltersType); reintroduce;
    class function Make(aFilterType: TnsFiltersType): InsFiltersContainer; reintroduce;
-     {* Сигнатура фабрики TnsFiltersContainerPrim.Make }
  end;//TnsFiltersContainerPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  nsFiltersTree,
-  SysUtils,
-  l3Nodes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsFiltersContainerPrim
+ l3ImplUses
+ , DataAdapter
+ , nsFiltersTree
+ , SysUtils
+ , l3Nodes
+;
 
 constructor TnsFiltersContainerPrim.Create(aFilterType: TnsFiltersType);
 //#UC START# *4CB30B4A0124_4CAC5B4900ED_var*
@@ -85,7 +64,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsFiltersContainerPrim.Make
 
 function TnsFiltersContainerPrim.pm_GetTree: Il3Tree;
 //#UC START# *4991850C0199_4CAC5B4900EDget_var*
@@ -127,6 +106,7 @@ begin
 end;//TnsFiltersContainerPrim.pm_GetPermanentFilters
 
 procedure TnsFiltersContainerPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CAC5B4900ED_var*
 //#UC END# *479731C50290_4CAC5B4900ED_var*
 begin
@@ -135,7 +115,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_4CAC5B4900ED_impl*
 end;//TnsFiltersContainerPrim.Cleanup
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

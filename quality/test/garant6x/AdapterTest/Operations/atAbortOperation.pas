@@ -1,42 +1,30 @@
 unit atAbortOperation;
+ {* Немедленное прерывание работы теста }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atAbortOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatAbortOperation
-//
-// Немедленное прерывание работы теста
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atAbortOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatAbortOperation" MUID: (48A2A3F10001)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatAbortOperation = class(TatOperationBase)
   {* Немедленное прерывание работы теста }
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
  end;//TatAbortOperation
 
 implementation
 
 uses
-  Windows
-  ;
-
-// start class TatAbortOperation
+ l3ImplUses
+ , Windows
+;
 
 procedure TatAbortOperation.ExecuteSelf;
 //#UC START# *48089F460352_48A2A3F10001_var*

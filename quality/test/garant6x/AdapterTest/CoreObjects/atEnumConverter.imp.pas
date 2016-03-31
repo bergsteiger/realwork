@@ -1,37 +1,29 @@
 {$IfNDef atEnumConverter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atEnumConverter.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::CoreObjects::atEnumConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atEnumConverter" MUID: (50005E6B0318)
+// Имя типа: "_atEnumConverter_"
 
 {$Define atEnumConverter_imp}
+
  _SecondType_ = _EnumType_;
- {$Include ..\CoreObjects\atStringConverter.imp.pas}
- _atEnumConverter_ = {mixin} class(_atStringConverter_)
- protected
- // realized methods
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
+ _atEnumConverter_ = class(_atStringConverter_)
+  protected
    procedure InitConvertMap; override;
- protected
- // overridden protected methods
    procedure Error2nd(const aSecond: _SecondType_); override;
- public
- // public methods
-   function ToName(const aValueOrd: Integer): AnsiString; overload;  virtual;
+  public
+   function ToName(const aValueOrd: Integer): AnsiString; overload; virtual;
  end;//_atEnumConverter_
 
 {$Else atEnumConverter_imp}
 
-{$Include ..\CoreObjects\atStringConverter.imp.pas}
+{$IfNDef atEnumConverter_imp_impl}
 
-// start class _atEnumConverter_
+{$Define atEnumConverter_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
 
 function _atEnumConverter_.ToName(const aValueOrd: Integer): AnsiString;
 //#UC START# *503E67610170_50005E6B0318_var*
@@ -75,4 +67,7 @@ begin
 //#UC END# *503E3CC102AE_50005E6B0318_impl*
 end;//_atEnumConverter_.Error2nd
 
+{$EndIf atEnumConverter_imp_impl}
+
 {$EndIf atEnumConverter_imp}
+

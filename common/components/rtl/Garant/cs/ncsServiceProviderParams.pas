@@ -1,73 +1,72 @@
 unit ncsServiceProviderParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsServiceProviderParams.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ClientSide::TncsServiceProviderParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsServiceProviderParams.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsServiceProviderParams" MUID: (54F044E00390)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+;
 
-{$If not defined(Nemesis)}
 type
  TncsServiceProviderParams = class(Tl3ProtoObject)
- private
- // private fields
-   f_ServerHostName : AnsiString;
-    {* Поле для свойства ServerHostName}
-   f_ServerPort : Integer;
-    {* Поле для свойства ServerPort}
-   f_Login : AnsiString;
-    {* Поле для свойства Login}
-   f_Password : AnsiString;
-    {* Поле для свойства Password}
-   f_IsDeveloper : Boolean;
-    {* Поле для свойства IsDeveloper}
-   f_StandAlone : Boolean;
-    {* Поле для свойства StandAlone}
- public
- // public properties
+  private
+   f_ServerHostName: AnsiString;
+    {* Поле для свойства ServerHostName }
+   f_ServerPort: Integer;
+    {* Поле для свойства ServerPort }
+   f_Login: AnsiString;
+    {* Поле для свойства Login }
+   f_Password: AnsiString;
+    {* Поле для свойства Password }
+   f_IsDeveloper: Boolean;
+    {* Поле для свойства IsDeveloper }
+   f_StandAlone: Boolean;
+    {* Поле для свойства StandAlone }
+  protected
+   procedure ClearFields; override;
+  public
    property ServerHostName: AnsiString
-     read f_ServerHostName
-     write f_ServerHostName;
+    read f_ServerHostName
+    write f_ServerHostName;
    property ServerPort: Integer
-     read f_ServerPort
-     write f_ServerPort;
+    read f_ServerPort
+    write f_ServerPort;
    property Login: AnsiString
-     read f_Login
-     write f_Login;
+    read f_Login
+    write f_Login;
    property Password: AnsiString
-     read f_Password
-     write f_Password;
+    read f_Password
+    write f_Password;
    property IsDeveloper: Boolean
-     read f_IsDeveloper
-     write f_IsDeveloper;
+    read f_IsDeveloper
+    write f_IsDeveloper;
    property StandAlone: Boolean
-     read f_StandAlone
-     write f_StandAlone;
+    read f_StandAlone
+    write f_StandAlone;
  end;//TncsServiceProviderParams
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
+procedure TncsServiceProviderParams.ClearFields;
+begin
+ ServerHostName := '';
+ Login := '';
+ Password := '';
+ inherited;
+end;//TncsServiceProviderParams.ClearFields
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //not Nemesis
 end.

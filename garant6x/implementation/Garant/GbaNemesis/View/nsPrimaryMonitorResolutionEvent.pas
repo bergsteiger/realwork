@@ -1,56 +1,40 @@
 unit nsPrimaryMonitorResolutionEvent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsPrimaryMonitorResolutionEvent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::Events::TnsPrimaryMonitorResolutionEvent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsPrimaryMonitorResolutionEvent.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimaryMonitorResolutionEvent" MUID: (4B0BB046001B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsLogEvent
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsLogEvent
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsPrimaryMonitorResolutionEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(aWidth: Cardinal;
     aHeight: Cardinal);
  end;//TnsPrimaryMonitorResolutionEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsPrimaryMonitorResolutionEvent
+ l3ImplUses
+ , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
 class procedure TnsPrimaryMonitorResolutionEvent.Log(aWidth: Cardinal;
-  aHeight: Cardinal);
+ aHeight: Cardinal);
 //#UC START# *4B0BB0510315_4B0BB046001B_var*
 var
  l_Data: InsLogEventData;
@@ -63,7 +47,6 @@ begin
  GetLogger.AddEvent(LE_PRIMARY_MONITOR_RESOLUTION, l_Data);
 //#UC END# *4B0BB0510315_4B0BB046001B_impl*
 end;//TnsPrimaryMonitorResolutionEvent.Log
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

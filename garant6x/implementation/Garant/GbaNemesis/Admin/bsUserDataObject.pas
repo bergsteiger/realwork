@@ -1,56 +1,41 @@
 unit bsUserDataObject;
+ {* Данные списка пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/bsUserDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::UsersDataObjects::TbsUserDataObject
-//
-// Данные списка пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserDataObject.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsUserDataObject" MUID: (49F552BA0035)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces,
-  evNodeData,
-  l3IID
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , evNodeData
+ , bsInterfaces
+ , l3Interfaces
+ , l3TreeInterfaces
+ , l3InternalInterfaces
+ , l3IID
+;
 
-{$If defined(Admin)}
 type
  TbsUserDataObject = class(TevNodeData)
   {* Данные списка пользователей }
- private
- // private fields
-   f_UserData : IbsUserTreeData;
- protected
- // overridden protected methods
+  private
+   f_UserData: IbsUserTreeData;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; override;
    function GetFormats: Tl3ClipboardFormats; override;
    function MakeExtData: IDataObject; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap;
     const aUserData: IbsUserTreeData); reintroduce;
@@ -58,26 +43,22 @@ type
     const aBitmap: Il3Bitmap;
     const aUserData: IbsUserTreeData): IDataObject; reintroduce;
  end;//TbsUserDataObject
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3TreeConst,
-  l3Base,
-  Windows,
-  nsUserDataObject
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TbsUserDataObject
+ l3ImplUses
+ , l3TreeConst
+ , l3Base
+ , Windows
+ , nsUserDataObject
+;
 
 constructor TbsUserDataObject.Create(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap;
-  const aUserData: IbsUserTreeData);
+ const aBitmap: Il3Bitmap;
+ const aUserData: IbsUserTreeData);
 //#UC START# *49F5530A032E_49F552BA0035_var*
 //#UC END# *49F5530A032E_49F552BA0035_var*
 begin
@@ -88,8 +69,8 @@ begin
 end;//TbsUserDataObject.Create
 
 class function TbsUserDataObject.Make(const aData: Il3SimpleNode;
-  const aBitmap: Il3Bitmap;
-  const aUserData: IbsUserTreeData): IDataObject;
+ const aBitmap: Il3Bitmap;
+ const aUserData: IbsUserTreeData): IDataObject;
 var
  l_Inst : TbsUserDataObject;
 begin
@@ -99,9 +80,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsUserDataObject.Make
 
 procedure TbsUserDataObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49F552BA0035_var*
 //#UC END# *479731C50290_49F552BA0035_var*
 begin
@@ -112,7 +94,7 @@ begin
 end;//TbsUserDataObject.Cleanup
 
 function TbsUserDataObject.DoGetData(const aFormatEtcIn: TFormatEtc;
-  var medium: Tl3StoragePlace): HResult;
+ var medium: Tl3StoragePlace): HResult;
 //#UC START# *48F3495D0398_49F552BA0035_var*
 var
  l_Handle : THandle;
@@ -173,7 +155,8 @@ begin
 end;//TbsUserDataObject.MakeExtData
 
 function TbsUserDataObject.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_49F552BA0035_var*
 //#UC END# *4A60B23E00C3_49F552BA0035_var*
 begin
@@ -186,7 +169,6 @@ begin
  end;//if l3IFail(Result) and IID.EQ(IbsListTreeData) then
 //#UC END# *4A60B23E00C3_49F552BA0035_impl*
 end;//TbsUserDataObject.COMQueryInterface
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

@@ -1,38 +1,30 @@
 unit m3BaseEnumStatStg;
+ {* Базовый класс для реализации IEnumStatStg }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3BaseEnumStatStg.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3BaseEnumStatStg
-//
-// Базовый класс для реализации IEnumStatStg
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3BaseEnumStatStg.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseEnumStatStg" MUID: (548588F802A3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , ActiveX
+ //#UC START# *548588F802A3intf_uses*
+ //#UC END# *548588F802A3intf_uses*
+;
 
 type
-//#UC START# *548588F802A3ci*
-//#UC END# *548588F802A3ci*
-//#UC START# *548588F802A3cit*
-//#UC END# *548588F802A3cit*
+ //#UC START# *548588F802A3ci*
+ //#UC END# *548588F802A3ci*
+ //#UC START# *548588F802A3cit*
+ //#UC END# *548588F802A3cit*
  Tm3BaseEnumStatStg = class(Tl3CProtoObject, IEnumStatStg)
   {* Базовый класс для реализации IEnumStatStg }
-//#UC START# *548588F802A3publ*
+ //#UC START# *548588F802A3publ*
          private
 
 
@@ -83,19 +75,21 @@ type
 
                 function          COMClone            (out   AEnumStatStg: IEnumStatStg
                                                       ): HRESULT; stdcall;
-//#UC END# *548588F802A3publ*
+ //#UC END# *548588F802A3publ*
  end;//Tm3BaseEnumStatStg
 
 implementation
 
 uses
-  SysUtils,
-  Windows,
-  ComObj,
-  l3Base,
-  m2MemLib
-  ;
-
+ l3ImplUses
+ , SysUtils
+ , Windows
+ , ComObj
+ , l3Base
+ , m2MemLib
+ //#UC START# *548588F802A3impl_uses*
+ //#UC END# *548588F802A3impl_uses*
+;
 
 //#UC START# *548588F802A3impl*
 
@@ -366,4 +360,5 @@ uses
  end;
 
 //#UC END# *548588F802A3impl*
+
 end.

@@ -10,8 +10,8 @@ interface
 
 uses
  l3IntfUses
- , LoggingUnit
  , BaseTypesUnit
+ , LoggingUnit
 ;
 
 type

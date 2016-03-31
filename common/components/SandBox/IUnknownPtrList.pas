@@ -1,30 +1,25 @@
 unit IUnknownPtrList;
+ {* Список УКАЗАТЕЛЕЙ на IUnknown }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "IUnknownPtrList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::FinalContainers::TIUnknownPtrList
-//
-// Список УКАЗАТЕЛЕЙ на IUnknown
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IUnknownPtrList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TIUnknownPtrList" MUID: (51E80A6D00AA)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Refcounted,
-  Classes,
-  l3PtrLoc
-  ;
+ l3IntfUses
+ , Refcounted
+ , l3PtrLoc
+ , Classes
+;
 
 type
  _ItemType_ = IUnknown;
  _InterfacePtrList_Parent_ = TRefcounted;
- {$Include ..\SandBox\InterfacePtrList.imp.pas}
+ {$Include w:\common\components\SandBox\InterfacePtrList.imp.pas}
  TIUnknownPtrList = class(_InterfacePtrList_)
   {* Список УКАЗАТЕЛЕЙ на IUnknown }
  end;//TIUnknownPtrList
@@ -32,10 +27,11 @@ type
 implementation
 
 uses
-  RTLConsts,
-  l3MemorySizeUtils
-  ;
+ l3ImplUses
+ , RTLConsts
+ , l3MemorySizeUtils
+;
 
-{$Include ..\SandBox\InterfacePtrList.imp.pas}
+{$Include w:\common\components\SandBox\InterfacePtrList.imp.pas}
 
 end.

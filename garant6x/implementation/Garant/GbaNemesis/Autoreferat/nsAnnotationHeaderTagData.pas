@@ -1,53 +1,38 @@
 unit nsAnnotationHeaderTagData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Autoreferat"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Autoreferat/nsAnnotationHeaderTagData.pas"
-// Начат: 02.03.2011 12:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::Autoreferat::Autoreferat::Autoreferat::TnsAnnotationHeaderTagData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagData.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAnnotationHeaderTagData" MUID: (4D6E0D500395)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3CProtoObject,
-  F1TagDataProviderInterface,
-  l3Variant,
-  IOUnit,
-  l3Interfaces,
-  k2Base,
-  nevBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3CProtoObject
+ , F1TagDataProviderInterface
+ , DocumentUnit
+ , l3Variant
+ , IOUnit
+ , l3Interfaces
+ , k2Base
+ , nevBase
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsAnnotationHeaderTagData = class(Tl3CProtoObject, If1TagDataProvider)
- private
- // private fields
-   f_Doc : IDocument;
-   f_Index : Integer;
-   f_Anno : Tl3Tag;
- protected
- // realized methods
+  private
+   f_Doc: IDocument;
+   f_Index: Integer;
+   f_Anno: Tl3Tag;
+  protected
    function Get_Caption: IString;
    function Get_Style: IStream;
    function Get_ExternalID: Integer;
    function Get_TypeID: Tk2Type;
-   procedure Set_WStyle(const aValue: IStream);
+   procedure Set_wStyle(const aValue: IStream);
    function Get_AllParaChildrenCount: Integer;
    function Get_ChildrenCount: Integer;
    function Get_FirstChild: If1TagDataProvider;
@@ -57,49 +42,38 @@ type
    function Get_Comment: IStream;
    function Get_TechComment: IString;
    function Get_IsProviderGot: Boolean;
- public
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
+   constructor Create(anIndex: Integer;
+    const aDoc: IDocument;
+    anAnno: Tl3Tag); reintroduce;
+   class function Make(anIndex: Integer;
+    const aDoc: IDocument;
+    anAnno: Tl3Tag): If1TagDataProvider; reintroduce;
    procedure CreateNewNode(var theIndex: Integer;
     var theNode: Tl3Tag;
     const aMaker: If1ChildMaker;
     const anOp: InevOp);
    procedure BuildSubs(aProp: Tk2CustomProperty;
     const aChecker: If1AtomChecker);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(anIndex: Integer;
-     const aDoc: IDocument;
-     anAnno: Tl3Tag); reintroduce;
-   class function Make(anIndex: Integer;
-     const aDoc: IDocument;
-     anAnno: Tl3Tag): If1TagDataProvider; reintroduce;
-     {* Сигнатура фабрики TnsAnnotationHeaderTagData.Make }
  end;//TnsAnnotationHeaderTagData
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Document_Const,
-  k2Tags,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsAnnotationHeaderTagData
+ l3ImplUses
+ , Document_Const
+ , k2Tags
+ , SysUtils
+;
 
 constructor TnsAnnotationHeaderTagData.Create(anIndex: Integer;
-  const aDoc: IDocument;
-  anAnno: Tl3Tag);
+ const aDoc: IDocument;
+ anAnno: Tl3Tag);
 //#UC START# *4D6E0DA7024B_4D6E0D500395_var*
 //#UC END# *4D6E0DA7024B_4D6E0D500395_var*
 begin
@@ -112,8 +86,8 @@ begin
 end;//TnsAnnotationHeaderTagData.Create
 
 class function TnsAnnotationHeaderTagData.Make(anIndex: Integer;
-  const aDoc: IDocument;
-  anAnno: Tl3Tag): If1TagDataProvider;
+ const aDoc: IDocument;
+ anAnno: Tl3Tag): If1TagDataProvider;
 var
  l_Inst : TnsAnnotationHeaderTagData;
 begin
@@ -123,7 +97,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsAnnotationHeaderTagData.Make
 
 function TnsAnnotationHeaderTagData.Get_Caption: IString;
 //#UC START# *4C6EA2B000F6_4D6E0D500395get_var*
@@ -162,14 +136,14 @@ begin
 //#UC END# *4C6EA8390114_4D6E0D500395get_impl*
 end;//TnsAnnotationHeaderTagData.Get_TypeID
 
-procedure TnsAnnotationHeaderTagData.Set_WStyle(const aValue: IStream);
+procedure TnsAnnotationHeaderTagData.Set_wStyle(const aValue: IStream);
 //#UC START# *4C6EAB57003B_4D6E0D500395set_var*
 //#UC END# *4C6EAB57003B_4D6E0D500395set_var*
 begin
 //#UC START# *4C6EAB57003B_4D6E0D500395set_impl*
  Assert(false);
 //#UC END# *4C6EAB57003B_4D6E0D500395set_impl*
-end;//TnsAnnotationHeaderTagData.Set_WStyle
+end;//TnsAnnotationHeaderTagData.Set_wStyle
 
 function TnsAnnotationHeaderTagData.Get_AllParaChildrenCount: Integer;
 //#UC START# *4C6EB42D017A_4D6E0D500395get_var*
@@ -192,9 +166,9 @@ begin
 end;//TnsAnnotationHeaderTagData.Get_ChildrenCount
 
 procedure TnsAnnotationHeaderTagData.CreateNewNode(var theIndex: Integer;
-  var theNode: Tl3Tag;
-  const aMaker: If1ChildMaker;
-  const anOp: InevOp);
+ var theNode: Tl3Tag;
+ const aMaker: If1ChildMaker;
+ const anOp: InevOp);
 //#UC START# *4C6EB48D0004_4D6E0D500395_var*
 //#UC END# *4C6EB48D0004_4D6E0D500395_var*
 begin
@@ -217,7 +191,7 @@ begin
 end;//TnsAnnotationHeaderTagData.Get_FirstChild
 
 procedure TnsAnnotationHeaderTagData.BuildSubs(aProp: Tk2CustomProperty;
-  const aChecker: If1AtomChecker);
+ const aChecker: If1AtomChecker);
 //#UC START# *4C722FCA0397_4D6E0D500395_var*
 //#UC END# *4C722FCA0397_4D6E0D500395_var*
 begin
@@ -287,6 +261,7 @@ begin
 end;//TnsAnnotationHeaderTagData.Get_IsProviderGot
 
 procedure TnsAnnotationHeaderTagData.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4D6E0D500395_var*
 //#UC END# *479731C50290_4D6E0D500395_var*
 begin
@@ -297,14 +272,10 @@ begin
 end;//TnsAnnotationHeaderTagData.Cleanup
 
 procedure TnsAnnotationHeaderTagData.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Doc := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsAnnotationHeaderTagData.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

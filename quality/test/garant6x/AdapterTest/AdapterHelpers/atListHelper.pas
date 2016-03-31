@@ -1,33 +1,22 @@
 unit atListHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atListHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatListHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atListHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatListHelper" MUID: (4A4CDD01023F)
 
 interface
 
 uses
-  BaseTypesUnit,
-  DynamicDocListUnit,
-  DynamicTreeUnit,
-  l3_Base
-  ;
+ l3IntfUses
+ , BaseTypesUnit
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ , l3_Base
+;
 
 const
-  { SortOrderNames }
  SON_ASCENDING = 'по возрастанию';
  SON_DESCENDING = 'по убыванию';
-  { SortTypeNames }
  STN_CREATE_DATE = 'по дате издания';
  STN_LAST_EDIT_DATE = 'по дате последнего изменения';
  STN_PRIORITY = 'по юридической силе';
@@ -36,34 +25,27 @@ const
 
 type
  _EntityInterface_ = IDynList;
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatList = class(_atEntityWithName_)
- private
- // private fields
-   f_Root : INodeBase;
-    {* Поле для свойства Root}
- protected
- // property methods
+  private
+   f_Root: INodeBase;
+    {* Поле для свойства Root }
+  protected
    function pm_GetHistory: AnsiString;
    function pm_GetRoot: INodeBase;
    function pm_GetFirstElement: INodeBase;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public properties
+  public
    property History: AnsiString
-     read pm_GetHistory;
+    read pm_GetHistory;
    property Root: INodeBase
-     read pm_GetRoot;
+    read pm_GetRoot;
    property FirstElement: INodeBase
-     read pm_GetFirstElement;
+    read pm_GetFirstElement;
  end;//TatList
 
  TatListHelper = class
- public
- // public methods
+  public
    class function ST2Str(const aSortType: TSortType): AnsiString; virtual;
    class function Str2ST(const aStr: AnsiString;
     out theSortType: TSortType): Boolean; virtual;
@@ -79,16 +61,15 @@ type
 implementation
 
 uses
-  atStringHelper,
-  StrUtils,
-  SysUtils,
-  IOUnit,
-  atNodeHelper
-  ;
+ l3ImplUses
+ , SysUtils
+ , atNodeHelper
+ , atStringHelper
+ , StrUtils
+ , IOUnit
+;
 
-{$Include ..\AdapterHelpers\atEntityWithName.imp.pas}
-
-// start class TatList
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatList.pm_GetHistory: AnsiString;
 //#UC START# *5051E5520315_4FD24A98029Fget_var*
@@ -137,7 +118,6 @@ begin
 end;//TatList.pm_GetFirstElement
 
 procedure TatList.ClearFields;
- {-}
 begin
  f_Root := nil;
  inherited;
@@ -159,7 +139,7 @@ begin
 end;//TatListHelper.ST2Str
 
 class function TatListHelper.Str2ST(const aStr: AnsiString;
-  out theSortType: TSortType): Boolean;
+ out theSortType: TSortType): Boolean;
 //#UC START# *4A4CDE1F03C0_4A4CDD01023F_var*
 //#UC END# *4A4CDE1F03C0_4A4CDD01023F_var*
 begin
@@ -187,7 +167,7 @@ begin
 end;//TatListHelper.SO2Str
 
 class function TatListHelper.Str2SO(const aStr: AnsiString;
-  out theSortOrder: TSortOrder): Boolean;
+ out theSortOrder: TSortOrder): Boolean;
 //#UC START# *4A4CDE4B033B_4A4CDD01023F_var*
 //#UC END# *4A4CDE4B033B_4A4CDD01023F_var*
 begin
@@ -200,7 +180,7 @@ begin
 end;//TatListHelper.Str2SO
 
 class function TatListHelper.IsCanBeSortedBy(const aList: IDynList;
-  const aSortType: TSortType): Boolean;
+ const aSortType: TSortType): Boolean;
 //#UC START# *4A4CDEEE00C0_4A4CDD01023F_var*
   var
     l_SortTypes : ISortTypes;
@@ -221,7 +201,7 @@ begin
 end;//TatListHelper.IsCanBeSortedBy
 
 class procedure TatListHelper.LoadList(const aList: IDynList;
-  const aNodesCount: Integer);
+ const aNodesCount: Integer);
 //#UC START# *4A4DE6530114_4A4CDD01023F_var*
   var
     l_Root : INodeBase;

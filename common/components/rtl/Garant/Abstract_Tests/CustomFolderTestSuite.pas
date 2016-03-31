@@ -1,52 +1,39 @@
 unit CustomFolderTestSuite;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/CustomFolderTestSuite.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Tests::Abstract Tests::FolderTestSupport::TCustomFolderTestSuite
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCustomFolderTestSuite" MUID: (4EA515800122)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  CustomAutoTestsSuite,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , CustomAutoTestsSuite
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TCustomFolderTestSuite = class(TCustomAutoTestSuite)
- private
- // private fields
-   f_DataFolder : AnsiString;
- protected
- // overridden protected methods
+  private
+   f_DataFolder: AnsiString;
+  protected
    function GetDataFolder: AnsiString; override;
-     {* Возвращает папку с данными для создания тестов. }
+    {* Возвращает папку с данными для создания тестов. }
    function GetExt: AnsiString; override;
- public
- // overridden public methods
+  public
    procedure AddTests(aTestClass: TTestCaseClass); override;
  end;//TCustomFolderTestSuite
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TCustomFolderTestSuite
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TCustomFolderTestSuite.AddTests(aTestClass: TTestCaseClass);
 //#UC START# *4DC38C96018E_4EA515800122_var*
@@ -59,6 +46,7 @@ begin
 end;//TCustomFolderTestSuite.AddTests
 
 function TCustomFolderTestSuite.GetDataFolder: AnsiString;
+ {* Возвращает папку с данными для создания тестов. }
 //#UC START# *4EA50B95037D_4EA515800122_var*
 //#UC END# *4EA50B95037D_4EA515800122_var*
 begin
@@ -75,7 +63,6 @@ begin
  Result := '.evd';
 //#UC END# *4EA50C04021B_4EA515800122_impl*
 end;//TCustomFolderTestSuite.GetExt
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

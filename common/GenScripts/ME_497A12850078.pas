@@ -45,6 +45,7 @@ type
    class procedure Log(const aDoc: IDocument); virtual;
  end;//TnsViewDocumentEditionListEvent
 
+ _BaseDocumentForDocumentModule_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _PageControlNotification_Parent_ = _BaseDocumentForDocumentModule_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}

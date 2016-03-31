@@ -1,32 +1,20 @@
 unit atLoadDocumentsByIDFromListOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atLoadDocumentsByIDFromListOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatLoadDocumentsByIDFromListOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atLoadDocumentsByIDFromListOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatLoadDocumentsByIDFromListOperation" MUID: (4811D5DD0028)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatLoadDocumentsByIDFromListOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteChilds; override;
  end;//TatLoadDocumentsByIDFromListOperation
@@ -34,15 +22,14 @@ type
 implementation
 
 uses
-  atLogger,
-  DocumentUnit,
-  Classes,
-  SysUtils,
-  atDocumentHelper,
-  IOUnit
-  ;
-
-// start class TatLoadDocumentsByIDFromListOperation
+ l3ImplUses
+ , atLogger
+ , DocumentUnit
+ , Classes
+ , SysUtils
+ , atDocumentHelper
+ , IOUnit
+;
 
 procedure TatLoadDocumentsByIDFromListOperation.ExecuteSelf;
 //#UC START# *48089F460352_4811D5DD0028_var*

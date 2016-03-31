@@ -1,44 +1,33 @@
 unit adminUserNodeList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/adminUserNodeList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Admin::TadminUserNodeList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\adminUserNodeList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TadminUserNodeList" MUID: (559E9F2B02D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3SimpleNodeList,
-  AdminInterfaces
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , l3SimpleNodeList
+ , AdminInterfaces
+;
 
-{$If defined(Admin)}
 type
  TadminUserNodeList = class(Tl3SimpleNodeList, IadminUserNodeList)
- protected
- // realized methods
+  protected
    function pm_GetCount: Integer;
  end;//TadminUserNodeList
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-
-// start class TadminUserNodeList
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 function TadminUserNodeList.pm_GetCount: Integer;
 //#UC START# *4BB08B8902F2_559E9F2B02D6get_var*
@@ -48,7 +37,6 @@ begin
  Result := inherited Count;
 //#UC END# *4BB08B8902F2_559E9F2B02D6get_impl*
 end;//TadminUserNodeList.pm_GetCount
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

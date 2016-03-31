@@ -1,49 +1,36 @@
 unit atOpenListByRubricatorOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOpenListByRubricatorOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatOpenListByRubricatorOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenListByRubricatorOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenListByRubricatorOperation" MUID: (4B97918002C8)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatOpenListByRubricatorOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatOpenListByRubricatorOperation
 
 implementation
 
 uses
-  atNodeHelper,
-  atListHelper,
-  DynamicDocListUnit,
-  DynamicTreeUnit,
-  BaseTypesUnit,
-  atLogger,
-  SysUtils,
-  Classes
-  ;
-
-// start class TatOpenListByRubricatorOperation
+ l3ImplUses
+ , atNodeHelper
+ , atListHelper
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ , BaseTypesUnit
+ , atLogger
+ , SysUtils
+ , Classes
+;
 
 procedure TatOpenListByRubricatorOperation.ExecuteSelf;
 //#UC START# *48089F460352_4B97918002C8_var*

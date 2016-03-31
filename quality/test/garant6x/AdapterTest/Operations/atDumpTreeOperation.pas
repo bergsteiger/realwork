@@ -1,45 +1,32 @@
 unit atDumpTreeOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atDumpTreeOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatDumpTreeOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDumpTreeOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatDumpTreeOperation" MUID: (503D03510064)
 
 interface
 
 uses
-  atOperationBase
-  ;
+ l3IntfUses
+ , atOperationBase
+;
 
 type
  TatDumpTreeOperation = class(TatOperationBase)
- protected
- // realized methods
+  protected
    procedure ExecuteSelf; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
  end;//TatDumpTreeOperation
 
 implementation
 
 uses
-  DynamicTreeUnit,
-  atNodeHelper,
-  atLogger,
-  BaseTypesUnit
-  ;
-
-// start class TatDumpTreeOperation
+ l3ImplUses
+ , DynamicTreeUnit
+ , atNodeHelper
+ , atLogger
+ , BaseTypesUnit
+;
 
 procedure TatDumpTreeOperation.ExecuteSelf;
 //#UC START# *48089F460352_503D03510064_var*

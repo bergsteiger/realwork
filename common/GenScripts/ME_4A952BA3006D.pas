@@ -752,15 +752,6 @@ begin
 //#UC END# *496B4FD20320_4A952BA3006D_impl*
 end;//TMainForm.AnotherSearchSuccessed
 
-procedure TMainForm.;
-//#UC START# *_4A952BA3006D_var*
-//#UC END# *_4A952BA3006D_var*
-begin
-//#UC START# *_4A952BA3006D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *_4A952BA3006D_impl*
-end;//TMainForm.
-
 procedure TMainForm.SetDataFromQuery(const aQuery: IUnknown);
 //#UC START# *496B534B0098_4A952BA3006D_var*
 var

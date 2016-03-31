@@ -1,64 +1,47 @@
 unit vcmMenuForChromeLikeItemWrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCMTest"
-// Модуль: "w:/common/components/gui/Garant/VCM/vcmMenuForChromeLikeItemWrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi TestComplete Wrappers::VCMTest::Wrap::TvcmMenuForChromeLikeItemWrap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMenuForChromeLikeItemWrap" MUID: (5477971800CE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
+{$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmMainMenuForChromeLikeTypes
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  RectWrap
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not XE
+ l3IntfUses
+ , Classes
+ {$If NOT Defined(NoVGScene)}
+ , vcmMainMenuForChromeLikeTypes
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , RectWrap
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *5477971800CEintf_uses*
+ //#UC END# *5477971800CEintf_uses*
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
 type
-//#UC START# *5477971800CEci*
+ //#UC START# *5477971800CEci*
  //#UC END# *5477971800CEci*
-//#UC START# *5477971800CEcit*
+ //#UC START# *5477971800CEcit*
  //#UC END# *5477971800CEcit*
  TvcmMenuForChromeLikeItemWrap = class(TPersistent)
- private
- // private fields
-   f_Item : TvcmMenuForChromeLikeItem;
- protected
- // property methods
-   function pm_GetRRectStub: TRectWrap; virtual;
-   function pm_GetRItemStub: TMenuItem; virtual;
- public
- // public methods
-   constructor Create(anItem: TvcmMenuForChromeLikeItem); reintroduce;
- public
- // public properties
+  private
+   f_Item: TvcmMenuForChromeLikeItem;
+  protected
+   function pm_GetrRectStub: TRectWrap; virtual;
+   function pm_GetrItemStub: TMenuItem; virtual;
+  public
+   constructor Create(const anItem: TvcmMenuForChromeLikeItem); reintroduce;
+  public
    property rRectStub: TRectWrap
-     read pm_GetRRectStub;
+    read pm_GetrRectStub;
    property rItemStub: TMenuItem
-     read pm_GetRItemStub;
-//#UC START# *5477971800CEpubl*
+    read pm_GetrItemStub;
+ //#UC START# *5477971800CEpubl*
  published
    property rItem : TMenuItem
     read f_Item.rItem;
@@ -66,33 +49,36 @@ type
     read pm_GetRRectStub;
  //#UC END# *5477971800CEpubl*
  end;//TvcmMenuForChromeLikeItemWrap
-{$IfEnd} //not NoTabs AND not NoVCM AND not XE
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
+{$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3ImplUses
+ //#UC START# *5477971800CEimpl_uses*
+ //#UC END# *5477971800CEimpl_uses*
+;
 
-// start class TvcmMenuForChromeLikeItemWrap
-
-function TvcmMenuForChromeLikeItemWrap.pm_GetRRectStub: TRectWrap;
+function TvcmMenuForChromeLikeItemWrap.pm_GetrRectStub: TRectWrap;
 //#UC START# *5477ADBA02BC_5477971800CEget_var*
 //#UC END# *5477ADBA02BC_5477971800CEget_var*
 begin
 //#UC START# *5477ADBA02BC_5477971800CEget_impl*
   Result := TRectWrap.Create(f_Item.rRect);
 //#UC END# *5477ADBA02BC_5477971800CEget_impl*
-end;//TvcmMenuForChromeLikeItemWrap.pm_GetRRectStub
+end;//TvcmMenuForChromeLikeItemWrap.pm_GetrRectStub
 
-function TvcmMenuForChromeLikeItemWrap.pm_GetRItemStub: TMenuItem;
+function TvcmMenuForChromeLikeItemWrap.pm_GetrItemStub: TMenuItem;
 //#UC START# *5478712A0083_5477971800CEget_var*
 //#UC END# *5478712A0083_5477971800CEget_var*
 begin
 //#UC START# *5478712A0083_5477971800CEget_impl*
   Result := f_Item.rItem;
 //#UC END# *5478712A0083_5477971800CEget_impl*
-end;//TvcmMenuForChromeLikeItemWrap.pm_GetRItemStub
+end;//TvcmMenuForChromeLikeItemWrap.pm_GetrItemStub
 
-constructor TvcmMenuForChromeLikeItemWrap.Create(anItem: TvcmMenuForChromeLikeItem);
+constructor TvcmMenuForChromeLikeItemWrap.Create(const anItem: TvcmMenuForChromeLikeItem);
 //#UC START# *5477A63901A9_5477971800CE_var*
 //#UC END# *5477A63901A9_5477971800CE_var*
 begin
@@ -104,7 +90,6 @@ end;//TvcmMenuForChromeLikeItemWrap.Create
 
 //#UC START# *5477971800CEimpl*
 //#UC END# *5477971800CEimpl*
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not XE
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

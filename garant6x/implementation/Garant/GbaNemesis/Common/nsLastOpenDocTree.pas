@@ -1,88 +1,64 @@
 unit nsLastOpenDocTree;
+ {* Дерево последних открытых документов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsLastOpenDocTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::MainMenu::TnsLastOpenDocTree
-//
-// Дерево последних открытых документов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsLastOpenDocTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLastOpenDocTree" MUID: (490AE59703A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  nsHistoryTree
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsHistoryTree
+ , l3Tree_TLB
+ , l3TreeInterfaces
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsLastOpenDocTree = class(TnsHistoryTree)
   {* Дерево последних открытых документов }
- private
- // private fields
-   f_FullDocName : Boolean;
-   f_ForInpharm : Boolean;
- private
- // private methods
+  private
+   f_FullDocName: Boolean;
+   f_ForInpharm: Boolean;
+  private
    function CreateNode(const aBookmark: IJournalBookmark): Il3Node;
-     {* создаёт узел который умеет работать с IBookmark }
- protected
- // overridden protected methods
+    {* создаёт узел который умеет работать с IBookmark }
+  protected
    function MakeRoot: Il3RootNode; override;
-     {* Создаёт корень дерева }
- public
- // public methods
+    {* Создаёт корень дерева }
+  public
    constructor Create(aMaxCount: Integer;
     aForInpharm: Boolean;
     aFullDocName: Boolean); reintroduce;
    class function Make(aMaxCount: Integer;
     aForInpharm: Boolean;
-    aFullDocName: Boolean = false): Il3SimpleTree; reintroduce;
+    aFullDocName: Boolean = False): Il3SimpleTree; reintroduce;
  end;//TnsLastOpenDocTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsNodes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  BaseTypesUnit,
-  nsJournalBookmarkNode
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsLastOpenDocTree
+ l3ImplUses
+ , nsNodes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , BaseTypesUnit
+ , nsJournalBookmarkNode
+;
 
 function TnsLastOpenDocTree.CreateNode(const aBookmark: IJournalBookmark): Il3Node;
+ {* создаёт узел который умеет работать с IBookmark }
 //#UC START# *490AE5F60009_490AE59703A6_var*
 //#UC END# *490AE5F60009_490AE59703A6_var*
 begin
@@ -92,8 +68,8 @@ begin
 end;//TnsLastOpenDocTree.CreateNode
 
 constructor TnsLastOpenDocTree.Create(aMaxCount: Integer;
-  aForInpharm: Boolean;
-  aFullDocName: Boolean);
+ aForInpharm: Boolean;
+ aFullDocName: Boolean);
 //#UC START# *490AE8170294_490AE59703A6_var*
 //#UC END# *490AE8170294_490AE59703A6_var*
 begin
@@ -105,8 +81,8 @@ begin
 end;//TnsLastOpenDocTree.Create
 
 class function TnsLastOpenDocTree.Make(aMaxCount: Integer;
-  aForInpharm: Boolean;
-  aFullDocName: Boolean = false): Il3SimpleTree;
+ aForInpharm: Boolean;
+ aFullDocName: Boolean = False): Il3SimpleTree;
 var
  l_Inst : TnsLastOpenDocTree;
 begin
@@ -116,9 +92,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsLastOpenDocTree.Make
 
 function TnsLastOpenDocTree.MakeRoot: Il3RootNode;
+ {* Создаёт корень дерева }
 //#UC START# *4909EF6E0361_490AE59703A6_var*
 
  procedure lp_CreateFakeNode;
@@ -169,7 +146,6 @@ begin
  end;//try..except
 //#UC END# *4909EF6E0361_490AE59703A6_impl*
 end;//TnsLastOpenDocTree.MakeRoot
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

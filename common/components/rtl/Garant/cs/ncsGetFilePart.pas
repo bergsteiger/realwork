@@ -1,35 +1,23 @@
 unit ncsGetFilePart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsGetFilePart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsGetFilePart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetFilePart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetFilePart" MUID: (547583330291)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsGetFilePart = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetTaskID: AnsiString;
    procedure pm_SetTaskID(const aValue: AnsiString);
    function pm_GetFileName: AnsiString;
@@ -38,101 +26,113 @@ type
    procedure pm_SetOffset(aValue: Int64);
    function pm_GetPartSize: Int64;
    procedure pm_SetPartSize(aValue: Int64);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
+    read pm_GetTaskID
+    write pm_SetTaskID;
    property FileName: AnsiString
-     read pm_GetFileName
-     write pm_SetFileName;
-     {* С относительным путем (полный вычисляется от задачи) }
+    read pm_GetFileName
+    write pm_SetFileName;
+    {* С относительным путем (полный вычисляется от задачи) }
    property Offset: Int64
-     read pm_GetOffset
-     write pm_SetOffset;
+    read pm_GetOffset
+    write pm_SetOffset;
    property PartSize: Int64
-     read pm_GetPartSize
-     write pm_SetPartSize;
+    read pm_GetPartSize
+    write pm_SetPartSize;
  end;//TncsGetFilePart
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csGetFilePart_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsGetFilePart
+ l3ImplUses
+ , csGetFilePart_Const
+;
 
 function TncsGetFilePart.pm_GetTaskID: AnsiString;
- {-}
+//#UC START# *78F323F06BE5_547583330291get_var*
+//#UC END# *78F323F06BE5_547583330291get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
+//#UC START# *78F323F06BE5_547583330291get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *78F323F06BE5_547583330291get_impl*
 end;//TncsGetFilePart.pm_GetTaskID
 
 procedure TncsGetFilePart.pm_SetTaskID(const aValue: AnsiString);
- {-}
+//#UC START# *78F323F06BE5_547583330291set_var*
+//#UC END# *78F323F06BE5_547583330291set_var*
 begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
+//#UC START# *78F323F06BE5_547583330291set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *78F323F06BE5_547583330291set_impl*
 end;//TncsGetFilePart.pm_SetTaskID
 
 function TncsGetFilePart.pm_GetFileName: AnsiString;
- {-}
+//#UC START# *FC273BB02538_547583330291get_var*
+//#UC END# *FC273BB02538_547583330291get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrFileName]);
+//#UC START# *FC273BB02538_547583330291get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *FC273BB02538_547583330291get_impl*
 end;//TncsGetFilePart.pm_GetFileName
 
 procedure TncsGetFilePart.pm_SetFileName(const aValue: AnsiString);
- {-}
+//#UC START# *FC273BB02538_547583330291set_var*
+//#UC END# *FC273BB02538_547583330291set_var*
 begin
- TaggedData.StrW[k2_attrFileName, nil] := (aValue);
+//#UC START# *FC273BB02538_547583330291set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *FC273BB02538_547583330291set_impl*
 end;//TncsGetFilePart.pm_SetFileName
 
 function TncsGetFilePart.pm_GetOffset: Int64;
- {-}
+//#UC START# *6A2208B1BA37_547583330291get_var*
+//#UC END# *6A2208B1BA37_547583330291get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.Int64A[k2_attrOffset]);
+//#UC START# *6A2208B1BA37_547583330291get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *6A2208B1BA37_547583330291get_impl*
 end;//TncsGetFilePart.pm_GetOffset
 
 procedure TncsGetFilePart.pm_SetOffset(aValue: Int64);
- {-}
+//#UC START# *6A2208B1BA37_547583330291set_var*
+//#UC END# *6A2208B1BA37_547583330291set_var*
 begin
- TaggedData.Int64W[k2_attrOffset, nil] := (aValue);
+//#UC START# *6A2208B1BA37_547583330291set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *6A2208B1BA37_547583330291set_impl*
 end;//TncsGetFilePart.pm_SetOffset
 
 function TncsGetFilePart.pm_GetPartSize: Int64;
- {-}
+//#UC START# *12BF94706D13_547583330291get_var*
+//#UC END# *12BF94706D13_547583330291get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.Int64A[k2_attrPartSize]);
+//#UC START# *12BF94706D13_547583330291get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *12BF94706D13_547583330291get_impl*
 end;//TncsGetFilePart.pm_GetPartSize
 
 procedure TncsGetFilePart.pm_SetPartSize(aValue: Int64);
- {-}
+//#UC START# *12BF94706D13_547583330291set_var*
+//#UC END# *12BF94706D13_547583330291set_var*
 begin
- TaggedData.Int64W[k2_attrPartSize, nil] := (aValue);
+//#UC START# *12BF94706D13_547583330291set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *12BF94706D13_547583330291set_impl*
 end;//TncsGetFilePart.pm_SetPartSize
 
 class function TncsGetFilePart.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_547583330291_var*
+//#UC END# *53AC03EE01FD_547583330291_var*
 begin
- Result := k2_typcsGetFilePart;
+//#UC START# *53AC03EE01FD_547583330291_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_547583330291_impl*
 end;//TncsGetFilePart.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

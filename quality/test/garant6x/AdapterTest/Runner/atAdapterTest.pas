@@ -1,28 +1,18 @@
 unit atAdapterTest;
+ {* Класс, через который пускается приложение }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Runner/atAdapterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Runner::TatAdapterTest
-//
-// Класс, через который пускается приложение
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Runner\atAdapterTest.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatAdapterTest" MUID: (4AC3488802F7)
 
 interface
 
 uses
-  SysUtils,
-  atScenario,
-  atAdapterTestCommandLine
-  ;
+ l3IntfUses
+ , atAdapterTestCommandLine
+ , atScenario
+ , SysUtils
+;
 
 type
  ECantCreateScenario = class(Exception)
@@ -30,38 +20,32 @@ type
 
  TatAdapterTest = class(TObject)
   {* Класс, через который пускается приложение }
- private
- // private fields
-   f_UserName : AnsiString;
-    {* имя пользователя}
-   f_Password : AnsiString;
-    {* пароль пользователя}
-   f_CommandLine : TatAdapterTestCommandLine;
-   f_Scenario : TatScenario;
-    {* выполняемый сценарий (последовательность операций)}
- private
- // private methods
+  private
+   f_UserName: AnsiString;
+    {* имя пользователя }
+   f_Password: AnsiString;
+    {* пароль пользователя }
+   f_CommandLine: TatAdapterTestCommandLine;
+   f_Scenario: TatScenario;
+    {* выполняемый сценарий (последовательность операций) }
+  private
    function Init: Boolean; virtual;
    procedure CreateScenario; virtual;
    procedure PlayScenario; virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    procedure Start; virtual;
    constructor Create; reintroduce;
+   destructor Destroy; override;
  end;//TatAdapterTest
 
 implementation
 
 uses
-  atLogger,
-  atXMLScenarioGenerator,
-  atScenarioPlayer
-  ;
-
-// start class TatAdapterTest
+ l3ImplUses
+ , atLogger
+ , atXMLScenarioGenerator
+ , atScenarioPlayer
+;
 
 function TatAdapterTest.Init: Boolean;
 //#UC START# *4AC3492402F9_4AC3488802F7_var*

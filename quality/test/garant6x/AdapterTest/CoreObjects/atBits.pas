@@ -1,74 +1,58 @@
 unit atBits;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atBits.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatBits
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atBits.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatBits" MUID: (502563E400D8)
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TatBits = class(TObject)
- private
- // private fields
-   f_Bits : Pointer;
-   f_Size : Integer;
-    {* Поле для свойства Size}
- private
- // private methods
+  private
+   f_Bits: Pointer;
+   f_Size: Integer;
+    {* Поле для свойства Size }
+  private
    function GetBufSize(aBitsCount: Integer): Integer; virtual;
- protected
- // property methods
+  protected
    procedure pm_SetSize(aValue: Integer);
    function pm_GetBits(anIndex: Integer): Boolean; virtual;
-   procedure pm_SetBits(anIndex: Integer; aValue: Boolean); virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- protected
- // protected methods
+   procedure pm_SetBits(anIndex: Integer;
+    aValue: Boolean); virtual;
    function GetBitFrom(const aStartIndex: Integer;
     const aForward: Boolean;
     const aSetBit: Boolean): Integer; virtual;
- public
- // public methods
+  public
    function GetLastSetBit: Integer; virtual;
    function GetRandomOpenBit: Integer; virtual;
    procedure Reset; virtual;
    procedure SaveToFile(const aFileName: AnsiString); virtual;
    procedure LoadFromFile(const aFileName: AnsiString); virtual;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property Size: Integer
-     read f_Size
-     write pm_SetSize;
+    read f_Size
+    write pm_SetSize;
    property Bits[anIndex: Integer]: Boolean
-     read pm_GetBits
-     write pm_SetBits;
-     default;
+    read pm_GetBits
+    write pm_SetBits;
+    default;
  end;//TatBits
 
 implementation
 
 uses
-  Windows,
-  SysUtils
-  ;
+ l3ImplUses
+ , Windows
+ , SysUtils
+;
 
 const
-   { Consts }
-  BITS_PER_INT = SizeOf(Integer)*8;
-
-// start class TatBits
+ BITS_PER_INT = SizeOf(Integer)*8;
 
 procedure TatBits.pm_SetSize(aValue: Integer);
 //#UC START# *5025646900CB_502563E400D8set_var*
@@ -126,7 +110,8 @@ begin
 //#UC END# *502565320313_502563E400D8get_impl*
 end;//TatBits.pm_GetBits
 
-procedure TatBits.pm_SetBits(anIndex: Integer; aValue: Boolean);
+procedure TatBits.pm_SetBits(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *502565320313_502563E400D8set_var*
 //#UC END# *502565320313_502563E400D8set_var*
 begin
@@ -150,8 +135,8 @@ begin
 end;//TatBits.pm_SetBits
 
 function TatBits.GetBitFrom(const aStartIndex: Integer;
-  const aForward: Boolean;
-  const aSetBit: Boolean): Integer;
+ const aForward: Boolean;
+ const aSetBit: Boolean): Integer;
 //#UC START# *5025659F0300_502563E400D8_var*
   var
     l_Start, l_LastOfBits : Pointer;

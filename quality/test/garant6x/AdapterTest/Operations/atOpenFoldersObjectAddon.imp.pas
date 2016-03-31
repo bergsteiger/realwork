@@ -1,42 +1,31 @@
 {$IfNDef atOpenFoldersObjectAddon_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOpenFoldersObjectAddon.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atOpenFoldersObjectAddon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atOpenFoldersObjectAddon" MUID: (4FD0D1E00242)
+// Имя типа: "_atOpenFoldersObjectAddon_"
 
 {$Define atOpenFoldersObjectAddon_imp}
+
 const
-  { ParametersNames }
- PN_IS_EMULATE_OPENING : AnsiString = 'is_emulate_opening';
+ PN_IS_EMULATE_OPENING: AnsiString = 'is_emulate_opening';
 
 type
- _atOpenFoldersObjectAddon_ = {mixin} class(_atOpenFoldersObjectAddon_Parent_, IatFoldersNodeCallback)
- protected
- // realized methods
+ _atOpenFoldersObjectAddon_ = class(_atOpenFoldersObjectAddon_Parent_, IatFoldersNodeCallback)
+  protected
+   f_IsEmulateOpening: Boolean;
+  protected
+   procedure OnFoldersObject(const aFoldersObject: _ObjectType_); virtual; abstract;
    procedure ExecuteSelf; override;
    procedure OnFoldersNode(const aFoldersNode: IFoldersNode);
- protected
- // overridden protected methods
    procedure InitParamList; override;
- protected
- // protected fields
-   f_IsEmulateOpening : Boolean;
- protected
- // protected methods
-   procedure OnFoldersObject(const aFoldersObject: _ObjectType_); virtual; abstract;
  end;//_atOpenFoldersObjectAddon_
 
 {$Else atOpenFoldersObjectAddon_imp}
 
-// start class _atOpenFoldersObjectAddon_
+{$IfNDef atOpenFoldersObjectAddon_imp_impl}
+
+{$Define atOpenFoldersObjectAddon_imp_impl}
 
 procedure _atOpenFoldersObjectAddon_.ExecuteSelf;
 //#UC START# *48089F460352_4FD0D1E00242_var*
@@ -88,4 +77,7 @@ begin
 //#UC END# *48089F3701B4_4FD0D1E00242_impl*
 end;//_atOpenFoldersObjectAddon_.InitParamList
 
+{$EndIf atOpenFoldersObjectAddon_imp_impl}
+
 {$EndIf atOpenFoldersObjectAddon_imp}
+

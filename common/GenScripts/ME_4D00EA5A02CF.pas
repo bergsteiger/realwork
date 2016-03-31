@@ -16,6 +16,8 @@ uses
  , DynamicTreeUnit
  , nsFindPositionListList
  , l3Variant
+ //#UC START# *4D00EA5A02CFintf_uses*
+ //#UC END# *4D00EA5A02CFintf_uses*
 ;
 
 const
@@ -34,16 +36,16 @@ type
    f_Current: Integer;
    f_List: TnsFindPositionListList;
   protected
-   procedure next;
+   procedure Next; stdcall;
     {* Перемещенеи итератора на следующий элемент. }
-   procedure prev;
+   procedure Prev; stdcall;
     {* Перемещенеи итератора на предыдущий элемент. }
-   function is_good: Boolean;
+   function IsGood: ByteBool; stdcall;
     {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
-   function get_position: IFindPositionList;
-   function is_first: Boolean;
+   function GetPosition: IFindPositionList; stdcall;
+   function IsFirst: ByteBool; stdcall;
     {* возвращает true, если нельзя перейти на предыдущий фрагмент }
-   function Get_count: Cardinal;
+   function GetCount: Cardinal; stdcall;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -83,6 +85,8 @@ uses
  , k2Tags
  , SysUtils
  , DictEntry_Const
+ //#UC START# *4D00EA5A02CFimpl_uses*
+ //#UC END# *4D00EA5A02CFimpl_uses*
 ;
 
 constructor TnsFindIteratorNewForDiction.Create(const anAdapterIterator: IFindIterator;
@@ -154,7 +158,7 @@ begin
  end;//try..finally
 end;//TnsFindIteratorNewForDiction.Make
 
-procedure TnsFindIteratorNewForDiction.next;
+procedure TnsFindIteratorNewForDiction.Next;
  {* Перемещенеи итератора на следующий элемент. }
 //#UC START# *45EEC28202A0_4D00EA5A02CF_var*
 //#UC END# *45EEC28202A0_4D00EA5A02CF_var*
@@ -166,9 +170,9 @@ begin
 
  Inc(f_Current);
 //#UC END# *45EEC28202A0_4D00EA5A02CF_impl*
-end;//TnsFindIteratorNewForDiction.next
+end;//TnsFindIteratorNewForDiction.Next
 
-procedure TnsFindIteratorNewForDiction.prev;
+procedure TnsFindIteratorNewForDiction.Prev;
  {* Перемещенеи итератора на предыдущий элемент. }
 //#UC START# *45EEC28202A1_4D00EA5A02CF_var*
 //#UC END# *45EEC28202A1_4D00EA5A02CF_var*
@@ -177,9 +181,9 @@ begin
  Assert(f_Current >= 0);
  Dec(f_Current);
 //#UC END# *45EEC28202A1_4D00EA5A02CF_impl*
-end;//TnsFindIteratorNewForDiction.prev
+end;//TnsFindIteratorNewForDiction.Prev
 
-function TnsFindIteratorNewForDiction.is_good: Boolean;
+function TnsFindIteratorNewForDiction.IsGood: ByteBool;
  {* Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст }
 //#UC START# *45EEC28202A2_4D00EA5A02CF_var*
 //#UC END# *45EEC28202A2_4D00EA5A02CF_var*
@@ -188,9 +192,9 @@ begin
  Result := (GetCount > 0) AND
            (f_Current >= 0) AND (f_Current <= Pred(GetCount));
 //#UC END# *45EEC28202A2_4D00EA5A02CF_impl*
-end;//TnsFindIteratorNewForDiction.is_good
+end;//TnsFindIteratorNewForDiction.IsGood
 
-function TnsFindIteratorNewForDiction.get_position: IFindPositionList;
+function TnsFindIteratorNewForDiction.GetPosition: IFindPositionList;
 //#UC START# *461D00B9005D_4D00EA5A02CF_var*
 //#UC END# *461D00B9005D_4D00EA5A02CF_var*
 begin
@@ -199,9 +203,9 @@ begin
  f_AdapterFindPositionList := f_List[f_Current];
  IFindPositionList(aRet) := Self;
 //#UC END# *461D00B9005D_4D00EA5A02CF_impl*
-end;//TnsFindIteratorNewForDiction.get_position
+end;//TnsFindIteratorNewForDiction.GetPosition
 
-function TnsFindIteratorNewForDiction.is_first: Boolean;
+function TnsFindIteratorNewForDiction.IsFirst: ByteBool;
  {* возвращает true, если нельзя перейти на предыдущий фрагмент }
 //#UC START# *49FEC51501D8_4D00EA5A02CF_var*
 //#UC END# *49FEC51501D8_4D00EA5A02CF_var*
@@ -209,9 +213,9 @@ begin
 //#UC START# *49FEC51501D8_4D00EA5A02CF_impl*
  Result := (f_Current <= 0);
 //#UC END# *49FEC51501D8_4D00EA5A02CF_impl*
-end;//TnsFindIteratorNewForDiction.is_first
+end;//TnsFindIteratorNewForDiction.IsFirst
 
-function TnsFindIteratorNewForDiction.Get_count: Cardinal;
+function TnsFindIteratorNewForDiction.GetCount: Cardinal;
 //#UC START# *49FFDC8B015D_4D00EA5A02CFget_var*
 //#UC END# *49FFDC8B015D_4D00EA5A02CFget_var*
 begin
@@ -222,7 +226,7 @@ begin
  else
   Result := f_List.Count;
 //#UC END# *49FFDC8B015D_4D00EA5A02CFget_impl*
-end;//TnsFindIteratorNewForDiction.Get_count
+end;//TnsFindIteratorNewForDiction.GetCount
 
 procedure TnsFindIteratorNewForDiction.Cleanup;
  {* Функция очистки полей объекта. }

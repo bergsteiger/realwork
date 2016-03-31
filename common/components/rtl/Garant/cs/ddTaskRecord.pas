@@ -1,46 +1,36 @@
 unit ddTaskRecord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ddTaskRecord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ArchiClientServer::TddTaskRecord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ddTaskRecord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskRecord" MUID: (53848E1102DF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ddServerTask,
-  csTaskTypes
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , csTaskTypes
+ , ddServerTask
+;
 
-{$If not defined(Nemesis)}
 type
  TddTaskRecord = class(Tl3ProtoObject)
- public
- // public fields
-   TaskType : TcsTaskType;
-   TaskClass : TddTaskClass;
-   Description : AnsiString;
+  public
+   TaskType: TcsTaskType;
+   TaskClass: TddTaskClass;
+   Description: AnsiString;
  end;//TddTaskRecord
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
-
-{$IfEnd} //not Nemesis
 end.

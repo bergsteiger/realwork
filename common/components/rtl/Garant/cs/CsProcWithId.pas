@@ -1,55 +1,43 @@
 unit CsProcWithId;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsProcWithId.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ServerSide::TCsProcWithId
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsProcWithId.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TCsProcWithId" MUID: (537F6306025B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  CsObject,
-  CsDataPipe,
-  CsQueryTypes
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3IntfUses
+ , CsObject
+ , CsQueryTypes
+ , CsDataPipe
+;
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
 type
- TCsReplyProc = procedure (aPipe: TCsDataPipe) of object;
+ TCsReplyProc = procedure(aPipe: TCsDataPipe) of object;
 
  TCsProcWithId = class(TCsObject)
- public
- // public fields
-   QueryId : TCsQueryId;
-   Proc : TCsReplyProc;
- public
- // public methods
+  public
+   QueryId: TCsQueryId;
+   Proc: TCsReplyProc;
+  public
    constructor Create(aQueryId: TCsQueryId;
-     aProc: TCsReplyProc); reintroduce;
+    aProc: TCsReplyProc); reintroduce;
  end;//TCsProcWithId
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
-
-// start class TCsProcWithId
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 constructor TCsProcWithId.Create(aQueryId: TCsQueryId;
-  aProc: TCsReplyProc);
+ aProc: TCsReplyProc);
 //#UC START# *537F63B40386_537F6306025B_var*
 //#UC END# *537F63B40386_537F6306025B_var*
 begin
@@ -59,7 +47,6 @@ begin
  Proc := aProc;
 //#UC END# *537F63B40386_537F6306025B_impl*
 end;//TCsProcWithId.Create
-
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 end.

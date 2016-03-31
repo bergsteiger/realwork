@@ -1,71 +1,52 @@
 unit ncsGetPartialTaskDescriptionExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsGetPartialTaskDescriptionExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::TaskSend::TncsGetPartialTaskDescriptionExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetPartialTaskDescriptionExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetPartialTaskDescriptionExecutor" MUID: (54B7B37003C6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ncsMessageInterfaces
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageInterfaces
+;
 
-{$If not defined(Nemesis)}
 type
  TncsGetPartialTaskDescriptionExecutor = class(Tl3ProtoObject, IncsExecutor)
- private
- // private fields
-   f_FileName : AnsiString;
-   f_BasePath : AnsiString;
- protected
- // realized methods
+  private
+   f_FileName: AnsiString;
+   f_BasePath: AnsiString;
+  protected
    procedure Execute(const aContext: TncsExecuteContext);
- public
- // public methods
+  public
    constructor Create(const aBasePath: AnsiString;
-     const aFileName: AnsiString); reintroduce;
+    const aFileName: AnsiString); reintroduce;
    class function Make(const aBasePath: AnsiString;
-     const aFileName: AnsiString): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TncsGetPartialTaskDescriptionExecutor.Make }
+    const aFileName: AnsiString): IncsExecutor; reintroduce;
  end;//TncsGetPartialTaskDescriptionExecutor
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsGetTaskDescriptionReply,
-  ncsGetPartialTaskDescription,
-  SysUtils,
-  ncsFileDesc,
-  l3Stream,
-  Classes,
-  l3Types,
-  l3CRCUtils
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsGetPartialTaskDescriptionExecutor
+ l3ImplUses
+ , ncsGetTaskDescriptionReply
+ , ncsGetPartialTaskDescription
+ , SysUtils
+ , ncsFileDesc
+ , l3Stream
+ , Classes
+ , l3Types
+ , l3CRCUtils
+;
 
 constructor TncsGetPartialTaskDescriptionExecutor.Create(const aBasePath: AnsiString;
-  const aFileName: AnsiString);
+ const aFileName: AnsiString);
 //#UC START# *54B7B6C70011_54B7B37003C6_var*
 //#UC END# *54B7B6C70011_54B7B37003C6_var*
 begin
@@ -77,7 +58,7 @@ begin
 end;//TncsGetPartialTaskDescriptionExecutor.Create
 
 class function TncsGetPartialTaskDescriptionExecutor.Make(const aBasePath: AnsiString;
-  const aFileName: AnsiString): IncsExecutor;
+ const aFileName: AnsiString): IncsExecutor;
 var
  l_Inst : TncsGetPartialTaskDescriptionExecutor;
 begin
@@ -87,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsGetPartialTaskDescriptionExecutor.Make
 
 procedure TncsGetPartialTaskDescriptionExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_54B7B37003C6_var*
@@ -124,7 +105,6 @@ begin
  end;
 //#UC END# *54607DDC0159_54B7B37003C6_impl*
 end;//TncsGetPartialTaskDescriptionExecutor.Execute
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

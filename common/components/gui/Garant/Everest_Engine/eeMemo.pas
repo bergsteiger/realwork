@@ -15,6 +15,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4AC5D3DB0371intf_uses*
+ //#UC END# *4AC5D3DB0371intf_uses*
 ;
 
 type
@@ -102,6 +104,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AC5D3DB0371impl_uses*
+ //#UC END# *4AC5D3DB0371impl_uses*
 ;
 
 constructor TeeCustomMemo.Create(AOwner: TComponent);

@@ -1,48 +1,37 @@
 unit m3StorageTableOfContentsStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StorageTableOfContentsStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3StorageTableOfContentsStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StorageTableOfContentsStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageTableOfContentsStream" MUID: (544924BF0331)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3StorageInterfaces,
-  m3StoreHeader,
-  m3NewStorageStream
-  ;
+ l3IntfUses
+ , m3NewStorageStream
+ , ActiveX
+ , m3StorageInterfaces
+ , m3StoreHeader
+;
 
 type
  Tm3StorageTableOfContentsStream = class(Tm3NewStorageStream)
- public
- // public methods
+  public
    class function Make(anAccess: Tm3StoreAccess;
-     aHeader: Tm3StoreHeader): IStream;
+    aHeader: Tm3StoreHeader): IStream;
  end;//Tm3StorageTableOfContentsStream
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class Tm3StorageTableOfContentsStream
+ l3ImplUses
+ , SysUtils
+;
 
 class function Tm3StorageTableOfContentsStream.Make(anAccess: Tm3StoreAccess;
-  aHeader: Tm3StoreHeader): IStream;
+ aHeader: Tm3StoreHeader): IStream;
 //#UC START# *544924E100B6_544924BF0331_var*
 var
  l_S : Tm3StorageTableOfContentsStream;

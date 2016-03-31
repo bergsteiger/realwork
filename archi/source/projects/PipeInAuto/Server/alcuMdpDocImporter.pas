@@ -1,73 +1,42 @@
 unit alcuMdpDocImporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuMdpDocImporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::Server::TalcuMdpDocImporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuMdpDocImporter" MUID: (55EED3CD0299)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
+{$If Defined(AppServerSide) AND Defined(MDPSyncIntegrated)}
 uses
-  l3ProtoObject,
-  alcuTaskManager
-  ;
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
+ l3IntfUses
+ , l3ProtoObject
+ , alcuTaskManager
+;
 
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
 type
  TalcuMdpDocImporter = class(Tl3ProtoObject)
- private
- // private methods
+  private
    function HasToImport: Boolean;
- public
- // public methods
+  public
    procedure CheckRunImport(aTaskManager: TddServerTaskManager);
  end;//TalcuMdpDocImporter
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
+{$IfEnd} // Defined(AppServerSide) AND Defined(MDPSyncIntegrated)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
+{$If Defined(AppServerSide) AND Defined(MDPSyncIntegrated)}
 uses
-  Classes
-  {$If defined(ServerTasks)}
-  ,
-  alcuMdpImportDocs
-  {$IfEnd} //ServerTasks
-  ,
-  SysUtils,
-  daInterfaces,
-  ddAppConfig,
-  daTypes
-  ;
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
-
-{$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
-
-// start class TalcuMdpDocImporter
-
-function TalcuMdpDocImporter.HasToImport: Boolean;
-//#UC START# *55EEDEC7035D_55EED3CD0299_var*
-//#UC END# *55EEDEC7035D_55EED3CD0299_var*
-begin
-//#UC START# *55EEDEC7035D_55EED3CD0299_impl*
- Result := True;
-// По хорошему нужен ответ от Гардока о наличии документов для импорта. 
-// !!! Needs to be implemented !!!
-//#UC END# *55EEDEC7035D_55EED3CD0299_impl*
-end;//TalcuMdpDocImporter.HasToImport
+ l3ImplUses
+ , ddAppConfig
+ , daTypes
+ {$If Defined(ServerTasks)}
+ , alcuMdpImportDocs
+ {$IfEnd} // Defined(ServerTasks)
+ , SysUtils
+ , daInterfaces
+;
 
 procedure TalcuMdpDocImporter.CheckRunImport(aTaskManager: TddServerTaskManager);
 //#UC START# *55EED7F301B5_55EED3CD0299_var*
@@ -90,6 +59,16 @@ begin
 //#UC END# *55EED7F301B5_55EED3CD0299_impl*
 end;//TalcuMdpDocImporter.CheckRunImport
 
-{$IfEnd} //AppServerSide AND MDPSyncIntegrated
+function TalcuMdpDocImporter.HasToImport: Boolean;
+//#UC START# *55EEDEC7035D_55EED3CD0299_var*
+//#UC END# *55EEDEC7035D_55EED3CD0299_var*
+begin
+//#UC START# *55EEDEC7035D_55EED3CD0299_impl*
+ Result := True;
+// По хорошему нужен ответ от Гардока о наличии документов для импорта. 
+// !!! Needs to be implemented !!!
+//#UC END# *55EEDEC7035D_55EED3CD0299_impl*
+end;//TalcuMdpDocImporter.HasToImport
+{$IfEnd} // Defined(AppServerSide) AND Defined(MDPSyncIntegrated)
 
 end.

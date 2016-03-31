@@ -1,60 +1,42 @@
 unit pgFamilyHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgFamilyHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::PG::Provider::TpgFamilyHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgFamilyHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TpgFamilyHelper" MUID: (5645BD2C03A2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces
-  ;
-{$IfEnd} //UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+;
 
-{$If defined(UsePostgres)}
 type
  TpgFamilyHelper = class(Tl3ProtoObject)
- private
- // private fields
-   f_Query : IdaTabledQuery;
- protected
- // overridden protected methods
+  private
+   f_Query: IdaTabledQuery;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
    function FamilyPath(aFamily: TdaFamilyID): AnsiString;
  end;//TpgFamilyHelper
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  daScheme,
-  SysUtils
-  ;
-{$IfEnd} //UsePostgres
-
-{$If defined(UsePostgres)}
-
-// start class TpgFamilyHelper
+ l3ImplUses
+ , daScheme
+ , SysUtils
+;
 
 constructor TpgFamilyHelper.Create(const aFactory: IdaTableQueryFactory);
 //#UC START# *5645C3C5010C_5645BD2C03A2_var*
@@ -89,6 +71,7 @@ begin
 end;//TpgFamilyHelper.FamilyPath
 
 procedure TpgFamilyHelper.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5645BD2C03A2_var*
 //#UC END# *479731C50290_5645BD2C03A2_var*
 begin
@@ -97,7 +80,6 @@ begin
  inherited;
 //#UC END# *479731C50290_5645BD2C03A2_impl*
 end;//TpgFamilyHelper.Cleanup
-
-{$IfEnd} //UsePostgres
+{$IfEnd} // Defined(UsePostgres)
 
 end.

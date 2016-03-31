@@ -1,123 +1,90 @@
 unit bsDocumentMissingMessage;
+ {* сообщение которое выдается при открытии документа или ссылки, которой
+       нет в базе (находится в отсутствующих блоках) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/bsDocumentMissingMessage.pas"
-// Начат: 27.06.2011 14:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::DocumentUtils::TbsDocumentMissingMessage
-//
-// сообщение которое выдается при открытии документа или ссылки, которой
-// нет в базе (находится в отсутствующих блоках)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsDocumentMissingMessage" MUID: (4E085B110285)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3StringIDEx,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TbsDocumentMissingMessage = class
   {* сообщение которое выдается при открытии документа или ссылки, которой
        нет в базе (находится в отсутствующих блоках) }
- public
- // public methods
-   class procedure Show(AllowConsulting: Boolean = false;
-     const aMissingInfo: IMissingInfo = nil);
-     {* Показывает сообщение }
+  public
+   class procedure Show(AllowConsulting: Boolean = False;
+    const aMissingInfo: IMissingInfo = nil);
+    {* Показывает сообщение }
  end;//TbsDocumentMissingMessage
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3String,
-  nsTypes,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  SearchUnit
-  {$If not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmDialogs
-  {$IfEnd} //not NoVCM AND not NoVGScene
-  ,
-  l3Interfaces,
-  IOUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmGUI
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3Chars,
-  nsQuery,
-  StrUtils
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , nsTypes
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchUnit
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
+ , vcmDialogs
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
+ , l3Interfaces
+ , IOUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmGUI
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Chars
+ , nsQuery
+ , StrUtils
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ {* Варианты выбора для диалога DocumentMissing }
+ str_DocumentMissing_Choice_First: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_First'; rValue : 'Запросить отсутствующий документ у специалиста Правовой поддержки онлайн');
+  {* 'Запросить отсутствующий документ у специалиста Правовой поддержки онлайн' }
+ str_DocumentMissing_Choice_Second: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_Second'; rValue : 'Вернуться в открытый документ');
+  {* 'Вернуться в открытый документ' }
+ {* Локализуемые строки Local }
+ str_DocumentMissing: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'DocumentMissing'; rValue : 'Данный документ не включён в состав Вашего комплекта.');
+  {* 'Данный документ не включён в состав Вашего комплекта.' }
+ str_MissingDocumentIsContainedInBlock: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentIsContainedInBlock'; rValue : 'Документ содержится в информационном блоке:');
+  {* 'Документ содержится в информационном блоке:' }
+ str_MissingDocumentIsContainedInBlocks: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentIsContainedInBlocks'; rValue : 'Документ содержится в информационных блоках:');
+  {* 'Документ содержится в информационных блоках:' }
+ str_MissingDocumentInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentInfo'; rValue : 'Подробнее о запрашиваемом документе');
+  {* 'Подробнее о запрашиваемом документе' }
+ str_ContactInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ContactInfo'; rValue : 'Контактная информация');
+  {* 'Контактная информация' }
 
-var
-   { Варианты выбора для диалога DocumentMissing }
-  str_DocumentMissing_Choice_First : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_First'; rValue : 'Запросить отсутствующий документ у специалиста Правовой поддержки онлайн');
-   { 'Запросить отсутствующий документ у специалиста Правовой поддержки онлайн' }
-  str_DocumentMissing_Choice_Second : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_Second'; rValue : 'Вернуться в открытый документ');
-   { 'Вернуться в открытый документ' }
-
-var
-   { Локализуемые строки Local }
-  str_DocumentMissing : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'DocumentMissing'; rValue : 'Данный документ не включён в состав Вашего комплекта.');
-   { 'Данный документ не включён в состав Вашего комплекта.' }
-  str_MissingDocumentIsContainedInBlock : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentIsContainedInBlock'; rValue : 'Документ содержится в информационном блоке:');
-   { 'Документ содержится в информационном блоке:' }
-  str_MissingDocumentIsContainedInBlocks : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentIsContainedInBlocks'; rValue : 'Документ содержится в информационных блоках:');
-   { 'Документ содержится в информационных блоках:' }
-  str_MissingDocumentInfo : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentInfo'; rValue : 'Подробнее о запрашиваемом документе');
-   { 'Подробнее о запрашиваемом документе' }
-  str_ContactInfo : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ContactInfo'; rValue : 'Контактная информация');
-   { 'Контактная информация' }
-
-// start class TbsDocumentMissingMessage
-
-class procedure TbsDocumentMissingMessage.Show(AllowConsulting: Boolean = false;
-  const aMissingInfo: IMissingInfo = nil);
+class procedure TbsDocumentMissingMessage.Show(AllowConsulting: Boolean = False;
+ const aMissingInfo: IMissingInfo = nil);
+ {* Показывает сообщение }
 //#UC START# *4E085B3F01F5_4E085B110285_var*
 var
  l_Msg: Tl3Message;
@@ -195,41 +162,22 @@ begin
 //#UC END# *4E085B3F01F5_4E085B110285_impl*
 end;//TbsDocumentMissingMessage.Show
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DocumentMissing_Choice_First
  str_DocumentMissing_Choice_First.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DocumentMissing_Choice_Second
+ {* Инициализация str_DocumentMissing_Choice_First }
  str_DocumentMissing_Choice_Second.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DocumentMissing
+ {* Инициализация str_DocumentMissing_Choice_Second }
  str_DocumentMissing.Init;
- str_DocumentMissing.AddChoice(str_DocumentMissing_Choice_First);
- str_DocumentMissing.AddChoice(str_DocumentMissing_Choice_Second);
- str_DocumentMissing.AddCustomChoice(str_DocumentMissing_Choice_First);
- str_DocumentMissing.AddDefaultChoice(str_DocumentMissing_Choice_Second);
- str_DocumentMissing.SetDlgType(mtWarning);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_MissingDocumentIsContainedInBlock
+!!! Lost Message ini !!!
+ {* Инициализация str_DocumentMissing }
  str_MissingDocumentIsContainedInBlock.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_MissingDocumentIsContainedInBlocks
+ {* Инициализация str_MissingDocumentIsContainedInBlock }
  str_MissingDocumentIsContainedInBlocks.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_MissingDocumentInfo
+ {* Инициализация str_MissingDocumentIsContainedInBlocks }
  str_MissingDocumentInfo.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ContactInfo
+ {* Инициализация str_MissingDocumentInfo }
  str_ContactInfo.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ContactInfo }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

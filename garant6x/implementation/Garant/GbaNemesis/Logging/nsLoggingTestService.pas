@@ -1,91 +1,60 @@
 unit nsLoggingTestService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsLoggingTestService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLoggingTestService.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsLoggingTestService" MUID: (55B9FFCB020F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3SimpleObject,
-  LoggingWrapperInterfaces
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , LoggingWrapperInterfaces
+ , l3Interfaces
+;
 
 type
  TnsLoggingTestService = class(Tl3SimpleObject, InsLoggingTestService)
- private
- // private fields
-   f_Listening : Boolean;
-   f_LogRecords : Il3StringsEx;
- protected
- // realized methods
+  private
+   f_Listening: Boolean;
+   f_LogRecords: Il3StringsEx;
+  protected
    procedure AddLogString(const aString: AnsiString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure StartListening;
-     {* Сигнатура метода StartListening }
    procedure StopListening;
-     {* Сигнатура метода StopListening }
    function GetLogStrings: AnsiString;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsLoggingTestService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsLoggingTestService }
  end;//TnsLoggingTestService
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  l3VCLStrings
-  {$If not defined(NoScripts)}
-  ,
-  LoggingWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3VCLStrings
+ {$If NOT Defined(NoScripts)}
+ , LoggingWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3Base
+;
 
-
-// start class TnsLoggingTestService
-
-var g_TnsLoggingTestService : TnsLoggingTestService = nil;
+var g_TnsLoggingTestService: TnsLoggingTestService = nil;
+ {* Экземпляр синглетона TnsLoggingTestService }
 
 procedure TnsLoggingTestServiceFree;
+ {* Метод освобождения экземпляра синглетона TnsLoggingTestService }
 begin
  l3Free(g_TnsLoggingTestService);
-end;
-
-class function TnsLoggingTestService.Instance: TnsLoggingTestService;
-begin
- if (g_TnsLoggingTestService = nil) then
- begin
-  l3System.AddExitProc(TnsLoggingTestServiceFree);
-  g_TnsLoggingTestService := Create;
- end;
- Result := g_TnsLoggingTestService;
-end;
-
+end;//TnsLoggingTestServiceFree
 
 procedure TnsLoggingTestService.StartListening;
 //#UC START# *55BA00C202EE_55B9FFCB020F_var*
@@ -124,7 +93,7 @@ begin
 end;//TnsLoggingTestService.GetLogStrings
 
 class function TnsLoggingTestService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsLoggingTestService <> nil;
 end;//TnsLoggingTestService.Exists
@@ -139,7 +108,19 @@ begin
 //#UC END# *566AEC8A0092_55B9FFCB020F_impl*
 end;//TnsLoggingTestService.AddLogString
 
+class function TnsLoggingTestService.Instance: TnsLoggingTestService;
+ {* Метод получения экземпляра синглетона TnsLoggingTestService }
+begin
+ if (g_TnsLoggingTestService = nil) then
+ begin
+  l3System.AddExitProc(TnsLoggingTestServiceFree);
+  g_TnsLoggingTestService := Create;
+ end;
+ Result := g_TnsLoggingTestService;
+end;//TnsLoggingTestService.Instance
+
 procedure TnsLoggingTestService.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55B9FFCB020F_var*
 //#UC END# *479731C50290_55B9FFCB020F_var*
 begin

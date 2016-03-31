@@ -1,83 +1,68 @@
 unit m3NewStorageStreamPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3NewStorageStreamPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3NewStorageStreamPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3NewStorageStreamPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NewStorageStreamPrim" MUID: (5448F0A40180)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3StorageInterfaces,
-  m3StoreHeaderDataPrim,
-  m3StorageBlock,
-  m3CommonStorageStream,
-  Classes
-  ;
+ l3IntfUses
+ , m3CommonStorageStream
+ , m3StorageBlock
+ , m3StoreHeaderDataPrim
+ , m3StorageInterfaces
+ , Classes
+;
 
 type
  Tm3NewStorageStreamPrim = {abstract} class(Tm3CommonStorageStream)
- private
- // private fields
-   f_Block : Tm3StorageBlock;
-   f_HeaderData : Tm3StoreHeaderDataPrim;
-   f_Position : Int64;
- protected
- // overridden protected methods
+  private
+   f_Block: Tm3StorageBlock;
+   f_HeaderData: Tm3StoreHeaderDataPrim;
+   f_Position: Int64;
+  protected
+   procedure MoveStreamPointer;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoRead(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoWrite(aBuff: Pointer;
-     aSize: Integer;
-     var theResult: Integer;
-     var theReturn: hResult); override;
+    aSize: Integer;
+    var theResult: Integer;
+    var theReturn: hResult); override;
    procedure DoSeek(anOffset: Int64;
-     anOrigin: TSeekOrigin;
-     var theResult: Int64;
-     var theReturn: hResult); override;
+    anOrigin: TSeekOrigin;
+    var theResult: Int64;
+    var theReturn: hResult); override;
    procedure DoSetSize(aSize: Int64;
-     var theReturn: hResult); override;
+    var theReturn: hResult); override;
    function DoGetSize: Int64; override;
    function DoGetName: WideString; override;
- protected
- // protected methods
-   procedure MoveStreamPointer;
- public
- // public methods
+  public
    constructor Create(anAccess: Tm3StoreAccess;
-     aHeaderData: Tm3StoreHeaderDataPrim); reintroduce;
+    aHeaderData: Tm3StoreHeaderDataPrim); reintroduce;
  end;//Tm3NewStorageStreamPrim
 
 implementation
 
 uses
-  Windows,
-  l3Base,
-  ComObj,
-  m2COMLib,
-  ActiveX,
-  m2S32Lib,
-  m2S64Lib,
-  SysUtils,
-  m2MemLib,
-  m3Exceptions
-  ;
-
-// start class Tm3NewStorageStreamPrim
+ l3ImplUses
+ , Windows
+ , l3Base
+ , ComObj
+ , m2COMLib
+ , ActiveX
+ , m2S32Lib
+ , m2S64Lib
+ , SysUtils
+ , m2MemLib
+ , m3Exceptions
+;
 
 procedure Tm3NewStorageStreamPrim.MoveStreamPointer;
 //#UC START# *5448F1A501FE_5448F0A40180_var*
@@ -99,7 +84,7 @@ begin
 end;//Tm3NewStorageStreamPrim.MoveStreamPointer
 
 constructor Tm3NewStorageStreamPrim.Create(anAccess: Tm3StoreAccess;
-  aHeaderData: Tm3StoreHeaderDataPrim);
+ aHeaderData: Tm3StoreHeaderDataPrim);
 //#UC START# *5448F1C80365_5448F0A40180_var*
 //#UC END# *5448F1C80365_5448F0A40180_var*
 begin
@@ -118,6 +103,7 @@ begin
 end;//Tm3NewStorageStreamPrim.Create
 
 procedure Tm3NewStorageStreamPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5448F0A40180_var*
 //#UC END# *479731C50290_5448F0A40180_var*
 begin
@@ -132,9 +118,9 @@ begin
 end;//Tm3NewStorageStreamPrim.Cleanup
 
 procedure Tm3NewStorageStreamPrim.DoRead(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27CF501C4_5448F0A40180_var*
 var
  l_SizeToRead : Integer;
@@ -160,9 +146,9 @@ begin
 end;//Tm3NewStorageStreamPrim.DoRead
 
 procedure Tm3NewStorageStreamPrim.DoWrite(aBuff: Pointer;
-  aSize: Integer;
-  var theResult: Integer;
-  var theReturn: hResult);
+ aSize: Integer;
+ var theResult: Integer;
+ var theReturn: hResult);
 //#UC START# *4FA27D310344_5448F0A40180_var*
 var
  l_SizeToWrite : Integer;
@@ -189,9 +175,9 @@ begin
 end;//Tm3NewStorageStreamPrim.DoWrite
 
 procedure Tm3NewStorageStreamPrim.DoSeek(anOffset: Int64;
-  anOrigin: TSeekOrigin;
-  var theResult: Int64;
-  var theReturn: hResult);
+ anOrigin: TSeekOrigin;
+ var theResult: Int64;
+ var theReturn: hResult);
 //#UC START# *4FA27D5302C5_5448F0A40180_var*
 
  procedure __Seek(const aPosition: Int64;
@@ -275,7 +261,7 @@ begin
 end;//Tm3NewStorageStreamPrim.DoSeek
 
 procedure Tm3NewStorageStreamPrim.DoSetSize(aSize: Int64;
-  var theReturn: hResult);
+ var theReturn: hResult);
 //#UC START# *4FA27DCD02B4_5448F0A40180_var*
 
  procedure __GrowSize(const ASize: Int64);

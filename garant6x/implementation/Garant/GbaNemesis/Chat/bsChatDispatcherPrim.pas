@@ -1,71 +1,53 @@
 unit bsChatDispatcherPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Chat"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Chat/bsChatDispatcherPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Chat::Chat::ChatImpl::TbsChatDispatcherPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcherPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TbsChatDispatcherPrim" MUID: (4A682A110387)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  l3SimpleObject,
-  ChatTypes,
-  ChatInterfaces,
-  nsChatWindowList,
-  nsUserIDList,
-  nsChatHistoryList,
-  nsContactListNotifiers,
-  nsCounterEvent,
-  LoggingUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3SimpleObject
+ , ChatInterfaces
+ , nsChatWindowList
+ , nsUserIDList
+ , nsChatHistoryList
+ , nsContactListNotifiers
+ , l3Interfaces
+ , ChatTypes
+ , l3TreeInterfaces
+ , nsCounterEvent
+ , LoggingUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsChatWindowOpensCountEvent = class(TnsCounterEvent)
- protected
- // realized methods
+  protected
    function EventID: TLogEvent; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsChatWindowOpensCountEvent;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsChatWindowOpensCountEvent }
  end;//TnsChatWindowOpensCountEvent
 
  TbsChatDispatcherPrim = class(Tl3SimpleObject, IbsChatDispatcher)
- private
- // private fields
-   f_Processing : Boolean;
-   f_ChatList : TnsChatWindowList;
-   f_Unreaded : TnsUserIDList;
-   f_HistoryList : TnsChatHistoryList;
-   f_ContactLists : TnsContactListNotifiers;
- private
- // private methods
+  private
+   f_Processing: Boolean;
+   f_ChatList: TnsChatWindowList;
+   f_Unreaded: TnsUserIDList;
+   f_HistoryList: TnsChatHistoryList;
+   f_ContactLists: TnsContactListNotifiers;
+  private
    procedure DoOpenChatWindow(anUID: TbsUserID);
    function MakeTitle(anUID: TbsUserID;
     aDate: TDateTime): IStream;
    function GetUserID(const aNode: Il3SimpleNode): TbsUserID;
- protected
- // realized methods
+  protected
    function Get_ChatSupported: Boolean;
    function MakeContactList(ForAdd: Boolean): Il3SimpleTree;
    procedure OpenChatWindow(const aNode: Il3SimpleNode);
@@ -91,80 +73,56 @@ type
    procedure ContactListChanged;
    procedure RegisterContactList(const aList: IbsContactList);
    procedure UnRegisterContactList(const aList: IbsContactList);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Make: IbsChatDispatcher; reintroduce;
  end;//TbsChatDispatcherPrim
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  SysUtils,
-  ComObj,
-  ChatInterfacesUnit,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsChatTreeStruct,
-  l3Memory,
-  nsChatMessages,
-  nsChatMessage
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsConst,
-  nsTypes,
-  SecurityUnit,
-  DynamicTreeUnit,
-  l3Types,
-  l3String,
-  nsNotifiers,
-  afwFacade,
-  evdStyles
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , ComObj
+ , ChatInterfacesUnit
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsChatTreeStruct
+ , l3Memory
+ , nsChatMessages
+ , nsChatMessage
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsConst
+ , nsTypes
+ , SecurityUnit
+ , DynamicTreeUnit
+ , l3Types
+ , l3String
+ , nsNotifiers
+ , afwFacade
+ , evdStyles
+ , l3Base
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsChatWindowOpensCountEvent
-
-var g_TnsChatWindowOpensCountEvent : TnsChatWindowOpensCountEvent = nil;
+var g_TnsChatWindowOpensCountEvent: TnsChatWindowOpensCountEvent = nil;
+ {* Экземпляр синглетона TnsChatWindowOpensCountEvent }
 
 procedure TnsChatWindowOpensCountEventFree;
+ {* Метод освобождения экземпляра синглетона TnsChatWindowOpensCountEvent }
 begin
  l3Free(g_TnsChatWindowOpensCountEvent);
-end;
-
-class function TnsChatWindowOpensCountEvent.Instance: TnsChatWindowOpensCountEvent;
-begin
- if (g_TnsChatWindowOpensCountEvent = nil) then
- begin
-  l3System.AddExitProc(TnsChatWindowOpensCountEventFree);
-  g_TnsChatWindowOpensCountEvent := Create;
- end;
- Result := g_TnsChatWindowOpensCountEvent;
-end;
-
+end;//TnsChatWindowOpensCountEventFree
 
 class function TnsChatWindowOpensCountEvent.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsChatWindowOpensCountEvent <> nil;
 end;//TnsChatWindowOpensCountEvent.Exists
@@ -177,6 +135,17 @@ begin
  Result := LE_CHAT_WINDOW_OPENS_COUNT;
 //#UC END# *4B13A26203DB_4B13BC920384_impl*
 end;//TnsChatWindowOpensCountEvent.EventID
+
+class function TnsChatWindowOpensCountEvent.Instance: TnsChatWindowOpensCountEvent;
+ {* Метод получения экземпляра синглетона TnsChatWindowOpensCountEvent }
+begin
+ if (g_TnsChatWindowOpensCountEvent = nil) then
+ begin
+  l3System.AddExitProc(TnsChatWindowOpensCountEventFree);
+  g_TnsChatWindowOpensCountEvent := Create;
+ end;
+ Result := g_TnsChatWindowOpensCountEvent;
+end;//TnsChatWindowOpensCountEvent.Instance
 
 procedure TbsChatDispatcherPrim.DoOpenChatWindow(anUID: TbsUserID);
 //#UC START# *4A682A8303CA_4A682A110387_var*
@@ -212,10 +181,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsChatDispatcherPrim.Make
 
 function TbsChatDispatcherPrim.MakeTitle(anUID: TbsUserID;
-  aDate: TDateTime): IStream;
+ aDate: TDateTime): IStream;
 //#UC START# *4A685BF20264_4A682A110387_var*
 var
  l_UserInfo: TUserInfo;
@@ -309,7 +278,7 @@ begin
 end;//TbsChatDispatcherPrim.GetContactType
 
 function TbsChatDispatcherPrim.SendMessage(Recip: TbsUserID;
-  const aMessage: IStream): InsChatMessage;
+ const aMessage: IStream): InsChatMessage;
 //#UC START# *4A66DF64023C_4A682A110387_var*
 var
  l_Memory: Tl3MemoryStream;
@@ -340,7 +309,7 @@ begin
 end;//TbsChatDispatcherPrim.SendMessage
 
 function TbsChatDispatcherPrim.GetMessages(anUID: TbsUserID;
-  MinCount: Integer): InsChatMessages;
+ MinCount: Integer): InsChatMessages;
 //#UC START# *4A66DF74032C_4A682A110387_var*
 var
  l_Inst: TnsChatMessages;
@@ -603,6 +572,7 @@ begin
 end;//TbsChatDispatcherPrim.UnRegisterContactList
 
 procedure TbsChatDispatcherPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A682A110387_var*
 //#UC END# *479731C50290_4A682A110387_var*
 begin
@@ -627,7 +597,6 @@ begin
  f_ContactLists := TnsContactListNotifiers.MakeSorted;
 //#UC END# *47A042E100E2_4A682A110387_impl*
 end;//TbsChatDispatcherPrim.InitFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

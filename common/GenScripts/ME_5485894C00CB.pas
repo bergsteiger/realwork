@@ -12,6 +12,8 @@ uses
  l3IntfUses
  , m3BaseEnumStatStg
  , ActiveX
+ //#UC START# *5485894C00CBintf_uses*
+ //#UC END# *5485894C00CBintf_uses*
 ;
 
 type
@@ -81,6 +83,8 @@ uses
  , m2COMLib
  , m2MemLib
  , ComObj
+ //#UC START# *5485894C00CBimpl_uses*
+ //#UC END# *5485894C00CBimpl_uses*
 ;
 
 constructor Tm3TempEnumStatStg.Create(const aStream: IStream;

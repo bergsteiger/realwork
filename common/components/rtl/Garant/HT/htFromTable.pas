@@ -1,40 +1,27 @@
 unit htFromTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htFromTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtFromTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htFromTable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtFromTable" MUID: (55530BB9007A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  htInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  HT_Const
-  {$IfEnd} //not Nemesis
-  ,
-  daFromTable
-  ;
+ l3IntfUses
+ , daFromTable
+ , htInterfaces
+ {$If NOT Defined(Nemesis)}
+ , HT_Const
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 type
  ThtFromTable = class(TdaFromTable, IhtFromTable)
- private
- // private fields
-   f_Handle : ThtTblHandle;
- protected
- // realized methods
+  private
+   f_Handle: ThtTblHandle;
+  protected
    function Get_Handle: ThtTblHandle;
    procedure Prepare(const aHelper: IhtDataSchemeHelper;
     RequireNewHandle: Boolean);
@@ -44,25 +31,17 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  HT_DLL
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Serv
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Err
-  {$IfEnd} //not Nemesis
-  
-  ;
-
-// start class ThtFromTable
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , HT_DLL
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_Serv
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_Err
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 function ThtFromTable.Get_Handle: ThtTblHandle;
 //#UC START# *555C8490016F_55530BB9007Aget_var*
@@ -74,7 +53,7 @@ begin
 end;//ThtFromTable.Get_Handle
 
 procedure ThtFromTable.Prepare(const aHelper: IhtDataSchemeHelper;
-  RequireNewHandle: Boolean);
+ RequireNewHandle: Boolean);
 //#UC START# *555C91AF003A_55530BB9007A_var*
 var
  hTable : ThtTblHandle;

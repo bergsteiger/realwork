@@ -1,58 +1,45 @@
 unit atOpenSavedBookmarkOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOpenSavedBookmarkOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatOpenSavedBookmarkOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenSavedBookmarkOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenSavedBookmarkOperation" MUID: (4FD0D1B203CD)
 
 interface
 
 uses
-  DocumentUnit,
-  atFoldersHelper,
-  atOperationBase,
-  FoldersUnit
-  ;
+ l3IntfUses
+ , atFoldersHelper
+ , DocumentUnit
+ , atOperationBase
+ , FoldersUnit
+;
 
 type
  _FoldersNodeMatcher_ = TatBookmarkMatcher;
  _ObjectType_ = IBookmark;
- {$Include ..\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include ..\Operations\atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  TatOpenSavedBookmarkOperation = class(_atOpenFoldersObjectAddon_)
- protected
- // realized methods
+  protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
- protected
- // overridden protected methods
    procedure ExecuteChilds; override;
  end;//TatOpenSavedBookmarkOperation
 
 implementation
 
 uses
-  atDocumentHelper,
-  BaseTypesUnit,
-  atLogger,
-  SysUtils,
-  atNodeHelper
-  ;
+ l3ImplUses
+ , atDocumentHelper
+ , BaseTypesUnit
+ , atLogger
+ , SysUtils
+ , atNodeHelper
+;
 
-{$Include ..\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include ..\Operations\atOpenFoldersObjectAddon.imp.pas}
-
-// start class TatOpenSavedBookmarkOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
 procedure TatOpenSavedBookmarkOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_4FD0D1B203CD_var*

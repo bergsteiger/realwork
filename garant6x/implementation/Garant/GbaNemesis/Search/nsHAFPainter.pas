@@ -1,94 +1,67 @@
 unit nsHAFPainter;
+ {* - }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsHAFPainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TnsHAFPainter
-//
-// -
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsHAFPainter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsHAFPainter" MUID: (47F2317F015E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nsHAFPainterPrim,
-  l3InternalInterfaces,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , nsHAFPainterPrim
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , l3InternalInterfaces
+;
 
-{$If not defined(Admin)}
 type
- TnsHAFPainter = class(TnsHAFPainterPrim {$If not defined(NoVCM)}, IvcmSettingsSource{$IfEnd} //not NoVCM
+ TnsHAFPainter = class(TnsHAFPainterPrim{$If NOT Defined(NoVCM)}
+ , IvcmSettingsSource
+ {$IfEnd} // NOT Defined(NoVCM)
  )
   {* - }
- private
- // private fields
-   f_BaseId : AnsiString;
-   f_Settings : IvcmSettings;
-    {* Поле для свойства Settings}
- protected
- // realized methods
+  private
+   f_BaseId: AnsiString;
+   f_Settings: IvcmSettings;
+    {* Поле для свойства Settings }
+  protected
    function pm_GetSettings: IafwSettings;
    procedure pm_SetSettings(const aValue: IafwSettings);
    function pm_GetBaseId: AnsiString;
    procedure pm_SetBaseId(const aValue: AnsiString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean; override;
- public
- // overridden public methods
+  public
    constructor Create(const aMacroReplacer: Il3HAFMacroReplacer); override;
    procedure ReadColontitulSettings; override;
-     {* Сигнатура метода ReadColontitulSettings }
- public
- // public properties
+  public
    property Settings: IvcmSettings
-     read f_Settings;
+    read f_Settings;
  end;//TnsHAFPainter
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SysUtils,
-  afwFacade,
-  evTypes,
-  nsConst,
-  nsSettings
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TnsHAFPainter
+ l3ImplUses
+ , SysUtils
+ , afwFacade
+ , evTypes
+ , nsConst
+ , nsSettings
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 function TnsHAFPainter.pm_GetSettings: IafwSettings;
 //#UC START# *473DA149020D_47F2317F015Eget_var*
@@ -127,6 +100,7 @@ begin
 end;//TnsHAFPainter.pm_SetBaseId
 
 procedure TnsHAFPainter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F2317F015E_var*
 //#UC END# *479731C50290_47F2317F015E_var*
 begin
@@ -137,11 +111,8 @@ begin
 end;//TnsHAFPainter.Cleanup
 
 procedure TnsHAFPainter.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  f_Settings := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TnsHAFPainter.ClearFields
 
@@ -194,7 +165,6 @@ begin
   end;//with Settings
 //#UC END# *5243E9AE0230_47F2317F015E_impl*
 end;//TnsHAFPainter.ReadColontitulSettings
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

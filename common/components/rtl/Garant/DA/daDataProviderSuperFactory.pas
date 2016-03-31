@@ -1,133 +1,125 @@
 unit daDataProviderSuperFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daDataProviderSuperFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaDataProviderSuperFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daDataProviderSuperFactory.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaDataProviderSuperFactory" MUID: (54F85B590251)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  Classes,
-  l3ProtoObject,
-  ddAppConfig,
-  l3Variant,
-  daTypes,
-  daInterfaces,
-  daDataProviderFactory,
-  daDataProviderFactoryList,
-  daDataProviderParams,
-  daGUITypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daDataProviderFactory
+ , daDataProviderFactoryList
+ , daInterfaces
+ , daDataProviderParams
+ , Classes
+ , l3Variant
+ , ddAppConfig
+ , daTypes
+;
 
 type
  TdaDataProviderSuperFactory = class(Tl3ProtoObject)
- private
- // private fields
-   f_List : TdaDataProviderFactoryList;
-   f_DefaultFactory : TdaDataProviderFactory;
-    {* Поле для свойства DefaultFactory}
-   f_ParamsStorage : IdaParamsStorage;
-    {* Поле для свойства ParamsStorage}
- private
- // private methods
+  private
+   f_List: TdaDataProviderFactoryList;
+   f_DefaultFactory: TdaDataProviderFactory;
+    {* Поле для свойства DefaultFactory }
+   f_ParamsStorage: IdaParamsStorage;
+    {* Поле для свойства ParamsStorage }
+  private
    function FindFactoryByKey(const aKey: AnsiString): TdaDataProviderFactory;
    function MakeFromTaggedData(aData: Tl3Tag): TdaDataProviderParams;
    function IndexOfParamType(const aKey: AnsiString): Integer;
- protected
- // property methods
+  protected
    procedure pm_SetDefaultFactory(aValue: TdaDataProviderFactory);
    procedure pm_SetParamsStorage(const aValue: IdaParamsStorage);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    function FindFactoryByParamType(const aKey: AnsiString): TdaDataProviderFactory;
    procedure CorrectByClient(aParams: TdaDataProviderParams);
    function IsParamsValid(aParams: TdaDataProviderParams;
-     Quiet: Boolean = False): Boolean;
+    Quiet: Boolean = False): Boolean;
    procedure FillInConfig(aConfig: TddAppConfiguration;
-     aParams: TdaDataProviderParams;
-     ForInfoOnly: Boolean = False);
+    aParams: TdaDataProviderParams;
+    ForInfoOnly: Boolean = False);
    procedure FillOutConfig(aConfig: TddAppConfiguration;
-     aEtalon: TdaDataProviderParams;
-     out aParams: TdaDataProviderParams);
+    aEtalon: TdaDataProviderParams;
+    out aParams: TdaDataProviderParams);
    procedure BuildConfig(aConfig: TddAppConfiguration;
-     const aProviderKey: AnsiString = '';
-     ForInfoOnly: Boolean = False);
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False);
    function MakeProvider(aParams: TdaDataProviderParams;
-     AllowClearLocks: Boolean): IdaDataProvider;
+    AllowClearLocks: Boolean): IdaDataProvider;
    procedure LoadDBVersion(aParams: TdaDataProviderParams);
    function CheckLogin(aParams: TdaDataProviderParams;
-     const aLogin: AnsiString;
-     const aPassword: AnsiString;
-     IsRequireAdminRights: Boolean): TdaLoginError;
+    const aLogin: AnsiString;
+    const aPassword: AnsiString;
+    IsRequireAdminRights: Boolean): TdaLoginError;
    procedure Register(aFactory: TdaDataProviderFactory);
    procedure UnRegister(aFactory: TdaDataProviderFactory);
    function MakeFromConfig: TdaDataProviderParams;
    procedure SaveToConfig(aParams: TdaDataProviderParams);
    function MakeParamsFromEVD(aStream: TStream): TdaDataProviderParams;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property DefaultFactory: TdaDataProviderFactory
-     read f_DefaultFactory
-     write pm_SetDefaultFactory;
-   property ParamsStorage: IdaParamsStorage
-     read f_ParamsStorage
-     write pm_SetParamsStorage;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TdaDataProviderSuperFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TdaDataProviderSuperFactory }
+  public
+   property DefaultFactory: TdaDataProviderFactory
+    read f_DefaultFactory
+    write pm_SetDefaultFactory;
+   property ParamsStorage: IdaParamsStorage
+    read f_ParamsStorage
+    write pm_SetParamsStorage;
  end;//TdaDataProviderSuperFactory
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  l3Types,
-  ddAppConfigTypes
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , ddAppConfigTypes
+ , l3Base
+;
 
-
-// start class TdaDataProviderSuperFactory
-
-var g_TdaDataProviderSuperFactory : TdaDataProviderSuperFactory = nil;
+var g_TdaDataProviderSuperFactory: TdaDataProviderSuperFactory = nil;
+ {* Экземпляр синглетона TdaDataProviderSuperFactory }
 
 procedure TdaDataProviderSuperFactoryFree;
+ {* Метод освобождения экземпляра синглетона TdaDataProviderSuperFactory }
 begin
  l3Free(g_TdaDataProviderSuperFactory);
-end;
+end;//TdaDataProviderSuperFactoryFree
 
-class function TdaDataProviderSuperFactory.Instance: TdaDataProviderSuperFactory;
+procedure TdaDataProviderSuperFactory.pm_SetDefaultFactory(aValue: TdaDataProviderFactory);
+//#UC START# *54F99D1A0219_54F85B590251set_var*
+//#UC END# *54F99D1A0219_54F85B590251set_var*
 begin
- if (g_TdaDataProviderSuperFactory = nil) then
+//#UC START# *54F99D1A0219_54F85B590251set_impl*
+ if f_DefaultFactory <> aValue then
  begin
-  l3System.AddExitProc(TdaDataProviderSuperFactoryFree);
-  g_TdaDataProviderSuperFactory := Create;
+  aValue.SetRefTo(f_DefaultFactory);
+  if Assigned(f_DefaultFactory) then
+   Register(f_DefaultFactory);
  end;
- Result := g_TdaDataProviderSuperFactory;
-end;
+//#UC END# *54F99D1A0219_54F85B590251set_impl*
+end;//TdaDataProviderSuperFactory.pm_SetDefaultFactory
 
+procedure TdaDataProviderSuperFactory.pm_SetParamsStorage(const aValue: IdaParamsStorage);
+//#UC START# *5507E77B021F_54F85B590251set_var*
+//#UC END# *5507E77B021F_54F85B590251set_var*
+begin
+//#UC START# *5507E77B021F_54F85B590251set_impl*
+ f_ParamsStorage := aValue;
+//#UC END# *5507E77B021F_54F85B590251set_impl*
+end;//TdaDataProviderSuperFactory.pm_SetParamsStorage
 
 function TdaDataProviderSuperFactory.FindFactoryByKey(const aKey: AnsiString): TdaDataProviderFactory;
 //#UC START# *550A8A38018C_54F85B590251_var*
@@ -149,6 +141,25 @@ begin
  Result.ParamsStorage := f_ParamsStorage;
 //#UC END# *550A8A38018C_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.FindFactoryByKey
+
+function TdaDataProviderSuperFactory.FindFactoryByParamType(const aKey: AnsiString): TdaDataProviderFactory;
+//#UC START# *550A8A6701F6_54F85B590251_var*
+var
+ l_IDX: Integer;
+//#UC END# *550A8A6701F6_54F85B590251_var*
+begin
+//#UC START# *550A8A6701F6_54F85B590251_impl*
+ Result := nil;
+ for l_IDX := 0 to f_List.Count - 1 do
+  if AnsiSameText(f_List[l_IDX].ParamKey, aKey) then
+  begin
+   Result := f_List[l_IDX];
+   Break;
+  end;
+ Assert(Assigned(Result));
+ Result.ParamsStorage := f_ParamsStorage;
+//#UC END# *550A8A6701F6_54F85B590251_impl*
+end;//TdaDataProviderSuperFactory.FindFactoryByParamType
 
 function TdaDataProviderSuperFactory.MakeFromTaggedData(aData: Tl3Tag): TdaDataProviderParams;
 //#UC START# *550FD1780368_54F85B590251_var*
@@ -173,44 +184,6 @@ begin
 //#UC END# *550FD1780368_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.MakeFromTaggedData
 
-function TdaDataProviderSuperFactory.IndexOfParamType(const aKey: AnsiString): Integer;
-//#UC START# *5512C7FE0342_54F85B590251_var*
-var
- l_IDX: Integer;
-//#UC END# *5512C7FE0342_54F85B590251_var*
-begin
-//#UC START# *5512C7FE0342_54F85B590251_impl*
- Result := -1;
- for l_IDX := 0 to f_List.Count - 1 do
-  if AnsiSameText(f_List[l_IDX].ParamKey, aKey) then
-  begin
-   Result := l_IDX;
-   Break;
-  end;
- Assert(Result <> -1);
- f_List[Result].ParamsStorage := ParamsStorage;
-//#UC END# *5512C7FE0342_54F85B590251_impl*
-end;//TdaDataProviderSuperFactory.IndexOfParamType
-
-function TdaDataProviderSuperFactory.FindFactoryByParamType(const aKey: AnsiString): TdaDataProviderFactory;
-//#UC START# *550A8A6701F6_54F85B590251_var*
-var
- l_IDX: Integer;
-//#UC END# *550A8A6701F6_54F85B590251_var*
-begin
-//#UC START# *550A8A6701F6_54F85B590251_impl*
- Result := nil;
- for l_IDX := 0 to f_List.Count - 1 do
-  if AnsiSameText(f_List[l_IDX].ParamKey, aKey) then
-  begin
-   Result := f_List[l_IDX];
-   Break;
-  end;
- Assert(Assigned(Result));
- Result.ParamsStorage := f_ParamsStorage;
-//#UC END# *550A8A6701F6_54F85B590251_impl*
-end;//TdaDataProviderSuperFactory.FindFactoryByParamType
-
 procedure TdaDataProviderSuperFactory.CorrectByClient(aParams: TdaDataProviderParams);
 //#UC START# *55100AB20241_54F85B590251_var*
 //#UC END# *55100AB20241_54F85B590251_var*
@@ -221,7 +194,7 @@ begin
 end;//TdaDataProviderSuperFactory.CorrectByClient
 
 function TdaDataProviderSuperFactory.IsParamsValid(aParams: TdaDataProviderParams;
-  Quiet: Boolean = False): Boolean;
+ Quiet: Boolean = False): Boolean;
 //#UC START# *551166670371_54F85B590251_var*
 //#UC END# *551166670371_54F85B590251_var*
 begin
@@ -231,8 +204,8 @@ begin
 end;//TdaDataProviderSuperFactory.IsParamsValid
 
 procedure TdaDataProviderSuperFactory.FillInConfig(aConfig: TddAppConfiguration;
-  aParams: TdaDataProviderParams;
-  ForInfoOnly: Boolean = False);
+ aParams: TdaDataProviderParams;
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB5D0065_54F85B590251_var*
 var
  l_Param: TdaDataProviderParams;
@@ -260,8 +233,8 @@ begin
 end;//TdaDataProviderSuperFactory.FillInConfig
 
 procedure TdaDataProviderSuperFactory.FillOutConfig(aConfig: TddAppConfiguration;
-  aEtalon: TdaDataProviderParams;
-  out aParams: TdaDataProviderParams);
+ aEtalon: TdaDataProviderParams;
+ out aParams: TdaDataProviderParams);
 //#UC START# *5512BB8103B4_54F85B590251_var*
 //#UC END# *5512BB8103B4_54F85B590251_var*
 begin
@@ -271,8 +244,8 @@ begin
 end;//TdaDataProviderSuperFactory.FillOutConfig
 
 procedure TdaDataProviderSuperFactory.BuildConfig(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString = '';
-  ForInfoOnly: Boolean = False);
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB9801EA_54F85B590251_var*
 var
  l_IDX: Integer;
@@ -302,8 +275,27 @@ begin
 //#UC END# *5512BB9801EA_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.BuildConfig
 
+function TdaDataProviderSuperFactory.IndexOfParamType(const aKey: AnsiString): Integer;
+//#UC START# *5512C7FE0342_54F85B590251_var*
+var
+ l_IDX: Integer;
+//#UC END# *5512C7FE0342_54F85B590251_var*
+begin
+//#UC START# *5512C7FE0342_54F85B590251_impl*
+ Result := -1;
+ for l_IDX := 0 to f_List.Count - 1 do
+  if AnsiSameText(f_List[l_IDX].ParamKey, aKey) then
+  begin
+   Result := l_IDX;
+   Break;
+  end;
+ Assert(Result <> -1);
+ f_List[Result].ParamsStorage := ParamsStorage;
+//#UC END# *5512C7FE0342_54F85B590251_impl*
+end;//TdaDataProviderSuperFactory.IndexOfParamType
+
 function TdaDataProviderSuperFactory.MakeProvider(aParams: TdaDataProviderParams;
-  AllowClearLocks: Boolean): IdaDataProvider;
+ AllowClearLocks: Boolean): IdaDataProvider;
 //#UC START# *551543F903C6_54F85B590251_var*
 //#UC END# *551543F903C6_54F85B590251_var*
 begin
@@ -322,9 +314,9 @@ begin
 end;//TdaDataProviderSuperFactory.LoadDBVersion
 
 function TdaDataProviderSuperFactory.CheckLogin(aParams: TdaDataProviderParams;
-  const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  IsRequireAdminRights: Boolean): TdaLoginError;
+ const aLogin: AnsiString;
+ const aPassword: AnsiString;
+ IsRequireAdminRights: Boolean): TdaLoginError;
 //#UC START# *551BE37C0396_54F85B590251_var*
 //#UC END# *551BE37C0396_54F85B590251_var*
 begin
@@ -332,29 +324,6 @@ begin
  Result := FindFactoryByParamType(aParams.ParamsKey).CheckLogin(aParams, aLogin, aPassword, IsRequireAdminRights);
 //#UC END# *551BE37C0396_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.CheckLogin
-
-procedure TdaDataProviderSuperFactory.pm_SetDefaultFactory(aValue: TdaDataProviderFactory);
-//#UC START# *54F99D1A0219_54F85B590251set_var*
-//#UC END# *54F99D1A0219_54F85B590251set_var*
-begin
-//#UC START# *54F99D1A0219_54F85B590251set_impl*
- if f_DefaultFactory <> aValue then
- begin
-  aValue.SetRefTo(f_DefaultFactory);
-  if Assigned(f_DefaultFactory) then
-   Register(f_DefaultFactory);
- end;
-//#UC END# *54F99D1A0219_54F85B590251set_impl*
-end;//TdaDataProviderSuperFactory.pm_SetDefaultFactory
-
-procedure TdaDataProviderSuperFactory.pm_SetParamsStorage(const aValue: IdaParamsStorage);
-//#UC START# *5507E77B021F_54F85B590251set_var*
-//#UC END# *5507E77B021F_54F85B590251set_var*
-begin
-//#UC START# *5507E77B021F_54F85B590251set_impl*
- f_ParamsStorage := aValue;
-//#UC END# *5507E77B021F_54F85B590251set_impl*
-end;//TdaDataProviderSuperFactory.pm_SetParamsStorage
 
 procedure TdaDataProviderSuperFactory.Register(aFactory: TdaDataProviderFactory);
 //#UC START# *54F85C450279_54F85B590251_var*
@@ -417,12 +386,24 @@ begin
 end;//TdaDataProviderSuperFactory.MakeParamsFromEVD
 
 class function TdaDataProviderSuperFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TdaDataProviderSuperFactory <> nil;
 end;//TdaDataProviderSuperFactory.Exists
 
+class function TdaDataProviderSuperFactory.Instance: TdaDataProviderSuperFactory;
+ {* Метод получения экземпляра синглетона TdaDataProviderSuperFactory }
+begin
+ if (g_TdaDataProviderSuperFactory = nil) then
+ begin
+  l3System.AddExitProc(TdaDataProviderSuperFactoryFree);
+  g_TdaDataProviderSuperFactory := Create;
+ end;
+ Result := g_TdaDataProviderSuperFactory;
+end;//TdaDataProviderSuperFactory.Instance
+
 procedure TdaDataProviderSuperFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54F85B590251_var*
 //#UC END# *479731C50290_54F85B590251_var*
 begin
@@ -445,7 +426,6 @@ begin
 end;//TdaDataProviderSuperFactory.InitFields
 
 procedure TdaDataProviderSuperFactory.ClearFields;
- {-}
 begin
  ParamsStorage := nil;
  inherited;

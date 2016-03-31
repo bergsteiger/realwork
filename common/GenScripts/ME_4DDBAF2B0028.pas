@@ -17,7 +17,7 @@ uses
 ;
 
 type
- TChangesBetweenEditionsModule = class
+ TChangesBetweenEditionsModule = class(TvcmModule)
   {* Просмотр только измененных фрагментов }
   public
    procedure ViewChangedFragments(const aLeft: IDocument;
@@ -49,6 +49,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Local }
  str_CannotShowChanges: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'CannotShowChanges'; rValue : 'Изменения не могут быть отображены в сводном обзоре');
@@ -101,6 +102,7 @@ initialization
  str_CannotShowChanges.Init;
 !!! Lost Message ini !!!
  {* Инициализация str_CannotShowChanges }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

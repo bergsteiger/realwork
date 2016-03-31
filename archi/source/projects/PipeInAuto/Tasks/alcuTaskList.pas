@@ -1,62 +1,42 @@
 unit alcuTaskList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuTaskList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::TasksLists::TalcuTaskList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskList" MUID: (52FA3DB401BE)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  k2DocumentGenerator,
-  evdNativeWriter
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  csTaskTypes
-  {$IfEnd} //not Nemesis
-  ,
-  alcuSortedTaskList
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
+ l3IntfUses
+ , alcuSortedTaskList
+ , k2DocumentGenerator
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , evdNativeWriter
+ {$If NOT Defined(Nemesis)}
+ , csTaskTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
 type
  TalcuTaskList = class(TalcuSortedTaskList)
- private
- // private fields
-   f_TaskFolder : AnsiString;
-   f_FileName : AnsiString;
-    {* Поле для свойства FileName}
- private
- // private methods
+  private
+   f_TaskFolder: AnsiString;
+   f_FileName: AnsiString;
+    {* Поле для свойства FileName }
+  private
    function DoFinishAtom(G: Tk2DocumentGenerator;
-     var Atom: Tk2StackAtom): Boolean;
+    var Atom: Tk2StackAtom): Boolean;
    procedure SaveTask(theTask: TddProcessTask);
- protected
- // property methods
+  protected
    procedure pm_SetFileName(const aValue: AnsiString);
- protected
- // protected methods
    function TaskFileName(const theTaskID: AnsiString): AnsiString;
- public
- // public methods
+   procedure ClearFields; override;
+  public
    procedure AddTask(aTask: TddProcessTask);
    procedure Load;
    procedure RemoveTask(aTask: TddProcessTask);
@@ -64,48 +44,51 @@ type
    function ActiveTaskCount(EnabledTypes: TcsTaskTypes): Integer;
    function FindTask(aTaskType: TcsTaskType): TddProcessTask;
    procedure Sort;
- public
- // public properties
+  public
    property FileName: AnsiString
-     read f_FileName
-     write pm_SetFileName;
+    read f_FileName
+    write pm_SetFileName;
  end;//TalcuTaskList
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  Task_Const,
-  k2Tags,
-  evdNativeReader,
-  l3Filer,
-  l3Types,
-  Classes,
-  l3Base
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils,
-  alcuTaskListBase,
-  DateUtils,
-  l3Stream,
-  l3FileUtils
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
-
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+ l3ImplUses
+ , l3FileUtils
+ , Task_Const
+ , k2Tags
+ , evdNativeReader
+ , l3Filer
+ , l3Types
+ , Classes
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ , DateUtils
+ , l3Stream
+ , alcuTaskListBase
+;
 
 type
-  TalcuTaskGenerator = class(Tk2DocumentGenerator)
-  end;//TalcuTaskGenerator
+ TalcuTaskGenerator = class(Tk2DocumentGenerator)
+ end;//TalcuTaskGenerator
 
-// start class TalcuTaskList
+procedure TalcuTaskList.pm_SetFileName(const aValue: AnsiString);
+//#UC START# *53A1803801A2_52FA3DB401BEset_var*
+//#UC END# *53A1803801A2_52FA3DB401BEset_var*
+begin
+//#UC START# *53A1803801A2_52FA3DB401BEset_impl*
+ f_FileName := aValue;
+ f_TaskFolder:= ExtractDirName(f_FileName);
+//#UC END# *53A1803801A2_52FA3DB401BEset_impl*
+end;//TalcuTaskList.pm_SetFileName
 
 function TalcuTaskList.DoFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *53A180B502CB_52FA3DB401BE_var*
 var  
  l_TaskMade : TddTaskItem;
@@ -136,22 +119,6 @@ begin
  end;//Atom.Box.IsKindOf(k2_typTask)
 //#UC END# *53A180B502CB_52FA3DB401BE_impl*
 end;//TalcuTaskList.DoFinishAtom
-
-procedure TalcuTaskList.SaveTask(theTask: TddProcessTask);
-//#UC START# *53A04A4D01E1_52FA3DB401BE_var*
-var
- l_Stream: Tl3FileStream;
-//#UC END# *53A04A4D01E1_52FA3DB401BE_var*
-begin
-//#UC START# *53A04A4D01E1_52FA3DB401BE_impl*
- l_Stream := Tl3FileStream.Create(TaskFileName(theTask.TaskID), l3_fmExclusiveWrite{l3_fmWrite});
- try
-  theTask.SaveTo(l_Stream, False);
- finally
-  FreeAndNil(l_Stream);
- end; // try..finally
-//#UC END# *53A04A4D01E1_52FA3DB401BE_impl*
-end;//TalcuTaskList.SaveTask
 
 procedure TalcuTaskList.AddTask(aTask: TddProcessTask);
 //#UC START# *53A180E50119_52FA3DB401BE_var*
@@ -254,12 +221,12 @@ begin
 end;//TalcuTaskList.RemoveTask
 
 procedure TalcuTaskList.Save;
-var
- l_Writer : TevdNativeWriter;
+var l_Writer: TevdNativeWriter;
 
  procedure DoSave;
 
   function DoIt(anItem: TddProcessTask): Boolean;
+   {* Подитеративная функция для вызова  из DoSave }
   //#UC START# *FD19BDB28F10__var*
   //#UC END# *FD19BDB28F10__var*
   begin
@@ -288,7 +255,7 @@ var
   //#UC START# *53A04A0F017Diter*
   Self.
   //#UC END# *53A04A0F017Diter*
-   ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
+  ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
  end;//DoSave
 
 //#UC START# *53A049ED0084_52FA3DB401BE_var*
@@ -333,6 +300,22 @@ begin
 //#UC END# *53A049ED0084_52FA3DB401BE_impl*
 end;//TalcuTaskList.Save
 
+procedure TalcuTaskList.SaveTask(theTask: TddProcessTask);
+//#UC START# *53A04A4D01E1_52FA3DB401BE_var*
+var
+ l_Stream: Tl3FileStream;
+//#UC END# *53A04A4D01E1_52FA3DB401BE_var*
+begin
+//#UC START# *53A04A4D01E1_52FA3DB401BE_impl*
+ l_Stream := Tl3FileStream.Create(TaskFileName(theTask.TaskID), l3_fmExclusiveWrite{l3_fmWrite});
+ try
+  theTask.SaveTo(l_Stream, False);
+ finally
+  FreeAndNil(l_Stream);
+ end; // try..finally
+//#UC END# *53A04A4D01E1_52FA3DB401BE_impl*
+end;//TalcuTaskList.SaveTask
+
 function TalcuTaskList.TaskFileName(const theTaskID: AnsiString): AnsiString;
 //#UC START# *53A04D8B00D3_52FA3DB401BE_var*
 //#UC END# *53A04D8B00D3_52FA3DB401BE_var*
@@ -343,10 +326,10 @@ begin
 end;//TalcuTaskList.TaskFileName
 
 function TalcuTaskList.ActiveTaskCount(EnabledTypes: TcsTaskTypes): Integer;
-var
- l_Result : Integer absolute Result;
+var l_Result: Integer absolute Result;
 
  function DoIt(anItem: TddProcessTask): Boolean;
+  {* Подитеративная функция для вызова  из ActiveTaskCount }
  //#UC START# *53A057D502C1__var*
  //#UC END# *53A057D502C1__var*
  begin
@@ -365,12 +348,13 @@ begin
  Result := 0;
  Self.
  //#UC END# *53A049770398iter*
-  ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
+ ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
 end;//TalcuTaskList.ActiveTaskCount
 
 function TalcuTaskList.FindTask(aTaskType: TcsTaskType): TddProcessTask;
 
  function DoIt(anItem: TddProcessTask): Boolean;
+  {* Подитеративная функция для вызова  из FindTask }
  //#UC START# *590637D17394__var*
  //#UC END# *590637D17394__var*
  begin
@@ -392,7 +376,7 @@ begin
  Result := nil;
  Self.
  //#UC END# *53A049B30045iter*
-  ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
+ ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
 end;//TalcuTaskList.FindTask
 
 procedure TalcuTaskList.Sort;
@@ -409,16 +393,11 @@ begin
 //#UC END# *53A063B303E4_52FA3DB401BE_impl*
 end;//TalcuTaskList.Sort
 
-procedure TalcuTaskList.pm_SetFileName(const aValue: AnsiString);
-//#UC START# *53A1803801A2_52FA3DB401BEset_var*
-//#UC END# *53A1803801A2_52FA3DB401BEset_var*
+procedure TalcuTaskList.ClearFields;
 begin
-//#UC START# *53A1803801A2_52FA3DB401BEset_impl*
- f_FileName := aValue;
- f_TaskFolder:= ExtractDirName(f_FileName);
-//#UC END# *53A1803801A2_52FA3DB401BEset_impl*
-end;//TalcuTaskList.pm_SetFileName
-
-{$IfEnd} //AppServerSide AND ServerTasks
+ FileName := '';
+ inherited;
+end;//TalcuTaskList.ClearFields
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

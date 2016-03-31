@@ -1,81 +1,65 @@
 unit m3DBFiler;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3DBFiler.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBFiler
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3DBFiler.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBFiler" MUID: (555C88FF0236)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3DBInterfaces,
-  l3Filer
-  ;
+ l3IntfUses
+ , l3Filer
+ , m3DBInterfaces
+;
 
 type
  Tm3DBFiler = class(Tl3CustomFiler)
- private
- // private fields
-   f_DB : Im3DB;
-   f_Level : Integer;
-   f_Part : Im3DBDocumentPart;
-    {* Поле для свойства Part}
-   f_PartSelector : Tm3DocPartSelector;
-    {* Поле для свойства PartSelector}
-   f_ObjectIndex : Integer;
-    {* Поле для свойства ObjectIndex}
- protected
- // overridden protected methods
+  private
+   f_DB: Im3DB;
+   f_Level: Integer;
+   f_Part: Im3DBDocumentPart;
+    {* Поле для свойства Part }
+   f_PartSelector: Tm3DocPartSelector;
+    {* Поле для свойства PartSelector }
+   f_ObjectIndex: Integer;
+    {* Поле для свойства ObjectIndex }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function DoOpen: Boolean; override;
    procedure DoClose; override;
-     {* Сигнатура метода DoClose }
- public
- // public methods
+  public
    constructor Create(const aDB: Im3DB;
-     aDocID: Integer = 0;
-     aDocPart: Tm3DocPartSelector = m3_defDocPart;
-     aLevel: Integer = 0); reintroduce;
- public
- // public properties
+    aDocID: Integer = 0;
+    aDocPart: Tm3DocPartSelector = m3DBInterfaces.m3_defDocPart;
+    aLevel: Integer = 0); reintroduce;
+  public
    property Part: Im3DBDocumentPart
-     read f_Part;
+    read f_Part;
    property PartSelector: Tm3DocPartSelector
-     read f_PartSelector
-     write f_PartSelector;
+    read f_PartSelector
+    write f_PartSelector;
    property ObjectIndex: Integer
-     read f_ObjectIndex
-     write f_ObjectIndex;
+    read f_ObjectIndex
+    write f_ObjectIndex;
  end;//Tm3DBFiler
 
 implementation
 
 uses
-  l3Types,
-  l3Base,
-  m3StorageInterfaces
-  ;
-
-// start class Tm3DBFiler
+ l3ImplUses
+ , l3Types
+ , l3Base
+ , m3StorageInterfaces
+;
 
 constructor Tm3DBFiler.Create(const aDB: Im3DB;
-  aDocID: Integer = 0;
-  aDocPart: Tm3DocPartSelector = m3_defDocPart;
-  aLevel: Integer = 0);
+ aDocID: Integer = 0;
+ aDocPart: Tm3DocPartSelector = m3DBInterfaces.m3_defDocPart;
+ aLevel: Integer = 0);
 //#UC START# *555C8A63011E_555C88FF0236_var*
 //#UC END# *555C8A63011E_555C88FF0236_var*
 begin
@@ -90,6 +74,7 @@ begin
 end;//Tm3DBFiler.Create
 
 procedure Tm3DBFiler.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_555C88FF0236_var*
 //#UC END# *479731C50290_555C88FF0236_var*
 begin
@@ -104,7 +89,6 @@ begin
 end;//Tm3DBFiler.Cleanup
 
 procedure Tm3DBFiler.ClearFields;
- {-}
 begin
  f_DB := nil;
  f_Part := nil;

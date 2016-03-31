@@ -1,43 +1,38 @@
 unit m3ReadOnlyRootStreamManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3ReadOnlyRootStreamManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3ReadOnlyRootStreamManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3ReadOnlyRootStreamManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3ReadOnlyRootStreamManager" MUID: (5441022F00F3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3RootStreamManagerPrim,
-  l3CustomString,
-  m3FileRegion,
-  m3StoreHeaderDataPrim
-  ;
+ l3IntfUses
+ , m3RootStreamManagerPrim
+ , m3FileRegion
+ , m3StoreHeaderDataPrim
+ , l3CustomString
+;
 
 type
  Tm3ReadOnlyRootStreamManager = class(Tm3RootStreamManagerPrim)
- private
- // private fields
-   f_Other : Tm3RootStreamManagerPrim;
- protected
- // realized methods
+  private
+   f_Other: Tm3RootStreamManagerPrim;
+  protected
    procedure DoLockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion); override;
+    const aRegion: Tm3FileRegion); override;
    procedure DoUnlockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion); override;
-   function StoreHeaderDataClass: Rm3StoreHeaderDataPrim; override;
+    const aRegion: Tm3FileRegion); override;
    function pm_GetRootStorageFATElement: Int64; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function DoIsValidPosition(aPosition: Int64;
+    aName: Tl3CustomString): Boolean; override;
+  public
+   constructor Create(anOther: Tm3RootStreamManagerPrim); reintroduce;
+   function StoreHeaderDataClass: Rm3StoreHeaderDataPrim; override;
    procedure RemoveTOCBuffData(var ATOCBuffDataPosition: Int64); override;
    function AllocNewFATElement: Int64; override;
    procedure RemoveFATElementAtPos(aPosition: Int64); override;
@@ -46,35 +41,25 @@ type
    function AllocNewCluster: Int64; override;
    function ReadOnly: Boolean; override;
    procedure ReadData(aPosition: Int64;
-     out aData;
-     aSize: Integer); override;
+    out aData;
+    aSize: Integer); override;
    procedure WriteData(aPosition: Int64;
-     const aData;
-     aSize: Integer); override;
+    const aData;
+    aSize: Integer); override;
    function AllocatedStreamSize: Int64; override;
    procedure SetPositionAndValidateIt(aPosition: Int64;
-     var thePosition: Int64); override;
+    var thePosition: Int64); override;
    procedure ReloadHeader(aName: Tl3CustomString); override;
    procedure ReadDataAtCurrent(out aData;
-     aSize: Integer); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function DoIsValidPosition(aPosition: Int64;
-     aName: Tl3CustomString): Boolean; override;
- public
- // public methods
-   constructor Create(anOther: Tm3RootStreamManagerPrim); reintroduce;
+    aSize: Integer); override;
  end;//Tm3ReadOnlyRootStreamManager
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class Tm3ReadOnlyRootStreamManager
+ l3ImplUses
+ , SysUtils
+;
 
 constructor Tm3ReadOnlyRootStreamManager.Create(anOther: Tm3RootStreamManagerPrim);
 //#UC START# *544102A6036C_5441022F00F3_var*
@@ -88,7 +73,7 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.Create
 
 procedure Tm3ReadOnlyRootStreamManager.DoLockRegion(aForRead: Boolean;
-  const aRegion: Tm3FileRegion);
+ const aRegion: Tm3FileRegion);
 //#UC START# *541021B90213_5441022F00F3_var*
 //#UC END# *541021B90213_5441022F00F3_var*
 begin
@@ -98,7 +83,7 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.DoLockRegion
 
 procedure Tm3ReadOnlyRootStreamManager.DoUnlockRegion(aForRead: Boolean;
-  const aRegion: Tm3FileRegion);
+ const aRegion: Tm3FileRegion);
 //#UC START# *541021E4022F_5441022F00F3_var*
 //#UC END# *541021E4022F_5441022F00F3_var*
 begin
@@ -191,8 +176,8 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.ReadOnly
 
 procedure Tm3ReadOnlyRootStreamManager.ReadData(aPosition: Int64;
-  out aData;
-  aSize: Integer);
+ out aData;
+ aSize: Integer);
 //#UC START# *543F8E8F0358_5441022F00F3_var*
 //#UC END# *543F8E8F0358_5441022F00F3_var*
 begin
@@ -202,8 +187,8 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.ReadData
 
 procedure Tm3ReadOnlyRootStreamManager.WriteData(aPosition: Int64;
-  const aData;
-  aSize: Integer);
+ const aData;
+ aSize: Integer);
 //#UC START# *543F8ED700E2_5441022F00F3_var*
 //#UC END# *543F8ED700E2_5441022F00F3_var*
 begin
@@ -222,7 +207,7 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.AllocatedStreamSize
 
 procedure Tm3ReadOnlyRootStreamManager.SetPositionAndValidateIt(aPosition: Int64;
-  var thePosition: Int64);
+ var thePosition: Int64);
 //#UC START# *543F960901AE_5441022F00F3_var*
 //#UC END# *543F960901AE_5441022F00F3_var*
 begin
@@ -241,7 +226,7 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.ReloadHeader
 
 procedure Tm3ReadOnlyRootStreamManager.ReadDataAtCurrent(out aData;
-  aSize: Integer);
+ aSize: Integer);
 //#UC START# *54411B71009B_5441022F00F3_var*
 //#UC END# *54411B71009B_5441022F00F3_var*
 begin
@@ -251,6 +236,7 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.ReadDataAtCurrent
 
 procedure Tm3ReadOnlyRootStreamManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5441022F00F3_var*
 //#UC END# *479731C50290_5441022F00F3_var*
 begin
@@ -261,7 +247,7 @@ begin
 end;//Tm3ReadOnlyRootStreamManager.Cleanup
 
 function Tm3ReadOnlyRootStreamManager.DoIsValidPosition(aPosition: Int64;
-  aName: Tl3CustomString): Boolean;
+ aName: Tl3CustomString): Boolean;
 //#UC START# *540EFD500389_5441022F00F3_var*
 //#UC END# *540EFD500389_5441022F00F3_var*
 begin

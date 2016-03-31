@@ -1,77 +1,54 @@
 unit nsDocAttributeTreeStruct;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsDocAttributeTreeStruct.pas"
-// Начат: 2003/07/03 17:48:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::DocumentContainers::TnsDocAttributeTreeStruct
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsDocAttributeTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocAttributeTreeStruct" MUID: (4683614C02F2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  l3IID,
-  DynamicTreeUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , DocumentUnit
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsDocAttributeTreeStruct = class(TnsDataResetTreeStruct)
- private
- // private fields
-   f_Doc : IDocument;
-    {* Документ.}
- protected
- // realized methods
+  private
+   f_Doc: IDocument;
+    {* Документ. }
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    procedure RootChanged(const aOld: Il3SimpleRootNode;
     const aNew: Il3SimpleRootNode); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aDoc: IDocument;
     aShowRoot: Boolean); reintroduce;
    class function Make(const aDoc: IDocument;
     aShowRoot: Boolean = False): Il3SimpleTree; reintroduce;
  end;//TnsDocAttributeTreeStruct
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsDocAttributeTreeStruct
+ l3ImplUses
+ , BaseTypesUnit
+;
 
 constructor TnsDocAttributeTreeStruct.Create(const aDoc: IDocument;
-  aShowRoot: Boolean);
+ aShowRoot: Boolean);
 //#UC START# *49085633031D_4683614C02F2_var*
 //#UC END# *49085633031D_4683614C02F2_var*
 begin
@@ -82,7 +59,7 @@ begin
 end;//TnsDocAttributeTreeStruct.Create
 
 class function TnsDocAttributeTreeStruct.Make(const aDoc: IDocument;
-  aShowRoot: Boolean = False): Il3SimpleTree;
+ aShowRoot: Boolean = False): Il3SimpleTree;
 var
  l_Inst : TnsDocAttributeTreeStruct;
 begin
@@ -92,7 +69,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDocAttributeTreeStruct.Make
 
 function TnsDocAttributeTreeStruct.ReAqurieUnfilteredRoot: INodeBase;
 //#UC START# *48FF64F60078_4683614C02F2_var*
@@ -110,7 +87,7 @@ begin
 end;//TnsDocAttributeTreeStruct.ReAqurieUnfilteredRoot
 
 procedure TnsDocAttributeTreeStruct.RootChanged(const aOld: Il3SimpleRootNode;
-  const aNew: Il3SimpleRootNode);
+ const aNew: Il3SimpleRootNode);
 //#UC START# *48FDDE4B01F5_4683614C02F2_var*
 //#UC END# *48FDDE4B01F5_4683614C02F2_var*
 begin
@@ -121,7 +98,8 @@ begin
 end;//TnsDocAttributeTreeStruct.RootChanged
 
 function TnsDocAttributeTreeStruct.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4683614C02F2_var*
 //#UC END# *4A60B23E00C3_4683614C02F2_var*
 begin
@@ -135,14 +113,10 @@ begin
 end;//TnsDocAttributeTreeStruct.COMQueryInterface
 
 procedure TnsDocAttributeTreeStruct.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Doc := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsDocAttributeTreeStruct.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

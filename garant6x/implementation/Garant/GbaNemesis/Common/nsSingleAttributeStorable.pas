@@ -1,59 +1,43 @@
 unit nsSingleAttributeStorable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsSingleAttributeStorable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::DocumentDataObjects::TnsSingleAttributeStorable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeStorable.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsSingleAttributeStorable" MUID: (4682704E0347)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3_String,
-  evNodeStorable,
-  l3Interfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , evNodeStorable
+ , l3_String
+ , l3Interfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsSingleAttributeStorable = class(TevNodeStorable)
- private
- // private fields
-   f_Text : Tl3_String;
- protected
- // overridden protected methods
+  private
+   f_Text: Tl3_String;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function Text: Tl3WString; override;
  end;//TnsSingleAttributeStorable
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsSingleAttributeStorable
+ l3ImplUses
+ , l3Base
+ , l3TreeInterfaces
+;
 
 procedure TnsSingleAttributeStorable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4682704E0347_var*
 //#UC END# *479731C50290_4682704E0347_var*
 begin
@@ -95,7 +79,6 @@ begin
  Result := f_Text.AsPCharLen;
 //#UC END# *48F494FD001D_4682704E0347_impl*
 end;//TnsSingleAttributeStorable.Text
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

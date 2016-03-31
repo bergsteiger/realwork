@@ -1,30 +1,30 @@
 unit Concret;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "Concret.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Interfaces::Category Shared Delphi Sand Box::SandBox::Concret
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\Concret.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "Concret" MUID: (4861FFF4005B)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Pure
-  ;
+ l3IntfUses
+ , Pure
+;
 
 type
- Concret = interface(IUnknown)
-   ['{14AF2DBE-A147-42ED-82B8-C7B7360DB3A8}']
-  // Comparable
-   function Compare(const x: Concret;
-    const y: Concret): Integer;
+ //_T_ = Concret;
+ Concret = interface
+  ['{14AF2DBE-A147-42ED-82B8-C7B7360DB3A8}']
+  function compare(const x: Concret;
+   const y: Concret): Integer;
  end;//Concret
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

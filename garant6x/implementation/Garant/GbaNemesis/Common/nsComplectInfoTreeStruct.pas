@@ -1,73 +1,50 @@
 unit nsComplectInfoTreeStruct;
+ {* Дерево информации о комплекте }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsComplectInfoTreeStruct.pas"
-// Начат: 2005/11/22 17:48:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::ComplectInfo::TnsComplectInfoTreeStruct
-//
-// Дерево информации о комплекте
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsComplectInfoTreeStruct" MUID: (468368FC017F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  nsDataResetTreeStruct,
-  nsINodeWrapBase
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , nsINodeWrapBase
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsComplectInfoTreeStruct = class(TnsDataResetTreeStruct)
   {* Дерево информации о комплекте }
- private
- // private methods
+  private
    class function GetComplectInfoTree: INodeBase;
-     {* Получает корневую ноду с адаптера }
- protected
- // realized methods
+    {* Получает корневую ноду с адаптера }
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function RootNodeClass: RnsINodeWrap; override;
-     {* определяет класс обертки для Root }
- public
- // public methods
+    {* определяет класс обертки для Root }
+  public
    constructor Create; reintroduce;
    class function Make: Il3SimpleTree; reintroduce;
-     {* Создаёт экземляр дерева }
+    {* Создаёт экземляр дерева }
  end;//TnsComplectInfoTreeStruct
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  ComplectUnit,
-  nsTypes,
-  nsComplectInfoRootNode
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsComplectInfoTreeStruct
+ l3ImplUses
+ , DataAdapter
+ , ComplectUnit
+ , nsTypes
+ , nsComplectInfoRootNode
+;
 
 constructor TnsComplectInfoTreeStruct.Create;
 //#UC START# *490872B30390_468368FC017F_var*
@@ -79,6 +56,7 @@ begin
 end;//TnsComplectInfoTreeStruct.Create
 
 class function TnsComplectInfoTreeStruct.Make: Il3SimpleTree;
+ {* Создаёт экземляр дерева }
 var
  l_Inst : TnsComplectInfoTreeStruct;
 begin
@@ -88,9 +66,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsComplectInfoTreeStruct.Make
 
 class function TnsComplectInfoTreeStruct.GetComplectInfoTree: INodeBase;
+ {* Получает корневую ноду с адаптера }
 //#UC START# *490872E30161_468368FC017F_var*
 var
  lCI   : IComplectInfo;
@@ -121,6 +100,7 @@ begin
 end;//TnsComplectInfoTreeStruct.ReAqurieUnfilteredRoot
 
 function TnsComplectInfoTreeStruct.RootNodeClass: RnsINodeWrap;
+ {* определяет класс обертки для Root }
 //#UC START# *48FEE3640227_468368FC017F_var*
 //#UC END# *48FEE3640227_468368FC017F_var*
 begin
@@ -128,7 +108,6 @@ begin
  Result := TnsComplectInfoRootNode;
 //#UC END# *48FEE3640227_468368FC017F_impl*
 end;//TnsComplectInfoTreeStruct.RootNodeClass
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

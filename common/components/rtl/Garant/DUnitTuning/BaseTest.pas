@@ -1,170 +1,137 @@
 unit BaseTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/BaseTest.pas"
-// Начат: 17.12.2009 14:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnitTuning::Source::TBaseTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\BaseTest.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TBaseTest" MUID: (4B2A11BC0255)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3Filer,
-  TestFrameWork,
-  l3CardinalList,
-  l3EtalonsWorking
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
+ l3IntfUses
+ , TestFrameWork
+ , l3EtalonsWorking
+ , l3CardinalList
+ , l3Filer
+;
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 type
- ToLogProc = procedure (const aSt: AnsiString) of object;
+ ToLogProc = procedure(const aSt: AnsiString) of object;
 
- TimeToLogProc = procedure (aTime: Cardinal;
+ TimeToLogProc = procedure(aTime: Cardinal;
   const aSt: AnsiString;
   const aSubName: AnsiString) of object;
 
  TBaseTest = {abstract} class(TTestCase)
- private
- // private fields
-   f_Starts : Tl3CardinalList;
-    {* Начальные точки замеров}
- public
- // realized methods
-   procedure CheckOutputWithInput(const aIn: AnsiString;
-     const aOut: AnsiString;
-     aHeaderBegin: AnsiChar;
-     aEtalonNeedsComputerName: Boolean;
-     aEtalonCanHaveDiff: Boolean;
-     const anExtraFileName: AnsiString;
-     aNeedsCheck: Boolean); overload; 
-   procedure CheckWithEtalon(const aFileName: AnsiString;
-    aHeaderBegin: AnsiChar);
-   procedure CheckOutputWithInput(const aSt: AnsiString;
-     aHeaderBegin: AnsiChar = #0;
-     const anExtraFileName: AnsiString = '';
-     aNeedsCheck: Boolean = true); overload; 
-   procedure CheckPictureOnly;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-   function GetEnabled: Boolean; override;
-   procedure SetEnabled(Value: Boolean); override;
-   procedure DoClearEtalon; override;
- protected
- // protected methods
+  private
+   f_Starts: Tl3CardinalList;
+    {* Начальные точки замеров }
+  protected
    procedure ToLog(const aSt: AnsiString);
    function StartTimer: Longword;
    function StopTimer(const aSt: AnsiString = '';
-     const aSubName: AnsiString = ''; aNeedTimeToLog : Boolean = true): Longword; overload; 
+    const aSubName: AnsiString = ''; aNeedTimeToLog : Boolean = true): Longword; overload;
    class function FileFromCurrent(const aStr: AnsiString;
-     aFolderMode: Boolean = False): AnsiString;
-     {* Файл из текущей директории }
+    aFolderMode: Boolean = False): AnsiString;
+    {* Файл из текущей директории }
    procedure TimeToLog(aTime: Cardinal;
-     const aSt: AnsiString;
-     const aSubName: AnsiString;
-     aIgnoreTestName: Boolean = false);
-     {* Выводит замер времени в лог }
+    const aSt: AnsiString;
+    const aSubName: AnsiString;
+    aIgnoreTestName: Boolean = False);
+    {* Выводит замер времени в лог }
    function FileForOutput: AnsiString; virtual;
-     {* Стандартный файл для вывода, для текщего теста }
+    {* Стандартный файл для вывода, для текщего теста }
    function FilerForOutput: Tl3CustomDosFiler;
    function FilerForInput(const aSt: AnsiString): Tl3CustomDosFiler;
    procedure CheckTimeout(aNow: Cardinal;
-     aTimeout: Cardinal);
+    aTimeout: Cardinal);
    function StopTimer(const aSt: AnsiString;
-     aNeedTimeToLog: Boolean): Longword; overload; 
+    aNeedTimeToLog: Boolean): Longword; overload;
    function KPage: AnsiString;
-     {* Страница в K }
+    {* Страница в K }
    function IsGK: Boolean;
-     {* Тесты запущены ГК }
+    {* Тесты запущены ГК }
    function EtalonSuffix: AnsiString;
-     {* Суффикс имени эталонного файла }
+    {* Суффикс имени эталонного файла }
    function EtalonNeedsComputerName: Boolean; virtual;
    class function OutputPath: AnsiString;
    function RaiseIfEtalonCreated: Boolean; virtual;
    function EtalonCanHaveDiff: Boolean; virtual;
-     {* Эталон может иметь эталонную разницу для конкретного компьютера. Например как в [RequestLink:234362304] }
+    {* Эталон может иметь эталонную разницу для конкретного компьютера. Например как в [RequestLink:234362304] }
    function FileNameForOutput: AnsiString; virtual;
    function FolderFromCurrent(const aStr: AnsiString): AnsiString;
    function NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean; virtual;
-    {$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+   {$If Defined(XE)}
    function EtalonNeedsXE: Boolean; virtual;
-    {$IfEnd} //XE AND nsTest AND not NotTunedDUnit
+   {$IfEnd} // Defined(XE)
    function EtalonNeedsOSName: Boolean; virtual;
    function EtalonNeeds64: Boolean; virtual;
    function OutputFolderName: AnsiString; virtual;
-     {* Папка, в которую пишутся выходные файлы. }
+    {* Папка, в которую пишутся выходные файлы. }
    function CheckExternalPicture(aMakeEtalon: Boolean;
-     const aCVSPath: AnsiString;
-     var aCompareImage: Boolean): AnsiString;
- public
- // public methods
+    const aCVSPath: AnsiString;
+    var aCompareImage: Boolean): AnsiString;
+   procedure Cleanup; override;
+   function GetEnabled: Boolean; override;
+   procedure SetEnabled(Value: Boolean); override;
+   procedure DoClearEtalon; override;
+  public
    class function ComputerName: AnsiString;
    function AlwaysShowAFC: Boolean; virtual;
-     {* Всегда показывать сравнивалку файлов, когда не пишем в К }
-   class function TestSetFolderName(aNoSuffix: Boolean = false): AnsiString;
+    {* Всегда показывать сравнивалку файлов, когда не пишем в К }
+   class function TestSetFolderName(aNoSuffix: Boolean = False): AnsiString;
    procedure CheckEtalonInFolder(aHeaderBegin: AnsiChar);
-     {* Сравнивает файлы в папке с названием класса с эталонами в папке с суффиксом '_Etalon'. }
    procedure ClearTestFolder;
    function OutputFolderNameWitEtalons: AnsiString;
-     {* Директория для эталонов. }
+    {* Директория для эталонов. }
    function GetFullPath2OutputFolderName: AnsiString;
    class function IsWritingToK: Boolean;
    class function HasTabs: Boolean;
+   procedure CheckOutputWithInput(const aIn: AnsiString;
+    const aOut: AnsiString;
+    aHeaderBegin: AnsiChar;
+    aEtalonNeedsComputerName: Boolean;
+    aEtalonCanHaveDiff: Boolean;
+    const anExtraFileName: AnsiString;
+    aNeedsCheck: Boolean); overload;
+   procedure CheckWithEtalon(const aFileName: AnsiString;
+    aHeaderBegin: AnsiChar);
+   procedure CheckOutputWithInput(const aSt: AnsiString;
+    aHeaderBegin: AnsiChar = #0;
+    const anExtraFileName: AnsiString = '';
+    aNeedsCheck: Boolean = True); overload;
+   procedure CheckPictureOnly;
  end;//TBaseTest
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-var
-   f_ToLog : ToLogProc = nil;
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-var
-   f_TimeToLog : TimeToLogProc = nil;
-  {$IfEnd} //nsTest AND not NotTunedDUnit
+var f_ToLog: ToLogProc = nil;
+var f_TimeToLog: TimeToLogProc = nil;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3Base,
-  Windows,
-  SysUtils,
-  l3Types,
-  StrUtils,
-  KTestRunner,
-  l3String,
-  l3ImageUtils
-  {$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KBridge
-  {$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
-  ,
-  l3Stream,
-  l3FileUtils,
-  JclSysInfo,
-  l3SysUtils,
-  ddPicturePathListner,
-  l3TabService
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
-
-// start class TBaseTest
+ l3ImplUses
+ , SysUtils
+ , KTestRunner
+ , l3String
+ , l3ImageUtils
+ {$If Defined(MTDORB) AND Defined(NoKPageTool)}
+ , KBridge
+ {$IfEnd} // Defined(MTDORB) AND Defined(NoKPageTool)
+ , l3Stream
+ , l3FileUtils
+ , JclSysInfo
+ , l3SysUtils
+ , ddPicturePathListner
+ , l3TabService
+ , l3Base
+ , Windows
+ , l3Types
+ , StrUtils
+;
 
 procedure TBaseTest.ToLog(const aSt: AnsiString);
 //#UC START# *4B2A121601E8_4B2A11BC0255_var*
@@ -191,7 +158,7 @@ begin
 end;//TBaseTest.StartTimer
 
 function TBaseTest.StopTimer(const aSt: AnsiString = '';
-  const aSubName: AnsiString = ''; aNeedTimeToLog : Boolean = true): Longword;
+ const aSubName: AnsiString = ''; aNeedTimeToLog : Boolean = true): Longword;
 //#UC START# *4B2A123C0086_4B2A11BC0255_var*
 //#UC END# *4B2A123C0086_4B2A11BC0255_var*
 begin
@@ -206,7 +173,8 @@ begin
 end;//TBaseTest.StopTimer
 
 class function TBaseTest.FileFromCurrent(const aStr: AnsiString;
-  aFolderMode: Boolean = False): AnsiString;
+ aFolderMode: Boolean = False): AnsiString;
+ {* Файл из текущей директории }
 //#UC START# *4B2B9C8001AA_4B2A11BC0255_var*
 //#UC END# *4B2B9C8001AA_4B2A11BC0255_var*
 begin
@@ -216,9 +184,10 @@ begin
 end;//TBaseTest.FileFromCurrent
 
 procedure TBaseTest.TimeToLog(aTime: Cardinal;
-  const aSt: AnsiString;
-  const aSubName: AnsiString;
-  aIgnoreTestName: Boolean = false);
+ const aSt: AnsiString;
+ const aSubName: AnsiString;
+ aIgnoreTestName: Boolean = False);
+ {* Выводит замер времени в лог }
 //#UC START# *4B2F4C510248_4B2A11BC0255_var*
 var
  l_S : AnsiString;
@@ -253,6 +222,7 @@ begin
 end;//TBaseTest.TimeToLog
 
 function TBaseTest.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4B2A11BC0255_var*
 var
  l_TestFolder: AnsiString;
@@ -291,7 +261,7 @@ begin
 end;//TBaseTest.FilerForInput
 
 procedure TBaseTest.CheckTimeout(aNow: Cardinal;
-  aTimeout: Cardinal);
+ aTimeout: Cardinal);
 //#UC START# *4B56182A0029_4B2A11BC0255_var*
 //#UC END# *4B56182A0029_4B2A11BC0255_var*
 begin
@@ -301,7 +271,7 @@ begin
 end;//TBaseTest.CheckTimeout
 
 function TBaseTest.StopTimer(const aSt: AnsiString;
-  aNeedTimeToLog: Boolean): Longword;
+ aNeedTimeToLog: Boolean): Longword;
 //#UC START# *4B588FEF0363_4B2A11BC0255_var*
 //#UC END# *4B588FEF0363_4B2A11BC0255_var*
 begin
@@ -311,6 +281,7 @@ begin
 end;//TBaseTest.StopTimer
 
 function TBaseTest.KPage: AnsiString;
+ {* Страница в K }
 //#UC START# *4B853B4603A9_4B2A11BC0255_var*
 //#UC END# *4B853B4603A9_4B2A11BC0255_var*
 begin
@@ -332,6 +303,7 @@ begin
 end;//TBaseTest.KPage
 
 function TBaseTest.IsGK: Boolean;
+ {* Тесты запущены ГК }
 //#UC START# *4BEA99EB006D_4B2A11BC0255_var*
 //#UC END# *4BEA99EB006D_4B2A11BC0255_var*
 begin
@@ -341,6 +313,7 @@ begin
 end;//TBaseTest.IsGK
 
 function TBaseTest.EtalonSuffix: AnsiString;
+ {* Суффикс имени эталонного файла }
 //#UC START# *4CA45CA90312_4B2A11BC0255_var*
 //#UC END# *4CA45CA90312_4B2A11BC0255_var*
 begin
@@ -403,6 +376,7 @@ begin
 end;//TBaseTest.RaiseIfEtalonCreated
 
 function TBaseTest.EtalonCanHaveDiff: Boolean;
+ {* Эталон может иметь эталонную разницу для конкретного компьютера. Например как в [RequestLink:234362304] }
 //#UC START# *4CAEE13D00E1_4B2A11BC0255_var*
 //#UC END# *4CAEE13D00E1_4B2A11BC0255_var*
 begin
@@ -424,6 +398,7 @@ begin
 end;//TBaseTest.FileNameForOutput
 
 function TBaseTest.AlwaysShowAFC: Boolean;
+ {* Всегда показывать сравнивалку файлов, когда не пишем в К }
 //#UC START# *4F5F28EB0242_4B2A11BC0255_var*
 //#UC END# *4F5F28EB0242_4B2A11BC0255_var*
 begin
@@ -450,7 +425,7 @@ begin
 //#UC END# *4FA164500031_4B2A11BC0255_impl*
 end;//TBaseTest.NeedCreateEtalonsWhileCheckingOutputWithInput
 
-class function TBaseTest.TestSetFolderName(aNoSuffix: Boolean = false): AnsiString;
+class function TBaseTest.TestSetFolderName(aNoSuffix: Boolean = False): AnsiString;
 //#UC START# *51237EAB00E9_4B2A11BC0255_var*
 //#UC END# *51237EAB00E9_4B2A11BC0255_var*
 begin
@@ -471,7 +446,7 @@ begin
 //#UC END# *51237EAB00E9_4B2A11BC0255_impl*
 end;//TBaseTest.TestSetFolderName
 
-{$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(XE)}
 function TBaseTest.EtalonNeedsXE: Boolean;
 //#UC START# *51AF49E5001B_4B2A11BC0255_var*
 //#UC END# *51AF49E5001B_4B2A11BC0255_var*
@@ -480,7 +455,7 @@ begin
  Result := false;
 //#UC END# *51AF49E5001B_4B2A11BC0255_impl*
 end;//TBaseTest.EtalonNeedsXE
-{$IfEnd} //XE AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(XE)
 
 function TBaseTest.EtalonNeedsOSName: Boolean;
 //#UC START# *51AF4A1C036E_4B2A11BC0255_var*
@@ -501,6 +476,7 @@ begin
 end;//TBaseTest.EtalonNeeds64
 
 function TBaseTest.OutputFolderName: AnsiString;
+ {* Папка, в которую пишутся выходные файлы. }
 //#UC START# *51B1A75D0367_4B2A11BC0255_var*
 //#UC END# *51B1A75D0367_4B2A11BC0255_var*
 begin
@@ -602,6 +578,7 @@ begin
 end;//TBaseTest.ClearTestFolder
 
 function TBaseTest.OutputFolderNameWitEtalons: AnsiString;
+ {* Директория для эталонов. }
 //#UC START# *51B58D98028F_4B2A11BC0255_var*
 //#UC END# *51B58D98028F_4B2A11BC0255_var*
 begin
@@ -620,8 +597,8 @@ begin
 end;//TBaseTest.GetFullPath2OutputFolderName
 
 function TBaseTest.CheckExternalPicture(aMakeEtalon: Boolean;
-  const aCVSPath: AnsiString;
-  var aCompareImage: Boolean): AnsiString;
+ const aCVSPath: AnsiString;
+ var aCompareImage: Boolean): AnsiString;
 //#UC START# *536A0DB9038B_4B2A11BC0255_var*
 var
  i             : Integer;
@@ -701,12 +678,12 @@ begin
 end;//TBaseTest.HasTabs
 
 procedure TBaseTest.CheckOutputWithInput(const aIn: AnsiString;
-  const aOut: AnsiString;
-  aHeaderBegin: AnsiChar;
-  aEtalonNeedsComputerName: Boolean;
-  aEtalonCanHaveDiff: Boolean;
-  const anExtraFileName: AnsiString;
-  aNeedsCheck: Boolean);
+ const aOut: AnsiString;
+ aHeaderBegin: AnsiChar;
+ aEtalonNeedsComputerName: Boolean;
+ aEtalonCanHaveDiff: Boolean;
+ const anExtraFileName: AnsiString;
+ aNeedsCheck: Boolean);
 //#UC START# *4CAEDCF9006A_4B2A11BC0255_var*
 
  procedure ToUnicode(var aDiff : AnsiString);
@@ -984,7 +961,7 @@ begin
 end;//TBaseTest.CheckOutputWithInput
 
 procedure TBaseTest.CheckWithEtalon(const aFileName: AnsiString;
-  aHeaderBegin: AnsiChar);
+ aHeaderBegin: AnsiChar);
 //#UC START# *4DD533BF023D_4B2A11BC0255_var*
 var
  l_S : AnsiString;
@@ -998,9 +975,9 @@ begin
 end;//TBaseTest.CheckWithEtalon
 
 procedure TBaseTest.CheckOutputWithInput(const aSt: AnsiString;
-  aHeaderBegin: AnsiChar = #0;
-  const anExtraFileName: AnsiString = '';
-  aNeedsCheck: Boolean = true);
+ aHeaderBegin: AnsiChar = #0;
+ const anExtraFileName: AnsiString = '';
+ aNeedsCheck: Boolean = True);
 //#UC START# *4F5F3C61023E_4B2A11BC0255_var*
 //#UC END# *4F5F3C61023E_4B2A11BC0255_var*
 begin
@@ -1130,7 +1107,6 @@ begin
  DelDir(l_Dir);
 //#UC END# *51B1DD8E0018_4B2A11BC0255_impl*
 end;//TBaseTest.DoClearEtalon
-
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 end.

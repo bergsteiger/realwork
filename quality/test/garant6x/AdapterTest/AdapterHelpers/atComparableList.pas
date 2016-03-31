@@ -1,86 +1,66 @@
 unit atComparableList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atComparableList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatComparableList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atComparableList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatComparableList" MUID: (5397269D015F)
 
 interface
 
 uses
-  BaseTypesUnit,
-  DynamicDocListUnit,
-  DocumentUnit,
-  DynamicTreeUnit,
-  SysUtils,
-  l3_Base,
-  Contnrs
-  ;
+ l3IntfUses
+ , l3_Base
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ , BaseTypesUnit
+ , DocumentUnit
+ , Contnrs
+ , SysUtils
+;
 
 type
  EInvalidStringFormat = class(Exception)
  end;//EInvalidStringFormat
 
  TatListElement = class(Tl3_Base)
- private
- // private fields
-   f_DocId : Longword;
-   f_Position : Longword;
-   f_NodeType : TListNodeType;
-   f_PositionType : TPositionType;
- protected
- // overridden protected methods
-  {$If not defined(DesignTimeLibrary)}
+  private
+   f_DocId: Longword;
+   f_Position: Longword;
+   f_NodeType: TListNodeType;
+   f_PositionType: TPositionType;
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-  {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    function IsEqual(const anOtherElement: TatListElement): Boolean; virtual;
-   constructor Create(const aString: AnsiString); reintroduce; overload; 
-   constructor Create(const aNode: INodeBase); reintroduce; overload; 
+   constructor Create(const aString: AnsiString); reintroduce; overload;
+   constructor Create(const aNode: INodeBase); reintroduce; overload;
    function ToString: AnsiString; virtual;
  end;//TatListElement
 
  _ObjectListElement_ = TatListElement;
  _atTypedObjectList_Parent_ = TObjectList;
-{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
  TatElementsList = class(_atTypedObjectList_)
  end;//TatElementsList
 
  TatComparableList = class(Tl3_Base)
- private
- // private fields
-   f_Elements : TatElementsList;
- private
- // private methods
+  private
+   f_Elements: TatElementsList;
+  private
    procedure OnListNode(const aNode: INodeBase); virtual;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   constructor Create; reintroduce; overload;
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   constructor Create; reintroduce; overload; 
- public
- // public methods
-   constructor Create(const aList: IDynList); reintroduce; overload; 
-   constructor Create(const aFileName: AnsiString); reintroduce; overload; 
+  public
+   constructor Create(const aList: IDynList); reintroduce; overload;
+   constructor Create(const aFileName: AnsiString); reintroduce; overload;
    function IsEqual(const anOtherList: TatComparableList): Boolean; virtual;
    procedure SaveToFile(const aFileName: AnsiString); virtual;
  end;//TatComparableList
@@ -88,19 +68,17 @@ type
 implementation
 
 uses
-  atListEntryInfo,
-  atPositionTypeConverter,
-  atListNodeTypeConverter,
-  Classes,
-  atNodeHelper,
-  atListHelper
-  ;
+ l3ImplUses
+ , atNodeHelper
+ , atListHelper
+ , atListEntryInfo
+ , atPositionTypeConverter
+ , atListNodeTypeConverter
+ , Classes
+;
 
 const
-    { Consts }
-   FIELD_DELIMITER : AnsiChar = ';';
-
-// start class TatListElement
+ FIELD_DELIMITER: AnsiChar = ';';
 
 function TatListElement.IsEqual(const anOtherElement: TatListElement): Boolean;
 //#UC START# *539728B401BF_539726B801C6_var*
@@ -175,8 +153,9 @@ begin
 //#UC END# *53972CAF0329_539726B801C6_impl*
 end;//TatListElement.ToString
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TatListElement.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_539726B801C6_var*
 //#UC END# *47A6FEE600FC_539726B801C6_var*
 begin
@@ -184,7 +163,7 @@ begin
   Result := True;
 //#UC END# *47A6FEE600FC_539726B801C6_impl*
 end;//TatListElement.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TatListElement.ClearFields;
 //#UC START# *5000565C019C_539726B801C6_var*
@@ -199,9 +178,8 @@ begin
   inherited;
 //#UC END# *5000565C019C_539726B801C6_impl*
 end;//TatListElement.ClearFields
-{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
 
-// start class TatComparableList
+{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
 
 constructor TatComparableList.Create(const aList: IDynList);
 //#UC START# *53972BC4005B_5397269D015F_var*
@@ -319,8 +297,9 @@ begin
 //#UC END# *5397339A0021_5397269D015F_impl*
 end;//TatComparableList.OnListNode
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TatComparableList.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_5397269D015F_var*
 //#UC END# *47A6FEE600FC_5397269D015F_var*
 begin
@@ -328,7 +307,7 @@ begin
   Result := True;
 //#UC END# *47A6FEE600FC_5397269D015F_impl*
 end;//TatComparableList.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TatComparableList.ClearFields;
 //#UC START# *5000565C019C_5397269D015F_var*

@@ -1,99 +1,139 @@
 unit nsFiltersTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Filters"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Filters/nsFiltersTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Filters::Impl::TnsFiltersTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersTree.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersTree" MUID: (4CAEC809015D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Tree_TLB,
-  bsTypes,
-  l3Tree,
-  DocumentAndListInterfaces,
-  nsFiltersInterfaces,
-  l3TreeInterfaces,
-  l3Interfaces,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3Tree
+ , nsFiltersInterfaces
+ , l3Tree_TLB
+ , DocumentAndListInterfaces
+ , bsTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsFiltersTree = class(Tl3Tree, InsFiltersTree, InsFiltersListener, Il3TreeWithLockRebuild)
- private
- // private fields
-   f_DsList : IdsList;
-   f_FilterType : TnsFiltersType;
-   f_RebuildLockCount : Integer;
-   f_NeedRebuild : Boolean;
- private
- // private methods
+  private
+   f_DsList: IdsList;
+   f_FilterType: TnsFiltersType;
+   f_RebuildLockCount: Integer;
+   f_NeedRebuild: Boolean;
+  private
    procedure LoadChildren;
- protected
- // realized methods
+  protected
    function pm_GetFiltersType: TbsListType;
    procedure FiltersChanged; stdcall;
    procedure FilterNameChanged; stdcall;
    procedure FilterPermanenceChanged; stdcall;
    procedure LockRebuild;
-     {* Сигнатура метода LockRebuild }
    procedure UnlockRebuild;
-     {* Сигнатура метода UnlockRebuild }
    function IsRebuildLocked: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aFilterType: TnsFiltersType;
-     const aDsList: IdsList); overload; 
+    const aDsList: IdsList); reintroduce; overload;
    class function Make(aFilterType: TnsFiltersType;
-     const aDsList: IdsList): Il3Tree; reintroduce; overload; 
-     {* Сигнатура фабрики TnsFiltersTree.Make$1 }
+    const aDsList: IdsList): Il3Tree; reintroduce; overload;
    constructor Create(aListType: TbsListType;
-     const aDsList: IdsList); overload; 
+    const aDsList: IdsList); reintroduce; overload;
    class function Make(aListType: TbsListType;
-     const aDsList: IdsList): Il3Tree; reintroduce; overload; 
-     {* Сигнатура фабрики TnsFiltersTree.Make$2 }
+    const aDsList: IdsList): Il3Tree; reintroduce; overload;
  end;//TnsFiltersTree
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3NodesModelPart,
-  FiltersUnit,
-  nsFiltersNode,
-  DataAdapter,
-  nsFiltersListenersDocManager,
-  nsFiltersListenersDrugsManager,
-  nsTreeUtils,
-  nsFiltersRootNode,
-  l3Nodes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3NodesModelPart
+ , FiltersUnit
+ , SysUtils
+ , nsFiltersNode
+ , DataAdapter
+ , nsFiltersListenersDocManager
+ , nsFiltersListenersDrugsManager
+ , l3TreeInterfaces
+ , l3Interfaces
+ , nsTreeUtils
+ , nsFiltersRootNode
+ , l3Nodes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+constructor TnsFiltersTree.Create(aFilterType: TnsFiltersType;
+ const aDsList: IdsList);
+//#UC START# *4F995492006C_4CAEC809015D_var*
+//#UC END# *4F995492006C_4CAEC809015D_var*
+begin
+//#UC START# *4F995492006C_4CAEC809015D_impl*
+ inherited Create;
+ f_FilterType := aFilterType;
+ f_NeedRebuild := False;
+ f_RebuildLockCount := 0;
+ f_dsList := aDsList;
+ RootNode := TnsFiltersRootNode.Make(f_FilterType);
+ LoadChildren;
+ case f_FilterType of
+  ftDocuments: TnsFiltersListenersDocManager.AddListener(Self);
+  ftDrugs: TnsFiltersListenersDrugsManager.AddListener(Self);
+ end;//case aFilterType
+//#UC END# *4F995492006C_4CAEC809015D_impl*
+end;//TnsFiltersTree.Create
 
-// start class TnsFiltersTree
+class function TnsFiltersTree.Make(aFilterType: TnsFiltersType;
+ const aDsList: IdsList): Il3Tree;
+var
+ l_Inst : TnsFiltersTree;
+begin
+ l_Inst := Create(aFilterType, aDsList);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsFiltersTree.Make
+
+constructor TnsFiltersTree.Create(aListType: TbsListType;
+ const aDsList: IdsList);
+//#UC START# *4F9954DC015E_4CAEC809015D_var*
+ function ListType2FilterType(aListType: TbsListType): TnsFiltersType;
+ begin
+  case aListType of
+   bs_ltDocument: Result := ftDocuments;
+   bs_ltDrug: Result := ftDrugs;
+  else
+   Assert(False);
+   Result := ftDrugs;
+  end;
+ end;
+//#UC END# *4F9954DC015E_4CAEC809015D_var*
+begin
+//#UC START# *4F9954DC015E_4CAEC809015D_impl*
+ Create(ListType2FilterType(aListType), aDsList);
+//#UC END# *4F9954DC015E_4CAEC809015D_impl*
+end;//TnsFiltersTree.Create
+
+class function TnsFiltersTree.Make(aListType: TbsListType;
+ const aDsList: IdsList): Il3Tree;
+var
+ l_Inst : TnsFiltersTree;
+begin
+ l_Inst := Create(aListType, aDsList);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsFiltersTree.Make
 
 procedure TnsFiltersTree.LoadChildren;
 //#UC START# *4F9955200151_4CAEC809015D_var*
@@ -219,72 +259,6 @@ begin
 //#UC END# *4F9955200151_4CAEC809015D_impl*
 end;//TnsFiltersTree.LoadChildren
 
-constructor TnsFiltersTree.Create(aFilterType: TnsFiltersType;
-  const aDsList: IdsList);
-//#UC START# *4F995492006C_4CAEC809015D_var*
-//#UC END# *4F995492006C_4CAEC809015D_var*
-begin
-//#UC START# *4F995492006C_4CAEC809015D_impl*
- inherited Create;
- f_FilterType := aFilterType;
- f_NeedRebuild := False;
- f_RebuildLockCount := 0;
- f_dsList := aDsList;
- RootNode := TnsFiltersRootNode.Make(f_FilterType);
- LoadChildren;
- case f_FilterType of
-  ftDocuments: TnsFiltersListenersDocManager.AddListener(Self);
-  ftDrugs: TnsFiltersListenersDrugsManager.AddListener(Self);
- end;//case aFilterType
-//#UC END# *4F995492006C_4CAEC809015D_impl*
-end;//TnsFiltersTree.Create
-
-class function TnsFiltersTree.Make(aFilterType: TnsFiltersType;
-  const aDsList: IdsList): Il3Tree;
-var
- l_Inst : TnsFiltersTree;
-begin
- l_Inst := Create(aFilterType, aDsList);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-constructor TnsFiltersTree.Create(aListType: TbsListType;
-  const aDsList: IdsList);
-//#UC START# *4F9954DC015E_4CAEC809015D_var*
- function ListType2FilterType(aListType: TbsListType): TnsFiltersType;
- begin
-  case aListType of
-   bs_ltDocument: Result := ftDocuments;
-   bs_ltDrug: Result := ftDrugs;
-  else
-   Assert(False);
-   Result := ftDrugs;
-  end;
- end;
-//#UC END# *4F9954DC015E_4CAEC809015D_var*
-begin
-//#UC START# *4F9954DC015E_4CAEC809015D_impl*
- Create(ListType2FilterType(aListType), aDsList);
-//#UC END# *4F9954DC015E_4CAEC809015D_impl*
-end;//TnsFiltersTree.Create
-
-class function TnsFiltersTree.Make(aListType: TbsListType;
-  const aDsList: IdsList): Il3Tree;
-var
- l_Inst : TnsFiltersTree;
-begin
- l_Inst := Create(aListType, aDsList);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 function TnsFiltersTree.pm_GetFiltersType: TbsListType;
 //#UC START# *499044F60208_4CAEC809015Dget_var*
 const
@@ -373,6 +347,7 @@ begin
 end;//TnsFiltersTree.IsRebuildLocked
 
 procedure TnsFiltersTree.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CAEC809015D_var*
 //#UC END# *479731C50290_4CAEC809015D_var*
 begin
@@ -389,14 +364,10 @@ begin
 end;//TnsFiltersTree.Cleanup
 
 procedure TnsFiltersTree.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_DsList := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsFiltersTree.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

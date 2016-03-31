@@ -1,116 +1,88 @@
 unit KBridge;
+ {* Мост к К }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/KBridge.pas"
-// Начат: 27.09.2010 19:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnitTuning::BridgeToKviaCORBA::TKBridge
-//
-// Мост к К
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\KBridge.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TKBridge" MUID: (4CA0BB8600CF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND Defined(NoKPageTool) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3Filer,
-  l3ProtoObject,
-  SecuritySrv_int,
-  Contents_int,
-  orb_int,
-  CosNaming_int
-  ;
-{$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
+ l3IntfUses
+ , l3ProtoObject
+ , orb_int
+ , SecuritySrv_int
+ , CosNaming_int
+ , Contents_int
+ , l3Filer
+;
 
-{$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
 type
  TKBridge = class(Tl3ProtoObject)
   {* Мост к К }
- private
- // private fields
-   f_orb : IORB;
-   f_session : ICoreSrv_SecuritySrv_SessionManager;
-   f_NC : INamingContext;
-   f_KPageFactory : IServerGate_Contents_KPageFactoryManagerSrv;
- protected
- // property methods
+  private
+   f_orb: IORB;
+   f_session: ICoreSrv_SecuritySrv_SessionManager;
+   f_NC: INamingContext;
+   f_KPageFactory: IServerGate_Contents_KPageFactoryManagerSrv;
+  protected
    function pm_GetPage(anID: Integer): IServerGate_Contents_KPage; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure Logout;
    class function Exists: Boolean;
    procedure AttachFile(aPage: Integer;
-     const aFile: AnsiString);
- public
- // public properties
-   property Page[anID: Integer]: IServerGate_Contents_KPage
-     read pm_GetPage;
- public
- // singleton factory method
+    const aFile: AnsiString);
    class function Instance: TKBridge;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TKBridge }
+  public
+   property Page[anID: Integer]: IServerGate_Contents_KPage
+    read pm_GetPage;
  end;//TKBridge
-{$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND Defined(NoKPageTool) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND Defined(NoKPageTool) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3Base {a},
-  l3FileUtils,
-  SysUtils,
-  l3Types,
-  GarORBInitializerImpl,
-  Classes,
-  CosNaming,
-  orb,
-  SecuritySrv,
-  GarClientSecurity,
-  Contents,
-  tfwKConst
-  ;
-{$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
+ l3ImplUses
+ , GarORBInitializerImpl
+ , Classes
+ , CosNaming
+ , SysUtils
+ , orb
+ , SecuritySrv
+ , GarClientSecurity
+ , Contents
+ , tfwKConst
+ , l3FileUtils
+ , l3Types
+ , l3Base
+;
 
-{$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-
-
-// start class TKBridge
-
-var g_TKBridge : TKBridge = nil;
+var g_TKBridge: TKBridge = nil;
+ {* Экземпляр синглетона TKBridge }
 
 procedure TKBridgeFree;
+ {* Метод освобождения экземпляра синглетона TKBridge }
 begin
  l3Free(g_TKBridge);
-end;
+end;//TKBridgeFree
 
-class function TKBridge.Instance: TKBridge;
+function TKBridge.pm_GetPage(anID: Integer): IServerGate_Contents_KPage;
+//#UC START# *4CA1D3B10250_4CA0BB8600CFget_var*
+//#UC END# *4CA1D3B10250_4CA0BB8600CFget_var*
 begin
- if (g_TKBridge = nil) then
- begin
-  l3System.AddExitProc(TKBridgeFree);
-  g_TKBridge := Create;
- end;
- Result := g_TKBridge;
-end;
-
+//#UC START# *4CA1D3B10250_4CA0BB8600CFget_impl*
+ Result := f_KPageFactory.get(anID);
+//#UC END# *4CA1D3B10250_4CA0BB8600CFget_impl*
+end;//TKBridge.pm_GetPage
 
 procedure TKBridge.Logout;
 //#UC START# *4CA1E04300B7_4CA0BB8600CF_var*
@@ -135,7 +107,8 @@ begin
 end;//TKBridge.Exists
 
 procedure TKBridge.AttachFile(aPage: Integer;
-  const aFile: AnsiString);
+ const aFile: AnsiString);
+var l_F: Tl3CustomFiler;
 //#UC START# *4CAC9C6100E7_4CA0BB8600CF_var*
 const
  cMaxSize = 9 * 1024 *1024;
@@ -146,8 +119,6 @@ var
  l_Type : String;
  l_Ext  : String;
 //#UC END# *4CAC9C6100E7_4CA0BB8600CF_var*
-var
- l_F : Tl3CustomFiler;
 begin
 //#UC START# *4CAC9C6100E7_4CA0BB8600CF_impl*
  if (aFile <> '') then
@@ -206,16 +177,19 @@ begin
 //#UC END# *4CAC9C6100E7_4CA0BB8600CF_impl*
 end;//TKBridge.AttachFile
 
-function TKBridge.pm_GetPage(anID: Integer): IServerGate_Contents_KPage;
-//#UC START# *4CA1D3B10250_4CA0BB8600CFget_var*
-//#UC END# *4CA1D3B10250_4CA0BB8600CFget_var*
+class function TKBridge.Instance: TKBridge;
+ {* Метод получения экземпляра синглетона TKBridge }
 begin
-//#UC START# *4CA1D3B10250_4CA0BB8600CFget_impl*
- Result := f_KPageFactory.get(anID);
-//#UC END# *4CA1D3B10250_4CA0BB8600CFget_impl*
-end;//TKBridge.pm_GetPage
+ if (g_TKBridge = nil) then
+ begin
+  l3System.AddExitProc(TKBridgeFree);
+  g_TKBridge := Create;
+ end;
+ Result := g_TKBridge;
+end;//TKBridge.Instance
 
 procedure TKBridge.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CA0BB8600CF_var*
 //#UC END# *479731C50290_4CA0BB8600CF_var*
 begin
@@ -295,23 +269,13 @@ begin
 end;//TKBridge.InitFields
 
 procedure TKBridge.ClearFields;
- {-}
 begin
- {$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
  f_orb := nil;
- {$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
- {$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
  f_session := nil;
- {$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
- {$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
  f_NC := nil;
- {$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
- {$If defined(MTDORB) AND defined(NoKPageTool) AND defined(nsTest) AND not defined(NotTunedDUnit)}
  f_KPageFactory := nil;
- {$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
  inherited;
 end;//TKBridge.ClearFields
-
-{$IfEnd} //MTDORB AND NoKPageTool AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND Defined(NoKPageTool) AND NOT Defined(NotTunedDUnit)
 
 end.

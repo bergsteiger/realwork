@@ -1,35 +1,23 @@
 unit ncsLoginMessage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsLoginMessage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsLoginMessage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsLoginMessage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsLoginMessage" MUID: (544E07C6034D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsLoginMessage = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetServerHost: AnsiString;
    procedure pm_SetServerHost(const aValue: AnsiString);
    function pm_GetLogin: AnsiString;
@@ -38,100 +26,112 @@ type
    procedure pm_SetPassword(const aValue: AnsiString);
    function pm_GetServerPort: Integer;
    procedure pm_SetServerPort(aValue: Integer);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property ServerHost: AnsiString
-     read pm_GetServerHost
-     write pm_SetServerHost;
+    read pm_GetServerHost
+    write pm_SetServerHost;
    property Login: AnsiString
-     read pm_GetLogin
-     write pm_SetLogin;
+    read pm_GetLogin
+    write pm_SetLogin;
    property Password: AnsiString
-     read pm_GetPassword
-     write pm_SetPassword;
+    read pm_GetPassword
+    write pm_SetPassword;
    property ServerPort: Integer
-     read pm_GetServerPort
-     write pm_SetServerPort;
+    read pm_GetServerPort
+    write pm_SetServerPort;
  end;//TncsLoginMessage
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csLogin_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsLoginMessage
+ l3ImplUses
+ , csLogin_Const
+;
 
 function TncsLoginMessage.pm_GetServerHost: AnsiString;
- {-}
+//#UC START# *A8CE837D53E8_544E07C6034Dget_var*
+//#UC END# *A8CE837D53E8_544E07C6034Dget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrServerHost]);
+//#UC START# *A8CE837D53E8_544E07C6034Dget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A8CE837D53E8_544E07C6034Dget_impl*
 end;//TncsLoginMessage.pm_GetServerHost
 
 procedure TncsLoginMessage.pm_SetServerHost(const aValue: AnsiString);
- {-}
+//#UC START# *A8CE837D53E8_544E07C6034Dset_var*
+//#UC END# *A8CE837D53E8_544E07C6034Dset_var*
 begin
- TaggedData.StrW[k2_attrServerHost, nil] := (aValue);
+//#UC START# *A8CE837D53E8_544E07C6034Dset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *A8CE837D53E8_544E07C6034Dset_impl*
 end;//TncsLoginMessage.pm_SetServerHost
 
 function TncsLoginMessage.pm_GetLogin: AnsiString;
- {-}
+//#UC START# *F242EF9D067F_544E07C6034Dget_var*
+//#UC END# *F242EF9D067F_544E07C6034Dget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrLogin]);
+//#UC START# *F242EF9D067F_544E07C6034Dget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F242EF9D067F_544E07C6034Dget_impl*
 end;//TncsLoginMessage.pm_GetLogin
 
 procedure TncsLoginMessage.pm_SetLogin(const aValue: AnsiString);
- {-}
+//#UC START# *F242EF9D067F_544E07C6034Dset_var*
+//#UC END# *F242EF9D067F_544E07C6034Dset_var*
 begin
- TaggedData.StrW[k2_attrLogin, nil] := (aValue);
+//#UC START# *F242EF9D067F_544E07C6034Dset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F242EF9D067F_544E07C6034Dset_impl*
 end;//TncsLoginMessage.pm_SetLogin
 
 function TncsLoginMessage.pm_GetPassword: AnsiString;
- {-}
+//#UC START# *1E446BBD08F0_544E07C6034Dget_var*
+//#UC END# *1E446BBD08F0_544E07C6034Dget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrPassword]);
+//#UC START# *1E446BBD08F0_544E07C6034Dget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *1E446BBD08F0_544E07C6034Dget_impl*
 end;//TncsLoginMessage.pm_GetPassword
 
 procedure TncsLoginMessage.pm_SetPassword(const aValue: AnsiString);
- {-}
+//#UC START# *1E446BBD08F0_544E07C6034Dset_var*
+//#UC END# *1E446BBD08F0_544E07C6034Dset_var*
 begin
- TaggedData.StrW[k2_attrPassword, nil] := (aValue);
+//#UC START# *1E446BBD08F0_544E07C6034Dset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *1E446BBD08F0_544E07C6034Dset_impl*
 end;//TncsLoginMessage.pm_SetPassword
 
 function TncsLoginMessage.pm_GetServerPort: Integer;
- {-}
+//#UC START# *25BE68E15A6A_544E07C6034Dget_var*
+//#UC END# *25BE68E15A6A_544E07C6034Dget_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrServerPort]);
+//#UC START# *25BE68E15A6A_544E07C6034Dget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *25BE68E15A6A_544E07C6034Dget_impl*
 end;//TncsLoginMessage.pm_GetServerPort
 
 procedure TncsLoginMessage.pm_SetServerPort(aValue: Integer);
- {-}
+//#UC START# *25BE68E15A6A_544E07C6034Dset_var*
+//#UC END# *25BE68E15A6A_544E07C6034Dset_var*
 begin
- TaggedData.IntW[k2_attrServerPort, nil] := (aValue);
+//#UC START# *25BE68E15A6A_544E07C6034Dset_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *25BE68E15A6A_544E07C6034Dset_impl*
 end;//TncsLoginMessage.pm_SetServerPort
 
 class function TncsLoginMessage.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_544E07C6034D_var*
+//#UC END# *53AC03EE01FD_544E07C6034D_var*
 begin
- Result := k2_typcsLogin;
+//#UC START# *53AC03EE01FD_544E07C6034D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_544E07C6034D_impl*
 end;//TncsLoginMessage.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

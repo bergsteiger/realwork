@@ -1,55 +1,41 @@
 unit l3Tool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Tool.pas"
-// Начат: 28.01.2005 18:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Pretty Things::Tl3Tool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Tool.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Tool" MUID: (48E233B00094)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoObjectWithCOMQI
-  ;
+ l3IntfUses
+ , l3ProtoObjectWithCOMQI
+ , l3Interfaces
+;
 
 type
  Tl3Tool = class(Tl3ProtoObjectWithCOMQI, Il3Tool)
- protected
- // realized methods
+  protected
+   f_Owner: Pointer;
+  protected
    procedure OwnerDead;
-     {* Нотификация о смерти родителя. }
- protected
- // overridden protected methods
+    {* Нотификация о смерти родителя. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // protected fields
-   f_Owner : Pointer;
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(const anOwner: Il3ToolOwner); reintroduce;
  end;//Tl3Tool
 
 implementation
 
-// start class Tl3Tool
+uses
+ l3ImplUses
+;
 
 constructor Tl3Tool.Create(const anOwner: Il3ToolOwner);
 //#UC START# *48E2343E007B_48E233B00094_var*
@@ -64,6 +50,7 @@ begin
 end;//Tl3Tool.Create
 
 procedure Tl3Tool.OwnerDead;
+ {* Нотификация о смерти родителя. }
 //#UC START# *46A5D4220369_48E233B00094_var*
 //#UC END# *46A5D4220369_48E233B00094_var*
 begin
@@ -73,6 +60,7 @@ begin
 end;//Tl3Tool.OwnerDead
 
 procedure Tl3Tool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48E233B00094_var*
 //#UC END# *479731C50290_48E233B00094_var*
 begin
@@ -84,8 +72,9 @@ begin
 //#UC END# *479731C50290_48E233B00094_impl*
 end;//Tl3Tool.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3Tool.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_48E233B00094_var*
 //#UC END# *47A6FEE600FC_48E233B00094_var*
 begin
@@ -93,6 +82,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_48E233B00094_impl*
 end;//Tl3Tool.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

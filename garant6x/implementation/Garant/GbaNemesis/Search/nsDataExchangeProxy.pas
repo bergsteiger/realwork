@@ -1,112 +1,68 @@
 unit nsDataExchangeProxy;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsDataExchangeProxy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::nsQueryAttributes::TnsDataExchangeProxy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDataExchangeProxy.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsDataExchangeProxy" MUID: (54FEC834013B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  DynamicDocListUnit,
-  bsTypes,
-  l3ProtoDataContainer
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , l3ProtoDataContainer
+ , DynamicDocListUnit
+ , bsTypes
+;
 
-{$If not defined(Admin)}
 type
- InsDataExchangeSubscriber = interface(IUnknown)
-   ['{20C77FB9-BA8F-42A3-8DA2-CA5B86F19816}']
-   procedure MakeAndOpenList(const aList: IDynList;
-     aOpenFrom: TbsListOpenFrom = lofNone);
+ InsDataExchangeSubscriber = interface
+  ['{20C77FB9-BA8F-42A3-8DA2-CA5B86F19816}']
+  procedure MakeAndOpenList(const aList: IDynList;
+   aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
  end;//InsDataExchangeSubscriber
 
  TnsDataExchangeProxy = class(Tl3ProtoDataContainer)
- private
- // private fields
-   f_Subscriber : InsDataExchangeSubscriber;
-    {* Поле для свойства Subscriber}
- protected
- // property methods
+  private
+   f_Subscriber: InsDataExchangeSubscriber;
+    {* Поле для свойства Subscriber }
+  protected
    procedure pm_SetSubscriber(const aValue: InsDataExchangeSubscriber);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    procedure MakeAndOpenList(const aList: IDynList;
-     aOpenFrom: TbsListOpenFrom = lofNone);
+    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Subscriber: InsDataExchangeSubscriber
-     read f_Subscriber
-     write pm_SetSubscriber;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsDataExchangeProxy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsDataExchangeProxy }
+  public
+   property Subscriber: InsDataExchangeSubscriber
+    read f_Subscriber
+    write pm_SetSubscriber;
  end;//TnsDataExchangeProxy
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(Admin)}
-
-
-// start class TnsDataExchangeProxy
-
-var g_TnsDataExchangeProxy : TnsDataExchangeProxy = nil;
+var g_TnsDataExchangeProxy: TnsDataExchangeProxy = nil;
+ {* Экземпляр синглетона TnsDataExchangeProxy }
 
 procedure TnsDataExchangeProxyFree;
+ {* Метод освобождения экземпляра синглетона TnsDataExchangeProxy }
 begin
  l3Free(g_TnsDataExchangeProxy);
-end;
-
-class function TnsDataExchangeProxy.Instance: TnsDataExchangeProxy;
-begin
- if (g_TnsDataExchangeProxy = nil) then
- begin
-  l3System.AddExitProc(TnsDataExchangeProxyFree);
-  g_TnsDataExchangeProxy := Create;
- end;
- Result := g_TnsDataExchangeProxy;
-end;
-
-
-procedure TnsDataExchangeProxy.MakeAndOpenList(const aList: IDynList;
-  aOpenFrom: TbsListOpenFrom = lofNone);
-//#UC START# *54FEC90002B4_54FEC834013B_var*
-//#UC END# *54FEC90002B4_54FEC834013B_var*
-begin
-//#UC START# *54FEC90002B4_54FEC834013B_impl*
- if Assigned(f_Subscriber) then
-  f_Subscriber.MakeAndOpenList(aList, aOpenFrom);
-//#UC END# *54FEC90002B4_54FEC834013B_impl*
-end;//TnsDataExchangeProxy.MakeAndOpenList
+end;//TnsDataExchangeProxyFree
 
 procedure TnsDataExchangeProxy.pm_SetSubscriber(const aValue: InsDataExchangeSubscriber);
 //#UC START# *54FEC8BB0295_54FEC834013Bset_var*
@@ -119,13 +75,36 @@ begin
 //#UC END# *54FEC8BB0295_54FEC834013Bset_impl*
 end;//TnsDataExchangeProxy.pm_SetSubscriber
 
+procedure TnsDataExchangeProxy.MakeAndOpenList(const aList: IDynList;
+ aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
+//#UC START# *54FEC90002B4_54FEC834013B_var*
+//#UC END# *54FEC90002B4_54FEC834013B_var*
+begin
+//#UC START# *54FEC90002B4_54FEC834013B_impl*
+ if Assigned(f_Subscriber) then
+  f_Subscriber.MakeAndOpenList(aList, aOpenFrom);
+//#UC END# *54FEC90002B4_54FEC834013B_impl*
+end;//TnsDataExchangeProxy.MakeAndOpenList
+
 class function TnsDataExchangeProxy.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsDataExchangeProxy <> nil;
 end;//TnsDataExchangeProxy.Exists
 
+class function TnsDataExchangeProxy.Instance: TnsDataExchangeProxy;
+ {* Метод получения экземпляра синглетона TnsDataExchangeProxy }
+begin
+ if (g_TnsDataExchangeProxy = nil) then
+ begin
+  l3System.AddExitProc(TnsDataExchangeProxyFree);
+  g_TnsDataExchangeProxy := Create;
+ end;
+ Result := g_TnsDataExchangeProxy;
+end;//TnsDataExchangeProxy.Instance
+
 procedure TnsDataExchangeProxy.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54FEC834013B_var*
 //#UC END# *479731C50290_54FEC834013B_var*
 begin
@@ -136,14 +115,10 @@ begin
 end;//TnsDataExchangeProxy.Cleanup
 
 procedure TnsDataExchangeProxy.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
  Subscriber := nil;
- {$IfEnd} //not Admin
  inherited;
 end;//TnsDataExchangeProxy.ClearFields
-
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -1,99 +1,81 @@
 unit m3DBDocumentPart;
+ {* Реализация части документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3DBDocumentPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBDocumentPart
-//
-// Реализация части документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3DBDocumentPart.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBDocumentPart" MUID: (4742DCFF02DC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3DBInterfaces,
-  m3BaseObject,
-  l3Filer,
-  m3PrimDB,
-  ActiveX,
-  m3StorageInterfaces
-  ;
+ l3IntfUses
+ , m3BaseObject
+ , m3DBInterfaces
+ , l3Filer
+ , m3PrimDB
+ , ActiveX
+ , m3StorageInterfaces
+;
 
 type
  Tm3DBDocumentPart = class(Tm3BaseObject, Im3DBDocumentPart)
   {* Реализация части документа. }
- private
- // private fields
-   f_Document : Im3DBDocument;
-   f_Level : Integer;
-   f_Filer : Tl3CustomFiler;
- protected
- // realized methods
+  private
+   f_Document: Im3DBDocument;
+   f_Level: Integer;
+   f_Filer: Tl3CustomFiler;
+  protected
    function pm_GetDocument: Im3DBDocument;
    function pm_GetInfo: Tm3DBDocumentInfo;
    procedure pm_SetInfo(const aValue: Tm3DBDocumentInfo);
    function Open(aMode: Tm3StoreAccess = m3_saRead;
     aDocPart: Tm3DocPartSelector = m3_defDocPart;
     aIndex: Integer = 0): IStream;
-     {* Открывает поток в документе. }
+    {* Открывает поток в документе. }
    function DateTime: TDateTime;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aDB: Tm3PrimDB;
-     const aDoc: Im3DBDocument;
-     aLevel: Integer = 0;
-     aFiler: Tl3CustomFiler = nil); reintroduce;
+    const aDoc: Im3DBDocument;
+    aLevel: Integer = 0;
+    aFiler: Tl3CustomFiler = nil); reintroduce;
    class function Make(aDB: Tm3PrimDB;
-     const aDoc: Im3DBDocument;
-     aLevel: Integer = 0;
-     aFiler: Tl3CustomFiler = nil): Im3DBDocumentPart; reintroduce;
-     {* Сигнатура фабрики Tm3DBDocumentPart.Make }
+    const aDoc: Im3DBDocument;
+    aLevel: Integer = 0;
+    aFiler: Tl3CustomFiler = nil): Im3DBDocumentPart; reintroduce;
  end;//Tm3DBDocumentPart
 
 implementation
 
 uses
-  SysUtils,
-  m3DB,
-  m2MemLib,
-  m3StorageTools,
-  l3String,
-  m3BackupTools,
-  m3NewVersionStream,
-  l3Base,
-  m3DBProxyWriteStream,
-  l3Types,
-  m3Const,
-  l3ForkStream,
-  m3Exceptions,
-  ComObj,
-  m2COMLib,
-  Windows,
-  l3Date
-  ;
-
-// start class Tm3DBDocumentPart
+ l3ImplUses
+ , SysUtils
+ , m3DB
+ , m2MemLib
+ , m3StorageTools
+ , l3String
+ , m3BackupTools
+ , m3NewVersionStream
+ , l3Base
+ , m3DBProxyWriteStream
+ , l3Types
+ , m3Const
+ , l3ForkStream
+ , m3Exceptions
+ , ComObj
+ , m2COMLib
+ , Windows
+ , l3Date
+;
 
 constructor Tm3DBDocumentPart.Create(aDB: Tm3PrimDB;
-  const aDoc: Im3DBDocument;
-  aLevel: Integer = 0;
-  aFiler: Tl3CustomFiler = nil);
+ const aDoc: Im3DBDocument;
+ aLevel: Integer = 0;
+ aFiler: Tl3CustomFiler = nil);
 //#UC START# *555B37CA01B6_4742DCFF02DC_var*
 //#UC END# *555B37CA01B6_4742DCFF02DC_var*
 begin
@@ -106,9 +88,9 @@ begin
 end;//Tm3DBDocumentPart.Create
 
 class function Tm3DBDocumentPart.Make(aDB: Tm3PrimDB;
-  const aDoc: Im3DBDocument;
-  aLevel: Integer = 0;
-  aFiler: Tl3CustomFiler = nil): Im3DBDocumentPart;
+ const aDoc: Im3DBDocument;
+ aLevel: Integer = 0;
+ aFiler: Tl3CustomFiler = nil): Im3DBDocumentPart;
 var
  l_Inst : Tm3DBDocumentPart;
 begin
@@ -118,7 +100,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tm3DBDocumentPart.Make
 
 function Tm3DBDocumentPart.pm_GetDocument: Im3DBDocument;
 //#UC START# *4725D0FB008B_4742DCFF02DCget_var*
@@ -231,8 +213,9 @@ begin
 end;//Tm3DBDocumentPart.pm_SetInfo
 
 function Tm3DBDocumentPart.Open(aMode: Tm3StoreAccess = m3_saRead;
-  aDocPart: Tm3DocPartSelector = m3_defDocPart;
-  aIndex: Integer = 0): IStream;
+ aDocPart: Tm3DocPartSelector = m3_defDocPart;
+ aIndex: Integer = 0): IStream;
+ {* Открывает поток в документе. }
 //#UC START# *4725D13E031C_4742DCFF02DC_var*
 
  function OpenStream(anIndex : Tm3DBStreamIndex): IStream;
@@ -902,6 +885,7 @@ begin
 end;//Tm3DBDocumentPart.DateTime
 
 procedure Tm3DBDocumentPart.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4742DCFF02DC_var*
 //#UC END# *479731C50290_4742DCFF02DC_var*
 begin
@@ -913,7 +897,6 @@ begin
 end;//Tm3DBDocumentPart.Cleanup
 
 procedure Tm3DBDocumentPart.ClearFields;
- {-}
 begin
  f_Document := nil;
  inherited;

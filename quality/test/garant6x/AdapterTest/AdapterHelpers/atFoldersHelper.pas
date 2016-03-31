@@ -1,167 +1,129 @@
 unit atFoldersHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atFoldersHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::AdapterHelpers::TatFoldersHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atFoldersHelper.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatFoldersHelper" MUID: (480864400141)
 
 interface
 
 uses
-  IOUnit,
-  BaseTypesUnit,
-  BaseTreeSupportUnit,
-  FoldersUnit,
-  l3_Base,
-  l3RegEx
-  ;
+ l3IntfUses
+ , FoldersUnit
+ , BaseTypesUnit
+ , BaseTreeSupportUnit
+ , l3_Base
+ , IOUnit
+ , l3RegEx
+;
 
 type
- IatFoldersNodeMatcher = interface(IUnknown)
-   ['{0EDEF0CD-6104-4C41-ACD7-A8248088AD75}']
-   function IsMatch(const aFoldersNode: IFoldersNode): Boolean;
+ IatFoldersNodeMatcher = interface
+  ['{0EDEF0CD-6104-4C41-ACD7-A8248088AD75}']
+  function IsMatch(const aFoldersNode: IFoldersNode): Boolean;
  end;//IatFoldersNodeMatcher
 
  TatFolderNodeMatcherBase = {abstract} class(Tl3_Base, IatFoldersNodeMatcher)
- private
- // private fields
-   f_FoldersNode : IFoldersNode;
-    {* Поле для свойства FoldersNode}
- protected
- // property methods
+  private
+   f_FoldersNode: IFoldersNode;
+    {* Поле для свойства FoldersNode }
+  protected
    function pm_GetFoldersNode: IFoldersNode;
- protected
- // realized methods
-   function IsMatch(const aFoldersNode: IFoldersNode): Boolean;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    function CheckIsMatch: Boolean; virtual; abstract;
- public
- // public methods
+   function IsMatch(const aFoldersNode: IFoldersNode): Boolean;
+   procedure ClearFields; override;
+  public
    class function Make: IatFoldersNodeMatcher; reintroduce;
- public
- // public properties
+  public
    property FoldersNode: IFoldersNode
-     read pm_GetFoldersNode;
+    read pm_GetFoldersNode;
  end;//TatFolderNodeMatcherBase
 
  TatAnyMatcher = {final} class(TatFolderNodeMatcherBase)
- protected
- // realized methods
+  protected
    function CheckIsMatch: Boolean; override;
  end;//TatAnyMatcher
 
  TatMatchMethod = (
   {* Как выполняем проверку "а эту ли закладку нам нужно удалять" }
-   MM_ALL // подходят все
- , MM_COMPARE // подходят те имена которых совпадают с заданным
- , MM_REGEXP // подходят те, имена которых удовлетворяют регулярному выражению
+  MM_ALL
+   {* подходят все }
+  , MM_COMPARE
+   {* подходят те имена которых совпадают с заданным }
+  , MM_REGEXP
+   {* подходят те, имена которых удовлетворяют регулярному выражению }
  );//TatMatchMethod
 
- IatNameMatcher = interface(IUnknown)
-   ['{37DA6992-43E1-493E-BE86-B98BD0FC9B2B}']
-   function Get_MatchMethod: TatMatchMethod;
-   procedure Set_MatchMethod(aValue: TatMatchMethod);
-   function Get_Name: AnsiString;
-   procedure Set_Name(const aValue: AnsiString);
-   property MatchMethod: TatMatchMethod
-     read Get_MatchMethod
-     write Set_MatchMethod;
-   property Name: AnsiString
-     read Get_Name
-     write Set_Name;
+ IatNameMatcher = interface
+  ['{37DA6992-43E1-493E-BE86-B98BD0FC9B2B}']
+  function Get_MatchMethod: TatMatchMethod;
+  procedure Set_MatchMethod(aValue: TatMatchMethod);
+  function Get_Name: AnsiString;
+  procedure Set_Name(const aValue: AnsiString);
+  property MatchMethod: TatMatchMethod
+   read Get_MatchMethod
+   write Set_MatchMethod;
+  property Name: AnsiString
+   read Get_Name
+   write Set_Name;
  end;//IatNameMatcher
 
  TatNameMatcher = {abstract} class(TatAnyMatcher, IatNameMatcher)
- private
- // private fields
-   f_MatchMethod : TatMatchMethod;
-   f_Name : AnsiString;
-   f_RegExp : Tl3RegularSearch;
- protected
- // property methods
+  private
+   f_MatchMethod: TatMatchMethod;
+   f_Name: AnsiString;
+   f_RegExp: Tl3RegularSearch;
+  protected
    function pm_GetObjectCaption: IString; virtual; abstract;
- protected
- // realized methods
    function Get_MatchMethod: TatMatchMethod;
    procedure Set_MatchMethod(aValue: TatMatchMethod);
    function Get_Name: AnsiString;
    procedure Set_Name(const aValue: AnsiString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function CheckIsMatch: Boolean; override;
- protected
- // protected properties
+  protected
    property ObjectCaption: IString
-     read pm_GetObjectCaption;
+    read pm_GetObjectCaption;
  end;//TatNameMatcher
 
  TatFolderMatcher = class(TatNameMatcher)
- protected
- // realized methods
+  protected
    function pm_GetObjectCaption: IString; override;
- protected
- // overridden protected methods
    function CheckIsMatch: Boolean; override;
  end;//TatFolderMatcher
 
  TatBookmarkMatcher = class(TatNameMatcher)
- protected
- // realized methods
+  protected
    function pm_GetObjectCaption: IString; override;
- protected
- // overridden protected methods
    function CheckIsMatch: Boolean; override;
  end;//TatBookmarkMatcher
 
  TatListMatcher = class(TatNameMatcher)
- protected
- // realized methods
+  protected
    function pm_GetObjectCaption: IString; override;
- protected
- // overridden protected methods
    function CheckIsMatch: Boolean; override;
  end;//TatListMatcher
 
- IatFoldersNodeCallback = interface(IUnknown)
-   ['{7405392E-7DB4-4E52-BE6D-7697BFC0AEA3}']
-   procedure OnFoldersNode(const aFoldersNode: IFoldersNode);
+ IatFoldersNodeCallback = interface
+  ['{7405392E-7DB4-4E52-BE6D-7697BFC0AEA3}']
+  procedure OnFoldersNode(const aFoldersNode: IFoldersNode);
  end;//IatFoldersNodeCallback
 
  TatQueryMatcher = class(TatNameMatcher)
- protected
- // realized methods
+  protected
    function pm_GetObjectCaption: IString; override;
- protected
- // overridden protected methods
    function CheckIsMatch: Boolean; override;
  end;//TatQueryMatcher
 
  TatFoldersHelper = class
- public
- // public methods
+  public
    class function GetMyDocuments(const folders: IFolders = nil): IFoldersNode;
    class function IterateAllChildFoldersNode(const aRootNode: IFoldersNode;
     const aFoldersNodeCallback: IatFoldersNodeCallback;
     const aMatcher: IatFoldersNodeMatcher = nil;
     isRecursive: Boolean = True): Integer; virtual;
-     {* Проходит по элементам в папках. Соответствует ли элемент - определяется путем вызова метода IsMatch на IatFoldersNodeMatcher.
+    {* Проходит по элементам в папках. Соответствует ли элемент - определяется путем вызова метода IsMatch на IatFoldersNodeMatcher.
 Возвращает количество просмотренных элементов. }
    class procedure AddToMyDocuments(const anEntity: IEntityBase;
     out theAddedNode: INode); virtual;
@@ -169,7 +131,7 @@ type
     const aName: AnsiString;
     const aComment: AnsiString;
     out theAddedNode: INode); virtual;
-     {* Добавляет к указанной ноде дочернюю папку. }
+    {* Добавляет к указанной ноде дочернюю папку. }
    class procedure AddToFolder(const aFolder: IFoldersNode;
     const anEntity: IEntityBase;
     out theAddedNode: INode); virtual;
@@ -178,15 +140,14 @@ type
 implementation
 
 uses
-  DocumentUnit,
-  DynamicDocListUnit,
-  SearchUnit,
-  atGblAdapterWorker,
-  SysUtils,
-  atStringHelper
-  ;
-
-// start class TatFolderNodeMatcherBase
+ l3ImplUses
+ , atGblAdapterWorker
+ , SysUtils
+ , atStringHelper
+ , DocumentUnit
+ , DynamicDocListUnit
+ , SearchUnit
+;
 
 function TatFolderNodeMatcherBase.pm_GetFoldersNode: IFoldersNode;
 //#UC START# *484D51CF004B_4843BEFE0153get_var*
@@ -207,7 +168,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TatFolderNodeMatcherBase.Make
 
 function TatFolderNodeMatcherBase.IsMatch(const aFoldersNode: IFoldersNode): Boolean;
 //#UC START# *4843BEA80357_4843BEFE0153_var*
@@ -220,12 +181,10 @@ begin
 end;//TatFolderNodeMatcherBase.IsMatch
 
 procedure TatFolderNodeMatcherBase.ClearFields;
- {-}
 begin
  f_FoldersNode := nil;
  inherited;
 end;//TatFolderNodeMatcherBase.ClearFields
-// start class TatAnyMatcher
 
 function TatAnyMatcher.CheckIsMatch: Boolean;
 //#UC START# *4843BF1B0059_4843C7450355_var*
@@ -235,7 +194,6 @@ begin
   Result := true;
 //#UC END# *4843BF1B0059_4843C7450355_impl*
 end;//TatAnyMatcher.CheckIsMatch
-// start class TatNameMatcher
 
 function TatNameMatcher.Get_MatchMethod: TatMatchMethod;
 //#UC START# *484D48AE03DD_484D485A0275get_var*
@@ -283,6 +241,7 @@ begin
 end;//TatNameMatcher.Set_Name
 
 procedure TatNameMatcher.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_484D485A0275_var*
 //#UC END# *479731C50290_484D485A0275_var*
 begin
@@ -329,7 +288,6 @@ begin
   end;
 //#UC END# *4843BF1B0059_484D485A0275_impl*
 end;//TatNameMatcher.CheckIsMatch
-// start class TatFolderMatcher
 
 function TatFolderMatcher.pm_GetObjectCaption: IString;
 //#UC START# *484D51FE0183_484D2643016Eget_var*
@@ -356,7 +314,6 @@ begin
     AND ( inherited CheckIsMatch );
 //#UC END# *4843BF1B0059_484D2643016E_impl*
 end;//TatFolderMatcher.CheckIsMatch
-// start class TatBookmarkMatcher
 
 function TatBookmarkMatcher.pm_GetObjectCaption: IString;
 //#UC START# *484D51FE0183_4843C0AE03D4get_var*
@@ -383,7 +340,6 @@ begin
     AND ( inherited CheckIsMatch );
 //#UC END# *4843BF1B0059_4843C0AE03D4_impl*
 end;//TatBookmarkMatcher.CheckIsMatch
-// start class TatListMatcher
 
 function TatListMatcher.pm_GetObjectCaption: IString;
 //#UC START# *484D51FE0183_484FE8AF001Eget_var*
@@ -410,7 +366,6 @@ begin
     AND ( inherited CheckIsMatch );
 //#UC END# *4843BF1B0059_484FE8AF001E_impl*
 end;//TatListMatcher.CheckIsMatch
-// start class TatQueryMatcher
 
 function TatQueryMatcher.pm_GetObjectCaption: IString;
 //#UC START# *484D51FE0183_4FD2376601E4get_var*
@@ -455,9 +410,11 @@ begin
 end;//TatFoldersHelper.GetMyDocuments
 
 class function TatFoldersHelper.IterateAllChildFoldersNode(const aRootNode: IFoldersNode;
-  const aFoldersNodeCallback: IatFoldersNodeCallback;
-  const aMatcher: IatFoldersNodeMatcher = nil;
-  isRecursive: Boolean = True): Integer;
+ const aFoldersNodeCallback: IatFoldersNodeCallback;
+ const aMatcher: IatFoldersNodeMatcher = nil;
+ isRecursive: Boolean = True): Integer;
+ {* Проходит по элементам в папках. Соответствует ли элемент - определяется путем вызова метода IsMatch на IatFoldersNodeMatcher.
+Возвращает количество просмотренных элементов. }
 //#UC START# *4843C7000113_480864400141_var*
   var
     l_CurrNode : IFoldersNode;
@@ -484,7 +441,7 @@ begin
 end;//TatFoldersHelper.IterateAllChildFoldersNode
 
 class procedure TatFoldersHelper.AddToMyDocuments(const anEntity: IEntityBase;
-  out theAddedNode: INode);
+ out theAddedNode: INode);
 //#UC START# *4843E40A01DE_480864400141_var*
   var
     l_MyDocs : IFoldersNode;
@@ -499,9 +456,10 @@ begin
 end;//TatFoldersHelper.AddToMyDocuments
 
 class procedure TatFoldersHelper.CreateFolder(const aRootNode: IFoldersNode;
-  const aName: AnsiString;
-  const aComment: AnsiString;
-  out theAddedNode: INode);
+ const aName: AnsiString;
+ const aComment: AnsiString;
+ out theAddedNode: INode);
+ {* Добавляет к указанной ноде дочернюю папку. }
 //#UC START# *48468B1302AF_480864400141_var*
   var
     l_Folder : IFolder;
@@ -543,8 +501,8 @@ begin
 end;//TatFoldersHelper.CreateFolder
 
 class procedure TatFoldersHelper.AddToFolder(const aFolder: IFoldersNode;
-  const anEntity: IEntityBase;
-  out theAddedNode: INode);
+ const anEntity: IEntityBase;
+ out theAddedNode: INode);
 //#UC START# *48562215003C_480864400141_var*
 //#UC END# *48562215003C_480864400141_var*
 begin

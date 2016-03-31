@@ -1,58 +1,41 @@
 unit deNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/deNode.pas"
-// Начат: 07.09.2009 19:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Admin::TdeNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\deNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeNode" MUID: (492472AC0033)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DynamicTreeUnit,
-  AdminInterfaces,
-  l3ProtoObject
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , l3ProtoObject
+ , AdminInterfaces
+ , DynamicTreeUnit
+;
 
-{$If defined(Admin)}
 type
  TdeNode = class(Tl3ProtoObject, IdeNode)
- private
- // private fields
-   f_Node : INodeBase;
- protected
- // realized methods
+  private
+   f_Node: INodeBase;
+  protected
    function pm_GetNode: INodeBase;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aNode: INodeBase); reintroduce;
    class function Make(const aNode: INodeBase): IdeNode; reintroduce;
  end;//TdeNode
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-
-// start class TdeNode
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 constructor TdeNode.Create(const aNode: INodeBase);
 //#UC START# *4AA523C701F4_492472AC0033_var*
@@ -74,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeNode.Make
 
 function TdeNode.pm_GetNode: INodeBase;
 //#UC START# *4AA523050019_492472AC0033get_var*
@@ -86,6 +69,7 @@ begin
 end;//TdeNode.pm_GetNode
 
 procedure TdeNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_492472AC0033_var*
 //#UC END# *479731C50290_492472AC0033_var*
 begin
@@ -94,7 +78,6 @@ begin
  inherited;
 //#UC END# *479731C50290_492472AC0033_impl*
 end;//TdeNode.Cleanup
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

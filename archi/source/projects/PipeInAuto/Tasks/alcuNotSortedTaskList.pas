@@ -1,61 +1,41 @@
 unit alcuNotSortedTaskList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuNotSortedTaskList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::TasksLists::TalcuNotSortedTaskList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuNotSortedTaskList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuNotSortedTaskList" MUID: (53A19980030C)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  alcuTaskListBase
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
+ l3IntfUses
+ , alcuTaskListBase
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
 const
-  { Consts }
  cMaxDayAge = 2;
 
 type
  TalcuNotSortedTaskList = class(TalcuTaskListBase)
- public
- // public methods
+  public
    function Add(anItem: TddProcessTask): Integer;
    function Has(anItem: TddProcessTask): Boolean;
    procedure PackUnimportant(MaxDayAge: Integer = cMaxDayAge);
  end;//TalcuNotSortedTaskList
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
-
-{$If defined(AppServerSide) AND defined(ServerTasks)}
-
-// start class TalcuNotSortedTaskList
+ l3ImplUses
+ , SysUtils
+;
 
 function TalcuNotSortedTaskList.Add(anItem: TddProcessTask): Integer;
 //#UC START# *53A1A06B0290_53A19980030C_var*
@@ -121,7 +101,6 @@ begin
  end;//try..finally
 //#UC END# *55F283340044_53A19980030C_impl*
 end;//TalcuNotSortedTaskList.PackUnimportant
-
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

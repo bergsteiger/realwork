@@ -1,56 +1,40 @@
 unit arDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/arDocumentContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocumentContainer::TarDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\arDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TarDocumentContainer" MUID: (4E007C3803DC)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  nevPrintableDocumentContainer,
-  nevTools
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , nevPrintableDocumentContainer
+ , nevTools
+;
 
-{$If defined(AppClientSide)}
 type
  TarDocumentContainer = class(TnevPrintableDocumentContainer)
- protected
- // overridden protected methods
+  protected
    function DoGetSubEx(anID: Integer;
     aLayerID: Integer): IevSub; override;
    function HAFPainterClass: RevHAFPainter; override;
  end;//TarDocumentContainer
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arHAFPainer,
-  arSubImplementation
-  ;
-{$IfEnd} //AppClientSide
-
-{$If defined(AppClientSide)}
-
-// start class TarDocumentContainer
+ l3ImplUses
+ , arHAFPainer
+ , arSubImplementation
+;
 
 function TarDocumentContainer.DoGetSubEx(anID: Integer;
-  aLayerID: Integer): IevSub;
+ aLayerID: Integer): IevSub;
 //#UC START# *47F27721012A_4E007C3803DC_var*
 //#UC END# *47F27721012A_4E007C3803DC_var*
 begin
@@ -70,7 +54,6 @@ begin
  Result := TarHAFPainer;
 //#UC END# *47F35CAC00E4_4E007C3803DC_impl*
 end;//TarDocumentContainer.HAFPainterClass
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

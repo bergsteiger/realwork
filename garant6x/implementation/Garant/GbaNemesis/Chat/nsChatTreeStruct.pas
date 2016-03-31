@@ -1,60 +1,43 @@
 unit nsChatTreeStruct;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Chat"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Chat/nsChatTreeStruct.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Встроенные продукты::Chat::Chat::ChatImpl::TnsChatTreeStruct
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsChatTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsChatTreeStruct" MUID: (4A680DA6013C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  nsUserTreeStruct,
-  ChatTypes,
-  DynamicTreeUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsUserTreeStruct
+ , ChatTypes
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _FindDataType_ = TbsUserID;
  TnsChatTreeStruct = class(TnsUserTreeStruct)
- protected
- // overridden protected methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- public
- // public methods
+  public
    class function Make(ForAdd: Boolean): Il3SimpleTree;
  end;//TnsChatTreeStruct
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsInterfaces,
-  DataAdapter,
-  SecurityUnit,
-  SysUtils,
-  nsUserFlagsFilter
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsChatTreeStruct
+ l3ImplUses
+ , bsInterfaces
+ , DataAdapter
+ , SecurityUnit
+ , SysUtils
+ , nsUserFlagsFilter
+;
 
 class function TnsChatTreeStruct.Make(ForAdd: Boolean): Il3SimpleTree;
 //#UC START# *4A680DCB0084_4A680DA6013C_var*
@@ -104,7 +87,6 @@ begin
  Result := defDataAdapter.GetChatUsersTree;
 //#UC END# *48FF64F60078_4A680DA6013C_impl*
 end;//TnsChatTreeStruct.ReAqurieUnfilteredRoot
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

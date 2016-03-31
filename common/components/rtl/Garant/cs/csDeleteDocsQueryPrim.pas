@@ -1,57 +1,43 @@
 unit csDeleteDocsQueryPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csDeleteDocsQueryPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsDeleteDocsQueryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csDeleteDocsQueryPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsDeleteDocsQueryPrim" MUID: (53B6A54A0181)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csProcessTask,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csProcessTask
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsDeleteDocsQueryPrim = class(TddProcessTask)
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
  end;//TcsDeleteDocsQueryPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  DeleteDocsQuery_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsDeleteDocsQueryPrim
+ l3ImplUses
+ , DeleteDocsQuery_Const
+;
 
 class function TcsDeleteDocsQueryPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53B6A54A0181_var*
+//#UC END# *53AC03EE01FD_53B6A54A0181_var*
 begin
- Result := k2_typDeleteDocsQuery;
+//#UC START# *53AC03EE01FD_53B6A54A0181_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53B6A54A0181_impl*
 end;//TcsDeleteDocsQueryPrim.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

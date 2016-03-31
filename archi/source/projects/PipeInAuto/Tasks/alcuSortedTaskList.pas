@@ -1,55 +1,38 @@
 unit alcuSortedTaskList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuSortedTaskList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::TasksLists::TalcuSortedTaskList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSortedTaskList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSortedTaskList" MUID: (53A196B800AD)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  alcuTaskListBase
-  ;
-{$IfEnd} //AppServerSide AND ServerTasks
+ l3IntfUses
+ , alcuTaskListBase
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
 type
  TalcuSortedTaskList = class(TalcuTaskListBase)
- protected
- // overridden protected methods
-   function NeedSort: Boolean; override;
- protected
- // protected methods
+  protected
    procedure Add(anItem: TddProcessTask);
- public
- // public methods
+   function NeedSort: Boolean; override;
+  public
    procedure Remove(anItem: TddProcessTask);
  end;//TalcuSortedTaskList
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
-
-// start class TalcuSortedTaskList
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
+uses
+ l3ImplUses
+;
 
 procedure TalcuSortedTaskList.Remove(anItem: TddProcessTask);
 //#UC START# *53A046C20358_53A196B800AD_var*
@@ -92,7 +75,6 @@ begin
  Result := true;
 //#UC END# *53A196850107_53A196B800AD_impl*
 end;//TalcuSortedTaskList.NeedSort
-
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

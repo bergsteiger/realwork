@@ -1,78 +1,36 @@
 unit m3RootStreamManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3RootStreamManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3RootStreamManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3RootStreamManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3RootStreamManager" MUID: (540EE8E40271)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3RootStream,
-  l3Int64List,
-  l3RevertedInt64List,
-  m3RootStreamManagerPrim,
-  l3CustomString,
-  m3FileRegion
-  ;
+ l3IntfUses
+ , m3RootStreamManagerPrim
+ , m3RootStream
+ , l3Int64List
+ , l3RevertedInt64List
+ , m3FileRegion
+ , l3CustomString
+;
 
 const
-  { Res Const }
  cLockLogExt = '.lock';
 
 type
  Tm3RootStreamManager = {abstract} class(Tm3RootStreamManagerPrim)
- private
- // private fields
-   f_LockedRegions : Tl3Int64List;
-   f_NeedLocks : Boolean;
-   f_AllocatedFATElements : Tl3RevertedInt64List;
-   f_AllocatedClusters : Tl3RevertedInt64List;
-   f_RootStream : Tm3RootStream;
-    {* Поле для свойства RootStream}
- protected
- // realized methods
-   procedure DoLockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion); override;
-   procedure DoUnlockRegion(aForRead: Boolean;
-     const aRegion: Tm3FileRegion); override;
-   function pm_GetRootStorageFATElement: Int64; override;
-   function AllocNewFATElement: Int64; override;
-   procedure RemoveFATElementAtPos(aPosition: Int64); override;
-   function ClusterBodySize: Int64; override;
-   function AllocNewCluster: Int64; override;
-   function ReadOnly: Boolean; override;
-   procedure ReadData(aPosition: Int64;
-     out aData;
-     aSize: Integer); override;
-   procedure WriteData(aPosition: Int64;
-     const aData;
-     aSize: Integer); override;
-   function AllocatedStreamSize: Int64; override;
-   procedure SetPositionAndValidateIt(aPosition: Int64;
-     var thePosition: Int64); override;
-   procedure ReloadHeader(aName: Tl3CustomString); override;
-   procedure ReadDataAtCurrent(out aData;
-     aSize: Integer); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function DoIsValidPosition(aPosition: Int64;
-     aName: Tl3CustomString): Boolean; override;
- protected
- // protected methods
+  private
+   f_LockedRegions: Tl3Int64List;
+   f_NeedLocks: Boolean;
+   f_AllocatedFATElements: Tl3RevertedInt64List;
+   f_AllocatedClusters: Tl3RevertedInt64List;
+   f_RootStream: Tm3RootStream;
+    {* Поле для свойства RootStream }
+  protected
    function DoAllocNewFATElement(aFromFreeChainOnly: Boolean): Int64; virtual; abstract;
    procedure DoRemoveFATElementAtPos(aPosition: Int64); virtual; abstract;
    procedure FreeAllocatedFATElements;
@@ -80,32 +38,55 @@ type
    procedure ValidateAllocatedSize;
    procedure FreeAllocatedClusters;
    function HasLockedRegions: Boolean;
- public
- // public methods
+   procedure DoLockRegion(aForRead: Boolean;
+    const aRegion: Tm3FileRegion); override;
+   procedure DoUnlockRegion(aForRead: Boolean;
+    const aRegion: Tm3FileRegion); override;
+   function pm_GetRootStorageFATElement: Int64; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function DoIsValidPosition(aPosition: Int64;
+    aName: Tl3CustomString): Boolean; override;
+  public
    constructor Create(aStream: Tm3RootStream); reintroduce; virtual;
- protected
- // protected properties
+   function AllocNewFATElement: Int64; override;
+   procedure RemoveFATElementAtPos(aPosition: Int64); override;
+   function ClusterBodySize: Int64; override;
+   function AllocNewCluster: Int64; override;
+   function ReadOnly: Boolean; override;
+   procedure ReadData(aPosition: Int64;
+    out aData;
+    aSize: Integer); override;
+   procedure WriteData(aPosition: Int64;
+    const aData;
+    aSize: Integer); override;
+   function AllocatedStreamSize: Int64; override;
+   procedure SetPositionAndValidateIt(aPosition: Int64;
+    var thePosition: Int64); override;
+   procedure ReloadHeader(aName: Tl3CustomString); override;
+   procedure ReadDataAtCurrent(out aData;
+    aSize: Integer); override;
+  protected
    property RootStream: Tm3RootStream
-     read f_RootStream;
+    read f_RootStream;
  end;//Tm3RootStreamManager
 
 implementation
 
 uses
-  SysUtils,
-  m2COMLib,
-  m3Exceptions,
-  ActiveX,
-  l3Base,
-  ComObj,
-  l3Types,
-  l3Memory,
-  l3Logger,
-  l3SysUtils,
-  Windows
-  ;
-
-// start class Tm3RootStreamManager
+ l3ImplUses
+ , SysUtils
+ , m2COMLib
+ , m3Exceptions
+ , ActiveX
+ , l3Base
+ , ComObj
+ , l3Types
+ , l3Memory
+ , l3Logger
+ , l3SysUtils
+ , Windows
+;
 
 constructor Tm3RootStreamManager.Create(aStream: Tm3RootStream);
 //#UC START# *540EED370362_540EE8E40271_var*
@@ -331,7 +312,7 @@ begin
 end;//Tm3RootStreamManager.HasLockedRegions
 
 procedure Tm3RootStreamManager.DoLockRegion(aForRead: Boolean;
-  const aRegion: Tm3FileRegion);
+ const aRegion: Tm3FileRegion);
 //#UC START# *541021B90213_540EE8E40271_var*
 const
  cMode : array [Boolean] of AnsiString = ('write', 'read');
@@ -381,7 +362,7 @@ begin
 end;//Tm3RootStreamManager.DoLockRegion
 
 procedure Tm3RootStreamManager.DoUnlockRegion(aForRead: Boolean;
-  const aRegion: Tm3FileRegion);
+ const aRegion: Tm3FileRegion);
 //#UC START# *541021E4022F_540EE8E40271_var*
 const
  cMode : array [Boolean] of AnsiString = ('write', 'read');
@@ -717,8 +698,8 @@ begin
 end;//Tm3RootStreamManager.ReadOnly
 
 procedure Tm3RootStreamManager.ReadData(aPosition: Int64;
-  out aData;
-  aSize: Integer);
+ out aData;
+ aSize: Integer);
 //#UC START# *543F8E8F0358_540EE8E40271_var*
 //#UC END# *543F8E8F0358_540EE8E40271_var*
 begin
@@ -729,8 +710,8 @@ begin
 end;//Tm3RootStreamManager.ReadData
 
 procedure Tm3RootStreamManager.WriteData(aPosition: Int64;
-  const aData;
-  aSize: Integer);
+ const aData;
+ aSize: Integer);
 //#UC START# *543F8ED700E2_540EE8E40271_var*
 //#UC END# *543F8ED700E2_540EE8E40271_var*
 begin
@@ -751,7 +732,7 @@ begin
 end;//Tm3RootStreamManager.AllocatedStreamSize
 
 procedure Tm3RootStreamManager.SetPositionAndValidateIt(aPosition: Int64;
-  var thePosition: Int64);
+ var thePosition: Int64);
 //#UC START# *543F960901AE_540EE8E40271_var*
 //#UC END# *543F960901AE_540EE8E40271_var*
 begin
@@ -785,7 +766,7 @@ begin
 end;//Tm3RootStreamManager.ReloadHeader
 
 procedure Tm3RootStreamManager.ReadDataAtCurrent(out aData;
-  aSize: Integer);
+ aSize: Integer);
 //#UC START# *54411B71009B_540EE8E40271_var*
 //#UC END# *54411B71009B_540EE8E40271_var*
 begin
@@ -796,6 +777,7 @@ begin
 end;//Tm3RootStreamManager.ReadDataAtCurrent
 
 procedure Tm3RootStreamManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_540EE8E40271_var*
 //#UC END# *479731C50290_540EE8E40271_var*
 begin
@@ -812,7 +794,7 @@ begin
 end;//Tm3RootStreamManager.Cleanup
 
 function Tm3RootStreamManager.DoIsValidPosition(aPosition: Int64;
-  aName: Tl3CustomString): Boolean;
+ aName: Tl3CustomString): Boolean;
 //#UC START# *540EFD500389_540EE8E40271_var*
 (*const
  cDiv = 10000;*)

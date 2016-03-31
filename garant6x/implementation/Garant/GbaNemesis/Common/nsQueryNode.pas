@@ -1,72 +1,50 @@
 unit nsQueryNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsQueryNode.pas"
-// Начат: 21.10.2009 19:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Common$Lib::MainMenu::TnsQueryNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsQueryNode.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsQueryNode" MUID: (4ADDF50A00E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SearchUnit,
-  l3Tree_TLB,
-  MainMenuDomainInterfaces,
-  nsWrapperNode,
-  l3IID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsWrapperNode
+ , MainMenuDomainInterfaces
+ , SearchUnit
+ , l3Tree_TLB
+ , l3IID
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsQueryNode = class(TnsWrapperNode, InsQueryNode)
- private
- // private fields
-   f_Query : IQuery;
-   f_DocCount : Integer;
- protected
- // realized methods
+  private
+   f_Query: IQuery;
+   f_DocCount: Integer;
+  protected
    function pm_GetQuery: IQuery;
    function pm_GetDocCount: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aQuery: IQuery); reintroduce;
    class function Make(const aQuery: IQuery): Il3Node; reintroduce;
  end;//TnsQueryNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  IOUnit,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsQueryNode
+ l3ImplUses
+ , IOUnit
+ , nsTypes
+;
 
 constructor TnsQueryNode.Create(const aQuery: IQuery);
 //#UC START# *4ADF274E0033_4ADDF50A00E2_var*
@@ -114,7 +92,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsQueryNode.Make
 
 function TnsQueryNode.pm_GetQuery: IQuery;
 //#UC START# *49904E96037F_4ADDF50A00E2get_var*
@@ -135,6 +113,7 @@ begin
 end;//TnsQueryNode.pm_GetDocCount
 
 procedure TnsQueryNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDF50A00E2_var*
 //#UC END# *479731C50290_4ADDF50A00E2_var*
 begin
@@ -145,7 +124,8 @@ begin
 end;//TnsQueryNode.Cleanup
 
 function TnsQueryNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4ADDF50A00E2_var*
 //#UC END# *4A60B23E00C3_4ADDF50A00E2_var*
 begin
@@ -160,7 +140,6 @@ begin
  end;
 //#UC END# *4A60B23E00C3_4ADDF50A00E2_impl*
 end;//TnsQueryNode.COMQueryInterface
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

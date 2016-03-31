@@ -1,50 +1,34 @@
 unit TestNameString;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/TestNameString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Testing Framework::DUnitTuning::Source::TTestNameString
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestNameString.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TTestNameString" MUID: (4FF431A00215)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3_String,
-  l3Types
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
+ l3IntfUses
+ , l3_String
+ , l3Types
+;
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 type
  TTestNameString = class(Tl3_String)
- protected
- // overridden protected methods
+  protected
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
  end;//TTestNameString
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 uses
-  l3String
-  ;
-{$IfEnd} //nsTest AND not NotTunedDUnit
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
-
-// start class TTestNameString
+ l3ImplUses
+ , l3String
+;
 
 procedure TTestNameString.DoSetAsPCharLen(const Value: Tl3PCharLen);
 //#UC START# *47A869D10074_4FF431A00215_var*
@@ -54,7 +38,6 @@ begin
  inherited DoSetAsPCharLen(Tl3PCharLen(l3LTrim(Value, ['+', '-', '?', '!'])));
 //#UC END# *47A869D10074_4FF431A00215_impl*
 end;//TTestNameString.DoSetAsPCharLen
-
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 end.

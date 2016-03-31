@@ -1,41 +1,32 @@
 unit m3LZODeflateStreamNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3LZODeflateStreamNew.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::ArchiveStreams::Tm3LZODeflateStreamNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3LZODeflateStreamNew.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3LZODeflateStreamNew" MUID: (542AA47B0241)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  m3ArcCla,
-  ActiveX
-  ;
+ l3IntfUses
+ , m3ArcCla
+ , ActiveX
+;
 
 type
  Tm3LZODeflateStreamNew = class(Tm3LZODeflateStream)
- protected
- // overridden protected methods
+  protected
    class function NeedHeaderAlignment: Boolean; override;
- public
- // overridden public methods
+  public
    class function HeaderID: TCLSID; override;
  end;//Tm3LZODeflateStreamNew
 
 implementation
 
-// start class Tm3LZODeflateStreamNew
+uses
+ l3ImplUses
+;
 
 class function Tm3LZODeflateStreamNew.HeaderID: TCLSID;
 //#UC START# *53FDFAF900ED_542AA47B0241_var*

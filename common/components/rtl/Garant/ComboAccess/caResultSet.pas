@@ -1,43 +1,30 @@
 unit caResultSet;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ComboAccess"
-// Модуль: "w:/common/components/rtl/Garant/ComboAccess/caResultSet.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::ComboAccess::Provider::TcaResultSet
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caResultSet.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcaResultSet" MUID: (56DFD1470338)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\ComboAccess\caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  l3ProtoObject,
-  daInterfaces,
-  daSelectFieldList,
-  daFieldList
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daFieldList
+ , daSelectFieldList
+;
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
 type
  TcaResultSet = class(Tl3ProtoObject, IdaResultSet, IdaResultBuffer)
- private
- // private fields
-   f_HTResultSet : IdaResultSet;
-   f_PGResultSet : IdaResultSet;
-   f_Fields : TdaFieldList;
-   f_FieldsDescription : TdaSelectFieldList;
- protected
- // realized methods
+  private
+   f_HTResultSet: IdaResultSet;
+   f_PGResultSet: IdaResultSet;
+   f_Fields: TdaFieldList;
+   f_FieldsDescription: TdaSelectFieldList;
+  protected
    procedure Next;
    function EOF: Boolean;
    function IsEmpty: Boolean;
@@ -45,39 +32,31 @@ type
    procedure RegisterField(const aField: IdaField);
    procedure UnregisterField(const aField: IdaField);
    function FieldBufferPtr(FieldIndex: Integer): Pointer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aFieldsDescription: TdaSelectFieldList;
-     const aHTResultSet: IdaResultSet;
-     const aPGResultSet: IdaResultSet); reintroduce;
+    const aHTResultSet: IdaResultSet;
+    const aPGResultSet: IdaResultSet); reintroduce;
    class function Make(aFieldsDescription: TdaSelectFieldList;
-     const aHTResultSet: IdaResultSet;
-     const aPGResultSet: IdaResultSet): IdaResultSet; reintroduce;
-     {* Сигнатура фабрики TcaResultSet.Make }
+    const aHTResultSet: IdaResultSet;
+    const aPGResultSet: IdaResultSet): IdaResultSet; reintroduce;
  end;//TcaResultSet
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 implementation
 
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
+{$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
-  SysUtils,
-  l3Types,
-  caField
-  ;
-{$IfEnd} //TestComboAccess AND UsePostgres
-
-{$If defined(TestComboAccess) AND defined(UsePostgres)}
-
-// start class TcaResultSet
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , caField
+;
 
 constructor TcaResultSet.Create(aFieldsDescription: TdaSelectFieldList;
-  const aHTResultSet: IdaResultSet;
-  const aPGResultSet: IdaResultSet);
+ const aHTResultSet: IdaResultSet;
+ const aPGResultSet: IdaResultSet);
 //#UC START# *56DFDC4B0032_56DFD1470338_var*
 //#UC END# *56DFDC4B0032_56DFD1470338_var*
 begin
@@ -91,8 +70,8 @@ begin
 end;//TcaResultSet.Create
 
 class function TcaResultSet.Make(aFieldsDescription: TdaSelectFieldList;
-  const aHTResultSet: IdaResultSet;
-  const aPGResultSet: IdaResultSet): IdaResultSet;
+ const aHTResultSet: IdaResultSet;
+ const aPGResultSet: IdaResultSet): IdaResultSet;
 var
  l_Inst : TcaResultSet;
 begin
@@ -102,7 +81,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TcaResultSet.Make
 
 procedure TcaResultSet.Next;
 //#UC START# *5549C44C037A_56DFD1470338_var*
@@ -183,6 +162,7 @@ begin
 end;//TcaResultSet.FieldBufferPtr
 
 procedure TcaResultSet.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56DFD1470338_var*
 //#UC END# *479731C50290_56DFD1470338_var*
 begin
@@ -194,7 +174,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56DFD1470338_impl*
 end;//TcaResultSet.Cleanup
-
-{$IfEnd} //TestComboAccess AND UsePostgres
+{$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

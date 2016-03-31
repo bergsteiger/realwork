@@ -1,39 +1,34 @@
 {$IfNDef m3ListWithFind_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3ListWithFind.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::m3CoreObjects::m3ListWithFind
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "m3ListWithFind" MUID: (545B7E6B00A1)
+// Имя типа: "_m3ListWithFind_"
 
 {$Define m3ListWithFind_imp}
- {$Include ..\m3\m3AutoAllocList.imp.pas}
- _m3ListWithFind_ = {mixin} class(_m3AutoAllocList_)
- protected
- // protected methods
+
+ // _KeyType_
+
+ {$Include w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas}
+ _m3ListWithFind_ = class(_m3AutoAllocList_)
+  protected
    function CompareKeyByItem(const aKey: _KeyType_;
-     const anItem: _ItemType_): Integer; virtual; abstract;
- public
- // public methods
+    const anItem: _ItemType_): Integer; virtual; abstract;
+  public
    function FindItemByKey(const aKey: _KeyType_;
-     var theIndex: Integer): Boolean;
+    var theIndex: Integer): Boolean;
  end;//_m3ListWithFind_
 
 {$Else m3ListWithFind_imp}
 
+{$IfNDef m3ListWithFind_imp_impl}
 
-{$Include ..\m3\m3AutoAllocList.imp.pas}
+{$Define m3ListWithFind_imp_impl}
 
-// start class _m3ListWithFind_
+{$Include w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas}
 
 function _m3ListWithFind_.FindItemByKey(const aKey: _KeyType_;
-  var theIndex: Integer): Boolean;
+ var theIndex: Integer): Boolean;
 //#UC START# *54538E130272_545B7E6B00A1_var*
 var
   L, H, i, C: Longint;
@@ -67,4 +62,7 @@ begin
 //#UC END# *54538E130272_545B7E6B00A1_impl*
 end;//_m3ListWithFind_.FindItemByKey
 
+{$EndIf m3ListWithFind_imp_impl}
+
 {$EndIf m3ListWithFind_imp}
+

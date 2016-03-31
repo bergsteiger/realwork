@@ -1,94 +1,65 @@
 unit alcuTaskChangeHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuTaskChangeHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ServiceImplementation::Class>> archi$AutoPipeServer$Garant::Server::Server::TalcuTaskChangeHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuTaskChangeHelper.pas"
+// Стереотип: "ServiceImplementation"
+// Элемент модели: "TalcuTaskChangeHelper" MUID: (5583CD3601BD)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3ProtoObject
-  {$If not defined(Nemesis)}
-  ,
-  csTaskChangeHelper
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(Nemesis)}
+ , csTaskChangeHelper
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide)}
 type
- TalcuTaskChangeHelper = {final} class(Tl3ProtoObject {$If not defined(Nemesis)}, IcsTaskChangeHelper{$IfEnd} //not Nemesis
+ TalcuTaskChangeHelper = {final} class(Tl3ProtoObject{$If NOT Defined(Nemesis)}
+ , IcsTaskChangeHelper
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- public
- // realized methods
-    {$If not defined(Nemesis)}
-   procedure TaskGotErrorStatus;
-    {$IfEnd} //not Nemesis
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(Nemesis)}
+   procedure TaskGotErrorStatus;
+   {$IfEnd} // NOT Defined(Nemesis)
    class function Instance: TalcuTaskChangeHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TalcuTaskChangeHelper }
  end;//TalcuTaskChangeHelper
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3Base {a},
-  alcuMailServer,
-  alcuTypes
-  ;
-{$IfEnd} //AppServerSide
+ l3ImplUses
+ , alcuMailServer
+ , alcuTypes
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(AppServerSide)}
-
-
-// start class TalcuTaskChangeHelper
-
-var g_TalcuTaskChangeHelper : TalcuTaskChangeHelper = nil;
+var g_TalcuTaskChangeHelper: TalcuTaskChangeHelper = nil;
+ {* Экземпляр синглетона TalcuTaskChangeHelper }
 
 procedure TalcuTaskChangeHelperFree;
+ {* Метод освобождения экземпляра синглетона TalcuTaskChangeHelper }
 begin
  l3Free(g_TalcuTaskChangeHelper);
-end;
-
-class function TalcuTaskChangeHelper.Instance: TalcuTaskChangeHelper;
-begin
- if (g_TalcuTaskChangeHelper = nil) then
- begin
-  l3System.AddExitProc(TalcuTaskChangeHelperFree);
-  g_TalcuTaskChangeHelper := Create;
- end;
- Result := g_TalcuTaskChangeHelper;
-end;
-
+end;//TalcuTaskChangeHelperFree
 
 class function TalcuTaskChangeHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TalcuTaskChangeHelper <> nil;
 end;//TalcuTaskChangeHelper.Exists
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuTaskChangeHelper.TaskGotErrorStatus;
 //#UC START# *F75B4443B80B_5583CD3601BD_var*
 //#UC END# *F75B4443B80B_5583CD3601BD_var*
@@ -97,17 +68,24 @@ begin
  alcuMail.SendSMSNotify(eventTaskError, dd_apsProcessQuery);
 //#UC END# *F75B4443B80B_5583CD3601BD_impl*
 end;//TalcuTaskChangeHelper.TaskGotErrorStatus
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //AppServerSide
+class function TalcuTaskChangeHelper.Instance: TalcuTaskChangeHelper;
+ {* Метод получения экземпляра синглетона TalcuTaskChangeHelper }
+begin
+ if (g_TalcuTaskChangeHelper = nil) then
+ begin
+  l3System.AddExitProc(TalcuTaskChangeHelperFree);
+  g_TalcuTaskChangeHelper := Create;
+ end;
+ Result := g_TalcuTaskChangeHelper;
+end;//TalcuTaskChangeHelper.Instance
 
 initialization
-{$If defined(AppServerSide)}
-// Регистрация TalcuTaskChangeHelper
- {$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
  TcsTaskChangeHelper.Instance.Alien := TalcuTaskChangeHelper.Instance;
- {$IfEnd} //not Nemesis
-
-{$IfEnd} //AppServerSide
+{$IfEnd} // NOT Defined(Nemesis)
+ {* Регистрация TalcuTaskChangeHelper }
+{$IfEnd} // Defined(AppServerSide)
 
 end.

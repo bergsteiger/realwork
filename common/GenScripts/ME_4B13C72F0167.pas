@@ -32,6 +32,7 @@ type
     {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
  end;//TnsUseTaskPanelOperationEvent
 
+ _vcmScrollableFormWithWheelSupport_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
  TPrimTasksPanelForm = class(_vcmScrollableFormWithWheelSupport_)
   private
@@ -82,6 +83,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_TnsUseTaskPanelOperationEvent: TnsUseTaskPanelOperationEvent = nil;
  {* Экземпляр синглетона TnsUseTaskPanelOperationEvent }
 
@@ -143,7 +145,6 @@ begin
 //#UC END# *4EE78AC500E3_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.WMSetFocus
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimTasksPanelForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4B13C72F0167_var*
@@ -174,7 +175,6 @@ begin
  end;{try..finally}
 //#UC END# *4A8E8F2E0195_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_tpMainCaption.Init;
@@ -183,6 +183,7 @@ initialization
  TtfwClassRef.Register(TPrimTasksPanelForm);
  {* Регистрация PrimTasksPanel }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

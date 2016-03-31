@@ -1,106 +1,76 @@
 unit nsContextFilterEventListener;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Logging"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Logging/nsContextFilterEventListener.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::Logging::Logging::TnsContextFilterEventListener
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventListener.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsContextFilterEventListener" MUID: (4B1660B9000D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  nsLogEvent,
-  nsContextFilterEventDataList,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , nsLogEvent
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , nsContextFilterEventDataList
+ , l3Interfaces
+;
 
 type
- TnsContextFilterEventListener = {final} class(TnsLogEvent {$If defined(Nemesis)}, InscContextFilterListener{$IfEnd} //Nemesis
+ TnsContextFilterEventListener = {final} class(TnsLogEvent{$If Defined(Nemesis)}
+ , InscContextFilterListener
+ {$IfEnd} // Defined(Nemesis)
  )
- private
- // private fields
-   f_List : TnsContextFilterEventDataList;
- protected
- // realized methods
-   {$If defined(Nemesis)}
+  private
+   f_List: TnsContextFilterEventDataList;
+  protected
+   {$If Defined(Nemesis)}
    procedure ContextCanBeChanged(aHandle: Integer;
     const aFilterName: Il3CString;
     const aState: InscContextFilterState);
-     {* событие возможной смены контекста. Генерируется при уходе фокуса из
+    {* событие возможной смены контекста. Генерируется при уходе фокуса из
              поля ввода и уничтожении компонента }
-   {$IfEnd} //Nemesis
-   {$If defined(Nemesis)}
+   {$IfEnd} // Defined(Nemesis)
+   {$If Defined(Nemesis)}
    procedure FilterRemoving(aHandle: Integer);
-   {$IfEnd} //Nemesis
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsContextFilterEventListener;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsContextFilterEventListener }
  end;//TnsContextFilterEventListener
 
 implementation
 
 uses
-  l3Base {a}
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  LoggingUnit,
-  l3String,
-  SysUtils,
-  nsTypes,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
+ l3ImplUses
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , LoggingUnit
+ , l3String
+ , SysUtils
+ , nsTypes
+ , l3Base
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
+;
 
-
-// start class TnsContextFilterEventListener
-
-var g_TnsContextFilterEventListener : TnsContextFilterEventListener = nil;
+var g_TnsContextFilterEventListener: TnsContextFilterEventListener = nil;
+ {* Экземпляр синглетона TnsContextFilterEventListener }
 
 procedure TnsContextFilterEventListenerFree;
+ {* Метод освобождения экземпляра синглетона TnsContextFilterEventListener }
 begin
  l3Free(g_TnsContextFilterEventListener);
-end;
-
-class function TnsContextFilterEventListener.Instance: TnsContextFilterEventListener;
-begin
- if (g_TnsContextFilterEventListener = nil) then
- begin
-  l3System.AddExitProc(TnsContextFilterEventListenerFree);
-  g_TnsContextFilterEventListener := Create;
- end;
- Result := g_TnsContextFilterEventListener;
-end;
-
+end;//TnsContextFilterEventListenerFree
 
 constructor TnsContextFilterEventListener.Create;
 //#UC START# *4B1661450093_4B1660B9000D_var*
@@ -115,15 +85,17 @@ begin
 end;//TnsContextFilterEventListener.Create
 
 class function TnsContextFilterEventListener.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsContextFilterEventListener <> nil;
 end;//TnsContextFilterEventListener.Exists
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 procedure TnsContextFilterEventListener.ContextCanBeChanged(aHandle: Integer;
-  const aFilterName: Il3CString;
-  const aState: InscContextFilterState);
+ const aFilterName: Il3CString;
+ const aState: InscContextFilterState);
+ {* событие возможной смены контекста. Генерируется при уходе фокуса из
+             поля ввода и уничтожении компонента }
 //#UC START# *490839BA0073_4B1660B9000D_var*
 var
  l_Data: InsLogEventData;
@@ -159,9 +131,9 @@ begin
  end;
 //#UC END# *490839BA0073_4B1660B9000D_impl*
 end;//TnsContextFilterEventListener.ContextCanBeChanged
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 procedure TnsContextFilterEventListener.FilterRemoving(aHandle: Integer);
 //#UC START# *4B165B44032D_4B1660B9000D_var*
 var
@@ -173,9 +145,21 @@ begin
  f_List.Remove(l_C);
 //#UC END# *4B165B44032D_4B1660B9000D_impl*
 end;//TnsContextFilterEventListener.FilterRemoving
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
+
+class function TnsContextFilterEventListener.Instance: TnsContextFilterEventListener;
+ {* Метод получения экземпляра синглетона TnsContextFilterEventListener }
+begin
+ if (g_TnsContextFilterEventListener = nil) then
+ begin
+  l3System.AddExitProc(TnsContextFilterEventListenerFree);
+  g_TnsContextFilterEventListener := Create;
+ end;
+ Result := g_TnsContextFilterEventListener;
+end;//TnsContextFilterEventListener.Instance
 
 procedure TnsContextFilterEventListener.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B1660B9000D_var*
 //#UC END# *479731C50290_4B1660B9000D_var*
 begin

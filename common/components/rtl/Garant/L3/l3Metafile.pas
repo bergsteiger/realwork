@@ -1,50 +1,35 @@
 unit l3Metafile;
+ {* Метафайл }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Metafile.pas"
-// Начат: 22.10.2004 19:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3Metafile
-//
-// Метафайл
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Metafile.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Metafile" MUID: (47DFD79200BD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes,
-  Graphics,
-  Windows,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , Graphics
+ , l3Interfaces
+ , Classes
+ , l3PureMixIns
+;
 
 type
  _l3Unknown_Parent_ = TMetafile;
- {$Include ..\L3\l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3Metafile = class(_l3Unknown_)
   {* Метафайл }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    procedure LoadWMFFromStream(Stream: TStream);
    class function TryMakeFromStream(Stream: TStream): Tl3Metafile;
    procedure LoadFromIStream(const aStream: IStream);
@@ -54,39 +39,37 @@ type
 implementation
 
 uses
-  Consts,
-  l3MetafileHeader,
-  l3Stream,
-  SysUtils,
-  l3Base,
-  l3Core,
-  l3MemUtils,
-  l3Interlocked
-  ;
-
-{$Include ..\L3\l3Unknown.imp.pas}
+ l3ImplUses
+ , Windows
+ , l3Stream
+ , SysUtils
+ , l3Base
+ , l3Core
+ , l3MemUtils
+ , l3Interlocked
+ , Consts
+ , l3MetafileHeader
+;
 
 type
-  THackMetafile = class(TGraphic)
+ THackMetafile = class(TGraphic)
   private
-  // private fields
-   FImage : TMetafileImage;
-  end;//THackMetafile
+   FImage: TMetafileImage;
+ end;//THackMetafile
 
-  THackSharedImage = class(TSharedImage)
-  end;//THackSharedImage
+ THackSharedImage = class(TSharedImage)
+ end;//THackSharedImage
 
-  THackImage = class(TSharedImage)
+ THackImage = class(TSharedImage)
   private
-  // private fields
-   FHandle : HENHMETAFILE;
-   FWidth : Integer;
-   FHeight : Integer;
-   FPalette : HPALETTE;
-   FInch : Word;
-  end;//THackImage
+   FHandle: HENHMETAFILE;
+   FWidth: Integer;
+   FHeight: Integer;
+   FPalette: HPALETTE;
+   FInch: Word;
+ end;//THackImage
 
-// start class Tl3Metafile
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure Tl3Metafile.LoadWMFFromStream(Stream: TStream);
 //#UC START# *54BE0C4402DE_47DFD79200BD_var*
@@ -215,6 +198,7 @@ begin
 end;//Tl3Metafile.SaveToIStream
 
 procedure Tl3Metafile.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47DFD79200BD_var*
 //#UC END# *479731C50290_47DFD79200BD_var*
 begin
@@ -225,8 +209,9 @@ begin
 //#UC END# *479731C50290_47DFD79200BD_impl*
 end;//Tl3Metafile.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3Metafile.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_47DFD79200BD_var*
 //#UC END# *47A6FEE600FC_47DFD79200BD_var*
 begin
@@ -234,6 +219,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_47DFD79200BD_impl*
 end;//Tl3Metafile.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

@@ -1,118 +1,88 @@
 unit alcuAsyncSubmitterManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/alcuAsyncSubmitterManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Server::Managers::TalcuAsyncSubmitterManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAsyncSubmitterManager" MUID: (53CCC324034B)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3ProtoObject
-  {$If defined(AppServerSide) AND defined(ServerTasks)}
-  ,
-  alcuServerAsyncExecutionInterfaces
-  {$IfEnd} //AppServerSide AND ServerTasks
-  ,
-  alcuBaseEngineHolder,
-  alcuTaskExecutingList,
-  dt_Types
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ , l3ProtoObject
+ {$If Defined(ServerTasks)}
+ , alcuServerAsyncExecutionInterfaces
+ {$IfEnd} // Defined(ServerTasks)
+ , alcuBaseEngineHolder
+ , alcuTaskExecutingList
+ , dt_Types
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide)}
 type
- TalcuAsyncSubmitterManager = class(Tl3ProtoObject {$If defined(AppServerSide) AND defined(ServerTasks)}, IalcuAsyncSubmitterManager{$IfEnd} //AppServerSide AND ServerTasks
+ TalcuAsyncSubmitterManager = class(Tl3ProtoObject{$If Defined(ServerTasks)}
+ , IalcuAsyncSubmitterManager
+ {$IfEnd} // Defined(ServerTasks)
  )
- private
- // private fields
-   f_BaseEngineHolder : TalcuBaseEngineHolder;
-   f_ExecutingList : TalcuTaskExecutingList;
- protected
- // realized methods
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+  private
+   f_BaseEngineHolder: TalcuBaseEngineHolder;
+   f_ExecutingList: TalcuTaskExecutingList;
+  protected
+   {$If Defined(ServerTasks)}
    function Get_ServerHostName: AnsiString;
-   {$IfEnd} //AppServerSide AND ServerTasks
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+   {$IfEnd} // Defined(ServerTasks)
+   {$If Defined(ServerTasks)}
    function Get_ServerPort: Integer;
-   {$IfEnd} //AppServerSide AND ServerTasks
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+   {$IfEnd} // Defined(ServerTasks)
+   {$If Defined(ServerTasks)}
    procedure GetUserAccountByID(anID: TUserID;
     out theName: AnsiString;
     out thePassword: AnsiString);
-     {* Получить логин/пароль по ID }
-   {$IfEnd} //AppServerSide AND ServerTasks
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+    {* Получить логин/пароль по ID }
+   {$IfEnd} // Defined(ServerTasks)
+   {$If Defined(ServerTasks)}
    function IsUserLogined(aUserID: TUserID): Boolean;
-   {$IfEnd} //AppServerSide AND ServerTasks
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+   {$IfEnd} // Defined(ServerTasks)
+   {$If Defined(ServerTasks)}
    procedure SendAbortNotification(anID: TUserID);
-   {$IfEnd} //AppServerSide AND ServerTasks
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+   {$IfEnd} // Defined(ServerTasks)
+   {$If Defined(ServerTasks)}
    function EnterTaskExecution(const aTask: TddProcessTask): Boolean;
-   {$IfEnd} //AppServerSide AND ServerTasks
-   {$If defined(AppServerSide) AND defined(ServerTasks)}
+   {$IfEnd} // Defined(ServerTasks)
+   {$If Defined(ServerTasks)}
    procedure LeaveTaskExecution(const aTask: TddProcessTask);
-   {$IfEnd} //AppServerSide AND ServerTasks
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(ServerTasks)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aBaseEngineHolder: TalcuBaseEngineHolder); reintroduce;
    class function Make(const aBaseEngineHolder: TalcuBaseEngineHolder): IalcuAsyncSubmitterManager; reintroduce;
-     {* Сигнатура фабрики TalcuAsyncSubmitterManager.Make }
  end;//TalcuAsyncSubmitterManager
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  dt_UserTypes
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_User
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  CsNotification
-  {$IfEnd} //not Nemesis
-  ,
-  l3Types,
-  l3Base,
-  daUtils
-  ;
-{$IfEnd} //AppServerSide
-
-{$If defined(AppServerSide)}
-
-// start class TalcuAsyncSubmitterManager
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , dt_UserTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ {$If NOT Defined(Nemesis)}
+ , CsNotification
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Types
+ , l3Base
+ , daUtils
+;
 
 constructor TalcuAsyncSubmitterManager.Create(const aBaseEngineHolder: TalcuBaseEngineHolder);
 //#UC START# *53CCF63B0139_53CCC324034B_var*
@@ -136,9 +106,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TalcuAsyncSubmitterManager.Make
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 function TalcuAsyncSubmitterManager.Get_ServerHostName: AnsiString;
 //#UC START# *53CCB9F20088_53CCC324034Bget_var*
 //#UC END# *53CCB9F20088_53CCC324034Bget_var*
@@ -147,9 +117,9 @@ begin
  Result := f_BaseEngineHolder.BaseEngine.ServerHostName;
 //#UC END# *53CCB9F20088_53CCC324034Bget_impl*
 end;//TalcuAsyncSubmitterManager.Get_ServerHostName
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 function TalcuAsyncSubmitterManager.Get_ServerPort: Integer;
 //#UC START# *53CCBA0D01C7_53CCC324034Bget_var*
 //#UC END# *53CCBA0D01C7_53CCC324034Bget_var*
@@ -158,12 +128,13 @@ begin
  Result := f_BaseEngineHolder.BaseEngine.ServerPort;
 //#UC END# *53CCBA0D01C7_53CCC324034Bget_impl*
 end;//TalcuAsyncSubmitterManager.Get_ServerPort
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 procedure TalcuAsyncSubmitterManager.GetUserAccountByID(anID: TUserID;
-  out theName: AnsiString;
-  out thePassword: AnsiString);
+ out theName: AnsiString;
+ out thePassword: AnsiString);
+ {* Получить логин/пароль по ID }
 //#UC START# *53CCBA3D0104_53CCC324034B_var*
 var
  l_User: TArchiUser;
@@ -176,9 +147,9 @@ begin
  thePassword := l_User.Password;
 //#UC END# *53CCBA3D0104_53CCC324034B_impl*
 end;//TalcuAsyncSubmitterManager.GetUserAccountByID
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 function TalcuAsyncSubmitterManager.IsUserLogined(aUserID: TUserID): Boolean;
 //#UC START# *53CCBA9702A7_53CCC324034B_var*
 //#UC END# *53CCBA9702A7_53CCC324034B_var*
@@ -187,9 +158,9 @@ begin
  Result := f_BaseEngineHolder.BaseEngine.CSServer.ActiveClients.IsLogged(aUserID);
 //#UC END# *53CCBA9702A7_53CCC324034B_impl*
 end;//TalcuAsyncSubmitterManager.IsUserLogined
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 procedure TalcuAsyncSubmitterManager.SendAbortNotification(anID: TUserID);
 //#UC START# *53CF91EC007A_53CCC324034B_var*
 //#UC END# *53CF91EC007A_53CCC324034B_var*
@@ -198,9 +169,9 @@ begin
  f_BaseEngineHolder.BaseEngine.CSServer.Notifier.SendNotify(anID, ntAbortAsyncRun, 0, '');
 //#UC END# *53CF91EC007A_53CCC324034B_impl*
 end;//TalcuAsyncSubmitterManager.SendAbortNotification
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 function TalcuAsyncSubmitterManager.EnterTaskExecution(const aTask: TddProcessTask): Boolean;
 //#UC START# *53D0AB57028E_53CCC324034B_var*
 var
@@ -245,9 +216,9 @@ begin
  Result := l_Result;
 //#UC END# *53D0AB57028E_53CCC324034B_impl*
 end;//TalcuAsyncSubmitterManager.EnterTaskExecution
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 procedure TalcuAsyncSubmitterManager.LeaveTaskExecution(const aTask: TddProcessTask);
 //#UC START# *53D0AB7A03A7_53CCC324034B_var*
 var
@@ -275,9 +246,10 @@ begin
    f_ExecutingList.Delete(l_IndexToDelete);
 //#UC END# *53D0AB7A03A7_53CCC324034B_impl*
 end;//TalcuAsyncSubmitterManager.LeaveTaskExecution
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 procedure TalcuAsyncSubmitterManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53CCC324034B_var*
 //#UC END# *479731C50290_53CCC324034B_var*
 begin
@@ -287,7 +259,6 @@ begin
  inherited Cleanup;
 //#UC END# *479731C50290_53CCC324034B_impl*
 end;//TalcuAsyncSubmitterManager.Cleanup
-
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 end.

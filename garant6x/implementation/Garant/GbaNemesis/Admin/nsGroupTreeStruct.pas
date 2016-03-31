@@ -1,55 +1,37 @@
 unit nsGroupTreeStruct;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/nsGroupTreeStruct.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Администратор::Admin::Admin::Users::TnsGroupTreeStruct
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStruct.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsGroupTreeStruct" MUID: (49E8213D00F6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  nsDataResetTreeStruct,
-  afwInterfaces,
-  DynamicTreeUnit
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , nsDataResetTreeStruct
+ , DynamicTreeUnit
+ , afwInterfaces
+;
 
-{$If defined(Admin)}
 type
  TnsGroupTreeStruct = class(TnsDataResetTreeStruct)
- protected
- // realized methods
+  protected
    function ReAqurieUnfilteredRoot: INodeBase; override;
- protected
- // overridden protected methods
    function SettingsID: TafwSettingId; override;
  end;//TnsGroupTreeStruct
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DataAdapter,
-  nsConst
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TnsGroupTreeStruct
+ l3ImplUses
+ , DataAdapter
+ , nsConst
+;
 
 function TnsGroupTreeStruct.ReAqurieUnfilteredRoot: INodeBase;
 //#UC START# *48FF64F60078_49E8213D00F6_var*
@@ -68,7 +50,6 @@ begin
  Result := gi_cpGroupList;
 //#UC END# *48FF56D003E6_49E8213D00F6_impl*
 end;//TnsGroupTreeStruct.SettingsID
-
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

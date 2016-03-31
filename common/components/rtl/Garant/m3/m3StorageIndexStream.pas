@@ -1,58 +1,46 @@
 unit m3StorageIndexStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StorageIndexStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3StorageIndexStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StorageIndexStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageIndexStream" MUID: (54182F8A0069)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  m3StorageInterfaces,
-  m3NewStorageStream,
-  m3NewStoragePrim
-  ;
+ l3IntfUses
+ , m3NewStorageStream
+ , ActiveX
+ , m3StorageInterfaces
+ , m3NewStoragePrim
+;
 
 type
  Tm3StorageIndexStream = class(Tm3NewStorageStream)
- protected
- // protected methods
+  protected
    class function NeedBuffering: Boolean; virtual;
- public
- // public methods
+  public
    class function Make(anAccess: Tm3StoreAccess;
-     aStep: Integer;
-     aParentStorage: Tm3NewStoragePrim;
-     aPosition: Int64): IStream;
+    aStep: Integer;
+    aParentStorage: Tm3NewStoragePrim;
+    aPosition: Int64): IStream;
  end;//Tm3StorageIndexStream
 
 implementation
 
 uses
-  SysUtils,
-  m3BuffStream,
-  l3_String,
-  l3String
-  ;
-
-// start class Tm3StorageIndexStream
+ l3ImplUses
+ , SysUtils
+ , m3BuffStream
+ , l3_String
+ , l3String
+;
 
 class function Tm3StorageIndexStream.Make(anAccess: Tm3StoreAccess;
-  aStep: Integer;
-  aParentStorage: Tm3NewStoragePrim;
-  aPosition: Int64): IStream;
+ aStep: Integer;
+ aParentStorage: Tm3NewStoragePrim;
+ aPosition: Int64): IStream;
 //#UC START# *5449197F0081_54182F8A0069_var*
 var
  l_Name : Tl3_String;

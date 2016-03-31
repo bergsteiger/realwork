@@ -1,104 +1,74 @@
 unit ncsClientTransporter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsClientTransporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Messages::TncsClientTransporter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsClientTransporter.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsClientTransporter" MUID: (544A0A0D0239)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsTransporter,
-  ncsTCPClient,
-  idComponent,
-  ncsMessageInterfaces,
-  ncsMessage,
-  Windows,
-  CsCommon
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsTransporter
+ , ncsMessageInterfaces
+ , idComponent
+ , ncsTCPClient
+;
 
-{$If not defined(Nemesis)}
 type
  TncsClientArray = array [TncsSocketKind] of TncsTCPClient;
 
  TncsClientTransporter = class(TncsTransporter, IncsClientTransporter)
- private
- // private fields
-   f_TCPClients : TncsClientArray;
- private
- // private methods
+  private
+   f_TCPClients: TncsClientArray;
+  private
    procedure TransportConnected;
-     {* Сигнатура метода TransportConnected }
    procedure SendTransportStatus(ASender: TObject;
-     const AStatus: TIdStatus;
-     const AStatusText: AnsiString);
+    const AStatus: TIdStatus;
+    const AStatusText: AnsiString);
    procedure ReceiveTransportStatus(ASender: TObject;
-     const AStatus: TIdStatus;
-     const AStatusText: AnsiString);
- protected
- // realized methods
+    const AStatus: TIdStatus;
+    const AStatusText: AnsiString);
+  protected
+   procedure BeforeSendHandshake; virtual;
+   procedure BeforeReceiveHandshake; virtual;
    procedure Connect(const aServerHost: AnsiString;
     aServerPort: Integer;
     const aSessionID: AnsiString);
    procedure Disconnect(Immidiate: Boolean = False);
-     {* Immidiate = True - отрубить сразу
+    {* Immidiate = True - отрубить сразу
 Immidiate = False - дождаться завершения обмена послав ncsDisconnect и дождавшись ответа }
    procedure HandShake; override;
-     {* Сигнатура метода HandShake }
    function HandShakeKind: TncsSocketKind; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   procedure BeforeSendHandshake; virtual;
-     {* Сигнатура метода BeforeSendHandshake }
-   procedure BeforeReceiveHandshake; virtual;
-     {* Сигнатура метода BeforeReceiveHandshake }
- public
- // public methods
+   procedure ClearFields; override;
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IncsClientTransporter; reintroduce;
-     {* Сигнатура фабрики TncsClientTransporter.Make }
  end;//TncsClientTransporter
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils,
-  l3Base,
-  IdException,
-  csIdIOHandlerAdapter,
-  csIdIOHandlerAbstractAdapter
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , IdException
+ , csIdIOHandlerAdapter
+ , csIdIOHandlerAbstractAdapter
+ , ncsMessage
+;
 
 const
-   { В миллисек }
-  c_ClientConnectTimeout = 10 * 1000;
-  c_ClientReadTimeout = {$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF};
-
-// start class TncsClientTransporter
+ {* В миллисек }
+ c_ClientConnectTimeout = 10 * 1000;
+ c_ClientReadTimeout = {$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF};
 
 procedure TncsClientTransporter.TransportConnected;
 //#UC START# *54522FCE0023_544A0A0D0239_var*
@@ -121,8 +91,8 @@ begin
 end;//TncsClientTransporter.TransportConnected
 
 procedure TncsClientTransporter.SendTransportStatus(ASender: TObject;
-  const AStatus: TIdStatus;
-  const AStatusText: AnsiString);
+ const AStatus: TIdStatus;
+ const AStatusText: AnsiString);
 //#UC START# *545B400202AF_544A0A0D0239_var*
 //#UC END# *545B400202AF_544A0A0D0239_var*
 begin
@@ -133,19 +103,6 @@ begin
  end;
 //#UC END# *545B400202AF_544A0A0D0239_impl*
 end;//TncsClientTransporter.SendTransportStatus
-
-procedure TncsClientTransporter.ReceiveTransportStatus(ASender: TObject;
-  const AStatus: TIdStatus;
-  const AStatusText: AnsiString);
-//#UC START# *5491684203A6_544A0A0D0239_var*
-//#UC END# *5491684203A6_544A0A0D0239_var*
-begin
-//#UC START# *5491684203A6_544A0A0D0239_impl*
- case aStatus of
-  hsDisconnected: StopProcessing(False);
- end;
-//#UC END# *5491684203A6_544A0A0D0239_impl*
-end;//TncsClientTransporter.ReceiveTransportStatus
 
 constructor TncsClientTransporter.Create;
 //#UC START# *5465A71E02F2_544A0A0D0239_var*
@@ -166,7 +123,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsClientTransporter.Make
+
+procedure TncsClientTransporter.ReceiveTransportStatus(ASender: TObject;
+ const AStatus: TIdStatus;
+ const AStatusText: AnsiString);
+//#UC START# *5491684203A6_544A0A0D0239_var*
+//#UC END# *5491684203A6_544A0A0D0239_var*
+begin
+//#UC START# *5491684203A6_544A0A0D0239_impl*
+ case aStatus of
+  hsDisconnected: StopProcessing(False);
+ end;
+//#UC END# *5491684203A6_544A0A0D0239_impl*
+end;//TncsClientTransporter.ReceiveTransportStatus
 
 procedure TncsClientTransporter.BeforeSendHandshake;
 //#UC START# *549279980264_544A0A0D0239_var*
@@ -187,8 +157,8 @@ begin
 end;//TncsClientTransporter.BeforeReceiveHandshake
 
 procedure TncsClientTransporter.Connect(const aServerHost: AnsiString;
-  aServerPort: Integer;
-  const aSessionID: AnsiString);
+ aServerPort: Integer;
+ const aSessionID: AnsiString);
 //#UC START# *544A1FD802E9_544A0A0D0239_var*
 //#UC END# *544A1FD802E9_544A0A0D0239_var*
 begin
@@ -213,6 +183,8 @@ begin
 end;//TncsClientTransporter.Connect
 
 procedure TncsClientTransporter.Disconnect(Immidiate: Boolean = False);
+ {* Immidiate = True - отрубить сразу
+Immidiate = False - дождаться завершения обмена послав ncsDisconnect и дождавшись ответа }
 //#UC START# *544A1FF00062_544A0A0D0239_var*
 var
  l_Message: TncsDisconnect;
@@ -306,6 +278,7 @@ begin
 end;//TncsClientTransporter.HandShakeKind
 
 procedure TncsClientTransporter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_544A0A0D0239_var*
 //#UC END# *479731C50290_544A0A0D0239_var*
 begin
@@ -336,6 +309,11 @@ begin
 //#UC END# *47A042E100E2_544A0A0D0239_impl*
 end;//TncsClientTransporter.InitFields
 
-{$IfEnd} //not Nemesis
+procedure TncsClientTransporter.ClearFields;
+begin
+ Finalize(f_TCPClients);
+ inherited;
+end;//TncsClientTransporter.ClearFields
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

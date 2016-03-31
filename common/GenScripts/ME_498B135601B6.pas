@@ -28,7 +28,7 @@ uses
 ;
 
 type
- TDocumentModule = class
+ TDocumentModule = class(TvcmModule)
   {* Работа с документом }
   protected
    procedure OpenDocOnNumber;
@@ -93,6 +93,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  TnsOpenDocumentByNumber = {final} class(TnsLogEvent)
   public
@@ -372,6 +373,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *81ECFA778427_498B135601B6_impl*
 end;//TDocumentModule.WriteDocumentShowChangesInfoSetting
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

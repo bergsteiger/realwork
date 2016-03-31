@@ -1,28 +1,23 @@
 {$IfNDef atExecutesQueryAddOn_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atExecutesQueryAddOn.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> garant6x_test::AdapterTest::Operations::atExecutesQueryAddOn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "atExecutesQueryAddOn" MUID: (502A79B80186)
+// Имя типа: "_atExecutesQueryAddOn_"
 
 {$Define atExecutesQueryAddOn_imp}
- _atExecutesQueryAddOn_ = {mixin} class(_atExecutesQueryAddOn_Parent_)
- protected
- // protected methods
-   function ExecuteQuery(const anQuery: TatQuery): Boolean; overload;  virtual;
-   function ExecuteQuery(const anQuery: IQuery): Boolean; overload;  virtual;
+
+ _atExecutesQueryAddOn_ = class(_atExecutesQueryAddOn_Parent_)
+  protected
+   function ExecuteQuery(const anQuery: TatQuery): Boolean; overload; virtual;
+   function ExecuteQuery(const anQuery: IQuery): Boolean; overload; virtual;
  end;//_atExecutesQueryAddOn_
 
 {$Else atExecutesQueryAddOn_imp}
 
-// start class _atExecutesQueryAddOn_
+{$IfNDef atExecutesQueryAddOn_imp_impl}
+
+{$Define atExecutesQueryAddOn_imp_impl}
 
 function _atExecutesQueryAddOn_.ExecuteQuery(const anQuery: TatQuery): Boolean;
 //#UC START# *502A7A0A03E7_502A79B80186_var*
@@ -63,4 +58,7 @@ begin
 //#UC END# *502A7A4701EC_502A79B80186_impl*
 end;//_atExecutesQueryAddOn_.ExecuteQuery
 
+{$EndIf atExecutesQueryAddOn_imp_impl}
+
 {$EndIf atExecutesQueryAddOn_imp}
+

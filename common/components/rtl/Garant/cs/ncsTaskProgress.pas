@@ -1,118 +1,114 @@
 unit ncsTaskProgress;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTaskProgress.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ResultDelivery::TncsTaskProgress
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskProgress.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsTaskProgress" MUID: (54746A670337)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessage,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , ncsMessage
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TncsTaskProgress = class(TncsMessage)
- protected
- // property methods
+  protected
    function pm_GetTaskID: AnsiString;
    procedure pm_SetTaskID(const aValue: AnsiString);
    function pm_GetDescription: AnsiString;
    procedure pm_SetDescription(const aValue: AnsiString);
    function pm_GetPercent: Integer;
    procedure pm_SetPercent(aValue: Integer);
- protected
- // overridden protected methods
+  public
    class function GetTaggedDataType: Tk2Type; override;
- public
- // public properties
+  public
    property TaskID: AnsiString
-     read pm_GetTaskID
-     write pm_SetTaskID;
+    read pm_GetTaskID
+    write pm_SetTaskID;
    property Description: AnsiString
-     read pm_GetDescription
-     write pm_SetDescription;
+    read pm_GetDescription
+    write pm_SetDescription;
    property Percent: Integer
-     read pm_GetPercent
-     write pm_SetPercent;
+    read pm_GetPercent
+    write pm_SetPercent;
  end;//TncsTaskProgress
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csTaskProgress_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsTaskProgress
+ l3ImplUses
+ , csTaskProgress_Const
+;
 
 function TncsTaskProgress.pm_GetTaskID: AnsiString;
- {-}
+//#UC START# *89A366919E99_54746A670337get_var*
+//#UC END# *89A366919E99_54746A670337get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrTaskID]);
+//#UC START# *89A366919E99_54746A670337get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *89A366919E99_54746A670337get_impl*
 end;//TncsTaskProgress.pm_GetTaskID
 
 procedure TncsTaskProgress.pm_SetTaskID(const aValue: AnsiString);
- {-}
+//#UC START# *89A366919E99_54746A670337set_var*
+//#UC END# *89A366919E99_54746A670337set_var*
 begin
- TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
+//#UC START# *89A366919E99_54746A670337set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *89A366919E99_54746A670337set_impl*
 end;//TncsTaskProgress.pm_SetTaskID
 
 function TncsTaskProgress.pm_GetDescription: AnsiString;
- {-}
+//#UC START# *F6C2147FAA9F_54746A670337get_var*
+//#UC END# *F6C2147FAA9F_54746A670337get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.StrA[k2_attrDescription]);
+//#UC START# *F6C2147FAA9F_54746A670337get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F6C2147FAA9F_54746A670337get_impl*
 end;//TncsTaskProgress.pm_GetDescription
 
 procedure TncsTaskProgress.pm_SetDescription(const aValue: AnsiString);
- {-}
+//#UC START# *F6C2147FAA9F_54746A670337set_var*
+//#UC END# *F6C2147FAA9F_54746A670337set_var*
 begin
- TaggedData.StrW[k2_attrDescription, nil] := (aValue);
+//#UC START# *F6C2147FAA9F_54746A670337set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F6C2147FAA9F_54746A670337set_impl*
 end;//TncsTaskProgress.pm_SetDescription
 
 function TncsTaskProgress.pm_GetPercent: Integer;
- {-}
+//#UC START# *F50A58BA5D41_54746A670337get_var*
+//#UC END# *F50A58BA5D41_54746A670337get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.IntA[k2_attrPercent]);
+//#UC START# *F50A58BA5D41_54746A670337get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F50A58BA5D41_54746A670337get_impl*
 end;//TncsTaskProgress.pm_GetPercent
 
 procedure TncsTaskProgress.pm_SetPercent(aValue: Integer);
- {-}
+//#UC START# *F50A58BA5D41_54746A670337set_var*
+//#UC END# *F50A58BA5D41_54746A670337set_var*
 begin
- TaggedData.IntW[k2_attrPercent, nil] := (aValue);
+//#UC START# *F50A58BA5D41_54746A670337set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *F50A58BA5D41_54746A670337set_impl*
 end;//TncsTaskProgress.pm_SetPercent
 
 class function TncsTaskProgress.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_54746A670337_var*
+//#UC END# *53AC03EE01FD_54746A670337_var*
 begin
- Result := k2_typcsTaskProgress;
+//#UC START# *53AC03EE01FD_54746A670337_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_54746A670337_impl*
 end;//TncsTaskProgress.GetTaggedDataType
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

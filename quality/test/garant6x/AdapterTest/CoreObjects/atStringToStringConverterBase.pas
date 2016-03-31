@@ -1,32 +1,21 @@
 unit atStringToStringConverterBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atStringToStringConverterBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatStringToStringConverterBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringToStringConverterBase.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatStringToStringConverterBase" MUID: (503F793301B3)
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+;
 
 type
  _FirstType_ = AnsiString;
  _SecondType_ = AnsiString;
- {$Include ..\CoreObjects\atConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
  TatStringToStringConverterBase = {abstract} class(_atConverter_)
- public
- // public methods
+  public
    function FirstToSecondCI(const aFirst: _FirstType_): _SecondType_; virtual;
    function SecondToFirstCI(const aSecond: _SecondType_): _FirstType_; virtual;
  end;//TatStringToStringConverterBase
@@ -34,12 +23,11 @@ type
 implementation
 
 uses
-  TypInfo
-  ;
+ l3ImplUses
+ , TypInfo
+;
 
-{$Include ..\CoreObjects\atConverter.imp.pas}
-
-// start class TatStringToStringConverterBase
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
 
 function TatStringToStringConverterBase.FirstToSecondCI(const aFirst: _FirstType_): _SecondType_;
 //#UC START# *503F7A2601F6_503F793301B3_var*

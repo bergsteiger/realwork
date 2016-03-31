@@ -1,35 +1,28 @@
 unit m3RootStream;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3RootStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3RootStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3RootStream.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm3RootStream" MUID: (53FDE7290320)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX,
-  l3Logger,
-  m3BaseHeaderStream
-  ;
+ l3IntfUses
+ , ActiveX
+ , l3Logger
+ , m3BaseHeaderStream
+;
 
 type
+ Rm3RootStream = class of Tm3RootStream;
+
  Tm3RootStreamHeader = packed record
   {* Заголовок потока в котором живет IStorage.
 
 Данные определяются через пользовательскую секцию, чтобы они не дай бог местами не переставились. }
-//#UC START# *53FEFB4C03AEpubl*
+ //#UC START# *53FEFB4C03AEpubl*
     rZerroFrontierByte: Byte;
       {* - начальный ноль. }
     rFirstFreeFATElement: Int64;
@@ -42,44 +35,39 @@ type
       {* - размер ТЕЛА кластера. }
     rAllocatedStreamSize: Int64;
       {* - размер корневого потока. }
-//#UC END# *53FEFB4C03AEpubl*
+ //#UC END# *53FEFB4C03AEpubl*
  end;//Tm3RootStreamHeader
 
- Rm3RootStream = class of Tm3RootStream;
-
  _HeaderType_ = Tm3RootStreamHeader;
- {$Include ..\m3\m3RootStream.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas}
  Tm3RootStream = class(_m3RootStream_)
- public
- // realized methods
+  public
+   procedure ForceLockHeader;
+    {* Гарантированно блокирует заголовок потока. }
    class function HeaderID: TCLSID; override;
    class function DefaultHeaderValue: _HeaderType_; override;
- public
- // public methods
-   procedure ForceLockHeader;
-     {* Гарантированно блокирует заголовок потока. }
  end;//Tm3RootStream
 
 implementation
 
 uses
-  Windows,
-  m3StorageBlock,
-  SysUtils,
-  m2AddDbg,
-  m2AddPrc,
-  m2COMLib,
-  m2MemLib,
-  l3Base,
-  ComObj,
-  m3Const
-  ;
+ l3ImplUses
+ , m3StorageBlock
+ , SysUtils
+ , m2AddDbg
+ , m2AddPrc
+ , m2COMLib
+ , m2MemLib
+ , l3Base
+ , ComObj
+ , m3Const
+ , Windows
+;
 
-{$Include ..\m3\m3RootStream.imp.pas}
-
-// start class Tm3RootStream
+{$Include w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas}
 
 procedure Tm3RootStream.ForceLockHeader;
+ {* Гарантированно блокирует заголовок потока. }
 //#UC START# *542BEDF501C7_53FDE7290320_var*
 const
  cMaxTry = 1000;

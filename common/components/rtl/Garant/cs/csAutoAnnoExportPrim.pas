@@ -1,110 +1,104 @@
 unit csAutoAnnoExportPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csAutoAnnoExportPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsAutoAnnoExportPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csAutoAnnoExportPrim.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsAutoAnnoExportPrim" MUID: (53BA72D102A5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csExport,
-  evdTasksHelpers,
-  k2Base
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csExport
+ , evdTasksHelpers
+ , k2Base
+;
 
-{$If not defined(Nemesis)}
 type
  TcsAutoAnnoExportPrim = class(TcsExport)
- protected
- // property methods
+  protected
    function pm_GetStartDate: TDateTime;
    procedure pm_SetStartDate(aValue: TDateTime);
    function pm_GetEndDate: TDateTime;
    procedure pm_SetEndDate(aValue: TDateTime);
    function pm_GetBelongsIDList: BelongsIDListHelper;
- protected
- // overridden protected methods
-   class function GetTaggedDataType: Tk2Type; override;
    function GetDescription: AnsiString; override;
- public
- // public properties
+  public
+   class function GetTaggedDataType: Tk2Type; override;
+  public
    property StartDate: TDateTime
-     read pm_GetStartDate
-     write pm_SetStartDate;
+    read pm_GetStartDate
+    write pm_SetStartDate;
    property EndDate: TDateTime
-     read pm_GetEndDate
-     write pm_SetEndDate;
+    read pm_GetEndDate
+    write pm_SetEndDate;
    property BelongsIDList: BelongsIDListHelper
-     read pm_GetBelongsIDList;
+    read pm_GetBelongsIDList;
  end;//TcsAutoAnnoExportPrim
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  AutoAnnoExportTask_Const
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TcsAutoAnnoExportPrim
+ l3ImplUses
+ , AutoAnnoExportTask_Const
+;
 
 function TcsAutoAnnoExportPrim.pm_GetStartDate: TDateTime;
- {-}
+//#UC START# *05DE548C59E7_53BA72D102A5get_var*
+//#UC END# *05DE548C59E7_53BA72D102A5get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.DateTimeA[k2_attrStartDate]);
+//#UC START# *05DE548C59E7_53BA72D102A5get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *05DE548C59E7_53BA72D102A5get_impl*
 end;//TcsAutoAnnoExportPrim.pm_GetStartDate
 
 procedure TcsAutoAnnoExportPrim.pm_SetStartDate(aValue: TDateTime);
- {-}
+//#UC START# *05DE548C59E7_53BA72D102A5set_var*
+//#UC END# *05DE548C59E7_53BA72D102A5set_var*
 begin
- TaggedData.DateTimeW[k2_attrStartDate, nil] := (aValue);
+//#UC START# *05DE548C59E7_53BA72D102A5set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *05DE548C59E7_53BA72D102A5set_impl*
 end;//TcsAutoAnnoExportPrim.pm_SetStartDate
 
 function TcsAutoAnnoExportPrim.pm_GetEndDate: TDateTime;
- {-}
+//#UC START# *DF8B66F30ABF_53BA72D102A5get_var*
+//#UC END# *DF8B66F30ABF_53BA72D102A5get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := (TaggedData.DateTimeA[k2_attrEndDate]);
+//#UC START# *DF8B66F30ABF_53BA72D102A5get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *DF8B66F30ABF_53BA72D102A5get_impl*
 end;//TcsAutoAnnoExportPrim.pm_GetEndDate
 
 procedure TcsAutoAnnoExportPrim.pm_SetEndDate(aValue: TDateTime);
- {-}
+//#UC START# *DF8B66F30ABF_53BA72D102A5set_var*
+//#UC END# *DF8B66F30ABF_53BA72D102A5set_var*
 begin
- TaggedData.DateTimeW[k2_attrEndDate, nil] := (aValue);
+//#UC START# *DF8B66F30ABF_53BA72D102A5set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *DF8B66F30ABF_53BA72D102A5set_impl*
 end;//TcsAutoAnnoExportPrim.pm_SetEndDate
 
 function TcsAutoAnnoExportPrim.pm_GetBelongsIDList: BelongsIDListHelper;
- {-}
+//#UC START# *70CF313CF481_53BA72D102A5get_var*
+//#UC END# *70CF313CF481_53BA72D102A5get_var*
 begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TBelongsIDListHelper.Make(TaggedData.cAtom(k2_attrBelongsIDList));
+//#UC START# *70CF313CF481_53BA72D102A5get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *70CF313CF481_53BA72D102A5get_impl*
 end;//TcsAutoAnnoExportPrim.pm_GetBelongsIDList
 
 class function TcsAutoAnnoExportPrim.GetTaggedDataType: Tk2Type;
- {-}
+//#UC START# *53AC03EE01FD_53BA72D102A5_var*
+//#UC END# *53AC03EE01FD_53BA72D102A5_var*
 begin
- Result := k2_typAutoAnnoExportTask;
+//#UC START# *53AC03EE01FD_53BA72D102A5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_53BA72D102A5_impl*
 end;//TcsAutoAnnoExportPrim.GetTaggedDataType
 
 function TcsAutoAnnoExportPrim.GetDescription: AnsiString;
@@ -115,7 +109,6 @@ begin
  Result := 'Автоматический экспорт аннотаций';
 //#UC END# *53FB28170339_53BA72D102A5_impl*
 end;//TcsAutoAnnoExportPrim.GetDescription
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

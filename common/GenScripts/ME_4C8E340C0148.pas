@@ -32,7 +32,7 @@ type
   {* Список указателей на IvcmToolbarsCustomizeListener }
  end;//TIvcmToolbarsCustomizeListenerPtrList
 
- TPrimToolbarMenuModule = {abstract} class(IvcmToolbarsCustomizeNotify, IvcmToolbarsCustomize)
+ TPrimToolbarMenuModule = {abstract} class(TvcmModule, IvcmToolbarsCustomizeNotify, IvcmToolbarsCustomize)
   private
    f_MenuManager: TvcmBaseMenuManager;
     {* Поле для свойства MenuManager }

@@ -1,44 +1,31 @@
 unit atContextSearchInDocumentOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atContextSearchInDocumentOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatContextSearchInDocumentOperation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atContextSearchInDocumentOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatContextSearchInDocumentOperation" MUID: (50460E8A0063)
 
 interface
 
 uses
-  DocumentUnit,
-  Classes,
-  atOperationBase,
-  atDocumentHelper,
-  atStringProvider
-  ;
+ l3IntfUses
+ , atOperationBase
+ , DocumentUnit
+ , atDocumentHelper
+ , Classes
+ , atStringProvider
+;
 
 type
  _atHasStringParamAddOn_Parent_ = TatOperationBase;
- {$Include ..\Operations\atHasStringParamAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
  TatContextSearchInDocumentOperation = class(_atHasStringParamAddOn_)
- private
- // private fields
-   f_IsLogFoundContexts : Boolean;
-   f_DTP : IDocumentTextProvider;
-   f_StartParas : TParaIDArr;
-   f_ParasText : TStringList;
- protected
- // realized methods
+  private
+   f_IsLogFoundContexts: Boolean;
+   f_DTP: IDocumentTextProvider;
+   f_StartParas: TParaIDArr;
+   f_ParasText: TStringList;
+  protected
    function OnString(const aString: AnsiString): Boolean; override;
- protected
- // overridden protected methods
    procedure InitParamList; override;
    procedure ExecuteSelf; override;
  end;//TatContextSearchInDocumentOperation
@@ -46,19 +33,18 @@ type
 implementation
 
 uses
-  atLogger,
-  Math,
-  atStringHelper,
-  BaseTypesUnit,
-  SysUtils,
-  atSyncedStringFileReader,
-  atStringFileReader,
-  atConstStringProvider
-  ;
+ l3ImplUses
+ , atLogger
+ , Math
+ , atStringHelper
+ , BaseTypesUnit
+ , SysUtils
+ , atSyncedStringFileReader
+ , atStringFileReader
+ , atConstStringProvider
+;
 
-{$Include ..\Operations\atHasStringParamAddOn.imp.pas}
-
-// start class TatContextSearchInDocumentOperation
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
 
 function TatContextSearchInDocumentOperation.OnString(const aString: AnsiString): Boolean;
 //#UC START# *503648620273_50460E8A0063_var*

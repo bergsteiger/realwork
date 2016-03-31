@@ -1,74 +1,51 @@
 unit deCommonDiction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "CommonDiction"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/CommonDiction/deCommonDiction.pas"
-// Начат: 08.12.2009 18:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::CommonDiction::CommonDiction::TdeCommonDiction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\deCommonDiction.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdeCommonDiction" MUID: (4B1E70D20312)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3Interfaces,
-  deDocInfo,
-  CommonDictionInterfaces,
-  DocumentInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , deDocInfo
+ , CommonDictionInterfaces
+ , l3Interfaces
+ , DocumentInterfaces
+ , DocumentUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeCommonDiction = class(TdeDocInfo, IdeCommonDiction)
- protected
- // realized methods
+  protected
+   f_Context: Il3CString;
+  protected
    function pm_GetContext: Il3CString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DefaultDocType: TDocumentType; override;
    procedure AssignFromClone(const aData: IdeDocInfo); override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Context : Il3CString;
- public
- // public methods
+  public
    class function Convert(const aDocInfo: IdeDocInfo): IdeCommonDiction;
    class function Make(const aDocument: IDocument;
-     const aContext: Il3CString = nil): IdeDocInfo;
+    const aContext: Il3CString = nil): IdeDocInfo;
  end;//TdeCommonDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  BaseTypesUnit,
-  bsTypesNew,
-  bsDataContainer
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TdeCommonDiction
+ l3ImplUses
+ , SysUtils
+ , BaseTypesUnit
+ , bsTypesNew
+ , bsDataContainer
+;
 
 class function TdeCommonDiction.Convert(const aDocInfo: IdeDocInfo): IdeCommonDiction;
 //#UC START# *4B1E7EC0026F_4B1E70D20312_var*
@@ -90,7 +67,7 @@ begin
 end;//TdeCommonDiction.Convert
 
 class function TdeCommonDiction.Make(const aDocument: IDocument;
-  const aContext: Il3CString = nil): IdeDocInfo;
+ const aContext: Il3CString = nil): IdeDocInfo;
 //#UC START# *4B1E7EF1015B_4B1E70D20312_var*
 var
  lClass: TdeCommonDiction;
@@ -117,6 +94,7 @@ begin
 end;//TdeCommonDiction.pm_GetContext
 
 procedure TdeCommonDiction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B1E70D20312_var*
 //#UC END# *479731C50290_4B1E70D20312_var*
 begin
@@ -150,14 +128,10 @@ begin
 end;//TdeCommonDiction.AssignFromClone
 
 procedure TdeCommonDiction.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Context := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TdeCommonDiction.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -16,7 +16,7 @@ uses
 ;
 
 type
- TPrimDocumentListFromFileModule = class
+ TPrimDocumentListFromFileModule = class(TvcmModule)
   {* Список документов из файла }
   private
    procedure OpenDocumentListFromFile;
@@ -52,6 +52,7 @@ uses
  , PrimPrimListInterfaces
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Local }
  str_AccessDenied: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AccessDenied'; rValue : 'Нет доступа к файлу');
@@ -78,6 +79,7 @@ initialization
  {* Инициализация str_InvalidType }
  str_ImportDocuments.Init;
  {* Инициализация str_ImportDocuments }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

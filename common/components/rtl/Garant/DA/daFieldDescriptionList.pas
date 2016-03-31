@@ -1,27 +1,18 @@
 unit daFieldDescriptionList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daFieldDescriptionList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::DataScheme::TdaFieldDescriptionList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daFieldDescriptionList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldDescriptionList" MUID: (5538E9E500EE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daFieldDescriptionListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , daFieldDescriptionListPrim
+ , l3Types
+;
 
 type
  _FindDataType_ = AnsiString;
@@ -33,15 +24,18 @@ type
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+ , daInterfaces
+;
 
-// start class TdaFieldDescriptionList
+{$If not Declared(_ItemType_)}type _ItemType_ = IdaFieldDescription;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_5538E9E500EE_var*
 //#UC END# *47B9BAFD01F4_5538E9E500EE_var*
 begin

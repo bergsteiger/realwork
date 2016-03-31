@@ -1,44 +1,37 @@
 {$IfNDef nsListWarningGenerator_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PrimListControllers"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/PrimListControllers/nsListWarningGenerator.imp.pas"
-// Начат: 04.05.2011 18:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Core::Base Operations::PrimListControllers::PrimListControllersRealization::nsListWarningGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "nsListWarningGenerator" MUID: (4DC1671402AB)
+// Имя типа: "_nsListWarningGenerator_"
 
 {$Define nsListWarningGenerator_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _nsListWarningGenerator_ = {mixin} class(_nsListWarningGenerator_Parent_)
- public
- // realized methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _nsListWarningGenerator_ = class(_nsListWarningGenerator_Parent_)
+  public
    function Generate(const aWarning: IdsWarning;
     const aGen: InevTagGenerator;
     aUserType: TvcmUserType): TWarningTypeSet;
-     {* Результат сообщает о том, какие предупреждения есть у документа. Если нет ни одного предупреждения, то вернется cEmptyWarning }
+    {* Результат сообщает о том, какие предупреждения есть у документа. Если нет ни одного предупреждения, то вернется cEmptyWarning }
  end;//_nsListWarningGenerator_
-{$Else}
 
- _nsListWarningGenerator_ = _nsListWarningGenerator_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_nsListWarningGenerator_ = _nsListWarningGenerator_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else nsListWarningGenerator_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef nsListWarningGenerator_imp_impl}
 
-// start class _nsListWarningGenerator_
+{$Define nsListWarningGenerator_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _nsListWarningGenerator_.Generate(const aWarning: IdsWarning;
-  const aGen: InevTagGenerator;
-  aUserType: TvcmUserType): TWarningTypeSet;
+ const aGen: InevTagGenerator;
+ aUserType: TvcmUserType): TWarningTypeSet;
+ {* Результат сообщает о том, какие предупреждения есть у документа. Если нет ни одного предупреждения, то вернется cEmptyWarning }
 //#UC START# *493E4F7E039B_4DC1671402AB_var*
 var
  l_dsDocument : IdsBaseDocument;
@@ -67,7 +60,9 @@ begin
                                             l_dsDocument As IucpUnderControl);
 //#UC END# *493E4F7E039B_4DC1671402AB_impl*
 end;//_nsListWarningGenerator_.Generate
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf nsListWarningGenerator_imp_impl}
 
 {$EndIf nsListWarningGenerator_imp}
+

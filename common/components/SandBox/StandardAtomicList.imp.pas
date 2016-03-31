@@ -1,23 +1,26 @@
 {$IfNDef StandardAtomicList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "StandardAtomicList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Sand Box::SandBox::FinalContainers::StandardAtomicList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\StandardAtomicList.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "StandardAtomicList" MUID: (51E809FD01DF)
+// Имя типа: "_StandardAtomicList_"
 
 {$Define StandardAtomicList_imp}
+
  _AtomicList_Parent_ = TRefcounted;
- {$Include ..\SandBox\AtomicList.imp.pas}
- _StandardAtomicList_ = {mixin} class(_AtomicList_)
+ {$Include w:\common\components\SandBox\AtomicList.imp.pas}
+ _StandardAtomicList_ = class(_AtomicList_)
  end;//_StandardAtomicList_
 
 {$Else StandardAtomicList_imp}
 
-{$Include ..\SandBox\AtomicList.imp.pas}
+{$IfNDef StandardAtomicList_imp_impl}
 
+{$Define StandardAtomicList_imp_impl}
+
+{$Include w:\common\components\SandBox\AtomicList.imp.pas}
+
+{$EndIf StandardAtomicList_imp_impl}
 
 {$EndIf StandardAtomicList_imp}
+

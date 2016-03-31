@@ -1,84 +1,60 @@
 unit nsChangesBetweenEditionsInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChangesBetweenEditions$Domain"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ChangesBetweenEditions/nsChangesBetweenEditionsInfo.pas"
-// Начат: 25.05.2011 14:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::ChangesBetweenEditions$Domain::ChangesBetweenEditionsImplementation::TnsChangesBetweenEditionsInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsInfo.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsChangesBetweenEditionsInfo" MUID: (4DDCD9670300)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3ProtoObject,
-  ChangesBetweenEditionsInterfaces,
-  afwInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , ChangesBetweenEditionsInterfaces
+ , DocumentUnit
+ , afwInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsChangesBetweenEditionsInfo = class(_afwApplicationDataUpdate_, InsChangesBetweenEditionsInfo)
- private
- // private fields
-   f_DiffProvider : IDiffDocDataProvider;
-   f_Right : IDocument;
-   f_Left : IDocument;
- protected
- // realized methods
+  private
+   f_DiffProvider: IDiffDocDataProvider;
+   f_Right: IDocument;
+   f_Left: IDocument;
+  protected
    function Get_DiffProvider: IDiffDocDataProvider;
    function Get_RightEdition: IDocument;
    function Get_LeftEdition: IDocument;
- protected
- // overridden protected methods
    procedure FinishDataUpdate; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aLeft: IDocument;
-     const aRight: IDocument;
-     const aDiffProvider: IDiffDocDataProvider); reintroduce;
+    const aRight: IDocument;
+    const aDiffProvider: IDiffDocDataProvider); reintroduce;
    class function Make(const aLeft: IDocument;
-     const aRight: IDocument;
-     const aDiffProvider: IDiffDocDataProvider): InsChangesBetweenEditionsInfo; reintroduce;
-     {* Сигнатура фабрики TnsChangesBetweenEditionsInfo.Make }
+    const aRight: IDocument;
+    const aDiffProvider: IDiffDocDataProvider): InsChangesBetweenEditionsInfo; reintroduce;
  end;//TnsChangesBetweenEditionsInfo
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DataAdapter
+ , afwFacade
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-// start class TnsChangesBetweenEditionsInfo
-
 constructor TnsChangesBetweenEditionsInfo.Create(const aLeft: IDocument;
-  const aRight: IDocument;
-  const aDiffProvider: IDiffDocDataProvider);
+ const aRight: IDocument;
+ const aDiffProvider: IDiffDocDataProvider);
 //#UC START# *4DDCDA030188_4DDCD9670300_var*
 //#UC END# *4DDCDA030188_4DDCD9670300_var*
 begin
@@ -91,8 +67,8 @@ begin
 end;//TnsChangesBetweenEditionsInfo.Create
 
 class function TnsChangesBetweenEditionsInfo.Make(const aLeft: IDocument;
-  const aRight: IDocument;
-  const aDiffProvider: IDiffDocDataProvider): InsChangesBetweenEditionsInfo;
+ const aRight: IDocument;
+ const aDiffProvider: IDiffDocDataProvider): InsChangesBetweenEditionsInfo;
 var
  l_Inst : TnsChangesBetweenEditionsInfo;
 begin
@@ -102,7 +78,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsChangesBetweenEditionsInfo.Make
 
 function TnsChangesBetweenEditionsInfo.Get_DiffProvider: IDiffDocDataProvider;
 //#UC START# *4DDCD8ED00A5_4DDCD9670300get_var*
@@ -145,20 +121,12 @@ begin
 end;//TnsChangesBetweenEditionsInfo.FinishDataUpdate
 
 procedure TnsChangesBetweenEditionsInfo.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_DiffProvider := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Right := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Left := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsChangesBetweenEditionsInfo.ClearFields
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

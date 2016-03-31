@@ -1,71 +1,52 @@
 unit ncsGetFilePartExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsGetFilePartExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::TaskSend::TncsGetFilePartExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetFilePartExecutor.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetFilePartExecutor" MUID: (54B7B3D203C6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ncsMessageInterfaces
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ncsMessageInterfaces
+;
 
-{$If not defined(Nemesis)}
 type
  TncsGetFilePartExecutor = class(Tl3ProtoObject, IncsExecutor)
- private
- // private fields
-   f_FileName : AnsiString;
-   f_BasePath : AnsiString;
- protected
- // realized methods
+  private
+   f_FileName: AnsiString;
+   f_BasePath: AnsiString;
+  protected
    procedure Execute(const aContext: TncsExecuteContext);
- public
- // public methods
+  public
    constructor Create(const aBasePath: AnsiString;
-     const aFileName: AnsiString); reintroduce;
+    const aFileName: AnsiString); reintroduce;
    class function Make(const aBasePath: AnsiString;
-     const aFileName: AnsiString): IncsExecutor; reintroduce;
-     {* Сигнатура фабрики TncsGetFilePartExecutor.Make }
+    const aFileName: AnsiString): IncsExecutor; reintroduce;
  end;//TncsGetFilePartExecutor
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsPushFilePart,
-  Math,
-  SysUtils,
-  l3Types,
-  Classes,
-  l3Stream,
-  ncsGetFilePartReply,
-  ncsGetFilePart
-  ;
-{$IfEnd} //not Nemesis
-
-{$If not defined(Nemesis)}
-
-// start class TncsGetFilePartExecutor
+ l3ImplUses
+ , ncsPushFilePart
+ , Math
+ , SysUtils
+ , l3Types
+ , Classes
+ , l3Stream
+ , ncsGetFilePartReply
+ , ncsGetFilePart
+;
 
 constructor TncsGetFilePartExecutor.Create(const aBasePath: AnsiString;
-  const aFileName: AnsiString);
+ const aFileName: AnsiString);
 //#UC START# *54B7B6E402A1_54B7B3D203C6_var*
 //#UC END# *54B7B6E402A1_54B7B3D203C6_var*
 begin
@@ -77,7 +58,7 @@ begin
 end;//TncsGetFilePartExecutor.Create
 
 class function TncsGetFilePartExecutor.Make(const aBasePath: AnsiString;
-  const aFileName: AnsiString): IncsExecutor;
+ const aFileName: AnsiString): IncsExecutor;
 var
  l_Inst : TncsGetFilePartExecutor;
 begin
@@ -87,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TncsGetFilePartExecutor.Make
 
 procedure TncsGetFilePartExecutor.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_54B7B3D203C6_var*
@@ -144,7 +125,6 @@ begin
  end;
 //#UC END# *54607DDC0159_54B7B3D203C6_impl*
 end;//TncsGetFilePartExecutor.Execute
-
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

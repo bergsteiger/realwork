@@ -11,8 +11,9 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , l3Interfaces
  , TypInfo
+ , tfwScriptingExceptions
+ , l3Interfaces
 ;
 
 type

@@ -1,49 +1,33 @@
 unit nsAACLeftDocumentContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AAC$DataSources"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/AAC/nsAACLeftDocumentContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::AAC::AAC$DataSources::AACImplementation::TnsAACLeftDocumentContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\nsAACLeftDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TnsAACLeftDocumentContainer" MUID: (500E75A000B0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsAACDocumentContainerPrim
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , nsAACDocumentContainerPrim
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsAACLeftDocumentContainer = class(TnsAACDocumentContainerPrim)
- protected
- // realized methods
+  protected
    function AcceptableBlockViewKinds: TnsBlockViewKinds; override;
  end;//TnsAACLeftDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evdTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsAACLeftDocumentContainer
+ l3ImplUses
+ , evdTypes
+;
 
 function TnsAACLeftDocumentContainer.AcceptableBlockViewKinds: TnsBlockViewKinds;
 //#UC START# *500E7677002B_500E75A000B0_var*
@@ -53,7 +37,6 @@ begin
  Result := [ev_bvkLeft];
 //#UC END# *500E7677002B_500E75A000B0_impl*
 end;//TnsAACLeftDocumentContainer.AcceptableBlockViewKinds
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

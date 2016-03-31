@@ -1,64 +1,44 @@
 unit atCommandLine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atCommandLine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::CoreObjects::TatCommandLine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atCommandLine.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TatCommandLine" MUID: (4808971F0196)
 
 interface
 
 uses
-  atCommandLineParameter,
-  atCommandLineParametersList
-  ;
+ l3IntfUses
+ , atCommandLineParametersList
+ , atCommandLineParameter
+;
 
 type
  TatCommandLine = class(TObject)
- private
- // private fields
-   f_Delimiter : AnsiChar;
- private
- // private methods
+  private
+   f_Delimiter: AnsiChar;
+  protected
+   f_ParamList: TatCommandLineParametersList;
+  private
    procedure Parse;
- protected
- // property methods
+  protected
    function pm_GetParameters(const aName: AnsiString): TatCommandLineParameter;
- public
- // overridden public methods
-   destructor Destroy; override;
- protected
- // protected fields
-   f_ParamList : TatCommandLineParametersList;
- protected
- // protected methods
    procedure InitParamList; virtual; abstract;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    procedure PrintUsageInfo; virtual;
    function IsAllRequiredSet: Boolean;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property Parameters[const aName: AnsiString]: TatCommandLineParameter
-     read pm_GetParameters;
+    read pm_GetParameters;
  end;//TatCommandLine
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TatCommandLine
+ l3ImplUses
+ , SysUtils
+;
 
 function TatCommandLine.pm_GetParameters(const aName: AnsiString): TatCommandLineParameter;
 //#UC START# *480897B103E1_4808971F0196get_var*

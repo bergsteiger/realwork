@@ -1,29 +1,24 @@
 unit IntegerList;
+ {* Список Integer'ов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBox"
-// Модуль: "IntegerList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Sand Box::SandBox::FinalContainers::TIntegerList
-//
-// Список Integer'ов
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IntegerList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TIntegerList" MUID: (51DEB249012E)
 
-{$Include ..\SandBox\sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 
 uses
-  Refcounted,
-  Classes,
-  l3PtrLoc
-  ;
+ l3IntfUses
+ , Refcounted
+ , l3PtrLoc
+ , Classes
+;
 
 type
  _ItemType_ = Integer;
- {$Include ..\SandBox\StandardAtomicList.imp.pas}
+ {$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
  TIntegerList = class(_StandardAtomicList_)
   {* Список Integer'ов }
  end;//TIntegerList
@@ -31,10 +26,11 @@ type
 implementation
 
 uses
-  RTLConsts,
-  l3MemorySizeUtils
-  ;
+ l3ImplUses
+ , RTLConsts
+ , l3MemorySizeUtils
+;
 
-{$Include ..\SandBox\StandardAtomicList.imp.pas}
+{$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
 
 end.

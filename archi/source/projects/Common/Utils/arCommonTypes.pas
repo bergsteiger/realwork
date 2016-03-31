@@ -1,48 +1,42 @@
 unit arCommonTypes;
+ {* Общие типы для Арчи и Эвереста. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Utils"
-// Модуль: "w:/archi/source/projects/Common/Utils/arCommonTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> archi$common::Utils::arCommonTypes
-//
-// Общие типы для Арчи и Эвереста.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Utils\arCommonTypes.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "arCommonTypes" MUID: (52E788B40110)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
 uses
-  evdTypes
-  ;
+ l3IntfUses
+ , evdTypes
+;
 
 type
  TSubType = (
-   stSub
- , stBlock
+  stSub
+  , stBlock
  );//TSubType
 
- IarCheckLeftOrRightBlock = interface(IUnknown)
-   ['{994BAAA2-978D-4CB7-B149-87D84CF4423A}']
-   function HasAACBlock(aLeft: Boolean): Boolean;
-   procedure SetBlockKind(aOldSubID: Integer;
-    aNewSubID: Integer;
-    aBlockKind: TevBlockViewKind);
+ IarCheckLeftOrRightBlock = interface
+  ['{994BAAA2-978D-4CB7-B149-87D84CF4423A}']
+  function HasAACBlock(aLeft: Boolean): Boolean;
+  procedure SetBlockKind(aOldSubID: Integer;
+   aNewSubID: Integer;
+   aBlockKind: TevBlockViewKind);
  end;//IarCheckLeftOrRightBlock
 
- IevClearPreviewLink = interface(IUnknown)
-   ['{2D16504C-B2BF-4480-84CA-C068F041C296}']
-   procedure ClearPreview;
+ IevClearPreviewLink = interface
+  ['{2D16504C-B2BF-4480-84CA-C068F041C296}']
+  procedure ClearPreview;
  end;//IevClearPreviewLink
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

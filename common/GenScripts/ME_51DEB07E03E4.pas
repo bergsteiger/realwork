@@ -21,7 +21,7 @@ type
    f_Data: Tl3PtrLoc;
     {* Собственно место хранения данных }
    f_Count: IndexType;
-    {* Поле для свойства Count }
+    {* Количество элементов списка }
   private
    procedure ReAllocList(aNewCapacity: IndexType);
    procedure CheckIndex(anIndex: IndexType);

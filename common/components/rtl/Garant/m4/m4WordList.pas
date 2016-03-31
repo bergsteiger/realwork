@@ -1,45 +1,30 @@
 unit m4WordList;
+ {* Список слов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m4"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m4/m4WordList.pas"
-// Начат: 18.09.2009 12:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m4::Dict::Tm4WordList
-//
-// Список слов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m4\m4WordList.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tm4WordList" MUID: (4AB37F2003B6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m4\m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3StringList,
-  m4Word,
-  m4DictTypes
-  ;
+ l3IntfUses
+ , l3StringList
+ , m4DictTypes
+ , m4Word
+ , l3Interfaces
+;
 
 type
  Tm4WordList = class(Tl3StringList)
   {* Список слов }
- private
- // private fields
-   f_NextID : Tm4WordID;
- protected
- // overridden protected methods
+  private
+   f_NextID: Tm4WordID;
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    function AddWord(const aStr: Tl3WString): Tm4WordID;
    constructor Create; reintroduce;
  end;//Tm4WordList
@@ -47,18 +32,16 @@ type
 implementation
 
 uses
-  SysUtils,
-  l3Types
-  ;
-
-// start class Tm4WordList
+ l3ImplUses
+ , l3Types
+ , SysUtils
+;
 
 function Tm4WordList.AddWord(const aStr: Tl3WString): Tm4WordID;
+var l_Item: Tm4Word;
+var l_Index: Integer;
 //#UC START# *4AB38FE40091_4AB37F2003B6_var*
 //#UC END# *4AB38FE40091_4AB37F2003B6_var*
-var
- l_Item : Tm4Word;
- l_Index : Integer;
 begin
 //#UC START# *4AB38FE40091_4AB37F2003B6_impl*
  if not FindData(aStr, l_Index, l3_siCaseUnSensitive) then

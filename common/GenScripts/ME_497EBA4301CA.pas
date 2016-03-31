@@ -43,7 +43,7 @@ type
    class procedure Log;
  end;//TnsSendTestRequestToLegalAdviceEvent
 
- TPrimQueryCardForm = class
+ TPrimQueryCardForm = class(TvcmEntityForm)
   {* Карточка запросов }
   private
    f_IsFilter: Boolean;
@@ -266,6 +266,7 @@ uses
  , l3String
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  // ExcludeForSendConsultation
 
@@ -932,7 +933,6 @@ begin
 //#UC END# *52554DFA0270_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.vcmEntityFormSaveState
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
 //#UC START# *495220DE0298_497EBA4301CAtest_var*
@@ -949,9 +949,7 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220DE0298_497EBA4301CAtest_impl*
 end;//TPrimQueryCardForm.File_PrintDialog_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Печать... }
 //#UC START# *495220DE0298_497EBA4301CAexec_var*
@@ -965,9 +963,7 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220DE0298_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.File_PrintDialog_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
  {* Предварительный просмотр }
 //#UC START# *495220F2033A_497EBA4301CAtest_var*
@@ -988,9 +984,7 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220F2033A_497EBA4301CAtest_impl*
 end;//TPrimQueryCardForm.File_PrintPreview_Test
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Предварительный просмотр }
 //#UC START# *495220F2033A_497EBA4301CAexec_var*
@@ -1007,7 +1001,6 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220F2033A_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.File_PrintPreview_Execute
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute: Boolean;
 //#UC START# *4AE879D00143_497EBA4301CAexec_var*
@@ -1388,7 +1381,6 @@ begin
 //#UC END# *47EA8B8C03CB_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.SettingsReplaceStart
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -1419,9 +1411,7 @@ begin
  end;//dsQuery <> nil
 //#UC END# *497469C90140_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EBA4301CA_var*
@@ -1443,9 +1433,7 @@ begin
  end;//not IsQueryCardSupportFormSets
 //#UC END# *49803F5503AA_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimQueryCardForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -1486,9 +1474,7 @@ begin
    f_MgrSearch.ReadSettings;
 //#UC END# *49807428008C_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EBA4301CA_var*
@@ -1523,7 +1509,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimQueryCardForm.ClearFields;
 begin
@@ -1531,7 +1516,6 @@ begin
  inherited;
 end;//TPrimQueryCardForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.CleanDependencies;
 //#UC START# *52544597027B_497EBA4301CA_var*
 //#UC END# *52544597027B_497EBA4301CA_var*
@@ -1547,9 +1531,7 @@ begin
  f_QueryCard := nil;
 //#UC END# *52544597027B_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.CleanDependencies
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardForm.DoBeforeHistoryNavigate;
 //#UC START# *562E15F20132_497EBA4301CA_var*
 //#UC END# *562E15F20132_497EBA4301CA_var*
@@ -1559,7 +1541,6 @@ begin
  inherited;
 //#UC END# *562E15F20132_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoBeforeHistoryNavigate
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utqcAttributeSearchCaption.Init;
@@ -1576,6 +1557,7 @@ initialization
  TtfwClassRef.Register(TPrimQueryCardForm);
  {* Регистрация PrimQueryCard }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

@@ -1,44 +1,36 @@
 {$IfNDef VScroll_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/VScroll.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::VScroll
-//
-// Реализация чистой примеси VScroll транслирующая вызовы к своим подписчикам в виде
-// InsVScrollListener
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "VScroll" MUID: (4B548BE50138)
+// Имя типа: "_VScroll_"
 
 {$Define VScroll_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _VScroll_ = {abstract mixin} class(_VScroll_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _VScroll_ = {abstract} class(_VScroll_Parent_)
   {* Реализация чистой примеси VScroll транслирующая вызовы к своим подписчикам в виде InsVScrollListener }
- public
- // realized methods
+  public
    procedure Sync(const aPara: TnsParaCoord);
-     {* Синхронизировать позицию }
+    {* Синхронизировать позицию }
    procedure CurrentChangedFragmentChanged(aParaID: Integer);
-     {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
+    {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
  end;//_VScroll_
-{$Else}
 
- _VScroll_ = _VScroll_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_VScroll_ = _VScroll_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else VScroll_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef VScroll_imp_impl}
 
-// start class _VScroll_
+{$Define VScroll_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _VScroll_.Sync(const aPara: TnsParaCoord);
+ {* Синхронизировать позицию }
 //#UC START# *4A79AB290196_4B548BE50138_var*
 var
  l_Index : Integer;
@@ -66,6 +58,7 @@ begin
 end;//_VScroll_.Sync
 
 procedure _VScroll_.CurrentChangedFragmentChanged(aParaID: Integer);
+ {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
 //#UC START# *4B54676B0132_4B548BE50138_var*
 var
  l_Index : Integer;
@@ -91,7 +84,9 @@ begin
    end;//try..except
 //#UC END# *4B54676B0132_4B548BE50138_impl*
 end;//_VScroll_.CurrentChangedFragmentChanged
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf VScroll_imp_impl}
 
 {$EndIf VScroll_imp}
+

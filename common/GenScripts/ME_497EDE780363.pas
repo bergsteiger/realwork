@@ -89,6 +89,7 @@ type
    class function Make(aFrame: Integer): InsDocumentWithFlashState; reintroduce;
  end;//TnsDocumentWithFlashState
 
+ _BaseDocumentForDocumentModule_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _CommonForTextAndFlashOperations_Parent_ = _BaseDocumentForDocumentModule_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}

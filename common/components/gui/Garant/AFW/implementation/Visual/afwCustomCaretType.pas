@@ -14,6 +14,8 @@ uses
  , l3_Base
  , Classes
  , Graphics
+ //#UC START# *480DC4B90226intf_uses*
+ //#UC END# *480DC4B90226intf_uses*
 ;
 
 type
@@ -156,6 +158,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Bitmap
+ //#UC START# *480DC4B90226impl_uses*
+ //#UC END# *480DC4B90226impl_uses*
 ;
 
 procedure TafwCustomCaretType.pm_SetShape(aValue: TafwCaretShape);

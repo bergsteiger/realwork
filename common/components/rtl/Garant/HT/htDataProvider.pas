@@ -1,62 +1,49 @@
 unit htDataProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "HT"
-// Модуль: "w:/common/components/rtl/Garant/HT/htDataProvider.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::HT::Provider::ThtDataProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\HT\htDataProvider.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataProvider" MUID: (5519351D01BE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\HT\htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
 uses
-  l3Types,
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  htDataProviderParams,
-  htInterfaces,
-  daLongProcessSubscriberList,
-  daProgressSubscriberList,
-  l3DatLst,
-  l3Languages
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , htDataProviderParams
+ , daLongProcessSubscriberList
+ , daProgressSubscriberList
+ , htInterfaces
+ , daTypes
+ , l3Languages
+ , l3DatLst
+;
 
 type
  ThtDataProvider = class(Tl3ProtoObject, IdaDataProvider)
- private
- // private fields
-   f_Params : ThtDataProviderParams;
-   f_NeedClearGlobalDataProvider : Boolean;
-   f_LongProcessList : TdaLongProcessSubscriberList;
-   f_ProgressList : TdaProgressSubscriberList;
-   f_IsStarted : Boolean;
-   f_ForCheckLogin : Boolean;
-   f_Journal : IdaJournal;
-   f_Factory : IdaTableQueryFactory;
-   f_DataConverter : IhtDataConverter;
-   f_Helper : IhtDataSchemeHelper;
-   f_AllowClearLocks : Boolean;
-   f_ImpersonatedUserID : TdaUserID;
-   f_UserManager : IdaUserManager;
-   f_SetGlobalDataProvider : Boolean;
- private
- // private methods
+  private
+   f_Params: ThtDataProviderParams;
+   f_NeedClearGlobalDataProvider: Boolean;
+   f_LongProcessList: TdaLongProcessSubscriberList;
+   f_ProgressList: TdaProgressSubscriberList;
+   f_IsStarted: Boolean;
+   f_ForCheckLogin: Boolean;
+   f_Journal: IdaJournal;
+   f_Factory: IdaTableQueryFactory;
+   f_DataConverter: IhtDataConverter;
+   f_Helper: IhtDataSchemeHelper;
+   f_AllowClearLocks: Boolean;
+   f_ImpersonatedUserID: TdaUserID;
+   f_UserManager: IdaUserManager;
+   f_SetGlobalDataProvider: Boolean;
+  private
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
    procedure DoProgressNotify(aState: Byte;
-     aValue: Integer;
-     const aMsg: AnsiString = '');
- protected
- // realized methods
+    aValue: Integer;
+    const aMsg: AnsiString = '');
+  protected
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
    function CheckLogin(const aLogin: AnsiString;
@@ -66,7 +53,7 @@ type
    function IsRegionExists(anID: TdaRegionID): Boolean;
    function GetRegionName(anID: TdaRegionID): AnsiString;
    procedure FillRegionDataList(aList: Tl3StringDataList;
-     Caps: Boolean);
+    Caps: Boolean);
    function Get_BaseName: AnsiString;
    function Get_AdminRights: Boolean;
    function Get_CurUserIsServer: Boolean;
@@ -87,9 +74,7 @@ type
    procedure SubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure UnSubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure Start;
-     {* Сигнатура метода Start }
    procedure Stop;
-     {* Сигнатура метода Stop }
    function Get_Journal: IdaJournal;
    function Get_TableQueryFactory: IdaTableQueryFactory;
    function Get_DataConverter: IdaDataConverter;
@@ -98,73 +83,40 @@ type
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
    function HasJournal: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aParams: ThtDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalDataProvider: Boolean = True); reintroduce;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True); reintroduce;
    class function Make(aParams: ThtDataProviderParams;
-     ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean;
-     SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
-     {* Сигнатура фабрики ThtDataProvider.Make }
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
  end;//ThtDataProvider
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(Nemesis)}
-  ,
-  dt_Serv
-  {$IfEnd} //not Nemesis
-  ,
-  daDataProvider,
-  htJournal,
-  htTableQueryFactory,
-  htDataConverter,
-  htDataSchemeHelper,
-  l3Base,
-  htUserManager
-  ;
-
-// start class ThtDataProvider
-
-function ThtDataProvider.DoLongProcessNotify(aState: TdaProcessState): Boolean;
-//#UC START# *5524D2E200C4_5519351D01BE_var*
-var
- l_IDX: Integer;
-//#UC END# *5524D2E200C4_5519351D01BE_var*
-begin
-//#UC START# *5524D2E200C4_5519351D01BE_impl*
- for l_IDX := 0 to f_LongProcessList.Count - 1 do
-  f_LongProcessList[l_IDX].DoLongProcessNotify(aState);
-//#UC END# *5524D2E200C4_5519351D01BE_impl*
-end;//ThtDataProvider.DoLongProcessNotify
-
-procedure ThtDataProvider.DoProgressNotify(aState: Byte;
-  aValue: Integer;
-  const aMsg: AnsiString = '');
-//#UC START# *552514C803BB_5519351D01BE_var*
-var
- l_IDX: Integer;
-//#UC END# *552514C803BB_5519351D01BE_var*
-begin
-//#UC START# *552514C803BB_5519351D01BE_impl*
- for l_IDX := 0 to f_ProgressList.Count - 1 do
-  f_ProgressList[l_IDX].DoProgressNotify(aState, aValue, aMsg);
-//#UC END# *552514C803BB_5519351D01BE_impl*
-end;//ThtDataProvider.DoProgressNotify
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(Nemesis)}
+ , dt_Serv
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daDataProvider
+ , htJournal
+ , htTableQueryFactory
+ , htDataConverter
+ , htDataSchemeHelper
+ , l3Base
+ , htUserManager
+;
 
 constructor ThtDataProvider.Create(aParams: ThtDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalDataProvider: Boolean = True);
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True);
 //#UC START# *551938260196_5519351D01BE_var*
 //#UC END# *551938260196_5519351D01BE_var*
 begin
@@ -183,9 +135,9 @@ begin
 end;//ThtDataProvider.Create
 
 class function ThtDataProvider.Make(aParams: ThtDataProviderParams;
-  ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean;
-  SetGlobalDataProvider: Boolean = True): IdaDataProvider;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True): IdaDataProvider;
 var
  l_Inst : ThtDataProvider;
 begin
@@ -195,7 +147,33 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//ThtDataProvider.Make
+
+function ThtDataProvider.DoLongProcessNotify(aState: TdaProcessState): Boolean;
+//#UC START# *5524D2E200C4_5519351D01BE_var*
+var
+ l_IDX: Integer;
+//#UC END# *5524D2E200C4_5519351D01BE_var*
+begin
+//#UC START# *5524D2E200C4_5519351D01BE_impl*
+ for l_IDX := 0 to f_LongProcessList.Count - 1 do
+  f_LongProcessList[l_IDX].DoLongProcessNotify(aState);
+//#UC END# *5524D2E200C4_5519351D01BE_impl*
+end;//ThtDataProvider.DoLongProcessNotify
+
+procedure ThtDataProvider.DoProgressNotify(aState: Byte;
+ aValue: Integer;
+ const aMsg: AnsiString = '');
+//#UC START# *552514C803BB_5519351D01BE_var*
+var
+ l_IDX: Integer;
+//#UC END# *552514C803BB_5519351D01BE_var*
+begin
+//#UC START# *552514C803BB_5519351D01BE_impl*
+ for l_IDX := 0 to f_ProgressList.Count - 1 do
+  f_ProgressList[l_IDX].DoProgressNotify(aState, aValue, aMsg);
+//#UC END# *552514C803BB_5519351D01BE_impl*
+end;//ThtDataProvider.DoProgressNotify
 
 function ThtDataProvider.Get_UserID: TdaUserID;
 //#UC START# *551A929E02D5_5519351D01BEget_var*
@@ -216,8 +194,8 @@ begin
 end;//ThtDataProvider.Get_RegionID
 
 function ThtDataProvider.CheckLogin(const aLogin: AnsiString;
-  const aPassword: AnsiString;
-  IsRequireAdminRights: Boolean): TdaLoginError;
+ const aPassword: AnsiString;
+ IsRequireAdminRights: Boolean): TdaLoginError;
 //#UC START# *551BE2D701DE_5519351D01BE_var*
 var
  l_UserID: TdaUserID;
@@ -258,7 +236,7 @@ begin
 end;//ThtDataProvider.GetRegionName
 
 procedure ThtDataProvider.FillRegionDataList(aList: Tl3StringDataList;
-  Caps: Boolean);
+ Caps: Boolean);
 //#UC START# *551D35040362_5519351D01BE_var*
 //#UC END# *551D35040362_5519351D01BE_var*
 begin
@@ -574,6 +552,7 @@ begin
 end;//ThtDataProvider.HasJournal
 
 procedure ThtDataProvider.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5519351D01BE_var*
 //#UC END# *479731C50290_5519351D01BE_var*
 begin
