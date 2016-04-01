@@ -21,7 +21,9 @@ type
  TcaDataProviderParams = class(ThtDataProviderParams)
   private
    f_HTParams: ThtDataProviderParams;
+    {* Поле для свойства HTParams }
    f_PGParams: TpgDataProviderParams;
+    {* Поле для свойства PGParams }
   protected
    function pm_GetDataServerHostName: AnsiString;
    procedure pm_SetDataServerHostName(const aValue: AnsiString);

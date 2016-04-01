@@ -25,7 +25,9 @@ type
  TdaDataProviderParams = class(_evdTagHolder_)
   private
    f_UserID: TdaUserID;
+    {* Поле для свойства UserID }
    f_AliasesList: TStringList;
+    {* Поле для свойства AliasesList }
   protected
    function pm_GetFullHomeDirPath: AnsiString; virtual;
    function pm_GetLogin: AnsiString;
