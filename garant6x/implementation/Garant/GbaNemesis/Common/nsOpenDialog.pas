@@ -30,7 +30,6 @@ type
    f_ExtraPanel: TvtPanel;
    f_InnerNumbersCheckBox: TvtCheckBox;
    f_InnerNumbersEnabled: Boolean;
-    {* Поле для свойства InnerNumbersEnabled }
   protected
    procedure pm_SetInnerNumbersEnabled(aValue: Boolean);
    function pm_GetInnerNumbersChecked: Boolean;

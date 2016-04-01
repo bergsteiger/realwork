@@ -21,12 +21,12 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function GetInstance: TnsFiltersListenersManagerPrim; override;
    class function HasInstance: Boolean; override;
    class function Instance: TnsFiltersListenersDrugsManager;
     {* Метод получения экземпляра синглетона TnsFiltersListenersDrugsManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsFiltersListenersDrugsManager
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -48,12 +48,6 @@ procedure TnsFiltersListenersDrugsManagerFree;
 begin
  l3Free(g_TnsFiltersListenersDrugsManager);
 end;//TnsFiltersListenersDrugsManagerFree
-
-class function TnsFiltersListenersDrugsManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsFiltersListenersDrugsManager <> nil;
-end;//TnsFiltersListenersDrugsManager.Exists
 
 class function TnsFiltersListenersDrugsManager.GetInstance: TnsFiltersListenersManagerPrim;
 //#UC START# *4FFD459003A6_4F98440301D2_var*
@@ -83,6 +77,12 @@ begin
  end;
  Result := g_TnsFiltersListenersDrugsManager;
 end;//TnsFiltersListenersDrugsManager.Instance
+
+class function TnsFiltersListenersDrugsManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsFiltersListenersDrugsManager <> nil;
+end;//TnsFiltersListenersDrugsManager.Exists
 
 procedure TnsFiltersListenersDrugsManager.Cleanup;
  {* Функция очистки полей объекта. }

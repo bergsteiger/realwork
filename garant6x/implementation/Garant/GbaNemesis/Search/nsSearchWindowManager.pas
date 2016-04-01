@@ -39,10 +39,10 @@ type
    procedure Subscribe(const aListener: InsSearchWindow);
    procedure Unsubscribe(const aListener: InsSearchWindow);
    procedure CheckFindEnabled;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsSearchWindowManager;
     {* Метод получения экземпляра синглетона TnsSearchWindowManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsSearchWindowManager
 {$IfEnd} // NOT Defined(Admin)
 
@@ -104,12 +104,6 @@ begin
 //#UC END# *56163C8A0267_56163B0902D7_impl*
 end;//TnsSearchWindowManager.CheckFindEnabled
 
-class function TnsSearchWindowManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsSearchWindowManager <> nil;
-end;//TnsSearchWindowManager.Exists
-
 class function TnsSearchWindowManager.Instance: TnsSearchWindowManager;
  {* Метод получения экземпляра синглетона TnsSearchWindowManager }
 begin
@@ -120,6 +114,12 @@ begin
  end;
  Result := g_TnsSearchWindowManager;
 end;//TnsSearchWindowManager.Instance
+
+class function TnsSearchWindowManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsSearchWindowManager <> nil;
+end;//TnsSearchWindowManager.Exists
 
 procedure TnsSearchWindowManager.Cleanup;
  {* Функция очистки полей объекта. }

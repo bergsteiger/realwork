@@ -29,10 +29,10 @@ type
     const aTree: Il3SimpleTree): Boolean;
    function IsQuerySaved(const aQuery: IQuery): Boolean;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtasSaveLoadRealization;
     {* Метод получения экземпляра синглетона TtasSaveLoadRealization }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtasSaveLoadRealization
 {$IfEnd} // NOT Defined(Admin)
 
@@ -54,12 +54,6 @@ procedure TtasSaveLoadRealizationFree;
 begin
  l3Free(g_TtasSaveLoadRealization);
 end;//TtasSaveLoadRealizationFree
-
-class function TtasSaveLoadRealization.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtasSaveLoadRealization <> nil;
-end;//TtasSaveLoadRealization.Exists
 
 procedure TtasSaveLoadRealization.LoadFromQuery(const aQuery: IQuery;
  const aTag: Il3CString;
@@ -102,6 +96,12 @@ begin
  end;
  Result := g_TtasSaveLoadRealization;
 end;//TtasSaveLoadRealization.Instance
+
+class function TtasSaveLoadRealization.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtasSaveLoadRealization <> nil;
+end;//TtasSaveLoadRealization.Exists
 
 initialization
 //#UC START# *54F83BEF0258*

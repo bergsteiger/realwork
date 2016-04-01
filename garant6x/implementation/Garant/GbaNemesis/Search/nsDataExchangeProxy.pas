@@ -26,7 +26,6 @@ type
  TnsDataExchangeProxy = class(Tl3ProtoDataContainer)
   private
    f_Subscriber: InsDataExchangeSubscriber;
-    {* Поле для свойства Subscriber }
   protected
    procedure pm_SetSubscriber(const aValue: InsDataExchangeSubscriber);
    procedure Cleanup; override;
@@ -35,10 +34,10 @@ type
   public
    procedure MakeAndOpenList(const aList: IDynList;
     aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsDataExchangeProxy;
     {* Метод получения экземпляра синглетона TnsDataExchangeProxy }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Subscriber: InsDataExchangeSubscriber
     read f_Subscriber
@@ -86,12 +85,6 @@ begin
 //#UC END# *54FEC90002B4_54FEC834013B_impl*
 end;//TnsDataExchangeProxy.MakeAndOpenList
 
-class function TnsDataExchangeProxy.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsDataExchangeProxy <> nil;
-end;//TnsDataExchangeProxy.Exists
-
 class function TnsDataExchangeProxy.Instance: TnsDataExchangeProxy;
  {* Метод получения экземпляра синглетона TnsDataExchangeProxy }
 begin
@@ -102,6 +95,12 @@ begin
  end;
  Result := g_TnsDataExchangeProxy;
 end;//TnsDataExchangeProxy.Instance
+
+class function TnsDataExchangeProxy.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsDataExchangeProxy <> nil;
+end;//TnsDataExchangeProxy.Exists
 
 procedure TnsDataExchangeProxy.Cleanup;
  {* Функция очистки полей объекта. }

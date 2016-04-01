@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsDocumentContainerSub;
+unit nsDocumentContainerSub;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\NOT_COMPLETED_nsDocumentContainerSub.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainerSub.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsDocumentContainerSub" MUID: (4A7AA075008F)
 

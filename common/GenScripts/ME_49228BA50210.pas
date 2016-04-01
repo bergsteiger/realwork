@@ -30,9 +30,8 @@ type
    f_IsStatusChached: Boolean;
    f_Text: IDocument;
    f_CachedStatuses: TbsConsultationStatuses;
-    {* Поле для свойства CachedStatuses }
+    {* кешированный статус, на время открытия консультации }
    f_Consultation: IConsultation;
-    {* Поле для свойства Consultation }
   protected
    procedure RefreshText;
     {* обновить текст. Необхоидимо при изменении состояния консультации }

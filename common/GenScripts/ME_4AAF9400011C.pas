@@ -17,10 +17,10 @@ uses
 type
  TnsPostingsTreeSingle = {final} class(TnsPostingsTree)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsPostingsTreeSingle;
     {* Метод получения экземпляра синглетона TnsPostingsTreeSingle }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsPostingsTreeSingle
 {$IfEnd} // NOT Defined(Admin)
 
@@ -42,12 +42,6 @@ begin
  l3Free(g_TnsPostingsTreeSingle);
 end;//TnsPostingsTreeSingleFree
 
-class function TnsPostingsTreeSingle.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsPostingsTreeSingle <> nil;
-end;//TnsPostingsTreeSingle.Exists
-
 class function TnsPostingsTreeSingle.Instance: TnsPostingsTreeSingle;
  {* Метод получения экземпляра синглетона TnsPostingsTreeSingle }
 begin
@@ -58,6 +52,12 @@ begin
  end;
  Result := g_TnsPostingsTreeSingle;
 end;//TnsPostingsTreeSingle.Instance
+
+class function TnsPostingsTreeSingle.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsPostingsTreeSingle <> nil;
+end;//TnsPostingsTreeSingle.Exists
 {$IfEnd} // NOT Defined(Admin)
 
 end.

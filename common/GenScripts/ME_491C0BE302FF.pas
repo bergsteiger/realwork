@@ -48,9 +48,7 @@ type
    f_DocInited: Boolean;
    f_QueryInfo: IdeSearchInfo;
    f_DocContainer: IbsDocumentContainer;
-    {* Поле для свойства DocContainer }
    f_RootManager: TnsRootManager;
-    {* Поле для свойства RootManager }
   private
    procedure ResetListChildrenCount;
    procedure MakeCurrentState;

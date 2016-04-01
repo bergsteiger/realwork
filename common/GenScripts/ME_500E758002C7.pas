@@ -45,10 +45,10 @@ type
    function GetIsSame(const aContainer: InevDocumentContainer): Boolean; override;
    function GetDocument: Tl3Tag; override;
    function CanFindParaAsNode: Boolean; override;
-   procedure ClearFields; override;
    procedure TransformMadeDocument(var theDocument: Tl3Tag); override;
     {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
    function DocumentForFindPara: Tl3Tag; override;
+   procedure ClearFields; override;
  end;//TnsAACDocumentContainerPrim
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -224,12 +224,6 @@ begin
 //#UC END# *4A79B7020303_500E758002C7_impl*
 end;//TnsAACDocumentContainerPrim.CanFindParaAsNode
 
-procedure TnsAACDocumentContainerPrim.ClearFields;
-begin
- Finalize(f_GotPos);
- inherited;
-end;//TnsAACDocumentContainerPrim.ClearFields
-
 procedure TnsAACDocumentContainerPrim.TransformMadeDocument(var theDocument: Tl3Tag);
  {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }
 //#UC START# *500ED7750045_500E758002C7_var*
@@ -353,6 +347,12 @@ begin
  Result := f_OriginalDocument;
 //#UC END# *506982B0037E_500E758002C7_impl*
 end;//TnsAACDocumentContainerPrim.DocumentForFindPara
+
+procedure TnsAACDocumentContainerPrim.ClearFields;
+begin
+ Finalize(f_GotPos);
+ inherited;
+end;//TnsAACDocumentContainerPrim.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

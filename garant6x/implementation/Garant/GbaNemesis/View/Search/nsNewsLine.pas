@@ -48,7 +48,6 @@ type
    f_ThemeList: IvcmStrings;
    f_Subscribers: TnsNewsLineSubscribersList;
    f_CurrentThemeNode: INodeBase;
-    {* Поле для свойства CurrentThemeNode }
   private
    procedure LoadThemeList;
    procedure SetCurrentThemeIndex(anIndex: Integer);

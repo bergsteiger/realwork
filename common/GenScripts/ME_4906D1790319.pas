@@ -47,7 +47,6 @@ type
    f_Sub: Integer;
    f_Text: AnsiString;
    f_Para: Tl3Tag;
-    {* Поле для свойства Para }
   protected
    function pm_GetPara: Tl3Tag;
    {$If Defined(Nemesis)}

@@ -26,10 +26,10 @@ type
  )
   public
    class function HasInstance: Boolean;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsConfigurationProperties;
     {* Метод получения экземпляра синглетона TnsConfigurationProperties }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsConfigurationProperties
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -61,12 +61,6 @@ begin
 //#UC END# *5231A23D03D2_5231A17601FD_impl*
 end;//TnsConfigurationProperties.HasInstance
 
-class function TnsConfigurationProperties.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsConfigurationProperties <> nil;
-end;//TnsConfigurationProperties.Exists
-
 class function TnsConfigurationProperties.Instance: TnsConfigurationProperties;
  {* Метод получения экземпляра синглетона TnsConfigurationProperties }
 begin
@@ -77,6 +71,12 @@ begin
  end;
  Result := g_TnsConfigurationProperties;
 end;//TnsConfigurationProperties.Instance
+
+class function TnsConfigurationProperties.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsConfigurationProperties <> nil;
+end;//TnsConfigurationProperties.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

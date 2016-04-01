@@ -33,10 +33,10 @@ type
     const aName: Il3CString);
    class procedure RenameFilter(const aFilter: IFilterFromQuery;
     const aName: Il3CString);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsFiltersContainer;
     {* Метод получения экземпляра синглетона TnsFiltersContainer }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Filters[ListType: TbsListType]: InsFiltersContainer
     read pm_GetFilters;
@@ -109,12 +109,6 @@ begin
 //#UC END# *4CB5549500AD_4CAC5BD701BF_impl*
 end;//TnsFiltersContainer.RenameFilter
 
-class function TnsFiltersContainer.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsFiltersContainer <> nil;
-end;//TnsFiltersContainer.Exists
-
 class function TnsFiltersContainer.Instance: TnsFiltersContainer;
  {* Метод получения экземпляра синглетона TnsFiltersContainer }
 begin
@@ -125,6 +119,12 @@ begin
  end;
  Result := g_TnsFiltersContainer;
 end;//TnsFiltersContainer.Instance
+
+class function TnsFiltersContainer.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsFiltersContainer <> nil;
+end;//TnsFiltersContainer.Exists
 
 procedure TnsFiltersContainer.Cleanup;
  {* Функция очистки полей объекта. }

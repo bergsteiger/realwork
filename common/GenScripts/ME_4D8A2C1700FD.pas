@@ -21,7 +21,6 @@ type
  TnsFoundRangeCollector = class(TevBaseReplacer)
   private
    f_FoundRanges: TnevRangeList;
-    {* Поле для свойства FoundRanges }
   protected
    function ReplaceFunc(const aView: InevView;
     const Container: InevOp;

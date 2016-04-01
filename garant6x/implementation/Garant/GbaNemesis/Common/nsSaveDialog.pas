@@ -43,7 +43,6 @@ type
    f_NumbersRadio: TvtRadioButton;
    f_Executing: Boolean;
    f_DialogKind: TnsSaveDialogKind;
-    {* Поле для свойства DialogKind }
   private
    procedure UpdateFileNameEditEnable(ForceEnable: Boolean = False);
    procedure MergeClick(Sender: TObject);

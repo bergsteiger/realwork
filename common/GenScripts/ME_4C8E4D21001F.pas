@@ -145,6 +145,7 @@ type
  TvcmBaseNode = class(Tl3UsualNode, ItpBaseNode)
   private
    f_State: TtpState;
+    {* Поле для свойства State }
   protected
    procedure DoSave; virtual;
    procedure Remove;
@@ -180,6 +181,7 @@ type
  TvcmCustOpsNode = class(TvcmBaseNode, ItpTasksPanelNode)
   private
    f_Position: Integer;
+    {* Поле для свойства Position }
   private
    procedure DoSetPosition(aValue: Integer); virtual; abstract;
   protected
@@ -195,7 +197,9 @@ type
   {* Группа панели задач }
   private
    f_Group: IvcmCustOpsGroup;
+    {* Поле для свойства Group }
    f_RepGroup: IvcmCustOpsRepGroup;
+    {* Поле для свойства RepGroup }
   private
    procedure LoadOps;
   protected
@@ -207,8 +211,8 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   procedure DoSave; override;
    procedure ClearFields; override;
+   procedure DoSave; override;
   public
    constructor Create(const aGroup: IvcmCustOpsGroup); reintroduce; overload;
    class function Make(const aGroup: IvcmCustOpsGroup): Il3Node; reintroduce; overload;
@@ -226,9 +230,13 @@ type
  TvcmGroupOperation = class(TvcmCustOpsNode, ItpGroupOperation)
   private
    f_Op: IvcmCustOpsGroupOperation;
+    {* Поле для свойства Op }
    f_RepOp: IvcmCustOpsRepOperation;
+    {* Поле для свойства RepOp }
    f_ForAllUseCases: Boolean;
+    {* Поле для свойства ForAllUseCases }
    f_GroupChanged: Boolean;
+    {* Поле для свойства GroupChanged }
   protected
    function pm_GetGroup: ItpGroup;
    function pm_GetOp: IvcmCustOpsGroupOperation;
@@ -245,8 +253,8 @@ type
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   procedure DoSave; override;
    procedure ClearFields; override;
+   procedure DoSave; override;
   public
    constructor Create(const aOp: IvcmCustOpsGroupOperation); reintroduce; overload;
    constructor Create(const aRepOp: IvcmCustOpsRepOperation); reintroduce; overload;
@@ -272,6 +280,7 @@ type
  TvcmRepGroupOperationsNode = {final} class(TvcmBaseNode, ItpRepGroupOperationsNode)
   private
    f_Group: IvcmCustOpsRepGroupOperations;
+    {* Поле для свойства Group }
   protected
    function pm_GetGroup: IvcmCustOpsRepGroupOperations;
    procedure Cleanup; override;
@@ -288,6 +297,7 @@ type
  TvcmRepOperationNode = class(TvcmBaseNode, ItpRepOperationNode)
   private
    f_Op: IvcmCustOpsRepOperation;
+    {* Поле для свойства Op }
   protected
    function pm_GetOp: IvcmCustOpsRepOperation;
    procedure Cleanup; override;
@@ -331,14 +341,15 @@ type
  TvcmRepGroupNode = class(TvcmBaseNode, ItpRepGroupNode)
   private
    f_RepGroup: IvcmCustOpsRepGroup;
+    {* Поле для свойства RepGroup }
   protected
    function Get_RepGroup: IvcmCustOpsRepGroup;
    procedure Set_RepGroup(const aValue: IvcmCustOpsRepGroup);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   procedure DoSave; override;
    procedure ClearFields; override;
+   procedure DoSave; override;
   public
    constructor Create(const aCaption: Tl3PCharLenPrim;
     const aRepGroup: IvcmCustOpsRepGroup = nil); reintroduce;
@@ -809,6 +820,13 @@ begin
 //#UC END# *47A869D10074_539726940063_impl*
 end;//TvcmGroup.DoSetAsPCharLen
 
+procedure TvcmGroup.ClearFields;
+begin
+ f_Group := nil;
+ f_RepGroup := nil;
+ inherited;
+end;//TvcmGroup.ClearFields
+
 procedure TvcmGroup.DoSave;
 //#UC START# *53972500009A_539726940063_var*
 //#UC END# *53972500009A_539726940063_var*
@@ -817,13 +835,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53972500009A_539726940063_impl*
 end;//TvcmGroup.DoSave
-
-procedure TvcmGroup.ClearFields;
-begin
- f_Group := nil;
- f_RepGroup := nil;
- inherited;
-end;//TvcmGroup.ClearFields
 
 function TvcmGroupOperation.pm_GetGroup: ItpGroup;
 //#UC START# *53972F530397_539729990330get_var*
@@ -986,6 +997,13 @@ begin
 //#UC END# *4A60B23E00C3_539729990330_impl*
 end;//TvcmGroupOperation.COMQueryInterface
 
+procedure TvcmGroupOperation.ClearFields;
+begin
+ Op := nil;
+ RepOp := nil;
+ inherited;
+end;//TvcmGroupOperation.ClearFields
+
 procedure TvcmGroupOperation.DoSave;
 //#UC START# *53972500009A_539729990330_var*
 //#UC END# *53972500009A_539729990330_var*
@@ -994,13 +1012,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53972500009A_539729990330_impl*
 end;//TvcmGroupOperation.DoSave
-
-procedure TvcmGroupOperation.ClearFields;
-begin
- Op := nil;
- RepOp := nil;
- inherited;
-end;//TvcmGroupOperation.ClearFields
 
 constructor TvcmRepGroupOperationsNode.Create(const aGroup: IvcmCustOpsRepGroupOperations);
 //#UC START# *5397386402F9_539730BD0307_var*
@@ -1219,6 +1230,12 @@ begin
 //#UC END# *47A869D10074_53973B3F02F2_impl*
 end;//TvcmRepGroupNode.DoSetAsPCharLen
 
+procedure TvcmRepGroupNode.ClearFields;
+begin
+ RepGroup := nil;
+ inherited;
+end;//TvcmRepGroupNode.ClearFields
+
 procedure TvcmRepGroupNode.DoSave;
 //#UC START# *53972500009A_53973B3F02F2_var*
 //#UC END# *53972500009A_53973B3F02F2_var*
@@ -1227,12 +1244,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53972500009A_53973B3F02F2_impl*
 end;//TvcmRepGroupNode.DoSave
-
-procedure TvcmRepGroupNode.ClearFields;
-begin
- RepGroup := nil;
- inherited;
-end;//TvcmRepGroupNode.ClearFields
 
 function TPrimCustomizeTasksPanelForm.pm_GetTasksPanel: IvcmCustOps;
 //#UC START# *4C8E4F1702F8_4C8E4D21001Fget_var*

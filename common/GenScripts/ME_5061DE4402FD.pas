@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsFiltersRootNode;
+unit nsFiltersRootNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\NOT_COMPLETED_nsFiltersRootNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersRootNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsFiltersRootNode" MUID: (5061DE4402FD)
 

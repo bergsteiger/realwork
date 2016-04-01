@@ -29,10 +29,10 @@ type
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsChatWindowOpensCountEvent;
     {* Метод получения экземпляра синглетона TnsChatWindowOpensCountEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsChatWindowOpensCountEvent
 
  TbsChatDispatcherPrim = class(Tl3SimpleObject, IbsChatDispatcher)
@@ -121,12 +121,6 @@ begin
  l3Free(g_TnsChatWindowOpensCountEvent);
 end;//TnsChatWindowOpensCountEventFree
 
-class function TnsChatWindowOpensCountEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsChatWindowOpensCountEvent <> nil;
-end;//TnsChatWindowOpensCountEvent.Exists
-
 function TnsChatWindowOpensCountEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13BC920384_var*
 //#UC END# *4B13A26203DB_4B13BC920384_var*
@@ -146,6 +140,12 @@ begin
  end;
  Result := g_TnsChatWindowOpensCountEvent;
 end;//TnsChatWindowOpensCountEvent.Instance
+
+class function TnsChatWindowOpensCountEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsChatWindowOpensCountEvent <> nil;
+end;//TnsChatWindowOpensCountEvent.Exists
 
 procedure TbsChatDispatcherPrim.DoOpenChatWindow(anUID: TbsUserID);
 //#UC START# *4A682A8303CA_4A682A110387_var*
