@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddTextParaString;
+unit ddTextParaString;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddTextParaString.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTextParaString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddTextParaString" MUID: (4FB10AA701B8)
 
