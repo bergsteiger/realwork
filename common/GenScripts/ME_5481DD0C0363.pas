@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_eeHotSpot;
+unit eeHotSpot;
 
-// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_COMPLETED_eeHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TeeHotSpot" MUID: (5481DD0C0363)
 

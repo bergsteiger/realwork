@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsParentedTagNode;
+unit nsParentedTagNode;
  {* Тег над адаптерной нодой, представляющий ссылку на родителя }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsParentedTagNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsParentedTagNode" MUID: (467FCD4401BD)
 

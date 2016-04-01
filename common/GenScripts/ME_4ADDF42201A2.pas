@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsPrimCacheableNode;
+unit nsPrimCacheableNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_COMPLETED_nsPrimCacheableNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimCacheableNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsPrimCacheableNode" MUID: (4ADDF42201A2)
 

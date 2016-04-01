@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsReqCellNode;
+unit nsReqCellNode;
  {* Ячейка реквизита. }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsReqCellNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsReqCellNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsReqCellNode" MUID: (467FCE67008F)
 

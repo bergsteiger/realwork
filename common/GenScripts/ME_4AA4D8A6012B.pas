@@ -21,7 +21,7 @@ type
   private
    f_Data: IUnknown;
    f_LinkType: TbsLinkType;
-    {* Поле для свойства LinkType }
+    {* тип ссылки }
   private
    procedure Init(const aList: IdeList);
   protected

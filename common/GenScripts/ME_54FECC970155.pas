@@ -25,10 +25,10 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsDataExchangeRealization;
     {* Метод получения экземпляра синглетона TnsDataExchangeRealization }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsDataExchangeRealization
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -55,12 +55,6 @@ begin
  l3Free(g_TnsDataExchangeRealization);
 end;//TnsDataExchangeRealizationFree
 
-class function TnsDataExchangeRealization.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsDataExchangeRealization <> nil;
-end;//TnsDataExchangeRealization.Exists
-
 procedure TnsDataExchangeRealization.MakeAndOpenList(const aList: IDynList;
  aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
 //#UC START# *54FECB920224_54FECC970155_var*
@@ -82,6 +76,12 @@ begin
  end;
  Result := g_TnsDataExchangeRealization;
 end;//TnsDataExchangeRealization.Instance
+
+class function TnsDataExchangeRealization.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsDataExchangeRealization <> nil;
+end;//TnsDataExchangeRealization.Exists
 
 procedure TnsDataExchangeRealization.Cleanup;
  {* Функция очистки полей объекта. }

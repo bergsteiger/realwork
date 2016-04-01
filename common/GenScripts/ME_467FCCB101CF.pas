@@ -30,7 +30,7 @@ type
   {* Реализация тега, представляющего данные из адаптерной ноды }
   private
    f_TagDataProvider: DocTagNodeType;
-    {* Поле для свойства TagDataProvider }
+    {* Источник данных тега }
   protected
    f_State: TnsNodeStates;
   protected

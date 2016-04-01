@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evStyle;
+unit evStyle;
 
-// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_COMPLETED_evStyle.pas"
+// Модуль: "w:\common\components\rtl\Garant\EVD\evStyle.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevStyle" MUID: (5320772503DC)
 

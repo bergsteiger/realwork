@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsBaseTagNode;
+unit nsBaseTagNode;
  {* Базовая реализация тега на уровне оболочки }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsBaseTagNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBaseTagNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsBaseTagNode" MUID: (467FCA4701F9)
 

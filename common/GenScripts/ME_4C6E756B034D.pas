@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsSectionBreakNode;
+unit nsSectionBreakNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsSectionBreakNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsSectionBreakNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsSectionBreakNode" MUID: (4C6E756B034D)
 

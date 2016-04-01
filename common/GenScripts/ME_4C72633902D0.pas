@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsDocumentTagNodeBase;
+unit nsDocumentTagNodeBase;
  {* Базовая нода документа }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsDocumentTagNodeBase.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsDocumentTagNodeBase.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsDocumentTagNodeBase" MUID: (4C72633902D0)
 

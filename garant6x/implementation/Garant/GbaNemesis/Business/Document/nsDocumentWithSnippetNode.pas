@@ -22,9 +22,7 @@ type
    f_DocPara: Tl3Variant;
    f_SnippetPara: Tl3Variant;
    f_Tag: Tl3Tag;
-    {* Поле для свойства Tag }
    f_DocumentId: Integer;
-    {* Поле для свойства DocumentId }
   private
    function IsVisited: Boolean;
   protected

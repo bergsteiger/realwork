@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_eeSubExport;
+unit eeSubExport;
 
-// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_COMPLETED_eeSubExport.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubExport.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TeeSubExport" MUID: (46834DC80065)
 

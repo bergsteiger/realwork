@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsParaListNode;
+unit nsParaListNode;
  {* Список параграфов }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsParaListNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaListNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsParaListNode" MUID: (467FCE2703D6)
 

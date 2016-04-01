@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsOwnedDocumentTagNodePrim;
+unit nsOwnedDocumentTagNodePrim;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsOwnedDocumentTagNodePrim.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsOwnedDocumentTagNodePrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsOwnedDocumentTagNodePrim" MUID: (4C724FC1029F)
 

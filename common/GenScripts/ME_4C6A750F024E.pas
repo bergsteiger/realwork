@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsF1DocumentTagNode;
+unit nsF1DocumentTagNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsF1DocumentTagNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsF1DocumentTagNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsF1DocumentTagNode" MUID: (4C6A750F024E)
 

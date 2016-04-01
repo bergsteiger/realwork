@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_eeTagEditorTool;
+unit eeTagEditorTool;
 
-// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_COMPLETED_eeTagEditorTool.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTagEditorTool.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TeeTagEditorTool" MUID: (5487291700EB)
 

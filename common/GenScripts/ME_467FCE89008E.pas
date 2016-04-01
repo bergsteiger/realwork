@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsBlockNodePrim;
+unit nsBlockNodePrim;
  {* Базовый блок документа. }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsBlockNodePrim.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBlockNodePrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsBlockNodePrim" MUID: (467FCE89008E)
 

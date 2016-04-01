@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsBitmapParaNode;
+unit nsBitmapParaNode;
  {* Параграф с картинкой. }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsBitmapParaNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBitmapParaNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsBitmapParaNode" MUID: (467FCDDA0064)
 

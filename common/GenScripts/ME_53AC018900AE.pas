@@ -22,6 +22,7 @@ type
  TddTaskItemPrim = class(_evdTagHolder_)
   private
    f_CanNotifyChange: Boolean;
+    {* Поле для свойства CanNotifyChange }
   protected
    function pm_GetTaskType: TcsTaskType;
    function pm_GetPriority: Integer;

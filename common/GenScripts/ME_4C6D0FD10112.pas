@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsTagNodePrimPrim;
+unit nsTagNodePrimPrim;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsTagNodePrimPrim.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodePrimPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsTagNodePrimPrim" MUID: (4C6D0FD10112)
 

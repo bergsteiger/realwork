@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsNewCachableNodeThatNeedKeepRoot;
+unit nsNewCachableNodeThatNeedKeepRoot;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_COMPLETED_nsNewCachableNodeThatNeedKeepRoot.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNodeThatNeedKeepRoot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsNewCachableNodeThatNeedKeepRoot" MUID: (4E737EFA0153)
 

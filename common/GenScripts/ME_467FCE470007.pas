@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsReqRowNode;
+unit nsReqRowNode;
  {* Строка реквизита. }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsReqRowNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsReqRowNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsReqRowNode" MUID: (467FCE470007)
 

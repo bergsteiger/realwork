@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsSubNode;
+unit nsSubNode;
  {* Тег, реализующий Sub. }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsSubNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsSubNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsSubNode" MUID: (467FCD7E033D)
 

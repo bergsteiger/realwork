@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsNewCachableNode;
+unit nsNewCachableNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_COMPLETED_nsNewCachableNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsNewCachableNode" MUID: (490AF9B0039B)
 
@@ -22,7 +22,6 @@ type
  TnsNewCachableNode = class(Tl3PlaceNode)
   private
    f_AdapterNode: INodeBase;
-    {* Поле для свойства AdapterNode }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -30,9 +29,9 @@ type
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
    function DoGetLevel: Integer; override;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aNode: INodeBase); reintroduce;
    class function Make(const aNode: INodeBase): Il3Node; reintroduce;
@@ -120,12 +119,6 @@ begin
 //#UC END# *4A60B23E00C3_490AF9B0039B_impl*
 end;//TnsNewCachableNode.COMQueryInterface
 
-procedure TnsNewCachableNode.ClearFields;
-begin
- f_AdapterNode := nil;
- inherited;
-end;//TnsNewCachableNode.ClearFields
-
 function TnsNewCachableNode.DoGetLevel: Integer;
 //#UC START# *54C78D4603D6_490AF9B0039B_var*
 //#UC END# *54C78D4603D6_490AF9B0039B_var*
@@ -157,5 +150,11 @@ begin
  end;//not Result
 //#UC END# *54C78D9201B9_490AF9B0039B_impl*
 end;//TnsNewCachableNode.GetIsSame
+
+procedure TnsNewCachableNode.ClearFields;
+begin
+ f_AdapterNode := nil;
+ inherited;
+end;//TnsNewCachableNode.ClearFields
 
 end.

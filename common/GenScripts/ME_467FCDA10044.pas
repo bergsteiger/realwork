@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsLeafParaNode;
+unit nsLeafParaNode;
  {* Листьевой параграф }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsLeafParaNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsLeafParaNode" MUID: (467FCDA10044)
 

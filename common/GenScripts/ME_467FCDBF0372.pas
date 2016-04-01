@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsTextParaNode;
+unit nsTextParaNode;
  {* Текстовый параграф. }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsTextParaNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTextParaNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsTextParaNode" MUID: (467FCDBF0372)
 

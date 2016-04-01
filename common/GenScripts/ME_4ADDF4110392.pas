@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsPrimAdapterNode;
+unit nsPrimAdapterNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_COMPLETED_nsPrimAdapterNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimAdapterNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsPrimAdapterNode" MUID: (4ADDF4110392)
 
@@ -20,16 +20,15 @@ type
  TnsPrimAdapterNode = {abstract} class(TnsPrimNode)
   private
    f_AdapterNode: INode;
-    {* Поле для свойства AdapterNode }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aNode: INode;
     aNumInParent: Integer); reintroduce;
@@ -104,12 +103,6 @@ begin
 //#UC END# *4A60B23E00C3_4ADDF4110392_impl*
 end;//TnsPrimAdapterNode.COMQueryInterface
 
-procedure TnsPrimAdapterNode.ClearFields;
-begin
- AdapterNode := nil;
- inherited;
-end;//TnsPrimAdapterNode.ClearFields
-
 function TnsPrimAdapterNode.GetIsSame(const aNode: Il3SimpleNode): Boolean;
 //#UC START# *54C78D9201B9_4ADDF4110392_var*
 var
@@ -156,5 +149,11 @@ begin
   Result := 0
 //#UC END# *54C78EA30198_4ADDF4110392_impl*
 end;//TnsPrimAdapterNode.GetLevelForParent
+
+procedure TnsPrimAdapterNode.ClearFields;
+begin
+ AdapterNode := nil;
+ inherited;
+end;//TnsPrimAdapterNode.ClearFields
 
 end.
