@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_arSubImplementation;
+unit arSubImplementation;
 
-// Модуль: "w:\archi\source\projects\Archi\Editor\NOT_COMPLETED_arSubImplementation.pas"
+// Модуль: "w:\archi\source\projects\Archi\Editor\arSubImplementation.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TarSubImplementation" MUID: (535F5A0E0098)
 
