@@ -16,10 +16,10 @@ uses
 type
  Tk2NilOp = class(Tk2Op)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2NilOp;
     {* Метод получения экземпляра синглетона Tk2NilOp }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2NilOp
 
 implementation
@@ -39,12 +39,6 @@ begin
  l3Free(g_Tk2NilOp);
 end;//Tk2NilOpFree
 
-class function Tk2NilOp.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2NilOp <> nil;
-end;//Tk2NilOp.Exists
-
 class function Tk2NilOp.Instance: Tk2NilOp;
  {* Метод получения экземпляра синглетона Tk2NilOp }
 begin
@@ -55,5 +49,11 @@ begin
  end;
  Result := g_Tk2NilOp;
 end;//Tk2NilOp.Instance
+
+class function Tk2NilOp.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2NilOp <> nil;
+end;//Tk2NilOp.Exists
 
 end.

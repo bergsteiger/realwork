@@ -1,7 +1,7 @@
-unit NOT_FINISHED_k2TagTool;
+unit NOT_COMPLETED_k2TagTool;
  {* Инструмент для работы с тегом. }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTool.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TagTool.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TagTool" MUID: (467C18A303CB)
 

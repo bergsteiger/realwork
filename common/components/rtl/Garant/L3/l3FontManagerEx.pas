@@ -16,10 +16,10 @@ uses
 type
  Tl3FontManagerEx = class(Tl3FontManager)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3FontManagerEx;
     {* Метод получения экземпляра синглетона Tl3FontManagerEx }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3FontManagerEx
 
 implementation
@@ -39,12 +39,6 @@ begin
  l3Free(g_Tl3FontManagerEx);
 end;//Tl3FontManagerExFree
 
-class function Tl3FontManagerEx.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3FontManagerEx <> nil;
-end;//Tl3FontManagerEx.Exists
-
 class function Tl3FontManagerEx.Instance: Tl3FontManagerEx;
  {* Метод получения экземпляра синглетона Tl3FontManagerEx }
 begin
@@ -55,5 +49,11 @@ begin
  end;
  Result := g_Tl3FontManagerEx;
 end;//Tl3FontManagerEx.Instance
+
+class function Tl3FontManagerEx.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3FontManagerEx <> nil;
+end;//Tl3FontManagerEx.Exists
 
 end.

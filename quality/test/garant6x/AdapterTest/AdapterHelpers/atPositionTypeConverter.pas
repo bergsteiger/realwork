@@ -9,6 +9,7 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
+ , SysUtils
 ;
 
 type
@@ -27,7 +28,6 @@ implementation
 uses
  l3ImplUses
  , TypInfo
- , SysUtils
  , l3Base
 ;
 

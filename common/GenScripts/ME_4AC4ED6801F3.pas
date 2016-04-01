@@ -44,7 +44,7 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IbsEditGroupName): Result; reintroduce;
+   class function Make(const aData: IbsEditGroupName): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -102,7 +102,7 @@ const
  str_admRenameGroupCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admRenameGroupCaption'; rValue : 'Переименовать группу');
   {* Заголовок пользовательского типа "Переименовать группу" }
 
-class function TPrimGroupPropertyForm.Make(const aData: IbsEditGroupName): Result;
+class function TPrimGroupPropertyForm.Make(const aData: IbsEditGroupName): BadFactoryType;
 var
  l_Inst : TPrimGroupPropertyForm;
 begin

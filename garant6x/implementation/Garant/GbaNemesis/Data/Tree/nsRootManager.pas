@@ -16,6 +16,7 @@ uses
  , l3Core
  , l3Interfaces
  , l3NotifyPtrList
+ , l3CacheableBase
  , l3IID
 ;
 

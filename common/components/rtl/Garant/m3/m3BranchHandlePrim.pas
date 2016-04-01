@@ -25,10 +25,10 @@ type
  Tm3BranchHandlesManager = class(Tl3SimpleMemoryManager)
   public
    constructor Create; reintroduce;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tm3BranchHandlesManager;
     {* Метод получения экземпляра синглетона Tm3BranchHandlesManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tm3BranchHandlesManager
 
  Tm3BranchHandlePrim = class(Tl3ProtoObject)
@@ -73,12 +73,6 @@ begin
 //#UC END# *5453B6CA01AD_5453B699001A_impl*
 end;//Tm3BranchHandlesManager.Create
 
-class function Tm3BranchHandlesManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tm3BranchHandlesManager <> nil;
-end;//Tm3BranchHandlesManager.Exists
-
 class function Tm3BranchHandlesManager.Instance: Tm3BranchHandlesManager;
  {* Метод получения экземпляра синглетона Tm3BranchHandlesManager }
 begin
@@ -89,6 +83,12 @@ begin
  end;
  Result := g_Tm3BranchHandlesManager;
 end;//Tm3BranchHandlesManager.Instance
+
+class function Tm3BranchHandlesManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tm3BranchHandlesManager <> nil;
+end;//Tm3BranchHandlesManager.Exists
 
 procedure Tm3BranchHandlePrim.Cleanup;
  {* Функция очистки полей объекта. }

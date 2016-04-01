@@ -69,7 +69,7 @@ type
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsTurnOffTimeMachine): Result; reintroduce;
+   class function Make(const aData: InsTurnOffTimeMachine): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -233,7 +233,7 @@ begin
 //#UC END# *527914660245_4AC4F82F0234_impl*
 end;//TPrimTurnOffTimeMachineForm.pbDialogIconPaint
 
-class function TPrimTurnOffTimeMachineForm.Make(const aData: InsTurnOffTimeMachine): Result;
+class function TPrimTurnOffTimeMachineForm.Make(const aData: InsTurnOffTimeMachine): BadFactoryType;
 var
  l_Inst : TPrimTurnOffTimeMachineForm;
 begin

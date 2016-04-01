@@ -30,7 +30,6 @@ type
   {* Элемент словаря. Список идентификаторов слов }
   private
    f_ID: Tm4DictItemAddr;
-    {* Поле для свойства ID }
   protected
    procedure ClearFields; override;
   public

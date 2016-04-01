@@ -76,6 +76,7 @@ uses
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimBaseSearchInterfaces
+ , l3SimpleObject
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)

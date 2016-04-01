@@ -126,7 +126,7 @@ type
    procedure DoBeforeHistoryNavigate; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(aIsFilter: Boolean): File; reintroduce;
+   class function MakeSingleChild(aIsFilter: Boolean); reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
@@ -408,7 +408,7 @@ begin
 //#UC END# *4C2E19C50385_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.MakePreview
 
-class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean): File;
+class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean);
 var
  l_Inst : TPrimQueryCardForm;
 begin

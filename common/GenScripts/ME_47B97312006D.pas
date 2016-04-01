@@ -47,15 +47,10 @@ type
    f_RefreshFromStack: Boolean;
    f_SaveToHistoryWasStarted: Boolean;
    f_OwnerForm: Integer;
-    {* Поле для свойства OwnerForm }
    f_OnGetMainImageIndex: TsfsOnGetMainImageIndex;
-    {* Поле для свойства OnGetMainImageIndex }
    f_OnGetMainCaption: TsfsOnGetMainCaption;
-    {* Поле для свойства OnGetMainCaption }
    f_Forms: TvcmFormSetFormsCollection;
-    {* Поле для свойства Forms }
    f_FormList: TvcmFormSetFormList;
-    {* Поле для свойства FormList }
   private
    function FormSetItem(aItem: TvcmFormSetFormsCollectionItemPrim): TvcmFormSetFormsCollectionItem;
    function IsOwnerItem(aItem: TvcmFormSetFormsCollectionItem): Boolean;

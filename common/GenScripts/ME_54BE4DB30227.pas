@@ -1,6 +1,6 @@
-unit NOT_FINISHED_eePicture;
+unit NOT_COMPLETED_eePicture;
 
-// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePicture.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_COMPLETED_eePicture.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TeePicture" MUID: (54BE4DB30227)
 

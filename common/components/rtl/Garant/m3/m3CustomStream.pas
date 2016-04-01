@@ -19,7 +19,6 @@ type
  Tm3CustomStream = {abstract} class(Tm3BaseStream)
   private
    f_InnerStream: IStream;
-    {* Поле для свойства InnerStream }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

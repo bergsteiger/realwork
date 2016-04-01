@@ -1,7 +1,7 @@
-unit stevStylesPrintAndExportFontSizeItem;
+unit NOT_COMPLETED_stevStylesPrintAndExportFontSizeItem;
  {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
 
-// Модуль: "w:\common\components\rtl\Garant\dd\stevStylesPrintAndExportFontSizeItem.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_stevStylesPrintAndExportFontSizeItem.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TstevStylesPrintAndExportFontSizeItem" MUID: (DF1A3014EEBC)
 

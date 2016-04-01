@@ -54,7 +54,6 @@ type
    f_AnsiName: AnsiString;
    f_InfoStream: Tm3FileStream;
    f_FilesCount: Integer;
-    {* Поле для свойства FilesCount }
   private
    function FileByPos(aPos: Int64;
     var theFileOffset: Int64): Tm3InnerFileStream;

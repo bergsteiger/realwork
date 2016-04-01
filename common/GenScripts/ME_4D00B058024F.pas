@@ -33,7 +33,6 @@ type
    f_Filer: Tl3CustomFiler;
    f_Printing: Boolean;
    f_NeedClear: Boolean;
-    {* Поле для свойства NeedClear }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

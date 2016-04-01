@@ -22,7 +22,7 @@ type
  Tm3TOCHandle = class(Tm3Persistent)
   private
    f_HandleName: Tl3_String;
-    {* Поле для свойства HandleName }
+    {* имя вхождения директории }
   public
    StoreInfo: Tm3StoreInfo;
   protected

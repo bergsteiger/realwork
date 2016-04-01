@@ -21,7 +21,6 @@ type
   {* Базовая реализация объекта хранилища. }
   private
    f_f_DB: Tm3PrimDB;
-    {* Поле для свойства f_DB }
   protected
    function DB: Im3DB;
    procedure Cleanup; override;

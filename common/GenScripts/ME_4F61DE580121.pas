@@ -19,10 +19,10 @@ type
  TnpControlsList = class(TnpControlsListPrim)
   {* список навигаторов на форме, от которых были отстыкованы компоненты. }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnpControlsList;
     {* Метод получения экземпляра синглетона TnpControlsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnpControlsList
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -44,12 +44,6 @@ begin
  l3Free(g_TnpControlsList);
 end;//TnpControlsListFree
 
-class function TnpControlsList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnpControlsList <> nil;
-end;//TnpControlsList.Exists
-
 class function TnpControlsList.Instance: TnpControlsList;
  {* Метод получения экземпляра синглетона TnpControlsList }
 begin
@@ -60,6 +54,12 @@ begin
  end;
  Result := g_TnpControlsList;
 end;//TnpControlsList.Instance
+
+class function TnpControlsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnpControlsList <> nil;
+end;//TnpControlsList.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

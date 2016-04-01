@@ -1,6 +1,6 @@
-unit NOT_FINISHED_k2TagPointer;
+unit NOT_COMPLETED_k2TagPointer;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagPointer.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TagPointer.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TagPointer" MUID: (467C185C03E7)
 

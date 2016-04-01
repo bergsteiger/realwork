@@ -29,7 +29,6 @@ type
    f_AllocatedFATElements: Tl3RevertedInt64List;
    f_AllocatedClusters: Tl3RevertedInt64List;
    f_RootStream: Tm3RootStream;
-    {* Поле для свойства RootStream }
   protected
    function DoAllocNewFATElement(aFromFreeChainOnly: Boolean): Int64; virtual; abstract;
    procedure DoRemoveFATElementAtPos(aPosition: Int64); virtual; abstract;

@@ -20,17 +20,14 @@ type
    f_DB: Im3DB;
    f_Level: Integer;
    f_Part: Im3DBDocumentPart;
-    {* Поле для свойства Part }
    f_PartSelector: Tm3DocPartSelector;
-    {* Поле для свойства PartSelector }
    f_ObjectIndex: Integer;
-    {* Поле для свойства ObjectIndex }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
    function DoOpen: Boolean; override;
    procedure DoClose; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aDB: Im3DB;
     aDocID: Integer = 0;
@@ -87,13 +84,6 @@ begin
  l3FillChar(f_PartSelector, SizeOf(f_PartSelector));
 //#UC END# *479731C50290_555C88FF0236_impl*
 end;//Tm3DBFiler.Cleanup
-
-procedure Tm3DBFiler.ClearFields;
-begin
- f_DB := nil;
- f_Part := nil;
- inherited;
-end;//Tm3DBFiler.ClearFields
 
 function Tm3DBFiler.DoOpen: Boolean;
 //#UC START# *555C888301B0_555C88FF0236_var*
@@ -164,5 +154,12 @@ begin
  inherited;
 //#UC END# *555C88B703E7_555C88FF0236_impl*
 end;//Tm3DBFiler.DoClose
+
+procedure Tm3DBFiler.ClearFields;
+begin
+ f_DB := nil;
+ f_Part := nil;
+ inherited;
+end;//Tm3DBFiler.ClearFields
 
 end.

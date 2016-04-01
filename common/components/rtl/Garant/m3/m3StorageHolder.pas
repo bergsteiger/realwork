@@ -24,11 +24,8 @@ type
    f_StorageClass: Rm3CommonStorage;
    f_RootStreamManager: Tm3RootStreamManagerPrim;
    f_Access: Tm3StoreAccess;
-    {* Поле для свойства Access }
    f_FileName: WideString;
-    {* Поле для свойства FileName }
    f_SharedMode: Cardinal;
-    {* Поле для свойства SharedMode }
   protected
    function ReopenStorage(anAccess: Tm3StoreAccess): Im3IndexedStorage;
    function Get_Storage: Im3IndexedStorage;

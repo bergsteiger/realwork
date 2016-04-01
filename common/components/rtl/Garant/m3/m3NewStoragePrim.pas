@@ -20,7 +20,6 @@ type
  Tm3NewStoragePrim = {abstract} class(Tm3CommonStorage)
   private
    f_Header: Tm3StoreHeader;
-    {* Поле для свойства Header }
   protected
    function Manager: Tm3RootStreamManagerPrim; override;
    procedure Cleanup; override;

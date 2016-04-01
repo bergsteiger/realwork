@@ -33,14 +33,14 @@ type
    f_HorisontalBtmBuffer: Tl3CoordinateMap;
     {* Массив горизонтальных линий для выравнивания }
    f_FrameObjID: Integer;
-    {* Поле для свойства FrameObjID }
+    {* Идентификатор отрисовываемого объета. Может быть указателем, номером 
+         в списке параграфов - чем угодно, только бы был уникальным. В любом 
+         случае информация хранится только до слеующей прорисовки }
    f_FinishedFO: Boolean;
-    {* Поле для свойства FinishedFO }
+    {* Закончена ли отрисовка объекта. }
    f_LineWidth: Integer;
-    {* Поле для свойства LineWidth }
    {$If Defined(nsTest)}
    f_NeedLog: Boolean;
-    {* Поле для свойства NeedLog }
    {$IfEnd} // Defined(nsTest)
   protected
    function pm_GetLineWidth: Integer;

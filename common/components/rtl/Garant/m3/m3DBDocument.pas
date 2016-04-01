@@ -23,7 +23,6 @@ type
   {* Реализация документа. }
   private
    f_ID: Integer;
-    {* Поле для свойства ID }
   protected
    function pm_GetID: Integer;
    procedure Delete;

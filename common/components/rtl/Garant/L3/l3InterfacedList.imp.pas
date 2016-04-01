@@ -13,7 +13,7 @@
   protected
    function pm_GetCount: Integer;
   public
-   class function MakeI: _ListType_; reintroduce;
+   class function MakeI: Ml3CountHolder; reintroduce;
  end;//_l3InterfacedList_
 
 {$Else l3InterfacedList_imp}
@@ -24,13 +24,13 @@
 
 {$Include w:\common\components\rtl\Garant\L3\l3ListAssign.imp.pas}
 
-class function _l3InterfacedList_.MakeI: _ListType_;
+class function _l3InterfacedList_.MakeI: Ml3CountHolder;
 var
  l_Inst : _l3InterfacedList_;
 begin
  l_Inst := Create;
  try
-  Result := _Instance_R_(l_Inst);
+  Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally

@@ -23,6 +23,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 type
@@ -100,7 +101,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3StringIDEx
  , l3MessageID
 ;
 

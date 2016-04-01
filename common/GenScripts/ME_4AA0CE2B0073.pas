@@ -56,7 +56,7 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: Il3SimpleTree): Result; reintroduce;
+   class function Make(const aData: Il3SimpleTree): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -196,7 +196,7 @@ begin
 //#UC END# *4AA0CE940142_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.TryOpen
 
-class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree): Result;
+class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree): BadFactoryType;
 var
  l_Inst : TPrimListAnalizerForm;
 begin

@@ -9,6 +9,7 @@ interface
 uses
  l3IntfUses
  , SearchUnit
+ , SysUtils
 ;
 
 type
@@ -29,7 +30,6 @@ implementation
 uses
  l3ImplUses
  , TypInfo
- , SysUtils
  , l3Base
 ;
 

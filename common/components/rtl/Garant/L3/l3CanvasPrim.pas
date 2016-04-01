@@ -118,41 +118,23 @@ type
    f_ConvertTable: Tl3MemoryPool_Bool;
    f_OutString: Tl3String;
    f_Flags: TevDrawFlags;
-    {* Поле для свойства Flags }
    f_OnDrawSub: TevDrawSubEvent;
-    {* Поле для свойства OnDrawSub }
    f_CanDrawSubs: Boolean;
-    {* Поле для свойства CanDrawSubs }
    f_PixelsPerInchX: Integer;
-    {* Поле для свойства PixelsPerInchX }
    f_PixelsPerInchY: Integer;
-    {* Поле для свойства PixelsPerInchY }
    f_OverallPageNumber: Integer;
-    {* Поле для свойства OverallPageNumber }
    f_BackColor: TColor;
-    {* Поле для свойства BackColor }
    f_NotFocused: Boolean;
-    {* Поле для свойства NotFocused }
    f_DCFlag: TevDCFlag;
-    {* Поле для свойства DCFlag }
    f_Canvas: TCanvas;
-    {* Поле для свойства Canvas }
    f_Owner: TObject;
-    {* Поле для свойства Owner }
    f_Zoom: Integer;
-    {* Поле для свойства Zoom }
    f_OnDrawSpecialChange: TNotifyEvent;
-    {* Поле для свойства OnDrawSpecialChange }
    f_PageOrientation: Tl3PageOrientation;
-    {* Поле для свойства PageOrientation }
    f_SectionExtent: Tl3Point;
-    {* Поле для свойства SectionExtent }
    f_Painter: Il3HAFPainter;
-    {* Поле для свойства Painter }
    f_AbortChecker: Il3AbortChecker;
-    {* Поле для свойства AbortChecker }
    f_etoFlags: Word;
-    {* Поле для свойства etoFlags }
   protected
    f_Printer: Il3Printer;
    f_DeviceCaps: Tl3DeviceCaps;

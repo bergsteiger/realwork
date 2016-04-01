@@ -25,23 +25,14 @@ type
  TvcmGlassFrame = class
   private
    f_Left: Integer;
-    {* Поле для свойства Left }
    f_Top: Integer;
-    {* Поле для свойства Top }
    f_Right: Integer;
-    {* Поле для свойства Right }
    f_Bottom: Integer;
-    {* Поле для свойства Bottom }
    f_Enabled: Boolean;
-    {* Поле для свойства Enabled }
    f_SheetOfGlass: Boolean;
-    {* Поле для свойства SheetOfGlass }
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
    f_OnNeedUpdateGlassFrameControls: TvcmGlassFrameNeedUpdateGlassFrameControls;
-    {* Поле для свойства OnNeedUpdateGlassFrameControls }
    f_ClientForm: TvcmEntityForm;
-    {* Поле для свойства ClientForm }
   protected
    procedure pm_SetLeft(aValue: Integer); virtual;
    procedure pm_SetTop(aValue: Integer); virtual;

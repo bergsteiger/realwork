@@ -19,10 +19,10 @@ type
  TnsWindowsList = class(TnsWindowsListPrim)
   {* класс управляющий списком окон }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsWindowsList;
     {* Метод получения экземпляра синглетона TnsWindowsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsWindowsList
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -44,12 +44,6 @@ begin
  l3Free(g_TnsWindowsList);
 end;//TnsWindowsListFree
 
-class function TnsWindowsList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsWindowsList <> nil;
-end;//TnsWindowsList.Exists
-
 class function TnsWindowsList.Instance: TnsWindowsList;
  {* Метод получения экземпляра синглетона TnsWindowsList }
 begin
@@ -60,6 +54,12 @@ begin
  end;
  Result := g_TnsWindowsList;
 end;//TnsWindowsList.Instance
+
+class function TnsWindowsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsWindowsList <> nil;
+end;//TnsWindowsList.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -30,7 +30,6 @@ type
    f_Owner: TObject;
    f_Mode: Pointer;
    f_Code: Integer;
-    {* Поле для свойства Code }
   private
    procedure FreeInOwner;
   protected

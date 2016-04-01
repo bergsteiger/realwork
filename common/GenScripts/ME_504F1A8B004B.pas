@@ -29,12 +29,12 @@ implementation
 
 uses
  l3ImplUses
+ , SysUtils
  , UnderControlUnit
  , atLogger
  , DocumentUnit
  , atControlStatusConverter
  , TypInfo
- , SysUtils
  , l3Base
 ;
 

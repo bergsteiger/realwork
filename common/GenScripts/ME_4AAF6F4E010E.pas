@@ -68,7 +68,7 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
-   class function Make(const aData: IafwDocumentPreview): File; reintroduce;
+   class function Make(const aData: IafwDocumentPreview): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
@@ -167,7 +167,7 @@ begin
 //#UC END# *4AC612AF032F_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.Preview
 
-class function TPrimPreviewForm.Make(const aData: IafwDocumentPreview): File;
+class function TPrimPreviewForm.Make(const aData: IafwDocumentPreview): BadFactoryType;
 var
  l_Inst : TPrimPreviewForm;
 begin

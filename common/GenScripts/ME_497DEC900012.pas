@@ -33,6 +33,7 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
+ , l3StringIDEx
  , nsLogEvent
  , DynamicDocListUnit
 ;
@@ -116,7 +117,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3StringIDEx
  , l3MessageID
  , nsManagers
  {$If NOT Defined(NoVCM)}

@@ -18,7 +18,6 @@ type
  Tm3HashHandle = class(Tl3CProtoObject)
   private
    f_BranchHandleList: Tm3BranchHandleList;
-    {* Поле для свойства BranchHandleList }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

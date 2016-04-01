@@ -199,7 +199,7 @@ function TPrimMainMenuWithProfNewsForm.DoBuildGrid: InscArrangeGrid;
 //#UC END# *4AC9B6D00250_56FA889202B4_var*
 begin
 //#UC START# *4AC9B6D00250_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ Result := nil;
 //#UC END# *4AC9B6D00250_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoBuildGrid
 
@@ -210,17 +210,20 @@ procedure TPrimMainMenuWithProfNewsForm.InitControls;
 //#UC END# *4A8E8F2E0195_56FA889202B4_var*
 begin
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ inherited;
 //#UC END# *4A8E8F2E0195_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.InitControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimMainMenuWithProfNewsForm.LoadLastOpenDocs;
 //#UC START# *4AC9D12600E0_56FA889202B4_var*
+var
+ l_DocCount: Integer;
 //#UC END# *4AC9D12600E0_56FA889202B4_var*
 begin
 //#UC START# *4AC9D12600E0_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ l_DocCount := afw.Settings.LoadInteger(pi_RecentlyOpenDocumentsCount, dv_RecentlyOpenDocumentsCount);
+ tvLastOpenDocs.TreeStruct := TnsLastOpenDocTree.Make(l_DocCount, False, True);
 //#UC END# *4AC9D12600E0_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadLastOpenDocs
 
@@ -229,7 +232,9 @@ procedure TPrimMainMenuWithProfNewsForm.LoadTrees;
 //#UC END# *4AC9E9EC0064_56FA889202B4_var*
 begin
 //#UC START# *4AC9E9EC0064_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ inherited;
+// UpdateTaxesTree;
+// UpdateReferencesAndLawNewsCaptions;
 //#UC END# *4AC9E9EC0064_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadTrees
 
@@ -238,7 +243,7 @@ function TPrimMainMenuWithProfNewsForm.pm_GetContainerForBaseSearch: IvcmContain
 //#UC END# *4ACA197F0147_56FA889202B4get_var*
 begin
 //#UC START# *4ACA197F0147_56FA889202B4get_impl*
- !!! Needs to be implemented !!!
+ Result := Self;
 //#UC END# *4ACA197F0147_56FA889202B4get_impl*
 end;//TPrimMainMenuWithProfNewsForm.pm_GetContainerForBaseSearch
 
@@ -248,7 +253,7 @@ function TPrimMainMenuWithProfNewsForm.NewSchool: Boolean;
 //#UC END# *4ACB2F98002B_56FA889202B4_var*
 begin
 //#UC START# *4ACB2F98002B_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ Result := True;
 //#UC END# *4ACB2F98002B_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.NewSchool
 
@@ -259,7 +264,16 @@ procedure TPrimMainMenuWithProfNewsForm.SetControlsResources;
 //#UC END# *4B62D10B031B_56FA889202B4_var*
 begin
 //#UC START# *4B62D10B031B_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ inherited;
+ flAttributeSearch.Hint := 'Открыть карточку поиска по реквизитам';
+ flSituationSearch.Hint := 'Открыть энциклопедию ситуаций';
+ flPublishedSourceSearch.Hint := 'Открыть поиск по источнику опубликования';
+ flDictionSearch.Hint := 'Открыть Толковый словарь правовых и финансовых терминов';
+
+ flAttributeSearch.ShowHint := True;
+ flSituationSearch.ShowHint := True;
+ flPublishedSourceSearch.ShowHint := True;
+ flDictionSearch.ShowHint := True;
 //#UC END# *4B62D10B031B_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.SetControlsResources
 {$IfEnd} // NOT Defined(NoVCM)
@@ -270,7 +284,7 @@ function TPrimMainMenuWithProfNewsForm.DoGetTabCaption: IvcmCString;
 //#UC END# *53F1C6EF02C9_56FA889202B4_var*
 begin
 //#UC START# *53F1C6EF02C9_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ Result := vcmCStr(str_utMainMenuWithProfNewsCaption);
 //#UC END# *53F1C6EF02C9_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoGetTabCaption
 {$IfEnd} // NOT Defined(NoVCM)
@@ -281,7 +295,7 @@ function TPrimMainMenuWithProfNewsForm.DoGetFormSetTabCaption: IvcmCString;
 //#UC END# *54058CBC0182_56FA889202B4_var*
 begin
 //#UC START# *54058CBC0182_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ Result := DoGetTabCaption;
 //#UC END# *54058CBC0182_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoGetFormSetTabCaption
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -292,7 +306,7 @@ function TPrimMainMenuWithProfNewsForm.DoGetTabImageIndex: Integer;
 //#UC END# *543E3AA801D0_56FA889202B4_var*
 begin
 //#UC START# *543E3AA801D0_56FA889202B4_impl*
- !!! Needs to be implemented !!!
+ Result := nsTabIconIndex(titMain);
 //#UC END# *543E3AA801D0_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)

@@ -22,10 +22,10 @@ type
     {* Функция очистки полей объекта. }
    procedure Release; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TPl3MessageIDList;
     {* Метод получения экземпляра синглетона TPl3MessageIDList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TPl3MessageIDList
 
 implementation
@@ -57,12 +57,6 @@ begin
 //#UC END# *4F9BCF5401F8_4F9BCB620208_impl*
 end;//TPl3MessageIDList.CleanupItems
 
-class function TPl3MessageIDList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TPl3MessageIDList <> nil;
-end;//TPl3MessageIDList.Exists
-
 class function TPl3MessageIDList.Instance: TPl3MessageIDList;
  {* Метод получения экземпляра синглетона TPl3MessageIDList }
 begin
@@ -73,6 +67,12 @@ begin
  end;
  Result := g_TPl3MessageIDList;
 end;//TPl3MessageIDList.Instance
+
+class function TPl3MessageIDList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TPl3MessageIDList <> nil;
+end;//TPl3MessageIDList.Exists
 
 procedure TPl3MessageIDList.Cleanup;
  {* Функция очистки полей объекта. }

@@ -10,6 +10,7 @@ uses
  l3IntfUses
  , l3Interfaces
  , DynamicTreeUnit
+ , SysUtils
 ;
 
 type
@@ -31,7 +32,6 @@ implementation
 uses
  l3ImplUses
  , TypInfo
- , SysUtils
  , l3Base
 ;
 

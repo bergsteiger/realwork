@@ -24,11 +24,8 @@ type
   {* Описатель элемента хранилища (потока или подхранилища) }
   private
    f_HeaderData: Tm3StoreHeaderDataPrim;
-    {* Поле для свойства HeaderData }
    f_RootStreamManager: Tm3RootStreamManagerPrim;
-    {* Поле для свойства RootStreamManager }
    f_Name: Tl3_String;
-    {* Поле для свойства Name }
   protected
    function pm_GetTOCListPosition: Int64;
    procedure pm_SetTOCListPosition(aValue: Int64);

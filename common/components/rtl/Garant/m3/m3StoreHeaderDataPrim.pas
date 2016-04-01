@@ -22,13 +22,9 @@ type
   private
    f_Lock: Integer;
    f_Position: Int64;
-    {* Поле для свойства Position }
    f_IsReadOnly: Boolean;
-    {* Поле для свойства IsReadOnly }
    f_Name: Tl3_String;
-    {* Поле для свойства Name }
    f_Stream: Tm3RootStreamManagerPrimPrim;
-    {* Поле для свойства Stream }
   protected
    function pm_GetrRealSizePrim: Int64; virtual; abstract;
    procedure pm_SetrRealSizePrim(aValue: Int64); virtual; abstract;

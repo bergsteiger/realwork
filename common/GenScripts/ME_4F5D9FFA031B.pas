@@ -13,6 +13,7 @@ interface
 uses
  l3IntfUses
  , PrimSaveLoadOptions_Form
+ , l3StringIDEx
 ;
 
 type
@@ -49,7 +50,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3StringIDEx
  , l3MessageID
 ;
 

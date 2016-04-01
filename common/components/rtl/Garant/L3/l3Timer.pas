@@ -21,13 +21,9 @@ type
   private
    f_WindowHandle: THandle;
    f_Enabled: Boolean;
-    {* Поле для свойства Enabled }
    f_Interval: Cardinal;
-    {* Поле для свойства Interval }
    f_OnTimer: TNotifyEvent;
-    {* Поле для свойства OnTimer }
    f_OnLocalTimeChange: TNotifyEvent;
-    {* Поле для свойства OnLocalTimeChange }
   private
    procedure UpdateTimer;
    procedure WndProc(var Msg: TMessage);

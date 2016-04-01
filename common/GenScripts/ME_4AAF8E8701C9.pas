@@ -29,7 +29,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   class function Make(const aData: IafwDocumentPreview): PrintParams; reintroduce;
+   class function Make(const aData: IafwDocumentPreview): BadFactoryType; reintroduce;
    procedure PrintParams_UpdatePrinter_Execute;
    procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimPrintDialogForm
@@ -46,7 +46,7 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview): PrintParams;
+class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview): BadFactoryType;
 var
  l_Inst : TPrimPrintDialogForm;
 begin

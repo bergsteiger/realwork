@@ -23,7 +23,6 @@ type
  Tm3RootStreamManagerPrimPrim = {abstract} class(_l3CriticalSectionHolder_)
   private
    f_Logger: Tl3Logger;
-    {* Поле для свойства Logger }
   protected
    function DoIsValidPosition(aPosition: Int64;
     aName: Tl3CustomString): Boolean; virtual;

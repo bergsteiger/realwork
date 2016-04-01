@@ -28,7 +28,6 @@ type
  Tm3TOCHandleList = class(_m3PersistentList_)
   private
    f_Modified: Boolean;
-    {* Поле для свойства Modified }
   protected
    function pm_GetModified: Boolean;
    procedure pm_SetModified(aValue: Boolean);

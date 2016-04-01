@@ -8,6 +8,7 @@ interface
 
 uses
  l3IntfUses
+ , SysUtils
 ;
 
 type
@@ -28,7 +29,6 @@ implementation
 uses
  l3ImplUses
  , TypInfo
- , SysUtils
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}

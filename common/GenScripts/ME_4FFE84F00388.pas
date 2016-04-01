@@ -19,7 +19,6 @@ type
  TvcmFormSetFactoryPrim = class(Tl3ProtoObject)
   private
    f_Caption: Il3CString;
-    {* Поле для свойства Caption }
   protected
    class function GetInstance: TvcmFormSetFactoryPrim; virtual;
    procedure Cleanup; override;

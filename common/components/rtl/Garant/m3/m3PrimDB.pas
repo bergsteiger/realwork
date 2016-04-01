@@ -33,13 +33,9 @@ type
   {* Заготовка для абстрактной базы }
   private
    f_FilesProcessed: Tm3FilesProcessed;
-    {* Поле для свойства FilesProcessed }
    f_FilesProcessedEx: Tm3FilesProcessedEx;
-    {* Поле для свойства FilesProcessedEx }
    f_FileMeter: Tl3ProgressProc;
-    {* Поле для свойства FileMeter }
    f_FilesMeter: Tl3ProgressProc;
-    {* Поле для свойства FilesMeter }
   public
    function NeedsFork: Boolean; virtual;
    function IsExclusive: Boolean; virtual; abstract;

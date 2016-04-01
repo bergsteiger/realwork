@@ -20,7 +20,6 @@ type
  TvcmFormSetFormsCollectionItem = class(TvcmFormSetFormsCollectionItemPrim)
   private
    f_Childs: TvcmFormSetFormsCollectionPrimPrim;
-    {* Поле для свойства Childs }
   protected
    function pm_GetFormId: TvcmFormID;
    procedure CheckChilds;

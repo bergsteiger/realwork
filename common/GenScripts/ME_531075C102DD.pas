@@ -20,10 +20,10 @@ type
    function GetNeedOptimize: Boolean; override;
   public
    constructor Create; reintroduce;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2NonOptimizeContext;
     {* Метод получения экземпляра синглетона Tk2NonOptimizeContext }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2NonOptimizeContext
 
 implementation
@@ -52,12 +52,6 @@ begin
 //#UC END# *5310790D00D9_531075C102DD_impl*
 end;//Tk2NonOptimizeContext.Create
 
-class function Tk2NonOptimizeContext.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2NonOptimizeContext <> nil;
-end;//Tk2NonOptimizeContext.Exists
-
 class function Tk2NonOptimizeContext.Instance: Tk2NonOptimizeContext;
  {* Метод получения экземпляра синглетона Tk2NonOptimizeContext }
 begin
@@ -68,6 +62,12 @@ begin
  end;
  Result := g_Tk2NonOptimizeContext;
 end;//Tk2NonOptimizeContext.Instance
+
+class function Tk2NonOptimizeContext.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2NonOptimizeContext <> nil;
+end;//Tk2NonOptimizeContext.Exists
 
 function Tk2NonOptimizeContext.GetSaveUndo: Boolean;
 //#UC START# *4E7AF07603D9_531075C102DD_var*
