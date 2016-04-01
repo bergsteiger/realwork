@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evLocationBase;
+unit evLocationBase;
  {* Базовый объект для диапазонов в документе (курсоров и блоков) }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evLocationBase.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evLocationBase.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevLocationBase" MUID: (47F4D44C01BF)
 

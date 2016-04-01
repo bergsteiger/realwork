@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evControlsBlockHotSpotTesterPrim;
+unit evControlsBlockHotSpotTesterPrim;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlsBlockHotSpotTesterPrim.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockHotSpotTesterPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevControlsBlockHotSpotTesterPrim" MUID: (4A27B51303A7)
 

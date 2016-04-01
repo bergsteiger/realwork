@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evSegmentHotSpot;
+unit evSegmentHotSpot;
  {* Горячая точка для сегмента оформления текстового параграфа }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evSegmentHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evSegmentHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevSegmentHotSpot" MUID: (4A268E590029)
 

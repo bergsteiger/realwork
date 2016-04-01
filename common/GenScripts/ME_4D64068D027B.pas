@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evReqGroupHotSpotTester;
+unit evReqGroupHotSpotTester;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evReqGroupHotSpotTester.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqGroupHotSpotTester.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevReqGroupHotSpotTester" MUID: (4D64068D027B)
 

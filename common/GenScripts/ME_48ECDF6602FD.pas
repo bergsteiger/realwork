@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evMultiSelectionText;
+unit evMultiSelectionText;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evMultiSelectionText.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionText.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevMultiSelectionText" MUID: (48ECDF6602FD)
 

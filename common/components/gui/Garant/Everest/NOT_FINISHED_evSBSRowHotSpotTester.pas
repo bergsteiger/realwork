@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evSBSRowHotSpotTester;
+unit NOT_FINISHED_evSBSRowHotSpotTester;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evSBSRowHotSpotTester.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSBSRowHotSpotTester.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevSBSRowHotSpotTester" MUID: (53D0FD000009)
 

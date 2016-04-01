@@ -34,7 +34,6 @@ type
    f_BottomEdge: InevBasePoint;
     {* Нижняя граница блока }
    f_Area: TevObjectArea;
-    {* Поле для свойства Area }
   protected
    thisMap: InevMap;
   protected

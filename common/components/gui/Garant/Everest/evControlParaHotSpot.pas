@@ -31,7 +31,6 @@ type
    thisMap: InevMap;
    f_OldChecked: Boolean;
    f_ControlFriend: IevControlFriend;
-    {* Поле для свойства ControlFriend }
   private
    function PtInButton(const aPt: TafwPoint): Boolean;
     {* Щелчок по кнопке редактора }

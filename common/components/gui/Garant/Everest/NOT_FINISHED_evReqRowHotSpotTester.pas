@@ -1,8 +1,8 @@
-unit NOT_COMPLETED_evControlsBlockHotSpotTester;
+unit NOT_FINISHED_evReqRowHotSpotTester;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlsBlockHotSpotTester.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evReqRowHotSpotTester.pas"
 // Стереотип: "SimpleClass"
-// Элемент модели: "TevControlsBlockHotSpotTester" MUID: (4A27B53100B6)
+// Элемент модели: "TevReqRowHotSpotTester" MUID: (53D668610126)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -11,12 +11,12 @@ interface
 {$If Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)}
 uses
  l3IntfUses
- , evControlsBlockHotSpotTesterPrim
+ , evTableRowHotSpot
 ;
 
 type
- TevControlsBlockHotSpotTester = class(TevControlsBlockHotSpotTesterPrim)
- end;//TevControlsBlockHotSpotTester
+ TevReqRowHotSpotTester = class(TevTableRowHotSpotTester)
+ end;//TevReqRowHotSpotTester
 {$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
 
 implementation

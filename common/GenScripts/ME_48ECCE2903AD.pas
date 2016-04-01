@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evMultiSelectionLocation;
+unit evMultiSelectionLocation;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evMultiSelectionLocation.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionLocation.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevMultiSelectionLocation" MUID: (48ECCE2903AD)
 

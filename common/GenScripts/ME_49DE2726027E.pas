@@ -1,6 +1,6 @@
 {$IfNDef evCursor_imp}
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evCursor.imp.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursor.imp.pas"
 // Стереотип: "Impurity"
 // Элемент модели: "evCursor" MUID: (49DE2726027E)
 // Имя типа: "_evCursor_"

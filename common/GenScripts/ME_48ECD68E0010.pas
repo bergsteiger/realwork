@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evTextParaMultiSelectionBlock;
+unit evTextParaMultiSelectionBlock;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTextParaMultiSelectionBlock.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaMultiSelectionBlock.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTextParaMultiSelectionBlock" MUID: (48ECD68E0010)
 

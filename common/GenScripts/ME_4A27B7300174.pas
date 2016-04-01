@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evParaListHotSpotTester;
+unit evParaListHotSpotTester;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evParaListHotSpotTester.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListHotSpotTester.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevParaListHotSpotTester" MUID: (4A27B7300174)
 

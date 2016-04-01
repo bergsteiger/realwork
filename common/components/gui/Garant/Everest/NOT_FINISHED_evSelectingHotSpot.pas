@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evSelectingHotSpot;
+unit NOT_FINISHED_evSelectingHotSpot;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evSelectingHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSelectingHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevSelectingHotSpot" MUID: (4D6406160297)
 

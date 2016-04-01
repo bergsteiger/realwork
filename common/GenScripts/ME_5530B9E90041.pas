@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evArchiCollapser;
+unit evArchiCollapser;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evArchiCollapser.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evArchiCollapser.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevArchiCollapser" MUID: (5530B9E90041)
 

@@ -29,7 +29,6 @@ type
  TevControlsBlockHotSpotTesterPrim = class(TevDocumentPartHotSpotTester, IevMouseMoveHandler)
   private
    f_CommonControl: IevCommonControl;
-    {* Поле для свойства CommonControl }
   protected
    function pm_GetCommonControl: IevCommonControl;
    function GetControl: IevQueryGroup;

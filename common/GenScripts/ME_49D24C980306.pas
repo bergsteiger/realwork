@@ -1,6 +1,6 @@
 {$IfNDef nevPrimPoint_imp}
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevPrimPoint.imp.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas"
 // Стереотип: "Impurity"
 // Элемент модели: "nevPrimPoint" MUID: (49D24C980306)
 // Имя типа: "_nevPrimPoint_"

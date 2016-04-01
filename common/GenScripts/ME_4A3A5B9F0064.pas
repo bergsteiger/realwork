@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evLocation;
+unit evLocation;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evLocation.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evLocation.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevLocation" MUID: (4A3A5B9F0064)
 

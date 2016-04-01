@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evControlSegmentHotSpot;
+unit evControlSegmentHotSpot;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlSegmentHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlSegmentHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevControlSegmentHotSpot" MUID: (4A27A44403BE)
 

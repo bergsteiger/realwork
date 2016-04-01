@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evControlParaHotSpotTester;
+unit evControlParaHotSpotTester;
  {* Парень, который определяет зону контрола (некий аналог WM_NCHITTEST) }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlParaHotSpotTester.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlParaHotSpotTester.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevControlParaHotSpotTester" MUID: (4A27A8C70359)
 

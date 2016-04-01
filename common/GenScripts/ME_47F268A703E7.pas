@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evParaNode;
+unit evParaNode;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_evParaNode.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evParaNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevParaNode" MUID: (47F268A703E7)
 

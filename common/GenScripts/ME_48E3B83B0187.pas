@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evMultiSelectionBlock;
+unit evMultiSelectionBlock;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evMultiSelectionBlock.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionBlock.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevMultiSelectionBlock" MUID: (48E3B83B0187)
 

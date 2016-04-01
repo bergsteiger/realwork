@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evControlParaHotSpot;
+unit evControlParaHotSpot;
  {* Реализация "горячей точки" для параграфа, представляющего контрол ввода }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlParaHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlParaHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevControlParaHotSpot" MUID: (4A27A7D5019E)
 

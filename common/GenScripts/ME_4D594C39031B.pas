@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evTextParaHeaderHotSpot;
+unit evTextParaHeaderHotSpot;
  {* HotSpot на заголовок параграфа }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTextParaHeaderHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaHeaderHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTextParaHeaderHotSpot" MUID: (4D594C39031B)
 

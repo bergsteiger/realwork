@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evTableHotSpot;
+unit NOT_FINISHED_evTableHotSpot;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTableHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTableHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTableHotSpot" MUID: (4D640655011C)
 

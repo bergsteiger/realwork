@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evDocumentPartHotSpotTester;
+unit evDocumentPartHotSpotTester;
  {* Реализует интерфейсы IevHotSpotTester и IevHotSpot для части документа. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evDocumentPartHotSpotTester.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartHotSpotTester.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevDocumentPartHotSpotTester" MUID: (4A27B5510171)
 
