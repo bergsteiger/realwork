@@ -1171,23 +1171,6 @@ ref; // ME_4912AC77004E aDropFlags
 
 ref; // ME_4912AC600333 GetAttributeRoot
 
-: ME_5ACD0C0EAC83
- CONST UID '5ACD0C0EAC83'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4912AB3A01ED // TnsAttributeTreeCacheNew
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5ACD0C0EAC83 Exists
-
 : ME_4912B02900AF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1253,7 +1236,6 @@ ref; // ME_47EA4E9002C6_ME_4912AB3A01ED FinishDataUpdate
  ; // Attributes
  : Operations
    Seq: ( ME_4912AC600333 // GetAttributeRoot
- ME_5ACD0C0EAC83 // Exists
  )
  ; // Operations
  : Overridden

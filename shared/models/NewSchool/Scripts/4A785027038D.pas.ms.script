@@ -71,12 +71,6 @@ ref; // ME_4B5853E10268 Create
  CONST "pm" false
 ref; // ME_4A7FF1AC035C_ME_4A7FF2C901C8 RedactionCurrentPara
 
-: ME_5000565C019C_ME_4A7FF2C901C8
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4A7FF2C901C8 ClearFields
-
 : ME_4A7FF2C901C8
  CONST UID '4A7FF2C901C8'
  CONST Name 'TnsRedactionCurrentPara'
@@ -107,10 +101,6 @@ ref; // ME_5000565C019C_ME_4A7FF2C901C8 ClearFields
    Seq: ( ME_4A7FF1AC035C_ME_4A7FF2C901C8 // RedactionCurrentPara
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4A7FF2C901C8 // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -413,46 +403,6 @@ ref; // ME_4AE03BFA0217 DoIt
 
 ref; // ME_4AE03BD6033A Create
 
-FORWARD ME_4B5855F501BE
-
-: ME_049DB1F383DC
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_049DB1F383DC aDoc
-
-: ME_75F5B85EBA63
- CONST Name 'aDocumentForReturn'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B60748400F9' '4A6D56B00065.pas.ms.script' // TnsDocumentForReturnInfo
- ;
-
-ref; // ME_75F5B85EBA63 aDocumentForReturn
-
-: ME_B9D5C1430F30
- CONST UID 'B9D5C1430F30'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsEditionsContainerData.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B5855F501BE // Make
- ;
- : Parameters
-   Seq: ( ME_049DB1F383DC // aDoc
- ME_75F5B85EBA63 // aDocumentForReturn
- )
- ; // Parameters
-
-ref; // ME_B9D5C1430F30 DoIt
-
 : ME_4B5855F501BE
  CONST UID '4B5855F501BE'
  CONST Name 'Make'
@@ -467,10 +417,6 @@ ref; // ME_B9D5C1430F30 DoIt
    Seq: ( ME_4AE03BD6033A // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B9D5C1430F30 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -622,68 +568,6 @@ ref; // ME_4B6BD89101A7 <<>> DoIt
 
 ref; // ME_4B6BD88A03B2 Create
 
-FORWARD ME_4B58531A01AF
-
-: ME_4798B6192AB4
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_4798B6192AB4 aDoc
-
-: ME_A37E747B4D36
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
- ;
-
-ref; // ME_A37E747B4D36 aPara
-
-: ME_DF0B286A0C48
- CONST Name 'aEditionForCompare'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_DF0B286A0C48 aEditionForCompare
-
-: ME_33E706128CAB
- CONST Name 'aDocumentForReturn'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B60748400F9' '4A6D56B00065.pas.ms.script' // TnsDocumentForReturnInfo
- ;
-
-ref; // ME_33E706128CAB aDocumentForReturn
-
-: ME_3368566A8368
- CONST UID '3368566A8368'
- CONST Name '<<>> DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsCompareEditionsInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B58531A01AF // Make
- ;
- : Parameters
-   Seq: ( ME_4798B6192AB4 // aDoc
- ME_A37E747B4D36 // aPara
- ME_DF0B286A0C48 // aEditionForCompare
- ME_33E706128CAB // aDocumentForReturn
- )
- ; // Parameters
-
-ref; // ME_3368566A8368 <<>> DoIt
-
 : ME_4B58531A01AF
  CONST UID '4B58531A01AF'
  CONST Name 'Make'
@@ -698,10 +582,6 @@ ref; // ME_3368566A8368 <<>> DoIt
    Seq: ( ME_4B6BD88A03B2 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3368566A8368 // <<>> DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -786,68 +666,6 @@ ref; // ME_5214BEC60003 DoIt
 
 ref; // ME_5214BEB10136 Create$1
 
-FORWARD ME_5214BEE803DD
-
-: ME_30E2BADE0423
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_30E2BADE0423 aDoc
-
-: ME_BA72E791A9EF
- CONST Name 'aPosition'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
- ;
-
-ref; // ME_BA72E791A9EF aPosition
-
-: ME_8E9732F6A1FD
- CONST Name 'aEditionForCompare'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8E9732F6A1FD aEditionForCompare
-
-: ME_A926E16B393D
- CONST Name 'aDocumentForReturn'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B60748400F9' '4A6D56B00065.pas.ms.script' // TnsDocumentForReturnInfo
- ;
-
-ref; // ME_A926E16B393D aDocumentForReturn
-
-: ME_42928E69AFE7
- CONST UID '42928E69AFE7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsCompareEditionsInfo.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5214BEE803DD // Make$1
- ;
- : Parameters
-   Seq: ( ME_30E2BADE0423 // aDoc
- ME_BA72E791A9EF // aPosition
- ME_8E9732F6A1FD // aEditionForCompare
- ME_A926E16B393D // aDocumentForReturn
- )
- ; // Parameters
-
-ref; // ME_42928E69AFE7 DoIt
-
 : ME_5214BEE803DD
  CONST UID '5214BEE803DD'
  CONST Name 'Make'
@@ -862,10 +680,6 @@ ref; // ME_42928E69AFE7 DoIt
    Seq: ( ME_5214BEB10136 // Create$1
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_42928E69AFE7 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

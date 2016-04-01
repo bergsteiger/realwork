@@ -3426,48 +3426,6 @@ ref; // ME_4C06697A023E DoIt
 
 ref; // ME_4C0669610060 Create
 
-FORWARD ME_4C0669A502BE
-
-: ME_092D60BF6D97
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_49539DBA029D // ExText
- ;
-
-ref; // ME_092D60BF6D97 aForm
-
-: ME_B52996B1EE32
- CONST Name 'aPos'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
- ;
-
-ref; // ME_B52996B1EE32 aPos
-
-: ME_0A73928D473D
- CONST UID '0A73928D473D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsDocumentPointWaiter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C0669A502BE // Make
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_092D60BF6D97 // aForm
- ME_B52996B1EE32 // aPos
- )
- ; // Parameters
-
-ref; // ME_0A73928D473D DoIt
-
 : ME_4C0669A502BE
  CONST UID '4C0669A502BE'
  CONST Name 'Make'
@@ -3486,10 +3444,6 @@ ref; // ME_0A73928D473D DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0A73928D473D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3761,81 +3715,6 @@ ref; // ME_56558B620249 DoIt
 
 ref; // ME_56558B510110 Create
 
-FORWARD ME_56558B7D00E1
-
-: ME_5A4604765DDD
- CONST Name 'aInnerState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ;
-
-ref; // ME_5A4604765DDD aInnerState
-
-: ME_51A5834F7FDA
- CONST Name 'aNeedShowUserComments'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_51A5834F7FDA aNeedShowUserComments
-
-: ME_7DCF944FF562
- CONST Name 'aNeedShowComments'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_7DCF944FF562 aNeedShowComments
-
-: ME_BF4A4042B323
- CONST Name 'aNeedShowVersionComments'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_BF4A4042B323 aNeedShowVersionComments
-
-: ME_4F8BD4385031
- CONST Name 'aEeSubIdForTypedCorrespondentList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4F8BD4385031 aEeSubIdForTypedCorrespondentList
-
-: ME_D8E4BF74CA7E
- CONST UID 'D8E4BF74CA7E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TExTextFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56558B7D00E1 // Make
- ;
- : Target ME_56558A6F0078 // IExTextFormState
- ;
- : Parameters
-   Seq: ( ME_5A4604765DDD // aInnerState
- ME_51A5834F7FDA // aNeedShowUserComments
- ME_7DCF944FF562 // aNeedShowComments
- ME_BF4A4042B323 // aNeedShowVersionComments
- ME_4F8BD4385031 // aEeSubIdForTypedCorrespondentList
- )
- ; // Parameters
-
-ref; // ME_D8E4BF74CA7E DoIt
-
 : ME_56558B7D00E1
  CONST UID '56558B7D00E1'
  CONST Name 'Make'
@@ -3854,10 +3733,6 @@ ref; // ME_D8E4BF74CA7E DoIt
    Seq: ( ME_56558A6F0078 // IExTextFormState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D8E4BF74CA7E // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -41202,23 +41077,6 @@ ref; // ME_4B0E6FCF01AE
 
 ref; // ME_4B0E6F160372 TnsTextTabActivateEvent
 
-: ME_1DEBD6D572E4
- CONST UID '1DEBD6D572E4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B13AFDF013A // TnsUseDocumentSubPanelOperationEvent
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_1DEBD6D572E4 Exists
-
 : ME_4B13A26203DB_ME_4B13AFDF013A
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
  ;
@@ -41239,10 +41097,6 @@ ref; // ME_4B13A26203DB_ME_4B13AFDF013A EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1DEBD6D572E4 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13AFDF013A // EventID
  )

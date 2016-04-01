@@ -125,22 +125,6 @@ ref; // ME_54F5D8B60392 Tf1NotificationList
 
 ref; // ME_54F5D8C3022B List
 
-: ME_201FB9901DFA
- CONST UID '201FB9901DFA'
- CONST Name 'f_List'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства List' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54F5D5E002E0 // Tf1NotificationManager
- ;
- : Target ME_54F5D8B60392 // Tf1NotificationList
- ;
-
-ref; // ME_201FB9901DFA f_List
-
 FORWARD ME_54F5D9540254
 
 : ME_54F5D9810353
@@ -235,21 +219,6 @@ ref; // ME_F95E8B67A7C4 DoIt
 
 ref; // ME_54F5D987008A RemoveListener
 
-FORWARD ME_54F5D9F70383
-
-: ME_0B46DCFF6F4A
- CONST UID '0B46DCFF6F4A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ServerDown' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F5D9F70383 // ServerDown
- ;
-
-ref; // ME_0B46DCFF6F4A DoIt
-
 : ME_54F5D9F70383
  CONST UID '54F5D9F70383'
  CONST Name 'ServerDown'
@@ -260,10 +229,6 @@ ref; // ME_0B46DCFF6F4A DoIt
  CONST Abstraction at_final
  : Parent ME_54F5D5E002E0 // Tf1NotificationManager
  ;
- : Operations
-   Seq: ( ME_0B46DCFF6F4A // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_54F5D9F70383 ServerDown
@@ -333,7 +298,6 @@ ref; // ME_479731C50290_ME_54F5D5E002E0 Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_54F5D8C3022B // List
- ME_201FB9901DFA // f_List
  )
  ; // Attributes
  : Operations

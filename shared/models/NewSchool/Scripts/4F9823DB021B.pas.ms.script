@@ -318,23 +318,6 @@ ref; // ME_4F98242D007E TnsFiltersListenersManagerPrim
 
 FORWARD ME_4F98440301D2
 
-: ME_AA61758CAA04
- CONST UID 'AA61758CAA04'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F98440301D2 // TnsFiltersListenersDrugsManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_AA61758CAA04 Exists
-
 : ME_4F98481E015F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -385,10 +368,6 @@ ref; // ME_47A042E100E2_ME_4F98440301D2 InitFields
    Seq: ( ME_4F98242D007E // TnsFiltersListenersManagerPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AA61758CAA04 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4FFD459003A6_ME_4F98440301D2 // GetInstance
  ME_4FFD45CD0313_ME_4F98440301D2 // HasInstance
@@ -416,23 +395,6 @@ ref; // ME_47A042E100E2_ME_4F98440301D2 InitFields
 ref; // ME_4F98440301D2 TnsFiltersListenersDrugsManager
 
 FORWARD ME_4F98447C0378
-
-: ME_5D6B59B9F042
- CONST UID '5D6B59B9F042'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F98447C0378 // TnsFiltersListenersDocManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5D6B59B9F042 Exists
 
 : ME_4F9848190238
  CONST Class class_Dependency
@@ -484,10 +446,6 @@ ref; // ME_47A042E100E2_ME_4F98447C0378 InitFields
    Seq: ( ME_4F98242D007E // TnsFiltersListenersManagerPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5D6B59B9F042 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4FFD459003A6_ME_4F98447C0378 // GetInstance
  ME_4FFD45CD0313_ME_4F98447C0378 // HasInstance
@@ -534,7 +492,6 @@ ref; // ME_4F98447C0378 TnsFiltersListenersDocManager
    Seq: ( WL 'ME_45EEA48F011F' '45EEA48F011F.pas.ms.script' // Filters
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4CAC58E50231' '4CAC58E50231.pas.ms.script' // nsFiltersInterfaces
  )
  ; // Depends

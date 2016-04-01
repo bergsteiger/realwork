@@ -295,21 +295,6 @@ ref; // ME_02F3BFF08FC5 DoIt
 
 ref; // ME_55E6CD750386 RemoveListener
 
-FORWARD ME_55E6CD920105
-
-: ME_970464BAA437
- CONST UID '970464BAA437'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NotifyListeners' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E6CD920105 // NotifyListeners
- ;
-
-ref; // ME_970464BAA437 DoIt
-
 : ME_55E6CD920105
  CONST UID '55E6CD920105'
  CONST Name 'NotifyListeners'
@@ -320,29 +305,8 @@ ref; // ME_970464BAA437 DoIt
  CONST Abstraction at_final
  : Parent ME_53D2281F0048 // TnscDocumentHistory
  ;
- : Operations
-   Seq: ( ME_970464BAA437 // DoIt
- )
- ; // Operations
 
 ref; // ME_55E6CD920105 NotifyListeners
-
-: ME_522E6B1D4FB7
- CONST UID '522E6B1D4FB7'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53D2281F0048 // TnscDocumentHistory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_522E6B1D4FB7 Exists
 
 : ME_53F703F600E0
  CONST Class class_Dependency
@@ -385,7 +349,6 @@ ref; // ME_479731C50290_ME_53D2281F0048 Cleanup
  ME_55E6CD570088 // AddListener
  ME_55E6CD750386 // RemoveListener
  ME_55E6CD920105 // NotifyListeners
- ME_522E6B1D4FB7 // Exists
  )
  ; // Operations
  : Overridden

@@ -334,48 +334,6 @@ ref; // ME_56A085890385 DoIt
 
 ref; // ME_56A0857B0382 Create
 
-FORWARD ME_56A085A10131
-
-: ME_2B5FCB2C5859
- CONST Name 'aDeDocInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_2B5FCB2C5859 aDeDocInfo
-
-: ME_675DFC53084E
- CONST Name 'aLikeStateHolder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_51ED558501F2' '47EA50050263.pas.ms.script' // InsDocumentLikeStateHolder
- ;
-
-ref; // ME_675DFC53084E aLikeStateHolder
-
-: ME_5E571A689C6A
- CONST UID '5E571A689C6A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TdeAAC.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56A085A10131 // Make
- ;
- : Target ME_56A0633A0283 // IdeAAC
- ;
- : Parameters
-   Seq: ( ME_2B5FCB2C5859 // aDeDocInfo
- ME_675DFC53084E // aLikeStateHolder
- )
- ; // Parameters
-
-ref; // ME_5E571A689C6A DoIt
-
 : ME_56A085A10131
  CONST UID '56A085A10131'
  CONST Name 'Make'
@@ -394,10 +352,6 @@ ref; // ME_5E571A689C6A DoIt
    Seq: ( ME_56A0633A0283 // IdeAAC
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5E571A689C6A // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

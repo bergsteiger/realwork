@@ -615,48 +615,6 @@ ref; // ME_567116F600C6 DoIt
 
 ref; // ME_567116EC034D Create
 
-FORWARD ME_567117090387
-
-: ME_7085EB035297
- CONST Name 'aCurrentNewsLineIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_7085EB035297 aCurrentNewsLineIndex
-
-: ME_3445AFE5D60D
- CONST Name 'aInnerState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ;
-
-ref; // ME_3445AFE5D60D aInnerState
-
-: ME_24E507274414
- CONST UID '24E507274414'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TPrimNewsLineFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_567117090387 // Make
- ;
- : Target ME_5671155B00AC // IPrimNewsLineFormState
- ;
- : Parameters
-   Seq: ( ME_7085EB035297 // aCurrentNewsLineIndex
- ME_3445AFE5D60D // aInnerState
- )
- ; // Parameters
-
-ref; // ME_24E507274414 DoIt
-
 : ME_567117090387
  CONST UID '567117090387'
  CONST Name 'Make'
@@ -675,10 +633,6 @@ ref; // ME_24E507274414 DoIt
    Seq: ( ME_5671155B00AC // IPrimNewsLineFormState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_24E507274414 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3846,37 +3800,6 @@ ref; // ME_55AF6A40006E Messages For User
 
 FORWARD ME_55B0CF2803D7
 
-: ME_E5CAAA50C508
- CONST UID 'E5CAAA50C508'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tf1StartupCompletedServiceImpl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
- ;
-
-ref; // ME_E5CAAA50C508 bind
-
-: ME_7808E54DAE45
- CONST UID '7808E54DAE45'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_7808E54DAE45 Exists
-
 : ME_55B0CFE50150
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -3911,11 +3834,6 @@ ref; // ME_2627E933260B_ME_55B0CF2803D7 StartupComplete
    Seq: ( WL 'ME_1E74B0CF4425' '4A924BCA0092.pas.ms.script' // If1StartupCompletedService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E5CAAA50C508 // bind
- ME_7808E54DAE45 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_2627E933260B_ME_55B0CF2803D7 // StartupComplete
  )
@@ -5427,37 +5345,6 @@ ref; // ME_524D410A03CF f_ThemeList
 
 ref; // ME_524D45AD006D f_Subscribers
 
-: ME_56865F56766E
- CONST UID '56865F56766E'
- CONST Name 'f_CurrentThemeNode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrentThemeNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_524D3E260036 // TnsNewsLinePrim
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_56865F56766E f_CurrentThemeNode
-
-FORWARD ME_524D3EAE02E1
-
-: ME_ED6259B309EA
- CONST UID 'ED6259B309EA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_524D3EAE02E1 // Create
- ;
-
-ref; // ME_ED6259B309EA DoIt
-
 : ME_524D3EAE02E1
  CONST UID '524D3EAE02E1'
  CONST Name 'Create'
@@ -5468,27 +5355,8 @@ ref; // ME_ED6259B309EA DoIt
  CONST Abstraction at_final
  : Parent ME_524D3E260036 // TnsNewsLinePrim
  ;
- : Operations
-   Seq: ( ME_ED6259B309EA // DoIt
- )
- ; // Operations
 
 ref; // ME_524D3EAE02E1 Create
-
-FORWARD ME_524D3FAC00F2
-
-: ME_C96C6EFFFCFD
- CONST UID 'C96C6EFFFCFD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadThemeList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_524D3FAC00F2 // LoadThemeList
- ;
-
-ref; // ME_C96C6EFFFCFD DoIt
 
 : ME_524D3FAC00F2
  CONST UID '524D3FAC00F2'
@@ -5500,10 +5368,6 @@ ref; // ME_C96C6EFFFCFD DoIt
  CONST Abstraction at_final
  : Parent ME_524D3E260036 // TnsNewsLinePrim
  ;
- : Operations
-   Seq: ( ME_C96C6EFFFCFD // DoIt
- )
- ; // Operations
 
 ref; // ME_524D3FAC00F2 LoadThemeList
 
@@ -5550,21 +5414,6 @@ ref; // ME_524D3FC602D3 DoIt
 
 ref; // ME_524D3FC101AA SetCurrentThemeIndex
 
-FORWARD ME_524D590B0136
-
-: ME_8CE1D545BFEE
- CONST UID '8CE1D545BFEE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NotifySubscribers' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_524D590B0136 // NotifySubscribers
- ;
-
-ref; // ME_8CE1D545BFEE DoIt
-
 : ME_524D590B0136
  CONST UID '524D590B0136'
  CONST Name 'NotifySubscribers'
@@ -5575,29 +5424,8 @@ ref; // ME_8CE1D545BFEE DoIt
  CONST Abstraction at_final
  : Parent ME_524D3E260036 // TnsNewsLinePrim
  ;
- : Operations
-   Seq: ( ME_8CE1D545BFEE // DoIt
- )
- ; // Operations
 
 ref; // ME_524D590B0136 NotifySubscribers
-
-FORWARD ME_524EA091009B
-
-: ME_89592FBD5982
- CONST UID '89592FBD5982'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsNewsLinePrim.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_524EA091009B // Make
- ;
- : Target WL 'ME_49918CD601C8' '499032720106.pas.ms.script' // InsNewsLine
- ;
-
-ref; // ME_89592FBD5982 DoIt
 
 : ME_524EA091009B
  CONST UID '524EA091009B'
@@ -5617,10 +5445,6 @@ ref; // ME_89592FBD5982 DoIt
    Seq: ( WL 'ME_49918CD601C8' '499032720106.pas.ms.script' // InsNewsLine
  )
  ; // Implements
- : Operations
-   Seq: ( ME_89592FBD5982 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5745,12 +5569,6 @@ ref; // ME_47A042E100E2_ME_524D3E260036 InitFields
  CONST OpKind opkind_Overridden
 ref; // ME_47EA4E9002C6_ME_524D3E260036 FinishDataUpdate
 
-: ME_5000565C019C_ME_524D3E260036
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_524D3E260036 ClearFields
-
 : ME_524D3E260036
  CONST UID '524D3E260036'
  CONST Name 'TnsNewsLinePrim'
@@ -5778,7 +5596,6 @@ ref; // ME_5000565C019C_ME_524D3E260036 ClearFields
  ME_524D40AF00C2 // f_ThemeCount
  ME_524D410A03CF // f_ThemeList
  ME_524D45AD006D // f_Subscribers
- ME_56865F56766E // f_CurrentThemeNode
  )
  ; // Attributes
  : Operations
@@ -5806,7 +5623,6 @@ ref; // ME_5000565C019C_ME_524D3E260036 ClearFields
    Seq: ( ME_479731C50290_ME_524D3E260036 // Cleanup
  ME_47A042E100E2_ME_524D3E260036 // InitFields
  ME_47EA4E9002C6_ME_524D3E260036 // FinishDataUpdate
- ME_5000565C019C_ME_524D3E260036 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -5835,23 +5651,6 @@ ref; // ME_524D3E260036 TnsNewsLinePrim
  CONST "need As" false
 
 ref; // ME_524EC01C0008 Make
-
-: ME_B6C236E78AD7
- CONST UID 'B6C236E78AD7'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4C87BD1A0218 // TnsNewsLine
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_B6C236E78AD7 Exists
 
 : ME_524D5A040337
  CONST Class class_Dependency
@@ -5939,7 +5738,6 @@ ref; // ME_524D5B4003C7
  ; // Inherits
  : Operations
    Seq: ( ME_524EC01C0008 // Make
- ME_B6C236E78AD7 // Exists
  )
  ; // Operations
  : Children

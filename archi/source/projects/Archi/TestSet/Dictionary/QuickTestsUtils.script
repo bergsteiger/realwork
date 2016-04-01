@@ -1306,3 +1306,36 @@ INTEGER FUNCTION "Количество открытых окон Арчи"
 PROCEDURE "Сравнить с эталоном количество открытых окон Арчи"
 	"Количество открытых окон Арчи" .
 ;
+
+// ручки для работы с контекстным меню
+OBJECT FUNCTION "Найти пункт контекстного меню с именем" OBJECT IN aMenu STRING IN aStr
+	INTEGER VAR l_ItemIndex
+ 	l_ItemIndex := 0
+ 
+ 		BOOLEAN VAR Найдено
+ 			Найдено := НЕТ
+ 
+ 	aMenu menuitem:GetCount раз (
+  		l_ItemIndex aMenu menuitem:GetItem >>> Result
+  		Найдено := ( Result menuitem:GetCaption aStr SameText )
+  
+ 	 Если Найдено то 
+   		выходим
+   
+  	++! l_ItemIndex
+	)
+
+ 	Если ( НЕ Найдено ) то
+  	( Result := nil )
+;
+
+: "Нажать на пункт контекстного меню контрола" STRING IN aStr OBJECT IN aControl
+	OBJECT VAR l_Menu
+ 	OBJECT VAR l_Item
+ 		10 10 aControl pop:Control:GetPopupMenu >>> l_Menu
+ 
+ 			"Найти пункт контекстного меню {(l_Menu)} с именем {(aStr)}" >>> l_Item
+ 
+ 				( l_Item "НЕ РАВНО" nil ) 'Не нашли пункт контекстного меню' ASSERTS
+ 				l_Item menuitem:Click
+; //"Нажать на пункт контекстного меню контрола"

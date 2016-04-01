@@ -172,48 +172,6 @@ ref; // ME_4BFFA1AB0253 DoIt
 
 ref; // ME_4BFFA1990245 Create
 
-FORWARD ME_4BFFA1DF007E
-
-: ME_24CC38777AFA
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4A6EBE900233 // Diff
- ;
-
-ref; // ME_24CC38777AFA aForm
-
-: ME_2EA8B1586091
- CONST Name 'aParaID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_2EA8B1586091 aParaID
-
-: ME_12C9A20BF497
- CONST UID '12C9A20BF497'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsChangedParaWaiter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BFFA1DF007E // Make
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_24CC38777AFA // aForm
- ME_2EA8B1586091 // aParaID
- )
- ; // Parameters
-
-ref; // ME_12C9A20BF497 DoIt
-
 : ME_4BFFA1DF007E
  CONST UID '4BFFA1DF007E'
  CONST Name 'Make'
@@ -232,10 +190,6 @@ ref; // ME_12C9A20BF497 DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_12C9A20BF497 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5076,48 +5030,6 @@ ref; // ME_4D91D9AF0190 DoIt
 
 ref; // ME_4D91D9A70258 Create
 
-FORWARD ME_4D91D9CB03D9
-
-: ME_103C5B7A3419
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4C7F6D8800EE // DiffOptions
- ;
-
-ref; // ME_103C5B7A3419 aForm
-
-: ME_23C9DA7AE626
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
- ;
-
-ref; // ME_23C9DA7AE626 aPara
-
-: ME_B009982C0166
- CONST UID 'B009982C0166'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsInitialParaWaiter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D91D9CB03D9 // Make
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_103C5B7A3419 // aForm
- ME_23C9DA7AE626 // aPara
- )
- ; // Parameters
-
-ref; // ME_B009982C0166 DoIt
-
 : ME_4D91D9CB03D9
  CONST UID '4D91D9CB03D9'
  CONST Name 'Make'
@@ -5136,10 +5048,6 @@ ref; // ME_B009982C0166 DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B009982C0166 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5200,48 +5108,6 @@ ref; // ME_5215B95101B0 DoIt
 
 ref; // ME_5215B94503C0 Create$1
 
-FORWARD ME_5215B99D0018
-
-: ME_C077FBEA9B68
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4C7F6D8800EE // DiffOptions
- ;
-
-ref; // ME_C077FBEA9B68 aForm
-
-: ME_CB902D292384
- CONST Name 'aPosition'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
- ;
-
-ref; // ME_CB902D292384 aPosition
-
-: ME_41360D52776D
- CONST UID '41360D52776D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsInitialParaWaiter.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5215B99D0018 // Make$1
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_C077FBEA9B68 // aForm
- ME_CB902D292384 // aPosition
- )
- ; // Parameters
-
-ref; // ME_41360D52776D DoIt
-
 : ME_5215B99D0018
  CONST UID '5215B99D0018'
  CONST Name 'Make'
@@ -5260,10 +5126,6 @@ ref; // ME_41360D52776D DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_41360D52776D // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5347,12 +5209,6 @@ ref; // ME_4D91E28403A2
  CONST OpKind opkind_Overridden
 ref; // ME_4BFFA0FF01D2_ME_4D91D8EB00AD TrySelectPara
 
-: ME_5000565C019C_ME_4D91D8EB00AD
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D91D8EB00AD ClearFields
-
 : ME_4D91D8EB00AD
  CONST UID '4D91D8EB00AD'
  CONST Name 'TnsInitialParaWaiter'
@@ -5383,7 +5239,6 @@ ref; // ME_5000565C019C_ME_4D91D8EB00AD ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_4BFFA0FF01D2_ME_4D91D8EB00AD // TrySelectPara
- ME_5000565C019C_ME_4D91D8EB00AD // ClearFields
  )
  ; // Overridden
  : Dependencies

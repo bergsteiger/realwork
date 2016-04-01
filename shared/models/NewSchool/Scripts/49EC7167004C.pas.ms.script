@@ -54,32 +54,6 @@ ref; // ME_49F05B140375 aGUID
 
 ref; // ME_49F05B0D02C7 CheckStamp
 
-: ME_A0DEBDFD48CA
- CONST UID 'A0DEBDFD48CA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnsWebBrowserPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_49F0573B0332 // TnsWebBrowserPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A0DEBDFD48CA Ini_Reg_Class
-
-: ME_1832049210CB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49F0573B0332 // TnsWebBrowserPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1832049210CB 
-
 : ME_48077504027E_ME_49F0573B0332
  : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
  ;
@@ -110,7 +84,6 @@ ref; // ME_49F057120234_ME_49F0573B0332 AfterConstruction
    Seq: ( ME_49F0577C02ED // InitFields
  ME_49F058E50188 // Cleanup
  ME_49F05B0D02C7 // CheckStamp
- ME_A0DEBDFD48CA // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -118,10 +91,6 @@ ref; // ME_49F057120234_ME_49F0573B0332 AfterConstruction
  ME_49F057120234_ME_49F0573B0332 // AfterConstruction
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_1832049210CB // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

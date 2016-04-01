@@ -88,40 +88,6 @@ ref; // ME_498FFC850180 Consultation
 
 ref; // ME_498FFCAA03B9 f_Text
 
-: ME_2728D9948825
- CONST UID '2728D9948825'
- CONST Name 'f_CachedStatuses'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CachedStatuses' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49228BA50210 // TbsConsultation
- ;
- : Target WL 'ME_491C3F2F000F' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatuses
- ;
- CONST extprop:clearViaProperty 'CachedStatuses'
-
-ref; // ME_2728D9948825 f_CachedStatuses
-
-: ME_A6D7BED8D8E3
- CONST UID 'A6D7BED8D8E3'
- CONST Name 'f_Consultation'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Consultation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49228BA50210 // TbsConsultation
- ;
- : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
- ;
- CONST extprop:clearViaProperty 'Consultation'
-
-ref; // ME_A6D7BED8D8E3 f_Consultation
-
 : ME_498FFAD102E5
  CONST Name 'aConsultation'
  CONST Class class_Parameter
@@ -301,12 +267,6 @@ ref; // ME_491C437500BB_ME_49228BA50210 Text
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_49228BA50210 Cleanup
 
-: ME_5000565C019C_ME_49228BA50210
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_49228BA50210 ClearFields
-
 : ME_49228BA50210
  CONST UID '49228BA50210'
  CONST Name 'TbsConsultation'
@@ -332,8 +292,6 @@ ref; // ME_5000565C019C_ME_49228BA50210 ClearFields
  ME_498FFC560125 // CachedStatuses
  ME_498FFC850180 // Consultation
  ME_498FFCAA03B9 // f_Text
- ME_2728D9948825 // f_CachedStatuses
- ME_A6D7BED8D8E3 // f_Consultation
  )
  ; // Attributes
  : Operations
@@ -356,7 +314,6 @@ ref; // ME_5000565C019C_ME_49228BA50210 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_49228BA50210 // Cleanup
- ME_5000565C019C_ME_49228BA50210 // ClearFields
  )
  ; // Overridden
  : Dependencies

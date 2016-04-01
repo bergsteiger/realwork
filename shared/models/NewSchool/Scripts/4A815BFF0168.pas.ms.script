@@ -1814,12 +1814,6 @@ ref; // ME_4AE81AD9019D_ME_4AE760FD0182 Done
  CONST "pm" false
 ref; // ME_4CC90CCA0027_ME_4AE760FD0182 PosType
 
-: ME_5000565C019C_ME_4AE760FD0182
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AE760FD0182 ClearFields
-
 : ME_4AE760FD0182
  CONST UID '4AE760FD0182'
  CONST Name 'TnsOpenDocOnNumberData'
@@ -1861,10 +1855,6 @@ ref; // ME_5000565C019C_ME_4AE760FD0182 ClearFields
  ME_4CC90CCA0027_ME_4AE760FD0182 // PosType
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4AE760FD0182 // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -4488,48 +4478,6 @@ ref; // ME_5417E96B033A DoIt
 
 ref; // ME_5417E940038E Create
 
-FORWARD ME_5417E97901FB
-
-: ME_AD4C6BBD2709
- CONST Name 'aBehaviour'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
- ;
-
-ref; // ME_AD4C6BBD2709 aBehaviour
-
-: ME_F1D6E95835DA
- CONST Name 'aHelper'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A76879B032D' '4ACF514E0337.pas.ms.script' // IbsHyperLinkProcessorHelper
- ;
-
-ref; // ME_F1D6E95835DA aHelper
-
-: ME_59B7FCCF6746
- CONST UID '59B7FCCF6746'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TbsHyperlinkProcessorContainerMaker.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5417E97901FB // Make
- ;
- : Target WL 'ME_53ABAC5D0352' '4683F37902CF.pas.ms.script' // IvcmContainerMaker
- ;
- : Parameters
-   Seq: ( ME_AD4C6BBD2709 // aBehaviour
- ME_F1D6E95835DA // aHelper
- )
- ; // Parameters
-
-ref; // ME_59B7FCCF6746 DoIt
-
 : ME_5417E97901FB
  CONST UID '5417E97901FB'
  CONST Name 'Make'
@@ -4548,10 +4496,6 @@ ref; // ME_59B7FCCF6746 DoIt
    Seq: ( WL 'ME_53ABAC5D0352' '4683F37902CF.pas.ms.script' // IvcmContainerMaker
  )
  ; // Implements
- : Operations
-   Seq: ( ME_59B7FCCF6746 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

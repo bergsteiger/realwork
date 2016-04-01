@@ -367,23 +367,6 @@ FORWARD ME_4A825E1200F4
 
 ref; // ME_4A82922D028D Make
 
-: ME_AF6A3311B63D
- CONST UID 'AF6A3311B63D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A825E1200F4 // TbsWorkJournal
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_AF6A3311B63D Exists
-
 : ME_4A825E1200F4
  CONST UID '4A825E1200F4'
  CONST Name 'TbsWorkJournal'
@@ -400,7 +383,6 @@ ref; // ME_AF6A3311B63D Exists
  ; // Inherits
  : Operations
    Seq: ( ME_4A82922D028D // Make
- ME_AF6A3311B63D // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

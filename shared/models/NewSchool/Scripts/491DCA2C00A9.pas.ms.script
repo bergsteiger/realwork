@@ -962,48 +962,6 @@ ref; // ME_4B1E6CCB01D2
 
 ref; // ME_4B1E67780224 Create
 
-FORWARD ME_4B1E67980091
-
-: ME_6B5B98D4B213
- CONST Name 'aList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
- ;
-
-ref; // ME_6B5B98D4B213 aList
-
-: ME_149304DC374E
- CONST Name 'aNeedApplyPermanentFilters'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_149304DC374E aNeedApplyPermanentFilters
-
-: ME_5821AB6502DB
- CONST UID '5821AB6502DB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TdeSearchInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B1E67980091 // Make
- ;
- : Target WL 'ME_4822962A0071' '4B1D3D250382.pas.ms.script' // IdeSearchInfo
- ;
- : Parameters
-   Seq: ( ME_6B5B98D4B213 // aList
- ME_149304DC374E // aNeedApplyPermanentFilters
- )
- ; // Parameters
-
-ref; // ME_5821AB6502DB DoIt
-
 : ME_4B1E67980091
  CONST UID '4B1E67980091'
  CONST Name 'Make'
@@ -1022,10 +980,6 @@ ref; // ME_5821AB6502DB DoIt
    Seq: ( WL 'ME_4822962A0071' '4B1D3D250382.pas.ms.script' // IdeSearchInfo
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5821AB6502DB // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1046,12 +1000,6 @@ ref; // ME_4B1D0ED601F5_ME_491D718A00A9 NeedApplyPermanentFilters
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4B1D0F290136_ME_491D718A00A9 QueryInfo
-
-: ME_5000565C019C_ME_491D718A00A9
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_491D718A00A9 ClearFields
 
 : ME_491D718A00A9
  CONST UID '491D718A00A9'
@@ -1087,10 +1035,6 @@ ref; // ME_5000565C019C_ME_491D718A00A9 ClearFields
  ME_4B1D0F290136_ME_491D718A00A9 // QueryInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_491D718A00A9 // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1229,54 +1173,6 @@ ref; // ME_56248FC602C9 f_NeedApplyPermanentFilters
  ;
 
 ref; // ME_569DE68B007B f_IsChanged
-
-: ME_45A0F0BCF4F9
- CONST UID '45A0F0BCF4F9'
- CONST Name 'f_TimeMachineOff'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TimeMachineOff' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F33E9E03C8 // TdeList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_45A0F0BCF4F9 f_TimeMachineOff
-
-: ME_DC0127810D4E
- CONST UID 'DC0127810D4E'
- CONST Name 'f_WhatDoingIfOneDoc'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WhatDoingIfOneDoc' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F33E9E03C8 // TdeList
- ;
- : Target WL 'ME_491D757000A4' '47EA07FA02CE.pas.ms.script' // TbsWhatDoingIfOneDoc
- ;
-
-ref; // ME_DC0127810D4E f_WhatDoingIfOneDoc
-
-: ME_CF3DBE6BCE73
- CONST UID 'CF3DBE6BCE73'
- CONST Name 'f_SearchInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SearchInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F33E9E03C8 // TdeList
- ;
- : Target WL 'ME_4822962A0071' '4B1D3D250382.pas.ms.script' // IdeSearchInfo
- ;
-
-ref; // ME_CF3DBE6BCE73 f_SearchInfo
 
 FORWARD ME_4B1F76940201
 
@@ -1598,12 +1494,6 @@ ref; // ME_569DDAE500DD_ME_47F33E9E03C8 IsChanged
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47F33E9E03C8 Cleanup
 
-: ME_5000565C019C_ME_47F33E9E03C8
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47F33E9E03C8 ClearFields
-
 : ME_47F33E9E03C8
  CONST UID '47F33E9E03C8'
  CONST Name 'TdeList'
@@ -1632,9 +1522,6 @@ ref; // ME_5000565C019C_ME_47F33E9E03C8 ClearFields
  ME_560BCF3702D2 // f_AllDocumentsFiltered
  ME_56248FC602C9 // f_NeedApplyPermanentFilters
  ME_569DE68B007B // f_IsChanged
- ME_45A0F0BCF4F9 // f_TimeMachineOff
- ME_DC0127810D4E // f_WhatDoingIfOneDoc
- ME_CF3DBE6BCE73 // f_SearchInfo
  )
  ; // Attributes
  : Operations
@@ -1655,7 +1542,6 @@ ref; // ME_5000565C019C_ME_47F33E9E03C8 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_47F33E9E03C8 // Cleanup
- ME_5000565C019C_ME_47F33E9E03C8 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -1739,12 +1625,6 @@ ref; // ME_48FD8A1C0307_ME_47F22D5701A7 AfterPrint
  CONST OpKind opkind_Overridden
 ref; // ME_4A2E97A4021B_ME_47F22D5701A7 NeedAddBlockNames
 
-: ME_5000565C019C_ME_47F22D5701A7
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47F22D5701A7 ClearFields
-
 : ME_47F22D5701A7
  CONST UID '47F22D5701A7'
  CONST Name 'TnsDocumentPreview'
@@ -1776,7 +1656,6 @@ ref; // ME_5000565C019C_ME_47F22D5701A7 ClearFields
    Seq: ( ME_47ECFAD101B9_ME_47F22D5701A7 // IsSettingAffectsUs
  ME_48FD8A1C0307_ME_47F22D5701A7 // AfterPrint
  ME_4A2E97A4021B_ME_47F22D5701A7 // NeedAddBlockNames
- ME_5000565C019C_ME_47F22D5701A7 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -1960,61 +1839,6 @@ ref; // ME_4BA3A8420216 Create
 
 ref; // ME_4BA3A8330320 Create
 
-FORWARD ME_4BA3A92C0337
-
-: ME_EF4E73701014
- CONST Name 'aFilterType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496A10E50205' '4990135D02F1.pas.ms.script' // TnsFolderFilter
- ;
-
-ref; // ME_EF4E73701014 aFilterType
-
-: ME_35E8C574B44D
- CONST Name 'aFilterFor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49901002037D' '4990135D02F1.pas.ms.script' // TnsFolderFilterFor
- ;
-
-ref; // ME_35E8C574B44D aFilterFor
-
-: ME_737E6D1C147A
- CONST Name 'aShowFolders'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4990144E0062' '4990135D02F1.pas.ms.script' // TnsShowFolders
- ;
- CONST Value 'sfAll'
- : ValueType WL 'ME_4990144E0062' '4990135D02F1.pas.ms.script' // TnsShowFolders
- ;
- CONST extprop:pas:Value 'FoldersDomainInterfaces.sfAll'
-
-ref; // ME_737E6D1C147A aShowFolders
-
-: ME_91D83E399A68
- CONST UID '91D83E399A68'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFolderFilterInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BA3A92C0337 // Make
- ;
- : Parameters
-   Seq: ( ME_EF4E73701014 // aFilterType
- ME_35E8C574B44D // aFilterFor
- ME_737E6D1C147A // aShowFolders
- )
- ; // Parameters
-
-ref; // ME_91D83E399A68 Create
-
 : ME_4BA3A92C0337
  CONST UID '4BA3A92C0337'
  CONST Name 'Make'
@@ -2029,10 +1853,6 @@ ref; // ME_91D83E399A68 Create
    Seq: ( ME_4BA3A8330320 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_91D83E399A68 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2180,22 +2000,6 @@ ref; // ME_5243FD120266 Settings
 
 ref; // ME_52440E91014A f_BaseId
 
-: ME_4703F316F4F3
- CONST UID '4703F316F4F3'
- CONST Name 'f_Settings'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Settings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F2317F015E // TnsHAFPainter
- ;
- : Target WL 'ME_476963BB00EF' '467BAB7F021E.pas.ms.script' // IvcmSettings
- ;
-
-ref; // ME_4703F316F4F3 f_Settings
-
 : ME_5244002901F5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2286,12 +2090,6 @@ ref; // ME_473DA15800E2_ME_47F2317F015E BaseId
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47F2317F015E Cleanup
 
-: ME_5000565C019C_ME_47F2317F015E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_47F2317F015E ClearFields
-
 : ME_5243CCEE0271_ME_47F2317F015E
  : Original WL 'ME_5243CCEE0271' '47EA968D0155.pas.ms.script' // Create
  ;
@@ -2332,7 +2130,6 @@ ref; // ME_5243E9AE0230_ME_47F2317F015E ReadColontitulSettings
  : Attributes
    Seq: ( ME_5243FD120266 // Settings
  ME_52440E91014A // f_BaseId
- ME_4703F316F4F3 // f_Settings
  )
  ; // Attributes
  : Implemented
@@ -2342,7 +2139,6 @@ ref; // ME_5243E9AE0230_ME_47F2317F015E ReadColontitulSettings
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_47F2317F015E // Cleanup
- ME_5000565C019C_ME_47F2317F015E // ClearFields
  ME_5243CCEE0271_ME_47F2317F015E // Create
  ME_5243E95503E4_ME_47F2317F015E // IsSettingAffectsUs
  ME_5243E9AE0230_ME_47F2317F015E // ReadColontitulSettings

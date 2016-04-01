@@ -18,23 +18,6 @@ FORWARD ME_54F83BC9036B
 
 ref; // ME_54F83BEF0258 new_ini_op
 
-: ME_CE5251F8366F
- CONST UID 'CE5251F8366F'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F83BC9036B // TtasSaveLoadRealization
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CE5251F8366F Exists
-
 : ME_54F83C2F0123
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -83,7 +66,6 @@ ref; // ME_54F85E5A00B4_ME_54F83BC9036B IsQuerySaved
  ; // Implements
  : Operations
    Seq: ( ME_54F83BEF0258 // new_ini_op
- ME_CE5251F8366F // Exists
  )
  ; // Operations
  : Implemented
@@ -124,7 +106,6 @@ ref; // ME_54F83BC9036B TtasSaveLoadRealization
  : Depends
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4A85282C0252' '4A85282C0252.pas.ms.script' // LiteSearch
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
  )
  ; // Depends

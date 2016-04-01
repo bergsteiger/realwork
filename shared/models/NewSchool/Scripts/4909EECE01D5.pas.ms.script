@@ -328,22 +328,6 @@ FORWARD ME_490AE2C7034B
 
 ref; // ME_490AE326000B MaxCount
 
-: ME_8040E4857E04
- CONST UID '8040E4857E04'
- CONST Name 'f_MaxCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MaxCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_490AE2C7034B // TnsHistoryTree
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8040E4857E04 f_MaxCount
-
 : ME_490AE30101A2
  CONST Name 'aMaxCount'
  CONST Class class_Parameter
@@ -386,7 +370,6 @@ ref; // ME_490AE2F50049 Create
  ; // Inherits
  : Attributes
    Seq: ( ME_490AE326000B // MaxCount
- ME_8040E4857E04 // f_MaxCount
  )
  ; // Attributes
  : Operations
@@ -1590,37 +1573,6 @@ ref; // ME_4E730CD803BA DoIt
 
 ref; // ME_4E730CD20352 Create
 
-FORWARD ME_4E730D0F00CA
-
-: ME_7F23B15F6410
- CONST Name 'aSectionItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
- ;
-
-ref; // ME_7F23B15F6410 aSectionItem
-
-: ME_3433B3F4FE65
- CONST UID '3433B3F4FE65'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsMainMenu2011Node.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E730D0F00CA // Make
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_7F23B15F6410 // aSectionItem
- )
- ; // Parameters
-
-ref; // ME_3433B3F4FE65 DoIt
-
 : ME_4E730D0F00CA
  CONST UID '4E730D0F00CA'
  CONST Name 'Make'
@@ -1639,10 +1591,6 @@ ref; // ME_3433B3F4FE65 DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3433B3F4FE65 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1722,12 +1670,6 @@ ref; // ME_47A869BB02DE_ME_4E730AE6014C GetAsPCharLen
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4E730AE6014C COMQueryInterface
 
-: ME_5000565C019C_ME_4E730AE6014C
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4E730AE6014C ClearFields
-
 : ME_4E730AE6014C
  CONST UID '4E730AE6014C'
  CONST Name 'TnsMainMenu2011Node'
@@ -1759,7 +1701,6 @@ ref; // ME_5000565C019C_ME_4E730AE6014C ClearFields
  : Overridden
    Seq: ( ME_47A869BB02DE_ME_4E730AE6014C // GetAsPCharLen
  ME_4A60B23E00C3_ME_4E730AE6014C // COMQueryInterface
- ME_5000565C019C_ME_4E730AE6014C // ClearFields
  )
  ; // Overridden
  : Dependencies

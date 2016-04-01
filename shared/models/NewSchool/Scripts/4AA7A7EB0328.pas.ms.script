@@ -111,59 +111,6 @@ ref; // ME_4E7387DF02FB DoIt
 
 ref; // ME_4E7387AE0021 CreateKeeped
 
-FORWARD ME_4E7387D50196
-
-: ME_BCF0EEC03A97
- CONST Name 'aRoot'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_BCF0EEC03A97 aRoot
-
-: ME_1ACA91192E88
- CONST Name 'aRootToKeep'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_1ACA91192E88 aRootToKeep
-
-: ME_98BC36AC0FCD
- CONST Name 'aMenuSectionItemToKeep'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
- ;
-
-ref; // ME_98BC36AC0FCD aMenuSectionItemToKeep
-
-: ME_ED328313DB18
- CONST UID 'ED328313DB18'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsRubricatorList.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E7387D50196 // Make
- ;
- : Target WL 'ME_4E7AFF400116' '4E7AFECB03CB.pas.ms.script' // InsRubricatorTree
- ;
- : Parameters
-   Seq: ( ME_BCF0EEC03A97 // aRoot
- ME_1ACA91192E88 // aRootToKeep
- ME_98BC36AC0FCD // aMenuSectionItemToKeep
- )
- ; // Parameters
-
-ref; // ME_ED328313DB18 DoIt
-
 : ME_4E7387D50196
  CONST UID '4E7387D50196'
  CONST Name 'Make'
@@ -182,10 +129,6 @@ ref; // ME_ED328313DB18 DoIt
    Seq: ( WL 'ME_4E7AFF400116' '4E7AFECB03CB.pas.ms.script' // InsRubricatorTree
  )
  ; // Implements
- : Operations
-   Seq: ( ME_ED328313DB18 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -299,12 +242,6 @@ ref; // ME_4E7AFFA700A6_ME_46836A280235 MenuSectionItemToKeep
  CONST OpKind opkind_Overridden
 ref; // ME_48FDD9270194_ME_46836A280235 Create
 
-: ME_5000565C019C_ME_46836A280235
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_46836A280235 ClearFields
-
 : ME_46836A280235
  CONST UID '46836A280235'
  CONST Name 'TnsRubricatorList'
@@ -344,7 +281,6 @@ ref; // ME_5000565C019C_ME_46836A280235 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_48FDD9270194_ME_46836A280235 // Create
- ME_5000565C019C_ME_46836A280235 // ClearFields
  )
  ; // Overridden
  : Dependencies

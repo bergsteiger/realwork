@@ -24067,9 +24067,9 @@ ref; // ME_533129DC037C_ME_532031160122 GetIsKindOfPrim
 
 ref; // ME_532031160122 Tl3Variant
 
-: ME_534572370056
- CONST UID '534572370056'
- CONST Name 'Tl3Tag'
+: ME_56FE756F00C4
+ CONST UID '56FE756F00C4'
+ CONST Name 'Tl3TagImpl'
  CONST Class class_Class
  : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
@@ -24081,10 +24081,10 @@ ref; // ME_532031160122 Tl3Variant
    Seq: ( ME_532031160122 // Tl3Variant
  )
  ; // Inherits
- CONST extprop:rc:SelfName 'Tag'
+ CONST extprop:rc:SelfName 'TagImpl'
  CONST extprop:rc:isAcceptableForScripts true
 
-ref; // ME_534572370056 Tl3Tag
+ref; // ME_56FE756F00C4 Tl3TagImpl
 
 : ME_47A869930282
  CONST UID '47A869930282'
@@ -24271,7 +24271,7 @@ ref; // ME_5329CD1A020E_ME_47A8693601A1 GetAsString
  : Parent ME_53317D14019D // l3Variant
  ;
  : Inherits
-   Seq: ( ME_534572370056 // Tl3Tag
+   Seq: ( ME_56FE756F00C4 // Tl3TagImpl
  )
  ; // Inherits
  : Attributes
@@ -24473,6 +24473,25 @@ ref; // ME_4A42196C01CE_ME_5346BD53015A AsObject
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5346BD53015A Il3TagRef
+
+: ME_534572370056
+ CONST UID '534572370056'
+ CONST Name 'Tl3Tag'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53317D14019D // l3Variant
+ ;
+ : Inherits
+   Seq: ( ME_532031160122 // Tl3Variant
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'Tag'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_534572370056 Tl3Tag
 
 : ME_5334230E0043
  CONST UID '5334230E0043'
@@ -24934,25 +24953,6 @@ ref; // ME_53B52B130172_ME_467817DD0200 DateTimeW
 
 ref; // ME_467817DD0200 Ik2Tag
 
-: ME_5320678401C1
- CONST UID '5320678401C1'
- CONST Name 'Pl3Variant'
- CONST Class class_Class
- : Stereotype st_Typedef ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53317D14019D // l3Variant
- ;
- : Inherits
-   Seq: ( ME_532031160122 // Tl3Variant
- )
- ; // Inherits
- CONST "isPointer" true
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5320678401C1 Pl3Variant
-
 FORWARD ME_5347F19F0007
 
 : ME_4A42196C01CE_ME_5347F19F0007
@@ -25198,6 +25198,25 @@ ref; // ME_4E2EB68C0376 rHi
 
 ref; // ME_4E2EB63802EC Tk2In64Converter
 
+: ME_5320678401C1
+ CONST UID '5320678401C1'
+ CONST Name 'Pl3Variant'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53317D14019D // l3Variant
+ ;
+ : Inherits
+   Seq: ( ME_532031160122 // Tl3Variant
+ )
+ ; // Inherits
+ CONST "isPointer" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5320678401C1 Pl3Variant
+
 FORWARD ME_5342A452039F
 
 : ME_5342A48300CE
@@ -25303,17 +25322,18 @@ ref; // ME_5342A452039F Supports$Tl3Variant
  ME_533195590225 // Ml3TagHolder
  ME_5346BD1D0373 // Ml3TagBox
  ME_532031160122 // Tl3Variant
- ME_534572370056 // Tl3Tag
+ ME_56FE756F00C4 // Tl3TagImpl
  ME_47A8693601A1 // Tl3PrimString
  ME_526550320350 // array of Tk2TypePrim
  ME_530F1ADF03E1 // Ik2Variant
  ME_5346BD53015A // Il3TagRef
+ ME_534572370056 // Tl3Tag
  ME_5334230E0043 // Tl3Type
  ME_467817DD0200 // Ik2Tag
- ME_5320678401C1 // Pl3Variant
  ME_5347F19F0007 // Tl3NullTag
  ME_535FD0BB03C3 // Tl3TagRef
  ME_4E2EB63802EC // Tk2In64Converter
+ ME_5320678401C1 // Pl3Variant
  )
  ; // Children
  CONST "no hands" false

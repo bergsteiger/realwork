@@ -1214,57 +1214,6 @@ ref; // ME_4A8426C0002A_ME_4A717F9600F4 SignalEditionChanged
 
 ref; // ME_4A717F9600F4 TdsLeftEdition
 
-FORWARD ME_4B585C7C03AA
-
-: ME_7ADA8A2A257F
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_7ADA8A2A257F aDoc
-
-: ME_230FB366AAEE
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
- ;
-
-ref; // ME_230FB366AAEE aPara
-
-: ME_1BC49D2690B4
- CONST Name 'aDocumentForReturn'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B60748400F9' '4A6D56B00065.pas.ms.script' // TnsDocumentForReturnInfo
- ;
-
-ref; // ME_1BC49D2690B4 aDocumentForReturn
-
-: ME_156F29E55BD2
- CONST UID '156F29E55BD2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsEditionDiffData.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B585C7C03AA // Make
- ;
- : Parameters
-   Seq: ( ME_7ADA8A2A257F // aDoc
- ME_230FB366AAEE // aPara
- ME_1BC49D2690B4 // aDocumentForReturn
- )
- ; // Parameters
-
-ref; // ME_156F29E55BD2 DoIt
-
 : ME_4B585C7C03AA
  CONST UID '4B585C7C03AA'
  CONST Name 'Make'
@@ -1279,10 +1228,6 @@ ref; // ME_156F29E55BD2 DoIt
    Seq: ( WL 'ME_4B585365015A' '4A785027038D.pas.ms.script' // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_156F29E55BD2 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1543,46 +1488,6 @@ ref; // ME_4B695AC0007B DoIt
 
 ref; // ME_4B695A9C0194 Create
 
-FORWARD ME_4B695AE20338
-
-: ME_6F8175B8247D
- CONST Name 'aUseCaseData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A784CC802B0' '4A6D56B00065.pas.ms.script' // InsCompareEditionsInfo
- ;
-
-ref; // ME_6F8175B8247D aUseCaseData
-
-: ME_F4A8A1199CE3
- CONST Name 'anEditionForCompare'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EED84C01FD' '4570511E038A.pas.ms.script' // RedactionID
- ;
-
-ref; // ME_F4A8A1199CE3 anEditionForCompare
-
-: ME_3F5F5B6EDBB7
- CONST UID '3F5F5B6EDBB7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TsdsCompareEditionsState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B695AE20338 // Make
- ;
- : Parameters
-   Seq: ( ME_6F8175B8247D // aUseCaseData
- ME_F4A8A1199CE3 // anEditionForCompare
- )
- ; // Parameters
-
-ref; // ME_3F5F5B6EDBB7 DoIt
-
 : ME_4B695AE20338
  CONST UID '4B695AE20338'
  CONST Name 'Make'
@@ -1597,10 +1502,6 @@ ref; // ME_3F5F5B6EDBB7 DoIt
    Seq: ( ME_4B695A9C0194 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3F5F5B6EDBB7 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1692,12 +1593,6 @@ ref; // ME_47EA4E9002C6_ME_4B69588202EA FinishDataUpdate
  CONST OpKind opkind_Overridden
 ref; // ME_4B16B8CF0307_ME_4B69588202EA AssignData
 
-: ME_5000565C019C_ME_4B69588202EA
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4B69588202EA ClearFields
-
 : ME_4B69588202EA
  CONST UID '4B69588202EA'
  CONST Name 'TsdsCompareEditionsState'
@@ -1742,7 +1637,6 @@ ref; // ME_5000565C019C_ME_4B69588202EA ClearFields
    Seq: ( ME_479731C50290_ME_4B69588202EA // Cleanup
  ME_47EA4E9002C6_ME_4B69588202EA // FinishDataUpdate
  ME_4B16B8CF0307_ME_4B69588202EA // AssignData
- ME_5000565C019C_ME_4B69588202EA // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -1851,48 +1745,6 @@ ref; // ME_4CCE7F1301B3 DoIt
 
 ref; // ME_4CCE7F0100E8 Create
 
-FORWARD ME_4CCE7EF001F4
-
-: ME_08E0DC473713
- CONST Name 'aIsLeft'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_08E0DC473713 aIsLeft
-
-: ME_74A1E815161A
- CONST Name 'aProviderFactory'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4EA7F18E0324' '4A6D56B00065.pas.ms.script' // InsDocumentTextProviderFactory
- ;
-
-ref; // ME_74A1E815161A aProviderFactory
-
-: ME_F93098962C73
- CONST UID 'F93098962C73'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsEditionFromDTPDocumentContainer.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CCE7EF001F4 // Make
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_08E0DC473713 // aIsLeft
- ME_74A1E815161A // aProviderFactory
- )
- ; // Parameters
-
-ref; // ME_F93098962C73 DoIt
-
 : ME_4CCE7EF001F4
  CONST UID '4CCE7EF001F4'
  CONST Name 'Make'
@@ -1911,10 +1763,6 @@ ref; // ME_F93098962C73 DoIt
    Seq: ( WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F93098962C73 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1966,12 +1814,6 @@ ref; // ME_47F27DA80172_ME_4CCE7DC70233 GetDocument
  CONST OpKind opkind_Overridden
 ref; // ME_47F35CAC00E4_ME_4CCE7DC70233 HAFPainterClass
 
-: ME_5000565C019C_ME_4CCE7DC70233
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CCE7DC70233 ClearFields
-
 : ME_4CCE7DC70233
  CONST UID '4CCE7DC70233'
  CONST Name 'TnsEditionFromDTPDocumentContainer'
@@ -2013,7 +1855,6 @@ ref; // ME_5000565C019C_ME_4CCE7DC70233 ClearFields
    Seq: ( ME_47EA4E9002C6_ME_4CCE7DC70233 // FinishDataUpdate
  ME_47F27DA80172_ME_4CCE7DC70233 // GetDocument
  ME_47F35CAC00E4_ME_4CCE7DC70233 // HAFPainterClass
- ME_5000565C019C_ME_4CCE7DC70233 // ClearFields
  )
  ; // Overridden
  : Dependencies

@@ -40,6 +40,38 @@ ref; // ME_56B9C43001F5 HTParams
 
 ref; // ME_56B9C43A00AE PGParams
 
+: ME_2CD8FB827F5B
+ CONST UID '2CD8FB827F5B'
+ CONST Name 'f_HTParams'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства HTParams' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_56A86B450218 // TcaDataProviderParams
+ ;
+ : Target WL 'ME_54F9AF6B00DD' '54F9AF550087.pas.ms.script' // ThtDataProviderParams
+ ;
+
+ref; // ME_2CD8FB827F5B f_HTParams
+
+: ME_08938EE9F5E5
+ CONST UID '08938EE9F5E5'
+ CONST Name 'f_PGParams'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства PGParams' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_56A86B450218 // TcaDataProviderParams
+ ;
+ : Target WL 'ME_55D6CFA5009E' '55D6CF3B014B.pas.ms.script' // TpgDataProviderParams
+ ;
+
+ref; // ME_08938EE9F5E5 f_PGParams
+
 : ME_52A37A4E5D05
  CONST UID '52A37A4E5D05'
  CONST Name 'DataServerHostName'
@@ -127,6 +159,21 @@ ref; // ME_56B9C4570254 DoIt
 
 ref; // ME_56B9C44F02BE Create
 
+FORWARD ME_56B9D5D8017F
+
+: ME_DC29681F9CFD
+ CONST UID 'DC29681F9CFD'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода LoadFromAlienParams' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56B9D5D8017F // LoadFromAlienParams
+ ;
+
+ref; // ME_DC29681F9CFD DoIt
+
 : ME_56B9D5D8017F
  CONST UID '56B9D5D8017F'
  CONST Name 'LoadFromAlienParams'
@@ -137,8 +184,27 @@ ref; // ME_56B9C44F02BE Create
  CONST Abstraction at_final
  : Parent ME_56A86B450218 // TcaDataProviderParams
  ;
+ : Operations
+   Seq: ( ME_DC29681F9CFD // DoIt
+ )
+ ; // Operations
 
 ref; // ME_56B9D5D8017F LoadFromAlienParams
+
+FORWARD ME_56B9E3810358
+
+: ME_41F1B4423457
+ CONST UID '41F1B4423457'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода SaveToAlienParams' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56B9E3810358 // SaveToAlienParams
+ ;
+
+ref; // ME_41F1B4423457 DoIt
 
 : ME_56B9E3810358
  CONST UID '56B9E3810358'
@@ -150,6 +216,10 @@ ref; // ME_56B9D5D8017F LoadFromAlienParams
  CONST Abstraction at_final
  : Parent ME_56A86B450218 // TcaDataProviderParams
  ;
+ : Operations
+   Seq: ( ME_41F1B4423457 // DoIt
+ )
+ ; // Operations
 
 ref; // ME_56B9E3810358 SaveToAlienParams
 
@@ -230,6 +300,8 @@ ref; // ME_553A37E902C9_ME_56A86B450218 AssignParams
  : Attributes
    Seq: ( ME_56B9C43001F5 // HTParams
  ME_56B9C43A00AE // PGParams
+ ME_2CD8FB827F5B // f_HTParams
+ ME_08938EE9F5E5 // f_PGParams
  ME_52A37A4E5D05 // DataServerHostName
  ME_0DC358F22E97 // DataServerPort
  )

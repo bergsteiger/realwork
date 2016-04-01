@@ -160,12 +160,6 @@ ref; // ME_4E730D94016B
  CONST OpKind opkind_Overridden
 ref; // ME_4908AAED02BD_ME_490B0E9A02A2 BeforeReset
 
-: ME_5000565C019C_ME_490B0E9A02A2
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_490B0E9A02A2 ClearFields
-
 : ME_490B0E9A02A2
  CONST UID '490B0E9A02A2'
  CONST Name 'TsmTree'
@@ -195,7 +189,6 @@ ref; // ME_5000565C019C_ME_490B0E9A02A2 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_4908AAED02BD_ME_490B0E9A02A2 // BeforeReset
- ME_5000565C019C_ME_490B0E9A02A2 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -475,37 +468,6 @@ ref; // ME_4E7324AB0253 DoIt
 
 ref; // ME_4E73249703A9 Create
 
-FORWARD ME_4E7324A00304
-
-: ME_FB06A4A8497C
- CONST Name 'aSectionType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E3011A101F7' '4DD24BD40021.pas.ms.script' // SectionType
- ;
-
-ref; // ME_FB06A4A8497C aSectionType
-
-: ME_C913DBB42B14
- CONST UID 'C913DBB42B14'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TsmChangeableTree.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E7324A00304 // Make
- ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
- : Parameters
-   Seq: ( ME_FB06A4A8497C // aSectionType
- )
- ; // Parameters
-
-ref; // ME_C913DBB42B14 DoIt
-
 : ME_4E7324A00304
  CONST UID '4E7324A00304'
  CONST Name 'Make'
@@ -524,10 +486,6 @@ ref; // ME_C913DBB42B14 DoIt
    Seq: ( WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C913DBB42B14 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

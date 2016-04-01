@@ -8386,6 +8386,84 @@ ref; // ME_53AC03EE01FD_ME_55EEC220007F GetTaggedDataType
 
 ref; // ME_55EEC220007F TcsMdpImportDocs
 
+FORWARD ME_56FE5C970264
+
+: ME_807379469BD5
+ CONST UID '807379469BD5'
+ CONST Name 'Tasks'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56FE5C970264 // TcsContainerTask
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "pm" true
+
+ref; // ME_807379469BD5 Tasks
+
+: ME_42C079208970
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FE5C970264 // TcsContainerTask
+ ;
+ : Target WL 'ME_56FE456C0292' '484A470100DD.pas.ms.script' // ContainerTask
+ ;
+
+ref; // ME_42C079208970 
+
+: ME_53AC03EE01FD_ME_56FE5C970264
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_56FE5C970264 GetTaggedDataType
+
+: ME_56FE5C970264
+ CONST UID '56FE5C970264'
+ CONST Name 'TcsContainerTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52F8C298005C // Tasks
+ ;
+ : Inherits
+   Seq: ( ME_52F8C2BF0110 // TddProcessTask
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_56FE456C0292' '484A470100DD.pas.ms.script' // ContainerTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_807379469BD5 // Tasks
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_56FE5C970264 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_42C079208970 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\csContainerTask.pas'
+ CONST extprop:rc:SelfName 'csContainerTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csContainerTask'
+
+ref; // ME_56FE5C970264 TcsContainerTask
+
 : ME_52F8C298005C
  CONST UID '52F8C298005C'
  CONST Name 'Tasks'
@@ -8456,6 +8534,7 @@ ref; // ME_55EEC220007F TcsMdpImportDocs
  ME_5583BE960064 // TcsTaskChangeHelper
  ME_55E9759603C8 // TcsMdpSyncDicts
  ME_55EEC220007F // TcsMdpImportDocs
+ ME_56FE5C970264 // TcsContainerTask
  )
  ; // Children
  : Depends

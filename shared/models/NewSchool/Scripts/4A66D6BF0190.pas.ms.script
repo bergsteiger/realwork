@@ -2651,35 +2651,6 @@ ref; // ME_519A13A103E6 Do
 
 ref; // ME_519A138E01CC Create
 
-FORWARD ME_519A13AE026D
-
-: ME_1B84234ADE28
- CONST Name 'aCurrentFlagFilter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A66BA3A0268' '4A66B9840002.pas.ms.script' // TContactListFilterTypes
- ;
-
-ref; // ME_1B84234ADE28 aCurrentFlagFilter
-
-: ME_5835D4A1707E
- CONST UID '5835D4A1707E'
- CONST Name 'Do'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TContactListFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_519A13AE026D // Make
- ;
- : Parameters
-   Seq: ( ME_1B84234ADE28 // aCurrentFlagFilter
- )
- ; // Parameters
-
-ref; // ME_5835D4A1707E Do
-
 : ME_519A13AE026D
  CONST UID '519A13AE026D'
  CONST Name 'Make'
@@ -2694,10 +2665,6 @@ ref; // ME_5835D4A1707E Do
    Seq: ( ME_519A138E01CC // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5835D4A1707E // Do
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

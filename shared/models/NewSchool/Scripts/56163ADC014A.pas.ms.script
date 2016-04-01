@@ -160,21 +160,6 @@ ref; // ME_F27693D1C4F8 DoIt
 
 ref; // ME_56163C5903DB Unsubscribe
 
-FORWARD ME_56163C8A0267
-
-: ME_33EF1F1F0FC4
- CONST UID '33EF1F1F0FC4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckFindEnabled' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56163C8A0267 // CheckFindEnabled
- ;
-
-ref; // ME_33EF1F1F0FC4 DoIt
-
 : ME_56163C8A0267
  CONST UID '56163C8A0267'
  CONST Name 'CheckFindEnabled'
@@ -185,29 +170,8 @@ ref; // ME_33EF1F1F0FC4 DoIt
  CONST Abstraction at_final
  : Parent ME_56163B0902D7 // TnsSearchWindowManager
  ;
- : Operations
-   Seq: ( ME_33EF1F1F0FC4 // DoIt
- )
- ; // Operations
 
 ref; // ME_56163C8A0267 CheckFindEnabled
-
-: ME_DAE3DE5065C4
- CONST UID 'DAE3DE5065C4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56163B0902D7 // TnsSearchWindowManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_DAE3DE5065C4 Exists
 
 : ME_479731C50290_ME_56163B0902D7
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -237,7 +201,6 @@ ref; // ME_479731C50290_ME_56163B0902D7 Cleanup
    Seq: ( ME_56163C39024C // Subscribe
  ME_56163C5903DB // Unsubscribe
  ME_56163C8A0267 // CheckFindEnabled
- ME_DAE3DE5065C4 // Exists
  )
  ; // Operations
  : Overridden
@@ -276,7 +239,6 @@ ref; // ME_56163B0902D7 TnsSearchWindowManager
  : Depends
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
 

@@ -1094,25 +1094,6 @@ ref; // ME_560E7DEA02A8
 
 ref; // ME_4AAF93E201FD nsPostingsLine
 
-FORWARD ME_4AAF9400011C
-
-: ME_B76222301E8D
- CONST UID 'B76222301E8D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AAF9400011C // TnsPostingsTreeSingle
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_B76222301E8D Exists
-
 : ME_4AAF9400011C
  CONST UID '4AAF9400011C'
  CONST Name 'TnsPostingsTreeSingle'
@@ -1127,10 +1108,6 @@ ref; // ME_B76222301E8D Exists
    Seq: ( ME_4ADEF93B0159 // TnsPostingsTree
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B76222301E8D // Exists
- )
- ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

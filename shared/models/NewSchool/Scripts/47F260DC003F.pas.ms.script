@@ -341,59 +341,6 @@ ref; // ME_4D4C07430211 DoIt
 
 ref; // ME_4D4C073502C0 Create
 
-FORWARD ME_4D4C076501DF
-
-: ME_406AA3DCB4C0
- CONST Name 'aTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CE0014B' '4682595B0268.pas.ms.script' // Il3ExpandedSimpleTree
- ;
-
-ref; // ME_406AA3DCB4C0 aTree
-
-: ME_FCBFE59571D1
- CONST Name 'ForSelection'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_FCBFE59571D1 ForSelection
-
-: ME_CB31D5E8A53A
- CONST Name 'aOnlyFirstLevel'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_CB31D5E8A53A aOnlyFirstLevel
-
-: ME_C45732E6869B
- CONST UID 'C45732E6869B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsTreeMultiDocumentPreviewContainer.MakePrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4C076501DF // MakePrim
- ;
- : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ;
- : Parameters
-   Seq: ( ME_406AA3DCB4C0 // aTree
- ME_FCBFE59571D1 // ForSelection
- ME_CB31D5E8A53A // aOnlyFirstLevel
- )
- ; // Parameters
-
-ref; // ME_C45732E6869B DoIt
-
 : ME_4D4C076501DF
  CONST UID '4D4C076501DF'
  CONST Name 'MakePrim'
@@ -412,10 +359,6 @@ ref; // ME_C45732E6869B DoIt
    Seq: ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C45732E6869B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -699,12 +642,6 @@ ref; // ME_4991B1850249_ME_4892DA33009F Prepare
  CONST "pm" true
 ref; // ME_4CC6A6FF0362_ME_4892DA33009F PagesInfo
 
-: ME_5000565C019C_ME_4892DA33009F
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4892DA33009F ClearFields
-
 : ME_4892DA33009F
  CONST UID '4892DA33009F'
  CONST Name 'TnsTreeMultiDocumentPreviewContainer'
@@ -762,10 +699,6 @@ ref; // ME_5000565C019C_ME_4892DA33009F ClearFields
  ME_4CC6A6FF0362_ME_4892DA33009F // PagesInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4892DA33009F // ClearFields
- )
- ; // Overridden
  : Constants
    Seq: ( ME_4D4C079F0042 // Const
  )

@@ -272,59 +272,6 @@ ref; // ME_4C9338A803BB DoIt
 
 ref; // ME_4C933899017C Create
 
-FORWARD ME_4C9338DF0394
-
-: ME_BC56E70C5648
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_BC56E70C5648 aDocument
-
-: ME_E632900A9968
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BF1DD0075' '4678209200A6.pas.ms.script' // InevSimpleTree
- ;
-
-ref; // ME_E632900A9968 aData
-
-: ME_4DC8CEF7FCB8
- CONST Name 'aSubRoot'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
- ;
-
-ref; // ME_4DC8CEF7FCB8 aSubRoot
-
-: ME_C87EC92D4A82
- CONST UID 'C87EC92D4A82'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsContentsTreeStorable.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C9338DF0394 // Make
- ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
- : Parameters
-   Seq: ( ME_BC56E70C5648 // aDocument
- ME_E632900A9968 // aData
- ME_4DC8CEF7FCB8 // aSubRoot
- )
- ; // Parameters
-
-ref; // ME_C87EC92D4A82 DoIt
-
 : ME_4C9338DF0394
  CONST UID '4C9338DF0394'
  CONST Name 'Make'
@@ -343,10 +290,6 @@ ref; // ME_C87EC92D4A82 DoIt
    Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C87EC92D4A82 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -444,12 +387,6 @@ ref; // ME_4C9341B80181
  CONST OpKind opkind_Overridden
 ref; // ME_48F8A8F501DD_ME_48F8B61F0032 DoIterateTree
 
-: ME_5000565C019C_ME_48F8B61F0032
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_48F8B61F0032 ClearFields
-
 : ME_48F8B61F0032
  CONST UID '48F8B61F0032'
  CONST Name 'TnsContentsTreeStorable'
@@ -476,7 +413,6 @@ ref; // ME_5000565C019C_ME_48F8B61F0032 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_48F8A8F501DD_ME_48F8B61F0032 // DoIterateTree
- ME_5000565C019C_ME_48F8B61F0032 // ClearFields
  )
  ; // Overridden
  : Dependencies

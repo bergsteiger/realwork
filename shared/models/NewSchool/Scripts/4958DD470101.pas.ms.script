@@ -5861,6 +5861,20 @@ ref; // ME_56FA8A78000E bvlRight
 
 ref; // ME_56FA98DC0106 ieIO
 
+: ME_56FCF7400117
+ CONST UID '56FCF7400117'
+ CONST Name 'f_CurrentSection'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_4E3011A101F7' '4DD24BD40021.pas.ms.script' // SectionType
+ ;
+
+ref; // ME_56FCF7400117 f_CurrentSection
+
 : ME_5864D92D3811
  CONST UID '5864D92D3811'
  CONST Name 'f_pnlLeft'
@@ -6245,6 +6259,337 @@ ref; // ME_248E1F5065FA f_bvlRight
 
 ref; // ME_B7BC1F8BD0B6 f_ieIO
 
+FORWARD ME_56FBC3F90034
+
+: ME_56FBC4050318
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_56FBC4050318 aSender
+
+: ME_56FBC4050336
+ CONST Name 'theState'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4E733DE40275' '4E732D5D02FE.pas.ms.script' // ThfState
+ ;
+
+ref; // ME_56FBC4050336 theState
+
+: ME_56FBC404020D
+ CONST UID '56FBC404020D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FBC3F90034 // TaxesStateChanged
+ ;
+ : Parameters
+   Seq: ( ME_56FBC4050318 // aSender
+ ME_56FBC4050336 // theState
+ )
+ ; // Parameters
+
+ref; // ME_56FBC404020D DoIt
+
+: ME_56FBC3F90034
+ CONST UID '56FBC3F90034'
+ CONST Name 'TaxesStateChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Operations
+   Seq: ( ME_56FBC404020D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FBC3F90034 TaxesStateChanged
+
+FORWARD ME_56FBC41602A9
+
+: ME_F96EEA9CD4EC
+ CONST UID 'F96EEA9CD4EC'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода UpdateTaxesTree' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56FBC41602A9 // UpdateTaxesTree
+ ;
+
+ref; // ME_F96EEA9CD4EC DoIt
+
+: ME_56FBC41602A9
+ CONST UID '56FBC41602A9'
+ CONST Name 'UpdateTaxesTree'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Operations
+   Seq: ( ME_F96EEA9CD4EC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FBC41602A9 UpdateTaxesTree
+
+FORWARD ME_56FBC4240324
+
+: ME_AB8E3EF268A5
+ CONST UID 'AB8E3EF268A5'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода UpdateTaxesTreeCaption' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56FBC4240324 // UpdateTaxesTreeCaption
+ ;
+
+ref; // ME_AB8E3EF268A5 DoIt
+
+: ME_56FBC4240324
+ CONST UID '56FBC4240324'
+ CONST Name 'UpdateTaxesTreeCaption'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Operations
+   Seq: ( ME_AB8E3EF268A5 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FBC4240324 UpdateTaxesTreeCaption
+
+FORWARD ME_56FBC4350226
+
+: ME_05E3C0097FA8
+ CONST UID '05E3C0097FA8'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода UpdateReferencesAndLawNewsCaptions' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56FBC4350226 // UpdateReferencesAndLawNewsCaptions
+ ;
+
+ref; // ME_05E3C0097FA8 DoIt
+
+: ME_56FBC4350226
+ CONST UID '56FBC4350226'
+ CONST Name 'UpdateReferencesAndLawNewsCaptions'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Operations
+   Seq: ( ME_05E3C0097FA8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FBC4350226 UpdateReferencesAndLawNewsCaptions
+
+FORWARD ME_56FBD187013A
+
+: ME_7DB7C1DCD5AB
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_7DB7C1DCD5AB Sender
+
+: ME_DDBC3604EC12
+ CONST UID 'DDBC3604EC12'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FBD187013A // ReferencesResize
+ ;
+ : Parameters
+   Seq: ( ME_7DB7C1DCD5AB // Sender
+ )
+ ; // Parameters
+
+ref; // ME_DDBC3604EC12 DoIt
+
+: ME_56FBD187013A
+ CONST UID '56FBD187013A'
+ CONST Name 'ReferencesResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_DDBC3604EC12 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FBD187013A ReferencesResize
+
+FORWARD ME_56FBD27503D1
+
+: ME_75485BD8FCCC
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_75485BD8FCCC Sender
+
+: ME_D6B0C5FFA2FE
+ CONST UID 'D6B0C5FFA2FE'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FBD27503D1 // TaxesNextTree
+ ;
+ : Parameters
+   Seq: ( ME_75485BD8FCCC // Sender
+ )
+ ; // Parameters
+
+ref; // ME_D6B0C5FFA2FE DoIt
+
+: ME_56FBD27503D1
+ CONST UID '56FBD27503D1'
+ CONST Name 'TaxesNextTree'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_D6B0C5FFA2FE // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FBD27503D1 TaxesNextTree
+
+FORWARD ME_56FCF6290256
+
+: ME_71CBB59B5A6B
+ CONST UID '71CBB59B5A6B'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода UpdateSearchLabels' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56FCF6290256 // UpdateSearchLabels
+ ;
+
+ref; // ME_71CBB59B5A6B DoIt
+
+: ME_56FCF6290256
+ CONST UID '56FCF6290256'
+ CONST Name 'UpdateSearchLabels'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Operations
+   Seq: ( ME_71CBB59B5A6B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FCF6290256 UpdateSearchLabels
+
+FORWARD ME_56FD0A30011C
+
+: ME_7B21974D02AF
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_7B21974D02AF Sender
+
+: ME_4800A0B91083
+ CONST UID '4800A0B91083'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FD0A30011C // SearchClick
+ ;
+ : Parameters
+   Seq: ( ME_7B21974D02AF // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4800A0B91083 DoIt
+
+: ME_56FD0A30011C
+ CONST UID '56FD0A30011C'
+ CONST Name 'SearchClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4800A0B91083 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56FD0A30011C SearchClick
+
 : ME_77BE98F022F5
  CONST UID '77BE98F022F5'
  CONST Name 'Init_Str_utMainMenuWithProfNewsCaption'
@@ -6448,6 +6793,96 @@ ref; // ME_56FACE7E02D2
 
 ref; // ME_56FACE9702D3 
 
+: ME_56FCF71A00D2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_482B17100178' '4799D29F033F.pas.ms.script' // TBorderStyle
+ ;
+
+ref; // ME_56FCF71A00D2 
+
+: ME_56FCF71D006E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_48C7B9BC037B' '4799D29F033F.pas.ms.script' // TBevelCut
+ ;
+
+ref; // ME_56FCF71D006E 
+
+: ME_56FCF71F02A8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_475EA8840080' '467823B7002C.pas.ms.script' // Locale
+ ;
+
+ref; // ME_56FCF71F02A8 
+
+: ME_56FCF722010E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_49256C760276' '47EA50050263.pas.ms.script' // DocumentRes
+ ;
+
+ref; // ME_56FCF722010E 
+
+: ME_56FCF7240352
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_4AA7E9E60251' '4AAA216F032C.pas.ms.script' // MainMenuNewRes
+ ;
+
+ref; // ME_56FCF7240352 
+
+: ME_56FCF727021C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_4ACB349301A9' '4AB112DF005B.pas.ms.script' // NewSchoolMainMenuHeader
+ ;
+
+ref; // ME_56FCF727021C 
+
+: ME_56FCF72A01AF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_47D63BA9029A' '47D036150077.pas.ms.script' // Tl3ActionElementMode
+ ;
+
+ref; // ME_56FCF72A01AF 
+
+: ME_56FCF72D00B5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_4AD5C80F0127' '4AB112DF005B.pas.ms.script' // NewSchoolMainMenuConstPath
+ ;
+
+ref; // ME_56FCF72D00B5 
+
+: ME_56FCF730010F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_4E73239003D0' '4A9FB4EE00FE.pas.ms.script' // TsmChangeableTree
+ ;
+
+ref; // ME_56FCF730010F 
+
 : ME_CAC2A714D2A6
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -6525,6 +6960,12 @@ ref; // ME_4ACB2F98002B_ME_56FA889202B4 NewSchool
  CONST OpKind opkind_Overridden
 ref; // ME_4B62D10B031B_ME_56FA889202B4 SetControlsResources
 
+: ME_5000565C019C_ME_56FA889202B4
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_56FA889202B4 ClearFields
+
 : ME_53F1C6EF02C9_ME_56FA889202B4
  : Original WL 'ME_53F1C6EF02C9' '4AADF9450143.pas.ms.script' // DoGetTabCaption
  ;
@@ -6564,6 +7005,7 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_56FA8A560227 // bvlLeft
  ME_56FA8A78000E // bvlRight
  ME_56FA98DC0106 // ieIO
+ ME_56FCF7400117 // f_CurrentSection
  ME_5864D92D3811 // f_pnlLeft
  ME_AE26FCA0BCF1 // f_bvlLeftTop
  ME_AB1A3D181B46 // f_pbLogo
@@ -6591,7 +7033,15 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_77BE98F022F5 // Init_Str_utMainMenuWithProfNewsCaption
+   Seq: ( ME_56FBC3F90034 // TaxesStateChanged
+ ME_56FBC41602A9 // UpdateTaxesTree
+ ME_56FBC4240324 // UpdateTaxesTreeCaption
+ ME_56FBC4350226 // UpdateReferencesAndLawNewsCaptions
+ ME_56FBD187013A // ReferencesResize
+ ME_56FBD27503D1 // TaxesNextTree
+ ME_56FCF6290256 // UpdateSearchLabels
+ ME_56FD0A30011C // SearchClick
+ ME_77BE98F022F5 // Init_Str_utMainMenuWithProfNewsCaption
  ME_EA09B73A23CF // Ini_Reg_Class
  )
  ; // Operations
@@ -6606,6 +7056,7 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_4ACA197F0147_ME_56FA889202B4 // ContainerForBaseSearch
  ME_4ACB2F98002B_ME_56FA889202B4 // NewSchool
  ME_4B62D10B031B_ME_56FA889202B4 // SetControlsResources
+ ME_5000565C019C_ME_56FA889202B4 // ClearFields
  ME_53F1C6EF02C9_ME_56FA889202B4 // DoGetTabCaption
  ME_54058CBC0182_ME_56FA889202B4 // DoGetFormSetTabCaption
  ME_543E3AA801D0_ME_56FA889202B4 // DoGetTabImageIndex
@@ -6640,6 +7091,15 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_56FACD54020A // 
  ME_56FACE7E02D2 // 
  ME_56FACE9702D3 // 
+ ME_56FCF71A00D2 // 
+ ME_56FCF71D006E // 
+ ME_56FCF71F02A8 // 
+ ME_56FCF722010E // 
+ ME_56FCF7240352 // 
+ ME_56FCF727021C // 
+ ME_56FCF72A01AF // 
+ ME_56FCF72D00B5 // 
+ ME_56FCF730010F // 
  ME_CAC2A714D2A6 // 
  ME_3791676206E1 // 
  ME_B71762904DE8 // 
@@ -6666,23 +7126,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
 
 ref; // ME_56FA889202B4 PrimMainMenuWithProfNews
 
-: ME_6692D6514567
- CONST UID '6692D6514567'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F2012220355 // TnsMainMenuFormGUIDFactory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_6692D6514567 Exists
-
 : ME_4F2012220355
  CONST UID '4F2012220355'
  CONST Name 'TnsMainMenuFormGUIDFactory'
@@ -6698,10 +7141,6 @@ ref; // ME_6692D6514567 Exists
    Seq: ( WL 'ME_4F1EDCBC012F' '4AADF9450143.pas.ms.script' // TvcmFormGUIDFromMainFormList
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6692D6514567 // Exists
- )
- ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

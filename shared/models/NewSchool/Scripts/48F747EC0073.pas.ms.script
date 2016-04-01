@@ -2725,22 +2725,6 @@ FORWARD ME_542D0141013E
 
 ref; // ME_542BEFCA00C5 Listeners
 
-: ME_3D3D3962FEE1
- CONST UID '3D3D3962FEE1'
- CONST Name 'f_Listeners'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Listeners' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_542D0141013E // TnsNotificationManagerPrim
- ;
- : Target ME_542BEF1C0042 // TnsNotificationListenersList
- ;
-
-ref; // ME_3D3D3962FEE1 f_Listeners
-
 FORWARD ME_542D13A40269
 
 : ME_542D13AF0106
@@ -2796,7 +2780,6 @@ ref; // ME_479731C50290_ME_542D0141013E Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_542BEFCA00C5 // Listeners
- ME_3D3D3962FEE1 // f_Listeners
  )
  ; // Attributes
  : Operations
@@ -8211,37 +8194,6 @@ ref; // ME_55D4325E03DF HasChanged
 
 ref; // ME_55D4396D02D8 f_Listeners
 
-: ME_320FBB0C4DB1
- CONST UID '320FBB0C4DB1'
- CONST Name 'f_HasChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55D429A70008 // TnsUnderControlNotificationManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_320FBB0C4DB1 f_HasChanged
-
-FORWARD ME_55D4315E001F
-
-: ME_54598B6C94FA
- CONST UID '54598B6C94FA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ResetChangedNotification' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55D4315E001F // ResetChangedNotification
- ;
-
-ref; // ME_54598B6C94FA DoIt
-
 : ME_55D4315E001F
  CONST UID '55D4315E001F'
  CONST Name 'ResetChangedNotification'
@@ -8252,10 +8204,6 @@ ref; // ME_54598B6C94FA DoIt
  CONST Abstraction at_final
  : Parent ME_55D429A70008 // TnsUnderControlNotificationManager
  ;
- : Operations
-   Seq: ( ME_54598B6C94FA // DoIt
- )
- ; // Operations
 
 ref; // ME_55D4315E001F ResetChangedNotification
 
@@ -8345,21 +8293,6 @@ ref; // ME_55D432CD01CC DoIt
 
 ref; // ME_55D4317E026C Unsubscribe
 
-FORWARD ME_55D438CC0369
-
-: ME_44222FF2192E
- CONST UID '44222FF2192E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода NotifyListeners' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55D438CC0369 // NotifyListeners
- ;
-
-ref; // ME_44222FF2192E DoIt
-
 : ME_55D438CC0369
  CONST UID '55D438CC0369'
  CONST Name 'NotifyListeners'
@@ -8370,27 +8303,8 @@ ref; // ME_44222FF2192E DoIt
  CONST Abstraction at_final
  : Parent ME_55D429A70008 // TnsUnderControlNotificationManager
  ;
- : Operations
-   Seq: ( ME_44222FF2192E // DoIt
- )
- ; // Operations
 
 ref; // ME_55D438CC0369 NotifyListeners
-
-FORWARD ME_55D43E670378
-
-: ME_7121CFC512CF
- CONST UID '7121CFC512CF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SetChangedNotification' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55D43E670378 // SetChangedNotification
- ;
-
-ref; // ME_7121CFC512CF DoIt
 
 : ME_55D43E670378
  CONST UID '55D43E670378'
@@ -8402,29 +8316,8 @@ ref; // ME_7121CFC512CF DoIt
  CONST Abstraction at_final
  : Parent ME_55D429A70008 // TnsUnderControlNotificationManager
  ;
- : Operations
-   Seq: ( ME_7121CFC512CF // DoIt
- )
- ; // Operations
 
 ref; // ME_55D43E670378 SetChangedNotification
-
-: ME_D893A26C4349
- CONST UID 'D893A26C4349'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55D429A70008 // TnsUnderControlNotificationManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_D893A26C4349 Exists
 
 : ME_479731C50290_ME_55D429A70008
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -8455,7 +8348,6 @@ ref; // ME_47A042E100E2_ME_55D429A70008 InitFields
  : Attributes
    Seq: ( ME_55D4325E03DF // HasChanged
  ME_55D4396D02D8 // f_Listeners
- ME_320FBB0C4DB1 // f_HasChanged
  )
  ; // Attributes
  : Operations
@@ -8464,7 +8356,6 @@ ref; // ME_47A042E100E2_ME_55D429A70008 InitFields
  ME_55D4317E026C // Unsubscribe
  ME_55D438CC0369 // NotifyListeners
  ME_55D43E670378 // SetChangedNotification
- ME_D893A26C4349 // Exists
  )
  ; // Operations
  : Overridden

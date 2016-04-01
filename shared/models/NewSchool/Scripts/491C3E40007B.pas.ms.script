@@ -1539,48 +1539,6 @@ ref; // ME_4CF3965D00E0 DoIt
 
 ref; // ME_4CF3965400E5 Create
 
-FORWARD ME_4CF3967101C3
-
-: ME_AB4BFDE359DE
- CONST Name 'aDocInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_AB4BFDE359DE aDocInfo
-
-: ME_F6521382E405
- CONST Name 'aCons'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
- ;
-
-ref; // ME_F6521382E405 aCons
-
-: ME_EE0AC77238F0
- CONST UID 'EE0AC77238F0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsConsultationDocumentContainerNew.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CF3967101C3 // Make
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_AB4BFDE359DE // aDocInfo
- ME_F6521382E405 // aCons
- )
- ; // Parameters
-
-ref; // ME_EE0AC77238F0 DoIt
-
 : ME_4CF3967101C3
  CONST UID '4CF3967101C3'
  CONST Name 'Make'
@@ -1599,10 +1557,6 @@ ref; // ME_EE0AC77238F0 DoIt
    Seq: ( WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_EE0AC77238F0 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2463,12 +2417,6 @@ ref; // ME_47F35CAC00E4_ME_4CF37A0400FB HAFPainterClass
  CONST OpKind opkind_Overridden
 ref; // ME_4B1FBF87020C_ME_4CF37A0400FB AfterCreate
 
-: ME_5000565C019C_ME_4CF37A0400FB
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CF37A0400FB ClearFields
-
 : ME_4CF37A0400FB
  CONST UID '4CF37A0400FB'
  CONST Name 'TnsConsultationDocumentContainerNew'
@@ -2507,7 +2455,6 @@ ref; // ME_5000565C019C_ME_4CF37A0400FB ClearFields
    Seq: ( ME_47F27DA80172_ME_4CF37A0400FB // GetDocument
  ME_47F35CAC00E4_ME_4CF37A0400FB // HAFPainterClass
  ME_4B1FBF87020C_ME_4CF37A0400FB // AfterCreate
- ME_5000565C019C_ME_4CF37A0400FB // ClearFields
  )
  ; // Overridden
  : Children
@@ -2571,21 +2518,6 @@ ref; // ME_55FACBF603B5 f_Unread
 
 ref; // ME_55FACCE20172 f_CurrentStatus
 
-FORWARD ME_55FACCF500B4
-
-: ME_DBE4F49328B3
- CONST UID 'DBE4F49328B3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateUnread' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55FACCF500B4 // UpdateUnread
- ;
-
-ref; // ME_DBE4F49328B3 DoIt
-
 : ME_55FACCF500B4
  CONST UID '55FACCF500B4'
  CONST Name 'UpdateUnread'
@@ -2596,27 +2528,8 @@ ref; // ME_DBE4F49328B3 DoIt
  CONST Abstraction at_final
  : Parent ME_492FFDF7011A // TbsConsultationManager
  ;
- : Operations
-   Seq: ( ME_DBE4F49328B3 // DoIt
- )
- ; // Operations
 
 ref; // ME_55FACCF500B4 UpdateUnread
-
-FORWARD ME_55FACD130143
-
-: ME_FDC278944796
- CONST UID 'FDC278944796'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55FACD130143 // Create
- ;
-
-ref; // ME_FDC278944796 DoIt
 
 : ME_55FACD130143
  CONST UID '55FACD130143'
@@ -2628,29 +2541,8 @@ ref; // ME_FDC278944796 DoIt
  CONST Abstraction at_final
  : Parent ME_492FFDF7011A // TbsConsultationManager
  ;
- : Operations
-   Seq: ( ME_FDC278944796 // DoIt
- )
- ; // Operations
 
 ref; // ME_55FACD130143 Create
-
-FORWARD ME_55FACD4C0399
-
-: ME_4CB2043C2518
- CONST UID '4CB2043C2518'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TbsConsultationManager.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55FACD4C0399 // Make
- ;
- : Target WL 'ME_49527999013D' '47ECAAF901F8.pas.ms.script' // IbsConsultationManager
- ;
-
-ref; // ME_4CB2043C2518 DoIt
 
 : ME_55FACD4C0399
  CONST UID '55FACD4C0399'
@@ -2670,10 +2562,6 @@ ref; // ME_4CB2043C2518 DoIt
    Seq: ( WL 'ME_49527999013D' '47ECAAF901F8.pas.ms.script' // IbsConsultationManager
  )
  ; // Implements
- : Operations
-   Seq: ( ME_4CB2043C2518 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

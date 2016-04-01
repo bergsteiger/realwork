@@ -909,12 +909,6 @@ ref; // ME_47F27DA80172_ME_4C6A9AD101B4 GetDocument
  CONST OpKind opkind_Overridden
 ref; // ME_47F2802003C4_ME_4C6A9AD101B4 GetContentsTree
 
-: ME_5000565C019C_ME_4C6A9AD101B4
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C6A9AD101B4 ClearFields
-
 : ME_4C6A9AD101B4
  CONST UID '4C6A9AD101B4'
  CONST Name 'TnsF1DocumentContainer'
@@ -942,7 +936,6 @@ ref; // ME_5000565C019C_ME_4C6A9AD101B4 ClearFields
    Seq: ( ME_479731C50290_ME_4C6A9AD101B4 // Cleanup
  ME_47F27DA80172_ME_4C6A9AD101B4 // GetDocument
  ME_47F2802003C4_ME_4C6A9AD101B4 // GetContentsTree
- ME_5000565C019C_ME_4C6A9AD101B4 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -1030,37 +1023,6 @@ ref; // ME_4D3ED5CD0122 DoIt
 
 ref; // ME_4D3ED5BF0202 Create
 
-FORWARD ME_4D3ED5EB01C1
-
-: ME_6AAD23611AE4
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_6AAD23611AE4 aData
-
-: ME_F43BF43DC3DF
- CONST UID 'F43BF43DC3DF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsIDocumentDataObject.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D3ED5EB01C1 // Make
- ;
- : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
- ;
- : Parameters
-   Seq: ( ME_6AAD23611AE4 // aData
- )
- ; // Parameters
-
-ref; // ME_F43BF43DC3DF DoIt
-
 : ME_4D3ED5EB01C1
  CONST UID '4D3ED5EB01C1'
  CONST Name 'Make'
@@ -1079,10 +1041,6 @@ ref; // ME_F43BF43DC3DF DoIt
    Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F43BF43DC3DF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1107,12 +1065,6 @@ ref; // ME_4D3ED618015C
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_48EA34990191_ME_4B1FC0FC010E DoStore
-
-: ME_5000565C019C_ME_4B1FC0FC010E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4B1FC0FC010E ClearFields
 
 : ME_4B1FC0FC010E
  CONST UID '4B1FC0FC010E'
@@ -1139,7 +1091,6 @@ ref; // ME_5000565C019C_ME_4B1FC0FC010E ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_48EA34990191_ME_4B1FC0FC010E // DoStore
- ME_5000565C019C_ME_4B1FC0FC010E // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -2029,70 +1980,6 @@ ref; // ME_4C9B0D150004 DoIt
 
 ref; // ME_4C9B0D0A035C Create
 
-FORWARD ME_4C9B0D300296
-
-: ME_5C59CD2FE74F
- CONST Name 'aDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_5C59CD2FE74F aDocument
-
-: ME_37C8750D9B75
- CONST Name 'aProcessor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
- ;
-
-ref; // ME_37C8750D9B75 aProcessor
-
-: ME_D3AA905B0686
- CONST Name 'anID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_D3AA905B0686 anID
-
-: ME_B847681E0E89
- CONST Name 'aLayerID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B847681E0E89 aLayerID
-
-: ME_7A5EBEE4F502
- CONST UID '7A5EBEE4F502'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsDocumentContainerSub.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C9B0D300296 // Make
- ;
- : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
- ;
- : Parameters
-   Seq: ( ME_5C59CD2FE74F // aDocument
- ME_37C8750D9B75 // aProcessor
- ME_D3AA905B0686 // anID
- ME_B847681E0E89 // aLayerID
- )
- ; // Parameters
-
-ref; // ME_7A5EBEE4F502 DoIt
-
 : ME_4C9B0D300296
  CONST UID '4C9B0D300296'
  CONST Name 'Make'
@@ -2111,10 +1998,6 @@ ref; // ME_7A5EBEE4F502 DoIt
    Seq: ( WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
  )
  ; // Implements
- : Operations
-   Seq: ( ME_7A5EBEE4F502 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2821,12 +2704,6 @@ ref; // ME_47F27DA80172_ME_500E758002C7 GetDocument
  CONST OpKind opkind_Overridden
 ref; // ME_4A79B7020303_ME_500E758002C7 CanFindParaAsNode
 
-: ME_5000565C019C_ME_500E758002C7
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_500E758002C7 ClearFields
-
 : ME_500ED7750045_ME_500E758002C7
  : Original ME_500ED7750045 // TransformMadeDocument
  ;
@@ -2880,7 +2757,6 @@ ref; // ME_506982B0037E_ME_500E758002C7 DocumentForFindPara
  ME_47F279E9037A_ME_500E758002C7 // GetIsSame
  ME_47F27DA80172_ME_500E758002C7 // GetDocument
  ME_4A79B7020303_ME_500E758002C7 // CanFindParaAsNode
- ME_5000565C019C_ME_500E758002C7 // ClearFields
  ME_500ED7750045_ME_500E758002C7 // TransformMadeDocument
  ME_506982B0037E_ME_500E758002C7 // DocumentForFindPara
  )

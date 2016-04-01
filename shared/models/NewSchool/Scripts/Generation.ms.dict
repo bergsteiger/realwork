@@ -485,6 +485,7 @@ PROCEDURE Init_g_UseNewGenExcluded
   '54856BFA003E' // TalcuSendTaskExecutor [Error] alcuSendTaskExecutor.pas(134): Undeclared identifier: 'FreeAndNil'
   '4B683B57028D' // TatChatWorker [Error] atChatWorker.pas(347): Undeclared identifier: 'aNotify'
   '47ECBAA30322' // TevHiddenFilter TevHiddenFilter.Make [Error] evHiddenFilter.pas(114): Undeclared identifier: 'Result'
+  '467FCCB101CF' // TnsTagNodePrim [Error] nsTagNodePrim.pas(380): Undeclared identifier: 'IDocumentTextProvider'
  ] >>> g_UseNewGenExcluded
 ; // Init_g_UseNewGenExcluded
 
@@ -545,10 +546,7 @@ BOOLEAN elem_func UseNewGenExcluded
    true
   DEFAULT
   begin
-   if ( 
-       ( g_UseNewGenExcluded IsNil )
-       OR ( g_UseNewGenExcluded IsVoid )
-      ) then
+   if ( g_UseNewGenExcluded IsNil ) then
     Init_g_UseNewGenExcluded
     
    g_UseNewGenExcluded IsNil ?FAIL 'Не инициализирован g_UseNewGenExcluded'
@@ -620,6 +618,9 @@ CONST cGenScriptsFolder 'W:\common\GenScripts\'
 BOOLEAN elem_func CanCopyToFinalFile
  false >>> Result
 ; // CanCopyToFinalFile
+
+PROCEDURE BackupFile
+; // BackupFile
 
 PROCEDURE DoDeleteFile
   STRING IN aFileName
@@ -1453,11 +1454,25 @@ ModelElement elem_func MainImplements
  >>> Result
 ; // MainImplements
 
+BOOLEAN elem_func IsFactoryAcceptable
+ RULES
+  ( Self .IsInterface )
+   true
+  ( Self .IsMixInParamType )
+   true
+  ( Self .IsArray )
+   true 
+  DEFAULT
+   false 
+ ; // RULES  
+ >>> Result
+; // IsFactoryAcceptable
+
 ModelElement elem_func MainImplementsInterface
  Cached:
  (
   Self .Implements 
-  .filter> .IsInterface
+  .filter> .IsFactoryAcceptable
   .FirstElement
  )
  >>> Result

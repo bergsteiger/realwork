@@ -77,37 +77,6 @@ ref; // ME_4CB30B66005B DoIt
 
 ref; // ME_4CB30B4A0124 Create
 
-FORWARD ME_4CB30B7E0341
-
-: ME_F1BAAFE62B01
- CONST Name 'aFilterType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4CADA33B0257' '4CAC58E50231.pas.ms.script' // TnsFiltersType
- ;
-
-ref; // ME_F1BAAFE62B01 aFilterType
-
-: ME_3E21BFDEFC52
- CONST UID '3E21BFDEFC52'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersContainerPrim.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB30B7E0341 // Make
- ;
- : Target WL 'ME_499184BF03C8' '4CAC58E50231.pas.ms.script' // InsFiltersContainer
- ;
- : Parameters
-   Seq: ( ME_F1BAAFE62B01 // aFilterType
- )
- ; // Parameters
-
-ref; // ME_3E21BFDEFC52 DoIt
-
 : ME_4CB30B7E0341
  CONST UID '4CB30B7E0341'
  CONST Name 'Make'
@@ -126,10 +95,6 @@ ref; // ME_3E21BFDEFC52 DoIt
    Seq: ( WL 'ME_499184BF03C8' '4CAC58E50231.pas.ms.script' // InsFiltersContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3E21BFDEFC52 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -391,23 +356,6 @@ ref; // ME_4CB6FCC00186 aName
 
 ref; // ME_4CB5549500AD RenameFilter
 
-: ME_D445EFBFB1BF
- CONST UID 'D445EFBFB1BF'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CAC5BD701BF // TnsFiltersContainer
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_D445EFBFB1BF Exists
-
 : ME_4CAD71C10281
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -497,7 +445,6 @@ ref; // ME_479731C50290_ME_4CAC5BD701BF Cleanup
  : Operations
    Seq: ( ME_4CB5545B0148 // ConvertToFilter
  ME_4CB5549500AD // RenameFilter
- ME_D445EFBFB1BF // Exists
  )
  ; // Operations
  : Overridden
@@ -634,48 +581,6 @@ ref; // ME_4F9954AB031F Create
 
 ref; // ME_4F995492006C Create$1
 
-FORWARD ME_4F9954BC025D
-
-: ME_C9192BE540A1
- CONST Name 'aFilterType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4CADA33B0257' '4CAC58E50231.pas.ms.script' // TnsFiltersType
- ;
-
-ref; // ME_C9192BE540A1 aFilterType
-
-: ME_2989D2382E8E
- CONST Name 'aDsList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E9F00100A2' '491B305A0096.pas.ms.script' // IdsList
- ;
-
-ref; // ME_2989D2382E8E aDsList
-
-: ME_BB41AA8D4B8B
- CONST UID 'BB41AA8D4B8B'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersTree.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F9954BC025D // Make$1
- ;
- : Target WL 'ME_476BF13201C4' '476BF10A0280.pas.ms.script' // Il3Tree
- ;
- : Parameters
-   Seq: ( ME_C9192BE540A1 // aFilterType
- ME_2989D2382E8E // aDsList
- )
- ; // Parameters
-
-ref; // ME_BB41AA8D4B8B Create
-
 : ME_4F9954BC025D
  CONST UID '4F9954BC025D'
  CONST Name 'Make'
@@ -694,10 +599,6 @@ ref; // ME_BB41AA8D4B8B Create
    Seq: ( WL 'ME_476BF13201C4' '476BF10A0280.pas.ms.script' // Il3Tree
  )
  ; // Implements
- : Operations
-   Seq: ( ME_BB41AA8D4B8B // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -758,48 +659,6 @@ ref; // ME_4F9954EE00E0 Create
 
 ref; // ME_4F9954DC015E Create$2
 
-FORWARD ME_4F9954FF036B
-
-: ME_65E9702B0D62
- CONST Name 'aListType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F5C59F0135' '47EA07FA02CE.pas.ms.script' // TbsListType
- ;
-
-ref; // ME_65E9702B0D62 aListType
-
-: ME_4D03337CE2B6
- CONST Name 'aDsList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E9F00100A2' '491B305A0096.pas.ms.script' // IdsList
- ;
-
-ref; // ME_4D03337CE2B6 aDsList
-
-: ME_1177F803BFD7
- CONST UID '1177F803BFD7'
- CONST Name 'Create'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersTree.Make$2' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F9954FF036B // Make$2
- ;
- : Target WL 'ME_476BF13201C4' '476BF10A0280.pas.ms.script' // Il3Tree
- ;
- : Parameters
-   Seq: ( ME_65E9702B0D62 // aListType
- ME_4D03337CE2B6 // aDsList
- )
- ; // Parameters
-
-ref; // ME_1177F803BFD7 Create
-
 : ME_4F9954FF036B
  CONST UID '4F9954FF036B'
  CONST Name 'Make'
@@ -818,10 +677,6 @@ ref; // ME_1177F803BFD7 Create
    Seq: ( WL 'ME_476BF13201C4' '476BF10A0280.pas.ms.script' // Il3Tree
  )
  ; // Implements
- : Operations
-   Seq: ( ME_1177F803BFD7 // Create
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1052,12 +907,6 @@ ref; // ME_51A4D19E0149_ME_4CAEC809015D IsRebuildLocked
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4CAEC809015D Cleanup
 
-: ME_5000565C019C_ME_4CAEC809015D
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CAEC809015D ClearFields
-
 : ME_4CAEC809015D
  CONST UID '4CAEC809015D'
  CONST Name 'TnsFiltersTree'
@@ -1105,7 +954,6 @@ ref; // ME_5000565C019C_ME_4CAEC809015D ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4CAEC809015D // Cleanup
- ME_5000565C019C_ME_4CAEC809015D // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -1207,37 +1055,6 @@ ref; // ME_4CB30C3300E7 DoIt
 
 ref; // ME_4CB30BE00217 Create
 
-FORWARD ME_4CB30BE802C6
-
-: ME_8D31FFC231FB
- CONST Name 'aFilter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4CA499CA03DD' '45EEA48F011F.pas.ms.script' // FilterFromQuery
- ;
-
-ref; // ME_8D31FFC231FB aFilter
-
-: ME_8CFC9D48E81B
- CONST UID '8CFC9D48E81B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersNode.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB30BE802C6 // Make
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- : Parameters
-   Seq: ( ME_8D31FFC231FB // aFilter
- )
- ; // Parameters
-
-ref; // ME_8CFC9D48E81B DoIt
-
 : ME_4CB30BE802C6
  CONST UID '4CB30BE802C6'
  CONST Name 'Make'
@@ -1256,10 +1073,6 @@ ref; // ME_8CFC9D48E81B DoIt
    Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8CFC9D48E81B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1493,35 +1306,6 @@ ref; // ME_5061DE9C03B0 DoIt
 
 ref; // ME_5061DE910095 Create
 
-FORWARD ME_5061DEA9001C
-
-: ME_D5AD8C254A34
- CONST Name 'aFiltersType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4CADA33B0257' '4CAC58E50231.pas.ms.script' // TnsFiltersType
- ;
-
-ref; // ME_D5AD8C254A34 aFiltersType
-
-: ME_B05823833E68
- CONST UID 'B05823833E68'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsFiltersRootNode.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5061DEA9001C // Make
- ;
- : Parameters
-   Seq: ( ME_D5AD8C254A34 // aFiltersType
- )
- ; // Parameters
-
-ref; // ME_B05823833E68 DoIt
-
 : ME_5061DEA9001C
  CONST UID '5061DEA9001C'
  CONST Name 'Make'
@@ -1536,10 +1320,6 @@ ref; // ME_B05823833E68 DoIt
    Seq: ( ME_5061DE910095 // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B05823833E68 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

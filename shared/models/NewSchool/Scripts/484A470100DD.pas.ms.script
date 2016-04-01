@@ -9383,6 +9383,84 @@ ref; // ME_56B998460047 DataServerPort
 
 ref; // ME_56A86C8401FD ComboAccessProviderParams
 
+FORWARD ME_56FE456C0292
+
+: ME_56FE46300390
+ CONST UID '56FE46300390'
+ CONST Name 'TaskType'
+ CONST Class class_Attribute
+ : Stereotype st_override::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56FE456C0292 // ContainerTask
+ ;
+ CONST Value 'Ord(cs_ttContainer)'
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+ CONST extprop:pas:Value 'Ord(cs_ttContainer)'
+
+ref; // ME_56FE46300390 TaskType
+
+: ME_56FE45A60292
+ CONST UID '56FE45A60292'
+ CONST Name 'Tasks'
+ CONST Class class_Attribute
+ : Stereotype st_array::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56FE456C0292 // ContainerTask
+ ;
+ : Target ME_53A95D9F02E9 // ProcessTask
+ ;
+ CONST "Duplicates" 'Ignore'
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoreChildTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'true'
+
+ref; // ME_56FE45A60292 Tasks
+
+: ME_56FE456C0292
+ CONST UID '56FE456C0292'
+ CONST Name 'ContainerTask'
+ CONST Class class_Class
+ : Stereotype st_Tag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537DFE740339 // evdTasks
+ ;
+ : Inherits
+   Seq: ( ME_53A95D9F02E9 // ProcessTask
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56FE46300390 // TaskType
+ ME_56FE45A60292 // Tasks
+ )
+ ; // Attributes
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\EVD\ContainerTask_Const.pas'
+ CONST extprop:pas:TypeName 'ContainerTaskTag'
+ CONST extprop:pas:UnitName 'ContainerTask_Const'
+
+ref; // ME_56FE456C0292 ContainerTask
+
 : ME_537DFE740339
  CONST UID '537DFE740339'
  CONST Name 'evdTasks'
@@ -9478,6 +9556,7 @@ ref; // ME_56A86C8401FD ComboAccessProviderParams
  ME_55E96E5502D6 // mdpSyncDicts
  ME_55EEBECD01B5 // mdpImportDocs
  ME_56A86C8401FD // ComboAccessProviderParams
+ ME_56FE456C0292 // ContainerTask
  )
  ; // Children
  : Injected

@@ -1209,21 +1209,6 @@ ref; // ME_56F1381400EC f_IsLocalSearchArea
 
 ref; // ME_56F138650232 f_Listeners
 
-FORWARD ME_56F12C01028A
-
-: ME_ADC9677B2C98
- CONST UID 'ADC9677B2C98'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Create' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56F12C01028A // Create
- ;
-
-ref; // ME_ADC9677B2C98 DoIt
-
 : ME_56F12C01028A
  CONST UID '56F12C01028A'
  CONST Name 'Create'
@@ -1234,29 +1219,8 @@ ref; // ME_ADC9677B2C98 DoIt
  CONST Abstraction at_final
  : Parent ME_56F12BAB0086 // TnsBaseSearchModel
  ;
- : Operations
-   Seq: ( ME_ADC9677B2C98 // DoIt
- )
- ; // Operations
 
 ref; // ME_56F12C01028A Create
-
-FORWARD ME_56F12BDA02C0
-
-: ME_4D516CB0C216
- CONST UID '4D516CB0C216'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsBaseSearchModel.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56F12BDA02C0 // Make
- ;
- : Target WL 'ME_56D42F09009E' '4A9F98B901A5.pas.ms.script' // InsBaseSearchModel
- ;
-
-ref; // ME_4D516CB0C216 DoIt
 
 : ME_56F12BDA02C0
  CONST UID '56F12BDA02C0'
@@ -1276,31 +1240,12 @@ ref; // ME_4D516CB0C216 DoIt
    Seq: ( WL 'ME_56D42F09009E' '4A9F98B901A5.pas.ms.script' // InsBaseSearchModel
  )
  ; // Implements
- : Operations
-   Seq: ( ME_4D516CB0C216 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
  CONST "need As" false
 
 ref; // ME_56F12BDA02C0 Make
-
-FORWARD ME_56F13824018B
-
-: ME_C7FBFF960547
- CONST UID 'C7FBFF960547'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Changed' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56F13824018B // Changed
- ;
-
-ref; // ME_C7FBFF960547 DoIt
 
 : ME_56F13824018B
  CONST UID '56F13824018B'
@@ -1312,10 +1257,6 @@ ref; // ME_C7FBFF960547 DoIt
  CONST Abstraction at_final
  : Parent ME_56F12BAB0086 // TnsBaseSearchModel
  ;
- : Operations
-   Seq: ( ME_C7FBFF960547 // DoIt
- )
- ; // Operations
 
 ref; // ME_56F13824018B Changed
 

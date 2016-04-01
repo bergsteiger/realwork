@@ -350,37 +350,6 @@ FORWARD ME_4C727C990284
 
 FORWARD ME_4C727B5001D1
 
-FORWARD ME_4C727EE60209
-
-: ME_FD81BD38884D
- CONST Name 'aProvider'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4C5AA5CA02DF' '4570511E038A.pas.ms.script' // DocumentTextProvider
- ;
-
-ref; // ME_FD81BD38884D aProvider
-
-: ME_3E90CBC0C731
- CONST UID '3E90CBC0C731'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tf1DocumentTagDataFromDTP.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C727EE60209 // Make
- ;
- : Target WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
- ;
- : Parameters
-   Seq: ( ME_FD81BD38884D // aProvider
- )
- ; // Parameters
-
-ref; // ME_3E90CBC0C731 DoIt
-
 : ME_4C727EE60209
  CONST UID '4C727EE60209'
  CONST Name 'Make'
@@ -399,10 +368,6 @@ ref; // ME_3E90CBC0C731 DoIt
    Seq: ( WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3E90CBC0C731 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1961,37 +1926,6 @@ ref; // ME_4CEE3A700100 DoIt
 
 ref; // ME_4CEE3A6702A7 Create
 
-FORWARD ME_4CEE3A8C0279
-
-: ME_6676B5A13B08
- CONST Name 'aComment'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4CED3DF702F9 // TnsNativeCommentPara
- ;
-
-ref; // ME_6676B5A13B08 aComment
-
-: ME_797185D4B36B
- CONST UID '797185D4B36B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsNativeCommentParaSink.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CEE3A8C0279 // Make
- ;
- : Target WL 'ME_4CEE380000F1' '4C6E92E9016E.pas.ms.script' // If1CommentSink
- ;
- : Parameters
-   Seq: ( ME_6676B5A13B08 // aComment
- )
- ; // Parameters
-
-ref; // ME_797185D4B36B DoIt
-
 : ME_4CEE3A8C0279
  CONST UID '4CEE3A8C0279'
  CONST Name 'Make'
@@ -2010,10 +1944,6 @@ ref; // ME_797185D4B36B DoIt
    Seq: ( WL 'ME_4CEE380000F1' '4C6E92E9016E.pas.ms.script' // If1CommentSink
  )
  ; // Implements
- : Operations
-   Seq: ( ME_797185D4B36B // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2876,48 +2806,6 @@ ref; // ME_4D66AF870061 DoIt
 
 ref; // ME_4D66AF7A025A Create
 
-FORWARD ME_4D66AFA8027C
-
-: ME_4A28F061F3DE
- CONST Name 'aHandle'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
-
-ref; // ME_4A28F061F3DE aHandle
-
-: ME_DFC8ECC6FDBA
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_DFC8ECC6FDBA aDoc
-
-: ME_064125185CC1
- CONST UID '064125185CC1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tf1DocumentTagDataFromDTPHandle.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D66AFA8027C // Make
- ;
- : Target WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
- ;
- : Parameters
-   Seq: ( ME_4A28F061F3DE // aHandle
- ME_DFC8ECC6FDBA // aDoc
- )
- ; // Parameters
-
-ref; // ME_064125185CC1 DoIt
-
 : ME_4D66AFA8027C
  CONST UID '4D66AFA8027C'
  CONST Name 'Make'
@@ -2936,10 +2824,6 @@ ref; // ME_064125185CC1 DoIt
    Seq: ( WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
  )
  ; // Implements
- : Operations
-   Seq: ( ME_064125185CC1 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -2987,12 +2871,6 @@ ref; // ME_4C7294F40339_ME_4D66AE9800B7 GetAllParaChildrenCount
  CONST OpKind opkind_Overridden
 ref; // ME_4D66B40B02C4_ME_4D66AE9800B7 DoGetType
 
-: ME_5000565C019C_ME_4D66AE9800B7
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D66AE9800B7 ClearFields
-
 : ME_4D66AE9800B7
  CONST UID '4D66AE9800B7'
  CONST Name 'Tf1DocumentTagDataFromDTPHandle'
@@ -3021,7 +2899,6 @@ ref; // ME_5000565C019C_ME_4D66AE9800B7 ClearFields
    Seq: ( ME_4C727B320016_ME_4D66AE9800B7 // f_Provider
  ME_4C7294F40339_ME_4D66AE9800B7 // GetAllParaChildrenCount
  ME_4D66B40B02C4_ME_4D66AE9800B7 // DoGetType
- ME_5000565C019C_ME_4D66AE9800B7 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -3157,12 +3034,6 @@ ref; // ME_4EAA9F1100F6 DoIt
 
 ref; // ME_4EAA9F0A03D5 Create
 
-: ME_5000565C019C_ME_4EAA9EA101C9
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4EAA9EA101C9 ClearFields
-
 : ME_4EAA9EA101C9
  CONST UID '4EAA9EA101C9'
  CONST Name 'TnsStyleParserContext'
@@ -3186,10 +3057,6 @@ ref; // ME_5000565C019C_ME_4EAA9EA101C9 ClearFields
  ME_4EAA9F0A03D5 // Create
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4EAA9EA101C9 // ClearFields
- )
- ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

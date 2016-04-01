@@ -946,59 +946,6 @@ ref; // ME_4D6E0DAF030D DoIt
 
 ref; // ME_4D6E0DA7024B Create
 
-FORWARD ME_4D6E0DB90031
-
-: ME_B3EAFB72E881
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B3EAFB72E881 anIndex
-
-: ME_BA3C2F9D8BCE
- CONST Name 'aDoc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_BA3C2F9D8BCE aDoc
-
-: ME_53106E5D9980
- CONST Name 'anAnno'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_53106E5D9980 anAnno
-
-: ME_E99FD7D39F3C
- CONST UID 'E99FD7D39F3C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsAnnotationHeaderTagData.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6E0DB90031 // Make
- ;
- : Target WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
- ;
- : Parameters
-   Seq: ( ME_B3EAFB72E881 // anIndex
- ME_BA3C2F9D8BCE // aDoc
- ME_53106E5D9980 // anAnno
- )
- ; // Parameters
-
-ref; // ME_E99FD7D39F3C DoIt
-
 : ME_4D6E0DB90031
  CONST UID '4D6E0DB90031'
  CONST Name 'Make'
@@ -1017,10 +964,6 @@ ref; // ME_E99FD7D39F3C DoIt
    Seq: ( WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E99FD7D39F3C // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1174,12 +1117,6 @@ ref; // ME_4D6E5C270068_ME_4D6E0D500395 IsProviderGot
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4D6E0D500395 Cleanup
 
-: ME_5000565C019C_ME_4D6E0D500395
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D6E0D500395 ClearFields
-
 : ME_4D6E0D500395
  CONST UID '4D6E0D500395'
  CONST Name 'TnsAnnotationHeaderTagData'
@@ -1230,7 +1167,6 @@ ref; // ME_5000565C019C_ME_4D6E0D500395 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_4D6E0D500395 // Cleanup
- ME_5000565C019C_ME_4D6E0D500395 // ClearFields
  )
  ; // Overridden
  : Dependencies

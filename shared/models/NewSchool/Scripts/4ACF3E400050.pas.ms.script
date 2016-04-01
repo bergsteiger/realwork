@@ -597,22 +597,6 @@ ref; // ME_52B984890049 f_Sub
 
 ref; // ME_555DD76D0011 f_Text
 
-: ME_970C21DE0D78
- CONST UID '970C21DE0D78'
- CONST Name 'f_Para'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Para' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
- ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_970C21DE0D78 f_Para
-
 : ME_52B1DFA200B4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -800,7 +784,6 @@ ref; // ME_4A60B23E00C3_ME_52B1DD5901CE COMQueryInterface
  ME_52B9848003C4 // f_Doc
  ME_52B984890049 // f_Sub
  ME_555DD76D0011 // f_Text
- ME_970C21DE0D78 // f_Para
  )
  ; // Attributes
  : Implemented
@@ -1094,23 +1077,6 @@ FORWARD ME_4906D9DE02FA
 
 ref; // ME_4906DA290069 Make
 
-: ME_9BFA8BFFFD05
- CONST UID '9BFA8BFFFD05'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4906D9DE02FA // TnsBaseSearchPromptTree
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_9BFA8BFFFD05 Exists
-
 : ME_4906D9DE02FA
  CONST UID '4906D9DE02FA'
  CONST Name 'TnsBaseSearchPromptTree'
@@ -1128,7 +1094,6 @@ ref; // ME_9BFA8BFFFD05 Exists
  ; // Inherits
  : Operations
    Seq: ( ME_4906DA290069 // Make
- ME_9BFA8BFFFD05 // Exists
  )
  ; // Operations
  CONST "author" 'Лукьянец Р.В.'

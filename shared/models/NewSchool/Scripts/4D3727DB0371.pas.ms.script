@@ -6212,48 +6212,6 @@ ref; // ME_4D4011F7009E DoIt
 
 ref; // ME_4D4011EF02C2 Create
 
-FORWARD ME_4D4012120378
-
-: ME_1A1BB3040C58
- CONST Name 'aType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4D403BC20320' '491B305A0096.pas.ms.script' // TnsContentsListType
- ;
-
-ref; // ME_1A1BB3040C58 aType
-
-: ME_189363C10FEA
- CONST Name 'aContents'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4925661502AE' '491B305A0096.pas.ms.script' // IdsBaseContents
- ;
-
-ref; // ME_189363C10FEA aContents
-
-: ME_A082A43D5F83
- CONST UID 'A082A43D5F83'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsContentsListForFiltering.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4012120378 // Make
- ;
- : Target WL 'ME_4D399FCD0271' '457450470167.pas.ms.script' // ListForFiltering
- ;
- : Parameters
-   Seq: ( ME_1A1BB3040C58 // aType
- ME_189363C10FEA // aContents
- )
- ; // Parameters
-
-ref; // ME_A082A43D5F83 DoIt
-
 : ME_4D4012120378
  CONST UID '4D4012120378'
  CONST Name 'Make'
@@ -6272,10 +6230,6 @@ ref; // ME_A082A43D5F83 DoIt
    Seq: ( WL 'ME_4D399FCD0271' '457450470167.pas.ms.script' // ListForFiltering
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A082A43D5F83 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -6353,12 +6307,6 @@ ref; // ME_4D3D272402AE_ME_4D4011460346 count
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4D4011460346 IsCacheable
 
-: ME_5000565C019C_ME_4D4011460346
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D4011460346 ClearFields
-
 : ME_4D4011460346
  CONST UID '4D4011460346'
  CONST Name 'TnsContentsListForFiltering'
@@ -6394,7 +6342,6 @@ ref; // ME_5000565C019C_ME_4D4011460346 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A6FEE600FC_ME_4D4011460346 // IsCacheable
- ME_5000565C019C_ME_4D4011460346 // ClearFields
  )
  ; // Overridden
  : Dependencies

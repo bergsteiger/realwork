@@ -6580,23 +6580,6 @@ ref; // ME_54FEC88600B9 InsDataExchangeSubscriber
 
 ref; // ME_54FEC8BB0295 Subscriber
 
-: ME_4FFAC90733D4
- CONST UID '4FFAC90733D4'
- CONST Name 'f_Subscriber'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Subscriber' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54FEC834013B // TnsDataExchangeProxy
- ;
- : Target ME_54FEC88600B9 // InsDataExchangeSubscriber
- ;
- CONST extprop:clearViaProperty 'Subscriber'
-
-ref; // ME_4FFAC90733D4 f_Subscriber
-
 FORWARD ME_54FEC90002B4
 
 : ME_54FEC97F0095
@@ -6654,34 +6637,11 @@ ref; // ME_54FEC97C02A6 DoIt
 
 ref; // ME_54FEC90002B4 MakeAndOpenList
 
-: ME_0AFD8C6E5E5E
- CONST UID '0AFD8C6E5E5E'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54FEC834013B // TnsDataExchangeProxy
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_0AFD8C6E5E5E Exists
-
 : ME_479731C50290_ME_54FEC834013B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54FEC834013B Cleanup
-
-: ME_5000565C019C_ME_54FEC834013B
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_54FEC834013B ClearFields
 
 : ME_54FEC834013B
  CONST UID '54FEC834013B'
@@ -6699,17 +6659,14 @@ ref; // ME_5000565C019C_ME_54FEC834013B ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_54FEC8BB0295 // Subscriber
- ME_4FFAC90733D4 // f_Subscriber
  )
  ; // Attributes
  : Operations
    Seq: ( ME_54FEC90002B4 // MakeAndOpenList
- ME_0AFD8C6E5E5E // Exists
  )
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_54FEC834013B // Cleanup
- ME_5000565C019C_ME_54FEC834013B // ClearFields
  )
  ; // Overridden
  : Children

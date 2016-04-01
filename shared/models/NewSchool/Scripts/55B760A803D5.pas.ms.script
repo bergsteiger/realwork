@@ -294,39 +294,6 @@ ref; // ME_55B761D70223 LogManager
 
 ref; // ME_566AED53005B f_LoggingTestService
 
-: ME_80F6D1B1F891
- CONST UID '80F6D1B1F891'
- CONST Name 'f_LogManager'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LogManager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55B761180244 // TnsLogManager
- ;
- : Target WL 'ME_45ED59950191' '45ED58CF03E6.pas.ms.script' // LogManager
- ;
-
-ref; // ME_80F6D1B1F891 f_LogManager
-
-: ME_997A64BF8453
- CONST UID '997A64BF8453'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55B761180244 // TnsLogManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_997A64BF8453 Exists
-
 : ME_55B763090209
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -375,12 +342,6 @@ ref; // ME_479731C50290_ME_55B761180244 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_55B761180244 InitFields
 
-: ME_5000565C019C_ME_55B761180244
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55B761180244 ClearFields
-
 : ME_55B761180244
  CONST UID '55B761180244'
  CONST Name 'TnsLogManager'
@@ -402,13 +363,8 @@ ref; // ME_5000565C019C_ME_55B761180244 ClearFields
  : Attributes
    Seq: ( ME_55B761D70223 // LogManager
  ME_566AED53005B // f_LoggingTestService
- ME_80F6D1B1F891 // f_LogManager
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_997A64BF8453 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_55B760550256_ME_55B761180244 // AddEvent
  )
@@ -416,7 +372,6 @@ ref; // ME_5000565C019C_ME_55B761180244 ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_55B761180244 // Cleanup
  ME_47A042E100E2_ME_55B761180244 // InitFields
- ME_5000565C019C_ME_55B761180244 // ClearFields
  )
  ; // Overridden
  : Dependencies

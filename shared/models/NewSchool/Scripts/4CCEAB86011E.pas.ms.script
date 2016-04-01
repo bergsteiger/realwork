@@ -531,48 +531,6 @@ ref; // ME_4CCECDA601F5
 
 ref; // ME_4CCEADD30141 Create
 
-FORWARD ME_4CCEAE0E0089
-
-: ME_0DD5846D37DB
- CONST Name 'aCardType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
- ;
-
-ref; // ME_0DD5846D37DB aCardType
-
-: ME_A0885EFA8443
- CONST Name 'aModel'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47CD5FA60110' '47CD5C7602CD.pas.ms.script' // IevAdapterModel
- ;
-
-ref; // ME_A0885EFA8443 aModel
-
-: ME_1D427CBEB6E2
- CONST UID '1D427CBEB6E2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tf1QueryDocumentContainer.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CCEAE0E0089 // Make
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_0DD5846D37DB // aCardType
- ME_A0885EFA8443 // aModel
- )
- ; // Parameters
-
-ref; // ME_1D427CBEB6E2 DoIt
-
 : ME_4CCEAE0E0089
  CONST UID '4CCEAE0E0089'
  CONST Name 'Make'
@@ -591,10 +549,6 @@ ref; // ME_1D427CBEB6E2 DoIt
    Seq: ( WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_1D427CBEB6E2 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

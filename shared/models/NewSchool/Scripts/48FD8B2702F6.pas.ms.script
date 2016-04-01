@@ -1354,22 +1354,6 @@ ref; // ME_4909AB42024B f_AdapterNodeCaption
 
 ref; // ME_4909AB5C0311 f_ParentNode
 
-: ME_61CB2E89045C
- CONST UID '61CB2E89045C'
- CONST Name 'f_AdapterNode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AdapterNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4682732A02F9 // TnsINodeWrapBase
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_61CB2E89045C f_AdapterNode
-
 : ME_490825370178
  CONST UID '490825370178'
  CONST Name 'DoGetText'
@@ -1839,12 +1823,6 @@ ref; // ME_479731C50290_ME_4682732A02F9 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4682732A02F9 COMQueryInterface
 
-: ME_5000565C019C_ME_4682732A02F9
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4682732A02F9 ClearFields
-
 : ME_4682732A02F9
  CONST UID '4682732A02F9'
  CONST Name 'TnsINodeWrapBase'
@@ -1869,7 +1847,6 @@ ref; // ME_5000565C019C_ME_4682732A02F9 ClearFields
    Seq: ( ME_49098498001F // AdapterNode
  ME_4909AB42024B // f_AdapterNodeCaption
  ME_4909AB5C0311 // f_ParentNode
- ME_61CB2E89045C // f_AdapterNode
  )
  ; // Attributes
  : Operations
@@ -1917,7 +1894,6 @@ ref; // ME_5000565C019C_ME_4682732A02F9 ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_4682732A02F9 // Cleanup
  ME_4A60B23E00C3_ME_4682732A02F9 // COMQueryInterface
- ME_5000565C019C_ME_4682732A02F9 // ClearFields
  )
  ; // Overridden
  : Children
@@ -2008,35 +1984,6 @@ ref; // ME_56A887CE028D DoIt
 
 ref; // ME_56A887A200DE Create
 
-FORWARD ME_56A887B701E5
-
-: ME_69EF000E46DD
- CONST Name 'aSelectedIndexList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
- ;
-
-ref; // ME_69EF000E46DD aSelectedIndexList
-
-: ME_2D8D71712D14
- CONST UID '2D8D71712D14'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsTreeStructState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56A887B701E5 // Make
- ;
- : Parameters
-   Seq: ( ME_69EF000E46DD // aSelectedIndexList
- )
- ; // Parameters
-
-ref; // ME_2D8D71712D14 DoIt
-
 : ME_56A887B701E5
  CONST UID '56A887B701E5'
  CONST Name 'Make'
@@ -2051,10 +1998,6 @@ ref; // ME_2D8D71712D14 DoIt
    Seq: ( ME_56A887A200DE // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2D8D71712D14 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -4034,22 +3977,6 @@ ref; // ME_48FF42E50041 Filters
 
 ref; // ME_48FF43E6034F f_Subscribers
 
-: ME_B638C273FF2A
- CONST UID 'B638C273FF2A'
- CONST Name 'f_Filters'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Filters' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_46835BD201D6 // TnsFilterableTreeStruct
- ;
- : Target WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
- ;
-
-ref; // ME_B638C273FF2A f_Filters
-
 FORWARD ME_4D4022340233
 
 : ME_4D40226203A7
@@ -4725,12 +4652,6 @@ ref; // ME_479731C50290_ME_46835BD201D6 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_48FDD9270194_ME_46835BD201D6 Create
 
-: ME_5000565C019C_ME_46835BD201D6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_46835BD201D6 ClearFields
-
 : ME_46835BD201D6
  CONST UID '46835BD201D6'
  CONST Name 'TnsFilterableTreeStruct'
@@ -4760,7 +4681,6 @@ ref; // ME_5000565C019C_ME_46835BD201D6 ClearFields
  ME_48FF42C6030A // f_ContextFilterParams
  ME_48FF42E50041 // Filters
  ME_48FF43E6034F // f_Subscribers
- ME_B638C273FF2A // f_Filters
  )
  ; // Attributes
  : Operations
@@ -4795,7 +4715,6 @@ ref; // ME_5000565C019C_ME_46835BD201D6 ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_46835BD201D6 // Cleanup
  ME_48FDD9270194_ME_46835BD201D6 // Create
- ME_5000565C019C_ME_46835BD201D6 // ClearFields
  )
  ; // Overridden
  : Children
@@ -4942,23 +4861,6 @@ ref; // ME_48FF644500DC BeenReseted
  ;
 
 ref; // ME_48FF645A00F6 f_InGetRoot
-
-: ME_CE3F816C018C
- CONST UID 'CE3F816C018C'
- CONST Name 'f_BeenReseted'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BeenReseted' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_468361010204 // TnsDataResetTreeStruct
- ;
- : Target WL 'ME_48FF63BC0129' '47F2170002B2.pas.ms.script' // TnsResetTreeStatus
- ;
- CONST extprop:clearViaProperty 'BeenReseted'
-
-ref; // ME_CE3F816C018C f_BeenReseted
 
 FORWARD ME_4F1D334C0371
 
@@ -5141,7 +5043,6 @@ ref; // ME_48FF5A9002CC_ME_468361010204 DoMakeFiltered
  : Attributes
    Seq: ( ME_48FF644500DC // BeenReseted
  ME_48FF645A00F6 // f_InGetRoot
- ME_CE3F816C018C // f_BeenReseted
  )
  ; // Attributes
  : Operations

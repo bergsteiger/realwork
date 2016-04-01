@@ -1398,48 +1398,6 @@ ref; // ME_4F153CEA0321 DoIt
 
 ref; // ME_4F153CE400E6 Create
 
-FORWARD ME_4F153D1F0229
-
-: ME_E085E314E674
- CONST Name 'aViewArea'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4921869901CF' '491B305A0096.pas.ms.script' // IdsWarning
- ;
-
-ref; // ME_E085E314E674 aViewArea
-
-: ME_401CF403EFBA
- CONST Name 'aUserType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
-
-ref; // ME_401CF403EFBA aUserType
-
-: ME_36BF56602BC9
- CONST UID '36BF56602BC9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsWarningDocumentContainer.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F153D1F0229 // Make
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_E085E314E674 // aViewArea
- ME_401CF403EFBA // aUserType
- )
- ; // Parameters
-
-ref; // ME_36BF56602BC9 DoIt
-
 : ME_4F153D1F0229
  CONST UID '4F153D1F0229'
  CONST Name 'Make'
@@ -1458,10 +1416,6 @@ ref; // ME_36BF56602BC9 DoIt
    Seq: ( WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_36BF56602BC9 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1474,12 +1428,6 @@ ref; // ME_4F153D1F0229 Make
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47F27DA80172_ME_4F153BA50321 GetDocument
-
-: ME_5000565C019C_ME_4F153BA50321
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4F153BA50321 ClearFields
 
 : ME_4F153BA50321
  CONST UID '4F153BA50321'
@@ -1507,7 +1455,6 @@ ref; // ME_5000565C019C_ME_4F153BA50321 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_47F27DA80172_ME_4F153BA50321 // GetDocument
- ME_5000565C019C_ME_4F153BA50321 // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'

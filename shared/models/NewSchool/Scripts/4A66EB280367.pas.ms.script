@@ -774,23 +774,6 @@ FORWARD ME_4A682A110387
 
 FORWARD ME_4B13BC920384
 
-: ME_F352A3F61A72
- CONST UID 'F352A3F61A72'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B13BC920384 // TnsChatWindowOpensCountEvent
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_F352A3F61A72 Exists
-
 : ME_4B13A26203DB_ME_4B13BC920384
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
  ;
@@ -811,10 +794,6 @@ ref; // ME_4B13A26203DB_ME_4B13BC920384 EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F352A3F61A72 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13BC920384 // EventID
  )
@@ -1497,23 +1476,6 @@ FORWARD ME_4A683EC401BB
 
 ref; // ME_4A683F3A039D Make
 
-: ME_C53EE16C4BCF
- CONST UID 'C53EE16C4BCF'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A683EC401BB // TbsChatDispatcher
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_C53EE16C4BCF Exists
-
 : ME_4A683EC401BB
  CONST UID '4A683EC401BB'
  CONST Name 'TbsChatDispatcher'
@@ -1530,7 +1492,6 @@ ref; // ME_C53EE16C4BCF Exists
  ; // Inherits
  : Operations
    Seq: ( ME_4A683F3A039D // Make
- ME_C53EE16C4BCF // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

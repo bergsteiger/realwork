@@ -406,22 +406,6 @@ ref; // ME_4DF2171B00F8 Data
 
 ref; // ME_4DF2173B01FE LinkType
 
-: ME_F5FCD55BDCB4
- CONST UID 'F5FCD55BDCB4'
- CONST Name 'f_LinkType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LinkType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AA4D8A6012B // TbsOpenListInfo
- ;
- : Target WL 'ME_4AA4E1BB00D0' '4AA4E182008E.pas.ms.script' // TbsLinkType
- ;
-
-ref; // ME_F5FCD55BDCB4 f_LinkType
-
 FORWARD ME_4DF2178601C8
 
 : ME_4DF21797023F
@@ -558,12 +542,6 @@ ref; // ME_4DF218BF01BD
 
 ref; // ME_4DF21B64025A 
 
-: ME_5000565C019C_ME_4AA4D8A6012B
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AA4D8A6012B ClearFields
-
 : ME_4AA4D8A6012B
  CONST UID '4AA4D8A6012B'
  CONST Name 'TbsOpenListInfo'
@@ -582,7 +560,6 @@ ref; // ME_5000565C019C_ME_4AA4D8A6012B ClearFields
    Seq: ( ME_4DF216F70363 // f_Data
  ME_4DF2171B00F8 // Data
  ME_4DF2173B01FE // LinkType
- ME_F5FCD55BDCB4 // f_LinkType
  )
  ; // Attributes
  : Operations
@@ -590,10 +567,6 @@ ref; // ME_5000565C019C_ME_4AA4D8A6012B ClearFields
  ME_4DF217A402DE // Init
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4AA4D8A6012B // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_4DF218120197 // 
  ME_4DF21842030D // 

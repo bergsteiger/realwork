@@ -2598,12 +2598,6 @@ ref; // ME_47A042E100E2_ME_493A66C50034 InitFields
  CONST OpKind opkind_Overridden
 ref; // ME_4B16B8CF0307_ME_493A66C50034 AssignData
 
-: ME_5000565C019C_ME_493A66C50034
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_493A66C50034 ClearFields
-
 : ME_493A66C50034
  CONST UID '493A66C50034'
  CONST Name 'TdMedicFirmList'
@@ -2642,7 +2636,6 @@ ref; // ME_5000565C019C_ME_493A66C50034 ClearFields
  : Overridden
    Seq: ( ME_47A042E100E2_ME_493A66C50034 // InitFields
  ME_4B16B8CF0307_ME_493A66C50034 // AssignData
- ME_5000565C019C_ME_493A66C50034 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -2913,70 +2906,6 @@ ref; // ME_561F6E68024E DoIt
 
 ref; // ME_561F6E61019E Create
 
-FORWARD ME_561F70100377
-
-: ME_1704E4A6ACE5
- CONST Name 'aDocInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_1704E4A6ACE5 aDocInfo
-
-: ME_BAFB645A58BE
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_BAFB645A58BE aCurrent
-
-: ME_BAC75922D759
- CONST Name 'aCountryFilter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_BAC75922D759 aCountryFilter
-
-: ME_21EFC604D0CC
- CONST Name 'aCurrentCountryFilter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_21EFC604D0CC aCurrentCountryFilter
-
-: ME_2266C567C799
- CONST UID '2266C567C799'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TdeMedicFirmList.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_561F70100377 // Make
- ;
- : Target WL 'ME_561F628C0396' '491D7C9603B2.pas.ms.script' // IdeMedicFirmList
- ;
- : Parameters
-   Seq: ( ME_1704E4A6ACE5 // aDocInfo
- ME_BAFB645A58BE // aCurrent
- ME_BAC75922D759 // aCountryFilter
- ME_21EFC604D0CC // aCurrentCountryFilter
- )
- ; // Parameters
-
-ref; // ME_2266C567C799 DoIt
-
 : ME_561F70100377
  CONST UID '561F70100377'
  CONST Name 'Make'
@@ -2995,10 +2924,6 @@ ref; // ME_2266C567C799 DoIt
    Seq: ( WL 'ME_561F628C0396' '491D7C9603B2.pas.ms.script' // IdeMedicFirmList
  )
  ; // Implements
- : Operations
-   Seq: ( ME_2266C567C799 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

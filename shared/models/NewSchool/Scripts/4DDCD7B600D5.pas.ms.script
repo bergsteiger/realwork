@@ -350,59 +350,6 @@ ref; // ME_4DDCDA0C0323 DoIt
 
 ref; // ME_4DDCDA030188 Create
 
-FORWARD ME_4DDCD9F40274
-
-: ME_F2A12259ADBF
- CONST Name 'aLeft'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_F2A12259ADBF aLeft
-
-: ME_CA49C8B6CF3F
- CONST Name 'aRight'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
- ;
-
-ref; // ME_CA49C8B6CF3F aRight
-
-: ME_166B9A2FC5A5
- CONST Name 'aDiffProvider'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
- ;
-
-ref; // ME_166B9A2FC5A5 aDiffProvider
-
-: ME_3377CCCADD8A
- CONST UID '3377CCCADD8A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsChangesBetweenEditionsInfo.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD9F40274 // Make
- ;
- : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
- ;
- : Parameters
-   Seq: ( ME_F2A12259ADBF // aLeft
- ME_CA49C8B6CF3F // aRight
- ME_166B9A2FC5A5 // aDiffProvider
- )
- ; // Parameters
-
-ref; // ME_3377CCCADD8A DoIt
-
 : ME_4DDCD9F40274
  CONST UID '4DDCD9F40274'
  CONST Name 'Make'
@@ -421,10 +368,6 @@ ref; // ME_3377CCCADD8A DoIt
    Seq: ( WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
  )
  ; // Implements
- : Operations
-   Seq: ( ME_3377CCCADD8A // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -469,12 +412,6 @@ ref; // ME_4F2BF187026F_ME_4DDCD9670300 LeftEdition
  CONST OpKind opkind_Overridden
 ref; // ME_47EA4E9002C6_ME_4DDCD9670300 FinishDataUpdate
 
-: ME_5000565C019C_ME_4DDCD9670300
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4DDCD9670300 ClearFields
-
 : ME_4DDCD9670300
  CONST UID '4DDCD9670300'
  CONST Name 'TnsChangesBetweenEditionsInfo'
@@ -514,7 +451,6 @@ ref; // ME_5000565C019C_ME_4DDCD9670300 ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47EA4E9002C6_ME_4DDCD9670300 // FinishDataUpdate
- ME_5000565C019C_ME_4DDCD9670300 // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -960,37 +896,6 @@ ref; // ME_4DDCF6B20333 DoIt
 
 ref; // ME_4DDCF6AB0206 Create
 
-FORWARD ME_4DDCF6A20276
-
-: ME_5D26AC6BD15E
- CONST Name 'anInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
- ;
-
-ref; // ME_5D26AC6BD15E anInfo
-
-: ME_B62D4A36E5EA
- CONST UID 'B62D4A36E5EA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TsdsChangesBetweenEditionsData.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCF6A20276 // Make
- ;
- : Target WL 'ME_4DDCF62C01DF' '4DDCD71E027C.pas.ms.script' // IsdsChangesBetweenEditionsData
- ;
- : Parameters
-   Seq: ( ME_5D26AC6BD15E // anInfo
- )
- ; // Parameters
-
-ref; // ME_B62D4A36E5EA DoIt
-
 : ME_4DDCF6A20276
  CONST UID '4DDCF6A20276'
  CONST Name 'Make'
@@ -1009,10 +914,6 @@ ref; // ME_B62D4A36E5EA DoIt
    Seq: ( WL 'ME_4DDCF62C01DF' '4DDCD71E027C.pas.ms.script' // IsdsChangesBetweenEditionsData
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B62D4A36E5EA // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1032,12 +933,6 @@ ref; // ME_4DDCF63C0353_ME_4DDCF660018A Info
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4B16B8CF0307_ME_4DDCF660018A AssignData
-
-: ME_5000565C019C_ME_4DDCF660018A
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4DDCF660018A ClearFields
 
 : ME_4DDCF660018A
  CONST UID '4DDCF660018A'
@@ -1073,7 +968,6 @@ ref; // ME_5000565C019C_ME_4DDCF660018A ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_4B16B8CF0307_ME_4DDCF660018A // AssignData
- ME_5000565C019C_ME_4DDCF660018A // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -1174,37 +1068,6 @@ ref; // ME_4DDD0E230220 DoIt
 
 ref; // ME_4DDD0E080101 Create
 
-FORWARD ME_4DDD0DF103B5
-
-: ME_7985F82C109B
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.pas.ms.script' // InsChangesBetweenEditionsInfo
- ;
-
-ref; // ME_7985F82C109B aData
-
-: ME_2B060EC6BDEC
- CONST UID '2B060EC6BDEC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsChangesBetweenEditionsDocumentContainer.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDD0DF103B5 // Make
- ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_7985F82C109B // aData
- )
- ; // Parameters
-
-ref; // ME_2B060EC6BDEC DoIt
-
 : ME_4DDD0DF103B5
  CONST UID '4DDD0DF103B5'
  CONST Name 'Make'
@@ -1223,10 +1086,6 @@ ref; // ME_2B060EC6BDEC DoIt
    Seq: ( WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
  )
  ; // Implements
- : Operations
-   Seq: ( ME_2B060EC6BDEC // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -1561,12 +1420,6 @@ ref; // ME_47F27DA80172_ME_4DDD0D92039C GetDocument
  CONST OpKind opkind_Overridden
 ref; // ME_4B1FBF87020C_ME_4DDD0D92039C AfterCreate
 
-: ME_5000565C019C_ME_4DDD0D92039C
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4DDD0D92039C ClearFields
-
 : ME_4DDD0D92039C
  CONST UID '4DDD0D92039C'
  CONST Name 'TnsChangesBetweenEditionsDocumentContainer'
@@ -1607,7 +1460,6 @@ ref; // ME_5000565C019C_ME_4DDD0D92039C ClearFields
  ME_47F10C6E0240_ME_4DDD0D92039C // CanBePlacedInDocumentsCache
  ME_47F27DA80172_ME_4DDD0D92039C // GetDocument
  ME_4B1FBF87020C_ME_4DDD0D92039C // AfterCreate
- ME_5000565C019C_ME_4DDD0D92039C // ClearFields
  )
  ; // Overridden
  : Dependencies

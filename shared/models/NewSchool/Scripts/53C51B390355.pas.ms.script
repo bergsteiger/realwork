@@ -24,6 +24,23 @@ FORWARD ME_53AC018900AE
 
 ref; // ME_53C4F9DC0204 CanNotifyChange
 
+: ME_F6B12E94BD1C
+ CONST UID 'F6B12E94BD1C'
+ CONST Name 'f_CanNotifyChange'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства CanNotifyChange' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53AC018900AE // TddTaskItemPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:clearViaProperty 'CanNotifyChange'
+
+ref; // ME_F6B12E94BD1C f_CanNotifyChange
+
 : ME_5B83E11F22FB
  CONST UID '5B83E11F22FB'
  CONST Name 'TaskType'
@@ -740,6 +757,7 @@ ref; // ME_47A042E100E2_ME_53AC018900AE InitFields
  ; // Implements
  : Attributes
    Seq: ( ME_53C4F9DC0204 // CanNotifyChange
+ ME_F6B12E94BD1C // f_CanNotifyChange
  ME_5B83E11F22FB // TaskType
  ME_AF593256A9AE // Priority
  ME_571225C20359 // Version

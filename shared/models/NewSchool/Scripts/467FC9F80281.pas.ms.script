@@ -817,23 +817,6 @@ ref; // ME_4C6D1A58004D TagDataProvider
 
 ref; // ME_4C6D1BA602F1 f_State
 
-: ME_A8AE6088D63F
- CONST UID 'A8AE6088D63F'
- CONST Name 'f_TagDataProvider'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TagDataProvider' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_467FCCB101CF // TnsTagNodePrim
- ;
- : Target ME_4C6D1A8D0190 // DocTagNodeType
- ;
- CONST extprop:clearViaProperty 'TagDataProvider'
-
-ref; // ME_A8AE6088D63F f_TagDataProvider
-
 FORWARD ME_4C6D1CE80342
 
 : ME_4C6D1CF00100
@@ -1394,12 +1377,6 @@ ref; // ME_4A60B23E00C3_ME_467FCCB101CF COMQueryInterface
  CONST OpKind opkind_Overridden
 ref; // ME_4C6D1C29031F_ME_467FCCB101CF DoMarkModified
 
-: ME_5000565C019C_ME_467FCCB101CF
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_467FCCB101CF ClearFields
-
 : ME_467FCCB101CF
  CONST UID '467FCCB101CF'
  CONST Name 'TnsTagNodePrim'
@@ -1422,7 +1399,6 @@ ref; // ME_5000565C019C_ME_467FCCB101CF ClearFields
  : Attributes
    Seq: ( ME_4C6D1A58004D // TagDataProvider
  ME_4C6D1BA602F1 // f_State
- ME_A8AE6088D63F // f_TagDataProvider
  )
  ; // Attributes
  : Operations
@@ -1444,7 +1420,6 @@ ref; // ME_5000565C019C_ME_467FCCB101CF ClearFields
  ME_49A545D501F6_ME_467FCCB101CF // DoIterateProperties
  ME_4A60B23E00C3_ME_467FCCB101CF // COMQueryInterface
  ME_4C6D1C29031F_ME_467FCCB101CF // DoMarkModified
- ME_5000565C019C_ME_467FCCB101CF // ClearFields
  )
  ; // Overridden
  : Children
@@ -2341,12 +2316,6 @@ ref; // ME_4CEFAD320395 MakeChildTag
 
 ref; // ME_4CEFAD26022D 
 
-: ME_5000565C019C_ME_4CEFA95A0301
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CEFA95A0301 ClearFields
-
 : ME_4CEFA95A0301
  CONST UID '4CEFA95A0301'
  CONST Name 'TnsParaListNodeModelPart'
@@ -2370,10 +2339,6 @@ ref; // ME_5000565C019C_ME_4CEFA95A0301 ClearFields
    Seq: ( ME_4CEFAD320395 // MakeChildTag
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4CEFA95A0301 // ClearFields
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_4CEFAD26022D // 
  )
@@ -3849,37 +3814,6 @@ ref; // ME_4C722F730253 DoIt
 
 ref; // ME_4C722F6B0307 Create
 
-FORWARD ME_4C722F820347
-
-: ME_16B8F4AF31BC
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_467FCCB101CF // TnsTagNodePrim
- ;
-
-ref; // ME_16B8F4AF31BC aTag
-
-: ME_A58F4BEDE3CF
- CONST UID 'A58F4BEDE3CF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tf1AtomChecker.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C722F820347 // Make
- ;
- : Target WL 'ME_4C722E000103' '4C6E92E9016E.pas.ms.script' // If1AtomChecker
- ;
- : Parameters
-   Seq: ( ME_16B8F4AF31BC // aTag
- )
- ; // Parameters
-
-ref; // ME_A58F4BEDE3CF DoIt
-
 : ME_4C722F820347
  CONST UID '4C722F820347'
  CONST Name 'Make'
@@ -3898,10 +3832,6 @@ ref; // ME_A58F4BEDE3CF DoIt
    Seq: ( WL 'ME_4C722E000103' '4C6E92E9016E.pas.ms.script' // If1AtomChecker
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A58F4BEDE3CF // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -5003,37 +4933,6 @@ ref; // ME_4CEBB84B038D DoIt
 
 ref; // ME_4CEBB84401C9 Create
 
-FORWARD ME_4CEBB85A01E1
-
-: ME_396DA94033CB
- CONST Name 'aTag'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_467FCE2703D6 // TnsParaListNode
- ;
-
-ref; // ME_396DA94033CB aTag
-
-: ME_F8A3AC683FB0
- CONST UID 'F8A3AC683FB0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики Tf1ChildMaker.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CEBB85A01E1 // Make
- ;
- : Target WL 'ME_4CEBB7550046' '4C6E92E9016E.pas.ms.script' // If1ChildMaker
- ;
- : Parameters
-   Seq: ( ME_396DA94033CB // aTag
- )
- ; // Parameters
-
-ref; // ME_F8A3AC683FB0 DoIt
-
 : ME_4CEBB85A01E1
  CONST UID '4CEBB85A01E1'
  CONST Name 'Make'
@@ -5052,10 +4951,6 @@ ref; // ME_F8A3AC683FB0 DoIt
    Seq: ( WL 'ME_4CEBB7550046' '4C6E92E9016E.pas.ms.script' // If1ChildMaker
  )
  ; // Implements
- : Operations
-   Seq: ( ME_F8A3AC683FB0 // DoIt
- )
- ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

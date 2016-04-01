@@ -308,23 +308,6 @@ FORWARD ME_4B139FB1009B
 
 ref; // ME_4B13A8A20263 Make
 
-: ME_6BBB76B016CC
- CONST UID '6BBB76B016CC'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B139FB1009B // TnsCachedEventsProcessor
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_6BBB76B016CC Exists
-
 : ME_4B139FB1009B
  CONST UID '4B139FB1009B'
  CONST Name 'TnsCachedEventsProcessor'
@@ -341,7 +324,6 @@ ref; // ME_6BBB76B016CC Exists
  ; // Inherits
  : Operations
    Seq: ( ME_4B13A8A20263 // Make
- ME_6BBB76B016CC // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -826,23 +808,6 @@ ref; // ME_4B1662ED031B f_List
 
 ref; // ME_4B1661450093 Create
 
-: ME_40F644E1F78B
- CONST UID '40F644E1F78B'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B1660B9000D // TnsContextFilterEventListener
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_40F644E1F78B Exists
-
 : ME_4B166460002D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -935,7 +900,6 @@ ref; // ME_479731C50290_ME_4B1660B9000D Cleanup
  ; // Attributes
  : Operations
    Seq: ( ME_4B1661450093 // Create
- ME_40F644E1F78B // Exists
  )
  ; // Operations
  : Implemented

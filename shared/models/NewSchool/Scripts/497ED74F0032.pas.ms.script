@@ -3782,23 +3782,6 @@ FORWARD ME_4B13C72F0167
 
 FORWARD ME_4B13C75E02D1
 
-: ME_15F36BD8A5DC
- CONST UID '15F36BD8A5DC'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B13C75E02D1 // TnsUseTaskPanelOperationEvent
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_15F36BD8A5DC Exists
-
 : ME_4B13A26203DB_ME_4B13C75E02D1
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
  ;
@@ -3819,10 +3802,6 @@ ref; // ME_4B13A26203DB_ME_4B13C75E02D1 EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_15F36BD8A5DC // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13C75E02D1 // EventID
  )

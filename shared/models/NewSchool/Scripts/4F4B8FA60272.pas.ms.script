@@ -411,23 +411,6 @@ ref; // ME_512CD73E01E6 TnsGetGenOutputStruct
 
 ref; // ME_512CD70F03C7 nsExternalObjectModelPart
 
-: ME_075140AD19DD
- CONST UID '075140AD19DD'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52D669BA02CC // TnsExternalObject
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_075140AD19DD Exists
-
 : ME_52D669BA02CC
  CONST UID '52D669BA02CC'
  CONST Name 'TnsExternalObject'
@@ -442,10 +425,6 @@ ref; // ME_075140AD19DD Exists
    Seq: ( ME_52D669E7006C // TnsExternalObjectPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_075140AD19DD // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -593,7 +572,6 @@ ref; // ME_56C55BFD0199 nsRegistryHelper
  WL 'ME_47EA968D0155' '47EA968D0155.pas.ms.script' // Printing
  WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
  WL 'ME_48F4BA770180' '48F4BA770180.pas.ms.script' // Writers
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
 
