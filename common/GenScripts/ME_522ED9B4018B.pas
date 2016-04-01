@@ -62,10 +62,10 @@ type
   public
    class procedure CheckSubscribe;
     {* Метод для проверки того факта, что TevStylesSettingsListener подписан на изменения необходимых настроек }
-   class function Instance: TevStylesSettingsListener;
-    {* Метод получения экземпляра синглетона TevStylesSettingsListener }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TevStylesSettingsListener;
+    {* Метод получения экземпляра синглетона TevStylesSettingsListener }
  end;//TevStylesSettingsListener
 
 var g_TevStylesSettingsListener: TevStylesSettingsListener = nil;
@@ -99,6 +99,12 @@ begin
 //#UC END# *704CA5071A35_5EDF2B8ACE76_impl*
 end;//TevStylesSettingsListener.IsSettingAffectsUs
 
+class function TevStylesSettingsListener.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevStylesSettingsListener <> nil;
+end;//TevStylesSettingsListener.Exists
+
 class function TevStylesSettingsListener.Instance: TevStylesSettingsListener;
  {* Метод получения экземпляра синглетона TevStylesSettingsListener }
 begin
@@ -109,12 +115,6 @@ begin
  end;
  Result := g_TevStylesSettingsListener;
 end;//TevStylesSettingsListener.Instance
-
-class function TevStylesSettingsListener.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevStylesSettingsListener <> nil;
-end;//TevStylesSettingsListener.Exists
 
 function TevStylesSettingsListener.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
  {* Обработчик изменения указанной настройки }

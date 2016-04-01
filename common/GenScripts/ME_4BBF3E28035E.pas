@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evUsialParagraph;
+unit evUsialParagraph;
  {* Реализация IedParagraph для обычного параграфа }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evUsialParagraph.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evUsialParagraph.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevUsialParagraph" MUID: (4BBF3E28035E)
 

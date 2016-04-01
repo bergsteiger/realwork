@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevSegmentObject;
+unit nevSegmentObject;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevSegmentObject.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevSegmentObject.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevSegmentObject" MUID: (4E5FAE1700D5)
 

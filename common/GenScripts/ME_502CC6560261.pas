@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evCell;
+unit evCell;
  {* Реализация интерфейса IedCell для обычной ячейки таблицы. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evCell.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evCell.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevCell" MUID: (502CC6560261)
 

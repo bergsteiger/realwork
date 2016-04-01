@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evParaString;
+unit evParaString;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evParaString.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevParaString" MUID: (4E5689DF037B)
 

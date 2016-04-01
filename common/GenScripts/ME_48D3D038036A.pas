@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evTableImplementation;
+unit evTableImplementation;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTableImplementation.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableImplementation.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTableImplementation" MUID: (48D3D038036A)
 

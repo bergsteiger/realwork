@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evCellsIterator;
+unit evCellsIterator;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evCellsIterator.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evCellsIterator.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevCellsIterator" MUID: (4FC48D1B02AC)
 

@@ -25,7 +25,6 @@ type
   private
    f_Loc: InevBasePoint;
    f_View: InevView;
-    {* Поле для свойства View }
   protected
    procedure DoCloneSegments(const aOldRow: Tl3Variant;
     const aNewRow: Tl3Variant;

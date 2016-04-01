@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evReqRowImplementation;
+unit evReqRowImplementation;
  {* Специализированная обработка добавления строк в КЗ. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evReqRowImplementation.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqRowImplementation.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevReqRowImplementation" MUID: (56123C590233)
 

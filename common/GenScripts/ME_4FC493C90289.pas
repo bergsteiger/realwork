@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evRow;
+unit evRow;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evRow.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evRow.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevRow" MUID: (4FC493C90289)
 
