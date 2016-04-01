@@ -17,8 +17,8 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , DocumentUnit
  , ChangesBetweenEditionsInterfaces
- , nevTools
  , l3Variant
+ , nevTools
  , DocumentInterfaces
  , F1TagDataProviderInterface
  , afwInterfaces

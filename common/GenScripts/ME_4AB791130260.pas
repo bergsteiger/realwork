@@ -67,30 +67,30 @@ type
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseBaseSearchExampleEvent;
     {* Метод получения экземпляра синглетона TnsUseBaseSearchExampleEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBaseSearchExampleEvent
 
  TnsUseBaseSearchHintEvent = class(TnsCounterEvent)
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseBaseSearchHintEvent;
     {* Метод получения экземпляра синглетона TnsUseBaseSearchHintEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBaseSearchHintEvent
 
  TnsUseBackSearchButtonEvent = class(TnsCounterEvent)
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseBackSearchButtonEvent;
     {* Метод получения экземпляра синглетона TnsUseBackSearchButtonEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBackSearchButtonEvent
 
  _BaseSearch2010_Parent_ = TvcmEntityForm;
@@ -458,12 +458,6 @@ begin
  inherited;
 end;//TnsBaseSearchFormState.ClearFields
 
-class function TnsUseBaseSearchExampleEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUseBaseSearchExampleEvent <> nil;
-end;//TnsUseBaseSearchExampleEvent.Exists
-
 function TnsUseBaseSearchExampleEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13B3BD01CD_var*
 //#UC END# *4B13A26203DB_4B13B3BD01CD_var*
@@ -484,11 +478,11 @@ begin
  Result := g_TnsUseBaseSearchExampleEvent;
 end;//TnsUseBaseSearchExampleEvent.Instance
 
-class function TnsUseBaseSearchHintEvent.Exists: Boolean;
+class function TnsUseBaseSearchExampleEvent.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TnsUseBaseSearchHintEvent <> nil;
-end;//TnsUseBaseSearchHintEvent.Exists
+ Result := g_TnsUseBaseSearchExampleEvent <> nil;
+end;//TnsUseBaseSearchExampleEvent.Exists
 
 function TnsUseBaseSearchHintEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13B90D007E_var*
@@ -510,11 +504,11 @@ begin
  Result := g_TnsUseBaseSearchHintEvent;
 end;//TnsUseBaseSearchHintEvent.Instance
 
-class function TnsUseBackSearchButtonEvent.Exists: Boolean;
+class function TnsUseBaseSearchHintEvent.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TnsUseBackSearchButtonEvent <> nil;
-end;//TnsUseBackSearchButtonEvent.Exists
+ Result := g_TnsUseBaseSearchHintEvent <> nil;
+end;//TnsUseBaseSearchHintEvent.Exists
 
 function TnsUseBackSearchButtonEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13B9AA029F_var*
@@ -535,6 +529,12 @@ begin
  end;
  Result := g_TnsUseBackSearchButtonEvent;
 end;//TnsUseBackSearchButtonEvent.Instance
+
+class function TnsUseBackSearchButtonEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseBackSearchButtonEvent <> nil;
+end;//TnsUseBackSearchButtonEvent.Exists
 
 type _Instance_R_ = TPrimBaseSearchForm;
 

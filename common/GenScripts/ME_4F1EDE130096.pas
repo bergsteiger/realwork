@@ -21,10 +21,10 @@ type
  TnsBaseSearchFormGUIDFactory = class(TvcmFormGUIDFromMainFormList)
   {* Фабрика GUID'ов для форм БП }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsBaseSearchFormGUIDFactory;
     {* Метод получения экземпляра синглетона TnsBaseSearchFormGUIDFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsBaseSearchFormGUIDFactory
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -47,12 +47,6 @@ begin
  l3Free(g_TnsBaseSearchFormGUIDFactory);
 end;//TnsBaseSearchFormGUIDFactoryFree
 
-class function TnsBaseSearchFormGUIDFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsBaseSearchFormGUIDFactory <> nil;
-end;//TnsBaseSearchFormGUIDFactory.Exists
-
 class function TnsBaseSearchFormGUIDFactory.Instance: TnsBaseSearchFormGUIDFactory;
  {* Метод получения экземпляра синглетона TnsBaseSearchFormGUIDFactory }
 begin
@@ -63,6 +57,12 @@ begin
  end;
  Result := g_TnsBaseSearchFormGUIDFactory;
 end;//TnsBaseSearchFormGUIDFactory.Instance
+
+class function TnsBaseSearchFormGUIDFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsBaseSearchFormGUIDFactory <> nil;
+end;//TnsBaseSearchFormGUIDFactory.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_TestNameString;
+unit TestNameString;
 
-// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\NOT_COMPLETED_TestNameString.pas"
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestNameString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TTestNameString" MUID: (4FF431A00215)
 
