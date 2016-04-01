@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2ListTag;
+unit k2ListTag;
  {* Базовый тег, содержащий список других тегов (нелистьевой) }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ListTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ListTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ListTag" MUID: (5320814702B4)
 

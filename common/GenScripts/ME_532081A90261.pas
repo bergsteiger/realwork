@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2LeafTag;
+unit k2LeafTag;
  {* Базовый листьевой тег }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2LeafTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2LeafTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2LeafTag" MUID: (532081A90261)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2Layer;
+unit k2Layer;
  {* Список тегов, с идентификатором. }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2Layer.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Layer.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2Layer" MUID: (47AC597C0320)
 

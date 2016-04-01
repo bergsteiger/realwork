@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevBeforeStartPoint;
+unit nevBeforeStartPoint;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevBeforeStartPoint.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevBeforeStartPoint.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevBeforeStartPoint" MUID: (4EC3AD980264)
 

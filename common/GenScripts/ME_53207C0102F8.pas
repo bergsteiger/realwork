@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2AtomicTag;
+unit k2AtomicTag;
  {* Базовый атомарный тег }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2AtomicTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2AtomicTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2AtomicTag" MUID: (53207C0102F8)
 

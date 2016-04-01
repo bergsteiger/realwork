@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2ParentedTypedHugeListTag;
+unit k2ParentedTypedHugeListTag;
  {* Список параграфов с числом атрибутов больше 32 }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ParentedTypedHugeListTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ParentedTypedHugeListTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ParentedTypedHugeListTag" MUID: (4FBE24BC0158)
 

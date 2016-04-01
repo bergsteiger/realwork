@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2ParentedTypedHugeLeafTag;
+unit k2ParentedTypedHugeLeafTag;
  {* Листьевой тег с заранее определённым типом, имеющий ссылку на родителя и могущий иметь БОЛЕЕ 32 (включительно) атрибутов }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ParentedTypedHugeLeafTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ParentedTypedHugeLeafTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ParentedTypedHugeLeafTag" MUID: (4E8347810088)
 

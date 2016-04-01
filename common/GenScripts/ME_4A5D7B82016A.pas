@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevTableRowAnchor;
+unit nevTableRowAnchor;
  {* Якорь для строки таблицы }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevTableRowAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRowAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTableRowAnchor" MUID: (4A5D7B82016A)
 

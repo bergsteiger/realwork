@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevTextPara;
+unit nevTextPara;
  {* Реализация инструмента InevTextPara }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevTextPara.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextPara.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTextPara" MUID: (48D100920185)
 

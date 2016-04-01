@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evDocumentPartCursor;
+unit evDocumentPartCursor;
  {* Курсор для блоков документа }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evDocumentPartCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevDocumentPartCursor" MUID: (4A3FA3290296)
 

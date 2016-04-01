@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2DictItem;
+unit k2DictItem;
  {* Словарная запись, со ссылкой на родительский тег }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2DictItem.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictItem.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2DictItem" MUID: (484D42AC01C3)
 

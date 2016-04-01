@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evBitmapParaCursor;
+unit evBitmapParaCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evBitmapParaCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevBitmapParaCursor" MUID: (49DF6D240199)
 

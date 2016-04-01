@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2FontName;
+unit k2FontName;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2FontName.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2FontName.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2FontName" MUID: (53188A6D02A7)
 

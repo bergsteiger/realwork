@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evDocumentCursorPair;
+unit evDocumentCursorPair;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evDocumentCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevDocumentCursorPair" MUID: (4A2D2DA90232)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2ParentedTypedSmallListTag;
+unit k2ParentedTypedSmallListTag;
  {* Список тегов со ссылкой на родителя }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ParentedTypedSmallListTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ParentedTypedSmallListTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ParentedTypedSmallListTag" MUID: (527D053500AA)
 

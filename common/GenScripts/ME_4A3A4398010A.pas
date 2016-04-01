@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evParaListCursorInsertable;
+unit evParaListCursorInsertable;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evParaListCursorInsertable.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorInsertable.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevParaListCursorInsertable" MUID: (4A3A4398010A)
 

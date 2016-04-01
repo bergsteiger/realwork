@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevTableAnchor;
+unit nevTableAnchor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevTableAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTableAnchor" MUID: (4F1EC738000E)
 

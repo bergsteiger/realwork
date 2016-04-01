@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevLeafParaAnchor;
+unit nevLeafParaAnchor;
  {* Якорь для листьевых параграфов }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevLeafParaAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafParaAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevLeafParaAnchor" MUID: (4A3B9AD60266)
 

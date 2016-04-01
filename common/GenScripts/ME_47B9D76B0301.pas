@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2TagList;
+unit k2TagList;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TagList.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TagList.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TagList" MUID: (47B9D76B0301)
 

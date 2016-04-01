@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevAfterEndPoint;
+unit nevAfterEndPoint;
  {* Точка, указывающая ЗА КОНЕЦ параграфа. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevAfterEndPoint.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevAfterEndPoint.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevAfterEndPoint" MUID: (47F6036500E3)
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevFormulaPara;
+unit nevFormulaPara;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevFormulaPara.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormulaPara.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevFormulaPara" MUID: (4D5A9CA80141)
 

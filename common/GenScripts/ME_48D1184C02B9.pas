@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevStringItemPara;
+unit nevStringItemPara;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevStringItemPara.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevStringItemPara.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevStringItemPara" MUID: (48D1184C02B9)
 

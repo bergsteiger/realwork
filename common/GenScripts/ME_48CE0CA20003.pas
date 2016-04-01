@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevTableCell;
+unit nevTableCell;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevTableCell.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableCell.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTableCell" MUID: (48CE0CA20003)
 

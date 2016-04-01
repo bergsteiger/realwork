@@ -35,11 +35,8 @@ type
   private
    f_AllChildrenCount: Integer;
    f_ChildNode: Il3Node;
-    {* Поле для свойства ChildNode }
    f_LastChild: Il3Node;
-    {* Поле для свойства LastChild }
    f_NextNode: Il3Node;
-    {* Поле для свойства NextNode }
   protected
    f_TotalNumInParent: Integer;
    f_ParentNode: Pointer;
@@ -59,13 +56,13 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure Set_ChildNode(const aValue: Il3Node); override;
-   procedure ClearFields; override;
    function Get_AllChildrenCount: Integer; override;
    function Get_ChildNode: Il3Node; override;
    procedure DoSortChilds(const aChild: Il3Node = nil); override;
    function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
    procedure DoReleaseChilds; override;
    procedure DoIncAllChildrenCount(aInc: Integer); override;
+   procedure ClearFields; override;
   public
    constructor Create(const aNode: INode;
     aNumInParent: Integer;
@@ -252,14 +249,6 @@ begin
  ChildNode := aValue;
 //#UC END# *4ADEEFA00164_4ADDF4470087_impl*
 end;//TnsBaseNode.Set_ChildNode
-
-procedure TnsBaseNode.ClearFields;
-begin
- ChildNode := nil;
- LastChild := nil;
- NextNode := nil;
- inherited;
-end;//TnsBaseNode.ClearFields
 
 function TnsBaseNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4ADDF4470087_var*
@@ -489,5 +478,13 @@ begin
  end;
 //#UC END# *54C8E4A8037A_4ADDF4470087_impl*
 end;//TnsBaseNode.DoIncAllChildrenCount
+
+procedure TnsBaseNode.ClearFields;
+begin
+ ChildNode := nil;
+ LastChild := nil;
+ NextNode := nil;
+ inherited;
+end;//TnsBaseNode.ClearFields
 
 end.

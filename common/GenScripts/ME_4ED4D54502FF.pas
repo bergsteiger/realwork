@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evSBSColumnHotSpot;
+unit evSBSColumnHotSpot;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evSBSColumnHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evSBSColumnHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevSBSColumnHotSpot" MUID: (4ED4D54502FF)
 

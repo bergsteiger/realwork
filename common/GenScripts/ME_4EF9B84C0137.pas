@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evTableCursor;
+unit evTableCursor;
  {* Курсор для таблицы. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTableCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTableCursor" MUID: (4EF9B84C0137)
 

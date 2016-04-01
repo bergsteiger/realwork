@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evColumnBorderMarker;
+unit evColumnBorderMarker;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evColumnBorderMarker.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evColumnBorderMarker.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevColumnBorderMarker" MUID: (4E3A539401D7)
 

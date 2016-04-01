@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evQueryCardCursor;
+unit evQueryCardCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evQueryCardCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevQueryCardCursor" MUID: (4BFFD963014E)
 

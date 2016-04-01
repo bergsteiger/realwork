@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2ToolPrim;
+unit k2ToolPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ToolPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ToolPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ToolPrim" MUID: (47F5DAEB0007)
 

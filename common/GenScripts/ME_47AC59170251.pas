@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2List;
+unit k2List;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2List.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2List.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2List" MUID: (47AC59170251)
 

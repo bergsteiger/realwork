@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2TypedSmallLeafTag;
+unit k2TypedSmallLeafTag;
  {* Листьевой тег с заранее определённым типом и могущий иметь НЕ более 32 (включительно) атрибутов }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TypedSmallLeafTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedSmallLeafTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TypedSmallLeafTag" MUID: (527A6D5A0248)
 

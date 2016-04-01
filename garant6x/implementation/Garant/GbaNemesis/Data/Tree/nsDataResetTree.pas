@@ -23,7 +23,6 @@ type
   private
    f_InGetRoot: Boolean;
    f_BeenReseted: TnsResetTreeStatus;
-    {* Поле для свойства BeenReseted }
   protected
    procedure BeforeReset; virtual;
    procedure AfterReget; virtual;

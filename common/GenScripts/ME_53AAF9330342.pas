@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2TypedHugeLeafTag;
+unit k2TypedHugeLeafTag;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TypedHugeLeafTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedHugeLeafTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TypedHugeLeafTag" MUID: (53AAF9330342)
 

@@ -1,6 +1,6 @@
 {$IfNDef nevTableRowBaseLineCommon_imp}
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevTableRowBaseLineCommon.imp.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas"
 // Стереотип: "Impurity"
 // Элемент модели: "nevTableRowBaseLineCommon" MUID: (4DD77B7C0163)
 // Имя типа: "_nevTableRowBaseLineCommon_"

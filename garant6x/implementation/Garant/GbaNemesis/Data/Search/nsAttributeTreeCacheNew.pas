@@ -31,10 +31,10 @@ type
    function pm_GetAttributeRootClosed(const aTag: Il3CString): INodeBase;
    procedure FinishDataUpdate; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsAttributeTreeCacheNew;
     {* Метод получения экземпляра синглетона TnsAttributeTreeCacheNew }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    constructor Create; override;
   public
    property AttributeRoot[const aTag: Il3CString]: INodeBase
@@ -120,12 +120,6 @@ begin
 //#UC END# *4912AC600333_4912AB3A01ED_impl*
 end;//TnsAttributeTreeCacheNew.GetAttributeRoot
 
-class function TnsAttributeTreeCacheNew.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsAttributeTreeCacheNew <> nil;
-end;//TnsAttributeTreeCacheNew.Exists
-
 class function TnsAttributeTreeCacheNew.Instance: TnsAttributeTreeCacheNew;
  {* Метод получения экземпляра синглетона TnsAttributeTreeCacheNew }
 begin
@@ -136,6 +130,12 @@ begin
  end;
  Result := g_TnsAttributeTreeCacheNew;
 end;//TnsAttributeTreeCacheNew.Instance
+
+class function TnsAttributeTreeCacheNew.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsAttributeTreeCacheNew <> nil;
+end;//TnsAttributeTreeCacheNew.Exists
 
 constructor TnsAttributeTreeCacheNew.Create;
 //#UC START# *47B9866E034D_4912AB3A01ED_var*

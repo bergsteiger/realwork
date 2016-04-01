@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2TypedSimpleSortableTagListPrim;
+unit k2TypedSimpleSortableTagListPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TypedSimpleSortableTagListPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedSimpleSortableTagListPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TypedSimpleSortableTagListPrim" MUID: (527D1B86018D)
 

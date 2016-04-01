@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evSolidParaCursor;
+unit evSolidParaCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evSolidParaCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evSolidParaCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevSolidParaCursor" MUID: (49DF6D3F02F9)
 

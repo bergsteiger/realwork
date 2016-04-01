@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2HugeTagObject;
+unit k2HugeTagObject;
  {* Одна из реализаций хранилища тегов. С неограниченным количеством свойств }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2HugeTagObject.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2HugeTagObject.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2HugeTagObject" MUID: (467FC49800E8)
 

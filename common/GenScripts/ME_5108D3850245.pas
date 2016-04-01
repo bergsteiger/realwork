@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evTableCursorPair;
+unit evTableCursorPair;
  {* Выделение для таблицы. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTableCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTableCursorPair" MUID: (5108D3850245)
 

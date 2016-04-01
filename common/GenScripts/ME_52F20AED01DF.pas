@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evTextParaStringImpl;
+unit evTextParaStringImpl;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_evTextParaStringImpl.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evTextParaStringImpl.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTextParaStringImpl" MUID: (52F20AED01DF)
 

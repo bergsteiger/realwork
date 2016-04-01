@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2ProcessorTagTool;
+unit k2ProcessorTagTool;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ProcessorTagTool.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ProcessorTagTool.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ProcessorTagTool" MUID: (4BBF3D8B00CD)
 

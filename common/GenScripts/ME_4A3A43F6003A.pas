@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evParaListCursorDeletable;
+unit evParaListCursorDeletable;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evParaListCursorDeletable.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorDeletable.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevParaListCursorDeletable" MUID: (4A3A43F6003A)
 

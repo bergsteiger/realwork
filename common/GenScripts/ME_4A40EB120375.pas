@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evCommentParaCursor;
+unit evCommentParaCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evCommentParaCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevCommentParaCursor" MUID: (4A40EB120375)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2Tag;
+unit k2Tag;
  {* Базовый тег }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2Tag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Tag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2Tag" MUID: (5319C00B0313)
 
@@ -15,7 +15,7 @@ uses
 ;
 
 type
- Tk2Tag = {abstract} class(Tl3Tag)
+ Tk2Tag = {abstract} class(Tl3TagImpl)
   {* Базовый тег }
   protected
    function GetIsOrd: Boolean; override;

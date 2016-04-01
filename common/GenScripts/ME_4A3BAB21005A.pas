@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevSolidParaAnchor;
+unit nevSolidParaAnchor;
  {* Якорь листьевого параграфа не имеющего деления на строки }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevSolidParaAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevSolidParaAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevSolidParaAnchor" MUID: (4A3BAB21005A)
 

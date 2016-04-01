@@ -41,7 +41,6 @@ type
  TnsNotificationManagerPrim = class(Tl3ProtoObject)
   private
    f_Listeners: TnsNotificationListenersList;
-    {* Поле для свойства Listeners }
   protected
    function pm_GetListeners: TnsNotificationListenersList;
    class function Exists: Boolean;

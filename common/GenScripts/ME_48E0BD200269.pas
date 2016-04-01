@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevNullPara;
+unit nevNullPara;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevNullPara.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevNullPara.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevNullPara" MUID: (48E0BD200269)
 

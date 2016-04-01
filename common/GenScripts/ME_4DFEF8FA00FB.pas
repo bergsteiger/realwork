@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evRootContentsNode;
+unit evRootContentsNode;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evRootContentsNode.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evRootContentsNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevRootContentsNode" MUID: (4DFEF8FA00FB)
 

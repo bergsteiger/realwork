@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevParaPrim;
+unit nevParaPrim;
  {* Пустой параграф }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevParaPrim.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevParaPrim" MUID: (48CE0A490377)
 

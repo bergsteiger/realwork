@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evDocumentPartCursorPair;
+unit evDocumentPartCursorPair;
  {* Выделение для блока }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evDocumentPartCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevDocumentPartCursorPair" MUID: (4A2D2D8002FF)
 

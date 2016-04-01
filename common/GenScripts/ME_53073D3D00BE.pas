@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2String;
+unit k2String;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2String.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2String.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2String" MUID: (53073D3D00BE)
 

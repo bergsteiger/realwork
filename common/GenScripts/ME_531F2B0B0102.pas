@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2IUnknownTag;
+unit k2IUnknownTag;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2IUnknownTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2IUnknownTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2IUnknownTag" MUID: (531F2B0B0102)
 

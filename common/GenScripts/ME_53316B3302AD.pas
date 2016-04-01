@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2SpecialTag;
+unit k2SpecialTag;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2SpecialTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SpecialTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2SpecialTag" MUID: (53316B3302AD)
 

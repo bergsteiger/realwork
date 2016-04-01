@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evContentsTagNode;
+unit evContentsTagNode;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evContentsTagNode.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evContentsTagNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevContentsTagNode" MUID: (4DFEF1A701F9)
 

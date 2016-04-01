@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevParaListAnchor;
+unit nevParaListAnchor;
  {* Якорь для списков параграфов }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevParaListAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaListAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevParaListAnchor" MUID: (4A3F457A0129)
 

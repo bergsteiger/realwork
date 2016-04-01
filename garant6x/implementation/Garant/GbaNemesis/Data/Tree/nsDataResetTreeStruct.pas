@@ -26,7 +26,6 @@ type
   private
    f_InGetRoot: Boolean;
    f_BeenReseted: TnsResetTreeStatus;
-    {* Поле для свойства BeenReseted }
   private
    procedure NotifyUpdated;
     {* уведомляет об обновлении данных дерева }

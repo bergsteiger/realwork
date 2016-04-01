@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2ProcTagTool;
+unit k2ProcTagTool;
  {* Инструмент для работы с тегом. Знает про процессор операций. }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2ProcTagTool.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ProcTagTool.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2ProcTagTool" MUID: (467C18BF0367)
 

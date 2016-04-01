@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2NotStructuredTag;
+unit k2NotStructuredTag;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2NotStructuredTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2NotStructuredTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2NotStructuredTag" MUID: (533E8F8D0334)
 

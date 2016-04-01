@@ -28,7 +28,7 @@ type
    f_AdapterNodeCaption: IString;
    f_ParentNode: Il3SimpleNode;
    f_AdapterNode: INodeBase;
-    {* Поле для свойства AdapterNode }
+    {* Узел адаптерного дерева над которым строится наше дерево }
   private
    function ConvertFlagMask(anIndex: Integer): Word;
   protected

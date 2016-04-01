@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evBreakParaCursor;
+unit evBreakParaCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evBreakParaCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evBreakParaCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevBreakParaCursor" MUID: (4B1D20D500C2)
 

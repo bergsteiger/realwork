@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevLeafPara;
+unit nevLeafPara;
  {* Реализация инструмента InevLeafPara }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevLeafPara.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafPara.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevLeafPara" MUID: (48D0F828032E)
 

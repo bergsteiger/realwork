@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2NullTagImpl;
+unit k2NullTagImpl;
  {* Реализация пустого тега }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2NullTagImpl.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2NullTagImpl.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2NullTagImpl" MUID: (49A6ABFB02BA)
 

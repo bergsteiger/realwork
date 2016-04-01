@@ -37,7 +37,6 @@ type
   private
    f_Listeners: TnsUnderControlNotificationListenersList;
    f_HasChanged: Boolean;
-    {* Поле для свойства HasChanged }
   private
    procedure NotifyListeners;
   protected
@@ -50,10 +49,10 @@ type
    procedure Subscribe(const aListener: InsUnderControlNotificationListener);
    procedure Unsubscribe(const aListener: InsUnderControlNotificationListener);
    procedure SetChangedNotification;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUnderControlNotificationManager;
     {* Метод получения экземпляра синглетона TnsUnderControlNotificationManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property HasChanged: Boolean
     read pm_GetHasChanged;
@@ -143,12 +142,6 @@ begin
 //#UC END# *55D43E670378_55D429A70008_impl*
 end;//TnsUnderControlNotificationManager.SetChangedNotification
 
-class function TnsUnderControlNotificationManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUnderControlNotificationManager <> nil;
-end;//TnsUnderControlNotificationManager.Exists
-
 class function TnsUnderControlNotificationManager.Instance: TnsUnderControlNotificationManager;
  {* Метод получения экземпляра синглетона TnsUnderControlNotificationManager }
 begin
@@ -159,6 +152,12 @@ begin
  end;
  Result := g_TnsUnderControlNotificationManager;
 end;//TnsUnderControlNotificationManager.Instance
+
+class function TnsUnderControlNotificationManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUnderControlNotificationManager <> nil;
+end;//TnsUnderControlNotificationManager.Exists
 
 procedure TnsUnderControlNotificationManager.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevTableRowBaseLine4Anchor;
+unit nevTableRowBaseLine4Anchor;
  {* Базовая линия для якоря }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevTableRowBaseLine4Anchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLine4Anchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTableRowBaseLine4Anchor" MUID: (4DD77A73036E)
 

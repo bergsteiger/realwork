@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2TypedSmallListTag;
+unit k2TypedSmallListTag;
  {* Списог тегов с заранее определённым типом, имеющий ссылку на родителя и могущий иметь не более 32 (включительно) атрибутов }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TypedSmallListTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedSmallListTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TypedSmallListTag" MUID: (4A5F1EC002E5)
 

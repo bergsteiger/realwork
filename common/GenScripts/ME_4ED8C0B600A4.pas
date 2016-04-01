@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevDocumentPartAnchor;
+unit nevDocumentPartAnchor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevDocumentPartAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentPartAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevDocumentPartAnchor" MUID: (4ED8C0B600A4)
 

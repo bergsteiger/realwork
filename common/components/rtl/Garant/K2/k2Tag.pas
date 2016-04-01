@@ -15,7 +15,7 @@ uses
 ;
 
 type
- Tk2Tag = {abstract} class(Tl3Tag)
+ Tk2Tag = {abstract} class(Tl3TagImpl)
   {* Базовый тег }
   protected
    function GetIsOrd: Boolean; override;

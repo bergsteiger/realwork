@@ -30,7 +30,6 @@ type
  TevColumnBorderMarker = class(_RoundMarkerValue_, IevColumnBorderMarker)
   private
    f_ColumnID: Integer;
-    {* Поле для свойства ColumnID }
   protected
    function pm_GetColumnID: Integer;
    procedure pm_SetColumnID(aValue: Integer);

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evReqCellCursor;
+unit evReqCellCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evReqCellCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqCellCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevReqCellCursor" MUID: (53D0BFE802C7)
 

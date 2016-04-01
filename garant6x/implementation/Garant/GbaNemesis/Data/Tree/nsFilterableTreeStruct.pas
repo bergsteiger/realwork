@@ -42,7 +42,6 @@ type
    f_ContextFilterParams: Il3ContextFilterParams;
    f_Subscribers: TIl3ContextFilterNotifierList;
    f_Filters: Il3TreeFilters;
-    {* Поле для свойства Filters }
   private
    function ContextFilterParams: Il3ContextFilterParams;
    procedure ClearContextFilterParams;

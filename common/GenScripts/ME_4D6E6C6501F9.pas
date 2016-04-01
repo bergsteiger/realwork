@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevAutoreferatDocumentAnchor;
+unit nevAutoreferatDocumentAnchor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevAutoreferatDocumentAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevAutoreferatDocumentAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevAutoreferatDocumentAnchor" MUID: (4D6E6C6501F9)
 

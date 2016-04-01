@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evTableMarker;
+unit evTableMarker;
  {* маркер отступа таблиц }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTableMarker.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableMarker.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTableMarker" MUID: (4ED31E52002F)
 

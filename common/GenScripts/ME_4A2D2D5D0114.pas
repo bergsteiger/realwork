@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evCursorPair;
+unit evCursorPair;
  {* Базовый класс для реализации выделения }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevCursorPair" MUID: (4A2D2D5D0114)
 

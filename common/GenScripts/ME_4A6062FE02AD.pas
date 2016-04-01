@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evHugeParaListPrimWithFind;
+unit evHugeParaListPrimWithFind;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_evHugeParaListPrimWithFind.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\evHugeParaListPrimWithFind.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevHugeParaListPrimWithFind" MUID: (4A6062FE02AD)
 

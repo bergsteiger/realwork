@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevBitmapParaAnchor;
+unit nevBitmapParaAnchor;
  {* Якорь параграфа-картики }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevBitmapParaAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevBitmapParaAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevBitmapParaAnchor" MUID: (4A3BB0550026)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evTableColumnHotSpot;
+unit evTableColumnHotSpot;
  {* реализует интерфейс IevHotSpot для колонки таблицы. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTableColumnHotSpot.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableColumnHotSpot.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevTableColumnHotSpot" MUID: (4ED31E9500E7)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evCursor;
+unit evCursor;
  {* Курсор }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevCursor" MUID: (49D245770337)
 

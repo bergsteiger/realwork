@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevTextParaAnchor;
+unit nevTextParaAnchor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevTextParaAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextParaAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTextParaAnchor" MUID: (4A3F37440382)
 

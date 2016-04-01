@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevAnchor;
+unit nevAnchor;
  {* Якорь для абстрактного параграфа }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevAnchor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevAnchor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevAnchor" MUID: (49DE393900D3)
 

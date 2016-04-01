@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evDocumentNode;
+unit evDocumentNode;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evDocumentNode.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevDocumentNode" MUID: (4DFEF94101DF)
 

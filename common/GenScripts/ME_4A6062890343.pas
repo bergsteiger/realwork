@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evHugeParaListPrim;
+unit evHugeParaListPrim;
  {* Список параграфов с числом свойств больше 32 }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_evHugeParaListPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\evHugeParaListPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevHugeParaListPrim" MUID: (4A6062890343)
 

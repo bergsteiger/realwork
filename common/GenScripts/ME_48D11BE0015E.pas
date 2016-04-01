@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nevControlPara;
+unit nevControlPara;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevControlPara.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlPara.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevControlPara" MUID: (48D11BE0015E)
 

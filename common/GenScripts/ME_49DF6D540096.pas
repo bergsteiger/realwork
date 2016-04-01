@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evLeafParaCursor;
+unit evLeafParaCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evLeafParaCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevLeafParaCursor" MUID: (49DF6D540096)
 

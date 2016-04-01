@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2DictRecTag;
+unit k2DictRecTag;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2DictRecTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictRecTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2DictRecTag" MUID: (53208F54004F)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_k2TagListPrim;
+unit k2TagListPrim;
  {* Список тегов. }
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TagListPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TagListPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TagListPrim" MUID: (47AC67EA00B9)
 

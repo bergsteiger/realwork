@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_k2TypedHugeListTag;
+unit k2TypedHugeListTag;
 
-// Модуль: "w:\common\components\rtl\Garant\K2\NOT_COMPLETED_k2TypedHugeListTag.pas"
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedHugeListTag.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tk2TypedHugeListTag" MUID: (527BA4EE03B4)
 

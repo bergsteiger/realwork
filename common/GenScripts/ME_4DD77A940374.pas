@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevTableRowBaseLine4Print;
+unit nevTableRowBaseLine4Print;
  {* Базовая линия для печати }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevTableRowBaseLine4Print.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLine4Print.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevTableRowBaseLine4Print" MUID: (4DD77A940374)
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evSBSRowCursor;
+unit evSBSRowCursor;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evSBSRowCursor.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evSBSRowCursor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevSBSRowCursor" MUID: (4ED4C58100B1)
 

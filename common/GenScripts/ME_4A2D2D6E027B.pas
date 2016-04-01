@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evParaListCursorPair;
+unit evParaListCursorPair;
  {* Выделение для списка параграфов }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evParaListCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevParaListCursorPair" MUID: (4A2D2D6E027B)
 
