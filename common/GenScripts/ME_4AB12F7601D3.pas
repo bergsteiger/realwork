@@ -39,7 +39,7 @@ type
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsLinkedObjectDescription): Result; reintroduce;
+   class function Make(const aData: InsLinkedObjectDescription): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -76,7 +76,7 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription): Result;
+class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription): BadFactoryType;
 var
  l_Inst : TPrimPictureInfoForm;
 begin

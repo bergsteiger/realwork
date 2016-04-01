@@ -19,21 +19,18 @@ type
  Tm3StorageIndexAdapter = class(Tl3ProtoObject)
   private
    f_BaseName: TFileName;
-    {* Поле для свойства BaseName }
    f_DirName: TFileName;
-    {* Поле для свойства DirName }
    {$If NOT Defined(nsTest)}
    f_PhaseStr: AnsiString;
-    {* Поле для свойства PhaseStr }
    {$IfEnd} // NOT Defined(nsTest)
   protected
    procedure ClearFields; override;
   public
    procedure DoBuildIndex(aFilesMeter: Tl3ProgressProc);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tm3StorageIndexAdapter;
     {* Метод получения экземпляра синглетона Tm3StorageIndexAdapter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property BaseName: TFileName
     read f_BaseName
@@ -109,12 +106,6 @@ begin
 //#UC END# *4F191143015F_4F19108601F3_impl*
 end;//Tm3StorageIndexAdapter.DoBuildIndex
 
-class function Tm3StorageIndexAdapter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tm3StorageIndexAdapter <> nil;
-end;//Tm3StorageIndexAdapter.Exists
-
 class function Tm3StorageIndexAdapter.Instance: Tm3StorageIndexAdapter;
  {* Метод получения экземпляра синглетона Tm3StorageIndexAdapter }
 begin
@@ -125,6 +116,12 @@ begin
  end;
  Result := g_Tm3StorageIndexAdapter;
 end;//Tm3StorageIndexAdapter.Instance
+
+class function Tm3StorageIndexAdapter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tm3StorageIndexAdapter <> nil;
+end;//Tm3StorageIndexAdapter.Exists
 
 procedure Tm3StorageIndexAdapter.ClearFields;
 begin

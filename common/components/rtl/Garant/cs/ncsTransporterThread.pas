@@ -19,7 +19,6 @@ type
  TncsTransporterThread = class(Tl3ThreadContainer)
   private
    f_Queue: TncsMessageQueue;
-    {* Поле для свойства Queue }
   protected
    function TerminatedConnection: Boolean; virtual;
    procedure DoExecute; override;

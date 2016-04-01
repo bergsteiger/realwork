@@ -36,6 +36,7 @@ uses
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , Base_Operations_Editions_Controls
+ , l3StringIDEx
  , nsLogEvent
 ;
 
@@ -183,7 +184,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
  , UnderControlUnit
- , l3StringIDEx
  , l3MessageID
  , Types
  {$If Defined(Nemesis)}

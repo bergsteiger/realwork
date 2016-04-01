@@ -29,10 +29,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TarEditorDebugInfo;
     {* Метод получения экземпляра синглетона TarEditorDebugInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TarEditorDebugInfo
 {$IfEnd} // Defined(AppClientSide)
 
@@ -63,12 +63,6 @@ begin
  l3Free(g_TarEditorDebugInfo);
 end;//TarEditorDebugInfoFree
 
-class function TarEditorDebugInfo.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TarEditorDebugInfo <> nil;
-end;//TarEditorDebugInfo.Exists
-
 procedure TarEditorDebugInfo.GetMessageListenerNotify(Code: Integer;
  aWParam: WPARAM;
  Msg: PMsg;
@@ -98,6 +92,12 @@ begin
  end;
  Result := g_TarEditorDebugInfo;
 end;//TarEditorDebugInfo.Instance
+
+class function TarEditorDebugInfo.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TarEditorDebugInfo <> nil;
+end;//TarEditorDebugInfo.Exists
 
 procedure TarEditorDebugInfo.Cleanup;
  {* Функция очистки полей объекта. }

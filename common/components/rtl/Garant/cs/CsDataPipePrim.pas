@@ -26,9 +26,8 @@ type
  TCsDataPipePrim = class(TcsIdIOHandlerAbstractAdapterPrim)
   private
    f_ClientID: TCsClientId;
-    {* Поле для свойства ClientID }
    f_IOHandler: TcsIdIOHandlerAbstractAdapter;
-    {* Поле для свойства IOHandler }
+    {* Пока торчит наружу до перехода на постоянно живущее соединение (для подделки протокола) }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

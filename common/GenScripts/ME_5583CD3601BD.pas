@@ -23,13 +23,13 @@ type
  {$IfEnd} // NOT Defined(Nemesis)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(Nemesis)}
    procedure TaskGotErrorStatus;
    {$IfEnd} // NOT Defined(Nemesis)
    class function Instance: TalcuTaskChangeHelper;
     {* Метод получения экземпляра синглетона TalcuTaskChangeHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TalcuTaskChangeHelper
 {$IfEnd} // Defined(AppServerSide)
 
@@ -53,12 +53,6 @@ begin
  l3Free(g_TalcuTaskChangeHelper);
 end;//TalcuTaskChangeHelperFree
 
-class function TalcuTaskChangeHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TalcuTaskChangeHelper <> nil;
-end;//TalcuTaskChangeHelper.Exists
-
 {$If NOT Defined(Nemesis)}
 procedure TalcuTaskChangeHelper.TaskGotErrorStatus;
 //#UC START# *F75B4443B80B_5583CD3601BD_var*
@@ -80,6 +74,12 @@ begin
  end;
  Result := g_TalcuTaskChangeHelper;
 end;//TalcuTaskChangeHelper.Instance
+
+class function TalcuTaskChangeHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TalcuTaskChangeHelper <> nil;
+end;//TalcuTaskChangeHelper.Exists
 
 initialization
 {$If NOT Defined(Nemesis)}

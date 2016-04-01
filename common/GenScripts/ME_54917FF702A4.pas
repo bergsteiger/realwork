@@ -31,10 +31,10 @@ type
    procedure Register(const aTransporter: IncsServerTransporter);
    procedure UnRegister(const aTransporter: IncsServerTransporter);
    function FindTransporter(const aSessionID: AnsiString): IncsServerTransporter;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsServerTransporterPtrPool;
     {* Метод получения экземпляра синглетона TncsServerTransporterPtrPool }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TncsServerTransporterPtrPool
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -104,12 +104,6 @@ begin
 //#UC END# *5492D85A0389_54917FF702A4_impl*
 end;//TncsServerTransporterPtrPool.FindTransporter
 
-class function TncsServerTransporterPtrPool.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TncsServerTransporterPtrPool <> nil;
-end;//TncsServerTransporterPtrPool.Exists
-
 class function TncsServerTransporterPtrPool.Instance: TncsServerTransporterPtrPool;
  {* Метод получения экземпляра синглетона TncsServerTransporterPtrPool }
 begin
@@ -120,6 +114,12 @@ begin
  end;
  Result := g_TncsServerTransporterPtrPool;
 end;//TncsServerTransporterPtrPool.Instance
+
+class function TncsServerTransporterPtrPool.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TncsServerTransporterPtrPool <> nil;
+end;//TncsServerTransporterPtrPool.Exists
 
 procedure TncsServerTransporterPtrPool.Cleanup;
  {* Функция очистки полей объекта. }

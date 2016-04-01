@@ -24,7 +24,6 @@ type
    f_Transporter: Pointer;
     {* [weak] IncsTransporter }
    f_ReplyWaiter: TncsReplyWaiter;
-    {* Поле для свойства ReplyWaiter }
   private
    procedure ProcessMessage(aMessage: TncsMessage);
   protected

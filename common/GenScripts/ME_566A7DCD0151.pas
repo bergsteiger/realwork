@@ -19,11 +19,8 @@ type
  TdaQuery = class(Tl3ProtoObject, IdaQuery, IdaComboAccessQueryHelper)
   private
    f_DataConverter: IdaDataConverter;
-    {* Поле для свойства DataConverter }
    f_Params: TdaParamList;
-    {* Поле для свойства Params }
    f_Prepared: Boolean;
-    {* Поле для свойства Prepared }
   protected
    procedure PrepareQuery; virtual; abstract;
    procedure UnprepareQuery; virtual; abstract;

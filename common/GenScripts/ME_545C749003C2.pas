@@ -29,9 +29,7 @@ type
    f_Listener: Pointer;
     {* Weak IarResultDelivererListner }
    f_ServerHost: AnsiString;
-    {* Поле для свойства ServerHost }
    f_ServerPort: Integer;
-    {* Поле для свойства ServerPort }
   private
    function ReceiveTaskResult(const aTaskID: AnsiString): Boolean;
   protected

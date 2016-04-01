@@ -30,11 +30,8 @@ type
    f_FinishNotifierList: TalcuAsyncTaskFinishedNotifierList;
    f_SubmitGuard: Integer;
    f_HasWorkThreads: Boolean;
-    {* Поле для свойства HasWorkThreads }
    f_WorkThreadCount: integer;
-    {* Поле для свойства WorkThreadCount }
    f_Manager: IalcuAsyncSubmitterManager;
-    {* Поле для свойства Manager }
   private
    procedure NotifySubscribers(const aTask: TddProcessTask);
   protected

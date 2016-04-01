@@ -26,9 +26,7 @@ type
   private
    f_List: TdaDataProviderFactoryList;
    f_DefaultFactory: TdaDataProviderFactory;
-    {* Поле для свойства DefaultFactory }
    f_ParamsStorage: IdaParamsStorage;
-    {* Поле для свойства ParamsStorage }
   private
    function FindFactoryByKey(const aKey: AnsiString): TdaDataProviderFactory;
    function MakeFromTaggedData(aData: Tl3Tag): TdaDataProviderParams;
@@ -66,10 +64,10 @@ type
    function MakeFromConfig: TdaDataProviderParams;
    procedure SaveToConfig(aParams: TdaDataProviderParams);
    function MakeParamsFromEVD(aStream: TStream): TdaDataProviderParams;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TdaDataProviderSuperFactory;
     {* Метод получения экземпляра синглетона TdaDataProviderSuperFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property DefaultFactory: TdaDataProviderFactory
     read f_DefaultFactory
@@ -385,12 +383,6 @@ begin
 //#UC END# *550FCA280214_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.MakeParamsFromEVD
 
-class function TdaDataProviderSuperFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TdaDataProviderSuperFactory <> nil;
-end;//TdaDataProviderSuperFactory.Exists
-
 class function TdaDataProviderSuperFactory.Instance: TdaDataProviderSuperFactory;
  {* Метод получения экземпляра синглетона TdaDataProviderSuperFactory }
 begin
@@ -401,6 +393,12 @@ begin
  end;
  Result := g_TdaDataProviderSuperFactory;
 end;//TdaDataProviderSuperFactory.Instance
+
+class function TdaDataProviderSuperFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TdaDataProviderSuperFactory <> nil;
+end;//TdaDataProviderSuperFactory.Exists
 
 procedure TdaDataProviderSuperFactory.Cleanup;
  {* Функция очистки полей объекта. }

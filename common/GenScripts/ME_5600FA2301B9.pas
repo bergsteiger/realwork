@@ -20,13 +20,9 @@ type
  TdaTabledQuery = class(TdaQuery, IdaTabledQuery)
   private
    f_SelectFields: TdaSelectFieldList;
-    {* Поле для свойства SelectFields }
    f_WhereCondition: IdaCondition;
-    {* Поле для свойства WhereCondition }
    f_Table: IdaFromTable;
-    {* Поле для свойства Table }
    f_OrderBy: TdaSortFieldList;
-    {* Поле для свойства OrderBy }
   private
    function BuildFromClause: AnsiString;
    function BuildSelectClause: AnsiString;

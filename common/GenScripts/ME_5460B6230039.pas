@@ -19,7 +19,6 @@ type
  TncsTransporterIOThread = class(TncsTransporterThread)
   private
    f_IOHandler: TcsIdIOHandlerAbstractAdapter;
-    {* Поле для свойства IOHandler }
   protected
    procedure pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter); virtual;
    procedure ReleaseIOHandler;

@@ -18,11 +18,8 @@ type
  TdaFromTable = class(Tl3ProtoObject, IdaFromTable)
   private
    f_Table: IdaTableDescription;
-    {* Поле для свойства Table }
    f_Prepared: Boolean;
-    {* Поле для свойства Prepared }
    f_TableAlias: AnsiString;
-    {* Поле для свойства TableAlias }
   protected
    procedure pm_SetPrepared(aValue: Boolean); virtual;
    function Get_TableAlias: AnsiString;

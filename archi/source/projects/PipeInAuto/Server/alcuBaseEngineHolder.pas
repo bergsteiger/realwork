@@ -19,7 +19,6 @@ type
  TalcuBaseEngineHolder = class(Tl3ProtoObject)
   private
    f_BaseEngine: TalcuBaseEngine;
-    {* Поле для свойства BaseEngine }
   protected
    procedure pm_SetBaseEngine(aValue: TalcuBaseEngine); virtual;
    procedure Cleanup; override;

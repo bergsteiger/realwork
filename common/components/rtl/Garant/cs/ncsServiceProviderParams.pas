@@ -18,17 +18,11 @@ type
  TncsServiceProviderParams = class(Tl3ProtoObject)
   private
    f_ServerHostName: AnsiString;
-    {* Поле для свойства ServerHostName }
    f_ServerPort: Integer;
-    {* Поле для свойства ServerPort }
    f_Login: AnsiString;
-    {* Поле для свойства Login }
    f_Password: AnsiString;
-    {* Поле для свойства Password }
    f_IsDeveloper: Boolean;
-    {* Поле для свойства IsDeveloper }
    f_StandAlone: Boolean;
-    {* Поле для свойства StandAlone }
   protected
    procedure ClearFields; override;
   public

@@ -15,6 +15,7 @@ uses
  , PrimWarningOptions_Form
  , Document_Strange_Controls
  , DocumentAndListInterfaces
+ , l3StringIDEx
 ;
 
 type
@@ -47,7 +48,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3StringIDEx
  , l3MessageID
 ;
 

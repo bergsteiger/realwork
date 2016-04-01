@@ -21,7 +21,6 @@ type
  TdaDataProviderFactory = class(Tl3ProtoObject)
   private
    f_ParamsStorage: IdaParamsStorage;
-    {* Поле для свойства ParamsStorage }
   protected
    procedure LoadCommonParams(aParams: TdaDataProviderParams);
    procedure SaveCommonParams(aParams: TdaDataProviderParams);

@@ -32,10 +32,10 @@ type
    function MakeEmpty: TncsServiceProviderParams;
    function MakeFromConfig: TncsServiceProviderParams;
    procedure SaveToConfig(aParams: TncsServiceProviderParams);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsServiceProviderParamsFactory;
     {* Метод получения экземпляра синглетона TncsServiceProviderParamsFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TncsServiceProviderParamsFactory
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -230,12 +230,6 @@ begin
 //#UC END# *54F81FA703DF_54F04779024B_impl*
 end;//TncsServiceProviderParamsFactory.SaveToConfig
 
-class function TncsServiceProviderParamsFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TncsServiceProviderParamsFactory <> nil;
-end;//TncsServiceProviderParamsFactory.Exists
-
 class function TncsServiceProviderParamsFactory.Instance: TncsServiceProviderParamsFactory;
  {* Метод получения экземпляра синглетона TncsServiceProviderParamsFactory }
 begin
@@ -246,6 +240,12 @@ begin
  end;
  Result := g_TncsServiceProviderParamsFactory;
 end;//TncsServiceProviderParamsFactory.Instance
+
+class function TncsServiceProviderParamsFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TncsServiceProviderParamsFactory <> nil;
+end;//TncsServiceProviderParamsFactory.Exists
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

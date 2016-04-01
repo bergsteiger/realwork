@@ -23,10 +23,10 @@ type
     {* Настраивает и регестрирует фабрики для TdaDataProviderSuperFactory
 Должен быть вызван до обращения к методам TdaDataProviderSuperFactory }
    procedure InitServer;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsDataAccessServices;
     {* Метод получения экземпляра синглетона TncsDataAccessServices }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TncsDataAccessServices
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -155,12 +155,6 @@ begin
 //#UC END# *5502A9100004_54FE99C90168_impl*
 end;//TncsDataAccessServices.InitServer
 
-class function TncsDataAccessServices.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TncsDataAccessServices <> nil;
-end;//TncsDataAccessServices.Exists
-
 class function TncsDataAccessServices.Instance: TncsDataAccessServices;
  {* Метод получения экземпляра синглетона TncsDataAccessServices }
 begin
@@ -171,6 +165,12 @@ begin
  end;
  Result := g_TncsDataAccessServices;
 end;//TncsDataAccessServices.Instance
+
+class function TncsDataAccessServices.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TncsDataAccessServices <> nil;
+end;//TncsDataAccessServices.Exists
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

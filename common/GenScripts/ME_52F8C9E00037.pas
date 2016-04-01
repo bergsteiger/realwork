@@ -19,10 +19,10 @@ type
   protected
    procedure AfterDestroyCalled; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TalcuServer;
     {* Метод получения экземпляра синглетона TalcuServer }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TalcuServer
 {$IfEnd} // Defined(AppServerSide)
 
@@ -46,12 +46,6 @@ begin
  l3Free(g_TalcuServer);
 end;//TalcuServerFree
 
-class function TalcuServer.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TalcuServer <> nil;
-end;//TalcuServer.Exists
-
 class function TalcuServer.Instance: TalcuServer;
  {* Метод получения экземпляра синглетона TalcuServer }
 begin
@@ -62,6 +56,12 @@ begin
  end;
  Result := g_TalcuServer;
 end;//TalcuServer.Instance
+
+class function TalcuServer.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TalcuServer <> nil;
+end;//TalcuServer.Exists
 
 procedure TalcuServer.AfterDestroyCalled;
 //#UC START# *52BC2B9401F3_52F8C9E00037_var*

@@ -27,7 +27,6 @@ type
   private
    f_TaskFolder: AnsiString;
    f_FileName: AnsiString;
-    {* Поле для свойства FileName }
   private
    function DoFinishAtom(G: Tk2DocumentGenerator;
     var Atom: Tk2StackAtom): Boolean;

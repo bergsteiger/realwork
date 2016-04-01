@@ -102,10 +102,10 @@ type
    function Table(aTableKind: TdaTables): IdaTableDescription;
    function StoredProcName(anIndex: Integer): AnsiString;
    function StoredProcsCount: Integer;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TdaScheme;
     {* Метод получения экземпляра синглетона TdaScheme }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TdaScheme
 
 implementation
@@ -943,12 +943,6 @@ begin
 //#UC END# *56A60AA70045_552D07EB03CB_impl*
 end;//TdaScheme.StoredProcsCount
 
-class function TdaScheme.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TdaScheme <> nil;
-end;//TdaScheme.Exists
-
 class function TdaScheme.Instance: TdaScheme;
  {* Метод получения экземпляра синглетона TdaScheme }
 begin
@@ -959,6 +953,12 @@ begin
  end;
  Result := g_TdaScheme;
 end;//TdaScheme.Instance
+
+class function TdaScheme.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TdaScheme <> nil;
+end;//TdaScheme.Exists
 
 procedure TdaScheme.Cleanup;
  {* Функция очистки полей объекта. }

@@ -26,7 +26,6 @@ type
    f_Data: TncsPriorityMessageList;
    f_DataReadyEvent: TEvent;
    f_Processing: Boolean;
-    {* Поле для свойства Processing }
   protected
    procedure pm_SetProcessing(aValue: Boolean);
    procedure Cleanup; override;

@@ -25,9 +25,7 @@ type
    f_ClientID: TCsClientId;
    f_Connected: Boolean;
    f_IntSessionID: AnsiString;
-    {* Поле для свойства IntSessionID }
    f_IOHandler: TcsIdIOHandlerAbstractAdapter;
-    {* Поле для свойства IOHandler }
   protected
    procedure pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter); virtual;
    procedure SetConnected(aValue: Boolean);

@@ -52,7 +52,7 @@ type
    constructor Create(const aUseCaseData: InsCompareEditionsInfo;
     anEditionForCompare: TRedactionID); reintroduce;
    class function Make(const aUseCaseData: InsCompareEditionsInfo;
-    anEditionForCompare: TRedactionID): _afwApplicationDataUpdate_; reintroduce;
+    anEditionForCompare: TRedactionID): IsdsCompareEditionsState; reintroduce;
  end;//TsdsCompareEditionsState
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -85,7 +85,7 @@ begin
 end;//TsdsCompareEditionsState.Create
 
 class function TsdsCompareEditionsState.Make(const aUseCaseData: InsCompareEditionsInfo;
- anEditionForCompare: TRedactionID): _afwApplicationDataUpdate_;
+ anEditionForCompare: TRedactionID): IsdsCompareEditionsState;
 var
  l_Inst : TsdsCompareEditionsState;
 begin

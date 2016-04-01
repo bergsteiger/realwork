@@ -33,10 +33,10 @@ type
    procedure UnRegister(aClass: TncsMessageClass);
    class function MakeFromEVD(aStream: TStream): TncsMessage;
    class function MakeFromTaggedData(aData: Tl3Tag): TncsMessage;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsMessageFactory;
     {* Метод получения экземпляра синглетона TncsMessageFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TncsMessageFactory
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -139,12 +139,6 @@ begin
 //#UC END# *54538F64032E_54539F4702B1_impl*
 end;//TncsMessageFactory.MakeFromTaggedData
 
-class function TncsMessageFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TncsMessageFactory <> nil;
-end;//TncsMessageFactory.Exists
-
 class function TncsMessageFactory.Instance: TncsMessageFactory;
  {* Метод получения экземпляра синглетона TncsMessageFactory }
 begin
@@ -155,6 +149,12 @@ begin
  end;
  Result := g_TncsMessageFactory;
 end;//TncsMessageFactory.Instance
+
+class function TncsMessageFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TncsMessageFactory <> nil;
+end;//TncsMessageFactory.Exists
 
 procedure TncsMessageFactory.Cleanup;
  {* Функция очистки полей объекта. }

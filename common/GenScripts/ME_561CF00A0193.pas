@@ -18,11 +18,11 @@ uses
 type
  TalcuProcessingEnabledService = {final} class(Tl3ProtoObject, Il3ProcessingEnabledService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function Enabled: Boolean;
    class function Instance: TalcuProcessingEnabledService;
     {* Метод получения экземпляра синглетона TalcuProcessingEnabledService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TalcuProcessingEnabledService
 {$IfEnd} // Defined(AppServerSide)
 
@@ -45,12 +45,6 @@ begin
  l3Free(g_TalcuProcessingEnabledService);
 end;//TalcuProcessingEnabledServiceFree
 
-class function TalcuProcessingEnabledService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TalcuProcessingEnabledService <> nil;
-end;//TalcuProcessingEnabledService.Exists
-
 function TalcuProcessingEnabledService.Enabled: Boolean;
 //#UC START# *ECCF31CF8A24_561CF00A0193_var*
 //#UC END# *ECCF31CF8A24_561CF00A0193_var*
@@ -70,6 +64,12 @@ begin
  end;
  Result := g_TalcuProcessingEnabledService;
 end;//TalcuProcessingEnabledService.Instance
+
+class function TalcuProcessingEnabledService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TalcuProcessingEnabledService <> nil;
+end;//TalcuProcessingEnabledService.Exists
 
 initialization
  Tl3ProcessingEnabledService.Instance.Alien := TalcuProcessingEnabledService.Instance;

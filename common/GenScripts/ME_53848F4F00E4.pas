@@ -32,10 +32,10 @@ type
     aClass: TddTaskClass;
     const aDescription: AnsiString);
    function Registered(aTaskType: TcsTaskType): Boolean;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TddTaskClassManager;
     {* Метод получения экземпляра синглетона TddTaskClassManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TddTaskClassManager
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -111,12 +111,6 @@ begin
 //#UC END# *5384910E011E_53848F4F00E4_impl*
 end;//TddTaskClassManager.Registered
 
-class function TddTaskClassManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TddTaskClassManager <> nil;
-end;//TddTaskClassManager.Exists
-
 class function TddTaskClassManager.Instance: TddTaskClassManager;
  {* Метод получения экземпляра синглетона TddTaskClassManager }
 begin
@@ -127,6 +121,12 @@ begin
  end;
  Result := g_TddTaskClassManager;
 end;//TddTaskClassManager.Instance
+
+class function TddTaskClassManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TddTaskClassManager <> nil;
+end;//TddTaskClassManager.Exists
 
 procedure TddTaskClassManager.Cleanup;
  {* Функция очистки полей объекта. }

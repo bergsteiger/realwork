@@ -21,7 +21,6 @@ type
  TalcuExecutorWithIncomingTaskList = class(Tl3ProtoObject)
   private
    f_IncomingList: TddServerTaskList;
-    {* Поле для свойства IncomingList }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

@@ -1,6 +1,6 @@
-unit nsPrimeNode;
+unit NOT_COMPLETED_nsPrimeNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPrimeNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\NOT_COMPLETED_nsPrimeNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsPrimeNode" MUID: (4AC21C8401A8)
 

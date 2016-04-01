@@ -36,19 +36,12 @@ type
    f_ClientID: TCsClientId;
    f_IOHandlers: TncsIOHandlerArray;
    f_SendQueue: TncsMessageQueue;
-    {* Поле для свойства SendQueue }
    f_ReceiveQueue: TncsMessageQueue;
-    {* Поле для свойства ReceiveQueue }
    f_SendThread: TncsSendThread;
-    {* Поле для свойства SendThread }
    f_ReceiveThread: TncsReceiveThread;
-    {* Поле для свойства ReceiveThread }
    f_ProcessThread: TncsProcessThread;
-    {* Поле для свойства ProcessThread }
    f_ReplyWaiter: TncsReplyWaiter;
-    {* Поле для свойства ReplyWaiter }
    f_IntSessionID: AnsiString;
-    {* Поле для свойства IntSessionID }
   protected
    function pm_GetIOHandlers(SocketKind: TncsSocketKind): TcsIdIOHandlerAbstractAdapter;
    procedure pm_SetIOHandlers(SocketKind: TncsSocketKind;

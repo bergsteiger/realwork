@@ -21,7 +21,6 @@ type
  TalcuExecutorWithTaskList = class(Tl3ProtoObject)
   private
    f_TaskList: TalcuTaskList;
-    {* Поле для свойства TaskList }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

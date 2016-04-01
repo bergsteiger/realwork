@@ -36,10 +36,10 @@ type
    procedure Register(const aFactory: IncsMessageExecutorFactory);
    procedure UnRegister(const aFactory: IncsMessageExecutorFactory);
    function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsMessageExecutorFactory;
     {* Метод получения экземпляра синглетона TncsMessageExecutorFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TncsMessageExecutorFactory
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -187,12 +187,6 @@ begin
 //#UC END# *5460AEC800B8_54607384020A_impl*
 end;//TncsMessageExecutorFactory.MakeExecutor
 
-class function TncsMessageExecutorFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TncsMessageExecutorFactory <> nil;
-end;//TncsMessageExecutorFactory.Exists
-
 class function TncsMessageExecutorFactory.Instance: TncsMessageExecutorFactory;
  {* Метод получения экземпляра синглетона TncsMessageExecutorFactory }
 begin
@@ -203,6 +197,12 @@ begin
  end;
  Result := g_TncsMessageExecutorFactory;
 end;//TncsMessageExecutorFactory.Instance
+
+class function TncsMessageExecutorFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TncsMessageExecutorFactory <> nil;
+end;//TncsMessageExecutorFactory.Exists
 
 procedure TncsMessageExecutorFactory.Cleanup;
  {* Функция очистки полей объекта. }

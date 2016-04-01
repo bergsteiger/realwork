@@ -62,6 +62,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ , l3StringIDEx
  , l3SimpleObject
 ;
 
@@ -357,7 +359,6 @@ uses
  , l3Base
  , evdHyperlinkInfo
  , nsHyperlinkToDocumentProducerConst
- , l3StringIDEx
  , l3MessageID
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher

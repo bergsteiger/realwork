@@ -22,9 +22,7 @@ type
   private
    f_Event: TEvent;
    f_Message: TncsMessage;
-    {* Поле для свойства Message }
    f_Reply: TncsMessage;
-    {* Поле для свойства Reply }
   protected
    procedure pm_SetReply(aValue: TncsMessage);
    procedure Cleanup; override;

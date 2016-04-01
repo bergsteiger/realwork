@@ -19,7 +19,6 @@ type
  TcsMessageRecepient = class(Tl3ProtoObject)
   private
    f_Messages: TddClientMessageSortableList;
-    {* Поле для свойства Messages }
   public
    property Messages: TddClientMessageSortableList
     read f_Messages;

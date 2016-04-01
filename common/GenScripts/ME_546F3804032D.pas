@@ -29,7 +29,6 @@ type
    f_Stream: TStream;
    f_Progressor: TddProgressObject;
    f_LocalDesc: TncsTaskedFileDesc;
-    {* Поле для свойства LocalDesc }
   private
    function CheckContinue(aRemoteDesc: TncsFileDesc): Boolean;
    procedure InitNew(aRemoteDesc: TncsFileDesc);

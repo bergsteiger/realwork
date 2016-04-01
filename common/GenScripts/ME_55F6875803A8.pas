@@ -35,7 +35,6 @@ type
    f_TransactionTables: TdaTablesSet;
    f_LongProcessList: TdaLongProcessSubscriberList;
    f_Handle: PPGconn;
-    {* Поле для свойства Handle }
   private
    function BuildConnectString(const anUser: AnsiString;
     const aPassword: AnsiString;

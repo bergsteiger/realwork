@@ -224,7 +224,7 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
-   class function Make(const aData: InsStyleTableSettingsInfo): StyleEditor; reintroduce;
+   class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
    procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
    procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParamsPrim);
    procedure StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
@@ -294,7 +294,7 @@ const
  str_InheritanceButtonNoTransparentHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonNoTransparentHint'; rValue : 'Тип наследования (Собственное, Родительское)');
   {* 'Тип наследования (Собственное, Родительское)' }
 
-class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo): StyleEditor;
+class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo);
 var
  l_Inst : TPrimStyleEditorFontForm;
 begin

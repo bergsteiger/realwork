@@ -19,10 +19,10 @@ type
  TCsReplyProcedures = class(TCsReplyProceduresWithRegistering)
   {* Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TCsReplyProcedures;
     {* Метод получения экземпляра синглетона TCsReplyProcedures }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TCsReplyProcedures
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
@@ -44,12 +44,6 @@ begin
  l3Free(g_TCsReplyProcedures);
 end;//TCsReplyProceduresFree
 
-class function TCsReplyProcedures.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TCsReplyProcedures <> nil;
-end;//TCsReplyProcedures.Exists
-
 class function TCsReplyProcedures.Instance: TCsReplyProcedures;
  {* Метод получения экземпляра синглетона TCsReplyProcedures }
 begin
@@ -60,6 +54,12 @@ begin
  end;
  Result := g_TCsReplyProcedures;
 end;//TCsReplyProcedures.Instance
+
+class function TCsReplyProcedures.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TCsReplyProcedures <> nil;
+end;//TCsReplyProcedures.Exists
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 end.

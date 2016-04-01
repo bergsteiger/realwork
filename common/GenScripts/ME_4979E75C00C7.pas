@@ -20,6 +20,7 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
+ , l3StringIDEx
 ;
 
 type
@@ -77,7 +78,6 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
- , l3StringIDEx
  , l3MessageID
 ;
 

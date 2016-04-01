@@ -29,10 +29,10 @@ type
   public
    class procedure CreateProvider;
    class procedure DoneProvider;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TncsDefaultProviderHolder;
     {* Метод получения экземпляра синглетона TncsDefaultProviderHolder }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TncsDefaultProviderHolder
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -106,12 +106,6 @@ begin
 //#UC END# *551BB3440181_551BB2E70032_impl*
 end;//TncsDefaultProviderHolder.DoneProvider
 
-class function TncsDefaultProviderHolder.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TncsDefaultProviderHolder <> nil;
-end;//TncsDefaultProviderHolder.Exists
-
 class function TncsDefaultProviderHolder.Instance: TncsDefaultProviderHolder;
  {* Метод получения экземпляра синглетона TncsDefaultProviderHolder }
 begin
@@ -122,6 +116,12 @@ begin
  end;
  Result := g_TncsDefaultProviderHolder;
 end;//TncsDefaultProviderHolder.Instance
+
+class function TncsDefaultProviderHolder.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TncsDefaultProviderHolder <> nil;
+end;//TncsDefaultProviderHolder.Exists
 
 procedure TncsDefaultProviderHolder.Cleanup;
  {* Функция очистки полей объекта. }

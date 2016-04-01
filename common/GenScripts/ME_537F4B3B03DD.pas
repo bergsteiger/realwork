@@ -19,7 +19,6 @@ type
  TCsClientInfo = class(TCsObject)
   private
    f_ClientId: TCsClientId;
-    {* Поле для свойства ClientId }
   public
    LoginName: AnsiString;
    ListenIp: TCsIp;

@@ -57,7 +57,7 @@ Var
    // ≈сли нет, то получаем этого пользовател€
    if UserGr then
    begin
-    l_ResultSab := UserManager.GetUserGroupsList(UserOrGroupID);
+    l_ResultSab := MakeSab(UserManager.LinkTbl.Table, UserManager.GetUserIDSabOnGroup(UserOrGroupID));
     l_ResultSab.TransferToPhoto(bbID_Ext, MakePhoto(BigBrother));
     l_ResultSab.RecordsByKey;
    end

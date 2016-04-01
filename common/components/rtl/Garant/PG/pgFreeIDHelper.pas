@@ -27,7 +27,6 @@ type
    f_DeleteIntervalFunction: IdaFunction;
    f_Connection: TpgConnection;
    f_ExclusiveUse: Boolean;
-    {* Поле для свойства ExclusiveUse }
   private
    function KeyPrefix(const aKey: AnsiString): AnsiString;
    function RepairInterval(const aKey: AnsiString): Boolean;

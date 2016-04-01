@@ -38,6 +38,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
  , l3ProtoObject
  , nsIFilterFromQueryList
 ;
@@ -174,7 +175,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , SearchUnit
  , BaseTreeSupportUnit
  , FoldersDomainInterfaces

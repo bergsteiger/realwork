@@ -51,7 +51,7 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IdsCreateFilter): MvcmEntityForm; reintroduce;
+   class function Make(const aData: IdsCreateFilter); reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
@@ -101,7 +101,7 @@ const
  str_cfRenameCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfRenameCaption'; rValue : 'Переименовать фильтр');
   {* Заголовок пользовательского типа "Переименовать фильтр" }
 
-class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter): MvcmEntityForm;
+class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter);
 var
  l_Inst : TPrimCreateFilterForm;
 begin

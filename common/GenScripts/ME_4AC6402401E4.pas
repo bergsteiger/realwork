@@ -63,7 +63,7 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsStyleTableSettingsInfo): StyleEditor; reintroduce;
+   class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
   public
@@ -95,7 +95,7 @@ const
  str_utStyleEditorContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorContainerCaption'; rValue : 'Редактор стилей');
   {* Заголовок пользовательского типа "Редактор стилей" }
 
-class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo): StyleEditor;
+class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo);
 var
  l_Inst : TPrimStyleEditorContainerForm;
 begin
