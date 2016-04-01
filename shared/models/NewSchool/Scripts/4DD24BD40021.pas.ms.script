@@ -276,36 +276,6 @@ FORWARD ME_4E36C7590390
 
 ref; // ME_4E37CA2A034B caption
 
-: ME_4E36CAE40043
- CONST UID '4E36CAE40043'
- CONST Class class_Attribute
- : Stereotype st_factory_switch::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E36C7590390 // Section
- ;
- : Target ME_4E3011A101F7 // SectionType
- ;
-
-ref; // ME_4E36CAE40043 
-
-: ME_4E36CAC7035A
- CONST UID '4E36CAC7035A'
- CONST Name 'make'
- CONST Class class_Operation
- : Stereotype st_multi_factory::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4E36C7590390 // Section
- ;
- CONST TargetStereotype 'const,cached'
- CONST "const_type" 'read-write'
- CONST "dll export" false
- CONST "transparent multy" false
-
-ref; // ME_4E36CAC7035A make
-
 : ME_4E37CA4300B7
  CONST UID '4E37CA4300B7'
  CONST Name 'get_items'
@@ -320,6 +290,34 @@ ref; // ME_4E36CAC7035A make
 
 ref; // ME_4E37CA4300B7 get_items
 
+: ME_56FD3A680217
+ CONST Name 'type'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4E3011A101F7 // SectionType
+ ;
+
+ref; // ME_56FD3A680217 type
+
+: ME_56FD3A5700CD
+ CONST UID '56FD3A5700CD'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E36C7590390 // Section
+ ;
+ CONST TargetStereotype 'const,cached'
+ : Parameters
+   Seq: ( ME_56FD3A680217 // type
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_56FD3A5700CD make
+
 : ME_4E36C7590390
  CONST UID '4E36C7590390'
  CONST GUID 'BBB2D3C6-226C-4A9F-AAC6-32775E30B7C7'
@@ -333,12 +331,11 @@ ref; // ME_4E37CA4300B7 get_items
  ;
  : Attributes
    Seq: ( ME_4E37CA2A034B // caption
- ME_4E36CAE40043 // 
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4E36CAC7035A // make
- ME_4E37CA4300B7 // get_items
+   Seq: ( ME_4E37CA4300B7 // get_items
+ ME_56FD3A5700CD // make
  )
  ; // Operations
  CONST "single impl" false
@@ -406,6 +403,88 @@ ref; // ME_4E3012AE02D8 type
 
 ref; // ME_4E3012910002 get_section
 
+: ME_56FD3338015D
+ CONST Name 'index'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_56FD3338015D index
+
+: ME_56FD32B101BA
+ CONST UID '56FD32B101BA'
+ CONST Name 'get_professional_section'
+ CONST Class class_Operation
+ %SUMMARY 'получить секцию меню для профессии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DD24C180204 // MainMenu
+ ;
+ : Target ME_4E36C7590390 // Section
+ ;
+ : Parameters
+   Seq: ( ME_56FD3338015D // index
+ )
+ ; // Parameters
+
+ref; // ME_56FD32B101BA get_professional_section
+
+: ME_56FD33760101
+ CONST UID '56FD33760101'
+ CONST Name 'get_professional_section_count'
+ CONST Class class_Operation
+ %SUMMARY 'количество проф. секций в меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DD24C180204 // MainMenu
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_56FD33760101 get_professional_section_count
+
+: ME_56FD341003E5
+ CONST Name 'index'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_56FD341003E5 index
+
+: ME_56FD33AF01AB
+ CONST UID '56FD33AF01AB'
+ CONST Name 'get_news_section'
+ CONST Class class_Operation
+ %SUMMARY 'получить раздел новостей для профессии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DD24C180204 // MainMenu
+ ;
+ : Target ME_4E36C7590390 // Section
+ ;
+ : Parameters
+   Seq: ( ME_56FD341003E5 // index
+ )
+ ; // Parameters
+
+ref; // ME_56FD33AF01AB get_news_section
+
+: ME_56FD341F0159
+ CONST UID '56FD341F0159'
+ CONST Name 'get_news_section_count'
+ CONST Class class_Operation
+ %SUMMARY 'количество новостных секций по профессиям' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DD24C180204 // MainMenu
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_56FD341F0159 get_news_section_count
+
 : ME_4DD24C180204
  CONST UID '4DD24C180204'
  CONST GUID '7EAB7EE0-39FB-42FD-BE38-AF667AE0466E'
@@ -422,6 +501,10 @@ ref; // ME_4E3012910002 get_section
    Seq: ( ME_4DD24C3000F5 // get_base_search_panes
  ME_4DD251830230 // make
  ME_4E3012910002 // get_section
+ ME_56FD32B101BA // get_professional_section
+ ME_56FD33760101 // get_professional_section_count
+ ME_56FD33AF01AB // get_news_section
+ ME_56FD341F0159 // get_news_section_count
  )
  ; // Operations
  CONST "single impl" false

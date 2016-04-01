@@ -825,6 +825,23 @@ ref; // ME_4B14F22E01B6 aKind
 
 ref; // ME_4B14F21C029D Log
 
+: ME_1788B220B90C
+ CONST UID '1788B220B90C'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B14F1AB03A0 // TnsUserOperationEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_1788B220B90C Exists
+
 : ME_4B14F2600146
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -861,6 +878,7 @@ ref; // ME_4B13A1F202D9_ME_4B14F1AB03A0 DoFireLog
  ; // Attributes
  : Operations
    Seq: ( ME_4B14F21C029D // Log
+ ME_1788B220B90C // Exists
  )
  ; // Operations
  : Implemented

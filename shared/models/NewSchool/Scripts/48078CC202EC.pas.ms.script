@@ -329,23 +329,6 @@ ref; // ME_4B9793EC02E8 array of Variant
 
 FORWARD ME_503F7E3800E2
 
-: ME_A3FAD17A4D47
- CONST UID 'A3FAD17A4D47'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_503F7E3800E2 // TatTreeTagConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A3FAD17A4D47 Exists
-
 : ME_503E3A040395_ME_503F7E3800E2
  : Original WL 'ME_503E3A040395' '48076E7F0260.pas.ms.script' // InitConvertMap
  ;
@@ -367,10 +350,6 @@ ref; // ME_503E3A040395_ME_503F7E3800E2 InitConvertMap
    Seq: ( WL 'ME_503F793301B3' '48076E7F0260.pas.ms.script' // TatStringToStringConverterBase
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A3FAD17A4D47 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_503E3A040395_ME_503F7E3800E2 // InitConvertMap
  )
@@ -1089,22 +1068,6 @@ FORWARD ME_4843BEFE0153
 
 ref; // ME_484D51CF004B FoldersNode
 
-: ME_D8DFA835311B
- CONST UID 'D8DFA835311B'
- CONST Name 'f_FoldersNode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FoldersNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4843BEFE0153 // TatFolderNodeMatcherBase
- ;
- : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
- ;
-
-ref; // ME_D8DFA835311B f_FoldersNode
-
 : ME_4843BF1B0059
  CONST UID '4843BF1B0059'
  CONST Name 'CheckIsMatch'
@@ -1140,12 +1103,6 @@ ref; // ME_487B361F01DE Make
  CONST OpKind opkind_Implemented
 ref; // ME_4843BEA80357_ME_4843BEFE0153 IsMatch
 
-: ME_5000565C019C_ME_4843BEFE0153
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4843BEFE0153 ClearFields
-
 : ME_4843BEFE0153
  CONST UID '4843BEFE0153'
  CONST Name 'TatFolderNodeMatcherBase'
@@ -1166,7 +1123,6 @@ ref; // ME_5000565C019C_ME_4843BEFE0153 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_484D51CF004B // FoldersNode
- ME_D8DFA835311B // f_FoldersNode
  )
  ; // Attributes
  : Operations
@@ -1178,10 +1134,6 @@ ref; // ME_5000565C019C_ME_4843BEFE0153 ClearFields
    Seq: ( ME_4843BEA80357_ME_4843BEFE0153 // IsMatch
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4843BEFE0153 // ClearFields
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2301,70 +2253,6 @@ ref; // ME_4B72D9640123 f_ReadSendCS
 
 ref; // ME_4B7560DA00CE f_NewMessageCS
 
-: ME_8040F9DF37D5
- CONST UID '8040F9DF37D5'
- CONST Name 'f_UserID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UserID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B683B6501EB // TatChatConversation
- ;
- : Target WL 'ME_49DC72D80235' '456EA56002BF.pas.ms.script' // Uid
- ;
-
-ref; // ME_8040F9DF37D5 f_UserID
-
-: ME_B7D45F8B6043
- CONST UID 'B7D45F8B6043'
- CONST Name 'f_MessagesReceived'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MessagesReceived' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B683B6501EB // TatChatConversation
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B7D45F8B6043 f_MessagesReceived
-
-: ME_8B54F55AB1A5
- CONST UID '8B54F55AB1A5'
- CONST Name 'f_MessagesSent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MessagesSent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B683B6501EB // TatChatConversation
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8B54F55AB1A5 f_MessagesSent
-
-: ME_4DBA67DD588F
- CONST UID '4DBA67DD588F'
- CONST Name 'f_MessagesManager'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MessagesManager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B683B6501EB // TatChatConversation
- ;
- : Target WL 'ME_4A409DC300BF' '4A40991F003F.pas.ms.script' // MessagesManager
- ;
-
-ref; // ME_4DBA67DD588F f_MessagesManager
-
 : ME_4B683C3501C7
  CONST Name 'aMessage'
  CONST Class class_Parameter
@@ -2522,12 +2410,6 @@ ref; // ME_4B6BF28F0079
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4B683B6501EB Cleanup
 
-: ME_5000565C019C_ME_4B683B6501EB
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4B683B6501EB ClearFields
-
 : ME_4B683B6501EB
  CONST UID '4B683B6501EB'
  CONST Name 'TatChatConversation'
@@ -2550,10 +2432,6 @@ ref; // ME_5000565C019C_ME_4B683B6501EB ClearFields
  ME_4B6925B700A7 // MessagesManager
  ME_4B72D9640123 // f_ReadSendCS
  ME_4B7560DA00CE // f_NewMessageCS
- ME_8040F9DF37D5 // f_UserID
- ME_B7D45F8B6043 // f_MessagesReceived
- ME_8B54F55AB1A5 // f_MessagesSent
- ME_4DBA67DD588F // f_MessagesManager
  )
  ; // Attributes
  : Operations
@@ -2567,7 +2445,6 @@ ref; // ME_5000565C019C_ME_4B683B6501EB ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4B683B6501EB // Cleanup
- ME_5000565C019C_ME_4B683B6501EB // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -3032,22 +2909,6 @@ ref; // ME_4B7293B40189 f_UWUMCS
 
 ref; // ME_4B7412BA02AA f_NotifyCS
 
-: ME_3AC7184C7F28
- CONST UID '3AC7184C7F28'
- CONST Name 'f_ChatManager'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChatManager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_4B683B57028D // TatChatWorker
- ;
- : Target WL 'ME_4A4099A302A3' '4A40991F003F.pas.ms.script' // ChatManager
- ;
-
-ref; // ME_3AC7184C7F28 f_ChatManager
-
 : ME_4B6925110286
  CONST UID '4B6925110286'
  CONST Name 'Create'
@@ -3346,7 +3207,6 @@ ref; // ME_479731C50290_ME_4B683B57028D Cleanup
  ME_4B6BFB11036F // f_UidsWithUnreadedMessages
  ME_4B7293B40189 // f_UWUMCS
  ME_4B7412BA02AA // f_NotifyCS
- ME_3AC7184C7F28 // f_ChatManager
  )
  ; // Attributes
  : Operations
@@ -7207,22 +7067,6 @@ ref; // ME_4CFD04A7037A f_CurrLayerIdx
 
 ref; // ME_4CFE2B240162 CurrLayer
 
-: ME_8C6BD6678C0D
- CONST UID '8C6BD6678C0D'
- CONST Name 'f_CurrLayer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrLayer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCF9A6024F // TatDTPIterator
- ;
- : Target ME_4CFE2D24010E // PTatLayerContext
- ;
-
-ref; // ME_8C6BD6678C0D f_CurrLayer
-
 : ME_4CFF41CB0353
  CONST Name 'aLayer'
  CONST Class class_Parameter
@@ -7415,7 +7259,6 @@ ref; // ME_4DD3A10C0050 SetNextToSub
  ME_4CFD043F02C0 // f_LayerStack
  ME_4CFD04A7037A // f_CurrLayerIdx
  ME_4CFE2B240162 // CurrLayer
- ME_8C6BD6678C0D // f_CurrLayer
  )
  ; // Attributes
  : Operations
@@ -7500,40 +7343,6 @@ ref; // ME_4CFF40FF009A IsParaMustHaveNonZeroID
 
 ref; // ME_4D00C31F0154 IsParaMustHaveComments
 
-: ME_3915B3A085F9
- CONST UID '3915B3A085F9'
- CONST Name 'f_IsParaMustHaveNonZeroID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsParaMustHaveNonZeroID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFE70A801B2 // TatDTPParaIterator
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsParaMustHaveNonZeroID'
-
-ref; // ME_3915B3A085F9 f_IsParaMustHaveNonZeroID
-
-: ME_B9F46DA4AD8F
- CONST UID 'B9F46DA4AD8F'
- CONST Name 'f_IsParaMustHaveComments'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsParaMustHaveComments' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFE70A801B2 // TatDTPParaIterator
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsParaMustHaveComments'
-
-ref; // ME_B9F46DA4AD8F f_IsParaMustHaveComments
-
 : ME_4DCD71E6001D
  CONST Name 'aDTP'
  CONST Class class_Parameter
@@ -7589,8 +7398,6 @@ ref; // ME_4CFD01FD00DB_ME_4CFE70A801B2 GetNext
    Seq: ( ME_4CFE70C60029 // f_HasNext
  ME_4CFF40FF009A // IsParaMustHaveNonZeroID
  ME_4D00C31F0154 // IsParaMustHaveComments
- ME_3915B3A085F9 // f_IsParaMustHaveNonZeroID
- ME_B9F46DA4AD8F // f_IsParaMustHaveComments
  )
  ; // Attributes
  : Operations
@@ -7788,23 +7595,6 @@ ref; // ME_4DD3D67C025E f_ParaIDForJournal
 
 ref; // ME_4DD39FA50197 f_ParaIterator
 
-: ME_8D32F3DA61BE
- CONST UID '8D32F3DA61BE'
- CONST Name 'f_IsFullLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsFullLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4DD39F320114 // TatDocReader
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IsFullLoad'
-
-ref; // ME_8D32F3DA61BE f_IsFullLoad
-
 : ME_4DD39F5602DA
  CONST Name 'aDocument'
  CONST Class class_Parameter
@@ -7942,7 +7732,6 @@ ref; // ME_48077504027E_ME_4DD39F320114 Destroy
  ME_4DD3ABB002CB // f_DTP
  ME_4DD3D67C025E // f_ParaIDForJournal
  ME_4DD39FA50197 // f_ParaIterator
- ME_8D32F3DA61BE // f_IsFullLoad
  )
  ; // Attributes
  : Operations
@@ -8902,22 +8691,6 @@ ref; // ME_5051E8E7028C FirstElement
 
 ref; // ME_4FD24AB501AE EntityInterface
 
-: ME_F7E7777287A7
- CONST UID 'F7E7777287A7'
- CONST Name 'f_Root'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Root' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FD24A98029F // TatList
- ;
- : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
- ;
-
-ref; // ME_F7E7777287A7 f_Root
-
 : ME_5051FA780298
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -8963,7 +8736,6 @@ ref; // ME_5000565C019C_ME_4FD24A98029F ClearFields
  ME_5051E87C0078 // Root
  ME_5051E8E7028C // FirstElement
  ME_4FD24AB501AE // EntityInterface
- ME_F7E7777287A7 // f_Root
  )
  ; // Attributes
  : Overridden
@@ -9321,23 +9093,6 @@ ref; // ME_4A4CDD01023F TatListHelper
 
 ref; // ME_50045BEE00BC EnumType
 
-: ME_7A9F6A642AAE
- CONST UID '7A9F6A642AAE'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_50045BDB00CA // TatQueryTypeConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_7A9F6A642AAE Exists
-
 : ME_50045BDB00CA
  CONST UID '50045BDB00CA'
  CONST Name 'TatQueryTypeConverter'
@@ -9356,10 +9111,6 @@ ref; // ME_7A9F6A642AAE Exists
    Seq: ( ME_50045BEE00BC // EnumType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_7A9F6A642AAE // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -9387,23 +9138,6 @@ ref; // ME_50045BDB00CA TatQueryTypeConverter
 
 ref; // ME_50045C4D0072 EnumType
 
-: ME_B92D3B5A1C18
- CONST UID 'B92D3B5A1C18'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_50045C090310 // TatQueryLogicOperationConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_B92D3B5A1C18 Exists
-
 : ME_50045C090310
  CONST UID '50045C090310'
  CONST Name 'TatQueryLogicOperationConverter'
@@ -9422,10 +9156,6 @@ ref; // ME_B92D3B5A1C18 Exists
    Seq: ( ME_50045C4D0072 // EnumType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_B92D3B5A1C18 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -9453,23 +9183,6 @@ ref; // ME_50045C090310 TatQueryLogicOperationConverter
 
 ref; // ME_503E51EA02D2 SecondType
 
-: ME_D7450996A6BA
- CONST UID 'D7450996A6BA'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_503E51C002D7 // TatNonATQueryLogicOperationConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_D7450996A6BA Exists
-
 : ME_503E3A040395_ME_503E51C002D7
  : Original WL 'ME_503E3A040395' '48076E7F0260.pas.ms.script' // InitConvertMap
  ;
@@ -9494,10 +9207,6 @@ ref; // ME_503E3A040395_ME_503E51C002D7 InitConvertMap
    Seq: ( ME_503E51EA02D2 // SecondType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_D7450996A6BA // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_503E3A040395_ME_503E51C002D7 // InitConvertMap
  )
@@ -9517,23 +9226,6 @@ ref; // ME_503E51C002D7 TatNonATQueryLogicOperationConverter
 FORWARD ME_503F81C30303
 
 FORWARD ME_503F83120326
-
-: ME_DE750A525C14
- CONST UID 'DE750A525C14'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_503F83120326 // TatTreeTagToSettingIDConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_DE750A525C14 Exists
 
 : ME_503E3A040395_ME_503F83120326
  : Original WL 'ME_503E3A040395' '48076E7F0260.pas.ms.script' // InitConvertMap
@@ -9556,10 +9248,6 @@ ref; // ME_503E3A040395_ME_503F83120326 InitConvertMap
    Seq: ( WL 'ME_503F793301B3' '48076E7F0260.pas.ms.script' // TatStringToStringConverterBase
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_DE750A525C14 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_503E3A040395_ME_503F83120326 // InitConvertMap
  )
@@ -9962,39 +9650,6 @@ ref; // ME_5040D43E004C Order
 
 ref; // ME_5040D44600D3 Place
 
-: ME_D7A3E474669F
- CONST UID 'D7A3E474669F'
- CONST Name 'f_TweakContextOnAssignment'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TweakContextOnAssignment' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5040D3EE02D5 // TatContextFilter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'TweakContextOnAssignment'
-
-ref; // ME_D7A3E474669F f_TweakContextOnAssignment
-
-: ME_F3CD58B9C6AA
- CONST UID 'F3CD58B9C6AA'
- CONST Name 'f_Filter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Filter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5040D3EE02D5 // TatContextFilter
- ;
- : Target WL 'ME_45EEBB5002CE' '457450470167.pas.ms.script' // ContextFilter
- ;
-
-ref; // ME_F3CD58B9C6AA f_Filter
-
 : ME_5040D4B2016F
  CONST Name 'aFilter'
  CONST Class class_Parameter
@@ -10069,8 +9724,6 @@ ref; // ME_5040D82B03D9
  ME_5040D43501FA // Area
  ME_5040D43E004C // Order
  ME_5040D44600D3 // Place
- ME_D7A3E474669F // f_TweakContextOnAssignment
- ME_F3CD58B9C6AA // f_Filter
  )
  ; // Attributes
  : Operations
@@ -10149,23 +9802,6 @@ ref; // ME_503F84050182 TatFilterHelper
 
 FORWARD ME_504F47A401F7
 
-: ME_B49870A95E19
- CONST UID 'B49870A95E19'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_504F47A401F7 // TatControlStatusConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_B49870A95E19 Exists
-
 : ME_504F47D8029D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -10196,10 +9832,6 @@ ref; // ME_503E3A040395_ME_504F47A401F7 InitConvertMap
    Seq: ( WL 'ME_504F268A02FD' '48076E7F0260.pas.ms.script' // TatStringToBitMaskConverterBase
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B49870A95E19 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_503E3A040395_ME_504F47A401F7 // InitConvertMap
  )
@@ -10406,91 +10038,6 @@ ref; // ME_4A54B6AE0370 QuestionText
 
 ref; // ME_4A54C04003B8 EMail
 
-: ME_00E9851E4103
- CONST UID '00E9851E4103'
- CONST Name 'f_UserName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UserName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A54B2EB00FF // TatNewConsultation
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'UserName'
-
-ref; // ME_00E9851E4103 f_UserName
-
-: ME_59DACC787E89
- CONST UID '59DACC787E89'
- CONST Name 'f_CityCode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CityCode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A54B2EB00FF // TatNewConsultation
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'CityCode'
-
-ref; // ME_59DACC787E89 f_CityCode
-
-: ME_DDDC9A6FDC75
- CONST UID 'DDDC9A6FDC75'
- CONST Name 'f_PhoneNumber'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PhoneNumber' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A54B2EB00FF // TatNewConsultation
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'PhoneNumber'
-
-ref; // ME_DDDC9A6FDC75 f_PhoneNumber
-
-: ME_5A1BD5CB3963
- CONST UID '5A1BD5CB3963'
- CONST Name 'f_QuestionText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства QuestionText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A54B2EB00FF // TatNewConsultation
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'QuestionText'
-
-ref; // ME_5A1BD5CB3963 f_QuestionText
-
-: ME_736BE039C3D8
- CONST UID '736BE039C3D8'
- CONST Name 'f_EMail'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EMail' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A54B2EB00FF // TatNewConsultation
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'EMail'
-
-ref; // ME_736BE039C3D8 f_EMail
-
 : ME_4A54B41C00D9
  CONST UID '4A54B41C00D9'
  CONST Name 'Create'
@@ -10573,11 +10120,6 @@ ref; // ME_48077504027E_ME_4A54B2EB00FF Destroy
  ME_4A54B68C024F // PhoneNumber
  ME_4A54B6AE0370 // QuestionText
  ME_4A54C04003B8 // EMail
- ME_00E9851E4103 // f_UserName
- ME_59DACC787E89 // f_CityCode
- ME_DDDC9A6FDC75 // f_PhoneNumber
- ME_5A1BD5CB3963 // f_QuestionText
- ME_736BE039C3D8 // f_EMail
  )
  ; // Attributes
  : Operations
@@ -10623,23 +10165,6 @@ FORWARD ME_539700E901EB
 
 ref; // ME_5397013F0343 EnumType
 
-: ME_A371E3ED7AD1
- CONST UID 'A371E3ED7AD1'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_539700E901EB // TatListNodeTypeConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A371E3ED7AD1 Exists
-
 : ME_539700E901EB
  CONST UID '539700E901EB'
  CONST Name 'TatListNodeTypeConverter'
@@ -10658,10 +10183,6 @@ ref; // ME_A371E3ED7AD1 Exists
    Seq: ( ME_5397013F0343 // EnumType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_A371E3ED7AD1 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -10691,23 +10212,6 @@ FORWARD ME_53971CFA00EF
 
 ref; // ME_53971D2A0393 EnumType
 
-: ME_C61F29418FC3
- CONST UID 'C61F29418FC3'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53971CFA00EF // TatPositionTypeConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_C61F29418FC3 Exists
-
 : ME_53971CFA00EF
  CONST UID '53971CFA00EF'
  CONST Name 'TatPositionTypeConverter'
@@ -10726,10 +10230,6 @@ ref; // ME_C61F29418FC3 Exists
    Seq: ( ME_53971D2A0393 // EnumType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_C61F29418FC3 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

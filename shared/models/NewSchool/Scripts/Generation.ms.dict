@@ -206,14 +206,31 @@ STRING FUNCTION Ext
  '.dump' >>> Result
 ; // Ext
 
+PROCEDURE BackupFile
+  STRING IN aFileName
+ if ( aFileName sysutils:FileExists ) then
+ begin
+  VAR l_To
+  aFileName >>> l_To
+  l_To 'w:' 'W:' string:Replace >>> l_To
+  l_To 'W:' 'C:\Temp\GenBackup' string:Replace >>> l_To
+  $20 l_To aFileName CopyFile
+ end // ( aFileName sysutils:FileExists )
+; // BackupFile
+
 PROCEDURE CopyChangedFile
   STRING IN aTo
   STRING IN aFrom
+  BOOLEAN IN aNeedBackup
  if (
      ( aTo sysutils:FileExists ! )
      OR ( cEmptyStr aTo aFrom CompareFiles ! ) 
     ) then
  begin
+  if aNeedBackup then
+  begin
+   aTo BackupFile
+  end // aNeedBackup
   $20 aTo aFrom CopyFile
  end 
 ; // CopyChangedFile
@@ -619,11 +636,13 @@ BOOLEAN elem_func CanCopyToFinalFile
  false >>> Result
 ; // CanCopyToFinalFile
 
-PROCEDURE BackupFile
-; // BackupFile
-
 PROCEDURE DoDeleteFile
   STRING IN aFileName
+  BOOLEAN IN aNeedBackup
+ if aNeedBackup then
+ begin
+  aFileName BackupFile
+ end // aNeedBackup
  aFileName DeleteFile DROP
 ; // DoDeleteFile
 
@@ -667,12 +686,12 @@ elem_proc GenerateWordToFileWith:
          ) // TF g_NeedOutLn
         ) // TF g_UCRead
        ) // TF g_OutFile
-       g_RealFileName g_TempFileName CopyChangedFile
+       g_RealFileName g_TempFileName false CopyChangedFile
        if ( g_FinalFileName IsNil ! ) then
        begin
         if ( Self .? .CanCopyToFinalFile ) then
         begin
-         g_FinalFileName g_TempFileName CopyChangedFile
+         g_FinalFileName g_TempFileName true CopyChangedFile
          
          VAR l_Path
          VAR l_Name
@@ -691,7 +710,7 @@ elem_proc GenerateWordToFileWith:
           begin
            if ( l_FileToDelete sysutils:FileExists ) then
            begin
-            l_FileToDelete DoDeleteFile
+            l_FileToDelete true DoDeleteFile
            end // ( l_FileToDelete sysutils:FileExists )
           end // ( l_FileToDelete g_FinalFileName SameText ! )
          end // ( cNotCompleted l_Name StartsStr ! )
@@ -704,7 +723,7 @@ elem_proc GenerateWordToFileWith:
           begin
            if ( l_FileToDelete sysutils:FileExists ) then
            begin
-            l_FileToDelete DoDeleteFile
+            l_FileToDelete true DoDeleteFile
            end // ( l_FileToDelete sysutils:FileExists )
           end // ( l_FileToDelete g_FinalFileName SameText ! )
          end // ( cNotFinished l_Name StartsStr ! )
@@ -732,7 +751,7 @@ elem_proc DeleteWordFile
    
    if ( g_RealFileName sysutils:FileExists ) then
    begin
-    g_RealFileName DoDeleteFile
+    g_RealFileName true DoDeleteFile
    end // ( g_RealFileName sysutils:FileExists )
   ) // TF g_RealFileName 
 ; // DeleteWordFile
@@ -2133,11 +2152,11 @@ elem_proc OutUserCode:
   FINALLY
    nil >>> l_Out
   END // TRY..FINALLY
-  l_RealFileName l_TempFileName CopyChangedFile
+  l_RealFileName l_TempFileName false CopyChangedFile
   
   if ( l_RealFileName FileSize 0 == ) then
   begin
-   l_RealFileName DoDeleteFile
+   l_RealFileName false DoDeleteFile
   end // ( l_RealFileName FileSize 0 == )
   
  end //( g_UCRead ! ) 

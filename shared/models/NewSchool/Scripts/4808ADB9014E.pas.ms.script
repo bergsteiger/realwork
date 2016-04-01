@@ -6422,23 +6422,6 @@ FORWARD ME_504F47500265
 
 ref; // ME_504F476802DC EnumType
 
-: ME_A89AB0E4C39D
- CONST UID 'A89AB0E4C39D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_504F47500265 // TatOpTypeConverter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A89AB0E4C39D Exists
-
 : ME_504F47500265
  CONST UID '504F47500265'
  CONST Name 'TatOpTypeConverter'
@@ -6457,10 +6440,6 @@ ref; // ME_A89AB0E4C39D Exists
    Seq: ( ME_504F476802DC // EnumType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_A89AB0E4C39D // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

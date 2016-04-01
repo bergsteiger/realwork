@@ -25,23 +25,6 @@ FORWARD ME_4807752C025A
 
 ref; // ME_4807759F0367 OwnsObjects
 
-: ME_1D6A6DB83F94
- CONST UID '1D6A6DB83F94'
- CONST Name 'f_OwnsObjects'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OwnsObjects' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4807752C025A // TatStringListWithOwn
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'OwnsObjects'
-
-ref; // ME_1D6A6DB83F94 f_OwnsObjects
-
 : ME_480775CB029C
  CONST Name 'ownsObjects'
  CONST Class class_Parameter
@@ -89,7 +72,6 @@ ref; // ME_48077504027E_ME_4807752C025A Destroy
  ; // Inherits
  : Attributes
    Seq: ( ME_4807759F0367 // OwnsObjects
- ME_1D6A6DB83F94 // f_OwnsObjects
  )
  ; // Attributes
  : Operations
@@ -1323,22 +1305,6 @@ ref; // ME_48086E9802AD f_DefaultValue
 
 ref; // ME_48086F180372 Value
 
-: ME_21E152F7F532
- CONST UID '21E152F7F532'
- CONST Name 'f_IsSet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsSet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48086D7103BE // TatParameter
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_21E152F7F532 f_IsSet
-
 : ME_48086E370334
  CONST Name 'defaultValue'
  CONST Class class_Parameter
@@ -1409,7 +1375,6 @@ ref; // ME_48088DAF0254
  ME_48086E860284 // IsDefaultSet
  ME_48086E9802AD // f_DefaultValue
  ME_48086F180372 // Value
- ME_21E152F7F532 // f_IsSet
  )
  ; // Attributes
  : Operations
@@ -1478,38 +1443,6 @@ ref; // ME_480890A30214 Name
  CONST "reads field" true
 
 ref; // ME_480890B1018D Description
-
-: ME_FA0B33F2470D
- CONST UID 'FA0B33F2470D'
- CONST Name 'f_Name'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480890870368 // TatNamedParameter
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_FA0B33F2470D f_Name
-
-: ME_616ECA8461F0
- CONST UID '616ECA8461F0'
- CONST Name 'f_Description'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Description' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480890870368 // TatNamedParameter
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_616ECA8461F0 f_Description
 
 : ME_480890D00284
  CONST Name 'name'
@@ -1633,8 +1566,6 @@ ref; // ME_480890EF00D2 Create
  : Attributes
    Seq: ( ME_480890A30214 // Name
  ME_480890B1018D // Description
- ME_FA0B33F2470D // f_Name
- ME_616ECA8461F0 // f_Description
  )
  ; // Attributes
  : Operations
@@ -1750,22 +1681,6 @@ ref; // ME_480893DE01C7 ParamType
 
 ref; // ME_480893F80392 IsRequired
 
-: ME_A91DAC8616BB
- CONST UID 'A91DAC8616BB'
- CONST Name 'f_ParamType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParamType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4808938A0159 // TatCommandLineParameter
- ;
- : Target ME_480893AD00F5 // TCLPType
- ;
-
-ref; // ME_A91DAC8616BB f_ParamType
-
 : ME_480894510171
  CONST Name 'parType'
  CONST Class class_Parameter
@@ -1846,7 +1761,6 @@ ref; // ME_4808941B0073 Create
  : Attributes
    Seq: ( ME_480893DE01C7 // ParamType
  ME_480893F80392 // IsRequired
- ME_A91DAC8616BB // f_ParamType
  )
  ; // Attributes
  : Operations
@@ -2800,22 +2714,6 @@ ref; // ME_491D881000F6 Value
 
 ref; // ME_491D891002F1 Size
 
-: ME_19F75E66D963
- CONST UID '19F75E66D963'
- CONST Name 'f_Size'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Size' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_491D776401B4 // TatSharedBuffer
- ;
- : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
- ;
-
-ref; // ME_19F75E66D963 f_Size
-
 : ME_491D88C903B6
  CONST Name 'aName'
  CONST Class class_Parameter
@@ -2897,7 +2795,6 @@ ref; // ME_479731C50290_ME_491D776401B4 Cleanup
  ME_491D7D5602C3 // f_MappingAddress
  ME_491D881000F6 // Value
  ME_491D891002F1 // Size
- ME_19F75E66D963 // f_Size
  )
  ; // Attributes
  : Operations
@@ -3869,22 +3766,6 @@ ref; // ME_4FEB12F902F6 FileName
 
 ref; // ME_4FEB14490195 f_LocksCount
 
-: ME_5FC34B197F29
- CONST UID '5FC34B197F29'
- CONST Name 'f_FileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FileName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FEB10B100CD // TatLockFile
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5FC34B197F29 f_FileName
-
 : ME_4FEB10F70064
  CONST Name 'aFileName'
  CONST Class class_Parameter
@@ -4077,7 +3958,6 @@ ref; // ME_49F057120234_ME_4FEB10B100CD AfterConstruction
  ME_4FEB11BE0232 // f_ReadHandle
  ME_4FEB12F902F6 // FileName
  ME_4FEB14490195 // f_LocksCount
- ME_5FC34B197F29 // f_FileName
  )
  ; // Attributes
  : Operations
@@ -4762,23 +4642,6 @@ ref; // ME_5025654F0017 anIndex
 
 ref; // ME_502565320313 Bits
 
-: ME_F305EA9927EC
- CONST UID 'F305EA9927EC'
- CONST Name 'f_Size'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Size' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_502563E400D8 // TatBits
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Size'
-
-ref; // ME_F305EA9927EC f_Size
-
 : ME_502565B502CD
  CONST Name 'aStartIndex'
  CONST Class class_Parameter
@@ -4983,7 +4846,6 @@ ref; // ME_48077504027E_ME_502563E400D8 Destroy
    Seq: ( ME_5025646900CB // Size
  ME_502565D502BD // f_Bits
  ME_502565320313 // Bits
- ME_F305EA9927EC // f_Size
  )
  ; // Attributes
  : Operations
@@ -5090,54 +4952,6 @@ ref; // ME_502949CD02C4 f_GuardFile
 
 ref; // ME_50294A0A0244 Stream
 
-: ME_6FEFF7E2C335
- CONST UID '6FEFF7E2C335'
- CONST Name 'f_FileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FileName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50294907000B // TatFileInitializer
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_6FEFF7E2C335 f_FileName
-
-: ME_8DFADEA5CE58
- CONST UID '8DFADEA5CE58'
- CONST Name 'f_Handle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Handle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50294907000B // TatFileInitializer
- ;
- : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
- ;
-
-ref; // ME_8DFADEA5CE58 f_Handle
-
-: ME_C5D53184EBBC
- CONST UID 'C5D53184EBBC'
- CONST Name 'f_Stream'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Stream' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_50294907000B // TatFileInitializer
- ;
- : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
- ;
-
-ref; // ME_C5D53184EBBC f_Stream
-
 : ME_50294A39012E
  CONST UID '50294A39012E'
  CONST Name 'DupHandle'
@@ -5240,9 +5054,6 @@ ref; // ME_48077504027E_ME_50294907000B Destroy
  ME_5029498501C1 // Handle
  ME_502949CD02C4 // f_GuardFile
  ME_50294A0A0244 // Stream
- ME_6FEFF7E2C335 // f_FileName
- ME_8DFADEA5CE58 // f_Handle
- ME_C5D53184EBBC // f_Stream
  )
  ; // Attributes
  : Operations
@@ -5716,40 +5527,6 @@ ref; // ME_502A45C60318 Random
 
 ref; // ME_502A45D90210 Looped
 
-: ME_9982C582C839
- CONST UID '9982C582C839'
- CONST Name 'f_Random'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Random' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5037CED40333 // TatStringProvider
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Random'
-
-ref; // ME_9982C582C839 f_Random
-
-: ME_594850517738
- CONST UID '594850517738'
- CONST Name 'f_Looped'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Looped' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5037CED40333 // TatStringProvider
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Looped'
-
-ref; // ME_594850517738 f_Looped
-
 : ME_502A45B300A8
  CONST Name 'theString'
  CONST Class class_Parameter
@@ -5806,8 +5583,6 @@ ref; // ME_502AACD103A6 Reset
  : Attributes
    Seq: ( ME_502A45C60318 // Random
  ME_502A45D90210 // Looped
- ME_9982C582C839 // f_Random
- ME_594850517738 // f_Looped
  )
  ; // Attributes
  : Operations

@@ -504,23 +504,6 @@ ref; // ME_483A9A800046 f_ListHistory
 
 ref; // ME_484AA281000E CurrFolder
 
-: ME_619CEA78D81C
- CONST UID '619CEA78D81C'
- CONST Name 'f_CurrFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CurrFolder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4808672500A0 // TatUserWorkContext
- ;
- : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
- ;
- CONST extprop:clearViaProperty 'CurrFolder'
-
-ref; // ME_619CEA78D81C f_CurrFolder
-
 : ME_4808681E00D9
  CONST UID '4808681E00D9'
  CONST Name 'Create'
@@ -631,7 +614,6 @@ ref; // ME_48077504027E_ME_4808672500A0 Destroy
  ME_483A9A5D0075 // f_DocumentHistory
  ME_483A9A800046 // f_ListHistory
  ME_484AA281000E // CurrFolder
- ME_619CEA78D81C // f_CurrFolder
  )
  ; // Attributes
  : Operations
@@ -798,56 +780,6 @@ ref; // ME_48086B410047 F_LoginData
 
 ref; // ME_483C18680261 GblAdapterWorker
 
-: ME_9E9B5CCCC1C0
- CONST UID '9E9B5CCCC1C0'
- CONST Name 'f_MinDelay'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MinDelay' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480869EE029E // TatExecutionContext
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'MinDelay'
-
-ref; // ME_9E9B5CCCC1C0 f_MinDelay
-
-: ME_20D32E7E3C4C
- CONST UID '20D32E7E3C4C'
- CONST Name 'f_MaxDelay'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MaxDelay' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480869EE029E // TatExecutionContext
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'MaxDelay'
-
-ref; // ME_20D32E7E3C4C f_MaxDelay
-
-: ME_E6142B77EEDB
- CONST UID 'E6142B77EEDB'
- CONST Name 'f_UserWorkContext'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UserWorkContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_480869EE029E // TatExecutionContext
- ;
- : Target ME_4808672500A0 // TatUserWorkContext
- ;
-
-ref; // ME_E6142B77EEDB f_UserWorkContext
-
 : ME_48086AF9022F
  CONST UID '48086AF9022F'
  CONST Name 'Create'
@@ -896,9 +828,6 @@ ref; // ME_48077504027E_ME_480869EE029E Destroy
  ME_48086ABF005F // UserWorkContext
  ME_48086B410047 // F_LoginData
  ME_483C18680261 // GblAdapterWorker
- ME_9E9B5CCCC1C0 // f_MinDelay
- ME_20D32E7E3C4C // f_MaxDelay
- ME_E6142B77EEDB // f_UserWorkContext
  )
  ; // Attributes
  : Operations
@@ -1123,23 +1052,6 @@ ref; // ME_5396EC3D006D ExpandString
 
 ref; // ME_5396F0310309 Create
 
-: ME_2BE185EBA5B2
- CONST UID '2BE185EBA5B2'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5396EA3E0230 // TatOperationEnv
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_2BE185EBA5B2 Exists
-
 : ME_539701E6020A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1188,7 +1100,6 @@ ref; // ME_48077504027E_ME_5396EA3E0230 Destroy
  : Operations
    Seq: ( ME_5396EC3D006D // ExpandString
  ME_5396F0310309 // Create
- ME_2BE185EBA5B2 // Exists
  )
  ; // Operations
  : Overridden
