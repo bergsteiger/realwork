@@ -59,7 +59,7 @@ type
    document_type_resolver: ;
    link_manager: ;
    f_uid: ;
-    {* Поле для свойства uid }
+    {* uid текущего пользователя }
   private
    function ServerFacade: ServerFacade; virtual; stdcall;
   protected
@@ -107,10 +107,10 @@ type
    procedure GetCachedDecisionsArchiveSupport; virtual; stdcall;
    procedure GetCachedDocumentTypeResolver; virtual; stdcall;
    procedure GetCachedLinkManager; virtual; stdcall;
-   class function Exists: ByteBool; stdcall;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: ApplicationHelper;
     {* Метод получения экземпляра синглетона ApplicationHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   private
    property Uid: 
     read GetUid;
@@ -494,12 +494,6 @@ begin
 //#UC END# *55952CE501E5_460A6EF8024B_impl*
 end;//ApplicationHelper.GetCachedLinkManager
 
-class function ApplicationHelper.Exists: ByteBool;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_ApplicationHelper <> nil;
-end;//ApplicationHelper.Exists
-
 class function ApplicationHelper.Instance: ApplicationHelper;
  {* Метод получения экземпляра синглетона ApplicationHelper }
 begin
@@ -510,6 +504,12 @@ begin
  end;
  Result := g_ApplicationHelper;
 end;//ApplicationHelper.Instance
+
+class function ApplicationHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_ApplicationHelper <> nil;
+end;//ApplicationHelper.Exists
 
 //#UC START# *460A6EF8024Bimpl*
 //#UC END# *460A6EF8024Bimpl*

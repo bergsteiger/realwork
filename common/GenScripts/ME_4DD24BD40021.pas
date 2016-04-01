@@ -52,7 +52,6 @@ type
  ISection = interface
   ['{BBB2D3C6-226C-4A9F-AAC6-32775E30B7C7}']
   function GetCaption: IString; stdcall;
-  class function Make: BadFactoryType; stdcall;
   function GetItems: ISectionItemList; stdcall;
    {* Получить элементы раздела ОМ }
   property Caption: IString
@@ -67,6 +66,14 @@ type
    {* Получить дерево вкладок Бзового поиска }
   function GetSection(type: TSectionType): ISection; stdcall;
    {* Получить дерево секции ОМ по типу }
+  function GetProfessionalSection(index: Cardinal): ISection; stdcall;
+   {* получить секцию меню для профессии }
+  function GetProfessionalSectionCount: Cardinal; stdcall;
+   {* количество проф. секций в меню }
+  function GetNewsSection(index: Cardinal): ISection; stdcall;
+   {* получить раздел новостей для профессии }
+  function GetNewsSectionCount: Cardinal; stdcall;
+   {* количество новостных секций по профессиям }
  end;//IMainMenu
 
 implementation

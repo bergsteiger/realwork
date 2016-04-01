@@ -20,10 +20,10 @@ type
    function GetIsSessionActive: ByteBool; virtual; stdcall;
    procedure SetIsSessionActive(const aValue: ByteBool); virtual; stdcall;
   public
-   class function Exists: ByteBool; stdcall;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: SessionHelper;
     {* Метод получения экземпляра синглетона SessionHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property IsSessionActive: ByteBool
     read GetIsSessionActive
@@ -74,12 +74,6 @@ begin
 //#UC END# *477129B00039_47711DA00052_impl*
 end;//SessionHelper.Make
 
-class function SessionHelper.Exists: ByteBool;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_SessionHelper <> nil;
-end;//SessionHelper.Exists
-
 class function SessionHelper.Instance: SessionHelper;
  {* Метод получения экземпляра синглетона SessionHelper }
 begin
@@ -90,5 +84,11 @@ begin
  end;
  Result := g_SessionHelper;
 end;//SessionHelper.Instance
+
+class function SessionHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_SessionHelper <> nil;
+end;//SessionHelper.Exists
 
 end.
