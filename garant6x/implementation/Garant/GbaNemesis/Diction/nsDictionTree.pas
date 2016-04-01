@@ -28,7 +28,6 @@ type
   {* Дерево толкового словаря. }
   private
    f_DictionKind: TnsDictionKind;
-    {* Поле для свойства DictionKind }
   protected
    function pm_GetLanguage: TbsLanguage; virtual;
    function DictFilters: InsLayeredTreeFilters;

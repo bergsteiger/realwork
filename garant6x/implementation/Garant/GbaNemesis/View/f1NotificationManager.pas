@@ -35,7 +35,6 @@ type
  Tf1NotificationManager = class(Tl3ProtoDataContainer)
   private
    f_List: Tf1NotificationList;
-    {* Поле для свойства List }
   protected
    function pm_GetList: Tf1NotificationList;
    procedure Cleanup; override;

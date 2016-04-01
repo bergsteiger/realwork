@@ -29,7 +29,6 @@ type
   private
    f_BaseId: AnsiString;
    f_Settings: IvcmSettings;
-    {* Поле для свойства Settings }
   protected
    function pm_GetSettings: IafwSettings;
    procedure pm_SetSettings(const aValue: IafwSettings);
@@ -37,8 +36,8 @@ type
    procedure pm_SetBaseId(const aValue: AnsiString);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
    function IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aMacroReplacer: Il3HAFMacroReplacer); override;
    procedure ReadColontitulSettings; override;
@@ -110,12 +109,6 @@ begin
 //#UC END# *479731C50290_47F2317F015E_impl*
 end;//TnsHAFPainter.Cleanup
 
-procedure TnsHAFPainter.ClearFields;
-begin
- f_Settings := nil;
- inherited;
-end;//TnsHAFPainter.ClearFields
-
 constructor TnsHAFPainter.Create(const aMacroReplacer: Il3HAFMacroReplacer);
 //#UC START# *5243CCEE0271_47F2317F015E_var*
 //#UC END# *5243CCEE0271_47F2317F015E_var*
@@ -165,6 +158,12 @@ begin
   end;//with Settings
 //#UC END# *5243E9AE0230_47F2317F015E_impl*
 end;//TnsHAFPainter.ReadColontitulSettings
+
+procedure TnsHAFPainter.ClearFields;
+begin
+ f_Settings := nil;
+ inherited;
+end;//TnsHAFPainter.ClearFields
 {$IfEnd} // NOT Defined(Admin)
 
 end.

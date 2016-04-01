@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsWindowNode;
+unit nsWindowNode;
  {* Нода используемая для построения дерева окон системы }
 
-// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\NOT_COMPLETED_nsWindowNode.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsWindowNode" MUID: (4ADC5E7C0264)
 

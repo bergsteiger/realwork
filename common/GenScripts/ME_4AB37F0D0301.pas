@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_m4Word;
+unit m4Word;
  {* Слово словаря }
 
-// Модуль: "w:\common\components\rtl\Garant\m4\NOT_COMPLETED_m4Word.pas"
+// Модуль: "w:\common\components\rtl\Garant\m4\m4Word.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tm4Word" MUID: (4AB37F0D0301)
 

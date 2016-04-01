@@ -20,10 +20,10 @@ type
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseDocumentSubPanelOperationEvent;
     {* Метод получения экземпляра синглетона TnsUseDocumentSubPanelOperationEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseDocumentSubPanelOperationEvent
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -48,12 +48,6 @@ begin
  l3Free(g_TnsUseDocumentSubPanelOperationEvent);
 end;//TnsUseDocumentSubPanelOperationEventFree
 
-class function TnsUseDocumentSubPanelOperationEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUseDocumentSubPanelOperationEvent <> nil;
-end;//TnsUseDocumentSubPanelOperationEvent.Exists
-
 function TnsUseDocumentSubPanelOperationEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13AFDF013A_var*
 //#UC END# *4B13A26203DB_4B13AFDF013A_var*
@@ -73,6 +67,12 @@ begin
  end;
  Result := g_TnsUseDocumentSubPanelOperationEvent;
 end;//TnsUseDocumentSubPanelOperationEvent.Instance
+
+class function TnsUseDocumentSubPanelOperationEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseDocumentSubPanelOperationEvent <> nil;
+end;//TnsUseDocumentSubPanelOperationEvent.Exists
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

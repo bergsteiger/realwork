@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_l3LogFont;
+unit NOT_FINISHED_l3LogFont;
  {* Описатель шрифта системы. }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3LogFont.pas"
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3LogFont.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tl3LogFont" MUID: (484CE8FF0292)
 

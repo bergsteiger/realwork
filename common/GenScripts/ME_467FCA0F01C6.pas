@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsTagString;
+unit nsTagString;
  {* Строка, представляющая строковый атрибут тега }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_COMPLETED_nsTagString.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsTagString" MUID: (467FCA0F01C6)
 

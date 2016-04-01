@@ -22,7 +22,7 @@ type
   private
    f_ID: Tm4WordID;
    f_FirstWordIDStrID: Integer;
-    {* Поле для свойства FirstWordIDStrID }
+    {* Первый элемент словаря который начинается с данного слова }
   protected
    function pm_GetStringID: Integer; override;
    procedure pm_SetStringID(aValue: Integer); override;

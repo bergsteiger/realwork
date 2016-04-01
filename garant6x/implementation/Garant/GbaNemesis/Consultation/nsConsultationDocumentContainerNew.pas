@@ -17,13 +17,13 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , ConsultingUnit
  , DocumentInterfaces
- , nevTools
  , l3Variant
  , l3Interfaces
  , l3Memory
  , evdNativeReader
  , k2DocumentBuffer
  , k2DocumentGenerator
+ , nevTools
  , nevPrintableDocumentContainer
  , F1TagDataProviderInterface
  , DocumentUnit

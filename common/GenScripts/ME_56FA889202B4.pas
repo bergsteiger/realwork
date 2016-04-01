@@ -13,6 +13,7 @@ interface
 uses
  l3IntfUses
  , PrimLegalMainMenu_Form
+ , MainMenuUnit
  , vtPanel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
@@ -32,6 +33,7 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
+ , vtHideField
  {$If Defined(Nemesis)}
  , nscInterfaces
  {$IfEnd} // Defined(Nemesis)
@@ -52,6 +54,7 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimMainMenuWithProfNewsForm = class(_vcmChromeLikeTabIconUpdater_)
   private
+   f_CurrentSection: TSectionType;
    f_pnlLeft: TvtPanel;
     {* Поле для свойства pnlLeft }
    f_bvlLeftTop: TBevel;
@@ -100,6 +103,16 @@ type
     {* Поле для свойства bvlRight }
    f_ieIO: TImageEnIO;
     {* Поле для свойства ieIO }
+  private
+   procedure TaxesStateChanged(aSender: TObject;
+    var theState: ThfState);
+   procedure UpdateTaxesTree;
+   procedure UpdateTaxesTreeCaption;
+   procedure UpdateReferencesAndLawNewsCaptions;
+   procedure ReferencesResize(Sender: TObject);
+   procedure TaxesNextTree(Sender: TObject);
+   procedure UpdateSearchLabels;
+   procedure SearchClick(Sender: TObject);
   protected
    function DoBuildGrid: InscArrangeGrid; override;
    {$If NOT Defined(NoVCM)}
@@ -115,6 +128,7 @@ type
    procedure SetControlsResources; override;
     {* Установить контролам ресурсы для интернационализации }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -167,6 +181,19 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwInterfaces
+ , DocumentRes
+ , MainMenuNewRes
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , l3ControlsTypes
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -194,6 +221,124 @@ type _Instance_R_ = TPrimMainMenuWithProfNewsForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
+procedure TPrimMainMenuWithProfNewsForm.TaxesStateChanged(aSender: TObject;
+ var theState: ThfState);
+//#UC START# *56FBC3F90034_56FA889202B4_var*
+//#UC END# *56FBC3F90034_56FA889202B4_var*
+begin
+//#UC START# *56FBC3F90034_56FA889202B4_impl*
+ theState := hfsShow;
+ //TaxesNextTree(aSender);
+//#UC END# *56FBC3F90034_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.TaxesStateChanged
+
+procedure TPrimMainMenuWithProfNewsForm.UpdateTaxesTree;
+//#UC START# *56FBC41602A9_56FA889202B4_var*
+//#UC END# *56FBC41602A9_56FA889202B4_var*
+begin
+//#UC START# *56FBC41602A9_56FA889202B4_impl*
+ UpdateTaxesTreeCaption;
+ tvTaxes.TreeStruct := TsmChangeableTree.Make(ST_BUDGET_ORGS);
+//#UC END# *56FBC41602A9_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.UpdateTaxesTree
+
+procedure TPrimMainMenuWithProfNewsForm.UpdateTaxesTreeCaption;
+//#UC START# *56FBC4240324_56FA889202B4_var*
+var
+ l_Sect: ISection;
+ l_S: IString;
+//#UC END# *56FBC4240324_56FA889202B4_var*
+begin
+//#UC START# *56FBC4240324_56FA889202B4_impl*
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(ST_BUDGET_ORGS, l_Sect);
+ Assert(l_Sect <> nil);
+ l_Sect.GetCaption(l_S);
+ Assert(l_S <> nil);
+ hfTaxes.Caption := l3Str(nsCStr(l_S));
+//#UC END# *56FBC4240324_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.UpdateTaxesTreeCaption
+
+procedure TPrimMainMenuWithProfNewsForm.UpdateReferencesAndLawNewsCaptions;
+//#UC START# *56FBC4350226_56FA889202B4_var*
+var
+ l_Sect: ISection;
+ l_S: IString;
+//#UC END# *56FBC4350226_56FA889202B4_var*
+begin
+//#UC START# *56FBC4350226_56FA889202B4_impl*
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(ST_BUSINESS_REFERENCES, l_Sect);
+ Assert(l_Sect <> nil);
+ try
+  l_Sect.GetCaption(l_S);
+ finally
+  l_Sect := nil
+ end;//try..finally
+ Assert(l_S <> nil);
+ try
+  hfReferences.Caption := l3Str(nsCStr(l_S));
+ finally
+  l_S := nil;
+ end;//try..finally
+//#UC END# *56FBC4350226_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.UpdateReferencesAndLawNewsCaptions
+
+procedure TPrimMainMenuWithProfNewsForm.ReferencesResize(Sender: TObject);
+//#UC START# *56FBD187013A_56FA889202B4_var*
+//#UC END# *56FBD187013A_56FA889202B4_var*
+begin
+//#UC START# *56FBD187013A_56FA889202B4_impl*
+ //
+//#UC END# *56FBD187013A_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.ReferencesResize
+
+procedure TPrimMainMenuWithProfNewsForm.TaxesNextTree(Sender: TObject);
+//#UC START# *56FBD27503D1_56FA889202B4_var*
+//#UC END# *56FBD27503D1_56FA889202B4_var*
+begin
+//#UC START# *56FBD27503D1_56FA889202B4_impl*
+ //
+//#UC END# *56FBD27503D1_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.TaxesNextTree
+
+procedure TPrimMainMenuWithProfNewsForm.UpdateSearchLabels;
+//#UC START# *56FCF6290256_56FA889202B4_var*
+const
+  c_SearchLabelDistance = 18;
+//#UC END# *56FCF6290256_56FA889202B4_var*
+begin
+//#UC START# *56FCF6290256_56FA889202B4_impl*
+ flSituationSearch.Visible := Assigned(defDataAdapter) and defDataAdapter.IsExists_KeyWordTag;
+ with flPublishedSourceSearch do
+ begin
+  if flSituationSearch.Visible then
+   Left := c_SearchLabelDistance + flSituationSearch.Left + flSituationSearch.Width
+  else
+   Left := c_SearchLabelDistance + flAttributeSearch.Left + flAttributeSearch.Width;
+  Visible := Assigned(defDataAdapter) and defDataAdapter.IsExists_PublishSourceTag;
+ end;//flPublishedSourceSearch
+ with flDictionSearch do
+ begin
+  if flPublishedSourceSearch.Visible then
+   Left := c_SearchLabelDistance + flPublishedSourceSearch.Left + flPublishedSourceSearch.Width
+  else
+   if flSituationSearch.Visible then
+    Left := c_SearchLabelDistance + flSituationSearch.Left + flSituationSearch.Width
+   else
+    Left := c_SearchLabelDistance + flAttributeSearch.Left + flAttributeSearch.Width;
+  Visible := Assigned(defDataAdapter) and DefDataAdapter.IsExplanatoryExists;
+ end;//flDictionSearch
+//#UC END# *56FCF6290256_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.UpdateSearchLabels
+
+procedure TPrimMainMenuWithProfNewsForm.SearchClick(Sender: TObject);
+//#UC START# *56FD0A30011C_56FA889202B4_var*
+//#UC END# *56FD0A30011C_56FA889202B4_var*
+begin
+//#UC START# *56FD0A30011C_56FA889202B4_impl*
+ //!!! Needs to be implemented !!!
+//#UC END# *56FD0A30011C_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.SearchClick
+
 function TPrimMainMenuWithProfNewsForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_56FA889202B4_var*
 //#UC END# *4AC9B6D00250_56FA889202B4_var*
@@ -207,10 +352,303 @@ end;//TPrimMainMenuWithProfNewsForm.DoBuildGrid
 procedure TPrimMainMenuWithProfNewsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_56FA889202B4_var*
+const
+ c_SearchLabelDistance = 18;
+var
+ l_Index: Integer;
 //#UC END# *4A8E8F2E0195_56FA889202B4_var*
 begin
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
  inherited;
+ Self.Color := clWhite;
+ bvlLeft.Align := alLeft;
+ bvlLeft.Width := 25;
+ bvlLeft.Shape := bsSpacer;
+ bvlRight.Align := alRight;
+ bvlRight.Width := 25;
+ bvlRight.Shape := bsSpacer;
+ with pnlMain do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  Color := clWhite;
+  TabOrder := 0;
+ end;
+ with pnlLeft do
+ begin
+  Align := alLeft;
+  BevelOuter := bvNone;
+  Color := clWhite;
+  Width := 200;
+ end;
+ with pnlClient do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  Color := clWhite;
+ end;
+ with pnlNews do
+ begin
+  Align := alTop;
+  BevelOuter := bvNone;
+  Color := clWhite;
+  Height := 200;
+ end;
+ with pnlBaseSearch do
+ begin
+  BevelOuter := bvNone;
+  Color := clWhite;
+  Align := alTop;
+  Height := 145;
+  Top := 201;
+  with pnlBaseSearchZone do
+  begin
+   Align := alClient;
+   BevelOuter := bvNone;
+   Color := clWhite;
+  end;
+  with pnlSearches do
+  begin
+   Align := alBottom;
+   BevelOuter := bvNone;
+   Color := clWhite;
+   Height := 20;
+   with flAttributeSearch do
+   begin
+    Left := 15;
+    AutoWidth := True;
+    AllowTrucking := True;
+    HighlightColor := c_MainMenuColor;
+    TextColor := c_MainMenuColor;
+    Cursor := crHandPoint;
+    OnClick := SearchClick;
+   end;//flAttributeSearch
+   with flSituationSearch do
+   begin
+    Left := c_SearchLabelDistance + flAttributeSearch.Left + flAttributeSearch.Width;
+    AutoWidth := True;
+    AllowTrucking := True;
+    HighlightColor := c_MainMenuColor;
+    TextColor := c_MainMenuColor;
+    Cursor := crHandPoint;
+    OnClick := SearchClick;
+   end;//flSituationSearch
+   with flPublishedSourceSearch do
+   begin
+    Left := c_SearchLabelDistance + flSituationSearch.Left + flSituationSearch.Width;
+    AutoWidth := True;
+    AllowTrucking := True;
+    HighlightColor := c_MainMenuColor;
+    TextColor := c_MainMenuColor;
+    Cursor := crHandPoint;
+    OnClick := SearchClick;
+   end;//flPublishedSourceSearch
+   with flDictionSearch do
+   begin
+    Left := c_SearchLabelDistance + flPublishedSourceSearch.Left + flPublishedSourceSearch.Width;
+    AutoWidth := True;
+    AllowTrucking := True;
+    HighlightColor := c_MainMenuColor;
+    TextColor := c_MainMenuColor;
+    Cursor := crHandPoint;
+    OnClick := SearchClick;
+   end;//flDictionSearch
+   UpdateSearchLabels;
+  end;
+ end;
+ with pnlTrees do
+ begin
+  Align := alTop;
+  BevelOuter := bvNone;
+  Color := clWhite;
+  Height := 200;
+  Top := 401;
+ end;
+
+ bvlLeftTop.Align := alTop;
+ bvlLeftTop.Height := 200;
+ bvlLeftTop.Shape := bsSpacer;
+ pbLogo.Align := alTop;
+ pbLogo.Height := 200;
+ ieBanner.Align := alTop;
+ ieBanner.Height := 200;
+
+ with hfProfNews do
+ begin
+  TopHeaderIndent := 30;
+
+  Align := alClient;
+  Left := 16;
+  //Top := 62;
+  Width := 377;
+  Height := 107;
+  ButtonCloseImage := 1;
+  ButtonImageList := dmMainMenuNew.ilSmallIcons;
+  ButtonOpenImage := 0;
+  ClientControl := tvProfNews;
+  ClientIndent := 20;
+  HeaderImage := 2;
+  Images := dmMainMenuNew.ilMainMenuNew;
+  LeftHeaderIndent := 20;
+  LeftImageIndent := 10;
+  Options := [];
+  TabOrder := 0;
+  SettingId := 'sthfLastOpenDocs';
+ end;
+  with tvProfNews do
+  begin
+   AllowTrucking := True;
+
+   Align := alClient;
+   BorderStyle := bsNone;
+   TabOrder := 0;
+   MultiStrokeItem := True;
+   ActionElementMode := l3_amSingleClick;
+   ViewOptions := [voShowInterRowSpace, voShowExpandable, voVariableItemHeight, voWithoutImages];
+   ClearTreeStructOnSaveState := False;
+  end;
+
+ with hfLastOpenDocs do
+ begin
+  TopHeaderIndent := 30;
+
+  Align := alClient;
+  Left := 16;
+  //Top := 62;
+  Width := 377;
+  Height := 107;
+  ButtonCloseImage := 1;
+  ButtonImageList := dmMainMenuNew.ilSmallIcons;
+  ButtonOpenImage := 0;
+  ClientControl := tvLastOpenDocs;
+  ClientIndent := 20;
+  HeaderImage := 2;
+  Images := dmMainMenuNew.ilMainMenuNew;
+  LeftHeaderIndent := 20;
+  LeftImageIndent := 10;
+  Options := [];
+  TabOrder := 0;
+  SettingId := 'sthfLastOpenDocs';
+ end;
+  with tvLastOpenDocs do
+  begin
+   AllowTrucking := True;
+
+   Align := alClient;
+   BorderStyle := bsNone;
+   TabOrder := 0;
+   MultiStrokeItem := True;
+   ActionElementMode := l3_amSingleClick;
+   ViewOptions := [voShowInterRowSpace, voShowExpandable, voVariableItemHeight, voWithoutImages];
+   ClearTreeStructOnSaveState := False;
+  end;
+
+ with hfReferences do
+ begin
+  Align := alClient;
+  Left := 24;
+  Top := 168;
+  Height := 150;
+  Width := 390;
+  TopHeaderIndent := 20;
+  ClientControl := tvReferences;
+  ClientIndent := 20;
+  HeaderImage := 1;
+  Images := dmMainMenuNew.ilMainMenuNew;
+  LeftHeaderIndent := 20;
+  LeftImageIndent := 10;
+  Options := [];
+  TabOrder := 1;
+ end;
+  with tvReferences do
+  begin
+   AllowTrucking := True;
+
+   Align := alClient;
+   BorderStyle := bsNone;
+   TabOrder := 0;
+   MultiStrokeItem := True;
+   ActionElementMode := l3_amSingleClick;
+   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
+   ClearTreeStructOnSaveState := False;
+   OnResize := ReferencesResize;
+  end;
+
+ with hfLawNews do
+ begin
+  Align := alRight;
+  Width := 390;
+  ClientControl := tvLawNews;
+  ClientIndent := 20;
+  HeaderImage := 0;
+  Images := dmMainMenuNew.ilMainMenuNew;
+  LeftHeaderIndent := 20;
+  LeftImageIndent := 10;
+  Options := [];
+  TopHeaderIndent := 20;
+  TabOrder := 2;
+ end;
+  with tvLawNews do
+  begin
+   AllowTrucking := True;
+   Align := alClient;
+   BorderStyle := bsNone;
+   TabOrder := 0;
+   MultiStrokeItem := True;
+   ActionElementMode := l3_amSingleClick;
+   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
+   ClearTreeStructOnSaveState := False;
+  end;
+
+ with hfTaxes do
+ begin
+  Align := alRight;
+  Height := hfReferences.Height;
+  Width := 380;
+  ClientIndent := 15;
+  LeftHeaderIndent := 15;
+  TopHeaderIndent := 20;
+  ClientControl := tvTaxes;
+  Options := [hfoCanHide, hfoHyperlink];
+  ButtonImageList := nsDocumentRes.MainMenuImageList;
+  if afw.Application.LocaleInfo.Language = afw_lngEnglish then
+  begin
+   ButtonOpenImage := 1;
+   ButtonCloseImage := 1;
+  end else
+  begin
+   ButtonOpenImage := 0;
+   ButtonCloseImage := 0;
+  end;
+  OnValidateStateChanged := TaxesStateChanged;
+  OnHyperlinkClick := nil;//TaxesNextTree;
+ end;//with hfTaxes
+  with tvTaxes do
+  begin
+   Width := 380;
+   Align := alClient;
+   BorderStyle := bsNone;
+   MultiStrokeItem := True;
+   ActionElementMode := l3_amSingleClick;
+   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
+   ClearTreeStructOnSaveState := False;
+   AllowTrucking := True;
+  end;//with tvTaxes
+
+ for l_Index := 0 to Pred(ComponentCount) do
+  if (Components[l_Index] is TnscHideField) then
+  begin
+   TnscHideField(Components[l_Index]).StyleId := f1_saNewSchoolMainMenuHeader;
+   TnscHideField(Components[l_Index]).HeaderImage := -1;
+   TnscHideField(Components[l_Index]).TabStop := false;
+  end//Components[l_Index] is TnscHideField
+  else
+  if (Components[l_Index] is TnscTreeViewHotTruck) then
+  begin
+   TnscTreeViewHotTruck(Components[l_Index]).TreatDefaultColorAsWindowColor := False;
+   TnscTreeViewHotTruck(Components[l_Index]).StyleID := f1_saNewSchoolMainMenuConstPath;
+   TnscTreeViewHotTruck(Components[l_Index]).Color := clWhite;
+  end;
 //#UC END# *4A8E8F2E0195_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.InitControls
 {$IfEnd} // NOT Defined(NoVCM)
@@ -233,8 +671,8 @@ procedure TPrimMainMenuWithProfNewsForm.LoadTrees;
 begin
 //#UC START# *4AC9E9EC0064_56FA889202B4_impl*
  inherited;
-// UpdateTaxesTree;
-// UpdateReferencesAndLawNewsCaptions;
+ UpdateTaxesTree;
+ UpdateReferencesAndLawNewsCaptions;
 //#UC END# *4AC9E9EC0064_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadTrees
 
@@ -277,6 +715,15 @@ begin
 //#UC END# *4B62D10B031B_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.SetControlsResources
 {$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimMainMenuWithProfNewsForm.ClearFields;
+//#UC START# *5000565C019C_56FA889202B4_var*
+//#UC END# *5000565C019C_56FA889202B4_var*
+begin
+//#UC START# *5000565C019C_56FA889202B4_impl*
+ inherited;
+//#UC END# *5000565C019C_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.ClearFields
 
 {$If NOT Defined(NoVCM)}
 function TPrimMainMenuWithProfNewsForm.DoGetTabCaption: IvcmCString;

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsAnnotationHeaderTagNode;
+unit nsAnnotationHeaderTagNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\NOT_COMPLETED_nsAnnotationHeaderTagNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsAnnotationHeaderTagNode" MUID: (4D6E0C4A001F)
 

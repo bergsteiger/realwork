@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsMainMenuNode;
+unit nsMainMenuNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_COMPLETED_nsMainMenuNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsMainMenuNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsMainMenuNode" MUID: (490B0F4F021C)
 

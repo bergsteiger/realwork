@@ -22,10 +22,10 @@ type
   protected
    function DoGetRoot: INodeBase; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsMedicDictCache;
     {* Метод получения экземпляра синглетона TnsMedicDictCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsMedicDictCache
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -49,12 +49,6 @@ begin
  l3Free(g_TnsMedicDictCache);
 end;//TnsMedicDictCacheFree
 
-class function TnsMedicDictCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsMedicDictCache <> nil;
-end;//TnsMedicDictCache.Exists
-
 function TnsMedicDictCache.DoGetRoot: INodeBase;
 //#UC START# *5571C22C03A5_556B331F03BE_var*
 //#UC END# *5571C22C03A5_556B331F03BE_var*
@@ -74,6 +68,12 @@ begin
  end;
  Result := g_TnsMedicDictCache;
 end;//TnsMedicDictCache.Instance
+
+class function TnsMedicDictCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsMedicDictCache <> nil;
+end;//TnsMedicDictCache.Exists
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

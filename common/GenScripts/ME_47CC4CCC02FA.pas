@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_l3InterfacedString;
+unit l3InterfacedString;
  {* Реализация интерфейса строки }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3InterfacedString.pas"
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tl3InterfacedString" MUID: (47CC4CCC02FA)
 

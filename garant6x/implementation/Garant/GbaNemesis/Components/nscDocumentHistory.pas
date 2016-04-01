@@ -49,10 +49,10 @@ type
    function HasDocument(aDocId: Integer): Boolean;
    procedure AddListener(const aListener: InscDocumentHistoryListener);
    procedure RemoveListener(const aListener: InscDocumentHistoryListener);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnscDocumentHistory;
     {* Метод получения экземпляра синглетона TnscDocumentHistory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnscDocumentHistory
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -138,12 +138,6 @@ begin
 //#UC END# *55E6CD920105_53D2281F0048_impl*
 end;//TnscDocumentHistory.NotifyListeners
 
-class function TnscDocumentHistory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnscDocumentHistory <> nil;
-end;//TnscDocumentHistory.Exists
-
 class function TnscDocumentHistory.Instance: TnscDocumentHistory;
  {* Метод получения экземпляра синглетона TnscDocumentHistory }
 begin
@@ -154,6 +148,12 @@ begin
  end;
  Result := g_TnscDocumentHistory;
 end;//TnscDocumentHistory.Instance
+
+class function TnscDocumentHistory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnscDocumentHistory <> nil;
+end;//TnscDocumentHistory.Exists
 
 procedure TnscDocumentHistory.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsF1AutoreferatDocumentTagNode;
+unit nsF1AutoreferatDocumentTagNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\NOT_COMPLETED_nsF1AutoreferatDocumentTagNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsF1AutoreferatDocumentTagNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsF1AutoreferatDocumentTagNode" MUID: (4D6E58B300D2)
 

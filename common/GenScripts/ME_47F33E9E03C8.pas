@@ -29,11 +29,8 @@ type
    f_NeedApplyPermanentFilters: Boolean;
    f_IsChanged: Boolean;
    f_TimeMachineOff: Boolean;
-    {* Поле для свойства TimeMachineOff }
    f_WhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-    {* Поле для свойства WhatDoingIfOneDoc }
    f_SearchInfo: IdeSearchInfo;
-    {* Поле для свойства SearchInfo }
   protected
    function pm_GetList: IDynList;
    function pm_GetTimeMachineOff: Boolean;

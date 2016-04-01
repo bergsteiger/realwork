@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsQueryNode;
+unit nsQueryNode;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_COMPLETED_nsQueryNode.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsQueryNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsQueryNode" MUID: (4ADDF50A00E2)
 

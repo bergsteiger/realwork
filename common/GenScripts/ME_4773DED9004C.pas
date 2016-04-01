@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_l3_String;
+unit NOT_FINISHED_l3_String;
  {* Класс реализующий строки с собственным методом хранения данных. }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3_String.pas"
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3_String.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tl3_String" MUID: (4773DED9004C)
 

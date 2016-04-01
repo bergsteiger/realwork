@@ -16,10 +16,10 @@ uses
 type
  TnsExternalObject = class(TnsExternalObjectPrim)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsExternalObject;
     {* Метод получения экземпляра синглетона TnsExternalObject }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsExternalObject
 
 implementation
@@ -39,12 +39,6 @@ begin
  l3Free(g_TnsExternalObject);
 end;//TnsExternalObjectFree
 
-class function TnsExternalObject.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsExternalObject <> nil;
-end;//TnsExternalObject.Exists
-
 class function TnsExternalObject.Instance: TnsExternalObject;
  {* Метод получения экземпляра синглетона TnsExternalObject }
 begin
@@ -55,5 +49,11 @@ begin
  end;
  Result := g_TnsExternalObject;
 end;//TnsExternalObject.Instance
+
+class function TnsExternalObject.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsExternalObject <> nil;
+end;//TnsExternalObject.Exists
 
 end.

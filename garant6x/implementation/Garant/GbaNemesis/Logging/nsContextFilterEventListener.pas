@@ -40,10 +40,10 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create; reintroduce;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsContextFilterEventListener;
     {* Метод получения экземпляра синглетона TnsContextFilterEventListener }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsContextFilterEventListener
 
 implementation
@@ -83,12 +83,6 @@ begin
  nscAddContextFilterListener(Self);
 //#UC END# *4B1661450093_4B1660B9000D_impl*
 end;//TnsContextFilterEventListener.Create
-
-class function TnsContextFilterEventListener.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsContextFilterEventListener <> nil;
-end;//TnsContextFilterEventListener.Exists
 
 {$If Defined(Nemesis)}
 procedure TnsContextFilterEventListener.ContextCanBeChanged(aHandle: Integer;
@@ -157,6 +151,12 @@ begin
  end;
  Result := g_TnsContextFilterEventListener;
 end;//TnsContextFilterEventListener.Instance
+
+class function TnsContextFilterEventListener.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsContextFilterEventListener <> nil;
+end;//TnsContextFilterEventListener.Exists
 
 procedure TnsContextFilterEventListener.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_l3StringPtr;
+unit l3StringPtr;
  {* Строка, не владеющая своими данными }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3StringPtr.pas"
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StringPtr.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tl3StringPtr" MUID: (4ABB5B2603B1)
 

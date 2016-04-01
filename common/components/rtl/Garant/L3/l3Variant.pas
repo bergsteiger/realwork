@@ -882,9 +882,9 @@ type
  //#UC END# *532031160122publ*
  end;//Tl3Variant
 
- Tl3Tag = Tl3Variant;
+ Tl3TagImpl = Tl3Variant;
 
- Tl3PrimString = {abstract} class(Tl3Tag)
+ Tl3PrimString = {abstract} class(Tl3TagImpl)
   protected
    function pm_GetAsString: AnsiString;
    procedure pm_SetAsString(const aValue: AnsiString);
@@ -946,6 +946,8 @@ type
   ['{16D0331A-45FA-4609-B8AC-C7C1B101B169}']
   function AsObject: Tl3Variant;
  end;//Il3TagRef
+
+ Tl3Tag = Tl3Variant;
 
  Tl3Type = Tl3VariantDef;
 

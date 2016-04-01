@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_dtCustomDictItem;
+unit dtCustomDictItem;
  {* Базовый элемент словаря. }
 
-// Модуль: "w:\common\components\rtl\Garant\DT\NOT_COMPLETED_dtCustomDictItem.pas"
+// Модуль: "w:\common\components\rtl\Garant\DT\dtCustomDictItem.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TdtCustomDictItem" MUID: (47BC507501AB)
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_eeDocumentCursorPair;
+unit eeDocumentCursorPair;
 
-// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_COMPLETED_eeDocumentCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TeeDocumentCursorPair" MUID: (54BE50DC0032)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_l3CustomString;
+unit l3CustomString;
  {* Базовый класс для "строк". Определяет операции и свойства, но не способ хранения данных. }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3CustomString.pas"
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CustomString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tl3CustomString" MUID: (4773DEF0021B)
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nscTasksPanelOperationNode;
+unit nscTasksPanelOperationNode;
 
-// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_COMPLETED_nscTasksPanelOperationNode.pas"
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelOperationNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnscTasksPanelOperationNode" MUID: (508EBDA900AE)
 

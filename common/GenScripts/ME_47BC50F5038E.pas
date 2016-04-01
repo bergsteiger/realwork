@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_l3NCString;
+unit l3NCString;
  {* Гарантированно некешируемая строка. }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3NCString.pas"
+// Модуль: "w:\common\components\rtl\Garant\L3\l3NCString.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "Tl3NCString" MUID: (47BC50F5038E)
 

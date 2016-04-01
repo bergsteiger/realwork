@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_eeTextCursorPair;
+unit eeTextCursorPair;
 
-// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_COMPLETED_eeTextCursorPair.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTextCursorPair.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TeeTextCursorPair" MUID: (54BE505F0038)
 

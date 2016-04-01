@@ -23,10 +23,10 @@ type
   {* Фабрика GUID'ов для ОМ
 http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-330698414 }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsMainMenuFormGUIDFactory;
     {* Метод получения экземпляра синглетона TnsMainMenuFormGUIDFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsMainMenuFormGUIDFactory
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -49,12 +49,6 @@ begin
  l3Free(g_TnsMainMenuFormGUIDFactory);
 end;//TnsMainMenuFormGUIDFactoryFree
 
-class function TnsMainMenuFormGUIDFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsMainMenuFormGUIDFactory <> nil;
-end;//TnsMainMenuFormGUIDFactory.Exists
-
 class function TnsMainMenuFormGUIDFactory.Instance: TnsMainMenuFormGUIDFactory;
  {* Метод получения экземпляра синглетона TnsMainMenuFormGUIDFactory }
 begin
@@ -65,6 +59,12 @@ begin
  end;
  Result := g_TnsMainMenuFormGUIDFactory;
 end;//TnsMainMenuFormGUIDFactory.Instance
+
+class function TnsMainMenuFormGUIDFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsMainMenuFormGUIDFactory <> nil;
+end;//TnsMainMenuFormGUIDFactory.Exists
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

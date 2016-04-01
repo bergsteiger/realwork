@@ -25,9 +25,11 @@ type
   private
    f_AvailableLangs: TnsLangList;
    f_IsRootReceived: Boolean;
-    {* Поле для свойства IsRootReceived }
+    {* определяет получали ли мы корень дерева толкования с адаптера. Для
+           случая, когда обновились на базу без толкового словаря и для кнопок
+           панели иснтрументов спрашиваем доступные языки, это позволит
+           избавится от большого количества серверных вызоов }
    f_Root: INodeBase;
-    {* Поле для свойства Root }
   protected
    function pm_GetRoot: INodeBase;
    function DoGetRoot: INodeBase; virtual; abstract;

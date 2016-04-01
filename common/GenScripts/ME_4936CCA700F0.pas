@@ -39,7 +39,6 @@ type
    f_ContextMap: InsLangToContextMap;
    f_CurrentLanguage: TbsLanguage;
    f_refTranslationList: Tl3InterfaceList;
-    {* Поле для свойства refTranslationList }
   private
    procedure SetRefTranslationCount(aValue: Integer);
   protected

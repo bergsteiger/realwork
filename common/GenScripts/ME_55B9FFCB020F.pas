@@ -29,10 +29,10 @@ type
    procedure StartListening;
    procedure StopListening;
    function GetLogStrings: AnsiString;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsLoggingTestService;
     {* Метод получения экземпляра синглетона TnsLoggingTestService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsLoggingTestService
 
 implementation
@@ -92,12 +92,6 @@ begin
 //#UC END# *55BA01020317_55B9FFCB020F_impl*
 end;//TnsLoggingTestService.GetLogStrings
 
-class function TnsLoggingTestService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsLoggingTestService <> nil;
-end;//TnsLoggingTestService.Exists
-
 procedure TnsLoggingTestService.AddLogString(const aString: AnsiString);
 //#UC START# *566AEC8A0092_55B9FFCB020F_var*
 //#UC END# *566AEC8A0092_55B9FFCB020F_var*
@@ -118,6 +112,12 @@ begin
  end;
  Result := g_TnsLoggingTestService;
 end;//TnsLoggingTestService.Instance
+
+class function TnsLoggingTestService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsLoggingTestService <> nil;
+end;//TnsLoggingTestService.Exists
 
 procedure TnsLoggingTestService.Cleanup;
  {* Функция очистки полей объекта. }

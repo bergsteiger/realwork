@@ -22,10 +22,10 @@ type
   protected
    function pm_GetRubricatorRoot: INodeBase;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsRubricatorCache;
     {* Метод получения экземпляра синглетона TnsRubricatorCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property RubricatorRoot: INodeBase
     read pm_GetRubricatorRoot;
@@ -70,12 +70,6 @@ begin
 //#UC END# *4908807B02FD_490724F202F5get_impl*
 end;//TnsRubricatorCache.pm_GetRubricatorRoot
 
-class function TnsRubricatorCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsRubricatorCache <> nil;
-end;//TnsRubricatorCache.Exists
-
 class function TnsRubricatorCache.Instance: TnsRubricatorCache;
  {* Метод получения экземпляра синглетона TnsRubricatorCache }
 begin
@@ -86,6 +80,12 @@ begin
  end;
  Result := g_TnsRubricatorCache;
 end;//TnsRubricatorCache.Instance
+
+class function TnsRubricatorCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsRubricatorCache <> nil;
+end;//TnsRubricatorCache.Exists
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

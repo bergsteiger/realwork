@@ -22,10 +22,10 @@ type
   protected
    function DoGetRoot: INodeBase; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsDayTipsDictCache;
     {* Метод получения экземпляра синглетона TnsDayTipsDictCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsDayTipsDictCache
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -49,12 +49,6 @@ begin
  l3Free(g_TnsDayTipsDictCache);
 end;//TnsDayTipsDictCacheFree
 
-class function TnsDayTipsDictCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsDayTipsDictCache <> nil;
-end;//TnsDayTipsDictCache.Exists
-
 function TnsDayTipsDictCache.DoGetRoot: INodeBase;
 //#UC START# *5571C22C03A5_5571B3100338_var*
 //#UC END# *5571C22C03A5_5571B3100338_var*
@@ -74,6 +68,12 @@ begin
  end;
  Result := g_TnsDayTipsDictCache;
 end;//TnsDayTipsDictCache.Instance
+
+class function TnsDayTipsDictCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsDayTipsDictCache <> nil;
+end;//TnsDayTipsDictCache.Exists
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

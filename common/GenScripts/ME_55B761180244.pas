@@ -20,7 +20,6 @@ type
   private
    f_LoggingTestService: InsLoggingTestService;
    f_LogManager: ILogManager;
-    {* Поле для свойства LogManager }
   protected
    function pm_GetLogManager: ILogManager;
    procedure AddEvent(aLogEvent: TLogEvent;
@@ -30,10 +29,10 @@ type
    procedure InitFields; override;
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsLogManager;
     {* Метод получения экземпляра синглетона TnsLogManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   protected
    property LogManager: ILogManager
     read pm_GetLogManager;
@@ -70,12 +69,6 @@ begin
 //#UC END# *55B761D70223_55B761180244get_impl*
 end;//TnsLogManager.pm_GetLogManager
 
-class function TnsLogManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsLogManager <> nil;
-end;//TnsLogManager.Exists
-
 procedure TnsLogManager.AddEvent(aLogEvent: TLogEvent;
  const aData: InsLogEventData);
 //#UC START# *55B760550256_55B761180244_var*
@@ -100,6 +93,12 @@ begin
  end;
  Result := g_TnsLogManager;
 end;//TnsLogManager.Instance
+
+class function TnsLogManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsLogManager <> nil;
+end;//TnsLogManager.Exists
 
 procedure TnsLogManager.Cleanup;
  {* Функция очистки полей объекта. }
