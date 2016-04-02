@@ -17,10 +17,10 @@ type
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatListNodeTypeConverter = class(_atEnumConverter_)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatListNodeTypeConverter;
     {* Метод получения экземпляра синглетона TatListNodeTypeConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatListNodeTypeConverter
 
 implementation
@@ -42,12 +42,6 @@ end;//TatListNodeTypeConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
-class function TatListNodeTypeConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatListNodeTypeConverter <> nil;
-end;//TatListNodeTypeConverter.Exists
-
 class function TatListNodeTypeConverter.Instance: TatListNodeTypeConverter;
  {* Метод получения экземпляра синглетона TatListNodeTypeConverter }
 begin
@@ -58,5 +52,11 @@ begin
  end;
  Result := g_TatListNodeTypeConverter;
 end;//TatListNodeTypeConverter.Instance
+
+class function TatListNodeTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatListNodeTypeConverter <> nil;
+end;//TatListNodeTypeConverter.Exists
 
 end.

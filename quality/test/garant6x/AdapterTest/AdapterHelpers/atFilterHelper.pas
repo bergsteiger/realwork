@@ -21,9 +21,8 @@ type
  TatContextFilter = class
   private
    f_TweakContextOnAssignment: Boolean;
-    {* Поле для свойства TweakContextOnAssignment }
+    {* Изменяет контекст при присвоении в соответствии с настройками фильтра }
    f_Filter: IContextFilter;
-    {* Поле для свойства Filter }
   protected
    function pm_GetContext: AnsiString;
    procedure pm_SetContext(const aValue: AnsiString);

@@ -28,10 +28,10 @@ type
   public
    function ExpandString(const aString: AnsiString): AnsiString; virtual;
    constructor Create; reintroduce;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatOperationEnv;
     {* Метод получения экземпляра синглетона TatOperationEnv }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    destructor Destroy; override;
   public
    property EnvVar[const aName: AnsiString]: AnsiString
@@ -125,12 +125,6 @@ begin
 //#UC END# *5396F0310309_5396EA3E0230_impl*
 end;//TatOperationEnv.Create
 
-class function TatOperationEnv.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatOperationEnv <> nil;
-end;//TatOperationEnv.Exists
-
 class function TatOperationEnv.Instance: TatOperationEnv;
  {* Метод получения экземпляра синглетона TatOperationEnv }
 begin
@@ -141,6 +135,12 @@ begin
  end;
  Result := g_TatOperationEnv;
 end;//TatOperationEnv.Instance
+
+class function TatOperationEnv.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatOperationEnv <> nil;
+end;//TatOperationEnv.Exists
 
 destructor TatOperationEnv.Destroy;
 //#UC START# *48077504027E_5396EA3E0230_var*

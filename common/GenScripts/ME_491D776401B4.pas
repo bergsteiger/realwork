@@ -20,7 +20,7 @@ type
    f_FileMapping: THandle;
    f_MappingAddress: Pointer;
    f_Size: LongWord;
-    {* Поле для свойства Size }
+    {* Размер буфера. }
   protected
    function pm_GetValue: Pointer; virtual;
    procedure Cleanup; override;

@@ -15,9 +15,7 @@ type
  TatNamedParameter = class(TatParameter)
   private
    f_Name: AnsiString;
-    {* Поле для свойства Name }
    f_Description: AnsiString;
-    {* Поле для свойства Description }
   protected
    procedure ClearFields; override;
   public

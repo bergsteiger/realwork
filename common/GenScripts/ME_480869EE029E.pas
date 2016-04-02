@@ -21,11 +21,9 @@ type
  TatExecutionContext = class(TObject)
   private
    f_MinDelay: Integer;
-    {* Поле для свойства MinDelay }
    f_MaxDelay: Integer;
-    {* Поле для свойства MaxDelay }
    f_UserWorkContext: TatUserWorkContext;
-    {* Поле для свойства UserWorkContext }
+    {* Рабочий контекст пользователя. Текущие документ, список, папка и т.п. вещи. }
   public
    F_LoginData: TatLoginData;
   protected

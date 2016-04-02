@@ -18,10 +18,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatTreeTagToSettingIDConverter;
     {* Метод получения экземпляра синглетона TatTreeTagToSettingIDConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatTreeTagToSettingIDConverter
 
  TatSettingsHelper = class
@@ -55,12 +55,6 @@ procedure TatTreeTagToSettingIDConverterFree;
 begin
  l3Free(g_TatTreeTagToSettingIDConverter);
 end;//TatTreeTagToSettingIDConverterFree
-
-class function TatTreeTagToSettingIDConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatTreeTagToSettingIDConverter <> nil;
-end;//TatTreeTagToSettingIDConverter.Exists
 
 procedure TatTreeTagToSettingIDConverter.InitConvertMap;
 //#UC START# *503E3A040395_503F83120326_var*
@@ -110,6 +104,12 @@ begin
  end;
  Result := g_TatTreeTagToSettingIDConverter;
 end;//TatTreeTagToSettingIDConverter.Instance
+
+class function TatTreeTagToSettingIDConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatTreeTagToSettingIDConverter <> nil;
+end;//TatTreeTagToSettingIDConverter.Exists
 
 class function TatSettingsHelper.GetContextFilterParamsFromSettings(const aSettingsID: AnsiString;
  out theParams: ContextFilterParams): Boolean;

@@ -23,7 +23,6 @@ type
  TatCommandLineParameter = class(TatNamedParameter)
   private
    f_ParamType: TCLPType;
-    {* Поле для свойства ParamType }
   protected
    function pm_GetIsRequired: Boolean;
   public

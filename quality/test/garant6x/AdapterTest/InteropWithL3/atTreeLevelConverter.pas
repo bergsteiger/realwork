@@ -21,10 +21,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatTreeLevelConverter;
     {* Метод получения экземпляра синглетона TatTreeLevelConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatTreeLevelConverter
 
 implementation
@@ -45,12 +45,6 @@ begin
 end;//TatTreeLevelConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
-
-class function TatTreeLevelConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatTreeLevelConverter <> nil;
-end;//TatTreeLevelConverter.Exists
 
 procedure TatTreeLevelConverter.InitConvertMap;
 //#UC START# *503E3A040395_503E65E30321_var*
@@ -76,5 +70,11 @@ begin
  end;
  Result := g_TatTreeLevelConverter;
 end;//TatTreeLevelConverter.Instance
+
+class function TatTreeLevelConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatTreeLevelConverter <> nil;
+end;//TatTreeLevelConverter.Exists
 
 end.

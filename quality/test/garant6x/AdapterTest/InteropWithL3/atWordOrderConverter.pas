@@ -21,10 +21,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatWordOrderConverter;
     {* Метод получения экземпляра синглетона TatWordOrderConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatWordOrderConverter
 
 implementation
@@ -45,12 +45,6 @@ begin
 end;//TatWordOrderConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
-
-class function TatWordOrderConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatWordOrderConverter <> nil;
-end;//TatWordOrderConverter.Exists
 
 procedure TatWordOrderConverter.InitConvertMap;
 //#UC START# *503E3A040395_503E615E0377_var*
@@ -76,5 +70,11 @@ begin
  end;
  Result := g_TatWordOrderConverter;
 end;//TatWordOrderConverter.Instance
+
+class function TatWordOrderConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatWordOrderConverter <> nil;
+end;//TatWordOrderConverter.Exists
 
 end.

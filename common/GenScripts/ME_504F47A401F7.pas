@@ -16,10 +16,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatControlStatusConverter;
     {* Метод получения экземпляра синглетона TatControlStatusConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatControlStatusConverter
 
 implementation
@@ -39,12 +39,6 @@ procedure TatControlStatusConverterFree;
 begin
  l3Free(g_TatControlStatusConverter);
 end;//TatControlStatusConverterFree
-
-class function TatControlStatusConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatControlStatusConverter <> nil;
-end;//TatControlStatusConverter.Exists
 
 procedure TatControlStatusConverter.InitConvertMap;
 //#UC START# *503E3A040395_504F47A401F7_var*
@@ -75,5 +69,11 @@ begin
  end;
  Result := g_TatControlStatusConverter;
 end;//TatControlStatusConverter.Instance
+
+class function TatControlStatusConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatControlStatusConverter <> nil;
+end;//TatControlStatusConverter.Exists
 
 end.

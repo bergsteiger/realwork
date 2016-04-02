@@ -17,7 +17,6 @@ type
  TatSearchHelper = class(TatSearchHelperBase)
   private
    f_List: IDynList;
-    {* Поле для свойства List }
   protected
    procedure ClearFields; override;
   public

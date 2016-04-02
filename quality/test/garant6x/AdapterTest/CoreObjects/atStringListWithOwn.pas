@@ -15,7 +15,6 @@ type
  TatStringListWithOwn = class(TStringList)
   private
    f_OwnsObjects: Boolean;
-    {* Поле для свойства OwnsObjects }
   public
    constructor Create(ownsObjects: Boolean); reintroduce;
    destructor Destroy; override;

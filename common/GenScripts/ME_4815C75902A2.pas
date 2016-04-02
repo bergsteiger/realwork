@@ -34,7 +34,6 @@ type
    f_LayerStack: array of TatLayerContext;
    f_CurrLayerIdx: Integer;
    f_CurrLayer: PTatLayerContext;
-    {* Поле для свойства CurrLayer }
   private
    procedure PushLayer(const aLayer: TatLayerContext); virtual;
    procedure PopLayer; virtual;
@@ -55,9 +54,7 @@ type
   private
    f_HasNext: Boolean;
    f_IsParaMustHaveNonZeroID: Boolean;
-    {* Поле для свойства IsParaMustHaveNonZeroID }
    f_IsParaMustHaveComments: Boolean;
-    {* Поле для свойства IsParaMustHaveComments }
   public
    constructor Create(const aDTP: IDocumentTextProvider); reintroduce; virtual;
    function HasNext: Boolean; override;
@@ -82,7 +79,6 @@ type
    f_ParaIDForJournal: TParaId;
    f_ParaIterator: TatDTPParaIterator;
    f_IsFullLoad: Boolean;
-    {* Поле для свойства IsFullLoad }
   private
    procedure ReadContent; virtual;
    procedure ReadDocBody; virtual;

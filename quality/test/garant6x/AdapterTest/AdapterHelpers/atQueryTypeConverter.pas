@@ -17,10 +17,10 @@ type
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatQueryTypeConverter = class(_atEnumConverter_)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatQueryTypeConverter;
     {* Метод получения экземпляра синглетона TatQueryTypeConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatQueryTypeConverter
 
 implementation
@@ -42,12 +42,6 @@ end;//TatQueryTypeConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
-class function TatQueryTypeConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatQueryTypeConverter <> nil;
-end;//TatQueryTypeConverter.Exists
-
 class function TatQueryTypeConverter.Instance: TatQueryTypeConverter;
  {* Метод получения экземпляра синглетона TatQueryTypeConverter }
 begin
@@ -58,5 +52,11 @@ begin
  end;
  Result := g_TatQueryTypeConverter;
 end;//TatQueryTypeConverter.Instance
+
+class function TatQueryTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatQueryTypeConverter <> nil;
+end;//TatQueryTypeConverter.Exists
 
 end.

@@ -14,9 +14,7 @@ type
  TatStringProvider = {abstract} class(TObject)
   private
    f_Random: Boolean;
-    {* Поле для свойства Random }
    f_Looped: Boolean;
-    {* Поле для свойства Looped }
   public
    function AcquireNext(out theString: AnsiString): Boolean; virtual; abstract;
    procedure Reset; virtual; abstract;

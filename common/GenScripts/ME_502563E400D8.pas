@@ -15,7 +15,6 @@ type
   private
    f_Bits: Pointer;
    f_Size: Integer;
-    {* Поле для свойства Size }
   private
    function GetBufSize(aBitsCount: Integer): Integer; virtual;
   protected

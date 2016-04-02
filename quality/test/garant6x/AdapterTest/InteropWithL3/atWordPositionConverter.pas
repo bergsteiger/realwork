@@ -21,10 +21,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatWordPositionConverter;
     {* Метод получения экземпляра синглетона TatWordPositionConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatWordPositionConverter
 
 implementation
@@ -45,12 +45,6 @@ begin
 end;//TatWordPositionConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
-
-class function TatWordPositionConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatWordPositionConverter <> nil;
-end;//TatWordPositionConverter.Exists
 
 procedure TatWordPositionConverter.InitConvertMap;
 //#UC START# *503E3A040395_503E65B1032E_var*
@@ -77,5 +71,11 @@ begin
  end;
  Result := g_TatWordPositionConverter;
 end;//TatWordPositionConverter.Instance
+
+class function TatWordPositionConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatWordPositionConverter <> nil;
+end;//TatWordPositionConverter.Exists
 
 end.

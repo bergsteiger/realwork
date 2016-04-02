@@ -25,7 +25,6 @@ type
  TatFolderNodeMatcherBase = {abstract} class(Tl3_Base, IatFoldersNodeMatcher)
   private
    f_FoldersNode: IFoldersNode;
-    {* Поле для свойства FoldersNode }
   protected
    function pm_GetFoldersNode: IFoldersNode;
    function CheckIsMatch: Boolean; virtual; abstract;

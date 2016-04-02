@@ -19,10 +19,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatNonATQueryLogicOperationConverter;
     {* Метод получения экземпляра синглетона TatNonATQueryLogicOperationConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatNonATQueryLogicOperationConverter
 
 implementation
@@ -43,12 +43,6 @@ begin
 end;//TatNonATQueryLogicOperationConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
-
-class function TatNonATQueryLogicOperationConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatNonATQueryLogicOperationConverter <> nil;
-end;//TatNonATQueryLogicOperationConverter.Exists
 
 procedure TatNonATQueryLogicOperationConverter.InitConvertMap;
 //#UC START# *503E3A040395_503E51C002D7_var*
@@ -75,5 +69,11 @@ begin
  end;
  Result := g_TatNonATQueryLogicOperationConverter;
 end;//TatNonATQueryLogicOperationConverter.Instance
+
+class function TatNonATQueryLogicOperationConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatNonATQueryLogicOperationConverter <> nil;
+end;//TatNonATQueryLogicOperationConverter.Exists
 
 end.

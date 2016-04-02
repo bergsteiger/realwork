@@ -18,15 +18,10 @@ type
   private
    f_Query: TatQuery;
    f_UserName: AnsiString;
-    {* Поле для свойства UserName }
    f_CityCode: AnsiString;
-    {* Поле для свойства CityCode }
    f_PhoneNumber: AnsiString;
-    {* Поле для свойства PhoneNumber }
    f_QuestionText: AnsiString;
-    {* Поле для свойства QuestionText }
    f_EMail: AnsiString;
-    {* Поле для свойства EMail }
   protected
    procedure pm_SetUserName(const aValue: AnsiString);
    procedure pm_SetCityCode(const aValue: AnsiString);

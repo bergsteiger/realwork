@@ -21,7 +21,7 @@ type
    f_DocumentHistory: TatDocumentHistory;
    f_ListHistory: TatListHistory;
    f_CurrFolder: IFoldersNode;
-    {* Поле для свойства CurrFolder }
+    {* Текущая папка. Например, операция создания папки будет ее устанавливать, а операция сохранения закладки сможет туда сохранить закладку. }
   protected
    function pm_GetDocHistoryLength: Integer;
    procedure pm_SetDocHistoryLength(aValue: Integer);

@@ -17,11 +17,8 @@ type
   private
    f_GuardFile: THandle;
    f_FileName: AnsiString;
-    {* Поле для свойства FileName }
    f_Handle: THandle;
-    {* Поле для свойства Handle }
    f_Stream: TStream;
-    {* Поле для свойства Stream }
   public
    function DupHandle: THandle; virtual;
    function TryInit: Boolean; virtual;

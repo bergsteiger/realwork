@@ -20,15 +20,14 @@ type
   {* Класс, для проведения базового поиска }
   private
    f_Context: AnsiString;
-    {* Поле для свойства Context }
+    {* Контекст, который будем искать }
    f_InfoKind: AnsiString;
-    {* Поле для свойства InfoKind }
+    {* Тип информации, которую будем искать }
    f_InvalidWords: AnsiString;
-    {* Поле для свойства InvalidWords }
+    {* Строка со словами из запроса, которые нельзя использовать }
    f_CorrectedContext: AnsiString;
-    {* Поле для свойства CorrectedContext }
+    {* Скорректированный контекст }
    f_IsShortList: Boolean;
-    {* Поле для свойства IsShortList }
   private
    procedure CheckContext; virtual;
     {* проверяет контекст на валидность }

@@ -27,7 +27,6 @@ type
    f_Data: Variant;
    f_DefaultValue: Variant;
    f_IsSet: Boolean;
-    {* Поле для свойства IsSet }
   protected
    function pm_GetAsStr: AnsiString;
    procedure pm_SetAsStr(const aValue: AnsiString);

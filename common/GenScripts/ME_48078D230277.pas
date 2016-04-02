@@ -39,10 +39,10 @@ type
   protected
    procedure InitConvertMap; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatTreeTagConverter;
     {* Метод получения экземпляра синглетона TatTreeTagConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatTreeTagConverter
 
  TatNodeHelper = class
@@ -144,12 +144,6 @@ begin
 //#UC END# *50046733037B_4B90F1F501DD_impl*
 end;//TatNodeMatchFuncs.MatchByCaptionCI
 
-class function TatTreeTagConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatTreeTagConverter <> nil;
-end;//TatTreeTagConverter.Exists
-
 procedure TatTreeTagConverter.InitConvertMap;
 //#UC START# *503E3A040395_503F7E3800E2_var*
   const
@@ -217,6 +211,12 @@ begin
  end;
  Result := g_TatTreeTagConverter;
 end;//TatTreeTagConverter.Instance
+
+class function TatTreeTagConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatTreeTagConverter <> nil;
+end;//TatTreeTagConverter.Exists
 
 class procedure TatNodeHelper.LoadNodesPriv(const rootNode: INodeBase;
  const level: Word;

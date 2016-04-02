@@ -43,10 +43,10 @@ type
  {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatOpTypeConverter = class(_atEnumConverter_)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TatOpTypeConverter;
     {* Метод получения экземпляра синглетона TatOpTypeConverter }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TatOpTypeConverter
 
 var g_TatOpTypeConverter: TatOpTypeConverter = nil;
@@ -60,12 +60,6 @@ end;//TatOpTypeConverterFree
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
-class function TatOpTypeConverter.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TatOpTypeConverter <> nil;
-end;//TatOpTypeConverter.Exists
-
 class function TatOpTypeConverter.Instance: TatOpTypeConverter;
  {* Метод получения экземпляра синглетона TatOpTypeConverter }
 begin
@@ -76,6 +70,12 @@ begin
  end;
  Result := g_TatOpTypeConverter;
 end;//TatOpTypeConverter.Instance
+
+class function TatOpTypeConverter.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TatOpTypeConverter <> nil;
+end;//TatOpTypeConverter.Exists
 
 procedure TatDocumentUnderControlOperation.ExecuteSelf;
 //#UC START# *48089F460352_504F1A8B004B_var*

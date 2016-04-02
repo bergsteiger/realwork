@@ -29,7 +29,6 @@ type
  TatList = class(_atEntityWithName_)
   private
    f_Root: INodeBase;
-    {* Поле для свойства Root }
   protected
    function pm_GetHistory: AnsiString;
    function pm_GetRoot: INodeBase;

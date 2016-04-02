@@ -18,7 +18,6 @@ type
    f_ReadHandle: THandle;
    f_LocksCount: Integer;
    f_FileName: AnsiString;
-    {* Поле для свойства FileName }
   private
    function OpenForRead: Boolean; virtual;
    function OpenFile(const aAccessMode: DWORD;
