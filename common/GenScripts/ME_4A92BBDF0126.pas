@@ -119,10 +119,10 @@ type
   protected
    procedure DoFireLog; override;
   public
-   class function Instance: TnsUserOperationEvent;
-    {* Метод получения экземпляра синглетона TnsUserOperationEvent }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TnsUserOperationEvent;
+    {* Метод получения экземпляра синглетона TnsUserOperationEvent }
  end;//TnsUserOperationEvent
 
 var g_TnsUserOperationEvent: TnsUserOperationEvent = nil;
@@ -150,6 +150,12 @@ begin
  RequestWrite;
 //#UC END# *4B14F21C029D_4B14F1AB03A0_impl*
 end;//TnsUserOperationEvent.Log
+
+class function TnsUserOperationEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUserOperationEvent <> nil;
+end;//TnsUserOperationEvent.Exists
 
 procedure TnsUserOperationEvent.DoFireLog;
 //#UC START# *4B13A1F202D9_4B14F1AB03A0_var*
@@ -186,12 +192,6 @@ begin
  end;
  Result := g_TnsUserOperationEvent;
 end;//TnsUserOperationEvent.Instance
-
-class function TnsUserOperationEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUserOperationEvent <> nil;
-end;//TnsUserOperationEvent.Exists
 
 class procedure TPrimF1Res.InitDefaults;
 //#UC START# *4AA7BAF10057_4A92BBDF0126_var*

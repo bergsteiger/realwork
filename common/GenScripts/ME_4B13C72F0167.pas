@@ -26,10 +26,10 @@ type
   protected
    function EventID: TLogEvent; override;
   public
-   class function Instance: TnsUseTaskPanelOperationEvent;
-    {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TnsUseTaskPanelOperationEvent;
+    {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
  end;//TnsUseTaskPanelOperationEvent
 
  _vcmScrollableFormWithWheelSupport_Parent_ = TvcmEntityForm;
@@ -98,6 +98,12 @@ begin
  l3Free(g_TnsUseTaskPanelOperationEvent);
 end;//TnsUseTaskPanelOperationEventFree
 
+class function TnsUseTaskPanelOperationEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseTaskPanelOperationEvent <> nil;
+end;//TnsUseTaskPanelOperationEvent.Exists
+
 function TnsUseTaskPanelOperationEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13C75E02D1_var*
 //#UC END# *4B13A26203DB_4B13C75E02D1_var*
@@ -117,12 +123,6 @@ begin
  end;
  Result := g_TnsUseTaskPanelOperationEvent;
 end;//TnsUseTaskPanelOperationEvent.Instance
-
-class function TnsUseTaskPanelOperationEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUseTaskPanelOperationEvent <> nil;
-end;//TnsUseTaskPanelOperationEvent.Exists
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
 
