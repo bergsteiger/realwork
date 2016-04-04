@@ -151,6 +151,48 @@ ref; // ME_4CF4F8510139 DoIt
 
 ref; // ME_4CF4F8470359 Create
 
+FORWARD ME_4CF4F83200CD
+
+: ME_FE1BB342B882
+ CONST Name 'aData'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496B629D0188' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherWindowData
+ ;
+
+ref; // ME_FE1BB342B882 aData
+
+: ME_E84FA71FE289
+ CONST Name 'anActiveClass'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496B5F7603B4' '4A9F98B901A5.pas.ms.script' // InsBaseSearchClass
+ ;
+
+ref; // ME_E84FA71FE289 anActiveClass
+
+: ME_12EB9CE8051C
+ CONST UID '12EB9CE8051C'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TnsBaseSearchFormState.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF4F83200CD // Make
+ ;
+ : Target ME_4ACB5740039A // InsBaseSearchFormState
+ ;
+ : Parameters
+   Seq: ( ME_FE1BB342B882 // aData
+ ME_E84FA71FE289 // anActiveClass
+ )
+ ; // Parameters
+
+ref; // ME_12EB9CE8051C DoIt
+
 : ME_4CF4F83200CD
  CONST UID '4CF4F83200CD'
  CONST Name 'Make'
@@ -169,6 +211,10 @@ ref; // ME_4CF4F8470359 Create
    Seq: ( ME_4ACB5740039A // InsBaseSearchFormState
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_12EB9CE8051C // DoIt
+ )
+ ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -201,6 +247,12 @@ ref; // ME_479731C50290_ME_4ACB57C4023E Cleanup
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47EA4E9002C6_ME_4ACB57C4023E FinishDataUpdate
+
+: ME_5000565C019C_ME_4ACB57C4023E
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_4ACB57C4023E ClearFields
 
 : ME_4ACB57C4023E
  CONST UID '4ACB57C4023E'
@@ -239,6 +291,7 @@ ref; // ME_47EA4E9002C6_ME_4ACB57C4023E FinishDataUpdate
  : Overridden
    Seq: ( ME_479731C50290_ME_4ACB57C4023E // Cleanup
  ME_47EA4E9002C6_ME_4ACB57C4023E // FinishDataUpdate
+ ME_5000565C019C_ME_4ACB57C4023E // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -253,6 +306,23 @@ ref; // ME_47EA4E9002C6_ME_4ACB57C4023E FinishDataUpdate
 ref; // ME_4ACB57C4023E TnsBaseSearchFormState
 
 FORWARD ME_4B13B3BD01CD
+
+: ME_DAC5C7F25991
+ CONST UID 'DAC5C7F25991'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B13B3BD01CD // TnsUseBaseSearchExampleEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_DAC5C7F25991 Exists
 
 : ME_4B13A26203DB_ME_4B13B3BD01CD
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
@@ -274,6 +344,10 @@ ref; // ME_4B13A26203DB_ME_4B13B3BD01CD EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_DAC5C7F25991 // Exists
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13B3BD01CD // EventID
  )
@@ -289,6 +363,23 @@ ref; // ME_4B13A26203DB_ME_4B13B3BD01CD EventID
 ref; // ME_4B13B3BD01CD TnsUseBaseSearchExampleEvent
 
 FORWARD ME_4B13B90D007E
+
+: ME_BE4D37807263
+ CONST UID 'BE4D37807263'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B13B90D007E // TnsUseBaseSearchHintEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_BE4D37807263 Exists
 
 : ME_4B13A26203DB_ME_4B13B90D007E
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
@@ -310,6 +401,10 @@ ref; // ME_4B13A26203DB_ME_4B13B90D007E EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_BE4D37807263 // Exists
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13B90D007E // EventID
  )
@@ -325,6 +420,23 @@ ref; // ME_4B13A26203DB_ME_4B13B90D007E EventID
 ref; // ME_4B13B90D007E TnsUseBaseSearchHintEvent
 
 FORWARD ME_4B13B9AA029F
+
+: ME_751B02BCB152
+ CONST UID '751B02BCB152'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B13B9AA029F // TnsUseBackSearchButtonEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_751B02BCB152 Exists
 
 : ME_4B13A26203DB_ME_4B13B9AA029F
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
@@ -346,6 +458,10 @@ ref; // ME_4B13A26203DB_ME_4B13B9AA029F EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_751B02BCB152 // Exists
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13B9AA029F // EventID
  )

@@ -1254,56 +1254,6 @@ ref; // ME_53FDCC540227 DoIt
 
 ref; // ME_53FDCC4E025A ChangeDropTree
 
-FORWARD ME_53FDCCF6009E
-
-: ME_57C142A124FA
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_57C142A124FA Sender
-
-: ME_B6D681C35548
- CONST Name 'aNewCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_B6D681C35548 aNewCurrent
-
-: ME_B528C1E7BC7D
- CONST Name 'aOldCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_B528C1E7BC7D aOldCurrent
-
-: ME_E848E8952515
- CONST UID 'E848E8952515'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53FDCCF6009E // TreeCurrentChanged
- ;
- : Parameters
-   Seq: ( ME_57C142A124FA // Sender
- ME_B6D681C35548 // aNewCurrent
- ME_B528C1E7BC7D // aOldCurrent
- )
- ; // Parameters
-
-ref; // ME_E848E8952515 DoIt
-
 : ME_53FDCCF6009E
  CONST UID '53FDCCF6009E'
  CONST Name 'TreeCurrentChanged'
@@ -1318,10 +1268,6 @@ ref; // ME_E848E8952515 DoIt
    Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E848E8952515 // DoIt
- )
- ; // Operations
 
 ref; // ME_53FDCCF6009E TreeCurrentChanged
 
@@ -1410,35 +1356,6 @@ ref; // ME_53FDCDB6007A DoIt
 
 ref; // ME_53FDCDAC02AE CloseFont
 
-FORWARD ME_53FDCDD50329
-
-: ME_CC8188965D7D
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_CC8188965D7D Sender
-
-: ME_16D9B85D219D
- CONST UID '16D9B85D219D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53FDCDD50329 // ChangeTimerTick
- ;
- : Parameters
-   Seq: ( ME_CC8188965D7D // Sender
- )
- ; // Parameters
-
-ref; // ME_16D9B85D219D DoIt
-
 : ME_53FDCDD50329
  CONST UID '53FDCDD50329'
  CONST Name 'ChangeTimerTick'
@@ -1453,10 +1370,6 @@ ref; // ME_16D9B85D219D DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_16D9B85D219D // DoIt
- )
- ; // Operations
 
 ref; // ME_53FDCDD50329 ChangeTimerTick
 

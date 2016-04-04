@@ -932,45 +932,6 @@ ref; // ME_541021CC023D DoIt
 
 ref; // ME_541021B90213 DoLockRegion
 
-FORWARD ME_543FAAB80195
-
-: ME_65C735B76112
- CONST Name 'aForRead'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_65C735B76112 aForRead
-
-: ME_5AFEBBF0D4ED
- CONST Name 'aRegion'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_543F8693032B // Tm3FileRegion
- ;
-
-ref; // ME_5AFEBBF0D4ED aRegion
-
-: ME_45107EAAC21E
- CONST UID '45107EAAC21E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_543FAAB80195 // LockRegion
- ;
- : Parameters
-   Seq: ( ME_65C735B76112 // aForRead
- ME_5AFEBBF0D4ED // aRegion
- )
- ; // Parameters
-
-ref; // ME_45107EAAC21E DoIt
-
 : ME_543FAAB80195
  CONST UID '543FAAB80195'
  CONST Name 'LockRegion'
@@ -985,51 +946,8 @@ ref; // ME_45107EAAC21E DoIt
    Seq: ( ME_541021B90213 // DoLockRegion
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_45107EAAC21E // DoIt
- )
- ; // Operations
 
 ref; // ME_543FAAB80195 LockRegion
-
-FORWARD ME_543FAAD0011B
-
-: ME_079FAA493F6B
- CONST Name 'aForRead'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_079FAA493F6B aForRead
-
-: ME_DE267E2633BD
- CONST Name 'aRegion'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_543F8693032B // Tm3FileRegion
- ;
-
-ref; // ME_DE267E2633BD aRegion
-
-: ME_AD5F3E65149B
- CONST UID 'AD5F3E65149B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_543FAAD0011B // UnlockRegion
- ;
- : Parameters
-   Seq: ( ME_079FAA493F6B // aForRead
- ME_DE267E2633BD // aRegion
- )
- ; // Parameters
-
-ref; // ME_AD5F3E65149B DoIt
 
 : ME_543FAAD0011B
  CONST UID '543FAAD0011B'
@@ -1045,10 +963,6 @@ ref; // ME_AD5F3E65149B DoIt
    Seq: ( ME_541021E4022F // DoUnlockRegion
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AD5F3E65149B // DoIt
- )
- ; // Operations
 
 ref; // ME_543FAAD0011B UnlockRegion
 

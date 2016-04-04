@@ -2100,22 +2100,6 @@ ref; // ME_55D3169C00AD DoIt
 
 ref; // ME_55D31692032D HasInternalOperations
 
-FORWARD ME_55D316B201E7
-
-: ME_FEDDA5D3824F
- CONST UID 'FEDDA5D3824F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55D316B201E7 // HasOnlyInternalOperations
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_FEDDA5D3824F DoIt
-
 : ME_55D316B201E7
  CONST UID '55D316B201E7'
  CONST Name 'HasOnlyInternalOperations'
@@ -2130,10 +2114,6 @@ ref; // ME_FEDDA5D3824F DoIt
    Seq: ( ME_55D31692032D // HasInternalOperations
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_FEDDA5D3824F // DoIt
- )
- ; // Operations
  CONST "ifdef" 'DesignTimeLibrary'
 
 ref; // ME_55D316B201E7 HasOnlyInternalOperations
@@ -3754,35 +3734,6 @@ ref; // ME_5620E5D00238 DoIt
 
 ref; // ME_5620E5C101B2 GetIsDefaultStored
 
-FORWARD ME_5620E5FF00DA
-
-: ME_8CA7A629A3FE
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_8CA7A629A3FE Sender
-
-: ME_6DECACA8D923
- CONST UID '6DECACA8D923'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5620E5FF00DA // OnSecondaryShortCutsChange
- ;
- : Parameters
-   Seq: ( ME_8CA7A629A3FE // Sender
- )
- ; // Parameters
-
-ref; // ME_6DECACA8D923 DoIt
-
 : ME_5620E5FF00DA
  CONST UID '5620E5FF00DA'
  CONST Name 'OnSecondaryShortCutsChange'
@@ -3797,10 +3748,6 @@ ref; // ME_6DECACA8D923 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6DECACA8D923 // DoIt
- )
- ; // Operations
 
 ref; // ME_5620E5FF00DA OnSecondaryShortCutsChange
 
@@ -6291,34 +6238,6 @@ ref; // ME_560AA09A03A8 DoIt
 
 ref; // ME_560AA09401E0 LinkControl
 
-FORWARD ME_560AA0B60313
-
-: ME_E06784506859
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
-
-ref; // ME_E06784506859 aControl
-
-: ME_E61BE25E8E91
- CONST UID 'E61BE25E8E91'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_560AA0B60313 // UnlinkControl
- ;
- : Parameters
-   Seq: ( ME_E06784506859 // aControl
- )
- ; // Parameters
-
-ref; // ME_E61BE25E8E91 DoIt
-
 : ME_560AA0B60313
  CONST UID '560AA0B60313'
  CONST Name 'UnlinkControl'
@@ -6333,10 +6252,6 @@ ref; // ME_E61BE25E8E91 DoIt
    Seq: ( ME_560AA09401E0 // LinkControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E61BE25E8E91 // DoIt
- )
- ; // Operations
 
 ref; // ME_560AA0B60313 UnlinkControl
 

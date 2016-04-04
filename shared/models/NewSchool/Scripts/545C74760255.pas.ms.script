@@ -696,45 +696,6 @@ ref; // ME_546AFEFA02CC DoIt
 
 ref; // ME_546AFEF1001C Create
 
-FORWARD ME_5474528D0320
-
-: ME_23E903117C6F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_23E903117C6F Sender
-
-: ME_0D0E87E001D8
- CONST Name 'aTotalPercent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_0D0E87E001D8 aTotalPercent
-
-: ME_87335006C904
- CONST UID '87335006C904'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5474528D0320 // ProgressUpdate
- ;
- : Parameters
-   Seq: ( ME_23E903117C6F // Sender
- ME_0D0E87E001D8 // aTotalPercent
- )
- ; // Parameters
-
-ref; // ME_87335006C904 DoIt
-
 : ME_5474528D0320
  CONST UID '5474528D0320'
  CONST Name 'ProgressUpdate'
@@ -749,10 +710,6 @@ ref; // ME_87335006C904 DoIt
    Seq: ( WL 'ME_547450770024' '53A2EF7E0117.pas.ms.script' // TddProgressEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_87335006C904 // DoIt
- )
- ; // Operations
 
 ref; // ME_5474528D0320 ProgressUpdate
 

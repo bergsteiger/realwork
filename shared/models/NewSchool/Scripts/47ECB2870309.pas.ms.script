@@ -3317,36 +3317,6 @@ ref; // ME_554CEC0803D4 DoIt
 
 ref; // ME_554CEC000039 Make
 
-FORWARD ME_554CEC4F02F8
-
-: ME_2E275D612D59
- CONST Name 'aType'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
- ;
-
-ref; // ME_2E275D612D59 aType
-
-: ME_BD9D95BF81DA
- CONST UID 'BD9D95BF81DA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_554CEC4F02F8 // MakeListForBlock
- ;
- : Target WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
- ;
- : Parameters
-   Seq: ( ME_2E275D612D59 // aType
- )
- ; // Parameters
-
-ref; // ME_BD9D95BF81DA DoIt
-
 : ME_554CEC4F02F8
  CONST UID '554CEC4F02F8'
  CONST Name 'MakeListForBlock'
@@ -3361,10 +3331,6 @@ ref; // ME_BD9D95BF81DA DoIt
    Seq: ( ME_554CEC2A0191 // MakeList
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BD9D95BF81DA // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_554CEC4F02F8 MakeListForBlock

@@ -2033,6 +2033,92 @@ ref; // ME_5677BADD0383 DoIt
 
 ref; // ME_5677BAD7012E Create
 
+FORWARD ME_5677BB16002C
+
+: ME_40AC64DDA8CF
+ CONST Name 'aInnerState'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_40AC64DDA8CF aInnerState
+
+: ME_29A378AABEF8
+ CONST Name 'aContextFilterState'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_29A378AABEF8 aContextFilterState
+
+: ME_CC308E634061
+ CONST Name 'aTreeStructState'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56A872B801DB' '47ECAAF901F8.pas.ms.script' // InsTreeStructState
+ ;
+
+ref; // ME_CC308E634061 aTreeStructState
+
+: ME_D80F60A1F2FF
+ CONST Name 'aTopItemIndex'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_D80F60A1F2FF aTopItemIndex
+
+: ME_6540D1B9959F
+ CONST Name 'aCurrentIndex'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_6540D1B9959F aCurrentIndex
+
+: ME_965B25E93142
+ CONST Name 'aOptions'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56A9DDF70092 // TPrimListFormStateOptions
+ ;
+
+ref; // ME_965B25E93142 aOptions
+
+: ME_20B96AAFA2FD
+ CONST UID '20B96AAFA2FD'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TPrimListFormState.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5677BB16002C // Make
+ ;
+ : Target ME_5677B9F80322 // IPrimListFormState
+ ;
+ : Parameters
+   Seq: ( ME_40AC64DDA8CF // aInnerState
+ ME_29A378AABEF8 // aContextFilterState
+ ME_CC308E634061 // aTreeStructState
+ ME_D80F60A1F2FF // aTopItemIndex
+ ME_6540D1B9959F // aCurrentIndex
+ ME_965B25E93142 // aOptions
+ )
+ ; // Parameters
+
+ref; // ME_20B96AAFA2FD DoIt
+
 : ME_5677BB16002C
  CONST UID '5677BB16002C'
  CONST Name 'Make'
@@ -2051,6 +2137,10 @@ ref; // ME_5677BAD7012E Create
    Seq: ( ME_5677B9F80322 // IPrimListFormState
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_20B96AAFA2FD // DoIt
+ )
+ ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'

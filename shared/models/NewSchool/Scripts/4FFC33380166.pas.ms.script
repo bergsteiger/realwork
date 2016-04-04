@@ -903,36 +903,6 @@ ref; // ME_5607EE7A0125 DoIt
 
 ref; // ME_5607EE71032D GetItemClass
 
-FORWARD ME_5607EEA50071
-
-: ME_CCCE15659DD7
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_CCCE15659DD7 aName
-
-: ME_7C2C334775B5
- CONST UID '7C2C334775B5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5607EEA50071 // CheckItemByName
- ;
- : Target ME_4FFC3347011F // TvcmBaseCollectionItem
- ;
- : Parameters
-   Seq: ( ME_CCCE15659DD7 // aName
- )
- ; // Parameters
-
-ref; // ME_7C2C334775B5 DoIt
-
 : ME_5607EEA50071
  CONST UID '5607EEA50071'
  CONST Name 'CheckItemByName'
@@ -947,42 +917,8 @@ ref; // ME_7C2C334775B5 DoIt
    Seq: ( ME_5607EE8B03CD // FindItemByName
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7C2C334775B5 // DoIt
- )
- ; // Operations
 
 ref; // ME_5607EEA50071 CheckItemByName
-
-FORWARD ME_5607EEB3007A
-
-: ME_D58F949470C4
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_D58F949470C4 aName
-
-: ME_64862323F2F6
- CONST UID '64862323F2F6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5607EEB3007A // FindItemByCaption
- ;
- : Target ME_4FFC3347011F // TvcmBaseCollectionItem
- ;
- : Parameters
-   Seq: ( ME_D58F949470C4 // aName
- )
- ; // Parameters
-
-ref; // ME_64862323F2F6 DoIt
 
 : ME_5607EEB3007A
  CONST UID '5607EEB3007A'
@@ -998,10 +934,6 @@ ref; // ME_64862323F2F6 DoIt
    Seq: ( ME_5607EE8B03CD // FindItemByName
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_64862323F2F6 // DoIt
- )
- ; // Operations
 
 ref; // ME_5607EEB3007A FindItemByCaption
 

@@ -5606,35 +5606,6 @@ ref; // ME_550A641D0379 f_Timer
 
 ref; // ME_551B9C1D0058 f_NeedAnimateEvent
 
-FORWARD ME_550A64410080
-
-: ME_4BE3B44F4249
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4BE3B44F4249 Sender
-
-: ME_67ABCD82DB55
- CONST UID '67ABCD82DB55'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550A64410080 // DoOnAnimationTimer
- ;
- : Parameters
-   Seq: ( ME_4BE3B44F4249 // Sender
- )
- ; // Parameters
-
-ref; // ME_67ABCD82DB55 DoIt
-
 : ME_550A64410080
  CONST UID '550A64410080'
  CONST Name 'DoOnAnimationTimer'
@@ -5649,10 +5620,6 @@ ref; // ME_67ABCD82DB55 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_67ABCD82DB55 // DoIt
- )
- ; // Operations
 
 ref; // ME_550A64410080 DoOnAnimationTimer
 
@@ -6859,35 +6826,6 @@ ref; // ME_55154DE60112 CloseButtonImageIndex
 
 ref; // ME_55154E010152 CloseButtonHotImageIndex
 
-FORWARD ME_550915DC024B
-
-: ME_944AE11B373B
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_944AE11B373B Sender
-
-: ME_075B1E580F90
- CONST UID '075B1E580F90'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550915DC024B // DoOnCloseButtonClick
- ;
- : Parameters
-   Seq: ( ME_944AE11B373B // Sender
- )
- ; // Parameters
-
-ref; // ME_075B1E580F90 DoIt
-
 : ME_550915DC024B
  CONST UID '550915DC024B'
  CONST Name 'DoOnCloseButtonClick'
@@ -6902,10 +6840,6 @@ ref; // ME_075B1E580F90 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_075B1E580F90 // DoIt
- )
- ; // Operations
 
 ref; // ME_550915DC024B DoOnCloseButtonClick
 
@@ -10835,34 +10769,6 @@ ref; // ME_55080703007F DoIt
 
 ref; // ME_550806D7020E DockFormAtPoint
 
-FORWARD ME_550FEE240297
-
-: ME_F989B94ED167
- CONST Name 'aTabToClose'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_550C09E20148 // TChromeLikeBaseVisualObject
- ;
-
-ref; // ME_F989B94ED167 aTabToClose
-
-: ME_4A86ADD6E6A7
- CONST UID '4A86ADD6E6A7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550FEE240297 // DoOnNeedCloseTab
- ;
- : Parameters
-   Seq: ( ME_F989B94ED167 // aTabToClose
- )
- ; // Parameters
-
-ref; // ME_4A86ADD6E6A7 DoIt
-
 : ME_550FEE240297
  CONST UID '550FEE240297'
  CONST Name 'DoOnNeedCloseTab'
@@ -10877,10 +10783,6 @@ ref; // ME_4A86ADD6E6A7 DoIt
    Seq: ( ME_550FED950250 // TChromeLikeTabNeedCloseEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4A86ADD6E6A7 // DoIt
- )
- ; // Operations
 
 ref; // ME_550FEE240297 DoOnNeedCloseTab
 
@@ -11088,35 +10990,6 @@ ref; // ME_551554BB0334 SetParams
 
 ref; // ME_553F0DAB01F7 PopulatePopupMenu
 
-FORWARD ME_553F1FF80348
-
-: ME_EFAA5DADC0BA
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_EFAA5DADC0BA Sender
-
-: ME_58BC1EB4DAB3
- CONST UID '58BC1EB4DAB3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F1FF80348 // actNewTabExecute
- ;
- : Parameters
-   Seq: ( ME_EFAA5DADC0BA // Sender
- )
- ; // Parameters
-
-ref; // ME_58BC1EB4DAB3 DoIt
-
 : ME_553F1FF80348
  CONST UID '553F1FF80348'
  CONST Name 'actNewTabExecute'
@@ -11131,41 +11004,8 @@ ref; // ME_58BC1EB4DAB3 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_58BC1EB4DAB3 // DoIt
- )
- ; // Operations
 
 ref; // ME_553F1FF80348 actNewTabExecute
-
-FORWARD ME_553F20210329
-
-: ME_41091F033C5E
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_41091F033C5E Sender
-
-: ME_25FF2ACFA386
- CONST UID '25FF2ACFA386'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F20210329 // actMakeCloneExecute
- ;
- : Parameters
-   Seq: ( ME_41091F033C5E // Sender
- )
- ; // Parameters
-
-ref; // ME_25FF2ACFA386 DoIt
 
 : ME_553F20210329
  CONST UID '553F20210329'
@@ -11181,41 +11021,8 @@ ref; // ME_25FF2ACFA386 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_25FF2ACFA386 // DoIt
- )
- ; // Operations
 
 ref; // ME_553F20210329 actMakeCloneExecute
-
-FORWARD ME_553F20470333
-
-: ME_ADB92BD69082
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_ADB92BD69082 Sender
-
-: ME_9C41550C9A0E
- CONST UID '9C41550C9A0E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F20470333 // actCloseTabExecute
- ;
- : Parameters
-   Seq: ( ME_ADB92BD69082 // Sender
- )
- ; // Parameters
-
-ref; // ME_9C41550C9A0E DoIt
 
 : ME_553F20470333
  CONST UID '553F20470333'
@@ -11231,41 +11038,8 @@ ref; // ME_9C41550C9A0E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9C41550C9A0E // DoIt
- )
- ; // Operations
 
 ref; // ME_553F20470333 actCloseTabExecute
-
-FORWARD ME_553F206C017F
-
-: ME_0AF75D6EFAB4
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_0AF75D6EFAB4 Sender
-
-: ME_AEED220B82C7
- CONST UID 'AEED220B82C7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F206C017F // actCloseOtherTabsExecute
- ;
- : Parameters
-   Seq: ( ME_0AF75D6EFAB4 // Sender
- )
- ; // Parameters
-
-ref; // ME_AEED220B82C7 DoIt
 
 : ME_553F206C017F
  CONST UID '553F206C017F'
@@ -11281,41 +11055,8 @@ ref; // ME_AEED220B82C7 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AEED220B82C7 // DoIt
- )
- ; // Operations
 
 ref; // ME_553F206C017F actCloseOtherTabsExecute
-
-FORWARD ME_553F208C0095
-
-: ME_4F8E1F8FF70A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4F8E1F8FF70A Sender
-
-: ME_870B325EA1EC
- CONST UID '870B325EA1EC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F208C0095 // actCloseRightTabsExecute
- ;
- : Parameters
-   Seq: ( ME_4F8E1F8FF70A // Sender
- )
- ; // Parameters
-
-ref; // ME_870B325EA1EC DoIt
 
 : ME_553F208C0095
  CONST UID '553F208C0095'
@@ -11331,41 +11072,8 @@ ref; // ME_870B325EA1EC DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_870B325EA1EC // DoIt
- )
- ; // Operations
 
 ref; // ME_553F208C0095 actCloseRightTabsExecute
-
-FORWARD ME_553F20A603B7
-
-: ME_7DC2AFA61571
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_7DC2AFA61571 Sender
-
-: ME_13041534BF17
- CONST UID '13041534BF17'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F20A603B7 // actReopenClosedTabExecute
- ;
- : Parameters
-   Seq: ( ME_7DC2AFA61571 // Sender
- )
- ; // Parameters
-
-ref; // ME_13041534BF17 DoIt
 
 : ME_553F20A603B7
  CONST UID '553F20A603B7'
@@ -11381,10 +11089,6 @@ ref; // ME_13041534BF17 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_13041534BF17 // DoIt
- )
- ; // Operations
 
 ref; // ME_553F20A603B7 actReopenClosedTabExecute
 
@@ -11573,35 +11277,6 @@ ref; // ME_55656E03033A DoIt
 
 ref; // ME_55656DF602DE IsLastTab
 
-FORWARD ME_55669D6C03B4
-
-: ME_6261BE819918
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_6261BE819918 Sender
-
-: ME_8EA42ACD0EA6
- CONST UID '8EA42ACD0EA6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55669D6C03B4 // DoOnNewTabButtonClick
- ;
- : Parameters
-   Seq: ( ME_6261BE819918 // Sender
- )
- ; // Parameters
-
-ref; // ME_8EA42ACD0EA6 DoIt
-
 : ME_55669D6C03B4
  CONST UID '55669D6C03B4'
  CONST Name 'DoOnNewTabButtonClick'
@@ -11616,10 +11291,6 @@ ref; // ME_8EA42ACD0EA6 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8EA42ACD0EA6 // DoIt
- )
- ; // Operations
 
 ref; // ME_55669D6C03B4 DoOnNewTabButtonClick
 
@@ -14397,56 +14068,6 @@ ref; // ME_56A5DCE401A4 DoIt
 
 ref; // ME_5566D7A300E6 DoOpenNewTab
 
-FORWARD ME_558119BD02BE
-
-: ME_B8A02A675450
- CONST Name 'aTabSet'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5507C0E2028F // TChromeLikeTabSetControlPrim
- ;
-
-ref; // ME_B8A02A675450 aTabSet
-
-: ME_9C3213C7A3DA
- CONST Name 'aMenuTab'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5507F22E0057 // TChromeLikeTab
- ;
-
-ref; // ME_9C3213C7A3DA aMenuTab
-
-: ME_82F808DAEC1F
- CONST Name 'aOpenLast'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_82F808DAEC1F aOpenLast
-
-: ME_4A08BFEBCF2D
- CONST UID '4A08BFEBCF2D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_558119BD02BE // DoOnNewTabRequested
- ;
- : Parameters
-   Seq: ( ME_B8A02A675450 // aTabSet
- ME_9C3213C7A3DA // aMenuTab
- ME_82F808DAEC1F // aOpenLast
- )
- ; // Parameters
-
-ref; // ME_4A08BFEBCF2D DoIt
-
 : ME_558119BD02BE
  CONST UID '558119BD02BE'
  CONST Name 'DoOnNewTabRequested'
@@ -14461,10 +14082,6 @@ ref; // ME_4A08BFEBCF2D DoIt
    Seq: ( ME_558114600228 // TChromeLikeTabSetNewTabRequested
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4A08BFEBCF2D // DoIt
- )
- ; // Operations
 
 ref; // ME_558119BD02BE DoOnNewTabRequested
 

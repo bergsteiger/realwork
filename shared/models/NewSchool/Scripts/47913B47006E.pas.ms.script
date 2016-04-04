@@ -25866,34 +25866,6 @@ ref; // ME_5475D2A602D5 DoIt
 
 ref; // ME_5475D2910227 Subscribe
 
-FORWARD ME_5475D2C003A9
-
-: ME_8D13819A395F
- CONST Name 'aHandle'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
- ;
-
-ref; // ME_8D13819A395F aHandle
-
-: ME_EB9DF50AD99A
- CONST UID 'EB9DF50AD99A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5475D2C003A9 // Unsubscribe
- ;
- : Parameters
-   Seq: ( ME_8D13819A395F // aHandle
- )
- ; // Parameters
-
-ref; // ME_EB9DF50AD99A DoIt
-
 : ME_5475D2C003A9
  CONST UID '5475D2C003A9'
  CONST Name 'Unsubscribe'
@@ -25908,10 +25880,6 @@ ref; // ME_EB9DF50AD99A DoIt
    Seq: ( ME_5475D2910227 // Subscribe
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EB9DF50AD99A // DoIt
- )
- ; // Operations
 
 ref; // ME_5475D2C003A9 Unsubscribe
 

@@ -615,6 +615,48 @@ ref; // ME_567116F600C6 DoIt
 
 ref; // ME_567116EC034D Create
 
+FORWARD ME_567117090387
+
+: ME_7085EB035297
+ CONST Name 'aCurrentNewsLineIndex'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_7085EB035297 aCurrentNewsLineIndex
+
+: ME_3445AFE5D60D
+ CONST Name 'aInnerState'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_3445AFE5D60D aInnerState
+
+: ME_24E507274414
+ CONST UID '24E507274414'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TPrimNewsLineFormState.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_567117090387 // Make
+ ;
+ : Target ME_5671155B00AC // IPrimNewsLineFormState
+ ;
+ : Parameters
+   Seq: ( ME_7085EB035297 // aCurrentNewsLineIndex
+ ME_3445AFE5D60D // aInnerState
+ )
+ ; // Parameters
+
+ref; // ME_24E507274414 DoIt
+
 : ME_567117090387
  CONST UID '567117090387'
  CONST Name 'Make'
@@ -633,6 +675,10 @@ ref; // ME_567116EC034D Create
    Seq: ( ME_5671155B00AC // IPrimNewsLineFormState
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_24E507274414 // DoIt
+ )
+ ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
  CONST "need Aggregate" 'undefined'
@@ -3800,6 +3846,37 @@ ref; // ME_55AF6A40006E Messages For User
 
 FORWARD ME_55B0CF2803D7
 
+: ME_E5CAAA50C508
+ CONST UID 'E5CAAA50C508'
+ CONST Name 'bind'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tf1StartupCompletedServiceImpl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+
+ref; // ME_E5CAAA50C508 bind
+
+: ME_7808E54DAE45
+ CONST UID '7808E54DAE45'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0CF2803D7 // Tf1StartupCompletedServiceImpl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_7808E54DAE45 Exists
+
 : ME_55B0CFE50150
  CONST Class class_Dependency
  : Stereotype st_implements::Dependency ;
@@ -3834,6 +3911,11 @@ ref; // ME_2627E933260B_ME_55B0CF2803D7 StartupComplete
    Seq: ( WL 'ME_1E74B0CF4425' '4A924BCA0092.pas.ms.script' // If1StartupCompletedService
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_E5CAAA50C508 // bind
+ ME_7808E54DAE45 // Exists
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_2627E933260B_ME_55B0CF2803D7 // StartupComplete
  )

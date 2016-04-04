@@ -1759,34 +1759,6 @@ ref; // ME_548044E5016B DoIt
 
 ref; // ME_548044DE033C LinkControl
 
-FORWARD ME_548044EC0041
-
-: ME_CD089B0C4B24
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ;
-
-ref; // ME_CD089B0C4B24 aControl
-
-: ME_5D4F48450705
- CONST UID '5D4F48450705'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_548044EC0041 // UnlinkControl
- ;
- : Parameters
-   Seq: ( ME_CD089B0C4B24 // aControl
- )
- ; // Parameters
-
-ref; // ME_5D4F48450705 DoIt
-
 : ME_548044EC0041
  CONST UID '548044EC0041'
  CONST Name 'UnlinkControl'
@@ -1801,10 +1773,6 @@ ref; // ME_5D4F48450705 DoIt
    Seq: ( ME_548044DE033C // LinkControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5D4F48450705 // DoIt
- )
- ; // Operations
 
 ref; // ME_548044EC0041 UnlinkControl
 

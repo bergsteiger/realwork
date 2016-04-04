@@ -418,35 +418,6 @@ ref; // ME_503DE9CF0309 DoIt
 
 ref; // ME_503DE9C60211 DoUpdateStrings
 
-FORWARD ME_503DEA120182
-
-: ME_D261787E3567
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D261787E3567 Sender
-
-: ME_3C98A8704C0E
- CONST UID '3C98A8704C0E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DEA120182 // TimerProc
- ;
- : Parameters
-   Seq: ( ME_D261787E3567 // Sender
- )
- ; // Parameters
-
-ref; // ME_3C98A8704C0E DoIt
-
 : ME_503DEA120182
  CONST UID '503DEA120182'
  CONST Name 'TimerProc'
@@ -461,10 +432,6 @@ ref; // ME_3C98A8704C0E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3C98A8704C0E // DoIt
- )
- ; // Operations
 
 ref; // ME_503DEA120182 TimerProc
 
@@ -481,35 +448,6 @@ ref; // ME_503DEA120182 TimerProc
 
 ref; // ME_5049B3BE0205 FireUpUpdateStringsTimer
 
-FORWARD ME_5049B3DB0227
-
-: ME_E4920E477922
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_E4920E477922 Sender
-
-: ME_325BABDD2741
- CONST UID '325BABDD2741'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5049B3DB0227 // UpdateStringsTimerProc
- ;
- : Parameters
-   Seq: ( ME_E4920E477922 // Sender
- )
- ; // Parameters
-
-ref; // ME_325BABDD2741 DoIt
-
 : ME_5049B3DB0227
  CONST UID '5049B3DB0227'
  CONST Name 'UpdateStringsTimerProc'
@@ -524,10 +462,6 @@ ref; // ME_325BABDD2741 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_325BABDD2741 // DoIt
- )
- ; // Operations
 
 ref; // ME_5049B3DB0227 UpdateStringsTimerProc
 

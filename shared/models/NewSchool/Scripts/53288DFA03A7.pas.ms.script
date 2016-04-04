@@ -867,35 +867,6 @@ ref; // ME_5369E12D02A2 ShowHint
 
 ref; // ME_536A136401F9 SortIndex
 
-FORWARD ME_53297F2C0176
-
-: ME_86A91BCBCA3E
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_86A91BCBCA3E Sender
-
-: ME_379E2B3BBC23
- CONST UID '379E2B3BBC23'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53297F2C0176 // FlashTimer
- ;
- : Parameters
-   Seq: ( ME_86A91BCBCA3E // Sender
- )
- ; // Parameters
-
-ref; // ME_379E2B3BBC23 DoIt
-
 : ME_53297F2C0176
  CONST UID '53297F2C0176'
  CONST Name 'FlashTimer'
@@ -910,10 +881,6 @@ ref; // ME_379E2B3BBC23 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_379E2B3BBC23 // DoIt
- )
- ; // Operations
 
 ref; // ME_53297F2C0176 FlashTimer
 
@@ -930,35 +897,6 @@ ref; // ME_53297F2C0176 FlashTimer
 
 ref; // ME_532ADFDF03BF DoChange
 
-FORWARD ME_532B2EA001B6
-
-: ME_A9BF8B90A945
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A9BF8B90A945 Sender
-
-: ME_A2A1C10ADF02
- CONST UID 'A2A1C10ADF02'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_532B2EA001B6 // ImageClick
- ;
- : Parameters
-   Seq: ( ME_A9BF8B90A945 // Sender
- )
- ; // Parameters
-
-ref; // ME_A2A1C10ADF02 DoIt
-
 : ME_532B2EA001B6
  CONST UID '532B2EA001B6'
  CONST Name 'ImageClick'
@@ -973,84 +911,8 @@ ref; // ME_A2A1C10ADF02 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A2A1C10ADF02 // DoIt
- )
- ; // Operations
 
 ref; // ME_532B2EA001B6 ImageClick
-
-FORWARD ME_532C2703003A
-
-: ME_3A24C1A82679
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_3A24C1A82679 Sender
-
-: ME_2416EA19389F
- CONST Name 'Button'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4D5EBB350068' '4799D29F033F.pas.ms.script' // TMouseButton
- ;
-
-ref; // ME_2416EA19389F Button
-
-: ME_0DCFE6B4FD7C
- CONST Name 'Shift'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
- ;
-
-ref; // ME_0DCFE6B4FD7C Shift
-
-: ME_9E63254AFD86
- CONST Name 'X'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_546330E2006B' '4AB0C3C60310.pas.ms.script' // Single
- ;
-
-ref; // ME_9E63254AFD86 X
-
-: ME_A7BBB0B05DD0
- CONST Name 'Y'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_546330E2006B' '4AB0C3C60310.pas.ms.script' // Single
- ;
-
-ref; // ME_A7BBB0B05DD0 Y
-
-: ME_A3041E8282A0
- CONST UID 'A3041E8282A0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_532C2703003A // MouseDown
- ;
- : Parameters
-   Seq: ( ME_3A24C1A82679 // Sender
- ME_2416EA19389F // Button
- ME_0DCFE6B4FD7C // Shift
- ME_9E63254AFD86 // X
- ME_A7BBB0B05DD0 // Y
- )
- ; // Parameters
-
-ref; // ME_A3041E8282A0 DoIt
 
 : ME_532C2703003A
  CONST UID '532C2703003A'
@@ -1066,84 +928,8 @@ ref; // ME_A3041E8282A0 DoIt
    Seq: ( WL 'ME_4D5EB7D80075' '4D5420EC039D.pas.ms.script' // TvgMouseEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A3041E8282A0 // DoIt
- )
- ; // Operations
 
 ref; // ME_532C2703003A MouseDown
-
-FORWARD ME_532C271300BC
-
-: ME_D56C9A2D45FD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D56C9A2D45FD Sender
-
-: ME_933978D69447
- CONST Name 'Button'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4D5EBB350068' '4799D29F033F.pas.ms.script' // TMouseButton
- ;
-
-ref; // ME_933978D69447 Button
-
-: ME_C233F22613F2
- CONST Name 'Shift'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
- ;
-
-ref; // ME_C233F22613F2 Shift
-
-: ME_F6CBEC9F3D4D
- CONST Name 'X'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_546330E2006B' '4AB0C3C60310.pas.ms.script' // Single
- ;
-
-ref; // ME_F6CBEC9F3D4D X
-
-: ME_63678B4BCBBE
- CONST Name 'Y'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_546330E2006B' '4AB0C3C60310.pas.ms.script' // Single
- ;
-
-ref; // ME_63678B4BCBBE Y
-
-: ME_653D052943AA
- CONST UID '653D052943AA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_532C271300BC // MouseUp
- ;
- : Parameters
-   Seq: ( ME_D56C9A2D45FD // Sender
- ME_933978D69447 // Button
- ME_C233F22613F2 // Shift
- ME_F6CBEC9F3D4D // X
- ME_63678B4BCBBE // Y
- )
- ; // Parameters
-
-ref; // ME_653D052943AA DoIt
 
 : ME_532C271300BC
  CONST UID '532C271300BC'
@@ -1159,10 +945,6 @@ ref; // ME_653D052943AA DoIt
    Seq: ( WL 'ME_4D5EB7D80075' '4D5420EC039D.pas.ms.script' // TvgMouseEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_653D052943AA // DoIt
- )
- ; // Operations
 
 ref; // ME_532C271300BC MouseUp
 
@@ -1341,35 +1123,6 @@ ref; // ME_533AC97200AB DoIt
 
 ref; // ME_533AC95101DF DoVisibleChanged
 
-FORWARD ME_533ACE04018B
-
-: ME_BCB0C93DA48F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_BCB0C93DA48F Sender
-
-: ME_A02C327C5616
- CONST UID 'A02C327C5616'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_533ACE04018B // AfterBaloonHidden
- ;
- : Parameters
-   Seq: ( ME_BCB0C93DA48F // Sender
- )
- ; // Parameters
-
-ref; // ME_A02C327C5616 DoIt
-
 : ME_533ACE04018B
  CONST UID '533ACE04018B'
  CONST Name 'AfterBaloonHidden'
@@ -1384,10 +1137,6 @@ ref; // ME_A02C327C5616 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A02C327C5616 // DoIt
- )
- ; // Operations
 
 ref; // ME_533ACE04018B AfterBaloonHidden
 
@@ -2864,35 +2613,6 @@ ref; // ME_535A276E0057 FixPosition
 
 ref; // ME_5368D3FD03CD CheckZOrder
 
-FORWARD ME_53E38F25001A
-
-: ME_42DF40A05963
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_42DF40A05963 Sender
-
-: ME_BA892259D9F5
- CONST UID 'BA892259D9F5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53E38F25001A // RestoreWindowTimerProc
- ;
- : Parameters
-   Seq: ( ME_42DF40A05963 // Sender
- )
- ; // Parameters
-
-ref; // ME_BA892259D9F5 DoIt
-
 : ME_53E38F25001A
  CONST UID '53E38F25001A'
  CONST Name 'RestoreWindowTimerProc'
@@ -2907,10 +2627,6 @@ ref; // ME_BA892259D9F5 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BA892259D9F5 // DoIt
- )
- ; // Operations
 
 ref; // ME_53E38F25001A RestoreWindowTimerProc
 
@@ -3853,35 +3569,6 @@ ref; // ME_533934FC0177 OperationName
 
 ref; // ME_533946240379 ActionLink
 
-FORWARD ME_53394910012D
-
-: ME_DF82B549B8AD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_DF82B549B8AD Sender
-
-: ME_2AF863D7817C
- CONST UID '2AF863D7817C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53394910012D // DoActionChange
- ;
- : Parameters
-   Seq: ( ME_DF82B549B8AD // Sender
- )
- ; // Parameters
-
-ref; // ME_2AF863D7817C DoIt
-
 : ME_53394910012D
  CONST UID '53394910012D'
  CONST Name 'DoActionChange'
@@ -3896,10 +3583,6 @@ ref; // ME_2AF863D7817C DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2AF863D7817C // DoIt
- )
- ; // Operations
 
 ref; // ME_53394910012D DoActionChange
 

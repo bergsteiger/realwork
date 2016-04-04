@@ -3279,45 +3279,6 @@ ref; // ME_550BD0180268 SetFocusToSelectedForm
 
 ref; // ME_550BD03202AF DoGiveFocusToContainedForm
 
-FORWARD ME_550BD68A034F
-
-: ME_2706581716AE
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2706581716AE Sender
-
-: ME_A66F21219F5C
- CONST Name 'CanClose'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_A66F21219F5C CanClose
-
-: ME_8313C0BC91F0
- CONST UID '8313C0BC91F0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550BD68A034F // vcmTabbedContainerCloseQuery
- ;
- : Parameters
-   Seq: ( ME_2706581716AE // Sender
- ME_A66F21219F5C // CanClose
- )
- ; // Parameters
-
-ref; // ME_8313C0BC91F0 DoIt
-
 : ME_550BD68A034F
  CONST UID '550BD68A034F'
  CONST Name 'vcmTabbedContainerCloseQuery'
@@ -3332,10 +3293,6 @@ ref; // ME_8313C0BC91F0 DoIt
    Seq: ( WL 'ME_523AD9CB02EC' '4799D29F033F.pas.ms.script' // TCloseQueryEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8313C0BC91F0 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'TabbedContainerCloseQuery'
 
 ref; // ME_550BD68A034F vcmTabbedContainerCloseQuery

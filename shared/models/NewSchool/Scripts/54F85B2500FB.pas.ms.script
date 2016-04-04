@@ -1915,64 +1915,6 @@ ref; // ME_5512BB8E03AF DoIt
 
 ref; // ME_5512BB8103B4 FillOutConfig
 
-FORWARD ME_5512BB9801EA
-
-: ME_4A26C0C09AD0
- CONST Name 'aConfig'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B990F100126' '4B990EDE031A.pas.ms.script' // TddAppConfiguration
- ;
-
-ref; // ME_4A26C0C09AD0 aConfig
-
-: ME_07BF009941CC
- CONST Name 'aProviderKey'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:pas:Value ''''''
-
-ref; // ME_07BF009941CC aProviderKey
-
-: ME_80BA10B39444
- CONST Name 'ForInfoOnly'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST Value false
- : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_80BA10B39444 ForInfoOnly
-
-: ME_A5FFF42AB48B
- CONST UID 'A5FFF42AB48B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5512BB9801EA // BuildConfig
- ;
- : Parameters
-   Seq: ( ME_4A26C0C09AD0 // aConfig
- ME_07BF009941CC // aProviderKey
- ME_80BA10B39444 // ForInfoOnly
- )
- ; // Parameters
-
-ref; // ME_A5FFF42AB48B DoIt
-
 : ME_5512BB9801EA
  CONST UID '5512BB9801EA'
  CONST Name 'BuildConfig'
@@ -1987,10 +1929,6 @@ ref; // ME_A5FFF42AB48B DoIt
    Seq: ( WL 'ME_5513AC280059' '55963E9101B2.pas.ms.script' // TBuildConfigProc
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A5FFF42AB48B // DoIt
- )
- ; // Operations
 
 ref; // ME_5512BB9801EA BuildConfig
 
@@ -2560,36 +2498,6 @@ FORWARD ME_5524D27A00D3
 
 ref; // ME_5524D2950370 ItemType
 
-FORWARD ME_565DA60503D9
-
-: ME_042053B2D108
- CONST Name 'aState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5524CFE701C5' '5432448401BC.pas.ms.script' // TdaProcessState
- ;
-
-ref; // ME_042053B2D108 aState
-
-: ME_C8548B19AD4D
- CONST UID 'C8548B19AD4D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_565DA60503D9 // LongProcessNotify
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_042053B2D108 // aState
- )
- ; // Parameters
-
-ref; // ME_C8548B19AD4D DoIt
-
 : ME_565DA60503D9
  CONST UID '565DA60503D9'
  CONST Name 'LongProcessNotify'
@@ -2604,10 +2512,6 @@ ref; // ME_C8548B19AD4D DoIt
    Seq: ( WL 'ME_5524D04900F4' '5432448401BC.pas.ms.script' // TdaOnLongProcessEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C8548B19AD4D // DoIt
- )
- ; // Operations
 
 ref; // ME_565DA60503D9 LongProcessNotify
 

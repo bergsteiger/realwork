@@ -752,36 +752,6 @@ ref; // ME_551938260196 Create
 
 ref; // ME_551938550022 Make
 
-FORWARD ME_5524D2E200C4
-
-: ME_4E2E47CF3C62
- CONST Name 'aState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5524CFE701C5' '5432448401BC.pas.ms.script' // TdaProcessState
- ;
-
-ref; // ME_4E2E47CF3C62 aState
-
-: ME_3B476546FAA3
- CONST UID '3B476546FAA3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5524D2E200C4 // DoLongProcessNotify
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_4E2E47CF3C62 // aState
- )
- ; // Parameters
-
-ref; // ME_3B476546FAA3 DoIt
-
 : ME_5524D2E200C4
  CONST UID '5524D2E200C4'
  CONST Name 'DoLongProcessNotify'
@@ -796,66 +766,8 @@ ref; // ME_3B476546FAA3 DoIt
    Seq: ( WL 'ME_5524D04900F4' '5432448401BC.pas.ms.script' // TdaOnLongProcessEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3B476546FAA3 // DoIt
- )
- ; // Operations
 
 ref; // ME_5524D2E200C4 DoLongProcessNotify
-
-FORWARD ME_552514C803BB
-
-: ME_A7C58B6F0024
- CONST Name 'aState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
- ;
-
-ref; // ME_A7C58B6F0024 aState
-
-: ME_F1037F859057
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_F1037F859057 aValue
-
-: ME_C94B3974B6B8
- CONST Name 'aMsg'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:pas:Value ''''''
-
-ref; // ME_C94B3974B6B8 aMsg
-
-: ME_F885ED3550BD
- CONST UID 'F885ED3550BD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552514C803BB // DoProgressNotify
- ;
- : Parameters
-   Seq: ( ME_A7C58B6F0024 // aState
- ME_F1037F859057 // aValue
- ME_C94B3974B6B8 // aMsg
- )
- ; // Parameters
-
-ref; // ME_F885ED3550BD DoIt
 
 : ME_552514C803BB
  CONST UID '552514C803BB'
@@ -871,10 +783,6 @@ ref; // ME_F885ED3550BD DoIt
    Seq: ( WL 'ME_4F1922630272' '4678193C009C.pas.ms.script' // Tl3ProgressProc
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F885ED3550BD // DoIt
- )
- ; // Operations
 
 ref; // ME_552514C803BB DoProgressNotify
 

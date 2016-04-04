@@ -7292,6 +7292,150 @@ ref; // ME_54B7ABF7033F_ME_53EDDBB5025F ChangeName
 
 ref; // ME_53EDDBB5025F SourceFilesHelper
 
+FORWARD ME_57022BAA02E1
+
+: ME_570230A002CB
+ CONST UID '570230A002CB'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_57022BAA02E1 // TasksListHelper
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_570230A002CB Count
+
+FORWARD ME_570230C7015F
+
+: ME_570230DE035D
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ref; // ME_570230DE035D anItem
+
+: ME_570230CF0307
+ CONST UID '570230CF0307'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_570230C7015F // Add
+ ;
+ : Parameters
+   Seq: ( ME_570230DE035D // anItem
+ )
+ ; // Parameters
+
+ref; // ME_570230CF0307 DoIt
+
+: ME_570230C7015F
+ CONST UID '570230C7015F'
+ CONST Name 'Add'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_57022BAA02E1 // TasksListHelper
+ ;
+ : Operations
+   Seq: ( ME_570230CF0307 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_570230C7015F Add
+
+FORWARD ME_570230E803CB
+
+: ME_5702311201BA
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5702311201BA anIndex
+
+: ME_5702433D016D
+ CONST Name 'aTaskFolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5702433D016D aTaskFolder
+
+: ME_5702310C0194
+ CONST UID '5702310C0194'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_570230E803CB // MakeTask
+ ;
+ : Target ME_52F8C2BF0110 // TddProcessTask
+ ;
+ : Parameters
+   Seq: ( ME_5702311201BA // anIndex
+ ME_5702433D016D // aTaskFolder
+ )
+ ; // Parameters
+
+ref; // ME_5702310C0194 DoIt
+
+: ME_570230E803CB
+ CONST UID '570230E803CB'
+ CONST Name 'MakeTask'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_57022BAA02E1 // TasksListHelper
+ ;
+ : Operations
+   Seq: ( ME_5702310C0194 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_570230E803CB MakeTask
+
+: ME_57022BAA02E1
+ CONST UID '57022BAA02E1'
+ CONST GUID 'DF143907-E670-49ED-9AEE-69F243C108E3'
+ CONST Name 'TasksListHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54A247D202B0 // csTasksHelpers
+ ;
+ : Implements
+   Seq: ( WL 'ME_53A95D9F02E9' '484A470100DD.pas.ms.script' // ProcessTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_570230A002CB // Count
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_570230C7015F // Add
+ ME_570230E803CB // MakeTask
+ )
+ ; // Operations
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_57022BAA02E1 TasksListHelper
+
 FORWARD ME_54B3B12C007B
 
 : ME_54B3B43000FE
@@ -7798,6 +7942,85 @@ ref; // ME_53EDDCE10317_ME_53BFCD060366 DoAdd
 
 ref; // ME_53BFCD060366 TSourceFilesHelper
 
+FORWARD ME_57022B6800F0
+
+: ME_57022BD603A4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57022B6800F0 // TTasksListHelper
+ ;
+ : Target WL 'ME_53A95D9F02E9' '484A470100DD.pas.ms.script' // ProcessTask
+ ;
+
+ref; // ME_57022BD603A4 
+
+: ME_5702436702D0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57022B6800F0 // TTasksListHelper
+ ;
+ : Target ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ref; // ME_5702436702D0 
+
+: ME_570230A002CB_ME_57022B6800F0
+ : Original ME_570230A002CB // Count
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_570230A002CB_ME_57022B6800F0 Count
+
+: ME_570230C7015F_ME_57022B6800F0
+ : Original ME_570230C7015F // Add
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_570230C7015F_ME_57022B6800F0 Add
+
+: ME_570230E803CB_ME_57022B6800F0
+ : Original ME_570230E803CB // MakeTask
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_570230E803CB_ME_57022B6800F0 MakeTask
+
+: ME_57022B6800F0
+ CONST UID '57022B6800F0'
+ CONST Name 'TTasksListHelper'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54A247D202B0 // csTasksHelpers
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53BFD54A01CC' '484A470100DD.pas.ms.script' // TevdTagHelper
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_57022BAA02E1 // TasksListHelper
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_570230A002CB_ME_57022B6800F0 // Count
+ ME_570230C7015F_ME_57022B6800F0 // Add
+ ME_570230E803CB_ME_57022B6800F0 // MakeTask
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_57022BD603A4 // 
+ ME_5702436702D0 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'TasksListHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_57022B6800F0 TTasksListHelper
+
 FORWARD ME_53C3A63C0315
 
 : ME_53C3A6770100
@@ -7905,8 +8128,10 @@ ref; // ME_53C3A63C0315 TReplacementFileHelper
    Seq: ( ME_53C3A62101DB // ReplacementFileHelper
  ME_54B3B0E401C8 // AdditionalFilesHelper
  ME_53EDDBB5025F // SourceFilesHelper
+ ME_57022BAA02E1 // TasksListHelper
  ME_54B3B12C007B // TAdditionalFilesHelper
  ME_53BFCD060366 // TSourceFilesHelper
+ ME_57022B6800F0 // TTasksListHelper
  ME_53C3A63C0315 // TReplacementFileHelper
  )
  ; // Children
@@ -8390,7 +8615,7 @@ FORWARD ME_56FE5C970264
 
 : ME_807379469BD5
  CONST UID '807379469BD5'
- CONST Name 'Tasks'
+ CONST Name 'TasksList'
  CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
@@ -8399,11 +8624,11 @@ FORWARD ME_56FE5C970264
  CONST LinkType lt_agr
  : Parent ME_56FE5C970264 // TcsContainerTask
  ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ : Target ME_57022BAA02E1 // TasksListHelper
  ;
  CONST "pm" true
 
-ref; // ME_807379469BD5 Tasks
+ref; // ME_807379469BD5 TasksList
 
 : ME_42C079208970
  CONST IsSummoned true
@@ -8442,7 +8667,7 @@ ref; // ME_53AC03EE01FD_ME_56FE5C970264 GetTaggedDataType
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_807379469BD5 // Tasks
+   Seq: ( ME_807379469BD5 // TasksList
  )
  ; // Attributes
  : Overridden

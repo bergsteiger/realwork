@@ -4700,56 +4700,6 @@ ref; // ME_544A21B400E4 f_TCPClients
 
 ref; // ME_54522FCE0023 TransportConnected
 
-FORWARD ME_545B400202AF
-
-: ME_D863C5CBBD66
- CONST Name 'ASender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D863C5CBBD66 ASender
-
-: ME_EF59D01D3EBB
- CONST Name 'AStatus'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_545B3EE3029E' '537F464A0198.pas.ms.script' // TIdStatus
- ;
-
-ref; // ME_EF59D01D3EBB AStatus
-
-: ME_3F41A35723E2
- CONST Name 'AStatusText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_3F41A35723E2 AStatusText
-
-: ME_2055A706176C
- CONST UID '2055A706176C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_545B400202AF // SendTransportStatus
- ;
- : Parameters
-   Seq: ( ME_D863C5CBBD66 // ASender
- ME_EF59D01D3EBB // AStatus
- ME_3F41A35723E2 // AStatusText
- )
- ; // Parameters
-
-ref; // ME_2055A706176C DoIt
-
 : ME_545B400202AF
  CONST UID '545B400202AF'
  CONST Name 'SendTransportStatus'
@@ -4764,10 +4714,6 @@ ref; // ME_2055A706176C DoIt
    Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2055A706176C // DoIt
- )
- ; // Operations
 
 ref; // ME_545B400202AF SendTransportStatus
 
@@ -4809,56 +4755,6 @@ ref; // ME_5465A71E02F2 Create
 
 ref; // ME_5465A72C00CA Make
 
-FORWARD ME_5491684203A6
-
-: ME_FB30AC3AC458
- CONST Name 'ASender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_FB30AC3AC458 ASender
-
-: ME_6E33F82F498B
- CONST Name 'AStatus'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_545B3EE3029E' '537F464A0198.pas.ms.script' // TIdStatus
- ;
-
-ref; // ME_6E33F82F498B AStatus
-
-: ME_6C359CD56226
- CONST Name 'AStatusText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_6C359CD56226 AStatusText
-
-: ME_E19EF1C54335
- CONST UID 'E19EF1C54335'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5491684203A6 // ReceiveTransportStatus
- ;
- : Parameters
-   Seq: ( ME_FB30AC3AC458 // ASender
- ME_6E33F82F498B // AStatus
- ME_6C359CD56226 // AStatusText
- )
- ; // Parameters
-
-ref; // ME_E19EF1C54335 DoIt
-
 : ME_5491684203A6
  CONST UID '5491684203A6'
  CONST Name 'ReceiveTransportStatus'
@@ -4873,10 +4769,6 @@ ref; // ME_E19EF1C54335 DoIt
    Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E19EF1C54335 // DoIt
- )
- ; // Operations
 
 ref; // ME_5491684203A6 ReceiveTransportStatus
 
@@ -6545,56 +6437,6 @@ ref; // ME_54E33A870172 Create
 
 ref; // ME_54E33A920344 Make
 
-FORWARD ME_54E33B3A02CB
-
-: ME_19DBEB7D791C
- CONST Name 'ASender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_19DBEB7D791C ASender
-
-: ME_E5DEF80404EF
- CONST Name 'AStatus'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_545B3EE3029E' '537F464A0198.pas.ms.script' // TIdStatus
- ;
-
-ref; // ME_E5DEF80404EF AStatus
-
-: ME_7BD7456C1F1E
- CONST Name 'AStatusText'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_7BD7456C1F1E AStatusText
-
-: ME_205DA59B7639
- CONST UID '205DA59B7639'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E33B3A02CB // TransportStatus
- ;
- : Parameters
-   Seq: ( ME_19DBEB7D791C // ASender
- ME_E5DEF80404EF // AStatus
- ME_7BD7456C1F1E // AStatusText
- )
- ; // Parameters
-
-ref; // ME_205DA59B7639 DoIt
-
 : ME_54E33B3A02CB
  CONST UID '54E33B3A02CB'
  CONST Name 'TransportStatus'
@@ -6609,10 +6451,6 @@ ref; // ME_205DA59B7639 DoIt
    Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_205DA59B7639 // DoIt
- )
- ; // Operations
 
 ref; // ME_54E33B3A02CB TransportStatus
 

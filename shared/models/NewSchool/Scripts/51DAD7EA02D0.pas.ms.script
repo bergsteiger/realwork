@@ -133,35 +133,6 @@ ref; // ME_51DAD8B40203 DoIt
 
 ref; // ME_51DAD83E03B7 Tl3MemorySizeFunc
 
-: ME_45FA8D11DEB5
- CONST Name 'aPtr'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
- ;
-
-ref; // ME_45FA8D11DEB5 aPtr
-
-: ME_88EBB8A52099
- CONST UID '88EBB8A52099'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'прототип функции для получения размера куска памяти' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51DAD8DC00B2 // l3MemorySizeDelphi7
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_45FA8D11DEB5 // aPtr
- )
- ; // Parameters
-
-ref; // ME_88EBB8A52099 DoIt
-
 : ME_51DAE3FC00A8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -187,10 +158,6 @@ ref; // ME_51DAE3FC00A8
    Seq: ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_88EBB8A52099 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_51DAE3FC00A8 // 
  )
@@ -199,35 +166,6 @@ ref; // ME_51DAE3FC00A8
  CONST extprop:rc:SelfName 'MemorySizeDelphi7'
 
 ref; // ME_51DAD8DC00B2 l3MemorySizeDelphi7
-
-: ME_22E083F6A478
- CONST Name 'aPtr'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
- ;
-
-ref; // ME_22E083F6A478 aPtr
-
-: ME_D48D593C8966
- CONST UID 'D48D593C8966'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'прототип функции для получения размера куска памяти' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51DADA9600F9 // l3MemorySizeXE
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_22E083F6A478 // aPtr
- )
- ; // Parameters
-
-ref; // ME_D48D593C8966 DoIt
 
 : ME_51DAE40302B8
  CONST Class class_Dependency
@@ -254,10 +192,6 @@ ref; // ME_51DAE40302B8
    Seq: ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D48D593C8966 // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_51DAE40302B8 // 
  )

@@ -104,45 +104,6 @@ ref; // ME_5320598C001B f_ClickPos
 
 ref; // ME_55142A1C03B1 f_MenuInfoString
 
-FORWARD ME_532059A801C4
-
-: ME_40676446935C
- CONST Name 'anObject'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_40676446935C anObject
-
-: ME_30DDD1D34BAB
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_30DDD1D34BAB aValue
-
-: ME_550E57C39476
- CONST UID '550E57C39476'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_532059A801C4 // ObjectPropFound
- ;
- : Parameters
-   Seq: ( ME_40676446935C // anObject
- ME_30DDD1D34BAB // aValue
- )
- ; // Parameters
-
-ref; // ME_550E57C39476 DoIt
-
 : ME_532059A801C4
  CONST UID '532059A801C4'
  CONST Name 'ObjectPropFound'
@@ -157,40 +118,8 @@ ref; // ME_550E57C39476 DoIt
    Seq: ( WL 'ME_5320560B0287' '5012CA2D0012.pas.ms.script' // TRTTIInfoObjectPropertyFoundCallBack
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_550E57C39476 // DoIt
- )
- ; // Operations
 
 ref; // ME_532059A801C4 ObjectPropFound
-
-FORWARD ME_53205A0E038A
-
-: ME_B8D2F793E025
- CONST Name 'aLinkData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_B8D2F793E025 aLinkData
-
-: ME_A0EEB870151D
- CONST UID 'A0EEB870151D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53205A0E038A // OnJumpToObjectProp
- ;
- : Parameters
-   Seq: ( ME_B8D2F793E025 // aLinkData
- )
- ; // Parameters
-
-ref; // ME_A0EEB870151D DoIt
 
 : ME_53205A0E038A
  CONST UID '53205A0E038A'
@@ -206,10 +135,6 @@ ref; // ME_A0EEB870151D DoIt
    Seq: ( WL 'ME_5515434903D6' '55001317029B.pas.ms.script' // Tl3WikiLinkClicked
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A0EEB870151D // DoIt
- )
- ; // Operations
 
 ref; // ME_53205A0E038A OnJumpToObjectProp
 
@@ -335,34 +260,6 @@ ref; // ME_5502BE76007D DoIt
 
 ref; // ME_5502BE68030B FormatMenuInfo
 
-FORWARD ME_55141542019C
-
-: ME_FF246BF4607E
- CONST Name 'aMenu'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_FF246BF4607E aMenu
-
-: ME_E24C1F72313E
- CONST UID 'E24C1F72313E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55141542019C // PopupMenuCallback
- ;
- : Parameters
-   Seq: ( ME_FF246BF4607E // aMenu
- )
- ; // Parameters
-
-ref; // ME_E24C1F72313E DoIt
-
 : ME_55141542019C
  CONST UID '55141542019C'
  CONST Name 'PopupMenuCallback'
@@ -377,10 +274,6 @@ ref; // ME_E24C1F72313E DoIt
    Seq: ( WL 'ME_5514099B0316' '55001317029B.pas.ms.script' // Tl3PopupMenuHelperCallback
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E24C1F72313E // DoIt
- )
- ; // Operations
 
 ref; // ME_55141542019C PopupMenuCallback
 

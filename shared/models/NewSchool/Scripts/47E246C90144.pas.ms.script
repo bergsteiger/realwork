@@ -5665,35 +5665,6 @@ ref; // ME_54CBBFA8019D DoIt
 
 ref; // ME_54CBBF9F00FA SubscribeChild
 
-FORWARD ME_54CBBFB203CE
-
-: ME_B234C6340D18
- CONST Name 'aChildNode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4ADDE17D0077 // Tl3ListItemNode
- ;
-
-ref; // ME_B234C6340D18 aChildNode
-
-: ME_08EC37AB52B2
- CONST UID '08EC37AB52B2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'подписка на извещения ноды - обертки вокруг элемента листа' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54CBBFB203CE // UnsubscribeChild
- ;
- : Parameters
-   Seq: ( ME_B234C6340D18 // aChildNode
- )
- ; // Parameters
-
-ref; // ME_08EC37AB52B2 DoIt
-
 : ME_54CBBFB203CE
  CONST UID '54CBBFB203CE'
  CONST Name 'UnsubscribeChild'
@@ -5709,10 +5680,6 @@ ref; // ME_08EC37AB52B2 DoIt
    Seq: ( ME_54CBBF9F00FA // SubscribeChild
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_08EC37AB52B2 // DoIt
- )
- ; // Operations
 
 ref; // ME_54CBBFB203CE UnsubscribeChild
 
@@ -6353,35 +6320,6 @@ FORWARD ME_4ADDE1300362
 
 ref; // ME_54CF8E1E02AA Items
 
-FORWARD ME_54CF8E8F0079
-
-: ME_91F5BE040161
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_91F5BE040161 Sender
-
-: ME_75246835A0DC
- CONST UID '75246835A0DC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54CF8E8F0079 // ListChanged
- ;
- : Parameters
-   Seq: ( ME_91F5BE040161 // Sender
- )
- ; // Parameters
-
-ref; // ME_75246835A0DC DoIt
-
 : ME_54CF8E8F0079
  CONST UID '54CF8E8F0079'
  CONST Name 'ListChanged'
@@ -6396,41 +6334,8 @@ ref; // ME_75246835A0DC DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_75246835A0DC // DoIt
- )
- ; // Operations
 
 ref; // ME_54CF8E8F0079 ListChanged
-
-FORWARD ME_54CF8E9B0330
-
-: ME_A34A542A5A19
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A34A542A5A19 Sender
-
-: ME_E8B7896A6F11
- CONST UID 'E8B7896A6F11'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54CF8E9B0330 // ListChanging
- ;
- : Parameters
-   Seq: ( ME_A34A542A5A19 // Sender
- )
- ; // Parameters
-
-ref; // ME_E8B7896A6F11 DoIt
 
 : ME_54CF8E9B0330
  CONST UID '54CF8E9B0330'
@@ -6446,10 +6351,6 @@ ref; // ME_E8B7896A6F11 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E8B7896A6F11 // DoIt
- )
- ; // Operations
 
 ref; // ME_54CF8E9B0330 ListChanging
 
@@ -6768,35 +6669,6 @@ FORWARD ME_4ADDE158034A
 
 ref; // ME_54CF91550398 Items
 
-FORWARD ME_54CF91B400ED
-
-: ME_FAEAA7E8C432
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_FAEAA7E8C432 Sender
-
-: ME_F075EE8D40F9
- CONST UID 'F075EE8D40F9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54CF91B400ED // ListChanged
- ;
- : Parameters
-   Seq: ( ME_FAEAA7E8C432 // Sender
- )
- ; // Parameters
-
-ref; // ME_F075EE8D40F9 DoIt
-
 : ME_54CF91B400ED
  CONST UID '54CF91B400ED'
  CONST Name 'ListChanged'
@@ -6811,41 +6683,8 @@ ref; // ME_F075EE8D40F9 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F075EE8D40F9 // DoIt
- )
- ; // Operations
 
 ref; // ME_54CF91B400ED ListChanged
-
-FORWARD ME_54CF91C20055
-
-: ME_A95AC3A2B7CD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A95AC3A2B7CD Sender
-
-: ME_875761D5BBE8
- CONST UID '875761D5BBE8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54CF91C20055 // ListChanging
- ;
- : Parameters
-   Seq: ( ME_A95AC3A2B7CD // Sender
- )
- ; // Parameters
-
-ref; // ME_875761D5BBE8 DoIt
 
 : ME_54CF91C20055
  CONST UID '54CF91C20055'
@@ -6861,10 +6700,6 @@ ref; // ME_875761D5BBE8 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_875761D5BBE8 // DoIt
- )
- ; // Operations
 
 ref; // ME_54CF91C20055 ListChanging
 

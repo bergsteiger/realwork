@@ -2726,22 +2726,6 @@ ref; // ME_56ACD3EA02B3 DoIt
 
 ref; // ME_56ACD3DD0360 BeginDrawing
 
-FORWARD ME_56ACD3F700FB
-
-: ME_729139BC98D1
- CONST UID '729139BC98D1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56ACD3F700FB // EndDrawing
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_729139BC98D1 DoIt
-
 : ME_56ACD3F700FB
  CONST UID '56ACD3F700FB'
  CONST Name 'EndDrawing'
@@ -2756,10 +2740,6 @@ ref; // ME_729139BC98D1 DoIt
    Seq: ( ME_56ACD3DD0360 // BeginDrawing
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_729139BC98D1 // DoIt
- )
- ; // Operations
 
 ref; // ME_56ACD3F700FB EndDrawing
 
@@ -2832,22 +2812,6 @@ ref; // ME_E5A9DF4AA630 DoIt
 
 ref; // ME_56AF1E650037 GetIsVirtual
 
-FORWARD ME_56AF1E9702A0
-
-: ME_AD8C40A29B72
- CONST UID 'AD8C40A29B72'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56AF1E9702A0 // CheckDrawing
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_AD8C40A29B72 DoIt
-
 : ME_56AF1E9702A0
  CONST UID '56AF1E9702A0'
  CONST Name 'CheckDrawing'
@@ -2862,10 +2826,6 @@ ref; // ME_AD8C40A29B72 DoIt
    Seq: ( ME_56AF1E2902D2 // DrawingIsValid
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AD8C40A29B72 // DoIt
- )
- ; // Operations
 
 ref; // ME_56AF1E9702A0 CheckDrawing
 
@@ -3008,35 +2968,6 @@ ref; // ME_56B0AE7302FB DoIt
 
 ref; // ME_56B0AE550267 SetCanvas
 
-FORWARD ME_56B0AED5005B
-
-: ME_0A6FD335014D
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_0A6FD335014D Sender
-
-: ME_D5E282246B7D
- CONST UID 'D5E282246B7D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56B0AED5005B // BrushChanged
- ;
- : Parameters
-   Seq: ( ME_0A6FD335014D // Sender
- )
- ; // Parameters
-
-ref; // ME_D5E282246B7D DoIt
-
 : ME_56B0AED5005B
  CONST UID '56B0AED5005B'
  CONST Name 'BrushChanged'
@@ -3051,41 +2982,8 @@ ref; // ME_D5E282246B7D DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D5E282246B7D // DoIt
- )
- ; // Operations
 
 ref; // ME_56B0AED5005B BrushChanged
-
-FORWARD ME_56B0AEF1020C
-
-: ME_6AEC0C149873
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_6AEC0C149873 Sender
-
-: ME_582E58AA50C0
- CONST UID '582E58AA50C0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56B0AEF1020C // FontChanged
- ;
- : Parameters
-   Seq: ( ME_6AEC0C149873 // Sender
- )
- ; // Parameters
-
-ref; // ME_582E58AA50C0 DoIt
 
 : ME_56B0AEF1020C
  CONST UID '56B0AEF1020C'
@@ -3101,10 +2999,6 @@ ref; // ME_582E58AA50C0 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_582E58AA50C0 // DoIt
- )
- ; // Operations
 
 ref; // ME_56B0AEF1020C FontChanged
 
@@ -11916,45 +11810,6 @@ ref; // ME_56AB7A7D0255 DoIt
 
 ref; // ME_56AB7A760174 CheckColors
 
-FORWARD ME_56AB7B600252
-
-: ME_D7DDE6DD170E
- CONST Name 'aFore'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_D7DDE6DD170E aFore
-
-: ME_2EB464EA0363
- CONST Name 'aBack'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_2EB464EA0363 aBack
-
-: ME_7B11617C0E33
- CONST UID '7B11617C0E33'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56AB7B600252 // CheckColorsHSV
- ;
- : Parameters
-   Seq: ( ME_D7DDE6DD170E // aFore
- ME_2EB464EA0363 // aBack
- )
- ; // Parameters
-
-ref; // ME_7B11617C0E33 DoIt
-
 : ME_56AB7B600252
  CONST UID '56AB7B600252'
  CONST Name 'CheckColorsHSV'
@@ -11969,10 +11824,6 @@ ref; // ME_7B11617C0E33 DoIt
    Seq: ( ME_56AB7A760174 // CheckColors
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7B11617C0E33 // DoIt
- )
- ; // Operations
 
 ref; // ME_56AB7B600252 CheckColorsHSV
 
