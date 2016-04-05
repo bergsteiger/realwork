@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TStyleEditorExampleForm }
 
 type
+ TStyleEditorExampleForm = class;
+
  StyleEditorExampleFormDef = interface
   {* Идентификатор формы StyleEditorExample }
   ['{941E9E1B-2C84-4067-938E-6CFE6F2614A7}']

@@ -55,6 +55,8 @@ const
  );
 
 type
+ TPrimContactListForm = class;
+
  IContactListFormState = interface(IvcmBase)
   ['{69B1BEB1-B8BB-47FD-8500-9AAB83EAA919}']
   function Get_CurrentFlagFilter: TContactListFilterTypes;

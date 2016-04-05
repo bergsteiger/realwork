@@ -14,6 +14,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -23,8 +26,6 @@ type
   , ccsYes
   , ccsYesIfPossible
  );//TCanChangeScale
-
- // Scalable
 
  IScalable_ChangeScale_Params = interface
   {* Параметры для операции Scalable.ChangeScale }

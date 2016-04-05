@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TAdminMainForm }
 
 type
+ TAdminMainForm = class;
+
  AdminMainFormDef = interface
   {* Идентификатор формы AdminMain }
   ['{26239010-1045-42DC-ABBF-3909601CF2CB}']

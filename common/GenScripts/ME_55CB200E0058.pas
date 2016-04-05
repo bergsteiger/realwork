@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_daTableDescription;
+unit daTableDescription;
 
-// Модуль: "w:\common\components\rtl\Garant\DA\NOT_COMPLETED_daTableDescription.pas"
+// Модуль: "w:\common\components\rtl\Garant\DA\daTableDescription.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "daTableDescription" MUID: (55CB200E0058)
 
@@ -64,6 +64,7 @@ uses
  , l3Types
  , SysUtils
  , Classes
+ , l3Base
 ;
 
 function CompareFields(Item1: Pointer;

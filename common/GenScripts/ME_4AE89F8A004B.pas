@@ -22,52 +22,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Query
-
- // Filterable
-
  TNodesArray = IFiltersFromQuery;
-
- // Loadable
-
-{$If NOT Defined(Monitorings)}
- // Filters
-{$IfEnd} // NOT Defined(Monitorings)
-
- // SearchParameter
-
- // PrintParams
-
- // List
-
- // CardOperation
-
- // File
-
- // Query
-
- // Query
-
- // LogicOperation
-
- // Filters
-
- // Preview
-
- // Document
-
- // SubPanelSettings
-
- // Result
-
- // ColontitulMacro
-
- // SubPanelSettings
-
- // SubPanelSettings
 
  IQuery_ClearAll_Params = interface
   {* Параметры для операции Query.ClearAll }

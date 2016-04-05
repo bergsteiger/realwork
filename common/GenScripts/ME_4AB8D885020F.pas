@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TcfOldSituationSearch }
 
 type
+ TcfOldSituationSearch = class;
+
  OldSituationSearchFormDef = interface
   {* Идентификатор формы OldSituationSearch }
   ['{C98510C7-15ED-408C-B356-69BB7B6D9CA4}']

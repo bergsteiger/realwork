@@ -17,12 +17,12 @@ uses
 ;
 
 type
- TvcmApplicationRef = TNemesisRes;
-  {* —сылка на приложение дл€ DesignTime редакторов }
-
  TNemesisRes = {final} class(TPrimNemesisRes)
   {* [$90440042] }
  end;//TNemesisRes
+
+ TvcmApplicationRef = TNemesisRes;
+  {* —сылка на приложение дл€ DesignTime редакторов }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

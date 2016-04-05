@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TStyleEditorNavigatorForm }
 
 type
+ TStyleEditorNavigatorForm = class;
+
  StyleEditorNavigatorFormDef = interface
   {* Идентификатор формы StyleEditorNavigator }
   ['{CA4048B0-89BD-4120-9949-4497958117C6}']

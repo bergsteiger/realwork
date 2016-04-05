@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TStyleEditorFontForm }
 
 type
+ TStyleEditorFontForm = class;
+
  StyleEditorFontFormDef = interface
   {* Идентификатор формы StyleEditorFont }
   ['{631D935A-F7C1-48C4-ACCC-923697DDB82E}']

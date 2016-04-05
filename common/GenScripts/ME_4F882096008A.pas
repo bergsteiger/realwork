@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TMemoryUsageForm }
 
 type
+ TMemoryUsageForm = class;
+
  MemoryUsageFormDef = interface
   {* Идентификатор формы MemoryUsage }
   ['{239C1E38-C6A8-4737-8D22-0F6E2D5E4762}']

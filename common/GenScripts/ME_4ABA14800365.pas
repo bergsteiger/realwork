@@ -24,6 +24,8 @@ const
   {* Идентификатор формы Tcf_Settings }
 
 type
+ Tcf_Settings = class;
+
  SettingsFormDef = interface
   {* Идентификатор формы Settings }
   ['{AE03AFD6-01DB-435D-9437-B777E585331E}']

@@ -20,7 +20,7 @@ type
    function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; virtual; abstract;
    function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
   public
-   procedure Iterate(anAction: daConditionIterator_Iterate_Action);
+   procedure Iterate(anAction: daConditionIterator_Iterate_Action); virtual;
    procedure IterateF(anAction: daConditionIterator_Iterate_Action);
  end;//TdaCondition
 
@@ -28,6 +28,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3Base
 ;
 
 function TdaCondition.BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;

@@ -18,11 +18,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Edition
-
  TGotoParaResult = (
   {* Результат перехода на параграф }
   gtprFail
@@ -32,12 +33,6 @@ type
   , gtprAlready
    {* Уже стояли на этом параграфе }
  );//TGotoParaResult
-
- // Document
-
- // RightEdition
-
- // Finder
 
  IDocument_OpenEditionLocalLink_Params = interface
   {* Параметры для операции Document.OpenEditionLocalLink }

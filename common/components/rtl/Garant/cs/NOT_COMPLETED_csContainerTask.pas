@@ -12,19 +12,19 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , l3Variant
+ , csTasksHelpers
  , k2Base
 ;
 
 type
  TcsContainerTask = class(TddProcessTask)
   protected
-   function pm_GetTasks: Tl3Tag;
+   function pm_GetTasksList: TasksListHelper;
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
-   property Tasks: Tl3Tag
-    read pm_GetTasks;
+   property TasksList: TasksListHelper
+    read pm_GetTasksList;
  end;//TcsContainerTask
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -36,14 +36,14 @@ uses
  , ContainerTask_Const
 ;
 
-function TcsContainerTask.pm_GetTasks: Tl3Tag;
+function TcsContainerTask.pm_GetTasksList: TasksListHelper;
 //#UC START# *807379469BD5_56FE5C970264get_var*
 //#UC END# *807379469BD5_56FE5C970264get_var*
 begin
 //#UC START# *807379469BD5_56FE5C970264get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *807379469BD5_56FE5C970264get_impl*
-end;//TcsContainerTask.pm_GetTasks
+end;//TcsContainerTask.pm_GetTasksList
 
 class function TcsContainerTask.GetTaggedDataType: Tk2Type;
 //#UC START# *53AC03EE01FD_56FE5C970264_var*

@@ -14,15 +14,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // DateInterval
-
- // NewsThemes
-
- // DateInterval
-
  Op_DateInterval_OpenInt = class
   {* Класс для вызова операции DateInterval.OpenInt }
   public

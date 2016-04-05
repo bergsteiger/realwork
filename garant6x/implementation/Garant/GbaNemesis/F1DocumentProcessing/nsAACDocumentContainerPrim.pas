@@ -21,6 +21,8 @@ uses
 type
  TnsBlockViewKinds = set of TevBlockViewKind;
 
+ TnsAACDocumentContainerPrim = class;
+
  InsAACDocumentContainer = interface
   ['{1701839E-CED5-46B4-B26A-42565DD13B4D}']
   function GotPos: TbsDocPos;

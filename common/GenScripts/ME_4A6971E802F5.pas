@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TChatWindowForm }
 
 type
+ TChatWindowForm = class;
+
  ChatWindowFormDef = interface
   {* Идентификатор формы ChatWindow }
   ['{BD39AB6D-74A5-4A07-80BA-F529342D3B8A}']

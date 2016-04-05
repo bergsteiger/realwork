@@ -15,19 +15,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // StyleEditor
-
- // StyleEditor
-
- // StyleEditor
-
- // Result
-
- // PopupMenu
-
  IStyleEditor_ReloadStylesTree_Params = interface
   {* Параметры для операции StyleEditor.ReloadStylesTree }
   ['{44E58188-3AF4-4C21-83BC-CD468E83F8D6}']

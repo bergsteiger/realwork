@@ -30,11 +30,11 @@ type
 
  Tf1StartupCompletedServiceImpl = {final} class(Tl3ProtoObject, If1StartupCompletedService)
   public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    procedure StartupComplete;
    class function Instance: Tf1StartupCompletedServiceImpl;
     {* Метод получения экземпляра синглетона Tf1StartupCompletedServiceImpl }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tf1StartupCompletedServiceImpl
 
  TPrimMonitoringsModule = {abstract} class(TvcmModule)
@@ -131,6 +131,12 @@ begin
 //#UC END# *4B14ED2F033E_4B14ED130233_impl*
 end;//TnsOpenNewsLineEvent.Log
 
+class function Tf1StartupCompletedServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tf1StartupCompletedServiceImpl <> nil;
+end;//Tf1StartupCompletedServiceImpl.Exists
+
 procedure Tf1StartupCompletedServiceImpl.StartupComplete;
 //#UC START# *2627E933260B_55B0CF2803D7_var*
 //#UC END# *2627E933260B_55B0CF2803D7_var*
@@ -161,12 +167,6 @@ begin
  end;
  Result := g_Tf1StartupCompletedServiceImpl;
 end;//Tf1StartupCompletedServiceImpl.Instance
-
-class function Tf1StartupCompletedServiceImpl.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tf1StartupCompletedServiceImpl <> nil;
-end;//Tf1StartupCompletedServiceImpl.Exists
 
 procedure TPrimMonitoringsModule.OpenAutoreferat(const aDoc: IDocument;
  const aContainer: IvcmContainer);

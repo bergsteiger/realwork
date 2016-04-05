@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TMonitoringsMainForm }
 
 type
+ TMonitoringsMainForm = class;
+
  MonitoringsMainFormDef = interface
   {* Идентификатор формы MonitoringsMain }
   ['{302D255D-E242-47AD-ACB5-B3822A5E3F7F}']

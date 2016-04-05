@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ TnsDataExchangeProxy = class;
+
  InsDataExchangeSubscriber = interface
   ['{20C77FB9-BA8F-42A3-8DA2-CA5B86F19816}']
   procedure MakeAndOpenList(const aList: IDynList;

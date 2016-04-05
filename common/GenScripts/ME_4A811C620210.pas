@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TWorkJournalForm }
 
 type
+ TWorkJournalForm = class;
+
  WorkJournalFormDef = interface
   {* Идентификатор формы WorkJournal }
   ['{D0739331-5959-49D1-A117-74FAFA0E0939}']

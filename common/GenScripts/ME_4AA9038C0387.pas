@@ -23,14 +23,14 @@ const
   {* 'ГАРАНТ аэро' }
 
 type
- TvcmApplicationRef = TMonitoringsRes;
-  {* Ссылка на приложение для DesignTime редакторов }
-
  TMonitoringsRes = {final} class(TShellAndMonitoringsRes)
   {* Мониторинги }
   protected
    class procedure DoRun(var theSplash: IUnknown); override;
  end;//TMonitoringsRes
+
+ TvcmApplicationRef = TMonitoringsRes;
+  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
 implementation

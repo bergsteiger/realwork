@@ -312,6 +312,8 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
+ TnsInternetAgentState = class;
+
  InsInternetAgentState = interface
   {* Состояние Интернет-агента }
   ['{D4ACF593-E6B2-403E-BF8B-88C3E553312B}']

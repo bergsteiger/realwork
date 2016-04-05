@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_htJournal;
+unit htJournal;
 
-// Модуль: "w:\common\components\rtl\Garant\HT\NOT_COMPLETED_htJournal.pas"
+// Модуль: "w:\common\components\rtl\Garant\HT\htJournal.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "ThtJournal" MUID: (5540D3060300)
 

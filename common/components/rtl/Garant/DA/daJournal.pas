@@ -23,11 +23,8 @@ type
   private
    f_CurUser: TdaUserID;
    f_CurStatTree: Tl3Tree;
-    {* Поле для свойства CurStatTree }
    f_Factory: IdaTableQueryFactory;
-    {* Поле для свойства Factory }
    f_CurSessionID: TdaSessionID;
-    {* Поле для свойства CurSessionID }
   private
    function GetNewSessionID: TdaSessionID;
    procedure AnalyseLog(const aLog: IdaResultSet);

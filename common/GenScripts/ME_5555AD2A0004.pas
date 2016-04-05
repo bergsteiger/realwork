@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_daParam;
+unit daParam;
 
-// Модуль: "w:\common\components\rtl\Garant\DA\NOT_COMPLETED_daParam.pas"
+// Модуль: "w:\common\components\rtl\Garant\DA\daParam.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TdaParam" MUID: (5555AD2A0004)
 

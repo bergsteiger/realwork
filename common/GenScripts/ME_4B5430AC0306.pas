@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TSelfInfoForm }
 
 type
+ TSelfInfoForm = class;
+
  SelfInfoFormDef = interface
   {* Идентификатор формы SelfInfo }
   ['{58609172-F191-4A45-BABF-5983A3CBE791}']

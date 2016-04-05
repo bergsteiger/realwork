@@ -23,14 +23,14 @@ const
   {* 'ГАРАНТ аэро' }
 
 type
- TvcmApplicationRef = TAdminAppRes;
-  {* Ссылка на приложение для DesignTime редакторов }
-
  TAdminAppRes = {final} class(TPrimF1Res)
   {* Оболочка Admin }
   protected
    class procedure DoRun(var theSplash: IUnknown); override;
  end;//TAdminAppRes
+
+ TvcmApplicationRef = TAdminAppRes;
+  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(Admin)
 
 implementation

@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TContactListForm }
 
 type
+ TContactListForm = class;
+
  ContactListFormDef = interface
   {* Идентификатор формы ContactList }
   ['{D9641B68-E586-4058-B9BC-9E246E9D0455}']

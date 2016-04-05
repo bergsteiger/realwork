@@ -17,11 +17,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Rubricator
-
  IRubricator_SetListRoot_Params = interface
   {* Параметры для операции Rubricator.SetListRoot }
   ['{08AEB6DA-F51C-4D30-871E-FF19E1935A99}']

@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TefStartupTips }
 
 type
+ TefStartupTips = class;
+
  StartupTipsFormDef = interface
   {* Идентификатор формы StartupTips }
   ['{69581B33-5C00-46C8-8723-A5DE81DDD577}']

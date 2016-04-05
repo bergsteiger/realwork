@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TInternetAgentForm }
 
 type
+ TInternetAgentForm = class;
+
  InternetAgentFormDef = interface
   {* Идентификатор формы InternetAgent$F }
   ['{4953CF3C-7760-41BE-BBC7-7CA06BAE484D}']

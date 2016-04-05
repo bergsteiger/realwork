@@ -27,7 +27,6 @@ type
    f_Scheme: AnsiString;
    f_IsTree: Boolean;
    f_Kind: TdaTables;
-    {* Поле для свойства Kind }
   protected
    function Get_Description: AnsiString;
    function Get_IsDublicate: Boolean;
@@ -65,6 +64,7 @@ uses
  , l3Types
  , SysUtils
  , Classes
+ , l3Base
 ;
 
 function CompareFields(Item1: Pointer;

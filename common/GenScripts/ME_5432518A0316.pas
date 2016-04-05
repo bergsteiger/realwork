@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_daInterfaces;
+unit daInterfaces;
 
-// Модуль: "w:\common\components\rtl\Garant\DA\NOT_COMPLETED_daInterfaces.pas"
+// Модуль: "w:\common\components\rtl\Garant\DA\daInterfaces.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "daInterfaces" MUID: (5432518A0316)
 
@@ -98,10 +98,10 @@ type
    const aMsg: AnsiString = '');
  end;//IdaProgressSubscriber
 
+ IdaFieldDescription = interface;
+
  daTableDescriptionIterator_IterateFieldsF_Action = function(const anItem: IdaFieldDescription): Boolean;
   {* Тип подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
-
- IdaFieldDescription = interface;
 
  (*
  daTableDescriptionIterator = interface
@@ -361,10 +361,10 @@ type
    read Get_Field;
  end;//IdaResultSet
 
+ IdaCondition = interface;
+
  daConditionIterator_Iterate_Action = function(const anItem: IdaCondition): Boolean;
   {* Тип подитеративной функции для daConditionIterator.Iterate }
-
- IdaCondition = interface;
 
  (*
  daConditionIterator = interface

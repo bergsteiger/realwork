@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_daLogicCondition;
+unit daLogicCondition;
 
-// Модуль: "w:\common\components\rtl\Garant\DA\NOT_COMPLETED_daLogicCondition.pas"
+// Модуль: "w:\common\components\rtl\Garant\DA\daLogicCondition.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TdaLogicCondition" MUID: (5640598000F0)
 
@@ -71,12 +71,14 @@ begin
 end;//TdaLogicCondition.Make
 
 procedure TdaLogicCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
-//#UC START# *56F3A69D0089_5640598000F0_var*
-//#UC END# *56F3A69D0089_5640598000F0_var*
+//#UC START# *564089E3039B_5640598000F0_var*
+//#UC END# *564089E3039B_5640598000F0_var*
 begin
-//#UC START# *56F3A69D0089_5640598000F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56F3A69D0089_5640598000F0_impl*
+//#UC START# *564089E3039B_5640598000F0_impl*
+ inherited;
+ f_Left.Iterate(anAction);
+ f_Right.Iterate(anAction);
+//#UC END# *564089E3039B_5640598000F0_impl*
 end;//TdaLogicCondition.Iterate
 
 function TdaLogicCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;

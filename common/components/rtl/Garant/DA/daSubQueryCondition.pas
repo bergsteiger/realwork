@@ -70,12 +70,14 @@ begin
 end;//TdaSubQueryCondition.Make
 
 procedure TdaSubQueryCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
-//#UC START# *56F3AB4F0096_5641ED5A01D1_var*
-//#UC END# *56F3AB4F0096_5641ED5A01D1_var*
+//#UC START# *564089E3039B_5641ED5A01D1_var*
+//#UC END# *564089E3039B_5641ED5A01D1_var*
 begin
-//#UC START# *56F3AB4F0096_5641ED5A01D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56F3AB4F0096_5641ED5A01D1_impl*
+//#UC START# *564089E3039B_5641ED5A01D1_impl*
+ inherited;
+ if Assigned(f_SubQuery.WhereCondition) then
+  f_SubQuery.WhereCondition.Iterate(anAction);
+//#UC END# *564089E3039B_5641ED5A01D1_impl*
 end;//TdaSubQueryCondition.Iterate
 
 function TdaSubQueryCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;

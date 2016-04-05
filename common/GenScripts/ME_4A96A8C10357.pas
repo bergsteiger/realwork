@@ -26,37 +26,12 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // AdditionInfo
-
- // FolderElement
-
- // FolderElement
-
- // AdditionInfo
-
- // FolderElement
-
- // SavedQuery
-
- // Folders
-
- // UsersRights
-
- // Result
-
- // Folders
-
- // Folder
-
- // FolderElement
-
- // SavedQuery
-
- // Consultation
-
  IAdditionInfo_Close_Params = interface
   {* Параметры для операции AdditionInfo.Close }
   ['{9226E430-0264-43B5-AC2A-67B7CB33BA48}']

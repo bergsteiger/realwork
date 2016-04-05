@@ -27,49 +27,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Switcher
-
- // Document
-
- // SynchroView
-
- // List
-
- // Form
-
- // ControlCenter
-
- // ListInfo
-
- // Filters
-
- // LocalList
-
- // TimeMachine
-
- // Filter
-
- // Document
-
- // Document
-
- // Document
-
- // FoldersControl
-
- // SavedQuery
-
- // Filters
-
- // Openable
-
- // HyperLink
-
- // Document
-
  Op_Switcher_BecomeActive = class
   {* Класс для вызова операции Switcher.BecomeActive }
   public

@@ -48,6 +48,8 @@ type
   , sDeleted
  );//TtpState
 
+ TPrimCustomizeTasksPanelForm = class;
+
  ItpBaseNode = interface(Il3Node)
   {* Базовый узел дерева }
   ['{316EBEA8-258F-4BA9-8C9C-315CC00EE294}']

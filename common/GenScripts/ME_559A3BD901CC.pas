@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_daJournal;
+unit daJournal;
 
-// Модуль: "w:\common\components\rtl\Garant\DA\NOT_COMPLETED_daJournal.pas"
+// Модуль: "w:\common\components\rtl\Garant\DA\daJournal.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TdaJournal" MUID: (559A3BD901CC)
 

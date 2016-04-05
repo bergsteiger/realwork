@@ -24,6 +24,8 @@ const
   {* Идентификатор формы Ten_DefineSearchDate }
 
 type
+ Ten_DefineSearchDate = class;
+
  DefineSearchDateFormDef = interface
   {* Идентификатор формы DefineSearchDate }
   ['{95B053C2-B5BB-4EE7-9D05-E6333C48DF52}']

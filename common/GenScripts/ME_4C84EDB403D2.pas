@@ -14,13 +14,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // PostingToolBar
-
- // SearchSupport
-
  Op_SearchSupport_ActivatePostingsListForm = class
   {* Класс для вызова операции SearchSupport.ActivatePostingsListForm }
   public

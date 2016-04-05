@@ -17,21 +17,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Navigator
-
- // Document
-
- // Document
-
- // NavigatorElement
-
- // Fake
-
- // Redactions
-
  INavigator_SetCurrent_Params = interface
   {* Параметры для операции Navigator.SetCurrent }
   ['{4F1D0BCC-66F3-41EA-B7A5-C583BD86B54A}']

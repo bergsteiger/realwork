@@ -11,22 +11,10 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
-
-type
- // List
-
- // CRList
-
- // WarnListFiltered
-
- // Reminder
-
- // List
-
- // DocumentInList
-
- // SelectedDocuments
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

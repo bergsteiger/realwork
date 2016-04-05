@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TStyleEditorContainerForm }
 
 type
+ TStyleEditorContainerForm = class;
+
  StyleEditorContainerFormDef = interface
   {* Идентификатор формы StyleEditorContainer }
   ['{27578D68-B109-4681-A8A0-250B1511D051}']

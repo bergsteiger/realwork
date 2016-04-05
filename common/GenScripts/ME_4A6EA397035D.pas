@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TChatHistoryForm }
 
 type
+ TChatHistoryForm = class;
+
  ChatHistoryFormDef = interface
   {* Идентификатор формы ChatHistory }
   ['{5B6E40C6-04D1-47E4-B97A-0C7AB1B3D1F9}']

@@ -13,6 +13,7 @@ uses
  l3IntfUses
  , evdTasksHelpers
  , Classes
+ , csProcessTask
  , l3Variant
 ;
 
@@ -39,6 +40,16 @@ type
    read Get_AdditionalFiles;
  end;//SourceFilesHelper
 
+ TasksListHelper = interface
+  ['{DF143907-E670-49ED-9AEE-69F243C108E3}']
+  function Get_Count: Integer;
+  procedure Add(anItem: TddProcessTask);
+  function MakeTask(anIndex: Integer;
+   const aTaskFolder: AnsiString): TddProcessTask;
+  property Count: Integer
+   read Get_Count;
+ end;//TasksListHelper
+
  TAdditionalFilesHelper = class(TAbstractStringListHelper, AdditionalFilesHelper)
   protected
    procedure DoAdd(const anItem: AnsiString); override;
@@ -60,6 +71,14 @@ type
   public
    class function Make(aValue: Tl3Tag): SourceFilesHelper; reintroduce;
  end;//TSourceFilesHelper
+
+ TTasksListHelper = class(TevdTagHelper, TasksListHelper)
+  protected
+   function Get_Count: Integer;
+   procedure Add(anItem: TddProcessTask);
+   function MakeTask(anIndex: Integer;
+    const aTaskFolder: AnsiString): TddProcessTask;
+ end;//TTasksListHelper
 
  TReplacementFileHelper = class(TSourceFilesHelper, ReplacementFileHelper)
   protected
@@ -89,6 +108,7 @@ uses
  , l3FileUtils
  , l3Const
  , ddNSRCSegments
+ , ProcessTask_Const
 ;
 
 const
@@ -259,6 +279,37 @@ begin
   CheckNSRC(l_IDX, anItem);
 //#UC END# *53EDDCE10317_53BFCD060366_impl*
 end;//TSourceFilesHelper.DoAdd
+
+function TTasksListHelper.Get_Count: Integer;
+//#UC START# *570230A002CB_57022B6800F0get_var*
+//#UC END# *570230A002CB_57022B6800F0get_var*
+begin
+//#UC START# *570230A002CB_57022B6800F0get_impl*
+ Result := Value.ChildrenCount;
+//#UC END# *570230A002CB_57022B6800F0get_impl*
+end;//TTasksListHelper.Get_Count
+
+procedure TTasksListHelper.Add(anItem: TddProcessTask);
+//#UC START# *570230C7015F_57022B6800F0_var*
+//#UC END# *570230C7015F_57022B6800F0_var*
+begin
+//#UC START# *570230C7015F_57022B6800F0_impl*
+ Value.AddChild(anItem.TaggedData);
+//#UC END# *570230C7015F_57022B6800F0_impl*
+end;//TTasksListHelper.Add
+
+function TTasksListHelper.MakeTask(anIndex: Integer;
+ const aTaskFolder: AnsiString): TddProcessTask;
+//#UC START# *570230E803CB_57022B6800F0_var*
+//#UC END# *570230E803CB_57022B6800F0_var*
+begin
+//#UC START# *570230E803CB_57022B6800F0_impl*
+ if (Value.ChildrenCount <= 0) then
+  Result := nil
+ else
+  Result := TddProcessTask.MakeFromTaggedData(Value.Child[anIndex], aTaskFolder, False, False) as TddProcessTask;
+//#UC END# *570230E803CB_57022B6800F0_impl*
+end;//TTasksListHelper.MakeTask
 
 class function TReplacementFileHelper.Make(aValue: Tl3Tag): ReplacementFileHelper;
 var

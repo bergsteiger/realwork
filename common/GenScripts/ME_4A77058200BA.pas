@@ -17,21 +17,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Document
-
- // Document
-
- // Document
-
- // Document
-
- // Edition
-
- // Document
-
  IDocument_SetPosition_Params = interface
   {* Параметры для операции Document.SetPosition }
   ['{1787C467-17B6-4E3F-B610-EF24112F0BBE}']

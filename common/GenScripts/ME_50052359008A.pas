@@ -16,11 +16,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // AACTextContainer
-
  IAACTextContainer_GetVScrollBar_Params = interface
   {* Параметры для операции AACTextContainer.GetVScrollBar }
   ['{D92D17BA-66ED-45D0-A44D-46B0A151F82F}']
