@@ -59,6 +59,18 @@ type
    {* имя }
  end;//ISection
 
+ IMainMenuSection = interface
+  ['{9B596AAB-BF7B-41A0-978D-3FAD93DC180C}']
+  function GetCaption: IString; stdcall;
+  function GetItems: ISectionItemList; stdcall;
+   {* Получить элементы раздела ОМ }
+  property Caption: IString
+   read GetCaption;
+   {* имя }
+ end;//IMainMenuSection
+
+ IMainMenuSectionList = array of IMainMenuSection;
+
  IMainMenu = interface
   {* Основное меню }
   ['{7EAB7EE0-39FB-42FD-BE38-AF667AE0466E}']
@@ -66,14 +78,14 @@ type
    {* Получить дерево вкладок Бзового поиска }
   function GetSection(type: TSectionType): ISection; stdcall;
    {* Получить дерево секции ОМ по типу }
-  function GetProfessionalSection(index: Cardinal): ISection; stdcall;
-   {* получить секцию меню для профессии }
-  function GetProfessionalSectionCount: Cardinal; stdcall;
-   {* количество проф. секций в меню }
-  function GetNewsSection(index: Cardinal): ISection; stdcall;
-   {* получить раздел новостей для профессии }
-  function GetNewsSectionCount: Cardinal; stdcall;
-   {* количество новостных секций по профессиям }
+  function GetProfessionSectionList: IMainMenuSectionList; stdcall;
+   {* список секций проф. меню }
+  function GetNewsSectionList: IMainMenuSectionList; stdcall;
+   {* список новостных секций ОМ }
+  function GetBusinessReferenceSection: IMainMenuSection; stdcall;
+   {* раздел бизнес-справки }
+  function GetChangesInLegislationSection: IMainMenuSection; stdcall;
+   {* раздел изменения в  законодательстве }
  end;//IMainMenu
 
 implementation
