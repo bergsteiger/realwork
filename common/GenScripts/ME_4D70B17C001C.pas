@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TtstNSRCGenerator = class;
+
  ItstNSRCListener = interface
   ['{A89ABBCC-F4DD-4B5B-8AA4-50EA93C9907A}']
   procedure ExtractFileEvent(const aFileName: AnsiString);

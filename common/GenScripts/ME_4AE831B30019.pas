@@ -24,11 +24,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // AttributeTree
-
  TnsQueryInfo = record
   rQuery: IQuery;
   rFilter: IFilterFromQuery;
@@ -37,30 +38,6 @@ type
   rIsQueryForFilter: Boolean;
    {* Запрос для создания фильтра }
  end;//TnsQueryInfo
-
- // SearchParameters
-
- // AttributeTree
-
- // Attribute
-
- // Context
-
- // AttributeTree
-
- // AttributeTree
-
- // AttributeTree
-
- // ContextParams
-
- // SelectedList
-
- // Folder
-
- // Result
-
- // Selection
 
  IAttributeTree_ExternalCharPressed_Params = interface
   {* Параметры для операции AttributeTree.ExternalCharPressed }

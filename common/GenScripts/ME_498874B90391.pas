@@ -25,79 +25,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Editions
-
- // System
-
- // Selection
-
- // Contents
-
- // Warning
-
- // Picture
-
- // DocumentBlock
-
- // DocumentBlockHeader
-
- // WarnOnControl
-
- // TasksPanel
-
- // Document
-
- // ExternalObject
-
- // WarnRedaction
-
- // WarnTimeMachine
-
- // WarnJuror
-
- // BookmarkIcon
-
- // UserCommentIcon
-
- // UserComment
-
- // Text
-
- // Warning
-
- // Reminder
-
- // SynchroView
-
- // Edition
-
- // Attribute
-
- // Picture
-
- // ContentsValidator
-
- // DocumentSubPanel
-
- // Editions
-
- // DocumentBlockBookmarks
-
- // IntranetSourcePoint
-
- // Picture
-
- // Document
-
- // SubsPanel
-
- // BaseSearchPresentationHolder
-
- // Text
-
  IEditions_SetCurrent_Params = interface
   {* Параметры для операции Editions.SetCurrent }
   ['{69481C49-8E84-4A41-BAE4-E419D710DF8C}']
