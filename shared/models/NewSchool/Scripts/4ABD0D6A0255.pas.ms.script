@@ -1332,90 +1332,6 @@ ref; // ME_559BCC950175 f_MainMenuColor
 
 ref; // ME_559BCC9D0003 f_NewSchool
 
-FORWARD ME_559BCCE9036A
-
-: ME_2BAE604B6983
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2BAE604B6983 Sender
-
-: ME_64DF90364C29
- CONST Name 'aItemIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_64DF90364C29 aItemIndex
-
-: ME_DED4C2C54E51
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
- ;
-
-ref; // ME_DED4C2C54E51 aFont
-
-: ME_74E0F6143454
- CONST Name 'aTextBackColor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_74E0F6143454 aTextBackColor
-
-: ME_5F8E8E12653C
- CONST Name 'aItemBackColor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_5F8E8E12653C aItemBackColor
-
-: ME_0350BC406A99
- CONST Name 'aVJustify'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4ED4D6950214' '4B97E7FD006C.pas.ms.script' // TvtVJustify
- ;
-
-ref; // ME_0350BC406A99 aVJustify
-
-: ME_BA097ED69A82
- CONST UID 'BA097ED69A82'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'событие для получения визуального "оформления" элемента' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BCCE9036A // GetItemStyle
- ;
- : Parameters
-   Seq: ( ME_2BAE604B6983 // Sender
- ME_64DF90364C29 // aItemIndex
- ME_DED4C2C54E51 // aFont
- ME_74E0F6143454 // aTextBackColor
- ME_5F8E8E12653C // aItemBackColor
- ME_0350BC406A99 // aVJustify
- )
- ; // Parameters
-
-ref; // ME_BA097ED69A82 DoIt
-
 : ME_559BCCE9036A
  CONST UID '559BCCE9036A'
  CONST Name 'GetItemStyle'
@@ -1430,54 +1346,8 @@ ref; // ME_BA097ED69A82 DoIt
    Seq: ( WL 'ME_515DAD4A03AB' '4B97E7FD006C.pas.ms.script' // TGetItemStyleEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BA097ED69A82 // DoIt
- )
- ; // Operations
 
 ref; // ME_559BCCE9036A GetItemStyle
-
-FORWARD ME_559BDAD602E3
-
-: ME_30DDB5440173
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_30DDB5440173 aSender
-
-: ME_CC9F637CD012
- CONST Name 'aIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_CC9F637CD012 aIndex
-
-: ME_D2E04D89F83F
- CONST UID 'D2E04D89F83F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'event to get Item Cursor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BDAD602E3 // GetItemCursor
- ;
- : Target WL 'ME_4E788E98006B' '4799D29F033F.pas.ms.script' // TCursor
- ;
- : Parameters
-   Seq: ( ME_30DDB5440173 // aSender
- ME_CC9F637CD012 // aIndex
- )
- ; // Parameters
-
-ref; // ME_D2E04D89F83F DoIt
 
 : ME_559BDAD602E3
  CONST UID '559BDAD602E3'
@@ -1493,51 +1363,8 @@ ref; // ME_D2E04D89F83F DoIt
    Seq: ( WL 'ME_514B3667022C' '4B97E7FD006C.pas.ms.script' // TGetItemCursor
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D2E04D89F83F // DoIt
- )
- ; // Operations
 
 ref; // ME_559BDAD602E3 GetItemCursor
-
-FORWARD ME_559BDAE200EE
-
-: ME_AE09B0608B22
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_AE09B0608B22 Sender
-
-: ME_C371C560C006
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_C371C560C006 Index
-
-: ME_C8E4344E949D
- CONST UID 'C8E4344E949D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BDAE200EE // ActionElement
- ;
- : Parameters
-   Seq: ( ME_AE09B0608B22 // Sender
- ME_C371C560C006 // Index
- )
- ; // Parameters
-
-ref; // ME_C8E4344E949D DoIt
 
 : ME_559BDAE200EE
  CONST UID '559BDAE200EE'
@@ -1553,54 +1380,8 @@ ref; // ME_C8E4344E949D DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C8E4344E949D // DoIt
- )
- ; // Operations
 
 ref; // ME_559BDAE200EE ActionElement
-
-FORWARD ME_559BDAF3021A
-
-: ME_8A2B1DE6E80C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_8A2B1DE6E80C Sender
-
-: ME_5917A78377D3
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_5917A78377D3 Index
-
-: ME_631271C7E321
- CONST UID '631271C7E321'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'получение hint-а при задерке курсора над текстом.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BDAF3021A // GetItemTextHint
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Parameters
-   Seq: ( ME_8A2B1DE6E80C // Sender
- ME_5917A78377D3 // Index
- )
- ; // Parameters
-
-ref; // ME_631271C7E321 DoIt
 
 : ME_559BDAF3021A
  CONST UID '559BDAF3021A'
@@ -1616,62 +1397,8 @@ ref; // ME_631271C7E321 DoIt
    Seq: ( WL 'ME_514B3629029D' '4B97E7FD006C.pas.ms.script' // TGetItemTextHint
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_631271C7E321 // DoIt
- )
- ; // Operations
 
 ref; // ME_559BDAF3021A GetItemTextHint
-
-FORWARD ME_559BDAFF0396
-
-: ME_EC7E7CDA30AD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_EC7E7CDA30AD Sender
-
-: ME_EEE873A7010E
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_EEE873A7010E anIndex
-
-: ME_176768FE3B92
- CONST Name 'Allow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_176768FE3B92 Allow
-
-: ME_A41D18DD0FBF
- CONST UID 'A41D18DD0FBF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BDAFF0396 // AllowHotTruck
- ;
- : Parameters
-   Seq: ( ME_EC7E7CDA30AD // Sender
- ME_EEE873A7010E // anIndex
- ME_176768FE3B92 // Allow
- )
- ; // Parameters
-
-ref; // ME_A41D18DD0FBF DoIt
 
 : ME_559BDAFF0396
  CONST UID '559BDAFF0396'
@@ -1687,10 +1414,6 @@ ref; // ME_A41D18DD0FBF DoIt
    Seq: ( WL 'ME_559BCDD6010D' '499C2614028C.pas.ms.script' // TOnAllowHotTruck
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A41D18DD0FBF // DoIt
- )
- ; // Operations
 
 ref; // ME_559BDAFF0396 AllowHotTruck
 
@@ -1918,90 +1641,6 @@ ref; // ME_559BC9470382 f_MainMenuColor
 
 ref; // ME_559BC94F01F2 f_NewSchool
 
-FORWARD ME_559BCA25016A
-
-: ME_5C5296D64AE0
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5C5296D64AE0 Sender
-
-: ME_69635F305C0F
- CONST Name 'aItemIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_69635F305C0F aItemIndex
-
-: ME_D6988F7BEDF5
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
- ;
-
-ref; // ME_D6988F7BEDF5 aFont
-
-: ME_BE7536501168
- CONST Name 'aTextBackColor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_BE7536501168 aTextBackColor
-
-: ME_8DEFD4A6B217
- CONST Name 'aItemBackColor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
-
-ref; // ME_8DEFD4A6B217 aItemBackColor
-
-: ME_950799851487
- CONST Name 'aVJustify'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4ED4D6950214' '4B97E7FD006C.pas.ms.script' // TvtVJustify
- ;
-
-ref; // ME_950799851487 aVJustify
-
-: ME_4EE90F4D0757
- CONST UID '4EE90F4D0757'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'событие для получения визуального "оформления" элемента' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BCA25016A // TreeGetItemStyle
- ;
- : Parameters
-   Seq: ( ME_5C5296D64AE0 // Sender
- ME_69635F305C0F // aItemIndex
- ME_D6988F7BEDF5 // aFont
- ME_BE7536501168 // aTextBackColor
- ME_8DEFD4A6B217 // aItemBackColor
- ME_950799851487 // aVJustify
- )
- ; // Parameters
-
-ref; // ME_4EE90F4D0757 DoIt
-
 : ME_559BCA25016A
  CONST UID '559BCA25016A'
  CONST Name 'TreeGetItemStyle'
@@ -2016,65 +1655,8 @@ ref; // ME_4EE90F4D0757 DoIt
    Seq: ( WL 'ME_515DAD4A03AB' '4B97E7FD006C.pas.ms.script' // TGetItemStyleEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4EE90F4D0757 // DoIt
- )
- ; // Operations
 
 ref; // ME_559BCA25016A TreeGetItemStyle
-
-FORWARD ME_559BCA3300B9
-
-: ME_591D49A57333
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_591D49A57333 Sender
-
-: ME_DF94491EA6B3
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_DF94491EA6B3 Index
-
-: ME_B19D4F1BE027
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_B19D4F1BE027 aImages
-
-: ME_C4676B43F4B0
- CONST UID 'C4676B43F4B0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559BCA3300B9 // TreeGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_591D49A57333 // Sender
- ME_DF94491EA6B3 // Index
- ME_B19D4F1BE027 // aImages
- )
- ; // Parameters
-
-ref; // ME_C4676B43F4B0 DoIt
 
 : ME_559BCA3300B9
  CONST UID '559BCA3300B9'
@@ -2090,10 +1672,6 @@ ref; // ME_C4676B43F4B0 DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C4676B43F4B0 // DoIt
- )
- ; // Operations
 
 ref; // ME_559BCA3300B9 TreeGetItemImage
 

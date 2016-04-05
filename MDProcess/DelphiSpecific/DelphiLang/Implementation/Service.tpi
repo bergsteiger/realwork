@@ -76,12 +76,6 @@ a f
 //#UC END# *4B2A19E3038Bfor5502BABC0193*
 
 // перекрытие базового стереотипа ServicePrim::Class
-%f _AfterClassSpell
-//#UC START# *5502CBD4031Efor5502BABC0193*
-	%S%[inherited]
-//#UC END# *5502CBD4031Efor5502BABC0193*
-
-// перекрытие базового стереотипа ServicePrim::Class
 %f _BeforeClassSpell
 //#UC START# *5502C6A200F5for5502BABC0193*
 	%S%f_CheckOrMakeFacet()\
@@ -140,6 +134,7 @@ a f
 	%{Attr_Inst}%f_set_abstraction_type(final)\
 	%{Attr_Inst}%f_set_documentation(¬нешн€€ реализаци€ сервиса %S%{Facet}N)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_var,\
 	 {-}\
 	)\
@@ -150,6 +145,7 @@ a f
 	)\
 
 	%f_DoSpellField(%{Attr_Inst})\
+	]\
 
 //	%f_warning(%SN need cleanup: %S%f_NeedCleanupFields())\
 

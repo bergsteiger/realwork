@@ -169,34 +169,6 @@ ref; // ME_54F5D9790040 DoIt
 
 ref; // ME_54F5D9540254 AddListener
 
-FORWARD ME_54F5D987008A
-
-: ME_521907EBB6E7
- CONST Name 'aListener'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_54F5D8820129 // If1NotificationListener
- ;
-
-ref; // ME_521907EBB6E7 aListener
-
-: ME_F95E8B67A7C4
- CONST UID 'F95E8B67A7C4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5D987008A // RemoveListener
- ;
- : Parameters
-   Seq: ( ME_521907EBB6E7 // aListener
- )
- ; // Parameters
-
-ref; // ME_F95E8B67A7C4 DoIt
-
 : ME_54F5D987008A
  CONST UID '54F5D987008A'
  CONST Name 'RemoveListener'
@@ -211,10 +183,6 @@ ref; // ME_F95E8B67A7C4 DoIt
    Seq: ( ME_54F5D9540254 // AddListener
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F95E8B67A7C4 // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_54F5D987008A RemoveListener

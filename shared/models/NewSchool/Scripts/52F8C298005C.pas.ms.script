@@ -7944,6 +7944,31 @@ ref; // ME_53BFCD060366 TSourceFilesHelper
 
 FORWARD ME_57022B6800F0
 
+: ME_570372370129
+ CONST UID '570372370129'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_57022B6800F0 // TTasksListHelper
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53BD1BCF010B' '484A470100DD.pas.ms.script' // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_57022BAA02E1 // TasksListHelper
+ )
+ ; // Implements
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_570372370129 Make
+
 : ME_57022BD603A4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -8001,6 +8026,10 @@ ref; // ME_570230E803CB_ME_57022B6800F0 MakeTask
    Seq: ( ME_57022BAA02E1 // TasksListHelper
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_570372370129 // Make
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_570230A002CB_ME_57022B6800F0 // Count
  ME_570230C7015F_ME_57022B6800F0 // Add

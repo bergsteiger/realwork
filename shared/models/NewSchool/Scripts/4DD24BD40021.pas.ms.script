@@ -345,6 +345,125 @@ ref; // ME_56FD3A5700CD make
 
 ref; // ME_4E36C7590390 Section
 
+FORWARD ME_56FE518A027D
+
+: ME_56FE579C031F
+ CONST UID '56FE579C031F'
+ CONST Name 'caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'имя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56FE518A027D // MainMenuSection
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_56FE579C031F caption
+
+: ME_5702430502D9
+ CONST Name 'server_section'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_5702430502D9 server_section
+
+: ME_56FE51B601CF
+ CONST UID '56FE51B601CF'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56FE518A027D // MainMenuSection
+ ;
+ : Parameters
+   Seq: ( ME_5702430502D9 // server_section
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_56FE51B601CF make
+
+: ME_56FE579901A9
+ CONST UID '56FE579901A9'
+ CONST Name 'get_items'
+ CONST Class class_Operation
+ %SUMMARY 'Получить элементы раздела ОМ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56FE518A027D // MainMenuSection
+ ;
+ : Target ME_4E36C8550143 // SectionItemList
+ ;
+
+ref; // ME_56FE579901A9 get_items
+
+: ME_56FE518A027D
+ CONST UID '56FE518A027D'
+ CONST GUID '9B596AAB-BF7B-41A0-978D-3FAD93DC180C'
+ CONST Name 'MainMenuSection'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DD24BD40021 // MainMenu
+ ;
+ : Attributes
+   Seq: ( ME_56FE579C031F // caption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56FE51B601CF // make
+ ME_56FE579901A9 // get_items
+ )
+ ; // Operations
+ CONST "single impl" false
+ CONST extprop:pas:TypeName 'IMainMenuSection'
+ CONST extprop:rc:SelfName 'MainMenuSection'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56FE518A027D MainMenuSection
+
+FORWARD ME_56FE606A033E
+
+: ME_57025964005D
+ CONST UID '57025964005D'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_56FE606A033E // MainMenuSectionList
+ ;
+ : Target ME_56FE518A027D // MainMenuSection
+ ;
+
+ref; // ME_57025964005D 
+
+: ME_56FE606A033E
+ CONST UID '56FE606A033E'
+ CONST Name 'MainMenuSectionList'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DD24BD40021 // MainMenu
+ ;
+ : Attributes
+   Seq: ( ME_57025964005D // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST extprop:pas:TypeName 'IMainMenuSectionList'
+
+ref; // ME_56FE606A033E MainMenuSectionList
+
 FORWARD ME_4DD24C180204
 
 : ME_4DD24C3000F5
@@ -403,87 +522,61 @@ ref; // ME_4E3012AE02D8 type
 
 ref; // ME_4E3012910002 get_section
 
-: ME_56FD3338015D
- CONST Name 'index'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
- ;
-
-ref; // ME_56FD3338015D index
-
-: ME_56FD32B101BA
- CONST UID '56FD32B101BA'
- CONST Name 'get_professional_section'
+: ME_56FE602B0126
+ CONST UID '56FE602B0126'
+ CONST Name 'get_profession_section_list'
  CONST Class class_Operation
- %SUMMARY 'получить секцию меню для профессии' ;
+ %SUMMARY 'список секций проф. меню' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_4DD24C180204 // MainMenu
  ;
- : Target ME_4E36C7590390 // Section
+ : Target ME_56FE606A033E // MainMenuSectionList
  ;
- : Parameters
-   Seq: ( ME_56FD3338015D // index
- )
- ; // Parameters
 
-ref; // ME_56FD32B101BA get_professional_section
+ref; // ME_56FE602B0126 get_profession_section_list
 
-: ME_56FD33760101
- CONST UID '56FD33760101'
- CONST Name 'get_professional_section_count'
+: ME_56FE609903B2
+ CONST UID '56FE609903B2'
+ CONST Name 'get_news_section_list'
  CONST Class class_Operation
- %SUMMARY 'количество проф. секций в меню' ;
+ %SUMMARY 'список новостных секций ОМ' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_4DD24C180204 // MainMenu
  ;
- : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ : Target ME_56FE606A033E // MainMenuSectionList
  ;
 
-ref; // ME_56FD33760101 get_professional_section_count
+ref; // ME_56FE609903B2 get_news_section_list
 
-: ME_56FD341003E5
- CONST Name 'index'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
- ;
-
-ref; // ME_56FD341003E5 index
-
-: ME_56FD33AF01AB
- CONST UID '56FD33AF01AB'
- CONST Name 'get_news_section'
+: ME_570273C401EB
+ CONST UID '570273C401EB'
+ CONST Name 'get_business_reference_section'
  CONST Class class_Operation
- %SUMMARY 'получить раздел новостей для профессии' ;
+ %SUMMARY 'раздел бизнес-справки' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_4DD24C180204 // MainMenu
  ;
- : Target ME_4E36C7590390 // Section
+ : Target ME_56FE518A027D // MainMenuSection
  ;
- : Parameters
-   Seq: ( ME_56FD341003E5 // index
- )
- ; // Parameters
 
-ref; // ME_56FD33AF01AB get_news_section
+ref; // ME_570273C401EB get_business_reference_section
 
-: ME_56FD341F0159
- CONST UID '56FD341F0159'
- CONST Name 'get_news_section_count'
+: ME_5702741B0317
+ CONST UID '5702741B0317'
+ CONST Name 'get_changes_in_legislation_section'
  CONST Class class_Operation
- %SUMMARY 'количество новостных секций по профессиям' ;
+ %SUMMARY 'раздел изменения в  законодательстве' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_4DD24C180204 // MainMenu
  ;
- : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ : Target ME_56FE518A027D // MainMenuSection
  ;
 
-ref; // ME_56FD341F0159 get_news_section_count
+ref; // ME_5702741B0317 get_changes_in_legislation_section
 
 : ME_4DD24C180204
  CONST UID '4DD24C180204'
@@ -501,10 +594,10 @@ ref; // ME_56FD341F0159 get_news_section_count
    Seq: ( ME_4DD24C3000F5 // get_base_search_panes
  ME_4DD251830230 // make
  ME_4E3012910002 // get_section
- ME_56FD32B101BA // get_professional_section
- ME_56FD33760101 // get_professional_section_count
- ME_56FD33AF01AB // get_news_section
- ME_56FD341F0159 // get_news_section_count
+ ME_56FE602B0126 // get_profession_section_list
+ ME_56FE609903B2 // get_news_section_list
+ ME_570273C401EB // get_business_reference_section
+ ME_5702741B0317 // get_changes_in_legislation_section
  )
  ; // Operations
  CONST "single impl" false
@@ -529,6 +622,8 @@ ref; // ME_4DD24C180204 MainMenu
  ME_4E36C7D80396 // SectionItem
  ME_4E36C8550143 // SectionItemList
  ME_4E36C7590390 // Section
+ ME_56FE518A027D // MainMenuSection
+ ME_56FE606A033E // MainMenuSectionList
  ME_4DD24C180204 // MainMenu
  )
  ; // Children

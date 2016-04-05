@@ -246,34 +246,6 @@ ref; // ME_55E6CD6200CB DoIt
 
 ref; // ME_55E6CD570088 AddListener
 
-FORWARD ME_55E6CD750386
-
-: ME_0D765873E350
- CONST Name 'aListener'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_55E6CC7C0362 // InscDocumentHistoryListener
- ;
-
-ref; // ME_0D765873E350 aListener
-
-: ME_02F3BFF08FC5
- CONST UID '02F3BFF08FC5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55E6CD750386 // RemoveListener
- ;
- : Parameters
-   Seq: ( ME_0D765873E350 // aListener
- )
- ; // Parameters
-
-ref; // ME_02F3BFF08FC5 DoIt
-
 : ME_55E6CD750386
  CONST UID '55E6CD750386'
  CONST Name 'RemoveListener'
@@ -288,10 +260,6 @@ ref; // ME_02F3BFF08FC5 DoIt
    Seq: ( ME_55E6CD570088 // AddListener
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_02F3BFF08FC5 // DoIt
- )
- ; // Operations
 
 ref; // ME_55E6CD750386 RemoveListener
 

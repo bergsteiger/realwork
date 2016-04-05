@@ -111,34 +111,6 @@ ref; // ME_56163C480195 DoIt
 
 ref; // ME_56163C39024C Subscribe
 
-FORWARD ME_56163C5903DB
-
-: ME_D7A99370F057
- CONST Name 'aListener'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496B51A10197' '4A9F98B901A5.pas.ms.script' // InsSearchWindow
- ;
-
-ref; // ME_D7A99370F057 aListener
-
-: ME_F27693D1C4F8
- CONST UID 'F27693D1C4F8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56163C5903DB // Unsubscribe
- ;
- : Parameters
-   Seq: ( ME_D7A99370F057 // aListener
- )
- ; // Parameters
-
-ref; // ME_F27693D1C4F8 DoIt
-
 : ME_56163C5903DB
  CONST UID '56163C5903DB'
  CONST Name 'Unsubscribe'
@@ -153,10 +125,6 @@ ref; // ME_F27693D1C4F8 DoIt
    Seq: ( ME_56163C39024C // Subscribe
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F27693D1C4F8 // DoIt
- )
- ; // Operations
 
 ref; // ME_56163C5903DB Unsubscribe
 
