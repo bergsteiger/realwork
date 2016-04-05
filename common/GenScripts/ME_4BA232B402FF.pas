@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsFolderFilterInfo;
+unit nsFolderFilterInfo;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_COMPLETED_nsFolderFilterInfo.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsFolderFilterInfo.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsFolderFilterInfo" MUID: (4BA232B402FF)
 

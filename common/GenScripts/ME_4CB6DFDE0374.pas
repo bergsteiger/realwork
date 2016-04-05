@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ TafwPreviewPageSpy = class;
+
  IafwPagesLogger = interface
   ['{19361554-2DE2-4E58-B896-503677BDD13B}']
   procedure LogPage(aPage: TafwPreviewPage;

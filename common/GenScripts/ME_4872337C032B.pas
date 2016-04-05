@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ctComboBoxStringsItemNode;
+unit ctComboBoxStringsItemNode;
 
-// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\NOT_COMPLETED_ctComboBoxStringsItemNode.pas"
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctComboBoxStringsItemNode.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TctComboBoxStringsItemNode" MUID: (4872337C032B)
 
@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ TctComboBoxStringsItemNode = class;
+
  IctNodeWrap = interface
   {* Обёртка над нодой, позволяющая получить реализацию. }
   ['{E3E8625D-6EC1-4C23-B489-A81FA82366C8}']

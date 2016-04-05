@@ -18,6 +18,8 @@ uses
 ;
 
 type
+ TnevActiveHyperlink = class;
+
  InevActiveHyperlink = interface(InevActiveElement)
   ['{2FAD6248-B71E-4E2F-8F01-263AE880319D}']
   function Get_Hyperlink: Tl3Tag;

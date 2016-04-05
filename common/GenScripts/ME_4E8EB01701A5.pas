@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddAutolinkDocEntry;
+unit ddAutolinkDocEntry;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddAutolinkDocEntry.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkDocEntry.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddAutolinkDocEntry" MUID: (4E8EB01701A5)
 

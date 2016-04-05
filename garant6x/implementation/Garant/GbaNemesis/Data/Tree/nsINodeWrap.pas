@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ TnsINodeWrap = class;
+
  InsNodeImplementationInfo = interface
   ['{93EEF340-A8DC-4727-A03A-E109D044C685}']
   function ChildNodeClass: RnsINodeWrap;

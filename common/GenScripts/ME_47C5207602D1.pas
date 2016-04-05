@@ -169,11 +169,7 @@ type
 
  InevSubList = interface;
 
- InevParaInternal = interface(InevPara)
-  {* Параграф, "для тех кто знает". }
-  ['{F6C01987-BE37-4FB9-8041-0040A532C5FA}']
-  procedure SignalPID(aPID: TnevParaIndex);
- end;//InevParaInternal
+ InevParaInternal = interface;
 
  InevPara = interface(InevObject)
   {* Утилита для работы с тегом как с параграфом. }
@@ -202,6 +198,12 @@ type
   property BackColor: TnevColor
    read pm_GetBackColor;
  end;//InevPara
+
+ InevParaInternal = interface(InevPara)
+  {* Параграф, "для тех кто знает". }
+  ['{F6C01987-BE37-4FB9-8041-0040A532C5FA}']
+  procedure SignalPID(aPID: TnevParaIndex);
+ end;//InevParaInternal
 
  IevMarker = interface;
 
@@ -355,6 +357,8 @@ type
 
  InevDataObjectPrim2 = interface;
 
+ InevRangeFactory = interface;
+
  TevClearMode = (
   ev_cmAll
   , ev_cmKeepOne
@@ -479,14 +483,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//MnevSearchCriteria
  *)
 
- InevRangeFactory = interface(InevRange)
-  {* Внутренний интерфейс для иницииализации выделения в объекте }
-  ['{A2FAE91B-FB8C-4F84-B777-54DA8CDA5CCA}']
-  procedure Init(const aStart: InevBasePoint;
-   const aFinish: InevBasePoint;
-   aSharp: Boolean = False);
- end;//InevRangeFactory
-
  IevTableRange = interface(InevBase)
   {* Диапазон выделения в таблице. }
   ['{894FD198-468B-4DD6-B091-C13AFA47A194}']
@@ -561,6 +557,14 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property Borders: TevPair
    read pm_GetBorders;
  end;//InevRange
+
+ InevRangeFactory = interface(InevRange)
+  {* Внутренний интерфейс для иницииализации выделения в объекте }
+  ['{A2FAE91B-FB8C-4F84-B777-54DA8CDA5CCA}']
+  procedure Init(const aStart: InevBasePoint;
+   const aFinish: InevBasePoint;
+   aSharp: Boolean = False);
+ end;//InevRangeFactory
 
  (*
  MnevBasePointModify = interface
@@ -1012,6 +1016,8 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   ['{E4F1D014-80CC-4E45-8C90-7E7D2A948144}']
  end;//InevBaseLine4Print
 
+ InevLinkedPoint = interface;
+
  TevDeleteParaFlag = (
   ev_dpfAtEnd
   , ev_dpfInternal
@@ -1045,13 +1051,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   procedure Load(const Cursor: InevBasePoint);
   function Clone: IevSavedCursor;
  end;//IevSavedCursor
-
- InevLinkedPoint = interface(InevPoint)
-  {* Точка, привязанная к контролу }
-  ['{6EBFDA70-5EBE-4267-B18D-E830F89248D7}']
-  procedure LinkListener(const aListener: InevPointListener);
-  procedure UnlinkListener(const aListener: InevPointListener);
- end;//InevLinkedPoint
 
  IevOpDeletePara = interface(InevBase)
   ['{1F0E1129-B3F4-40B0-9AD0-6B99C3992A4A}']
@@ -1092,6 +1091,13 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property LinkedPoint: InevLinkedPoint
    read Get_LinkedPoint;
  end;//InevPoint
+
+ InevLinkedPoint = interface(InevPoint)
+  {* Точка, привязанная к контролу }
+  ['{6EBFDA70-5EBE-4267-B18D-E830F89248D7}']
+  procedure LinkListener(const aListener: InevPointListener);
+  procedure UnlinkListener(const aListener: InevPointListener);
+ end;//InevLinkedPoint
 
  InevAnchor = interface(InevBaseLine4Anchor)
   {* Якорь на точку внутри объекта }
@@ -1487,13 +1493,13 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    default;
  end;//InevObjectList
 
+ IevSub = interface;
+
  IevSubCache = interface(InevBase)
   ['{A86D6C6C-F575-459F-BDAB-5922A833B47E}']
   procedure ClearSubs;
   procedure NotifySubDeleted(const aSub: IevSub);
  end;//IevSubCache
-
- IevSub = interface;
 
  (*
  MnevTextArea = interface

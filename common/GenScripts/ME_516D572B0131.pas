@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ TmyReferenceCountGuard = class;
+
  ImyReferenceCountGuard = interface
   {* Интерфейс исключительно для примеров }
   ['{84AAAF31-F3AC-4BBC-A1B7-4E338748921F}']

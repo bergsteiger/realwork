@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TvcmOperationsManager = class;
+
  IvcmOperationsRegistrar = interface
   ['{3E98A7F7-A01F-4D5A-8AB2-2C731A6E8CB5}']
   procedure Register(anEn: TvcmBaseEntitiesCollectionItem;

@@ -55,7 +55,7 @@ type
     const aProcessor: Ik2Processor): Boolean;
    procedure Iterate(Tag: Tl3Variant;
     Action: Tl3IteratorAction);
-   procedure IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action);
+   procedure IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action); virtual;
    procedure IterateCursorsF(anAction: Mk2InterfaceFactory_IterateCursors_Action);
   public
    property Interfaces: Tk2InterfaceCache

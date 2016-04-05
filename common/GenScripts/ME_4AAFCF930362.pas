@@ -26,6 +26,8 @@ const
   {* Идентификатор формы TPictureForm }
 
 type
+ TPictureForm = class;
+
  PictureFormDef = interface
   {* Идентификатор формы Picture }
   ['{9794D84D-10DE-4BC6-A05D-F4C88FBEEBC7}']

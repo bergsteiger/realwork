@@ -446,6 +446,8 @@ type
     read pm_GetIsChanged;
  end;//TddAppConfiguration
 
+ TddCNode = class;
+
  IddCNode = interface(Il3Base)
   ['{5C490FF2-8054-429D-BC1F-8139DD3752E9}']
   function Get_Control: TddCustomConfigNode;

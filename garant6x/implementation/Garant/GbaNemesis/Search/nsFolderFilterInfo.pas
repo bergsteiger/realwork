@@ -42,7 +42,7 @@ type
     aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll); reintroduce;
    class function Make(aFilterType: TnsFolderFilter;
     aFilterFor: TnsFolderFilterFor;
-    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): _l3Notifier_; reintroduce;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo; reintroduce;
  end;//TnsFolderFilterInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -73,7 +73,7 @@ end;//TnsFolderFilterInfo.Create
 
 class function TnsFolderFilterInfo.Make(aFilterType: TnsFolderFilter;
  aFilterFor: TnsFolderFilterFor;
- aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): _l3Notifier_;
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
 var
  l_Inst : TnsFolderFilterInfo;
 begin

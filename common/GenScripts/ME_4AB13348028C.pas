@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TDocNumberQueryForm }
 
 type
+ TDocNumberQueryForm = class;
+
  DocNumberQueryFormDef = interface
   {* Идентификатор формы DocNumberQuery }
   ['{A522FA71-1132-495B-A68D-0533C12052F1}']

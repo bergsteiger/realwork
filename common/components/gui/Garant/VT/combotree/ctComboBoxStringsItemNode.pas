@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ TctComboBoxStringsItemNode = class;
+
  IctNodeWrap = interface
   {* Обёртка над нодой, позволяющая получить реализацию. }
   ['{E3E8625D-6EC1-4C23-B489-A81FA82366C8}']
@@ -28,7 +30,6 @@ type
    f_Index: Integer;
    f_Flags: Integer;
    f_Strings: TComboBoxStrings;
-    {* Поле для свойства Strings }
   protected
    function IsFirst: Boolean;
     {* это первый узел внутри родителя? }

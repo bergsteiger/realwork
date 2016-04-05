@@ -33,9 +33,9 @@ type
    function MakeClone: IvcmHistoryItems;
   public
    constructor Create(const aOtherList: IvcmHistoryItems); reintroduce; overload;
-   class function Make(const aOtherList: IvcmHistoryItems): _l3InterfaceRefList_; reintroduce; overload;
+   class function Make(const aOtherList: IvcmHistoryItems): IvcmHistoryItems; reintroduce; overload;
    constructor Create; reintroduce; overload;
-   class function Make: _l3InterfaceRefList_; reintroduce; overload;
+   class function Make: IvcmHistoryItems; reintroduce; overload;
    procedure Assign(const aOtherList: IvcmHistoryItems);
  end;//TvcmHistoryItemList
 {$IfEnd} // NOT Defined(NoVCM)
@@ -65,7 +65,7 @@ begin
 //#UC END# *558A37400258_558947020183_impl*
 end;//TvcmHistoryItemList.Create
 
-class function TvcmHistoryItemList.Make(const aOtherList: IvcmHistoryItems): _l3InterfaceRefList_;
+class function TvcmHistoryItemList.Make(const aOtherList: IvcmHistoryItems): IvcmHistoryItems;
 var
  l_Inst : TvcmHistoryItemList;
 begin
@@ -86,7 +86,7 @@ begin
 //#UC END# *558A3C5601E4_558947020183_impl*
 end;//TvcmHistoryItemList.Create
 
-class function TvcmHistoryItemList.Make: _l3InterfaceRefList_;
+class function TvcmHistoryItemList.Make: IvcmHistoryItems;
 var
  l_Inst : TvcmHistoryItemList;
 begin

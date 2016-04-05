@@ -18,6 +18,8 @@ uses
 ;
 
 type
+ TevDelayedPaintersSpy = class;
+
  IevDelayedPainterLogger = interface
   ['{87EBBF2A-E6CC-41AF-A26B-012D8BB879CB}']
   function OpenSelectionLog: AnsiString;

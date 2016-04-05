@@ -38,8 +38,6 @@ type
    {* Дополнительная }
  );//TnsEditionNodeCheckType
 
- InsEditionNode = interface;
-
  InsEditionsTree = Il3SimpleTree;
 
  TnsEditionNodeGroupBeginType = (

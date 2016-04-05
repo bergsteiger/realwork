@@ -22,7 +22,7 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
  Tk2InterfacedTagList = class(_l3InterfacedList_, Ik2TagList)
   protected
-   function ForEach(anAction: Ik2TagList_ForEach_Action): Integer;
+   function ForEach(anAction: Ik2TagList_ForEach_Action): Integer; virtual;
     {* Перебирает элементы списка.
 
 <!> Временно. Надо будет перенести на Ml3List. }

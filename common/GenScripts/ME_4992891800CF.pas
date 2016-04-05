@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nsStartupTips;
+unit nsStartupTips;
  {* Советик дня }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\NOT_COMPLETED_nsStartupTips.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\nsStartupTips.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnsStartupTips" MUID: (4992891800CF)
 

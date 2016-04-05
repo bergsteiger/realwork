@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ TatFoldersHelper = class;
+
  IatFoldersNodeMatcher = interface
   ['{0EDEF0CD-6104-4C41-ACD7-A8248088AD75}']
   function IsMatch(const aFoldersNode: IFoldersNode): Boolean;

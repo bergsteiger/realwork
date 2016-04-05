@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evHiddenFilter;
+unit evHiddenFilter;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evHiddenFilter.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evHiddenFilter.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevHiddenFilter" MUID: (47ECBAA30322)
 
@@ -35,7 +35,8 @@ type
     aTreatCollapsedAsHidden: Boolean); reintroduce;
    class function MakePrim(aHiddenStyles: TevStandardStyles;
     aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator; reintroduce;
-   class procedure Make;
+   class function Make(aHiddenStyles: TevStandardStyles;
+    aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
   public
    property HiddenStyles: TevStandardStyles
     read f_HiddenStyles
@@ -106,7 +107,8 @@ begin
  end;//try..finally
 end;//TevHiddenFilter.MakePrim
 
-class procedure TevHiddenFilter.Make;
+class function TevHiddenFilter.Make(aHiddenStyles: TevStandardStyles;
+ aTreatCollapsedAsHidden: Boolean): Ik2TagGenerator;
 //#UC START# *4D6CDD9601FB_47ECBAA30322_var*
 //#UC END# *4D6CDD9601FB_47ECBAA30322_var*
 begin

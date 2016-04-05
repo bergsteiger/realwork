@@ -239,6 +239,8 @@ type
  end;//TeeTreeViewShadow
 
 {$If NOT Defined(DesignTimeLibrary)}
+ TeeTreeState = class;
+
  IeeTreeState = interface
   ['{59A4C6CC-3B40-4206-B937-E5EB9D68D6FC}']
   function GetTree: Il3SimpleTree;

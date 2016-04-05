@@ -23,6 +23,8 @@ uses
 ;
 
 type
+ TbsListTreeStruct = class;
+
  IbsListTreeStruct = interface
   {* Данные дерева для списка }
   ['{F2B07141-C4A5-4757-94AB-EB5EB33572AF}']

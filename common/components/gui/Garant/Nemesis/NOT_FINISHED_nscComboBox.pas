@@ -15,6 +15,15 @@ uses
 ;
 
 type
+ TnscEdit = class;
+
+ TnscEditWithoutPlusMinusShortcut = class;
+
+ TnscComboBoxWithPwdChar = class;
+
+ TnscComboBox = class(TvtComboTree)
+ end;//TnscComboBox
+
  TnscEdit = class(TnscComboBox)
  end;//TnscEdit
 
@@ -23,9 +32,6 @@ type
 
  TnscComboBoxWithPwdChar = class(TnscEdit)
  end;//TnscComboBoxWithPwdChar
-
- TnscComboBox = class(TvtComboTree)
- end;//TnscComboBox
 {$IfEnd} // Defined(Nemesis)
 
 implementation
@@ -40,6 +46,10 @@ uses
 
 initialization
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscComboBox);
+ {* Регистрация TnscComboBox }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscEdit);
  {* Регистрация TnscEdit }
 {$IfEnd} // NOT Defined(NoScripts)
@@ -50,10 +60,6 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscComboBoxWithPwdChar);
  {* Регистрация TnscComboBoxWithPwdChar }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TnscComboBox);
- {* Регистрация TnscComboBox }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 

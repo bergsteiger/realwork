@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TevCellWidthCorrecterSpy = class;
+
  IevCellsWidthCorrecterLogger = interface
   ['{D6A90763-2ABA-44CF-9E08-78D3B6C5ACCD}']
   function OpenLog: AnsiString;

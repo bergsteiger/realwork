@@ -19,6 +19,8 @@ uses
 ;
 
 type
+ TvcmLayoutImplementation = class;
+
  IvcmLayoutInternal = interface
   ['{3C78DB5C-C875-4768-AC34-75F697D2514D}']
   procedure ClearLinkToControl;

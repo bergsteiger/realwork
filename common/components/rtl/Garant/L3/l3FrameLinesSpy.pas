@@ -18,6 +18,8 @@ uses
 ;
 
 type
+ Tl3FrameLinesSpy = class;
+
  Il3FrameLinesLogger = interface
   ['{E5FD726A-30C8-4738-830E-D410AAE40FCA}']
   function OpenLinesLog(const aCanvas: Il3InfoCanvas;

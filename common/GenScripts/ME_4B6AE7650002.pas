@@ -13,6 +13,8 @@ uses
 ;
 
 type
+ TatUserComment = class;
+
  IatUserComment = interface
   ['{4154A018-1A3E-4640-997F-FD9B825F8618}']
   function Get_CommentText: AnsiString;

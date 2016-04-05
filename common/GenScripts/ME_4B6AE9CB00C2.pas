@@ -13,6 +13,8 @@ uses
 ;
 
 type
+ TatChatMessage = class;
+
  IatChatMessage = interface
   ['{3CB60B5E-38D0-4476-80FB-C4338CE4D13E}']
   function Get_ChatMessage: AnsiString;

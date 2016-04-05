@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TefForbidAutoregistration }
 
 type
+ TefForbidAutoregistration = class;
+
  ForbidAutoregistrationFormDef = interface
   {* Идентификатор формы ForbidAutoregistration }
   ['{5D4153F1-D087-4AF8-A4ED-39411EB7A1A3}']

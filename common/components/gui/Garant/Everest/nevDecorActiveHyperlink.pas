@@ -19,6 +19,8 @@ uses
 type
  RnevDecorActiveHyperlinkClass = class of TnevDecorActiveHyperlink;
 
+ TnevDecorActiveHyperlink = class;
+
  InevDecorActiveHyperlink = interface
   ['{F090F594-9901-43C4-A1BF-64F448F2ECEA}']
   function Get_Obj: InevObjectPrim;

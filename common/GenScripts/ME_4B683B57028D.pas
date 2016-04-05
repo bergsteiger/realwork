@@ -52,6 +52,8 @@ type
 
  TatChatListenerFireFunction = procedure(const aNotification: INotification) of object;
 
+ TatChatWorker = class;
+
  IatChatListener = interface(IListener)
   ['{5E6FDA1E-7A85-47AA-BA86-52ADA5B0BC69}']
   procedure Attach(aFunction: TatChatListenerFireFunction);

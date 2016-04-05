@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ TnevVScrollerSpy = class;
+
  InevVScrollerPosLogger = interface
   ['{118E1374-07D5-47D3-B4EF-C921BCC2BA51}']
   function OpenLog: AnsiString;

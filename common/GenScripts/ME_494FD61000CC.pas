@@ -12,14 +12,10 @@ interface
 {$If Defined(Admin)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
-
-type
- // Users
-
- // Groups
-
- // Result
 {$IfEnd} // Defined(Admin)
 
 implementation

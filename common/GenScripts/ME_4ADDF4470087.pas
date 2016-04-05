@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TnsBaseNode = class;
+
  InsCacheable = interface
   ['{DFCFB2AE-BBBB-44F4-963F-AB185ED1AAAB}']
   procedure ClearNums(aRecursive: Boolean);

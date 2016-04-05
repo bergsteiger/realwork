@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TnsDocumentLikeStateHolder = class;
+
  InsDocumentLikeStateHolder = interface
   ['{944B3FBB-00EB-4E3D-AE0B-AC0B0F59788F}']
   function Get_LikeState: TdocLikeState;

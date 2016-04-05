@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_ddAutolinkInterfaces;
+unit ddAutolinkInterfaces;
  {* Интерфейсы для автопростановщика ссылок }
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddAutolinkInterfaces.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkInterfaces.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "ddAutolinkInterfaces" MUID: (4E8EAF5C020F)
 

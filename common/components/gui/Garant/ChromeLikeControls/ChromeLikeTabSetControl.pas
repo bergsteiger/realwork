@@ -24,8 +24,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ChromeLikeBaseVisualObjectPrim
  , l3TabbedContainersDispatcher
- , ChromeLikeBaseVisualObject
  , Classes
+ , ChromeLikeBaseVisualObject
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -916,7 +916,7 @@ end;//TChromeLikeTabText.MakeBehaviourParams
 
 procedure TChromeLikeTabText.ClearFields;
 begin
- Text := '';
+ f_Text := '';
  inherited;
 end;//TChromeLikeTabText.ClearFields
 
@@ -1487,7 +1487,7 @@ end;//TChromeLikeTab.DoMiddleButtonClick
 
 procedure TChromeLikeTab.ClearFields;
 begin
- Text := '';
+ f_Text := '';
  inherited;
 end;//TChromeLikeTab.ClearFields
 

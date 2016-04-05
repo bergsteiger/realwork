@@ -22,7 +22,6 @@ type
   private
    f_TreatCollapsedAsHidden: Boolean;
    f_HiddenStyles: TevStandardStyles;
-    {* Поле для свойства HiddenStyles }
   protected
    function ParaTypeForFiltering: Tk2Type; override;
     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }

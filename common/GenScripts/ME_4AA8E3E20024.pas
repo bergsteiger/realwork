@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TefGroupProperty }
 
 type
+ TefGroupProperty = class;
+
  GroupPropertyFormDef = interface
   {* Идентификатор формы GroupProperty }
   ['{F213AE84-ECF9-427D-8B89-53C6221D1F27}']

@@ -1132,7 +1132,7 @@ end;//TChromeLikeBaseVisualObjectPrim.Cleanup
 procedure TChromeLikeBaseVisualObjectPrim.ClearFields;
 begin
  Finalize(f_PositionRect);
- HintText := '';
+ f_HintText := '';
  inherited;
 end;//TChromeLikeBaseVisualObjectPrim.ClearFields
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)

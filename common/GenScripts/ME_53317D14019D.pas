@@ -276,6 +276,8 @@ type
    {* Код операции }
  end;//Il3OpPack
 
+ Il3TagRef = interface;
+
  Mk2Children_IterateChildrenF_Action = function(anItem: Tl3Variant;
   anIndex: Integer): Boolean;
   {* Тип подитеративной функции для Mk2Children.IterateChildrenF }
@@ -283,8 +285,6 @@ type
  Mk2Children_IterateChildrenBack_Action = function(anItem: Tl3Variant;
   anIndex: Integer): Boolean;
   {* Тип подитеративной функции для Mk2Children.IterateChildrenBack }
-
- Il3TagRef = interface;
 
  (*
  Mk2Children = interface
@@ -765,14 +765,14 @@ type
    function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
     aHi: Tl3Index = l3Interfaces.l3MaxIndex;
     aLo: Tl3Index = l3Interfaces.l3MinIndex;
-    aLoadedOnly: Boolean = False): Integer;
+    aLoadedOnly: Boolean = False): Integer; virtual;
    function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
     aHi: Tl3Index = l3Interfaces.l3MaxIndex;
     aLo: Tl3Index = l3Interfaces.l3MinIndex;
     aLoadedOnly: Boolean = False): Integer;
    procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
     anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные }); virtual;
     {* перебирает все существующие свойства }
    procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
     anAll: Boolean

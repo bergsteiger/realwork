@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ Tk2OperationContainer = class;
+
  Ik2OpPackInternal = interface
   {* "Кишки" пачки операций. }
   ['{C958785E-8F8A-495C-9B19-3B0F3AABB53B}']

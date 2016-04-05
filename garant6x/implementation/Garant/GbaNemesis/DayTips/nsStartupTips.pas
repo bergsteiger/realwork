@@ -41,7 +41,7 @@ type
    procedure FinishDataUpdate; override;
   public
    constructor Create; reintroduce;
-   class function MakePrim: _afwApplicationDataUpdate_; reintroduce;
+   class function MakePrim: InsStartupTips; reintroduce;
    class function Make: InsStartupTips;
  end;//TnsStartupTips
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -98,7 +98,7 @@ begin
 //#UC END# *49928A97027C_4992891800CF_impl*
 end;//TnsStartupTips.Create
 
-class function TnsStartupTips.MakePrim: _afwApplicationDataUpdate_;
+class function TnsStartupTips.MakePrim: InsStartupTips;
 var
  l_Inst : TnsStartupTips;
 begin
