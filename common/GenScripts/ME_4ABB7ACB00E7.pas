@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TnsRegistrationForm }
 
 type
+ TnsRegistrationForm = class;
+
  RegistrationFormFormDef = interface
   {* Идентификатор формы RegistrationForm }
   ['{1C7CFA67-8415-4312-BA10-BF18AAF522CF}']

@@ -13,10 +13,8 @@ interface
 uses
  l3IntfUses
  , OfficeLike_Result_Controls
+ , vcmExternalInterfaces
 ;
-
-type
- // Result
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

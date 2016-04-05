@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TShutDownForm }
 
 type
+ TShutDownForm = class;
+
  ShutDownFormDef = interface
   {* Идентификатор формы ShutDown }
   ['{30C1FF00-6CA8-4565-BDC9-191E8237EFAD}']

@@ -24,6 +24,8 @@ const
   {* Идентификатор формы Ten_TurnOffTimeMachine }
 
 type
+ Ten_TurnOffTimeMachine = class;
+
  TurnOffTimeMachineFormDef = interface
   {* Идентификатор формы TurnOffTimeMachine }
   ['{3FDF45B7-4023-4D87-A4CB-A153EBA91B78}']

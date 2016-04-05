@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TLongProcessForm }
 
 type
+ TLongProcessForm = class;
+
  LongProcessFormDef = interface
   {* Идентификатор формы LongProcess }
   ['{D21B6517-D901-4E98-8A54-287D092EED98}']

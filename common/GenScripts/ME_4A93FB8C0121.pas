@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TefEULA }
 
 type
+ TefEULA = class;
+
  EULAFormDef = interface
   {* Идентификатор формы EULA }
   ['{DF5FBE77-74EC-44AD-8636-CBFDE4947FC7}']

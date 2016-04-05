@@ -12,14 +12,8 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
+ , vcmExternalInterfaces
 ;
-
-type
- // Edit
-
- // Table
-
- // Font
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

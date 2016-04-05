@@ -15,13 +15,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // System
-
- // Help
-
  ISystem_InitShutdown_Params = interface
   {* Параметры для операции System.InitShutdown }
   ['{DB584516-0B73-41CF-9721-9C57CAF90FDE}']

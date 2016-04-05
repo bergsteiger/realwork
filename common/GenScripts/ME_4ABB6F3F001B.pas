@@ -29,6 +29,8 @@ const
   {* Идентификатор формы TefAbout }
 
 type
+ TefAbout = class;
+
  AboutFormDef = interface
   {* Идентификатор формы About }
   ['{F678B4F8-60D5-4B4F-AE77-F61D6A29D2F9}']

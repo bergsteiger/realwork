@@ -228,7 +228,7 @@ procedure TPrimMainMenuWithProfNewsForm.TaxesStateChanged(aSender: TObject;
 begin
 //#UC START# *56FBC3F90034_56FA889202B4_impl*
  theState := hfsShow;
- //TaxesNextTree(aSender);
+ //TaxesNextTree(Sender);
 //#UC END# *56FBC3F90034_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.TaxesStateChanged
 
@@ -307,14 +307,14 @@ const
 //#UC END# *56FCF6290256_56FA889202B4_var*
 begin
 //#UC START# *56FCF6290256_56FA889202B4_impl*
- flSituationSearch.Visible := Assigned(defDataAdapter) and defDataAdapter.IsExists_KeyWordTag;
+ flSituationSearch.Visible := Assigned(DefDataAdapter) and DefDataAdapter.IsExists_KeyWordTag;
  with flPublishedSourceSearch do
  begin
   if flSituationSearch.Visible then
    Left := c_SearchLabelDistance + flSituationSearch.Left + flSituationSearch.Width
   else
    Left := c_SearchLabelDistance + flAttributeSearch.Left + flAttributeSearch.Width;
-  Visible := Assigned(defDataAdapter) and defDataAdapter.IsExists_PublishSourceTag;
+  Visible := Assigned(DefDataAdapter) and DefDataAdapter.IsExists_PublishSourceTag;
  end;//flPublishedSourceSearch
  with flDictionSearch do
  begin
@@ -325,7 +325,7 @@ begin
     Left := c_SearchLabelDistance + flSituationSearch.Left + flSituationSearch.Width
    else
     Left := c_SearchLabelDistance + flAttributeSearch.Left + flAttributeSearch.Width;
-  Visible := Assigned(defDataAdapter) and DefDataAdapter.IsExplanatoryExists;
+  Visible := Assigned(DefDataAdapter) and DefDataAdapter.IsExplanatoryExists;
  end;//flDictionSearch
 //#UC END# *56FCF6290256_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.UpdateSearchLabels
@@ -335,7 +335,19 @@ procedure TPrimMainMenuWithProfNewsForm.SearchClick(Sender: TObject);
 //#UC END# *56FD0A30011C_56FA889202B4_var*
 begin
 //#UC START# *56FD0A30011C_56FA889202B4_impl*
- //!!! Needs to be implemented !!!
+ if (Sender = flAttributeSearch) then
+  //TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
+ else
+ if (Sender = flSituationSearch) then
+  //TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
+ else
+ if (Sender = flPublishedSourceSearch) then
+  //TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
+ else
+ if (Sender = flDictionSearch) then
+  //TdmStdRes.OpenDictionary(nil, NativeMainForm)
+ else
+  Assert(False);
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.SearchClick
 
@@ -352,10 +364,61 @@ end;//TPrimMainMenuWithProfNewsForm.DoBuildGrid
 procedure TPrimMainMenuWithProfNewsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_56FA889202B4_var*
+ procedure lp_SetupButtons(const aControls: array of TControl);
+ var
+  I: Integer;
+ begin
+  for I := Low(aControls) to High(aControls) do
+  begin
+   if aControls[I] is TvtPanel then
+    with aControls[I] as TvtPanel do
+    begin
+     BevelOuter := bvNone;
+     Align := alTop;
+     Color := clWhite;
+     Height := dmMainMenuNew.ilButtonsNew.Height + 30;
+    end
+   else
+   if aControls[I] is TPaintBox then
+    with aControls[I] as TPaintBox do
+    begin
+     Top := 0;
+     Left := 0;
+     Height := dmMainMenuNew.ilButtonsNew.Height + 1;
+     Width := dmMainMenuNew.ilButtonsNew.Width + 1;
+     OnPaint := Self.PaintButton;
+     OnClick := PaintBoxClick;
+     Cursor := crHandPoint;
+    end
+   else
+    Assert(False);
+  end;
+
+  pnlWebVersion.Visible := afw.Application.LocaleInfo.Language = afw_lngRussian;
+ end; // lp_SetupButtons
+
+ procedure lp_SetupTrees;
+ var
+  I: Integer;
+ begin
+  for I := 0 to Pred(ComponentCount) do
+   if (Components[I] is TnscHideField) then
+   begin
+    TnscHideField(Components[I]).StyleId := f1_saNewSchoolMainMenuHeader;
+    TnscHideField(Components[I]).HeaderImage := -1;
+    TnscHideField(Components[I]).TabStop := false;
+   end//Components[l_Index] is TnscHideField
+   else
+   if (Components[I] is TnscTreeViewHotTruck) then
+   begin
+    TnscTreeViewHotTruck(Components[I]).TreatDefaultColorAsWindowColor := False;
+    TnscTreeViewHotTruck(Components[I]).StyleID := f1_saNewSchoolMainMenuConstPath;
+    TnscTreeViewHotTruck(Components[I]).Color := clWhite;
+   end;
+ end; // lp_SetupTrees
+
 const
  c_SearchLabelDistance = 18;
-var
- l_Index: Integer;
 //#UC END# *4A8E8F2E0195_56FA889202B4_var*
 begin
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
@@ -369,7 +432,6 @@ begin
  bvlRight.Shape := bsSpacer;
  with pnlMain do
  begin
-  Align := alClient;
   BevelOuter := bvNone;
   Color := clWhite;
   TabOrder := 0;
@@ -379,11 +441,11 @@ begin
   Align := alLeft;
   BevelOuter := bvNone;
   Color := clWhite;
-  Width := 200;
+  Width := 235;
  end;
  with pnlClient do
  begin
-  Align := alClient;
+  Align := alNone;
   BevelOuter := bvNone;
   Color := clWhite;
  end;
@@ -403,7 +465,7 @@ begin
   Top := 201;
   with pnlBaseSearchZone do
   begin
-   Align := alClient;
+   Align := alTop;
    BevelOuter := bvNone;
    Color := clWhite;
   end;
@@ -468,10 +530,9 @@ begin
  bvlLeftTop.Align := alTop;
  bvlLeftTop.Height := 200;
  bvlLeftTop.Shape := bsSpacer;
- pbLogo.Align := alTop;
- pbLogo.Height := 200;
- ieBanner.Align := alTop;
+
  ieBanner.Height := 200;
+ ieBanner.Width := pnlBanner.ClientWidth;
 
  with hfProfNews do
  begin
@@ -512,7 +573,7 @@ begin
  begin
   TopHeaderIndent := 30;
 
-  Align := alClient;
+  Align := alTop;
   Left := 16;
   //Top := 62;
   Width := 377;
@@ -534,7 +595,7 @@ begin
   begin
    AllowTrucking := True;
 
-   Align := alClient;
+   Align := alTop;
    BorderStyle := bsNone;
    TabOrder := 0;
    MultiStrokeItem := True;
@@ -594,7 +655,7 @@ begin
    Align := alClient;
    BorderStyle := bsNone;
    TabOrder := 0;
-   MultiStrokeItem := True;
+   MultiStrokeItem := False;//True;
    ActionElementMode := l3_amSingleClick;
    ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
    ClearTreeStructOnSaveState := False;
@@ -635,20 +696,53 @@ begin
    AllowTrucking := True;
   end;//with tvTaxes
 
- for l_Index := 0 to Pred(ComponentCount) do
-  if (Components[l_Index] is TnscHideField) then
+ with pnlLogo do
+ begin
+  BevelOuter := bvNone;
+  Align := alTop;
+  Color := clWhite;
+ end;
+ with pbLogo do
+ begin
+  Top := 0;
+  Left := 0;
+  Height := 59;
+  Width := 200;
+  OnPaint := Self.PaintLogo;
+ end;
+
+ with pnlBanner do
+ begin
+  Align := alTop;
+  BevelOuter := bvNone;
+  Color := clWhite;
+ end;
+  with ieBanner do
   begin
-   TnscHideField(Components[l_Index]).StyleId := f1_saNewSchoolMainMenuHeader;
-   TnscHideField(Components[l_Index]).HeaderImage := -1;
-   TnscHideField(Components[l_Index]).TabStop := false;
-  end//Components[l_Index] is TnscHideField
-  else
-  if (Components[l_Index] is TnscTreeViewHotTruck) then
-  begin
-   TnscTreeViewHotTruck(Components[l_Index]).TreatDefaultColorAsWindowColor := False;
-   TnscTreeViewHotTruck(Components[l_Index]).StyleID := f1_saNewSchoolMainMenuConstPath;
-   TnscTreeViewHotTruck(Components[l_Index]).Color := clWhite;
-  end;
+   Top := 20;
+   Left := 10;
+   Width := 310;
+   Height := 90;
+   Cursor := crHandPoint;
+   BorderStyle := bsNone;
+   LegacyBitmap := False;
+   ZoomFilter := rfLanczos3;
+   MouseInteract := [miScroll];
+   DelayZoomFilter := True;
+   AutoFit := false;
+   OnClick := BannerClick;
+   MouseWheelParams.Action := iemwNone;
+  end;//ieBanner
+
+ lp_SetupButtons([pnlFeedback,
+                  pbFeedback,
+                  pnlWebVersion,
+                  pbWebVersion,
+                  pnlOnlineResources,
+                  pbOnLineResources]);
+
+ lp_SetupTrees;
+ ArrangeControls;
 //#UC END# *4A8E8F2E0195_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.InitControls
 {$IfEnd} // NOT Defined(NoVCM)
@@ -721,6 +815,7 @@ procedure TPrimMainMenuWithProfNewsForm.ClearFields;
 //#UC END# *5000565C019C_56FA889202B4_var*
 begin
 //#UC START# *5000565C019C_56FA889202B4_impl*
+ f_Banner := nil;
  inherited;
 //#UC END# *5000565C019C_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.ClearFields

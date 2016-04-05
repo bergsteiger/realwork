@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TnsFormCoordinates = class;
+
  InsFormCoordinates = interface
   ['{19A17133-BBBB-44F6-8763-1D186621B75E}']
   function Get_Rect: TRect;

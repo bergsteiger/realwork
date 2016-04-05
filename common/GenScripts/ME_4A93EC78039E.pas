@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TRememberPasswordForm }
 
 type
+ TRememberPasswordForm = class;
+
  RememberPasswordFormDef = interface
   {* Идентификатор формы RememberPassword }
   ['{332C1743-EA95-4386-9F6E-677BF58FAE7D}']

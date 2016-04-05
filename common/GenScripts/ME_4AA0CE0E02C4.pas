@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TListAnalizerForm }
 
 type
+ TListAnalizerForm = class;
+
  ListAnalizerFormDef = interface
   {* Идентификатор формы ListAnalizer }
   ['{534B1ADF-ACC6-4DD9-AF54-C92914E3CBA4}']

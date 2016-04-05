@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TefProgressIndicator }
 
 type
+ TefProgressIndicator = class;
+
  ProgressIndicatorFormDef = interface
   {* Идентификатор формы ProgressIndicator }
   ['{83193317-8438-475F-9F0C-1C44F08B2DA4}']

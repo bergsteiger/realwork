@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TcfFoldersInfo }
 
 type
+ TcfFoldersInfo = class;
+
  FoldersInfoFormDef = interface
   {* Идентификатор формы FoldersInfo }
   ['{A7FC5777-8418-45E1-9EE1-511BCC3B18B5}']

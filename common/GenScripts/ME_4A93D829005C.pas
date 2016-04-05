@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TLoginForm }
 
 type
+ TLoginForm = class;
+
  LoginFormDef = interface
   {* Идентификатор формы Login }
   ['{96B4FBEB-A42A-4990-BCED-2F439F4E152A}']
