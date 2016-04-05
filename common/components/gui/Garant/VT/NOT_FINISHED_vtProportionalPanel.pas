@@ -13,11 +13,13 @@ uses
 ;
 
 type
- TvtProportionalCustomPanel = class(TvtProportionalPanel)
- end;//TvtProportionalCustomPanel
+ TvtProportionalCustomPanel = class;
 
  TvtProportionalPanel = class
  end;//TvtProportionalPanel
+
+ TvtProportionalCustomPanel = class(TvtProportionalPanel)
+ end;//TvtProportionalCustomPanel
 
 implementation
 

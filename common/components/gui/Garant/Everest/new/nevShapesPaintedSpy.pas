@@ -18,6 +18,8 @@ uses
 ;
 
 type
+ TnevShapesPaintedSpy = class;
+
  InevShapesLogger = interface
   {* Лог отрисованных объектов }
   ['{D33CDAF3-2F4B-422C-879E-56B02F0686F9}']

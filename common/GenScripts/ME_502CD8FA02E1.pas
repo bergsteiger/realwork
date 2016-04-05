@@ -23,11 +23,11 @@ type
  Ttb97CustomGraphicControl = class(_l3Unknown_)
  end;//Ttb97CustomGraphicControl
 
- Ttb97GraphicTextControl = class(Ttb97GraphicControl)
- end;//Ttb97GraphicTextControl
-
  Ttb97GraphicControl = class(Ttb97CustomGraphicControl)
  end;//Ttb97GraphicControl
+
+ Ttb97GraphicTextControl = class(Ttb97GraphicControl)
+ end;//Ttb97GraphicTextControl
 {$IfEnd} // NOT Defined(NoTB97)
 
 implementation
@@ -55,12 +55,12 @@ initialization
  {* Регистрация Ttb97CustomGraphicControl }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ttb97GraphicTextControl);
- {* Регистрация Ttb97GraphicTextControl }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ttb97GraphicControl);
  {* Регистрация Ttb97GraphicControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ttb97GraphicTextControl);
+ {* Регистрация Ttb97GraphicTextControl }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoTB97)
 
