@@ -24,6 +24,8 @@ const
   {* Идентификатор формы Ten_BaseSearchCard }
 
 type
+ Ten_BaseSearchCard = class;
+
  BaseSearchCardFormDef = interface
   {* Идентификатор формы BaseSearchCard }
   ['{8B9F39A3-2E36-4686-82DA-8C441DE365A3}']

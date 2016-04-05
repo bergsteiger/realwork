@@ -27,6 +27,8 @@ const
   {* Идентификатор формы TF1LikeTextLoadForm }
 
 type
+ TF1LikeTextLoadForm = class;
+
  F1LikeTextLoadFormDef = interface
   {* Идентификатор формы F1LikeTextLoad }
   ['{FAAC10AB-4EAF-4B43-B184-7BFAADA53CAD}']

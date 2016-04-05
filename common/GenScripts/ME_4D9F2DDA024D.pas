@@ -20,15 +20,15 @@ uses
 ;
 
 type
- TvcmApplicationRef = TNemesisTestRes;
-  {* —сылка на приложение дл€ DesignTime редакторов }
-
  _VCMAppTester_Parent_ = TNemesisRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TNemesisTestRes = {final} class(_VCMAppTester_)
   public
    class function CalcBatchMode: Boolean; override;
  end;//TNemesisTestRes
+
+ TvcmApplicationRef = TNemesisTestRes;
+  {* —сылка на приложение дл€ DesignTime редакторов }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

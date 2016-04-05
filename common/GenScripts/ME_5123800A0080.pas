@@ -22,15 +22,15 @@ uses
 ;
 
 type
- TvcmApplicationRef = TPrimeTestRes;
-  {* —сылка на приложение дл€ DesignTime редакторов }
-
  _VCMAppTester_Parent_ = TMonitoringsRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TPrimeTestRes = {final} class(_VCMAppTester_)
   public
    class function CalcBatchMode: Boolean; override;
  end;//TPrimeTestRes
+
+ TvcmApplicationRef = TPrimeTestRes;
+  {* —сылка на приложение дл€ DesignTime редакторов }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)
 
 implementation

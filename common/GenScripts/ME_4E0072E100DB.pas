@@ -16,12 +16,12 @@ uses
 ;
 
 type
- RarTextOfDocument = TarTextOfDocument;
-
  TarTextOfDocument = class(TevTextSource)
   protected
    function DoMakeDocumentContainer: InevDocumentContainer; override;
  end;//TarTextOfDocument
+
+ RarTextOfDocument = TarTextOfDocument;
 {$IfEnd} // Defined(AppClientSide)
 
 implementation

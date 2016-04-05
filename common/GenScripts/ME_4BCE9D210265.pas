@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TelCustomEditForm }
 
 type
+ TelCustomEditForm = class;
+
  elCustomEditFormDef = interface
   {* Идентификатор формы elCustomEdit }
   ['{83F3F220-AFBC-45DC-8C59-16D7972E06BB}']

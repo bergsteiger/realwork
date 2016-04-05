@@ -21,9 +21,6 @@ uses
 ;
 
 type
- TvcmApplicationRef = TVCMSandBoxTestRes;
-  {* —сылка на приложение дл€ DesignTime редакторов }
-
  _VCMAppTester_Parent_ = TVCMSandBoxRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TVCMSandBoxTestRes = {final} class(_VCMAppTester_)
@@ -32,6 +29,9 @@ type
    class function CalcBatchMode: Boolean; override;
    {$IfEnd} // Defined(nsTest)
  end;//TVCMSandBoxTestRes
+
+ TvcmApplicationRef = TVCMSandBoxTestRes;
+  {* —сылка на приложение дл€ DesignTime редакторов }
 
 implementation
 

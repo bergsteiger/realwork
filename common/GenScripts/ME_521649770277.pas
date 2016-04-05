@@ -24,12 +24,12 @@ const
   {* 'Тестовое приложение VCM' }
 
 type
- TvcmApplicationRef = TVCMSandBoxRes;
-  {* Ссылка на приложение для DesignTime редакторов }
-
  TVCMSandBoxRes = {final} class(TvcmApplication)
   {* Тестовое приложение VCM }
  end;//TVCMSandBoxRes
+
+ TvcmApplicationRef = TVCMSandBoxRes;
+  {* Ссылка на приложение для DesignTime редакторов }
 
 implementation
 

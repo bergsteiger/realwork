@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuSendTaskExecutor;
+unit alcuSendTaskExecutor;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuSendTaskExecutor.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSendTaskExecutor.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuSendTaskExecutor" MUID: (54856BFA003E)
 
@@ -60,6 +60,7 @@ uses
  , l3Memory
  , Classes
  , alcuTaskFileTransferServices
+ , SysUtils
 ;
 
 constructor TalcuSendTaskExecutor.Create(aList: TddServerTaskList;

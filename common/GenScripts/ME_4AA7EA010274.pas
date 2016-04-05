@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TnsMainWindow }
 
 type
+ TnsMainWindow = class;
+
  MainWindowFormDef = interface
   {* Идентификатор формы MainWindow }
   ['{A88F9772-00AF-401E-BACE-E6A02B415485}']

@@ -31,6 +31,8 @@ const
   {* Идентификатор формы TF1LikeFormWithBSForm }
 
 type
+ TF1LikeFormWithBSForm = class;
+
  F1LikeFormWithBSFormDef = interface
   {* Идентификатор формы F1LikeFormWithBS }
   ['{08697FEC-7252-4923-BCAD-60B3AD27EC1F}']

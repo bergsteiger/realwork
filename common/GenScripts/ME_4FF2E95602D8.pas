@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TAACContainerForm }
 
 type
+ TAACContainerForm = class;
+
  AACContainerFormDef = interface
   {* Идентификатор формы AACContainer }
   ['{548CB0E3-A19F-4AD8-A785-C6FB8E70BF73}']

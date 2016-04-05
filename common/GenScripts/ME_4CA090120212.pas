@@ -27,6 +27,8 @@ const
   {* Идентификатор формы TQFLikeTextLoadForm }
 
 type
+ TQFLikeTextLoadForm = class;
+
  QFLikeTextLoadFormDef = interface
   {* Идентификатор формы QFLikeTextLoad }
   ['{41C944FD-8129-43F8-89E8-75E7D231D870}']

@@ -23,6 +23,8 @@ const
   {* Идентификатор формы TOutlinerFormForm }
 
 type
+ TOutlinerFormForm = class;
+
  OutlinerFormFormDef = interface
   {* Идентификатор формы OutlinerForm }
   ['{0BC56D56-6AF0-47F9-9D0B-4AE7FEEE4483}']

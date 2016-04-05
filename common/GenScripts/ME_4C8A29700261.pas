@@ -37,6 +37,8 @@ uses
 ;
 
 type
+ TMainOptionsForm = class;
+
  InsIntegrationProcessor = interface
   ['{C3E4F420-4422-4607-9F30-25BB208269A6}']
   function ProcessCommand(aCommand: Integer;

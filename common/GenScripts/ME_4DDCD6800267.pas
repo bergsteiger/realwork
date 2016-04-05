@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TChangesBetweenEditonsForm }
 
 type
+ TChangesBetweenEditonsForm = class;
+
  ChangesBetweenEditonsFormDef = interface
   {* Идентификатор формы ChangesBetweenEditons }
   ['{E8402096-B641-4FAE-B341-69369D1BB399}']

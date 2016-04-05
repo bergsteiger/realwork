@@ -22,6 +22,8 @@ const
   {* Идентификатор формы TFromWithPanelForm }
 
 type
+ TFromWithPanelForm = class;
+
  FromWithPanelFormDef = interface
   {* Идентификатор формы FromWithPanel }
   ['{52A98A72-5DD1-4BDA-8FD3-152438D1B28D}']

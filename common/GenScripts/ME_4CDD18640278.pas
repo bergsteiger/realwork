@@ -10,14 +10,10 @@ interface
 
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
-
-type
- // File
-
- // Text
-
- // Document
 
 implementation
 

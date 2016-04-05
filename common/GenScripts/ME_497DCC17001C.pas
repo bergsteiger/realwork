@@ -44,6 +44,8 @@ uses
 ;
 
 type
+ TnsSelectedFiltersState = class;
+
  InsSelectedFiltersState = interface
   ['{71A14889-6D58-434C-BE3C-0D014150A6E2}']
   function pm_GetCount: Integer;

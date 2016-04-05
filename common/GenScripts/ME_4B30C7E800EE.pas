@@ -26,6 +26,8 @@ const
   {* Идентификатор формы TTextLoadForm }
 
 type
+ TTextLoadForm = class;
+
  TextLoadFormDef = interface
   {* Идентификатор формы TextLoad }
   ['{0D52D59A-6EBD-46A6-AA44-2467ABBFDC5C}']

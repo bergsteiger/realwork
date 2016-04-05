@@ -20,15 +20,15 @@ uses
 ;
 
 type
- TvcmApplicationRef = TAdminTestRes;
-  {* —сылка на приложение дл€ DesignTime редакторов }
-
  _VCMAppTester_Parent_ = TAdminAppRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TAdminTestRes = {final} class(_VCMAppTester_)
   public
    class function CalcBatchMode: Boolean; override;
  end;//TAdminTestRes
+
+ TvcmApplicationRef = TAdminTestRes;
+  {* —сылка на приложение дл€ DesignTime редакторов }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)
 
 implementation

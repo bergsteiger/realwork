@@ -13,13 +13,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Switcher
-
- // Common
-
  ISwitcher_BecomeActive_Params = interface
   {* Параметры для операции Switcher.BecomeActive }
   ['{EF87C1B2-C651-415F-BB29-5A3843B62AE9}']

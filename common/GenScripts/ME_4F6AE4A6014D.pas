@@ -22,9 +22,6 @@ const
   {* 'НЕ Роза' }
 
 type
- TvcmApplicationRef = TNewGenRes;
-  {* Ссылка на приложение для DesignTime редакторов }
-
  TNewGenRes = {final} class(TF1LikeRes)
   protected
    {$If NOT Defined(NoVCM)}
@@ -32,6 +29,9 @@ type
     const aHelpFile: AnsiString); override;
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TNewGenRes
+
+ TvcmApplicationRef = TNewGenRes;
+  {* Ссылка на приложение для DesignTime редакторов }
 {$IfEnd} // Defined(NewGen)
 
 implementation

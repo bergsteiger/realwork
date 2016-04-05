@@ -24,6 +24,8 @@ const
   {* Идентификатор формы TMainForm }
 
 type
+ TMainForm = class;
+
  MainFormDef = interface
   {* Идентификатор формы Main }
   ['{45D03D24-01B1-4C43-89B5-AF75285241AE}']
