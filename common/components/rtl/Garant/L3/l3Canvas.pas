@@ -1,44 +1,29 @@
 unit l3Canvas;
+ {* попытка реализации своего уровня абстракции над DeviceContext. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Canvas.pas"
-// Начат: 15.12.1996
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3Canvas
-//
-// попытка реализации своего уровня абстракции над DeviceContext.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Canvas.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Canvas" MUID: (478E3C97021E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Windows,
-  Graphics,
-  l3Interfaces,
-  l3Defaults,
-  l3InternalInterfaces,
-  l3CanvasPrim
-  ;
+ l3IntfUses
+ , l3CanvasPrim
+ //#UC START# *478E3C97021Eintf_uses*
+ //#UC END# *478E3C97021Eintf_uses*
+;
 
 type
-//#UC START# *478E3C97021Eci*
-//#UC END# *478E3C97021Eci*
-//#UC START# *478E3C97021Ecit*
-//#UC END# *478E3C97021Ecit*
+ //#UC START# *478E3C97021Eci*
+ //#UC END# *478E3C97021Eci*
+ //#UC START# *478E3C97021Ecit*
+ //#UC END# *478E3C97021Ecit*
  Tl3Canvas = {final} class(Tl3CanvasPrim)
   {* попытка реализации своего уровня абстракции над DeviceContext. }
-//#UC START# *478E3C97021Epubl*
+ //#UC START# *478E3C97021Epubl*
  public
    property etoFlags default eto_Opaque;
    property BackColor default def_PaperColor;
@@ -50,12 +35,18 @@ type
      read pm_GetPageWidthNumber;
    property DrawSpecial default false;
    property Zoom default def_Zoom;
-//#UC END# *478E3C97021Epubl*
+ //#UC END# *478E3C97021Epubl*
  end;//Tl3Canvas
 
 implementation
 
+uses
+ l3ImplUses
+ //#UC START# *478E3C97021Eimpl_uses*
+ //#UC END# *478E3C97021Eimpl_uses*
+;
 
 //#UC START# *478E3C97021Eimpl*
 //#UC END# *478E3C97021Eimpl*
+
 end.

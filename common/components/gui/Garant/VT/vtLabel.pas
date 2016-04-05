@@ -21,6 +21,10 @@ uses
  , Messages
  , Classes
  , Types
+ , evTypes
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
  //#UC START# *4AE8541A01AEintf_uses*
  //#UC END# *4AE8541A01AEintf_uses*
 ;
@@ -120,6 +124,124 @@ type
  //#UC END# *4F29240F0204publ*
  end;//TvtCustomLabel
 
+ TvtStyledLabel = class(TvtCustomLabel{$If NOT Defined(DesignTimeLibrary)}
+ , IafwStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ )
+  {* Метка, которая следит за таблицей стилей }
+  private
+   f_StyleId: TevStyleId;
+  protected
+   procedure pm_SetStyleId(const aValue: TevStyleId);
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure StyleTableChanged;
+    {* таблица стилей изменилась. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(AOwner: TComponent); override;
+  public
+   property StyleId: TevStyleId
+    read f_StyleId
+    write pm_SetStyleId;
+ end;//TvtStyledLabel
+
+ TvtImagePosition = (
+  ipLeft
+  , ipRight
+ );//TvtImagePosition
+
+ //#UC START# *57039747002Eci*
+ //#UC END# *57039747002Eci*
+ //#UC START# *57039747002Ecit*
+ //#UC END# *57039747002Ecit*
+ TvtImageLabel = class(TvtStyledLabel)
+  {* Метка с иконкой }
+  private
+   f_ImageChangeLink: TChangeLink;
+   f_ImagePosition: TvtImagePosition;
+   f_ImageIndex: Integer;
+   f_ImageList: TCustomImageList;
+   f_ImageIndent: Integer;
+  private
+   procedure OnImageListChange(Sender: TObject);
+  protected
+   procedure pm_SetImagePosition(aValue: TvtImagePosition);
+   procedure pm_SetImageIndex(aValue: Integer);
+   procedure pm_SetImageList(aValue: TCustomImageList);
+   procedure pm_SetImageIndent(aValue: Integer);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure AdjustBounds; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DoDrawText(var Rect: TRect;
+    Flags: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   constructor Create(AOwner: TComponent); override;
+  public
+   property ImagePosition: TvtImagePosition
+    read f_ImagePosition
+    write pm_SetImagePosition;
+   property ImageIndex: Integer
+    read f_ImageIndex
+    write pm_SetImageIndex;
+   property ImageList: TCustomImageList
+    read f_ImageList
+    write pm_SetImageList;
+   property ImageIndent: Integer
+    read f_ImageIndent
+    write pm_SetImageIndent;
+ //#UC START# *57039747002Epubl*
+   published
+     property Align;
+     property Alignment;
+     property Anchors;
+     property AutoSize;
+     property BiDiMode;
+     property Caption;
+     property Color nodefault;
+     property Constraints;
+     property DragCursor;
+     property DragKind;
+     property DragMode;
+     property Enabled;
+     property FocusControl;
+     property Font;
+     property ParentBiDiMode;
+     property ParentColor;
+     property ParentFont;
+     property ParentShowHint;
+     property PopupMenu;
+     property ShowAccelChar;
+     property ShowHint;
+     property Transparent;
+     property Layout;
+     property Visible;
+     property WordWrap;
+     property EndEllipsis;
+     property OnClick;
+     property OnContextPopup;
+     property OnDblClick;
+     property OnDragDrop;
+     property OnDragOver;
+     property OnEndDock;
+     property OnEndDrag;
+     property OnMouseDown;
+     property OnMouseMove;
+     property OnMouseUp;
+     property OnMouseEnter;
+     property OnMouseLeave;
+     property OnStartDock;
+     property OnStartDrag;
+     property DrawDirection
+      default ddHorizontal;
+ //#UC END# *57039747002Epubl*
+ end;//TvtImageLabel
+
  //#UC START# *4AE8541A01AEci*
  //#UC END# *4AE8541A01AEci*
  //#UC START# *4AE8541A01AEcit*
@@ -193,6 +315,12 @@ uses
  , Graphics
  , l3Types
  , l3MinMax
+ , evStyleInterface
+ , TextPara_Const
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , evdTextStyle_Const
  //#UC START# *4AE8541A01AEimpl_uses*
  //#UC END# *4AE8541A01AEimpl_uses*
 ;
@@ -586,6 +714,394 @@ end;//TvtCustomLabel.ClearFields
 //#UC START# *4F29240F0204impl*
 //#UC END# *4F29240F0204impl*
 
+procedure TvtStyledLabel.pm_SetStyleId(const aValue: TevStyleId);
+//#UC START# *5703BFB901D4_5703BF610068set_var*
+//#UC END# *5703BFB901D4_5703BF610068set_var*
+begin
+//#UC START# *5703BFB901D4_5703BF610068set_impl*
+ if aValue <> f_StyleId then
+ begin
+  f_StyleId := aValue;
+  {$IfNDef DesignTimeLibrary}
+  StyleTableChanged;
+  {$EndIf DesignTimeLibrary}
+ end;//if aValue <> f_StyleId then
+//#UC END# *5703BFB901D4_5703BF610068set_impl*
+end;//TvtStyledLabel.pm_SetStyleId
+
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TvtStyledLabel.StyleTableChanged;
+ {* таблица стилей изменилась. }
+//#UC START# *467D2CB10135_5703BF610068_var*
+//#UC END# *467D2CB10135_5703BF610068_var*
+begin
+//#UC START# *467D2CB10135_5703BF610068_impl*
+ with TevStyleInterface.Make(k2_typTextPara, f_StyleId) do
+ try
+  Font.Assign2Font(Self.Font);
+  Color := Font.BackColor;
+ finally
+  Free;
+ end;//try..finally
+//#UC END# *467D2CB10135_5703BF610068_impl*
+end;//TvtStyledLabel.StyleTableChanged
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure TvtStyledLabel.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_5703BF610068_var*
+//#UC END# *479731C50290_5703BF610068_var*
+begin
+//#UC START# *479731C50290_5703BF610068_impl*
+ {$IfNDef DesignTimeLibrary}
+ evDelStyleTableSpy(Self);
+ {$EndIf DesignTimeLibrary}
+ inherited;
+//#UC END# *479731C50290_5703BF610068_impl*
+end;//TvtStyledLabel.Cleanup
+
+constructor TvtStyledLabel.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_5703BF610068_var*
+//#UC END# *47D1602000C6_5703BF610068_var*
+begin
+//#UC START# *47D1602000C6_5703BF610068_impl*
+ inherited;
+ f_StyleId := evd_saGUI;
+ {$IfNDef DesignTimeLibrary}
+ evAddStyleTableSpy(Self, True);
+ {$EndIf DesignTimeLibrary}
+//#UC END# *47D1602000C6_5703BF610068_impl*
+end;//TvtStyledLabel.Create
+
+procedure TvtImageLabel.pm_SetImagePosition(aValue: TvtImagePosition);
+//#UC START# *570397B90044_57039747002Eset_var*
+//#UC END# *570397B90044_57039747002Eset_var*
+begin
+//#UC START# *570397B90044_57039747002Eset_impl*
+ if (f_ImagePosition <> aValue) then
+ begin
+  f_ImagePosition := aValue;
+  Invalidate;
+ end;
+//#UC END# *570397B90044_57039747002Eset_impl*
+end;//TvtImageLabel.pm_SetImagePosition
+
+procedure TvtImageLabel.pm_SetImageIndex(aValue: Integer);
+//#UC START# *570397F60218_57039747002Eset_var*
+//#UC END# *570397F60218_57039747002Eset_var*
+begin
+//#UC START# *570397F60218_57039747002Eset_impl*
+ if (f_ImageIndex <> aValue) then
+ begin
+  f_ImageIndex := aValue;
+  Invalidate;
+ end;
+//#UC END# *570397F60218_57039747002Eset_impl*
+end;//TvtImageLabel.pm_SetImageIndex
+
+procedure TvtImageLabel.pm_SetImageList(aValue: TCustomImageList);
+//#UC START# *5703987900FF_57039747002Eset_var*
+//#UC END# *5703987900FF_57039747002Eset_var*
+begin
+//#UC START# *5703987900FF_57039747002Eset_impl*
+ if (aValue <> f_ImageList) then
+ begin
+  if (f_ImageChangeLink <> nil) and (f_ImageChangeLink.Sender = nil) then
+   // - список картинок уже убит - надо его зачистить
+   f_ImageList := nil;
+  // отрегистрируем
+  if Assigned(f_ImageList) then
+   f_ImageList.UnRegisterChanges(f_ImageChangeLink);
+  // зарегистрируем
+  f_ImageList := aValue;
+  if Assigned(f_ImageList) then
+   f_ImageList.RegisterChanges(f_ImageChangeLink);
+  AdjustBounds;
+ end;
+//#UC END# *5703987900FF_57039747002Eset_impl*
+end;//TvtImageLabel.pm_SetImageList
+
+procedure TvtImageLabel.pm_SetImageIndent(aValue: Integer);
+//#UC START# *5703994301BB_57039747002Eset_var*
+//#UC END# *5703994301BB_57039747002Eset_var*
+begin
+//#UC START# *5703994301BB_57039747002Eset_impl*
+ if (f_ImageIndent <> aValue) then
+ begin
+  f_ImageIndent := aValue;
+  AdjustBounds;
+ end;
+//#UC END# *5703994301BB_57039747002Eset_impl*
+end;//TvtImageLabel.pm_SetImageIndent
+
+procedure TvtImageLabel.OnImageListChange(Sender: TObject);
+//#UC START# *570398B70100_57039747002E_var*
+//#UC END# *570398B70100_57039747002E_var*
+begin
+//#UC START# *570398B70100_57039747002E_impl*
+ AdjustBounds;
+//#UC END# *570398B70100_57039747002E_impl*
+end;//TvtImageLabel.OnImageListChange
+
+procedure TvtImageLabel.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_57039747002E_var*
+//#UC END# *479731C50290_57039747002E_var*
+begin
+//#UC START# *479731C50290_57039747002E_impl*
+ FreeAndNil(f_ImageChangeLink);
+ inherited;
+//#UC END# *479731C50290_57039747002E_impl*
+end;//TvtImageLabel.Cleanup
+
+constructor TvtImageLabel.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_57039747002E_var*
+//#UC END# *47D1602000C6_57039747002E_var*
+begin
+//#UC START# *47D1602000C6_57039747002E_impl*
+ inherited;
+ f_ImageChangeLink := TChangeLink.Create;
+ f_ImageChangeLink.OnChange := OnImageListChange;
+ f_ImagePosition := ipRight;
+ f_ImageIndex := -1;
+ f_ImageIndent := 5;
+//#UC END# *47D1602000C6_57039747002E_impl*
+end;//TvtImageLabel.Create
+
+{$If NOT Defined(NoVCL)}
+procedure TvtImageLabel.AdjustBounds;
+//#UC START# *4F2A44BC0297_57039747002E_var*
+{const
+  WordWraps: array[Boolean] of Word = (0, DT_WORDBREAK);
+var
+  DC: HDC;
+  X: Integer;
+  Rect: TRect;
+  AAlignment: TAlignment;}
+//#UC END# *4F2A44BC0297_57039747002E_var*
+begin
+//#UC START# *4F2A44BC0297_57039747002E_impl*
+(* if not (csReading in ComponentState) and AutoSize then
+  if not f_InAdjustBounds then
+  begin
+   f_InAdjustBounds := true;
+   try
+    Rect := ClientRect;
+    DC := GetDC(0);
+    try
+     Canvas.Handle := DC;
+     DoDrawText(Rect, (DT_EXPANDTABS or DT_CALCRECT) or WordWraps[WordWrap]);
+     Canvas.Handle := 0;
+    finally
+     ReleaseDC(0, DC);
+    end;
+    X := Left;
+    AAlignment := Alignment;
+    if UseRightToLeftAlignment then
+     ChangeBiDiModeAlignment(AAlignment);
+    if (AAlignment = taRightJustify) then
+     Inc(X, Width - Rect.Right);
+    if DrawDirection = ddHorizontal then
+    begin
+     //http://mdp.garant.ru/pages/viewpage.action?pageId=494529735
+     if Align = alClient then
+      SetBounds(Left, Top, Width, Height)
+     else
+     begin
+      {if Assigned(f_ImageList) and (f_ImageIndex >= 0) then
+       Rect.Right := Rect.Right + f_ImageIndent + f_ImageList.Width;}
+      SetBounds(X, Top, Rect.Right, Rect.Bottom);
+     end;
+    end
+    else
+     SetBounds(X, Top, Rect.Bottom, Rect.Right);
+   finally
+    f_InAdjustBounds := false;
+   end;//try..finally
+  end;//not (csReading in ComponentState) and AutoSize*)
+ inherited;
+//#UC END# *4F2A44BC0297_57039747002E_impl*
+end;//TvtImageLabel.AdjustBounds
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TvtImageLabel.DoDrawText(var Rect: TRect;
+ Flags: Integer);
+//#UC START# *4F2A461702D8_57039747002E_var*
+ function GetLogFont(aFont : TFont): TLogFont;
+ const
+  cPrecision : array[Boolean] of Integer = (OUT_TT_PRECIS, OUT_TT_ONLY_PRECIS);
+  cBoolToByte : array[Boolean] of Byte = (0, 1);
+  cRotation = 90;
+ begin//GetLogFont
+  with Result do
+  begin
+   lfHeight := aFont.Height;
+   //if ScaledFont then lfHeight := Trunc(lfHeight * (Screen.PixelsPerInch / 96));
+   lfWidth := 0;
+   lfEscapement := cRotation * 10;
+   lfOrientation := cRotation * 10;
+
+   if fsBold in aFont.Style
+    then lfWeight := FW_BOLD
+    else lfWeight := FW_NORMAL;
+   lfItalic    := cBoolToByte[fsItalic in aFont.Style];
+   lfUnderline := cBoolToByte[fsUnderline in aFont.Style];
+   lfStrikeout := cBoolToByte[fsStrikeOut in aFont.Style];
+
+   if aFont.CharSet = DEFAULT_CHARSET then
+    lfCharSet := ANSI_CHARSET
+   else
+    lfCharSet := aFont.CharSet;
+
+   lfOutPrecision := cPrecision[cRotation <> 0];
+   lfClipPrecision := CLIP_DEFAULT_PRECIS; {Default}
+   lfQuality := PROOF_QUALITY;             {Windows gets a better one if available}
+   lfPitchAndFamily := VARIABLE_PITCH;     {Default}
+   StrPCopy(lfFaceName, aFont.Name);       {Canvas's font name}
+  end;//with Result
+ end;//GetLogFont
+
+ procedure PrepareCanvas;
+ begin//PrepareCanvas
+  if (Flags and DT_CALCRECT <> DT_CALCRECT) and
+     (DrawDirection <> ddHorizontal) then
+   F_Canvas.Canvas.Font.Handle := CreateFontIndirect(GetLogFont(Font));
+ end;//PrepareCanvas
+
+ procedure FreeCanvas;
+ begin//FreeCanvas
+  if (Flags and DT_CALCRECT <> DT_CALCRECT) and
+     (DrawDirection <> ddHorizontal) then
+   DeleteObject(F_Canvas.Canvas.Font.Handle);
+ end;//FreeCanvas
+
+var
+ ll3Text: Tl3PCharLen;
+ lText: Il3CString;
+ l_DC: HDC;
+ lRect: TRect;
+ l_ImageLeft,
+ l_ImageTop: Integer;
+//#UC END# *4F2A461702D8_57039747002E_var*
+begin
+//#UC START# *4F2A461702D8_57039747002E_impl*
+ if Transparent then
+  f_Canvas.etoFlags := 0
+ else
+  f_Canvas.etoFlags := eto_Opaque;
+ lText := CCaption;
+ if (Flags and DT_CALCRECT <> 0) and (l3IsNil(lText) or ShowAccelChar and
+   (l3IsChar(lText, 0, '&')) and (l3Len(lText) = 1)) then
+  lText := l3Cat(lText, ' ');
+ if not ShowAccelChar then
+  Flags := Flags or DT_NOPREFIX;
+ if f_EndEllipsis then
+  Flags := Flags or DT_END_ELLIPSIS;
+ Flags := DrawTextBiDiModeFlags(Flags);
+ f_Canvas.Font.AssignFont(Font);
+ ll3Text := l3PCharLen(lText);
+ f_Canvas.BeginPaint;
+ try
+  f_Canvas.BackColor := Color;
+  f_Canvas.DrawEnabled := True;
+  if Transparent then
+   SetBkMode(f_Canvas.DC, Windows.TRANSPARENT)
+  else
+  begin
+   SetBkColor(f_Canvas.DC, ColorToRGB(f_Canvas.BackColor));
+   SetBkMode(f_Canvas.DC, Windows.OPAQUE);
+  end;//Transparent
+
+  if not Enabled then
+  begin
+   OffsetRect(Rect, 1, 1);
+   Canvas.Font.Color := clBtnHighlight;
+   f_Canvas.DrawText(ll3Text, Rect, Flags);
+   OffsetRect(Rect, -1, -1);
+   Canvas.Font.Color := clBtnShadow;
+   f_Canvas.DrawText(ll3Text, Rect, Flags);
+  end//not Enabled
+  else
+  begin
+   l_DC := f_Canvas.DC;
+   PrepareCanvas;
+   try
+    if (DrawDirection <> ddHorizontal) and
+       (Flags and DT_CALCRECT <> DT_CALCRECT) then
+    begin
+     lRect := Rect;
+     lRect.Top := lRect.Bottom;
+     f_Canvas.DrawText(ll3Text, lRect, Flags or DT_NOCLIP);
+    end//DrawDirection <> ddHorizontal
+    else
+    begin
+     if (Flags and DT_CALCRECT <> DT_CALCRECT) then
+     begin
+      case f_ImagePosition of
+       ipLeft:
+        begin
+         l_ImageLeft := Rect.Left;
+         Rect.Left := Rect.Left + f_ImageIndent + f_ImageList.Width;
+        end;
+       ipRight:
+        begin
+         l_ImageLeft := Rect.Right - f_ImageList.Width;
+         Rect.Right := Rect.Right - f_ImageIndent - f_ImageList.Width;
+        end;
+      else
+       Assert(False);
+       l_ImageLeft := 0;
+      end;
+      case f_VerticalAligment of
+       ev_valCenter:
+        begin
+         Assert(not WordWrap);
+         Rect.Top := Rect.Top + (Self.Height - f_Canvas.Canvas.TextHeight('W')) div 2;
+        end;//ev_valCenter
+       ev_valBottom:
+        begin
+         Assert(not WordWrap);
+         Rect.Top := Rect.Top + (Self.Height - f_Canvas.Canvas.TextHeight('W'));
+        end;//ev_valBottom
+      end;//case f_VerticalAligment
+     end;//Flags and DT_CALCRECT <> DT_CALCRECT
+     f_Canvas.DrawText(ll3Text, Rect, Flags);
+     if (Flags and DT_CALCRECT = DT_CALCRECT) then
+     begin
+      if Assigned(f_ImageList) and (f_ImageIndex >= 0) then
+      begin
+       Rect.Right := Rect.Right + f_ImageIndent + f_ImageList.Width;
+       if (Rect.Bottom - Rect.Top < f_ImageList.Height) then
+        Rect.Bottom := Rect.Top + f_ImageList.Height;
+      end;
+     end else//Flags and DT_CALCRECT = DT_CALCRECT
+     begin
+      if (Rect.Bottom - Rect.Top < f_ImageList.Height) then
+       l_ImageTop := Rect.Top
+      else
+      case f_VerticalAligment of
+       ev_valTop: l_ImageTop := Rect.Top;
+       ev_valCenter: l_ImageTop := (Rect.Top + Rect.Bottom - f_ImageList.Height) div 2;
+       ev_valBottom: l_ImageTop := Rect.Bottom - f_ImageList.Height;
+      end;
+      f_ImageList.Draw(f_Canvas.Canvas, l_ImageLeft, l_ImageTop, f_ImageIndex);
+     end;//Flags and DT_CALCRECT = DT_CALCRECT
+    end;//DrawDirection <> ddHorizontal..
+   finally
+    FreeCanvas;
+   end;//try..finally
+  end;//not Enabled
+ finally
+  f_Canvas.EndPaint;
+ end;//try..finally
+//#UC END# *4F2A461702D8_57039747002E_impl*
+end;//TvtImageLabel.DoDrawText
+{$IfEnd} // NOT Defined(NoVCL)
+
+//#UC START# *57039747002Eimpl*
+//#UC END# *57039747002Eimpl*
+
 //#UC START# *4AE8541A01AEimpl*
 //#UC END# *4AE8541A01AEimpl*
 
@@ -597,6 +1113,14 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomLabel);
  {* Регистрация TvtCustomLabel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtStyledLabel);
+ {* Регистрация TvtStyledLabel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtImageLabel);
+ {* Регистрация TvtImageLabel }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtLabel);
