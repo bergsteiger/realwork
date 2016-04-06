@@ -31,8 +31,17 @@
 //#UC END# *49807428008C_56FA889202B4_impl*
 //#UC START# *49807428008C_56FA889202B4_var*
 //#UC END# *49807428008C_56FA889202B4_var*
+//#UC START# *4A485B710126_56FA889202B4_impl*
+ inherited;
+ ArrangeControls;
+//#UC END# *4A485B710126_56FA889202B4_impl*
+//#UC START# *4A485B710126_56FA889202B4_var*
+//#UC END# *4A485B710126_56FA889202B4_var*
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
  inherited;
+
+ lblProfNews.Caption := 'Профессиональные новости';
+
  Self.Color := clWhite;
  Self.Align := alClient;
  bvlLeft.Align := alLeft;
@@ -144,12 +153,12 @@
 
  with lblProfNews do
  begin
+  WordWrap := True;
   AutoSize := True;
   Cursor := crHandPoint;
-  ImageIndex := 1;
+  ImageIndex := 2;
   ImageList := nsDocumentRes.MainMenuImageList;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvProfNews do
  begin
@@ -173,9 +182,9 @@
  end;
  with lblLastOpenDocs do
  begin
+  WordWrap := True;
   AutoSize := True;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvLastOpenDocs do
  begin
@@ -191,9 +200,9 @@
  hfReferences.Visible := False;
  with lblReferences do
  begin
+  WordWrap := True;
   AutoSize := True;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvReferences do
  begin
@@ -209,15 +218,15 @@
  hfLawNews.Visible := False;
  with lblLawNews do
  begin
+  WordWrap := True;
   AutoSize := True;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvLawNews do
  begin
   AllowTrucking := True;
   BorderStyle := bsNone;
-  TabOrder := 0;
+  TabOrder := 1;
   MultiStrokeItem := True;
   ActionElementMode := l3_amSingleClick;
   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
@@ -226,20 +235,19 @@
 
  with lblTaxes do
  begin
+  WordWrap := True;
   AutoSize := True;
   Cursor := crHandPoint;
-  ImageIndex := 1;
   ImageList := nsDocumentRes.MainMenuImageList;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
-  if afw.Application.LocaleInfo.Language = afw_lngEnglish
-   then ImageIndex := 1
-   else ImageIndex := 0;
+  //if afw.Application.LocaleInfo.Language = afw_lngEnglish
+  ImageIndex := 2;
  end;
  with tvTaxes do
  begin
   BorderStyle := bsNone;
   MultiStrokeItem := True;
+  TabOrder := 1;
   ActionElementMode := l3_amSingleClick;
   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
   ClearTreeStructOnSaveState := False;
@@ -525,6 +533,8 @@ const
  end else
   tvLawNews.Width := tvLawNews.CalcFullWidth + c_RightIndent;
 
+ lblLawNews.Width := tvLawNews.Width;
+
  tvLawNews.Top := lblLawNews.Top + lblLawNews.Height + c_TopIndent;
  tvLawNews.Left := pnlNews.ClientWidth - c_RightIndent - tvLawNews.Width;
  tvLawNews.Height := tvLawNews.CalcFullHeight; 
@@ -534,8 +544,10 @@ const
  //
  lblProfNews.Top := c_lblTop;
  lblProfNews.Left := c_LeftIndent;
+ lblProfNews.Width := tvLawNews.Left - c_LeftIndent * 2 - c_RightIndent;
  tvProfNews.Left := c_LeftIndent;
  tvProfNews.Top := lblProfNews.Top + lblProfNews.Height + c_TopIndent;
+ tvProfNews.Width := tvLawNews.Left - c_LeftIndent * 2 - c_RightIndent;
  tvProfNews.Height := tvProfNews.CalcFullHeight;
  pnlNews.ClientHeight := Max(tvProfNews.Top + tvProfNews.Height, tvLawNews.Top + tvLawNews.Height) + c_BottomIndent;
  //////
@@ -549,6 +561,7 @@ const
 
  lblReferences.Top := c_lblTop;
  lblReferences.Left := c_LeftIndent;
+ lblReferences.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
  tvReferences.Left := c_LeftIndent;
  tvReferences.Top := lblReferences.Top + lblReferences.Height + c_TopIndent;
  tvReferences.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
@@ -556,7 +569,8 @@ const
 
  lblTaxes.Top := c_lblTop;
  lblTaxes.Left := pnlTrees.ClientWidth div 2 + c_LeftIndent;
- tvTaxes.Left := c_LeftIndent;
+ lblTaxes.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
+ tvTaxes.Left := lblTaxes.Left;
  tvTaxes.Top := lblTaxes.Top + lblTaxes.Height + c_TopIndent;
  tvTaxes.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
  tvTaxes.Height := tvTaxes.CalcFullHeight;
@@ -566,7 +580,7 @@ const
 
  lblLastOpenDocs.Top := c_lblTop;
  lblLastOpenDocs.Left := c_LeftIndent;
-
+ lblLastOpenDocs.Width := pnlLastOpenDocs.ClientWidth - c_LeftIndent - c_RightIndent;
  tvLastOpenDocs.Left := c_LeftIndent;
  tvLastOpenDocs.Top := lblLastOpenDocs.Top + lblLastOpenDocs.Height + c_TopIndent;
  tvLastOpenDocs.Width := pnlLastOpenDocs.ClientWidth - c_LeftIndent - c_RightIndent;
@@ -574,7 +588,7 @@ const
 
  pnlLastOpenDocs.ClientHeight := tvLastOpenDocs.Top + tvLastOpenDocs.Height + c_BottomIndent;
  //////
- pnlMain.Height := pnlLastOpenDocs.Top + pnlLastOpenDocs.Height;
+ pnlMain.ClientHeight := Max(pnlWebVersion.Top + pnlWebVersion.Height, pnlLastOpenDocs.Top + pnlLastOpenDocs.Height);
  pnlClient.Height := pnlMain.ClientHeight;
 
  bvlLeftTop.Top := 0;

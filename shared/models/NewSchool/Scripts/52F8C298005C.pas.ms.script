@@ -8659,6 +8659,23 @@ FORWARD ME_56FE5C970264
 
 ref; // ME_807379469BD5 TasksList
 
+: ME_35FA81042B4C
+ CONST UID '35FA81042B4C'
+ CONST Name 'ParallelExecutionMode'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56FE5C970264 // TcsContainerTask
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_35FA81042B4C ParallelExecutionMode
+
 : ME_42C079208970
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -8697,6 +8714,7 @@ ref; // ME_53AC03EE01FD_ME_56FE5C970264 GetTaggedDataType
  ; // Implements
  : Attributes
    Seq: ( ME_807379469BD5 // TasksList
+ ME_35FA81042B4C // ParallelExecutionMode
  )
  ; // Attributes
  : Overridden

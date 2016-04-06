@@ -6695,6 +6695,28 @@ ref; // ME_5404620A011C RegionAutoExportTask
 
 FORWARD ME_5406C7740109
 
+: ME_5704C82F0295
+ CONST UID '5704C82F0295'
+ CONST Name 'TaskType'
+ CONST Class class_Attribute
+ : Stereotype st_override::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5406C7740109 // RegionImportTask
+ ;
+ CONST Value 'Ord(cs_ttRegionImport)'
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+ CONST extprop:pas:Value 'Ord(cs_ttRegionImport)'
+
+ref; // ME_5704C82F0295 TaskType
+
 : ME_5406C7D70142
  CONST UID '5406C7D70142'
  CONST Name 'RegionIndex'
@@ -6794,7 +6816,8 @@ ref; // ME_54085C280119 SourceWarehouse
  )
  ; // Inherits
  : Attributes
-   Seq: ( ME_5406C7D70142 // RegionIndex
+   Seq: ( ME_5704C82F0295 // TaskType
+ ME_5406C7D70142 // RegionIndex
  ME_5406C7E5026C // FTPParams
  ME_5406C7F603BE // FileNameMask
  ME_54085C280119 // SourceWarehouse
@@ -9431,6 +9454,27 @@ ref; // ME_56FE46300390 TaskType
 
 ref; // ME_56FE45A60292 TasksList
 
+: ME_5703BFC701D0
+ CONST UID '5703BFC701D0'
+ CONST Name 'ParallelExecutionMode'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56FE456C0292 // ContainerTask
+ ;
+ : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_5703BFC701D0 ParallelExecutionMode
+
 : ME_56FE456C0292
  CONST UID '56FE456C0292'
  CONST Name 'ContainerTask'
@@ -9448,6 +9492,7 @@ ref; // ME_56FE45A60292 TasksList
  : Attributes
    Seq: ( ME_56FE46300390 // TaskType
  ME_56FE45A60292 // TasksList
+ ME_5703BFC701D0 // ParallelExecutionMode
  )
  ; // Attributes
  CONST "Defines CompareTagWithInt" false

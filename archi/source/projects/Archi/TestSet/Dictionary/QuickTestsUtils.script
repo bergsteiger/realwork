@@ -1353,8 +1353,20 @@ PROCEDURE "Нажать кнопку 'Выровнять по центру'"
 ;
 
 
-PROCEDURE "Нажать кнопку 'Жырный шрифт'"
-	"Контрол по имени {("Кнопка 'Жырный'")}"  pop:Control:Click	
+PROCEDURE "Нажать кнопку 'Жирный шрифт'"
+	"Контрол по имени {("Кнопка 'Жирный'")}"  pop:Control:Click	
+;
+
+PROCEDURE "Нажать кнопку 'Наклонный шрифт'"
+	"Контрол по имени {("Кнопка 'Наклонный'")}"  pop:Control:Click	
+;
+
+PROCEDURE "Нажать кнопку 'Подчеркнутый шрифт'"
+	"Контрол по имени {("Кнопка 'Подчеркнутый'")}"  pop:Control:Click	
+;
+
+PROCEDURE "Нажать кнопку 'Видимый текст'"
+	"Контрол по имени {("Кнопка 'Видимый текст'")}"  pop:Control:Click	
 ;
 
 PROCEDURE "Вызывать 'Выделить все'"
@@ -1368,6 +1380,34 @@ PROCEDURE "Вызывать 'Выделить заголовок'"
 	"Закончить выделение"	
 ;
 
+PROCEDURE "Вызывать 'Выделить строку'"
+	"Начать выделение"
+	//2 раз "Нажать вниз"
+	"В конец строки"
+	"Закончить выделение"	
+;
+
 PROCEDURE "Задержка для отладки"
 	2500 SLEEP		
+;
+
+PROCEDURE "Выбрать в выпадающем списке 'Размер шрифта' значение" STRING IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {('FontSizeComboBox')}" >>> l_Combobox
+	l_Combobox ЯВЛЯЕТСЯ 'TFontSizeComboBox' [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ] strings:Cat ASSERTS
+	aValue l_Combobox pop:ComboBox:IndexOf >>> l_Index
+	l_Index НЕРАВНО -1 'Не нашли нужное значение в комбобоксе!' ASSERTS
+	"Открыть и закрыть выпадающий список {(l_Combobox)}"
+	aValue l_Combobox pop:ComboBox:SelectItem
+	"Обработать сообщения"
+;
+
+PROCEDURE "Выбрать в выпадающем списке 'Цвет шрифта' значение" INTEGER IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {('ColorComboBox')}" >>> l_Combobox
+	l_Combobox ЯВЛЯЕТСЯ 'TvtColorBox' [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ] strings:Cat ASSERTS
+	aValue l_Combobox pop:ComboBox:SetItemIndex
+	"Обработать сообщения"
 ;
