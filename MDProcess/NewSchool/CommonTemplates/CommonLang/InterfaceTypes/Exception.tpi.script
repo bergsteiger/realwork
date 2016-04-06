@@ -1739,8 +1739,136 @@ implementation @ :: <<Exception>> <<ctor>> ;
 ; // wiki_child_kind
 
 
-//: Exception::Class::Attribute
+// Вложенные стереотипы
+//: Exception::Class::ctor::Operation::Parameter
 end. // :: <<Exception>> <<ctor>> ;
+
+implementation @ :: <<Exception>> <<ctor>> Parameter ;
+//= Ifdef::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for56FA970D0184*
+//#UC END# *47022BBE0261for56FA970D0184*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor56FA970D0184*
+//#UC END# *47022C88029Ffor56FA970D0184*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor56FA970D0184*
+//#UC END# *47022CB8034Bfor56FA970D0184*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for56FA970D0184*
+//#UC END# *470321950119for56FA970D0184*
+; // java
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor56FA970D0184*
+//#UC END# *470F152700FAfor56FA970D0184*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor56FA970D0184*
+//#UC END# *470F1571031Cfor56FA970D0184*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor56FA970D0184*
+//#UC END# *470F15B800CBfor56FA970D0184*
+; // impl.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for56FA970D0184*
+//#UC END# *46E6D4BB0339for56FA970D0184*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for56FA970D0184*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for56FA970D0184*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor56FA970D0184*
+//#UC END# *4705CBD6003Efor56FA970D0184*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for56FA970D0184*
+//#UC END# *470484D50138for56FA970D0184*
+; // wiki_up_add_gen
+
+
+
+//: Exception::Class::Attribute
+end. // :: <<Exception>> <<ctor>> Parameter ;
 
 implementation @ :: <<Exception>> <<Attribute>> ;
 //? атрибут исключения

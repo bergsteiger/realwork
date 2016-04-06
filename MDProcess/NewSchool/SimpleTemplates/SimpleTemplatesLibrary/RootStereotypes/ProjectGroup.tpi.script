@@ -303,17 +303,22 @@ implementation @ <<ProjectGroup>>
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for561FCB1E032C*
 //P true
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
+//	[{%S#f_NoSpellRec()!=true}\
+ if ( ( %S %?f NoSpellRec %( )% ) %!=  true ) then
  begin
-  OBJECT IN %C
-  if true then
+//	<%CX>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
   begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
 //#UC END# *4A41A13D03D5for561FCB1E032C*
 ; // spell
 

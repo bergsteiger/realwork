@@ -81,56 +81,61 @@ implementation @ <<Factory>>
 //#UC START# *4B2A19E3038Bfor4AE0263A0260*
 //	%S%[inherited]\
  inherited
-//	<{}{%G#f_IsConstructor()=true|%G{is static}=true}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%G
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-  OBJECT IN %G
-  if ( ( %G %?f IsConstructor %( )% ) %==  true OR 
-   ( ( %G get_up ( 'is static' ) ) %==  true  ) ) then
+//	<{}{%G#f_IsConstructor()=true|%G{is static}=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
   begin
+   OBJECT IN %G
+   if ( ( %G %?f IsConstructor %( )% ) %==  true OR 
+    ( ( %G get_up ( 'is static' ) ) %==  true  ) ) then
+   begin
 //	%G<{}{%CC=Operation}\
-   %G
-   bind ( 
-    OBJECT VAR %S
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
-    begin
-     OBJECT IN %C
-     if ( ( %C |C ) %== 'Operation' ) then
+    %G
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
      begin
-//	%C%f_copy_element(%CU_%1U,%1U,,%CN,true,Op_Instance)\
-      %C %f copy_element %( %C |U '_'
-      %1 |U %, %1 |U %, '' %, %C |N %, true %, 'Op_Instance' )% 
-//	[{%1%Rx=true}\
-      if ( ( %1 ->R |x  ) %==  true ) then
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Operation' ) then
       begin
+//	%C%f_copy_element(%CU_%1U,%1U,,%CN,true,Op_Instance)\
+       %C %f copy_element %( %C |U '_'
+       %1 |U %, %1 |U %, '' %, %C |N %, true %, 'Op_Instance' )% 
+//	[{%1%Rx=true}\
+       if ( ( %1 ->R |x  ) %==  true ) then
+       begin
 //	%{Op_Instance}%f_set_target(%1%RU)\
-       ( get_global_var ( 'Op_Instance' ) %f set_target %( %1 ->R |U  )% ) 
+        ( get_global_var ( 'Op_Instance' ) %f set_target %( %1 ->R |U  )% ) 
 //	]\
-      end // if
+       end // if
 //	%{Op_Instance}%f_set_documentation(Сигнатура фабрики %1%PN.%1N)\
-      ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Сигнатура фабрики '
-      %1 ->P |N  '.'
-      %1 |N )% ) 
+       ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Сигнатура фабрики '
+       %1 ->P |N  '.'
+       %1 |N )% ) 
 //	%{Op_Instance}%f_set_abstraction_type(final)\
-      ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+       ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-      ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+       ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 //	%f_cycle_break(%S)\
-      [%f] cycle_break %( %S )% 
+       [%f] cycle_break %( %S )% 
 //	>\
 
-      ++! l_Counter
-     end // if
-    end // for C
+       ++! l_Counter
+      end // if
+     end // for C
 
-   ) // bind
- //	>
+    ) // bind
+ //	>\
 
-   ++! l_Counter
-  end // if
- end // for G
+    ++! l_Counter
+   end // if
+  end // for G
+//	]
+ end // if
 //#UC END# *4B2A19E3038Bfor4AE0263A0260*
 ; // DoSpell
 

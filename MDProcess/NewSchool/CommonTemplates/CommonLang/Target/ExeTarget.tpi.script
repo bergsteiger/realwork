@@ -953,14 +953,15 @@ implementation @ <<ExeTarget>>
  end // else
 //	%f_pas_CloseUnit(%S)\
  [%f] pas_CloseUnit %( %S )% 
-//	<{}{%CV!=PrivateAccess&%C#f_IsClassInner()!=true&"%CO"!=""}%CX>
+//	<{}{%CV!=PrivateAccess&%C#f_IsClassInner()!=true&"%CO"!=""&%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
   if ( ( %C |V ) %!= 'PrivateAccess' AND 
    ( ( %C %?f IsClassInner %( )% ) %!=  true  ) AND 
-   ( ( %C |O ) %!= ''  ) ) then
+   ( ( %C |O ) %!= ''  ) AND 
+   ( ( %C %?f UseNewGenRec %( )% ) %!=  true  ) ) then
   begin
    %C |X 
    ++! l_Counter

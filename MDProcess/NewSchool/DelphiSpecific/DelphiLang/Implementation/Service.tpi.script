@@ -144,16 +144,6 @@ implementation @ <<Service>>
 
 
 // перекрытие базового стереотипа ServicePrim::Class
-//%f _AfterClassSpell
-: AfterClassSpell OBJECT IN %S
-//#UC START# *5502CBD4031Efor5502BABC0193*
-//	%S%[inherited]
- inherited
-//#UC END# *5502CBD4031Efor5502BABC0193*
-; // AfterClassSpell
-
-
-// перекрытие базового стереотипа ServicePrim::Class
 //%f _BeforeClassSpell
 : BeforeClassSpell OBJECT IN %S
 //#UC START# *5502C6A200F5for5502BABC0193*
@@ -359,24 +349,31 @@ implementation @ <<Service>>
  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( '¬нешн€€ реализаци€ сервиса '
  %S ( get_object_var ( 'Facet' ) |N )  )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_var,\
- ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_var' %, 
+  ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_var' %, 
 //	 {-}\
- ' {-}'
+  ' {-}'
 //	)\
 )% ) 
+
 //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_impl,\
- ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_impl' %, 
+  ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_impl' %, 
 //	 Assert((f_Alien = nil) OR (aValue = nil));
- ' Assert((f_Alien = nil) OR (aValue = nil));'
+  ' Assert((f_Alien = nil) OR (aValue = nil));'
 //	 f_Alien := aValue;\
- ' f_Alien := aValue;'
+  ' f_Alien := aValue;'
 //	)\
 )% ) 
+
 //	%f_DoSpellField(%{Attr_Inst})\
- [%f] DoSpellField %( ( get_global_var ( 'Attr_Inst' ) ) )% 
+  [%f] DoSpellField %( ( get_global_var ( 'Attr_Inst' ) ) )% 
+//	]\
+ end // if
 
 //	%f_warning(%SN need cleanup: %S%f_NeedCleanupFields())\
 

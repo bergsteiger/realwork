@@ -88,86 +88,102 @@ implementation @ <<ScriptKeyword>>
 //	]\
  end // if
 
-//	[{%S%f_IsMixIn()!=true}\
- if ( ( %S %f IsMixIn %( )% ) %!=  true ) then
+//	[{%S#f_UseNewGenRec()!=true}{\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-//	[{%Sa!=abstract}\
-  if ( ( %S |a ) %!= 'abstract' ) then
+//	[{%S%f_IsMixIn()!=true}\
+  if ( ( %S %f IsMixIn %( )% ) %!=  true ) then
   begin
-//	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
-   if ( ( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) |N ) ) %== '' ) then
+//	[{%Sa!=abstract}\
+   if ( ( %S |a ) %!= 'abstract' ) then
    begin
-    [%f] find_element %( '4DB0614603C8' %, 'TtfwRegisterableWord.GetWordNameForRegister' )% 
-   end // if
+
+
+//	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
+    if ( ( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( '4DB0614603C8' %, 'TtfwRegisterableWord.GetWordNameForRegister' )% 
+    end // if
 //	%S%f_add_override(%{TtfwRegisterableWord.GetWordNameForRegister}U)\
-   %S %f add_override %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) |U ) )% 
+    %S %f add_override %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) |U ) )% 
 //	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_var,\
-   ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) ) %, %S )% '_var' %, 
+    ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) ) %, %S )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_impl,\
-   ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) ) %, %S )% '_impl' %, 
+    ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) ) %, %S )% '_impl' %, 
 //	 Result := \
-   ' Result := '
+    ' Result := '
 //	[{"%S{NameForScript}"=""}{\
-   if ( ( %S get_up ( 'NameForScript' ) ) %== '' ) then
-   begin
-//	'[%P#f_pas_ElementPrefixBase():]%f_str_replace(%f_N(%S),_,:)'\
-    ''''
-    if NOT-EMPTY
+    if ( ( %S get_up ( 'NameForScript' ) ) %== '' ) then
     begin
-     %P %?f pas_ElementPrefixBase %( )% ':' 
-    end // if
-    NOP
-    [%f] str_replace %( [%f] N %( %S )% %, '_' %, ':' )% ''''
+//	'[%P#f_pas_ElementPrefixBase():]%f_str_replace(%f_N(%S),_,:)'\
+     ''''
+     if NOT-EMPTY
+     begin
+      %P %?f pas_ElementPrefixBase %( )% ':' 
+     end // if
+     NOP
+     [%f] str_replace %( [%f] N %( %S )% %, '_' %, ':' )% ''''
 //	]\
-   end // if
-   else
-   begin
+    end // if
+    else
+    begin
 //	'%S{NameForScript}'\
-    ''''
-    %S get_up ( 'NameForScript' ) ''''
+     ''''
+     %S get_up ( 'NameForScript' ) ''''
 //	}\
-   end // else
+    end // else
 //	;\
-   ';'
+    ';'
 //	)\
-)% ) //	%f_SpellRegisterInEngine(%S)\
+)% ) //	]\
+   end // if
+
+
+//	%f_SpellRegisterInEngine(%S)\
    [%f] SpellRegisterInEngine %( %S )% 
 //	]\
   end // if
-//	]\
- end // if
+
 
 //	[{"%S{is immediate}"!="undefined"&"%S{is immediate}"!=""}\
- if ( ( %S get_up ( 'is immediate' ) ) %!= 'undefined' AND 
-   ( ( %S get_up ( 'is immediate' ) ) %!= ''  ) ) then
- begin
-//	[{"%{TtfwWord.IsImmediate}N"=""}%f_find_element(4DB6D7F70155,TtfwWord.IsImmediate)]\
-  if ( ( ( get_global_var ( 'TtfwWord.IsImmediate' ) |N ) ) %== '' ) then
+  if ( ( %S get_up ( 'is immediate' ) ) %!= 'undefined' AND 
+    ( ( %S get_up ( 'is immediate' ) ) %!= ''  ) ) then
   begin
-   [%f] find_element %( '4DB6D7F70155' %, 'TtfwWord.IsImmediate' )% 
-  end // if
+//	[{"%{TtfwWord.IsImmediate}N"=""}%f_find_element(4DB6D7F70155,TtfwWord.IsImmediate)]\
+   if ( ( ( get_global_var ( 'TtfwWord.IsImmediate' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '4DB6D7F70155' %, 'TtfwWord.IsImmediate' )% 
+   end // if
 //	%S%f_add_override(4DB6D7F70155)\
-  %S %f add_override %( 4 'DB6D7F70155' )% 
+   %S %f add_override %( 4 'DB6D7F70155' )% 
 //	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_var,\
-  ( get_global_var ( 'TtfwWord.IsImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.IsImmediate' ) ) %, %S )% '_var' %, 
+   ( get_global_var ( 'TtfwWord.IsImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.IsImmediate' ) ) %, %S )% '_var' %, 
 //	 {-}\
-  ' {-}'
+   ' {-}'
 //	)\
 )% ) //	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_impl,\
-  ( get_global_var ( 'TtfwWord.IsImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.IsImmediate' ) ) %, %S )% '_impl' %, 
+   ( get_global_var ( 'TtfwWord.IsImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.IsImmediate' ) ) %, %S )% '_impl' %, 
 //	 Result := %S{is immediate};\
-  ' Result := '
-  %S get_up ( 'is immediate' ) ';'
+   ' Result := '
+   %S get_up ( 'is immediate' ) ';'
 //	)\
-)% ) //	]
+)% ) //	]\
+  end // if
+//	]
  end // if
+ else
+ begin
+//	%f_set_var(WasRegisterInEngine,"true")\
+  [%f] set_var %( 'WasRegisterInEngine' %, true )% 
+//	}\
+ end // else
 //#UC END# *4B2A19E3038Bfor4F2C0D86003E*
 ; // DoSpell
 

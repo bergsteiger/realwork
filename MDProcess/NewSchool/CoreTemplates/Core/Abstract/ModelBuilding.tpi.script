@@ -22,8 +22,13 @@ implementation @ ModelBuilding
 //+ spell
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for4A41A0D703C5*
-//	%S#f_DoSpell()
- %S %?f DoSpell %( )% 
+//	[{%S#f_NoSpellRec()!=true}\
+ if ( ( %S %?f NoSpellRec %( )% ) %!=  true ) then
+ begin
+//	%S#f_DoSpell()\
+  %S %?f DoSpell %( )% 
+//	]
+ end // if
 //#UC END# *4A41A13D03D5for4A41A0D703C5*
 ; // spell
 

@@ -923,12 +923,13 @@ implementation @ <<TagTable>>
 
 //	%f_pas_CloseUnit(%S)\
  [%f] pas_CloseUnit %( %S )% 
-//	<{}{"%CO"!=""}%CX>\
+//	<{}{"%CO"!=""&%C#f_UseNewGenRec()!=true}%CX>\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C |O ) %!= '' ) then
+  if ( ( %C |O ) %!= '' AND 
+   ( ( %C %?f UseNewGenRec %( )% ) %!=  true  ) ) then
   begin
    %C |X 
    ++! l_Counter

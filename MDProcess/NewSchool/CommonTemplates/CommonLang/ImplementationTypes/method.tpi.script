@@ -261,111 +261,116 @@ implementation @ <<method>>
 )% ) //	}\
  end // else
 
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%S%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,\
- %S %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( %S %, %P )% '_impl' %, 
+  %S %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( %S %, %P )% '_impl' %, 
 //	 %U[{iter}\n \
- ' '
- %Usersection (
-  'iter' 
- )
- (
-  #13#10' '
-//	%S%f_Ind()\
-  %S %f Ind %( )% 
-//	]
-
- ) // Usersection
- //	%S%f_Ind()\
- %S %f Ind %( )% 
-//	  \
- '  '
-//	[{%1%T#f_IsServiceIterator()=true}\
- if ( ( %1 ->T %?f IsServiceIterator %( )%  ) %==  true ) then
- begin
-//	%f_pas_TypeName(%1%T%P).Instance.\
-  [%f] pas_TypeName %( %1 ->T ->P   )% '.Instance.'
-//	]\
- end // if
-//	%1%T%f_pas_MethodName("f")(%1%T%{Stub}%f_pas_MethodName()(@%{Action_Inst}%f_pas_MethodName())\
- %1 ->T %f pas_MethodName %( 'f' )%  '('
- %1 ->T ( get_object_var ( 'Stub' ) %f pas_MethodName %( )% )   '(@'
- ( get_global_var ( 'Action_Inst' ) %f pas_MethodName %( )% ) ')'
-//	[{%1{iterator needs params}=true&%1%T<{}{%CS=in}{C}>!=0}\
- if ( ( %1 get_up ( 'iterator needs params' ) ) %==  true AND 
-   ( ( %1 ->T
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if ( ( %C |S ) %== 'in' ) then
-    begin
-
-     ++! l_Counter
-    end // if
-   end // for C
-   l_Counter
-
-  ) // bind
-  )   %!= 0  ) ) then
- begin
-//	
-  #13#10
-
-//	%S%f_Ind()\
-  %S %f Ind %( )% 
-//	   %U[{iterparam}\n   \
-  '   '
+  ' '
   %Usersection (
-   'iterparam' 
-  )
-  (
-   #13#10'   '
-//	%S%f_Ind()\
-   %S %f Ind %( )% 
-//	]
-
-  ) // Usersection
- //	%S%f_Ind()\
-  %S %f Ind %( )% 
-//	  ]\
-  '  ' 
- end // if
-//	)\
- ')'
-
-
-//	[{%1{needs after iterator UC}=true}{\
- if ( ( %1 get_up ( 'needs after iterator UC' ) ) %==  true ) then
- begin
-//	\n %S%f_Ind()\
-  #13#10' '
-  %S %f Ind %( )% 
-//	%U[{afteriter}\n \
-  %Usersection (
-   'afteriter' 
+   'iter' 
   )
   (
    #13#10' '
 //	%S%f_Ind()\
    %S %f Ind %( )% 
-//	]\
+//	]
 
   ) // Usersection
+ //	%S%f_Ind()\
+  %S %f Ind %( )% 
+//	  \
+  '  '
+//	[{%1%T#f_IsServiceIterator()=true}\
+  if ( ( %1 ->T %?f IsServiceIterator %( )%  ) %==  true ) then
+  begin
+//	%f_pas_TypeName(%1%T%P).Instance.\
+   [%f] pas_TypeName %( %1 ->T ->P   )% '.Instance.'
+//	]\
+  end // if
+//	%1%T%f_pas_MethodName("f")(%1%T%{Stub}%f_pas_MethodName()(@%{Action_Inst}%f_pas_MethodName())\
+  %1 ->T %f pas_MethodName %( 'f' )%  '('
+  %1 ->T ( get_object_var ( 'Stub' ) %f pas_MethodName %( )% )   '(@'
+  ( get_global_var ( 'Action_Inst' ) %f pas_MethodName %( )% ) ')'
+//	[{%1{iterator needs params}=true&%1%T<{}{%CS=in}{C}>!=0}\
+  if ( ( %1 get_up ( 'iterator needs params' ) ) %==  true AND 
+    ( ( %1 ->T
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'in' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+  )    %!= 0  ) ) then
+  begin
+//	
+   #13#10
+
+//	%S%f_Ind()\
+   %S %f Ind %( )% 
+//	   %U[{iterparam}\n   \
+   '   '
+   %Usersection (
+    'iterparam' 
+   )
+   (
+    #13#10'   '
+//	%S%f_Ind()\
+    %S %f Ind %( )% 
+//	]
+
+   ) // Usersection
+ //	%S%f_Ind()\
+   %S %f Ind %( )% 
+//	  ]\
+   '  ' 
+  end // if
+//	)\
+  ')'
+
+
+//	[{%1{needs after iterator UC}=true}{\
+  if ( ( %1 get_up ( 'needs after iterator UC' ) ) %==  true ) then
+  begin
+//	\n %S%f_Ind()\
+   #13#10' '
+   %S %f Ind %( )% 
+//	%U[{afteriter}\n \
+   %Usersection (
+    'afteriter' 
+   )
+   (
+    #13#10' '
+//	%S%f_Ind()\
+    %S %f Ind %( )% 
+//	]\
+
+   ) // Usersection
  //	]\
- end // if
- else
- begin
+  end // if
+  else
+  begin
 //	;\
-  ';'
+   ';'
 //	}\
- end // else
+  end // else
 
 
-//	)
-)% //#UC END# *4C0FD8D9007Dfor49CB43D403C5*
+//	)\
+)% //	]
+ end // if
+//#UC END# *4C0FD8D9007Dfor49CB43D403C5*
 ; // SpellIteratorCall
 
 
@@ -428,60 +433,64 @@ implementation @ <<method>>
 //	[{%Gx=true}\
  if ( ( %G |x ) %==  true ) then
  begin
-//	[{%S#f_IsFactory()!=true}\
-  if ( ( %S %?f IsFactory %( )% ) %!=  true ) then
+//	[{%Sa!=final|%S#f_UseNewGenRec()!=true}\
+  if ( ( %S |a ) %!= 'final' OR 
+    ( ( %S %?f UseNewGenRec %( )% ) %!=  true  ) ) then
   begin
-//	[{%S{is static}=true|"<{}{%CC=Operation}{C}>"="0"}\
-   if ( ( %S get_up ( 'is static' ) ) %==  true OR 
-     ( 
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
-    begin
-     OBJECT IN %C
-     if ( ( %C |C ) %== 'Operation' ) then
-     begin
-
-      ++! l_Counter
-     end // if
-    end // for C
-    l_Counter
-    %== 0  ) ) then
+//	[{%S#f_IsFactory()!=true}\
+   if ( ( %S %?f IsFactory %( )% ) %!=  true ) then
    begin
+//	[{%S{is static}=true|"<{}{%CC=Operation}{C}>"="0"}\
+    if ( ( %S get_up ( 'is static' ) ) %==  true OR 
+      ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Operation' ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+     %== 0  ) ) then
+    begin
 
 // - тут будем делать методу такую же сигнатуру, как у того метода, 
 
 //   от которого он наследуется
 //	<{}{%G#f_IsFactory()=true|%G#f_IsMethod()=true|%GS=Function}\
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%G
-    begin
-     OBJECT IN %G
-     if ( ( %G %?f IsFactory %( )% ) %==  true OR 
-      ( ( %G %?f IsMethod %( )% ) %==  true  ) OR 
-      ( ( %G |S ) %== 'Function'  ) ) then
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%G
      begin
+      OBJECT IN %G
+      if ( ( %G %?f IsFactory %( )% ) %==  true OR 
+       ( ( %G %?f IsMethod %( )% ) %==  true  ) OR 
+       ( ( %G |S ) %== 'Function'  ) ) then
+      begin
 //	%G<{}{%CC=Operation}\
-      %G
-      bind ( 
-       OBJECT VAR %S
-       INTEGER VAR l_Counter l_Counter := 0
-       for %S%C
-       begin
-        OBJECT IN %C
-        if ( ( %C |C ) %== 'Operation' ) then
+       %G
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
         begin
+         OBJECT IN %C
+         if ( ( %C |C ) %== 'Operation' ) then
+         begin
 
 
 //	%C<{}{%CC=Parameter}{%C}\
-         %C
-         bind ( 
-          OBJECT VAR %S
-          INTEGER VAR l_Counter l_Counter := 0
-          for %S%C
-          begin
-           OBJECT IN %C
-           if ( ( %C |C ) %== 'Parameter' ) then
+          %C
+          bind ( 
+           OBJECT VAR %S
+           INTEGER VAR l_Counter l_Counter := 0
+           for %S%C
            begin
+            OBJECT IN %C
+            if ( ( %C |C ) %== 'Parameter' ) then
+            begin
 
 //	%C<{}{%CC=Parameter|"%CC"=""}{%C}\
 
@@ -489,21 +498,21 @@ implementation @ <<method>>
 
 //	%f_warning(%C%TN)\
 //	%2%P%f_make_accessable(%C%TU)\
-            %2 ->P %f make_accessable %( %C ->T |U  )%  
+             %2 ->P %f make_accessable %( %C ->T |U  )%  
 //	>\
 
-            ++! l_Counter
-           end // if
-          end // for C
+             ++! l_Counter
+            end // if
+           end // for C
 
-         ) // bind
+          ) // bind
  
 // - прописываем связи к типам параметров
 
 
 //	%C%f_copy_element(%CU_%1U,%1U,,%CN,true,Op_Instance)\
-         %C %f copy_element %( %C |U '_'
-         %1 |U %, %1 |U %, '' %, %C |N %, true %, 'Op_Instance' )% 
+          %C %f copy_element %( %C |U '_'
+          %1 |U %, %1 |U %, '' %, %C |N %, true %, 'Op_Instance' )% 
 
 
 //	[{%1%Rx=true}\
@@ -514,56 +523,65 @@ implementation @ <<method>>
 
 //	%{Op_Instance}%f_set_documentation(Сигнатура метода %1%PN.%1N)\
 //	%{Op_Instance}%f_set_documentation(%SD)\
-         ( get_global_var ( 'Op_Instance' ) %f set_documentation %( %S |D )% ) 
+          ( get_global_var ( 'Op_Instance' ) %f set_documentation %( %S |D )% ) 
 //	%{Op_Instance}%f_set_abstraction_type(final)\
-         ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+          ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-         ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+          ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 //	%f_cycle_break(%S)\
-         [%f] cycle_break %( %S )% 
+          [%f] cycle_break %( %S )% 
 //	>\
 
-         ++! l_Counter
-        end // if
-       end // for C
+          ++! l_Counter
+         end // if
+        end // for C
 
-      ) // bind
+       ) // bind
  //	>\
 
-      ++! l_Counter
-     end // if
-    end // for G
+       ++! l_Counter
+      end // if
+     end // for G
 //	]\
-   end // if
+    end // if
 
 //	%S{is static}
+//	]\
+   end // if
 //	]\
   end // if
 //	]\
  end // if
-//	[{%S#f_IsFactory()!=true&"<{}{%CC=Operation}{C}>"="0"}\
- if ( ( %S %?f IsFactory %( )% ) %!=  true AND 
-   ( 
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C |C ) %== 'Operation' ) then
-   begin
 
-    ++! l_Counter
-   end // if
-  end // for C
-  l_Counter
-  %== 0  ) ) then
+//	[{%Sa!=final|%S#f_UseNewGenRec()!=true}\
+ if ( ( %S |a ) %!= 'final' OR 
+   ( ( %S %?f UseNewGenRec %( )% ) %!=  true  ) ) then
  begin
+//	[{%S#f_IsFactory()!=true&"<{}{%CC=Operation}{C}>"="0"}\
+  if ( ( %S %?f IsFactory %( )% ) %!=  true AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %== 0  ) ) then
+  begin
 
 // - добавляем сигнатуру без параметров
 //	%S%f_add_operation(%SU_DoIt,,DoIt (),Op_Instance)\
-  %S %f add_operation %( %S |U '_DoIt' %, '' %, 'DoIt ()' %, 'Op_Instance' )% 
+   %S %f add_operation %( %S |U '_DoIt' %, '' %, 'DoIt ()' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_documentation(Сигнатура метода %SN)\
-  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Сигнатура метода '
-  %S |N )% ) 
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Сигнатура метода '
+   %S |N )% ) 
+//	]\
+  end // if
 //	]
  end // if
 //#UC END# *4B2A19E3038Bfor49CB43D403C5*

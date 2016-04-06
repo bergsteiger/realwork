@@ -19,6 +19,9 @@
  LoadBanner;
  UpdateCaption;
  UpdateTabCaption(DoGetTabCaption);
+ LoadTrees;
+
+ ArrangeControls;
 //#UC END# *49803F5503AA_56FA889202B4_impl*
 //#UC START# *49803F5503AA_56FA889202B4_var*
 //#UC END# *49803F5503AA_56FA889202B4_var*
@@ -31,6 +34,7 @@
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
  inherited;
  Self.Color := clWhite;
+ Self.Align := alClient;
  bvlLeft.Align := alLeft;
  bvlLeft.Width := 25;
  bvlLeft.Shape := bsSpacer;
@@ -52,7 +56,6 @@
  end;
  with pnlClient do
  begin
-  Align := alNone;
   BevelOuter := bvNone;
   Color := clWhite;
  end;
@@ -61,7 +64,6 @@
   Align := alTop;
   BevelOuter := bvNone;
   Color := clWhite;
-  Height := 200;
  end;
  with pnlBaseSearch do
  begin
@@ -69,7 +71,7 @@
   Color := clWhite;
   Align := alTop;
   Height := 145;
-  Top := 201;
+ end;
   with pnlBaseSearchZone do
   begin
    Align := alTop;
@@ -84,6 +86,7 @@
    Height := 20;
    with flAttributeSearch do
    begin
+    TabOrder := 0;
     Left := 15;
     AutoWidth := True;
     AllowTrucking := True;
@@ -94,6 +97,7 @@
    end;//flAttributeSearch
    with flSituationSearch do
    begin
+    TabOrder := 1;
     Left := c_SearchLabelDistance + flAttributeSearch.Left + flAttributeSearch.Width;
     AutoWidth := True;
     AllowTrucking := True;
@@ -104,6 +108,7 @@
    end;//flSituationSearch
    with flPublishedSourceSearch do
    begin
+    TabOrder := 2;
     Left := c_SearchLabelDistance + flSituationSearch.Left + flSituationSearch.Width;
     AutoWidth := True;
     AllowTrucking := True;
@@ -114,6 +119,7 @@
    end;//flPublishedSourceSearch
    with flDictionSearch do
    begin
+    TabOrder := 3;
     Left := c_SearchLabelDistance + flPublishedSourceSearch.Left + flPublishedSourceSearch.Width;
     AutoWidth := True;
     AllowTrucking := True;
@@ -124,7 +130,6 @@
    end;//flDictionSearch
    UpdateSearchLabels;
   end;
- end;
  with pnlTrees do
  begin
   Align := alTop;
@@ -135,173 +140,111 @@
  end;
 
  bvlLeftTop.Align := alTop;
- bvlLeftTop.Height := 200;
  bvlLeftTop.Shape := bsSpacer;
 
- ieBanner.Height := 200;
- ieBanner.Width := pnlBanner.ClientWidth;
-
- with hfProfNews do
+ with lblProfNews do
  begin
-  TopHeaderIndent := 30;
-
-  Align := alClient;
-  Left := 16;
-  //Top := 62;
-  Width := 377;
-  Height := 107;
-  ButtonCloseImage := 1;
-  ButtonImageList := dmMainMenuNew.ilSmallIcons;
-  ButtonOpenImage := 0;
-  ClientControl := tvProfNews;
-  ClientIndent := 20;
-  HeaderImage := 2;
-  Images := dmMainMenuNew.ilMainMenuNew;
-  LeftHeaderIndent := 20;
-  LeftImageIndent := 10;
-  Options := [];
-  TabOrder := 0;
-  SettingId := 'sthfLastOpenDocs';
+  AutoSize := True;
+  Cursor := crHandPoint;
+  ImageIndex := 1;
+  ImageList := nsDocumentRes.MainMenuImageList;
+  StyleId := f1_saNewSchoolMainMenuHeader;
+  VerticalAligment := ev_valCenter;
  end;
-  with tvProfNews do
-  begin
-   AllowTrucking := True;
-
-   Align := alClient;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSingleClick;
-   ViewOptions := [voShowInterRowSpace, voShowExpandable, voVariableItemHeight, voWithoutImages];
-   ClearTreeStructOnSaveState := False;
-  end;
-
- with hfLastOpenDocs do
+ with tvProfNews do
  begin
-  TopHeaderIndent := 30;
+  AllowTrucking := True;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSingleClick;
+  ViewOptions := [voShowInterRowSpace, voShowExpandable, voVariableItemHeight, voWithoutImages];
+  ClearTreeStructOnSaveState := False;
+ end;
 
+ hfLastOpenDocs.Visible := False;
+ with pnlLastOpenDocs do
+ begin
   Align := alTop;
-  Left := 16;
-  //Top := 62;
-  Width := 377;
-  Height := 107;
-  ButtonCloseImage := 1;
-  ButtonImageList := dmMainMenuNew.ilSmallIcons;
-  ButtonOpenImage := 0;
-  ClientControl := tvLastOpenDocs;
-  ClientIndent := 20;
-  HeaderImage := 2;
-  Images := dmMainMenuNew.ilMainMenuNew;
-  LeftHeaderIndent := 20;
-  LeftImageIndent := 10;
-  Options := [];
+  BevelOuter := bvNone;
+  Color := clWhite;
+  Height := 200;
+  Top := 601;
+ end;
+ with lblLastOpenDocs do
+ begin
+  AutoSize := True;
+  StyleId := f1_saNewSchoolMainMenuHeader;
+  VerticalAligment := ev_valCenter;
+ end;
+ with tvLastOpenDocs do
+ begin
+  AllowTrucking := True;
+  BorderStyle := bsNone;
   TabOrder := 0;
-  SettingId := 'sthfLastOpenDocs';
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSingleClick;
+  ViewOptions := [voShowInterRowSpace, voShowExpandable, voVariableItemHeight, voWithoutImages];
+  ClearTreeStructOnSaveState := False;
  end;
-  with tvLastOpenDocs do
-  begin
-   AllowTrucking := True;
 
-   Align := alTop;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSingleClick;
-   ViewOptions := [voShowInterRowSpace, voShowExpandable, voVariableItemHeight, voWithoutImages];
-   ClearTreeStructOnSaveState := False;
-  end;
-
- with hfReferences do
+ hfReferences.Visible := False;
+ with lblReferences do
  begin
-  Align := alClient;
-  Left := 24;
-  Top := 168;
-  Height := 150;
-  Width := 390;
-  TopHeaderIndent := 20;
-  ClientControl := tvReferences;
-  ClientIndent := 20;
-  HeaderImage := 1;
-  Images := dmMainMenuNew.ilMainMenuNew;
-  LeftHeaderIndent := 20;
-  LeftImageIndent := 10;
-  Options := [];
-  TabOrder := 1;
+  AutoSize := True;
+  StyleId := f1_saNewSchoolMainMenuHeader;
+  VerticalAligment := ev_valCenter;
  end;
-  with tvReferences do
-  begin
-   AllowTrucking := True;
-
-   Align := alClient;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSingleClick;
-   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
-   ClearTreeStructOnSaveState := False;
-   OnResize := ReferencesResize;
-  end;
-
- with hfLawNews do
+ with tvReferences do
  begin
-  Align := alRight;
-  Width := 390;
-  ClientControl := tvLawNews;
-  ClientIndent := 20;
-  HeaderImage := 0;
-  Images := dmMainMenuNew.ilMainMenuNew;
-  LeftHeaderIndent := 20;
-  LeftImageIndent := 10;
-  Options := [];
-  TopHeaderIndent := 20;
-  TabOrder := 2;
+  AllowTrucking := True;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSingleClick;
+  ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
+  ClearTreeStructOnSaveState := False;
  end;
-  with tvLawNews do
-  begin
-   AllowTrucking := True;
-   Align := alClient;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiStrokeItem := False;//True;
-   ActionElementMode := l3_amSingleClick;
-   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
-   ClearTreeStructOnSaveState := False;
-  end;
 
- with hfTaxes do
+ hfLawNews.Visible := False;
+ with lblLawNews do
  begin
-  Align := alRight;
-  Height := hfReferences.Height;
-  Width := 380;
-  ClientIndent := 15;
-  LeftHeaderIndent := 15;
-  TopHeaderIndent := 20;
-  ClientControl := tvTaxes;
-  Options := [hfoCanHide, hfoHyperlink];
-  ButtonImageList := nsDocumentRes.MainMenuImageList;
-  if afw.Application.LocaleInfo.Language = afw_lngEnglish then
-  begin
-   ButtonOpenImage := 1;
-   ButtonCloseImage := 1;
-  end else
-  begin
-   ButtonOpenImage := 0;
-   ButtonCloseImage := 0;
-  end;
-  OnValidateStateChanged := TaxesStateChanged;
-  OnHyperlinkClick := nil;//TaxesNextTree;
- end;//with hfTaxes
-  with tvTaxes do
-  begin
-   Width := 380;
-   Align := alClient;
-   BorderStyle := bsNone;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSingleClick;
-   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
-   ClearTreeStructOnSaveState := False;
-   AllowTrucking := True;
-  end;//with tvTaxes
+  AutoSize := True;
+  StyleId := f1_saNewSchoolMainMenuHeader;
+  VerticalAligment := ev_valCenter;
+ end;
+ with tvLawNews do
+ begin
+  AllowTrucking := True;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSingleClick;
+  ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
+  ClearTreeStructOnSaveState := False;
+ end;
+
+ with lblTaxes do
+ begin
+  AutoSize := True;
+  Cursor := crHandPoint;
+  ImageIndex := 1;
+  ImageList := nsDocumentRes.MainMenuImageList;
+  StyleId := f1_saNewSchoolMainMenuHeader;
+  VerticalAligment := ev_valCenter;
+  if afw.Application.LocaleInfo.Language = afw_lngEnglish
+   then ImageIndex := 1
+   else ImageIndex := 0;
+ end;
+ with tvTaxes do
+ begin
+  BorderStyle := bsNone;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSingleClick;
+  ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
+  ClearTreeStructOnSaveState := False;
+  AllowTrucking := True;
+ end;//with tvTaxes
 
  with pnlLogo do
  begin
@@ -326,7 +269,6 @@
  end;
   with ieBanner do
   begin
-   Top := 20;
    Left := 10;
    Width := 310;
    Height := 90;
@@ -390,18 +332,12 @@
   I: Integer;
  begin
   for I := 0 to Pred(ComponentCount) do
-   if (Components[I] is TnscHideField) then
-   begin
-    TnscHideField(Components[I]).StyleId := f1_saNewSchoolMainMenuHeader;
-    TnscHideField(Components[I]).HeaderImage := -1;
-    TnscHideField(Components[I]).TabStop := false;
-   end//Components[l_Index] is TnscHideField
-   else
    if (Components[I] is TnscTreeViewHotTruck) then
    begin
     TnscTreeViewHotTruck(Components[I]).TreatDefaultColorAsWindowColor := False;
     TnscTreeViewHotTruck(Components[I]).StyleID := f1_saNewSchoolMainMenuConstPath;
     TnscTreeViewHotTruck(Components[I]).Color := clWhite;
+    TnscTreeViewHotTruck(Components[I]).Align := alNone;
    end;
  end; // lp_SetupTrees
 
@@ -453,6 +389,7 @@ var
 //#UC START# *4B62D10B031B_56FA889202B4_var*
 //#UC END# *4B62D10B031B_56FA889202B4_var*
 //#UC START# *4CC8417A0288_56FA889202B4_impl*
+ inherited;
  ArrangeControls;
 //#UC END# *4CC8417A0288_56FA889202B4_impl*
 //#UC START# *4CC8417A0288_56FA889202B4_var*
@@ -486,16 +423,16 @@ var
 //#UC END# *56FBC3F90034_56FA889202B4_var*
 //#UC START# *56FBC41602A9_56FA889202B4_impl*
  UpdateTaxesTreeCaption;
- tvTaxes.TreeStruct := TsmChangeableTree.Make(ST_BUDGET_ORGS);
+ tvTaxes.TreeStruct := TsmChangeableTree.Make(f_CurrentSection);
 //#UC END# *56FBC41602A9_56FA889202B4_impl*
 //#UC START# *56FBC41602A9_56FA889202B4_var*
 //#UC END# *56FBC41602A9_56FA889202B4_var*
 //#UC START# *56FBC4240324_56FA889202B4_impl*
- DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(ST_BUDGET_ORGS, l_Sect);
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(f_CurrentSection, l_Sect);
  Assert(l_Sect <> nil);
  l_Sect.GetCaption(l_S);
  Assert(l_S <> nil);
- hfTaxes.Caption := l3Str(nsCStr(l_S));
+ lblTaxes.Caption := l3Str(nsCStr(l_S));
 //#UC END# *56FBC4240324_56FA889202B4_impl*
 //#UC START# *56FBC4240324_56FA889202B4_var*
 var
@@ -503,24 +440,19 @@ var
  l_S: IString;
 //#UC END# *56FBC4240324_56FA889202B4_var*
 //#UC START# *56FBC4350226_56FA889202B4_impl*
- DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(ST_BUSINESS_REFERENCES, l_Sect);
- Assert(l_Sect <> nil);
- try
-  l_Sect.GetCaption(l_S);
- finally
-  l_Sect := nil
- end;//try..finally
- Assert(l_S <> nil);
- try
-  hfReferences.Caption := l3Str(nsCStr(l_S));
- finally
-  l_S := nil;
- end;//try..finally
+ lblReferences.Caption := lp_Caption(ST_BUSINESS_REFERENCES);
+ lblLawNews.Caption := lp_Caption(ST_LEGAL);
 //#UC END# *56FBC4350226_56FA889202B4_impl*
 //#UC START# *56FBC4350226_56FA889202B4_var*
-var
- l_Sect: ISection;
- l_S: IString;
+ function lp_Caption(aSection: TSectionType): String;
+ var
+  l_Sect: ISection;
+  l_S: IString;
+ begin
+  DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(aSection, l_Sect);
+  l_Sect.GetCaption(l_S);
+  Result := l3Str(nsCStr(l_S));
+ end;
 //#UC END# *56FBC4350226_56FA889202B4_var*
 //#UC START# *56FBD187013A_56FA889202B4_impl*
  //
@@ -582,23 +514,67 @@ const
 
  pnlClient.Left := pnlLeft.Left + pnlLeft.Width;
  pnlClient.Width := pnlMain.Width - pnlLeft.Width;
+                      
+ pnlNews.Top := 0;
+ //////
+ tvLawNews.MultiStrokeItem := False;
+ if tvLawNews.CalcFullWidth > (pnlNews.ClientWidth div 3) - c_LeftIndent - c_RightIndent then
+ begin
+  tvLawNews.MultiStrokeItem := True;
+  tvLawNews.Width := pnlNews.ClientWidth div 3;
+ end else
+  tvLawNews.Width := tvLawNews.CalcFullWidth + c_RightIndent;
 
+ tvLawNews.Top := lblLawNews.Top + lblLawNews.Height + c_TopIndent;
+ tvLawNews.Left := pnlNews.ClientWidth - c_RightIndent - tvLawNews.Width;
+ tvLawNews.Height := tvLawNews.CalcFullHeight; 
+
+ lblLawNews.Top := c_lblTop;
+ lblLawNews.Left := tvLawNews.Left;
+ //
+ lblProfNews.Top := c_lblTop;
+ lblProfNews.Left := c_LeftIndent;
+ tvProfNews.Left := c_LeftIndent;
+ tvProfNews.Top := lblProfNews.Top + lblProfNews.Height + c_TopIndent;
+ tvProfNews.Height := tvProfNews.CalcFullHeight;
+ pnlNews.ClientHeight := Max(tvProfNews.Top + tvProfNews.Height, tvLawNews.Top + tvLawNews.Height) + c_BottomIndent;
+ //////
  pnlBaseSearch.Height := 110;
  pnlBaseSearchZone.Height := 100;
  pnlSearches.Height := 20;
-
- hfLawNews.Width := tvLawNews.CalcFullWidth + 50;
- pnlNews.Height := tvLawNews.CalcFullHeight + 60;
-
  pnlSearches.BringToFront;
- pnlNews.Top := 0;
  pnlBaseSearch.Top := pnlNews.Height;
+ //////
  pnlTrees.Top := pnlBaseSearch.Top + pnlBaseSearch.Height;
- hfTaxes.Width := pnlTrees.ClientWidth div 2;
- pnlTrees.Height := Max(tvReferences.CalcFullHeight, tvTaxes.CalcFullHeight) + 60;
- hfLastOpenDocs.Top := pnlTrees.Top + pnlTrees.Height;
- hfLastOpenDocs.Height := tvLastOpenDocs.CalcFullHeight + 60;
- pnlMain.Height := hfLastOpenDocs.Top + hfLastOpenDocs.Height;
+
+ lblReferences.Top := c_lblTop;
+ lblReferences.Left := c_LeftIndent;
+ tvReferences.Left := c_LeftIndent;
+ tvReferences.Top := lblReferences.Top + lblReferences.Height + c_TopIndent;
+ tvReferences.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
+ tvReferences.Height := tvReferences.CalcFullHeight;  
+
+ lblTaxes.Top := c_lblTop;
+ lblTaxes.Left := pnlTrees.ClientWidth div 2 + c_LeftIndent;
+ tvTaxes.Left := c_LeftIndent;
+ tvTaxes.Top := lblTaxes.Top + lblTaxes.Height + c_TopIndent;
+ tvTaxes.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
+ tvTaxes.Height := tvTaxes.CalcFullHeight;
+ pnlTrees.ClientHeight := Max(tvReferences.Top + tvReferences.Height, tvTaxes.Top + tvTaxes.Height) + c_BottomIndent;
+ //////
+ pnlLastOpenDocs.Top := pnlTrees.Top + pnlTrees.Height;
+
+ lblLastOpenDocs.Top := c_lblTop;
+ lblLastOpenDocs.Left := c_LeftIndent;
+
+ tvLastOpenDocs.Left := c_LeftIndent;
+ tvLastOpenDocs.Top := lblLastOpenDocs.Top + lblLastOpenDocs.Height + c_TopIndent;
+ tvLastOpenDocs.Width := pnlLastOpenDocs.ClientWidth - c_LeftIndent - c_RightIndent;
+ tvLastOpenDocs.Height := tvLastOpenDocs.CalcFullHeight;
+
+ pnlLastOpenDocs.ClientHeight := tvLastOpenDocs.Top + tvLastOpenDocs.Height + c_BottomIndent;
+ //////
+ pnlMain.Height := pnlLastOpenDocs.Top + pnlLastOpenDocs.Height;
  pnlClient.Height := pnlMain.ClientHeight;
 
  bvlLeftTop.Top := 0;
@@ -623,6 +599,12 @@ const
   else VertScrollBar.Range := 0;
 //#UC END# *56FE6DC90398_56FA889202B4_impl*
 //#UC START# *56FE6DC90398_56FA889202B4_var*
+const
+ c_lblTop = 10;
+ c_LeftIndent = 5;
+ c_RightIndent = 10;
+ c_TopIndent = 10;
+ c_BottomIndent = 20;
 //#UC END# *56FE6DC90398_56FA889202B4_var*
 //#UC START# *56FE8B7B023E_56FA889202B4_impl*
  nsPaintImage(dmStdRes.ilLogo, pbLogo);

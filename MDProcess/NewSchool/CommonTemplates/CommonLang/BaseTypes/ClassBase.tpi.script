@@ -2003,29 +2003,34 @@ implementation @ :: <<ClassBase>> <<property>> ;
 ; // pas_OutField
 
 : SpellField OBJECT IN %S
-//	[{%S%f_pas_NeedsField()=true}\
- if ( ( %S %f pas_NeedsField %( )% ) %==  true ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	[{%S%f_pas_NeedsField()=true}\
+  if ( ( %S %f pas_NeedsField %( )% ) %==  true ) then
+  begin
 
 
 //	%f_SpellFieldPrim(%S,%S%P)\
-  [%f] SpellFieldPrim %( %S %, %S ->P  )% 
+   [%f] SpellFieldPrim %( %S %, %S ->P  )% 
 
 //	[{%S#f_IsReadOnlyProp()!=true}{\
-  if ( ( %S %?f IsReadOnlyProp %( )% ) %!=  true ) then
-  begin
+   if ( ( %S %?f IsReadOnlyProp %( )% ) %!=  true ) then
+   begin
 //	%{Attr_Inst}%f_set_var(clearViaProperty,S)\
-   ( get_global_var ( 'Attr_Inst' ) %f set_var %( 'clearViaProperty' %, 'S' )% ) 
+    ( get_global_var ( 'Attr_Inst' ) %f set_var %( 'clearViaProperty' %, 'S' )% ) 
+//	]\
+   end // if
+   else
+   begin
+//	%{Attr_Inst}%f_set_var(clearViaProperty,"")\
+    ( get_global_var ( 'Attr_Inst' ) %f set_var %( 'clearViaProperty' %, '' )% ) 
+//	}\
+   end // else
+
+
 //	]\
   end // if
-  else
-  begin
-//	%{Attr_Inst}%f_set_var(clearViaProperty,"")\
-   ( get_global_var ( 'Attr_Inst' ) %f set_var %( 'clearViaProperty' %, '' )% ) 
-//	}\
-  end // else
-
-
 //	]
  end // if
 
