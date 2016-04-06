@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evReqIterator;
+unit evReqIterator;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evReqIterator.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqIterator.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevReqIterator" MUID: (4E81A1D3027D)
 

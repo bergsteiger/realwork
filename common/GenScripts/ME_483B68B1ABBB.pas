@@ -20,17 +20,18 @@ uses
  , imageenview
  {$IfEnd} // NOT Defined(NoImageEn)
  {$If Defined(Nemesis)}
- , nscHideField
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ , vtLabel
  {$If Defined(Nemesis)}
  , nscFocusLabel
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoImageEn)}
  , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -417,31 +418,6 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_pnlNews_Push
 
- Tkw_MainMenuWithProfNews_Control_hfProfNews = {final} class(TtfwControlString)
-  {* Слово словаря для идентификатора контрола hfProfNews
-----
-*Пример использования*:
-[code]
-контрол::hfProfNews TryFocus ASSERT
-[code] }
-  protected
-   function GetString: AnsiString; override;
-   class procedure RegisterInEngine; override;
-   class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_hfProfNews
-
- Tkw_MainMenuWithProfNews_Control_hfProfNews_Push = {final} class(TkwBynameControlPush)
-  {* Слово словаря для контрола hfProfNews
-----
-*Пример использования*:
-[code]
-контрол::hfProfNews:push pop:control:SetFocus ASSERT
-[code] }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_hfProfNews_Push
-
  Tkw_MainMenuWithProfNews_Control_tvProfNews = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола tvProfNews
 ----
@@ -466,6 +442,56 @@ type
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_tvProfNews_Push
+
+ Tkw_MainMenuWithProfNews_Control_lblProfNews = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола lblProfNews
+----
+*Пример использования*:
+[code]
+контрол::lblProfNews TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblProfNews
+
+ Tkw_MainMenuWithProfNews_Control_lblProfNews_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола lblProfNews
+----
+*Пример использования*:
+[code]
+контрол::lblProfNews:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblProfNews_Push
+
+ Tkw_MainMenuWithProfNews_Control_lblLawNews = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола lblLawNews
+----
+*Пример использования*:
+[code]
+контрол::lblLawNews TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblLawNews
+
+ Tkw_MainMenuWithProfNews_Control_lblLawNews_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола lblLawNews
+----
+*Пример использования*:
+[code]
+контрол::lblLawNews:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblLawNews_Push
 
  Tkw_MainMenuWithProfNews_Control_pnlBaseSearch = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола pnlBaseSearch
@@ -667,31 +693,6 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_pnlTrees_Push
 
- Tkw_MainMenuWithProfNews_Control_hfTaxes = {final} class(TtfwControlString)
-  {* Слово словаря для идентификатора контрола hfTaxes
-----
-*Пример использования*:
-[code]
-контрол::hfTaxes TryFocus ASSERT
-[code] }
-  protected
-   function GetString: AnsiString; override;
-   class procedure RegisterInEngine; override;
-   class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_hfTaxes
-
- Tkw_MainMenuWithProfNews_Control_hfTaxes_Push = {final} class(TkwBynameControlPush)
-  {* Слово словаря для контрола hfTaxes
-----
-*Пример использования*:
-[code]
-контрол::hfTaxes:push pop:control:SetFocus ASSERT
-[code] }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_hfTaxes_Push
-
  Tkw_MainMenuWithProfNews_Control_tvTaxes = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола tvTaxes
 ----
@@ -716,6 +717,106 @@ type
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_tvTaxes_Push
+
+ Tkw_MainMenuWithProfNews_Control_lblReferences = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола lblReferences
+----
+*Пример использования*:
+[code]
+контрол::lblReferences TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblReferences
+
+ Tkw_MainMenuWithProfNews_Control_lblReferences_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола lblReferences
+----
+*Пример использования*:
+[code]
+контрол::lblReferences:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblReferences_Push
+
+ Tkw_MainMenuWithProfNews_Control_lblTaxes = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола lblTaxes
+----
+*Пример использования*:
+[code]
+контрол::lblTaxes TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblTaxes
+
+ Tkw_MainMenuWithProfNews_Control_lblTaxes_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола lblTaxes
+----
+*Пример использования*:
+[code]
+контрол::lblTaxes:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblTaxes_Push
+
+ Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pnlLastOpenDocs
+----
+*Пример использования*:
+[code]
+контрол::pnlLastOpenDocs TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs
+
+ Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pnlLastOpenDocs
+----
+*Пример использования*:
+[code]
+контрол::pnlLastOpenDocs:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push
+
+ Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола lblLastOpenDocs
+----
+*Пример использования*:
+[code]
+контрол::lblLastOpenDocs TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs
+
+ Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола lblLastOpenDocs
+----
+*Пример использования*:
+[code]
+контрол::lblLastOpenDocs:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push
 
  Tkw_MainMenuWithProfNews_Control_bvlLeft = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола bvlLeft
@@ -1291,30 +1392,6 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsPnlNews
 
- TkwEnMainMenuWithProfNewsHfProfNews = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MainMenuWithProfNews.hfProfNews
-[panel]Контрол hfProfNews формы Ten_MainMenuWithProfNews[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.hfProfNews >>> l_TnscHideField
-[code]  }
-  private
-   function hfProfNews(const aCtx: TtfwContext;
-    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscHideField;
-    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.hfProfNews }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEnMainMenuWithProfNewsHfProfNews
-
  TkwEnMainMenuWithProfNewsTvProfNews = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.tvProfNews
 [panel]Контрол tvProfNews формы Ten_MainMenuWithProfNews[panel]
@@ -1338,6 +1415,54 @@ OBJECT VAR l_TnscTreeViewHotTruck
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsTvProfNews
+
+ TkwEnMainMenuWithProfNewsLblProfNews = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.lblProfNews
+[panel]Контрол lblProfNews формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtImageLabel
+*Пример:*
+[code]
+OBJECT VAR l_TvtImageLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblProfNews >>> l_TvtImageLabel
+[code]  }
+  private
+   function lblProfNews(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblProfNews }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsLblProfNews
+
+ TkwEnMainMenuWithProfNewsLblLawNews = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.lblLawNews
+[panel]Контрол lblLawNews формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtStyledLabel
+*Пример:*
+[code]
+OBJECT VAR l_TvtStyledLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblLawNews >>> l_TvtStyledLabel
+[code]  }
+  private
+   function lblLawNews(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtStyledLabel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblLawNews }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsLblLawNews
 
  TkwEnMainMenuWithProfNewsPnlBaseSearch = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.pnlBaseSearch
@@ -1531,30 +1656,6 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsPnlTrees
 
- TkwEnMainMenuWithProfNewsHfTaxes = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MainMenuWithProfNews.hfTaxes
-[panel]Контрол hfTaxes формы Ten_MainMenuWithProfNews[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.hfTaxes >>> l_TnscHideField
-[code]  }
-  private
-   function hfTaxes(const aCtx: TtfwContext;
-    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscHideField;
-    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.hfTaxes }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEnMainMenuWithProfNewsHfTaxes
-
  TkwEnMainMenuWithProfNewsTvTaxes = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.tvTaxes
 [panel]Контрол tvTaxes формы Ten_MainMenuWithProfNews[panel]
@@ -1578,6 +1679,102 @@ OBJECT VAR l_TnscTreeViewHotTruck
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsTvTaxes
+
+ TkwEnMainMenuWithProfNewsLblReferences = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.lblReferences
+[panel]Контрол lblReferences формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtStyledLabel
+*Пример:*
+[code]
+OBJECT VAR l_TvtStyledLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblReferences >>> l_TvtStyledLabel
+[code]  }
+  private
+   function lblReferences(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtStyledLabel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblReferences }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsLblReferences
+
+ TkwEnMainMenuWithProfNewsLblTaxes = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.lblTaxes
+[panel]Контрол lblTaxes формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtImageLabel
+*Пример:*
+[code]
+OBJECT VAR l_TvtImageLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblTaxes >>> l_TvtImageLabel
+[code]  }
+  private
+   function lblTaxes(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblTaxes }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsLblTaxes
+
+ TkwEnMainMenuWithProfNewsPnlLastOpenDocs = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pnlLastOpenDocs
+[panel]Контрол pnlLastOpenDocs формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtPanel
+*Пример:*
+[code]
+OBJECT VAR l_TvtPanel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pnlLastOpenDocs >>> l_TvtPanel
+[code]  }
+  private
+   function pnlLastOpenDocs(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlLastOpenDocs }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs
+
+ TkwEnMainMenuWithProfNewsLblLastOpenDocs = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.lblLastOpenDocs
+[panel]Контрол lblLastOpenDocs формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtStyledLabel
+*Пример:*
+[code]
+OBJECT VAR l_TvtStyledLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblLastOpenDocs >>> l_TvtStyledLabel
+[code]  }
+  private
+   function lblLastOpenDocs(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtStyledLabel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblLastOpenDocs }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs
 
  TkwEnMainMenuWithProfNewsBvlLeft = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.bvlLeft
@@ -2207,33 +2404,6 @@ begin
  Result := 'контрол::pnlNews:push';
 end;//Tkw_MainMenuWithProfNews_Control_pnlNews_Push.GetWordNameForRegister
 
-function Tkw_MainMenuWithProfNews_Control_hfProfNews.GetString: AnsiString;
-begin
- Result := 'hfProfNews';
-end;//Tkw_MainMenuWithProfNews_Control_hfProfNews.GetString
-
-class procedure Tkw_MainMenuWithProfNews_Control_hfProfNews.RegisterInEngine;
-begin
- inherited;
- TtfwClassRef.Register(TnscHideField);
-end;//Tkw_MainMenuWithProfNews_Control_hfProfNews.RegisterInEngine
-
-class function Tkw_MainMenuWithProfNews_Control_hfProfNews.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfProfNews';
-end;//Tkw_MainMenuWithProfNews_Control_hfProfNews.GetWordNameForRegister
-
-procedure Tkw_MainMenuWithProfNews_Control_hfProfNews_Push.DoDoIt(const aCtx: TtfwContext);
-begin
- aCtx.rEngine.PushString('hfProfNews');
- inherited;
-end;//Tkw_MainMenuWithProfNews_Control_hfProfNews_Push.DoDoIt
-
-class function Tkw_MainMenuWithProfNews_Control_hfProfNews_Push.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfProfNews:push';
-end;//Tkw_MainMenuWithProfNews_Control_hfProfNews_Push.GetWordNameForRegister
-
 function Tkw_MainMenuWithProfNews_Control_tvProfNews.GetString: AnsiString;
 begin
  Result := 'tvProfNews';
@@ -2260,6 +2430,60 @@ class function Tkw_MainMenuWithProfNews_Control_tvProfNews_Push.GetWordNameForRe
 begin
  Result := 'контрол::tvProfNews:push';
 end;//Tkw_MainMenuWithProfNews_Control_tvProfNews_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_lblProfNews.GetString: AnsiString;
+begin
+ Result := 'lblProfNews';
+end;//Tkw_MainMenuWithProfNews_Control_lblProfNews.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_lblProfNews.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtImageLabel);
+end;//Tkw_MainMenuWithProfNews_Control_lblProfNews.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_lblProfNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblProfNews';
+end;//Tkw_MainMenuWithProfNews_Control_lblProfNews.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_lblProfNews_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('lblProfNews');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_lblProfNews_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_lblProfNews_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblProfNews:push';
+end;//Tkw_MainMenuWithProfNews_Control_lblProfNews_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_lblLawNews.GetString: AnsiString;
+begin
+ Result := 'lblLawNews';
+end;//Tkw_MainMenuWithProfNews_Control_lblLawNews.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_lblLawNews.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtStyledLabel);
+end;//Tkw_MainMenuWithProfNews_Control_lblLawNews.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_lblLawNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblLawNews';
+end;//Tkw_MainMenuWithProfNews_Control_lblLawNews.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_lblLawNews_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('lblLawNews');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_lblLawNews_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_lblLawNews_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblLawNews:push';
+end;//Tkw_MainMenuWithProfNews_Control_lblLawNews_Push.GetWordNameForRegister
 
 function Tkw_MainMenuWithProfNews_Control_pnlBaseSearch.GetString: AnsiString;
 begin
@@ -2477,33 +2701,6 @@ begin
  Result := 'контрол::pnlTrees:push';
 end;//Tkw_MainMenuWithProfNews_Control_pnlTrees_Push.GetWordNameForRegister
 
-function Tkw_MainMenuWithProfNews_Control_hfTaxes.GetString: AnsiString;
-begin
- Result := 'hfTaxes';
-end;//Tkw_MainMenuWithProfNews_Control_hfTaxes.GetString
-
-class procedure Tkw_MainMenuWithProfNews_Control_hfTaxes.RegisterInEngine;
-begin
- inherited;
- TtfwClassRef.Register(TnscHideField);
-end;//Tkw_MainMenuWithProfNews_Control_hfTaxes.RegisterInEngine
-
-class function Tkw_MainMenuWithProfNews_Control_hfTaxes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfTaxes';
-end;//Tkw_MainMenuWithProfNews_Control_hfTaxes.GetWordNameForRegister
-
-procedure Tkw_MainMenuWithProfNews_Control_hfTaxes_Push.DoDoIt(const aCtx: TtfwContext);
-begin
- aCtx.rEngine.PushString('hfTaxes');
- inherited;
-end;//Tkw_MainMenuWithProfNews_Control_hfTaxes_Push.DoDoIt
-
-class function Tkw_MainMenuWithProfNews_Control_hfTaxes_Push.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfTaxes:push';
-end;//Tkw_MainMenuWithProfNews_Control_hfTaxes_Push.GetWordNameForRegister
-
 function Tkw_MainMenuWithProfNews_Control_tvTaxes.GetString: AnsiString;
 begin
  Result := 'tvTaxes';
@@ -2530,6 +2727,114 @@ class function Tkw_MainMenuWithProfNews_Control_tvTaxes_Push.GetWordNameForRegis
 begin
  Result := 'контрол::tvTaxes:push';
 end;//Tkw_MainMenuWithProfNews_Control_tvTaxes_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_lblReferences.GetString: AnsiString;
+begin
+ Result := 'lblReferences';
+end;//Tkw_MainMenuWithProfNews_Control_lblReferences.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_lblReferences.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtStyledLabel);
+end;//Tkw_MainMenuWithProfNews_Control_lblReferences.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_lblReferences.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblReferences';
+end;//Tkw_MainMenuWithProfNews_Control_lblReferences.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_lblReferences_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('lblReferences');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_lblReferences_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_lblReferences_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblReferences:push';
+end;//Tkw_MainMenuWithProfNews_Control_lblReferences_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_lblTaxes.GetString: AnsiString;
+begin
+ Result := 'lblTaxes';
+end;//Tkw_MainMenuWithProfNews_Control_lblTaxes.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_lblTaxes.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtImageLabel);
+end;//Tkw_MainMenuWithProfNews_Control_lblTaxes.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_lblTaxes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblTaxes';
+end;//Tkw_MainMenuWithProfNews_Control_lblTaxes.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_lblTaxes_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('lblTaxes');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_lblTaxes_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_lblTaxes_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblTaxes:push';
+end;//Tkw_MainMenuWithProfNews_Control_lblTaxes_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.GetString: AnsiString;
+begin
+ Result := 'pnlLastOpenDocs';
+end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLastOpenDocs';
+end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('pnlLastOpenDocs');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLastOpenDocs:push';
+end;//Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.GetString: AnsiString;
+begin
+ Result := 'lblLastOpenDocs';
+end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtStyledLabel);
+end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblLastOpenDocs';
+end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('lblLastOpenDocs');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblLastOpenDocs:push';
+end;//Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push.GetWordNameForRegister
 
 function Tkw_MainMenuWithProfNews_Control_bvlLeft.GetString: AnsiString;
 begin
@@ -3462,54 +3767,6 @@ begin
  Result := '.Ten_MainMenuWithProfNews.pnlNews';
 end;//TkwEnMainMenuWithProfNewsPnlNews.GetWordNameForRegister
 
-function TkwEnMainMenuWithProfNewsHfProfNews.hfProfNews(const aCtx: TtfwContext;
- aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscHideField;
- {* Реализация слова скрипта .Ten_MainMenuWithProfNews.hfProfNews }
-begin
- Result := aen_MainMenuWithProfNews.hfProfNews;
-end;//TkwEnMainMenuWithProfNewsHfProfNews.hfProfNews
-
-procedure TkwEnMainMenuWithProfNewsHfProfNews.DoDoIt(const aCtx: TtfwContext);
-var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
-begin
- try
-  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(hfProfNews(aCtx, l_aen_MainMenuWithProfNews));
-end;//TkwEnMainMenuWithProfNewsHfProfNews.DoDoIt
-
-procedure TkwEnMainMenuWithProfNewsHfProfNews.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-begin
- RunnerError('Нельзя присваивать значение readonly свойству hfProfNews', aCtx);
-end;//TkwEnMainMenuWithProfNewsHfProfNews.SetValuePrim
-
-function TkwEnMainMenuWithProfNewsHfProfNews.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TnscHideField);
-end;//TkwEnMainMenuWithProfNewsHfProfNews.GetResultTypeInfo
-
-function TkwEnMainMenuWithProfNewsHfProfNews.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwEnMainMenuWithProfNewsHfProfNews.GetAllParamsCount
-
-function TkwEnMainMenuWithProfNewsHfProfNews.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
-end;//TkwEnMainMenuWithProfNewsHfProfNews.ParamsTypes
-
-class function TkwEnMainMenuWithProfNewsHfProfNews.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuWithProfNews.hfProfNews';
-end;//TkwEnMainMenuWithProfNewsHfProfNews.GetWordNameForRegister
-
 function TkwEnMainMenuWithProfNewsTvProfNews.tvProfNews(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscTreeViewHotTruck;
  {* Реализация слова скрипта .Ten_MainMenuWithProfNews.tvProfNews }
@@ -3557,6 +3814,102 @@ class function TkwEnMainMenuWithProfNewsTvProfNews.GetWordNameForRegister: AnsiS
 begin
  Result := '.Ten_MainMenuWithProfNews.tvProfNews';
 end;//TkwEnMainMenuWithProfNewsTvProfNews.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsLblProfNews.lblProfNews(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblProfNews }
+begin
+ Result := aen_MainMenuWithProfNews.lblProfNews;
+end;//TkwEnMainMenuWithProfNewsLblProfNews.lblProfNews
+
+procedure TkwEnMainMenuWithProfNewsLblProfNews.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblProfNews(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsLblProfNews.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsLblProfNews.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству lblProfNews', aCtx);
+end;//TkwEnMainMenuWithProfNewsLblProfNews.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsLblProfNews.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtImageLabel);
+end;//TkwEnMainMenuWithProfNewsLblProfNews.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsLblProfNews.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsLblProfNews.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsLblProfNews.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsLblProfNews.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsLblProfNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.lblProfNews';
+end;//TkwEnMainMenuWithProfNewsLblProfNews.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsLblLawNews.lblLawNews(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtStyledLabel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblLawNews }
+begin
+ Result := aen_MainMenuWithProfNews.lblLawNews;
+end;//TkwEnMainMenuWithProfNewsLblLawNews.lblLawNews
+
+procedure TkwEnMainMenuWithProfNewsLblLawNews.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblLawNews(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsLblLawNews.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsLblLawNews.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству lblLawNews', aCtx);
+end;//TkwEnMainMenuWithProfNewsLblLawNews.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsLblLawNews.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtStyledLabel);
+end;//TkwEnMainMenuWithProfNewsLblLawNews.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsLblLawNews.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsLblLawNews.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsLblLawNews.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsLblLawNews.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsLblLawNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.lblLawNews';
+end;//TkwEnMainMenuWithProfNewsLblLawNews.GetWordNameForRegister
 
 function TkwEnMainMenuWithProfNewsPnlBaseSearch.pnlBaseSearch(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
@@ -3942,54 +4295,6 @@ begin
  Result := '.Ten_MainMenuWithProfNews.pnlTrees';
 end;//TkwEnMainMenuWithProfNewsPnlTrees.GetWordNameForRegister
 
-function TkwEnMainMenuWithProfNewsHfTaxes.hfTaxes(const aCtx: TtfwContext;
- aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscHideField;
- {* Реализация слова скрипта .Ten_MainMenuWithProfNews.hfTaxes }
-begin
- Result := aen_MainMenuWithProfNews.hfTaxes;
-end;//TkwEnMainMenuWithProfNewsHfTaxes.hfTaxes
-
-procedure TkwEnMainMenuWithProfNewsHfTaxes.DoDoIt(const aCtx: TtfwContext);
-var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
-begin
- try
-  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(hfTaxes(aCtx, l_aen_MainMenuWithProfNews));
-end;//TkwEnMainMenuWithProfNewsHfTaxes.DoDoIt
-
-procedure TkwEnMainMenuWithProfNewsHfTaxes.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-begin
- RunnerError('Нельзя присваивать значение readonly свойству hfTaxes', aCtx);
-end;//TkwEnMainMenuWithProfNewsHfTaxes.SetValuePrim
-
-function TkwEnMainMenuWithProfNewsHfTaxes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TnscHideField);
-end;//TkwEnMainMenuWithProfNewsHfTaxes.GetResultTypeInfo
-
-function TkwEnMainMenuWithProfNewsHfTaxes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwEnMainMenuWithProfNewsHfTaxes.GetAllParamsCount
-
-function TkwEnMainMenuWithProfNewsHfTaxes.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
-end;//TkwEnMainMenuWithProfNewsHfTaxes.ParamsTypes
-
-class function TkwEnMainMenuWithProfNewsHfTaxes.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuWithProfNews.hfTaxes';
-end;//TkwEnMainMenuWithProfNewsHfTaxes.GetWordNameForRegister
-
 function TkwEnMainMenuWithProfNewsTvTaxes.tvTaxes(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscTreeViewHotTruck;
  {* Реализация слова скрипта .Ten_MainMenuWithProfNews.tvTaxes }
@@ -4037,6 +4342,198 @@ class function TkwEnMainMenuWithProfNewsTvTaxes.GetWordNameForRegister: AnsiStri
 begin
  Result := '.Ten_MainMenuWithProfNews.tvTaxes';
 end;//TkwEnMainMenuWithProfNewsTvTaxes.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsLblReferences.lblReferences(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtStyledLabel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblReferences }
+begin
+ Result := aen_MainMenuWithProfNews.lblReferences;
+end;//TkwEnMainMenuWithProfNewsLblReferences.lblReferences
+
+procedure TkwEnMainMenuWithProfNewsLblReferences.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblReferences(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsLblReferences.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsLblReferences.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству lblReferences', aCtx);
+end;//TkwEnMainMenuWithProfNewsLblReferences.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsLblReferences.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtStyledLabel);
+end;//TkwEnMainMenuWithProfNewsLblReferences.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsLblReferences.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsLblReferences.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsLblReferences.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsLblReferences.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsLblReferences.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.lblReferences';
+end;//TkwEnMainMenuWithProfNewsLblReferences.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsLblTaxes.lblTaxes(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblTaxes }
+begin
+ Result := aen_MainMenuWithProfNews.lblTaxes;
+end;//TkwEnMainMenuWithProfNewsLblTaxes.lblTaxes
+
+procedure TkwEnMainMenuWithProfNewsLblTaxes.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblTaxes(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsLblTaxes.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsLblTaxes.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству lblTaxes', aCtx);
+end;//TkwEnMainMenuWithProfNewsLblTaxes.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsLblTaxes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtImageLabel);
+end;//TkwEnMainMenuWithProfNewsLblTaxes.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsLblTaxes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsLblTaxes.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsLblTaxes.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsLblTaxes.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsLblTaxes.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.lblTaxes';
+end;//TkwEnMainMenuWithProfNewsLblTaxes.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsPnlLastOpenDocs.pnlLastOpenDocs(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlLastOpenDocs }
+begin
+ Result := aen_MainMenuWithProfNews.pnlLastOpenDocs;
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.pnlLastOpenDocs
+
+procedure TkwEnMainMenuWithProfNewsPnlLastOpenDocs.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlLastOpenDocs(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsPnlLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству pnlLastOpenDocs', aCtx);
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsPnlLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtPanel);
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsPnlLastOpenDocs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsPnlLastOpenDocs.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsPnlLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.pnlLastOpenDocs';
+end;//TkwEnMainMenuWithProfNewsPnlLastOpenDocs.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsLblLastOpenDocs.lblLastOpenDocs(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtStyledLabel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblLastOpenDocs }
+begin
+ Result := aen_MainMenuWithProfNews.lblLastOpenDocs;
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.lblLastOpenDocs
+
+procedure TkwEnMainMenuWithProfNewsLblLastOpenDocs.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblLastOpenDocs(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsLblLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству lblLastOpenDocs', aCtx);
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsLblLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtStyledLabel);
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsLblLastOpenDocs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsLblLastOpenDocs.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsLblLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.lblLastOpenDocs';
+end;//TkwEnMainMenuWithProfNewsLblLastOpenDocs.GetWordNameForRegister
 
 function TkwEnMainMenuWithProfNewsBvlLeft.bvlLeft(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TBevel;
@@ -4577,14 +5074,18 @@ initialization
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlNews }
  Tkw_MainMenuWithProfNews_Control_pnlNews_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlNews_Push }
- Tkw_MainMenuWithProfNews_Control_hfProfNews.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_hfProfNews }
- Tkw_MainMenuWithProfNews_Control_hfProfNews_Push.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_hfProfNews_Push }
  Tkw_MainMenuWithProfNews_Control_tvProfNews.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_tvProfNews }
  Tkw_MainMenuWithProfNews_Control_tvProfNews_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_tvProfNews_Push }
+ Tkw_MainMenuWithProfNews_Control_lblProfNews.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblProfNews }
+ Tkw_MainMenuWithProfNews_Control_lblProfNews_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblProfNews_Push }
+ Tkw_MainMenuWithProfNews_Control_lblLawNews.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblLawNews }
+ Tkw_MainMenuWithProfNews_Control_lblLawNews_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblLawNews_Push }
  Tkw_MainMenuWithProfNews_Control_pnlBaseSearch.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlBaseSearch }
  Tkw_MainMenuWithProfNews_Control_pnlBaseSearch_Push.RegisterInEngine;
@@ -4617,14 +5118,26 @@ initialization
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlTrees }
  Tkw_MainMenuWithProfNews_Control_pnlTrees_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlTrees_Push }
- Tkw_MainMenuWithProfNews_Control_hfTaxes.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_hfTaxes }
- Tkw_MainMenuWithProfNews_Control_hfTaxes_Push.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_hfTaxes_Push }
  Tkw_MainMenuWithProfNews_Control_tvTaxes.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_tvTaxes }
  Tkw_MainMenuWithProfNews_Control_tvTaxes_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_tvTaxes_Push }
+ Tkw_MainMenuWithProfNews_Control_lblReferences.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblReferences }
+ Tkw_MainMenuWithProfNews_Control_lblReferences_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblReferences_Push }
+ Tkw_MainMenuWithProfNews_Control_lblTaxes.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblTaxes }
+ Tkw_MainMenuWithProfNews_Control_lblTaxes_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblTaxes_Push }
+ Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs }
+ Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlLastOpenDocs_Push }
+ Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs }
+ Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_lblLastOpenDocs_Push }
  Tkw_MainMenuWithProfNews_Control_bvlLeft.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_bvlLeft }
  Tkw_MainMenuWithProfNews_Control_bvlLeft_Push.RegisterInEngine;
@@ -4691,10 +5204,12 @@ initialization
  {* Регистрация en_MainMenuWithProfNews_pnlClient }
  TkwEnMainMenuWithProfNewsPnlNews.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_pnlNews }
- TkwEnMainMenuWithProfNewsHfProfNews.RegisterInEngine;
- {* Регистрация en_MainMenuWithProfNews_hfProfNews }
  TkwEnMainMenuWithProfNewsTvProfNews.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_tvProfNews }
+ TkwEnMainMenuWithProfNewsLblProfNews.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_lblProfNews }
+ TkwEnMainMenuWithProfNewsLblLawNews.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_lblLawNews }
  TkwEnMainMenuWithProfNewsPnlBaseSearch.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_pnlBaseSearch }
  TkwEnMainMenuWithProfNewsPnlBaseSearchZone.RegisterInEngine;
@@ -4711,10 +5226,16 @@ initialization
  {* Регистрация en_MainMenuWithProfNews_flSituationSearch }
  TkwEnMainMenuWithProfNewsPnlTrees.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_pnlTrees }
- TkwEnMainMenuWithProfNewsHfTaxes.RegisterInEngine;
- {* Регистрация en_MainMenuWithProfNews_hfTaxes }
  TkwEnMainMenuWithProfNewsTvTaxes.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_tvTaxes }
+ TkwEnMainMenuWithProfNewsLblReferences.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_lblReferences }
+ TkwEnMainMenuWithProfNewsLblTaxes.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_lblTaxes }
+ TkwEnMainMenuWithProfNewsPnlLastOpenDocs.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pnlLastOpenDocs }
+ TkwEnMainMenuWithProfNewsLblLastOpenDocs.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_lblLastOpenDocs }
  TkwEnMainMenuWithProfNewsBvlLeft.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_bvlLeft }
  TkwEnMainMenuWithProfNewsBvlRight.RegisterInEngine;
@@ -4747,14 +5268,18 @@ initialization
  {* Регистрация типа TPaintBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnView));
  {* Регистрация типа TImageEnView }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TnscHideField));
- {* Регистрация типа TnscHideField }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewHotTruck));
  {* Регистрация типа TnscTreeViewHotTruck }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvtImageLabel));
+ {* Регистрация типа TvtImageLabel }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStyledLabel));
+ {* Регистрация типа TvtStyledLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscFocusLabel));
  {* Регистрация типа TnscFocusLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnIO));
  {* Регистрация типа TImageEnIO }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnscHideField));
+ {* Регистрация типа TnscHideField }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

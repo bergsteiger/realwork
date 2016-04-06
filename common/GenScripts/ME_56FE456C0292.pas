@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , ProcessTask_Const
+ , k2Bool_Const
 ;
 
  // ContainerTaskTag

@@ -23,11 +23,9 @@ uses
  , imageenview
  {$IfEnd} // NOT Defined(NoImageEn)
  {$If Defined(Nemesis)}
- , nscHideField
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ , vtLabel
  {$If Defined(Nemesis)}
  , nscFocusLabel
  {$IfEnd} // Defined(Nemesis)
@@ -85,10 +83,12 @@ type
     {* Поле для свойства pnlClient }
    f_pnlNews: TvtPanel;
     {* Поле для свойства pnlNews }
-   f_hfProfNews: TnscHideField;
-    {* Поле для свойства hfProfNews }
    f_tvProfNews: TnscTreeViewHotTruck;
     {* Поле для свойства tvProfNews }
+   f_lblProfNews: TvtImageLabel;
+    {* Поле для свойства lblProfNews }
+   f_lblLawNews: TvtStyledLabel;
+    {* Поле для свойства lblLawNews }
    f_pnlBaseSearch: TvtPanel;
     {* Поле для свойства pnlBaseSearch }
    f_pnlBaseSearchZone: TvtPanel;
@@ -105,10 +105,16 @@ type
     {* Поле для свойства flSituationSearch }
    f_pnlTrees: TvtPanel;
     {* Поле для свойства pnlTrees }
-   f_hfTaxes: TnscHideField;
-    {* Поле для свойства hfTaxes }
    f_tvTaxes: TnscTreeViewHotTruck;
     {* Поле для свойства tvTaxes }
+   f_lblReferences: TvtStyledLabel;
+    {* Поле для свойства lblReferences }
+   f_lblTaxes: TvtImageLabel;
+    {* Поле для свойства lblTaxes }
+   f_pnlLastOpenDocs: TvtPanel;
+    {* Поле для свойства pnlLastOpenDocs }
+   f_lblLastOpenDocs: TvtStyledLabel;
+    {* Поле для свойства lblLastOpenDocs }
    f_bvlLeft: TBevel;
     {* Поле для свойства bvlLeft }
    f_bvlRight: TBevel;
@@ -121,7 +127,6 @@ type
    procedure UpdateTaxesTree;
    procedure UpdateTaxesTreeCaption;
    procedure UpdateReferencesAndLawNewsCaptions;
-   procedure ReferencesResize(Sender: TObject);
    procedure UpdateSearchLabels;
    procedure SearchClick(Sender: TObject);
    procedure ArrangeControls;
@@ -144,6 +149,9 @@ type
     aStateType: TvcmStateType): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure DoStyleTableChanged; override;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -233,6 +241,7 @@ uses
  , hyieutils
  {$IfEnd} // NOT Defined(NoImageEn)
  , bsTypesNew
+ , evdTypes
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -316,15 +325,6 @@ begin
 //#UC END# *56FBC4350226_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.UpdateReferencesAndLawNewsCaptions
 
-procedure TPrimMainMenuWithProfNewsForm.ReferencesResize(Sender: TObject);
-//#UC START# *56FBD187013A_56FA889202B4_var*
-//#UC END# *56FBD187013A_56FA889202B4_var*
-begin
-//#UC START# *56FBD187013A_56FA889202B4_impl*
- //
-//#UC END# *56FBD187013A_56FA889202B4_impl*
-end;//TPrimMainMenuWithProfNewsForm.ReferencesResize
-
 procedure TPrimMainMenuWithProfNewsForm.UpdateSearchLabels;
 //#UC START# *56FCF6290256_56FA889202B4_var*
 const
@@ -404,6 +404,8 @@ begin
  end else
   tvLawNews.Width := tvLawNews.CalcFullWidth + c_RightIndent;
 
+ lblLawNews.Width := tvLawNews.Width;
+
  tvLawNews.Top := lblLawNews.Top + lblLawNews.Height + c_TopIndent;
  tvLawNews.Left := pnlNews.ClientWidth - c_RightIndent - tvLawNews.Width;
  tvLawNews.Height := tvLawNews.CalcFullHeight; 
@@ -413,8 +415,10 @@ begin
  //
  lblProfNews.Top := c_lblTop;
  lblProfNews.Left := c_LeftIndent;
+ lblProfNews.Width := tvLawNews.Left - c_LeftIndent * 2 - c_RightIndent;
  tvProfNews.Left := c_LeftIndent;
  tvProfNews.Top := lblProfNews.Top + lblProfNews.Height + c_TopIndent;
+ tvProfNews.Width := tvLawNews.Left - c_LeftIndent * 2 - c_RightIndent;
  tvProfNews.Height := tvProfNews.CalcFullHeight;
  pnlNews.ClientHeight := Max(tvProfNews.Top + tvProfNews.Height, tvLawNews.Top + tvLawNews.Height) + c_BottomIndent;
  //////
@@ -428,6 +432,7 @@ begin
 
  lblReferences.Top := c_lblTop;
  lblReferences.Left := c_LeftIndent;
+ lblReferences.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
  tvReferences.Left := c_LeftIndent;
  tvReferences.Top := lblReferences.Top + lblReferences.Height + c_TopIndent;
  tvReferences.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
@@ -435,7 +440,8 @@ begin
 
  lblTaxes.Top := c_lblTop;
  lblTaxes.Left := pnlTrees.ClientWidth div 2 + c_LeftIndent;
- tvTaxes.Left := c_LeftIndent;
+ lblTaxes.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
+ tvTaxes.Left := lblTaxes.Left;
  tvTaxes.Top := lblTaxes.Top + lblTaxes.Height + c_TopIndent;
  tvTaxes.Width := pnlTrees.ClientWidth div 2 - c_LeftIndent - c_RightIndent;
  tvTaxes.Height := tvTaxes.CalcFullHeight;
@@ -445,7 +451,7 @@ begin
 
  lblLastOpenDocs.Top := c_lblTop;
  lblLastOpenDocs.Left := c_LeftIndent;
-
+ lblLastOpenDocs.Width := pnlLastOpenDocs.ClientWidth - c_LeftIndent - c_RightIndent;
  tvLastOpenDocs.Left := c_LeftIndent;
  tvLastOpenDocs.Top := lblLastOpenDocs.Top + lblLastOpenDocs.Height + c_TopIndent;
  tvLastOpenDocs.Width := pnlLastOpenDocs.ClientWidth - c_LeftIndent - c_RightIndent;
@@ -453,7 +459,7 @@ begin
 
  pnlLastOpenDocs.ClientHeight := tvLastOpenDocs.Top + tvLastOpenDocs.Height + c_BottomIndent;
  //////
- pnlMain.Height := pnlLastOpenDocs.Top + pnlLastOpenDocs.Height;
+ pnlMain.ClientHeight := Max(pnlWebVersion.Top + pnlWebVersion.Height, pnlLastOpenDocs.Top + pnlLastOpenDocs.Height);
  pnlClient.Height := pnlMain.ClientHeight;
 
  bvlLeftTop.Top := 0;
@@ -724,6 +730,18 @@ begin
 end;//TPrimMainMenuWithProfNewsForm.DoLoadState
 {$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TPrimMainMenuWithProfNewsForm.DoStyleTableChanged;
+//#UC START# *4A485B710126_56FA889202B4_var*
+//#UC END# *4A485B710126_56FA889202B4_var*
+begin
+//#UC START# *4A485B710126_56FA889202B4_impl*
+ inherited;
+ ArrangeControls;
+//#UC END# *4A485B710126_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.DoStyleTableChanged
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
 {$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuWithProfNewsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -781,6 +799,9 @@ const
 begin
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
  inherited;
+
+ lblProfNews.Caption := 'Профессиональные новости';
+
  Self.Color := clWhite;
  Self.Align := alClient;
  bvlLeft.Align := alLeft;
@@ -892,12 +913,12 @@ begin
 
  with lblProfNews do
  begin
+  WordWrap := True;
   AutoSize := True;
   Cursor := crHandPoint;
-  ImageIndex := 1;
+  ImageIndex := 2;
   ImageList := nsDocumentRes.MainMenuImageList;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvProfNews do
  begin
@@ -921,9 +942,9 @@ begin
  end;
  with lblLastOpenDocs do
  begin
+  WordWrap := True;
   AutoSize := True;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvLastOpenDocs do
  begin
@@ -939,9 +960,9 @@ begin
  hfReferences.Visible := False;
  with lblReferences do
  begin
+  WordWrap := True;
   AutoSize := True;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvReferences do
  begin
@@ -957,15 +978,15 @@ begin
  hfLawNews.Visible := False;
  with lblLawNews do
  begin
+  WordWrap := True;
   AutoSize := True;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
  end;
  with tvLawNews do
  begin
   AllowTrucking := True;
   BorderStyle := bsNone;
-  TabOrder := 0;
+  TabOrder := 1;
   MultiStrokeItem := True;
   ActionElementMode := l3_amSingleClick;
   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
@@ -974,20 +995,19 @@ begin
 
  with lblTaxes do
  begin
+  WordWrap := True;
   AutoSize := True;
   Cursor := crHandPoint;
-  ImageIndex := 1;
   ImageList := nsDocumentRes.MainMenuImageList;
   StyleId := f1_saNewSchoolMainMenuHeader;
-  VerticalAligment := ev_valCenter;
-  if afw.Application.LocaleInfo.Language = afw_lngEnglish
-   then ImageIndex := 1
-   else ImageIndex := 0;
+  //if afw.Application.LocaleInfo.Language = afw_lngEnglish
+  ImageIndex := 2;
  end;
  with tvTaxes do
  begin
   BorderStyle := bsNone;
   MultiStrokeItem := True;
+  TabOrder := 1;
   ActionElementMode := l3_amSingleClick;
   ViewOptions := [voShowIcons, voShowExpandable, voWithoutImages];
   ClearTreeStructOnSaveState := False;

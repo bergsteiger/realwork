@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevRangePrim;
+unit nevRangePrim;
  {* Выделенная часть объекта }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_nevRangePrim.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\nevRangePrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevRangePrim" MUID: (4BAA279500E6)
 

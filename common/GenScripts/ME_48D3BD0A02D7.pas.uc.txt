@@ -965,12 +965,12 @@ var
    l_Field := nil;
   end;
  end;//else if l_Count = 1 then...
- {$If not Defined(Admin)}
+ {$IFDEF Monitorings}
  // http://mdp.garant.ru/pages/viewpage.action?pageId=493858212
  l_ML := Get_ModelListener;
  if (l_ML <> nil) then
   l_ML.TextChange;
- {$ifend}
+ {$ENDIF Monitorings}
 //#UC END# *48D3CD950327_48D3BD0A02D7_impl*
 //#UC START# *48D3CD950327_48D3BD0A02D7_var*
 var

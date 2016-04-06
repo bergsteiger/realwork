@@ -18,6 +18,7 @@ uses
  , nevBase
  , evTypes
  , l3Interfaces
+ , l3Types
  , l3IID
 ;
 
@@ -25,7 +26,7 @@ type
  TevMultiSelectionRange = class(TevMultiSelectionLocation, InevRange, InevRangeModify)
   private
    f_Blocks: TnevRangeList;
-    {* Поле для свойства Blocks }
+    {* список блоков выделения }
   protected
    function GetData: IevdDataObject; virtual; abstract;
    function GetAsStorable: InevDataObjectPrim2; virtual; abstract;
@@ -63,6 +64,12 @@ type
    function GetRange: InevRange; override;
    procedure RefreshBorders;
     {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
+   function Iterate(anAction: InevRangePrim_Iterate_Action;
+    aStart: Integer = l3Types.l3MinIndex): Integer; virtual;
+    {* Итератор по вложенным выделенным объектам }
+   function IterateF(anAction: InevRangePrim_Iterate_Action;
+    aStart: Integer = l3Types.l3MinIndex): Integer;
+    {* Итератор по вложенным выделенным объектам }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
@@ -544,6 +551,86 @@ begin
  
 //#UC END# *50B727F00221_48ECD38B0204_impl*
 end;//TevMultiSelectionRange.RefreshBorders
+
+function TevMultiSelectionRange.Iterate(anAction: InevRangePrim_Iterate_Action;
+ aStart: Integer = l3Types.l3MinIndex): Integer;
+ {* Итератор по вложенным выделенным объектам }
+//#UC START# *4BA8DE8C03D8_48ECD38B0204_var*
+
+ function DoChild(const aChild: InevRange; anIndex: Long): Boolean;
+ var
+  l_Sel  : InevRange;
+  l_Para : InevPara;
+ begin//DoChild
+  if aChild.Obj.AsObject.QT(InevPara, l_Para) then
+   try
+    l_Sel := GetChildSel(nil, l_Para.PID, False);
+    if (l_Sel = nil) then
+     Result := true
+    else
+     Result := anAction(l_Sel, anIndex);
+   finally
+    l_Para := nil;
+   end//try..finally
+  else
+   Result := true; 
+ end;//DoChild
+
+var
+ l_Start  : InevBasePoint;
+ l_Finish : InevBasePoint;
+ l_Fake   : InevBasePoint;
+ l_Block  : InevRange;
+ l_Para   : InevPara;
+//#UC END# *4BA8DE8C03D8_48ECD38B0204_var*
+begin
+//#UC START# *4BA8DE8C03D8_48ECD38B0204_impl*
+ if (f_Blocks = nil) OR f_Blocks.Empty then
+ begin
+  l_Start := nil;
+  l_Start := nil;
+ end//f_Blocks = nil..
+ else
+ begin
+  if (f_Blocks.Count = 1) then
+   f_Blocks.First.GetBorderPoints(l_Start, l_Finish)
+  else
+  begin
+   f_Blocks.First.GetBorderPoints(l_Start, l_Fake);
+   f_Blocks.Last.GetBorderPoints(l_Fake, l_Finish);
+  end;//f_Blocks.Count = 1
+ end;//f_Blocks = nil..
+ if QT(InevPara, l_Para) then
+  try
+   try
+    l_Block := l_Para.Range(l_Start, l_Finish);
+    Result := l_Block.IterateF(evL2TSA(@DoChild), aStart)
+   finally
+    l_Block := nil;
+   end;//try..finally
+  finally
+   l_Para := nil;
+  end//try..finally
+ else
+ begin
+  Result := -1;
+  Assert(false);
+ end;//QT(InevPara, l_Para)
+//#UC END# *4BA8DE8C03D8_48ECD38B0204_impl*
+end;//TevMultiSelectionRange.Iterate
+
+function TevMultiSelectionRange.IterateF(anAction: InevRangePrim_Iterate_Action;
+ aStart: Integer = l3Types.l3MinIndex): Integer;
+ {* Итератор по вложенным выделенным объектам }
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  Result := Iterate(anAction, aStart);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TevMultiSelectionRange.IterateF
 
 procedure TevMultiSelectionRange.Cleanup;
  {* Функция очистки полей объекта. }

@@ -50,6 +50,14 @@ type
     const anOp: InevOp;
     aNeedFire: Boolean = True): Boolean;
     {* вставляет параграф с типом по-умолчанию в указанную позицию. }
+   function IteratePara(anAction: InevParaList_IteratePara_Action;
+    aLo: TnevParaIndex = nev_piFirst;
+    aHi: TnevParaIndex = nev_piLast;
+    aLoadedOnly: Boolean = False): Integer; virtual;
+   function IterateParaF(anAction: InevParaList_IteratePara_Action;
+    aLo: TnevParaIndex = nev_piFirst;
+    aHi: TnevParaIndex = nev_piLast;
+    aLoadedOnly: Boolean = False): Integer;
    function GetIsList: Boolean; override;
    function GetToList: InevObjectList; override;
    function GetAsList: InevParaList; override;
@@ -397,6 +405,51 @@ begin
  end;//try..finally
 //#UC END# *47C6ACE6026E_48CE0B85029C_impl*
 end;//TnevParaList.InsertDefaultPara
+
+function TnevParaList.IteratePara(anAction: InevParaList_IteratePara_Action;
+ aLo: TnevParaIndex = nev_piFirst;
+ aHi: TnevParaIndex = nev_piLast;
+ aLoadedOnly: Boolean = False): Integer;
+//#UC START# *4BB0751F00A4_48CE0B85029C_var*
+
+ function DoChild(aChild: Tl3Variant; anIndex: Integer): Boolean;
+ var
+  l_Para : InevParaInternal;
+ begin//DoChild
+  if not aChild.QT(InevParaInternal, l_Para) then
+   if aChild.IsKindOf(k2_typPara) then
+    l_Para := TnevPara.Make(aChild)
+   else
+   begin
+    Result := true;
+    Exit;
+   end;//aChild.IsKindOf(k2_typPara)
+  l_Para.SignalPID(anIndex);
+  l_Para.ParentTool := Self;
+  Result := anAction(l_Para, anIndex);
+ end;//DoChild
+
+//#UC END# *4BB0751F00A4_48CE0B85029C_var*
+begin
+//#UC START# *4BB0751F00A4_48CE0B85029C_impl*
+ aLo := Max(0, aLo);
+ Result := TagInst.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoChild), aLo, aHi, aLoadedOnly);
+//#UC END# *4BB0751F00A4_48CE0B85029C_impl*
+end;//TnevParaList.IteratePara
+
+function TnevParaList.IterateParaF(anAction: InevParaList_IteratePara_Action;
+ aLo: TnevParaIndex = nev_piFirst;
+ aHi: TnevParaIndex = nev_piLast;
+ aLoadedOnly: Boolean = False): Integer;
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  Result := IteratePara(anAction, aLo, aHi, aLoadedOnly);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TnevParaList.IterateParaF
 
 function TnevParaList.GetIsList: Boolean;
 //#UC START# *48CE681402F4_48CE0B85029C_var*

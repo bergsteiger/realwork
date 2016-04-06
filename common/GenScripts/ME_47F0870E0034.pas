@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevDocumentContainer;
+unit nevDocumentContainer;
  {* Контейнер документа. }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevDocumentContainer.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevDocumentContainer" MUID: (47F0870E0034)
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_nevParaList;
+unit nevParaList;
  {* Реализация инструмента InevParaList }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevParaList.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaList.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TnevParaList" MUID: (48CE0B85029C)
 
