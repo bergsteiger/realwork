@@ -45,6 +45,9 @@ uses
  , DataAdapter
  , nsManagers
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
 ;
 

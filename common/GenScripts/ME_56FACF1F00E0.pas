@@ -1,5 +1,5 @@
 unit PrimMainMenuWithProfNews_utMainMenuWithProfNews_UserType;
- {* Основное меню с профессиональными новостями }
+ {* Основное меню }
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenuWithProfNews_utMainMenuWithProfNews_UserType.pas"
 // Стереотип: "UserType"
@@ -20,9 +20,9 @@ uses
 const
  {* Константы для типа формы utMainMenuWithProfNews }
  utMainMenuWithProfNewsName = 'utMainMenuWithProfNews';
-  {* Строковый идентификатор пользовательского типа "Основное меню с профессиональными новостями" }
+  {* Строковый идентификатор пользовательского типа "Основное меню" }
  utMainMenuWithProfNews = TvcmUserType(0);
-  {* Основное меню с профессиональными новостями }
+  {* Основное меню }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

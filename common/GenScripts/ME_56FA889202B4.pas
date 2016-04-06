@@ -14,6 +14,7 @@ uses
  l3IntfUses
  , PrimLegalMainMenu_Form
  , MainMenuUnit
+ , BannerUnit
  , vtPanel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
@@ -55,20 +56,31 @@ type
  TPrimMainMenuWithProfNewsForm = class(_vcmChromeLikeTabIconUpdater_)
   private
    f_CurrentSection: TSectionType;
+   f_Banner: IBanner;
    f_pnlLeft: TvtPanel;
     {* Поле для свойства pnlLeft }
    f_bvlLeftTop: TBevel;
     {* Поле для свойства bvlLeftTop }
+   f_pnlLogo: TvtPanel;
+    {* Поле для свойства pnlLogo }
    f_pbLogo: TPaintBox;
     {* Поле для свойства pbLogo }
+   f_pnlBanner: TvtPanel;
+    {* Поле для свойства pnlBanner }
    f_ieBanner: TImageEnView;
     {* Поле для свойства ieBanner }
-   f_pbCourtsOnline: TPaintBox;
-    {* Поле для свойства pbCourtsOnline }
-   f_pbIntranet: TPaintBox;
-    {* Поле для свойства pbIntranet }
-   f_pbOnline: TPaintBox;
-    {* Поле для свойства pbOnline }
+   f_pnlFeedback: TvtPanel;
+    {* Поле для свойства pnlFeedback }
+   f_pbFeedback: TPaintBox;
+    {* Поле для свойства pbFeedback }
+   f_pnlOnlineResources: TvtPanel;
+    {* Поле для свойства pnlOnlineResources }
+   f_pbOnlineResources: TPaintBox;
+    {* Поле для свойства pbOnlineResources }
+   f_pnlWebVersion: TvtPanel;
+    {* Поле для свойства pnlWebVersion }
+   f_pbWebVersion: TPaintBox;
+    {* Поле для свойства pbWebVersion }
    f_pnlClient: TvtPanel;
     {* Поле для свойства pnlClient }
    f_pnlNews: TvtPanel;
@@ -110,11 +122,28 @@ type
    procedure UpdateTaxesTreeCaption;
    procedure UpdateReferencesAndLawNewsCaptions;
    procedure ReferencesResize(Sender: TObject);
-   procedure TaxesNextTree(Sender: TObject);
    procedure UpdateSearchLabels;
    procedure SearchClick(Sender: TObject);
+   procedure ArrangeControls;
+   procedure PaintLogo(Sender: TObject);
+   procedure PaintButton(Sender: TObject);
+   procedure PaintBoxClick(Sender: TObject);
+   procedure BannerClick(Sender: TObject);
+   procedure LoadBanner;
   protected
    function DoBuildGrid: InscArrangeGrid; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -128,6 +157,9 @@ type
    procedure SetControlsResources; override;
     {* Установить контролам ресурсы для интернационализации }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCL)}
+   procedure Resize; override;
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
@@ -194,6 +226,13 @@ uses
  , f1TextStyle_Const
  {$IfEnd} // Defined(Nemesis)
  , l3ControlsTypes
+ , l3MinMax
+ , nsUtils
+ , StartUnit
+ {$If NOT Defined(NoImageEn)}
+ , hyieutils
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , bsTypesNew
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -212,8 +251,8 @@ type
 
 const
  {* Локализуемые строки utMainMenuWithProfNewsLocalConstants }
- str_utMainMenuWithProfNewsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuWithProfNewsCaption'; rValue : 'Основное меню с профессиональными новостями');
-  {* Заголовок пользовательского типа "Основное меню с профессиональными новостями" }
+ str_utMainMenuWithProfNewsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuWithProfNewsCaption'; rValue : 'Основное меню');
+  {* Заголовок пользовательского типа "Основное меню" }
 
 type _Instance_R_ = TPrimMainMenuWithProfNewsForm;
 
@@ -291,15 +330,6 @@ begin
 //#UC END# *56FBD187013A_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.ReferencesResize
 
-procedure TPrimMainMenuWithProfNewsForm.TaxesNextTree(Sender: TObject);
-//#UC START# *56FBD27503D1_56FA889202B4_var*
-//#UC END# *56FBD27503D1_56FA889202B4_var*
-begin
-//#UC START# *56FBD27503D1_56FA889202B4_impl*
- //
-//#UC END# *56FBD27503D1_56FA889202B4_impl*
-end;//TPrimMainMenuWithProfNewsForm.TaxesNextTree
-
 procedure TPrimMainMenuWithProfNewsForm.UpdateSearchLabels;
 //#UC START# *56FCF6290256_56FA889202B4_var*
 const
@@ -351,6 +381,238 @@ begin
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.SearchClick
 
+procedure TPrimMainMenuWithProfNewsForm.ArrangeControls;
+//#UC START# *56FE6DC90398_56FA889202B4_var*
+//#UC END# *56FE6DC90398_56FA889202B4_var*
+begin
+//#UC START# *56FE6DC90398_56FA889202B4_impl*
+ pnlMain.Top := 0;
+ pnlMain.Left := bvlLeft.Width;
+ pnlMain.Width := bvlRight.Left - pnlMain.Left;
+
+ pnlClient.Left := pnlLeft.Left + pnlLeft.Width;
+ pnlClient.Width := pnlMain.Width - pnlLeft.Width;
+
+ pnlBaseSearch.Height := 110;
+ pnlBaseSearchZone.Height := 100;
+ pnlSearches.Height := 20;
+
+ hfLawNews.Width := tvLawNews.CalcFullWidth + 50;
+ pnlNews.Height := tvLawNews.CalcFullHeight + 60;
+
+ pnlSearches.BringToFront;
+ pnlNews.Top := 0;
+ pnlBaseSearch.Top := pnlNews.Height;
+ pnlTrees.Top := pnlBaseSearch.Top + pnlBaseSearch.Height;
+ hfTaxes.Width := pnlTrees.ClientWidth div 2;
+ pnlTrees.Height := Max(tvReferences.CalcFullHeight, tvTaxes.CalcFullHeight) + 60;
+ hfLastOpenDocs.Top := pnlTrees.Top + pnlTrees.Height;
+ hfLastOpenDocs.Height := tvLastOpenDocs.CalcFullHeight + 60;
+ pnlMain.Height := hfLastOpenDocs.Top + hfLastOpenDocs.Height;
+ pnlClient.Height := pnlMain.ClientHeight;
+
+ bvlLeftTop.Top := 0;
+ bvlLeftTop.Height := pnlBaseSearch.Top + 10;
+ with pnlLogo do
+ begin
+  Height := 60;
+  Top := bvlLeftTop.Height;
+ end;
+ with pnlBanner do
+ begin
+  Height := 160;
+  Top := pnlLogo.Top + pnlLogo.Height;
+ end;
+
+ pnlFeedback.Top := pnlBanner.Top + pnlBanner.Height;
+ pnlOnlineResources.Top := pnlFeedback.Top + pnlFeedback.Height;
+ pnlWebVersion.Top := pnlOnlineResources.Top + pnlOnlineResources.Height;
+
+ if pnlMain.Height > ClientHeight
+  then VertScrollBar.Range := pnlMain.Height
+  else VertScrollBar.Range := 0;
+//#UC END# *56FE6DC90398_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.ArrangeControls
+
+procedure TPrimMainMenuWithProfNewsForm.PaintLogo(Sender: TObject);
+//#UC START# *56FE8B7B023E_56FA889202B4_var*
+//#UC END# *56FE8B7B023E_56FA889202B4_var*
+begin
+//#UC START# *56FE8B7B023E_56FA889202B4_impl*
+ nsPaintImage(dmStdRes.ilLogo, pbLogo);
+//#UC END# *56FE8B7B023E_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.PaintLogo
+
+procedure TPrimMainMenuWithProfNewsForm.PaintButton(Sender: TObject);
+//#UC START# *56FE8B9303D1_56FA889202B4_var*
+//#UC END# *56FE8B9303D1_56FA889202B4_var*
+begin
+//#UC START# *56FE8B9303D1_56FA889202B4_impl*
+ if (Sender = pbFeedback) then
+ begin
+  if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
+   nsPaintImage(dmMainMenuNew.ilButtonsNew, pbFeedback, 0, True)
+  else
+   nsPaintImage(dmMainMenuNew.ilButtonsNew, pbFeedback, 3, True);
+ end//Sender = pbFeedback
+ else
+ if (Sender = pbOnLineResources) then
+ begin
+  if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
+  begin
+   if DefDataAdapter.IsInternetAgentEnabled then
+    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 1, True)
+   else
+    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 1, True);
+  end//afw.Application.LocaleInfo.Language = afw_lngEnglish
+  else
+  begin
+   if DefDataAdapter.IsInternetAgentEnabled then
+    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 5, True)
+   else
+    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 5, True);
+  end;//afw.Application.LocaleInfo.Language = afw_lngEnglish
+ end//Sender = pbOnLineResources
+ else
+ if (Sender = pbWebVersion) then
+ begin
+  if pbWebVersion.Visible then
+  begin
+   if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
+   begin
+    if DefDataAdapter.IsInternetAgentEnabled then
+     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 2, True)
+    else
+     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 2, True);
+   end//afw.Application.LocaleInfo.Language = afw_lngEnglish
+   else
+   begin
+    if DefDataAdapter.IsInternetAgentEnabled then
+     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 4, True)
+    else
+     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 4, True);
+   end;//afw.Application.LocaleInfo.Language = afw_lngEnglish
+  end;//pbWebVersion.Visible
+ end;//Sender = pbWebVersion
+//#UC END# *56FE8B9303D1_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.PaintButton
+
+procedure TPrimMainMenuWithProfNewsForm.PaintBoxClick(Sender: TObject);
+//#UC START# *57023AD501A4_56FA889202B4_var*
+const
+ c_OnlineResDocId = 57869919;
+//#UC END# *57023AD501A4_56FA889202B4_var*
+begin
+//#UC START# *57023AD501A4_56FA889202B4_impl*
+ if (Sender = pbFeedback) then
+ begin
+  TdmStdRes.OpenSendConsultation(nil);
+ end//Sender = pbFeedback
+ else
+ if (Sender = pbOnLineResources) then
+ begin
+  vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent);
+ end//Sender = pbOnLineResources
+ else
+ if (Sender = pbWebVersion) then
+ begin
+  if DefDataAdapter.IsInternetAgentEnabled then
+  begin
+   //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
+   afw.BeginOp;
+   try
+    nsOpenDocumentByNumber(c_OnlineResDocId + c_InternalDocShift, 0, dptSub, True);
+   finally
+    afw.EndOp;
+   end;//try..finally
+  end;
+ end;//Sender = pbWebVersion
+//#UC END# *57023AD501A4_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.PaintBoxClick
+
+procedure TPrimMainMenuWithProfNewsForm.BannerClick(Sender: TObject);
+//#UC START# *57024AF70200_56FA889202B4_var*
+var
+ l_Link: IExternalLink;
+ l_Entity: IEntityBase;
+ l_Ref: IUnknown;
+//#UC END# *57024AF70200_56FA889202B4_var*
+begin
+//#UC START# *57024AF70200_56FA889202B4_impl*
+ if (f_Banner <> nil) then
+ begin
+  f_Banner.OpenLink(l_Ref);
+  if (l_Ref <> nil) then
+  begin
+   if Supports(l_Ref, IExternalLink, l_Link) then
+    try
+     nsExecuteExternalLink(l_Link);
+    finally
+     l_Link := nil;
+    end//try..finally
+   else
+   if Supports(l_Ref, IEntityBase, l_Entity) then
+    try
+     TdmStdRes.OpenEntityAsDocument(l_Entity, NativeMainForm);
+    finally
+     l_Entity := nil;
+    end//try..finally
+  end;//l_Ref <> nil
+ end;//f_Banner <> nil
+//#UC END# *57024AF70200_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.BannerClick
+
+procedure TPrimMainMenuWithProfNewsForm.LoadBanner;
+//#UC START# *57024B0D006F_56FA889202B4_var*
+var
+ l_EO: IExternalObject;
+ l_Stream: TStream;
+ l_Name: IString;
+//#UC END# *57024B0D006F_56FA889202B4_var*
+begin
+//#UC START# *57024B0D006F_56FA889202B4_impl*
+ with ieIO do
+ begin
+  Background := clWhite;
+  AttachedImageEn := ieBanner;
+ end;//ieIO
+ try
+  DefDataAdapter.CommonInterfaces.GetBanner(f_Banner);
+ except
+  on ECannotFindData do
+  begin
+   ieBanner.Cursor := crArrow;
+   Exit;
+  end;//on ECannotFindData
+ end;//try..except
+ if (f_Banner <> nil) then
+ begin
+  f_Banner.GetPicture(l_EO);
+  if (l_EO <> nil) then
+  begin
+   l_Stream := TnsExternalObjectStream.Create(l_EO);
+   try
+    ieIO.LoadFromStream(l_Stream);
+    ieBanner.AutoFit := (ieIO.Params.Width <> ieBanner.Width) or
+                        (ieIO.Params.Height <> ieBanner.Height);
+   finally
+    FreeAndNil(l_Stream);
+   end;//try..finally
+   l_EO.GetName(l_Name);
+   if (l_Name <> nil) then
+   begin
+    ieBanner.Hint := l3Str(nsCStr(l_Name));
+    ieBanner.ShowHint := true;
+   end//l_Name <> nil
+   else
+    ieBanner.Hint := '';
+  end;//l_EO <> nil
+ end;//f_Banner <> nil
+ pnlBanner.Height := ieBanner.Height * 2;
+ ieBanner.Top := ieBanner.Height div 4;
+//#UC END# *57024B0D006F_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.LoadBanner
+
 function TPrimMainMenuWithProfNewsForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_56FA889202B4_var*
 //#UC END# *4AC9B6D00250_56FA889202B4_var*
@@ -359,6 +621,60 @@ begin
  Result := nil;
 //#UC END# *4AC9B6D00250_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoBuildGrid
+
+procedure TPrimMainMenuWithProfNewsForm.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_56FA889202B4_var*
+//#UC END# *479731C50290_56FA889202B4_var*
+begin
+//#UC START# *479731C50290_56FA889202B4_impl*
+ f_Banner := nil;
+ inherited;
+//#UC END# *479731C50290_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.Cleanup
+
+procedure TPrimMainMenuWithProfNewsForm.FinishDataUpdate;
+//#UC START# *47EA4E9002C6_56FA889202B4_var*
+//#UC END# *47EA4E9002C6_56FA889202B4_var*
+begin
+//#UC START# *47EA4E9002C6_56FA889202B4_impl*
+ inherited;
+ UpdateSearchLabels;
+ UpdateReferencesAndLawNewsCaptions;
+ UpdateTaxesTreeCaption;
+//#UC END# *47EA4E9002C6_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.FinishDataUpdate
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMainMenuWithProfNewsForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
+//#UC START# *49803F5503AA_56FA889202B4_var*
+//#UC END# *49803F5503AA_56FA889202B4_var*
+begin
+//#UC START# *49803F5503AA_56FA889202B4_impl*
+ f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
+ UpdateTaxesTreeCaption;
+ inherited;
+ LoadBanner;
+ UpdateCaption;
+ UpdateTabCaption(DoGetTabCaption);
+//#UC END# *49803F5503AA_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.DoInit
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function TPrimMainMenuWithProfNewsForm.DoLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
+//#UC START# *49807428008C_56FA889202B4_var*
+//#UC END# *49807428008C_56FA889202B4_var*
+begin
+//#UC START# *49807428008C_56FA889202B4_impl*
+ inherited DoLoadState(aState, aStateType);
+ ArrangeControls;
+//#UC END# *49807428008C_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.DoLoadState
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuWithProfNewsForm.InitControls;
@@ -809,6 +1125,17 @@ begin
 //#UC END# *4B62D10B031B_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.SetControlsResources
 {$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCL)}
+procedure TPrimMainMenuWithProfNewsForm.Resize;
+//#UC START# *4CC8417A0288_56FA889202B4_var*
+//#UC END# *4CC8417A0288_56FA889202B4_var*
+begin
+//#UC START# *4CC8417A0288_56FA889202B4_impl*
+ ArrangeControls;
+//#UC END# *4CC8417A0288_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.Resize
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TPrimMainMenuWithProfNewsForm.ClearFields;
 //#UC START# *5000565C019C_56FA889202B4_var*

@@ -31,15 +31,19 @@ type
   public
    constructor Create(const aDoc: IDocument;
     const aPara: IeeLeafPara;
+    aEditionForCompare: Integer;
     const aDocumentForReturn: TnsDocumentForReturnInfo); reintroduce; overload;
    class function Make(const aDoc: IDocument;
     const aPara: IeeLeafPara;
+    aEditionForCompare: Integer;
     const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo; reintroduce; overload;
    constructor Create(const aDoc: IDocument;
-    const aPara: IeeLeafPara;
+    const aPosition: TbsDocPos;
+    aEditionForCompare: Integer;
     const aDocumentForReturn: TnsDocumentForReturnInfo); reintroduce; overload;
    class function Make(const aDoc: IDocument;
-    const aPara: IeeLeafPara;
+    const aPosition: TbsDocPos;
+    aEditionForCompare: Integer;
     const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo; reintroduce; overload;
  end;//TnsCompareEditionsInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -53,6 +57,7 @@ uses
 
 constructor TnsCompareEditionsInfo.Create(const aDoc: IDocument;
  const aPara: IeeLeafPara;
+ aEditionForCompare: Integer;
  const aDocumentForReturn: TnsDocumentForReturnInfo);
 //#UC START# *4B6BD88A03B2_4A78506900E2_var*
 var
@@ -74,11 +79,12 @@ end;//TnsCompareEditionsInfo.Create
 
 class function TnsCompareEditionsInfo.Make(const aDoc: IDocument;
  const aPara: IeeLeafPara;
+ aEditionForCompare: Integer;
  const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo;
 var
  l_Inst : TnsCompareEditionsInfo;
 begin
- l_Inst := Create(aDoc, aPara, aDocumentForReturn);
+ l_Inst := Create(aDoc, aPara, aEditionForCompare, aDocumentForReturn);
  try
   Result := l_Inst;
  finally
@@ -87,7 +93,8 @@ begin
 end;//TnsCompareEditionsInfo.Make
 
 constructor TnsCompareEditionsInfo.Create(const aDoc: IDocument;
- const aPara: IeeLeafPara;
+ const aPosition: TbsDocPos;
+ aEditionForCompare: Integer;
  const aDocumentForReturn: TnsDocumentForReturnInfo);
 //#UC START# *5214BEB10136_4A78506900E2_var*
 var
@@ -102,12 +109,13 @@ begin
 end;//TnsCompareEditionsInfo.Create
 
 class function TnsCompareEditionsInfo.Make(const aDoc: IDocument;
- const aPara: IeeLeafPara;
+ const aPosition: TbsDocPos;
+ aEditionForCompare: Integer;
  const aDocumentForReturn: TnsDocumentForReturnInfo): InsCompareEditionsInfo;
 var
  l_Inst : TnsCompareEditionsInfo;
 begin
- l_Inst := Create(aDoc, aPara, aDocumentForReturn);
+ l_Inst := Create(aDoc, aPosition, aEditionForCompare, aDocumentForReturn);
  try
   Result := l_Inst;
  finally

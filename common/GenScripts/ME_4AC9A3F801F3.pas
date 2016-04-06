@@ -20,18 +20,18 @@ uses
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
- , vtLister
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces
  {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ , vtLister
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , eeTreeView
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , eeTreeView
  , l3ProtoDataContainer
  , MainMenuDomainInterfaces
  , SearchUnit

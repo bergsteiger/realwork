@@ -1923,7 +1923,10 @@ begin
 //#UC START# *56F3F0580255_497DDB2B001B_impl*
  Assert(Assigned(f_SearchContext));
  defDataAdapter.NativeAdapter.MakeDecisionsArchiveSupport.GetSearchServerUrl(nsIStr(f_SearchContext), l_Url);
- RunValidBrowser(nsCStr(l_Url));
+
+ // Открываем по стандартному алгоритму; только во внешнем браузере
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=620851813
+ nsDoShellExecute(nsCStr(l_Url), True, nil);
 //#UC END# *56F3F0580255_497DDB2B001B_impl*
 end;//TPrimListForm.ExSearchLabelClick
 

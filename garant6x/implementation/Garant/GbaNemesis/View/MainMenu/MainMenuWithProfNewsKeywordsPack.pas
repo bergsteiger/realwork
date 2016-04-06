@@ -117,6 +117,31 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_bvlLeftTop_Push
 
+ Tkw_MainMenuWithProfNews_Control_pnlLogo = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pnlLogo
+----
+*Пример использования*:
+[code]
+контрол::pnlLogo TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlLogo
+
+ Tkw_MainMenuWithProfNews_Control_pnlLogo_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pnlLogo
+----
+*Пример использования*:
+[code]
+контрол::pnlLogo:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlLogo_Push
+
  Tkw_MainMenuWithProfNews_Control_pbLogo = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола pbLogo
 ----
@@ -141,6 +166,31 @@ type
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_pbLogo_Push
+
+ Tkw_MainMenuWithProfNews_Control_pnlBanner = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pnlBanner
+----
+*Пример использования*:
+[code]
+контрол::pnlBanner TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlBanner
+
+ Tkw_MainMenuWithProfNews_Control_pnlBanner_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pnlBanner
+----
+*Пример использования*:
+[code]
+контрол::pnlBanner:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlBanner_Push
 
  Tkw_MainMenuWithProfNews_Control_ieBanner = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола ieBanner
@@ -167,80 +217,155 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuWithProfNews_Control_ieBanner_Push
 
- Tkw_MainMenuWithProfNews_Control_pbCourtsOnline = {final} class(TtfwControlString)
-  {* Слово словаря для идентификатора контрола pbCourtsOnline
+ Tkw_MainMenuWithProfNews_Control_pnlFeedback = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pnlFeedback
 ----
 *Пример использования*:
 [code]
-контрол::pbCourtsOnline TryFocus ASSERT
+контрол::pnlFeedback TryFocus ASSERT
 [code] }
   protected
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
    class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline
+ end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback
 
- Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push = {final} class(TkwBynameControlPush)
-  {* Слово словаря для контрола pbCourtsOnline
+ Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pnlFeedback
 ----
 *Пример использования*:
 [code]
-контрол::pbCourtsOnline:push pop:control:SetFocus ASSERT
+контрол::pnlFeedback:push pop:control:SetFocus ASSERT
 [code] }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push
+ end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push
 
- Tkw_MainMenuWithProfNews_Control_pbIntranet = {final} class(TtfwControlString)
-  {* Слово словаря для идентификатора контрола pbIntranet
+ Tkw_MainMenuWithProfNews_Control_pbFeedback = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pbFeedback
 ----
 *Пример использования*:
 [code]
-контрол::pbIntranet TryFocus ASSERT
+контрол::pbFeedback TryFocus ASSERT
 [code] }
   protected
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
    class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_pbIntranet
+ end;//Tkw_MainMenuWithProfNews_Control_pbFeedback
 
- Tkw_MainMenuWithProfNews_Control_pbIntranet_Push = {final} class(TkwBynameControlPush)
-  {* Слово словаря для контрола pbIntranet
+ Tkw_MainMenuWithProfNews_Control_pbFeedback_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pbFeedback
 ----
 *Пример использования*:
 [code]
-контрол::pbIntranet:push pop:control:SetFocus ASSERT
+контрол::pbFeedback:push pop:control:SetFocus ASSERT
 [code] }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_pbIntranet_Push
+ end;//Tkw_MainMenuWithProfNews_Control_pbFeedback_Push
 
- Tkw_MainMenuWithProfNews_Control_pbOnline = {final} class(TtfwControlString)
-  {* Слово словаря для идентификатора контрола pbOnline
+ Tkw_MainMenuWithProfNews_Control_pnlOnlineResources = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pnlOnlineResources
 ----
 *Пример использования*:
 [code]
-контрол::pbOnline TryFocus ASSERT
+контрол::pnlOnlineResources TryFocus ASSERT
 [code] }
   protected
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
    class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_pbOnline
+ end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources
 
- Tkw_MainMenuWithProfNews_Control_pbOnline_Push = {final} class(TkwBynameControlPush)
-  {* Слово словаря для контрола pbOnline
+ Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pnlOnlineResources
 ----
 *Пример использования*:
 [code]
-контрол::pbOnline:push pop:control:SetFocus ASSERT
+контрол::pnlOnlineResources:push pop:control:SetFocus ASSERT
 [code] }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_MainMenuWithProfNews_Control_pbOnline_Push
+ end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push
+
+ Tkw_MainMenuWithProfNews_Control_pbOnlineResources = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pbOnlineResources
+----
+*Пример использования*:
+[code]
+контрол::pbOnlineResources TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources
+
+ Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pbOnlineResources
+----
+*Пример использования*:
+[code]
+контрол::pbOnlineResources:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push
+
+ Tkw_MainMenuWithProfNews_Control_pnlWebVersion = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pnlWebVersion
+----
+*Пример использования*:
+[code]
+контрол::pnlWebVersion TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion
+
+ Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pnlWebVersion
+----
+*Пример использования*:
+[code]
+контрол::pnlWebVersion:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push
+
+ Tkw_MainMenuWithProfNews_Control_pbWebVersion = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола pbWebVersion
+----
+*Пример использования*:
+[code]
+контрол::pbWebVersion TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion
+
+ Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола pbWebVersion
+----
+*Пример использования*:
+[code]
+контрол::pbWebVersion:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push
 
  Tkw_MainMenuWithProfNews_Control_pnlClient = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола pnlClient
@@ -878,6 +1003,30 @@ OBJECT VAR l_TBevel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsBvlLeftTop
 
+ TkwEnMainMenuWithProfNewsPnlLogo = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pnlLogo
+[panel]Контрол pnlLogo формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtPanel
+*Пример:*
+[code]
+OBJECT VAR l_TvtPanel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pnlLogo >>> l_TvtPanel
+[code]  }
+  private
+   function pnlLogo(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlLogo }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsPnlLogo
+
  TkwEnMainMenuWithProfNewsPbLogo = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.pbLogo
 [panel]Контрол pbLogo формы Ten_MainMenuWithProfNews[panel]
@@ -901,6 +1050,30 @@ OBJECT VAR l_TPaintBox
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsPbLogo
+
+ TkwEnMainMenuWithProfNewsPnlBanner = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pnlBanner
+[panel]Контрол pnlBanner формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtPanel
+*Пример:*
+[code]
+OBJECT VAR l_TvtPanel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pnlBanner >>> l_TvtPanel
+[code]  }
+  private
+   function pnlBanner(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlBanner }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsPnlBanner
 
  TkwEnMainMenuWithProfNewsIeBanner = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.ieBanner
@@ -926,19 +1099,19 @@ OBJECT VAR l_TImageEnView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuWithProfNewsIeBanner
 
- TkwEnMainMenuWithProfNewsPbCourtsOnline = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MainMenuWithProfNews.pbCourtsOnline
-[panel]Контрол pbCourtsOnline формы Ten_MainMenuWithProfNews[panel]
-*Тип результата:* TPaintBox
+ TkwEnMainMenuWithProfNewsPnlFeedback = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pnlFeedback
+[panel]Контрол pnlFeedback формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtPanel
 *Пример:*
 [code]
-OBJECT VAR l_TPaintBox
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pbCourtsOnline >>> l_TPaintBox
+OBJECT VAR l_TvtPanel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pnlFeedback >>> l_TvtPanel
 [code]  }
   private
-   function pbCourtsOnline(const aCtx: TtfwContext;
-    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
-    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbCourtsOnline }
+   function pnlFeedback(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlFeedback }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
@@ -948,21 +1121,21 @@ OBJECT VAR l_TPaintBox
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEnMainMenuWithProfNewsPbCourtsOnline
+ end;//TkwEnMainMenuWithProfNewsPnlFeedback
 
- TkwEnMainMenuWithProfNewsPbIntranet = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MainMenuWithProfNews.pbIntranet
-[panel]Контрол pbIntranet формы Ten_MainMenuWithProfNews[panel]
+ TkwEnMainMenuWithProfNewsPbFeedback = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pbFeedback
+[panel]Контрол pbFeedback формы Ten_MainMenuWithProfNews[panel]
 *Тип результата:* TPaintBox
 *Пример:*
 [code]
 OBJECT VAR l_TPaintBox
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pbIntranet >>> l_TPaintBox
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pbFeedback >>> l_TPaintBox
 [code]  }
   private
-   function pbIntranet(const aCtx: TtfwContext;
+   function pbFeedback(const aCtx: TtfwContext;
     aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
-    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbIntranet }
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbFeedback }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
@@ -972,21 +1145,21 @@ OBJECT VAR l_TPaintBox
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEnMainMenuWithProfNewsPbIntranet
+ end;//TkwEnMainMenuWithProfNewsPbFeedback
 
- TkwEnMainMenuWithProfNewsPbOnline = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MainMenuWithProfNews.pbOnline
-[panel]Контрол pbOnline формы Ten_MainMenuWithProfNews[panel]
-*Тип результата:* TPaintBox
+ TkwEnMainMenuWithProfNewsPnlOnlineResources = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pnlOnlineResources
+[panel]Контрол pnlOnlineResources формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtPanel
 *Пример:*
 [code]
-OBJECT VAR l_TPaintBox
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pbOnline >>> l_TPaintBox
+OBJECT VAR l_TvtPanel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pnlOnlineResources >>> l_TvtPanel
 [code]  }
   private
-   function pbOnline(const aCtx: TtfwContext;
-    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
-    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbOnline }
+   function pnlOnlineResources(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlOnlineResources }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
@@ -996,7 +1169,79 @@ OBJECT VAR l_TPaintBox
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEnMainMenuWithProfNewsPbOnline
+ end;//TkwEnMainMenuWithProfNewsPnlOnlineResources
+
+ TkwEnMainMenuWithProfNewsPbOnlineResources = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pbOnlineResources
+[panel]Контрол pbOnlineResources формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TPaintBox
+*Пример:*
+[code]
+OBJECT VAR l_TPaintBox
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pbOnlineResources >>> l_TPaintBox
+[code]  }
+  private
+   function pbOnlineResources(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbOnlineResources }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsPbOnlineResources
+
+ TkwEnMainMenuWithProfNewsPnlWebVersion = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pnlWebVersion
+[panel]Контрол pnlWebVersion формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TvtPanel
+*Пример:*
+[code]
+OBJECT VAR l_TvtPanel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pnlWebVersion >>> l_TvtPanel
+[code]  }
+  private
+   function pnlWebVersion(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlWebVersion }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsPnlWebVersion
+
+ TkwEnMainMenuWithProfNewsPbWebVersion = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .Ten_MainMenuWithProfNews.pbWebVersion
+[panel]Контрол pbWebVersion формы Ten_MainMenuWithProfNews[panel]
+*Тип результата:* TPaintBox
+*Пример:*
+[code]
+OBJECT VAR l_TPaintBox
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.pbWebVersion >>> l_TPaintBox
+[code]  }
+  private
+   function pbWebVersion(const aCtx: TtfwContext;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
+    {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbWebVersion }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEnMainMenuWithProfNewsPbWebVersion
 
  TkwEnMainMenuWithProfNewsPnlClient = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.pnlClient
@@ -1638,6 +1883,33 @@ begin
  Result := 'контрол::bvlLeftTop:push';
 end;//Tkw_MainMenuWithProfNews_Control_bvlLeftTop_Push.GetWordNameForRegister
 
+function Tkw_MainMenuWithProfNews_Control_pnlLogo.GetString: AnsiString;
+begin
+ Result := 'pnlLogo';
+end;//Tkw_MainMenuWithProfNews_Control_pnlLogo.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_pnlLogo.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_MainMenuWithProfNews_Control_pnlLogo.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_pnlLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLogo';
+end;//Tkw_MainMenuWithProfNews_Control_pnlLogo.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_pnlLogo_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('pnlLogo');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_pnlLogo_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_pnlLogo_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLogo:push';
+end;//Tkw_MainMenuWithProfNews_Control_pnlLogo_Push.GetWordNameForRegister
+
 function Tkw_MainMenuWithProfNews_Control_pbLogo.GetString: AnsiString;
 begin
  Result := 'pbLogo';
@@ -1664,6 +1936,33 @@ class function Tkw_MainMenuWithProfNews_Control_pbLogo_Push.GetWordNameForRegist
 begin
  Result := 'контрол::pbLogo:push';
 end;//Tkw_MainMenuWithProfNews_Control_pbLogo_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_pnlBanner.GetString: AnsiString;
+begin
+ Result := 'pnlBanner';
+end;//Tkw_MainMenuWithProfNews_Control_pnlBanner.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_pnlBanner.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_MainMenuWithProfNews_Control_pnlBanner.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_pnlBanner.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBanner';
+end;//Tkw_MainMenuWithProfNews_Control_pnlBanner.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_pnlBanner_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('pnlBanner');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_pnlBanner_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_pnlBanner_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBanner:push';
+end;//Tkw_MainMenuWithProfNews_Control_pnlBanner_Push.GetWordNameForRegister
 
 function Tkw_MainMenuWithProfNews_Control_ieBanner.GetString: AnsiString;
 begin
@@ -1692,86 +1991,167 @@ begin
  Result := 'контрол::ieBanner:push';
 end;//Tkw_MainMenuWithProfNews_Control_ieBanner_Push.GetWordNameForRegister
 
-function Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.GetString: AnsiString;
+function Tkw_MainMenuWithProfNews_Control_pnlFeedback.GetString: AnsiString;
 begin
- Result := 'pbCourtsOnline';
-end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.GetString
+ Result := 'pnlFeedback';
+end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback.GetString
 
-class procedure Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.RegisterInEngine;
+class procedure Tkw_MainMenuWithProfNews_Control_pnlFeedback.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_pnlFeedback.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlFeedback';
+end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('pnlFeedback');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlFeedback:push';
+end;//Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_pbFeedback.GetString: AnsiString;
+begin
+ Result := 'pbFeedback';
+end;//Tkw_MainMenuWithProfNews_Control_pbFeedback.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_pbFeedback.RegisterInEngine;
 begin
  inherited;
  TtfwClassRef.Register(TPaintBox);
-end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.RegisterInEngine
+end;//Tkw_MainMenuWithProfNews_Control_pbFeedback.RegisterInEngine
 
-class function Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuWithProfNews_Control_pbFeedback.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbCourtsOnline';
-end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.GetWordNameForRegister
+ Result := 'контрол::pbFeedback';
+end;//Tkw_MainMenuWithProfNews_Control_pbFeedback.GetWordNameForRegister
 
-procedure Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push.DoDoIt(const aCtx: TtfwContext);
+procedure Tkw_MainMenuWithProfNews_Control_pbFeedback_Push.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushString('pbCourtsOnline');
+ aCtx.rEngine.PushString('pbFeedback');
  inherited;
-end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push.DoDoIt
+end;//Tkw_MainMenuWithProfNews_Control_pbFeedback_Push.DoDoIt
 
-class function Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuWithProfNews_Control_pbFeedback_Push.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbCourtsOnline:push';
-end;//Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push.GetWordNameForRegister
+ Result := 'контрол::pbFeedback:push';
+end;//Tkw_MainMenuWithProfNews_Control_pbFeedback_Push.GetWordNameForRegister
 
-function Tkw_MainMenuWithProfNews_Control_pbIntranet.GetString: AnsiString;
+function Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.GetString: AnsiString;
 begin
- Result := 'pbIntranet';
-end;//Tkw_MainMenuWithProfNews_Control_pbIntranet.GetString
+ Result := 'pnlOnlineResources';
+end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.GetString
 
-class procedure Tkw_MainMenuWithProfNews_Control_pbIntranet.RegisterInEngine;
+class procedure Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlOnlineResources';
+end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('pnlOnlineResources');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlOnlineResources:push';
+end;//Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_pbOnlineResources.GetString: AnsiString;
+begin
+ Result := 'pbOnlineResources';
+end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_pbOnlineResources.RegisterInEngine;
 begin
  inherited;
  TtfwClassRef.Register(TPaintBox);
-end;//Tkw_MainMenuWithProfNews_Control_pbIntranet.RegisterInEngine
+end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources.RegisterInEngine
 
-class function Tkw_MainMenuWithProfNews_Control_pbIntranet.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuWithProfNews_Control_pbOnlineResources.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbIntranet';
-end;//Tkw_MainMenuWithProfNews_Control_pbIntranet.GetWordNameForRegister
+ Result := 'контрол::pbOnlineResources';
+end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources.GetWordNameForRegister
 
-procedure Tkw_MainMenuWithProfNews_Control_pbIntranet_Push.DoDoIt(const aCtx: TtfwContext);
+procedure Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushString('pbIntranet');
+ aCtx.rEngine.PushString('pbOnlineResources');
  inherited;
-end;//Tkw_MainMenuWithProfNews_Control_pbIntranet_Push.DoDoIt
+end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push.DoDoIt
 
-class function Tkw_MainMenuWithProfNews_Control_pbIntranet_Push.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbIntranet:push';
-end;//Tkw_MainMenuWithProfNews_Control_pbIntranet_Push.GetWordNameForRegister
+ Result := 'контрол::pbOnlineResources:push';
+end;//Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push.GetWordNameForRegister
 
-function Tkw_MainMenuWithProfNews_Control_pbOnline.GetString: AnsiString;
+function Tkw_MainMenuWithProfNews_Control_pnlWebVersion.GetString: AnsiString;
 begin
- Result := 'pbOnline';
-end;//Tkw_MainMenuWithProfNews_Control_pbOnline.GetString
+ Result := 'pnlWebVersion';
+end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion.GetString
 
-class procedure Tkw_MainMenuWithProfNews_Control_pbOnline.RegisterInEngine;
+class procedure Tkw_MainMenuWithProfNews_Control_pnlWebVersion.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion.RegisterInEngine
+
+class function Tkw_MainMenuWithProfNews_Control_pnlWebVersion.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlWebVersion';
+end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion.GetWordNameForRegister
+
+procedure Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('pnlWebVersion');
+ inherited;
+end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push.DoDoIt
+
+class function Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlWebVersion:push';
+end;//Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push.GetWordNameForRegister
+
+function Tkw_MainMenuWithProfNews_Control_pbWebVersion.GetString: AnsiString;
+begin
+ Result := 'pbWebVersion';
+end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion.GetString
+
+class procedure Tkw_MainMenuWithProfNews_Control_pbWebVersion.RegisterInEngine;
 begin
  inherited;
  TtfwClassRef.Register(TPaintBox);
-end;//Tkw_MainMenuWithProfNews_Control_pbOnline.RegisterInEngine
+end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion.RegisterInEngine
 
-class function Tkw_MainMenuWithProfNews_Control_pbOnline.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuWithProfNews_Control_pbWebVersion.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbOnline';
-end;//Tkw_MainMenuWithProfNews_Control_pbOnline.GetWordNameForRegister
+ Result := 'контрол::pbWebVersion';
+end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion.GetWordNameForRegister
 
-procedure Tkw_MainMenuWithProfNews_Control_pbOnline_Push.DoDoIt(const aCtx: TtfwContext);
+procedure Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushString('pbOnline');
+ aCtx.rEngine.PushString('pbWebVersion');
  inherited;
-end;//Tkw_MainMenuWithProfNews_Control_pbOnline_Push.DoDoIt
+end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push.DoDoIt
 
-class function Tkw_MainMenuWithProfNews_Control_pbOnline_Push.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbOnline:push';
-end;//Tkw_MainMenuWithProfNews_Control_pbOnline_Push.GetWordNameForRegister
+ Result := 'контрол::pbWebVersion:push';
+end;//Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push.GetWordNameForRegister
 
 function Tkw_MainMenuWithProfNews_Control_pnlClient.GetString: AnsiString;
 begin
@@ -2506,6 +2886,54 @@ begin
  Result := '.Ten_MainMenuWithProfNews.bvlLeftTop';
 end;//TkwEnMainMenuWithProfNewsBvlLeftTop.GetWordNameForRegister
 
+function TkwEnMainMenuWithProfNewsPnlLogo.pnlLogo(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlLogo }
+begin
+ Result := aen_MainMenuWithProfNews.pnlLogo;
+end;//TkwEnMainMenuWithProfNewsPnlLogo.pnlLogo
+
+procedure TkwEnMainMenuWithProfNewsPnlLogo.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlLogo(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPnlLogo.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsPnlLogo.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству pnlLogo', aCtx);
+end;//TkwEnMainMenuWithProfNewsPnlLogo.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsPnlLogo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtPanel);
+end;//TkwEnMainMenuWithProfNewsPnlLogo.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsPnlLogo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsPnlLogo.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsPnlLogo.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsPnlLogo.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsPnlLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.pnlLogo';
+end;//TkwEnMainMenuWithProfNewsPnlLogo.GetWordNameForRegister
+
 function TkwEnMainMenuWithProfNewsPbLogo.pbLogo(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
  {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbLogo }
@@ -2553,6 +2981,54 @@ class function TkwEnMainMenuWithProfNewsPbLogo.GetWordNameForRegister: AnsiStrin
 begin
  Result := '.Ten_MainMenuWithProfNews.pbLogo';
 end;//TkwEnMainMenuWithProfNewsPbLogo.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsPnlBanner.pnlBanner(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlBanner }
+begin
+ Result := aen_MainMenuWithProfNews.pnlBanner;
+end;//TkwEnMainMenuWithProfNewsPnlBanner.pnlBanner
+
+procedure TkwEnMainMenuWithProfNewsPnlBanner.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlBanner(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPnlBanner.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsPnlBanner.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству pnlBanner', aCtx);
+end;//TkwEnMainMenuWithProfNewsPnlBanner.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsPnlBanner.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtPanel);
+end;//TkwEnMainMenuWithProfNewsPnlBanner.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsPnlBanner.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsPnlBanner.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsPnlBanner.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsPnlBanner.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsPnlBanner.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.pnlBanner';
+end;//TkwEnMainMenuWithProfNewsPnlBanner.GetWordNameForRegister
 
 function TkwEnMainMenuWithProfNewsIeBanner.ieBanner(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TImageEnView;
@@ -2602,14 +3078,14 @@ begin
  Result := '.Ten_MainMenuWithProfNews.ieBanner';
 end;//TkwEnMainMenuWithProfNewsIeBanner.GetWordNameForRegister
 
-function TkwEnMainMenuWithProfNewsPbCourtsOnline.pbCourtsOnline(const aCtx: TtfwContext;
- aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
- {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbCourtsOnline }
+function TkwEnMainMenuWithProfNewsPnlFeedback.pnlFeedback(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlFeedback }
 begin
- Result := aen_MainMenuWithProfNews.pbCourtsOnline;
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.pbCourtsOnline
+ Result := aen_MainMenuWithProfNews.pnlFeedback;
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.pnlFeedback
 
-procedure TkwEnMainMenuWithProfNewsPbCourtsOnline.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnMainMenuWithProfNewsPnlFeedback.DoDoIt(const aCtx: TtfwContext);
 var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
 begin
  try
@@ -2621,43 +3097,43 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbCourtsOnline(aCtx, l_aen_MainMenuWithProfNews));
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.DoDoIt
+ aCtx.rEngine.PushObj(pnlFeedback(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.DoDoIt
 
-procedure TkwEnMainMenuWithProfNewsPbCourtsOnline.SetValuePrim(const aValue: TtfwStackValue;
+procedure TkwEnMainMenuWithProfNewsPnlFeedback.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbCourtsOnline', aCtx);
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.SetValuePrim
+ RunnerError('Нельзя присваивать значение readonly свойству pnlFeedback', aCtx);
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.SetValuePrim
 
-function TkwEnMainMenuWithProfNewsPbCourtsOnline.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+function TkwEnMainMenuWithProfNewsPnlFeedback.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := TypeInfo(TPaintBox);
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.GetResultTypeInfo
+ Result := TypeInfo(TvtPanel);
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.GetResultTypeInfo
 
-function TkwEnMainMenuWithProfNewsPbCourtsOnline.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+function TkwEnMainMenuWithProfNewsPnlFeedback.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.GetAllParamsCount
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.GetAllParamsCount
 
-function TkwEnMainMenuWithProfNewsPbCourtsOnline.ParamsTypes: PTypeInfoArray;
+function TkwEnMainMenuWithProfNewsPnlFeedback.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.ParamsTypes
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.ParamsTypes
 
-class function TkwEnMainMenuWithProfNewsPbCourtsOnline.GetWordNameForRegister: AnsiString;
+class function TkwEnMainMenuWithProfNewsPnlFeedback.GetWordNameForRegister: AnsiString;
 begin
- Result := '.Ten_MainMenuWithProfNews.pbCourtsOnline';
-end;//TkwEnMainMenuWithProfNewsPbCourtsOnline.GetWordNameForRegister
+ Result := '.Ten_MainMenuWithProfNews.pnlFeedback';
+end;//TkwEnMainMenuWithProfNewsPnlFeedback.GetWordNameForRegister
 
-function TkwEnMainMenuWithProfNewsPbIntranet.pbIntranet(const aCtx: TtfwContext;
+function TkwEnMainMenuWithProfNewsPbFeedback.pbFeedback(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
- {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbIntranet }
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbFeedback }
 begin
- Result := aen_MainMenuWithProfNews.pbIntranet;
-end;//TkwEnMainMenuWithProfNewsPbIntranet.pbIntranet
+ Result := aen_MainMenuWithProfNews.pbFeedback;
+end;//TkwEnMainMenuWithProfNewsPbFeedback.pbFeedback
 
-procedure TkwEnMainMenuWithProfNewsPbIntranet.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnMainMenuWithProfNewsPbFeedback.DoDoIt(const aCtx: TtfwContext);
 var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
 begin
  try
@@ -2669,43 +3145,43 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbIntranet(aCtx, l_aen_MainMenuWithProfNews));
-end;//TkwEnMainMenuWithProfNewsPbIntranet.DoDoIt
+ aCtx.rEngine.PushObj(pbFeedback(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPbFeedback.DoDoIt
 
-procedure TkwEnMainMenuWithProfNewsPbIntranet.SetValuePrim(const aValue: TtfwStackValue;
+procedure TkwEnMainMenuWithProfNewsPbFeedback.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbIntranet', aCtx);
-end;//TkwEnMainMenuWithProfNewsPbIntranet.SetValuePrim
+ RunnerError('Нельзя присваивать значение readonly свойству pbFeedback', aCtx);
+end;//TkwEnMainMenuWithProfNewsPbFeedback.SetValuePrim
 
-function TkwEnMainMenuWithProfNewsPbIntranet.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+function TkwEnMainMenuWithProfNewsPbFeedback.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TPaintBox);
-end;//TkwEnMainMenuWithProfNewsPbIntranet.GetResultTypeInfo
+end;//TkwEnMainMenuWithProfNewsPbFeedback.GetResultTypeInfo
 
-function TkwEnMainMenuWithProfNewsPbIntranet.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+function TkwEnMainMenuWithProfNewsPbFeedback.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
-end;//TkwEnMainMenuWithProfNewsPbIntranet.GetAllParamsCount
+end;//TkwEnMainMenuWithProfNewsPbFeedback.GetAllParamsCount
 
-function TkwEnMainMenuWithProfNewsPbIntranet.ParamsTypes: PTypeInfoArray;
+function TkwEnMainMenuWithProfNewsPbFeedback.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
-end;//TkwEnMainMenuWithProfNewsPbIntranet.ParamsTypes
+end;//TkwEnMainMenuWithProfNewsPbFeedback.ParamsTypes
 
-class function TkwEnMainMenuWithProfNewsPbIntranet.GetWordNameForRegister: AnsiString;
+class function TkwEnMainMenuWithProfNewsPbFeedback.GetWordNameForRegister: AnsiString;
 begin
- Result := '.Ten_MainMenuWithProfNews.pbIntranet';
-end;//TkwEnMainMenuWithProfNewsPbIntranet.GetWordNameForRegister
+ Result := '.Ten_MainMenuWithProfNews.pbFeedback';
+end;//TkwEnMainMenuWithProfNewsPbFeedback.GetWordNameForRegister
 
-function TkwEnMainMenuWithProfNewsPbOnline.pbOnline(const aCtx: TtfwContext;
- aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
- {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbOnline }
+function TkwEnMainMenuWithProfNewsPnlOnlineResources.pnlOnlineResources(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlOnlineResources }
 begin
- Result := aen_MainMenuWithProfNews.pbOnline;
-end;//TkwEnMainMenuWithProfNewsPbOnline.pbOnline
+ Result := aen_MainMenuWithProfNews.pnlOnlineResources;
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.pnlOnlineResources
 
-procedure TkwEnMainMenuWithProfNewsPbOnline.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnMainMenuWithProfNewsPnlOnlineResources.DoDoIt(const aCtx: TtfwContext);
 var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
 begin
  try
@@ -2717,34 +3193,178 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbOnline(aCtx, l_aen_MainMenuWithProfNews));
-end;//TkwEnMainMenuWithProfNewsPbOnline.DoDoIt
+ aCtx.rEngine.PushObj(pnlOnlineResources(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.DoDoIt
 
-procedure TkwEnMainMenuWithProfNewsPbOnline.SetValuePrim(const aValue: TtfwStackValue;
+procedure TkwEnMainMenuWithProfNewsPnlOnlineResources.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbOnline', aCtx);
-end;//TkwEnMainMenuWithProfNewsPbOnline.SetValuePrim
+ RunnerError('Нельзя присваивать значение readonly свойству pnlOnlineResources', aCtx);
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.SetValuePrim
 
-function TkwEnMainMenuWithProfNewsPbOnline.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+function TkwEnMainMenuWithProfNewsPnlOnlineResources.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := TypeInfo(TPaintBox);
-end;//TkwEnMainMenuWithProfNewsPbOnline.GetResultTypeInfo
+ Result := TypeInfo(TvtPanel);
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.GetResultTypeInfo
 
-function TkwEnMainMenuWithProfNewsPbOnline.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+function TkwEnMainMenuWithProfNewsPnlOnlineResources.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
-end;//TkwEnMainMenuWithProfNewsPbOnline.GetAllParamsCount
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.GetAllParamsCount
 
-function TkwEnMainMenuWithProfNewsPbOnline.ParamsTypes: PTypeInfoArray;
+function TkwEnMainMenuWithProfNewsPnlOnlineResources.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
-end;//TkwEnMainMenuWithProfNewsPbOnline.ParamsTypes
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.ParamsTypes
 
-class function TkwEnMainMenuWithProfNewsPbOnline.GetWordNameForRegister: AnsiString;
+class function TkwEnMainMenuWithProfNewsPnlOnlineResources.GetWordNameForRegister: AnsiString;
 begin
- Result := '.Ten_MainMenuWithProfNews.pbOnline';
-end;//TkwEnMainMenuWithProfNewsPbOnline.GetWordNameForRegister
+ Result := '.Ten_MainMenuWithProfNews.pnlOnlineResources';
+end;//TkwEnMainMenuWithProfNewsPnlOnlineResources.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsPbOnlineResources.pbOnlineResources(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbOnlineResources }
+begin
+ Result := aen_MainMenuWithProfNews.pbOnlineResources;
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.pbOnlineResources
+
+procedure TkwEnMainMenuWithProfNewsPbOnlineResources.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pbOnlineResources(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsPbOnlineResources.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству pbOnlineResources', aCtx);
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsPbOnlineResources.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TPaintBox);
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsPbOnlineResources.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsPbOnlineResources.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsPbOnlineResources.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.pbOnlineResources';
+end;//TkwEnMainMenuWithProfNewsPbOnlineResources.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsPnlWebVersion.pnlWebVersion(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pnlWebVersion }
+begin
+ Result := aen_MainMenuWithProfNews.pnlWebVersion;
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.pnlWebVersion
+
+procedure TkwEnMainMenuWithProfNewsPnlWebVersion.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlWebVersion(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsPnlWebVersion.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству pnlWebVersion', aCtx);
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsPnlWebVersion.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtPanel);
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsPnlWebVersion.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsPnlWebVersion.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsPnlWebVersion.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.pnlWebVersion';
+end;//TkwEnMainMenuWithProfNewsPnlWebVersion.GetWordNameForRegister
+
+function TkwEnMainMenuWithProfNewsPbWebVersion.pbWebVersion(const aCtx: TtfwContext;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TPaintBox;
+ {* Реализация слова скрипта .Ten_MainMenuWithProfNews.pbWebVersion }
+begin
+ Result := aen_MainMenuWithProfNews.pbWebVersion;
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.pbWebVersion
+
+procedure TkwEnMainMenuWithProfNewsPbWebVersion.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews;
+begin
+ try
+  l_aen_MainMenuWithProfNews := Ten_MainMenuWithProfNews(aCtx.rEngine.PopObjAs(Ten_MainMenuWithProfNews));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pbWebVersion(aCtx, l_aen_MainMenuWithProfNews));
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.DoDoIt
+
+procedure TkwEnMainMenuWithProfNewsPbWebVersion.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству pbWebVersion', aCtx);
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.SetValuePrim
+
+function TkwEnMainMenuWithProfNewsPbWebVersion.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TPaintBox);
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.GetResultTypeInfo
+
+function TkwEnMainMenuWithProfNewsPbWebVersion.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.GetAllParamsCount
+
+function TkwEnMainMenuWithProfNewsPbWebVersion.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuWithProfNews)]);
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.ParamsTypes
+
+class function TkwEnMainMenuWithProfNewsPbWebVersion.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuWithProfNews.pbWebVersion';
+end;//TkwEnMainMenuWithProfNewsPbWebVersion.GetWordNameForRegister
 
 function TkwEnMainMenuWithProfNewsPnlClient.pnlClient(const aCtx: TtfwContext;
  aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtPanel;
@@ -3909,26 +4529,46 @@ initialization
  {* Регистрация Tkw_MainMenuWithProfNews_Control_bvlLeftTop }
  Tkw_MainMenuWithProfNews_Control_bvlLeftTop_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_bvlLeftTop_Push }
+ Tkw_MainMenuWithProfNews_Control_pnlLogo.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlLogo }
+ Tkw_MainMenuWithProfNews_Control_pnlLogo_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlLogo_Push }
  Tkw_MainMenuWithProfNews_Control_pbLogo.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pbLogo }
  Tkw_MainMenuWithProfNews_Control_pbLogo_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pbLogo_Push }
+ Tkw_MainMenuWithProfNews_Control_pnlBanner.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlBanner }
+ Tkw_MainMenuWithProfNews_Control_pnlBanner_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlBanner_Push }
  Tkw_MainMenuWithProfNews_Control_ieBanner.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_ieBanner }
  Tkw_MainMenuWithProfNews_Control_ieBanner_Push.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_ieBanner_Push }
- Tkw_MainMenuWithProfNews_Control_pbCourtsOnline.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_pbCourtsOnline }
- Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_pbCourtsOnline_Push }
- Tkw_MainMenuWithProfNews_Control_pbIntranet.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_pbIntranet }
- Tkw_MainMenuWithProfNews_Control_pbIntranet_Push.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_pbIntranet_Push }
- Tkw_MainMenuWithProfNews_Control_pbOnline.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_pbOnline }
- Tkw_MainMenuWithProfNews_Control_pbOnline_Push.RegisterInEngine;
- {* Регистрация Tkw_MainMenuWithProfNews_Control_pbOnline_Push }
+ Tkw_MainMenuWithProfNews_Control_pnlFeedback.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlFeedback }
+ Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlFeedback_Push }
+ Tkw_MainMenuWithProfNews_Control_pbFeedback.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pbFeedback }
+ Tkw_MainMenuWithProfNews_Control_pbFeedback_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pbFeedback_Push }
+ Tkw_MainMenuWithProfNews_Control_pnlOnlineResources.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlOnlineResources }
+ Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlOnlineResources_Push }
+ Tkw_MainMenuWithProfNews_Control_pbOnlineResources.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pbOnlineResources }
+ Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pbOnlineResources_Push }
+ Tkw_MainMenuWithProfNews_Control_pnlWebVersion.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlWebVersion }
+ Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlWebVersion_Push }
+ Tkw_MainMenuWithProfNews_Control_pbWebVersion.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pbWebVersion }
+ Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainMenuWithProfNews_Control_pbWebVersion_Push }
  Tkw_MainMenuWithProfNews_Control_pnlClient.RegisterInEngine;
  {* Регистрация Tkw_MainMenuWithProfNews_Control_pnlClient }
  Tkw_MainMenuWithProfNews_Control_pnlClient_Push.RegisterInEngine;
@@ -4027,16 +4667,26 @@ initialization
  {* Регистрация en_MainMenuWithProfNews_pnlLeft }
  TkwEnMainMenuWithProfNewsBvlLeftTop.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_bvlLeftTop }
+ TkwEnMainMenuWithProfNewsPnlLogo.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pnlLogo }
  TkwEnMainMenuWithProfNewsPbLogo.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_pbLogo }
+ TkwEnMainMenuWithProfNewsPnlBanner.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pnlBanner }
  TkwEnMainMenuWithProfNewsIeBanner.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_ieBanner }
- TkwEnMainMenuWithProfNewsPbCourtsOnline.RegisterInEngine;
- {* Регистрация en_MainMenuWithProfNews_pbCourtsOnline }
- TkwEnMainMenuWithProfNewsPbIntranet.RegisterInEngine;
- {* Регистрация en_MainMenuWithProfNews_pbIntranet }
- TkwEnMainMenuWithProfNewsPbOnline.RegisterInEngine;
- {* Регистрация en_MainMenuWithProfNews_pbOnline }
+ TkwEnMainMenuWithProfNewsPnlFeedback.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pnlFeedback }
+ TkwEnMainMenuWithProfNewsPbFeedback.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pbFeedback }
+ TkwEnMainMenuWithProfNewsPnlOnlineResources.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pnlOnlineResources }
+ TkwEnMainMenuWithProfNewsPbOnlineResources.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pbOnlineResources }
+ TkwEnMainMenuWithProfNewsPnlWebVersion.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pnlWebVersion }
+ TkwEnMainMenuWithProfNewsPbWebVersion.RegisterInEngine;
+ {* Регистрация en_MainMenuWithProfNews_pbWebVersion }
  TkwEnMainMenuWithProfNewsPnlClient.RegisterInEngine;
  {* Регистрация en_MainMenuWithProfNews_pnlClient }
  TkwEnMainMenuWithProfNewsPnlNews.RegisterInEngine;

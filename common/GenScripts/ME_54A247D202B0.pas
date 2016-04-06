@@ -78,6 +78,8 @@ type
    procedure Add(anItem: TddProcessTask);
    function MakeTask(anIndex: Integer;
     const aTaskFolder: AnsiString): TddProcessTask;
+  public
+   class function Make(aValue: Tl3Tag): TasksListHelper; reintroduce;
  end;//TTasksListHelper
 
  TReplacementFileHelper = class(TSourceFilesHelper, ReplacementFileHelper)
@@ -279,6 +281,18 @@ begin
   CheckNSRC(l_IDX, anItem);
 //#UC END# *53EDDCE10317_53BFCD060366_impl*
 end;//TSourceFilesHelper.DoAdd
+
+class function TTasksListHelper.Make(aValue: Tl3Tag): TasksListHelper;
+var
+ l_Inst : TTasksListHelper;
+begin
+ l_Inst := Create(aValue);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TTasksListHelper.Make
 
 function TTasksListHelper.Get_Count: Integer;
 //#UC START# *570230A002CB_57022B6800F0get_var*
