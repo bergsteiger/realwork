@@ -94,7 +94,7 @@
        end;
       end
       else
-       l_UserCondition := Factory.MakeLogicCondition(l_UserCondition, da_loAnd, Factory.MakeParamsCondition('us', TdaScheme.Instance.Table(da_mtJournal).Field['ext_id'], da_copEqual, 'p_UserID'));
+       l_UserCondition := Factory.MakeLogicCondition(l_UserCondition, da_loAnd, Factory.MakeParamsCondition('s', TdaScheme.Instance.Table(da_mtJournal).Field['ext_id'], da_copEqual, 'p_UserID'));
       l_SubQuery.WhereCondition := Factory.MakeLogicCondition(Factory.MakeSubQueryCondition('us', TdaScheme.Instance.Table(da_mtJournal).Field['session_id'], l_DateDocSubQuery), da_loAnd, l_UserCondition);
      finally
       l_UserCondition := nil;
@@ -126,9 +126,6 @@
   finally
    l_DateDocSubQuery := nil;
   end;
-  l_Query.AddOrderBy(Factory.MakeSortField(l_Query.SelectFieldByName('session_id')));
-  l_Query.AddOrderBy(Factory.MakeSortField(l_Query.SelectFieldByName('date')));
-  l_Query.AddOrderBy(Factory.MakeSortField(l_Query.SelectFieldByName('time')));
   l_Query.Prepare;
   l_Query.Param['p_DateFrom'].AsStDate := FromDate;
   l_Query.Param['p_DateTo'].AsStDate := ToDate;
@@ -138,14 +135,11 @@
    l_Query.Param['p_StartSessionID'].AsInteger := Ord(da_oobSessionBegin);
    l_Query.Param['p_EndSessionID'].AsInteger := Ord(da_oobSessionEnd);
   end;
-  if UserOrGroupID <> 0 then
-  begin
-   l_Query.Param['p_UserID'].AsLargeInt := UserOrGroupID;
-   l_Query.Param['p_StartSessionID'].AsInteger := Ord(da_oobSessionBegin);
-  end;
+  if aDocID <> 0 then
+    l_Query.Param['p_UserID'].AsLargeInt := UserOrGroupID;
   Result := l_Query.OpenResultSet;
  finally
-  l_Query := nil;
+  FreeAndNil(l_Query);
  end;
 //#UC END# *559CF9D300FA_5602A0790033_impl*
 //#UC START# *559CF9D300FA_5602A0790033_var*
