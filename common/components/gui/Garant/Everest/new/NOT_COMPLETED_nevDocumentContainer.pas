@@ -278,6 +278,14 @@ type
     {* Нотификация о добавлении Sub'а в другом "похожем" документе }
    function GetCommentTextByParaID(aParaID: Integer): Il3CString;
    procedure DeleteCommentByParaID(aParaID: Integer);
+   function Iterate(anAction: InevSubList_Iterate_Action;
+    const aBlock: IUnknown = nil;
+    const aMessage: Il3CString = nil): Integer; virtual;
+    {* Перебирает список меток }
+   function IterateF(anAction: InevSubList_Iterate_Action;
+    const aBlock: IUnknown = nil;
+    const aMessage: Il3CString = nil): Integer;
+    {* Перебирает список меток }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -2851,6 +2859,162 @@ begin
   end;//l_Obj.QT(InevPara, l_Para)
 //#UC END# *4D36F3960377_47F0870E0034_impl*
 end;//TnevDocumentContainer.DeleteCommentByParaID
+
+function TnevDocumentContainer.Iterate(anAction: InevSubList_Iterate_Action;
+ const aBlock: IUnknown = nil;
+ const aMessage: Il3CString = nil): Integer;
+ {* Перебирает список меток }
+//#UC START# *4BB07BFC00F8_47F0870E0034_var*
+var
+ l_First    : Integer;
+ l_Progress : Il3Progress;
+
+ function _DoSub(aSub: Tl3Variant; anIndex: Integer): Boolean;
+ var
+  l_Sub    : IevSub;
+  l_Exists : Boolean;
+ begin//_DoSub
+  if (l_Progress <> nil) then
+   l_Progress.Progress(anIndex);
+  l_First := -1;
+  with aSub.Attr[k2_tiHandle] do
+   if IsValid then begin
+    l_Sub := pm_GetSub(AsLong);
+    try
+     l_Exists := l_Sub.Exists;
+     Result := anAction(l_Sub, 0);
+     if Result AND (l_Exists AND not l_Sub.Exists) then begin
+      l_First := anIndex;
+      Result := false;
+     end;//Result..
+    finally
+     l_Sub := nil;
+    end;//try..finally
+   end else
+    Result := true;
+ end;//_DoSub
+
+var
+ l_Break  : Boolean;
+ l_Action : InevRangePrim_Iterate_Action;
+
+ function _DoBlock(const aBlock: InevRange; aBlockIndex: Integer): Boolean;
+
+  function _DoSub(aSub: Tl3Variant; aSubIndex: Integer): Boolean;
+  begin//_DoSub
+   Result := anAction(pm_GetSub(aSub.IntA[k2_tiHandle]), aSubIndex);
+   if not Result then
+    l_Break := true;
+  end;//_DoSub
+
+ var
+  l_Tag    : Tl3Tag;
+  l_Start  : InevBasePoint;
+  l_Finish : InevBasePoint;
+ begin//_DoBlock
+  if l_Break then
+   Result := false
+  else
+  begin
+   Result := true;
+   l_Tag := aBlock.Obj^.AsObject;
+   if l_Tag.IsKindOf(k2_typBlock) then
+   begin
+    // обрабатываем сам блок
+    aBlock.GetBorderPoints(l_Start, l_Finish);
+    if (l_Start = nil) OR (l_Start.Position <= 1) then
+     Result := anAction(pm_GetSub(l_Tag.IntA[k2_tiHandle]), 0);
+   end;//l_Tag.IsKindOf(k2_typBlock)
+   if Result then
+   begin
+    if l_Tag.IsKindOf(k2_typParaList) then
+     aBlock.Iterate(l_Action)
+    else
+     with l_Tag.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub)]) do
+      if IsValid then
+       IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@_DoSub));
+   end;//Result
+   if l_Break then
+    Result := false;
+   if not Result then
+    l_Break := true;
+  end;//l_Break
+ end;//_DoBlock
+
+var
+ l_Range  : IevRange;
+ l_Block  : InevRange;
+ l_Start  : InevBasePoint;
+ l_Finish : InevBasePoint;
+//#UC END# *4BB07BFC00F8_47F0870E0034_var*
+begin
+//#UC START# *4BB07BFC00F8_47F0870E0034_impl*
+ if (TextSource = nil) then
+  l_Progress := nil
+ else
+  l_Progress := TextSource.Progress;
+ if (aBlock = nil) then
+ begin
+  l_First := 0;
+  with Document.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub)]) do
+  begin
+   if (l_Progress <> nil) then
+    l_Progress.Start(ChildrenCount, aMessage);
+   try
+    while (l_First >= 0) do
+    begin
+     if IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@_DoSub), l_First) < 0 then
+      break;
+    end;//while (l_First >= 0)
+   finally
+    if (l_Progress <> nil) then
+     l_Progress.Finish;
+   end;//try..finally
+  end;//Document.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, ev_sbtSub])
+ end//aBlock = nil
+ else
+ begin
+  if Supports(aBlock, IevRange, l_Range) then
+   try
+    l_Block := l_Range.GetBlock;
+    try
+     if l_Block.Obj.AsObject.IsKindOf(k2_typDocument) then
+     begin
+      l_Block.GetBorderPoints(l_Start, l_Finish);
+      if (l_Start = nil) OR l_Start.AtStart then
+       if not anAction(pm_GetSub(0), 0) then
+        Exit;
+     end;//l_Block.Target.IsKindOf(k2_typDocument)
+     l_Break := false;
+     l_Action := evL2TSA(@_DoBlock);
+     try
+      l_Block.Iterate(l_Action{, l_Progress, aMessage});
+    finally
+      evFreeTSA(l_Action);
+     end;//try..finally
+    finally
+     l_Block := nil;
+    end;//try..finally
+   finally
+    l_Range := nil;
+   end;//try..finally
+ end;//aBlock = nil
+//#UC END# *4BB07BFC00F8_47F0870E0034_impl*
+end;//TnevDocumentContainer.Iterate
+
+function TnevDocumentContainer.IterateF(anAction: InevSubList_Iterate_Action;
+ const aBlock: IUnknown = nil;
+ const aMessage: Il3CString = nil): Integer;
+ {* Перебирает список меток }
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  Result := Iterate(anAction, aBlock, aMessage);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TnevDocumentContainer.IterateF
 
 procedure TnevDocumentContainer.Cleanup;
  {* Функция очистки полей объекта. }

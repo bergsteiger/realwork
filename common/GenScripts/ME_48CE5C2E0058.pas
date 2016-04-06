@@ -40,6 +40,14 @@ type
     const anOp: InevOp;
     aNeedFire: Boolean = True): Boolean;
     {* вставляет параграф с типом по-умолчанию в указанную позицию. }
+   function IteratePara(anAction: InevParaList_IteratePara_Action;
+    aLo: TnevParaIndex = nev_piFirst;
+    aHi: TnevParaIndex = nev_piLast;
+    aLoadedOnly: Boolean = False): Integer; virtual;
+   function IterateParaF(anAction: InevParaList_IteratePara_Action;
+    aLo: TnevParaIndex = nev_piFirst;
+    aHi: TnevParaIndex = nev_piLast;
+    aLoadedOnly: Boolean = False): Integer;
    function GetOwnerPara: InevParaList; override;
    function GetIsList: Boolean; override;
    function GetToList: InevObjectList; override;
@@ -178,6 +186,32 @@ begin
  Result := false;
 //#UC END# *47C6ACE6026E_48CE5C2E0058_impl*
 end;//TnevNullParaList.InsertDefaultPara
+
+function TnevNullParaList.IteratePara(anAction: InevParaList_IteratePara_Action;
+ aLo: TnevParaIndex = nev_piFirst;
+ aHi: TnevParaIndex = nev_piLast;
+ aLoadedOnly: Boolean = False): Integer;
+//#UC START# *4BB0751F00A4_48CE5C2E0058_var*
+//#UC END# *4BB0751F00A4_48CE5C2E0058_var*
+begin
+//#UC START# *4BB0751F00A4_48CE5C2E0058_impl*
+ Result := nev_piNull;
+//#UC END# *4BB0751F00A4_48CE5C2E0058_impl*
+end;//TnevNullParaList.IteratePara
+
+function TnevNullParaList.IterateParaF(anAction: InevParaList_IteratePara_Action;
+ aLo: TnevParaIndex = nev_piFirst;
+ aHi: TnevParaIndex = nev_piLast;
+ aLoadedOnly: Boolean = False): Integer;
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  Result := IteratePara(anAction, aLo, aHi, aLoadedOnly);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TnevNullParaList.IterateParaF
 
 function TnevNullParaList.GetOwnerPara: InevParaList;
 //#UC START# *48CE65BC021C_48CE5C2E0058_var*
