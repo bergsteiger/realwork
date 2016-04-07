@@ -13,15 +13,21 @@ uses
  l3IntfUses
  , Types
  , Messages
- , Classes
- , Graphics
  , Windows
+ , Graphics
+ , Classes
 ;
 
 const
- {* Цвета }
- clDefault = Graphics.clDefault;
-  {* Цвет по-умолчанию. }
+ {* Алиасы для значений Graphics.TFontPitch }
+ fpDefault = Graphics.fpDefault;
+  {* The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
+ fpVariable = Graphics.fpVariable;
+  {* The font pitch is set to variable. The characters in the font have different widths. }
+ fpFixed = Graphics.fpFixed;
+  {* The font pitch is set to fixed. All characters in the font have the same width. }
+
+const
  {* Алиасы для значений Classes.TShiftState }
  ssShift = Classes.ssShift;
  ssAlt = Classes.ssAlt;
@@ -30,13 +36,11 @@ const
  ssRight = Classes.ssRight;
  ssMiddle = Classes.ssMiddle;
  ssDouble = Classes.ssDouble;
- {* Алиасы для значений Graphics.TFontPitch }
- fpDefault = Graphics.fpDefault;
-  {* The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
- fpVariable = Graphics.fpVariable;
-  {* The font pitch is set to variable. The characters in the font have different widths. }
- fpFixed = Graphics.fpFixed;
-  {* The font pitch is set to fixed. All characters in the font have the same width. }
+
+const
+ {* Цвета }
+ clDefault = Graphics.clDefault;
+  {* Цвет по-умолчанию. }
 
 type
  HPALETTE = Windows.HPALETTE;

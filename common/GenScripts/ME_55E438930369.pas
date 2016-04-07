@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsListExceptions;
+unit nsListExceptions;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_COMPLETED_nsListExceptions.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListExceptions.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "nsListExceptions" MUID: (55E438930369)
 
@@ -38,7 +38,7 @@ uses
 
 initialization
  str_ListIsTooLong.Init;
-!!! Lost Message ini !!!
+ str_ListIsTooLong.SetDlgType(mtWarning);
  {* Инициализация str_ListIsTooLong }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

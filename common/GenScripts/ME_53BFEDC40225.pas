@@ -38,6 +38,7 @@ uses
  , nsChronologyDocumentContainer
  , l3String
  , l3MessageID
+ , IOUnit
 ;
 
 const

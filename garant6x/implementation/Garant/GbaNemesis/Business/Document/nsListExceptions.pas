@@ -38,7 +38,7 @@ uses
 
 initialization
  str_ListIsTooLong.Init;
-!!! Lost Message ini !!!
+ str_ListIsTooLong.SetDlgType(mtWarning);
  {* Инициализация str_ListIsTooLong }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
