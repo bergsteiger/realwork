@@ -39,6 +39,7 @@ uses
  l3ImplUses
  , Document_Const
  , AutoreferatDocument_Const
+ , k2Facade
 ;
 
 constructor Tf1DocumentTagDataFromDTPHandle.Create(aHandle: Cardinal;

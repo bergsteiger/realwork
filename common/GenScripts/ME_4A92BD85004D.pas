@@ -137,7 +137,14 @@ initialization
  str_MayExit_Choice_Stay.Init;
  {* Инициализация str_MayExit_Choice_Stay }
  str_MayExit.Init;
-!!! Lost Message ini !!!
+ str_MayExit.AddChoice(str_MayExit_Choice_Exit);
+ str_MayExit.AddChoice(str_MayExit_Choice_Stay);
+ str_MayExit.AddDefaultChoice(str_MayExit_Choice_Exit);
+ str_MayExit.SetNeedCheck(true);
+ str_MayExit.SetCheckCaption(str_MayExit_CheckCaption);
+ str_MayExit.SetSettingsCaption(str_MayExit_SettingsCaption);
+ str_MayExit.SetLongHint(str_MayExit_LongHint);
+ str_MayExit.SetDlgType(mtConfirmation);
  {* Инициализация str_MayExit }
  str_ApplicationName.Init;
  {* Инициализация str_ApplicationName }

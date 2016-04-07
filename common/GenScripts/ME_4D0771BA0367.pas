@@ -42,6 +42,7 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , evdNativeWriter
  , TestFrameWork
  {$If NOT Defined(NoVCM)}
  , vcmBase

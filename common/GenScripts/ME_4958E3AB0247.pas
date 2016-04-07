@@ -2046,10 +2046,10 @@ end;//TPrimSaveLoadForm.IsAcceptable
 
 initialization
  str_WellDone.Init;
-!!! Lost Message ini !!!
+ str_WellDone.SetDlgType(mtInformation);
  {* Инициализация str_WellDone }
  str_QueryIsEmptyMessage.Init;
-!!! Lost Message ini !!!
+ str_QueryIsEmptyMessage.SetDlgType(mtWarning);
  {* Инициализация str_QueryIsEmptyMessage }
  str_FilterCaption.Init;
  {* Инициализация str_FilterCaption }
