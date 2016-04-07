@@ -15,11 +15,6 @@ uses
 ;
 
 const
- {* Алиасы для значений evdDTTypes.TepDivideBy }
- divNone = evdDTTypes.divNone;
- divTopic = evdDTTypes.divTopic;
- divAccRight = evdDTTypes.divAccRight;
- divSize = evdDTTypes.divSize;
  {* Алиасы для значений evdDTTypes.TepSupportFileType }
  outEVD = evdDTTypes.outEVD;
  outEVDtext = evdDTTypes.outEVDtext;
@@ -28,6 +23,13 @@ const
  outRTF = evdDTTypes.outRTF;
  outHTML = evdDTTypes.outHTML;
  outXML = evdDTTypes.outXML;
+
+const
+ {* Алиасы для значений evdDTTypes.TepDivideBy }
+ divNone = evdDTTypes.divNone;
+ divTopic = evdDTTypes.divTopic;
+ divAccRight = evdDTTypes.divAccRight;
+ divSize = evdDTTypes.divSize;
 
 type
  TDictID = LongWord;

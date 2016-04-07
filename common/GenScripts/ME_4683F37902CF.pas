@@ -32,14 +32,6 @@ uses
 ;
 
 const
- {* Идентификаторы контролов. }
- vcm_cidEmpty = TvcmControlID(0);
-  {* Пустой идентификтор управляющего объекта. }
- cNullWeight = -1;
-  {* cNullWeight - не установленный вес }
- vcm_utAny = vcmBaseTypes.vcm_utAny;
-  {* любой пользовательский тип. }
- vcm_DefaultOperationState: TvcmOperationStateIndex = (rID : -1);
  {* Алиасы для значений vcmBaseTypes.TvcmZoneType }
  vcm_ztAny = vcmBaseTypes.vcm_ztAny;
  vcm_ztMain = vcmBaseTypes.vcm_ztMain;
@@ -54,6 +46,16 @@ const
  vcm_ztSimpleFloat = vcmBaseTypes.vcm_ztSimpleFloat;
  vcm_ztMainObjectForm = vcmBaseTypes.vcm_ztMainObjectForm;
  vcm_ztForFocus = vcmBaseTypes.vcm_ztForFocus;
+
+const
+ {* Идентификаторы контролов. }
+ vcm_cidEmpty = TvcmControlID(0);
+  {* Пустой идентификтор управляющего объекта. }
+ cNullWeight = -1;
+  {* cNullWeight - не установленный вес }
+ vcm_utAny = vcmBaseTypes.vcm_utAny;
+  {* любой пользовательский тип. }
+ vcm_DefaultOperationState: TvcmOperationStateIndex = (rID : -1);
 
 type
  IvcmBase = vcmExternalInterfaces.IvcmBase;

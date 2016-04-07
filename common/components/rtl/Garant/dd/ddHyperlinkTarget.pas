@@ -19,11 +19,8 @@ type
  TddHyperlinkTarget = class(TddBaseObject)
   private
    f_DocID: LongInt;
-    {* Поле для свойства DocID }
    f_SubID: LongInt;
-    {* Поле для свойства SubID }
    f_TypeID: LongInt;
-    {* Поле для свойства TypeID }
   public
    constructor Create(aTypeID: Integer;
     aDocID: Integer;
@@ -45,6 +42,8 @@ implementation
 
 uses
  l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 constructor TddHyperlinkTarget.Create(aTypeID: Integer;

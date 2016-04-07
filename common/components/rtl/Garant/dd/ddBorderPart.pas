@@ -54,6 +54,8 @@ implementation
 uses
  l3ImplUses
  , Graphics
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 function TddBorderPart.pm_GetEnable: Boolean;

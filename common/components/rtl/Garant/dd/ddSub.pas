@@ -20,11 +20,8 @@ type
  TddSub = class(TddBaseObject)
   private
    f_IsRealName: Boolean;
-    {* Поле для свойства IsRealName }
    f_ID: Integer;
-    {* Поле для свойства ID }
    f_Name: Tl3String;
-    {* Поле для свойства Name }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -48,6 +45,8 @@ implementation
 
 uses
  l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddSub.Write2Generator(const Generator: Ik2TagGenerator;
