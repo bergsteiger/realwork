@@ -206,6 +206,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , eeTreeViewExport
  //#UC START# *499C26240034impl_uses*
  //#UC END# *499C26240034impl_uses*
 ;
