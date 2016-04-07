@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ControlStatusUtils;
+unit ControlStatusUtils;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\NOT_COMPLETED_ControlStatusUtils.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\ControlStatusUtils.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "ControlStatusUtils" MUID: (4E7C528C00BE)
 
@@ -215,7 +215,11 @@ initialization
  str_InActualDocumentAction_Choice_StayInCurrentEdition.Init;
  {* Инициализация str_InActualDocumentAction_Choice_StayInCurrentEdition }
  str_InActualDocumentAction.Init;
-!!! Lost Message ini !!!
+ str_InActualDocumentAction.AddChoice(str_InActualDocumentAction_Choice_OpenInternetVersion);
+ str_InActualDocumentAction.AddChoice(str_InActualDocumentAction_Choice_StayInCurrentEdition);
+ str_InActualDocumentAction.AddDefaultChoice(str_InActualDocumentAction_Choice_StayInCurrentEdition);
+ str_InActualDocumentAction.SetCheckCaption(str_InActualDocumentAction_CheckCaption);
+ str_InActualDocumentAction.SetDlgType(mtConfirmation);
  {* Инициализация str_InActualDocumentAction }
  str_InActualDocumentAction_CheckCaption.Init;
  {* Инициализация str_InActualDocumentAction_CheckCaption }

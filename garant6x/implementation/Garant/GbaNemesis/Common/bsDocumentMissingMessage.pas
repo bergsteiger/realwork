@@ -168,7 +168,11 @@ initialization
  str_DocumentMissing_Choice_Second.Init;
  {* Инициализация str_DocumentMissing_Choice_Second }
  str_DocumentMissing.Init;
-!!! Lost Message ini !!!
+ str_DocumentMissing.AddChoice(str_DocumentMissing_Choice_First);
+ str_DocumentMissing.AddChoice(str_DocumentMissing_Choice_Second);
+ str_DocumentMissing.AddCustomChoice(str_DocumentMissing_Choice_First);
+ str_DocumentMissing.AddDefaultChoice(str_DocumentMissing_Choice_Second);
+ str_DocumentMissing.SetDlgType(mtWarning);
  {* Инициализация str_DocumentMissing }
  str_MissingDocumentIsContainedInBlock.Init;
  {* Инициализация str_MissingDocumentIsContainedInBlock }

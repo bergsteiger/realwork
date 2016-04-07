@@ -2148,10 +2148,10 @@ end;//TPrimStyleEditorFontForm.ClearFields
 
 initialization
  str_ValueIsGreaterThan.Init;
-!!! Lost Message ini !!!
+ str_ValueIsGreaterThan.SetDlgType(mtWarning);
  {* Инициализация str_ValueIsGreaterThan }
  str_ValueIsLessThan.Init;
-!!! Lost Message ini !!!
+ str_ValueIsLessThan.SetDlgType(mtWarning);
  {* Инициализация str_ValueIsLessThan }
  str_InheritanceButtonHint.Init;
  {* Инициализация str_InheritanceButtonHint }

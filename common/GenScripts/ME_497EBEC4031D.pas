@@ -567,13 +567,22 @@ initialization
  str_PrimeIsOffline_Choice_Details.Init;
  {* Инициализация str_PrimeIsOffline_Choice_Details }
  str_NewsLineIsNotSetup.Init;
-!!! Lost Message ini !!!
+ str_NewsLineIsNotSetup.AddChoice(str_NewsLineIsNotSetup_Choice_FillForm);
+ str_NewsLineIsNotSetup.AddChoice(str_NewsLineIsNotSetup_Choice_ViewFullNewsLine);
+ str_NewsLineIsNotSetup.AddDefaultChoice(str_NewsLineIsNotSetup_Choice_FillForm);
+ str_NewsLineIsNotSetup.SetDlgType(mtConfirmation);
  {* Инициализация str_NewsLineIsNotSetup }
  str_FormFillIsNotFinished.Init;
-!!! Lost Message ini !!!
+ str_FormFillIsNotFinished.AddChoice(str_FormFillIsNotFinished_Choice_Continue);
+ str_FormFillIsNotFinished.AddChoice(str_FormFillIsNotFinished_Choice_Exit);
+ str_FormFillIsNotFinished.AddDefaultChoice(str_FormFillIsNotFinished_Choice_Continue);
+ str_FormFillIsNotFinished.SetDlgType(mtWarning);
  {* Инициализация str_FormFillIsNotFinished }
  str_PrimeIsOffline.Init;
-!!! Lost Message ini !!!
+ str_PrimeIsOffline.AddChoice(str_PrimeIsOffline_Choice_Ok);
+ str_PrimeIsOffline.AddChoice(str_PrimeIsOffline_Choice_Details);
+ str_PrimeIsOffline.AddDefaultChoice(str_PrimeIsOffline_Choice_Ok);
+ str_PrimeIsOffline.SetDlgType(mtError);
  {* Инициализация str_PrimeIsOffline }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimNewsLineForm);

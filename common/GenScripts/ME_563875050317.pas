@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsBaseSearchService;
+unit nsBaseSearchService;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_COMPLETED_nsBaseSearchService.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchService.pas"
 // Стереотип: "Service"
 // Элемент модели: "TnsBaseSearchService" MUID: (563875050317)
 
@@ -26,6 +26,13 @@ uses
    const aProvider: InsBaseSearcherProvider);
   procedure RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
    const aProvider: InsBaseSearcherProvider);
+  function GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
+  procedure OpenBaseSearch(const aContainer: IvcmContainer;
+   aOpenKind: TnsBaseSearchOpenKind);
+  function GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
+  function GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
+  procedure RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
+   const aContainer: IvcmContainer);
  end;//MnsBaseSearchService
  *)
 
@@ -38,6 +45,13 @@ type
    const aProvider: InsBaseSearcherProvider);
   procedure RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
    const aProvider: InsBaseSearcherProvider);
+  function GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
+  procedure OpenBaseSearch(const aContainer: IvcmContainer;
+   aOpenKind: TnsBaseSearchOpenKind);
+  function GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
+  function GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
+  procedure RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
+   const aContainer: IvcmContainer);
  end;//InsBaseSearchService
 
  TnsBaseSearchService = {final} class(Tl3ProtoObject)
@@ -48,7 +62,14 @@ type
    procedure pm_SetAlien(const aValue: InsBaseSearchService);
    procedure ClearFields; override;
   public
+   procedure RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
+    const aContainer: IvcmContainer);
+   function GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
+   function GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
    function GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
+   procedure OpenBaseSearch(const aContainer: IvcmContainer;
+    aOpenKind: TnsBaseSearchOpenKind);
+   function GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
    procedure RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
     const aProvider: InsBaseSearcherProvider);
    procedure UnregisterBaseSearcherProvider(const aContainer: IvcmContainer;
@@ -88,6 +109,50 @@ begin
  f_Alien := aValue;
 end;//TnsBaseSearchService.pm_SetAlien
 
+procedure TnsBaseSearchService.RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
+ const aContainer: IvcmContainer);
+//#UC START# *130AF2617571_563875050317_var*
+//#UC END# *130AF2617571_563875050317_var*
+begin
+//#UC START# *130AF2617571_563875050317_impl*
+ if (f_Alien <> nil) then
+  f_Alien.RegisterBaseSearchView(aBaseSearchView, aContainer)
+ else
+  Assert(False);
+//#UC END# *130AF2617571_563875050317_impl*
+end;//TnsBaseSearchService.RegisterBaseSearchView
+
+function TnsBaseSearchService.GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
+//#UC START# *29D9062E385E_563875050317_var*
+//#UC END# *29D9062E385E_563875050317_var*
+begin
+//#UC START# *29D9062E385E_563875050317_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetBaseSearchController(aContainer)
+ else
+ begin
+  Result := nil;
+  Assert(False);
+ end;
+//#UC END# *29D9062E385E_563875050317_impl*
+end;//TnsBaseSearchService.GetBaseSearchController
+
+function TnsBaseSearchService.GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
+//#UC START# *3ABD99A8B9EE_563875050317_var*
+//#UC END# *3ABD99A8B9EE_563875050317_var*
+begin
+//#UC START# *3ABD99A8B9EE_563875050317_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetBaseSearchModel(aContainer)
+ else
+ begin
+  Result := nil;
+  Assert(False);
+ end;
+
+//#UC END# *3ABD99A8B9EE_563875050317_impl*
+end;//TnsBaseSearchService.GetBaseSearchModel
+
 function TnsBaseSearchService.GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
 //#UC START# *4923CA8F0CFB_563875050317_var*
 //#UC END# *4923CA8F0CFB_563875050317_var*
@@ -99,6 +164,31 @@ begin
   Assert(False);
 //#UC END# *4923CA8F0CFB_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearcher
+
+procedure TnsBaseSearchService.OpenBaseSearch(const aContainer: IvcmContainer;
+ aOpenKind: TnsBaseSearchOpenKind);
+//#UC START# *5434702F7752_563875050317_var*
+//#UC END# *5434702F7752_563875050317_var*
+begin
+//#UC START# *5434702F7752_563875050317_impl*
+ if (f_Alien <> nil) then
+  f_Alien.OpenBaseSearch(aContainer, aOpenKind)
+ else
+  Assert(False);
+//#UC END# *5434702F7752_563875050317_impl*
+end;//TnsBaseSearchService.OpenBaseSearch
+
+function TnsBaseSearchService.GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
+//#UC START# *5E9BD918F50B_563875050317_var*
+//#UC END# *5E9BD918F50B_563875050317_var*
+begin
+//#UC START# *5E9BD918F50B_563875050317_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetBaseSearchWindow(aContainer)
+ else
+  Assert(False);
+//#UC END# *5E9BD918F50B_563875050317_impl*
+end;//TnsBaseSearchService.GetBaseSearchWindow
 
 procedure TnsBaseSearchService.RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
  const aProvider: InsBaseSearcherProvider);

@@ -16,6 +16,9 @@ uses
  , Search_Strange_Controls
  , Common_Strange_Controls
  , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocInfoInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit
@@ -33,9 +36,6 @@ uses
  , bsTypes
  , Messages
  , nevNavigation
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , afwNavigation
  , l3TreeInterfaces
  , eeInterfaces
@@ -101,9 +101,13 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  _PrintableFlashWithInfo_Parent_ = _vcmChromeLikeTabIconUpdater_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas}
- TPrimDocumentWithFlashForm = class(_PrintableFlashWithInfo_, Il3TabbedContainersListener)
+ TPrimDocumentWithFlashForm = class(_PrintableFlashWithInfo_, Il3TabbedContainersListener{$If NOT Defined(NoVCM)}
+ , IvcmSelectedTabDependent
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Документ-схема }
   private
+   f_FlashTop: Integer;
    f_FlashLoaded: Boolean;
    f_Flash: TvtShockwaveFlashEx;
     {* Поле для свойства Flash }
@@ -153,6 +157,8 @@ type
    function pm_GetFlashForPrint: TvtShockwaveFlashEx; override;
    function Name: Il3CString; override;
    function ShortName: Il3CString; override;
+   procedure TabBecomeActive;
+   procedure TabBecomeInactive;
    function GetDocumentForInfo: IdeDocInfo; override;
    procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
    procedure Cleanup; override;
@@ -1122,6 +1128,27 @@ begin
  Result := nsGetDocumentShortName(Document);
 //#UC END# *4CDAD29D0169_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.ShortName
+
+procedure TPrimDocumentWithFlashForm.TabBecomeActive;
+//#UC START# *54868B67034A_497EDE780363_var*
+//#UC END# *54868B67034A_497EDE780363_var*
+begin
+//#UC START# *54868B67034A_497EDE780363_impl*
+ f_Flash.Visible := True;
+ f_Flash.FitToParent;
+ f_Flash.Top := f_FlashTop;
+//#UC END# *54868B67034A_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.TabBecomeActive
+
+procedure TPrimDocumentWithFlashForm.TabBecomeInactive;
+//#UC START# *54868B84029F_497EDE780363_var*
+//#UC END# *54868B84029F_497EDE780363_var*
+begin
+//#UC START# *54868B84029F_497EDE780363_impl*
+ f_FlashTop := f_Flash.Top;
+ f_Flash.Visible := False;
+//#UC END# *54868B84029F_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.TabBecomeInactive
 
 function TPrimDocumentWithFlashForm.GetDocumentForInfo: IdeDocInfo;
 //#UC START# *54D8913B03A6_497EDE780363_var*

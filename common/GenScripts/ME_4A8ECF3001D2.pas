@@ -375,10 +375,13 @@ initialization
  str_StartupInitPrime_Choice_NoThanks.Init;
  {* Инициализация str_StartupInitPrime_Choice_NoThanks }
  str_StartupInitPrime.Init;
-!!! Lost Message ini !!!
+ str_StartupInitPrime.AddChoice(str_StartupInitPrime_Choice_Init);
+ str_StartupInitPrime.AddChoice(str_StartupInitPrime_Choice_NoThanks);
+ str_StartupInitPrime.AddDefaultChoice(str_StartupInitPrime_Choice_Init);
+ str_StartupInitPrime.SetDlgType(mtInformation);
  {* Инициализация str_StartupInitPrime }
  str_DefaultSetttingsWereChanged.Init;
-!!! Lost Message ini !!!
+ str_DefaultSetttingsWereChanged.SetDlgType(mtInformation);
  {* Инициализация str_DefaultSetttingsWereChanged }
 {$IfEnd} // NOT Defined(NoVCM)
 

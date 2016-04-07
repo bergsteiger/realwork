@@ -1,8 +1,8 @@
-unit NOT_COMPLETED_bsDocumentMissingMessage;
+unit bsDocumentMissingMessage;
  {* сообщение которое выдается при открытии документа или ссылки, которой
        нет в базе (находится в отсутствующих блоках) }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_COMPLETED_bsDocumentMissingMessage.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TbsDocumentMissingMessage" MUID: (4E085B110285)
 
@@ -168,7 +168,11 @@ initialization
  str_DocumentMissing_Choice_Second.Init;
  {* Инициализация str_DocumentMissing_Choice_Second }
  str_DocumentMissing.Init;
-!!! Lost Message ini !!!
+ str_DocumentMissing.AddChoice(str_DocumentMissing_Choice_First);
+ str_DocumentMissing.AddChoice(str_DocumentMissing_Choice_Second);
+ str_DocumentMissing.AddCustomChoice(str_DocumentMissing_Choice_First);
+ str_DocumentMissing.AddDefaultChoice(str_DocumentMissing_Choice_Second);
+ str_DocumentMissing.SetDlgType(mtWarning);
  {* Инициализация str_DocumentMissing }
  str_MissingDocumentIsContainedInBlock.Init;
  {* Инициализация str_MissingDocumentIsContainedInBlock }
