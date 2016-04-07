@@ -199,7 +199,7 @@ var
    l_Task.SyncFolderMask := SyncFolderMask;
    l_Task.GuardName := GuardName;
    l_Task.Description := 'Синхронизация словарей в Гардок';
-   if not aTaskManager.HasActiveTask(l_Task.TaskType) then
+   if aTaskManager.ActiveTaskList.FindTask(l_Task.TaskType) = nil then
     aTaskManager.AddActiveTask(l_Task);
   finally
    FreeAndNil(l_Task);

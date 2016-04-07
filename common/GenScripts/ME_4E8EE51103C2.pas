@@ -54,6 +54,9 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , arArchiTestsAdapter
+ , dt_Types
+ , SysUtils
 ;
 
 function TkwArchiNewEmptyDocument.DoWithFileName(const aCtx: TtfwContext): AnsiString;

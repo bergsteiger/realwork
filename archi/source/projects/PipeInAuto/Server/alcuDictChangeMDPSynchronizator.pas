@@ -24,6 +24,9 @@ uses
  , l3BaseStream
  , l3Interfaces
  {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
  , dt_DictConst
  {$IfEnd} // NOT Defined(Nemesis)
  , dt_Types
@@ -111,8 +114,8 @@ type
    procedure Start;
    procedure Stop;
    procedure UpdateSyncFolder;
-   procedure SendDataThenReady(aTaskManager: TddServerTaskManager);
    procedure PrepareAllDicts;
+   function MakeTask: TddProcessTask;
  end;//TalcuDictChangeMDPSynchronizator
 {$IfEnd} // Defined(AppServerSide) AND Defined(MDPSyncIntegrated)
 
@@ -359,29 +362,6 @@ begin
 //#UC END# *55E847E400CD_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.ExportSourcesToXML
 
-procedure TalcuDictChangeMDPSynchronizator.SendDataThenReady(aTaskManager: TddServerTaskManager);
-//#UC START# *55ED481E007A_55E6A67A02ED_var*
-var
- l_Task: TalcuMdpSyncDicts;
-//#UC END# *55ED481E007A_55E6A67A02ED_var*
-begin
-//#UC START# *55ED481E007A_55E6A67A02ED_impl*
- if HasDataToSend then
- begin
-  l_Task := TalcuMdpSyncDicts.Create(usServerService);
-  try
-   l_Task.SyncFolderMask := SyncFolderMask;
-   l_Task.GuardName := GuardName;
-   l_Task.Description := 'Синхронизация словарей в Гардок';
-   if aTaskManager.ActiveTaskList.FindTask(l_Task.TaskType) = nil then
-    aTaskManager.AddActiveTask(l_Task);
-  finally
-   FreeAndNil(l_Task);
-  end;
- end;
-//#UC END# *55ED481E007A_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.SendDataThenReady
-
 function TalcuDictChangeMDPSynchronizator.HasDataToSend: Boolean;
 //#UC START# *55ED484B0321_55E6A67A02ED_var*
 //#UC END# *55ED484B0321_55E6A67A02ED_var*
@@ -597,6 +577,22 @@ begin
  end;
 //#UC END# *561E38AE0112_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.ExportSimpleDictToXML
+
+function TalcuDictChangeMDPSynchronizator.MakeTask: TddProcessTask;
+//#UC START# *57061F78007B_55E6A67A02ED_var*
+//#UC END# *57061F78007B_55E6A67A02ED_var*
+begin
+//#UC START# *57061F78007B_55E6A67A02ED_impl*
+ Result := nil;
+ if HasDataToSend then
+ begin
+  Result := TalcuMdpSyncDicts.Create(usServerService);
+  TalcuMdpSyncDicts(Result).SyncFolderMask := SyncFolderMask;
+  TalcuMdpSyncDicts(Result).GuardName := GuardName;
+  Result.Description := 'Синхронизация словарей в Гардок';
+ end;
+//#UC END# *57061F78007B_55E6A67A02ED_impl*
+end;//TalcuDictChangeMDPSynchronizator.MakeTask
 
 {$If NOT Defined(Nemesis)}
 procedure TalcuDictChangeMDPSynchronizator.dcn_DictionaryChange(const Info: TDictMessageRec);

@@ -55,6 +55,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , arArchiTestsAdapter
+ , dt_Types
 ;
 
 function TkwArchiNewDocumentPrim.DoWithFileName(const aCtx: TtfwContext): AnsiString;

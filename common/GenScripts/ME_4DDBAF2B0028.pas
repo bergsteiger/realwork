@@ -100,7 +100,7 @@ end;//TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition
 
 initialization
  str_CannotShowChanges.Init;
-!!! Lost Message ini !!!
+ str_CannotShowChanges.SetDlgType(mtWarning);
  {* Инициализация str_CannotShowChanges }
 {$IfEnd} // NOT Defined(NoVCM)
 

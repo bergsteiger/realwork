@@ -32,8 +32,20 @@ uses
 ;
 
 const
- TtfwStackValue_E: TtfwStackValue = (rType : tfw_vtVoid);
- TtfwStackValue_NULL: TtfwStackValue = (rType : tfw_vtNil);
+ {* Алиасы для значений tfwScriptingTypes.TtfwAccessType }
+ tfw_atNone = tfwScriptingTypes.tfw_atNone;
+ tfw_atPrivate = tfwScriptingTypes.tfw_atPrivate;
+ tfw_atProtected = tfwScriptingTypes.tfw_atProtected;
+ tfw_atPublic = tfwScriptingTypes.tfw_atPublic;
+
+const
+ {* Алиасы для значений tfwScriptingTypes.TtfwLinkType }
+ tfw_ltNone = tfwScriptingTypes.tfw_ltNone;
+ tfw_ltAggregation = tfwScriptingTypes.tfw_ltAggregation;
+ tfw_ltLink = tfwScriptingTypes.tfw_ltLink;
+ tfw_ltReference = tfwScriptingTypes.tfw_ltReference;
+
+const
  {* Алиасы для значений tfwTypeInfo.TtfwValueType }
  tfw_vtVoid = tfwTypeInfo.tfw_vtVoid;
  tfw_vtInt = tfwTypeInfo.tfw_vtInt;
@@ -48,6 +60,8 @@ const
  tfw_vtChar = tfwTypeInfo.tfw_vtChar;
  tfw_vtClass = tfwTypeInfo.tfw_vtClass;
   {* Ссылка на класс }
+
+const
  {* Алиасы для значений tfwScriptingTypes.TtfwWordModifier }
  tfw_wmVirtual = tfwScriptingTypes.tfw_wmVirtual;
  tfw_wmAbstract = tfwScriptingTypes.tfw_wmAbstract;
@@ -64,16 +78,10 @@ const
  tfw_wmInline = tfwScriptingTypes.tfw_wmInline;
  tfw_wmTreatUnknownAsString = tfwScriptingTypes.tfw_wmTreatUnknownAsString;
  tfw_wmCaller = tfwScriptingTypes.tfw_wmCaller;
- {* Алиасы для значений tfwScriptingTypes.TtfwAccessType }
- tfw_atNone = tfwScriptingTypes.tfw_atNone;
- tfw_atPrivate = tfwScriptingTypes.tfw_atPrivate;
- tfw_atProtected = tfwScriptingTypes.tfw_atProtected;
- tfw_atPublic = tfwScriptingTypes.tfw_atPublic;
- {* Алиасы для значений tfwScriptingTypes.TtfwLinkType }
- tfw_ltNone = tfwScriptingTypes.tfw_ltNone;
- tfw_ltAggregation = tfwScriptingTypes.tfw_ltAggregation;
- tfw_ltLink = tfwScriptingTypes.tfw_ltLink;
- tfw_ltReference = tfwScriptingTypes.tfw_ltReference;
+
+const
+ TtfwStackValue_E: TtfwStackValue = (rType : tfw_vtVoid);
+ TtfwStackValue_NULL: TtfwStackValue = (rType : tfw_vtNil);
 
 type
  PtfwContext = ^TtfwContext;

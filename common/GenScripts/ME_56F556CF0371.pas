@@ -29,6 +29,7 @@ uses
  l3ImplUses
  , tfwDebugService
  , tfwScriptingInterfaces
+ , l3String
 ;
 
 procedure TtfwDebugScriptCaller.DoPrint(const aStr: Tl3WString);

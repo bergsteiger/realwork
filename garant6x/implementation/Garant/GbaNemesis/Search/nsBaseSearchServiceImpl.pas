@@ -1,116 +1,88 @@
 unit nsBaseSearchServiceImpl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/nsBaseSearchServiceImpl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ServiceImplementation::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::Search$Lib::BaseSearch::TnsBaseSearchServiceImpl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchServiceImpl.pas"
+// Стереотип: "ServiceImplementation"
+// Элемент модели: "TnsBaseSearchServiceImpl" MUID: (563208C60299)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  nsBaseSearchService,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  BaseSearchInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , nsBaseSearchService
+ , BaseSearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _KeyType_ = Pointer;
  _ValueType_ = Pointer;
  _l3Map_Parent_ = Tl3ProtoDataContainer;
-{$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
  TnsContainerToBaseSearcherMap = class(_l3Map_)
  end;//TnsContainerToBaseSearcherMap
 
  TnsBaseSearchServiceImpl = {final} class(Tl3ProtoObject, InsBaseSearchService)
- private
- // private fields
-   f_SearcherMap : TnsContainerToBaseSearcherMap;
- public
- // realized methods
-   function GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
-   procedure RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
-     const aProvider: InsBaseSearcherProvider);
-   procedure UnregisterBaseSearcherProvider(const aContainer: IvcmContainer;
-     const aProvider: InsBaseSearcherProvider);
- protected
- // overridden protected methods
+  private
+   f_SearcherMap: TnsContainerToBaseSearcherMap;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
+   procedure RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
+    const aContainer: IvcmContainer);
+   function GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
+   function GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
+   function GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
+   procedure OpenBaseSearch(const aContainer: IvcmContainer;
+    aOpenKind: TnsBaseSearchOpenKind);
+   function GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
+   procedure RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
+    const aProvider: InsBaseSearcherProvider);
+   procedure UnregisterBaseSearcherProvider(const aContainer: IvcmContainer;
+    const aProvider: InsBaseSearcherProvider);
    class function Instance: TnsBaseSearchServiceImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsBaseSearchServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsBaseSearchServiceImpl
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TnsBaseSearchServiceImpl
-
-var g_TnsBaseSearchServiceImpl : TnsBaseSearchServiceImpl = nil;
+var g_TnsBaseSearchServiceImpl: TnsBaseSearchServiceImpl = nil;
+ {* Экземпляр синглетона TnsBaseSearchServiceImpl }
 
 procedure TnsBaseSearchServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TnsBaseSearchServiceImpl }
 begin
  l3Free(g_TnsBaseSearchServiceImpl);
-end;
-
-class function TnsBaseSearchServiceImpl.Instance: TnsBaseSearchServiceImpl;
-begin
- if (g_TnsBaseSearchServiceImpl = nil) then
- begin
-  l3System.AddExitProc(TnsBaseSearchServiceImplFree);
-  g_TnsBaseSearchServiceImpl := Create;
- end;
- Result := g_TnsBaseSearchServiceImpl;
-end;
-
-// start class TnsContainerToBaseSearcherMap
+end;//TnsBaseSearchServiceImplFree
 
 function CompareKeys(const aA: _KeyType_;
-  const aB: _KeyType_): Integer;
+ const aB: _KeyType_): Integer;
 //#UC START# *5609091B00C0_56320A830305_var*
 //#UC END# *5609091B00C0_56320A830305_var*
 begin
@@ -123,13 +95,33 @@ type _Instance_R_ = TnsContainerToBaseSearcherMap;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
 
-// start class TnsBaseSearchServiceImpl
-
-class function TnsBaseSearchServiceImpl.Exists: Boolean;
- {-}
+procedure TnsBaseSearchServiceImpl.RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
+ const aContainer: IvcmContainer);
+//#UC START# *130AF2617571_563208C60299_var*
+//#UC END# *130AF2617571_563208C60299_var*
 begin
- Result := g_TnsBaseSearchServiceImpl <> nil;
-end;//TnsBaseSearchServiceImpl.Exists
+//#UC START# *130AF2617571_563208C60299_impl*
+ Assert(False);
+//#UC END# *130AF2617571_563208C60299_impl*
+end;//TnsBaseSearchServiceImpl.RegisterBaseSearchView
+
+function TnsBaseSearchServiceImpl.GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
+//#UC START# *29D9062E385E_563208C60299_var*
+//#UC END# *29D9062E385E_563208C60299_var*
+begin
+//#UC START# *29D9062E385E_563208C60299_impl*
+ Assert(False);
+//#UC END# *29D9062E385E_563208C60299_impl*
+end;//TnsBaseSearchServiceImpl.GetBaseSearchController
+
+function TnsBaseSearchServiceImpl.GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
+//#UC START# *3ABD99A8B9EE_563208C60299_var*
+//#UC END# *3ABD99A8B9EE_563208C60299_var*
+begin
+//#UC START# *3ABD99A8B9EE_563208C60299_impl*
+ Assert(False);
+//#UC END# *3ABD99A8B9EE_563208C60299_impl*
+end;//TnsBaseSearchServiceImpl.GetBaseSearchModel
 
 function TnsBaseSearchServiceImpl.GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
 //#UC START# *4923CA8F0CFB_563208C60299_var*
@@ -149,8 +141,34 @@ begin
 //#UC END# *4923CA8F0CFB_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearcher
 
+procedure TnsBaseSearchServiceImpl.OpenBaseSearch(const aContainer: IvcmContainer;
+ aOpenKind: TnsBaseSearchOpenKind);
+//#UC START# *5434702F7752_563208C60299_var*
+var
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *5434702F7752_563208C60299_var*
+begin
+//#UC START# *5434702F7752_563208C60299_impl*
+ l_BaseSearcher := GetBaseSearcher(aContainer.AsForm);
+ try
+  l_BaseSearcher.ShowWindowByUser(aOpenKind);
+ finally
+  l_BaseSearcher := nil;
+ end;
+//#UC END# *5434702F7752_563208C60299_impl*
+end;//TnsBaseSearchServiceImpl.OpenBaseSearch
+
+function TnsBaseSearchServiceImpl.GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
+//#UC START# *5E9BD918F50B_563208C60299_var*
+//#UC END# *5E9BD918F50B_563208C60299_var*
+begin
+//#UC START# *5E9BD918F50B_563208C60299_impl*
+ Assert(False);
+//#UC END# *5E9BD918F50B_563208C60299_impl*
+end;//TnsBaseSearchServiceImpl.GetBaseSearchWindow
+
 procedure TnsBaseSearchServiceImpl.RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
-  const aProvider: InsBaseSearcherProvider);
+ const aProvider: InsBaseSearcherProvider);
 //#UC START# *B86FD3ED4532_563208C60299_var*
 //#UC END# *B86FD3ED4532_563208C60299_var*
 begin
@@ -160,7 +178,7 @@ f_SearcherMap.Add(Pointer(aContainer), Pointer(aProvider));
 end;//TnsBaseSearchServiceImpl.RegisterBaseSearcherProvider
 
 procedure TnsBaseSearchServiceImpl.UnregisterBaseSearcherProvider(const aContainer: IvcmContainer;
-  const aProvider: InsBaseSearcherProvider);
+ const aProvider: InsBaseSearcherProvider);
 //#UC START# *CB784FFDCCE4_563208C60299_var*
 var
  l_Index: Integer;
@@ -172,14 +190,32 @@ begin
 //#UC END# *CB784FFDCCE4_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.UnregisterBaseSearcherProvider
 
+class function TnsBaseSearchServiceImpl.Instance: TnsBaseSearchServiceImpl;
+ {* Метод получения экземпляра синглетона TnsBaseSearchServiceImpl }
+begin
+ if (g_TnsBaseSearchServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TnsBaseSearchServiceImplFree);
+  g_TnsBaseSearchServiceImpl := Create;
+ end;
+ Result := g_TnsBaseSearchServiceImpl;
+end;//TnsBaseSearchServiceImpl.Instance
+
+class function TnsBaseSearchServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsBaseSearchServiceImpl <> nil;
+end;//TnsBaseSearchServiceImpl.Exists
+
 procedure TnsBaseSearchServiceImpl.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_563208C60299_var*
 //#UC END# *479731C50290_563208C60299_var*
 begin
 //#UC START# *479731C50290_563208C60299_impl*
  FreeAndNil(f_SearcherMap);
  inherited;
- //#UC END# *479731C50290_563208C60299_impl*
+//#UC END# *479731C50290_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.Cleanup
 
 procedure TnsBaseSearchServiceImpl.InitFields;
@@ -191,15 +227,9 @@ begin
 //#UC END# *47A042E100E2_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.InitFields
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация TnsBaseSearchServiceImpl
- {$If not defined(Admin)}
  TnsBaseSearchService.Instance.Alien := TnsBaseSearchServiceImpl.Instance;
- {$IfEnd} //not Admin
-
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация TnsBaseSearchServiceImpl }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
