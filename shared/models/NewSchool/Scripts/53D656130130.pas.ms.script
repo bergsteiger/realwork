@@ -1127,74 +1127,6 @@ ref; // ME_55E960BB0296
 
 ref; // ME_55E847E400CD ExportSourcesToXML
 
-FORWARD ME_55ED481E007A
-
-: ME_55ED87B8029C
- CONST Name 'aTaskManager'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_52F8E80D00A5 // TddServerTaskManager
- ;
-
-ref; // ME_55ED87B8029C aTaskManager
-
-: ME_55ED87B3039E
- CONST UID '55ED87B3039E'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55ED481E007A // SendDataThenReady
- ;
- : Parameters
-   Seq: ( ME_55ED87B8029C // aTaskManager
- )
- ; // Parameters
-
-ref; // ME_55ED87B3039E DoIt
-
-: ME_55ED488C02BC
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55ED481E007A // SendDataThenReady
- ;
- : Target WL 'ME_55E978530295' '52FA3DD30094.pas.ms.script' // TalcuMdpSyncDicts
- ;
-
-ref; // ME_55ED488C02BC 
-
-: ME_55ED9B23006C
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55ED481E007A // SendDataThenReady
- ;
- : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
- ;
-
-ref; // ME_55ED9B23006C 
-
-: ME_55ED481E007A
- CONST UID '55ED481E007A'
- CONST Name 'SendDataThenReady'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
- ;
- : Operations
-   Seq: ( ME_55ED87B3039E // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_55ED488C02BC // 
- ME_55ED9B23006C // 
- )
- ; // Dependencies
-
-ref; // ME_55ED481E007A SendDataThenReady
-
 FORWARD ME_55ED484B0321
 
 : ME_55ED485201EE
@@ -1765,6 +1697,63 @@ ref; // ME_561E38C201AF DoIt
 
 ref; // ME_561E38AE0112 ExportSimpleDictToXML
 
+FORWARD ME_57061F78007B
+
+: ME_57061F880071
+ CONST UID '57061F880071'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57061F78007B // MakeTask
+ ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_57061F880071 DoIt
+
+: ME_55ED488C02BC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57061F78007B // MakeTask
+ ;
+ : Target WL 'ME_55E978530295' '52FA3DD30094.pas.ms.script' // TalcuMdpSyncDicts
+ ;
+
+ref; // ME_55ED488C02BC 
+
+: ME_55ED9B23006C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57061F78007B // MakeTask
+ ;
+ : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
+ ;
+
+ref; // ME_55ED9B23006C 
+
+: ME_57061F78007B
+ CONST UID '57061F78007B'
+ CONST Name 'MakeTask'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
+ ;
+ : Operations
+   Seq: ( ME_57061F880071 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_55ED488C02BC // 
+ ME_55ED9B23006C // 
+ )
+ ; // Dependencies
+
+ref; // ME_57061F78007B MakeTask
+
 : ME_55E6E6C202F6
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1890,7 +1879,6 @@ ref; // ME_479731C50290_ME_55E6A67A02ED Cleanup
  ME_55E80D38038B // CreateXMLStream
  ME_55E822EE00F5 // UpdateSyncFolder
  ME_55E847E400CD // ExportSourcesToXML
- ME_55ED481E007A // SendDataThenReady
  ME_55ED484B0321 // HasDataToSend
  ME_55ED50730160 // GuardName
  ME_55ED509D01AA // SyncFolderMask
@@ -1902,6 +1890,7 @@ ref; // ME_479731C50290_ME_55E6A67A02ED Cleanup
  ME_560E41400242 // PrepareAllDicts
  ME_561E342703DE // ExportTypesToXML
  ME_561E38AE0112 // ExportSimpleDictToXML
+ ME_57061F78007B // MakeTask
  )
  ; // Operations
  : Implemented
@@ -2576,85 +2565,6 @@ ref; // ME_52F8BE3100F5 alcuTaskManager
 
 FORWARD ME_55EED3CD0299
 
-FORWARD ME_55EED7F301B5
-
-: ME_55EED827029A
- CONST Name 'aTaskManager'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_52F8E80D00A5 // TddServerTaskManager
- ;
-
-ref; // ME_55EED827029A aTaskManager
-
-: ME_55EED80203BF
- CONST UID '55EED80203BF'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55EED7F301B5 // CheckRunImport
- ;
- : Parameters
-   Seq: ( ME_55EED827029A // aTaskManager
- )
- ; // Parameters
-
-ref; // ME_55EED80203BF DoIt
-
-: ME_55EEDF08000A
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55EED7F301B5 // CheckRunImport
- ;
- : Target WL 'ME_55EEC72501BF' '52FA3DD30094.pas.ms.script' // TalcuMdpImportDocs
- ;
-
-ref; // ME_55EEDF08000A 
-
-: ME_55EEE2D9014D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55EED7F301B5 // CheckRunImport
- ;
- : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
- ;
-
-ref; // ME_55EEE2D9014D 
-
-: ME_55F01415032E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55EED7F301B5 // CheckRunImport
- ;
- : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
- ;
-
-ref; // ME_55F01415032E 
-
-: ME_55EED7F301B5
- CONST UID '55EED7F301B5'
- CONST Name 'CheckRunImport'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55EED3CD0299 // TalcuMdpDocImporter
- ;
- : Operations
-   Seq: ( ME_55EED80203BF // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_55EEDF08000A // 
- ME_55EEE2D9014D // 
- ME_55F01415032E // 
- )
- ; // Dependencies
-
-ref; // ME_55EED7F301B5 CheckRunImport
-
 FORWARD ME_55EEDEC7035D
 
 : ME_55EEDEEB01DE
@@ -2686,6 +2596,63 @@ ref; // ME_55EEDEEB01DE DoIt
  ; // Operations
 
 ref; // ME_55EEDEC7035D HasToImport
+
+FORWARD ME_57061FA6032E
+
+: ME_57061FB20369
+ CONST UID '57061FB20369'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57061FA6032E // MakeTask
+ ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_57061FB20369 DoIt
+
+: ME_55F01415032E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57061FA6032E // MakeTask
+ ;
+ : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
+ ;
+
+ref; // ME_55F01415032E 
+
+: ME_55EEDF08000A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57061FA6032E // MakeTask
+ ;
+ : Target WL 'ME_55EEC72501BF' '52FA3DD30094.pas.ms.script' // TalcuMdpImportDocs
+ ;
+
+ref; // ME_55EEDF08000A 
+
+: ME_57061FA6032E
+ CONST UID '57061FA6032E'
+ CONST Name 'MakeTask'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55EED3CD0299 // TalcuMdpDocImporter
+ ;
+ : Operations
+   Seq: ( ME_57061FB20369 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_55F01415032E // 
+ ME_55EEDF08000A // 
+ )
+ ; // Dependencies
+
+ref; // ME_57061FA6032E MakeTask
 
 : ME_5617AD58028C
  CONST Class class_Dependency
@@ -2722,8 +2689,8 @@ ref; // ME_561B63FE0192
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_55EED7F301B5 // CheckRunImport
- ME_55EEDEC7035D // HasToImport
+   Seq: ( ME_55EEDEC7035D // HasToImport
+ ME_57061FA6032E // MakeTask
  )
  ; // Operations
  : Dependencies

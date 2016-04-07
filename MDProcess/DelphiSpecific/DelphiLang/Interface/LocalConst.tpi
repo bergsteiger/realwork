@@ -171,10 +171,12 @@ r {""=""}: {}
 	]\
 
 	%{Op_Instance}%f_set_up(ifndef,%{IFDEF_VALUE}N)\
+	[{%{PARENT}#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}).Init;\
 	%C%f_AdditionalInitCode("%{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst})")\
 	)\
+	]\
 	>\
 
 	[{%Gx=true}\

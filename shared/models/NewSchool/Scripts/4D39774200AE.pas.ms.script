@@ -549,6 +549,20 @@ ref; // ME_55094E610107 c_FSCommandOpenTab
 
 ref; // ME_55094E3002F1 FlashCommands
 
+: ME_57038EAD0244
+ CONST UID '57038EAD0244'
+ CONST Name 'f_FlashTop'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_497EDE780363 // PrimDocumentWithFlash
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_57038EAD0244 f_FlashTop
+
 : ME_497EDF6F03B2
  CONST UID '497EDF6F03B2'
  CONST Name 'bsFlash'
@@ -1816,6 +1830,18 @@ ref; // ME_4CDAD282005F_ME_497EDE780363 Name
  CONST OpKind opkind_Implemented
 ref; // ME_4CDAD29D0169_ME_497EDE780363 ShortName
 
+: ME_54868B67034A_ME_497EDE780363
+ : Original WL 'ME_54868B67034A' '553213B80041.pas.ms.script' // TabBecomeActive
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54868B67034A_ME_497EDE780363 TabBecomeActive
+
+: ME_54868B84029F_ME_497EDE780363
+ : Original WL 'ME_54868B84029F' '553213B80041.pas.ms.script' // TabBecomeInactive
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54868B84029F_ME_497EDE780363 TabBecomeInactive
+
 : ME_54D8913B03A6_ME_497EDE780363
  : Original WL 'ME_54D8913B03A6' '4CDABA8F024B.pas.ms.script' // GetDocumentForInfo
  ;
@@ -1961,10 +1987,12 @@ ref; // ME_544609B9032D_ME_497EDE780363 DoGetCanDefineFormSetIcon
  WL 'ME_543E3A600253' '533D53FF00C2.pas.ms.script' // vcmChromeLikeTabIconUpdater
  WL 'ME_54D879C9030C' '4CDABA8F024B.pas.ms.script' // PrintableFlashWithInfo
  WL 'ME_55321AC301F0' '553213B80041.pas.ms.script' // Il3TabbedContainersListener
+ WL 'ME_55AE381E03A0' '4683F37902CF.pas.ms.script' // IvcmSelectedTabDependent
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_497EDF6F03B2 // bsFlash
+   Seq: ( ME_57038EAD0244 // f_FlashTop
+ ME_497EDF6F03B2 // bsFlash
  ME_4986E10A02D6 // dsBaseDocument
  ME_4988194E02F8 // Document
  ME_498845CE003C // Flash
@@ -2014,6 +2042,8 @@ ref; // ME_544609B9032D_ME_497EDE780363 DoGetCanDefineFormSetIcon
  ME_4CDACDBE00B2_ME_497EDE780363 // FlashForPrint
  ME_4CDAD282005F_ME_497EDE780363 // Name
  ME_4CDAD29D0169_ME_497EDE780363 // ShortName
+ ME_54868B67034A_ME_497EDE780363 // TabBecomeActive
+ ME_54868B84029F_ME_497EDE780363 // TabBecomeInactive
  ME_54D8913B03A6_ME_497EDE780363 // GetDocumentForInfo
  ME_55321ADE02E9_ME_497EDE780363 // NotifyContainersChanged
  )

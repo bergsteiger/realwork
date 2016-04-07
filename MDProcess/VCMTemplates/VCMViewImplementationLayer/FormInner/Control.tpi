@@ -28,7 +28,7 @@ $ f 165,42,0
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Пользовательские свойства
 
-p ControlClass=none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtLabel|TvtLister|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtPanel|TvtProportionalPanel|TBevel|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TvtRadioButton|TComboBox|TvtComboBox|TBitBtn|TvtImageLabel|TvtStyledLabel ? 
+p ControlClass=none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtLabel|TvtLister|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtPanel|TvtProportionalPanel|TBevel|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TvtRadioButton|TComboBox|TvtComboBox|TBitBtn|TvtImageLabel|TvtStyledLabel|TnscNavigator ? 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
@@ -60,11 +60,20 @@ f _loc_GetFinished
 	[{%S%f_IsOverride()!=true}\
 	[{%Gx!=true}\
 	[{%S{ControlClass}!=none&"%S{ControlClass}"!=""}\
-	%f_find_element(%S{ControlClass},l_Elem)\
+	%f_FindElem(%S{ControlClass})\
+//	%f_find_element(%S{ControlClass},l_Elem)\
 	%S%f_make_accessable(%{l_Elem}U)\
 	%f_addG(%S,%{l_Elem})\
 	]\
 	]\
+	]
+
+f _FindElem
+	[{"%{%SN}N"=""}{\
+	%f_set_var(l_Elem,{%SN})\
+	}\
+	%f_find_element(%SN,l_Elem)\
+	%f_set_var(%SN,{l_Elem})\
 	]
 //#UC END# *4B2A19E3038Bfor4A794CA201BF*
 

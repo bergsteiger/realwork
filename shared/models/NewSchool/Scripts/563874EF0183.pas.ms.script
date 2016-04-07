@@ -110,6 +110,164 @@ ref; // ME_0374E04F1126 aProvider
 
 ref; // ME_B86FD3ED4532 RegisterBaseSearcherProvider
 
+: ME_40E4DC555349
+ CONST Name 'aContainer'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_40E4DC555349 aContainer
+
+: ME_5E9BD918F50B
+ CONST UID '5E9BD918F50B'
+ CONST Name 'GetBaseSearchWindow'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ : Parameters
+   Seq: ( ME_40E4DC555349 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_5E9BD918F50B GetBaseSearchWindow
+
+: ME_91BD61383401
+ CONST Name 'aContainer'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_91BD61383401 aContainer
+
+: ME_91BD61383402
+ CONST Name 'aOpenKind'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49512DE00227' '4A9F98B901A5.pas.ms.script' // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_91BD61383402 aOpenKind
+
+: ME_5434702F7752
+ CONST UID '5434702F7752'
+ CONST Name 'OpenBaseSearch'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ : Parameters
+   Seq: ( ME_91BD61383401 // aContainer
+ ME_91BD61383402 // aOpenKind
+ )
+ ; // Parameters
+
+ref; // ME_5434702F7752 OpenBaseSearch
+
+: ME_270139B5CED0
+ CONST Name 'aContainer'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_270139B5CED0 aContainer
+
+: ME_3ABD99A8B9EE
+ CONST UID '3ABD99A8B9EE'
+ CONST Name 'GetBaseSearchModel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ : Target WL 'ME_56D42F09009E' '4A9F98B901A5.pas.ms.script' // InsBaseSearchModel
+ ;
+ : Parameters
+   Seq: ( ME_270139B5CED0 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_3ABD99A8B9EE GetBaseSearchModel
+
+: ME_3E8A0014B368
+ CONST Name 'aContainer'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_3E8A0014B368 aContainer
+
+: ME_29D9062E385E
+ CONST UID '29D9062E385E'
+ CONST Name 'GetBaseSearchController'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ : Target WL 'ME_56D696CD007B' '4A9F98B901A5.pas.ms.script' // InsBaseSearchController
+ ;
+ : Parameters
+   Seq: ( ME_3E8A0014B368 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_29D9062E385E GetBaseSearchController
+
+: ME_3BF436DB2D17
+ CONST Name 'aBaseSearchView'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56D42F1903CF' '4A9F98B901A5.pas.ms.script' // InsBaseSearchView
+ ;
+
+ref; // ME_3BF436DB2D17 aBaseSearchView
+
+: ME_3BF436DB2D18
+ CONST Name 'aContainer'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_3BF436DB2D18 aContainer
+
+: ME_130AF2617571
+ CONST UID '130AF2617571'
+ CONST Name 'RegisterBaseSearchView'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ : Parameters
+   Seq: ( ME_3BF436DB2D17 // aBaseSearchView
+ ME_3BF436DB2D18 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_130AF2617571 RegisterBaseSearchView
+
 : ME_A7888A84DDDB
  CONST UID 'A7888A84DDDB'
  CONST Name 'MnsBaseSearchService'
@@ -126,6 +284,11 @@ ref; // ME_B86FD3ED4532 RegisterBaseSearcherProvider
    Seq: ( ME_4923CA8F0CFB // GetBaseSearcher
  ME_CB784FFDCCE4 // UnregisterBaseSearcherProvider
  ME_B86FD3ED4532 // RegisterBaseSearcherProvider
+ ME_5E9BD918F50B // GetBaseSearchWindow
+ ME_5434702F7752 // OpenBaseSearch
+ ME_3ABD99A8B9EE // GetBaseSearchModel
+ ME_29D9062E385E // GetBaseSearchController
+ ME_130AF2617571 // RegisterBaseSearchView
  )
  ; // Operations
 
@@ -133,11 +296,41 @@ ref; // ME_A7888A84DDDB MnsBaseSearchService
 
 FORWARD ME_95B86FA902A2
 
+: ME_130AF2617571_ME_95B86FA902A2
+ : Original ME_130AF2617571 // RegisterBaseSearchView
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_130AF2617571_ME_95B86FA902A2 RegisterBaseSearchView
+
+: ME_29D9062E385E_ME_95B86FA902A2
+ : Original ME_29D9062E385E // GetBaseSearchController
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_29D9062E385E_ME_95B86FA902A2 GetBaseSearchController
+
+: ME_3ABD99A8B9EE_ME_95B86FA902A2
+ : Original ME_3ABD99A8B9EE // GetBaseSearchModel
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_3ABD99A8B9EE_ME_95B86FA902A2 GetBaseSearchModel
+
 : ME_4923CA8F0CFB_ME_95B86FA902A2
  : Original ME_4923CA8F0CFB // GetBaseSearcher
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4923CA8F0CFB_ME_95B86FA902A2 GetBaseSearcher
+
+: ME_5434702F7752_ME_95B86FA902A2
+ : Original ME_5434702F7752 // OpenBaseSearch
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5434702F7752_ME_95B86FA902A2 OpenBaseSearch
+
+: ME_5E9BD918F50B_ME_95B86FA902A2
+ : Original ME_5E9BD918F50B // GetBaseSearchWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5E9BD918F50B_ME_95B86FA902A2 GetBaseSearchWindow
 
 : ME_B86FD3ED4532_ME_95B86FA902A2
  : Original ME_B86FD3ED4532 // RegisterBaseSearcherProvider
@@ -169,7 +362,12 @@ ref; // ME_CB784FFDCCE4_ME_95B86FA902A2 UnregisterBaseSearcherProvider
  )
  ; // Implements
  : Implemented
-   Seq: ( ME_4923CA8F0CFB_ME_95B86FA902A2 // GetBaseSearcher
+   Seq: ( ME_130AF2617571_ME_95B86FA902A2 // RegisterBaseSearchView
+ ME_29D9062E385E_ME_95B86FA902A2 // GetBaseSearchController
+ ME_3ABD99A8B9EE_ME_95B86FA902A2 // GetBaseSearchModel
+ ME_4923CA8F0CFB_ME_95B86FA902A2 // GetBaseSearcher
+ ME_5434702F7752_ME_95B86FA902A2 // OpenBaseSearch
+ ME_5E9BD918F50B_ME_95B86FA902A2 // GetBaseSearchWindow
  ME_B86FD3ED4532_ME_95B86FA902A2 // RegisterBaseSearcherProvider
  ME_CB784FFDCCE4_ME_95B86FA902A2 // UnregisterBaseSearcherProvider
  )
@@ -295,6 +493,157 @@ ref; // ME_56387590010E aProvider
 
 ref; // ME_5638758B005B RegisterBaseSearcherProvider
 
+: ME_57060FB90065
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_57060FB90065 aContainer
+
+: ME_57060F970080
+ CONST UID '57060F970080'
+ CONST Name 'GetBaseSearchWindow'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_563875050317 // TnsBaseSearchService
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ : Parameters
+   Seq: ( ME_57060FB90065 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_57060F970080 GetBaseSearchWindow
+
+: ME_5706236601AE
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_5706236601AE aContainer
+
+: ME_5706236601D5
+ CONST Name 'aOpenKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49512DE00227' '4A9F98B901A5.pas.ms.script' // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_5706236601D5 aOpenKind
+
+: ME_57062347014D
+ CONST UID '57062347014D'
+ CONST Name 'OpenBaseSearch'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_563875050317 // TnsBaseSearchService
+ ;
+ : Parameters
+   Seq: ( ME_5706236601AE // aContainer
+ ME_5706236601D5 // aOpenKind
+ )
+ ; // Parameters
+
+ref; // ME_57062347014D OpenBaseSearch
+
+: ME_5706238D0325
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_5706238D0325 aContainer
+
+: ME_570623790185
+ CONST UID '570623790185'
+ CONST Name 'GetBaseSearchModel'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_563875050317 // TnsBaseSearchService
+ ;
+ : Target WL 'ME_56D42F09009E' '4A9F98B901A5.pas.ms.script' // InsBaseSearchModel
+ ;
+ : Parameters
+   Seq: ( ME_5706238D0325 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_570623790185 GetBaseSearchModel
+
+: ME_570623A7039E
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_570623A7039E aContainer
+
+: ME_5706239C01A7
+ CONST UID '5706239C01A7'
+ CONST Name 'GetBaseSearchController'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_563875050317 // TnsBaseSearchService
+ ;
+ : Target WL 'ME_56D696CD007B' '4A9F98B901A5.pas.ms.script' // InsBaseSearchController
+ ;
+ : Parameters
+   Seq: ( ME_570623A7039E // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_5706239C01A7 GetBaseSearchController
+
+: ME_570623ED01E3
+ CONST Name 'aBaseSearchView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56D42F1903CF' '4A9F98B901A5.pas.ms.script' // InsBaseSearchView
+ ;
+
+ref; // ME_570623ED01E3 aBaseSearchView
+
+: ME_570623ED020E
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_570623ED020E aContainer
+
+: ME_570623BB029C
+ CONST UID '570623BB029C'
+ CONST Name 'RegisterBaseSearchView'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_563875050317 // TnsBaseSearchService
+ ;
+ : Parameters
+   Seq: ( ME_570623ED01E3 // aBaseSearchView
+ ME_570623ED020E // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_570623BB029C RegisterBaseSearchView
+
 : ME_563875E103DB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -315,11 +664,41 @@ ref; // ME_563875E103DB
 
 ref; // ME_563875EC005F 
 
+: ME_130AF2617571_ME_563875050317
+ : Original ME_130AF2617571 // RegisterBaseSearchView
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_130AF2617571_ME_563875050317 RegisterBaseSearchView
+
+: ME_29D9062E385E_ME_563875050317
+ : Original ME_29D9062E385E // GetBaseSearchController
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_29D9062E385E_ME_563875050317 GetBaseSearchController
+
+: ME_3ABD99A8B9EE_ME_563875050317
+ : Original ME_3ABD99A8B9EE // GetBaseSearchModel
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_3ABD99A8B9EE_ME_563875050317 GetBaseSearchModel
+
 : ME_4923CA8F0CFB_ME_563875050317
  : Original ME_4923CA8F0CFB // GetBaseSearcher
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4923CA8F0CFB_ME_563875050317 GetBaseSearcher
+
+: ME_5434702F7752_ME_563875050317
+ : Original ME_5434702F7752 // OpenBaseSearch
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5434702F7752_ME_563875050317 OpenBaseSearch
+
+: ME_5E9BD918F50B_ME_563875050317
+ : Original ME_5E9BD918F50B // GetBaseSearchWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5E9BD918F50B_ME_563875050317 GetBaseSearchWindow
 
 : ME_B86FD3ED4532_ME_563875050317
  : Original ME_B86FD3ED4532 // RegisterBaseSearcherProvider
@@ -359,10 +738,20 @@ ref; // ME_CB784FFDCCE4_ME_563875050317 UnregisterBaseSearcherProvider
    Seq: ( ME_5638753D025D // GetBaseSearcher
  ME_563875610245 // UnregisterBaseSearcherProvider
  ME_5638758B005B // RegisterBaseSearcherProvider
+ ME_57060F970080 // GetBaseSearchWindow
+ ME_57062347014D // OpenBaseSearch
+ ME_570623790185 // GetBaseSearchModel
+ ME_5706239C01A7 // GetBaseSearchController
+ ME_570623BB029C // RegisterBaseSearchView
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_4923CA8F0CFB_ME_563875050317 // GetBaseSearcher
+   Seq: ( ME_130AF2617571_ME_563875050317 // RegisterBaseSearchView
+ ME_29D9062E385E_ME_563875050317 // GetBaseSearchController
+ ME_3ABD99A8B9EE_ME_563875050317 // GetBaseSearchModel
+ ME_4923CA8F0CFB_ME_563875050317 // GetBaseSearcher
+ ME_5434702F7752_ME_563875050317 // OpenBaseSearch
+ ME_5E9BD918F50B_ME_563875050317 // GetBaseSearchWindow
  ME_B86FD3ED4532_ME_563875050317 // RegisterBaseSearcherProvider
  ME_CB784FFDCCE4_ME_563875050317 // UnregisterBaseSearcherProvider
  )

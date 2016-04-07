@@ -1382,7 +1382,6 @@ PROCEDURE "Вызывать 'Выделить заголовок'"
 
 PROCEDURE "Вызывать 'Выделить строку'"
 	"Начать выделение"
-	//2 раз "Нажать вниз"
 	"В конец строки"
 	"Закончить выделение"	
 ;
@@ -1395,9 +1394,9 @@ PROCEDURE "Выбрать в выпадающем списке 'Размер шрифта' значение" STRING IN aValu
 	OBJECT VAR l_Combobox
 	INTEGER VAR l_Index
 	"Контрол по имени {('FontSizeComboBox')}" >>> l_Combobox
-	l_Combobox ЯВЛЯЕТСЯ 'TFontSizeComboBox' [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ] strings:Cat ASSERTS
+	l_Combobox ЯВЛЯЕТСЯ 'TFontSizeComboBox' ?ASSURE [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ]
 	aValue l_Combobox pop:ComboBox:IndexOf >>> l_Index
-	l_Index НЕРАВНО -1 'Не нашли нужное значение в комбобоксе!' ASSERTS
+	l_Index НЕРАВНО -1 ?ASSURE 'Не нашли нужное значение в комбобоксе!'
 	"Открыть и закрыть выпадающий список {(l_Combobox)}"
 	aValue l_Combobox pop:ComboBox:SelectItem
 	"Обработать сообщения"
@@ -1407,7 +1406,32 @@ PROCEDURE "Выбрать в выпадающем списке 'Цвет шрифта' значение" INTEGER IN aValue
 	OBJECT VAR l_Combobox
 	INTEGER VAR l_Index
 	"Контрол по имени {('ColorComboBox')}" >>> l_Combobox
-	l_Combobox ЯВЛЯЕТСЯ 'TvtColorBox' [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ] strings:Cat ASSERTS
+	l_Combobox ЯВЛЯЕТСЯ 'TvtColorBox' ?ASSURE [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ]
 	aValue l_Combobox pop:ComboBox:SetItemIndex
 	"Обработать сообщения"
+;
+
+PROCEDURE "Выбрать в выпадающем списке значение индекса" STRING IN aComboBoxName STRING IN aClassName INTEGER IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {(aComboBoxName)}" >>> l_Combobox
+	l_Combobox ЯВЛЯЕТСЯ aClassName ?ASSURE [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ]
+	aValue l_Combobox pop:ComboBox:SetItemIndex
+	"Обработать сообщения"
+;
+
+PROCEDURE "Выбрать в выпадающем списке строковое значение" STRING IN aComboBoxName STRING IN aClassName STRING IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {(aComboBoxName)}" >>> l_Combobox
+	l_Combobox ЯВЛЯЕТСЯ aClassName ?ASSURE [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ]
+	aValue l_Combobox pop:ComboBox:IndexOf >>> l_Index
+	l_Index НЕРАВНО -1 ?ASSURE 'Не нашли нужное значение в комбобоксе!'
+	"Открыть и закрыть выпадающий список {(l_Combobox)}"
+	aValue l_Combobox pop:ComboBox:SelectItem
+	"Обработать сообщения"
+;
+
+PROCEDURE "Выбрать шрифт 'Calibri'"
+	"Выбрать в выпадающем списке {('FontComboBox')} {('TFontComboBox')}  строковое значение {('Calibri')}"	
 ;

@@ -58,7 +58,8 @@ p ComponentClass=none|TevTextSource|TImageEnIO|TImageEnProc|TnscTextSource|TTime
 	[{%S%f_IsOverride()!=true}\
 	[{%Gx!=true}\
 	[{%S{ComponentClass}!=none&"%S{ComponentClass}"!=""}\
-	%f_find_element(%S{ComponentClass},l_Elem)\
+	%f_FindElem(%S{ComponentClass})\
+//	%f_find_element(%S{ComponentClass},l_Elem)\
 	%S%f_make_accessable(%{l_Elem}U)\
 	%f_addG(%S,%{l_Elem})\
 	]\

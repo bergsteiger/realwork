@@ -199,7 +199,7 @@ var
    l_Task.SyncFolderMask := SyncFolderMask;
    l_Task.GuardName := GuardName;
    l_Task.Description := 'Синхронизация словарей в Гардок';
-   if aTaskManager.ActiveTaskList.FindTask(l_Task.TaskType) = nil then
+   if not aTaskManager.HasActiveTask(l_Task.TaskType) then
     aTaskManager.AddActiveTask(l_Task);
   finally
    FreeAndNil(l_Task);
@@ -366,3 +366,15 @@ var
  l_Path: AnsiString;
  l_DocID: PDocID;
 //#UC END# *561E38AE0112_55E6A67A02ED_var*
+//#UC START# *57061F78007B_55E6A67A02ED_impl*
+ Result := nil;
+ if HasDataToSend then
+ begin
+  Result := TalcuMdpSyncDicts.Create(usServerService);
+  TalcuMdpSyncDicts(Result).SyncFolderMask := SyncFolderMask;
+  TalcuMdpSyncDicts(Result).GuardName := GuardName;
+  Result.Description := 'Синхронизация словарей в Гардок';
+ end;
+//#UC END# *57061F78007B_55E6A67A02ED_impl*
+//#UC START# *57061F78007B_55E6A67A02ED_var*
+//#UC END# *57061F78007B_55E6A67A02ED_var*
