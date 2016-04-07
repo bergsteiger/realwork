@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vcmMainFormRes;
+unit vcmMainFormRes;
 
-// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_COMPLETED_vcmMainFormRes.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormRes.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "vcmMainFormRes" MUID: (51E7E79A0341)
 
@@ -44,7 +44,11 @@ initialization
  str_TooManyWindowsOpened_Choice_Second.Init;
  {* Инициализация str_TooManyWindowsOpened_Choice_Second }
  str_TooManyWindowsOpened.Init;
-!!! Lost Message ini !!!
+ str_TooManyWindowsOpened.AddChoice(str_TooManyWindowsOpened_Choice_First);
+ str_TooManyWindowsOpened.AddChoice(str_TooManyWindowsOpened_Choice_Second);
+ str_TooManyWindowsOpened.AddCustomChoice(str_TooManyWindowsOpened_Choice_Second);
+ str_TooManyWindowsOpened.AddDefaultChoice(str_TooManyWindowsOpened_Choice_First);
+ str_TooManyWindowsOpened.SetDlgType(mtConfirmation);
  {* Инициализация str_TooManyWindowsOpened }
 {$IfEnd} // NOT Defined(NoVCM)
 

@@ -132,28 +132,74 @@ initialization
  str_ConsultDocumentsNotFoundNoSpec_Choice_Back.Init;
  {* Инициализация str_ConsultDocumentsNotFoundNoSpec_Choice_Back }
  str_DocumentEMailSelection.Init;
-!!! Lost Message ini !!!
+ str_DocumentEMailSelection.AddChoice(str_DocumentEMailSelection_Choice_Selection);
+ str_DocumentEMailSelection.AddChoice(str_DocumentEMailSelection_Choice_WholeDocument);
+ str_DocumentEMailSelection.AddDefaultChoice(str_DocumentEMailSelection_Choice_Selection);
+ str_DocumentEMailSelection.SetNeedCheck(true);
+ str_DocumentEMailSelection.SetCheckCaption(str_DocumentEMailSelection_CheckCaption);
+ str_DocumentEMailSelection.SetSettingsCaption(str_DocumentEMailSelection_SettingsCaption);
+ str_DocumentEMailSelection.SetLongHint(str_DocumentEMailSelection_LongHint);
+ str_DocumentEMailSelection.SetDlgType(mtConfirmation);
  {* Инициализация str_DocumentEMailSelection }
  str_ListEMailSelection.Init;
-!!! Lost Message ini !!!
+ str_ListEMailSelection.AddChoice(str_ListEMailSelection_Choice_Selected);
+ str_ListEMailSelection.AddChoice(str_ListEMailSelection_Choice_WholeList);
+ str_ListEMailSelection.AddDefaultChoice(str_ListEMailSelection_Choice_Selected);
+ str_ListEMailSelection.SetNeedCheck(true);
+ str_ListEMailSelection.SetCheckCaption(str_ListEMailSelection_CheckCaption);
+ str_ListEMailSelection.SetSettingsCaption(str_ListEMailSelection_SettingsCaption);
+ str_ListEMailSelection.SetLongHint(str_ListEMailSelection_LongHint);
+ str_ListEMailSelection.SetDlgType(mtConfirmation);
  {* Инициализация str_ListEMailSelection }
  str_ListPrintSelectedConfirmation.Init;
-!!! Lost Message ini !!!
+ str_ListPrintSelectedConfirmation.AddChoice(str_ListPrintSelectedConfirmation_Choice_Selected);
+ str_ListPrintSelectedConfirmation.AddChoice(str_ListPrintSelectedConfirmation_Choice_WholeList);
+ str_ListPrintSelectedConfirmation.AddDefaultChoice(str_ListPrintSelectedConfirmation_Choice_Selected);
+ str_ListPrintSelectedConfirmation.SetNeedCheck(true);
+ str_ListPrintSelectedConfirmation.SetCheckCaption(str_ListPrintSelectedConfirmation_CheckCaption);
+ str_ListPrintSelectedConfirmation.SetSettingsCaption(str_ListPrintSelectedConfirmation_SettingsCaption);
+ str_ListPrintSelectedConfirmation.SetLongHint(str_ListPrintSelectedConfirmation_LongHint);
+ str_ListPrintSelectedConfirmation.SetDlgType(mtConfirmation);
  {* Инициализация str_ListPrintSelectedConfirmation }
  str_PrintSelectedConfirmation.Init;
-!!! Lost Message ini !!!
+ str_PrintSelectedConfirmation.AddChoice(str_PrintSelectedConfirmation_Choice_Selected);
+ str_PrintSelectedConfirmation.AddChoice(str_PrintSelectedConfirmation_Choice_WholeDocument);
+ str_PrintSelectedConfirmation.AddDefaultChoice(str_PrintSelectedConfirmation_Choice_Selected);
+ str_PrintSelectedConfirmation.SetNeedCheck(true);
+ str_PrintSelectedConfirmation.SetCheckCaption(str_PrintSelectedConfirmation_CheckCaption);
+ str_PrintSelectedConfirmation.SetSettingsCaption(str_PrintSelectedConfirmation_SettingsCaption);
+ str_PrintSelectedConfirmation.SetLongHint(str_PrintSelectedConfirmation_LongHint);
+ str_PrintSelectedConfirmation.SetDlgType(mtConfirmation);
  {* Инициализация str_PrintSelectedConfirmation }
  str_ExportSelectionToWord.Init;
-!!! Lost Message ini !!!
+ str_ExportSelectionToWord.AddChoice(str_ExportSelectionToWord_Choice_Selected);
+ str_ExportSelectionToWord.AddChoice(str_ExportSelectionToWord_Choice_WholeDocument);
+ str_ExportSelectionToWord.AddDefaultChoice(str_ExportSelectionToWord_Choice_Selected);
+ str_ExportSelectionToWord.SetNeedCheck(true);
+ str_ExportSelectionToWord.SetCheckCaption(str_ExportSelectionToWord_CheckCaption);
+ str_ExportSelectionToWord.SetSettingsCaption(str_ExportSelectionToWord_SettingsCaption);
+ str_ExportSelectionToWord.SetLongHint(str_ExportSelectionToWord_LongHint);
+ str_ExportSelectionToWord.SetDlgType(mtConfirmation);
  {* Инициализация str_ExportSelectionToWord }
  str_ListExportSelectionToWord.Init;
-!!! Lost Message ini !!!
+ str_ListExportSelectionToWord.AddChoice(str_ListExportSelectionToWord_Choice_Selected);
+ str_ListExportSelectionToWord.AddChoice(str_ListExportSelectionToWord_Choice_WholeList);
+ str_ListExportSelectionToWord.AddDefaultChoice(str_ListExportSelectionToWord_Choice_Selected);
+ str_ListExportSelectionToWord.SetNeedCheck(true);
+ str_ListExportSelectionToWord.SetCheckCaption(str_ListExportSelectionToWord_CheckCaption);
+ str_ListExportSelectionToWord.SetSettingsCaption(str_ListExportSelectionToWord_SettingsCaption);
+ str_ListExportSelectionToWord.SetLongHint(str_ListExportSelectionToWord_LongHint);
+ str_ListExportSelectionToWord.SetDlgType(mtConfirmation);
  {* Инициализация str_ListExportSelectionToWord }
  str_ConsultDocumentsNotFound.Init;
-!!! Lost Message ini !!!
+ str_ConsultDocumentsNotFound.AddChoice(str_ConsultDocumentsNotFound_Choice_Spec);
+ str_ConsultDocumentsNotFound.AddChoice(str_ConsultDocumentsNotFound_Choice_Back);
+ str_ConsultDocumentsNotFound.AddCustomChoice(str_ConsultDocumentsNotFound_Choice_Spec);
+ str_ConsultDocumentsNotFound.SetDlgType(mtWarning);
  {* Инициализация str_ConsultDocumentsNotFound }
  str_ConsultDocumentsNotFoundNoSpec.Init;
-!!! Lost Message ini !!!
+ str_ConsultDocumentsNotFoundNoSpec.AddChoice(str_ConsultDocumentsNotFoundNoSpec_Choice_Back);
+ str_ConsultDocumentsNotFoundNoSpec.SetDlgType(mtWarning);
  {* Инициализация str_ConsultDocumentsNotFoundNoSpec }
  str_DocumentEMailSelection_CheckCaption.Init;
  {* Инициализация str_DocumentEMailSelection_CheckCaption }

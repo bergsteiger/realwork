@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsQuestionsWithChoices;
+unit nsQuestionsWithChoices;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\NOT_COMPLETED_nsQuestionsWithChoices.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\nsQuestionsWithChoices.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "nsQuestionsWithChoices" MUID: (4F9BB14900E7)
 
@@ -97,22 +97,35 @@ initialization
  str_AutologinDuplicate_Choice_Login.Init;
  {* Инициализация str_AutologinDuplicate_Choice_Login }
  str_ChangedDocumentOnControl.Init;
-!!! Lost Message ini !!!
+ str_ChangedDocumentOnControl.AddChoice(str_ChangedDocumentOnControl_Choice_Open);
+ str_ChangedDocumentOnControl.AddChoice(str_ChangedDocumentOnControl_Choice_Compare);
+ str_ChangedDocumentOnControl.SetSettingsCaption(str_ChangedDocumentOnControl_SettingsCaption);
+ str_ChangedDocumentOnControl.SetDlgType(mtConfirmation);
  {* Инициализация str_ChangedDocumentOnControl }
  str_SearchUnresolvedContext.Init;
-!!! Lost Message ini !!!
+ str_SearchUnresolvedContext.AddChoice(str_SearchUnresolvedContext_Choice_Back);
+ str_SearchUnresolvedContext.AddChoice(str_SearchUnresolvedContext_Choice_Continue);
+ str_SearchUnresolvedContext.SetDlgType(mtConfirmation);
  {* Инициализация str_SearchUnresolvedContext }
  str_DropListToList.Init;
-!!! Lost Message ini !!!
+ str_DropListToList.AddChoice(str_DropListToList_Choice_Append);
+ str_DropListToList.AddChoice(str_DropListToList_Choice_Copy);
+ str_DropListToList.SetDlgType(mtConfirmation);
  {* Инициализация str_DropListToList }
  str_mtNotGarantDomain.Init;
-!!! Lost Message ini !!!
+ str_mtNotGarantDomain.AddChoice(str_mtNotGarantDomain_Choice_Open);
+ str_mtNotGarantDomain.AddChoice(str_mtNotGarantDomain_Choice_Stay);
+ str_mtNotGarantDomain.SetDlgType(mtConfirmation);
  {* Инициализация str_mtNotGarantDomain }
  str_EmptySearchResultInBaseList.Init;
-!!! Lost Message ini !!!
+ str_EmptySearchResultInBaseList.AddChoice(str_EmptySearchResultInBaseList_Choice_Expand);
+ str_EmptySearchResultInBaseList.AddChoice(str_EmptySearchResultInBaseList_Choice_AllBase);
+ str_EmptySearchResultInBaseList.SetDlgType(mtConfirmation);
  {* Инициализация str_EmptySearchResultInBaseList }
  str_AutologinDuplicate.Init;
-!!! Lost Message ini !!!
+ str_AutologinDuplicate.AddChoice(str_AutologinDuplicate_Choice_Back);
+ str_AutologinDuplicate.AddChoice(str_AutologinDuplicate_Choice_Login);
+ str_AutologinDuplicate.SetDlgType(mtWarning);
  {* Инициализация str_AutologinDuplicate }
  str_ChangedDocumentOnControl_SettingsCaption.Init;
  {* Инициализация str_ChangedDocumentOnControl_SettingsCaption }

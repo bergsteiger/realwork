@@ -29,6 +29,11 @@ uses
 ;
 
 const
+ {* Алиасы для значений afwTypes.TafwScrollBarType }
+ afw_sbHorz = afwTypes.afw_sbHorz;
+ afw_sbVert = afwTypes.afw_sbVert;
+
+const
  afw_lpwTimeout = 500;
   {* задержка в мс перед показом асинхронного окна при длительной операции }
  ssControl = ssCtrl;
@@ -37,9 +42,6 @@ const
 {$IfEnd} // NOT Defined(NoVCL)
  afw_lngRussian = 'ru';
  afw_lngEnglish = 'en';
- {* Алиасы для значений afwTypes.TafwScrollBarType }
- afw_sbHorz = afwTypes.afw_sbHorz;
- afw_sbVert = afwTypes.afw_sbVert;
 
 type
  IafwBase = interface(Il3Base)

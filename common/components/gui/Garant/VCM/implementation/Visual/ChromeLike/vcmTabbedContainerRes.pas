@@ -54,7 +54,9 @@ initialization
  str_TooManyTabsOpened_Choice_First.Init;
  {* Инициализация str_TooManyTabsOpened_Choice_First }
  str_TooManyTabsOpened.Init;
-!!! Lost Message ini !!!
+ str_TooManyTabsOpened.AddChoice(str_TooManyTabsOpened_Choice_First);
+ str_TooManyTabsOpened.AddDefaultChoice(str_TooManyTabsOpened_Choice_First);
+ str_TooManyTabsOpened.SetDlgType(mtConfirmation);
  {* Инициализация str_TooManyTabsOpened }
  str_pui_MainWindowTabs.Init;
  {* Инициализация str_pui_MainWindowTabs }

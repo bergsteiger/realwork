@@ -22,6 +22,13 @@ uses
  , l3Variant
 ;
 
+const
+ {* Алиасы для значений l3Variant.Tk2VarKind }
+ k2_vkInteger = l3Variant.k2_vkInteger;
+ k2_vkString = l3Variant.k2_vkString;
+ k2_vkTransparent = l3Variant.k2_vkTransparent;
+ k2_vkStream = l3Variant.k2_vkStream;
+
 type
  Ik2Base = interface(Il3Base)
   {* Базовый интерфейс библиотеки K-2 }

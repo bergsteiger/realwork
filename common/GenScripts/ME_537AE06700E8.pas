@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vcmTabbedContainerRes;
+unit vcmTabbedContainerRes;
 
-// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_COMPLETED_vcmTabbedContainerRes.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerRes.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "vcmTabbedContainerRes" MUID: (537AE06700E8)
 
@@ -54,7 +54,9 @@ initialization
  str_TooManyTabsOpened_Choice_First.Init;
  {* Инициализация str_TooManyTabsOpened_Choice_First }
  str_TooManyTabsOpened.Init;
-!!! Lost Message ini !!!
+ str_TooManyTabsOpened.AddChoice(str_TooManyTabsOpened_Choice_First);
+ str_TooManyTabsOpened.AddDefaultChoice(str_TooManyTabsOpened_Choice_First);
+ str_TooManyTabsOpened.SetDlgType(mtConfirmation);
  {* Инициализация str_TooManyTabsOpened }
  str_pui_MainWindowTabs.Init;
  {* Инициализация str_pui_MainWindowTabs }

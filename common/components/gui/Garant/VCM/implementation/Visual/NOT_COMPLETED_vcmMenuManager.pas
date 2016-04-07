@@ -724,6 +724,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , Graphics
  {$If NOT Defined(NoScripts)}
  , VCMApllicationSettingsPack
  {$IfEnd} // NOT Defined(NoScripts)
