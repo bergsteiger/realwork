@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddStyleSegment;
+unit ddStyleSegment;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddStyleSegment.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddStyleSegment.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddStyleSegment" MUID: (54D9B8E801EA)
 
@@ -46,6 +46,8 @@ uses
  , RTFtypes
  , l3Interfaces
  , evdStyles
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddStyleSegment.Write2Generator(const Generator: Ik2TagGenerator;

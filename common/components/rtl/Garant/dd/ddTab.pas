@@ -19,13 +19,9 @@ type
  TddTab = class(TddBaseObject)
   private
    f_Kind: TTabKind;
-    {* Поле для свойства Kind }
    f_TabLead: TTabLead;
-    {* Поле для свойства TabLead }
    f_TabBar: LongInt;
-    {* Поле для свойства TabBar }
    f_TabPos: LongInt;
-    {* Поле для свойства TabPos }
   public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aLiteVersion: TddLiteVersion); override;
@@ -52,6 +48,8 @@ uses
  l3ImplUses
  , l3Interfaces
  , l3Chars
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddTab.Write2Generator(const Generator: Ik2TagGenerator;

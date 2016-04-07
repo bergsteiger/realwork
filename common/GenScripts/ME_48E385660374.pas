@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evRange;
+unit evRange;
  {* Реализация интерфейса IedRange }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evRange.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evRange.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "evRange" MUID: (48E385660374)
 
@@ -272,7 +272,7 @@ var
  Hack : Pointer absolute anAction;
 begin
  try
-  Iterate(anAction, aProgress, anOpCode);
+  IterateLeafParagraphs(anAction, aProgress, anOpCode);
  finally
   l3FreeLocalStub(Hack);
  end;//try..finally

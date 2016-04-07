@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddTab;
+unit ddTab;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddTab.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTab.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddTab" MUID: (51E8CE5402CC)
 
@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , l3Interfaces
  , l3Chars
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddTab.Write2Generator(const Generator: Ik2TagGenerator;

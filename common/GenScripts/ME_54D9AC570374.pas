@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddHyperlink;
+unit ddHyperlink;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddHyperlink.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlink.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddHyperlink" MUID: (54D9AC570374)
 
@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , ddHyperlinkTarget
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddHyperlink.Write2Generator(const Generator: Ik2TagGenerator;

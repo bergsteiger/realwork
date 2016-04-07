@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddSub;
+unit ddSub;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddSub.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddSub.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddSub" MUID: (5268E523030D)
 
@@ -45,6 +45,8 @@ implementation
 
 uses
  l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddSub.Write2Generator(const Generator: Ik2TagGenerator;

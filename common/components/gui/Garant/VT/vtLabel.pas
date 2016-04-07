@@ -124,6 +124,10 @@ type
  //#UC END# *4F29240F0204publ*
  end;//TvtCustomLabel
 
+ //#UC START# *5703BF610068ci*
+ //#UC END# *5703BF610068ci*
+ //#UC START# *5703BF610068cit*
+ //#UC END# *5703BF610068cit*
  TvtStyledLabel = class(TvtCustomLabel{$If NOT Defined(DesignTimeLibrary)}
  , IafwStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -145,6 +149,51 @@ type
    property StyleId: TevStyleId
     read f_StyleId
     write pm_SetStyleId;
+ //#UC START# *5703BF610068publ*
+   published
+     property Align;
+     property Alignment;
+     property Anchors;
+     property AutoSize;
+     property BiDiMode;
+     property Caption;
+     property Color nodefault;
+     property Constraints;
+     property DragCursor;
+     property DragKind;
+     property DragMode;
+     property Enabled;
+     property FocusControl;
+     property Font;
+     property ParentBiDiMode;
+     property ParentColor;
+     property ParentFont;
+     property ParentShowHint;
+     property PopupMenu;
+     property ShowAccelChar;
+     property ShowHint;
+     property Transparent;
+     property Layout;
+     property Visible;
+     property WordWrap;
+     property EndEllipsis;
+     property OnClick;
+     property OnContextPopup;
+     property OnDblClick;
+     property OnDragDrop;
+     property OnDragOver;
+     property OnEndDock;
+     property OnEndDrag;
+     property OnMouseDown;
+     property OnMouseMove;
+     property OnMouseUp;
+     property OnMouseEnter;
+     property OnMouseLeave;
+     property OnStartDock;
+     property OnStartDrag;
+     property DrawDirection
+      default ddHorizontal;
+ //#UC END# *5703BF610068publ*
  end;//TvtStyledLabel
 
  TvtImagePosition = (
@@ -772,6 +821,9 @@ begin
  {$EndIf DesignTimeLibrary}
 //#UC END# *47D1602000C6_5703BF610068_impl*
 end;//TvtStyledLabel.Create
+
+//#UC START# *5703BF610068impl*
+//#UC END# *5703BF610068impl*
 
 procedure TvtImageLabel.pm_SetImagePosition(aValue: TvtImagePosition);
 //#UC START# *570397B90044_57039747002Eset_var*

@@ -32,6 +32,10 @@ uses
  l3ImplUses
  , nevBase
  , evExpandedTextActiveHyperlink
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
 ;
 
 function TevExpandedTextCollapser.DoCollapse(const aView: InevControlView): Boolean;

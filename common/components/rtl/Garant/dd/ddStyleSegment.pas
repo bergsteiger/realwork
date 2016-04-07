@@ -46,6 +46,8 @@ uses
  , RTFtypes
  , l3Interfaces
  , evdStyles
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddStyleSegment.Write2Generator(const Generator: Ik2TagGenerator;

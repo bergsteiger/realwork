@@ -33,6 +33,7 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ , SysUtils
 ;
 
 function TevArchiCollapser.TryDoHyperlink(const aView: InevControlView;

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddHyperlinkTarget;
+unit ddHyperlinkTarget;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddHyperlinkTarget.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlinkTarget.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddHyperlinkTarget" MUID: (525D26AF0039)
 
@@ -42,6 +42,8 @@ implementation
 
 uses
  l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 constructor TddHyperlinkTarget.Create(aTypeID: Integer;

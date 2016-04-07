@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evExpandedTextCollapser;
+unit evExpandedTextCollapser;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evExpandedTextCollapser.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evExpandedTextCollapser.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevExpandedTextCollapser" MUID: (552FAA38015B)
 
@@ -32,6 +32,10 @@ uses
  l3ImplUses
  , nevBase
  , evExpandedTextActiveHyperlink
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2Tags
 ;
 
 function TevExpandedTextCollapser.DoCollapse(const aView: InevControlView): Boolean;

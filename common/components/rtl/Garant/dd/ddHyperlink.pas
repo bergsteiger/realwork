@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , ddHyperlinkTarget
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddHyperlink.Write2Generator(const Generator: Ik2TagGenerator;

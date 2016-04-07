@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddObjectSegment.Write2Generator(const Generator: Ik2TagGenerator;

@@ -91,7 +91,17 @@ type
     const aProcessor: InevProcessor;
     const aTextParagraph: IedTextParagraph = nil): IedRange; reintroduce;
    function Collapse: Boolean;
-   procedure Iterate;
+   procedure IterateLeafParagraphs(anAction: IedRange_IterateLeafParagraphs_Action;
+    const aProgress: Il3Progress = nil
+    {* Индикатор прогресса };
+    anOpCode: Integer = 1
+    {* Идентификатор операции });
+    {* Итератор по листьевым параграфам }
+   procedure IterateLeafParagraphsF(anAction: IedRange_IterateLeafParagraphs_Action;
+    const aProgress: Il3Progress = nil
+    {* Индикатор прогресса };
+    anOpCode: Integer = 1
+    {* Идентификатор операции });
     {* Итератор по листьевым параграфам }
  end;//TedRangeImplementation
 
@@ -178,7 +188,11 @@ begin
 //#UC END# *4BBD95BE014E_48E3859101D5_impl*
 end;//TedRangeImplementation.Collapse
 
-procedure TedRangeImplementation.Iterate;
+procedure TedRangeImplementation.IterateLeafParagraphs(anAction: IedRange_IterateLeafParagraphs_Action;
+ const aProgress: Il3Progress = nil
+ {* Индикатор прогресса };
+ anOpCode: Integer = 1
+ {* Идентификатор операции });
  {* Итератор по листьевым параграфам }
 var l_Cont: Boolean;
 var l_OpPack: InevOp;
@@ -225,13 +239,44 @@ var l_OpPack: InevOp;
   IterateF(L2InevRangePrimIterateAction(@BlockAction));
  end;//IterateRange
 
-//#UC START# *4BBF09C60382_48E3859101D5_var*
-//#UC END# *4BBF09C60382_48E3859101D5_var*
+//#UC START# *4BBDD4900292_48E3859101D5_var*
+//#UC END# *4BBDD4900292_48E3859101D5_var*
 begin
-//#UC START# *4BBF09C60382_48E3859101D5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BBF09C60382_48E3859101D5_impl*
-end;//TedRangeImplementation.Iterate
+//#UC START# *4BBDD4900292_48E3859101D5_impl*
+ l_Cont := true;
+ if (f_Loc.Range <> nil) then
+ begin
+  if (Processor = nil) then
+   l_OpPack := nil
+  else
+   l_OpPack := Processor.StartOp(anOpCode);
+  try
+   IterateRange;
+  finally
+   l_OpPack := nil;
+  end;//try..finally
+ end//f_Loc.Range <> nil
+ else
+ if (f_Loc.AsPoint <> nil) then
+  anAction(TevLeafParagraph.Make(f_View, Processor, f_Loc.AsPoint.MostInner.Obj.Range));
+//#UC END# *4BBDD4900292_48E3859101D5_impl*
+end;//TedRangeImplementation.IterateLeafParagraphs
+
+procedure TedRangeImplementation.IterateLeafParagraphsF(anAction: IedRange_IterateLeafParagraphs_Action;
+ const aProgress: Il3Progress = nil
+ {* Индикатор прогресса };
+ anOpCode: Integer = 1
+ {* Идентификатор операции });
+ {* Итератор по листьевым параграфам }
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  IterateLeafParagraphs(anAction, aProgress, anOpCode);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TedRangeImplementation.IterateLeafParagraphsF
 
 function TedRangeImplementation.Get_Paragraph: IedParagraph;
 //#UC START# *4BBCB16B01A8_48E3859101D5get_var*

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddObjectSegment;
+unit ddObjectSegment;
 
-// Модуль: "w:\common\components\rtl\Garant\dd\NOT_COMPLETED_ddObjectSegment.pas"
+// Модуль: "w:\common\components\rtl\Garant\dd\ddObjectSegment.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddObjectSegment" MUID: (54D9B0A2024C)
 
@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ , ddEVDTypesSupport
+ , k2Tags
 ;
 
 procedure TddObjectSegment.Write2Generator(const Generator: Ik2TagGenerator;
