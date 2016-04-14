@@ -6,6 +6,20 @@ FORWARD ME_55C481E00003
 
 FORWARD ME_55C482690029
 
+: ME_570FC6DE0328
+ CONST UID '570FC6DE0328'
+ CONST Name 'f_Starts'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55C482690029 // TtfwDefaultScriptCaller
+ ;
+ : Target WL 'ME_4B2F4382001F' '47913B47006E.pas.ms.script' // Tl3CardinalList
+ ;
+
+ref; // ME_570FC6DE0328 f_Starts
+
 FORWARD ME_55C491FC025C
 
 : ME_55C4927600E2
@@ -217,6 +231,26 @@ ref; // ME_55C4A5B701B3
 
 ref; // ME_55CC865B0317 
 
+: ME_570FCEEE020E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C482690029 // TtfwDefaultScriptCaller
+ ;
+ : Target WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
+ ;
+
+ref; // ME_570FCEEE020E 
+
+: ME_570FCF030376
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C482690029 // TtfwDefaultScriptCaller
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_570FCF030376 
+
 : ME_4CAEDCF9006A_ME_55C482690029
  : Original WL 'ME_4CAEDCF9006A' '515AC8CC02BD.pas.ms.script' // CheckOutputWithInput$1
  ;
@@ -367,6 +401,12 @@ ref; // ME_52EBC5BB0300_ME_55C482690029 CompileOnly
  CONST OpKind opkind_Implemented
 ref; // ME_536A15F901DA_ME_55C482690029 CheckPictureOnly
 
+: ME_479731C50290_ME_55C482690029
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_55C482690029 Cleanup
+
 : ME_55C482690029
  CONST UID '55C482690029'
  CONST Name 'TtfwDefaultScriptCaller'
@@ -385,6 +425,10 @@ ref; // ME_536A15F901DA_ME_55C482690029 CheckPictureOnly
    Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
  )
  ; // Implements
+ : Attributes
+   Seq: ( ME_570FC6DE0328 // f_Starts
+ )
+ ; // Attributes
  : Operations
    Seq: ( ME_55C491FC025C // DoPrint
  ME_55C4A52C01A0 // Create
@@ -421,9 +465,15 @@ ref; // ME_536A15F901DA_ME_55C482690029 CheckPictureOnly
  ME_536A15F901DA_ME_55C482690029 // CheckPictureOnly
  )
  ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_55C482690029 // Cleanup
+ )
+ ; // Overridden
  : Dependencies
    Seq: ( ME_55C4A5B701B3 // 
  ME_55CC865B0317 // 
+ ME_570FCEEE020E // 
+ ME_570FCF030376 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

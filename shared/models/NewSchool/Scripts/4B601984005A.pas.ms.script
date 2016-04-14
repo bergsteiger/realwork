@@ -437,18 +437,18 @@ ref; // ME_570664F700B8 Message
 
 ref; // ME_570664F001CF WMNCCalcSize
 
-: ME_57067C33035D
+: ME_570E07E90148
  CONST Name 'Message'
  CONST Class class_Parameter
  : Stereotype st_inout ;
- : Target WL 'ME_48E22C340122' '476F78840219.pas.ms.script' // TWMKillFocus
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
  ;
 
-ref; // ME_57067C33035D Message
+ref; // ME_570E07E90148 Message
 
 : ME_57067C0302FD
  CONST UID '57067C0302FD'
- CONST Name 'WMKillFocus'
+ CONST Name 'CNKeyDown'
  CONST Class class_Operation
  : Stereotype st_message::Operation ;
  CONST Visibility PrivateAccess
@@ -456,18 +456,12 @@ ref; // ME_57067C33035D Message
  : Parent ME_5704FC1A0398 // TnscLabelSubTree
  ;
  : Parameters
-   Seq: ( ME_57067C33035D // Message
+   Seq: ( ME_570E07E90148 // Message
  )
  ; // Parameters
- CONST "Message ID" 'WM_KILLFOCUS'
+ CONST "Message ID" 'CN_KEYDOWN'
 
-ref; // ME_57067C0302FD WMKillFocus
-
-: ME_46A5AA4B003C_ME_5704FC1A0398
- : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A5AA4B003C_ME_5704FC1A0398 Invalidate
+ref; // ME_57067C0302FD CNKeyDown
 
 : ME_5298BEBA032D_ME_5704FC1A0398
  : Original WL 'ME_5298BEBA032D' '48297E42011A.pas.ms.script' // IsSizeableTree
@@ -517,12 +511,6 @@ ref; // ME_47D1602000C6_ME_5704FC1A0398 Create
  CONST OpKind opkind_Overridden
 ref; // ME_48C7925A02E5_ME_5704FC1A0398 CreateParams
 
-: ME_4CC847800383_ME_5704FC1A0398
- : Original WL 'ME_4CC847800383' '4CC81FAC02D6.pas.ms.script' // TuneRegion
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4CC847800383_ME_5704FC1A0398 TuneRegion
-
 : ME_508F825303E4_ME_5704FC1A0398
  : Original WL 'ME_508F825303E4' '4B97E7FD006C.pas.ms.script' // DoOnGetItemStyle
  ;
@@ -534,6 +522,12 @@ ref; // ME_508F825303E4_ME_5704FC1A0398 DoOnGetItemStyle
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5151AF650239_ME_5704FC1A0398 DoOnGetItemIndent
+
+: ME_515317860183_ME_5704FC1A0398
+ : Original WL 'ME_515317860183' '4799D29F033F.pas.ms.script' // MouseWheelHandler
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_515317860183_ME_5704FC1A0398 MouseWheelHandler
 
 : ME_5266253D035D_ME_5704FC1A0398
  : Original WL 'ME_5266253D035D' '4B97E7FD006C.pas.ms.script' // NeedDrawArrowSelection
@@ -561,10 +555,6 @@ ref; // ME_5298C02D03B3_ME_5704FC1A0398 NCDraw
    Seq: ( WL 'ME_4F8D5535021C' '48297E42011A.pas.ms.script' // TAbsSubTree
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.pas.ms.script' // RegionableControl
- )
- ; // Implements
  : Attributes
    Seq: ( ME_57062DEC03CF // HighLightItem
  ME_57062E560375 // HighlightColor
@@ -576,12 +566,11 @@ ref; // ME_5298C02D03B3_ME_5704FC1A0398 NCDraw
  ME_57062ECE024D // WMMouseMove
  ME_570664D202D8 // CMMouseLeave
  ME_570664F001CF // WMNCCalcSize
- ME_57067C0302FD // WMKillFocus
+ ME_57067C0302FD // CNKeyDown
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_46A5AA4B003C_ME_5704FC1A0398 // Invalidate
- ME_5298BEBA032D_ME_5704FC1A0398 // IsSizeableTree
+   Seq: ( ME_5298BEBA032D_ME_5704FC1A0398 // IsSizeableTree
  ME_5298BF130022_ME_5704FC1A0398 // IsShowGripper
  ME_5298BF4D00FE_ME_5704FC1A0398 // IsList
  ME_5298BF8700B0_ME_5704FC1A0398 // IsInvert
@@ -592,9 +581,9 @@ ref; // ME_5298C02D03B3_ME_5704FC1A0398 NCDraw
  : Overridden
    Seq: ( ME_47D1602000C6_ME_5704FC1A0398 // Create
  ME_48C7925A02E5_ME_5704FC1A0398 // CreateParams
- ME_4CC847800383_ME_5704FC1A0398 // TuneRegion
  ME_508F825303E4_ME_5704FC1A0398 // DoOnGetItemStyle
  ME_5151AF650239_ME_5704FC1A0398 // DoOnGetItemIndent
+ ME_515317860183_ME_5704FC1A0398 // MouseWheelHandler
  ME_5266253D035D_ME_5704FC1A0398 // NeedDrawArrowSelection
  ME_5298C02D03B3_ME_5704FC1A0398 // NCDraw
  )

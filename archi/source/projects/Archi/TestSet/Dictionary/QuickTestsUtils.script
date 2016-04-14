@@ -1445,3 +1445,26 @@ PROCEDURE "Набить текст формулы" STRING IN aFormulaText
 	acButtonOKInExprEditor byname:control:push pop:Control:Click
 ;
 
+PROCEDURE "Работа с редактором формул 'Готовые шаблоны'" STRING IN aValue	
+	OBJECT VAR l_Control 
+	"Контрол по имени {( aValue )}" >>> l_Control
+	@ ( l_Control pop:Control:Click ) MODAL (
+			"Установить курсор мыши по координатам {(115 90)} относительно контрола {(l_Control)}"
+			"Клик левой кнопкой мыши"
+		)
+	"Клик левой кнопкой мыши"
+	acButtonOKInExprEditor byname:control:push pop:Control:Click
+;
+
+PROCEDURE "Набить текст формулы и нажать отмена" STRING IN aFormulaText
+	aFormulaText emitstring
+	"Нажать кнопку 'Отмена'"	
+;
+
+PROCEDURE "Вызвать вставку шаблона, указать номер ссылающегося топика и номер саба ссылающегося саба и нажать отмена" STRING IN aNumTopic STRING IN aNumSub  
+	@ ( "Вызвать вставку шаблона и указать номер ссылающегося топика {(aNumTopic)}" ) MODAL ( 
+		"Набить текст {(aNumSub)}"
+		// "Нажать кнопку 'Отмена'" // 'Отмена' - нет, просто не жмякаем 'Enter'
+	)
+;
+	
