@@ -815,10 +815,7 @@ var
    else
    if LastAtom.IsTable then
    begin
-    if l_Prop = nil then
-     Try2AddTable(1)
-    else 
-     Try2AddTable(aState.PAP.itap);
+    Try2AddTable(aState.PAP.itap);
     LastTable(True).AddPicture(aPicture, l_Prop, anAssign2Last);
    end // if LastAtom.IsTable then
    else
@@ -892,6 +889,20 @@ var
 //#UC START# *51E8D8250134_51D278280093_var*
 
  procedure lp_AddTextPara(const aPara: TddTextParagraph);
+
+  procedure lp_Try2AddSegmentWithURL;
+  var
+   l_Start       : Integer;
+   l_AddHyperlink: Boolean;
+  begin
+   l_AddHyperlink := (aPara.SegmentCount = 1) and aPara.Segments[0].IsHyperlink and not aPara.Segments[0].URL.Empty;
+   if l_AddHyperlink then
+    l_Start := LastParagraph.Text.Len + 1;
+   LastParagraph.AddText(aPara.Text);
+   if l_AddHyperlink then
+    LastParagraph.AddHyperlinkWithURL(l_Start, aPara.Segments[0].URL.AsString);
+  end;
+
  var
   l_NewPara : TddTextParagraph;
  begin
@@ -911,10 +922,7 @@ var
     else
     begin
      LastParagraph.AddSegment(aPara.CHP, nil, False);
-     if f_CustomRTFReader.ReadURL then 
-      LastParagraph.JoinWith(aPara)
-     else
-      LastParagraph.AddText(aPara.Text);
+     lp_Try2AddSegmentWithURL;
      if aPara.Closed then
       CloseTextPara(aState.PAP, LastParagraph);
     end;

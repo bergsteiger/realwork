@@ -944,6 +944,25 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwSysutilsRemoveDir
 
+ TkwSysutilsLog = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:Log
+*Пример:*
+[code]
+ aStr sysutils:Log
+[code]  }
+  private
+   procedure sysutils_Log(const aCtx: TtfwContext;
+    const aStr: AnsiString);
+    {* Реализация слова скрипта sysutils:Log }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsLog
+
 class function TSysUtilsPackResNameGetter.ResName: AnsiString;
 begin
   Result := 'SysUtilsPack';
@@ -3094,6 +3113,52 @@ begin
  Result := 'sysutils:RemoveDir';
 end;//TkwSysutilsRemoveDir.GetWordNameForRegister
 
+procedure TkwSysutilsLog.sysutils_Log(const aCtx: TtfwContext;
+ const aStr: AnsiString);
+ {* Реализация слова скрипта sysutils:Log }
+//#UC START# *57A4707049E6_11AFB32EDAFF_var*
+//#UC END# *57A4707049E6_11AFB32EDAFF_var*
+begin
+//#UC START# *57A4707049E6_11AFB32EDAFF_impl*
+ l3System.Msg2Log(aStr);
+//#UC END# *57A4707049E6_11AFB32EDAFF_impl*
+end;//TkwSysutilsLog.sysutils_Log
+
+procedure TkwSysutilsLog.DoDoIt(const aCtx: TtfwContext);
+var l_aStr: AnsiString;
+begin
+ try
+  l_aStr := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStr: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ sysutils_Log(aCtx, l_aStr);
+end;//TkwSysutilsLog.DoDoIt
+
+function TkwSysutilsLog.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwSysutilsLog.GetResultTypeInfo
+
+function TkwSysutilsLog.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwSysutilsLog.GetAllParamsCount
+
+function TkwSysutilsLog.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwSysutilsLog.ParamsTypes
+
+class function TkwSysutilsLog.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:Log';
+end;//TkwSysutilsLog.GetWordNameForRegister
+
 initialization
  TSysUtilsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
@@ -3187,6 +3252,8 @@ initialization
  {* Регистрация sysutils_CreateDir }
  TkwSysutilsRemoveDir.RegisterInEngine;
  {* Регистрация sysutils_RemoveDir }
+ TkwSysutilsLog.RegisterInEngine;
+ {* Регистрация sysutils_Log }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

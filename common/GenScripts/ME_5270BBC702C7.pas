@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vtColorBox;
+unit vtColorBox;
 
-// Модуль: "w:\common\components\gui\Garant\VT\NOT_COMPLETED_vtColorBox.pas"
+// Модуль: "w:\common\components\gui\Garant\VT\vtColorBox.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvtColorBox" MUID: (5270BBC702C7)
 
@@ -144,6 +144,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *5270BBC702C7impl_uses*
+ , SysUtils
  //#UC END# *5270BBC702C7impl_uses*
 ;
 

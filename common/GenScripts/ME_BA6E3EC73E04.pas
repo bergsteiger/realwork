@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TReleaseToK.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_BA6E3EC73E04_var*
-//#UC END# *4B7AB0B6016E_BA6E3EC73E04_var*
 begin
-//#UC START# *4B7AB0B6016E_BA6E3EC73E04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_BA6E3EC73E04_impl*
+ Result := '-ToK';
 end;//TReleaseToK.CommandLineKey
 
 class function TReleaseToK.TimesPage: Integer;

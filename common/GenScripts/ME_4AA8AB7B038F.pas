@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vtDateEdit;
+unit vtDateEdit;
 
-// Модуль: "w:\common\components\gui\Garant\VT\NOT_COMPLETED_vtDateEdit.pas"
+// Модуль: "w:\common\components\gui\Garant\VT\vtDateEdit.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvtDateEdit" MUID: (4AA8AB7B038F)
 
@@ -400,6 +400,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4AA8AB7B038Fimpl_uses*
+ , SysUtils
  //#UC END# *4AA8AB7B038Fimpl_uses*
 ;
 

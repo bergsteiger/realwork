@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vtOutliner;
+unit vtOutliner;
 
-// Модуль: "w:\common\components\gui\Garant\VT\NOT_COMPLETED_vtOutliner.pas"
+// Модуль: "w:\common\components\gui\Garant\VT\vtOutliner.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvtOutliner" MUID: (515DA5860015)
 
@@ -569,6 +569,7 @@ uses
  , vtOutlinerWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *515DA5860015impl_uses*
+ , SysUtils
  //#UC END# *515DA5860015impl_uses*
 ;
 

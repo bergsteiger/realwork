@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TtoKTPrime.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_512388060314_var*
-//#UC END# *4B7AB0B6016E_512388060314_var*
 begin
-//#UC START# *4B7AB0B6016E_512388060314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_512388060314_impl*
+ Result := '-toKTPrime';
 end;//TtoKTPrime.CommandLineKey
 
 class function TtoKTPrime.TimesPage: Integer;

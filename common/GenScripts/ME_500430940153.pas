@@ -47,12 +47,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TBaseUC.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_500430940153_var*
-//#UC END# *4B7AB0B6016E_500430940153_var*
 begin
-//#UC START# *4B7AB0B6016E_500430940153_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_500430940153_impl*
+ Result := '-BaseUC';
 end;//TBaseUC.CommandLineKey
 
 class function TBaseUC.TimesPage: Integer;

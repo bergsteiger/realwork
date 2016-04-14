@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TReleaseToK3.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_3337505C7D4E_var*
-//#UC END# *4B7AB0B6016E_3337505C7D4E_var*
 begin
-//#UC START# *4B7AB0B6016E_3337505C7D4E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_3337505C7D4E_impl*
+ Result := '-ToK3';
 end;//TReleaseToK3.CommandLineKey
 
 class function TReleaseToK3.TimesPage: Integer;

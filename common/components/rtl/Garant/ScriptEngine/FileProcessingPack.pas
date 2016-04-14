@@ -36,6 +36,8 @@ type
    constructor CreateWrite(const aFileName: AnsiString); reintroduce;
    class function MakeRead(const aFileName: AnsiString): ItfwFile; reintroduce;
    class function MakeWrite(const aFileName: AnsiString): ItfwFile; reintroduce;
+   constructor CreateAppend(const aFileName: AnsiString); reintroduce;
+   class function MakeAppend(const aFileName: AnsiString): ItfwFile; reintroduce;
    procedure ForEach(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext);
    procedure ForEachBack(aLambda: TtfwWordPrim;
@@ -303,6 +305,27 @@ W-STRING VAR l_Tl3PCharLen
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwFileWriteWStrLn
+
+ TkwFileOpenAppend = {final} class(TtfwRegisterableWord)
+  {* Слово скрипта File:OpenAppend
+*Тип результата:* ItfwFile
+*Пример:*
+[code]
+FILE VAR l_ItfwFile
+ aName File:OpenAppend >>> l_ItfwFile
+[code]  }
+  private
+   function OpenAppend(const aCtx: TtfwContext;
+    const aName: AnsiString): ItfwFile;
+    {* Реализация слова скрипта File:OpenAppend }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwFileOpenAppend
 
  TkwDeleteFile = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта DeleteFile
@@ -616,6 +639,29 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TtfwFile.MakeWrite
+
+constructor TtfwFile.CreateAppend(const aFileName: AnsiString);
+//#UC START# *570E70230377_4F4FD77B03CC_var*
+//#UC END# *570E70230377_4F4FD77B03CC_var*
+begin
+//#UC START# *570E70230377_4F4FD77B03CC_impl*
+ inherited Create;
+ f_Filer := Tl3CustomDosFiler.Make(aFileName, l3_fmAppend, false, 1000);
+ f_Filer.Open;
+//#UC END# *570E70230377_4F4FD77B03CC_impl*
+end;//TtfwFile.CreateAppend
+
+class function TtfwFile.MakeAppend(const aFileName: AnsiString): ItfwFile;
+var
+ l_Inst : TtfwFile;
+begin
+ l_Inst := CreateAppend(aFileName);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TtfwFile.MakeAppend
 
 function TtfwFile.ReadLn: Il3CString;
 //#UC START# *4F4E4E7E0350_4F4FD77B03CC_var*
@@ -1330,6 +1376,52 @@ begin
  Result := 'File:WriteWStrLn';
 end;//TkwFileWriteWStrLn.GetWordNameForRegister
 
+function TkwFileOpenAppend.OpenAppend(const aCtx: TtfwContext;
+ const aName: AnsiString): ItfwFile;
+ {* Реализация слова скрипта File:OpenAppend }
+//#UC START# *B8708CE49928_7185464C1BEA_var*
+//#UC END# *B8708CE49928_7185464C1BEA_var*
+begin
+//#UC START# *B8708CE49928_7185464C1BEA_impl*
+ Result := TtfwFile.MakeAppend(aCtx.rCaller.ResolveOutputFilePath(aName));
+//#UC END# *B8708CE49928_7185464C1BEA_impl*
+end;//TkwFileOpenAppend.OpenAppend
+
+procedure TkwFileOpenAppend.DoDoIt(const aCtx: TtfwContext);
+var l_aName: AnsiString;
+begin
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushFile(OpenAppend(aCtx, l_aName));
+end;//TkwFileOpenAppend.DoDoIt
+
+function TkwFileOpenAppend.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(ItfwFile);
+end;//TkwFileOpenAppend.GetResultTypeInfo
+
+function TkwFileOpenAppend.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwFileOpenAppend.GetAllParamsCount
+
+function TkwFileOpenAppend.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
+end;//TkwFileOpenAppend.ParamsTypes
+
+class function TkwFileOpenAppend.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:OpenAppend';
+end;//TkwFileOpenAppend.GetWordNameForRegister
+
 function TkwDeleteFile.DeleteFile(const aCtx: TtfwContext;
  const aName: AnsiString): Boolean;
  {* Реализация слова скрипта DeleteFile }
@@ -1985,6 +2077,8 @@ initialization
  {* Регистрация File_ReadWStrLn }
  TkwFileWriteWStrLn.RegisterInEngine;
  {* Регистрация File_WriteWStrLn }
+ TkwFileOpenAppend.RegisterInEngine;
+ {* Регистрация File_OpenAppend }
  TkwDeleteFile.RegisterInEngine;
  {* Регистрация DeleteFile }
  TkwRenameFile.RegisterInEngine;

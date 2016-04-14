@@ -52,12 +52,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TReleasetoK64.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_18F018C495DA_var*
-//#UC END# *4B7AB0B6016E_18F018C495DA_var*
 begin
-//#UC START# *4B7AB0B6016E_18F018C495DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_18F018C495DA_impl*
+ Result := '-toK64';
 end;//TReleasetoK64.CommandLineKey
 
 class function TReleasetoK64.TimesPage: Integer;

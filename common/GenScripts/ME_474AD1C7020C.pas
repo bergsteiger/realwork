@@ -7,16 +7,9 @@ library RenderEVD;
 
 {$Include w:\common\components\l3XE.inc}
 
-interface
-
 uses
  l3IntfUses
-;
-
-implementation
-
-uses
- l3ImplUses
+ , l3ImplUses
 ;
 
 exports

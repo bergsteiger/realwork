@@ -6,16 +6,9 @@ library GblAdapterServer;
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
-interface
-
 uses
  l3IntfUses
-;
-
-implementation
-
-uses
- l3ImplUses
+ , l3ImplUses
 ;
 
 exports

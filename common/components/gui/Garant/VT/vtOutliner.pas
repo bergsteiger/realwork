@@ -1,210 +1,180 @@
 unit vtOutliner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtOutliner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Outliner::TvtOutliner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtOutliner.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtOutliner" MUID: (515DA5860015)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  Types,
-  l3Tree_TLB,
-  Messages,
-  l3Base,
-  l3Except,
-  Classes,
-  l3LongintList,
-  l3ControlsTypes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  vtLister,
-  vtTreeSource,
-  l3InternalInterfaces,
-  l3Units
-  ;
-
-type
- TvtTreeChangedEvent = procedure (aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree) of object;
-
- TvtSelectCountChanged = procedure (aSender: TObject;
-  anOldCount: Integer;
-  aNewCount: Integer) of object;
-
- TvtFocusedEvent = procedure (aSender: TObject;
-  var aFocused: Boolean) of object;
+ l3IntfUses
+ , l3TreeInterfaces
+ , l3Except
+ , l3Interfaces
+ , Graphics
+ , vtLister
+ , l3Tree_TLB
+ , l3ControlsTypes
+ , l3LongintList
+ , vtTreeSource
+ , Classes
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+ , l3Base
+ , l3InternalInterfaces
+ , l3Units
+ //#UC START# *515DA5860015intf_uses*
+ //#UC END# *515DA5860015intf_uses*
+;
 
 const
-  { TvtOutliner Const }
  vtItemWithoutImage = MaxLongint;
-  { специальное значение, возвращаемое из fOnGetItemImage. Означает, что картинки нет. }
+  {* специальное значение, возвращаемое из fOnGetItemImage. Означает, что картинки нет. }
  vtItemWithHollowImage = MaxLongint - 1;
 
 type
+ TvtTreeChangedEvent = procedure(aSender: TObject;
+  const anOldTree: Il3SimpleTree;
+  const aNewTree: Il3SimpleTree) of object;
+
+ TvtSelectCountChanged = procedure(aSender: TObject;
+  anOldCount: Integer;
+  aNewCount: Integer) of object;
+
+ TvtFocusedEvent = procedure(aSender: TObject;
+  var aFocused: Boolean) of object;
+
  TvtEditOption = (
-   eoItemHMoving
- , eoItemVMoving
- , eoItemDelete
- , eoItemExpand
+  eoItemHMoving
+  , eoItemVMoving
+  , eoItemDelete
+  , eoItemExpand
  );//TvtEditOption
 
  TvtEditOptions = set of TvtEditOption;
 
- TOnExpandNode = procedure (Sender: TObject;
+ TOnExpandNode = procedure(Sender: TObject;
   const CNode: Il3SimpleNode) of object;
 
  ESkipOperation = class(El3Exception)
  end;//ESkipOperation
 
- TBeforeWake = procedure (Sender: TObject) of object;
+ TBeforeWake = procedure(Sender: TObject) of object;
 
- TAfterWake = procedure (Sender: TObject;
+ TAfterWake = procedure(Sender: TObject;
   aWakeResult: Boolean) of object;
 
- TNodeMoveEnd = procedure (Sender: TObject;
+ TNodeMoveEnd = procedure(Sender: TObject;
   const CNode: Il3SimpleNode;
   aParentWasChange: Boolean) of object;
 
- TGetItemStyleEvent = procedure (Sender: TObject;
+ TGetItemStyleEvent = procedure(Sender: TObject;
   aItemIndex: Integer;
   const aFont: Il3Font;
   var aTextBackColor: TColor;
   var aItemBackColor: TColor;
   var aVJustify: TvtVJustify) of object;
+  {* событие для получения визуального "оформления" элемента }
 
- TGetItemImageVertOffsetEvent = procedure (Sender: TObject;
+ TGetItemImageVertOffsetEvent = procedure(Sender: TObject;
   aItemIndex: Integer;
   var theImageVertOffset: Integer) of object;
 
- TGetItemHeightEvent = function (Sender: TObject;
+ TGetItemHeightEvent = function(Sender: TObject;
   aItemIndex: Integer;
   aHeight: Integer): Integer of object;
+  {* событие для задания высоты элемента вручную }
 
- TGetItemIndentEvent = function (Sender: TObject): Integer of object;
+ TGetItemIndentEvent = function(Sender: TObject): Integer of object;
+  {* событие получения отступа элемента }
 
  TvtOutlinerHystoryData = record
-   rCurrent : Integer;
-   rTop : Integer;
-   rAnchor : Integer;
+  rCurrent: Integer;
+  rTop: Integer;
+  rAnchor: Integer;
  end;//TvtOutlinerHystoryData
 
  TvtTreeModifiedData = record
   {* Информация об изменениях в дереве }
-   rNode : LongInt; // узел ниже которого добавили/удалили узлы. Нумерация начинается с нуля.
-   rDelta : LongInt; // количество элементов которое было добавлено/удалено. Если aDelta со знаком минус элементы были удалены.
+  rNode: LongInt;
+   {* узел ниже которого добавили/удалили узлы. Нумерация начинается с нуля. }
+  rDelta: LongInt;
+   {* количество элементов которое было добавлено/удалено. Если aDelta со знаком минус элементы были удалены. }
  end;//TvtTreeModifiedData
 
  TSetOfByte = set of Byte;
 
- TGetItemExtendExEvent = function (Sender: TObject;
+ TGetItemExtendExEvent = function(Sender: TObject;
   anItemIndex: Integer): Integer of object;
 
  TvtSimpleOutliner = class(TvtCustomLister, Il3SimpleTreeSource)
- protected
- // property methods
+  protected
    function pm_GetTreeStruct: Il3SimpleTree; virtual; abstract;
    procedure pm_SetTreeStruct(const aValue: Il3SimpleTree); virtual; abstract;
- protected
- // realized methods
+   function MakeTreeStruct: Il3SimpleTree; virtual; abstract;
    function Get_Tree: Il3SimpleTree;
    procedure Set_Tree(const aValue: Il3SimpleTree);
- protected
- // protected methods
-   function MakeTreeStruct: Il3SimpleTree; virtual; abstract;
- public
- // public properties
+  public
    property TreeStruct: Il3SimpleTree
-     read pm_GetTreeStruct
-     write pm_SetTreeStruct;
-     {* структура данных в которой хранится дерево для отображения }
+    read pm_GetTreeStruct
+    write pm_SetTreeStruct;
+    {* структура данных в которой хранится дерево для отображения }
  end;//TvtSimpleOutliner
 
  TvtCustomOutliner = class(TvtSimpleOutliner, Il3ContextFilterTarget, Il3SelectCountChangedRecipient, Il3ExternalTreeChangedRecipient, Il3TreeSource, Il3ContextFilterNotifier, Il3ContextFilterNotifySource, Il3ContextFilterTargetContainer)
   {* Базовый класс элементов для отображения деревьев }
- private
- // private fields
-   f_NodeInMove : Il3SimpleNode;
-   f_SaveCurrentNode : Il3SimpleNode;
-   f_SaveRootNode : Il3SimpleNode;
-   f_LegalOperations : TSetOfByte;
-   f_DrawPointsCounted : Boolean;
-   f_TreeModifiedData : TvtTreeModifiedData;
-   f_IsFirstPaintWas : Boolean;
-   f_Subscribers : Tl3LongintList;
-   f_WaitingCountChanged : Boolean;
-   f_TotalWhenCountedDrawPoints : LongInt;
-   f_ViewOptions : TvtViewOptions;
-    {* Поле для свойства ViewOptions}
-   f_EditOptions : TvtEditOptions;
-    {* Поле для свойства EditOptions}
-   f_SelfDrawNodes : Boolean;
-    {* Поле для свойства SelfDrawNodes}
-   f_TreeSource : TvtCustomTreeSource;
-    {* Поле для свойства TreeSource}
-   f_OnSelectCountChanged : TvtSelectCountChanged;
-    {* Поле для свойства OnSelectCountChanged}
-   f_OnExpand : TOnExpandNode;
-    {* Поле для свойства OnExpand}
-   f_OnCollapse : TOnExpandNode;
-    {* Поле для свойства OnCollapse}
-   f_OnBeforeWake : TBeforeWake;
-    {* Поле для свойства OnBeforeWake}
-   f_OnAfterWake : TAfterWake;
-    {* Поле для свойства OnAfterWake}
-   f_OnGetItemImage : TGetItemImage;
-    {* Поле для свойства OnGetItemImage}
-   f_OnGetItemStyle : TGetItemStyleEvent;
-    {* Поле для свойства OnGetItemStyle}
-   f_OnGetItemImageVertOffset : TGetItemImageVertOffsetEvent;
-    {* Поле для свойства OnGetItemImageVertOffset}
-   f_OnGetItemHeight : TGetItemHeightEvent;
-    {* Поле для свойства OnGetItemHeight}
-   f_OnGetItemIndent : TGetItemIndentEvent;
-    {* Поле для свойства OnGetItemIndent}
-   f_OnNodeMoveEnd : TNodeMoveEnd;
-    {* Поле для свойства OnNodeMoveEnd}
-   f_OnTreeChanged : TvtTreeChangedEvent;
-    {* Поле для свойства OnTreeChanged}
-   f_OnAfterFirstPaint : TNotifyEvent;
-    {* Поле для свойства OnAfterFirstPaint}
-   f_OnCheckFocusedInPaint : TvtFocusedEvent;
-    {* Поле для свойства OnCheckFocusedInPaint}
-   f_LineColor : TColor;
-    {* Поле для свойства LineColor}
-   f_OpenChipColor : TColor;
-    {* Поле для свойства OpenChipColor}
-   f_OpenChipBorderColor : TColor;
-    {* Поле для свойства OpenChipBorderColor}
-   f_OnGetItemIndentEx : TGetItemExtendExEvent;
-    {* Поле для свойства OnGetItemIndentEx}
- private
- // private methods
+  private
+   f_NodeInMove: Il3SimpleNode;
+   f_SaveCurrentNode: Il3SimpleNode;
+   f_SaveRootNode: Il3SimpleNode;
+   f_LegalOperations: TSetOfByte;
+   f_DrawPointsCounted: Boolean;
+   f_TreeModifiedData: TvtTreeModifiedData;
+   f_IsFirstPaintWas: Boolean;
+   f_Subscribers: Tl3LongintList;
+   f_WaitingCountChanged: Boolean;
+   f_TotalWhenCountedDrawPoints: LongInt;
+   f_ViewOptions: TvtViewOptions;
+   f_EditOptions: TvtEditOptions;
+   f_SelfDrawNodes: Boolean;
+   f_TreeSource: TvtCustomTreeSource;
+   f_OnSelectCountChanged: TvtSelectCountChanged;
+   f_OnExpand: TOnExpandNode;
+   f_OnCollapse: TOnExpandNode;
+   f_OnBeforeWake: TBeforeWake;
+   f_OnAfterWake: TAfterWake;
+   f_OnGetItemImage: TGetItemImage;
+   f_OnGetItemStyle: TGetItemStyleEvent;
+   f_OnGetItemImageVertOffset: TGetItemImageVertOffsetEvent;
+   f_OnGetItemHeight: TGetItemHeightEvent;
+   f_OnGetItemIndent: TGetItemIndentEvent;
+   f_OnNodeMoveEnd: TNodeMoveEnd;
+   f_OnTreeChanged: TvtTreeChangedEvent;
+   f_OnAfterFirstPaint: TNotifyEvent;
+   f_OnCheckFocusedInPaint: TvtFocusedEvent;
+   f_LineColor: TColor;
+    {* default clGray }
+   f_OpenChipColor: TColor;
+    {* default clBlack }
+   f_OpenChipBorderColor: TColor;
+    {* default clGray }
+   f_OnGetItemIndentEx: TGetItemExtendExEvent;
+    {* для каждой ноды можно задать свой "персональный" сдвиг }
+  protected
+   f_ChangingForHistory: Boolean;
+   f_TreeStruct: Il3SimpleTree;
+  private
    procedure UpdateImagesOptions;
-     {* проверяет настройку voWithoutImages. }
+    {* проверяет настройку voWithoutImages. }
    function CompileTabstopsFromMultipartText(const aMT: Il3MultipartText): Tl3String;
    procedure WMLButtonDown(var Msg: TWMLButtonDown); message WM_LBUTTONDOWN;
    procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
- protected
- // property methods
+  protected
    procedure pm_SetViewOptions(aValue: TvtViewOptions);
    procedure pm_SetEditOptions(aValue: TvtEditOptions);
    procedure pm_SetSelfDrawNodes(aValue: Boolean);
@@ -220,20 +190,51 @@ type
    procedure pm_SetIsShowLines(aValue: Boolean);
    function pm_GetFullLineSelect: Boolean;
    procedure pm_SetFullLineSelect(aValue: Boolean);
- protected
- // realized methods
+   function DoOnGetItemImageIndex(aItemIndex: LongInt;
+    var aImages: TCustomImageList): Integer; virtual;
+   procedure DoOnGetItemStyle(aItemIndex: Integer;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify;
+    var aFocused: Boolean;
+    var theImageVertOffset: Integer); virtual;
+   procedure ExternalSetTotal(aTotal: LongInt;
+    aCurrent: LongInt = -1;
+    aTop: LongInt = -1;
+    aAnchor: LongInt = -1);
+   function GetDrawLevel(const CNode: Il3SimpleNode): Integer;
+   procedure MakeTreeStructOnDraw; virtual;
+    {* вызывается перед отрисовкой, бывает что до этого момента никто _TreeStruct не спросил, хотя сделать его готовы. }
+   function DoOnExpand(Expand: Boolean;
+    const CNode: Il3SimpleNode): Boolean; virtual;
+    {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
+   procedure DoAfterFirstPaint;
+   function GetHistoryData: TvtOutlinerHystoryData;
+   procedure DoTreeChanged(const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree); virtual;
+   procedure SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
+    const aData: TvtOutlinerHystoryData); virtual;
+   procedure SubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); virtual;
+   procedure UnsubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); virtual;
+   function DoOnGetItemIndentEx(anItemIndex: Integer): Integer; virtual;
+    {* для каждой ноды можно задать свой "персональный" сдвиг }
+   function NeedDrawSelectionOnItem(aItemIndex: Integer): Boolean; virtual;
+   function NeedDrawArrowSelection(aItemIndex: Integer): Boolean; virtual;
+   function GetRealClientWidth: Integer; virtual;
+   function NeedAssignTreeStructFromHistory: Boolean; virtual;
    procedure SelectCountChanged(anOldCount: Integer;
-   aNewCount: Integer);
-     {* прошла операция. }
+    aNewCount: Integer);
+    {* прошла операция. }
    procedure ExternalVisibleCountChanged(aNewCount: Integer;
-   aNodeIndex: Integer;
-   aDelta: Integer);
-     {* прошла операция. }
+    aNodeIndex: Integer;
+    aDelta: Integer);
+    {* прошла операция. }
    procedure ExternalInvalidate;
-     {* перерисуйся. }
+    {* перерисуйся. }
    procedure ExternalModified(aNode: Integer;
-   aDelta: Integer);
-     {* в дереве были добавлены/удалены элементы.
+    aDelta: Integer);
+    {* в дереве были добавлены/удалены элементы.
              - aNode:
                  Узел ниже которого добавили/удалили узлы. Нумерация начинается
                  с нуля;
@@ -243,246 +244,197 @@ type
    function Get_Tree: Il3Tree;
    procedure Set_Tree(const aValue: Il3Tree);
    procedure RequestReapply;
-     {* Желательно переприменить фильтр. }
+    {* Желательно переприменить фильтр. }
    procedure RequestClearAndTurnOff;
-     {* Дерево выключило на себе фильтр. }
+    {* Дерево выключило на себе фильтр. }
    procedure RequestCheckValid;
-     {* Дерево поменялось - нужно проверить валидность фильтра. }
+    {* Дерево поменялось - нужно проверить валидность фильтра. }
    procedure SubscribeToContextFilter(const aSubscriber: Il3ContextFilterNotifier);
    procedure UnSubscribeFromContextFilter(const aSubscriber: Il3ContextFilterNotifier);
    function IsSameContext(const aContext: Il3CString;
-   out DiffStart: Cardinal): Boolean;
+    out DiffStart: Cardinal): Boolean;
    function Unfold: Il3ContextFilterTarget;
    function MakeTreeStruct: Il3SimpleTree; override;
    function pm_GetTreeStruct: Il3SimpleTree; override;
    procedure pm_SetTreeStruct(const aValue: Il3SimpleTree); override;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function MouseAction(const aPt: Tl3Point;
+    aButton: Tl3MouseButton;
+    anAction: Tl3MouseAction;
+    aKeys: TShiftState): Tl3MouseResult; override;
+   procedure DoChanging; override;
+   procedure DoChanged; override;
+   procedure Paint(const CN: Il3Canvas); override;
+    {* процедура рисования внешнего вида управляющего элемента }
+   procedure Notification(AComponent: TComponent;
+    Operation: TOperation); override;
    function pm_GetImages: TCustomImageList; override;
    procedure pm_SetImages(aValue: TCustomImageList); override;
    function pm_GetSelectedCount: Integer; override;
    procedure pm_SetTotal(aValue: LongInt); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function MouseAction(const aPt: Tl3Point;
-   aButton: Tl3MouseButton;
-   anAction: Tl3MouseAction;
-   aKeys: TShiftState): Tl3MouseResult; override;
-   procedure DoChanging; override;
-   procedure DoChanged; override;
-   procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-   procedure Notification(AComponent: TComponent;
-    Operation: TOperation); override;
    function IsNeedScrollBars: Boolean; override;
-     {* определяет нужены ли в CreateParams стили WS_VSCROLL WS_HSCROLL. }
+    {* определяет нужены ли в CreateParams стили WS_VSCROLL WS_HSCROLL. }
    function IsHintNeededForAnElement(anIndex: Integer): Boolean; override;
    function DoOnGetItemIndent: Integer; override;
-     {* функция определяет добавляемое свободное место до иконки элемента.
+    {* функция определяет добавляемое свободное место до иконки элемента.
 Если отступ в обработчике будет определен как нулевой, то по
 умолчанию отступ делается на ширину иконки, если таковые имеются. }
    function ItemOnScreen(OnlyWhole: Boolean): Integer; override;
    procedure MakeDrawPoints(aDrawPoints: Tl3LongintList); override;
    function CalcTopIndex(aMaxVisItem: LongInt): LongInt; override;
    function NeedInitScrollInfoInvlbInitScrollInfo: Boolean; override;
-   procedure VlbDrawFocusRect(const CN: Il3Canvas;
-     Index: LongInt); override;
-     {* draw the focus rectangle }
-   function VlbItemHitTest(aIndex: Integer;
-     const aPt: TPoint;
-     fromScreen: Boolean = False): Byte; override;
+   procedure vlbDrawFocusRect(const CN: Il3Canvas;
+    Index: LongInt); override;
+    {* draw the focus rectangle }
+   function vlbItemHitTest(aIndex: Integer;
+    const aPt: TPoint;
+    fromScreen: Boolean = False): Byte; override;
    function DoOnGetItem(Index: LongInt): Il3CString; override;
    function DoOnGetItemPickImage(aItemIndex: LongInt;
-     var aImages: TCustomImageList): Integer; override;
+    var aImages: TCustomImageList): Integer; override;
    procedure DoOnGetItemFont(Index: LongInt;
-     const aFont: Il3Font;
-     anItemPart: TvtListerItemPart); override;
+    const aFont: Il3Font;
+    anItemPart: TvtListerItemPart); override;
    function DoOnIsSelected(Index: LongInt): Integer; override;
    procedure DoOnSelect(Index: LongInt;
-     aValue: Integer); override;
+    aValue: Integer); override;
    procedure DoOnSelectOutRange(First: LongInt;
-     Last: LongInt;
-     aSelectState: Integer); override;
+    Last: LongInt;
+    aSelectState: Integer); override;
    function DoDoProcessCommand(Cmd: Tl3OperationCode): Boolean; override;
    procedure DoCountChanged(aCount: LongInt); override;
    function GetHint(anIndex: Integer): Il3CString; override;
    function UseDrawPoints: Boolean; override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   function GetImagesStored: Boolean; override;
-   procedure InvalidateItem(Index: LongInt); override;
-   function GetItemTextIndent(Index: LongInt;
-     aTextBoxHeight: Integer): Integer; override;
-   function GetItemDim(aItemIndex: Integer): TPoint; override;
- protected
- // protected fields
-   f_ChangingForHistory : Boolean;
-   f_TreeStruct : Il3SimpleTree;
- protected
- // protected methods
-   function DoOnGetItemImageIndex(aItemIndex: LongInt;
-     var aImages: TCustomImageList): Integer; virtual;
-   procedure DoOnGetItemStyle(aItemIndex: Integer;
-     const aFont: Il3Font;
-     var aTextBackColor: TColor;
-     var aItemBackColor: TColor;
-     var aVJustify: TvtVJustify;
-     var aFocused: Boolean;
-     var theImageVertOffset: Integer); virtual;
-   procedure ExternalSetTotal(aTotal: LongInt;
-     aCurrent: LongInt = -1;
-     aTop: LongInt = -1;
-     aAnchor: LongInt = -1);
-   function GetDrawLevel(const CNode: Il3SimpleNode): Integer;
-   procedure MakeTreeStructOnDraw; virtual;
-     {* вызывается перед отрисовкой, бывает что до этого момента никто _TreeStruct не спросил, хотя сделать его готовы. }
-   function DoOnExpand(Expand: Boolean;
-     const CNode: Il3SimpleNode): Boolean; virtual;
-     {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
-   procedure DoAfterFirstPaint;
-     {* Сигнатура метода DoAfterFirstPaint }
-   function GetHistoryData: TvtOutlinerHystoryData;
-   procedure DoTreeChanged(const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree); virtual;
-   procedure SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
-     const aData: TvtOutlinerHystoryData); virtual;
-   procedure SubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); virtual;
-   procedure UnsubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); virtual;
-   function DoOnGetItemIndentEx(anItemIndex: Integer): Integer; virtual;
-     {* для каждой ноды можно задать свой "персональный" сдвиг }
-   function NeedDrawSelectionOnItem(aItemIndex: Integer): Boolean; virtual;
-   function NeedDrawArrowSelection(aItemIndex: Integer): Boolean; virtual;
-   function GetRealClientWidth: Integer; virtual;
-   function NeedAssignTreeStructFromHistory: Boolean; virtual;
- public
- // public methods
+  public
    function Wake: Boolean;
    function GetNode(Index: LongInt): Il3SimpleNode;
    function GetCurrentNode: Il3SimpleNode;
    function CurrentCNode: Il3Node;
    procedure CheckParam;
-     {* Сигнатура метода CheckParam }
    procedure ChangeSelect(Index: LongInt);
    function GetItemTextDim(aItemIndex: Integer): TPoint;
    function IsTreeAssign: Boolean;
    function TryExpandNode(const aExpNode: Il3SimpleNode;
-     aExpand: Boolean;
-     aRecalcTop: Boolean = False): Boolean;
+    aExpand: Boolean;
+    aRecalcTop: Boolean = False): Boolean;
    procedure ExpandNode(const aExpNode: Il3SimpleNode;
-     aExpand: Boolean;
-     aRecalcTop: Boolean = False);
+    aExpand: Boolean;
+    aRecalcTop: Boolean = False);
    procedure ExpandNodeOnDeep(const aExpNode: Il3SimpleNode = nil;
-     aExpand: Boolean = True;
-     aDeepLevel: Byte = 0;
-     aRecalcTop: Boolean = False);
+    aExpand: Boolean = True;
+    aDeepLevel: Byte = 0;
+    aRecalcTop: Boolean = False);
    procedure ShowMoreChildrenOnScreen(const aParentNode: Il3SimpleNode);
    function SearchOccurStr(const SrchStr: AnsiString;
-     FromCurrent: Boolean): LongInt;
+    FromCurrent: Boolean): LongInt;
    function GotoOnNode(const aNode: Il3SimpleNode): LongInt;
    function IterateF(Action: Tl3NodeAction;
-     IterMode: Byte): Il3Node;
+    IterMode: Byte): Il3Node;
    procedure ReplaceTreeStructForceAsSame(const aTree: Il3SimpleTree);
- public
- // public properties
+   constructor Create(AOwner: TComponent); override;
+   function GetImagesStored: Boolean; override;
+   procedure InvalidateItem(Index: LongInt); override;
+   function GetItemTextIndent(Index: LongInt;
+    aTextBoxHeight: Integer): Integer; override;
+   function GetItemDim(aItemIndex: Integer): TPoint; override;
+  public
    property ViewOptions: TvtViewOptions
-     read f_ViewOptions
-     write pm_SetViewOptions;
+    read f_ViewOptions
+    write pm_SetViewOptions;
    property EditOptions: TvtEditOptions
-     read f_EditOptions
-     write pm_SetEditOptions;
+    read f_EditOptions
+    write pm_SetEditOptions;
    property SelfDrawNodes: Boolean
-     read f_SelfDrawNodes
-     write pm_SetSelfDrawNodes;
+    read f_SelfDrawNodes
+    write pm_SetSelfDrawNodes;
    property TreeSource: TvtCustomTreeSource
-     read f_TreeSource
-     write pm_SetTreeSource;
+    read f_TreeSource
+    write pm_SetTreeSource;
    property CTree: Il3Tree
-     read pm_GetCTree;
+    read pm_GetCTree;
    property ShowRoot: Boolean
-     read pm_GetShowRoot
-     write pm_SetShowRoot;
+    read pm_GetShowRoot
+    write pm_SetShowRoot;
    property ShowOpenChip: Boolean
-     read pm_GetShowOpenChip
-     write pm_SetShowOpenChip;
+    read pm_GetShowOpenChip
+    write pm_SetShowOpenChip;
    property ShowExpandable: Boolean
-     read pm_GetShowExpandable
-     write pm_SetShowExpandable;
+    read pm_GetShowExpandable
+    write pm_SetShowExpandable;
    property IsShowLines: Boolean
-     read pm_GetIsShowLines
-     write pm_SetIsShowLines;
+    read pm_GetIsShowLines
+    write pm_SetIsShowLines;
    property OnSelectCountChanged: TvtSelectCountChanged
-     read f_OnSelectCountChanged
-     write f_OnSelectCountChanged;
+    read f_OnSelectCountChanged
+    write f_OnSelectCountChanged;
    property OnExpand: TOnExpandNode
-     read f_OnExpand
-     write f_OnExpand;
+    read f_OnExpand
+    write f_OnExpand;
    property OnCollapse: TOnExpandNode
-     read f_OnCollapse
-     write f_OnCollapse;
+    read f_OnCollapse
+    write f_OnCollapse;
    property OnBeforeWake: TBeforeWake
-     read f_OnBeforeWake
-     write f_OnBeforeWake;
+    read f_OnBeforeWake
+    write f_OnBeforeWake;
    property OnAfterWake: TAfterWake
-     read f_OnAfterWake
-     write f_OnAfterWake;
+    read f_OnAfterWake
+    write f_OnAfterWake;
    property OnGetItemImage: TGetItemImage
-     read f_OnGetItemImage
-     write f_OnGetItemImage;
+    read f_OnGetItemImage
+    write f_OnGetItemImage;
    property OnGetItemStyle: TGetItemStyleEvent
-     read f_OnGetItemStyle
-     write f_OnGetItemStyle;
+    read f_OnGetItemStyle
+    write f_OnGetItemStyle;
    property OnGetItemImageVertOffset: TGetItemImageVertOffsetEvent
-     read f_OnGetItemImageVertOffset
-     write f_OnGetItemImageVertOffset;
+    read f_OnGetItemImageVertOffset
+    write f_OnGetItemImageVertOffset;
    property OnGetItemHeight: TGetItemHeightEvent
-     read f_OnGetItemHeight
-     write f_OnGetItemHeight;
+    read f_OnGetItemHeight
+    write f_OnGetItemHeight;
    property OnGetItemIndent: TGetItemIndentEvent
-     read f_OnGetItemIndent
-     write f_OnGetItemIndent;
+    read f_OnGetItemIndent
+    write f_OnGetItemIndent;
    property OnNodeMoveEnd: TNodeMoveEnd
-     read f_OnNodeMoveEnd
-     write f_OnNodeMoveEnd;
+    read f_OnNodeMoveEnd
+    write f_OnNodeMoveEnd;
    property OnTreeChanged: TvtTreeChangedEvent
-     read f_OnTreeChanged
-     write f_OnTreeChanged;
+    read f_OnTreeChanged
+    write f_OnTreeChanged;
    property OnAfterFirstPaint: TNotifyEvent
-     read f_OnAfterFirstPaint
-     write f_OnAfterFirstPaint;
+    read f_OnAfterFirstPaint
+    write f_OnAfterFirstPaint;
    property OnCheckFocusedInPaint: TvtFocusedEvent
-     read f_OnCheckFocusedInPaint
-     write f_OnCheckFocusedInPaint;
+    read f_OnCheckFocusedInPaint
+    write f_OnCheckFocusedInPaint;
    property LineColor: TColor
-     read f_LineColor
-     write f_LineColor;
-     {* default clGray }
+    read f_LineColor
+    write f_LineColor;
+    {* default clGray }
    property OpenChipColor: TColor
-     read f_OpenChipColor
-     write f_OpenChipColor;
-     {* default clBlack }
+    read f_OpenChipColor
+    write f_OpenChipColor;
+    {* default clBlack }
    property OpenChipBorderColor: TColor
-     read f_OpenChipBorderColor
-     write f_OpenChipBorderColor;
-     {* default clGray }
+    read f_OpenChipBorderColor
+    write f_OpenChipBorderColor;
+    {* default clGray }
    property OnGetItemIndentEx: TGetItemExtendExEvent
-     read f_OnGetItemIndentEx
-     write f_OnGetItemIndentEx;
-     {* для каждой ноды можно задать свой "персональный" сдвиг }
+    read f_OnGetItemIndentEx
+    write f_OnGetItemIndentEx;
+    {* для каждой ноды можно задать свой "персональный" сдвиг }
    property FullLineSelect: Boolean
-     read pm_GetFullLineSelect
-     write pm_SetFullLineSelect;
-     {* default False }
+    read pm_GetFullLineSelect
+    write pm_SetFullLineSelect;
+    {* default False }
  end;//TvtCustomOutliner
 
-//#UC START# *515DA5860015ci*
-//#UC END# *515DA5860015ci*
-//#UC START# *515DA5860015cit*
-//#UC END# *515DA5860015cit*
+ //#UC START# *515DA5860015ci*
+ //#UC END# *515DA5860015ci*
+ //#UC START# *515DA5860015cit*
+ //#UC END# *515DA5860015cit*
  TvtOutliner = class(TvtCustomOutliner)
-//#UC START# *515DA5860015publ*
+ //#UC START# *515DA5860015publ*
  public
   property TreeStruct;
  published
@@ -586,83 +538,271 @@ type
   property EditOptions;
 
   property OnResize;
-//#UC END# *515DA5860015publ*
+ //#UC END# *515DA5860015publ*
  end;//TvtOutliner
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  vtOutlinerWordsPack
-  {$IfEnd} //not NoScripts
-  ,
-  OvcConst,
-  vtStdRes,
-  l3Tree,
-  l3MinMax,
-  l3String,
-  l3Types,
-  l3ScreenIC,
-  l3TabStops,
-  Windows,
-  afwFacade,
-  l3TreeUtils,
-  l3Chars,
-  l3Region,
-  l3Bits
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , OvcConst
+ , vtStdRes
+ , l3Tree
+ , l3MinMax
+ , l3String
+ , l3Types
+ , l3ScreenIC
+ , l3TabStops
+ , Windows
+ , afwFacade
+ , l3TreeUtils
+ , l3Chars
+ , l3Region
+ , l3Bits
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtOutlinerWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *515DA5860015impl_uses*
+ , SysUtils
+ //#UC END# *515DA5860015impl_uses*
+;
 
 const
-   { TvtOutliner Const private }
-  cAllOutlinerCommand = [ccTreeExpand, ccTreeAllExpand, ccMoveLeft, ccMoveRight, ccMoveUp, ccMoveDown, ccLeft, ccRight, ccFastFindNext, ccDel, ccTreeCollapse];
-  cOutlinerHMovingCommand = [ccMoveLeft, ccMoveRight];
-  cOutlinerVMovingCommand = [ccMoveUp, ccMoveDown];
-  cOutlinerMovingCommand = cOutlinerHMovingCommand + cOutlinerVMovingCommand;
-  cOutlinerDeleteCommand = [ccDel];
+ cAllOutlinerCommand = [ccTreeExpand, ccTreeAllExpand, ccMoveLeft, ccMoveRight, ccMoveUp, ccMoveDown, ccLeft, ccRight, ccFastFindNext, ccDel, ccTreeCollapse];
+ cOutlinerHMovingCommand = [ccMoveLeft, ccMoveRight];
+ cOutlinerVMovingCommand = [ccMoveUp, ccMoveDown];
+ cOutlinerMovingCommand = cOutlinerHMovingCommand + cOutlinerVMovingCommand;
+ cOutlinerDeleteCommand = [ccDel];
 
-// start class TvtCustomOutliner
-
-procedure TvtCustomOutliner.UpdateImagesOptions;
-//#UC START# *515DC5090272_4CFFBEEA0109_var*
-//#UC END# *515DC5090272_4CFFBEEA0109_var*
+function TvtSimpleOutliner.Get_Tree: Il3SimpleTree;
+//#UC START# *477252C801B5_515EE352036Eget_var*
+//#UC END# *477252C801B5_515EE352036Eget_var*
 begin
-//#UC START# *515DC5090272_4CFFBEEA0109_impl*
- if voWithoutImages in ViewOptions then
-  Images := nil;
-//#UC END# *515DC5090272_4CFFBEEA0109_impl*
-end;//TvtCustomOutliner.UpdateImagesOptions
+//#UC START# *477252C801B5_515EE352036Eget_impl*
+ Result := TreeStruct;
+//#UC END# *477252C801B5_515EE352036Eget_impl*
+end;//TvtSimpleOutliner.Get_Tree
 
-function TvtCustomOutliner.CompileTabstopsFromMultipartText(const aMT: Il3MultipartText): Tl3String;
-//#UC START# *51631EF60074_4CFFBEEA0109_var*
+procedure TvtSimpleOutliner.Set_Tree(const aValue: Il3SimpleTree);
+//#UC START# *477252C801B5_515EE352036Eset_var*
+//#UC END# *477252C801B5_515EE352036Eset_var*
+begin
+//#UC START# *477252C801B5_515EE352036Eset_impl*
+ TreeStruct := aValue;
+//#UC END# *477252C801B5_515EE352036Eset_impl*
+end;//TvtSimpleOutliner.Set_Tree
+
+procedure TvtCustomOutliner.pm_SetViewOptions(aValue: TvtViewOptions);
+//#UC START# *515DBA1202F9_4CFFBEEA0109set_var*
 var
- I: Integer;
-//#UC END# *51631EF60074_4CFFBEEA0109_var*
+ lLOpt : TvlViewOptions;
+//#UC END# *515DBA1202F9_4CFFBEEA0109set_var*
 begin
-//#UC START# *51631EF60074_4CFFBEEA0109_impl*
- Result := Tl3String.Create;
- for I := 0 to Pred(Header.Sections.Count) do
+//#UC START# *515DBA1202F9_4CFFBEEA0109set_impl*
+ if aValue <> f_ViewOptions then
  begin
-  Result.Append(aMT.GetTextPart(I));
-  Result.Append(cc_Tab);
- end;//for I
- Result.Len := Result.Len-1;
-//#UC END# *51631EF60074_4CFFBEEA0109_impl*
-end;//TvtCustomOutliner.CompileTabstopsFromMultipartText
+  f_ViewOptions := aValue;
+  UpdateImagesOptions;
+  Invalidate;
+ end;
+
+ if Assigned(f_TreeStruct) then
+  f_TreeStruct.ShowRoot := (voShowRoot in aValue);
+
+ lLOpt := [];
+ if voShowInterRowSpace in f_ViewOptions then
+  Include(lLOpt, TvlViewOption(voShowInterRowSpace));
+
+ inherited ViewOptions := lLOpt;
+//#UC END# *515DBA1202F9_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetViewOptions
+
+procedure TvtCustomOutliner.pm_SetEditOptions(aValue: TvtEditOptions);
+//#UC START# *515DBAE900F9_4CFFBEEA0109set_var*
+//#UC END# *515DBAE900F9_4CFFBEEA0109set_var*
+begin
+//#UC START# *515DBAE900F9_4CFFBEEA0109set_impl*
+ f_EditOptions := aValue;
+ f_LegalOperations := cAllOutlinerCommand;
+
+ if not (eoItemHMoving in f_EditOptions) or ReadOnly then
+  f_LegalOperations := f_LegalOperations - cOutlinerHMovingCommand;
+
+ if not (eoItemVMoving in f_EditOptions) or ReadOnly then
+  f_LegalOperations := f_LegalOperations - cOutlinerVMovingCommand;
+
+ if not (eoItemDelete in f_EditOptions) or ReadOnly then
+  f_LegalOperations := f_LegalOperations - cOutlinerDeleteCommand;
+//#UC END# *515DBAE900F9_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetEditOptions
+
+procedure TvtCustomOutliner.pm_SetSelfDrawNodes(aValue: Boolean);
+//#UC START# *515DBB3E0155_4CFFBEEA0109set_var*
+//#UC END# *515DBB3E0155_4CFFBEEA0109set_var*
+begin
+//#UC START# *515DBB3E0155_4CFFBEEA0109set_impl*
+ if (f_SelfDrawNodes <> aValue) then
+ begin
+  f_SelfDrawNodes := aValue;
+  DropDrawPoints;
+  Invalidate;
+ end;//f_SelfDrawNodes <> aValue
+//#UC END# *515DBB3E0155_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetSelfDrawNodes
+
+procedure TvtCustomOutliner.pm_SetTreeSource(aValue: TvtCustomTreeSource);
+//#UC START# *515DC424037A_4CFFBEEA0109set_var*
+//#UC END# *515DC424037A_4CFFBEEA0109set_var*
+begin
+//#UC START# *515DC424037A_4CFFBEEA0109set_impl*
+ if (f_TreeSource <> aValue) then
+ begin
+  f_TreeSource := aValue;
+  if (f_TreeSource <> nil) then
+   TreeStruct := f_TreeSource.Tree;
+ end;//f_TreeSource <> aValue
+//#UC END# *515DC424037A_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetTreeSource
+
+function TvtCustomOutliner.pm_GetCTree: Il3Tree;
+//#UC START# *516296F30260_4CFFBEEA0109get_var*
+//#UC END# *516296F30260_4CFFBEEA0109get_var*
+begin
+//#UC START# *516296F30260_4CFFBEEA0109get_impl*
+ Result := TreeStruct as Il3Tree;
+//#UC END# *516296F30260_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetCTree
+
+function TvtCustomOutliner.pm_GetShowRoot: Boolean;
+//#UC START# *5162A253038D_4CFFBEEA0109get_var*
+//#UC END# *5162A253038D_4CFFBEEA0109get_var*
+begin
+//#UC START# *5162A253038D_4CFFBEEA0109get_impl*
+ Result := voShowRoot in f_ViewOptions;
+//#UC END# *5162A253038D_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetShowRoot
+
+procedure TvtCustomOutliner.pm_SetShowRoot(aValue: Boolean);
+//#UC START# *5162A253038D_4CFFBEEA0109set_var*
+//#UC END# *5162A253038D_4CFFBEEA0109set_var*
+begin
+//#UC START# *5162A253038D_4CFFBEEA0109set_impl*
+ if (voShowRoot in f_ViewOptions) <> aValue then
+  begin
+   if aValue then
+    f_ViewOptions := f_ViewOptions + [voShowRoot]
+   else
+    f_ViewOptions := f_ViewOptions - [voShowRoot];
+   if Assigned(f_TreeStruct) then
+   begin
+    f_TreeStruct.ShowRoot := aValue;
+    Invalidate;
+   end;
+  end;
+//#UC END# *5162A253038D_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetShowRoot
+
+function TvtCustomOutliner.pm_GetShowOpenChip: Boolean;
+//#UC START# *5162A27A02B1_4CFFBEEA0109get_var*
+//#UC END# *5162A27A02B1_4CFFBEEA0109get_var*
+begin
+//#UC START# *5162A27A02B1_4CFFBEEA0109get_impl*
+ Result := voShowOpenChip in f_ViewOptions;
+//#UC END# *5162A27A02B1_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetShowOpenChip
+
+procedure TvtCustomOutliner.pm_SetShowOpenChip(aValue: Boolean);
+//#UC START# *5162A27A02B1_4CFFBEEA0109set_var*
+//#UC END# *5162A27A02B1_4CFFBEEA0109set_var*
+begin
+//#UC START# *5162A27A02B1_4CFFBEEA0109set_impl*
+ if (voShowOpenChip in f_ViewOptions) = aValue then
+  Exit;
+ if aValue then
+  f_ViewOptions := f_ViewOptions + [voShowOpenChip]
+ else
+  f_ViewOptions := f_ViewOptions - [voShowOpenChip];
+ Invalidate;
+//#UC END# *5162A27A02B1_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetShowOpenChip
+
+function TvtCustomOutliner.pm_GetShowExpandable: Boolean;
+//#UC START# *5162A29F0091_4CFFBEEA0109get_var*
+//#UC END# *5162A29F0091_4CFFBEEA0109get_var*
+begin
+//#UC START# *5162A29F0091_4CFFBEEA0109get_impl*
+ Result := voShowExpandable in f_ViewOptions;
+//#UC END# *5162A29F0091_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetShowExpandable
+
+procedure TvtCustomOutliner.pm_SetShowExpandable(aValue: Boolean);
+//#UC START# *5162A29F0091_4CFFBEEA0109set_var*
+//#UC END# *5162A29F0091_4CFFBEEA0109set_var*
+begin
+//#UC START# *5162A29F0091_4CFFBEEA0109set_impl*
+ if (voShowExpandable in f_ViewOptions) = aValue then
+  Exit;
+ if aValue then
+  f_ViewOptions := f_ViewOptions + [voShowExpandable]
+ else
+  f_ViewOptions := f_ViewOptions - [voShowExpandable];
+ Invalidate;
+//#UC END# *5162A29F0091_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetShowExpandable
+
+function TvtCustomOutliner.pm_GetIsShowLines: Boolean;
+//#UC START# *5162A2F10264_4CFFBEEA0109get_var*
+//#UC END# *5162A2F10264_4CFFBEEA0109get_var*
+begin
+//#UC START# *5162A2F10264_4CFFBEEA0109get_impl*
+ Result := voShowLines in f_ViewOptions;
+//#UC END# *5162A2F10264_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetIsShowLines
+
+procedure TvtCustomOutliner.pm_SetIsShowLines(aValue: Boolean);
+//#UC START# *5162A2F10264_4CFFBEEA0109set_var*
+//#UC END# *5162A2F10264_4CFFBEEA0109set_var*
+begin
+//#UC START# *5162A2F10264_4CFFBEEA0109set_impl*
+ if aValue then
+  f_ViewOptions := f_ViewOptions + [voShowLines]
+ else
+  f_ViewOptions := f_ViewOptions - [voShowLines];
+//#UC END# *5162A2F10264_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetIsShowLines
+
+function TvtCustomOutliner.pm_GetFullLineSelect: Boolean;
+//#UC START# *51D67CEF00B7_4CFFBEEA0109get_var*
+//#UC END# *51D67CEF00B7_4CFFBEEA0109get_var*
+begin
+//#UC START# *51D67CEF00B7_4CFFBEEA0109get_impl*
+ Result := voFullLineSelect in f_ViewOptions; 
+//#UC END# *51D67CEF00B7_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetFullLineSelect
+
+procedure TvtCustomOutliner.pm_SetFullLineSelect(aValue: Boolean);
+//#UC START# *51D67CEF00B7_4CFFBEEA0109set_var*
+//#UC END# *51D67CEF00B7_4CFFBEEA0109set_var*
+begin
+//#UC START# *51D67CEF00B7_4CFFBEEA0109set_impl*
+ if aValue <> pm_GetFullLineSelect then
+ begin
+  if aValue 
+   then Include(f_ViewOptions, voFullLineSelect)
+   else Exclude(f_ViewOptions, voFullLineSelect);
+  Invalidate;
+ end;
+//#UC END# *51D67CEF00B7_4CFFBEEA0109set_impl*
+end;//TvtCustomOutliner.pm_SetFullLineSelect
 
 function TvtCustomOutliner.DoOnGetItemImageIndex(aItemIndex: LongInt;
-  var aImages: TCustomImageList): Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *508F81110075_4CFFBEEA0109_var*
 var
  CNode : Il3SimpleNode;
@@ -700,12 +840,12 @@ begin
 end;//TvtCustomOutliner.DoOnGetItemImageIndex
 
 procedure TvtCustomOutliner.DoOnGetItemStyle(aItemIndex: Integer;
-  const aFont: Il3Font;
-  var aTextBackColor: TColor;
-  var aItemBackColor: TColor;
-  var aVJustify: TvtVJustify;
-  var aFocused: Boolean;
-  var theImageVertOffset: Integer);
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify;
+ var aFocused: Boolean;
+ var theImageVertOffset: Integer);
 //#UC START# *508F825303E4_4CFFBEEA0109_var*
 var
  lFGColor : TColor;
@@ -769,10 +909,21 @@ begin
 //#UC END# *508F825303E4_4CFFBEEA0109_impl*
 end;//TvtCustomOutliner.DoOnGetItemStyle
 
+procedure TvtCustomOutliner.UpdateImagesOptions;
+ {* проверяет настройку voWithoutImages. }
+//#UC START# *515DC5090272_4CFFBEEA0109_var*
+//#UC END# *515DC5090272_4CFFBEEA0109_var*
+begin
+//#UC START# *515DC5090272_4CFFBEEA0109_impl*
+ if voWithoutImages in ViewOptions then
+  Images := nil;
+//#UC END# *515DC5090272_4CFFBEEA0109_impl*
+end;//TvtCustomOutliner.UpdateImagesOptions
+
 procedure TvtCustomOutliner.ExternalSetTotal(aTotal: LongInt;
-  aCurrent: LongInt = -1;
-  aTop: LongInt = -1;
-  aAnchor: LongInt = -1);
+ aCurrent: LongInt = -1;
+ aTop: LongInt = -1;
+ aAnchor: LongInt = -1);
 //#UC START# *516299360286_4CFFBEEA0109_var*
 //#UC END# *516299360286_4CFFBEEA0109_var*
 begin
@@ -830,6 +981,7 @@ begin
 end;//TvtCustomOutliner.GetDrawLevel
 
 procedure TvtCustomOutliner.MakeTreeStructOnDraw;
+ {* вызывается перед отрисовкой, бывает что до этого момента никто _TreeStruct не спросил, хотя сделать его готовы. }
 //#UC START# *51629A880103_4CFFBEEA0109_var*
 //#UC END# *51629A880103_4CFFBEEA0109_var*
 begin
@@ -839,7 +991,8 @@ begin
 end;//TvtCustomOutliner.MakeTreeStructOnDraw
 
 function TvtCustomOutliner.DoOnExpand(Expand: Boolean;
-  const CNode: Il3SimpleNode): Boolean;
+ const CNode: Il3SimpleNode): Boolean;
+ {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
 //#UC START# *51629C9B00C2_4CFFBEEA0109_var*
  function lp_ExpandSingleNode: Boolean;
  var
@@ -904,7 +1057,7 @@ begin
 end;//TvtCustomOutliner.GetHistoryData
 
 procedure TvtCustomOutliner.DoTreeChanged(const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const aNewTree: Il3SimpleTree);
 //#UC START# *51629D5D018A_4CFFBEEA0109_var*
 //#UC END# *51629D5D018A_4CFFBEEA0109_var*
 begin
@@ -918,7 +1071,7 @@ begin
 end;//TvtCustomOutliner.DoTreeChanged
 
 procedure TvtCustomOutliner.SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
-  const aData: TvtOutlinerHystoryData);
+ const aData: TvtOutlinerHystoryData);
 //#UC START# *51629D8E02C8_4CFFBEEA0109_var*
 var
  l_OldTree : Il3SimpleTree;
@@ -1170,8 +1323,8 @@ begin
 end;//TvtCustomOutliner.IsTreeAssign
 
 function TvtCustomOutliner.TryExpandNode(const aExpNode: Il3SimpleNode;
-  aExpand: Boolean;
-  aRecalcTop: Boolean = False): Boolean;
+ aExpand: Boolean;
+ aRecalcTop: Boolean = False): Boolean;
 //#UC START# *51629FA803AF_4CFFBEEA0109_var*
 var
  l_NewIndex: Integer;                                               
@@ -1195,8 +1348,8 @@ begin
 end;//TvtCustomOutliner.TryExpandNode
 
 procedure TvtCustomOutliner.ExpandNode(const aExpNode: Il3SimpleNode;
-  aExpand: Boolean;
-  aRecalcTop: Boolean = False);
+ aExpand: Boolean;
+ aRecalcTop: Boolean = False);
 //#UC START# *51629FE90212_4CFFBEEA0109_var*
 var
  lExpNode : Il3SimpleNode;
@@ -1241,9 +1394,9 @@ begin
 end;//TvtCustomOutliner.ExpandNode
 
 procedure TvtCustomOutliner.ExpandNodeOnDeep(const aExpNode: Il3SimpleNode = nil;
-  aExpand: Boolean = True;
-  aDeepLevel: Byte = 0;
-  aRecalcTop: Boolean = False);
+ aExpand: Boolean = True;
+ aDeepLevel: Byte = 0;
+ aRecalcTop: Boolean = False);
 //#UC START# *5162A037022E_4CFFBEEA0109_var*
 var
  NCur   : LongInt;
@@ -1295,7 +1448,7 @@ begin
 end;//TvtCustomOutliner.ShowMoreChildrenOnScreen
 
 function TvtCustomOutliner.SearchOccurStr(const SrchStr: AnsiString;
-  FromCurrent: Boolean): LongInt;
+ FromCurrent: Boolean): LongInt;
 //#UC START# *5162A09D031F_4CFFBEEA0109_var*
 var
  lFindNode : Il3SimpleNode;
@@ -1346,7 +1499,7 @@ begin
 end;//TvtCustomOutliner.GotoOnNode
 
 function TvtCustomOutliner.IterateF(Action: Tl3NodeAction;
-  IterMode: Byte): Il3Node;
+ IterMode: Byte): Il3Node;
 //#UC START# *5162A19701F3_4CFFBEEA0109_var*
 //#UC END# *5162A19701F3_4CFFBEEA0109_var*
 begin
@@ -1370,6 +1523,23 @@ begin
  end;
 //#UC END# *5162A1C102E3_4CFFBEEA0109_impl*
 end;//TvtCustomOutliner.ReplaceTreeStructForceAsSame
+
+function TvtCustomOutliner.CompileTabstopsFromMultipartText(const aMT: Il3MultipartText): Tl3String;
+//#UC START# *51631EF60074_4CFFBEEA0109_var*
+var
+ I: Integer;
+//#UC END# *51631EF60074_4CFFBEEA0109_var*
+begin
+//#UC START# *51631EF60074_4CFFBEEA0109_impl*
+ Result := Tl3String.Create;
+ for I := 0 to Pred(Header.Sections.Count) do
+ begin
+  Result.Append(aMT.GetTextPart(I));
+  Result.Append(cc_Tab);
+ end;//for I
+ Result.Len := Result.Len-1;
+//#UC END# *51631EF60074_4CFFBEEA0109_impl*
+end;//TvtCustomOutliner.CompileTabstopsFromMultipartText
 
 procedure TvtCustomOutliner.SubscribeTreeStruct(const aTreeStruct: Il3SimpleTree);
 //#UC START# *516297E40319_4CFFBEEA0109_var*
@@ -1398,6 +1568,7 @@ begin
 end;//TvtCustomOutliner.UnsubscribeTreeStruct
 
 function TvtCustomOutliner.DoOnGetItemIndentEx(anItemIndex: Integer): Integer;
+ {* для каждой ноды можно задать свой "персональный" сдвиг }
 //#UC START# *51D2DC290320_4CFFBEEA0109_var*
 //#UC END# *51D2DC290320_4CFFBEEA0109_var*
 begin
@@ -1445,228 +1616,6 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=607760979
 //#UC END# *5604EC1403A8_4CFFBEEA0109_impl*
 end;//TvtCustomOutliner.NeedAssignTreeStructFromHistory
-// start class TvtSimpleOutliner
-
-function TvtSimpleOutliner.Get_Tree: Il3SimpleTree;
-//#UC START# *477252C801B5_515EE352036Eget_var*
-//#UC END# *477252C801B5_515EE352036Eget_var*
-begin
-//#UC START# *477252C801B5_515EE352036Eget_impl*
- Result := TreeStruct;
-//#UC END# *477252C801B5_515EE352036Eget_impl*
-end;//TvtSimpleOutliner.Get_Tree
-
-procedure TvtSimpleOutliner.Set_Tree(const aValue: Il3SimpleTree);
-//#UC START# *477252C801B5_515EE352036Eset_var*
-//#UC END# *477252C801B5_515EE352036Eset_var*
-begin
-//#UC START# *477252C801B5_515EE352036Eset_impl*
- TreeStruct := aValue;
-//#UC END# *477252C801B5_515EE352036Eset_impl*
-end;//TvtSimpleOutliner.Set_Tree
-
-procedure TvtCustomOutliner.pm_SetViewOptions(aValue: TvtViewOptions);
-//#UC START# *515DBA1202F9_4CFFBEEA0109set_var*
-var
- lLOpt : TvlViewOptions;
-//#UC END# *515DBA1202F9_4CFFBEEA0109set_var*
-begin
-//#UC START# *515DBA1202F9_4CFFBEEA0109set_impl*
- if aValue <> f_ViewOptions then
- begin
-  f_ViewOptions := aValue;
-  UpdateImagesOptions;
-  Invalidate;
- end;
-
- if Assigned(f_TreeStruct) then
-  f_TreeStruct.ShowRoot := (voShowRoot in aValue);
-
- lLOpt := [];
- if voShowInterRowSpace in f_ViewOptions then
-  Include(lLOpt, TvlViewOption(voShowInterRowSpace));
-
- inherited ViewOptions := lLOpt;
-//#UC END# *515DBA1202F9_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetViewOptions
-
-procedure TvtCustomOutliner.pm_SetEditOptions(aValue: TvtEditOptions);
-//#UC START# *515DBAE900F9_4CFFBEEA0109set_var*
-//#UC END# *515DBAE900F9_4CFFBEEA0109set_var*
-begin
-//#UC START# *515DBAE900F9_4CFFBEEA0109set_impl*
- f_EditOptions := aValue;
- f_LegalOperations := cAllOutlinerCommand;
-
- if not (eoItemHMoving in f_EditOptions) or ReadOnly then
-  f_LegalOperations := f_LegalOperations - cOutlinerHMovingCommand;
-
- if not (eoItemVMoving in f_EditOptions) or ReadOnly then
-  f_LegalOperations := f_LegalOperations - cOutlinerVMovingCommand;
-
- if not (eoItemDelete in f_EditOptions) or ReadOnly then
-  f_LegalOperations := f_LegalOperations - cOutlinerDeleteCommand;
-//#UC END# *515DBAE900F9_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetEditOptions
-
-procedure TvtCustomOutliner.pm_SetSelfDrawNodes(aValue: Boolean);
-//#UC START# *515DBB3E0155_4CFFBEEA0109set_var*
-//#UC END# *515DBB3E0155_4CFFBEEA0109set_var*
-begin
-//#UC START# *515DBB3E0155_4CFFBEEA0109set_impl*
- if (f_SelfDrawNodes <> aValue) then
- begin
-  f_SelfDrawNodes := aValue;
-  DropDrawPoints;
-  Invalidate;
- end;//f_SelfDrawNodes <> aValue
-//#UC END# *515DBB3E0155_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetSelfDrawNodes
-
-procedure TvtCustomOutliner.pm_SetTreeSource(aValue: TvtCustomTreeSource);
-//#UC START# *515DC424037A_4CFFBEEA0109set_var*
-//#UC END# *515DC424037A_4CFFBEEA0109set_var*
-begin
-//#UC START# *515DC424037A_4CFFBEEA0109set_impl*
- if (f_TreeSource <> aValue) then
- begin
-  f_TreeSource := aValue;
-  if (f_TreeSource <> nil) then
-   TreeStruct := f_TreeSource.Tree;
- end;//f_TreeSource <> aValue
-//#UC END# *515DC424037A_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetTreeSource
-
-function TvtCustomOutliner.pm_GetCTree: Il3Tree;
-//#UC START# *516296F30260_4CFFBEEA0109get_var*
-//#UC END# *516296F30260_4CFFBEEA0109get_var*
-begin
-//#UC START# *516296F30260_4CFFBEEA0109get_impl*
- Result := TreeStruct as Il3Tree;
-//#UC END# *516296F30260_4CFFBEEA0109get_impl*
-end;//TvtCustomOutliner.pm_GetCTree
-
-function TvtCustomOutliner.pm_GetShowRoot: Boolean;
-//#UC START# *5162A253038D_4CFFBEEA0109get_var*
-//#UC END# *5162A253038D_4CFFBEEA0109get_var*
-begin
-//#UC START# *5162A253038D_4CFFBEEA0109get_impl*
- Result := voShowRoot in f_ViewOptions;
-//#UC END# *5162A253038D_4CFFBEEA0109get_impl*
-end;//TvtCustomOutliner.pm_GetShowRoot
-
-procedure TvtCustomOutliner.pm_SetShowRoot(aValue: Boolean);
-//#UC START# *5162A253038D_4CFFBEEA0109set_var*
-//#UC END# *5162A253038D_4CFFBEEA0109set_var*
-begin
-//#UC START# *5162A253038D_4CFFBEEA0109set_impl*
- if (voShowRoot in f_ViewOptions) <> aValue then
-  begin
-   if aValue then
-    f_ViewOptions := f_ViewOptions + [voShowRoot]
-   else
-    f_ViewOptions := f_ViewOptions - [voShowRoot];
-   if Assigned(f_TreeStruct) then
-   begin
-    f_TreeStruct.ShowRoot := aValue;
-    Invalidate;
-   end;
-  end;
-//#UC END# *5162A253038D_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetShowRoot
-
-function TvtCustomOutliner.pm_GetShowOpenChip: Boolean;
-//#UC START# *5162A27A02B1_4CFFBEEA0109get_var*
-//#UC END# *5162A27A02B1_4CFFBEEA0109get_var*
-begin
-//#UC START# *5162A27A02B1_4CFFBEEA0109get_impl*
- Result := voShowOpenChip in f_ViewOptions;
-//#UC END# *5162A27A02B1_4CFFBEEA0109get_impl*
-end;//TvtCustomOutliner.pm_GetShowOpenChip
-
-procedure TvtCustomOutliner.pm_SetShowOpenChip(aValue: Boolean);
-//#UC START# *5162A27A02B1_4CFFBEEA0109set_var*
-//#UC END# *5162A27A02B1_4CFFBEEA0109set_var*
-begin
-//#UC START# *5162A27A02B1_4CFFBEEA0109set_impl*
- if (voShowOpenChip in f_ViewOptions) = aValue then
-  Exit;
- if aValue then
-  f_ViewOptions := f_ViewOptions + [voShowOpenChip]
- else
-  f_ViewOptions := f_ViewOptions - [voShowOpenChip];
- Invalidate;
-//#UC END# *5162A27A02B1_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetShowOpenChip
-
-function TvtCustomOutliner.pm_GetShowExpandable: Boolean;
-//#UC START# *5162A29F0091_4CFFBEEA0109get_var*
-//#UC END# *5162A29F0091_4CFFBEEA0109get_var*
-begin
-//#UC START# *5162A29F0091_4CFFBEEA0109get_impl*
- Result := voShowExpandable in f_ViewOptions;
-//#UC END# *5162A29F0091_4CFFBEEA0109get_impl*
-end;//TvtCustomOutliner.pm_GetShowExpandable
-
-procedure TvtCustomOutliner.pm_SetShowExpandable(aValue: Boolean);
-//#UC START# *5162A29F0091_4CFFBEEA0109set_var*
-//#UC END# *5162A29F0091_4CFFBEEA0109set_var*
-begin
-//#UC START# *5162A29F0091_4CFFBEEA0109set_impl*
- if (voShowExpandable in f_ViewOptions) = aValue then
-  Exit;
- if aValue then
-  f_ViewOptions := f_ViewOptions + [voShowExpandable]
- else
-  f_ViewOptions := f_ViewOptions - [voShowExpandable];
- Invalidate;
-//#UC END# *5162A29F0091_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetShowExpandable
-
-function TvtCustomOutliner.pm_GetIsShowLines: Boolean;
-//#UC START# *5162A2F10264_4CFFBEEA0109get_var*
-//#UC END# *5162A2F10264_4CFFBEEA0109get_var*
-begin
-//#UC START# *5162A2F10264_4CFFBEEA0109get_impl*
- Result := voShowLines in f_ViewOptions;
-//#UC END# *5162A2F10264_4CFFBEEA0109get_impl*
-end;//TvtCustomOutliner.pm_GetIsShowLines
-
-procedure TvtCustomOutliner.pm_SetIsShowLines(aValue: Boolean);
-//#UC START# *5162A2F10264_4CFFBEEA0109set_var*
-//#UC END# *5162A2F10264_4CFFBEEA0109set_var*
-begin
-//#UC START# *5162A2F10264_4CFFBEEA0109set_impl*
- if aValue then
-  f_ViewOptions := f_ViewOptions + [voShowLines]
- else
-  f_ViewOptions := f_ViewOptions - [voShowLines];
-//#UC END# *5162A2F10264_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetIsShowLines
-
-function TvtCustomOutliner.pm_GetFullLineSelect: Boolean;
-//#UC START# *51D67CEF00B7_4CFFBEEA0109get_var*
-//#UC END# *51D67CEF00B7_4CFFBEEA0109get_var*
-begin
-//#UC START# *51D67CEF00B7_4CFFBEEA0109get_impl*
- Result := voFullLineSelect in f_ViewOptions; 
-//#UC END# *51D67CEF00B7_4CFFBEEA0109get_impl*
-end;//TvtCustomOutliner.pm_GetFullLineSelect
-
-procedure TvtCustomOutliner.pm_SetFullLineSelect(aValue: Boolean);
-//#UC START# *51D67CEF00B7_4CFFBEEA0109set_var*
-//#UC END# *51D67CEF00B7_4CFFBEEA0109set_var*
-begin
-//#UC START# *51D67CEF00B7_4CFFBEEA0109set_impl*
- if aValue <> pm_GetFullLineSelect then
- begin
-  if aValue 
-   then Include(f_ViewOptions, voFullLineSelect)
-   else Exclude(f_ViewOptions, voFullLineSelect);
-  Invalidate;
- end;
-//#UC END# *51D67CEF00B7_4CFFBEEA0109set_impl*
-end;//TvtCustomOutliner.pm_SetFullLineSelect
 
 procedure TvtCustomOutliner.WMLButtonDown(var Msg: TWMLButtonDown);
 //#UC START# *51668D0401E9_4CFFBEEA0109_var*
@@ -1769,7 +1718,8 @@ begin
 end;//TvtCustomOutliner.WMLButtonDblClk
 
 procedure TvtCustomOutliner.SelectCountChanged(anOldCount: Integer;
-  aNewCount: Integer);
+ aNewCount: Integer);
+ {* прошла операция. }
 //#UC START# *46A454B40054_4CFFBEEA0109_var*
 //#UC END# *46A454B40054_4CFFBEEA0109_var*
 begin
@@ -1782,8 +1732,9 @@ begin
 end;//TvtCustomOutliner.SelectCountChanged
 
 procedure TvtCustomOutliner.ExternalVisibleCountChanged(aNewCount: Integer;
-  aNodeIndex: Integer;
-  aDelta: Integer);
+ aNodeIndex: Integer;
+ aDelta: Integer);
+ {* прошла операция. }
 //#UC START# *46A4555F0031_4CFFBEEA0109_var*
  function CorrectParam(aParam: LongInt): LongInt;
  begin//CorrectParam
@@ -1834,6 +1785,7 @@ begin
 end;//TvtCustomOutliner.ExternalVisibleCountChanged
 
 procedure TvtCustomOutliner.ExternalInvalidate;
+ {* перерисуйся. }
 //#UC START# *46A455900227_4CFFBEEA0109_var*
 //#UC END# *46A455900227_4CFFBEEA0109_var*
 begin
@@ -1845,7 +1797,14 @@ begin
 end;//TvtCustomOutliner.ExternalInvalidate
 
 procedure TvtCustomOutliner.ExternalModified(aNode: Integer;
-  aDelta: Integer);
+ aDelta: Integer);
+ {* в дереве были добавлены/удалены элементы.
+             - aNode:
+                 Узел ниже которого добавили/удалили узлы. Нумерация начинается
+                 с нуля;
+             - aDelta:
+                 Количество элементов которое было добавлено/удалено. Если
+                 aDelta со знаком минус элементы были удалены; }
 //#UC START# *46A455A60278_4CFFBEEA0109_var*
 //#UC END# *46A455A60278_4CFFBEEA0109_var*
 begin
@@ -1877,6 +1836,7 @@ begin
 end;//TvtCustomOutliner.Set_Tree
 
 procedure TvtCustomOutliner.RequestReapply;
+ {* Желательно переприменить фильтр. }
 //#UC START# *477250FC0040_4CFFBEEA0109_var*
 var
  l_Index : Integer;
@@ -1890,6 +1850,7 @@ begin
 end;//TvtCustomOutliner.RequestReapply
 
 procedure TvtCustomOutliner.RequestClearAndTurnOff;
+ {* Дерево выключило на себе фильтр. }
 //#UC START# *4772510D0043_4CFFBEEA0109_var*
 var
  l_Index : Integer;
@@ -1903,6 +1864,7 @@ begin
 end;//TvtCustomOutliner.RequestClearAndTurnOff
 
 procedure TvtCustomOutliner.RequestCheckValid;
+ {* Дерево поменялось - нужно проверить валидность фильтра. }
 //#UC START# *4772511D0316_4CFFBEEA0109_var*
 var
  l_Index : Integer;
@@ -1937,7 +1899,7 @@ begin
 end;//TvtCustomOutliner.UnSubscribeFromContextFilter
 
 function TvtCustomOutliner.IsSameContext(const aContext: Il3CString;
-  out DiffStart: Cardinal): Boolean;
+ out DiffStart: Cardinal): Boolean;
 //#UC START# *4772521703E3_4CFFBEEA0109_var*
 var
  l_Target: Il3ContextFilterTarget;
@@ -2035,6 +1997,7 @@ begin
 end;//TvtCustomOutliner.pm_SetTreeStruct
 
 procedure TvtCustomOutliner.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CFFBEEA0109_var*
 //#UC END# *479731C50290_4CFFBEEA0109_var*
 begin
@@ -2076,9 +2039,9 @@ begin
 end;//TvtCustomOutliner.Create
 
 function TvtCustomOutliner.MouseAction(const aPt: Tl3Point;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  aKeys: TShiftState): Tl3MouseResult;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ aKeys: TShiftState): Tl3MouseResult;
 //#UC START# *47E138F90081_4CFFBEEA0109_var*
 var
  lPt       : TPoint;
@@ -2275,6 +2238,7 @@ begin
 end;//TvtCustomOutliner.DoChanged
 
 procedure TvtCustomOutliner.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_4CFFBEEA0109_var*
 var
  l_TopIndent : Integer;
@@ -2939,7 +2903,7 @@ begin
 end;//TvtCustomOutliner.Paint
 
 procedure TvtCustomOutliner.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4F884378016A_4CFFBEEA0109_var*
 //#UC END# *4F884378016A_4CFFBEEA0109_var*
 begin
@@ -3054,6 +3018,7 @@ begin
 end;//TvtCustomOutliner.pm_SetTotal
 
 function TvtCustomOutliner.IsNeedScrollBars: Boolean;
+ {* определяет нужены ли в CreateParams стили WS_VSCROLL WS_HSCROLL. }
 //#UC START# *5151AC21016D_4CFFBEEA0109_var*
 //#UC END# *5151AC21016D_4CFFBEEA0109_var*
 begin
@@ -3091,6 +3056,9 @@ begin
 end;//TvtCustomOutliner.GetImagesStored
 
 function TvtCustomOutliner.DoOnGetItemIndent: Integer;
+ {* функция определяет добавляемое свободное место до иконки элемента.
+Если отступ в обработчике будет определен как нулевой, то по
+умолчанию отступ делается на ширину иконки, если таковые имеются. }
 //#UC START# *5151AF650239_4CFFBEEA0109_var*
 //#UC END# *5151AF650239_4CFFBEEA0109_var*
 begin
@@ -3212,8 +3180,9 @@ begin
 //#UC END# *5152BAD2033B_4CFFBEEA0109_impl*
 end;//TvtCustomOutliner.NeedInitScrollInfoInvlbInitScrollInfo
 
-procedure TvtCustomOutliner.VlbDrawFocusRect(const CN: Il3Canvas;
-  Index: LongInt);
+procedure TvtCustomOutliner.vlbDrawFocusRect(const CN: Il3Canvas;
+ Index: LongInt);
+ {* draw the focus rectangle }
 //#UC START# *5152BD3E036D_4CFFBEEA0109_var*
 var
  CR : TRect;
@@ -3242,11 +3211,11 @@ begin
   CN.BackColor := Self.Color;
  end;//Focused
 //#UC END# *5152BD3E036D_4CFFBEEA0109_impl*
-end;//TvtCustomOutliner.VlbDrawFocusRect
+end;//TvtCustomOutliner.vlbDrawFocusRect
 
-function TvtCustomOutliner.VlbItemHitTest(aIndex: Integer;
-  const aPt: TPoint;
-  fromScreen: Boolean = False): Byte;
+function TvtCustomOutliner.vlbItemHitTest(aIndex: Integer;
+ const aPt: TPoint;
+ fromScreen: Boolean = False): Byte;
 //#UC START# *5152C09F00DB_4CFFBEEA0109_var*
 var
  l_CurImages   : TCustomImageList;
@@ -3305,7 +3274,7 @@ begin
   Result := ihtNone;
  end;
 //#UC END# *5152C09F00DB_4CFFBEEA0109_impl*
-end;//TvtCustomOutliner.VlbItemHitTest
+end;//TvtCustomOutliner.vlbItemHitTest
 
 function TvtCustomOutliner.DoOnGetItem(Index: LongInt): Il3CString;
 //#UC START# *5152C3EC011B_4CFFBEEA0109_var*
@@ -3325,7 +3294,7 @@ begin
 end;//TvtCustomOutliner.DoOnGetItem
 
 function TvtCustomOutliner.DoOnGetItemPickImage(aItemIndex: LongInt;
-  var aImages: TCustomImageList): Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *5152C5EF02BC_4CFFBEEA0109_var*
  function GetImageIndex : Byte;
  var
@@ -3359,8 +3328,8 @@ begin
 end;//TvtCustomOutliner.DoOnGetItemPickImage
 
 procedure TvtCustomOutliner.DoOnGetItemFont(Index: LongInt;
-  const aFont: Il3Font;
-  anItemPart: TvtListerItemPart);
+ const aFont: Il3Font;
+ anItemPart: TvtListerItemPart);
 //#UC START# *5152C7D50201_4CFFBEEA0109_var*
 var
  lBackColor : TColor;
@@ -3402,7 +3371,7 @@ begin
 end;//TvtCustomOutliner.DoOnIsSelected
 
 procedure TvtCustomOutliner.DoOnSelect(Index: LongInt;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *5152C85403DA_4CFFBEEA0109_var*
 var
  l_TreeWithLocks: Il3TreeWithLockRebuild;
@@ -3481,8 +3450,8 @@ begin
 end;//TvtCustomOutliner.DoOnSelect
 
 procedure TvtCustomOutliner.DoOnSelectOutRange(First: LongInt;
-  Last: LongInt;
-  aSelectState: Integer);
+ Last: LongInt;
+ aSelectState: Integer);
 //#UC START# *5152C88400DC_4CFFBEEA0109_var*
 var
  I : LongInt;
@@ -3817,7 +3786,7 @@ begin
 end;//TvtCustomOutliner.InvalidateItem
 
 function TvtCustomOutliner.GetItemTextIndent(Index: LongInt;
-  aTextBoxHeight: Integer): Integer;
+ aTextBoxHeight: Integer): Integer;
 //#UC START# *515585B90316_4CFFBEEA0109_var*
 var
  l_CurImages  : TCustomImageList;
@@ -3888,17 +3857,17 @@ end;//TvtCustomOutliner.GetItemDim
 //#UC END# *515DA5860015impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtSimpleOutliner
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtSimpleOutliner);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomOutliner
+ {* Регистрация TvtSimpleOutliner }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomOutliner);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtOutliner
+ {* Регистрация TvtCustomOutliner }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtOutliner);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtOutliner }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

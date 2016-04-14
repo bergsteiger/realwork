@@ -14,6 +14,7 @@ uses
  , nevTools
  , l3Variant
  , nevRangeList
+ , l3Types
  , nevBase
  , evdInterfaces
 ;
@@ -42,12 +43,21 @@ uses
 
 function TevLeafParaMultiSelectionBlock.Iterate(anAction: InevRangePrim_Iterate_Action;
  aStart: Integer = l3Types.l3MinIndex): Integer;
-//#UC START# *4BAA60370285_48ECD64B005A_var*
-//#UC END# *4BAA60370285_48ECD64B005A_var*
+//#UC START# *4BA8DE8C03D8_48ECD64B005A_var*
+
+  function l_StoreSel(aSel: PIUnknown; anIndex: Integer): Boolean;
+  begin//l_StoreSel
+   Result := anAction(InevRange(aSel^), anIndex);
+  end;//l_StoreSel
+
+//#UC END# *4BA8DE8C03D8_48ECD64B005A_var*
 begin
-//#UC START# *4BAA60370285_48ECD64B005A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BAA60370285_48ECD64B005A_impl*
+//#UC START# *4BA8DE8C03D8_48ECD64B005A_impl*
+ if (Blocks <> nil) then
+  Result := Blocks.IterateAllF(l3L2IA(@l_StoreSel))
+ else
+  Result := -1;
+//#UC END# *4BA8DE8C03D8_48ECD64B005A_impl*
 end;//TevLeafParaMultiSelectionBlock.Iterate
 
 class function TevLeafParaMultiSelectionBlock.Make(aTagWrap: Tl3Variant;

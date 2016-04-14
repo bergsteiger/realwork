@@ -26,11 +26,14 @@ type
  TalcuTaskList = class(TalcuSortedTaskList)
   private
    f_TaskFolder: AnsiString;
+   f_TaskAtomCounter: Integer;
    f_FileName: AnsiString;
   private
    function DoFinishAtom(G: Tk2DocumentGenerator;
     var Atom: Tk2StackAtom): Boolean;
    procedure SaveTask(theTask: TddProcessTask);
+   function DoStartAtom(G: Tk2DocumentGenerator;
+    var Atom: Tk2StackAtom): Boolean;
   protected
    procedure pm_SetFileName(const aValue: AnsiString);
    function TaskFileName(const theTaskID: AnsiString): AnsiString;
@@ -391,6 +394,17 @@ begin
  end;//try..finally
 //#UC END# *53A063B303E4_52FA3DB401BE_impl*
 end;//TalcuTaskList.Sort
+
+function TalcuTaskList.DoStartAtom(G: Tk2DocumentGenerator;
+ var Atom: Tk2StackAtom): Boolean;
+//#UC START# *570CB611007A_52FA3DB401BE_var*
+//#UC END# *570CB611007A_52FA3DB401BE_var*
+begin
+//#UC START# *570CB611007A_52FA3DB401BE_impl*
+ if Atom.Box.IsKindOf(k2_typTask) then
+  Inc(f_TaskAtomCounter);
+//#UC END# *570CB611007A_52FA3DB401BE_impl*
+end;//TalcuTaskList.DoStartAtom
 
 procedure TalcuTaskList.ClearFields;
 begin

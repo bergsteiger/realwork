@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TtoKAdmin.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_5123A75E00D5_var*
-//#UC END# *4B7AB0B6016E_5123A75E00D5_var*
 begin
-//#UC START# *4B7AB0B6016E_5123A75E00D5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_5123A75E00D5_impl*
+ Result := '-toKAdmin';
 end;//TtoKAdmin.CommandLineKey
 
 class function TtoKAdmin.TimesPage: Integer;

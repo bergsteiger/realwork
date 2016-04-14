@@ -47,12 +47,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TArchi2.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_4C35A13B0201_var*
-//#UC END# *4B7AB0B6016E_4C35A13B0201_var*
 begin
-//#UC START# *4B7AB0B6016E_4C35A13B0201_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_4C35A13B0201_impl*
+ Result := '-Archi2';
 end;//TArchi2.CommandLineKey
 
 class function TArchi2.TimesPage: Integer;

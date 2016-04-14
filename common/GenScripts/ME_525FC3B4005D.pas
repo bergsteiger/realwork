@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TtoKT.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_525FC3B4005D_var*
-//#UC END# *4B7AB0B6016E_525FC3B4005D_var*
 begin
-//#UC START# *4B7AB0B6016E_525FC3B4005D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_525FC3B4005D_impl*
+ Result := '-toKT';
 end;//TtoKT.CommandLineKey
 
 class function TtoKT.TimesPage: Integer;

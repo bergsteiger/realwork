@@ -50,12 +50,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TtoK64.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_4DB6B0DB0284_var*
-//#UC END# *4B7AB0B6016E_4DB6B0DB0284_var*
 begin
-//#UC START# *4B7AB0B6016E_4DB6B0DB0284_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_4DB6B0DB0284_impl*
+ Result := '-toK64';
 end;//TtoK64.CommandLineKey
 
 class function TtoK64.TimesPage: Integer;

@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TtoKPrime.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_5123804E003E_var*
-//#UC END# *4B7AB0B6016E_5123804E003E_var*
 begin
-//#UC START# *4B7AB0B6016E_5123804E003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_5123804E003E_impl*
+ Result := '-toKPrime';
 end;//TtoKPrime.CommandLineKey
 
 class function TtoKPrime.TimesPage: Integer;

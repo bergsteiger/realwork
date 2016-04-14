@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TtoK2.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_5522999603C4_var*
-//#UC END# *4B7AB0B6016E_5522999603C4_var*
 begin
-//#UC START# *4B7AB0B6016E_5522999603C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_5522999603C4_impl*
+ Result := '-toK2';
 end;//TtoK2.CommandLineKey
 
 class function TtoK2.TimesPage: Integer;

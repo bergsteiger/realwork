@@ -7,16 +7,9 @@ library stg32;
 
 {$Include w:\common\components\l3Define.inc}
 
-interface
-
 uses
  l3IntfUses
-;
-
-implementation
-
-uses
- l3ImplUses
+ , l3ImplUses
 ;
 
 exports

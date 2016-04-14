@@ -1,67 +1,64 @@
 unit vtColorBox;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtColorBox.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Combos::TvtColorBox
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtColorBox.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtColorBox" MUID: (5270BBC702C7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Graphics,
-  vtComboTree,
-  Classes,
-  ctTypes,
-  l3VCLStrings,
-  l3InternalInterfaces,
-  nevTools
-  ;
+ l3IntfUses
+ , vtComboTree
+ , Graphics
+ , l3Interfaces
+ , Classes
+ , ctTypes
+ , l3VCLStrings
+ , l3InternalInterfaces
+ , nevTools
+ //#UC START# *5270BBC702C7intf_uses*
+ //#UC END# *5270BBC702C7intf_uses*
+;
+
+const
+ NoColorSelected = TColor($FF000000);
 
 type
  TvtColorBoxStyles = (
-   cbStandardColors // first sixteen RGBI colors
- , cbExtendedColors // four additional reserved colors
- , cbSystemColors // system managed/defined colors
- , cbIncludeNone // include clNone color, must be used with cbSystemColors
- , cbIncludeDefault // include clDefault color, must be used with cbSystemColors
- , cbCustomColor // first color is customizable
- , cbPrettyNames // instead of 'clColorNames' you get 'Color Names'
- , cbNoName // show only color rect
+  cbStandardColors
+   {* first sixteen RGBI colors }
+  , cbExtendedColors
+   {* four additional reserved colors }
+  , cbSystemColors
+   {* system managed/defined colors }
+  , cbIncludeNone
+   {* include clNone color, must be used with cbSystemColors }
+  , cbIncludeDefault
+   {* include clDefault color, must be used with cbSystemColors }
+  , cbCustomColor
+   {* first color is customizable }
+  , cbPrettyNames
+   {* instead of 'clColorNames' you get 'Color Names' }
+  , cbNoName
+   {* show only color rect }
  );//TvtColorBoxStyles
 
  TvtColorBoxStyle = set of TvtColorBoxStyles;
 
  TvtCustomColorBox = class(TvtComboTree)
- private
- // private fields
-   f_NeedToPopulate : Boolean;
-   f_LockPickCustomColor : Boolean;
-   f_ColorStyle : TvtColorBoxStyle;
-    {* Поле для свойства ColorStyle}
-   f_Selected : TColor;
-    {* Поле для свойства Selected}
-   f_DefaultColorColor : TColor;
-    {* Поле для свойства DefaultColorColor}
-   f_NoneColorColor : TColor;
-    {* Поле для свойства NoneColorColor}
- private
- // private methods
+  private
+   f_NeedToPopulate: Boolean;
+   f_LockPickCustomColor: Boolean;
+   f_ColorStyle: TvtColorBoxStyle;
+   f_Selected: TColor;
+   f_DefaultColorColor: TColor;
+   f_NoneColorColor: TColor;
+  private
    procedure ColorCallBack(const aName: AnsiString);
    function IndexOfColor(aColor: TColor): Integer;
- protected
- // property methods
+  protected
    procedure pm_SetColorStyle(aValue: TvtColorBoxStyle);
    function pm_GetColors(anIndex: Integer): TColor;
    function pm_GetColorNames(anIndex: Integer): Il3CString;
@@ -69,61 +66,47 @@ type
    procedure pm_SetSelected(aValue: TColor);
    procedure pm_SetDefaultColorColor(aValue: TColor);
    procedure pm_SetNoneColorColor(aValue: TColor);
- protected
- // overridden protected methods
+   function PickCustomColor: Boolean; virtual;
+   procedure PopulateList;
    procedure Change; override;
    procedure Loaded; override;
-  {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure CreateWnd; override;
-  {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure RecreateTreeIfNeeded(aValue: TComboStyle); override;
    procedure ProcessTreeSelect(ChooseFromTree: Boolean;
-     aTriggerSelect: Boolean); override;
+    aTriggerSelect: Boolean); override;
    function DoCreateStrings: Tl3Strings; override;
    function DoDrawDocument(const aCanvas: Il3Canvas;
     out aMap: InevMap): Boolean; override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   function PickCustomColor: Boolean; virtual;
-   procedure PopulateList;
-     {* Сигнатура метода PopulateList }
- public
- // public methods
+  public
    function DrawNames: Boolean;
- public
- // public properties
+   constructor Create(AOwner: TComponent); override;
+  public
    property ColorStyle: TvtColorBoxStyle
-     read f_ColorStyle
-     write pm_SetColorStyle;
+    read f_ColorStyle
+    write pm_SetColorStyle;
    property Colors[anIndex: Integer]: TColor
-     read pm_GetColors;
+    read pm_GetColors;
    property ColorNames[anIndex: Integer]: Il3CString
-     read pm_GetColorNames;
+    read pm_GetColorNames;
    property Selected: TColor
-     read pm_GetSelected
-     write pm_SetSelected;
+    read pm_GetSelected
+    write pm_SetSelected;
    property DefaultColorColor: TColor
-     read f_DefaultColorColor
-     write pm_SetDefaultColorColor;
+    read f_DefaultColorColor
+    write pm_SetDefaultColorColor;
    property NoneColorColor: TColor
-     read f_NoneColorColor
-     write pm_SetNoneColorColor;
+    read f_NoneColorColor
+    write pm_SetNoneColorColor;
  end;//TvtCustomColorBox
 
-const
-  { vtColorBox Consts }
- NoColorSelected = TColor($FF000000);
-
-type
-//#UC START# *5270BBC702C7ci*
-//#UC END# *5270BBC702C7ci*
-//#UC START# *5270BBC702C7cit*
-//#UC END# *5270BBC702C7cit*
+ //#UC START# *5270BBC702C7ci*
+ //#UC END# *5270BBC702C7ci*
+ //#UC START# *5270BBC702C7cit*
+ //#UC END# *5270BBC702C7cit*
  TvtColorBox = class(TvtCustomColorBox)
-//#UC START# *5270BBC702C7publ*
+ //#UC START# *5270BBC702C7publ*
   published
    property ColorStyle default [cbStandardColors, cbExtendedColors, cbSystemColors];
    property DefaultColorColor default clBlack;
@@ -143,30 +126,145 @@ type
    property TabOrder;
    property TabStop;
    property Visible;
-//#UC END# *5270BBC702C7publ*
+ //#UC END# *5270BBC702C7publ*
  end;//TvtColorBox
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  k2Tags,
-  l3Base
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  Consts,
-  vtColorBoxStrings
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Consts
+ , vtColorBoxStrings
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5270BBC702C7impl_uses*
+ , SysUtils
+ //#UC END# *5270BBC702C7impl_uses*
+;
 
-// start class TvtCustomColorBox
+procedure TvtCustomColorBox.pm_SetColorStyle(aValue: TvtColorBoxStyle);
+//#UC START# *5538EF8B0385_5538E709017Eset_var*
+//#UC END# *5538EF8B0385_5538E709017Eset_var*
+begin
+//#UC START# *5538EF8B0385_5538E709017Eset_impl*
+ if (ColorStyle <> aValue) then
+ begin
+  f_ColorStyle := aValue;
+  Enabled := ([cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor] * f_ColorStyle) <> [];
+  PopulateList;
+  if (Items.Count > 0) and (ItemIndex = -1) then
+    ItemIndex := 0;
+ end;
+//#UC END# *5538EF8B0385_5538E709017Eset_impl*
+end;//TvtCustomColorBox.pm_SetColorStyle
+
+function TvtCustomColorBox.pm_GetColors(anIndex: Integer): TColor;
+//#UC START# *5538F01F01D6_5538E709017Eget_var*
+//#UC END# *5538F01F01D6_5538E709017Eget_var*
+begin
+//#UC START# *5538F01F01D6_5538E709017Eget_impl*
+ Result := TColor(Items[anIndex].LinkedObject);
+//#UC END# *5538F01F01D6_5538E709017Eget_impl*
+end;//TvtCustomColorBox.pm_GetColors
+
+function TvtCustomColorBox.pm_GetColorNames(anIndex: Integer): Il3CString;
+//#UC START# *5538F0A00111_5538E709017Eget_var*
+//#UC END# *5538F0A00111_5538E709017Eget_var*
+begin
+//#UC START# *5538F0A00111_5538E709017Eget_impl*
+ Result := l3CStr(Items[anIndex].AsWStr);
+//#UC END# *5538F0A00111_5538E709017Eget_impl*
+end;//TvtCustomColorBox.pm_GetColorNames
+
+function TvtCustomColorBox.pm_GetSelected: TColor;
+//#UC START# *5538F0F4031D_5538E709017Eget_var*
+//#UC END# *5538F0F4031D_5538E709017Eget_var*
+begin
+//#UC START# *5538F0F4031D_5538E709017Eget_impl*
+ if HandleAllocated then
+  if ItemIndex <> -1 then
+    Result := Colors[ItemIndex]
+  else
+    Result := NoColorSelected
+ else
+   Result := f_Selected;
+//#UC END# *5538F0F4031D_5538E709017Eget_impl*
+end;//TvtCustomColorBox.pm_GetSelected
+
+procedure TvtCustomColorBox.pm_SetSelected(aValue: TColor);
+//#UC START# *5538F0F4031D_5538E709017Eset_var*
+var
+ I, Index: Integer;
+//#UC END# *5538F0F4031D_5538E709017Eset_var*
+begin
+//#UC START# *5538F0F4031D_5538E709017Eset_impl*
+ if HandleAllocated then
+ begin
+  I := IndexOfColor(aValue);
+  if (I = -1) and (cbCustomColor in ColorStyle) and (aValue <> NoColorSelected) then
+  begin
+   Items[0].LinkedObject := TObject(aValue);
+   I := 0;
+  end
+  else
+  if (cbCustomColor in ColorStyle) and (I = 0) then
+  begin
+   { Look for the color anywhere else but the first color before
+     defaulting to selecting the "custom color". }
+   for Index := 1 to Items.Count - 1 do
+   begin
+    if Items[Index].LinkedObject = TObject(aValue) then
+    begin
+     I := Index;
+     Break;
+    end;
+   end;
+  end;
+  f_LockPickCustomColor := True;
+  try
+   ItemIndex := I;
+  finally
+   f_LockPickCustomColor := False;
+  end;
+ end;
+ f_Selected := aValue;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=517767425
+ if HandleAllocated then
+  Invalidate;
+//#UC END# *5538F0F4031D_5538E709017Eset_impl*
+end;//TvtCustomColorBox.pm_SetSelected
+
+procedure TvtCustomColorBox.pm_SetDefaultColorColor(aValue: TColor);
+//#UC START# *5538F2C90308_5538E709017Eset_var*
+//#UC END# *5538F2C90308_5538E709017Eset_var*
+begin
+//#UC START# *5538F2C90308_5538E709017Eset_impl*
+ if (aValue <> f_DefaultColorColor) then
+ begin
+  f_DefaultColorColor := aValue;
+  Invalidate;
+ end;
+//#UC END# *5538F2C90308_5538E709017Eset_impl*
+end;//TvtCustomColorBox.pm_SetDefaultColorColor
+
+procedure TvtCustomColorBox.pm_SetNoneColorColor(aValue: TColor);
+//#UC START# *5538F2DD02EF_5538E709017Eset_var*
+//#UC END# *5538F2DD02EF_5538E709017Eset_var*
+begin
+//#UC START# *5538F2DD02EF_5538E709017Eset_impl*
+ if (aValue <> f_NoneColorColor) then
+ begin
+  f_NoneColorColor := aValue;
+  Invalidate;
+ end;
+//#UC END# *5538F2DD02EF_5538E709017Eset_impl*
+end;//TvtCustomColorBox.pm_SetNoneColorColor
 
 procedure TvtCustomColorBox.ColorCallBack(const aName: AnsiString);
 //#UC START# *5538F3810270_5538E709017E_var*
@@ -417,124 +515,6 @@ begin
 //#UC END# *5538F3E80193_5538E709017E_impl*
 end;//TvtCustomColorBox.DrawNames
 
-procedure TvtCustomColorBox.pm_SetColorStyle(aValue: TvtColorBoxStyle);
-//#UC START# *5538EF8B0385_5538E709017Eset_var*
-//#UC END# *5538EF8B0385_5538E709017Eset_var*
-begin
-//#UC START# *5538EF8B0385_5538E709017Eset_impl*
- if (ColorStyle <> aValue) then
- begin
-  f_ColorStyle := aValue;
-  Enabled := ([cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor] * f_ColorStyle) <> [];
-  PopulateList;
-  if (Items.Count > 0) and (ItemIndex = -1) then
-    ItemIndex := 0;
- end;
-//#UC END# *5538EF8B0385_5538E709017Eset_impl*
-end;//TvtCustomColorBox.pm_SetColorStyle
-
-function TvtCustomColorBox.pm_GetColors(anIndex: Integer): TColor;
-//#UC START# *5538F01F01D6_5538E709017Eget_var*
-//#UC END# *5538F01F01D6_5538E709017Eget_var*
-begin
-//#UC START# *5538F01F01D6_5538E709017Eget_impl*
- Result := TColor(Items[anIndex].LinkedObject);
-//#UC END# *5538F01F01D6_5538E709017Eget_impl*
-end;//TvtCustomColorBox.pm_GetColors
-
-function TvtCustomColorBox.pm_GetColorNames(anIndex: Integer): Il3CString;
-//#UC START# *5538F0A00111_5538E709017Eget_var*
-//#UC END# *5538F0A00111_5538E709017Eget_var*
-begin
-//#UC START# *5538F0A00111_5538E709017Eget_impl*
- Result := l3CStr(Items[anIndex].AsWStr);
-//#UC END# *5538F0A00111_5538E709017Eget_impl*
-end;//TvtCustomColorBox.pm_GetColorNames
-
-function TvtCustomColorBox.pm_GetSelected: TColor;
-//#UC START# *5538F0F4031D_5538E709017Eget_var*
-//#UC END# *5538F0F4031D_5538E709017Eget_var*
-begin
-//#UC START# *5538F0F4031D_5538E709017Eget_impl*
- if HandleAllocated then
-  if ItemIndex <> -1 then
-    Result := Colors[ItemIndex]
-  else
-    Result := NoColorSelected
- else
-   Result := f_Selected;
-//#UC END# *5538F0F4031D_5538E709017Eget_impl*
-end;//TvtCustomColorBox.pm_GetSelected
-
-procedure TvtCustomColorBox.pm_SetSelected(aValue: TColor);
-//#UC START# *5538F0F4031D_5538E709017Eset_var*
-var
- I, Index: Integer;
-//#UC END# *5538F0F4031D_5538E709017Eset_var*
-begin
-//#UC START# *5538F0F4031D_5538E709017Eset_impl*
- if HandleAllocated then
- begin
-  I := IndexOfColor(aValue);
-  if (I = -1) and (cbCustomColor in ColorStyle) and (aValue <> NoColorSelected) then
-  begin
-   Items[0].LinkedObject := TObject(aValue);
-   I := 0;
-  end
-  else
-  if (cbCustomColor in ColorStyle) and (I = 0) then
-  begin
-   { Look for the color anywhere else but the first color before
-     defaulting to selecting the "custom color". }
-   for Index := 1 to Items.Count - 1 do
-   begin
-    if Items[Index].LinkedObject = TObject(aValue) then
-    begin
-     I := Index;
-     Break;
-    end;
-   end;
-  end;
-  f_LockPickCustomColor := True;
-  try
-   ItemIndex := I;
-  finally
-   f_LockPickCustomColor := False;
-  end;
- end;
- f_Selected := aValue;
- // http://mdp.garant.ru/pages/viewpage.action?pageId=517767425
- if HandleAllocated then
-  Invalidate;
-//#UC END# *5538F0F4031D_5538E709017Eset_impl*
-end;//TvtCustomColorBox.pm_SetSelected
-
-procedure TvtCustomColorBox.pm_SetDefaultColorColor(aValue: TColor);
-//#UC START# *5538F2C90308_5538E709017Eset_var*
-//#UC END# *5538F2C90308_5538E709017Eset_var*
-begin
-//#UC START# *5538F2C90308_5538E709017Eset_impl*
- if (aValue <> f_DefaultColorColor) then
- begin
-  f_DefaultColorColor := aValue;
-  Invalidate;
- end;
-//#UC END# *5538F2C90308_5538E709017Eset_impl*
-end;//TvtCustomColorBox.pm_SetDefaultColorColor
-
-procedure TvtCustomColorBox.pm_SetNoneColorColor(aValue: TColor);
-//#UC START# *5538F2DD02EF_5538E709017Eset_var*
-//#UC END# *5538F2DD02EF_5538E709017Eset_var*
-begin
-//#UC START# *5538F2DD02EF_5538E709017Eset_impl*
- if (aValue <> f_NoneColorColor) then
- begin
-  f_NoneColorColor := aValue;
-  Invalidate;
- end;
-//#UC END# *5538F2DD02EF_5538E709017Eset_impl*
-end;//TvtCustomColorBox.pm_SetNoneColorColor
-
 constructor TvtCustomColorBox.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_5538E709017E_var*
 //#UC END# *47D1602000C6_5538E709017E_var*
@@ -571,7 +551,7 @@ begin
 //#UC END# *484516C00214_5538E709017E_impl*
 end;//TvtCustomColorBox.Loaded
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomColorBox.CreateWnd;
 //#UC START# *4CC8414403B8_5538E709017E_var*
 //#UC END# *4CC8414403B8_5538E709017E_var*
@@ -582,7 +562,7 @@ begin
   PopulateList;
 //#UC END# *4CC8414403B8_5538E709017E_impl*
 end;//TvtCustomColorBox.CreateWnd
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvtCustomColorBox.RecreateTreeIfNeeded(aValue: TComboStyle);
 //#UC START# *53EE012C0211_5538E709017E_var*
@@ -597,7 +577,7 @@ begin
 end;//TvtCustomColorBox.RecreateTreeIfNeeded
 
 procedure TvtCustomColorBox.ProcessTreeSelect(ChooseFromTree: Boolean;
-  aTriggerSelect: Boolean);
+ aTriggerSelect: Boolean);
 //#UC START# *53EE0A730393_5538E709017E_var*
 //#UC END# *53EE0A730393_5538E709017E_var*
 begin
@@ -624,7 +604,7 @@ begin
 end;//TvtCustomColorBox.DoCreateStrings
 
 function TvtCustomColorBox.DoDrawDocument(const aCanvas: Il3Canvas;
-  out aMap: InevMap): Boolean;
+ out aMap: InevMap): Boolean;
 //#UC START# *5538F4D60240_5538E709017E_var*
 var
  l_NodePainter: Il3NodePainter;
@@ -658,13 +638,13 @@ end;//TvtCustomColorBox.DoDrawDocument
 //#UC END# *5270BBC702C7impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomColorBox
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomColorBox);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtColorBox
+ {* Регистрация TvtCustomColorBox }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtColorBox);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtColorBox }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

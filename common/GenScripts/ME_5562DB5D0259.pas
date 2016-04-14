@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vtCalendarPanel;
+unit vtCalendarPanel;
 
-// Модуль: "w:\common\components\gui\Garant\VT\NOT_COMPLETED_vtCalendarPanel.pas"
+// Модуль: "w:\common\components\gui\Garant\VT\vtCalendarPanel.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvtCalendarPanel" MUID: (5562DB5D0259)
 
@@ -149,6 +149,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *5562DB5D0259impl_uses*
+ , SysUtils
  //#UC END# *5562DB5D0259impl_uses*
 ;
 

@@ -6856,6 +6856,22 @@ end;//TvtNavigatorPrim.ClearFields
 //#UC END# *4C8A252E01C2impl*
 
 initialization
+ str_cAutoHideOffHint.Init;
+ {* Инициализация str_cAutoHideOffHint }
+ str_cAutoHideOnHint.Init;
+ {* Инициализация str_cAutoHideOnHint }
+ str_cMinimizedOnHint.Init;
+ {* Инициализация str_cMinimizedOnHint }
+ str_cMinimizedOffHint.Init;
+ {* Инициализация str_cMinimizedOffHint }
+ str_cCloseHint.Init;
+ {* Инициализация str_cCloseHint }
+ str_cemIndexOutOfPageCount.Init;
+ {* Инициализация str_cemIndexOutOfPageCount }
+ str_cemNavigatorAlreadyExists.Init;
+ {* Инициализация str_cemNavigatorAlreadyExists }
+ str_cemDeleteNavigatorNotExists.Init;
+ {* Инициализация str_cemDeleteNavigatorNotExists }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnpCustomControl);
  {* Регистрация TnpCustomControl }
@@ -6900,22 +6916,6 @@ initialization
  TtfwClassRef.Register(TnpHeader);
  {* Регистрация TnpHeader }
 {$IfEnd} // NOT Defined(NoScripts)
- str_cAutoHideOffHint.Init;
- {* Инициализация str_cAutoHideOffHint }
- str_cAutoHideOnHint.Init;
- {* Инициализация str_cAutoHideOnHint }
- str_cMinimizedOnHint.Init;
- {* Инициализация str_cMinimizedOnHint }
- str_cMinimizedOffHint.Init;
- {* Инициализация str_cMinimizedOffHint }
- str_cCloseHint.Init;
- {* Инициализация str_cCloseHint }
- str_cemIndexOutOfPageCount.Init;
- {* Инициализация str_cemIndexOutOfPageCount }
- str_cemNavigatorAlreadyExists.Init;
- {* Инициализация str_cemNavigatorAlreadyExists }
- str_cemDeleteNavigatorNotExists.Init;
- {* Инициализация str_cemDeleteNavigatorNotExists }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtNavigator);
  {* Регистрация TvtNavigator }

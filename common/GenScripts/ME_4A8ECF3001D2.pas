@@ -89,6 +89,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
  , LoggingUnit
  , SysUtils
  , l3Base

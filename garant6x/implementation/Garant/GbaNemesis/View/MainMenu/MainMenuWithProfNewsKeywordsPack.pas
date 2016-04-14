@@ -22,6 +22,9 @@ uses
  {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscComboLabel
+ {$IfEnd} // Defined(Nemesis)
  , vtLabel
  {$If Defined(Nemesis)}
  , nscFocusLabel
@@ -1419,15 +1422,15 @@ OBJECT VAR l_TnscTreeViewHotTruck
  TkwEnMainMenuWithProfNewsLblProfNews = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.lblProfNews
 [panel]Контрол lblProfNews формы Ten_MainMenuWithProfNews[panel]
-*Тип результата:* TvtImageLabel
+*Тип результата:* TnscComboLabel
 *Пример:*
 [code]
-OBJECT VAR l_TvtImageLabel
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblProfNews >>> l_TvtImageLabel
+OBJECT VAR l_TnscComboLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblProfNews >>> l_TnscComboLabel
 [code]  }
   private
    function lblProfNews(const aCtx: TtfwContext;
-    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscComboLabel;
     {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblProfNews }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -1707,15 +1710,15 @@ OBJECT VAR l_TvtStyledLabel
  TkwEnMainMenuWithProfNewsLblTaxes = {final} class(TtfwPropertyLike)
   {* Слово скрипта .Ten_MainMenuWithProfNews.lblTaxes
 [panel]Контрол lblTaxes формы Ten_MainMenuWithProfNews[panel]
-*Тип результата:* TvtImageLabel
+*Тип результата:* TnscComboLabel
 *Пример:*
 [code]
-OBJECT VAR l_TvtImageLabel
- aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblTaxes >>> l_TvtImageLabel
+OBJECT VAR l_TnscComboLabel
+ aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblTaxes >>> l_TnscComboLabel
 [code]  }
   private
    function lblTaxes(const aCtx: TtfwContext;
-    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+    aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscComboLabel;
     {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblTaxes }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -2439,7 +2442,7 @@ end;//Tkw_MainMenuWithProfNews_Control_lblProfNews.GetString
 class procedure Tkw_MainMenuWithProfNews_Control_lblProfNews.RegisterInEngine;
 begin
  inherited;
- TtfwClassRef.Register(TvtImageLabel);
+ TtfwClassRef.Register(TnscComboLabel);
 end;//Tkw_MainMenuWithProfNews_Control_lblProfNews.RegisterInEngine
 
 class function Tkw_MainMenuWithProfNews_Control_lblProfNews.GetWordNameForRegister: AnsiString;
@@ -2763,7 +2766,7 @@ end;//Tkw_MainMenuWithProfNews_Control_lblTaxes.GetString
 class procedure Tkw_MainMenuWithProfNews_Control_lblTaxes.RegisterInEngine;
 begin
  inherited;
- TtfwClassRef.Register(TvtImageLabel);
+ TtfwClassRef.Register(TnscComboLabel);
 end;//Tkw_MainMenuWithProfNews_Control_lblTaxes.RegisterInEngine
 
 class function Tkw_MainMenuWithProfNews_Control_lblTaxes.GetWordNameForRegister: AnsiString;
@@ -3816,7 +3819,7 @@ begin
 end;//TkwEnMainMenuWithProfNewsTvProfNews.GetWordNameForRegister
 
 function TkwEnMainMenuWithProfNewsLblProfNews.lblProfNews(const aCtx: TtfwContext;
- aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscComboLabel;
  {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblProfNews }
 begin
  Result := aen_MainMenuWithProfNews.lblProfNews;
@@ -3845,7 +3848,7 @@ end;//TkwEnMainMenuWithProfNewsLblProfNews.SetValuePrim
 
 function TkwEnMainMenuWithProfNewsLblProfNews.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := TypeInfo(TvtImageLabel);
+ Result := TypeInfo(TnscComboLabel);
 end;//TkwEnMainMenuWithProfNewsLblProfNews.GetResultTypeInfo
 
 function TkwEnMainMenuWithProfNewsLblProfNews.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4392,7 +4395,7 @@ begin
 end;//TkwEnMainMenuWithProfNewsLblReferences.GetWordNameForRegister
 
 function TkwEnMainMenuWithProfNewsLblTaxes.lblTaxes(const aCtx: TtfwContext;
- aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TvtImageLabel;
+ aen_MainMenuWithProfNews: Ten_MainMenuWithProfNews): TnscComboLabel;
  {* Реализация слова скрипта .Ten_MainMenuWithProfNews.lblTaxes }
 begin
  Result := aen_MainMenuWithProfNews.lblTaxes;
@@ -4421,7 +4424,7 @@ end;//TkwEnMainMenuWithProfNewsLblTaxes.SetValuePrim
 
 function TkwEnMainMenuWithProfNewsLblTaxes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := TypeInfo(TvtImageLabel);
+ Result := TypeInfo(TnscComboLabel);
 end;//TkwEnMainMenuWithProfNewsLblTaxes.GetResultTypeInfo
 
 function TkwEnMainMenuWithProfNewsLblTaxes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5270,8 +5273,8 @@ initialization
  {* Регистрация типа TImageEnView }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewHotTruck));
  {* Регистрация типа TnscTreeViewHotTruck }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TvtImageLabel));
- {* Регистрация типа TvtImageLabel }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboLabel));
+ {* Регистрация типа TnscComboLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStyledLabel));
  {* Регистрация типа TvtStyledLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscFocusLabel));

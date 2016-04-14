@@ -1,67 +1,52 @@
 unit vtDateEdit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtDateEdit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::DateEdit::TvtDateEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtDateEdit.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtDateEdit" MUID: (4AA8AB7B038F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Messages,
-  Classes,
-  l3Date,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  vtStdRes,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  Buttons
-  {$IfEnd} //not NoVCL
-  ,
-  vtForm,
-  vtCombo,
-  vtCalendarPanel,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , Buttons
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtCalendarPanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , vtCombo
+ , l3Date
+ , Graphics
+ , Messages
+ , l3Interfaces
+ , vtForm
+ , vtStdRes
+ //#UC START# *4AA8AB7B038Fintf_uses*
+ //#UC END# *4AA8AB7B038Fintf_uses*
+;
 
 type
  TPopupCalendar = class(TvtPanel)
- private
- // private fields
-   f_TitlePanel : TvtPanel;
-   f_MonthLabel : TSpeedButton;
-   f_YearLabel : TSpeedButton;
-   f_MonthMenu : TPopupMenu;
-   f_YearMenu : TPopupMenu;
-   f_FourDigitYear : Boolean;
-   f_MenuOpen : Boolean;
-    {* Поле для свойства MenuOpen}
- private
- // private methods
+  private
+   f_TitlePanel: TvtPanel;
+   f_MonthLabel: TSpeedButton;
+   f_YearLabel: TSpeedButton;
+   f_MonthMenu: TPopupMenu;
+   f_YearMenu: TPopupMenu;
+   f_FourDigitYear: Boolean;
+   f_MenuOpen: Boolean;
+  protected
+   f_Calendar: TvtCalendarPanel;
+  private
    procedure PrevMonthBtnClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure NextMonthBtnClick(Sender: TObject);
    procedure PrevYearBtnClick(Sender: TObject);
    procedure NextYearBtnClick(Sender: TObject);
@@ -71,306 +56,248 @@ type
    procedure MonthMenuSelect(Sender: TObject);
    procedure YearClick(Sender: TObject);
    procedure YearMenuSelect(Sender: TObject);
- protected
- // property methods
+  protected
    function pm_GetDate: TDateTime;
    procedure pm_SetDate(aValue: TDateTime);
- protected
- // overridden protected methods
-  {$If not defined(NoVCL)}
-   procedure CreateParams(var Params: TCreateParams); override;
-  {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure KeyDown(var Key: Word;
-    Shift: TShiftState); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected fields
-   f_Calendar : TvtCalendarPanel;
- protected
- // protected methods
    procedure CalendarMouseUp(Sender: TObject;
-     Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); virtual;
+    Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); virtual;
    procedure CancelClick(Sender: TObject); virtual;
    procedure ClickToday(Sender: TObject); virtual;
    function CalcTodayPadWidth: Integer; virtual;
    procedure MakeTodayPad; virtual;
-     {* Сигнатура метода MakeTodayPad }
    procedure AdjustTitleButtonFont(aLabel: TSpeedButton); virtual;
- public
- // public methods
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure KeyDown(var Key: Word;
+    Shift: TShiftState); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure DoKeyDown(var Key: Word;
-     Shift: TShiftState);
- protected
- // protected properties
+    Shift: TShiftState);
+   constructor Create(AOwner: TComponent); override;
+  protected
    property MenuOpen: Boolean
-     read f_MenuOpen
-     write f_MenuOpen;
- public
- // public properties
+    read f_MenuOpen
+    write f_MenuOpen;
+  public
    property Date: TDateTime
-     read pm_GetDate
-     write pm_SetDate;
+    read pm_GetDate
+    write pm_SetDate;
  end;//TPopupCalendar
 
- TvtOnApplyDate = function (aSender: TObject;
+ TvtOnApplyDate = function(aSender: TObject;
   var aValue: TDateTime): Boolean of object;
 
- TvtOnAppliedDate = procedure (aSender: TObject;
+ TvtOnAppliedDate = procedure(aSender: TObject;
   aValue: TDateTime) of object;
 
  TYearDigits = (
-   dyDefault
- , dyFour
- , dyTwo
+  dyDefault
+  , dyFour
+  , dyTwo
  );//TYearDigits
 
  {$Define SupportStDate}
 
  TvtCustomDateEdit = class(TvtCustomCombo)
- private
- // private fields
-   f_Hooked : Boolean;
-   f_DateFormat : ShortString;
-   f_OnApplyDate : TvtOnApplyDate;
-    {* Поле для свойства OnApplyDate}
-   f_OnAppliedDate : TvtOnAppliedDate;
-    {* Поле для свойства OnAppliedDate}
-   f_OnAutoCorrectDate : TNotifyEvent;
-    {* Поле для свойства OnAutoCorrectDate}
-   f_OnExecute : TNotifyEvent;
-    {* Поле для свойства OnExecute}
-   f_OnInvalidDate : TNotifyEvent;
-    {* Поле для свойства OnInvalidDate}
-   f_RestrictInvalidDate : Boolean;
-    {* Поле для свойства RestrictInvalidDate}
-   f_BlanksChar : AnsiChar;
-    {* Поле для свойства BlanksChar}
-   f_StartOfWeek : TStDayType;
-    {* Поле для свойства StartOfWeek}
-   f_Weekends : TDaysOfWeek;
-    {* Поле для свойства Weekends}
-   f_WeekendColor : TColor;
-    {* Поле для свойства WeekendColor}
-   f_YearDigits : TYearDigits;
-    {* Поле для свойства YearDigits}
-   f_CheckOnExit : Boolean;
-    {* Поле для свойства CheckOnExit}
-   f_Formatting : Boolean;
-    {* Поле для свойства Formatting}
- private
- // private methods
+  private
+   f_Hooked: Boolean;
+   f_DateFormat: ShortString;
+   f_OnApplyDate: TvtOnApplyDate;
+   f_OnAppliedDate: TvtOnAppliedDate;
+   f_OnAutoCorrectDate: TNotifyEvent;
+   f_OnExecute: TNotifyEvent;
+   f_OnInvalidDate: TNotifyEvent;
+   f_RestrictInvalidDate: Boolean;
+   f_BlanksChar: AnsiChar;
+   f_StartOfWeek: TStDayType;
+   f_Weekends: TDaysOfWeek;
+   f_WeekendColor: TColor;
+   f_YearDigits: TYearDigits;
+   f_CheckOnExit: Boolean;
+   f_Formatting: Boolean;
+  protected
+   f_CalendarPanel: TWinControl;
+  private
    function FourDigitYear: Boolean;
    function FormatSettingsChange(var Message: TMessage): Boolean;
    procedure CMExit(var Message: TCMExit); message CM_EXIT;
    procedure CMEnter(var Message: TCMEnter); message CM_ENTER;
    procedure WMMouseWheel(var Message: TMessage); message WM_MOUSEWHEEL;
    procedure WMPaste(var Message: TMessage); message WM_PASTE;
- protected
- // property methods
+  protected
    procedure pm_SetBlanksChar(aValue: AnsiChar);
    procedure pm_SetYearDigits(aValue: TYearDigits);
    function pm_GetDate: TDateTime;
    procedure pm_SetDate(aValue: TDateTime);
-   {$If defined(SupportStDate)}
+   {$If Defined(SupportStDate)}
    function pm_GetStDate: TStDate; virtual;
-   procedure pm_SetStDate(aValue: TStDate); virtual;
-   {$IfEnd} //SupportStDate
- protected
- // realized methods
-   function GetDropDownContainer: TWinControl; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-  {$If not defined(NoVCL)}
-   procedure KeyPress(var Key: Char); override;
-  {$IfEnd} //not NoVCL
-  {$If not defined(NoVCL)}
-   procedure CreateWindowHandle(const Params: TCreateParams); override;
-     {* Creates a Windows control to represent the control }
-  {$IfEnd} //not NoVCL
-  {$If not defined(NoVCL)}
-   procedure DestroyWindowHandle; override;
-     {* Destroys the window created in the CreateWindowHandle method }
-  {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure ActionChange(Sender: TObject;
-    CheckDefaults: Boolean); override;
-   {$IfEnd} //not NoVCL
-   function ProcessCommand(Cmd: Tl3OperationCode;
-    aForce: Boolean;
-    aCount: Integer): Boolean; override;
-   {$If not defined(NoVCL)}
-   procedure Change; override;
-     {* Сигнатура метода Change }
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure KeyDown(var Key: Word;
-    Shift: TShiftState); override;
-   {$IfEnd} //not NoVCL
-   {$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
-   function TextFromClipboard: AnsiString; override;
-   {$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   procedure DropDown; override;
-     {* Сигнатура метода DropDown }
-   procedure CloseUp(Accept: Boolean); override;
- protected
- // protected fields
-   f_CalendarPanel : TWinControl;
- protected
- // protected methods
+   {$IfEnd} // Defined(SupportStDate)
+   {$If Defined(SupportStDate)}
+   procedure pm_SetStDate(const aValue: TStDate); virtual;
+   {$IfEnd} // Defined(SupportStDate)
    procedure DoExecute; virtual;
-     {* Сигнатура метода DoExecute }
    procedure TriggerAutoCorrectDate; virtual;
-     {* сообщает об автокоррекции }
+    {* сообщает об автокоррекции }
    function TriggerOnInvalidDate: Boolean; virtual;
-     {* возникает при неправильно введенной дате при выходе из компонента }
+    {* возникает при неправильно введенной дате при выходе из компонента }
    procedure MakeCalendar; virtual;
-     {* Сигнатура метода MakeCalendar }
    function GetDateFormat: ShortString;
    procedure ApplyDate(aValue: TDateTime); virtual;
    procedure UpdateFormat;
-     {* Сигнатура метода UpdateFormat }
    function TextStored: Boolean;
- public
- // public methods
+   function GetDropDownContainer: TWinControl; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure KeyPress(var Key: Char); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure CreateWindowHandle(const Params: TCreateParams); override;
+    {* Creates a Windows control to represent the control }
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DestroyWindowHandle; override;
+    {* Destroys the window created in the CreateWindowHandle method }
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure ActionChange(Sender: TObject;
+    CheckDefaults: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   function ProcessCommand(Cmd: Tl3OperationCode;
+    aForce: Boolean;
+    aCount: Integer): Boolean; override;
+   {$If NOT Defined(NoVCL)}
+   procedure Change; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure KeyDown(var Key: Word;
+    Shift: TShiftState); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
+   function TextFromClipboard: AnsiString; override;
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+  public
    procedure CheckValidDate;
-     {* Сигнатура метода CheckValidDate }
    function GetDateMask: ShortString;
    procedure UpdateMask; virtual;
-     {* Сигнатура метода UpdateMask }
    procedure ClearDate;
-     {* Сигнатура метода ClearDate }
    function IsValid: Boolean;
-     {* введенная дата не является допустимой. 
+    {* введенная дата не является допустимой. 
 Пустой бланк "__.__.____" тоже воспринимается как неверная дата. }
    function IsEmpty: Boolean;
-     {* False, только когда введена верная дата.
+    {* False, только когда введена верная дата.
 Пустой бланк "__.__.____" воспринимается как неверная дата. }
    function IsBlank: Boolean;
-     {* пользователь ничего не ввел в поле редактирования ("__.__.____") }
+    {* пользователь ничего не ввел в поле редактирования ("__.__.____") }
    procedure AutoResize;
-     {* Сигнатура метода AutoResize }
- public
- // public properties
+   constructor Create(AOwner: TComponent); override;
+   procedure DropDown; override;
+   procedure CloseUp(Accept: Boolean); override;
+  public
    property OnApplyDate: TvtOnApplyDate
-     read f_OnApplyDate
-     write f_OnApplyDate;
+    read f_OnApplyDate
+    write f_OnApplyDate;
    property OnAppliedDate: TvtOnAppliedDate
-     read f_OnAppliedDate
-     write f_OnAppliedDate;
+    read f_OnAppliedDate
+    write f_OnAppliedDate;
    property OnAutoCorrectDate: TNotifyEvent
-     read f_OnAutoCorrectDate
-     write f_OnAutoCorrectDate;
+    read f_OnAutoCorrectDate
+    write f_OnAutoCorrectDate;
    property OnExecute: TNotifyEvent
-     read f_OnExecute
-     write f_OnExecute;
+    read f_OnExecute
+    write f_OnExecute;
    property OnInvalidDate: TNotifyEvent
-     read f_OnInvalidDate
-     write f_OnInvalidDate;
+    read f_OnInvalidDate
+    write f_OnInvalidDate;
    property RestrictInvalidDate: Boolean
-     read f_RestrictInvalidDate
-     write f_RestrictInvalidDate;
+    read f_RestrictInvalidDate
+    write f_RestrictInvalidDate;
    property BlanksChar: AnsiChar
-     read f_BlanksChar
-     write pm_SetBlanksChar;
+    read f_BlanksChar
+    write pm_SetBlanksChar;
    property StartOfWeek: TStDayType
-     read f_StartOfWeek
-     write f_StartOfWeek;
+    read f_StartOfWeek
+    write f_StartOfWeek;
    property Weekends: TDaysOfWeek
-     read f_Weekends
-     write f_Weekends;
+    read f_Weekends
+    write f_Weekends;
    property WeekendColor: TColor
-     read f_WeekendColor
-     write f_WeekendColor;
+    read f_WeekendColor
+    write f_WeekendColor;
    property YearDigits: TYearDigits
-     read f_YearDigits
-     write pm_SetYearDigits;
+    read f_YearDigits
+    write pm_SetYearDigits;
    property CheckOnExit: Boolean
-     read f_CheckOnExit
-     write f_CheckOnExit;
+    read f_CheckOnExit
+    write f_CheckOnExit;
    property Formatting: Boolean
-     read f_Formatting;
+    read f_Formatting;
    property Date: TDateTime
-     read pm_GetDate
-     write pm_SetDate;
-   {$If defined(SupportStDate)}
+    read pm_GetDate
+    write pm_SetDate;
+   {$If Defined(SupportStDate)}
    property StDate: TStDate
-     read pm_GetStDate
-     write pm_SetStDate;
-   {$IfEnd} //SupportStDate
+    read pm_GetStDate
+    write pm_SetStDate;
+   {$IfEnd} // Defined(SupportStDate)
  end;//TvtCustomDateEdit
 
  TvtCalendarForm = class(TvtForm)
- private
- // private fields
-   f_Calendar : TWinControl;
-   f_DateFormat : ShortString;
-   f_DateText : AnsiString;
-    {* Поле для свойства DateText}
- protected
- // property methods
+  private
+   f_Calendar: TWinControl;
+   f_DateFormat: ShortString;
+   f_DateText: AnsiString;
+  protected
    procedure pm_SetDateText(const aValue: AnsiString);
- protected
- // overridden protected methods
-  {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure InitFields; override;
-  {$IfEnd} //not DesignTimeLibrary
-  {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(NoVCL)}
    procedure WndProc(var Message: TMessage); override;
-  {$IfEnd} //not NoVCL
-  {$If defined(DesignTimeLibrary)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If Defined(DesignTimeLibrary)}
    procedure AfterConstruction; override;
-     {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+    {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
 
 The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
-  {$IfEnd} //DesignTimeLibrary
- public
- // public properties
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
+  public
    property DateText: AnsiString
-     read f_DateText
-     write pm_SetDateText;
+    read f_DateText
+    write pm_SetDateText;
  end;//TvtCalendarForm
 
  TDblClickPopupCalendar = class(TPopupCalendar)
- protected
- // overridden protected methods
+  protected
+   procedure OkClick(Sender: TObject); virtual;
    procedure CalendarMouseUp(Sender: TObject;
-     Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
+    Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
    function CalcTodayPadWidth: Integer; override;
    procedure MakeTodayPad; override;
-     {* Сигнатура метода MakeTodayPad }
    procedure AdjustTitleButtonFont(aLabel: TSpeedButton); override;
- protected
- // protected methods
-   procedure OkClick(Sender: TObject); virtual;
-     {* TNotifyEvent is used for events that do not require parameters. }
  end;//TDblClickPopupCalendar
 
  {$Define TodayPadPresent}
 
- TFoo = vtStdRes.TvtStdResources;
+ TFoo = TvtStdResources;
   {* Подключаем vtStdRes в интерфейсную часть }
 
-//#UC START# *4AA8AB7B038Fci*
-//#UC END# *4AA8AB7B038Fci*
-//#UC START# *4AA8AB7B038Fcit*
-//#UC END# *4AA8AB7B038Fcit*
+ //#UC START# *4AA8AB7B038Fci*
+ //#UC END# *4AA8AB7B038Fci*
+ //#UC START# *4AA8AB7B038Fcit*
+ //#UC END# *4AA8AB7B038Fcit*
  TvtDateEdit = {final} class(TvtCustomDateEdit)
-//#UC START# *4AA8AB7B038Fpubl*
+ //#UC START# *4AA8AB7B038Fpubl*
   public
    property  StartOfWeek default Monday;
    property  Weekends default [Sunday];
@@ -444,55 +371,91 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
    property OnStartDrag;
    property OnExecute;
    property OnInvalidDate;
-//#UC END# *4AA8AB7B038Fpubl*
+ //#UC END# *4AA8AB7B038Fpubl*
  end;//TvtDateEdit
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3String,
-  vtDateEditRes,
-  DateUtils,
-  Windows,
-  Spin
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MinMax,
-  vtLabel
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Clipbrd
-  {$IfEnd} //not NoVCL
-  ,
-  OvcConst,
-  MaskUtils
-  ;
-
-const
-   { TDblClickPopupCalendar Const }
-  cButtonWidth = 95;
-  cButtonHeight = 20;
+ l3ImplUses
+ , l3String
+ , vtDateEditRes
+ , DateUtils
+ , Windows
+ , Spin
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MinMax
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Clipbrd
+ {$IfEnd} // NOT Defined(NoVCL)
+ , OvcConst
+ , MaskUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AA8AB7B038Fimpl_uses*
+ , SysUtils
+ //#UC END# *4AA8AB7B038Fimpl_uses*
+;
 
 type
-  TvtCalendarPanelFriend = {abstract} class(TvtCalendarPanel)
-   {* Друг для TvtCalendarPanel }
-  end;//TvtCalendarPanelFriend
+ TvtCalendarPanelFriend = {abstract} class(TvtCalendarPanel)
+  {* Друг для TvtCalendarPanel }
+ end;//TvtCalendarPanelFriend
 
-// start class TPopupCalendar
+const
+ cButtonWidth = 95;
+ cButtonHeight = 20;
+
+function TPopupCalendar.pm_GetDate: TDateTime;
+//#UC START# *5562DAFA03CB_4F8D5553010Aget_var*
+//#UC END# *5562DAFA03CB_4F8D5553010Aget_var*
+begin
+//#UC START# *5562DAFA03CB_4F8D5553010Aget_impl*
+ if f_Calendar <> nil
+  then Result := f_Calendar.Date
+  else Result := NullDate;
+//#UC END# *5562DAFA03CB_4F8D5553010Aget_impl*
+end;//TPopupCalendar.pm_GetDate
+
+procedure TPopupCalendar.pm_SetDate(aValue: TDateTime);
+//#UC START# *5562DAFA03CB_4F8D5553010Aset_var*
+//#UC END# *5562DAFA03CB_4F8D5553010Aset_var*
+begin
+//#UC START# *5562DAFA03CB_4F8D5553010Aset_impl*
+ if (f_Calendar <> nil) then
+ try
+  f_Calendar.Date := aValue;
+ except
+  f_Calendar.Date := Now;
+ end;
+//#UC END# *5562DAFA03CB_4F8D5553010Aset_impl*
+end;//TPopupCalendar.pm_SetDate
+
+procedure TPopupCalendar.CalendarMouseUp(Sender: TObject;
+ Button: TMouseButton;
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
+//#UC START# *5562DBEF006B_4F8D5553010A_var*
+//#UC END# *5562DBEF006B_4F8D5553010A_var*
+begin
+//#UC START# *5562DBEF006B_4F8D5553010A_impl*
+ f_MenuOpen := False;
+ if (Button = mbLeft) and (Shift = []) then
+  begin
+   if TvtCalendarPanelFriend(f_Calendar).GetDayFromPoint(Point(X,Y)) > 0 then
+    if Owner is TWinControl then
+     PostMessage(TWinControl(Owner).Handle, WM_vt_CALLCLOSEUP, 1, 0)
+  end;
+//#UC END# *5562DBEF006B_4F8D5553010A_impl*
+end;//TPopupCalendar.CalendarMouseUp
 
 procedure TPopupCalendar.PrevMonthBtnClick(Sender: TObject);
 //#UC START# *5562DC2B00A8_4F8D5553010A_var*
@@ -652,25 +615,6 @@ begin
 //#UC END# *5562DCAD03A9_4F8D5553010A_impl*
 end;//TPopupCalendar.YearMenuSelect
 
-procedure TPopupCalendar.CalendarMouseUp(Sender: TObject;
-  Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
-//#UC START# *5562DBEF006B_4F8D5553010A_var*
-//#UC END# *5562DBEF006B_4F8D5553010A_var*
-begin
-//#UC START# *5562DBEF006B_4F8D5553010A_impl*
- f_MenuOpen := False;
- if (Button = mbLeft) and (Shift = []) then
-  begin
-   if TvtCalendarPanelFriend(f_Calendar).GetDayFromPoint(Point(X,Y)) > 0 then
-    if Owner is TWinControl then
-     PostMessage(TWinControl(Owner).Handle, WM_vt_CALLCLOSEUP, 1, 0)
-  end;
-//#UC END# *5562DBEF006B_4F8D5553010A_impl*
-end;//TPopupCalendar.CalendarMouseUp
-
 procedure TPopupCalendar.CancelClick(Sender: TObject);
 //#UC START# *5562DCBF022F_4F8D5553010A_var*
 //#UC END# *5562DCBF022F_4F8D5553010A_var*
@@ -751,7 +695,7 @@ begin
 end;//TPopupCalendar.AdjustTitleButtonFont
 
 procedure TPopupCalendar.DoKeyDown(var Key: Word;
-  Shift: TShiftState);
+ Shift: TShiftState);
 //#UC START# *556486A5039E_4F8D5553010A_var*
 //#UC END# *556486A5039E_4F8D5553010A_var*
 begin
@@ -759,31 +703,6 @@ begin
  KeyDown(Key, Shift);
 //#UC END# *556486A5039E_4F8D5553010A_impl*
 end;//TPopupCalendar.DoKeyDown
-
-function TPopupCalendar.pm_GetDate: TDateTime;
-//#UC START# *5562DAFA03CB_4F8D5553010Aget_var*
-//#UC END# *5562DAFA03CB_4F8D5553010Aget_var*
-begin
-//#UC START# *5562DAFA03CB_4F8D5553010Aget_impl*
- if f_Calendar <> nil
-  then Result := f_Calendar.Date
-  else Result := NullDate;
-//#UC END# *5562DAFA03CB_4F8D5553010Aget_impl*
-end;//TPopupCalendar.pm_GetDate
-
-procedure TPopupCalendar.pm_SetDate(aValue: TDateTime);
-//#UC START# *5562DAFA03CB_4F8D5553010Aset_var*
-//#UC END# *5562DAFA03CB_4F8D5553010Aset_var*
-begin
-//#UC START# *5562DAFA03CB_4F8D5553010Aset_impl*
- if (f_Calendar <> nil) then
- try
-  f_Calendar.Date := aValue;
- except
-  f_Calendar.Date := Now;
- end;
-//#UC END# *5562DAFA03CB_4F8D5553010Aset_impl*
-end;//TPopupCalendar.pm_SetDate
 
 constructor TPopupCalendar.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_4F8D5553010A_var*
@@ -949,7 +868,7 @@ begin
 //#UC END# *47D1602000C6_4F8D5553010A_impl*
 end;//TPopupCalendar.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPopupCalendar.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4F8D5553010A_var*
 //#UC END# *48C7925A02E5_4F8D5553010A_var*
@@ -964,11 +883,11 @@ begin
  end;
 //#UC END# *48C7925A02E5_4F8D5553010A_impl*
 end;//TPopupCalendar.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPopupCalendar.KeyDown(var Key: Word;
-  Shift: TShiftState);
+ Shift: TShiftState);
 //#UC START# *554CABC100AC_4F8D5553010A_var*
 //#UC END# *554CABC100AC_4F8D5553010A_var*
 begin
@@ -978,8 +897,93 @@ begin
   TvtCalendarPanelFriend(f_Calendar).KeyDown(Key, Shift);
 //#UC END# *554CABC100AC_4F8D5553010A_impl*
 end;//TPopupCalendar.KeyDown
-{$IfEnd} //not NoVCL
-// start class TvtCustomDateEdit
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TvtCustomDateEdit.pm_SetBlanksChar(aValue: AnsiChar);
+//#UC START# *554C8C8802BD_52A9ACFF0183set_var*
+//#UC END# *554C8C8802BD_52A9ACFF0183set_var*
+begin
+//#UC START# *554C8C8802BD_52A9ACFF0183set_impl*
+ if aValue <> f_BlanksChar then
+ begin
+  if (aValue < ' ') then
+   aValue := ' ';
+  f_BlanksChar := aValue;
+  UpdateMask;
+ end;
+//#UC END# *554C8C8802BD_52A9ACFF0183set_impl*
+end;//TvtCustomDateEdit.pm_SetBlanksChar
+
+procedure TvtCustomDateEdit.pm_SetYearDigits(aValue: TYearDigits);
+//#UC START# *554C8F5C038E_52A9ACFF0183set_var*
+//#UC END# *554C8F5C038E_52A9ACFF0183set_var*
+begin
+//#UC START# *554C8F5C038E_52A9ACFF0183set_impl*
+ if f_YearDigits <> aValue then
+ begin
+  f_YearDigits := aValue;
+  UpdateMask;
+ end;
+//#UC END# *554C8F5C038E_52A9ACFF0183set_impl*
+end;//TvtCustomDateEdit.pm_SetYearDigits
+
+function TvtCustomDateEdit.pm_GetDate: TDateTime;
+//#UC START# *554C92180230_52A9ACFF0183get_var*
+//#UC END# *554C92180230_52A9ACFF0183get_var*
+begin
+//#UC START# *554C92180230_52A9ACFF0183get_impl*
+ Result := StrToDateFmtDef(f_DateFormat, Text, NullDate);
+//#UC END# *554C92180230_52A9ACFF0183get_impl*
+end;//TvtCustomDateEdit.pm_GetDate
+
+procedure TvtCustomDateEdit.pm_SetDate(aValue: TDateTime);
+//#UC START# *554C92180230_52A9ACFF0183set_var*
+//#UC END# *554C92180230_52A9ACFF0183set_var*
+begin
+//#UC START# *554C92180230_52A9ACFF0183set_impl*
+ if not ValidDate(aValue) then
+  aValue := NullDate;
+ if aValue = NullDate
+  then Text := ''
+  else Text := FormatDateTime(f_DateFormat, aValue);
+ if IsDroppedDown then
+  TPopupCalendar(f_CalendarPanel).Date := aValue;
+//#UC END# *554C92180230_52A9ACFF0183set_impl*
+end;//TvtCustomDateEdit.pm_SetDate
+
+{$If Defined(SupportStDate)}
+function TvtCustomDateEdit.pm_GetStDate: TStDate;
+//#UC START# *554C924B03A3_52A9ACFF0183get_var*
+//#UC END# *554C924B03A3_52A9ACFF0183get_var*
+begin
+//#UC START# *554C924B03A3_52A9ACFF0183get_impl*
+ Result := DateTimeToStDate(Date);
+//#UC END# *554C924B03A3_52A9ACFF0183get_impl*
+end;//TvtCustomDateEdit.pm_GetStDate
+{$IfEnd} // Defined(SupportStDate)
+
+{$If Defined(SupportStDate)}
+procedure TvtCustomDateEdit.pm_SetStDate(const aValue: TStDate);
+//#UC START# *554C924B03A3_52A9ACFF0183set_var*
+//#UC END# *554C924B03A3_52A9ACFF0183set_var*
+begin
+//#UC START# *554C924B03A3_52A9ACFF0183set_impl*
+ if aValue = 0
+  then Date := NullDate
+  else Date := StDateToDateTime(aValue);
+//#UC END# *554C924B03A3_52A9ACFF0183set_impl*
+end;//TvtCustomDateEdit.pm_SetStDate
+{$IfEnd} // Defined(SupportStDate)
+
+procedure TvtCustomDateEdit.DoExecute;
+//#UC START# *52A9AF0F021B_52A9ACFF0183_var*
+//#UC END# *52A9AF0F021B_52A9ACFF0183_var*
+begin
+//#UC START# *52A9AF0F021B_52A9ACFF0183_impl*
+ if Assigned(f_OnExecute) then
+  f_OnExecute(Self)
+//#UC END# *52A9AF0F021B_52A9ACFF0183_impl*
+end;//TvtCustomDateEdit.DoExecute
 
 function TvtCustomDateEdit.FourDigitYear: Boolean;
 //#UC START# *554C9CE10330_52A9ACFF0183_var*
@@ -1001,17 +1005,8 @@ begin
 //#UC END# *554C9D670390_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.FormatSettingsChange
 
-procedure TvtCustomDateEdit.DoExecute;
-//#UC START# *52A9AF0F021B_52A9ACFF0183_var*
-//#UC END# *52A9AF0F021B_52A9ACFF0183_var*
-begin
-//#UC START# *52A9AF0F021B_52A9ACFF0183_impl*
- if Assigned(f_OnExecute) then
-  f_OnExecute(Self)
-//#UC END# *52A9AF0F021B_52A9ACFF0183_impl*
-end;//TvtCustomDateEdit.DoExecute
-
 procedure TvtCustomDateEdit.TriggerAutoCorrectDate;
+ {* сообщает об автокоррекции }
 //#UC START# *554CA29100ED_52A9ACFF0183_var*
 //#UC END# *554CA29100ED_52A9ACFF0183_var*
 begin
@@ -1027,6 +1022,7 @@ begin
 end;//TvtCustomDateEdit.TriggerAutoCorrectDate
 
 function TvtCustomDateEdit.TriggerOnInvalidDate: Boolean;
+ {* возникает при неправильно введенной дате при выходе из компонента }
 //#UC START# *554CA2C1020B_52A9ACFF0183_var*
 //#UC END# *554CA2C1020B_52A9ACFF0183_var*
 begin
@@ -1151,6 +1147,8 @@ begin
 end;//TvtCustomDateEdit.ClearDate
 
 function TvtCustomDateEdit.IsValid: Boolean;
+ {* введенная дата не является допустимой. 
+Пустой бланк "__.__.____" тоже воспринимается как неверная дата. }
 //#UC START# *554CA580013A_52A9ACFF0183_var*
 //#UC END# *554CA580013A_52A9ACFF0183_var*
 begin
@@ -1160,6 +1158,8 @@ begin
 end;//TvtCustomDateEdit.IsValid
 
 function TvtCustomDateEdit.IsEmpty: Boolean;
+ {* False, только когда введена верная дата.
+Пустой бланк "__.__.____" воспринимается как неверная дата. }
 //#UC START# *554CA652029E_52A9ACFF0183_var*
 //#UC END# *554CA652029E_52A9ACFF0183_var*
 begin
@@ -1169,6 +1169,7 @@ begin
 end;//TvtCustomDateEdit.IsEmpty
 
 function TvtCustomDateEdit.IsBlank: Boolean;
+ {* пользователь ничего не ввел в поле редактирования ("__.__.____") }
 //#UC START# *554CA67F0123_52A9ACFF0183_var*
 //#UC END# *554CA67F0123_52A9ACFF0183_var*
 begin
@@ -1196,82 +1197,6 @@ begin
  Result := not IsEmptyStr(Text, [#0, ' ', {$IfDef XE}FormatSettings.{$EndIf}DateSeparator, f_BlanksChar]);
 //#UC END# *556305870087_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.TextStored
-
-procedure TvtCustomDateEdit.pm_SetBlanksChar(aValue: AnsiChar);
-//#UC START# *554C8C8802BD_52A9ACFF0183set_var*
-//#UC END# *554C8C8802BD_52A9ACFF0183set_var*
-begin
-//#UC START# *554C8C8802BD_52A9ACFF0183set_impl*
- if aValue <> f_BlanksChar then
- begin
-  if (aValue < ' ') then
-   aValue := ' ';
-  f_BlanksChar := aValue;
-  UpdateMask;
- end;
-//#UC END# *554C8C8802BD_52A9ACFF0183set_impl*
-end;//TvtCustomDateEdit.pm_SetBlanksChar
-
-procedure TvtCustomDateEdit.pm_SetYearDigits(aValue: TYearDigits);
-//#UC START# *554C8F5C038E_52A9ACFF0183set_var*
-//#UC END# *554C8F5C038E_52A9ACFF0183set_var*
-begin
-//#UC START# *554C8F5C038E_52A9ACFF0183set_impl*
- if f_YearDigits <> aValue then
- begin
-  f_YearDigits := aValue;
-  UpdateMask;
- end;
-//#UC END# *554C8F5C038E_52A9ACFF0183set_impl*
-end;//TvtCustomDateEdit.pm_SetYearDigits
-
-function TvtCustomDateEdit.pm_GetDate: TDateTime;
-//#UC START# *554C92180230_52A9ACFF0183get_var*
-//#UC END# *554C92180230_52A9ACFF0183get_var*
-begin
-//#UC START# *554C92180230_52A9ACFF0183get_impl*
- Result := StrToDateFmtDef(f_DateFormat, Text, NullDate);
-//#UC END# *554C92180230_52A9ACFF0183get_impl*
-end;//TvtCustomDateEdit.pm_GetDate
-
-procedure TvtCustomDateEdit.pm_SetDate(aValue: TDateTime);
-//#UC START# *554C92180230_52A9ACFF0183set_var*
-//#UC END# *554C92180230_52A9ACFF0183set_var*
-begin
-//#UC START# *554C92180230_52A9ACFF0183set_impl*
- if not ValidDate(aValue) then
-  aValue := NullDate;
- if aValue = NullDate
-  then Text := ''
-  else Text := FormatDateTime(f_DateFormat, aValue);
- if IsDroppedDown then
-  TPopupCalendar(f_CalendarPanel).Date := aValue;
-//#UC END# *554C92180230_52A9ACFF0183set_impl*
-end;//TvtCustomDateEdit.pm_SetDate
-
-{$If defined(SupportStDate)}
-function TvtCustomDateEdit.pm_GetStDate: TStDate;
-//#UC START# *554C924B03A3_52A9ACFF0183get_var*
-//#UC END# *554C924B03A3_52A9ACFF0183get_var*
-begin
-//#UC START# *554C924B03A3_52A9ACFF0183get_impl*
- Result := DateTimeToStDate(Date);
-//#UC END# *554C924B03A3_52A9ACFF0183get_impl*
-end;//TvtCustomDateEdit.pm_GetStDate
-{$IfEnd} //SupportStDate
-
-{$If defined(SupportStDate)}
-procedure TvtCustomDateEdit.pm_SetStDate(aValue: TStDate);
-//#UC START# *554C924B03A3_52A9ACFF0183set_var*
-//#UC END# *554C924B03A3_52A9ACFF0183set_var*
-begin
-//#UC START# *554C924B03A3_52A9ACFF0183set_impl*
- if aValue = 0
-  then Date := NullDate
-  else Date := StDateToDateTime(aValue);
-//#UC END# *554C924B03A3_52A9ACFF0183set_impl*
-end;//TvtCustomDateEdit.pm_SetStDate
-{$IfEnd} //SupportStDate
 
 procedure TvtCustomDateEdit.CMExit(var Message: TCMExit);
 //#UC START# *554C9F940101_52A9ACFF0183_var*
@@ -1333,6 +1258,7 @@ begin
 end;//TvtCustomDateEdit.GetDropDownContainer
 
 procedure TvtCustomDateEdit.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A9ACFF0183_var*
 //#UC END# *479731C50290_52A9ACFF0183_var*
 begin
@@ -1381,7 +1307,7 @@ begin
 //#UC END# *47D1602000C6_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomDateEdit.KeyPress(var Key: Char);
 //#UC START# *482C4E0E01E4_52A9ACFF0183_var*
 var
@@ -1431,10 +1357,11 @@ begin
  end;
 //#UC END# *482C4E0E01E4_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.KeyPress
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomDateEdit.CreateWindowHandle(const Params: TCreateParams);
+ {* Creates a Windows control to represent the control }
 //#UC START# *48C67EB000EE_52A9ACFF0183_var*
 //#UC END# *48C67EB000EE_52A9ACFF0183_var*
 begin
@@ -1451,10 +1378,11 @@ begin
  end;
 //#UC END# *48C67EB000EE_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.CreateWindowHandle
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomDateEdit.DestroyWindowHandle;
+ {* Destroys the window created in the CreateWindowHandle method }
 //#UC START# *48C67EDF01C8_52A9ACFF0183_var*
 //#UC END# *48C67EDF01C8_52A9ACFF0183_var*
 begin
@@ -1467,11 +1395,11 @@ begin
  inherited DestroyWindowHandle;
 //#UC END# *48C67EDF01C8_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.DestroyWindowHandle
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomDateEdit.ActionChange(Sender: TObject;
-  CheckDefaults: Boolean);
+ CheckDefaults: Boolean);
 //#UC START# *52A9A8710199_52A9ACFF0183_var*
 //#UC END# *52A9A8710199_52A9ACFF0183_var*
 begin
@@ -1481,11 +1409,11 @@ begin
   f_OnExecute := TCustomAction(Sender).OnExecute;
 //#UC END# *52A9A8710199_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.ActionChange
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TvtCustomDateEdit.ProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *554CA18500FB_52A9ACFF0183_var*
 //#UC END# *554CA18500FB_52A9ACFF0183_var*
 begin
@@ -1499,7 +1427,7 @@ begin
 //#UC END# *554CA18500FB_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.ProcessCommand
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomDateEdit.Change;
 //#UC START# *554CAA8400E5_52A9ACFF0183_var*
 //#UC END# *554CAA8400E5_52A9ACFF0183_var*
@@ -1509,11 +1437,11 @@ begin
   inherited Change;
 //#UC END# *554CAA8400E5_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.Change
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomDateEdit.KeyDown(var Key: Word;
-  Shift: TShiftState);
+ Shift: TShiftState);
 //#UC START# *554CABC100AC_52A9ACFF0183_var*
 var
  l_DroppedDown: Boolean;
@@ -1560,9 +1488,9 @@ begin
   Windows.SetFocus(Handle);
 //#UC END# *554CABC100AC_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.KeyDown
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
 function TvtCustomDateEdit.TextFromClipboard: AnsiString;
 //#UC START# *554CBB4B0240_52A9ACFF0183_var*
 //#UC END# *554CBB4B0240_52A9ACFF0183_var*
@@ -1576,7 +1504,7 @@ begin
  end;
 //#UC END# *554CBB4B0240_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.TextFromClipboard
-{$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
 
 procedure TvtCustomDateEdit.DropDown;
 //#UC START# *554CBC32006E_52A9ACFF0183_var*
@@ -1610,7 +1538,6 @@ begin
  end;
 //#UC END# *554CBC4500ED_52A9ACFF0183_impl*
 end;//TvtCustomDateEdit.CloseUp
-// start class TvtCalendarForm
 
 procedure TvtCalendarForm.pm_SetDateText(const aValue: AnsiString);
 //#UC START# *554CC0D002D0_554CBF5C01D8set_var*
@@ -1633,7 +1560,7 @@ begin
 //#UC END# *554CC0D002D0_554CBF5C01D8set_impl*
 end;//TvtCalendarForm.pm_SetDateText
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvtCalendarForm.InitFields;
 //#UC START# *47A042E100E2_554CBF5C01D8_var*
 //#UC END# *47A042E100E2_554CBF5C01D8_var*
@@ -1646,9 +1573,9 @@ begin
  BorderStyle := bsToolWindow;
 //#UC END# *47A042E100E2_554CBF5C01D8_impl*
 end;//TvtCalendarForm.InitFields
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCalendarForm.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_554CBF5C01D8_var*
 var
@@ -1674,10 +1601,13 @@ begin
   inherited;
 //#UC END# *47E136A80191_554CBF5C01D8_impl*
 end;//TvtCalendarForm.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If defined(DesignTimeLibrary)}
+{$If Defined(DesignTimeLibrary)}
 procedure TvtCalendarForm.AfterConstruction;
+ {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+
+The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
 //#UC START# *49F057120234_554CBF5C01D8_var*
 //#UC END# *49F057120234_554CBF5C01D8_var*
 begin
@@ -1689,8 +1619,13 @@ begin
  BorderStyle := bsToolWindow;
 //#UC END# *49F057120234_554CBF5C01D8_impl*
 end;//TvtCalendarForm.AfterConstruction
-{$IfEnd} //DesignTimeLibrary
-// start class TDblClickPopupCalendar
+{$IfEnd} // Defined(DesignTimeLibrary)
+
+procedure TvtCalendarForm.ClearFields;
+begin
+ DateText := '';
+ inherited;
+end;//TvtCalendarForm.ClearFields
 
 procedure TDblClickPopupCalendar.OkClick(Sender: TObject);
 //#UC START# *5562DEB2009F_5562DE9702A4_var*
@@ -1702,10 +1637,10 @@ begin
 end;//TDblClickPopupCalendar.OkClick
 
 procedure TDblClickPopupCalendar.CalendarMouseUp(Sender: TObject;
-  Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Button: TMouseButton;
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *5562DBEF006B_5562DE9702A4_var*
 //#UC END# *5562DBEF006B_5562DE9702A4_var*
 begin
@@ -1792,25 +1727,25 @@ end;//TDblClickPopupCalendar.AdjustTitleButtonFont
 //#UC END# *4AA8AB7B038Fimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TPopupCalendar
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPopupCalendar);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomDateEdit
+ {* Регистрация TPopupCalendar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomDateEdit);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtCalendarForm
+ {* Регистрация TvtCustomDateEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCalendarForm);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TDblClickPopupCalendar
+ {* Регистрация TvtCalendarForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDblClickPopupCalendar);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtDateEdit
+ {* Регистрация TDblClickPopupCalendar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtDateEdit);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtDateEdit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

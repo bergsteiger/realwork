@@ -45,12 +45,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TReleaseToK2.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_CFD0344B37B4_var*
-//#UC END# *4B7AB0B6016E_CFD0344B37B4_var*
 begin
-//#UC START# *4B7AB0B6016E_CFD0344B37B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_CFD0344B37B4_impl*
+ Result := '-ToK2';
 end;//TReleaseToK2.CommandLineKey
 
 class function TReleaseToK2.TimesPage: Integer;

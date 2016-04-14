@@ -1,131 +1,98 @@
 unit vtCalendarPanel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtCalendarPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::DateEdit::TvtCalendarPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtCalendarPanel.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtCalendarPanel" MUID: (5562DB5D0259)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Types,
-  Messages,
-  Classes,
-  l3Date,
-  Graphics,
-  vtPanel,
-  l3InternalInterfaces
-  ;
+ l3IntfUses
+ , vtPanel
+ , l3Date
+ , Graphics
+ , Classes
+ , Messages
+ , Types
+ , l3InternalInterfaces
+ //#UC START# *5562DB5D0259intf_uses*
+ //#UC END# *5562DB5D0259intf_uses*
+;
 
 type
  TvtCustomCalendarPanel = class(TvtCustomPanel)
- private
- // private fields
-   f_ForceRedraw : Boolean;
-   f_MouseDown : Boolean;
-   f_MonthIndent : Byte;
-   f_CurYear : Word;
-   f_CurMonth : Word;
-   f_CurDay : Word;
-   f_StartOfWeek : TStDayType;
-    {* Поле для свойства StartOfWeek}
-   f_Weekends : TDaysOfWeek;
-    {* Поле для свойства Weekends}
-   f_WeekendColor : TColor;
-    {* Поле для свойства WeekendColor}
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_OldDay : Integer;
-    {* Поле для свойства OldDay}
- private
- // private methods
+  private
+   f_ForceRedraw: Boolean;
+   f_MouseDown: Boolean;
+   f_MonthIndent: Byte;
+   f_CurYear: Word;
+   f_CurMonth: Word;
+   f_CurDay: Word;
+   f_StartOfWeek: TStDayType;
+   f_Weekends: TDaysOfWeek;
+   f_WeekendColor: TColor;
+   f_OnChange: TNotifyEvent;
+   f_OldDay: Integer;
+  private
    procedure WMGetDlgCode(var Msg: TWMGetDlgCode); message WM_GETDLGCODE;
    procedure WMLButtonDown(var Message: TWMLButtonDown); message WM_LBUTTONDOWN;
    procedure WMLButtonUp(var Message: TWMLButtonUp); message WM_LBUTTONUP;
    procedure WMMouseMove(var Message: TWMMouseMove); message WM_MOUSEMOVE;
    procedure WMShowWindow(var Message: TWMShowWindow); message WM_SHOWWINDOW;
- protected
- // property methods
+  protected
    function pm_GetDate: TDateTime;
    procedure pm_SetDate(aValue: TDateTime);
- protected
- // overridden protected methods
-   procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-   {$If not defined(NoVCL)}
-   procedure KeyDown(var Key: Word;
-    Shift: TShiftState); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    function GetDayFromPoint(const Pt: TPoint): Integer;
    function GetDayRect(aDay: Word): TRect;
    procedure DrawFocusFrame(aPredDay: Word);
    procedure InvalidateDayArray;
-     {* Сигнатура метода InvalidateDayArray }
    procedure Change;
-     {* Сигнатура метода Change }
- public
- // public methods
+   procedure Paint(const CN: Il3Canvas); override;
+    {* процедура рисования внешнего вида управляющего элемента }
+   {$If NOT Defined(NoVCL)}
+   procedure KeyDown(var Key: Word;
+    Shift: TShiftState); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure NextDay;
-     {* Сигнатура метода NextDay }
    procedure PrevDay;
-     {* Сигнатура метода PrevDay }
    procedure NextWeek;
-     {* Сигнатура метода NextWeek }
    procedure PrevWeek;
-     {* Сигнатура метода PrevWeek }
    procedure NextMonth;
-     {* Сигнатура метода NextMonth }
    procedure PrevMonth;
-     {* Сигнатура метода PrevMonth }
    procedure NextYear;
-     {* Сигнатура метода NextYear }
    procedure PrevYear;
-     {* Сигнатура метода PrevYear }
    procedure RelMoveDate(nDays: Integer);
- public
- // public properties
+   constructor Create(AOwner: TComponent); override;
+  public
    property StartOfWeek: TStDayType
-     read f_StartOfWeek
-     write f_StartOfWeek;
+    read f_StartOfWeek
+    write f_StartOfWeek;
    property Weekends: TDaysOfWeek
-     read f_Weekends
-     write f_Weekends;
+    read f_Weekends
+    write f_Weekends;
    property WeekendColor: TColor
-     read f_WeekendColor
-     write f_WeekendColor;
+    read f_WeekendColor
+    write f_WeekendColor;
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
    property OldDay: Integer
-     read f_OldDay
-     write f_OldDay;
+    read f_OldDay
+    write f_OldDay;
    property Date: TDateTime
-     read pm_GetDate
-     write pm_SetDate;
+    read pm_GetDate
+    write pm_SetDate;
  end;//TvtCustomCalendarPanel
 
-//#UC START# *5562DB5D0259ci*
-//#UC END# *5562DB5D0259ci*
-//#UC START# *5562DB5D0259cit*
-//#UC END# *5562DB5D0259cit*
+ //#UC START# *5562DB5D0259ci*
+ //#UC END# *5562DB5D0259ci*
+ //#UC START# *5562DB5D0259cit*
+ //#UC END# *5562DB5D0259cit*
  TvtCalendarPanel = {final} class(TvtCustomCalendarPanel)
-//#UC START# *5562DB5D0259publ*
+ //#UC START# *5562DB5D0259publ*
   public
    property Weekends default [Sunday];
    property WeekendColor default clRed;
@@ -164,35 +131,75 @@ type
    property OnMouseMove;
    property OnMouseUp;
    property OnChange;
-//#UC END# *5562DB5D0259publ*
+ //#UC END# *5562DB5D0259publ*
  end;//TvtCalendarPanel
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vtDateEditRes,
-  l3Units,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  ;
+ l3ImplUses
+ , vtDateEditRes
+ , l3Units
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5562DB5D0259impl_uses*
+ , SysUtils
+ //#UC END# *5562DB5D0259impl_uses*
+;
 
 const
-   { Calendar Panel const }
-  BorderIndent = 4;
-  SplitLineHeight = 8;
+ BorderIndent = 4;
+ SplitLineHeight = 8;
 
-// start class TvtCustomCalendarPanel
+function TvtCustomCalendarPanel.pm_GetDate: TDateTime;
+//#UC START# *55670FF801D4_556709D10061get_var*
+//#UC END# *55670FF801D4_556709D10061get_var*
+begin
+//#UC START# *55670FF801D4_556709D10061get_impl*
+ Result := EncodeDate(f_CurYear, f_CurMonth, f_CurDay);
+//#UC END# *55670FF801D4_556709D10061get_impl*
+end;//TvtCustomCalendarPanel.pm_GetDate
+
+procedure TvtCustomCalendarPanel.pm_SetDate(aValue: TDateTime);
+//#UC START# *55670FF801D4_556709D10061set_var*
+var
+ SaveYear,
+ SaveMonth,
+ SaveDay: Word;
+//#UC END# *55670FF801D4_556709D10061set_var*
+begin
+//#UC START# *55670FF801D4_556709D10061set_impl*
+ // Проверим что не выходим за границы диапазона
+ DecodeDate(aValue, SaveYear, SaveMonth, SaveDay);
+ if (SaveYear > MaxYear) or (SaveYear < MinYear) then
+  Exit;
+
+ SaveYear := f_CurYear;
+ SaveMonth := f_CurMonth;
+ SaveDay := f_CurDay;
+
+ DecodeDate(aValue, f_CurYear, f_CurMonth, f_CurDay);
+ f_MonthIndent := SysUtils.DayOfWeek(EncodeDate(f_CurYear, f_CurMonth, 1) - 2) mod 7;
+
+ if HandleAllocated then
+ begin
+  if f_ForceRedraw or (SaveYear <> f_CurYear) or ( SaveMonth <> f_CurMonth) then
+   InvalidateDayArray
+  else
+   DrawFocusFrame(SaveDay);
+  f_ForceRedraw := False;
+ end else
+  f_ForceRedraw := False;
+
+ Change;
+//#UC END# *55670FF801D4_556709D10061set_impl*
+end;//TvtCustomCalendarPanel.pm_SetDate
 
 function TvtCustomCalendarPanel.GetDayFromPoint(const Pt: TPoint): Integer;
 //#UC START# *55670EF101FF_556709D10061_var*
@@ -466,50 +473,6 @@ begin
 //#UC END# *556710D300D7_556709D10061_impl*
 end;//TvtCustomCalendarPanel.RelMoveDate
 
-function TvtCustomCalendarPanel.pm_GetDate: TDateTime;
-//#UC START# *55670FF801D4_556709D10061get_var*
-//#UC END# *55670FF801D4_556709D10061get_var*
-begin
-//#UC START# *55670FF801D4_556709D10061get_impl*
- Result := EncodeDate(f_CurYear, f_CurMonth, f_CurDay);
-//#UC END# *55670FF801D4_556709D10061get_impl*
-end;//TvtCustomCalendarPanel.pm_GetDate
-
-procedure TvtCustomCalendarPanel.pm_SetDate(aValue: TDateTime);
-//#UC START# *55670FF801D4_556709D10061set_var*
-var
- SaveYear,
- SaveMonth,
- SaveDay: Word;
-//#UC END# *55670FF801D4_556709D10061set_var*
-begin
-//#UC START# *55670FF801D4_556709D10061set_impl*
- // Проверим что не выходим за границы диапазона
- DecodeDate(aValue, SaveYear, SaveMonth, SaveDay);
- if (SaveYear > MaxYear) or (SaveYear < MinYear) then
-  Exit;
-
- SaveYear := f_CurYear;
- SaveMonth := f_CurMonth;
- SaveDay := f_CurDay;
-
- DecodeDate(aValue, f_CurYear, f_CurMonth, f_CurDay);
- f_MonthIndent := SysUtils.DayOfWeek(EncodeDate(f_CurYear, f_CurMonth, 1) - 2) mod 7;
-
- if HandleAllocated then
- begin
-  if f_ForceRedraw or (SaveYear <> f_CurYear) or ( SaveMonth <> f_CurMonth) then
-   InvalidateDayArray
-  else
-   DrawFocusFrame(SaveDay);
-  f_ForceRedraw := False;
- end else
-  f_ForceRedraw := False;
-
- Change;
-//#UC END# *55670FF801D4_556709D10061set_impl*
-end;//TvtCustomCalendarPanel.pm_SetDate
-
 procedure TvtCustomCalendarPanel.WMGetDlgCode(var Msg: TWMGetDlgCode);
 //#UC START# *5567115E02E0_556709D10061_var*
 //#UC END# *5567115E02E0_556709D10061_var*
@@ -600,6 +563,7 @@ begin
 end;//TvtCustomCalendarPanel.Create
 
 procedure TvtCustomCalendarPanel.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_556709D10061_var*
 var
  CelH, CelW: Integer;
@@ -711,9 +675,9 @@ begin
 //#UC END# *48C6C044025E_556709D10061_impl*
 end;//TvtCustomCalendarPanel.Paint
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomCalendarPanel.KeyDown(var Key: Word;
-  Shift: TShiftState);
+ Shift: TShiftState);
 //#UC START# *554CABC100AC_556709D10061_var*
 //#UC END# *554CABC100AC_556709D10061_var*
 begin
@@ -733,19 +697,19 @@ begin
  Key := 0;
 //#UC END# *554CABC100AC_556709D10061_impl*
 end;//TvtCustomCalendarPanel.KeyDown
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *5562DB5D0259impl*
 //#UC END# *5562DB5D0259impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomCalendarPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomCalendarPanel);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtCalendarPanel
+ {* Регистрация TvtCustomCalendarPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCalendarPanel);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtCalendarPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

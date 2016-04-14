@@ -47,12 +47,8 @@ uses
 {$If NOT Defined(NotTunedDUnit)}
 class function TReleaseArchi2.CommandLineKey: AnsiString;
  {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-//#UC START# *4B7AB0B6016E_6B92D0808EA8_var*
-//#UC END# *4B7AB0B6016E_6B92D0808EA8_var*
 begin
-//#UC START# *4B7AB0B6016E_6B92D0808EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B7AB0B6016E_6B92D0808EA8_impl*
+ Result := '-Archi2';
 end;//TReleaseArchi2.CommandLineKey
 
 class function TReleaseArchi2.TimesPage: Integer;

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evLeafParaMultiSelectionBlock;
+unit evLeafParaMultiSelectionBlock;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evLeafParaMultiSelectionBlock.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaMultiSelectionBlock.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TevLeafParaMultiSelectionBlock" MUID: (48ECD64B005A)
 
@@ -14,6 +14,7 @@ uses
  , nevTools
  , l3Variant
  , nevRangeList
+ , l3Types
  , nevBase
  , evdInterfaces
 ;

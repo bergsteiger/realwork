@@ -25,6 +25,9 @@ uses
  {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscComboLabel
+ {$IfEnd} // Defined(Nemesis)
  , vtLabel
  {$If Defined(Nemesis)}
  , nscFocusLabel
@@ -32,7 +35,6 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
- , vtHideField
  {$If Defined(Nemesis)}
  , nscInterfaces
  {$IfEnd} // Defined(Nemesis)
@@ -85,7 +87,7 @@ type
     {* Поле для свойства pnlNews }
    f_tvProfNews: TnscTreeViewHotTruck;
     {* Поле для свойства tvProfNews }
-   f_lblProfNews: TvtImageLabel;
+   f_lblProfNews: TnscComboLabel;
     {* Поле для свойства lblProfNews }
    f_lblLawNews: TvtStyledLabel;
     {* Поле для свойства lblLawNews }
@@ -109,7 +111,7 @@ type
     {* Поле для свойства tvTaxes }
    f_lblReferences: TvtStyledLabel;
     {* Поле для свойства lblReferences }
-   f_lblTaxes: TvtImageLabel;
+   f_lblTaxes: TnscComboLabel;
     {* Поле для свойства lblTaxes }
    f_pnlLastOpenDocs: TvtPanel;
     {* Поле для свойства pnlLastOpenDocs }
@@ -122,10 +124,6 @@ type
    f_ieIO: TImageEnIO;
     {* Поле для свойства ieIO }
   private
-   procedure TaxesStateChanged(aSender: TObject;
-    var theState: ThfState);
-   procedure UpdateTaxesTree;
-   procedure UpdateTaxesTreeCaption;
    procedure UpdateReferencesAndLawNewsCaptions;
    procedure UpdateSearchLabels;
    procedure SearchClick(Sender: TObject);
@@ -135,6 +133,8 @@ type
    procedure PaintBoxClick(Sender: TObject);
    procedure BannerClick(Sender: TObject);
    procedure LoadBanner;
+   procedure lblTaxesChange(Sender: TObject);
+   procedure lblProfNewsChange(Sender: TObject);
   protected
    function DoBuildGrid: InscArrangeGrid; override;
    procedure Cleanup; override;
@@ -143,11 +143,6 @@ type
    {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-    {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
@@ -199,7 +194,6 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
- , smChangeableTree
  , nsLastOpenDocTree
  , nsTypes
  , l3String
@@ -242,6 +236,9 @@ uses
  {$IfEnd} // NOT Defined(NoImageEn)
  , bsTypesNew
  , evdTypes
+ , smSectionTree
+ , smMainMenuTree2016
+ , nsQueryInterfaces
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -269,43 +266,6 @@ type _Instance_R_ = TPrimMainMenuWithProfNewsForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
-procedure TPrimMainMenuWithProfNewsForm.TaxesStateChanged(aSender: TObject;
- var theState: ThfState);
-//#UC START# *56FBC3F90034_56FA889202B4_var*
-//#UC END# *56FBC3F90034_56FA889202B4_var*
-begin
-//#UC START# *56FBC3F90034_56FA889202B4_impl*
- theState := hfsShow;
- //TaxesNextTree(Sender);
-//#UC END# *56FBC3F90034_56FA889202B4_impl*
-end;//TPrimMainMenuWithProfNewsForm.TaxesStateChanged
-
-procedure TPrimMainMenuWithProfNewsForm.UpdateTaxesTree;
-//#UC START# *56FBC41602A9_56FA889202B4_var*
-//#UC END# *56FBC41602A9_56FA889202B4_var*
-begin
-//#UC START# *56FBC41602A9_56FA889202B4_impl*
- UpdateTaxesTreeCaption;
- tvTaxes.TreeStruct := TsmChangeableTree.Make(f_CurrentSection);
-//#UC END# *56FBC41602A9_56FA889202B4_impl*
-end;//TPrimMainMenuWithProfNewsForm.UpdateTaxesTree
-
-procedure TPrimMainMenuWithProfNewsForm.UpdateTaxesTreeCaption;
-//#UC START# *56FBC4240324_56FA889202B4_var*
-var
- l_Sect: ISection;
- l_S: IString;
-//#UC END# *56FBC4240324_56FA889202B4_var*
-begin
-//#UC START# *56FBC4240324_56FA889202B4_impl*
- DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(f_CurrentSection, l_Sect);
- Assert(l_Sect <> nil);
- l_Sect.GetCaption(l_S);
- Assert(l_S <> nil);
- lblTaxes.Caption := l3Str(nsCStr(l_S));
-//#UC END# *56FBC4240324_56FA889202B4_impl*
-end;//TPrimMainMenuWithProfNewsForm.UpdateTaxesTreeCaption
-
 procedure TPrimMainMenuWithProfNewsForm.UpdateReferencesAndLawNewsCaptions;
 //#UC START# *56FBC4350226_56FA889202B4_var*
  function lp_Caption(aSection: TSectionType): String;
@@ -321,7 +281,7 @@ procedure TPrimMainMenuWithProfNewsForm.UpdateReferencesAndLawNewsCaptions;
 begin
 //#UC START# *56FBC4350226_56FA889202B4_impl*
  lblReferences.Caption := lp_Caption(ST_BUSINESS_REFERENCES);
- lblLawNews.Caption := lp_Caption(ST_LEGAL);
+ lblLawNews.Caption := lp_Caption(ST_CHANGES_IN_LEGISLATION);
 //#UC END# *56FBC4350226_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.UpdateReferencesAndLawNewsCaptions
 
@@ -361,16 +321,16 @@ procedure TPrimMainMenuWithProfNewsForm.SearchClick(Sender: TObject);
 begin
 //#UC START# *56FD0A30011C_56FA889202B4_impl*
  if (Sender = flAttributeSearch) then
-  //TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
  else
  if (Sender = flSituationSearch) then
-  //TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
  else
  if (Sender = flPublishedSourceSearch) then
-  //TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
  else
  if (Sender = flDictionSearch) then
-  //TdmStdRes.OpenDictionary(nil, NativeMainForm)
+  TdmStdRes.OpenDictionary(nil, NativeMainForm)
  else
   Assert(False);
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
@@ -664,6 +624,34 @@ begin
 //#UC END# *57024B0D006F_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadBanner
 
+procedure TPrimMainMenuWithProfNewsForm.lblTaxesChange(Sender: TObject);
+//#UC START# *5707BB3A0018_56FA889202B4_var*
+var
+ l_Section: IMainMenuSection;
+//#UC END# *5707BB3A0018_56FA889202B4_var*
+begin
+//#UC START# *5707BB3A0018_56FA889202B4_impl*
+ if Supports(lblTaxes.TreeStruct.Nodes[lblTaxes.CurrentItem], IMainMenuSection, l_Section) then
+  tvTaxes.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
+ ArrangeControls;
+ afw.Settings.SaveInteger(pi_MainMenu_TaxesSection, lblTaxes.CurrentItem);
+//#UC END# *5707BB3A0018_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.lblTaxesChange
+
+procedure TPrimMainMenuWithProfNewsForm.lblProfNewsChange(Sender: TObject);
+//#UC START# *5707BB480178_56FA889202B4_var*
+var
+ l_Section: IMainMenuSection;
+//#UC END# *5707BB480178_56FA889202B4_var*
+begin
+//#UC START# *5707BB480178_56FA889202B4_impl*
+ if Supports(lblProfNews.TreeStruct.Nodes[lblProfNews.CurrentItem], IMainMenuSection, l_Section) then
+  tvProfNews.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
+ ArrangeControls;        
+ afw.Settings.SaveInteger(pi_MainMenu_ProfNewsSection, lblProfNews.CurrentItem);
+//#UC END# *5707BB480178_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.lblProfNewsChange
+
 function TPrimMainMenuWithProfNewsForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_56FA889202B4_var*
 //#UC END# *4AC9B6D00250_56FA889202B4_var*
@@ -690,9 +678,10 @@ procedure TPrimMainMenuWithProfNewsForm.FinishDataUpdate;
 begin
 //#UC START# *47EA4E9002C6_56FA889202B4_impl*
  inherited;
+ LoadTrees;
  UpdateSearchLabels;
  UpdateReferencesAndLawNewsCaptions;
- UpdateTaxesTreeCaption;
+ ArrangeControls;
 //#UC END# *47EA4E9002C6_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.FinishDataUpdate
 
@@ -703,31 +692,17 @@ procedure TPrimMainMenuWithProfNewsForm.DoInit(aFromHistory: Boolean);
 //#UC END# *49803F5503AA_56FA889202B4_var*
 begin
 //#UC START# *49803F5503AA_56FA889202B4_impl*
- f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
- UpdateTaxesTreeCaption;
+ //f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
+ //UpdateTaxesTreeCaption;
  inherited;
  LoadBanner;
  UpdateCaption;
  UpdateTabCaption(DoGetTabCaption);
  LoadTrees;
-
+ UpdateReferencesAndLawNewsCaptions;
  ArrangeControls;
 //#UC END# *49803F5503AA_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-function TPrimMainMenuWithProfNewsForm.DoLoadState(const aState: IvcmBase;
- aStateType: TvcmStateType): Boolean;
- {* Загружает состояние формы. Для перекрытия в потомках }
-//#UC START# *49807428008C_56FA889202B4_var*
-//#UC END# *49807428008C_56FA889202B4_var*
-begin
-//#UC START# *49807428008C_56FA889202B4_impl*
- inherited DoLoadState(aState, aStateType);
- ArrangeControls;
-//#UC END# *49807428008C_56FA889202B4_impl*
-end;//TPrimMainMenuWithProfNewsForm.DoLoadState
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(DesignTimeLibrary)}
@@ -800,7 +775,7 @@ begin
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
  inherited;
 
- lblProfNews.Caption := 'Профессиональные новости';
+ //lblProfNews.Caption := 'Профессиональные новости';
 
  Self.Color := clWhite;
  Self.Align := alClient;
@@ -919,6 +894,7 @@ begin
   ImageIndex := 2;
   ImageList := nsDocumentRes.MainMenuImageList;
   StyleId := f1_saNewSchoolMainMenuHeader;
+  OnChange := lblProfNewsChange;
  end;
  with tvProfNews do
  begin
@@ -1002,6 +978,7 @@ begin
   StyleId := f1_saNewSchoolMainMenuHeader;
   //if afw.Application.LocaleInfo.Language = afw_lngEnglish
   ImageIndex := 2;
+  OnChange := lblTaxesChange;
  end;
  with tvTaxes do
  begin
@@ -1078,12 +1055,38 @@ end;//TPrimMainMenuWithProfNewsForm.LoadLastOpenDocs
 
 procedure TPrimMainMenuWithProfNewsForm.LoadTrees;
 //#UC START# *4AC9E9EC0064_56FA889202B4_var*
+var
+ l_ProfNewsSections,
+ l_TaxesSections: IMainMenuSectionList;
 //#UC END# *4AC9E9EC0064_56FA889202B4_var*
 begin
 //#UC START# *4AC9E9EC0064_56FA889202B4_impl*
  inherited;
- UpdateTaxesTree;
- UpdateReferencesAndLawNewsCaptions;
+
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetProfessionSectionList(l_TaxesSections);
+ if Assigned(l_TaxesSections) then
+ begin
+  lblTaxes.TreeStruct := TsmSectionTree.Make(l_TaxesSections);
+  lblTaxes.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_TaxesSection, dv_MainMenu_TaxesSection);
+ end else
+ begin
+  lblTaxes.Caption := '---';
+  lblTaxes.Visible := False;
+  tvTaxes.Visible := False;
+ end;
+
+
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetNewsSectionList(l_ProfNewsSections);
+ if Assigned(l_ProfNewsSections) then
+ begin
+  lblProfNews.TreeStruct := TsmSectionTree.Make(l_ProfNewsSections);
+  lblProfNews.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_ProfNewsSection, dv_MainMenu_ProfNewsSection);
+ end else
+ begin
+  lblProfNews.Caption := '---';
+  lblProfNews.Visible := False;
+  tvProfNews.Visible := False;
+ end;
 //#UC END# *4AC9E9EC0064_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadTrees
 
