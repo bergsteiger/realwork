@@ -57,6 +57,9 @@ uses
  , nevFormatInfo
  , nevFormatInfoFactory
  , k2Tags
+ {$If NOT Defined(NoScripts)}
+ , kwFiltersAndGeneratorsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 class function TevHiddenFilter.SetTo(aHiddenStyles: TevStandardStyles;
