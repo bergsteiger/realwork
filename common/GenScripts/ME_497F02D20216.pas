@@ -153,6 +153,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimUserProperty_admUseProperties_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

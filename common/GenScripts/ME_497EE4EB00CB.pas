@@ -234,6 +234,7 @@ uses
  , PreviewInterfaces
  , nsSaveDialog
  , nsConst
+ , PrimMedicFirmList_mflMain_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

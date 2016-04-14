@@ -35,6 +35,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , PictureInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , PictureInfo_ut_PictureInfo_UserType
 ;
 
 const

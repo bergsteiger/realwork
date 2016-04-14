@@ -221,6 +221,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimUserList_admUserList_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -68,6 +68,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimAdmin_utAdmin_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

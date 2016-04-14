@@ -86,6 +86,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimMedicListSynchroView_mlsfDrugList_UserType
+ , PrimMedicListSynchroView_mlsfMedicFirm_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -51,6 +51,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimCommonDiction_utTips_UserType
+ , PrimCommonDiction_utMedicDiction_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

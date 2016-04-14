@@ -91,6 +91,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimGroupProperty_admCreateGroup_UserType
+ , PrimGroupProperty_admRenameGroup_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

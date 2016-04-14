@@ -264,6 +264,7 @@ uses
  , evSearch
  , IOUnit
  , l3String
+ , PrimQueryCard_utqcPostingOrder_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

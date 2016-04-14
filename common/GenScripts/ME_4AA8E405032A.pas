@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , ForbidAutoregistrationKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , ForbidAutoregistration_ut_ForbidAutoregistration_UserType
 ;
 
 const

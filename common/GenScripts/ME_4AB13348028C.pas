@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , DocNumberQueryKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , DocNumberQuery_ut_DocNumberQuery_UserType
 ;
 
 const
