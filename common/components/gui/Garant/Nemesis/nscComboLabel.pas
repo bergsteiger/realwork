@@ -23,14 +23,11 @@ uses
  , AbsSubTree
  , Graphics
  , Messages
- , l3Region
  , vtLister
 ;
 
 type
- _RegionableControl_Parent_ = TAbsSubTree;
- {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
- TnscLabelSubTree = class(_RegionableControl_)
+ TnscLabelSubTree = class(TAbsSubTree)
   private
    f_HighLightItem: Integer;
     {* Подсвеченный мышью элемент }
@@ -40,12 +37,10 @@ type
    procedure WMMouseMove(var Message: TWMMouseMove); message WM_MOUSEMOVE;
    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
    procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
-   procedure WMKillFocus(var Message: TWMKillFocus); message WM_KILLFOCUS;
+   procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
   protected
    procedure pm_SetHighLightItem(aValue: Integer);
    procedure CloseUp(anAccept: Boolean);
-   procedure Invalidate;
-    {* Запрос на перерисовку. }
    function IsSizeableTree: Boolean; override;
    function IsShowGripper: Boolean; override;
    function IsList: Boolean; override;
@@ -55,7 +50,6 @@ type
    {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
    {$IfEnd} // NOT Defined(NoVCL)
-   procedure TuneRegion(aRegion: Tl3Region); override;
    procedure DoOnGetItemStyle(aItemIndex: Integer;
     const aFont: Il3Font;
     var aTextBackColor: TColor;
@@ -71,6 +65,9 @@ type
    procedure NCDraw(aDC: hDC); override;
   public
    constructor Create(AOwner: TComponent); override;
+   {$If NOT Defined(NoVCL)}
+   procedure MouseWheelHandler(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
   protected
    property OnCloseup: TNotifyEvent
     read f_OnCloseup
@@ -154,13 +151,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
- {$If NOT Defined(NoVCL)}
- , Themes
- {$IfEnd} // NOT Defined(NoVCL)
 ;
-
-{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 
 procedure TnscLabelSubTree.pm_SetHighLightItem(aValue: Integer);
 //#UC START# *57062DEC03CF_5704FC1A0398set_var*
@@ -229,7 +220,7 @@ begin
 //#UC END# *570664F001CF_5704FC1A0398_impl*
 end;//TnscLabelSubTree.WMNCCalcSize
 
-procedure TnscLabelSubTree.WMKillFocus(var Message: TWMKillFocus);
+procedure TnscLabelSubTree.CNKeyDown(var Message: TWMKeyDown);
 //#UC START# *57067C0302FD_5704FC1A0398_var*
 //#UC END# *57067C0302FD_5704FC1A0398_var*
 begin
@@ -237,17 +228,7 @@ begin
  inherited;
  //CloseUp(False);
 //#UC END# *57067C0302FD_5704FC1A0398_impl*
-end;//TnscLabelSubTree.WMKillFocus
-
-procedure TnscLabelSubTree.Invalidate;
- {* Запрос на перерисовку. }
-//#UC START# *46A5AA4B003C_5704FC1A0398_var*
-//#UC END# *46A5AA4B003C_5704FC1A0398_var*
-begin
-//#UC START# *46A5AA4B003C_5704FC1A0398_impl*
- inherited;
-//#UC END# *46A5AA4B003C_5704FC1A0398_impl*
-end;//TnscLabelSubTree.Invalidate
+end;//TnscLabelSubTree.CNKeyDown
 
 function TnscLabelSubTree.IsSizeableTree: Boolean;
 //#UC START# *5298BEBA032D_5704FC1A0398_var*
@@ -342,27 +323,6 @@ begin
 end;//TnscLabelSubTree.CreateParams
 {$IfEnd} // NOT Defined(NoVCL)
 
-procedure TnscLabelSubTree.TuneRegion(aRegion: Tl3Region);
-//#UC START# *4CC847800383_5704FC1A0398_var*
-const
- cRad = 26;
-var
- l_R: Tl3Region;
-//#UC END# *4CC847800383_5704FC1A0398_var*
-begin
-//#UC START# *4CC847800383_5704FC1A0398_impl*
- l_R := Tl3Region.Create;
- try
-  l_R.Rgn := CreateRoundRectRgn(0, 0, Width + 1, Height + 1, cRad, cRad);
-  aRegion.Combine(l_R, RGN_OR);
-  aRegion.CombineRect(l3SRect(Width - cRad, 0, Width, Height), RGN_OR);
-  aRegion.CombineRect(l3SRect(0, 0, Width, cRad), RGN_OR);
- finally
-  FreeAndNil(l_R);
- end;//try..fianlly
-//#UC END# *4CC847800383_5704FC1A0398_impl*
-end;//TnscLabelSubTree.TuneRegion
-
 procedure TnscLabelSubTree.DoOnGetItemStyle(aItemIndex: Integer;
  const aFont: Il3Font;
  var aTextBackColor: TColor;
@@ -399,6 +359,21 @@ begin
  Result := 0;
 //#UC END# *5151AF650239_5704FC1A0398_impl*
 end;//TnscLabelSubTree.DoOnGetItemIndent
+
+{$If NOT Defined(NoVCL)}
+procedure TnscLabelSubTree.MouseWheelHandler(var Message: TMessage);
+//#UC START# *515317860183_5704FC1A0398_var*
+//#UC END# *515317860183_5704FC1A0398_var*
+begin
+//#UC START# *515317860183_5704FC1A0398_impl*
+ inherited;
+ if (Current >= 0) then
+  InvalidateItem(Current);
+ if (f_HighLightItem >= 0) then
+  InvalidateItem(f_HighLightItem);
+//#UC END# *515317860183_5704FC1A0398_impl*
+end;//TnscLabelSubTree.MouseWheelHandler
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TnscLabelSubTree.NeedDrawArrowSelection(aItemIndex: Integer): Boolean;
 //#UC START# *5266253D035D_5704FC1A0398_var*
