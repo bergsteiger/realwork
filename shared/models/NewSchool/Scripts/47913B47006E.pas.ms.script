@@ -14168,6 +14168,8 @@ FORWARD ME_5C8C6643E7CF
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmFileOp''; rValue : ''Файловая операция'')'
+ : Speller ME_4BA207450388 // FileOp
+ ;
 
 ref; // ME_445E4D28A3D4 FileOp
 
@@ -14191,6 +14193,8 @@ ref; // ME_445E4D28A3D4 FileOp
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmFileOpFmt''; rValue : ''Файловая операция [%s]'')'
+ : Speller ME_4BA207560312 // FileOpFmt
+ ;
 
 ref; // ME_63DAB91C13B1 FileOpFmt
 
@@ -14217,6 +14221,8 @@ ref; // ME_63DAB91C13B1 FileOpFmt
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_l3mm'
+ : Speller ME_4BA2071303D0 // Local
+ ;
 
 ref; // ME_5C8C6643E7CF LCImplLocal
 
@@ -14242,6 +14248,8 @@ FORWARD ME_1F2A40A8C518
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmFileOp''; rValue : ''Загрузка документа'')'
+ : Speller ME_4BA2078503BE // FileOp
+ ;
 
 ref; // ME_6593A9820596 FileOp
 
@@ -14265,6 +14273,8 @@ ref; // ME_6593A9820596 FileOp
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmFileOpFmt''; rValue : ''Загрузка документа [%s]'')'
+ : Speller ME_4BA2078F02FD // FileOpFmt
+ ;
 
 ref; // ME_BDC1D36EEDA7 FileOpFmt
 
@@ -14291,84 +14301,10 @@ ref; // ME_BDC1D36EEDA7 FileOpFmt
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_l3mm'
+ : Speller ME_4BA2076C01E2 // LocalNemesis
+ ;
 
 ref; // ME_1F2A40A8C518 LCImplLocalNemesis
-
-: ME_7108F89224DE
- CONST UID '7108F89224DE'
- CONST Name 'Init_Str_FileOp'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmFileOp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BA206A400AC // l3FilerRes
- ;
- CONST "ifndef" 'Nemesis'
- : Speller ME_4BA207450388 // FileOp
- ;
- : SpelledFor ME_445E4D28A3D4 // FileOp
- ;
-
-ref; // ME_7108F89224DE Init_Str_FileOp
-
-: ME_AF6B9C174627
- CONST UID 'AF6B9C174627'
- CONST Name 'Init_Str_FileOpFmt'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmFileOpFmt' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BA206A400AC // l3FilerRes
- ;
- CONST "ifndef" 'Nemesis'
- : Speller ME_4BA207560312 // FileOpFmt
- ;
- : SpelledFor ME_63DAB91C13B1 // FileOpFmt
- ;
-
-ref; // ME_AF6B9C174627 Init_Str_FileOpFmt
-
-: ME_847E50E44B8C
- CONST UID '847E50E44B8C'
- CONST Name 'Init_Str_FileOp'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmFileOp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BA206A400AC // l3FilerRes
- ;
- CONST "ifdef" 'Nemesis'
- : Speller ME_4BA2078503BE // FileOp
- ;
- : SpelledFor ME_6593A9820596 // FileOp
- ;
-
-ref; // ME_847E50E44B8C Init_Str_FileOp
-
-: ME_5154489CD706
- CONST UID '5154489CD706'
- CONST Name 'Init_Str_FileOpFmt'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmFileOpFmt' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BA206A400AC // l3FilerRes
- ;
- CONST "ifdef" 'Nemesis'
- : Speller ME_4BA2078F02FD // FileOpFmt
- ;
- : SpelledFor ME_BDC1D36EEDA7 // FileOpFmt
- ;
-
-ref; // ME_5154489CD706 Init_Str_FileOpFmt
 
 : ME_6F62A8B8F043
  CONST IsSummoned true
@@ -14402,13 +14338,6 @@ ref; // ME_C1919099ED0B
  CONST Abstraction at_final
  : Parent ME_47913B47006E // l3CoreObjects
  ;
- : Operations
-   Seq: ( ME_7108F89224DE // Init_Str_FileOp
- ME_AF6B9C174627 // Init_Str_FileOpFmt
- ME_847E50E44B8C // Init_Str_FileOp
- ME_5154489CD706 // Init_Str_FileOpFmt
- )
- ; // Operations
  : Constants
    Seq: ( ME_4BA2071303D0 // Local
  ME_4BA2076C01E2 // LocalNemesis
@@ -14492,6 +14421,8 @@ FORWARD ME_BEFA87745B3B
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmLongOperation''; rValue : ''Выполняется длительная операция...'')'
+ : Speller ME_4BA20A4F018E // LongOperation
+ ;
 
 ref; // ME_D5ADACB3DD45 LongOperation
 
@@ -14516,26 +14447,10 @@ ref; // ME_D5ADACB3DD45 LongOperation
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_l3mm'
+ : Speller ME_4BA20A380097 // Local
+ ;
 
 ref; // ME_BEFA87745B3B LCImplLocal
-
-: ME_83E81EDC67DE
- CONST UID '83E81EDC67DE'
- CONST Name 'Init_Str_LongOperation'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmLongOperation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BA20A0E03B0 // l3AsincMessageWindowRes
- ;
- : Speller ME_4BA20A4F018E // LongOperation
- ;
- : SpelledFor ME_D5ADACB3DD45 // LongOperation
- ;
-
-ref; // ME_83E81EDC67DE Init_Str_LongOperation
 
 : ME_DDA23BC5673E
  CONST IsSummoned true
@@ -14569,10 +14484,6 @@ ref; // ME_8D2BA6704C34
  CONST Abstraction at_final
  : Parent ME_47913B47006E // l3CoreObjects
  ;
- : Operations
-   Seq: ( ME_83E81EDC67DE // Init_Str_LongOperation
- )
- ; // Operations
  : Constants
    Seq: ( ME_4BA20A380097 // Local
  ME_BEFA87745B3B // LCImplLocal

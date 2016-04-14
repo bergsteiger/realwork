@@ -415,6 +415,8 @@ FORWARD ME_C7F7FD13EE98
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmUndo''; rValue : ''Откат'')'
+ : Speller ME_4BA2033B03DD // Undo
+ ;
 
 ref; // ME_4B988BF442FB Undo
 
@@ -438,6 +440,8 @@ ref; // ME_4B988BF442FB Undo
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmRedo''; rValue : ''Возврат'')'
+ : Speller ME_4BA203470251 // Redo
+ ;
 
 ref; // ME_A10219615629 Redo
 
@@ -463,6 +467,8 @@ ref; // ME_A10219615629 Redo
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_l3mm'
+ : Speller ME_4BA203260193 // Local
+ ;
 
 ref; // ME_C7F7FD13EE98 LCImplLocal
 
@@ -768,42 +774,6 @@ ref; // ME_4A60A2CF0359 Value
 
 ref; // ME_4A60A2CF0329 DoSetOwner
 
-: ME_0DD10D1AEA63
- CONST UID '0DD10D1AEA63'
- CONST Name 'Init_Str_Undo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmUndo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_47E3C78502FB // Tk2OperationContainer
- ;
- : Speller ME_4BA2033B03DD // Undo
- ;
- : SpelledFor ME_4B988BF442FB // Undo
- ;
-
-ref; // ME_0DD10D1AEA63 Init_Str_Undo
-
-: ME_73D89AFC9B3B
- CONST UID '73D89AFC9B3B'
- CONST Name 'Init_Str_Redo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_l3mmRedo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_47E3C78502FB // Tk2OperationContainer
- ;
- : Speller ME_4BA203470251 // Redo
- ;
- : SpelledFor ME_A10219615629 // Redo
- ;
-
-ref; // ME_73D89AFC9B3B Init_Str_Redo
-
 : ME_48AC2AAE0317
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1100,8 +1070,6 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ME_48B2C3ED01BB // Add
  ME_4DD3EB5A01C3 // Create
  ME_4A60A2CF0329 // DoSetOwner
- ME_0DD10D1AEA63 // Init_Str_Undo
- ME_73D89AFC9B3B // Init_Str_Redo
  )
  ; // Operations
  : Implemented

@@ -625,6 +625,8 @@ FORWARD ME_54D92F9F38A5
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChatPastePrefix''; rValue : ''Из документа ГАРАНТ:'')'
+ : Speller ME_4BBDC4EE0017 // ChatPastePrefix
+ ;
 
 ref; // ME_20CAE3553527 ChatPastePrefix
 
@@ -648,6 +650,8 @@ ref; // ME_20CAE3553527 ChatPastePrefix
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_4BBDC4E500F0 // Local
+ ;
 
 ref; // ME_54D92F9F38A5 LCImplLocal
 
@@ -721,24 +725,6 @@ ref; // ME_4A8BFBCB02EE f_ExternalHandle
  ;
 
 ref; // ME_4A8D287202AC f_NumberedPara
-
-: ME_20578FB5691C
- CONST UID '20578FB5691C'
- CONST Name 'Init_Str_ChatPastePrefix'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ChatPastePrefix' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
- ;
- : Speller ME_4BBDC4EE0017 // ChatPastePrefix
- ;
- : SpelledFor ME_20CAE3553527 // ChatPastePrefix
- ;
-
-ref; // ME_20578FB5691C Init_Str_ChatPastePrefix
 
 : ME_4A8BD98201EB
  CONST Class class_Dependency
@@ -958,10 +944,6 @@ ref; // ME_48E4B7F403D6_ME_4A8BB357000F FinishInsertion
  ME_4A8D287202AC // f_NumberedPara
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_20578FB5691C // Init_Str_ChatPastePrefix
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4A8BB357000F // Cleanup
  ME_4836B3DB01C9_ME_4A8BB357000F // DoAddAtom

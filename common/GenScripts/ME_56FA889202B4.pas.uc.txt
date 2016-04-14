@@ -6,28 +6,28 @@
 //#UC END# *479731C50290_56FA889202B4_var*
 //#UC START# *47EA4E9002C6_56FA889202B4_impl*
  inherited;
+ LoadTrees;
  UpdateSearchLabels;
  UpdateReferencesAndLawNewsCaptions;
- UpdateTaxesTreeCaption;
+ ArrangeControls;
 //#UC END# *47EA4E9002C6_56FA889202B4_impl*
 //#UC START# *47EA4E9002C6_56FA889202B4_var*
 //#UC END# *47EA4E9002C6_56FA889202B4_var*
 //#UC START# *49803F5503AA_56FA889202B4_impl*
- f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
- UpdateTaxesTreeCaption;
+ //f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
+ //UpdateTaxesTreeCaption;
  inherited;
  LoadBanner;
  UpdateCaption;
  UpdateTabCaption(DoGetTabCaption);
  LoadTrees;
-
+ UpdateReferencesAndLawNewsCaptions;
  ArrangeControls;
 //#UC END# *49803F5503AA_56FA889202B4_impl*
 //#UC START# *49803F5503AA_56FA889202B4_var*
 //#UC END# *49803F5503AA_56FA889202B4_var*
 //#UC START# *49807428008C_56FA889202B4_impl*
  inherited DoLoadState(aState, aStateType);
- ArrangeControls;
 //#UC END# *49807428008C_56FA889202B4_impl*
 //#UC START# *49807428008C_56FA889202B4_var*
 //#UC END# *49807428008C_56FA889202B4_var*
@@ -40,7 +40,7 @@
 //#UC START# *4A8E8F2E0195_56FA889202B4_impl*
  inherited;
 
- lblProfNews.Caption := 'Профессиональные новости';
+ //lblProfNews.Caption := 'Профессиональные новости';
 
  Self.Color := clWhite;
  Self.Align := alClient;
@@ -159,6 +159,7 @@
   ImageIndex := 2;
   ImageList := nsDocumentRes.MainMenuImageList;
   StyleId := f1_saNewSchoolMainMenuHeader;
+  OnChange := lblProfNewsChange;
  end;
  with tvProfNews do
  begin
@@ -242,6 +243,7 @@
   StyleId := f1_saNewSchoolMainMenuHeader;
   //if afw.Application.LocaleInfo.Language = afw_lngEnglish
   ImageIndex := 2;
+  OnChange := lblTaxesChange;
  end;
  with tvTaxes do
  begin
@@ -367,10 +369,36 @@ var
 //#UC END# *4AC9D12600E0_56FA889202B4_var*
 //#UC START# *4AC9E9EC0064_56FA889202B4_impl*
  inherited;
- UpdateTaxesTree;
- UpdateReferencesAndLawNewsCaptions;
+
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetProfessionSectionList(l_TaxesSections);
+ if Assigned(l_TaxesSections) then
+ begin
+  lblTaxes.TreeStruct := TsmSectionTree.Make(l_TaxesSections);
+  lblTaxes.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_TaxesSection, dv_MainMenu_TaxesSection);
+ end else
+ begin
+  lblTaxes.Caption := '---';
+  lblTaxes.Visible := False;
+  tvTaxes.Visible := False;
+ end;
+
+
+ DefDataAdapter.NativeAdapter.MakeMainMenu.GetNewsSectionList(l_ProfNewsSections);
+ if Assigned(l_ProfNewsSections) then
+ begin
+  lblProfNews.TreeStruct := TsmSectionTree.Make(l_ProfNewsSections);
+  lblProfNews.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_ProfNewsSection, dv_MainMenu_ProfNewsSection);
+ end else
+ begin
+  lblProfNews.Caption := '---';
+  lblProfNews.Visible := False;
+  tvProfNews.Visible := False;
+ end;
 //#UC END# *4AC9E9EC0064_56FA889202B4_impl*
 //#UC START# *4AC9E9EC0064_56FA889202B4_var*
+var
+ l_ProfNewsSections,
+ l_TaxesSections: IMainMenuSectionList;
 //#UC END# *4AC9E9EC0064_56FA889202B4_var*
 //#UC START# *4ACA197F0147_56FA889202B4get_impl*
  Result := Self;
@@ -424,32 +452,49 @@ var
 //#UC START# *543E3AA801D0_56FA889202B4_var*
 //#UC END# *543E3AA801D0_56FA889202B4_var*
 //#UC START# *56FBC3F90034_56FA889202B4_impl*
- theState := hfsShow;
+// theState := hfsShow;
  //TaxesNextTree(Sender);
 //#UC END# *56FBC3F90034_56FA889202B4_impl*
 //#UC START# *56FBC3F90034_56FA889202B4_var*
 //#UC END# *56FBC3F90034_56FA889202B4_var*
 //#UC START# *56FBC41602A9_56FA889202B4_impl*
- UpdateTaxesTreeCaption;
- tvTaxes.TreeStruct := TsmChangeableTree.Make(f_CurrentSection);
+// //UpdateTaxesTreeCaption;
+// //tvTaxes.TreeStruct := TsmChangeableTree.Make(f_CurrentSection);
+// DefDataAdapter.NativeAdapter.MakeMainMenu.GetProfessionSectionList(l_TaxesSections);
+// if Assigned(l_TaxesSections) then
+//  lblTaxes.TreeStruct := TsmSectionTree.Make(l_TaxesSections)
+// else
+//  lblTaxes.Caption := '---';
+//
+// DefDataAdapter.NativeAdapter.MakeMainMenu.GetNewsSectionList(l_ProfNewsSections);
+// if Assigned(l_ProfNewsSections) then
+//  lblProfNews.TreeStruct := TsmSectionTree.Make(l_ProfNewsSections)
+// else
+//  lblProfNews.Caption := '---';
 //#UC END# *56FBC41602A9_56FA889202B4_impl*
 //#UC START# *56FBC41602A9_56FA889202B4_var*
+//var
+// l_ProfNewsSections,
+// l_TaxesSections: IMainMenuSectionList;
+//
 //#UC END# *56FBC41602A9_56FA889202B4_var*
 //#UC START# *56FBC4240324_56FA889202B4_impl*
- DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(f_CurrentSection, l_Sect);
- Assert(l_Sect <> nil);
- l_Sect.GetCaption(l_S);
- Assert(l_S <> nil);
- lblTaxes.Caption := l3Str(nsCStr(l_S));
+// {DefDataAdapter.NativeAdapter.MakeMainMenu.GetSection(f_CurrentSection, l_Sect);
+// Assert(l_Sect <> nil);
+// l_Sect.GetCaption(l_S);
+// Assert(l_S <> nil);
+// lblTaxes.Caption := l3Str(nsCStr(l_S));}
+//
 //#UC END# *56FBC4240324_56FA889202B4_impl*
 //#UC START# *56FBC4240324_56FA889202B4_var*
-var
- l_Sect: ISection;
- l_S: IString;
+////var
+//// l_Sect: ISection;
+//// l_S: IString;
+//
 //#UC END# *56FBC4240324_56FA889202B4_var*
 //#UC START# *56FBC4350226_56FA889202B4_impl*
  lblReferences.Caption := lp_Caption(ST_BUSINESS_REFERENCES);
- lblLawNews.Caption := lp_Caption(ST_LEGAL);
+ lblLawNews.Caption := lp_Caption(ST_CHANGES_IN_LEGISLATION);
 //#UC END# *56FBC4350226_56FA889202B4_impl*
 //#UC START# *56FBC4350226_56FA889202B4_var*
  function lp_Caption(aSection: TSectionType): String;
@@ -500,16 +545,16 @@ const
 //#UC END# *56FCF6290256_56FA889202B4_var*
 //#UC START# *56FD0A30011C_56FA889202B4_impl*
  if (Sender = flAttributeSearch) then
-  //TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
  else
  if (Sender = flSituationSearch) then
-  //TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
  else
  if (Sender = flPublishedSourceSearch) then
-  //TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
+  TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
  else
  if (Sender = flDictionSearch) then
-  //TdmStdRes.OpenDictionary(nil, NativeMainForm)
+  TdmStdRes.OpenDictionary(nil, NativeMainForm)
  else
   Assert(False);
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
@@ -779,3 +824,23 @@ var
  l_Stream: TStream;
  l_Name: IString;
 //#UC END# *57024B0D006F_56FA889202B4_var*
+//#UC START# *5707BB3A0018_56FA889202B4_impl*
+ if Supports(lblTaxes.TreeStruct.Nodes[lblTaxes.CurrentItem], IMainMenuSection, l_Section) then
+  tvTaxes.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
+ ArrangeControls;
+ afw.Settings.SaveInteger(pi_MainMenu_TaxesSection, lblTaxes.CurrentItem);
+//#UC END# *5707BB3A0018_56FA889202B4_impl*
+//#UC START# *5707BB3A0018_56FA889202B4_var*
+var
+ l_Section: IMainMenuSection;
+//#UC END# *5707BB3A0018_56FA889202B4_var*
+//#UC START# *5707BB480178_56FA889202B4_impl*
+ if Supports(lblProfNews.TreeStruct.Nodes[lblProfNews.CurrentItem], IMainMenuSection, l_Section) then
+  tvProfNews.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
+ ArrangeControls;        
+ afw.Settings.SaveInteger(pi_MainMenu_ProfNewsSection, lblProfNews.CurrentItem);
+//#UC END# *5707BB480178_56FA889202B4_impl*
+//#UC START# *5707BB480178_56FA889202B4_var*
+var
+ l_Section: IMainMenuSection;
+//#UC END# *5707BB480178_56FA889202B4_var*

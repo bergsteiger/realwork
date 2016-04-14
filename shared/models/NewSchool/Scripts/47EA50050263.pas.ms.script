@@ -4860,6 +4860,8 @@ FORWARD ME_98AB3F9788E3
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''CommentStub''; rValue : ''Комментарий №%d к параграфу %d'')'
+ : Speller ME_4D305DAA02F0 // CommentStub
+ ;
 
 ref; // ME_7F6C1A4DFFEB CommentStub
 
@@ -4883,26 +4885,10 @@ ref; // ME_7F6C1A4DFFEB CommentStub
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_4D416C3B0283 // Local
+ ;
 
 ref; // ME_98AB3F9788E3 LCImplLocal
-
-: ME_C6D29DC2FDE8
- CONST UID 'C6D29DC2FDE8'
- CONST Name 'Init_Str_CommentStub'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_CommentStub' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D416F1300DB // dsBaseContentsRes
- ;
- : Speller ME_4D305DAA02F0 // CommentStub
- ;
- : SpelledFor ME_7F6C1A4DFFEB // CommentStub
- ;
-
-ref; // ME_C6D29DC2FDE8 Init_Str_CommentStub
 
 : ME_0A60890132AE
  CONST IsSummoned true
@@ -4936,10 +4922,6 @@ ref; // ME_F739034C6FDA
  CONST Abstraction at_final
  : Parent ME_47EA50050263 // BaseDocument
  ;
- : Operations
-   Seq: ( ME_C6D29DC2FDE8 // Init_Str_CommentStub
- )
- ; // Operations
  : Constants
    Seq: ( ME_4D416C3B0283 // Local
  ME_98AB3F9788E3 // LCImplLocal

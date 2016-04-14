@@ -5968,6 +5968,8 @@ FORWARD ME_7CFCAC67FA0A
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened_Choice_First''; rValue : ''Открыть в текущем окне'')'
+ : Speller ME_51E7E85E00D9 // First
+ ;
 
 ref; // ME_EA0CC30E0CA4 TooManyWindowsOpened_Choice_First
 
@@ -5991,6 +5993,8 @@ ref; // ME_EA0CC30E0CA4 TooManyWindowsOpened_Choice_First
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened_Choice_Second''; rValue : ''Отмена'')'
+ : Speller ME_51E7E8680152 // Second
+ ;
 
 ref; // ME_EB70D2C01D24 TooManyWindowsOpened_Choice_Second
 
@@ -6015,6 +6019,8 @@ ref; // ME_EB70D2C01D24 TooManyWindowsOpened_Choice_Second
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_51E7E8380021 // Choices
+ ;
 
 ref; // ME_7CFCAC67FA0A LCImpl_TooManyWindowsOpened_Choices
 
@@ -6040,6 +6046,8 @@ FORWARD ME_B67FDCE1F540
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened''; rValue : ''Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне'')'
+ : Speller ME_51E7E80A0021 // TooManyWindowsOpened
+ ;
 
 ref; // ME_12CAE66769FE TooManyWindowsOpened
 
@@ -6063,62 +6071,10 @@ ref; // ME_12CAE66769FE TooManyWindowsOpened
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_51E7F7590110 // Local
+ ;
 
 ref; // ME_B67FDCE1F540 LCImplLocal
-
-: ME_790CE4C3A39A
- CONST UID '790CE4C3A39A'
- CONST Name 'Init_Str_TooManyWindowsOpened_Choice_First'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_TooManyWindowsOpened_Choice_First' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51E7E79A0341 // vcmMainFormRes
- ;
- : Speller ME_51E7E85E00D9 // First
- ;
- : SpelledFor ME_EA0CC30E0CA4 // TooManyWindowsOpened_Choice_First
- ;
-
-ref; // ME_790CE4C3A39A Init_Str_TooManyWindowsOpened_Choice_First
-
-: ME_79EF194075D8
- CONST UID '79EF194075D8'
- CONST Name 'Init_Str_TooManyWindowsOpened_Choice_Second'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_TooManyWindowsOpened_Choice_Second' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51E7E79A0341 // vcmMainFormRes
- ;
- : Speller ME_51E7E8680152 // Second
- ;
- : SpelledFor ME_EB70D2C01D24 // TooManyWindowsOpened_Choice_Second
- ;
-
-ref; // ME_79EF194075D8 Init_Str_TooManyWindowsOpened_Choice_Second
-
-: ME_FC7C7C6A0224
- CONST UID 'FC7C7C6A0224'
- CONST Name 'Init_Str_TooManyWindowsOpened'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_TooManyWindowsOpened' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51E7E79A0341 // vcmMainFormRes
- ;
- : Speller ME_51E7E80A0021 // TooManyWindowsOpened
- ;
- : SpelledFor ME_12CAE66769FE // TooManyWindowsOpened
- ;
-
-ref; // ME_FC7C7C6A0224 Init_Str_TooManyWindowsOpened
 
 : ME_FD9E78948E77
  CONST IsSummoned true
@@ -6163,12 +6119,6 @@ ref; // ME_94E213C1F6AE
  CONST Abstraction at_final
  : Parent ME_4AADF9450143 // Visual
  ;
- : Operations
-   Seq: ( ME_790CE4C3A39A // Init_Str_TooManyWindowsOpened_Choice_First
- ME_79EF194075D8 // Init_Str_TooManyWindowsOpened_Choice_Second
- ME_FC7C7C6A0224 // Init_Str_TooManyWindowsOpened
- )
- ; // Operations
  : Constants
    Seq: ( ME_51E7F7590110 // Local
  ME_7CFCAC67FA0A // LCImpl_TooManyWindowsOpened_Choices

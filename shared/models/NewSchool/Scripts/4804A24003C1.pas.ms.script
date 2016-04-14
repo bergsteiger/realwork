@@ -355,6 +355,8 @@ FORWARD ME_5F711CE85869
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageBegin''; rValue : '' Начало страницы. '')'
+ : Speller ME_4B8BF20A031D // PageBegin
+ ;
 
 ref; // ME_710F11916A3D PageBegin
 
@@ -379,6 +381,8 @@ ref; // ME_710F11916A3D PageBegin
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevmm'
+ : Speller ME_4B8BF1F90349 // Local
+ ;
 
 ref; // ME_5F711CE85869 LCImplLocal
 
@@ -442,24 +446,6 @@ ref; // ME_480C9E010000 B
  ; // Parameters
 
 ref; // ME_480C9DEF0099 DrawLine
-
-: ME_1B369276488B
- CONST UID '1B369276488B'
- CONST Name 'Init_Str_PageBegin'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nevmmPageBegin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_480C9D5E01EE // TevPageBreakPainter
- ;
- : Speller ME_4B8BF20A031D // PageBegin
- ;
- : SpelledFor ME_710F11916A3D // PageBegin
- ;
-
-ref; // ME_1B369276488B Init_Str_PageBegin
 
 : ME_480CA0A1008C
  CONST Class class_Dependency
@@ -590,7 +576,6 @@ ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
    Seq: ( ME_480C9DC4032F // GetString
  ME_480C9DDD01B0 // NewPage
  ME_480C9DEF0099 // DrawLine
- ME_1B369276488B // Init_Str_PageBegin
  )
  ; // Operations
  : Overridden
@@ -711,6 +696,8 @@ FORWARD ME_8395777CD6A3
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevPortaitSection''; rValue : '' Начало раздела. (%s, книжная) '')'
+ : Speller ME_4B8C00950122 // PortaitSection
+ ;
 
 ref; // ME_D25C91F77269 PortaitSection
 
@@ -734,6 +721,8 @@ ref; // ME_D25C91F77269 PortaitSection
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevLandscapeSection''; rValue : '' Начало раздела. (%s, альбомная) '')'
+ : Speller ME_4B8C00B3030B // LandscapeSection
+ ;
 
 ref; // ME_ED6A57C6A9F1 LandscapeSection
 
@@ -759,44 +748,10 @@ ref; // ME_ED6A57C6A9F1 LandscapeSection
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nev'
+ : Speller ME_4B8C005F03B8 // Local
+ ;
 
 ref; // ME_8395777CD6A3 LCImplLocal
-
-: ME_ADAF29A1D600
- CONST UID 'ADAF29A1D600'
- CONST Name 'Init_Str_PortaitSection'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nevPortaitSection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_480CA641014D // TevSectionBreakPainter
- ;
- : Speller ME_4B8C00950122 // PortaitSection
- ;
- : SpelledFor ME_D25C91F77269 // PortaitSection
- ;
-
-ref; // ME_ADAF29A1D600 Init_Str_PortaitSection
-
-: ME_5341E57C3F90
- CONST UID '5341E57C3F90'
- CONST Name 'Init_Str_LandscapeSection'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nevLandscapeSection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_480CA641014D // TevSectionBreakPainter
- ;
- : Speller ME_4B8C00B3030B // LandscapeSection
- ;
- : SpelledFor ME_ED6A57C6A9F1 // LandscapeSection
- ;
-
-ref; // ME_5341E57C3F90 Init_Str_LandscapeSection
 
 : ME_480CA6D90305
  CONST Class class_Dependency
@@ -955,11 +910,6 @@ ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
    Seq: ( ME_480C9D5E01EE // TevPageBreakPainter
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_ADAF29A1D600 // Init_Str_PortaitSection
- ME_5341E57C3F90 // Init_Str_LandscapeSection
- )
- ; // Operations
  : Overridden
    Seq: ( ME_480C9DC4032F_ME_480CA641014D // GetString
  ME_480C9DDD01B0_ME_480CA641014D // NewPage

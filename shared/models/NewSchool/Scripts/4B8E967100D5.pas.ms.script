@@ -105,6 +105,8 @@ FORWARD ME_FB02A8C924A8
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmCloseHint''; rValue : ''Закрыть'')'
+ : Speller ME_499441F601BF // CloseHint
+ ;
 
 ref; // ME_AB31C63C062C CloseHint
 
@@ -128,6 +130,8 @@ ref; // ME_AB31C63C062C CloseHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmMaximizedHint''; rValue : ''Открыть в новом окне'')'
+ : Speller ME_499441FB0098 // MaximizedHint
+ ;
 
 ref; // ME_3020E2A62239 MaximizedHint
 
@@ -151,6 +155,8 @@ ref; // ME_3020E2A62239 MaximizedHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmOpenHint''; rValue : ''Открыть в текущем окне'')'
+ : Speller ME_499441FF030C // OpenHint
+ ;
 
 ref; // ME_972B6A393155 OpenHint
 
@@ -177,62 +183,10 @@ ref; // ME_972B6A393155 OpenHint
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
+ : Speller ME_499441EF01A9 // TvcmUserTypeHints
+ ;
 
 ref; // ME_FB02A8C924A8 LCImplTvcmUserTypeHints
-
-: ME_B83D2A98FEF2
- CONST UID 'B83D2A98FEF2'
- CONST Name 'Init_Str_CloseHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmCloseHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E967F00BE // vcmMenuManagerRes
- ;
- : Speller ME_499441F601BF // CloseHint
- ;
- : SpelledFor ME_AB31C63C062C // CloseHint
- ;
-
-ref; // ME_B83D2A98FEF2 Init_Str_CloseHint
-
-: ME_67AD8DD8E318
- CONST UID '67AD8DD8E318'
- CONST Name 'Init_Str_MaximizedHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmMaximizedHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E967F00BE // vcmMenuManagerRes
- ;
- : Speller ME_499441FB0098 // MaximizedHint
- ;
- : SpelledFor ME_3020E2A62239 // MaximizedHint
- ;
-
-ref; // ME_67AD8DD8E318 Init_Str_MaximizedHint
-
-: ME_E42A5E90B7F3
- CONST UID 'E42A5E90B7F3'
- CONST Name 'Init_Str_OpenHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmOpenHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E967F00BE // vcmMenuManagerRes
- ;
- : Speller ME_499441FF030C // OpenHint
- ;
- : SpelledFor ME_972B6A393155 // OpenHint
- ;
-
-ref; // ME_E42A5E90B7F3 Init_Str_OpenHint
 
 : ME_543A779BD77B
  CONST IsSummoned true
@@ -266,12 +220,6 @@ ref; // ME_B123A011CDF7
  CONST Abstraction at_final
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
- : Operations
-   Seq: ( ME_B83D2A98FEF2 // Init_Str_CloseHint
- ME_67AD8DD8E318 // Init_Str_MaximizedHint
- ME_E42A5E90B7F3 // Init_Str_OpenHint
- )
- ; // Operations
  : Constants
    Seq: ( ME_499441EF01A9 // TvcmUserTypeHints
  ME_FB02A8C924A8 // LCImplTvcmUserTypeHints
@@ -472,6 +420,8 @@ FORWARD ME_80C1FC5E7E1A
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpTop''; rValue : ''Верхняя'')'
+ : Speller ME_4B8E9D470331 // Top
+ ;
 
 ref; // ME_DDCD8DFDF9F6 Top
 
@@ -495,6 +445,8 @@ ref; // ME_DDCD8DFDF9F6 Top
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpBottom''; rValue : ''Нижняя'')'
+ : Speller ME_4B8E9D52017B // Bottom
+ ;
 
 ref; // ME_03182DA6CD0C Bottom
 
@@ -518,6 +470,8 @@ ref; // ME_03182DA6CD0C Bottom
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpLeft''; rValue : ''Левая'')'
+ : Speller ME_4B8E9D5C00C5 // Left
+ ;
 
 ref; // ME_F8A1F209B0F7 Left
 
@@ -541,6 +495,8 @@ ref; // ME_F8A1F209B0F7 Left
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpRight''; rValue : ''Правая'')'
+ : Speller ME_4B8E9D6A0086 // Right
+ ;
 
 ref; // ME_398E012298A5 Right
 
@@ -568,6 +524,8 @@ ref; // ME_398E012298A5 Right
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcmetbp'
+ : Speller ME_4B8E9D250114 // ToolbarPos
+ ;
 
 ref; // ME_80C1FC5E7E1A LCImplToolbarPos
 
@@ -703,6 +661,8 @@ FORWARD ME_B1647D57FAD1
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmSeparator''; rValue : ''- Разделитель -'')'
+ : Speller ME_4B8EA1A401D6 // Separator
+ ;
 
 ref; // ME_BE5A17DB515F Separator
 
@@ -726,6 +686,8 @@ ref; // ME_BE5A17DB515F Separator
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmAskResoreToolbar''; rValue : ''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?'')'
+ : Speller ME_4B8EA424001A // AskResoreToolbar
+ ;
 
 ref; // ME_794C5E085401 AskResoreToolbar
 
@@ -751,116 +713,10 @@ ref; // ME_794C5E085401 AskResoreToolbar
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
+ : Speller ME_4B8EA1840338 // Local
+ ;
 
 ref; // ME_B1647D57FAD1 LCImplLocal
-
-: ME_82C732F3FD32
- CONST UID '82C732F3FD32'
- CONST Name 'Init_Str_Top'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmetbpTop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Speller ME_4B8E9D470331 // Top
- ;
- : SpelledFor ME_DDCD8DFDF9F6 // Top
- ;
-
-ref; // ME_82C732F3FD32 Init_Str_Top
-
-: ME_1060F3416125
- CONST UID '1060F3416125'
- CONST Name 'Init_Str_Bottom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmetbpBottom' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Speller ME_4B8E9D52017B // Bottom
- ;
- : SpelledFor ME_03182DA6CD0C // Bottom
- ;
-
-ref; // ME_1060F3416125 Init_Str_Bottom
-
-: ME_2AF7898ADDCC
- CONST UID '2AF7898ADDCC'
- CONST Name 'Init_Str_Left'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmetbpLeft' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Speller ME_4B8E9D5C00C5 // Left
- ;
- : SpelledFor ME_F8A1F209B0F7 // Left
- ;
-
-ref; // ME_2AF7898ADDCC Init_Str_Left
-
-: ME_C05E9E3E3937
- CONST UID 'C05E9E3E3937'
- CONST Name 'Init_Str_Right'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmetbpRight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Speller ME_4B8E9D6A0086 // Right
- ;
- : SpelledFor ME_398E012298A5 // Right
- ;
-
-ref; // ME_C05E9E3E3937 Init_Str_Right
-
-: ME_E52033B63186
- CONST UID 'E52033B63186'
- CONST Name 'Init_Str_Separator'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmSeparator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Speller ME_4B8EA1A401D6 // Separator
- ;
- : SpelledFor ME_BE5A17DB515F // Separator
- ;
-
-ref; // ME_E52033B63186 Init_Str_Separator
-
-: ME_4882F21D9822
- CONST UID '4882F21D9822'
- CONST Name 'Init_Str_AskResoreToolbar'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmAskResoreToolbar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Speller ME_4B8EA424001A // AskResoreToolbar
- ;
- : SpelledFor ME_794C5E085401 // AskResoreToolbar
- ;
-
-ref; // ME_4882F21D9822 Init_Str_AskResoreToolbar
 
 : ME_695CA8676FCE
  CONST IsSummoned true
@@ -894,15 +750,6 @@ ref; // ME_0D87BFA5BDA6
  CONST Abstraction at_final
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
- : Operations
-   Seq: ( ME_82C732F3FD32 // Init_Str_Top
- ME_1060F3416125 // Init_Str_Bottom
- ME_2AF7898ADDCC // Init_Str_Left
- ME_C05E9E3E3937 // Init_Str_Right
- ME_E52033B63186 // Init_Str_Separator
- ME_4882F21D9822 // Init_Str_AskResoreToolbar
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B8E9D250114 // ToolbarPos
  ME_4B8EA1840338 // Local
@@ -1007,6 +854,8 @@ FORWARD ME_E2AF68C8049D
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmShowTab''; rValue : ''Показать вкладку "%s"'')'
+ : Speller ME_4B8F8EE703B8 // ShowTab
+ ;
 
 ref; // ME_5C6A4E03EC32 ShowTab
 
@@ -1030,6 +879,8 @@ ref; // ME_5C6A4E03EC32 ShowTab
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmHideTab''; rValue : ''Скрыть вкладку "%s"'')'
+ : Speller ME_4B8F8F1302D8 // HideTab
+ ;
 
 ref; // ME_5D5E7E1FC789 HideTab
 
@@ -1055,44 +906,10 @@ ref; // ME_5D5E7E1FC789 HideTab
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
+ : Speller ME_4B8F8EBA0081 // Local
+ ;
 
 ref; // ME_E2AF68C8049D LCImplLocal
-
-: ME_5BF88617E50D
- CONST UID '5BF88617E50D'
- CONST Name 'Init_Str_ShowTab'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmShowTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
- ;
- : Speller ME_4B8F8EE703B8 // ShowTab
- ;
- : SpelledFor ME_5C6A4E03EC32 // ShowTab
- ;
-
-ref; // ME_5BF88617E50D Init_Str_ShowTab
-
-: ME_67DD3E39D48A
- CONST UID '67DD3E39D48A'
- CONST Name 'Init_Str_HideTab'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmHideTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
- ;
- : Speller ME_4B8F8F1302D8 // HideTab
- ;
- : SpelledFor ME_5D5E7E1FC789 // HideTab
- ;
-
-ref; // ME_67DD3E39D48A Init_Str_HideTab
 
 : ME_4EC624A0C085
  CONST IsSummoned true
@@ -1126,11 +943,6 @@ ref; // ME_6495D0F7CE66
  CONST Abstraction at_final
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
- : Operations
-   Seq: ( ME_5BF88617E50D // Init_Str_ShowTab
- ME_67DD3E39D48A // Init_Str_HideTab
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B8F8EBA0081 // Local
  ME_E2AF68C8049D // LCImplLocal
@@ -1214,6 +1026,8 @@ FORWARD ME_3C671EECFBF4
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmWrongHistoryElement''; rValue : ''Ошибочный элемент истории'')'
+ : Speller ME_4B8F9DAC00C5 // WrongHistoryElement
+ ;
 
 ref; // ME_20A6CA7BB19C WrongHistoryElement
 
@@ -1238,26 +1052,10 @@ ref; // ME_20A6CA7BB19C WrongHistoryElement
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
+ : Speller ME_4B8F9D9703B0 // Local
+ ;
 
 ref; // ME_3C671EECFBF4 LCImplLocal
-
-: ME_37F0161DC613
- CONST UID '37F0161DC613'
- CONST Name 'Init_Str_WrongHistoryElement'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmWrongHistoryElement' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8F9D770358 // vcmHistoryRes
- ;
- : Speller ME_4B8F9DAC00C5 // WrongHistoryElement
- ;
- : SpelledFor ME_20A6CA7BB19C // WrongHistoryElement
- ;
-
-ref; // ME_37F0161DC613 Init_Str_WrongHistoryElement
 
 : ME_EDE8F3185B7B
  CONST IsSummoned true
@@ -1291,10 +1089,6 @@ ref; // ME_DFB4D1617EB5
  CONST Abstraction at_final
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
- : Operations
-   Seq: ( ME_37F0161DC613 // Init_Str_WrongHistoryElement
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B8F9D9703B0 // Local
  ME_3C671EECFBF4 // LCImplLocal
@@ -1513,6 +1307,8 @@ FORWARD ME_1333F1537465
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgsAutomatic''; rValue : ''Автоматически'')'
+ : Speller ME_4B97776D0180 // Automatic
+ ;
 
 ref; // ME_5A5CB54822E0 Automatic
 
@@ -1536,6 +1332,8 @@ ref; // ME_5A5CB54822E0 Automatic
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs16x16''; rValue : ''Маленькие'')'
+ : Speller ME_4B977777034D // 16x16
+ ;
 
 ref; // ME_163AC987C7F2 16x16
 
@@ -1559,6 +1357,8 @@ ref; // ME_163AC987C7F2 16x16
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs24x24''; rValue : ''Средние'')'
+ : Speller ME_4B97778202BF // 24x24
+ ;
 
 ref; // ME_9CAEB236A6D5 24x24
 
@@ -1582,6 +1382,8 @@ ref; // ME_9CAEB236A6D5 24x24
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs32x32''; rValue : ''Большие'')'
+ : Speller ME_4B97778F003C // 32x32
+ ;
 
 ref; // ME_C6677DECB4CE 32x32
 
@@ -1609,6 +1411,8 @@ ref; // ME_C6677DECB4CE 32x32
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcmgs'
+ : Speller ME_4B9777220364 // vcmIconSize
+ ;
 
 ref; // ME_1333F1537465 LCImplvcmIconSize
 
@@ -1811,78 +1615,6 @@ ref; // ME_BC56D7E589F8 DisplayNameToValue
 
 ref; // ME_6882EB48F231 vcmIconSizeMapHelper
 
-: ME_D2D82FD36C93
- CONST UID 'D2D82FD36C93'
- CONST Name 'Init_Str_Automatic'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmgsAutomatic' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9777000394 // vcmToolbarMenuRes
- ;
- : Speller ME_4B97776D0180 // Automatic
- ;
- : SpelledFor ME_5A5CB54822E0 // Automatic
- ;
-
-ref; // ME_D2D82FD36C93 Init_Str_Automatic
-
-: ME_7691E1D665AF
- CONST UID '7691E1D665AF'
- CONST Name 'Init_Str_16x16'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmgs16x16' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9777000394 // vcmToolbarMenuRes
- ;
- : Speller ME_4B977777034D // 16x16
- ;
- : SpelledFor ME_163AC987C7F2 // 16x16
- ;
-
-ref; // ME_7691E1D665AF Init_Str_16x16
-
-: ME_29995FD88C63
- CONST UID '29995FD88C63'
- CONST Name 'Init_Str_24x24'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmgs24x24' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9777000394 // vcmToolbarMenuRes
- ;
- : Speller ME_4B97778202BF // 24x24
- ;
- : SpelledFor ME_9CAEB236A6D5 // 24x24
- ;
-
-ref; // ME_29995FD88C63 Init_Str_24x24
-
-: ME_B8FCFC827F4E
- CONST UID 'B8FCFC827F4E'
- CONST Name 'Init_Str_32x32'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmgs32x32' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9777000394 // vcmToolbarMenuRes
- ;
- : Speller ME_4B97778F003C // 32x32
- ;
- : SpelledFor ME_C6677DECB4CE // 32x32
- ;
-
-ref; // ME_B8FCFC827F4E Init_Str_32x32
-
 : ME_2552FFDCE4CC
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1937,13 +1669,6 @@ ref; // ME_7B82F3842A19
  CONST Abstraction at_final
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
- : Operations
-   Seq: ( ME_D2D82FD36C93 // Init_Str_Automatic
- ME_7691E1D665AF // Init_Str_16x16
- ME_29995FD88C63 // Init_Str_24x24
- ME_B8FCFC827F4E // Init_Str_32x32
- )
- ; // Operations
  : Children
    Seq: ( ME_4B977802001D // TvcmGlyphSize
  ME_6882EB48F231 // vcmIconSizeMapHelper

@@ -863,6 +863,8 @@ FORWARD ME_B0DCDC17627A
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddmmMultiLinkTitle''; rValue : ''%s - Список множественных ссылок'')'
+ : Speller ME_4B9E552502AC // MultiLinkTitle
+ ;
 
 ref; // ME_77BD0BF978F2 MultiLinkTitle
 
@@ -887,26 +889,10 @@ ref; // ME_77BD0BF978F2 MultiLinkTitle
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_ddmm'
+ : Speller ME_4B9E54E5031B // Local
+ ;
 
 ref; // ME_B0DCDC17627A LCImplLocal
-
-: ME_9AB46CB25029
- CONST UID '9AB46CB25029'
- CONST Name 'Init_Str_MultiLinkTitle'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddmmMultiLinkTitle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E548D0157 // ddHTMLWriterRes
- ;
- : Speller ME_4B9E552502AC // MultiLinkTitle
- ;
- : SpelledFor ME_77BD0BF978F2 // MultiLinkTitle
- ;
-
-ref; // ME_9AB46CB25029 Init_Str_MultiLinkTitle
 
 : ME_EBC71920CE5B
  CONST IsSummoned true
@@ -940,10 +926,6 @@ ref; // ME_95838F47D299
  CONST Abstraction at_final
  : Parent ME_48F4BA770180 // Writers
  ;
- : Operations
-   Seq: ( ME_9AB46CB25029 // Init_Str_MultiLinkTitle
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B9E54E5031B // Local
  ME_B0DCDC17627A // LCImplLocal

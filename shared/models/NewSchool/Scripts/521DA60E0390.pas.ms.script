@@ -528,6 +528,8 @@ FORWARD ME_6B6E0726AAE5
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport''; rValue : ''Печать и экспорт'')'
+ : Speller ME_BAE9DBA7BB3C // PrintAndExport
+ ;
 
 ref; // ME_21C9E7FF2FC0 PrintAndExport
 
@@ -551,6 +553,8 @@ ref; // ME_21C9E7FF2FC0 PrintAndExport
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_36164CA1E5E4 // PrintAndExportName
+ ;
 
 ref; // ME_6B6E0726AAE5 LCImplPrintAndExportName
 
@@ -576,6 +580,8 @@ FORWARD ME_45BAC8CB372A
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Default''; rValue : ''Использовать для экспорта и печати размер шрифта, отображаемого на экране'')'
+ : Speller ME_8B070C86553A // Default
+ ;
 
 ref; // ME_F8B05246C5B1 Default
 
@@ -599,6 +605,8 @@ ref; // ME_F8B05246C5B1 Default
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Custom''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
+ : Speller ME_55AF10D1419C // Custom
+ ;
 
 ref; // ME_8EFEC959412E Custom
 
@@ -623,62 +631,10 @@ ref; // ME_8EFEC959412E Custom
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str_PrintAndExport'
  CONST extprop:pas:ElementPrefix 'str_PrintAndExport_'
+ : Speller ME_503C183D60AA // PrintAndExportValues
+ ;
 
 ref; // ME_45BAC8CB372A LCImplPrintAndExportValues
-
-: ME_358EA6058C74
- CONST UID '358EA6058C74'
- CONST Name 'Init_Str_PrintAndExport'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExport' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Speller ME_BAE9DBA7BB3C // PrintAndExport
- ;
- : SpelledFor ME_21C9E7FF2FC0 // PrintAndExport
- ;
-
-ref; // ME_358EA6058C74 Init_Str_PrintAndExport
-
-: ME_CBA796970B95
- CONST UID 'CBA796970B95'
- CONST Name 'Init_Str_Default'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExport_Default' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Speller ME_8B070C86553A // Default
- ;
- : SpelledFor ME_F8B05246C5B1 // Default
- ;
-
-ref; // ME_CBA796970B95 Init_Str_Default
-
-: ME_232AF7110713
- CONST UID '232AF7110713'
- CONST Name 'Init_Str_Custom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExport_Custom' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Speller ME_55AF10D1419C // Custom
- ;
- : SpelledFor ME_8EFEC959412E // Custom
- ;
-
-ref; // ME_232AF7110713 Init_Str_Custom
 
 : ME_398327EFC6CF
  CONST IsSummoned true
@@ -718,12 +674,6 @@ ref; // ME_01324FC43A46
    Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
  )
  ; // Implements
- : Operations
-   Seq: ( ME_358EA6058C74 // Init_Str_PrintAndExport
- ME_CBA796970B95 // Init_Str_Default
- ME_232AF7110713 // Init_Str_Custom
- )
- ; // Operations
  : Constants
    Seq: ( ME_8281E352CB32 // PrintAndExportKey
  ME_36164CA1E5E4 // PrintAndExportName
@@ -1163,6 +1113,8 @@ FORWARD ME_B31EB61BCA12
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
+ : Speller ME_D665257C7AD6 // PrintAndExportFontSize
+ ;
 
 ref; // ME_3CE116A7BB8F PrintAndExportFontSize
 
@@ -1186,6 +1138,8 @@ ref; // ME_3CE116A7BB8F PrintAndExportFontSize
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_193F2AA9201D // PrintAndExportFontSizeName
+ ;
 
 ref; // ME_B31EB61BCA12 LCImplPrintAndExportFontSizeName
 
@@ -1211,6 +1165,8 @@ FORWARD ME_6EC763C64039
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef8''; rValue : ''8'')'
+ : Speller ME_1672DE828C9B // pef8
+ ;
 
 ref; // ME_38EF4BB74238 pef8
 
@@ -1234,6 +1190,8 @@ ref; // ME_38EF4BB74238 pef8
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef9''; rValue : ''9'')'
+ : Speller ME_38132936A565 // pef9
+ ;
 
 ref; // ME_010C5A6AB548 pef9
 
@@ -1257,6 +1215,8 @@ ref; // ME_010C5A6AB548 pef9
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef10''; rValue : ''10'')'
+ : Speller ME_A83F73C3A858 // pef10
+ ;
 
 ref; // ME_439CB799BDF5 pef10
 
@@ -1280,6 +1240,8 @@ ref; // ME_439CB799BDF5 pef10
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef11''; rValue : ''11'')'
+ : Speller ME_F248DFC9B1FB // pef11
+ ;
 
 ref; // ME_0E56EAD1CB09 pef11
 
@@ -1303,6 +1265,8 @@ ref; // ME_0E56EAD1CB09 pef11
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef12''; rValue : ''12'')'
+ : Speller ME_C5934515C249 // pef12
+ ;
 
 ref; // ME_6E1C1422B812 pef12
 
@@ -1326,6 +1290,8 @@ ref; // ME_6E1C1422B812 pef12
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef14''; rValue : ''14'')'
+ : Speller ME_A58C56E6B0F3 // pef14
+ ;
 
 ref; // ME_C3BF9CFABD9F pef14
 
@@ -1349,6 +1315,8 @@ ref; // ME_C3BF9CFABD9F pef14
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef16''; rValue : ''16'')'
+ : Speller ME_8B21E896E5B8 // pef16
+ ;
 
 ref; // ME_10C252E6AA00 pef16
 
@@ -1378,6 +1346,8 @@ ref; // ME_10C252E6AA00 pef16
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str_PrintAndExportFontSize'
  CONST extprop:pas:ElementPrefix 'str_PrintAndExportFontSize_'
+ : Speller ME_2731C3165ADB // PrintAndExportFontSizeValues
+ ;
 
 ref; // ME_6EC763C64039 LCImplPrintAndExportFontSizeValues
 
@@ -1788,150 +1758,6 @@ ref; // ME_E8666180421B Make
 
 ref; // ME_9F77928A4477 TPrintAndExportFontSizeValuesMapImpl
 
-: ME_BEF169F22D6F
- CONST UID 'BEF169F22D6F'
- CONST Name 'Init_Str_PrintAndExportFontSize'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_D665257C7AD6 // PrintAndExportFontSize
- ;
- : SpelledFor ME_3CE116A7BB8F // PrintAndExportFontSize
- ;
-
-ref; // ME_BEF169F22D6F Init_Str_PrintAndExportFontSize
-
-: ME_E691610B6ACD
- CONST UID 'E691610B6ACD'
- CONST Name 'Init_Str_pef8'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef8' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_1672DE828C9B // pef8
- ;
- : SpelledFor ME_38EF4BB74238 // pef8
- ;
-
-ref; // ME_E691610B6ACD Init_Str_pef8
-
-: ME_15F6A6EE6734
- CONST UID '15F6A6EE6734'
- CONST Name 'Init_Str_pef9'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef9' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_38132936A565 // pef9
- ;
- : SpelledFor ME_010C5A6AB548 // pef9
- ;
-
-ref; // ME_15F6A6EE6734 Init_Str_pef9
-
-: ME_FD28B1810C30
- CONST UID 'FD28B1810C30'
- CONST Name 'Init_Str_pef10'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef10' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_A83F73C3A858 // pef10
- ;
- : SpelledFor ME_439CB799BDF5 // pef10
- ;
-
-ref; // ME_FD28B1810C30 Init_Str_pef10
-
-: ME_BC74862BB2BD
- CONST UID 'BC74862BB2BD'
- CONST Name 'Init_Str_pef11'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef11' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_F248DFC9B1FB // pef11
- ;
- : SpelledFor ME_0E56EAD1CB09 // pef11
- ;
-
-ref; // ME_BC74862BB2BD Init_Str_pef11
-
-: ME_AAF6F845C6F7
- CONST UID 'AAF6F845C6F7'
- CONST Name 'Init_Str_pef12'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef12' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_C5934515C249 // pef12
- ;
- : SpelledFor ME_6E1C1422B812 // pef12
- ;
-
-ref; // ME_AAF6F845C6F7 Init_Str_pef12
-
-: ME_9E4C8D0A0730
- CONST UID '9E4C8D0A0730'
- CONST Name 'Init_Str_pef14'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef14' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_A58C56E6B0F3 // pef14
- ;
- : SpelledFor ME_C3BF9CFABD9F // pef14
- ;
-
-ref; // ME_9E4C8D0A0730 Init_Str_pef14
-
-: ME_55EDDE6CBAB2
- CONST UID '55EDDE6CBAB2'
- CONST Name 'Init_Str_pef16'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef16' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Speller ME_8B21E896E5B8 // pef16
- ;
- : SpelledFor ME_10C252E6AA00 // pef16
- ;
-
-ref; // ME_55EDDE6CBAB2 Init_Str_pef16
-
 : ME_738F8AE5B90D
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2003,17 +1829,6 @@ ref; // ME_A404B61F6558
    Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
  )
  ; // Implements
- : Operations
-   Seq: ( ME_BEF169F22D6F // Init_Str_PrintAndExportFontSize
- ME_E691610B6ACD // Init_Str_pef8
- ME_15F6A6EE6734 // Init_Str_pef9
- ME_FD28B1810C30 // Init_Str_pef10
- ME_BC74862BB2BD // Init_Str_pef11
- ME_AAF6F845C6F7 // Init_Str_pef12
- ME_9E4C8D0A0730 // Init_Str_pef14
- ME_55EDDE6CBAB2 // Init_Str_pef16
- )
- ; // Operations
  : Children
    Seq: ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
  ME_A12037CD3A11 // PrintAndExportFontSizeValuesMapHelper

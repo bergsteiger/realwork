@@ -67,6 +67,8 @@ FORWARD ME_D8DD4FC71822
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''IsDocumentUsefulCaption''; rValue : ''Полезен ли документ?'')'
+ : Speller ME_4FEDA30C0141 // IsDocumentUsefulCaption
+ ;
 
 ref; // ME_736EA879DB4F IsDocumentUsefulCaption
 
@@ -90,26 +92,10 @@ ref; // ME_736EA879DB4F IsDocumentUsefulCaption
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_4FEDA2F10124 // Local
+ ;
 
 ref; // ME_D8DD4FC71822 LCImplLocal
-
-: ME_27F829D99811
- CONST UID '27F829D99811'
- CONST Name 'Init_Str_IsDocumentUsefulCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_IsDocumentUsefulCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FF34A48018C // DocumentUtil
- ;
- : Speller ME_4FEDA30C0141 // IsDocumentUsefulCaption
- ;
- : SpelledFor ME_736EA879DB4F // IsDocumentUsefulCaption
- ;
-
-ref; // ME_27F829D99811 Init_Str_IsDocumentUsefulCaption
 
 : ME_55935338FD2F
  CONST IsSummoned true
@@ -143,10 +129,6 @@ ref; // ME_D4F3781AE6C3
  CONST Abstraction at_final
  : Parent ME_4FF3483B0041 // DocumentUtils
  ;
- : Operations
-   Seq: ( ME_27F829D99811 // Init_Str_IsDocumentUsefulCaption
- )
- ; // Operations
  : Constants
    Seq: ( ME_4FEDA2F10124 // Local
  ME_D8DD4FC71822 // LCImplLocal

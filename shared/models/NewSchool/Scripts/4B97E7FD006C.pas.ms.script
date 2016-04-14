@@ -192,6 +192,8 @@ FORWARD ME_5111316547B9
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_MultiSelectDraggingText''; rValue : ''Всего: %d'')'
+ : Speller ME_4B97E86702AE // MultiSelectDraggingText
+ ;
 
 ref; // ME_FB4FA2782BAB MultiSelectDraggingText
 
@@ -216,26 +218,10 @@ ref; // ME_FB4FA2782BAB MultiSelectDraggingText
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nsc_'
+ : Speller ME_4B97E8570381 // TreeViewMessages
+ ;
 
 ref; // ME_5111316547B9 LCImplTreeViewMessages
-
-: ME_1B172D1FD257
- CONST UID '1B172D1FD257'
- CONST Name 'Init_Str_MultiSelectDraggingText'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_MultiSelectDraggingText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97E82200D4 // vtOutlinerWithDragDropRes
- ;
- : Speller ME_4B97E86702AE // MultiSelectDraggingText
- ;
- : SpelledFor ME_FB4FA2782BAB // MultiSelectDraggingText
- ;
-
-ref; // ME_1B172D1FD257 Init_Str_MultiSelectDraggingText
 
 : ME_9ADE5FD0218C
  CONST IsSummoned true
@@ -270,10 +256,6 @@ ref; // ME_1E975BE238B2
  CONST Abstraction at_final
  : Parent ME_4B97E7FD006C // Outliner
  ;
- : Operations
-   Seq: ( ME_1B172D1FD257 // Init_Str_MultiSelectDraggingText
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B97E8570381 // TreeViewMessages
  ME_5111316547B9 // LCImplTreeViewMessages

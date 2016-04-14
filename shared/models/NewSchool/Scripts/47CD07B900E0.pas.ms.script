@@ -446,6 +446,8 @@ FORWARD ME_D805379B8A42
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtAutoHideOffHint''; rValue : ''Зафиксировать панель навигации'')'
+ : Speller ME_4B8D27EA0254 // AutoHideOffHint
+ ;
 
 ref; // ME_4EDA08A1FB49 AutoHideOffHint
 
@@ -469,6 +471,8 @@ ref; // ME_4EDA08A1FB49 AutoHideOffHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtAutoHideOnHint''; rValue : ''Сворачивать панель навигации'')'
+ : Speller ME_4B8D281402A0 // AutoHideOnHint
+ ;
 
 ref; // ME_A8CF153F7F8B AutoHideOnHint
 
@@ -492,6 +496,8 @@ ref; // ME_A8CF153F7F8B AutoHideOnHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMinimizedOnHint''; rValue : ''Свернуть'')'
+ : Speller ME_4B8D2848016D // MinimizedOnHint
+ ;
 
 ref; // ME_BF2F262CD345 MinimizedOnHint
 
@@ -515,6 +521,8 @@ ref; // ME_BF2F262CD345 MinimizedOnHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMinimizedOffHint''; rValue : ''Развернуть'')'
+ : Speller ME_4B8D287C0394 // MinimizedOffHint
+ ;
 
 ref; // ME_EF45DBCCD760 MinimizedOffHint
 
@@ -538,6 +546,8 @@ ref; // ME_EF45DBCCD760 MinimizedOffHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtBtnCloseHint''; rValue : ''Прикрепить навигатор'')'
+ : Speller ME_4B8D28B803B7 // BtnCloseHint
+ ;
 
 ref; // ME_526C6D597716 BtnCloseHint
 
@@ -566,98 +576,10 @@ ref; // ME_526C6D597716 BtnCloseHint
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vt'
+ : Speller ME_4B8D27AF02CD // TvtNavigatorHints
+ ;
 
 ref; // ME_D805379B8A42 LCImplTvtNavigatorHints
-
-: ME_094B29EEEDA7
- CONST UID '094B29EEEDA7'
- CONST Name 'Init_Str_AutoHideOffHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vtAutoHideOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8D2783018D // vtNavigatorRes
- ;
- : Speller ME_4B8D27EA0254 // AutoHideOffHint
- ;
- : SpelledFor ME_4EDA08A1FB49 // AutoHideOffHint
- ;
-
-ref; // ME_094B29EEEDA7 Init_Str_AutoHideOffHint
-
-: ME_1DADC78B3A55
- CONST UID '1DADC78B3A55'
- CONST Name 'Init_Str_AutoHideOnHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vtAutoHideOnHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8D2783018D // vtNavigatorRes
- ;
- : Speller ME_4B8D281402A0 // AutoHideOnHint
- ;
- : SpelledFor ME_A8CF153F7F8B // AutoHideOnHint
- ;
-
-ref; // ME_1DADC78B3A55 Init_Str_AutoHideOnHint
-
-: ME_6932436FCB15
- CONST UID '6932436FCB15'
- CONST Name 'Init_Str_MinimizedOnHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vtMinimizedOnHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8D2783018D // vtNavigatorRes
- ;
- : Speller ME_4B8D2848016D // MinimizedOnHint
- ;
- : SpelledFor ME_BF2F262CD345 // MinimizedOnHint
- ;
-
-ref; // ME_6932436FCB15 Init_Str_MinimizedOnHint
-
-: ME_5A432506C9A0
- CONST UID '5A432506C9A0'
- CONST Name 'Init_Str_MinimizedOffHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vtMinimizedOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8D2783018D // vtNavigatorRes
- ;
- : Speller ME_4B8D287C0394 // MinimizedOffHint
- ;
- : SpelledFor ME_EF45DBCCD760 // MinimizedOffHint
- ;
-
-ref; // ME_5A432506C9A0 Init_Str_MinimizedOffHint
-
-: ME_72500D04184C
- CONST UID '72500D04184C'
- CONST Name 'Init_Str_BtnCloseHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vtBtnCloseHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B8D2783018D // vtNavigatorRes
- ;
- : Speller ME_4B8D28B803B7 // BtnCloseHint
- ;
- : SpelledFor ME_526C6D597716 // BtnCloseHint
- ;
-
-ref; // ME_72500D04184C Init_Str_BtnCloseHint
 
 : ME_EA404BCDAA05
  CONST IsSummoned true
@@ -691,14 +613,6 @@ ref; // ME_45ADE8325A0B
  CONST Abstraction at_final
  : Parent ME_47CD07B900E0 // vtNavigator
  ;
- : Operations
-   Seq: ( ME_094B29EEEDA7 // Init_Str_AutoHideOffHint
- ME_1DADC78B3A55 // Init_Str_AutoHideOnHint
- ME_6932436FCB15 // Init_Str_MinimizedOnHint
- ME_5A432506C9A0 // Init_Str_MinimizedOffHint
- ME_72500D04184C // Init_Str_BtnCloseHint
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B8D27AF02CD // TvtNavigatorHints
  ME_D805379B8A42 // LCImplTvtNavigatorHints
@@ -9282,6 +9196,8 @@ FORWARD ME_0D5844A133DC
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cAutoHideOffHint''; rValue : ''Зафиксировать панель навигации'')'
+ : Speller ME_52BD78C801AD // cAutoHideOffHint
+ ;
 
 ref; // ME_0ADEEA74C696 cAutoHideOffHint
 
@@ -9305,6 +9221,8 @@ ref; // ME_0ADEEA74C696 cAutoHideOffHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cAutoHideOnHint''; rValue : ''Сворачивать панель навигации'')'
+ : Speller ME_52BD78D1037F // cAutoHideOnHint
+ ;
 
 ref; // ME_0433F09765CA cAutoHideOnHint
 
@@ -9328,6 +9246,8 @@ ref; // ME_0433F09765CA cAutoHideOnHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cMinimizedOnHint''; rValue : ''Свернуть'')'
+ : Speller ME_52BD78DB016C // cMinimizedOnHint
+ ;
 
 ref; // ME_5508B9DA6865 cMinimizedOnHint
 
@@ -9351,6 +9271,8 @@ ref; // ME_5508B9DA6865 cMinimizedOnHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cMinimizedOffHint''; rValue : ''Развернуть'')'
+ : Speller ME_52BD78E40023 // cMinimizedOffHint
+ ;
 
 ref; // ME_8D889F0B92EB cMinimizedOffHint
 
@@ -9374,6 +9296,8 @@ ref; // ME_8D889F0B92EB cMinimizedOffHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cCloseHint''; rValue : ''Прикрепить навигатор'')'
+ : Speller ME_52BD78EB0333 // cCloseHint
+ ;
 
 ref; // ME_6F19278510FF cCloseHint
 
@@ -9401,6 +9325,8 @@ ref; // ME_6F19278510FF cCloseHint
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_52BD78B1033E // Button Hints
+ ;
 
 ref; // ME_0D5844A133DC LCImplButton Hints
 
@@ -9426,6 +9352,8 @@ FORWARD ME_439570FD311A
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cemIndexOutOfPageCount''; rValue : ''Индекс %d выходит за пределы количества компонентов навигатора'')'
+ : Speller ME_52BD7981006B // cemIndexOutOfPageCount
+ ;
 
 ref; // ME_76AC16BE50EC cemIndexOutOfPageCount
 
@@ -9449,6 +9377,8 @@ ref; // ME_76AC16BE50EC cemIndexOutOfPageCount
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cemNavigatorAlreadyExists''; rValue : ''Добавляемый в список навигатор уже существует в списке родителя'')'
+ : Speller ME_52BD79920337 // cemNavigatorAlreadyExists
+ ;
 
 ref; // ME_423A2AF9FEB5 cemNavigatorAlreadyExists
 
@@ -9472,6 +9402,8 @@ ref; // ME_423A2AF9FEB5 cemNavigatorAlreadyExists
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cemDeleteNavigatorNotExists''; rValue : ''Удаляемый навигатор в списке родителя отсутствует'')'
+ : Speller ME_52BD79AB0286 // cemDeleteNavigatorNotExists
+ ;
 
 ref; // ME_602BF8AF952C cemDeleteNavigatorNotExists
 
@@ -9497,152 +9429,10 @@ ref; // ME_602BF8AF952C cemDeleteNavigatorNotExists
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_52BD796A01B3 // Error messages
+ ;
 
 ref; // ME_439570FD311A LCImplError messages
-
-: ME_11DA88FD3AC3
- CONST UID '11DA88FD3AC3'
- CONST Name 'Init_Str_cAutoHideOffHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cAutoHideOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD78C801AD // cAutoHideOffHint
- ;
- : SpelledFor ME_0ADEEA74C696 // cAutoHideOffHint
- ;
-
-ref; // ME_11DA88FD3AC3 Init_Str_cAutoHideOffHint
-
-: ME_18B45CDDA566
- CONST UID '18B45CDDA566'
- CONST Name 'Init_Str_cAutoHideOnHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cAutoHideOnHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD78D1037F // cAutoHideOnHint
- ;
- : SpelledFor ME_0433F09765CA // cAutoHideOnHint
- ;
-
-ref; // ME_18B45CDDA566 Init_Str_cAutoHideOnHint
-
-: ME_B3915E4E8C57
- CONST UID 'B3915E4E8C57'
- CONST Name 'Init_Str_cMinimizedOnHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cMinimizedOnHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD78DB016C // cMinimizedOnHint
- ;
- : SpelledFor ME_5508B9DA6865 // cMinimizedOnHint
- ;
-
-ref; // ME_B3915E4E8C57 Init_Str_cMinimizedOnHint
-
-: ME_3F12C654F203
- CONST UID '3F12C654F203'
- CONST Name 'Init_Str_cMinimizedOffHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cMinimizedOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD78E40023 // cMinimizedOffHint
- ;
- : SpelledFor ME_8D889F0B92EB // cMinimizedOffHint
- ;
-
-ref; // ME_3F12C654F203 Init_Str_cMinimizedOffHint
-
-: ME_BC5C4BD3B3A6
- CONST UID 'BC5C4BD3B3A6'
- CONST Name 'Init_Str_cCloseHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cCloseHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD78EB0333 // cCloseHint
- ;
- : SpelledFor ME_6F19278510FF // cCloseHint
- ;
-
-ref; // ME_BC5C4BD3B3A6 Init_Str_cCloseHint
-
-: ME_F129D3D35D87
- CONST UID 'F129D3D35D87'
- CONST Name 'Init_Str_cemIndexOutOfPageCount'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cemIndexOutOfPageCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD7981006B // cemIndexOutOfPageCount
- ;
- : SpelledFor ME_76AC16BE50EC // cemIndexOutOfPageCount
- ;
-
-ref; // ME_F129D3D35D87 Init_Str_cemIndexOutOfPageCount
-
-: ME_FE08BFE52BE6
- CONST UID 'FE08BFE52BE6'
- CONST Name 'Init_Str_cemNavigatorAlreadyExists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cemNavigatorAlreadyExists' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD79920337 // cemNavigatorAlreadyExists
- ;
- : SpelledFor ME_423A2AF9FEB5 // cemNavigatorAlreadyExists
- ;
-
-ref; // ME_FE08BFE52BE6 Init_Str_cemNavigatorAlreadyExists
-
-: ME_CCAC57A374FE
- CONST UID 'CCAC57A374FE'
- CONST Name 'Init_Str_cemDeleteNavigatorNotExists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cemDeleteNavigatorNotExists' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A252E01C2 // TvtNavigator
- ;
- : Speller ME_52BD79AB0286 // cemDeleteNavigatorNotExists
- ;
- : SpelledFor ME_602BF8AF952C // cemDeleteNavigatorNotExists
- ;
-
-ref; // ME_CCAC57A374FE Init_Str_cemDeleteNavigatorNotExists
 
 FORWARD ME_4F61A51602F4
 
@@ -9909,17 +9699,6 @@ ref; // ME_331B8E210DA6
    Seq: ( ME_52BAD1C40174 // TvtNavigatorPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_11DA88FD3AC3 // Init_Str_cAutoHideOffHint
- ME_18B45CDDA566 // Init_Str_cAutoHideOnHint
- ME_B3915E4E8C57 // Init_Str_cMinimizedOnHint
- ME_3F12C654F203 // Init_Str_cMinimizedOffHint
- ME_BC5C4BD3B3A6 // Init_Str_cCloseHint
- ME_F129D3D35D87 // Init_Str_cemIndexOutOfPageCount
- ME_FE08BFE52BE6 // Init_Str_cemNavigatorAlreadyExists
- ME_CCAC57A374FE // Init_Str_cemDeleteNavigatorNotExists
- )
- ; // Operations
  : Children
    Seq: ( ME_4F61DEC80038 // TnpObject
  ME_4F7B1E670309 // TNavigatorState

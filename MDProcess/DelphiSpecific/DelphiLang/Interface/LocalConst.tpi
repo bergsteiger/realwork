@@ -90,6 +90,7 @@ r {""=""}: {}
 	]\
 	%{PARENT}%f_add_class(%SU_%{Tl3StringIDEx}U_LCImpl,Constants,LCImpl[{%S#f_IsChoices()=true}_%PN_]%SN,LocalConst_Inst)\
 	%{LocalConst_Inst}%f_set_visibility_type(%SV)\
+	%{LocalConst_Inst}%f_set_var(Speller,S)\
 
 	[{%S#f_IsChoices()=true}{\
 	%{LocalConst_Inst}%f_set_documentation(Локализуемые строки %SN)\
@@ -138,9 +139,11 @@ r {""=""}: {}
 	),Attr_Inst)\
 
 	%{Attr_Inst}%f_set_visibility_type(%CV)\
+	%{Attr_Inst}%f_set_var(Speller,C)\
 	%{Attr_Inst}%f_set_documentation([{}{%C{Value}}[{}{%C%VN}%CD]])\
 	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
 	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
+	[{%{PARENT}#f_UseNewGenRec()!=true}\
 	%{PARENT}%f_add_operation(%CU_Init,ini,Init_Str_%f_N(%{Attr_Inst}) (),Op_Instance)\
 	%{Op_Instance}%f_set_documentation(Инициализация %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}))\
 	%{Op_Instance}%f_set_abstraction_type(final)\
@@ -176,6 +179,7 @@ r {""=""}: {}
 	 %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}).Init;\
 	%C%f_AdditionalInitCode("%{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst})")\
 	)\
+	]\
 	]\
 	>\
 

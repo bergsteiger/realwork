@@ -1369,6 +1369,10 @@ PROCEDURE "Нажать кнопку 'Видимый текст'"
 	"Контрол по имени {("Кнопка 'Видимый текст'")}"  pop:Control:Click	
 ;
 
+PROCEDURE "Нажать кнопку 'Web-Style'"
+	"Контрол по имени {("Кнопка 'Web-Style'")}"  pop:Control:Click	
+;
+
 PROCEDURE "Вызывать 'Выделить все'"
 	'Ctrl+A' key		
 ;
@@ -1435,3 +1439,9 @@ PROCEDURE "Выбрать в выпадающем списке строковое значение" STRING IN aComboBoxNa
 PROCEDURE "Выбрать шрифт 'Calibri'"
 	"Выбрать в выпадающем списке {('FontComboBox')} {('TFontComboBox')}  строковое значение {('Calibri')}"	
 ;
+
+PROCEDURE "Набить текст формулы" STRING IN aFormulaText
+	aFormulaText emitstring
+	acButtonOKInExprEditor byname:control:push pop:Control:Click
+;
+

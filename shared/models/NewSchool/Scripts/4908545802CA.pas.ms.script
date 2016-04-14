@@ -1353,6 +1353,8 @@ FORWARD ME_AFD716A25778
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''engcNew''; rValue : ''Не вступившие в силу'')'
+ : Speller ME_4ED4C34B02E0 // New
+ ;
 
 ref; // ME_939273C0E2E8 New
 
@@ -1376,6 +1378,8 @@ ref; // ME_939273C0E2E8 New
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''engcActual''; rValue : ''Актуальная'')'
+ : Speller ME_4ED4C35B03A2 // Actual
+ ;
 
 ref; // ME_C79ABA2FFF11 Actual
 
@@ -1399,6 +1403,8 @@ ref; // ME_C79ABA2FFF11 Actual
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''engcOld''; rValue : ''Недействующие'')'
+ : Speller ME_4ED4C36E00D2 // Old
+ ;
 
 ref; // ME_3DD13C3ED47B Old
 
@@ -1425,6 +1431,8 @@ ref; // ME_3DD13C3ED47B Old
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_engc'
+ : Speller ME_4ED4C2F902E3 // EditionNodeGroupCaptions
+ ;
 
 ref; // ME_AFD716A25778 LCImplEditionNodeGroupCaptions
 
@@ -1923,60 +1931,6 @@ ref; // ME_4EC3D63F00E6 DoIt
 
 ref; // ME_4EC3D6300158 HasAdditionalChecked
 
-: ME_C8102321EB4D
- CONST UID 'C8102321EB4D'
- CONST Name 'Init_Str_New'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_engcNew' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B1CE8B50207 // TnsEditionNode
- ;
- : Speller ME_4ED4C34B02E0 // New
- ;
- : SpelledFor ME_939273C0E2E8 // New
- ;
-
-ref; // ME_C8102321EB4D Init_Str_New
-
-: ME_4E7BC21E1ED0
- CONST UID '4E7BC21E1ED0'
- CONST Name 'Init_Str_Actual'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_engcActual' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B1CE8B50207 // TnsEditionNode
- ;
- : Speller ME_4ED4C35B03A2 // Actual
- ;
- : SpelledFor ME_C79ABA2FFF11 // Actual
- ;
-
-ref; // ME_4E7BC21E1ED0 Init_Str_Actual
-
-: ME_3A0EF6BA24C1
- CONST UID '3A0EF6BA24C1'
- CONST Name 'Init_Str_Old'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_engcOld' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B1CE8B50207 // TnsEditionNode
- ;
- : Speller ME_4ED4C36E00D2 // Old
- ;
- : SpelledFor ME_3DD13C3ED47B // Old
- ;
-
-ref; // ME_3A0EF6BA24C1 Init_Str_Old
-
 : ME_4B1CEF870026
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2205,9 +2159,6 @@ ref; // ME_54C78D9201B9_ME_4B1CE8B50207 GetIsSame
  ME_4EC3CA120205 // HasMainChecked
  ME_4EC3D2720139 // UncheckAllAdditional
  ME_4EC3D6300158 // HasAdditionalChecked
- ME_C8102321EB4D // Init_Str_New
- ME_4E7BC21E1ED0 // Init_Str_Actual
- ME_3A0EF6BA24C1 // Init_Str_Old
  )
  ; // Operations
  : Implemented

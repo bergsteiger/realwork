@@ -263,6 +263,8 @@ FORWARD ME_459AC4484A02
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstListModified''; rValue : ''Список изменён'')'
+ : Speller ME_4DB98E85011C // ListModified
+ ;
 
 ref; // ME_7F98396F948A ListModified
 
@@ -286,6 +288,8 @@ ref; // ME_7F98396F948A ListModified
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstListFiltered''; rValue : ''Список отфильтрован. Отменить все фильтры'')'
+ : Speller ME_4DB992EB01F7 // ListFiltered
+ ;
 
 ref; // ME_B316DC25A661 ListFiltered
 
@@ -309,6 +313,8 @@ ref; // ME_B316DC25A661 ListFiltered
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstSwitchFiltersOff''; rValue : ''Отменить все фильтры'')'
+ : Speller ME_4DB99BB60038 // SwitchFiltersOff
+ ;
 
 ref; // ME_881D5232D517 SwitchFiltersOff
 
@@ -332,6 +338,8 @@ ref; // ME_881D5232D517 SwitchFiltersOff
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstTimeMachineOn''; rValue : ''Машина времени включена на дату %s'')'
+ : Speller ME_4DBADBF300F4 // TimeMachineOn
+ ;
 
 ref; // ME_6768AC3ED1A3 TimeMachineOn
 
@@ -359,6 +367,8 @@ ref; // ME_6768AC3ED1A3 TimeMachineOn
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_lst'
+ : Speller ME_4DB98E7B0358 // Local
+ ;
 
 ref; // ME_459AC4484A02 LCImplLocal
 
@@ -447,78 +457,6 @@ ref; // ME_4EDCFD8C0171 DoIt
  CONST "is static" true
 
 ref; // ME_4EDCFD7E0323 Generate
-
-: ME_BA6494A8E652
- CONST UID 'BA6494A8E652'
- CONST Name 'Init_Str_ListModified'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lstListModified' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Speller ME_4DB98E85011C // ListModified
- ;
- : SpelledFor ME_7F98396F948A // ListModified
- ;
-
-ref; // ME_BA6494A8E652 Init_Str_ListModified
-
-: ME_F84428B50B57
- CONST UID 'F84428B50B57'
- CONST Name 'Init_Str_ListFiltered'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lstListFiltered' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Speller ME_4DB992EB01F7 // ListFiltered
- ;
- : SpelledFor ME_B316DC25A661 // ListFiltered
- ;
-
-ref; // ME_F84428B50B57 Init_Str_ListFiltered
-
-: ME_8C60142BFE57
- CONST UID '8C60142BFE57'
- CONST Name 'Init_Str_SwitchFiltersOff'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lstSwitchFiltersOff' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Speller ME_4DB99BB60038 // SwitchFiltersOff
- ;
- : SpelledFor ME_881D5232D517 // SwitchFiltersOff
- ;
-
-ref; // ME_8C60142BFE57 Init_Str_SwitchFiltersOff
-
-: ME_9CFE89B97CD9
- CONST UID '9CFE89B97CD9'
- CONST Name 'Init_Str_TimeMachineOn'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lstTimeMachineOn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Speller ME_4DBADBF300F4 // TimeMachineOn
- ;
- : SpelledFor ME_6768AC3ED1A3 // TimeMachineOn
- ;
-
-ref; // ME_9CFE89B97CD9 Init_Str_TimeMachineOn
 
 : ME_4EDCFD67036F
  CONST Class class_Dependency
@@ -684,10 +622,6 @@ ref; // ME_B9562A4F5A84
  ;
  : Operations
    Seq: ( ME_4EDCFD7E0323 // Generate
- ME_BA6494A8E652 // Init_Str_ListModified
- ME_F84428B50B57 // Init_Str_ListFiltered
- ME_8C60142BFE57 // Init_Str_SwitchFiltersOff
- ME_9CFE89B97CD9 // Init_Str_TimeMachineOn
  )
  ; // Operations
  : Constants

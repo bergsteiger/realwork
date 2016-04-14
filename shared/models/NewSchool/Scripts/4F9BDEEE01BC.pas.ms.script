@@ -2467,6 +2467,8 @@ FORWARD ME_43F39AEE5839
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmRememberChoice''; rValue : ''Запомнить выбор и больше не показывать это сообщение.'')'
+ : Speller ME_4B8EA6D900DC // RememberChoice
+ ;
 
 ref; // ME_171D5CEF1443 RememberChoice
 
@@ -2490,6 +2492,8 @@ ref; // ME_171D5CEF1443 RememberChoice
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmNotShowDlg''; rValue : ''Больше не показывать это сообщение.'')'
+ : Speller ME_4B8EA6E90245 // NotShowDlg
+ ;
 
 ref; // ME_E3E7214C80F3 NotShowDlg
 
@@ -2515,44 +2519,10 @@ ref; // ME_E3E7214C80F3 NotShowDlg
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
+ : Speller ME_4B8EA6A3016F // Local
+ ;
 
 ref; // ME_43F39AEE5839 LCImplLocal
-
-: ME_8ED502C26039
- CONST UID '8ED502C26039'
- CONST Name 'Init_Str_RememberChoice'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmRememberChoice' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E01D1980071 // l3MessageID
- ;
- : Speller ME_4B8EA6D900DC // RememberChoice
- ;
- : SpelledFor ME_171D5CEF1443 // RememberChoice
- ;
-
-ref; // ME_8ED502C26039 Init_Str_RememberChoice
-
-: ME_B716D356463C
- CONST UID 'B716D356463C'
- CONST Name 'Init_Str_NotShowDlg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_vcmNotShowDlg' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E01D1980071 // l3MessageID
- ;
- : Speller ME_4B8EA6E90245 // NotShowDlg
- ;
- : SpelledFor ME_E3E7214C80F3 // NotShowDlg
- ;
-
-ref; // ME_B716D356463C Init_Str_NotShowDlg
 
 : ME_4E01D1C100D5
  CONST Class class_Dependency
@@ -2607,11 +2577,6 @@ ref; // ME_859AFD72C2A9
  CONST Abstraction at_final
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
- : Operations
-   Seq: ( ME_8ED502C26039 // Init_Str_RememberChoice
- ME_B716D356463C // Init_Str_NotShowDlg
- )
- ; // Operations
  : Children
    Seq: ( ME_4E08A27303DC // Tl3MessageData
  ME_4E08A63701DB // Tl3Message

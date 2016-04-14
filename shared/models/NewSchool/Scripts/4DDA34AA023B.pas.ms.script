@@ -911,6 +911,8 @@ FORWARD ME_61D32F8A37C1
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''OpenDialogInnerNumbers''; rValue : ''Внутренний номер в базе'')'
+ : Speller ME_4DE4F9E60057 // OpenDialogInnerNumbers
+ ;
 
 ref; // ME_D18B86E9AFAF OpenDialogInnerNumbers
 
@@ -934,6 +936,8 @@ ref; // ME_D18B86E9AFAF OpenDialogInnerNumbers
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_4DE4F71702C2 // OpenDialog
+ ;
 
 ref; // ME_61D32F8A37C1 LCImplOpenDialog
 
@@ -999,24 +1003,6 @@ ref; // ME_4DE675F4015E f_ExtraPanel
  ;
 
 ref; // ME_4DE6769A00E4 f_InnerNumbersCheckBox
-
-: ME_3AC526215EA5
- CONST UID '3AC526215EA5'
- CONST Name 'Init_Str_OpenDialogInnerNumbers'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_OpenDialogInnerNumbers' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDD468D0131 // TnsOpenDialog
- ;
- : Speller ME_4DE4F9E60057 // OpenDialogInnerNumbers
- ;
- : SpelledFor ME_D18B86E9AFAF // OpenDialogInnerNumbers
- ;
-
-ref; // ME_3AC526215EA5 Init_Str_OpenDialogInnerNumbers
 
 : ME_4DE685DD0340
  CONST Class class_Dependency
@@ -1165,10 +1151,6 @@ ref; // ME_4DCC20C10116_ME_4DDD468D0131 Execute
  ME_4DE6769A00E4 // f_InnerNumbersCheckBox
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_3AC526215EA5 // Init_Str_OpenDialogInnerNumbers
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47D1602000C6_ME_4DDD468D0131 // Create
  ME_48077504027E_ME_4DDD468D0131 // Destroy

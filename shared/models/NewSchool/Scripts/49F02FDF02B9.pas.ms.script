@@ -203,6 +203,8 @@ FORWARD ME_733B11D3BC31
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_LabelCaption''; rValue : ''Контекстный фильтр'')'
+ : Speller ME_4B97E27B01A5 // LabelCaption
+ ;
 
 ref; // ME_D2760E622B9B LabelCaption
 
@@ -226,6 +228,8 @@ ref; // ME_D2760E622B9B LabelCaption
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_ContextEmptyMessage''; rValue : ''Введите слова для поиска и фильтрации'')'
+ : Speller ME_4B97E2840076 // ContextEmptyMessage
+ ;
 
 ref; // ME_00384AEED2E1 ContextEmptyMessage
 
@@ -249,6 +253,8 @@ ref; // ME_00384AEED2E1 ContextEmptyMessage
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_ButtonActiveHint''; rValue : ''Выключить контекстный фильтр'')'
+ : Speller ME_4B97E28C0134 // ButtonActiveHint
+ ;
 
 ref; // ME_E9A220EDBF21 ButtonActiveHint
 
@@ -272,6 +278,8 @@ ref; // ME_E9A220EDBF21 ButtonActiveHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_ButtonInActiveHint''; rValue : ''Включить контекстный фильтр'')'
+ : Speller ME_4B97E2950337 // ButtonInActiveHint
+ ;
 
 ref; // ME_D12E82347BBF ButtonInActiveHint
 
@@ -299,80 +307,10 @@ ref; // ME_D12E82347BBF ButtonInActiveHint
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nsc_'
+ : Speller ME_4B97E2240035 // ContextFilterMessages
+ ;
 
 ref; // ME_733B11D3BC31 LCImplContextFilterMessages
-
-: ME_322AEE41E22D
- CONST UID '322AEE41E22D'
- CONST Name 'Init_Str_LabelCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_LabelCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97E1EA011F // nscContextFilterRes
- ;
- : Speller ME_4B97E27B01A5 // LabelCaption
- ;
- : SpelledFor ME_D2760E622B9B // LabelCaption
- ;
-
-ref; // ME_322AEE41E22D Init_Str_LabelCaption
-
-: ME_E484154BCC8A
- CONST UID 'E484154BCC8A'
- CONST Name 'Init_Str_ContextEmptyMessage'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_ContextEmptyMessage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97E1EA011F // nscContextFilterRes
- ;
- : Speller ME_4B97E2840076 // ContextEmptyMessage
- ;
- : SpelledFor ME_00384AEED2E1 // ContextEmptyMessage
- ;
-
-ref; // ME_E484154BCC8A Init_Str_ContextEmptyMessage
-
-: ME_9449AD5B5DC4
- CONST UID '9449AD5B5DC4'
- CONST Name 'Init_Str_ButtonActiveHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_ButtonActiveHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97E1EA011F // nscContextFilterRes
- ;
- : Speller ME_4B97E28C0134 // ButtonActiveHint
- ;
- : SpelledFor ME_E9A220EDBF21 // ButtonActiveHint
- ;
-
-ref; // ME_9449AD5B5DC4 Init_Str_ButtonActiveHint
-
-: ME_8533BEEA4051
- CONST UID '8533BEEA4051'
- CONST Name 'Init_Str_ButtonInActiveHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_ButtonInActiveHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97E1EA011F // nscContextFilterRes
- ;
- : Speller ME_4B97E2950337 // ButtonInActiveHint
- ;
- : SpelledFor ME_D12E82347BBF // ButtonInActiveHint
- ;
-
-ref; // ME_8533BEEA4051 Init_Str_ButtonInActiveHint
 
 : ME_90A44494204D
  CONST IsSummoned true
@@ -407,13 +345,6 @@ ref; // ME_54CF82B34F5B
  CONST Abstraction at_final
  : Parent ME_49F02FDF02B9 // ContextFilter
  ;
- : Operations
-   Seq: ( ME_322AEE41E22D // Init_Str_LabelCaption
- ME_E484154BCC8A // Init_Str_ContextEmptyMessage
- ME_9449AD5B5DC4 // Init_Str_ButtonActiveHint
- ME_8533BEEA4051 // Init_Str_ButtonInActiveHint
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B97E2240035 // ContextFilterMessages
  ME_733B11D3BC31 // LCImplContextFilterMessages

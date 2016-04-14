@@ -274,6 +274,8 @@ FORWARD ME_A8860E2C3053
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddmmSettingsCaption''; rValue : ''Настройка конфигурации'')'
+ : Speller ME_4B990F90035D // SettingsCaption
+ ;
 
 ref; // ME_9937DF1CBDFF SettingsCaption
 
@@ -297,6 +299,8 @@ ref; // ME_9937DF1CBDFF SettingsCaption
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddmmErrorCaption''; rValue : ''Ошибка'')'
+ : Speller ME_4B990FB30220 // ErrorCaption
+ ;
 
 ref; // ME_6EEF80D9B053 ErrorCaption
 
@@ -322,6 +326,8 @@ ref; // ME_6EEF80D9B053 ErrorCaption
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_ddmm'
+ : Speller ME_4B990F5B0148 // Local
+ ;
 
 ref; // ME_A8860E2C3053 LCImplLocal
 
@@ -347,6 +353,8 @@ FORWARD ME_465E7C19C888
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DifferentType''; rValue : ''Тип свойства "%s" отличается от запрошенного'')'
+ : Speller ME_5215FC6E031D // DifferentType
+ ;
 
 ref; // ME_48FF7EDC55C7 DifferentType
 
@@ -370,6 +378,8 @@ ref; // ME_48FF7EDC55C7 DifferentType
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PropertyAbsent''; rValue : ''Свойство "%s" отсутствует'')'
+ : Speller ME_5215FC7C005E // PropertyAbsent
+ ;
 
 ref; // ME_E936779402C1 PropertyAbsent
 
@@ -393,6 +403,8 @@ ref; // ME_E936779402C1 PropertyAbsent
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PropertyExists''; rValue : ''Свойство с именем "%s" уже существует'')'
+ : Speller ME_5215FC8603B5 // PropertyExists
+ ;
 
 ref; // ME_CC6B02F4905A PropertyExists
 
@@ -416,6 +428,8 @@ ref; // ME_CC6B02F4905A PropertyExists
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEmpty''; rValue : ''Конфигурация пуста'')'
+ : Speller ME_5215FC94011D // ListEmpty
+ ;
 
 ref; // ME_9AE2145936E1 ListEmpty
 
@@ -442,116 +456,10 @@ ref; // ME_9AE2145936E1 ListEmpty
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_5215FC5202D7 // Errors
+ ;
 
 ref; // ME_465E7C19C888 LCImplErrors
-
-: ME_13272F06A774
- CONST UID '13272F06A774'
- CONST Name 'Init_Str_SettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddmmSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B990F250062 // ddAppConfigRes
- ;
- : Speller ME_4B990F90035D // SettingsCaption
- ;
- : SpelledFor ME_9937DF1CBDFF // SettingsCaption
- ;
-
-ref; // ME_13272F06A774 Init_Str_SettingsCaption
-
-: ME_8EBFCDE52FBE
- CONST UID '8EBFCDE52FBE'
- CONST Name 'Init_Str_ErrorCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddmmErrorCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B990F250062 // ddAppConfigRes
- ;
- : Speller ME_4B990FB30220 // ErrorCaption
- ;
- : SpelledFor ME_6EEF80D9B053 // ErrorCaption
- ;
-
-ref; // ME_8EBFCDE52FBE Init_Str_ErrorCaption
-
-: ME_C2FF8BAF11D4
- CONST UID 'C2FF8BAF11D4'
- CONST Name 'Init_Str_DifferentType'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DifferentType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B990F250062 // ddAppConfigRes
- ;
- : Speller ME_5215FC6E031D // DifferentType
- ;
- : SpelledFor ME_48FF7EDC55C7 // DifferentType
- ;
-
-ref; // ME_C2FF8BAF11D4 Init_Str_DifferentType
-
-: ME_3EB9402727DD
- CONST UID '3EB9402727DD'
- CONST Name 'Init_Str_PropertyAbsent'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PropertyAbsent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B990F250062 // ddAppConfigRes
- ;
- : Speller ME_5215FC7C005E // PropertyAbsent
- ;
- : SpelledFor ME_E936779402C1 // PropertyAbsent
- ;
-
-ref; // ME_3EB9402727DD Init_Str_PropertyAbsent
-
-: ME_5D8D3703A2B4
- CONST UID '5D8D3703A2B4'
- CONST Name 'Init_Str_PropertyExists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PropertyExists' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B990F250062 // ddAppConfigRes
- ;
- : Speller ME_5215FC8603B5 // PropertyExists
- ;
- : SpelledFor ME_CC6B02F4905A // PropertyExists
- ;
-
-ref; // ME_5D8D3703A2B4 Init_Str_PropertyExists
-
-: ME_665702A79F07
- CONST UID '665702A79F07'
- CONST Name 'Init_Str_ListEmpty'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ListEmpty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B990F250062 // ddAppConfigRes
- ;
- : Speller ME_5215FC94011D // ListEmpty
- ;
- : SpelledFor ME_9AE2145936E1 // ListEmpty
- ;
-
-ref; // ME_665702A79F07 Init_Str_ListEmpty
 
 : ME_893730F595D1
  CONST IsSummoned true
@@ -586,15 +494,6 @@ ref; // ME_175EF4F999D9
  CONST Abstraction at_final
  : Parent ME_4B990EDE031A // AppConfig
  ;
- : Operations
-   Seq: ( ME_13272F06A774 // Init_Str_SettingsCaption
- ME_8EBFCDE52FBE // Init_Str_ErrorCaption
- ME_C2FF8BAF11D4 // Init_Str_DifferentType
- ME_3EB9402727DD // Init_Str_PropertyAbsent
- ME_5D8D3703A2B4 // Init_Str_PropertyExists
- ME_665702A79F07 // Init_Str_ListEmpty
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B990F5B0148 // Local
  ME_5215FC5202D7 // Errors
@@ -11766,6 +11665,8 @@ FORWARD ME_FFC3B32F94E4
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmAddConfigValue''; rValue : ''Добавить'')'
+ : Speller ME_4B9E5EBB0162 // AddConfigValue
+ ;
 
 ref; // ME_E1E8D8E46594 AddConfigValue
 
@@ -11789,6 +11690,8 @@ ref; // ME_E1E8D8E46594 AddConfigValue
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmChangeConfigValue''; rValue : ''Исправить'')'
+ : Speller ME_4B9E5EC80039 // ChangeConfigValue
+ ;
 
 ref; // ME_D55B8908D7E8 ChangeConfigValue
 
@@ -11812,6 +11715,8 @@ ref; // ME_D55B8908D7E8 ChangeConfigValue
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmDeleteConfigValue''; rValue : ''Удалить'')'
+ : Speller ME_4B9E5EEA0056 // DeleteConfigValue
+ ;
 
 ref; // ME_187FC2C82075 DeleteConfigValue
 
@@ -11835,6 +11740,8 @@ ref; // ME_187FC2C82075 DeleteConfigValue
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmConfirmDeleteConfigValue''; rValue : ''Вы действительно хотите удалить элемент "%s"?'')'
+ : Speller ME_4B9E5EFD0165 // ConfirmDeleteConfigValue
+ ;
 
 ref; // ME_429317D791FC ConfirmDeleteConfigValue
 
@@ -11862,80 +11769,10 @@ ref; // ME_429317D791FC ConfirmDeleteConfigValue
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_ddcm'
+ : Speller ME_4B9E5E4B03A6 // ConfigMessages
+ ;
 
 ref; // ME_FFC3B32F94E4 LCImplConfigMessages
-
-: ME_A2A933CA2020
- CONST UID 'A2A933CA2020'
- CONST Name 'Init_Str_AddConfigValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmAddConfigValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E5E09030C // ddAppConfigListsRes
- ;
- : Speller ME_4B9E5EBB0162 // AddConfigValue
- ;
- : SpelledFor ME_E1E8D8E46594 // AddConfigValue
- ;
-
-ref; // ME_A2A933CA2020 Init_Str_AddConfigValue
-
-: ME_2DC777E469F9
- CONST UID '2DC777E469F9'
- CONST Name 'Init_Str_ChangeConfigValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmChangeConfigValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E5E09030C // ddAppConfigListsRes
- ;
- : Speller ME_4B9E5EC80039 // ChangeConfigValue
- ;
- : SpelledFor ME_D55B8908D7E8 // ChangeConfigValue
- ;
-
-ref; // ME_2DC777E469F9 Init_Str_ChangeConfigValue
-
-: ME_F77A5F9FFBD4
- CONST UID 'F77A5F9FFBD4'
- CONST Name 'Init_Str_DeleteConfigValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmDeleteConfigValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E5E09030C // ddAppConfigListsRes
- ;
- : Speller ME_4B9E5EEA0056 // DeleteConfigValue
- ;
- : SpelledFor ME_187FC2C82075 // DeleteConfigValue
- ;
-
-ref; // ME_F77A5F9FFBD4 Init_Str_DeleteConfigValue
-
-: ME_A3561964BAFD
- CONST UID 'A3561964BAFD'
- CONST Name 'Init_Str_ConfirmDeleteConfigValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmConfirmDeleteConfigValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E5E09030C // ddAppConfigListsRes
- ;
- : Speller ME_4B9E5EFD0165 // ConfirmDeleteConfigValue
- ;
- : SpelledFor ME_429317D791FC // ConfirmDeleteConfigValue
- ;
-
-ref; // ME_A3561964BAFD Init_Str_ConfirmDeleteConfigValue
 
 : ME_2276FA515CBD
  CONST IsSummoned true
@@ -11969,13 +11806,6 @@ ref; // ME_D0B0A7C969EE
  CONST Abstraction at_final
  : Parent ME_4B990EDE031A // AppConfig
  ;
- : Operations
-   Seq: ( ME_A2A933CA2020 // Init_Str_AddConfigValue
- ME_2DC777E469F9 // Init_Str_ChangeConfigValue
- ME_F77A5F9FFBD4 // Init_Str_DeleteConfigValue
- ME_A3561964BAFD // Init_Str_ConfirmDeleteConfigValue
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B9E5E4B03A6 // ConfigMessages
  ME_FFC3B32F94E4 // LCImplConfigMessages
@@ -13493,6 +13323,8 @@ FORWARD ME_C53991435642
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmCheckButton''; rValue : ''Проверка'')'
+ : Speller ME_4B9E62FE018C // CheckButton
+ ;
 
 ref; // ME_35850AD34829 CheckButton
 
@@ -13516,6 +13348,8 @@ ref; // ME_35850AD34829 CheckButton
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmSoundFiles''; rValue : ''Звуковые файлы (*.wav)|*.wav'')'
+ : Speller ME_4B9E6303033F // SoundFiles
+ ;
 
 ref; // ME_5C0C73012B63 SoundFiles
 
@@ -13541,44 +13375,10 @@ ref; // ME_5C0C73012B63 SoundFiles
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_ddcm'
+ : Speller ME_4B9E62E50068 // Local
+ ;
 
 ref; // ME_C53991435642 LCImplLocal
-
-: ME_EF3B247F99C0
- CONST UID 'EF3B247F99C0'
- CONST Name 'Init_Str_CheckButton'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmCheckButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E62C2001A // ddAppConfigStringsRes
- ;
- : Speller ME_4B9E62FE018C // CheckButton
- ;
- : SpelledFor ME_35850AD34829 // CheckButton
- ;
-
-ref; // ME_EF3B247F99C0 Init_Str_CheckButton
-
-: ME_B9096DF81317
- CONST UID 'B9096DF81317'
- CONST Name 'Init_Str_SoundFiles'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmSoundFiles' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E62C2001A // ddAppConfigStringsRes
- ;
- : Speller ME_4B9E6303033F // SoundFiles
- ;
- : SpelledFor ME_5C0C73012B63 // SoundFiles
- ;
-
-ref; // ME_B9096DF81317 Init_Str_SoundFiles
 
 : ME_AB515D27A165
  CONST IsSummoned true
@@ -13612,11 +13412,6 @@ ref; // ME_F5F74970FB69
  CONST Abstraction at_final
  : Parent ME_4B990EDE031A // AppConfig
  ;
- : Operations
-   Seq: ( ME_EF3B247F99C0 // Init_Str_CheckButton
- ME_B9096DF81317 // Init_Str_SoundFiles
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B9E62E50068 // Local
  ME_C53991435642 // LCImplLocal
@@ -13805,6 +13600,8 @@ FORWARD ME_5B2EE26247B5
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmInvalidIntegerValue''; rValue : ''Введенное вами значение ''''%s'''' не является числом.'')'
+ : Speller ME_4B9E68660393 // InvalidIntegerValue
+ ;
 
 ref; // ME_34755AC520FF InvalidIntegerValue
 
@@ -13828,6 +13625,8 @@ ref; // ME_34755AC520FF InvalidIntegerValue
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmErrorIntegerRange''; rValue : ''Введенное вами число ''''%d'''' находится вне диапазона ''''%d-%d''''.'')'
+ : Speller ME_4B9E686B02A1 // ErrorIntegerRange
+ ;
 
 ref; // ME_6890166D35AA ErrorIntegerRange
 
@@ -13851,6 +13650,8 @@ ref; // ME_6890166D35AA ErrorIntegerRange
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmInvalidMaxValue''; rValue : ''Максимальное значение %d не может превышать %d'')'
+ : Speller ME_4B9E68A200A4 // InvalidMaxValue
+ ;
 
 ref; // ME_060F7756F22F InvalidMaxValue
 
@@ -13874,6 +13675,8 @@ ref; // ME_060F7756F22F InvalidMaxValue
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmInvalidMinValue''; rValue : ''Минимальное значение %d не может быть меньше %d'')'
+ : Speller ME_4B9E68A70075 // InvalidMinValue
+ ;
 
 ref; // ME_2DCF5D9EB257 InvalidMinValue
 
@@ -13897,6 +13700,8 @@ ref; // ME_2DCF5D9EB257 InvalidMinValue
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmSelectButton''; rValue : ''Выбрать'')'
+ : Speller ME_4B9E68C8008B // SelectButton
+ ;
 
 ref; // ME_0EFD0C22FE12 SelectButton
 
@@ -13920,6 +13725,8 @@ ref; // ME_0EFD0C22FE12 SelectButton
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmFontExample''; rValue : ''Пример шрифта'')'
+ : Speller ME_4B9E68D101CD // FontExample
+ ;
 
 ref; // ME_4D4CADE81D63 FontExample
 
@@ -13943,6 +13750,8 @@ ref; // ME_4D4CADE81D63 FontExample
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddcmInvalidMapValue''; rValue : ''Введенное значение не найдено в списке допустимых'')'
+ : Speller ME_4B9E68E50224 // InvalidMapValue
+ ;
 
 ref; // ME_9BF6B1E2334D InvalidMapValue
 
@@ -13973,134 +13782,10 @@ ref; // ME_9BF6B1E2334D InvalidMapValue
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_ddcm'
+ : Speller ME_4B9E683A02C0 // Local
+ ;
 
 ref; // ME_5B2EE26247B5 LCImplLocal
-
-: ME_21E0DFAC9140
- CONST UID '21E0DFAC9140'
- CONST Name 'Init_Str_InvalidIntegerValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmInvalidIntegerValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E68660393 // InvalidIntegerValue
- ;
- : SpelledFor ME_34755AC520FF // InvalidIntegerValue
- ;
-
-ref; // ME_21E0DFAC9140 Init_Str_InvalidIntegerValue
-
-: ME_4411EC7C4036
- CONST UID '4411EC7C4036'
- CONST Name 'Init_Str_ErrorIntegerRange'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmErrorIntegerRange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E686B02A1 // ErrorIntegerRange
- ;
- : SpelledFor ME_6890166D35AA // ErrorIntegerRange
- ;
-
-ref; // ME_4411EC7C4036 Init_Str_ErrorIntegerRange
-
-: ME_EC135BBFD77A
- CONST UID 'EC135BBFD77A'
- CONST Name 'Init_Str_InvalidMaxValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmInvalidMaxValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E68A200A4 // InvalidMaxValue
- ;
- : SpelledFor ME_060F7756F22F // InvalidMaxValue
- ;
-
-ref; // ME_EC135BBFD77A Init_Str_InvalidMaxValue
-
-: ME_8355FD370A48
- CONST UID '8355FD370A48'
- CONST Name 'Init_Str_InvalidMinValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmInvalidMinValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E68A70075 // InvalidMinValue
- ;
- : SpelledFor ME_2DCF5D9EB257 // InvalidMinValue
- ;
-
-ref; // ME_8355FD370A48 Init_Str_InvalidMinValue
-
-: ME_6E62E035E6B5
- CONST UID '6E62E035E6B5'
- CONST Name 'Init_Str_SelectButton'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmSelectButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E68C8008B // SelectButton
- ;
- : SpelledFor ME_0EFD0C22FE12 // SelectButton
- ;
-
-ref; // ME_6E62E035E6B5 Init_Str_SelectButton
-
-: ME_5E67127F5FB5
- CONST UID '5E67127F5FB5'
- CONST Name 'Init_Str_FontExample'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmFontExample' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E68D101CD // FontExample
- ;
- : SpelledFor ME_4D4CADE81D63 // FontExample
- ;
-
-ref; // ME_5E67127F5FB5 Init_Str_FontExample
-
-: ME_4B74389E3F76
- CONST UID '4B74389E3F76'
- CONST Name 'Init_Str_InvalidMapValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ddcmInvalidMapValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B9E68040166 // ddAppConfigTypesRes
- ;
- : Speller ME_4B9E68E50224 // InvalidMapValue
- ;
- : SpelledFor ME_9BF6B1E2334D // InvalidMapValue
- ;
-
-ref; // ME_4B74389E3F76 Init_Str_InvalidMapValue
 
 : ME_D0B514581F0A
  CONST IsSummoned true
@@ -14134,16 +13819,6 @@ ref; // ME_9D1E4D9E314B
  CONST Abstraction at_final
  : Parent ME_4B990EDE031A // AppConfig
  ;
- : Operations
-   Seq: ( ME_21E0DFAC9140 // Init_Str_InvalidIntegerValue
- ME_4411EC7C4036 // Init_Str_ErrorIntegerRange
- ME_EC135BBFD77A // Init_Str_InvalidMaxValue
- ME_8355FD370A48 // Init_Str_InvalidMinValue
- ME_6E62E035E6B5 // Init_Str_SelectButton
- ME_5E67127F5FB5 // Init_Str_FontExample
- ME_4B74389E3F76 // Init_Str_InvalidMapValue
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B9E683A02C0 // Local
  ME_5B2EE26247B5 // LCImplLocal

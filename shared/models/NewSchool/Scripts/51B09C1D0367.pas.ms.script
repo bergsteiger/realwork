@@ -123,6 +123,8 @@ FORWARD ME_EBDB59884951
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgJurorCommentHint''; rValue : ''Документ с комментариями юристов'')'
+ : Speller ME_4DAC3E24025B // JurorCommentHint
+ ;
 
 ref; // ME_F9568E5D7165 JurorCommentHint
 
@@ -146,6 +148,8 @@ ref; // ME_F9568E5D7165 JurorCommentHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgTimeMachineOffHint''; rValue : ''Машина времени будет выключена, а текст документа будет представлен в актуальной редакции'')'
+ : Speller ME_4DAC3E5B022D // TimeMachineOffHint
+ ;
 
 ref; // ME_8E7C2CA9705D TimeMachineOffHint
 
@@ -169,6 +173,8 @@ ref; // ME_8E7C2CA9705D TimeMachineOffHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgNotShureWarningHint''; rValue : ''Период действия данной редакции документа не может быть определен однозначно'')'
+ : Speller ME_4DAC3E75024C // NotShureWarningHint
+ ;
 
 ref; // ME_D0D99AC5C12B NotShureWarningHint
 
@@ -192,6 +198,8 @@ ref; // ME_D0D99AC5C12B NotShureWarningHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHint''; rValue : ''Ссылка на справку к документу'')'
+ : Speller ME_4DAC3E8B00BF // ReferenceHint
+ ;
 
 ref; // ME_3BBECB57206D ReferenceHint
 
@@ -219,80 +227,10 @@ ref; // ME_3BBECB57206D ReferenceHint
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_wg'
+ : Speller ME_4DAC3D400271 // WarningConst
+ ;
 
 ref; // ME_EBDB59884951 LCImplWarningConst
-
-: ME_1A9F03308941
- CONST UID '1A9F03308941'
- CONST Name 'Init_Str_JurorCommentHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_wgJurorCommentHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DAC3D1B031C // WarningConst
- ;
- : Speller ME_4DAC3E24025B // JurorCommentHint
- ;
- : SpelledFor ME_F9568E5D7165 // JurorCommentHint
- ;
-
-ref; // ME_1A9F03308941 Init_Str_JurorCommentHint
-
-: ME_166231737752
- CONST UID '166231737752'
- CONST Name 'Init_Str_TimeMachineOffHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_wgTimeMachineOffHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DAC3D1B031C // WarningConst
- ;
- : Speller ME_4DAC3E5B022D // TimeMachineOffHint
- ;
- : SpelledFor ME_8E7C2CA9705D // TimeMachineOffHint
- ;
-
-ref; // ME_166231737752 Init_Str_TimeMachineOffHint
-
-: ME_12E1CF4BDD83
- CONST UID '12E1CF4BDD83'
- CONST Name 'Init_Str_NotShureWarningHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_wgNotShureWarningHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DAC3D1B031C // WarningConst
- ;
- : Speller ME_4DAC3E75024C // NotShureWarningHint
- ;
- : SpelledFor ME_D0D99AC5C12B // NotShureWarningHint
- ;
-
-ref; // ME_12E1CF4BDD83 Init_Str_NotShureWarningHint
-
-: ME_889694C90722
- CONST UID '889694C90722'
- CONST Name 'Init_Str_ReferenceHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_wgReferenceHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DAC3D1B031C // WarningConst
- ;
- : Speller ME_4DAC3E8B00BF // ReferenceHint
- ;
- : SpelledFor ME_3BBECB57206D // ReferenceHint
- ;
-
-ref; // ME_889694C90722 Init_Str_ReferenceHint
 
 : ME_516842197B50
  CONST IsSummoned true
@@ -326,13 +264,6 @@ ref; // ME_885EEBDB0354
  CONST Abstraction at_final
  : Parent ME_51B09C1D0367 // Common
  ;
- : Operations
-   Seq: ( ME_1A9F03308941 // Init_Str_JurorCommentHint
- ME_166231737752 // Init_Str_TimeMachineOffHint
- ME_12E1CF4BDD83 // Init_Str_NotShureWarningHint
- ME_889694C90722 // Init_Str_ReferenceHint
- )
- ; // Operations
  : Constants
    Seq: ( ME_4DAC3D400271 // WarningConst
  ME_EBDB59884951 // LCImplWarningConst

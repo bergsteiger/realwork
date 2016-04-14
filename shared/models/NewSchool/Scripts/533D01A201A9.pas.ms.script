@@ -2691,6 +2691,8 @@ FORWARD ME_79F40AD895C2
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Close''; rValue : ''Закрыть'')'
+ : Speller ME_545B538C015A // Close
+ ;
 
 ref; // ME_A1B3A3D999CC Close
 
@@ -2714,6 +2716,8 @@ ref; // ME_A1B3A3D999CC Close
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Minimize''; rValue : ''Свернуть'')'
+ : Speller ME_545B53980065 // Minimize
+ ;
 
 ref; // ME_8F8A11F935F4 Minimize
 
@@ -2737,6 +2741,8 @@ ref; // ME_8F8A11F935F4 Minimize
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Restore''; rValue : ''Свернуть в окно'')'
+ : Speller ME_545B53BE02C8 // Restore
+ ;
 
 ref; // ME_A4F08C321654 Restore
 
@@ -2760,6 +2766,8 @@ ref; // ME_A4F08C321654 Restore
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Maximize''; rValue : ''Развернуть'')'
+ : Speller ME_545B53CE00AC // Maximize
+ ;
 
 ref; // ME_5DE753C62B4A Maximize
 
@@ -2786,80 +2794,10 @@ ref; // ME_5DE753C62B4A Maximize
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_545B532F004D // WindowCaptionButtonsHints
+ ;
 
 ref; // ME_79F40AD895C2 LCImplWindowCaptionButtonsHints
-
-: ME_CC486CCA4777
- CONST UID 'CC486CCA4777'
- CONST Name 'Init_Str_Close'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_Close' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
- ;
- : Speller ME_545B538C015A // Close
- ;
- : SpelledFor ME_A1B3A3D999CC // Close
- ;
-
-ref; // ME_CC486CCA4777 Init_Str_Close
-
-: ME_729FA40C2417
- CONST UID '729FA40C2417'
- CONST Name 'Init_Str_Minimize'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_Minimize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
- ;
- : Speller ME_545B53980065 // Minimize
- ;
- : SpelledFor ME_8F8A11F935F4 // Minimize
- ;
-
-ref; // ME_729FA40C2417 Init_Str_Minimize
-
-: ME_A33FB1576ED0
- CONST UID 'A33FB1576ED0'
- CONST Name 'Init_Str_Restore'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_Restore' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
- ;
- : Speller ME_545B53BE02C8 // Restore
- ;
- : SpelledFor ME_A4F08C321654 // Restore
- ;
-
-ref; // ME_A33FB1576ED0 Init_Str_Restore
-
-: ME_F6041E1A40D5
- CONST UID 'F6041E1A40D5'
- CONST Name 'Init_Str_Maximize'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_Maximize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
- ;
- : Speller ME_545B53CE00AC // Maximize
- ;
- : SpelledFor ME_5DE753C62B4A // Maximize
- ;
-
-ref; // ME_F6041E1A40D5 Init_Str_Maximize
 
 : ME_2888368C3AB3
  CONST IsSummoned true
@@ -2893,13 +2831,6 @@ ref; // ME_36E0D7AE4EF0
  CONST Abstraction at_final
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
- : Operations
-   Seq: ( ME_CC486CCA4777 // Init_Str_Close
- ME_729FA40C2417 // Init_Str_Minimize
- ME_A33FB1576ED0 // Init_Str_Restore
- ME_F6041E1A40D5 // Init_Str_Maximize
- )
- ; // Operations
  : Constants
    Seq: ( ME_545B532F004D // WindowCaptionButtonsHints
  ME_79F40AD895C2 // LCImplWindowCaptionButtonsHints

@@ -1732,6 +1732,8 @@ FORWARD ME_2236769CBE83
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHyperlinkSearchText''; rValue : ''Подробнее см. в справке к документу'')'
+ : Speller ME_4DAC1BF701DA // ReferenceHyperlinkSearchText
+ ;
 
 ref; // ME_9FA3092124D9 ReferenceHyperlinkSearchText
 
@@ -1755,6 +1757,8 @@ ref; // ME_9FA3092124D9 ReferenceHyperlinkSearchText
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHyperlinkReplaceText''; rValue : ''Подробнее [см. в справке к документу|script:оп::Документ_Справка_к_документу|Ссылка на справку к документу]'')'
+ : Speller ME_4E283E940111 // ReferenceHyperlinkReplaceText
+ ;
 
 ref; // ME_F93CF7C3693C ReferenceHyperlinkReplaceText
 
@@ -1780,44 +1784,10 @@ ref; // ME_F93CF7C3693C ReferenceHyperlinkReplaceText
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_wg'
+ : Speller ME_4E283FEC0311 // Local
+ ;
 
 ref; // ME_2236769CBE83 LCImplLocal
-
-: ME_D5D834014C99
- CONST UID 'D5D834014C99'
- CONST Name 'Init_Str_ReferenceHyperlinkSearchText'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_wgReferenceHyperlinkSearchText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E283FC201DC // bsUtilsConst
- ;
- : Speller ME_4DAC1BF701DA // ReferenceHyperlinkSearchText
- ;
- : SpelledFor ME_9FA3092124D9 // ReferenceHyperlinkSearchText
- ;
-
-ref; // ME_D5D834014C99 Init_Str_ReferenceHyperlinkSearchText
-
-: ME_702CF2631FCA
- CONST UID '702CF2631FCA'
- CONST Name 'Init_Str_ReferenceHyperlinkReplaceText'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_wgReferenceHyperlinkReplaceText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E283FC201DC // bsUtilsConst
- ;
- : Speller ME_4E283E940111 // ReferenceHyperlinkReplaceText
- ;
- : SpelledFor ME_F93CF7C3693C // ReferenceHyperlinkReplaceText
- ;
-
-ref; // ME_702CF2631FCA Init_Str_ReferenceHyperlinkReplaceText
 
 : ME_7AEF4D704AAF
  CONST IsSummoned true
@@ -1851,11 +1821,6 @@ ref; // ME_35B49232ACC0
  CONST Abstraction at_final
  : Parent ME_4A9F83AD0235 // Document
  ;
- : Operations
-   Seq: ( ME_D5D834014C99 // Init_Str_ReferenceHyperlinkSearchText
- ME_702CF2631FCA // Init_Str_ReferenceHyperlinkReplaceText
- )
- ; // Operations
  : Constants
    Seq: ( ME_4E283FEC0311 // Local
  ME_2236769CBE83 // LCImplLocal

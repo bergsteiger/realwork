@@ -2331,6 +2331,8 @@ FORWARD ME_3CE3AD014170
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cpClassCaptionReview''; rValue : ''Раздел/Тема в ОИЗ'')'
+ : Speller ME_4F181B960256 // ClassCaptionReview
+ ;
 
 ref; // ME_7FF54D9F74AD ClassCaptionReview
 
@@ -2354,6 +2356,8 @@ ref; // ME_7FF54D9F74AD ClassCaptionReview
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cpSourceCaptionReview''; rValue : ''Орган/Источник в ОИЗ'')'
+ : Speller ME_4F181BCD0358 // SourceCaptionReview
+ ;
 
 ref; // ME_2E7EE659FF80 SourceCaptionReview
 
@@ -2379,44 +2383,10 @@ ref; // ME_2E7EE659FF80 SourceCaptionReview
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_cp'
+ : Speller ME_4F181B390177 // Local
+ ;
 
 ref; // ME_3CE3AD014170 LCImplLocal
-
-: ME_4CB9382552A2
- CONST UID '4CB9382552A2'
- CONST Name 'Init_Str_ClassCaptionReview'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cpClassCaptionReview' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F181AFC03E3 // nsStringValueMapFactoryRes
- ;
- : Speller ME_4F181B960256 // ClassCaptionReview
- ;
- : SpelledFor ME_7FF54D9F74AD // ClassCaptionReview
- ;
-
-ref; // ME_4CB9382552A2 Init_Str_ClassCaptionReview
-
-: ME_22EF6AC48C72
- CONST UID '22EF6AC48C72'
- CONST Name 'Init_Str_SourceCaptionReview'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cpSourceCaptionReview' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F181AFC03E3 // nsStringValueMapFactoryRes
- ;
- : Speller ME_4F181BCD0358 // SourceCaptionReview
- ;
- : SpelledFor ME_2E7EE659FF80 // SourceCaptionReview
- ;
-
-ref; // ME_22EF6AC48C72 Init_Str_SourceCaptionReview
 
 : ME_5163467D22FA
  CONST IsSummoned true
@@ -2450,11 +2420,6 @@ ref; // ME_39A33D9B8947
  CONST Abstraction at_final
  : Parent ME_48F747EC0073 // Common
  ;
- : Operations
-   Seq: ( ME_4CB9382552A2 // Init_Str_ClassCaptionReview
- ME_22EF6AC48C72 // Init_Str_SourceCaptionReview
- )
- ; // Operations
  : Constants
    Seq: ( ME_4F181B390177 // Local
  ME_3CE3AD014170 // LCImplLocal

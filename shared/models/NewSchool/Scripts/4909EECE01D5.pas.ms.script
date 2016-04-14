@@ -1725,6 +1725,210 @@ ref; // ME_4A60B23E00C3_ME_4E730AE6014C COMQueryInterface
 
 ref; // ME_4E730AE6014C TnsMainMenu2011Node
 
+FORWARD ME_5707EE3A0158
+
+: ME_5707EEE4013B
+ CONST UID '5707EEE4013B'
+ CONST Name 'f_MainMenuSection'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Target WL 'ME_56FE518A027D' '4DD24BD40021.pas.ms.script' // MainMenuSection
+ ;
+
+ref; // ME_5707EEE4013B f_MainMenuSection
+
+: ME_5707EFBC036F
+ CONST UID '5707EFBC036F'
+ CONST Name 'f_Caption'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5707EFBC036F f_Caption
+
+FORWARD ME_5707EEF50342
+
+: ME_5707EF080003
+ CONST Name 'aSection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56FE518A027D' '4DD24BD40021.pas.ms.script' // MainMenuSection
+ ;
+
+ref; // ME_5707EF080003 aSection
+
+: ME_5707EEFE02B8
+ CONST UID '5707EEFE02B8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5707EEF50342 // Create
+ ;
+ : Parameters
+   Seq: ( ME_5707EF080003 // aSection
+ )
+ ; // Parameters
+
+ref; // ME_5707EEFE02B8 DoIt
+
+: ME_5707EEF50342
+ CONST UID '5707EEF50342'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Operations
+   Seq: ( ME_5707EEFE02B8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5707EEF50342 Create
+
+: ME_5707EF280355
+ CONST UID '5707EF280355'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Inherits
+   Seq: ( ME_5707EEF50342 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
+ )
+ ; // Implements
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_5707EF280355 Make
+
+: ME_5707EFD6006D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_5707EFD6006D 
+
+: ME_5707F04C035C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
+ ;
+
+ref; // ME_5707F04C035C 
+
+: ME_570B9121023A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_570B9121023A 
+
+: ME_570B912401A7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5707EE3A0158 // TnsMainMenuSectionNode
+ ;
+ : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
+ ;
+
+ref; // ME_570B912401A7 
+
+: ME_479731C50290_ME_5707EE3A0158
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5707EE3A0158 Cleanup
+
+: ME_47A869BB02DE_ME_5707EE3A0158
+ : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A869BB02DE_ME_5707EE3A0158 GetAsPCharLen
+
+: ME_4A60B23E00C3_ME_5707EE3A0158
+ : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A60B23E00C3_ME_5707EE3A0158 COMQueryInterface
+
+: ME_5707EE3A0158
+ CONST UID '5707EE3A0158'
+ CONST Name 'TnsMainMenuSectionNode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4909EECE01D5 // MainMenu
+ ;
+ : Inherits
+   Seq: ( WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_5707EEE4013B // f_MainMenuSection
+ ME_5707EFBC036F // f_Caption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5707EEF50342 // Create
+ ME_5707EF280355 // Make
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5707EE3A0158 // Cleanup
+ ME_47A869BB02DE_ME_5707EE3A0158 // GetAsPCharLen
+ ME_4A60B23E00C3_ME_5707EE3A0158 // COMQueryInterface
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5707EFD6006D // 
+ ME_5707F04C035C // 
+ ME_570B9121023A // 
+ ME_570B912401A7 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsMainMenuSectionNode.pas'
+ CONST extprop:rc:SelfName 'MainMenuSectionNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsMainMenuSectionNode'
+
+ref; // ME_5707EE3A0158 TnsMainMenuSectionNode
+
 : ME_4909EECE01D5
  CONST UID '4909EECE01D5'
  CONST Name 'MainMenu'
@@ -1744,6 +1948,7 @@ ref; // ME_4E730AE6014C TnsMainMenu2011Node
  ME_4ADDF4D901D1 // TnsJournalBookmarkNode
  ME_4ADDF50A00E2 // TnsQueryNode
  ME_4E730AE6014C // TnsMainMenu2011Node
+ ME_5707EE3A0158 // TnsMainMenuSectionNode
  )
  ; // Children
  : Depends

@@ -5990,6 +5990,8 @@ FORWARD ME_730F71ECBE08
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''tphhsShowVersionInfo''; rValue : ''Показать информацию об изменениях'')'
+ : Speller ME_4D5951F7005F // ShowVersionInfo
+ ;
 
 ref; // ME_A9FAE27F3768 ShowVersionInfo
 
@@ -6013,6 +6015,8 @@ ref; // ME_A9FAE27F3768 ShowVersionInfo
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''tphhsHideVersionInfo''; rValue : ''Скрыть информацию об изменениях'')'
+ : Speller ME_4D5952180271 // HideVersionInfo
+ ;
 
 ref; // ME_6340EFBF02FF HideVersionInfo
 
@@ -6038,6 +6042,8 @@ ref; // ME_6340EFBF02FF HideVersionInfo
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_tphhs'
+ : Speller ME_4D5951820043 // Local
+ ;
 
 ref; // ME_730F71ECBE08 LCImplLocal
 
@@ -6212,42 +6218,6 @@ ref; // ME_4D5977BF02B4
 
 ref; // ME_4D59515E0255 DoCollapse
 
-: ME_3BBB56F4AA3F
- CONST UID '3BBB56F4AA3F'
- CONST Name 'Init_Str_ShowVersionInfo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_tphhsShowVersionInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
- ;
- : Speller ME_4D5951F7005F // ShowVersionInfo
- ;
- : SpelledFor ME_A9FAE27F3768 // ShowVersionInfo
- ;
-
-ref; // ME_3BBB56F4AA3F Init_Str_ShowVersionInfo
-
-: ME_DD9A49DAAFB1
- CONST UID 'DD9A49DAAFB1'
- CONST Name 'Init_Str_HideVersionInfo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_tphhsHideVersionInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
- ;
- : Speller ME_4D5952180271 // HideVersionInfo
- ;
- : SpelledFor ME_6340EFBF02FF // HideVersionInfo
- ;
-
-ref; // ME_DD9A49DAAFB1 Init_Str_HideVersionInfo
-
 : ME_521E29D6058E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -6357,8 +6327,6 @@ ref; // ME_4A267FC6016B_ME_4D594C39031B DoHitTest
    Seq: ( ME_4D594C980253 // Create
  ME_4D594CAA009C // Make
  ME_4D59515E0255 // DoCollapse
- ME_3BBB56F4AA3F // Init_Str_ShowVersionInfo
- ME_DD9A49DAAFB1 // Init_Str_HideVersionInfo
  )
  ; // Operations
  : Implemented

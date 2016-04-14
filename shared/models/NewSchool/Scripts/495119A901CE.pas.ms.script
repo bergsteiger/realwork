@@ -2406,6 +2406,8 @@ FORWARD ME_DD5314341505
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_CloseHyperlinkText''; rValue : ''Закрыть'')'
+ : Speller ME_4B97EEB7015F // CloseHyperlinkText
+ ;
 
 ref; // ME_5F13428B78A0 CloseHyperlinkText
 
@@ -2430,26 +2432,10 @@ ref; // ME_5F13428B78A0 CloseHyperlinkText
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nsc_'
+ : Speller ME_4B97EE8B032F // MiscMessages
+ ;
 
 ref; // ME_DD5314341505 LCImplMiscMessages
-
-: ME_3B151A0199D7
- CONST UID '3B151A0199D7'
- CONST Name 'Init_Str_CloseHyperlinkText'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_CloseHyperlinkText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
- ;
- : Speller ME_4B97EEB7015F // CloseHyperlinkText
- ;
- : SpelledFor ME_5F13428B78A0 // CloseHyperlinkText
- ;
-
-ref; // ME_3B151A0199D7 Init_Str_CloseHyperlinkText
 
 : ME_BF03AEB9ABE0
  CONST IsSummoned true
@@ -2484,10 +2470,6 @@ ref; // ME_110DC76AEC0F
  CONST Abstraction at_final
  : Parent ME_495119A901CE // Editor
  ;
- : Operations
-   Seq: ( ME_3B151A0199D7 // Init_Str_CloseHyperlinkText
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B97EE8B032F // MiscMessages
  ME_DD5314341505 // LCImplMiscMessages

@@ -543,6 +543,455 @@ ref; // ME_4909EF6E0361_ME_4E73239003D0 MakeRoot
 
 ref; // ME_4E73239003D0 TsmChangeableTree
 
+FORWARD ME_570B6AB10204
+
+: ME_570B6B9E00E4
+ CONST UID '570B6B9E00E4'
+ CONST Name 'f_Sections'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Target WL 'ME_56FE606A033E' '4DD24BD40021.pas.ms.script' // MainMenuSectionList
+ ;
+
+ref; // ME_570B6B9E00E4 f_Sections
+
+FORWARD ME_570B6C6701A9
+
+: ME_570B6C9A027E
+ CONST UID '570B6C9A027E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_570B6C6701A9 // MakeRoot
+ ;
+ : Target WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
+ ;
+
+ref; // ME_570B6C9A027E DoIt
+
+: ME_570B6C6701A9
+ CONST UID '570B6C6701A9'
+ CONST Name 'MakeRoot'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Operations
+   Seq: ( ME_570B6C9A027E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_570B6C6701A9 MakeRoot
+
+FORWARD ME_570B7D6D0066
+
+: ME_570B7D7C015C
+ CONST Name 'aSections'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56FE606A033E' '4DD24BD40021.pas.ms.script' // MainMenuSectionList
+ ;
+
+ref; // ME_570B7D7C015C aSections
+
+: ME_570B7D720322
+ CONST UID '570B7D720322'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_570B7D6D0066 // Create
+ ;
+ : Parameters
+   Seq: ( ME_570B7D7C015C // aSections
+ )
+ ; // Parameters
+
+ref; // ME_570B7D720322 DoIt
+
+: ME_570B7D6D0066
+ CONST UID '570B7D6D0066'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Operations
+   Seq: ( ME_570B7D720322 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_570B7D6D0066 Create
+
+: ME_570B7D870049
+ CONST UID '570B7D870049'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Inherits
+   Seq: ( ME_570B7D6D0066 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ )
+ ; // Implements
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_570B7D870049 Make
+
+: ME_570B7DA901A5
+ CONST UID '570B7DA901A5'
+ CONST Name 'AddNodes'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+
+ref; // ME_570B7DA901A5 AddNodes
+
+: ME_570B6B160087
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Target WL 'ME_5707EE3A0158' '4909EECE01D5.pas.ms.script' // TnsMainMenuSectionNode
+ ;
+
+ref; // ME_570B6B160087 
+
+: ME_570B90E7023F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Target WL 'ME_48FF63BC0129' '47F2170002B2.pas.ms.script' // TnsResetTreeStatus
+ ;
+
+ref; // ME_570B90E7023F 
+
+: ME_570B90EA01D4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Target WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
+ ;
+
+ref; // ME_570B90EA01D4 
+
+: ME_570B90EC0364
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B6AB10204 // TsmSectionTree
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_570B90EC0364 
+
+: ME_479731C50290_ME_570B6AB10204
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_570B6AB10204 Cleanup
+
+: ME_47A042E100E2_ME_570B6AB10204
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_570B6AB10204 InitFields
+
+: ME_4908AAED02BD_ME_570B6AB10204
+ : Original WL 'ME_4908AAED02BD' '4908A8A20107.pas.ms.script' // BeforeReset
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4908AAED02BD_ME_570B6AB10204 BeforeReset
+
+: ME_4908AAF6015C_ME_570B6AB10204
+ : Original WL 'ME_4908AAF6015C' '4908A8A20107.pas.ms.script' // AfterReget
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4908AAF6015C_ME_570B6AB10204 AfterReget
+
+: ME_4908AB070319_ME_570B6AB10204
+ : Original WL 'ME_4908AB070319' '4908A8A20107.pas.ms.script' // RegetRootNode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4908AB070319_ME_570B6AB10204 RegetRootNode
+
+: ME_570B6AB10204
+ CONST UID '570B6AB10204'
+ CONST Name 'TsmSectionTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9FB4EE00FE // MainMenuTrees
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4908A9240071' '4908A8A20107.pas.ms.script' // TnsDataResetTree
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_570B6B9E00E4 // f_Sections
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_570B6C6701A9 // MakeRoot
+ ME_570B7D6D0066 // Create
+ ME_570B7D870049 // Make
+ ME_570B7DA901A5 // AddNodes
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_570B6AB10204 // Cleanup
+ ME_47A042E100E2_ME_570B6AB10204 // InitFields
+ ME_4908AAED02BD_ME_570B6AB10204 // BeforeReset
+ ME_4908AAF6015C_ME_570B6AB10204 // AfterReget
+ ME_4908AB070319_ME_570B6AB10204 // RegetRootNode
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_570B6B160087 // 
+ ME_570B90E7023F // 
+ ME_570B90EA01D4 // 
+ ME_570B90EC0364 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smSectionTree.pas'
+ CONST extprop:rc:SelfName 'smSectionTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'smSectionTree'
+
+ref; // ME_570B6AB10204 TsmSectionTree
+
+FORWARD ME_570B9CF90392
+
+: ME_570B9E5D0320
+ CONST UID '570B9E5D0320'
+ CONST Name 'f_Section'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ : Target WL 'ME_56FE518A027D' '4DD24BD40021.pas.ms.script' // MainMenuSection
+ ;
+
+ref; // ME_570B9E5D0320 f_Section
+
+FORWARD ME_570B9E6A035D
+
+: ME_570B9E7C013F
+ CONST Name 'aSection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56FE518A027D' '4DD24BD40021.pas.ms.script' // MainMenuSection
+ ;
+
+ref; // ME_570B9E7C013F aSection
+
+: ME_570B9E790241
+ CONST UID '570B9E790241'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_570B9E6A035D // Create
+ ;
+ : Parameters
+   Seq: ( ME_570B9E7C013F // aSection
+ )
+ ; // Parameters
+
+ref; // ME_570B9E790241 DoIt
+
+: ME_570B9E6A035D
+ CONST UID '570B9E6A035D'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ : Operations
+   Seq: ( ME_570B9E790241 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_570B9E6A035D Create
+
+: ME_570B9E7F0230
+ CONST UID '570B9E7F0230'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ : Inherits
+   Seq: ( ME_570B9E6A035D // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ )
+ ; // Implements
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_570B9E7F0230 Make
+
+: ME_570B9EFA0118
+ CONST UID '570B9EFA0118'
+ CONST Name 'AddItems'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+
+ref; // ME_570B9EFA0118 AddItems
+
+: ME_570B9D1C021F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ : Target WL 'ME_4E730AE6014C' '4909EECE01D5.pas.ms.script' // TnsMainMenu2011Node
+ ;
+
+ref; // ME_570B9D1C021F 
+
+: ME_570BAE010175
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ : Target WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
+ ;
+
+ref; // ME_570BAE010175 
+
+: ME_570BAE04021F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_570BAE04021F 
+
+: ME_479731C50290_ME_570B9CF90392
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_570B9CF90392 Cleanup
+
+: ME_47A042E100E2_ME_570B9CF90392
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_570B9CF90392 InitFields
+
+: ME_4908AAED02BD_ME_570B9CF90392
+ : Original WL 'ME_4908AAED02BD' '4908A8A20107.pas.ms.script' // BeforeReset
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4908AAED02BD_ME_570B9CF90392 BeforeReset
+
+: ME_4909EF6E0361_ME_570B9CF90392
+ : Original WL 'ME_4909EF6E0361' '4909EECE01D5.pas.ms.script' // MakeRoot
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4909EF6E0361_ME_570B9CF90392 MakeRoot
+
+: ME_570B9CF90392
+ CONST UID '570B9CF90392'
+ CONST Name 'TsmMainMenuTree2016'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9FB4EE00FE // MainMenuTrees
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4909EF3B02B1' '4909EECE01D5.pas.ms.script' // TnsBaseMainMenuTree
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_570B9E5D0320 // f_Section
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_570B9E6A035D // Create
+ ME_570B9E7F0230 // Make
+ ME_570B9EFA0118 // AddItems
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_570B9CF90392 // Cleanup
+ ME_47A042E100E2_ME_570B9CF90392 // InitFields
+ ME_4908AAED02BD_ME_570B9CF90392 // BeforeReset
+ ME_4909EF6E0361_ME_570B9CF90392 // MakeRoot
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_570B9D1C021F // 
+ ME_570BAE010175 // 
+ ME_570BAE04021F // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smMainMenuTree2016.pas'
+ CONST extprop:rc:SelfName 'smMainMenuTree2016'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'smMainMenuTree2016'
+
+ref; // ME_570B9CF90392 TsmMainMenuTree2016
+
 : ME_4A9FB4EE00FE
  CONST UID '4A9FB4EE00FE'
  CONST Name 'MainMenuTrees'
@@ -557,6 +1006,8 @@ ref; // ME_4E73239003D0 TsmChangeableTree
  ME_490C2AE8028E // TsmLawNewsTree
  ME_4AFBF77E0200 // TsmNewSchoolReferencesTree
  ME_4E73239003D0 // TsmChangeableTree
+ ME_570B6AB10204 // TsmSectionTree
+ ME_570B9CF90392 // TsmMainMenuTree2016
  )
  ; // Children
  : Depends
@@ -569,6 +1020,7 @@ ref; // ME_4E73239003D0 TsmChangeableTree
  WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
  WL 'ME_47EA4BB502F9' '47EA4BB502F9.pas.ms.script' // afwMixIns
  WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
  WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
@@ -578,6 +1030,7 @@ ref; // ME_4E73239003D0 TsmChangeableTree
  WL 'ME_4907236C0171' '4907236C0171.pas.ms.script' // Rubricator
  WL 'ME_4908A8A20107' '4908A8A20107.pas.ms.script' // OldTree
  WL 'ME_4909EECE01D5' '4909EECE01D5.pas.ms.script' // MainMenu
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DD24BD40021' '4DD24BD40021.pas.ms.script' // MainMenu
  )
  ; // Depends

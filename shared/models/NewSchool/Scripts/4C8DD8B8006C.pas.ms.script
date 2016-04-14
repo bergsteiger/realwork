@@ -9245,6 +9245,8 @@ FORWARD ME_01B129E183E5
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_CustomizeTasksPanelCaption''; rValue : ''Редактор панели задач'')'
+ : Speller ME_59F83EC5E500 // ut_CustomizeTasksPanelCaption
+ ;
 
 ref; // ME_F6585C7B8042 ut_CustomizeTasksPanelCaption
 
@@ -9268,26 +9270,10 @@ ref; // ME_F6585C7B8042 ut_CustomizeTasksPanelCaption
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_5BD0EE3EE082 // ut_CustomizeTasksPanelLocalConstants
+ ;
 
 ref; // ME_01B129E183E5 LCImplut_CustomizeTasksPanelLocalConstants
-
-: ME_BC3D5015DC52
- CONST UID 'BC3D5015DC52'
- CONST Name 'Init_Str_ut_CustomizeTasksPanelCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_CustomizeTasksPanelCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8E4D4F027D // CustomizeTasksPanel
- ;
- : Speller ME_59F83EC5E500 // ut_CustomizeTasksPanelCaption
- ;
- : SpelledFor ME_F6585C7B8042 // ut_CustomizeTasksPanelCaption
- ;
-
-ref; // ME_BC3D5015DC52 Init_Str_ut_CustomizeTasksPanelCaption
 
 FORWARD ME_559F8C7A0213
 
@@ -9340,10 +9326,6 @@ FORWARD ME_EADC65132CF8
    Seq: ( ME_4C8E4D21001F // PrimCustomizeTasksPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BC3D5015DC52 // Init_Str_ut_CustomizeTasksPanelCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_57FDA2BA57FE // ut_CustomizeTasksPanel
  )

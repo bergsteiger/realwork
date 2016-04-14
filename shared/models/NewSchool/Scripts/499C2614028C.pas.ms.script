@@ -1253,6 +1253,8 @@ FORWARD ME_BB11CACEB07E
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_WrapHint''; rValue : ''Включить перенос по словам'')'
+ : Speller ME_4B97DCD00058 // WrapHint
+ ;
 
 ref; // ME_20FA1D733F37 WrapHint
 
@@ -1276,6 +1278,8 @@ ref; // ME_20FA1D733F37 WrapHint
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_UnwrapHint''; rValue : ''Выключить перенос по словам'')'
+ : Speller ME_4B97DCDB01D8 // UnwrapHint
+ ;
 
 ref; // ME_EFEABF47D2D0 UnwrapHint
 
@@ -1301,6 +1305,8 @@ ref; // ME_EFEABF47D2D0 UnwrapHint
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nsc_'
+ : Speller ME_4B97DC8A0190 // nscMultiStroke
+ ;
 
 ref; // ME_BB11CACEB07E LCImplnscMultiStroke
 
@@ -1375,42 +1381,6 @@ ref; // ME_5D8B78969DA3 UnwrapHint
 
 ref; // ME_3AFA6852B290 nscMultiStrokeMap
 
-: ME_AF195BD1D582
- CONST UID 'AF195BD1D582'
- CONST Name 'Init_Str_WrapHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_WrapHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97DC630378 // nscTreeViewRes
- ;
- : Speller ME_4B97DCD00058 // WrapHint
- ;
- : SpelledFor ME_20FA1D733F37 // WrapHint
- ;
-
-ref; // ME_AF195BD1D582 Init_Str_WrapHint
-
-: ME_C3CB4B685778
- CONST UID 'C3CB4B685778'
- CONST Name 'Init_Str_UnwrapHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_nsc_UnwrapHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97DC630378 // nscTreeViewRes
- ;
- : Speller ME_4B97DCDB01D8 // UnwrapHint
- ;
- : SpelledFor ME_EFEABF47D2D0 // UnwrapHint
- ;
-
-ref; // ME_C3CB4B685778 Init_Str_UnwrapHint
-
 : ME_1652F411A00F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1444,11 +1414,6 @@ ref; // ME_A539B2808C71
  CONST Abstraction at_final
  : Parent ME_499C2614028C // Tree
  ;
- : Operations
-   Seq: ( ME_AF195BD1D582 // Init_Str_WrapHint
- ME_C3CB4B685778 // Init_Str_UnwrapHint
- )
- ; // Operations
  : Constants
    Seq: ( ME_4B97DC8A0190 // nscMultiStroke
  ME_BB11CACEB07E // LCImplnscMultiStroke

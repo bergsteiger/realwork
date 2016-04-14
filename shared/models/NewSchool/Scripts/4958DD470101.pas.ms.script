@@ -1222,6 +1222,8 @@ FORWARD ME_7045E5D4E98D
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utMainMenuNewCaption''; rValue : ''Основное меню'')'
+ : Speller ME_7AAF7556AFBE // utMainMenuNewCaption
+ ;
 
 ref; // ME_E53310A97163 utMainMenuNewCaption
 
@@ -1245,6 +1247,8 @@ ref; // ME_E53310A97163 utMainMenuNewCaption
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_FB6991D60B81 // utMainMenuNewLocalConstants
+ ;
 
 ref; // ME_7045E5D4E98D LCImplutMainMenuNewLocalConstants
 
@@ -4438,6 +4442,8 @@ FORWARD ME_F10D62D5ACC6
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utMainMenuWithProfNewsCaption''; rValue : ''Основное меню'')'
+ : Speller ME_B7E41043A1F8 // utMainMenuWithProfNewsCaption
+ ;
 
 ref; // ME_A7AB3347C803 utMainMenuWithProfNewsCaption
 
@@ -4461,6 +4467,8 @@ ref; // ME_A7AB3347C803 utMainMenuWithProfNewsCaption
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_67FCB85FD17E // utMainMenuWithProfNewsLocalConstants
+ ;
 
 ref; // ME_F10D62D5ACC6 LCImplutMainMenuWithProfNewsLocalConstants
 
@@ -5078,10 +5086,10 @@ ref; // ME_56FA95C600A6 tvLawNews
  : Parent ME_56FA8CCE034E // pnlNews
  ;
  : Inherits
-   Seq: ( WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+   Seq: ( WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  )
  ; // Inherits
- CONST "ControlClass" 'TvtImageLabel'
+ CONST "ControlClass" 'TnscComboLabel'
  CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
@@ -5642,10 +5650,10 @@ ref; // ME_5703DDB90388 lblReferences
  : Parent ME_56FA8D090174 // pnlTrees
  ;
  : Inherits
-   Seq: ( WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+   Seq: ( WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  )
  ; // Inherits
- CONST "ControlClass" 'TvtImageLabel'
+ CONST "ControlClass" 'TnscComboLabel'
  CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
@@ -6278,7 +6286,7 @@ ref; // ME_11918534D51C f_tvProfNews
  CONST LinkType lt_ref
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
 
 ref; // ME_CA054314B139 f_lblProfNews
@@ -6470,7 +6478,7 @@ ref; // ME_CF573402A079 f_lblReferences
  CONST LinkType lt_ref
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
 
 ref; // ME_F19D80ED4746 f_lblTaxes
@@ -6554,123 +6562,6 @@ ref; // ME_248E1F5065FA f_bvlRight
  ;
 
 ref; // ME_B7BC1F8BD0B6 f_ieIO
-
-FORWARD ME_56FBC3F90034
-
-: ME_56FBC4050318
- CONST Name 'aSender'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_56FBC4050318 aSender
-
-: ME_56FBC4050336
- CONST Name 'theState'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4E733DE40275' '4E732D5D02FE.pas.ms.script' // ThfState
- ;
-
-ref; // ME_56FBC4050336 theState
-
-: ME_56FBC404020D
- CONST UID '56FBC404020D'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FBC3F90034 // TaxesStateChanged
- ;
- : Parameters
-   Seq: ( ME_56FBC4050318 // aSender
- ME_56FBC4050336 // theState
- )
- ; // Parameters
-
-ref; // ME_56FBC404020D DoIt
-
-: ME_56FBC3F90034
- CONST UID '56FBC3F90034'
- CONST Name 'TaxesStateChanged'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Operations
-   Seq: ( ME_56FBC404020D // DoIt
- )
- ; // Operations
-
-ref; // ME_56FBC3F90034 TaxesStateChanged
-
-FORWARD ME_56FBC41602A9
-
-: ME_F96EEA9CD4EC
- CONST UID 'F96EEA9CD4EC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateTaxesTree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56FBC41602A9 // UpdateTaxesTree
- ;
-
-ref; // ME_F96EEA9CD4EC DoIt
-
-: ME_56FBC41602A9
- CONST UID '56FBC41602A9'
- CONST Name 'UpdateTaxesTree'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Operations
-   Seq: ( ME_F96EEA9CD4EC // DoIt
- )
- ; // Operations
-
-ref; // ME_56FBC41602A9 UpdateTaxesTree
-
-FORWARD ME_56FBC4240324
-
-: ME_AB8E3EF268A5
- CONST UID 'AB8E3EF268A5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateTaxesTreeCaption' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56FBC4240324 // UpdateTaxesTreeCaption
- ;
-
-ref; // ME_AB8E3EF268A5 DoIt
-
-: ME_56FBC4240324
- CONST UID '56FBC4240324'
- CONST Name 'UpdateTaxesTreeCaption'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Operations
-   Seq: ( ME_AB8E3EF268A5 // DoIt
- )
- ; // Operations
-
-ref; // ME_56FBC4240324 UpdateTaxesTreeCaption
 
 FORWARD ME_56FBC4350226
 
@@ -7050,6 +6941,106 @@ ref; // ME_8942A260C98D DoIt
 
 ref; // ME_57024B0D006F LoadBanner
 
+FORWARD ME_5707BB3A0018
+
+: ME_6A6D8EE165C1
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_6A6D8EE165C1 Sender
+
+: ME_D08267E50A1E
+ CONST UID 'D08267E50A1E'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5707BB3A0018 // lblTaxesChange
+ ;
+ : Parameters
+   Seq: ( ME_6A6D8EE165C1 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_D08267E50A1E DoIt
+
+: ME_5707BB3A0018
+ CONST UID '5707BB3A0018'
+ CONST Name 'lblTaxesChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_D08267E50A1E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5707BB3A0018 lblTaxesChange
+
+FORWARD ME_5707BB480178
+
+: ME_5819392C7575
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5819392C7575 Sender
+
+: ME_C70E9E480235
+ CONST UID 'C70E9E480235'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5707BB480178 // lblProfNewsChange
+ ;
+ : Parameters
+   Seq: ( ME_5819392C7575 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_C70E9E480235 DoIt
+
+: ME_5707BB480178
+ CONST UID '5707BB480178'
+ CONST Name 'lblProfNewsChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_C70E9E480235 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5707BB480178 lblProfNewsChange
+
 : ME_77BE98F022F5
  CONST UID '77BE98F022F5'
  CONST Name 'Init_Str_utMainMenuWithProfNewsCaption'
@@ -7092,16 +7083,6 @@ ref; // ME_EA09B73A23CF Ini_Reg_Class
  ;
 
 ref; // ME_56FA9A580062 
-
-: ME_56FA9A5A0336
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4E73239003D0' '4A9FB4EE00FE.pas.ms.script' // TsmChangeableTree
- ;
-
-ref; // ME_56FA9A5A0336 
 
 : ME_56FA9A5D01EF
  CONST Class class_Dependency
@@ -7333,16 +7314,6 @@ ref; // ME_56FCF72A01AF
 
 ref; // ME_56FCF72D00B5 
 
-: ME_56FCF730010F
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4E73239003D0' '4A9FB4EE00FE.pas.ms.script' // TsmChangeableTree
- ;
-
-ref; // ME_56FCF730010F 
-
 : ME_56FE9A5300FB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -7403,6 +7374,36 @@ ref; // ME_57026D2A0053
 
 ref; // ME_5703D60D0066 
 
+: ME_570B9AB703B9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_570B6AB10204' '4A9FB4EE00FE.pas.ms.script' // TsmSectionTree
+ ;
+
+ref; // ME_570B9AB703B9 
+
+: ME_570B9DFB01DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_570B9CF90392' '4A9FB4EE00FE.pas.ms.script' // TsmMainMenuTree2016
+ ;
+
+ref; // ME_570B9DFB01DD 
+
+: ME_570BB939028F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_4AB366EC0271' '46837A08002C.pas.ms.script' // TlgQueryType
+ ;
+
+ref; // ME_570BB939028F 
+
 : ME_CAC2A714D2A6
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -7459,12 +7460,6 @@ ref; // ME_47EA4E9002C6_ME_56FA889202B4 FinishDataUpdate
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49803F5503AA_ME_56FA889202B4 DoInit
-
-: ME_49807428008C_ME_56FA889202B4
- : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_49807428008C_ME_56FA889202B4 DoLoadState
 
 : ME_4A485B710126_ME_56FA889202B4
  : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
@@ -7599,10 +7594,7 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_56FBC3F90034 // TaxesStateChanged
- ME_56FBC41602A9 // UpdateTaxesTree
- ME_56FBC4240324 // UpdateTaxesTreeCaption
- ME_56FBC4350226 // UpdateReferencesAndLawNewsCaptions
+   Seq: ( ME_56FBC4350226 // UpdateReferencesAndLawNewsCaptions
  ME_56FCF6290256 // UpdateSearchLabels
  ME_56FD0A30011C // SearchClick
  ME_56FE6DC90398 // ArrangeControls
@@ -7611,6 +7603,8 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_57023AD501A4 // PaintBoxClick
  ME_57024AF70200 // BannerClick
  ME_57024B0D006F // LoadBanner
+ ME_5707BB3A0018 // lblTaxesChange
+ ME_5707BB480178 // lblProfNewsChange
  ME_77BE98F022F5 // Init_Str_utMainMenuWithProfNewsCaption
  ME_EA09B73A23CF // Ini_Reg_Class
  )
@@ -7623,7 +7617,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
    Seq: ( ME_479731C50290_ME_56FA889202B4 // Cleanup
  ME_47EA4E9002C6_ME_56FA889202B4 // FinishDataUpdate
  ME_49803F5503AA_ME_56FA889202B4 // DoInit
- ME_49807428008C_ME_56FA889202B4 // DoLoadState
  ME_4A485B710126_ME_56FA889202B4 // DoStyleTableChanged
  ME_4A8E8F2E0195_ME_56FA889202B4 // InitControls
  ME_4AC9D12600E0_ME_56FA889202B4 // LoadLastOpenDocs
@@ -7651,7 +7644,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ; // Constants
  : Dependencies
    Seq: ( ME_56FA9A580062 // 
- ME_56FA9A5A0336 // 
  ME_56FA9A5D01EF // 
  ME_56FACD390255 // 
  ME_56FACD3D0133 // 
@@ -7675,13 +7667,15 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_56FCF727021C // 
  ME_56FCF72A01AF // 
  ME_56FCF72D00B5 // 
- ME_56FCF730010F // 
  ME_56FE9A5300FB // 
  ME_56FE9A9E03D6 // 
  ME_57023479024E // 
  ME_57026D260283 // 
  ME_57026D2A0053 // 
  ME_5703D60D0066 // 
+ ME_570B9AB703B9 // 
+ ME_570B9DFB01DD // 
+ ME_570BB939028F // 
  ME_CAC2A714D2A6 // 
  ME_3791676206E1 // 
  ME_B71762904DE8 // 
@@ -18840,16 +18834,16 @@ ref; // ME_9D59D1044B33 Tkw_MainMenuWithProfNews_Control_tvProfNews_Push
 
 FORWARD ME_32A71E35D94B
 
-: ME_C244C5C9F251
+: ME_B132EC85FF12
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_32A71E35D94B // Tkw_MainMenuWithProfNews_Control_lblProfNews
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
 
-ref; // ME_C244C5C9F251 
+ref; // ME_B132EC85FF12 
 
 : ME_E8DEEB7FC1CE
  CONST IsSummoned true
@@ -18897,7 +18891,7 @@ ref; // ME_52A086150180_ME_32A71E35D94B RegisterInEngine
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_C244C5C9F251 // 
+   Seq: ( ME_B132EC85FF12 // 
  ME_E8DEEB7FC1CE // 
  )
  ; // Dependencies
@@ -20220,16 +20214,16 @@ ref; // ME_F6624316BA19 Tkw_MainMenuWithProfNews_Control_lblReferences_Push
 
 FORWARD ME_D05132AC75A6
 
-: ME_246C227AB55F
+: ME_56D8A00FF05D
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D05132AC75A6 // Tkw_MainMenuWithProfNews_Control_lblTaxes
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
 
-ref; // ME_246C227AB55F 
+ref; // ME_56D8A00FF05D 
 
 : ME_794E16DF57E4
  CONST IsSummoned true
@@ -20277,7 +20271,7 @@ ref; // ME_52A086150180_ME_D05132AC75A6 RegisterInEngine
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_246C227AB55F // 
+   Seq: ( ME_56D8A00FF05D // 
  ME_794E16DF57E4 // 
  )
  ; // Dependencies
@@ -24004,7 +23998,7 @@ ref; // ME_C3F3354DEAC6 aen_MainMenuWithProfNews
  CONST Abstraction at_final
  : Parent ME_5E857C3156AC // en_MainMenuWithProfNews_lblProfNews
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
  : Parameters
    Seq: ( ME_C3F3354DEAC5 // aCtx
@@ -24075,7 +24069,7 @@ ref; // ME_5617F4D00243_ME_5E857C3156AC ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .Ten_MainMenuWithProfNews.lblProfNews'#13#10'{panel}Контрол lblProfNews формы Ten_MainMenuWithProfNews{panel}'#13#10'*Тип результата:* TvtImageLabel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtImageLabel'#13#10' aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblProfNews >>> l_TvtImageLabel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .Ten_MainMenuWithProfNews.lblProfNews'#13#10'{panel}Контрол lblProfNews формы Ten_MainMenuWithProfNews{panel}'#13#10'*Тип результата:* TnscComboLabel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscComboLabel'#13#10' aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblProfNews >>> l_TnscComboLabel'#13#10'{code} ' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
@@ -25840,7 +25834,7 @@ ref; // ME_6D0CEACD6D7B aen_MainMenuWithProfNews
  CONST Abstraction at_final
  : Parent ME_05434ADAC030 // en_MainMenuWithProfNews_lblTaxes
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
  : Parameters
    Seq: ( ME_6D0CEACD6D7A // aCtx
@@ -25911,7 +25905,7 @@ ref; // ME_5617F4D00243_ME_05434ADAC030 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .Ten_MainMenuWithProfNews.lblTaxes'#13#10'{panel}Контрол lblTaxes формы Ten_MainMenuWithProfNews{panel}'#13#10'*Тип результата:* TvtImageLabel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtImageLabel'#13#10' aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblTaxes >>> l_TvtImageLabel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .Ten_MainMenuWithProfNews.lblTaxes'#13#10'{panel}Контрол lblTaxes формы Ten_MainMenuWithProfNews{panel}'#13#10'*Тип результата:* TnscComboLabel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscComboLabel'#13#10' aen_MainMenuWithProfNews .Ten_MainMenuWithProfNews.lblTaxes >>> l_TnscComboLabel'#13#10'{code} ' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
@@ -28090,7 +28084,7 @@ ref; // ME_7FF8197FC1A8 tvProfNews
  CONST LinkType lt_agr
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
  CONST "NameForScript" '.Ten_MainMenuWithProfNews.lblProfNews'
  CONST "mapped" true
@@ -28318,7 +28312,7 @@ ref; // ME_DABEBD4F345E lblReferences
  CONST LinkType lt_agr
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
  CONST "NameForScript" '.Ten_MainMenuWithProfNews.lblTaxes'
  CONST "mapped" true
@@ -28924,7 +28918,7 @@ ref; // ME_287225CA85D1 tvProfNews
  CONST Abstraction at_final
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
  CONST "NameForScript" '.Ten_MainMenuWithProfNews.lblProfNews'
  CONST "bind params" 'undefined'
@@ -29212,7 +29206,7 @@ ref; // ME_DAAC087A6794 lblReferences
  CONST Abstraction at_final
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
  ;
- : Target WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
  CONST "NameForScript" '.Ten_MainMenuWithProfNews.lblTaxes'
  CONST "bind params" 'undefined'
@@ -29625,21 +29619,21 @@ ref; // ME_C40A24323181 Reg_Type_TImageEnView
 
 ref; // ME_36207C77B58C Reg_Type_TnscTreeViewHotTruck
 
-: ME_ED649CCA8E69
- CONST UID 'ED649CCA8E69'
- CONST Name 'Reg_Type_TvtImageLabel'
+: ME_111DACFACC59
+ CONST UID '111DACFACC59'
+ CONST Name 'Reg_Type_TnscComboLabel'
  CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtImageLabel' ;
+ %SUMMARY 'Регистрация типа TnscComboLabel' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
  ;
- : SpelledFor WL 'ME_57039747002E' '4A9B9BAA0207.pas.ms.script' // TvtImageLabel
+ : SpelledFor WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
  ;
 
-ref; // ME_ED649CCA8E69 Reg_Type_TvtImageLabel
+ref; // ME_111DACFACC59 Reg_Type_TnscComboLabel
 
 : ME_020CC4BF74BE
  CONST UID '020CC4BF74BE'
@@ -29845,7 +29839,7 @@ ref; // ME_F21F33B6FE0A
  ME_5EF6393EA9BA // Reg_Type_TPaintBox
  ME_C40A24323181 // Reg_Type_TImageEnView
  ME_36207C77B58C // Reg_Type_TnscTreeViewHotTruck
- ME_ED649CCA8E69 // Reg_Type_TvtImageLabel
+ ME_111DACFACC59 // Reg_Type_TnscComboLabel
  ME_020CC4BF74BE // Reg_Type_TvtStyledLabel
  ME_79F8E70B6443 // Reg_Type_TnscFocusLabel
  ME_095D2CFA7EBD // Reg_Type_TImageEnIO
@@ -30668,6 +30662,8 @@ FORWARD ME_4273FE64DDF1
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType''; rValue : ''Тип изменяемой части основного меню'')'
+ : Speller ME_3CE065447A5B // ChangeableMainMenuType
+ ;
 
 ref; // ME_8116BFB7ACAC ChangeableMainMenuType
 
@@ -30691,6 +30687,8 @@ ref; // ME_8116BFB7ACAC ChangeableMainMenuType
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_93DE09CA5A38 // ChangeableMainMenuTypeName
+ ;
 
 ref; // ME_4273FE64DDF1 LCImplChangeableMainMenuTypeName
 
@@ -30716,6 +30714,8 @@ FORWARD ME_4F913D960C57
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType_ST_FINANCE''; rValue : ''Налоги и финансы'')'
+ : Speller ME_244060C10A43 // ST_FINANCE
+ ;
 
 ref; // ME_C7238684DB6B ST_FINANCE
 
@@ -30739,6 +30739,8 @@ ref; // ME_C7238684DB6B ST_FINANCE
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType_ST_HR''; rValue : ''Раздел для кадровиков'')'
+ : Speller ME_AE97F82A46C4 // ST_HR
+ ;
 
 ref; // ME_9BE5647C34B5 ST_HR
 
@@ -30762,6 +30764,8 @@ ref; // ME_9BE5647C34B5 ST_HR
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType_ST_LEGAL''; rValue : ''Раздел для юристов'')'
+ : Speller ME_BD8796A39B70 // ST_LEGAL
+ ;
 
 ref; // ME_B8025E128128 ST_LEGAL
 
@@ -30785,6 +30789,8 @@ ref; // ME_B8025E128128 ST_LEGAL
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType_ST_BUDGET_ORGS''; rValue : ''Бюджетные организаций'')'
+ : Speller ME_A857D1555402 // ST_BUDGET_ORGS
+ ;
 
 ref; // ME_9558353CA23C ST_BUDGET_ORGS
 
@@ -30811,6 +30817,8 @@ ref; // ME_9558353CA23C ST_BUDGET_ORGS
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str_ChangeableMainMenuType'
  CONST extprop:pas:ElementPrefix 'str_ChangeableMainMenuType_'
+ : Speller ME_42A0F44E0D09 // ChangeableMainMenuTypeValues
+ ;
 
 ref; // ME_4F913D960C57 LCImplChangeableMainMenuTypeValues
 
@@ -31161,96 +31169,6 @@ ref; // ME_29BB10B84B40 Make
 
 ref; // ME_5D2F48CCD368 TChangeableMainMenuTypeValuesMapImpl
 
-: ME_38D88DFCDF4D
- CONST UID '38D88DFCDF4D'
- CONST Name 'Init_Str_ChangeableMainMenuType'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ChangeableMainMenuType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
- ;
- : Speller ME_3CE065447A5B // ChangeableMainMenuType
- ;
- : SpelledFor ME_8116BFB7ACAC // ChangeableMainMenuType
- ;
-
-ref; // ME_38D88DFCDF4D Init_Str_ChangeableMainMenuType
-
-: ME_111046CAA133
- CONST UID '111046CAA133'
- CONST Name 'Init_Str_ST_FINANCE'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ChangeableMainMenuType_ST_FINANCE' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
- ;
- : Speller ME_244060C10A43 // ST_FINANCE
- ;
- : SpelledFor ME_C7238684DB6B // ST_FINANCE
- ;
-
-ref; // ME_111046CAA133 Init_Str_ST_FINANCE
-
-: ME_86A71C5FB6C6
- CONST UID '86A71C5FB6C6'
- CONST Name 'Init_Str_ST_HR'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ChangeableMainMenuType_ST_HR' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
- ;
- : Speller ME_AE97F82A46C4 // ST_HR
- ;
- : SpelledFor ME_9BE5647C34B5 // ST_HR
- ;
-
-ref; // ME_86A71C5FB6C6 Init_Str_ST_HR
-
-: ME_B6F4DD8010EC
- CONST UID 'B6F4DD8010EC'
- CONST Name 'Init_Str_ST_LEGAL'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ChangeableMainMenuType_ST_LEGAL' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
- ;
- : Speller ME_BD8796A39B70 // ST_LEGAL
- ;
- : SpelledFor ME_B8025E128128 // ST_LEGAL
- ;
-
-ref; // ME_B6F4DD8010EC Init_Str_ST_LEGAL
-
-: ME_7AA12471255F
- CONST UID '7AA12471255F'
- CONST Name 'Init_Str_ST_BUDGET_ORGS'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ChangeableMainMenuType_ST_BUDGET_ORGS' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
- ;
- : Speller ME_A857D1555402 // ST_BUDGET_ORGS
- ;
- : SpelledFor ME_9558353CA23C // ST_BUDGET_ORGS
- ;
-
-ref; // ME_7AA12471255F Init_Str_ST_BUDGET_ORGS
-
 : ME_5310D8A0DFF2
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -31322,14 +31240,6 @@ ref; // ME_2B812A26411E
    Seq: ( WL 'ME_4E7344D40331' '48563BA400A9.pas.ms.script' // Тип изменяемой части основного меню
  )
  ; // Implements
- : Operations
-   Seq: ( ME_38D88DFCDF4D // Init_Str_ChangeableMainMenuType
- ME_111046CAA133 // Init_Str_ST_FINANCE
- ME_86A71C5FB6C6 // Init_Str_ST_HR
- ME_B6F4DD8010EC // Init_Str_ST_LEGAL
- ME_7AA12471255F // Init_Str_ST_BUDGET_ORGS
- )
- ; // Operations
  : Children
    Seq: ( ME_079D9884894A // ChangeableMainMenuTypeEnum
  ME_B9C724B3AF5F // ChangeableMainMenuTypeValuesMapHelper

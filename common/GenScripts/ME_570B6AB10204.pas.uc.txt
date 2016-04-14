@@ -1,0 +1,64 @@
+//#UC START# *479731C50290_570B6AB10204_impl*
+ f_Sections := nil;
+ inherited;
+//#UC END# *479731C50290_570B6AB10204_impl*
+//#UC START# *479731C50290_570B6AB10204_var*
+//#UC END# *479731C50290_570B6AB10204_var*
+//#UC START# *47A042E100E2_570B6AB10204_impl*
+ inherited;
+ RootNode := MakeRoot;
+ AddNodes;
+ if (RootNode <> nil) then
+  ExpandSubDir(RootNode, True);
+//#UC END# *47A042E100E2_570B6AB10204_impl*
+//#UC START# *47A042E100E2_570B6AB10204_var*
+//#UC END# *47A042E100E2_570B6AB10204_var*
+//#UC START# *4908AAED02BD_570B6AB10204_impl*
+ inherited;
+ f_Sections := nil;
+//#UC END# *4908AAED02BD_570B6AB10204_impl*
+//#UC START# *4908AAED02BD_570B6AB10204_var*
+//#UC END# *4908AAED02BD_570B6AB10204_var*
+//#UC START# *4908AAF6015C_570B6AB10204_impl*
+ inherited;
+ if (RootNode <> nil) then
+  ExpandSubDir(RootNode, True);
+//#UC END# *4908AAF6015C_570B6AB10204_impl*
+//#UC START# *4908AAF6015C_570B6AB10204_var*
+//#UC END# *4908AAF6015C_570B6AB10204_var*
+//#UC START# *4908AB070319_570B6AB10204_impl*
+ case BeenReseted of
+  rtsRoot:
+   begin
+    Result := MakeRoot;
+    RootNode := Result;
+   end;
+ else
+  Result := inherited RegetRootNode;
+ end;//case BeenReseted of
+//#UC END# *4908AB070319_570B6AB10204_impl*
+//#UC START# *4908AB070319_570B6AB10204_var*
+//#UC END# *4908AB070319_570B6AB10204_var*
+//#UC START# *570B6C6701A9_570B6AB10204_impl*
+ Supports(TnsNewCachableNode.Make(nil), Il3RootNode, Result);
+//#UC END# *570B6C6701A9_570B6AB10204_impl*
+//#UC START# *570B6C6701A9_570B6AB10204_var*
+//#UC END# *570B6C6701A9_570B6AB10204_var*
+//#UC START# *570B7D6D0066_570B6AB10204_impl*
+ inherited Create;
+ f_Sections := aSections;
+//#UC END# *570B7D6D0066_570B6AB10204_impl*
+//#UC START# *570B7D6D0066_570B6AB10204_var*
+//#UC END# *570B7D6D0066_570B6AB10204_var*
+//#UC START# *570B7DA901A5_570B6AB10204_impl*
+ for I := 0 to f_Sections.Count - 1 do
+ begin
+  f_Sections.pm_GetItem(I, l_Section);
+  RootNode.InsertChild(TnsMainMenuSectionNode.Make(l_Section));
+ end;
+//#UC END# *570B7DA901A5_570B6AB10204_impl*
+//#UC START# *570B7DA901A5_570B6AB10204_var*
+var
+ I: Integer;
+ l_Section: IMainMenuSection;
+//#UC END# *570B7DA901A5_570B6AB10204_var*

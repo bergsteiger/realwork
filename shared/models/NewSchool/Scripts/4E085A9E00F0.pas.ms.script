@@ -244,6 +244,8 @@ FORWARD ME_F19FF79AA68F
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_First''; rValue : ''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн'')'
+ : Speller ME_4E09CDBF02B6 // First
+ ;
 
 ref; // ME_3D7393E8CE21 DocumentMissing_Choice_First
 
@@ -267,6 +269,8 @@ ref; // ME_3D7393E8CE21 DocumentMissing_Choice_First
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_Second''; rValue : ''Вернуться в открытый документ'')'
+ : Speller ME_4E09CDD80287 // Second
+ ;
 
 ref; // ME_968A84F1D374 DocumentMissing_Choice_Second
 
@@ -291,6 +295,8 @@ ref; // ME_968A84F1D374 DocumentMissing_Choice_Second
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_4E09AFC40022 // Choices
+ ;
 
 ref; // ME_F19FF79AA68F LCImpl_DocumentMissing_Choices
 
@@ -316,6 +322,8 @@ FORWARD ME_01A80F53BB8B
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing''; rValue : ''Данный документ не включён в состав Вашего комплекта.'')'
+ : Speller ME_4E08B798037B // DocumentMissing
+ ;
 
 ref; // ME_9C5981D88684 DocumentMissing
 
@@ -339,6 +347,8 @@ ref; // ME_9C5981D88684 DocumentMissing
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentIsContainedInBlock''; rValue : ''Документ содержится в информационном блоке:'')'
+ : Speller ME_4E0B29630091 // MissingDocumentIsContainedInBlock
+ ;
 
 ref; // ME_1C4EA5CC47E1 MissingDocumentIsContainedInBlock
 
@@ -362,6 +372,8 @@ ref; // ME_1C4EA5CC47E1 MissingDocumentIsContainedInBlock
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentIsContainedInBlocks''; rValue : ''Документ содержится в информационных блоках:'')'
+ : Speller ME_4E0B29C50297 // MissingDocumentIsContainedInBlocks
+ ;
 
 ref; // ME_8341751CB523 MissingDocumentIsContainedInBlocks
 
@@ -385,6 +397,8 @@ ref; // ME_8341751CB523 MissingDocumentIsContainedInBlocks
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentInfo''; rValue : ''Подробнее о запрашиваемом документе'')'
+ : Speller ME_4E0B29E2017C // MissingDocumentInfo
+ ;
 
 ref; // ME_7B7B7E730976 MissingDocumentInfo
 
@@ -408,6 +422,8 @@ ref; // ME_7B7B7E730976 MissingDocumentInfo
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ContactInfo''; rValue : ''Контактная информация'')'
+ : Speller ME_4E0B2A04033B // ContactInfo
+ ;
 
 ref; // ME_01AB214EAA1C ContactInfo
 
@@ -435,6 +451,8 @@ ref; // ME_01AB214EAA1C ContactInfo
  CONST "spell names" false
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
+ : Speller ME_4E08B77F03B5 // Local
+ ;
 
 ref; // ME_01A80F53BB8B LCImplLocal
 
@@ -669,132 +687,6 @@ ref; // ME_4E14687502F8
 
 ref; // ME_4E085B3F01F5 Show
 
-: ME_15D1CF87B526
- CONST UID '15D1CF87B526'
- CONST Name 'Init_Str_DocumentMissing_Choice_First'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DocumentMissing_Choice_First' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E09CDBF02B6 // First
- ;
- : SpelledFor ME_3D7393E8CE21 // DocumentMissing_Choice_First
- ;
-
-ref; // ME_15D1CF87B526 Init_Str_DocumentMissing_Choice_First
-
-: ME_01056CE0C644
- CONST UID '01056CE0C644'
- CONST Name 'Init_Str_DocumentMissing_Choice_Second'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DocumentMissing_Choice_Second' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E09CDD80287 // Second
- ;
- : SpelledFor ME_968A84F1D374 // DocumentMissing_Choice_Second
- ;
-
-ref; // ME_01056CE0C644 Init_Str_DocumentMissing_Choice_Second
-
-: ME_485CCD05A4F9
- CONST UID '485CCD05A4F9'
- CONST Name 'Init_Str_DocumentMissing'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DocumentMissing' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E08B798037B // DocumentMissing
- ;
- : SpelledFor ME_9C5981D88684 // DocumentMissing
- ;
-
-ref; // ME_485CCD05A4F9 Init_Str_DocumentMissing
-
-: ME_595A6CE6E351
- CONST UID '595A6CE6E351'
- CONST Name 'Init_Str_MissingDocumentIsContainedInBlock'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_MissingDocumentIsContainedInBlock' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E0B29630091 // MissingDocumentIsContainedInBlock
- ;
- : SpelledFor ME_1C4EA5CC47E1 // MissingDocumentIsContainedInBlock
- ;
-
-ref; // ME_595A6CE6E351 Init_Str_MissingDocumentIsContainedInBlock
-
-: ME_4E276DDF660B
- CONST UID '4E276DDF660B'
- CONST Name 'Init_Str_MissingDocumentIsContainedInBlocks'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_MissingDocumentIsContainedInBlocks' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E0B29C50297 // MissingDocumentIsContainedInBlocks
- ;
- : SpelledFor ME_8341751CB523 // MissingDocumentIsContainedInBlocks
- ;
-
-ref; // ME_4E276DDF660B Init_Str_MissingDocumentIsContainedInBlocks
-
-: ME_FAC3BE6F9E7F
- CONST UID 'FAC3BE6F9E7F'
- CONST Name 'Init_Str_MissingDocumentInfo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_MissingDocumentInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E0B29E2017C // MissingDocumentInfo
- ;
- : SpelledFor ME_7B7B7E730976 // MissingDocumentInfo
- ;
-
-ref; // ME_FAC3BE6F9E7F Init_Str_MissingDocumentInfo
-
-: ME_CA203AFD8C8B
- CONST UID 'CA203AFD8C8B'
- CONST Name 'Init_Str_ContactInfo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ContactInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Speller ME_4E0B2A04033B // ContactInfo
- ;
- : SpelledFor ME_01AB214EAA1C // ContactInfo
- ;
-
-ref; // ME_CA203AFD8C8B Init_Str_ContactInfo
-
 : ME_97BBC58D07C4
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -841,13 +733,6 @@ ref; // ME_BC63F52668AF
  ;
  : Operations
    Seq: ( ME_4E085B3F01F5 // Show
- ME_15D1CF87B526 // Init_Str_DocumentMissing_Choice_First
- ME_01056CE0C644 // Init_Str_DocumentMissing_Choice_Second
- ME_485CCD05A4F9 // Init_Str_DocumentMissing
- ME_595A6CE6E351 // Init_Str_MissingDocumentIsContainedInBlock
- ME_4E276DDF660B // Init_Str_MissingDocumentIsContainedInBlocks
- ME_FAC3BE6F9E7F // Init_Str_MissingDocumentInfo
- ME_CA203AFD8C8B // Init_Str_ContactInfo
  )
  ; // Operations
  : Constants
