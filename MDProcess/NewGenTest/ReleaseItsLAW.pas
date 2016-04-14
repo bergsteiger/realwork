@@ -1,72 +1,58 @@
 unit ReleaseItsLAW;
+ {*  (релизный вариант) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/MDProcess/NewGenTest/ReleaseItsLAW.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> MDProcess$NewGen::ReleaseNewGen::ReleaseItsLAW
-//
-// (релизный вариант)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\MDProcess\NewGenTest\ReleaseItsLAW.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "ReleaseItsLAW" MUID: (46C66075B1E8)
+// Имя типа: "TReleaseItsLAW"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\NewGenTest\NewGenTest.inc}
+{$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 
 interface
 
-{$If defined(NewGen)}
+{$If Defined(NewGen)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //NewGen
+ l3IntfUses
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(NewGen)}
 type
  TReleaseItsLAW = class(TTestResultsPlace)
   {*  (релизный вариант) }
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+  public
+   {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+   {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+   {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
  end;//TReleaseItsLAW
-{$IfEnd} //NewGen
+{$IfEnd} // Defined(NewGen)
 
 implementation
 
-{$If defined(NewGen)}
+{$If Defined(NewGen)}
+uses
+ l3ImplUses
+;
 
-// start class TReleaseItsLAW
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 class function TReleaseItsLAW.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-ItsLAW';
 end;//TReleaseItsLAW.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TReleaseItsLAW.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_46C66075B1E8_var*
 //#UC END# *4B7C0B43005B_46C66075B1E8_var*
 begin
@@ -74,10 +60,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7C0B43005B_46C66075B1E8_impl*
 end;//TReleaseItsLAW.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TReleaseItsLAW.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_46C66075B1E8_var*
 //#UC END# *4B7C0B670215_46C66075B1E8_var*
 begin
@@ -85,8 +70,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7C0B670215_46C66075B1E8_impl*
 end;//TReleaseItsLAW.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //NewGen
-
+{$IfEnd} // Defined(NewGen)
 end.

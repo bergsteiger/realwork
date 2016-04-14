@@ -1,78 +1,63 @@
 unit ReleasetoK;
+ {* Стандартный вывод для ГК (релизный вариант) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/common/components/DailyTest/ReleasetoK.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> Shared Delphi Tests::ReleaseDaily$Test::ReleasetoK
-//
-// Стандартный вывод для ГК (релизный вариант)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\DailyTest\ReleasetoK.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "ReleasetoK" MUID: (431348CB3E15)
+// Имя типа: "TReleasetoK"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DailyTest\DailyTest.inc}
+{$Include w:\common\components\DailyTest\DailyTest.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TReleasetoK = class(TTestResultsPlace)
   {* Стандартный вывод для ГК (релизный вариант) }
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+  protected
+   {$If NOT Defined(NotTunedDUnit)}
    class function IsGK: Boolean; override;
-     {* Тесты запущены ГК }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Тесты запущены ГК }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  public
+   {$If NOT Defined(NotTunedDUnit)}
+   class function CommandLineKey: AnsiString; override;
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
+   class function TimesPage: Integer; override;
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
+   class function ResultsPage: Integer; override;
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
  end;//TReleasetoK
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
-// start class TReleasetoK
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 class function TReleasetoK.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-toK';
 end;//TReleasetoK.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TReleasetoK.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_431348CB3E15_var*
 //#UC END# *4B7C0B43005B_431348CB3E15_var*
 begin
@@ -80,10 +65,9 @@ begin
  Result := 260441616;
 //#UC END# *4B7C0B43005B_431348CB3E15_impl*
 end;//TReleasetoK.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TReleasetoK.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_431348CB3E15_var*
 //#UC END# *4B7C0B670215_431348CB3E15_var*
 begin
@@ -91,10 +75,9 @@ begin
  Result := 260441614;
 //#UC END# *4B7C0B670215_431348CB3E15_impl*
 end;//TReleasetoK.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TReleasetoK.IsGK: Boolean;
+ {* Тесты запущены ГК }
 //#UC START# *4BEA9969001B_431348CB3E15_var*
 //#UC END# *4BEA9969001B_431348CB3E15_var*
 begin
@@ -102,8 +85,7 @@ begin
  Result := true;
 //#UC END# *4BEA9969001B_431348CB3E15_impl*
 end;//TReleasetoK.IsGK
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.
