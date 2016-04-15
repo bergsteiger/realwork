@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , StartupTipsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , StartupTips_ut_StartupTips_UserType
 ;
 
 const

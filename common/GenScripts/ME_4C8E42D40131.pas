@@ -36,6 +36,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , CustomizeTools_ut_CustomizeTools_UserType
 ;
 
 const

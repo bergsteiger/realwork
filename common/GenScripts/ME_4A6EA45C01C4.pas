@@ -50,6 +50,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , BaseHistoryWindow_utChatHistory_UserType
 ;
 
 const

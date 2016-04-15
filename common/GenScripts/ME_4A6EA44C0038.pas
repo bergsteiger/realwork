@@ -101,6 +101,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , BaseChatWindow_cwChat_UserType
 ;
 
 const

@@ -122,6 +122,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimWorkJournal_utWorkJournal_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

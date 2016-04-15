@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , MemoryUsageKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , MemoryUsage_ut_MemoryUsage_UserType
 ;
 
 const

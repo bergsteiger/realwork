@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , StyleEditorFontKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , StyleEditorFont_ut_StyleEditorFont_UserType
 ;
 
 const

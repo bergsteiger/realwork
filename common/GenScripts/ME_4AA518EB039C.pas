@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , PrimAdminMain_utEmptyMainWindow_UserType
 ;
 
 const

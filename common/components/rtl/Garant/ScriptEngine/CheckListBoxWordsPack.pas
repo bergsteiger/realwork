@@ -8,20 +8,18 @@ unit CheckListBoxWordsPack;
 
 interface
 
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
 ;
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
- {$If NOT Defined(NoVCL)}
  , CheckLst
- {$IfEnd} // NOT Defined(NoVCL)
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
@@ -292,6 +290,6 @@ initialization
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

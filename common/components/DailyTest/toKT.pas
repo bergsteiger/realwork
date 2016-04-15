@@ -1,78 +1,63 @@
 unit toKT;
+ {* Ежедневные тесты библиотек в Твери }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/common/components/DailyTest/toKT.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> Shared Delphi Tests::Daily$Test::toKT
-//
-// Ежедневные тесты библиотек в Твери
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\DailyTest\toKT.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "toKT" MUID: (4E9EE76E003C)
+// Имя типа: "TtoKT"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DailyTest\DailyTest.inc}
+{$Include w:\common\components\DailyTest\DailyTest.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TtoKT = class(TTestResultsPlace)
   {* Ежедневные тесты библиотек в Твери }
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+  protected
+   {$If NOT Defined(NotTunedDUnit)}
    class function IsGK: Boolean; override;
-     {* Тесты запущены ГК }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Тесты запущены ГК }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  public
+   {$If NOT Defined(NotTunedDUnit)}
+   class function CommandLineKey: AnsiString; override;
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
+   class function TimesPage: Integer; override;
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
+   class function ResultsPage: Integer; override;
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
  end;//TtoKT
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
-// start class TtoKT
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 class function TtoKT.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-toKT';
 end;//TtoKT.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKT.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_4E9EE76E003C_var*
 //#UC END# *4B7C0B43005B_4E9EE76E003C_var*
 begin
@@ -80,10 +65,9 @@ begin
  Result := 294594448;
 //#UC END# *4B7C0B43005B_4E9EE76E003C_impl*
 end;//TtoKT.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKT.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_4E9EE76E003C_var*
 //#UC END# *4B7C0B670215_4E9EE76E003C_var*
 begin
@@ -91,10 +75,9 @@ begin
  Result := 294594446;
 //#UC END# *4B7C0B670215_4E9EE76E003C_impl*
 end;//TtoKT.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKT.IsGK: Boolean;
+ {* Тесты запущены ГК }
 //#UC START# *4BEA9969001B_4E9EE76E003C_var*
 //#UC END# *4BEA9969001B_4E9EE76E003C_var*
 begin
@@ -102,8 +85,7 @@ begin
  Result := true;
 //#UC END# *4BEA9969001B_4E9EE76E003C_impl*
 end;//TtoKT.IsGK
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

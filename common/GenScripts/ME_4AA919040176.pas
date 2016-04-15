@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , PrimMonitoringsMain_utEmptyMainWindow_UserType
 ;
 
 const

@@ -108,6 +108,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , SysUtils
+ , PrimSettings_cutSettings_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

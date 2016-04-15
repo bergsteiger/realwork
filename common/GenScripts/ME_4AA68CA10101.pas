@@ -223,6 +223,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsRubricatorList
  , l3Base
+ , PrimRubricator_utRubricatorList_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

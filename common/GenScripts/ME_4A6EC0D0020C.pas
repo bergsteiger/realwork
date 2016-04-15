@@ -152,6 +152,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , PrimEditionsContainer_utEditionsContainer_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

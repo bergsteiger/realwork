@@ -87,6 +87,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimStyleEditorContainer_utStyleEditorContainer_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

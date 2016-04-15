@@ -174,6 +174,7 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , PrimNewsLine_nltMain_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

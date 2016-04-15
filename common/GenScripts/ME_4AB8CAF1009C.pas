@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , DefineSearchDateKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , DefineSearchDate_ut_DefineSearchDate_UserType
 ;
 
 const

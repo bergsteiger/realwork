@@ -308,6 +308,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmForm
  {$IfEnd} // NOT Defined(NoVCM)
+ , PrimInternetAgent_utInternetAgent_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

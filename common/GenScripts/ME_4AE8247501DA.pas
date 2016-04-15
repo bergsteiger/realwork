@@ -102,6 +102,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimStyleEditorNavigator_utStyleEditorNavigator_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

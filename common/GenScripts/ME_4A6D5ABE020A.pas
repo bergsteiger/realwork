@@ -131,6 +131,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , evSubImplementation
  , SysUtils
+ , PrimRightEdition_utRightEdition_UserType
  , DataAdapter
  , Base_Operations_View_Controls
  , BaseSearchInterfaces

@@ -13,11 +13,14 @@ uses
  l3IntfUses
  , l3ProtoObject
  , tfwScriptingInterfaces
+ , l3CardinalList
  , l3Interfaces
 ;
 
 type
  TtfwDefaultScriptCaller = class(Tl3ProtoObject, ItfwScriptCaller)
+  private
+   f_Starts: Tl3CardinalList;
   protected
    class function DictPath: AnsiString; virtual;
    function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
@@ -26,6 +29,8 @@ type
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
   public
    procedure DoPrint(const aStr: Tl3WString); virtual;
    constructor Create; reintroduce;
@@ -78,6 +83,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3FileUtils
+ , l3Base
+ , Windows
  , l3String
 ;
 
@@ -374,6 +381,17 @@ begin
  Assert(false);
 //#UC END# *536A15F901DA_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.CheckPictureOnly
+
+procedure TtfwDefaultScriptCaller.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_55C482690029_var*
+//#UC END# *479731C50290_55C482690029_var*
+begin
+//#UC START# *479731C50290_55C482690029_impl*
+ FreeAndNil(f_Starts);
+ inherited;
+//#UC END# *479731C50290_55C482690029_impl*
+end;//TtfwDefaultScriptCaller.Cleanup
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

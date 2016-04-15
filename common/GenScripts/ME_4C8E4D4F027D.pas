@@ -36,6 +36,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType
 ;
 
 const

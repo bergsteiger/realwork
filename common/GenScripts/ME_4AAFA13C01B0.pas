@@ -128,6 +128,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimPostingsList_MyPostingList_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

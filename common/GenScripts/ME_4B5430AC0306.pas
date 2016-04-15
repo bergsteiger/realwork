@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , SelfInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , SelfInfo_ut_SelfInfo_UserType
 ;
 
 const

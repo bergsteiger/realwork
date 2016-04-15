@@ -224,6 +224,7 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , PrimPicture_pfImage_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

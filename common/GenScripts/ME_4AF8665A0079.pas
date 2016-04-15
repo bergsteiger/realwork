@@ -98,6 +98,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimStyleEditorExample_utStyleEditorExample_UserType
  //#UC START# *4AF8665A0079impl_uses*
  //#UC END# *4AF8665A0079impl_uses*
 ;
