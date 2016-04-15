@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TReleasetoKT = class(TTestResultsPlace)
+ TReleasetoKT = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* ≈жедневные тесты библиотек в “вери (релизный вариант) }
   protected
    {$If NOT Defined(NotTunedDUnit)}

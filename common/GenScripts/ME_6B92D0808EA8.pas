@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TReleaseArchi2 = class(TTestResultsPlace)
+ TReleaseArchi2 = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Тесты на Archi2 (релизный вариант) }
   public
    {$If NOT Defined(NotTunedDUnit)}

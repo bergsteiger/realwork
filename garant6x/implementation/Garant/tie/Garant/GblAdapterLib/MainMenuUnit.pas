@@ -41,7 +41,7 @@ type
   ['{257ACC4A-9B2A-4AD1-B238-0CDCE6A5406E}']
   function GetCaption: IString; stdcall;
   function Open: IUnknown; stdcall;
-   {* Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString) }
+   {* Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString, IBookmark) }
   property Caption: IString
    read GetCaption;
    {* Имя }
@@ -64,6 +64,8 @@ type
   function GetCaption: IString; stdcall;
   function GetItems: ISectionItemList; stdcall;
    {* Получить элементы раздела ОМ }
+  function GetNewsSectionIndex: Integer; stdcall;
+   {* получить для проф. секции индекс в новостной секции }
   property Caption: IString
    read GetCaption;
    {* имя }
@@ -86,6 +88,9 @@ type
    {* раздел бизнес-справки }
   function GetChangesInLegislationSection: IMainMenuSection; stdcall;
    {* раздел изменения в  законодательстве }
+  procedure Customize; stdcall;
+   {* настройка основного меню в зависимости от дополнительных параметров
+ желательно сделать сразу после логина и до загрузки кеша настроек }
  end;//IMainMenu
 
 implementation

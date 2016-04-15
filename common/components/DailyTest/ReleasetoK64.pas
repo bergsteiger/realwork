@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TReleasetoK64 = class(TTestResultsPlace)
+ TReleasetoK64 = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {*  (релизный вариант) }
   protected
    {$If NOT Defined(NotTunedDUnit)}

@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TReleaseToK = class(TTestResultsPlace)
+ TReleaseToK = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {*  (релизный вариант) }
   public
    {$If NOT Defined(NotTunedDUnit)}

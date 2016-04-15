@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TReleaseItsLAW = class(TTestResultsPlace)
+ TReleaseItsLAW = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* ¬ывод дл€ отладочных целей (релизный вариант) }
   protected
    {$If NOT Defined(NotTunedDUnit)}
