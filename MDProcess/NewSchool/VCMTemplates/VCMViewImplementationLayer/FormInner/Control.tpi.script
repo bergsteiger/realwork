@@ -29,7 +29,7 @@ implementation @ <<Control>>
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Пользовательские свойства
 
-//p ControlClass=none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtLabel|TvtLister|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtPanel|TvtProportionalPanel|TBevel|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TvtRadioButton|TComboBox|TvtComboBox|TBitBtn|TvtImageLabel|TvtStyledLabel ? 
+//p ControlClass=none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscComboLabel|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtImageLabel|TvtLabel|TvtLister|TvtPanel|TvtProportionalPanel|TvtRadioButton|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtStyledLabel|TBevel|TBitBtn|TComboBox|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox ? 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
@@ -104,8 +104,9 @@ implementation @ <<Control>>
    if ( ( %S get_up ( 'ControlClass' ) ) %!= 'none' AND 
      ( ( %S get_up ( 'ControlClass' ) ) %!= ''  ) ) then
    begin
+//	%f_FindElem(%S{ControlClass})\
+    [%f] FindElem %( %S get_up ( 'ControlClass' ) )% 
 //	%f_find_element(%S{ControlClass},l_Elem)\
-    [%f] find_element %( %S get_up ( 'ControlClass' ) %, 'l_Elem' )% 
 //	%S%f_make_accessable(%{l_Elem}U)\
     %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
 //	%f_addG(%S,%{l_Elem})\
@@ -116,13 +117,37 @@ implementation @ <<Control>>
   end // if
 //	]
  end // if
-//#UC END# *4B2A19E3038Bfor4A794CA201BF*
+
+//f _FindElem
 ; // CheckG
+
+end. // <<Control>>
+
+: FindElem OBJECT IN %S
+//	[{"%{%SN}N"=""}{\
+ if ( ( ( get_global_var ( %S |N ) |N ) ) %== '' ) then
+ begin
+//	%f_find_element(%SN,l_Elem)\
+  [%f] find_element %( %S |N %, 'l_Elem' )% 
+//	%f_set_var(%SN,{l_Elem})\
+  [%f] set_var %( %S |N %, '{l_Elem}' )% 
+//	]
+ end // if
+ else
+ begin
+//	%f_set_var(l_Elem,{%SN})\
+  [%f] set_var %( 'l_Elem' %, '{'
+  %S |N '}' )% 
+//	}\
+ end // else
+//#UC END# *4B2A19E3038Bfor4A794CA201BF*
+; // FindElem
 
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Выводит имя владельца метода
 //%f _pas_MethodOwnerName
+implementation @ <<Control>>
 : pas_MethodOwnerName OBJECT IN %S
 //#UC START# *49CB3C99034Bfor4A794CA201BF*
 //	%P%f_pas_MethodOwnerName(%S)

@@ -8861,7 +8861,7 @@ implementation @ "Delphi интерфейсы и реализация"
 //	'%f_pas_script_FileNameForLinkSafe(%S)'\
   ''''
   [%f] pas_script_FileNameForLinkSafe %( %S )% ''''
-//	] // %SN\n
+//	] \
  end // if
  else
  begin
@@ -8869,8 +8869,29 @@ implementation @ "Delphi интерфейсы и реализация"
   %S %f pas_script_Name %( )% 
 //	}\
  end // else
- ' // '
- %S |N #13#10
+ ' '
+//	// \
+ '// '
+//	[{%SC=Dependency}{\
+ if ( ( %S |C ) %== 'Dependency' ) then
+ begin
+//	[%SN:]%TN\
+  if NOT-EMPTY
+  begin
+   %S |N ':' 
+  end // if
+  NOP
+  %T |N 
+//	]\
+ end // if
+ else
+ begin
+//	%SN\
+  %S |N 
+//	}\
+ end // else
+//	\n
+ #13#10
 
 //f _pas_script_FileNameForLinkSafe
 ; // pas_script_Reference

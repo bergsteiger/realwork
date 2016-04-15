@@ -89,82 +89,88 @@ implementation @ <<Enum>>
 //	[{%Cx=true}\
  if ( ( %C |x ) %==  true ) then
  begin
-//	<{}{%ZS=Typedef&%ZN=%SN}\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%Z
+//	[{%Zx=true}\
+  if ( ( %Z |x ) %==  true ) then
   begin
-   OBJECT IN %Z
-   if ( ( %Z |S ) %== 'Typedef' AND 
-    ( ( %Z |N ) %== ( %S |N )  ) ) then
+//	<{}{%ZS=Typedef&%ZN=%SN&%Z#f_UseNewGenRec()!=true}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Z
    begin
+    OBJECT IN %Z
+    if ( ( %Z |S ) %== 'Typedef' AND 
+     ( ( %Z |N ) %== ( %S |N )  ) AND 
+     ( ( %Z %?f UseNewGenRec %( )% ) %!=  true  ) ) then
+    begin
 
 
 //	%f_set_var(CONSTANTS_NAME,"%ZN_%SN_Constants")\
-    [%f] set_var %( 'CONSTANTS_NAME' %, %Z |N '_'
-    %S |N '_Constants' )% 
+     [%f] set_var %( 'CONSTANTS_NAME' %, %Z |N '_'
+     %S |N '_Constants' )% 
 
 //	[{%Z%P<{}{%CN=%{CONSTANTS_NAME}N}{C}>=0}\
-    if ( ( %Z ->P
-     bind ( 
-      OBJECT VAR %S
+     if ( ( %Z ->P
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |N ) %== ( ( get_global_var ( 'CONSTANTS_NAME' ) |N ) ) ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+  )       %== 0 ) then
+     begin
+//	%Z%P%f_add_class(%ZU_%SU_Constants,Constants,%ZN_%SN_Constants,Constants_Inst)\
+      %Z ->P %f add_class %( %Z |U '_'
+      %S |U '_Constants' %, 'Constants' %, %Z |N '_'
+      %S |N '_Constants' %, 'Constants_Inst' )%  
+//	%{Constants_Inst}%f_set_documentation(Алиасы для значений %PN.%SN)\
+      ( get_global_var ( 'Constants_Inst' ) %f set_documentation %( 'Алиасы для значений '
+      %P |N '.'
+      %S |N )% ) 
+//	%{Constants_Inst}%f_set_up(children prefix,%S{children prefix})\
+      ( get_global_var ( 'Constants_Inst' ) %f set_up %( 'children prefix' %, %S get_up ( 'children prefix' ) )% ) 
+//	%{Constants_Inst}%f_set_up(elements prefix,%S{elements prefix})\
+      ( get_global_var ( 'Constants_Inst' ) %f set_up %( 'elements prefix' %, %S get_up ( 'elements prefix' ) )% ) 
+//	<{}{%CC=Attribute}{%C}\
       INTEGER VAR l_Counter l_Counter := 0
       for %S%C
       begin
        OBJECT IN %C
-       if ( ( %C |N ) %== ( ( get_global_var ( 'CONSTANTS_NAME' ) |N ) ) ) then
+       if ( ( %C |C ) %== 'Attribute' ) then
        begin
+//	%{Constants_Inst}%f_add_attribute(%CU_%{Constants_Inst}U_Alias,,\
+        ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %C |U '_'
+        ( get_global_var ( 'Constants_Inst' ) |U ) '_Alias' %, '' %, 
+//	%CN = %PN::%SN::%CN,\
+        %C |N ' = '
+        %P |N '::'
+        %S |N '::'
+        %C |N %, 
+//	Attr_Inst)\
+        'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(%CD)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %C |D )% ) 
+//	>\
 
         ++! l_Counter
        end // if
       end // for C
-      l_Counter
-
-     ) // bind
-  )      %== 0 ) then
-    begin
-//	%Z%P%f_add_class(%ZU_%SU_Constants,Constants,%ZN_%SN_Constants,Constants_Inst)\
-     %Z ->P %f add_class %( %Z |U '_'
-     %S |U '_Constants' %, 'Constants' %, %Z |N '_'
-     %S |N '_Constants' %, 'Constants_Inst' )%  
-//	%{Constants_Inst}%f_set_documentation(Алиасы для значений %PN.%SN)\
-     ( get_global_var ( 'Constants_Inst' ) %f set_documentation %( 'Алиасы для значений '
-     %P |N '.'
-     %S |N )% ) 
-//	%{Constants_Inst}%f_set_up(children prefix,%S{children prefix})\
-     ( get_global_var ( 'Constants_Inst' ) %f set_up %( 'children prefix' %, %S get_up ( 'children prefix' ) )% ) 
-//	%{Constants_Inst}%f_set_up(elements prefix,%S{elements prefix})\
-     ( get_global_var ( 'Constants_Inst' ) %f set_up %( 'elements prefix' %, %S get_up ( 'elements prefix' ) )% ) 
-//	<{}{%CC=Attribute}{%C}\
-     INTEGER VAR l_Counter l_Counter := 0
-     for %S%C
-     begin
-      OBJECT IN %C
-      if ( ( %C |C ) %== 'Attribute' ) then
-      begin
-//	%{Constants_Inst}%f_add_attribute(%CU_%{Constants_Inst}U_Alias,,\
-       ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %C |U '_'
-       ( get_global_var ( 'Constants_Inst' ) |U ) '_Alias' %, '' %, 
-//	%CN = %PN::%SN::%CN,\
-       %C |N ' = '
-       %P |N '::'
-       %S |N '::'
-       %C |N %, 
-//	Attr_Inst)\
-       'Attr_Inst' )% ) 
-//	%{Attr_Inst}%f_set_documentation(%CD)\
-       ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %C |D )% ) 
-//	>\
-
-       ++! l_Counter
-      end // if
-     end // for C
 //	]\
-    end // if
+     end // if
 //	>\
 
-    ++! l_Counter
-   end // if
-  end // for Z
+     ++! l_Counter
+    end // if
+   end // for Z
+//	]\
+  end // if
 //	]
  end // if
 //#UC END# *4B2A19E3038Bfor470F198F0000*

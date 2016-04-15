@@ -100,8 +100,9 @@ implementation @ <<Component>>
    if ( ( %S get_up ( 'ComponentClass' ) ) %!= 'none' AND 
      ( ( %S get_up ( 'ComponentClass' ) ) %!= ''  ) ) then
    begin
+//	%f_FindElem(%S{ComponentClass})\
+    [%f] FindElem %( %S get_up ( 'ComponentClass' ) )% 
 //	%f_find_element(%S{ComponentClass},l_Elem)\
-    [%f] find_element %( %S get_up ( 'ComponentClass' ) %, 'l_Elem' )% 
 //	%S%f_make_accessable(%{l_Elem}U)\
     %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
 //	%f_addG(%S,%{l_Elem})\

@@ -164,6 +164,8 @@ implementation @ <<LocalConst>>
  %S |N %, 'LocalConst_Inst' )% ) 
 //	%{LocalConst_Inst}%f_set_visibility_type(%SV)\
  ( get_global_var ( 'LocalConst_Inst' ) %f set_visibility_type %( %S |V )% ) 
+//	%{LocalConst_Inst}%f_set_var(Speller,S)\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_var %( 'Speller' %, 'S' )% ) 
 
 //	[{%S#f_IsChoices()=true}{\
  if ( ( %S %?f IsChoices %( )% ) %==  true ) then
@@ -284,6 +286,8 @@ implementation @ <<LocalConst>>
 
 //	%{Attr_Inst}%f_set_visibility_type(%CV)\
    ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( %C |V )% ) 
+//	%{Attr_Inst}%f_set_var(Speller,C)\
+   ( get_global_var ( 'Attr_Inst' ) %f set_var %( 'Speller' %, 'C' )% ) 
 //	%{Attr_Inst}%f_set_documentation([{}{%C{Value}}[{}{%C%VN}%CD]])\
    ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( if NOT-EMPTY
    begin
@@ -306,87 +310,97 @@ implementation @ <<LocalConst>>
    ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
 //	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
    ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+//	[{%{PARENT}#f_UseNewGenRec()!=true}\
+   if ( ( ( get_global_var ( 'PARENT' ) ) ) out_indent 'f_UseNewGenRec()' %!=  true ) then
+   begin
 //	%{PARENT}%f_add_operation(%CU_Init,ini,Init_Str_%f_N(%{Attr_Inst}) (),Op_Instance)\
-   ( get_global_var ( 'PARENT' ) %f add_operation %( %C |U '_Init' %, 'ini' %, 'Init_Str_'
-   [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% ' ()' %, 'Op_Instance' )% ) 
+    ( get_global_var ( 'PARENT' ) %f add_operation %( %C |U '_Init' %, 'ini' %, 'Init_Str_'
+    [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% ' ()' %, 'Op_Instance' )% ) 
 //	%{Op_Instance}%f_set_documentation(Инициализация %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}))\
-   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Инициализация '
-   ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Инициализация '
+    ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% )% ) 
 //	%{Op_Instance}%f_set_abstraction_type(final)\
-   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 //	%{Op_Instance}%f_set_var(Speller,C)\
-   ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'C' )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'C' )% ) 
 //	%{Op_Instance}%f_set_var(SpelledFor,{Attr_Inst})\
-   ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, '{Attr_Inst}' )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, '{Attr_Inst}' )% ) 
 
 //	[{"%S{ifdef}"!=""}{\
-   if ( ( %S get_up ( 'ifdef' ) ) %!= '' ) then
-   begin
-//	[{"%C{ifdef}"!=""}{\
-    if ( ( %C get_up ( 'ifdef' ) ) %!= '' ) then
+    if ( ( %S get_up ( 'ifdef' ) ) %!= '' ) then
     begin
+//	[{"%C{ifdef}"!=""}{\
+     if ( ( %C get_up ( 'ifdef' ) ) %!= '' ) then
+     begin
 //	%f_set_var(IFDEF_VALUE,"%S{ifdef},%C{ifdef}")\
-     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifdef' ) %, %C get_up ( 'ifdef' ) )% 
+      [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifdef' ) %, %C get_up ( 'ifdef' ) )% 
+//	]\
+     end // if
+     else
+     begin
+//	%f_set_var(IFDEF_VALUE,"%S{ifdef}")\
+      [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifdef' ) )% 
+//	}\
+     end // else
 //	]\
     end // if
     else
     begin
-//	%f_set_var(IFDEF_VALUE,"%S{ifdef}")\
-     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifdef' ) )% 
+//	%f_set_var(IFDEF_VALUE,"%C{ifdef}")\
+     [%f] set_var %( 'IFDEF_VALUE' %, %C get_up ( 'ifdef' ) )% 
 //	}\
     end // else
-//	]\
-   end // if
-   else
-   begin
-//	%f_set_var(IFDEF_VALUE,"%C{ifdef}")\
-    [%f] set_var %( 'IFDEF_VALUE' %, %C get_up ( 'ifdef' ) )% 
-//	}\
-   end // else
 
 
 //	%{Op_Instance}%f_set_up(ifdef,%{IFDEF_VALUE}N)\
-   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifdef' %, ( get_global_var ( 'IFDEF_VALUE' ) |N ) )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifdef' %, ( get_global_var ( 'IFDEF_VALUE' ) |N ) )% ) 
 
 //	[{"%S{ifndef}"!=""}{\
-   if ( ( %S get_up ( 'ifndef' ) ) %!= '' ) then
-   begin
-//	[{"%C{ifndef}"!=""}{\
-    if ( ( %C get_up ( 'ifndef' ) ) %!= '' ) then
+    if ( ( %S get_up ( 'ifndef' ) ) %!= '' ) then
     begin
+//	[{"%C{ifndef}"!=""}{\
+     if ( ( %C get_up ( 'ifndef' ) ) %!= '' ) then
+     begin
 //	%f_set_var(IFDEF_VALUE,"%S{ifndef},%C{ifndef}")\
-     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifndef' ) %, %C get_up ( 'ifndef' ) )% 
+      [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifndef' ) %, %C get_up ( 'ifndef' ) )% 
+//	]\
+     end // if
+     else
+     begin
+//	%f_set_var(IFDEF_VALUE,"%S{ifndef}")\
+      [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifndef' ) )% 
+//	}\
+     end // else
 //	]\
     end // if
     else
     begin
-//	%f_set_var(IFDEF_VALUE,"%S{ifndef}")\
-     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifndef' ) )% 
+//	%f_set_var(IFDEF_VALUE,"%C{ifndef}")\
+     [%f] set_var %( 'IFDEF_VALUE' %, %C get_up ( 'ifndef' ) )% 
 //	}\
     end // else
-//	]\
-   end // if
-   else
-   begin
-//	%f_set_var(IFDEF_VALUE,"%C{ifndef}")\
-    [%f] set_var %( 'IFDEF_VALUE' %, %C get_up ( 'ifndef' ) )% 
-//	}\
-   end // else
 
 
 //	%{Op_Instance}%f_set_up(ifndef,%{IFDEF_VALUE}N)\
-   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifndef' %, ( get_global_var ( 'IFDEF_VALUE' ) |N ) )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifndef' %, ( get_global_var ( 'IFDEF_VALUE' ) |N ) )% ) 
+//	[{%{PARENT}#f_UseNewGenRec()!=true}\
+    if ( ( ( get_global_var ( 'PARENT' ) ) ) out_indent 'f_UseNewGenRec()' %!=  true ) then
+    begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+     ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}).Init;\
-   ' '
-   ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% '.Init;'
+     ' '
+     ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% '.Init;'
 //	%C%f_AdditionalInitCode("%{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst})")\
-   %C %f AdditionalInitCode %( ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% )% 
+     %C %f AdditionalInitCode %( ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% )% 
 //	)\
-)% ) //	>\
+)% ) //	]\
+    end // if
+//	]\
+   end // if
+//	>\
 
    ++! l_Counter
   end // if
