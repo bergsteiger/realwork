@@ -163,6 +163,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimAttributeSelect_utAttributeSelect_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

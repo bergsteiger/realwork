@@ -81,6 +81,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
+ , PrimTasksPanel_tpMain_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -274,6 +274,10 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
+ , PrimTreeAttributeSelect_astNone_UserType
+ , PrimTreeAttributeSelect_astFirstLevel_UserType
+ , PrimTreeAttributeSelect_astTaxesPublishSearch_UserType
+ , PrimTreeAttributeSelect_astPharmPublishSearch_UserType
 ;
 
 type

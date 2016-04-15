@@ -127,6 +127,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimShutDown_sftNone_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

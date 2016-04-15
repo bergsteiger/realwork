@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , EULAKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , EULA_ut_EULA_UserType
 ;
 
 const

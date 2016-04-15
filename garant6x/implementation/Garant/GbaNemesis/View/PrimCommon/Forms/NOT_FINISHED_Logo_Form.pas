@@ -29,6 +29,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , Logo_ut_Logo_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

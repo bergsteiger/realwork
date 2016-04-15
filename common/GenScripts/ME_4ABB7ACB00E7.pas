@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , RegistrationFormKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , RegistrationForm_ut_RegistrationForm_UserType
 ;
 
 const

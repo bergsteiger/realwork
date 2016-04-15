@@ -104,6 +104,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimTreeAttributeFirstLevel_flSituation_UserType
 ;
 
 const

@@ -108,6 +108,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimProgressIndicator_utProgressIndicator_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

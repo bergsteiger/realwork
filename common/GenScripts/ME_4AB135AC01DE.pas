@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TurnOffTimeMachineKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType
 ;
 
 const

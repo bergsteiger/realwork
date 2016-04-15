@@ -106,6 +106,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimListAnalizer_listAnalize_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

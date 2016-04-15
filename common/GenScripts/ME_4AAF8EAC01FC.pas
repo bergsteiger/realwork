@@ -37,6 +37,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrintDialog_ut_PrintDialog_UserType
 ;
 
 const

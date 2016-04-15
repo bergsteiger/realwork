@@ -36,6 +36,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , CompInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , CompInfo_ut_CompInfo_UserType
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)

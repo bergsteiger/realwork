@@ -60,6 +60,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimFoldersInfo_utFoldersInfoContainer_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

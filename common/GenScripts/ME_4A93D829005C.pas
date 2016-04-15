@@ -46,6 +46,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , LoginKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , Login_ut_Login_UserType
 ;
 
 const

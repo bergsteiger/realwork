@@ -46,6 +46,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , LongProcessKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , LongProcess_ut_LongProcess_UserType
 ;
 
 const

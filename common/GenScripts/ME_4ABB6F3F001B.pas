@@ -154,6 +154,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , AboutKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , About_ut_About_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

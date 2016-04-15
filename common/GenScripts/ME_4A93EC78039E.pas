@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , RememberPasswordKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , RememberPassword_ut_RememberPassword_UserType
 ;
 
 const
