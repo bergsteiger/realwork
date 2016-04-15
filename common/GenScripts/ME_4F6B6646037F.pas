@@ -112,6 +112,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimChild_cutUsual_UserType
+ , PrimChild_cutForDiction_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

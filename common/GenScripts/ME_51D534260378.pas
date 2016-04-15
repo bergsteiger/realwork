@@ -58,6 +58,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FromWithPanelKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , FromWithPanel_ut_FromWithPanel_UserType
 ;
 
 const

@@ -51,6 +51,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , MainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , Main_ut_Main_UserType
 ;
 
 const

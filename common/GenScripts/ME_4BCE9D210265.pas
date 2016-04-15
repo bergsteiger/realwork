@@ -60,6 +60,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , elCustomEditKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , elCustomEdit_ut_elCustomEdit_UserType
 ;
 
 const

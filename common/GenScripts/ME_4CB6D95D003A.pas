@@ -90,6 +90,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimCreateFilter_cfCreate_UserType
+ , PrimCreateFilter_cfRename_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -49,6 +49,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , BaseSearchCardKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , BaseSearchCard_ut_BaseSearchCard_UserType
 ;
 
 const

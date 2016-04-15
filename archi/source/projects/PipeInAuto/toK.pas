@@ -1,69 +1,56 @@
 unit toK;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/archi/source/projects/PipeInAuto/toK.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> archi$AutoPipeServer$Garant::AutoPipeServer$Test::toK
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\PipeInAuto\toK.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "toK" MUID: (52F250640165)
+// Имя типа: "TtoK"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PipeInAuto\alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(AppServerSide)}
 type
  TtoK = class(TTestResultsPlace)
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+  public
+   {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+   {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+   {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
  end;//TtoK
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
+uses
+ l3ImplUses
+;
 
-// start class TtoK
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 class function TtoK.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-toK';
 end;//TtoK.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoK.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_52F250640165_var*
 //#UC END# *4B7C0B43005B_52F250640165_var*
 begin
@@ -71,10 +58,9 @@ begin
  Result := 516170212;
 //#UC END# *4B7C0B43005B_52F250640165_impl*
 end;//TtoK.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoK.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_52F250640165_var*
 //#UC END# *4B7C0B670215_52F250640165_var*
 begin
@@ -82,8 +68,7 @@ begin
  Result := 516170210;
 //#UC END# *4B7C0B670215_52F250640165_impl*
 end;//TtoK.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //AppServerSide
-
+{$IfEnd} // Defined(AppServerSide)
 end.

@@ -71,6 +71,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TextLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , TextLoad_ut_TextLoad_UserType
 ;
 
 const

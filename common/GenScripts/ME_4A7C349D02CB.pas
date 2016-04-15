@@ -156,6 +156,7 @@ uses
  , eeTreeMisc
  {$IfEnd} // Defined(Nemesis)
  , nsFolders
+ , PrimUnderControl_utUnderControl_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

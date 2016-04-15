@@ -64,6 +64,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , F1LikeTextLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , F1LikeTextLoad_ut_F1LikeTextLoad_UserType
 ;
 
 const

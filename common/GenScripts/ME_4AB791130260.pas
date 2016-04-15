@@ -318,6 +318,7 @@ uses
  , l3Chars
  , afwFacade
  , l3Base
+ , PrimBaseSearch_BaseSearch_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

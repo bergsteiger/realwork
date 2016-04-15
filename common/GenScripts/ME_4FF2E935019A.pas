@@ -91,6 +91,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , AACContainerPrim_AACContainer_UserType
+ , AACContainerPrim_AACContentsContainer_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

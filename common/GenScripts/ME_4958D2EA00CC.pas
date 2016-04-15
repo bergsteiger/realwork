@@ -193,6 +193,7 @@ uses
  , nsPrimaryMonitorResolutionEvent
  , nsDPIEvent
  , nsFontSizeEvent
+ , NemesisMain_utMainWindow_UserType
 ;
 
 const

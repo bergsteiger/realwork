@@ -97,6 +97,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimConsultationMark_utcmMain_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

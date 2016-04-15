@@ -10,8 +10,8 @@ program AutoPipeServerTest;
 {$If Defined(AppServerSide)}
 uses
  l3IntfUses
- , l3ExceptionsLog in 'w:\common\components\rtl\Garant\L3\l3ExceptionsLog.pas'
  , l3ImplUses
+ , l3ExceptionsLog in 'w:\common\components\rtl\Garant\L3\l3ExceptionsLog.pas'
  {$If NOT Defined(NoScripts)}
  , ObjectFromstackWords in 'w:\common\components\rtl\Garant\ScriptEngine\ObjectFromstackWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -67,7 +67,7 @@ uses
  , l3ObjectRefList1 in 'w:\common\components\rtl\Garant\L3\l3ObjectRefList1.pas'
  , l3Memory in 'w:\common\components\rtl\Garant\L3\l3Memory.pas'
  , l3BaseStream in 'w:\common\components\rtl\Garant\L3\l3BaseStream.pas'
- , l3InternalInterfaces in 'w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3InternalInterfaces.pas'
+ , l3InternalInterfaces in 'w:\common\components\rtl\Garant\L3\l3InternalInterfaces.pas'
  , l3Units in 'w:\common\components\rtl\Garant\L3\l3Units.pas'
  , l3PrinterInterfaces in 'w:\common\components\rtl\Garant\L3\l3PrinterInterfaces.pas'
  , l3MemUtils in 'w:\common\components\rtl\Garant\L3\l3MemUtils.pas'
@@ -674,7 +674,7 @@ uses
  , GUIAppTester in 'w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
- , KTestRunner in 'w:\common\components\rtl\Garant\DUnitTuning\NOT_COMPLETED_KTestRunner.pas'
+ , KTestRunner in 'w:\common\components\rtl\Garant\DUnitTuning\KTestRunner.pas'
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
  {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
  , BaseTest in 'w:\common\components\rtl\Garant\DUnitTuning\BaseTest.pas'
@@ -787,7 +787,7 @@ uses
  , ImgList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas'
  {$IfEnd} // NOT Defined(NoVCL)
  , nevShapesPaintedSpy in 'w:\common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas'
- , nevTools in 'w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevTools.pas'
+ , nevTools in 'w:\common\components\gui\Garant\Everest\new\nevTools.pas'
  , k2Interfaces in 'w:\common\components\rtl\Garant\K2\k2Interfaces.pas'
  , k2PureMixIns in 'w:\common\components\rtl\Garant\K2\k2PureMixIns.pas'
  , k2Prim in 'w:\common\components\rtl\Garant\K2\k2Prim.pas'
@@ -798,7 +798,7 @@ uses
  , k2Tags in 'w:\common\components\rtl\Garant\K2\k2Tags.pas'
  , k2Empty_Const in 'w:\common\components\rtl\Garant\K2\k2Empty_Const.pas'
  , k2BaseHack in 'w:\common\components\rtl\Garant\K2\k2BaseHack.pas'
- , nevBase in 'w:\common\components\gui\Garant\Everest\new\NOT_COMPLETED_nevBase.pas'
+ , nevBase in 'w:\common\components\gui\Garant\Everest\new\nevBase.pas'
  , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
  , evdTypes in 'w:\common\components\rtl\Garant\EVD\evdTypes.pas'
  , evdStyles in 'w:\common\components\rtl\Garant\EVD\evdStyles.pas'
@@ -852,7 +852,7 @@ uses
  , k2ToolCacheList in 'w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas'
  , k2ToolPrimList in 'w:\common\components\rtl\Garant\K2\k2ToolPrimList.pas'
  , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
- , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evEditorInterfaces.pas'
+ , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
  , nevNavigation in 'w:\common\components\gui\Garant\Everest\new\nevNavigation.pas'
  {$If Defined(k2ForEditor)}
  , evCursorTools in 'w:\common\components\gui\Garant\Everest\evCursorTools.pas'
@@ -927,7 +927,7 @@ uses
  , l3InterfacePtrList in 'w:\common\components\rtl\Garant\L3\l3InterfacePtrList.pas'
  , k2Facade in 'w:\common\components\rtl\Garant\K2\k2Facade.pas'
  , evStylesPrintAndExportSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
- , evStylesPrintAndExportFontSizeSettingRes in 'w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evStylesPrintAndExportFontSizeSettingRes.pas'
+ , evStylesPrintAndExportFontSizeSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
  , afwFacade in 'w:\common\components\gui\Garant\AFW\afwFacade.pas'
  , l3KeyboardLayoutService in 'w:\common\components\rtl\Garant\L3\l3KeyboardLayoutService.pas'
  , afwSettingsImplSing in 'w:\common\components\gui\Garant\AFW\afwSettingsImplSing.pas'
@@ -954,20 +954,25 @@ uses
  , k2BaseStackGenerator in 'w:\common\components\rtl\Garant\K2\k2BaseStackGenerator.pas'
  , k2TagGen in 'w:\common\components\rtl\Garant\K2\k2TagGen.pas'
  , k2VariantImpl in 'w:\common\components\rtl\Garant\K2\k2VariantImpl.pas'
+ {$If NOT Defined(NoScripts)}
+ , kwFiltersAndGeneratorsPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , k2EVDReaderService in 'w:\common\components\rtl\Garant\K2\k2EVDReaderService.pas'
+ , k2CustomFileReader in 'w:\common\components\rtl\Garant\K2\k2CustomFileReader.pas'
+ , k2CustomReader in 'w:\common\components\rtl\Garant\K2\k2CustomReader.pas'
+ , k2CustomStackGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomStackGenerator.pas'
+ , k2EVDWriterService in 'w:\common\components\rtl\Garant\K2\k2EVDWriterService.pas'
+ , k2CustomFileGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomFileGenerator.pas'
+ , k2CustomStackGeneratorEx in 'w:\common\components\rtl\Garant\K2\k2CustomStackGeneratorEx.pas'
  , nevInternalInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevInternalInterfaces.pas'
  , evOpProc in 'w:\common\components\gui\Garant\Everest\evOpProc.pas'
  , evdNativeReader in 'w:\common\components\rtl\Garant\EVD\evdNativeReader.pas'
  , k2CustomFileParser in 'w:\common\components\rtl\Garant\K2\k2CustomFileParser.pas'
- , k2CustomFileReader in 'w:\common\components\rtl\Garant\K2\k2CustomFileReader.pas'
- , k2CustomReader in 'w:\common\components\rtl\Garant\K2\k2CustomReader.pas'
- , k2CustomStackGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomStackGenerator.pas'
  , evdNativeReaderServices in 'w:\common\components\rtl\Garant\EVD\evdNativeReaderServices.pas'
- , k2EVDReaderService in 'w:\common\components\rtl\Garant\K2\k2EVDReaderService.pas'
  , evStyleTableFontSizeCorrector in 'w:\common\components\gui\Garant\Everest\evStyleTableFontSizeCorrector.pas'
  , evdLeafParaFilter in 'w:\common\components\rtl\Garant\EVD\evdLeafParaFilter.pas'
  , k2TagFilter in 'w:\common\components\rtl\Garant\K2\k2TagFilter.pas'
  , k2TagTerminator in 'w:\common\components\rtl\Garant\K2\k2TagTerminator.pas'
- , k2CustomStackGeneratorEx in 'w:\common\components\rtl\Garant\K2\k2CustomStackGeneratorEx.pas'
  , evDefaultStylesFontSizes in 'w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizes.pas'
  , evDefaultStylesFontSizesPrim1 in 'w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim1.pas'
  , evDefaultStylesFontSizesPrim in 'w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim.pas'
@@ -975,9 +980,7 @@ uses
  , l3Defaults in 'w:\common\components\rtl\Garant\L3\l3Defaults.pas'
  , evdNativeWriter in 'w:\common\components\rtl\Garant\EVD\evdNativeWriter.pas'
  , evdCustomNativeWriter in 'w:\common\components\rtl\Garant\EVD\evdCustomNativeWriter.pas'
- , k2CustomFileGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomFileGenerator.pas'
  , evdCustomNativeWriterServices in 'w:\common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas'
- , k2EVDWriterService in 'w:\common\components\rtl\Garant\K2\k2EVDWriterService.pas'
  , Bullet_Const in 'w:\common\components\rtl\Garant\EVD\Bullet_Const.pas'
  , SegmentsLayer_Const in 'w:\common\components\rtl\Garant\EVD\SegmentsLayer_Const.pas'
  , TextSegment_Const in 'w:\common\components\rtl\Garant\EVD\TextSegment_Const.pas'
@@ -1035,7 +1038,7 @@ uses
  , l3FontTools in 'w:\common\components\rtl\Garant\L3\l3FontTools.pas'
  , l3FormattedLines in 'w:\common\components\rtl\Garant\L3\l3FormattedLines.pas'
  , l3LineArray in 'w:\common\components\rtl\Garant\L3\l3LineArray.pas'
- , l3VirtualCanvas in 'w:\common\components\rtl\Garant\L3\NOT_COMPLETED_l3VirtualCanvas.pas'
+ , l3VirtualCanvas in 'w:\common\components\rtl\Garant\L3\l3VirtualCanvas.pas'
  , l3Bitmap in 'w:\common\components\rtl\Garant\L3\l3Bitmap.pas'
  {$If Defined(l3Requires_m0)}
  , m2XLtLib in 'w:\common\components\rtl\Garant\L3\m2\m2XLtLib.pas'
@@ -1192,6 +1195,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , StdCtrls in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\StdCtrls.pas'
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RadioButtonWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , l3Operations in 'w:\common\components\rtl\Garant\L3\l3Operations.pas'
  , l3DropTarget in 'w:\common\components\rtl\Garant\L3\l3DropTarget.pas'
  , l3DropSource in 'w:\common\components\rtl\Garant\L3\l3DropSource.pas'
@@ -1318,7 +1324,7 @@ uses
  {$If Defined(k2ForEditor)}
  , evSegLst in 'w:\common\components\gui\Garant\Everest\evSegLst.pas'
  {$IfEnd} // Defined(k2ForEditor)
- , evTextParaConst in 'w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTextParaConst.pas'
+ , evTextParaConst in 'w:\common\components\gui\Garant\Everest\evTextParaConst.pas'
  , nevSegmentObject in 'w:\common\components\gui\Garant\Everest\nevSegmentObject.pas'
  , l3SingleLineInfo in 'w:\common\components\rtl\Garant\L3\l3SingleLineInfo.pas'
  {$If Defined(k2ForEditor)}
@@ -1369,7 +1375,7 @@ uses
  , ImageListBitmap_Const in 'w:\common\components\gui\Garant\Everest\ImageListBitmap_Const.pas'
  , nevCloakFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevCloakFormatInfo.pas'
  , ControlsBlock_Const in 'w:\common\components\gui\Garant\Everest\ControlsBlock_Const.pas'
- , evControlsBlockConst in 'w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlsBlockConst.pas'
+ , evControlsBlockConst in 'w:\common\components\gui\Garant\Everest\evControlsBlockConst.pas'
  , Cloak_Const in 'w:\common\components\gui\Garant\Everest\Cloak_Const.pas'
  , nevSegmentFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevSegmentFormatInfo.pas'
  , evResultFontHolder in 'w:\common\components\gui\Garant\Everest\evResultFontHolder.pas'
@@ -1381,7 +1387,7 @@ uses
  , nevSBSRowFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevSBSRowFormatInfo.pas'
  , nevTableRowRenderInfoEx in 'w:\common\components\gui\Garant\Everest\new\nevTableRowRenderInfoEx.pas'
  , nevReqRowFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevReqRowFormatInfo.pas'
- , evControlParaConst in 'w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlParaConst.pas'
+ , evControlParaConst in 'w:\common\components\gui\Garant\Everest\evControlParaConst.pas'
  , nevPageBreakFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevPageBreakFormatInfo.pas'
  , PageBreak_Const in 'w:\common\components\rtl\Garant\EVD\PageBreak_Const.pas'
  , nevNodeGroupFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevNodeGroupFormatInfo.pas'
@@ -2146,7 +2152,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , ddServerTask in 'w:\common\components\rtl\Garant\cs\ddServerTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , ddTaskItemPrim in 'w:\common\components\rtl\Garant\EVD\NOT_COMPLETED_ddTaskItemPrim.pas'
+ , ddTaskItemPrim in 'w:\common\components\rtl\Garant\EVD\ddTaskItemPrim.pas'
  , evdTaskTypes in 'w:\common\components\rtl\Garant\EVD\evdTaskTypes.pas'
  , csTaskListening in 'w:\common\components\rtl\Garant\EVD\csTaskListening.pas'
  , Task_Const in 'w:\common\components\rtl\Garant\EVD\Task_Const.pas'
@@ -2194,6 +2200,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , CheckLst in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas'
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CheckListBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ddAppConfigRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigRes.pas'
  , ddAppConfigStrings in 'w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas'
  , ddAppConfigStringsRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigStringsRes.pas'
@@ -2240,7 +2249,7 @@ uses
  , csProcessTask in 'w:\common\components\rtl\Garant\cs\csProcessTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ddProcessTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddProcessTaskPrim.pas'
+ , ddProcessTaskPrim in 'w:\common\components\rtl\Garant\cs\ddProcessTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , evdTasksHelpers in 'w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas'
  , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
@@ -2251,7 +2260,7 @@ uses
  , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
  , ddProgressObj in 'w:\common\components\rtl\Garant\dd\ddProgressObj.pas'
  , ProcessTask_Const in 'w:\common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
- , csTaskResult in 'w:\common\components\rtl\Garant\EVD\NOT_COMPLETED_csTaskResult.pas'
+ , csTaskResult in 'w:\common\components\rtl\Garant\EVD\csTaskResult.pas'
  , TaskResult_Const in 'w:\common\components\rtl\Garant\EVD\TaskResult_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuDeliveryInterfaces in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDeliveryInterfaces.pas'
@@ -2326,11 +2335,11 @@ uses
  , CsCommon in 'w:\common\components\rtl\Garant\cs\CsCommon.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , IdGlobal in 'w:\common\components\rtl\external\Indy\Source\System\IdGlobal.pas'
- , daDataProviderParams in 'w:\common\components\rtl\Garant\DA\NOT_COMPLETED_daDataProviderParams.pas'
+ , daDataProviderParams in 'w:\common\components\rtl\Garant\DA\daDataProviderParams.pas'
  , l3IniFile in 'w:\common\components\rtl\Garant\L3\l3IniFile.pas'
  , DataProviderParams_Const in 'w:\common\components\rtl\Garant\EVD\DataProviderParams_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsMessage in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsMessage.pas'
+ , ncsMessage in 'w:\common\components\rtl\Garant\cs\ncsMessage.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , evdNcsTypes in 'w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas'
  , csMessage_Const in 'w:\common\components\rtl\Garant\EVD\csMessage_Const.pas'
@@ -2348,22 +2357,22 @@ uses
  , CsObject in 'w:\common\components\rtl\Garant\cs\CsObject.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ncsGetReadyToDeliveryTasks in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetReadyToDeliveryTasks.pas'
+ , ncsGetReadyToDeliveryTasks in 'w:\common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasks.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csGetReadyToDeliveryTasks_Const in 'w:\common\components\rtl\Garant\EVD\csGetReadyToDeliveryTasks_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsGetReadyToDeliveryTasksReply in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetReadyToDeliveryTasksReply.pas'
+ , ncsGetReadyToDeliveryTasksReply in 'w:\common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasksReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csGetReadyToDeliveryTasksReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetReadyToDeliveryTasksReply_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuGetTaskDescriptionExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuGetTaskDescriptionExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ncsGetTaskDescription in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetTaskDescription.pas'
+ , ncsGetTaskDescription in 'w:\common\components\rtl\Garant\cs\ncsGetTaskDescription.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csGetTaskDescription_Const in 'w:\common\components\rtl\Garant\EVD\csGetTaskDescription_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsGetTaskDescriptionReply in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetTaskDescriptionReply.pas'
+ , ncsGetTaskDescriptionReply in 'w:\common\components\rtl\Garant\cs\ncsGetTaskDescriptionReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , ncsFileDescHelper in 'w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
@@ -2374,11 +2383,11 @@ uses
  , csExport in 'w:\common\components\rtl\Garant\cs\csExport.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csExportTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csExportTaskPrim.pas'
+ , csExportTaskPrim in 'w:\common\components\rtl\Garant\cs\csExportTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , ExportTask_Const in 'w:\common\components\rtl\Garant\EVD\ExportTask_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsFileDesc in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsFileDesc.pas'
+ , ncsFileDesc in 'w:\common\components\rtl\Garant\cs\ncsFileDesc.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , ddFileIterator in 'w:\common\components\rtl\Garant\dd\ddFileIterator.pas'
  , l3CRCUtils in 'w:\common\components\rtl\Garant\L3\l3CRCUtils.pas'
@@ -2386,29 +2395,29 @@ uses
  , alcuTaskProgressExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskProgressExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ncsTaskProgress in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsTaskProgress.pas'
+ , ncsTaskProgress in 'w:\common\components\rtl\Garant\cs\ncsTaskProgress.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csTaskProgress_Const in 'w:\common\components\rtl\Garant\EVD\csTaskProgress_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuDeliveryResultExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDeliveryResultExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ncsDeliveryResult in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsDeliveryResult.pas'
+ , ncsDeliveryResult in 'w:\common\components\rtl\Garant\cs\ncsDeliveryResult.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csDeliveryResult_Const in 'w:\common\components\rtl\Garant\EVD\csDeliveryResult_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuGetFilePartExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuGetFilePartExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ncsGetFilePart in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetFilePart.pas'
+ , ncsGetFilePart in 'w:\common\components\rtl\Garant\cs\ncsGetFilePart.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csGetFilePart_Const in 'w:\common\components\rtl\Garant\EVD\csGetFilePart_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsGetFilePartReply in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetFilePartReply.pas'
+ , ncsGetFilePartReply in 'w:\common\components\rtl\Garant\cs\ncsGetFilePartReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csGetFilePartReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetFilePartReply_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsPushFilePart in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsPushFilePart.pas'
+ , ncsPushFilePart in 'w:\common\components\rtl\Garant\cs\ncsPushFilePart.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csPushFilePart_Const in 'w:\common\components\rtl\Garant\EVD\csPushFilePart_Const.pas'
  {$If NOT Defined(Nemesis)}
@@ -2428,25 +2437,25 @@ uses
  , ddServerTaskListPrim in 'w:\common\components\rtl\Garant\cs\ddServerTaskListPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ncsSendTask in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsSendTask.pas'
+ , ncsSendTask in 'w:\common\components\rtl\Garant\cs\ncsSendTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csSendTask_Const in 'w:\common\components\rtl\Garant\EVD\csSendTask_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ncsSendTaskReply in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsSendTaskReply.pas'
+ , ncsSendTaskReply in 'w:\common\components\rtl\Garant\cs\ncsSendTaskReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csSendTaskReply_Const in 'w:\common\components\rtl\Garant\EVD\csSendTaskReply_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuTaskFileTransferServices in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskFileTransferServices.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ncsGetPartialTaskDescription in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetPartialTaskDescription.pas'
+ , ncsGetPartialTaskDescription in 'w:\common\components\rtl\Garant\cs\ncsGetPartialTaskDescription.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csGetPartialTaskDescription_Const in 'w:\common\components\rtl\Garant\EVD\csGetPartialTaskDescription_Const.pas'
  {$If NOT Defined(Nemesis)}
  , ncsOneFileDeliverer in 'w:\common\components\rtl\Garant\cs\ncsOneFileDeliverer.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ncsTaskedFileDesc in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsTaskedFileDesc.pas'
+ , ncsTaskedFileDesc in 'w:\common\components\rtl\Garant\cs\ncsTaskedFileDesc.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , TaskedFileDesc_Const in 'w:\common\components\rtl\Garant\EVD\TaskedFileDesc_Const.pas'
  {$If NOT Defined(Nemesis)}
@@ -2459,7 +2468,7 @@ uses
  , alcuCorrectFolderExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuCorrectFolderExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ncsCorrectFolder in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsCorrectFolder.pas'
+ , ncsCorrectFolder in 'w:\common\components\rtl\Garant\cs\ncsCorrectFolder.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csCorrectFolder_Const in 'w:\common\components\rtl\Garant\EVD\csCorrectFolder_Const.pas'
  {$If Defined(ServerTasks)}
@@ -2482,20 +2491,20 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , l3XMLWriter in 'w:\common\components\rtl\Garant\L3\l3XMLWriter.pas'
  {$If Defined(ServerTasks)}
- , alcuMdpSyncDicts in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuMdpSyncDicts.pas'
+ , alcuMdpSyncDicts in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMdpSyncDicts.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , csMdpSyncDicts in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csMdpSyncDicts.pas'
+ , csMdpSyncDicts in 'w:\common\components\rtl\Garant\cs\csMdpSyncDicts.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , mdpSyncDicts_Const in 'w:\common\components\rtl\Garant\EVD\mdpSyncDicts_Const.pas'
  {$If Defined(MDPSyncIntegrated)}
  , alcuMdpDocImporter in 'w:\archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas'
  {$IfEnd} // Defined(MDPSyncIntegrated)
  {$If Defined(ServerTasks)}
- , alcuMdpImportDocs in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuMdpImportDocs.pas'
+ , alcuMdpImportDocs in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMdpImportDocs.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , csMdpImportDocs in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csMdpImportDocs.pas'
+ , csMdpImportDocs in 'w:\common\components\rtl\Garant\cs\csMdpImportDocs.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , mdpImportDocs_Const in 'w:\common\components\rtl\Garant\EVD\mdpImportDocs_Const.pas'
  , alcuServerTaskManagerFactory in 'w:\archi\source\projects\PipeInAuto\Server\alcuServerTaskManagerFactory.pas'
@@ -2525,7 +2534,7 @@ uses
  , K517772970_TddRequestTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddRequestTask.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
- , csRequestTask in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csRequestTask.pas'
+ , csRequestTask in 'w:\common\components\rtl\Garant\cs\csRequestTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , CsDataPipe in 'w:\common\components\rtl\Garant\cs\CsDataPipe.pas'
@@ -2545,7 +2554,7 @@ uses
  , csClientMessageRequest in 'w:\common\components\rtl\Garant\cs\csClientMessageRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ddClientMessagePrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddClientMessagePrim.pas'
+ , ddClientMessagePrim in 'w:\common\components\rtl\Garant\cs\ddClientMessagePrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , ClientMessage_Const in 'w:\common\components\rtl\Garant\EVD\ClientMessage_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2555,7 +2564,7 @@ uses
  , csCommonDataRequest in 'w:\common\components\rtl\Garant\cs\csCommonDataRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ddCommonDataRequestPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddCommonDataRequestPrim.pas'
+ , ddCommonDataRequestPrim in 'w:\common\components\rtl\Garant\cs\ddCommonDataRequestPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , CommonDataRequest_Const in 'w:\common\components\rtl\Garant\EVD\CommonDataRequest_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2577,7 +2586,7 @@ uses
  , csServerStatusRequest in 'w:\common\components\rtl\Garant\cs\csServerStatusRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ddServerStatusRequestPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddServerStatusRequestPrim.pas'
+ , ddServerStatusRequestPrim in 'w:\common\components\rtl\Garant\cs\ddServerStatusRequestPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , ServerStatusRequest_Const in 'w:\common\components\rtl\Garant\EVD\ServerStatusRequest_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2587,14 +2596,14 @@ uses
  , csTaskRequest in 'w:\common\components\rtl\Garant\cs\csTaskRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , ddGetTaskRequestPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddGetTaskRequestPrim.pas'
+ , ddGetTaskRequestPrim in 'w:\common\components\rtl\Garant\cs\ddGetTaskRequestPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , askRequest in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_askRequest.pas'
+ , askRequest in 'w:\common\components\rtl\Garant\cs\askRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , GetTaskRequest_Const in 'w:\common\components\rtl\Garant\EVD\GetTaskRequest_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ddTaskResultRequestPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddTaskResultRequestPrim.pas'
+ , ddTaskResultRequestPrim in 'w:\common\components\rtl\Garant\cs\ddTaskResultRequestPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , TaskResultRequest_Const in 'w:\common\components\rtl\Garant\EVD\TaskResultRequest_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2616,7 +2625,7 @@ uses
  , csLineRequest in 'w:\common\components\rtl\Garant\cs\csLineRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csLineRequestPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csLineRequestPrim.pas'
+ , csLineRequestPrim in 'w:\common\components\rtl\Garant\cs\csLineRequestPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , LineRequest_Const in 'w:\common\components\rtl\Garant\EVD\LineRequest_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2626,11 +2635,11 @@ uses
  , alcuAutoClassifier in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoClassifier.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , csAutoClassTask in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csAutoClassTask.pas'
+ , csAutoClassTask in 'w:\common\components\rtl\Garant\cs\csAutoClassTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , AutoClassTask_Const in 'w:\common\components\rtl\Garant\EVD\AutoClassTask_Const.pas'
  {$If Defined(ServerTasks)}
- , alcuAutoClassTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoClassTaskResult.pas'
+ , alcuAutoClassTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoClassTaskResult.pas'
  {$IfEnd} // Defined(ServerTasks)
  , AutoClassTaskResult_Const in 'w:\common\components\rtl\Garant\EVD\AutoClassTaskResult_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2643,7 +2652,7 @@ uses
  , csImport in 'w:\common\components\rtl\Garant\cs\csImport.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csImportTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csImportTaskPrim.pas'
+ , csImportTaskPrim in 'w:\common\components\rtl\Garant\cs\csImportTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , csTasksHelpers in 'w:\common\components\rtl\Garant\cs\csTasksHelpers.pas'
@@ -2664,26 +2673,26 @@ uses
  , K517772970_TalcuRegionAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuRegionAutoExportTask.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(ServerTasks)}
- , alcuRegionAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuRegionAutoExportTask.pas'
+ , alcuRegionAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTask.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
- , alcuRegionAutoExportTaskPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuRegionAutoExportTaskPrim.pas'
+ , alcuRegionAutoExportTaskPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTaskPrim.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
- , alcuAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoExportTask.pas'
+ , alcuAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTask.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
- , alcuAutoExportTaskPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoExportTaskPrim.pas'
+ , alcuAutoExportTaskPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskPrim.pas'
  {$IfEnd} // Defined(ServerTasks)
  , AutoExportTask_Const in 'w:\common\components\rtl\Garant\EVD\AutoExportTask_Const.pas'
  {$If Defined(ServerTasks)}
- , alcuAutoExportTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoExportTaskResult.pas'
+ , alcuAutoExportTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskResult.pas'
  {$IfEnd} // Defined(ServerTasks)
  , AutoExportTaskResult_Const in 'w:\common\components\rtl\Garant\EVD\AutoExportTaskResult_Const.pas'
  , RegionAutoExportTask_Const in 'w:\common\components\rtl\Garant\EVD\RegionAutoExportTask_Const.pas'
  , FTPBrowser_Const in 'w:\common\components\rtl\Garant\EVD\FTPBrowser_Const.pas'
- , alcuFTPBrowser in 'w:\archi\source\projects\PipeInAuto\Process\NOT_COMPLETED_alcuFTPBrowser.pas'
- , alcuFTPBrowserParams in 'w:\archi\source\projects\PipeInAuto\Process\NOT_COMPLETED_alcuFTPBrowserParams.pas'
+ , alcuFTPBrowser in 'w:\archi\source\projects\PipeInAuto\Process\alcuFTPBrowser.pas'
+ , alcuFTPBrowserParams in 'w:\archi\source\projects\PipeInAuto\Process\alcuFTPBrowserParams.pas'
  , IdAssignedNumbers in 'w:\common\components\rtl\external\Indy\Source\Core\IdAssignedNumbers.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TalcuAutoSpellTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoSpellTask.pas'
@@ -2695,11 +2704,11 @@ uses
  , csAutoSpell in 'w:\common\components\rtl\Garant\cs\csAutoSpell.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csAutoSpellTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csAutoSpellTaskPrim.pas'
+ , csAutoSpellTaskPrim in 'w:\common\components\rtl\Garant\cs\csAutoSpellTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , AutoSpellTask_Const in 'w:\common\components\rtl\Garant\EVD\AutoSpellTask_Const.pas'
  {$If Defined(ServerTasks)}
- , alcuAutoSpellTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoSpellTaskResult.pas'
+ , alcuAutoSpellTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoSpellTaskResult.pas'
  {$IfEnd} // Defined(ServerTasks)
  , AutoSpellTaskResult_Const in 'w:\common\components\rtl\Garant\EVD\AutoSpellTaskResult_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2709,37 +2718,37 @@ uses
  , csServerTaskTypes in 'w:\common\components\rtl\Garant\cs\csServerTaskTypes.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csDictEditQueryPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csDictEditQueryPrim.pas'
+ , csDictEditQueryPrim in 'w:\common\components\rtl\Garant\cs\csDictEditQueryPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , DictEditQuery_Const in 'w:\common\components\rtl\Garant\EVD\DictEditQuery_Const.pas'
  {$If NOT Defined(Nemesis)}
- , csDeleteDocsQueryPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csDeleteDocsQueryPrim.pas'
+ , csDeleteDocsQueryPrim in 'w:\common\components\rtl\Garant\cs\csDeleteDocsQueryPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , DeleteDocsQuery_Const in 'w:\common\components\rtl\Garant\EVD\DeleteDocsQuery_Const.pas'
  {$If NOT Defined(Nemesis)}
- , csRemoteDictEditQueryPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csRemoteDictEditQueryPrim.pas'
+ , csRemoteDictEditQueryPrim in 'w:\common\components\rtl\Garant\cs\csRemoteDictEditQueryPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , RemoteDictEditQuery_Const in 'w:\common\components\rtl\Garant\EVD\RemoteDictEditQuery_Const.pas'
  {$If NOT Defined(Nemesis)}
- , csUserEditQueryPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csUserEditQueryPrim.pas'
+ , csUserEditQueryPrim in 'w:\common\components\rtl\Garant\cs\csUserEditQueryPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , UserEditQuery_Const in 'w:\common\components\rtl\Garant\EVD\UserEditQuery_Const.pas'
  {$If NOT Defined(Nemesis)}
- , ddRunCommandTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddRunCommandTaskPrim.pas'
+ , ddRunCommandTaskPrim in 'w:\common\components\rtl\Garant\cs\ddRunCommandTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , RunCommandTask_Const in 'w:\common\components\rtl\Garant\EVD\RunCommandTask_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TalcuAnnotationTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAnnotationTask.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(ServerTasks)}
- , alcuAnnotationTask in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAnnotationTask.pas'
+ , alcuAnnotationTask in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAnnotationTask.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , csAnnotationTask in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csAnnotationTask.pas'
+ , csAnnotationTask in 'w:\common\components\rtl\Garant\cs\csAnnotationTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , AnnotationTask_Const in 'w:\common\components\rtl\Garant\EVD\AnnotationTask_Const.pas'
  {$If Defined(ServerTasks)}
- , alcuAnnotationTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAnnotationTaskResult.pas'
+ , alcuAnnotationTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAnnotationTaskResult.pas'
  {$IfEnd} // Defined(ServerTasks)
  , AnnotationTaskResult_Const in 'w:\common\components\rtl\Garant\EVD\AnnotationTaskResult_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2764,7 +2773,7 @@ uses
  , csAutoAnnoExport in 'w:\common\components\rtl\Garant\cs\csAutoAnnoExport.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csAutoAnnoExportPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csAutoAnnoExportPrim.pas'
+ , csAutoAnnoExportPrim in 'w:\common\components\rtl\Garant\cs\csAutoAnnoExportPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , AutoAnnoExportTask_Const in 'w:\common\components\rtl\Garant\EVD\AutoAnnoExportTask_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2774,33 +2783,33 @@ uses
  , ddCaseCodeMaker in 'w:\archi\source\projects\PipeInAuto\Tasks\ddCaseCodeMaker.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
- , ddCaseCodeTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddCaseCodeTaskPrim.pas'
+ , ddCaseCodeTaskPrim in 'w:\common\components\rtl\Garant\cs\ddCaseCodeTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , CaseCodeTask_Const in 'w:\common\components\rtl\Garant\EVD\CaseCodeTask_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TalcuExport in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuExport.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(ServerTasks)}
- , alcuExport in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuExport.pas'
+ , alcuExport in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuExport.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(InsiderTest)}
  , K517772970_TalcuAnoncedExport in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAnoncedExport.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(ServerTasks)}
- , alcuAnoncedExport in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAnoncedExport.pas'
+ , alcuAnoncedExport in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAnoncedExport.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
- , alcuAnoncedExportPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAnoncedExportPrim.pas'
+ , alcuAnoncedExportPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAnoncedExportPrim.pas'
  {$IfEnd} // Defined(ServerTasks)
  , AnoncedExportTask_Const in 'w:\common\components\rtl\Garant\EVD\AnoncedExportTask_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TalcuHavanskyExportTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuHavanskyExportTask.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(ServerTasks)}
- , alcuHavanskyExportTask in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuHavanskyExportTask.pas'
+ , alcuHavanskyExportTask in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTask.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks) AND Defined(HavanskyExport)}
- , alcuHavanskyExportTaskPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuHavanskyExportTaskPrim.pas'
+ , alcuHavanskyExportTaskPrim in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTaskPrim.pas'
  {$IfEnd} // Defined(ServerTasks) AND Defined(HavanskyExport)
  , HavanskyExportTask_Const in 'w:\common\components\rtl\Garant\EVD\HavanskyExportTask_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2813,7 +2822,7 @@ uses
  , alcuImport in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuImport.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
- , alcuImportTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuImportTaskResult.pas'
+ , alcuImportTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuImportTaskResult.pas'
  {$IfEnd} // Defined(ServerTasks)
  , ImportTaskResult_Const in 'w:\common\components\rtl\Garant\EVD\ImportTaskResult_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2823,14 +2832,14 @@ uses
  , alcuRelCorrector in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuRelCorrector.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
- , alcuRelPublishTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuRelPublishTaskResult.pas'
+ , alcuRelPublishTaskResult in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuRelPublishTaskResult.pas'
  {$IfEnd} // Defined(ServerTasks)
  , RelPublishTaskResult_Const in 'w:\common\components\rtl\Garant\EVD\RelPublishTaskResult_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TcsAACImport in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsAACImport.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
- , csAACImport in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csAACImport.pas'
+ , csAACImport in 'w:\common\components\rtl\Garant\cs\csAACImport.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , AACImport_Const in 'w:\common\components\rtl\Garant\EVD\AACImport_Const.pas'
  , CourtDecisionSabCheckerParams_Const in 'w:\common\components\rtl\Garant\EVD\CourtDecisionSabCheckerParams_Const.pas'
@@ -2840,20 +2849,20 @@ uses
  , K517772970_TcsSpellCorrectTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsSpellCorrectTask.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
- , csSpellCorrectTask in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csSpellCorrectTask.pas'
+ , csSpellCorrectTask in 'w:\common\components\rtl\Garant\cs\csSpellCorrectTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csSpellCorrectTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csSpellCorrectTaskPrim.pas'
+ , csSpellCorrectTaskPrim in 'w:\common\components\rtl\Garant\cs\csSpellCorrectTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , SpellCorrectTask_Const in 'w:\common\components\rtl\Garant\EVD\SpellCorrectTask_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TcsUserDefinedExport in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsUserDefinedExport.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
- , csUserDefinedExport in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csUserDefinedExport.pas'
+ , csUserDefinedExport in 'w:\common\components\rtl\Garant\cs\csUserDefinedExport.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , csUserDefinedExportTaskPrim in 'w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csUserDefinedExportTaskPrim.pas'
+ , csUserDefinedExportTaskPrim in 'w:\common\components\rtl\Garant\cs\csUserDefinedExportTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , UserDefinedExportTask_Const in 'w:\common\components\rtl\Garant\EVD\UserDefinedExportTask_Const.pas'
  {$If Defined(InsiderTest)}

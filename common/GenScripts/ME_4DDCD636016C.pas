@@ -255,6 +255,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , evCustomEditor
  , evEditorWithOperations
+ , PrimChangesBetweenEditons_DocumentChanges_UserType
 ;
 
 {$If NOT Defined(NoVCM)}

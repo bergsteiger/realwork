@@ -76,6 +76,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , QFLikeTextLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , QFLikeTextLoad_ut_QFLikeTextLoad_UserType
 ;
 
 const

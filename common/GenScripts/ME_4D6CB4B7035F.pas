@@ -81,6 +81,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , F1LikeFormWithBSKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType
 ;
 
 const

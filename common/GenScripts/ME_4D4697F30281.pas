@@ -60,6 +60,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , OutlinerFormKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , OutlinerForm_ut_OutlinerForm_UserType
 ;
 
 const
