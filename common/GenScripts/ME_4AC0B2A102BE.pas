@@ -19,7 +19,10 @@ type
  TvtSplitter = class
  end;//TvtSplitter
 
- TvtComboBox = class(TComboBox)
+ TvtComboBox = class({$If NOT Defined(NoVCL)}
+ TComboBox
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//TvtComboBox
 
 procedure AdjustCtrl;

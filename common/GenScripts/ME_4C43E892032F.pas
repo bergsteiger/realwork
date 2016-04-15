@@ -42,7 +42,10 @@ type
    function GetFormToResize: TCustomForm; virtual;
  end;//TSizeGripPanel
 
- TToolbarButton97ActionLink = class(TControlActionLink)
+ TToolbarButton97ActionLink = class({$If NOT Defined(NoVCL)}
+ TControlActionLink
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//TToolbarButton97ActionLink
 {$IfEnd} // NOT Defined(NoTB97)
 

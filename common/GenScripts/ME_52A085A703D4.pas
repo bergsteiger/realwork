@@ -14,12 +14,18 @@ uses
 ;
 
 type
- TevCustomButton = class(TCustomToolbarButton97)
+ TevCustomButton = class({$If NOT Defined(NoTB97)}
+ TCustomToolbarButton97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
   protected
    function HackCheck: Boolean; virtual;
  end;//TevCustomButton
 
- TevCustomButtonActionLink = class(TToolbarButton97ActionLink)
+ TevCustomButtonActionLink = class({$If NOT Defined(NoTB97)}
+ TToolbarButton97ActionLink
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
  end;//TevCustomButtonActionLink
 
  TevButton = class(TevCustomButton)

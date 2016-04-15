@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TevRow = class(TevTableChild, IedRow)
+ TevRow = class({$If Defined(k2ForEditor)}
+ TevTableChild
+ {$IfEnd} // Defined(k2ForEditor)
+ , IedRow)
   protected
    function pm_GetTable: IedTable;
    function pm_GetCellsIterator: IedCellsIterator;

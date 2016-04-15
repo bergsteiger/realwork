@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TvtMultilineHint = class(THintWindow)
+ TvtMultilineHint = class({$If NOT Defined(NoVCL)}
+ THintWindow
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_Canvas: Tl3WinControlCanvas;
    f_FL: Tl3FormattedLines;

@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TvtSaveDialog = class(TSaveDialog)
+ TvtSaveDialog = class({$If NOT Defined(NoVCL)}
+ TSaveDialog
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   protected
    function GetFileNameForAdjust: AnsiString; virtual;
    procedure FirstCorrectFileName; virtual;
