@@ -68,7 +68,7 @@ ref; // ME_53AC03EE01FD_ME_54645DEC03E4 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_7832B8CFF60D // 
+   Seq: ( ME_7832B8CFF60D // csGetReadyToDeliveryTasks
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -146,7 +146,7 @@ ref; // ME_53AC03EE01FD_ME_54645E0D0246 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_D26EAA7D3957 // 
+   Seq: ( ME_D26EAA7D3957 // csGetReadyToDeliveryTasksReply
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -265,14 +265,14 @@ ref; // ME_549AAE5401B6
  : Parent ME_54645E360193 // ncsFileTransferReg
  ;
  : Dependencies
-   Seq: ( ME_546464C902AF // 
- ME_546464EF032F // 
- ME_546B480A02D0 // 
- ME_54748EE3018E // 
- ME_5475839D0132 // 
- ME_547583A20030 // 
- ME_547C333400A0 // 
- ME_549AAE5401B6 // 
+   Seq: ( ME_546464C902AF // TncsMessageFactory
+ ME_546464EF032F // TncsGetReadyToDeliveryTasks
+ ME_546B480A02D0 // TncsGetTaskDescription
+ ME_54748EE3018E // TncsTaskProgress
+ ME_5475839D0132 // TncsDeliveryResult
+ ME_547583A20030 // TncsGetFilePart
+ ME_547C333400A0 // ncsServerRegister
+ ME_549AAE5401B6 // TncsCorrectFolder
  )
  ; // Dependencies
 
@@ -357,12 +357,12 @@ ref; // ME_54895C0603E7
  : Parent ME_54645E360193 // ncsFileTransferReg
  ;
  : Dependencies
-   Seq: ( ME_546464D00027 // 
- ME_546464F6001D // 
- ME_546B480F0078 // 
- ME_547583A7019F // 
- ME_547C3339004A // 
- ME_54895C0603E7 // 
+   Seq: ( ME_546464D00027 // TncsMessageFactory
+ ME_546464F6001D // TncsGetReadyToDeliveryTasksReply
+ ME_546B480F0078 // TncsGetTaskDescriptionReply
+ ME_547583A7019F // TncsGetFilePartReply
+ ME_547C3339004A // ncsClientRegister
+ ME_54895C0603E7 // TncsPushFilePart
  )
  ; // Dependencies
 
@@ -488,7 +488,7 @@ ref; // ME_53AC03EE01FD_ME_546B442D0343 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_C405AF0D360A // 
+   Seq: ( ME_C405AF0D360A // csGetTaskDescriptionReply
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -564,7 +564,7 @@ ref; // ME_53AC03EE01FD_ME_546B444D012F GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_CB7399A731D0 // 
+   Seq: ( ME_CB7399A731D0 // csGetTaskDescription
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -697,7 +697,7 @@ ref; // ME_53AC03EE01FD_ME_546C52C001ED GetTaggedDataType
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_9C62486ADB0F // 
+   Seq: ( ME_9C62486ADB0F // FileDesc
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -793,7 +793,7 @@ ref; // ME_53AC03EE01FD_ME_546EF14803A6 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_1C0AE7AC7E5B // 
+   Seq: ( ME_1C0AE7AC7E5B // TaskedFileDesc
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1018,7 +1018,7 @@ ref; // ME_546EF5F6032D_ME_546EF62900AA Add
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_546EF6530068 // 
+   Seq: ( ME_546EF6530068 // FileDesc
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1455,7 +1455,7 @@ ref; // ME_5474A7F90226
  : Parent ME_546F3804032D // TncsOneFileDeliverer
  ;
  : Dependencies
-   Seq: ( ME_5474A7F90226 // 
+   Seq: ( ME_5474A7F90226 // RenameFileSafe
  )
  ; // Dependencies
 
@@ -1712,18 +1712,18 @@ ref; // ME_479731C50290_ME_546F3804032D Cleanup
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_546F404602FD // 
- ME_5472F61902E1 // 
- ME_5472F61E004A // 
- ME_547456150156 // 
- ME_547583E30297 // 
- ME_547583E8008C // 
- ME_54758E27032F // 
- ME_5475932A028B // 
- ME_548940D1027B // 
- ME_548940EC036A // 
- ME_548AC8E0026C // 
- ME_5494061A03BD // 
+   Seq: ( ME_546F404602FD // FreeAndNil
+ ME_5472F61902E1 // Tl3FileStream
+ ME_5472F61E004A // Tl3FileMode
+ ME_547456150156 // l3CalcCRC32
+ ME_547583E30297 // TncsGetFilePartReply
+ ME_547583E8008C // TncsGetFilePart
+ ME_54758E27032F // TncsMessage
+ ME_5475932A028B // Min
+ ME_548940D1027B // TncsPushFilePart
+ ME_548940EC036A // TncsMessageExecutorFactory
+ ME_548AC8E0026C // ncsProfile
+ ME_5494061A03BD // l3System
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1956,8 +1956,8 @@ ref; // ME_5472E6BD00F0
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_5472E6AD002F // 
- ME_5472E6BD00F0 // 
+   Seq: ( ME_5472E6AD002F // TncsOneFileDeliverer
+ ME_5472E6BD00F0 // TncsFileDesc
  )
  ; // Dependencies
 
@@ -2162,11 +2162,11 @@ ref; // ME_47A042E100E2_ME_546F398E0203 InitFields
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_546F40320250 // 
- ME_547479230042 // 
- ME_549A71CB014B // 
- ME_549A767701D1 // 
- ME_56540FF9025A // 
+   Seq: ( ME_546F40320250 // FreeAndNil
+ ME_547479230042 // Prg Consts
+ ME_549A71CB014B // l3CheckPathWritable
+ ME_549A767701D1 // ForceDirectories
+ ME_56540FF9025A // l3System
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2278,7 +2278,7 @@ ref; // ME_53AC03EE01FD_ME_54746A670337 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_68BA904148B6 // 
+   Seq: ( ME_68BA904148B6 // csTaskProgress
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2372,7 +2372,7 @@ ref; // ME_53AC03EE01FD_ME_547582EC02E0 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_54653CD3DFCA // 
+   Seq: ( ME_54653CD3DFCA // csDeliveryResult
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2503,7 +2503,7 @@ ref; // ME_53AC03EE01FD_ME_547583330291 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_F2B109138600 // 
+   Seq: ( ME_F2B109138600 // csGetFilePart
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2579,7 +2579,7 @@ ref; // ME_53AC03EE01FD_ME_547583540319 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_B862C0452098 // 
+   Seq: ( ME_B862C0452098 // csGetFilePartReply
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2727,7 +2727,7 @@ ref; // ME_53AC03EE01FD_ME_548940970391 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5C0A1C9EB6C4 // 
+   Seq: ( ME_5C0A1C9EB6C4 // csPushFilePart
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2821,7 +2821,7 @@ ref; // ME_53AC03EE01FD_ME_549AA9CE0345 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_1D7F825A4BAB // 
+   Seq: ( ME_1D7F825A4BAB // csCorrectFolder
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

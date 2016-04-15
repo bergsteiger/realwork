@@ -160,7 +160,7 @@ ref; // ME_4E36C7EB007C caption
  CONST UID '4E36C80302E6'
  CONST Name 'open'
  CONST Class class_Operation
- %SUMMARY 'Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString)' ;
+ %SUMMARY 'Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString, IBookmark)' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_4E36C7D80396 // SectionItem
@@ -403,6 +403,20 @@ ref; // ME_56FE51B601CF make
 
 ref; // ME_56FE579901A9 get_items
 
+: ME_570D16D600A2
+ CONST UID '570D16D600A2'
+ CONST Name 'get_news_section_index'
+ CONST Class class_Operation
+ %SUMMARY 'получить для проф. секции индекс в новостной секции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56FE518A027D // MainMenuSection
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_570D16D600A2 get_news_section_index
+
 : ME_56FE518A027D
  CONST UID '56FE518A027D'
  CONST GUID '9B596AAB-BF7B-41A0-978D-3FAD93DC180C'
@@ -421,6 +435,7 @@ ref; // ME_56FE579901A9 get_items
  : Operations
    Seq: ( ME_56FE51B601CF // make
  ME_56FE579901A9 // get_items
+ ME_570D16D600A2 // get_news_section_index
  )
  ; // Operations
  CONST "single impl" false
@@ -578,6 +593,19 @@ ref; // ME_570273C401EB get_business_reference_section
 
 ref; // ME_5702741B0317 get_changes_in_legislation_section
 
+: ME_570D18600227
+ CONST UID '570D18600227'
+ CONST Name 'customize'
+ CONST Class class_Operation
+ %SUMMARY 'настройка основного меню в зависимости от дополнительных параметров'#13#10' желательно сделать сразу после логина и до загрузки кеша настроек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DD24C180204 // MainMenu
+ ;
+ CONST "dll export" false
+
+ref; // ME_570D18600227 customize
+
 : ME_4DD24C180204
  CONST UID '4DD24C180204'
  CONST GUID '7EAB7EE0-39FB-42FD-BE38-AF667AE0466E'
@@ -598,6 +626,7 @@ ref; // ME_5702741B0317 get_changes_in_legislation_section
  ME_56FE609903B2 // get_news_section_list
  ME_570273C401EB // get_business_reference_section
  ME_5702741B0317 // get_changes_in_legislation_section
+ ME_570D18600227 // customize
  )
  ; // Operations
  CONST "single impl" false

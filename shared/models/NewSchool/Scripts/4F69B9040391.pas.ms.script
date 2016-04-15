@@ -350,34 +350,34 @@ ref; // ME_BFDBB4AD11B1
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Dependencies
-   Seq: ( ME_4F69B9A5022F // 
- ME_4F69B9B9011E // 
- ME_4F69BC32032A // 
- ME_4F69BC39004A // 
- ME_4FC4C9210323 // 
- ME_4FC4C94100B9 // 
- ME_4FC4CF010383 // 
- ME_4FC4CF1F00AA // 
- ME_523014C800E5 // 
- ME_523014E00005 // 
- ME_523015410265 // 
- ME_5230156C018C // 
- ME_5230181C00B8 // 
- ME_523018A50347 // 
- ME_523018B9020F // 
- ME_523018CE004F // 
- ME_52301B1A010B // 
- ME_52D967500374 // 
- ME_52F4D3930270 // 
- ME_52F4D3A102D2 // 
- ME_52F4D3DC019F // 
- ME_53DA57150085 // 
- ME_54D3A8AC010D // 
- ME_54D4F2A60057 // 
- ME_54D4FF6B03B1 // 
- ME_558A602D0376 // 
- ME_558A60490161 // 
- ME_BFDBB4AD11B1 // 
+   Seq: ( ME_4F69B9A5022F // vcm_Dispatcher_Lock
+ ME_4F69B9B9011E // vcm_Dispatcher_Unlock
+ ME_4F69BC32032A // vcm_Dispatcher_BeginOp
+ ME_4F69BC39004A // vcm_Dispatcher_EndOp
+ ME_4FC4C9210323 // vcm_History_GetBackCount
+ ME_4FC4C94100B9 // vcm_History_GetBackItem
+ ME_4FC4CF010383 // vcm_History_GetForwardCount
+ ME_4FC4CF1F00AA // vcm_History_GetForwardItem
+ ME_523014C800E5 // vcm_op_Enabled
+ ME_523014E00005 // vcm_op_Visible
+ ME_523015410265 // vcm_op_Checked
+ ME_5230156C018C // vcm_op_Default
+ ME_5230181C00B8 // vcm_op_Caption
+ ME_523018A50347 // vcm_op_Hint
+ ME_523018B9020F // vcm_op_ImageIndex
+ ME_523018CE004F // vcm_op_Shortcut
+ ME_52301B1A010B // vcm_op_LongHint
+ ME_52D967500374 // RegisterVcmControls
+ ME_52F4D3930270 // vcm_History_DeleteBackItem
+ ME_52F4D3A102D2 // vcm_FindForm
+ ME_52F4D3DC019F // vcm_History_Clear
+ ME_53DA57150085 // vcm_History_DeleteForwardItem
+ ME_54D3A8AC010D // TryFocusOnForm
+ ME_54D4F2A60057 // TvcmBaseMenuManager
+ ME_54D4FF6B03B1 // object_Create
+ ME_558A602D0376 // vcm_Dispatcher_LockInOp
+ ME_558A60490161 // vcm_Dispatcher_UnlockInOp
+ ME_BFDBB4AD11B1 // TypeInfoExt
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -452,11 +452,11 @@ ref; // ME_4E0319E5007A
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Dependencies
-   Seq: ( ME_4DB94A980228 // 
- ME_4DB94AD60214 // 
- ME_4DBA9C9D024A // 
- ME_4DBAA38500CB // 
- ME_4E0319E5007A // 
+   Seq: ( ME_4DB94A980228 // vcmForm
+ ME_4DB94AD60214 // ModalResults
+ ME_4DBA9C9D024A // StdRes
+ ME_4DBAA38500CB // vcmBase
+ ME_4E0319E5007A // afwAnswer
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
@@ -920,7 +920,7 @@ ref; // ME_5230185F0140_ME_5230147B0151 DoParams
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_523014F6022D // 
+   Seq: ( ME_523014F6022D // IvcmTestParams
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1386,16 +1386,16 @@ ref; // ME_5374BE580388
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_52B16C7601BF // 
- ME_52B16D9E0223 // 
- ME_52B183290085 // 
- ME_52B183300021 // 
- ME_5322EA49022E // 
- ME_5374B10100E5 // 
- ME_5374B1220045 // 
- ME_5374B1DB0303 // 
- ME_5374B2410350 // 
- ME_5374BE580388 // 
+   Seq: ( ME_52B16C7601BF // TvcmMenuManager
+ ME_52B16D9E0223 // TB97Tlbr
+ ME_52B183290085 // TvcmToolbar
+ ME_52B183300021 // TtfwClassRef
+ ME_5322EA49022E // TelCustomButtonEdit
+ ME_5374B10100E5 // Ttb97MoreButton
+ ME_5374B1220045 // TvcmSeparatorDef
+ ME_5374B1DB0303 // TCustomUpDown
+ ME_5374B2410350 // TnpSplitter
+ ME_5374BE580388 // TvgRemindersLineForm
  )
  ; // Dependencies
  CONST "no hands" false
@@ -1506,7 +1506,7 @@ ref; // ME_4DB0614603C8_ME_4F215ADB00AF GetWordNameForRegister
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_4F2168A500CB // 
+   Seq: ( ME_4F2168A500CB // TvcmFormID
  )
  ; // Dependencies
  CONST "ifndef" 'NoVCM'
@@ -1732,12 +1732,12 @@ ref; // ME_4DAEEDE10285_ME_507BDC31028B DoDoIt
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_507BF935030F // 
- ME_507BFA24031F // 
- ME_507BFAB50082 // 
- ME_507BFB2003C8 // 
- ME_507BFC6902A3 // 
- ME_507BFCF30127 // 
+   Seq: ( ME_507BF935030F // TvcmFormID
+ ME_507BFA24031F // TafwCustomForm
+ ME_507BFAB50082 // Supports
+ ME_507BFB2003C8 // Forms
+ ME_507BFC6902A3 // TvcmEntityForm
+ ME_507BFCF30127 // SetFocus
  )
  ; // Dependencies
  CONST "ifndef" 'NoVCM'
@@ -1823,9 +1823,9 @@ ref; // ME_4DB0614603C8_ME_4E29311F0055 GetWordNameForRegister
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_509CD614001E // 
- ME_509CDA2F03E0 // 
- ME_509CE0EC01D8 // 
+   Seq: ( ME_509CD614001E // TvcmEntityForm
+ ME_509CDA2F03E0 // TCustomForm
+ ME_509CE0EC01D8 // vcmMakeParams
  )
  ; // Dependencies
  CONST "NameForScript" '.Create'

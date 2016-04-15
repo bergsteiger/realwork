@@ -183,10 +183,10 @@ ref; // ME_553A37E902C9_ME_54F9AF6B00DD AssignParams
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_551175D903A3 // 
- ME_5511762B039F // 
- ME_551958420072 // 
- ME_6EE2A60AC863 // 
+   Seq: ( ME_551175D903A3 // ConcatDirName
+ ME_5511762B039F // GetWindowsTempFolder
+ ME_551958420072 // FreeAndNil
+ ME_6EE2A60AC863 // HyTechProviderParams
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -429,18 +429,18 @@ ref; // ME_551166B40046_ME_54FEAD4402AB IsParamsValid
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_54FEB98E0179 // 
- ME_550986770313 // 
- ME_5511211601CB // 
- ME_551128B1037A // 
- ME_55125B6B0358 // 
- ME_5513E6810015 // 
- ME_55190C9600ED // 
- ME_551912600385 // 
- ME_551912640247 // 
- ME_55191268029E // 
- ME_5519352B0041 // 
- ME_55C34F5F00C7 // 
+   Seq: ( ME_54FEB98E0179 // ThtDataProviderParams
+ ME_550986770313 // IhtParamsStorage
+ ME_5511211601CB // GetWindowsTempFolder
+ ME_551128B1037A // IntToHex
+ ME_55125B6B0358 // l3System
+ ME_5513E6810015 // TddFolderNameConfigItem
+ ME_55190C9600ED // DBVersion
+ ME_551912600385 // TCfgList
+ ME_551912640247 // ConcatDirName
+ ME_55191268029E // IfThen
+ ME_5519352B0041 // ThtDataProvider
+ ME_55C34F5F00C7 // TddBaseConfigItem
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1218,16 +1218,16 @@ ref; // ME_479731C50290_ME_5519351D01BE Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_55193A5603E3 // 
- ME_551A513C02AA // 
- ME_551A86470319 // 
- ME_551A87C90029 // 
- ME_5540D3410330 // 
- ME_554C8D920328 // 
- ME_55599B800141 // 
- ME_555F0CAB03DE // 
- ME_5617A6BD0335 // 
- ME_5629E36C0111 // 
+   Seq: ( ME_55193A5603E3 // FreeAndNil
+ ME_551A513C02AA // dt_Serv
+ ME_551A86470319 // SetGlobalDataProvider
+ ME_551A87C90029 // GlobalDataProvider
+ ME_5540D3410330 // ThtJournal
+ ME_554C8D920328 // ThtTableQueryFactory
+ ME_55599B800141 // ThtDataConverter
+ ME_555F0CAB03DE // ThtDataSchemeHelper
+ ME_5617A6BD0335 // l3System
+ ME_5629E36C0111 // ThtUserManager
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1762,20 +1762,20 @@ ref; // ME_479731C50290_ME_5540D3060300 Cleanup
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_5540DD4E035C // 
- ME_5540E6FF01AF // 
- ME_554A093B02EA // 
- ME_555494AF0152 // 
- ME_559D081403C7 // 
- ME_559D10AF0363 // 
- ME_559D2683027B // 
- ME_559D26C80208 // 
- ME_559D26E401EC // 
- ME_55C1C8DA022B // 
- ME_55C4B81F0358 // 
- ME_55C868C4005C // 
- ME_55CC52A30236 // 
- ME_55D47A3E006E // 
+   Seq: ( ME_5540DD4E035C // TStDate
+ ME_5540E6FF01AF // dt_BBLog
+ ME_554A093B02EA // l3Base
+ ME_555494AF0152 // FreeAndNil
+ ME_559D081403C7 // ThtResultSet
+ ME_559D10AF0363 // ISab
+ ME_559D2683027B // MakeSab
+ ME_559D26C80208 // HT_Const
+ ME_559D26E401EC // dt_User
+ ME_55C1C8DA022B // IhtDataConverter
+ ME_55C4B81F0358 // TdaSelectFieldList
+ ME_55C868C4005C // TdaScheme
+ ME_55CC52A30236 // TMemoryStream
+ ME_55D47A3E006E // EHtErrors
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2066,13 +2066,13 @@ ref; // ME_479731C50290_ME_554C7FE80228 Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5551AB62030B // 
- ME_559BA65C01A0 // 
- ME_559BA6600091 // 
- ME_559BB85902B1 // 
- ME_56405EC90202 // 
- ME_5641F1AB0330 // 
- ME_56812AC10397 // 
+   Seq: ( ME_5551AB62030B // ThtTabledQuery
+ ME_559BA65C01A0 // TdaParamsCondition
+ ME_559BA6600091 // TdaSelectField
+ ME_559BB85902B1 // dt_User
+ ME_56405EC90202 // TdaLogicCondition
+ ME_5641F1AB0330 // TdaSubQueryCondition
+ ME_56812AC10397 // TdaSortField
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2385,13 +2385,13 @@ ref; // ME_56010A7801F2_ME_5551AB1602F4 MakeResultSet
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_55530E730383 // 
- ME_555C916F02C8 // 
- ME_55910D3203E0 // 
- ME_559125260158 // 
- ME_559131470327 // 
- ME_55913430027E // 
- ME_56011A3C0270 // 
+   Seq: ( ME_55530E730383 // ThtFromTable
+ ME_555C916F02C8 // TdaTablesSet
+ ME_55910D3203E0 // SAB
+ ME_559125260158 // ThtResultSet
+ ME_559131470327 // l3Base
+ ME_55913430027E // HT_DLL
+ ME_56011A3C0270 // Supports
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2497,9 +2497,9 @@ ref; // ME_555C91D8022C_ME_55530BB9007A Unprepare
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_555DC29E00CD // 
- ME_555DCBCA021B // 
- ME_555F037C0358 // 
+   Seq: ( ME_555DC29E00CD // HT_DLL
+ ME_555DCBCA021B // dt_Serv
+ ME_555F037C0358 // HT
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2744,10 +2744,10 @@ ref; // ME_562E0F8F02F3_ME_55599B5C014A ToByte
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_5559A54A029E // 
- ME_5559A9B802DD // 
- ME_55FAA475026C // 
- ME_55FAAA320369 // 
+   Seq: ( ME_5559A54A029E // TdaDataType
+ ME_5559A9B802DD // l3System
+ ME_55FAA475026C // l3ArrayToString
+ ME_55FAAA320369 // IntToStr
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2935,9 +2935,9 @@ ref; // ME_479731C50290_ME_555F0C89007D Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_555F146C02D5 // 
- ME_555F146F03BA // 
- ME_555F1488026B // 
+   Seq: ( ME_555F146C02D5 // IntToHex
+ ME_555F146F03BA // FreeAndNil
+ ME_555F1488026B // ConcatDirName
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -3342,14 +3342,14 @@ ref; // ME_479731C50290_ME_559121CE0393 Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_55912EED0377 // 
- ME_559D1860010A // 
- ME_559D1BF2020F // 
- ME_559E5FB50308 // 
- ME_559E68B9026F // 
- ME_559E7814021C // 
- ME_55A65B7B02F0 // 
- ME_5637616300C5 // 
+   Seq: ( ME_55912EED0377 // l3Base
+ ME_559D1860010A // htClearResults
+ ME_559D1BF2020F // HT
+ ME_559E5FB50308 // FreeAndNil
+ ME_559E68B9026F // TOpenMode
+ ME_559E7814021C // ThtField
+ ME_55A65B7B02F0 // ThtField
+ ME_5637616300C5 // Tl3SortIndex
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -3759,8 +3759,8 @@ ref; // ME_56EA993D0218_ME_5629E343023B IsUserAdmin
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_5629EAD402A8 // 
- ME_56EAA61202FC // 
+   Seq: ( ME_5629EAD402A8 // dt_Serv
+ ME_56EAA61202FC // dt_User
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

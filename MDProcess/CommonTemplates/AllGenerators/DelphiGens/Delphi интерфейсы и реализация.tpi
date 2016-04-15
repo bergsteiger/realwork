@@ -2979,7 +2979,14 @@ f _OutOverride
 	}\
 	WL '%S%f_pas_script_Name()' \
 	'%f_pas_script_FileNameForLinkSafe(%S)'\
-	] // %SN\n
+	] \
+	// \
+	[{%SC=Dependency}{\
+	%SN\
+	}\
+	[%SN:]%TN\
+	]\
+	\n
 
 f _pas_script_FileNameForLinkSafe
 @ %SU

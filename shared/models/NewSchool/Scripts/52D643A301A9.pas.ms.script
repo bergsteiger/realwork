@@ -262,19 +262,19 @@ ref; // ME_59666CAB2B06
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Dependencies
-   Seq: ( ME_52D6441600EA // 
- ME_52D6600503A0 // 
- ME_52D6605B02B4 // 
- ME_52D660950006 // 
- ME_52D660E30372 // 
- ME_52D661F402E9 // 
- ME_52D66278006D // 
- ME_52D7871A02DE // 
- ME_53EDF0EE03DF // 
- ME_53EE025800A8 // 
- ME_54ECA1BC02A5 // 
- ME_54ECA21603BB // 
- ME_59666CAB2B06 // 
+   Seq: ( ME_52D6441600EA // IterateSubDescriptors
+ ME_52D6600503A0 // subdescriptor_GetDrawType
+ ME_52D6605B02B4 // subdescriptor_GetBitmapIndex
+ ME_52D660950006 // subdescriptor_GetBlockBitmapIndex
+ ME_52D660E30372 // subdescriptor_GetDocumentBitmapIndex
+ ME_52D661F402E9 // subdescriptor_GetVisible
+ ME_52D66278006D // subdescriptor_GetColumn
+ ME_52D7871A02DE // IterateSubDecriptorsOnSubPanel
+ ME_53EDF0EE03DF // IterateSubDecriptorsOnSubPanelEX
+ ME_53EE025800A8 // SubPanel_GetPopupMenuForSub
+ ME_54ECA1BC02A5 // TevCustomSubPanel
+ ME_54ECA21603BB // TevSubDescriptor
+ ME_59666CAB2B06 // TypeInfoExt
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -752,8 +752,8 @@ ref; // ME_52D6471802DC_ME_52D78486017B DoWithSubPanel
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_52D78CB90285 // 
- ME_52D7903E034C // 
+   Seq: ( ME_52D78CB90285 // TevSubPanelSubCollection
+ ME_52D7903E034C // TevSubPanelSubArray
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -814,8 +814,8 @@ ref; // ME_53EDFA0401B8_ME_53EDF0A20129 PushObjData
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53EDF1D903D7 // 
- ME_53EDF1DE0101 // 
+   Seq: ( ME_53EDF1D903D7 // TevSubPanelSubArray
+ ME_53EDF1DE0101 // TevSubPanelSubCollection
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -906,11 +906,11 @@ ref; // ME_52D6471802DC_ME_53EE014B03AC DoWithSubPanel
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_53F1A9530216 // 
- ME_53F1B168028A // 
- ME_53F1C2B401FD // 
- ME_54ECAF5600EE // 
- ME_550039F002FE // 
+   Seq: ( ME_53F1A9530216 // TevSubPanelSub
+ ME_53F1B168028A // nevFacade
+ ME_53F1C2B401FD // Tl3_SPoint
+ ME_54ECAF5600EE // TPoint
+ ME_550039F002FE // Tl3PopupMenuHelper
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

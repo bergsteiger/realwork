@@ -461,13 +461,13 @@ ref; // ME_53BBF94A00F6
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_5320096101B0 // 
- ME_5320096C0195 // 
- ME_53200970020A // 
- ME_5373830301DC // 
- ME_5374AC820313 // 
- ME_5374B7950287 // 
- ME_53BBF94A00F6 // 
+   Seq: ( ME_5320096101B0 // l3Filer
+ ME_5320096C0195 // l3Base
+ ME_53200970020A // KTestRunner
+ ME_5373830301DC // FreeAndNil
+ ME_5374AC820313 // ddAppConfig
+ ME_5374B7950287 // l3FileUtils
+ ME_53BBF94A00F6 // evdTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -526,7 +526,7 @@ ref; // ME_532008D203BA_ME_53200B930243 InitTask
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_53204C5801F8 // 
+   Seq: ( ME_53204C5801F8 // csTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -595,8 +595,8 @@ ref; // ME_532008D203BA_ME_53200B5D0155 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53200BF60343 // 
- ME_532047CA0357 // 
+   Seq: ( ME_53200BF60343 // csProcessTask
+ ME_532047CA0357 // csTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -648,7 +648,7 @@ ref; // ME_5320088202FB_ME_53200AD70286 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53200B320267 // 
+   Seq: ( ME_53200B320267 // csRequestTask
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -724,8 +724,8 @@ ref; // ME_5388508D03DE_ME_53200C460255 CreateTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53200C680206 // 
- ME_53203D9000EF // 
+   Seq: ( ME_53200C680206 // csClientMessageRequest
+ ME_53203D9000EF // CsNotification
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -777,7 +777,7 @@ ref; // ME_5320088202FB_ME_5320228E011B TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532022E300C4 // 
+   Seq: ( ME_532022E300C4 // csCommonDataRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -836,7 +836,7 @@ ref; // ME_532008D203BA_ME_53202365007E InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532035710262 // 
+   Seq: ( ME_532035710262 // csBaseStatusRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -849,59 +849,6 @@ ref; // ME_532008D203BA_ME_53202365007E InitTask
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53202365007E K517772970_TddBaseStatusRequest
-
-FORWARD ME_5320282A0092
-
-: ME_532028680040
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5320282A0092 // K517772970_TddNonEditableDictsRequest
- ;
- : Target WL 'ME_531707B602E1' '52F8C298005C.pas.ms.script' // csNonEditableDictsRequest
- ;
-
-ref; // ME_532028680040 
-
-: ME_5320088202FB_ME_5320282A0092
- : Original ME_5320088202FB // TaskClass
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5320088202FB_ME_5320282A0092 TaskClass
-
-: ME_5320282A0092
- CONST UID '5320282A0092'
- CONST Name 'K517772970_TddNonEditableDictsRequest'
- CONST Class class_Class
- : Stereotype st_TestCase ;
- CONST Kind kind_NormalClass
- %SUMMARY '{RequestLink:517772970}' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_531FF6280311 // TaskSaveLoad
- ;
- : Inherits
-   Seq: ( ME_53200AD70286 // K517772970_TddRequestTask
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_5320088202FB_ME_5320282A0092 // TaskClass
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_532028680040 // 
- )
- ; // Dependencies
- CONST "ifdef" 'RemoteDict'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddNonEditableDictsRequest.pas'
- CONST extprop:pas:TypeName 'TK517772970_TddNonEditableDictsRequest'
- CONST extprop:rc:SelfName 'K517772970_TddNonEditableDictsRequest'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5320282A0092 K517772970_TddNonEditableDictsRequest
 
 FORWARD ME_532028C502D9
 
@@ -941,7 +888,7 @@ ref; // ME_5320088202FB_ME_532028C502D9 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53203EEE0396 // 
+   Seq: ( ME_53203EEE0396 // csServerStatusRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1003,8 +950,8 @@ ref; // ME_5320088202FB_ME_53202A820364 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53202AD300E4 // 
- ME_53B6940E033D // 
+   Seq: ( ME_53202AD300E4 // csTaskRequest
+ ME_53B6940E033D // TaskRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1056,7 +1003,7 @@ ref; // ME_5320088202FB_ME_532140140146 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5321407B0141 // 
+   Seq: ( ME_5321407B0141 // csTaskRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1108,7 +1055,7 @@ ref; // ME_5320088202FB_ME_532140360355 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532140C802AA // 
+   Seq: ( ME_532140C802AA // csTaskRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1160,7 +1107,7 @@ ref; // ME_5320088202FB_ME_532141560065 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532141D4009D // 
+   Seq: ( ME_532141D4009D // csExportResultRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1212,7 +1159,7 @@ ref; // ME_5320088202FB_ME_532141850386 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532142020151 // 
+   Seq: ( ME_532142020151 // csLineRequest
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1264,7 +1211,7 @@ ref; // ME_5320088202FB_ME_53214B3E02D3 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53214B7A00A8 // 
+   Seq: ( ME_53214B7A00A8 // alcuAutoClassifier
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1333,8 +1280,8 @@ ref; // ME_532008D203BA_ME_53214BA801AC InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53214BE40136 // 
- ME_5321633901AD // 
+   Seq: ( ME_53214BE40136 // csExport
+ ME_5321633901AD // TDiapType
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1393,7 +1340,7 @@ ref; // ME_532008D203BA_ME_53214C4500B5 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53216B5201B0 // 
+   Seq: ( ME_53216B5201B0 // csImport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1452,7 +1399,7 @@ ref; // ME_532008D203BA_ME_53214D920123 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53214DBF02D2 // 
+   Seq: ( ME_53214DBF02D2 // TalcuRegionAutoExportTask
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1504,7 +1451,7 @@ ref; // ME_5320088202FB_ME_53214DE40178 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53214E13023E // 
+   Seq: ( ME_53214E13023E // alcuAutoSpell
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1556,7 +1503,7 @@ ref; // ME_5320088202FB_ME_53214E4C0344 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53214E6F011D // 
+   Seq: ( ME_53214E6F011D // csServerTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1608,7 +1555,7 @@ ref; // ME_5320088202FB_ME_53214E9A00C3 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53216D0B01CB // 
+   Seq: ( ME_53216D0B01CB // TalcuAnnotationTask
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1667,7 +1614,7 @@ ref; // ME_532008D203BA_ME_53214EEB036D InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53214F2001CC // 
+   Seq: ( ME_53214F2001CC // csServerTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1680,66 +1627,6 @@ ref; // ME_532008D203BA_ME_53214EEB036D InitTask
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53214EEB036D K517772970_TUserEditQuery
-
-FORWARD ME_53214F530029
-
-: ME_53214F8C0307
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53214F530029 // K517772970_TRemoteDictEditQuery
- ;
- : Target WL 'ME_52FA591401FA' '52F8C298005C.pas.ms.script' // csServerTaskTypes
- ;
-
-ref; // ME_53214F8C0307 
-
-: ME_5320088202FB_ME_53214F530029
- : Original ME_5320088202FB // TaskClass
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5320088202FB_ME_53214F530029 TaskClass
-
-: ME_532008D203BA_ME_53214F530029
- : Original ME_532008D203BA // InitTask
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_532008D203BA_ME_53214F530029 InitTask
-
-: ME_53214F530029
- CONST UID '53214F530029'
- CONST Name 'K517772970_TRemoteDictEditQuery'
- CONST Class class_Class
- : Stereotype st_TestCase ;
- CONST Kind kind_NormalClass
- %SUMMARY '{RequestLink:517772970}' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_531FF6280311 // TaskSaveLoad
- ;
- : Inherits
-   Seq: ( ME_53200B5D0155 // K517772970_TddProcessTask
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_5320088202FB_ME_53214F530029 // TaskClass
- ME_532008D203BA_ME_53214F530029 // InitTask
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_53214F8C0307 // 
- )
- ; // Dependencies
- CONST "ifdef" 'RemoteDict'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TRemoteDictEditQuery.pas'
- CONST extprop:pas:TypeName 'TK517772970_TRemoteDictEditQuery'
- CONST extprop:rc:SelfName 'K517772970_TRemoteDictEditQuery'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_53214F530029 K517772970_TRemoteDictEditQuery
 
 FORWARD ME_53214FDB01D3
 
@@ -1796,8 +1683,8 @@ ref; // ME_532008D203BA_ME_53214FDB01D3 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5321500C0072 // 
- ME_54045B840229 // 
+   Seq: ( ME_5321500C0072 // TalcuAutoExportTask
+ ME_54045B840229 // TaeStages
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1849,7 +1736,7 @@ ref; // ME_5320088202FB_ME_532150340028 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532150740293 // 
+   Seq: ( ME_532150740293 // csServerTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1908,7 +1795,7 @@ ref; // ME_532008D203BA_ME_532150C50123 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5321512200EB // 
+   Seq: ( ME_5321512200EB // csServerTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1960,7 +1847,7 @@ ref; // ME_5320088202FB_ME_53217E7F02A0 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53218E5201D4 // 
+   Seq: ( ME_53218E5201D4 // csAutoAnnoExport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2012,7 +1899,7 @@ ref; // ME_5320088202FB_ME_532180F80327 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53218128035A // 
+   Seq: ( ME_53218128035A // ddCaseCodeMaker
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2064,7 +1951,7 @@ ref; // ME_5320088202FB_ME_532182090317 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5321822B0185 // 
+   Seq: ( ME_5321822B0185 // TalcuExport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2116,7 +2003,7 @@ ref; // ME_5320088202FB_ME_53218413023C TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5321844F0074 // 
+   Seq: ( ME_5321844F0074 // TalcuAnoncedExport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2168,7 +2055,7 @@ ref; // ME_5320088202FB_ME_5321847300AB TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532184B803B2 // 
+   Seq: ( ME_532184B803B2 // TalcuHavanskyExportTask
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2220,7 +2107,7 @@ ref; // ME_5320088202FB_ME_532186F3030B TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_532187B20329 // 
+   Seq: ( ME_532187B20329 // csServerTaskTypes
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2272,7 +2159,7 @@ ref; // ME_5320088202FB_ME_53218A6C0235 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53218A8E035D // 
+   Seq: ( ME_53218A8E035D // alcuImport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2324,7 +2211,7 @@ ref; // ME_5320088202FB_ME_53218ABF03BE TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53218AE50368 // 
+   Seq: ( ME_53218AE50368 // alcuRelCorrector
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2386,8 +2273,8 @@ ref; // ME_5320088202FB_ME_53218B090017 TaskClass
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53218B32031A // 
- ME_53BA86880386 // 
+   Seq: ( ME_53218B32031A // csImport
+ ME_53BA86880386 // TcsAACImport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2446,7 +2333,7 @@ ref; // ME_532008D203BA_ME_53B25C540327 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53B25C88022C // 
+   Seq: ( ME_53B25C88022C // TcsSpellCorrectTask
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2505,7 +2392,7 @@ ref; // ME_532008D203BA_ME_53B26EC60189 InitTask
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53B26EF3001A // 
+   Seq: ( ME_53B26EF3001A // TcsUserDefinedExport
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2536,7 +2423,6 @@ ref; // ME_53B26EC60189 K517772970_TcsUserDefinedExport
  ME_53200C460255 // K517772970_TddClientMessage
  ME_5320228E011B // K517772970_TddCommonDataRequest
  ME_53202365007E // K517772970_TddBaseStatusRequest
- ME_5320282A0092 // K517772970_TddNonEditableDictsRequest
  ME_532028C502D9 // K517772970_TddServerStatusRequest
  ME_53202A820364 // K517772970_TaskRequest
  ME_532140140146 // K517772970_TddTaskResultRequest
@@ -2551,7 +2437,6 @@ ref; // ME_53B26EC60189 K517772970_TcsUserDefinedExport
  ME_53214E4C0344 // K517772970_TddRunCommandTask
  ME_53214E9A00C3 // K517772970_TalcuAnnotationTask
  ME_53214EEB036D // K517772970_TUserEditQuery
- ME_53214F530029 // K517772970_TRemoteDictEditQuery
  ME_53214FDB01D3 // K517772970_TalcuAutoExportTask
  ME_532150340028 // K517772970_TDeleteDocsQuery
  ME_532150C50123 // K517772970_TDictEditQuery

@@ -593,7 +593,7 @@ ref; // ME_485651F7004C
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_485651F7004C // 
+   Seq: ( ME_485651F7004C // LinkViewKind
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -1738,59 +1738,6 @@ ref; // ME_53B430900214 IsGroup
  CONST extprop:pas:UnitName 'UserEditQuery_Const'
 
 ref; // ME_53B42F8B011B UserEditQuery
-
-FORWARD ME_53B42FB202BB
-
-: ME_53B58BFB0116
- CONST UID '53B58BFB0116'
- CONST Name 'TaskType'
- CONST Class class_Attribute
- : Stereotype st_override::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B42FB202BB // RemoteDictEditQuery
- ;
- CONST Value 'Ord(cs_ttRemoteDictEdit)'
- CONST "HasAfterChangeTrigger" 'undefined'
- CONST "HasBeforeChangeTrigger" false
- CONST "HasStoredTrigger" false
- CONST "NeedMarkModified" 'undefined'
- CONST "ReadOnly" 'undefined'
- CONST "stored" 'undefined'
- CONST extprop:evd:NeedsOwnType 'false'
- CONST extprop:pas:Value 'Ord(cs_ttRemoteDictEdit)'
-
-ref; // ME_53B58BFB0116 TaskType
-
-: ME_53B42FB202BB
- CONST UID '53B42FB202BB'
- CONST Name 'RemoteDictEditQuery'
- CONST Class class_Class
- : Stereotype st_Tag ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_537DFE740339 // evdTasks
- ;
- : Inherits
-   Seq: ( ME_53A95D9F02E9 // ProcessTask
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_53B58BFB0116 // TaskType
- )
- ; // Attributes
- CONST "Defines CompareTagWithInt" false
- CONST "Defines CompareTags" false
- CONST "Implementation" 'undef'
- CONST "Parented" 'undefined'
- CONST "SmallTag" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\EVD\RemoteDictEditQuery_Const.pas'
- CONST extprop:pas:TypeName 'RemoteDictEditQueryTag'
- CONST extprop:pas:UnitName 'RemoteDictEditQuery_Const'
-
-ref; // ME_53B42FB202BB RemoteDictEditQuery
 
 FORWARD ME_54B376DB00A3
 
@@ -9608,7 +9555,6 @@ ref; // ME_5706552C0169 SchedulerProxyTask
  ME_53AAED68002C // ExportTask
  ME_53B42F63037B // DictEditQuery
  ME_53B42F8B011B // UserEditQuery
- ME_53B42FB202BB // RemoteDictEditQuery
  ME_54B376DB00A3 // PlainFile
  ME_53B68033030F // AutoSpellTask
  ME_53B6806A02AC // CommonDataRequest
@@ -9681,7 +9627,7 @@ ref; // ME_5706552C0169 SchedulerProxyTask
  )
  ; // Children
  : Injected
-   Seq: ( WL 'ME_53C51E810330' '53C51B390355.pas.ms.script' // 
+   Seq: ( WL 'ME_53C51E810330' '53C51B390355.pas.ms.script' // evdTasks
  )
  ; // Injected
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\evdTasks_Schema.pas'
@@ -9764,10 +9710,10 @@ ref; // ME_484CEAD301AE_ME_484CEEC803AD ObjToTag
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_484CF18400BF // 
- ME_484CF1AB03A0 // 
- ME_484D00C802F2 // 
- ME_5348148F0002 // 
+   Seq: ( ME_484CF18400BF // TFont
+ ME_484CF1AB03A0 // Ik2Tag
+ ME_484D00C802F2 // Tk2TagID
+ ME_5348148F0002 // FontName
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -9838,7 +9784,7 @@ ref; // ME_484D29B8022E
  )
  ; // Implements
  : Dependencies
-   Seq: ( ME_484D29B8022E // 
+   Seq: ( ME_484D29B8022E // k2Base
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
@@ -9926,11 +9872,11 @@ ref; // ME_5304E79202BA
  )
  ; // Implements
  : Dependencies
-   Seq: ( ME_484D329501DB // 
- ME_484D352E014E // 
- ME_484D353E00F3 // 
- ME_484D35B6014F // 
- ME_5304E79202BA // 
+   Seq: ( ME_484D329501DB // Standard
+ ME_484D352E014E // Tl3Dictionary
+ ME_484D353E00F3 // k2Base
+ ME_484D35B6014F // Tk2TagID
+ ME_5304E79202BA // Tk2Dictionary
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -10029,7 +9975,7 @@ ref; // ME_484F999003C7
  )
  ; // Implements
  : Dependencies
-   Seq: ( ME_484F999003C7 // 
+   Seq: ( ME_484F999003C7 // Tk2TagID
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -10819,7 +10765,7 @@ ref; // ME_485651EC02F6
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_485651EC02F6 // 
+   Seq: ( ME_485651EC02F6 // Tl3FontIndex
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -11726,7 +11672,7 @@ ref; // ME_48565213013C
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_48565213013C // 
+   Seq: ( ME_48565213013C // Tl3ItemFlag
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -16011,7 +15957,7 @@ ref; // ME_4860B4A501C5
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4860B4A501C5 // 
+   Seq: ( ME_4860B4A501C5 // TevdStyleContainer
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -17307,7 +17253,7 @@ ref; // ME_485772B20284
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_485772B20284 // 
+   Seq: ( ME_485772B20284 // l3Base
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" true
@@ -17427,7 +17373,7 @@ ref; // ME_4856520601A8
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_4856520601A8 // 
+   Seq: ( ME_4856520601A8 // Tl3TabStopStyle
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -17876,7 +17822,7 @@ ref; // ME_4856585A01DB
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_4856585A01DB // 
+   Seq: ( ME_4856585A01DB // Defaults
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -18076,7 +18022,7 @@ ref; // ME_48566BBA0358
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_48566BBA0358 // 
+   Seq: ( ME_48566BBA0358 // L3 Core Consts
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -18278,7 +18224,7 @@ ref; // ME_48564F3D021F
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_48564F3D021F // 
+   Seq: ( ME_48564F3D021F // Standard
  )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
@@ -18372,7 +18318,7 @@ ref; // ME_9BF3B20621DB
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_9BF3B20621DB // 
+   Seq: ( ME_9BF3B20621DB // evdNative_AttrValues
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
@@ -19750,7 +19696,7 @@ ref; // ME_479731C50290_ME_53BFD54A01CC Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53BFD5F6037D // 
+   Seq: ( ME_53BFD5F6037D // FreeAndNil
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -20337,11 +20283,11 @@ ref; // ME_53DA30C501BC_ME_53BD13DC0048 AsIntegerList
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_53BD20A801F1 // 
- ME_53BD20BE0250 // 
- ME_53BD21620301 // 
- ME_53BD29970351 // 
- ME_53DA2F6701F1 // 
+   Seq: ( ME_53BD20A801F1 // Tl3LongintList
+ ME_53BD20BE0250 // FreeAndNil
+ ME_53BD21620301 // Address
+ ME_53BD29970351 // Tk2TagID
+ ME_53DA2F6701F1 // Tl3InterfacedIntegerList
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -21067,7 +21013,7 @@ ref; // ME_53F1FD130157_ME_54646EB103D5 DoGetStrings
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_54648F2F0311 // 
+   Seq: ( ME_54648F2F0311 // TaskID
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -21179,7 +21125,7 @@ ref; // ME_53C3E6DD03B8
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_53C3E6DD03B8 // 
+   Seq: ( ME_53C3E6DD03B8 // Tk2TagID
  )
  ; // Dependencies
 
@@ -21258,10 +21204,10 @@ ref; // ME_4857A995029E_ME_53C3E67C0258 GetAtomData
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53C3ECFD03AC // 
- ME_53C9308E01D7 // 
- ME_53C93B9A027B // 
- ME_53C93FFA029B // 
+   Seq: ( ME_53C3ECFD03AC // Task
+ ME_53C9308E01D7 // SysUtils
+ ME_53C93B9A027B // Tk2String
+ ME_53C93FFA029B // Math
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -22647,8 +22593,8 @@ ref; // ME_4E557B168355
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_3E1472D37513 // 
- ME_4E557B168355 // 
+   Seq: ( ME_3E1472D37513 // Tl3StringIDEx
+ ME_4E557B168355 // Tl3MessageID
  )
  ; // Dependencies
  CONST "no hands" false

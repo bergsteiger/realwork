@@ -53,6 +53,20 @@ ref; // ME_55543C180070 BooksAndImagesURL
 
 ref; // ME_569F64FA0009 ForumURL
 
+: ME_570F644B0132
+ CONST UID '570F644B0132'
+ CONST Name 'ProfNewsURL'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_553A2B570033 // InternalBrowserURLArr
+ ;
+ CONST Value '''profnews.garant.ru'''
+ CONST extprop:pas:Value '''profnews.garant.ru'''
+
+ref; // ME_570F644B0132 ProfNewsURL
+
 : ME_553A2B570033
  CONST UID '553A2B570033'
  CONST Name 'InternalBrowserURLArr'
@@ -72,6 +86,7 @@ ref; // ME_569F64FA0009 ForumURL
    Seq: ( ME_553A2BE0020B // GarantMainURL
  ME_55543C180070 // BooksAndImagesURL
  ME_569F64FA0009 // ForumURL
+ ME_570F644B0132 // ProfNewsURL
  )
  ; // Attributes
  CONST "Need map interface" false
@@ -143,8 +158,8 @@ ref; // ME_49EEF56C03DC
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_49EEF2050269 // 
- ME_49EEF56C03DC // 
+   Seq: ( ME_49EEF2050269 // l3RegEx
+ ME_49EEF56C03DC // l3String
  )
  ; // Dependencies
 
@@ -204,7 +219,7 @@ ref; // ME_4BEBC3C50219
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4BEBC3C50219 // 
+   Seq: ( ME_4BEBC3C50219 // l3RegEx
  )
  ; // Dependencies
 
@@ -344,13 +359,13 @@ ref; // ME_56E80DC9034D
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4BEBC4380086 // 
- ME_4BEBF6C5034C // 
- ME_4BEBF6DA0388 // 
- ME_4BEBF7DD010F // 
- ME_4BEC00D202DF // 
- ME_4BEC025A033A // 
- ME_56E80DC9034D // 
+   Seq: ( ME_4BEBC4380086 // l3String
+ ME_4BEBF6C5034C // L3 Core Consts
+ ME_4BEBF6DA0388 // Il3CString
+ ME_4BEBF7DD010F // l3CStr
+ ME_4BEC00D202DF // Tl3PCharLen
+ ME_4BEC025A033A // SysUtils
+ ME_56E80DC9034D // Tl3LongintList
  )
  ; // Dependencies
 
@@ -409,7 +424,7 @@ ref; // ME_52315C5E03BE
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_52315C5E03BE // 
+   Seq: ( ME_52315C5E03BE // l3String
  )
  ; // Dependencies
 
@@ -468,7 +483,7 @@ ref; // ME_523ADD7A0115
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_523ADD7A0115 // 
+   Seq: ( ME_523ADD7A0115 // l3String
  )
  ; // Dependencies
 
@@ -572,7 +587,7 @@ ref; // ME_524E58E700BA
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_524E58E700BA // 
+   Seq: ( ME_524E58E700BA // l3RegEx
  )
  ; // Dependencies
 
@@ -631,7 +646,7 @@ ref; // ME_5524E8EE018E
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_5524E8EE018E // 
+   Seq: ( ME_5524E8EE018E // l3RegEx
  )
  ; // Dependencies
 

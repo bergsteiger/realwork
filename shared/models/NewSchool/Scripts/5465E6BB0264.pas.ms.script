@@ -134,13 +134,13 @@ ref; // ME_54607DDC0159_ME_5465D93A0165 Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_5465D9F4005E // 
- ME_5465D9FA0276 // 
- ME_5465EAF403A7 // 
- ME_5465EB150363 // 
- ME_5465EB5B0001 // 
- ME_5465EBED012C // 
- ME_5465F0E702EF // 
+   Seq: ( ME_5465D9F4005E // TncsGetReadyToDeliveryTasks
+ ME_5465D9FA0276 // TncsGetReadyToDeliveryTasksReply
+ ME_5465EAF403A7 // TCsClientId
+ ME_5465EB150363 // TddProcessTask
+ ME_5465EB5B0001 // FreeAndNil
+ ME_5465EBED012C // alcuTaskListBase
+ ME_5465F0E702EF // TcsTaskStatus
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -354,20 +354,20 @@ ref; // ME_54607DDC0159_ME_546B540E02D6 Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_546B556D025C // 
- ME_546B55710246 // 
- ME_546B557B034F // 
- ME_546B5594025D // 
- ME_546B559803AE // 
- ME_546B55B5033F // 
- ME_546C40ED03A5 // 
- ME_546C706A03B5 // 
- ME_546C73680189 // 
- ME_546EF45E00BB // 
- ME_546EF47F024C // 
- ME_546F07270045 // 
- ME_546F0EFE0037 // 
- ME_5485B0DF0387 // 
+   Seq: ( ME_546B556D025C // TddProcessTask
+ ME_546B55710246 // FreeAndNil
+ ME_546B557B034F // alcuTaskListBase
+ ME_546B5594025D // TncsGetTaskDescription
+ ME_546B559803AE // TncsGetTaskDescriptionReply
+ ME_546B55B5033F // TcsTaskStatus
+ ME_546C40ED03A5 // TcsExport
+ ME_546C706A03B5 // TncsFileDesc
+ ME_546C73680189 // TddFileIterator
+ ME_546EF45E00BB // Tl3FileStream
+ ME_546EF47F024C // TStream
+ ME_546F07270045 // Tl3FileMode
+ ME_546F0EFE0037 // l3CalcCRC32
+ ME_5485B0DF0387 // l3System
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -491,11 +491,11 @@ ref; // ME_54607DDC0159_ME_54748E8A0085 Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_54749B160239 // 
- ME_54749B2E002F // 
- ME_54749E2E0297 // 
- ME_54788AF8024A // 
- ME_54788B1102B6 // 
+   Seq: ( ME_54749B160239 // alcuTaskListBase
+ ME_54749B2E002F // TncsTaskProgress
+ ME_54749E2E0297 // TddProcessTask
+ ME_54788AF8024A // Msg Codes
+ ME_54788B1102B6 // PostMessage
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -711,12 +711,12 @@ ref; // ME_479731C50290_ME_54759BE1037A Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_54759CF00350 // 
- ME_54759CF4034A // 
- ME_54759CF801ED // 
- ME_5485B0C503B0 // 
- ME_5499677002FF // 
- ME_55374E460000 // 
+   Seq: ( ME_54759CF00350 // alcuTaskListBase
+ ME_54759CF4034A // TncsDeliveryResult
+ ME_54759CF801ED // TddProcessTask
+ ME_5485B0C503B0 // l3System
+ ME_5499677002FF // TncsResultKind
+ ME_55374E460000 // TTypeInfo
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -920,19 +920,19 @@ ref; // ME_54607DDC0159_ME_54759BFB02B4 Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_54759CD500CD // 
- ME_54759CD9002A // 
- ME_54759CDD0063 // 
- ME_54759CE0036A // 
- ME_5475BE000251 // 
- ME_5475BE040279 // 
- ME_5475BE0802FF // 
- ME_5475BE290156 // 
- ME_5475BE2D0036 // 
- ME_548943AA0215 // 
- ME_54894D370173 // 
- ME_54C23CD800B2 // 
- ME_56541713006F // 
+   Seq: ( ME_54759CD500CD // alcuTaskListBase
+ ME_54759CD9002A // TncsGetFilePart
+ ME_54759CDD0063 // TddProcessTask
+ ME_54759CE0036A // TncsGetFilePartReply
+ ME_5475BE000251 // Tl3FileStream
+ ME_5475BE040279 // TStream
+ ME_5475BE0802FF // Tl3FileMode
+ ME_5475BE290156 // FreeAndNil
+ ME_5475BE2D0036 // TcsExport
+ ME_548943AA0215 // TncsPushFilePart
+ ME_54894D370173 // Min
+ ME_54C23CD800B2 // ncsProfile
+ ME_56541713006F // l3System
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1056,11 +1056,11 @@ ref; // ME_54607DDC0159_ME_549AC018025D Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_549AC0BB01F4 // 
- ME_549AC0E3002E // 
- ME_549AC0E60383 // 
- ME_549AC0EA014B // 
- ME_549AC87B0278 // 
+   Seq: ( ME_549AC0BB01F4 // TncsCorrectFolder
+ ME_549AC0E3002E // alcuTaskListBase
+ ME_549AC0E60383 // TddProcessTask
+ ME_549AC0EA014B // TcsExport
+ ME_549AC87B0278 // l3System
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

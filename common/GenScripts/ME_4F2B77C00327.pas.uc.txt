@@ -16,9 +16,9 @@
    if aWidth > lp_CalcColumnMaxWidth then
     raise EevTooLargeColumnWidth.Create(ev_errTooLargeColumnWidth);
    evCheckTableRegular(l_Table);
-   Result := evTableFixNSRCWidth(l_Table.Column, aWidth);
+   Result := evTable_FixNSRCWidth(l_Table.Column, aWidth);
    if not Result then
-    Result := evTableFixNSRCWidth(l_Table.ColumnsIterator, aWidth);
+    Result := evTable_FixNSRCWidth(l_Table.ColumnsIterator, aWidth);
   end;//l_Table <> nil
  end;//aRange <> nil
 //#UC END# *4F2B781C0164_4F2B77C00327_impl*
@@ -92,7 +92,7 @@ var
     if not l3CharSetPresent(St, Len, cc_ANSILetter) then
     begin
      l_MaxWidth := Max(l_MaxWidth, evChar2Inch(Len) + l_CellGap);
-     evTableCalculateNSRCWidth := true;
+     evTable_CalculateNSRCWidth := true;
     end;//l3CountOfChar..
    end;//not l_Text.Empty
  end;
@@ -141,7 +141,7 @@ var
    l_Column := aColumnsIterator.First;
    while (l_Column <> nil) do
    begin
-    if evTableFixNSRCWidth(l_Column, aWidth) then
+    if evTable_FixNSRCWidth(l_Column, aWidth) then
      Result := true;
     l_Column := aColumnsIterator.Next;
    end;//while (l_Column <> nil)
@@ -157,7 +157,7 @@ var
 //#UC END# *4F2BBD58017D_4F2B77C00327_var*
 //#UC START# *4F2BBD9400E2_4F2B77C00327_impl*
  if (aWidth = 0) then
-  Result := evTableCalculateNSRCWidth(aColumn, l_Width)
+  Result := evTable_CalculateNSRCWidth(aColumn, l_Width)
  else
  begin
   if (aColumn = nil) then

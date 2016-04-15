@@ -701,7 +701,7 @@ ref; // ME_55E6DC860185
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
  : Dependencies
-   Seq: ( ME_55E6DC860185 // 
+   Seq: ( ME_55E6DC860185 // DictServer
  )
  ; // Dependencies
 
@@ -730,7 +730,7 @@ ref; // ME_55E6DC8D016A
  : Parent ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
  : Dependencies
-   Seq: ( ME_55E6DC8D016A // 
+   Seq: ( ME_55E6DC8D016A // DictServer
  )
  ; // Dependencies
 
@@ -963,9 +963,9 @@ ref; // ME_55E83B630311
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_55E838ED0010 // 
- ME_55E839160218 // 
- ME_55E83B630311 // 
+   Seq: ( ME_55E838ED0010 // PureDir
+ ME_55E839160218 // Tl3FileStream
+ ME_55E83B630311 // Tl3FileMode
  )
  ; // Dependencies
 
@@ -1115,13 +1115,13 @@ ref; // ME_55E960BB0296
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_55E84B38012B // 
- ME_55E84B950269 // 
- ME_55E84BF101DA // 
- ME_55E93C720268 // 
- ME_55E93CA00203 // 
- ME_55E9454D02B3 // 
- ME_55E960BB0296 // 
+   Seq: ( ME_55E84B38012B // GlobalDataProvider
+ ME_55E84B950269 // Tl3XMLWriter
+ ME_55E84BF101DA // Tl3LongintList
+ ME_55E93C720268 // Il3XMLWriter
+ ME_55E93CA00203 // Il3CString
+ ME_55E9454D02B3 // l3Trim
+ ME_55E960BB0296 // PSourceSyncRec
  )
  ; // Dependencies
 
@@ -1747,8 +1747,8 @@ ref; // ME_55ED9B23006C
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_55ED488C02BC // 
- ME_55ED9B23006C // 
+   Seq: ( ME_55ED488C02BC // TalcuMdpSyncDicts
+ ME_55ED9B23006C // UserConsts
  )
  ; // Dependencies
 
@@ -1919,14 +1919,14 @@ ref; // ME_479731C50290_ME_55E6A67A02ED Cleanup
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_55E6E6C202F6 // 
- ME_55E7011C03A0 // 
- ME_55E7017902BE // 
- ME_55E7044202B5 // 
- ME_55E704610351 // 
- ME_55E8019C0121 // 
- ME_55E8282E00E0 // 
- ME_5656B57B023D // 
+   Seq: ( ME_55E6E6C202F6 // cFamily
+ ME_55E7011C03A0 // TdaDictionaryType
+ ME_55E7017902BE // TOperActionType
+ ME_55E7044202B5 // dt_DictConst
+ ME_55E704610351 // dt_Sab
+ ME_55E8019C0121 // FreeAndNil
+ ME_55E8282E00E0 // ddAppConfig
+ ME_5656B57B023D // cFamilies
  )
  ; // Dependencies
  CONST "ifdef" 'MDPSyncIntegrated'
@@ -2475,16 +2475,16 @@ ref; // ME_5475AFAA017A_ME_52F8E80D00A5 TaskDone
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_53CE02060260 // 
- ME_5465DA8E014B // 
- ME_546B5A4503B2 // 
- ME_5474988E0073 // 
- ME_54759C340065 // 
- ME_54759C380010 // 
- ME_54856F8F01AA // 
- ME_549AC04F0178 // 
- ME_54BE4F98020B // 
- ME_561D058601B1 // 
+   Seq: ( ME_53CE02060260 // TalcuAsyncSubmitterManager
+ ME_5465DA8E014B // TalcuGetReadyToDeliveryTasksExecutor
+ ME_546B5A4503B2 // TalcuGetTaskDescriptionExecutor
+ ME_5474988E0073 // TalcuTaskProgressExecutor
+ ME_54759C340065 // TalcuDeliveryResultExecutor
+ ME_54759C380010 // TalcuGetFilePartExecutor
+ ME_54856F8F01AA // TalcuSendTaskExecutor
+ ME_549AC04F0178 // TalcuCorrectFolderExecutor
+ ME_54BE4F98020B // TalcuDetachedExecutor
+ ME_561D058601B1 // TalcuProcessingEnabledService
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2553,8 +2553,8 @@ ref; // ME_5475AFAA017A_ME_52F8BE3100F5 TaskDone
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_52FA3E120105 // 
- ME_53A199990094 // 
+   Seq: ( ME_52FA3E120105 // TalcuTaskList
+ ME_53A199990094 // TalcuNotSortedTaskList
  )
  ; // Dependencies
  CONST "finished" false
@@ -2647,8 +2647,8 @@ ref; // ME_55EEDF08000A
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_55F01415032E // 
- ME_55EEDF08000A // 
+   Seq: ( ME_55F01415032E // UserConsts
+ ME_55EEDF08000A // TalcuMdpImportDocs
  )
  ; // Dependencies
 
@@ -2694,8 +2694,8 @@ ref; // ME_561B63FE0192
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_5617AD58028C // 
- ME_561B63FE0192 // 
+   Seq: ( ME_5617AD58028C // ddAppConfig
+ ME_561B63FE0192 // TdaUserID
  )
  ; // Dependencies
  CONST "ifdef" 'MDPSyncIntegrated'
@@ -2773,9 +2773,9 @@ ref; // ME_F75B4443B80B_ME_5583CD3601BD TaskGotErrorStatus
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_5583CD580330 // 
- ME_5583CD8D0105 // 
- ME_5583D6AA0104 // 
+   Seq: ( ME_5583CD580330 // TcsTaskChangeHelper
+ ME_5583CD8D0105 // alcuMailServer
+ ME_5583D6AA0104 // TalcuStatus
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2875,10 +2875,10 @@ ref; // ME_52BC2B9401F3_ME_52F8C9E00037 AfterDestroyCalled
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_52F8D9150172 // 
- ME_52F8D93D016A // 
- ME_52F8DC1D037C // 
- ME_5583CD9E01F4 // 
+   Seq: ( ME_52F8D9150172 // TalcuStrings
+ ME_52F8D93D016A // l3System
+ ME_52F8DC1D037C // FormatDateTime
+ ME_5583CD9E01F4 // TalcuTaskChangeHelper
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2968,7 +2968,7 @@ ref; // ME_52FA29CA0141
  )
  ; // Attributes
  : Dependencies
-   Seq: ( ME_52FA29CA0141 // 
+   Seq: ( ME_52FA29CA0141 // TalcuServerTaskManagerFactory
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -3049,8 +3049,8 @@ ref; // ME_ECCF31CF8A24_ME_561CF00A0193 Enabled
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_561CFA9E038C // 
- ME_561D091E0238 // 
+   Seq: ( ME_561CFA9E038C // Tl3ProcessingEnabledService
+ ME_561D091E0238 // TalcuServer
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

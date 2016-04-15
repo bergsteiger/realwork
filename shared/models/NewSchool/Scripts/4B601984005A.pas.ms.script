@@ -217,7 +217,7 @@ ref; // ME_4C03EAB40015_ME_4B6019A601D8 AllowTranslateReturn
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_4B613C610167 // 
+   Seq: ( ME_4B613C610167 // Windows
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -517,23 +517,11 @@ ref; // ME_48C7925A02E5_ME_5704FC1A0398 CreateParams
  CONST OpKind opkind_Overridden
 ref; // ME_508F825303E4_ME_5704FC1A0398 DoOnGetItemStyle
 
-: ME_5151AF650239_ME_5704FC1A0398
- : Original WL 'ME_5151AF650239' '4B97E7FD006C.pas.ms.script' // DoOnGetItemIndent
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5151AF650239_ME_5704FC1A0398 DoOnGetItemIndent
-
 : ME_515317860183_ME_5704FC1A0398
  : Original WL 'ME_515317860183' '4799D29F033F.pas.ms.script' // MouseWheelHandler
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_515317860183_ME_5704FC1A0398 MouseWheelHandler
-
-: ME_5266253D035D_ME_5704FC1A0398
- : Original WL 'ME_5266253D035D' '4B97E7FD006C.pas.ms.script' // NeedDrawArrowSelection
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5266253D035D_ME_5704FC1A0398 NeedDrawArrowSelection
 
 : ME_5298C02D03B3_ME_5704FC1A0398
  : Original WL 'ME_5298C02D03B3' '48297E42011A.pas.ms.script' // NCDraw
@@ -582,9 +570,7 @@ ref; // ME_5298C02D03B3_ME_5704FC1A0398 NCDraw
    Seq: ( ME_47D1602000C6_ME_5704FC1A0398 // Create
  ME_48C7925A02E5_ME_5704FC1A0398 // CreateParams
  ME_508F825303E4_ME_5704FC1A0398 // DoOnGetItemStyle
- ME_5151AF650239_ME_5704FC1A0398 // DoOnGetItemIndent
  ME_515317860183_ME_5704FC1A0398 // MouseWheelHandler
- ME_5266253D035D_ME_5704FC1A0398 // NeedDrawArrowSelection
  ME_5298C02D03B3_ME_5704FC1A0398 // NCDraw
  )
  ; // Overridden
@@ -843,6 +829,16 @@ ref; // ME_57067AD503C8
 
 ref; // ME_570686AE015A 
 
+: ME_570F9570025D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_570F9570025D 
+
 : ME_4F79CEDF005A_ME_5704F8CA00C8
  : Original WL 'ME_4F79CEDF005A' '4677FBA70343.pas.ms.script' // MouseListenerNotify
  ;
@@ -924,16 +920,17 @@ ref; // ME_4E7896270076_ME_5704F8CA00C8 MouseUp
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_5705117D0083 // 
- ME_570511A1036C // 
- ME_570514590198 // 
- ME_57062B7D0287 // 
- ME_570644270358 // 
- ME_5706444203B1 // 
- ME_5706445C02E5 // 
- ME_570644750159 // 
- ME_57067AD503C8 // 
- ME_570686AE015A // 
+   Seq: ( ME_5705117D0083 // l3String
+ ME_570511A1036C // Controls
+ ME_570514590198 // l3MinMax
+ ME_57062B7D0287 // Windows
+ ME_570644270358 // Tl3ActionElementMode
+ ME_5706444203B1 // l3Defaults
+ ME_5706445C02E5 // l3Drawer
+ ME_570644750159 // Tl3Rect
+ ME_57067AD503C8 // Forms
+ ME_570686AE015A // Tl3ListenersManager
+ ME_570F9570025D // SysUtils
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'

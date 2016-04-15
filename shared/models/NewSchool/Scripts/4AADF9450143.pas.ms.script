@@ -121,9 +121,9 @@ ref; // ME_4F9AB5AF01F9_ME_4E01D5E50001 MessageDlg$1
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_4E01D60501F4 // 
- ME_4E01D6BF0366 // 
- ME_4E0A19880297 // 
+   Seq: ( ME_4E01D60501F4 // vcmDialogs
+ ME_4E01D6BF0366 // vcmMessagesSupport
+ ME_4E0A19880297 // Tl3Message
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -193,8 +193,8 @@ ref; // ME_A1E64DB467E3_ME_55015117004B Close
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_550151230255 // 
- ME_550150EF017F // 
+   Seq: ( ME_550151230255 // TvcmInterfacedForm
+ ME_550150EF017F // Tl3CloseFormHelper
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -790,8 +790,8 @@ ref; // ME_501FF3AE01CC
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_501FF1BF02AC // 
- ME_501FF3AE01CC // 
+   Seq: ( ME_501FF1BF02AC // TvcmMainForm
+ ME_501FF3AE01CC // afwFacade
  )
  ; // Dependencies
 
@@ -972,7 +972,7 @@ ref; // ME_501FEC7203A5_ME_4F22CB1E0009 ClearModal
  )
  ; // Overridden
  : Injected
-   Seq: ( WL 'ME_54DCB3050025' '54DCB32F019F.pas.ms.script' // 
+   Seq: ( WL 'ME_54DCB3050025' '54DCB32F019F.pas.ms.script' // TvcmEntityFormModelPart
  )
  ; // Injected
  CONST "author" 'Люлин А.В.'
@@ -1040,7 +1040,7 @@ ref; // ME_4F748C140133_ME_4F22CFD70209 IsBaloon
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_4F748E660326 // 
+   Seq: ( ME_4F748E660326 // TvcmEntityFormModelPart
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -2623,14 +2623,14 @@ ref; // ME_4FC38C4C0119_ME_49525B34022A NeedSaveInSettings
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4D905A520067 // 
- ME_4DAEC00302A5 // 
- ME_5113AA3B026D // 
- ME_55F581D502BB // 
+   Seq: ( ME_4D905A520067 // IvcmDatasourceChangeListener
+ ME_4DAEC00302A5 // Tl3VCLFormPtrList
+ ME_5113AA3B026D // vcmFormsUtils
+ ME_55F581D502BB // TvcmControlList
  )
  ; // Dependencies
  : Injected
-   Seq: ( WL 'ME_EDECAAF14C01' '54DCB32F019F.pas.ms.script' // 
+   Seq: ( WL 'ME_EDECAAF14C01' '54DCB32F019F.pas.ms.script' // TvcmEntityForm
  )
  ; // Injected
  CONST "finished" false
@@ -4087,13 +4087,13 @@ ref; // ME_55110D7F0064
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_53BFCD6E025F // 
- ME_53BFCD780148 // 
- ME_53BFCDFD0297 // 
- ME_53BFCE060130 // 
- ME_53BFCE0A0380 // 
- ME_53BFCE5C0340 // 
- ME_55110D7F0064 // 
+   Seq: ( ME_53BFCD6E025F // TvcmMenuManager
+ ME_53BFCD780148 // vcmFormsUtils
+ ME_53BFCDFD0297 // Menus
+ ME_53BFCE060130 // SysUtils
+ ME_53BFCE0A0380 // TvcmEntityForm
+ ME_53BFCE5C0340 // vcmForm
+ ME_55110D7F0064 // vcmMessages
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -4602,11 +4602,11 @@ ref; // ME_53ABACBB02D0_ME_49525C7A0114 MakeContainer
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_4F1ED517022C // 
- ME_521C87D402E5 // 
- ME_55F96394012A // 
- ME_55FA68A602AC // 
- ME_55FA722B0217 // 
+   Seq: ( ME_4F1ED517022C // TvcmIEntityList
+ ME_521C87D402E5 // vcmMainFormRes
+ ME_55F96394012A // TvcmDockManagerList
+ ME_55FA68A602AC // TvcmLockListenerList
+ ME_55FA722B0217 // TvcmFormDispatcherListenerList
  )
  ; // Dependencies
  CONST "finished" false
@@ -5120,8 +5120,8 @@ ref; // ME_4D99E244027C
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4D49286002F9 // 
- ME_4D99E244027C // 
+   Seq: ( ME_4D49286002F9 // vcmDialogs
+ ME_4D99E244027C // vtGetDlgBtnResult
  )
  ; // Dependencies
  CONST "finished" false
@@ -5468,13 +5468,13 @@ ref; // ME_4FC38C4C0119_ME_4F91452D0004 NeedSaveInSettings
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4F9163CC007C // 
- ME_4F9167370050 // 
- ME_4F91678B01AA // 
- ME_4F9167B0035E // 
- ME_4F9167C301B3 // 
- ME_4F916AA500A5 // 
- ME_543BAC000204 // 
+   Seq: ( ME_4F9163CC007C // Windows
+ ME_4F9167370050 // TvgCheckBox
+ ME_4F91678B01AA // TCheckBox
+ ME_4F9167B0035E // TvgButton
+ ME_4F9167C301B3 // TvgVisualObject
+ ME_4F916AA500A5 // vtGetDlgBtnResult
+ ME_543BAC000204 // Forms
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -5697,8 +5697,8 @@ ref; // ME_51EF804C039D
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_51EF80080006 // 
- ME_51EF804C039D // 
+   Seq: ( ME_51EF80080006 // String
+ ME_51EF804C039D // TClass
  )
  ; // Dependencies
  CONST "not treat as record for XE4" 'undefined'
@@ -5772,7 +5772,7 @@ ref; // ME_47B99D4503A2_ME_51EF80BE0105 CompareExistingItems
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_51EF8240018A // 
+   Seq: ( ME_51EF8240018A // IvcmUserTypeDef
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -6126,9 +6126,9 @@ ref; // ME_94E213C1F6AE
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_FD9E78948E77 // 
- ME_A925439B53B1 // 
- ME_94E213C1F6AE // 
+   Seq: ( ME_FD9E78948E77 // Tl3StringIDEx
+ ME_A925439B53B1 // Tl3MessageID
+ ME_94E213C1F6AE // Dialogs
  )
  ; // Dependencies
  CONST "no hands" false
@@ -6265,16 +6265,16 @@ ref; // ME_515317860183_ME_528468A00346 MouseWheelHandler
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_52846B770042 // 
- ME_52846B7B03E1 // 
- ME_52846B7F0381 // 
- ME_52846BD00282 // 
- ME_52846BD403B1 // 
- ME_52846BD90392 // 
- ME_52846BDE008A // 
- ME_52846BE202B2 // 
- ME_52846BE602A2 // 
- ME_528472D30372 // 
+   Seq: ( ME_52846B770042 // TWMMouseWheel
+ ME_52846B7B03E1 // TWMNCHitTest
+ ME_52846B7F0381 // TWMVScroll
+ ME_52846BD00282 // WPARAM
+ ME_52846BD403B1 // LPARAM
+ ME_52846BD90392 // LRESULT
+ ME_52846BDE008A // TPoint
+ ME_52846BE202B2 // SendMessage
+ ME_52846BE602A2 // WindowFromPoint
+ ME_528472D30372 // l3FillChar
  )
  ; // Dependencies
  CONST "author" 'Морозов В.'
@@ -6450,8 +6450,8 @@ ref; // ME_CDCC556698E5_ME_5515501B009E CanUseWiki
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_55155038024B // 
- ME_5515518902EA // 
+   Seq: ( ME_55155038024B // Tl3HugeMessageDlgWithWikiHelper
+ ME_5515518902EA // Dialogs
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -6784,23 +6784,23 @@ ref; // ME_4E089F8E011C
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4E01EAF4005E // 
- ME_4E01EB1200F0 // 
- ME_4E01EB3100E9 // 
- ME_4E01EB590044 // 
- ME_4E01EB7A0255 // 
- ME_4E01EBA400DD // 
- ME_4E01EBBD02C0 // 
- ME_4E01EBD20337 // 
- ME_4E01EC060364 // 
- ME_4E01EC3E0011 // 
- ME_4E01F2C8032D // 
- ME_4E01F35C01F0 // 
- ME_4E01F3A20358 // 
- ME_4E01F63803B8 // 
- ME_4E036A830136 // 
- ME_4E0897410399 // 
- ME_4E089F8E011C // 
+   Seq: ( ME_4E01EAF4005E // IvcmDispatcher
+ ME_4E01EB1200F0 // TCustomForm
+ ME_4E01EB3100E9 // vcmDispatcher
+ ME_4E01EB590044 // IvcmEntityForm
+ ME_4E01EB7A0255 // Tl3VCLFormPtrList
+ ME_4E01EBA400DD // Exception
+ ME_4E01EBBD02C0 // l3Str
+ ME_4E01EBD20337 // ModalResults
+ ME_4E01EC060364 // vtDialogsResEx
+ ME_4E01EC3E0011 // vcmBaseMenuManager
+ ME_4E01F2C8032D // vcmSaveIntParam
+ ME_4E01F35C01F0 // l3Bits
+ ME_4E01F3A20358 // Tl3Alignment
+ ME_4E01F63803B8 // TAlignment
+ ME_4E036A830136 // afwAnswer
+ ME_4E0897410399 // l3CStr
+ ME_4E089F8E011C // TvcmMessageQueueItem
  )
  ; // Dependencies
 
@@ -6904,7 +6904,7 @@ ref; // ME_4E01E6FC00B4
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4E01E6FC00B4 // 
+   Seq: ( ME_4E01E6FC00B4 // TvcmMessagesCollectionItem
  )
  ; // Dependencies
 
@@ -7410,7 +7410,7 @@ ref; // ME_4E08913C018D
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4E08913C018D // 
+   Seq: ( ME_4E08913C018D // l3String
  )
  ; // Dependencies
 
@@ -7754,9 +7754,9 @@ ref; // ME_553F57900314
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4E089B0203B5 // 
- ME_5003D775016D // 
- ME_553F57900314 // 
+   Seq: ( ME_4E089B0203B5 // TvcmMessageQueue
+ ME_5003D775016D // vcmDialogs
+ ME_553F57900314 // Tl3BatchService
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -8965,24 +8965,24 @@ ref; // ME_520B42AF0115_ME_4F9000EA02E5 ShowModal
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_4F914EC900A5 // 
- ME_4F914ECC039B // 
- ME_4F916BA9037E // 
- ME_4F916BE60275 // 
- ME_4F916CB200F3 // 
- ME_4F916D0E02A1 // 
- ME_4F916DB401DE // 
- ME_4F916E1603D9 // 
- ME_4F916E60006A // 
- ME_4F916EA00100 // 
- ME_4F916FE601D3 // 
- ME_4F91705D028A // 
- ME_4F91718903D7 // 
- ME_4F91737801AC // 
- ME_4F95226900A1 // 
- ME_4F95228A01E5 // 
- ME_4F9522D001F9 // 
- ME_528CA11B007E // 
+   Seq: ( ME_4F914EC900A5 // TnevControlInfo
+ ME_4F914ECC039B // TnevControlImageInfo
+ ME_4F916BA9037E // TForm
+ ME_4F916BE60275 // TvtFocusLabel
+ ME_4F916CB200F3 // l3CStr
+ ME_4F916D0E02A1 // TFont
+ ME_4F916DB401DE // l3WideString
+ ME_4F916E1603D9 // TvgCheckBox
+ ME_4F916E60006A // TCheckBox
+ ME_4F916EA00100 // Tl3WinControlCanvas
+ ME_4F916FE601D3 // Tl3FormCanvas
+ ME_4F91705D028A // l3Math
+ ME_4F91718903D7 // l3MinMax
+ ME_4F91737801AC // Cloak
+ ME_4F95226900A1 // vg_objects
+ ME_4F95228A01E5 // vtUtils
+ ME_4F9522D001F9 // afwVCL
+ ME_528CA11B007E // TvcmZoneType
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -9203,11 +9203,11 @@ ref; // ME_4F915AC203AC
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4E1355E403E5 // 
- ME_4E14480001AA // 
- ME_4F9003BF01EC // 
- ME_4F9003C203D7 // 
- ME_4F915AC203AC // 
+   Seq: ( ME_4E1355E403E5 // TnscSimpleEditorForDialogs
+ ME_4E14480001AA // vtStdRes
+ ME_4F9003BF01EC // TvtEffectiveDialogButton
+ ME_4F9003C203D7 // TMessageForm
+ ME_4F915AC203AC // vtCreateMessageDialog
  )
  ; // Dependencies
  CONST extprop:rc:SelfName 'MessageDlgPrim'
@@ -9384,8 +9384,8 @@ ref; // ME_4F95220A013D
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4F91710003DA // 
- ME_4F95220A013D // 
+   Seq: ( ME_4F91710003DA // TButtonWidths
+ ME_4F95220A013D // vcmMessageDlgPrivateConst
  )
  ; // Dependencies
  CONST extprop:rc:SelfName 'CreateMessageDialog'
@@ -9561,19 +9561,19 @@ ref; // ME_556F22B701D1
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4B8E67A80013 // 
- ME_4D494D1400AC // 
- ME_4D494D3F008F // 
- ME_4D494DA70383 // 
- ME_4D99E1D801A7 // 
- ME_4F914A39030A // 
- ME_5000293A0157 // 
- ME_5000293E01C7 // 
- ME_508EB7080129 // 
- ME_51A5DEF00308 // 
- ME_5448AD9902A8 // 
- ME_553F5652030F // 
- ME_556F22B701D1 // 
+   Seq: ( ME_4B8E67A80013 // vtDialogsRes
+ ME_4D494D1400AC // vtVGSceneRes
+ ME_4D494D3F008F // TvtVGButton
+ ME_4D494DA70383 // vtF1InterfaceConst
+ ME_4D99E1D801A7 // vtDialogsResEx
+ ME_4F914A39030A // vg_scene
+ ME_5000293A0157 // afwAnswer
+ ME_5000293E01C7 // vcmMessagesSupport
+ ME_508EB7080129 // IntToStr
+ ME_51A5DEF00308 // TvtCheckBox
+ ME_5448AD9902A8 // afwFacade
+ ME_553F5652030F // Tl3BatchService
+ ME_556F22B701D1 // Il3CString
  )
  ; // Dependencies
  CONST "ifndef" 'NoVGScene'
@@ -9721,7 +9721,7 @@ ref; // ME_52A847480274
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_52A847480274 // 
+   Seq: ( ME_52A847480274 // Graphics
  )
  ; // Dependencies
 
@@ -13653,8 +13653,8 @@ ref; // ME_52A1ED12039D_ME_4AD5DBBD0147 GetEntitiesCollectionClass
  )
  ; // Children
  : Injected
-   Seq: ( WL 'ME_4E201EF90191' '4E200FED0213.pas.ms.script' // 
- WL 'ME_54E7496D03D7' '4E200FED0213.pas.ms.script' // 
+   Seq: ( WL 'ME_4E201EF90191' '4E200FED0213.pas.ms.script' // TvcmBaseMenuManagerPrim
+ WL 'ME_54E7496D03D7' '4E200FED0213.pas.ms.script' // TvcmBaseMenuManagerPrim
  )
  ; // Injected
  CONST "finished" false
@@ -13849,9 +13849,9 @@ ref; // ME_E1C719B751DC_ME_55002183037A GetPopupMenuForComponentInfo
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_5503048C004D // 
- ME_5513FE620238 // 
- ME_551429D10176 // 
+   Seq: ( ME_5503048C004D // Tl3PopupMenuHelper
+ ME_5513FE620238 // TControl
+ ME_551429D10176 // TvcmEntitiesDefIteratorForContextMenu
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -13942,7 +13942,7 @@ ref; // ME_52A841C500C5 FillPopupMenu
  )
  ; // Children
  : Injected
-   Seq: ( WL 'ME_54D4F2A60057' '4F69B9040391.pas.ms.script' // 
+   Seq: ( WL 'ME_54D4F2A60057' '4F69B9040391.pas.ms.script' // TvcmBaseMenuManager
  )
  ; // Injected
  CONST "need UC" true
@@ -14461,40 +14461,40 @@ ref; // ME_5624DC46021C
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_52A7301C01EF // 
- ME_52A7301F0367 // 
- ME_52A730220190 // 
- ME_52A730240372 // 
- ME_52A730270248 // 
- ME_52A7302A0088 // 
- ME_52A7302C0341 // 
- ME_52A730300007 // 
- ME_52A730320363 // 
- ME_52A73035025B // 
- ME_52A7303800BF // 
- ME_52A7303A0278 // 
- ME_52A7303D0032 // 
- ME_52A7303F02FC // 
- ME_52A730420145 // 
- ME_52A73045018F // 
- ME_52A730480025 // 
- ME_52A7304A017A // 
- ME_52A7304D007D // 
- ME_52A7304F037F // 
- ME_52A7305201C5 // 
- ME_52A730550135 // 
- ME_52A7305800B2 // 
- ME_52A7305A024B // 
- ME_52A7305D022C // 
- ME_52A7458800EF // 
- ME_53E9DE2F004C // 
- ME_53E9DE4E0304 // 
- ME_53E9E9A70363 // 
- ME_53E9EEAF0203 // 
- ME_551443740239 // 
- ME_5604057501A2 // 
- ME_560427F60127 // 
- ME_5624DC46021C // 
+   Seq: ( ME_52A7301C01EF // vtUtils
+ ME_52A7301F0367 // vcmBaseMenuManagerRes
+ ME_52A730220190 // Tl3ConstStrings
+ ME_52A730240372 // vcmExportConst
+ ME_52A730270248 // StrUtils
+ ME_52A7302A0088 // SysUtils
+ ME_52A7302C0341 // Forms
+ ME_52A730300007 // vcmContentConst
+ ME_52A730320363 // vcmOVCCommands
+ ME_52A73035025B // TvcmModulesCollectionItem
+ ME_52A7303800BF // l3InterfacesMisc
+ ME_52A7303A0278 // TvcmRepEntitiesCollection
+ ME_52A7303D0032 // TvcmBaseEntitiesCollectionItem
+ ME_52A7303F02FC // TvcmBaseEntitiesCollection
+ ME_52A730420145 // afwFacade
+ ME_52A73045018F // TvcmModuleDef
+ ME_52A730480025 // Il3CString
+ ME_52A7304A017A // TOvcController
+ ME_52A7304D007D // vcmSettings
+ ME_52A7304F037F // TvcmMainForm
+ ME_52A7305201C5 // TvcmFormsCollectionItem
+ ME_52A730550135 // l3String
+ ME_52A7305800B2 // GetObjectProp
+ ME_52A7305A024B // TvcmModuleAction
+ ME_52A7305D022C // TvcmEntityAction
+ ME_52A7458800EF // TvcmOperationsManager
+ ME_53E9DE2F004C // TvcmMenuItemClickListenerList
+ ME_53E9DE4E0304 // vcmMenuManagerTypes
+ ME_53E9E9A70363 // vcmMenus
+ ME_53E9EEAF0203 // l3Base
+ ME_551443740239 // vcmCustomHelpers
+ ME_5604057501A2 // TvcmOperationsCollectionItem
+ ME_560427F60127 // TvcmEntitiesCollectionItem
+ ME_5624DC46021C // vcmUtils
  )
  ; // Dependencies
  CONST "no hands" false
@@ -14688,8 +14688,8 @@ ref; // ME_5028A1220383_ME_50289DB9036F UpdateEmpty
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_502BC79B0090 // 
- ME_52AB150D03C6 // 
+   Seq: ( ME_502BC79B0090 // vcmToolbarUtils
+ ME_52AB150D03C6 // TvcmBaseMenuManager
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -15297,7 +15297,7 @@ ref; // ME_5028DD25024B_ME_5028DD5E0384 SizeGripWidth
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_52AAEC310376 // 
+   Seq: ( ME_52AAEC310376 // TvcmCustomMenuManager
  )
  ; // Dependencies
  : Forwarded
@@ -16530,19 +16530,19 @@ ref; // ME_552E10010067_ME_5028A4C0019B ActivateMainForm
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_502919E301B8 // 
- ME_502CE36A0340 // 
- ME_502CE39B0391 // 
- ME_502CE4B30035 // 
- ME_502CE5180368 // 
- ME_502CE54A0303 // 
- ME_502CE5E402BA // 
- ME_502CE6AA02F9 // 
- ME_502CE6E5006E // 
- ME_502CE7020094 // 
- ME_502CF08D0122 // 
- ME_552E1E6F02C1 // 
- ME_552E1E7503CA // 
+   Seq: ( ME_502919E301B8 // IvcmOperationalIdentifiedUserFriendlyControl
+ ME_502CE36A0340 // Supports
+ ME_502CE39B0391 // Defaults
+ ME_502CE4B30035 // ToolWin
+ ME_502CE5180368 // Colors
+ ME_502CE54A0303 // TvcmObjectList
+ ME_502CE5E402BA // CopyRect
+ ME_502CE6AA02F9 // vcm_NotContainedForm
+ ME_502CE6E5006E // TvcmZoneType
+ ME_502CE7020094 // afwDrawing
+ ME_502CF08D0122 // TvcmToolbarDockListManager
+ ME_552E1E6F02C1 // TafwTabInterfaceType
+ ME_552E1E7503CA // afwFacade
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -16631,9 +16631,9 @@ ref; // ME_52AB0B1700D7
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_52AB0A8001E9 // 
- ME_52AB0A96003D // 
- ME_52AB0B1700D7 // 
+   Seq: ( ME_52AB0A8001E9 // Forms
+ ME_52AB0A96003D // Windows
+ ME_52AB0B1700D7 // vcmMessages
  )
  ; // Dependencies
 
@@ -17064,7 +17064,7 @@ ref; // ME_53E9E1F30083
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_53E9E1F30083 // 
+   Seq: ( ME_53E9E1F30083 // vcmMenus
  )
  ; // Dependencies
  CONST "no hands" false
@@ -18460,8 +18460,8 @@ ref; // ME_52A9AAEA0068_ME_52A045E102E3 LocalUpdateAction
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_52EB480C0145 // 
- ME_52EB8E27004F // 
+   Seq: ( ME_52EB480C0145 // tb97vt
+ ME_52EB8E27004F // MessageConstants
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -18815,7 +18815,7 @@ ref; // ME_E8ADA32D143E_ME_552BADA90096 SetGlyphSize
  )
  ; // Children
  : Injected
-   Seq: ( WL 'ME_552BAECF03A7' '54DCB32F019F.pas.ms.script' // 
+   Seq: ( WL 'ME_552BAECF03A7' '54DCB32F019F.pas.ms.script' // TvcmToolbarGlyphService
  )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
@@ -22113,8 +22113,8 @@ ref; // ME_52A841C500C5_ME_4B30EC81021A FillPopupMenu
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_552BC8BF02EB // 
- ME_55CA17720262 // 
+   Seq: ( ME_552BC8BF02EB // TvcmToolbarGlyphService
+ ME_55CA17720262 // TvcmToolbarDefList
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -22750,7 +22750,7 @@ ref; // ME_FFCD4B7E45D8_ME_55019B3B011B FreeManager
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_550304DA00CB // 
+   Seq: ( ME_550304DA00CB // Tl3MenuManagerHelper
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -22804,7 +22804,7 @@ ref; // ME_CA1F3F463873_ME_5501A60D002E ClearHistory
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_55030510030A // 
+   Seq: ( ME_55030510030A // Tl3DispatcherHelper
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -23275,37 +23275,37 @@ ref; // ME_564AEBE30348
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_51D12B1703DA // 
- ME_52AB0A4902C3 // 
- ME_52AB1D220031 // 
- ME_52AB1D2502B0 // 
- ME_52AB1D280353 // 
- ME_52AB1D2B0365 // 
- ME_52AB1D2F003F // 
- ME_52AB1D320094 // 
- ME_52AB1D35016C // 
- ME_52AB1D380100 // 
- ME_52AB1D3B023B // 
- ME_52AB1D3E0360 // 
- ME_52AB1D41034B // 
- ME_52AB1D4403C7 // 
- ME_52AB1D4703B1 // 
- ME_52AB1D4B00DD // 
- ME_52AB1D4E00A5 // 
- ME_52AB1D5100B4 // 
- ME_52AB1D54013A // 
- ME_52AB1D57017B // 
- ME_52AB1D5A01A1 // 
- ME_52AB1D5D011F // 
- ME_52AB1D6001C1 // 
- ME_52AB1D630372 // 
- ME_52AB1D670118 // 
- ME_52AB1D6A02E9 // 
- ME_52AB1D6E00B2 // 
- ME_52AB1D71018A // 
- ME_52AB1D7401DA // 
- ME_537DC3D80062 // 
- ME_564AEBE30348 // 
+   Seq: ( ME_51D12B1703DA // TvcmEntitiesDefIteratorForContextMenu
+ ME_52AB0A4902C3 // vcmMenuManagerUtils
+ ME_52AB1D220031 // vcmMessages
+ ME_52AB1D2502B0 // Il3Canvas
+ ME_52AB1D280353 // l3ScreenIC
+ ME_52AB1D2B0365 // Il3CString
+ ME_52AB1D2F003F // tb97vt
+ ME_52AB1D320094 // PTypeData
+ ME_52AB1D35016C // SysUtils
+ ME_52AB1D380100 // StdCtrls
+ ME_52AB1D3B023B // l3String
+ ME_52AB1D3E0360 // ctTypes
+ ME_52AB1D41034B // ActionCodes
+ ME_52AB1D4403C7 // vcmMenus
+ ME_52AB1D4703B1 // TvcmAction
+ ME_52AB1D4B00DD // afwFacade
+ ME_52AB1D4E00A5 // vcm_ComboOperations
+ ME_52AB1D5100B4 // l3Base
+ ME_52AB1D54013A // l3MinMax
+ ME_52AB1D57017B // vcmToolbarUtils
+ ME_52AB1D5A01A1 // vcmSettings
+ ME_52AB1D5D011F // TvcmMainForm
+ ME_52AB1D6001C1 // vcmUtils
+ ME_52AB1D630372 // TvcmModuleAction
+ ME_52AB1D670118 // TvcmEntityAction
+ ME_52AB1D6A02E9 // TvcmFormHandler
+ ME_52AB1D6E00B2 // vcmMenuManagerRes
+ ME_52AB1D71018A // TvcmMenuItemsCollectionItem
+ ME_52AB1D7401DA // TvcmMainMenuAction
+ ME_537DC3D80062 // vcmChromeLikeTypes
+ ME_564AEBE30348 // TvcmMainMenuBuilder
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -23392,10 +23392,10 @@ ref; // ME_781F06EEA149_ME_551442CF02AD Format
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_551442F10375 // 
- ME_551443C501AE // 
- ME_551443CB002F // 
- ME_551443D00014 // 
+   Seq: ( ME_551442F10375 // Tl3FormatActionInfoHelper
+ ME_551443C501AE // TvcmModuleAction
+ ME_551443CB002F // TvcmOperationAction
+ ME_551443D00014 // TvcmEntityAction
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -23464,8 +23464,8 @@ ref; // ME_564AE8CB03C5
  : Parent ME_4AADF9450143 // Visual
  ;
  : Dependencies
-   Seq: ( ME_564AE8C70236 // 
- ME_564AE8CB03C5 // 
+   Seq: ( ME_564AE8C70236 // TvcmEntityDefList
+ ME_564AE8CB03C5 // TvcmModuleDefList
  )
  ; // Dependencies
  CONST "finished" false

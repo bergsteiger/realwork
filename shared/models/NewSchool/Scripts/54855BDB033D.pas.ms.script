@@ -68,7 +68,7 @@ ref; // ME_53AC03EE01FD_ME_54855C2F0088 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_4C8B2411C1E6 // 
+   Seq: ( ME_4C8B2411C1E6 // csSendTask
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -146,7 +146,7 @@ ref; // ME_53AC03EE01FD_ME_54855C4200D7 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_39B9C02D700F // 
+   Seq: ( ME_39B9C02D700F // csSendTaskReply
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -235,12 +235,12 @@ ref; // ME_54BF90D4008D
  : Parent ME_54855CA501E1 // ncsTaskSendReg
  ;
  : Dependencies
-   Seq: ( ME_54855D0301EA // 
- ME_54855D090203 // 
- ME_54855D3403D2 // 
- ME_54B66E210162 // 
- ME_54BF8DF900D4 // 
- ME_54BF90D4008D // 
+   Seq: ( ME_54855D0301EA // TncsMessageFactory
+ ME_54855D090203 // ncsServerRegister
+ ME_54855D3403D2 // TncsSendTask
+ ME_54B66E210162 // TncsGetTaskDescriptionReply
+ ME_54BF8DF900D4 // TncsPushFilePart
+ ME_54BF90D4008D // TncsGetFilePartReply
  )
  ; // Dependencies
 
@@ -311,11 +311,11 @@ ref; // ME_54BF8C4A03BA
  : Parent ME_54855CA501E1 // ncsTaskSendReg
  ;
  : Dependencies
-   Seq: ( ME_54855D0D0113 // 
- ME_54855D110273 // 
- ME_54855D3B02ED // 
- ME_54B66DF0024A // 
- ME_54BF8C4A03BA // 
+   Seq: ( ME_54855D0D0113 // TncsMessageFactory
+ ME_54855D110273 // ncsClientRegister
+ ME_54855D3B02ED // TncsSendTaskReply
+ ME_54B66DF0024A // TncsGetPartialTaskDescription
+ ME_54BF8C4A03BA // TncsGetFilePart
  )
  ; // Dependencies
 
@@ -403,7 +403,7 @@ ref; // ME_53AC03EE01FD_ME_54B66DB30346 GetTaggedDataType
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_C5F36560CCB8 // 
+   Seq: ( ME_C5F36560CCB8 // csGetPartialTaskDescription
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -644,14 +644,14 @@ ref; // ME_54607DDC0159_ME_54B7B37003C6 Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_54B7C06C0288 // 
- ME_54B7C07101A8 // 
- ME_54B7C0970297 // 
- ME_54B7C1320297 // 
- ME_54B7C136035C // 
- ME_54B7C13A0395 // 
- ME_54B7C13E0257 // 
- ME_54B7C14302DC // 
+   Seq: ( ME_54B7C06C0288 // TncsGetTaskDescriptionReply
+ ME_54B7C07101A8 // TncsGetPartialTaskDescription
+ ME_54B7C0970297 // FreeAndNil
+ ME_54B7C1320297 // TncsFileDesc
+ ME_54B7C136035C // Tl3FileStream
+ ME_54B7C13A0395 // TStream
+ ME_54B7C13E0257 // Tl3FileMode
+ ME_54B7C14302DC // l3CalcCRC32
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -892,14 +892,14 @@ ref; // ME_54607DDC0159_ME_54B7B3D203C6 Execute
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_54B8EC3D02F8 // 
- ME_54B8EC430040 // 
- ME_54B8EC4600F6 // 
- ME_54B8EC490371 // 
- ME_54B8EC4E00E9 // 
- ME_54B8EC5200B4 // 
- ME_54B8EC5503AC // 
- ME_54B8EC5902BB // 
+   Seq: ( ME_54B8EC3D02F8 // TncsPushFilePart
+ ME_54B8EC430040 // Min
+ ME_54B8EC4600F6 // FreeAndNil
+ ME_54B8EC490371 // Tl3FileMode
+ ME_54B8EC4E00E9 // TStream
+ ME_54B8EC5200B4 // Tl3FileStream
+ ME_54B8EC5503AC // TncsGetFilePartReply
+ ME_54B8EC5902BB // TncsGetFilePart
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1095,11 +1095,11 @@ ref; // ME_479731C50290_ME_5481B39101AF Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_54B7A2950110 // 
- ME_54B7A2C40393 // 
- ME_54B7A2D10301 // 
- ME_54B7B3CB0364 // 
- ME_54B7B406028A // 
+   Seq: ( ME_54B7A2950110 // FreeAndNil
+ ME_54B7A2C40393 // TncsGetPartialTaskDescription
+ ME_54B7A2D10301 // TncsGetFilePart
+ ME_54B7B3CB0364 // TncsGetPartialTaskDescriptionExecutor
+ ME_54B7B406028A // TncsGetFilePartExecutor
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
